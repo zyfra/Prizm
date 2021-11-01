@@ -6,5 +6,6 @@
     "../**/*.spec.tsx",
     "../**/*.spec.jsx"
   ],
-  "include": ["../**/*"]
+  "include": ["../**/*"],
+  "files": ["./typings.d.ts"]
 }
