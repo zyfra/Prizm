@@ -70,6 +70,13 @@
               "quiet": true
             }
           }
+        },
+        "doc": {
+          "executor": "./tools/executors/compodoc:compodoc",
+          "options": {
+            "tsConfigPath": "./libs/components/tsconfig.json",
+            "distPath": "./libs/components"
+          }
         }
       },
       "tags": []
