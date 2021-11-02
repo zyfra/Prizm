@@ -1,7 +1,0 @@
-{
-  "name": "@zyfra-ui/theme",
-  "version": "0.0.1",
-  "publishConfig": {
-    "registry": "http://nexus2.zyfra.com/repository/npm-hosted/"
-  }
-}

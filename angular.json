@@ -131,8 +131,8 @@
               "node_modules/primeng/resources/themes/luna-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeicons/primeicons.css",
-              "libs/theme/src/lib/default.css",
-              "libs/theme/src/lib/styles.less"
+              "libs/components/src/styles/theme/default.css",
+              "libs/components/src/styles/styles.less"
             ],
             "scripts": []
           },
@@ -235,48 +235,6 @@
       },
       "tags": [],
       "implicitDependencies": ["sdk"]
-    },
-    "theme": {
-      "projectType": "library",
-      "root": "libs/theme",
-      "sourceRoot": "libs/theme/src",
-      "prefix": "zyfra",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "outputs": ["dist/libs/theme"],
-          "options": {
-            "project": "libs/theme/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/theme/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/theme/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/theme"],
-          "options": {
-            "jestConfig": "libs/theme/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/theme/src/**/*.ts",
-              "libs/theme/src/**/*.html"
-            ]
-          }
-        }
-      },
-      "tags": []
     }
   }
 }
