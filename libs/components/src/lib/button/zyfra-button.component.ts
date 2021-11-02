@@ -4,14 +4,11 @@ import {
   Output,
   EventEmitter,
   ChangeDetectionStrategy,
-  ViewEncapsulation,
 } from '@angular/core';
 
 @Component({
   selector: 'zyfra-button',
   templateUrl: './zyfra-button.component.html',
-  styles: ['./zyfra-button.component.less'],
-  /* encapsulation: ViewEncapsulation.None, */
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraButtonComponent {
