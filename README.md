@@ -1,11 +1,9 @@
-
-
-# @zyfra/ui/components
+# @zyfra-ui/components
 
 This project was generated using [Nx](https://nx.dev).
 
 
-## Add component to @zifra/ui/components
+## Add component to @zifra-ui/components
 
 ```
    > nx generate @nrwl/angular:module button --project=components

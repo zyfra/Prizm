@@ -11,7 +11,7 @@ import {
   selector: 'zyfra-button',
   templateUrl: './zyfra-button.component.html',
   styles: ['./zyfra-button.component.less'],
-  encapsulation: ViewEncapsulation.None,
+  /* encapsulation: ViewEncapsulation.None, */
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraButtonComponent {
