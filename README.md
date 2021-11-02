@@ -1,19 +1,43 @@
 # @zyfra-ui/components
 
-This project was generated using [Nx](https://nx.dev).
-
-
-
 ## Contributing
 
+Getting start:
+
+Install globally `npm i -g nx`
+
 ### Add component to @zifra-ui/components
+
+For example button component
+
+1. Generate the module, component and add story
 
 ```
    > nx generate @nrwl/angular:module button --project=components
    > nx generate @nrwl/angular:component button --project=components
    > nx generate @nrwl/angular:stories components
 ```
+2. Add styles for component (by default ViewEncapsulation.None) to root styles (`libs/components/src/styles.less`)
 
+styles.less:
+```less
+@import "../lib/button/zyfra-button.component.less";
+
+```
+
+And remove from Component declaration `zyfra-button.component`
+
+```ts
+@Component({
+  selector: 'zyfra-button',
+  templateUrl: './zyfra-button.component.html',
+  // styleUrls: ['./zyfra-button.component.less'], remove this
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+```
+
+
+------
 ### Generate an application
 
 Run `ng g @nrwl/angular:app my-app` to generate an application.
