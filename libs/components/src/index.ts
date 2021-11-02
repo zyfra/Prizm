@@ -1,1 +1,1 @@
-export * from './lib/button/zyfra-button.module';
+export * from './lib/button';
