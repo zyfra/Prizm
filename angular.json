@@ -72,7 +72,7 @@
           }
         },
         "doc": {
-          "executor": "./tools/executors/compodoc:compodoc",
+          "builder": "./tools/executors/compodoc:compodoc",
           "options": {
             "tsConfigPath": "./libs/components/tsconfig.json",
             "distPath": "./libs/components"
@@ -126,7 +126,14 @@
             "tsConfig": "apps/sdk/tsconfig.app.json",
             "inlineStyleLanguage": "less",
             "assets": ["apps/sdk/src/favicon.ico", "apps/sdk/src/assets"],
-            "styles": ["apps/sdk/src/styles.less"],
+            "styles": [
+              "apps/sdk/src/styles.less",
+              "node_modules/primeng/resources/themes/luna-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "libs/theme/src/lib/default.css",
+              "libs/theme/src/lib/styles.less"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -228,6 +235,48 @@
       },
       "tags": [],
       "implicitDependencies": ["sdk"]
+    },
+    "theme": {
+      "projectType": "library",
+      "root": "libs/theme",
+      "sourceRoot": "libs/theme/src",
+      "prefix": "zyfra",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/theme"],
+          "options": {
+            "project": "libs/theme/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/theme/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/theme/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/theme"],
+          "options": {
+            "jestConfig": "libs/theme/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/theme/src/**/*.ts",
+              "libs/theme/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
     }
   }
 }
