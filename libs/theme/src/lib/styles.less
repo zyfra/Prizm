@@ -1,0 +1,1025 @@
+
+@import 'default.css';
+
+// TODO add fonts when resources implemented
+// @import '../../zyfra-resource/src/lib/fonts/fonts.css';
+
+
+.p-component {
+   font-family: Inter;
+}
+
+/* =================== checkbox ========================== */
+
+p-checkbox {
+   font-family:Inter;
+}
+
+.p-checkbox .p-checkbox-box {
+   border: 2px solid var(--checkBox );
+   background: var(--checkBoxBg);
+}
+.p-checkbox .p-checkbox-box.p-highlight {
+   border-color: var(--checkBox );
+   background: var(--checkBoxBg);
+
+}
+
+.p-checkbox .p-checkbox-box .p-checkbox-icon {
+   color: var(--checkBox );
+}
+
+/* .pi-check:before {
+   content: "\e909";
+} */
+
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-highlight:hover {
+   border-color: var(--checkBox );
+   background: var(--checkBoxBg);
+   color: var(--checkBox );
+}
+
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
+   border-color: var(--checkBox );
+}
+
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-focus {
+   border-color: var(--checkBox );
+}
+
+/* ================== button ===================== */
+
+.p-button {
+   color: var(--buttonSuccessFont);
+   background: var(--buttonSuccess );
+   border: none;
+   font-size: 0.8rem;
+   line-height: 1rem;
+   font-family: Inter;
+   border-radius: 4px;
+   width: 8.9rem;
+   height: 2.8rem;
+   font-family: 'Inter'
+}
+
+.p-button:enabled:hover {
+   background: var(--buttonSuccessHover );
+   color: var(--buttonSuccessFont);
+   border: none;
+}
+
+.p-button:enabled:active {
+   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.32);
+   background: var(--buttonSuccessActive );
+   color: var(--buttonSuccessFont);
+   border: none;
+}
+
+/* кнопки disabled */
+.p-disabled, .p-component:disabled {
+   background: var(--buttonDisabled)!important;
+   color: var(--buttonDisabledFont)!important;
+   opacity: initial;
+}
+
+/*  красный цветовой класс типа danger, кастомизирован под кнопки delete/cancel?  */
+.p-button.p-button-danger, .p-buttonset.p-button-danger > .p-button, .p-splitbutton.p-button-danger > .p-button {
+   color: var(--buttonDangerFont);
+   background: var(--buttonDanger);
+   border: none;
+}
+.p-button.p-button-danger:enabled:hover, .p-buttonset.p-button-danger > .p-button:enabled:hover, .p-splitbutton.p-button-danger > .p-button:enabled:hover {
+   background: var(--buttonDangerHover);
+   color: var(--buttonDangerFont);
+   border: none;
+}
+.p-button.p-button-danger:enabled:active, .p-buttonset.p-button-danger > .p-button:enabled:active, .p-splitbutton.p-button-danger > .p-button:enabled:active {
+   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.32);
+   background: var(--buttonDangerActive);
+   color: var(--buttonDangerFont);
+   border: none;
+}
+
+/*  желтый цветовой класс типа warning, пока не нужен  */
+// .p-button.p-button-info, .p-buttonset.p-button-info > .p-button, .p-splitbutton.p-button-info > .p-button {
+//    color: var(--standartButtonFont);
+//    background: var(--standartButton );
+//    border: none;
+// }
+
+/* ------------------- warning ------------------------ */
+.p-button.p-button-warning, .p-buttonset.p-button-warning > .p-button, .p-splitbutton.p-button-warning > .p-button {
+   color: var(--buttonWarningFont);
+   background: var(--buttonWarning);
+   border: none;
+}
+
+.p-button.p-button-warning:enabled:hover, .p-buttonset.p-button-warning > .p-button:enabled:hover, .p-splitbutton.p-button-warning > .p-button:enabled:hover {
+   background: var(--buttonWarningHover);
+   color: var(--buttonWarningFont);
+   border: none;
+}
+
+.p-button.p-button-warning:enabled:active, .p-buttonset.p-button-warning > .p-button:enabled:active, .p-splitbutton.p-button-warning > .p-button:enabled:active {
+   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.32);
+   color: var(--buttonWarningFont);
+   background: var(--buttonWarningActive);
+   border: none;
+}
+
+/* ================================= split-button ==================================== */
+
+.p-menu.p-menu-overlay {
+   background: var(--standartBg);
+   color: var(--standartFont);
+   border: none;
+}
+
+.p-menu .p-menuitem {
+   font-family:Inter;
+}
+
+.p-menu .p-menuitem-link .p-menuitem-text,
+.p-menu .p-menuitem-link .p-menuitem-icon  {
+   color: var(--standartFont);
+}
+
+.p-menu .p-menu-separator {
+   border-top: 1px solid var(--standartBorder);
+}
+
+/* ================================= toggle-button ==================================== */
+.p-togglebutton.p-button {
+   color: var(--standartButtonFont);
+   background: var(--standartButton );
+   border: none;
+   font-size: 0.8rem;
+   line-height: 1rem;
+}
+
+
+.p-togglebutton.p-button.p-highlight:hover {
+   background: var(--standartButtonHover);
+   border: none;
+   color: var(--standartButtonFont);
+}
+
+.p-togglebutton.p-button.p-highlight {
+   background: var(--standartButtonActive);
+   border: none;
+   color: var(--standartButtonFont);
+}
+
+.p-togglebutton.p-button:not(.p-disabled):not(.p-highlight):hover {
+   background: var(--standartButtonHover);
+   border: none;
+   color: var(--standartButtonFont);
+}
+
+.p-togglebutton.p-button.p-highlight .p-button-icon-left,
+.p-togglebutton.p-button.p-highlight .p-button-icon-right {
+   color: var(--standartButtonFont);
+}
+
+.p-togglebutton.p-button .p-button-icon-left,
+.p-togglebutton.p-button .p-button-icon-right {
+   color: var(--standartButtonFont);
+}
+
+.p-togglebutton.p-button:not(.p-disabled):not(.p-highlight):hover .p-button-icon-left,
+.p-togglebutton.p-button:not(.p-disabled):not(.p-highlight):hover .p-button-icon-right {
+   color: var(--standartButtonFont);
+}
+
+.p-togglebutton.p-button.p-highlight:hover .p-button-icon-left,
+.p-togglebutton.p-button.p-highlight:hover .p-button-icon-right {
+   color: var(--standartButtonFont);
+}
+
+
+/* ================================ select-button ===================================== */
+
+.p-selectbutton .p-button {
+   background: var(--standartButton );
+   border-color: var(--standartButton );
+   color: var(--bgFont);
+}
+
+.p-selectbutton .p-button.p-highlight {
+   box-shadow: inset 0px 4px 4px rgb(0 0 0 / 32%);
+   background: var(--standartButtonActive);
+   border-color: var(--standartButton );
+   color: var(--bgFont);
+}
+
+.p-selectbutton .p-button.p-highlight:hover {
+   background: var(--standartButtonActive);
+   border-color: var(--standartButton );
+   color: var(--standartBg);
+}
+
+.p-selectbutton .p-button:not(.p-disabled):not(.p-highlight):hover {
+ //  background: var(--standartButtonActive );
+   background: var(--standartButtonHover );
+   color: var(--standartBg);
+   border-color: var(--standartButton );
+}
+
+.p-button .p-badge {
+   line-height: .9rem;
+   color: var(--z-accentColor);
+   background-color: var(--standartBg);
+}
+
+
+/* ======================================= radio-button ======================================== */
+
+.p-radiobutton .p-radiobutton-box {
+   border: 2px solid var(--radioButton);
+   background: var(--radioButtonBg );
+   width: 20px;//1.3rem;
+   width: 20px;//1.3rem;
+   color: var(--radioButton );
+}
+
+.p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
+   background-color: var(--radioButtonBg );
+   border: 2px solid var(--radioButton);
+   width: 8px;
+   height: 8px;
+   transform: translateZ(0) scale(1.0);  
+}
+
+.p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight):hover {
+   border-color: var(--radioButton )!important;
+}
+
+.p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {
+   /* border-color: var(--z-accentColor );
+   background: var(--treeItemHoverBg );
+   color: var(--z-accentColor ); */
+   border-color: var(--radioButton );
+   background: var(--radioButtonBg);
+   border: 2px solid var(--radioButton  )!important;
+}
+
+.p-radiobutton .p-radiobutton-box.p-highlight {
+   border: 2px solid var(--radioButton  );
+   border-color: var(--radioButton  )!important;
+   background: var(--radioButtonBg );
+   /* background: var(--z-accentColor ); */
+}
+
+.p-radiobutton .p-disabled {
+   background: var(--radioButtonUnactive );
+   border-color: var(--radioButtonUnactive);
+   /* border: 2px solid var(--checkBoxFontDisabled); */
+}
+
+
+
+/* =========================== input =======================  */
+
+.p-inputtext {
+   font-family: Inter;
+   font-size: 1rem;
+   color: var(--inputFont);
+   background: var(--standartBg);
+   border: 2px solid var(--standartBorder);
+   border-radius: 4px;
+}
+
+.p-inputtext:enabled:focus {
+   border-color: var(--z-accentColor);
+}
+
+.p-inputtext:enabled:hover {
+   border-color: var(--z-accentColor);
+}
+
+/* =========================== input switch =======================  */
+
+.p-inputswitch .p-inputswitch-slider {
+   background: var(--checkBoxBg );
+   border: 2px solid var(--standartButton );
+   height: 20px;
+   width: 40px;
+}
+
+.p-inputswitch .p-inputswitch-slider:before {
+   /* background: #323232; */ 
+   background: var(--checkBoxBg );
+   border: 2px solid var(--standartButton );
+   margin-top: 2px;
+   left: 0.1rem;
+   width: 12px;
+   height: 12px;
+   top: 0px; 
+   box-sizing: border-box;
+}
+
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {
+   background: var(--checkBoxBgHover);
+}
+
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+   background: var(--standartButton );
+}
+.p-inputswitch:not(.p-disabled):hover .p-inputswitch-slider {
+   background: var(--checkBoxBgHover);
+}
+
+.p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover .p-inputswitch-slider {
+   background:  var(--standartButtonHover );
+}
+
+/* =========================== input password ===========================  */
+/* компонент использует нативную подложку (panel), надо уточнить, нужна ли она */
+.p-password-panel {
+   background: var(--standartBg);
+   border: none;
+}
+
+
+/* =========================== tooltip ============================  */
+
+.p-tooltip div:nth-child(2) {
+   background: var(--messageSuccessBg) !important;
+   border: 1px solid var(--messageSuccessBorder)!important;
+     color: var(--messageFont) !important;
+   }
+
+
+   .p-tooltip.p-tooltip-right .p-tooltip-arrow {
+      background: var(--messageSuccessBg) !important;
+      border-right-color: var(--messageSuccessBorder);
+   }
+
+
+
+
+/* =========================== slider  =========================  */
+.p-slider .p-slider-handle {
+   background: var(--standartBg);
+   border: 2px solid var(--z-accentColor);
+}
+
+.p-slider:not(.p-disabled) .p-slider-handle:hover {
+   background: var(--standartButtonHover);
+   border-color: var(--standartButtonHover);
+}
+
+.p-slider {
+   background: var(--sliderBg);
+}
+.p-slider .p-slider-range {
+   background: var(--z-accentColor);
+}
+
+.p-slider.p-slider-horizontal .p-slider-handle {
+   background: var(--z-accentColor);
+}
+
+/* =============================== chip =================================  */
+
+.p-chip {
+   background: var(--z-accentColor);
+   color: var(--bgFont);
+   border-radius: 16px;
+   padding: 0 0.429rem;
+   font-size: .8rem;
+}
+
+.p-chip .pi-chip-remove-icon {}
+
+/* ============================== dropdown ===============================  */
+.p-dropdown {
+   font-size: 1rem;
+   color: var(--inputFont);
+   background: var(--standartBg);
+   border: 2px solid var(--standartBorder);
+   border-radius: 4px;
+}
+
+.p-dropdown:not(.p-disabled):hover,
+.p-dropdown:not(.p-disabled).p-focus {
+   border-color: var(--z-accentColor);
+}
+
+.p-dropdown-panel {
+   border: 1px solid var(--standartBorder);
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+   color: var(--standartFont);
+   background: var(--standartBg);
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
+   background: var(--calendarBgChecked);
+   /*opacity: 0.2; */
+   color: var(--bgFont);
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+   color: var(--bgFont);
+   background: var(--z-accentColor);
+}
+
+/* ============================ autocomplete =============================  */
+
+.p-autocomplete-panel {
+   background: var(--standartBg);
+   color: var(--standartFont);
+   border: none;
+}
+
+.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item {
+   color: var(--standartFont);
+}
+
+/* ============================= calendar ================================ */
+.p-datepicker,
+.p-datepicker:not(.p-datepicker-inline) {
+   background: var(--standartBg);
+   color: var(--standartFont);
+   border: 1px solid var(--standartBorder);
+   border-radius: .8rem;
+}
+
+.p-datepicker .p-datepicker-header,
+.p-datepicker:not(.p-datepicker-inline) .p-datepicker-header {
+   padding: 0.5rem;
+   color: var(--standartFont);
+   background: var(--standartBg);
+}
+
+.p-datepicker table td.p-datepicker-today > span.p-highlight,
+.p-datepicker table td.p-datepicker-today > span,
+.p-datepicker table td > span.p-highlight {
+   background: var(--z-accentColor);
+   color: var(--bgFont);
+   border-radius: 1.6rem;
+}
+
+.p-datepicker table td > span {
+   width: 3.2rem;
+   height: 3.2rem;
+   border-radius: 0;
+   border: none;
+}
+
+
+.p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover {
+   background: var(--calendarBgChecked);
+   opacity: 0.2;
+   color: var(--bgFont);
+}
+
+.p-datepicker table td {
+    padding: 0;
+}
+
+/*
+.p-datepicker table td > span.p-highlight {
+   background: var(--z-accentColor);
+   color: var(--bgFont);
+   border-radius: 1.6rem;
+}
+*/
+
+/* -------------------------------------- */
+
+// .p-datepicker:not(.p-datepicker-inline) {
+//    background: #323232;
+//    border: 1px solid #191919;
+//    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+// }
+
+
+/* ============================= confirm-dialogs ================================ */
+
+.p-dialog {
+   border: none;
+   border-radius: .8rem;
+}
+
+.p-dialog .p-dialog-header {
+   border-bottom: none;
+   /*1px solid var(--dialogBorder); */
+   background: var(--standartBg);
+   color: var(--standartFont);
+   border-top-left-radius: .8rem;
+    border-top-right-radius: .8rem;
+}
+
+.p-dialog .p-dialog-content {
+   background: var(--standartBg);
+   color: var(--standartFont);
+}
+
+/* переделан footer что бы кнопки помещались одна под другой */
+.p-dialog .p-dialog-footer {
+   display: flex;
+   flex-direction: column;
+   background: var(--standartBg);
+   color: var(--standartFont);
+   border-top: 1px solid var(--dialogBorder);
+   border-bottom-right-radius: .8rem;
+    border-bottom-left-radius: .8rem;
+}
+.p-dialog .p-dialog-footer button {
+   margin: 0 0 0.5rem;
+   width: auto;
+   border: none;
+}
+
+.p-button:focus,
+.p-button.p-button-danger:enabled:focus,
+.p-buttonset.p-button-danger > .p-button:enabled:focus,
+ .p-splitbutton.p-button-danger > .p-button:enabled:focus {
+   box-shadow: none;
+}
+
+
+/* ============================= confirm-popup ================================ */
+
+.p-confirm-popup {
+   background: var(--standartBg);
+   color: var(--standartFont);
+   border: none;
+   border-radius: .8rem;
+}
+
+/* ------ не факт, что красивее делать кнопки одна под другой ------------ */
+.p-confirm-popup .p-confirm-popup-footer {
+   display: flex;
+   flex-direction: column;
+}
+
+/* ----- по умолчанию кнопка reject в popup с текстовым стилем */
+.p-button.p-button-text {
+   background-color: var(--dangerButton);
+   color: var(--standartButtonFont);
+   border: none;
+}
+.p-button.p-button-text:enabled:hover {
+   background: var(--dangerButtonHover);
+   color: var(--standartButtonFont);
+   border: none;
+}
+
+.p-confirm-popup .p-confirm-popup-footer button {
+   margin: 0 0 0.5rem;
+}
+
+.p-confirm-popup:before,
+.p-confirm-popup:after {
+   border-bottom-color: var(--standartBg);
+}
+
+
+/* ================ overlay panel ====================  */
+.p-overlaypanel .p-overlaypanel-close {
+   background: var(--standartButton );
+   color: var(--bgFont);
+}
+
+.p-overlaypanel .p-overlaypanel-close:enabled:hover {
+   background: var(--standartButtonHover );
+   color: var(--bgFont);
+}
+
+.p-overlaypanel {
+   background: var(--standartBg);
+   color: var(--standartFont);
+   border: none;
+   border-radius: .8rem;
+}
+
+.p-overlaypanel:before,
+.p-overlaypanel:after {
+   border-bottom-color: var(--standartBg);
+}
+
+/* ================ messages ====================  */
+
+.p-message.p-message-success {
+   background: var(--messageSuccessBg );
+   border: 1px solid var(--messageSuccessBorder);
+   border-radius: 8px;
+   color: var(--messageFont);
+}
+
+.p-message.p-message-error {
+   background: var(--messageErrorBg );
+   border: 1px solid var(--messageErrorBorder);
+   border-radius: 8px;
+   color: var(--messageFont);
+}
+
+/* ================ toast ====================  */
+
+.p-toast-message{
+    background: var(--z-accentColor)!important;
+    color: var(--bgFont)!important;
+    border-radius: 12px!important;
+    font-size: .82rem;
+}
+
+.p-toast-message-icon, .p-toast-icon-close {
+    color: var(--bgFont)!important;
+}
+
+
+/* ========================= tree-list ========================= */
+
+.p-tree {
+   background: var(--standartBg);
+   color: var(--standartFont);
+   border: 1px solid var(--standartBorder);
+}
+
+.p-tree .p-tree-container .p-treenode {
+   background: var(--standartBg);
+   color: var(--standartFont);
+   font-family: Inter;
+}
+
+
+/* =========================== tab-view =======================  */
+.p-tabview .p-tabview-nav {
+   position: relative;
+   flex-wrap: nowrap;
+   overflow: hidden;
+}
+
+.shadow-mini-left-container:not(.p-disabled) {
+   padding-left: 8px;
+   overflow: hidden;
+}
+
+.shadow-mini-right-container:not(.p-disabled) {
+   padding-right: 8px;
+   overflow: hidden;
+}
+
+.tab-view-container {
+   position: relative;
+}
+
+.p-tabview-nav {
+   height: var(--tabNavHeight);
+   box-shadow: var(--shadow-mini);
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+   height: 100%;
+   padding: 12.5px 40px 14.5px;
+}
+
+.control-icon {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: var(--tabNavHeight);
+   height: var(--tabNavHeight);
+   cursor: pointer;
+}
+
+.scroll-control {
+   display: none;
+}
+
+.has-overflow {
+   .p-tabview-nav {
+      padding-right: calc(var(--tabNavHeight) * 2);
+      padding-left: var(--tabNavHeight);
+   }
+
+   .control-group {
+      display: flex;
+      box-shadow: var(--shadow-mini);
+   }
+
+   .scroll-control {
+      color: var(--tabFont);
+      display: flex;
+      top: 0;
+      position: absolute;
+      z-index: 2;
+
+      &-left {
+         left: 0;
+      }
+
+      &-right {
+         right: 0;
+      }
+   }
+
+   .tab-list-panel-container {
+      position: absolute;
+      top: 40px;
+      right: 0;
+   }
+
+   .p-overlaypanel {
+      position: static;
+   }
+
+   .p-overlaypanel::after, .p-overlaypanel::before {
+      content: none;
+   }
+}
+
+.scrolled-to-start .shadow-mini-right-container,
+.scrolled-to-end .shadow-mini-left-container {
+   padding: 0;
+}
+
+//------------------------------------------------------
+.p-tabview .p-disabled {
+   opacity: 1;
+}
+
+.p-tabview-title {
+   font-size: 14px;
+   white-space: nowrap;
+}
+
+
+.p-tabview .p-tabview-nav {
+   background: var(--tabviewBg);
+   border: none;
+   box-shadow: var(--shadow-mini);
+}
+
+.p-tabview .p-tabview-nav li {
+   margin-right: 0;
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+   color: var(--tabFont);
+   background: var(--tabviewBg);
+   border-color: var(--tabviewBg);
+   border-width: 1px 1px 2px 1px;
+}
+
+.p-tabview .p-tabview-nav li.p-disabled .p-tabview-nav-link {
+   color: var(--tabDisabled);
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+   color: var(--tabActiveFont);
+   background: var(--tabviewBg);
+   border-color: var(--tabviewBg);
+   border-bottom-color: var(--z-accentColor);
+}
+
+.p-tabview .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-nav-link {
+   color: var(--tabFont);
+   background: var(--tabviewBg);
+   border-color: var(--tabviewBg);
+   border-bottom-color: var(--z-accentColor);
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
+   border-color: var(--z-accentColor);
+   border-width: 1px;
+   box-shadow: none;
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link:not(.p-disabled):focus {
+   border-bottom-width: 2px;
+}
+
+.p-disabled .p-tabview-left-icon,
+.p-disabled .p-tabview-right-icon {
+   color: var(--tabDisabled);
+}
+
+.p-tabview .p-tabview-right-icon {
+   margin-left: 12px;
+}
+
+.p-tabview .p-tabview-left-icon {
+   margin-right: 12px;
+}
+
+.header-tabs {
+   --tabviewBg: var(--headerTabBg);
+}
+
+.secondary-tabs {
+   --tabNavHeight: var(--secondaryTabNavHeight);
+
+   .p-tabview-title {
+      font-size: 13px;
+   }
+}
+
+.p-tabview .p-badge {
+   min-width: 16px;
+   height: 16px;
+   color: var(--tabBadgeText);
+   font-size: 13px;
+   line-height: 16px;
+   background-color: var(--z-accentColor);
+}
+
+.p-tabview li.p-disabled .p-badge {
+   background-color: var(--tabDisabled);
+}
+
+.p-tabview .p-tabview-panels {
+   padding: 8px;
+   background: var(--tabContentContainerBg);
+   border-color: var(--tabContentContainerBg);
+   box-shadow: var(--shadow-mini);
+}
+
+.p-tabview .p-tabview-close:hover {
+   margin-left: 0.5rem;
+   color: var(--z-accentColor);
+}
+
+.control-icon {
+   color: var(--navControl);
+   background: var(--tabviewBg);
+}
+
+.control-icon:not(.p-disabled):hover {
+   color: var(--z-accentColor);
+}
+
+.control-icon.p-disabled {
+   color: var(--scrollControlDisabled);
+   opacity: 1;
+}
+
+.tab-list-panel-container {
+   position: absolute;
+   top: 40px;
+   right: 0;
+}
+
+.tab-list-panel-container .p-overlaypanel {
+   max-width: 320px;
+   max-height: 390px;
+   overflow: auto;
+   background: var(--tabviewBg);
+   border: none;
+   border-radius: 12px;
+   box-shadow: var(--shadow-big);
+}
+
+.tab-list-panel-container .p-overlaypanel .p-overlaypanel-content {
+   padding: 0;
+}
+
+.tab-list-panel-container .tab-list-item {
+   height: 44px;
+   margin: 4px 0;
+   padding: 12px 24px;
+   color: var(--tabActiveFont);
+   font-size: 0.85rem;
+}
+
+.tab-list-panel-container .tab-list-item:hover {
+   background: var(--tabListItemHover);
+}
+
+.text-overflow {
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+}
+
+/* =========================== tab-menu =======================  */
+.p-tabmenu .p-tabmenu-nav {
+   height: var(--tabNavHeight);
+   background: var(--tabviewBg);
+   box-shadow: var(--shadow-mini)
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem {
+   margin: 0;
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+   padding: 0 40px;
+   height: 100%;
+   color: var(--tabFont);
+   font-size: 14px;
+   background: var(--tabviewBg);
+   border-color: var(--tabviewBg);
+   border-bottom-width: 2px;
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
+   color: var(--tabActiveFont);
+   background: var(--tabviewBg);
+   border-color: var(--tabviewBg);
+   border-bottom-color: var(--z-accentColor);
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link {
+   color: var(--tabFont);
+   background: var(--tabviewBg);
+   border-color: var(--tabviewBg);
+   border-bottom-color: var(--z-accentColor);
+}
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:not(.p-disabled):focus {
+   box-shadow: none;
+   border-color: var(--z-accentColor);
+}
+
+.tab-submenu {
+   .p-slidemenu.p-slidemenu-overlay {
+      background: var(--tabviewBg);
+      border: none;
+      box-shadow: var(--shadow-big);
+   }
+
+   .p-slidemenu .p-menuitem-link {
+      padding: 0.857rem;
+   }
+
+   .p-slidemenu .p-menuitem-link .p-menuitem-text {
+      color: var(--tabActiveFont);
+      font-size: 13px;
+   }
+
+   .p-slidemenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
+      color: var(--tabActiveFont);
+   }
+
+   .p-slidemenu .p-menuitem-link:not(.p-disabled):hover {
+      background: var(--tabListItemHover);
+   }
+
+   .p-slidemenu .p-menuitem-link .p-submenu-icon {
+      color: var(--navControl);
+   }
+
+   .p-slidemenu .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {
+      color: var(--navControl);
+   }
+
+   .p-slidemenu .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon:hover {
+      color: var(--z-accentColor);
+   }
+
+   .p-slidemenu .p-menuitem-link .p-menuitem-icon {
+      color: var(--navControl);
+      margin-right: 12px;
+   }
+
+   .p-slidemenu .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
+      color: var(--navControl);
+   }
+}
+/* tabmenu */
+
+/* нужны ли?*/
+.p-badge.p-badge-success {
+   background-color: var(--successColor);
+}
+
+.p-badge.p-badge-warning {
+   background-color: var(--warningColor);
+}
+
+.p-badge.p-badge-danger {
+   background-color: var(--dangerColor);
+}
+
+.p-badge.p-badge-info {
+   background-color: var(--infoColor);
+}
+
+.danger {
+   color: var(--dangerColor);
+}
+
+.info {
+   color: var(--infoColor);
+}
+
+.warning {
+   color: var(--warningColor);
+}
+
+.success {
+   color: var(--successColor);
+}
+
+.marker::before {
+   font-size: 0.5rem;
+   line-height: 1rem;
+}
+
+
+

@@ -22,6 +22,7 @@
     "@angular/router": "^12.2.0",
     "@compodoc/compodoc": "^1.1.15",
     "@nrwl/angular": "13.1.2",
+    "primeicons": "^4.1.0",
     "primeng": "^12.2.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
