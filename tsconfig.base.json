@@ -16,7 +16,6 @@
     "baseUrl": ".",
     "paths": {
       "@zyfra/ui-components": ["libs/components/src/index.ts"],
-      "@zyfra/ui/zyfra-theme": ["libs/theme/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
