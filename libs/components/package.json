@@ -1,5 +1,5 @@
 {
-  "name": "@zyfra-ui/components",
+  "name": "@ui-platform/components",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^12.2.0",
@@ -7,8 +7,5 @@
   },
   "dependencies": {
     "tslib": "^2.3.0"
-  },
-  "publishConfig": {
-    "registry": "http://nexus2.zyfra.com/repository/npm-hosted/"
   }
 }

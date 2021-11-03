@@ -1,4 +1,4 @@
-# @zyfra-ui/components
+# @ui-platform/components
 
 ## Contributing
 
