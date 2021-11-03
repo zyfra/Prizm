@@ -1,0 +1,181 @@
+:root {
+
+  /* --------- standard ------------ */  
+  --bgStandart:#FFFFFF;
+  --bgSecond:#DADEE7;
+  --bgScreen:#CED3DE;
+
+  --text:#353E50;
+  --eventer:#7887A5;
+  --link:#3E7DEA;
+
+  /* ----------- buttons ------------- */
+  --buttonSuccess: #62BC65;  
+  --buttonSuccessHover: #49AB4D;
+  --buttonSuccessActive: #37813A;
+  --buttonSuccessFont: #FFFFFF;
+
+  --buttonDisabled: #BCC3D2;
+  --buttonDisabledFont: #FFFFFF;
+
+  --buttonWarning:#FF983D;
+  --buttonWarningHover:#FF8214;
+  --buttonWarningActive:#CC5F00;
+  --buttonWarningFont:#FFFFFF;
+
+  --buttonDanger:#EC5050;
+  --buttonDangerHover:#EA3E3E;
+  --buttonDangerActive:#AF1313;
+  --buttonDangerFont:#FFFFFF;
+  
+  --buttonInfo:#22BFAF;
+  --buttonInfoHover:#1FAD9F;
+  --buttonInfoActive:#15796F;
+  --buttonInfoFont:#FFFFFF;
+
+  --buttonSecondary:#6D9AB0;
+  --buttoInfoHover:#1FAD9F;
+  --buttonInfoActive:#15796F;
+  --buttonInfoFont:#FFFFFF;
+
+  --buttonPrimary:#3E7DEA;
+  --buttonPrimaryHover:#1860DC;
+  --buttonPrimaryActive:#1248A6;
+  --buttonPrimaryFont:#FFFFFF;
+
+
+  /* ------------ checkbox ------------ */
+  --checkBoxUnactive:#7887A5;
+  --checkBox: #62BC65;
+  --checkBoxHover:#49AB4D;
+  --checkBoxActive:#49AB4D;
+  --checkBoxBg:#FFFFFF;
+
+   /* ------------ radioButton ------------ */
+   --radioButtonUnactive:#7887A5;
+   --radioButton: #62BC65;
+   --radioButtonHover:#49AB4D;
+   --radioButtonActive:#49AB4D;
+   --radioButtonBg:#FFFFFF;
+
+
+   /* ----------- chips ------------- */
+  --chipsSuccess: #62BC65;  
+  --chipsSuccessHover: #49AB4D;
+  --chipsSuccessActive: #37813A;
+  --chipsSuccessFont: #FFFFFF;
+
+  --chipsDisabled: #BCC3D2;
+  --chipsDisabledFont: #FFFFFF;
+
+  --chipsWarning:#FF983D;
+  --chipsWarningHover:#FF8214;
+  --chipsWarningActive:#CC5F00;
+  --chipsWarningFont:#FFFFFF;
+
+  --chipsDanger:#EC5050;
+  --chipsDangerHover:#EA3E3E;
+  --chipsDangerActive:#AF1313;
+  --chipsDangerFont:#FFFFFF;
+  
+  --chipsInfo:#22BFAF;
+  --chipsInfoHover:#1FAD9F;
+  --chipsInfoActive:#15796F;
+  --chipsInfoFont:#FFFFFF;
+
+  --chipsSecondary:#6D9AB0;
+  --chipsInfoHover:#1FAD9F;
+  --chipsInfoActive:#15796F;
+  --chipsInfoFont:#FFFFFF;
+
+  --chipsPrimary:#3E7DEA;
+  --chipsPrimaryHover:#1860DC;
+  --chipsPrimaryActive:#1248A6;
+  --chipsPrimaryFont:#FFFFFF;
+  
+   /* --------------------------------------------  */
+
+    /* --------- standart ------------ */
+    --standartBg: #ffffff; 
+    --standartFont: #353E50;
+    --standartBorder: #E7E9EF;
+    
+
+    /* --------- for color bg ----------- */
+    --z-accentColor: #49AB4D;
+    --standartActive: #37813A;
+    --bgFont:#ffffff;
+
+    /* ------- font for/in input -------- */
+    --inputFont: #AFB8CA;
+
+    /* -- standart variables for button -- */
+    --standartButton: #62BC65;
+    --standartButtonHover: #49AB4D;   
+    --standartButtonActive: #37813A;
+    --standartButtonFont: #ffffff;
+
+    --stButtonDisabled: #DADEE7;
+    --stButtonDisabledFont: #ffffff;
+
+    --dangerButton: #EC5050;
+    --dangerButtonHover: #EA3E3E;
+    --dangerButtonActive: #AF1313;
+
+    --warningButton:#FF8D29;
+    --warningButtonHover:#F57200;
+    --warningButtonActive:#A34C00;
+
+     /* ------------ checkbox ------------ */
+     --checkBoxBg: #ffffff;
+     --checkBoxBgHover: #ffffff;
+     --checkBoxFontDisabled: #BCC3D2;
+     --checkBoxBgDisabled: #F3F4F7;
+ 
+      /* ------------ radio ------------ */
+     --radioButtonBg: #ffffff;
+     --radioButtonHover: #ffffff;    
+   
+
+     /* ------------- slider ------------  */
+     --sliderBg: #7887A5;
+     /* ------------ calendar ------------ */
+     --calendarBgChecked: #3D8F40;
+
+      /* ------------ messages ------------ */
+     --messageFont:#353E50;
+
+     --messageSuccessBg:#F1F9F1;
+     --messageSuccessBorder:#A3D7A4;
+
+     --messageErrorBg:#FDEDED;
+     --messageErrorBorder:#F28888;
+
+
+      /* tabs */
+    --tabNavHeight: 48px;
+    --secondaryTabNavHeight: 36px;
+
+    --navControl: #7887A5;
+    --scrollControlDisabled: #BCC3D2;
+    --tabviewBg: #FFFFFF;
+    --tabFont: #7887a5;
+    --tabActiveFont: #353E50;
+    --tabBadgeText: #FFFFFF;
+    --tabDisabled: #BCC3D2;
+    --headerTabBg: #E7E9EF;
+    --headerTabDisabled: #E7E9EF;
+    --tabContentContainerBg: #E7E9EF;
+    --tabListItemHover: linear-gradient(0deg, rgba(61, 143, 64, 0.2), rgba(61, 143, 64, 0.2)), #FFFFFF;
+
+    /*shadows*/
+    --shadow-mini: 0px 2px 8px rgba(102, 119, 153, 0.3);
+    --shadow-big: 0px 8px 32px rgba(102, 119, 153, 0.24);
+    --shadow-bottom: 0px -2px 8px rgba(102, 119, 153, 0.16);
+
+    --successColor: #49AB4D;
+    --warningColor: #FF8214;
+    --dangerColor: #EA3E3E;
+    --infoColor: #1FAD9F;
+     
+}

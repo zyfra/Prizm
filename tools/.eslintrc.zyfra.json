@@ -1,0 +1,8 @@
+{
+    "rules": {
+        "max-len": ["error", {"code": 200}],
+        "@angular-eslint/directive-class-suffix": "Off",
+        "@typescript-eslint/no-inferrable-types": "Off",
+        "@angular-eslint/no-output-native": "Off"
+    }
+}
