@@ -1,0 +1,75 @@
+
+import { Meta, Story, Canvas, ArgsTable, ColorPalette, ColorItem, Preview, Typeset } from '@storybook/addon-docs/blocks';
+import Button from './zyfra-button.component';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+
+import {
+  Title,
+  Subtitle,
+  Description,
+} from '@storybook/addon-docs/blocks';
+
+<style>{`
+    .innerZoomElementWrapper > * {
+        display: block!important;
+    }
+    .sbdocs-subtitle {
+        border-bottom: 1px solid rgba(0, 0, 0, .1)!important;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .sbdocs-p {
+        margin:0;
+    }
+
+    .css-tmvzag {
+        margin: 10px 0 25px
+    } 
+
+`}</style>
+
+## Zyfra-Button
+
+<Subtitle of={Button} >Short description</Subtitle>
+<Description of={Button} >Компонент обычная кнопка</Description>
+
+<Subtitle of={Button} >Quick start</Subtitle>
+<Preview>
+    npm i @zyfra/zyfra-button
+</Preview>
+
+To module:
+<Preview>
+
+    import { ZyfraButtonModule } from 'zyfra-button';
+
+     @NgModule({
+    declarations: [
+        ....
+    ],
+    imports: [
+     ZyfraButtonModule,
+        ....
+    ]
+    ....
+
+</Preview>
+
+To component:
+<Canvas>
+
+    <zyfra-button 
+        label="example button" 
+        type="submit" 
+        disabled = "true" 
+        (click) = "onClickButton($event)"
+    ></zyfra-button>
+
+</Canvas>
+
+
+## ArgsTable
+
+<ArgsTable of={Button} />
