@@ -1,11 +1,11 @@
----
-variables:
-  ZUI_BUILD_IMAGE_TAG: 15.11.0-alpine
-  LANGUAGE: "typescript"
-  RUN_TESTS: 'false'
-  DISABLE_APP_REGISTRATION: 'true'
-  TEST_FILE_PATH: '/info.html'
-include:
-  - project: devops/gitlab-ci-templates
-    ref: main
-    file: /Pipelines/common.yml
+# ---
+# variables:
+#   ZUI_BUILD_IMAGE_TAG: 15.11.0-alpine
+#   LANGUAGE: "typescript"
+#   RUN_TESTS: 'false'
+#   DISABLE_APP_REGISTRATION: 'true'
+#   TEST_FILE_PATH: '/info.html'
+# include:
+#   - project: devops/gitlab-ci-templates
+#     ref: main
+#     file: /Pipelines/common.yml
