@@ -1,5 +1,5 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
-import { ZyfraButtonModule } from '@zyfra/ui-components';
+import { ZyfraButtonModule } from '@ui-platform/ui-components';
 import { ZyfraButtonComponent } from './zyfra-button.component';
 //@ts-ignore
 import doc from './zyfra-button.component.story.doc.mdx';
