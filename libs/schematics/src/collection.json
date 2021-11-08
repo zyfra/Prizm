@@ -1,0 +1,15 @@
+{
+    "$schema": "../../../node_modules/@angular-devkit/schematics/collection-schema.json",
+    "schematics": {
+      "ng-add": {
+        "description": "Add @ui-platform/components to the project.",
+        "factory": "./ng-add/index#ngAdd"
+      },
+      "ng-add-setup-project": {
+        "private": true,
+        "description": "Sets up the project after dependencies have been installed",
+        "factory": "./ng-add/setup/index",
+        "schema": "./ng-add/schema.json"
+    }
+    }
+  }

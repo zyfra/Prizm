@@ -19,7 +19,7 @@ Libraries are shareable across libraries and applications. They can be imported 
 
 ### Generate publishable library
 
-Run `nx g lib theme --publishable --importPath "@ui-platform/ui/zyfra-theme"`
+Run `nx g lib theme --publishable --importPath "@ui-platform/zyfra-theme"`
 
 ### Development server
 
