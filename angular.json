@@ -132,7 +132,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "parallel": false,
-            "commands": ["nx postbuild schematics"]
+            "commands": ["nx prebuild schematics", "nx postbuild schematics"]
           },
           "dependsOn": [
             {
