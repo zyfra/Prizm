@@ -6,6 +6,8 @@
     "@angular/core": "^12.2.0"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "primeicons": "^4.1.0",
+    "primeng": "^12.2.1"
   }
 }
