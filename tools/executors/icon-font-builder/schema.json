@@ -5,6 +5,7 @@
   "properties": {
     "fontFileName": {
       "type": "string",
+      "default": "ZyfraIcons",
       "description": "Path to tsconfig"
     },
     "fontName": {
@@ -31,6 +32,11 @@
       "type": "string",
       "default": "icons.less",
       "description": "File name for output styles"
+    },
+    "outputDefinitionsTs": {
+      "type": "string",
+      "default": "./libs/components/src/lib/icon/story/icon-definitions.ts",
+      "description": "File name for output definitions"
     }
   }
 }

@@ -41,25 +41,31 @@ var fs = require("fs");
 var icon_font_buildr_1 = require("icon-font-buildr");
 function builderExecutor(options, context) {
     return __awaiter(this, void 0, void 0, function () {
-        var sources, icons, dirs, builder, ligatures;
+        var sources, icons, dirs, definitions, builder, ligatures;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     sources = [];
                     icons = [];
                     dirs = fs.readdirSync(path.join(options.inputPath));
-                    console.log(context);
+                    definitions = [];
                     dirs.forEach(function (dir, dirIndex) {
+                        var definition = { dir: dir, data: [] };
+                        // Read files in dir
                         var iconFiles = fs.readdirSync(path.join(options.inputPath, dir));
                         sources.push(path.join(options.inputPath, dir, '[icon].svg'));
                         iconFiles.forEach(function (iconFile, iconIndex) {
                             var iconName = iconFile.replace('.svg', '');
+                            definition.data.push(iconName);
                             icons.push({
                                 icon: iconName,
                                 ligatures: [iconName + "-icon"]
                             });
                         });
+                        definitions.push(definition);
                     });
+                    // Write defs ts
+                    writeToFileDefs(definitions, options);
                     builder = new icon_font_buildr_1["default"]({
                         sources: sources,
                         icons: icons,
@@ -92,4 +98,9 @@ function generateLessFromLigatures(ligatures, options) {
         .join('\n');
     var filename = path.join(options.outputPath, options.outputStyleFile);
     fs.writeFileSync(filename, fontRules + "\n" + iconRules + "\n}");
+}
+function writeToFileDefs(defs, options) {
+    var data = JSON.stringify(defs, null, 4);
+    var defFileText = "export class IconDefs = " + data + ";\n";
+    fs.writeFileSync(path.join(options.outputDefinitionsTs), defFileText);
 }
