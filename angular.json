@@ -74,6 +74,9 @@
             "tsConfigPath": "./libs/components/tsconfig.json",
             "distPath": "./libs/components"
           }
+        },
+        "build-icons": {
+          "builder": "./tools/executors/icon-font-builder:build"
         }
       },
       "tags": []
