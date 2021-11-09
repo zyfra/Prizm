@@ -1,0 +1,58 @@
+
+import { Meta, Story, Canvas, ArgsTable, ColorPalette, ColorItem, Preview, Typeset } from '@storybook/addon-docs/blocks';
+import Icon from './icon.component';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+
+import {
+  Title,
+  Subtitle,
+  Description,
+} from '@storybook/addon-docs/blocks';
+
+<style>{`
+    .innerZoomElementWrapper > * {
+        display: block!important;
+    }
+    .sbdocs-subtitle {
+        border-bottom: 1px solid rgba(0, 0, 0, .1)!important;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .sbdocs-p {
+        margin:0;
+    }
+
+    .css-tmvzag {
+        margin: 10px 0 25px
+    } 
+
+`}</style>
+
+## Zyfra-icon
+
+To module:
+<Preview>
+
+    import { ZyfraIconModule } from '@ui-platform/components';
+
+     @NgModule({
+    declarations: [
+        ....
+    ],
+    imports: [
+     ZyfraIconModule,
+        ....
+    ]
+    ....
+
+</Preview>
+
+In component:
+
+```
+<zyfra-icon iconClass="icon-name"></zyfra-icon>
+```
+
+

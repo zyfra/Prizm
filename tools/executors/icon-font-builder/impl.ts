@@ -12,6 +12,7 @@ import IconFontBuildr from 'icon-font-buildr';
  * inputPath = ./libs/components/assets/icons
  * outputPath = ./libs/components/src/styles/icons
  * outputStyleFile = icons.less
+ * outputDefinitionsTs = ./libs/components/src/lib/story/icon-definitions.ts
  */
 export interface IconFontExecutorOptions {
   fontName: string;
@@ -20,6 +21,12 @@ export interface IconFontExecutorOptions {
   inputPath: string;
   outputPath: string;
   outputStyleFile: string;
+  outputDefinitionsTs: string;
+}
+
+interface IconDefinition {
+  dir: string;
+  data: string[];
 }
 
 export default async function builderExecutor(options: IconFontExecutorOptions, context: ExecutorContext) {
@@ -27,22 +34,35 @@ export default async function builderExecutor(options: IconFontExecutorOptions, 
   const icons = [];
   const dirs = fs.readdirSync(path.join(options.inputPath));
 
-  console.log(context);
+  const definitions: IconDefinition[] = [];
 
   dirs.forEach((dir, dirIndex) => {
+    const definition: IconDefinition = {dir, data:[]};
+
+    // Read files in dir
     const iconFiles = fs.readdirSync(path.join(options.inputPath, dir));
     sources.push(path.join(options.inputPath, dir, '[icon].svg'));
 
     iconFiles.forEach((iconFile, iconIndex) => {
       const iconName = iconFile.replace('.svg', '');
+    
+      definition.data.push(iconName);
 
       icons.push({
         icon: iconName,
         ligatures: [`${iconName}-icon`],
       });
     });
+
+    definitions.push(definition);
+
+    
   });
 
+  // Write defs ts
+  writeToFileDefs(definitions, options);
+
+  // Write fonts 
   const builder = new IconFontBuildr({
     sources: sources,
     icons: icons,
@@ -57,6 +77,7 @@ export default async function builderExecutor(options: IconFontExecutorOptions, 
 
   await builder.build();
 
+  // Write styles
   const ligatures = builder.getIconsLigatures();
   generateLessFromLigatures(ligatures, options);
 
@@ -81,4 +102,11 @@ ${options.iconClassName} {
     .join('\n');
   const filename = path.join(options.outputPath, options.outputStyleFile);
   fs.writeFileSync(filename, `${fontRules}\n${iconRules}\n}`);
+}
+
+function writeToFileDefs(defs: IconDefinition[], options: IconFontExecutorOptions) {
+  const data = JSON.stringify(defs, null, 4);
+  const defFileText = `export const IconDefs = ${data};\n`
+
+  fs.writeFileSync(path.join(options.outputDefinitionsTs), defFileText);
 }
