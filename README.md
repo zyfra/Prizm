@@ -1,5 +1,13 @@
 # @ui-platform/components
 
+## Setup components library
+
+Run command in your Angular project:
+
+```
+ng add @ui-platform/zyfra-components
+```
+
 ## Contributing
 
 Getting start:
@@ -51,11 +59,20 @@ export * from './lib/button';
 - Components: 
   - Rebuild component docs `nx run components:docs`
   - Build prod `nx run components:build`
-
+  - Schematic build `nx run schematics:build`
 
 
 ---------
 
+
+### Troubleshoot
+
+If copy command `cp` not working in your OS platform, try run manually 
+
+```
+   "cp ./libs/schematics/src/collection.json ./dist/libs/schematics/src/collection.json",
+   "cp ./libs/schematics/src/ng-add/schema.json ./dist/libs/schematics/src/ng-add/schema.json"
+```
 
 
 #### Other info

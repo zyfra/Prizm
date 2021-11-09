@@ -34,10 +34,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/components/src/**/*.ts",
-              "libs/components/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/components/src/**/*.ts", "libs/components/src/**/*.html"]
           }
         },
         "storybook": {
@@ -108,6 +105,69 @@
       },
       "tags": [],
       "implicitDependencies": ["components"]
+    },
+    "schematics": {
+      "projectType": "library",
+      "root": "libs/schematics",
+      "sourceRoot": "libs/schematics/src",
+      "prefix": "zyfra",
+      "architect": {
+        "prebuild": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/schematics"],
+          "options": {
+            "project": "libs/schematics/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/schematics/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/schematics/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "parallel": false,
+            "commands": ["nx prebuild schematics", "nx postbuild schematics"]
+          },
+          "dependsOn": [
+            {
+              "target": "build",
+              "projects": "dependencies"
+            }
+          ]
+        },
+        "postbuild": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+              "parallel": false,
+              "commands": [
+                  "tsc -p ./libs/schematics/tsconfig.schematics.json",
+                  "cp ./libs/schematics/src/collection.json ./dist/libs/schematics/src/collection.json",
+                  "cp ./libs/schematics/src/ng-add/schema.json ./dist/libs/schematics/src/ng-add/schema.json"
+              ]
+          }
+      },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/schematics"],
+          "options": {
+            "jestConfig": "libs/schematics/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/schematics/src/**/*.ts", "libs/schematics/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
     },
     "sdk": {
       "projectType": "application",
@@ -190,10 +250,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/sdk/src/**/*.ts",
-              "apps/sdk/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/sdk/src/**/*.ts", "apps/sdk/src/**/*.html"]
           }
         },
         "test": {
