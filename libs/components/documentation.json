@@ -1,6 +1,112 @@
 {
     "pipes": [],
-    "interfaces": [],
+    "interfaces": [
+        {
+            "name": "SelectButtonChange",
+            "id": "interface-SelectButtonChange-bde73bb79a088ff1edeea25a50ba5a08",
+            "file": "libs/components/src/lib/select-button/zyfra-select-button.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';\n\nexport interface SelectButtonOptionClick<T> {\n  index: number;\n  option: T;\n  originalEvent: PointerEvent;\n}\n\nexport interface SelectButtonChange<T> {\n  index: number;\n  value: T;\n}\n\n@Component({\n  selector: 'zyfra-select-button',\n  templateUrl: './zyfra-select-button.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ZyfraSelectButtonComponent<OPTION, VALUE> {\n  @Input() options: OPTION[];\n  @Input() optionLabel: string;\n  @Input() optionValue: string;\n  @Input() optionDisabled: string;\n  @Input() multiple: boolean;\n  @Input() tabindex: number;\n  @Input() style: string;\n  @Input() styleClass: string;\n  @Input() ariaLabelledBy: string;\n  @Input() disabled: boolean;\n  @Input() dataKey: string;\n\n  /**\n   * Optional Change emitter\n   */\n  @Output() onChange: EventEmitter<SelectButtonChange<VALUE>['value']> = new EventEmitter();\n\n  /**\n   * Optional OptionClick emitter\n   */\n  @Output() onOptionClick: EventEmitter<SelectButtonOptionClick<OPTION>> = new EventEmitter();\n\n  /**\n   * Optional Change handler\n   */\n  handleChange(data: SelectButtonChange<VALUE>): void {\n    this.onChange.emit(data.value);\n  }\n\n  /**\n   * Optional OptionClick handler\n   */\n  handleOptionClick(data: SelectButtonOptionClick<OPTION>): void {\n    this.onOptionClick.emit(data);\n  }\n}\n",
+            "properties": [
+                {
+                    "name": "index",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "T",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 164,
+            "methods": []
+        },
+        {
+            "name": "SelectButtonOptionClick",
+            "id": "interface-SelectButtonOptionClick-bde73bb79a088ff1edeea25a50ba5a08",
+            "file": "libs/components/src/lib/select-button/zyfra-select-button.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';\n\nexport interface SelectButtonOptionClick<T> {\n  index: number;\n  option: T;\n  originalEvent: PointerEvent;\n}\n\nexport interface SelectButtonChange<T> {\n  index: number;\n  value: T;\n}\n\n@Component({\n  selector: 'zyfra-select-button',\n  templateUrl: './zyfra-select-button.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ZyfraSelectButtonComponent<OPTION, VALUE> {\n  @Input() options: OPTION[];\n  @Input() optionLabel: string;\n  @Input() optionValue: string;\n  @Input() optionDisabled: string;\n  @Input() multiple: boolean;\n  @Input() tabindex: number;\n  @Input() style: string;\n  @Input() styleClass: string;\n  @Input() ariaLabelledBy: string;\n  @Input() disabled: boolean;\n  @Input() dataKey: string;\n\n  /**\n   * Optional Change emitter\n   */\n  @Output() onChange: EventEmitter<SelectButtonChange<VALUE>['value']> = new EventEmitter();\n\n  /**\n   * Optional OptionClick emitter\n   */\n  @Output() onOptionClick: EventEmitter<SelectButtonOptionClick<OPTION>> = new EventEmitter();\n\n  /**\n   * Optional Change handler\n   */\n  handleChange(data: SelectButtonChange<VALUE>): void {\n    this.onChange.emit(data.value);\n  }\n\n  /**\n   * Optional OptionClick handler\n   */\n  handleOptionClick(data: SelectButtonOptionClick<OPTION>): void {\n    this.onOptionClick.emit(data);\n  }\n}\n",
+            "properties": [
+                {
+                    "name": "index",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "option",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "T",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "originalEvent",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "PointerEvent",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 164,
+            "methods": []
+        },
+        {
+            "name": "StoryCity",
+            "id": "interface-StoryCity-f4aa97caa54371262298382ad52450a1",
+            "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { moduleMetadata } from '@storybook/angular';\nimport { Meta, Story } from '@storybook/angular/types-6-0';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { ZyfraSelectButtonComponent } from './zyfra-select-button.component';\nimport { ZyfraSelectButtonModule } from './zyfra-select-button.module';\n\nexport default {\n  moduleId: module.id,\n  title: 'Buttons/SelectButton',\n  component: ZyfraSelectButtonComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [BrowserModule, CommonModule, ZyfraSelectButtonModule],\n    }),\n  ],\n  parameters: {\n    docs: {\n      page: require('./zyfra-select-button.component.story.doc.mdx'),\n    },\n  },\n} as Meta;\n\ninterface StoryCity {\n  name: string;\n  code: string;\n}\n\nconst cities: StoryCity[] = [\n  { name: 'Russia', code: 'RU' },\n  { name: 'Rome', code: 'RM' },\n  { name: 'London', code: 'LDN' },\n  { name: 'Istanbul', code: 'IST' },\n  { name: 'Paris', code: 'PRS' },\n];\n\nconst Template: Story<ZyfraSelectButtonComponent<StoryCity, string>> = (args) => ({\n  component: ZyfraSelectButtonComponent,\n  props: args,\n});\n\nexport const Default = Template.bind({});\nDefault.args = {\n  options: cities,\n  optionLabel: 'name',\n  optionDisabled: 'inactive',\n  multiple: true,\n  optionValue: 'code',\n  disabled: false,\n  styleClass: 'selectbutton-default',\n};\n\nexport const DefaultMini = Template.bind({});\nDefaultMini.args = {\n  ...Default.args,\n  styleClass: 'p-selectbutton-default p-selectbutton-mini',\n};\n\nexport const Danger = Template.bind({});\nDanger.args = {\n  ...Default.args,\n  styleClass: 'p-selectbutton-danger',\n};\n",
+            "properties": [
+                {
+                    "name": "code",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 26
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 164,
+            "methods": []
+        }
+    ],
     "injectables": [],
     "guards": [],
     "interceptors": [],
@@ -8,8 +114,101 @@
     "directives": [],
     "components": [
         {
+            "name": "IconComponent",
+            "id": "component-IconComponent-8423cc70bd53604189de75e9463e3a7d",
+            "file": "libs/components/src/lib/icon/icon.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "zyfra-icon",
+            "styleUrls": [
+                "./icon.component.less"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./icon.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "iconClass",
+                    "defaultValue": "null",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, ChangeDetectionStrategy, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'zyfra-icon',\r\n  templateUrl: './icon.component.html',\r\n  styleUrls: ['./icon.component.less'],\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class IconComponent {\r\n  @Input() iconClass: string = null;\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\r\n    display: block;\r\n    height: 100%;\r\n    width: 100%;\r\n\r\n    .zyfra-icon-color {\r\n        fill: none;\r\n    }\r\n}",
+                    "styleUrl": "./icon.component.less"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<span class=\"zyfra-icon\" [ngClass]=\"iconClass\"></span>"
+        },
+        {
+            "name": "IconComponents",
+            "id": "component-IconComponents-4927691b598030162d9b104e6a8b5e95",
+            "file": "libs/components/src/lib/icon/icon.component.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "styleUrls": [],
+            "styles": [
+                "\n      :host {\n        font-family: Inter;\n      }\n\n      h4 {\n        text-transform: capitalize;\n      }\n\n      .icons {\n        display: flex;\n        flex-wrap: wrap;\n      }\n\n      .icon-def {\n        display: flex;\n        width: 90px;\n        height: 90px;\n        max-width: 90px;\n        flex-direction: column;\n        align-items: center;\n        margin: 4px;\n        padding-top: 8px;\n      }\n\n      .icon-def:hover {\n        background-color: #eeeeee99;\n      }\n\n      .icon {\n        font-size: 24px;\n        width: 24px;\n        height: 24px;\n      }\n\n      .name {\n        font-size: 12px;\n        text-align: center;\n        margin-top: 12px;\n      }\n    "
+            ],
+            "template": "<div *ngFor=\"let def of defs\">\n  <h4>{{ def.dir }}</h4>\n\n  <div class=\"icons\">\n    <div *ngFor=\"let name of def.data\" class=\"icon-def\">\n      <zyfra-icon [iconClass]=\"name\" class=\"icon\"></zyfra-icon>\n      <div class=\"name\">{{ name }}</div>\n    </div>\n  </div>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "defs",
+                    "defaultValue": "IconDefs",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 68
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component } from '@angular/core';\r\nimport { moduleMetadata, Story, Meta } from '@storybook/angular';\r\nimport { IconComponent } from './icon.component';\r\nimport { IconDefs } from './story/icon-definitions';\r\n\r\n//@ts-ignore\r\nimport doc from './icon.component.story.doc.mdx';\r\n\r\n@Component({\r\n  template: `\r\n    <div *ngFor=\"let def of defs\">\r\n      <h4>{{ def.dir }}</h4>\r\n\r\n      <div class=\"icons\">\r\n        <div *ngFor=\"let name of def.data\" class=\"icon-def\">\r\n          <zyfra-icon [iconClass]=\"name\" class=\"icon\"></zyfra-icon>\r\n          <div class=\"name\">{{ name }}</div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  `,\r\n  styles: [\r\n    `\r\n      :host {\r\n        font-family: Inter;\r\n      }\r\n\r\n      h4 {\r\n        text-transform: capitalize;\r\n      }\r\n\r\n      .icons {\r\n        display: flex;\r\n        flex-wrap: wrap;\r\n      }\r\n\r\n      .icon-def {\r\n        display: flex;\r\n        width: 90px;\r\n        height: 90px;\r\n        max-width: 90px;\r\n        flex-direction: column;\r\n        align-items: center;\r\n        margin: 4px;\r\n        padding-top: 8px;\r\n      }\r\n\r\n      .icon-def:hover {\r\n        background-color: #eeeeee99;\r\n      }\r\n\r\n      .icon {\r\n        font-size: 24px;\r\n        width: 24px;\r\n        height: 24px;\r\n      }\r\n\r\n      .name {\r\n        font-size: 12px;\r\n        text-align: center;\r\n        margin-top: 12px;\r\n      }\r\n    `,\r\n  ],\r\n})\r\nclass IconComponents {\r\n  defs = IconDefs;\r\n}\r\n\r\nexport default {\r\n  title: 'IconComponent',\r\n  component: IconComponents,\r\n  decorators: [\r\n    moduleMetadata({\r\n      imports: [CommonModule],\r\n      declarations: [IconComponent],\r\n    }),\r\n  ],\r\n  parameters: {\r\n    docs: {\r\n      page: doc\r\n    }\r\n  }\r\n} as Meta<IconComponent>;\r\n\r\nconst Template: Story<IconComponents> = (args: IconComponents) => ({\r\n  component: IconComponents,\r\n  props: args,\r\n});\r\n\r\nexport const IconsSet = Template.bind({});\r\nIconsSet.args = {};\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n      :host {\n        font-family: Inter;\n      }\n\n      h4 {\n        text-transform: capitalize;\n      }\n\n      .icons {\n        display: flex;\n        flex-wrap: wrap;\n      }\n\n      .icon-def {\n        display: flex;\n        width: 90px;\n        height: 90px;\n        max-width: 90px;\n        flex-direction: column;\n        align-items: center;\n        margin: 4px;\n        padding-top: 8px;\n      }\n\n      .icon-def:hover {\n        background-color: #eeeeee99;\n      }\n\n      .icon {\n        font-size: 24px;\n        width: 24px;\n        height: 24px;\n      }\n\n      .name {\n        font-size: 12px;\n        text-align: center;\n        margin-top: 12px;\n      }\n    \n"
+        },
+        {
             "name": "ZyfraButtonComponent",
-            "id": "component-ZyfraButtonComponent-222cfde876668e677c0a0be9682f11d9",
+            "id": "component-ZyfraButtonComponent-d466b13789a813be2bbcd84f796ec529",
             "file": "libs/components/src/lib/button/zyfra-button.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [
@@ -21,9 +220,7 @@
             "providers": [],
             "selector": "zyfra-button",
             "styleUrls": [],
-            "styles": [
-                "./zyfra-button.component.less"
-            ],
+            "styles": [],
             "templateUrl": [
                 "./zyfra-button.component.html"
             ],
@@ -33,21 +230,21 @@
                     "name": "badge",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 23,
+                    "line": 24,
                     "type": "string"
                 },
                 {
                     "name": "disabled",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "line": 23,
                     "type": "boolean"
                 },
                 {
                     "name": "icon",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 20,
+                    "line": 21,
                     "type": "string"
                 },
                 {
@@ -55,28 +252,28 @@
                     "defaultValue": "'left'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
-                    "type": "string"
+                    "line": 22,
+                    "type": "TZyfraButtonIconPosision"
                 },
                 {
                     "name": "label",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
+                    "line": 19,
                     "type": "string"
                 },
                 {
                     "name": "style",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 24,
+                    "line": 25,
                     "type": "string"
                 },
                 {
                     "name": "styleClass",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 25,
+                    "line": 26,
                     "type": "string"
                 },
                 {
@@ -84,44 +281,44 @@
                     "defaultValue": "'button'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "line": 20,
                     "type": "string"
                 }
             ],
             "outputsClass": [
                 {
-                    "name": "blur",
-                    "defaultValue": "new EventEmitter()",
+                    "name": "onBlur",
+                    "defaultValue": "new EventEmitter<FocusEvent>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 29,
-                    "type": "EventEmitter<>"
+                    "line": 30,
+                    "type": "EventEmitter"
                 },
                 {
-                    "name": "click",
-                    "defaultValue": "new EventEmitter()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 27,
-                    "type": "EventEmitter<>"
-                },
-                {
-                    "name": "focus",
-                    "defaultValue": "new EventEmitter()",
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<PointerEvent>()",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 28,
-                    "type": "EventEmitter<>"
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "onFocus",
+                    "defaultValue": "new EventEmitter<FocusEvent>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "EventEmitter"
                 }
             ],
             "propertiesClass": [],
             "methodsClass": [
                 {
-                    "name": "onBlur",
+                    "name": "blur",
                     "args": [
                         {
                             "name": "event",
-                            "type": "Event",
+                            "type": "FocusEvent",
                             "deprecated": false,
                             "deprecationMessage": ""
                         }
@@ -129,16 +326,13 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 37,
+                    "line": 47,
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "modifierKind": [
-                        123
-                    ],
                     "jsdoctags": [
                         {
                             "name": "event",
-                            "type": "Event",
+                            "type": "FocusEvent",
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
@@ -148,11 +342,11 @@
                     ]
                 },
                 {
-                    "name": "onClick",
+                    "name": "click",
                     "args": [
                         {
                             "name": "event",
-                            "type": "Event",
+                            "type": "PointerEvent",
                             "deprecated": false,
                             "deprecationMessage": ""
                         }
@@ -160,16 +354,13 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 31,
+                    "line": 39,
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "modifierKind": [
-                        123
-                    ],
                     "jsdoctags": [
                         {
                             "name": "event",
-                            "type": "Event",
+                            "type": "PointerEvent",
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
@@ -179,7 +370,35 @@
                     ]
                 },
                 {
-                    "name": "onFocus",
+                    "name": "focus",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "FocusEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 43,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "FocusEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "nativeClick",
                     "args": [
                         {
                             "name": "event",
@@ -191,12 +410,9 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 34,
+                    "line": 33,
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "modifierKind": [
-                        123
-                    ],
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -217,14 +433,252 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\r\n  Component,\r\n  Input,\r\n  Output,\r\n  EventEmitter,\r\n  ChangeDetectionStrategy,\r\n  ViewEncapsulation,\r\n} from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'zyfra-button',\r\n  templateUrl: './zyfra-button.component.html',\r\n  styles: ['./zyfra-button.component.less'],\r\n  encapsulation: ViewEncapsulation.None,\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ZyfraButtonComponent {\r\n  @Input() label: string;\r\n  @Input() type: string = 'button'; // | 'reset' | 'submit';\r\n  @Input() icon: string;\r\n  @Input() iconPos: string = 'left';\r\n  @Input() disabled: boolean;\r\n  @Input() badge: string;\r\n  @Input() style: string;\r\n  @Input() styleClass: string;\r\n\r\n  @Output() click: EventEmitter<unknown> = new EventEmitter();\r\n  @Output() focus: EventEmitter<unknown> = new EventEmitter();\r\n  @Output() blur: EventEmitter<unknown> = new EventEmitter();\r\n\r\n  public onClick(event: Event): void {\r\n    this.click.emit(event);\r\n  }\r\n  public onFocus(event: Event): void {\r\n    this.focus.emit(event);\r\n  }\r\n  public onBlur(event: Event): void {\r\n    this.blur.emit(event);\r\n  }\r\n}\r\n",
+            "sourceCode": "import {\r\n  Component,\r\n  Input,\r\n  ChangeDetectionStrategy,\r\n  ViewEncapsulation,\r\n  Output,\r\n  EventEmitter,\r\n} from '@angular/core';\r\n\r\nexport type TZyfraButtonIconPosision = 'left' | 'right' | 'top' | 'bottom';\r\n\r\n@Component({\r\n  selector: 'zyfra-button',\r\n  templateUrl: './zyfra-button.component.html',\r\n  encapsulation: ViewEncapsulation.None,\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ZyfraButtonComponent {\r\n  @Input() label: string;\r\n  @Input() type = 'button';\r\n  @Input() icon: string;\r\n  @Input() iconPos: TZyfraButtonIconPosision = 'left';\r\n  @Input() disabled: boolean;\r\n  @Input() badge: string;\r\n  @Input() style: string;\r\n  @Input() styleClass: string;\r\n\r\n  @Output() onClick = new EventEmitter<PointerEvent>();\r\n  @Output() onFocus = new EventEmitter<FocusEvent>();\r\n  @Output() onBlur = new EventEmitter<FocusEvent>();\r\n\r\n  // останавливаю всплытие клика (именно так. через HostListener не работает)\r\n  nativeClick(event: Event): void {\r\n    if (this.disabled) {\r\n      event.stopPropagation();\r\n    }\r\n  }\r\n\r\n  click(event: PointerEvent): void {\r\n    this.onClick.emit(event);\r\n  }\r\n\r\n  focus(event: FocusEvent): void {\r\n    this.onFocus.emit(event);\r\n  }\r\n\r\n  blur(event: FocusEvent): void {\r\n    this.onBlur.emit(event);\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
-            "stylesData": "./zyfra-button.component.less\n",
-            "templateData": "<p-button\r\n  #pbutton\r\n  [type]=\"type\"\r\n  [label]=\"label\"\r\n  [icon]=\"icon\"\r\n  [iconPos]=\"iconPos\"\r\n  [disabled]=\"disabled\"\r\n  [badge]=\"badge\"\r\n  [style]=\"style\"\r\n  [styleClass]=\"styleClass\"\r\n  (onClick)=\"onClick($event)\"\r\n  (onFocus)=\"onFocus($event)\"\r\n  (onBlur)=\"onBlur($event)\"\r\n></p-button>\r\n"
+            "stylesData": "",
+            "templateData": "<p-button\r\n  [type]=\"type\"\r\n  [label]=\"label\"\r\n  [icon]=\"icon\"\r\n  [iconPos]=\"iconPos\"\r\n  [disabled]=\"disabled\"\r\n  [badge]=\"badge\"\r\n  [style]=\"style\"\r\n  [styleClass]=\"styleClass\"\r\n  (click)=\"nativeClick($event)\"\r\n  (onClick)=\"click($event)\"\r\n  (onFocus)=\"focus($event)\"\r\n  (onBlur)=\"blur($event)\"\r\n></p-button>\r\n"
+        },
+        {
+            "name": "ZyfraSelectButtonComponent",
+            "id": "component-ZyfraSelectButtonComponent-bde73bb79a088ff1edeea25a50ba5a08",
+            "file": "libs/components/src/lib/select-button/zyfra-select-button.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "zyfra-select-button",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./zyfra-select-button.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "ariaLabelledBy",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "string"
+                },
+                {
+                    "name": "dataKey",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 30,
+                    "type": "string"
+                },
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "boolean"
+                },
+                {
+                    "name": "multiple",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "boolean"
+                },
+                {
+                    "name": "optionDisabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "string"
+                },
+                {
+                    "name": "optionLabel",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "string"
+                },
+                {
+                    "name": "options",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "OPTION[]"
+                },
+                {
+                    "name": "optionValue",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "string"
+                },
+                {
+                    "name": "style",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "string"
+                },
+                {
+                    "name": "styleClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "string"
+                },
+                {
+                    "name": "tabindex",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "number"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onChange",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nOptional Change emitter\n",
+                    "description": "<p>Optional Change emitter</p>\n",
+                    "line": 35,
+                    "type": "EventEmitter<>"
+                },
+                {
+                    "name": "onOptionClick",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nOptional OptionClick emitter\n",
+                    "description": "<p>Optional OptionClick emitter</p>\n",
+                    "line": 40,
+                    "type": "EventEmitter<SelectButtonOptionClick<OPTION>>"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "handleChange",
+                    "args": [
+                        {
+                            "name": "data",
+                            "type": "SelectButtonChange<VALUE>",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 45,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nOptional Change handler\n",
+                    "description": "<p>Optional Change handler</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": "data",
+                            "type": "SelectButtonChange<VALUE>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "handleOptionClick",
+                    "args": [
+                        {
+                            "name": "data",
+                            "type": "SelectButtonOptionClick<OPTION>",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 52,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nOptional OptionClick handler\n",
+                    "description": "<p>Optional OptionClick handler</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": "data",
+                            "type": "SelectButtonOptionClick<OPTION>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';\n\nexport interface SelectButtonOptionClick<T> {\n  index: number;\n  option: T;\n  originalEvent: PointerEvent;\n}\n\nexport interface SelectButtonChange<T> {\n  index: number;\n  value: T;\n}\n\n@Component({\n  selector: 'zyfra-select-button',\n  templateUrl: './zyfra-select-button.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ZyfraSelectButtonComponent<OPTION, VALUE> {\n  @Input() options: OPTION[];\n  @Input() optionLabel: string;\n  @Input() optionValue: string;\n  @Input() optionDisabled: string;\n  @Input() multiple: boolean;\n  @Input() tabindex: number;\n  @Input() style: string;\n  @Input() styleClass: string;\n  @Input() ariaLabelledBy: string;\n  @Input() disabled: boolean;\n  @Input() dataKey: string;\n\n  /**\n   * Optional Change emitter\n   */\n  @Output() onChange: EventEmitter<SelectButtonChange<VALUE>['value']> = new EventEmitter();\n\n  /**\n   * Optional OptionClick emitter\n   */\n  @Output() onOptionClick: EventEmitter<SelectButtonOptionClick<OPTION>> = new EventEmitter();\n\n  /**\n   * Optional Change handler\n   */\n  handleChange(data: SelectButtonChange<VALUE>): void {\n    this.onChange.emit(data.value);\n  }\n\n  /**\n   * Optional OptionClick handler\n   */\n  handleOptionClick(data: SelectButtonOptionClick<OPTION>): void {\n    this.onOptionClick.emit(data);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<p-selectButton\n  [options]=\"options\"\n  [optionLabel]=\"optionLabel\"\n  [optionValue]=\"optionValue\"\n  [optionDisabled]=\"optionDisabled\"\n  [multiple]=\"multiple\"\n  [tabindex]=\"tabindex\"\n  [style]=\"style\"\n  [styleClass]=\"styleClass\"\n  [ariaLabelledBy]=\"ariaLabelledBy\"\n  [disabled]=\"disabled\"\n  [dataKey]=\"dataKey\"\n  (onChange)=\"handleChange($event)\"\n  (onOptionClick)=\"handleOptionClick($event)\"\n></p-selectButton>\n"
         }
     ],
     "modules": [
+        {
+            "name": "IconModule",
+            "id": "module-IconModule-f242a6081953dcb0332029efa7d2c36d",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "libs/components/src/lib/icon/icon.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { IconComponent } from './icon.component';\r\n\r\n@NgModule({\r\n  declarations: [IconComponent],\r\n  imports: [CommonModule],\r\n  exports: [IconComponent],\r\n})\r\nexport class IconModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "IconComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "IconComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
         {
             "name": "ZyfraButtonModule",
             "id": "module-ZyfraButtonModule-6d1501e8fb5cacb48c11e0b459b4daea",
@@ -268,12 +722,262 @@
                     "elements": []
                 }
             ]
+        },
+        {
+            "name": "ZyfraSelectButtonModule",
+            "id": "module-ZyfraSelectButtonModule-0f9934b56ab25fce81cd0e4c6cce78cb",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "libs/components/src/lib/select-button/zyfra-select-button.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { ZyfraSelectButtonComponent } from './zyfra-select-button.component';\nimport { SelectButtonModule } from 'primeng/selectbutton';\n\n@NgModule({\n  declarations: [ZyfraSelectButtonComponent],\n  imports: [SelectButtonModule],\n  exports: [ZyfraSelectButtonComponent],\n})\nexport class ZyfraSelectButtonModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ZyfraSelectButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ZyfraSelectButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ZyfraUiRootModule",
+            "id": "module-ZyfraUiRootModule-fd551edc5c0b707212fc9d8a33d2ad29",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "libs/components/src/lib/root/zyfra-ui-root.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from \"@angular/core\";\r\n\r\n@NgModule({})\r\nexport class ZyfraUiRootModule {\r\n  // do nothing,\r\n  // override if need root providers for components\r\n}",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
         }
     ],
     "miscellaneous": {
         "variables": [
             {
-                "name": "Primary",
+                "name": "Badge",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "cities",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "StoryCity[]",
+                "defaultValue": "[\n  { name: 'Russia', code: 'RU' },\n  { name: 'Rome', code: 'RM' },\n  { name: 'London', code: 'LDN' },\n  { name: 'Istanbul', code: 'IST' },\n  { name: 'Paris', code: 'PRS' },\n]"
+            },
+            {
+                "name": "Danger",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Danger",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "DefaultDisabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "DefaultMini",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "DefaultMini",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Icon",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "IconDefs",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/icon/story/icon-definitions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\r\n    {\r\n        \"dir\": \"account\",\r\n        \"data\": [\r\n            \"account-card-details\",\r\n            \"account-circle\",\r\n            \"account-done\",\r\n            \"account-down-list-open\",\r\n            \"account-down-list\",\r\n            \"account-edit\",\r\n            \"account-group\",\r\n            \"account-key\",\r\n            \"account-location\",\r\n            \"account-lock\",\r\n            \"account-log-in\",\r\n            \"account-logout\",\r\n            \"account-minus\",\r\n            \"account-multiple-minus\",\r\n            \"account-multiple-plus\",\r\n            \"account-multiple-shield\",\r\n            \"account-multiple\",\r\n            \"account-plus\",\r\n            \"account-remove\",\r\n            \"account-search\",\r\n            \"account-setting-1\",\r\n            \"account-setting\",\r\n            \"account-shield-1\",\r\n            \"account-shield-alarm\",\r\n            \"account-shield-off\",\r\n            \"account-shield\",\r\n            \"account-switch\",\r\n            \"account-unlock\",\r\n            \"account-worker\",\r\n            \"account\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"add\",\r\n        \"data\": [\r\n            \"add-alarm\",\r\n            \"add-bell-plus\",\r\n            \"add-bookmark-plus\",\r\n            \"add-cart-plus\",\r\n            \"add-file-plus\",\r\n            \"add-folder-plus\",\r\n            \"add-label-add\",\r\n            \"add-library-plus\",\r\n            \"add-map-marker-plus\",\r\n            \"add-phone\",\r\n            \"add-plus-box-fill\",\r\n            \"add-plus-box\",\r\n            \"add-plus-circle-multiple\",\r\n            \"add-plus-drop-down-list\",\r\n            \"add-plus\",\r\n            \"add-shape-square-plus\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"alerts\",\r\n        \"data\": [\r\n            \"alerts-alarm-1\",\r\n            \"alerts-alarm-2\",\r\n            \"alerts-alarm-3\",\r\n            \"alerts-alarm-light\",\r\n            \"alerts-bell-fill\",\r\n            \"alerts-bell-off\",\r\n            \"alerts-bell-ring-fill\",\r\n            \"alerts-bell-ring\",\r\n            \"alerts-bell\",\r\n            \"alerts-box-fill\",\r\n            \"alerts-circle-fill\",\r\n            \"alerts-circle\",\r\n            \"alerts-decagram-fill\",\r\n            \"alerts-decagram\",\r\n            \"alerts-flag-fill\",\r\n            \"alerts-flag\",\r\n            \"alerts-help-box-fill\",\r\n            \"alerts-help-box\",\r\n            \"alerts-help-circle-outline\",\r\n            \"alerts-help-fill\",\r\n            \"alerts-info-circle-fill\",\r\n            \"alerts-info-square-fill\",\r\n            \"alerts-info-square\",\r\n            \"alerts-info-triangle-fill\",\r\n            \"alerts-info-triangle\",\r\n            \"alerts-inform-fill-mini\",\r\n            \"alerts-inform-mini\",\r\n            \"alerts-inform\",\r\n            \"alerts-information-variant\",\r\n            \"alerts-mark\",\r\n            \"alerts-octagon-fill\",\r\n            \"alerts-octagon\",\r\n            \"alerts-pulse\",\r\n            \"alerts-question-mark\",\r\n            \"alerts-square\",\r\n            \"alerts-warning\",\r\n            \"alerts\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"apps\",\r\n        \"data\": [\r\n            \"apps-collector\",\r\n            \"apps-key\",\r\n            \"apps-ontology-2\",\r\n            \"apps-ontology\",\r\n            \"apps-own\",\r\n            \"apps-star\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"arrows\",\r\n        \"data\": [\r\n            \"arrows-all\",\r\n            \"arrows-arrow-circle-down\",\r\n            \"arrows-arrow-circle-left\",\r\n            \"arrows-arrow-circle-right\",\r\n            \"arrows-arrow-circle-up\",\r\n            \"arrows-arrow-expand-horizontal\",\r\n            \"arrows-arrow-expand-vertical\",\r\n            \"arrows-arrow-left\",\r\n            \"arrows-arrow-right\",\r\n            \"arrows-arrow-up-level\",\r\n            \"arrows-arrow-upward\",\r\n            \"arrows-autorenew-1\",\r\n            \"arrows-autorenew\",\r\n            \"arrows-back\",\r\n            \"arrows-cached-1\",\r\n            \"arrows-cached\",\r\n            \"arrows-chevron-left\",\r\n            \"arrows-chevron-right\",\r\n            \"arrows-collapse-four-arrows\",\r\n            \"arrows-collapse\",\r\n            \"arrows-compare\",\r\n            \"arrows-corner-down-left\",\r\n            \"arrows-corner-down-right\",\r\n            \"arrows-corner-left-down\",\r\n            \"arrows-corner-left-up\",\r\n            \"arrows-corner-right-down\",\r\n            \"arrows-corner-right-up\",\r\n            \"arrows-corner-up-left\",\r\n            \"arrows-corner-up-right\",\r\n            \"arrows-diagonal-arrow-left-down\",\r\n            \"arrows-diagonal-arrow-left-up\",\r\n            \"arrows-diagonal-arrow-right-down\",\r\n            \"arrows-diagonal-arrow-right-up\",\r\n            \"arrows-down-2\",\r\n            \"arrows-down-bold\",\r\n            \"arrows-down-double-2\",\r\n            \"arrows-down-double-top-2\",\r\n            \"arrows-down-limit-1\",\r\n            \"arrows-down-limit-double-1\",\r\n            \"arrows-down\",\r\n            \"arrows-expand-all\",\r\n            \"arrows-expand\",\r\n            \"arrows-left-bold\",\r\n            \"arrows-long-arrow-left\",\r\n            \"arrows-long-arrow-right\",\r\n            \"arrows-next\",\r\n            \"arrows-refresh\",\r\n            \"arrows-replay\",\r\n            \"arrows-right-bold\",\r\n            \"arrows-shuffle-variant\",\r\n            \"arrows-shuffle\",\r\n            \"arrows-swap-horiz\",\r\n            \"arrows-swap-vert\",\r\n            \"arrows-swap\",\r\n            \"arrows-up-2\",\r\n            \"arrows-up-bold\",\r\n            \"arrows-up-double-2\",\r\n            \"arrows-up-double-top-2\",\r\n            \"arrows-up-limit-1\",\r\n            \"arrows-up-limit-double-1\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"audio\",\r\n        \"data\": [\r\n            \"audio-add-library-music\",\r\n            \"audio-artist\",\r\n            \"audio-bookmark-music\",\r\n            \"audio-file-music\",\r\n            \"audio-microphone-off\",\r\n            \"audio-microphone\",\r\n            \"audio-music-box\",\r\n            \"audio-music-circle\",\r\n            \"audio-music-off\",\r\n            \"audio-music\",\r\n            \"audio-volume-high\",\r\n            \"audio-volume-low\",\r\n            \"audio-volume-medium\",\r\n            \"audio-volume-minus\",\r\n            \"audio-volume-mute\",\r\n            \"audio-volume-off\",\r\n            \"audio-volume-plus\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"badges\",\r\n        \"data\": [\r\n            \"badges-clipboard-tex\",\r\n            \"badges-clipboard\",\r\n            \"badges-code-download\",\r\n            \"badges-code\",\r\n            \"badges-tag-fill\",\r\n            \"badges-tag-multiple\",\r\n            \"badges-tag-plus\",\r\n            \"badges-tag-remove\",\r\n            \"badges-tag-search\",\r\n            \"badges-tag-text\",\r\n            \"badges-tag\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"battery\",\r\n        \"data\": [\r\n            \"battery-10\",\r\n            \"battery-30\",\r\n            \"battery-50\",\r\n            \"battery-80\",\r\n            \"battery-alert\",\r\n            \"battery-charging\",\r\n            \"battery-flash-off\",\r\n            \"battery-flash\",\r\n            \"battery-minus\",\r\n            \"battery-plus\",\r\n            \"battery\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"bookmarks\",\r\n        \"data\": [\r\n            \"bookmarks-book-open-page-variant\",\r\n            \"bookmarks-book-open-plus\",\r\n            \"bookmarks-book-open-variant\",\r\n            \"bookmarks-book-open\",\r\n            \"bookmarks-book\",\r\n            \"bookmarks-bookmark-check-fill\",\r\n            \"bookmarks-bookmark-check\",\r\n            \"bookmarks-bookmark-fill\",\r\n            \"bookmarks-bookmark-music-fill\",\r\n            \"bookmarks-bookmark-music\",\r\n            \"bookmarks-bookmark-plus-fill\",\r\n            \"bookmarks-bookmark-plus\",\r\n            \"bookmarks-bookmark-remove-fill\",\r\n            \"bookmarks-bookmark-remove\",\r\n            \"bookmarks-bookmark\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"camera\",\r\n        \"data\": [\r\n            \"camera-camera\",\r\n            \"camera-clapperboard-close\",\r\n            \"camera-clapperboard\",\r\n            \"camera-close\",\r\n            \"camera-film-close\",\r\n            \"camera-film\",\r\n            \"camera-image\",\r\n            \"camera-video-close\",\r\n            \"camera-video-off\",\r\n            \"camera-video\",\r\n            \"camera\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"cancel\",\r\n        \"data\": [\r\n            \"cancel-block\",\r\n            \"cancel-close-box-fill\",\r\n            \"cancel-close-box\",\r\n            \"cancel-close-circle-fill\",\r\n            \"cancel-close-circle\",\r\n            \"cancel-close\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"charts\",\r\n        \"data\": [\r\n            \"charts-arc-1\",\r\n            \"charts-arc\",\r\n            \"charts-areaspline\",\r\n            \"charts-bar-stacked\",\r\n            \"charts-bar\",\r\n            \"charts-bubble-line\",\r\n            \"charts-bubble\",\r\n            \"charts-chart-donut-variant-half\",\r\n            \"charts-chart-donut-variant\",\r\n            \"charts-donut\",\r\n            \"charts-elevation-decline\",\r\n            \"charts-elevation-rise\",\r\n            \"charts-finance\",\r\n            \"charts-gantt\",\r\n            \"charts-google-analytics\",\r\n            \"charts-google-assistant\",\r\n            \"charts-hexagon-multiple\",\r\n            \"charts-histogram-chart-dashed-2\",\r\n            \"charts-histogram-chart-dashed\",\r\n            \"charts-histogram\",\r\n            \"charts-line-variant\",\r\n            \"charts-line\",\r\n            \"charts-pie-2\",\r\n            \"charts-pie\",\r\n            \"charts-poll-box\",\r\n            \"charts-poll\",\r\n            \"charts-scatterplot-hexbin\",\r\n            \"charts-signal\",\r\n            \"charts-trending-down\",\r\n            \"charts-trending-up\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"chevrons\",\r\n        \"data\": [\r\n            \"chevrons-double-down\",\r\n            \"chevrons-double-left\",\r\n            \"chevrons-double-right\",\r\n            \"chevrons-double-up\",\r\n            \"chevrons-down\",\r\n            \"chevrons-dropdown\",\r\n            \"chevrons-dropup\",\r\n            \"chevrons-input\",\r\n            \"chevrons-left\",\r\n            \"chevrons-menu-left\",\r\n            \"chevrons-menu-right\",\r\n            \"chevrons-right\",\r\n            \"chevrons-unfold-less-horizontal\",\r\n            \"chevrons-unfold-less-verica\",\r\n            \"chevrons-unfold-more-horizontal\",\r\n            \"chevrons-unfold-more-vertical\",\r\n            \"chevrons-up\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"color\",\r\n        \"data\": [\r\n            \"angular\",\r\n            \"application\",\r\n            \"color-arrows-down-double-2\",\r\n            \"color-arrows-down-double-top-2\",\r\n            \"color-arrows-down-limit-double-1\",\r\n            \"color-arrows-up-double-2\",\r\n            \"color-arrows-up-double-top-2\",\r\n            \"color-arrows-up-limit-double-1\",\r\n            \"color-compass\",\r\n            \"color-France-drop\",\r\n            \"color-France\",\r\n            \"color-German-drop\",\r\n            \"color-German\",\r\n            \"color-Grat-Britan-down-list\",\r\n            \"color-Grat-Britan-drop\",\r\n            \"color-Indian-drop\",\r\n            \"color-Indian\",\r\n            \"color-logo-green\",\r\n            \"color-Russia-drop\",\r\n            \"color-Russia\",\r\n            \"ecp-alert-1\",\r\n            \"ecp-wind\",\r\n            \"external\",\r\n            \"react\",\r\n            \"vue\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"date\",\r\n        \"data\": [\r\n            \"date-access-alarm\",\r\n            \"date-calendar-blank\",\r\n            \"date-calendar-check\",\r\n            \"date-calendar-clock\",\r\n            \"date-calendar-plus\",\r\n            \"date-calendar-question\",\r\n            \"date-calendar-range\",\r\n            \"date-calendar-remove\",\r\n            \"date-calendar-text\",\r\n            \"date-calendar-today\",\r\n            \"date-calendar\",\r\n            \"date-clock-alert\",\r\n            \"date-clock-end\",\r\n            \"date-clock-in\",\r\n            \"date-clock-out\",\r\n            \"date-clock-start\",\r\n            \"date-clock\",\r\n            \"date-history\",\r\n            \"date-period-dropdown-list-open\",\r\n            \"date-period-dropdown-list\",\r\n            \"date-range\",\r\n            \"date-time-add\",\r\n            \"date-time-remove\",\r\n            \"date-timer-sand-empty\",\r\n            \"date-timer\",\r\n            \"date-update\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"delete\",\r\n        \"data\": [\r\n            \"delete-do-not-disturb\",\r\n            \"delete-drop\",\r\n            \"delete-empty\",\r\n            \"delete-forever\",\r\n            \"delete-label-delete\",\r\n            \"delete-minus-circle\",\r\n            \"delete-minus-square\",\r\n            \"delete-minus\",\r\n            \"delete-restore\",\r\n            \"delete\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"devices\",\r\n        \"data\": [\r\n            \"devices-android-debug-bridge\",\r\n            \"devices-android\",\r\n            \"devices-camera-front\",\r\n            \"devices-cellphone-basic\",\r\n            \"devices-cellphone-link-off\",\r\n            \"devices-cellphone-link\",\r\n            \"devices-cellphone-wireless\",\r\n            \"devices-cellphone\",\r\n            \"devices-desktop-tower\",\r\n            \"devices-hard-drive-outline\",\r\n            \"devices-headphones\",\r\n            \"devices-input-device\",\r\n            \"devices-laptop-off\",\r\n            \"devices-laptop\",\r\n            \"devices-monitor\",\r\n            \"devices-printer\",\r\n            \"devices-sensor\",\r\n            \"devices-speaker\",\r\n            \"devices-tablet\",\r\n            \"devices-touchpad\",\r\n            \"devices-transmitter\",\r\n            \"devices-tv\",\r\n            \"devices-watch-variant\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"ecp\",\r\n        \"data\": [\r\n            \"alert\",\r\n            \"ecologist-1\",\r\n            \"expand-four-arrows-24\",\r\n            \"false-event1\",\r\n            \"false-event3\",\r\n            \"pin-1\",\r\n            \"pin-alarm\",\r\n            \"wind-1\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"editor\",\r\n        \"data\": [\r\n            \"editor-add-column\",\r\n            \"editor-add-comment\",\r\n            \"editor-add-row\",\r\n            \"editor-alfavit\",\r\n            \"editor-attach-2\",\r\n            \"editor-attach-file\",\r\n            \"editor-border-all\",\r\n            \"editor-border-bottom\",\r\n            \"editor-border-clear\",\r\n            \"editor-border-color\",\r\n            \"editor-border-horizontal\",\r\n            \"editor-border-inner\",\r\n            \"editor-border-left\",\r\n            \"editor-border-outer\",\r\n            \"editor-border-right\",\r\n            \"editor-border-style\",\r\n            \"editor-border-top\",\r\n            \"editor-border-vertical\",\r\n            \"editor-copy-drop\",\r\n            \"editor-copy\",\r\n            \"editor-crop\",\r\n            \"editor-delete-column\",\r\n            \"editor-delete-row\",\r\n            \"editor-down\",\r\n            \"editor-drag-and-drop\",\r\n            \"editor-dropdown-list-open\",\r\n            \"editor-dropdown-list\",\r\n            \"editor-droplet\",\r\n            \"editor-format-align-center\",\r\n            \"editor-format-align-justify\",\r\n            \"editor-format-align-left\",\r\n            \"editor-format-align-right\",\r\n            \"editor-format-bold\",\r\n            \"editor-format-color-fill\",\r\n            \"editor-format-color-reset\",\r\n            \"editor-format-color-text\",\r\n            \"editor-format-italic\",\r\n            \"editor-format-list-bulleted\",\r\n            \"editor-format-list-numbered\",\r\n            \"editor-format-textdirection-l-to-r\",\r\n            \"editor-format-underlined\",\r\n            \"editor-formula\",\r\n            \"editor-functions\",\r\n            \"editor-group-dropdown\",\r\n            \"editor-group\",\r\n            \"editor-hash\",\r\n            \"editor-insert-emoticon-sad\",\r\n            \"editor-insert-emoticon\",\r\n            \"editor-insert-link\",\r\n            \"editor-line-height\",\r\n            \"editor-link\",\r\n            \"editor-list-dushed-2\",\r\n            \"editor-merge-type\",\r\n            \"editor-mini\",\r\n            \"editor-mode\",\r\n            \"editor-panel-left\",\r\n            \"editor-panel-right\",\r\n            \"editor-panel-top\",\r\n            \"editor-percent\",\r\n            \"editor-right\",\r\n            \"editor-screen\",\r\n            \"editor-search-tags-words\",\r\n            \"editor-sort-asc\",\r\n            \"editor-table\",\r\n            \"editor-title\",\r\n            \"editor-ungroup\",\r\n            \"editor-vertical-align-bottom\",\r\n            \"editor-vertical-align-center\",\r\n            \"editor-vertical-align-top\",\r\n            \"editor-window\",\r\n            \"editor-wrap-text\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"export\",\r\n        \"data\": [\r\n            \"export-files-pdf\",\r\n            \"export-files-xlsx\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"files\",\r\n        \"data\": [\r\n            \"files-archive\",\r\n            \"files-cloud-check\",\r\n            \"files-cloud\",\r\n            \"files-cloup-upload\",\r\n            \"files-correct\",\r\n            \"files-description-properties\",\r\n            \"files-document-image\",\r\n            \"files-document-text\",\r\n            \"files-download\",\r\n            \"files-excel-box\",\r\n            \"files-export-csv\",\r\n            \"files-export-pdf\",\r\n            \"files-export-xlsx\",\r\n            \"files-export\",\r\n            \"files-file-open-all\",\r\n            \"files-file-remove\",\r\n            \"files-file\",\r\n            \"files-find\",\r\n            \"files-folder-delete\",\r\n            \"files-folder-remove\",\r\n            \"files-folder-root-add\",\r\n            \"files-folder\",\r\n            \"files-in-om\",\r\n            \"files-loader\",\r\n            \"files-mnemo\",\r\n            \"files-multi\",\r\n            \"files-powerpoint\",\r\n            \"files-upload\",\r\n            \"files-view-document\",\r\n            \"files-word-box\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"finance\",\r\n        \"data\": [\r\n            \"finance-calculator\",\r\n            \"finance-credit-card-of\",\r\n            \"finance-credit-card-plus\",\r\n            \"finance-credit-card\",\r\n            \"finance-currency-btc\",\r\n            \"finance-currency-usd-off\",\r\n            \"finance-currency-usd\",\r\n            \"finance-qr-code-search\",\r\n            \"finance-qr-code\",\r\n            \"finance-scanner\",\r\n            \"finance-wallet\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"folder\",\r\n        \"data\": [\r\n            \"folder-mode\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"location\",\r\n        \"data\": [\r\n            \"location-compass\",\r\n            \"location-crosshairs-gps\",\r\n            \"location-crosshairs\",\r\n            \"location-language\",\r\n            \"location-localization-down-list\",\r\n            \"location-map-2\",\r\n            \"location-map-marker-minus\",\r\n            \"location-map-marker-off\",\r\n            \"location-map-marker-plus\",\r\n            \"location-map-marker\",\r\n            \"location-map\",\r\n            \"location-navigation-1\",\r\n            \"location-navigation\",\r\n            \"location-person-pin-circle\",\r\n            \"location-pin-1\",\r\n            \"location-pin-2\",\r\n            \"location-pin\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"lokoil\",\r\n        \"data\": [\r\n            \"lokoil-compass\",\r\n            \"lokoil-gas-work\",\r\n            \"lokoil-gas\",\r\n            \"lokoil-wind\",\r\n            \"lokoil-work\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"messaging\",\r\n        \"data\": [\r\n            \"messaging-alert\",\r\n            \"messaging-at\",\r\n            \"messaging-emai\",\r\n            \"messaging-email-open\",\r\n            \"messaging-forward\",\r\n            \"messaging-inbox\",\r\n            \"messaging-message-circle\",\r\n            \"messaging-message-off\",\r\n            \"messaging-message\",\r\n            \"messaging-processing\",\r\n            \"messaging-question-ask\",\r\n            \"messaging-reply\",\r\n            \"messaging-send\",\r\n            \"messaging-text\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"network\",\r\n        \"data\": [\r\n            \"network-close\",\r\n            \"network-cloud-download\",\r\n            \"network-cloud-upload\",\r\n            \"network-database-delete\",\r\n            \"network-database-json\",\r\n            \"network-database-minus\",\r\n            \"network-database-plus\",\r\n            \"network-database-search\",\r\n            \"network-database-sql\",\r\n            \"network-database\",\r\n            \"network-download\",\r\n            \"network-external-link\",\r\n            \"network-lan-connect\",\r\n            \"network-lan-disconnect\",\r\n            \"network-lan-pending\",\r\n            \"network-lan\",\r\n            \"network-layers\",\r\n            \"network-library\",\r\n            \"network-minus\",\r\n            \"network-no-layers\",\r\n            \"network-object\",\r\n            \"network-plus\",\r\n            \"network-scheme-2\",\r\n            \"network-scheme\",\r\n            \"network-security\",\r\n            \"network-server-1\",\r\n            \"network-server-network-off\",\r\n            \"network-server-network\",\r\n            \"network-server-off\",\r\n            \"network-server-security\",\r\n            \"network-server\",\r\n            \"network-upload\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"phone\",\r\n        \"data\": [\r\n            \"phone-call-missed\",\r\n            \"phone-in-talk\",\r\n            \"phone-minus\",\r\n            \"phone-missed\",\r\n            \"phone-off\",\r\n            \"phone-paused\",\r\n            \"phone-plus\",\r\n            \"phone\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"player\",\r\n        \"data\": [\r\n            \"player-loop\",\r\n            \"player-pause\",\r\n            \"player-play\",\r\n            \"player-skip-backward\",\r\n            \"player-skip-forward\",\r\n            \"player-skip-next-circle-outline\",\r\n            \"player-skip-previous\",\r\n            \"player-stop\",\r\n            \"player-voicemail\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"plus\",\r\n        \"data\": [\r\n            \"plus-circle-fill\",\r\n            \"plus-circle\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"poi\",\r\n        \"data\": [\r\n            \"poi-barley\",\r\n            \"poi-factory\",\r\n            \"poi-flask-1\",\r\n            \"poi-flask-2\",\r\n            \"poi-flask-3\",\r\n            \"poi-flask-4\",\r\n            \"poi-flask-5\",\r\n            \"poi-fuel\",\r\n            \"poi-gas-monitoring\",\r\n            \"poi-gas-station\",\r\n            \"poi-nuclear-station\",\r\n            \"poi-oil-factory\",\r\n            \"poi-power-station\",\r\n            \"poi-respirator-2\",\r\n            \"poi-respirator-3\",\r\n            \"poi-respirator-4\",\r\n            \"poi-respirator-5\",\r\n            \"poi-respirator-6\",\r\n            \"poi-respirator\",\r\n            \"poi-water-pump\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"selection\",\r\n        \"data\": [\r\n            \"selection-check-all\",\r\n            \"selection-check-circle\",\r\n            \"selection-check-simple\",\r\n            \"selection-checkbox-blank-circle\",\r\n            \"selection-checkbox-blank\",\r\n            \"selection-checkbox-marked-circle-chanel\",\r\n            \"selection-checkbox-marked-circle\",\r\n            \"selection-checked-1\",\r\n            \"selection-checked-empty\",\r\n            \"selection-checked\",\r\n            \"selection-radio-off\",\r\n            \"selection-radio-on\",\r\n            \"selection-success\",\r\n            \"selection-toggle-left\",\r\n            \"selection-toggle-right\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"settings\",\r\n        \"data\": [\r\n            \"settings-2\",\r\n            \"settings-apps\",\r\n            \"settings-more-horiz\",\r\n            \"settings-more-vert\",\r\n            \"settings-power\",\r\n            \"settings-tune-vertical\",\r\n            \"settings-tune\",\r\n            \"settings\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"shapes\",\r\n        \"data\": [\r\n            \"shapes-animation\",\r\n            \"shapes-arrange-bring-forward\",\r\n            \"shapes-arrange-send-backward\",\r\n            \"shapes-arrange-send-to-back\",\r\n            \"shapes-box-shadow\",\r\n            \"shapes-checkbox-intermediate\",\r\n            \"shapes-checkerboard\",\r\n            \"shapes-collage\",\r\n            \"shapes-cube-3\",\r\n            \"shapes-cube-outline\",\r\n            \"shapes-cube\",\r\n            \"shapes-drawing-box\",\r\n            \"shapes-drawing\",\r\n            \"shapes-hexagon-fill\",\r\n            \"shapes-hexagon\",\r\n            \"shapes-layers-off\",\r\n            \"shapes-layers\",\r\n            \"shapes-nest-protec\",\r\n            \"shapes-nut\",\r\n            \"shapes-pentagon-fill\",\r\n            \"shapes-pentagon\",\r\n            \"shapes-rhombus-fill\",\r\n            \"shapes-rhombus\",\r\n            \"shapes-shape-fill\",\r\n            \"shapes-shape-plus-1\",\r\n            \"shapes-shape-plus\",\r\n            \"shapes-shape\",\r\n            \"shapes-square-inc\",\r\n            \"shapes-triangle-fill\",\r\n            \"shapes-triangle\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"shopping\",\r\n        \"data\": [\r\n            \"shopping-box\",\r\n            \"shopping-cart\",\r\n            \"shopping-gift\",\r\n            \"shopping\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"signal\",\r\n        \"data\": [\r\n            \"signal-access-point\",\r\n            \"signal-bluetooth\",\r\n            \"signal-cast\",\r\n            \"signal-off\",\r\n            \"signal-radio-tower\",\r\n            \"signal-rss-box\",\r\n            \"signal-wifi-off\",\r\n            \"signal-wifi\",\r\n            \"signal\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"social\",\r\n        \"data\": [\r\n            \"social-behance\",\r\n            \"social-browser\",\r\n            \"social-facebook\",\r\n            \"social-github\",\r\n            \"social-globe-2\",\r\n            \"social-google-plus\",\r\n            \"social-heart-fill\",\r\n            \"social-heart\",\r\n            \"social-home\",\r\n            \"social-instagram\",\r\n            \"social-linkedin-box\",\r\n            \"social-moon\",\r\n            \"social-share\",\r\n            \"social-star-fill\",\r\n            \"social-star-half\",\r\n            \"social-star\",\r\n            \"social-sun\",\r\n            \"social-tab\",\r\n            \"social-telegram\",\r\n            \"social-thumb-down\",\r\n            \"social-thumb-up\",\r\n            \"social-twitter\",\r\n            \"social-vk\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"sort\",\r\n        \"data\": [\r\n            \"sort-abc-ru-up\",\r\n            \"sort-abc-ru\",\r\n            \"sort-alphabetical-up\",\r\n            \"sort-alphabetical\",\r\n            \"sort-apps\",\r\n            \"sort-asc-arr\",\r\n            \"sort-desc-arr\",\r\n            \"sort-eye-off-2\",\r\n            \"sort-eye-off\",\r\n            \"sort-eye\",\r\n            \"sort-filter-remove\",\r\n            \"sort-filter\",\r\n            \"sort-funnel-drop-down-list-open\",\r\n            \"sort-funnel-drop-down-list\",\r\n            \"sort-look-into-the-buffer\",\r\n            \"sort-maximize\",\r\n            \"sort-numeric\",\r\n            \"sort-real-size\",\r\n            \"sort-search-mistake\",\r\n            \"sort-zoom-in\",\r\n            \"sort-zoom-out\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"tools\",\r\n        \"data\": [\r\n            \"tools-auto-fix\",\r\n            \"tools-award\",\r\n            \"tools-briefcase\",\r\n            \"tools-broom\",\r\n            \"tools-brush\",\r\n            \"tools-content-cut\",\r\n            \"tools-content-save-as\",\r\n            \"tools-content-save\",\r\n            \"tools-earth-work\",\r\n            \"tools-eraser\",\r\n            \"tools-eyedropper\",\r\n            \"tools-keyboard-close-1\",\r\n            \"tools-keyboard-close\",\r\n            \"tools-keyboard\",\r\n            \"tools-lightbulb\",\r\n            \"tools-npm\",\r\n            \"tools-palette\",\r\n            \"tools-pantone\",\r\n            \"tools-ruler\",\r\n            \"tools-save-back\",\r\n            \"tools-solver\",\r\n            \"tools-thermometer-minus\",\r\n            \"tools-thermometer-plus\",\r\n            \"tools-thermometer\",\r\n            \"tools-umbrella\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"transport\",\r\n        \"data\": [\r\n            \"transport-airplane\",\r\n            \"transport-ambulance\",\r\n            \"transport-truck\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"vectors\",\r\n        \"data\": [\r\n            \"vectors-arrange-above\",\r\n            \"vectors-arrange-below\",\r\n            \"vectors-circle-variant\",\r\n            \"vectors-circle\",\r\n            \"vectors-combine-1\",\r\n            \"vectors-combine\",\r\n            \"vectors-curve\",\r\n            \"vectors-difference-ab\",\r\n            \"vectors-difference-ba\",\r\n            \"vectors-difference\",\r\n            \"vectors-ellipse\",\r\n            \"vectors-intersection\",\r\n            \"vectors-line\",\r\n            \"vectors-point\",\r\n            \"vectors-polygon\",\r\n            \"vectors-polyline\",\r\n            \"vectors-radius\",\r\n            \"vectors-rectangle\",\r\n            \"vectors-selection\",\r\n            \"vectors-square\",\r\n            \"vectors-triangle\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"view\",\r\n        \"data\": [\r\n            \"view-agenda\",\r\n            \"view-array\",\r\n            \"view-carousel\",\r\n            \"view-column\",\r\n            \"view-component\",\r\n            \"view-dashboard-variant\",\r\n            \"view-dashboard\",\r\n            \"view-day\",\r\n            \"view-folder-mode\",\r\n            \"view-grid-1\",\r\n            \"view-grid\",\r\n            \"view-headline\",\r\n            \"view-list\",\r\n            \"view-logo-grey-z\",\r\n            \"view-logo-sgrey\",\r\n            \"view-menu-2\",\r\n            \"view-menu-arrow-down\",\r\n            \"view-menu-arrow-left\",\r\n            \"view-menu-arrow-right\",\r\n            \"view-menu-arrow-up\",\r\n            \"view-menu\",\r\n            \"view-module\",\r\n            \"view-quilt\",\r\n            \"view-sequential\"\r\n        ]\r\n    }\r\n]"
+            },
+            {
+                "name": "IconsSet",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/icon/icon.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Info",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "OnlyIcon",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Submit",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Success",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "SuccessMini",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
@@ -290,16 +994,168 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<ZyfraButtonComponent>",
-                "defaultValue": "(args: ZyfraButtonComponent) => ({\n  component: ZyfraButtonComponent,\n  props: args,\n})"
+                "defaultValue": "(args) => ({\r\n  component: ZyfraButtonComponent,\r\n  props: args,\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/icon/icon.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<IconComponents>",
+                "defaultValue": "(args: IconComponents) => ({\r\n  component: IconComponents,\r\n  props: args,\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraSelectButtonComponent<StoryCity, string>>",
+                "defaultValue": "(args) => ({\n  component: ZyfraSelectButtonComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Warning",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             }
         ],
         "functions": [],
-        "typealiases": [],
+        "typealiases": [
+            {
+                "name": "TZyfraButtonIconPosision",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"left\" | \"right\" | \"top\" | \"bottom\"",
+                "file": "libs/components/src/lib/button/zyfra-button.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 185
+            }
+        ],
         "enumerations": [],
         "groupedVariables": {
             "libs/components/src/lib/button/zyfra-button.component.stories.ts": [
                 {
-                    "name": "Primary",
+                    "name": "Badge",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Danger",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "DefaultDisabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "DefaultMini",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Icon",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Info",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "OnlyIcon",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Submit",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Success",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "SuccessMini",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
@@ -316,13 +1172,123 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<ZyfraButtonComponent>",
-                    "defaultValue": "(args: ZyfraButtonComponent) => ({\n  component: ZyfraButtonComponent,\n  props: args,\n})"
+                    "defaultValue": "(args) => ({\r\n  component: ZyfraButtonComponent,\r\n  props: args,\r\n})"
+                },
+                {
+                    "name": "Warning",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                }
+            ],
+            "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts": [
+                {
+                    "name": "cities",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "StoryCity[]",
+                    "defaultValue": "[\n  { name: 'Russia', code: 'RU' },\n  { name: 'Rome', code: 'RM' },\n  { name: 'London', code: 'LDN' },\n  { name: 'Istanbul', code: 'IST' },\n  { name: 'Paris', code: 'PRS' },\n]"
+                },
+                {
+                    "name": "Danger",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "DefaultMini",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ZyfraSelectButtonComponent<StoryCity, string>>",
+                    "defaultValue": "(args) => ({\n  component: ZyfraSelectButtonComponent,\n  props: args,\n})"
+                }
+            ],
+            "libs/components/src/lib/icon/story/icon-definitions.ts": [
+                {
+                    "name": "IconDefs",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/icon/story/icon-definitions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\r\n    {\r\n        \"dir\": \"account\",\r\n        \"data\": [\r\n            \"account-card-details\",\r\n            \"account-circle\",\r\n            \"account-done\",\r\n            \"account-down-list-open\",\r\n            \"account-down-list\",\r\n            \"account-edit\",\r\n            \"account-group\",\r\n            \"account-key\",\r\n            \"account-location\",\r\n            \"account-lock\",\r\n            \"account-log-in\",\r\n            \"account-logout\",\r\n            \"account-minus\",\r\n            \"account-multiple-minus\",\r\n            \"account-multiple-plus\",\r\n            \"account-multiple-shield\",\r\n            \"account-multiple\",\r\n            \"account-plus\",\r\n            \"account-remove\",\r\n            \"account-search\",\r\n            \"account-setting-1\",\r\n            \"account-setting\",\r\n            \"account-shield-1\",\r\n            \"account-shield-alarm\",\r\n            \"account-shield-off\",\r\n            \"account-shield\",\r\n            \"account-switch\",\r\n            \"account-unlock\",\r\n            \"account-worker\",\r\n            \"account\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"add\",\r\n        \"data\": [\r\n            \"add-alarm\",\r\n            \"add-bell-plus\",\r\n            \"add-bookmark-plus\",\r\n            \"add-cart-plus\",\r\n            \"add-file-plus\",\r\n            \"add-folder-plus\",\r\n            \"add-label-add\",\r\n            \"add-library-plus\",\r\n            \"add-map-marker-plus\",\r\n            \"add-phone\",\r\n            \"add-plus-box-fill\",\r\n            \"add-plus-box\",\r\n            \"add-plus-circle-multiple\",\r\n            \"add-plus-drop-down-list\",\r\n            \"add-plus\",\r\n            \"add-shape-square-plus\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"alerts\",\r\n        \"data\": [\r\n            \"alerts-alarm-1\",\r\n            \"alerts-alarm-2\",\r\n            \"alerts-alarm-3\",\r\n            \"alerts-alarm-light\",\r\n            \"alerts-bell-fill\",\r\n            \"alerts-bell-off\",\r\n            \"alerts-bell-ring-fill\",\r\n            \"alerts-bell-ring\",\r\n            \"alerts-bell\",\r\n            \"alerts-box-fill\",\r\n            \"alerts-circle-fill\",\r\n            \"alerts-circle\",\r\n            \"alerts-decagram-fill\",\r\n            \"alerts-decagram\",\r\n            \"alerts-flag-fill\",\r\n            \"alerts-flag\",\r\n            \"alerts-help-box-fill\",\r\n            \"alerts-help-box\",\r\n            \"alerts-help-circle-outline\",\r\n            \"alerts-help-fill\",\r\n            \"alerts-info-circle-fill\",\r\n            \"alerts-info-square-fill\",\r\n            \"alerts-info-square\",\r\n            \"alerts-info-triangle-fill\",\r\n            \"alerts-info-triangle\",\r\n            \"alerts-inform-fill-mini\",\r\n            \"alerts-inform-mini\",\r\n            \"alerts-inform\",\r\n            \"alerts-information-variant\",\r\n            \"alerts-mark\",\r\n            \"alerts-octagon-fill\",\r\n            \"alerts-octagon\",\r\n            \"alerts-pulse\",\r\n            \"alerts-question-mark\",\r\n            \"alerts-square\",\r\n            \"alerts-warning\",\r\n            \"alerts\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"apps\",\r\n        \"data\": [\r\n            \"apps-collector\",\r\n            \"apps-key\",\r\n            \"apps-ontology-2\",\r\n            \"apps-ontology\",\r\n            \"apps-own\",\r\n            \"apps-star\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"arrows\",\r\n        \"data\": [\r\n            \"arrows-all\",\r\n            \"arrows-arrow-circle-down\",\r\n            \"arrows-arrow-circle-left\",\r\n            \"arrows-arrow-circle-right\",\r\n            \"arrows-arrow-circle-up\",\r\n            \"arrows-arrow-expand-horizontal\",\r\n            \"arrows-arrow-expand-vertical\",\r\n            \"arrows-arrow-left\",\r\n            \"arrows-arrow-right\",\r\n            \"arrows-arrow-up-level\",\r\n            \"arrows-arrow-upward\",\r\n            \"arrows-autorenew-1\",\r\n            \"arrows-autorenew\",\r\n            \"arrows-back\",\r\n            \"arrows-cached-1\",\r\n            \"arrows-cached\",\r\n            \"arrows-chevron-left\",\r\n            \"arrows-chevron-right\",\r\n            \"arrows-collapse-four-arrows\",\r\n            \"arrows-collapse\",\r\n            \"arrows-compare\",\r\n            \"arrows-corner-down-left\",\r\n            \"arrows-corner-down-right\",\r\n            \"arrows-corner-left-down\",\r\n            \"arrows-corner-left-up\",\r\n            \"arrows-corner-right-down\",\r\n            \"arrows-corner-right-up\",\r\n            \"arrows-corner-up-left\",\r\n            \"arrows-corner-up-right\",\r\n            \"arrows-diagonal-arrow-left-down\",\r\n            \"arrows-diagonal-arrow-left-up\",\r\n            \"arrows-diagonal-arrow-right-down\",\r\n            \"arrows-diagonal-arrow-right-up\",\r\n            \"arrows-down-2\",\r\n            \"arrows-down-bold\",\r\n            \"arrows-down-double-2\",\r\n            \"arrows-down-double-top-2\",\r\n            \"arrows-down-limit-1\",\r\n            \"arrows-down-limit-double-1\",\r\n            \"arrows-down\",\r\n            \"arrows-expand-all\",\r\n            \"arrows-expand\",\r\n            \"arrows-left-bold\",\r\n            \"arrows-long-arrow-left\",\r\n            \"arrows-long-arrow-right\",\r\n            \"arrows-next\",\r\n            \"arrows-refresh\",\r\n            \"arrows-replay\",\r\n            \"arrows-right-bold\",\r\n            \"arrows-shuffle-variant\",\r\n            \"arrows-shuffle\",\r\n            \"arrows-swap-horiz\",\r\n            \"arrows-swap-vert\",\r\n            \"arrows-swap\",\r\n            \"arrows-up-2\",\r\n            \"arrows-up-bold\",\r\n            \"arrows-up-double-2\",\r\n            \"arrows-up-double-top-2\",\r\n            \"arrows-up-limit-1\",\r\n            \"arrows-up-limit-double-1\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"audio\",\r\n        \"data\": [\r\n            \"audio-add-library-music\",\r\n            \"audio-artist\",\r\n            \"audio-bookmark-music\",\r\n            \"audio-file-music\",\r\n            \"audio-microphone-off\",\r\n            \"audio-microphone\",\r\n            \"audio-music-box\",\r\n            \"audio-music-circle\",\r\n            \"audio-music-off\",\r\n            \"audio-music\",\r\n            \"audio-volume-high\",\r\n            \"audio-volume-low\",\r\n            \"audio-volume-medium\",\r\n            \"audio-volume-minus\",\r\n            \"audio-volume-mute\",\r\n            \"audio-volume-off\",\r\n            \"audio-volume-plus\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"badges\",\r\n        \"data\": [\r\n            \"badges-clipboard-tex\",\r\n            \"badges-clipboard\",\r\n            \"badges-code-download\",\r\n            \"badges-code\",\r\n            \"badges-tag-fill\",\r\n            \"badges-tag-multiple\",\r\n            \"badges-tag-plus\",\r\n            \"badges-tag-remove\",\r\n            \"badges-tag-search\",\r\n            \"badges-tag-text\",\r\n            \"badges-tag\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"battery\",\r\n        \"data\": [\r\n            \"battery-10\",\r\n            \"battery-30\",\r\n            \"battery-50\",\r\n            \"battery-80\",\r\n            \"battery-alert\",\r\n            \"battery-charging\",\r\n            \"battery-flash-off\",\r\n            \"battery-flash\",\r\n            \"battery-minus\",\r\n            \"battery-plus\",\r\n            \"battery\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"bookmarks\",\r\n        \"data\": [\r\n            \"bookmarks-book-open-page-variant\",\r\n            \"bookmarks-book-open-plus\",\r\n            \"bookmarks-book-open-variant\",\r\n            \"bookmarks-book-open\",\r\n            \"bookmarks-book\",\r\n            \"bookmarks-bookmark-check-fill\",\r\n            \"bookmarks-bookmark-check\",\r\n            \"bookmarks-bookmark-fill\",\r\n            \"bookmarks-bookmark-music-fill\",\r\n            \"bookmarks-bookmark-music\",\r\n            \"bookmarks-bookmark-plus-fill\",\r\n            \"bookmarks-bookmark-plus\",\r\n            \"bookmarks-bookmark-remove-fill\",\r\n            \"bookmarks-bookmark-remove\",\r\n            \"bookmarks-bookmark\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"camera\",\r\n        \"data\": [\r\n            \"camera-camera\",\r\n            \"camera-clapperboard-close\",\r\n            \"camera-clapperboard\",\r\n            \"camera-close\",\r\n            \"camera-film-close\",\r\n            \"camera-film\",\r\n            \"camera-image\",\r\n            \"camera-video-close\",\r\n            \"camera-video-off\",\r\n            \"camera-video\",\r\n            \"camera\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"cancel\",\r\n        \"data\": [\r\n            \"cancel-block\",\r\n            \"cancel-close-box-fill\",\r\n            \"cancel-close-box\",\r\n            \"cancel-close-circle-fill\",\r\n            \"cancel-close-circle\",\r\n            \"cancel-close\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"charts\",\r\n        \"data\": [\r\n            \"charts-arc-1\",\r\n            \"charts-arc\",\r\n            \"charts-areaspline\",\r\n            \"charts-bar-stacked\",\r\n            \"charts-bar\",\r\n            \"charts-bubble-line\",\r\n            \"charts-bubble\",\r\n            \"charts-chart-donut-variant-half\",\r\n            \"charts-chart-donut-variant\",\r\n            \"charts-donut\",\r\n            \"charts-elevation-decline\",\r\n            \"charts-elevation-rise\",\r\n            \"charts-finance\",\r\n            \"charts-gantt\",\r\n            \"charts-google-analytics\",\r\n            \"charts-google-assistant\",\r\n            \"charts-hexagon-multiple\",\r\n            \"charts-histogram-chart-dashed-2\",\r\n            \"charts-histogram-chart-dashed\",\r\n            \"charts-histogram\",\r\n            \"charts-line-variant\",\r\n            \"charts-line\",\r\n            \"charts-pie-2\",\r\n            \"charts-pie\",\r\n            \"charts-poll-box\",\r\n            \"charts-poll\",\r\n            \"charts-scatterplot-hexbin\",\r\n            \"charts-signal\",\r\n            \"charts-trending-down\",\r\n            \"charts-trending-up\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"chevrons\",\r\n        \"data\": [\r\n            \"chevrons-double-down\",\r\n            \"chevrons-double-left\",\r\n            \"chevrons-double-right\",\r\n            \"chevrons-double-up\",\r\n            \"chevrons-down\",\r\n            \"chevrons-dropdown\",\r\n            \"chevrons-dropup\",\r\n            \"chevrons-input\",\r\n            \"chevrons-left\",\r\n            \"chevrons-menu-left\",\r\n            \"chevrons-menu-right\",\r\n            \"chevrons-right\",\r\n            \"chevrons-unfold-less-horizontal\",\r\n            \"chevrons-unfold-less-verica\",\r\n            \"chevrons-unfold-more-horizontal\",\r\n            \"chevrons-unfold-more-vertical\",\r\n            \"chevrons-up\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"color\",\r\n        \"data\": [\r\n            \"angular\",\r\n            \"application\",\r\n            \"color-arrows-down-double-2\",\r\n            \"color-arrows-down-double-top-2\",\r\n            \"color-arrows-down-limit-double-1\",\r\n            \"color-arrows-up-double-2\",\r\n            \"color-arrows-up-double-top-2\",\r\n            \"color-arrows-up-limit-double-1\",\r\n            \"color-compass\",\r\n            \"color-France-drop\",\r\n            \"color-France\",\r\n            \"color-German-drop\",\r\n            \"color-German\",\r\n            \"color-Grat-Britan-down-list\",\r\n            \"color-Grat-Britan-drop\",\r\n            \"color-Indian-drop\",\r\n            \"color-Indian\",\r\n            \"color-logo-green\",\r\n            \"color-Russia-drop\",\r\n            \"color-Russia\",\r\n            \"ecp-alert-1\",\r\n            \"ecp-wind\",\r\n            \"external\",\r\n            \"react\",\r\n            \"vue\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"date\",\r\n        \"data\": [\r\n            \"date-access-alarm\",\r\n            \"date-calendar-blank\",\r\n            \"date-calendar-check\",\r\n            \"date-calendar-clock\",\r\n            \"date-calendar-plus\",\r\n            \"date-calendar-question\",\r\n            \"date-calendar-range\",\r\n            \"date-calendar-remove\",\r\n            \"date-calendar-text\",\r\n            \"date-calendar-today\",\r\n            \"date-calendar\",\r\n            \"date-clock-alert\",\r\n            \"date-clock-end\",\r\n            \"date-clock-in\",\r\n            \"date-clock-out\",\r\n            \"date-clock-start\",\r\n            \"date-clock\",\r\n            \"date-history\",\r\n            \"date-period-dropdown-list-open\",\r\n            \"date-period-dropdown-list\",\r\n            \"date-range\",\r\n            \"date-time-add\",\r\n            \"date-time-remove\",\r\n            \"date-timer-sand-empty\",\r\n            \"date-timer\",\r\n            \"date-update\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"delete\",\r\n        \"data\": [\r\n            \"delete-do-not-disturb\",\r\n            \"delete-drop\",\r\n            \"delete-empty\",\r\n            \"delete-forever\",\r\n            \"delete-label-delete\",\r\n            \"delete-minus-circle\",\r\n            \"delete-minus-square\",\r\n            \"delete-minus\",\r\n            \"delete-restore\",\r\n            \"delete\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"devices\",\r\n        \"data\": [\r\n            \"devices-android-debug-bridge\",\r\n            \"devices-android\",\r\n            \"devices-camera-front\",\r\n            \"devices-cellphone-basic\",\r\n            \"devices-cellphone-link-off\",\r\n            \"devices-cellphone-link\",\r\n            \"devices-cellphone-wireless\",\r\n            \"devices-cellphone\",\r\n            \"devices-desktop-tower\",\r\n            \"devices-hard-drive-outline\",\r\n            \"devices-headphones\",\r\n            \"devices-input-device\",\r\n            \"devices-laptop-off\",\r\n            \"devices-laptop\",\r\n            \"devices-monitor\",\r\n            \"devices-printer\",\r\n            \"devices-sensor\",\r\n            \"devices-speaker\",\r\n            \"devices-tablet\",\r\n            \"devices-touchpad\",\r\n            \"devices-transmitter\",\r\n            \"devices-tv\",\r\n            \"devices-watch-variant\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"ecp\",\r\n        \"data\": [\r\n            \"alert\",\r\n            \"ecologist-1\",\r\n            \"expand-four-arrows-24\",\r\n            \"false-event1\",\r\n            \"false-event3\",\r\n            \"pin-1\",\r\n            \"pin-alarm\",\r\n            \"wind-1\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"editor\",\r\n        \"data\": [\r\n            \"editor-add-column\",\r\n            \"editor-add-comment\",\r\n            \"editor-add-row\",\r\n            \"editor-alfavit\",\r\n            \"editor-attach-2\",\r\n            \"editor-attach-file\",\r\n            \"editor-border-all\",\r\n            \"editor-border-bottom\",\r\n            \"editor-border-clear\",\r\n            \"editor-border-color\",\r\n            \"editor-border-horizontal\",\r\n            \"editor-border-inner\",\r\n            \"editor-border-left\",\r\n            \"editor-border-outer\",\r\n            \"editor-border-right\",\r\n            \"editor-border-style\",\r\n            \"editor-border-top\",\r\n            \"editor-border-vertical\",\r\n            \"editor-copy-drop\",\r\n            \"editor-copy\",\r\n            \"editor-crop\",\r\n            \"editor-delete-column\",\r\n            \"editor-delete-row\",\r\n            \"editor-down\",\r\n            \"editor-drag-and-drop\",\r\n            \"editor-dropdown-list-open\",\r\n            \"editor-dropdown-list\",\r\n            \"editor-droplet\",\r\n            \"editor-format-align-center\",\r\n            \"editor-format-align-justify\",\r\n            \"editor-format-align-left\",\r\n            \"editor-format-align-right\",\r\n            \"editor-format-bold\",\r\n            \"editor-format-color-fill\",\r\n            \"editor-format-color-reset\",\r\n            \"editor-format-color-text\",\r\n            \"editor-format-italic\",\r\n            \"editor-format-list-bulleted\",\r\n            \"editor-format-list-numbered\",\r\n            \"editor-format-textdirection-l-to-r\",\r\n            \"editor-format-underlined\",\r\n            \"editor-formula\",\r\n            \"editor-functions\",\r\n            \"editor-group-dropdown\",\r\n            \"editor-group\",\r\n            \"editor-hash\",\r\n            \"editor-insert-emoticon-sad\",\r\n            \"editor-insert-emoticon\",\r\n            \"editor-insert-link\",\r\n            \"editor-line-height\",\r\n            \"editor-link\",\r\n            \"editor-list-dushed-2\",\r\n            \"editor-merge-type\",\r\n            \"editor-mini\",\r\n            \"editor-mode\",\r\n            \"editor-panel-left\",\r\n            \"editor-panel-right\",\r\n            \"editor-panel-top\",\r\n            \"editor-percent\",\r\n            \"editor-right\",\r\n            \"editor-screen\",\r\n            \"editor-search-tags-words\",\r\n            \"editor-sort-asc\",\r\n            \"editor-table\",\r\n            \"editor-title\",\r\n            \"editor-ungroup\",\r\n            \"editor-vertical-align-bottom\",\r\n            \"editor-vertical-align-center\",\r\n            \"editor-vertical-align-top\",\r\n            \"editor-window\",\r\n            \"editor-wrap-text\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"export\",\r\n        \"data\": [\r\n            \"export-files-pdf\",\r\n            \"export-files-xlsx\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"files\",\r\n        \"data\": [\r\n            \"files-archive\",\r\n            \"files-cloud-check\",\r\n            \"files-cloud\",\r\n            \"files-cloup-upload\",\r\n            \"files-correct\",\r\n            \"files-description-properties\",\r\n            \"files-document-image\",\r\n            \"files-document-text\",\r\n            \"files-download\",\r\n            \"files-excel-box\",\r\n            \"files-export-csv\",\r\n            \"files-export-pdf\",\r\n            \"files-export-xlsx\",\r\n            \"files-export\",\r\n            \"files-file-open-all\",\r\n            \"files-file-remove\",\r\n            \"files-file\",\r\n            \"files-find\",\r\n            \"files-folder-delete\",\r\n            \"files-folder-remove\",\r\n            \"files-folder-root-add\",\r\n            \"files-folder\",\r\n            \"files-in-om\",\r\n            \"files-loader\",\r\n            \"files-mnemo\",\r\n            \"files-multi\",\r\n            \"files-powerpoint\",\r\n            \"files-upload\",\r\n            \"files-view-document\",\r\n            \"files-word-box\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"finance\",\r\n        \"data\": [\r\n            \"finance-calculator\",\r\n            \"finance-credit-card-of\",\r\n            \"finance-credit-card-plus\",\r\n            \"finance-credit-card\",\r\n            \"finance-currency-btc\",\r\n            \"finance-currency-usd-off\",\r\n            \"finance-currency-usd\",\r\n            \"finance-qr-code-search\",\r\n            \"finance-qr-code\",\r\n            \"finance-scanner\",\r\n            \"finance-wallet\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"folder\",\r\n        \"data\": [\r\n            \"folder-mode\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"location\",\r\n        \"data\": [\r\n            \"location-compass\",\r\n            \"location-crosshairs-gps\",\r\n            \"location-crosshairs\",\r\n            \"location-language\",\r\n            \"location-localization-down-list\",\r\n            \"location-map-2\",\r\n            \"location-map-marker-minus\",\r\n            \"location-map-marker-off\",\r\n            \"location-map-marker-plus\",\r\n            \"location-map-marker\",\r\n            \"location-map\",\r\n            \"location-navigation-1\",\r\n            \"location-navigation\",\r\n            \"location-person-pin-circle\",\r\n            \"location-pin-1\",\r\n            \"location-pin-2\",\r\n            \"location-pin\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"lokoil\",\r\n        \"data\": [\r\n            \"lokoil-compass\",\r\n            \"lokoil-gas-work\",\r\n            \"lokoil-gas\",\r\n            \"lokoil-wind\",\r\n            \"lokoil-work\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"messaging\",\r\n        \"data\": [\r\n            \"messaging-alert\",\r\n            \"messaging-at\",\r\n            \"messaging-emai\",\r\n            \"messaging-email-open\",\r\n            \"messaging-forward\",\r\n            \"messaging-inbox\",\r\n            \"messaging-message-circle\",\r\n            \"messaging-message-off\",\r\n            \"messaging-message\",\r\n            \"messaging-processing\",\r\n            \"messaging-question-ask\",\r\n            \"messaging-reply\",\r\n            \"messaging-send\",\r\n            \"messaging-text\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"network\",\r\n        \"data\": [\r\n            \"network-close\",\r\n            \"network-cloud-download\",\r\n            \"network-cloud-upload\",\r\n            \"network-database-delete\",\r\n            \"network-database-json\",\r\n            \"network-database-minus\",\r\n            \"network-database-plus\",\r\n            \"network-database-search\",\r\n            \"network-database-sql\",\r\n            \"network-database\",\r\n            \"network-download\",\r\n            \"network-external-link\",\r\n            \"network-lan-connect\",\r\n            \"network-lan-disconnect\",\r\n            \"network-lan-pending\",\r\n            \"network-lan\",\r\n            \"network-layers\",\r\n            \"network-library\",\r\n            \"network-minus\",\r\n            \"network-no-layers\",\r\n            \"network-object\",\r\n            \"network-plus\",\r\n            \"network-scheme-2\",\r\n            \"network-scheme\",\r\n            \"network-security\",\r\n            \"network-server-1\",\r\n            \"network-server-network-off\",\r\n            \"network-server-network\",\r\n            \"network-server-off\",\r\n            \"network-server-security\",\r\n            \"network-server\",\r\n            \"network-upload\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"phone\",\r\n        \"data\": [\r\n            \"phone-call-missed\",\r\n            \"phone-in-talk\",\r\n            \"phone-minus\",\r\n            \"phone-missed\",\r\n            \"phone-off\",\r\n            \"phone-paused\",\r\n            \"phone-plus\",\r\n            \"phone\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"player\",\r\n        \"data\": [\r\n            \"player-loop\",\r\n            \"player-pause\",\r\n            \"player-play\",\r\n            \"player-skip-backward\",\r\n            \"player-skip-forward\",\r\n            \"player-skip-next-circle-outline\",\r\n            \"player-skip-previous\",\r\n            \"player-stop\",\r\n            \"player-voicemail\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"plus\",\r\n        \"data\": [\r\n            \"plus-circle-fill\",\r\n            \"plus-circle\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"poi\",\r\n        \"data\": [\r\n            \"poi-barley\",\r\n            \"poi-factory\",\r\n            \"poi-flask-1\",\r\n            \"poi-flask-2\",\r\n            \"poi-flask-3\",\r\n            \"poi-flask-4\",\r\n            \"poi-flask-5\",\r\n            \"poi-fuel\",\r\n            \"poi-gas-monitoring\",\r\n            \"poi-gas-station\",\r\n            \"poi-nuclear-station\",\r\n            \"poi-oil-factory\",\r\n            \"poi-power-station\",\r\n            \"poi-respirator-2\",\r\n            \"poi-respirator-3\",\r\n            \"poi-respirator-4\",\r\n            \"poi-respirator-5\",\r\n            \"poi-respirator-6\",\r\n            \"poi-respirator\",\r\n            \"poi-water-pump\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"selection\",\r\n        \"data\": [\r\n            \"selection-check-all\",\r\n            \"selection-check-circle\",\r\n            \"selection-check-simple\",\r\n            \"selection-checkbox-blank-circle\",\r\n            \"selection-checkbox-blank\",\r\n            \"selection-checkbox-marked-circle-chanel\",\r\n            \"selection-checkbox-marked-circle\",\r\n            \"selection-checked-1\",\r\n            \"selection-checked-empty\",\r\n            \"selection-checked\",\r\n            \"selection-radio-off\",\r\n            \"selection-radio-on\",\r\n            \"selection-success\",\r\n            \"selection-toggle-left\",\r\n            \"selection-toggle-right\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"settings\",\r\n        \"data\": [\r\n            \"settings-2\",\r\n            \"settings-apps\",\r\n            \"settings-more-horiz\",\r\n            \"settings-more-vert\",\r\n            \"settings-power\",\r\n            \"settings-tune-vertical\",\r\n            \"settings-tune\",\r\n            \"settings\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"shapes\",\r\n        \"data\": [\r\n            \"shapes-animation\",\r\n            \"shapes-arrange-bring-forward\",\r\n            \"shapes-arrange-send-backward\",\r\n            \"shapes-arrange-send-to-back\",\r\n            \"shapes-box-shadow\",\r\n            \"shapes-checkbox-intermediate\",\r\n            \"shapes-checkerboard\",\r\n            \"shapes-collage\",\r\n            \"shapes-cube-3\",\r\n            \"shapes-cube-outline\",\r\n            \"shapes-cube\",\r\n            \"shapes-drawing-box\",\r\n            \"shapes-drawing\",\r\n            \"shapes-hexagon-fill\",\r\n            \"shapes-hexagon\",\r\n            \"shapes-layers-off\",\r\n            \"shapes-layers\",\r\n            \"shapes-nest-protec\",\r\n            \"shapes-nut\",\r\n            \"shapes-pentagon-fill\",\r\n            \"shapes-pentagon\",\r\n            \"shapes-rhombus-fill\",\r\n            \"shapes-rhombus\",\r\n            \"shapes-shape-fill\",\r\n            \"shapes-shape-plus-1\",\r\n            \"shapes-shape-plus\",\r\n            \"shapes-shape\",\r\n            \"shapes-square-inc\",\r\n            \"shapes-triangle-fill\",\r\n            \"shapes-triangle\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"shopping\",\r\n        \"data\": [\r\n            \"shopping-box\",\r\n            \"shopping-cart\",\r\n            \"shopping-gift\",\r\n            \"shopping\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"signal\",\r\n        \"data\": [\r\n            \"signal-access-point\",\r\n            \"signal-bluetooth\",\r\n            \"signal-cast\",\r\n            \"signal-off\",\r\n            \"signal-radio-tower\",\r\n            \"signal-rss-box\",\r\n            \"signal-wifi-off\",\r\n            \"signal-wifi\",\r\n            \"signal\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"social\",\r\n        \"data\": [\r\n            \"social-behance\",\r\n            \"social-browser\",\r\n            \"social-facebook\",\r\n            \"social-github\",\r\n            \"social-globe-2\",\r\n            \"social-google-plus\",\r\n            \"social-heart-fill\",\r\n            \"social-heart\",\r\n            \"social-home\",\r\n            \"social-instagram\",\r\n            \"social-linkedin-box\",\r\n            \"social-moon\",\r\n            \"social-share\",\r\n            \"social-star-fill\",\r\n            \"social-star-half\",\r\n            \"social-star\",\r\n            \"social-sun\",\r\n            \"social-tab\",\r\n            \"social-telegram\",\r\n            \"social-thumb-down\",\r\n            \"social-thumb-up\",\r\n            \"social-twitter\",\r\n            \"social-vk\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"sort\",\r\n        \"data\": [\r\n            \"sort-abc-ru-up\",\r\n            \"sort-abc-ru\",\r\n            \"sort-alphabetical-up\",\r\n            \"sort-alphabetical\",\r\n            \"sort-apps\",\r\n            \"sort-asc-arr\",\r\n            \"sort-desc-arr\",\r\n            \"sort-eye-off-2\",\r\n            \"sort-eye-off\",\r\n            \"sort-eye\",\r\n            \"sort-filter-remove\",\r\n            \"sort-filter\",\r\n            \"sort-funnel-drop-down-list-open\",\r\n            \"sort-funnel-drop-down-list\",\r\n            \"sort-look-into-the-buffer\",\r\n            \"sort-maximize\",\r\n            \"sort-numeric\",\r\n            \"sort-real-size\",\r\n            \"sort-search-mistake\",\r\n            \"sort-zoom-in\",\r\n            \"sort-zoom-out\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"tools\",\r\n        \"data\": [\r\n            \"tools-auto-fix\",\r\n            \"tools-award\",\r\n            \"tools-briefcase\",\r\n            \"tools-broom\",\r\n            \"tools-brush\",\r\n            \"tools-content-cut\",\r\n            \"tools-content-save-as\",\r\n            \"tools-content-save\",\r\n            \"tools-earth-work\",\r\n            \"tools-eraser\",\r\n            \"tools-eyedropper\",\r\n            \"tools-keyboard-close-1\",\r\n            \"tools-keyboard-close\",\r\n            \"tools-keyboard\",\r\n            \"tools-lightbulb\",\r\n            \"tools-npm\",\r\n            \"tools-palette\",\r\n            \"tools-pantone\",\r\n            \"tools-ruler\",\r\n            \"tools-save-back\",\r\n            \"tools-solver\",\r\n            \"tools-thermometer-minus\",\r\n            \"tools-thermometer-plus\",\r\n            \"tools-thermometer\",\r\n            \"tools-umbrella\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"transport\",\r\n        \"data\": [\r\n            \"transport-airplane\",\r\n            \"transport-ambulance\",\r\n            \"transport-truck\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"vectors\",\r\n        \"data\": [\r\n            \"vectors-arrange-above\",\r\n            \"vectors-arrange-below\",\r\n            \"vectors-circle-variant\",\r\n            \"vectors-circle\",\r\n            \"vectors-combine-1\",\r\n            \"vectors-combine\",\r\n            \"vectors-curve\",\r\n            \"vectors-difference-ab\",\r\n            \"vectors-difference-ba\",\r\n            \"vectors-difference\",\r\n            \"vectors-ellipse\",\r\n            \"vectors-intersection\",\r\n            \"vectors-line\",\r\n            \"vectors-point\",\r\n            \"vectors-polygon\",\r\n            \"vectors-polyline\",\r\n            \"vectors-radius\",\r\n            \"vectors-rectangle\",\r\n            \"vectors-selection\",\r\n            \"vectors-square\",\r\n            \"vectors-triangle\"\r\n        ]\r\n    },\r\n    {\r\n        \"dir\": \"view\",\r\n        \"data\": [\r\n            \"view-agenda\",\r\n            \"view-array\",\r\n            \"view-carousel\",\r\n            \"view-column\",\r\n            \"view-component\",\r\n            \"view-dashboard-variant\",\r\n            \"view-dashboard\",\r\n            \"view-day\",\r\n            \"view-folder-mode\",\r\n            \"view-grid-1\",\r\n            \"view-grid\",\r\n            \"view-headline\",\r\n            \"view-list\",\r\n            \"view-logo-grey-z\",\r\n            \"view-logo-sgrey\",\r\n            \"view-menu-2\",\r\n            \"view-menu-arrow-down\",\r\n            \"view-menu-arrow-left\",\r\n            \"view-menu-arrow-right\",\r\n            \"view-menu-arrow-up\",\r\n            \"view-menu\",\r\n            \"view-module\",\r\n            \"view-quilt\",\r\n            \"view-sequential\"\r\n        ]\r\n    }\r\n]"
+                }
+            ],
+            "libs/components/src/lib/icon/icon.component.stories.ts": [
+                {
+                    "name": "IconsSet",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/icon/icon.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/icon/icon.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<IconComponents>",
+                    "defaultValue": "(args: IconComponents) => ({\r\n  component: IconComponents,\r\n  props: args,\r\n})"
                 }
             ]
         },
         "groupedFunctions": {},
         "groupedEnumerations": {},
-        "groupedTypeAliases": {}
+        "groupedTypeAliases": {
+            "libs/components/src/lib/button/zyfra-button.component.ts": [
+                {
+                    "name": "TZyfraButtonIconPosision",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"left\" | \"right\" | \"top\" | \"bottom\"",
+                    "file": "libs/components/src/lib/button/zyfra-button.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 185
+                }
+            ]
+        }
     },
     "routes": [],
     "coverage": {
@@ -334,7 +1300,117 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Primary",
+                "name": "Badge",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Danger",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DefaultDisabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DefaultMini",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Icon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Info",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "OnlyIcon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Submit",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Success",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SuccessMini",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -350,12 +1426,156 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Warning",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/components/src/lib/button/zyfra-button.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "ZyfraButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/15",
+                "coverageCount": "0/16",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/icon/icon.component.stories.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "IconComponents",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/icon/icon.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "IconsSet",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/icon/icon.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/icon/icon.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "IconComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/icon/story/icon-definitions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "IconDefs",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "StoryCity",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "cities",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Danger",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DefaultMini",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/select-button/zyfra-select-button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ZyfraSelectButtonComponent",
+                "coveragePercent": 25,
+                "coverageCount": "4/16",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/select-button/zyfra-select-button.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "SelectButtonChange",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/select-button/zyfra-select-button.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "SelectButtonOptionClick",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
                 "status": "low"
             }
         ]
