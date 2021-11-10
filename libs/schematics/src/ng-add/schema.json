@@ -10,6 +10,11 @@
             "$default": {
                 "$source": "projectName"
             }
+        },
+        "installIcons": {
+            "type": "boolean",
+            "description": "Install icons?",
+            "default": true
         }
     }
 }
