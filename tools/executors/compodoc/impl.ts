@@ -2,13 +2,13 @@ import { ExecutorContext } from '@nrwl/devkit';
 import { exec } from 'child_process';
 import { promisify } from 'util';
 
-export interface EchoExecutorOptions {
+export interface CompodocExecutorOptions {
   tsConfigPath: string;
   distPath: string
 }
 
 export default async function compodocExecutor(
-  options: EchoExecutorOptions,
+  options: CompodocExecutorOptions,
   context: ExecutorContext
 ) {
   console.info(`Executing "compodoc"...`);
