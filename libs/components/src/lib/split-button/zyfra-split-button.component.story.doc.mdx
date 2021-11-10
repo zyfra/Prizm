@@ -1,0 +1,48 @@
+import { ArgsTable, Subtitle } from '@storybook/addon-docs';
+import { ZyfraSplitButtonComponent } from './zyfra-split-button.component';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+
+## Zyfra-SplitButton
+
+<Subtitle>SplitButton groups a set of commands in an overlay with a default command</Subtitle>
+
+```
+npm i @zyfra/zyfra-split-button
+```
+
+Import module:
+
+```typescript
+import { ZyfraSplitButtonModule } from '@zyfra/zyfra-split-button';
+
+@NgModule({
+  imports: [ZyfraSplitButtonModule],
+})
+export class YourModule {}
+```
+
+To component:
+
+```html
+<zyfra-split-button label="split2" [model]="items"></zyfra-split-button>
+```
+
+```typescript
+export interface Item {
+  label?: string;
+  icon?: string;
+  separator?: string;
+}
+
+const items: Item[] = [
+  { label: 'Item1', icon: 'pi pi-refresh' },
+  { label: 'Item2', icon: 'pi pi-times' },
+  { separator: true },
+  { label: 'Item3', icon: 'pi pi-times' },
+];
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraSplitButtonComponent} />
