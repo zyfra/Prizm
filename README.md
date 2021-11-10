@@ -25,7 +25,7 @@ For example button component
 ```
    > nx generate @nrwl/angular:module button --project=components
    > nx generate @nrwl/angular:component button --project=components
-   > nx generate @nrwl/angular:stories components (take false as an answer)
+   > nx generate @nrwl/angular:stories components (opt "false" as an answer)
 ```
 2. Add styles for component (by default ViewEncapsulation.None) to root styles (`libs/components/src/styles.less`)
 
