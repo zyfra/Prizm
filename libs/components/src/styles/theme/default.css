@@ -1,181 +1,230 @@
 :root {
+  /* --------- standard ------------ */
+  --bgStandart: #ffffff;
+  --bgSecond: #dadee7;
+  --bgScreen: #ced3de;
+  --colorDisabled: #bcc3d2;
 
-  /* --------- standard ------------ */  
-  --bgStandart:#FFFFFF;
-  --bgSecond:#DADEE7;
-  --bgScreen:#CED3DE;
+  --textColor: #ffffff;
+  --primaryColor: #3e7dea;
+  --primaryColorHover: #1860dc;
+  --primaryColorActive: #1248a6;
+  --secondaryColor: #6d9ab0;
+  --infoColor: #22bfaf;
+  --infoColorHover: #1fad9f;
+  --infoColorActive: #15796f;
+  --warningColor: #ff983d;
+  --warningColorHover: #ff8214;
+  --warningColorActive: #cc5f00;
+  --dangerColor: #ec5050;
+  --dangerColorHover: #ea3e3e;
+  --dangerColorActive: #af1313;
+  --successColor: #62bc65;
+  --successColorHover: #49ab4d;
+  --successColorActive: #37813a;
 
-  --text:#353E50;
-  --eventer:#7887A5;
-  --link:#3E7DEA;
+  --text: #353e50;
+  --eventer: #7887a5;
+  --link: var(--primaryColor);
+  --fontFamily: Inter, sans-serif;
 
   /* ----------- buttons ------------- */
-  --buttonSuccess: #62BC65;  
-  --buttonSuccessHover: #49AB4D;
-  --buttonSuccessActive: #37813A;
-  --buttonSuccessFont: #FFFFFF;
+  --buttonSuccess: var(--successColor);
+  --buttonSuccessHover: var(--buttonSuccessHover);
+  --buttonSuccessActive: var(--successColorActive);
+  --buttonSuccessFont: var(--textColor);
 
-  --buttonDisabled: #BCC3D2;
-  --buttonDisabledFont: #FFFFFF;
+  --buttonDisabled: var(--colorDisabled);
+  --buttonDisabledFont: var(--textColor);
 
-  --buttonWarning:#FF983D;
-  --buttonWarningHover:#FF8214;
-  --buttonWarningActive:#CC5F00;
-  --buttonWarningFont:#FFFFFF;
+  --buttonWarning: var(--warningColor);
+  --buttonWarningHover: var(--warningColorHover);
+  --buttonWarningActive: var(--warningColorActive);
+  --buttonWarningFont: var(--textColor);
 
-  --buttonDanger:#EC5050;
-  --buttonDangerHover:#EA3E3E;
-  --buttonDangerActive:#AF1313;
-  --buttonDangerFont:#FFFFFF;
-  
-  --buttonInfo:#22BFAF;
-  --buttonInfoHover:#1FAD9F;
-  --buttonInfoActive:#15796F;
-  --buttonInfoFont:#FFFFFF;
+  --buttonDanger: var(--dangerColor);
+  --buttonDangerHover: var(--dangerColorHover);
+  --buttonDangerActive: var(--dangerColorActive);
+  --buttonDangerFont: var(--textColor);
 
-  --buttonSecondary:#6D9AB0;
-  --buttoInfoHover:#1FAD9F;
-  --buttonInfoActive:#15796F;
-  --buttonInfoFont:#FFFFFF;
+  --buttonInfo: var(--infoColor);
+  --buttonInfoHover: var(--infoColorHover);
+  --buttonInfoActive: var(--infoColorActive);
+  --buttonInfoFont: var(--textColor);
 
-  --buttonPrimary:#3E7DEA;
-  --buttonPrimaryHover:#1860DC;
-  --buttonPrimaryActive:#1248A6;
-  --buttonPrimaryFont:#FFFFFF;
+  --buttonSecondary: #afb8ca;
+  --buttonSecondaryHover: #919db6;
+  --buttonSecondaryActive: #919db6;
+  --buttonSecondaryFont: var(--textColor);
 
+  --buttonPrimary: var(--primaryColor);
+  --buttonPrimaryHover: var(--primaryColorHover);
+  --buttonPrimaryActive: var(--primaryColorActive);
+  --buttonPrimaryFont: var(--textColor);
 
   /* ------------ checkbox ------------ */
-  --checkBoxUnactive:#7887A5;
-  --checkBox: #62BC65;
-  --checkBoxHover:#49AB4D;
-  --checkBoxActive:#49AB4D;
-  --checkBoxBg:#FFFFFF;
+  --checkBoxUnactive: #7887a5;
+  --checkBox: var(--successColor);
+  --checkBoxHover: var(--buttonSuccessHover);
+  --checkBoxActive: var(--buttonSuccessHover);
+  --checkBoxBg: var(--bgStandart);
+  --checkBoxBgHover: var(--bgStandart);
+  --checkBoxFontDisabled: var(--colorDisabled);
+  --checkBoxBgDisabled: #f3f4f7;
 
-   /* ------------ radioButton ------------ */
-   --radioButtonUnactive:#7887A5;
-   --radioButton: #62BC65;
-   --radioButtonHover:#49AB4D;
-   --radioButtonActive:#49AB4D;
-   --radioButtonBg:#FFFFFF;
+  /* ------------ radioButton ------------ */
+  --radioButton: #7887a5;
+  --radioButtonHover: var(--successColorHover);
+  --radioButtonActive: var(--successColorHover);
+  --radioButtonDisabled: var(--colorDisabled);
+  --radioButtonBg: var(--bgStandart);
+  --radioButtonDisabledBg: #edeff3;
 
+  /* ----------- chips ------------- */
+  --chipsSuccess: var(--successColor);
+  --chipsSuccessHover: var(--buttonSuccessHover);
+  --chipsSuccessActive: var(--successColorActive);
+  --chipsSuccessFont: var(--textColor);
 
-   /* ----------- chips ------------- */
-  --chipsSuccess: #62BC65;  
-  --chipsSuccessHover: #49AB4D;
-  --chipsSuccessActive: #37813A;
-  --chipsSuccessFont: #FFFFFF;
+  --chipsDisabled: var(--colorDisabled);
+  --chipsDisabledFont: var(--textColor);
 
-  --chipsDisabled: #BCC3D2;
-  --chipsDisabledFont: #FFFFFF;
+  --chipsWarning: var(--warningColor);
+  --chipsWarningHover: var(--warningColorHover);
+  --chipsWarningActive: var(--warningColorActive);
+  --chipsWarningFont: var(--textColor);
 
-  --chipsWarning:#FF983D;
-  --chipsWarningHover:#FF8214;
-  --chipsWarningActive:#CC5F00;
-  --chipsWarningFont:#FFFFFF;
+  --chipsDanger: var(--dangerColor);
+  --chipsDangerHover: var(--dangerColorHover);
+  --chipsDangerActive: var(--dangerColorActive);
+  --chipsDangerFont: var(--textColor);
 
-  --chipsDanger:#EC5050;
-  --chipsDangerHover:#EA3E3E;
-  --chipsDangerActive:#AF1313;
-  --chipsDangerFont:#FFFFFF;
-  
-  --chipsInfo:#22BFAF;
-  --chipsInfoHover:#1FAD9F;
-  --chipsInfoActive:#15796F;
-  --chipsInfoFont:#FFFFFF;
+  --chipsInfo: var(--infoColor);
+  --chipsInfoHover: var(--infoColorHover);
+  --chipsInfoActive: var(--infoColorActive);
+  --chipsInfoFont: var(--textColor);
 
-  --chipsSecondary:#6D9AB0;
-  --chipsInfoHover:#1FAD9F;
-  --chipsInfoActive:#15796F;
-  --chipsInfoFont:#FFFFFF;
+  --chipsPrimary: var(--primaryColor);
+  --chipsPrimaryHover: var(--primaryColorHover);
+  --chipsPrimaryActive: var(--primaryColorActive);
+  --chipsPrimaryFont: var(--textColor);
 
-  --chipsPrimary:#3E7DEA;
-  --chipsPrimaryHover:#1860DC;
-  --chipsPrimaryActive:#1248A6;
-  --chipsPrimaryFont:#FFFFFF;
-  
-   /* --------------------------------------------  */
+  /* ----------- inputSwitch ------------- */
+  --inputSwitchBg: var(--bgStandart);
+  --inputSwitchHover: var(--buttonSuccessHover);
+  --inputSwitchActive: var(--buttonSuccessHover);
+  --inputSwitchUnactive: #7887a5;
 
-    /* --------- standart ------------ */
-    --standartBg: #ffffff; 
-    --standartFont: #353E50;
-    --standartBorder: #E7E9EF;
-    
+  --inputSwitchDisabled: var(--colorDisabled);
+  --inputSwitchDisabledBg: #f3f4f7;
 
-    /* --------- for color bg ----------- */
-    --z-accentColor: #49AB4D;
-    --standartActive: #37813A;
-    --bgFont:#ffffff;
+  /* --------------------------------------------  */
 
-    /* ------- font for/in input -------- */
-    --inputFont: #AFB8CA;
+  /* --------- standart ------------ */
+  --standartBg: var(--bgStandart);
+  --standartFont: #353e50;
+  --standartBorder: #e7e9ef;
 
-    /* -- standart variables for button -- */
-    --standartButton: #62BC65;
-    --standartButtonHover: #49AB4D;   
-    --standartButtonActive: #37813A;
-    --standartButtonFont: #ffffff;
+  /* --------- for color bg ----------- */
+  --z-accentColor: var(--buttonSuccessHover);
+  --standartActive: var(--successColorActive);
+  --bgFont: var(--textColor);
 
-    --stButtonDisabled: #DADEE7;
-    --stButtonDisabledFont: #ffffff;
+  /* ------- font for/in input -------- */
+  --inputFont: #afb8ca;
+  --inputPlaceholder: var(--colorDisabled);
+  --inputLabel: #7887a5;
+  --inputDisabledBgColor: #edeff3;
+  --inputDisabledLabelColor: #edeff3;
 
-    --dangerButton: #EC5050;
-    --dangerButtonHover: #EA3E3E;
-    --dangerButtonActive: #AF1313;
+  /* -- standart variables for button -- */
+  --standartButton: var(--successColor);
+  --standartButtonHover: var(--buttonSuccessHover);
+  --standartButtonActive: var(--successColorActive);
+  --standartButtonFont: var(--textColor);
 
-    --warningButton:#FF8D29;
-    --warningButtonHover:#F57200;
-    --warningButtonActive:#A34C00;
+  --stButtonDisabled: #dadee7;
+  --stButtonDisabledFont: var(--textColor);
 
-     /* ------------ checkbox ------------ */
-     --checkBoxBg: #ffffff;
-     --checkBoxBgHover: #ffffff;
-     --checkBoxFontDisabled: #BCC3D2;
-     --checkBoxBgDisabled: #F3F4F7;
- 
-      /* ------------ radio ------------ */
-     --radioButtonBg: #ffffff;
-     --radioButtonHover: #ffffff;    
-   
+  --dangerButton: var(--dangerColor);
+  --dangerButtonHover: var(--dangerColorHover);
+  --dangerButtonActive: var(--dangerColorActive);
 
-     /* ------------- slider ------------  */
-     --sliderBg: #7887A5;
-     /* ------------ calendar ------------ */
-     --calendarBgChecked: #3D8F40;
+  --warningButton: #ff8d29;
+  --warningButtonHover: #f57200;
+  --warningButtonActive: #a34c00;
 
-      /* ------------ messages ------------ */
-     --messageFont:#353E50;
+  /* ------------- slider ------------  */
+  --sliderBg: #7887a5;
+  /* ------------ calendar ------------ */
+  --calendarBgChecked: #3d8f40;
 
-     --messageSuccessBg:#F1F9F1;
-     --messageSuccessBorder:#A3D7A4;
+  /* ------------ messages ------------ */
+  --messageFont: #353e50;
 
-     --messageErrorBg:#FDEDED;
-     --messageErrorBorder:#F28888;
+  --messageSuccessBg: #f1f9f1;
+  --messageSuccessBorder: #a3d7a4;
 
+  --messageErrorBg: #fdeded;
+  --messageErrorBorder: #f28888;
 
-      /* tabs */
-    --tabNavHeight: 48px;
-    --secondaryTabNavHeight: 36px;
+  /* tabs */
+  --tabNavHeight: 48px;
+  --secondaryTabNavHeight: 36px;
 
-    --navControl: #7887A5;
-    --scrollControlDisabled: #BCC3D2;
-    --tabviewBg: #FFFFFF;
-    --tabFont: #7887a5;
-    --tabActiveFont: #353E50;
-    --tabBadgeText: #FFFFFF;
-    --tabDisabled: #BCC3D2;
-    --headerTabBg: #E7E9EF;
-    --headerTabDisabled: #E7E9EF;
-    --tabContentContainerBg: #E7E9EF;
-    --tabListItemHover: linear-gradient(0deg, rgba(61, 143, 64, 0.2), rgba(61, 143, 64, 0.2)), #FFFFFF;
+  --navControl: #7887a5;
+  --scrollControlDisabled: var(--colorDisabled);
+  --tabviewBg: var(--bgStandart);
+  --tabFont: #7887a5;
+  --tabActiveFont: #353e50;
+  --tabBadgeText: var(--textColor);
+  --tabDisabled: var(--colorDisabled);
+  --headerTabBg: #e7e9ef;
+  --headerTabDisabled: #e7e9ef;
+  --tabContentContainerBg: #e7e9ef;
+  --tabListItemHover: linear-gradient(0deg, rgba(61, 143, 64, 0.2), rgba(61, 143, 64, 0.2)), var(--bgStandart);
 
-    /*shadows*/
-    --shadow-mini: 0px 2px 8px rgba(102, 119, 153, 0.3);
-    --shadow-big: 0px 8px 32px rgba(102, 119, 153, 0.24);
-    --shadow-bottom: 0px -2px 8px rgba(102, 119, 153, 0.16);
+  /*shadows*/
+  --shadow-mini: 0px 2px 8px rgba(102, 119, 153, 0.3);
+  --shadow-big: 0px 8px 32px rgba(102, 119, 153, 0.24);
+  --shadow-bottom: 0px -2px 8px rgba(102, 119, 153, 0.16);
 
-    --successColor: #49AB4D;
-    --warningColor: #FF8214;
-    --dangerColor: #EA3E3E;
-    --infoColor: #1FAD9F;
-     
+  /* splitter */
+  --fontInput: #a3adc2;
+  --panelBg: #29303d;
+  --controlsPanel: #252b37;
+
+  /* progress bar  */
+  --progressBarPrimary: var(--primaryColor);
+  --progressBarSecondary: var(--secondaryColor);
+  --progressBarInfo: var(--infoColor);
+  --progressBarWarning: var(--warningColor);
+  --progressBarDanger: var(--dangerColor);
+  --progressBarSuccess: var(--successColor);
+
+  /* spinner */
+  --spinnerColorPrimary: var(--primaryColor);
+  --spinnerColorSecondary: var(--secondaryColor);
+  --spinnerColorInfo: var(--infoColor);
+  --spinnerColorWarning: var(--warningColor);
+  --spinnerColorDanger: var(--dangerColor);
+  --spinnerColorSuccess: var(--successColor);
+
+  /* menu applications */
+  --menuAppBg: #29303d;
+  --menuAppItemBorder: #252b37;
+  --menuAppItemColor: #a3adc2;
+  --menuAppItemArrowColor: #a3adc2;
+  --menuAppItemIconColor: #a3adc2;
+  --menuAppItemActiveBg: rgba(61, 143, 64, 0.2);
+  --menuAppItemActiveShadow: inset 4px 0 0 0 #49ab4d;
+  --menuAppItemActiveColor: #ffffff;
+  --menuAppItemActiveIconColor: #ffffff;
+
+  /* accordion  */
+  --accordionFontColor: #353e50;
+  --accordionHeaderBg: #e7e9ef;
+  --accordionBodyBg: #f3f4f7;
+  --accordiondButtonColor: #7887a5;
+  --accordionDisabledButtonColor: #bcc3d2;
 }

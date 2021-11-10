@@ -1,80 +1,277 @@
-/* ================== button ===================== */
-zyfra-button {
+@miniButtonHeight: 2.25rem;
+@boxShadowActive: inset 0 4px 4px rgb(0 0 0 / 32%);
+@buttonBorder: none;
+
+.button-style(@color, @background, @backgroundHover, @backgroundActive) {
+  color: @color;
+  background: @background;
+  &:enabled:hover {
+    border: @buttonBorder;
+    background: @backgroundHover;
+    color: @color;
+  }
+  &:enabled:active {
+    box-shadow: @boxShadowActive;
+    border: @buttonBorder;
+    background: @backgroundActive;
+    color: @color;
+  }
+}
+
+.button-default-style() {
+  .button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
+}
+
+.button-success-style() {
+  .button-style(var(--buttonSuccessFont),var(--buttonSuccess),  var(--buttonSuccessHover), var(--buttonSuccessActive));
+}
+
+.button-secondary-style() {
+  .button-style(var(--buttonSecondaryFont), var(--buttonSecondary), var(--buttonSecondaryHover), var(--buttonSecondaryActive));
+}
+
+.button-info-style() {
+  .button-style(var(--buttonInfoFont),var(--buttonInfo),  var(--buttonInfoHover), var(--buttonInfoActive));
+}
+
+.button-danger-style() {
+  .button-style(var(--buttonDangerFont), var(--buttonDanger), var(--buttonDangerHover), var(--buttonDangerActive));
+}
+
+.button-warning-style() {
+  .button-style(var(--buttonWarningFont), var(--buttonWarning), var(--buttonWarningHover), var(--buttonWarningActive));
+}
+
+
+/* ================================= simple button ==================================== */
 .p-button {
-    color: var(--buttonSuccessFont);
-    background: var(--buttonSuccess );
-    border: none;
-    font-size: 0.8rem;
-    line-height: 1rem;
-    font-family: Inter;
-    border-radius: 4px;
-    width: 8.9rem;
-    height: 2.8rem;
-    font-family: 'Inter'
- }
- 
- .p-button:enabled:hover {
-    background: var(--buttonSuccessHover );
-    color: var(--buttonSuccessFont);
-    border: none;
- }
- 
- .p-button:enabled:active {
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.32);
-    background: var(--buttonSuccessActive );
-    color: var(--buttonSuccessFont);
-    border: none;
- }
- 
- /* кнопки disabled */
- .p-disabled, .p-component:disabled {
-    background: var(--buttonDisabled)!important;
-    color: var(--buttonDisabledFont)!important;
-    opacity: initial;
- }
- 
- /*  красный цветовой класс типа danger, кастомизирован под кнопки delete/cancel?  */
- .p-button.p-button-danger, .p-buttonset.p-button-danger > .p-button, .p-splitbutton.p-button-danger > .p-button {
-    color: var(--buttonDangerFont);
-    background: var(--buttonDanger);
-    border: none;
- }
- .p-button.p-button-danger:enabled:hover, .p-buttonset.p-button-danger > .p-button:enabled:hover, .p-splitbutton.p-button-danger > .p-button:enabled:hover {
-    background: var(--buttonDangerHover);
-    color: var(--buttonDangerFont);
-    border: none;
- }
- .p-button.p-button-danger:enabled:active, .p-buttonset.p-button-danger > .p-button:enabled:active, .p-splitbutton.p-button-danger > .p-button:enabled:active {
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.32);
-    background: var(--buttonDangerActive);
-    color: var(--buttonDangerFont);
-    border: none;
- }
- 
- /*  желтый цветовой класс типа warning, пока не нужен  */
- // .p-button.p-button-info, .p-buttonset.p-button-info > .p-button, .p-splitbutton.p-button-info > .p-button {
- //    color: var(--standartButtonFont);
- //    background: var(--standartButton );
- //    border: none;
- // }
- 
- /* ------------------- warning ------------------------ */
- .p-button.p-button-warning, .p-buttonset.p-button-warning > .p-button, .p-splitbutton.p-button-warning > .p-button {
-    color: var(--buttonWarningFont);
-    background: var(--buttonWarning);
-    border: none;
- }
- 
- .p-button.p-button-warning:enabled:hover, .p-buttonset.p-button-warning > .p-button:enabled:hover, .p-splitbutton.p-button-warning > .p-button:enabled:hover {
-    background: var(--buttonWarningHover);
-    color: var(--buttonWarningFont);
-    border: none;
- }
- 
- .p-button.p-button-warning:enabled:active, .p-buttonset.p-button-warning > .p-button:enabled:active, .p-splitbutton.p-button-warning > .p-button:enabled:active {
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.32);
-    color: var(--buttonWarningFont);
-    background: var(--buttonWarningActive);
-    border: none;
- }
+  font-size: 0.8rem;
+  line-height: 1rem;
+  border-radius: 4px;
+  height: 2.8rem;
+
+  .p-badge {
+    line-height: .9rem;
+    color: var(--z-accentColor);
+    background-color: var(--standartBg);
+  }
+
+  // повышаю вес селектора
+  &.p-button {
+    border: @buttonBorder;
+    font-family: var(--fontFamily);
+
+    .button-default-style();
+
+    &.p-component:disabled,// для кнопок тип select toggle и тд
+    &.p-disabled.p-disabled.p-disabled {
+      background: var(--buttonDisabled);
+      color: var(--buttonDisabledFont);
+      opacity: initial;
+    }
+
+    &-mini {
+      height: @miniButtonHeight;
+    }
+
+    &-default {
+      .button-default-style()
+    }
+
+    &-success {
+      .button-success-style();
+    }
+
+    &-secondary {
+      .button-secondary-style();
+    }
+
+    &-info {
+      .button-info-style();
+    }
+
+    &-danger {
+      .button-danger-style();
+    }
+
+    &-warning {
+      .button-warning-style();
+    }
+  }
+}
+
+
+/* ================================= toggle-button ==================================== */
+.toggle-button-style(@color, @bg, @bgHover, @bgActive) {
+  &.p-button {
+    background: @bg;
+    .p-button-icon-left,
+    .p-button-icon-right {
+      color: @color;
+    }
+
+    &.p-highlight {
+      background: @bgActive;
+      border: @buttonBorder;
+      color: @color;
+      box-shadow: @boxShadowActive;
+      &:hover {
+        background: @bgHover;
+        border: @buttonBorder;
+        color: @color;
+        .p-button-icon-left,
+        .p-button-icon-right {
+          color: @color;
+        }
+      }
+      .p-button-icon-left,
+      .p-button-icon-right {
+        color: @color;
+      }
+    }
+
+    &:not(.p-disabled):not(.p-highlight):hover {
+      background: @bgHover;
+      border: @buttonBorder;
+      color: @color;
+      .p-button-icon-left,
+      .p-button-icon-right {
+        color: @color;
+      }
+    }
+  }
+}
+
+.p-togglebutton {
+  &-mini {
+    height: @miniButtonHeight;
+  }
+  .toggle-button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
+  &-default {
+    .toggle-button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
+  }
+
+  &-success {
+    .toggle-button-style(var(--standartButtonFont), var(--standartButton), var(--standartButtonHover), var(--standartButtonActive));
+  }
+
+  &-secondary {
+    .toggle-button-style(var(--buttonSecondaryFont), var(--buttonSecondary), var(--buttonSecondaryHover), var(--buttonSecondaryActive));
+  }
+
+  &-info {
+    .toggle-button-style(var(--buttonInfoFont), var(--buttonInfo), var(--buttonInfoHover), var(--buttonInfoActive));
+  }
+
+  &-danger {
+    .toggle-button-style(var(--buttonDangerFont), var(--buttonDanger), var(--buttonDangerHover), var(--buttonDangerActive));
+  }
+
+  &-warning {
+    .toggle-button-style(var(--buttonWarningFont), var(--buttonWarning), var(--buttonWarningHover), var(--buttonWarningActive));
+  }
+}
+
+
+/* ================================ select-button ===================================== */
+.select-button-style(@color, @bg, @bgHover, @bgActive) {
+  // повышаю вес селектора
+  .p-button.p-button {
+    background: @bg;
+    border-color: @bg;
+    color: @color;
+
+    &.p-highlight {
+      box-shadow: @boxShadowActive;
+      background: @bgHover;
+      border-color: @bg;
+      color: @color;
+
+      &:hover {
+        background: @bgActive;
+        border-color: @bg;
+        color: @color;
+      }
+    }
+
+    &:not(.p-disabled):not(.p-highlight):hover {
+      background: @bgActive;
+      color: @color;
+      border-color: @bg;
+    }
+  }
+}
+
+.p-selectbutton {
+  &-mini .p-button {
+    height: @miniButtonHeight;
+  }
+
+  .select-button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
+
+  &-default {
+    .select-button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
+  }
+
+  &-success {
+    .select-button-style(var(--standartButtonFont), var(--standartButton), var(--standartButtonHover), var(--standartButtonActive));
+  }
+
+  &-secondary {
+    .select-button-style(var(--buttonSecondaryFont), var(--buttonSecondary), var(--buttonSecondaryHover), var(--buttonSecondaryActive));
+  }
+
+  &-info {
+    .select-button-style(var(--buttonInfoFont), var(--buttonInfo), var(--buttonInfoHover), var(--buttonInfoActive));
+  }
+
+  &-danger {
+    .select-button-style(var(--buttonDangerFont), var(--buttonDanger), var(--buttonDangerHover), var(--buttonDangerActive));
+  }
+
+  &-warning {
+    .select-button-style(var(--buttonWarningFont), var(--buttonWarning), var(--buttonWarningHover), var(--buttonWarningActive));
+  }
+}
+
+/* ================================ splitbutton ===================================== */
+.p-splitbutton {
+  &-mini .p-button {
+    height: @miniButtonHeight;
+  }
+
+  .p-button,
+  &-default .p-button {
+    .button-default-style()
+  }
+
+  &-success .p-button {
+    .button-success-style();
+  }
+
+  &-secondary .p-button {
+    .button-secondary-style();
+  }
+
+  &-info .p-button {
+    .button-info-style();
+  }
+
+  &-danger .p-button {
+    .button-danger-style();
+  }
+
+  &-warning .p-button {
+    .button-warning-style();
+  }
+}
+
+
+/* ================================ common ===================================== */
+
+.p-button:focus,
+.p-button.p-button-danger:enabled:focus,
+.p-buttonset.p-button-danger > .p-button:enabled:focus,
+.p-splitbutton.p-button-danger > .p-button:enabled:focus {
+  box-shadow: none;
 }
