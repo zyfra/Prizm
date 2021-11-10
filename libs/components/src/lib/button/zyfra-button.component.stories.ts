@@ -2,8 +2,6 @@ import { CommonModule } from '@angular/common';
 import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { BrowserModule } from '@angular/platform-browser';
-// @ts-ignore
-import ButtonDoc from './zyfra-button.component.story.doc.mdx';
 import { ZyfraButtonComponent } from './zyfra-button.component';
 import { ZyfraButtonModule } from './zyfra-button.module';
 
@@ -18,7 +16,7 @@ export default {
   ],
   parameters: {
     docs: {
-      page: ButtonDoc,
+      page: require('./zyfra-button.component.story.doc.mdx').default,
     },
   },
 } as Meta;
