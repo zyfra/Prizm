@@ -12,24 +12,24 @@ npm i @zyfra/zyfra-toggle-button
 ```
 
 Import module:
+
 ```typescript
 import { ZyfraToggleButtonModule } from '@zyfra/zyfra-toggle-button';
 
 @NgModule({
-  imports: [
-    ZyfraToggleButtonModule,
-  ]
+  imports: [ZyfraToggleButtonModule],
 })
 export class YourModule {}
 ```
 
 To component:
+
 ```html
 <zyfra-toggle-button
-  onLabel = "onLabel"
-  offLabel = "offLabel"
-  onIcon = "onLabel"
-  offIcon = "offLabel"
+  onLabel="onLabel"
+  offLabel="offLabel"
+  onIcon="onLabel"
+  offIcon="offLabel"
   styleClass="p-button-info"
 ></zyfra-toggle-button>
 ```
@@ -51,5 +51,3 @@ We use our standard css classes for styling :
 ## ArgsTable
 
 <ArgsTable of={ZyfraToggleButtonComponent} />
-
-

@@ -4,33 +4,26 @@ import { FormsModule } from '@angular/forms';
 import { ZyfraToggleButtonComponent } from './zyfra-toggle-button.component';
 import { ZyfraToggleButtonModule } from './zyfra-toggle-button.module';
 
-
 export default {
   moduleId: module.id,
   title: 'Buttons/ToggleButton',
   component: ZyfraToggleButtonComponent,
   decorators: [
     moduleMetadata({
-      imports: [
-        FormsModule,
-        ZyfraToggleButtonModule
-      ]
-
+      imports: [FormsModule, ZyfraToggleButtonModule],
     }),
   ],
   parameters: {
     docs: {
       page: require('./zyfra-toggle-button.component.story.doc.mdx').default,
-    }
-  }
-
+    },
+  },
 } as Meta;
 
 const Template: Story<ZyfraToggleButtonComponent> = (args) => ({
   component: ZyfraToggleButtonComponent,
   props: args,
 });
-
 
 export const Default = Template.bind({});
 Default.args = {
