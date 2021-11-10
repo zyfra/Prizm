@@ -1,5 +1,4 @@
 <p-button
-  #pbutton
   [type]="type"
   [label]="label"
   [icon]="icon"
@@ -8,7 +7,8 @@
   [badge]="badge"
   [style]="style"
   [styleClass]="styleClass"
-  (onClick)="onClick($event)"
-  (onFocus)="onFocus($event)"
-  (onBlur)="onBlur($event)"
+  (click)="nativeClick($event)"
+  (onClick)="click($event)"
+  (onFocus)="focus($event)"
+  (onBlur)="blur($event)"
 ></p-button>

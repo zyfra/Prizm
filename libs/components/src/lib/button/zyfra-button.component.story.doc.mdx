@@ -1,75 +1,59 @@
-
-import { Meta, Story, Canvas, ArgsTable, ColorPalette, ColorItem, Preview, Typeset } from '@storybook/addon-docs/blocks';
-import Button from './zyfra-button.component';
-import { moduleMetadata } from '@storybook/angular';
-import { storiesOf } from '@storybook/angular';
-
 import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  ColorPalette,
+  ColorItem,
+  Preview,
+  Typeset,
   Title,
   Subtitle,
   Description,
-} from '@storybook/addon-docs/blocks';
+} from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+import { ZyfraButtonComponent } from 'libs/components/src/lib/button/index';
 
-<style>{`
-    .innerZoomElementWrapper > * {
-        display: block!important;
-    }
-    .sbdocs-subtitle {
-        border-bottom: 1px solid rgba(0, 0, 0, .1)!important;
-        margin-bottom: 10px;
-        margin-top: 10px;
-    }
+## Button
 
-    .sbdocs-p {
-        margin:0;
-    }
+<Subtitle>Button is an extension to standard button element with icons and theming.</Subtitle>
 
-    .css-tmvzag {
-        margin: 10px 0 25px
-    } 
+```typescript
+npm i @zyfra/zyfra-button
+```
 
-`}</style>
+Import module:
 
-## Zyfra-Button
+```typescript
+import { ZyfraButtonModule } from '@zyfra/zyfra-button';
 
-<Subtitle of={Button} >Short description</Subtitle>
-<Description of={Button} >Компонент обычная кнопка</Description>
-
-<Subtitle of={Button} >Quick start</Subtitle>
-<Preview>
-    npm i @ui-platform/zyfra-button
-</Preview>
-
-To module:
-<Preview>
-
-    import { ZyfraButtonModule } from 'zyfra-button';
-
-     @NgModule({
-    declarations: [
-        ....
-    ],
-    imports: [
-     ZyfraButtonModule,
-        ....
-    ]
-    ....
-
-</Preview>
+@NgModule({
+  imports: [ZyfraButtonModule],
+})
+export class YourModule {}
+```
 
 To component:
-<Canvas>
 
-    <zyfra-button 
-        label="example button" 
-        type="submit" 
-        disabled = "true" 
-        (click) = "onClickButton($event)"
-    ></zyfra-button>
+```html
+<zyfra-button label="example button" type="submit" (click)="onClickButton($event)"></zyfra-button>
+```
 
-</Canvas>
+We use our standard css classes for styling :
 
+```
+.p-button {
+  &-mini
+  &-default
+  &-success
+  &-secondary
+  &-info
+  &-danger
+  &-warning
+}
+```
 
 ## ArgsTable
 
-<ArgsTable of={Button} />
+<ArgsTable of={ZyfraButtonComponent} />
