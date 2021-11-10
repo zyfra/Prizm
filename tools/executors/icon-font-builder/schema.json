@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "cli": "nx",
+  "properties": {
+    "fontFileName": {
+      "type": "string",
+      "default": "ZyfraIcons",
+      "description": "Path to tsconfig"
+    },
+    "fontName": {
+      "type": "string",
+      "default": "Zyfra Icons",
+      "description": "Path to dist folder"
+    },
+    "iconClassName": {
+      "type": "string",
+      "default": ".zyfra-icon",
+      "description": "Class name for style"
+    },
+    "inputPath": {
+      "type": "string",
+      "default": "./libs/components/assets/icons",
+      "description": "Path to input folder"
+    },
+    "outputPath": {
+      "type": "string",
+      "default": "./libs/components/src/styles/icons",
+      "description": "Path to out folder"
+    },
+    "outputStyleFile": {
+      "type": "string",
+      "default": "icons.less",
+      "description": "File name for output styles"
+    },
+    "outputDefinitionsTs": {
+      "type": "string",
+      "default": "./libs/components/src/lib/icon/story/icon-definitions.ts",
+      "description": "File name for output definitions"
+    }
+  }
+}
