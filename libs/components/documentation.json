@@ -76,12 +76,12 @@
         },
         {
             "name": "StoryCity",
-            "id": "interface-StoryCity-f4aa97caa54371262298382ad52450a1",
+            "id": "interface-StoryCity-cd1d824335f47e0a86dd1a2b5e847255",
             "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { moduleMetadata } from '@storybook/angular';\nimport { Meta, Story } from '@storybook/angular/types-6-0';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { ZyfraSelectButtonComponent } from './zyfra-select-button.component';\nimport { ZyfraSelectButtonModule } from './zyfra-select-button.module';\n\nexport default {\n  moduleId: module.id,\n  title: 'Buttons/SelectButton',\n  component: ZyfraSelectButtonComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [BrowserModule, CommonModule, ZyfraSelectButtonModule],\n    }),\n  ],\n  parameters: {\n    docs: {\n      page: require('./zyfra-select-button.component.story.doc.mdx'),\n    },\n  },\n} as Meta;\n\ninterface StoryCity {\n  name: string;\n  code: string;\n}\n\nconst cities: StoryCity[] = [\n  { name: 'Russia', code: 'RU' },\n  { name: 'Rome', code: 'RM' },\n  { name: 'London', code: 'LDN' },\n  { name: 'Istanbul', code: 'IST' },\n  { name: 'Paris', code: 'PRS' },\n];\n\nconst Template: Story<ZyfraSelectButtonComponent<StoryCity, string>> = (args) => ({\n  component: ZyfraSelectButtonComponent,\n  props: args,\n});\n\nexport const Default = Template.bind({});\nDefault.args = {\n  options: cities,\n  optionLabel: 'name',\n  optionDisabled: 'inactive',\n  multiple: true,\n  optionValue: 'code',\n  disabled: false,\n  styleClass: 'selectbutton-default',\n};\n\nexport const DefaultMini = Template.bind({});\nDefaultMini.args = {\n  ...Default.args,\n  styleClass: 'p-selectbutton-default p-selectbutton-mini',\n};\n\nexport const Danger = Template.bind({});\nDanger.args = {\n  ...Default.args,\n  styleClass: 'p-selectbutton-danger',\n};\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { moduleMetadata } from '@storybook/angular';\nimport { Meta, Story } from '@storybook/angular/types-6-0';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { ZyfraSelectButtonComponent } from './zyfra-select-button.component';\nimport { ZyfraSelectButtonModule } from './zyfra-select-button.module';\n\nexport default {\n  moduleId: module.id,\n  title: 'Buttons/SelectButton',\n  component: ZyfraSelectButtonComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [BrowserModule, CommonModule, ZyfraSelectButtonModule],\n    }),\n  ],\n  parameters: {\n    docs: {\n      page: require('./zyfra-select-button.component.story.doc.mdx').default,\n    },\n  },\n} as Meta;\n\ninterface StoryCity {\n  name: string;\n  code: string;\n}\n\nconst cities: StoryCity[] = [\n  { name: 'Russia', code: 'RU' },\n  { name: 'Rome', code: 'RM' },\n  { name: 'London', code: 'LDN' },\n  { name: 'Istanbul', code: 'IST' },\n  { name: 'Paris', code: 'PRS' },\n];\n\nconst Template: Story<ZyfraSelectButtonComponent<StoryCity, string>> = (args) => ({\n  component: ZyfraSelectButtonComponent,\n  props: args,\n});\n\nexport const Default = Template.bind({});\nDefault.args = {\n  options: cities,\n  optionLabel: 'name',\n  optionDisabled: 'inactive',\n  multiple: true,\n  optionValue: 'code',\n  disabled: false,\n  styleClass: 'selectbutton-default',\n};\n\nexport const DefaultMini = Template.bind({});\nDefaultMini.args = {\n  ...Default.args,\n  styleClass: 'p-selectbutton-default p-selectbutton-mini',\n};\n\nexport const Danger = Template.bind({});\nDanger.args = {\n  ...Default.args,\n  styleClass: 'p-selectbutton-danger',\n};\n",
             "properties": [
                 {
                     "name": "code",
@@ -100,6 +100,38 @@
                     "optional": false,
                     "description": "",
                     "line": 25
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 164,
+            "methods": []
+        },
+        {
+            "name": "TToggleButtonClick",
+            "id": "interface-TToggleButtonClick-be09976d2e482f74fda68d2e0cfc5892",
+            "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';\n\nexport interface TToggleButtonClick {\n  originalEvent: PointerEvent;\n  checked: boolean;\n}\n\n@Component({\n  selector: 'zyfra-toggle-button',\n  templateUrl: './zyfra-toggle-button.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ZyfraToggleButtonComponent {\n  @Input() model = true;\n  @Input() onLabel: string = 'confirm';\n  @Input() offLabel: string;\n  @Input() onIcon = 'zyfra-icon selection-check-simple';\n  @Input() offIcon = 'zyfra-icon cancel-close';\n  @Input() iconPos: 'left' | 'right' = 'left';\n  @Input() disabled: boolean;\n  @Input() style: string;\n  @Input() styleClass: string;\n  @Input() tabindex: number;\n  @Input() inputId: string;\n  @Input() ariaLabelledBy: string;\n\n  @Output() onChange: EventEmitter<boolean> = new EventEmitter<boolean>();\n\n  handleChange(event: TToggleButtonClick): void {\n    this.model = event.checked;\n    this.onChange.emit(this.model);\n  }\n}\n",
+            "properties": [
+                {
+                    "name": "checked",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "originalEvent",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "PointerEvent",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
                 }
             ],
             "indexSignatures": [],
@@ -440,6 +472,434 @@
             "templateData": "<p-button\r\n  [type]=\"type\"\r\n  [label]=\"label\"\r\n  [icon]=\"icon\"\r\n  [iconPos]=\"iconPos\"\r\n  [disabled]=\"disabled\"\r\n  [badge]=\"badge\"\r\n  [style]=\"style\"\r\n  [styleClass]=\"styleClass\"\r\n  (click)=\"nativeClick($event)\"\r\n  (onClick)=\"click($event)\"\r\n  (onFocus)=\"focus($event)\"\r\n  (onBlur)=\"blur($event)\"\r\n></p-button>\r\n"
         },
         {
+            "name": "ZyfraRadioButtonComponent",
+            "id": "component-ZyfraRadioButtonComponent-033b24b7a39b2368421360f16d072314",
+            "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [
+                {
+                    "name": "RADIO_VALUE_ACCESSOR"
+                }
+            ],
+            "selector": "zyfra-radio-button",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./zyfra-radio-button.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "ariaLabel",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 32,
+                    "type": "string"
+                },
+                {
+                    "name": "ariaLabelledBy",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31,
+                    "type": "string"
+                },
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "boolean"
+                },
+                {
+                    "name": "formControl",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 37,
+                    "type": "FormControl"
+                },
+                {
+                    "name": "formControlName",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36,
+                    "type": "string"
+                },
+                {
+                    "name": "inputId",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 30,
+                    "type": "string"
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "string"
+                },
+                {
+                    "name": "labelStyleClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 35,
+                    "type": "string"
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "string"
+                },
+                {
+                    "name": "ngModel",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 38,
+                    "type": "T"
+                },
+                {
+                    "name": "style",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "string"
+                },
+                {
+                    "name": "styleClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 34,
+                    "type": "string"
+                },
+                {
+                    "name": "tabindex",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "number"
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "T"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "ngModelChange",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 40,
+                    "type": "EventEmitter<T>"
+                },
+                {
+                    "name": "onBlur",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 43,
+                    "type": "EventEmitter<FocusEvent>"
+                },
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 41,
+                    "type": "EventEmitter<PointerEvent>"
+                },
+                {
+                    "name": "onFocus",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 42,
+                    "type": "EventEmitter<FocusEvent>"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "handleBlur",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "FocusEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 62,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "FocusEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "handleClick",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "PointerEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 54,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "PointerEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "handleFocus",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "FocusEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 58,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "FocusEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "modelChange",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "T",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 47,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "T",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnChange",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": []
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 66,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": [],
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnTouched",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": []
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 68,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "function": [],
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setDisabledState",
+                    "args": [
+                        {
+                            "name": "disabled",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 74,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "disabled",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "writeValue",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "T",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 70,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "T",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n  Component,\n  Input,\n  Output,\n  EventEmitter,\n  ChangeDetectionStrategy,\n  forwardRef,\n  ChangeDetectorRef,\n} from '@angular/core';\nimport { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl } from '@angular/forms';\n\nexport const RADIO_VALUE_ACCESSOR = {\n  provide: NG_VALUE_ACCESSOR,\n  useExisting: forwardRef(() => ZyfraRadioButtonComponent),\n  multi: true,\n};\n\n@Component({\n  selector: 'zyfra-radio-button',\n  templateUrl: './zyfra-radio-button.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  providers: [RADIO_VALUE_ACCESSOR],\n})\nexport class ZyfraRadioButtonComponent<T> implements ControlValueAccessor {\n  @Input() name: string;\n  @Input() value: T;\n  @Input() label: string;\n  @Input() disabled: boolean;\n  @Input() tabindex: number;\n  @Input() inputId: string;\n  @Input() ariaLabelledBy: string;\n  @Input() ariaLabel: string;\n  @Input() style: string;\n  @Input() styleClass: string;\n  @Input() labelStyleClass: string;\n  @Input() formControlName: string;\n  @Input() formControl: FormControl;\n  @Input() ngModel: T;\n\n  @Output() ngModelChange: EventEmitter<T> = new EventEmitter();\n  @Output() onClick: EventEmitter<PointerEvent> = new EventEmitter();\n  @Output() onFocus: EventEmitter<FocusEvent> = new EventEmitter();\n  @Output() onBlur: EventEmitter<FocusEvent> = new EventEmitter();\n\n  constructor(private cd: ChangeDetectorRef) {}\n\n  modelChange(value: T): void {\n    if (this.formControl) {\n      this.formControl.setValue(value);\n    }\n    this.ngModelChange.emit(this.ngModel);\n  }\n\n  handleClick(event: PointerEvent): void {\n    this.onClick.emit(event);\n  }\n\n  handleFocus(event: FocusEvent): void {\n    this.onFocus.emit(event);\n  }\n\n  handleBlur(event: FocusEvent): void {\n    this.onBlur.emit(event);\n  }\n\n  registerOnChange(fn: () => void): void {}\n\n  registerOnTouched(fn: () => void): void {}\n\n  writeValue(value: T): void {\n    this.ngModel = value;\n  }\n\n  setDisabledState(disabled: boolean): void {\n    this.disabled = disabled;\n    this.cd.detectChanges();\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "cd",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 43,
+                "jsdoctags": [
+                    {
+                        "name": "cd",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "ControlValueAccessor"
+            ],
+            "templateData": "<p-radioButton\n  [name]=\"name\"\n  [(ngModel)]=\"ngModel\"\n  (ngModelChange)=\"modelChange($event)\"\n  [value]=\"value\"\n  [label]=\"label\"\n  [disabled]=\"disabled\"\n  [tabindex]=\"tabindex\"\n  [inputId]=\"inputId\"\n  [ariaLabelledBy]=\"ariaLabelledBy\"\n  [ariaLabel]=\"ariaLabel\"\n  [style]=\"style\"\n  [styleClass]=\"styleClass\"\n  [labelStyleClass]=\"labelStyleClass\"\n  (onClick)=\"handleClick($event)\"\n  (onFocus)=\"handleFocus($event)\"\n  (onBlur)=\"handleBlur($event)\"\n></p-radioButton>\n"
+        },
+        {
             "name": "ZyfraSelectButtonComponent",
             "id": "component-ZyfraSelectButtonComponent-bde73bb79a088ff1edeea25a50ba5a08",
             "file": "libs/components/src/lib/select-button/zyfra-select-button.component.ts",
@@ -632,6 +1092,406 @@
             "styleUrlsData": "",
             "stylesData": "",
             "templateData": "<p-selectButton\n  [options]=\"options\"\n  [optionLabel]=\"optionLabel\"\n  [optionValue]=\"optionValue\"\n  [optionDisabled]=\"optionDisabled\"\n  [multiple]=\"multiple\"\n  [tabindex]=\"tabindex\"\n  [style]=\"style\"\n  [styleClass]=\"styleClass\"\n  [ariaLabelledBy]=\"ariaLabelledBy\"\n  [disabled]=\"disabled\"\n  [dataKey]=\"dataKey\"\n  (onChange)=\"handleChange($event)\"\n  (onOptionClick)=\"handleOptionClick($event)\"\n></p-selectButton>\n"
+        },
+        {
+            "name": "ZyfraSplitButtonComponent",
+            "id": "component-ZyfraSplitButtonComponent-8b3618ef1635c95dd4a1afd74a815ca4",
+            "file": "libs/components/src/lib/split-button/zyfra-split-button.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "zyfra-split-button",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./zyfra-split-button.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "appendTo",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "any"
+                },
+                {
+                    "name": "dir",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "string"
+                },
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean"
+                },
+                {
+                    "name": "hideTransitionOptions",
+                    "defaultValue": "'195ms ease-in'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "string"
+                },
+                {
+                    "name": "icon",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string"
+                },
+                {
+                    "name": "iconPos",
+                    "defaultValue": "'left'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "\"left\" | \"right\""
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string"
+                },
+                {
+                    "name": "menuStyle",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string"
+                },
+                {
+                    "name": "menuStyleClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string"
+                },
+                {
+                    "name": "model",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "MenuItem[]"
+                },
+                {
+                    "name": "showTransitionOptions",
+                    "defaultValue": "'225ms ease-out'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "string"
+                },
+                {
+                    "name": "style",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string"
+                },
+                {
+                    "name": "styleClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string"
+                },
+                {
+                    "name": "tabindex",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "number"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "EventEmitter<PointerEvent>"
+                },
+                {
+                    "name": "onDropdownClick",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "EventEmitter<PointerEvent>"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "nativeClick",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 29,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onClickHandler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "PointerEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 35,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "PointerEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onDropdownClickHandler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "PointerEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 39,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "PointerEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';\n\nimport { MenuItem } from 'primeng/api';\n\n@Component({\n  selector: 'zyfra-split-button',\n  templateUrl: './zyfra-split-button.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ZyfraSplitButtonComponent {\n  @Input() label: string;\n  @Input() icon: string;\n  @Input() iconPos: 'left' | 'right' = 'left';\n  @Input() disabled: boolean;\n  @Input() style: string;\n  @Input() menuStyle: string;\n  @Input() menuStyleClass: string;\n  @Input() styleClass: string;\n  @Input() appendTo: any;\n  @Input() dir: string;\n  @Input() tabindex: number;\n  @Input() model: MenuItem[];\n  @Input() showTransitionOptions = '225ms ease-out';\n  @Input() hideTransitionOptions = '195ms ease-in';\n\n  @Output() onClick: EventEmitter<PointerEvent> = new EventEmitter();\n  @Output() onDropdownClick: EventEmitter<PointerEvent> = new EventEmitter();\n\n  nativeClick(event: Event): void {\n    if (this.disabled) {\n      event.stopPropagation();\n    }\n  }\n\n  onClickHandler(event: PointerEvent) {\n    this.onClick.emit(event);\n  }\n\n  onDropdownClickHandler(event: PointerEvent) {\n    this.onDropdownClick.emit(event);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<p-splitButton\n  [model]=\"model\"\n  [label]=\"label\"\n  [icon]=\"icon\"\n  [iconPos]=\"iconPos\"\n  [disabled]=\"disabled\"\n  [style]=\"style\"\n  [styleClass]=\"styleClass\"\n  [menuStyle]=\"menuStyle\"\n  [menuStyleClass]=\"menuStyleClass\"\n  [appendTo]=\"appendTo\"\n  [tabindex]=\"tabindex\"\n  [dir]=\"dir\"\n  [showTransitionOptions]=\"showTransitionOptions\"\n  [hideTransitionOptions]=\"hideTransitionOptions\"\n  (click)=\"nativeClick($event)\"\n  (onClick)=\"onClickHandler($event)\"\n  (onDropdownClick)=\"onDropdownClickHandler($event)\"\n></p-splitButton>\n"
+        },
+        {
+            "name": "ZyfraToggleButtonComponent",
+            "id": "component-ZyfraToggleButtonComponent-be09976d2e482f74fda68d2e0cfc5892",
+            "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "zyfra-toggle-button",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./zyfra-toggle-button.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "ariaLabelledBy",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "string"
+                },
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "boolean"
+                },
+                {
+                    "name": "iconPos",
+                    "defaultValue": "'left'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "\"left\" | \"right\""
+                },
+                {
+                    "name": "inputId",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "string"
+                },
+                {
+                    "name": "model",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean"
+                },
+                {
+                    "name": "offIcon",
+                    "defaultValue": "'zyfra-icon cancel-close'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string"
+                },
+                {
+                    "name": "offLabel",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string"
+                },
+                {
+                    "name": "onIcon",
+                    "defaultValue": "'zyfra-icon selection-check-simple'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string"
+                },
+                {
+                    "name": "onLabel",
+                    "defaultValue": "'confirm'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string"
+                },
+                {
+                    "name": "style",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "string"
+                },
+                {
+                    "name": "styleClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "string"
+                },
+                {
+                    "name": "tabindex",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "number"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onChange",
+                    "defaultValue": "new EventEmitter<boolean>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "EventEmitter<boolean>"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "handleChange",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "TToggleButtonClick",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 29,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "TToggleButtonClick",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';\n\nexport interface TToggleButtonClick {\n  originalEvent: PointerEvent;\n  checked: boolean;\n}\n\n@Component({\n  selector: 'zyfra-toggle-button',\n  templateUrl: './zyfra-toggle-button.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ZyfraToggleButtonComponent {\n  @Input() model = true;\n  @Input() onLabel: string = 'confirm';\n  @Input() offLabel: string;\n  @Input() onIcon = 'zyfra-icon selection-check-simple';\n  @Input() offIcon = 'zyfra-icon cancel-close';\n  @Input() iconPos: 'left' | 'right' = 'left';\n  @Input() disabled: boolean;\n  @Input() style: string;\n  @Input() styleClass: string;\n  @Input() tabindex: number;\n  @Input() inputId: string;\n  @Input() ariaLabelledBy: string;\n\n  @Output() onChange: EventEmitter<boolean> = new EventEmitter<boolean>();\n\n  handleChange(event: TToggleButtonClick): void {\n    this.model = event.checked;\n    this.onChange.emit(this.model);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<p-toggleButton\n  [(ngModel)]=\"model\"\n  [onLabel]=\"onLabel\"\n  [offLabel]=\"offLabel\"\n  [onIcon]=\"onIcon\"\n  [offIcon]=\"offIcon\"\n  [iconPos]=\"iconPos\"\n  [disabled]=\"disabled\"\n  [style]=\"style\"\n  [styleClass]=\"styleClass\"\n  [tabindex]=\"tabindex\"\n  [inputId]=\"inputId\"\n  [ariaLabelledBy]=\"ariaLabelledBy\"\n  (onChange)=\"handleChange($event)\"\n>\n</p-toggleButton>\n"
         }
     ],
     "modules": [
@@ -724,6 +1584,50 @@
             ]
         },
         {
+            "name": "ZyfraRadioButtonModule",
+            "id": "module-ZyfraRadioButtonModule-707e4fbbe87a90cd73b102ff50c5bcf3",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "libs/components/src/lib/radio-button/zyfra-radio-button.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { ZyfraRadioButtonComponent } from './zyfra-radio-button.component';\nimport { RadioButtonModule } from 'primeng/radiobutton';\nimport { FormsModule, ReactiveFormsModule } from '@angular/forms';\nimport { CommonModule } from '@angular/common';\n\n@NgModule({\n  declarations: [ZyfraRadioButtonComponent],\n  imports: [RadioButtonModule, FormsModule, ReactiveFormsModule, CommonModule],\n  exports: [ZyfraRadioButtonComponent],\n})\nexport class ZyfraRadioButtonModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ZyfraRadioButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ZyfraRadioButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "ZyfraSelectButtonModule",
             "id": "module-ZyfraSelectButtonModule-0f9934b56ab25fce81cd0e4c6cce78cb",
             "description": "",
@@ -754,6 +1658,94 @@
                     "elements": [
                         {
                             "name": "ZyfraSelectButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ZyfraSplitButtonModule",
+            "id": "module-ZyfraSplitButtonModule-159a398b3322c731d3451cec6c90d477",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "libs/components/src/lib/split-button/zyfra-split-button.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { ZyfraSplitButtonComponent } from './zyfra-split-button.component';\nimport { SplitButtonModule } from 'primeng/splitbutton';\n\n@NgModule({\n  declarations: [ZyfraSplitButtonComponent],\n  imports: [SplitButtonModule],\n  exports: [ZyfraSplitButtonComponent],\n})\nexport class ZyfraSplitButtonModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ZyfraSplitButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ZyfraSplitButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ZyfraToggleButtonModule",
+            "id": "module-ZyfraToggleButtonModule-dfbafc24fae96d513b9df44bebac00b0",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { ZyfraToggleButtonComponent } from './zyfra-toggle-button.component';\nimport { ToggleButtonModule } from 'primeng/togglebutton';\nimport { CommonModule } from '@angular/common';\nimport { FormsModule } from '@angular/forms';\n\n@NgModule({\n  declarations: [ZyfraToggleButtonComponent],\n  imports: [FormsModule, CommonModule, ToggleButtonModule],\n  exports: [ZyfraToggleButtonComponent],\n})\nexport class ZyfraToggleButtonModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ZyfraToggleButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ZyfraToggleButtonComponent"
                         }
                     ]
                 },
@@ -807,6 +1799,16 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "AnimationSpeed",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Badge",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -847,6 +1849,16 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "DangerMini",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -861,6 +1873,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -895,6 +1917,56 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "DisabledRadio",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "SimpleTemplate.bind({})"
+            },
+            {
+                "name": "FormControlRadio",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "FormControlTemplate.bind({})"
+            },
+            {
+                "name": "FormControlTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraRadioButtonComponent<string>>",
+                "defaultValue": "(args) => ({\n  template: template(`[formControl]=\"control\"`) + formControlTemplateChunk,\n  props: {\n    ...args,\n    disabledPink: true,\n    ngModelChange: () => {},\n    control: new FormControl('red', [Validators.required]),\n  },\n})"
+            },
+            {
+                "name": "formControlTemplateChunk",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "`\n    (Значение: {{control.value === undefined || control.value === null ? 'null' : control.value}})\n    <br>\n    {{control?.errors ? 'Есть ошибки валидации' : ''}}\n    <br>\n    <zyfra-button\n      label=\"toggle disable/enable\"\n      [style]=\"{ 'margin-right': '5px', 'margin-top': '20px' }\"\n      (click)=\"control.disabled ? control.enable() : control.disable()\"\n    ></zyfra-button>\n    <zyfra-button label=\"toggle red/black\" (click)=\"control.setValue(control.value === 'black' ? 'red' : 'black')\"></zyfra-button>\n`"
             },
             {
                 "name": "Icon",
@@ -937,6 +2009,36 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Info",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "items",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\n  { label: 'Item1', icon: 'zyfra-icon arrows-replay' },\n  { label: 'Item2', icon: 'zyfra-icon cancel-close' },\n  { separator: true },\n  { label: 'Item3', icon: 'zyfra-icon cancel-close' },\n]"
+            },
+            {
+                "name": "MiniRadio",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "SimpleTemplate.bind({})"
+            },
+            {
                 "name": "OnlyIcon",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -947,6 +2049,16 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "RADIO_VALUE_ACCESSOR",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  provide: NG_VALUE_ACCESSOR,\n  useExisting: forwardRef(() => ZyfraRadioButtonComponent),\n  multi: true,\n}"
+            },
+            {
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -955,6 +2067,46 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Simple",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "SimpleMini",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "SimpleRadio",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "SimpleTemplate.bind({})"
+            },
+            {
+                "name": "SimpleTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraRadioButtonComponent<string>>",
+                "defaultValue": "(args) => ({\n  template: template(`[(ngModel)]=\"model\"`),\n  props: {\n    ...args,\n    ngModelChange: () => {},\n    onClick: action('onClick'),\n    onFocus: action('onFocus'),\n    onBlur: action('onBlur'),\n  },\n})"
             },
             {
                 "name": "Submit",
@@ -987,6 +2139,16 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(str: string) => `\n    <div class=\"p-radiobutton-group\">\n    <zyfra-radio-button\n      [name]=\"name\"\n      [styleClass]=\"styleClass\"\n      value=\"red\"\n      label=\"red\"\n      [disabled]=\"disabled\"\n      ${str}\n      (onClick)=\"onClick($event)\"\n      (ngModelChange)=\"ngModelChange($event)\"\n      (onFocus)=\"onFocus($event)\"\n      (onBlur)=\"onBlur($event)\"\n    ></zyfra-radio-button><br>\n    <zyfra-radio-button\n      [name]=\"name\"\n      [styleClass]=\"styleClass\"\n      value=\"black\"\n      label=\"black\"\n      [disabled]=\"disabled\"\n      ${str}\n      (onClick)=\"onClick($event)\"\n      (ngModelChange)=\"ngModelChange($event)\"\n      (onFocus)=\"onFocus($event)\"\n      (onBlur)=\"onBlur($event)\"\n    ></zyfra-radio-button><br>\n    <zyfra-radio-button\n      [name]=\"name\"\n      [styleClass]=\"styleClass\"\n      value=\"blue\"\n      label=\"blue\"\n      [disabled]=\"disabled\"\n      ${str}\n      (onClick)=\"onClick($event)\"\n      (ngModelChange)=\"ngModelChange($event)\"\n      (onFocus)=\"onFocus($event)\"\n      (onBlur)=\"onBlur($event)\"\n    ></zyfra-radio-button><br>\n    <zyfra-radio-button\n      [name]=\"name\"\n      [styleClass]=\"styleClass\"\n      value=\"pink\"\n      label=\"pink\"\n      [disabled]=\"disabled || disabledPink\"\n      ${str}\n      (onClick)=\"onClick($event)\"\n      (ngModelChange)=\"ngModelChange($event)\"\n      (onFocus)=\"onFocus($event)\"\n      (onBlur)=\"onBlur($event)\"\n    ></zyfra-radio-button><br>\n    <zyfra-radio-button\n      [name]=\"name\"\n      [styleClass]=\"styleClass\"\n      [value]=\"null\"\n      label=\"Не заполнено\"\n      [disabled]=\"disabled\"\n      ${str}\n      (onClick)=\"onClick($event)\"\n      (ngModelChange)=\"ngModelChange($event)\"\n      (onFocus)=\"onFocus($event)\"\n      (onBlur)=\"onBlur($event)\"\n    ></zyfra-radio-button>\n    </div>\n  `"
+            },
+            {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1017,10 +2179,40 @@
                 "defaultValue": "(args) => ({\n  component: ZyfraSelectButtonComponent,\n  props: args,\n})"
             },
             {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraSplitButtonComponent>",
+                "defaultValue": "(args) => ({\n  component: ZyfraSplitButtonComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraToggleButtonComponent>",
+                "defaultValue": "(args) => ({\n  component: ZyfraToggleButtonComponent,\n  props: args,\n})"
+            },
+            {
                 "name": "Warning",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WarningWithIcon",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1043,6 +2235,78 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts": [
+                {
+                    "name": "AnimationSpeed",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "items",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\n  { label: 'Item1', icon: 'zyfra-icon arrows-replay' },\n  { label: 'Item2', icon: 'zyfra-icon cancel-close' },\n  { separator: true },\n  { label: 'Item3', icon: 'zyfra-icon cancel-close' },\n]"
+                },
+                {
+                    "name": "Simple",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "SimpleMini",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ZyfraSplitButtonComponent>",
+                    "defaultValue": "(args) => ({\n  component: ZyfraSplitButtonComponent,\n  props: args,\n})"
+                },
+                {
+                    "name": "WarningWithIcon",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                }
+            ],
             "libs/components/src/lib/button/zyfra-button.component.stories.ts": [
                 {
                     "name": "Badge",
@@ -1237,6 +2501,130 @@
                     "defaultValue": "(args) => ({\n  component: ZyfraSelectButtonComponent,\n  props: args,\n})"
                 }
             ],
+            "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts": [
+                {
+                    "name": "DangerMini",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Info",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ZyfraToggleButtonComponent>",
+                    "defaultValue": "(args) => ({\n  component: ZyfraToggleButtonComponent,\n  props: args,\n})"
+                }
+            ],
+            "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts": [
+                {
+                    "name": "DisabledRadio",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "SimpleTemplate.bind({})"
+                },
+                {
+                    "name": "FormControlRadio",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "FormControlTemplate.bind({})"
+                },
+                {
+                    "name": "FormControlTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ZyfraRadioButtonComponent<string>>",
+                    "defaultValue": "(args) => ({\n  template: template(`[formControl]=\"control\"`) + formControlTemplateChunk,\n  props: {\n    ...args,\n    disabledPink: true,\n    ngModelChange: () => {},\n    control: new FormControl('red', [Validators.required]),\n  },\n})"
+                },
+                {
+                    "name": "formControlTemplateChunk",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`\n    (Значение: {{control.value === undefined || control.value === null ? 'null' : control.value}})\n    <br>\n    {{control?.errors ? 'Есть ошибки валидации' : ''}}\n    <br>\n    <zyfra-button\n      label=\"toggle disable/enable\"\n      [style]=\"{ 'margin-right': '5px', 'margin-top': '20px' }\"\n      (click)=\"control.disabled ? control.enable() : control.disable()\"\n    ></zyfra-button>\n    <zyfra-button label=\"toggle red/black\" (click)=\"control.setValue(control.value === 'black' ? 'red' : 'black')\"></zyfra-button>\n`"
+                },
+                {
+                    "name": "MiniRadio",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "SimpleTemplate.bind({})"
+                },
+                {
+                    "name": "SimpleRadio",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "SimpleTemplate.bind({})"
+                },
+                {
+                    "name": "SimpleTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ZyfraRadioButtonComponent<string>>",
+                    "defaultValue": "(args) => ({\n  template: template(`[(ngModel)]=\"model\"`),\n  props: {\n    ...args,\n    ngModelChange: () => {},\n    onClick: action('onClick'),\n    onFocus: action('onFocus'),\n    onBlur: action('onBlur'),\n  },\n})"
+                },
+                {
+                    "name": "template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(str: string) => `\n    <div class=\"p-radiobutton-group\">\n    <zyfra-radio-button\n      [name]=\"name\"\n      [styleClass]=\"styleClass\"\n      value=\"red\"\n      label=\"red\"\n      [disabled]=\"disabled\"\n      ${str}\n      (onClick)=\"onClick($event)\"\n      (ngModelChange)=\"ngModelChange($event)\"\n      (onFocus)=\"onFocus($event)\"\n      (onBlur)=\"onBlur($event)\"\n    ></zyfra-radio-button><br>\n    <zyfra-radio-button\n      [name]=\"name\"\n      [styleClass]=\"styleClass\"\n      value=\"black\"\n      label=\"black\"\n      [disabled]=\"disabled\"\n      ${str}\n      (onClick)=\"onClick($event)\"\n      (ngModelChange)=\"ngModelChange($event)\"\n      (onFocus)=\"onFocus($event)\"\n      (onBlur)=\"onBlur($event)\"\n    ></zyfra-radio-button><br>\n    <zyfra-radio-button\n      [name]=\"name\"\n      [styleClass]=\"styleClass\"\n      value=\"blue\"\n      label=\"blue\"\n      [disabled]=\"disabled\"\n      ${str}\n      (onClick)=\"onClick($event)\"\n      (ngModelChange)=\"ngModelChange($event)\"\n      (onFocus)=\"onFocus($event)\"\n      (onBlur)=\"onBlur($event)\"\n    ></zyfra-radio-button><br>\n    <zyfra-radio-button\n      [name]=\"name\"\n      [styleClass]=\"styleClass\"\n      value=\"pink\"\n      label=\"pink\"\n      [disabled]=\"disabled || disabledPink\"\n      ${str}\n      (onClick)=\"onClick($event)\"\n      (ngModelChange)=\"ngModelChange($event)\"\n      (onFocus)=\"onFocus($event)\"\n      (onBlur)=\"onBlur($event)\"\n    ></zyfra-radio-button><br>\n    <zyfra-radio-button\n      [name]=\"name\"\n      [styleClass]=\"styleClass\"\n      [value]=\"null\"\n      label=\"Не заполнено\"\n      [disabled]=\"disabled\"\n      ${str}\n      (onClick)=\"onClick($event)\"\n      (ngModelChange)=\"ngModelChange($event)\"\n      (onFocus)=\"onFocus($event)\"\n      (onBlur)=\"onBlur($event)\"\n    ></zyfra-radio-button>\n    </div>\n  `"
+                }
+            ],
             "libs/components/src/lib/icon/story/icon-definitions.ts": [
                 {
                     "name": "IconDefs",
@@ -1269,6 +2657,18 @@
                     "deprecationMessage": "",
                     "type": "Story<IconComponents>",
                     "defaultValue": "(args: IconComponents) => ({\r\n  component: IconComponents,\r\n  props: args,\r\n})"
+                }
+            ],
+            "libs/components/src/lib/radio-button/zyfra-radio-button.component.ts": [
+                {
+                    "name": "RADIO_VALUE_ACCESSOR",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  provide: NG_VALUE_ACCESSOR,\n  useExisting: forwardRef(() => ZyfraRadioButtonComponent),\n  multi: true,\n}"
                 }
             ]
         },
@@ -1493,6 +2893,105 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DisabledRadio",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "FormControlRadio",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "FormControlTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "formControlTemplateChunk",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "MiniRadio",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SimpleRadio",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SimpleTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/radio-button/zyfra-radio-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/radio-button/zyfra-radio-button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ZyfraRadioButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/28",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/radio-button/zyfra-radio-button.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RADIO_VALUE_ACCESSOR",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
                 "type": "interface",
                 "linktype": "interface",
@@ -1576,6 +3075,143 @@
                 "name": "SelectButtonOptionClick",
                 "coveragePercent": 0,
                 "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "AnimationSpeed",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "items",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Simple",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SimpleMini",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WarningWithIcon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/split-button/zyfra-split-button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ZyfraSplitButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/20",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DangerMini",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Info",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ZyfraToggleButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/15",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "TToggleButtonClick",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             }
         ]
