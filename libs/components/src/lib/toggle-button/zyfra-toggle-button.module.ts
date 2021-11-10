@@ -4,14 +4,9 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [ZyfraToggleButtonComponent],
-  imports: [
-    FormsModule,
-    CommonModule,
-    ToggleButtonModule
-  ],
-  exports: [ZyfraToggleButtonComponent]
+  imports: [FormsModule, CommonModule, ToggleButtonModule],
+  exports: [ZyfraToggleButtonComponent],
 })
 export class ZyfraToggleButtonModule {}

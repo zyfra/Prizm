@@ -1,10 +1,4 @@
-import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  ChangeDetectionStrategy,
-} from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 
 export interface TToggleButtonClick {
   originalEvent: PointerEvent;
@@ -36,5 +30,4 @@ export class ZyfraToggleButtonComponent {
     this.model = event.checked;
     this.onChange.emit(this.model);
   }
-
 }
