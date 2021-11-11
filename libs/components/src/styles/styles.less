@@ -6,6 +6,7 @@
 @import "../lib/confirm-dialog/zyfra-confirm-dialog.component.less";
 @import "../lib/hint/zyfra-hint.component";
 @import "../lib/input/zyfra-input.component";
+@import "../lib/input-switch/zyfra-input-switch.component";
 
 // todo удалить после переноса всех компонентов в это репо
 /*
@@ -49,47 +50,6 @@
 
 .p-menu .p-menu-separator {
   border-top: 1px solid var(--standartBorder);
-}
-
-
-/* =========================== input switch =======================  */
-
-.p-inputswitch .p-inputswitch-slider {
-  background: var(--inputSwitchBg );
-  border: 2px solid var(--inputSwitchUnactive );
-  height: 20px;
-  width: 40px;
-}
-
-.p-inputswitch .p-inputswitch-slider:before {
-  /* background: #323232; */
-  background: var(--inputSwitchBg );
-  border: 2px solid var(--inputSwitchUnactive );
-  margin-top: 2px;
-  left: 0.1rem;
-  width: 12px;
-  height: 12px;
-  top: 0px;
-  box-sizing: border-box;
-}
-
-.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {
-  background: var(--inputSwitchBg );
-  border: 2px solid var(--inputSwitchActive );
-}
-
-.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
-  background: var(--inputSwitchBg );
-  border: 2px solid var(--inputSwitchActive );
-}
-.p-inputswitch:not(.p-disabled):hover .p-inputswitch-slider {
-  background: var(--inputSwitchBg ) !important;
-  border: 2px solid var(--inputSwitchHover);
-}
-
-.p-inputswitch:not(.p-disabled):hover .p-inputswitch-slider:before {
-  background:  var(--inputSwitchBg );
-  border: 2px solid var(--inputSwitchHover);
 }
 
 
