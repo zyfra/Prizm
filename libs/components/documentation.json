@@ -76,12 +76,12 @@
         },
         {
             "name": "StoryCity",
-            "id": "interface-StoryCity-cd1d824335f47e0a86dd1a2b5e847255",
+            "id": "interface-StoryCity-3c9ff690d0b303367893864b189a95e5",
             "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { moduleMetadata } from '@storybook/angular';\nimport { Meta, Story } from '@storybook/angular/types-6-0';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { ZyfraSelectButtonComponent } from './zyfra-select-button.component';\nimport { ZyfraSelectButtonModule } from './zyfra-select-button.module';\n\nexport default {\n  moduleId: module.id,\n  title: 'Buttons/SelectButton',\n  component: ZyfraSelectButtonComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [BrowserModule, CommonModule, ZyfraSelectButtonModule],\n    }),\n  ],\n  parameters: {\n    docs: {\n      page: require('./zyfra-select-button.component.story.doc.mdx').default,\n    },\n  },\n} as Meta;\n\ninterface StoryCity {\n  name: string;\n  code: string;\n}\n\nconst cities: StoryCity[] = [\n  { name: 'Russia', code: 'RU' },\n  { name: 'Rome', code: 'RM' },\n  { name: 'London', code: 'LDN' },\n  { name: 'Istanbul', code: 'IST' },\n  { name: 'Paris', code: 'PRS' },\n];\n\nconst Template: Story<ZyfraSelectButtonComponent<StoryCity, string>> = (args) => ({\n  component: ZyfraSelectButtonComponent,\n  props: args,\n});\n\nexport const Default = Template.bind({});\nDefault.args = {\n  options: cities,\n  optionLabel: 'name',\n  optionDisabled: 'inactive',\n  multiple: true,\n  optionValue: 'code',\n  disabled: false,\n  styleClass: 'selectbutton-default',\n};\n\nexport const DefaultMini = Template.bind({});\nDefaultMini.args = {\n  ...Default.args,\n  styleClass: 'p-selectbutton-default p-selectbutton-mini',\n};\n\nexport const Danger = Template.bind({});\nDanger.args = {\n  ...Default.args,\n  styleClass: 'p-selectbutton-danger',\n};\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { moduleMetadata } from '@storybook/angular';\nimport { Meta, Story } from '@storybook/angular/types-6-0';\nimport { ZyfraSelectButtonComponent } from './zyfra-select-button.component';\nimport { ZyfraSelectButtonModule } from './zyfra-select-button.module';\n\nexport default {\n  moduleId: module.id,\n  title: 'Buttons/SelectButton',\n  component: ZyfraSelectButtonComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, ZyfraSelectButtonModule],\n    }),\n  ],\n  parameters: {\n    docs: {\n      page: require('./zyfra-select-button.component.story.doc.mdx').default,\n    },\n  },\n} as Meta;\n\ninterface StoryCity {\n  name: string;\n  code: string;\n}\n\nconst cities: StoryCity[] = [\n  { name: 'Russia', code: 'RU' },\n  { name: 'Rome', code: 'RM' },\n  { name: 'London', code: 'LDN' },\n  { name: 'Istanbul', code: 'IST' },\n  { name: 'Paris', code: 'PRS' },\n];\n\nconst Template: Story<ZyfraSelectButtonComponent<StoryCity, string>> = (args) => ({\n  component: ZyfraSelectButtonComponent,\n  props: args,\n});\n\nexport const Default = Template.bind({});\nDefault.args = {\n  options: cities,\n  optionLabel: 'name',\n  optionDisabled: 'inactive',\n  multiple: true,\n  optionValue: 'code',\n  disabled: false,\n  styleClass: 'selectbutton-default',\n};\n\nexport const DefaultMini = Template.bind({});\nDefaultMini.args = {\n  ...Default.args,\n  styleClass: 'p-selectbutton-default p-selectbutton-mini',\n};\n\nexport const Danger = Template.bind({});\nDanger.args = {\n  ...Default.args,\n  styleClass: 'p-selectbutton-danger',\n};\n",
             "properties": [
                 {
                     "name": "code",
@@ -90,7 +90,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 26
+                    "line": 25
                 },
                 {
                     "name": "name",
@@ -99,7 +99,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 25
+                    "line": 24
                 }
             ],
             "indexSignatures": [],
@@ -604,7 +604,7 @@
         {
             "name": "ZyfraChipComponent",
             "id": "component-ZyfraChipComponent-fedabd8c9a49762edff6d0cfcb97d89f",
-            "file": "libs/components/src/lib/zyfra-chip/zyfra-chip.component.ts",
+            "file": "libs/components/src/lib/chip/zyfra-chip.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
@@ -723,6 +723,550 @@
             "styleUrlsData": "",
             "stylesData": "",
             "templateData": "<p-chip\n  [label]=\"label\"\n  [icon]=\"icon\"\n  [image]=\"image\"\n  [removable]=\"removable\"\n  [style]=\"style\"\n  [styleClass]=\"styleClass\"\n  [removeIcon]=\"removeIcon\"\n  (onRemove)=\"onRemoveHandler($event)\"\n></p-chip>\n"
+        },
+        {
+            "name": "ZyfraConfirmDialogComponent",
+            "id": "component-ZyfraConfirmDialogComponent-754ed1ecdc702a3ad147cfc45cf9a0fb",
+            "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "zyfra-confirm-dialog",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./zyfra-confirm-dialog.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, ChangeDetectionStrategy } from '@angular/core';\n\n@Component({\n  selector: 'zyfra-zyfra-confirm-dialog',\n  templateUrl: './zyfra-confirm-dialog.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ZyfraConfirmDialogComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<p>zyfra-confirm-dialog works!</p>\n"
+        },
+        {
+            "name": "ZyfraDialogComponent",
+            "id": "component-ZyfraDialogComponent-1e11357e5a372cda72bb492a7815b1ca",
+            "file": "libs/components/src/lib/dialog/zyfra-dialog.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "zyfra-dialog",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./zyfra-dialog.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "acceptVisible",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean"
+                },
+                {
+                    "name": "appendTo",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "any"
+                },
+                {
+                    "name": "autoZIndex",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "boolean"
+                },
+                {
+                    "name": "baseZIndex",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 32,
+                    "type": "number"
+                },
+                {
+                    "name": "blockScroll",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "boolean"
+                },
+                {
+                    "name": "breakpoints",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 39,
+                    "type": "object"
+                },
+                {
+                    "name": "closable",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "boolean"
+                },
+                {
+                    "name": "closeIcon",
+                    "defaultValue": "'zyfra-icon selection-check-simple'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 41,
+                    "type": "string"
+                },
+                {
+                    "name": "closeOnEscape",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "boolean"
+                },
+                {
+                    "name": "contentStyle",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "object"
+                },
+                {
+                    "name": "contentStyleClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 30,
+                    "type": "string"
+                },
+                {
+                    "name": "dismissableMask",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "boolean"
+                },
+                {
+                    "name": "draggable",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "boolean"
+                },
+                {
+                    "name": "focusOnShow",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36,
+                    "type": "boolean"
+                },
+                {
+                    "name": "focusTrap",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 37,
+                    "type": "boolean"
+                },
+                {
+                    "name": "header",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string"
+                },
+                {
+                    "name": "htmlTemplate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "SafeHtml"
+                },
+                {
+                    "name": "keepInViewport",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "boolean"
+                },
+                {
+                    "name": "maskStyleClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "string"
+                },
+                {
+                    "name": "maximizable",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 38,
+                    "type": "boolean"
+                },
+                {
+                    "name": "maximizeIcon",
+                    "defaultValue": "'zyfra-icon arrows-expand'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 43,
+                    "type": "string"
+                },
+                {
+                    "name": "minimizeIcon",
+                    "defaultValue": "'zyfra-icon arrows-collapse'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 42,
+                    "type": "string"
+                },
+                {
+                    "name": "minX",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 34,
+                    "type": "number"
+                },
+                {
+                    "name": "minY",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 35,
+                    "type": "number"
+                },
+                {
+                    "name": "modal",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "boolean"
+                },
+                {
+                    "name": "position",
+                    "defaultValue": "'center'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "string"
+                },
+                {
+                    "name": "resizable",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "boolean"
+                },
+                {
+                    "name": "rtl",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "boolean"
+                },
+                {
+                    "name": "showHeader",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31,
+                    "type": "boolean"
+                },
+                {
+                    "name": "style",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "string"
+                },
+                {
+                    "name": "styleClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "string"
+                },
+                {
+                    "name": "transitionOptions",
+                    "defaultValue": "'150ms cubic-bezier(0, 0, 0.2, 1)'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 40,
+                    "type": "string"
+                },
+                {
+                    "name": "visible",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "boolean"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onDragEnd",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 76,
+                    "type": "EventEmitter<any>"
+                },
+                {
+                    "name": "onHide",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 46,
+                    "type": "EventEmitter<any>"
+                },
+                {
+                    "name": "onMaximize",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 83,
+                    "type": "EventEmitter<any>"
+                },
+                {
+                    "name": "onResizeEnd",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 69,
+                    "type": "EventEmitter<any>"
+                },
+                {
+                    "name": "onResizeInit",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 62,
+                    "type": "EventEmitter<any>"
+                },
+                {
+                    "name": "onShow",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 54,
+                    "type": "EventEmitter<any>"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "onDragEndHandler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 78,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onHideHandler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 48,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 85,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onMaximizeHandler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 89,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onResizeEndHandler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 71,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onResizeInitHandler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 64,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onShowHandler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 56,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { SafeHtml } from '@angular/platform-browser';\n\n@Component({\n  selector: 'zyfra-dialog',\n  templateUrl: './zyfra-dialog.component.html',\n  styles: [],\n})\nexport class ZyfraDialogComponent {\n  @Input() htmlTemplate: SafeHtml;\n\n  @Input() header: string;\n  @Input() draggable: boolean = true;\n  @Input() acceptVisible: boolean = true;\n  @Input() keepInViewport: boolean = true;\n  @Input() resizable: boolean = true;\n  @Input() contentStyle: object;\n  @Input() visible: boolean;\n  @Input() modal: boolean;\n  @Input() position: string = 'center';\n  @Input() blockScroll: boolean;\n  @Input() closeOnEscape: boolean;\n  @Input() dismissableMask: boolean;\n  @Input() rtl: boolean;\n  @Input() closable: boolean = true;\n  @Input() appendTo: any;\n  @Input() style: string;\n  @Input() styleClass: string;\n  @Input() maskStyleClass: string;\n  @Input() contentStyleClass: string;\n  @Input() showHeader: boolean = true;\n  @Input() baseZIndex: number = 0;\n  @Input() autoZIndex: boolean = true;\n  @Input() minX: number = 0;\n  @Input() minY: number = 0;\n  @Input() focusOnShow: boolean = true;\n  @Input() focusTrap: boolean = true;\n  @Input() maximizable: boolean;\n  @Input() breakpoints: object;\n  @Input() transitionOptions: string = '150ms cubic-bezier(0, 0, 0.2, 1)';\n  @Input() closeIcon: string = 'zyfra-icon selection-check-simple';\n  @Input() minimizeIcon: string = 'zyfra-icon arrows-collapse';\n  @Input() maximizeIcon: string = 'zyfra-icon arrows-expand';\n\n  /* onHide */\n  @Output() onHide: EventEmitter<any> = new EventEmitter();\n\n  onHideHandler(event) {\n    this.visible = false;\n    this.onHide.emit(this.visible);\n  }\n\n  /* onShow */\n  @Output() onShow: EventEmitter<any> = new EventEmitter();\n\n  onShowHandler(event) {\n    this.visible = true;\n    this.onShow.emit(this.visible);\n  }\n\n  /* onResizeInit */\n  @Output() onResizeInit: EventEmitter<any> = new EventEmitter();\n\n  onResizeInitHandler(event) {\n    this.onResizeInit.emit(event);\n  }\n\n  /* onResizeEnd */\n  @Output() onResizeEnd: EventEmitter<any> = new EventEmitter();\n\n  onResizeEndHandler(event) {\n    this.onResizeEnd.emit(event);\n  }\n\n  /* onDragEnd */\n  @Output() onDragEnd: EventEmitter<any> = new EventEmitter();\n\n  onDragEndHandler(event) {\n    this.onDragEnd.emit(event);\n  }\n\n  /* onMaximize */\n  @Output() onMaximize: EventEmitter<any> = new EventEmitter();\n\n  onInit() {\n    this.visible = true;\n  }\n\n  onMaximizeHandler(event) {\n    this.onMaximize.emit(event);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<p-dialog\n  [header]=\"header\"\n  [draggable]=\"draggable\"\n  [keepInViewport]=\"keepInViewport\"\n  [resizable]=\"resizable\"\n  [contentStyle]=\"contentStyle\"\n  [(visible)]=\"visible\"\n  [modal]=\"modal\"\n  [position]=\"position\"\n  [blockScroll]=\"blockScroll\"\n  [closeOnEscape]=\"closeOnEscape\"\n  [dismissableMask]=\"dismissableMask\"\n  [rtl]=\"rtl\"\n  [closable]=\"closable\"\n  [appendTo]=\"appendTo\"\n  [style]=\"style\"\n  [styleClass]=\"styleClass\"\n  [maskStyleClass]=\"maskStyleClass\"\n  [contentStyleClass]=\"contentStyleClass\"\n  [showHeader]=\"showHeader\"\n  [baseZIndex]=\"baseZIndex\"\n  [autoZIndex]=\"autoZIndex\"\n  [minX]=\"minX\"\n  [minY]=\"minY\"\n  [focusOnShow]=\"focusOnShow\"\n  [focusTrap]=\"focusTrap\"\n  [maximizable]=\"maximizable\"\n  [breakpoints]=\"breakpoints\"\n  [transitionOptions]=\"transitionOptions\"\n  [closeIcon]=\"closeIcon\"\n  [minimizeIcon]=\"minimizeIcon\"\n  [maximizeIcon]=\"maximizeIcon\"\n  (onShow)=\"onShowHandler($event)\"\n  (onHide)=\"onHideHandler($event)\"\n  (onResizeInit)=\"onResizeInitHandler($event)\"\n  (onResizeEnd)=\"onResizeEndHandler($event)\"\n  (onDragEnd)=\"onDragEndHandler($event)\"\n  (onMaximize)=\"onMaximizeHandler($event)\"\n>\n  <div [innerHTML]=\"htmlTemplate\"></div>\n</p-dialog>\n"
         },
         {
             "name": "ZyfraRadioButtonComponent",
@@ -1891,13 +2435,13 @@
         },
         {
             "name": "ZyfraChipModule",
-            "id": "module-ZyfraChipModule-57ec50f78a0f9f4670a03f6a02d368e6",
+            "id": "module-ZyfraChipModule-5c72a675429fc3e130f8da29f29382a3",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
-            "file": "libs/components/src/lib/zyfra-chip/zyfra-chip.module.ts",
+            "file": "libs/components/src/lib/chip/zyfra-chip.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormsModule, ReactiveFormsModule } from '@angular/forms';\nimport { ZyfraChipComponent } from './zyfra-chip.component';\nimport { ChipModule } from 'primeng/chip';\n\n@NgModule({\n  declarations: [ZyfraChipComponent],\n  imports: [CommonModule, ChipModule],\n  exports: [ZyfraChipComponent],\n})\nexport class ZyfraChipModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { ZyfraChipComponent } from './zyfra-chip.component';\nimport { ChipModule } from 'primeng/chip';\n\n@NgModule({\n  declarations: [ZyfraChipComponent],\n  imports: [ChipModule],\n  exports: [ZyfraChipComponent],\n})\nexport class ZyfraChipModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -1920,6 +2464,90 @@
                     "elements": [
                         {
                             "name": "ZyfraChipComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ZyfraConfirmDialogModule",
+            "id": "module-ZyfraConfirmDialogModule-3860fada8ef614b6578a644339de0870",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ZyfraConfirmDialogComponent } from './zyfra-confirm-dialog.component';\n\n@NgModule({\n  declarations: [ZyfraConfirmDialogComponent],\n  imports: [CommonModule],\n})\nexport class ZyfraConfirmDialogModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ZyfraConfirmDialogComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ZyfraDialogModule",
+            "id": "module-ZyfraDialogModule-cb74f165fa4e9d82d80c6ac04665f020",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "libs/components/src/lib/dialog/zyfra-dialog.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { DialogModule } from 'primeng/dialog';\nimport { ToastModule } from 'primeng/toast';\nimport { ZyfraDialogComponent } from './zyfra-dialog.component';\n\n@NgModule({\n  declarations: [ZyfraDialogComponent],\n  imports: [CommonModule, DialogModule, ToastModule],\n  exports: [ZyfraDialogComponent],\n})\nexport class ZyfraDialogModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ZyfraDialogComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ZyfraDialogComponent"
                         }
                     ]
                 },
@@ -2262,7 +2890,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
+                "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2272,7 +2900,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2329,6 +2957,16 @@
                 "defaultValue": "SimpleTemplate.bind({})"
             },
             {
+                "name": "Empty",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "FormControlRadio",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2357,6 +2995,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "`\n    (Значение: {{control.value === undefined || control.value === null ? 'null' : control.value}})\n    <br>\n    {{control?.errors ? 'Есть ошибки валидации' : ''}}\n    <br>\n    <zyfra-button\n      label=\"toggle disable/enable\"\n      [style]=\"{ 'margin-right': '5px', 'margin-top': '20px' }\"\n      (click)=\"control.disabled ? control.enable() : control.disable()\"\n    ></zyfra-button>\n    <zyfra-button label=\"toggle red/black\" (click)=\"control.setValue(control.value === 'black' ? 'red' : 'black')\"></zyfra-button>\n`"
+            },
+            {
+                "name": "htmlTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "SafeHtml",
+                "defaultValue": "`\n  <div>\n    <p>content</p>\n    <ul>\n      <li>item 1 (for example)</li>\n      <li><b>item 2</b></li>\n    </ul>\n  </div>\n`"
             },
             {
                 "name": "Icon",
@@ -2442,7 +3090,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/components/src/lib/zyfra-chip/zyfra-chip.component.stories.ts",
+                "file": "libs/components/src/lib/chip/zyfra-chip.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2463,6 +3111,26 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/components/src/lib/button/zyfra-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Simple",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Simple",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2572,31 +3240,41 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/components/src/lib/chip/zyfra-chip.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraChipComponent>",
+                "defaultValue": "(args: ZyfraChipComponent) => ({\n  component: ZyfraChipComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraConfirmDialogComponent>",
+                "defaultValue": "(args) => ({\n  template: `\n    <zyfra-button\n      (click)=\"confirmDialog.onClick($event)\"\n      label=\"for dialog\"\n      icon=\"zyfra-icon selection-check-simple\"\n    ></zyfra-button>\n\n    <zyfra-confirm-dialog\n      #confirmDialog\n      [message]=\"message\"\n      [icon]=\"icon\"\n      [header]=\"header\"\n      [acceptLabel]=\"acceptLabel\"\n      [rejectLabel]=\"rejectLabel\"\n      [acceptButtonStyleClass]=\"acceptButtonStyleClass\"\n      [rejectButtonStyleClass]=\"rejectButtonStyleClass\"\n      [acceptMessages]=\"acceptMessages\"\n      (onHide)=\"onHide($event)\"\n    ></zyfra-confirm-dialog>\n  `,\n  props: {\n    ...args,\n    onHide: action('onHide'),\n  },\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraDialogComponent>",
+                "defaultValue": "(args) => ({\n  template: `\n    <zyfra-button\n      (click)=\"dialog.onInit($event)\"\n      label=\"for dialog\"\n      icon=\"zyfra-icon selection-check-simple\"\n    ></zyfra-button>\n\n    <zyfra-dialog\n      #dialog\n      [header]=\"header\"\n      [htmlTemplate]=\"htmlTemplate\"\n      (onShow)=\"onShow($event)\"\n      (onHide)=\"onHide($event)\"\n      (onResizeInit)=\"onResizeInit($event)\"\n      (onResizeEnd)=\"onResizeEnd($event)\"\n      (onDragEnd)=\"onDragEnd($event)\"\n      (onMaximize)=\"onMaximize($event)\"\n    ></zyfra-dialog>\n  `,\n  props: {\n    ...args,\n    onResizeInit: action('onResizeInit'),\n    onResizeEnd: action('onResizeEnd'),\n    onDragEnd: action('onDragEnd'),\n    onMaximize: action('onMaximize'),\n    onShow: action('onShow'),\n    onHide: action('onHide'),\n  },\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/components/src/lib/icon/icon.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<IconComponents>",
                 "defaultValue": "(args: IconComponents) => ({\r\n  component: IconComponents,\r\n  props: args,\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ZyfraToggleButtonComponent>",
-                "defaultValue": "(args) => ({\n  component: ZyfraToggleButtonComponent,\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ZyfraSplitButtonComponent>",
-                "defaultValue": "(args) => ({\n  component: ZyfraSplitButtonComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -2612,11 +3290,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/components/src/lib/zyfra-chip/zyfra-chip.component.stories.ts",
+                "file": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<ZyfraChipComponent>",
-                "defaultValue": "(args: ZyfraChipComponent) => ({\n  component: ZyfraChipComponent,\n  props: args,\n})"
+                "type": "Story<ZyfraSplitButtonComponent>",
+                "defaultValue": "(args) => ({\n  component: ZyfraSplitButtonComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraToggleButtonComponent>",
+                "defaultValue": "(args) => ({\n  component: ZyfraToggleButtonComponent,\n  props: args,\n})"
             },
             {
                 "name": "Warning",
@@ -2647,6 +3335,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "CheckboxWithFormControlComponentTemplate.bind({})"
+            },
+            {
+                "name": "WithTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             }
         ],
         "functions": [],
@@ -3119,6 +3817,80 @@
                     "defaultValue": "(str: string) => `\n    <div class=\"p-radiobutton-group\">\n    <zyfra-radio-button\n      [name]=\"name\"\n      [styleClass]=\"styleClass\"\n      value=\"red\"\n      label=\"red\"\n      [disabled]=\"disabled\"\n      ${str}\n      (onClick)=\"onClick($event)\"\n      (ngModelChange)=\"ngModelChange($event)\"\n      (onFocus)=\"onFocus($event)\"\n      (onBlur)=\"onBlur($event)\"\n    ></zyfra-radio-button><br>\n    <zyfra-radio-button\n      [name]=\"name\"\n      [styleClass]=\"styleClass\"\n      value=\"black\"\n      label=\"black\"\n      [disabled]=\"disabled\"\n      ${str}\n      (onClick)=\"onClick($event)\"\n      (ngModelChange)=\"ngModelChange($event)\"\n      (onFocus)=\"onFocus($event)\"\n      (onBlur)=\"onBlur($event)\"\n    ></zyfra-radio-button><br>\n    <zyfra-radio-button\n      [name]=\"name\"\n      [styleClass]=\"styleClass\"\n      value=\"blue\"\n      label=\"blue\"\n      [disabled]=\"disabled\"\n      ${str}\n      (onClick)=\"onClick($event)\"\n      (ngModelChange)=\"ngModelChange($event)\"\n      (onFocus)=\"onFocus($event)\"\n      (onBlur)=\"onBlur($event)\"\n    ></zyfra-radio-button><br>\n    <zyfra-radio-button\n      [name]=\"name\"\n      [styleClass]=\"styleClass\"\n      value=\"pink\"\n      label=\"pink\"\n      [disabled]=\"disabled || disabledPink\"\n      ${str}\n      (onClick)=\"onClick($event)\"\n      (ngModelChange)=\"ngModelChange($event)\"\n      (onFocus)=\"onFocus($event)\"\n      (onBlur)=\"onBlur($event)\"\n    ></zyfra-radio-button><br>\n    <zyfra-radio-button\n      [name]=\"name\"\n      [styleClass]=\"styleClass\"\n      [value]=\"null\"\n      label=\"Не заполнено\"\n      [disabled]=\"disabled\"\n      ${str}\n      (onClick)=\"onClick($event)\"\n      (ngModelChange)=\"ngModelChange($event)\"\n      (onFocus)=\"onFocus($event)\"\n      (onBlur)=\"onBlur($event)\"\n    ></zyfra-radio-button>\n    </div>\n  `"
                 }
             ],
+            "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts": [
+                {
+                    "name": "Empty",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Simple",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ZyfraConfirmDialogComponent>",
+                    "defaultValue": "(args) => ({\n  template: `\n    <zyfra-button\n      (click)=\"confirmDialog.onClick($event)\"\n      label=\"for dialog\"\n      icon=\"zyfra-icon selection-check-simple\"\n    ></zyfra-button>\n\n    <zyfra-confirm-dialog\n      #confirmDialog\n      [message]=\"message\"\n      [icon]=\"icon\"\n      [header]=\"header\"\n      [acceptLabel]=\"acceptLabel\"\n      [rejectLabel]=\"rejectLabel\"\n      [acceptButtonStyleClass]=\"acceptButtonStyleClass\"\n      [rejectButtonStyleClass]=\"rejectButtonStyleClass\"\n      [acceptMessages]=\"acceptMessages\"\n      (onHide)=\"onHide($event)\"\n    ></zyfra-confirm-dialog>\n  `,\n  props: {\n    ...args,\n    onHide: action('onHide'),\n  },\n})"
+                }
+            ],
+            "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts": [
+                {
+                    "name": "htmlTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "SafeHtml",
+                    "defaultValue": "`\n  <div>\n    <p>content</p>\n    <ul>\n      <li>item 1 (for example)</li>\n      <li><b>item 2</b></li>\n    </ul>\n  </div>\n`"
+                },
+                {
+                    "name": "Simple",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ZyfraDialogComponent>",
+                    "defaultValue": "(args) => ({\n  template: `\n    <zyfra-button\n      (click)=\"dialog.onInit($event)\"\n      label=\"for dialog\"\n      icon=\"zyfra-icon selection-check-simple\"\n    ></zyfra-button>\n\n    <zyfra-dialog\n      #dialog\n      [header]=\"header\"\n      [htmlTemplate]=\"htmlTemplate\"\n      (onShow)=\"onShow($event)\"\n      (onHide)=\"onHide($event)\"\n      (onResizeInit)=\"onResizeInit($event)\"\n      (onResizeEnd)=\"onResizeEnd($event)\"\n      (onDragEnd)=\"onDragEnd($event)\"\n      (onMaximize)=\"onMaximize($event)\"\n    ></zyfra-dialog>\n  `,\n  props: {\n    ...args,\n    onResizeInit: action('onResizeInit'),\n    onResizeEnd: action('onResizeEnd'),\n    onDragEnd: action('onDragEnd'),\n    onMaximize: action('onMaximize'),\n    onShow: action('onShow'),\n    onHide: action('onHide'),\n  },\n})"
+                },
+                {
+                    "name": "WithTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                }
+            ],
             "libs/components/src/lib/icon/story/icon-definitions.ts": [
                 {
                     "name": "IconDefs",
@@ -3153,12 +3925,12 @@
                     "defaultValue": "(args: IconComponents) => ({\r\n  component: IconComponents,\r\n  props: args,\r\n})"
                 }
             ],
-            "libs/components/src/lib/zyfra-chip/zyfra-chip.component.stories.ts": [
+            "libs/components/src/lib/chip/zyfra-chip.component.stories.ts": [
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/components/src/lib/zyfra-chip/zyfra-chip.component.stories.ts",
+                    "file": "libs/components/src/lib/chip/zyfra-chip.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3168,7 +3940,7 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/components/src/lib/zyfra-chip/zyfra-chip.component.stories.ts",
+                    "file": "libs/components/src/lib/chip/zyfra-chip.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<ZyfraChipComponent>",
@@ -3427,6 +4199,123 @@
                 "name": "CHECKBOX_VALUE_ACCESSOR",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/chip/zyfra-chip.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/chip/zyfra-chip.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/chip/zyfra-chip.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ZyfraChipComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/10",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Empty",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Simple",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ZyfraConfirmDialogComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "htmlTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Simple",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/dialog/zyfra-dialog.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ZyfraDialogComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/47",
                 "status": "low"
             },
             {
@@ -3797,35 +4686,6 @@
                 "name": "TToggleButtonClick",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/components/src/lib/zyfra-chip/zyfra-chip.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Primary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/components/src/lib/zyfra-chip/zyfra-chip.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/components/src/lib/zyfra-chip/zyfra-chip.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "ZyfraChipComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/10",
                 "status": "low"
             }
         ]

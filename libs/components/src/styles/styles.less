@@ -3,6 +3,7 @@
 @import './typography/typography.less';
 @import "../lib/chip/zyfra-chip.component.less";
 @import "../lib/checkbox/zyfra-checkbox.component.less";
+@import "../lib/confirm-dialog/zyfra-confirm-dialog.component.less";
 
 // todo удалить после переноса всех компонентов в это репо
 /*
@@ -27,7 +28,7 @@
 }
 
 
-/* ================================= split-button ==================================== */
+/* ===================================================================== */
 
 .p-menu.p-menu-overlay {
   background: var(--standartBg);
@@ -383,43 +384,6 @@
 //    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
 // }
 
-
-/* ============================= confirm-dialogs ================================ */
-
-.p-dialog {
-  border: none;
-  border-radius: .8rem;
-}
-
-.p-dialog .p-dialog-header {
-  border-bottom: none;
-  /*1px solid var(--dialogBorder); */
-  background: var(--standartBg);
-  color: var(--standartFont);
-  border-top-left-radius: .8rem;
-  border-top-right-radius: .8rem;
-}
-
-.p-dialog .p-dialog-content {
-  background: var(--standartBg);
-  color: var(--standartFont);
-}
-
-/* переделан footer что бы кнопки помещались одна под другой */
-.p-dialog .p-dialog-footer {
-  display: flex;
-  flex-direction: column;
-  background: var(--standartBg);
-  color: var(--standartFont);
-  border-top: 1px solid var(--dialogBorder);
-  border-bottom-right-radius: .8rem;
-  border-bottom-left-radius: .8rem;
-}
-.p-dialog .p-dialog-footer button {
-  margin: 0 0 0.5rem;
-  width: auto;
-  border: none;
-}
 
 
 /* ============================= confirm-popup ================================ */
