@@ -1,0 +1,43 @@
+import { ArgsTable, Subtitle } from '@storybook/addon-docs';
+import { ZyfraInputComponent } from './zyfra-input.component.ts';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+
+## Zyfra - Input
+
+<Subtitle>InputText renders a text field to enter data</Subtitle>
+
+```
+npm i @zyfra/zyfra-input
+```
+
+Import module:
+
+```typescript
+import { ZyfraInputModule } from '@zyfra/zyfra-input';
+
+@NgModule({
+  imports: [ZyfraInputModule],
+})
+export class YourModule {}
+```
+
+To component:
+
+```html
+<zyfra-input
+  id="id"
+  type="text"
+  [(model)]="inputModel"
+  placeholder="placeholder"
+  inputClass="input-class"
+></zyfra-input>
+```
+
+```typescript
+public inputModel = 'some string';
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraInputComponent} />
