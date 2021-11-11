@@ -139,11 +139,1003 @@
             "methods": []
         }
     ],
-    "injectables": [],
+    "injectables": [
+        {
+            "name": "ZyfraHintOverlayManager",
+            "id": "injectable-ZyfraHintOverlayManager-ee848cad15b249d1c089f9c45ecac04e",
+            "file": "libs/components/src/lib/hint/zyfra-hint-overlay-manager.service.ts",
+            "properties": [
+                {
+                    "name": "className",
+                    "defaultValue": "'zyfra-hint-overlay-container'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        121,
+                        143
+                    ]
+                },
+                {
+                    "name": "innerContainer",
+                    "defaultValue": "null",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "renderer",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Renderer2",
+                    "optional": false,
+                    "description": "",
+                    "line": 10,
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "append",
+                    "args": [
+                        {
+                            "name": "element",
+                            "type": "HTMLElement",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 35,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "element",
+                            "type": "HTMLElement",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "create",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 33,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "remove",
+                    "args": [
+                        {
+                            "name": "element",
+                            "type": "HTMLElement",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 39,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "element",
+                            "type": "HTMLElement",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Inject, Injectable, Renderer2, RendererFactory2 } from '@angular/core';\nimport { DOCUMENT } from '@angular/common';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class ZyfraHintOverlayManager {\n  private innerContainer: HTMLElement = null;\n  private readonly className = 'zyfra-hint-overlay-container';\n  private renderer: Renderer2;\n\n  constructor(@Inject(DOCUMENT) private document: Document, rendererFactory: RendererFactory2) {\n    this.renderer = rendererFactory.createRenderer(null, null);\n  }\n\n  private get container(): HTMLElement {\n    if (!this.innerContainer) {\n      this.innerContainer = this.document.querySelector(`.${this.className}`);\n      if (!this.innerContainer) {\n        this.innerContainer = this.renderer.createElement('div');\n        this.renderer.addClass(this.innerContainer, this.className);\n        this.renderer.setStyle(\n          this.innerContainer,\n          'cssText',\n          'position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:99999;'\n        );\n        this.document.body.appendChild(this.innerContainer);\n      }\n    }\n    return this.innerContainer;\n  }\n\n  public create(): void {}\n\n  public append(element: HTMLElement): void {\n    this.container.appendChild(element);\n  }\n\n  public remove(element: HTMLElement): void {\n    this.container.removeChild(element);\n  }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "document",
+                        "type": "Document",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "rendererFactory",
+                        "type": "RendererFactory2",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 10,
+                "jsdoctags": [
+                    {
+                        "name": "document",
+                        "type": "Document",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "rendererFactory",
+                        "type": "RendererFactory2",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "accessors": {
+                "container": {
+                    "name": "container",
+                    "getSignature": {
+                        "name": "container",
+                        "type": "",
+                        "returnType": "HTMLElement",
+                        "line": 16
+                    }
+                }
+            },
+            "type": "injectable"
+        }
+    ],
     "guards": [],
     "interceptors": [],
-    "classes": [],
-    "directives": [],
+    "classes": [
+        {
+            "name": "ZyfraHintOptionsModel",
+            "id": "class-ZyfraHintOptionsModel-65e7b724bbbf9aa9feba05235de3c869",
+            "file": "libs/components/src/lib/hint/zyfra-hint.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { TemplateRef } from '@angular/core';\n\nexport class ZyfraHintOptionsModel {\n  left?: number;\n  top?: number;\n  className?: string;\n  content?: string | TemplateRef<any>;\n  context: Record<string, unknown>;\n}\n",
+            "properties": [
+                {
+                    "name": "className",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "content",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string | TemplateRef<any>",
+                    "optional": true,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "context",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Record<string | >",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "left",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": true,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "top",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": true,
+                    "description": "",
+                    "line": 5
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        }
+    ],
+    "directives": [
+        {
+            "name": "ZyfraHintDirective",
+            "id": "directive-ZyfraHintDirective-bb1cc80c03b58c4ed8f7c1b2fd42db75",
+            "file": "libs/components/src/lib/hint/zyfra-hint.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import {\n  Directive,\n  Inject,\n  ComponentFactoryResolver,\n  Input,\n  ElementRef,\n  ViewContainerRef,\n  ComponentRef,\n  OnDestroy,\n  OnChanges,\n  SimpleChanges,\n  AfterViewInit,\n  TemplateRef,\n  HostListener,\n  Renderer2,\n} from '@angular/core';\nimport { ZyfraHintComponent } from './zyfra-hint.component';\nimport { ZyfraHintOverlayManager } from './zyfra-hint-overlay-manager.service';\n\n@Directive({\n  selector: '[zyfraHint]',\n  exportAs: 'zyfraHint',\n})\nexport class ZyfraHintDirective implements OnDestroy, OnChanges, AfterViewInit {\n  constructor(\n    private elementRef: ElementRef<HTMLElement>,\n    @Inject(ComponentFactoryResolver)\n    private resolver: ComponentFactoryResolver,\n    private viewContainerRef: ViewContainerRef,\n    private zyfraHintOverlayManager: ZyfraHintOverlayManager,\n    private renderer: Renderer2\n  ) {}\n\n  @Input() zyfraHint: string | TemplateRef<any> = null;\n  @Input() zyfraHintContext: Record<string, unknown>;\n  @Input() zyfraHintDelay = 400;\n  @Input() hintClass: string | string[] = '';\n  @Input() zyfraShowHint = false;\n  @Input() position: 'left' | 'right' | 'above' | 'below' = 'right';\n  @Input() hasOverflowText: HTMLElement;\n\n  private hintStyle: string;\n  private mutationObserver: MutationObserver;\n  private componentFactory = this.resolver.resolveComponentFactory(ZyfraHintComponent);\n  private hintCmpRef: ComponentRef<ZyfraHintComponent> = null;\n  private hintElement: HTMLElement = null;\n  private coordinates = { left: 0, top: 0 };\n  private hintTimerId = null;\n\n  @HostListener('click', ['$event']) clickEvent(event: MouseEvent): void {\n    this.hide();\n  }\n\n  @HostListener('mouseenter', ['$event']) mouseenter(event: MouseEvent): void {\n    if (!this.zyfraShowHint) {\n      this.show();\n    }\n  }\n\n  @HostListener('mouseleave', ['$event']) mouseleave(event: MouseEvent): void {\n    if (!this.hintCmpRef) {\n      clearTimeout(this.hintTimerId);\n      this.zyfraShowHint = false;\n    } else {\n      this.hide();\n    }\n  }\n\n  ngAfterViewInit(): void {\n    if (this.zyfraShowHint) {\n      this.show();\n    }\n  }\n\n  ngOnChanges(changes: SimpleChanges): void {\n    if (this.hintCmpRef) {\n      let wereChanges = false;\n\n      if (changes.position) {\n        const change = changes.position;\n\n        if (!change.firstChange) {\n          this._setHintClasses();\n          wereChanges = true;\n        }\n      }\n\n      if (changes.zyfraHint) {\n        const change = changes.zyfraHint;\n        if (!change.firstChange) {\n          this.hintCmpRef.instance.options.content = change.currentValue;\n          wereChanges = true;\n        }\n      }\n\n      if (wereChanges) {\n        this.hintCmpRef.changeDetectorRef.detectChanges();\n        this._setOptions();\n      }\n    }\n  }\n\n  private _setHintClasses(): void {\n    this.hintCmpRef.instance.hostClasses = `zyfra_hint ${this.position} ${this.hintClass} ${this.hintStyle}`;\n  }\n\n  ngOnDestroy(): void {\n    if (this.hintCmpRef) {\n      this.hintCmpRef.destroy();\n      this.hintCmpRef = null;\n    }\n    if (this.mutationObserver) {\n      this.mutationObserver.disconnect();\n    }\n    this.hide();\n  }\n\n  public toggle(): void {\n    if (this.zyfraShowHint) {\n      this.hide();\n    } else {\n      this.show();\n    }\n  }\n\n  public hintForOveflowText(): boolean {\n    return this.hasOverflowText ? this.hasOverflowText.offsetWidth < this.hasOverflowText.scrollWidth : true;\n  }\n\n  public show(): void {\n    if (this.zyfraHint && this.hintForOveflowText()) {\n      this._showHint();\n      this.zyfraShowHint = true;\n    }\n  }\n\n  public hide(): void {\n    clearTimeout(this.hintTimerId);\n    if (this.hintCmpRef) {\n      this.renderer.setStyle(this.hintCmpRef.location.nativeElement, 'animation', 'hintOut 0.3s');\n    }\n    this.zyfraShowHint = false;\n  }\n\n  private _setOptions(): void {\n    const viewPort: DOMRect = this.elementRef.nativeElement.getBoundingClientRect();\n    const elementHeight: number = viewPort.height;\n    const elementWidth: number = viewPort.width;\n    const hintBoundingClientRect: DOMRect = this.hintElement.getBoundingClientRect();\n    const hintHeight = hintBoundingClientRect.height;\n    const hintWidth = hintBoundingClientRect.width;\n    const margin = 12;\n\n    this._setPosition(hintHeight, elementHeight, viewPort, margin, hintWidth);\n\n    this._setCoordinatesLeftAndTop(hintHeight, elementHeight, viewPort, margin, hintWidth, elementWidth);\n\n    this.hintCmpRef.instance.options.left = this.coordinates.left;\n    this.hintCmpRef.instance.options.top = this.coordinates.top;\n    this._setHintClasses();\n    this.hintCmpRef.changeDetectorRef.detectChanges();\n  }\n\n  private _setPosition(\n    hintHeight: number,\n    elementHeight: number,\n    viewPort: DOMRect,\n    margin: number,\n    hintWidth: number\n  ): void {\n    switch (this.position) {\n      case 'left':\n        if (viewPort.left < hintWidth + margin) {\n          this.position = 'right';\n        }\n        break;\n      case 'right':\n        if (window.innerWidth - viewPort.right < hintWidth + margin) {\n          this.position = 'left';\n        }\n        break;\n      case 'above':\n        if (viewPort.top < hintHeight + margin) {\n          this.position = 'below';\n        }\n        break;\n      case 'below':\n        if (window.innerHeight - (viewPort.top + elementHeight) < hintHeight + margin) {\n          this.position = 'above';\n        }\n        break;\n    }\n  }\n\n  private _setCoordinatesLeftAndTop(\n    hintHeight: number,\n    elementHeight: number,\n    viewPort: DOMRect,\n    margin: number,\n    hintWidth: number,\n    elementWidth: number\n  ): void {\n    switch (this.position) {\n      case 'right': {\n        if (hintHeight <= elementHeight) {\n          this.coordinates.top = viewPort.top;\n        } else {\n          this.coordinates.top = viewPort.top - (hintHeight - elementHeight) / 2;\n        }\n        this.coordinates.left = viewPort.right + margin;\n        break;\n      }\n      case 'left': {\n        if (hintHeight <= elementHeight) {\n          this.coordinates.top = viewPort.top;\n        } else {\n          this.coordinates.top = viewPort.top - (hintHeight - elementHeight) / 2;\n        }\n        this.coordinates.left = viewPort.left - hintWidth - margin;\n        break;\n      }\n      case 'above': {\n        if (elementWidth >= hintWidth) {\n          this.coordinates.left = viewPort.left + (elementWidth - hintWidth) / 2;\n        } else if (viewPort.left < hintWidth / 2) {\n          this.coordinates.left = viewPort.left;\n        } else if (viewPort.left + hintWidth >= window.innerWidth) {\n          this.coordinates.left = viewPort.left - hintWidth / 2;\n        } else {\n          this.coordinates.left = viewPort.left - (hintWidth - elementWidth) / 2;\n        }\n\n        this.coordinates.top = viewPort.top - hintHeight - margin;\n        break;\n      }\n      case 'below': {\n        if (elementWidth >= hintWidth) {\n          this.coordinates.left = viewPort.left + (elementWidth - hintWidth) / 2;\n        } else if (viewPort.left < hintWidth / 2) {\n          this.coordinates.left = viewPort.left;\n        } else if (viewPort.left + hintWidth >= window.innerWidth) {\n          this.coordinates.left = viewPort.left - hintWidth / 2;\n        } else {\n          this.coordinates.left = viewPort.left - (hintWidth - elementWidth) / 2;\n        }\n        this.coordinates.top = viewPort.bottom + margin;\n        break;\n      }\n      default: {\n        this.coordinates.left = viewPort.right + margin;\n        this.coordinates.top = viewPort.top;\n        break;\n      }\n    }\n  }\n\n  private _showHint(): void {\n    this.hintTimerId = setTimeout(() => {\n      this.zyfraHintOverlayManager.create();\n\n      this.hintCmpRef = this.viewContainerRef.createComponent(this.componentFactory);\n      this.hintStyle = '';\n      this.hintCmpRef.instance.options = {\n        left: -1000,\n        top: -1000,\n        content: this.zyfraHint,\n        context: this.zyfraHintContext,\n      };\n      this._setHintClasses();\n      this.hintElement = this.hintCmpRef.location.nativeElement;\n      this.zyfraHintOverlayManager.append(this.hintElement);\n\n      this.mutationObserver = new MutationObserver((mutations: MutationRecord[]) => {\n        mutations.forEach((mutation: MutationRecord) => {\n          if (mutation.type === 'childList') {\n            this._setOptions();\n          }\n        });\n      });\n\n      this.mutationObserver.observe(this.hintElement, {\n        childList: true,\n      });\n\n      this.hintCmpRef.instance.close.subscribe(() => {\n        this.hintCmpRef.destroy();\n        this.hintCmpRef = null;\n\n        if (this.mutationObserver) {\n          this.mutationObserver.disconnect();\n        }\n      });\n      this._setOptions();\n      this.hintCmpRef.changeDetectorRef.detectChanges();\n    }, this.zyfraHintDelay);\n  }\n}\n",
+            "selector": "[zyfraHint]",
+            "providers": [],
+            "inputsClass": [
+                {
+                    "name": "hasOverflowText",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 40,
+                    "type": "HTMLElement"
+                },
+                {
+                    "name": "hintClass",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 37,
+                    "type": "string | string[]"
+                },
+                {
+                    "name": "position",
+                    "defaultValue": "'right'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 39,
+                    "type": "\"left\" | \"right\" | \"above\" | \"below\""
+                },
+                {
+                    "name": "zyfraHint",
+                    "defaultValue": "null",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 34,
+                    "type": "string | TemplateRef<any>"
+                },
+                {
+                    "name": "zyfraHintContext",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 35,
+                    "type": "Record<string | >"
+                },
+                {
+                    "name": "zyfraHintDelay",
+                    "defaultValue": "400",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36,
+                    "type": "number"
+                },
+                {
+                    "name": "zyfraShowHint",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 38,
+                    "type": "boolean"
+                }
+            ],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [
+                {
+                    "name": "click",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "argsDecorator": [
+                        "$event"
+                    ],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 50
+                },
+                {
+                    "name": "mouseenter",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "argsDecorator": [
+                        "$event"
+                    ],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 54
+                },
+                {
+                    "name": "mouseleave",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "argsDecorator": [
+                        "$event"
+                    ],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 60
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "componentFactory",
+                    "defaultValue": "this.resolver.resolveComponentFactory(ZyfraHintComponent)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 44,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "coordinates",
+                    "defaultValue": "{ left: 0, top: 0 }",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "optional": false,
+                    "description": "",
+                    "line": 47,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "hintCmpRef",
+                    "defaultValue": "null",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ComponentRef<ZyfraHintComponent>",
+                    "optional": false,
+                    "description": "",
+                    "line": 45,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "hintElement",
+                    "defaultValue": "null",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 46,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "hintStyle",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 42,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "hintTimerId",
+                    "defaultValue": "null",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "null",
+                    "optional": false,
+                    "description": "",
+                    "line": 48,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "mutationObserver",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "MutationObserver",
+                    "optional": false,
+                    "description": "",
+                    "line": 43,
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "_setCoordinatesLeftAndTop",
+                    "args": [
+                        {
+                            "name": "hintHeight",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "elementHeight",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "viewPort",
+                            "type": "DOMRect",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "margin",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "hintWidth",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "elementWidth",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 195,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "hintHeight",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "elementHeight",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "viewPort",
+                            "type": "DOMRect",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "margin",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "hintWidth",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "elementWidth",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "_setHintClasses",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 103,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "_setOptions",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 145,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "_setPosition",
+                    "args": [
+                        {
+                            "name": "hintHeight",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "elementHeight",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "viewPort",
+                            "type": "DOMRect",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "margin",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "hintWidth",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 164,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "hintHeight",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "elementHeight",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "viewPort",
+                            "type": "DOMRect",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "margin",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "hintWidth",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "_showHint",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 257,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "clickEvent",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 50,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'click', ['$event']"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "hide",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 137,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "hintForOveflowText",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 126,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "mouseenter",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 54,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'mouseenter', ['$event']"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "mouseleave",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 60,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'mouseleave', ['$event']"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 69,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnChanges",
+                    "args": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 75,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 107,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "show",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 130,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "toggle",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 118,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "implements": [
+                "OnDestroy",
+                "OnChanges",
+                "AfterViewInit"
+            ],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "elementRef",
+                        "type": "ElementRef<HTMLElement>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "resolver",
+                        "type": "ComponentFactoryResolver",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "viewContainerRef",
+                        "type": "ViewContainerRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "zyfraHintOverlayManager",
+                        "type": "ZyfraHintOverlayManager",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "renderer",
+                        "type": "Renderer2",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 24,
+                "jsdoctags": [
+                    {
+                        "name": "elementRef",
+                        "type": "ElementRef<HTMLElement>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "resolver",
+                        "type": "ComponentFactoryResolver",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "viewContainerRef",
+                        "type": "ViewContainerRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "zyfraHintOverlayManager",
+                        "type": "ZyfraHintOverlayManager",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "renderer",
+                        "type": "Renderer2",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
     "components": [
         {
             "name": "IconComponent",
@@ -726,14 +1718,17 @@
         },
         {
             "name": "ZyfraConfirmDialogComponent",
-            "id": "component-ZyfraConfirmDialogComponent-754ed1ecdc702a3ad147cfc45cf9a0fb",
+            "id": "component-ZyfraConfirmDialogComponent-73e2be61fe0fe570fc1e566329ff402f",
             "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.ts",
-            "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
-            "providers": [],
+            "providers": [
+                {
+                    "name": "ConfirmationService"
+                }
+            ],
             "selector": "zyfra-confirm-dialog",
             "styleUrls": [],
             "styles": [],
@@ -741,10 +1736,336 @@
                 "./zyfra-confirm-dialog.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
+            "inputsClass": [
+                {
+                    "name": "accept",
+                    "defaultValue": "() => {}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "Function"
+                },
+                {
+                    "name": "acceptButtonStyleClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "string"
+                },
+                {
+                    "name": "acceptIcon",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "string"
+                },
+                {
+                    "name": "acceptLabel",
+                    "defaultValue": "'yes'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "string"
+                },
+                {
+                    "name": "acceptMessages",
+                    "defaultValue": "[\n    { severity: '', summary: '', detail: '' },\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "literal type[]"
+                },
+                {
+                    "name": "acceptVisible",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31,
+                    "type": "boolean"
+                },
+                {
+                    "name": "appendTo",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 40,
+                    "type": "any"
+                },
+                {
+                    "name": "autoZIndex",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 43,
+                    "type": "boolean"
+                },
+                {
+                    "name": "baseZIndex",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 42,
+                    "type": "number"
+                },
+                {
+                    "name": "blockScroll",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36,
+                    "type": "boolean"
+                },
+                {
+                    "name": "breakpoints",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 44,
+                    "type": "object"
+                },
+                {
+                    "name": "closable",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 38,
+                    "type": "boolean"
+                },
+                {
+                    "name": "closeOnEscape",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 37,
+                    "type": "boolean"
+                },
+                {
+                    "name": "defaultFocus",
+                    "defaultValue": "'accept'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 46,
+                    "type": "string"
+                },
+                {
+                    "name": "dismissableMask",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 41,
+                    "type": "boolean"
+                },
+                {
+                    "name": "focusTrap",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 39,
+                    "type": "boolean"
+                },
+                {
+                    "name": "header",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string"
+                },
+                {
+                    "name": "icon",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string"
+                },
+                {
+                    "name": "key",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string"
+                },
+                {
+                    "name": "maskStyleClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 35,
+                    "type": "string"
+                },
+                {
+                    "name": "message",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "any"
+                },
+                {
+                    "name": "reject",
+                    "defaultValue": "() => {}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "Function"
+                },
+                {
+                    "name": "rejectButtonStyleClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 30,
+                    "type": "string"
+                },
+                {
+                    "name": "rejectIcon",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "string"
+                },
+                {
+                    "name": "rejectLabel",
+                    "defaultValue": "'no'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "string"
+                },
+                {
+                    "name": "rejectMessages",
+                    "defaultValue": "[\n    { severity: '', summary: '', detail: '' },\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "literal type[]"
+                },
+                {
+                    "name": "rejectVisible",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 32,
+                    "type": "boolean"
+                },
+                {
+                    "name": "style",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "string"
+                },
+                {
+                    "name": "styleClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 34,
+                    "type": "string"
+                },
+                {
+                    "name": "transitionOptions",
+                    "defaultValue": "'400ms cubic-bezier(0.25, 0.8, 0.25, 1)'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 45,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onHide",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 71,
+                    "type": "EventEmitter<any>"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "msgs",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Message[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 48
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 77,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 52,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onClick",
+                    "args": [
+                        {
+                            "name": "e",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 54,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "e",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onHideHindler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 73,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -752,11 +2073,55 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, ChangeDetectionStrategy } from '@angular/core';\n\n@Component({\n  selector: 'zyfra-zyfra-confirm-dialog',\n  templateUrl: './zyfra-confirm-dialog.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ZyfraConfirmDialogComponent {}\n",
+            "sourceCode": "import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';\nimport { ConfirmationService } from 'primeng/api';\nimport { Message } from 'primeng/api';\nimport { PrimeNGConfig } from 'primeng/api';\n\n@Component({\n  selector: 'zyfra-confirm-dialog',\n  templateUrl: './zyfra-confirm-dialog.component.html',\n  styles: [],\n  providers: [ConfirmationService],\n})\nexport class ZyfraConfirmDialogComponent implements OnInit {\n  @Input() message: any = '';\n  @Input() key: string;\n  @Input() icon: string;\n  @Input() header: string = '';\n  @Input() accept: Function = () => {};\n  @Input() reject: Function = () => {};\n  @Input() acceptMessages: { severity: string; summary: string; detail: string }[] = [\n    { severity: '', summary: '', detail: '' },\n  ];\n  @Input() rejectMessages: { severity: string; summary: string; detail: string }[] = [\n    { severity: '', summary: '', detail: '' },\n  ];\n  @Input() acceptLabel: string = 'yes';\n  @Input() rejectLabel: string = 'no';\n  @Input() acceptIcon: string;\n  @Input() rejectIcon: string;\n  @Input() acceptButtonStyleClass: string;\n  @Input() rejectButtonStyleClass: string;\n  @Input() acceptVisible: boolean = true;\n  @Input() rejectVisible: boolean = true;\n  @Input() style: string;\n  @Input() styleClass: string;\n  @Input() maskStyleClass: string;\n  @Input() blockScroll: boolean = true;\n  @Input() closeOnEscape: boolean = true;\n  @Input() closable: boolean = true;\n  @Input() focusTrap: boolean = true;\n  @Input() appendTo: any;\n  @Input() dismissableMask: boolean;\n  @Input() baseZIndex: number = 0;\n  @Input() autoZIndex: boolean = true;\n  @Input() breakpoints: object;\n  @Input() transitionOptions: string = '400ms cubic-bezier(0.25, 0.8, 0.25, 1)';\n  @Input() defaultFocus: string = 'accept';\n\n  msgs: Message[] = [];\n\n  constructor(private confirmationService: ConfirmationService, private primengConfig: PrimeNGConfig) {}\n\n  ngOnInit(): void {}\n\n  onClick(e) {\n    this.confirmationService.confirm({\n      message: this.message,\n      header: this.header,\n      icon: this.icon,\n      accept: () => {\n        this.msgs = this.acceptMessages;\n        this.accept();\n      },\n      reject: () => {\n        this.msgs = this.rejectMessages;\n        this.reject();\n      },\n    });\n  }\n\n  /* onHide */\n  @Output() onHide: EventEmitter<any> = new EventEmitter();\n\n  onHideHindler(event) {\n    this.onHide.emit(event);\n  }\n\n  ngOnDestroy() {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
-            "templateData": "<p>zyfra-confirm-dialog works!</p>\n"
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "confirmationService",
+                        "type": "ConfirmationService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "primengConfig",
+                        "type": "PrimeNGConfig",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 48,
+                "jsdoctags": [
+                    {
+                        "name": "confirmationService",
+                        "type": "ConfirmationService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "primengConfig",
+                        "type": "PrimeNGConfig",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p-confirmDialog\n  [message]=\"message\"\n  [key]=\"key\"\n  [icon]=\"icon\"\n  [header]=\"header\"\n  [acceptLabel]=\"acceptLabel\"\n  [rejectLabel]=\"rejectLabel\"\n  [acceptIcon]=\"acceptIcon\"\n  [rejectIcon]=\"rejectIcon\"\n  [acceptButtonStyleClass]=\"acceptButtonStyleClass\"\n  [rejectButtonStyleClass]=\"rejectButtonStyleClass\"\n  [acceptVisible]=\"acceptVisible\"\n  [rejectVisible]=\"rejectVisible\"\n  [style]=\"style\"\n  [styleClass]=\"styleClass\"\n  [maskStyleClass]=\"maskStyleClass\"\n  [blockScroll]=\"blockScroll\"\n  [closeOnEscape]=\"closeOnEscape\"\n  [dismissableMask]=\"dismissableMask\"\n  [closable]=\"closable\"\n  [focusTrap]=\"focusTrap\"\n  [appendTo]=\"appendTo\"\n  [defaultFocus]=\"defaultFocus\"\n  [baseZIndex]=\"baseZIndex\"\n  [autoZIndex]=\"autoZIndex\"\n  [breakpoints]=\"breakpoints\"\n  [transitionOptions]=\"transitionOptions\"\n  (onHide)=\"onHideHindler($event)\"\n></p-confirmDialog>\n"
         },
         {
             "name": "ZyfraDialogComponent",
@@ -1267,6 +2632,349 @@
             "styleUrlsData": "",
             "stylesData": "",
             "templateData": "<p-dialog\n  [header]=\"header\"\n  [draggable]=\"draggable\"\n  [keepInViewport]=\"keepInViewport\"\n  [resizable]=\"resizable\"\n  [contentStyle]=\"contentStyle\"\n  [(visible)]=\"visible\"\n  [modal]=\"modal\"\n  [position]=\"position\"\n  [blockScroll]=\"blockScroll\"\n  [closeOnEscape]=\"closeOnEscape\"\n  [dismissableMask]=\"dismissableMask\"\n  [rtl]=\"rtl\"\n  [closable]=\"closable\"\n  [appendTo]=\"appendTo\"\n  [style]=\"style\"\n  [styleClass]=\"styleClass\"\n  [maskStyleClass]=\"maskStyleClass\"\n  [contentStyleClass]=\"contentStyleClass\"\n  [showHeader]=\"showHeader\"\n  [baseZIndex]=\"baseZIndex\"\n  [autoZIndex]=\"autoZIndex\"\n  [minX]=\"minX\"\n  [minY]=\"minY\"\n  [focusOnShow]=\"focusOnShow\"\n  [focusTrap]=\"focusTrap\"\n  [maximizable]=\"maximizable\"\n  [breakpoints]=\"breakpoints\"\n  [transitionOptions]=\"transitionOptions\"\n  [closeIcon]=\"closeIcon\"\n  [minimizeIcon]=\"minimizeIcon\"\n  [maximizeIcon]=\"maximizeIcon\"\n  (onShow)=\"onShowHandler($event)\"\n  (onHide)=\"onHideHandler($event)\"\n  (onResizeInit)=\"onResizeInitHandler($event)\"\n  (onResizeEnd)=\"onResizeEndHandler($event)\"\n  (onDragEnd)=\"onDragEndHandler($event)\"\n  (onMaximize)=\"onMaximizeHandler($event)\"\n>\n  <div [innerHTML]=\"htmlTemplate\"></div>\n</p-dialog>\n"
+        },
+        {
+            "name": "ZyfraHintComponent",
+            "id": "component-ZyfraHintComponent-c614503939456c15d0610aa8d5898eee",
+            "file": "libs/components/src/lib/hint/zyfra-hint.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [
+                "ViewEncapsulation.None"
+            ],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "zyfra-hint",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./zyfra-hint.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "close",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 40,
+                    "type": "EventEmitter<boolean>"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "_options",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ZyfraHintOptionsModel",
+                    "optional": false,
+                    "description": "",
+                    "line": 42,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "hostClasses",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 38,
+                    "decorators": [
+                        {
+                            "name": "HostBinding",
+                            "stringifiedArguments": "'class'"
+                        }
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "animationend",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "AnimationEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 43,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'animationend', ['$event']"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "AnimationEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [
+                {
+                    "name": "class",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 38,
+                    "type": "string"
+                },
+                {
+                    "name": "style.left.px",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "number"
+                },
+                {
+                    "name": "style.top.px",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "number"
+                }
+            ],
+            "hostListeners": [
+                {
+                    "name": "animationend",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "AnimationEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "argsDecorator": [
+                        "$event"
+                    ],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 43
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n  Component,\n  EventEmitter,\n  ViewEncapsulation,\n  Output,\n  TemplateRef,\n  HostBinding,\n  ChangeDetectionStrategy,\n  HostListener,\n} from '@angular/core';\nimport { ZyfraHintOptionsModel } from './zyfra-hint.model';\n\n@Component({\n  selector: 'zyfra-hint',\n  templateUrl: './zyfra-hint.component.html',\n  encapsulation: ViewEncapsulation.None,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ZyfraHintComponent {\n  @HostBinding('style.top.px') get topParam(): number {\n    return this.options.top;\n  }\n  @HostBinding('style.left.px') get leftParam(): number {\n    return this.options.left;\n  }\n\n  set options(op: ZyfraHintOptionsModel) {\n    this._options = op;\n    this.hostClasses = op.className;\n  }\n  get options(): ZyfraHintOptionsModel {\n    return this._options;\n  }\n\n  get hasTemplateRef(): boolean {\n    return this._options.content instanceof TemplateRef;\n  }\n  @HostBinding('class') hostClasses = '';\n\n  @Output() close: EventEmitter<boolean> = new EventEmitter();\n\n  private _options: ZyfraHintOptionsModel;\n  @HostListener('animationend', ['$event']) animationend(event: AnimationEvent): void {\n    if (event.animationName === 'hintOut') {\n      this.close.emit(true);\n    }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "accessors": {
+                "topParam": {
+                    "name": "topParam",
+                    "getSignature": {
+                        "name": "topParam",
+                        "type": "number",
+                        "returnType": "number",
+                        "line": 20
+                    }
+                },
+                "leftParam": {
+                    "name": "leftParam",
+                    "getSignature": {
+                        "name": "leftParam",
+                        "type": "number",
+                        "returnType": "number",
+                        "line": 23
+                    }
+                },
+                "options": {
+                    "name": "options",
+                    "setSignature": {
+                        "name": "options",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "op",
+                                "type": "ZyfraHintOptionsModel",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 27,
+                        "jsdoctags": [
+                            {
+                                "name": "op",
+                                "type": "ZyfraHintOptionsModel",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "options",
+                        "type": "",
+                        "returnType": "ZyfraHintOptionsModel",
+                        "line": 31
+                    }
+                },
+                "hasTemplateRef": {
+                    "name": "hasTemplateRef",
+                    "getSignature": {
+                        "name": "hasTemplateRef",
+                        "type": "boolean",
+                        "returnType": "boolean",
+                        "line": 35
+                    }
+                }
+            },
+            "templateData": "<ng-template [ngIf]=\"hasTemplateRef\" [ngIfElse]=\"string\">\n  <ng-container *ngTemplateOutlet=\"options.content; context: { $implicit: options.context }\"> </ng-container>\n</ng-template>\n<ng-template #string>\n  {{ options.content }}\n</ng-template>\n"
+        },
+        {
+            "name": "ZyfraInputComponent",
+            "id": "component-ZyfraInputComponent-c09fe99199f3fac9e594adaa2045b901",
+            "file": "libs/components/src/lib/input/zyfra-input.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "zyfra-input",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./zyfra-input.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "boolean"
+                },
+                {
+                    "name": "iClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string"
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string"
+                },
+                {
+                    "name": "inputClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string"
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string"
+                },
+                {
+                    "name": "placeholder",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string"
+                },
+                {
+                    "name": "required",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "boolean"
+                },
+                {
+                    "name": "spanClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string"
+                },
+                {
+                    "name": "tooltip",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string"
+                },
+                {
+                    "name": "tooltipPosition",
+                    "defaultValue": "'right'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "string"
+                },
+                {
+                    "name": "type",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string"
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 8,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "valueChange",
+                    "defaultValue": "new EventEmitter<string>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\n\n@Component({\n  selector: 'zyfra-input',\n  templateUrl: './zyfra-input.component.html',\n})\nexport class ZyfraInputComponent {\n  @Input() value: string;\n  @Input() type: string;\n  @Input() id: string;\n  @Input() placeholder: string;\n  @Input() label: string;\n  @Input() iClass: string;\n  @Input() spanClass: string;\n  @Input() inputClass: string;\n  @Input() disabled: boolean;\n  @Input() required: boolean;\n  @Input() tooltip: string;\n  @Input() tooltipPosition = 'right';\n\n  @Output() valueChange = new EventEmitter<string>();\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<span class=\"zyfra-input\" [class.zyfra-input_disabled]=\"disabled\" [class.p-float-label]=\"label\">\n  <i *ngIf=\"iClass\" [class]=\"iClass\"></i>\n\n  <input\n    pInputText\n    [type]=\"type\"\n    [id]=\"id\"\n    [(ngModel)]=\"value\"\n    (ngModelChange)=\"valueChange.emit($event)\"\n    [placeholder]=\"placeholder\"\n    [class]=\"inputClass\"\n    [disabled]=\"disabled\"\n    [required]=\"required\"\n    [pTooltip]=\"tooltip ? tooltip : null\"\n    [tooltipPosition]=\"tooltipPosition\"\n  />\n\n  <label *ngIf=\"label\" [class.label-required]=\"required\">{{ label }}</label>\n</span>\n"
         },
         {
             "name": "ZyfraRadioButtonComponent",
@@ -2479,13 +4187,13 @@
         },
         {
             "name": "ZyfraConfirmDialogModule",
-            "id": "module-ZyfraConfirmDialogModule-3860fada8ef614b6578a644339de0870",
+            "id": "module-ZyfraConfirmDialogModule-90c8eb5f81b0f70100d2b1283576b831",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ZyfraConfirmDialogComponent } from './zyfra-confirm-dialog.component';\n\n@NgModule({\n  declarations: [ZyfraConfirmDialogComponent],\n  imports: [CommonModule],\n})\nexport class ZyfraConfirmDialogModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormsModule, ReactiveFormsModule } from '@angular/forms';\nimport { ConfirmDialogModule } from 'primeng/confirmdialog';\nimport { ToastModule } from 'primeng/toast';\nimport { MessagesModule } from 'primeng/messages';\nimport { ButtonModule } from 'primeng/button';\nimport { ZyfraConfirmDialogComponent } from './zyfra-confirm-dialog.component';\n\n@NgModule({\n  declarations: [ZyfraConfirmDialogComponent],\n  imports: [\n    CommonModule,\n    FormsModule,\n    ReactiveFormsModule,\n    ConfirmDialogModule,\n    MessagesModule,\n    ToastModule,\n    ButtonModule,\n  ],\n  exports: [ZyfraConfirmDialogComponent],\n})\nexport class ZyfraConfirmDialogModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -2505,7 +4213,11 @@
                 },
                 {
                     "type": "exports",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "ZyfraConfirmDialogComponent"
+                        }
+                    ]
                 },
                 {
                     "type": "bootstrap",
@@ -2548,6 +4260,104 @@
                     "elements": [
                         {
                             "name": "ZyfraDialogComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ZyfraHintModule",
+            "id": "module-ZyfraHintModule-7487c7cd834553f127d949f8e42d426d",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "libs/components/src/lib/hint/zyfra-hint.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { ZyfraHintDirective } from './zyfra-hint.directive';\nimport { ZyfraHintComponent } from './zyfra-hint.component';\nimport { CommonModule } from '@angular/common';\nimport { ZyfraHintOverlayManager } from './zyfra-hint-overlay-manager.service';\n\nconst EXPORTED_DECLARATIONS = [ZyfraHintDirective, ZyfraHintComponent];\n\n@NgModule({\n  imports: [CommonModule],\n  exports: EXPORTED_DECLARATIONS,\n  declarations: EXPORTED_DECLARATIONS,\n  providers: [ZyfraHintOverlayManager],\n  entryComponents: [ZyfraHintComponent],\n})\nexport class ZyfraHintModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": [
+                        {
+                            "name": "ZyfraHintOverlayManager"
+                        }
+                    ]
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ZyfraHintComponent"
+                        },
+                        {
+                            "name": "ZyfraHintDirective"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ZyfraHintComponent"
+                        },
+                        {
+                            "name": "ZyfraHintDirective"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ZyfraInputModule",
+            "id": "module-ZyfraInputModule-64c13b25492ac87624b8cd29679e4d06",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "libs/components/src/lib/input/zyfra-input.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ZyfraInputComponent } from './zyfra-input.component';\nimport { InputTextModule } from 'primeng/inputtext';\nimport { FormsModule, ReactiveFormsModule } from '@angular/forms';\nimport { TooltipModule } from 'primeng/tooltip';\n\n@NgModule({\n  declarations: [ZyfraInputComponent],\n  imports: [CommonModule, InputTextModule, TooltipModule, FormsModule, ReactiveFormsModule],\n  exports: [ZyfraInputComponent],\n})\nexport class ZyfraInputModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ZyfraInputComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ZyfraInputComponent"
                         }
                     ]
                 },
@@ -2967,6 +4777,16 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "EXPORTED_DECLARATIONS",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/hint/zyfra-hint.module.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[ZyfraHintDirective, ZyfraHintComponent]"
+            },
+            {
                 "name": "FormControlRadio",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2995,6 +4815,26 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "`\n    (Значение: {{control.value === undefined || control.value === null ? 'null' : control.value}})\n    <br>\n    {{control?.errors ? 'Есть ошибки валидации' : ''}}\n    <br>\n    <zyfra-button\n      label=\"toggle disable/enable\"\n      [style]=\"{ 'margin-right': '5px', 'margin-top': '20px' }\"\n      (click)=\"control.disabled ? control.enable() : control.disable()\"\n    ></zyfra-button>\n    <zyfra-button label=\"toggle red/black\" (click)=\"control.setValue(control.value === 'black' ? 'red' : 'black')\"></zyfra-button>\n`"
+            },
+            {
+                "name": "HintTextExample",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/hint/zyfra-hint.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "HintTitleExample",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/hint/zyfra-hint.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "htmlTemplate",
@@ -3120,6 +4960,16 @@
                 "name": "Simple",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Simple",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3130,7 +4980,7 @@
                 "name": "Simple",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
+                "file": "libs/components/src/lib/input/zyfra-input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -3250,16 +5100,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ZyfraConfirmDialogComponent>",
-                "defaultValue": "(args) => ({\n  template: `\n    <zyfra-button\n      (click)=\"confirmDialog.onClick($event)\"\n      label=\"for dialog\"\n      icon=\"zyfra-icon selection-check-simple\"\n    ></zyfra-button>\n\n    <zyfra-confirm-dialog\n      #confirmDialog\n      [message]=\"message\"\n      [icon]=\"icon\"\n      [header]=\"header\"\n      [acceptLabel]=\"acceptLabel\"\n      [rejectLabel]=\"rejectLabel\"\n      [acceptButtonStyleClass]=\"acceptButtonStyleClass\"\n      [rejectButtonStyleClass]=\"rejectButtonStyleClass\"\n      [acceptMessages]=\"acceptMessages\"\n      (onHide)=\"onHide($event)\"\n    ></zyfra-confirm-dialog>\n  `,\n  props: {\n    ...args,\n    onHide: action('onHide'),\n  },\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3270,11 +5110,41 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/components/src/lib/hint/zyfra-hint.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraHintComponent>",
+                "defaultValue": "(args) => ({\n  template: `\n    <div\n      style=\"height: 400px;width: 800px;display: flex;justify-content: center;align-items: center;flex-direction: column;\"\n    >\n      <div *ngIf=\"hintTitle !== undefined\">\n        <div>\n          <ng-template #testHint>\n            <div class=\"zyfra_hint_title\">{{ hintTitle }}</div>\n            <div>{{ hintText }}</div>\n          </ng-template>\n\n          <zyfra-button\n            [zyfraHint]=\"testHint\"\n            [position]=\"position\"\n            label=\"Button\"\n            type=\"button\"\n            styleClass=\"btn-default btn-primary\"\n          ></zyfra-button>\n        </div>\n      </div>\n      <div *ngIf=\"hintTitle == undefined\">\n        <div>\n          <zyfra-button\n            [zyfraHint]=\"hintText\"\n            [position]=\"position\"\n            label=\"Button\"\n            type=\"button\"\n            styleClass=\"btn-default btn-primary\"\n          ></zyfra-button>\n        </div>\n      </div>\n    </div>\n  `,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/components/src/lib/icon/icon.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<IconComponents>",
                 "defaultValue": "(args: IconComponents) => ({\r\n  component: IconComponents,\r\n  props: args,\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraConfirmDialogComponent>",
+                "defaultValue": "(args) => ({\n  template: `\n    <zyfra-button\n      (click)=\"confirmDialog.onClick($event)\"\n      label=\"for dialog\"\n      icon=\"zyfra-icon selection-check-simple\"\n    ></zyfra-button>\n\n    <zyfra-confirm-dialog\n      #confirmDialog\n      [message]=\"message\"\n      [icon]=\"icon\"\n      [header]=\"header\"\n      [acceptLabel]=\"acceptLabel\"\n      [rejectLabel]=\"rejectLabel\"\n      [acceptButtonStyleClass]=\"acceptButtonStyleClass\"\n      [rejectButtonStyleClass]=\"rejectButtonStyleClass\"\n      [acceptMessages]=\"acceptMessages\"\n      (onHide)=\"onHide($event)\"\n    ></zyfra-confirm-dialog>\n  `,\n  props: {\n    ...args,\n    onHide: action('onHide'),\n  },\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/input/zyfra-input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraInputComponent>",
+                "defaultValue": "(args) => ({\n  component: ZyfraInputComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3305,6 +5175,16 @@
                 "deprecationMessage": "",
                 "type": "Story<ZyfraToggleButtonComponent>",
                 "defaultValue": "(args) => ({\n  component: ZyfraToggleButtonComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Tooltip",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/input/zyfra-input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "Warning",
@@ -3849,6 +5729,50 @@
                     "defaultValue": "(args) => ({\n  template: `\n    <zyfra-button\n      (click)=\"confirmDialog.onClick($event)\"\n      label=\"for dialog\"\n      icon=\"zyfra-icon selection-check-simple\"\n    ></zyfra-button>\n\n    <zyfra-confirm-dialog\n      #confirmDialog\n      [message]=\"message\"\n      [icon]=\"icon\"\n      [header]=\"header\"\n      [acceptLabel]=\"acceptLabel\"\n      [rejectLabel]=\"rejectLabel\"\n      [acceptButtonStyleClass]=\"acceptButtonStyleClass\"\n      [rejectButtonStyleClass]=\"rejectButtonStyleClass\"\n      [acceptMessages]=\"acceptMessages\"\n      (onHide)=\"onHide($event)\"\n    ></zyfra-confirm-dialog>\n  `,\n  props: {\n    ...args,\n    onHide: action('onHide'),\n  },\n})"
                 }
             ],
+            "libs/components/src/lib/hint/zyfra-hint.module.ts": [
+                {
+                    "name": "EXPORTED_DECLARATIONS",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/hint/zyfra-hint.module.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[ZyfraHintDirective, ZyfraHintComponent]"
+                }
+            ],
+            "libs/components/src/lib/hint/zyfra-hint.component.stories.ts": [
+                {
+                    "name": "HintTextExample",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/hint/zyfra-hint.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "HintTitleExample",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/hint/zyfra-hint.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/hint/zyfra-hint.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ZyfraHintComponent>",
+                    "defaultValue": "(args) => ({\n  template: `\n    <div\n      style=\"height: 400px;width: 800px;display: flex;justify-content: center;align-items: center;flex-direction: column;\"\n    >\n      <div *ngIf=\"hintTitle !== undefined\">\n        <div>\n          <ng-template #testHint>\n            <div class=\"zyfra_hint_title\">{{ hintTitle }}</div>\n            <div>{{ hintText }}</div>\n          </ng-template>\n\n          <zyfra-button\n            [zyfraHint]=\"testHint\"\n            [position]=\"position\"\n            label=\"Button\"\n            type=\"button\"\n            styleClass=\"btn-default btn-primary\"\n          ></zyfra-button>\n        </div>\n      </div>\n      <div *ngIf=\"hintTitle == undefined\">\n        <div>\n          <zyfra-button\n            [zyfraHint]=\"hintText\"\n            [position]=\"position\"\n            label=\"Button\"\n            type=\"button\"\n            styleClass=\"btn-default btn-primary\"\n          ></zyfra-button>\n        </div>\n      </div>\n    </div>\n  `,\n  props: args,\n})"
+                }
+            ],
             "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts": [
                 {
                     "name": "htmlTemplate",
@@ -3957,6 +5881,38 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  provide: NG_VALUE_ACCESSOR,\n  useExisting: forwardRef(() => ZyfraRadioButtonComponent),\n  multi: true,\n}"
+                }
+            ],
+            "libs/components/src/lib/input/zyfra-input.component.stories.ts": [
+                {
+                    "name": "Simple",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/input/zyfra-input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/input/zyfra-input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ZyfraInputComponent>",
+                    "defaultValue": "(args) => ({\n  component: ZyfraInputComponent,\n  props: args,\n})"
+                },
+                {
+                    "name": "Tooltip",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/input/zyfra-input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
                 }
             ]
         },
@@ -4266,7 +6222,7 @@
                 "linktype": "component",
                 "name": "ZyfraConfirmDialogComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/38",
                 "status": "low"
             },
             {
@@ -4319,6 +6275,82 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/components/src/lib/hint/zyfra-hint-overlay-manager.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "ZyfraHintOverlayManager",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/hint/zyfra-hint.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "HintTextExample",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/hint/zyfra-hint.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "HintTitleExample",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/hint/zyfra-hint.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/hint/zyfra-hint.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ZyfraHintComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/hint/zyfra-hint.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "ZyfraHintDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/34",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/hint/zyfra-hint.model.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "ZyfraHintOptionsModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/hint/zyfra-hint.module.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "EXPORTED_DECLARATIONS",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/components/src/lib/icon/icon.component.stories.ts",
                 "type": "component",
                 "linktype": "component",
@@ -4364,6 +6396,45 @@
                 "name": "IconDefs",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/input/zyfra-input.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Simple",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/input/zyfra-input.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/input/zyfra-input.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Tooltip",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/input/zyfra-input.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ZyfraInputComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/14",
                 "status": "low"
             },
             {
