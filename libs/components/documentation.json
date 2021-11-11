@@ -472,11 +472,143 @@
             "templateData": "<p-button\r\n  [type]=\"type\"\r\n  [label]=\"label\"\r\n  [icon]=\"icon\"\r\n  [iconPos]=\"iconPos\"\r\n  [disabled]=\"disabled\"\r\n  [badge]=\"badge\"\r\n  [style]=\"style\"\r\n  [styleClass]=\"styleClass\"\r\n  (click)=\"nativeClick($event)\"\r\n  (onClick)=\"click($event)\"\r\n  (onFocus)=\"focus($event)\"\r\n  (onBlur)=\"blur($event)\"\r\n></p-button>\r\n"
         },
         {
-            "name": "ZyfraRadioButtonComponent",
-            "id": "component-ZyfraRadioButtonComponent-033b24b7a39b2368421360f16d072314",
-            "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.ts",
+            "name": "ZyfraCheckboxComponent",
+            "id": "component-ZyfraCheckboxComponent-b40a157adf76243a8edfef3b2e02f658",
+            "file": "libs/components/src/lib/checkbox/zyfra-checkbox.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [
+                {
+                    "name": "CHECKBOX_VALUE_ACCESSOR"
+                }
+            ],
+            "selector": "zyfra-checkbox",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./zyfra-checkbox.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "binary",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "boolean"
+                },
+                {
+                    "name": "checkboxIcon",
+                    "defaultValue": "'zyfra-icon selection-check-simple'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "string"
+                },
+                {
+                    "name": "model",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 30,
+                    "type": "boolean"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "modelChange",
+                    "defaultValue": "new EventEmitter<boolean | null>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "onChangeHandler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "literal type",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 37,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "literal type",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n  Component,\n  Input,\n  Output,\n  EventEmitter,\n  ChangeDetectionStrategy,\n  ChangeDetectorRef,\n  forwardRef,\n  Provider,\n} from '@angular/core';\nimport { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';\nimport { Checkbox } from 'primeng/checkbox';\n\nconst CHECKBOX_VALUE_ACCESSOR: Provider = {\n  provide: NG_VALUE_ACCESSOR,\n  useExisting: forwardRef(() => ZyfraCheckboxComponent),\n  multi: true,\n};\n\n@Component({\n  selector: 'zyfra-checkbox',\n  templateUrl: './zyfra-checkbox.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  providers: [CHECKBOX_VALUE_ACCESSOR],\n  styles: [],\n})\nexport class ZyfraCheckboxComponent extends Checkbox implements ControlValueAccessor {\n  @Input() binary = true;\n  @Input() checkboxIcon = 'zyfra-icon selection-check-simple';\n  @Input() model: boolean;\n  @Output() modelChange = new EventEmitter<boolean | null>();\n\n  constructor(cd: ChangeDetectorRef) {\n    super(cd);\n  }\n\n  onChangeHandler(event: { checked: boolean; originalEvent: PointerEvent }) {\n    if (this.formControl) {\n      this.formControl.setValue(event.checked);\n    } else {\n      this.model = event.checked;\n    }\n    this.modelChange.emit(this.model);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "cd",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 31,
+                "jsdoctags": [
+                    {
+                        "name": "cd",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": "Checkbox",
+            "implements": [
+                "ControlValueAccessor"
+            ],
+            "templateData": "<p-checkbox\n  [(ngModel)]=\"model\"\n  [name]=\"name\"\n  [value]=\"value\"\n  [label]=\"label\"\n  [disabled]=\"disabled\"\n  [binary]=\"binary\"\n  [tabindex]=\"tabindex\"\n  [inputId]=\"inputId\"\n  [ariaLabelledBy]=\"ariaLabelledBy\"\n  [style]=\"style\"\n  [styleClass]=\"styleClass\"\n  [labelStyleClass]=\"labelStyleClass\"\n  [checkboxIcon]=\"checkboxIcon\"\n  [readonly]=\"readonly\"\n  [required]=\"required\"\n  (onChange)=\"onChangeHandler($event)\"\n></p-checkbox>\n"
+        },
+        {
+            "name": "ZyfraRadioButtonComponent",
+            "id": "component-ZyfraRadioButtonComponent-5058199258f58428562b7d6b285c2840",
+            "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [
+                "ViewEncapsulation.None"
+            ],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
@@ -486,7 +618,9 @@
                 }
             ],
             "selector": "zyfra-radio-button",
-            "styleUrls": [],
+            "styleUrls": [
+                "./zyfra-radio-button.component.less"
+            ],
             "styles": [],
             "templateUrl": [
                 "./zyfra-radio-button.component.html"
@@ -497,98 +631,98 @@
                     "name": "ariaLabel",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 32,
+                    "line": 35,
                     "type": "string"
                 },
                 {
                     "name": "ariaLabelledBy",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 31,
+                    "line": 34,
                     "type": "string"
                 },
                 {
                     "name": "disabled",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 28,
+                    "line": 31,
                     "type": "boolean"
                 },
                 {
                     "name": "formControl",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 37,
+                    "line": 40,
                     "type": "FormControl"
                 },
                 {
                     "name": "formControlName",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 36,
+                    "line": 39,
                     "type": "string"
                 },
                 {
                     "name": "inputId",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 30,
+                    "line": 33,
                     "type": "string"
                 },
                 {
                     "name": "label",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 27,
+                    "line": 30,
                     "type": "string"
                 },
                 {
                     "name": "labelStyleClass",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 35,
+                    "line": 38,
                     "type": "string"
                 },
                 {
                     "name": "name",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 25,
+                    "line": 28,
                     "type": "string"
                 },
                 {
                     "name": "ngModel",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 38,
+                    "line": 41,
                     "type": "T"
                 },
                 {
                     "name": "style",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 33,
+                    "line": 36,
                     "type": "string"
                 },
                 {
                     "name": "styleClass",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 34,
+                    "line": 37,
                     "type": "string"
                 },
                 {
                     "name": "tabindex",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 29,
+                    "line": 32,
                     "type": "number"
                 },
                 {
                     "name": "value",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 26,
+                    "line": 29,
                     "type": "T"
                 }
             ],
@@ -598,7 +732,7 @@
                     "defaultValue": "new EventEmitter()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 40,
+                    "line": 43,
                     "type": "EventEmitter<T>"
                 },
                 {
@@ -606,7 +740,7 @@
                     "defaultValue": "new EventEmitter()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 43,
+                    "line": 46,
                     "type": "EventEmitter<FocusEvent>"
                 },
                 {
@@ -614,7 +748,7 @@
                     "defaultValue": "new EventEmitter()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 41,
+                    "line": 44,
                     "type": "EventEmitter<PointerEvent>"
                 },
                 {
@@ -622,7 +756,7 @@
                     "defaultValue": "new EventEmitter()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 42,
+                    "line": 45,
                     "type": "EventEmitter<FocusEvent>"
                 }
             ],
@@ -641,7 +775,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 62,
+                    "line": 65,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -669,7 +803,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 54,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -697,7 +831,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 58,
+                    "line": 61,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -725,7 +859,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 47,
+                    "line": 50,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -754,7 +888,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 66,
+                    "line": 69,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -784,7 +918,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 68,
+                    "line": 71,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -813,7 +947,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 74,
+                    "line": 77,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -841,7 +975,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 70,
+                    "line": 73,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -864,9 +998,14 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  Input,\n  Output,\n  EventEmitter,\n  ChangeDetectionStrategy,\n  forwardRef,\n  ChangeDetectorRef,\n} from '@angular/core';\nimport { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl } from '@angular/forms';\n\nexport const RADIO_VALUE_ACCESSOR = {\n  provide: NG_VALUE_ACCESSOR,\n  useExisting: forwardRef(() => ZyfraRadioButtonComponent),\n  multi: true,\n};\n\n@Component({\n  selector: 'zyfra-radio-button',\n  templateUrl: './zyfra-radio-button.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  providers: [RADIO_VALUE_ACCESSOR],\n})\nexport class ZyfraRadioButtonComponent<T> implements ControlValueAccessor {\n  @Input() name: string;\n  @Input() value: T;\n  @Input() label: string;\n  @Input() disabled: boolean;\n  @Input() tabindex: number;\n  @Input() inputId: string;\n  @Input() ariaLabelledBy: string;\n  @Input() ariaLabel: string;\n  @Input() style: string;\n  @Input() styleClass: string;\n  @Input() labelStyleClass: string;\n  @Input() formControlName: string;\n  @Input() formControl: FormControl;\n  @Input() ngModel: T;\n\n  @Output() ngModelChange: EventEmitter<T> = new EventEmitter();\n  @Output() onClick: EventEmitter<PointerEvent> = new EventEmitter();\n  @Output() onFocus: EventEmitter<FocusEvent> = new EventEmitter();\n  @Output() onBlur: EventEmitter<FocusEvent> = new EventEmitter();\n\n  constructor(private cd: ChangeDetectorRef) {}\n\n  modelChange(value: T): void {\n    if (this.formControl) {\n      this.formControl.setValue(value);\n    }\n    this.ngModelChange.emit(this.ngModel);\n  }\n\n  handleClick(event: PointerEvent): void {\n    this.onClick.emit(event);\n  }\n\n  handleFocus(event: FocusEvent): void {\n    this.onFocus.emit(event);\n  }\n\n  handleBlur(event: FocusEvent): void {\n    this.onBlur.emit(event);\n  }\n\n  registerOnChange(fn: () => void): void {}\n\n  registerOnTouched(fn: () => void): void {}\n\n  writeValue(value: T): void {\n    this.ngModel = value;\n  }\n\n  setDisabledState(disabled: boolean): void {\n    this.disabled = disabled;\n    this.cd.detectChanges();\n  }\n}\n",
+            "sourceCode": "import {\n  Component,\n  Input,\n  Output,\n  EventEmitter,\n  ChangeDetectionStrategy,\n  forwardRef,\n  ChangeDetectorRef,\n  ViewEncapsulation,\n} from '@angular/core';\nimport { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl } from '@angular/forms';\n\nexport const RADIO_VALUE_ACCESSOR = {\n  provide: NG_VALUE_ACCESSOR,\n  useExisting: forwardRef(() => ZyfraRadioButtonComponent),\n  multi: true,\n};\n\n@Component({\n  selector: 'zyfra-radio-button',\n  templateUrl: './zyfra-radio-button.component.html',\n  styleUrls: ['./zyfra-radio-button.component.less'],\n  encapsulation: ViewEncapsulation.None,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  providers: [RADIO_VALUE_ACCESSOR],\n})\nexport class ZyfraRadioButtonComponent<T> implements ControlValueAccessor {\n  @Input() name: string;\n  @Input() value: T;\n  @Input() label: string;\n  @Input() disabled: boolean;\n  @Input() tabindex: number;\n  @Input() inputId: string;\n  @Input() ariaLabelledBy: string;\n  @Input() ariaLabel: string;\n  @Input() style: string;\n  @Input() styleClass: string;\n  @Input() labelStyleClass: string;\n  @Input() formControlName: string;\n  @Input() formControl: FormControl;\n  @Input() ngModel: T;\n\n  @Output() ngModelChange: EventEmitter<T> = new EventEmitter();\n  @Output() onClick: EventEmitter<PointerEvent> = new EventEmitter();\n  @Output() onFocus: EventEmitter<FocusEvent> = new EventEmitter();\n  @Output() onBlur: EventEmitter<FocusEvent> = new EventEmitter();\n\n  constructor(private cd: ChangeDetectorRef) {}\n\n  modelChange(value: T): void {\n    if (this.formControl) {\n      this.formControl.setValue(value);\n    }\n    this.ngModelChange.emit(this.ngModel);\n  }\n\n  handleClick(event: PointerEvent): void {\n    this.onClick.emit(event);\n  }\n\n  handleFocus(event: FocusEvent): void {\n    this.onFocus.emit(event);\n  }\n\n  handleBlur(event: FocusEvent): void {\n    this.onBlur.emit(event);\n  }\n\n  registerOnChange(fn: () => void): void {}\n\n  registerOnTouched(fn: () => void): void {}\n\n  writeValue(value: T): void {\n    this.ngModel = value;\n  }\n\n  setDisabledState(disabled: boolean): void {\n    this.disabled = disabled;\n    this.cd.detectChanges();\n  }\n}\n",
             "assetsDirs": [],
-            "styleUrlsData": "",
+            "styleUrlsData": [
+                {
+                    "data": "@radioButtonSize: 20px;\n@radioButtonCoreSize: 8px;\n@radioButtonMiniSize: 16px;\n@radioButtonMiniCoreSize: 4px;\n@radioBorderAccent: 2px solid var(--radioButtonHover);\n\n.radio-disabled() {\n  background: var(--radioButtonDisabledBg);\n  border-color: var(--radioButtonDisabled);\n}\n\n.p-radiobutton {\n  width: @radioButtonSize;\n  height: @radioButtonSize;\n\n  &-mini {\n    width: @radioButtonMiniSize;\n    height: @radioButtonMiniSize;\n  }\n\n  &-group p-radiobutton {\n    margin-bottom: 5px;\n  }\n\n  &-disabled {\n    cursor: default;\n  }\n\n  .p-disabled.p-disabled {\n    opacity: initial;\n    .radio-disabled();\n  }\n\n  .p-radiobutton-box {\n    border: @radioBorderAccent;\n    background: var(--radioButtonBg);\n    width: @radioButtonSize;\n    height: @radioButtonSize;\n\n    &:not(:hover):not(.p-disabled) {\n      border-color: var(--radioButton);\n    }\n\n    .p-radiobutton-mini& {\n      width: @radioButtonMiniSize;\n      height: @radioButtonMiniSize;\n    }\n\n    .p-radiobutton-icon {\n      background-color: var(--radioButtonBg);\n      border: @radioBorderAccent;\n      width: @radioButtonCoreSize;\n      height: @radioButtonCoreSize;\n      .p-radiobutton-mini& {\n        width: @radioButtonMiniCoreSize;\n        height: @radioButtonMiniCoreSize;\n      }\n    }\n\n    &:not(.p-disabled) {\n      &.p-focus {\n        border-color: var(--radioButtonActive);\n      }\n\n      &:not(.p-highlight):hover {\n        border-color: var(--radioButtonHover);\n      }\n    }\n\n    &.p-highlight {\n      &.p-disabled {\n        &,\n        .p-radiobutton-icon {\n          .radio-disabled();\n        }\n      }\n      &:not(.p-disabled),\n      &:not(.p-disabled):hover {\n        background: var(--radioButtonBg);\n        border: @radioBorderAccent;\n      }\n    }\n  }\n}\n",
+                    "styleUrl": "./zyfra-radio-button.component.less"
+                }
+            ],
             "stylesData": "",
             "constructorObj": {
                 "name": "constructor",
@@ -881,7 +1020,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 43,
+                "line": 46,
                 "jsdoctags": [
                     {
                         "name": "cd",
@@ -1584,6 +1723,50 @@
             ]
         },
         {
+            "name": "ZyfraCheckBoxModule",
+            "id": "module-ZyfraCheckBoxModule-9e2b623d6bd40d1355e9043d3074f404",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "libs/components/src/lib/checkbox/zyfra-checkbox.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormsModule, ReactiveFormsModule } from '@angular/forms';\nimport { CheckboxModule } from 'primeng/checkbox';\nimport { ZyfraCheckboxComponent } from './zyfra-checkbox.component';\n\n@NgModule({\n  declarations: [ZyfraCheckboxComponent],\n  imports: [CommonModule, FormsModule, ReactiveFormsModule, CheckboxModule],\n  exports: [ZyfraCheckboxComponent],\n})\nexport class ZyfraCheckBoxModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ZyfraCheckboxComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ZyfraCheckboxComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "ZyfraRadioButtonModule",
             "id": "module-ZyfraRadioButtonModule-707e4fbbe87a90cd73b102ff50c5bcf3",
             "description": "",
@@ -1819,6 +2002,36 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Basic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/checkbox/zyfra-checkbox.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "CHECKBOX_VALUE_ACCESSOR",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/checkbox/zyfra-checkbox.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Provider",
+                "defaultValue": "{\n  provide: NG_VALUE_ACCESSOR,\n  useExisting: forwardRef(() => ZyfraCheckboxComponent),\n  multi: true,\n}"
+            },
+            {
+                "name": "CheckboxWithFormControlComponentTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/checkbox/zyfra-checkbox.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => ({\n  template: `\n    <zyfra-checkbox label=\"Чекбокс с FormControl\" [formControl]=\"fControl\"></zyfra-checkbox>\n    <br>\n    (Значение чекбокса: {{fControl?.value === undefined ? 'undefined' : fControl?.value}})\n    <br>\n    <br>\n    <zyfra-button [style]=\"{ 'margin-right': '5px' }\" label=\"toggle disable/enable\" (click)=\"toggleStatus()\"></zyfra-button>\n    <zyfra-button label=\"toggle true/false\" (click)=\"toggleValue()\"></zyfra-button>\n  `,\n  props: {\n    ...args,\n    fControl: new FormControl(true),\n    toggleStatus(): void {\n      if (this.fControl.disabled) {\n        this.fControl.enable();\n      } else {\n        this.fControl.disable();\n      }\n    },\n    toggleValue(): void {\n      this.fControl.setValue(!this.fControl.value);\n    },\n  },\n})"
+            },
+            {
                 "name": "cities",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1827,6 +2040,16 @@
                 "deprecationMessage": "",
                 "type": "StoryCity[]",
                 "defaultValue": "[\n  { name: 'Russia', code: 'RU' },\n  { name: 'Rome', code: 'RM' },\n  { name: 'London', code: 'LDN' },\n  { name: 'Istanbul', code: 'IST' },\n  { name: 'Paris', code: 'PRS' },\n]"
+            },
+            {
+                "name": "CustomIcon",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/checkbox/zyfra-checkbox.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "Danger",
@@ -2162,6 +2385,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/components/src/lib/checkbox/zyfra-checkbox.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraCheckboxComponent>",
+                "defaultValue": "(args) => ({\n  template: `\n    <zyfra-checkbox\n      [(model)]=\"model\"\n      [name]=\"name\"\n      [value]=\"value\"\n      [label]=\"label\"\n      [disabled]=\"disabled\"\n      [binary]=\"binary\"\n      [tabindex]=\"tabindex\"\n      [inputId]=\"inputId\"\n      [ariaLabelledBy]=\"ariaLabelledBy\"\n      [style]=\"style\"\n      [styleClass]=\"styleClass\"\n      [labelStyleClass]=\"labelStyleClass\"\n      [checkboxIcon]=\"checkboxIcon\"\n      [readonly]=\"readonly\"\n      [required]=\"required\"\n    ></zyfra-checkbox>\n    <br>\n    (Значение чекбокса: {{model === null ? 'null' : model}})\n  `,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/components/src/lib/icon/icon.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2217,6 +2450,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WithFormControl",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/checkbox/zyfra-checkbox.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "CheckboxWithFormControlComponentTemplate.bind({})"
             }
         ],
         "functions": [],
@@ -2447,6 +2690,70 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "Template.bind({})"
+                }
+            ],
+            "libs/components/src/lib/checkbox/zyfra-checkbox.component.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/checkbox/zyfra-checkbox.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "CheckboxWithFormControlComponentTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/checkbox/zyfra-checkbox.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "(args) => ({\n  template: `\n    <zyfra-checkbox label=\"Чекбокс с FormControl\" [formControl]=\"fControl\"></zyfra-checkbox>\n    <br>\n    (Значение чекбокса: {{fControl?.value === undefined ? 'undefined' : fControl?.value}})\n    <br>\n    <br>\n    <zyfra-button [style]=\"{ 'margin-right': '5px' }\" label=\"toggle disable/enable\" (click)=\"toggleStatus()\"></zyfra-button>\n    <zyfra-button label=\"toggle true/false\" (click)=\"toggleValue()\"></zyfra-button>\n  `,\n  props: {\n    ...args,\n    fControl: new FormControl(true),\n    toggleStatus(): void {\n      if (this.fControl.disabled) {\n        this.fControl.enable();\n      } else {\n        this.fControl.disable();\n      }\n    },\n    toggleValue(): void {\n      this.fControl.setValue(!this.fControl.value);\n    },\n  },\n})"
+                },
+                {
+                    "name": "CustomIcon",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/checkbox/zyfra-checkbox.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/checkbox/zyfra-checkbox.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ZyfraCheckboxComponent>",
+                    "defaultValue": "(args) => ({\n  template: `\n    <zyfra-checkbox\n      [(model)]=\"model\"\n      [name]=\"name\"\n      [value]=\"value\"\n      [label]=\"label\"\n      [disabled]=\"disabled\"\n      [binary]=\"binary\"\n      [tabindex]=\"tabindex\"\n      [inputId]=\"inputId\"\n      [ariaLabelledBy]=\"ariaLabelledBy\"\n      [style]=\"style\"\n      [styleClass]=\"styleClass\"\n      [labelStyleClass]=\"labelStyleClass\"\n      [checkboxIcon]=\"checkboxIcon\"\n      [readonly]=\"readonly\"\n      [required]=\"required\"\n    ></zyfra-checkbox>\n    <br>\n    (Значение чекбокса: {{model === null ? 'null' : model}})\n  `,\n  props: args,\n})"
+                },
+                {
+                    "name": "WithFormControl",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/checkbox/zyfra-checkbox.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "CheckboxWithFormControlComponentTemplate.bind({})"
+                }
+            ],
+            "libs/components/src/lib/checkbox/zyfra-checkbox.component.ts": [
+                {
+                    "name": "CHECKBOX_VALUE_ACCESSOR",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/checkbox/zyfra-checkbox.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Provider",
+                    "defaultValue": "{\n  provide: NG_VALUE_ACCESSOR,\n  useExisting: forwardRef(() => ZyfraCheckboxComponent),\n  multi: true,\n}"
                 }
             ],
             "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts": [
@@ -2842,6 +3149,75 @@
                 "name": "ZyfraButtonComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/16",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/checkbox/zyfra-checkbox.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Basic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/checkbox/zyfra-checkbox.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "CheckboxWithFormControlComponentTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/checkbox/zyfra-checkbox.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "CustomIcon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/checkbox/zyfra-checkbox.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/checkbox/zyfra-checkbox.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithFormControl",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/checkbox/zyfra-checkbox.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ZyfraCheckboxComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/checkbox/zyfra-checkbox.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "CHECKBOX_VALUE_ACCESSOR",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
