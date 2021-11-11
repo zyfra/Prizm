@@ -1,0 +1,34 @@
+import { ArgsTable, Subtitle } from '@storybook/addon-docs';
+import { ZyfraChipComponent } from './zyfra-chip.component';
+import { moduleMetadata, storiesOf } from '@storybook/angular';
+
+## Zyfra-ToggleButton
+
+<Subtitle>Chip represents entities using icons, labels and images.</Subtitle>
+
+```
+npm i @zyfra/zyfra-chip
+```
+
+Import module:
+
+```typescript
+import { ZyfraChipModule } from '@zyfra/zyfra-chip';
+
+@NgModule({
+  imports: [ZyfraToggleButtonModule],
+})
+export class YourModule {}
+```
+
+To component:
+
+```html
+<zyfra-chip label="Text Only"></zyfra-chip>
+<zyfra-chip label="Text with icon" icon="zyfra-icon cancel-close-circle"></zyfra-chip>
+<zyfra-chip label="Removable" [removable]="true"></zyfra-chip>
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraChipComponent} />
