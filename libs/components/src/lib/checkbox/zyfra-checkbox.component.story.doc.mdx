@@ -1,0 +1,33 @@
+import { ArgsTable, Subtitle } from '@storybook/addon-docs';
+import { ZyfraCheckboxComponent } from './zyfra-checkbox.component.ts';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+
+## ZyfraCheckBox
+
+<Subtitle>Checkbox is an extension to standard checkbox element with theming</Subtitle>
+
+```
+npm i @zyfra/zyfra-checkbox
+```
+
+Import module:
+
+```typescript
+import { ZyfraCheckBoxModule } from '@zyfra/zyfra-checkbox';
+
+@NgModule({
+  imports: [ZyfraCheckBoxModule],
+})
+export class YourModule {}
+```
+
+To component:
+
+```html
+<zyfra-checkbox name="checked" binary="true" label="checkbox" [(model)]="model"> ></zyfra-checkbox>
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraCheckboxComponent} />
