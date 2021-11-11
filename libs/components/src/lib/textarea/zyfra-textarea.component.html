@@ -1,8 +1,4 @@
-<span
-  class="zyfra-input"
-  [class.zyfra-input_disabled]="disabled"
-  [class.p-float-label]="label"
->
+<span class="zyfra-input" [class.zyfra-input_disabled]="disabled" [class.p-float-label]="label">
   <textarea
     pInputTextarea
     [rows]="rows"
@@ -19,8 +15,5 @@
     (onResize)="onResize.emit($event)"
   ></textarea>
 
-  <label
-    *ngIf="label"
-    [class.label-required]="required"
-  >{{ label }}</label>
+  <label *ngIf="label" [class.label-required]="required">{{ label }}</label>
 </span>

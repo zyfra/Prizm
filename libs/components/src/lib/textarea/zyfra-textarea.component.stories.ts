@@ -12,20 +12,14 @@ export default {
   component: ZyfraTextareaComponent,
   decorators: [
     moduleMetadata({
-      imports: [
-        BrowserModule,
-        FormsModule,
-        ReactiveFormsModule,
-        CommonModule,
-        ZyfraTextareaModule
-      ]
+      imports: [BrowserModule, FormsModule, ReactiveFormsModule, CommonModule, ZyfraTextareaModule],
     }),
   ],
   parameters: {
     docs: {
       page: require('./zyfra-textarea.component.story.doc.mdx').default,
     },
-  }
+  },
 } as Meta;
 
 const Template: Story<ZyfraTextareaComponent> = (args) => ({
