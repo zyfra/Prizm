@@ -3611,6 +3611,512 @@
             "templateData": "<span class=\"zyfra-input\" [class.zyfra-input_disabled]=\"disabled\" [class.p-float-label]=\"label\">\n  <i *ngIf=\"iClass\" [class]=\"iClass\"></i>\n\n  <p-inputNumber\n    [(ngModel)]=\"value\"\n    (ngModelChange)=\"valueChange.emit($event)\"\n    [format]=\"format\"\n    [showButtons]=\"showButtons\"\n    [buttonLayout]=\"buttonLayout\"\n    [incrementButtonClass]=\"incrementButtonClass\"\n    [decrementButtonClass]=\"decrementButtonClass\"\n    [incrementButtonIcon]=\"incrementButtonIcon\"\n    [decrementButtonIcon]=\"decrementButtonIcon\"\n    [locale]=\"locale\"\n    [localeMatcher]=\"localeMatcher\"\n    [mode]=\"mode\"\n    [prefix]=\"prefix\"\n    [suffix]=\"suffix\"\n    [placeholder]=\"placeholder\"\n    [currency]=\"currency\"\n    [currencyDisplay]=\"currencyDisplay\"\n    [useGrouping]=\"useGrouping\"\n    [minFractionDigits]=\"minFractionDigits\"\n    [maxFractionDigits]=\"maxFractionDigits\"\n    [min]=\"min\"\n    [max]=\"max\"\n    [step]=\"step\"\n    [style]=\"style\"\n    [styleClass]=\"styleClass\"\n    [inputId]=\"inputId\"\n    [inputStyle]=\"inputStyle\"\n    [inputStyleClass]=\"inputStyleClass\"\n    [size]=\"size\"\n    [maxlength]=\"maxlength\"\n    [tabindex]=\"tabindex\"\n    [disabled]=\"disabled\"\n    [title]=\"title\"\n    [ariaLabel]=\"ariaLabel\"\n    [ariaRequired]=\"ariaRequired\"\n    [name]=\"name\"\n    [autocomplete]=\"autocomplete\"\n    (onFocus)=\"onFocus.emit($event)\"\n    (onBlur)=\"onBlur.emit($event)\"\n    (onInput)=\"onInput.emit($event)\"\n  >\n  </p-inputNumber>\n\n  <label\n    *ngIf=\"label\"\n    [class.label-required]=\"ariaRequired\"\n    [style.padding-left]=\"showButtons && buttonLayout === 'horizontal' ? '38px' : ''\"\n    >{{ label }}</label\n  >\n</span>\n"
         },
         {
+            "name": "ZyfraInputSwitchComponent",
+            "id": "component-ZyfraInputSwitchComponent-1396be29ddc5e7d63d322b99769ddaab",
+            "file": "libs/components/src/lib/input-switch/zyfra-input-switch.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "zyfra-input-switch",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./zyfra-input-switch.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "ariaLabelledBy",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "string"
+                },
+                {
+                    "name": "checked",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "boolean"
+                },
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "boolean"
+                },
+                {
+                    "name": "inputId",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string"
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string"
+                },
+                {
+                    "name": "readonly",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "boolean"
+                },
+                {
+                    "name": "style",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string"
+                },
+                {
+                    "name": "styleClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string"
+                },
+                {
+                    "name": "tabindex",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "number"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onChange",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "EventEmitter<any>"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 11,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onChangeHandler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 26,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'zyfra-input-switch',\n  templateUrl: './zyfra-input-switch.component.html',\n  styles: [],\n})\nexport class ZyfraInputSwitchComponent implements OnInit {\n  constructor() {}\n\n  ngOnInit(): void {}\n\n  @Input() checked: boolean;\n  @Input() style: string;\n  @Input() styleClass: string;\n  @Input() tabindex: number;\n  @Input() inputId: string;\n  @Input() name: string;\n  @Input() ariaLabelledBy: string;\n  @Input() disabled: boolean;\n  @Input() readonly: boolean;\n\n  /* onChange */\n  @Output() onChange: EventEmitter<any> = new EventEmitter();\n\n  onChangeHandler(event) {\n    this.checked = event.checked;\n    this.onChange.emit(this.checked);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p-inputSwitch\n  [(ngModel)]=\"checked\"\n  [style]=\"style\"\n  [styleClass]=\"styleClass\"\n  [tabindex]=\"tabindex\"\n  [inputId]=\"inputId\"\n  [name]=\"name\"\n  [ariaLabelledBy]=\"ariaLabelledBy\"\n  [disabled]=\"disabled\"\n  [readonly]=\"readonly\"\n  (onChange)=\"onChangeHandler($event)\"\n></p-inputSwitch>\n"
+        },
+        {
+            "name": "ZyfraMessageComponent",
+            "id": "component-ZyfraMessageComponent-d004a0f550f7d486d8a79451f510d42b",
+            "file": "libs/components/src/lib/message/zyfra-message.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [
+                {
+                    "name": "MessageService"
+                }
+            ],
+            "selector": "zyfra-message",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./zyfra-message.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "closable",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "boolean"
+                },
+                {
+                    "name": "enableService",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "boolean"
+                },
+                {
+                    "name": "escape",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "boolean"
+                },
+                {
+                    "name": "hideTransitionOptions",
+                    "defaultValue": "'200ms cubic-bezier(0.86, 0, 0.07, 1)'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "string"
+                },
+                {
+                    "name": "showTransitionOptions",
+                    "defaultValue": "'300ms ease-out'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "string"
+                },
+                {
+                    "name": "style",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string"
+                },
+                {
+                    "name": "styleClass",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string"
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "any[]"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "clear",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 36,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';\nimport { MessageService } from 'primeng/api';\nimport { PrimeNGConfig } from 'primeng/api';\n\n@Component({\n  selector: 'zyfra-message',\n  templateUrl: './zyfra-message.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  styles: [],\n  providers: [MessageService],\n})\nexport class ZyfraMessageComponent implements OnInit {\n  //---- message component --------\n  @Input() value: any[];\n  @Input() closable: boolean = true;\n  @Input() style: string = '';\n  @Input() styleClass: string = '';\n  @Input() enableService: boolean = true;\n  @Input() escape: boolean = true;\n  @Input() showTransitionOptions: string = '300ms ease-out';\n  @Input() hideTransitionOptions: string = '200ms cubic-bezier(0.86, 0, 0.07, 1)';\n\n  // --- for message service -----\n  // @Input() severity:string;\n  // @Input() summary:string;\n  // @Input() detail:string;\n  // @Input() id:any;\n  // @Input() life:number    = 3000;\n  // @Input() sticky:boolean = false;\n  // @Input() data:any;\n\n  constructor(private messageService: MessageService, private primengConfig: PrimeNGConfig) {\n    this.primengConfig.ripple = true;\n  }\n\n  ngOnInit(): void {}\n\n  clear() {\n    this.value = [];\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "messageService",
+                        "type": "MessageService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "primengConfig",
+                        "type": "PrimeNGConfig",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 21,
+                "jsdoctags": [
+                    {
+                        "name": "messageService",
+                        "type": "MessageService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "primengConfig",
+                        "type": "PrimeNGConfig",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p-messages\n  [(value)]=\"value\"\n  [closable]=\"closable\"\n  [style]=\"style\"\n  [styleClass]=\"styleClass\"\n  [enableService]=\"enableService\"\n  [escape]=\"escape\"\n  [showTransitionOptions]=\"showTransitionOptions\"\n  [hideTransitionOptions]=\"hideTransitionOptions\"\n></p-messages>\n"
+        },
+        {
+            "name": "ZyfraPasswordComponent",
+            "id": "component-ZyfraPasswordComponent-162f3b86860b7758e4164a78c1118769",
+            "file": "libs/components/src/lib/password/zyfra-password.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "zyfra-password",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./zyfra-password.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "appendTo",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string"
+                },
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "boolean"
+                },
+                {
+                    "name": "feedback",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "boolean"
+                },
+                {
+                    "name": "inputStyle",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "any"
+                },
+                {
+                    "name": "inputStyleClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "string"
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "string"
+                },
+                {
+                    "name": "mediumLabel",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string"
+                },
+                {
+                    "name": "mediumRegex",
+                    "defaultValue": "'Regex for a medium level password.'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string"
+                },
+                {
+                    "name": "promptLabel",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string"
+                },
+                {
+                    "name": "required",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "string"
+                },
+                {
+                    "name": "strongLabel",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string"
+                },
+                {
+                    "name": "strongRegex",
+                    "defaultValue": "'Regex for a strong level password.'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string"
+                },
+                {
+                    "name": "style",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "string"
+                },
+                {
+                    "name": "styleClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "string"
+                },
+                {
+                    "name": "toggleMask",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "boolean"
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 8,
+                    "type": "string"
+                },
+                {
+                    "name": "weakLabel",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onBlur",
+                    "defaultValue": "new EventEmitter<FocusEvent>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "onFocus",
+                    "defaultValue": "new EventEmitter<FocusEvent>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "valueChange",
+                    "defaultValue": "new EventEmitter<string>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\n\n@Component({\n  selector: 'zyfra-password',\n  templateUrl: './zyfra-password.component.html',\n})\nexport class ZyfraPasswordComponent {\n  @Input() value: string;\n  @Input() promptLabel: string;\n  @Input() mediumRegex = 'Regex for a medium level password.';\n  @Input() strongRegex = 'Regex for a strong level password.';\n  @Input() weakLabel: string;\n  @Input() mediumLabel: string;\n  @Input() strongLabel: string;\n  @Input() feedback = true;\n  @Input() toggleMask: boolean;\n  @Input() appendTo: string;\n  @Input() inputStyle: any;\n  @Input() inputStyleClass: string;\n  @Input() style: string;\n  @Input() styleClass: string;\n  @Input() disabled: boolean;\n  @Input() label = '';\n  @Input() required = '';\n\n  @Output() valueChange = new EventEmitter<string>();\n  @Output() onBlur = new EventEmitter<FocusEvent>();\n  @Output() onFocus = new EventEmitter<FocusEvent>();\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<span class=\"zyfra-input\" [class.zyfra-input_disabled]=\"disabled\" [class.p-float-label]=\"label\">\n  <p-password\n    [(ngModel)]=\"value\"\n    (ngModelChange)=\"valueChange.emit($event)\"\n    [promptLabel]=\"promptLabel\"\n    [mediumRegex]=\"mediumRegex\"\n    [strongRegex]=\"strongRegex\"\n    [weakLabel]=\"weakLabel\"\n    [disabled]=\"disabled\"\n    [mediumLabel]=\"mediumLabel\"\n    [strongLabel]=\"strongLabel\"\n    [feedback]=\"feedback\"\n    [toggleMask]=\"toggleMask\"\n    [appendTo]=\"appendTo\"\n    [inputStyle]=\"inputStyle\"\n    [inputStyleClass]=\"inputStyleClass\"\n    [style]=\"style\"\n    [styleClass]=\"styleClass\"\n    (onBlur)=\"onBlur.emit($event)\"\n    (onFocus)=\"onFocus.emit($event)\"\n  ></p-password>\n\n  <label *ngIf=\"label\" [class.label-required]=\"required\">{{ label }}</label>\n</span>\n"
+        },
+        {
             "name": "ZyfraRadioButtonComponent",
             "id": "component-ZyfraRadioButtonComponent-5058199258f58428562b7d6b285c2840",
             "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.ts",
@@ -4480,6 +4986,150 @@
             "templateData": "<p-splitButton\n  [model]=\"model\"\n  [label]=\"label\"\n  [icon]=\"icon\"\n  [iconPos]=\"iconPos\"\n  [disabled]=\"disabled\"\n  [style]=\"style\"\n  [styleClass]=\"styleClass\"\n  [menuStyle]=\"menuStyle\"\n  [menuStyleClass]=\"menuStyleClass\"\n  [appendTo]=\"appendTo\"\n  [tabindex]=\"tabindex\"\n  [dir]=\"dir\"\n  [showTransitionOptions]=\"showTransitionOptions\"\n  [hideTransitionOptions]=\"hideTransitionOptions\"\n  (click)=\"nativeClick($event)\"\n  (onClick)=\"onClickHandler($event)\"\n  (onDropdownClick)=\"onDropdownClickHandler($event)\"\n></p-splitButton>\n"
         },
         {
+            "name": "ZyfraTextareaComponent",
+            "id": "component-ZyfraTextareaComponent-dcd41fa14aec53c9673b9eafdf594c34",
+            "file": "libs/components/src/lib/textarea/zyfra-textarea.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "zyfra-textarea",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./zyfra-textarea.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "autoResize",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "boolean"
+                },
+                {
+                    "name": "class",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string"
+                },
+                {
+                    "name": "cols",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "number"
+                },
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "boolean"
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string"
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "string"
+                },
+                {
+                    "name": "maxlength",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "number"
+                },
+                {
+                    "name": "minlength",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "number"
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string"
+                },
+                {
+                    "name": "placeholder",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string"
+                },
+                {
+                    "name": "required",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "boolean"
+                },
+                {
+                    "name": "rows",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "number"
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 8,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onResize",
+                    "defaultValue": "new EventEmitter<unknown>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "valueChange",
+                    "defaultValue": "new EventEmitter<string>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output, } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'zyfra-textarea',\r\n  templateUrl: './zyfra-textarea.component.html',\r\n})\r\nexport class ZyfraTextareaComponent {\r\n  @Input() value: string;\r\n  @Input() rows: number;\r\n  @Input() cols: number;\r\n  @Input() autoResize: boolean;\r\n  @Input() id: string;\r\n  @Input() name: string;\r\n  @Input() placeholder: string;\r\n  @Input() class: string;\r\n  @Input() disabled: boolean;\r\n  @Input() maxlength: number;\r\n  @Input() minlength: number;\r\n  @Input() label = '';\r\n  @Input() required = false;\r\n\r\n  @Output() valueChange = new EventEmitter<string>();\r\n  @Output() onResize = new EventEmitter<unknown>();\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<span\r\n  class=\"zyfra-input\"\r\n  [class.zyfra-input_disabled]=\"disabled\"\r\n  [class.p-float-label]=\"label\"\r\n>\r\n  <textarea\r\n    pInputTextarea\r\n    [rows]=\"rows\"\r\n    [cols]=\"cols\"\r\n    [autoResize]=\"autoResize\"\r\n    [(ngModel)]=\"value\"\r\n    (ngModelChange)=\"valueChange.emit($event)\"\r\n    [placeholder]=\"placeholder\"\r\n    [class]=\"class\"\r\n    [disabled]=\"disabled\"\r\n    [maxlength]=\"maxlength\"\r\n    [minlength]=\"minlength\"\r\n    [name]=\"name\"\r\n    (onResize)=\"onResize.emit($event)\"\r\n  ></textarea>\r\n\r\n  <label\r\n    *ngIf=\"label\"\r\n    [class.label-required]=\"required\"\r\n  >{{ label }}</label>\r\n</span>\r\n"
+        },
+        {
             "name": "ZyfraToggleButtonComponent",
             "id": "component-ZyfraToggleButtonComponent-be09976d2e482f74fda68d2e0cfc5892",
             "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.ts",
@@ -5094,6 +5744,138 @@
             ]
         },
         {
+            "name": "ZyfraInputSwitchModule",
+            "id": "module-ZyfraInputSwitchModule-29fe3a5e7a35ccd6a5986aea867d3c87",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "libs/components/src/lib/input-switch/zyfra-input-switch.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormsModule, ReactiveFormsModule } from '@angular/forms';\nimport { InputSwitchModule } from 'primeng/inputswitch';\nimport { ZyfraInputSwitchComponent } from './zyfra-input-switch.component';\n\n@NgModule({\n  declarations: [ZyfraInputSwitchComponent],\n  imports: [CommonModule, FormsModule, ReactiveFormsModule, InputSwitchModule],\n  exports: [ZyfraInputSwitchComponent],\n})\nexport class ZyfraInputSwitchModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ZyfraInputSwitchComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ZyfraInputSwitchComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ZyfraMessageModule",
+            "id": "module-ZyfraMessageModule-e05170874c1db916f5ea23d35e448f58",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "libs/components/src/lib/message/zyfra-message.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { MessagesModule } from 'primeng/messages';\nimport { MessageModule } from 'primeng/message';\nimport { ZyfraMessageComponent } from './zyfra-message.component';\n\n@NgModule({\n  declarations: [ZyfraMessageComponent],\n  imports: [MessagesModule, MessageModule],\n  exports: [ZyfraMessageComponent],\n})\nexport class ZyfraMessageModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ZyfraMessageComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ZyfraMessageComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ZyfraPasswordModule",
+            "id": "module-ZyfraPasswordModule-3ef28a8629ff6507c9bf1bae84a220b4",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "libs/components/src/lib/password/zyfra-password.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormsModule, ReactiveFormsModule } from '@angular/forms';\nimport { PasswordModule } from 'primeng/password';\nimport { ZyfraPasswordComponent } from './zyfra-password.component';\n\n@NgModule({\n  declarations: [ZyfraPasswordComponent],\n  imports: [CommonModule, FormsModule, ReactiveFormsModule, PasswordModule],\n  exports: [ZyfraPasswordComponent],\n})\nexport class ZyfraPasswordModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ZyfraPasswordComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ZyfraPasswordComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "ZyfraRadioButtonModule",
             "id": "module-ZyfraRadioButtonModule-707e4fbbe87a90cd73b102ff50c5bcf3",
             "description": "",
@@ -5226,6 +6008,50 @@
             ]
         },
         {
+            "name": "ZyfraTextareaModule",
+            "id": "module-ZyfraTextareaModule-3c88867ef13697f6dd5f95ad9371681e",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "libs/components/src/lib/textarea/zyfra-textarea.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common'; \r\nimport {InputTextareaModule} from 'primeng/inputtextarea';\r\nimport {FormsModule, ReactiveFormsModule } from '@angular/forms';\r\nimport { ZyfraTextareaComponent } from './zyfra-textarea.component';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [ZyfraTextareaComponent],\r\n  imports: [\r\n    CommonModule,\r\n    FormsModule, \r\n    ReactiveFormsModule,\r\n    InputTextareaModule\r\n  ],\r\n  exports: [ZyfraTextareaComponent]\r\n})\r\nexport class ZyfraTextareaModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ZyfraTextareaComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ZyfraTextareaComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "ZyfraToggleButtonModule",
             "id": "module-ZyfraToggleButtonModule-dfbafc24fae96d513b9df44bebac00b0",
             "description": "",
@@ -5309,6 +6135,16 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "Animation",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/message/zyfra-message.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "AnimationSpeed",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -5342,6 +6178,16 @@
                 "name": "Basic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/components/src/lib/input-number/zyfra-input-number.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Basic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -5352,7 +6198,7 @@
                 "name": "Basic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/components/src/lib/input-number/zyfra-input-number.component.stories.ts",
+                "file": "libs/components/src/lib/input-switch/zyfra-input-switch.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -5689,6 +6535,16 @@
                 "defaultValue": "SimpleTemplate.bind({})"
             },
             {
+                "name": "MultiMessages",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/message/zyfra-message.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "OnlyIcon",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -5762,7 +6618,7 @@
                 "name": "Simple",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
+                "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -5772,7 +6628,7 @@
                 "name": "Simple",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
+                "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -5792,7 +6648,37 @@
                 "name": "Simple",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/components/src/lib/message/zyfra-message.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Simple",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/password/zyfra-password.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Simple",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Simple",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/textarea/zyfra-textarea.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -5912,26 +6798,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ZyfraConfirmDialogComponent>",
-                "defaultValue": "(args) => ({\n  template: `\n    <zyfra-button\n      (click)=\"confirmDialog.onClick($event)\"\n      label=\"for dialog\"\n      icon=\"zyfra-icon selection-check-simple\"\n    ></zyfra-button>\n\n    <zyfra-confirm-dialog\n      #confirmDialog\n      [message]=\"message\"\n      [icon]=\"icon\"\n      [header]=\"header\"\n      [acceptLabel]=\"acceptLabel\"\n      [rejectLabel]=\"rejectLabel\"\n      [acceptButtonStyleClass]=\"acceptButtonStyleClass\"\n      [rejectButtonStyleClass]=\"rejectButtonStyleClass\"\n      [acceptMessages]=\"acceptMessages\"\n      (onHide)=\"onHide($event)\"\n    ></zyfra-confirm-dialog>\n  `,\n  props: {\n    ...args,\n    onHide: action('onHide'),\n  },\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ZyfraDialogComponent>",
-                "defaultValue": "(args) => ({\n  template: `\n    <zyfra-button\n      (click)=\"dialog.onInit($event)\"\n      label=\"for dialog\"\n      icon=\"zyfra-icon selection-check-simple\"\n    ></zyfra-button>\n\n    <zyfra-dialog\n      #dialog\n      [header]=\"header\"\n      [htmlTemplate]=\"htmlTemplate\"\n      (onShow)=\"onShow($event)\"\n      (onHide)=\"onHide($event)\"\n      (onResizeInit)=\"onResizeInit($event)\"\n      (onResizeEnd)=\"onResizeEnd($event)\"\n      (onDragEnd)=\"onDragEnd($event)\"\n      (onMaximize)=\"onMaximize($event)\"\n    ></zyfra-dialog>\n  `,\n  props: {\n    ...args,\n    onResizeInit: action('onResizeInit'),\n    onResizeEnd: action('onResizeEnd'),\n    onDragEnd: action('onDragEnd'),\n    onMaximize: action('onMaximize'),\n    onShow: action('onShow'),\n    onHide: action('onHide'),\n  },\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/components/src/lib/hint/zyfra-hint.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -5952,11 +6818,41 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraDialogComponent>",
+                "defaultValue": "(args) => ({\n  template: `\n    <zyfra-button\n      (click)=\"dialog.onInit($event)\"\n      label=\"for dialog\"\n      icon=\"zyfra-icon selection-check-simple\"\n    ></zyfra-button>\n\n    <zyfra-dialog\n      #dialog\n      [header]=\"header\"\n      [htmlTemplate]=\"htmlTemplate\"\n      (onShow)=\"onShow($event)\"\n      (onHide)=\"onHide($event)\"\n      (onResizeInit)=\"onResizeInit($event)\"\n      (onResizeEnd)=\"onResizeEnd($event)\"\n      (onDragEnd)=\"onDragEnd($event)\"\n      (onMaximize)=\"onMaximize($event)\"\n    ></zyfra-dialog>\n  `,\n  props: {\n    ...args,\n    onResizeInit: action('onResizeInit'),\n    onResizeEnd: action('onResizeEnd'),\n    onDragEnd: action('onDragEnd'),\n    onMaximize: action('onMaximize'),\n    onShow: action('onShow'),\n    onHide: action('onHide'),\n  },\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraConfirmDialogComponent>",
+                "defaultValue": "(args) => ({\n  template: `\n    <zyfra-button\n      (click)=\"confirmDialog.onClick($event)\"\n      label=\"for dialog\"\n      icon=\"zyfra-icon selection-check-simple\"\n    ></zyfra-button>\n\n    <zyfra-confirm-dialog\n      #confirmDialog\n      [message]=\"message\"\n      [icon]=\"icon\"\n      [header]=\"header\"\n      [acceptLabel]=\"acceptLabel\"\n      [rejectLabel]=\"rejectLabel\"\n      [acceptButtonStyleClass]=\"acceptButtonStyleClass\"\n      [rejectButtonStyleClass]=\"rejectButtonStyleClass\"\n      [acceptMessages]=\"acceptMessages\"\n      (onHide)=\"onHide($event)\"\n    ></zyfra-confirm-dialog>\n  `,\n  props: {\n    ...args,\n    onHide: action('onHide'),\n  },\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/components/src/lib/input/zyfra-input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<ZyfraInputComponent>",
                 "defaultValue": "(args) => ({\n  component: ZyfraInputComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/input-number/zyfra-input-number.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraInputNumberComponent>",
+                "defaultValue": "(args) => ({\n  component: ZyfraInputNumberComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -5972,11 +6868,31 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/components/src/lib/input-number/zyfra-input-number.component.stories.ts",
+                "file": "libs/components/src/lib/input-switch/zyfra-input-switch.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<ZyfraInputNumberComponent>",
-                "defaultValue": "(args) => ({\n  component: ZyfraInputNumberComponent,\n  props: args,\n})"
+                "type": "Story<ZyfraInputSwitchComponent>",
+                "defaultValue": "(args) => ({\n  component: ZyfraInputSwitchComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/message/zyfra-message.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraMessageComponent>",
+                "defaultValue": "(args) => ({\n  component: ZyfraMessageComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/password/zyfra-password.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraPasswordComponent>",
+                "defaultValue": "(args) => ({\n  component: ZyfraPasswordComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -6002,11 +6918,31 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/components/src/lib/textarea/zyfra-textarea.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraTextareaComponent>",
+                "defaultValue": "(args) => ({\n  component: ZyfraTextareaComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<ZyfraToggleButtonComponent>",
                 "defaultValue": "(args) => ({\n  component: ZyfraToggleButtonComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "ToggleMask",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/password/zyfra-password.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "Tooltip",
@@ -6075,6 +7011,48 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "libs/components/src/lib/message/zyfra-message.component.stories.ts": [
+                {
+                    "name": "Animation",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/message/zyfra-message.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "MultiMessages",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/message/zyfra-message.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Simple",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/message/zyfra-message.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/message/zyfra-message.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ZyfraMessageComponent>",
+                    "defaultValue": "(args) => ({\n  component: ZyfraMessageComponent,\n  props: args,\n})"
+                }
+            ],
             "libs/components/src/lib/split-button/zyfra-split-button.component.stories.ts": [
                 {
                     "name": "AnimationSpeed",
@@ -6341,6 +7319,48 @@
                     "defaultValue": "CheckboxWithFormControlComponentTemplate.bind({})"
                 }
             ],
+            "libs/components/src/lib/input-number/zyfra-input-number.component.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/input-number/zyfra-input-number.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Currency",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/input-number/zyfra-input-number.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Decimal",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/input-number/zyfra-input-number.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/input-number/zyfra-input-number.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ZyfraInputNumberComponent>",
+                    "defaultValue": "(args) => ({\n  component: ZyfraInputNumberComponent,\n  props: args,\n})"
+                }
+            ],
             "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts": [
                 {
                     "name": "Basic",
@@ -6413,32 +7433,12 @@
                     "defaultValue": "(args) => ({\n  component: ZyfraInputMaskComponent,\n  props: args,\n})"
                 }
             ],
-            "libs/components/src/lib/input-number/zyfra-input-number.component.stories.ts": [
+            "libs/components/src/lib/input-switch/zyfra-input-switch.component.stories.ts": [
                 {
                     "name": "Basic",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/components/src/lib/input-number/zyfra-input-number.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Currency",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/components/src/lib/input-number/zyfra-input-number.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Decimal",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/components/src/lib/input-number/zyfra-input-number.component.stories.ts",
+                    "file": "libs/components/src/lib/input-switch/zyfra-input-switch.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -6448,11 +7448,11 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/components/src/lib/input-number/zyfra-input-number.component.stories.ts",
+                    "file": "libs/components/src/lib/input-switch/zyfra-input-switch.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Story<ZyfraInputNumberComponent>",
-                    "defaultValue": "(args) => ({\n  component: ZyfraInputNumberComponent,\n  props: args,\n})"
+                    "type": "Story<ZyfraInputSwitchComponent>",
+                    "defaultValue": "(args) => ({\n  component: ZyfraInputSwitchComponent,\n  props: args,\n})"
                 }
             ],
             "libs/components/src/lib/checkbox/zyfra-checkbox.component.ts": [
@@ -6859,6 +7859,60 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "Template.bind({})"
+                }
+            ],
+            "libs/components/src/lib/password/zyfra-password.component.stories.ts": [
+                {
+                    "name": "Simple",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/password/zyfra-password.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/password/zyfra-password.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ZyfraPasswordComponent>",
+                    "defaultValue": "(args) => ({\n  component: ZyfraPasswordComponent,\n  props: args,\n})"
+                },
+                {
+                    "name": "ToggleMask",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/password/zyfra-password.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                }
+            ],
+            "libs/components/src/lib/textarea/zyfra-textarea.component.stories.ts": [
+                {
+                    "name": "Simple",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/textarea/zyfra-textarea.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/textarea/zyfra-textarea.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ZyfraTextareaComponent>",
+                    "defaultValue": "(args) => ({\n  component: ZyfraTextareaComponent,\n  props: args,\n})"
                 }
             ]
         },
@@ -7482,6 +8536,35 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/components/src/lib/input-switch/zyfra-input-switch.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Basic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/input-switch/zyfra-input-switch.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/input-switch/zyfra-input-switch.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ZyfraInputSwitchComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/14",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/components/src/lib/input/zyfra-input.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -7518,6 +8601,94 @@
                 "name": "ZyfraInputComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/14",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/message/zyfra-message.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Animation",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/message/zyfra-message.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "MultiMessages",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/message/zyfra-message.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Simple",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/message/zyfra-message.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/message/zyfra-message.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ZyfraMessageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/12",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/password/zyfra-password.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Simple",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/password/zyfra-password.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/password/zyfra-password.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ToggleMask",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/password/zyfra-password.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ZyfraPasswordComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/21",
                 "status": "low"
             },
             {
@@ -7782,6 +8953,35 @@
                 "name": "ZyfraSplitButtonComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/20",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/textarea/zyfra-textarea.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Simple",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/textarea/zyfra-textarea.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/textarea/zyfra-textarea.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ZyfraTextareaComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/16",
                 "status": "low"
             },
             {
