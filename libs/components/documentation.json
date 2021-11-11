@@ -602,6 +602,129 @@
             "templateData": "<p-checkbox\n  [(ngModel)]=\"model\"\n  [name]=\"name\"\n  [value]=\"value\"\n  [label]=\"label\"\n  [disabled]=\"disabled\"\n  [binary]=\"binary\"\n  [tabindex]=\"tabindex\"\n  [inputId]=\"inputId\"\n  [ariaLabelledBy]=\"ariaLabelledBy\"\n  [style]=\"style\"\n  [styleClass]=\"styleClass\"\n  [labelStyleClass]=\"labelStyleClass\"\n  [checkboxIcon]=\"checkboxIcon\"\n  [readonly]=\"readonly\"\n  [required]=\"required\"\n  (onChange)=\"onChangeHandler($event)\"\n></p-checkbox>\n"
         },
         {
+            "name": "ZyfraChipComponent",
+            "id": "component-ZyfraChipComponent-fedabd8c9a49762edff6d0cfcb97d89f",
+            "file": "libs/components/src/lib/zyfra-chip/zyfra-chip.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "zyfra-chip",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./zyfra-chip.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "icon",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string"
+                },
+                {
+                    "name": "image",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string"
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string"
+                },
+                {
+                    "name": "removable",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "boolean"
+                },
+                {
+                    "name": "removeIcon",
+                    "defaultValue": "'zyfra-icon cancel-close-circle'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string"
+                },
+                {
+                    "name": "style",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string"
+                },
+                {
+                    "name": "styleClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onRemove",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "EventEmitter<any>"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "onRemoveHandler",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';\n\n@Component({\n  selector: 'zyfra-chip',\n  templateUrl: './zyfra-chip.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ZyfraChipComponent {\n  @Input() label: string;\n  @Input() icon: string;\n  @Input() image: string;\n  @Input() removable: boolean;\n  @Input() style: string;\n  @Input() styleClass: string;\n  @Input() removeIcon: string = 'zyfra-icon cancel-close-circle';\n\n  /* onRemove */\n  @Output() onRemove: EventEmitter<any> = new EventEmitter();\n\n  onRemoveHandler(event) {\n    this.onRemove.emit(event);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<p-chip\n  [label]=\"label\"\n  [icon]=\"icon\"\n  [image]=\"image\"\n  [removable]=\"removable\"\n  [style]=\"style\"\n  [styleClass]=\"styleClass\"\n  [removeIcon]=\"removeIcon\"\n  (onRemove)=\"onRemoveHandler($event)\"\n></p-chip>\n"
+        },
+        {
             "name": "ZyfraRadioButtonComponent",
             "id": "component-ZyfraRadioButtonComponent-5058199258f58428562b7d6b285c2840",
             "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.ts",
@@ -1767,6 +1890,50 @@
             ]
         },
         {
+            "name": "ZyfraChipModule",
+            "id": "module-ZyfraChipModule-57ec50f78a0f9f4670a03f6a02d368e6",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "libs/components/src/lib/zyfra-chip/zyfra-chip.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormsModule, ReactiveFormsModule } from '@angular/forms';\nimport { ZyfraChipComponent } from './zyfra-chip.component';\nimport { ChipModule } from 'primeng/chip';\n\n@NgModule({\n  declarations: [ZyfraChipComponent],\n  imports: [CommonModule, ChipModule],\n  exports: [ZyfraChipComponent],\n})\nexport class ZyfraChipModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ZyfraChipComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ZyfraChipComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "ZyfraRadioButtonModule",
             "id": "module-ZyfraRadioButtonModule-707e4fbbe87a90cd73b102ff50c5bcf3",
             "description": "",
@@ -2095,7 +2262,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2105,7 +2272,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
+                "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2272,6 +2439,16 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/zyfra-chip/zyfra-chip.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "RADIO_VALUE_ACCESSOR",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2405,11 +2582,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
+                "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<ZyfraSelectButtonComponent<StoryCity, string>>",
-                "defaultValue": "(args) => ({\n  component: ZyfraSelectButtonComponent,\n  props: args,\n})"
+                "type": "Story<ZyfraToggleButtonComponent>",
+                "defaultValue": "(args) => ({\n  component: ZyfraToggleButtonComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -2425,11 +2602,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
+                "file": "libs/components/src/lib/select-button/zyfra-select-button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<ZyfraToggleButtonComponent>",
-                "defaultValue": "(args) => ({\n  component: ZyfraToggleButtonComponent,\n  props: args,\n})"
+                "type": "Story<ZyfraSelectButtonComponent<StoryCity, string>>",
+                "defaultValue": "(args) => ({\n  component: ZyfraSelectButtonComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/zyfra-chip/zyfra-chip.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraChipComponent>",
+                "defaultValue": "(args: ZyfraChipComponent) => ({\n  component: ZyfraChipComponent,\n  props: args,\n})"
             },
             {
                 "name": "Warning",
@@ -2964,6 +3151,28 @@
                     "deprecationMessage": "",
                     "type": "Story<IconComponents>",
                     "defaultValue": "(args: IconComponents) => ({\r\n  component: IconComponents,\r\n  props: args,\r\n})"
+                }
+            ],
+            "libs/components/src/lib/zyfra-chip/zyfra-chip.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/zyfra-chip/zyfra-chip.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/zyfra-chip/zyfra-chip.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ZyfraChipComponent>",
+                    "defaultValue": "(args: ZyfraChipComponent) => ({\n  component: ZyfraChipComponent,\n  props: args,\n})"
                 }
             ],
             "libs/components/src/lib/radio-button/zyfra-radio-button.component.ts": [
@@ -3588,6 +3797,35 @@
                 "name": "TToggleButtonClick",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/zyfra-chip/zyfra-chip.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/zyfra-chip/zyfra-chip.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/zyfra-chip/zyfra-chip.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ZyfraChipComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/10",
                 "status": "low"
             }
         ]
