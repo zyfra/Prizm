@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
-import { BrowserModule } from '@angular/platform-browser';
 import { ZyfraButtonComponent } from './zyfra-button.component';
 import { ZyfraButtonModule } from './zyfra-button.module';
 
@@ -11,7 +10,7 @@ export default {
   component: ZyfraButtonComponent,
   decorators: [
     moduleMetadata({
-      imports: [BrowserModule, CommonModule, ZyfraButtonModule],
+      imports: [CommonModule, ZyfraButtonModule],
     }),
   ],
   parameters: {
