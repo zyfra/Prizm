@@ -1,0 +1,21 @@
+<p-toast
+  [position]="position"
+  [baseZIndex]="baseZIndex"
+  [key]="key"
+  [style]="style"
+  [styleClass]="styleClass"
+  [position]="position"
+  [baseZIndex]="baseZIndex"
+  [autoZIndex]="autoZIndex"
+  [showTransitionOptions]="showTransitionOptions"
+  [hideTransitionOptions]="hideTransitionOptions"
+  [showTransformOptions]="showTransformOptions"
+  [hideTransformOptions]="hideTransformOptions"
+  [preventOpenDuplicates]="preventOpenDuplicates"
+  [preventDuplicates]="preventDuplicates"
+  (onClose)="onReject()"
+>
+  <ng-template *ngIf="htmlTemplate" let-message pTemplate="message">
+    <div [innerHTML]="htmlTemplate"></div>
+  </ng-template>
+</p-toast>

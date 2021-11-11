@@ -126,9 +126,9 @@
   --standartBorder: #e7e9ef;
 
   /* --------- for color bg ----------- */
-  --z-accentColor: var(--buttonSuccessHover);
-  --standartActive: var(--successColorActive);
-  --bgFont: var(--textColor);
+  --z-accentColor: #49AB4D;
+  --standartActive: #37813A;
+  --bgFont: var(--bgStandart);
 
   /* ------- font for/in input -------- */
   --inputFont: #afb8ca;
