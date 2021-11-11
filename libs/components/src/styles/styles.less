@@ -4,6 +4,7 @@
 @import "../lib/chip/zyfra-chip.component.less";
 @import "../lib/checkbox/zyfra-checkbox.component.less";
 @import "../lib/confirm-dialog/zyfra-confirm-dialog.component.less";
+@import "../lib/hint/zyfra-hint.component";
 
 // todo удалить после переноса всех компонентов в это репо
 /*
@@ -1093,48 +1094,6 @@
   }
 }
 
-/* =========================== hint =======================  */
-.zyfra_hint {
-  pointer-events: auto;
-  position: fixed;
-  z-index: 1000;
-  max-width: @340px;
-  padding: @8px @16px;
-  word-wrap: break-word;
-  font-size: @13px;
-  line-height: 25px;
-  font-weight: 400;
-  font-style: normal;
-  text-align: left;
-  font-family: var(--fontFamily);
-  background-color: #EDF3FD;
-  color: var(--text);
-  border: 1px solid #88AFF2;
-  border-radius: @8px;
-  &_title {
-    font-weight: bold;
-    font-size: @14px;
-  }
-}
-
-.zyfra_animation-feature zyfra-hint {
-  animation: hintIn 2s;
-}
-
-@keyframes hintIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes hintOut {
-  to {
-    opacity: 0;
-  }
-}
 
 // Table
 
