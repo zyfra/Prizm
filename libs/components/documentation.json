@@ -2977,6 +2977,69 @@
             "templateData": "<span class=\"zyfra-input\" [class.zyfra-input_disabled]=\"disabled\" [class.p-float-label]=\"label\">\n  <i *ngIf=\"iClass\" [class]=\"iClass\"></i>\n\n  <input\n    pInputText\n    [type]=\"type\"\n    [id]=\"id\"\n    [(ngModel)]=\"value\"\n    (ngModelChange)=\"valueChange.emit($event)\"\n    [placeholder]=\"placeholder\"\n    [class]=\"inputClass\"\n    [disabled]=\"disabled\"\n    [required]=\"required\"\n    [pTooltip]=\"tooltip ? tooltip : null\"\n    [tooltipPosition]=\"tooltipPosition\"\n  />\n\n  <label *ngIf=\"label\" [class.label-required]=\"required\">{{ label }}</label>\n</span>\n"
         },
         {
+            "name": "ZyfraInputMaskComponent",
+            "id": "component-ZyfraInputMaskComponent-748f0f1230de8393d4ee23c77c776f5e",
+            "file": "libs/components/src/lib/input-mask/zyfra-input-mask.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "zyfra-zyfra-input-mask",
+            "styleUrls": [
+                "./zyfra-input-mask.component.less"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./zyfra-input-mask.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 13,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';\n\n@Component({\n  selector: 'zyfra-zyfra-input-mask',\n  templateUrl: './zyfra-input-mask.component.html',\n  styleUrls: ['./zyfra-input-mask.component.less'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class ZyfraInputMaskComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./zyfra-input-mask.component.less"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 9
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p>zyfra-input-mask works!</p>\n"
+        },
+        {
             "name": "ZyfraRadioButtonComponent",
             "id": "component-ZyfraRadioButtonComponent-5058199258f58428562b7d6b285c2840",
             "file": "libs/components/src/lib/radio-button/zyfra-radio-button.component.ts",
@@ -4328,6 +4391,46 @@
             ]
         },
         {
+            "name": "ZyfraInputMaskModule",
+            "id": "module-ZyfraInputMaskModule-c55ebdcc91afc9d78d21fee458b237e2",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "libs/components/src/lib/input-mask/zyfra-input-mask.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ZyfraInputMaskComponent } from './zyfra-input-mask.component';\n\n\n\n@NgModule({\n  declarations: [\n    ZyfraInputMaskComponent\n  ],\n  imports: [\n    CommonModule\n  ]\n})\nexport class ZyfraInputMaskModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ZyfraInputMaskComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "ZyfraInputModule",
             "id": "module-ZyfraInputModule-64c13b25492ac87624b8cd29679e4d06",
             "description": "",
@@ -4617,6 +4720,16 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Basic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "CHECKBOX_VALUE_ACCESSOR",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -4681,6 +4794,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/components/src/lib/toggle-button/zyfra-toggle-button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Date",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -4927,6 +5050,26 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Phone",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "PhoneExt",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -4957,10 +5100,10 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "Simple",
+                "name": "SerialNumber",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
+                "file": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -4971,6 +5114,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Simple",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -5025,6 +5178,16 @@
                 "deprecationMessage": "",
                 "type": "Story<ZyfraRadioButtonComponent<string>>",
                 "defaultValue": "(args) => ({\n  template: template(`[(ngModel)]=\"model\"`),\n  props: {\n    ...args,\n    ngModelChange: () => {},\n    onClick: action('onClick'),\n    onFocus: action('onFocus'),\n    onBlur: action('onBlur'),\n  },\n})"
+            },
+            {
+                "name": "SSN",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "Submit",
@@ -5100,6 +5263,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraConfirmDialogComponent>",
+                "defaultValue": "(args) => ({\n  template: `\n    <zyfra-button\n      (click)=\"confirmDialog.onClick($event)\"\n      label=\"for dialog\"\n      icon=\"zyfra-icon selection-check-simple\"\n    ></zyfra-button>\n\n    <zyfra-confirm-dialog\n      #confirmDialog\n      [message]=\"message\"\n      [icon]=\"icon\"\n      [header]=\"header\"\n      [acceptLabel]=\"acceptLabel\"\n      [rejectLabel]=\"rejectLabel\"\n      [acceptButtonStyleClass]=\"acceptButtonStyleClass\"\n      [rejectButtonStyleClass]=\"rejectButtonStyleClass\"\n      [acceptMessages]=\"acceptMessages\"\n      (onHide)=\"onHide($event)\"\n    ></zyfra-confirm-dialog>\n  `,\n  props: {\n    ...args,\n    onHide: action('onHide'),\n  },\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "libs/components/src/lib/dialog/zyfra-dialog.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -5130,21 +5303,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/components/src/lib/confirm-dialog/zyfra-confirm-dialog.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<ZyfraConfirmDialogComponent>",
-                "defaultValue": "(args) => ({\n  template: `\n    <zyfra-button\n      (click)=\"confirmDialog.onClick($event)\"\n      label=\"for dialog\"\n      icon=\"zyfra-icon selection-check-simple\"\n    ></zyfra-button>\n\n    <zyfra-confirm-dialog\n      #confirmDialog\n      [message]=\"message\"\n      [icon]=\"icon\"\n      [header]=\"header\"\n      [acceptLabel]=\"acceptLabel\"\n      [rejectLabel]=\"rejectLabel\"\n      [acceptButtonStyleClass]=\"acceptButtonStyleClass\"\n      [rejectButtonStyleClass]=\"rejectButtonStyleClass\"\n      [acceptMessages]=\"acceptMessages\"\n      (onHide)=\"onHide($event)\"\n    ></zyfra-confirm-dialog>\n  `,\n  props: {\n    ...args,\n    onHide: action('onHide'),\n  },\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/components/src/lib/input/zyfra-input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<ZyfraInputComponent>",
                 "defaultValue": "(args) => ({\n  component: ZyfraInputComponent,\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ZyfraInputMaskComponent>",
+                "defaultValue": "(args) => ({\n  component: ZyfraInputMaskComponent,\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -5507,6 +5680,78 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "CheckboxWithFormControlComponentTemplate.bind({})"
+                }
+            ],
+            "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Date",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Phone",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "PhoneExt",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "SerialNumber",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "SSN",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ZyfraInputMaskComponent>",
+                    "defaultValue": "(args) => ({\n  component: ZyfraInputMaskComponent,\n  props: args,\n})"
                 }
             ],
             "libs/components/src/lib/checkbox/zyfra-checkbox.component.ts": [
@@ -6396,6 +6641,85 @@
                 "name": "IconDefs",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Basic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Date",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Phone",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "PhoneExt",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SerialNumber",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SSN",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/input-mask/zyfra-input-mask.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/components/src/lib/input-mask/zyfra-input-mask.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ZyfraInputMaskComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {

@@ -7,7 +7,7 @@ import { ZyfraInputModule } from './zyfra-input.module';
 
 export default {
   moduleId: module.id,
-  title: 'Inputs/Input',
+  title: 'Form/Input',
   component: ZyfraInputComponent,
   decorators: [
     moduleMetadata({
