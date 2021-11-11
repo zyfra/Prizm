@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { moduleMetadata } from '@storybook/angular';
 import { Meta, Story } from '@storybook/angular/types-6-0';
-import { BrowserModule } from '@angular/platform-browser';
 import { ZyfraSelectButtonComponent } from './zyfra-select-button.component';
 import { ZyfraSelectButtonModule } from './zyfra-select-button.module';
 
@@ -11,7 +10,7 @@ export default {
   component: ZyfraSelectButtonComponent,
   decorators: [
     moduleMetadata({
-      imports: [BrowserModule, CommonModule, ZyfraSelectButtonModule],
+      imports: [CommonModule, ZyfraSelectButtonModule],
     }),
   ],
   parameters: {

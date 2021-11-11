@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ZyfraSplitButtonComponent } from './zyfra-split-button.component';
 import { ZyfraSplitButtonModule } from './zyfra-split-button.module';
@@ -12,7 +11,7 @@ export default {
   component: ZyfraSplitButtonComponent,
   decorators: [
     moduleMetadata({
-      imports: [BrowserModule, BrowserAnimationsModule, CommonModule, ZyfraSplitButtonModule],
+      imports: [BrowserAnimationsModule, CommonModule, ZyfraSplitButtonModule],
     }),
   ],
   parameters: {

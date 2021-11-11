@@ -2,6 +2,7 @@
 @import "../lib/button/zyfra-button.component.less";
 @import './typography/typography.less';
 @import "../lib/chip/zyfra-chip.component.less";
+@import "../lib/checkbox/zyfra-checkbox.component.less";
 
 // todo удалить после переноса всех компонентов в это репо
 /*
@@ -24,42 +25,6 @@
 [hidden] {
   display:none!important;
 }
-
-/* =================== checkbox ========================== */
-
-p-checkbox {
-  font-family: var(--fontFamily);
-}
-
-.p-checkbox .p-checkbox-box {
-  border: 2px solid var(--checkBox );
-  background: var(--checkBoxBg);
-}
-.p-checkbox .p-checkbox-box.p-highlight {
-  border-color: var(--checkBox );
-  background: var(--checkBoxBg);
-
-}
-
-.p-treetable .p-treetable-tbody > tr > td p-treetablecheckbox .p-checkbox .p-indeterminate .p-checkbox-icon,
-.p-checkbox .p-checkbox-box .p-checkbox-icon {
-  color: var(--checkBox );
-}
-
-.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-highlight:hover {
-  border-color: var(--checkBox );
-  background: var(--checkBoxBg);
-  color: var(--checkBox );
-}
-
-.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
-  border-color: var(--checkBox );
-}
-
-.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-focus {
-  border-color: var(--checkBox );
-}
-
 
 
 /* ================================= split-button ==================================== */
@@ -1255,6 +1220,10 @@ p-checkbox {
       font-weight: 700;
       padding-left: 16px;
     }
+  }
+
+  .p-treetable-tbody > tr > td p-treetablecheckbox .p-checkbox .p-indeterminate .p-checkbox-icon {
+    color: var(--checkBox );
   }
 
   &.p-datatable-gridlines .p-datatable-thead > tr th,

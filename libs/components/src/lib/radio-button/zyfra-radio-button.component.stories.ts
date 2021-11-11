@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { moduleMetadata } from '@storybook/angular';
 import { Meta, Story } from '@storybook/angular/types-6-0';
-//import { BrowserModule } from '@angular/platform-browser';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { action } from '@storybook/addon-actions';
 import { ZyfraRadioButtonComponent } from './zyfra-radio-button.component';
@@ -15,7 +14,6 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [
-        //BrowserModule,
         FormsModule,
         ReactiveFormsModule,
         CommonModule,
