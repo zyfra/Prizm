@@ -1,0 +1,26 @@
+<span
+  class="zyfra-input"
+  [class.zyfra-input_disabled]="disabled"
+  [class.p-float-label]="label"
+>
+  <textarea
+    pInputTextarea
+    [rows]="rows"
+    [cols]="cols"
+    [autoResize]="autoResize"
+    [(ngModel)]="value"
+    (ngModelChange)="valueChange.emit($event)"
+    [placeholder]="placeholder"
+    [class]="class"
+    [disabled]="disabled"
+    [maxlength]="maxlength"
+    [minlength]="minlength"
+    [name]="name"
+    (onResize)="onResize.emit($event)"
+  ></textarea>
+
+  <label
+    *ngIf="label"
+    [class.label-required]="required"
+  >{{ label }}</label>
+</span>
