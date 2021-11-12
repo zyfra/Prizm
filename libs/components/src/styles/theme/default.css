@@ -30,7 +30,7 @@
 
   /* ----------- buttons ------------- */
   --buttonSuccess: var(--successColor);
-  --buttonSuccessHover: var(--buttonSuccessHover);
+  --buttonSuccessHover: var(--successColorHover);
   --buttonSuccessActive: var(--successColorActive);
   --buttonSuccessFont: var(--textColor);
 
