@@ -1,0 +1,54 @@
+image: node:14.18.1
+
+stages:
+  - build
+  - release
+
+variables:
+  GITLAB_REGISTRY_AUTH_TOKEN: "//gitdp.zyfra.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" 
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+
+build:
+  tags:
+      - k8s
+  stage: build
+  # // include after k8s stable work
+  # cache:
+  #   paths:
+  #     - node_modules
+  #     - /cache/Cypress
+  #     - node_modules/.cache/nx
+  before_script:
+    - npm config set $GITLAB_REGISTRY_AUTH_TOKEN
+    - npm install
+
+  script:
+    - npm run all
+  except:
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /skip-ci/
+  artifacts:
+    expire_in: 1 day
+    paths:
+        - dist/
+
+release_package:
+  tags:
+      - k8s
+  stage: release
+  only:
+    - main
+  before_script:
+    - npm config set @$CI_PROJECT_ROOT_NAMESPACE:registry "$CI_SERVER_PROTOCOL://$CI_SERVER_HOST/api/v4/projects/$CI_PROJECT_ID/packages/npm/"
+    - npm config set "//$CI_SERVER_HOST/api/v4/projects/$CI_PROJECT_ID/packages/npm/:_authToken" "$CI_JOB_TOKEN"
+  script:
+    - cd dist/libs/components
+    - npm publish
+    - cd ../schematics
+    - npm publish
+
+  when: manual
+  except:
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /skip-ci/
