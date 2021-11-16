@@ -1,0 +1,18 @@
+<p-splitter
+  [panelSizes]="panelSizes"
+  [minSizes]="minSizes"
+  [layout]="layout"
+  [gutterSize]="gutterSize"
+  [stateKey]="stateKey"
+  [stateStorage]="stateStorage"
+  [style]="style"
+  [styleClass]="styleClass"
+  [panelStyleClass]="panelStyleClass"
+  [panelStyle]="panelStyle"
+  (onResizeStart)="onResizeStartHandler($event)"
+  (onResizeEnd)="onResizeEnd.emit($event)"
+>
+  <ng-template pTemplate *ngFor="let item of panels; let i = index">
+    <ng-container *ngTemplateOutlet="item"></ng-container>
+  </ng-template>
+</p-splitter>
