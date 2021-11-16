@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ZyfraAutoCompleteModule } from './zyfra-auto-complete.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // @ts-ignore
-import AutoCompleteDoc from './zyfra-auto-complete.component.stories.doc.mdx';
+import AutoCompleteDoc from './zyfra-auto-complete.component.story.doc.mdx';
 
 export default {
   moduleId: module.id,

@@ -13,6 +13,7 @@
 @import "../lib/paginator/zyfra-paginator.component";
 @import "../lib/progress/zyfra-progress-bar.component";
 @import "../lib/auto-complete/zyfra-auto-complete.component";
+@import "../lib/dropdown/zyfra-dropdown.component";
 
 // todo удалить после переноса всех компонентов в это репо
 /*
@@ -101,51 +102,51 @@
 
 
 /* ============================== dropdown ===============================  */
-.p-dropdown {
-  font-size: 1rem;
-  color: var(--inputFont);
-  background: var(--standartBg);
-  border: 1px solid var(--standartBorder);
-  border-radius: 4px;
-  height: 44px;
-
-  .p-dropdown-label {
-    line-height: 30px;
-  }
-}
-
-.p-inputwrapper:not(.p-inputwrapper-filled):not(.p-inputwrapper-focus) {
-  .p-dropdown {
-    &-label.p-placeholder {
-      visibility: hidden;
-    }
-  }
-}
-
-.p-dropdown:not(.p-disabled):hover,
-.p-dropdown:not(.p-disabled).p-focus {
-  border-color: var(--z-accentColor);
-}
-
-.p-dropdown-panel {
-  border: 1px solid var(--standartBorder);
-}
-
-.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
-  color: var(--standartFont);
-  background: var(--standartBg);
-}
-
-.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
-  background: var(--calendarBgChecked);
-  /*opacity: 0.2; */
-  color: var(--bgFont);
-}
-
-.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
-  color: var(--bgFont);
-  background: var(--z-accentColor);
-}
+//.p-dropdown {
+//  font-size: 1rem;
+//  color: var(--inputFont);
+//  background: var(--standartBg);
+//  border: 1px solid var(--standartBorder);
+//  border-radius: 4px;
+//  height: 44px;
+//
+//  .p-dropdown-label {
+//    line-height: 30px;
+//  }
+//}
+//
+//.p-inputwrapper:not(.p-inputwrapper-filled):not(.p-inputwrapper-focus) {
+//  .p-dropdown {
+//    &-label.p-placeholder {
+//      visibility: hidden;
+//    }
+//  }
+//}
+//
+//.p-dropdown:not(.p-disabled):hover,
+//.p-dropdown:not(.p-disabled).p-focus {
+//  border-color: var(--z-accentColor);
+//}
+//
+//.p-dropdown-panel {
+//  border: 1px solid var(--standartBorder);
+//}
+//
+//.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+//  color: var(--standartFont);
+//  background: var(--standartBg);
+//}
+//
+//.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
+//  background: var(--calendarBgChecked);
+//  /*opacity: 0.2; */
+//  color: var(--bgFont);
+//}
+//
+//.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+//  color: var(--bgFont);
+//  background: var(--z-accentColor);
+//}
 
 /* ============================ autocomplete =============================  */
 
