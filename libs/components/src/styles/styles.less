@@ -11,6 +11,7 @@
 @import "../lib/message/zyfra-message.component";
 @import "../lib/toast/zyfra-toast.component";
 @import "../lib/paginator/zyfra-paginator.component";
+@import "../lib/progress/zyfra-progress-bar.component";
 
 // todo удалить после переноса всех компонентов в это репо
 /*
@@ -1156,50 +1157,50 @@
     }
   }
 }
-
-/* progress bar */
-.p-progressbar {
-  height: 24px;
-  border-radius: 4px;
-  background: var(--bgSecond);
-
-  .p-progressbar-label {
-    color: var(--text);
-  }
-
-  &-mini {
-    height: 4px;
-    border-radius: 8px;
-  }
-
-  &.p-progressbar-determinate .p-progressbar-label {
-    font-weight: normal;
-  }
-
-  .p-progressbar-value {
-    background: var(--progressBarPrimary);
-  }
-
-  &-secondary .p-progressbar-value {
-    background: var(--progressBarSecondary);
-  }
-
-  &-info .p-progressbar-value {
-    background: var(--progressBarInfo);
-  }
-
-  &-warning .p-progressbar-value {
-    background: var(--progressBarWarning);
-  }
-
-  &-danger .p-progressbar-value {
-    background: var(--progressBarDanger);
-  }
-
-  &-success .p-progressbar-value {
-    background: var(--progressBarSuccess);
-  }
-}
+//
+///* progress bar */
+//.p-progressbar {
+//  height: 24px;
+//  border-radius: 4px;
+//  background: var(--bgSecond);
+//
+//  .p-progressbar-label {
+//    color: var(--text);
+//  }
+//
+//  &-mini {
+//    height: 4px;
+//    border-radius: 8px;
+//  }
+//
+//  &.p-progressbar-determinate .p-progressbar-label {
+//    font-weight: normal;
+//  }
+//
+//  .p-progressbar-value {
+//    background: var(--progressBarPrimary);
+//  }
+//
+//  &-secondary .p-progressbar-value {
+//    background: var(--progressBarSecondary);
+//  }
+//
+//  &-info .p-progressbar-value {
+//    background: var(--progressBarInfo);
+//  }
+//
+//  &-warning .p-progressbar-value {
+//    background: var(--progressBarWarning);
+//  }
+//
+//  &-danger .p-progressbar-value {
+//    background: var(--progressBarDanger);
+//  }
+//
+//  &-success .p-progressbar-value {
+//    background: var(--progressBarSuccess);
+//  }
+//}
 
 .spinner-color(@strokeColor) {
   .p-progress-spinner-circle {
