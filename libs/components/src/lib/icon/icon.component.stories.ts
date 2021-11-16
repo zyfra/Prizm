@@ -69,7 +69,7 @@ class IconComponents {
 }
 
 export default {
-  title: 'IconComponent',
+  title: 'Icons/IconComponent',
   component: IconComponents,
   decorators: [
     moduleMetadata({
@@ -79,9 +79,9 @@ export default {
   ],
   parameters: {
     docs: {
-      page: doc
-    }
-  }
+      page: doc,
+    },
+  },
 } as Meta<IconComponent>;
 
 const Template: Story<IconComponents> = (args: IconComponents) => ({
