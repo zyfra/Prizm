@@ -15,6 +15,7 @@
 @import "../lib/auto-complete/zyfra-auto-complete.component";
 @import "../lib/dropdown/zyfra-dropdown.component";
 @import "../lib/slider/zyfra-slider.component";
+@import "../lib/spinner/zyfra-spinner.component";
 
 // todo удалить после переноса всех компонентов в это репо
 /*
@@ -1204,46 +1205,46 @@
 //    background: var(--progressBarSuccess);
 //  }
 //}
-
-.spinner-color(@strokeColor) {
-  .p-progress-spinner-circle {
-    stroke: @strokeColor;
-  }
-}
-
-.zyfra-spinner {
-  .spinner-color(var(--spinnerColorPrimary));
-
-  &_color {
-    &-primary {
-      .spinner-color(var(--spinnerColorPrimary));
-    }
-
-    &-secondary {
-      .spinner-color(var(--spinnerColorSecondary));
-    }
-
-    &-info {
-      .spinner-color(var(--spinnerColorInfo));
-    }
-
-    &-warning {
-      .spinner-color(var(--spinnerColorWarning));
-    }
-
-    &-danger {
-      .spinner-color(var(--spinnerColorDanger));
-    }
-
-    &-success {
-      .spinner-color(var(--spinnerColorSuccess));
-    }
-  }
-
-  .p-progress-spinner-circle {
-    animation: p-progress-spinner-dash 1.5s ease-in-out infinite;
-  }
-}
+//
+//.spinner-color(@strokeColor) {
+//  .p-progress-spinner-circle {
+//    stroke: @strokeColor;
+//  }
+//}
+//
+//.zyfra-spinner {
+//  .spinner-color(var(--spinnerColorPrimary));
+//
+//  &_color {
+//    &-primary {
+//      .spinner-color(var(--spinnerColorPrimary));
+//    }
+//
+//    &-secondary {
+//      .spinner-color(var(--spinnerColorSecondary));
+//    }
+//
+//    &-info {
+//      .spinner-color(var(--spinnerColorInfo));
+//    }
+//
+//    &-warning {
+//      .spinner-color(var(--spinnerColorWarning));
+//    }
+//
+//    &-danger {
+//      .spinner-color(var(--spinnerColorDanger));
+//    }
+//
+//    &-success {
+//      .spinner-color(var(--spinnerColorSuccess));
+//    }
+//  }
+//
+//  .p-progress-spinner-circle {
+//    animation: p-progress-spinner-dash 1.5s ease-in-out infinite;
+//  }
+//}
 
 /* menu applications */
 .menu-applications {
