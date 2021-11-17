@@ -3,5 +3,9 @@
   "dest": "../../dist/libs/schematics",
   "lib": {
     "entryFile": "src/index.ts"
-  }
+  },
+  "allowedNonPeerDependencies": [
+    "@angular-devkit/schematics",
+    "ng-morph"
+  ]
 }
