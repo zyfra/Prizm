@@ -17,6 +17,7 @@
 @import "../lib/slider/zyfra-slider.component";
 @import "../lib/spinner/zyfra-spinner.component";
 @import "../lib/splitter/zyfra-splitter.component";
+@import "../lib/tab-menu/zyfra-tab-menu.component";
 
 // todo удалить после переноса всех компонентов в это репо
 /*
@@ -576,174 +577,174 @@
 }
 
 /* =========================== tab-menu =======================  */
-.p-tabmenu {
-  box-shadow: var(--shadow-mini);
-
-  .p-tabmenu-nav {
-    height: var(--tabNavHeight);
-    background: var(--tabviewBg);
-    box-shadow: var(--shadow-mini);
-    overflow: hidden;
-    scroll-behavior: smooth;
-
-    .p-tabmenuitem {
-      margin: 0;
-
-      .p-menuitem-link {
-        padding: 0 40px;
-        height: 100%;
-        color: var(--tabFont);
-        font-size: 14px;
-        background: var(--tabviewBg);
-        border-color: var(--tabviewBg);
-        border-bottom-width: 2px;
-
-        &:not(.p-disabled):focus {
-          box-shadow: none;
-          border-color: var(--z-accentColor);
-          border-bottom-width: 1px;
-        }
-      }
-
-      &.p-highlight .p-menuitem-link {
-        color: var(--tabActiveFont);
-        background: var(--tabviewBg);
-        border-color: var(--tabviewBg);
-        border-bottom-color: var(--z-accentColor);
-
-        &:not(.p-disabled):focus {
-          border-bottom-width: 2px;
-        }
-      }
-
-      &:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link {
-        color: var(--tabFont);
-        background: var(--tabviewBg);
-        border-color: var(--tabviewBg);
-        border-bottom-color: var(--z-accentColor);
-      }
-    }
-  }
-
-  .p-highlight .p-menuitem-icon {
-    color: var(--z-accentColor);
-  }
-}
-
-.p-menuitem-text {
-  white-space: nowrap;
-}
-
-.secondary-tab .tab-container .p-menuitem-text {
-  font-size: 13px;
-}
-
-.p-tabmenuitem.p-disabled {
-  .p-menuitem-text {
-    color: var(--tabDisabled)
-  }
-
-  .p-menuitem-icon {
-    color: var(--tabDisabled)
-  }
-}
-
-.menu-toggle-icon {
-  width: var(--tabNavHeight);
-  font-size: 20px;
-  line-height: var(--tabNavHeight);
-  text-align: center;
-
-  &:hover {
-    color: var(--z-accentColor);
-  }
-}
-
-.p-highlight .menu-toggle-icon {
-  color: var(--z-accentColor);
-}
-
-.has-overflow .p-tabmenu {
-  padding-right: calc(var(--tabNavHeight) * 2);
-  padding-left: var(--tabNavHeight);
-}
-
-.p-slidemenu {
-  &.p-slidemenu-overlay {
-    margin-top: 4px;
-    overflow: hidden;
-    background: var(--tabviewBg);
-    border: none;
-    border-radius: 12px;
-    box-shadow: var(--shadow-big);
-  }
-
-  .p-slidemenu-wrapper {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: flex-end;
-  }
-
-  .p-slidemenu-backward {
-    position: static;
-    height: 44px;
-    padding: 0;
-    background: var(--headerTabBg);
-    color: var(--standartFont);
-    font-size: 14px;
-    line-height: 40px;
-    font-weight: 700;
-    text-align: center;
-
-    &-icon {
-      position: absolute;
-      left: 0;
-      width: 40px;
-      line-height: 40px;
-      color: var(--navControl);
-
-      &:before {
-        content: '\e931';
-      }
-    }
-  }
-
-  .p-menuitem-link {
-    height: 44px;
-    margin: 4px 0;
-    padding: 12px 24px;
-
-    &:not(.p-disabled):hover {
-      background: var(--tabListItemHover);
-
-      .p-menuitem-text {
-        color: var(--tabActiveFont);
-      }
-
-      .p-submenu-icon {
-        color: var(--z-accentColor);
-      }
-
-      .p-menuitem-icon {
-        color: var(--z-accentColor);
-      }
-    }
-
-    .p-menuitem-text {
-      color: var(--tabActiveFont);
-      font-size: 13px;
-    }
-
-    .p-submenu-icon {
-      color: var(--navControl);
-    }
-
-    .p-menuitem-icon {
-      color: var(--navControl);
-      margin-right: 12px;
-    }
-  }
-}
+//.p-tabmenu {
+//  box-shadow: var(--shadow-mini);
+//
+//  .p-tabmenu-nav {
+//    height: var(--tabNavHeight);
+//    background: var(--tabviewBg);
+//    box-shadow: var(--shadow-mini);
+//    overflow: hidden;
+//    scroll-behavior: smooth;
+//
+//    .p-tabmenuitem {
+//      margin: 0;
+//
+//      .p-menuitem-link {
+//        padding: 0 40px;
+//        height: 100%;
+//        color: var(--tabFont);
+//        font-size: 14px;
+//        background: var(--tabviewBg);
+//        border-color: var(--tabviewBg);
+//        border-bottom-width: 2px;
+//
+//        &:not(.p-disabled):focus {
+//          box-shadow: none;
+//          border-color: var(--z-accentColor);
+//          border-bottom-width: 1px;
+//        }
+//      }
+//
+//      &.p-highlight .p-menuitem-link {
+//        color: var(--tabActiveFont);
+//        background: var(--tabviewBg);
+//        border-color: var(--tabviewBg);
+//        border-bottom-color: var(--z-accentColor);
+//
+//        &:not(.p-disabled):focus {
+//          border-bottom-width: 2px;
+//        }
+//      }
+//
+//      &:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link {
+//        color: var(--tabFont);
+//        background: var(--tabviewBg);
+//        border-color: var(--tabviewBg);
+//        border-bottom-color: var(--z-accentColor);
+//      }
+//    }
+//  }
+//
+//  .p-highlight .p-menuitem-icon {
+//    color: var(--z-accentColor);
+//  }
+//}
+//
+//.p-menuitem-text {
+//  white-space: nowrap;
+//}
+//
+//.secondary-tab .tab-container .p-menuitem-text {
+//  font-size: 13px;
+//}
+//
+//.p-tabmenuitem.p-disabled {
+//  .p-menuitem-text {
+//    color: var(--tabDisabled)
+//  }
+//
+//  .p-menuitem-icon {
+//    color: var(--tabDisabled)
+//  }
+//}
+//
+//.menu-toggle-icon {
+//  width: var(--tabNavHeight);
+//  font-size: 20px;
+//  line-height: var(--tabNavHeight);
+//  text-align: center;
+//
+//  &:hover {
+//    color: var(--z-accentColor);
+//  }
+//}
+//
+//.p-highlight .menu-toggle-icon {
+//  color: var(--z-accentColor);
+//}
+//
+//.has-overflow .p-tabmenu {
+//  padding-right: calc(var(--tabNavHeight) * 2);
+//  padding-left: var(--tabNavHeight);
+//}
+//
+//.p-slidemenu {
+//  &.p-slidemenu-overlay {
+//    margin-top: 4px;
+//    overflow: hidden;
+//    background: var(--tabviewBg);
+//    border: none;
+//    border-radius: 12px;
+//    box-shadow: var(--shadow-big);
+//  }
+//
+//  .p-slidemenu-wrapper {
+//    display: flex;
+//    flex-direction: column-reverse;
+//    justify-content: flex-end;
+//  }
+//
+//  .p-slidemenu-backward {
+//    position: static;
+//    height: 44px;
+//    padding: 0;
+//    background: var(--headerTabBg);
+//    color: var(--standartFont);
+//    font-size: 14px;
+//    line-height: 40px;
+//    font-weight: 700;
+//    text-align: center;
+//
+//    &-icon {
+//      position: absolute;
+//      left: 0;
+//      width: 40px;
+//      line-height: 40px;
+//      color: var(--navControl);
+//
+//      &:before {
+//        content: '\e931';
+//      }
+//    }
+//  }
+//
+//  .p-menuitem-link {
+//    height: 44px;
+//    margin: 4px 0;
+//    padding: 12px 24px;
+//
+//    &:not(.p-disabled):hover {
+//      background: var(--tabListItemHover);
+//
+//      .p-menuitem-text {
+//        color: var(--tabActiveFont);
+//      }
+//
+//      .p-submenu-icon {
+//        color: var(--z-accentColor);
+//      }
+//
+//      .p-menuitem-icon {
+//        color: var(--z-accentColor);
+//      }
+//    }
+//
+//    .p-menuitem-text {
+//      color: var(--tabActiveFont);
+//      font-size: 13px;
+//    }
+//
+//    .p-submenu-icon {
+//      color: var(--navControl);
+//    }
+//
+//    .p-menuitem-icon {
+//      color: var(--navControl);
+//      margin-right: 12px;
+//    }
+//  }
+//}
 /* tabmenu */
 
 /* нужны ли?*/
