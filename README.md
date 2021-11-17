@@ -60,6 +60,8 @@ export * from './lib/button';
   - Rebuild component docs `nx run components:docs`
   - Build prod `nx run components:build`
   - Schematic build `nx run schematics:build`
+- Icons:
+  - Rebuild icons `nx run components:build-icons`
 
 
 ---------
