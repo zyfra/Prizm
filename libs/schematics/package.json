@@ -1,6 +1,6 @@
 {
   "name": "@ui-platform/zyfra-components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "schematics": "./src/collection.json",
   "peerDependencies": {
     "@angular-devkit/schematics": "^12.2.0",
