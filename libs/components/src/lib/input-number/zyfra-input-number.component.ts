@@ -43,7 +43,7 @@ export class ZyfraInputNumberComponent {
   @Input() placeholder: string;
   @Input() size: number;
   @Input() maxlength: number;
-  @Input() tabindex: number;
+  @Input() tabindex: string;
   @Input() disabled: boolean;
   @Input() title: string;
   @Input() ariaLabel: string;

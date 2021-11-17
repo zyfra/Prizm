@@ -16,7 +16,7 @@ export class ZyfraInputMaskComponent {
   @Input() placeholder: string;
   @Input() size: number;
   @Input() maxlength: number;
-  @Input() tabindex: number;
+  @Input() tabindex: string;
   @Input() disabled: boolean;
   @Input() readonly: boolean;
   @Input() name: string;
