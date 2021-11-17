@@ -32,3 +32,4 @@ export * from './lib/textarea';
 export * from './lib/toast';
 export * from './lib/toggle-button';
 export * from './lib/tree';
+export * from './lib/tri-checkbox';
