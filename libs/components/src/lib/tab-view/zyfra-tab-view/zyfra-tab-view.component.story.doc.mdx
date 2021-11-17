@@ -1,0 +1,78 @@
+import { Meta, Story, Canvas, ArgsTable, ColorPalette, ColorItem, Preview, Typeset, Title, Subtitle, Description, } from '@storybook/addon-docs';
+import { ZyfraTabViewComponent } from './zyfra-tab-view.component';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+
+## Zyfra - TabView
+
+<Subtitle>TabView is a container component to group content with tabs</Subtitle>
+
+To module:
+```typescript
+import { ZyfraTabViewModule } from '@ui-platform/components';
+
+@NgModule({
+  imports: [
+    ZyfraTabViewModule,
+  ]
+})
+export class YourModule {}
+```
+
+To component:
+```html
+<zyfra-tab-view
+  [class]="zyfraTabViewTagStyle"
+  [activeIndex]="activeIndex"
+  [controlClose]="controlClose"
+  [style]="style"
+  [styleClass]="styleClass"
+  (onChange)="onChangeHandler($event)"
+  (onClose)="onCloseHandler($event)"
+>
+  <ng-container *ngFor="let tab of tabs">
+    <zyfra-tab-panel
+      [header]="tab.header"
+      [selected]="tab.selected"
+      [disabled]="tab.disabled"
+      [closable]="tab.closable"
+      [leftIcon]="tab.leftIcon"
+      [rightIcon]="tab.rightIcon"
+      [headerStyle]="tab.headerStyle"
+      [headerStyleClass]="tab.headerStyleClass"
+      [cache]="tab.cache"
+      [tooltip]="tab.tooltip"
+      [tooltipPosition]="tab.tooltipPosition"
+      [tooltipStyleClass]="tab.tooltipStyleClass"
+    >
+      {{ tab.content }}
+    </zyfra-tab-panel>
+  </ng-container>
+</zyfra-tab-view>
+```
+
+```typescript
+public tabs = [
+  {
+    header: 'Наименование вкладки 1',
+    content: 'Content of tab 1',
+  },
+  {
+    header: 'Наименование вкладки 2',
+    content: 'Content of tab 2',
+  },
+  {
+    header: 'Наименование вкладки 3',
+    content: 'Content of tab 3',
+    disabled: true
+  },
+  {
+    header: 'Наименование вкладки 4',
+    content: 'Content of tab 4',
+  }
+];
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraTabViewComponent} />

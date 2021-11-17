@@ -1,0 +1,33 @@
+import { Meta, Story, Canvas, ArgsTable, ColorPalette, ColorItem, Preview, Typeset, Title, Subtitle, Description, } from '@storybook/addon-docs';
+import { ZyfraSpinnerComponent } from './zyfra-spinner.component';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+
+## Zyfra - Spinner
+
+<Subtitle>Spinner is a process status indicator.</Subtitle>
+
+To module:
+```typescript
+import { ZyfraSpinnerModule } from '@ui-platform/components';
+
+@NgModule({
+  imports: [
+    ZyfraSpinnerModule,
+  ]
+})
+export class YourModule {}
+```
+
+To component:
+```html
+<zyfra-spinner
+  size="50px"
+  color="success"
+  [style]="{ opacity: 0.5 }"
+></zyfra-spinner>
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraSpinnerComponent} />

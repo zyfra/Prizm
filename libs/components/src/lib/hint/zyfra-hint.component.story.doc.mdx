@@ -1,0 +1,32 @@
+import { ArgsTable, Subtitle } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+import { ZyfraHintComponent } from 'controls/base-controls/zyfra-hint/src/public-api';
+
+## Zyfra - Hint
+
+<Subtitle of={ZyfraHintComponent}>
+  Tooltip provides functionality of additional information for an element
+</Subtitle>
+
+Import module:
+
+```typescript
+import { ZyfraHintModule, ZyfraHintOverlayManager } from '@ui-platform/components';
+
+@NgModule({
+  imports: [ZyfraHintModule],
+  provides: [ZyfraHintOverlayManager],
+})
+export class YourModule {}
+```
+
+Hint with text:
+
+```html
+<button zyfraButton class="class" type="button" zyfraHint="Подсказка справа" position="right">Right</button>
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraHintComponent} />

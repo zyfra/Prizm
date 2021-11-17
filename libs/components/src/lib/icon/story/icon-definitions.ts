@@ -837,6 +837,7 @@ export const IconDefs = [
             "social-google-plus",
             "social-heart-fill",
             "social-heart",
+            "social-home-breadcrumbs",
             "social-home",
             "social-instagram",
             "social-linkedin-box",

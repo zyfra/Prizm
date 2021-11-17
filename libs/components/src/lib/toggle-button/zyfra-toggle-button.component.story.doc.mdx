@@ -1,0 +1,49 @@
+import { ArgsTable, Subtitle } from '@storybook/addon-docs';
+import { ZyfraToggleButtonComponent } from './zyfra-toggle-button.component';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+
+## Zyfra-ToggleButton
+
+<Subtitle>ToggleButton is used to select a boolean value using a button</Subtitle>
+
+Import module:
+
+```typescript
+import { ZyfraToggleButtonModule } from '@ui-platform/components';
+
+@NgModule({
+  imports: [ZyfraToggleButtonModule],
+})
+export class YourModule {}
+```
+
+To component:
+
+```html
+<zyfra-toggle-button
+  onLabel="onLabel"
+  offLabel="offLabel"
+  onIcon="onLabel"
+  offIcon="offLabel"
+  styleClass="p-button-info"
+></zyfra-toggle-button>
+```
+
+We use our standard css classes for styling :
+
+```
+.p-togglebutton {
+  &-mini
+  &-default
+  &-success
+  &-secondary
+  &-info
+  &-danger
+  &-warning
+}
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraToggleButtonComponent} />

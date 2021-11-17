@@ -1,0 +1,43 @@
+import { ArgsTable, Subtitle } from '@storybook/addon-docs';
+import { moduleMetadata, storiesOf } from '@storybook/angular';
+import { ZyfraToastComponent } from './zyfra-toast.component';
+
+## Zyfra - Toast
+
+<Subtitle>Toast is used to display messages in an overlay</Subtitle>
+
+Import module:
+
+```typescript
+import { ZyfraToastModule } from '@ui-platform/components';
+import { ZyfraButtonModule } from '@ui-platform/components';
+
+@NgModule({
+  imports: [ZyfraToastModule, ZyfraButtonModule],
+})
+export class YourModule {}
+```
+
+To component:
+
+```html
+<zyfra-button (click)="$event.stopPropagation(); toast.showMessage()" label="for toast"></zyfra-button>
+
+<zyfra-toast
+  #toast
+  [position]="'bottom-right'"
+  [showTransitionOptions]="showTransitionOptions"
+  [preventOpenDuplicates]="false"
+  [preventDuplicates]="false"
+  [severity]="'success'"
+  [summary]="'Info'"
+  [detail]="'Message Content'"
+  [life]="3000"
+  [closable]="closable"
+  (onClose)="onClose($event)"
+></zyfra-toast>
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraToastComponent} />

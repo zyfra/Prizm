@@ -1,0 +1,68 @@
+<span class="zyfra-input" [class.zyfra-input_disabled]="disabled" [class.p-float-label]="label">
+  <p-dropdown
+    [(ngModel)]="value"
+    [options]="options"
+    [optionLabel]="optionLabel"
+    [optionValue]="optionValue"
+    [optionDisabled]="optionDisabled"
+    [optionGroupLabel]="optionGroupLabel"
+    [optionGroupChildren]="optionGroupChildren"
+    [name]="name"
+    [scrollHeight]="scrollHeight"
+    [virtualScroll]="virtualScroll"
+    [style]="style"
+    [panelStyle]="panelStyle"
+    [styleClass]="styleClass"
+    [panelStyleClass]="panelStyleClass"
+    [filter]="filter"
+    [filterValue]="filterValue"
+    [filterBy]="filterBy"
+    [filterMatchMode]="filterMatchMode"
+    [filterPlaceholder]="filterPlaceholder"
+    [filterLocale]="filterLocale"
+    [required]="required"
+    [disabled]="disabled"
+    [readonly]="readonly"
+    [emptyMessage]="emptyMessage"
+    [emptyFilterMessage]="emptyFilterMessage"
+    [ariaLabelledBy]="ariaLabelledBy"
+    [editable]="editable"
+    [maxlength]="maxlength"
+    [appendTo]="appendTo"
+    [tabindex]="tabindex"
+    [placeholder]="placeholder"
+    [inputId]="inputId"
+    [dataKey]="dataKey"
+    [autofocus]="autofocus"
+    [autofocusFilter]="autofocusFilter"
+    [resetFilterOnHide]="resetFilterOnHide"
+    [dropdownIcon]="dropdownIcon"
+    [autoDisplayFirst]="autoDisplayFirst"
+    [group]="group"
+    [showClear]="showClear"
+    [baseZIndex]="baseZIndex"
+    [autoZIndex]="autoZIndex"
+    [showTransitionOptions]="showTransitionOptions"
+    [hideTransitionOptions]="hideTransitionOptions"
+    [ariaFilterLabel]="ariaFilterLabel"
+    [tooltip]="tooltip"
+    [tooltipStyleClass]="tooltipStyleClass"
+    [tooltipPosition]="tooltipPosition"
+    [tooltipPositionStyle]="tooltipPositionStyle"
+    (onChange)="onChange.emit($event)"
+    (onClick)="onClick.emit($event)"
+    (onFocus)="onFocus.emit($event)"
+    (onBlur)="onBlur.emit($event)"
+    (onShow)="onShow.emit($event)"
+    (onHide)="onHide.emit($event)"
+    (ngModelChange)="valueChange.emit($event)"
+  >
+    <ng-template *ngIf="group" let-group pTemplate="group">
+      <div class="groupTemplateClass">
+        <span>{{ group.label }}</span>
+      </div>
+    </ng-template>
+  </p-dropdown>
+
+  <label *ngIf="label" [class.label-required]="required">{{ label }}</label>
+</span>

@@ -1,0 +1,37 @@
+import { ArgsTable, Subtitle } from '@storybook/addon-docs';
+import { moduleMetadata, storiesOf } from '@storybook/angular';
+import { ZyfraInputNumberComponent } from './zyfra-input-number.component';
+
+## Zyfra - InputNumber
+
+<Subtitle>InputNumber is an input component to provide numerical input</Subtitle>
+
+Import module:
+
+```typescript
+import { ZyfraInputNumberModule } from '@ui-platform/components';
+
+@NgModule({
+  imports: [ZyfraInputNumberModule],
+})
+export class YourModule {}
+```
+
+To component:
+
+```html
+<zyfra-input-number
+  [(model)]="modelForInputNumber"
+  showButtons="true"
+  mode="currency"
+  currency="USD"
+></zyfra-input-number>
+```
+
+```typescript
+public modelForInputNumber = '';
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraInputNumberComponent} />

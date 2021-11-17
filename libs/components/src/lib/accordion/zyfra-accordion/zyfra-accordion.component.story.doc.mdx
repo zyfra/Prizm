@@ -1,0 +1,85 @@
+import { Meta, Story, Canvas, ArgsTable, ColorPalette, ColorItem, Preview, Typeset, Title, Subtitle, Description, } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+import { ZyfraAccordionComponent } from './zyfra-accordion.component';
+
+## Zyfra - Accordion
+
+<Subtitle>Accordion groups a collection of contents in tabs</Subtitle>
+
+Import module:
+
+```typescript
+import { ZyfraAccordionModule } from '@ui-platform/components';
+
+@NgModule({
+  imports: [
+    ZyfraAccordionModule,
+  ]
+})
+export class YourModule {}
+```
+
+To component:
+```html
+<zyfra-accordion [multiple]="false"
+                 (onOpen)="onOpen($event)"
+                 (onClose)="onClose($event)"
+                 (activeIndexChange)="activeIndexChange($event)">
+  <zyfra-accordion-tab header="Header 1"
+                       [disabled]="disabled"
+                       (selectedChange)="selectedChange($event)"
+                       (activeIndexChange)="activeIndexChange($event)">
+    Content 1
+  </zyfra-accordion-tab>
+  <zyfra-accordion-tab header="Header 2">
+    Content 2
+  </zyfra-accordion-tab>
+</zyfra-accordion>
+```
+
+or with dynamic template
+
+```html
+<zyfra-accordion>
+  <zyfra-accordion-tab (selectedChange)="selectedChange($event)">
+    <ng-template zyfraTemplate="header">template header content</ng-template>
+    <ng-template zyfraTemplate="content">template body content</ng-template>
+  </zyfra-accordion-tab>
+  <zyfra-accordion-tab [selected]="selectedTwo">
+    <ng-template zyfraTemplate="header">
+      {{dynamicString}} header Content 2
+    </ng-template>
+    <ng-template zyfraTemplate="content">
+      {{dynamicString}} body Content 2
+    </ng-template>
+  </zyfra-accordion-tab>
+</zyfra-accordion>
+```
+
+or even with custom icons inside header
+
+```html
+<zyfra-accordion>
+  <zyfra-accordion-tab (selectedChange)="selectedChange($event)" (activeIndexChange)="activeIndexChange($event)">
+    <ng-template zyfraTemplate="header">template header content</ng-template>
+    <ng-template zyfraTemplate="content">template body content</ng-template>
+  </zyfra-accordion-tab>
+  <zyfra-accordion-tab [selected]="selectedTwo" (selectedChange)="selectedTwo = $event;selectedChange($event)">
+    <ng-template zyfraTemplate="header">
+        {{dynamicString}} header Content 2
+    </ng-template>
+    <ng-template zyfraTemplate="icons">
+        <span class="zyfra-icon chevrons-double-up" title="{{dynamicString}} title"></span>
+        <span class="zyfra-icon chevrons-double-down" title="static title"></span>
+    </ng-template>
+    <ng-template zyfraTemplate="content">
+      {{dynamicString}} body Content 2
+    </ng-template>
+  </zyfra-accordion-tab>
+</zyfra-accordion>
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraAccordionComponent} />
