@@ -1,0 +1,69 @@
+import { ArgsTable, Subtitle } from '@storybook/addon-docs';
+import { ZyfraRadioButtonComponent } from './zyfra-radio-button.component';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+
+## Zyfra-RadioButton
+
+<Subtitle>RadioButton is an extension to standard radio button element with theming</Subtitle>
+
+Import module:
+
+```typescript
+import { ZyfraRadioButtonModule } from '@ui-platform/components';
+
+@NgModule({
+  imports: [ZyfraRadioButtonModule],
+})
+export class YourModule {}
+```
+
+To component:
+
+```html
+<zyfra-radio-button
+  [model]="radioModel"
+  [(selectedValue)]="selectedRadioValue"
+  (onClick)="onClickRadioButton($event)"
+></zyfra-radio-button>
+```
+
+```typescript
+const radioModel: {
+  value: string,
+  label: string,
+  inputId: string,
+  disabled?: boolean
+}[] = [
+  {
+    value: 'Option 1',
+    label: 'Option 1',
+    inputId: 'preopt1'
+  },
+  {
+    value: 'Option 2',
+    label: 'Option 2',
+    inputId: 'preopt2'
+  },
+  {
+    value: 'Option 3',
+    label: 'Option 3 (disabled)',
+    inputId: 'preopt3',
+    disabled: true
+  },
+  {
+    value: 'Option 4',
+    label: 'Option 5',
+    inputId: 'preopt4',
+    disabled: false
+  }
+];
+
+onClickRadioButton(item) {
+  console.log(item);
+}
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraRadioButtonComponent} />

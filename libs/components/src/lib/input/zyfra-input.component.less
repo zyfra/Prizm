@@ -1,0 +1,128 @@
+@inputHeight: 44px;
+
+.p-inputtext {
+  font-family: var(--fontFamily);
+  font-size: 0.81rem;
+  color: var(--text);
+  background: var(--standartBg);
+  border: 1px solid var(--standartBorder);
+  border-radius: 4px;
+  height: @inputHeight;
+  padding-left: 16px;
+
+  &::placeholder {
+    font-size: 0.81rem;
+    color: var(--inputPlaceholder);
+  }
+
+  &:disabled,
+  &.p-disabled {
+    background-color: var(--inputDisabledBgColor);
+  }
+}
+
+.p-inputtextarea {
+  padding-top: 32px;
+  height: auto;
+}
+
+.p-inputnumber-button-group {
+  height: @inputHeight;
+}
+
+.medium {
+  .p-inputtext,
+  .p-inputnumber-button-group {
+    height: 2.75rem;
+  }
+}
+
+.p-inputtext:enabled:focus {
+  border-color: var(--z-accentColor);
+}
+
+.p-inputtext:enabled:hover {
+  border-color: var(--z-accentColor);
+}
+
+.p-float-label {
+  font-family: var(--fontFamily);
+
+  input:focus,
+  input.p-filled,
+  .p-inputwrapper-focus,
+  .p-inputwrapper-filled {
+    ~ label {
+      font-size: 0.81rem;
+      top: 7px;
+      transform: none;
+    }
+  }
+
+  textarea,
+  textarea:focus,
+  textarea.p-filled {
+    ~ label {
+      font-size: 0.81rem;
+      transform: none;
+      top: 11px;
+    }
+  }
+
+  label {
+    font-family: var(--fontFamily);
+    font-size: 0.81rem;
+    color: var(--inputLabel);
+    font-weight: 700;
+    transform: translateY(-50%);
+    margin-top: 0;
+    left: 17px;
+
+    &.label-required:after {
+      content: ' *';
+      color: var(--dangerColor);
+    }
+  }
+
+  .p-inputtext {
+    padding-top: @18px;
+
+    &.p-inputtextarea {
+      padding-top: 32px;
+    }
+
+    &::placeholder {
+      opacity: 0;
+      transition-duration: 0.2s;
+      transition-property: all;
+      transition-timing-function: ease;
+    }
+  }
+
+  .p-inputwrapper-focus .p-inputtext::placeholder,
+  .p-inputtext:focus::placeholder {
+    opacity: 1;
+    transition-duration: 0.2s;
+  }
+
+  .p-dropdown {
+    .p-inputtext {
+      padding-top: 20px;
+      line-height: 22px;
+    }
+  }
+}
+
+.zyfra-input {
+  &_disabled {
+    label {
+      color: var(--inputDisabledLabelColor);
+
+      &.label-required {
+        &::after {
+          color: var(--inputDisabledLabelColor);
+        }
+      }
+    }
+  }
+}

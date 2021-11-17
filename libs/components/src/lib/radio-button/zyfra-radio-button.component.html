@@ -1,0 +1,18 @@
+<p-radioButton
+  [name]="name"
+  [(ngModel)]="ngModel"
+  (ngModelChange)="modelChange($event)"
+  [value]="value"
+  [label]="label"
+  [disabled]="disabled"
+  [tabindex]="tabindex"
+  [inputId]="inputId"
+  [ariaLabelledBy]="ariaLabelledBy"
+  [ariaLabel]="ariaLabel"
+  [style]="style"
+  [styleClass]="styleClass"
+  [labelStyleClass]="labelStyleClass"
+  (onClick)="handleClick($event)"
+  (onFocus)="handleFocus($event)"
+  (onBlur)="handleBlur($event)"
+></p-radioButton>

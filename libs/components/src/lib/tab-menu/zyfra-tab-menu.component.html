@@ -1,0 +1,54 @@
+<div class="tab-container">
+  <div class="scroll-control scroll-control-left shadow-mini-right-container">
+    <div class="control-group">
+      <i #prevControl class="pi pi-angle-left control-icon" (click)="scrollPrevious()"></i>
+    </div>
+  </div>
+
+  <p-tabMenu [model]="model" [activeItem]="activeItem" [style]="style" [styleClass]="styleClass">
+    <ng-template pTemplate="item" let-item let-i="index">
+      <i *ngIf="item.icon" class="p-menuitem-icon pi pi-fw {{ item.icon }}"></i>
+      <span class="p-menuitem-text">{{ item?.label }}</span>
+      <ng-container *ngIf="item.items && item.items">
+        <i
+          class="menu-toggle-icon zyfra-icon {{
+            this.openedItem === item ? 'chevrons-dropdown' : 'chevrons-menu-right'
+          }}"
+          (click)="toggleMenu($event, menu, i)"
+        ></i>
+        <p-slideMenu
+          #menu
+          [model]="item.items"
+          [popup]="true"
+          [appendTo]="tabSubmenuContainer"
+          [backLabel]="backLabel"
+          (onShow)="initOutsideClickListener(menu)"
+        ></p-slideMenu>
+      </ng-container>
+    </ng-template>
+  </p-tabMenu>
+
+  <div class="scroll-control scroll-control-right shadow-mini-left-container">
+    <div class="control-group">
+      <i class="pi pi-ellipsis-v control-icon" (click)="op.toggle($event)"></i>
+      <i #nextControl class="pi pi-angle-right control-icon" (click)="scrollNext()"></i>
+    </div>
+  </div>
+
+  <p-overlayPanel #op [appendTo]="tabListContainer">
+    <ng-template pTemplate>
+      <div
+        *ngFor="let tab of model; let i = index"
+        class="tab-list-item text-overflow"
+        tooltipPosition="bottom"
+        [pTooltip]="tab.label"
+        (click)="selectTabFromList(i); op.hide()"
+      >
+        {{ tab.label }}
+      </div>
+    </ng-template>
+  </p-overlayPanel>
+
+  <div #tabListContainer class="tab-list-panel-container"></div>
+</div>
+<div #tabSubmenuContainer class="tab-submenu-container"></div>

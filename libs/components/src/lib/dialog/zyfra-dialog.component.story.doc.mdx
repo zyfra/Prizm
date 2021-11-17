@@ -1,0 +1,54 @@
+import { ArgsTable, Subtitle } from '@storybook/addon-docs';
+import { ZyfraDialogComponent } from './zyfra-dialog.component.ts';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+
+## Zyfra - Dialog
+
+<Subtitle>Dialog is a container to display content in an overlay window</Subtitle>
+
+Import module:
+
+```typescript
+import { ZyfraDialogModule } from '@ui-platform/components';
+import { ZyfraButtonModule } from '@ui-platform/components';
+
+@NgModule({
+  imports: [ZyfraDialogModule, ZyfraButtonModule],
+})
+export class YourModule {}
+```
+
+To component:
+
+```html
+<zyfra-button (click)="dialog.onInit($event)" label="for dialog" icon="pi pi-check"></zyfra-button>
+
+<zyfra-dialog
+  #dialog
+  [header]="'Header'"
+  [htmlTemplate]="htmlTemplate"
+  (onShow)="onShow($event)"
+  (onHide)="onHide($event)"
+  (onResizeInit)="onResizeInit($event)"
+  (onResizeEnd)="onResizeEnd($event)"
+  (onDragEnd)="onDragEnd($event)"
+  (onMaximize)="onMaximize($event)"
+></zyfra-dialog>
+```
+
+```typescript
+public htmlTemplate: SafeHtml = `
+  <div>
+    <p>content</p>
+    <ul>
+      <li>item 1 (for example)</li>
+      <li><b>item 2</b></li>
+    </ul>
+  </div>
+`;
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraDialogComponent} />

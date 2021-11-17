@@ -1,0 +1,48 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  ColorPalette,
+  ColorItem,
+  Preview,
+  Typeset,
+  Title,
+  Subtitle,
+  Description,
+} from '@storybook/addon-docs';
+import { ZyfraSplitterComponent } from './zyfra-splitter.component';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+
+## Zyfra - ZyfraSplitter
+
+<Subtitle of={ZyfraSplitterComponent}>Splitter is utilized to separate and resize panels.</Subtitle>
+
+Import module:
+
+```typescript
+import { ZyfraSplitterModule } from '@ui-platform/components';
+
+@NgModule({
+  imports: [ZyfraSplitterModule],
+})
+export class YourModule {}
+```
+
+To component:
+
+```html
+<zyfra-splitter [panelSizes]="[50, 0]" [minSizes]="[1, 0]" [style]="{ height: '300px' }">
+  <ng-template zyfraSplitterTemplate>
+    <div>Panel 1</div>
+  </ng-template>
+  <ng-template zyfraSplitterTemplate>
+    <div>Panel 2</div>
+  </ng-template>
+</zyfra-splitter>
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraSplitterComponent} />

@@ -1,0 +1,16 @@
+<p-slider
+  [(ngModel)]="model"
+  [animate]="animate"
+  [disabled]="disabled"
+  [min]="min"
+  [max]="max"
+  [orientation]="orientation"
+  [step]="step"
+  [range]="range"
+  [style]="style"
+  [styleClass]="styleClass"
+  [tabindex]="tabindex"
+  [ariaLabelledBy]="ariaLabelledBy"
+  (onChange)="onChangeHandler($event)"
+  (onSlideEnd)="onSlideEndHandler($event)"
+></p-slider>

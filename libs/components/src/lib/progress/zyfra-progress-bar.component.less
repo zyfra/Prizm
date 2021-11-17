@@ -1,0 +1,44 @@
+
+/* progress bar */
+.p-progressbar {
+  height: 24px;
+  border-radius: 4px;
+  background: var(--bgSecond);
+
+  .p-progressbar-label {
+    color: var(--text);
+  }
+
+  &-mini {
+    height: 4px;
+    border-radius: 8px;
+  }
+
+  &.p-progressbar-determinate .p-progressbar-label {
+    font-weight: normal;
+  }
+
+  .p-progressbar-value {
+    background: var(--progressBarPrimary);
+  }
+
+  &-secondary .p-progressbar-value {
+    background: var(--progressBarSecondary);
+  }
+
+  &-info .p-progressbar-value {
+    background: var(--progressBarInfo);
+  }
+
+  &-warning .p-progressbar-value {
+    background: var(--progressBarWarning);
+  }
+
+  &-danger .p-progressbar-value {
+    background: var(--progressBarDanger);
+  }
+
+  &-success .p-progressbar-value {
+    background: var(--progressBarSuccess);
+  }
+}

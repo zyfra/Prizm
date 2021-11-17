@@ -1,0 +1,84 @@
+@radioButtonSize: 20px;
+@radioButtonCoreSize: 8px;
+@radioButtonMiniSize: 16px;
+@radioButtonMiniCoreSize: 4px;
+@radioBorderAccent: 2px solid var(--radioButtonHover);
+
+.radio-disabled() {
+  background: var(--radioButtonDisabledBg);
+  border-color: var(--radioButtonDisabled);
+}
+
+.p-radiobutton {
+  width: @radioButtonSize;
+  height: @radioButtonSize;
+
+  &-mini {
+    width: @radioButtonMiniSize;
+    height: @radioButtonMiniSize;
+  }
+
+  &-group p-radiobutton {
+    margin-bottom: 5px;
+  }
+
+  &-disabled {
+    cursor: default;
+  }
+
+  .p-disabled.p-disabled {
+    opacity: initial;
+    .radio-disabled();
+  }
+
+  .p-radiobutton-box {
+    border: @radioBorderAccent;
+    background: var(--radioButtonBg);
+    width: @radioButtonSize;
+    height: @radioButtonSize;
+
+    &:not(:hover):not(.p-disabled) {
+      border-color: var(--radioButton);
+    }
+
+    .p-radiobutton-mini& {
+      width: @radioButtonMiniSize;
+      height: @radioButtonMiniSize;
+    }
+
+    .p-radiobutton-icon {
+      background-color: var(--radioButtonBg);
+      border: @radioBorderAccent;
+      width: @radioButtonCoreSize;
+      height: @radioButtonCoreSize;
+      .p-radiobutton-mini& {
+        width: @radioButtonMiniCoreSize;
+        height: @radioButtonMiniCoreSize;
+      }
+    }
+
+    &:not(.p-disabled) {
+      &.p-focus {
+        border-color: var(--radioButtonActive);
+      }
+
+      &:not(.p-highlight):hover {
+        border-color: var(--radioButtonHover);
+      }
+    }
+
+    &.p-highlight {
+      &.p-disabled {
+        &,
+        .p-radiobutton-icon {
+          .radio-disabled();
+        }
+      }
+      &:not(.p-disabled),
+      &:not(.p-disabled):hover {
+        background: var(--radioButtonBg);
+        border: @radioBorderAccent;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<span
+  class="zyfra-input"
+  [class.zyfra-input_disabled]="disabled"
+  [class.p-float-label]="label"
+>
+  <p-inputMask
+    [(ngModel)]="value"
+    (ngModelChange)="valueChange.emit($event)"
+    [mask]="mask"
+    [type]="type"
+    [slotChar]="slotChar"
+    [autoClear]="autoClear"
+    [unmask]="unmask"
+    [style]="style"
+    [styleClass]="styleClass"
+    [placeholder]="placeholder"
+    [size]="size"
+    [maxlength]="maxlength"
+    [tabindex]="tabindex"
+    [disabled]="disabled"
+    [readonly]="readonly"
+    [name]="name"
+    [inputId]="inputId"
+    [required]="required"
+    [characterPattern]="characterPattern"
+    [autoFocus]="autoFocus"
+    [autocomplete]="autocomplete"
+    [ariaLabel]="ariaLabel"
+    [ariaRequired]="ariaRequired"
+    [title]="title"
+    (onFocus)="onFocus.emit($event)"
+    (onBlur)="onBlur.emit($event)"
+    (onComplete)="onComplete.emit($event)"
+    (onInput)="onInput.emit($event)"
+    (onKeydown)="onKeydown.emit($event)"
+  ></p-inputMask>
+
+  <label *ngIf="label" [class.label-required]="required">{{label}}</label>
+</span>

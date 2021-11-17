@@ -1,37 +1,50 @@
 import {
   Component,
   Input,
+  ChangeDetectionStrategy,
+  ViewEncapsulation,
   Output,
   EventEmitter,
-  ChangeDetectionStrategy,
 } from '@angular/core';
+
+export type TZyfraButtonIconPosision = 'left' | 'right' | 'top' | 'bottom';
 
 @Component({
   selector: 'zyfra-button',
   templateUrl: './zyfra-button.component.html',
+  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraButtonComponent {
   @Input() label: string;
-  @Input() type: string = 'button'; // | 'reset' | 'submit';
+  @Input() type = 'button';
   @Input() icon: string;
-  @Input() iconPos: string = 'left';
+  @Input() iconPos: TZyfraButtonIconPosision = 'left';
   @Input() disabled: boolean;
   @Input() badge: string;
   @Input() style: string;
   @Input() styleClass: string;
 
-  @Output() click: EventEmitter<unknown> = new EventEmitter();
-  @Output() focus: EventEmitter<unknown> = new EventEmitter();
-  @Output() blur: EventEmitter<unknown> = new EventEmitter();
+  @Output() onClick = new EventEmitter<PointerEvent>();
+  @Output() onFocus = new EventEmitter<FocusEvent>();
+  @Output() onBlur = new EventEmitter<FocusEvent>();
 
-  public onClick(event: Event): void {
-    this.click.emit(event);
+  // останавливаю всплытие клика (именно так. через HostListener не работает)
+  nativeClick(event: Event): void {
+    if (this.disabled) {
+      event.stopPropagation();
+    }
   }
-  public onFocus(event: Event): void {
-    this.focus.emit(event);
+
+  click(event: PointerEvent): void {
+    this.onClick.emit(event);
   }
-  public onBlur(event: Event): void {
-    this.blur.emit(event);
+
+  focus(event: FocusEvent): void {
+    this.onFocus.emit(event);
+  }
+
+  blur(event: FocusEvent): void {
+    this.onBlur.emit(event);
   }
 }

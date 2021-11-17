@@ -1,0 +1,23 @@
+<p-accordionTab
+  [disabled]="disabled"
+  [header]="header"
+  [cache]="cache"
+  [selected]="selected"
+  [transitionOptions]="transitionOptions"
+  (selectedChange)="selectedChange.emit($event)"
+>
+  <ng-template pTemplate="header" *ngIf="!!headerFacet">
+    <div [class.zyfra-accordion-header__left]="!!iconsFacet">
+      <ng-container *ngTemplateOutlet="headerFacet"></ng-container>
+      <div class="zyfra-accordion-header-extra-icons" *ngIf="!!iconsFacet">
+        <ng-container *ngTemplateOutlet="iconsFacet"></ng-container>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="content" *ngIf="!!contentFacet; else noContentFacet">
+    <ng-container *ngTemplateOutlet="contentFacet"></ng-container>
+  </ng-template>
+  <ng-template #noContentFacet>
+    <ng-content></ng-content>
+  </ng-template>
+</p-accordionTab>

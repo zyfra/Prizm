@@ -189,6 +189,7 @@
             "tsConfig": "apps/sdk/tsconfig.app.json",
             "inlineStyleLanguage": "less",
             "assets": ["apps/sdk/src/favicon.ico", "apps/sdk/src/assets"],
+            "extractCss": true,
             "styles": [
               "apps/sdk/src/styles.less",
               "node_modules/primeng/resources/themes/luna-blue/theme.css",
