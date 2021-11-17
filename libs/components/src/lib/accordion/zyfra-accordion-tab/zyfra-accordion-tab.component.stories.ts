@@ -2,7 +2,7 @@ import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { ZyfraAccordionTabComponent } from './zyfra-accordion-tab.component';
 
 export default {
-  title: 'zHidden/ZyfraAccordionTabComponent',
+  title: '_hidden_ZyfraAccordionTabComponent',
   component: ZyfraAccordionTabComponent,
   decorators: [
     moduleMetadata({

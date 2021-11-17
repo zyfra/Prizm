@@ -2,7 +2,7 @@ import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { ZyfraTabPanelComponent } from './zyfra-tab-panel.component';
 
 export default {
-  title: 'zHidden/ZyfraTabPanelComponent',
+  title: '_hidden_ZyfraTabPanelComponent',
   component: ZyfraTabPanelComponent,
   decorators: [
     moduleMetadata({
