@@ -1,0 +1,87 @@
+:host {
+  display: contents;
+}
+
+@accordionBorderRadius: 8px;
+@accordionIconSize: 18px;
+@accordionHorizontalPadding: 1.5em;
+
+.p-accordion.p-accordion {
+  background-color: var(--accordionBodyBg);
+
+  .p-accordion {
+    &-tab {
+      padding-bottom: 8px;
+      background-color: var(--bgStandart);
+      margin-bottom: 0;
+
+      .p-accordion-header-link {
+        border-radius: @accordionBorderRadius;
+      }
+      &-active .p-accordion-header-link {
+        border-radius: @accordionBorderRadius @accordionBorderRadius 0 0;
+      }
+    }
+
+    &-header.p-accordion-header {
+      .p-accordion-header-link .p-accordion-toggle-icon,
+      &.p-disabled .p-accordion-header-link .p-accordion-toggle-icon {
+        font-weight: normal;
+        height: 23px;
+        font-size: @accordionIconSize;
+      }
+
+      &.p-disabled .p-accordion-header-link .p-accordion-toggle-icon {
+        color: var(--accordionDisabledButtonColor);
+      }
+
+      .p-accordion-header-link .p-accordion-toggle-icon {
+        color: var(--accordiondButtonColor);
+      }
+
+      &.p-disabled,
+      &:not(.p-disabled) {
+        &:hover .p-accordion-header-link,
+        .p-accordion-header-link {
+          color: var(--accordionFontColor);
+          background-color: var(--accordionHeaderBg);
+          border-color: var(--accordionHeaderBg);
+          font-style: normal;
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 20px;
+          padding-right: @accordionHorizontalPadding;
+          padding-left: @accordionHorizontalPadding;
+        }
+      }
+    }
+
+    &-header-link {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      background: var(--accordionHeaderBg);
+    }
+
+    &-content {
+      color: var(--accordionFontColor);
+      background-color: var(--bgStandart);
+      border-color: var(--bgStandart);
+      box-shadow: 0 2px 8px rgba(102, 119, 153, 0.3) !important;
+      border-radius: 0 0 @accordionBorderRadius @accordionBorderRadius;
+      padding-right: @accordionHorizontalPadding;
+      padding-left: @accordionHorizontalPadding;
+    }
+  }
+}
+
+.zyfra-accordion-header {
+  &__left {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 30px);
+  }
+  &-extra-icons {
+    font-size: @accordionIconSize;
+    font-weight: normal;
+  }
+}
