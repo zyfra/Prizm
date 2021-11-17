@@ -38,7 +38,7 @@ export class ZyfraAccordionTabComponent implements AfterContentInit, AfterViewIn
   /** Defines if the tab is active */
   @Input() selected: boolean;
   /** tab activeness */
-  @Output() selectedChange: EventEmitter<boolean> = new EventEmitter();
+  @Output() selectedChange: EventEmitter<any> = new EventEmitter();
 
   @ContentChildren(ZyfraTemplateDirective) tmpl: ZyfraTemplateDirective[];
   @ViewChild(AccordionTab) tab: AccordionTab;
