@@ -57,7 +57,7 @@ export * from './lib/button';
 ### Commands
 
 - Components: 
-  - Rebuild component docs `nx run components:docs`
+  - Rebuild component docs `nx run components:doc`
   - Build prod `nx run components:build`
   - Schematic build `nx run schematics:build`
 - Icons:
