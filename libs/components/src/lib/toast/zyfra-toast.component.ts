@@ -1,5 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { SafeHtml } from '@angular/platform-browser';
+import { Component, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
 
@@ -10,7 +9,7 @@ import { PrimeNGConfig } from 'primeng/api';
   providers: [MessageService],
 })
 export class ZyfraToastComponent {
-  @Input() htmlTemplate: SafeHtml;
+  @Input() customTemplate: TemplateRef<any>;
 
   @Input() key: string;
   @Input() style: string;
