@@ -1,6 +1,6 @@
 {
   "name": "@ui-platform/components",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "dependencies": {
     "primeicons": "^4.1.0",
     "primeng": "^12.2.1",
