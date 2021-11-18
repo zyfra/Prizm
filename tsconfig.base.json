@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ui-platform/ui-components": ["libs/components/src/index.ts"],
-      "@ui-platform/zyfra-components": ["libs/schematics/src/index.ts"]
+      "@digital-plant/zyfra-components": ["libs/components/src/index.ts"],
+      "@digital-plant/zyfra-ui": ["libs/schematics/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
