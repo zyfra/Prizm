@@ -4,9 +4,6 @@
   "lib": {
     "entryFile": "src/index.ts"
   },
-  "assets": ["./src/styles/", "assets"],
-  "allowedNonPeerDependencies": [
-    "primeicons",
-    "primeng"
-  ]
+  "assets": ["./src/styles/", "assets", "./src/lib/**/*.less"],
+  "allowedNonPeerDependencies": ["@angular/cdk", "primeicons", "primeng"]
 }
