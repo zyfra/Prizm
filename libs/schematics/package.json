@@ -1,8 +1,8 @@
 {
   "name": "@ui-platform/zyfra-components",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "schematics": "./src/collection.json",
-  "dependencies": {
+  "peerDependencies": {
     "@angular-devkit/schematics": "^12.2.0",
     "ng-morph": "^2.0.0"
   }
