@@ -1,2 +1,2 @@
-export * from './icon.component';
-export * from './icon.module';
+export * from './zyfra-icon.component';
+export * from './zyfra-icon.module';
