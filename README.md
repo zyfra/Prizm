@@ -16,7 +16,7 @@ Install globally `npm i -g nx`
 
 Start develop, serve dev `npm run start`
 
-### Add component to @zifra-ui/components
+### Add component to @ui-platform/components
 
 For example button component
 
