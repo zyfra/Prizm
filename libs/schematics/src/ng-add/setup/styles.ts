@@ -7,7 +7,7 @@ import { Schema } from '../schema';
 
 const FONT_ASSET = {
   glob: '**/*',
-  input: 'node_modules/@ui-platform/components/src/styles/fonts',
+  input: 'node_modules/@digital-plant/zyfra-components/src/styles/fonts',
   output: 'assets/ui-platform/components/fonts',
 };
 
@@ -15,11 +15,11 @@ const INSTALL_STYLES = [
   'node_modules/primeng/resources/themes/luna-blue/theme.css',
   'node_modules/primeng/resources/primeng.min.css',
   'node_modules/primeicons/primeicons.css',
-  'node_modules/@ui-platform/components/src/styles/theme/default.css',
-  'node_modules/@ui-platform/components/src/styles/styles.less',
+  'node_modules/@digital-plant/zyfra-components/src/styles/theme/default.css',
+  'node_modules/@digital-plant/zyfra-components/src/styles/styles.less',
 ];
 
-const ICON_STYLES = ['node_modules/@ui-platform/components/src/styles/icons/icons.less'];
+const ICON_STYLES = ['node_modules/@digital-plant/zyfra-components/src/styles/icons/icons.less'];
 
 export function addStyles(options: Schema): Rule {
   return async (tree: Tree) => {
