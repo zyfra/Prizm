@@ -25,7 +25,7 @@ const Template: Story<ZyfraChipComponent> = (args: ZyfraChipComponent) => ({
 export const Primary = Template.bind({});
 Primary.args = {
   label: 'Primary',
-  removeIcon: 'zyfra-icon zyfra-icon cancel-close',
+  removeIcon: 'zyfra-icon cancel-close',
   removable: true
 };
 
@@ -44,7 +44,7 @@ export const Icon = Template.bind({});
 Icon.args = {
   label: 'Icon',
   icon: 'zyfra-icon location-compass',
-  removeIcon: 'zyfra-icon zyfra-icon cancel-close',
+  removeIcon: 'zyfra-icon cancel-close',
   removable: true
 };
 

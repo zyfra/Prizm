@@ -5,7 +5,6 @@ import { MenuItem } from 'primeng/api';
 @Component({
   selector: 'zyfra-split-button',
   templateUrl: './zyfra-split-button.component.html',
-  styleUrls: ['./zyfra-split-button.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraSplitButtonComponent {

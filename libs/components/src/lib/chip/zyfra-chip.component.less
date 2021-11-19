@@ -1,26 +1,33 @@
-.p-chip.p-component {
-  background-color: var(--primaryColor);
-  color: var(--bgFont);
-  padding: 0.313rem;
-  font-size: 0.8rem;
+.p-chip {
+  &.p-component {
+    background-color: var(--primaryColor);
+    color: var(--bgFont);
+    padding: 0.313rem;
+    font-size: 0.8rem;
+  }
+
+  div.p-chip-text {
+    margin: 0 0.625rem 0 0.625rem;
+  }
+
+  .pi-chip-remove-icon {
+    line-height: 1;
+    margin: 0 0.313rem;
+    font-size: 1rem;
+  }
 }
 
-.p-chip div.p-chip-text {
-  margin: 0 0.625rem 0 0.625rem;
+.zyfra-icon {
+  &.cancel-close:before {
+    font-size: 1.25rem;
+  }
+
+  &.location-compass.p-chip-icon {
+    font-size: 1.25rem;
+    margin: 0.1rem 0.75rem;
+  }
+  
 }
 
-.zyfra-icon.cancel-close:before {
-  font-size: 1.25rem;
-}
 
-.p-chip .pi-chip-remove-icon {
-  line-height: 1;
-  margin: 0 0.313rem;
-  font-size: 1rem;
-}
-
-.zyfra-icon.location-compass.p-chip-icon {
-  font-size: 1.25rem;
-  margin: 0.1rem 0.75rem;
-}
 

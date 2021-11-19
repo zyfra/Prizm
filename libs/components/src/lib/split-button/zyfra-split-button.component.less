@@ -1,10 +1,4 @@
 @icon-font-family: ZyfraIcons;
-@font-face {
-  font-family: @icon-font-family;
-  src: local('Zyfra Icons'),url('/libs/components/src/styles/icons/ZyfraIcons.woff2') format('woff2'),url('/libs/components/src/styles/icons/ZyfraIcons.woff') format('woff'),url('/libs/components/src/styles/icons/ZyfraIcons.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
 
 .p-button-icon.pi.pi-chevron-down:before {
     font-family: @icon-font-family;
@@ -17,19 +11,19 @@
     content: 'chevrons_dropdown_icon';
 }
 
+.p-menu {
+    a.p-menuitem-link:not(.p-disabled):hover {
+        background: rgba(61, 143, 64, 0.2); 
 
+        .p-menuitem-icon, .p-menuitem-text {
+            color: var(--text);
+        }
 
-.p-menu a.p-menuitem-link:not(.p-disabled):hover {
-    background: rgba(61, 143, 64, 0.2); 
-}
+    }
 
-
-.p-menu a.p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon, .p-menu a.p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
-    color: var(--text);
-}
-
-.p-menu .p-menuitem-link .p-menuitem-text {
-    font-size: 0.8125rem;
+    .p-menuitem-link .p-menuitem-text {
+        font-size: 0.8125rem;
+    }
 }
 
 div.p-menu.p-menu-overlay {
@@ -37,3 +31,4 @@ div.p-menu.p-menu-overlay {
     box-shadow:  0px 8px 32px rgba(102, 119, 153, 0.24);
     width: 14.5rem;
 }
+
