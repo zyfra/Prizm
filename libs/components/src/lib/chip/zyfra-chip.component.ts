@@ -12,7 +12,7 @@ export class ZyfraChipComponent {
   @Input() removable: boolean;
   @Input() style: string;
   @Input() styleClass: string;
-  @Input() removeIcon: string;
+  @Input() removeIcon: string = 'zyfra-icon cancel-close';
 
   /* onRemove */
   @Output() onRemove: EventEmitter<any> = new EventEmitter();
