@@ -63,46 +63,46 @@
 
     .button-default-style();
 
-  &.p-button-icon-only {
-    width: 3rem;
-  }
+    &.p-button-icon-only {
+      width: 3rem;
+    }
 
-  &.p-button span.p-button-icon-left {
-    margin-right: 1.5rem;
-  }
+    &.p-button span.p-button-icon-left {
+      margin-right: 1.5rem;
+    }
 
-  &.p-component:disabled,// для кнопок тип select toggle и тд
-  &.p-disabled.p-disabled.p-disabled {
+    &.p-component:disabled,// для кнопок тип select toggle и тд
+    &.p-disabled.p-disabled.p-disabled {
       background: var(--buttonDisabled);
       color: var(--buttonDisabledFont);
       opacity: initial;
     }
 
-  &-mini {
+    &-mini {
       height: @miniButtonHeight;
     }
 
-  &-default {
+    &-default {
       .button-default-style()
     }
 
-  &-success {
+    &-success {
       .button-success-style();
     }
 
-  &-secondary {
+    &-secondary {
       .button-secondary-style();
     }
 
-  &-info {
+    &-info {
       .button-info-style();
     }
 
-  &-danger {
+    &-danger {
       .button-danger-style();
     }
 
-  &-warning {
+    &-warning {
       .button-warning-style();
     }
   }
