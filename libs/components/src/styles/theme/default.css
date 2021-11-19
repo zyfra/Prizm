@@ -227,4 +227,12 @@
   --accordionBodyBg: #f3f4f7;
   --accordiondButtonColor: #7887a5;
   --accordionDisabledButtonColor: #bcc3d2;
+
+  --navMenuBg: #252B37;
+  --navMenuFont: var(--textColor);
+  --navMenuIcon: #A3ADC2;
+  --navMenuIconHover: var(--successColorHover);
+  --navMenuItemActiveMarker: var(--successColorHover);
+  --navMenuItemBorder: #212631;
+  --navMenuItemHover: linear-gradient(0deg, rgba(61, 143, 64, 0.2), rgba(61, 143, 64, 0.2)), var(--navMenuBg);
 }
