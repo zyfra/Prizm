@@ -98,17 +98,3 @@ export const OnlyIcon = Template.bind({});
 OnlyIcon.args = {
   icon: 'zyfra-icon selection-check-simple',
 };
-
-export const Submit = Template.bind({});
-Submit.args = {
-  label: 'Submit',
-  type: 'submit',
-  icon: 'zyfra-icon selection-check-simple',
-  iconPos: 'right',
-};
-
-export const Badge = Template.bind({});
-Badge.args = {
-  label: 'with Badge 8',
-  badge: '8',
-};

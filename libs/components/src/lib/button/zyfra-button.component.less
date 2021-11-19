@@ -46,7 +46,6 @@
 /* ================================= simple button ==================================== */
 .p-button {
   font-size: 0.8rem;
-  line-height: 1rem;
   border-radius: 4px;
   height: 2.8rem;
 
@@ -60,41 +59,50 @@
   &.p-button {
     border: @buttonBorder;
     font-family: var(--fontFamily);
+    padding: 1rem;
 
     .button-default-style();
 
-    &.p-component:disabled,// для кнопок тип select toggle и тд
-    &.p-disabled.p-disabled.p-disabled {
+  &.p-button-icon-only {
+    width: 3rem;
+  }
+
+  &.p-button span.p-button-icon-left {
+    margin-right: 1.5rem;
+  }
+
+  &.p-component:disabled,// для кнопок тип select toggle и тд
+  &.p-disabled.p-disabled.p-disabled {
       background: var(--buttonDisabled);
       color: var(--buttonDisabledFont);
       opacity: initial;
     }
 
-    &-mini {
+  &-mini {
       height: @miniButtonHeight;
     }
 
-    &-default {
+  &-default {
       .button-default-style()
     }
 
-    &-success {
+  &-success {
       .button-success-style();
     }
 
-    &-secondary {
+  &-secondary {
       .button-secondary-style();
     }
 
-    &-info {
+  &-info {
       .button-info-style();
     }
 
-    &-danger {
+  &-danger {
       .button-danger-style();
     }
 
-    &-warning {
+  &-warning {
       .button-warning-style();
     }
   }
@@ -108,6 +116,7 @@
     .p-button-icon-left,
     .p-button-icon-right {
       color: @color;
+      margin-right: 2.25rem;
     }
 
     &.p-highlight {
@@ -209,7 +218,7 @@
 
   .select-button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
 
-  &-default {
+&-default {
     .select-button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
   }
 
