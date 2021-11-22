@@ -60,8 +60,7 @@ Empty.args = {
   rejectLabel: 'Отменить',
   acceptButtonStyleClass: 'p-button-danger',
   rejectButtonStyleClass: '',
-  icon: 'zyfra-icon alerts',
-  acceptMessages: [{ severity: 'info1', summary: 'Confirmed1', detail: 'You have accepted1' }],
+  acceptMessages: [{ severity: 'info1', summary: 'Confirmed1', detail: 'You have accepted1' }]
 };
 
 export const Simple = Template.bind({});
@@ -72,6 +71,5 @@ Simple.args = {
   rejectLabel: 'Отменить',
   acceptButtonStyleClass: 'p-button-danger',
   rejectButtonStyleClass: '',
-  icon: 'zyfra-icon alerts',
-  acceptMessages: [{ severity: 'info1', summary: 'Confirmed1', detail: 'You have accepted1' }],
+  acceptMessages: [{ severity: 'info1', summary: 'Confirmed1', detail: 'You have accepted1' }]
 };
