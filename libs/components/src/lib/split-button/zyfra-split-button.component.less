@@ -11,7 +11,7 @@
     content: 'chevrons_dropdown_icon';
 }
 
-.p-menu {
+div.p-menu {
     a.p-menuitem-link:not(.p-disabled):hover {
         background: rgba(61, 143, 64, 0.2); 
 
@@ -24,11 +24,10 @@
     .p-menuitem-link .p-menuitem-text {
         font-size: 0.8125rem;
     }
-}
 
-div.p-menu.p-menu-overlay {
-    border-radius: 8px;
-    box-shadow:  0px 8px 32px rgba(102, 119, 153, 0.24);
-    width: 14.5rem;
+    &.p-menu-overlay {
+        border-radius: 8px;
+        box-shadow:  0px 8px 32px rgba(102, 119, 153, 0.24);
+        width: 14.5rem;
+    }
 }
-
