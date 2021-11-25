@@ -1,33 +1,49 @@
 @icon-font-family: ZyfraIcons;
 
-.p-button-icon.pi.pi-chevron-down:before {
-    font-family: @icon-font-family;
-    content: 'chevrons_menu_right_icon';
-}
+.p-splitbutton {
+    .p-menu {
+        .p-menuitem-link {
+            &:hover {
+                background: rgba(61, 143, 64, 0.2);
 
+                .p-menuitem-icon, .p-menuitem-text {
+                    color: var(--text);
+                }
+            }
 
-.p-splitbutton .p-button:active .p-button-icon.pi.pi-chevron-down:before {
-    font-family: @icon-font-family;
-    content: 'chevrons_dropdown_icon';
-}
+            .p-menuitem-text {
+                font-size: 0.8125rem;
+            }
+        }
+          
+        &.p-menu-overlay {
+            border-radius: 8px;
+            box-shadow:  0px 8px 32px rgba(102, 119, 153, 0.24);
+            width: 14.5rem;
+        }
+    }
 
-div.p-menu {
-    a.p-menuitem-link:not(.p-disabled):hover {
-        background: rgba(61, 143, 64, 0.2); 
-
-        .p-menuitem-icon, .p-menuitem-text {
-            color: var(--text);
+    ul {
+        :first-child :hover {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
         }
 
+        :last-child :hover {
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
     }
 
-    .p-menuitem-link .p-menuitem-text {
-        font-size: 0.8125rem;
+    .p-button-icon.pi.pi-chevron-down:before {
+        font-family: @icon-font-family;
+        content: 'chevrons_menu_right_icon';
     }
-
-    &.p-menu-overlay {
-        border-radius: 8px;
-        box-shadow:  0px 8px 32px rgba(102, 119, 153, 0.24);
-        width: 14.5rem;
+    
+    .p-button:not(.p-component:disabled):active .p-button-icon.pi.pi-chevron-down:before {
+        font-family: @icon-font-family;
+        content: 'chevrons_dropdown_icon';
     }
 }
+
+

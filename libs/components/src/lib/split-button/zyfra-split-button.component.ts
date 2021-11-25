@@ -9,7 +9,7 @@ import { MenuItem } from 'primeng/api';
 })
 export class ZyfraSplitButtonComponent {
   @Input() label: string;
-  @Input() icon: string; 
+  @Input() icon: string;
   @Input() iconPos: 'left' | 'right' = 'left';
   @Input() disabled: boolean;
   @Input() style: string;
