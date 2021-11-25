@@ -91,9 +91,7 @@ class ZyfraDynamicDialogComponent implements OnDestroy {
     user component
   </div>`
 })
-class ExampleDynamicDialogComponent {
-  constructor() { }
-}
+class ExampleDynamicDialogComponent { }
 
 export default {
   title: 'Dialogs/DynamicDialog',
