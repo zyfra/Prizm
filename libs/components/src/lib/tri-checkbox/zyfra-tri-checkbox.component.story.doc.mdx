@@ -1,0 +1,32 @@
+import { Meta, Story, Canvas, ArgsTable, ColorPalette, ColorItem, Preview, Typeset, Title, Subtitle, Description, } from '@storybook/addon-docs';
+import { ZyfraTriCheckboxComponent } from './zyfra-tri-checkbox.component';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+
+## ZyfraTriCheckBox
+
+<Subtitle>TriStateCheckbox is used to select either "true", "false" or "null" as the value</Subtitle>
+
+Import module:
+```typescript
+import { ZyfraTriCheckBoxModule } from '@digital-plant/zyfra-components';
+
+@NgModule({
+  imports: [
+    ZyfraTriCheckBoxModule,
+  ]
+})
+export class YourModule {}
+```
+
+To component:
+```html
+<zyfra-tri-checkbox
+  [(model)]="model"
+  label="Item Label"
+></zyfra-tri-checkbox>
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraTriCheckboxComponent} />

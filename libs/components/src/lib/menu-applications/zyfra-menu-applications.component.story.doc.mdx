@@ -1,0 +1,115 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  ColorPalette,
+  ColorItem,
+  Preview,
+  Typeset,
+  Title,
+  Subtitle,
+  Description,
+} from '@storybook/addon-docs';
+import { ZyfraMenuApplicationsComponent } from './zyfra-menu-applications.component';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+
+## Zyfra - MenuApplications
+
+<Subtitle>Application selection menu</Subtitle>
+
+```
+npm i @zyfra/zyfra-menu-applications
+```
+
+Import module:
+
+```typescript
+@NgModule({
+  imports: [ZyfraMenuApplicationsModule],
+})
+export class YourModule {}
+```
+
+To component:
+
+```html
+<div>
+  <zyfra-button label="Toggle" [style]="{'margin-right': '10px'}" (onClick)="menu.toggle()"></zyfra-button>
+
+  <zyfra-button label="Open" [style]="{'margin-right': '10px'}" (onClick)="menu.open()"></zyfra-button>
+
+  <zyfra-button label="Close" [style]="{'margin-right': '10px'}" (onClick)="menu.close()"></zyfra-button>
+</div>
+
+<br />
+
+<div style="height: 650px; display: flex; position: relative;">
+  <zyfra-menu-applications
+    #menu
+    [transition]="transition"
+    [hintDelay]="hintDelay"
+    [style]="layoutShift ? null : { position: 'absolute', top: '0', left: '0', height: '100%' }"
+    [topMenuItems]="topMenuItems"
+    [bottomMenuItems]="bottomMenuItems"
+    [activeItem]="activeItem"
+    (selectItem)="selectItem($event); menu.close();"
+    (toggleState)="toggleState($event)"
+  ></zyfra-menu-applications>
+
+  <div id="content" [style]="layoutShift ? { 'padding-left': '10px' } : { 'padding-left': '60px' }">
+    <p>Some content</p>
+  </div>
+</div>
+```
+
+```typescript
+import { MenuItem, Transition } from '@zyfra/zyfra-menu-applications';
+
+export class YourComponent {
+  public activeItem = null;
+
+  public transition: Transition = {
+    open: {
+      duration: 2000,
+      delay: 1000,
+    },
+    close: {
+      delay: 1500,
+      duration: 300,
+    },
+    hint: {
+      delay: 2500,
+    },
+  };
+
+  public topMenuItems: MenuItem[] = [
+    { title: 'Z-QA — Zyfra Quality Assurance', icon: 'shapes-cube' },
+    { title: 'Zyfra Document Explorer', icon: 'view-dashboard' },
+    { title: 'Z-MEB — Mass & Energy Balance', icon: 'charts-bar-stacked' },
+    { title: 'Z-PS — Zyfra Production Scheduling', icon: 'sitemap' },
+    { title: 'Z-MEB — Mass & Energy Balance', icon: 'tools-eyedropper' },
+  ];
+
+  public bottomMenuItems: MenuItem[] = [
+    { title: 'Избранное', icon: 'social-star' },
+    { title: 'Поиск', icon: 'sort-zoom-in' },
+    { title: 'Служба техподдежки', icon: 'alerts-pulse' },
+  ];
+
+  selectItem(item: any): void {
+    const isTopItem = this.topMenuItems.includes(item);
+
+    if (isTopItem) {
+      this.activeItem = item;
+    } else {
+      alert(JSON.stringify(item, null, 2));
+    }
+  }
+}
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraMenuApplicationsComponent} />

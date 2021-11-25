@@ -3,7 +3,6 @@ import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SafeHtml } from '@angular/platform-browser';
 import { action } from '@storybook/addon-actions';
 import { ZyfraToastComponent } from './zyfra-toast.component';
 import { ZyfraToastModule } from './zyfra-toast.module';
@@ -43,24 +42,25 @@ const Template: Story<ZyfraToastComponent> = (args) => ({
       [detail]="detail"
       [life]="life"
       [closable]="closable"
-      [htmlTemplate]="htmlTemplate"
+      [customTemplate]="useCustomTemplate && customTemplate"
       (onClose)="onClose($event)"
     ></zyfra-toast>
+
+    <ng-template #customTemplate>
+    <div>
+        <p>content</p>
+        <ul>
+          <li>item 1 (for example)</li>
+          <li><b>item 2</b></li>
+        </ul>
+    </div>
+    </ng-template>
   `,
   props: {
     ...args,
     onClose: action('onClose'),
   },
 });
-
-const htmlTemplate: SafeHtml = `
-  <div>
-    <p>content</p>
-    <ul>
-      <li>item 1 (for example)</li>
-      <li><b>item 2</b></li>
-    </ul>
-</div>`;
 
 export const Simple = Template.bind({});
 Simple.args = {
@@ -92,7 +92,7 @@ Animation.args = {
 
 export const CustomTemplate = Template.bind({});
 CustomTemplate.args = {
-  htmlTemplate,
+  useCustomTemplate: true,
   position: 'bottom-right',
   severity: 'success',
   summary: 'Info',

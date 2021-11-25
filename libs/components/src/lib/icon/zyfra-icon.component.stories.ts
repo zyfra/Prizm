@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
-import { IconComponent } from './icon.component';
+import { ZyfraIconComponent } from './zyfra-icon.component';
 import { IconDefs } from './story/icon-definitions';
 
 //@ts-ignore
-import doc from './icon.component.story.doc.mdx';
+import doc from './zyfra-icon.component.story.doc.mdx';
 
 @Component({
   template: `
@@ -74,7 +74,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [CommonModule],
-      declarations: [IconComponent],
+      declarations: [ZyfraIconComponent],
     }),
   ],
   parameters: {
@@ -82,7 +82,7 @@ export default {
       page: doc,
     },
   },
-} as Meta<IconComponent>;
+} as Meta<ZyfraIconComponent>;
 
 const Template: Story<IconComponents> = (args: IconComponents) => ({
   component: IconComponents,
