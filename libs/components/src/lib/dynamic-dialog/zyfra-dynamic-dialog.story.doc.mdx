@@ -87,7 +87,7 @@ import { ZyfraDynamicDialogService } from '@digital-plant/zyfra-components';
 })
 export class ExampleDynamicDialogComponent implements ngOnInit {
 
-  constructor(public dynamicDialogService: ZyfraDynamicDialogService) {
+  constructor(private dynamicDialogService: ZyfraDynamicDialogService) {
 
   public ngOnInit(): void {
     //get this.dynamicDialogService.config
