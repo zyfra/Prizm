@@ -1,5 +1,10 @@
 export * from './lib/root/zyfra-ui-root.module';
+export * from './lib/accordion';
+export * from './lib/auto-complete';
+export * from './lib/breadcrumb';
 export * from './lib/button';
+export * from './lib/checkbox';
+export * from './lib/chip';
 export * from './lib/checkbox';
 export * from './lib/chip';
 export * from './lib/confirm-dialog';
@@ -14,5 +19,17 @@ export * from './lib/message';
 export * from './lib/paginator';
 export * from './lib/password';
 export * from './lib/progress';
-
-
+export * from './lib/radio-button';
+export * from './lib/root';
+export * from './lib/select-button';
+export * from './lib/slider';
+export * from './lib/spinner';
+export * from './lib/split-button';
+export * from './lib/splitter';
+export * from './lib/tab-menu';
+export * from './lib/tab-view';
+export * from './lib/textarea';
+export * from './lib/toast';
+export * from './lib/toggle-button';
+export * from './lib/tree';
+export * from './lib/tri-checkbox';

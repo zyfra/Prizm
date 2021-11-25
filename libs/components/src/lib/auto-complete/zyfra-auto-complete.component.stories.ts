@@ -51,7 +51,7 @@ const Template: Story<ZyfraAutoCompleteComponent> = (args) => ({
       { name: 'Zambia', code: 'ZM' },
       { name: 'Zimbabwe', code: 'ZW' },
     ],
-    completeMethodHandler(event): void {
+    completeMethod(event): void {
       const filtered = [];
       const query = event.query;
 

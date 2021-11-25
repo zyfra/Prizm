@@ -1,11 +1,11 @@
-# @ui-platform/components
+# @digital-plant/zyfra-components
 
 ## Setup components library
 
 Run command in your Angular project:
 
 ```
-ng add @ui-platform/zyfra-components
+ng add @digital-plant/zyfra-ui
 ```
 
 ## Contributing
@@ -16,7 +16,7 @@ Install globally `npm i -g nx`
 
 Start develop, serve dev `npm run start`
 
-### Add component to @zifra-ui/components
+### Add component to @digital-plant/zyfra-components
 
 For example button component
 

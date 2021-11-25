@@ -2,7 +2,7 @@
     "$schema": "../../../node_modules/@angular-devkit/schematics/collection-schema.json",
     "schematics": {
       "ng-add": {
-        "description": "Add @ui-platform/components to the project.",
+        "description": "Add @digital-plant/zyfra-components to the project.",
         "factory": "./ng-add/index#ngAdd"
       },
       "ng-add-setup-project": {
