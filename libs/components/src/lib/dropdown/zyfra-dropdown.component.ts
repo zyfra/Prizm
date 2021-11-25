@@ -1,22 +1,20 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ContentChildren,
+  EventEmitter,
+  Input,
+  Output,
+  QueryList,
+  TemplateRef,
+} from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
+import { ZyfraDropdownTemplateDirective } from './zyfra-dropdown-template.directive';
 
 export interface DropdownChangeEvent<T> {
   originalEvent: PointerEvent;
   value: T;
 }
-
-type FilterMatchModeType =
-  | 'contains'
-  | 'startsWith'
-  | 'endsWith'
-  | 'equals'
-  | 'notEquals'
-  | 'in'
-  | 'lt'
-  | 'lte'
-  | 'gt'
-  | 'gte';
 
 @Component({
   selector: 'zyfra-dropdown',
@@ -40,7 +38,17 @@ export class ZyfraDropdownComponent<T = unknown> {
   @Input() filter: boolean;
   @Input() filterValue: string;
   @Input() filterBy: string;
-  @Input() filterMatchMode: FilterMatchModeType = 'contains';
+  @Input() filterMatchMode:
+    | 'contains'
+    | 'startsWith'
+    | 'endsWith'
+    | 'equals'
+    | 'notEquals'
+    | 'in'
+    | 'lt'
+    | 'lte'
+    | 'gt'
+    | 'gte' = 'contains';
   @Input() filterPlaceholder: string;
   @Input() filterLocale: string;
   @Input() required: boolean;
@@ -69,7 +77,7 @@ export class ZyfraDropdownComponent<T = unknown> {
   @Input() showTransitionOptions = '.12s cubic-bezier(0, 0, 0.2, 1)';
   @Input() hideTransitionOptions = '.1s linear';
   @Input() ariaFilterLabel: string;
-  @Input() tooltip: string;
+  @Input() tooltip: any;
   @Input() tooltipStyleClass: string;
   @Input() tooltipPosition = 'top';
   @Input() tooltipPositionStyle = 'absolute';
@@ -84,4 +92,42 @@ export class ZyfraDropdownComponent<T = unknown> {
   @Output() onShow = new EventEmitter<AnimationEvent>();
   @Output() onHide = new EventEmitter<AnimationEvent>();
   @Output() valueChange = new EventEmitter<T>();
+
+  @ContentChildren(ZyfraDropdownTemplateDirective) templates: QueryList<ZyfraDropdownTemplateDirective>;
+
+  itemTemplate: TemplateRef<unknown>;
+  groupTemplate: TemplateRef<unknown>;
+  selectedItemTemplate: TemplateRef<unknown>;
+  headerTemplate: TemplateRef<unknown>;
+  emptyTemplate: TemplateRef<unknown>;
+  emptyfilterTemplate: TemplateRef<unknown>;
+  footerTemplate: TemplateRef<unknown>;
+
+  ngAfterContentInit(): void {
+    this.templates.forEach((item) => {
+      switch (item.getType()) {
+        case 'item':
+          this.itemTemplate = item.template;
+          break;
+        case 'group':
+          this.groupTemplate = item.template;
+          break;
+        case 'selectedItem':
+          this.selectedItemTemplate = item.template;
+          break;
+        case 'header':
+          this.headerTemplate = item.template;
+          break;
+        case 'empty':
+          this.emptyTemplate = item.template;
+          break;
+        case 'emptyfilter':
+          this.emptyfilterTemplate = item.template;
+          break;
+        case 'footer':
+          this.footerTemplate = item.template;
+          break;
+      }
+    });
+  }
 }

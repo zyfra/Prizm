@@ -158,6 +158,8 @@
   --sliderBg: #7887a5;
   /* ------------ calendar ------------ */
   --calendarBgChecked: #3d8f40;
+  --calendarBgHover: #3D8F4022;
+  --weekendDayColor:#EC5050;
 
   /* ------------ messages ------------ */
   --messageFont: #353e50;
