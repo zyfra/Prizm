@@ -1,0 +1,40 @@
+<div
+  #wrapper
+  class="menu-applications"
+  [class]="isOpen ? 'menu-applications_opened' : 'menu-applications_closed'"
+  [style]="transitionStyles"
+>
+  <div class="menu-applications-wrapper">
+    <zyfra-splitter [minSizes]="[2, 1]" styleClass="menu-splitter" panelStyleClass="menu-splitter__panel">
+      <ng-template zyfraSplitterTemplate>
+        <ul class="menu-applications-list menu-applications-list__top">
+          <ng-container *ngTemplateOutlet="itemList; context: { $implicit: topMenuItems }"></ng-container>
+        </ul>
+      </ng-template>
+      <ng-template zyfraSplitterTemplate>
+        <ul class="menu-applications-list menu-applications-list__bottom">
+          <ng-container *ngTemplateOutlet="itemList; context: { $implicit: bottomMenuItems }"></ng-container>
+        </ul>
+      </ng-template>
+    </zyfra-splitter>
+  </div>
+</div>
+
+<ng-template #itemList let-items>
+  <zyfra-menu-applications-item
+    *ngFor="let item of items"
+    [item]="item"
+    [isActive]="item === activeItem"
+    [zyfraHint]="hint"
+    [zyfraHintContext]="item"
+    [zyfraHintDelay]="hintDelay"
+    (click)="selectItemHandler(item)"
+  ></zyfra-menu-applications-item>
+</ng-template>
+
+<ng-template #hint let-item>
+  <div class="menu-applications-hint">
+    <div class="menu-applications-hint__title">{{ item.title }}</div>
+    <div class="menu-applications-hint__desc" *ngIf="item.description">{{ item.description }}</div>
+  </div>
+</ng-template>
