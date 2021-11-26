@@ -5,7 +5,7 @@ stages:
   - release
 
 variables:
-  GITLAB_REGISTRY_AUTH_TOKEN: "//gitdp.zyfra.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" 
+  GITLAB_REGISTRY_AUTH_TOKEN: "//gitdp.zyfra.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}"
   npm_config_cache: "$CI_PROJECT_DIR/.npm"
   CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
 
@@ -46,6 +46,8 @@ release_package:
     - cd dist/libs/components
     - npm publish
     - cd ../schematics
+    - npm publish
+    - cd ../translate
     - npm publish
 
   when: manual
