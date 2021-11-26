@@ -1,3 +1,5 @@
+@border-radius: 8px;
+
 .p-dropdown {
   font-size: 1rem;
   color: var(--inputFont);
@@ -9,6 +11,25 @@
   .p-dropdown-label {
     line-height: 30px;
   }
+
+  .p-dropdown-panel {
+    border: 1px solid var(--standartBorder);
+    background: var(--standartBg);
+    border-radius: @border-radius;
+    
+    .p-dropdown-items .p-dropdown-item-group {
+      background-color: var(--headerTabDisabled);
+      color: var(--text);
+    }
+
+    .p-dropdown-items-wrapper {
+      border-radius: @border-radius;
+    }
+  }
+
+  &:not(.p-disabled):hover, &:not(.p-disabled).p-focus {
+    border-color: var(--z-accentColor);
+  }
 }
 
 .p-inputwrapper:not(.p-inputwrapper-filled):not(.p-inputwrapper-focus) {
@@ -19,44 +40,30 @@
   }
 }
 
-.p-dropdown:not(.p-disabled):hover,
-.p-dropdown:not(.p-disabled).p-focus {
-  border-color: var(--z-accentColor);
-}
-
 .p-dropdown-panel {
-  border: 1px solid var(--standartBorder);
+  .p-dropdown-items {
+    .p-dropdown-item {
+      color: var(--standartFont);
+      background: var(--standartBg);
+
+      &:not(.p-highlight):not(.p-disabled):hover {
+        background-color: rgba(61, 143, 64, 0.2);
+        color: var(--text);
+      }
+
+      &.p-highlight {
+        color: var(--bgFont);
+        background: var(--z-accentColor);
+      }
+    }
+  }
 }
 
-.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
-  color: var(--standartFont);
-  background: var(--standartBg);
+::-webkit-scrollbar {
+  width: 4px;
 }
 
-.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
-  background: var(--calendarBgChecked);
-  /*opacity: 0.2; */
-  color: var(--bgFont);
-}
-
-.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
-  color: var(--bgFont);
-  background: var(--z-accentColor);
-}
-
-
-
-
-
-
-.p-dropdown-items-wrapper::-webkit-scrollbar {
-	-webkit-appearance: none;
-	width: 4px;
-  background-color: transparent;
-  
-}
-
-.p-dropdown-items-wrapper::-webkit-scrollbar-thumb {
-	border-radius: 2px;
-	background-color: rgba(73, 171, 77, 1);
+::-webkit-scrollbar-thumb {
+  background-color: rgba(73, 171, 77, 1);
+  border-radius: 2px;
 }
