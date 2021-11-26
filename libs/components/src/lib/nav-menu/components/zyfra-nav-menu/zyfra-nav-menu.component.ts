@@ -11,15 +11,15 @@ import {
   OnDestroy,
   Output,
   QueryList,
-  Renderer2, TemplateRef,
+  Renderer2,
+  TemplateRef,
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
 import { TreeNode } from 'primeng/api';
 import { ZyfraNavMenuGroupDirective } from '../../directives/nav-menu-group.directive';
-import { NavigationEnd, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ZyfraMenuItem } from '../../model/zyfra-menu-item.interface';
-import { filter, take, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { convertToNode } from '../../utils/treeNode.functions';
 import {
@@ -90,6 +90,7 @@ export class ZyfraNavMenuComponent implements AfterViewInit, AfterContentInit, O
   groupNodes: TreeNode[][] = [];
   activeGroup: number;
 
+  private _activeNode: TreeNode;
   private _settings: SettingsConfig = DEFAULT_SETTINGS;
   private _nodes: TreeNode[] = [];
   private destroy$ = new Subject();
@@ -126,26 +127,27 @@ export class ZyfraNavMenuComponent implements AfterViewInit, AfterContentInit, O
   }
 
   ngAfterViewInit(): void {
-    this.router.events
-      .pipe(
-        filter(event => event instanceof NavigationEnd),
-        take(1),
-        takeUntil(this.destroy$)
-      )
-      .subscribe(() => {
-        if (this.groupNodes.length) {
-          this.groupNodes.some((nodes, groupIndex) =>
-            nodes.some((node) => {
-              const isActiveGroup = this.hasActive(node);
-              if (isActiveGroup) {
-                this.activeGroup = groupIndex;
-              }
-              return isActiveGroup;
-            }));
-        } else {
-          this.nodes.some(node => this.hasActive(node));
-        }
-      });
+    let activeGroup;
+    if (this.groupNodes.length) {
+      this.groupNodes.some((nodes, groupIndex) =>
+        nodes.some((node) => {
+          const isActiveGroup = this.hasActive(node);
+          if (isActiveGroup) {
+            activeGroup = groupIndex;
+          }
+          return isActiveGroup;
+        }));
+    } else {
+      this.nodes.some(node => this.hasActive(node));
+    }
+    requestAnimationFrame(() => {
+      this.activeNode = this._activeNode;
+      this.activeGroup = activeGroup;
+      if (this.activeNode) {
+        this.expandBranchFrom(this.activeNode);
+        setTimeout(() => this.scrollToActiveElement(), 500);
+      }
+    });
   }
 
   ngOnDestroy(): void {
@@ -195,13 +197,12 @@ export class ZyfraNavMenuComponent implements AfterViewInit, AfterContentInit, O
 
   private isSelected(node: TreeNode): boolean {
     if (node.data.routerLink) {
-      if (this.isActive(node.data)) {
+      const isActive = this.isActive(node.data);
+      if (isActive) {
         node.styleClass = 'active';
-        this.activeNode = node;
-        this.expandBranchFrom(node);
-        setTimeout(() => this.scrollToActiveElement(), 500);
+        this._activeNode = node;
       }
-      return this.isActive(node.data);
+      return isActive;
     }
     return false;
   }
@@ -228,9 +229,7 @@ export class ZyfraNavMenuComponent implements AfterViewInit, AfterContentInit, O
   private scrollToActiveElement(): void {
     const activeItem = this.activeElement();
     if (activeItem) {
-      requestAnimationFrame(() => activeItem.scrollIntoView({
-        block: 'center', behavior: 'smooth'
-      }));
+      activeItem.scrollIntoView({ block: 'center', behavior: 'smooth' })
     }
   }
 

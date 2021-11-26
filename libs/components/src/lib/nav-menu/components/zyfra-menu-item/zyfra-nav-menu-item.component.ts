@@ -19,7 +19,7 @@ export class ZyfraNavMenuItemComponent {
 
   @Output() itemClick: EventEmitter<ZyfraMenuItem> = new EventEmitter();
 
-  itemClickHandler(event, item: ZyfraMenuItem): void {
+  itemClickHandler(event: MouseEvent, item: ZyfraMenuItem): void {
     if (item.disabled) {
       event.preventDefault();
       return;
