@@ -35,7 +35,9 @@ export class ZyfraInputComponent
   @Input() label: string;
   @Input() iClass: string;
   @Input() spanClass: string;
-  @Input() inputClass: string;
+  @Input() inputClass:  string | string[] | Set<string> | {
+    [klass: string]: any;
+  };
   @Input() disabled: boolean;
   @Input() required: boolean;
   @Input() tooltip: string;
