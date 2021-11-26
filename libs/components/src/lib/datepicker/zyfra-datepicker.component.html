@@ -26,7 +26,7 @@
           #calendar
           [ngModel]="datepickerValue"
           [panelStyleClass]="'zyfra-datepicker-calendar'"
-          [locale]="locale"
+          [locale]="$any(locale)"
           [selectionMode]="selectionMode"
           [showOnFocus]="showOnFocus"
           [showWeek]="showWeek"
@@ -70,7 +70,7 @@
       *ngIf="showChangeMode"
       class="zyfra-datepicker-control zyfra-datepicker-dropdown"
       [value]="timeMode"
-      [options]="modes"
+      [options]="$any(modes)"
       (valueChange)="setMode($event)"
       [disabled]="disabled"
       [panelStyleClass]="'zyfra-datepicker-dropdown-overlay'"
@@ -106,10 +106,10 @@
     [placeholder]="placeholder"
     [label]="label"
     [inputClass]="{
-      'ng-invalid': ngControl?.invalid,
-      'ng-valid': ngControl?.valid,
-      'ng-dirty': ngControl?.dirty,
-      'ng-touched': ngControl?.touched
+      'ng-invalid': !!ngControl?.invalid,
+      'ng-valid': !!ngControl?.valid,
+      'ng-dirty': !!ngControl?.dirty,
+      'ng-touched': !!ngControl?.touched
     }"
     [required]="required || controlRequired"
     [disabled]="disabled"
@@ -119,7 +119,7 @@
     <zyfra-dropdown
       class="zyfra-datepicker-control zyfra-datepicker-dropdown"
       [value]="timeMode"
-      [options]="timeArray"
+      [options]="$any(timeArray)"
       [disabled]="disabled"
       [panelStyleClass]="'zyfra-datepicker-dropdown-overlay'"
       [styleClass]="'zyfra-datepicker-dropdown'"
