@@ -22,10 +22,6 @@
                    (click)="changeViewMode('rubricator')"></i>
                 <i *ngIf="toolbarConfig.closeAll" class="toolbar-button zyfra-icon chevrons-close-all"
                    (click)="closeAll()"></i>
-                <!--                <i *ngIf="toolbarConfig.group" class="toolbar-button zyfra-icon editor-group"-->
-                <!--                   (click)="groupPanel.show($event); groupClick($event)"></i>-->
-                <!--                <i *ngIf="toolbarConfig.filter" class="toolbar-button zyfra-icon sort-filter"-->
-                <!--                   (click)="filterPanel.show($event); filterClick($event)"></i>-->
                 <i *ngIf="toolbarConfig.search" class="toolbar-button zyfra-icon sort-zoom-in"
                    [class.active]="search"
                    (click)="toggleSearch()"></i>
@@ -48,37 +44,6 @@
                        (input)="changeSearchValue($event.target.value)"/>
             </span>
         </div>
-
-        <!--        <p-overlayPanel #filterPanel styleClass="filterPanel" [appendTo]="headerToolbar">
-                    <ng-template pTemplate>
-                        <div>Фильтры</div>
-                        <div>
-                            <zyfra-button styleClass="p-button-secondary"
-                                          label="Отмена"
-                                          (onClick)="filterPanel.hide()"></zyfra-button>
-                            <zyfra-button label="Подтвердить"
-                                          (onClick)="filterPanel.hide()"></zyfra-button>
-                        </div>
-                    </ng-template>
-                </p-overlayPanel>
-
-                <p-overlayPanel #groupPanel styleClass="groupPanel" [appendTo]="headerToolbar">
-                    <ng-template pTemplate>
-                        <div>Настройки группировки</div>
-                        <div class="settings-block">
-                            <zyfra-checkbox label="Признак 1"></zyfra-checkbox>
-                            <zyfra-checkbox label="Признак 2"></zyfra-checkbox>
-                        </div>
-                        <div>
-                            <zyfra-button styleClass="p-button-secondary"
-                                          label="Отмена"
-                                          (onClick)="groupPanel.hide()"></zyfra-button>
-                            <zyfra-button label="Подтвердить"
-                                          (onClick)="groupPanel.hide()"></zyfra-button>
-                        </div>
-                    </ng-template>
-                </p-overlayPanel>-->
-
     </ng-template>
 
     <ng-template let-node pTemplate="default">

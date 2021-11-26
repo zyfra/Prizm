@@ -33,14 +33,14 @@ export const subItems: ZyfraMenuItem[] = [
         icon: 'zyfra-icon files-file',
         items: [
           {
-            label: 'Ячейка тертьего уровня 1 длиннее остальных',
+            label: 'Ячейка третьего уровня 1 длиннее остальных',
             icon: 'zyfra-icon files-file',
             badge: 'danger',
             badgeStyleClass: 'p-badge-dot',
             routerLink: ['/page1']
           },
           {
-            label: 'Ячейка тертьего уровня 2',
+            label: 'Ячейка третьего уровня 2',
             icon: 'zyfra-icon files-file',
             items: [
               {
@@ -110,11 +110,11 @@ export const subItemsRubricator: ZyfraMenuItem[] = [
         icon: 'zyfra-icon files-file',
         items: [
           {
-            label: 'Б-Ячейка тертьего уровня 1',
+            label: 'Б-Ячейка третьего уровня 1',
             icon: 'zyfra-icon files-file',
           },
           {
-            label: 'Ячейка тертьего уровня 2',
+            label: 'Ячейка третьего уровня 2',
             icon: 'zyfra-icon files-file',
             items: [
               {
