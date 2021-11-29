@@ -1,0 +1,284 @@
+@icon-font-family: ZyfraIcons;
+
+.zyfra-datepicker {
+  position: relative;
+  display: inline-block;
+  .zyfra-icon {
+    font-size: 1.25rem;
+    color: var(--eventer);
+    &:hover {
+      color: var(--buttonSuccessHover);
+    }
+  }
+  zyfra-input {
+    .input-padding-right-1 {
+      padding-right: 2.5rem;
+    }
+    .input-padding-right-2 {
+      padding-right: 5rem;
+    }
+    .input-padding-right-3 {
+      padding-right: 7.5rem;
+    }
+    .input-padding-right-4 {
+      padding-right: 10rem;
+    }
+  }
+  .p-disabled {
+    opacity: 1;
+    background-color: transparent;
+  }
+  &-controls {
+    position: absolute;
+    top: 50%;
+    right: 1px;
+    transform: translateY(-50%);
+    height: calc(100% - 2px);
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    &.visible {
+      &-clear ~ zyfra-input .p-inputtext,
+      &-date ~ zyfra-input .p-inputtext,
+      &-time ~ zyfra-input .p-inputtext,
+      &-change-mode ~ zyfra-input .p-inputtext,
+      &-relative ~ zyfra-input .p-inputtext {
+        padding-right: 2.5rem;
+      }
+
+      &-clear.visible-date ~ zyfra-input .p-inputtext,
+      &-clear.visible-time ~ zyfra-input .p-inputtext,
+      &-clear.visible-change-mode ~ zyfra-input .p-inputtext,
+      &-clear.visible-relative ~ zyfra-input .p-inputtext,
+      &-date.visible-time ~ zyfra-input .p-inputtext,
+      &-change-mode.visible-relative ~ zyfra-input .p-inputtext,
+      &-date.visible-change-mode ~ zyfra-input .p-inputtext,
+      &-time.visible-change-mode ~ zyfra-input .p-inputtext {
+        padding-right: 5rem;
+      }
+
+      &-clear.visible-date.visible-time ~ zyfra-input .p-inputtext,
+      &-clear.visible-time.visible-change-mode ~ zyfra-input .p-inputtext,
+      &-clear.visible-date.visible-change-mode ~ zyfra-input .p-inputtext,
+      &-clear.visible-change-mode.visible-relative ~ zyfra-input .p-inputtext,
+      &-date.visible-time.visible-change-mode ~ zyfra-input .p-inputtext {
+        padding-right: 7.5rem;
+      }
+
+      &-clear.visible-date.visible-time.visible-change-mode ~ zyfra-input .p-inputtext {
+        padding-right: 10rem;
+      }
+    }
+  }
+
+  &-control {
+    height: 100%;
+    width: 2.5rem;
+    background-color: transparent;
+    & > .zyfra-input,
+    & > .zyfra-datepicker-button,
+    .p-dropdown-trigger {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    &:disabled {
+      pointer-events: none;
+    }
+  }
+
+  p-calendar {
+    display: block;
+    width: 0;
+    height: 0;
+    border: none;
+    .p-inputtext {
+      width: 0;
+      height: 0;
+      padding: 0;
+      border: 0;
+    }
+  }
+
+  &-dropdown {
+    width: 2.5rem;
+    &.p-dropdown {
+      border: none;
+      display: inline-block;
+      height: 100%;
+      &:not(.p-disabled).p-focus {
+        box-shadow: none;
+      }
+      .p-inputtext {
+        display: none;
+      }
+    }
+    &-overlay.p-dropdown-panel {
+      background: var(--standartBg);
+      box-shadow: 0rem 0.5rem 2rem rgba(102, 119, 153, 0.24);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      .p-dropdown-items .p-dropdown-item {
+        padding: 0.75rem 3.4rem 0.75rem 1.5rem;
+        &.p-highlight {
+          color: var(--textColor);
+          .zyfra-icon {
+            color: var(--textColor);
+          }
+          .p-radiobutton {
+            pointer-events: none;
+          }
+        }
+        &:hover:not(.p-highlight) {
+          .mode-item .zyfra-icon {
+            color: var(--textColor);
+          }
+        }
+        .zyfra-icon {
+          font-size: 1.25rem;
+          color: var(--eventer);
+          margin-left: 0.6rem;
+          margin-right: 1.1rem;
+        }
+        .mode-item {
+          display: flex;
+        }
+      }
+      .p-dropdown-items-wrapper {
+        visibility: visible;
+        &::-webkit-scrollbar {
+          width: 0.2rem;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: var(--calendarBgChecked);
+        }
+      }
+    }
+  }
+
+  .p-datepicker {
+    &,
+    &:not(.p-datepicker-inline) {
+      background: var(--standartBg);
+      color: var(--standartFont);
+      border: 1px solid var(--standartBorder);
+      box-shadow: 0px 0.5rem 2rem rgba(102, 119, 153, 0.24);
+      border-radius: 1rem;
+      padding: 0;
+    }
+
+    &-header,
+    &:not(.p-datepicker-inline) .p-datepicker-header {
+      padding: 0;
+      color: var(--standartFont);
+      background: var(--standartBg);
+      .p-datepicker-title {
+        margin-right: auto;
+        margin-left: 0;
+        color: var(--eventer);
+        font-size: 0.81rem;
+        font-weight: 400;
+        padding-left: 0.4rem;
+      }
+    }
+
+    &-month {
+      border: none;
+      cursor: pointer;
+      color: var(--eventer);
+      &::after {
+        content: '';
+        width: 0.8em;
+        height: 0.5em;
+        background-color: var(--eventer);
+        clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+      }
+    }
+    &-prev,
+    &-next {
+      order: 1;
+      &-icon {
+        font-family: @icon-font-family;
+        font-style: normal;
+        font-size: 1.25rem;
+        color: var(--eventer);
+        &::before {
+          content: 'chevrons_left_icon';
+        }
+      }
+    }
+    &-next {
+      order: 2;
+      &-icon {
+        &::before {
+          content: 'chevrons_right_icon';
+        }
+      }
+    }
+    &-calendar {
+      margin: 0;
+      td,
+      td.p-datepicker-today {
+        padding: 0;
+        & > span {
+          width: 2.5rem;
+          height: 2.5rem;
+          border-radius: 1.6rem;
+          border: none;
+          &.p-highlight {
+            background: var(--calendarBgChecked);
+            color: var(--textColor);
+          }
+        }
+      }
+      td.p-datepicker-today {
+        & > span {
+          border: 1px solid var(--eventer);
+          background: var(--calendarBgHover);
+        }
+      }
+      td:nth-last-child(-n + 2):not(.p-datepicker-other-month) {
+        color: var(--weekendDayColor);
+      }
+      td.p-datepicker-other-month {
+        color: var(--colorDisabled);
+      }
+    }
+    &-group-container {
+      padding: 0.5rem;
+    }
+    &.p-datepicker-multiple-month {
+      &-group {
+        border-right: none;
+        .p-datepicker-header,
+        &:not(.p-datepicker-inline) .p-datepicker-header {
+          .p-datepicker-title {
+            margin-left: auto;
+          }
+          .p-datepicker-prev,
+          .p-datepicker-next {
+            order: 0;
+          }
+        }
+      }
+    }
+    &:not(.p-disabled) table td > span:not(.p-highlight):not(.p-disabled):hover {
+      background: var(--calendarBgHover);
+    }
+  }
+
+  &-calendar {
+    &-footer {
+      padding: 0.5rem 1rem 1rem;
+      box-shadow: 0rem -0.12rem 0.5rem rgba(102, 119, 153, 0.16);
+      .p-button {
+        width: 100%;
+      }
+    }
+  }
+}

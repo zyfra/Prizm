@@ -1,0 +1,61 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  ColorPalette,
+  ColorItem,
+  Preview,
+  Typeset,
+  Title,
+  Subtitle,
+  Description,
+} from '@storybook/addon-docs';
+import { ZyfraDatepickerComponent } from './zyfra-datepicker.component';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+
+## Zyfra - Datapicker
+
+<Subtitle>Datepicker is an input component to select a date.</Subtitle>
+
+```
+npm i @zyfra/zyfra-datepicker
+```
+
+Import module:
+
+```typescript
+import { ZyfraDatepickerModule } from '@digital-plant/zyfra-components';
+
+@NgModule({
+  imports: [ZyfraDatepickerModule],
+})
+export class YourModule {}
+```
+
+To component:
+
+```html
+<zyfra-datepicker
+  [(value)]="value"
+  [dateFormat]="'DD.MM.YYYY'"
+  [timeFormat]="'HH:mm:ss'"
+  [placeholder]="'Выберите дату и время'"
+  [disabled]="false"
+  [required]="required"
+  [label]="'Абсолютное'"
+  [mode]="'absolute'"
+  [showClear]="true"
+  [showDate]="true"
+  [showTime]="true"
+  [showCalendarBtn]="true"
+  [calendarBtnLabel]="'Выбрать'"
+  [hideOnDateTimeSelect]="false"
+  [numberOfMonths]="1"
+></zyfra-datepicker>
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraDatepickerComponent} />
