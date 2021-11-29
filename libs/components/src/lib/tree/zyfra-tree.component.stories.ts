@@ -67,7 +67,7 @@ const items = [
     collapsedIcon: 'zyfra-icon files-folder',
     children: [
       { label: 'barcelona.jpg', icon: 'zyfra-icon files-document-image', data: 'Barcelona Photo' },
-      { label: 'logo.jpg', icon: 'zyfra-icon files-file', data: 'PrimeFaces Logo' },
+      { label: 'logo.jpg', icon: 'zyfra-icon files-document-image', data: 'PrimeFaces Logo' },
       { label: 'primeui.png', icon: 'zyfra-icon files-document-image', data: 'PrimeUI Logo' }]
   },
   {
@@ -78,6 +78,8 @@ const items = [
     children: [{
       label: 'Al Pacino',
       data: 'Pacino Movies',
+      expandedIcon: 'zyfra-icon files-folder',
+    collapsedIcon: 'zyfra-icon files-folder ',
       children: [
         { label: 'Scarface', icon: 'zyfra-icon camera-video', data: 'Scarface Movie' },
         { label: 'Serpico', icon: 'zyfra-icon camera-image', data: 'Serpico Movie' }
@@ -86,6 +88,8 @@ const items = [
       {
         label: 'Robert De Niro',
         data: 'De Niro Movies',
+        expandedIcon: 'zyfra-icon files-folder',
+        collapsedIcon: 'zyfra-icon files-folder ',
         children: [
           { label: 'Goodfellas', icon: 'zyfra-icon camera-video', data: 'Goodfellas Movie' },
           { label: 'Untouchables', icon: 'zyfra-icon camera-video', data: 'Untouchables Movie' }
