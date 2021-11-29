@@ -19,6 +19,9 @@
   &.p-disabled {
     background-color: var(--inputDisabledBgColor);
   }
+  &-mini {
+    height: 2.25rem;
+  }
 }
 
 .p-inputtextarea {
@@ -48,14 +51,22 @@
 .p-float-label {
   font-family: var(--fontFamily);
 
-  input:focus,
-  input.p-filled,
+  .p-inputtext:focus,
+  .p-inputtext.p-filled,
   .p-inputwrapper-focus,
   .p-inputwrapper-filled {
     ~ label {
       font-size: 0.81rem;
       top: 7px;
       transform: none;
+    }
+  }
+  .p-inputtext-mini:focus,
+  .p-inputtext-mini.p-filled,
+  .p-inputwrapper-focus,
+  .p-inputwrapper-filled {
+    ~ label {
+      top: 0.25rem;
     }
   }
 

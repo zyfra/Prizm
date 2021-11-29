@@ -1,19 +1,20 @@
-<span class="zyfra-input" [class.zyfra-input_disabled]="disabled" [class.p-float-label]="label">
-  <i *ngIf="iClass" [class]="iClass"></i>
-
-  <input
-    pInputText
-    [type]="type"
-    [id]="id"
-    [(ngModel)]="value"
-    (ngModelChange)="valueChange.emit($event)"
-    [placeholder]="placeholder"
-    [class]="inputClass"
-    [disabled]="disabled"
-    [required]="required"
-    [pTooltip]="tooltip ? tooltip : null"
-    [tooltipPosition]="tooltipPosition"
-  />
-
-  <label *ngIf="label" [class.label-required]="required">{{ label }}</label>
+<span class="zyfra-input"
+      [class.zyfra-input_disabled]="disabled"
+      [class.p-float-label]="label">
+  <i *ngIf="iClass"
+     [class]="iClass"></i>
+  <input pInputText
+         [type]="type"
+         [id]="id"
+         [(ngModel)]="model"
+         (ngModelChange)="changeModel($event)"
+         (blur)="onBlur.emit($event)"
+         [placeholder]="placeholder"
+         [ngClass]="ngControl ? {'ng-invalid': ngControl.invalid, 'ng-valid': ngControl.valid, 'ng-dirty': ngControl.dirty, 'ng-touched': ngControl.touched} : inputClass"
+         [disabled]="disabled"
+         [required]="required || controlRequired"
+         [pTooltip]="tooltip ? tooltip : null"
+         [tooltipPosition]="tooltipPosition" />
+  <label *ngIf="label"
+         [class.label-required]="required || controlRequired">{{ label }}</label>
 </span>
