@@ -23,6 +23,8 @@
 @import "../lib/accordion/zyfra-accordion/zyfra-accordion.component";
 @import "../lib/breadcrumb/zyfra-breadcrumb.component";
 @import "../lib/menu-applications/zyfra-menu-applications.component";
+@import "../lib/datepicker/zyfra-datepicker.component";
+@import "../lib/split-button/zyfra-split-button.component";
 @import "../lib/nav-menu/components/zyfra-nav-menu/zyfra-nav-menu.component.less";
 
 // todo удалить после переноса всех компонентов в это репо
@@ -1255,128 +1257,128 @@
 //}
 
 /* menu applications */
-//.menu-applications {
-//  @menuOpenWidth: 408px;
-//  @menuCloseWidth: 48px;
-//
-//  width: @menuCloseWidth;
-//  height: 100%;
-//  transition-property: min-width;
-//  background-color: var(--menuAppBg);
-//  overflow: hidden;
-//  font-family: 'Inter', sans-serif;
-//
-//  .menu-splitter {
-//    height: 100%;
-//
-//    &__panel {
-//      min-height: @menuCloseWidth;
-//      overflow-y: auto;
-//      overflow-x: hidden;
-//
-//      &:nth-child(1) {
-//        min-height: 66.66%;
-//      }
-//    }
-//  }
-//
-//  .menu-applications-list {
-//    width: 100%;
-//    margin: 0;
-//    padding: 0;
-//    height: fit-content;
-//
-//    &__bottom {
-//      margin-top: auto;
-//    }
-//  }
-//
-//  &_closed {
-//    min-width: @menuCloseWidth;
-//  }
-//
-//  &_opened {
-//    min-width: @menuOpenWidth;
-//  }
-//
-//  &-hint {
-//    max-width: 440px;
-//    color: #353E50;
-//
-//    &__title {
-//      font-size: 14px;
-//      font-weight: 700;
-//    }
-//
-//    &__desc {
-//      font-size: 13px;
-//    }
-//  }
-//
-//  &-wrapper {
-//    min-width: @menuOpenWidth;
-//    height: 100%;
-//  }
-//
-//  .zyfra-menu-applications-item {
-//    @menuItemWidth: 48px;
-//    @menuItemHeight: 48px;
-//
-//    display: flex;
-//    align-items: center;
-//    justify-content: space-between;
-//    color: var(--menuAppItemColor);
-//    min-height: @menuItemHeight;
-//    height: @menuItemHeight;
-//    border-bottom: 1px solid var(--menuAppItemBorder);
-//    overflow: hidden;
-//
-//    &__wrapper {
-//      display: flex;
-//      align-items: center;
-//    }
-//
-//    zyfra-icon.zyfra-menu-applications-item__arrow {
-//      display: flex;
-//      justify-content: center;
-//      min-width: 40px;
-//      width: 40px;
-//      height: auto;
-//      margin-right: 4px;
-//      font-size: 20px;
-//      color: var(--menuAppItemArrowColor);
-//    }
-//
-//    &_active,
-//    &:hover {
-//      background-color: var(--menuAppItemActiveBg);
-//      box-shadow: var(--menuAppItemActiveShadow);
-//      color: var(--menuAppItemActiveColor);
-//
-//      .zyfra-menu-applications-item__arrow {
-//        color: var(--menuAppItemActiveIconColor);
-//      }
-//    }
-//
-//    zyfra-icon.zyfra-menu-applications-item__icon {
-//      display: flex;
-//      align-items: center;
-//      justify-content: center;
-//      font-size: 22px;
-//      min-width: @menuItemWidth;
-//      width: @menuItemWidth;
-//      height: @menuItemHeight;
-//      color: var(--menuAppItemIconColor);
-//    }
-//
-//    &__title {
-//      width: 100%;
-//      font-size: 13px;
-//      margin-left: 8px;
-//      cursor: default;
-//      white-space: nowrap;
-//      text-overflow: ellipsis;
-//      overflow-x: hidden;
-//    }
-//  }
-//}
+.menu-applications {
+  @menuOpenWidth: 408px;
+  @menuCloseWidth: 48px;
+
+  width: @menuCloseWidth;
+  height: 100%;
+  transition-property: min-width;
+  background-color: var(--menuAppBg);
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+
+  .menu-splitter {
+    height: 100%;
+
+    &__panel {
+      min-height: @menuCloseWidth;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      &:nth-child(1) {
+        min-height: 66.66%;
+      }
+    }
+  }
+
+  .menu-applications-list {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: fit-content;
+
+    &__bottom {
+      margin-top: auto;
+    }
+  }
+
+  &_closed {
+    min-width: @menuCloseWidth;
+  }
+
+  &_opened {
+    min-width: @menuOpenWidth;
+  }
+
+  &-hint {
+    max-width: 440px;
+    color: #353E50;
+
+    &__title {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    &__desc {
+      font-size: 13px;
+    }
+  }
+
+  &-wrapper {
+    min-width: @menuOpenWidth;
+    height: 100%;
+  }
+
+  .zyfra-menu-applications-item {
+    @menuItemWidth: 48px;
+    @menuItemHeight: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--menuAppItemColor);
+    min-height: @menuItemHeight;
+    height: @menuItemHeight;
+    border-bottom: 1px solid var(--menuAppItemBorder);
+    overflow: hidden;
+
+    &__wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    zyfra-icon.zyfra-menu-applications-item__arrow {
+      display: flex;
+      justify-content: center;
+      min-width: 40px;
+      width: 40px;
+      height: auto;
+      margin-right: 4px;
+      font-size: 20px;
+      color: var(--menuAppItemArrowColor);
+    }
+
+    &_active,
+    &:hover {
+      background-color: var(--menuAppItemActiveBg);
+      box-shadow: var(--menuAppItemActiveShadow);
+      color: var(--menuAppItemActiveColor);
+
+      .zyfra-menu-applications-item__arrow {
+        color: var(--menuAppItemActiveIconColor);
+      }
+    }
+
+    zyfra-icon.zyfra-menu-applications-item__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      min-width: @menuItemWidth;
+      width: @menuItemWidth;
+      height: @menuItemHeight;
+      color: var(--menuAppItemIconColor);
+    }
+
+    &__title {
+      width: 100%;
+      font-size: 13px;
+      margin-left: 8px;
+      cursor: default;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow-x: hidden;
+    }
+  }
+}

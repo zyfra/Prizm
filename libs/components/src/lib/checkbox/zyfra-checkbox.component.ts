@@ -28,6 +28,7 @@ export class ZyfraCheckboxComponent extends Checkbox implements ControlValueAcce
   @Input() binary = true;
   @Input() checkboxIcon = 'zyfra-icon selection-check-simple';
   @Input() model: boolean;
+  @Input() disabled: boolean;
   @Output() modelChange = new EventEmitter<boolean | null>();
 
   constructor(cd: ChangeDetectorRef) {

@@ -13,9 +13,12 @@
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
     "baseUrl": ".",
     "paths": {
       "@digital-plant/zyfra-components": ["libs/components/src/index.ts"],
+      "@digital-plant/zyfra-translate": ["libs/translate/src/index.ts"],
       "@digital-plant/zyfra-ui": ["libs/schematics/src/index.ts"]
     }
   },
