@@ -62,6 +62,8 @@ export * from './lib/button';
   - Schematic build `nx run schematics:build`
 - Icons:
   - Rebuild icons `nx run components:build-icons`
+- Translate
+  - Build `nx affected:build --files=libs/translate/src/index.ts`
 
 
 ---------
