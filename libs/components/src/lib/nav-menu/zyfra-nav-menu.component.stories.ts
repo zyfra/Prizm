@@ -316,7 +316,7 @@ GroupPanels.args = {
   header1: 'Групповая панель 1',
   header2: 'Групповая панель 2',
   header3: 'Групповая панель 3',
-  items1: [ ...basicWithIcons, ...basicWithIcons,  ...basicWithIcons, ...basicWithIcons, ...subItems],
+  items1: [ ...subItems],
   items2: [...basicWithIcons],
   items3: [...basic],
   menuTitle: 'Наименование приложения',
