@@ -58,6 +58,7 @@ Basic.args = {
   model: false,
   label: 'Простой чекбокс',
   binary: true,
+  disabled: false
 };
 
 export const CustomIcon = Template.bind({});
@@ -66,6 +67,7 @@ CustomIcon.args = {
   checkboxIcon: 'zyfra-icon arrows-replay',
   label: 'Чекбокс с измененнной иконкой',
   binary: true,
+  disabled: false
 };
 
 const CheckboxWithFormControlComponentTemplate: Story = (args) => ({
