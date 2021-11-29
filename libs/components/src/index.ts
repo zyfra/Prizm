@@ -8,6 +8,7 @@ export * from './lib/chip';
 export * from './lib/checkbox';
 export * from './lib/chip';
 export * from './lib/confirm-dialog';
+export * from './lib/datepicker';
 export * from './lib/dialog';
 export * from './lib/hint';
 export * from './lib/icon';

@@ -57,10 +57,28 @@
     (onHide)="onHide.emit($event)"
     (ngModelChange)="valueChange.emit($event)"
   >
-    <ng-template *ngIf="group" let-group pTemplate="group">
-      <div class="groupTemplateClass">
-        <span>{{ group.label }}</span>
-      </div>
+    <ng-template *ngIf="itemTemplate" let-item pTemplate="item">
+      <ng-container *ngTemplateOutlet="itemTemplate; context: { $implicit: item }"></ng-container>
+    </ng-template>
+    <ng-template *ngIf="groupTemplate" let-group pTemplate="group">
+      <ng-container *ngTemplateOutlet="groupTemplate; context: { $implicit: group }"></ng-container>
+    </ng-template>
+    <ng-template *ngIf="selectedItemTemplate" let-selectedItem pTemplate="selectedItem">
+      <ng-container
+        *ngTemplateOutlet="selectedItemTemplate; context: { $implicit: selectedItem }"
+      ></ng-container>
+    </ng-template>
+    <ng-template *ngIf="headerTemplate" let-selectedItem pTemplate="header">
+      <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+    </ng-template>
+    <ng-template *ngIf="emptyTemplate" pTemplate="empty">
+      <ng-container *ngTemplateOutlet="emptyTemplate"></ng-container>
+    </ng-template>
+    <ng-template *ngIf="emptyfilterTemplate" pTemplate="emptyfilter">
+      <ng-container *ngTemplateOutlet="emptyfilterTemplate"></ng-container>
+    </ng-template>
+    <ng-template *ngIf="footerTemplate" pTemplate="footer">
+      <ng-container *ngTemplateOutlet="footerTemplate"></ng-container>
     </ng-template>
   </p-dropdown>
 

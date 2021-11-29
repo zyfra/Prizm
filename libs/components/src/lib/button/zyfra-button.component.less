@@ -46,7 +46,6 @@
 /* ================================= simple button ==================================== */
 .p-button {
   font-size: 0.8rem;
-  line-height: 1rem;
   border-radius: 4px;
   height: 2.8rem;
 
@@ -60,8 +59,17 @@
   &.p-button {
     border: @buttonBorder;
     font-family: var(--fontFamily);
+    padding: 1rem;
 
     .button-default-style();
+
+    &.p-button-icon-only {
+      width: 3rem;
+    }
+
+    &.p-button span.p-button-icon-left {
+      margin-right: 1.5rem;
+    }
 
     &.p-component:disabled,// для кнопок тип select toggle и тд
     &.p-disabled.p-disabled.p-disabled {
@@ -209,7 +217,7 @@
 
   .select-button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
 
-  &-default {
+&-default {
     .select-button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
   }
 
