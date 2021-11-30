@@ -119,7 +119,6 @@ const BasicTemplate: Story = (args) => ({
               </zyfra-splitter>
           </ng-template>
       </wrapper>`,
-  component: ZyfraNavMenuComponent,
   props: {
     ...args,
     ...actions
@@ -198,7 +197,6 @@ const ExtraItemTemplate: Story = (args) => ({
               </zyfra-splitter>
           </ng-template>
       </wrapper>`,
-  component: ZyfraNavMenuComponent,
   props: {
     ...args,
     ...actions
@@ -304,7 +302,6 @@ const GroupPanelTemplate: Story = (args) => ({
               </zyfra-splitter>
           </ng-template>
       </wrapper>`,
-  component: ZyfraNavMenuComponent,
   props: {
     ...args,
     ...actions
