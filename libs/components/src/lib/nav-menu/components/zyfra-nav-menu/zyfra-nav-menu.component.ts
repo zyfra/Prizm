@@ -46,16 +46,16 @@ export class ZyfraNavMenuComponent implements AfterViewInit, AfterContentInit, O
   @Input() searchPlaceholder: string = '';
   @Input() toolbarConfig: ToolbarConfig;
 
-  @Input() set settingsConfig(settings: SettingsConfig) {
+  @Input() get settingsConfig(): SettingsConfig {
+    return this._settings;
+  }
+
+  set settingsConfig(settings: SettingsConfig) {
     if (!settings) {
       return;
     }
     this._settings = { ...DEFAULT_SETTINGS, ...settings };
   };
-
-  get settingsConfig(): SettingsConfig {
-    return this._settings;
-  }
 
   @Input() headerConfig: HeaderConfig = {
     settings: false,
