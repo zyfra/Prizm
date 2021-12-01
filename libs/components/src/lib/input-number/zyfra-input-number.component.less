@@ -1,0 +1,24 @@
+span {
+    &.p-inputnumber {
+        border: 1px solid var(--bgSecond);
+        border-radius: 4px;
+
+        &:hover, &:focus {
+            border: 1px solid var(--successColorHover);
+            box-shadow: none;
+        }
+    }
+}
+
+button {
+    &.p-inputnumber-button.p-button, &.p-inputnumber-button.p-button.p-button-icon-only:hover  {
+        background-color: transparent;
+        color: var(--inputLabel);
+    }
+}
+
+input {
+    &.p-inputtext.p-inputnumber-input {
+        border: none;
+    }
+}

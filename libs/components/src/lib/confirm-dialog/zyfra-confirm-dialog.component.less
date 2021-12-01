@@ -2,33 +2,45 @@
 .p-dialog {
   border: none;
   border-radius: 0.8rem;
+  box-shadow: none;
+
+  .p-dialog-header {
+    border-bottom: none;
+    background: var(--standartBg);
+    color: var(--standartFont);
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
+    justify-content: center;
+  }
+
+  .p-dialog-content {
+    background: var(--standartBg);
+    color: var(--standartFont);
+  }
+
+  .p-dialog-footer {
+    display: flex;
+    flex-direction: column;
+    background: var(--standartBg);
+    color: var(--standartFont);
+    border-top: 1px solid var(--dialogBorder);
+    border-bottom-right-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
+
+    button {
+      margin: 0 0 0.5rem;
+      width: auto;
+      border: none;
+    }
+  }
+
+  &.p-confirm-dialog .p-confirm-dialog-message {
+    margin: 0 1rem;
+  }
+
 }
 
-.p-dialog .p-dialog-header {
-  border-bottom: none;
-  background: var(--standartBg);
-  color: var(--standartFont);
-  border-top-left-radius: 0.8rem;
-  border-top-right-radius: 0.8rem;
+div.p-component-overlay {
+  background-color: rgba(33, 38, 49, 0.6)
 }
 
-.p-dialog .p-dialog-content {
-  background: var(--standartBg);
-  color: var(--standartFont);
-}
-
-/* переделан footer что бы кнопки помещались одна под другой */
-.p-dialog .p-dialog-footer {
-  display: flex;
-  flex-direction: column;
-  background: var(--standartBg);
-  color: var(--standartFont);
-  border-top: 1px solid var(--dialogBorder);
-  border-bottom-right-radius: 0.8rem;
-  border-bottom-left-radius: 0.8rem;
-}
-.p-dialog .p-dialog-footer button {
-  margin: 0 0 0.5rem;
-  width: auto;
-  border: none;
-}
