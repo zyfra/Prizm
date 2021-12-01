@@ -1,0 +1,129 @@
+<p-treeTable
+  #table
+  [value]="value"
+  [columns]="columns"
+  [style]="style"
+  [styleClass]="styleClasses"
+  [tableStyle]="tableStyle"
+  [tableStyleClass]="(paginator ? 'zyfra-table_paginator ' : '') + tableStyleClass"
+  [autoLayout]="autoLayout"
+  [lazy]="lazy"
+  [lazyLoadOnInit]="lazyLoadOnInit"
+  [paginator]="paginator"
+  [rows]="rows"
+  [first]="first"
+  [pageLinks]="pageLinks"
+  [rowsPerPageOptions]="rowsPerPageOptions"
+  [alwaysShowPaginator]="alwaysShowPaginator"
+  [paginatorPosition]="paginatorPosition"
+  [paginatorDropdownAppendTo]="paginatorDropdownAppendTo"
+  [currentPageReportTemplate]="currentPageReportTemplate"
+  [showCurrentPageReport]="showCurrentPageReport"
+  [showJumpToPageDropdown]="showJumpToPageDropdown"
+  [showFirstLastIcon]="showFirstLastIcon"
+  [showPageLinks]="showPageLinks"
+  [defaultSortOrder]="defaultSortOrder"
+  [sortMode]="sortMode"
+  [resetPageOnSort]="resetPageOnSort"
+  [customSort]="customSort"
+  [selectionMode]="selectionMode"
+  [contextMenuSelection]="contextMenuSelection"
+  [contextMenuSelectionMode]="contextMenuSelectionMode"
+  [dataKey]="dataKey"
+  [metaKeySelection]="metaKeySelection"
+  [compareSelectionBy]="compareSelectionBy"
+  [rowHover]="rowHover"
+  [loading]="loading"
+  [loadingIcon]="loadingIcon"
+  [showLoader]="showLoader"
+  [scrollable]="scrollable"
+  [scrollHeight]="scrollHeight"
+  [virtualScroll]="virtualScroll"
+  [virtualRowHeight]="virtualRowHeight"
+  [minBufferPx]="minBufferPx"
+  [maxBufferPx]="maxBufferPx"
+  [frozenWidth]="frozenWidth"
+  [frozenColumns]="frozenColumns"
+  [resizableColumns]="resizableColumns"
+  [columnResizeMode]="columnResizeMode"
+  [reorderableColumns]="reorderableColumns"
+  [contextMenu]="contextMenu"
+  [rowTrackBy]="rowTrackBy"
+  [filters]="filters"
+  [globalFilterFields]="globalFilterFields"
+  [filterDelay]="filterDelay"
+  [filterMode]="filterMode"
+  [filterLocale]="filterLocale"
+  [totalRecords]="totalRecords"
+  [sortField]="sortField"
+  [sortOrder]="sortOrder"
+  [multiSortMeta]="multiSortMeta"
+  [selection]="selection"
+  (onFilter)="onFilter.emit($event)"
+  (onNodeExpand)="onNodeExpand.emit($event)"
+  (onNodeCollapse)="onNodeCollapse.emit($event)"
+  (onPage)="page.emit($event)"
+  (onSort)="sort.emit($event)"
+  (onLazyLoad)="lazyLoad.emit($event)"
+  (sortFunction)="sortFunction.emit($event)"
+  (onColResize)="colResize.emit($event)"
+  (onColReorder)="colReorder.emit($event)"
+  (onNodeSelect)="onNodeSelect.emit($event)"
+  (onNodeUnselect)="onNodeUnselect.emit($event)"
+  (onContextMenuSelect)="contextMenuSelect.emit($event)"
+  (onHeaderCheckboxToggle)="headerCheckboxToggle.emit($event)"
+  (onEditInit)="editInit.emit($event)"
+  (onEditComplete)="editComplete.emit($event)"
+  (onEditCancel)="editCancel.emit($event)"
+  (selectionChange)="selectionChange.emit($event)"
+  (contextMenuSelectionChange)="contextMenuSelectionChange.emit($event)"
+>
+  <ng-template pTemplate="caption" *ngIf="captionTemplate || title">
+    <div class="zyfra-table-title" *ngIf="title">{{title}}</div>
+    <ng-container *ngIf="captionTemplate">
+      <ng-container *ngTemplateOutlet="captionTemplate"></ng-container>
+    </ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="header" let-columns *ngIf="headerTemplate">
+    <ng-container *ngTemplateOutlet="headerTemplate; context: {
+      $implicit: columns
+    }"></ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns" *ngIf="bodyTemplate">
+    <ng-container *ngTemplateOutlet="bodyTemplate; context: {
+      $implicit: rowNode,
+      rowData: rowData,
+      columns: columns
+    }"></ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="footer" let-columns *ngIf="footerTemplate">
+    <ng-container *ngTemplateOutlet="footerTemplate; context: {
+      $implicit: columns
+    }"></ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="colgroup" let-columns *ngIf="colGroupTemplate">
+    <ng-container *ngTemplateOutlet="colGroupTemplate; context: {
+      $implicit: columns
+    }"></ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="summary" *ngIf="summaryTemplate">
+    <ng-container *ngTemplateOutlet="summaryTemplate"></ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="paginatorleft" *ngIf="paginatorLeftTemplate">
+    <ng-container *ngTemplateOutlet="paginatorLeftTemplate"></ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="paginatorright" *ngIf="paginatorRightTemplate">
+    <ng-container *ngTemplateOutlet="paginatorRightTemplate"></ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="paginatordropdownitem" *ngIf="paginatorDropdownItemTemplate">
+    <ng-container *ngTemplateOutlet="paginatorDropdownItemTemplate"></ng-container>
+  </ng-template>
+</p-treeTable>

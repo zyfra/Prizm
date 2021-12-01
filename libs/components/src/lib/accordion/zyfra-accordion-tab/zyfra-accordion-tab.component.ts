@@ -11,7 +11,7 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { ZyfraTemplateDirective } from '../../@shared/zyfra-template.directives';
+import { ZyfraTemplateDirective } from '../../@core/shared/zyfra-template.directives';
 import { AccordionTab } from 'primeng/accordion';
 
 @Component({
