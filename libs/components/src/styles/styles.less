@@ -6,6 +6,7 @@
 @import "../lib/confirm-dialog/zyfra-confirm-dialog.component.less";
 @import "../lib/hint/zyfra-hint.component";
 @import "../lib/input/zyfra-input.component";
+@import "../lib/input-number/zyfra-input-number.component";
 @import "../lib/input-switch/zyfra-input-switch.component";
 @import "../lib/password/zyfra-password.component";
 @import "../lib/message/zyfra-message.component";
@@ -24,6 +25,9 @@
 @import "../lib/breadcrumb/zyfra-breadcrumb.component";
 @import "../lib/menu-applications/zyfra-menu-applications.component";
 @import "../lib/datepicker/zyfra-datepicker.component";
+@import "../lib/split-button/zyfra-split-button.component";
+@import "../lib/table/zyfra-table.component";
+@import "../lib/nav-menu/components/zyfra-nav-menu/zyfra-nav-menu.component.less";
 
 // todo удалить после переноса всех компонентов в это репо
 /*
@@ -169,48 +173,48 @@
 //.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item {
 //  color: var(--standartFont);
 //}
-
-/* ============================= calendar ================================ */
-.p-datepicker,
-.p-datepicker:not(.p-datepicker-inline) {
-  background: var(--standartBg);
-  color: var(--standartFont);
-  border: 1px solid var(--standartBorder);
-  border-radius: .8rem;
-}
-
-.p-datepicker .p-datepicker-header,
-.p-datepicker:not(.p-datepicker-inline) .p-datepicker-header {
-  padding: 0.5rem;
-  color: var(--standartFont);
-  background: var(--standartBg);
-}
-
-.p-datepicker table td.p-datepicker-today > span.p-highlight,
-.p-datepicker table td.p-datepicker-today > span,
-.p-datepicker table td > span.p-highlight {
-  background: var(--z-accentColor);
-  color: var(--bgFont);
-  border-radius: 1.6rem;
-}
-
-.p-datepicker table td > span {
-  width: 3.2rem;
-  height: 3.2rem;
-  border-radius: 0;
-  border: none;
-}
-
-
-.p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover {
-  background: var(--calendarBgChecked);
-  opacity: 0.2;
-  color: var(--bgFont);
-}
-
-.p-datepicker table td {
-  padding: 0;
-}
+//
+///* ============================= calendar ================================ */
+//.p-datepicker,
+//.p-datepicker:not(.p-datepicker-inline) {
+//  background: var(--standartBg);
+//  color: var(--standartFont);
+//  border: 1px solid var(--standartBorder);
+//  border-radius: .8rem;
+//}
+//
+//.p-datepicker .p-datepicker-header,
+//.p-datepicker:not(.p-datepicker-inline) .p-datepicker-header {
+//  padding: 0.5rem;
+//  color: var(--standartFont);
+//  background: var(--standartBg);
+//}
+//
+//.p-datepicker table td.p-datepicker-today > span.p-highlight,
+//.p-datepicker table td.p-datepicker-today > span,
+//.p-datepicker table td > span.p-highlight {
+//  background: var(--z-accentColor);
+//  color: var(--bgFont);
+//  border-radius: 1.6rem;
+//}
+//
+//.p-datepicker table td > span {
+//  width: 3.2rem;
+//  height: 3.2rem;
+//  border-radius: 0;
+//  border: none;
+//}
+//
+//
+//.p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover {
+//  background: var(--calendarBgChecked);
+//  opacity: 0.2;
+//  color: var(--bgFont);
+//}
+//
+//.p-datepicker table td {
+//  padding: 0;
+//}
 
 /*
 .p-datepicker table td > span.p-highlight {
@@ -752,44 +756,44 @@
 //  }
 //}
 /* tabmenu */
-
-/* нужны ли?*/
-.p-badge.p-badge-success {
-  background-color: var(--successColor);
-}
-
-.p-badge.p-badge-warning {
-  background-color: var(--warningColor);
-}
-
-.p-badge.p-badge-danger {
-  background-color: var(--dangerColor);
-}
-
-.p-badge.p-badge-info {
-  background-color: var(--infoColor);
-}
-
-.danger {
-  color: var(--dangerColor);
-}
-
-.info {
-  color: var(--infoColor);
-}
-
-.warning {
-  color: var(--warningColor);
-}
-
-.success {
-  color: var(--successColor);
-}
-
-.marker::before {
-  font-size: 0.5rem;
-  line-height: 1rem;
-}
+//
+///* нужны ли?*/
+//.p-badge.p-badge-success {
+//  background-color: var(--successColor);
+//}
+//
+//.p-badge.p-badge-warning {
+//  background-color: var(--warningColor);
+//}
+//
+//.p-badge.p-badge-danger {
+//  background-color: var(--dangerColor);
+//}
+//
+//.p-badge.p-badge-info {
+//  background-color: var(--infoColor);
+//}
+//
+//.danger {
+//  color: var(--dangerColor);
+//}
+//
+//.info {
+//  color: var(--infoColor);
+//}
+//
+//.warning {
+//  color: var(--warningColor);
+//}
+//
+//.success {
+//  color: var(--successColor);
+//}
+//
+//.marker::before {
+//  font-size: 0.5rem;
+//  line-height: 1rem;
+//}
 
 
 /* =========================== splitter =======================  */
@@ -819,356 +823,356 @@
 //  }
 //}
 
-
-// Table
-
-.row-status(@rowColor, @markerColor) {
-  background-color: @rowColor;
-
-  &.zyfra-active-element {
-    background-color: @rowColor !important;
-    box-shadow: inset 4px 0 0 0 @markerColor;
-  }
-
-  &.p-highlight {
-    background-color: @rowColor;
-  }
-}
-
-.p-treetable,
-.p-datatable {
-  font-size: 13px;
-  box-shadow: 0 2px 8px rgba(102, 119, 153, 0.3);
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  overflow: hidden;
-
-  &:not(.zyfra-table_paginator) {
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-  }
-
-  table {
-    background-color: #ffffff;
-  }
-
-  .p-treetable-header,
-  .p-datatable-header {
-    display: flex;
-    justify-content: space-between;
-    background-color: #E7E9EF;
-    padding: 0 8px;
-    line-height: 48px;
-    color: #353E50;
-    border-width: 0 0 1px 0;
-    border-color: #CED3DE;
-
-    .zyfra-table-title {
-      font-size: 14px;
-      font-weight: 700;
-      padding-left: 16px;
-    }
-  }
-
-  .p-treetable-tbody > tr > td p-treetablecheckbox .p-checkbox .p-indeterminate .p-checkbox-icon {
-    color: var(--checkBox );
-  }
-
-  &.p-datatable-gridlines .p-datatable-thead > tr th,
-  &.p-datatable-gridlines .p-datatable-tbody > tr > td,
-  &.p-datatable-gridlines .p-datatable-tfoot > tr > td,
-  .p-treetable-thead > tr > th,
-  .p-treetable-tbody > tr > td,
-  .p-treetable-tfoot > tr > td {
-    &:first-child {
-      border-left-width: 0;
-    }
-
-    &:last-child {
-      border-right-width: 0;
-    }
-  }
-
-  &.p-datatable-gridlines .p-datatable-header,
-  .p-treetable-header {
-    border-width: 0 0 1px 0;
-  }
-
-  &.p-datatable-gridlines .p-datatable-thead > tr > th,
-  .p-treetable-thead > tr > th {
-    border-width: 0 1px 1px 1px;
-  }
-
-  tr,
-  th {
-    height: 32px;
-  }
-
-  .p-treetable-tbody > tr,
-  .p-datatable-tbody > tr {
-    background-color: #ffffff;
-    color: #495057;
-    transition: none;
-    outline: none;
-
-    &.row_status {
-      &-primary {
-        background-color: #ffffff;
-
-        &.zyfra-active-element {
-          background-color: #D8E9D9 !important;
-          box-shadow: inset 4px 0 0 0 #49AB4D;
-        }
-
-        &.p-highlight {
-          background-color: #D8E9D9;
-        }
-
-        &:hover {
-          background-color: rgb(216 233 217);
-        }
-      }
-
-      &-warning {
-        .row-status(#F5DFCC, #FF8214);
-      }
-
-      &-error {
-        .row-status(#F1D0D0, #EA3E3E);
-      }
-
-      &-info {
-        .row-status(#D2EFEC, #1FAD9F);
-      }
-    }
-
-    > td {
-      padding: 6px 8px;
-    }
-  }
-
-  .p-treetable-thead > tr,
-  .p-datatable-thead > tr {
-    th {
-      padding: 6px 8px;
-      line-height: 18px;
-      background-color: #E7E9EF;
-      color: #353E50;
-
-      &.search-cell {
-        position: relative;
-        padding: 0 8px;
-        background-color: #ffffff;
-
-        .search-cell__input {
-          width: 100%;
-          background: transparent;
-          border: none;
-          min-height: 32px;
-          outline: none;
-          padding: 0 29px 0 0;
-        }
-
-        .search-cell__icon {
-          position: absolute;
-          right: 11px;
-          top: calc(50% - 8px);
-          font-size: 18px;
-          color: #BCC3D2;
-        }
-      }
-    }
-  }
-
-  &.p-datatable-gridlines .p-datatable-tfoot,
-  .p-treetable-tfoot {
-    > tr > td {
-      border-width: 1px 1px 0 1px;
-    }
-  }
-
-  &.p-datatable-scrollable .p-datatable-tbody > tr > td,
-  &.p-datatable-scrollable .p-datatable-tfoot > tr > td,
-  &.p-datatable-scrollable .p-datatable-thead > tr > th {
-    border-bottom: 0;
-    border-right: 0;
-  }
-
-  .p-treetable-tfoot > tr > td,
-  .p-datatable-tfoot > tr > td {
-    background-color: #E7E9EF;
-    padding: 6px 8px;
-    line-height: 18px;
-    color: #353E50;
-    border-color: #CED3DE;
-  }
-
-  .p-treetable-thead > tr > th,
-  .p-treetable-tbody > tr > td,
-  .p-datatable-thead > tr > th,
-  .p-datatable-tbody > tr > td {
-    border-color: #CED3DE;
-  }
-
-  .pi-chevron-right,
-  .pi-chevron-down {
-    font-size: 10px;
-    font-weight: 600;
-    color: #7887A5;
-  }
-
-  .p-paginator {
-    justify-content: flex-start;
-    padding: 10px 20px;
-    box-shadow: 0px -2px 8px rgba(102, 119, 153, 0.16);
-  }
-
-  .p-checkbox,
-  .p-checkbox .p-checkbox-box {
-    width: 16px;
-    height: 16px;
-  }
-
-  .p-sortable-column {
-    .p-sortable-column-icon {
-      color: #7887A5;
-      margin-left: 6px;
-      float: right;
-    }
-
-    .p-sortable-column-badge {
-      display: none !important;
-    }
-
-    &.p-highlight {
-      background-color: #e7e9ef;
-
-      .p-sortable-column-icon {
-        color: #49AB4D;
-      }
-
-      &:hover {
-        background-color: #e7e9ef;
-
-        .p-sortable-column-icon {
-          color: #49AB4D;
-        }
-      }
-
-      &:focus {
-        box-shadow: none;
-        outline: none;
-      }
-    }
-
-    &:focus {
-      box-shadow: none;
-      outline: none;
-    }
-
-    &:not(.p-highlight):hover {
-      background-color: #e7e9ef;
-      color: #353E50;
-
-      .p-sortable-column-icon {
-        color: #49AB4D;
-      }
-    }
-  }
-
-  &.p-datatable-hoverable-rows .p-datatable-tbody,
-  &.p-treetable-hoverable-rows .p-treetable-tbody {
-    > tr:not(.p-highlight):hover {
-      background-color: rgb(216, 233, 217);
-      color: #353E50;
-    }
-  }
-
-  .p-column-filter {
-    .p-column-filter-menu-button.p-column-filter-menu-button-open,
-    .p-column-filter-menu-button.p-column-filter-menu-button-open:hover {
-      color: #49AB4D !important;
-    }
-
-    .p-column-filter-menu-button.p-column-filter-menu-button-active,
-    .p-column-filter-menu-button.p-column-filter-menu-button-active:hover {
-      color: #49AB4D !important;
-      background-color: transparent;
-    }
-
-    .p-column-filter-menu-button {
-      width: 19px;
-      height: 19px;
-      color: #7887A5;
-
-      &:hover {
-        color: #49AB4D;
-      }
-
-      &:focus {
-        box-shadow: none;
-      }
-    }
-  }
-
-  p-columnfilter {
-    display: flex;
-  }
-}
-
-.p-column-filter-overlay {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(102, 119, 153, 0.24);
-  border: none;
-}
-
-.p-column-filter-overlay-menu .p-column-filter-operator {
-  border: none;
-  background-color: #E7E9EF;
-}
-
-.p-datatable {
-  .zyfra-row-toggler {
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-  }
-
-  .p-sortable-column .p-sortable-column-badge {
-    background: #c5cbce;
-    margin-left: 8px;
-  }
-}
-
-.p-treetable {
-  .p-treetable-scrollable-header,
-  .p-treetable .p-treetable-scrollable-footer {
-    background-color: #E7E9EF;
-  }
-
-  .p-treetable-header {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .p-treetable-tbody {
-    > tr {
-      > td {
-        .p-treetable-toggler {
-          width: 12px;
-          height: 12px;
-          margin-right: 12px;
-
-          &:focus {
-            box-shadow: none;
-          }
-        }
-      }
-    }
-  }
-}
+//
+//// Table
+//
+//.row-status(@rowColor, @markerColor) {
+//  background-color: @rowColor;
+//
+//  &.zyfra-active-element {
+//    background-color: @rowColor !important;
+//    box-shadow: inset 4px 0 0 0 @markerColor;
+//  }
+//
+//  &.p-highlight {
+//    background-color: @rowColor;
+//  }
+//}
+//
+//.p-treetable,
+//.p-datatable {
+//  font-size: 13px;
+//  box-shadow: 0 2px 8px rgba(102, 119, 153, 0.3);
+//  border-top-left-radius: 8px;
+//  border-top-right-radius: 8px;
+//  overflow: hidden;
+//
+//  &:not(.zyfra-table_paginator) {
+//    border-bottom-left-radius: 8px;
+//    border-bottom-right-radius: 8px;
+//  }
+//
+//  table {
+//    background-color: #ffffff;
+//  }
+//
+//  .p-treetable-header,
+//  .p-datatable-header {
+//    display: flex;
+//    justify-content: space-between;
+//    background-color: #E7E9EF;
+//    padding: 0 8px;
+//    line-height: 48px;
+//    color: #353E50;
+//    border-width: 0 0 1px 0;
+//    border-color: #CED3DE;
+//
+//    .zyfra-table-title {
+//      font-size: 14px;
+//      font-weight: 700;
+//      padding-left: 16px;
+//    }
+//  }
+//
+//  .p-treetable-tbody > tr > td p-treetablecheckbox .p-checkbox .p-indeterminate .p-checkbox-icon {
+//    color: var(--checkBox );
+//  }
+//
+//  &.p-datatable-gridlines .p-datatable-thead > tr th,
+//  &.p-datatable-gridlines .p-datatable-tbody > tr > td,
+//  &.p-datatable-gridlines .p-datatable-tfoot > tr > td,
+//  .p-treetable-thead > tr > th,
+//  .p-treetable-tbody > tr > td,
+//  .p-treetable-tfoot > tr > td {
+//    &:first-child {
+//      border-left-width: 0;
+//    }
+//
+//    &:last-child {
+//      border-right-width: 0;
+//    }
+//  }
+//
+//  &.p-datatable-gridlines .p-datatable-header,
+//  .p-treetable-header {
+//    border-width: 0 0 1px 0;
+//  }
+//
+//  &.p-datatable-gridlines .p-datatable-thead > tr > th,
+//  .p-treetable-thead > tr > th {
+//    border-width: 0 1px 1px 1px;
+//  }
+//
+//  tr,
+//  th {
+//    height: 32px;
+//  }
+//
+//  .p-treetable-tbody > tr,
+//  .p-datatable-tbody > tr {
+//    background-color: #ffffff;
+//    color: #495057;
+//    transition: none;
+//    outline: none;
+//
+//    &.row_status {
+//      &-primary {
+//        background-color: #ffffff;
+//
+//        &.zyfra-active-element {
+//          background-color: #D8E9D9 !important;
+//          box-shadow: inset 4px 0 0 0 #49AB4D;
+//        }
+//
+//        &.p-highlight {
+//          background-color: #D8E9D9;
+//        }
+//
+//        &:hover {
+//          background-color: rgb(216 233 217);
+//        }
+//      }
+//
+//      &-warning {
+//        .row-status(#F5DFCC, #FF8214);
+//      }
+//
+//      &-error {
+//        .row-status(#F1D0D0, #EA3E3E);
+//      }
+//
+//      &-info {
+//        .row-status(#D2EFEC, #1FAD9F);
+//      }
+//    }
+//
+//    > td {
+//      padding: 6px 8px;
+//    }
+//  }
+//
+//  .p-treetable-thead > tr,
+//  .p-datatable-thead > tr {
+//    th {
+//      padding: 6px 8px;
+//      line-height: 18px;
+//      background-color: #E7E9EF;
+//      color: #353E50;
+//
+//      &.search-cell {
+//        position: relative;
+//        padding: 0 8px;
+//        background-color: #ffffff;
+//
+//        .search-cell__input {
+//          width: 100%;
+//          background: transparent;
+//          border: none;
+//          min-height: 32px;
+//          outline: none;
+//          padding: 0 29px 0 0;
+//        }
+//
+//        .search-cell__icon {
+//          position: absolute;
+//          right: 11px;
+//          top: calc(50% - 8px);
+//          font-size: 18px;
+//          color: #BCC3D2;
+//        }
+//      }
+//    }
+//  }
+//
+//  &.p-datatable-gridlines .p-datatable-tfoot,
+//  .p-treetable-tfoot {
+//    > tr > td {
+//      border-width: 1px 1px 0 1px;
+//    }
+//  }
+//
+//  &.p-datatable-scrollable .p-datatable-tbody > tr > td,
+//  &.p-datatable-scrollable .p-datatable-tfoot > tr > td,
+//  &.p-datatable-scrollable .p-datatable-thead > tr > th {
+//    border-bottom: 0;
+//    border-right: 0;
+//  }
+//
+//  .p-treetable-tfoot > tr > td,
+//  .p-datatable-tfoot > tr > td {
+//    background-color: #E7E9EF;
+//    padding: 6px 8px;
+//    line-height: 18px;
+//    color: #353E50;
+//    border-color: #CED3DE;
+//  }
+//
+//  .p-treetable-thead > tr > th,
+//  .p-treetable-tbody > tr > td,
+//  .p-datatable-thead > tr > th,
+//  .p-datatable-tbody > tr > td {
+//    border-color: #CED3DE;
+//  }
+//
+//  .pi-chevron-right,
+//  .pi-chevron-down {
+//    font-size: 10px;
+//    font-weight: 600;
+//    color: #7887A5;
+//  }
+//
+//  .p-paginator {
+//    justify-content: flex-start;
+//    padding: 10px 20px;
+//    box-shadow: 0px -2px 8px rgba(102, 119, 153, 0.16);
+//  }
+//
+//  .p-checkbox,
+//  .p-checkbox .p-checkbox-box {
+//    width: 16px;
+//    height: 16px;
+//  }
+//
+//  .p-sortable-column {
+//    .p-sortable-column-icon {
+//      color: #7887A5;
+//      margin-left: 6px;
+//      float: right;
+//    }
+//
+//    .p-sortable-column-badge {
+//      display: none !important;
+//    }
+//
+//    &.p-highlight {
+//      background-color: #e7e9ef;
+//
+//      .p-sortable-column-icon {
+//        color: #49AB4D;
+//      }
+//
+//      &:hover {
+//        background-color: #e7e9ef;
+//
+//        .p-sortable-column-icon {
+//          color: #49AB4D;
+//        }
+//      }
+//
+//      &:focus {
+//        box-shadow: none;
+//        outline: none;
+//      }
+//    }
+//
+//    &:focus {
+//      box-shadow: none;
+//      outline: none;
+//    }
+//
+//    &:not(.p-highlight):hover {
+//      background-color: #e7e9ef;
+//      color: #353E50;
+//
+//      .p-sortable-column-icon {
+//        color: #49AB4D;
+//      }
+//    }
+//  }
+//
+//  &.p-datatable-hoverable-rows .p-datatable-tbody,
+//  &.p-treetable-hoverable-rows .p-treetable-tbody {
+//    > tr:not(.p-highlight):hover {
+//      background-color: rgb(216, 233, 217);
+//      color: #353E50;
+//    }
+//  }
+//
+//  .p-column-filter {
+//    .p-column-filter-menu-button.p-column-filter-menu-button-open,
+//    .p-column-filter-menu-button.p-column-filter-menu-button-open:hover {
+//      color: #49AB4D !important;
+//    }
+//
+//    .p-column-filter-menu-button.p-column-filter-menu-button-active,
+//    .p-column-filter-menu-button.p-column-filter-menu-button-active:hover {
+//      color: #49AB4D !important;
+//      background-color: transparent;
+//    }
+//
+//    .p-column-filter-menu-button {
+//      width: 19px;
+//      height: 19px;
+//      color: #7887A5;
+//
+//      &:hover {
+//        color: #49AB4D;
+//      }
+//
+//      &:focus {
+//        box-shadow: none;
+//      }
+//    }
+//  }
+//
+//  p-columnfilter {
+//    display: flex;
+//  }
+//}
+//
+//.p-column-filter-overlay {
+//  background-color: #ffffff;
+//  border-radius: 8px;
+//  box-shadow: 0 8px 32px rgba(102, 119, 153, 0.24);
+//  border: none;
+//}
+//
+//.p-column-filter-overlay-menu .p-column-filter-operator {
+//  border: none;
+//  background-color: #E7E9EF;
+//}
+//
+//.p-datatable {
+//  .zyfra-row-toggler {
+//    background: none;
+//    border: none;
+//    outline: none;
+//    cursor: pointer;
+//  }
+//
+//  .p-sortable-column .p-sortable-column-badge {
+//    background: #c5cbce;
+//    margin-left: 8px;
+//  }
+//}
+//
+//.p-treetable {
+//  .p-treetable-scrollable-header,
+//  .p-treetable .p-treetable-scrollable-footer {
+//    background-color: #E7E9EF;
+//  }
+//
+//  .p-treetable-header {
+//    display: flex;
+//    justify-content: space-between;
+//  }
+//
+//  .p-treetable-tbody {
+//    > tr {
+//      > td {
+//        .p-treetable-toggler {
+//          width: 12px;
+//          height: 12px;
+//          margin-right: 12px;
+//
+//          &:focus {
+//            box-shadow: none;
+//          }
+//        }
+//      }
+//    }
+//  }
+//}
 //
 ///* progress bar */
 //.p-progressbar {
@@ -1253,130 +1257,130 @@
 //    animation: p-progress-spinner-dash 1.5s ease-in-out infinite;
 //  }
 //}
-
-/* menu applications */
-.menu-applications {
-  @menuOpenWidth: 408px;
-  @menuCloseWidth: 48px;
-
-  width: @menuCloseWidth;
-  height: 100%;
-  transition-property: min-width;
-  background-color: var(--menuAppBg);
-  overflow: hidden;
-  font-family: 'Inter', sans-serif;
-
-  .menu-splitter {
-    height: 100%;
-
-    &__panel {
-      min-height: @menuCloseWidth;
-      overflow-y: auto;
-      overflow-x: hidden;
-
-      &:nth-child(1) {
-        min-height: 66.66%;
-      }
-    }
-  }
-
-  .menu-applications-list {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    height: fit-content;
-
-    &__bottom {
-      margin-top: auto;
-    }
-  }
-
-  &_closed {
-    min-width: @menuCloseWidth;
-  }
-
-  &_opened {
-    min-width: @menuOpenWidth;
-  }
-
-  &-hint {
-    max-width: 440px;
-    color: #353E50;
-
-    &__title {
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    &__desc {
-      font-size: 13px;
-    }
-  }
-
-  &-wrapper {
-    min-width: @menuOpenWidth;
-    height: 100%;
-  }
-
-  .zyfra-menu-applications-item {
-    @menuItemWidth: 48px;
-    @menuItemHeight: 48px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: var(--menuAppItemColor);
-    min-height: @menuItemHeight;
-    height: @menuItemHeight;
-    border-bottom: 1px solid var(--menuAppItemBorder);
-    overflow: hidden;
-
-    &__wrapper {
-      display: flex;
-      align-items: center;
-    }
-
-    zyfra-icon.zyfra-menu-applications-item__arrow {
-      display: flex;
-      justify-content: center;
-      min-width: 40px;
-      width: 40px;
-      height: auto;
-      margin-right: 4px;
-      font-size: 20px;
-      color: var(--menuAppItemArrowColor);
-    }
-
-    &_active,
-    &:hover {
-      background-color: var(--menuAppItemActiveBg);
-      box-shadow: var(--menuAppItemActiveShadow);
-      color: var(--menuAppItemActiveColor);
-
-      .zyfra-menu-applications-item__arrow {
-        color: var(--menuAppItemActiveIconColor);
-      }
-    }
-
-    zyfra-icon.zyfra-menu-applications-item__icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      min-width: @menuItemWidth;
-      width: @menuItemWidth;
-      height: @menuItemHeight;
-      color: var(--menuAppItemIconColor);
-    }
-
-    &__title {
-      width: 100%;
-      font-size: 13px;
-      margin-left: 8px;
-      cursor: default;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow-x: hidden;
-    }
-  }
-}
+//
+///* menu applications */
+//.menu-applications {
+//  @menuOpenWidth: 408px;
+//  @menuCloseWidth: 48px;
+//
+//  width: @menuCloseWidth;
+//  height: 100%;
+//  transition-property: min-width;
+//  background-color: var(--menuAppBg);
+//  overflow: hidden;
+//  font-family: 'Inter', sans-serif;
+//
+//  .menu-splitter {
+//    height: 100%;
+//
+//    &__panel {
+//      min-height: @menuCloseWidth;
+//      overflow-y: auto;
+//      overflow-x: hidden;
+//
+//      &:nth-child(1) {
+//        min-height: 66.66%;
+//      }
+//    }
+//  }
+//
+//  .menu-applications-list {
+//    width: 100%;
+//    margin: 0;
+//    padding: 0;
+//    height: fit-content;
+//
+//    &__bottom {
+//      margin-top: auto;
+//    }
+//  }
+//
+//  &_closed {
+//    min-width: @menuCloseWidth;
+//  }
+//
+//  &_opened {
+//    min-width: @menuOpenWidth;
+//  }
+//
+//  &-hint {
+//    max-width: 440px;
+//    color: #353E50;
+//
+//    &__title {
+//      font-size: 14px;
+//      font-weight: 700;
+//    }
+//
+//    &__desc {
+//      font-size: 13px;
+//    }
+//  }
+//
+//  &-wrapper {
+//    min-width: @menuOpenWidth;
+//    height: 100%;
+//  }
+//
+//  .zyfra-menu-applications-item {
+//    @menuItemWidth: 48px;
+//    @menuItemHeight: 48px;
+//
+//    display: flex;
+//    align-items: center;
+//    justify-content: space-between;
+//    color: var(--menuAppItemColor);
+//    min-height: @menuItemHeight;
+//    height: @menuItemHeight;
+//    border-bottom: 1px solid var(--menuAppItemBorder);
+//    overflow: hidden;
+//
+//    &__wrapper {
+//      display: flex;
+//      align-items: center;
+//    }
+//
+//    zyfra-icon.zyfra-menu-applications-item__arrow {
+//      display: flex;
+//      justify-content: center;
+//      min-width: 40px;
+//      width: 40px;
+//      height: auto;
+//      margin-right: 4px;
+//      font-size: 20px;
+//      color: var(--menuAppItemArrowColor);
+//    }
+//
+//    &_active,
+//    &:hover {
+//      background-color: var(--menuAppItemActiveBg);
+//      box-shadow: var(--menuAppItemActiveShadow);
+//      color: var(--menuAppItemActiveColor);
+//
+//      .zyfra-menu-applications-item__arrow {
+//        color: var(--menuAppItemActiveIconColor);
+//      }
+//    }
+//
+//    zyfra-icon.zyfra-menu-applications-item__icon {
+//      display: flex;
+//      align-items: center;
+//      justify-content: center;
+//      font-size: 22px;
+//      min-width: @menuItemWidth;
+//      width: @menuItemWidth;
+//      height: @menuItemHeight;
+//      color: var(--menuAppItemIconColor);
+//    }
+//
+//    &__title {
+//      width: 100%;
+//      font-size: 13px;
+//      margin-left: 8px;
+//      cursor: default;
+//      white-space: nowrap;
+//      text-overflow: ellipsis;
+//      overflow-x: hidden;
+//    }
+//  }
+//}

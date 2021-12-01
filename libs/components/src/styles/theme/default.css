@@ -126,9 +126,9 @@
   --standartBorder: #e7e9ef;
 
   /* --------- for color bg ----------- */
-  --z-accentColor: #49AB4D;
-  --standartActive: #37813A;
-  --bgFont: var(--bgStandart);
+  --z-accentColor: var(--buttonSuccessHover);
+  --standartActive: var(--successColorActive);
+  --bgFont: var(--textColor);
 
   /* ------- font for/in input -------- */
   --inputFont: #afb8ca;
@@ -229,4 +229,37 @@
   --accordionBodyBg: #f3f4f7;
   --accordiondButtonColor: #7887a5;
   --accordionDisabledButtonColor: #bcc3d2;
+
+  /* table */
+  --tableHeaderBg: #E7E9EF;
+  --tableBorderRadius: 8px;
+  --tableBorder: #CED3DE;
+  --tableActiveRowBg: #D8E9D9;
+  --tableActiveIcon: #49AB4D;
+  --tableStripedRowBg: #F9FAFB;
+
+  --tablePrimaryRowBg: #ffffff;
+  --tablePrimaryMarker: #49AB4D;
+  --tablePrimaryBorder: #DADEE7;
+
+  --tableWarningRowBg: #F5DFCC;
+  --tableWarningMarker: #FF8214;
+  --tableWarningBorder: #DADEE7;
+
+  --tableErrorRowBg: #F1D0D0;
+  --tableErrorMarker: #EA3E3E;
+  --tableErrorBorder: #DADEE7;
+
+  --tableInfoRowBg: #D2EFEC;
+  --tableInfoMarker: #1FAD9F;
+  --tableInfoBorder: #DADEE7;
+
+  /* nav menu */
+  --navMenuBg: #252B37;
+  --navMenuFont: var(--textColor);
+  --navMenuIcon: #A3ADC2;
+  --navMenuIconHover: var(--successColorHover);
+  --navMenuItemActiveMarker: var(--successColorHover);
+  --navMenuItemBorder: #212631;
+  --navMenuItemHover: linear-gradient(0deg, rgba(61, 143, 64, 0.2), rgba(61, 143, 64, 0.2)), var(--navMenuBg);
 }

@@ -312,6 +312,7 @@ export const IconDefs = [
     {
         "dir": "chevrons",
         "data": [
+            "chevrons-close-all",
             "chevrons-double-down",
             "chevrons-double-left",
             "chevrons-double-right",
@@ -559,6 +560,7 @@ export const IconDefs = [
             "files-in-om",
             "files-loader",
             "files-mnemo",
+            "files-mode",
             "files-multi",
             "files-powerpoint",
             "files-upload",
@@ -580,12 +582,6 @@ export const IconDefs = [
             "finance-qr-code",
             "finance-scanner",
             "finance-wallet"
-        ]
-    },
-    {
-        "dir": "folder",
-        "data": [
-            "folder-mode"
         ]
     },
     {
