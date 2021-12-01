@@ -6,7 +6,6 @@ import { ZyfraSplitterModule } from '../splitter';
 import { APP_BASE_HREF } from '@angular/common';
 import { basic, basicWithIcons, subItems, subItemsRubricator } from './dataForStories';
 import { BadgeModule } from 'primeng/badge';
-import { ZyfraSharedModule } from '../@shared/zyfra-shared.module';
 import { NavigationEnd, Router, RouterModule, Routes } from '@angular/router';
 import {
   AfterViewInit,
@@ -18,7 +17,8 @@ import {
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { filter, take, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { ZyfraTemplateDirective } from '../@shared/zyfra-template.directives';
+import { ZyfraTemplateDirective } from '../@core/shared/zyfra-template.directives';
+import { ZyfraSharedModule } from '../@core/shared/zyfra-shared.module';
 
 @Component({ template: 'Страница 1' })
 class Page1Component {}
@@ -98,7 +98,7 @@ const actions = {
 
 const BasicTemplate: Story = (args) => ({
   template:
-      `<wrapper>      
+      `<wrapper>
           <ng-template zyfraTemplate>
               <zyfra-splitter layout="horizontal" [panelSizes]="[25,75]" [style]="{ height: '600px' }">
                   <ng-template zyfraSplitterTemplate>
@@ -163,7 +163,7 @@ EnlargedSize.args = {
 
 const ExtraItemTemplate: Story = (args) => ({
   template:
-      `<wrapper>      
+      `<wrapper>
           <ng-template zyfraTemplate>
               <zyfra-splitter layout="horizontal" [panelSizes]="[25,75]" [style]="{ height: '600px' }">
                   <ng-template zyfraSplitterTemplate>
@@ -176,16 +176,16 @@ const ExtraItemTemplate: Story = (args) => ({
                                       (activeItemChange)="activeItemChange($event)"
                                       (selectionChange)="selectionChange($event)"
                                       (homeClick)="homeClick($event)">
-          
+
                            <ng-template let-item zyfraTemplate='menuitem'>
                                   <p-badge *ngIf="item?.badge" styleClass="p-badge-dot" [severity]="item.badge"></p-badge>
                           </ng-template>
-          
+
                           <ng-template zyfraTemplate='toolbar'>
                               <i class="toolbar-button zyfra-icon files-upload"></i>
                               <i class="toolbar-button zyfra-icon files-download"></i>
                           </ng-template>
-                          
+
                           <ng-template zyfraTemplate='header'>
                               <i class="toolbar-button zyfra-icon charts-pie"></i>
                           </ng-template>
@@ -268,7 +268,7 @@ RubricatorMode.args = {
 
 const GroupPanelTemplate: Story = (args) => ({
   template:
-      `<wrapper>      
+      `<wrapper>
           <ng-template zyfraTemplate>
               <zyfra-splitter layout="horizontal" [panelSizes]="[25,75]" [style]="{ height: '600px' }">
                   <ng-template zyfraSplitterTemplate>
@@ -286,11 +286,11 @@ const GroupPanelTemplate: Story = (args) => ({
                       <ng-template zyfraNavMenuGroup
                                    [header]="header1"
                                    [items]="items1"></ng-template>
-                        
+
                       <ng-template zyfraNavMenuGroup
                                    [header]="header2"
                                    [items]="items2"></ng-template>
-                      
+
                       <ng-template zyfraNavMenuGroup
                                    [header]="header3"
                                    [items]="items3"></ng-template>
