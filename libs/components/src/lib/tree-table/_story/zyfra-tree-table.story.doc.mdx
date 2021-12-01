@@ -1,0 +1,52 @@
+import { Meta, Story, Canvas, ArgsTable, ColorPalette, ColorItem, Preview, Typeset, Title, Subtitle, Description } from '@storybook/addon-docs';
+import { ZyfraTreeTableComponent } from '../tree-table.component';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+
+## Zyfra - TreeTable
+
+<Description of={ZyfraTreeTableComponent}>TreeTable is used to display hierarchical data in tabular format.</Description>
+
+Import module:
+
+```typescript
+import { ZyfraTreeTableModule } from '@digital-plant/zyfra-components';
+
+@NgModule({
+  imports: [
+    ZyfraTableModule,
+  ]
+})
+export class YourModule {}
+```
+
+Component example:
+
+```html
+<zyfra-tree-table
+  [value]="value"
+  [columns]="columns"
+  [title]="title"
+  (onNodeExpand)="onNodeExpand($event)"
+  (onNodeCollapse)="onNodeCollapse($event)"
+>
+  <ng-template zyfraTableTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">{{ col.header }}</th>
+    </tr>
+  </ng-template>
+
+  <ng-template zyfraTableTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+    <tr [zyfraRow]="rowData">
+      <td *ngFor="let col of columns; let i = index">
+        <zyfra-tree-table-toggler [rowNode]="rowNode" *ngIf="i === 0"></zyfra-tree-table-toggler>
+        <span>{{ rowData[col.field ]}}</span>
+      </td>
+    </tr>
+  </ng-template>
+</zyfra-tree-table>
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraTreeTableComponent} />
