@@ -1,0 +1,61 @@
+<p-tree #headerToolbar
+        filterBy="label"
+        filterMode="strict"
+        [value]="viewNodes"
+        [class.folder-open]="viewMode === 'folder' && currentFolder"
+        [emptyMessage]="'<Нет данных для отображения>'"
+        [selectionMode]="selectionMode"
+        [filterPlaceholder]="searchPlaceholder"
+        (selectionChange)="selectionChangeHandler($event)"
+        (onNodeCollapse)="nodeCollapseHandler($event.node)"
+        (onNodeExpand)="nodeExpandHandler($event.node)">
+
+    <ng-template *ngIf="isToolbarNotEmpty || toolbarExtra" pTemplate="header">
+        <div class="header header-toolbar">
+            <div class="right-side">
+                <ng-container *ngTemplateOutlet="toolbarExtra"></ng-container>
+                <i *ngIf="toolbarConfig.filesMode" class="toolbar-button zyfra-icon files-mode"
+                   [class.active]="viewMode === 'folder'"
+                   (click)="changeViewMode('folder')"></i>
+                <i *ngIf="toolbarConfig.rubricatorMode" class="toolbar-button zyfra-icon editor-alfavit"
+                   [class.active]="viewMode === 'rubricator'"
+                   (click)="changeViewMode('rubricator')"></i>
+                <i *ngIf="toolbarConfig.closeAll" class="toolbar-button zyfra-icon chevrons-close-all"
+                   (click)="closeAll()"></i>
+                <i *ngIf="toolbarConfig.search" class="toolbar-button zyfra-icon sort-zoom-in"
+                   [class.active]="search"
+                   (click)="toggleSearch()"></i>
+            </div>
+        </div>
+
+        <div *ngIf="search"
+             class="header header-search-bar">
+            <span class="search-bar p-input-icon-left p-input-icon-right">
+                <i class="toolbar-button zyfra-icon sort-zoom-in"></i>
+                <i class="toolbar-button zyfra-icon tools-broom"
+                   [class.hidden]="!searchField.value"
+                   (click)="clearSearchField(searchField)"></i>
+                <input #searchField
+                       class="search-bar-field"
+                       pInputText
+                       zyfraAutofocus
+                       type="text"
+                       [placeholder]="searchPlaceholder"
+                       (input)="changeSearchValue($event.target.value)"/>
+            </span>
+        </div>
+    </ng-template>
+
+    <ng-template let-node pTemplate="default">
+        <zyfra-nav-menu-item [item]="node.data"
+                             (itemClick)="setActiveNode(node)" [itemExtra]="itemExtra">
+        </zyfra-nav-menu-item>
+    </ng-template>
+</p-tree>
+
+<ng-template #folderIcons>
+    <div class="folder-icons" [class.visible]="this.viewMode === 'folder' && currentFolder">
+        <i class="toolbar-button zyfra-icon arrows-corner-left-up" (click)="toLevelUp()"></i>
+        <i class="toolbar-button zyfra-icon arrows-arrow-up-level" (click)="toTop()"></i>
+    </div>
+</ng-template>
