@@ -91,13 +91,15 @@
 }
 
 .p-slidemenu {
+
   &.p-slidemenu-overlay {
     margin-top: 4px;
     overflow: hidden;
     background: var(--tabviewBg);
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     box-shadow: var(--shadow-big);
+    width: initial;
   }
 
   .p-slidemenu-wrapper {
@@ -113,15 +115,14 @@
     background: var(--headerTabBg);
     color: var(--standartFont);
     font-size: 14px;
-    line-height: 40px;
     font-weight: 700;
     text-align: center;
+    line-height: 1;
 
     &-icon {
       position: absolute;
       left: 0;
       width: 40px;
-      line-height: 40px;
       color: var(--navControl);
 
       &:before {
@@ -132,8 +133,11 @@
 
   .p-menuitem-link {
     height: 44px;
-    margin: 4px 0;
     padding: 12px 24px;
+
+    &:focus {
+      box-shadow: none;
+    }
 
     &:not(.p-disabled):hover {
       background: var(--tabListItemHover);

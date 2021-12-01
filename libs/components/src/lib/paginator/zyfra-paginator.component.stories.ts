@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { moduleMetadata } from '@storybook/angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { ZyfraPaginatorComponent } from './zyfra-paginator.component';
 import { ZyfraPaginatorModule } from './zyfra-paginator.module';
@@ -10,7 +11,7 @@ export default {
   component: ZyfraPaginatorComponent,
   decorators: [
     moduleMetadata({
-      imports: [CommonModule, ZyfraPaginatorModule],
+      imports: [BrowserAnimationsModule, CommonModule, ZyfraPaginatorModule],
     }),
   ],
   parameters: {

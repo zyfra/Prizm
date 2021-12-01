@@ -35,7 +35,7 @@ export class ZyfraConfirmDialogComponent implements OnInit {
   @Input() maskStyleClass: string;
   @Input() blockScroll: boolean = true;
   @Input() closeOnEscape: boolean = true;
-  @Input() closable: boolean = true;
+  @Input() closable: boolean = false;
   @Input() focusTrap: boolean = true;
   @Input() appendTo: any;
   @Input() dismissableMask: boolean;
