@@ -90,6 +90,12 @@
     &:disabled {
       pointer-events: none;
     }
+    &:focus,&:hover {
+      outline: none;
+      .zyfra-icon {
+        color: var(--buttonSuccessHover);
+      }
+    }
   }
 
   p-calendar {

@@ -1,1 +1,28 @@
-<p>zyfra-relative-datepicker works!</p>
+<div class="zyfra-datepicker">
+    <zyfra-input
+      style='order: 1'
+      type="text"
+      [formControl]='value'
+      [placeholder]="placeholder"
+      [label]="label"
+      [inputClass]="{
+        'ng-invalid': !!value?.invalid,
+        'ng-valid': !!value?.valid,
+        'ng-dirty': !!value?.dirty,
+        'ng-touched': !!value?.touched
+      }"
+    >
+
+      <div right>
+        <button (click)="op.toggle($event)" class="zyfra-datepicker-control zyfra-datepicker-button">
+          <i class="zyfra-icon date-clock"></i>
+        </button>
+
+        <p-overlayPanel #op>
+          <ng-template pTemplate> Content </ng-template>
+        </p-overlayPanel>
+      </div>
+
+    </zyfra-input>
+
+</div>

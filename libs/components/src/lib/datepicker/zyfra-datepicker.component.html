@@ -1,14 +1,12 @@
 <div class="zyfra-datepicker">
   <div
     class="zyfra-datepicker-controls"
-    [ngClass]="{
-      'visible-clear': showClear,
-      'visible-date': timeMode === DatePickerMode.absolute && showDate,
-      'visible-time': timeMode === DatePickerMode.absolute && showTime,
-      'visible-change-mode': showChangeMode,
-      'visible-relative': timeMode === DatePickerMode.relative
-    }"
+    [ngClass]="{'visible-clear': showClear,
+      'visible-date': showDate,
+      'visible-time': showTime,
+      'visible-change-mode': showChangeMode}"
   >
+    <!--      'visible-relative': timeMode === DatePickerMode.relative-->
     <button
       *ngIf="showClear"
       (click)="clearValue()"
@@ -17,7 +15,7 @@
     >
       <i class="zyfra-icon tools-broom"></i>
     </button>
-    <ng-container *ngIf="timeMode === DatePickerMode.absolute; else relativeTmpl">
+    <ng-container>
       <div class="zyfra-datepicker-control" *ngIf="showDate">
         <button [disabled]="disabled" class="zyfra-datepicker-button" (click)="openCalendar($event)">
           <i class="zyfra-icon date-calendar-blank"></i>
@@ -69,9 +67,9 @@
     <zyfra-dropdown
       *ngIf="showChangeMode"
       class="zyfra-datepicker-control zyfra-datepicker-dropdown"
-      [value]="timeMode"
+      [value]="absoluteTimeMode"
       [options]="$any(modes)"
-      (valueChange)="setMode($event)"
+      (valueChange)="onChangeTimeMode($event)"
       [disabled]="disabled"
       [panelStyleClass]="'zyfra-datepicker-dropdown-overlay'"
       [styleClass]="'zyfra-datepicker-dropdown'"
@@ -84,7 +82,7 @@
           <zyfra-radio-button
             [name]="'groupname'"
             [value]="modeType.value"
-            [ngModel]="timeMode"
+            [ngModel]="absoluteTimeMode"
           ></zyfra-radio-button>
           <i
             class="zyfra-icon date-update"
@@ -115,17 +113,17 @@
     [disabled]="disabled"
   >
   </zyfra-input>
-  <ng-template #relativeTmpl>
-    <zyfra-dropdown
-      class="zyfra-datepicker-control zyfra-datepicker-dropdown"
-      [value]="timeMode"
-      [options]="$any(timeArray)"
-      [disabled]="disabled"
-      [panelStyleClass]="'zyfra-datepicker-dropdown-overlay'"
-      [styleClass]="'zyfra-datepicker-dropdown'"
-      [dropdownIcon]="'zyfra-icon date-clock'"
-      [optionLabel]="'value'"
-    >
-    </zyfra-dropdown>
-  </ng-template>
+  <!--  <ng-template #relativeTmpl>-->
+  <!--    <zyfra-dropdown-->
+  <!--      class="zyfra-datepicker-control zyfra-datepicker-dropdown"-->
+  <!--      [value]="timeMode"-->
+  <!--      [options]="$any(timeArray)"-->
+  <!--      [disabled]="disabled"-->
+  <!--      [panelStyleClass]="'zyfra-datepicker-dropdown-overlay'"-->
+  <!--      [styleClass]="'zyfra-datepicker-dropdown'"-->
+  <!--      [dropdownIcon]="'zyfra-icon date-clock'"-->
+  <!--      [optionLabel]="'value'"-->
+  <!--    >-->
+  <!--    </zyfra-dropdown>-->
+  <!--  </ng-template>-->
 </div>

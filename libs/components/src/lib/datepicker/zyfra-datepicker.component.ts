@@ -1,8 +1,6 @@
 import {
   Component,
   Input,
-  Output,
-  EventEmitter,
   ChangeDetectionStrategy,
   ViewChild,
   OnChanges,
@@ -52,7 +50,6 @@ export class ZyfraDatepickerComponent
   @Input() required: boolean;
   @Input() label: string;
   @Input() spanClass: string;
-  @Input() timeMode: ZyfraDatePickerMode = ZyfraDatePickerMode.absolute;
   @Input() showChangeMode: boolean;
   @Input() showClear: boolean;
   @Input() showDate: boolean = true;
@@ -82,13 +79,11 @@ export class ZyfraDatepickerComponent
   @Input()
   returnFormatValue: ZyfraDatePickerValueType;
 
-  // @Output() modelChange: EventEmitter<
-  //   string | number | Date | null
-  // > = new EventEmitter();
-
   @ViewChild('calendar', { static: false }) private calendar: Calendar;
 
   public controlRequired: boolean;
+
+  public readonly absoluteTimeMode = ZyfraDatePickerMode.absolute
   public readonly modes = [
     {
       name: 'Абсолютное время',
@@ -99,6 +94,7 @@ export class ZyfraDatepickerComponent
       value: ZyfraDatePickerMode.relative,
     },
   ];
+
   public datepickerValue: Date;
   public datepickerValueShowBtn: Date;
   public timeArray: ZyfraTime[];
@@ -192,16 +188,9 @@ export class ZyfraDatepickerComponent
     event.stopPropagation();
   }
 
-  public setMode(mode: ZyfraDatePickerMode): void {
-    this.timeMode = mode;
-    this.clearValue();
-  }
-
   public onDatepickerNgModelChange(event: string): void {
     this.formattedValue = event;
-    if (this.timeMode === ZyfraDatePickerMode.absolute) {
-      this.checkAbsoluteTime();
-    }
+    this.checkAbsoluteTime();
   }
 
   public onCalendarDateChange(datepickerValue: Date): void {
@@ -228,7 +217,7 @@ export class ZyfraDatepickerComponent
   }
 
   public onInputBlur(): void {
-    if (this.formattedValue && this.timeMode === ZyfraDatePickerMode.absolute) {
+    if (this.formattedValue) {
       if (
         this.dateValue === this.invalidDateMessage ||
         this.timeValue === this.invalidDateMessage
@@ -308,6 +297,10 @@ export class ZyfraDatepickerComponent
     this.datepickerValue = null;
     this.datepickerValueShowBtn = null;
     this.onChangeValue(null);
+  }
+
+  public onChangeTimeMode(mode: ZyfraDatePickerMode): void {
+    // TODO
   }
 
   private getValidatorRequiredControl(ngControl: NgControl): void {
@@ -455,11 +448,7 @@ export class ZyfraDatepickerComponent
 
   private changeControlState(value: Date | string | number | null): void {
     this.currentValueType = this.getCurrentValueType(value);
-    if (this.timeMode === ZyfraDatePickerMode.relative) {
-      this.formattedValue = String(value);
-    } else {
-      this.generateFormattedValueFromInput();
-    }
+    this.generateFormattedValueFromInput();
   }
 
   private setFormattedValue(defaultDateValue: Date | null): void {

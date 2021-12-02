@@ -1,5 +1,29 @@
 @inputHeight: 44px;
 
+.p-inputgroup {
+  border: 1px solid var(--standartBorder);
+  border-radius: 4px;
+  .p-inputtext{
+    border: none;
+  }
+}
+
+.p-inputgroup:focus-within {
+  border-color: var(--z-accentColor);
+  .p-inputtext {
+    box-shadow: none;
+  }
+}
+
+.zyfra-input:focus-within{
+  border-color: var(--z-accentColor);
+  .p-inputtext {
+    box-shadow: none;
+  }
+}
+
+
+
 .p-inputtext {
   font-family: var(--fontFamily);
   font-size: 0.81rem;

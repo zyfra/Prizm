@@ -52,7 +52,6 @@ const Template: Story<ZyfraDatepickerComponent> = (args) => ({
   [required]="required"
   [label]="label"
   [spanClass]="spanClass"
-  [timeMode]="timeMode"
   [locale]="locale"
   [showChangeMode]="showChangeMode"
   [showClear]="showClear"
@@ -84,7 +83,6 @@ Absolute.args = {
   required: true,
   label: 'Абсолютное',
   spanClass: null,
-  timeMode: 'absolute',
   locale: 'ru_RU',
   showChangeMode: false,
   showClear: true,
@@ -115,7 +113,6 @@ AbsoluteMini.args = {
   required: true,
   label: 'Абсолютное',
   spanClass: null,
-  timeMode: 'absolute',
   locale: 'ru_RU',
   showChangeMode: false,
   showClear: true,
@@ -134,20 +131,6 @@ AbsoluteMini.args = {
   firstDayOfWeek: 1,
 };
 
-export const Relative = Template.bind({});
-Relative.args = {
-  model: '',
-  placeholder: 'Выберите время',
-  disabled: false,
-  required: true,
-  label: 'Относительное',
-  spanClass: null,
-  timeMode: 'relative',
-  showChangeMode: false,
-  showClear: true,
-  locale: 'ru_RU',
-};
-
 export const MultipleMode = Template.bind({});
 MultipleMode.args = {
   model: '21.09.2021 20:17:07',
@@ -159,7 +142,6 @@ MultipleMode.args = {
   required: true,
   label: 'Абсолютное',
   spanClass: null,
-  timeMode: 'absolute',
   showChangeMode: true,
   showClear: true,
   showDate: true,

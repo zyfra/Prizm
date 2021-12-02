@@ -1,20 +1,36 @@
-<span class="zyfra-input"
-      [class.zyfra-input_disabled]="disabled"
-      [class.p-float-label]="label">
-  <i *ngIf="iClass"
-     [class]="iClass"></i>
-  <input pInputText
-         [type]="type"
-         [id]="id"
-         [(ngModel)]="model"
-         (ngModelChange)="changeModel($event)"
-         (blur)="onBlur.emit($event)"
-         [placeholder]="placeholder"
-         [ngClass]="ngControl ? {'ng-invalid': ngControl.invalid, 'ng-valid': ngControl.valid, 'ng-dirty': ngControl.dirty, 'ng-touched': ngControl.touched} : inputClass"
-         [disabled]="disabled"
-         [required]="required || controlRequired"
-         [pTooltip]="tooltip ? tooltip : null"
-         [tooltipPosition]="tooltipPosition" />
-  <label *ngIf="label"
-         [class.label-required]="required || controlRequired">{{ label }}</label>
-</span>
+<div class="p-inputgroup">
+  <span class="zyfra-input" [class.zyfra-input_disabled]="disabled" [class.p-float-label]="label">
+    <i *ngIf="iClass" [class]="iClass"></i>
+
+    <ng-content select="[left]"></ng-content>
+
+    <input
+      pInputText
+      autocomplete="off"
+      [type]="type"
+      [id]="id"
+      [(ngModel)]="model"
+      (ngModelChange)="changeModel($event)"
+      (blur)="onBlur.emit($event)"
+      [placeholder]="placeholder"
+      [ngClass]="
+        ngControl
+          ? {
+              'ng-invalid': ngControl.invalid,
+              'ng-valid': ngControl.valid,
+              'ng-dirty': ngControl.dirty,
+              'ng-touched': ngControl.touched
+            }
+          : inputClass
+      "
+      [disabled]="disabled"
+      [required]="required || controlRequired"
+      [pTooltip]="tooltip ? tooltip : null"
+      [tooltipPosition]="tooltipPosition"
+    />
+    <label *ngIf="label" [class.label-required]="required || controlRequired">{{ label }}</label>
+
+    <ng-content select="[right]"></ng-content>
+
+  </span>
+</div>

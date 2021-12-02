@@ -7,10 +7,9 @@ import { ZyfraButtonModule } from '../button';
 import { ZyfraRadioButtonModule } from '../radio-button';
 import { ZyfraInputModule } from '../input';
 import { ZyfraDatepickerComponent } from './zyfra-datepicker.component';
-import { ZyfraRelativeDatepickerComponent } from './zyfra-relative-datepicker/zyfra-relative-datepicker.component';
 
 @NgModule({
-  declarations: [ZyfraDatepickerComponent, ZyfraRelativeDatepickerComponent],
+  declarations: [ZyfraDatepickerComponent],
   imports: [
     CommonModule,
     FormsModule,
