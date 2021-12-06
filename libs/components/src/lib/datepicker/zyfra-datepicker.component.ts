@@ -362,14 +362,29 @@ export class ZyfraDatepickerComponent
   }
 
   private generateFormattedValueFromCalendarValue(datepickerValue: Date): void {
-    this._defaultDateValue = datepickerValue;
-    this.dateValue = format(
-      this._defaultDateValue,
-      this.formatDate,
-      this.localeFns
-    );
-    this.formattedValue = this.dateValue;
-
+    if (this.selectionMode === 'range') {
+      this.formattedValue = ''
+      this._defaultDateValue = this.calendar.value;
+      let dateRange:string[] = []
+      for (let i=0; i<2; i++) {
+        this.dateValue = format(
+        this._defaultDateValue[i],
+        this.formatDate,
+        this.localeFns
+      );
+      dateRange.push(this.dateValue)
+    }
+      this.formattedValue = dateRange.join(' - ')
+    } else {  
+      this._defaultDateValue = datepickerValue;
+      this.dateValue = format(
+        this._defaultDateValue,
+        this.formatDate,
+        this.localeFns
+      );
+      this.formattedValue = this.dateValue;
+    }
+    
     if (!this._defaultTimeValue || !isValid(this._defaultTimeValue)) {
       this._defaultTimeValue = this._defaultDateValue;
     }
