@@ -1,28 +1,49 @@
 <div class="zyfra-datepicker">
-    <zyfra-input
-      style='order: 1'
-      type="text"
-      [formControl]='value'
-      [placeholder]="placeholder"
-      [label]="label"
-      [inputClass]="{
-        'ng-invalid': !!value?.invalid,
-        'ng-valid': !!value?.valid,
-        'ng-dirty': !!value?.dirty,
-        'ng-touched': !!value?.touched
-      }"
-    >
+  <zyfra-input
+    style="order: 1"
+    type="text"
+    [formControl]="value"
+    [placeholder]="placeholder"
+    [label]="label"
+    [inputClass]="{
+      'ng-invalid': !!value?.invalid,
+      'ng-valid': !!value?.valid,
+      'ng-dirty': !!value?.dirty,
+      'ng-touched': !!value?.touched
+    }"
+  >
+    <div right>
+      <button (click)="op.toggle($event)" class="zyfra-datepicker-control zyfra-datepicker-button">
+        <i class="zyfra-icon date-clock"></i>
+      </button>
 
-      <div right>
-        <button (click)="op.toggle($event)" class="zyfra-datepicker-control zyfra-datepicker-button">
-          <i class="zyfra-icon date-clock"></i>
-        </button>
+      <p-overlayPanel #op styleClass="p-overlay-clear-view">
+        <ng-template pTemplate>
+          <ul role="listbox" class="zyfra-datepicker-relative-menu">
+           <ng-container *ngTemplateOutlet='menuItemsTemplate; context: {items: timeItems}'></ng-container>
+           <li class="relative-menu-item-divider"></li>
+           <ng-container *ngTemplateOutlet='menuItemsTemplate; context: {items: directionItems}'></ng-container>
+           <li class="relative-menu-item-divider"></li>
+           <ng-container *ngTemplateOutlet='menuItemsTemplate; context: {items: periodItems}'></ng-container>
 
-        <p-overlayPanel #op>
-          <ng-template pTemplate> Content </ng-template>
-        </p-overlayPanel>
-      </div>
-
-    </zyfra-input>
-
+            <ng-template #menuItemsTemplate let-items="items">
+              <li
+                *ngFor="let item of items"
+                role="button"
+                tabindex="0"
+                class="relative-menu-item"
+                [class.relative-menu-item-active]="item.active"
+                (click)="onMenuItemClick(item)"
+              >
+                <div class="relative-menu-item-icon">
+                  <i class="zyfra-icon {{ item.icon }}"></i>
+                </div>
+                <div class="relative-menu-item-label">{{ item.label }}</div>
+              </li>
+            </ng-template>
+          </ul>
+        </ng-template>
+      </p-overlayPanel>
+    </div>
+  </zyfra-input>
 </div>
