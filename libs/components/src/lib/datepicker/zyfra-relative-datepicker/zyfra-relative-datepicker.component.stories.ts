@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { ZyfraButtonModule } from '../../button';
 import { ZyfraCheckBoxModule } from '../../checkbox';
-import { ZyfraDropdownModule } from '../../dropdown';
+import { ListboxModule } from 'primeng/listbox';
 import { ZyfraInputModule } from '../../input';
 import { ZyfraRelativeDatepickerComponent } from './zyfra-relative-datepicker.component';
 
@@ -25,6 +25,7 @@ export default {
         ZyfraButtonModule,
         ZyfraCheckBoxModule,
         ZyfraInputModule,
+        ListboxModule
       ],
     }),
   ],
@@ -38,6 +39,7 @@ const Template: Story<ZyfraRelativeDatepickerComponent> = (args: ZyfraRelativeDa
     [placeholder]='placeholder'
     [disabled]='disabled'
     [showClear]='showClear'
+    [(ngModel)]='ngModel'
     [showChangeMode]='showChangeMode'
   >
   </zyfra-relative-datepicker>
@@ -52,4 +54,5 @@ Primary.args = {
   disabled: false,
   showClear: false,
   showChangeMode: false,
+  ngModel: '*+8h',
 };
