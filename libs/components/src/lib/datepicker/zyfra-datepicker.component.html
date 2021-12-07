@@ -1,21 +1,29 @@
 <div class="zyfra-datepicker">
-  <div
-    class="zyfra-datepicker-controls"
-    [ngClass]="{'visible-clear': showClear,
-      'visible-date': showDate,
-      'visible-time': showTime,
-      'visible-change-mode': showChangeMode}"
+  <zyfra-input
+    [(ngModel)]="formattedValue"
+    type="text"
+    (ngModelChange)="onDatepickerNgModelChange($event)"
+    (onBlur)="onInputBlur()"
+    [placeholder]="placeholder"
+    [label]="label"
+    [inputClass]="{
+      'ng-invalid': !!ngControl?.invalid,
+      'ng-valid': !!ngControl?.valid,
+      'ng-dirty': !!ngControl?.dirty,
+      'ng-touched': !!ngControl?.touched
+    }"
+    [required]="required || controlRequired"
+    [disabled]="disabled"
   >
-    <!--      'visible-relative': timeMode === DatePickerMode.relative-->
-    <button
-      *ngIf="showClear"
-      (click)="clearValue()"
-      [disabled]="disabled"
-      class="zyfra-datepicker-control zyfra-datepicker-button"
-    >
-      <i class="zyfra-icon tools-broom"></i>
-    </button>
-    <ng-container>
+    <div right class="zyfra-datepicker-controls">
+      <button
+        *ngIf="showClear"
+        (click)="clearValue()"
+        [disabled]="disabled"
+        class="zyfra-datepicker-control zyfra-datepicker-button"
+      >
+        <i class="zyfra-icon tools-broom"></i>
+      </button>
       <div class="zyfra-datepicker-control" *ngIf="showDate">
         <button [disabled]="disabled" class="zyfra-datepicker-button" (click)="openCalendar($event)">
           <i class="zyfra-icon date-calendar-blank"></i>
@@ -51,79 +59,22 @@
           </ng-template>
         </p-calendar>
       </div>
-      <zyfra-dropdown
-        *ngIf="showTime"
-        class="zyfra-datepicker-control zyfra-datepicker-dropdown"
-        [options]="timeArray"
-        [disabled]="disabled"
-        (valueChange)="setInputTime($event)"
-        [panelStyleClass]="'zyfra-datepicker-dropdown-overlay'"
-        [styleClass]="'zyfra-datepicker-dropdown'"
-        [dropdownIcon]="'zyfra-icon date-update'"
-        [optionLabel]="'value'"
-      >
-      </zyfra-dropdown>
-    </ng-container>
-    <zyfra-dropdown
-      *ngIf="showChangeMode"
-      class="zyfra-datepicker-control zyfra-datepicker-dropdown"
-      [value]="absoluteTimeMode"
-      [options]="$any(modes)"
-      (valueChange)="onChangeTimeMode($event)"
-      [disabled]="disabled"
-      [panelStyleClass]="'zyfra-datepicker-dropdown-overlay'"
-      [styleClass]="'zyfra-datepicker-dropdown'"
-      [dropdownIcon]="'zyfra-icon chevrons-dropdown'"
-      [optionLabel]="'name'"
-      [optionValue]="'value'"
-    >
-      <ng-template let-modeType zyfraDropdownTemplate="item">
-        <div class="mode-item">
-          <zyfra-radio-button
-            [name]="'groupname'"
-            [value]="modeType.value"
-            [ngModel]="absoluteTimeMode"
-          ></zyfra-radio-button>
-          <i
-            class="zyfra-icon date-update"
-            [ngClass]="{
-              'date-update': modeType.value === DatePickerMode.absolute,
-              'date-clock': modeType.value === DatePickerMode.relative
-            }"
-          ></i>
-          <div>{{ modeType.name }}</div>
-        </div>
-      </ng-template>
-    </zyfra-dropdown>
-  </div>
-  <zyfra-input
-    [(ngModel)]="formattedValue"
-    type="text"
-    (ngModelChange)="onDatepickerNgModelChange($event)"
-    (onBlur)="onInputBlur()"
-    [placeholder]="placeholder"
-    [label]="label"
-    [inputClass]="{
-      'ng-invalid': !!ngControl?.invalid,
-      'ng-valid': !!ngControl?.valid,
-      'ng-dirty': !!ngControl?.dirty,
-      'ng-touched': !!ngControl?.touched
-    }"
-    [required]="required || controlRequired"
-    [disabled]="disabled"
-  >
+
+      <!--  // TODO need button with dropdown -->
+      <button *ngIf="showTime" class="zyfra-datepicker-control zyfra-datepicker-button">
+        <zyfra-dropdown
+          [options]="timeArray"
+          [disabled]="disabled"
+          (valueChange)="setInputTime($event)"
+          [panelStyleClass]="'zyfra-datepicker-dropdown-overlay'"
+          [styleClass]="'zyfra-datepicker-dropdown'"
+          [dropdownIcon]="'zyfra-icon date-update'"
+          [optionLabel]="'value'"
+        >
+        </zyfra-dropdown>
+      </button>
+
+      <ng-content select="[buttons]"></ng-content>
+    </div>
   </zyfra-input>
-  <!--  <ng-template #relativeTmpl>-->
-  <!--    <zyfra-dropdown-->
-  <!--      class="zyfra-datepicker-control zyfra-datepicker-dropdown"-->
-  <!--      [value]="timeMode"-->
-  <!--      [options]="$any(timeArray)"-->
-  <!--      [disabled]="disabled"-->
-  <!--      [panelStyleClass]="'zyfra-datepicker-dropdown-overlay'"-->
-  <!--      [styleClass]="'zyfra-datepicker-dropdown'"-->
-  <!--      [dropdownIcon]="'zyfra-icon date-clock'"-->
-  <!--      [optionLabel]="'value'"-->
-  <!--    >-->
-  <!--    </zyfra-dropdown>-->
-  <!--  </ng-template>-->
 </div>

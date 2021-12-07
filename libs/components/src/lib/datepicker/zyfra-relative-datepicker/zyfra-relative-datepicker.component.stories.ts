@@ -11,7 +11,7 @@ import { ZyfraInputModule } from '../../input';
 import { ZyfraRelativeDatepickerComponent } from './zyfra-relative-datepicker.component';
 
 export default {
-  title: 'Datapickers/RelativeDatapicker',
+  title: 'Datepickers/RelativeDatepicker',
   component: ZyfraRelativeDatepickerComponent,
   decorators: [
     moduleMetadata({
@@ -40,7 +40,6 @@ const Template: Story<ZyfraRelativeDatepickerComponent> = (args: ZyfraRelativeDa
     [disabled]='disabled'
     [showClear]='showClear'
     [(ngModel)]='ngModel'
-    [showChangeMode]='showChangeMode'
   >
   </zyfra-relative-datepicker>
   `,
@@ -53,6 +52,5 @@ Primary.args = {
   placeholder: 'Введите значение',
   disabled: false,
   showClear: false,
-  showChangeMode: false,
   ngModel: '*+8h',
 };
