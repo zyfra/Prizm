@@ -94,6 +94,9 @@ export class ZyfraRelativeDatepickerComponent implements ControlValueAccessor, O
     this.value.setValue("");
   }
 
+  /**
+   * Action click item menu
+   */
   public onMenuItemClick(item: RelativeDateMenuItem): void {
     switch (item.groupId) {
       case 'time':
@@ -116,7 +119,10 @@ export class ZyfraRelativeDatepickerComponent implements ControlValueAccessor, O
     this.cdr.detectChanges();
   }
 
-  private parseInputValue() {
+  /**
+   * Parses control input value
+   */
+  private parseInputValue(): void {
     const textInput = this.value.value;
 
     const model = ParseTextInput(textInput);
@@ -127,6 +133,9 @@ export class ZyfraRelativeDatepickerComponent implements ControlValueAccessor, O
     this.activePeriodId = model.period;
   }
 
+  /**
+   * Set control input as text
+   */
   private actualizeInput(): void {
     const stringValue = RenderText({
       time: this.activeTimeId,
@@ -138,7 +147,10 @@ export class ZyfraRelativeDatepickerComponent implements ControlValueAccessor, O
     this.value.setValue(stringValue);
   }
 
-  private actualizeMenu() {
+  /**
+   * Actualize menu items, as radio group button
+   */
+  private actualizeMenu(): void {
     this.timeItems = UpdateActiveItem(this.timeItems, this.activeTimeId);
     this.directionItems = UpdateActiveItem(this.directionItems, this.activeDirectionId);
     this.periodItems = UpdateActiveItem(this.periodItems, this.activePeriodId);
