@@ -6,6 +6,9 @@
   .p-inputtext{
     border: none;
   }
+  &.zyfra-input-group_disabled {
+    background-color: var(--inputDisabledBgColor);
+  }
 }
 
 .p-inputgroup:focus-within {
@@ -151,8 +154,6 @@
 .zyfra-input {
   &_disabled {
     label {
-      color: var(--inputDisabledLabelColor);
-
       &.label-required {
         &::after {
           color: var(--inputDisabledLabelColor);

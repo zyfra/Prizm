@@ -6,6 +6,9 @@ import {
   RelativeDateTimeId,
 } from './relative-datepicker.models.js';
 
+/**
+ * Check items as radio button, to active id
+ */
 export function UpdateActiveItem<T>(items: RelativeDateMenuItem<T>[], id: T): RelativeDateMenuItem<T>[] {
   return items.map((item) => {
     const newItem = { ...item };
@@ -19,6 +22,9 @@ export function UpdateActiveItem<T>(items: RelativeDateMenuItem<T>[], id: T): Re
   });
 }
 
+/**
+ * Parse input text to model
+ */
 export function ParseTextInput(text: string): RelativeDateModel {
   const result: RelativeDateModel = {} as RelativeDateModel;
 
@@ -33,6 +39,9 @@ export function ParseTextInput(text: string): RelativeDateModel {
   return result;
 }
 
+/**
+ * Render text from RelativeDateModel
+ */
 export function RenderText(model: RelativeDateModel): string {
   let result = '';
 
@@ -44,8 +53,7 @@ export function RenderText(model: RelativeDateModel): string {
   return result;
 }
 
-// Private models
-
+//region Private utility models to parse and render
 const MatchPattern = '(T|\\*)?(\\+|\\-)?(\\d+)?(Y|M|d|h|m|s)?';
 
 const timeMap = new Map<string, RelativeDateTimeId>([
@@ -86,3 +94,4 @@ const renderPeriodMap = new Map<RelativeDatePeriodId, string>([
   ['minute', 'm'],
   ['second', 's'],
 ]);
+//endregion

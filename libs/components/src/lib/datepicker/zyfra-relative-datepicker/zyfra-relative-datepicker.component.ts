@@ -44,7 +44,7 @@ export class ZyfraRelativeDatepickerComponent implements ControlValueAccessor, O
   @Input() public showClear: boolean;
   @Input() public showChangeMode: boolean;
 
-  public value = new FormControl('', Validators.pattern(ValidationPattern));
+  public value = new FormControl('123', Validators.pattern(ValidationPattern));
   public timeItems: RelativeDateMenuItem<RelativeDateTimeId>[] = [...MenuItems.time];
   public directionItems: RelativeDateMenuItem<RelativeDateDirectionId>[] = [...MenuItems.direction];
   public periodItems: RelativeDateMenuItem<RelativeDatePeriodId>[] = [...MenuItems.period];
@@ -60,7 +60,7 @@ export class ZyfraRelativeDatepickerComponent implements ControlValueAccessor, O
 
   ngAfterViewInit() {
     const control = this.injector.get(NgControl);
-    this.value.setValidators(control.validator);
+    this.value.addValidators(control.validator);
 
     this.subscriptions.add(
       this.value.valueChanges.subscribe(() => {
@@ -76,6 +76,7 @@ export class ZyfraRelativeDatepickerComponent implements ControlValueAccessor, O
   }
 
   writeValue(value: number): void {
+    this.value.markAsDirty();
     this.value.setValue(value);
   }
 
@@ -84,15 +85,15 @@ export class ZyfraRelativeDatepickerComponent implements ControlValueAccessor, O
   }
 
   registerOnTouched(fn: any): void {
-    // do
+    this.onTouched = fn;
   }
 
-  onChangeFn = (_: any) => {
-    // do
-  };
+  onChangeFn = (_: any) => {};
+
+  onTouched = () => {};
 
   public clearValue(): void {
-    // TODO
+    this.value.setValue("");
   }
 
   public onMenuItemClick(item: RelativeDateMenuItem): void {
