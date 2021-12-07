@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
