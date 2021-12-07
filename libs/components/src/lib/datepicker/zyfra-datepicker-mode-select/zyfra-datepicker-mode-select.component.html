@@ -1,0 +1,20 @@
+<zyfra-dropdown
+  #dropdown
+  [value]="mode"
+  [options]="$any(modes)"
+  (valueChange)="selectChanged.emit($event)"
+  [disabled]="disabled"
+  [panelStyleClass]="'zyfra-datepicker-dropdown-overlay'"
+  [styleClass]="'zyfra-datepicker-dropdown'"
+  [dropdownIcon]="'zyfra-icon chevrons-dropdown'"
+  [optionLabel]="'name'"
+  [optionValue]="'value'"
+  class="zyfra-datepicker-control zyfra-datepicker-dropdown"
+>
+  <ng-template let-modeItem zyfraDropdownTemplate="item">
+    <div class="mode-item">
+      <i class="zyfra-icon {{ modeItem.icon }}"></i>
+      <div>{{ modeItem.name }}</div>
+    </div>
+  </ng-template>
+</zyfra-dropdown>

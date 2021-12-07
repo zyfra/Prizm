@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   ChangeDetectionStrategy,
   Input,
   forwardRef,
@@ -42,9 +41,8 @@ export class ZyfraRelativeDatepickerComponent implements ControlValueAccessor, O
   @Input() public placeholder: string;
   @Input() public disabled: boolean;
   @Input() public showClear: boolean;
-  @Input() public showChangeMode: boolean;
 
-  public value = new FormControl('123', Validators.pattern(ValidationPattern));
+  public value = new FormControl('', Validators.pattern(ValidationPattern));
   public timeItems: RelativeDateMenuItem<RelativeDateTimeId>[] = [...MenuItems.time];
   public directionItems: RelativeDateMenuItem<RelativeDateDirectionId>[] = [...MenuItems.direction];
   public periodItems: RelativeDateMenuItem<RelativeDatePeriodId>[] = [...MenuItems.period];

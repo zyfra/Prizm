@@ -26,7 +26,6 @@ import { en } from './i18n/en_US';
 import { ru } from './i18n/ru_RU';
 import { isIsoDate } from './utils/is-iso-date';
 import { generateTimeArray } from './utils/generate-time-array';
-import { ZyfraDatePickerMode } from './model/zyfra-date-picker-mode.enum';
 import { ZyfraLocale } from './model/zyfra-date-picker-locale.enum';
 import { ZyfraDatePickerValueType } from './model/zyfra-date-picker-value-type.enum';
 import { ZyfraTime } from './model/zyfra-time.model';
@@ -42,7 +41,6 @@ import { ZyfraDatePickerLocaleInterface } from './model/zyfra-date-picker.model'
 })
 export class ZyfraDatepickerComponent
   implements ControlValueAccessor, OnInit, OnChanges, AfterViewInit, OnDestroy {
-  readonly DatePickerMode = ZyfraDatePickerMode;
 
   @Input() model: string | number | Date;
   @Input() placeholder: string;
@@ -50,7 +48,6 @@ export class ZyfraDatepickerComponent
   @Input() required: boolean;
   @Input() label: string;
   @Input() spanClass: string;
-  @Input() showChangeMode: boolean;
   @Input() showClear: boolean;
   @Input() showDate: boolean = true;
   @Input() showTime: boolean;
@@ -82,18 +79,6 @@ export class ZyfraDatepickerComponent
   @ViewChild('calendar', { static: false }) private calendar: Calendar;
 
   public controlRequired: boolean;
-
-  public readonly absoluteTimeMode = ZyfraDatePickerMode.absolute
-  public readonly modes = [
-    {
-      name: 'Абсолютное время',
-      value: ZyfraDatePickerMode.absolute,
-    },
-    {
-      name: 'Относительное время',
-      value: ZyfraDatePickerMode.relative,
-    },
-  ];
 
   public datepickerValue: Date;
   public datepickerValueShowBtn: Date;
@@ -299,10 +284,6 @@ export class ZyfraDatepickerComponent
     this.onChangeValue(null);
   }
 
-  public onChangeTimeMode(mode: ZyfraDatePickerMode): void {
-    // TODO
-  }
-
   private getValidatorRequiredControl(ngControl: NgControl): void {
     if (ngControl.control && ngControl.control.validator && this.label) {
       const validators = ngControl.control.validator({} as AbstractControl);
@@ -368,7 +349,7 @@ export class ZyfraDatepickerComponent
       dateRange.push(this.dateValue)
     }
       this.formattedValue = dateRange.join(' - ')
-    } else {  
+    } else {
       this._defaultDateValue = datepickerValue;
       this.dateValue = format(
         this._defaultDateValue,
@@ -377,7 +358,7 @@ export class ZyfraDatepickerComponent
       );
       this.formattedValue = this.dateValue;
     }
-    
+
     if (!this._defaultTimeValue || !isValid(this._defaultTimeValue)) {
       this._defaultTimeValue = this._defaultDateValue;
     }

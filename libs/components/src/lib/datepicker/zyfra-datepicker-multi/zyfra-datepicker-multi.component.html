@@ -1,0 +1,59 @@
+<ng-container *ngIf="mode === 'relative'; else absoluteTemplate">
+  <zyfra-relative-datepicker
+    [label]="label"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [showClear]="showClear"
+    [ngModel]="relativeValue"
+    (ngModelChange)="valueChange.emit($event)"
+  >
+    <ng-container buttons>
+      <ng-container *ngTemplateOutlet="selectButtonTemplate"></ng-container>
+    </ng-container>
+  </zyfra-relative-datepicker>
+</ng-container>
+
+<ng-template #absoluteTemplate>
+  <zyfra-datepicker
+    [ngModel]="model"
+    (ngModelChange)="valueChange.emit($event)"
+    [dateFormat]="dateFormat"
+    [timeFormat]="timeFormat"
+    [returnFormatValue]="returnFormatValue"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [required]="required"
+    [label]="label"
+    [spanClass]="spanClass"
+    [locale]="locale"
+    [showClear]="showClear"
+    [showDate]="showDate"
+    [showTime]="showTime"
+    [monthNavigator]="monthNavigator"
+    [yearNavigator]="yearNavigator"
+    [yearRange]="yearRange"
+    [showCalendarBtn]="showCalendarBtn"
+    [calendarBtnLabel]="calendarBtnLabel"
+    [numberOfMonths]="numberOfMonths"
+    [selectionMode]="selectionMode"
+    [disabledDates]="disabledDates"
+    [firstDayOfWeek]="firstDayOfWeek"
+  >
+    <ng-container buttons>
+      <ng-container *ngTemplateOutlet="selectButtonTemplate"></ng-container>
+    </ng-container>
+  </zyfra-datepicker>
+</ng-template>
+
+<ng-template #selectButtonTemplate>
+  <button
+    (click)="onClickButtonSelect($event, select)"
+    class="zyfra-datepicker-control zyfra-datepicker-button"
+  >
+    <zyfra-datepicker-mode-select
+      #select
+      [mode]="mode"
+      (selectChanged)="onSelectChanged($event)"
+    ></zyfra-datepicker-mode-select>
+  </button>
+</ng-template>
