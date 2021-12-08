@@ -1,0 +1,66 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  ColorPalette,
+  ColorItem,
+  Preview,
+  Typeset,
+  Title,
+  Subtitle,
+  Description,
+} from '@storybook/addon-docs';
+import { ZyfraRelativeDatepickerComponent } from './zyfra-relative-datepicker.component';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+
+## Zyfra - Datapicker Relative
+
+<Subtitle>Datepicker is an input component to select a date on relative format.</Subtitle>
+
+Import module:
+
+```typescript
+import { ZyfraDatepickerModule } from '@digital-plant/zyfra-components';
+
+@NgModule({
+  imports: [ZyfraDatepickerModule],
+})
+export class YourModule {}
+```
+
+To component:
+
+```html
+<zyfra-relative-datepicker
+    [label]='label'
+    [placeholder]='placeholder'
+    [disabled]='disabled'
+    [showClear]='showClear'
+    [(ngModel)]='ngModel'
+  >
+</zyfra-relative-datepicker>
+```
+
+Data Input/Outputs format: `*+8h`
+
+Models:
+
+| Group     | Token | Parse    |
+|-----------|-------|----------|
+| time      | *     | current  |
+| time      | T     | midnight |
+| direction | -     | minus    |
+| direction | +     | plus     |
+| period    | Y     | year     |
+| period    | M     | month    |
+| period    | d     | day      |
+| period    | h     | hour     |
+| period    | m     | minute   |
+| period    | s     | second   |
+
+
+## ArgsTable
+
+<ArgsTable of={ZyfraRelativeDatepickerComponent} />

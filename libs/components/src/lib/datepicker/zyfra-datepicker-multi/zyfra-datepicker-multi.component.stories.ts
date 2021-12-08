@@ -13,6 +13,9 @@ import { ZyfraInputModule } from '../../input';
 import { ZyfraRadioButtonModule } from '../../radio-button';
 import { ZyfraDatepickerMultiComponent } from './zyfra-datepicker-multi.component';
 
+// @ts-ignore
+import DatepickerDoc from './zyfra-datepicker-multi.component.story.doc.mdx';
+
 export default {
   title: 'Datepickers/Multi',
   component: ZyfraDatepickerMultiComponent,
@@ -35,6 +38,11 @@ export default {
       ],
     }),
   ],
+  parameters: {
+    docs: {
+      page: DatepickerDoc,
+    },
+  },
 } as Meta<ZyfraDatepickerMultiComponent>;
 
 const Template: Story<ZyfraDatepickerMultiComponent> = (args: ZyfraDatepickerMultiComponent) => ({
@@ -64,6 +72,7 @@ const Template: Story<ZyfraDatepickerMultiComponent> = (args: ZyfraDatepickerMul
     [selectionMode]="selectionMode"
     [disabledDates]="disabledDates"
     [firstDayOfWeek]="firstDayOfWeek"
+    [mode]="mode"
   >
   </zyfra-datepicker-multi>
   `,
@@ -76,7 +85,7 @@ Primary.args = {
   placeholder: 'Введите значение',
   disabled: false,
   showClear: true,
-  value: '',
+  relativeValue: '',
   model: '21.09.2021 20:17:07',
   dateFormat: 'DD.MM.YYYY',
   timeFormat: 'HH:mm:ss',
@@ -98,4 +107,5 @@ Primary.args = {
   disabledDates: null,
   disabledDays: null,
   firstDayOfWeek: 1,
+  mode: 'absolute'
 };

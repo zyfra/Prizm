@@ -10,6 +10,9 @@ import { ListboxModule } from 'primeng/listbox';
 import { ZyfraInputModule } from '../../input';
 import { ZyfraRelativeDatepickerComponent } from './zyfra-relative-datepicker.component';
 
+// @ts-ignore
+import DatepickerDoc from './zyfra-relative-datepicker.component.story.doc.mdx';
+
 export default {
   title: 'Datepickers/RelativeDatepicker',
   component: ZyfraRelativeDatepickerComponent,
@@ -29,17 +32,22 @@ export default {
       ],
     }),
   ],
+  parameters: {
+    docs: {
+      page: DatepickerDoc,
+    },
+  },
 } as Meta<ZyfraRelativeDatepickerComponent>;
 
 const Template: Story<ZyfraRelativeDatepickerComponent> = (args: ZyfraRelativeDatepickerComponent) => ({
   component: ZyfraRelativeDatepickerComponent,
   template: `
   <zyfra-relative-datepicker
-    [label]='label'
-    [placeholder]='placeholder'
-    [disabled]='disabled'
-    [showClear]='showClear'
-    [(ngModel)]='ngModel'
+    [label]="'Относительное'"
+    [placeholder]="'Введите значение'"
+    [disabled]="false"
+    [showClear]="false"
+    [(ngModel)]="'*+8h'"
   >
   </zyfra-relative-datepicker>
   `,
