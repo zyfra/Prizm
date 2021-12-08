@@ -79,7 +79,6 @@ export class ZyfraDatepickerComponent
   @ViewChild('calendar', { static: false }) private calendar: Calendar;
 
   public controlRequired: boolean;
-
   public datepickerValue: Date;
   public datepickerValueShowBtn: Date;
   public timeArray: ZyfraTime[];
