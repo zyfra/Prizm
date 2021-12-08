@@ -4,7 +4,7 @@ import {
   RelativeDateModel,
   RelativeDatePeriodId,
   RelativeDateTimeId,
-} from './relative-datepicker.models.js';
+} from './relative-datepicker.models';
 
 /**
  * Check items as radio button, to active id
