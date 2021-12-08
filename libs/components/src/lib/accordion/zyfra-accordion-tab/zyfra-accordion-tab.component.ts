@@ -8,6 +8,7 @@ import {
   EventEmitter,
   Input,
   Output,
+  QueryList,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
@@ -40,7 +41,7 @@ export class ZyfraAccordionTabComponent implements AfterContentInit, AfterViewIn
   /** tab activeness */
   @Output() selectedChange: EventEmitter<any> = new EventEmitter();
 
-  @ContentChildren(ZyfraTemplateDirective) tmpl: ZyfraTemplateDirective[];
+  @ContentChildren(ZyfraTemplateDirective) templates: QueryList<ZyfraTemplateDirective>;
   @ViewChild(AccordionTab) tab: AccordionTab;
 
   headerFacet: TemplateRef<any>;
@@ -50,7 +51,7 @@ export class ZyfraAccordionTabComponent implements AfterContentInit, AfterViewIn
   constructor(private cd: ChangeDetectorRef) {}
 
   ngAfterContentInit(): void {
-    this.tmpl.forEach((t) => {
+    this.templates.forEach((t) => {
       if (t.zyfraTemplate === 'header') {
         this.headerFacet = t.templateRef;
       } else if (t.zyfraTemplate === 'icons') {
