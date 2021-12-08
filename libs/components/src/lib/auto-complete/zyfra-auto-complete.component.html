@@ -59,11 +59,11 @@
     (onShow)="onShow.emit($event)"
     (onHide)="onHide.emit($event)"
   >
-    <div *ngIf="dropdown">
+    <ng-template [ngIf]="dropdown">
       <ng-template let-obj pTemplate="item">
         <div>{{ obj[field] }}</div>
       </ng-template>
-    </div>
+    </ng-template>
   </p-autoComplete>
 
   <label *ngIf="label" [class.label-required]="required">{{ label }}</label>
