@@ -43,11 +43,11 @@ const Template: Story<ZyfraRelativeDatepickerComponent> = (args: ZyfraRelativeDa
   component: ZyfraRelativeDatepickerComponent,
   template: `
   <zyfra-relative-datepicker
-    [label]="'Относительное'"
-    [placeholder]="'Введите значение'"
-    [disabled]="false"
-    [showClear]="false"
-    [(ngModel)]="'*+8h'"
+    [label]='label'
+    [placeholder]='placeholder'
+    [disabled]='disabled'
+    [showClear]='showClear'
+    [(ngModel)]='ngModel'
   >
   </zyfra-relative-datepicker>
   `,
