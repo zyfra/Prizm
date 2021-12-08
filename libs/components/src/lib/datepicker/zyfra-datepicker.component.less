@@ -10,65 +10,14 @@
       color: var(--buttonSuccessHover);
     }
   }
-  zyfra-input {
-    .input-padding-right-1 {
-      padding-right: 2.5rem;
-    }
-    .input-padding-right-2 {
-      padding-right: 5rem;
-    }
-    .input-padding-right-3 {
-      padding-right: 7.5rem;
-    }
-    .input-padding-right-4 {
-      padding-right: 10rem;
-    }
-  }
   .p-disabled {
     opacity: 1;
     background-color: transparent;
   }
   &-controls {
-    position: absolute;
-    top: 50%;
-    right: 1px;
-    transform: translateY(-50%);
-    height: calc(100% - 2px);
     display: flex;
     align-items: center;
     z-index: 1;
-    &.visible {
-      &-clear ~ zyfra-input .p-inputtext,
-      &-date ~ zyfra-input .p-inputtext,
-      &-time ~ zyfra-input .p-inputtext,
-      &-change-mode ~ zyfra-input .p-inputtext,
-      &-relative ~ zyfra-input .p-inputtext {
-        padding-right: 2.5rem;
-      }
-
-      &-clear.visible-date ~ zyfra-input .p-inputtext,
-      &-clear.visible-time ~ zyfra-input .p-inputtext,
-      &-clear.visible-change-mode ~ zyfra-input .p-inputtext,
-      &-clear.visible-relative ~ zyfra-input .p-inputtext,
-      &-date.visible-time ~ zyfra-input .p-inputtext,
-      &-change-mode.visible-relative ~ zyfra-input .p-inputtext,
-      &-date.visible-change-mode ~ zyfra-input .p-inputtext,
-      &-time.visible-change-mode ~ zyfra-input .p-inputtext {
-        padding-right: 5rem;
-      }
-
-      &-clear.visible-date.visible-time ~ zyfra-input .p-inputtext,
-      &-clear.visible-time.visible-change-mode ~ zyfra-input .p-inputtext,
-      &-clear.visible-date.visible-change-mode ~ zyfra-input .p-inputtext,
-      &-clear.visible-change-mode.visible-relative ~ zyfra-input .p-inputtext,
-      &-date.visible-time.visible-change-mode ~ zyfra-input .p-inputtext {
-        padding-right: 7.5rem;
-      }
-
-      &-clear.visible-date.visible-time.visible-change-mode ~ zyfra-input .p-inputtext {
-        padding-right: 10rem;
-      }
-    }
   }
 
   &-control {
@@ -89,6 +38,13 @@
     background-color: transparent;
     &:disabled {
       pointer-events: none;
+    }
+    &:focus,
+    &:hover {
+      outline: none;
+      .zyfra-icon {
+        color: var(--buttonSuccessHover);
+      }
     }
   }
 
@@ -280,5 +236,12 @@
         width: 100%;
       }
     }
+  }
+}
+
+.zyfra-datepicker,
+zyfra-relative-datepicker {
+  .p-inputgroup > .p-float-label > .p-component:focus {
+    z-index: auto;
   }
 }

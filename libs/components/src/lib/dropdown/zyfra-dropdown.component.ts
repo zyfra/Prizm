@@ -7,8 +7,10 @@ import {
   Output,
   QueryList,
   TemplateRef,
+  ViewChild,
 } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
+import { Dropdown } from 'primeng/dropdown';
 import { ZyfraDropdownTemplateDirective } from './zyfra-dropdown-template.directive';
 
 export interface DropdownChangeEvent<T> {
@@ -93,6 +95,7 @@ export class ZyfraDropdownComponent<T = unknown> {
   @Output() onHide = new EventEmitter<AnimationEvent>();
   @Output() valueChange = new EventEmitter<T>();
 
+  @ViewChild('dropdown') dropdown: Dropdown;
   @ContentChildren(ZyfraDropdownTemplateDirective) templates: QueryList<ZyfraDropdownTemplateDirective>;
 
   itemTemplate: TemplateRef<unknown>;

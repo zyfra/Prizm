@@ -1,5 +1,24 @@
 @inputHeight: 44px;
 
+.p-inputgroup {
+  border: 1px solid var(--standartBorder);
+  border-radius: 4px;
+  .p-inputtext {
+    border: none;
+  }
+  &.zyfra-input-group_disabled {
+    background-color: var(--inputDisabledBgColor);
+  }
+}
+
+.p-inputgroup:focus-within,
+.zyfra-input:focus-within {
+  border-color: var(--z-accentColor);
+  .p-inputtext {
+    box-shadow: none;
+  }
+}
+
 .p-inputtext {
   font-family: var(--fontFamily);
   font-size: 0.81rem;
@@ -127,8 +146,6 @@
 .zyfra-input {
   &_disabled {
     label {
-      color: var(--inputDisabledLabelColor);
-
       &.label-required {
         &::after {
           color: var(--inputDisabledLabelColor);
@@ -137,7 +154,6 @@
     }
   }
 }
-
 
 div.p-tooltip .p-tooltip-text {
   font-size: 0.813rem;
