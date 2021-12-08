@@ -5,12 +5,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ZyfraAutoCompleteModule } from './zyfra-auto-complete.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// @ts-ignore
-import AutoCompleteDoc from './zyfra-auto-complete.component.story.doc.mdx';
 
 export default {
   moduleId: module.id,
-  title: 'Select/AutoComplete',
+  title: 'Form/AutoComplete',
   component: ZyfraAutoCompleteComponent,
   decorators: [
     moduleMetadata({
@@ -26,13 +24,64 @@ export default {
   ],
   parameters: {
     docs: {
-      page: AutoCompleteDoc,
+      page: require('./zyfra-auto-complete.component.story.doc.mdx'),
     },
   },
 } as Meta;
 
 const Template: Story<ZyfraAutoCompleteComponent> = (args) => ({
-  component: ZyfraAutoCompleteComponent,
+  template: `
+    <zyfra-auto-complete
+      (completeMethod)="completeMethod($event)"
+      [value]="value"
+      [placeholder]="placeholder"
+      [label]="label"
+      [suggestions]="suggestions"
+      [field]="field"
+      [scrollHeight]="scrollHeight"
+      [dropdown]="dropdown"
+      [multiple]="multiple"
+      [dropdownIcon]="dropdownIcon"
+      [minLength]="minLength"
+      [delay]="delay"
+      [completeOnFocus]="completeOnFocus"
+      [style]="style"
+      [inputStyle]="inputStyle"
+      [panelStyle]="panelStyle"
+      [styleClass]="styleClass"
+      [inputStyleClass]="inputStyleClass"
+      [panelStyleClass]="panelStyleClass"
+      [inputId]="inputId"
+      [name]="name"
+      [optionGroupLabel]="optionGroupLabel"
+      [group]="group"
+      [optionGroupChildren]="optionGroupChildren"
+      [readonly]="readonly"
+      [disabled]="disabled"
+      [maxlength]="maxlength"
+      [size]="size"
+      [appendTo]="appendTo"
+      [tabindex]="tabindex"
+      [dataKey]="dataKey"
+      [autoHighlight]="autoHighlight"
+      [type]="type"
+      [showEmptyMessage]="showEmptyMessage"
+      [emptyMessage]="emptyMessage"
+      [required]="required"
+      [autofocus]="autofocus"
+      [forceSelection]="forceSelection"
+      [dropdownMode]="dropdownMode"
+      [baseZIndex]="baseZIndex"
+      [autoZIndex]="autoZIndex"
+      [showTransitionOptions]="showTransitionOptions"
+      [hideTransitionOptions]="hideTransitionOptions"
+      [ariaLabel]="ariaLabel"
+      [ariaLabelledBy]="ariaLabelledBy"
+      [unique]="unique"
+      [autocomplete]="autocomplete"
+      [virtualScroll]="virtualScroll"
+      [itemSize]="itemSize"></zyfra-auto-complete>
+  `,
   props: {
     ...args,
     countries: [
@@ -52,16 +101,8 @@ const Template: Story<ZyfraAutoCompleteComponent> = (args) => ({
       { name: 'Zimbabwe', code: 'ZW' },
     ],
     completeMethod(event): void {
-      const filtered = [];
-      const query = event.query;
-
-      for (const country of this.countries) {
-        if (country.name.toLowerCase().indexOf(query.toLowerCase()) === 0) {
-          filtered.push(country);
-        }
-      }
-
-      this.suggestions = filtered;
+      const query = event.query.toLowerCase();
+      this.suggestions = this.countries.filter(country => country.name.toLowerCase().indexOf(query) > -1);
     },
   },
 });
