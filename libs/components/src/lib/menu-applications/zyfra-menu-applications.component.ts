@@ -13,8 +13,7 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { fromEvent, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 import { ZyfraMenuAppItem, ZyfraMenuAppTransitionSettings } from './zyfra-menu-applications.interface';
 
 @Component({
@@ -64,10 +63,6 @@ export class ZyfraMenuApplicationsComponent implements AfterViewInit, OnDestroy 
 
   ngAfterViewInit(): void {
     this.setInitialPanelSizes();
-
-    fromEvent(this.wrapper.nativeElement, 'mousemove')
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(() => this.open(true));
   }
 
   private setInitialPanelSizes(): void {
