@@ -63,14 +63,14 @@ export class ZyfraDatepickerMultiComponent {
   constructor(private readonly cdr: ChangeDetectorRef) {}
 
   // TODO need button with dropdown
-  onClickButtonSelect(event: MouseEvent, select: ZyfraDatepickerModeSelectComponent) {
+  public onClickButtonSelect(event: MouseEvent, select: ZyfraDatepickerModeSelectComponent): void {
     if (!select.dropdown.dropdown.overlayVisible) {
       select.dropdown.dropdown.onMouseclick(event);
       event.stopPropagation();
     }
   }
 
-  onSelectChanged(mode: ZyfraDatePickerMode) {
+  public onSelectChanged(mode: ZyfraDatePickerMode): void {
     this.modeChange.emit(mode);
     this.mode = mode;
     this.cdr.detectChanges();
