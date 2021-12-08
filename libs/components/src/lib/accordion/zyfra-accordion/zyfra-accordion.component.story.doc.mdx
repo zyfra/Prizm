@@ -10,10 +10,11 @@ import { ZyfraAccordionComponent } from './zyfra-accordion.component';
 Import module:
 
 ```typescript
-import { ZyfraAccordionModule } from '@digital-plant/zyfra-components';
+import { ZyfraSharedModule, ZyfraAccordionModule } from '@digital-plant/zyfra-components';
 
 @NgModule({
   imports: [
+    ZyfraSharedModule
     ZyfraAccordionModule,
   ]
 })
