@@ -56,7 +56,7 @@ export class ZyfraAutoCompleteComponent<T = unknown> {
   @Input() itemSize: number;
   @Input() label = '';
 
-  @Output() completeMethod = new EventEmitter<unknown>();
+  @Output() completeMethod = new EventEmitter<{originalEvent: InputEvent | PointerEvent, query: string}>();
   @Output() onFocus = new EventEmitter<FocusEvent>();
   @Output() onBlur = new EventEmitter<FocusEvent>();
   @Output() onKeyUp = new EventEmitter<KeyboardEvent>();

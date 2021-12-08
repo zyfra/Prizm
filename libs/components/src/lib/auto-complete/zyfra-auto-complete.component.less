@@ -2,8 +2,16 @@
   background: var(--standartBg);
   color: var(--standartFont);
   border: none;
+  .p-autocomplete-items .p-autocomplete-item {
+    color: var(--standartFont);
+  }
 }
-
-.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item {
-  color: var(--standartFont);
+.p-autocomplete {
+  .p-button.p-button {
+    height: 2.75rem;
+    &,
+    &:hover {
+      background-color: var(--successColor);
+    }
+  }
 }
