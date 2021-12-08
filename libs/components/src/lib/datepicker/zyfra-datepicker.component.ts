@@ -1,8 +1,6 @@
 import {
   Component,
   Input,
-  Output,
-  EventEmitter,
   ChangeDetectionStrategy,
   ViewChild,
   OnChanges,
@@ -28,7 +26,6 @@ import { en } from './i18n/en_US';
 import { ru } from './i18n/ru_RU';
 import { isIsoDate } from './utils/is-iso-date';
 import { generateTimeArray } from './utils/generate-time-array';
-import { ZyfraDatePickerMode } from './model/zyfra-date-picker-mode.enum';
 import { ZyfraLocale } from './model/zyfra-date-picker-locale.enum';
 import { ZyfraDatePickerValueType } from './model/zyfra-date-picker-value-type.enum';
 import { ZyfraTime } from './model/zyfra-time.model';
@@ -44,7 +41,6 @@ import { ZyfraDatePickerLocaleInterface } from './model/zyfra-date-picker.model'
 })
 export class ZyfraDatepickerComponent
   implements ControlValueAccessor, OnInit, OnChanges, AfterViewInit, OnDestroy {
-  readonly DatePickerMode = ZyfraDatePickerMode;
 
   @Input() model: string | number | Date;
   @Input() placeholder: string;
@@ -52,8 +48,6 @@ export class ZyfraDatepickerComponent
   @Input() required: boolean;
   @Input() label: string;
   @Input() spanClass: string;
-  @Input() timeMode: ZyfraDatePickerMode = ZyfraDatePickerMode.absolute;
-  @Input() showChangeMode: boolean;
   @Input() showClear: boolean;
   @Input() showDate: boolean = true;
   @Input() showTime: boolean;
@@ -82,23 +76,9 @@ export class ZyfraDatepickerComponent
   @Input()
   returnFormatValue: ZyfraDatePickerValueType;
 
-  // @Output() modelChange: EventEmitter<
-  //   string | number | Date | null
-  // > = new EventEmitter();
-
   @ViewChild('calendar', { static: false }) private calendar: Calendar;
 
   public controlRequired: boolean;
-  public readonly modes = [
-    {
-      name: 'Абсолютное время',
-      value: ZyfraDatePickerMode.absolute,
-    },
-    {
-      name: 'Относительное время',
-      value: ZyfraDatePickerMode.relative,
-    },
-  ];
   public datepickerValue: Date;
   public datepickerValueShowBtn: Date;
   public timeArray: ZyfraTime[];
@@ -192,16 +172,9 @@ export class ZyfraDatepickerComponent
     event.stopPropagation();
   }
 
-  public setMode(mode: ZyfraDatePickerMode): void {
-    this.timeMode = mode;
-    this.clearValue();
-  }
-
   public onDatepickerNgModelChange(event: string): void {
     this.formattedValue = event;
-    if (this.timeMode === ZyfraDatePickerMode.absolute) {
-      this.checkAbsoluteTime();
-    }
+    this.checkAbsoluteTime();
   }
 
   public onCalendarDateChange(datepickerValue: Date): void {
@@ -228,7 +201,7 @@ export class ZyfraDatepickerComponent
   }
 
   public onInputBlur(): void {
-    if (this.formattedValue && this.timeMode === ZyfraDatePickerMode.absolute) {
+    if (this.formattedValue) {
       if (
         this.dateValue === this.invalidDateMessage ||
         this.timeValue === this.invalidDateMessage
@@ -375,7 +348,7 @@ export class ZyfraDatepickerComponent
       dateRange.push(this.dateValue)
     }
       this.formattedValue = dateRange.join(' - ')
-    } else {  
+    } else {
       this._defaultDateValue = datepickerValue;
       this.dateValue = format(
         this._defaultDateValue,
@@ -384,7 +357,7 @@ export class ZyfraDatepickerComponent
       );
       this.formattedValue = this.dateValue;
     }
-    
+
     if (!this._defaultTimeValue || !isValid(this._defaultTimeValue)) {
       this._defaultTimeValue = this._defaultDateValue;
     }
@@ -470,11 +443,7 @@ export class ZyfraDatepickerComponent
 
   private changeControlState(value: Date | string | number | null): void {
     this.currentValueType = this.getCurrentValueType(value);
-    if (this.timeMode === ZyfraDatePickerMode.relative) {
-      this.formattedValue = String(value);
-    } else {
-      this.generateFormattedValueFromInput();
-    }
+    this.generateFormattedValueFromInput();
   }
 
   private setFormattedValue(defaultDateValue: Date | null): void {

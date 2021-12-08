@@ -52,9 +52,7 @@ const Template: Story<ZyfraDatepickerComponent> = (args) => ({
   [required]="required"
   [label]="label"
   [spanClass]="spanClass"
-  [timeMode]="timeMode"
   [locale]="locale"
-  [showChangeMode]="showChangeMode"
   [showClear]="showClear"
   [showDate]="showDate"
   [showTime]="showTime"
@@ -84,7 +82,6 @@ Absolute.args = {
   required: true,
   label: 'Абсолютное',
   spanClass: null,
-  timeMode: 'absolute',
   locale: 'ru_RU',
   showChangeMode: false,
   showClear: true,
@@ -115,7 +112,6 @@ AbsoluteMini.args = {
   required: true,
   label: 'Абсолютное',
   spanClass: null,
-  timeMode: 'absolute',
   locale: 'ru_RU',
   showChangeMode: false,
   showClear: true,
@@ -133,51 +129,6 @@ AbsoluteMini.args = {
   disabledDays: null,
   firstDayOfWeek: 1,
 };
-
-export const Relative = Template.bind({});
-Relative.args = {
-  model: '',
-  placeholder: 'Выберите время',
-  disabled: false,
-  required: true,
-  label: 'Относительное',
-  spanClass: null,
-  timeMode: 'relative',
-  showChangeMode: false,
-  showClear: true,
-  locale: 'ru_RU',
-};
-
-export const MultipleMode = Template.bind({});
-MultipleMode.args = {
-  model: '21.09.2021 20:17:07',
-  dateFormat: 'DD.MM.YYYY',
-  timeFormat: 'HH:mm:ss',
-  returnFormatValue: 'string',
-  placeholder: 'Выберите дату и время',
-  disabled: false,
-  required: true,
-  label: 'Абсолютное',
-  spanClass: null,
-  timeMode: 'absolute',
-  showChangeMode: true,
-  showClear: true,
-  showDate: true,
-  showTime: true,
-  monthNavigator: false,
-  yearNavigator: false,
-  yearRange: null,
-  showCalendarBtn: true,
-  calendarBtnLabel: 'Выбрать',
-  hideOnDateTimeSelect: false,
-  numberOfMonths: 1,
-  selectionMode: 'single',
-  disabledDates: null,
-  disabledDays: null,
-  firstDayOfWeek: 1,
-  locale: 'ru_RU',
-};
-
 
 export const RangeMode = Template.bind({});
 RangeMode.args = {

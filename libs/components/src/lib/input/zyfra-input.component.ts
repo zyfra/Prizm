@@ -12,11 +12,7 @@ import {
   Self,
   ViewEncapsulation,
 } from '@angular/core';
-import {
-  AbstractControl,
-  ControlValueAccessor,
-  NgControl,
-} from '@angular/forms';
+import { AbstractControl, ControlValueAccessor, NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -26,8 +22,7 @@ import { takeUntil } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class ZyfraInputComponent
-  implements ControlValueAccessor, OnInit, AfterViewInit, OnDestroy {
+export class ZyfraInputComponent implements ControlValueAccessor, OnInit, AfterViewInit, OnDestroy {
   @Input() model: string;
   @Input() type: string;
   @Input() id: string;
@@ -35,9 +30,13 @@ export class ZyfraInputComponent
   @Input() label: string;
   @Input() iClass: string;
   @Input() spanClass: string;
-  @Input() inputClass:  string | string[] | Set<string> | {
-    [klass: string]: any;
-  };
+  @Input() inputClass:
+    | string
+    | string[]
+    | Set<string>
+    | {
+        [klass: string]: any;
+      };
   @Input() disabled: boolean;
   @Input() required: boolean;
   @Input() tooltip: string;
@@ -49,10 +48,7 @@ export class ZyfraInputComponent
 
   private destroyed$: Subject<void> = new Subject<void>();
 
-  constructor(
-    @Self() @Optional() public ngControl: NgControl,
-    private cdr: ChangeDetectorRef
-  ) {
+  constructor(@Self() @Optional() public ngControl: NgControl, private cdr: ChangeDetectorRef) {
     if (ngControl) {
       ngControl.valueAccessor = this;
     }
