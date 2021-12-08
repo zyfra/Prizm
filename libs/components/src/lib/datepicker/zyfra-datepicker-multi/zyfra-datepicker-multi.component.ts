@@ -4,7 +4,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  HostListener,
   ChangeDetectorRef,
 } from '@angular/core';
 import { ZyfraLocale } from '../model/zyfra-date-picker-locale.enum';
@@ -19,19 +18,19 @@ import { ZyfraDatepickerModeSelectComponent } from '../zyfra-datepicker-mode-sel
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraDatepickerMultiComponent {
-  // Base
+  // Base from relative & absolute components
   @Input() public label: string;
   @Input() public placeholder: string;
   @Input() public disabled: boolean;
   @Input() public showClear: boolean;
 
-  // Current
+  // Current component 'multi'
   @Input() mode = ZyfraDatePickerMode.absolute;
 
-  // relative
+  // wrapper for relative component
   @Input() public relativeValue: string;
 
-  // absolute
+  // wrapper for relative component
   @Input() model: string | number | Date;
   @Input() required: boolean;
   @Input() spanClass: string;
