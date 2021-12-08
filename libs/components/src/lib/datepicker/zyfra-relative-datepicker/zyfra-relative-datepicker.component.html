@@ -46,11 +46,11 @@
             <ng-template #menuItemsTemplate let-items="items">
               <li
                 *ngFor="let item of items"
-                role="button"
-                tabindex="0"
-                class="relative-menu-item"
                 [class.relative-menu-item-active]="item.active"
                 (click)="onMenuItemClick(item)"
+                class="relative-menu-item"
+                role="button"
+                tabindex="0"
               >
                 <div class="relative-menu-item-icon">
                   <i class="zyfra-icon {{ item.icon }}"></i>
