@@ -68,7 +68,7 @@ const Template: Story<ZyfraMenuApplicationsComponent> = (args) => ({
         [topMenuItems]="topMenuItems"
         [bottomMenuItems]="bottomMenuItems"
         [activeItem]="activeItem"
-        (selectItem)="selectItem($event); menu.close();"
+        (selectItem)="selectItem($event);"
         (toggleState)="toggleState($event)"
       ></zyfra-menu-applications>
 
