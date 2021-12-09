@@ -51,8 +51,22 @@ const items: MenuItem[] = [
   { label: 'Название цеха 4' }
 ];
 
-export const Simple = Template.bind({});
-Simple.args = {
+const itemsUrl: MenuItem[] = [
+  { label: 'Начало' },
+  { label: 'Название цеха 1', url: '#' },
+  { label: 'Название цеха 2', url: '#' },
+  { label: 'Название цеха 3', url: '#' },
+  { label: 'Название цеха 4', url: '#' }
+];
+
+export const Text = Template.bind({});
+Text.args = {
   items,
+  home: { icon: 'zyfra-icon social-home-breadcrumbs' },
+};
+
+export const Url = Template.bind({});
+Url.args = {
+  items: itemsUrl,
   home: { icon: 'zyfra-icon social-home-breadcrumbs' },
 };
