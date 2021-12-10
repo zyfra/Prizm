@@ -29,6 +29,13 @@
         font-weight: normal;
         height: 23px;
         font-size: @accordionIconSize;
+        border-left: 1px solid var(--tableBorder);
+        padding-left: 0.9rem;
+        margin: 0;
+        
+        &:hover {
+          color: var(--successColorHover);
+        }
       }
 
       &.p-disabled .p-accordion-header-link .p-accordion-toggle-icon {
@@ -50,8 +57,11 @@
           font-weight: bold;
           font-size: 14px;
           line-height: 20px;
-          padding-right: @accordionHorizontalPadding;
-          padding-left: @accordionHorizontalPadding;
+          padding: 1rem 1.5rem;
+          
+          &:focus {
+            outline: 1px solid var(--successColorHover);
+          }
         }
       }
     }
@@ -83,5 +93,12 @@
   &-extra-icons {
     font-size: @accordionIconSize;
     font-weight: normal;
+    color: var(--accordiondButtonColor);
+
+    .zyfra-icon {
+      &.selection-radio-off {
+        margin: 0 0.9rem;
+      }
+    }
   }
 }

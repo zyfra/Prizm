@@ -50,8 +50,8 @@ const Template: Story<ZyfraAccordionComponent> = (args: ZyfraAccordionComponent)
           {{dynamicString}} header Content 2
       </ng-template>
       <ng-template zyfraTemplate="icons">
-          <span class="zyfra-icon chevrons-double-up" title="{{dynamicString}} title"></span>
-          <span class="zyfra-icon chevrons-double-down" title="static title"></span>
+          <span class="zyfra-icon selection-radio-off" title="{{dynamicString}} title"></span>
+          <span class="zyfra-icon selection-radio-off" title="static title"></span>
       </ng-template>
       <ng-template zyfraTemplate="content">
       {{dynamicString}} body Content 2
