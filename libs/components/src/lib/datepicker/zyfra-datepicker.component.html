@@ -17,6 +17,7 @@
   >
     <div right class="zyfra-datepicker-controls">
       <button
+        type="button"
         *ngIf="showClear"
         (click)="clearValue()"
         [disabled]="disabled"
@@ -25,7 +26,7 @@
         <i class="zyfra-icon tools-broom"></i>
       </button>
       <div class="zyfra-datepicker-control" *ngIf="showDate">
-        <button [disabled]="disabled" class="zyfra-datepicker-button" (click)="openCalendar($event)">
+        <button [disabled]="disabled" class="zyfra-datepicker-button" (click)="openCalendar($event)" type="button">
           <i class="zyfra-icon date-calendar-blank"></i>
         </button>
         <p-calendar
@@ -61,7 +62,7 @@
       </div>
 
       <!--  // TODO need button with dropdown -->
-      <button *ngIf="showTime" class="zyfra-datepicker-control zyfra-datepicker-button">
+      <button *ngIf="showTime" class="zyfra-datepicker-control zyfra-datepicker-button" type="button">
         <zyfra-dropdown
           [options]="timeArray"
           [disabled]="disabled"
