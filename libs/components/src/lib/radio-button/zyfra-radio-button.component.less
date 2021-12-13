@@ -31,6 +31,10 @@
     .radio-disabled();
   }
 
+  &-focused:not(.p-disabled) {
+    border-color: var(--radioButtonHover);
+  }
+
   .p-radiobutton-box {
     border: @radioBorderAccent;
     background: var(--radioButtonBg);
