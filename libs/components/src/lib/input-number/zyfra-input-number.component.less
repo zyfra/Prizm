@@ -1,24 +1,34 @@
 span {
-    &.p-inputnumber {
-        border: 1px solid var(--bgSecond);
-        border-radius: 4px;
+  &.p-inputnumber {
+    border: 1px solid var(--bgSecond);
+    border-radius: 4px;
 
-        &:hover, &:focus {
-            border: 1px solid var(--successColorHover);
-            box-shadow: none;
-        }
+    &:hover,
+    &:focus {
+      border: 1px solid var(--successColorHover);
+      box-shadow: none;
     }
+  }
+  .p-inputwrapper-focus span.p-inputnumber {
+    border: 1px solid var(--successColorHover);
+    box-shadow: none;
+  }
 }
 
 button {
-    &.p-inputnumber-button.p-button, &.p-inputnumber-button.p-button.p-button-icon-only:hover  {
-        background-color: transparent;
-        color: var(--inputLabel);
+  &.p-inputnumber-button.p-button {
+    background-color: transparent;
+    color: var(--inputLabel);
+    &:hover,
+    &:focus-visible {
+      background-color: transparent;
+      color: var(--successColorHover);
     }
+  }
 }
 
 input {
-    &.p-inputtext.p-inputnumber-input {
-        border: none;
-    }
+  &.p-inputtext.p-inputnumber-input {
+    border: none;
+  }
 }
