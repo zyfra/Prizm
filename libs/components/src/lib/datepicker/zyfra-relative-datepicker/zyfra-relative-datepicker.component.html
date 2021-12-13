@@ -15,6 +15,7 @@
   >
     <div right>
       <button
+        type="button"
         *ngIf="showClear"
         (click)="clearValue()"
         [disabled]="disabled"
@@ -23,6 +24,7 @@
         <i class="zyfra-icon tools-broom"></i>
       </button>
       <button
+        type="button"
         [disabled]="disabled"
         (click)="op.toggle($event)"
         class="zyfra-datepicker-control zyfra-datepicker-button"
