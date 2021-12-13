@@ -11,6 +11,9 @@ import { ZyfraCheckBoxModule } from '../../checkbox';
 import { ZyfraDropdownModule } from '../../dropdown';
 import { ZyfraInputModule } from '../../input';
 import { ZyfraRadioButtonModule } from '../../radio-button';
+import { ZyfraDatepickerModeSelectComponent } from '../zyfra-datepicker-mode-select/zyfra-datepicker-mode-select.component';
+import { ZyfraDatepickerComponent } from '../zyfra-datepicker.component';
+import { ZyfraRelativeDatepickerComponent } from '../zyfra-relative-datepicker/zyfra-relative-datepicker.component';
 import { ZyfraDatepickerMultiComponent } from './zyfra-datepicker-multi.component';
 
 // @ts-ignore
@@ -36,6 +39,11 @@ export default {
         OverlayPanelModule,
         ListboxModule,
       ],
+      declarations: [
+        ZyfraDatepickerModeSelectComponent,
+        ZyfraDatepickerComponent,
+        ZyfraRelativeDatepickerComponent,
+      ],
     }),
   ],
   parameters: {
@@ -54,7 +62,7 @@ const Template: Story<ZyfraDatepickerMultiComponent> = (args: ZyfraDatepickerMul
     [disabled]='disabled'
     [showClear]='showClear'
     [relativeValue]='value'
-    [ngModel]="model"
+    [model]="model"
     [dateFormat]="dateFormat"
     [timeFormat]="timeFormat"
     [returnFormatValue]="returnFormatValue"
@@ -107,5 +115,5 @@ Primary.args = {
   disabledDates: null,
   disabledDays: null,
   firstDayOfWeek: 1,
-  mode: 'absolute'
+  mode: 'absolute',
 };

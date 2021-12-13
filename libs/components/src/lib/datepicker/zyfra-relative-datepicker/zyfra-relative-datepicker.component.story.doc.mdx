@@ -34,12 +34,12 @@ To component:
 
 ```html
 <zyfra-relative-datepicker
-    [label]="'Относительное'"
-    [placeholder]="'Введите значение'"
-    [disabled]="false"
-    [showClear]="false"
-    [(ngModel)]="'*+8h'"
-  >
+  [label]="'Относительное'"
+  [placeholder]="'Введите значение'"
+  [disabled]="false"
+  [showClear]="false"
+  [(ngModel)]="'*+8h'"
+>
 </zyfra-relative-datepicker>
 ```
 
@@ -48,8 +48,8 @@ Data Input/Outputs format: `*+8h`
 Models:
 
 | Group     | Token | Parse    |
-|-----------|-------|----------|
-| time      | *     | current  |
+| --------- | ----- | -------- |
+| time      | \*    | current  |
 | time      | T     | midnight |
 | direction | -     | minus    |
 | direction | +     | plus     |
@@ -59,7 +59,6 @@ Models:
 | period    | h     | hour     |
 | period    | m     | minute   |
 | period    | s     | second   |
-
 
 ## ArgsTable
 
