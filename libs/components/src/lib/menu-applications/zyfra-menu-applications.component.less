@@ -71,8 +71,14 @@
     color: var(--menuAppItemColor);
     min-height: @menuItemHeight;
     height: @menuItemHeight;
+    border: none;
     border-bottom: 1px solid var(--menuAppItemBorder);
     overflow: hidden;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    text-align: left;
+    padding: 0;
 
     &__wrapper {
       display: flex;
@@ -91,7 +97,10 @@
     }
 
     &_active,
-    &:hover {
+    &:hover,
+    &:focus-visible {
+      outline: none;
+      border: none;
       background-color: var(--menuAppItemActiveBg);
       box-shadow: var(--menuAppItemActiveShadow);
       color: var(--menuAppItemActiveColor);
