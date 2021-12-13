@@ -1,14 +1,23 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  TemplateRef,
+  ContentChildren,
+  QueryList, AfterContentInit
+} from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
+import { ZyfraTemplateDirective } from '../@core/shared/zyfra-template.directives';
 
 @Component({
   selector: 'zyfra-auto-complete',
   templateUrl: './zyfra-auto-complete.component.html',
 })
-export class ZyfraAutoCompleteComponent<T = unknown> {
+export class ZyfraAutoCompleteComponent<T = unknown> implements AfterContentInit {
   @Input() value: any;
-  @Input() suggestions: any[];
-  @Input() field: any;
+  @Input() suggestions: T[];
+  @Input() field: string;
   @Input() scrollHeight = '200px';
   @Input() dropdown: boolean;
   @Input() multiple: boolean;
@@ -67,4 +76,19 @@ export class ZyfraAutoCompleteComponent<T = unknown> {
   @Output() onShow = new EventEmitter<AnimationEvent>();
   @Output() onHide = new EventEmitter<void>();
   @Output() valueChange = new EventEmitter<T>();
+
+  itemTemplate: TemplateRef<any>;
+  selectedItemTemplate: TemplateRef<any>;
+
+  @ContentChildren(ZyfraTemplateDirective) templates: QueryList<ZyfraTemplateDirective>;
+
+  ngAfterContentInit(): void {
+    this.templates.forEach(template=> {
+      if(template.zyfraTemplate === 'item') {
+        this.itemTemplate = template.templateRef;
+      } else if(template.zyfraTemplate === 'selectedItem') {
+        this.selectedItemTemplate = template.templateRef;
+      }
+    })
+  }
 }

@@ -11,19 +11,14 @@
       color: inherit;
     }
 
-    .p-menuitem-icon {
-      color: var(--eventer);
-    }
+.p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+  color: var(--eventer);
+}
 
-    &:focus-visible, &:hover {
-      .p-menuitem-icon, .p-menuitem-text {
-        color: var(--successColorHover);
-      }
+.p-breadcrumb ul li .p-menuitem-link {
+  &:focus-visible, &:hover {
+    .p-menuitem-icon, .p-menuitem-text {
+      color: var(--successColorHover);
     }
-  }
-  
-  .pi-chevron-right:before {
-    color: var(--eventer);
-    content: "\2044";
-  }
+  } 
 }
