@@ -60,8 +60,17 @@
     (onHide)="onHide.emit($event)"
   >
     <ng-template [ngIf]="dropdown">
-      <ng-template let-obj pTemplate="item">
-        <div>{{ obj[field] }}</div>
+      <ng-template pTemplate="item" [ngIf]="itemTemplate" [ngIfElse]="defaultItem" let-obj>
+        <ng-container *ngTemplateOutlet="itemTemplate; context: { $implicit: obj }"></ng-container>
+      </ng-template>
+      <ng-template #defaultItem>
+        <ng-template let-obj pTemplate="item">
+          {{ obj[field] }}
+        </ng-template>
+      </ng-template>
+
+      <ng-template pTemplate="selectedItem" [ngIf]="selectedItemTemplate" let-obj>
+        <ng-container *ngTemplateOutlet="selectedItemTemplate; context: { $implicit: obj }"></ng-container>
       </ng-template>
     </ng-template>
   </p-autoComplete>
