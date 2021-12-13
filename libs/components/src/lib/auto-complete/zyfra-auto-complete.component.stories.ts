@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ZyfraAutoCompleteModule } from './zyfra-auto-complete.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ZyfraSharedModule } from '../@core/shared/zyfra-shared.module';
 
 export default {
   moduleId: module.id,
@@ -19,6 +20,7 @@ export default {
         ReactiveFormsModule,
         CommonModule,
         ZyfraAutoCompleteModule,
+        ZyfraSharedModule,
       ],
     }),
   ],
@@ -80,7 +82,10 @@ const Template: Story<ZyfraAutoCompleteComponent> = (args) => ({
       [unique]="unique"
       [autocomplete]="autocomplete"
       [virtualScroll]="virtualScroll"
-      [itemSize]="itemSize"></zyfra-auto-complete>
+      [itemSize]="itemSize">
+      <ng-template zyfraTemplate="item" let-obj>{{ obj.name}} ({{obj.code}})</ng-template>
+      <ng-template zyfraTemplate="selectedItem" let-obj>{{ obj.name}} - {{obj.code}}</ng-template>
+    </zyfra-auto-complete>
   `,
   props: {
     ...args,
@@ -123,7 +128,7 @@ withDropdown.args = {
   suggestions: null,
   field: 'name',
   minLength: 1,
-  placeholder: 'Выберите страну',
+  placeholder: 'Выберите страны',
   dropdown: true,
   label: 'Страна',
 };

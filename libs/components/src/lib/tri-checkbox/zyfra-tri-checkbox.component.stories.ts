@@ -5,12 +5,10 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { ZyfraButtonModule } from '../button';
-// @ts-ignore
-import TriCheckBoxDoc from './zyfra-tri-checkbox.component.story.doc.mdx';
 
 export default {
   moduleId: module.id,
-  title: 'CheckBoxes/TriCheckBox',
+  title: 'Form/TriCheckBox',
   component: ZyfraTriCheckboxComponent,
   decorators: [
     moduleMetadata({
@@ -26,7 +24,7 @@ export default {
   ],
   parameters: {
     docs: {
-      page: TriCheckBoxDoc,
+      page: require('./zyfra-tri-checkbox.component.story.doc.mdx'),
     },
   },
 } as Meta;

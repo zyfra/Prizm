@@ -13,7 +13,7 @@ import DropdownDoc from './zyfra-dropdown.component.story.doc.mdx';
 
 export default {
   moduleId: module.id,
-  title: 'Select/Dropdown',
+  title: 'Form/Dropdown',
   component: ZyfraDropdownComponent,
   decorators: [
     moduleMetadata({
