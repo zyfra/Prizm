@@ -54,7 +54,7 @@
             border-bottom-width: 2px;
           }
         }
-      } 
+      }
 
       &:not(.p-highlight):not(.p-disabled):hover .p-tabview-nav-link {
         color: var(--tabFont);
@@ -151,6 +151,18 @@
   .control-group {
     display: flex;
     box-shadow: var(--shadow-mini);
+
+    &__item {
+      padding: 0;
+      outline: none;
+      border: none;
+
+      &:focus-visible {
+        i.control-icon:not(.disabled) {
+          color: var(--successColorHover);
+        }
+      }
+    }
   }
 
   .scroll-control {
