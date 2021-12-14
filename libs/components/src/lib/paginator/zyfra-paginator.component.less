@@ -8,10 +8,15 @@
   padding: 0.625rem 1.25rem;
 
   .p-paginator-first:not(.p-disabled):not(.p-highlight):hover,
-  .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover,
+  .p-paginator-first:not(.p-disabled):not(.p-highlight):focus-visible,
   .p-paginator-next:not(.p-disabled):not(.p-highlight):hover,
+  .p-paginator-next:not(.p-disabled):not(.p-highlight):focus-visible,
+  .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover,
+  .p-paginator-prev:not(.p-disabled):not(.p-highlight):focus-visible,
   .p-paginator-last:not(.p-disabled):not(.p-highlight):hover,
-  .p-paginator-pages .p-paginator-page:not(.p-highlight):hover {
+  .p-paginator-last:not(.p-disabled):not(.p-highlight):focus-visible,
+  .p-paginator-pages .p-paginator-page:not(.p-highlight):hover,
+  .p-paginator-pages .p-paginator-page:not(.p-highlight):focus-visible {
     color: #49AB4D;
     background-color: inherit;
     border-color: #E0E4EB;
