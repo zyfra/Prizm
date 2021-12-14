@@ -5,16 +5,19 @@
 .button-style(@color, @background, @backgroundHover, @backgroundActive) {
   color: @color;
   background: @background;
-  &:enabled:hover {
-    border: @buttonBorder;
-    background: @backgroundHover;
-    color: @color;
-  }
-  &:enabled:active {
-    box-shadow: @boxShadowActive;
-    border: @buttonBorder;
-    background: @backgroundActive;
-    color: @color;
+  &:enabled {
+    &:hover,
+    &:focus-visible {
+      border: @buttonBorder;
+      background: @backgroundHover;
+      color: @color;
+    }
+    &:active {
+      box-shadow: @boxShadowActive;
+      border: @buttonBorder;
+      background: @backgroundActive;
+      color: @color;
+    }
   }
 }
 
@@ -42,7 +45,6 @@
   .button-style(var(--buttonWarningFont), var(--buttonWarning), var(--buttonWarningHover), var(--buttonWarningActive));
 }
 
-
 /* ================================= simple button ==================================== */
 .p-button {
   font-size: 0.8rem;
@@ -50,7 +52,7 @@
   height: 2.8rem;
 
   .p-badge {
-    line-height: .9rem;
+    line-height: 0.9rem;
     color: var(--z-accentColor);
     background-color: var(--standartBg);
   }
@@ -83,7 +85,7 @@
     }
 
     &-default {
-      .button-default-style()
+      .button-default-style();
     }
 
     &-success {
@@ -108,7 +110,6 @@
   }
 }
 
-
 /* ================================= toggle-button ==================================== */
 .toggle-button-style(@color, @bg, @bgHover, @bgActive) {
   &.p-button {
@@ -123,7 +124,8 @@
       border: @buttonBorder;
       color: @color;
       box-shadow: @boxShadowActive;
-      &:hover {
+      &:hover,
+      &:focus-visible {
         background: @bgHover;
         border: @buttonBorder;
         color: @color;
@@ -138,13 +140,16 @@
       }
     }
 
-    &:not(.p-disabled):not(.p-highlight):hover {
-      background: @bgHover;
-      border: @buttonBorder;
-      color: @color;
-      .p-button-icon-left,
-      .p-button-icon-right {
+    &:not(.p-disabled):not(.p-highlight) {
+      &:hover,
+      &:focus-visible {
+        background: @bgHover;
+        border: @buttonBorder;
         color: @color;
+        .p-button-icon-left,
+        .p-button-icon-right {
+          color: @color;
+        }
       }
     }
   }
@@ -154,7 +159,9 @@
   &-mini {
     height: @miniButtonHeight;
   }
+
   .toggle-button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
+
   &-default {
     .toggle-button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
   }
@@ -180,7 +187,6 @@
   }
 }
 
-
 /* ================================ select-button ===================================== */
 .select-button-style(@color, @bg, @bgHover, @bgActive) {
   // повышаю вес селектора
@@ -195,17 +201,21 @@
       border-color: @bg;
       color: @color;
 
-      &:hover {
+      &:hover,
+      &:focus-visible {
         background: @bgActive;
         border-color: @bg;
         color: @color;
       }
     }
 
-    &:not(.p-disabled):not(.p-highlight):hover {
-      background: @bgActive;
-      color: @color;
-      border-color: @bg;
+    &:not(.p-disabled):not(.p-highlight) {
+      &:hover,
+      &:focus-visible {
+        background: @bgActive;
+        color: @color;
+        border-color: @bg;
+      }
     }
   }
 }
@@ -217,7 +227,7 @@
 
   .select-button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
 
-&-default {
+  &-default {
     .select-button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
   }
 
@@ -250,7 +260,7 @@
 
   .p-button,
   &-default .p-button {
-    .button-default-style()
+    .button-default-style();
   }
 
   &-success .p-button {
@@ -273,7 +283,6 @@
     .button-warning-style();
   }
 }
-
 
 /* ================================ common ===================================== */
 
