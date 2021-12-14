@@ -44,6 +44,7 @@
           [disabledDates]="disabledDates"
           [disabledDays]="disabledDays"
           [firstDayOfWeek]="firstDayOfWeek"
+          [tabindex]="-1"
           (onSelect)="onCalendarDateChange($event)"
           (onClickOutside)="onCalendarClose()"
         >
@@ -70,6 +71,7 @@
           [styleClass]="'zyfra-datepicker-dropdown'"
           [dropdownIcon]="'zyfra-icon date-update'"
           [optionLabel]="'value'"
+          [tabindex]="-1"
         >
         </zyfra-dropdown>
       </button>
