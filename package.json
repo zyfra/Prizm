@@ -8,6 +8,7 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "nx run components:storybook",
     "build": "nx affected:build --all",
+    "build:storybook": "nx run components:build-storybook",
     "test": "nx affected:test --all",
     "all": "nx affected:build --all && nx affected:test --all"
   },
