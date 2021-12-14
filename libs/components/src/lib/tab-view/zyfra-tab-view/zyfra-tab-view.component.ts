@@ -107,11 +107,6 @@ export class ZyfraTabViewComponent implements AfterContentInit, AfterViewInit, A
     if (!focusPresent) {
       this.lastFocused = highlight ? highlight.firstElementChild : this.navLinks.item(0);
     }
-    this.navLinks.forEach((link, index): void => {
-      if (this.lastFocused !== link) {
-        this.renderer.setAttribute(this.navLinks[index], 'tabindex', '-1');
-      }
-    });
   }
 
   public ngAfterViewChecked(): void {
@@ -144,7 +139,7 @@ export class ZyfraTabViewComponent implements AfterContentInit, AfterViewInit, A
 
   public handleChange(event): void {
     this.onChange.emit(event);
-    this.changeFocus(this.lastFocused, this.navLinks.item(event.index));
+    this.changeFocus(this.navLinks.item(event.index));
   }
 
   public handleClose(event): void {
@@ -152,7 +147,7 @@ export class ZyfraTabViewComponent implements AfterContentInit, AfterViewInit, A
     this.tabClosed = true;
     this.tabList = this.tabList.filter(({ index }) => index !== event.index);
     if (this.lastFocused === closedTab) {
-      this.changeFocus(this.lastFocused, this.navLinks.item(this.tabList[0].index));
+      this.changeFocus(this.navLinks.item(this.tabList[0].index));
     }
     this.onClose.emit(event);
   }
@@ -169,7 +164,7 @@ export class ZyfraTabViewComponent implements AfterContentInit, AfterViewInit, A
     this.navLinks.item(index).scrollIntoView({ inline: 'center' });
     if (!this.tabList[index].disabled && this.activeIndex !== index) {
       this.activeIndex = index;
-      this.changeFocus(this.lastFocused, this.navLinks.item(index));
+      this.changeFocus(this.navLinks.item(index));
       this.onChange.emit({ originalEvent: event, index });
     }
   }
@@ -221,7 +216,7 @@ export class ZyfraTabViewComponent implements AfterContentInit, AfterViewInit, A
     if (!next) {
       return;
     }
-    this.changeFocus(current, next);
+    this.changeFocus(next);
     next.focus();
     if (next.offsetLeft < this.navContentElement.scrollLeft) {
       this.navContentElement.scrollLeft =
@@ -238,7 +233,7 @@ export class ZyfraTabViewComponent implements AfterContentInit, AfterViewInit, A
     if (!next) {
       return;
     }
-    this.changeFocus(current, next);
+    this.changeFocus(next);
     next.focus();
     if (
       next.offsetLeft + next.offsetWidth >
@@ -248,9 +243,7 @@ export class ZyfraTabViewComponent implements AfterContentInit, AfterViewInit, A
     }
   }
 
-  private changeFocus(current: Element, next: Element): void {
-    this.renderer.setAttribute(current, 'tabindex', '-1');
-    this.renderer.setAttribute(next, 'tabindex', '0');
+  private changeFocus(next: Element): void {
     this.lastFocused = next;
   }
 }

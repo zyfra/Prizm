@@ -1,7 +1,9 @@
 <div class="tab-container" [class]="styleClass">
   <div class="scroll-control scroll-control-left shadow-mini-right-container">
     <div class="control-group">
-      <i #prevControl class="pi pi-angle-left control-icon" (click)="scrollPrevious()"></i>
+      <button class="control-group__item" (click)="scrollPrevious()">
+        <i #prevControl class="pi pi-angle-left control-icon"></i>
+      </button>
     </div>
   </div>
 
@@ -30,8 +32,12 @@
 
   <div class="scroll-control scroll-control-right shadow-mini-left-container">
     <div class="control-group">
-      <i class="pi pi-ellipsis-v control-icon" (click)="op.toggle($event)"></i>
-      <i #nextControl class="pi pi-angle-right control-icon" (click)="scrollNext()"></i>
+      <button class="control-group__item" (click)="op.toggle($event)">
+        <i class="pi pi-ellipsis-v control-icon"></i>
+      </button>
+      <button class="control-group__item" (click)="scrollNext()">
+        <i #nextControl class="pi pi-angle-right control-icon"></i>
+      </button>
     </div>
   </div>
 
