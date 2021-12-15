@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TreeTableModule } from 'primeng/treetable';
 
 import { ZyfraTreeTableComponent } from './tree-table.component';
-import { ZyfraTreeTableRowDirective } from './directives/tree-table-row.directive';
+import { ZyfraTreeTableBaseRowDirective } from './directives/tree-table-base-row.directive';
 import { ZyfraTreeTableSelectableRowDirective } from './directives/tree-table-selectable-row.directive';
 import { ZyfraTreeTableTogglerComponent } from './tree-table-toggler/tree-table-toggler.component';
 import { ZyfraTreeTableCheckboxComponent } from './tree-table-checkbox/tree-table-checkbox.component';
@@ -15,10 +15,12 @@ import { ZyfraTreeTableCellEditorComponent } from './tree-table-cell-editor/tree
 import { ZyfraTreeTableEditableColumnDirective } from './directives/tree-table-editable-column.directive';
 import { ZyfraTreeTableReorderableColumnDirective } from './directives/tree-table-reorderable-column.directive';
 import { ZyfraTreeTableTemplateDirective } from './directives/tree-table-template.directive';
+import { ZyfraTreeTableRowDirective } from './directives/tree-table-row.directive';
 
 @NgModule({
   declarations: [
     ZyfraTreeTableComponent,
+    ZyfraTreeTableBaseRowDirective,
     ZyfraTreeTableRowDirective,
     ZyfraTreeTableSelectableRowDirective,
     ZyfraTreeTableTogglerComponent,
@@ -30,11 +32,11 @@ import { ZyfraTreeTableTemplateDirective } from './directives/tree-table-templat
     ZyfraTreeTableEditableColumnDirective,
     ZyfraTreeTableReorderableColumnDirective,
     ZyfraTreeTableTemplateDirective,
-    ZyfraTreeTableRowDirective,
   ],
   imports: [CommonModule, TreeTableModule],
   exports: [
     ZyfraTreeTableComponent,
+    ZyfraTreeTableBaseRowDirective,
     ZyfraTreeTableRowDirective,
     ZyfraTreeTableSelectableRowDirective,
     ZyfraTreeTableTogglerComponent,
@@ -46,7 +48,6 @@ import { ZyfraTreeTableTemplateDirective } from './directives/tree-table-templat
     ZyfraTreeTableEditableColumnDirective,
     ZyfraTreeTableReorderableColumnDirective,
     ZyfraTreeTableTemplateDirective,
-    ZyfraTreeTableRowDirective,
   ],
 })
 export class ZyfraTreeTableModule {}
