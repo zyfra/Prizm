@@ -4,6 +4,7 @@
 
 @accordionBorderRadius: 8px;
 @accordionIconSize: 18px;
+@accordionVerticalPadding: 1rem;
 @accordionHorizontalPadding: 1.5em;
 
 .p-accordion.p-accordion {
@@ -11,7 +12,7 @@
 
   .p-accordion {
     &-tab {
-      padding-bottom: 8px;
+      padding-bottom: @accordionVerticalPadding / 2;
       background-color: var(--bgStandart);
       margin-bottom: 0;
 
@@ -29,6 +30,13 @@
         font-weight: normal;
         height: 23px;
         font-size: @accordionIconSize;
+        border-left: 1px solid var(--tableBorder);
+        padding-left: 0.9rem;
+        margin: 0;
+        
+        &:hover {
+          color: var(--successColorHover);
+        }
       }
 
       &.p-disabled .p-accordion-header-link .p-accordion-toggle-icon {
@@ -50,8 +58,11 @@
           font-weight: bold;
           font-size: 14px;
           line-height: 20px;
-          padding-right: @accordionHorizontalPadding;
-          padding-left: @accordionHorizontalPadding;
+          padding: @accordionVerticalPadding @accordionHorizontalPadding;
+          
+          &:focus-visible {
+            outline: 1px solid var(--successColorHover);
+          }
         }
       }
     }
@@ -83,5 +94,12 @@
   &-extra-icons {
     font-size: @accordionIconSize;
     font-weight: normal;
+    color: var(--accordiondButtonColor);
+
+    .zyfra-icon {
+      &.selection-radio-off {
+        margin: 0 0.9rem;
+      }
+    }
   }
 }
