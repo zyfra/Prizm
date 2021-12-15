@@ -5,6 +5,7 @@
     border-color: @borderColor;
   }
 
+  &:focus-visible,
   &.zyfra-active-element {
     background-color: @rowColor !important;
     box-shadow: inset 4px 0 0 0 @markerColor;
@@ -95,6 +96,7 @@
           border-color: var(--tablePrimaryBorder);
         }
 
+        &:focus-visible,
         &.zyfra-active-element {
           background-color: var(--tableActiveRowBg) !important;
           box-shadow: inset 4px 0 0 0 var(--tablePrimaryMarker);

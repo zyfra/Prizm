@@ -1,12 +1,9 @@
-import { ZyfraTreeTableComponent } from '../tree-table.component';
-import { Directive } from '@angular/core';
-import { ZyfraRowBaseDirective } from '../../@core/base-table';
+import { Directive, Input } from '@angular/core';
+import { TTRow } from 'primeng/treetable';
 
 @Directive({
-  selector: '[zyfraRow]',
+  selector: '[zyfraTTRow]'
 })
-export class ZyfraTreeTableRowDirective extends ZyfraRowBaseDirective<unknown> {
-  constructor(private readonly table: ZyfraTreeTableComponent) {
-    super(table);
-  }
+export class ZyfraTreeTableRowDirective extends TTRow {
+  @Input('zyfraTTRow') rowNode: any;
 }
