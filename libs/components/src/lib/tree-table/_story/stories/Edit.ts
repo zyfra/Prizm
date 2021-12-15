@@ -27,7 +27,7 @@ const Template: Story<ZyfraTreeTableComponent> = (args) => ({
       </ng-template>
 
       <ng-template zyfraTableTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
-        <tr [zyfraRow]="rowData">
+        <tr [zyfraRow]="rowData" [zyfraTTRow]="rowNode">
           <td
             *ngFor="let col of columns; let i = index"
             zyfraTTEditableColumn
