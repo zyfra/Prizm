@@ -8,7 +8,7 @@ import { Schema } from '../schema';
 const FONT_ASSET = {
   glob: '**/*',
   input: 'node_modules/@digital-plant/zyfra-components/src/styles/fonts',
-  output: 'assets/ui-platform/components/fonts',
+  output: 'assets/ui-platform/components/fonts', // TODO test this in real app
 };
 
 const INSTALL_STYLES = [
