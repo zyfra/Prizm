@@ -1,22 +1,20 @@
-
-.p-breadcrumb, .p-breadcrumb ul li .p-menuitem-link .p-menuitem-text {
+.p-breadcrumb {
   color: var(--eventer);
   background-color: transparent;
   border: none;
   font-size: 13px;
-}
 
-.p-breadcrumb ul li .p-menuitem-link {
-  display: flex;
-}
+  ul li .p-menuitem-link {
+    display: flex;
 
-.p-breadcrumb .pi-chevron-right:before {
-  color: var(--eventer);
-  content: "\2044";
-}
+    .p-menuitem-text {
+      color: inherit;
+    }
 
-.p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
-  color: var(--eventer);
+    .p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+      color: var(--eventer);
+    }
+  }
 }
 
 .p-breadcrumb ul li .p-menuitem-link {
