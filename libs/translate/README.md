@@ -1,7 +1,10 @@
-# translate
+# @digital-plant/zyfra-translate
 
-This library was generated with [Nx](https://nx.dev).
+This project solves dynamic localization problem by web applications. Consists:
 
-## Running unit tests
+Based on [ngx-translate](https://github.com/ngx-translate/core).
 
-Run `nx test translate` to execute the unit tests.
+
+### Build
+
+nx affected:build --files=libs/translate/src/index.ts
