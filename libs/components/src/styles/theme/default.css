@@ -158,6 +158,7 @@
   --sliderBg: #7887a5;
   /* ------------ calendar ------------ */
   --calendarBgChecked: #3d8f40;
+  --calendarBgHighlight: rgba(61, 143, 64, 0.2);
   --calendarBgHover: #3D8F4022;
   --weekendDayColor:#EC5050;
 
