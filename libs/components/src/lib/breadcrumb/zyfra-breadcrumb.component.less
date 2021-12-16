@@ -7,6 +7,12 @@
   ul li .p-menuitem-link {
     display: flex;
 
+    &:focus-visible, &:hover {
+      .p-menuitem-icon, .p-menuitem-text {
+        color: var(--successColorHover);
+      }
+    } 
+
     .p-menuitem-text {
       color: inherit;
     }
@@ -15,12 +21,4 @@
       color: var(--eventer);
     }
   }
-}
-
-.p-breadcrumb ul li .p-menuitem-link {
-  &:focus-visible, &:hover {
-    .p-menuitem-icon, .p-menuitem-text {
-      color: var(--successColorHover);
-    }
-  } 
 }
