@@ -64,7 +64,7 @@ const Template: Story<ZyfraToastComponent> = (args) => ({
 
 export const Simple = Template.bind({});
 Simple.args = {
-  position: 'bottom-right',
+  position: 'bottom-center',
   severity: 'success',
   summary: 'Info',
   detail: 'Message Content',
@@ -75,7 +75,7 @@ Simple.args = {
 
 export const NoIcons = Template.bind({});
 NoIcons.args = {
-  position: 'bottom-right',
+  position: 'bottom-center',
   closable: false,
   detail: 'Message Content',
   life: 3000,
@@ -83,7 +83,7 @@ NoIcons.args = {
 
 export const Animation = Template.bind({});
 Animation.args = {
-  position: 'bottom-left',
+  position: 'bottom-center',
   detail: 'for Animation',
   life: 3000,
   showTransitionOptions: '3000ms ease-out',
@@ -93,7 +93,7 @@ Animation.args = {
 export const CustomTemplate = Template.bind({});
 CustomTemplate.args = {
   useCustomTemplate: true,
-  position: 'bottom-right',
+  position: 'bottom-center',
   severity: 'success',
   summary: 'Info',
   detail: 'Message Content',

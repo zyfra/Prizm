@@ -1,6 +1,10 @@
 @icon-font-family: ZyfraIcons;
 
 .zyfra-datepicker {
+  .p-datepicker table {
+    font-size: 0.8rem;
+  }
+
   position: relative;
   display: inline-block;
   .zyfra-icon {
@@ -187,8 +191,8 @@
           border-radius: 1.6rem;
           border: none;
           &.p-highlight {
-            background: var(--calendarBgChecked);
-            color: var(--textColor);
+            background: var(--calendarBgHighlight);
+            color: var(--successColorHover);
           }
         }
       }
