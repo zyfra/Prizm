@@ -132,16 +132,17 @@ AbsoluteMini.args = {
 
 export const RangeMode = Template.bind({});
 RangeMode.args = {
-  model: '21.09.2021 20:17:07',
+  model: '21.09.2021 - 26.09.2021',
   dateFormat: 'DD.MM.YYYY',
   returnFormatValue: 'string',
   placeholder: 'Выберите дату и время',
+  inputClass: 'p-inputtext-mini',
   disabled: false,
   required: true,
   label: 'Абсолютное',
   spanClass: null,
-  timeMode: 'absolute',
-  showChangeMode: true,
+  locale: 'ru_RU',
+  showChangeMode: false,
   showClear: true,
   showDate: true,
   showTime: false,
@@ -155,6 +156,5 @@ RangeMode.args = {
   selectionMode: 'range',
   disabledDates: null,
   disabledDays: null,
-  firstDayOfWeek: 1,
-  locale: 'ru_RU',
+  firstDayOfWeek: 1
 };
