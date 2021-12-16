@@ -336,18 +336,18 @@ export class ZyfraDatepickerComponent
 
   private generateFormattedValueFromCalendarValue(datepickerValue: Date): void {
     if (this.selectionMode === 'range') {
-      this.formattedValue = ''
+      this.formattedValue = '';
       this._defaultDateValue = this.calendar.value;
-      let dateRange:string[] = []
+      let dateRange:string[] = [];
       for (let i=0; i<2; i++) {
         this.dateValue = format(
         this._defaultDateValue[i],
         this.formatDate,
         this.localeFns
       );
-      dateRange.push(this.dateValue)
+      dateRange.push(this.dateValue);
     }
-      this.formattedValue = dateRange.join(' - ')
+      this.formattedValue = dateRange.join(' - ');
     } else {
       this._defaultDateValue = datepickerValue;
       this.dateValue = format(
@@ -356,29 +356,28 @@ export class ZyfraDatepickerComponent
         this.localeFns
       );
       this.formattedValue = this.dateValue;
+      if (!this._defaultTimeValue || !isValid(this._defaultTimeValue)) {
+        this._defaultTimeValue = this._defaultDateValue;
+      }
+  
+      this.timeValue = format(
+        this._defaultTimeValue,
+        this.formatTime,
+        this.localeFns
+      );
+  
+      if (this.showTime) {
+        this.formattedValue += ` ${this.timeValue}`;
+      }
+  
+      const dateValue = `${this.dateValue} ${this.timeValue}`;
+      const formatValue = `${this.formatDate} ${this.formatTime}`;
+      this.onChangeValue(
+        this.getValueOutput(
+          parse(dateValue, formatValue, new Date(), this.localeFns)
+        )
+      );
     }
-
-    if (!this._defaultTimeValue || !isValid(this._defaultTimeValue)) {
-      this._defaultTimeValue = this._defaultDateValue;
-    }
-
-    this.timeValue = format(
-      this._defaultTimeValue,
-      this.formatTime,
-      this.localeFns
-    );
-
-    if (this.showTime) {
-      this.formattedValue += ` ${this.timeValue}`;
-    }
-
-    const dateValue = `${this.dateValue} ${this.timeValue}`;
-    const formatValue = `${this.formatDate} ${this.formatTime}`;
-    this.onChangeValue(
-      this.getValueOutput(
-        parse(dateValue, formatValue, new Date(), this.localeFns)
-      )
-    );
   }
 
   private generateFormattedValueFromInput(): void {
@@ -428,7 +427,7 @@ export class ZyfraDatepickerComponent
           this.localeFns
         );
         break;
-
+  
       case ZyfraDatePickerValueType.isoString:
         dateParam = parseISO(this.model as string);
         if (isValid(dateParam)) {
@@ -437,7 +436,6 @@ export class ZyfraDatepickerComponent
         this._defaultDateValue = dateParam;
         break;
     }
-
     this.setFormattedValue(this._defaultDateValue);
   }
 
