@@ -1,11 +1,13 @@
-@inputHeight: 44px;
+@inputHeight: @44px;
 
 .p-inputgroup {
-  border: 1px solid var(--standartBorder);
-  border-radius: 4px;
+  border: @1px solid var(--standartBorder);
+  border-radius: @4px;
+
   .p-inputtext {
     border: none;
   }
+
   &.zyfra-input-group_disabled {
     background-color: var(--inputDisabledBgColor);
   }
@@ -14,6 +16,7 @@
 .p-inputgroup:focus-within,
 .zyfra-input:focus-within {
   border-color: var(--z-accentColor);
+
   .p-inputtext {
     box-shadow: none;
   }
@@ -21,16 +24,16 @@
 
 .p-inputtext {
   font-family: var(--fontFamily);
-  font-size: 0.81rem;
+  font-size: @13px;
   color: var(--text);
   background: var(--standartBg);
-  border: 1px solid var(--standartBorder);
-  border-radius: 4px;
+  border: @1px solid var(--standartBorder);
+  border-radius: @4px;
   height: @inputHeight;
-  padding-left: 16px;
+  padding: @7px @7px @7px @16px;
 
   &::placeholder {
-    font-size: 0.81rem;
+    font-size: @13px;
     color: var(--inputPlaceholder);
   }
 
@@ -38,13 +41,14 @@
   &.p-disabled {
     background-color: var(--inputDisabledBgColor);
   }
+
   &-mini {
-    height: 2.25rem;
+    height: @36px;
   }
 }
 
 .p-inputtextarea {
-  padding-top: 32px;
+  padding-top: @32px;
   height: auto;
 }
 
@@ -55,7 +59,7 @@
 .medium {
   .p-inputtext,
   .p-inputnumber-button-group {
-    height: 2.75rem;
+    height: @44px;
   }
 }
 
@@ -75,8 +79,8 @@
   .p-inputwrapper-focus,
   .p-inputwrapper-filled {
     ~ label {
-      font-size: 0.81rem;
-      top: 7px;
+      font-size: @13px;
+      top: @7px;
       transform: none;
     }
   }
@@ -85,7 +89,7 @@
   .p-inputwrapper-focus,
   .p-inputwrapper-filled {
     ~ label {
-      top: 0.25rem;
+      top: @4px;
     }
   }
 
@@ -93,20 +97,20 @@
   textarea:focus,
   textarea.p-filled {
     ~ label {
-      font-size: 0.81rem;
+      font-size: @13px;
       transform: none;
-      top: 11px;
+      top: @11px;
     }
   }
 
   label {
     font-family: var(--fontFamily);
-    font-size: 0.81rem;
+    font-size: @13px;
     color: var(--inputLabel);
     font-weight: 700;
     transform: translateY(-50%);
     margin-top: 0;
-    left: 17px;
+    left: @17px;
 
     &.label-required:after {
       content: ' *';
@@ -118,7 +122,7 @@
     padding-top: @18px;
 
     &.p-inputtextarea {
-      padding-top: 32px;
+      padding-top: @32px;
     }
 
     &::placeholder {
@@ -137,8 +141,8 @@
 
   .p-dropdown {
     .p-inputtext {
-      padding-top: 20px;
-      line-height: 22px;
+      padding-top: @20px;
+      line-height: @22px;
     }
   }
 }
@@ -156,7 +160,7 @@
 }
 
 div.p-tooltip .p-tooltip-text {
-  font-size: 0.813rem;
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
+  font-size: @13px;
+  border-radius: @8px;
+  padding: @8px @16px;
 }

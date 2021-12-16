@@ -1,16 +1,17 @@
 .p-inputswitch {
   .p-inputswitch-slider {
     background: var(--inputSwitchBg);
-    border: 2px solid var(--inputSwitchUnactive);
-    height: 20px;
-    width: 40px;
+    border: @2px solid var(--inputSwitchUnactive);
+    height: @20px;
+    width: @40px;
+
     &:before {
       background: var(--inputSwitchBg);
-      border: 2px solid var(--inputSwitchUnactive);
-      margin-top: 2px;
-      left: 0.1rem;
-      width: 12px;
-      height: 12px;
+      border: @2px solid var(--inputSwitchUnactive);
+      margin-top: @2px;
+      left: @2px;
+      width: @12px;
+      height: @12px;
       top: 0;
       box-sizing: border-box;
     }
@@ -18,19 +19,22 @@
 
   &.p-inputswitch-checked .p-inputswitch-slider {
     background: var(--inputSwitchBg);
-    border: 2px solid var(--inputSwitchActive);
+    border: @2px solid var(--inputSwitchActive);
+
     &:before {
+      transform: translateX(@20px);
       background: var(--inputSwitchBg);
-      border: 2px solid var(--inputSwitchActive);
+      border: @2px solid var(--inputSwitchActive);
     }
   }
 
   &:not(.p-disabled):hover .p-inputswitch-slider {
     background: var(--inputSwitchBg) !important;
-    border: 2px solid var(--inputSwitchHover);
+    border: @2px solid var(--inputSwitchHover);
+
     &:before {
       background: var(--inputSwitchBg);
-      border: 2px solid var(--inputSwitchHover);
+      border: @2px solid var(--inputSwitchHover);
     }
   }
 }
@@ -38,6 +42,7 @@
 .p-disabled {
   .p-inputswitch-slider {
     background: var(--inputDisabledBgColor);
+
     &:before {
       background: var(--inputDisabledBgColor);
     }
@@ -47,11 +52,11 @@
 .p-focus {
   .p-inputswitch-slider {
     background: var(--inputSwitchBg);
-    border: 2px solid var(--inputSwitchHover);
+    border: @2px solid var(--inputSwitchHover);
+
     &:before {
       background: var(--inputSwitchBg);
-      border: 2px solid var(--inputSwitchHover);
+      border: @2px solid var(--inputSwitchHover);
     }
   }
 }
-  

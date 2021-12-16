@@ -15,12 +15,11 @@ const INSTALL_STYLES = [
   'node_modules/primeng/resources/themes/luna-blue/theme.css',
   'node_modules/primeng/resources/primeng.min.css',
   'node_modules/primeicons/primeicons.css',
-  'node_modules/@digital-plant/zyfra-components/src/styles/theme/default.css',
+  'node_modules/@digital-plant/zyfra-components/src/styles/theme/default.less',
   'node_modules/@digital-plant/zyfra-components/src/styles/styles.less',
 ];
 
 const ICON_STYLES = ['node_modules/@digital-plant/zyfra-components/src/styles/icons/icons.less'];
-
 export function addStyles(options: Schema): Rule {
   return async (tree: Tree) => {
     const workspace = await getWorkspace(tree);

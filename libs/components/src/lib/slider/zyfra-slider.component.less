@@ -1,4 +1,6 @@
 .p-slider .p-slider-handle {
+  height: @16px;
+  width: @16px;
   background: var(--standartBg);
   border: 2px solid var(--z-accentColor);
 }
@@ -13,6 +15,21 @@
 }
 .p-slider .p-slider-range {
   background: var(--z-accentColor);
+}
+
+.p-slider {
+  &.p-slider-vertical {
+    width: @2px;
+
+    .p-slider-handle {
+      margin-top: -@8px;
+      margin-left: -@8px;
+    }
+  }
+
+  &.p-slider-horizontal {
+    height: @2px;
+  }
 }
 
 .p-slider.p-slider-horizontal .p-slider-handle {
