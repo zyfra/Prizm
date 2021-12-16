@@ -1,10 +1,10 @@
 .shadow-mini-left-container:not(.disabled) {
-  padding-left: 0.5rem;
+  padding-left: @8px;
   overflow: hidden;
 }
 
 .shadow-mini-right-container:not(.disabled) {
-  padding-right: 0.5rem;
+  padding-right: @8px;
   overflow: hidden;
 }
 
@@ -13,6 +13,10 @@
 }
 
 .p-tabview {
+  .p-tabview-close,
+  .zyfra-icon {
+    font-size: @16px;
+  }
 
   .p-tabview-nav {
     position: relative;
@@ -25,15 +29,15 @@
 
       .p-tabview-nav-link {
         height: 100%;
-        padding: 0.8rem 2.5rem 0.9rem;
+        padding: @12px @40px @14px;
         color: var(--tabFont);
         background: var(--tabviewBg);
         border-color: var(--tabviewBg);
-        border-width: 1px 1px 2px 1px;
+        border-width: @1px @1px @2px @1px;
 
         &:not(.p-disabled):focus {
           border-color: var(--z-accentColor);
-          border-width: 1px;
+          border-width: @1px;
           box-shadow: none;
         }
       }
@@ -43,7 +47,6 @@
       }
 
       &.p-highlight {
-
         .p-tabview-nav-link {
           color: var(--tabActiveFont);
           background: var(--tabviewBg);
@@ -51,7 +54,7 @@
           border-bottom-color: var(--z-accentColor);
 
           &:not(.p-disabled):focus {
-            border-bottom-width: 2px;
+            border-bottom-width: @2px;
           }
         }
       }
@@ -70,11 +73,11 @@
   }
 
   .p-tabview-right-icon {
-    margin-left: 0.75rem;
+    margin-left: @12px;
   }
 
   .p-tabview-left-icon {
-    margin-right: 0.75rem;
+    margin-right: @12px;
   }
 
   .p-disabled {
@@ -82,32 +85,31 @@
   }
 
   .p-badge {
-    min-width: 1rem;
-    height: 1rem;
+    min-width: @16px;
+    height: @16px;
     color: var(--tabBadgeText);
-    font-size: 0.813rem;
-    line-height: 1rem;
+    font-size: @13px;
+    line-height: @16px;
     background-color: var(--z-accentColor);
   }
 
   .p-tabview-panels {
-    padding: 0.5rem;
+    padding: @8px;
     background: var(--bgStandart);
     border-color: var(--tabContentContainerBg);
     box-shadow: var(--shadow-mini);
-    margin-top: 0.5rem;
-    border-radius: 0.5rem;
+    margin-top: @8px;
+    border-radius: @8px;
     height: 90vh;
   }
 
   .p-tabview-close:hover {
-    margin-left: 0.5rem;
     color: var(--z-accentColor);
   }
 }
 
 .p-tabview-title {
-  font-size: 0.875rem;
+  font-size: @14px;
   white-space: nowrap;
 }
 
@@ -126,6 +128,7 @@
   cursor: pointer;
   color: var(--navControl);
   background: var(--tabviewBg);
+  font-size: @16px;
 
   &:not(.p-disabled):hover {
     color: var(--z-accentColor);
@@ -183,7 +186,7 @@
 
   .tab-list-panel-container {
     position: absolute;
-    top: 40px;
+    top: @40px;
     right: 0;
   }
 
@@ -227,22 +230,22 @@
   --tabNavHeight: var(--secondaryTabNavHeight);
 
   .p-tabview-title {
-    font-size: 13px;
+    font-size: @13px;
   }
 }
 
 .tab-list-panel-container {
   position: absolute;
-  top: 40px;
+  top: @40px;
   right: 0;
 
   .p-overlaypanel {
-    max-width: 20rem;
-    max-height: 24.375rem;
+    max-width: @320px;
+    max-height: @390px;
     overflow: auto;
     background: var(--tabviewBg);
     border: none;
-    border-radius: 12px;
+    border-radius: @12px;
     box-shadow: var(--shadow-big);
 
     .p-overlaypanel-content {
@@ -251,11 +254,12 @@
   }
 
   .tab-list-item {
-    height: 2.75rem;
-    margin: 0.25rem 0;
-    padding: 0.75rem 1.5rem;
+    height: @48px;
+    margin: @4px 0;
+    padding: @12px @24px;
+    line-height: @24px;
     color: var(--tabActiveFont);
-    font-size: 0.85rem;
+    font-size: @14px;
 
     &:hover {
       background: var(--tabListItemHover);
