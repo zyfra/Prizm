@@ -1,50 +1,54 @@
 @icon-font-family: ZyfraIcons;
-@border-radius: 8px; 
+@border-radius: @8px;
 
 .p-splitbutton {
-    .p-menu {
-        .p-menuitem-link {
-            &:hover {
-                background: rgba(61, 143, 64, 0.2);
+  .pi-chevron-down {
+    font-size: @16px;
+  }
 
-                .p-menuitem-icon, .p-menuitem-text {
-                    color: var(--text);
-                }
-            }
+  .p-menu {
+    .p-menuitem-link {
+      &:hover {
+        background: rgba(61, 143, 64, 0.2);
 
-            .p-menuitem-text {
-                font-size: 0.8125rem;
-            }
+        .p-menuitem-icon, .p-menuitem-text {
+          color: var(--text);
         }
-          
-        &.p-menu-overlay {
-            border-radius: @border-radius;
-            box-shadow:  0px 8px 32px rgba(102, 119, 153, 0.24);
-            width: 14.5rem;
-        }
+      }
+
+      .p-menuitem-text {
+        font-size: @13px;
+      }
     }
 
-    ul {
-        :first-child :hover {
-            border-top-left-radius: @border-radius;
-            border-top-right-radius: @border-radius;
-        }
+    &.p-menu-overlay {
+      border-radius: @border-radius;
+      box-shadow: 0 @8px @32px rgba(102, 119, 153, 0.24);
+      width: @232px;
+    }
+  }
 
-        :last-child :hover {
-            border-bottom-left-radius: @border-radius;
-            border-bottom-right-radius: @border-radius;
-        }
+  ul {
+    :first-child :hover {
+      border-top-left-radius: @border-radius;
+      border-top-right-radius: @border-radius;
     }
 
-    .p-button-icon.pi.pi-chevron-down:before {
-        font-family: @icon-font-family;
-        content: 'chevrons_menu_right_icon';
+    :last-child :hover {
+      border-bottom-left-radius: @border-radius;
+      border-bottom-right-radius: @border-radius;
     }
-    
-    .p-button:not(.p-component:disabled):active .p-button-icon.pi.pi-chevron-down:before {
-        font-family: @icon-font-family;
-        content: 'chevrons_dropdown_icon';
-    }
+  }
+
+  .p-button-icon.pi.pi-chevron-down:before {
+    font-family: @icon-font-family;
+    content: 'chevrons_menu_right_icon';
+  }
+
+  .p-button:not(.p-component:disabled):active .p-button-icon.pi.pi-chevron-down:before {
+    font-family: @icon-font-family;
+    content: 'chevrons_dropdown_icon';
+  }
 }
 
 

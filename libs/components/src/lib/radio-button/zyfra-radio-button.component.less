@@ -1,12 +1,18 @@
-@radioButtonSize: 20px;
-@radioButtonCoreSize: 8px;
-@radioButtonMiniSize: 16px;
-@radioButtonMiniCoreSize: 4px;
-@radioBorderAccent: 2px solid var(--radioButtonHover);
+@import '../../styles/typography/typography-const.less';
+
+@radioButtonSize: @20px;
+@radioButtonCoreSize: @8px;
+@radioButtonMiniSize: @16px;
+@radioButtonMiniCoreSize: @4px;
+@radioBorderAccent: @2px solid var(--radioButtonHover);
 
 .radio-disabled() {
   background: var(--radioButtonDisabledBg);
   border-color: var(--radioButtonDisabled);
+}
+
+.p-radiobutton-label {
+  margin-left: @8px;
 }
 
 .p-radiobutton {
@@ -19,7 +25,7 @@
   }
 
   &-group p-radiobutton {
-    margin-bottom: 5px;
+    margin-bottom: @5px;
   }
 
   &-disabled {
