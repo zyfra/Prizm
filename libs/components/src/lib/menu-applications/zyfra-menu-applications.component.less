@@ -1,13 +1,13 @@
 .menu-applications {
-  @menuOpenWidth: 408px;
-  @menuCloseWidth: 48px;
+  @menuOpenWidth: @408px;
+  @menuCloseWidth: @48px;
 
   width: @menuCloseWidth;
   height: 100%;
   transition-property: min-width;
   background-color: var(--menuAppBg);
   overflow: hidden;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--fontFamily);
 
   .menu-splitter {
     height: 100%;
@@ -43,16 +43,16 @@
   }
 
   &-hint {
-    max-width: 440px;
+    max-width: @440px;
     color: #353E50;
 
     &__title {
-      font-size: 14px;
+      font-size: @14px;
       font-weight: 700;
     }
 
     &__desc {
-      font-size: 13px;
+      font-size: @13px;
     }
   }
 
@@ -62,8 +62,8 @@
   }
 
   .zyfra-menu-applications-item {
-    @menuItemWidth: 48px;
-    @menuItemHeight: 48px;
+    @menuItemWidth: @48px;
+    @menuItemHeight: @48px;
 
     display: flex;
     align-items: center;
@@ -72,7 +72,7 @@
     min-height: @menuItemHeight;
     height: @menuItemHeight;
     border: none;
-    border-bottom: 1px solid var(--menuAppItemBorder);
+    border-bottom: @1px solid var(--menuAppItemBorder);
     overflow: hidden;
     background: transparent;
     outline: none;
@@ -88,11 +88,11 @@
     zyfra-icon.zyfra-menu-applications-item__arrow {
       display: flex;
       justify-content: center;
-      min-width: 40px;
-      width: 40px;
+      min-width: @40px;
+      width: @40px;
       height: auto;
-      margin-right: 4px;
-      font-size: 20px;
+      margin-right: @4px;
+      font-size: @20px;
       color: var(--menuAppItemArrowColor);
     }
 
@@ -100,7 +100,6 @@
     &:hover,
     &:focus-visible {
       outline: none;
-      border: none;
       background-color: var(--menuAppItemActiveBg);
       box-shadow: var(--menuAppItemActiveShadow);
       color: var(--menuAppItemActiveColor);
@@ -114,7 +113,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
+      font-size: @22px;
       min-width: @menuItemWidth;
       width: @menuItemWidth;
       height: @menuItemHeight;
@@ -123,8 +122,8 @@
 
     &__title {
       width: 100%;
-      font-size: 13px;
-      margin-left: 8px;
+      font-size: @13px;
+      margin-left: @8px;
       cursor: default;
       white-space: nowrap;
       text-overflow: ellipsis;

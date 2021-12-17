@@ -1,29 +1,30 @@
+@import '../../../styles/typography/typography-const.less';
+
 .zyfra-datepicker-relative-menu {
   list-style: none;
   margin: 0;
-  padding: 0.5rem 0;
+  padding: @8px 0;
 }
 
 .relative-menu-item {
-  height: 2.75em;
-  padding: 0 1.5em;
+  height: @44px;
+  padding: 0 @24px;
   display: flex;
   align-items: center;
   cursor: pointer;
 
-  display: flex;
-
   &-icon {
-    font-size: 28px;
+    font-size: @28px;
     display: inherit;
   }
+
   &-label {
-    padding-left: 0.5rem;
+    padding-left: @8px;
   }
 
   &-divider {
-    margin: 2px 0px;
-    border-bottom: 1px solid var(--standartBorder);
+    margin: @2px 0;
+    border-bottom: @1px solid var(--standartBorder);
   }
 
   &:hover {
@@ -33,6 +34,7 @@
   &-active {
     background: var(--listItemActive);
     color: var(--listItemBg);
+
     &:hover {
       background: var(--listItemActive);
     }

@@ -1,11 +1,17 @@
 @icon-font-family: ZyfraIcons;
 
 .zyfra-datepicker {
+  .p-datepicker table {
+    font-size: 0.8rem;
+  }
+
   position: relative;
   display: inline-block;
+
   .zyfra-icon {
-    font-size: 1.25rem;
+    font-size: @20px;
     color: var(--eventer);
+
     &:hover {
       color: var(--buttonSuccessHover);
     }
@@ -22,8 +28,9 @@
 
   &-control {
     height: 100%;
-    width: 2.5rem;
+    width: @40px;
     background-color: transparent;
+
     & > .zyfra-input,
     & > .zyfra-datepicker-button,
     .p-dropdown-trigger {
@@ -62,7 +69,7 @@
   }
 
   &-dropdown {
-    width: 2.5rem;
+    width: @40px;
     &.p-dropdown {
       border: none;
       display: inline-block;
@@ -76,11 +83,11 @@
     }
     &-overlay.p-dropdown-panel {
       background: var(--standartBg);
-      box-shadow: 0rem 0.5rem 2rem rgba(102, 119, 153, 0.24);
-      border-radius: 0.75rem;
+      box-shadow: 0 @8px @32px rgba(102, 119, 153, 0.24);
+      border-radius: @12px;
       overflow: hidden;
       .p-dropdown-items .p-dropdown-item {
-        padding: 0.75rem 3.4rem 0.75rem 1.5rem;
+        padding: @12px @56px @12px @24px;
         &.p-highlight {
           color: var(--textColor);
           .zyfra-icon {
@@ -96,10 +103,10 @@
           }
         }
         .zyfra-icon {
-          font-size: 1.25rem;
+          font-size: @20px;
           color: var(--eventer);
-          margin-left: 0.6rem;
-          margin-right: 1.1rem;
+          margin-left: @10px;
+          margin-right: @17px;
         }
         .mode-item {
           display: flex;
@@ -108,7 +115,7 @@
       .p-dropdown-items-wrapper {
         visibility: visible;
         &::-webkit-scrollbar {
-          width: 0.2rem;
+          width: @3px;
         }
         &::-webkit-scrollbar-thumb {
           background-color: var(--calendarBgChecked);
@@ -122,10 +129,16 @@
     &:not(.p-datepicker-inline) {
       background: var(--standartBg);
       color: var(--standartFont);
-      border: 1px solid var(--standartBorder);
-      box-shadow: 0px 0.5rem 2rem rgba(102, 119, 153, 0.24);
-      border-radius: 1rem;
+      border: @1px solid var(--standartBorder);
+      box-shadow: 0 @8px @32px rgba(102, 119, 153, 0.24);
+      border-radius: @8px;
       padding: 0;
+    }
+
+    &-header .p-datepicker-prev,
+    &-header .p-datepicker-next {
+      width: @32px;
+      height: @32px;
     }
 
     &-header,
@@ -133,13 +146,22 @@
       padding: 0;
       color: var(--standartFont);
       background: var(--standartBg);
+
       .p-datepicker-title {
         margin-right: auto;
         margin-left: 0;
         color: var(--eventer);
-        font-size: 0.81rem;
+        font-size: @13px;
         font-weight: 400;
-        padding-left: 0.4rem;
+        padding-left: @6px;
+      }
+    }
+
+    table {
+      font-size: @13px;
+
+      th {
+        padding: @8px;
       }
     }
 
@@ -149,7 +171,7 @@
       color: var(--eventer);
       &::after {
         content: '';
-        width: 0.8em;
+        width: @13px;
         height: 0.5em;
         background-color: var(--eventer);
         clip-path: polygon(100% 0%, 0 0%, 50% 100%);
@@ -158,11 +180,13 @@
     &-prev,
     &-next {
       order: 1;
+
       &-icon {
         font-family: @icon-font-family;
         font-style: normal;
-        font-size: 1.25rem;
+        font-size: @20px;
         color: var(--eventer);
+
         &::before {
           content: 'chevrons_left_icon';
         }
@@ -181,20 +205,22 @@
       td,
       td.p-datepicker-today {
         padding: 0;
+
         & > span {
-          width: 2.5rem;
-          height: 2.5rem;
-          border-radius: 1.6rem;
+          width: @40px;
+          height: @40px;
+          border-radius: 50%;
           border: none;
+
           &.p-highlight {
-            background: var(--calendarBgChecked);
-            color: var(--textColor);
+            background: var(--calendarBgHighlight);
+            color: var(--successColorHover);
           }
         }
       }
       td.p-datepicker-today {
         & > span {
-          border: 1px solid var(--eventer);
+          border: @1px solid var(--eventer);
           background: var(--calendarBgHover);
         }
       }
@@ -206,7 +232,7 @@
       }
     }
     &-group-container {
-      padding: 0.5rem;
+      padding: @8px;
     }
     &.p-datepicker-multiple-month {
       &-group {
@@ -230,8 +256,9 @@
 
   &-calendar {
     &-footer {
-      padding: 0.5rem 1rem 1rem;
-      box-shadow: 0rem -0.12rem 0.5rem rgba(102, 119, 153, 0.16);
+      padding: @8px @16px @16px;
+      box-shadow: 0 -@2px @8px rgba(102, 119, 153, 0.16);
+
       .p-button {
         width: 100%;
       }

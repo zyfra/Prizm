@@ -1,16 +1,16 @@
 span {
   &.p-inputnumber {
-    border: 1px solid var(--bgSecond);
-    border-radius: 4px;
+    border: @1px solid var(--bgSecond);
+    border-radius: @4px;
 
     &:hover,
     &:focus {
-      border: 1px solid var(--successColorHover);
+      border: @1px solid var(--successColorHover);
       box-shadow: none;
     }
   }
   .p-inputwrapper-focus span.p-inputnumber {
-    border: 1px solid var(--successColorHover);
+    border: @1px solid var(--successColorHover);
     box-shadow: none;
   }
 }
@@ -19,6 +19,7 @@ button {
   &.p-inputnumber-button.p-button {
     background-color: transparent;
     color: var(--inputLabel);
+
     &:hover,
     &:focus-visible {
       background-color: transparent;

@@ -1,12 +1,12 @@
 zyfra-nav-menu {
-  --navMenuToolbarIconSize: 40px;
-  --navMenuItemHeight: 32px;
-  --navMenuItemEnlargedHeight: 44px;
-  --navMenuHeaderPanelHeight: 48px;
-  --navMenuMinWidth: 360px;
-  --navMenuIconMargin: 12px;
+  --navMenuToolbarIconSize: @40px;
+  --navMenuItemHeight: @32px;
+  --navMenuItemEnlargedHeight: @44px;
+  --navMenuHeaderPanelHeight: @48px;
+  --navMenuMinWidth: @360px;
+  --navMenuIconMargin: @12px;
   --checkBoxBg: var(--navMenuItemBorder);
-  --shadow-big: 0 8px 32px rgba(21, 23, 30, 0.8);
+  --shadow-big: 0 @8px @32px rgba(21, 23, 30, 0.8);
 
   position: relative;
   width: 100%;
@@ -45,24 +45,24 @@ zyfra-nav-menu {
   }
 
   .p-checkbox {
-    width: 16px;
-    height: 16px;
+    width: @16px;
+    height: @16px;
 
     .p-checkbox-box {
-      width: 16px;
-      height: 16px;
+      width: @16px;
+      height: @16px;
       border-color: var(--navMenuIcon);
 
       .p-checkbox-icon {
-        font-size: 8px;
+        font-size: @8px;
       }
     }
   }
 
   .p-tree-toggler-icon {
     width: 100%;
-    padding-right: 12px;
-    font-size: 22px;
+    padding-right: @12px;
+    font-size: @22px;
   }
 
   .p-tree-container {
@@ -95,7 +95,7 @@ zyfra-nav-menu {
     &node-label {
       width: 100%;
       height: 100%;
-      padding-left: 8px;
+      padding-left: @8px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -109,7 +109,7 @@ zyfra-nav-menu {
     }
 
     .p-treenode-children {
-      padding: 0 0 0 24px;
+      padding: 0 0 0 @24px;
     }
 
     .p-tree-container {
@@ -121,7 +121,7 @@ zyfra-nav-menu {
         .p-treenode-content {
           height: var(--navMenuItemHeight);
           color: var(--navMenuFont);
-          font-size: 13px;
+          font-size: @13px;
 
           &::before {
             position: absolute;
@@ -129,7 +129,7 @@ zyfra-nav-menu {
             box-sizing: border-box;
             width: 100%;
             height: var(--navMenuItemHeight);
-            border-bottom: 1px solid var(--navMenuItemBorder);
+            border-bottom: @1px solid var(--navMenuItemBorder);
             content: '';
           }
 
@@ -153,7 +153,7 @@ zyfra-nav-menu {
           .p-tree-toggler {
             flex-shrink: 0;
             order: 2;
-            width: calc(var(--navMenuToolbarIconSize) + 12px);
+            width: calc(var(--navMenuToolbarIconSize) + @12px);
             height: 100%;
             margin: 0;
             color: var(--navMenuIcon);
@@ -169,7 +169,7 @@ zyfra-nav-menu {
           }
 
           .p-checkbox {
-            margin: 0 0 0 8px;
+            margin: 0 0 0 @8px;
           }
 
           &.p-highlight {
@@ -205,7 +205,7 @@ zyfra-nav-menu {
   }
 
   .folder-open .p-tree-container > p-treenode > .p-treenode > .p-treenode-content {
-    width: calc(100% - 80px);
+    width: calc(100% - @80px);
     pointer-events: none;
 
     .p-tree-toggler {
@@ -217,11 +217,11 @@ zyfra-nav-menu {
     display: block;
     width: var(--navMenuToolbarIconSize);
     color: var(--navMenuIcon);
-    font-size: 20px;
+    font-size: @20px;
     line-height: var(--navMenuToolbarIconSize);
     text-align: center;
     border: none;
-    border-radius: 4px;
+    border-radius: @4px;
     cursor: pointer;
 
     &.active {
@@ -245,21 +245,25 @@ zyfra-nav-menu {
     align-items: center;
     height: var(--navMenuHeaderPanelHeight);
     min-height: var(--navMenuHeaderPanelHeight);
-    padding: 0 12px 0 8px;
+    padding: 0 @12px 0 @8px;
     color: var(--navMenuFont);
-    border-bottom: 1px solid var(--navMenuItemBorder);
+    border-bottom: @1px solid var(--navMenuItemBorder);
+
+    .app-name {
+      font-size: @16px;
+    }
 
     &-toolbar {
-      padding: 0 12px;
+      padding: 0 @12px;
     }
 
     &-search-bar {
       width: 100%;
       background: var(--navMenuBg);
-      border: 1px solid transparent;
+      border: @1px solid transparent;
 
       &:hover {
-        border: 1px solid var(--navMenuIconHover);
+        border: @1px solid var(--navMenuIconHover);
       }
 
       .p-input-icon-right > i:last-of-type {
@@ -273,7 +277,7 @@ zyfra-nav-menu {
       .p-input-icon-left > i,
       .p-input-icon-right > i {
         top: 0;
-        margin: 4px;
+        margin: @4px;
         color: var(--navMenuIcon);
 
         &:hover {
@@ -291,8 +295,8 @@ zyfra-nav-menu {
 
       &-field {
         width: 100%;
-        height: 48px;
-        padding: 0 44px;
+        height: @48px;
+        padding: 0 @44px;
         color: var(--navMenuFont);
         text-align: center;
         background: transparent;
@@ -336,8 +340,8 @@ zyfra-nav-menu {
       position: absolute;
       left: 0;
       z-index: 1;
-      height: calc(var(--navMenuItemHeight) - 1px);
-      border-left: 4px solid var(--navMenuItemActiveMarker);
+      height: calc(var(--navMenuItemHeight) - @1px);
+      border-left: @4px solid var(--navMenuItemActiveMarker);
       content: '';
     }
   }
@@ -354,9 +358,9 @@ zyfra-nav-menu {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
-      font-size: 22px;
+      width: @40px;
+      height: @40px;
+      font-size: @22px;
     }
   }
 
@@ -387,7 +391,7 @@ zyfra-nav-menu {
         color: var(--navMenuFont);
         background: var(--navMenuBg);
         border: none;
-        border-bottom: 1px solid var(--navMenuItemBorder);
+        border-bottom: @1px solid var(--navMenuItemBorder);
         border-radius: 0;
 
         &:hover, &:focus-visible {
@@ -439,9 +443,9 @@ zyfra-nav-menu {
       justify-content: center;
       width: var(--navMenuToolbarIconSize);
       height: 100%;
-      margin-left: -8px;
+      margin-left: -@8px;
       color: var(--navMenuIcon);
-      font-size: 22px;
+      font-size: @22px;
     }
   }
 
@@ -461,27 +465,27 @@ zyfra-nav-menu {
 
   .settingsPanel.p-overlaypanel {
     right: 0;
-    margin-top: -18px;
+    margin-top: -@18px;
     color: var(--navMenuFont);
-    font-size: 14px;
+    font-size: @14px;
     background: var(--navMenuBg);
     box-shadow: var(--shadow-big);
 
     .p-radiobutton {
-      width: 16px;
-      height: 16px;
+      width: @16px;
+      height: @16px;
     }
 
     .p-radiobutton .p-radiobutton-box {
-      width: 16px;
-      height: 16px;
+      width: @16px;
+      height: @16px;
     }
   }
-}
-.p-menuitem-link:focus-visible {
-  outline: none;
-  border: none;
-  color: var(--navMenuFont);
-  background: var(--navMenuItemHover);
-  border-bottom: 1px solid var(--navMenuItemBorder);
+  .p-menuitem-link:focus-visible {
+    outline: none;
+    border: none;
+    color: var(--navMenuFont);
+    background: var(--navMenuItemHover);
+    border-bottom: @1px solid var(--navMenuItemBorder);
+  }
 }

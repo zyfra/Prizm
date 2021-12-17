@@ -2,25 +2,32 @@
   color: var(--eventer);
   background-color: transparent;
   border: none;
-  font-size: 13px;
+  font-size: @13px;
+
+  .pi-chevron-right:before {
+    color: var(--eventer);
+    content: "\2044";
+  }
+
+  ul li.p-breadcrumb-chevron {
+    margin: 0 @8px;
+  }
 
   ul li .p-menuitem-link {
     display: flex;
+
+    &:focus-visible, &:hover {
+      .p-menuitem-icon, .p-menuitem-text {
+        color: var(--successColorHover);
+      }
+    }
 
     .p-menuitem-text {
       color: inherit;
     }
 
-    .p-breadcrumb ul li .p-menuitem-link .p-menuitem-icon {
+    .p-menuitem-icon {
       color: var(--eventer);
     }
   }
-}
-
-.p-breadcrumb ul li .p-menuitem-link {
-  &:focus-visible, &:hover {
-    .p-menuitem-icon, .p-menuitem-text {
-      color: var(--successColorHover);
-    }
-  } 
 }

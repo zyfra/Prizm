@@ -1,4 +1,4 @@
-@border-radius: 8px;
+@border-radius: @8px;
 @icon-font-family: ZyfraIcons;
 
 i.pi-times:before {
@@ -7,22 +7,26 @@ i.pi-times:before {
 }
 
 .p-dropdown {
-  font-size: 1rem;
+  font-size: @16px;
   color: var(--inputFont);
   background: var(--standartBg);
-  border: 1px solid var(--standartBorder);
-  border-radius: 4px;
-  height: 44px;
+  border: @1px solid var(--standartBorder);
+  border-radius: @4px;
+  height: @44px;
+
+  .p-dropdown-trigger {
+    width: @38px;
+  }
 
   .p-dropdown-label {
-    line-height: 30px;
+    line-height: @30px;
   }
 
   .p-dropdown-panel {
-    border: 1px solid var(--standartBorder);
+    border: @1px solid var(--standartBorder);
     background: var(--standartBg);
     border-radius: @border-radius;
-    
+
     .p-dropdown-items .p-dropdown-item-group {
       background-color: var(--headerTabDisabled);
       color: var(--text);
@@ -49,6 +53,7 @@ i.pi-times:before {
 .p-dropdown-panel {
   .p-dropdown-items {
     .p-dropdown-item {
+      padding: @7px @14px;
       color: var(--standartFont);
       background: var(--standartBg);
 
@@ -66,10 +71,11 @@ i.pi-times:before {
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: @4px;
+  height: @4px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--z-accentColor);
-  border-radius: 2px;
+  border-radius: @2px;
 }
