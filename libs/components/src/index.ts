@@ -36,3 +36,4 @@ export * from './lib/tree';
 export * from './lib/tri-checkbox';
 export * from './lib/table';
 export * from './lib/tree-table';
+export * from './lib/calendar';
