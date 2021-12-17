@@ -1,5 +1,5 @@
-@miniButtonHeight: 2.25rem;
-@boxShadowActive: inset 0 4px 4px rgb(0 0 0 / 32%);
+@miniButtonHeight: @36px;
+@boxShadowActive: inset 0 @4px @4px rgb(0 0 0 / 32%);
 @buttonBorder: none;
 
 .button-style(@color, @background, @backgroundHover, @backgroundActive) {
@@ -47,12 +47,12 @@
 
 /* ================================= simple button ==================================== */
 .p-button {
-  font-size: 0.8rem;
-  border-radius: 4px;
-  height: 2.8rem;
+  font-size: @13px;
+  border-radius: @4px;
+  height: @44px;
 
   .p-badge {
-    line-height: 0.9rem;
+    line-height: @14px;
     color: var(--z-accentColor);
     background-color: var(--standartBg);
   }
@@ -61,16 +61,16 @@
   &.p-button {
     border: @buttonBorder;
     font-family: var(--fontFamily);
-    padding: 1rem;
+    padding: @16px;
 
     .button-default-style();
 
     &.p-button-icon-only {
-      width: 3rem;
+      width: @48px;
     }
 
     &.p-button span.p-button-icon-left {
-      margin-right: 1.5rem;
+      margin-right: @24px;
     }
 
     &.p-component:disabled,// для кнопок тип select toggle и тд

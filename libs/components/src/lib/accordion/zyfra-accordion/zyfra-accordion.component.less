@@ -2,17 +2,17 @@
   display: contents;
 }
 
-@accordionBorderRadius: 8px;
-@accordionIconSize: 18px;
-@accordionVerticalPadding: 1rem;
-@accordionHorizontalPadding: 1.5em;
+@accordionBorderRadius: @8px;
+@accordionIconSize: @18px;
+@accordionHorizontalPadding: @24px;
+@accordionVerticalPadding: @16px;
 
 .p-accordion.p-accordion {
   background-color: var(--accordionBodyBg);
 
   .p-accordion {
     &-tab {
-      padding-bottom: @accordionVerticalPadding / 2;
+      padding-bottom: (@accordionVerticalPadding / 2);
       background-color: var(--bgStandart);
       margin-bottom: 0;
 
@@ -28,12 +28,12 @@
       .p-accordion-header-link .p-accordion-toggle-icon,
       &.p-disabled .p-accordion-header-link .p-accordion-toggle-icon {
         font-weight: normal;
-        height: 23px;
+        height: @23px;
         font-size: @accordionIconSize;
-        border-left: 1px solid var(--tableBorder);
-        padding-left: 0.9rem;
+        border-left: @1px solid var(--tableBorder);
+        padding-left: @14px;
         margin: 0;
-        
+
         &:hover {
           color: var(--successColorHover);
         }
@@ -56,10 +56,10 @@
           border-color: var(--accordionHeaderBg);
           font-style: normal;
           font-weight: bold;
-          font-size: 14px;
-          line-height: 20px;
+          font-size: @14px;
+          line-height: @20px;
           padding: @accordionVerticalPadding @accordionHorizontalPadding;
-          
+
           &:focus-visible {
             outline: 1px solid var(--successColorHover);
           }
@@ -77,7 +77,7 @@
       color: var(--accordionFontColor);
       background-color: var(--bgStandart);
       border-color: var(--bgStandart);
-      box-shadow: 0 2px 8px rgba(102, 119, 153, 0.3) !important;
+      box-shadow: var(--shadow-mini) !important;
       border-radius: 0 0 @accordionBorderRadius @accordionBorderRadius;
       padding-right: @accordionHorizontalPadding;
       padding-left: @accordionHorizontalPadding;
@@ -89,7 +89,7 @@
   &__left {
     display: flex;
     justify-content: space-between;
-    width: calc(100% - 30px);
+    width: calc(100% - @30px);
   }
   &-extra-icons {
     font-size: @accordionIconSize;
@@ -98,7 +98,7 @@
 
     .zyfra-icon {
       &.selection-radio-off {
-        margin: 0 0.9rem;
+        margin: 0 @14px;
       }
     }
   }
