@@ -195,7 +195,7 @@
               "node_modules/primeng/resources/themes/luna-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeicons/primeicons.css",
-              "libs/components/src/styles/theme/default.css",
+              "libs/components/src/styles/theme/default.less",
               "libs/components/src/styles/styles.less",
               "libs/components/src/styles/icons/icons.less"
             ],

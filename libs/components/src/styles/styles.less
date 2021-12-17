@@ -30,6 +30,10 @@
 @import "../lib/nav-menu/components/zyfra-nav-menu/zyfra-nav-menu.component.less";
 @import "../lib/overlay/overlay.component";
 
+html {
+  font-size: @baseFontSize;
+}
+
 .p-component {
   font-family: var(--fontFamily);
 }
@@ -42,35 +46,43 @@
   display:none!important;
 }
 
-
 /* ===================================================================== */
 
-.p-menu.p-menu-overlay {
-  background: var(--standartBg);
-  color: var(--standartFont);
-  border: none;
+.p-menu {
+  &.p-menu-overlay {
+    background: var(--standartBg);
+    color: var(--standartFont);
+    border: none;
+  }
+
+  .p-menuitem {
+    font-family: var(--fontFamily);
+    font-size: @16px;
+  }
+
+  .p-menuitem-link {
+    padding: @14px;
+
+    .p-menuitem-text,
+    .p-menuitem-icon {
+      color: var(--standartFont);
+    }
+
+    .p-menuitem-icon {
+      margin-right: @8px;
+    }
+  }
+
+  .p-menu-separator {
+    border-top: @1px solid var(--standartBorder);
+  }
 }
-
-.p-menu .p-menuitem {
-  font-family: var(--fontFamily);
-}
-
-.p-menu .p-menuitem-link .p-menuitem-text,
-.p-menu .p-menuitem-link .p-menuitem-icon  {
-  color: var(--standartFont);
-}
-
-.p-menu .p-menu-separator {
-  border-top: 1px solid var(--standartBorder);
-}
-
-
 
 /* =========================== tooltip ============================  */
 
 .p-tooltip div:nth-child(2) {
   background: var(--messageSuccessBg) !important;
-  border: 1px solid var(--messageSuccessBorder)!important;
+  border: @1px solid var(--messageSuccessBorder)!important;
   color: var(--messageFont) !important;
 }
 
@@ -231,7 +243,7 @@
   background: var(--standartBg);
   color: var(--standartFont);
   border: none;
-  border-radius: .8rem;
+  border-radius: @13px;
 }
 
 /* ------ не факт, что красивее делать кнопки одна под другой ------------ */
@@ -253,7 +265,7 @@
 }
 
 .p-confirm-popup .p-confirm-popup-footer button {
-  margin: 0 0 0.5rem;
+  margin: 0 0 @8px;
 }
 
 .p-confirm-popup:before,
@@ -277,7 +289,7 @@
   background: var(--standartBg);
   color: var(--standartFont);
   border: none;
-  border-radius: .8rem;
+  border-radius: @13px;
 }
 
 .p-overlaypanel:before,

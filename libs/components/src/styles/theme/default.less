@@ -1,3 +1,5 @@
+@import '../typography/typography-const.less';
+
 :root {
   /* --------- standard ------------ */
   --bgStandart: #ffffff;
@@ -177,8 +179,8 @@
   --messageErrorBorder: #f28888;
 
   /* tabs */
-  --tabNavHeight: 48px;
-  --secondaryTabNavHeight: 36px;
+  --tabNavHeight: @48px;
+  --secondaryTabNavHeight: @36px;
 
   --navControl: #7887a5;
   --scrollControlDisabled: var(--colorDisabled);
@@ -193,9 +195,10 @@
   --tabListItemHover: linear-gradient(0deg, rgba(61, 143, 64, 0.2), rgba(61, 143, 64, 0.2)), var(--bgStandart);
 
   /*shadows*/
-  --shadow-mini: 0px 2px 8px rgba(102, 119, 153, 0.3);
-  --shadow-big: 0px 8px 32px rgba(102, 119, 153, 0.24);
-  --shadow-bottom: 0px -2px 8px rgba(102, 119, 153, 0.16);
+  --shadow-mini: 0 @2px @8px rgba(102, 119, 153, 0.3);
+  --shadow-big: 0 @8px @32px rgba(102, 119, 153, 0.24);
+  @shadowBottom: 0 -@2px @8px rgba(102, 119, 153, 0.16);
+  --shadow-bottom: @shadowBottom;
 
   /* splitter */
   --fontInput: #a3adc2;
@@ -225,7 +228,7 @@
   --menuAppItemArrowColor: #a3adc2;
   --menuAppItemIconColor: #a3adc2;
   --menuAppItemActiveBg: rgba(61, 143, 64, 0.2);
-  --menuAppItemActiveShadow: inset 4px 0 0 0 #49ab4d;
+  --menuAppItemActiveShadow: inset @4px 0 0 0 #49ab4d;
   --menuAppItemActiveColor: #ffffff;
   --menuAppItemActiveIconColor: #ffffff;
 
@@ -238,7 +241,7 @@
 
   /* table */
   --tableHeaderBg: #E7E9EF;
-  --tableBorderRadius: 8px;
+  --tableBorderRadius: @8px;
   --tableBorder: #CED3DE;
   --tableActiveRowBg: #D8E9D9;
   --tableActiveIcon: #49AB4D;
