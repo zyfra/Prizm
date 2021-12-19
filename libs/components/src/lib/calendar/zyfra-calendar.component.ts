@@ -31,7 +31,7 @@ export class ZyfraCalendarComponent {
   @Input() showIcon: boolean = false
   @Input() showOnFocus: boolean = true
   @Input() showWeek: boolean = false
-  @Input() icon: string = 'zyfra-icon date-calendar'
+  @Input() icon: string = 'zyfra-icon date-calendar-blank'
   @Input() appendTo: any = null
   @Input() readonlyInput: boolean = null
   @Input() shortYearCutoff: string = '+10'
@@ -71,7 +71,7 @@ export class ZyfraCalendarComponent {
   @Input() focusTrap: boolean = true
   @Input() showTransitionOptions: string = '.12s cubic-bezier(0, 0, 0.2, 1)'
   @Input() hideTransitionOptions: string = '.1s linear'
-  @Input() firstDayOfWeek: number = 0
+  @Input() firstDayOfWeek: number = 1
   
   @Output() onSelect = new EventEmitter<any>();
   @Output() onBlur = new EventEmitter<any>();
