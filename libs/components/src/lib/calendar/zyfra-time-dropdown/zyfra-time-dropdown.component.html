@@ -1,0 +1,83 @@
+<div class="zyfra-datepicker">
+    <zyfra-input
+      [(ngModel)]="formattedValue"
+      type="text"
+      (ngModelChange)="onDatepickerNgModelChange($event)"
+      (onBlur)="onInputBlur()"
+      [placeholder]="placeholder"
+      [label]="label"
+      [inputClass]="{
+        'ng-invalid': !!ngControl?.invalid,
+        'ng-valid': !!ngControl?.valid,
+        'ng-dirty': !!ngControl?.dirty,
+        'ng-touched': !!ngControl?.touched
+      }"
+      [required]="required || controlRequired"
+      [disabled]="disabled"
+    >
+      <div right class="zyfra-datepicker-controls">
+        <button
+          type="button"
+          *ngIf="showClear"
+          (click)="clearValue()"
+          [disabled]="disabled"
+          class="zyfra-datepicker-control zyfra-datepicker-button"
+        >
+          <i class="zyfra-icon tools-broom"></i>
+        </button>
+        <div class="zyfra-datepicker-control" *ngIf="showDate">
+          <button [disabled]="disabled" class="zyfra-datepicker-button" (click)="openCalendar($event)" type="button">
+            <i class="zyfra-icon date-calendar-blank"></i>
+          </button>
+          <p-calendar
+            #calendar
+            [ngModel]="datepickerValue"
+            [panelStyleClass]="'zyfra-datepicker-calendar'"
+            [locale]="$any(locale)"
+            [selectionMode]="selectionMode"
+            [showOnFocus]="showOnFocus"
+            [showWeek]="showWeek"
+            [monthNavigator]="monthNavigator"
+            [yearNavigator]="yearNavigator"
+            [yearRange]="yearRange"
+            [hideOnDateTimeSelect]="hideOnDateTimeSelect"
+            [numberOfMonths]="numberOfMonths"
+            [disabledDates]="disabledDates"
+            [disabledDays]="disabledDays"
+            [firstDayOfWeek]="firstDayOfWeek"
+            [tabindex]="-1"
+            (onSelect)="onCalendarDateChange($event)"
+            (onClickOutside)="onCalendarClose()"
+          >
+            <ng-template pTemplate="footer" *ngIf="showCalendarBtn">
+              <div class="zyfra-datepicker-calendar-footer">
+                <zyfra-button
+                  [label]="calendarBtnLabel"
+                  [styleClass]="'p-button-mini button-success-style'"
+                  (onClick)="saveCalendarDate()"
+                >
+                </zyfra-button>
+              </div>
+            </ng-template>
+          </p-calendar>
+        </div>
+  
+        <!--  // TODO need button with dropdown -->
+        <button *ngIf="showTime" class="zyfra-datepicker-control zyfra-datepicker-button" type="button">
+          <zyfra-dropdown
+            [options]="timeArray"
+            [disabled]="disabled"
+            (valueChange)="setInputTime($event)"
+            [panelStyleClass]="'zyfra-datepicker-dropdown-overlay'"
+            [styleClass]="'zyfra-datepicker-dropdown'"
+            [dropdownIcon]="'zyfra-icon date-update'"
+            [optionLabel]="'value'"
+          >
+          </zyfra-dropdown>
+        </button>
+  
+        <ng-content select="[buttons]"></ng-content>
+      </div>
+    </zyfra-input>
+  </div>
+  

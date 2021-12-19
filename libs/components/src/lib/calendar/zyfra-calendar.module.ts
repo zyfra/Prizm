@@ -2,15 +2,24 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ZyfraCalendarComponent } from './zyfra-calendar.component';
 import { CalendarModule } from 'primeng/calendar';
-
+import { ZyfraTimeDropdownComponent } from './zyfra-time-dropdown/zyfra-time-dropdown.component';
+import { ZyfraDropdownModule } from '../dropdown';
+import { ZyfraButtonModule } from '../button';
+import { ZyfraRadioButtonModule } from '../radio-button';
+import { ZyfraInputModule } from '../input';
 
 @NgModule({
   declarations: [
-    ZyfraCalendarComponent
+    ZyfraCalendarComponent,
+    ZyfraTimeDropdownComponent
   ],
   imports: [
     CommonModule,
-    CalendarModule
+    CalendarModule,
+    ZyfraButtonModule,
+    ZyfraRadioButtonModule,
+    ZyfraInputModule,
+    ZyfraDropdownModule,
   ],
   exports: [ZyfraCalendarComponent],
 })
