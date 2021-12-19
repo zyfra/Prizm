@@ -50,7 +50,6 @@ Basic.args = {
   selectionMode: 'single',
   placeholder: 'Select a date',
   disabled: false,
-  dateFormat: 'dd.mm.yy',
   inline: false,
   showOtherMonths: true,
   selectOtherMonths: false,
@@ -66,7 +65,6 @@ Basic.args = {
 
 export const DateFormat = Template.bind({});
 DateFormat.args = {
-  selectionMode: 'single',
   placeholder: 'Select a date',
   disabled: false,
   dateFormat: 'dd/mm/yy',
@@ -85,10 +83,8 @@ DateFormat.args = {
 
 export const Icon = Template.bind({});
 Icon.args = {
-  selectionMode: 'single',
   placeholder: 'Select a date',
   disabled: false,
-  dateFormat: 'dd/mm/yy',
   inline: false,
   showOtherMonths: true,
   selectOtherMonths: false,
@@ -104,10 +100,8 @@ Icon.args = {
 
 export const DisabledDays = Template.bind({});
 DisabledDays.args = {
-  selectionMode: 'single',
   placeholder: 'Select a date',
   disabled: false,
-  dateFormat: 'dd/mm/yy',
   inline: false,
   showOtherMonths: true,
   selectOtherMonths: false,
@@ -120,4 +114,91 @@ DisabledDays.args = {
   required: false,
   showButtonBar: false,
   disabledDays: [0,6]
+};
+
+export const Multiple = Template.bind({});
+Multiple.args = {
+  selectionMode: 'multiple',
+  placeholder: 'Select dates',
+  disabled: false,
+  inline: false,
+  showOtherMonths: true,
+  selectOtherMonths: false,
+  showIcon: false,
+  showOnFocus: true,
+  showWeek: false,
+  readonlyInput: false,
+  showTime: false,
+  timeOnly: false,
+  required: false,
+  showButtonBar: false
+};
+
+export const Range = Template.bind({});
+Range.args = {
+  selectionMode: 'range',
+  placeholder: 'Select dates',
+  disabled: false,
+  inline: false,
+  showOtherMonths: true,
+  selectOtherMonths: false,
+  showIcon: false,
+  showOnFocus: true,
+  showWeek: false,
+  readonlyInput: false,
+  showTime: false,
+  timeOnly: false,
+  required: false,
+  showButtonBar: false
+};
+
+export const ButtonBar= Template.bind({});
+ButtonBar.args = {
+  placeholder: 'Select a date',
+  disabled: false,
+  inline: false,
+  showOtherMonths: true,
+  selectOtherMonths: false,
+  showIcon: false,
+  showOnFocus: true,
+  showWeek: false,
+  readonlyInput: false,
+  showTime: false,
+  timeOnly: false,
+  required: false,
+  showButtonBar: true
+};
+
+export const Time= Template.bind({});
+Time.args = {
+  placeholder: 'Select a date',
+  disabled: false,
+  inline: false,
+  showOtherMonths: true,
+  selectOtherMonths: false,
+  showIcon: false,
+  showOnFocus: true,
+  showWeek: false,
+  readonlyInput: false,
+  showTime: true,
+  timeOnly: false,
+  required: false,
+  showButtonBar: false
+};
+
+export const OnlyTime= Template.bind({});
+OnlyTime.args = {
+  placeholder: 'Set time',
+  disabled: false,
+  inline: false,
+  showOtherMonths: true,
+  selectOtherMonths: false,
+  showIcon: false,
+  showOnFocus: true,
+  showWeek: false,
+  readonlyInput: false,
+  showTime: true,
+  timeOnly: true,
+  required: false,
+  showButtonBar: false
 };
