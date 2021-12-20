@@ -69,8 +69,8 @@ export const Phone = Template.bind({});
 Phone.args = {
   ngModel: '',
   disabled: false,
-  placeholder: '(999) 999-9999',
-  mask: '(999) 999-9999',
+  placeholder: '9(999) 999-9999',
+  mask: '9(999) 999-9999',
   slotChar: ' ',
   label: 'Мобильный телефон',
   required: true,
@@ -80,8 +80,8 @@ export const PhoneExt = Template.bind({});
 PhoneExt.args = {
   ngModel: '',
   disabled: false,
-  placeholder: '(999) 999-9999? x99999',
-  mask: '(999) 999-9999? x99999',
+  placeholder: '9(999) 999-9999? x99999',
+  mask: '9(999) 999-9999? x99999',
   slotChar: ' ',
   label: 'Мобильный телефон',
 };

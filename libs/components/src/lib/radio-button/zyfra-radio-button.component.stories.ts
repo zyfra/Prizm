@@ -103,11 +103,12 @@ MiniRadio.args = {
   styleClass: 'p-radiobutton-mini',
 };
 
-const formControlTemplateChunk = `
+const formControlTemplateChunk = `<div style="font-family: var(--fontFamily);">
     (Значение: {{control.value === undefined || control.value === null ? 'null' : control.value}})
     <br>
     {{control?.errors ? 'Есть ошибки валидации' : ''}}
     <br>
+    </div>
     <zyfra-button
       label="toggle disable/enable"
       [style]="{ 'margin-right': '5px', 'margin-top': '20px' }"

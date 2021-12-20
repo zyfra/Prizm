@@ -17,14 +17,17 @@ span {
 
 button {
   &.p-inputnumber-button.p-button {
-    background-color: transparent;
+    background: transparent;
     color: var(--inputLabel);
-
-    &:hover,
-    &:focus-visible {
-      background-color: transparent;
-      color: var(--successColorHover);
+    
+    &:enabled {
+      &:hover,
+      &:focus-visible {
+        background: transparent;
+        color: var(--successColorHover);
+      }
     }
+
   }
 }
 
