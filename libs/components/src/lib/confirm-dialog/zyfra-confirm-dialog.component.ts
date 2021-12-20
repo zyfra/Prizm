@@ -44,6 +44,7 @@ export class ZyfraConfirmDialogComponent implements OnInit {
   @Input() breakpoints: object;
   @Input() transitionOptions: string = '400ms cubic-bezier(0.25, 0.8, 0.25, 1)';
   @Input() defaultFocus: string = 'accept';
+  @Input() position: string = 'center';
 
   msgs: Message[] = [];
 
