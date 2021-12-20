@@ -1,5 +1,5 @@
 <p-triStateCheckbox
-  [(ngModel)]="model"
+  [formControl]="$any(ngControl.control)"
   [name]="name"
   [label]="label"
   [disabled]="disabled"
@@ -9,5 +9,5 @@
   [style]="style"
   [styleClass]="styleClass"
   [readonly]="readonly"
-  (onChange)="onChangeHandler($event)"
+  (ngModelChange)="accessorOnChangeFn($event)"
 ></p-triStateCheckbox>

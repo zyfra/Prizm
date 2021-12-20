@@ -25,6 +25,8 @@ export default {
 const Template: Story<ZyfraInputSwitchComponent> = (args) => ({
   component: ZyfraInputSwitchComponent,
   props: args,
+  template: `
+<zyfra-input-switch [(ngModel)]="checked"></zyfra-input-switch>`,
 });
 
 export const Basic = Template.bind({});

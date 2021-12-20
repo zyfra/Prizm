@@ -2,8 +2,8 @@
   <i *ngIf="iClass" [class]="iClass"></i>
 
   <p-inputNumber
-    [(ngModel)]="value"
-    (ngModelChange)="valueChange.emit($event)"
+    [formControl]="$any(ngControl.control)"
+    (ngModelChange)="accessorOnChangeFn($event)"
     [format]="format"
     [showButtons]="showButtons"
     [buttonLayout]="buttonLayout"

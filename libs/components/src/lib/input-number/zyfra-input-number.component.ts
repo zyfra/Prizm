@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
+import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
 
 export interface InputEvent {
   originalEvent: KeyboardEvent;
@@ -10,7 +12,7 @@ export interface InputEvent {
   templateUrl: './zyfra-input-number.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZyfraInputNumberComponent {
+export class ZyfraInputNumberComponent extends WrappedFormComponent implements ControlValueAccessor {
   @Input() value: number;
   @Input() format = true;
   @Input() showButtons: boolean;
@@ -43,16 +45,19 @@ export class ZyfraInputNumberComponent {
   @Input() placeholder: string;
   @Input() size: number;
   @Input() maxlength: number;
-  @Input() tabindex: string = "0";
-  @Input() disabled: boolean;
+  @Input() tabindex: string = '0';
+  @Input() disabled: boolean; // TODO remove, use FormControl disabled
   @Input() title: string;
   @Input() ariaLabel: string;
   @Input() ariaRequired: boolean;
   @Input() name: string;
   @Input() autocomplete: string;
 
-  @Output() valueChange = new EventEmitter<number>();
   @Output() onFocus = new EventEmitter<FocusEvent>();
   @Output() onBlur = new EventEmitter<FocusEvent>();
   @Output() onInput = new EventEmitter<InputEvent>();
+
+  override setDisabledState(isDisabled: boolean): void {
+    // do nothing
+  }
 }

@@ -1,8 +1,8 @@
 <zyfra-dropdown
   #dropdown
-  [value]="mode"
+  [ngModel]="mode"
   [options]="$any(modes)"
-  (valueChange)="selectChanged.emit($event)"
+  (ngModelChange)="selectChanged.emit($event)"
   [disabled]="disabled"
   [panelStyleClass]="'zyfra-datepicker-dropdown-overlay'"
   [styleClass]="'zyfra-datepicker-dropdown'"

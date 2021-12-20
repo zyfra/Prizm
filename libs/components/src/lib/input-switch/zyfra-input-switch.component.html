@@ -1,5 +1,5 @@
 <p-inputSwitch
-  [(ngModel)]="checked"
+  [formControl]="$any(ngControl.control)"
   [style]="style"
   [styleClass]="styleClass"
   [tabindex]="tabindex"
@@ -8,5 +8,5 @@
   [ariaLabelledBy]="ariaLabelledBy"
   [disabled]="disabled"
   [readonly]="readonly"
-  (onChange)="onChangeHandler($event)"
+  (ngModelChange)="accessorOnChangeFn($event)"
 ></p-inputSwitch>

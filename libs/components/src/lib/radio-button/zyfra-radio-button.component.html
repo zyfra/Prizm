@@ -1,7 +1,7 @@
 <p-radioButton
   [name]="name"
-  [(ngModel)]="ngModel"
-  (ngModelChange)="modelChange($event)"
+  [formControl]="$any(ngControl.control)"
+  (ngModelChange)="accessorOnChangeFn($event)"
   [value]="value"
   [label]="label"
   [disabled]="disabled"

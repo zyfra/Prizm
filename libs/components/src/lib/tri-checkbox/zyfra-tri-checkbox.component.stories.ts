@@ -41,8 +41,7 @@ const Template: Story<ZyfraTriCheckboxComponent> = (args) => ({
       [ariaLabelledBy]="ariaLabelledBy"
       [style]="style"
       [styleClass]="styleClass"
-      [(model)]="model"
-      (onChange)="onChangeHandler($event)"
+      [(ngModel)]="model"
     ></zyfra-tri-checkbox>
     <br>
     (Значение чекбокса: {{model === undefined || model === null ? 'null' : model}})
@@ -50,13 +49,13 @@ const Template: Story<ZyfraTriCheckboxComponent> = (args) => ({
     <br>
     <br>
     <zyfra-tri-checkbox
-      [formControl]="fControl"
-      label="Чекбокс С FormControl. Свойства disabled, readonly, name, label не распространяются"
+      [formControl]="$any(ngControl.control)"
       [tabindex]="tabindex"
       [inputId]="inputId"
       [ariaLabelledBy]="ariaLabelledBy"
       [style]="style"
       [styleClass]="styleClass"
+      label="Чекбокс С FormControl. Свойства disabled, readonly, name, label не распространяются"
     ></zyfra-tri-checkbox>
     <br>
     (Значение чекбокса: {{fControl.value === undefined || fControl.value === null ? 'null' : fControl.value}})

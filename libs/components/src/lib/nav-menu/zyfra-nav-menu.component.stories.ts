@@ -86,6 +86,11 @@ export default {
       providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
     })
   ],
+  parameters: {
+    docs: {
+      page: require('./zyfra-nav-menu.component.story.doc.mdx').default,
+    },
+  },
 } as Meta<ZyfraNavMenuComponent>;
 
 const actions = {

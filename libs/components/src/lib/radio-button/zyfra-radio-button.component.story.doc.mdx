@@ -22,46 +22,43 @@ To component:
 
 ```html
 <zyfra-radio-button
-  [model]="radioModel"
-  [(selectedValue)]="selectedRadioValue"
-  (onClick)="onClickRadioButton($event)"
+   *ngFor="let item of items"
+   [name]="name"
+   [styleClass]="styleClass"
+   [label]="item.label"
+   [value]="item.value"
+   [disabled]="disabled"
+   [(ngModel)]="model"
+   (onClick)="onClick($event)"
+   (ngModelChange)="ngModelChange($event)"
+   (onFocus)="onFocus($event)"
+   (onBlur)="onBlur($event)"
 ></zyfra-radio-button>
 ```
 
 ```typescript
-const radioModel: {
-  value: string,
-  label: string,
-  inputId: string,
-  disabled?: boolean
-}[] = [
+const items = [
   {
-    value: 'Option 1',
-    label: 'Option 1',
-    inputId: 'preopt1'
+    label: 'red',
+    value: 'red',
   },
   {
-    value: 'Option 2',
-    label: 'Option 2',
-    inputId: 'preopt2'
+    label: 'black',
+    value: 'black',
   },
   {
-    value: 'Option 3',
-    label: 'Option 3 (disabled)',
-    inputId: 'preopt3',
-    disabled: true
+    label: 'blue',
+    value: 'blue',
   },
   {
-    value: 'Option 4',
-    label: 'Option 5',
-    inputId: 'preopt4',
-    disabled: false
-  }
+    label: 'pink',
+    value: 'pink',
+  },
+  {
+    label: 'Не заполнено',
+    value: null,
+  },
 ];
-
-onClickRadioButton(item) {
-  console.log(item);
-}
 ```
 
 ## ArgsTable
