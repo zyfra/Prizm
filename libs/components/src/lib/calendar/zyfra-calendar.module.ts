@@ -7,12 +7,12 @@ import { ZyfraDropdownModule } from '../dropdown';
 import { ZyfraButtonModule } from '../button';
 import { ZyfraRadioButtonModule } from '../radio-button';
 import { ZyfraInputModule } from '../input';
+import { RippleModule } from 'primeng/ripple';
+import { SharedModule } from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
-  declarations: [
-    ZyfraCalendarComponent,
-    ZyfraTimeDropdownComponent
-  ],
+  declarations: [ZyfraCalendarComponent, ZyfraTimeDropdownComponent],
   imports: [
     CommonModule,
     CalendarModule,
@@ -20,7 +20,10 @@ import { ZyfraInputModule } from '../input';
     ZyfraRadioButtonModule,
     ZyfraInputModule,
     ZyfraDropdownModule,
+    ButtonModule,
+    SharedModule,
+    RippleModule,
   ],
   exports: [ZyfraCalendarComponent],
 })
-export class ZyfraCalendarModule { }
+export class ZyfraCalendarModule {}
