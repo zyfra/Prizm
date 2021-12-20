@@ -1,7 +1,14 @@
-# components
+# @digital-plant/zyfra-components
 
-This library was generated with [Nx](https://nx.dev).
+Provides Zyfra UI components for your application.
 
-## Running unit tests
+See storybook: http://192.168.101.147:8889/
 
-Run `nx test components` to execute the unit tests.
+## Install
+
+
+Run command in your Angular project:
+
+```
+ng add @digital-plant/zyfra-ui
+```

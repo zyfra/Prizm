@@ -38,7 +38,7 @@ const Template: Story<ZyfraDropdownComponent> = (args) => ({
   component: ZyfraDropdownComponent,
   template: `
     <zyfra-dropdown
-      [(value)]="value"
+      [(ngModel)]="value"
       [options]="options"
       [optionLabel]="optionLabel"
       [placeholder]="placeholder"
@@ -70,7 +70,7 @@ Simple.args = {
     { name: 'Istanbul', code: 'IST' },
     { name: 'Paris', code: 'PRS' },
   ],
-  value: null,
+  value: { "name": "New York", "code": "NY" },
   optionLabel: 'name',
   placeholder: 'Select a City',
   showClear: true,

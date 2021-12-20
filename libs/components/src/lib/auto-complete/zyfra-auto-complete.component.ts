@@ -5,17 +5,22 @@ import {
   EventEmitter,
   TemplateRef,
   ContentChildren,
-  QueryList, AfterContentInit
+  QueryList,
+  AfterContentInit,
 } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
+import { ControlValueAccessor } from '@angular/forms';
 import { ZyfraTemplateDirective } from '../@core/shared/zyfra-template.directives';
+import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
 
 @Component({
   selector: 'zyfra-auto-complete',
   templateUrl: './zyfra-auto-complete.component.html',
 })
-export class ZyfraAutoCompleteComponent<T = unknown> implements AfterContentInit {
-  @Input() value: any;
+export class ZyfraAutoCompleteComponent<T = unknown>
+  extends WrappedFormComponent
+  implements ControlValueAccessor, AfterContentInit
+{
   @Input() suggestions: T[];
   @Input() field: string;
   @Input() scrollHeight = '200px';
@@ -65,7 +70,7 @@ export class ZyfraAutoCompleteComponent<T = unknown> implements AfterContentInit
   @Input() itemSize: number;
   @Input() label = '';
 
-  @Output() completeMethod = new EventEmitter<{originalEvent: InputEvent | PointerEvent, query: string}>();
+  @Output() completeMethod = new EventEmitter<{ originalEvent: InputEvent | PointerEvent; query: string }>();
   @Output() onFocus = new EventEmitter<FocusEvent>();
   @Output() onBlur = new EventEmitter<FocusEvent>();
   @Output() onKeyUp = new EventEmitter<KeyboardEvent>();
@@ -75,7 +80,6 @@ export class ZyfraAutoCompleteComponent<T = unknown> implements AfterContentInit
   @Output() onClear = new EventEmitter<InputEvent>();
   @Output() onShow = new EventEmitter<AnimationEvent>();
   @Output() onHide = new EventEmitter<void>();
-  @Output() valueChange = new EventEmitter<T>();
 
   itemTemplate: TemplateRef<any>;
   selectedItemTemplate: TemplateRef<any>;
@@ -83,12 +87,12 @@ export class ZyfraAutoCompleteComponent<T = unknown> implements AfterContentInit
   @ContentChildren(ZyfraTemplateDirective) templates: QueryList<ZyfraTemplateDirective>;
 
   ngAfterContentInit(): void {
-    this.templates.forEach(template=> {
-      if(template.zyfraTemplate === 'item') {
+    this.templates.forEach((template) => {
+      if (template.zyfraTemplate === 'item') {
         this.itemTemplate = template.templateRef;
-      } else if(template.zyfraTemplate === 'selectedItem') {
+      } else if (template.zyfraTemplate === 'selectedItem') {
         this.selectedItemTemplate = template.templateRef;
       }
-    })
+    });
   }
 }

@@ -21,15 +21,17 @@ To component:
 
 ```html
 <zyfra-input-number
-  [(model)]="modelForInputNumber"
-  showButtons="true"
-  mode="currency"
-  currency="USD"
+    [(ngModel)]="model"
+    label="label"
+    placeholder="placeholder"
+    showButtons="true"
+    mode="currency"
+    currency="USD"
 ></zyfra-input-number>
 ```
 
 ```typescript
-public modelForInputNumber = '';
+public model = '';
 ```
 
 ## ArgsTable
