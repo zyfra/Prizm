@@ -6,6 +6,25 @@
 @radioButtonMiniCoreSize: @4px;
 @radioBorderAccent: @2px solid var(--radioButtonHover);
 
+zyfra-radio-button {
+  display: inline-block;
+}
+
+p-radiobutton {
+  font-family: var(--fontFamily);
+  cursor: pointer;
+  
+  label {
+    cursor: pointer;
+  }
+
+  &:hover {
+    .p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight) {
+      border-color: var(--radioButtonHover);
+    }
+  }
+}
+
 .radio-disabled() {
   background: var(--radioButtonDisabledBg);
   border-color: var(--radioButtonDisabled);
@@ -13,11 +32,13 @@
 
 .p-radiobutton-label {
   margin-left: @8px;
+  line-height: @radioButtonSize;
 }
 
 .p-radiobutton {
   width: @radioButtonSize;
   height: @radioButtonSize;
+  vertical-align: middle;
 
   &-mini {
     width: @radioButtonMiniSize;
@@ -25,7 +46,7 @@
   }
 
   &-group p-radiobutton {
-    margin-bottom: @5px;
+    margin-bottom: @6px;
   }
 
   &-disabled {
@@ -46,7 +67,6 @@
     background: var(--radioButtonBg);
     width: @radioButtonSize;
     height: @radioButtonSize;
-
     &:not(:hover):not(.p-disabled) {
       border-color: var(--radioButton);
     }
@@ -61,6 +81,8 @@
       border: @radioBorderAccent;
       width: @radioButtonCoreSize;
       height: @radioButtonCoreSize;
+      transform: none;
+
       .p-radiobutton-mini& {
         width: @radioButtonMiniCoreSize;
         height: @radioButtonMiniCoreSize;
@@ -87,7 +109,7 @@
       &:not(.p-disabled),
       &:not(.p-disabled):hover {
         background: var(--radioButtonBg);
-        border: @radioBorderAccent;
+        border-color: var(--radioButtonHover);;
       }
     }
   }
