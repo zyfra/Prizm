@@ -12,4 +12,10 @@ export class ZyfraProgressBarComponent {
   @Input() mode: 'determinate' | 'indeterminate' = 'determinate';
   @Input() style: { [key: string]: string | null } = null;
   @Input() styleClass: string = null;
+  @Input() size: 'normal' | 'mini' = 'normal';
+  @Input() color: 'primary' | 'secondary' | 'info' | 'warning' | 'danger' | 'success' = 'primary';
+
+  public get styleClasses(): string {
+    return `zyfra-progress_size-${this.size} zyfra-progress_color-${this.color} ${this.styleClass}`;
+  }
 }

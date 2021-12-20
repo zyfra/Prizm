@@ -30,7 +30,7 @@ export class ZyfraInputComponent extends WrappedFormComponent implements Control
   @Input() disabled: boolean; // TODO remove, use FormControl disabled
   @Input() required: boolean;
   @Input() tooltip: string;
-  @Input() tooltipPosition = 'right';
+  @Input() tooltipPosition: 'left' | 'right' | 'above' | 'below'  = 'right';
 
   @Output() onBlur = new EventEmitter<unknown>();
 

@@ -46,8 +46,8 @@
       <div
         *ngFor="let tab of model; let i = index"
         class="tab-list-item text-overflow"
-        tooltipPosition="bottom"
-        [pTooltip]="tab.label"
+        [zyfraTooltip]="tab.label"
+        zyfraTooltipPosition="below"
         (click)="selectTabFromList(i); op.hide()"
       >
         {{ tab.label }}
