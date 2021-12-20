@@ -22,16 +22,19 @@ To component:
 
 ```html
 <zyfra-input
-  id="id"
-  type="text"
-  [(model)]="inputModel"
-  placeholder="placeholder"
-  inputClass="input-class"
+  [id]="id"
+  [type]="type"
+  [(ngModel)]="ngModel"
+  [disabled]="disabled"
+  [placeholder]="placeholder"
+  [tooltip]="tooltip"
+  [tooltipPosition]="tooltipPosition"
+  [label]="label"
 ></zyfra-input>
 ```
 
 ```typescript
-public inputModel = 'some string';
+public ngModel = 'some string';
 ```
 
 ## ArgsTable

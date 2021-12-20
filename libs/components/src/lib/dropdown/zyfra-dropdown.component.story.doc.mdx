@@ -22,8 +22,8 @@ export class YourModule {}
 To component:
 ```html
 <zyfra-dropdown
-  [options]="citites"
-  [(model)]="model"
+  [options]="cities"
+  [(ngModel)]="model"
   optionLabel="name"
   placeholder="Select a City"
   [showClear]="true"
@@ -31,7 +31,7 @@ To component:
 ```
 
 ```typescript
-public citites = [
+public cities = [
   { name: 'New York', code: 'NY' },
   { name: 'Rome', code: 'RM' },
   { name: 'London', code: 'LDN' },

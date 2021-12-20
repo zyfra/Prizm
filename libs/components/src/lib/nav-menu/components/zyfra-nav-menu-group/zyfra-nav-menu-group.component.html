@@ -38,10 +38,10 @@
                 <input #searchField
                        class="search-bar-field"
                        pInputText
-                       zyfraAutofocus
+                       [zyfraAutofocus]="false"
                        type="text"
                        [placeholder]="searchPlaceholder"
-                       (input)="changeSearchValue($event.target.value)"/>
+                       (input)="changeSearchValue($any($event.target).value)"/>
             </span>
         </div>
     </ng-template>

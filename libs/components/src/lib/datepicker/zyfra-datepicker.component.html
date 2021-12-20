@@ -66,8 +66,9 @@
       <button *ngIf="showTime" class="zyfra-datepicker-control zyfra-datepicker-button" type="button">
         <zyfra-dropdown
           [options]="timeArray"
+          [ngModel]="null"
           [disabled]="disabled"
-          (valueChange)="setInputTime($event)"
+          (ngModelChange)="setInputTime($event)"
           [panelStyleClass]="'zyfra-datepicker-dropdown-overlay'"
           [styleClass]="'zyfra-datepicker-dropdown'"
           [dropdownIcon]="'zyfra-icon date-update'"
