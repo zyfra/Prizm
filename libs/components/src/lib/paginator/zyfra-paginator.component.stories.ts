@@ -31,6 +31,7 @@ export const Basic = Template.bind({});
 Basic.args = {
   rows: 10,
   totalRecords: 100,
+  pageLinkSize: 10,
 };
 
 export const WithPageOptions = Template.bind({});
@@ -39,4 +40,5 @@ WithPageOptions.args = {
   rows: 10,
   totalRecords: 100,
   rowsPerPageOptions: [25, 50, 75, 100],
+  pageLinkSize: 4,
 };
