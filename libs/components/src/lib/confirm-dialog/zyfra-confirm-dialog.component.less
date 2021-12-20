@@ -1,56 +1,24 @@
-// коммент ВакарчукДМ: странно что тут используется общий селектор для всех диалогов
-.p-dialog {
-  width: @400px;
-  border: none;
-  border-radius: @13px;
-  box-shadow: none;
-
-  .p-dialog-header {
-    border-bottom: none;
-    background: var(--standartBg);
-    color: var(--standartFont);
-    border-top-left-radius: @13px;
-    border-top-right-radius: @13px;
-    justify-content: center;
-    padding: @30px;
-
-    .p-dialog-title {
-      font-size: @14px;
+p-confirmdialog {
+  font-family: var(--fontFamily);
+  .p-dialog {
+    box-shadow: none;
+  
+    .p-dialog-header {
+      justify-content: center;
+    }
+  
+    .p-dialog-content {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  
+    &.p-confirm-dialog .p-confirm-dialog-message {
+      margin: 0 @16px;
+      width: 100%;
     }
   }
-
-  .p-dialog-content {
-    background: var(--standartBg);
-    color: var(--eventer);
-    padding: 0 @16px @16px @16px;
-    text-align: center;
+  
+  div.p-component-overlay {
+    background-color: var(--overlayBg);
   }
-
-  .p-dialog-footer {
-    display: flex;
-    flex-direction: column;
-    background: var(--standartBg);
-    color: var(--standartFont);
-    border-top: 1px solid var(--dialogBorder);
-    border-bottom-right-radius: @16px;
-    border-bottom-left-radius: @16px;
-    box-shadow: var(--shadow-bottom);
-
-    button {
-      margin: 0 0 @8px;
-      width: auto;
-      border: none;
-      height: @36px;
-      font-weight: 700;
-    }
-  }
-
-  &.p-confirm-dialog .p-confirm-dialog-message {
-    margin: 0 @16px;
-    width: 100%;
-  }
-}
-
-div.p-component-overlay {
-  background-color: rgba(33, 38, 49, 0.6);
 }
