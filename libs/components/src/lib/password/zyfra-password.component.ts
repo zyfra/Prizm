@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
+import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
 
 @Component({
   selector: 'zyfra-password',
   templateUrl: './zyfra-password.component.html',
 })
-export class ZyfraPasswordComponent {
-  @Input() value: string;
+export class ZyfraPasswordComponent extends WrappedFormComponent implements ControlValueAccessor {
   @Input() promptLabel: string;
   @Input() mediumRegex = 'Regex for a medium level password.';
   @Input() strongRegex = 'Regex for a strong level password.';
@@ -21,9 +22,8 @@ export class ZyfraPasswordComponent {
   @Input() styleClass: string;
   @Input() disabled: boolean;
   @Input() label = '';
-  @Input() required = '';
+  @Input() required: boolean;
 
-  @Output() valueChange = new EventEmitter<string>();
   @Output() onBlur = new EventEmitter<FocusEvent>();
   @Output() onFocus = new EventEmitter<FocusEvent>();
 }

@@ -1,0 +1,219 @@
+import { ArgsTable, Subtitle } from '@storybook/addon-docs';
+import { moduleMetadata, storiesOf } from '@storybook/angular';
+import { ZyfraNavMenuComponent } from './components/zyfra-nav-menu/zyfra-nav-menu.component';
+
+## Zyfra - NavMenuComponent
+
+<Subtitle>NavMenuComponent is used to show menu for items</Subtitle>
+
+Import module:
+
+```typescript
+import { ZyfraNavMenuModule } from '@digital-plant/zyfra-components';
+
+@NgModule({
+  imports: [ZyfraNavMenuModule],
+})
+export class YourModule {}
+```
+
+Basic template:
+
+```html
+<zyfra-splitter layout="horizontal" [panelSizes]="[25,75]" [style]="{ height: '600px' }">
+    <ng-template zyfraSplitterTemplate>
+        <zyfra-nav-menu [model]="model"
+                        [menuTitle]="menuTitle"
+                        [headerConfig]="headerConfig"
+                        [settingsConfig]="settingsConfig"
+                        [toolbarConfig]="toolbarConfig"
+                        [emptyMessage]="emptyMessage"
+                        (activeItemChange)="activeItemChange($event)"
+                        (selectionChange)="selectionChange($event)"
+                        (homeClick)="homeClick($event)">
+        </zyfra-nav-menu>
+    </ng-template>
+    <ng-template zyfraSplitterTemplate>
+        <router-outlet></router-outlet>
+    </ng-template>
+</zyfra-splitter>
+```
+
+ExtraItemTemplate:
+
+```html
+<zyfra-splitter layout="horizontal" [panelSizes]="[25,75]" [style]="{ height: '600px' }">
+    <ng-template zyfraSplitterTemplate>
+        <zyfra-nav-menu [model]="model"
+                        [menuTitle]="menuTitle"
+                        [emptyMessage]="emptyMessage"
+                        [headerConfig]="headerConfig"
+                        [settingsConfig]="settingsConfig"
+                        [toolbarConfig]="toolbarConfig"
+                        (activeItemChange)="activeItemChange($event)"
+                        (selectionChange)="selectionChange($event)"
+                        (homeClick)="homeClick($event)">
+
+             <ng-template let-item zyfraTemplate='menuitem'>
+                    <p-badge *ngIf="item?.badge" styleClass="p-badge-dot" [severity]="item.badge"></p-badge>
+            </ng-template>
+
+            <ng-template zyfraTemplate='toolbar'>
+                <i class="toolbar-button zyfra-icon files-upload"></i>
+                <i class="toolbar-button zyfra-icon files-download"></i>
+            </ng-template>
+
+            <ng-template zyfraTemplate='header'>
+                <i class="toolbar-button zyfra-icon charts-pie"></i>
+            </ng-template>
+      </zyfra-nav-menu>
+    </ng-template>
+    <ng-template zyfraSplitterTemplate>
+        <router-outlet></router-outlet>
+    </ng-template>
+</zyfra-splitter>
+```
+
+GroupPanelTemplate:
+
+```html
+<zyfra-splitter layout="horizontal" [panelSizes]="[25,75]" [style]="{ height: '600px' }">
+    <ng-template zyfraSplitterTemplate>
+        <zyfra-nav-menu [menuTitle]="menuTitle"
+                        [emptyMessage]="emptyMessage"
+                        [headerConfig]="headerConfig"
+                        [settingsConfig]="settingsConfig"
+                        [toolbarConfig]="toolbarConfig"
+                        [searchPlaceholder]="searchPlaceholder"
+                        (homeClick)="homeClick($event)"
+                        (activeItemChange)="activeItemChange($event)"
+                        (nodeCollapse)="nodeCollapse($event)"
+                        (nodeExpand)="nodeExpand($event)"
+                        (selectionChange)="selectionChange($event)">
+        <ng-template zyfraNavMenuGroup
+                     [header]="header1"
+                     [items]="items1"></ng-template>
+
+        <ng-template zyfraNavMenuGroup
+                     [header]="header2"
+                     [items]="items2"></ng-template>
+
+        <ng-template zyfraNavMenuGroup
+                     [header]="header3"
+                     [items]="items3"></ng-template>
+        </zyfra-nav-menu>
+    </ng-template>
+    <ng-template zyfraSplitterTemplate>
+        <router-outlet></router-outlet>
+    </ng-template>
+</zyfra-splitter>
+```
+
+Args:
+
+```
+{
+  header1: 'Групповая панель 1',
+  header2: 'Групповая панель 2',
+  header3: 'Групповая панель 3',
+  items1: [ ...subItems],
+  items2: [...basicWithIcons],
+  items3: [...basic],
+  menuTitle: 'Наименование приложения',
+  searchPlaceholder: 'Введите текст',
+  headerConfig: {
+    home: true
+  },
+  toolbarConfig: {
+    filesMode: true,
+    search: true
+  }
+};
+```
+
+Example Sub items:
+
+```ts
+export const subItems: ZyfraMenuItem[] = [
+  {label: 'Наименование ячейки 1', icon: 'zyfra-icon files-file'},
+  {
+    label: 'Наименование ячейки 2',
+    icon: 'zyfra-icon files-file',
+    badge: 'warning',
+    badgeStyleClass: 'p-badge-dot',
+    items: [
+      {
+        label: 'Ячейка второго уровня 1 длиннее остальных',
+        icon: 'zyfra-icon files-file',
+      },
+      {
+        label: 'Ячейка второго уровня 2',
+        icon: 'zyfra-icon files-file',
+        items: [
+          {
+            label: 'Ячейка третьего уровня 1 длиннее остальных',
+            icon: 'zyfra-icon files-file',
+            badge: 'danger',
+            badgeStyleClass: 'p-badge-dot',
+            routerLink: ['/page1']
+          },
+          {
+            label: 'Ячейка третьего уровня 2',
+            icon: 'zyfra-icon files-file',
+            items: [
+              {
+                label: 'Ячейка четвертого уровня 1',
+                icon: 'zyfra-icon files-file',
+                items: [
+                  {
+                    label: 'Ячейка пятого уровня 1',
+                    icon: 'zyfra-icon files-file',
+                  },
+                  {
+                    label: 'Ячейка пятого уровня 2 длиннее остальных',
+                    icon: 'zyfra-icon files-file',
+                  }
+                ]
+              },
+              {
+                label: 'Ячейка четвертого уровня 2',
+                icon: 'zyfra-icon files-file',
+              },
+              {
+                label: 'Ячейка четвертого уровня 3',
+                icon: 'zyfra-icon files-file',
+              }
+            ]
+          }
+        ]
+      },
+      {
+        label: 'Ячейка второго уровня 3',
+        icon: 'zyfra-icon files-file',
+      }
+    ]
+  },
+  {label: 'Наименование ячейки 3', icon: 'zyfra-icon files-file'},
+  {
+    label: 'Наименование ячейки 4',
+    icon: 'zyfra-icon files-file',
+    badge: 'info',
+    badgeStyleClass: 'p-badge-dot',
+    items: [
+      {
+        label: 'Ячейка второго уровня 1',
+        icon: 'zyfra-icon files-file',
+      },
+      {
+        label: 'Ячейка второго уровня 2 длиннее остальных',
+        icon: 'zyfra-icon files-file'
+      }
+    ]
+  },
+  {label: 'Наименование ячейки 5', icon: 'zyfra-icon files-file'},
+];
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraNavMenuComponent} />

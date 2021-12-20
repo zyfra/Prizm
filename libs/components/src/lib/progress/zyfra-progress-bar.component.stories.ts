@@ -37,31 +37,31 @@ Simple.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   ...Simple.args,
-  styleClass: 'p-progressbar-secondary'
+  color: 'secondary',
 };
 
 export const Info = Template.bind({});
 Info.args = {
   ...Simple.args,
-  styleClass: 'p-progressbar-info'
+  color: 'info',
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
   ...Simple.args,
-  styleClass: 'p-progressbar-warning'
+  color: 'warning',
 };
 
 export const Danger = Template.bind({});
 Danger.args = {
   ...Simple.args,
-  styleClass: 'p-progressbar-danger'
+  color: 'danger',
 };
 
 export const Success = Template.bind({});
 Success.args = {
   ...Simple.args,
-  styleClass: 'p-progressbar-success'
+  color: 'success',
 };
 
 export const NoValueDisplay = Template.bind({});
@@ -73,7 +73,7 @@ NoValueDisplay.args = {
 export const Mini = Template.bind({});
 Mini.args = {
   ...Simple.args,
-  styleClass: 'p-progressbar-mini'
+  size: 'mini'
 };
 
 export const Indeterminate = Template.bind({});

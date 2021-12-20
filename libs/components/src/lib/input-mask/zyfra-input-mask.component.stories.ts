@@ -11,39 +11,43 @@ export default {
   component: ZyfraInputMaskComponent,
   decorators: [
     moduleMetadata({
-      imports: [
-        FormsModule,
-        ReactiveFormsModule,
-        CommonModule,
-        ZyfraInputMaskModule
-      ]
+      imports: [FormsModule, ReactiveFormsModule, CommonModule, ZyfraInputMaskModule],
     }),
   ],
   parameters: {
     docs: {
       page: require('./zyfra-input-mask.component.story.doc.mdx').default,
-    }
-  }
+    },
+  },
 } as Meta;
 
 const Template: Story<ZyfraInputMaskComponent> = (args) => ({
   component: ZyfraInputMaskComponent,
+  template: `
+  <zyfra-input-mask
+    [label]="label"
+    [(ngModel)]="ngModel"
+    [mask]="mask"
+    [slotChar]="slotChar"
+    [placeholder]="placeholder"
+></zyfra-input-mask>
+  `,
   props: args,
 });
 
 export const Basic = Template.bind({});
 Basic.args = {
-  value: '',
+  ngModel: '',
   disabled: false,
   placeholder: '99-999999',
   mask: '99-9999',
   slotChar: ' ',
-  label: 'Маска'
+  label: 'Маска',
 };
 
 export const Date = Template.bind({});
 Date.args = {
-  value: '',
+  ngModel: '',
   disabled: false,
   placeholder: '99/99/9999',
   mask: '99/99/9999',
@@ -53,7 +57,7 @@ Date.args = {
 
 export const SSN = Template.bind({});
 SSN.args = {
-  value: '',
+  ngModel: '',
   disabled: false,
   placeholder: '999-99-9999',
   mask: '999-99-9999',
@@ -63,10 +67,10 @@ SSN.args = {
 
 export const Phone = Template.bind({});
 Phone.args = {
-  value: '',
+  ngModel: '',
   disabled: false,
-  placeholder: '(999) 999-9999',
-  mask: '(999) 999-9999',
+  placeholder: '9(999) 999-9999',
+  mask: '9(999) 999-9999',
   slotChar: ' ',
   label: 'Мобильный телефон',
   required: true,
@@ -74,20 +78,20 @@ Phone.args = {
 
 export const PhoneExt = Template.bind({});
 PhoneExt.args = {
-  value: '',
+  ngModel: '',
   disabled: false,
-  placeholder: '(999) 999-9999? x99999',
-  mask: '(999) 999-9999? x99999',
+  placeholder: '9(999) 999-9999? x99999',
+  mask: '9(999) 999-9999? x99999',
   slotChar: ' ',
   label: 'Мобильный телефон',
 };
 
 export const SerialNumber = Template.bind({});
 SerialNumber.args = {
-  value: '',
+  ngModel: '',
   disabled: false,
   placeholder: 'a*-999-a999',
   mask: 'a*-999-a999',
   slotChar: ' ',
-  label: 'Serial Number'
+  label: 'Serial Number',
 };

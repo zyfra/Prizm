@@ -1,10 +1,11 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 type SliderOrientation = 'horizontal' | 'vertical';
 
 @Component({
   selector: 'zyfra-slider',
   templateUrl: './zyfra-slider.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraSliderComponent {
   @Input() model: number | number[];
@@ -12,27 +13,28 @@ export class ZyfraSliderComponent {
   @Input() disabled: boolean;
   @Input() min: number = 0;
   @Input() max: number = 100;
-  @Input() orientation: SliderOrientation = 'horizontal'; //| "vertical"
+  @Input() orientation: SliderOrientation = 'horizontal';
   @Input() step: number = 1;
   @Input() range: boolean;
   @Input() style: string;
-  @Input() styleClass: string;
+  @Input() styleClass: string = '';
   @Input() tabindex: number;
   @Input() ariaLabelledBy: string;
 
-  /* onChange */
   @Output() onChange: EventEmitter<any> = new EventEmitter();
-  /* onSlideEnd */
   @Output() onSlideEnd: EventEmitter<any> = new EventEmitter();
 
-  onChangeHandler(event) {
-    //console.log(event, 'event');
+  get styleClasses(): string {
+    return `${this.range ? 'zyfra-slider_range ' : ''} ${this.styleClass}`;
+  }
+
+  onChangeHandler(event): void {
     if (event.value) this.model = event.value;
     if (event.values) this.model = event.values;
     this.onChange.emit(this.model);
   }
 
-  onSlideEndHandler(event) {
+  onSlideEndHandler(event): void {
     this.onSlideEnd.emit(event);
   }
 }

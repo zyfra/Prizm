@@ -4,6 +4,7 @@ import { Story, Meta } from '@storybook/angular/types-6-0';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ZyfraPasswordComponent } from './zyfra-password.component';
 import { ZyfraPasswordModule } from './zyfra-password.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 export default {
   moduleId: module.id,
@@ -11,7 +12,7 @@ export default {
   component: ZyfraPasswordComponent,
   decorators: [
     moduleMetadata({
-      imports: [FormsModule, ReactiveFormsModule, CommonModule, ZyfraPasswordModule],
+      imports: [FormsModule, ReactiveFormsModule, CommonModule, ZyfraPasswordModule, NoopAnimationsModule],
     }),
   ],
   parameters: {
@@ -24,11 +25,12 @@ export default {
 const Template: Story<ZyfraPasswordComponent> = (args) => ({
   component: ZyfraPasswordComponent,
   props: args,
+  template: `<zyfra-password [(ngModel)]="ngModel" [toggleMask]="toggleMask"></zyfra-password>`,
 });
 
 export const Simple = Template.bind({});
 Simple.args = {
-  value: 'password',
+  ngModel: 'password',
   label: 'Пароль',
   toggleMask: false,
 };

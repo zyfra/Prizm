@@ -20,10 +20,7 @@ export class YourModule {}
 To component:
 
 ```html
-<zyfra-input-switch
-  [(checked)]="checked"
-  (onChange)="onChangeInputSwitchHandler($event)"
-></zyfra-input-switch>
+<zyfra-input-switch [(ngModel)]="checked"></zyfra-input-switch>
 ```
 
 ```typescript

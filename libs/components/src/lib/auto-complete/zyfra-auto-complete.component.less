@@ -5,6 +5,10 @@
 
   .p-autocomplete-items .p-autocomplete-item {
     color: var(--standartFont);
+    &:hover {
+      color: var(--standartFont);
+      background-color: var(--listItemHover);
+    }
   }
 }
 
@@ -15,6 +19,9 @@
     &,
     &:hover {
       background-color: var(--successColor);
+    }
+    &:focus-visible {
+      background-color: var(--standartButtonActive);
     }
   }
 }

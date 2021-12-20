@@ -26,7 +26,8 @@ export default {
   ],
   parameters: {
     docs: {
-      page: require('./zyfra-auto-complete.component.story.doc.mdx'),
+      // TODO fix component
+      // page: require('./zyfra-auto-complete.component.story.doc.mdx'),
     },
   },
 } as Meta;
@@ -35,7 +36,7 @@ const Template: Story<ZyfraAutoCompleteComponent> = (args) => ({
   template: `
     <zyfra-auto-complete
       (completeMethod)="completeMethod($event)"
-      [value]="value"
+      [ngModel]="value"
       [placeholder]="placeholder"
       [label]="label"
       [suggestions]="suggestions"
@@ -114,7 +115,7 @@ const Template: Story<ZyfraAutoCompleteComponent> = (args) => ({
 
 export const Simple = Template.bind({});
 Simple.args = {
-  value: null,
+  ngModel: null,
   suggestions: [],
   field: 'name',
   minLength: 1,
@@ -124,7 +125,7 @@ Simple.args = {
 
 export const withDropdown = Template.bind({});
 withDropdown.args = {
-  value: null,
+  ngModel: null,
   suggestions: null,
   field: 'name',
   minLength: 1,

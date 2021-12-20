@@ -1,6 +1,6 @@
 import { TemplateRef } from '@angular/core';
 
-export class ZyfraHintOptionsModel {
+export class ZyfraTooltipOptionsModel {
   left?: number;
   top?: number;
   className?: string;

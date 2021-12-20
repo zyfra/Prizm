@@ -29,75 +29,52 @@ export default {
   },
 } as Meta;
 
-const template = (str: string) => `
-    <div class="p-radiobutton-group">
-    <zyfra-radio-button
-      [name]="name"
-      [styleClass]="styleClass"
-      value="red"
-      label="red"
-      [disabled]="disabled"
-      ${str}
-      (onClick)="onClick($event)"
-      (ngModelChange)="ngModelChange($event)"
-      (onFocus)="onFocus($event)"
-      (onBlur)="onBlur($event)"
-    ></zyfra-radio-button><br>
-    <zyfra-radio-button
-      [name]="name"
-      [styleClass]="styleClass"
-      value="black"
-      label="black"
-      [disabled]="disabled"
-      ${str}
-      (onClick)="onClick($event)"
-      (ngModelChange)="ngModelChange($event)"
-      (onFocus)="onFocus($event)"
-      (onBlur)="onBlur($event)"
-    ></zyfra-radio-button><br>
-    <zyfra-radio-button
-      [name]="name"
-      [styleClass]="styleClass"
-      value="blue"
-      label="blue"
-      [disabled]="disabled"
-      ${str}
-      (onClick)="onClick($event)"
-      (ngModelChange)="ngModelChange($event)"
-      (onFocus)="onFocus($event)"
-      (onBlur)="onBlur($event)"
-    ></zyfra-radio-button><br>
-    <zyfra-radio-button
-      [name]="name"
-      [styleClass]="styleClass"
-      value="pink"
-      label="pink"
-      [disabled]="disabled || disabledPink"
-      ${str}
-      (onClick)="onClick($event)"
-      (ngModelChange)="ngModelChange($event)"
-      (onFocus)="onFocus($event)"
-      (onBlur)="onBlur($event)"
-    ></zyfra-radio-button><br>
-    <zyfra-radio-button
-      [name]="name"
-      [styleClass]="styleClass"
-      [value]="null"
-      label="Не заполнено"
-      [disabled]="disabled"
-      ${str}
-      (onClick)="onClick($event)"
-      (ngModelChange)="ngModelChange($event)"
-      (onFocus)="onFocus($event)"
-      (onBlur)="onBlur($event)"
-    ></zyfra-radio-button>
-    </div>
-  `;
+const items = [
+  {
+    label: 'red',
+    value: 'red',
+  },
+  {
+    label: 'black',
+    value: 'black',
+  },
+  {
+    label: 'blue',
+    value: 'blue',
+  },
+  {
+    label: 'pink',
+    value: 'pink',
+  },
+  {
+    label: 'Не заполнено',
+    value: null,
+  },
+];
 
 const SimpleTemplate: Story<ZyfraRadioButtonComponent<string>> = (args) => ({
-  template: template(`[(ngModel)]="model"`),
+  template: `
+  <div class="p-radiobutton-group">
+    <ng-container *ngFor="let item of items">
+      <zyfra-radio-button
+        [name]="name"
+        [styleClass]="styleClass"
+        [label]="item.label"
+        [value]="item.value"
+        [disabled]="disabled"
+        [(ngModel)]="model"
+        (onClick)="onClick($event)"
+        (ngModelChange)="ngModelChange($event)"
+        (onFocus)="onFocus($event)"
+        (onBlur)="onBlur($event)"
+      ></zyfra-radio-button>
+    <br/>
+  </ng-container>
+  </div>
+`,
   props: {
     ...args,
+    items: items,
     ngModelChange: () => {},
     onClick: action('onClick'),
     onFocus: action('onFocus'),
@@ -126,11 +103,12 @@ MiniRadio.args = {
   styleClass: 'p-radiobutton-mini',
 };
 
-const formControlTemplateChunk = `
+const formControlTemplateChunk = `<div style="font-family: var(--fontFamily);">
     (Значение: {{control.value === undefined || control.value === null ? 'null' : control.value}})
     <br>
     {{control?.errors ? 'Есть ошибки валидации' : ''}}
     <br>
+    </div>
     <zyfra-button
       label="toggle disable/enable"
       [style]="{ 'margin-right': '5px', 'margin-top': '20px' }"
@@ -139,9 +117,28 @@ const formControlTemplateChunk = `
     <zyfra-button label="toggle red/black" (click)="control.setValue(control.value === 'black' ? 'red' : 'black')"></zyfra-button>
 `;
 const FormControlTemplate: Story<ZyfraRadioButtonComponent<string>> = (args) => ({
-  template: template(`[formControl]="control"`) + formControlTemplateChunk,
+  template: `
+<div class="p-radiobutton-group">
+    <ng-container *ngFor="let item of items">
+      <zyfra-radio-button
+        [name]="name"
+        [styleClass]="styleClass"
+        [label]="item.label"
+        [value]="item.value"
+        [disabled]="disabled"
+        [formControl]="control"
+        (onClick)="onClick($event)"
+        (ngModelChange)="ngModelChange($event)"
+        (onFocus)="onFocus($event)"
+        (onBlur)="onBlur($event)"
+      ></zyfra-radio-button>
+    <br/>
+  </ng-container>
+  </div>
+  ` + formControlTemplateChunk,
   props: {
     ...args,
+    items: items,
     disabledPink: true,
     ngModelChange: () => {},
     control: new FormControl('red', [Validators.required]),

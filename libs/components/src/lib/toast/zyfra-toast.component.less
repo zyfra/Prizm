@@ -6,6 +6,24 @@
     font-size: @13px;
     word-wrap: break-word;
 
+    .p-toast-message-content {
+      .p-toast-message-text {
+        margin: 0 0 0 @8px;
+      }
+
+      .p-toast-summary {
+        margin-bottom: @8px;
+
+        &:empty {
+          margin-bottom: 0;
+        }
+      }
+
+      .p-toast-detail {
+        margin: 0;
+      }
+    }
+
     &.p-toast-message-success {
       background: var(--z-accentColor);
       color: var(--bgFont);

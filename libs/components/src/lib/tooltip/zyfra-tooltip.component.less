@@ -1,0 +1,141 @@
+.zyfra-tooltip {
+  pointer-events: auto;
+  position: fixed;
+  z-index: 1000;
+  max-width: @340px;
+  padding: @8px @16px;
+  word-wrap: break-word;
+  font-size: @13px;
+  line-height: 1.6rem;
+  font-weight: 400;
+  font-style: normal;
+  text-align: left;
+  font-family: var(--fontFamily);
+  color: var(--text);
+  border-style: solid;
+  border-width: @1px;
+  border-radius: @8px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+  &_position {
+    &_right,
+    &_left {
+      &::before {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    &_right {
+      &::before {
+        left: -@5px;
+        border-width: @6px @4px @6px 0;
+        border-right-color: inherit;
+      }
+    }
+
+    &_left {
+      &::before {
+        right: -@5px;
+        border-width: @6px 0 @6px @4px;
+        border-left-color: inherit;
+      }
+    }
+
+    &_below {
+      &::before {
+        top: -@5px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 0 @6px @4px @6px;
+        border-bottom-color: inherit;
+      }
+    }
+
+    &_below,
+    &_above {
+      &::before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    &_above {
+      &::before {
+        bottom: -@5px;
+        border-style: solid;
+        border-width: @4px @6px 0 @6px;
+        border-top-color: inherit;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: @14px;
+    margin-bottom: @10px;
+    line-height: @20px;
+  }
+
+  &_color {
+    &_primary {
+      background-color: var(--tooltipPrimaryBg);
+      border-color: var(--tooltipPrimaryBorder);
+    }
+
+    &_secondary {
+      background-color: var(--tooltipSecondaryBg);
+      border-color: var(--tooltipSecondaryBorder);
+    }
+
+    &_success {
+      background-color: var(--tooltipSuccessBg);
+      border-color: var(--tooltipSuccessBorder);
+    }
+
+    &_info {
+      background-color: var(--tooltipInfoBg);
+      border-color: var(--tooltipInfoBorder);
+    }
+
+    &_warning {
+      background-color: var(--tooltipWarningBg);
+      border-color: var(--tooltipWarningBorder);
+    }
+
+    &_danger {
+      background-color: var(--tooltipDangerBg);
+      border-color: var(--tooltipDangerBorder);
+    }
+  }
+}
+
+.zyfra_animation-feature zyfra-tooltip {
+  animation: tooltipIn 2s;
+}
+
+@keyframes tooltipIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes tooltipOut {
+  to {
+    opacity: 0;
+  }
+}
