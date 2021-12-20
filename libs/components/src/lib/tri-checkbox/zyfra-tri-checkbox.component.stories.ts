@@ -49,7 +49,7 @@ const Template: Story<ZyfraTriCheckboxComponent> = (args) => ({
     <br>
     <br>
     <zyfra-tri-checkbox
-      [formControl]="$any(ngControl.control)"
+      [formControl]="fControl"
       [tabindex]="tabindex"
       [inputId]="inputId"
       [ariaLabelledBy]="ariaLabelledBy"
