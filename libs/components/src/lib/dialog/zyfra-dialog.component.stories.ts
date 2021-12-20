@@ -36,6 +36,7 @@ const Template: Story<ZyfraDialogComponent> = (args) => ({
       #dialog
       [header]="header"
       [htmlTemplate]="htmlTemplate"
+      [position]="position"
       (onShow)="onShow($event)"
       (onHide)="onHide($event)"
       (onResizeInit)="onResizeInit($event)"
@@ -55,6 +56,10 @@ const Template: Story<ZyfraDialogComponent> = (args) => ({
   },
 });
 
+const htmlContentTemplate: SafeHtml = `
+  content
+`;
+
 const htmlTemplate: SafeHtml = `
   <div>
     <p>content</p>
@@ -65,13 +70,25 @@ const htmlTemplate: SafeHtml = `
   </div>
 `;
 
+const htmlTopContentTemplate: SafeHtml = `
+  content position top
+`;
+
 export const Simple = Template.bind({});
 Simple.args = {
   header: 'Header',
+  htmlTemplate: htmlContentTemplate,
 };
 
 export const WithTemplate = Template.bind({});
 WithTemplate.args = {
   header: 'With template',
   htmlTemplate,
+};
+
+export const PositionTop = Template.bind({});
+PositionTop.args = {
+  header: 'Header top',
+  htmlTemplate: htmlTopContentTemplate,
+  position: 'top',
 };

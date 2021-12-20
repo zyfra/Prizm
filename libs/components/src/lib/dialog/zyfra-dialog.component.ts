@@ -38,7 +38,7 @@ export class ZyfraDialogComponent {
   @Input() maximizable: boolean;
   @Input() breakpoints: object;
   @Input() transitionOptions: string = '150ms cubic-bezier(0, 0, 0.2, 1)';
-  @Input() closeIcon: string = 'zyfra-icon selection-check-simple';
+  @Input() closeIcon: string = 'zyfra-icon cancel-close';
   @Input() minimizeIcon: string = 'zyfra-icon arrows-collapse';
   @Input() maximizeIcon: string = 'zyfra-icon arrows-expand';
 
