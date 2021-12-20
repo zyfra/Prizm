@@ -30,7 +30,7 @@ export class ZyfraDatepickerMultiComponent {
   // wrapper for relative component
   @Input() public relativeValue: string;
 
-  // wrapper for relative component
+  // wrapper for absolute component
   @Input() model: string | number | Date;
   @Input() required: boolean;
   @Input() spanClass: string;
