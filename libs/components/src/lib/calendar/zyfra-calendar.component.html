@@ -136,9 +136,6 @@
               (keydown)="onContainerButtonKeydown($event)"
               class="p-datepicker-next p-link"
               (click)="onNextButtonClick($event)"
-              [style.display]="
-                numberOfMonths === 1 ? 'inline-flex' : i === numberOfMonths - 1 ? 'inline-flex' : 'none'
-              "
               type="button"
               pRipple
             >
