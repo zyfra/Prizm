@@ -4,15 +4,15 @@ import { Meta, Story } from '@storybook/angular/types-6-0';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ZyfraHintComponent } from './zyfra-hint.component';
-import { ZyfraHintModule } from './zyfra-hint.module';
+import { ZyfraTooltipComponent } from './zyfra-tooltip.component';
+import { ZyfraTooltipModule } from './zyfra-tooltip.module';
 import { ZyfraButtonModule } from '../button';
-import { ZyfraHintOverlayManager } from './zyfra-hint-overlay-manager.service';
+import { ZyfraTooltipOverlayManager } from './zyfra-tooltip-overlay-manager.service';
 
 export default {
   moduleId: module.id,
-  title: 'Hint/Main',
-  component: ZyfraHintComponent,
+  title: 'Tooltip/Main',
+  component: ZyfraTooltipComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -21,10 +21,10 @@ export default {
         FormsModule,
         ReactiveFormsModule,
         CommonModule,
-        ZyfraHintModule,
+        ZyfraTooltipModule,
         ZyfraButtonModule,
       ],
-      providers: [ZyfraHintOverlayManager],
+      providers: [ZyfraTooltipOverlayManager],
     }),
   ],
   parameters: {
@@ -34,32 +34,36 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ZyfraHintComponent> = (args) => ({
+const Template: Story<ZyfraTooltipComponent> = (args) => ({
   template: `
     <div
-      style="height: 400px;width: 800px;display: flex;justify-content: center;align-items: center;flex-direction: column;"
+      style="height: 100vh;width: 100%;display: flex;justify-content: center;align-items: center;flex-direction: column;"
     >
-      <div *ngIf="hintTitle !== undefined">
+      <div *ngIf="title !== undefined">
         <div>
-          <ng-template #testHint>
-            <div class="zyfra_hint_title">{{ hintTitle }}</div>
-            <div>{{ hintText }}</div>
+          <ng-template #testTooltip>
+            <div class="zyfra-tooltip__title">{{ title }}</div>
+            <div>{{ text }}</div>
           </ng-template>
 
           <zyfra-button
-            [zyfraHint]="testHint"
-            [position]="position"
+            [ngStyle]="{display: 'block'}"
+            [zyfraTooltip]="testTooltip"
+            [zyfraTooltipColor]="color"
+            [zyfraTooltipPosition]="position"
             label="Button"
             type="button"
             styleClass="btn-default btn-primary"
           ></zyfra-button>
         </div>
       </div>
-      <div *ngIf="hintTitle == undefined">
+      <div *ngIf="title == undefined">
         <div>
           <zyfra-button
-            [zyfraHint]="hintText"
-            [position]="position"
+            [ngStyle]="{display: 'block'}"
+            [zyfraTooltip]="text"
+            [zyfraTooltipColor]="color"
+            [zyfraTooltipPosition]="position"
             label="Button"
             type="button"
             styleClass="btn-default btn-primary"
@@ -71,17 +75,19 @@ const Template: Story<ZyfraHintComponent> = (args) => ({
   props: args,
 });
 
-export const HintTitleExample = Template.bind({});
-HintTitleExample.args = {
-  hintText:
+export const TooltipWithTitle = Template.bind({});
+TooltipWithTitle.args = {
+  text:
     'В современных веб-интерфейсах граница между кнопками и ссылками размыта. Ссылка также может запускать действие. Отличие кнопки в том, что она заметнее, и почти не используется для перехода на страницу.',
-  position: 'right',
-  hintTitle: 'Название приложения в пять слов',
+  position: 'left',
+  title: 'Название приложения в пять слов',
+  color: 'info'
 };
 
-export const HintTextExample = Template.bind({});
-HintTextExample.args = {
-  hintText:
+export const TooltipWithoutTitle = Template.bind({});
+TooltipWithoutTitle.args = {
+  text:
     'В современных веб-интерфейсах граница между кнопками и ссылками размыта. Ссылка также может запускать действие. Отличие кнопки в том, что она заметнее, и почти не используется для перехода на страницу.',
   position: 'right',
+  color: 'warning'
 };

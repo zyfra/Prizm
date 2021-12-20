@@ -37,7 +37,7 @@ export class ZyfraMenuApplicationsComponent implements AfterViewInit, OnDestroy 
       timingFunction: 'ease-out',
     },
   };
-  @Input() hintDelay = 1000;
+  @Input() tooltipDelay = 1000;
   @Input() topMenuItems: ZyfraMenuAppItem[] = [];
   @Input() bottomMenuItems: ZyfraMenuAppItem[] = [];
   @Input() activeItem: ZyfraMenuAppItem | null = null;
