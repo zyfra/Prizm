@@ -5,10 +5,11 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { SlideMenuModule } from 'primeng/slidemenu';
 import { ZyfraTabMenuComponent } from './zyfra-tab-menu.component';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { ZyfraTooltipModule } from '../tooltip';
 
 @NgModule({
   declarations: [ZyfraTabMenuComponent],
-  imports: [CommonModule, TooltipModule, TabMenuModule, OverlayPanelModule, SlideMenuModule],
+  imports: [CommonModule, TooltipModule, TabMenuModule, OverlayPanelModule, SlideMenuModule, ZyfraTooltipModule],
   exports: [ZyfraTabMenuComponent],
 })
 export class ZyfraTabMenuModule {}
