@@ -10,7 +10,9 @@ import {
   ViewChild,
 } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
+import { ControlValueAccessor } from '@angular/forms';
 import { Dropdown } from 'primeng/dropdown';
+import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
 import { ZyfraDropdownTemplateDirective } from './zyfra-dropdown-template.directive';
 
 export interface DropdownChangeEvent<T> {
@@ -23,8 +25,10 @@ export interface DropdownChangeEvent<T> {
   templateUrl: './zyfra-dropdown.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZyfraDropdownComponent<T = unknown> {
-  @Input() value: T;
+export class ZyfraDropdownComponent<T = unknown>
+  extends WrappedFormComponent
+  implements ControlValueAccessor
+{
   @Input() options: T[];
   @Input() optionLabel = 'label';
   @Input() optionValue;
@@ -93,7 +97,6 @@ export class ZyfraDropdownComponent<T = unknown> {
   @Output() onBlur = new EventEmitter<FocusEvent>();
   @Output() onShow = new EventEmitter<AnimationEvent>();
   @Output() onHide = new EventEmitter<AnimationEvent>();
-  @Output() valueChange = new EventEmitter<T>();
 
   @ViewChild('dropdown') dropdown: Dropdown;
   @ContentChildren(ZyfraDropdownTemplateDirective) templates: QueryList<ZyfraDropdownTemplateDirective>;

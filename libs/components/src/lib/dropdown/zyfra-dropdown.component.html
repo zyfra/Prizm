@@ -1,7 +1,7 @@
 <span class="zyfra-input" [class.zyfra-input_disabled]="disabled" [class.p-float-label]="label">
   <p-dropdown
     #dropdown
-    [(ngModel)]="value"
+    [formControl]="$any(ngControl.control)"
     [options]="options"
     [optionLabel]="optionLabel"
     [optionValue]="optionValue"
@@ -50,13 +50,13 @@
     [tooltipStyleClass]="tooltipStyleClass"
     [tooltipPosition]="tooltipPosition"
     [tooltipPositionStyle]="tooltipPositionStyle"
+    (ngModelChange)="accessorOnChangeFn($event)"
     (onChange)="onChange.emit($event)"
     (onClick)="onClick.emit($event)"
     (onFocus)="onFocus.emit($event)"
     (onBlur)="onBlur.emit($event)"
     (onShow)="onShow.emit($event)"
     (onHide)="onHide.emit($event)"
-    (ngModelChange)="valueChange.emit($event)"
   >
     <ng-template *ngIf="itemTemplate" let-item pTemplate="item">
       <ng-container *ngTemplateOutlet="itemTemplate; context: { $implicit: item }"></ng-container>

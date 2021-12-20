@@ -1,30 +1,22 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
+import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
 
 @Component({
   selector: 'zyfra-input-switch',
   templateUrl: './zyfra-input-switch.component.html',
-  styles: [],
 })
-export class ZyfraInputSwitchComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-
-  @Input() checked: boolean;
+export class ZyfraInputSwitchComponent extends WrappedFormComponent implements ControlValueAccessor {
   @Input() style: string;
   @Input() styleClass: string;
   @Input() tabindex: number;
   @Input() inputId: string;
   @Input() name: string;
   @Input() ariaLabelledBy: string;
-  @Input() disabled: boolean;
+  @Input() disabled: boolean; // TODO remove, use FormControl disabled
   @Input() readonly: boolean;
 
-  /* onChange */
-  @Output() onChange: EventEmitter<any> = new EventEmitter();
-
-  onChangeHandler(event) {
-    this.checked = event.checked;
-    this.onChange.emit(this.checked);
+  override setDisabledState(isDisabled: boolean): void {
+    // do nothing
   }
 }

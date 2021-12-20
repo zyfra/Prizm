@@ -24,24 +24,19 @@ To component:
   rows="5"
   cols="10"
   autoResize="false"
-  [(model)]="modelForTextArea"
+  [(ngModel)]="modelForTextArea"
   placeholder="Введите текст.."
   class="inputClass"
   disabled="false"
   maxlength="100"
   minlength="0"
   name="some name"
-  (change)="changeTextAreaHandler($event)"
   (onResize)="onResizeTextAreaHandler($event)"
 ></zyfra-textarea>
 ```
 
 ```typescript
 public modelForTextArea = '';
-
-onResizeTextAreaHandler(event) {
-  console.log(event);
-}
 ```
 
 ## ArgsTable

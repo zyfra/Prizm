@@ -12,7 +12,7 @@ Import module:
 import { ZyfraChipModule } from '@digital-plant/zyfra-components';
 
 @NgModule({
-  imports: [ZyfraToggleButtonModule],
+  imports: [ZyfraChipModule],
 })
 export class YourModule {}
 ```
@@ -21,7 +21,7 @@ To component:
 
 ```html
 <zyfra-chip label="Text Only"></zyfra-chip>
-<zyfra-chip label="Text with icon" icon="zyfra-icon cancel-close"></zyfra-chip>
+<zyfra-chip label="Text with icon" icon="zyfra-icon location-compass"></zyfra-chip>
 <zyfra-chip label="Removable" [removable]="true"></zyfra-chip>
 ```
 

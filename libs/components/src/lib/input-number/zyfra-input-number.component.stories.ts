@@ -24,6 +24,16 @@ export default {
 const Template: Story<ZyfraInputNumberComponent> = (args) => ({
   component: ZyfraInputNumberComponent,
   props: args,
+  template: `
+<zyfra-input-number
+  [(ngModel)]="value"
+  [showButtons]="showButtons"
+  [mode]="mode"
+  [currency]="currency"
+  [label]="label"
+  [placeholder]="placeholder"
+></zyfra-input-number>
+`,
 });
 
 export const Basic = Template.bind({});

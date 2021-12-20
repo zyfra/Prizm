@@ -1,6 +1,5 @@
 import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Message } from 'primeng/api';
 import { ZyfraMessageComponent } from './zyfra-message.component';
