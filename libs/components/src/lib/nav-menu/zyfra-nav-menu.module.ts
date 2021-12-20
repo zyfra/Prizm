@@ -17,7 +17,7 @@ import { ZyfraNavMenuGroupDirective } from './directives/nav-menu-group.directiv
 import { NavMenuService } from './service/selection.service';
 import { ZyfraNavMenuItemComponent } from './components/zyfra-menu-item/zyfra-nav-menu-item.component';
 import { ZyfraNavMenuGroupComponent } from './components/zyfra-nav-menu-group/zyfra-nav-menu-group.component';
-import { ZyfraHintModule } from '../hint/zyfra-hint.module';
+import { ZyfraTooltipModule } from '../tooltip/zyfra-tooltip.module';
 import { ZyfraAccordionModule } from '../accordion/zyfra-accordion.module';
 import { ZyfraInputModule } from '../input/zyfra-input.module';
 import { ZyfraButtonModule } from '../button/zyfra-button.module';
@@ -50,7 +50,7 @@ import { ZyfraSharedModule } from '../@core/shared/zyfra-shared.module';
     ZyfraInputModule,
     ZyfraAccordionModule,
     ZyfraSharedModule,
-    ZyfraHintModule
+    ZyfraTooltipModule
   ],
   providers: [NavMenuService],
   exports: [

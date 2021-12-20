@@ -1,0 +1,32 @@
+import { ArgsTable, Subtitle } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+import { ZyfraTooltipComponent } from 'controls/base-controls/zyfra-tooltip/src/public-api';
+
+## Zyfra - Tooltip
+
+<Subtitle of={ZyfraTooltipComponent}>
+  Tooltip provides functionality of additional information for an element
+</Subtitle>
+
+Import module:
+
+```typescript
+import { ZyfraTooltipModule, ZyfraTooltipOverlayManager } from '@digital-plant/zyfra-components';
+
+@NgModule({
+  imports: [ZyfraTooltipModule],
+  provides: [ZyfraTooltipOverlayManager],
+})
+export class YourModule {}
+```
+
+Tooltip with text:
+
+```html
+<button zyfraButton class="class" type="button" zyfraTooltip="Подсказка справа" zyfraTooltipPosition="right">Right</button>
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraTooltipComponent} />
