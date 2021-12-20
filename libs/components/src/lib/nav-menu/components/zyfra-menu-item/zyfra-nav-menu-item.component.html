@@ -24,16 +24,16 @@
             <span *ngIf="item.escape !== false; else htmlLabel"
                   #label
                   class="p-menuitem-text"
-                  position="below"
-                  [zyfraHint]="item.label"
-                  [hasOverflowText]="label">{{item.label}}
+                  [zyfraTooltip]="item.label"
+                  zyfraTooltipPosition="below"
+                  [zyfraTooltipOverflowText]="label">{{item.label}}
             </span>
             <ng-template #htmlLabel>
                 <span #label
                       class="p-menuitem-text"
-                      position="below"
-                      [zyfraHint]="item.label"
-                      [hasOverflowText]="label"
+                      [zyfraTooltip]="item.label"
+                      zyfraTooltipPosition="below"
+                      [zyfraTooltipOverflowText]="label"
                       [innerHTML]="item.label">
                 </span>
             </ng-template>
@@ -66,16 +66,16 @@
             <span *ngIf="item.escape !== false; else htmlRouteLabel"
                   #label
                   class="p-menuitem-text"
-                  position="below"
-                  [zyfraHint]="item.label"
-                  [hasOverflowText]="label">{{item.label}}
+                  zyfraTooltipPosition="below"
+                  [zyfraTooltip]="item.label"
+                  [zyfraTooltipOverflowText]="label">{{item.label}}
             </span>
             <ng-template #htmlRouteLabel>
                 <span #label
                       class="p-menuitem-text"
-                      position="below"
-                      [zyfraHint]="item.label"
-                      [hasOverflowText]="label"
+                      [zyfraTooltip]="item.label"
+                      zyfraTooltipPosition="below"
+                      [zyfraTooltipOverflowText]="label"
                       [innerHTML]="item.label">
                 </span>
             </ng-template>

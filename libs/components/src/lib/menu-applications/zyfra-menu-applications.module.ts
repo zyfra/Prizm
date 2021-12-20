@@ -4,11 +4,11 @@ import { ZyfraMenuApplicationsComponent } from './zyfra-menu-applications.compon
 import { CommonModule } from '@angular/common';
 import { ZyfraMenuApplicationsItemComponent } from './zyfra-menu-applications-item/zyfra-menu-applications-item.component';
 import { ZyfraSplitterModule } from '../splitter';
-import { ZyfraHintModule } from '../hint';
+import { ZyfraTooltipModule } from '../tooltip';
 
 @NgModule({
   declarations: [ZyfraMenuApplicationsComponent, ZyfraMenuApplicationsItemComponent],
-  imports: [CommonModule, ZyfraIconModule, ZyfraSplitterModule, ZyfraHintModule],
+  imports: [CommonModule, ZyfraIconModule, ZyfraSplitterModule, ZyfraTooltipModule],
   exports: [ZyfraMenuApplicationsComponent],
 })
 export class ZyfraMenuApplicationsModule {}

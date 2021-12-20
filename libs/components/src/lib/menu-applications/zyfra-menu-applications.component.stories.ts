@@ -63,7 +63,7 @@ const Template: Story<ZyfraMenuApplicationsComponent> = (args) => ({
       <zyfra-menu-applications
         #menu
         [transition]="transition"
-        [hintDelay]="hintDelay"
+        [tooltipDelay]="tooltipDelay"
         [style]="layoutShift ? null : { position: 'absolute', top: '0', left: '0', height: '100%' }"
         [topMenuItems]="topMenuItems"
         [bottomMenuItems]="bottomMenuItems"
@@ -156,7 +156,7 @@ WithLayoutShift.args = {
   topMenuItems,
   bottomMenuItems,
   layoutShift: true,
-  hintDelay: 1000,
+  tooltipDelay: 1000,
   transition: defaultTransition,
 };
 
@@ -165,7 +165,7 @@ WithoutLayoutShift.args = {
   topMenuItems,
   bottomMenuItems,
   layoutShift: false,
-  hintDelay: 1000,
+  tooltipDelay: 1000,
   transition: defaultTransition,
 };
 
@@ -179,7 +179,7 @@ ManyItems.args = {
   ],
   bottomMenuItems,
   layoutShift: false,
-  hintDelay: 1000,
+  tooltipDelay: 1000,
   transition: defaultTransition,
 };
 
@@ -193,7 +193,7 @@ CustomTransition.args = {
   ],
   bottomMenuItems,
   layoutShift: false,
-  hintDelay: 2500,
+  tooltipDelay: 2500,
   transition: {
     open: {
       duration: 2000,

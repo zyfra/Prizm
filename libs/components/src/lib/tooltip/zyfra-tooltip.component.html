@@ -2,5 +2,5 @@
   <ng-container *ngTemplateOutlet="$any(options.content); context: { $implicit: options.context }"> </ng-container>
 </ng-template>
 <ng-template #string>
-  {{ options.content }}
+  {{ $any(options.content) | charLimit: 220 }}
 </ng-template>

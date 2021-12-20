@@ -8,15 +8,15 @@ import {
   ChangeDetectionStrategy,
   HostListener,
 } from '@angular/core';
-import { ZyfraHintOptionsModel } from './zyfra-hint.model';
+import { ZyfraTooltipOptionsModel } from './zyfra-tooltip.model';
 
 @Component({
-  selector: 'zyfra-hint',
-  templateUrl: './zyfra-hint.component.html',
+  selector: 'zyfra-tooltip',
+  templateUrl: './zyfra-tooltip.component.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZyfraHintComponent {
+export class ZyfraTooltipComponent {
   @HostBinding('style.top.px') get topParam(): number {
     return this.options.top;
   }
@@ -24,11 +24,11 @@ export class ZyfraHintComponent {
     return this.options.left;
   }
 
-  set options(op: ZyfraHintOptionsModel) {
+  set options(op: ZyfraTooltipOptionsModel) {
     this._options = op;
     this.hostClasses = op.className;
   }
-  get options(): ZyfraHintOptionsModel {
+  get options(): ZyfraTooltipOptionsModel {
     return this._options;
   }
 
@@ -39,9 +39,9 @@ export class ZyfraHintComponent {
 
   @Output() close: EventEmitter<boolean> = new EventEmitter();
 
-  private _options: ZyfraHintOptionsModel;
+  private _options: ZyfraTooltipOptionsModel;
   @HostListener('animationend', ['$event']) animationend(event: AnimationEvent): void {
-    if (event.animationName === 'hintOut') {
+    if (event.animationName === 'tooltipOut') {
       this.close.emit(true);
     }
   }
