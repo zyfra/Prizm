@@ -13,6 +13,7 @@ zyfra-calendar {
         border: none;
         border-radius: 8px;
         box-shadow: var(--calendarBoxShadow);
+        width: 315px;
 
         .p-disabled, .p-component:disabled {
             color: var(--colorDisabled);
@@ -22,6 +23,9 @@ zyfra-calendar {
     &:not(.p-datepicker-inline) .p-datepicker-header, .p-datepicker-header {
         background-color: var(--bgStandart);
         color: var(--calendarHeaderColor);
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
     }
 
     .p-datepicker-header {
@@ -33,7 +37,7 @@ zyfra-calendar {
             margin-left: 0;
         }
 
-        .p-datepicker-next, .p-datepicker-prev {
+        button.p-datepicker-next.p-link, button.p-datepicker-prev.p-link {
             color: var(--text);
         }
 
@@ -54,6 +58,8 @@ zyfra-calendar {
 
             span {
                 border-radius: @calendarBorderRadius;
+                display: inline-block;
+                overflow: inherit;
 
                 &.p-highlight {
                     color: var(--successColorHover);
