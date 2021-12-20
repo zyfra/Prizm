@@ -56,6 +56,6 @@ Tooltip.args = {
   disabled: false,
   placeholder: 'placeholder',
   tooltip: 'текст для тултипа',
-  tooltipPosition: 'right',
+  tooltipPosition: 'below',
   label: 'Tooltip',
 };

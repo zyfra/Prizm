@@ -66,8 +66,8 @@
             <span *ngIf="item.escape !== false; else htmlRouteLabel"
                   #label
                   class="p-menuitem-text"
-                  zyfraTooltipPosition="below"
                   [zyfraTooltip]="item.label"
+                  zyfraTooltipPosition="below"
                   [zyfraTooltipOverflowText]="label">{{item.label}}
             </span>
             <ng-template #htmlRouteLabel>

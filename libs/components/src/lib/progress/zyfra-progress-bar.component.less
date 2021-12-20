@@ -7,36 +7,40 @@
     color: var(--text);
   }
 
-  &-mini {
-    height: @4px;
-    border-radius: @8px;
+  &.zyfra-progress_size {
+    &-mini {
+      height: @4px;
+      border-radius: @8px;
+    }
+  }
+
+  &.zyfra-progress_color {
+    &-primary .p-progressbar-value {
+      background-color: var(--progressBarPrimary);
+    }
+
+    &-secondary .p-progressbar-value {
+      background-color: var(--progressBarSecondary);
+    }
+
+    &-info .p-progressbar-value {
+      background-color: var(--progressBarInfo);
+    }
+
+    &-warning .p-progressbar-value {
+      background-color: var(--progressBarWarning);
+    }
+
+    &-danger .p-progressbar-value {
+      background-color: var(--progressBarDanger);
+    }
+
+    &-success .p-progressbar-value {
+      background-color: var(--progressBarSuccess);
+    }
   }
 
   &.p-progressbar-determinate .p-progressbar-label {
     font-weight: normal;
-  }
-
-  .p-progressbar-value {
-    background: var(--progressBarPrimary);
-  }
-
-  &-secondary .p-progressbar-value {
-    background: var(--progressBarSecondary);
-  }
-
-  &-info .p-progressbar-value {
-    background: var(--progressBarInfo);
-  }
-
-  &-warning .p-progressbar-value {
-    background: var(--progressBarWarning);
-  }
-
-  &-danger .p-progressbar-value {
-    background: var(--progressBarDanger);
-  }
-
-  &-success .p-progressbar-value {
-    background: var(--progressBarSuccess);
   }
 }
