@@ -46,7 +46,7 @@ To component:
   <zyfra-menu-applications
     #menu
     [transition]="transition"
-    [hintDelay]="hintDelay"
+    [tooltipDelay]="tooltipDelay"
     [style]="layoutShift ? null : { position: 'absolute', top: '0', left: '0', height: '100%' }"
     [topMenuItems]="topMenuItems"
     [bottomMenuItems]="bottomMenuItems"
@@ -62,12 +62,12 @@ To component:
 ```
 
 ```typescript
-import { MenuItem, Transition } from '@zyfra/zyfra-menu-applications';
+import { MenuItem, ZyfraMenuAppTransition } from '@zyfra/zyfra-menu-applications';
 
 export class YourComponent {
   public activeItem = null;
 
-  public transition: Transition = {
+  public transition: ZyfraMenuAppTransition = {
     open: {
       duration: 2000,
       delay: 1000,
@@ -75,9 +75,6 @@ export class YourComponent {
     close: {
       delay: 1500,
       duration: 300,
-    },
-    hint: {
-      delay: 2500,
     },
   };
 
