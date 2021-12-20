@@ -4,9 +4,9 @@ import { DOCUMENT } from '@angular/common';
 @Injectable({
   providedIn: 'root',
 })
-export class ZyfraHintOverlayManager {
+export class ZyfraTooltipOverlayManager {
   private innerContainer: HTMLElement = null;
-  private readonly className = 'zyfra-hint-overlay-container';
+  private readonly className = 'zyfra-tooltip-overlay-container';
   private renderer: Renderer2;
 
   constructor(@Inject(DOCUMENT) private document: Document, rendererFactory: RendererFactory2) {

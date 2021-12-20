@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
+import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
 
 @Component({
   selector: 'zyfra-textarea',
   templateUrl: './zyfra-textarea.component.html',
 })
-export class ZyfraTextareaComponent {
-  @Input() value: string;
+export class ZyfraTextareaComponent extends WrappedFormComponent implements ControlValueAccessor {
   @Input() rows: number;
   @Input() cols: number;
   @Input() autoResize: boolean;
@@ -13,12 +14,15 @@ export class ZyfraTextareaComponent {
   @Input() name: string;
   @Input() placeholder: string;
   @Input() class: string;
-  @Input() disabled: boolean;
+  @Input() disabled: boolean; // TODO remove this, use FormControl disable state
   @Input() maxlength: number;
   @Input() minlength: number;
   @Input() label = '';
   @Input() required = false;
 
-  @Output() valueChange = new EventEmitter<string>();
   @Output() onResize = new EventEmitter<unknown>();
+
+  override setDisabledState() {
+    // do nothing
+  }
 }

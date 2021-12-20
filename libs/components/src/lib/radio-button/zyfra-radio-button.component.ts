@@ -4,17 +4,10 @@ import {
   Output,
   EventEmitter,
   ChangeDetectionStrategy,
-  forwardRef,
-  ChangeDetectorRef,
   ViewEncapsulation,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl } from '@angular/forms';
-
-export const RADIO_VALUE_ACCESSOR = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => ZyfraRadioButtonComponent),
-  multi: true,
-};
+import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
 
 @Component({
   selector: 'zyfra-radio-button',
@@ -22,9 +15,8 @@ export const RADIO_VALUE_ACCESSOR = {
   styleUrls: ['./zyfra-radio-button.component.less'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [RADIO_VALUE_ACCESSOR],
 })
-export class ZyfraRadioButtonComponent<T> implements ControlValueAccessor {
+export class ZyfraRadioButtonComponent<T> extends WrappedFormComponent implements ControlValueAccessor {
   @Input() name: string;
   @Input() value: T;
   @Input() label: string;
@@ -38,21 +30,10 @@ export class ZyfraRadioButtonComponent<T> implements ControlValueAccessor {
   @Input() labelStyleClass: string;
   @Input() formControlName: string;
   @Input() formControl: FormControl;
-  @Input() ngModel: T;
 
-  @Output() ngModelChange: EventEmitter<T> = new EventEmitter();
   @Output() onClick: EventEmitter<PointerEvent> = new EventEmitter();
   @Output() onFocus: EventEmitter<FocusEvent> = new EventEmitter();
   @Output() onBlur: EventEmitter<FocusEvent> = new EventEmitter();
-
-  constructor(private cd: ChangeDetectorRef) {}
-
-  modelChange(value: T): void {
-    if (this.formControl) {
-      this.formControl.setValue(value);
-    }
-    this.ngModelChange.emit(this.ngModel);
-  }
 
   handleClick(event: PointerEvent): void {
     this.onClick.emit(event);
@@ -66,16 +47,7 @@ export class ZyfraRadioButtonComponent<T> implements ControlValueAccessor {
     this.onBlur.emit(event);
   }
 
-  registerOnChange(fn: () => void): void {}
-
-  registerOnTouched(fn: () => void): void {}
-
-  writeValue(value: T): void {
-    this.ngModel = value;
-  }
-
-  setDisabledState(disabled: boolean): void {
-    this.disabled = disabled;
-    this.cd.detectChanges();
+  override setDisabledState(isDisabled: boolean) {
+    // do nothing
   }
 }

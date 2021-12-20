@@ -78,6 +78,14 @@ If copy command `cp` not working in your OS platform, try run manually
    "cp ./libs/schematics/src/ng-add/schema.json ./dist/libs/schematics/src/ng-add/schema.json"
 ```
 
+### Update package version
+
+Path's for update lib info:
+
+- `libs/components/package.json`
+- `libs/schematics/package.json`
+- `libs/schematics/src/ng-add/consts.ts`
+
 
 #### Other info
 

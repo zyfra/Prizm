@@ -9,8 +9,8 @@
       autocomplete="off"
       [type]="type"
       [id]="id"
-      [(ngModel)]="model"
-      (ngModelChange)="changeModel($event)"
+      [formControl]="$any(ngControl.control)"
+      (ngModelChange)="accessorOnChangeFn($event)"
       (blur)="onBlur.emit($event)"
       [placeholder]="placeholder"
       [ngClass]="
@@ -23,14 +23,13 @@
             }
           : inputClass
       "
-      [disabled]="disabled"
-      [required]="required || controlRequired"
-      [pTooltip]="tooltip ? tooltip : null"
-      [tooltipPosition]="tooltipPosition"
+      [disabled]="disabled || accessorIsDisabled"
+      [required]="required"
+      [zyfraTooltip]="tooltip ? tooltip : null"
+      [zyfraTooltipPosition]="tooltipPosition"
     />
     <label *ngIf="label" [class.label-required]="required || controlRequired">{{ label }}</label>
 
     <ng-content select="[right]"></ng-content>
-
   </span>
 </div>

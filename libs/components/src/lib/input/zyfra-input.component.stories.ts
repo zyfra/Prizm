@@ -24,6 +24,18 @@ export default {
 const Template: Story<ZyfraInputComponent> = (args) => ({
   component: ZyfraInputComponent,
   props: args,
+  template: `
+<zyfra-input
+  [id]="id"
+  [type]="type"
+  [(ngModel)]="value"
+  [disabled]="disabled"
+  [placeholder]="placeholder"
+  [tooltip]="tooltip"
+  [tooltipPosition]="tooltipPosition"
+  [label]="label"
+></zyfra-input>
+`
 });
 
 export const Simple = Template.bind({});
@@ -44,6 +56,6 @@ Tooltip.args = {
   disabled: false,
   placeholder: 'placeholder',
   tooltip: 'текст для тултипа',
-  tooltipPosition: 'right',
+  tooltipPosition: 'below',
   label: 'Tooltip',
 };

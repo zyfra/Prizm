@@ -51,13 +51,13 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
             </zyfra-cell-editor>
           </td>
           <td style="text-align: center; font-size: 16px;">
-            <button *ngIf="!editing" type="button" zyfraInitEditableRow (click)="onRowEditInit(product)" style="background: none; border: none; color: #7887A5;">
+            <button *ngIf="!editing" type="button" zyfraInitEditableRow (click)="onRowEditInit(product)" style="background: none; border: none; color: #7887A5; cursor: pointer;">
               <i class="zyfra-icon editor-mode"></i>
             </button>
-            <button *ngIf="editing" type="button" zyfraSaveEditableRow (click)="onRowEditSave(product)" style="background: none; border: none; color: #62BC65;">
+            <button *ngIf="editing" type="button" zyfraSaveEditableRow (click)="onRowEditSave(product)" style="background: none; border: none; color: #62BC65; cursor: pointer;">
               <i class="pi pi-check"></i>
             </button>
-            <button *ngIf="editing" type="button" zyfraCancelEditableRow (click)="onRowEditCancel(product, ri)" style="background: none; border: none; color: #EC5050;">
+            <button *ngIf="editing" type="button" zyfraCancelEditableRow (click)="onRowEditCancel(product, ri)" style="background: none; border: none; color: #EC5050; cursor: pointer;">
               <i class="pi pi-times"></i>
             </button>
           </td>

@@ -1,11 +1,12 @@
-import { Component, EventEmitter, Input, Output, } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
+import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
 
 @Component({
   selector: 'zyfra-input-mask',
   templateUrl: './zyfra-input-mask.component.html',
 })
-export class ZyfraInputMaskComponent {
-  @Input() value: string;
+export class ZyfraInputMaskComponent extends WrappedFormComponent implements ControlValueAccessor {
   @Input() mask: string;
   @Input() type: string;
   @Input() slotChar: string;
@@ -17,7 +18,7 @@ export class ZyfraInputMaskComponent {
   @Input() size: number;
   @Input() maxlength: number;
   @Input() tabindex: string;
-  @Input() disabled: boolean;
+  @Input() disabled: boolean; // TODO remove, use FormControl disabled
   @Input() readonly: boolean;
   @Input() name: string;
   @Input() inputId: string;
@@ -32,8 +33,11 @@ export class ZyfraInputMaskComponent {
 
   @Output() onBlur = new EventEmitter<FocusEvent>();
   @Output() onFocus = new EventEmitter<FocusEvent>();
-  @Output() valueChange = new EventEmitter<string>();
   @Output() onComplete = new EventEmitter<void>();
   @Output() onKeydown = new EventEmitter<KeyboardEvent>();
   @Output() onInput = new EventEmitter<KeyboardEvent>();
+
+  override setDisabledState(isDisabled: boolean): void {
+    // do nothing
+  }
 }
