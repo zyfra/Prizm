@@ -37,5 +37,4 @@ export * from './lib/toast';
 export * from './lib/toggle-button';
 export * from './lib/tree';
 export * from './lib/tree-table';
-export * from './lib/calendar';
 export * from './lib/tri-checkbox';

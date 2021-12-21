@@ -2,10 +2,9 @@ import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { ZyfraCalendarComponent } from './zyfra-calendar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ZyfraCheckBoxModule } from '../checkbox';
+import { ZyfraCheckBoxModule } from './../../checkbox';
 import { CommonModule } from '@angular/common';
-import { ZyfraInputModule } from '../input';
-import { ZyfraCalendarModule } from './zyfra-calendar.module';
+import { ZyfraInputModule } from './../../input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CalendarModule} from 'primeng/calendar';
 
@@ -26,7 +25,6 @@ export default {
         CommonModule,
         ZyfraCheckBoxModule,
         ZyfraInputModule,
-        ZyfraCalendarModule,
         CalendarModule
       ],
     }),
@@ -150,23 +148,6 @@ Range.args = {
   timeOnly: false,
   required: false,
   showButtonBar: false
-};
-
-export const ButtonBar= Template.bind({});
-ButtonBar.args = {
-  placeholder: 'Select a date',
-  disabled: false,
-  inline: false,
-  showOtherMonths: true,
-  selectOtherMonths: false,
-  showIcon: false,
-  showOnFocus: true,
-  showWeek: false,
-  readonlyInput: false,
-  showTime: false,
-  timeOnly: false,
-  required: false,
-  showButtonBar: true
 };
 
 export const Time= Template.bind({});
