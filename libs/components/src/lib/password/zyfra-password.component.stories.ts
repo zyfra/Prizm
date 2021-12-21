@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ZyfraPasswordComponent } from './zyfra-password.component';
 import { ZyfraPasswordModule } from './zyfra-password.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { action } from '@storybook/addon-actions';
 
 export default {
   moduleId: module.id,
@@ -26,19 +27,27 @@ const Template: Story<ZyfraPasswordComponent> = (args) => ({
   component: ZyfraPasswordComponent,
   props: args,
   template: `
-  <zyfra-password [(ngModel)]='ngModel'
-                  [toggleMask]='toggleMask'
-                  [mediumRegex]='mediumRegex'
-                  [strongRegex]='strongRegex'
-                  [weakLabel]='weakLabel'
-                  [mediumLabel]='mediumLabel'
-                  [strongLabel]='strongLabel'
-                  [label]='label'
-                  [promptLabel]='promptLabel'
-                  [required]='required'
-                  [disabled]='disabled'>
-  </zyfra-password>
-  `
+    <zyfra-password
+      [(ngModel)]='ngModel'
+      [toggleMask]='toggleMask'
+      [mediumRegex]='mediumRegex'
+      [strongRegex]='strongRegex'
+      [weakLabel]='weakLabel'
+      [mediumLabel]='mediumLabel'
+      [strongLabel]='strongLabel'
+      [label]='label'
+      [promptLabel]='promptLabel'
+      [required]='required'
+      [disabled]='disabled'>
+      (onBlur)="onBlur($event)"
+      (onFocus)="onFocus($event)"
+    ></zyfra-password>
+  `,
+  props: {
+    ...args,
+    onBlur: action('onBlur'),
+    onFocus: action('onFocus'),
+  },
 });
 
 export const Simple = Template.bind({});

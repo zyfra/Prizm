@@ -14,6 +14,10 @@ export default {
   moduleId: module.id,
   title: 'Panel/Splitter',
   component: ZyfraSplitterComponent,
+  argTypes: {
+    onResizeStart: (event) => action('onResizeStart')({ ...event, sizes: [...event.sizes] }),
+    onResizeEnd: (event) => action('onResizeEnd')({ ...event, sizes: [...event.sizes] }),
+  },
   decorators: [
     moduleMetadata({
       imports: [BrowserModule, FormsModule, ReactiveFormsModule, CommonModule, ZyfraSplitterModule],
@@ -45,8 +49,6 @@ const Template: Story<ZyfraSplitterComponent> = (args) => ({
   `,
   props: {
     ...args,
-    onResizeStart: (event) => action('onResizeStart')({ ...event, sizes: [...event.sizes] }),
-    onResizeEnd: (event) => action('onResizeEnd')({ ...event, sizes: [...event.sizes] }),
   },
 });
 

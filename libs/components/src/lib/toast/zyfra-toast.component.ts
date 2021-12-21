@@ -1,12 +1,11 @@
-import { Component, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
-import { MessageService } from 'primeng/api';
-import { PrimeNGConfig } from 'primeng/api';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
+import { MessageService, PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'zyfra-toast',
   templateUrl: './zyfra-toast.component.html',
-  styles: [],
   providers: [MessageService],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraToastComponent {
   @Input() customTemplate: TemplateRef<any>;
@@ -33,16 +32,14 @@ export class ZyfraToastComponent {
   @Input() sticky: boolean = false;
   @Input() closable: boolean = true;
   @Input() data: any;
-  // @Input() key:string;
 
-  /* onClose */
   @Output() onClose: EventEmitter<any> = new EventEmitter();
 
   constructor(private messageService: MessageService, private primengConfig: PrimeNGConfig) {
     this.primengConfig.ripple = true;
   }
 
-  showMessage() {
+  showMessage(): void {
     this.messageService.add({
       severity: this.severity,
       summary: this.summary,
@@ -55,12 +52,9 @@ export class ZyfraToastComponent {
     });
   }
 
-  onCloseHandler(event) {
-    this.onClose.emit(event);
-  }
-
   // нужны ли кастомные методы?
   onReject() {
     this.messageService.clear('c');
+    this.onClose.emit(event);
   }
 }

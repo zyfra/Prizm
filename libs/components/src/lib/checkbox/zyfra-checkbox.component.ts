@@ -22,7 +22,6 @@ const CHECKBOX_VALUE_ACCESSOR: Provider = {
   templateUrl: './zyfra-checkbox.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [CHECKBOX_VALUE_ACCESSOR],
-  styles: [],
 })
 export class ZyfraCheckboxComponent extends Checkbox implements ControlValueAccessor {
   @Input() binary = true;

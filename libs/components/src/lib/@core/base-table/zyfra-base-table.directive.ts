@@ -450,6 +450,7 @@ export abstract class ZyfraBaseTableComponent<T = unknown> {
 
     this.sort.emit(null);
   }
+
   public filter(value: any, field: string, matchMode: string): void {
     this.getTable().filter(value, field, matchMode);
   }
@@ -461,7 +462,6 @@ export abstract class ZyfraBaseTableComponent<T = unknown> {
   public isSelected(rowData): boolean {
     return this.getTable().isSelected(rowData);
   }
-
 
   private _activeElement: T;
 

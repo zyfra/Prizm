@@ -97,8 +97,8 @@ const actions = {
   activeItemChange: action('activeItemChange'),
   homeClick: action('homeClick'),
   selectionChange: action('selectionChange'),
-  nodeCollapse: action('nodeCollapse($event)'),
-  nodeExpand: action('nodeExpand($event)'),
+  nodeCollapse: action('nodeCollapse'),
+  nodeExpand: action('nodeExpand'),
 };
 
 const BasicTemplate: Story = (args) => ({
@@ -115,7 +115,9 @@ const BasicTemplate: Story = (args) => ({
                                       [emptyMessage]="emptyMessage"
                                       (activeItemChange)="activeItemChange($event)"
                                       (selectionChange)="selectionChange($event)"
-                                      (homeClick)="homeClick($event)">
+                                      (homeClick)="homeClick($event)"
+                                      (nodeExpand)="nodeExpand($event)"
+                                      (nodeCollapse)="nodeCollapse($event)">
                     </zyfra-nav-menu>
                   </ng-template>
                   <ng-template zyfraSplitterTemplate>
@@ -180,7 +182,9 @@ const ExtraItemTemplate: Story = (args) => ({
                                       [toolbarConfig]="toolbarConfig"
                                       (activeItemChange)="activeItemChange($event)"
                                       (selectionChange)="selectionChange($event)"
-                                      (homeClick)="homeClick($event)">
+                                      (homeClick)="homeClick($event)"
+                                      (nodeExpand)="nodeExpand($event)"
+                                      (nodeCollapse)="nodeCollapse($event)">
 
                            <ng-template let-item zyfraTemplate='menuitem'>
                                   <p-badge *ngIf="item?.badge" styleClass="p-badge-dot" [severity]="item.badge"></p-badge>

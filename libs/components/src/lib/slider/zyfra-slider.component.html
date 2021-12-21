@@ -1,5 +1,6 @@
 <p-slider
-  [(ngModel)]="model"
+  [formControl]="$any(ngControl.control)"
+  (ngModelChange)="accessorOnChangeFn($event)"
   [animate]="animate"
   [disabled]="disabled"
   [min]="min"
@@ -11,6 +12,5 @@
   [styleClass]="styleClasses"
   [tabindex]="tabindex"
   [ariaLabelledBy]="ariaLabelledBy"
-  (onChange)="onChangeHandler($event)"
   (onSlideEnd)="onSlideEndHandler($event)"
 ></p-slider>

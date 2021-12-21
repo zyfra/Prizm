@@ -11,4 +11,5 @@ export * from './tree-table-checkbox/tree-table-checkbox.component';
 export * from './tree-table-header-checkbox/tree-table-header-checkbox.component';
 export * from './tree-table-sort-icon/tree-table-sort-icon.component';
 export * from './tree-table-toggler/tree-table-toggler.component';
+export * from './tree-table-search-cell/tree-table-search-cell.component';
 export * from './directives/tree-table-template.directive';

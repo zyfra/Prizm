@@ -27,7 +27,7 @@ const Template: Story<ZyfraTreeTableComponent> = (args) => ({
           </th>
         </tr>
         <tr>
-          <th *ngFor="let col of columns" zyfra-search-cell [table]="tt" [field]="col.field"></th>
+          <th *ngFor="let col of columns" zyfra-search-cell [field]="col.field"></th>
         </tr>
       </ng-template>
       <ng-template zyfraTableTemplate="body" let-rowNode let-rowData="rowData">
