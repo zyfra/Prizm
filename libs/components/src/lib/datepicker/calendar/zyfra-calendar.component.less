@@ -16,6 +16,7 @@ zyfra-calendar {
         display: flex;
         justify-content: center;
         width: fit-content;
+        flex-direction: column;
 
         .p-disabled, .p-component:disabled {
             color: var(--colorDisabled);
@@ -132,23 +133,23 @@ zyfra-calendar {
     }
 }
 
-span.p-calendar {
-    position: relative;
+// span.p-calendar {
+//     position: relative;
 
-    .p-button.p-button {
-        position: absolute;
-        right: 0;
-        border: none;
-        font-family: var(--fontFamily);
-        padding: 1.231rem;
-        font-size: 1.538rem;
-        color: var(--eventer);
-        background: transparent;
+//     .p-button.p-button {
+//         position: absolute;
+//         right: 0;
+//         border: none;
+//         font-family: var(--fontFamily);
+//         padding: 1.231rem;
+//         font-size: 1.538rem;
+//         color: var(--eventer);
+//         background: transparent;
 
-        &:enabled:hover, &:enabled:active {
-            box-shadow: none;
-            background: transparent;
-            color: var(--buttonSuccessHover);
-        }
-    }
-}
+//         &:enabled:hover, &:enabled:active {
+//             box-shadow: none;
+//             background: transparent;
+//             color: var(--buttonSuccessHover);
+//         }
+//     }
+// }
