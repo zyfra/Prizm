@@ -17,9 +17,9 @@
       <zyfra-accordion [multiple]="!settingsConfig.singleGroup">
         <zyfra-accordion-tab *ngFor="let group of menuGroups; let i = index" [selected]="i === activeGroup">
           <ng-template zyfraTemplate="header">
-                        <span class="p-accordion-header-text groupHeader">
-                            <i class="zyfra-icon vectors-circle"></i>{{group.header}}
-                        </span>
+            <span class="p-accordion-header-text groupHeader">
+                <i class="zyfra-icon vectors-circle"></i>{{group.header}}
+            </span>
           </ng-template>
           <zyfra-menu-group-content [nodes]="groupNodes[i]"
                                     [selectionMode]="settingsConfig.selectionMode"
