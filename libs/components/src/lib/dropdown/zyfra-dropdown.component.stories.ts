@@ -36,7 +36,7 @@ export default {
 
 const Template: Story<ZyfraDropdownComponent> = (args) => ({
   component: ZyfraDropdownComponent,
-  template: `
+  template: `<div>
     <zyfra-dropdown
       [(ngModel)]="value"
       [options]="options"
@@ -50,11 +50,11 @@ const Template: Story<ZyfraDropdownComponent> = (args) => ({
       [itemSize]="itemSize"
       [filter]="filter"
     ></zyfra-dropdown>
-
-    <br>
-
-    <p>Selected value:</p>
-    <pre>{{value | json}}</pre>
+    </div>
+    <div style="font-family: var(--fontFamily); margin-top: 20px;">
+      <p>Selected value:</p>
+      <pre style="font-family: var(--fontFamily);">{{value | json}}</pre>
+    </div>
   `,
   props: {
     ...args,

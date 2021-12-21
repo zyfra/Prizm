@@ -26,6 +26,13 @@ zyfra-nav-menu {
     content: 'chevrons_right_icon';
   }
 
+  .p-accordion.p-accordion
+    .p-accordion-header.p-accordion-header
+    .p-accordion-header-link
+    .p-accordion-toggle-icon {
+    padding: 0;
+  }
+
   .zyfra-nav-menu {
     position: absolute;
     top: 0;
@@ -189,7 +196,8 @@ zyfra-nav-menu {
             }
           }
           &.p-treenode-selectable:not(.p-highlight) {
-            &:hover, &:focus-visible {
+            &:hover,
+            &:focus-visible {
               color: var(--navMenuFont);
               background: var(--navMenuItemHover);
             }
@@ -394,7 +402,8 @@ zyfra-nav-menu {
         border-bottom: @1px solid var(--navMenuItemBorder);
         border-radius: 0;
 
-        &:hover, &:focus-visible {
+        &:hover,
+        &:focus-visible {
           color: var(--navMenuFont);
           background: var(--navMenuItemHover);
         }

@@ -29,7 +29,7 @@ export default {
 } as Meta;
 
 const Template: Story<ZyfraCheckboxComponent> = (args) => ({
-  template: `
+  template: `<div>
     <zyfra-checkbox
       [(model)]="model"
       [name]="name"
@@ -47,8 +47,8 @@ const Template: Story<ZyfraCheckboxComponent> = (args) => ({
       [readonly]="readonly"
       [required]="required"
     ></zyfra-checkbox>
-    <br>
-    (Значение чекбокса: {{model === null ? 'null' : model}})
+    </div>
+    <div style="font-family: var(--fontFamily); margin-top: 20px;">(Значение чекбокса: {{model === null ? 'null' : model}})</div>
   `,
   props: args,
 });
@@ -72,9 +72,8 @@ CustomIcon.args = {
 
 const CheckboxWithFormControlComponentTemplate: Story = (args) => ({
   template: `
-    <zyfra-checkbox label="Чекбокс с FormControl" [formControl]="fControl"></zyfra-checkbox>
-    <br>
-    (Значение чекбокса: {{fControl?.value === undefined ? 'undefined' : fControl?.value}})
+    <div><zyfra-checkbox label="Чекбокс с FormControl" [formControl]="fControl"></zyfra-checkbox></div>
+    <div style="font-family: var(--fontFamily); margin-top: 20px;">(Значение чекбокса: {{fControl?.value === undefined ? 'undefined' : fControl?.value}})</div>
     <br>
     <br>
     <zyfra-button [style]="{ 'margin-right': '5px' }" label="toggle disable/enable" (click)="toggleStatus()"></zyfra-button>
