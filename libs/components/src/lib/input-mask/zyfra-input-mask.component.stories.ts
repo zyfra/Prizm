@@ -4,6 +4,7 @@ import { Story, Meta } from '@storybook/angular/types-6-0';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ZyfraInputMaskComponent } from './zyfra-input-mask.component';
 import { ZyfraInputMaskModule } from './zyfra-input-mask.module';
+import { action } from '@storybook/addon-actions';
 
 export default {
   moduleId: module.id,
@@ -30,9 +31,21 @@ const Template: Story<ZyfraInputMaskComponent> = (args) => ({
     [mask]="mask"
     [slotChar]="slotChar"
     [placeholder]="placeholder"
+    (onBlur)="onBlur($event)"
+    (onFocus)="onFocus($event)"
+    (onComplete)="onComplete($event)"
+    (onKeydown)="onKeydown($event)"
+    (onInput)="onInput($event)"
 ></zyfra-input-mask>
   `,
-  props: args,
+  props: {
+    ...args,
+    onBlur: action('onBlur'),
+    onFocus: action('onFocus'),
+    onComplete: action('onComplete'),
+    onKeydown: action('onKeydown'),
+    onInput: action('onInput'),
+  },
 });
 
 export const Basic = Template.bind({});

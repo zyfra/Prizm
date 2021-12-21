@@ -10,6 +10,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 // @ts-ignore
 import DropdownDoc from './zyfra-dropdown.component.story.doc.mdx';
+import { action } from '@storybook/addon-actions';
 
 export default {
   moduleId: module.id,
@@ -49,6 +50,12 @@ const Template: Story<ZyfraDropdownComponent> = (args) => ({
       [virtualScroll]="virtualScroll"
       [itemSize]="itemSize"
       [filter]="filter"
+      (onChange)="onChange($event)"
+      (onClick)="onClick($event)"
+      (onFocus)="onFocus($event)"
+      (onBlur)="onBlur($event)"
+      (onShow)="onShow($event)"
+      (onHide)="onHide($event)"
     ></zyfra-dropdown>
     </div>
     <div style="font-family: var(--fontFamily); margin-top: 20px;">
@@ -58,6 +65,12 @@ const Template: Story<ZyfraDropdownComponent> = (args) => ({
   `,
   props: {
     ...args,
+    onChange: event => action('onChange')({  value: event.value, ...event }),
+    onClick: action('onClick'),
+    onFocus: action('onFocus'),
+    onBlur: action('onBlur'),
+    onShow: action('onShow'),
+    onHide: action('onHide'),
   },
 });
 

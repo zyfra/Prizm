@@ -14,8 +14,9 @@ export default {
   moduleId: module.id,
   title: 'Tabs/TabView',
   argTypes: {
-    onChangeHandler: { action: 'onChange' },
-    onCloseHandler: { action: 'onClose' },
+    onChange: { action: 'onChange' },
+    onClose: { action: 'onClose' },
+    activeIndexChange: { action: 'activeIndexChange' },
   },
   decorators: [
     moduleMetadata({
@@ -47,8 +48,9 @@ const Template: Story = (args) => ({
       [controlClose]="controlClose"
       [style]="style"
       [styleClass]="styleClass"
-      (onChange)="onChangeHandler($event)"
-      (onClose)="onCloseHandler($event)"
+      (onChange)="onChange($event)"
+      (onClose)="onClose($event)"
+      (activeIndexChange)="activeIndexChange($event)"
     >
       <ng-container *ngFor="let tab of tabs">
         <zyfra-tab-panel
@@ -85,8 +87,9 @@ const CustomWithBadge: Story = (args) => ({
               [controlClose]="controlClose"
               [style]="style"
               [styleClass]="styleClass"
-              (onChange)="onChangeHandler($event)"
-              (onClose)="onCloseHandler($event)">
+              (onChange)="onChange($event)"
+              (onClose)="onClose($event)"
+              (activeIndexChange)="activeIndexChange($event)">
           <ng-container *ngFor="let tab of tabs">
               <zyfra-tab-panel [header]="tab.header"
                                [selected]="tab.selected"

@@ -1,4 +1,5 @@
 import {
+  AfterContentInit,
   ChangeDetectionStrategy,
   Component,
   ContentChildren,
@@ -27,7 +28,7 @@ export interface DropdownChangeEvent<T> {
 })
 export class ZyfraDropdownComponent<T = unknown>
   extends WrappedFormComponent
-  implements ControlValueAccessor
+  implements ControlValueAccessor, AfterContentInit
 {
   @Input() options: T[];
   @Input() optionLabel = 'label';

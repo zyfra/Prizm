@@ -16,6 +16,7 @@ import { ZyfraTreeTableEditableColumnDirective } from './directives/tree-table-e
 import { ZyfraTreeTableReorderableColumnDirective } from './directives/tree-table-reorderable-column.directive';
 import { ZyfraTreeTableTemplateDirective } from './directives/tree-table-template.directive';
 import { ZyfraTreeTableRowDirective } from './directives/tree-table-row.directive';
+import { ZyfraTreeTableSearchCellComponent } from './tree-table-search-cell/tree-table-search-cell.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ZyfraTreeTableRowDirective } from './directives/tree-table-row.directiv
     ZyfraTreeTableEditableColumnDirective,
     ZyfraTreeTableReorderableColumnDirective,
     ZyfraTreeTableTemplateDirective,
+    ZyfraTreeTableSearchCellComponent,
   ],
   imports: [CommonModule, TreeTableModule],
   exports: [
@@ -48,6 +50,7 @@ import { ZyfraTreeTableRowDirective } from './directives/tree-table-row.directiv
     ZyfraTreeTableEditableColumnDirective,
     ZyfraTreeTableReorderableColumnDirective,
     ZyfraTreeTableTemplateDirective,
+    ZyfraTreeTableSearchCellComponent,
   ],
 })
 export class ZyfraTreeTableModule {}
