@@ -171,7 +171,7 @@ const simpleMenuItems: MenuItem[] = [
 
 const simpleMenuItemsWithIcons: MenuItem[] = [
   {
-    label: 'Наименование вкладки 1',
+    label: 'Наименование вкладки сорок четыре символа + 1',
     icon: 'zyfra-icon files-file',
   },
   {
