@@ -4,10 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
-import { ZyfraButtonModule } from '../../button';
-import { ZyfraInputModule } from '../../input';
+import { ZyfraButtonModule } from '../../../button';
+import { ZyfraInputModule } from '../../../input';
 import { ZyfraTimeDropdownComponent } from './zyfra-time-dropdown.component';
-import { ZyfraCheckBoxModule } from '../../checkbox';
+import { ZyfraCheckBoxModule } from '../../../checkbox';
 
 // @ts-ignore
 import TimeDropdownDoc from './zyfra-time-dropdown.component.story.doc.mdx';
@@ -26,7 +26,8 @@ export default {
         ReactiveFormsModule,
         CommonModule,
         ZyfraButtonModule,
-        ZyfraInputModule
+        ZyfraInputModule,
+        ZyfraCheckBoxModule
       ],
     }),
   ],
