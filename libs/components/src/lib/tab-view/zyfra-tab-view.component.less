@@ -255,11 +255,14 @@
 
   .tab-list-item {
     height: @48px;
-    margin: @4px 0;
-    padding: @12px @24px;
-    line-height: @24px;
-    color: var(--tabActiveFont);
+    margin: 0;
+    padding: @16px @24px;
+    color: var(--tabFont);
     font-size: @14px;
+    cursor: pointer;
+    &.p-disabled {
+      color: var(--tabDisabled);
+    }
 
     &:hover {
       background: var(--tabListItemHover);
