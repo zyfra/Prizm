@@ -22,7 +22,7 @@ export class YourModule {}
 To component:
 ```html
 <zyfra-slider
-  [(model)]="model"
+  [(ngModel)]="sliderValue"
   min="0"
   max="100"
   step="1"
@@ -30,7 +30,7 @@ To component:
 ```
 
 ```typescript
-public model = 20;
+public sliderValue = 20;
 ```
 
 ## ArgsTable

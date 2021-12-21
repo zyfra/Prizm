@@ -5,6 +5,7 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ZyfraButtonModule } from '../button';
 import { ZyfraCheckBoxModule } from './zyfra-checkbox.module';
 import { ZyfraCheckboxComponent } from './zyfra-checkbox.component';
+import { action } from '@storybook/addon-actions';
 
 export default {
   moduleId: module.id,
@@ -46,11 +47,15 @@ const Template: Story<ZyfraCheckboxComponent> = (args) => ({
       [checkboxIcon]="checkboxIcon"
       [readonly]="readonly"
       [required]="required"
+      (modelChange)="modelChange($event)"
     ></zyfra-checkbox>
     </div>
     <div style="font-family: var(--fontFamily); margin-top: 20px;">(Значение чекбокса: {{model === null ? 'null' : model}})</div>
   `,
-  props: args,
+  props: {
+    ...args,
+    modelChange: action('modelChange'),
+  },
 });
 
 export const Basic = Template.bind({});

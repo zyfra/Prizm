@@ -7,6 +7,7 @@ import { ZyfraSliderComponent } from './zyfra-slider.component';
 import { ZyfraSliderModule } from './zyfra-slider.module';
 // @ts-ignore
 import SliderDoc from './zyfra-slider.component.story.doc.mdx';
+import { action } from '@storybook/addon-actions';
 
 export default {
   moduleId: module.id,
@@ -33,12 +34,30 @@ export default {
 
 const Template: Story<ZyfraSliderComponent> = (args) => ({
   component: ZyfraSliderComponent,
-  props: args,
+  template: `
+    <zyfra-slider
+      [(ngModel)]="ngModel"
+      [min]="min"
+      [max]="max"
+      [step]="step"
+      [range]="range"
+      [orientation]="orientation"
+      (ngModelChange)="ngModelChange($event)"
+      (onSlideEnd)="onSlideEnd($event)"
+    ></zyfra-slider>
+    <br>
+    <p style="font-size: 14px; font-family: Inter, sans-serif;">Control value: {{ngModel}}</p>
+  `,
+  props: {
+    ...args,
+    ngModelChange: action('ngModelChange'),
+    onSlideEnd: action('onSlideEnd'),
+  },
 });
 
 export const Simple = Template.bind({});
 Simple.args = {
-  model: 20,
+  ngModel: 20,
   min: 0,
   max: 100,
   step: 1,
@@ -46,18 +65,18 @@ Simple.args = {
 
 export const Range = Template.bind({});
 Range.args = {
-  model: [20, 80],
+  ngModel: [20, 80],
   min: 0,
   max: 100,
-  step: 10,
+  step: 5,
   range: true,
 };
 
 export const Vertical = Template.bind({});
 Vertical.args = {
-  model: null,
+  ngModel: null,
   min: 0,
   max: 100,
-  step: 10,
+  step: 5,
   orientation: 'vertical',
 };

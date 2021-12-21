@@ -4,6 +4,7 @@ import { Story, Meta } from '@storybook/angular/types-6-0';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ZyfraInputNumberComponent } from './zyfra-input-number.component';
 import { ZyfraInputNumberModule } from './zyfra-input-number.module';
+import { action } from '@storybook/addon-actions';
 
 export default {
   moduleId: module.id,
@@ -23,17 +24,25 @@ export default {
 
 const Template: Story<ZyfraInputNumberComponent> = (args) => ({
   component: ZyfraInputNumberComponent,
-  props: args,
   template: `
-<zyfra-input-number
-  [(ngModel)]="value"
-  [showButtons]="showButtons"
-  [mode]="mode"
-  [currency]="currency"
-  [label]="label"
-  [placeholder]="placeholder"
-></zyfra-input-number>
-`,
+    <zyfra-input-number
+      [(ngModel)]="value"
+      [showButtons]="showButtons"
+      [mode]="mode"
+      [currency]="currency"
+      [label]="label"
+      [placeholder]="placeholder"
+      (onFocus)="onFocus($event)"
+      (onBlur)="onBlur($event)"
+      (onInput)="onInput($event)"
+    ></zyfra-input-number>
+  `,
+  props: {
+    ...args,
+    onFocus: action('onFocus'),
+    onBlur: action('onBlur'),
+    onInput: action('onInput'),
+  },
 });
 
 export const Basic = Template.bind({});

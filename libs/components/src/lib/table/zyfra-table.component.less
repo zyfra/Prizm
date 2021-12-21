@@ -143,6 +143,7 @@
         background-color: var(--tablePrimaryRowBg);
 
         .search-cell__input {
+          font-family: var(--fontFamily);
           width: 100%;
           background: transparent;
           border: none;
@@ -315,6 +316,14 @@
     font-size: @17px;
     color: #7887A5;
     vertical-align: middle;
+  }
+}
+
+.p-datatable-scrollable .p-datatable-tbody > tr > td,
+.p-datatable-scrollable .p-datatable-tfoot > tr > td,
+.p-datatable-scrollable .p-datatable-thead > tr > th {
+  &.p-sortable-column {
+    display: initial;
   }
 }
 

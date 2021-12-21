@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ZyfraAutoCompleteModule } from './zyfra-auto-complete.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ZyfraSharedModule } from '../@core/shared/zyfra-shared.module';
+import { action } from '@storybook/addon-actions';
 
 export default {
   moduleId: module.id,
@@ -35,7 +36,6 @@ export default {
 const Template: Story<ZyfraAutoCompleteComponent> = (args) => ({
   template: `
     <zyfra-auto-complete
-      (completeMethod)="completeMethod($event)"
       [ngModel]="value"
       [placeholder]="placeholder"
       [label]="label"
@@ -83,7 +83,18 @@ const Template: Story<ZyfraAutoCompleteComponent> = (args) => ({
       [unique]="unique"
       [autocomplete]="autocomplete"
       [virtualScroll]="virtualScroll"
-      [itemSize]="itemSize">
+      [itemSize]="itemSize"
+      (completeMethod)="completeMethod($event)"
+      (onFocus)="onFocus($event)"
+      (onBlur)="onBlur($event)"
+      (onKeyUp)="onKeyUp($event)"
+      (onSelect)="onSelect($event)"
+      (onUnselect)="onUnselect($event)"
+      (onDropdownClick)="onDropdownClick($event)"
+      (onClear)="onClear($event)"
+      (onShow)="onShow($event)"
+      (onHide)="onHide($event)"
+    >
       <ng-template zyfraTemplate="item" let-obj>{{ obj.name}} ({{obj.code}})</ng-template>
       <ng-template zyfraTemplate="selectedItem" let-obj>{{ obj.name}} - {{obj.code}}</ng-template>
     </zyfra-auto-complete>
@@ -109,7 +120,17 @@ const Template: Story<ZyfraAutoCompleteComponent> = (args) => ({
     completeMethod(event): void {
       const query = event.query.toLowerCase();
       this.suggestions = this.countries.filter(country => country.name.toLowerCase().indexOf(query) > -1);
+      action('completeMethod')(event);
     },
+    onFocus: action('onFocus'),
+    onBlur: action('onBlur'),
+    onKeyUp: action('onKeyUp'),
+    onSelect: action('onSelect'),
+    onUnselect: action('onUnselect'),
+    onDropdownClick: action('onDropdownClick'),
+    onClear: action('onClear'),
+    onShow: action('onShow'),
+    onHide: action('onHide'),
   },
 });
 
