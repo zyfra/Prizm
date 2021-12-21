@@ -19,6 +19,7 @@ import { fromEvent, Observable, Subject } from 'rxjs';
 import { debounceTime, filter, first, takeUntil } from 'rxjs/operators';
 import { SlideMenu } from 'primeng/slidemenu';
 import { DOCUMENT } from '@angular/common';
+import { OverlayPanel } from 'primeng/overlaypanel';
 
 @Component({
   selector: 'zyfra-tab-menu',
@@ -126,10 +127,12 @@ export class ZyfraTabMenuComponent implements AfterViewInit, AfterViewChecked, O
       });
   }
 
-  public selectTabFromList(index: number): void {
+  public selectTabFromList(index: number, overlayPanel: OverlayPanel): void {
+    if(this.model[index].disabled) return;
     this.activeItem = this.model[index];
     this.navLinks.item(index).scrollIntoView({ inline: 'center' });
     (this.navLinks.item(index) as HTMLElement).click();
+    overlayPanel.hide();
   }
 
   public scrollPrevious(): void {
