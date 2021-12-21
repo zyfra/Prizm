@@ -8,8 +8,8 @@ import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.compo
 })
 export class ZyfraPasswordComponent extends WrappedFormComponent implements ControlValueAccessor {
   @Input() promptLabel: string;
-  @Input() mediumRegex = 'Regex for a medium level password.';
-  @Input() strongRegex = 'Regex for a strong level password.';
+  @Input() mediumRegex = '^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,}).';
+  @Input() strongRegex = '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})';
   @Input() weakLabel: string;
   @Input() mediumLabel: string;
   @Input() strongLabel: string;

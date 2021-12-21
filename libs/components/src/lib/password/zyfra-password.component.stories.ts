@@ -25,19 +25,48 @@ export default {
 const Template: Story<ZyfraPasswordComponent> = (args) => ({
   component: ZyfraPasswordComponent,
   props: args,
-  template: `<zyfra-password [(ngModel)]="ngModel" [toggleMask]="toggleMask"></zyfra-password>`,
+  template: `
+  <zyfra-password [(ngModel)]='ngModel'
+                  [toggleMask]='toggleMask'
+                  [mediumRegex]='mediumRegex'
+                  [strongRegex]='strongRegex'
+                  [weakLabel]='weakLabel'
+                  [mediumLabel]='mediumLabel'
+                  [strongLabel]='strongLabel'
+                  [label]='label'
+                  [promptLabel]='promptLabel'
+                  [required]='required'
+                  [disabled]='disabled'>
+  </zyfra-password>
+  `
 });
 
 export const Simple = Template.bind({});
 Simple.args = {
-  ngModel: 'password',
+  ngModel: '',
   label: 'Пароль',
+  promptLabel: 'Введите пароль',
+  weakLabel: 'Слабый пароль',
+  mediumLabel: 'Средний пароль',
+  strongLabel: 'Сильный пароль',
   toggleMask: false,
+  disabled: false,
+  required: false,
+  mediumRegex: '^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,}).',
+  strongRegex: '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})'
 };
 
 export const ToggleMask = Template.bind({});
 ToggleMask.args = {
-  value: 'password',
-  toggleMask: true,
+  ngModel: '',
   label: 'Пароль',
+  promptLabel: 'Введите пароль',
+  weakLabel: 'Слабый пароль',
+  mediumLabel: 'Средний пароль',
+  strongLabel: 'Сильный пароль',
+  toggleMask: true,
+  disabled: false,
+  required: false,
+  mediumRegex: '^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,}).',
+  strongRegex: '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})'
 };
