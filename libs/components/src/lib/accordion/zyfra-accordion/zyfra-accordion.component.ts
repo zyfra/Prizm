@@ -6,10 +6,10 @@ import {
   EventEmitter,
   Input,
   OnDestroy,
+  OnInit,
   Output,
   QueryList,
   ViewChild,
-  ViewEncapsulation,
 } from '@angular/core';
 import { Accordion } from 'primeng/accordion';
 import { ZyfraAccordionTabComponent } from '../zyfra-accordion-tab/zyfra-accordion-tab.component';
@@ -31,10 +31,8 @@ export interface ZyfraAccordionOpenClose {
       deps: [ZyfraAccordionComponent],
     },
   ],
-  //styleUrls: ['./zyfra-accordion.component.less'],
-  //encapsulation: ViewEncapsulation.None,
 })
-export class ZyfraAccordionComponent implements AfterViewInit, OnDestroy {
+export class ZyfraAccordionComponent implements AfterViewInit, OnDestroy, OnInit {
   /** allow multiple tabs be active at the same time. */
   @Input() multiple = false;
   /** inline style */
@@ -60,6 +58,12 @@ export class ZyfraAccordionComponent implements AfterViewInit, OnDestroy {
 
   private tabs$: Subscription;
 
+  ngOnInit(): void {
+    // Иначе в group-panels работает не корректно
+    this.accordion.collapseIcon = this.collapseIcon;
+    this.accordion.expandIcon = this.expandIcon;
+  }
+  
   ngAfterViewInit(): void {
     this.tabs$ = this.tabs.changes.subscribe(() => this.reInitTab());
     this.reInitTab();
