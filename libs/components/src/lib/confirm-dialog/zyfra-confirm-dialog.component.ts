@@ -1,16 +1,14 @@
-import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { ConfirmationService } from 'primeng/api';
-import { Message } from 'primeng/api';
-import { PrimeNGConfig } from 'primeng/api';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ConfirmationService, ConfirmEventType, Message } from 'primeng/api';
 
 @Component({
   selector: 'zyfra-confirm-dialog',
   templateUrl: './zyfra-confirm-dialog.component.html',
-  styles: [],
   providers: [ConfirmationService],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZyfraConfirmDialogComponent implements OnInit {
-  @Input() message: any = '';
+export class ZyfraConfirmDialogComponent {
+  @Input() message = '';
   @Input() key: string;
   @Input() icon: string;
   @Input() header: string = '';
@@ -46,13 +44,13 @@ export class ZyfraConfirmDialogComponent implements OnInit {
   @Input() defaultFocus: string = 'accept';
   @Input() position: string = 'center';
 
+  @Output() onHide: EventEmitter<ConfirmEventType> = new EventEmitter();
+
   msgs: Message[] = [];
 
-  constructor(private confirmationService: ConfirmationService, private primengConfig: PrimeNGConfig) {}
+  constructor(private confirmationService: ConfirmationService) {}
 
-  ngOnInit(): void {}
-
-  onClick(e) {
+  onClick(): void {
     this.confirmationService.confirm({
       message: this.message,
       header: this.header,
@@ -68,12 +66,7 @@ export class ZyfraConfirmDialogComponent implements OnInit {
     });
   }
 
-  /* onHide */
-  @Output() onHide: EventEmitter<any> = new EventEmitter();
-
-  onHideHindler(event) {
+  onHideHandler(event: ConfirmEventType): void {
     this.onHide.emit(event);
   }
-
-  ngOnDestroy() {}
 }
