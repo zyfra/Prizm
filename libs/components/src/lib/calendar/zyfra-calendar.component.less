@@ -58,8 +58,10 @@ zyfra-calendar {
 
             span {
                 border-radius: @calendarBorderRadius;
-                display: inline-block;
+                display: flex;
                 overflow: inherit;
+                justify-content: center;
+                align-items: center;
 
                 &.p-highlight {
                     color: var(--successColorHover);
@@ -103,9 +105,48 @@ zyfra-calendar {
         border: none;
         box-shadow: 0 -5px 5px -5px rgba(102, 119, 153, 0.16);
         color: var(--calendarHeaderColor);
+        display: flex;
+        justify-content: center;
 
         button {
             color: var(--calendarHeaderColor);
+        }
+
+        .p-hour-picker, .p-minute-picker, .p-separator {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            button {
+                display: flex; 
+                align-items: center;
+                justify-content: center;
+            }
+
+            span {
+                text-align: center;
+            }
+        }
+    }
+}
+
+span.p-calendar {
+    position: relative;
+
+    .p-button.p-button {
+        position: absolute;
+        right: 0;
+        border: none;
+        font-family: var(--fontFamily);
+        padding: 1.231rem;
+        font-size: 1.538rem;
+        color: var(--eventer);
+        background: transparent;
+
+        &:enabled:hover, &:enabled:active {
+            box-shadow: none;
+            background: transparent;
+            color: var(--buttonSuccessHover);
         }
     }
 }
