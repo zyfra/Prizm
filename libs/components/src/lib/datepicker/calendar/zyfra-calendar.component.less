@@ -38,6 +38,7 @@ zyfra-calendar {
         .p-datepicker-title {
             margin-right: auto;
             margin-left: 0;
+            font-weight: bold;
         }
 
         button.p-datepicker-next.p-link, button.p-datepicker-prev.p-link {
@@ -131,25 +132,64 @@ zyfra-calendar {
             }
         }
     }
+
+    &:not(.p-disabled) {
+        .p-monthpicker, .p-yearpicker {
+            display: flex;
+            width: 177px;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+
+            .p-monthpicker-month, .p-yearpicker-year  {
+                color: var(--text);
+
+                &.p-highlight {
+                    background-color: var(--calendarBgToday);
+                    color: var(--textColor)
+                }
+
+                &:not(.p-highlight):not(.p-disabled):hover {
+                    background: var(--calendarBgHover);
+                    cursor: pointer;
+                }
+            }    
+        }
+    }
 }
 
-// span.p-calendar {
-//     position: relative;
+span.p-calendar {
+    position: relative;
 
-//     .p-button.p-button {
-//         position: absolute;
-//         right: 0;
-//         border: none;
-//         font-family: var(--fontFamily);
-//         padding: 1.231rem;
-//         font-size: 1.538rem;
-//         color: var(--eventer);
-//         background: transparent;
+    .p-button-icon-only {
+        position: absolute;
+        right: 0;
+        border: none;
+        font-family: var(--fontFamily);
+        padding: 1.231rem;
+        font-size: 1.538rem;
+        color: var(--eventer);
+        background: transparent;
 
-//         &:enabled:hover, &:enabled:active {
-//             box-shadow: none;
-//             background: transparent;
-//             color: var(--buttonSuccessHover);
-//         }
-//     }
-// }
+        &:enabled:hover, &:enabled:active {
+            box-shadow: none;
+            background: transparent;
+            color: var(--buttonSuccessHover);
+        }
+    }
+
+    .p-datepicker-buttonbar {
+        display: flex;
+
+        .p-button {
+            background-color: var(--primaryColor);
+            
+            &:hover {
+                background-color: var(--primaryColorHover);
+            }
+
+            &:active {
+                background-color: var(--primaryColorActive);
+            }
+        }
+    }
+}

@@ -96,6 +96,23 @@ Icon.args = {
   showButtonBar: false
 };
 
+export const ButtonBar = Template.bind({});
+ButtonBar.args = {
+  placeholder: 'Select a date',
+  disabled: false,
+  inline: false,
+  showOtherMonths: true,
+  selectOtherMonths: false,
+  showIcon: false,
+  showOnFocus: true,
+  showWeek: false,
+  readonlyInput: false,
+  showTime: false,
+  timeOnly: false,
+  required: false,
+  showButtonBar: true
+};
+
 export const DisabledDays = Template.bind({});
 DisabledDays.args = {
   placeholder: 'Select a date',
