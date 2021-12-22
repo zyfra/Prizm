@@ -25,7 +25,6 @@ export default {
 
 const Template: Story<ZyfraPasswordComponent> = (args) => ({
   component: ZyfraPasswordComponent,
-  props: args,
   template: `
     <zyfra-password
       [(ngModel)]='ngModel'
