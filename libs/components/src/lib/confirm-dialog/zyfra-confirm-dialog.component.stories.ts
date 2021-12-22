@@ -42,6 +42,8 @@ const Template: Story<ZyfraConfirmDialogComponent> = (args) => ({
       [acceptButtonStyleClass]="acceptButtonStyleClass"
       [rejectButtonStyleClass]="rejectButtonStyleClass"
       [acceptMessages]="acceptMessages"
+      [position]="position"
+      [baseZIndex]="baseZIndex"
       (onHide)="onHide($event)"
     ></zyfra-confirm-dialog>
   `,
@@ -50,18 +52,6 @@ const Template: Story<ZyfraConfirmDialogComponent> = (args) => ({
     onHide: action('onHide'),
   },
 });
-
-export const Empty = Template.bind({});
-
-Empty.args = {
-  message: 'Вы действительно этого хотите?',
-  header: 'Confirmation',
-  acceptLabel: 'Удалить',
-  rejectLabel: 'Отменить',
-  acceptButtonStyleClass: 'p-button-danger',
-  rejectButtonStyleClass: '',
-  acceptMessages: [{ severity: 'info1', summary: 'Confirmed1', detail: 'You have accepted1' }]
-};
 
 export const Simple = Template.bind({});
 Simple.args = {
@@ -72,4 +62,18 @@ Simple.args = {
   acceptButtonStyleClass: 'p-button-danger',
   rejectButtonStyleClass: '',
   acceptMessages: [{ severity: 'info1', summary: 'Confirmed1', detail: 'You have accepted1' }]
+};
+
+export const Position = Template.bind({});
+
+Position.args = {
+  message: 'Вы действительно этого хотите?',
+  header: 'Confirmation',
+  acceptLabel: 'Удалить',
+  rejectLabel: 'Отменить',
+  acceptButtonStyleClass: 'p-button-danger',
+  rejectButtonStyleClass: '',
+  acceptMessages: [{ severity: 'info1', summary: 'Confirmed1', detail: 'You have accepted1' }],
+  position: 'left',
+  baseZIndex: 10000,
 };
