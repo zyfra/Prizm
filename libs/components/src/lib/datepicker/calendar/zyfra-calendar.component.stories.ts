@@ -200,3 +200,23 @@ OnlyTime.args = {
   required: false,
   showButtonBar: false
 };
+
+const CustomTemplate: Story = (args) => ({
+  component: ZyfraCalendarComponent,
+  props: args,
+  template: `
+<zyfra-calendar [placeholder]="placeholder" [ngModel]="'12/22/2021 18:00'" [showTime]="true" [label]="label">
+  <div buttons-right>
+     <button class="zyfra-datepicker-control zyfra-datepicker-button">
+        Time
+     </button>
+  </div>
+</zyfra-calendar>
+  `
+});
+
+export const CustomButtons= CustomTemplate.bind({});
+CustomButtons.args = {
+  placeholder: 'Set time',
+  label: 'Выберите время',
+}
