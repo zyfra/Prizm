@@ -86,8 +86,8 @@
           }
     "
     [@.disabled]="inline === true"
-    (@overlayAnimation.start)="onOverlayAnimationStart($event)"
-    (@overlayAnimation.done)="onOverlayAnimationDone($event)"
+    (@overlayAnimation.start)="onOverlayAnimationStart($any($event))"
+    (@overlayAnimation.done)="onOverlayAnimationDone($any($event))"
     (click)="onOverlayClick($event)"
     *ngIf="inline || overlayVisible"
   >
