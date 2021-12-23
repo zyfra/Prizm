@@ -79,6 +79,8 @@ export class ZyfraCalendarComponent implements OnInit, OnDestroy, ControlValueAc
 
   @Input() inputStyle: any;
 
+  @Input() label: string;
+
   @Input() inputId: string;
 
   @Input() name: string;
