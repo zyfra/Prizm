@@ -67,7 +67,7 @@
           <zyfra-dropdown
             [options]="timeArray"
             [disabled]="disabled"
-            (valueChange)="setInputTime($event)"
+            (valueChange)="setInputTime($any($event))"
             [panelStyleClass]="'zyfra-datepicker-dropdown-overlay'"
             [styleClass]="'zyfra-datepicker-dropdown'"
             [dropdownIcon]="'zyfra-icon date-update'"
