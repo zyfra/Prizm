@@ -5,8 +5,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ZyfraCheckBoxModule } from './../../checkbox';
 import { CommonModule } from '@angular/common';
 import { ZyfraInputModule } from './../../input';
+import { ZyfraDropdownModule } from '../../dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CalendarModule} from 'primeng/calendar';
+import { generateTimeArray } from '../utils/generate-time-array';
 
 // @ts-ignore
 import CalendarDoc from './zyfra-calendar.component.story.doc.mdx';
@@ -25,7 +27,8 @@ export default {
         CommonModule,
         ZyfraCheckBoxModule,
         ZyfraInputModule,
-        CalendarModule
+        CalendarModule,
+        ZyfraDropdownModule
       ],
     }),
   ],
@@ -225,16 +228,29 @@ const CustomTemplate: Story = (args) => ({
   template: `
 <zyfra-calendar [placeholder]="placeholder" [ngModel]="'12/22/2021 18:00'" [showTime]="true" [label]="label">
   <div buttons-right>
-     <button class="zyfra-datepicker-control zyfra-datepicker-button">
-     time
+     <button class="zyfra-datepicker-control zyfra-datepicker-button" type="button">
+     <zyfra-dropdown
+          [options]="options"
+          [ngModel]="null"
+          [disabled]="disabled"
+          (ngModelChange)="setInputTime($event)"
+          [panelStyleClass]="'zyfra-datepicker-dropdown-overlay'"
+          [styleClass]="'zyfra-datepicker-dropdown'"
+          [dropdownIcon]="'zyfra-icon date-update'"
+          [optionLabel]="'value'"
+        >
+        </zyfra-dropdown>
      </button>
   </div>
 </zyfra-calendar>
   `
 });
 
+const items = generateTimeArray('HH:mm:ss')
+
 export const CustomButtons= CustomTemplate.bind({});
 CustomButtons.args = {
   placeholder: 'Set time',
-  label: 'Время'
+  label: 'Время',
+  options: items
 }
