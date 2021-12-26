@@ -157,7 +157,7 @@ zyfra-calendar {
     }
 }
 
-span.p-calendar {
+.p-calendar {
     position: relative;
 
     .p-button-icon-only {
@@ -189,6 +189,15 @@ span.p-calendar {
 
             &:active {
                 background-color: var(--primaryColorActive);
+            }
+        }
+    }
+
+    .p-inputgroup {
+        .zyfra-input.p-float-label {
+            label {
+                top: 50%;
+                transform: translateY(-130%);
             }
         }
     }
