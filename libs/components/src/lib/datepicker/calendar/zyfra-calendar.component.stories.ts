@@ -59,7 +59,8 @@ Basic.args = {
   showTime: false,
   timeOnly: false,
   required: false,
-  showButtonBar: false
+  showButtonBar: false,
+  firstDayOfWeek: 1
 };
 
 export const DateFormat = Template.bind({});
@@ -78,7 +79,8 @@ DateFormat.args = {
   showTime: false,
   timeOnly: false,
   required: false,
-  showButtonBar: false
+  showButtonBar: false,
+  firstDayOfWeek: 1
 };
 
 export const Icon = Template.bind({});
@@ -96,7 +98,8 @@ Icon.args = {
   showTime: false,
   timeOnly: false,
   required: false,
-  showButtonBar: false
+  showButtonBar: false,
+  firstDayOfWeek: 1
 };
 
 export const ButtonBar = Template.bind({});
@@ -114,7 +117,8 @@ ButtonBar.args = {
   showTime: false,
   timeOnly: false,
   required: false,
-  showButtonBar: true
+  showButtonBar: true,
+  firstDayOfWeek: 1
 };
 
 export const DisabledDays = Template.bind({});
@@ -133,7 +137,8 @@ DisabledDays.args = {
   timeOnly: false,
   required: false,
   showButtonBar: false,
-  disabledDays: [0,6]
+  disabledDays: [0,6],
+  firstDayOfWeek: 1
 };
 
 export const Multiple = Template.bind({});
@@ -152,7 +157,8 @@ Multiple.args = {
   showTime: false,
   timeOnly: false,
   required: false,
-  showButtonBar: false
+  showButtonBar: false,
+  firstDayOfWeek: 1
 };
 
 export const Range = Template.bind({});
@@ -171,7 +177,8 @@ Range.args = {
   showTime: false,
   timeOnly: false,
   required: false,
-  showButtonBar: false
+  showButtonBar: false,
+  firstDayOfWeek: 1
 };
 
 export const Time= Template.bind({});
@@ -189,7 +196,8 @@ Time.args = {
   showTime: true,
   timeOnly: false,
   required: false,
-  showButtonBar: false
+  showButtonBar: false,
+  firstDayOfWeek: 1
 };
 
 export const OnlyTime= Template.bind({});
@@ -207,7 +215,8 @@ OnlyTime.args = {
   showTime: true,
   timeOnly: true,
   required: false,
-  showButtonBar: false
+  showButtonBar: false,
+  firstDayOfWeek: 1
 };
 
 const CustomTemplate: Story = (args) => ({
@@ -227,5 +236,5 @@ const CustomTemplate: Story = (args) => ({
 export const CustomButtons= CustomTemplate.bind({});
 CustomButtons.args = {
   placeholder: 'Set time',
-  label: 'Время',
+  label: 'Время'
 }

@@ -13,7 +13,6 @@ import { ZyfraDatepickerModeSelectComponent } from './zyfra-datepicker-mode-sele
 import { ZyfraRelativeDatepickerComponent } from './zyfra-relative-datepicker/zyfra-relative-datepicker.component';
 import { ZyfraDatepickerMultiComponent } from './zyfra-datepicker-multi/zyfra-datepicker-multi.component';
 import { ZyfraCalendarComponent } from './calendar/zyfra-calendar.component';
-import { ZyfraTimeDropdownComponent } from './calendar/zyfra-time-dropdown/zyfra-time-dropdown.component';
 import { RippleModule } from 'primeng/ripple';
 import { SharedModule } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
@@ -24,8 +23,7 @@ import { ButtonModule } from 'primeng/button';
     ZyfraRelativeDatepickerComponent,
     ZyfraDatepickerModeSelectComponent,
     ZyfraDatepickerMultiComponent,
-    ZyfraCalendarComponent,
-    ZyfraTimeDropdownComponent
+    ZyfraCalendarComponent
   ],
   imports: [
     CommonModule,
