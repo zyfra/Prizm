@@ -45,6 +45,7 @@ const Template: Story = (args) => ({
 
 export const Basic = Template.bind({});
 Basic.args = {
+  label: 'Дата',
   selectionMode: 'single',
   placeholder: 'Select a date',
   disabled: false,
@@ -63,6 +64,7 @@ Basic.args = {
 
 export const DateFormat = Template.bind({});
 DateFormat.args = {
+  label: 'Дата',
   placeholder: 'Select a date',
   disabled: false,
   dateFormat: 'dd/mm/yy',
@@ -81,6 +83,7 @@ DateFormat.args = {
 
 export const Icon = Template.bind({});
 Icon.args = {
+  label: 'Дата',
   placeholder: 'Select a date',
   disabled: false,
   inline: false,
@@ -98,6 +101,7 @@ Icon.args = {
 
 export const ButtonBar = Template.bind({});
 ButtonBar.args = {
+  label: 'Дата',
   placeholder: 'Select a date',
   disabled: false,
   inline: false,
@@ -115,6 +119,7 @@ ButtonBar.args = {
 
 export const DisabledDays = Template.bind({});
 DisabledDays.args = {
+  label: 'Дата',
   placeholder: 'Select a date',
   disabled: false,
   inline: false,
@@ -133,6 +138,7 @@ DisabledDays.args = {
 
 export const Multiple = Template.bind({});
 Multiple.args = {
+  label: 'Дата',
   selectionMode: 'multiple',
   placeholder: 'Select dates',
   disabled: false,
@@ -151,6 +157,7 @@ Multiple.args = {
 
 export const Range = Template.bind({});
 Range.args = {
+  label: 'Период',
   selectionMode: 'range',
   placeholder: 'Select dates',
   disabled: false,
@@ -169,6 +176,7 @@ Range.args = {
 
 export const Time= Template.bind({});
 Time.args = {
+  label: 'Время',
   placeholder: 'Select a date',
   disabled: false,
   inline: false,
@@ -186,6 +194,7 @@ Time.args = {
 
 export const OnlyTime= Template.bind({});
 OnlyTime.args = {
+  label: 'Время',
   placeholder: 'Set time',
   disabled: false,
   inline: false,
@@ -208,7 +217,7 @@ const CustomTemplate: Story = (args) => ({
 <zyfra-calendar [placeholder]="placeholder" [ngModel]="'12/22/2021 18:00'" [showTime]="true" [label]="label">
   <div buttons-right>
      <button class="zyfra-datepicker-control zyfra-datepicker-button">
-        Time
+     time
      </button>
   </div>
 </zyfra-calendar>
@@ -218,5 +227,5 @@ const CustomTemplate: Story = (args) => ({
 export const CustomButtons= CustomTemplate.bind({});
 CustomButtons.args = {
   placeholder: 'Set time',
-  label: 'Выберите время',
+  label: 'Время',
 }
