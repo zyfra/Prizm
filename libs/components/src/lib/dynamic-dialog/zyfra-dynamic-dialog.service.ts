@@ -4,7 +4,7 @@ import { ZyfraDynamicDialogRef } from '.';
 import { ZyfraDynamicDialogConfig } from './zyfra-dynamic-dialog-config';
 
 @Injectable()
-export class ZyfraDynamicDialogService {
+export class ZyfraDynamicDialogService { // TODO: check why it's not exported from the module
 
   public dialogComponentRefMap: Map<DynamicDialogRef, ComponentRef<DynamicDialogComponent>> = new Map();
   public config: ZyfraDynamicDialogConfig;

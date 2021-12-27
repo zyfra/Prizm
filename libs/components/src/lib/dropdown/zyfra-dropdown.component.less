@@ -6,6 +6,32 @@ i.pi-times:before {
   content: "tools_broom_icon";
 }
 
+.zyfra-dropdown {
+  &_mini {
+    height: @36px;
+
+    .label-top {
+      top: .8rem;
+    }
+
+    .p-dropdown {
+      height: @36px;
+
+      span.p-dropdown-label {
+        height: @36px;
+        padding-bottom: 4px;
+        padding-top: 4px;
+      }
+    }
+  }
+}
+
+.zyfra-dropdown_mini.p-float-label {
+  .p-dropdown span.p-dropdown-label {
+    line-height: @43px;
+  }
+}
+
 .p-dropdown {
   font-size: @16px;
   color: var(--inputFont);
