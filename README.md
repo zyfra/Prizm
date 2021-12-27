@@ -90,3 +90,6 @@ Path's for update lib info:
 #### Other info
 
 > For more info [Readme nx guide](README_NX.md)
+
+
+For specific styles on storybook, use `./storybook/preview-head.html`

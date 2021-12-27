@@ -9,6 +9,7 @@ import { ZyfraDropdownModule } from '../../dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CalendarModule} from 'primeng/calendar';
 import { generateTimeArray } from '../utils/generate-time-array';
+import { CustomCalendarComponent} from './story/custom-calendar.component';
 
 // @ts-ignore
 import CalendarDoc from './zyfra-calendar.component.story.doc.mdx';
@@ -30,6 +31,7 @@ export default {
         CalendarModule,
         ZyfraDropdownModule
       ],
+      declarations: [CustomCalendarComponent]
     }),
   ],
   parameters: {
@@ -222,27 +224,12 @@ OnlyTime.args = {
   firstDayOfWeek: 1
 };
 
+
 const CustomTemplate: Story = (args) => ({
   component: ZyfraCalendarComponent,
   props: args,
   template: `
-<zyfra-calendar [placeholder]="placeholder" [ngModel]="'12/22/2021 18:00'" [showTime]="true" [label]="label">
-  <div buttons-right>
-     <button class="zyfra-datepicker-control zyfra-datepicker-button" type="button">
-        <zyfra-dropdown
-          [options]="options"
-          [ngModel]="null"
-          [disabled]="disabled"
-          (ngModelChange)="setInputTime($event)"
-          [panelStyleClass]="'zyfra-datepicker-dropdown-overlay'"
-          [styleClass]="'zyfra-datepicker-dropdown'"
-          [dropdownIcon]="'zyfra-icon date-update'"
-          [optionLabel]="'value'"
-        >
-        </zyfra-dropdown>
-     </button>
-  </div>
-</zyfra-calendar>
+  <zyfra-custom-calendar [placeholder]='placeholder' [label]='label' [times]='times' [selectedTime]='selectedTime'></zyfra-custom-calendar>
   `
 });
 
@@ -252,5 +239,6 @@ export const CustomButtons= CustomTemplate.bind({});
 CustomButtons.args = {
   placeholder: 'Set time',
   label: 'Время',
-  options: items
+  selectedTime: '16:00:00',
+  times: items
 }
