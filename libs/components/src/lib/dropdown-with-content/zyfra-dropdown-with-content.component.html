@@ -1,9 +1,19 @@
 <span
-  class="zyfra-input"
-  [class.zyfra-input_disabled]="disabled"
-  [class.zyfra-dropdown_mini]="mini"
-  [class.p-float-label]="label"
->
+  class="zyfra-dropdown-with-content"
+  [class.zyfra-dropdown-with-content_mini]="mini"
+  [class.zyfra-dropdown-with-content_disabled]="disabled"
+  [class.p-float-label]="label"  
+  [style]="style"
+> 
+  <div class="zyfra-dropdown-with-content__left">
+    <label
+      *ngIf="label"
+      [class.label-required]="required"
+      [class.label-top]="isOpen || dropdown.focused || dropdown.filled"
+    >{{ label }}</label>
+    <ng-content select="[left]"></ng-content>
+  </div>
+
   <p-dropdown
     #dropdown
     [formControl]="$any(ngControl.control)"
@@ -16,7 +26,6 @@
     [name]="name"
     [scrollHeight]="scrollHeight"
     [virtualScroll]="virtualScroll"
-    [style]="style"
     [panelStyle]="panelStyle"
     [styleClass]="styleClass"
     [panelStyleClass]="panelStyleClass"
@@ -60,8 +69,8 @@
     (onClick)="onClick.emit($event)"
     (onFocus)="onFocus.emit($event)"
     (onBlur)="onBlur.emit($event)"
-    (onShow)="onShow.emit($event)"
-    (onHide)="onHide.emit($event)"
+    (onShow)="handleOnShow($event)"
+    (onHide)="handleOnHide($event)"
   >
     <ng-template *ngIf="itemTemplate" let-item pTemplate="item">
       <ng-container *ngTemplateOutlet="itemTemplate; context: { $implicit: item }"></ng-container>
@@ -88,5 +97,7 @@
     </ng-template>
   </p-dropdown>
 
-  <label *ngIf="label" [class.label-required]="required">{{ label }}</label>
+  <div class="zyfra-dropdown-with-content__right">
+    <ng-content select="[right]"></ng-content>
+  </div>
 </span>

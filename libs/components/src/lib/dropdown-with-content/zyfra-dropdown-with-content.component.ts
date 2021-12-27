@@ -4,6 +4,7 @@ import {
   Component,
   ContentChildren,
   EventEmitter,
+  Injector,
   Input,
   Output,
   QueryList,
@@ -11,25 +12,23 @@ import {
   ViewChild,
 } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
-import { ControlValueAccessor } from '@angular/forms';
+import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { Dropdown } from 'primeng/dropdown';
 import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
-import { ZyfraDropdownTemplateDirective } from './zyfra-dropdown-template.directive';
+import { ZyfraDropdownWithContentService } from './zyfra-dropdown-with-content.service';
+import { ZyfraDropdownTemplateDirective } from '../dropdown/zyfra-dropdown-template.directive';
+import { DropdownChangeEvent } from '../dropdown/zyfra-dropdown.component';
 
-export interface DropdownChangeEvent<T> {
-  originalEvent: PointerEvent;
-  value: T;
-}
 
 @Component({
-  selector: 'zyfra-dropdown',
-  templateUrl: './zyfra-dropdown.component.html',
+  selector: 'zyfra-dropdown-with-content',
+  templateUrl: './zyfra-dropdown-with-content.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [ZyfraDropdownWithContentService]
 })
-export class ZyfraDropdownComponent<T = unknown>
+export class ZyfraDropdownWithContentComponent<T = unknown>
   extends WrappedFormComponent
-  implements ControlValueAccessor, AfterContentInit
-{
+  implements ControlValueAccessor, AfterContentInit {
   @Input() options: T[];
   @Input() optionLabel = 'label';
   @Input() optionValue;
@@ -111,6 +110,16 @@ export class ZyfraDropdownComponent<T = unknown>
   emptyfilterTemplate: TemplateRef<unknown>;
   footerTemplate: TemplateRef<unknown>;
 
+  isOpen: boolean;
+
+  constructor(
+    injector: Injector,
+    ngControl: NgControl,
+    private dropdownService: ZyfraDropdownWithContentService,
+  ) {
+    super(injector, ngControl);
+  }
+
   ngAfterContentInit(): void {
     this.templates.forEach((item) => {
       switch (item.getType()) {
@@ -138,4 +147,16 @@ export class ZyfraDropdownComponent<T = unknown>
       }
     });
   }
+
+  handleOnShow(e: AnimationEvent): void {
+    this.isOpen = true;
+    this.dropdownService.setDropdownPanelPosition();
+    this.onShow.emit(e);
+  }
+
+  handleOnHide(e: AnimationEvent): void {
+    this.isOpen = false;
+    this.onHide.emit(e);
+  }
+
 }
