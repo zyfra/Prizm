@@ -229,7 +229,7 @@ const CustomTemplate: Story = (args) => ({
 <zyfra-calendar [placeholder]="placeholder" [ngModel]="'12/22/2021 18:00'" [showTime]="true" [label]="label">
   <div buttons-right>
      <button class="zyfra-datepicker-control zyfra-datepicker-button" type="button">
-     <zyfra-dropdown
+        <zyfra-dropdown
           [options]="options"
           [ngModel]="null"
           [disabled]="disabled"
