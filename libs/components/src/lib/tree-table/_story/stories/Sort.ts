@@ -2,11 +2,11 @@ import { Story } from '@storybook/angular/types-6-0';
 import { action } from '@storybook/addon-actions';
 import { ZyfraTreeTableComponent } from '../../tree-table.component';
 import { getFileSystem } from '../data';
+import { consoleLogAction } from '../../../../../.storybook/helpers';
 
 const actions = {
   onNodeExpand: action('onNodeExpand'),
   onNodeCollapse: action('onNodeCollapse'),
-  onSort: action('onSort'),
 };
 
 const Template: Story<ZyfraTreeTableComponent> = (args) => ({
@@ -42,10 +42,9 @@ const Template: Story<ZyfraTreeTableComponent> = (args) => ({
       </ng-template>
     </zyfra-tree-table>
   `,
-  component: ZyfraTreeTableComponent,
   props: {
     ...args,
-    onSort: actions.onSort,
+    onSort: consoleLogAction('onSort'),
     onNodeExpand: event => actions.onNodeExpand({ node: event.node, ...event }),
     onNodeCollapse: event => actions.onNodeCollapse({ node: event.node, ...event }),
   },

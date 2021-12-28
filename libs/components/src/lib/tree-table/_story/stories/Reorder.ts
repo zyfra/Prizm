@@ -2,6 +2,7 @@ import { Story } from '@storybook/angular/types-6-0';
 import { action } from '@storybook/addon-actions';
 import { ZyfraTreeTableComponent } from '../../tree-table.component';
 import { getFileSystem } from '../data';
+import { consoleLogAction } from '../../../../../.storybook/helpers';
 
 const actions = {
   onNodeExpand: action('onNodeExpand'),
@@ -15,7 +16,7 @@ const Template: Story<ZyfraTreeTableComponent> = (args) => ({
       [value]="value"
       [columns]="columns"
       [reorderableColumns]="reorderableColumns"
-      (onColReorder)="onColReorder($event)"
+      (colReorder)="colReorder($event)"
       (onNodeExpand)="onNodeExpand($event)"
       (onNodeCollapse)="onNodeCollapse($event)"
     >
@@ -36,10 +37,9 @@ const Template: Story<ZyfraTreeTableComponent> = (args) => ({
       </ng-template>
     </zyfra-tree-table>
   `,
-  component: ZyfraTreeTableComponent,
   props: {
     ...args,
-    onColReorder: action('onColReorder'),
+    colReorder: consoleLogAction('colReorder'),
     onNodeExpand: event => actions.onNodeExpand({ node: event.node, ...event }),
     onNodeCollapse: event => actions.onNodeCollapse({ node: event.node, ...event }),
   },

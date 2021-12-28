@@ -4,12 +4,9 @@ import { Meta } from '@storybook/angular/types-6-0';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-// @ts-ignore
-import TableDoc from './zyfra-table.story.doc.mdx';
 import { ZyfraTableComponent } from '../zyfra-table.component';
 import { ZyfraTableModule } from '../zyfra-table.module';
-import { ZyfraButtonModule } from '../../button/zyfra-button.module';
+import { ZyfraButtonModule } from '../../button';
 
 export default {
   moduleId: module.id,
@@ -30,7 +27,7 @@ export default {
   ],
   parameters: {
     docs: {
-      page: TableDoc,
+      page: require('./zyfra-table.story.doc.mdx'),
     }
   }
 } as Meta;

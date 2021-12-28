@@ -7,7 +7,7 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
     <zyfra-table
       [title]="title"
       [value]="value"
-      (activeElementChange)="elementChange($event)"
+      (activeElementChange)="activeElementChange($event)"
     >
       <ng-template zyfraTableTemplate="header">
         <tr>
@@ -21,7 +21,6 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
       </ng-template>
     </zyfra-table>
   `,
-  component: ZyfraTableComponent,
   props: {
     ...args,
     activeElementChange: action('activeElementChange'),

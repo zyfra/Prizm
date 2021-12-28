@@ -30,7 +30,6 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
     </zyfra-table>
 
   `,
-  component: ZyfraTableComponent,
   props: {
     ...args,
     colReorder: action('colReorder'),

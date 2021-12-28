@@ -41,7 +41,6 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
       </ng-template>
     </zyfra-table>
   `,
-  component: ZyfraTableComponent,
   props: {
     ...args,
     lastYearTotal: 3_283_772.00,

@@ -36,7 +36,6 @@ const Template: Story<ZyfraTreeTableComponent> = (args) => ({
       </ng-template>
     </zyfra-tree-table>
   `,
-  component: ZyfraTreeTableComponent,
   props: {
     ...args,
     onNodeExpand: event => actions.onNodeExpand({ node: event.node, ...event }),
