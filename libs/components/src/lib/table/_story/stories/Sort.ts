@@ -1,7 +1,7 @@
 import { Story } from '@storybook/angular/types-6-0';
-import { action } from '@storybook/addon-actions';
 import { getProducts } from '../data';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
+import { consoleLogAction } from '../../../../../.storybook/helpers';
 
 const Template: Story<ZyfraTableComponent> = (args) => ({
   template: `
@@ -13,7 +13,7 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
       #table
       [title]="title"
       [value]="value"
-      (sort)="sort($event)"
+      (onSort)="onSort($event)"
     >
       <ng-template zyfraTableTemplate="header">
         <tr>
@@ -36,16 +36,11 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
       </ng-template>
     </zyfra-table>
   `,
-  component: ZyfraTableComponent,
   props: {
-    ...args,
-    sort: action('sort'),
+    value: [...getProducts()],
+    title: 'Сортировка по одному столбцу',
+    onSort: consoleLogAction('onSort')
   },
 });
 
 export const Sort = Template.bind({});
-
-Sort.args = {
-  value: [...getProducts()],
-  title: 'Сортировка по одному столбцу',
-};

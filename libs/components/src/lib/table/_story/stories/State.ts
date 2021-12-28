@@ -2,6 +2,7 @@ import { Story } from '@storybook/angular/types-6-0';
 import { action } from '@storybook/addon-actions';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { getCustomers } from '../data';
+import { consoleLogAction } from '../../../../../.storybook/helpers';
 
 const Template: Story<ZyfraTableComponent> = (args) => ({
   template: `
@@ -19,6 +20,7 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
       [stateKey]="stateKey"
       (stateSave)="stateSave($event)"
       (stateRestore)="stateRestore($event)"
+      (selectionChange)="selectionChange()"
     >
       <ng-template zyfraTableTemplate="header">
         <tr>
@@ -57,9 +59,9 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
       </ng-template>
     </zyfra-table>
   `,
-  component: ZyfraTableComponent,
   props: {
     ...args,
+    selectionChange: consoleLogAction('selectionChange'),
     stateSave: action('stateSave'),
     stateRestore: action('stateRestore'),
   },

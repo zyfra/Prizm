@@ -47,7 +47,6 @@ const Template: Story<ZyfraTreeTableComponent> = (args) => ({
       <span class="zyfra-icon files-description-properties" style="margin-right: 10px; font-size: 20px;"></span>
     </ng-template>
   `,
-  component: ZyfraTreeTableComponent,
   props: {
     ...args,
     onNodeExpand: event => actions.onNodeExpand({ node: event.node, ...event }),

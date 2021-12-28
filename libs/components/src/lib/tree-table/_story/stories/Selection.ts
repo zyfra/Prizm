@@ -2,13 +2,13 @@ import { Story } from '@storybook/angular/types-6-0';
 import { action } from '@storybook/addon-actions';
 import { ZyfraTreeTableComponent } from '../../tree-table.component';
 import { getFileSystem } from '../data';
+import { consoleLogAction } from '../../../../../.storybook/helpers';
 
 const actions = {
   onNodeSelect: action('onNodeSelect'),
   onNodeUnselect: action('onNodeUnselect'),
   onNodeExpand: action('onNodeExpand'),
   onNodeCollapse: action('onNodeCollapse'),
-  selectionChange: action('selectionChange'),
   onHeaderCheckboxToggle: action('onHeaderCheckboxToggle'),
 };
 
@@ -58,14 +58,13 @@ const Template: Story<ZyfraTreeTableComponent> = (args) => ({
       <span class="zyfra-icon files-description-properties" style="margin-right: 10px; font-size: 20px;"></span>
     </ng-template>
   `,
-  component: ZyfraTreeTableComponent,
   props: {
     ...args,
     onNodeSelect: event => actions.onNodeSelect({ node: event.node, ...event }),
     onNodeUnselect: event => actions.onNodeUnselect({ node: event.node, ...event }),
     onNodeExpand: event => actions.onNodeExpand({ node: event.node, ...event }),
     onNodeCollapse: event => actions.onNodeCollapse({ node: event.node, ...event }),
-    selectionChange: actions.selectionChange,
+    selectionChange: consoleLogAction('selectionChange'),
     onHeaderCheckboxToggle: actions.onHeaderCheckboxToggle,
   },
 });

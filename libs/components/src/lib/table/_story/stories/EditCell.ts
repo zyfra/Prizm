@@ -2,6 +2,7 @@ import { Story } from '@storybook/angular/types-6-0';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { getProductsSmall } from '../data';
 import { action } from '@storybook/addon-actions';
+import { consoleLogAction } from '../../../../../.storybook/helpers';
 
 const Template: Story<ZyfraTableComponent> = (args) => ({
   template: `
@@ -50,12 +51,11 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
       </ng-template>
     </zyfra-table>
   `,
-  component: ZyfraTableComponent,
   props: {
     ...args,
-    editComplete: action('editComplete'),
-    editCancel: action('editCancel'),
-    editInit: action('editInit'),
+    editComplete: consoleLogAction('editComplete'),
+    editCancel: consoleLogAction('editCancel'),
+    editInit: consoleLogAction('editInit'),
   },
 });
 

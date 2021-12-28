@@ -281,7 +281,7 @@ export abstract class ZyfraBaseTableComponent<T = unknown> {
   /**
    * Callback to invoke when a column gets sorted
    */
-  @Output() sort = new EventEmitter<{
+  @Output() onSort = new EventEmitter<{
     field: string;
     order: SortOrder;
     multisortmeta: SortMeta[];
@@ -448,7 +448,7 @@ export abstract class ZyfraBaseTableComponent<T = unknown> {
       this.setValue([...this.initialData]);
     }
 
-    this.sort.emit(null);
+    this.onSort.emit(null);
   }
 
   public filter(value: any, field: string, matchMode: string): void {
