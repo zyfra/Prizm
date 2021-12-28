@@ -32,13 +32,13 @@ export type TableTemplateType =
 export class BaseTableTemplateDirective {
   @Input() zyfraTableTemplate: TableTemplateType;
 
-  constructor(public templateRef: TemplateRef<any>) {}
+  constructor(public templateRef: TemplateRef<unknown>) {}
 
-  get template() {
+  get template(): TemplateRef<unknown> {
     return this.templateRef;
   }
 
-  getType() {
+  public getType(): TableTemplateType {
     return this.zyfraTableTemplate;
   }
 }

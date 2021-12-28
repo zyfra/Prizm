@@ -39,11 +39,11 @@ export class TranslateDefaultParser extends TranslateParser {
         return target ? target.toString() : undefined;
     }
 
-    private interpolateFunction(fn: any, params?: any) {
+    private interpolateFunction(fn: any, params?: any): string {
         return fn(params);
     }
 
-    private interpolateString(expr: string, params?: any) {
+    private interpolateString(expr: string, params?: any): string {
         if (!params) {
             return expr;
         }

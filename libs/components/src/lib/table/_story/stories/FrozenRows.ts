@@ -2,7 +2,7 @@ import { Story } from '@storybook/angular/types-6-0';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { getCustomers } from '../data';
 
-const Template: Story<ZyfraTableComponent> = (args) => ({
+const Template: Story<ZyfraTableComponent> = args => ({
   template: `
     <zyfra-table
       [title]="title"
@@ -62,7 +62,7 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
       this.value.sort((val1, val2) => {
         return val1.id < val2.id ? -1 : 1;
       });
-    }
+    },
   },
 });
 
@@ -77,7 +77,7 @@ FrozenRows.args = {
       name: 'Geraldine Bisset',
       country: {
         name: 'France',
-        code: 'fr'
+        code: 'fr',
       },
       company: 'Bisset Group',
       status: 'proposal',
@@ -85,9 +85,9 @@ FrozenRows.args = {
       activity: 0,
       representative: {
         name: 'Amy Elsner',
-        image: 'amyelsner.png'
-      }
-    }
+        image: 'amyelsner.png',
+      },
+    },
   ],
   scrollable: true,
   scrollHeight: '400px',

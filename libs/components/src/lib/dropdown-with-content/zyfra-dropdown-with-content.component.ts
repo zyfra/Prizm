@@ -19,16 +19,16 @@ import { ZyfraDropdownWithContentService } from './zyfra-dropdown-with-content.s
 import { ZyfraDropdownTemplateDirective } from '../dropdown/zyfra-dropdown-template.directive';
 import { DropdownChangeEvent } from '../dropdown/zyfra-dropdown.component';
 
-
 @Component({
   selector: 'zyfra-dropdown-with-content',
   templateUrl: './zyfra-dropdown-with-content.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ZyfraDropdownWithContentService]
+  providers: [ZyfraDropdownWithContentService],
 })
 export class ZyfraDropdownWithContentComponent<T = unknown>
   extends WrappedFormComponent
-  implements ControlValueAccessor, AfterContentInit {
+  implements ControlValueAccessor, AfterContentInit
+{
   @Input() options: T[];
   @Input() optionLabel = 'label';
   @Input() optionValue;
@@ -115,13 +115,13 @@ export class ZyfraDropdownWithContentComponent<T = unknown>
   constructor(
     injector: Injector,
     ngControl: NgControl,
-    private dropdownService: ZyfraDropdownWithContentService,
+    private dropdownService: ZyfraDropdownWithContentService
   ) {
     super(injector, ngControl);
   }
 
   ngAfterContentInit(): void {
-    this.templates.forEach((item) => {
+    this.templates.forEach(item => {
       switch (item.getType()) {
         case 'item':
           this.itemTemplate = item.template;
@@ -148,15 +148,14 @@ export class ZyfraDropdownWithContentComponent<T = unknown>
     });
   }
 
-  handleOnShow(e: AnimationEvent): void {
+  public handleOnShow(e: AnimationEvent): void {
     this.isOpen = true;
     this.dropdownService.setDropdownPanelPosition();
     this.onShow.emit(e);
   }
 
-  handleOnHide(e: AnimationEvent): void {
+  public handleOnHide(e: AnimationEvent): void {
     this.isOpen = false;
     this.onHide.emit(e);
   }
-
 }

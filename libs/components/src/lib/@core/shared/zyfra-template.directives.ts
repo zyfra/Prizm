@@ -6,5 +6,5 @@ import { Directive, Input, TemplateRef } from '@angular/core';
 export class ZyfraTemplateDirective {
   @Input() zyfraTemplate: string;
 
-  constructor(public templateRef: TemplateRef<any>) {}
+  constructor(public templateRef: TemplateRef<unknown>) {}
 }

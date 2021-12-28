@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
 
 @Component({
   selector: 'zyfra-input-mask',
   templateUrl: './zyfra-input-mask.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraInputMaskComponent extends WrappedFormComponent implements ControlValueAccessor {
   @Input() mask: string;
@@ -37,7 +38,7 @@ export class ZyfraInputMaskComponent extends WrappedFormComponent implements Con
   @Output() onKeydown = new EventEmitter<KeyboardEvent>();
   @Output() onInput = new EventEmitter<KeyboardEvent>();
 
-  override setDisabledState(isDisabled: boolean): void {
+  public override setDisabledState(isDisabled: boolean): void {
     // do nothing
   }
 }

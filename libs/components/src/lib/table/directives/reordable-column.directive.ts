@@ -5,7 +5,7 @@ import { ReorderableColumn } from 'primeng/table';
   selector: '[zyfraReordableColumn]',
 })
 export class ZyfraReordableColumnDirective extends ReorderableColumn {
-  @Input('zyfraReordableColumnDisabled') pReorderableColumnDisabled: boolean;
+  @Input('zyfraReordableColumnDisabled') override pReorderableColumnDisabled: boolean;
 
   @HostBinding('attr.preorderablecolumn') reorderableColumnAttribute = true;
 }

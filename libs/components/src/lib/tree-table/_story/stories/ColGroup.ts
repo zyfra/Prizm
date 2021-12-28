@@ -8,7 +8,7 @@ const actions = {
   onNodeCollapse: action('onNodeCollapse'),
 };
 
-const Template: Story<ZyfraTreeTableComponent> = (args) => ({
+const Template: Story<ZyfraTreeTableComponent> = args => ({
   template: `
     <zyfra-tree-table
       [title]="title"
@@ -59,8 +59,8 @@ const Template: Story<ZyfraTreeTableComponent> = (args) => ({
   `,
   props: {
     ...args,
-    onNodeExpand: (event) => actions.onNodeExpand({ node: event.node, ...event }),
-    onNodeCollapse: (event) => actions.onNodeCollapse({ node: event.node, ...event }),
+    onNodeExpand: (event): void => actions.onNodeExpand({ node: event.node, ...event }),
+    onNodeCollapse: (event): void => actions.onNodeCollapse({ node: event.node, ...event }),
   },
 });
 

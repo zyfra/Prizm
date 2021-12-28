@@ -6,7 +6,7 @@ import {
   ChangeDetectionStrategy,
   ViewEncapsulation,
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor, FormControl } from '@angular/forms';
+import { ControlValueAccessor, FormControl } from '@angular/forms';
 import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
 
 @Component({
@@ -29,25 +29,25 @@ export class ZyfraRadioButtonComponent<T> extends WrappedFormComponent implement
   @Input() styleClass: string;
   @Input() labelStyleClass: string;
   @Input() formControlName: string;
-  @Input() formControl: FormControl;
+  @Input() override formControl: FormControl;
 
   @Output() onClick: EventEmitter<PointerEvent> = new EventEmitter();
   @Output() onFocus: EventEmitter<FocusEvent> = new EventEmitter();
   @Output() onBlur: EventEmitter<FocusEvent> = new EventEmitter();
 
-  handleClick(event: PointerEvent): void {
+  public handleClick(event: PointerEvent): void {
     this.onClick.emit(event);
   }
 
-  handleFocus(event: FocusEvent): void {
+  public handleFocus(event: FocusEvent): void {
     this.onFocus.emit(event);
   }
 
-  handleBlur(event: FocusEvent): void {
+  public handleBlur(event: FocusEvent): void {
     this.onBlur.emit(event);
   }
 
-  override setDisabledState(isDisabled: boolean) {
+  public override setDisabledState(isDisabled: boolean): void {
     // do nothing
   }
 }

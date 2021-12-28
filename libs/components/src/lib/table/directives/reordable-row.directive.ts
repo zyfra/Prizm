@@ -5,5 +5,5 @@ import { ReorderableRow } from 'primeng/table';
   selector: '[zyfraReordableRow]'
 })
 export class ZyfraReordableRowDirective extends ReorderableRow {
-  @Input('zyfraReordableRow') index: number;
+  @Input('zyfraReordableRow') override index: number;
 }

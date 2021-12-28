@@ -9,7 +9,7 @@ import { ZyfraDropdownModule } from '../../dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'primeng/calendar';
 import { generateTimeArray } from '../utils/generate-time-array';
-import { CustomCalendarComponent} from './story/custom-calendar.component';
+import { CustomCalendarComponent } from './story/custom-calendar.component';
 
 // @ts-ignore
 import CalendarDoc from './zyfra-calendar.component.story.doc.mdx';
@@ -29,9 +29,9 @@ export default {
         ZyfraCheckBoxModule,
         ZyfraInputModule,
         CalendarModule,
-        ZyfraDropdownModule
+        ZyfraDropdownModule,
       ],
-      declarations: [CustomCalendarComponent]
+      declarations: [CustomCalendarComponent],
     }),
   ],
   parameters: {
@@ -41,12 +41,10 @@ export default {
   },
 } as Meta;
 
-const Template: Story = (args) => ({
+const Template: Story = args => ({
   component: ZyfraCalendarComponent,
-  props: args
+  props: args,
 });
-
-
 
 export const Basic = Template.bind({});
 Basic.args = {
@@ -65,7 +63,7 @@ Basic.args = {
   timeOnly: false,
   required: false,
   showButtonBar: false,
-  firstDayOfWeek: 1
+  firstDayOfWeek: 1,
 };
 
 export const DateFormat = Template.bind({});
@@ -85,7 +83,7 @@ DateFormat.args = {
   timeOnly: false,
   required: false,
   showButtonBar: false,
-  firstDayOfWeek: 1
+  firstDayOfWeek: 1,
 };
 
 export const Icon = Template.bind({});
@@ -104,7 +102,7 @@ Icon.args = {
   timeOnly: false,
   required: false,
   showButtonBar: false,
-  firstDayOfWeek: 1
+  firstDayOfWeek: 1,
 };
 
 export const ButtonBar = Template.bind({});
@@ -123,7 +121,7 @@ ButtonBar.args = {
   timeOnly: false,
   required: false,
   showButtonBar: true,
-  firstDayOfWeek: 1
+  firstDayOfWeek: 1,
 };
 
 export const DisabledDays = Template.bind({});
@@ -142,8 +140,8 @@ DisabledDays.args = {
   timeOnly: false,
   required: false,
   showButtonBar: false,
-  disabledDays: [0,6],
-  firstDayOfWeek: 1
+  disabledDays: [0, 6],
+  firstDayOfWeek: 1,
 };
 
 export const Multiple = Template.bind({});
@@ -163,7 +161,7 @@ Multiple.args = {
   timeOnly: false,
   required: false,
   showButtonBar: false,
-  firstDayOfWeek: 1
+  firstDayOfWeek: 1,
 };
 
 export const Range = Template.bind({});
@@ -183,10 +181,10 @@ Range.args = {
   timeOnly: false,
   required: false,
   showButtonBar: false,
-  firstDayOfWeek: 1
+  firstDayOfWeek: 1,
 };
 
-export const Time= Template.bind({});
+export const Time = Template.bind({});
 Time.args = {
   label: 'Время',
   placeholder: 'Select a date',
@@ -202,10 +200,10 @@ Time.args = {
   timeOnly: false,
   required: false,
   showButtonBar: false,
-  firstDayOfWeek: 1
+  firstDayOfWeek: 1,
 };
 
-export const OnlyTime= Template.bind({});
+export const OnlyTime = Template.bind({});
 OnlyTime.args = {
   label: 'Время',
   placeholder: 'Set time',
@@ -221,24 +219,23 @@ OnlyTime.args = {
   timeOnly: true,
   required: false,
   showButtonBar: false,
-  firstDayOfWeek: 1
+  firstDayOfWeek: 1,
 };
 
-
-const CustomTemplate: Story = (args) => ({
+const CustomTemplate: Story = args => ({
   component: ZyfraCalendarComponent,
   props: args,
   template: `
   <zyfra-custom-calendar [placeholder]='placeholder' [label]='label' [times]='times' [selectedTime]='selectedTime'></zyfra-custom-calendar>
-  `
+  `,
 });
 
-const items = generateTimeArray('HH:mm:ss')
+const items = generateTimeArray('HH:mm:ss');
 
-export const CustomButtons= CustomTemplate.bind({});
+export const CustomButtons = CustomTemplate.bind({});
 CustomButtons.args = {
   placeholder: 'Set time',
   label: 'Время',
   selectedTime: '16:00:00',
-  times: items
-}
+  times: items,
+};

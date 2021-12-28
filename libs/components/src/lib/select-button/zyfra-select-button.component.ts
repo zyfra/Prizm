@@ -42,14 +42,14 @@ export class ZyfraSelectButtonComponent<OPTION, VALUE> {
   /**
    * Optional Change handler
    */
-  handleChange(data: SelectButtonChange<VALUE>): void {
+  public handleChange(data: SelectButtonChange<VALUE>): void {
     this.onChange.emit(data.value);
   }
 
   /**
    * Optional OptionClick handler
    */
-  handleOptionClick(data: SelectButtonOptionClick<OPTION>): void {
+  public handleOptionClick(data: SelectButtonOptionClick<OPTION>): void {
     this.onOptionClick.emit(data);
   }
 }

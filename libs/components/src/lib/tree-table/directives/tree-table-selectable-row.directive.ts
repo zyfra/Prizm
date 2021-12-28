@@ -5,10 +5,10 @@ import { TTSelectableRow } from 'primeng/treetable';
   selector: '[zyfraTTSelectableRow]',
 })
 export class ZyfraTreeTableSelectableRowDirective extends TTSelectableRow {
-  @Input('zyfraTTSelectableRow') rowNode: any;
-  @Input('zyfraTTSelectableRowDisabled') ttSelectableRowDisabled: boolean;
+  @Input('zyfraTTSelectableRow') override rowNode: any;
+  @Input('zyfraTTSelectableRowDisabled') override ttSelectableRowDisabled: boolean;
 
-  onClick(event): void {
+  public override onClick(event): void {
     if (this.isEnabled()) {
       this.tt.toggleNodeWithCheckbox({
         rowNode: this.rowNode,

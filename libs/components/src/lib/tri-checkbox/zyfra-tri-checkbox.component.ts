@@ -19,7 +19,7 @@ export class ZyfraTriCheckboxComponent extends WrappedFormComponent implements C
   @Input() readonly: boolean;
   @Input() model: boolean | null;
 
-  override setDisabledState() {
+  public override setDisabledState(): void {
     // do nothing
   }
 }

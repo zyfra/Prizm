@@ -26,7 +26,7 @@ export class ZyfraToggleButtonComponent {
 
   @Output() onChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  handleChange(event: TToggleButtonClick): void {
+  public handleChange(event: TToggleButtonClick): void {
     this.model = event.checked;
     this.onChange.emit(this.model);
   }

@@ -33,6 +33,8 @@ import { format, isValid, parse, parseISO } from 'date-fns';
 import { ru as ruFns, enUS as enFns } from 'date-fns/esm/locale';
 import { ZyfraDatePickerLocaleInterface } from './model/zyfra-date-picker.model';
 
+type OnChangeCallback = (value: string | number | Date) => void;
+
 @Component({
   selector: 'zyfra-datepicker',
   templateUrl: './zyfra-datepicker.component.html',
@@ -108,16 +110,17 @@ export class ZyfraDatepickerComponent
       ngControl.valueAccessor = this;
     }
   }
+  public onChange: OnChangeCallback;
+  public onTouched: VoidFunction;
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   public registerOnValidatorChange?(fn: () => void): void {}
 
-  public onChange = (value: string | number | Date) => {};
-  public onTouched = (): void => {};
 
-  public registerOnChange(fn: any): void {
+  public registerOnChange(fn: OnChangeCallback): void {
     this.onChange = fn;
   }
 
-  public registerOnTouched(fn: () => {}): void {
+  public registerOnTouched(fn: VoidFunction): void {
     this.onTouched = fn;
   }
 
@@ -338,7 +341,7 @@ export class ZyfraDatepickerComponent
     if (this.selectionMode === 'range') {
       this.formattedValue = '';
       this._defaultDateValue = this.calendar.value;
-      let dateRange:string[] = [];
+      const dateRange: string[] = [];
       for (let i=0; i<2; i++) {
         this.dateValue = format(
         this._defaultDateValue[i],
@@ -359,17 +362,17 @@ export class ZyfraDatepickerComponent
       if (!this._defaultTimeValue || !isValid(this._defaultTimeValue)) {
         this._defaultTimeValue = this._defaultDateValue;
       }
-  
+
       this.timeValue = format(
         this._defaultTimeValue,
         this.formatTime,
         this.localeFns
       );
-  
+
       if (this.showTime) {
         this.formattedValue += ` ${this.timeValue}`;
       }
-  
+
       const dateValue = `${this.dateValue} ${this.timeValue}`;
       const formatValue = `${this.formatDate} ${this.formatTime}`;
       this.onChangeValue(
@@ -419,15 +422,15 @@ export class ZyfraDatepickerComponent
         if (isValid(dateParam)) {
           this.datepickerValue = dateParam;
         }
-        const formatPattern = `${this.formatDate} ${this.formatTime}`;
+
         this._defaultDateValue = parse(
           this.model as string,
-          formatPattern,
+          `${this.formatDate} ${this.formatTime}`,
           new Date(),
           this.localeFns
         );
         break;
-  
+
       case ZyfraDatePickerValueType.isoString:
         dateParam = parseISO(this.model as string);
         if (isValid(dateParam)) {
@@ -515,13 +518,14 @@ export class ZyfraDatepickerComponent
   private getValueOutput(date: Date): string | number | Date {
     const returnValueType = this.returnFormatValue || this.currentValueType;
     let resultDate: string | number | Date;
+    let formatValue: string;
+
     switch (returnValueType) {
       case ZyfraDatePickerValueType.timestamp:
         resultDate = date.valueOf();
         break;
 
       case ZyfraDatePickerValueType.string:
-        let formatValue: string;
 
         if (this.formatDate && this.showDate) {
           formatValue = this.formatDate;

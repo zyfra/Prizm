@@ -5,7 +5,7 @@ import {
   forwardRef,
   OnDestroy,
   Injector,
-  ChangeDetectorRef,
+  ChangeDetectorRef, AfterViewInit
 } from '@angular/core';
 import { ControlValueAccessor, FormControl, NgControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -36,7 +36,7 @@ const ValidationPattern = '(T|\\*)(\\+|\\-)(\\d+)(Y|M|d|h|m|s)';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZyfraRelativeDatepickerComponent implements ControlValueAccessor, OnDestroy {
+export class ZyfraRelativeDatepickerComponent implements AfterViewInit, ControlValueAccessor, OnDestroy {
   @Input() public label: string;
   @Input() public placeholder: string;
   @Input() public disabled: boolean;
@@ -52,11 +52,14 @@ export class ZyfraRelativeDatepickerComponent implements ControlValueAccessor, O
   private activePeriodId: RelativeDatePeriodId;
   private activeNumber: string = '0';
 
+  onChangeFn: (_: unknown) => unknown;
+  onTouched: VoidFunction;
+
   private readonly subscriptions = new Subscription();
 
   constructor(public readonly injector: Injector, private readonly cdr: ChangeDetectorRef) {}
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     const control = this.injector.get(NgControl);
     this.value.addValidators(control.validator);
 
@@ -69,26 +72,22 @@ export class ZyfraRelativeDatepickerComponent implements ControlValueAccessor, O
     );
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }
 
-  writeValue(value: number): void {
+  public writeValue(value: number): void {
     this.value.markAsDirty();
     this.value.setValue(value);
   }
 
-  registerOnChange(fn: (_: any) => void): void {
+  public registerOnChange(fn: (_: unknown) => void): void {
     this.onChangeFn = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  public registerOnTouched(fn: VoidFunction): void {
     this.onTouched = fn;
   }
-
-  onChangeFn = (_: any) => {};
-
-  onTouched = () => {};
 
   public clearValue(): void {
     this.value.setValue("");

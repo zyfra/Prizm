@@ -26,17 +26,17 @@ export class ZyfraSplitButtonComponent {
   @Output() onClick: EventEmitter<PointerEvent> = new EventEmitter();
   @Output() onDropdownClick: EventEmitter<PointerEvent> = new EventEmitter();
 
-  nativeClick(event: Event): void {
+  public nativeClick(event: Event): void {
     if (this.disabled) {
       event.stopPropagation();
     }
   }
 
-  onClickHandler(event: PointerEvent) {
+  public onClickHandler(event: PointerEvent): void {
     this.onClick.emit(event);
   }
 
-  onDropdownClickHandler(event: PointerEvent) {
+  public onDropdownClickHandler(event: PointerEvent): void {
     this.onDropdownClick.emit(event);
   }
 }

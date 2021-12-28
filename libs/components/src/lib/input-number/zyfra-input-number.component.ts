@@ -57,7 +57,7 @@ export class ZyfraInputNumberComponent extends WrappedFormComponent implements C
   @Output() onBlur = new EventEmitter<FocusEvent>();
   @Output() onInput = new EventEmitter<InputEvent>();
 
-  override setDisabledState(isDisabled: boolean): void {
+  public override setDisabledState(isDisabled: boolean): void {
     // do nothing
   }
 }

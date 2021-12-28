@@ -20,7 +20,7 @@
         ></i>
         <p-slideMenu
           #menu
-          [model]="item.items"
+          [model]="$any(item.items)"
           [popup]="true"
           [appendTo]="tabSubmenuContainer"
           [backLabel]="backLabel"

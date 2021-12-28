@@ -1,28 +1,24 @@
-import { DOCUMENT } from "@angular/common";
-import { ElementRef, Inject, Injectable } from "@angular/core";
+import { DOCUMENT } from '@angular/common';
+import { ElementRef, Inject, Injectable } from '@angular/core';
 
 interface Dimensions {
   width: number;
   height: number;
 }
 
-
 @Injectable()
 export class ZyfraDropdownWithContentService {
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    private element: ElementRef,
-  ) { }
+  constructor(@Inject(DOCUMENT) private document: Document, private element: ElementRef) {}
 
-  setDropdownPanelPosition(): void {
-    const dropdownPanel: HTMLElement = this.element.nativeElement.querySelector('.p-dropdown-panel')
+  public setDropdownPanelPosition(): void {
+    const dropdownPanel: HTMLElement = this.element.nativeElement.querySelector('.p-dropdown-panel');
     const targetHeightElement: HTMLElement = this.element.nativeElement.firstElementChild;
     dropdownPanel.style.visibility = 'hidden';
 
     setTimeout(() => {
       this.relativePosition(dropdownPanel, targetHeightElement);
       dropdownPanel.style.visibility = 'visible';
-    })
+    });
   }
 
   // https://github.com/primefaces/primeng/blob/master/src/app/components/dom/domhandler.ts#L94
@@ -34,17 +30,16 @@ export class ZyfraDropdownWithContentService {
     const targetHeight = target.offsetHeight;
     const targetOffset = target.getBoundingClientRect();
     const viewport = this.getViewport();
-    
+
     let top: number, left: number;
 
-    if ((targetOffset.top + targetHeight + elementDimensions.height) > viewport.height) {
-      top = -1 * (elementDimensions.height);
+    if (targetOffset.top + targetHeight + elementDimensions.height > viewport.height) {
+      top = -1 * elementDimensions.height;
       dropdownPanelElement.style.transformOrigin = 'bottom';
       if (targetOffset.top + top < 0) {
         top = -1 * targetOffset.top;
       }
-    }
-    else {
+    } else {
       top = targetHeight;
       dropdownPanelElement.style.transformOrigin = 'top';
     }
@@ -52,12 +47,10 @@ export class ZyfraDropdownWithContentService {
     if (elementDimensions.width > viewport.width) {
       // element wider then viewport and cannot fit on screen (align at left side of viewport)
       left = targetOffset.left * -1;
-    }
-    else if ((targetOffset.left + elementDimensions.width) > viewport.width) {
+    } else if (targetOffset.left + elementDimensions.width > viewport.width) {
       // element wider then viewport but can be fit on screen (align at right side of viewport)
       left = (targetOffset.left + elementDimensions.width - viewport.width) * -1;
-    }
-    else {
+    } else {
       // element fits on screen (align with target)
       left = 0;
     }
@@ -80,7 +73,6 @@ export class ZyfraDropdownWithContentService {
 
     return dimensions;
   }
-
 
   private getViewport(): Dimensions {
     const win = this.document.defaultView,

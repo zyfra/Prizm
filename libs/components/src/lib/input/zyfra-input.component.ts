@@ -38,7 +38,7 @@ export class ZyfraInputComponent extends WrappedFormComponent implements Control
     return !!this.ngControl.control.validator({} as AbstractControl)?.required
   }
 
-  override setDisabledState(isDisabled: boolean): void {
+  public override setDisabledState(isDisabled: boolean): void {
     // do nothing
   }
 }

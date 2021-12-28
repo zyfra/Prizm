@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { getProductsSmall, Product } from '../data';
 
-const Template: Story<ZyfraTableComponent> = (args) => ({
+const Template: Story<ZyfraTableComponent> = args => ({
   template: `
     <zyfra-table
       [title]="title"
@@ -73,9 +73,9 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
     statuses: [
       { label: 'In Stock', value: 'INSTOCK' },
       { label: 'Low Stock', value: 'LOWSTOCK' },
-      { label: 'Out of Stock', value: 'OUTOFSTOCK' }
+      { label: 'Out of Stock', value: 'OUTOFSTOCK' },
     ],
-    clonedProducts: {} as { [s: string]: Product; },
+    clonedProducts: {} as { [s: string]: Product },
     onRowEditInit(product: Product): void {
       this.clonedProducts[product.id] = { ...product };
     },

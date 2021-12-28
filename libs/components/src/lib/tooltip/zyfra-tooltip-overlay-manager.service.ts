@@ -30,6 +30,7 @@ export class ZyfraTooltipOverlayManager {
     return this.innerContainer;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   public create(): void {}
 
   public append(element: HTMLElement): void {

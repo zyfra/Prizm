@@ -30,21 +30,21 @@ export class ZyfraButtonComponent {
   @Output() onBlur = new EventEmitter<FocusEvent>();
 
   // останавливаю всплытие клика (именно так. через HostListener не работает)
-  nativeClick(event: Event): void {
+  public nativeClick(event: Event): void {
     if (this.disabled) {
       event.stopPropagation();
     }
   }
 
-  click(event: PointerEvent): void {
+  public click(event: PointerEvent): void {
     this.onClick.emit(event);
   }
 
-  focus(event: FocusEvent): void {
+  public focus(event: FocusEvent): void {
     this.onFocus.emit(event);
   }
 
-  blur(event: FocusEvent): void {
+  public blur(event: FocusEvent): void {
     this.onBlur.emit(event);
   }
 }
