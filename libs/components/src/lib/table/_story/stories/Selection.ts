@@ -2,6 +2,7 @@ import { Story } from '@storybook/angular/types-6-0';
 import { action } from '@storybook/addon-actions';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { getProducts } from '../data';
+import { consoleLogAction } from '../../../../../.storybook/helpers';
 
 const actions = {
   rowSelect: action('rowSelect'),
@@ -52,11 +53,10 @@ const SelectionTemplate: Story<ZyfraTableComponent> = (args) => ({
       </ng-template>
     </zyfra-table>
   `,
-  component: ZyfraTableComponent,
   props: {
     ...args,
-    selectionChange: actions.selectionChange,
-    headerCheckboxToggle: actions.headerCheckboxToggle,
+    selectionChange: consoleLogAction('selectionChange'),
+    headerCheckboxToggle: consoleLogAction('headerCheckboxToggle'),
     rowUnselect: event => actions.rowUnselect({ data: event.data, ...event }),
     rowSelect: (event) => actions.rowSelect({ data: event.data, ...event }),
   },

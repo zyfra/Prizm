@@ -2,6 +2,7 @@ import { Story } from '@storybook/angular/types-6-0';
 import { action } from '@storybook/addon-actions';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { getCustomers } from '../data';
+import { consoleLogAction } from '../../../../../.storybook/helpers';
 
 const Template: Story<ZyfraTableComponent> = (args) => ({
   template: `
@@ -22,7 +23,7 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
       [globalFilterFields]="globalFilterFields"
       (page)="page($event)"
       (onFilter)="onFilter($event)"
-      (sort)="sort($event)"
+      (onSort)="onSort($event)"
     >
       <ng-template zyfraTableTemplate="header">
         <tr>
@@ -163,20 +164,18 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
       </ng-template>
     </zyfra-table>
   `,
-  component: ZyfraTableComponent,
   props: {
     ...args,
-    page: action('page'),
-    onFilter: action('onFilter'),
+    page: consoleLogAction('page'),
+    onFilter: consoleLogAction('onFilter'),
     valueChange: action('valueChange'),
-    sort: action('sort'),
+    onSort: consoleLogAction('onSort'),
   },
 });
 
 export const FilterSortSearch = Template.bind({});
 
 FilterSortSearch.args = {
-  // @ts-ignore
   value: getCustomers(),
   responsiveLayout: 'scroll',
   title: 'Таблица с фильтрацией, сортировкой и поиском по столбцам (lazy mode)',

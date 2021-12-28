@@ -1,15 +1,15 @@
 import { Story } from '@storybook/angular/types-6-0';
-import { action } from '@storybook/addon-actions';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { getProducts } from '../data';
+import { consoleLogAction } from '../../../../../.storybook/helpers';
 
 const Template: Story<ZyfraTableComponent> = (args) => ({
   template: `
     <zyfra-table
       [title]="title"
       [value]="value"
-      [sortMode]="sortMode"
-      (sort)="sort($event)"
+      [sortMode]="'multiple'"
+      (onSort)="onSort($event)"
     >
       <ng-template zyfraTableTemplate="header">
         <tr>
@@ -32,17 +32,11 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
       </ng-template>
     </zyfra-table>
   `,
-  component: ZyfraTableComponent,
   props: {
-    ...args,
-    sort: action('sort'),
+    title: 'Сортировка по нескольким столбцам (с зажатым ctrl)',
+    value: getProducts(),
+    onSort: consoleLogAction('onSort'),
   },
 });
 
 export const SortMultiple = Template.bind({});
-
-SortMultiple.args = {
-  title: 'Сортировка по нескольким столбцам (с зажатым ctrl)',
-  value: getProducts(),
-  sortMode: 'multiple',
-};
