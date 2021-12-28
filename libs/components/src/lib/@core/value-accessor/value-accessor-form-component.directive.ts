@@ -2,7 +2,7 @@ import { AfterViewInit, Directive, Provider, Type, ViewChild } from '@angular/co
 import { ControlValueAccessor, DefaultValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { AccessorImplClass } from './accessor-impl.class';
 
-export function provideValueAccessor(type: Type<any>): Provider {
+export function provideValueAccessor(type: Type<unknown>): Provider {
   return {
     provide: NG_VALUE_ACCESSOR,
     useExisting: type,
@@ -17,7 +17,7 @@ export abstract class ValueAccessorFormComponent
 {
   @ViewChild(DefaultValueAccessor) private valueAccessor: DefaultValueAccessor;
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.valueAccessor.writeValue(this.accessorValue);
     this.valueAccessor.registerOnChange(this.accessorOnChangeFn);
     this.valueAccessor.registerOnTouched(this.accessorOnTouchedFn);
@@ -27,13 +27,13 @@ export abstract class ValueAccessorFormComponent
     this.valueAccessor.onTouched = this.accessorOnTouchedFn;
   }
 
-  override writeValue(obj: any): void {
+  public override writeValue(obj: unknown): void {
     super.writeValue(obj);
 
     this.valueAccessor?.writeValue(obj);
   }
 
-  override setDisabledState(isDisabled: boolean) {
+  public override setDisabledState(isDisabled: boolean): void {
     super.setDisabledState(isDisabled);
     this.valueAccessor?.setDisabledState(isDisabled);
   }

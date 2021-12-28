@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { getProducts } from '../data';
 
-const Template: Story<ZyfraTableComponent> = (args) => ({
+const Template: Story<ZyfraTableComponent> = args => ({
   template: `
     <zyfra-table
       [title]="title"

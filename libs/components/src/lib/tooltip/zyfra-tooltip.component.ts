@@ -40,7 +40,8 @@ export class ZyfraTooltipComponent {
   @Output() close: EventEmitter<boolean> = new EventEmitter();
 
   private _options: ZyfraTooltipOptionsModel;
-  @HostListener('animationend', ['$event']) animationend(event: AnimationEvent): void {
+  @HostListener('animationend', ['$event'])
+  public animationend(event: AnimationEvent): void {
     if (event.animationName === 'tooltipOut') {
       this.close.emit(true);
     }

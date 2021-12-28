@@ -10,11 +10,11 @@ export class ZyfraDropdownTemplateDirective {
 
   constructor(public templateRef: TemplateRef<any>) {}
 
-  get template() {
+  get template(): TemplateRef<any> {
     return this.templateRef;
   }
 
-  public getType() {
+  public getType(): DropdownTemplateType {
     return this.zyfraDropdownTemplate;
   }
 }

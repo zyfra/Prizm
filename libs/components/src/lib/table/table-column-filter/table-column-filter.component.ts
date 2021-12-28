@@ -19,7 +19,7 @@ import { ZyfraTableTemplateDirective } from '../directives/table-template.direct
   providers: [
     {
       provide: Table,
-      useFactory: (zyfraTable: ZyfraTableComponent) => zyfraTable.table,
+      useFactory: (zyfraTable: ZyfraTableComponent): Table => zyfraTable.table,
       deps: [ZyfraTableComponent]
     }
   ],

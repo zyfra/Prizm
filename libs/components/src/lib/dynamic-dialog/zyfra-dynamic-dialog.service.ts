@@ -1,10 +1,24 @@
-import { ApplicationRef, ComponentFactoryResolver, ComponentRef, EmbeddedViewRef, Injectable, Injector, Type } from '@angular/core';
-import { DynamicDialogComponent, DynamicDialogConfig, DynamicDialogInjector, DynamicDialogRef } from 'primeng/dynamicdialog';
+import {
+  ApplicationRef,
+  ComponentFactoryResolver,
+  ComponentRef,
+  EmbeddedViewRef,
+  Injectable,
+  Injector,
+  Type,
+} from '@angular/core';
+import {
+  DynamicDialogComponent,
+  DynamicDialogConfig,
+  DynamicDialogInjector,
+  DynamicDialogRef,
+} from 'primeng/dynamicdialog';
 import { ZyfraDynamicDialogRef } from '.';
 import { ZyfraDynamicDialogConfig } from './zyfra-dynamic-dialog-config';
 
 @Injectable()
-export class ZyfraDynamicDialogService { // TODO: check why it's not exported from the module
+export class ZyfraDynamicDialogService {
+  // TODO: check why it's not exported from the module
 
   public dialogComponentRefMap: Map<DynamicDialogRef, ComponentRef<DynamicDialogComponent>> = new Map();
   public config: ZyfraDynamicDialogConfig;
@@ -13,7 +27,8 @@ export class ZyfraDynamicDialogService { // TODO: check why it's not exported fr
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
     private appRef: ApplicationRef,
-    private injector: Injector) { }
+    private injector: Injector
+  ) {}
 
   public open(componentType: Type<unknown>, config: ZyfraDynamicDialogConfig): ZyfraDynamicDialogRef {
     const dialogRef = this.appendDialogComponentToBody(config);

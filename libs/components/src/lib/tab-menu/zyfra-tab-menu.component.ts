@@ -98,7 +98,7 @@ export class ZyfraTabMenuComponent implements AfterViewInit, AfterViewChecked, O
     if (this.currentMenu && this.currentMenu !== menu) {
       this.currentMenu.hide();
     }
-    const toggleMenu = () => {
+    const toggleMenu = (): void => {
       menu.toggle({ currentTarget });
       this.currentMenu = menu;
       this.currentMenuIndex = index;
@@ -114,7 +114,7 @@ export class ZyfraTabMenuComponent implements AfterViewInit, AfterViewChecked, O
     event.preventDefault();
   }
 
-  initOutsideClickListener(menu): void {
+  public initOutsideClickListener(menu): void {
     this.stopOutsideClickListener$.next();
     fromEvent(this.document, 'click')
       .pipe(takeUntil(this.stopOutsideClickListener$))
@@ -200,7 +200,7 @@ export class ZyfraTabMenuComponent implements AfterViewInit, AfterViewChecked, O
     const config = {
       childList: true,
     };
-    const callback = (mutations: MutationRecord[]) => {
+    const callback = (mutations: MutationRecord[]): void => {
       mutations.forEach(() => {
         this.openedItem = this.subMenuContainer.nativeElement.hasChildNodes()
           ? this.model[this.currentMenuIndex]

@@ -19,7 +19,7 @@ export class ZyfraNavMenuItemComponent {
 
   @Output() itemClick: EventEmitter<ZyfraMenuItem> = new EventEmitter();
 
-  itemClickHandler(event: MouseEvent, item: ZyfraMenuItem): void {
+  public itemClickHandler(event: MouseEvent, item: ZyfraMenuItem): void {
     if (item.disabled) {
       event.preventDefault();
       return;
@@ -36,7 +36,7 @@ export class ZyfraNavMenuItemComponent {
     this.itemClick.emit(item);
   }
 
-  onItemKeyDown(event): void {
+  public onItemKeyDown(event): void {
     const listItem = event.currentTarget.parentElement;
     switch (event.code) {
       case 'Space':

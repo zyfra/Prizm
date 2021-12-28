@@ -91,14 +91,13 @@ export class ZyfraSplitterComponent implements AfterContentInit {
 
   panels = [];
 
-  // tslint:disable-next-line: typedef
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     this.templates.forEach((item) => {
       this.panels.push(item.template);
     });
   }
 
-  onResizeStartHandler(event) {
+  public onResizeStartHandler(event): void {
     this.onResizeStart.emit(event);
   }
 }

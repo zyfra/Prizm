@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { getProductsSmall } from '../data';
 
-const Template: Story<ZyfraTableComponent> = (args) => ({
+const Template: Story<ZyfraTableComponent> = args => ({
   template: `
     <zyfra-table
       [title]="title"
@@ -46,7 +46,7 @@ Reorder.args = {
     { field: 'code', header: 'Code' },
     { field: 'name', header: 'Name' },
     { field: 'category', header: 'Category' },
-    { field: 'quantity', header: 'Quantity' }
+    { field: 'quantity', header: 'Quantity' },
   ],
-  reorderableColumns: true
+  reorderableColumns: true,
 };

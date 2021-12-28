@@ -6,13 +6,15 @@ import {
   Input,
   Output,
   QueryList,
-  TemplateRef
+  TemplateRef,
 } from '@angular/core';
 import { ZyfraTableTemplateDirective } from '../directives/table-template.directive';
 
+// eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
 @Component({
   selector: 'zyfra-cell-editor',
   templateUrl: './cell-editor.component.html',
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraCellEditorComponent implements AfterContentInit {
   @ContentChildren(ZyfraTableTemplateDirective) templates: QueryList<ZyfraTableTemplateDirective>;
@@ -22,12 +24,12 @@ export class ZyfraCellEditorComponent implements AfterContentInit {
 
   inputTemplate: TemplateRef<unknown>;
 
-  stopPropagation(event: MouseEvent): void {
+  public stopPropagation(event: MouseEvent): void {
     event.stopPropagation();
   }
 
   ngAfterContentInit(): void {
-    this.templates.forEach((item) => {
+    this.templates.forEach(item => {
       switch (item.getType()) {
         case 'input':
           this.inputTemplate = item.template;

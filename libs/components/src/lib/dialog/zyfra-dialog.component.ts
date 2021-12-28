@@ -1,10 +1,11 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'zyfra-dialog',
   templateUrl: './zyfra-dialog.component.html',
   styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraDialogComponent {
   @Input() htmlTemplate: SafeHtml;
@@ -42,51 +43,40 @@ export class ZyfraDialogComponent {
   @Input() minimizeIcon: string = 'zyfra-icon arrows-collapse';
   @Input() maximizeIcon: string = 'zyfra-icon arrows-expand';
 
-  /* onHide */
   @Output() onHide: EventEmitter<any> = new EventEmitter();
+  @Output() onShow: EventEmitter<any> = new EventEmitter();
+  @Output() onResizeInit: EventEmitter<any> = new EventEmitter();
+  @Output() onResizeEnd: EventEmitter<any> = new EventEmitter();
+  @Output() onDragEnd: EventEmitter<any> = new EventEmitter();
+  @Output() onMaximize: EventEmitter<any> = new EventEmitter();
 
-  onHideHandler(event) {
+  public onHideHandler(event: unknown): void {
     this.visible = false;
     this.onHide.emit(this.visible);
   }
 
-  /* onShow */
-  @Output() onShow: EventEmitter<any> = new EventEmitter();
-
-  onShowHandler(event) {
+  public onShowHandler(event: unknown): void {
     this.visible = true;
     this.onShow.emit(this.visible);
   }
 
-  /* onResizeInit */
-  @Output() onResizeInit: EventEmitter<any> = new EventEmitter();
-
-  onResizeInitHandler(event) {
+  public onResizeInitHandler(event: unknown): void {
     this.onResizeInit.emit(event);
   }
 
-  /* onResizeEnd */
-  @Output() onResizeEnd: EventEmitter<any> = new EventEmitter();
-
-  onResizeEndHandler(event) {
+  public onResizeEndHandler(event: unknown): void {
     this.onResizeEnd.emit(event);
   }
 
-  /* onDragEnd */
-  @Output() onDragEnd: EventEmitter<any> = new EventEmitter();
-
-  onDragEndHandler(event) {
+  public onDragEndHandler(event: unknown): void {
     this.onDragEnd.emit(event);
   }
 
-  /* onMaximize */
-  @Output() onMaximize: EventEmitter<any> = new EventEmitter();
-
-  onInit() {
+  public onInit(): void {
     this.visible = true;
   }
 
-  onMaximizeHandler(event) {
+  public onMaximizeHandler(event: unknown): void {
     this.onMaximize.emit(event);
   }
 }

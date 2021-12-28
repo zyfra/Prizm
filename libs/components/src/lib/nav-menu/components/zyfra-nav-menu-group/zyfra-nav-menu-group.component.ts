@@ -153,17 +153,17 @@ export class ZyfraNavMenuGroupComponent implements OnInit, AfterViewInit, OnDest
     this.destroyed$.complete();
   }
 
-  selectionChangeHandler(selection: TreeNode | TreeNode[]): void {
+  public selectionChangeHandler(selection: TreeNode | TreeNode[]): void {
     this.selectionChange.emit(selection);
   };
 
-  nodeCollapseHandler(node: TreeNode): void {
+  public nodeCollapseHandler(node: TreeNode): void {
     this.nodeCollapse.emit(node);
     this.currentFolder = node.parent;
     this.updateIfHasActiveChild(node);
   }
 
-  nodeExpandHandler(node: TreeNode): void {
+  public nodeExpandHandler(node: TreeNode): void {
     if (node === this.activeRootNode) {
       this.changeActiveParent();
     }
@@ -171,7 +171,7 @@ export class ZyfraNavMenuGroupComponent implements OnInit, AfterViewInit, OnDest
     this.nodeExpand.emit(node);
   }
 
-  setActiveNode(node: TreeNode): void {
+  public setActiveNode(node: TreeNode): void {
     this.resetActiveParent();
     if (this.selectionMode === 'single') {
       this.tree.selection = node;
@@ -192,7 +192,7 @@ export class ZyfraNavMenuGroupComponent implements OnInit, AfterViewInit, OnDest
     this.activeItemChange.emit(node);
   }
 
-  toLevelUp(): void {
+  public toLevelUp(): void {
     this.currentFolder.expanded = false;
     this.nodeCollapseHandler(this.currentFolder);
     this.currentFolder = this.folderPath.pop();
@@ -200,14 +200,14 @@ export class ZyfraNavMenuGroupComponent implements OnInit, AfterViewInit, OnDest
     this.cdr.markForCheck();
   }
 
-  toTop(): void {
+  public toTop(): void {
     this.collapseBranchFrom(this.currentFolder);
     this.currentFolder = null;
     this.viewNodes = this.nodes;
     this.cdr.markForCheck();
   }
 
-  closeAll(): void {
+  public closeAll(): void {
     if (this.viewMode === 'folder') {
       this.toTop();
     } else {
@@ -216,7 +216,7 @@ export class ZyfraNavMenuGroupComponent implements OnInit, AfterViewInit, OnDest
     this.currentFolder = null;
   }
 
-  changeViewMode(triggeredMode: ViewMode): void {
+  public changeViewMode(triggeredMode: ViewMode): void {
     if (this.viewMode === 'rubricator') {
       this.currentFolder = null;
     }
@@ -226,16 +226,16 @@ export class ZyfraNavMenuGroupComponent implements OnInit, AfterViewInit, OnDest
     this.updateViewNodes(this.viewMode);
   }
 
-  toggleSearch(): void {
+  public toggleSearch(): void {
     this.changeSearchValue('');
     this.search = !this.search;
   }
 
-  changeSearchValue(searchString: string): void {
+  public changeSearchValue(searchString: string): void {
     this.tree._filter(searchString);
   }
 
-  clearSearchField(field: HTMLInputElement): void {
+  public clearSearchField(field: HTMLInputElement): void {
     field.value = '';
     this.changeSearchValue('');
     field.focus();

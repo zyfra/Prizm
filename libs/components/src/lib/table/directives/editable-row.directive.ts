@@ -6,6 +6,6 @@ import { EditableRow } from 'primeng/table';
   providers: [{ provide: EditableRow, useExisting: ZyfraEditableRowDirective }]
 })
 export class ZyfraEditableRowDirective extends EditableRow {
-  @Input('zyfraEditableRow') data: any;
-  @Input('zyfraEditableRowDisabled') pEditableRowDisabled: boolean;
+  @Input('zyfraEditableRow') override data: any;
+  @Input('zyfraEditableRowDisabled') override pEditableRowDisabled: boolean;
 }

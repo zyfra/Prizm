@@ -10,7 +10,7 @@ export * from './lib/datepicker';
 export * from './lib/dropdown';
 export * from './lib/dropdown-with-content';
 export * from './lib/dialog';
-export * from './lib/dynamic-dialog'
+export * from './lib/dynamic-dialog';
 export * from './lib/tooltip';
 export * from './lib/icon';
 export * from './lib/input';

@@ -22,7 +22,7 @@ export class ZyfraTableCheckboxComponent {
     @Optional() private zyfraSelectableRow: ZyfraSelectableRowDirective
   ) {}
 
-  onClick(event: Event): void {
+  public onClick(event: Event): void {
     if (this.zyfraSelectableRow) {
       event.stopPropagation();
     }

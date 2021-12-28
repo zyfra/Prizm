@@ -23,7 +23,7 @@ import { ButtonModule } from 'primeng/button';
     ZyfraRelativeDatepickerComponent,
     ZyfraDatepickerModeSelectComponent,
     ZyfraDatepickerMultiComponent,
-    ZyfraCalendarComponent
+    ZyfraCalendarComponent,
   ],
   imports: [
     CommonModule,
@@ -38,7 +38,7 @@ import { ButtonModule } from 'primeng/button';
     ListboxModule,
     RippleModule,
     SharedModule,
-    ButtonModule
+    ButtonModule,
   ],
   exports: [ZyfraDatepickerComponent, ZyfraRelativeDatepickerComponent, ZyfraDatepickerModeSelectComponent],
 })

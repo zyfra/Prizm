@@ -3,7 +3,7 @@ import { getProducts } from '../data';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { consoleLogAction } from '../../../../../.storybook/helpers';
 
-const Template: Story<ZyfraTableComponent> = (args) => ({
+const Template: Story<ZyfraTableComponent> = args => ({
   template: `
     <zyfra-button label="Reset sort" (onClick)="table.resetSort()"></zyfra-button>
 
@@ -39,7 +39,7 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
   props: {
     value: [...getProducts()],
     title: 'Сортировка по одному столбцу',
-    onSort: consoleLogAction('onSort')
+    onSort: consoleLogAction('onSort'),
   },
 });
 

@@ -24,7 +24,32 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
-      "rules": {}
+      "rules": {
+        "no-unused-vars": "off",
+        "no-duplicate-imports": "error",
+        "@typescript-eslint/member-ordering": ["warn"],
+        "@typescript-eslint/no-explicit-any": ["warn", {
+          "fixToUnknown": true
+        }],
+        "@typescript-eslint/explicit-function-return-type": ["error"],
+        "@typescript-eslint/explicit-member-accessibility": ["error", {
+          "accessibility": "off",
+          "overrides": {
+            "methods": "explicit"
+          },
+          "ignoredMethodNames": [
+            "ngOnChanges",
+            "ngOnInit",
+            "ngDoCheck",
+            "ngAfterContentInit",
+            "ngAfterContentChecked",
+            "ngAfterViewInit",
+            "ngAfterViewChecked",
+            "ngOnDestroy"
+          ]
+        }],
+        "@typescript-eslint/no-unused-vars": ["warn"]
+      }
     },
     {
       "files": ["*.js", "*.jsx"],

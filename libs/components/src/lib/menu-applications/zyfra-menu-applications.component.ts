@@ -101,16 +101,16 @@ export class ZyfraMenuApplicationsComponent implements AfterViewInit, OnDestroy 
   }
 
   @HostListener('mouseenter')
-  onMouseEnterHandler(): void {
+  public onMouseEnterHandler(): void {
     this.open(true);
   }
 
   @HostListener('mouseleave')
-  onMouseOutHandler(): void {
+  public onMouseOutHandler(): void {
     this.close(true);
   }
 
-  toggle(withDelay = false): void {
+  public toggle(withDelay = false): void {
     if (withDelay) {
       this.toggleWithDelay();
     } else {
@@ -128,7 +128,7 @@ export class ZyfraMenuApplicationsComponent implements AfterViewInit, OnDestroy 
     this.isOpen = !this.isOpen;
   }
 
-  open(withDelay = false): void {
+  public open(withDelay = false): void {
     if (withDelay) {
       this.openWithDelay();
     } else {
@@ -148,7 +148,7 @@ export class ZyfraMenuApplicationsComponent implements AfterViewInit, OnDestroy 
     }
   }
 
-  close(withDelay = false): void {
+  public close(withDelay = false): void {
     if (withDelay) {
       this.closeWithDelay();
     } else {
@@ -168,7 +168,7 @@ export class ZyfraMenuApplicationsComponent implements AfterViewInit, OnDestroy 
     }
   }
 
-  selectItemHandler(item: ZyfraMenuAppItem): void {
+  public selectItemHandler(item: ZyfraMenuAppItem): void {
     this.selectItem.emit(item);
   }
 

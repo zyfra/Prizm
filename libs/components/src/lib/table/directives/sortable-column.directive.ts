@@ -7,14 +7,14 @@ import { ZyfraTableComponent } from '../zyfra-table.component';
   selector: '[zyfraSortableColumn]',
 })
 export class ZyfraSortableColumnDirective extends SortableColumn {
-  @Input('zyfraSortableColumn') field: string;
-  @Input('zyfraSortableColumnDisabled') pSortableColumnDisabled: boolean;
+  @Input('zyfraSortableColumn') override field: string;
+  @Input('zyfraSortableColumnDisabled') override pSortableColumnDisabled: boolean;
 
   constructor(private zyfraTable: ZyfraTableComponent) {
     super(zyfraTable.table);
   }
 
-  onClick(event: MouseEvent): void {
+  public override onClick(event: MouseEvent): void {
     onSortColumnClick.call(this, event);
   }
 

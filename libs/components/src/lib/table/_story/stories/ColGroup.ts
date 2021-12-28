@@ -2,7 +2,7 @@ import { Story } from '@storybook/angular/types-6-0';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { getSalesSmall } from '../data';
 
-const Template: Story<ZyfraTableComponent> = (args) => ({
+const Template: Story<ZyfraTableComponent> = args => ({
   template: `
     <zyfra-table [value]="value" [responsiveLayout]="responsiveLayout" [title]="title">
       <ng-template zyfraTableTemplate="header">
@@ -43,8 +43,8 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
   `,
   props: {
     ...args,
-    lastYearTotal: 3_283_772.00,
-    thisYearTotal: 1_541_925.00,
+    lastYearTotal: 3_283_772.0,
+    thisYearTotal: 1_541_925.0,
   },
 });
 
@@ -53,5 +53,5 @@ export const ColGroup = Template.bind({});
 ColGroup.args = {
   value: getSalesSmall(),
   responsiveLayout: 'scroll',
-  title: 'Группировка колонок'
+  title: 'Группировка колонок',
 };

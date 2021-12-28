@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
 
 @Component({
   selector: 'zyfra-textarea',
   templateUrl: './zyfra-textarea.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ZyfraTextareaComponent extends WrappedFormComponent implements ControlValueAccessor {
   @Input() rows: number;
@@ -22,7 +23,7 @@ export class ZyfraTextareaComponent extends WrappedFormComponent implements Cont
 
   @Output() onResize = new EventEmitter<unknown>();
 
-  override setDisabledState() {
+  public override setDisabledState(): void {
     // do nothing
   }
 }

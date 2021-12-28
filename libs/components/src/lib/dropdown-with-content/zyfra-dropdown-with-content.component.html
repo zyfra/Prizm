@@ -2,15 +2,16 @@
   class="zyfra-dropdown-with-content"
   [class.zyfra-dropdown-with-content_mini]="mini"
   [class.zyfra-dropdown-with-content_disabled]="disabled"
-  [class.p-float-label]="label"  
+  [class.p-float-label]="label"
   [style]="style"
-> 
+>
   <div class="zyfra-dropdown-with-content__left">
     <label
       *ngIf="label"
       [class.label-required]="required"
       [class.label-top]="isOpen || dropdown.focused || dropdown.filled"
-    >{{ label }}</label>
+      >{{ label }}</label
+    >
     <ng-content select="[left]"></ng-content>
   </div>
 

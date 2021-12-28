@@ -17,7 +17,7 @@ import { MAIN_MODULES } from '../consts';
 import { Schema } from '../schema';
 
 export function addInstallMainModules(options: Schema): Rule {
-  return async (tree: Tree, context: SchematicContext) => {
+  return async (tree: Tree, context: SchematicContext): Promise<void> => {
     const workspace = await getWorkspace(tree);
     const project = getProject(options, workspace);
     const buildOptions = getProjectTargetOptions(project, 'build');
@@ -32,7 +32,7 @@ export function addInstallMainModules(options: Schema): Rule {
   };
 }
 
-function addModules(mainModule: ClassDeclaration, options: Schema, context: SchematicContext) {
+function addModules(mainModule: ClassDeclaration, options: Schema, context: SchematicContext): void {
   const modules = [...MAIN_MODULES];
 
   const mainModulePath = mainModule.getSourceFile().getFilePath();
@@ -48,7 +48,7 @@ function addModules(mainModule: ClassDeclaration, options: Schema, context: Sche
 /**
  * Add unique import by path
  */
-function addUniqueImport(filePath: string, namedImport: string, packageName: string) {
+function addUniqueImport(filePath: string, namedImport: string, packageName: string): void {
     const existingNamedImport = getImports(filePath, {
         namedImports: namedImport,
         moduleSpecifier: packageName,

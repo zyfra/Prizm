@@ -5,7 +5,7 @@ import { TTReorderableColumn } from 'primeng/treetable';
   selector: '[zyfraTTReorderableColumn]',
 })
 export class ZyfraTreeTableReorderableColumnDirective extends TTReorderableColumn {
-  @Input('zyfraTTReorderableColumnDisabled') ttReorderableColumnDisabled: boolean;
+  @Input('zyfraTTReorderableColumnDisabled') override ttReorderableColumnDisabled: boolean;
 
   @HostBinding('attr.ttreorderablecolumn') reorderableTTColumnAttribute = true;
 }

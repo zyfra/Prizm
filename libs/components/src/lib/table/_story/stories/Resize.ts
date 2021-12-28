@@ -3,7 +3,7 @@ import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { getProducts } from '../data';
 import { consoleLogAction } from '../../../../../.storybook/helpers';
 
-const Template: Story<ZyfraTableComponent> = (args) => ({
+const Template: Story<ZyfraTableComponent> = args => ({
   template: `
     <zyfra-table
       [title]="title"
@@ -31,7 +31,7 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
   `,
   props: {
     ...args,
-    colResize: consoleLogAction('colResize')
+    colResize: consoleLogAction('colResize'),
   },
 });
 

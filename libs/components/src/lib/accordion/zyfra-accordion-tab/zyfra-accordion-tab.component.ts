@@ -39,14 +39,14 @@ export class ZyfraAccordionTabComponent implements AfterContentInit, AfterViewIn
   /** Defines if the tab is active */
   @Input() selected: boolean;
   /** tab activeness */
-  @Output() selectedChange: EventEmitter<any> = new EventEmitter();
+  @Output() selectedChange: EventEmitter<unknown> = new EventEmitter();
 
   @ContentChildren(ZyfraTemplateDirective) templates: QueryList<ZyfraTemplateDirective>;
   @ViewChild(AccordionTab) tab: AccordionTab;
 
-  headerFacet: TemplateRef<any>;
-  contentFacet: TemplateRef<any>;
-  iconsFacet: TemplateRef<any>;
+  headerFacet: TemplateRef<unknown>;
+  contentFacet: TemplateRef<unknown>;
+  iconsFacet: TemplateRef<unknown>;
 
   constructor(private cd: ChangeDetectorRef) {}
 
