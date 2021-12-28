@@ -1,6 +1,6 @@
 {
   "name": "@digital-plant/zyfra-ui",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "schematics": "./src/collection.json",
   "dependencies": {
     "@angular-devkit/schematics": "^12.2.0",
