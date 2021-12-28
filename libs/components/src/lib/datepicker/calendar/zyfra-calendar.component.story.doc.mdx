@@ -1,0 +1,147 @@
+import { Meta, Story, Canvas, ArgsTable, ColorPalette, ColorItem, Preview, Typeset, Title, Subtitle, Description, } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+import { ZyfraCalendarComponent } from './zyfra-calendar.component';
+
+## Zyfra - Calendar
+
+<Subtitle>Calendar is an input component to select a date.</Subtitle>
+
+
+Import module:
+
+```typescript
+import { ZyfraDatepickerModule } from '@digital-plant/zyfra-components';
+
+@NgModule({
+  imports: [ZyfraDatepickerModule],
+})
+export class YourModule {}
+```
+
+To component:
+
+```html
+<zyfra-calendar
+  [defaultDate]="defaultDate"
+  [selectionMode]="selectionMode"
+  [style]="style"
+  [styleClass]="styleClass"
+  [inputStyle]="inputStyle"
+  [inputStyleClass]="inputStyleClass"
+  [inputId]="inputId"
+  [name]="name"
+  [placeholder]="placeholder"
+  [disabled]="false"
+  [dateFormat]="'dd.mm.yy'"
+  [inline]="false"
+  [showOtherMonths]="true"
+  [selectOtherMonths]="false"
+  [showIcon]="false"
+  [showOnFocus]="true"
+  [showWeek]="false"
+  [icon]=""
+  [appendTo]="appendTo"
+  [readonlyInput]="readonlyInput"
+  [shortYearCutoff]="shortYearCutoff"
+  [minDate]="minDate"
+  [maxDate]="maxDate"
+  [disabledDates]="disabledDates"
+  [disabledDays]="disabledDays"
+  [showTime]="false"
+  [hourFormat]="hourFormat"
+  [timeOnly]="timeOnly"
+  [timeSeparator]="':'"
+  [dataType]="dataType"
+  [required]="false"
+  [tabindex]="tabindex"
+  [ariaLabelledBy]="ariaLabelledBy"
+  [iconAriaLabel]="iconAriaLabel"
+  [showSeconds]="showSeconds"
+  [stepHour]="1"
+  [stepMinute]="1"
+  [stepSecond]="stepSecond"
+  [maxDateCount]="maxDateCount"
+  [showButtonBar]="false"
+  [todayButtonStyleClass]="'p-secondary-button'"
+  [clearButtonStyleClass]="'p-secondary-button'"
+  [baseZIndex]="0"
+  [autoZIndex]="true"
+  [panelStyleClass]="panelStyleClass"
+  [panelStyle]="panelStyle"
+  [keepInvalid]="false"
+  [hideOnDateTimeSelect]="true"
+  [numberOfMonths]="1"
+  [view]="view"
+  [multipleSeparator]="','"
+  [rangeSeparator]="'-'"
+  [touchUI]="false"
+  [focusTrap]="true"
+  [showTransitionOptions]="'.12s cubic-bezier(0, 0, 0.2, 1)'"
+  [hideTransitionOptions]="'.1s linear'"
+  [firstDayOfWeek]="1"
+></zyfra-calendar>
+```
+
+Custom buttons for calendar:
+
+Calendar support ng-content selector: `buttons-right`
+
+Example:
+```ts
+
+/**
+ * This component only for example in storybook
+ */
+@Component({
+  selector: 'zyfra-custom-calendar',
+  template: `
+    <zyfra-calendar [placeholder]="placeholder" [ngModel]="calendarModel" [showTime]="true" [showSeconds]="true"  [label]="label">
+      <div buttons-right>
+        <button class="zyfra-datepicker-control zyfra-datepicker-button" type="button">
+          <zyfra-dropdown
+            [options]="times"
+            [ngModel]="timeModel"
+            [disabled]="disabled"
+            (ngModelChange)="setInputTime($event)"
+            [panelStyleClass]="'zyfra-datepicker-dropdown-overlay'"
+            [styleClass]="'zyfra-datepicker-dropdown'"
+            [dropdownIcon]="'zyfra-icon date-update'"
+            [optionLabel]="'value'"
+          >
+          </zyfra-dropdown>
+        </button>
+      </div>
+    </zyfra-calendar>
+  `
+})
+export class CustomCalendarComponent {
+  @Input() placeholder;
+  @Input() times: ZyfraTime[];
+  @Input() disabled;
+  @Input() label;
+  @Input() selectedTime: string;
+
+  public timeModel: ZyfraTime;
+
+  public calendarModel: string = '12/22/2021 18:00:00';
+
+  public setInputTime(time: ZyfraTime) {
+    this.calendarModel = this.getDate()+' '+time.value;
+  }
+
+  ngOnInit() {
+    this.timeModel = this.times.find(t => t.value === this.selectedTime);
+    this.calendarModel =  this.getDate()+' '+this.timeModel.value;
+  }
+
+
+  private getDate() {
+    return  this.calendarModel.split(' ')[0];
+  }
+
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraCalendarComponent} />

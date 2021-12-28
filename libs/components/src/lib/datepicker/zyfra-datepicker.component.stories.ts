@@ -14,7 +14,7 @@ import DatepickerDoc from './zyfra-datepicker.component.story.doc.mdx';
 
 export default {
   moduleId: module.id,
-  title: 'Datepickers/Datepicker',
+  title: ' _hidden_Datepickers/Datepicker',
   component: ZyfraDatepickerComponent,
   decorators: [
     moduleMetadata({
@@ -128,33 +128,4 @@ AbsoluteMini.args = {
   disabledDates: null,
   disabledDays: null,
   firstDayOfWeek: 1,
-};
-
-export const RangeMode = Template.bind({});
-RangeMode.args = {
-  model: '21.09.2021 - 26.09.2021',
-  dateFormat: 'DD.MM.YYYY',
-  returnFormatValue: 'string',
-  placeholder: 'Выберите дату и время',
-  inputClass: 'p-inputtext-mini',
-  disabled: false,
-  required: true,
-  label: 'Абсолютное',
-  spanClass: null,
-  locale: 'ru_RU',
-  showChangeMode: false,
-  showClear: true,
-  showDate: true,
-  showTime: false,
-  monthNavigator: false,
-  yearNavigator: false,
-  yearRange: null,
-  showCalendarBtn: true,
-  calendarBtnLabel: 'Выбрать',
-  hideOnDateTimeSelect: false,
-  numberOfMonths: 1,
-  selectionMode: 'range',
-  disabledDates: null,
-  disabledDays: null,
-  firstDayOfWeek: 1
 };
