@@ -1,7 +1,7 @@
 import { Story } from '@storybook/angular/types-6-0';
-import { action } from '@storybook/addon-actions';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { getCustomers } from '../data';
+import { consoleLogAction } from '../../../../../.storybook/helpers';
 
 const PaginationTemplate: Story<ZyfraTableComponent> = (args) => ({
   template: `
@@ -35,7 +35,7 @@ const PaginationTemplate: Story<ZyfraTableComponent> = (args) => ({
   `,
   props: {
     ...args,
-    page: action('page'),
+    page: consoleLogAction('page'),
   }
 });
 

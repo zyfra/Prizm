@@ -1,7 +1,7 @@
 import { Story } from '@storybook/angular/types-6-0';
-import { action } from '@storybook/addon-actions';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { getCustomers } from '../data';
+import { consoleLogAction } from '../../../../../.storybook/helpers';
 
 const Template: Story<ZyfraTableComponent> = (args) => ({
   template: `
@@ -124,18 +124,16 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
       </ng-template>
     </zyfra-table>
   `,
-  component: ZyfraTableComponent,
   props: {
     ...args,
-    page: action('page'),
-    onFilter: action('onFilter'),
+    page: consoleLogAction('page'),
+    onFilter: consoleLogAction('onFilter'),
   },
 });
 
 export const Filter = Template.bind({});
 
 Filter.args = {
-  // @ts-ignore
   value: getCustomers(),
   responsiveLayout: 'scroll',
   title: 'Таблица с фильтрацией',
