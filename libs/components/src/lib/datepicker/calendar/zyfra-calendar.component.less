@@ -3,203 +3,203 @@
 
 zyfra-calendar {
     font-family: @icon-font-family;
-}
 
-.p-datepicker {
-    padding: 0;
-
-    &.p-component {
-        background-color: var(--bgStandart);
-        border: none;
-        border-radius: 8px;
-        box-shadow: var(--calendarBoxShadow);
-        display: flex;
-        justify-content: center;
-        width: fit-content;
-        flex-direction: column;
-
-        .p-disabled, .p-component:disabled {
-            color: var(--colorDisabled);
-        }
-    }
-
-    &:not(.p-datepicker-inline) .p-datepicker-header, .p-datepicker-header {
-        background-color: var(--bgStandart);
-        color: var(--calendarHeaderColor);
-        align-items: center;
-        justify-content: space-between;
-        display: flex;
-    }
-
-    .p-datepicker-header {
-        border-top-right-radius: @calendarBorderRadius;
-        border-top-left-radius: @calendarBorderRadius;
-
-        .p-datepicker-title {
-            margin-right: auto;
-            margin-left: 0;
-            font-weight: bold;
-        }
-
-        button.p-datepicker-next.p-link, button.p-datepicker-prev.p-link {
-            color: var(--text);
-        }
-
-        .p-datepicker-prev {
-            order: 1;
-        }
-
-        .p-datepicker-next {
-            order: 2;
-        }
-    }
-
-    table {
-        color: var( --text);
-
-        td  {
-            padding: 0.3rem;
-
-            span {
-                border-radius: @calendarBorderRadius;
-                display: flex;
-                overflow: inherit;
-                justify-content: center;
-                align-items: center;
-
-                &.p-highlight {
-                    color: var(--successColorHover);
-                    background: var(--calendarBgHighlight);
-                }
-            }
-
-            &.p-datepicker-today > span {
-                background: var(--calendarBgToday);
-                color: var(--textColor);
-
-                &.p-highlight {
-                    background: var(--calendarBgHighlight);
-                    color: var(--successColorHover);
-                }
-            }
-        }
-    }
-
-    .p-datepicker-calendar td:nth-last-child(-n + 2):not(.p-datepicker-other-month) {
-        color: var(--weekendDayColor);
-    }
-
-    &:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover {
-        background-color: var(--calendarBgHover);
-    }
-
-    .p-datepicker-buttonbar {
-        border: none;
-        justify-content: space-around;
-        padding-top:  0.615rem;
-        padding-bottom: 1.2rem;
-        box-shadow: 0 -5px 5px -5px rgba(102, 119, 153, 0.16);
-    }
-
-    .p-datepicker-group-container {
-        padding: 0.615rem;
-    }
-
-    .p-timepicker {
-        border: none;
-        box-shadow: 0 -5px 5px -5px rgba(102, 119, 153, 0.16);
-        color: var(--calendarHeaderColor);
-        display: flex;
-        justify-content: center;
-
-        button {
-            color: var(--calendarHeaderColor);
-        }
-
-        .p-hour-picker, .p-minute-picker, .p-separator, .p-second-picker {
+    .p-datepicker {
+        padding: 0;
+    
+        &.p-component {
+            background-color: var(--bgStandart);
+            border: none;
+            border-radius: 8px;
+            box-shadow: var(--calendarBoxShadow);
             display: flex;
-            flex-direction: column;
             justify-content: center;
-
-            button {
-                display: flex; 
-                align-items: center;
-                justify-content: center;
-            }
-
-            span {
-                text-align: center;
+            width: fit-content;
+            flex-direction: column;
+    
+            .p-disabled, .p-component:disabled {
+                color: var(--colorDisabled);
             }
         }
-    }
-
-    &:not(.p-disabled) {
-        .p-monthpicker, .p-yearpicker {
+    
+        &:not(.p-datepicker-inline) .p-datepicker-header, .p-datepicker-header {
+            background-color: var(--bgStandart);
+            color: var(--calendarHeaderColor);
+            align-items: center;
+            justify-content: space-between;
             display: flex;
-            width: 177px;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-
-            .p-monthpicker-month, .p-yearpicker-year  {
+        }
+    
+        .p-datepicker-header {
+            border-top-right-radius: @calendarBorderRadius;
+            border-top-left-radius: @calendarBorderRadius;
+    
+            .p-datepicker-title {
+                margin-right: auto;
+                margin-left: 0;
+                font-weight: bold;
+            }
+    
+            button.p-datepicker-next.p-link, button.p-datepicker-prev.p-link {
                 color: var(--text);
-                border-radius: 3px;
-                padding: 10px;
-
-                &.p-highlight {
-                    background-color: var(--calendarBgToday);
-                    color: var(--textColor)
+            }
+    
+            .p-datepicker-prev {
+                order: 1;
+            }
+    
+            .p-datepicker-next {
+                order: 2;
+            }
+        }
+    
+        table {
+            color: var( --text);
+    
+            td  {
+                padding: 0.3rem;
+    
+                span {
+                    border-radius: @calendarBorderRadius;
+                    display: flex;
+                    overflow: inherit;
+                    justify-content: center;
+                    align-items: center;
+    
+                    &.p-highlight {
+                        color: var(--successColorHover);
+                        background: var(--calendarBgHighlight);
+                    }
                 }
-
-                &:not(.p-highlight):not(.p-disabled):hover {
-                    background: var(--calendarBgHover);
-                    cursor: pointer;
+    
+                &.p-datepicker-today > span {
+                    background: var(--calendarBgToday);
+                    color: var(--textColor);
+    
+                    &.p-highlight {
+                        background: var(--calendarBgHighlight);
+                        color: var(--successColorHover);
+                    }
                 }
-            }    
+            }
+        }
+    
+        .p-datepicker-calendar td:nth-last-child(-n + 2):not(.p-datepicker-other-month) {
+            color: var(--weekendDayColor);
+        }
+    
+        &:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover {
+            background-color: var(--calendarBgHover);
+        }
+    
+        .p-datepicker-buttonbar {
+            border: none;
+            justify-content: space-around;
+            padding-top:  0.615rem;
+            padding-bottom: 1.2rem;
+            box-shadow: 0 -5px 5px -5px rgba(102, 119, 153, 0.16);
+        }
+    
+        .p-datepicker-group-container {
+            padding: 0.615rem;
+        }
+    
+        .p-timepicker {
+            border: none;
+            box-shadow: 0 -5px 5px -5px rgba(102, 119, 153, 0.16);
+            color: var(--calendarHeaderColor);
+            display: flex;
+            justify-content: center;
+    
+            button {
+                color: var(--calendarHeaderColor);
+            }
+    
+            .p-hour-picker, .p-minute-picker, .p-separator, .p-second-picker {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+    
+                button {
+                    display: flex; 
+                    align-items: center;
+                    justify-content: center;
+                }
+    
+                span {
+                    text-align: center;
+                }
+            }
+        }
+    
+        &:not(.p-disabled) {
+            .p-monthpicker, .p-yearpicker {
+                display: flex;
+                width: 177px;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+    
+                .p-monthpicker-month, .p-yearpicker-year  {
+                    color: var(--text);
+                    border-radius: 3px;
+                    padding: 10px;
+    
+                    &.p-highlight {
+                        background-color: var(--calendarBgToday);
+                        color: var(--textColor)
+                    }
+    
+                    &:not(.p-highlight):not(.p-disabled):hover {
+                        background: var(--calendarBgHover);
+                        cursor: pointer;
+                    }
+                }    
+            }
         }
     }
-}
-
-.p-calendar {
-    position: relative;
-
-    .p-button-icon-only {
-        position: absolute;
-        right: 0;
-        border: none;
-        font-family: var(--fontFamily);
-        padding: 1.231rem;
-        font-size: 1.538rem;
-        color: var(--eventer);
-        background: transparent;
-
-        &:enabled:hover, &:enabled:active {
-            box-shadow: none;
+    
+    .p-calendar {
+        position: relative;
+    
+        .p-button-icon-only {
+            position: absolute;
+            right: 0;
+            border: none;
+            font-family: var(--fontFamily);
+            padding: 1.231rem;
+            font-size: 1.538rem;
+            color: var(--eventer);
             background: transparent;
-            color: var(--buttonSuccessHover);
-        }
-    }
-
-    .p-datepicker-buttonbar {
-        display: flex;
-
-        .p-button {
-            background-color: var(--primaryColor);
-            
-            &:hover {
-                background-color: var(--primaryColorHover);
-            }
-
-            &:active {
-                background-color: var(--primaryColorActive);
+    
+            &:enabled:hover, &:enabled:active {
+                box-shadow: none;
+                background: transparent;
+                color: var(--buttonSuccessHover);
             }
         }
-    }
-
-    .p-inputgroup {
-        .zyfra-input.p-float-label {
-            label {
-                top: 50%;
-                transform: translateY(-130%);
+    
+        .p-datepicker-buttonbar {
+            display: flex;
+    
+            .p-button {
+                background-color: var(--primaryColor);
+                
+                &:hover {
+                    background-color: var(--primaryColorHover);
+                }
+    
+                &:active {
+                    background-color: var(--primaryColorActive);
+                }
+            }
+        }
+    
+        .p-inputgroup {
+            .zyfra-input.p-float-label {
+                label {
+                    top: 50%;
+                    transform: translateY(-130%);
+                }
             }
         }
     }
