@@ -1,15 +1,13 @@
 <span
   #container
   [ngClass]="{
-    'p-calendar': true,
-    'zyfra-input': true,
     'p-calendar-w-btn': showIcon,
     'p-calendar-timeonly': timeOnly,
     'p-calendar-disabled': disabled,
     'p-focus': focus
   }"
   [ngStyle]="style"
-  [class]="styleClass"
+  class="{{styleClass}} p-calendar zyfra-input"
 >
   <ng-template [ngIf]="!inline">
     <div class="p-inputgroup" [class.zyfra-input-group_disabled]="disabled">

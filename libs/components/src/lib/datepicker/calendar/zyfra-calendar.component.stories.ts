@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { ZyfraInputModule } from './../../input';
 import { ZyfraDropdownModule } from '../../dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {CalendarModule} from 'primeng/calendar';
+import { CalendarModule } from 'primeng/calendar';
 import { generateTimeArray } from '../utils/generate-time-array';
 import { CustomCalendarComponent} from './story/custom-calendar.component';
 
