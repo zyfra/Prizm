@@ -4,11 +4,13 @@ import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { getCustomers } from '../data';
 import { consoleLogAction } from '../../../../../.storybook/helpers';
 
-const Template: Story<ZyfraTableComponent> = (args) => ({
+const Template: Story<ZyfraTableComponent> = args => ({
   template: `
     <div style="font-family: Inter, sans-serif;">
       <p style="font-size: 16px; font-weight: 600; margin: 0;">Примечание:</p>
-      <p style="font-size: 14px;">Фильтрация колонок и поиск по колонке совместно работают некорректно в режиме локальной фильтрации из-за особенностей реализации таблиц в primeng. Однако фильтрация в режиме lazy load работает корректно, события эмитят все необходимые данные для отправки на backend (см. вкладку "actions")</p>
+      <p style="font-size: 14px;">Фильтрация колонок и поиск по колонке совместно работают некорректно в режиме
+      локальной фильтрации из-за особенностей реализации таблиц в primeng. Однако фильтрация в режиме lazy load работает
+      корректно, события эмитят все необходимые данные для отправки на backend (см. вкладку "actions")</p>
     </div>
 
     <zyfra-table

@@ -1,13 +1,20 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ZyfraTime } from '../../model/zyfra-time.model';
 
 /**
  * This component only for example in storybook
  */
+// eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
 @Component({
   selector: 'zyfra-custom-calendar',
   template: `
-    <zyfra-calendar [placeholder]="placeholder" [ngModel]="calendarModel" [showTime]="true" [showSeconds]="true"  [label]="label">
+    <zyfra-calendar
+      [placeholder]="placeholder"
+      [ngModel]="calendarModel"
+      [showTime]="true"
+      [showSeconds]="true"
+      [label]="label"
+    >
       <div buttons-right>
         <button class="zyfra-datepicker-control zyfra-datepicker-button" type="button">
           <zyfra-dropdown
@@ -24,9 +31,9 @@ import { ZyfraTime } from '../../model/zyfra-time.model';
         </button>
       </div>
     </zyfra-calendar>
-  `
+  `,
 })
-export class CustomCalendarComponent {
+export class CustomCalendarComponent implements OnInit {
   @Input() placeholder;
   @Input() times: ZyfraTime[];
   @Input() disabled;
@@ -37,18 +44,16 @@ export class CustomCalendarComponent {
 
   public calendarModel: string = '12/22/2021 18:00:00';
 
-  public setInputTime(time: ZyfraTime) {
-    this.calendarModel = this.getDate()+' '+time.value;
+  public setInputTime(time: ZyfraTime): void {
+    this.calendarModel = this.getDate() + ' ' + time.value;
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.timeModel = this.times.find(t => t.value === this.selectedTime);
-    this.calendarModel =  this.getDate()+' '+this.timeModel.value;
+    this.calendarModel = this.getDate() + ' ' + this.timeModel.value;
   }
 
-
-  private getDate() {
-    return  this.calendarModel.split(' ')[0];
+  private getDate(): string {
+    return this.calendarModel.split(' ')[0];
   }
-
 }

@@ -24,7 +24,7 @@ import { ZyfraTreeTableTemplateDirective } from './directives/tree-table-templat
     TreeTableService,
     {
       provide: TreeTable,
-      useFactory: (zyfraTable: ZyfraTreeTableComponent) => zyfraTable.table,
+      useFactory: (zyfraTable: ZyfraTreeTableComponent): TreeTable => zyfraTable.table,
       deps: [ZyfraTreeTableComponent],
     },
   ],
@@ -37,10 +37,6 @@ export class ZyfraTreeTableComponent<T = unknown>
   @ContentChildren(ZyfraTreeTableTemplateDirective) templates: QueryList<ZyfraTreeTableTemplateDirective>;
 
   //region Inputs
-  /**
-   * Function to optimize the dom operations by delegating to ngForTrackBy, default algoritm checks for object identity
-   */
-  @Input() rowTrackBy: <K>(index: number, item: K) => K = (index: number, item: any) => item;
   /**
    * An array of FilterMetadata objects to provide external filters
    */
@@ -72,18 +68,22 @@ export class ZyfraTreeTableComponent<T = unknown>
    * Callback to invoke when selection of context menu selection is changed
    */
   @Output() contextMenuSelectionChange = new EventEmitter<unknown>();
-  //endregion
+
+  /**
+   * Function to optimize the dom operations by delegating to ngForTrackBy, default algoritm checks for object identity
+   */
+  @Input() rowTrackBy: <K>(index: number, item: K) => K = (index: number, item: any) => item;
 
   //region Base class overrides
-  override getContentTemplate():QueryList<BaseTableTemplateDirective> {
+  public override getContentTemplate():QueryList<BaseTableTemplateDirective> {
     return this.templates;
   }
 
-  override getTable(): TreeTable {
+  public override getTable(): TreeTable {
     return this.table
   };
 
-  override initTemplateByType(item: BaseTableTemplateDirective) {
+  public override initTemplateByType(item: BaseTableTemplateDirective): void {
     // do nothing
   };
   //endregion

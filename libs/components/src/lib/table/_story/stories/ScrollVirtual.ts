@@ -1,7 +1,7 @@
 import { Story } from '@storybook/angular/types-6-0';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
 
-const Template: Story<ZyfraTableComponent> = (args) => ({
+const Template: Story<ZyfraTableComponent> = args => ({
   template: `
     <zyfra-table
       [title]="title"
@@ -42,7 +42,7 @@ ScrollVirtual.args = {
     { field: 'vin', header: 'Vin' },
     { field: 'year', header: 'Year' },
     { field: 'brand', header: 'Brand' },
-    { field: 'color', header: 'Color' }
+    { field: 'color', header: 'Color' },
   ],
   scrollable: true,
   rows: 100,
@@ -51,7 +51,7 @@ ScrollVirtual.args = {
   virtualRowHeight: 32,
 };
 
-function generateCar(): { vin: string, brand: string, color: string, year: number } {
+function generateCar(): { vin: string; brand: string; color: string; year: number } {
   function generateVin(): string {
     let text = '';
     const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -64,7 +64,18 @@ function generateCar(): { vin: string, brand: string, color: string, year: numbe
   }
 
   function generateBrand(): string {
-    const brands: string[] = ['Vapid', 'Carson', 'Kitano', 'Dabver', 'Ibex', 'Morello', 'Akira', 'Titan', 'Dover', 'Norma'];
+    const brands: string[] = [
+      'Vapid',
+      'Carson',
+      'Kitano',
+      'Dabver',
+      'Ibex',
+      'Morello',
+      'Akira',
+      'Titan',
+      'Dover',
+      'Norma',
+    ];
     return brands[Math.floor(Math.random() * Math.floor(10))];
   }
 
@@ -81,6 +92,6 @@ function generateCar(): { vin: string, brand: string, color: string, year: numbe
     vin: generateVin(),
     brand: generateBrand(),
     color: generateColor(),
-    year: generateYear()
+    year: generateYear(),
   };
 }

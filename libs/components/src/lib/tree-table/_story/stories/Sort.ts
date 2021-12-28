@@ -9,7 +9,7 @@ const actions = {
   onNodeCollapse: action('onNodeCollapse'),
 };
 
-const Template: Story<ZyfraTreeTableComponent> = (args) => ({
+const Template: Story<ZyfraTreeTableComponent> = args => ({
   template: `
     <zyfra-button label="Reset sort" (onClick)="table.resetSort()"></zyfra-button>
 
@@ -45,8 +45,8 @@ const Template: Story<ZyfraTreeTableComponent> = (args) => ({
   props: {
     ...args,
     onSort: consoleLogAction('onSort'),
-    onNodeExpand: event => actions.onNodeExpand({ node: event.node, ...event }),
-    onNodeCollapse: event => actions.onNodeCollapse({ node: event.node, ...event }),
+    onNodeExpand: (event): void => actions.onNodeExpand({ node: event.node, ...event }),
+    onNodeCollapse: (event): void => actions.onNodeCollapse({ node: event.node, ...event }),
   },
 });
 
@@ -58,6 +58,6 @@ Sort.args = {
   columns: [
     { field: 'name', header: 'Name' },
     { field: 'size', header: 'Size' },
-    { field: 'type', header: 'Type' }
+    { field: 'type', header: 'Type' },
   ],
 };

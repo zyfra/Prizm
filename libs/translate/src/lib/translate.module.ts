@@ -16,7 +16,7 @@ export class TranslateModule {
   /**
    * Use this method in your root module to provide the TranslateService
    */
-  static forRoot(): ModuleWithProviders<TranslateModule> {
+  public static forRoot(): ModuleWithProviders<TranslateModule> {
     return {
       ngModule: TranslateModule,
       providers: [

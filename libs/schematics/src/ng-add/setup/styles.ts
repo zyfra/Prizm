@@ -1,7 +1,6 @@
 import { JsonArray, workspaces } from '@angular-devkit/core';
 import { Rule, Tree } from '@angular-devkit/schematics';
-import { updateWorkspace } from '@schematics/angular/utility/workspace';
-import { getWorkspace } from '@schematics/angular/utility/workspace';
+import { getWorkspace, updateWorkspace } from '@schematics/angular/utility/workspace';
 import { getProject, getProjectTargetOptions } from '../../utils/get-project';
 import { Schema } from '../schema';
 
@@ -21,7 +20,7 @@ const INSTALL_STYLES = [
 
 const ICON_STYLES = ['node_modules/@digital-plant/zyfra-components/src/styles/icons/icons.less'];
 export function addStyles(options: Schema): Rule {
-  return async (tree: Tree) => {
+  return async (tree: Tree): Promise<Rule> => {
     const workspace = await getWorkspace(tree);
     const project = getProject(options, workspace);
 

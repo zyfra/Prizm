@@ -27,7 +27,7 @@ export interface ZyfraAccordionOpenClose {
   providers: [
     {
       provide: Accordion,
-      useFactory: (zyfraAccordion: ZyfraAccordionComponent) => zyfraAccordion.accordion,
+      useFactory: (zyfraAccordion: ZyfraAccordionComponent): Accordion => zyfraAccordion.accordion,
       deps: [ZyfraAccordionComponent],
     },
   ],
@@ -69,7 +69,7 @@ export class ZyfraAccordionComponent implements AfterViewInit, OnDestroy, OnInit
     this.reInitTab();
   }
 
-  reInitTab(): void {
+  public reInitTab(): void {
     const primengAccordionTabs = this.tabs.toArray().map((t) => t.tab);
     this.accordion.tabList.reset(primengAccordionTabs);
     this.accordion.tabList.notifyOnChanges();

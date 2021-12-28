@@ -6,7 +6,7 @@ export abstract class ZyfraRowBaseDirective<T> {
   @Input('zyfraRow') data: T;
   @Input('zyfraRowStatus') status: 'primary' | 'error' | 'warning' | 'info' = 'primary';
 
-  constructor(private readonly targetTable: ZyfraBaseTableComponent<T>) {}
+  protected constructor(private readonly targetTable: ZyfraBaseTableComponent<T>) {}
 
   @HostBinding('class')
   get rowStatusClass(): string {
@@ -19,7 +19,7 @@ export abstract class ZyfraRowBaseDirective<T> {
   }
 
   @HostListener('click')
-  onRowClick(): void {
+  public onRowClick(): void {
     this.targetTable.activeElement = this.data;
   }
 }

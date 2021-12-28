@@ -6,12 +6,12 @@ import { EditableColumn } from 'primeng/table';
   providers: [{ provide: EditableColumn, useClass: ZyfraEditableColumnDirective }]
 })
 export class ZyfraEditableColumnDirective extends EditableColumn {
-  onClick(event: MouseEvent): void {
+  public override onClick(event: MouseEvent): void {
     // doing nothing, redefining parent class method
   }
 
   @HostListener('dblclick', ['$event'])
-  onDblClick(event: MouseEvent): void {
+  public onDblClick(event: MouseEvent): void {
     super.onClick(event);
   }
 }

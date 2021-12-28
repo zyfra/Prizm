@@ -30,7 +30,7 @@ export abstract class ZyfraBaseSearchCellComponent {
 
 
   // TODO refactor this, need form control
-  filter(value: any, field: string, matchMode: string): void {
+  public filter(value: any, field: string, matchMode: string): void {
     if (this.isNativeFiltering) {
       this.table.filter(value, field, matchMode);
     } else {

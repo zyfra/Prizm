@@ -22,14 +22,14 @@ export default {
         CommonModule,
         ZyfraTableModule,
         ZyfraButtonModule,
-      ]
+      ],
     }),
   ],
   parameters: {
     docs: {
       page: require('./zyfra-table.story.doc.mdx'),
-    }
-  }
+    },
+  },
 } as Meta;
 
 export * from './stories/Basic';

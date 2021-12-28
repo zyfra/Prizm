@@ -79,36 +79,56 @@
   (contextMenuSelectionChange)="contextMenuSelectionChange.emit($event)"
 >
   <ng-template pTemplate="caption" *ngIf="captionTemplate || title">
-    <div class="zyfra-table-title" *ngIf="title">{{title}}</div>
+    <div class="zyfra-table-title" *ngIf="title">{{ title }}</div>
     <ng-container *ngIf="captionTemplate">
       <ng-container *ngTemplateOutlet="captionTemplate"></ng-container>
     </ng-container>
   </ng-template>
 
   <ng-template pTemplate="header" let-columns *ngIf="headerTemplate">
-    <ng-container *ngTemplateOutlet="headerTemplate; context: {
-      $implicit: columns
-    }"></ng-container>
+    <ng-container
+      *ngTemplateOutlet="
+        headerTemplate;
+        context: {
+          $implicit: columns
+        }
+      "
+    ></ng-container>
   </ng-template>
 
   <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns" *ngIf="bodyTemplate">
-    <ng-container *ngTemplateOutlet="bodyTemplate; context: {
-      $implicit: rowNode,
-      rowData: rowData,
-      columns: columns
-    }"></ng-container>
+    <ng-container
+      *ngTemplateOutlet="
+        bodyTemplate;
+        context: {
+          $implicit: rowNode,
+          rowData: rowData,
+          columns: columns
+        }
+      "
+    ></ng-container>
   </ng-template>
 
   <ng-template pTemplate="footer" let-columns *ngIf="footerTemplate">
-    <ng-container *ngTemplateOutlet="footerTemplate; context: {
-      $implicit: columns
-    }"></ng-container>
+    <ng-container
+      *ngTemplateOutlet="
+        footerTemplate;
+        context: {
+          $implicit: columns
+        }
+      "
+    ></ng-container>
   </ng-template>
 
   <ng-template pTemplate="colgroup" let-columns *ngIf="colGroupTemplate">
-    <ng-container *ngTemplateOutlet="colGroupTemplate; context: {
-      $implicit: columns
-    }"></ng-container>
+    <ng-container
+      *ngTemplateOutlet="
+        colGroupTemplate;
+        context: {
+          $implicit: columns
+        }
+      "
+    ></ng-container>
   </ng-template>
 
   <ng-template pTemplate="summary" *ngIf="summaryTemplate">

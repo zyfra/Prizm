@@ -5,8 +5,8 @@ import { SelectableRow } from 'primeng/table';
   selector: '[zyfraSelectableRow]',
 })
 export class ZyfraSelectableRowDirective extends SelectableRow {
-  @Input('zyfraSelectableRow') data: any;
-  @Input('zyfraSelectableRowIndex') index: number;
+  @Input('zyfraSelectableRow') override data: any;
+  @Input('zyfraSelectableRowIndex') override index: number;
 
   @HostBinding('class.p-highlight')
   get isSelected(): boolean {

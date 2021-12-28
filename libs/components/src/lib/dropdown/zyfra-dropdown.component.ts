@@ -112,7 +112,7 @@ export class ZyfraDropdownComponent<T = unknown>
   footerTemplate: TemplateRef<unknown>;
 
   ngAfterContentInit(): void {
-    this.templates.forEach((item) => {
+    this.templates.forEach(item => {
       switch (item.getType()) {
         case 'item':
           this.itemTemplate = item.template;

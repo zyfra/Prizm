@@ -7,14 +7,14 @@ import { ZyfraTreeTableComponent } from '../tree-table.component';
   selector: '[zyfraTTSortableColumn]',
 })
 export class ZyfraTreeTableSortableColumnDirective extends TTSortableColumn {
-  @Input('zyfraTTSortableColumn') field: string;
-  @Input('zyfraTTSortableColumnDisabled') ttSortableColumnDisabled: boolean;
+  @Input('zyfraTTSortableColumn') override field: string;
+  @Input('zyfraTTSortableColumnDisabled') override ttSortableColumnDisabled: boolean;
 
   constructor(private zyfraTable: ZyfraTreeTableComponent) {
     super(zyfraTable.table);
   }
 
-  onClick(event: MouseEvent): void {
+  public override onClick(event: MouseEvent): void {
     onSortColumnClick.call(this, event);
   }
 

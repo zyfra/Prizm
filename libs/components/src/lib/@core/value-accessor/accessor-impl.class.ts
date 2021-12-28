@@ -1,24 +1,24 @@
 import { ControlValueAccessor } from '@angular/forms';
 
 export abstract class AccessorImplClass implements ControlValueAccessor {
-  public accessorValue: any;
-  public accessorOnChangeFn: any;
-  public accessorOnTouchedFn: any;
-  public accessorIsDisabled: any;
+  public accessorValue: unknown;
+  public accessorOnChangeFn: (_: unknown) => unknown;
+  public accessorOnTouchedFn: VoidFunction;
+  public accessorIsDisabled: boolean;
 
-  writeValue(obj: any): void {
+  public writeValue(obj: unknown): void {
     this.accessorValue = obj;
   }
 
-  registerOnChange(fn: any): void {
+  public registerOnChange(fn: (_: unknown) => unknown): void {
     this.accessorOnChangeFn = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  public registerOnTouched(fn: VoidFunction): void {
     this.accessorOnTouchedFn = fn;
   }
 
-  setDisabledState(isDisabled: boolean): void {
+  public setDisabledState(isDisabled: boolean): void {
     this.accessorIsDisabled = isDisabled;
   }
 }

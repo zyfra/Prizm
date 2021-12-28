@@ -28,11 +28,11 @@ export class ZyfraSliderComponent extends WrappedFormComponent implements Contro
     return `${this.range ? 'zyfra-slider_range ' : ''} ${this.styleClass}`;
   }
 
-  onSlideEndHandler(event): void {
+  public onSlideEndHandler(event): void {
     this.onSlideEnd.emit(event);
   }
 
-  override setDisabledState(isDisabled: boolean): void {
+  public override setDisabledState(isDisabled: boolean): void {
     // do nothing
   }
 }

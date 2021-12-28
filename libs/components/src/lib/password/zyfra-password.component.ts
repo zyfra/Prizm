@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
 
 @Component({
   selector: 'zyfra-password',
   templateUrl: './zyfra-password.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraPasswordComponent extends WrappedFormComponent implements ControlValueAccessor {
   @Input() promptLabel: string;
