@@ -27,7 +27,7 @@ import { Filters, RowSelectionEvent } from './zyfra-table.types';
     FilterService,
     {
       provide: Table,
-      useFactory: (zyfraTable: ZyfraTableComponent) => zyfraTable.table,
+      useFactory: (zyfraTable: ZyfraTableComponent): Table => zyfraTable.table,
       deps: [ZyfraTableComponent],
     },
   ],
@@ -191,15 +191,15 @@ export class ZyfraTableComponent<T = unknown>
   //endregion
 
   //region Base class overrides
-  override getContentTemplate(): QueryList<BaseTableTemplateDirective> {
+  public override getContentTemplate(): QueryList<BaseTableTemplateDirective> {
     return this.templates;
   }
 
-  override getTable(): Table {
+  public override getTable(): Table {
     return this.table;
   }
 
-  override initTemplateByType(item: ZyfraTableTemplateDirective): void {
+  public override initTemplateByType(item: ZyfraTableTemplateDirective): void {
     switch (item.getType()) {
       case 'headergrouped':
         this.headerGroupedTemplate = item.template;

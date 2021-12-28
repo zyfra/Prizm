@@ -109,11 +109,11 @@
   </ng-template>
 
   <ng-template pTemplate="groupheader" let-item *ngIf="groupHeaderTemplate">
-    <ng-container *ngTemplateOutlet="groupHeaderTemplate; context: { $implicit: item  }"></ng-container>
+    <ng-container *ngTemplateOutlet="groupHeaderTemplate; context: { $implicit: item }"></ng-container>
   </ng-template>
 
   <ng-template pTemplate="groupfooter" let-item *ngIf="groupFooterTemplate">
-    <ng-container *ngTemplateOutlet="groupFooterTemplate; context: { $implicit: item  }"></ng-container>
+    <ng-container *ngTemplateOutlet="groupFooterTemplate; context: { $implicit: item }"></ng-container>
   </ng-template>
 
   <ng-template
@@ -127,28 +127,43 @@
     let-columns="columns"
     *ngIf="bodyTemplate"
   >
-    <ng-container *ngTemplateOutlet="bodyTemplate; context: {
-      $implicit: item,
-      rowIndex: rowIndex,
-      rowgroup: rowgroup,
-      rowspan: rowspan,
-      expanded: expanded,
-      editing: editing,
-      columns: columns
-    }"></ng-container>
+    <ng-container
+      *ngTemplateOutlet="
+        bodyTemplate;
+        context: {
+          $implicit: item,
+          rowIndex: rowIndex,
+          rowgroup: rowgroup,
+          rowspan: rowspan,
+          expanded: expanded,
+          editing: editing,
+          columns: columns
+        }
+      "
+    ></ng-container>
   </ng-template>
 
   <ng-template pTemplate="frozenbody" let-item let-rowIndex="rowIndex" *ngIf="frozenBodyTemplate">
-    <ng-container *ngTemplateOutlet="frozenBodyTemplate; context: {
-      $implicit: item,
-      rowIndex: rowIndex
-    }"></ng-container>
+    <ng-container
+      *ngTemplateOutlet="
+        frozenBodyTemplate;
+        context: {
+          $implicit: item,
+          rowIndex: rowIndex
+        }
+      "
+    ></ng-container>
   </ng-template>
 
   <ng-template pTemplate="loadingbody" let-columns="columns" *ngIf="loadingBodyTemplate">
-    <ng-container *ngTemplateOutlet="loadingBodyTemplate; context: {
-      columns: columns
-    }"></ng-container>
+    <ng-container
+      *ngTemplateOutlet="
+        loadingBodyTemplate;
+        context: {
+          columns: columns
+        }
+      "
+    ></ng-container>
   </ng-template>
 
   <ng-template pTemplate="rowexpansion" let-item *ngIf="expandedRowTemplate">

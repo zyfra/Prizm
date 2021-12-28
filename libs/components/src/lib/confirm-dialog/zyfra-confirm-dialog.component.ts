@@ -12,8 +12,8 @@ export class ZyfraConfirmDialogComponent {
   @Input() key: string;
   @Input() icon: string;
   @Input() header: string = '';
-  @Input() accept: Function = () => {};
-  @Input() reject: Function = () => {};
+  @Input() accept: Function;
+  @Input() reject: Function;
   @Input() acceptMessages: { severity: string; summary: string; detail: string }[] = [
     { severity: '', summary: '', detail: '' },
   ];
@@ -50,23 +50,23 @@ export class ZyfraConfirmDialogComponent {
 
   constructor(private confirmationService: ConfirmationService) {}
 
-  onClick(): void {
+  public onClick(): void {
     this.confirmationService.confirm({
       message: this.message,
       header: this.header,
       icon: this.icon,
       accept: () => {
         this.msgs = this.acceptMessages;
-        this.accept();
+        this.accept?.();
       },
       reject: () => {
         this.msgs = this.rejectMessages;
-        this.reject();
+        this.reject?.();
       },
     });
   }
 
-  onHideHandler(event: ConfirmEventType): void {
+  public onHideHandler(event: ConfirmEventType): void {
     this.onHide.emit(event);
   }
 }

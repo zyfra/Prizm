@@ -15,9 +15,9 @@ export class ZyfraChipComponent {
   @Input() removeIcon: string = 'zyfra-icon cancel-close';
 
   /* onRemove */
-  @Output() onRemove: EventEmitter<any> = new EventEmitter();
+  @Output() onRemove: EventEmitter<unknown> = new EventEmitter();
 
-  onRemoveHandler(event) {
+  public onRemoveHandler(event: unknown): void {
     this.onRemove.emit(event);
   }
 }

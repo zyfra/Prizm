@@ -93,7 +93,7 @@ export class ZyfraPaginatorComponent {
 
   @Output() pageChange = new EventEmitter<PageChangeEvent>();
 
-  onPageChange(event: PageChangeEvent): void {
+  public onPageChange(event: PageChangeEvent): void {
     this.pageChange.emit(event);
   }
 }

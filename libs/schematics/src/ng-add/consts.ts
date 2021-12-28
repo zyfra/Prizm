@@ -4,8 +4,8 @@ interface Package {
 }
 
 interface ImportingModule {
-    name: string;
-    packageName: string;
+  name: string;
+  packageName: string;
 }
 
 export const MAIN_PACKAGES: ReadonlyArray<Package> = [
@@ -21,8 +21,8 @@ export const INSTALL_PACKAGE: Readonly<Package> = {
 };
 
 export const MAIN_MODULES: ReadonlyArray<ImportingModule> = [
-    {
-        name: 'ZyfraUiRootModule',
-        packageName: '@digital-plant/zyfra-components',
-    },
+  {
+    name: 'ZyfraUiRootModule',
+    packageName: '@digital-plant/zyfra-components',
+  },
 ];

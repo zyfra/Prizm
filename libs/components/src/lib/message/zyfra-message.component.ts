@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
-import { MessageService } from 'primeng/api';
-import { PrimeNGConfig } from 'primeng/api';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Message, MessageService, PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'zyfra-message',
@@ -9,9 +8,9 @@ import { PrimeNGConfig } from 'primeng/api';
   styles: [],
   providers: [MessageService],
 })
-export class ZyfraMessageComponent implements OnInit {
+export class ZyfraMessageComponent {
   //---- message component --------
-  @Input() value: any[];
+  @Input() value: Message[];
   @Input() closable: boolean = true;
   @Input() style: string = '';
   @Input() styleClass: string = '';
@@ -33,9 +32,7 @@ export class ZyfraMessageComponent implements OnInit {
     this.primengConfig.ripple = true;
   }
 
-  ngOnInit(): void {}
-
-  clear() {
+  public clear(): void {
     this.value = [];
   }
 }

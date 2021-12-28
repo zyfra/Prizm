@@ -55,17 +55,20 @@ export class ZyfraTooltipDirective implements OnDestroy, OnChanges, AfterViewIni
   private coordinates = { left: 0, top: 0 };
   private tooltipTimerId = null;
 
-  @HostListener('click', ['$event']) clickEvent(event: MouseEvent): void {
+  @HostListener('click', ['$event'])
+  public clickEvent(event: MouseEvent): void {
     this.hide();
   }
 
-  @HostListener('mouseenter', ['$event']) mouseenter(event: MouseEvent): void {
+  @HostListener('mouseenter', ['$event'])
+  public mouseenter(event: MouseEvent): void {
     if (!this.zyfraTooltipShow) {
       this.show();
     }
   }
 
-  @HostListener('mouseleave', ['$event']) mouseleave(event: MouseEvent): void {
+  @HostListener('mouseleave', ['$event'])
+  public mouseleave(event: MouseEvent): void {
     if (!this.tooltipCmpRef) {
       clearTimeout(this.tooltipTimerId);
       this.zyfraTooltipShow = false;
@@ -109,7 +112,13 @@ export class ZyfraTooltipDirective implements OnDestroy, OnChanges, AfterViewIni
   }
 
   private _setTooltipClasses(): void {
-    this.tooltipCmpRef.instance.hostClasses = `zyfra-tooltip ${this.zyfraTooltipClass} ${this.tooltipStyle} zyfra-tooltip_color_${this.zyfraTooltipColor} zyfra-tooltip_position_${this.zyfraTooltipPosition}`;
+    this.tooltipCmpRef.instance.hostClasses = `
+      zyfra-tooltip
+      ${this.zyfraTooltipClass}
+      ${this.tooltipStyle}
+      zyfra-tooltip_color_${this.zyfraTooltipColor}
+      zyfra-tooltip_position_${this.zyfraTooltipPosition}
+    `;
   }
 
   ngOnDestroy(): void {

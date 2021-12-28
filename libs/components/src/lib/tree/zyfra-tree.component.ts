@@ -85,33 +85,33 @@ export class ZyfraTreeComponent {
 
   @Input() indentation = 1.5;
 
-  @Input() trackBy = (index: number, item: any) => item;
+  @Input() trackBy = (index: number, item: any): any => item;
 
-  onNodeSelectHandler(event: Event): void {
+  public onNodeSelectHandler(event: Event): void {
     this.onNodeSelect.emit(event);
   }
 
-  onNodeUnselectHandler(event: Event): void {
+  public onNodeUnselectHandler(event: Event): void {
     this.onNodeUnselect.emit(event);
   }
 
-  onNodeExpandHandler(event: Event): void {
+  public onNodeExpandHandler(event: Event): void {
     this.onNodeExpand.emit(event);
   }
 
-  onNodeCollapseHandler(event: Event): void {
+  public onNodeCollapseHandler(event: Event): void {
     this.onNodeCollapse.emit(event);
   }
 
-  onNodeContextMenuSelectHandler(event: Event): void {
+  public onNodeContextMenuSelectHandler(event: Event): void {
     this.onNodeContextMenuSelect.emit(event);
   }
 
-  onNodeDropHandler(event: Event): void {
+  public onNodeDropHandler(event: Event): void {
     this.onNodeDrop.emit(event);
   }
 
-  onFilterHandler(event: Event): void {
+  public onFilterHandler(event: Event): void {
     this.onFilter.emit(event);
   }
 }

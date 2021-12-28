@@ -39,7 +39,7 @@ export class ZyfraToastComponent {
     this.primengConfig.ripple = true;
   }
 
-  showMessage(): void {
+  public showMessage(): void {
     this.messageService.add({
       severity: this.severity,
       summary: this.summary,
@@ -53,7 +53,7 @@ export class ZyfraToastComponent {
   }
 
   // нужны ли кастомные методы?
-  onReject() {
+  public onReject(): void {
     this.messageService.clear('c');
     this.onClose.emit(event);
   }

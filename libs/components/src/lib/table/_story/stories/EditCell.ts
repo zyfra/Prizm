@@ -4,7 +4,7 @@ import { getProductsSmall } from '../data';
 import { action } from '@storybook/addon-actions';
 import { consoleLogAction } from '../../../../../.storybook/helpers';
 
-const Template: Story<ZyfraTableComponent> = (args) => ({
+const Template: Story<ZyfraTableComponent> = args => ({
   template: `
     <zyfra-table
       [title]="title"

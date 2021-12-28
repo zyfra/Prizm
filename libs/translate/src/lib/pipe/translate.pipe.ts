@@ -19,7 +19,7 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
   constructor(private translate: TranslateService, @Optional() private cdr: ChangeDetectorRef) {}
 
   private updateValue(key: string, interpolateParams?: unknown): void {
-    const onTranslation = (res: string) => {
+    const onTranslation = (res: string): void => {
       this.value = res !== undefined ? res : key;
       this.lastKey = key;
       if (this.cdr) {

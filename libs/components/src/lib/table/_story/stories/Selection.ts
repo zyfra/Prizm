@@ -11,7 +11,7 @@ const actions = {
   headerCheckboxToggle: action('headerCheckboxToggle'),
 };
 
-const SelectionTemplate: Story<ZyfraTableComponent> = (args) => ({
+const SelectionTemplate: Story<ZyfraTableComponent> = args => ({
   template: `
     <zyfra-table
       #dt
@@ -57,8 +57,8 @@ const SelectionTemplate: Story<ZyfraTableComponent> = (args) => ({
     ...args,
     selectionChange: consoleLogAction('selectionChange'),
     headerCheckboxToggle: consoleLogAction('headerCheckboxToggle'),
-    rowUnselect: event => actions.rowUnselect({ data: event.data, ...event }),
-    rowSelect: (event) => actions.rowSelect({ data: event.data, ...event }),
+    rowUnselect: (event): void => actions.rowUnselect({ data: event.data, ...event }),
+    rowSelect: (event): void => actions.rowSelect({ data: event.data, ...event }),
   },
 });
 

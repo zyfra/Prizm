@@ -5,5 +5,5 @@ import { TTRow } from 'primeng/treetable';
   selector: '[zyfraTTRow]'
 })
 export class ZyfraTreeTableRowDirective extends TTRow {
-  @Input('zyfraTTRow') rowNode: any;
+  @Input('zyfraTTRow') override rowNode: any;
 }

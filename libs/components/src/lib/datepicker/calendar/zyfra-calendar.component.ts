@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectorRef, forwardRef, NgZone, Renderer2 } from '@angular/core';
 import {
@@ -502,19 +503,32 @@ export class ZyfraCalendarComponent implements OnInit, OnDestroy, ControlValueAc
     this.initialized = true;
 
     this.config.setTranslation({
-      "dayNames": ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
-      "dayNamesShort": ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
-      "dayNamesMin": ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
-      "monthNames": ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"],
-      "monthNamesShort": ["Янв", "Фев", "Мар", "Апр", "Май", "Июн","Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
-      "today": "Сегодня",
-      "clear": "Очистить",
-      "weekHeader": "Нед"
-    })
+      dayNames: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+      dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+      dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+      monthNames: [
+        'Январь',
+        'Февраль',
+        'Март',
+        'Апрель',
+        'Май',
+        'Июнь',
+        'Июль',
+        'Август',
+        'Сентябрь',
+        'Октябрь',
+        'Ноябрь',
+        'Декабрь',
+      ],
+      monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+      today: 'Сегодня',
+      clear: 'Очистить',
+      weekHeader: 'Нед',
+    });
   }
 
   ngAfterContentInit() {
-    this.templates.forEach((item) => {
+    this.templates.forEach(item => {
       switch (item.getType()) {
         case 'date':
           this.dateTemplate = item.template;
@@ -1010,7 +1024,7 @@ export class ZyfraCalendarComponent implements OnInit, OnDestroy, ControlValueAc
       } else {
         let stringArrValue = null;
         if (this.value) {
-          stringArrValue = this.value.map((date) => this.formatDateTime(date));
+          stringArrValue = this.value.map(date => this.formatDateTime(date));
         }
         this.onModelChange(stringArrValue);
       }
@@ -1327,7 +1341,7 @@ export class ZyfraCalendarComponent implements OnInit, OnDestroy, ControlValueAc
       }
     } else if (event.keyCode === 9 && this.contentViewChild) {
       DomHandler.getFocusableElements(this.contentViewChild.nativeElement).forEach(
-        (el) => (el.tabIndex = '-1')
+        el => (el.tabIndex = '-1')
       );
       if (this.overlayVisible) {
         this.overlayVisible = false;
@@ -1729,7 +1743,7 @@ export class ZyfraCalendarComponent implements OnInit, OnDestroy, ControlValueAc
         this.contentViewChild.nativeElement,
         '.p-monthpicker .p-monthpicker-month.p-highlight'
       );
-      cells.forEach((cell) => (cell.tabIndex = -1));
+      cells.forEach(cell => (cell.tabIndex = -1));
       cell = selectedCell || cells[0];
 
       if (cells.length === 0) {
@@ -1737,7 +1751,7 @@ export class ZyfraCalendarComponent implements OnInit, OnDestroy, ControlValueAc
           this.contentViewChild.nativeElement,
           '.p-monthpicker .p-monthpicker-month.p-disabled[tabindex = "0"]'
         );
-        disabledCells.forEach((cell) => (cell.tabIndex = -1));
+        disabledCells.forEach(cell => (cell.tabIndex = -1));
       }
     } else if (this.currentView === 'year') {
       let cells = DomHandler.find(
@@ -1748,7 +1762,7 @@ export class ZyfraCalendarComponent implements OnInit, OnDestroy, ControlValueAc
         this.contentViewChild.nativeElement,
         '.p-yearpicker .p-yearpicker-year.p-highlight'
       );
-      cells.forEach((cell) => (cell.tabIndex = -1));
+      cells.forEach(cell => (cell.tabIndex = -1));
       cell = selectedCell || cells[0];
 
       if (cells.length === 0) {
@@ -1756,7 +1770,7 @@ export class ZyfraCalendarComponent implements OnInit, OnDestroy, ControlValueAc
           this.contentViewChild.nativeElement,
           '.p-yearpicker .p-yearpicker-year.p-disabled[tabindex = "0"]'
         );
-        disabledCells.forEach((cell) => (cell.tabIndex = -1));
+        disabledCells.forEach(cell => (cell.tabIndex = -1));
       }
     } else {
       cell = DomHandler.findSingle(this.contentViewChild.nativeElement, 'span.p-highlight');
@@ -2098,7 +2112,7 @@ export class ZyfraCalendarComponent implements OnInit, OnDestroy, ControlValueAc
       if (!this.isSelectable(value.getDate(), value.getMonth(), value.getFullYear(), false)) {
         isValid = false;
       }
-    } else if (value.every((v) => this.isSelectable(v.getDate(), v.getMonth(), v.getFullYear(), false))) {
+    } else if (value.every(v => this.isSelectable(v.getDate(), v.getMonth(), v.getFullYear(), false))) {
       if (this.isRangeSelection()) {
         isValid = value.length > 1 && value[1] > value[0] ? true : false;
       }
@@ -2395,7 +2409,7 @@ export class ZyfraCalendarComponent implements OnInit, OnDestroy, ControlValueAc
     }
 
     let iFormat;
-    const lookAhead = (match) => {
+    const lookAhead = match => {
         const matches = iFormat + 1 < format.length && format.charAt(iFormat + 1) === match;
         if (matches) {
           iFormat++;
@@ -2580,14 +2594,14 @@ export class ZyfraCalendarComponent implements OnInit, OnDestroy, ControlValueAc
       doy = -1,
       literal = false,
       date,
-      lookAhead = (match) => {
+      lookAhead = match => {
         let matches = iFormat + 1 < format.length && format.charAt(iFormat + 1) === match;
         if (matches) {
           iFormat++;
         }
         return matches;
       },
-      getNumber = (match) => {
+      getNumber = match => {
         let isDoubled = lookAhead(match),
           size =
             match === '@' ? 14 : match === '!' ? 20 : match === 'y' && isDoubled ? 4 : match === 'o' ? 3 : 2,
@@ -2780,7 +2794,7 @@ export class ZyfraCalendarComponent implements OnInit, OnDestroy, ControlValueAc
       let innerHTML = '';
       if (this.responsiveOptions) {
         let responsiveOptions = [...this.responsiveOptions]
-          .filter((o) => !!(o.breakpoint && o.numMonths))
+          .filter(o => !!(o.breakpoint && o.numMonths))
           .sort((o1, o2) => -1 * o1.breakpoint.localeCompare(o2.breakpoint, undefined, { numeric: true }));
 
         for (let i = 0; i < responsiveOptions.length; i++) {
@@ -2823,7 +2837,7 @@ export class ZyfraCalendarComponent implements OnInit, OnDestroy, ControlValueAc
       this.zone.runOutsideAngular(() => {
         const documentTarget: any = this.el ? this.el.nativeElement.ownerDocument : 'document';
 
-        this.documentClickListener = this.renderer.listen(documentTarget, 'mousedown', (event) => {
+        this.documentClickListener = this.renderer.listen(documentTarget, 'mousedown', event => {
           if (this.isOutsideClicked(event) && this.overlayVisible) {
             this.zone.run(() => {
               this.hideOverlay();

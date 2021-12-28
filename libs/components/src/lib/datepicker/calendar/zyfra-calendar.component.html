@@ -7,7 +7,7 @@
     'p-focus': focus
   }"
   [ngStyle]="style"
-  class="{{styleClass}} p-calendar zyfra-input"
+  class="{{ styleClass }} p-calendar zyfra-input"
 >
   <ng-template [ngIf]="!inline">
     <div class="p-inputgroup" [class.zyfra-input-group_disabled]="disabled">
@@ -327,7 +327,7 @@
           <span class="pi pi-chevron-down"></span>
         </button>
       </div>
-      <div class="p-ampm-picker" *ngIf="hourFormat == '12'">
+      <div class="p-ampm-picker" *ngIf="hourFormat === '12'">
         <button
           class="p-link"
           type="button"

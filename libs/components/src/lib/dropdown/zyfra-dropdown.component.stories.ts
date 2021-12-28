@@ -35,7 +35,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ZyfraDropdownComponent> = (args) => ({
+const Template: Story<ZyfraDropdownComponent> = args => ({
   component: ZyfraDropdownComponent,
   template: `<div>
     <zyfra-dropdown
@@ -66,7 +66,7 @@ const Template: Story<ZyfraDropdownComponent> = (args) => ({
   `,
   props: {
     ...args,
-    onChange: event => action('onChange')({  value: event.value, ...event }),
+    onChange: event => action('onChange')({ value: event.value, ...event }),
     onClick: action('onClick'),
     onFocus: action('onFocus'),
     onBlur: action('onBlur'),
@@ -84,7 +84,7 @@ Simple.args = {
     { name: 'Istanbul', code: 'IST' },
     { name: 'Paris', code: 'PRS' },
   ],
-  value: { "name": "New York", "code": "NY" },
+  value: { name: 'New York', code: 'NY' },
   optionLabel: 'name',
   placeholder: 'Select a City',
   showClear: true,

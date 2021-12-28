@@ -16,7 +16,7 @@ export class ZyfraBreadcrumbComponent {
 
   @Output() onItemClick = new EventEmitter<ItemClickEvent>();
 
-  onItemClickHandler(event: ItemClickEvent): void {
+  public onItemClickHandler(event: ItemClickEvent): void {
     this.onItemClick.emit(event);
   }
 }

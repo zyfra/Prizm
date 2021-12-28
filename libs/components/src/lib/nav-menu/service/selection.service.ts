@@ -7,7 +7,7 @@ export class NavMenuService {
   private selection = new BehaviorSubject<TreeNode>(null);
   selection$ = this.selection.asObservable();
 
-  selectionChange(node: TreeNode): void {
+  public selectionChange(node: TreeNode): void {
     if (this.selection.value) {
       this.selection.value.styleClass = '';
     }

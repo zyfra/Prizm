@@ -12,7 +12,7 @@ const actions = {
   onHeaderCheckboxToggle: action('onHeaderCheckboxToggle'),
 };
 
-const Template: Story<ZyfraTreeTableComponent> = (args) => ({
+const Template: Story<ZyfraTreeTableComponent> = args => ({
   template: `
     <zyfra-tree-table
       #table
@@ -60,10 +60,10 @@ const Template: Story<ZyfraTreeTableComponent> = (args) => ({
   `,
   props: {
     ...args,
-    onNodeSelect: event => actions.onNodeSelect({ node: event.node, ...event }),
-    onNodeUnselect: event => actions.onNodeUnselect({ node: event.node, ...event }),
-    onNodeExpand: event => actions.onNodeExpand({ node: event.node, ...event }),
-    onNodeCollapse: event => actions.onNodeCollapse({ node: event.node, ...event }),
+    onNodeSelect: (event): void => actions.onNodeSelect({ node: event.node, ...event }),
+    onNodeUnselect: (event): void => actions.onNodeUnselect({ node: event.node, ...event }),
+    onNodeExpand: (event): void => actions.onNodeExpand({ node: event.node, ...event }),
+    onNodeCollapse: (event): void => actions.onNodeCollapse({ node: event.node, ...event }),
     selectionChange: consoleLogAction('selectionChange'),
     onHeaderCheckboxToggle: actions.onHeaderCheckboxToggle,
   },
@@ -78,7 +78,7 @@ Selection.args = {
   columns: [
     { field: 'name', header: 'Name' },
     { field: 'size', header: 'Size' },
-    { field: 'type', header: 'Type' }
+    { field: 'type', header: 'Type' },
   ],
   selectionMode: 'checkbox',
   selection: null,

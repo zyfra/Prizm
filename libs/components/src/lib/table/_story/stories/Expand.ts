@@ -8,7 +8,7 @@ const actions = {
   rowCollapse: action('rowCollapse'),
 };
 
-const Template: Story<ZyfraTableComponent> = (args) => ({
+const Template: Story<ZyfraTableComponent> = args => ({
   template: `
     <zyfra-table
       [title]="title"
@@ -80,8 +80,8 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
   `,
   props: {
     ...args,
-    rowExpand: event => actions.rowExpand({ data: event.data, ...event }),
-    rowCollapse: event => actions.rowCollapse({ data: event.data, ...event }),
+    rowExpand: (event): void => actions.rowExpand({ data: event.data, ...event }),
+    rowCollapse: (event): void => actions.rowCollapse({ data: event.data, ...event }),
   },
 });
 
@@ -90,5 +90,5 @@ export const Expand = Template.bind({});
 Expand.args = {
   title: 'Таблица с раскрывающимися ячейками',
   value: getProductsOrdersSmall(),
-  dataKey: 'name'
+  dataKey: 'name',
 };

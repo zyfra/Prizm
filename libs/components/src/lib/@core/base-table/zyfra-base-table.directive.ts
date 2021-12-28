@@ -320,7 +320,7 @@ export abstract class ZyfraBaseTableComponent<T = unknown> {
   /**
    * Callback to invoke when a cell switches to edit mode.
    */
-  @Output() editInit = new EventEmitter<{ column: unknown; data: unknown,  originalEvent: Event; }>();
+  @Output() editInit = new EventEmitter<{ column: unknown; data: unknown; originalEvent: Event }>();
   /**
    * Callback to invoke when cell edit is completed
    */
@@ -340,6 +340,7 @@ export abstract class ZyfraBaseTableComponent<T = unknown> {
   //endregion
 
   private initialData: T[];
+  private _activeElement: T;
 
   protected abstract getContentTemplate(): QueryList<BaseTableTemplateDirective>;
   protected abstract getTable(): any;
@@ -354,7 +355,7 @@ export abstract class ZyfraBaseTableComponent<T = unknown> {
   }
 
   ngAfterContentInit(): void {
-    this.getContentTemplate().forEach((item) => {
+    this.getContentTemplate().forEach(item => {
       switch (item.getType()) {
         case 'caption':
           this.captionTemplate = item.template;
@@ -412,7 +413,7 @@ export abstract class ZyfraBaseTableComponent<T = unknown> {
           this.frozenColGroupTemplate = item.template;
           break;
         default:
-          this.initTemplateByType(item)
+          this.initTemplateByType(item);
       }
     });
   }
@@ -462,8 +463,6 @@ export abstract class ZyfraBaseTableComponent<T = unknown> {
   public isSelected(rowData): boolean {
     return this.getTable().isSelected(rowData);
   }
-
-  private _activeElement: T;
 
   protected updateStyleClasses(): void {
     const classes = ['p-datatable-gridlines'];

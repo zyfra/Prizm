@@ -38,7 +38,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ZyfraDatepickerComponent> = (args) => ({
+const Template: Story<ZyfraDatepickerComponent> = args => ({
   component: ZyfraDatepickerComponent,
   template: `
   <zyfra-datepicker

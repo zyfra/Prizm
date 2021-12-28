@@ -1,12 +1,13 @@
 import {
+  AfterContentInit,
+  ChangeDetectionStrategy,
   Component,
+  ContentChildren,
+  EventEmitter,
   Input,
   Output,
-  EventEmitter,
-  TemplateRef,
-  ContentChildren,
   QueryList,
-  AfterContentInit,
+  TemplateRef
 } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
 import { ControlValueAccessor } from '@angular/forms';
@@ -16,6 +17,7 @@ import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.compo
 @Component({
   selector: 'zyfra-auto-complete',
   templateUrl: './zyfra-auto-complete.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ZyfraAutoCompleteComponent<T = unknown>
   extends WrappedFormComponent
@@ -81,8 +83,8 @@ export class ZyfraAutoCompleteComponent<T = unknown>
   @Output() onShow = new EventEmitter<AnimationEvent>();
   @Output() onHide = new EventEmitter<void>();
 
-  itemTemplate: TemplateRef<any>;
-  selectedItemTemplate: TemplateRef<any>;
+  itemTemplate: TemplateRef<unknown>;
+  selectedItemTemplate: TemplateRef<unknown>;
 
   @ContentChildren(ZyfraTemplateDirective) templates: QueryList<ZyfraTemplateDirective>;
 

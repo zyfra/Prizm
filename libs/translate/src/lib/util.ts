@@ -15,7 +15,8 @@ export function equals(o1: any, o2: any): boolean {
     if (o1 === o2) return true;
     if (o1 === null || o2 === null) return false;
     if (o1 !== o1 && o2 !== o2) return true; // NaN === NaN
-    let t1 = typeof o1, t2 = typeof o2, length: number, key: any, keySet: any;
+    const t1 = typeof o1, t2 = typeof o2
+    let length: number, key: any, keySet: any;
     if (t1 == t2 && t1 == 'object') {
         if (Array.isArray(o1)) {
             if (!Array.isArray(o2)) return false;

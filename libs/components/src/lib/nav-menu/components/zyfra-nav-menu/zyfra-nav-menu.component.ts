@@ -155,27 +155,27 @@ export class ZyfraNavMenuComponent implements AfterViewInit, AfterContentInit, O
     this.destroy$.complete();
   }
 
-  nodeCollapseHandler(node: TreeNode, groupIndex?: number): void {
+  public nodeCollapseHandler(node: TreeNode, groupIndex?: number): void {
     this.nodeCollapse.emit({ item: node.data, groupIndex });
   }
 
-  nodeExpandHandler(node: TreeNode, groupIndex?: number): void {
+  public nodeExpandHandler(node: TreeNode, groupIndex?: number): void {
     this.nodeExpand.emit({ item: node.data, groupIndex });
   }
 
-  updateActiveItem(node: TreeNode, groupIndex?: number): void {
+  public updateActiveItem(node: TreeNode, groupIndex?: number): void {
     this.activeItemChange.emit({ item: node.data, groupIndex });
   }
 
-  copyConfig(): void {
+  public copyConfig(): void {
     this.settingsPanelConfig = { ...this.settingsConfig };
   }
 
-  applySettings(): void {
+  public applySettings(): void {
     this.settingsConfig = this.settingsPanelConfig;
   }
 
-  selectionChangeHandler(selection: TreeNode<ZyfraMenuItem> | TreeNode<ZyfraMenuItem>[], groupIndex?: number): void {
+  public selectionChangeHandler(selection: TreeNode<ZyfraMenuItem> | TreeNode<ZyfraMenuItem>[], groupIndex?: number): void {
     let selectionData;
     if (selection) {
       selectionData = Array.isArray(selection)

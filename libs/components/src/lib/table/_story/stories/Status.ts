@@ -2,7 +2,7 @@ import { Story } from '@storybook/angular/types-6-0';
 import { action } from '@storybook/addon-actions';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
 
-const Template: Story<ZyfraTableComponent> = (args) => ({
+const Template: Story<ZyfraTableComponent> = args => ({
   template: `
     <zyfra-table
       [title]="title"
@@ -31,5 +31,22 @@ export const Status = Template.bind({});
 
 Status.args = {
   title: 'Статусы ячеек',
-  value: ['primary', 'info', 'warning', 'error', 'primary', 'info', 'warning', 'error', 'primary', 'info', 'warning', 'error', 'primary', 'info', 'warning', 'error'],
+  value: [
+    'primary',
+    'info',
+    'warning',
+    'error',
+    'primary',
+    'info',
+    'warning',
+    'error',
+    'primary',
+    'info',
+    'warning',
+    'error',
+    'primary',
+    'info',
+    'warning',
+    'error',
+  ],
 };

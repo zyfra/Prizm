@@ -12,7 +12,7 @@ export class ZyfraTreeTableCheckboxComponent {
 
   constructor(@Optional() private selectableRowDirective: ZyfraTreeTableSelectableRowDirective) {}
 
-  onClick(event: Event): void {
+  public onClick(event: Event): void {
     if (this.selectableRowDirective) {
       event.stopPropagation();
     }

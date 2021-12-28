@@ -15,7 +15,7 @@ export abstract class WrappedFormComponent extends AccessorImplClass implements 
     }
   }
 
-  override setDisabledState(isDisabled: boolean): void {
+  public override setDisabledState(isDisabled: boolean): void {
     if (isDisabled) {
       this.formControl.disable({ emitEvent: false });
     } else {

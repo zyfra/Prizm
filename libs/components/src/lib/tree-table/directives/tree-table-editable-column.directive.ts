@@ -5,16 +5,16 @@ import { TTEditableColumn } from 'primeng/treetable';
   selector: '[zyfraTTEditableColumn]',
 })
 export class ZyfraTreeTableEditableColumnDirective extends TTEditableColumn {
-  @Input('zyfraTTEditableColumn') data: any;
-  @Input('zyfraTTEditableColumnField') field: any;
-  @Input('zyfraTTEditableColumnDisabled') ttEditableColumnDisabled: boolean;
+  @Input('zyfraTTEditableColumn') override data: any;
+  @Input('zyfraTTEditableColumnField') override field: any;
+  @Input('zyfraTTEditableColumnDisabled') override ttEditableColumnDisabled: boolean;
 
-  onClick(event: MouseEvent): void {
+  public override onClick(event: MouseEvent): void {
     // doing nothing, redefining parent class method
   }
 
   @HostListener('dblclick', ['$event'])
-  onDblClick(event: MouseEvent): void {
+  public onDblClick(event: MouseEvent): void {
     super.onClick(event);
   }
 }

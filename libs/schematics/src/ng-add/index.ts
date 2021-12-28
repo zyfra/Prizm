@@ -5,7 +5,7 @@ import { Schema } from './schema';
 import { INSTALL_PACKAGE, MAIN_PACKAGES } from './consts';
 
 export function ngAdd(options: Schema): Rule {
-  return (tree: Tree, context: SchematicContext) => {
+  return (tree: Tree, context: SchematicContext): Tree => {
     context.logger.info(`The main packages will be installed`);
 
     addDependencies(tree, options);
@@ -18,7 +18,7 @@ export function ngAdd(options: Schema): Rule {
   };
 }
 
-function addDependencies(tree: Tree, options: Schema) {
+function addDependencies(tree: Tree, options: Schema): void {
   const packages = MAIN_PACKAGES;
 
   packages.forEach((pack) => {

@@ -2,7 +2,7 @@ import { Story } from '@storybook/angular/types-6-0';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { getCustomers } from '../data';
 
-const Template: Story<ZyfraTableComponent> = (args) => ({
+const Template: Story<ZyfraTableComponent> = args => ({
   template: `
     <zyfra-table
       [title]="title"
@@ -43,7 +43,7 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
     ...args,
     formatCurrency(value): string {
       return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-    }
+    },
   },
 });
 
@@ -53,5 +53,5 @@ ScrollHorizontalAndVertical.args = {
   value: getCustomers(),
   scrollable: true,
   scrollHeight: '400px',
-  scrollDirection: 'both'
+  scrollDirection: 'both',
 };

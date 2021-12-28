@@ -3,7 +3,7 @@ import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { getCustomers } from '../data';
 import { consoleLogAction } from '../../../../../.storybook/helpers';
 
-const PaginationTemplate: Story<ZyfraTableComponent> = (args) => ({
+const PaginationTemplate: Story<ZyfraTableComponent> = args => ({
   template: `
     <zyfra-table
       [title]="title"
@@ -36,7 +36,7 @@ const PaginationTemplate: Story<ZyfraTableComponent> = (args) => ({
   props: {
     ...args,
     page: consoleLogAction('page'),
-  }
+  },
 });
 
 export const Pagination = PaginationTemplate.bind({});
@@ -46,5 +46,5 @@ Pagination.args = {
   paginator: true,
   rows: 10,
   responsiveLayout: 'scroll',
-  rowsPerPageOptions: [10, 25, 50]
+  rowsPerPageOptions: [10, 25, 50],
 };

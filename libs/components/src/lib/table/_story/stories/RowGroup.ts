@@ -2,7 +2,7 @@ import { Story } from '@storybook/angular/types-6-0';
 import { ZyfraTableComponent } from '../../zyfra-table.component';
 import { getCustomers } from '../data';
 
-const Template: Story<ZyfraTableComponent> = (args) => ({
+const Template: Story<ZyfraTableComponent> = args => ({
   template: `
     <zyfra-table
       [title]="title"
@@ -76,7 +76,7 @@ const Template: Story<ZyfraTableComponent> = (args) => ({
       }
 
       return total;
-    }
+    },
   },
 });
 

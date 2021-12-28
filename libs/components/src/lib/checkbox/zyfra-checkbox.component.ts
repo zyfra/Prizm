@@ -24,17 +24,17 @@ const CHECKBOX_VALUE_ACCESSOR: Provider = {
   providers: [CHECKBOX_VALUE_ACCESSOR],
 })
 export class ZyfraCheckboxComponent extends Checkbox implements ControlValueAccessor {
-  @Input() binary = true;
-  @Input() checkboxIcon = 'zyfra-icon selection-check-simple';
-  @Input() model: boolean;
-  @Input() disabled: boolean;
+  @Input() override binary = true;
+  @Input() override checkboxIcon = 'zyfra-icon selection-check-simple';
+  @Input() override model: boolean;
+  @Input() override disabled: boolean;
   @Output() modelChange = new EventEmitter<boolean | null>();
 
   constructor(cd: ChangeDetectorRef) {
     super(cd);
   }
 
-  onChangeHandler(event: { checked: boolean; originalEvent: PointerEvent }) {
+  public onChangeHandler(event: { checked: boolean; originalEvent: PointerEvent }): void {
     if (this.formControl) {
       this.formControl.setValue(event.checked);
     } else {
