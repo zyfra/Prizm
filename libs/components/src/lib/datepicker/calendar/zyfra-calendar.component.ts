@@ -1,4 +1,5 @@
 /* eslint-disable */
+// @ts-nocheck
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectorRef, forwardRef, NgZone, Renderer2 } from '@angular/core';
 import {
