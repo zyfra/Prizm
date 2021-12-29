@@ -59,7 +59,7 @@ export class ZyfraDropdownComponent<T = unknown>
   @Input() filterPlaceholder: string;
   @Input() filterLocale: string;
   @Input() required: boolean;
-  @Input() disabled: boolean;
+  @Input() disabled: boolean; // TODO(rustam) remove this prop use control disable
   @Input() readonly: boolean;
   @Input() emptyMessage = 'No records found';
   @Input() emptyFilterMessage = 'No results found';
@@ -137,5 +137,9 @@ export class ZyfraDropdownComponent<T = unknown>
           break;
       }
     });
+  }
+
+  public override setDisabledState(): void {
+    // do nothing, because have `disabled` input
   }
 }
