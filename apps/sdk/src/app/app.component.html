@@ -1,1 +1,15 @@
-Demo page of @digital-plant sdk
+<div>Demo page of @digital-plant sdk</div>
+<zyfra-dropdown
+  [(ngModel)]="value"
+  [options]="options"
+  [optionLabel]="optionLabel"
+  [placeholder]="placeholder"
+  [showClear]="showClear"
+  [label]="label"
+  (onChange)="onChange($event)"
+  (onClick)="onClick($event)"
+  (onFocus)="onFocus($event)"
+  (onBlur)="onBlur($event)"
+  (onShow)="onShow($event)"
+  (onHide)="onHide($event)"
+></zyfra-dropdown>

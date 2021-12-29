@@ -38,9 +38,7 @@ const TemplateWithContent: Story<ZyfraDropdownWithContentComponent> = args => ({
   component: ZyfraDropdownWithContentComponent,
   template: `
     <div>
-      <div style="height: 200px;"></div>
-
-      <zyfra-dropdown-with-content
+       <zyfra-dropdown-with-content
         [(ngModel)]="value"
         [options]="options"
         [optionLabel]="optionLabel"
