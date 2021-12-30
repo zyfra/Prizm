@@ -1,15 +1,17 @@
-<div>Demo page of @digital-plant sdk</div>
-<zyfra-dropdown
-  [(ngModel)]="value"
-  [options]="options"
-  [optionLabel]="optionLabel"
-  [placeholder]="placeholder"
-  [showClear]="showClear"
-  [label]="label"
-  (onChange)="onChange($event)"
-  (onClick)="onClick($event)"
-  (onFocus)="onFocus($event)"
-  (onBlur)="onBlur($event)"
-  (onShow)="onShow($event)"
-  (onHide)="onHide($event)"
-></zyfra-dropdown>
+<h2>Demo page @digital-plant sdk</h2>
+
+<div class="test-block">
+  <span class="test-block-label"> dropdown </span>
+
+  <zyfra-dropdown-test></zyfra-dropdown-test>
+</div>
+
+<div class="test-block">
+  <span class="test-block-label"> zyfra-translate </span>
+
+  <button (click)="toggleTranslate()">Toggle translate</button>
+
+  <div>
+    {{ 'sdk.translateKey' | zTranslate }}
+  </div>
+</div>

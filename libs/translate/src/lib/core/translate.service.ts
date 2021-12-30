@@ -2,10 +2,11 @@ import { EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { IChunk } from './i-chunk';
+import { Language } from './language';
 
 export abstract class TranslateService {
 
-    abstract onLang: EventEmitter<string>;
+    abstract onLang: EventEmitter<string | Language>;
 
     /**
      * Gets the translated value of a key
@@ -23,11 +24,11 @@ export abstract class TranslateService {
     /**
      * Current language
      */
-    abstract get lang(): string;
+    abstract get lang(): string | Language;
 
     /**
      * Change language
      * @param lang language
      */
-    abstract use(lang: string): Observable<void>;
+    abstract use(lang: string | Language): Observable<void>;
 }

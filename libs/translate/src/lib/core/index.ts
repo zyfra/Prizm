@@ -4,3 +4,4 @@ export * from './translate.loader';
 export * from './translate.loader.factory';
 export * from './translate.parser';
 export * from './i-chunk';
+export * from './language';
