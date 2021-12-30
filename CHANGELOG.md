@@ -3,21 +3,30 @@
 
 ## [v0.1.1] - 30-12-2021
 [Milestone v0.1.1](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/milestones/1#tab-issues)
-### @digital-plant/zyfra-components [v0.1.1]
+
+**@digital-plant/zyfra-components [v0.1.1]**
 
 **Fixes**
 
 - PLATFORM01-10021: fixes disable input on dropdown. [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/68)
 
+**@digital-plant/zyfra-translate [v1.0.1]**
 
-## [v0.1.0] - 28-12-2021
-### @digital-plant/zyfra-ui [v0.1.0]
+**Fixes**
+
+- PLATFORM01-10184: fixes translate exports. [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/69)
+
+---
+
+## [v0.1.0] - 28-12-2021 
+
+**@digital-plant/zyfra-ui [v0.1.0]**
 
 **Added**
 
 Добавлен установщик @digital-plant/zyfra-components и его зависимостей
 
-### @digital-plant/zyfra-components [v0.1.0]
+**@digital-plant/zyfra-components [v0.1.0]**
 
 **Added**
 
