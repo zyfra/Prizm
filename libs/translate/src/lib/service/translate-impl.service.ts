@@ -108,7 +108,8 @@ export class TranslateImplService implements TranslateService {
   }
 
   private setLangByChunk(chunk: IChunkExt, lang: string): void {
-    const currentLang = this.tryUseChunkLang(lang, chunk);
+    const currentLang = this.tryUseChunkLang(lang, chunk)
+
     if (chunk.lang !== currentLang) {
       const key = this.loadingChunkKey(chunk.id, lang);
       // проверка, когда слишком много подписок на смену языка

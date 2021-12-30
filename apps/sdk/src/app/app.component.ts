@@ -1,4 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Language, TranslateService } from '@digital-plant/zyfra-translate';
+
+const DefaultLang = Language.ruRU;
 
 @Component({
   selector: 'zyfra-root',
@@ -6,38 +9,31 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./app.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public title = 'sdk';
 
-  public options: any = [
-    { name: 'New York', code: 'NY' },
-    { name: 'Rome', code: 'RM' },
-    { name: 'London', code: 'LDN' },
-    { name: 'Istanbul', code: 'IST' },
-    { name: 'Paris', code: 'PRS' },
-  ];
-  public value = { name: 'New York', code: 'NY' };
-  public optionLabel = 'name';
-  public placeholder = 'Select a City';
-  public showClear = true;
-  public label = 'City';
+  public lang: Language = DefaultLang;
 
-  public onChange(e: any): void {
-    console.log(e);
+  constructor(private readonly translateService: TranslateService) {
+    translateService.addChunk({
+      defaultLang: DefaultLang,
+      id: 'sdk',
+      supportedLangs: [Language.enUS, Language.ruRU],
+    });
+
+    translateService.use(DefaultLang);
   }
-  public onClick(e: any): void {
-    console.log(e);
+
+  ngOnInit(): void {
+    this.translateService.onLang.subscribe(lang => console.log(lang))
   }
-  public onFocus(e: any): void {
-    console.log(e);
-  }
-  public onBlur(e: any): void {
-    console.log(e);
-  }
-  public onShow(e: any): void {
-    console.log(e);
-  }
-  public onHide(e: any): void {
-    console.log(e);
+
+  /**
+   * Change locale
+   */
+  public toggleTranslate(): void {
+    const lang = this.translateService.lang == Language.enUS ? Language.ruRU : Language.enUS;
+
+    this.translateService.use(lang);
   }
 }
