@@ -1,6 +1,13 @@
 # Changelog
 
-## [v0.1.0] - 28-11-2021
+## [v0.1.1] - 30-12-2021
+### @digital-plant/zyfra-components [v0.1.1]
+
+**Fixes**
+
+- PLATFORM01-10021: fixes disable input on dropdown. [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/68)
+
+## [v0.1.0] - 28-12-2021
 ### @digital-plant/zyfra-components [v0.1.0]
 
 **Added**
