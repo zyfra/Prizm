@@ -18,7 +18,7 @@ v16.13.0
 
 Dependencies:
 
-`@digital-plant/zyfra-components 0.1.0`
+`@digital-plant/zyfra-components 0.1.1`
 
 Операционная ситема:
 

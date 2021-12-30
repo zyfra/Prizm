@@ -1,6 +1,15 @@
 # Change log
 
-## [@digital-plant/zyfra-translate] v1.0.0
+## [v1.0.1] - 30-12-2021
+### @digital-plant/zyfra-translate [v1.0.1]
+
+**Fixes**
+
+- PLATFORM01-10184: fixes translate exports. [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/69)
+
+---
+
+### @digital-plant/zyfra-translate [v1.0.0]
 
 **Chore:**
 - Moved package to SDK
@@ -9,14 +18,14 @@
 
 ---
 
-## [zui-pkg-translate] v1.0.2 - 2021-04-06
+### [zui-pkg-translate] v1.0.2 - 2021-04-06
 
 **Fixed:**
 - TranslatePipe: @Optional() ChangeDetectorRef;
 
 ---
 
-## [zui-pkg-translate] v1.0.0 - 2021-01-13
+### [zui-pkg-translate] v1.0.0 - 2021-01-13
 
 Initial release.
 
