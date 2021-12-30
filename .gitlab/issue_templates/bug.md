@@ -29,7 +29,7 @@ Dependencies:
 ```
 ➜ npm ls @digital-plant/zyfra-components
 
-@digital-plant/zyfra-components 0.1.0
+@digital-plant/zyfra-components 0.1.1
 ```
 
 ```
