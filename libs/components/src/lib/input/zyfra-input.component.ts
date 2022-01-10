@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { AbstractControl, ControlValueAccessor } from '@angular/forms';
 import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
 
@@ -30,12 +24,13 @@ export class ZyfraInputComponent extends WrappedFormComponent implements Control
   @Input() disabled: boolean; // TODO remove, use FormControl disabled
   @Input() required: boolean;
   @Input() tooltip: string;
-  @Input() tooltipPosition: 'left' | 'right' | 'above' | 'below'  = 'right';
+  @Input() tooltipPosition: 'left' | 'right' | 'above' | 'below' = 'right';
+  @Input() mini: boolean;
 
   @Output() onBlur = new EventEmitter<unknown>();
 
-  public get controlRequired(): boolean{
-    return !!this.ngControl.control.validator({} as AbstractControl)?.required
+  public get controlRequired(): boolean {
+    return !!this.ngControl.control.validator({} as AbstractControl)?.required;
   }
 
   public override setDisabledState(isDisabled: boolean): void {
