@@ -22,31 +22,25 @@ export class YourModule {}
 To component:
 
 ```html
-<zyfra-button (click)="dialog.onInit($event)" label="for dialog" icon="pi pi-check"></zyfra-button>
+<zyfra-button
+  (click)="visible = !visible"
+  label="for dialog"
+  icon="zyfra-icon selection-check-simple"
+></zyfra-button>
 
 <zyfra-dialog
-  #dialog
-  [header]="'Header'"
-  [htmlTemplate]="htmlTemplate"
+  [(visible)]="visible"
+  [header]="header"
+  [position]="position"
   (onShow)="onShow($event)"
   (onHide)="onHide($event)"
   (onResizeInit)="onResizeInit($event)"
   (onResizeEnd)="onResizeEnd($event)"
   (onDragEnd)="onDragEnd($event)"
   (onMaximize)="onMaximize($event)"
-></zyfra-dialog>
-```
-
-```typescript
-public htmlTemplate: SafeHtml = `
-  <div>
-    <p>content</p>
-    <ul>
-      <li>item 1 (for example)</li>
-      <li><b>item 2</b></li>
-    </ul>
-  </div>
-`;
+>
+  Your content
+</zyfra-dialog>
 ```
 
 ## ArgsTable
