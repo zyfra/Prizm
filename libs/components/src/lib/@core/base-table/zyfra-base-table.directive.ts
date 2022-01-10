@@ -1,11 +1,21 @@
-import { Directive, EventEmitter, Input, Output, QueryList, SimpleChanges, TemplateRef } from '@angular/core';
+import {
+  AfterContentInit,
+  Directive,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  QueryList,
+  SimpleChanges,
+  TemplateRef,
+} from '@angular/core';
 import { SortMeta } from 'primeng/api';
 import { TableSortEvent } from '../../table/zyfra-table.types';
 import { BaseTableTemplateDirective } from './directives/base-table-template.directive';
 import { SortOrder } from './shared-table.types';
 
 @Directive()
-export abstract class ZyfraBaseTableComponent<T = unknown> {
+export abstract class ZyfraBaseTableComponent<T = unknown> implements OnChanges, AfterContentInit {
   @Output() abstract activeElementChange: EventEmitter<T>;
 
   styleClasses = 'p-datatable-gridlines';
@@ -346,8 +356,8 @@ export abstract class ZyfraBaseTableComponent<T = unknown> {
   protected abstract getTable(): any;
   protected abstract initTemplateByType(item: BaseTableTemplateDirective);
 
-  ngOnChanges(changes): void {
-    if (changes.value && changes.value.firstChange) {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.value) {
       this.initialData = [...changes.value.currentValue];
     }
 
@@ -486,7 +496,7 @@ export abstract class ZyfraBaseTableComponent<T = unknown> {
     }
   }
 
-  set activeElement(activeElement) {
+  set activeElement(activeElement: T) {
     if (this.activeElement === activeElement) {
       return;
     }
