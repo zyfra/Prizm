@@ -44,13 +44,42 @@ export default {
 const Template: Story = args => ({
   component: ZyfraCalendarComponent,
   props: args,
+  template: `
+  <zyfra-calendar
+    [label]='label'
+    [selectionMode]='selectionMode'
+    [placeholder]='placeholder'
+    [ngModel]='ngModel'
+    [dateFormat]='dateFormat'
+    [hourFormat]='hourFormat'
+    [disabled]='disabled'
+    [inline]='inline'
+    [showOtherMonths]='showOtherMonths'
+    [selectOtherMonths]='selectOtherMonths'
+    [showIcon]='showIcon'
+    [showOnFocus]='showOnFocus'
+    [showWeek]='showWeek'
+    [readonlyInput]='readonlyInput'
+    [showTime]='showTime'
+    [timeOnly]='timeOnly'
+    [required]='required'
+    [showButtonBar]='showButtonBar'
+    [firstDayOfWeek]='firstDayOfWeek'
+    [disabledDays]='disabledDays'
+    [minDate]="minDate"
+    [maxDate]="maxDate"
+  >
+  </zyfra-calendar>
+  `
 });
 
 export const Basic = Template.bind({});
 Basic.args = {
   label: 'Дата',
   selectionMode: 'single',
-  placeholder: 'Select a date',
+  placeholder: 'Выберите дату',
+  ngModel: '10.01.2022',
+  dateFormat: 'dd.mm.yy',
   disabled: false,
   inline: false,
   showOtherMonths: true,
@@ -69,8 +98,9 @@ Basic.args = {
 export const DateFormat = Template.bind({});
 DateFormat.args = {
   label: 'Дата',
-  placeholder: 'Select a date',
+  placeholder: 'Выберите дату',
   disabled: false,
+  ngModel: '10/01/2022',
   dateFormat: 'dd/mm/yy',
   inline: false,
   showOtherMonths: true,
@@ -89,7 +119,9 @@ DateFormat.args = {
 export const Icon = Template.bind({});
 Icon.args = {
   label: 'Дата',
-  placeholder: 'Select a date',
+  placeholder: 'Выберите дату',
+  ngModel: '10.01.2022',
+  dateFormat: 'dd.mm.yy',
   disabled: false,
   inline: false,
   showOtherMonths: true,
@@ -108,7 +140,9 @@ Icon.args = {
 export const ButtonBar = Template.bind({});
 ButtonBar.args = {
   label: 'Дата',
-  placeholder: 'Select a date',
+  placeholder: 'Выберите дату',
+  ngModel: '10.01.2022',
+  dateFormat: 'dd.mm.yy',
   disabled: false,
   inline: false,
   showOtherMonths: true,
@@ -128,6 +162,8 @@ export const DisabledDays = Template.bind({});
 DisabledDays.args = {
   label: 'Дата',
   placeholder: 'Select a date',
+  ngModel: '10.01.2022',
+  dateFormat: 'dd.mm.yy',
   disabled: false,
   inline: false,
   showOtherMonths: true,
@@ -148,7 +184,9 @@ export const Multiple = Template.bind({});
 Multiple.args = {
   label: 'Дата',
   selectionMode: 'multiple',
-  placeholder: 'Select dates',
+  placeholder: 'Выберите даты',
+  ngModel: '10.01.2022, 12.01.2022',
+  dateFormat: 'dd.mm.yy',
   disabled: false,
   inline: false,
   showOtherMonths: true,
@@ -168,7 +206,9 @@ export const Range = Template.bind({});
 Range.args = {
   label: 'Период',
   selectionMode: 'range',
-  placeholder: 'Select dates',
+  placeholder: 'Выберите даты',
+  ngModel: '10.01.2022 - 12.01.2022',
+  dateFormat: 'dd.mm.yy',
   disabled: false,
   inline: false,
   showOtherMonths: true,
@@ -187,7 +227,10 @@ Range.args = {
 export const Time = Template.bind({});
 Time.args = {
   label: 'Время',
-  placeholder: 'Select a date',
+  placeholder: 'Выберите дату',
+  ngModel: '10.01.2022 10:10',
+  dateFormat: 'dd.mm.yy',
+  hourFormat: 24,
   disabled: false,
   inline: false,
   showOtherMonths: true,
@@ -206,7 +249,8 @@ Time.args = {
 export const OnlyTime = Template.bind({});
 OnlyTime.args = {
   label: 'Время',
-  placeholder: 'Set time',
+  placeholder: 'Введите время',
+  ngModel: '10:10',
   disabled: false,
   inline: false,
   showOtherMonths: true,
