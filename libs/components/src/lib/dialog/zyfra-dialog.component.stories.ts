@@ -24,18 +24,17 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ZyfraDialogComponent> = (args) => ({
+const Template: Story<ZyfraDialogComponent> = args => ({
   template: `
     <zyfra-button
-      (click)="dialog.onInit($event)"
+      (click)="visible = !visible"
       label="for dialog"
       icon="zyfra-icon selection-check-simple"
     ></zyfra-button>
 
     <zyfra-dialog
-      #dialog
+      [(visible)]="visible"
       [header]="header"
-      [htmlTemplate]="htmlTemplate"
       [position]="position"
       (onShow)="onShow($event)"
       (onHide)="onHide($event)"
@@ -43,10 +42,19 @@ const Template: Story<ZyfraDialogComponent> = (args) => ({
       (onResizeEnd)="onResizeEnd($event)"
       (onDragEnd)="onDragEnd($event)"
       (onMaximize)="onMaximize($event)"
-    ></zyfra-dialog>
+    >
+      <div>
+        <p>content</p>
+        <ul>
+          <li>item 1 (for example)</li>
+          <li><b>item 2</b></li>
+        </ul>
+      </div>
+    </zyfra-dialog>
   `,
   props: {
     ...args,
+    visible: false,
     onResizeInit: action('onResizeInit'),
     onResizeEnd: action('onResizeEnd'),
     onDragEnd: action('onDragEnd'),
@@ -56,39 +64,13 @@ const Template: Story<ZyfraDialogComponent> = (args) => ({
   },
 });
 
-const htmlContentTemplate: SafeHtml = `
-  content
-`;
-
-const htmlTemplate: SafeHtml = `
-  <div>
-    <p>content</p>
-    <ul>
-      <li>item 1 (for example)</li>
-      <li><b>item 2</b></li>
-    </ul>
-  </div>
-`;
-
-const htmlTopContentTemplate: SafeHtml = `
-  content position top
-`;
-
 export const Simple = Template.bind({});
 Simple.args = {
   header: 'Header',
-  htmlTemplate: htmlContentTemplate,
-};
-
-export const WithTemplate = Template.bind({});
-WithTemplate.args = {
-  header: 'With template',
-  htmlTemplate,
 };
 
 export const PositionTop = Template.bind({});
 PositionTop.args = {
   header: 'Header top',
-  htmlTemplate: htmlTopContentTemplate,
   position: 'top',
 };

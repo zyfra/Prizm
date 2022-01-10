@@ -1,15 +1,11 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'zyfra-dialog',
   templateUrl: './zyfra-dialog.component.html',
-  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraDialogComponent {
-  @Input() htmlTemplate: SafeHtml;
-
   @Input() header: string;
   @Input() draggable: boolean = true;
   @Input() acceptVisible: boolean = true;
@@ -43,6 +39,7 @@ export class ZyfraDialogComponent {
   @Input() minimizeIcon: string = 'zyfra-icon arrows-collapse';
   @Input() maximizeIcon: string = 'zyfra-icon arrows-expand';
 
+  @Output() visibleChange: EventEmitter<boolean> = new EventEmitter();
   @Output() onHide: EventEmitter<any> = new EventEmitter();
   @Output() onShow: EventEmitter<any> = new EventEmitter();
   @Output() onResizeInit: EventEmitter<any> = new EventEmitter();
@@ -70,10 +67,6 @@ export class ZyfraDialogComponent {
 
   public onDragEndHandler(event: unknown): void {
     this.onDragEnd.emit(event);
-  }
-
-  public onInit(): void {
-    this.visible = true;
   }
 
   public onMaximizeHandler(event: unknown): void {
