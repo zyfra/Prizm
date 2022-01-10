@@ -83,7 +83,220 @@ To component:
 ></zyfra-calendar>
 ```
 
-Custom buttons for calendar:
+### Popup and Inline
+Calendar is displayed in a popup by default and inline property needs to be enabled for inline mode.
+
+```html
+<zyfra-calendar [(ngModel)]="value" [inline]="true"></zyfra-calendar>
+```
+
+### DateFormat
+Default date format is mm/dd/yy, to customize this use dateFormat property.
+
+```html
+<zyfra-calendar [(ngModel)]="dateValue" dateFormat="dd.mm.yy"></zyfra-calendar>
+```
+
+Following options can be a part of the format.
+
+- d - day of month (no leading zero)
+- dd - day of month (two digit)
+- o - day of the year (no leading zeros)
+- oo - day of the year (three digit)
+- D - day name short
+- DD - day name long
+- m - month of year (no leading zero)
+- mm - month of year (two digit)
+- M - month name short
+- MM - month name long
+- y - year (two digit)
+- yy - year (four digit)
+- @ - Unix timestamp (ms since 01/01/1970)
+- ! - Windows ticks (100ns since 01/01/0001)
+- '...' - literal text
+- '' - single quote
+- anything else - literal text
+
+### Time
+TimePicker is enabled with showTime property and 24 (default) or 12 hour mode is configured using hourFormat option.
+
+```html
+<zyfra-calendar [(ngModel)]="value" showTime="true" [hourFormat]="12"></zyfra-calendar>
+<zyfra-calendar [(ngModel)]="value" showTime="true" [hourFormat]="24"></zyfra-calendar>
+```
+
+
+### Date Restriction
+To disable entering dates manually, set readonlyInput to true and to restrict selectable dates use minDate and maxDate options.
+
+```html
+<zyfra-calendar [(ngModel)]="dateValue" [minDate]="minDateValue" [maxDate]="maxDateValue" [readonlyInput]="true"></zyfra-calendar>
+```
+
+### Disable specific dates and/or days
+To disable specific dates or days, set readonlyInput to true and to restrict selectable dates use disabledDates and/or disabledDays options.
+
+```html
+<zyfra-calendar [(ngModel)]="dateValue" [disabledDates]="invalidDates" [disabledDays]="[0,6]" [readonlyInput]="true"></zyfra-calendar>
+```
+
+### Button Bar
+Button bar displays today and clear buttons and enabled using showButtonBar property.
+
+```html
+<zyfra-calendar [(ngModel)]="dateValue" showButtonBar="true"></zyfra-calendar>
+```
+
+### Multiple Months
+Displaying multiple months is enabled by setting numberOfMonths property to a value greater than 1.
+
+```html
+<zyfra-calendar [(ngModel)]="dateValue" [numberOfMonths]="3"></zyfra-calendar>
+```
+
+### Custom Content
+Calendar UI accepts custom content using header and footer templates.
+
+```html
+<zyfra-calendar [(ngModel)]="dateValue">
+    <ng-template pTemplate="header">Header</ng-template>
+    <ng-template pTemplate="footer">Footer</ng-template>
+</zyfra-calendar>
+```
+
+Cell contents can also be templated using an ng-template with a pTemplate directive whose value is "date". This is a handy feature to highlight specific dates. Note that the implicit variable passed to the template is not a date instance but a metadata object to represent a Date with "day", "month" and "year" properties. Example below changes the background color of dates between 10th and 21st of each month.
+
+In addition, "disabledDateTemplate" is provided in case you need to customize the content of disabled dates as well.
+
+```html
+<zyfra-calendar [(ngModel)]="date10">
+    <ng-template pTemplate="date" let-date>
+        <span [ngStyle]="{textDecoration: (date.day < 21 && date.day > 10) ? 'line-through' : 'inherit'}">{{date.day}}</span>
+    </ng-template>
+</zyfra-calendar>
+```
+
+### Month Picker
+Month picker is used to select month and year only without the date, set view mode as "month" to activate month picker.
+
+```html
+<zyfra-calendar [(ngModel)]="dateValue" view="month" dateFormat="mm/yy"></zyfra-calendar>
+```
+
+### Year Picker
+Similar to the month picker, year picker can be used to select years only. Set view to "year" to display the year picker.
+
+```html
+<zyfra-calendar [(ngModel)]="dateValue" view="year" dateFormat="yy"></zyfra-calendar>
+```
+
+### Touch UI
+Touch UI mode displays the calendar overlay at the center of the screen as optimized for touch devices. When using Touch UI mode you will typically want to set readonlyInput to prevent keyboard popup for mobile users.
+
+```html
+<zyfra-calendar [(ngModel)]="dateValue" [touchUI]="true" [readonlyInput]="true"></zyfra-calendar>
+```
+
+### Animation Configuration
+Transition of the open and hide animations can be customized using the showTransitionOptions and hideTransitionOptions properties, example below disables the animations altogether.
+
+```html
+<zyfra-calendar [(ngModel)]="dateValue" [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'"></zyfra-calendar>
+```
+
+### Properties
+
+
+| Name |	Type | Default |	Description |
+|------|-------|---------|--------------|
+| defaultDate |	Date | null |	Set the date to highlight on first opening if the field is blank. |
+| selectionMode |	string | single |	Defines the quantity of the selection, valid values are "single", "multiple" and "range". |
+| style |	string | null |	Inline style of the component. |
+| styleClass |	string | null |	Style class of the component. |
+| inputStyle |	string | null |	Inline style of the input field. |
+| inputStyleClass |	string | null |	Style class of the input field. |
+| inputId |	string | null |	Identifier of the focus input to match a label defined for the component. |
+| name |	string | null |	Name of the input element. |
+| placeholder |	string | null |	Placeholder text for the input. |
+| disabled |	boolean | false |	When specified, disables the component. |
+| dateFormat |	string | mm/dd/yy |	Format of the date which can also be defined at locale settings. |
+| inline |	boolean | false |	When enabled, displays the calendar as inline. Default is false for popup mode. |
+| showOtherMonths |	boolean | true |	Whether to display dates in other months (non-selectable) at the start or end of the current month. To make these days selectable use the selectOtherMonths option. |
+| selectOtherMonths |	boolean | false |	Whether days in other months shown before or after the current month are selectable. This only applies if the showOtherMonths option is set to true. |
+| showIcon |	boolean | false |	When enabled, displays a button with icon next to input. |
+| showOnFocus |	boolean | true |	When disabled, datepicker will not be visible with input focus. |
+| showWeek |	boolean | false |	When enabled, calendar will show week numbers. |
+| icon |	string | pi | pi-calendar	Icon of the calendar button. |
+| appendTo |	any | null |	Target element to attach the overlay, valid values are "body" or a local ng-template variable of another element (note: use binding with brackets for template variables, e.g. [appendTo]="mydiv" for a div element having #mydiv as variable name). |
+| readonlyInput |	boolean | null |	When specified, prevents entering the date manually with keyboard. |
+| shortYearCutoff |	string | +10	| The cutoff year for determining the century for a date. |
+| minDate |	Date | null |	The minimum selectable date. |
+| maxDate |	Date | null |	The maximum selectable date. |
+| disabledDates |	Array | Date |>	null	Array with dates that should be disabled (not selectable). |
+| disabledDays |	Array | number |>	null	Array with weekday numbers that should be disabled (not selectable). |
+| showTime |	boolean | false |	Whether to display timepicker. |
+| hourFormat |	string | 24 |	Specifies 12 or 24 hour format. |
+| timeOnly |	boolean | false |	Whether to display timepicker only. |
+| timeSeparator |	string | : |	Separator of time selector. |
+| dataType |	string | date |	Type of the value to write back to ngModel, default is date and alternative is string. |
+| required |	boolean | false |	When present, it specifies that an input field must be filled out before submitting the form. |
+| tabindex |	number | null |	Index of the element in tabbing order. |
+| ariaLabelledBy |	string | null |	Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| iconAriaLabel |	string | null |	Defines a string that labels the icon button for accessibility. |
+| showSeconds |	boolean | false |	Whether to show the seconds in time picker. |
+| stepHour |	number | 1 |	Hours to change per step. |
+| stepMinute |	number | 1 |	Minutes to change per step. |
+| stepSecond |	number | 1 |	Seconds to change per step. |
+| maxDateCount |	number | null |	Maximum number of selectable dates in multiple mode. |
+| showButtonBar |	boolean | false |	Whether to display today and clear buttons at the footer |
+| todayButtonStyleClass |	string | p |-secondary-button	Style class of the today button. |
+| clearButtonStyleClass |	string | p |-secondary-button	Style class of the clear button. |
+| baseZIndex |	number | 0 |	Base zIndex value to use in layering. |
+| autoZIndex |	boolean | true |	Whether to automatically manage layering. |
+| panelStyleClass |	string | null |	Style class of the datetimepicker container element. |
+| panelStyle |	object | null |	Inline style of the datetimepicker container element. |
+| keepInvalid |	boolean | false |	Keep invalid value when input blur. |
+| hideOnDateTimeSelect |	boolean | true |	Whether to hide the overlay on date selection. |
+| numberOfMonths |	number | 1 |	Number of months to display. |
+| view |	string | date |	Type of view to display, valid values are "date" for datepicker and "month" for month picker. |
+| multipleSeparator |	string | , |	Separator for multiple selection mode. |
+| rangeSeparator |	string | - |	Separator for joining start and end dates on range selection mode. |
+| touchUI |	boolean | false |	When enabled, calendar overlay is displayed as optimized for touch devices. |
+| focusTrap |	boolean | true |	When enabled, can only focus on elements inside the calendar. |
+| showTransitionOptions |	string | .12s cubic-bezier(0, 0, 0.2, 1) |	Transition options of the show animation. |
+| hideTransitionOptions |	string | .1s linear |	Transition options of the hide animation. |
+| firstDayOfWeek |	number | 0 |	Defines the first of the week for various date calculations. |
+
+### Events
+
+| Name	| Parameters | 	Description  |
+|-------|------------|---------------|
+| onSelect	value: | Selected value	| Callback to invoke when a date is selected. Note that this event is not called when the value is entered from the input manually. |
+| onBlur	event: | Blur event	| Callback to invoke on blur of input field. |
+| onFocus	event: |  Focus event	| Callback to invoke on focus of input field. |
+| onClose	event: | Close event	| Callback to invoke when datepicker panel is closed. |
+| onShow	event: | Animation event	| Callback to invoke when datepicker panel is visible. |
+| onClickOutside	event: | Click event	| Callback to invoke when click outside of datepicker panel. |
+| onInput	event: | Input event	| Callback to invoke when input field is being typed. |
+| onTodayClick	event: | Click event	| Callback to invoke when today button is clicked. |
+| onClearClick	event: | Click event	| Callback to invoke when clear button is clicked. |
+| onMonthChange	event.month: | New month |
+| event.year: | New year	| Callback to invoke when a month is changed using the navigators. |
+| onYearChange	| event.month: | New month |
+| event.year: | New year	| Callback to invoke when a year is changed using the navigators. |
+
+### Methods
+
+- toggle - Toggles the visibility of the calendar.
+
+### Templates
+
+- header	-
+- footer	-
+- date	$implicit: Value of the component
+- decade	$implicit: An array containing the start and and year of a decade to display at header of the year picker
+
+## Custom buttons for calendar:
 
 Calendar support ng-content selector: `buttons-right`
 
@@ -142,6 +355,6 @@ export class CustomCalendarComponent {
 
 ```
 
-## ArgsTable
+<!-- ## ArgsTable -->
 
-<ArgsTable of={ZyfraCalendarComponent} />
+<!-- <ArgsTable of={ZyfraCalendarComponent} /> -->
