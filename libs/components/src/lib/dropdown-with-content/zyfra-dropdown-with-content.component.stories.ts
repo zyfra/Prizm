@@ -42,6 +42,7 @@ const TemplateWithContent: Story<ZyfraDropdownWithContentComponent> = args => ({
         [(ngModel)]="value"
         [options]="options"
         [optionLabel]="optionLabel"
+        [optionValue]="optionValue"
         [placeholder]="placeholder"
         [showClear]="showClear"
         [label]="label"
@@ -92,8 +93,8 @@ SimpleWithContent.args = {
     { name: 'Istanbul', code: 'IST' },
     { name: 'Paris', code: 'PRS' },
   ],
-  value: { name: 'New York', code: 'NY' },
   optionLabel: 'name',
+  optionValue: 'code',
   placeholder: 'Select a City',
   showClear: true,
   required: false,
