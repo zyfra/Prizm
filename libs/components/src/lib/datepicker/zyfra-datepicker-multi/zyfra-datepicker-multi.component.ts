@@ -55,6 +55,11 @@ export class ZyfraDatepickerMultiComponent {
   @Input() timeFormat: string;
   @Input() returnFormatValue: ZyfraDatePickerValueType;
 
+  @Input() defaultDate: Date;
+  @Input() minDate: Date;
+  @Input() maxDate: Date;
+  @Input() view: string;
+
   @Input() style: any;
   @Input() styleClass: string;
   @Input() inputStyle: any;
