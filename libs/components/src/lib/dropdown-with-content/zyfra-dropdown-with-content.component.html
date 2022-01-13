@@ -2,6 +2,8 @@
   class="zyfra-dropdown-with-content"
   [class.zyfra-dropdown-with-content_mini]="mini"
   [class.zyfra-dropdown-with-content_disabled]="disabled"
+  [class.zyfra-dropdown-with-content_empty]="!dropdown.filled"
+  [class.zyfra-dropdown-with-content_placeholder]="placeholder"
   [class.p-float-label]="label"
   [style]="style"
 >
@@ -37,7 +39,7 @@
     [filterPlaceholder]="filterPlaceholder"
     [filterLocale]="filterLocale"
     [required]="required"
-    [disabled]="disabled"
+    [attr.disabled]="disabled"
     [readonly]="readonly"
     [emptyMessage]="emptyMessage"
     [emptyFilterMessage]="emptyFilterMessage"

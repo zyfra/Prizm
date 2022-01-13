@@ -1,11 +1,13 @@
 import {
   AfterContentInit,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ContentChildren,
   EventEmitter,
   Injector,
   Input,
+  OnDestroy,
   Output,
   QueryList,
   TemplateRef,
@@ -18,6 +20,8 @@ import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.compo
 import { ZyfraDropdownWithContentService } from './zyfra-dropdown-with-content.service';
 import { ZyfraDropdownTemplateDirective } from '../dropdown/zyfra-dropdown-template.directive';
 import { DropdownChangeEvent } from '../dropdown/zyfra-dropdown.component';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'zyfra-dropdown-with-content',
@@ -27,7 +31,7 @@ import { DropdownChangeEvent } from '../dropdown/zyfra-dropdown.component';
 })
 export class ZyfraDropdownWithContentComponent<T = unknown>
   extends WrappedFormComponent
-  implements ControlValueAccessor, AfterContentInit
+  implements ControlValueAccessor, AfterContentInit, OnDestroy
 {
   @Input() options: T[];
   @Input() optionValue: string;
@@ -112,12 +116,21 @@ export class ZyfraDropdownWithContentComponent<T = unknown>
 
   isOpen: boolean;
 
+  private destroy$ = new Subject();
+
   constructor(
     injector: Injector,
     ngControl: NgControl,
+    cdr: ChangeDetectorRef,
     private dropdownService: ZyfraDropdownWithContentService
   ) {
     super(injector, ngControl);
+
+    ngControl.statusChanges.pipe(takeUntil(this.destroy$)).subscribe(change => {
+      if (['VALID', 'INVALID'].includes(change)) {
+        cdr.detectChanges();
+      }
+    });
   }
 
   ngAfterContentInit(): void {
@@ -146,6 +159,11 @@ export class ZyfraDropdownWithContentComponent<T = unknown>
           break;
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   public handleOnShow(e: AnimationEvent): void {
