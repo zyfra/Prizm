@@ -8,7 +8,6 @@ import { ZyfraDropdownModule } from '../dropdown';
 import { ZyfraButtonModule } from '../button';
 import { ZyfraRadioButtonModule } from '../radio-button';
 import { ZyfraInputModule } from '../input';
-import { ZyfraDatepickerComponent } from './zyfra-datepicker.component';
 import { ZyfraDatepickerModeSelectComponent } from './zyfra-datepicker-mode-select/zyfra-datepicker-mode-select.component';
 import { ZyfraRelativeDatepickerComponent } from './zyfra-relative-datepicker/zyfra-relative-datepicker.component';
 import { ZyfraDatepickerMultiComponent } from './zyfra-datepicker-multi/zyfra-datepicker-multi.component';
@@ -19,7 +18,6 @@ import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
-    ZyfraDatepickerComponent,
     ZyfraRelativeDatepickerComponent,
     ZyfraDatepickerModeSelectComponent,
     ZyfraDatepickerMultiComponent,
@@ -40,6 +38,11 @@ import { ButtonModule } from 'primeng/button';
     SharedModule,
     ButtonModule,
   ],
-  exports: [ZyfraDatepickerComponent, ZyfraRelativeDatepickerComponent, ZyfraDatepickerModeSelectComponent],
+  exports: [
+    ZyfraRelativeDatepickerComponent,
+    ZyfraDatepickerModeSelectComponent,
+    ZyfraDatepickerMultiComponent,
+    ZyfraCalendarComponent,
+  ],
 })
 export class ZyfraDatepickerModule {}

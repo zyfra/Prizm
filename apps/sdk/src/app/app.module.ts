@@ -4,13 +4,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ZyfraDropdownModule } from '@digital-plant/zyfra-components';
+import { ZyfraDatepickerModule, ZyfraDropdownModule } from '@digital-plant/zyfra-components';
 import { TranslateModule } from '@digital-plant/zyfra-translate';
 import { AppComponent } from './app.component';
 import { DropdownTestComponent } from './dropdown-test/dropdown-test.component';
+import { CalendarTestComponent } from './calendar-test/calendar-test.component';
 
 @NgModule({
-  declarations: [AppComponent, DropdownTestComponent],
+  declarations: [AppComponent, DropdownTestComponent, CalendarTestComponent],
   imports: [
     BrowserModule,
     CommonModule,
@@ -18,8 +19,9 @@ import { DropdownTestComponent } from './dropdown-test/dropdown-test.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ZyfraDropdownModule,
+    ZyfraDatepickerModule,
     HttpClientModule,
-    TranslateModule.forRoot()
+    TranslateModule.forRoot(),
   ],
   bootstrap: [AppComponent],
 })
