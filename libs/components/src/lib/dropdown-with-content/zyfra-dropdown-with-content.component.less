@@ -51,6 +51,12 @@ zyfra-dropdown-with-content.ng-dirty.ng-invalid {
     }
   }
 
+  &_empty:not(.zyfra-dropdown-with-content_placeholder) {
+    .zyfra-dropdown-with-content__left .label-top {
+      top: 50%;
+    }
+  }
+
   &_disabled {
     border-color: var(--inputDisabledLabelColor);
 
