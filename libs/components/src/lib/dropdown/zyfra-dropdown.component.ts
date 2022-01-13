@@ -31,8 +31,8 @@ export class ZyfraDropdownComponent<T = unknown>
   implements ControlValueAccessor, AfterContentInit
 {
   @Input() options: T[];
+  @Input() optionValue: string;
   @Input() optionLabel = 'label';
-  @Input() optionValue;
   @Input() optionDisabled = 'disabled';
   @Input() optionGroupLabel = 'label';
   @Input() optionGroupChildren = 'items';
@@ -93,7 +93,7 @@ export class ZyfraDropdownComponent<T = unknown>
   @Input() virtualScroll: boolean;
   @Input() mini: boolean;
 
-  @Output() onChange = new EventEmitter<DropdownChangeEvent<T>>();
+  @Output() onChange = new EventEmitter<DropdownChangeEvent<unknown>>();
   @Output() onClick = new EventEmitter<PointerEvent>();
   @Output() onFocus = new EventEmitter<FocusEvent>();
   @Output() onBlur = new EventEmitter<FocusEvent>();
