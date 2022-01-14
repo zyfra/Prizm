@@ -11,11 +11,11 @@
   [hideTransformOptions]="hideTransformOptions"
   [preventOpenDuplicates]="preventOpenDuplicates"
   [preventDuplicates]="preventDuplicates"
-  (onClose)="onReject()"
+  (onClose)="onClose.emit($event)"
 >
   <ng-template *ngIf="customTemplate" let-message pTemplate="message">
     <div class="p-toast-message-custom">
-      <ng-container *ngTemplateOutlet="customTemplate"></ng-container>
+      <ng-container *ngTemplateOutlet="customTemplate; context: { message: message }"></ng-container>
     </div>
   </ng-template>
 </p-toast>
