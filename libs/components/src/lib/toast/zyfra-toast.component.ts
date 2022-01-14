@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
-import { MessageService, PrimeNGConfig } from 'primeng/api';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'zyfra-toast',
   templateUrl: './zyfra-toast.component.html',
-  providers: [MessageService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraToastComponent {
@@ -23,38 +22,9 @@ export class ZyfraToastComponent {
   @Input() preventOpenDuplicates: boolean;
   @Input() preventDuplicates: boolean;
 
-  // --- for message -----
-  @Input() severity: string;
-  @Input() summary: string;
-  @Input() detail: string;
-  @Input() id: any;
-  @Input() life: number = 3000;
-  @Input() sticky: boolean = false;
-  @Input() closable: boolean = true;
-  @Input() data: any;
-
   @Output() onClose: EventEmitter<any> = new EventEmitter();
 
-  constructor(private messageService: MessageService, private primengConfig: PrimeNGConfig) {
+  constructor(private primengConfig: PrimeNGConfig) {
     this.primengConfig.ripple = true;
-  }
-
-  public showMessage(): void {
-    this.messageService.add({
-      severity: this.severity,
-      summary: this.summary,
-      detail: this.detail,
-      life: this.life,
-      id: this.id,
-      sticky: this.sticky,
-      closable: this.closable,
-      data: this.data,
-    });
-  }
-
-  // нужны ли кастомные методы?
-  public onReject(): void {
-    this.messageService.clear('c');
-    this.onClose.emit(event);
   }
 }
