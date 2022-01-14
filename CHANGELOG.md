@@ -1,6 +1,20 @@
 # Changelog
 Все изменения в этом файле отражают изменения в коде во всем монорепозитории.
 
+## [v0.2.1] - 14-01-2022
+[Milestone v0.2.1](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/milestones/3)
+
+### @digital-plant/zyfra-components [v0.2.1]
+
+**Fixes**
+
+- fix dropdown, type to DropdownChangeEvent<unknown>. [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/76)
+- PLATFORM01-10387: fixes styles ZyfraDropdownWithContentComponent. [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/77)
+- PLATFORM01-10021: Fixes calendar Issue #11 #12 #13 [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/78)
+- PLATFORM01-10021: Fixes API ToastComponent, Add ToastService [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/79)
+
+-----
+
 -----
 
 ## [v0.2.0] - 10-01-2022
