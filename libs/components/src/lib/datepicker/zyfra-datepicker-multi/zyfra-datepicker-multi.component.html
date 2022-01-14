@@ -15,6 +15,8 @@
 
 <ng-template #absoluteTemplate>
   <zyfra-calendar
+    [label]="label"
+    [ngModel]="absoluteValue"
     [defaultDate]="defaultDate"
     [selectionMode]="selectionMode"
     [style]="style"
@@ -73,7 +75,7 @@
     [hideTransitionOptions]="hideTransitionOptions"
     [firstDayOfWeek]="firstDayOfWeek"
   >
-    <ng-container buttons>
+    <ng-container buttons-right>
       <ng-container *ngTemplateOutlet="selectButtonTemplate"></ng-container>
     </ng-container>
   </zyfra-calendar>
@@ -82,8 +84,8 @@
 <ng-template #selectButtonTemplate>
   <button
     type="button"
-    (click)="onClickButtonSelect($event, select)"
     class="zyfra-datepicker-control zyfra-datepicker-button"
+    (click)="onClickButtonSelect($event, select)"
   >
     <zyfra-datepicker-mode-select
       #select
