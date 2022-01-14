@@ -6,9 +6,7 @@ import {
   EventEmitter,
   ChangeDetectorRef,
 } from '@angular/core';
-import { ZyfraLocale } from '../model/zyfra-date-picker-locale.enum';
 import { ZyfraDatePickerMode } from '../model/zyfra-date-picker-mode.enum';
-import { ZyfraDatePickerValueType } from '../model/zyfra-date-picker-value-type.enum';
 import { ZyfraDatepickerModeSelectComponent } from '../zyfra-datepicker-mode-select/zyfra-datepicker-mode-select.component';
 
 @Component({
@@ -31,17 +29,9 @@ export class ZyfraDatepickerMultiComponent {
   @Input() public relativeValue: string;
 
   // wrapper for absolute component
-  @Input() model: string | number | Date;
+  @Input() absoluteValue: string | number | Date;
   @Input() required: boolean;
-  @Input() spanClass: string;
-  @Input() showDate: boolean = true;
   @Input() showTime: boolean;
-  @Input() inputClass: string = '';
-  @Input() monthNavigator: boolean = false;
-  @Input() yearNavigator: boolean = false;
-  @Input() yearRange: string = null;
-  @Input() showCalendarBtn: boolean = true;
-  @Input() calendarBtnLabel: string;
   @Input() hideOnDateTimeSelect: boolean = true;
   @Input() numberOfMonths: number = 1;
   @Input() selectionMode: string = 'single';
@@ -50,10 +40,7 @@ export class ZyfraDatepickerMultiComponent {
   @Input() firstDayOfWeek: number = 1;
   @Input() showOnFocus: boolean = false;
   @Input() showWeek: boolean = false;
-  @Input() locale: ZyfraLocale = ZyfraLocale.ru;
   @Input() dateFormat: string;
-  @Input() timeFormat: string;
-  @Input() returnFormatValue: ZyfraDatePickerValueType;
 
   @Input() defaultDate: Date;
   @Input() minDate: Date;
@@ -100,6 +87,7 @@ export class ZyfraDatepickerMultiComponent {
   @Input() showTransitionOptions: string = '.12s cubic-bezier(0, 0, 0.2, 1)';
   @Input() hideTransitionOptions: string = '.1s linear';
   @Input() tabindex: number;
+
   @Output() onFocus: EventEmitter<any> = new EventEmitter();
   @Output() onBlur: EventEmitter<any> = new EventEmitter();
   @Output() onClose: EventEmitter<any> = new EventEmitter();

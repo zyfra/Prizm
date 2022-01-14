@@ -11,8 +11,8 @@ import { ZyfraCheckBoxModule } from '../../checkbox';
 import { ZyfraDropdownModule } from '../../dropdown';
 import { ZyfraInputModule } from '../../input';
 import { ZyfraRadioButtonModule } from '../../radio-button';
+import { ZyfraCalendarComponent } from '../calendar/zyfra-calendar.component';
 import { ZyfraDatepickerModeSelectComponent } from '../zyfra-datepicker-mode-select/zyfra-datepicker-mode-select.component';
-import { ZyfraDatepickerComponent } from '../zyfra-datepicker.component';
 import { ZyfraRelativeDatepickerComponent } from '../zyfra-relative-datepicker/zyfra-relative-datepicker.component';
 import { ZyfraDatepickerMultiComponent } from './zyfra-datepicker-multi.component';
 
@@ -41,7 +41,7 @@ export default {
       ],
       declarations: [
         ZyfraDatepickerModeSelectComponent,
-        ZyfraDatepickerComponent,
+        ZyfraCalendarComponent,
         ZyfraRelativeDatepickerComponent,
       ],
     }),
@@ -57,30 +57,24 @@ const Template: Story<ZyfraDatepickerMultiComponent> = (args: ZyfraDatepickerMul
   component: ZyfraDatepickerMultiComponent,
   template: `
   <zyfra-datepicker-multi
+    [relativeValue]="relativeValue"
+    [absoluteValue]="absoluteValue"
     [label]='label'
     [placeholder]='placeholder'
+    [dateFormat]='dateFormat'
     [disabled]='disabled'
-    [showClear]='showClear'
-    [relativeValue]='value'
-    [model]="model"
-    [dateFormat]="dateFormat"
-    [timeFormat]="timeFormat"
-    [returnFormatValue]="returnFormatValue"
-    [required]="required"
-    [spanClass]="spanClass"
-    [locale]="locale"
-    [showDate]="showDate"
-    [showTime]="showTime"
-    [monthNavigator]="monthNavigator"
-    [yearNavigator]="yearNavigator"
-    [yearRange]="yearRange"
-    [showCalendarBtn]="showCalendarBtn"
-    [calendarBtnLabel]="calendarBtnLabel"
-    [numberOfMonths]="numberOfMonths"
-    [selectionMode]="selectionMode"
-    [disabledDates]="disabledDates"
-    [firstDayOfWeek]="firstDayOfWeek"
-    [mode]="mode"
+    [inline]='inline'
+    [showOtherMonths]='showOtherMonths'
+    [selectOtherMonths]='selectOtherMonths'
+    [showOnFocus]='showOnFocus'
+    [showWeek]='showWeek'
+    [readonlyInput]='readonlyInput'
+    [showTime]='showTime'
+    [timeOnly]='timeOnly'
+    [required]='required'
+    [showButtonBar]='showButtonBar'
+    [firstDayOfWeek]='firstDayOfWeek'
+    [mode]='mode'
   >
   </zyfra-datepicker-multi>
   `,
@@ -89,31 +83,22 @@ const Template: Story<ZyfraDatepickerMultiComponent> = (args: ZyfraDatepickerMul
 
 export const Primary = Template.bind({});
 Primary.args = {
-  label: 'Время',
-  placeholder: 'Введите значение',
-  disabled: false,
-  showClear: true,
+  absoluteValue: '10.01.2022',
   relativeValue: '',
-  model: '21.09.2021 20:17:07',
-  dateFormat: 'DD.MM.YYYY',
-  timeFormat: 'HH:mm:ss',
-  returnFormatValue: 'string',
-  required: true,
-  spanClass: null,
-  locale: 'ru_RU',
-  showChangeMode: false,
-  showDate: true,
-  showTime: true,
-  monthNavigator: false,
-  yearNavigator: false,
-  yearRange: null,
-  showCalendarBtn: true,
-  calendarBtnLabel: 'Выбрать',
-  hideOnDateTimeSelect: false,
-  numberOfMonths: 1,
-  selectionMode: 'single',
-  disabledDates: null,
-  disabledDays: null,
+  label: 'Дата',
+  placeholder: 'Выберите дату',
+  dateFormat: 'dd.mm.yy',
+  disabled: false,
+  inline: false,
+  showOtherMonths: true,
+  selectOtherMonths: false,
+  showOnFocus: true,
+  showWeek: false,
+  readonlyInput: false,
+  showTime: false,
+  timeOnly: false,
+  required: false,
+  showButtonBar: false,
   firstDayOfWeek: 1,
   mode: 'absolute',
 };
