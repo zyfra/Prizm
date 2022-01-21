@@ -1,19 +1,19 @@
 import { Meta, Story, Canvas, ArgsTable, ColorPalette, ColorItem, Preview, Typeset, Title, Subtitle, Description, } from '@storybook/addon-docs';
-import { ZyfraTabViewComponent } from './zyfra-tab-menu.component';
+import { ZyfraTabMenuComponent } from './zyfra-tab-menu.component';
 import { moduleMetadata } from '@storybook/angular';
 import { storiesOf } from '@storybook/angular';
 
-## Zyfra - TabView
+## Zyfra - TabMenu
 
-<Subtitle>TabView is a container component to group content with tabs</Subtitle>
+<Subtitle>TabMenu is a navigation component that displays items as tab headers</Subtitle>
 
 To module:
 ```typescript
-import { ZyfraTabViewModule } from '@digital-plant/zyfra-components';
+import { ZyfraTabMenuModule } from '@digital-plant/zyfra-components';
 
 @NgModule({
   imports: [
-    ZyfraTabViewModule,
+    ZyfraTabMenuModule,
   ]
 })
 export class YourModule {}
@@ -21,8 +21,8 @@ export class YourModule {}
 
 To component:
 ```html
-<zyfra-tab-view
-  [class]="zyfraTabViewTagStyle"
+<zyfra-tab-menu
+  [class]="zyfraTabMenuTagStyle"
   [activeIndex]="activeIndex"
   [controlClose]="controlClose"
   [style]="style"
@@ -30,49 +30,120 @@ To component:
   (onChange)="onChangeHandler($event)"
   (onClose)="onCloseHandler($event)"
 >
-  <ng-container *ngFor="let tab of tabs">
-    <zyfra-tab-panel
-      [header]="tab.header"
-      [selected]="tab.selected"
-      [disabled]="tab.disabled"
-      [closable]="tab.closable"
-      [leftIcon]="tab.leftIcon"
-      [rightIcon]="tab.rightIcon"
-      [headerStyle]="tab.headerStyle"
-      [headerStyleClass]="tab.headerStyleClass"
-      [cache]="tab.cache"
-      [tooltip]="tab.tooltip"
-      [tooltipPosition]="tab.tooltipPosition"
-      [tooltipStyleClass]="tab.tooltipStyleClass"
-    >
-      {{ tab.content }}
-    </zyfra-tab-panel>
-  </ng-container>
-</zyfra-tab-view>
+</zyfra-tab-menu>
 ```
 
 ```typescript
 public tabs = [
   {
-    header: 'Наименование вкладки 1',
-    content: 'Content of tab 1',
+    label: 'Наименование вкладки 1',
+    icon: 'zyfra-icon files-file',
+    items: [{
+      label: 'New',
+      icon: 'zyfra-icon add-plus',
+      items: [
+        {
+          label: 'Bookmark',
+          icon: 'zyfra-icon   bookmarks-bookmark',
+          items: [
+            {
+              label: 'Video',
+              icon: 'zyfra-icon camera-video'
+            },
+            {
+              label: 'Bookmark',
+              icon: 'zyfra-icon   bookmarks-bookmark',
+              items: [
+                {
+                  label: 'Video',
+                  icon: 'zyfra-icon camera-video',
+                }
+              ]
+            }
+          ]
+        },
+        {
+          label: 'Video',
+          icon: 'zyfra-icon camera-video',
+        }
+      ]
+    },
+      {
+        label: 'Delete',
+        icon: 'zyfra-icon delete',
+      },
+      {
+        label: 'Export',
+        icon: 'zyfra-icon network-external-link'
+      }
+    ]
+  },
+  { label: 'Наименование вкладки 2',
+    icon: 'zyfra-icon settings-power',
+    items: [{
+      label: 'New',
+      icon: 'zyfra-icon add-plus'
+    }]
   },
   {
-    header: 'Наименование вкладки 2',
-    content: 'Content of tab 2',
+    label: 'Наименование вкладки 3',
+    icon: 'zyfra-icon settings-power'
   },
   {
-    header: 'Наименование вкладки 3',
-    content: 'Content of tab 3',
-    disabled: true
+    label: 'Наименование вкладки 4',
+    icon: 'zyfra-icon editor-mode',
+    items: [
+      {
+        label: 'Left',
+        icon: 'zyfra-icon editor-format-align-left'
+      },
+      {
+        label: 'Right',
+        icon: 'zyfra-icon editor-format-align-right'
+      },
+      {
+        label: 'Center',
+        icon: 'zyfra-icon editor-format-align-center'
+      },
+      {
+        label: 'Justify',
+        icon: 'zyfra-icon editor-format-align-justify'
+      }]
   },
   {
-    header: 'Наименование вкладки 4',
-    content: 'Content of tab 4',
+    label: 'Наименование вкладки 5',
+    icon: 'zyfra-icon settings-power'
+  },
+  {
+    label: 'Наименование вкладки 6',
+    icon: 'zyfra-icon settings-power'
+  },
+  {
+    label: 'Наименование вкладки 7',
+    icon: 'zyfra-icon settings-power'
+  },
+  {
+    label: 'Наименование вкладки 8',
+    icon: 'zyfra-icon settings-power'
+  },
+  {
+    label: 'Наименование вкладки 9',
+    icon: 'zyfra-icon account',
+    items: [
+      {
+        label: 'New',
+        icon: 'zyfra-icon account-plus',
+
+      },
+      {
+        label: 'Delete',
+        icon: 'zyfra-icon account-minus',
+
+      }]
   }
 ];
 ```
 
 ## ArgsTable
 
-<ArgsTable of={ZyfraTabViewComponent} />
+<ArgsTable of={ZyfraTabMenuComponent} />
