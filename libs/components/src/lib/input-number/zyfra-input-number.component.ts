@@ -1,11 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
-
-export interface InputEvent {
-  originalEvent: KeyboardEvent;
-  value: number;
-}
+import { CustomInputEvent } from '../@core/models/events.models';
 
 @Component({
   selector: 'zyfra-input-number',
@@ -55,7 +51,7 @@ export class ZyfraInputNumberComponent extends WrappedFormComponent implements C
 
   @Output() onFocus = new EventEmitter<FocusEvent>();
   @Output() onBlur = new EventEmitter<FocusEvent>();
-  @Output() onInput = new EventEmitter<InputEvent>();
+  @Output() onInput = new EventEmitter<CustomInputEvent<number>>();
 
   public override setDisabledState(isDisabled: boolean): void {
     // do nothing

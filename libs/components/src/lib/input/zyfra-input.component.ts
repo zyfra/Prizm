@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { AbstractControl, ControlValueAccessor } from '@angular/forms';
 import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
+import { CustomInputEvent, HtmlInputEvent } from '../@core/models/events.models';
 
 @Component({
   selector: 'zyfra-input',
@@ -27,7 +28,8 @@ export class ZyfraInputComponent extends WrappedFormComponent implements Control
   @Input() tooltipPosition: 'left' | 'right' | 'above' | 'below' = 'right';
   @Input() mini: boolean;
 
-  @Output() onBlur = new EventEmitter<unknown>();
+  @Output() onInput = new EventEmitter<CustomInputEvent<string>>();
+  @Output() onBlur = new EventEmitter<FocusEvent>();
 
   public get controlRequired(): boolean {
     return !!this.ngControl.control.validator({} as AbstractControl)?.required;
@@ -35,5 +37,13 @@ export class ZyfraInputComponent extends WrappedFormComponent implements Control
 
   public override setDisabledState(isDisabled: boolean): void {
     // do nothing
+  }
+
+  public handleInputEvent(event: Event): void {
+    const inputEvent = event as HtmlInputEvent<HTMLInputElement>;
+    this.onInput.emit({
+      value: inputEvent.target.value,
+      originalEvent: inputEvent,
+    });
   }
 }
