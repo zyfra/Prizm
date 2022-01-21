@@ -8,6 +8,9 @@ import { ZyfraTableComponent } from '../zyfra-table.component';
 import { ZyfraTableModule } from '../zyfra-table.module';
 import { ZyfraButtonModule } from '../../button';
 
+// @ts-ignore
+import TableDoc from './/zyfra-table.story.doc.mdx';
+
 export default {
   moduleId: module.id,
   title: 'Tables/Table',
@@ -27,7 +30,7 @@ export default {
   ],
   parameters: {
     docs: {
-      page: require('./zyfra-table.story.doc.mdx'),
+      page: TableDoc,
     },
   },
 } as Meta;
