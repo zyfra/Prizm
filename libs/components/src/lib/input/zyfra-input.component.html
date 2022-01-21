@@ -13,6 +13,7 @@
       [formControl]="$any(ngControl.control)"
       (ngModelChange)="accessorOnChangeFn($event)"
       (blur)="onBlur.emit($event)"
+      (input)="handleInputEvent($event)"
       [placeholder]="placeholder"
       [ngClass]="
         ngControl
