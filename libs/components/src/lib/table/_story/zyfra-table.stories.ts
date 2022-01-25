@@ -27,7 +27,7 @@ export default {
   ],
   parameters: {
     docs: {
-      page: require('./zyfra-table.story.doc.mdx'),
+      page: require('.//zyfra-table.story.doc.mdx').default,
     },
   },
 } as Meta;
