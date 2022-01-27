@@ -4,7 +4,7 @@
   > td {
     border-color: @borderColor;
   }
-
+  
   &:focus-visible,
   &.zyfra-active-element {
     background-color: @rowColor !important;
@@ -384,6 +384,28 @@
 
     > p-treetablecheckbox {
       display: inline-block;
+    }
+  }
+}
+
+@media (min-width: 200px) and (max-width: 400px) {
+  tr {
+    display: flex;
+    font-size: 0.5rem;
+  
+    td {
+      min-width: 20px;
+    }
+  }
+}
+
+@media (min-width: 401px) and (max-width: 640px) {
+  tr {
+    display: flex;
+    font-size: 0.7rem;
+  
+    td {
+      min-width: 50px;
     }
   }
 }
