@@ -76,6 +76,10 @@
     border-width: 0 @1px @1px @1px;
   }
 
+  tr, th {
+    height: @32px;
+  }
+  
   .p-treetable-tbody > tr,
   .p-datatable-tbody > tr {
     background-color: var(--tablePrimaryRowBg);
@@ -120,7 +124,7 @@
     }
 
     > td {
-      padding: @8px;
+      padding: 0 @8px;
     }
   }
 
@@ -379,6 +383,23 @@
 
     > p-treetablecheckbox {
       display: inline-block;
+    }
+  }
+}
+
+.p-datatable {
+  .p-datatable-wrapper {
+    table {
+      table-layout: auto;
+
+      .p-datatable-tbody > tr > td,
+      .p-datatable-tfoot > tr > td,
+      .p-datatable-thead > tr > th {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
   }
 }
