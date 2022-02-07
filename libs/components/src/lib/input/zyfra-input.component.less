@@ -83,8 +83,13 @@
       font-size: @13px;
       top: @7px;
       transform: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
     }
   }
+
   .p-inputtext-mini:focus,
   .p-inputtext-mini.p-filled,
   .p-inputwrapper-focus,
@@ -111,7 +116,8 @@
     font-weight: 700;
     transform: translateY(-50%);
     margin-top: 0;
-    left: @17px;
+    left: 0;
+    padding: 0 @7px 0 @16px;
 
     &.label-required:after {
       content: ' *';
