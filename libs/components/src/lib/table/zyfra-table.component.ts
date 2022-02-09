@@ -149,6 +149,9 @@ export class ZyfraTableComponent<T = unknown>
    * Order to sort when default row grouping is enabled
    */
   @Input() groupRowsByOrder = 1;
+
+  @Input() class: string = 'zyfra-table'
+
   //endregion
 
   //region Outputs

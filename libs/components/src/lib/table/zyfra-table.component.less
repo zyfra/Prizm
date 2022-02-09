@@ -387,18 +387,16 @@
   }
 }
 
-.p-datatable {
-  .p-datatable-wrapper {
+@media (min-width: 961px) {
+  .text-overflow {
     table {
-      table-layout: auto;
-
       .p-datatable-tbody > tr > td,
       .p-datatable-tfoot > tr > td,
       .p-datatable-thead > tr > th {
-        display: block;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        max-width: 0;
       }
     }
   }

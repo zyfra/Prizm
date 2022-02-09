@@ -52,3 +52,4 @@ export * from './stories/ScrollHorizontalAndVertical';
 export * from './stories/ScrollVirtual';
 export * from './stories/FrozenRows';
 export * from './stories/State';
+export * from './stories/TextOverflow';
