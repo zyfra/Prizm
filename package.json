@@ -8,6 +8,8 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "nx run components:storybook",
     "build": "nx affected:build --all",
+    "build:stats": "nx build sdk --stats-json",
+    "analize": "webpack-bundle-analyzer dist/apps/sdk/stats.json",
     "build:storybook": "nx run components:build-storybook",
     "lint:libs": "nx lint components && nx lint schematics && nx lint translate",
     "lint:sdk": "nx lint sdk",
