@@ -6,7 +6,7 @@ import { getProducts } from '../data';
 const Template: Story<ZyfraTableComponent> = args => ({
   template: `
     <zyfra-table
-      class = "text-overflow"
+      class="text-overflow"
       [title]="title"
       [value]="value"
       [responsiveLayout]="responsiveLayout"

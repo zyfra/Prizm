@@ -150,7 +150,7 @@ export class ZyfraTableComponent<T = unknown>
    */
   @Input() groupRowsByOrder = 1;
 
-  @Input() class: string = 'zyfra-table'
+  @Input() className: string = 'zyfra-table-class'
 
   //endregion
 
