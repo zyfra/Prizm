@@ -1,5 +1,20 @@
 # Changelog
 
+## [v0.3.0] - 18-02-2022
+### @digital-plant/zyfra-components [v0.3.0]
+
+**Added**
+
+- feat: add input event for zyfra-input component [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/81)
+
+**Fixes**
+
+- PLATFORM01-10841 Актуализировать документацию по компоненту TabMenu [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/83)
+- PLATFORM01-10882 У компонента Table отсутствует информация во вкладке документация [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/84)
+- PLATFORM01-10906 Смещаются границы у таблиц в случае если в ячейках не умещается текст [MR1](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/86), [MR2](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/88), [MR3](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/89)
+- PLATFORM01-11074 не поддерживается длинный label в inputs [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/87)
+- PLATFORM01-11482 Поп ап с выбором даты в календаре двигает остальные блоки [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/90)
+
 ## [v0.2.1] - 14-01-2022
 ### @digital-plant/zyfra-components [v0.2.1]
 
