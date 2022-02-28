@@ -31,10 +31,7 @@ export class ZyfraTreeTableSortableColumnDirective extends TTSortableColumn {
     );
   }
 
-  private emitSort(event: MouseEvent): void {
-    this.tt.sort({
-      originalEvent: event,
-      field: this.field,
-    });
+  private emitSort(event: { field: string; originalEvent: PointerEvent }): void {
+    this.tt.sort(event);
   }
 }

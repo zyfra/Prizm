@@ -24,15 +24,13 @@ export class ZyfraSortableColumnDirective extends SortableColumn {
 
   private shouldReset(): boolean {
     return (
-      (this.zyfraTable.defaultSortOrder === 1 && this.sortOrder === 'descending') ||
-      (this.zyfraTable.defaultSortOrder === -1 && this.sortOrder === 'ascending')
+      this.zyfraTable.sortMode !== 'multiple' &&
+      ((this.zyfraTable.defaultSortOrder === 1 && this.sortOrder === 'descending') ||
+        (this.zyfraTable.defaultSortOrder === -1 && this.sortOrder === 'ascending'))
     );
   }
 
-  private emitSort(event: { originalEvent: MouseEvent }): void {
-    this.dt.sort({
-      originalEvent: event,
-      field: this.field,
-    });
+  private emitSort(event: { field: string; originalEvent: MouseEvent }): void {
+    this.dt.sort(event);
   }
 }
