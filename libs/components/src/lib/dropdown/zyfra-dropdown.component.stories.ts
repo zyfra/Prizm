@@ -88,7 +88,7 @@ Simple.args = {
   optionLabel: 'name',
   placeholder: 'Select a City',
   showClear: true,
-  label: 'City',
+  label: 'City'
 };
 
 export const Group = Template.bind({});
