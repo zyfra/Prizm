@@ -26,7 +26,7 @@ const CHECKBOX_VALUE_ACCESSOR: Provider = {
 export class ZyfraCheckboxComponent extends Checkbox implements ControlValueAccessor {
   @Input() override binary = true;
   @Input() override checkboxIcon = 'zyfra-icon selection-check-simple';
-  @Input() override model: boolean;
+  @Input() override model: any;
   @Input() override disabled: boolean;
   @Output() modelChange = new EventEmitter<boolean | null>();
 
