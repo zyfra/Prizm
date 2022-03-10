@@ -1,12 +1,10 @@
+@margin: @8px;
+
 zyfra-checkbox {
   p-checkbox {
     font-family: var(--fontFamily);
     display: flex;
-    margin-bottom: 10px;
-  }
-  
-  .p-checkbox-label {
-    margin-left: @8px;
+    margin-bottom: @margin;
   }
   
   .p-checkbox {
@@ -42,6 +40,8 @@ zyfra-checkbox {
   }
   
   .p-checkbox-label {
+    margin-left: @margin;
+
     &.p-checkbox-label-active.p-disabled {
       color: var(--text);
     }
