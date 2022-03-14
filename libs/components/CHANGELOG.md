@@ -1,5 +1,22 @@
 # Changelog
 
+## [v0.4.0] - 14-03-2022
+### @digital-plant/zyfra-components [v0.4.0]
+
+**Added**
+
+- PLATFORM01-12219: Расширить функционал ZyfraCheckBox (сделать его не бинарным) [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/99)
+
+**Fixes**
+
+- PLATFORM01-12374 [Таблица] Исправить фильтрацию по дате [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/100)
+- PLATFORM01-12208 Компоненты zyfra-dropdown и zyfra-input разной высоты [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/98)
+- fix calendar story doc [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/97)
+- PLATFORM01-12178: Черные стили в компоненте zyfra-dropdown с фильтром [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/96) 
+- PLATFORM01-12131 Обновить документацию для zyfra-input [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/94)
+- PLATFORM01-12128 Обновить документацию по компоненту ZyfraIcon [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/93)
+- PLATFORM01-11909 Не работает мультисортировка в таблице [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/92)
+
 ## [v0.3.0] - 18-02-2022
 ### @digital-plant/zyfra-components [v0.3.0]
 
