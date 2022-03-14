@@ -32,7 +32,7 @@ export default {
 const Template: Story<ZyfraCheckboxComponent> = (args) => ({
   template: `<div>
     <zyfra-checkbox
-      [(model)]="model"
+      [(ngModel)]="model"
       [name]="name"
       [value]="value"
       [label]="label"
@@ -63,6 +63,50 @@ Basic.args = {
   model: false,
   label: 'Простой чекбокс',
   binary: true,
+  disabled: false
+};
+
+const Custom: Story<ZyfraCheckboxComponent> = (args) => ({
+  template: `
+    <zyfra-checkbox
+      [(ngModel)]="model"
+      value="Value 1"
+      label="Label 1"
+      (modelChange)="modelChange($event)"
+    ></zyfra-checkbox>
+    <zyfra-checkbox
+      [(ngModel)]="model"
+      value="Value 2"
+      label="Label 2"
+      (modelChange)="modelChange($event)"
+    ></zyfra-checkbox>
+    <zyfra-checkbox
+      [(ngModel)]="model"
+      value="Value 3"
+      label="Label 3"
+      (modelChange)="modelChange($event)"
+    ></zyfra-checkbox>
+    <zyfra-checkbox
+      [(ngModel)]="model"
+      value="Value 4"
+      label="Label 4"
+      (modelChange)="modelChange($event)"
+    ></zyfra-checkbox>
+  
+  `,
+  props: {
+    ...args,
+    modelChange: action('modelChange'),
+  },
+});
+
+const items: string[] = []
+  
+
+export const MultipleValues = Custom.bind({});
+MultipleValues.args = {
+  model: items,
+  binary: false,
   disabled: false
 };
 
