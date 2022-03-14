@@ -56,7 +56,7 @@ const Template: Story<ZyfraTableComponent> = args => ({
             <span [class]="'customer-badge status-' + customer.status">{{customer.status}}</span>
           </td>
           <td style="min-width:200px; display: flex; justify-content: end;">
-            {{customer.date}}
+            {{customer.date | date: 'dd.MM.yyyy'}}
           </td>
         </tr>
       </ng-template>

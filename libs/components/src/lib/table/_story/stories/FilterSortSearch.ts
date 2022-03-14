@@ -142,7 +142,7 @@ const Template: Story<ZyfraTableComponent> = args => ({
             <span class="image-text">{{customer.representative.name}}</span>
           </td>
           <td style="text-align: right;">
-            {{customer.date}}
+            {{customer.date | date: 'dd.MM.yyyy'}}
           </td>
           <td style="text-align: right;">
             {{customer.balance | currency:'USD':'symbol'}}

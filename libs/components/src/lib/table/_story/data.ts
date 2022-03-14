@@ -9,7 +9,7 @@ export const Products: Product[] = [
     category: 'Accessories',
     quantity: 24,
     inventoryStatus: 'INSTOCK',
-    rating: 5
+    rating: 5,
   },
   {
     id: '1001',
@@ -21,7 +21,7 @@ export const Products: Product[] = [
     category: 'Accessories',
     quantity: 61,
     inventoryStatus: 'INSTOCK',
-    rating: 4
+    rating: 4,
   },
   {
     id: '1002',
@@ -33,7 +33,7 @@ export const Products: Product[] = [
     category: 'Fitness',
     quantity: 2,
     inventoryStatus: 'LOWSTOCK',
-    rating: 3
+    rating: 3,
   },
   {
     id: '1003',
@@ -45,7 +45,7 @@ export const Products: Product[] = [
     category: 'Clothing',
     quantity: 25,
     inventoryStatus: 'INSTOCK',
-    rating: 5
+    rating: 5,
   },
   {
     id: '1004',
@@ -57,7 +57,7 @@ export const Products: Product[] = [
     category: 'Accessories',
     quantity: 73,
     inventoryStatus: 'INSTOCK',
-    rating: 4
+    rating: 4,
   },
   {
     id: '1005',
@@ -69,7 +69,7 @@ export const Products: Product[] = [
     category: 'Accessories',
     quantity: 0,
     inventoryStatus: 'OUTOFSTOCK',
-    rating: 4
+    rating: 4,
   },
   {
     id: '1006',
@@ -81,7 +81,7 @@ export const Products: Product[] = [
     category: 'Accessories',
     quantity: 5,
     inventoryStatus: 'LOWSTOCK',
-    rating: 3
+    rating: 3,
   },
   {
     id: '1007',
@@ -93,7 +93,7 @@ export const Products: Product[] = [
     category: 'Accessories',
     quantity: 23,
     inventoryStatus: 'INSTOCK',
-    rating: 5
+    rating: 5,
   },
   {
     id: '1008',
@@ -105,7 +105,7 @@ export const Products: Product[] = [
     category: 'Electronics',
     quantity: 2,
     inventoryStatus: 'LOWSTOCK',
-    rating: 4
+    rating: 4,
   },
   {
     id: '1009',
@@ -117,8 +117,8 @@ export const Products: Product[] = [
     category: 'Electronics',
     quantity: 63,
     inventoryStatus: 'INSTOCK',
-    rating: 3
-  }
+    rating: 3,
+  },
 ];
 
 interface Customer {
@@ -126,7 +126,7 @@ interface Customer {
   name: string;
   country: { code: string; name: string };
   company: string;
-  date: string;
+  date: Date;
   status: string;
   verified: boolean;
   activity: number;
@@ -140,901 +140,901 @@ export const Customers: Customer[] = [
     name: 'James Butt',
     country: {
       name: 'Algeria',
-      code: 'dz'
+      code: 'dz',
     },
     company: 'Benton, John B Jr',
-    date: '13.09.2015',
+    date: new Date('2015-09-13'),
     status: 'unqualified',
     verified: true,
     activity: 17,
     representative: {
       name: 'Ioni Bowcher',
-      image: 'ionibowcher.png'
+      image: 'ionibowcher.png',
     },
-    balance: 70663
+    balance: 70663,
   },
   {
     id: 1001,
     name: 'Josephine Darakjy',
     country: {
       name: 'Egypt',
-      code: 'eg'
+      code: 'eg',
     },
     company: 'Chanay, Jeffrey A Esq',
-    date: '09.02.2019',
+    date: new Date('2019-02-09'),
     status: 'proposal',
     verified: true,
     activity: 0,
     representative: {
       name: 'Amy Elsner',
-      image: 'amyelsner.png'
+      image: 'amyelsner.png',
     },
-    balance: 82429
+    balance: 82429,
   },
   {
     id: 1002,
     name: 'Art Venere',
     country: {
       name: 'Panama',
-      code: 'pa'
+      code: 'pa',
     },
     company: 'Chemel, James L Cpa',
-    date: '13.05.2017',
+    date: new Date('2017-05-13'),
     status: 'qualified',
     verified: false,
     activity: 63,
     representative: {
       name: 'Asiya Javayant',
-      image: 'asiyajavayant.png'
+      image: 'asiyajavayant.png',
     },
-    balance: 28334
+    balance: 28334,
   },
   {
     id: 1003,
     name: 'Lenna Paprocki',
     country: {
       name: 'Slovenia',
-      code: 'si'
+      code: 'si',
     },
     company: 'Feltz Printing Service',
-    date: '15.09.2020',
+    date: new Date('2020-09-15'),
     status: 'new',
     verified: false,
     activity: 37,
     representative: {
       name: 'Xuxue Feng',
-      image: 'xuxuefeng.png'
+      image: 'xuxuefeng.png',
     },
-    balance: 88521
+    balance: 88521,
   },
   {
     id: 1004,
     name: 'Donette Foller',
     country: {
       name: 'South Africa',
-      code: 'za'
+      code: 'za',
     },
     company: 'Printing Dimensions',
-    date: '20.05.2016',
+    date: new Date('2016-05-20'),
     status: 'proposal',
     verified: true,
     activity: 33,
     representative: {
       name: 'Asiya Javayant',
-      image: 'asiyajavayant.png'
+      image: 'asiyajavayant.png',
     },
-    balance: 93905
+    balance: 93905,
   },
   {
     id: 1005,
     name: 'Simona Morasca',
     country: {
       name: 'Egypt',
-      code: 'eg'
+      code: 'eg',
     },
     company: 'Chapman, Ross E Esq',
-    date: '16.02.2018',
+    date: new Date('2018-02-16'),
     status: 'qualified',
     verified: false,
     activity: 68,
     representative: {
       name: 'Ivan Magalhaes',
-      image: 'ivanmagalhaes.png'
+      image: 'ivanmagalhaes.png',
     },
-    balance: 50041
+    balance: 50041,
   },
   {
     id: 1006,
     name: 'Mitsue Tollner',
     country: {
       name: 'Paraguay',
-      code: 'py'
+      code: 'py',
     },
     company: 'Morlong Associates',
-    date: '19.02.2018',
+    date: new Date('2018-02-19'),
     status: 'renewal',
     verified: true,
     activity: 54,
     representative: {
       name: 'Ivan Magalhaes',
-      image: 'ivanmagalhaes.png'
+      image: 'ivanmagalhaes.png',
     },
-    balance: 58706
+    balance: 58706,
   },
   {
     id: 1007,
     name: 'Leota Dilliard',
     country: {
       name: 'Serbia',
-      code: 'rs'
+      code: 'rs',
     },
     company: 'Commercial Press',
-    date: '13.08.2019',
+    date: new Date('2019-08-13'),
     status: 'renewal',
     verified: true,
     activity: 69,
     representative: {
       name: 'Onyama Limba',
-      image: 'onyamalimba.png'
+      image: 'onyamalimba.png',
     },
-    balance: 26640
+    balance: 26640,
   },
   {
     id: 1008,
     name: 'Sage Wieser',
     country: {
       name: 'Egypt',
-      code: 'eg'
+      code: 'eg',
     },
     company: 'Truhlar And Truhlar Attys',
-    date: '21.11.2018',
+    date: new Date('2018-11-21'),
     status: 'unqualified',
     verified: true,
     activity: 76,
     representative: {
       name: 'Ivan Magalhaes',
-      image: 'ivanmagalhaes.png'
+      image: 'ivanmagalhaes.png',
     },
-    balance: 65369
+    balance: 65369,
   },
   {
     id: 1009,
     name: 'Kris Marrier',
     country: {
       name: 'Mexico',
-      code: 'mx'
+      code: 'mx',
     },
     company: 'King, Christopher A Esq',
-    date: '07.07.2015',
+    date: new Date('2015-07-07'),
     status: 'proposal',
     verified: false,
     activity: 3,
     representative: {
       name: 'Onyama Limba',
-      image: 'onyamalimba.png'
+      image: 'onyamalimba.png',
     },
-    balance: 63451
+    balance: 63451,
   },
   {
     id: 1010,
     name: 'Minna Amigon',
     country: {
       name: 'Romania',
-      code: 'ro'
+      code: 'ro',
     },
     company: 'Dorl, James J Esq',
-    date: '07.11.2018',
+    date: new Date('2018-11-07'),
     status: 'qualified',
     verified: false,
     activity: 38,
     representative: {
       name: 'Anna Fali',
-      image: 'annafali.png'
+      image: 'annafali.png',
     },
-    balance: 71169
+    balance: 71169,
   },
   {
     id: 1011,
     name: 'Abel Maclead',
     country: {
       name: 'Singapore',
-      code: 'sg'
+      code: 'sg',
     },
     company: 'Rangoni Of Florence',
-    date: '11.03.2017',
+    date: new Date('2017-03-11'),
     status: 'qualified',
     verified: true,
     activity: 87,
     representative: {
       name: 'Bernardo Dominic',
-      image: 'bernardodominic.png'
+      image: 'bernardodominic.png',
     },
-    balance: 96842
+    balance: 96842,
   },
   {
     id: 1012,
     name: 'Kiley Caldarera',
     country: {
       name: 'Serbia',
-      code: 'rs'
+      code: 'rs',
     },
     company: 'Feiner Bros',
-    date: '20.10.2015',
+    date: new Date('2015-10-20'),
     status: 'unqualified',
     verified: false,
     activity: 80,
     representative: {
       name: 'Onyama Limba',
-      image: 'onyamalimba.png'
+      image: 'onyamalimba.png',
     },
-    balance: 92734
+    balance: 92734,
   },
   {
     id: 1013,
     name: 'Graciela Ruta',
     country: {
       name: 'Chile',
-      code: 'cl'
+      code: 'cl',
     },
     company: 'Buckley Miller & Wright',
-    date: '25.07.2016',
+    date: new Date('2016-07-25'),
     status: 'negotiation',
     verified: false,
     activity: 59,
     representative: {
       name: 'Amy Elsner',
-      image: 'amyelsner.png'
+      image: 'amyelsner.png',
     },
-    balance: 45250
+    balance: 45250,
   },
   {
     id: 1014,
     name: 'Cammy Albares',
     country: {
       name: 'Philippines',
-      code: 'ph'
+      code: 'ph',
     },
     company: 'Rousseaux, Michael Esq',
-    date: '25.06.2019',
+    date: new Date('2019-06-25'),
     status: 'new',
     verified: true,
     activity: 90,
     representative: {
       name: 'Asiya Javayant',
-      image: 'asiyajavayant.png'
+      image: 'asiyajavayant.png',
     },
-    balance: 30236
+    balance: 30236,
   },
   {
     id: 1015,
     name: 'Mattie Poquette',
     country: {
       name: 'Venezuela',
-      code: 've'
+      code: 've',
     },
     company: 'Century Communications',
-    date: '12.12.2017',
+    date: new Date('2017-12-12'),
     status: 'negotiation',
     verified: false,
     activity: 52,
     representative: {
       name: 'Anna Fali',
-      image: 'annafali.png'
+      image: 'annafali.png',
     },
-    balance: 64533
+    balance: 64533,
   },
   {
     id: 1016,
     name: 'Meaghan Garufi',
     country: {
       name: 'Malaysia',
-      code: 'my'
+      code: 'my',
     },
     company: 'Bolton, Wilbur Esq',
-    date: '04.07.2018',
+    date: new Date('2018-07-04'),
     status: 'unqualified',
     verified: false,
     activity: 31,
     representative: {
       name: 'Ivan Magalhaes',
-      image: 'ivanmagalhaes.png'
+      image: 'ivanmagalhaes.png',
     },
-    balance: 37279
+    balance: 37279,
   },
   {
     id: 1017,
     name: 'Gladys Rim',
     country: {
       name: 'Netherlands',
-      code: 'nl'
+      code: 'nl',
     },
     company: 'T M Byxbee Company Pc',
-    date: '27.02.2020',
+    date: new Date('2020-02-27'),
     status: 'renewal',
     verified: true,
     activity: 48,
     representative: {
       name: 'Stephen Shaw',
-      image: 'stephenshaw.png'
+      image: 'stephenshaw.png',
     },
-    balance: 27381
+    balance: 27381,
   },
   {
     id: 1018,
     name: 'Yuki Whobrey',
     country: {
       name: 'Israel',
-      code: 'il'
+      code: 'il',
     },
     company: 'Farmers Insurance Group',
-    date: '21.12.2017',
+    date: new Date('2017-12-21'),
     status: 'negotiation',
     verified: true,
     activity: 16,
     representative: {
       name: 'Bernardo Dominic',
-      image: 'bernardodominic.png'
+      image: 'bernardodominic.png',
     },
-    balance: 9257
+    balance: 9257,
   },
   {
     id: 1019,
     name: 'Fletcher Flosi',
     country: {
       name: 'Argentina',
-      code: 'ar'
+      code: 'ar',
     },
     company: 'Post Box Services Plus',
-    date: '04.01.2016',
+    date: new Date('2016-01-04'),
     status: 'renewal',
     verified: true,
     activity: 19,
     representative: {
       name: 'Xuxue Feng',
-      image: 'xuxuefeng.png'
+      image: 'xuxuefeng.png',
     },
-    balance: 67783
+    balance: 67783,
   },
   {
     id: 1020,
     name: 'Bette Nicka',
     country: {
       name: 'Paraguay',
-      code: 'py'
+      code: 'py',
     },
     company: 'Sport En Art',
-    date: '21.10.2016',
+    date: new Date('2016-10-21'),
     status: 'renewal',
     verified: false,
     activity: 100,
     representative: {
       name: 'Onyama Limba',
-      image: 'onyamalimba.png'
+      image: 'onyamalimba.png',
     },
-    balance: 4609
+    balance: 4609,
   },
   {
     id: 1021,
     name: 'Veronika Inouye',
     country: {
       name: 'Ecuador',
-      code: 'ec'
+      code: 'ec',
     },
     company: 'C 4 Network Inc',
-    date: '24.03.2017',
+    date: new Date('2017-03-24'),
     status: 'renewal',
     verified: false,
     activity: 72,
     representative: {
       name: 'Ioni Bowcher',
-      image: 'ionibowcher.png'
+      image: 'ionibowcher.png',
     },
-    balance: 26565
+    balance: 26565,
   },
   {
     id: 1022,
     name: 'Willard Kolmetz',
     country: {
       name: 'Tunisia',
-      code: 'tn'
+      code: 'tn',
     },
     company: 'Ingalls, Donald R Esq',
-    date: '15.04.2017',
+    date: new Date('2017-04-15'),
     status: 'renewal',
     verified: true,
     activity: 94,
     representative: {
       name: 'Asiya Javayant',
-      image: 'asiyajavayant.png'
+      image: 'asiyajavayant.png',
     },
-    balance: 75876
+    balance: 75876,
   },
   {
     id: 1023,
     name: 'Maryann Royster',
     country: {
       name: 'Belarus',
-      code: 'by'
+      code: 'by',
     },
     company: 'Franklin, Peter L Esq',
-    date: '11.03.2017',
+    date: new Date('2017-03-11'),
     status: 'qualified',
     verified: false,
     activity: 56,
     representative: {
       name: 'Elwin Sharvill',
-      image: 'elwinsharvill.png'
+      image: 'elwinsharvill.png',
     },
-    balance: 41121
+    balance: 41121,
   },
   {
     id: 1024,
     name: 'Alisha Slusarski',
     country: {
       name: 'Iceland',
-      code: 'is'
+      code: 'is',
     },
     company: 'Wtlz Power 107 Fm',
-    date: '27.03.2018',
+    date: new Date('2018-03-27'),
     status: 'qualified',
     verified: true,
     activity: 7,
     representative: {
       name: 'Stephen Shaw',
-      image: 'stephenshaw.png'
+      image: 'stephenshaw.png',
     },
-    balance: 91691
+    balance: 91691,
   },
   {
     id: 1025,
     name: 'Allene Iturbide',
     country: {
       name: 'Italy',
-      code: 'it'
+      code: 'it',
     },
     company: 'Ledecky, David Esq',
-    date: '20.02.2016',
+    date: new Date('2016-02-20'),
     status: 'qualified',
     verified: true,
     activity: 1,
     representative: {
       name: 'Ivan Magalhaes',
-      image: 'ivanmagalhaes.png'
+      image: 'ivanmagalhaes.png',
     },
-    balance: 40137
+    balance: 40137,
   },
   {
     id: 1026,
     name: 'Chanel Caudy',
     country: {
       name: 'Argentina',
-      code: 'ar'
+      code: 'ar',
     },
     company: 'Professional Image Inc',
-    date: '24.06.2018',
+    date: new Date('2018-06-24'),
     status: 'new',
     verified: true,
     activity: 26,
     representative: {
       name: 'Ioni Bowcher',
-      image: 'ionibowcher.png'
+      image: 'ionibowcher.png',
     },
-    balance: 21304
+    balance: 21304,
   },
   {
     id: 1027,
     name: 'Ezekiel Chui',
     country: {
       name: 'Ireland',
-      code: 'ie'
+      code: 'ie',
     },
     company: 'Sider, Donald C Esq',
-    date: '24.09.2016',
+    date: new Date('2016-09-24'),
     status: 'new',
     verified: false,
     activity: 76,
     representative: {
       name: 'Amy Elsner',
-      image: 'amyelsner.png'
+      image: 'amyelsner.png',
     },
-    balance: 60454
+    balance: 60454,
   },
   {
     id: 1028,
     name: 'Willow Kusko',
     country: {
       name: 'Romania',
-      code: 'ro'
+      code: 'ro',
     },
     company: 'U Pull It',
-    date: '11.04.2020',
+    date: new Date('2020-04-11'),
     status: 'qualified',
     verified: true,
     activity: 7,
     representative: {
       name: 'Onyama Limba',
-      image: 'onyamalimba.png'
+      image: 'onyamalimba.png',
     },
-    balance: 17565
+    balance: 17565,
   },
   {
     id: 1029,
     name: 'Bernardo Figeroa',
     country: {
       name: 'Israel',
-      code: 'il'
+      code: 'il',
     },
     company: 'Clark, Richard Cpa',
-    date: '04.11.2018',
+    date: new Date('2018-11-04'),
     status: 'renewal',
     verified: true,
     activity: 81,
     representative: {
       name: 'Ioni Bowcher',
-      image: 'ionibowcher.png'
+      image: 'ionibowcher.png',
     },
-    balance: 17774
+    balance: 17774,
   },
   {
     id: 1030,
     name: 'Ammie Corrio',
     country: {
       name: 'Hungary',
-      code: 'hu'
+      code: 'hu',
     },
     company: 'Moskowitz, Barry S',
-    date: '11.06.2016',
+    date: new Date('2016-06-11'),
     status: 'negotiation',
     verified: true,
     activity: 56,
     representative: {
       name: 'Asiya Javayant',
-      image: 'asiyajavayant.png'
+      image: 'asiyajavayant.png',
     },
-    balance: 49201
+    balance: 49201,
   },
   {
     id: 1031,
     name: 'Francine Vocelka',
     country: {
       name: 'Honduras',
-      code: 'hn'
+      code: 'hn',
     },
     company: 'Cascade Realty Advisors Inc',
-    date: '02.08.2017',
+    date: new Date('2017-08-02'),
     status: 'qualified',
     verified: true,
     activity: 94,
     representative: {
       name: 'Ioni Bowcher',
-      image: 'ionibowcher.png'
+      image: 'ionibowcher.png',
     },
-    balance: 67126
+    balance: 67126,
   },
   {
     id: 1032,
     name: 'Ernie Stenseth',
     country: {
       name: 'Australia',
-      code: 'au'
+      code: 'au',
     },
     company: 'Knwz Newsradio',
-    date: '06.06.2018',
+    date: new Date('2018-06-06'),
     status: 'renewal',
     verified: true,
     activity: 68,
     representative: {
       name: 'Xuxue Feng',
-      image: 'xuxuefeng.png'
+      image: 'xuxuefeng.png',
     },
-    balance: 76017
+    balance: 76017,
   },
   {
     id: 1033,
     name: 'Albina Glick',
     country: {
       name: 'Ukraine',
-      code: 'ua'
+      code: 'ua',
     },
     company: 'Giampetro, Anthony D',
-    date: '08.08.2019',
+    date: new Date('2019-08-08'),
     status: 'proposal',
     verified: true,
     activity: 85,
     representative: {
       name: 'Bernardo Dominic',
-      image: 'bernardodominic.png'
+      image: 'bernardodominic.png',
     },
-    balance: 91201
+    balance: 91201,
   },
   {
     id: 1034,
     name: 'Alishia Sergi',
     country: {
       name: 'Qatar',
-      code: 'qa'
+      code: 'qa',
     },
     company: 'Milford Enterprises Inc',
-    date: '19.05.2018',
+    date: new Date('2018-05-19'),
     status: 'negotiation',
     verified: false,
     activity: 46,
     representative: {
       name: 'Ivan Magalhaes',
-      image: 'ivanmagalhaes.png'
+      image: 'ivanmagalhaes.png',
     },
-    balance: 12237
+    balance: 12237,
   },
   {
     id: 1035,
     name: 'Solange Shinko',
     country: {
       name: 'Cameroon',
-      code: 'cm'
+      code: 'cm',
     },
     company: 'Mosocco, Ronald A',
-    date: '12.02.2015',
+    date: new Date('2015-02-12'),
     status: 'qualified',
     verified: true,
     activity: 32,
     representative: {
       name: 'Onyama Limba',
-      image: 'onyamalimba.png'
+      image: 'onyamalimba.png',
     },
-    balance: 34072
+    balance: 34072,
   },
   {
     id: 1036,
     name: 'Jose Stockham',
     country: {
       name: 'Italy',
-      code: 'it'
+      code: 'it',
     },
     company: 'Tri State Refueler Co',
-    date: '25.04.2018',
+    date: new Date('2018-04-25'),
     status: 'qualified',
     verified: true,
     activity: 77,
     representative: {
       name: 'Amy Elsner',
-      image: 'amyelsner.png'
+      image: 'amyelsner.png',
     },
-    balance: 94909
+    balance: 94909,
   },
   {
     id: 1037,
     name: 'Rozella Ostrosky',
     country: {
       name: 'Venezuela',
-      code: 've'
+      code: 've',
     },
     company: 'Parkway Company',
-    date: '27.02.2016',
+    date: new Date('2016-02-27'),
     status: 'unqualified',
     verified: true,
     activity: 66,
     representative: {
       name: 'Amy Elsner',
-      image: 'amyelsner.png'
+      image: 'amyelsner.png',
     },
-    balance: 57245
+    balance: 57245,
   },
   {
     id: 1038,
     name: 'Valentine Gillian',
     country: {
       name: 'Paraguay',
-      code: 'py'
+      code: 'py',
     },
     company: 'Fbs Business Finance',
-    date: '17.09.2019',
+    date: new Date('2019-09-17'),
     status: 'qualified',
     verified: true,
     activity: 25,
     representative: {
       name: 'Bernardo Dominic',
-      image: 'bernardodominic.png'
+      image: 'bernardodominic.png',
     },
-    balance: 75502
+    balance: 75502,
   },
   {
     id: 1039,
     name: 'Kati Rulapaugh',
     country: {
       name: 'Puerto Rico',
-      code: 'pr'
+      code: 'pr',
     },
     company: 'Eder Assocs Consltng Engrs Pc',
-    date: '03.12.2016',
+    date: new Date('2016-12-03'),
     status: 'renewal',
     verified: false,
     activity: 51,
     representative: {
       name: 'Ioni Bowcher',
-      image: 'ionibowcher.png'
+      image: 'ionibowcher.png',
     },
-    balance: 82075
+    balance: 82075,
   },
   {
     id: 1040,
     name: 'Youlanda Schemmer',
     country: {
       name: 'Bolivia',
-      code: 'bo'
+      code: 'bo',
     },
     company: 'Tri M Tool Inc',
-    date: '15.12.2017',
+    date: new Date('2017-12-15'),
     status: 'negotiation',
     verified: true,
     activity: 49,
     representative: {
       name: 'Xuxue Feng',
-      image: 'xuxuefeng.png'
+      image: 'xuxuefeng.png',
     },
-    balance: 19208
+    balance: 19208,
   },
   {
     id: 1041,
     name: 'Dyan Oldroyd',
     country: {
       name: 'Argentina',
-      code: 'ar'
+      code: 'ar',
     },
     company: 'International Eyelets Inc',
-    date: '02.02.2017',
+    date: new Date('2017-02-02'),
     status: 'qualified',
     verified: false,
     activity: 5,
     representative: {
       name: 'Amy Elsner',
-      image: 'amyelsner.png'
+      image: 'amyelsner.png',
     },
-    balance: 50194
+    balance: 50194,
   },
   {
     id: 1042,
     name: 'Roxane Campain',
     country: {
       name: 'France',
-      code: 'fr'
+      code: 'fr',
     },
     company: 'Rapid Trading Intl',
-    date: '25.12.2018',
+    date: new Date('2018-12-25'),
     status: 'unqualified',
     verified: false,
     activity: 100,
     representative: {
       name: 'Anna Fali',
-      image: 'annafali.png'
+      image: 'annafali.png',
     },
-    balance: 77714
+    balance: 77714,
   },
   {
     id: 1043,
     name: 'Lavera Perin',
     country: {
       name: 'Vietnam',
-      code: 'vn'
+      code: 'vn',
     },
     company: 'Abc Enterprises Inc',
-    date: '10.04.2018',
+    date: new Date('2018-04-10'),
     status: 'qualified',
     verified: false,
     activity: 71,
     representative: {
       name: 'Stephen Shaw',
-      image: 'stephenshaw.png'
+      image: 'stephenshaw.png',
     },
-    balance: 35740
+    balance: 35740,
   },
   {
     id: 1044,
     name: 'Erick Ferencz',
     country: {
       name: 'Belgium',
-      code: 'be'
+      code: 'be',
     },
     company: 'Cindy Turner Associates',
-    date: '06.05.2018',
+    date: new Date('2018-05-06'),
     status: 'unqualified',
     verified: true,
     activity: 54,
     representative: {
       name: 'Amy Elsner',
-      image: 'amyelsner.png'
+      image: 'amyelsner.png',
     },
-    balance: 30790
+    balance: 30790,
   },
   {
     id: 1045,
     name: 'Fatima Saylors',
     country: {
       name: 'Canada',
-      code: 'ca'
+      code: 'ca',
     },
     company: 'Stanton, James D Esq',
-    date: '10.07.2019',
+    date: new Date('2019-07-10'),
     status: 'renewal',
     verified: true,
     activity: 93,
     representative: {
       name: 'Onyama Limba',
-      image: 'onyamalimba.png'
+      image: 'onyamalimba.png',
     },
-    balance: 52343
+    balance: 52343,
   },
   {
     id: 1046,
     name: 'Jina Briddick',
     country: {
       name: 'Mexico',
-      code: 'mx'
+      code: 'mx',
     },
     company: 'Grace Pastries Inc',
-    date: '19.02.2018',
+    date: new Date('2018-02-19'),
     status: 'unqualified',
     verified: false,
     activity: 97,
     representative: {
       name: 'Xuxue Feng',
-      image: 'xuxuefeng.png'
+      image: 'xuxuefeng.png',
     },
-    balance: 53966
+    balance: 53966,
   },
   {
     id: 1047,
     name: 'Kanisha Waycott',
     country: {
       name: 'Ecuador',
-      code: 'ec'
+      code: 'ec',
     },
     company: 'Schroer, Gene E Esq',
-    date: '27.11.2019',
+    date: new Date('2019-11-27'),
     status: 'new',
     verified: false,
     activity: 80,
     representative: {
       name: 'Xuxue Feng',
-      image: 'xuxuefeng.png'
+      image: 'xuxuefeng.png',
     },
-    balance: 9920
+    balance: 9920,
   },
   {
     id: 1048,
     name: 'Emerson Bowley',
     country: {
       name: 'Finland',
-      code: 'fi'
+      code: 'fi',
     },
     company: 'Knights Inn',
-    date: '24.11.2018',
+    date: new Date('2018-11-24'),
     status: 'new',
     verified: false,
     activity: 63,
     representative: {
       name: 'Stephen Shaw',
-      image: 'stephenshaw.png'
+      image: 'stephenshaw.png',
     },
-    balance: 78069
+    balance: 78069,
   },
   {
     id: 1049,
     name: 'Blair Malet',
     country: {
       name: 'Finland',
-      code: 'fi'
+      code: 'fi',
     },
     company: 'Bollinger Mach Shp & Shipyard',
-    date: '19.04.2018',
+    date: new Date('2018-04-19'),
     status: 'new',
     verified: true,
     activity: 92,
     representative: {
       name: 'Asiya Javayant',
-      image: 'asiyajavayant.png'
+      image: 'asiyajavayant.png',
     },
-    balance: 65005
-  }
+    balance: 65005,
+  },
 ];
 
 interface Sale {
@@ -1046,16 +1046,70 @@ interface Sale {
 }
 
 export const Sales: Sale[] = [
-  { product: 'Bamboo Watch', lastYearSale: 51, thisYearSale: 40, lastYearProfit: 54406, thisYearProfit: 43342 },
-  { product: 'Black Watch', lastYearSale: 83, thisYearSale: 9, lastYearProfit: 423132, thisYearProfit: 312122 },
+  {
+    product: 'Bamboo Watch',
+    lastYearSale: 51,
+    thisYearSale: 40,
+    lastYearProfit: 54406,
+    thisYearProfit: 43342,
+  },
+  {
+    product: 'Black Watch',
+    lastYearSale: 83,
+    thisYearSale: 9,
+    lastYearProfit: 423132,
+    thisYearProfit: 312122,
+  },
   { product: 'Blue Band', lastYearSale: 38, thisYearSale: 5, lastYearProfit: 12321, thisYearProfit: 8500 },
-  { product: 'Blue T-Shirt', lastYearSale: 49, thisYearSale: 22, lastYearProfit: 745232, thisYearProfit: 65323 },
-  { product: 'Brown Purse', lastYearSale: 17, thisYearSale: 79, lastYearProfit: 643242, thisYearProfit: 500332 },
-  { product: 'Chakra Bracelet', lastYearSale: 52, thisYearSale: 65, lastYearProfit: 421132, thisYearProfit: 150005 },
-  { product: 'Galaxy Earrings', lastYearSale: 82, thisYearSale: 12, lastYearProfit: 131211, thisYearProfit: 100214 },
-  { product: 'Game Controller', lastYearSale: 44, thisYearSale: 45, lastYearProfit: 66442, thisYearProfit: 53322 },
-  { product: 'Gaming Set', lastYearSale: 90, thisYearSale: 56, lastYearProfit: 765442, thisYearProfit: 296232 },
-  { product: 'Gold Phone Case', lastYearSale: 75, thisYearSale: 54, lastYearProfit: 21212, thisYearProfit: 12533 }
+  {
+    product: 'Blue T-Shirt',
+    lastYearSale: 49,
+    thisYearSale: 22,
+    lastYearProfit: 745232,
+    thisYearProfit: 65323,
+  },
+  {
+    product: 'Brown Purse',
+    lastYearSale: 17,
+    thisYearSale: 79,
+    lastYearProfit: 643242,
+    thisYearProfit: 500332,
+  },
+  {
+    product: 'Chakra Bracelet',
+    lastYearSale: 52,
+    thisYearSale: 65,
+    lastYearProfit: 421132,
+    thisYearProfit: 150005,
+  },
+  {
+    product: 'Galaxy Earrings',
+    lastYearSale: 82,
+    thisYearSale: 12,
+    lastYearProfit: 131211,
+    thisYearProfit: 100214,
+  },
+  {
+    product: 'Game Controller',
+    lastYearSale: 44,
+    thisYearSale: 45,
+    lastYearProfit: 66442,
+    thisYearProfit: 53322,
+  },
+  {
+    product: 'Gaming Set',
+    lastYearSale: 90,
+    thisYearSale: 56,
+    lastYearProfit: 765442,
+    thisYearProfit: 296232,
+  },
+  {
+    product: 'Gold Phone Case',
+    lastYearSale: 75,
+    thisYearSale: 54,
+    lastYearProfit: 21212,
+    thisYearProfit: 12533,
+  },
 ];
 
 export interface Product {
@@ -1082,7 +1136,7 @@ const ProductsSmall: Product[] = [
     category: 'Accessories',
     quantity: 24,
     inventoryStatus: 'INSTOCK',
-    rating: 5
+    rating: 5,
   },
   {
     id: '1001',
@@ -1094,7 +1148,7 @@ const ProductsSmall: Product[] = [
     category: 'Accessories',
     quantity: 61,
     inventoryStatus: 'INSTOCK',
-    rating: 4
+    rating: 4,
   },
   {
     id: '1002',
@@ -1106,7 +1160,7 @@ const ProductsSmall: Product[] = [
     category: 'Fitness',
     quantity: 2,
     inventoryStatus: 'LOWSTOCK',
-    rating: 3
+    rating: 3,
   },
   {
     id: '1003',
@@ -1118,7 +1172,7 @@ const ProductsSmall: Product[] = [
     category: 'Clothing',
     quantity: 25,
     inventoryStatus: 'INSTOCK',
-    rating: 5
+    rating: 5,
   },
   {
     id: '1004',
@@ -1130,7 +1184,7 @@ const ProductsSmall: Product[] = [
     category: 'Accessories',
     quantity: 73,
     inventoryStatus: 'INSTOCK',
-    rating: 4
+    rating: 4,
   },
   {
     id: '1005',
@@ -1142,7 +1196,7 @@ const ProductsSmall: Product[] = [
     category: 'Accessories',
     quantity: 0,
     inventoryStatus: 'OUTOFSTOCK',
-    rating: 4
+    rating: 4,
   },
   {
     id: '1006',
@@ -1154,7 +1208,7 @@ const ProductsSmall: Product[] = [
     category: 'Accessories',
     quantity: 5,
     inventoryStatus: 'LOWSTOCK',
-    rating: 3
+    rating: 3,
   },
   {
     id: '1007',
@@ -1166,7 +1220,7 @@ const ProductsSmall: Product[] = [
     category: 'Accessories',
     quantity: 23,
     inventoryStatus: 'INSTOCK',
-    rating: 5
+    rating: 5,
   },
   {
     id: '1008',
@@ -1178,7 +1232,7 @@ const ProductsSmall: Product[] = [
     category: 'Electronics',
     quantity: 2,
     inventoryStatus: 'LOWSTOCK',
-    rating: 4
+    rating: 4,
   },
   {
     id: '1009',
@@ -1190,8 +1244,8 @@ const ProductsSmall: Product[] = [
     category: 'Electronics',
     quantity: 63,
     inventoryStatus: 'INSTOCK',
-    rating: 3
-  }
+    rating: 3,
+  },
 ];
 
 interface ProductOrder {
@@ -1238,7 +1292,7 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 65,
         quantity: 1,
         customer: 'David James',
-        status: 'PENDING'
+        status: 'PENDING',
       },
       {
         id: '1001',
@@ -1247,7 +1301,7 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 130,
         quantity: 2,
         customer: 'Leon Rodrigues',
-        status: 'DELIVERED'
+        status: 'DELIVERED',
       },
       {
         id: '1002',
@@ -1256,7 +1310,7 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 65,
         quantity: 1,
         customer: 'Juan Alejandro',
-        status: 'RETURNED'
+        status: 'RETURNED',
       },
       {
         id: '1003',
@@ -1265,9 +1319,9 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 195,
         quantity: 3,
         customer: 'Claire Morrow',
-        status: 'CANCELLED'
-      }
-    ]
+        status: 'CANCELLED',
+      },
+    ],
   },
   {
     id: '1001',
@@ -1288,7 +1342,7 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 72,
         quantity: 1,
         customer: 'Maisha Jefferson',
-        status: 'DELIVERED'
+        status: 'DELIVERED',
       },
       {
         id: '2001',
@@ -1297,9 +1351,9 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 144,
         quantity: 2,
         customer: 'Octavia Murillo',
-        status: 'PENDING'
-      }
-    ]
+        status: 'PENDING',
+      },
+    ],
   },
   {
     id: '1002',
@@ -1320,7 +1374,7 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 79,
         quantity: 1,
         customer: 'Stacey Leja',
-        status: 'DELIVERED'
+        status: 'DELIVERED',
       },
       {
         id: '3001',
@@ -1329,9 +1383,9 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 79,
         quantity: 1,
         customer: 'Ashley Wickens',
-        status: 'DELIVERED'
-      }
-    ]
+        status: 'DELIVERED',
+      },
+    ],
   },
   {
     id: '1003',
@@ -1344,7 +1398,7 @@ const ProductsOrdersSmall: ProductOrder[] = [
     quantity: 25,
     inventoryStatus: 'INSTOCK',
     rating: 5,
-    orders: []
+    orders: [],
   },
   {
     id: '1004',
@@ -1365,7 +1419,7 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 60,
         quantity: 4,
         customer: 'Mayumi Misaki',
-        status: 'PENDING'
+        status: 'PENDING',
       },
       {
         id: '5001',
@@ -1374,9 +1428,9 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 2,
         quantity: 30,
         customer: 'Francesco Salvatore',
-        status: 'DELIVERED'
-      }
-    ]
+        status: 'DELIVERED',
+      },
+    ],
   },
   {
     id: '1005',
@@ -1397,7 +1451,7 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 120,
         quantity: 1,
         customer: 'Isabel Sinclair',
-        status: 'RETURNED'
+        status: 'RETURNED',
       },
       {
         id: '6001',
@@ -1406,7 +1460,7 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 240,
         quantity: 2,
         customer: 'Lionel Clifford',
-        status: 'DELIVERED'
+        status: 'DELIVERED',
       },
       {
         id: '6002',
@@ -1415,9 +1469,9 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 120,
         quantity: 1,
         customer: 'Cody Chavez',
-        status: 'DELIVERED'
-      }
-    ]
+        status: 'DELIVERED',
+      },
+    ],
   },
   {
     id: '1006',
@@ -1438,7 +1492,7 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 32,
         quantity: 1,
         customer: 'Arvin Darci',
-        status: 'DELIVERED'
+        status: 'DELIVERED',
       },
       {
         id: '7001',
@@ -1447,9 +1501,9 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 64,
         quantity: 2,
         customer: 'Izzy Jones',
-        status: 'PENDING'
-      }
-    ]
+        status: 'PENDING',
+      },
+    ],
   },
   {
     id: '1007',
@@ -1470,9 +1524,9 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 34,
         quantity: 1,
         customer: 'Jennifer Smith',
-        status: 'DELIVERED'
-      }
-    ]
+        status: 'DELIVERED',
+      },
+    ],
   },
   {
     id: '1008',
@@ -1493,7 +1547,7 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 99,
         quantity: 1,
         customer: 'Jeanfrancois David',
-        status: 'DELIVERED'
+        status: 'DELIVERED',
       },
       {
         id: '9001',
@@ -1502,9 +1556,9 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 198,
         quantity: 2,
         customer: 'Ivar Greenwood',
-        status: 'RETURNED'
-      }
-    ]
+        status: 'RETURNED',
+      },
+    ],
   },
   {
     id: '1009',
@@ -1525,7 +1579,7 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 299,
         quantity: 1,
         customer: 'Kadeem Mujtaba',
-        status: 'PENDING'
+        status: 'PENDING',
       },
       {
         id: '10001',
@@ -1534,7 +1588,7 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 299,
         quantity: 1,
         customer: 'Ashley Wickens',
-        status: 'DELIVERED'
+        status: 'DELIVERED',
       },
       {
         id: '10002',
@@ -1543,7 +1597,7 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 299,
         quantity: 1,
         customer: 'Julie Johnson',
-        status: 'DELIVERED'
+        status: 'DELIVERED',
       },
       {
         id: '10003',
@@ -1552,10 +1606,10 @@ const ProductsOrdersSmall: ProductOrder[] = [
         amount: 299,
         quantity: 1,
         customer: 'Tony Costa',
-        status: 'CANCELLED'
-      }
-    ]
-  }
+        status: 'CANCELLED',
+      },
+    ],
+  },
 ];
 
 function cloneArrayOfObjects<T>(array: T[]): T[] {
