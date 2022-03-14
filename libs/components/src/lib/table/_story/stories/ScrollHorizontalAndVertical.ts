@@ -29,7 +29,7 @@ const Template: Story<ZyfraTableComponent> = args => ({
           <td style="width:200px" zyfraFrozenColumn>{{customer.name}}</td>
           <td style="width:100px">{{customer.id}}</td>
           <td style="width:200px">{{customer.country.name}}</td>
-          <td style="width:200px; display: flex; justify-content: end;">{{customer.date}}</td>
+          <td style="width:200px; display: flex; justify-content: end;">{{customer.date | date: 'dd.MM.yyyy'}}</td>
           <td style="width:200px; display: flex; justify-content: end;">{{formatCurrency(customer.balance)}}</td>
           <td style="width:200px">{{customer.company}}</td>
           <td style="width:200px">{{customer.status}}</td>
