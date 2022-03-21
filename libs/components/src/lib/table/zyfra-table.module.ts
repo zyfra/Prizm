@@ -21,9 +21,10 @@ import { ZyfraSelectableRowDirective } from './directives/selectable-row.directi
 import { ZyfraRowGroupHeaderDirective } from './directives/row-group-header.directive';
 import { ZyfraReordableColumnDirective } from './directives/reordable-column.directive';
 import { ZyfraRowTogglerComponent } from './row-toggler/row-toggler.component';
-import { ZyfraRowDirective } from './directives/row.directive';
-import { ZyfraTableTemplateDirective } from './directives/table-template.directive';
-import {ZyfraSearchCellComponent} from "./search-cell/search-cell.component";
+import { ZyfraSearchCellComponent } from './search-cell/search-cell.component';
+import { ZyfraTableSharedModule } from '../@core/base-table/base-table.module';
+import { BaseTableTemplateDirective } from '../@core/base-table/directives/base-table-template.directive';
+import { ZyfraBaseTableComponent, ZyfraRowBaseDirective } from '../@core/base-table';
 
 @NgModule({
   declarations: [
@@ -46,15 +47,16 @@ import {ZyfraSearchCellComponent} from "./search-cell/search-cell.component";
     ZyfraSelectableRowDirective,
     ZyfraRowGroupHeaderDirective,
     ZyfraReordableColumnDirective,
-    ZyfraTableTemplateDirective,
     ZyfraRowTogglerComponent,
-    ZyfraRowDirective,
-    ZyfraSearchCellComponent
+    ZyfraSearchCellComponent,
   ],
-  imports: [
-    CommonModule,
-    TableModule,
+  providers: [
+    {
+      provide: ZyfraBaseTableComponent,
+      useClass: ZyfraTableComponent,
+    },
   ],
+  imports: [CommonModule, TableModule, ZyfraTableSharedModule],
   exports: [
     ZyfraTableComponent,
     ZyfraTableHeaderCheckboxComponent,
@@ -76,9 +78,10 @@ import {ZyfraSearchCellComponent} from "./search-cell/search-cell.component";
     ZyfraReordableColumnDirective,
     ZyfraRowTogglerComponent,
     ZyfraRowGroupHeaderDirective,
-    ZyfraTableTemplateDirective,
-    ZyfraRowDirective,
-    ZyfraSearchCellComponent
-  ]
+    ZyfraSearchCellComponent,
+    BaseTableTemplateDirective,
+    ZyfraRowBaseDirective,
+    ZyfraBaseTableComponent,
+  ],
 })
 export class ZyfraTableModule {}

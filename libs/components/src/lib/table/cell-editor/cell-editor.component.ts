@@ -8,7 +8,7 @@ import {
   QueryList,
   TemplateRef,
 } from '@angular/core';
-import { ZyfraTableTemplateDirective } from '../directives/table-template.directive';
+import { BaseTableTemplateDirective } from '../../@core/base-table/directives/base-table-template.directive';
 
 // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
 @Component({
@@ -17,7 +17,7 @@ import { ZyfraTableTemplateDirective } from '../directives/table-template.direct
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraCellEditorComponent implements AfterContentInit {
-  @ContentChildren(ZyfraTableTemplateDirective) templates: QueryList<ZyfraTableTemplateDirective>;
+  @ContentChildren(BaseTableTemplateDirective) templates: QueryList<BaseTableTemplateDirective>;
 
   @Input() value = '';
   @Output() valueChange = new EventEmitter<string>();

@@ -1,3 +1,6 @@
+export * from '../@core/base-table/zyfra-base-table.directive';
+export * from '../@core/base-table/directives/base-table-template.directive';
+export * from '../@core/base-table/directives/zyfra-row-base.directive';
 export * from './zyfra-table.module';
 export * from './zyfra-table.component';
 export * from './cell-editor/cell-editor.component';
@@ -19,6 +22,4 @@ export * from './directives/sortable-column.directive';
 export * from './directives/row-group-header.directive';
 export * from './directives/reordable-column.directive';
 export * from './row-toggler/row-toggler.component';
-export * from './directives/row.directive';
-export * from './directives/table-template.directive';
 export * from './search-cell/search-cell.component';

@@ -1,7 +1,7 @@
 import { Directive, Input, TemplateRef } from '@angular/core';
 
 export type TableTemplateType =
-  'caption'
+  | 'caption'
   | 'header'
   | 'headergrouped'
   | 'body'
@@ -28,7 +28,9 @@ export type TableTemplateType =
   | 'output'
   | 'filter';
 
-@Directive()
+@Directive({
+  selector: '[zyfraTableTemplate]',
+})
 export class BaseTableTemplateDirective {
   @Input() zyfraTableTemplate: TableTemplateType;
 
