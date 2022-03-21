@@ -3,6 +3,25 @@
 
 # Changelog
 
+## [v0.4.1] - 21-03-2022
+[Milestone v0.4.1](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/milestones/5)
+
+### @digital-plant/zyfra-components [v0.4.1]
+
+**Fixes**
+
+- PLATFORM01-12675 Textarea позиция label [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/106)
+- PLATFORM01-12659 Если отсутствует label на элементе zyfra-calendar, значение отображается не посередине элемента [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/104)
+- PLATFORM01-12620 [Баг] - невозможно использовать в одном приложении TreeTable & Table [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/103)
+- PLATFORM01-9682 Dropdown VirtualScroll - некорректная работа компонента, страница тормозит [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/102)
+
+>  **Special thanks**
+>
+> ✏️ **MR:** Anton Osechkin, Dmitrii Vakarchuk
+>
+> ️🐛 **Issue:** Nikolay Sizov, Dmitry Donchenko.ext, Konstantin Khimenkov
+> 
+
 ## [v0.4.0] - 14-03-2022
 [Milestone v0.4.0](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/milestones/4)
 

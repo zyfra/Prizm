@@ -1,6 +1,6 @@
 {
   "name": "@digital-plant/zyfra-components",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "dependencies": {
     "primeicons": "^4.1.0",
     "primeng": "^12.2.1",
