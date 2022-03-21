@@ -79,7 +79,7 @@
   .p-inputtext.p-filled,
   .p-inputwrapper-focus,
   .p-inputwrapper-filled {
-    ~ label {
+    &:not(.p-inputtextarea) ~ label {
       font-size: @13px;
       top: @7px;
       transform: none;
