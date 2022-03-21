@@ -1,6 +1,8 @@
+export * from '../@core/base-table/zyfra-base-table.directive';
+export * from '../@core/base-table/directives/base-table-template.directive';
+export * from '../@core/base-table/directives/zyfra-row-base.directive';
 export * from './zyfra-tree-table.module';
 export * from './tree-table.component';
-export * from './directives/tree-table-base-row.directive';
 export * from './directives/tree-table-row.directive';
 export * from './directives/tree-table-selectable-row.directive';
 export * from './directives/tree-table-sortable-column.directive';
@@ -12,4 +14,3 @@ export * from './tree-table-header-checkbox/tree-table-header-checkbox.component
 export * from './tree-table-sort-icon/tree-table-sort-icon.component';
 export * from './tree-table-toggler/tree-table-toggler.component';
 export * from './tree-table-search-cell/tree-table-search-cell.component';
-export * from './directives/tree-table-template.directive';

@@ -14,9 +14,11 @@ import { TableSortEvent } from '../../table/zyfra-table.types';
 import { BaseTableTemplateDirective } from './directives/base-table-template.directive';
 import { SortOrder } from './shared-table.types';
 
-@Directive()
-export abstract class ZyfraBaseTableComponent<T = unknown> implements OnChanges, AfterContentInit {
-  @Output() abstract activeElementChange: EventEmitter<T>;
+@Directive({
+  selector: '[zyfraBaseTable]',
+})
+export class ZyfraBaseTableComponent<T = unknown> implements OnChanges, AfterContentInit {
+  @Output() activeElementChange: EventEmitter<T>;
 
   styleClasses = 'p-datatable-gridlines';
 
@@ -352,9 +354,17 @@ export abstract class ZyfraBaseTableComponent<T = unknown> implements OnChanges,
   private initialData: T[];
   private _activeElement: T;
 
-  protected abstract getContentTemplate(): QueryList<BaseTableTemplateDirective>;
-  protected abstract getTable(): any;
-  protected abstract initTemplateByType(item: BaseTableTemplateDirective);
+  public getContentTemplate(): QueryList<BaseTableTemplateDirective> {
+    throw new Error(`Method 'getContentTemplate' should be overridden`);
+  }
+
+  public getTable(): any {
+    throw new Error(`Method 'getTable' should be overridden`);
+  }
+
+  public initTemplateByType(item: BaseTableTemplateDirective): void {
+    throw new Error(`Method 'initTemplateByType' should be overridden`);
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.value) {

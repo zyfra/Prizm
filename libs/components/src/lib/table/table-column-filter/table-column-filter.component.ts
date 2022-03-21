@@ -5,12 +5,12 @@ import {
   ContentChildren,
   Input,
   QueryList,
-  TemplateRef
+  TemplateRef,
 } from '@angular/core';
 import { FilterOperator, SelectItem } from 'primeng/api';
 import { Table } from 'primeng/table';
 import { ZyfraTableComponent } from '../zyfra-table.component';
-import { ZyfraTableTemplateDirective } from '../directives/table-template.directive';
+import { BaseTableTemplateDirective } from '../../@core/base-table/directives/base-table-template.directive';
 
 @Component({
   selector: 'zyfra-table-column-filter',
@@ -20,12 +20,12 @@ import { ZyfraTableTemplateDirective } from '../directives/table-template.direct
     {
       provide: Table,
       useFactory: (zyfraTable: ZyfraTableComponent): Table => zyfraTable.table,
-      deps: [ZyfraTableComponent]
-    }
+      deps: [ZyfraTableComponent],
+    },
   ],
 })
 export class ZyfraTableColumnFilterComponent implements AfterContentInit {
-  @ContentChildren(ZyfraTableTemplateDirective) templates: QueryList<ZyfraTableTemplateDirective>;
+  @ContentChildren(BaseTableTemplateDirective) templates: QueryList<BaseTableTemplateDirective>;
 
   headerTemplate: TemplateRef<any>;
   filterTemplate: TemplateRef<any>;
@@ -57,7 +57,7 @@ export class ZyfraTableColumnFilterComponent implements AfterContentInit {
   @Input() useGrouping = true;
 
   ngAfterContentInit(): void {
-    this.templates.forEach((item) => {
+    this.templates.forEach(item => {
       switch (item.getType()) {
         case 'header':
           this.headerTemplate = item.template;

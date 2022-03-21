@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { TTEditableColumn } from 'primeng/treetable';
 import { ZyfraTreeTableEditableColumnDirective } from '../directives/tree-table-editable-column.directive';
-import { ZyfraTreeTableTemplateDirective } from '../directives/tree-table-template.directive';
+import { BaseTableTemplateDirective } from '../../@core/base-table/directives/base-table-template.directive';
 
 // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
 @Component({
@@ -26,7 +26,7 @@ import { ZyfraTreeTableTemplateDirective } from '../directives/tree-table-templa
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ZyfraTreeTableCellEditorComponent implements AfterContentInit {
-  @ContentChildren(ZyfraTreeTableTemplateDirective) templates: QueryList<ZyfraTreeTableTemplateDirective>;
+  @ContentChildren(BaseTableTemplateDirective) templates: QueryList<BaseTableTemplateDirective>;
 
   @Input() value = '';
   @Output() valueChange = new EventEmitter<string>();
