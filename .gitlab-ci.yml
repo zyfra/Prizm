@@ -1,15 +1,52 @@
-image: node:14.18.1
+image: node:14.18.3
+
+variables:
+  ZUI_BUILD_IMAGE_TAG: 14-alpine
+  LANGUAGE: "typescript"
+  GIT_SUBMODULE_STRATEGY: recursive
+  CUSTOM_NPM_RUN_ARGUMENTS: 'build:npi'
+  RUN_TESTS: 'false'
+  SKIP_FRONTEND_IMAGE_TEST: 'true'
+  GITLAB_REGISTRY_AUTH_TOKEN: "//gitdp.zyfra.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}"
+  ENABLE_APP_REGISTRATION: 'false'
+
+
+include:
+  - project: devops/gitlab-ci-templates
+    ref: main
+    file: Settings/variables.yml
 
 stages:
   - build
   - release
 
-variables:
-  GITLAB_REGISTRY_AUTH_TOKEN: "//gitdp.zyfra.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}"
-  npm_config_cache: "$CI_PROJECT_DIR/.npm"
-  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+Build js image:
+  stage: build
+  allow_failure: false
+  tags:
+    - docker
+  script:
+    - sh /kaniko/kaniko-build
+  image:
+    name: "$KANIKO_IMAGE"
+    entrypoint:
+      - ''
+  rules:
+    - if: "$SKIP_KANIKO_BUILD =~ /^(true|yes|on|1)$/i"
+      when: never
+    - if: "$CI_COMMIT_BRANCH != null && $CI_PIPELINE_SOURCE == 'push' && $CI_OPEN_MERGE_REQUESTS
+      != null"
+      when: never
+    - if: |-
+        $LANGUAGE =~ /\b(typescript|javascript|node\.js)\b/i || (
+          $LANGUAGE == null &&
+          $CI_PROJECT_REPOSITORY_LANGUAGES =~ /^(typescript|javascript)\b/i
+        )
+      exists:
+        - "{[Dd]ockerfile,[Dd]ockerfile\\.*,**/[Dd]ockerfile,**/[Dd]ockerfile\\.*}"
 
-build:
+
+Build library:
   tags:
       - k8s
   stage: build
