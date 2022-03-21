@@ -9,13 +9,12 @@ import {
   Output,
   QueryList,
   TemplateRef,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 import { FilterService } from 'primeng/api';
 import { Table, TableService } from 'primeng/table';
 import { ZyfraBaseTableComponent } from '../@core/base-table';
 import { BaseTableTemplateDirective } from '../@core/base-table/directives/base-table-template.directive';
-import { ZyfraTableTemplateDirective } from './directives/table-template.directive';
 import { Filters, RowSelectionEvent } from './zyfra-table.types';
 
 @Component({
@@ -37,7 +36,7 @@ export class ZyfraTableComponent<T = unknown>
   implements AfterContentInit, OnChanges
 {
   @ViewChild('ptable', { static: true }) table: Table;
-  @ContentChildren(ZyfraTableTemplateDirective) templates: QueryList<ZyfraTableTemplateDirective>;
+  @ContentChildren(BaseTableTemplateDirective) templates: QueryList<BaseTableTemplateDirective>;
 
   public expandedRowTemplate: TemplateRef<any>;
   public footerGroupedTemplate: TemplateRef<any>;
@@ -150,7 +149,7 @@ export class ZyfraTableComponent<T = unknown>
    */
   @Input() groupRowsByOrder = 1;
 
-  @Input() className: string = 'zyfra-table-class'
+  @Input() className: string = 'zyfra-table-class';
 
   //endregion
 
@@ -158,7 +157,7 @@ export class ZyfraTableComponent<T = unknown>
   /**
    * Change active element
    */
-  @Output() activeElementChange: EventEmitter<T> = new EventEmitter<T>();
+  @Output() override activeElementChange: EventEmitter<T> = new EventEmitter<T>();
   /**
    * Callback to invoke when a row is selected
    */
@@ -202,7 +201,7 @@ export class ZyfraTableComponent<T = unknown>
     return this.table;
   }
 
-  public override initTemplateByType(item: ZyfraTableTemplateDirective): void {
+  public override initTemplateByType(item: BaseTableTemplateDirective): void {
     switch (item.getType()) {
       case 'headergrouped':
         this.headerGroupedTemplate = item.template;

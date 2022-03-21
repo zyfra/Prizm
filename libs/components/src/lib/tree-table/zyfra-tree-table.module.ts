@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { TreeTableModule } from 'primeng/treetable';
 
 import { ZyfraTreeTableComponent } from './tree-table.component';
-import { ZyfraTreeTableBaseRowDirective } from './directives/tree-table-base-row.directive';
 import { ZyfraTreeTableSelectableRowDirective } from './directives/tree-table-selectable-row.directive';
 import { ZyfraTreeTableTogglerComponent } from './tree-table-toggler/tree-table-toggler.component';
 import { ZyfraTreeTableCheckboxComponent } from './tree-table-checkbox/tree-table-checkbox.component';
@@ -14,14 +13,15 @@ import { ZyfraTreeTableSortIconComponent } from './tree-table-sort-icon/tree-tab
 import { ZyfraTreeTableCellEditorComponent } from './tree-table-cell-editor/tree-table-cell-editor.component';
 import { ZyfraTreeTableEditableColumnDirective } from './directives/tree-table-editable-column.directive';
 import { ZyfraTreeTableReorderableColumnDirective } from './directives/tree-table-reorderable-column.directive';
-import { ZyfraTreeTableTemplateDirective } from './directives/tree-table-template.directive';
 import { ZyfraTreeTableRowDirective } from './directives/tree-table-row.directive';
 import { ZyfraTreeTableSearchCellComponent } from './tree-table-search-cell/tree-table-search-cell.component';
+import { ZyfraTableSharedModule } from '../@core/base-table/base-table.module';
+import { BaseTableTemplateDirective } from '../@core/base-table/directives/base-table-template.directive';
+import { ZyfraBaseTableComponent, ZyfraRowBaseDirective } from '../@core/base-table';
 
 @NgModule({
   declarations: [
     ZyfraTreeTableComponent,
-    ZyfraTreeTableBaseRowDirective,
     ZyfraTreeTableRowDirective,
     ZyfraTreeTableSelectableRowDirective,
     ZyfraTreeTableTogglerComponent,
@@ -32,13 +32,17 @@ import { ZyfraTreeTableSearchCellComponent } from './tree-table-search-cell/tree
     ZyfraTreeTableCellEditorComponent,
     ZyfraTreeTableEditableColumnDirective,
     ZyfraTreeTableReorderableColumnDirective,
-    ZyfraTreeTableTemplateDirective,
     ZyfraTreeTableSearchCellComponent,
   ],
-  imports: [CommonModule, TreeTableModule],
+  providers: [
+    {
+      provide: ZyfraBaseTableComponent,
+      useClass: ZyfraTreeTableComponent,
+    },
+  ],
+  imports: [CommonModule, TreeTableModule, ZyfraTableSharedModule],
   exports: [
     ZyfraTreeTableComponent,
-    ZyfraTreeTableBaseRowDirective,
     ZyfraTreeTableRowDirective,
     ZyfraTreeTableSelectableRowDirective,
     ZyfraTreeTableTogglerComponent,
@@ -49,8 +53,10 @@ import { ZyfraTreeTableSearchCellComponent } from './tree-table-search-cell/tree
     ZyfraTreeTableCellEditorComponent,
     ZyfraTreeTableEditableColumnDirective,
     ZyfraTreeTableReorderableColumnDirective,
-    ZyfraTreeTableTemplateDirective,
     ZyfraTreeTableSearchCellComponent,
+    BaseTableTemplateDirective,
+    ZyfraRowBaseDirective,
+    ZyfraBaseTableComponent,
   ],
 })
 export class ZyfraTreeTableModule {}
