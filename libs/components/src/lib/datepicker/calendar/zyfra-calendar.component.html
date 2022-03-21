@@ -11,7 +11,7 @@
 >
   <ng-template [ngIf]="!inline">
     <div class="p-inputgroup" [class.zyfra-input-group_disabled]="disabled">
-      <span class="zyfra-input p-float-label" [class.zyfra-input_disabled]="disabled">
+      <span class="zyfra-input" [class.zyfra-input_disabled]="disabled" [class.p-float-label]="label">
         <input
           #inputfield
           type="text"
