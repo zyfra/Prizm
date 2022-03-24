@@ -4,7 +4,7 @@
   > td {
     border-color: @borderColor;
   }
-  
+
   &:focus-visible,
   &.zyfra-active-element {
     background-color: @rowColor !important;
@@ -22,7 +22,6 @@
   box-shadow: var(--shadow-mini);
   border-top-left-radius: var(--tableBorderRadius);
   border-top-right-radius: var(--tableBorderRadius);
-  overflow: hidden;
 
   &:not(.zyfra-table_paginator) {
     border-bottom-left-radius: var(--tableBorderRadius);
@@ -43,6 +42,8 @@
     color: var(--text);
     border-width: 0 0 @1px 0;
     border-color: var(--tableBorder);
+    border-top-left-radius: var(--tableBorderRadius);
+    border-top-right-radius: var(--tableBorderRadius);
 
     .zyfra-table-title {
       font-size: @14px;
@@ -76,10 +77,11 @@
     border-width: 0 @1px @1px @1px;
   }
 
-  tr, th {
+  tr,
+  th {
     height: @32px;
   }
-  
+
   .p-treetable-tbody > tr,
   .p-datatable-tbody > tr {
     background-color: var(--tablePrimaryRowBg);
@@ -313,7 +315,7 @@
 
   .zyfra-icon {
     font-size: @17px;
-    color: #7887A5;
+    color: #7887a5;
     vertical-align: middle;
   }
 }
