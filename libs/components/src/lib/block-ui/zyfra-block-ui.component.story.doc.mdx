@@ -1,0 +1,38 @@
+import { ArgsTable, Subtitle } from '@storybook/addon-docs';
+import { ZyfraBlockUiComponent } from './zyfra-block-ui.component';
+
+## Zyfra - BlockUI
+
+<Subtitle>BlockUI can either block other components or the whole page</Subtitle>
+
+Import module:
+
+```typescript
+import { ZyfraBlockUiModule } from '@digital-plant/zyfra-components';
+
+@NgModule({
+  imports: [
+    ZyfraBlockUiModule,
+  ]
+})
+export class YourModule {}
+```
+
+To component:
+```html
+<zyfra-block-ui [blocked]="blockedDocument"></zyfra-block-ui>
+<zyfra-button label="Заблокировать документ на 3 секунды" (click)="block()"></zyfra-button>
+```
+
+```typescript
+block() {
+  this.blockedDocument = true;
+  setTimeout(() => {
+    this.blockedDocument = false;
+  }, 3000);
+}
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraBlockUiComponent} />
