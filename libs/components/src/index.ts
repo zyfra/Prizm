@@ -1,6 +1,7 @@
 export * from './lib/root/zyfra-ui-root.module';
 export * from './lib/accordion';
 export * from './lib/auto-complete';
+export * from './lib/block-ui';
 export * from './lib/breadcrumb';
 export * from './lib/button';
 export * from './lib/checkbox';
