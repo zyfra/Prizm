@@ -13,13 +13,7 @@ export default {
   component: ZyfraCheckboxComponent,
   decorators: [
     moduleMetadata({
-      imports: [
-        FormsModule,
-        ReactiveFormsModule,
-        CommonModule,
-        ZyfraButtonModule,
-        ZyfraCheckBoxModule,
-      ],
+      imports: [FormsModule, ReactiveFormsModule, CommonModule, ZyfraButtonModule, ZyfraCheckBoxModule],
     }),
   ],
   parameters: {
@@ -29,10 +23,11 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ZyfraCheckboxComponent> = (args) => ({
+const Template: Story<ZyfraCheckboxComponent> = args => ({
   template: `<div>
     <zyfra-checkbox
       [(ngModel)]="model"
+      [formControl]="formControl"
       [name]="name"
       [value]="value"
       [label]="label"
@@ -63,10 +58,11 @@ Basic.args = {
   model: false,
   label: 'Простой чекбокс',
   binary: true,
-  disabled: false
+  disabled: false,
+  formControl: new FormControl(false),
 };
 
-const Custom: Story<ZyfraCheckboxComponent> = (args) => ({
+const Custom: Story<ZyfraCheckboxComponent> = args => ({
   template: `
     <zyfra-checkbox
       [(ngModel)]="model"
@@ -92,7 +88,6 @@ const Custom: Story<ZyfraCheckboxComponent> = (args) => ({
       label="Label 4"
       (modelChange)="modelChange($event)"
     ></zyfra-checkbox>
-  
   `,
   props: {
     ...args,
@@ -100,14 +95,13 @@ const Custom: Story<ZyfraCheckboxComponent> = (args) => ({
   },
 });
 
-const items: string[] = []
-  
+const items: string[] = [];
 
 export const MultipleValues = Custom.bind({});
 MultipleValues.args = {
   model: items,
   binary: false,
-  disabled: false
+  disabled: false,
 };
 
 export const CustomIcon = Template.bind({});
@@ -116,10 +110,10 @@ CustomIcon.args = {
   checkboxIcon: 'zyfra-icon arrows-replay',
   label: 'Чекбокс с измененнной иконкой',
   binary: true,
-  disabled: false
+  disabled: false,
 };
 
-const CheckboxWithFormControlComponentTemplate: Story = (args) => ({
+const CheckboxWithFormControlComponentTemplate: Story = args => ({
   template: `
     <div><zyfra-checkbox label="Чекбокс с FormControl" [formControl]="fControl"></zyfra-checkbox></div>
     <div style="font-family: var(--fontFamily); margin-top: 20px;">(Значение чекбокса: {{fControl?.value === undefined ? 'undefined' : fControl?.value}})</div>
