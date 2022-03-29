@@ -1,7 +1,24 @@
 # Changelog
 Все изменения в этом файле отражают изменения в коде во всем монорепозитории.
 
-# Changelog
+## [v0.5.0] - 29-03-2022
+### @digital-plant/zyfra-components [v0.5.0]
+
+**Added**
+
+- PLATFORM01-12693 Реализовать BlockUI [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/108)
+
+**Fixes**
+
+- PLATFORM01-12714 Календарь компонента zyfra-calendar выходит из области видимости. [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/109)
+- PLATFORM01-12857 [Bug] [Checkbox] Неверные стили и неверный пример с ngModel [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/110)
+- PLATFORM01-12859 [Bug] Неверные стили чекбокса в таблицах [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/111)
+
+>  **Special thanks**
+>
+> ✏️ **MR:** Anton Osechkin
+>
+> ️🐛 **Issue:** Anton Osechkin, Konstantin Khimenkov
 
 ## [v0.4.1] - 21-03-2022
 [Milestone v0.4.1](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/milestones/5)
