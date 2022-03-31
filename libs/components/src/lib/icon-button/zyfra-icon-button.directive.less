@@ -1,0 +1,23 @@
+.zyfra-icon-button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  padding: 0 @10px;
+  height: 100%;
+
+  &:disabled {
+    pointer-events: none;
+  }
+
+  &:hover {
+    outline: none;
+    .zyfra-icon {
+      color: var(--buttonSuccessHover);
+    }
+  }
+
+  .zyfra-icon {
+    font-size: @20px;
+    color: #888888; // primeNg default theme
+  }
+}

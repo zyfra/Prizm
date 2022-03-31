@@ -14,10 +14,13 @@ export * from './lib/dialog';
 export * from './lib/dynamic-dialog';
 export * from './lib/tooltip';
 export * from './lib/icon';
+export * from './lib/icon-button';
 export * from './lib/input';
 export * from './lib/input-mask';
 export * from './lib/input-number';
 export * from './lib/input-switch';
+export * from './lib/input-group';
+export * from './lib/input-text';
 export * from './lib/menu-applications';
 export * from './lib/message';
 export * from './lib/nav-menu';
@@ -40,3 +43,5 @@ export * from './lib/toggle-button';
 export * from './lib/tree';
 export * from './lib/tree-table';
 export * from './lib/tri-checkbox';
+
+
