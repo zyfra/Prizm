@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Language, TranslateService } from '@digital-plant/zyfra-translate';
 
 const DefaultLang = Language.ruRU;
@@ -13,6 +14,8 @@ export class AppComponent implements OnInit {
   public title = 'sdk';
 
   public lang: Language = DefaultLang;
+
+  public inputControl = new FormControl({value: 'text', disabled: false}, Validators.required);
 
   constructor(private readonly translateService: TranslateService) {
     translateService.addChunk({
