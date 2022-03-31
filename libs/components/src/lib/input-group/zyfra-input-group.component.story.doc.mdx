@@ -1,0 +1,48 @@
+import { ArgsTable, Subtitle } from '@storybook/addon-docs';
+import { ZyfraInputGroupComponent } from './zyfra-input-group/zyfra-input-group.component.ts';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+
+## Zyfra - InputGroup
+
+<Subtitle>InputGroup for renders input with content</Subtitle>
+
+Import module:
+
+```typescript
+import { ZyfraInputGroupModule, ZyfraInputTextModule } from '@digital-plant/zyfra-components';
+
+@NgModule({
+  imports: [ZyfraInputGroupModule, ZyfraInputTextModule],
+})
+export class YourModule {}
+```
+
+To component:
+
+```html
+<zyfra-input-group label="Label">
+  <input zyfraInput placeholder="Placeholder" [formControl]="inputControl" />
+</zyfra-input-group>
+```
+
+component.ts:
+
+```ts
+public inputControl = new FormControl({value: 'text', disabled: false}, Validators.required);
+```
+
+How to add clear button?
+Like this:
+
+```html
+<zyfra-input-group label="Label">
+  <input zyfraInput placeholder="Placeholder" [formControl]="inputControl" />
+  <zyfra-input-group-clear></zyfra-input-group-clear>
+</zyfra-input-group>
+```
+
+
+## ArgsTable
+
+<ArgsTable of={ZyfraInputGroupComponent} />

@@ -2,7 +2,7 @@
 
 Provides Zyfra UI components for your application.
 
-See storybook: http://192.168.101.147:8889/
+See storybook: https://zui-sdk.apps.okd01.ziiot.ru/storybook/index.html
 
 ## Install
 
