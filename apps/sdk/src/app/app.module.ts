@@ -4,7 +4,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ZyfraButtonModule, ZyfraDatepickerModule, ZyfraDropdownModule } from '@digital-plant/zyfra-components';
+import {
+  ZyfraButtonModule,
+  ZyfraDatepickerModule,
+  ZyfraDropdownModule,
+  ZyfraIconButtonModule,
+  ZyfraIconModule,
+  ZyfraInputGroupModule,
+  ZyfraInputTextModule,
+} from '@digital-plant/zyfra-components';
 import { TranslateModule } from '@digital-plant/zyfra-translate';
 import { AppComponent } from './app.component';
 import { DropdownTestComponent } from './dropdown-test/dropdown-test.component';
@@ -21,6 +29,10 @@ import { CalendarTestComponent } from './calendar-test/calendar-test.component';
     ZyfraDropdownModule,
     ZyfraDatepickerModule,
     ZyfraButtonModule,
+    ZyfraInputGroupModule,
+    ZyfraInputTextModule,
+    ZyfraIconModule,
+    ZyfraIconButtonModule,
     HttpClientModule,
     TranslateModule.forRoot(),
   ],

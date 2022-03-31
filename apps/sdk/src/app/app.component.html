@@ -1,13 +1,13 @@
 <h2>Demo page @digital-plant sdk</h2>
 
 <div class="test-block">
-  <span class="test-block-label"> dropdown </span>
+  <span class="test-block-label">dropdown</span>
 
   <zyfra-dropdown-test></zyfra-dropdown-test>
 </div>
 
 <div class="test-block">
-  <span class="test-block-label"> zyfra-translate </span>
+  <span class="test-block-label">zyfra-translate</span>
 
   <button (click)="toggleTranslate()">Toggle translate</button>
 
@@ -17,15 +17,30 @@
 </div>
 
 <div class="test-block">
-  <span class="test-block-label"> calendar </span>
+  <span class="test-block-label">calendar</span>
 
   <zyfra-calendar-test></zyfra-calendar-test>
 </div>
 
+<div class="test-block">
+  <span class="test-block-label">button</span>
 
+  <zyfra-button label="test button"></zyfra-button>
+</div>
 
 <div class="test-block">
-  <span class="test-block-label"> button </span>
+  <span class="test-block-label">input-text</span>
 
-  <zyfra-button label='test button'></zyfra-button>
+  <zyfra-input-group label="Label">
+    <input zyfraInput placeholder="Placeholder" [formControl]="inputControl" />
+    <zyfra-input-group-clear></zyfra-input-group-clear>
+  </zyfra-input-group>
+</div>
+
+<div class="test-block">
+  <span class="test-block-label">Icon button</span>
+
+  <button zyfraIconButton>
+    <zyfra-icon iconClass="tools-broom"></zyfra-icon>
+  </button>
 </div>

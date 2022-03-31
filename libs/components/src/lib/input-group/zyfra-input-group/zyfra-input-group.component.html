@@ -1,0 +1,6 @@
+<div class="p-inputgroup" [class.zyfra-input-group_disabled]="control.disabled">
+  <span class="zyfra-input" [class.zyfra-input_disabled]="control.disabled" [class.p-float-label]="!!label">
+    <ng-content></ng-content>
+    <label *ngIf="label" [class.label-required]="control.required">{{ label }}</label>
+  </span>
+</div>
