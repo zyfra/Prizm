@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ZyfraAutoCompleteModule } from './zyfra-auto-complete.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ZyfraSharedModule } from '../@core/shared/zyfra-shared.module';
+import { ZyfraTemplateModule } from '../@core/shared/zyfra-template.module';
 import { action } from '@storybook/addon-actions';
 
 export default {
@@ -21,7 +21,7 @@ export default {
         ReactiveFormsModule,
         CommonModule,
         ZyfraAutoCompleteModule,
-        ZyfraSharedModule,
+        ZyfraTemplateModule,
       ],
     }),
   ],

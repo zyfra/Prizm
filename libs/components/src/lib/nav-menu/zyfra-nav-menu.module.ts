@@ -22,7 +22,7 @@ import { ZyfraAccordionModule } from '../accordion/zyfra-accordion.module';
 import { ZyfraInputModule } from '../input/zyfra-input.module';
 import { ZyfraButtonModule } from '../button/zyfra-button.module';
 import { ZyfraCheckBoxModule } from '../checkbox/zyfra-checkbox.module';
-import { ZyfraSharedModule } from '../@core/shared/zyfra-shared.module';
+import { ZyfraTemplateModule } from '../@core/shared/zyfra-template.module';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,7 @@ import { ZyfraSharedModule } from '../@core/shared/zyfra-shared.module';
     ZyfraButtonModule,
     ZyfraInputModule,
     ZyfraAccordionModule,
-    ZyfraSharedModule,
+    ZyfraTemplateModule,
     ZyfraTooltipModule
   ],
   providers: [NavMenuService],

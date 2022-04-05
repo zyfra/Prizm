@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
 import { ControlValueAccessor } from '@angular/forms';
-import { ZyfraTemplateDirective } from '../@core/shared/zyfra-template.directives';
+import { ZyfraTemplateDirective } from '../@core/shared/zyfra-template.module';
 import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
 
 @Component({
@@ -96,5 +96,9 @@ export class ZyfraAutoCompleteComponent<T = unknown>
         this.selectedItemTemplate = template.templateRef;
       }
     });
+  }
+
+  public override setDisabledState(isDisabled: boolean): void {
+    // do nothing
   }
 }
