@@ -30,7 +30,7 @@ import {
   SettingsConfig,
   ToolbarConfig
 } from '../../model/nav-menu-config';
-import { ZyfraTemplateDirective } from '../../../@core/shared/zyfra-template.directives';
+import { ZyfraTemplateDirective } from '../../../@core/shared/zyfra-template.module';
 
 @Component({
   selector: 'zyfra-nav-menu',

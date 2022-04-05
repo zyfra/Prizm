@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 // @ts-ignore
 import AccordionDoc from './zyfra-accordion.component.story.doc.mdx';
-import { ZyfraSharedModule } from '../../@core/shared/zyfra-shared.module';
+import { ZyfraTemplateModule } from '../../@core/shared/zyfra-template.module';
 
 export default {
   moduleId: module.id,
@@ -23,7 +23,7 @@ export default {
         FormsModule,
         ReactiveFormsModule,
         CommonModule,
-        ZyfraSharedModule,
+        ZyfraTemplateModule,
         ZyfraAccordionModule,
       ]
     }),
