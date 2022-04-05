@@ -17,8 +17,7 @@ import {
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { filter, take, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { ZyfraTemplateDirective } from '../@core/shared/zyfra-template.directives';
-import { ZyfraSharedModule } from '../@core/shared/zyfra-shared.module';
+import { ZyfraTemplateModule, ZyfraTemplateDirective } from '../@core/shared/zyfra-template.module';
 
 @Component({ template: 'Страница 1' })
 class Page1Component {}
@@ -79,7 +78,7 @@ export default {
         BrowserAnimationsModule,
         ZyfraNavMenuModule,
         ZyfraSplitterModule,
-        ZyfraSharedModule,
+        ZyfraTemplateModule,
         BadgeModule,
         RouterModule.forRoot(routes, { useHash: true })
       ],
