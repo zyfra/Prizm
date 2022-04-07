@@ -91,6 +91,23 @@ Simple.args = {
   label: 'City',
 };
 
+export const Filter = Template.bind({});
+Filter.args = {
+  options: [
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' },
+  ],
+  value: { name: 'New York', code: 'NY' },
+  optionLabel: 'name',
+  placeholder: 'Select a City',
+  showClear: true,
+  label: 'City',
+  filter: true,
+};
+
 export const Group = Template.bind({});
 Group.args = {
   options: [
