@@ -1,5 +1,24 @@
 # Changelog
 
+## [v0.6.0] - 08-04-2022
+### @digital-plant/zyfra-components [v0.6.0]
+
+**Added**
+
+- PLATFORM01-12991: Implement disable control directive [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/115)
+- PLATFORM01-12915: Feat zyfra-input-group component [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/114)
+- feat: add storysource addon for storybook [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/118)
+
+**Fixes**
+
+- PLATFORM01-13204 dropdown filter border [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/116)
+
+>  **Special thanks**
+>
+> ✏️ **MR:**  Stepan Fedorov, Rustam Imaikin
+>
+> ️🐛 **Issue:** Kirill Galkin, Stepan Fedorov, Nikolay Sizov, Vladislav Druzyakin ext
+
 ## [v0.5.0] - 29-03-2022
 ### @digital-plant/zyfra-components [v0.5.0]
 
