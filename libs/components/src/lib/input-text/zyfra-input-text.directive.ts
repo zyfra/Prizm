@@ -87,16 +87,17 @@ export class ZyfraInputDirective implements ZyfraInputGroupControl<string>, DoCh
     this._inputValue = elementRef.nativeElement;
   }
 
-  ngDoCheck() {
+  ngDoCheck(): void {
     this.updateEmptyState();
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('input', ['$event'])
-  onInput(e) {
+  onInput(e): void {
     this.updateEmptyState();
   }
 
-  updateEmptyState() {
+  private updateEmptyState(): void {
     this.empty =
       (this.elementRef.nativeElement.value && this.elementRef.nativeElement.value.length) ||
       (this.ngControl && this.ngControl.value);
