@@ -1,45 +1,21 @@
-import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  forwardRef,
-  Provider,
-} from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { Checkbox } from 'primeng/checkbox';
-
-const CHECKBOX_VALUE_ACCESSOR: Provider = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => ZyfraCheckboxComponent),
-  multi: true,
-};
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
+import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
 
 @Component({
   selector: 'zyfra-checkbox',
   templateUrl: './zyfra-checkbox.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [CHECKBOX_VALUE_ACCESSOR],
 })
-export class ZyfraCheckboxComponent extends Checkbox implements ControlValueAccessor {
-  @Input() override binary = true;
-  @Input() override checkboxIcon = 'zyfra-icon selection-check-simple';
-  @Input() override model: any;
-  @Input() override disabled: boolean;
+export class ZyfraCheckboxComponent extends WrappedFormComponent implements ControlValueAccessor {
+  @Input() binary = true;
+  @Input() checkboxIcon = 'zyfra-icon selection-check-simple';
+  @Input() model: any;
+  @Input() disabled: boolean;
+  @Input() label: string;
   @Output() modelChange = new EventEmitter<boolean | null>();
 
-  constructor(cd: ChangeDetectorRef) {
-    super(cd);
-  }
-
-  public onChangeHandler(event: { checked: boolean; originalEvent: PointerEvent }): void {
-    if (this.formControl) {
-      this.formControl.setValue(event.checked);
-    } else {
-      this.model = event.checked;
-    }
-    this.modelChange.emit(this.model);
+  public override setDisabledState(): void {
+    // do nothing
   }
 }
