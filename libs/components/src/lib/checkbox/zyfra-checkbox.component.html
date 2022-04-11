@@ -1,5 +1,6 @@
 <p-checkbox
   [(ngModel)]="model"
+  [formControl]="$any(ngControl.control)"
   [name]="name"
   [value]="value"
   [label]="label"
