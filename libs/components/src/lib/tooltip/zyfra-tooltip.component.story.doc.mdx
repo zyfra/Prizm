@@ -1,11 +1,11 @@
-import { ArgsTable, Subtitle } from '@storybook/addon-docs';
+import { Meta, Story, Canvas, ArgsTable, ColorPalette, ColorItem, Preview, Typeset, Title, Subtitle, Description, } from '@storybook/addon-docs';
+import { ZyfraTooltipDirective } from './zyfra-tooltip.directive.ts';
 import { moduleMetadata } from '@storybook/angular';
 import { storiesOf } from '@storybook/angular';
-import { ZyfraTooltipComponent } from 'controls/base-controls/zyfra-tooltip/src/public-api';
 
 ## Zyfra - Tooltip
 
-<Subtitle of={ZyfraTooltipComponent}>
+<Subtitle of={ZyfraTooltipDirective}>
   Tooltip provides functionality of additional information for an element
 </Subtitle>
 
@@ -24,9 +24,30 @@ export class YourModule {}
 Tooltip with text:
 
 ```html
-<button zyfraButton class="class" type="button" zyfraTooltip="Подсказка справа" zyfraTooltipPosition="right">Right</button>
+<button zyfraButton class="class" type="button"
+        zyfraTooltip="Подсказка справа"
+        zyfraTooltipPosition="right">Right</button>
+```
+
+
+Tooltip with template:
+```html
+<ng-template #someTemplate><span>Show me</span></div></ng-template>
+<button zyfraButton class="class" type="button"
+        [zyfraTooltip]="someTemplate"
+        color="success"
+        zyfraTooltipPosition="right">Right</button>
+```
+
+Tooltip with context:
+```html
+<button zyfraButton class="class" type="button"
+        zyfraTooltip="Подсказка слева"
+        [zyfraTooltipContext]="{testContext: '...'}"
+        color="success"
+        zyfraTooltipPosition="left">Left</button>
 ```
 
 ## ArgsTable
 
-<ArgsTable of={ZyfraTooltipComponent} />
+<ArgsTable of={ZyfraTooltipDirective} />
