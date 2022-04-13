@@ -176,6 +176,7 @@ export class ZyfraTabViewComponent implements AfterContentInit, AfterViewInit, A
       index,
       disabled: value.disabled,
     }));
+
     this.tabsChanged = true;
     merge(...this.tabs.map((value) => value.propChange))
       .pipe(takeUntil(this.tabsChanged$))
