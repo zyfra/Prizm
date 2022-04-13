@@ -69,7 +69,7 @@
       <div
         *ngFor="let tab of tabList"
         class="tab-list-item text-overflow"
-        [class.disabled]="tab.disabled"
+        [class.p-disabled]="tab.disabled"
         tooltipPosition="bottom"
         [pTooltip]="tab.header"
         (click)="selectTabFromList($event, tab.index); op.hide()"
