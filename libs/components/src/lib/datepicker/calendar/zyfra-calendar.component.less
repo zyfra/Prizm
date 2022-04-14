@@ -1,5 +1,6 @@
 @icon-font-family: ZyfraIcons;
 @calendarBorderRadius: 50%;
+@paddingInSelectBox: @8px;
 
 zyfra-calendar {
   font-family: @icon-font-family;
@@ -11,7 +12,7 @@ zyfra-calendar {
   .p-datepicker {
     padding: 0;
     position: absolute;
-    
+
     &.p-component {
       background-color: var(--bgStandart);
       border: none;
@@ -103,13 +104,13 @@ zyfra-calendar {
     .p-datepicker-buttonbar {
       border: none;
       justify-content: space-around;
-      padding-top: 0.615rem;
+      padding-top: @paddingInSelectBox;
       padding-bottom: 1.2rem;
       box-shadow: 0 -5px 5px -5px rgba(102, 119, 153, 0.16);
     }
 
     .p-datepicker-group-container {
-      padding: 0.615rem;
+      padding: @paddingInSelectBox;
     }
 
     .p-timepicker {
@@ -146,10 +147,11 @@ zyfra-calendar {
     &:not(.p-disabled) {
       .p-monthpicker,
       .p-yearpicker {
-        display: flex;
+        display: grid;
         width: 177px;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 0 @paddingInSelectBox;
+        gap: 1px;
 
         .p-monthpicker-month,
         .p-yearpicker-year {
