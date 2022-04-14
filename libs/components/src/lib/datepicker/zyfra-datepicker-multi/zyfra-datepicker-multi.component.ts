@@ -6,6 +6,7 @@ import {
   EventEmitter,
   ChangeDetectorRef,
 } from '@angular/core';
+import { CALENDAR_SELECTION_MODE } from '../calendar/zyfra-calendar.component';
 import { ZyfraDatePickerMode } from '../model/zyfra-date-picker-mode.enum';
 import { ZyfraDatepickerModeSelectComponent } from '../zyfra-datepicker-mode-select/zyfra-datepicker-mode-select.component';
 
@@ -34,7 +35,7 @@ export class ZyfraDatepickerMultiComponent {
   @Input() showTime: boolean;
   @Input() hideOnDateTimeSelect: boolean = true;
   @Input() numberOfMonths: number = 1;
-  @Input() selectionMode: string = 'single';
+  @Input() selectionMode: CALENDAR_SELECTION_MODE = 'single';
   @Input() disabledDates: Date[] = null;
   @Input() disabledDays: number[] = null;
   @Input() firstDayOfWeek: number = 1;
