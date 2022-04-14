@@ -26,55 +26,15 @@ import { Subscription } from 'rxjs';
 export const CALENDAR_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => ZyfraCalendarComponent),
-  multi: true,
+  multi: true
 };
 
 /**
  * Forked from https://github.com/primefaces/primeng/blob/master/src/app/components/calendar/calendar.ts
  * Update this after release primeng,  Last changes 20.12.2021
  */
-@Component({
-  selector: 'zyfra-calendar',
-  templateUrl: './zyfra-calendar.component.html',
-  animations: [
-    trigger('overlayAnimation', [
-      state(
-        'visibleTouchUI',
-        style({
-          transform: 'translate(-50%,-50%)',
-          opacity: 1,
-        })
-      ),
-      transition('void => visible', [
-        style({ opacity: 0, transform: 'scaleY(0.8)' }),
-        animate('{{showTransitionParams}}', style({ opacity: 1, transform: '*' })),
-      ]),
-      transition('visible => void', [animate('{{hideTransitionParams}}', style({ opacity: 0 }))]),
-      transition('void => visibleTouchUI', [
-        style({ opacity: 0, transform: 'translate3d(-50%, -40%, 0) scale(0.9)' }),
-        animate('{{showTransitionParams}}'),
-      ]),
-      transition('visibleTouchUI => void', [
-        animate(
-          '{{hideTransitionParams}}',
-          style({
-            opacity: 0,
-            transform: 'translate3d(-50%, -40%, 0) scale(0.9)',
-          })
-        ),
-      ]),
-    ]),
-  ],
-  host: {
-    class: 'p-element p-inputwrapper',
-    '[class.p-inputwrapper-filled]': 'filled',
-    '[class.p-inputwrapper-focus]': 'focus',
-  },
-  providers: [CALENDAR_VALUE_ACCESSOR],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  // changeDetection: ChangeDetectionStrategy.OnPush,
-})
-export class ZyfraCalendarComponent implements OnInit, OnDestroy, ControlValueAccessor {
+@Component({template: ''})
+abstract class Calendar implements OnInit, OnDestroy, ControlValueAccessor {
   @Input() style: any;
 
   @Input() styleClass: string;
@@ -469,12 +429,12 @@ export class ZyfraCalendarComponent implements OnInit, OnDestroy, ControlValueAc
   }
 
   constructor(
-    public el: ElementRef,
-    public renderer: Renderer2,
-    public cd: ChangeDetectorRef,
-    private zone: NgZone,
-    private config: PrimeNGConfig,
-    public overlayService: OverlayService
+    el: ElementRef,
+    renderer: Renderer2,
+    cd: ChangeDetectorRef,
+    zone: NgZone,
+    config: PrimeNGConfig,
+    overlayService: OverlayService
   ) {}
 
   ngOnInit() {
@@ -2946,5 +2906,85 @@ export class ZyfraCalendarComponent implements OnInit, OnDestroy, ControlValueAc
     this.clearTimePickerTimer();
     this.restoreOverlayAppend();
     this.onOverlayHide();
+  }
+}
+
+
+export type CALENDAR_SELECTION_MODE = 'single' | 'range' | 'multiple';
+
+// eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
+@Component({
+  selector: 'zyfra-calendar',
+  templateUrl: './zyfra-calendar.component.html',
+  animations: [
+    trigger('overlayAnimation', [
+      state(
+        'visibleTouchUI',
+        style({
+          transform: 'translate(-50%,-50%)',
+          opacity: 1,
+        })
+      ),
+      transition('void => visible', [
+        style({ opacity: 0, transform: 'scaleY(0.8)' }),
+        animate('{{showTransitionParams}}', style({ opacity: 1, transform: '*' })),
+      ]),
+      transition('visible => void', [animate('{{hideTransitionParams}}', style({ opacity: 0 }))]),
+      transition('void => visibleTouchUI', [
+        style({ opacity: 0, transform: 'translate3d(-50%, -40%, 0) scale(0.9)' }),
+        animate('{{showTransitionParams}}'),
+      ]),
+      transition('visibleTouchUI => void', [
+        animate(
+          '{{hideTransitionParams}}',
+          style({
+            opacity: 0,
+            transform: 'translate3d(-50%, -40%, 0) scale(0.9)',
+          })
+        ),
+      ]),
+    ]),
+  ],
+  host: {
+    class: 'p-element p-inputwrapper',
+    '[class.p-inputwrapper-filled]': 'filled',
+    '[class.p-inputwrapper-focus]': 'focus',
+  },
+  providers: [CALENDAR_VALUE_ACCESSOR],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class ZyfraCalendarComponent extends Calendar {
+  constructor(
+    public el: ElementRef,
+    public renderer: Renderer2,
+    public cd: ChangeDetectorRef,
+    private zone: NgZone,
+    private config: PrimeNGConfig,
+    public overlayService: OverlayService
+  ) {
+    super(
+      el,
+      renderer,
+      cd,
+      zone,
+      config,
+      overlayService
+    );
+  }
+
+  private isMonthInRange(month: number, start: Date, end: Date) {
+    return start.getFullYear() === this.currentYear
+      && month >= start.getMonth()
+      && month <= end.getMonth();
+  }
+
+  override isMonthSelected(month: number) {
+    if (this.isComparable()) {
+      return !this.isMultipleSelection()
+        ? this.value[0] && this.value[1] && this.isMonthInRange(month, this.value[0], this.value[1])
+        : false;
+    }
+
+    return false;
   }
 }
