@@ -39,6 +39,18 @@ export default {
       page: CalendarDoc,
     },
   },
+  argTypes: {
+    selectionMode:  {
+      control: {
+        type: "select",
+        options: [
+          'range',
+          'single',
+          'multiple',
+        ]
+      }
+    },
+  }
 } as Meta;
 
 const Template: Story = args => ({
