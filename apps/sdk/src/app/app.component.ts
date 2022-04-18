@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   public lang: Language = DefaultLang;
 
   public inputControl = new FormControl({value: 'text', disabled: false}, Validators.required);
+  public zyfraInputControl = new FormControl({value: 'text', disabled: true}, Validators.required);
 
   constructor(private readonly translateService: TranslateService) {
     translateService.addChunk({

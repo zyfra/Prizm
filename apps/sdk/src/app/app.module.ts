@@ -11,7 +11,8 @@ import {
   ZyfraIconButtonModule,
   ZyfraIconModule,
   ZyfraInputGroupModule,
-  ZyfraInputTextModule,
+  ZyfraInputModule,
+  ZyfraInputTextModule
 } from '@digital-plant/zyfra-components';
 import { TranslateModule } from '@digital-plant/zyfra-translate';
 import { AppComponent } from './app.component';
@@ -31,6 +32,7 @@ import { CalendarTestComponent } from './calendar-test/calendar-test.component';
     ZyfraButtonModule,
     ZyfraInputGroupModule,
     ZyfraInputTextModule,
+    ZyfraInputModule,
     ZyfraIconModule,
     ZyfraIconButtonModule,
     HttpClientModule,
