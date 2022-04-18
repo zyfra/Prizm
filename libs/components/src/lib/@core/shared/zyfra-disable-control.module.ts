@@ -6,7 +6,8 @@ import { NgControl } from '@angular/forms';
 })
 export class ZyfraDisableControlDirective {
   @Input() set zyfraDisableControl(condition: boolean) {
-    const action = condition ? 'disable' : 'enable';
+    const conditionDisable = condition || this.ngControl.disabled;
+    const action = conditionDisable ? 'disable' : 'enable';
     this.ngControl.control[action]();
   }
 
