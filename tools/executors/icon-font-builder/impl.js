@@ -41,7 +41,7 @@ var fs = require("fs");
 var icon_font_buildr_1 = require("icon-font-buildr");
 function builderExecutor(options, context) {
     return __awaiter(this, void 0, void 0, function () {
-        var sources, icons, dirs, definitions, builder, ligatures;
+        var sources, icons, dirs, definitions, builder, ligatures, codepoints;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -70,7 +70,7 @@ function builderExecutor(options, context) {
                         sources: sources,
                         icons: icons,
                         output: {
-                            codepoints: false,
+                            codepoints: true,
                             ligatures: true,
                             fonts: path.join(options.outputPath),
                             fontName: options.fontFileName,
@@ -81,16 +81,17 @@ function builderExecutor(options, context) {
                 case 1:
                     _a.sent();
                     ligatures = builder.getIconsLigatures();
-                    generateLessFromLigatures(ligatures, options);
+                    codepoints = builder.getIconsCodepoints();
+                    generateLessFromLigatures(ligatures, codepoints, options);
                     return [2 /*return*/, { success: true }];
             }
         });
     });
 }
 exports["default"] = builderExecutor;
-function generateLessFromLigatures(ligatures, options) {
+function generateLessFromLigatures(ligatures, codepoints, options) {
     var fontRules = "@icon-font-family: " + options.fontFileName + ";\n@font-face {\n  font-family: @icon-font-family;\n  src: local('" + options.fontName + "'),url('" + options.fontFileName + ".woff2') format('woff2'),url('" + options.fontFileName + ".woff') format('woff'),url('" + options.fontFileName + ".ttf') format('truetype');\n  font-weight: 400;\n  font-style: normal;\n}\n" + options.iconClassName + " {\n  font-family: @icon-font-family;\n  font-style: normal;\n";
-    var iconRules = Object.entries(ligatures)
+    var iconRules = Object.entries(codepoints)
         .map(function (_a) {
         var key = _a[0], value = _a[1];
         return "  &." + key + ":before { content: '" + value[0] + "' }";
