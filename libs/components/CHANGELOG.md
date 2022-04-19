@@ -1,5 +1,32 @@
 # Changelog
 
+## [v0.7.0] - 19-04-2022
+### @digital-plant/zyfra-components [v0.7.0]
+
+**BREAKING CHANGES**
+- PLATFORM01-10710: Reformat icons, rebuild new icons
+[[Changes]](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/117#%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D0%B5%D1%82-%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%B8%D1%82%D1%8C-%D0%B2%D0%BD%D0%B8%D0%BC%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B0-%D1%80%D0%B5%D0%B2%D1%8C%D1%8E)
+[[MR]](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/117) 
+
+**Added**
+
+- PLATFORM01-12991: Implement disable control directive [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/115)
+- PLATFORM01-13361: Selection on month range [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/125)
+- feat: new themes (css variables) [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/126)
+
+**Fixes**
+
+- PLATFORM01-13362: Tooltip docs [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/124)
+- PLATFORM01-13328: fix disabled for tab-view [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/123)
+- fix: condition disabled in controls, close #66 [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/127)
+- PLATFORM01-12343 [API] ControlValueAccessor for CheckboxComponent [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/122)
+
+>  **Special thanks**
+>
+> ✏️ **MR:**  Zurab Magomadov, Ekaterina Kovergina, Rustam Imaikin
+>
+> ️🐛 **Issue:** Dmitriy Kshichkovskiy, Dmitriy Badeev, Stepan Fedorov, Igor Kozlov, Vladislav Druzyakin ext
+
 ## [v0.6.0] - 08-04-2022
 ### @digital-plant/zyfra-components [v0.6.0]
 
