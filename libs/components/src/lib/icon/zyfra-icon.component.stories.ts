@@ -24,10 +24,12 @@ import doc from './zyfra-icon.component.story.doc.mdx';
     `
       :host {
         font-family: Inter;
+        color: #777B92;
       }
 
       h4 {
         text-transform: capitalize;
+        color: #353E50;
       }
 
       .icons {
@@ -60,6 +62,7 @@ import doc from './zyfra-icon.component.story.doc.mdx';
         font-size: 12px;
         text-align: center;
         margin-top: 12px;
+        color: #353E50;
       }
     `,
   ],
