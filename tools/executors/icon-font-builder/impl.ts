@@ -5,7 +5,7 @@ import IconFontBuildr from 'icon-font-buildr';
 
 /**
  * Defaults
- * 
+ *
  * fontFileName = ZyfraIcons
  * fontName = Zyfra Icons
  * iconClassName = .zyfra-icon
@@ -45,7 +45,7 @@ export default async function builderExecutor(options: IconFontExecutorOptions, 
 
     iconFiles.forEach((iconFile, iconIndex) => {
       const iconName = iconFile.replace('.svg', '');
-    
+
       definition.data.push(iconName);
 
       icons.push({
@@ -56,18 +56,18 @@ export default async function builderExecutor(options: IconFontExecutorOptions, 
 
     definitions.push(definition);
 
-    
+
   });
 
   // Write defs ts
   writeToFileDefs(definitions, options);
 
-  // Write fonts 
+  // Write fonts
   const builder = new IconFontBuildr({
     sources: sources,
     icons: icons,
     output: {
-      codepoints: false,
+      codepoints: true,
       ligatures: true,
       fonts: path.join(options.outputPath),
       fontName: options.fontFileName,
@@ -79,12 +79,13 @@ export default async function builderExecutor(options: IconFontExecutorOptions, 
 
   // Write styles
   const ligatures = builder.getIconsLigatures();
-  generateLessFromLigatures(ligatures, options);
+  const codepoints = builder.getIconsCodepoints();
+  generateLessFromLigatures(ligatures, codepoints, options);
 
   return { success: true };
 }
 
-function generateLessFromLigatures(ligatures, options: IconFontExecutorOptions): void {
+function generateLessFromLigatures(ligatures, codepoints, options: IconFontExecutorOptions): void {
   const fontRules = `@icon-font-family: ${options.fontFileName};
 @font-face {
   font-family: @icon-font-family;
@@ -97,7 +98,7 @@ ${options.iconClassName} {
   font-style: normal;
 `;
 
-  const iconRules = Object.entries(ligatures)
+  const iconRules = Object.entries(codepoints)
     .map(([key, value]) => `  &.${key}:before { content: '${value[0]}' }`)
     .join('\n');
   const filename = path.join(options.outputPath, options.outputStyleFile);
