@@ -109,6 +109,29 @@
       "tags": [],
       "implicitDependencies": ["components"]
     },
+    "helpers": {
+      "projectType": "library",
+      "root": "libs/helpers",
+      "sourceRoot": "libs/helpers/src",
+      "prefix": "zui",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/helpers"],
+          "options": {
+            "jestConfig": "libs/helpers/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/helpers/src/**/*.ts", "libs/helpers/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
     "schematics": {
       "projectType": "library",
       "root": "libs/schematics",
