@@ -15,6 +15,5 @@
   [checkboxIcon]="checkboxIcon"
   [readonly]="readonly"
   [required]="required"
-  [trueValue]="trueValue"
-  [falseValue]="falseValue"
+  (onChange)="onChangeHandler($event)"
 ></p-checkbox>
