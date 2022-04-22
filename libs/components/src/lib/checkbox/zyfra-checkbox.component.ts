@@ -23,13 +23,20 @@ export class ZyfraCheckboxComponent extends WrappedFormComponent implements Cont
   @Input() checkboxIcon = 'zyfra-icon selection-check-simple';
   @Input() readonly: boolean = false;
   @Input() required: boolean = false;
-  @Input() trueValue: any = null;
-  @Input() falseValue: any = null;
   @Input() model: any;
 
   @Output() modelChange = new EventEmitter<boolean | null>();
 
   public override setDisabledState(): void {
     // do nothing
+  }
+
+  public onChangeHandler(event: { checked: boolean; originalEvent: PointerEvent }): void {
+    if (this.formControl) {
+      this.formControl.setValue(event.checked);
+    } else {
+      this.model = event.checked;
+    }
+    this.modelChange.emit(this.model);
   }
 }
