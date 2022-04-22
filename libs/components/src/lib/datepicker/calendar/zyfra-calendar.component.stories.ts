@@ -61,7 +61,7 @@ const Template: Story = args => ({
     [label]='label'
     [selectionMode]='selectionMode'
     [placeholder]='placeholder'
-    [ngModel]='ngModel'
+    [(ngModel)]='ngModel'
     [dateFormat]='dateFormat'
     [hourFormat]='hourFormat'
     [disabled]='disabled'
@@ -72,6 +72,7 @@ const Template: Story = args => ({
     [showOnFocus]='showOnFocus'
     [showWeek]='showWeek'
     [readonlyInput]='readonlyInput'
+    [view]='view'
     [showTime]='showTime'
     [timeOnly]='timeOnly'
     [required]='required'
@@ -82,6 +83,10 @@ const Template: Story = args => ({
     [maxDate]="maxDate"
   >
   </zyfra-calendar>
+
+  <br>
+  <p>Содежимое ngModel</p>
+  <div>{{ngModel | json}}</div>
   `
 });
 
@@ -234,6 +239,52 @@ Range.args = {
   required: false,
   showButtonBar: false,
   firstDayOfWeek: 1,
+};
+
+export const MonthPicker = Template.bind({});
+MonthPicker.args = {
+  label: 'Выбор месяца',
+  selectionMode: 'range',
+  placeholder: 'Выберите даты',
+  ngModel: '10.01.2022',
+  disabled: false,
+  inline: false,
+  showOtherMonths: true,
+  selectOtherMonths: false,
+  showIcon: false,
+  showOnFocus: true,
+  showWeek: false,
+  readonlyInput: false,
+  showTime: false,
+  timeOnly: false,
+  required: false,
+  showButtonBar: false,
+  firstDayOfWeek: 1,
+  view: 'month',
+  dateFormat: 'dd.mm.yy',
+};
+
+export const YearPicker = Template.bind({});
+YearPicker.args = {
+  label: 'Выбор года',
+  selectionMode: 'range',
+  placeholder: 'Выберите даты',
+  ngModel: '10.01.2022',
+  disabled: false,
+  inline: false,
+  showOtherMonths: true,
+  selectOtherMonths: false,
+  showIcon: false,
+  showOnFocus: true,
+  showWeek: false,
+  readonlyInput: false,
+  showTime: false,
+  timeOnly: false,
+  required: false,
+  showButtonBar: false,
+  firstDayOfWeek: 1,
+  view: 'year',
+  dateFormat: 'dd.mm.yy',
 };
 
 export const Time = Template.bind({});
