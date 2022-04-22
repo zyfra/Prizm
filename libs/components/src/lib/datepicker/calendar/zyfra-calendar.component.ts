@@ -2987,4 +2987,24 @@ export class ZyfraCalendarComponent extends Calendar {
 
     return false;
   }
+
+  override registerOnChange(fn: Function): void {
+    super.registerOnChange((...args) => {
+      this.correctEndDateIfRange(args[0]);
+      return fn(...args);
+    })
+  }
+
+  private correctEndDateIfRange(value: Date | Date[]): void {
+    if (!this.isRangeSelection() || !(value[1] instanceof Date)) return;
+    if (this.view === 'month') {
+        // set end day if was selected month picker
+        value[1].setMonth(this.value[1].getMonth() + 1, 0);
+    } else if (this.view === 'year') {
+        // set end month and day if was selected year picker
+        value[1].setMonth(12, 0);
+    }
+    // set end time for day
+    value[1].setHours(23, 59, 59, 999);
+  }
 }
