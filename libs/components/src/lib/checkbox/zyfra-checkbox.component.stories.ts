@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ZyfraButtonModule } from '../button';
 import { ZyfraCheckBoxModule } from './zyfra-checkbox.module';
 import { ZyfraCheckboxComponent } from './zyfra-checkbox.component';
 import { action } from '@storybook/addon-actions';
+import { ZyfraCheckboxMultipleComponent } from './story/miltiple-checkbox.component';
 
 export default {
   moduleId: module.id,
@@ -14,6 +15,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [FormsModule, ReactiveFormsModule, CommonModule, ZyfraButtonModule, ZyfraCheckBoxModule],
+      declarations: [ZyfraCheckboxMultipleComponent],
     }),
   ],
   parameters: {
@@ -62,48 +64,6 @@ Basic.args = {
   formControl: new FormControl(false),
 };
 
-const Custom: Story<ZyfraCheckboxComponent> = args => ({
-  template: `
-    <zyfra-checkbox
-      [(ngModel)]="model"
-      value="Value 1"
-      label="Label 1"
-      (modelChange)="modelChange($event)"
-    ></zyfra-checkbox>
-    <zyfra-checkbox
-      [(ngModel)]="model"
-      value="Value 2"
-      label="Label 2"
-      (modelChange)="modelChange($event)"
-    ></zyfra-checkbox>
-    <zyfra-checkbox
-      [(ngModel)]="model"
-      value="Value 3"
-      label="Label 3"
-      (modelChange)="modelChange($event)"
-    ></zyfra-checkbox>
-    <zyfra-checkbox
-      [(ngModel)]="model"
-      value="Value 4"
-      label="Label 4"
-      (modelChange)="modelChange($event)"
-    ></zyfra-checkbox>
-  `,
-  props: {
-    ...args,
-    modelChange: action('modelChange'),
-  },
-});
-
-const items: string[] = [];
-
-export const MultipleValues = Custom.bind({});
-MultipleValues.args = {
-  model: items,
-  binary: false,
-  disabled: false,
-};
-
 export const CustomIcon = Template.bind({});
 CustomIcon.args = {
   model: true,
@@ -139,3 +99,14 @@ const CheckboxWithFormControlComponentTemplate: Story = args => ({
 });
 
 export const WithFormControl = CheckboxWithFormControlComponentTemplate.bind({});
+
+const CheckboxMultipleTemplate: Story = args => ({
+  template: `
+  <zyfra-checkbox-multiple></zyfra-checkbox-multiple>
+  `,
+  props: {
+    ...args,
+  },
+});
+
+export const Multiple = CheckboxMultipleTemplate.bind({});
