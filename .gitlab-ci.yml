@@ -86,6 +86,8 @@ release_package:
     - npm publish
     - cd ../translate
     - npm publish
+    - cd ../helpers
+    - npm publish
 
   when: manual
   except:
