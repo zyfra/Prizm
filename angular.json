@@ -115,6 +115,22 @@
       "sourceRoot": "libs/helpers/src",
       "prefix": "zui",
       "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/helpers"],
+          "options": {
+            "project": "libs/helpers/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/helpers/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/helpers/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/helpers"],

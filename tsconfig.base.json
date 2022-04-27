@@ -19,9 +19,9 @@
     "baseUrl": ".",
     "paths": {
       "@digital-plant/zyfra-components": ["libs/components/src/index.ts"],
+      "@digital-plant/zyfra-helpers": ["libs/helpers/src/index.ts"],
       "@digital-plant/zyfra-translate": ["libs/translate/src/index.ts"],
-      "@digital-plant/zyfra-ui": ["libs/schematics/src/index.ts"],
-      "@zyfra/helpers": ["libs/helpers/src/index.ts"]
+      "@digital-plant/zyfra-ui": ["libs/schematics/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
