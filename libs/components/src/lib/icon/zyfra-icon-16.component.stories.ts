@@ -11,10 +11,9 @@ import doc from './zyfra-icon.component.story.doc.mdx';
   template: `
     <div *ngFor="let def of defs">
       <h4>{{ def.dir }}</h4>
-
       <div class="icons">
         <div *ngFor="let name of def.data" class="icon-def">
-          <zyfra-icon [iconClass]="name" class="icon"></zyfra-icon>
+          <zyfra-icon [iconClass]="name" [className]="className" class="icon-16"></zyfra-icon>
           <div class="name">{{ name }}</div>
         </div>
       </div>
@@ -52,7 +51,8 @@ import doc from './zyfra-icon.component.story.doc.mdx';
         background-color: #eeeeee99;
       }
 
-      .zyfra-icon-16 {
+      .icon-16 {
+        font-size: 16px;
         width: 16px;
         height: 16px;
       }
@@ -68,6 +68,7 @@ import doc from './zyfra-icon.component.story.doc.mdx';
 })
 class Icon16Components {
   defs = Icon16Defs;
+  className = 'zyfra-icon-16';
 }
 
 export default {
@@ -92,6 +93,4 @@ const Template: Story<Icon16Components> = (args: Icon16Components) => ({
 });
 
 export const IconsSet16 = Template.bind({});
-IconsSet16.args = {
-  className: 'zyfra-icon-16',
-};
+IconsSet16.args = {};
