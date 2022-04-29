@@ -8,5 +8,5 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 })
 export class ZyfraIconComponent {
   @Input() iconClass: string = null;
-  @Input() ClassName: string;
+  @Input() className: string;
 }
