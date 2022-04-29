@@ -102,6 +102,6 @@ function generateLessFromLigatures(ligatures, codepoints, options) {
 }
 function writeToFileDefs(defs, options) {
     var data = JSON.stringify(defs, null, 4);
-    var defFileText = "export const IconDefs = " + data + ";\n";
+    var defFileText = "export const " + options.outputDefinitionsVar + " = " + data + ";\n";
     fs.writeFileSync(path.join(options.outputDefinitionsTs), defFileText);
 }
