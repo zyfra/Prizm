@@ -48,7 +48,7 @@ const DefaultRelativeMenuItems = {
   ],
 
   direction: [
-    { id: 'plus', groupId: 'direction', icon: 'plus-circle', label: 'Смещение вперед' },
+    { id: 'plus', groupId: 'direction', icon: 'add-circle', label: 'Смещение вперед' },
     {
       id: 'minus',
       groupId: 'direction',
