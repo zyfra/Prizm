@@ -21,7 +21,7 @@ import {
 import { ParseTextInput, RenderText, UpdateActiveItem } from './relative-datepicker.utils';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
-const ValidationPattern = '(T|\\*)(\\+|\\-)(\\d+)(Y|M|d|h|m|s)';
+const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?';
 
 @Component({
   selector: 'zyfra-relative-datepicker',
@@ -50,7 +50,7 @@ export class ZyfraRelativeDatepickerComponent implements AfterViewInit, ControlV
   private activeTimeId: RelativeDateTimeId;
   private activeDirectionId: RelativeDateDirectionId;
   private activePeriodId: RelativeDatePeriodId;
-  private activeNumber: string = '0';
+  private activeNumber: string = '';
 
   onChangeFn: (_: unknown) => unknown;
   onTouched: VoidFunction;
