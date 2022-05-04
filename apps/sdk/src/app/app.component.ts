@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Language, TranslateService } from '@digital-plant/zyfra-translate';
 
 const DefaultLang = Language.ruRU;
@@ -14,6 +14,10 @@ export class AppComponent implements OnInit {
   public title = 'sdk';
 
   public lang: Language = DefaultLang;
+
+  public form = new FormGroup({
+    "textareaCtrl": new FormControl('my text'),
+  });
 
   public inputControl = new FormControl({value: 'text', disabled: false}, Validators.required);
   public zyfraInputControl = new FormControl({value: 'text', disabled: true}, Validators.required);
