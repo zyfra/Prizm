@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
 
@@ -23,20 +23,10 @@ export class ZyfraCheckboxComponent extends WrappedFormComponent implements Cont
   @Input() checkboxIcon = 'zyfra-icon selection-check-simple';
   @Input() readonly: boolean = false;
   @Input() required: boolean = false;
-  @Input() model: any;
-
-  @Output() modelChange = new EventEmitter<boolean | null>();
+  @Input() trueValue: any = true;
+  @Input() falseValue: any = false;
 
   public override setDisabledState(): void {
     // do nothing
-  }
-
-  public onChangeHandler(event: { checked: boolean; originalEvent: PointerEvent }): void {
-    if (this.formControl) {
-      this.formControl.setValue(event.checked);
-    } else {
-      this.model = event.checked;
-    }
-    this.modelChange.emit(this.model);
   }
 }
