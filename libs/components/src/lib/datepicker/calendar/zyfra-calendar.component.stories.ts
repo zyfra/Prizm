@@ -73,6 +73,7 @@ const Template: Story = args => ({
     [showWeek]='showWeek'
     [readonlyInput]='readonlyInput'
     [view]='view'
+    [appendTo]='appendTo'
     [showTime]='showTime'
     [timeOnly]='timeOnly'
     [required]='required'
@@ -110,6 +111,8 @@ Basic.args = {
   required: false,
   showButtonBar: false,
   firstDayOfWeek: 1,
+  view: 'date',
+  appendTo: 'body',
 };
 
 export const DateFormat = Template.bind({});
@@ -131,6 +134,7 @@ DateFormat.args = {
   required: false,
   showButtonBar: false,
   firstDayOfWeek: 1,
+  view: 'date',
 };
 
 export const Icon = Template.bind({});
@@ -152,6 +156,7 @@ Icon.args = {
   required: false,
   showButtonBar: false,
   firstDayOfWeek: 1,
+  appendTo: null,
 };
 
 export const ButtonBar = Template.bind({});
@@ -173,6 +178,8 @@ ButtonBar.args = {
   required: false,
   showButtonBar: true,
   firstDayOfWeek: 1,
+  view: 'date',
+  appendTo: null,
 };
 
 export const DisabledDays = Template.bind({});
@@ -195,6 +202,31 @@ DisabledDays.args = {
   showButtonBar: false,
   disabledDays: [0, 6],
   firstDayOfWeek: 1,
+};
+
+
+
+export const InlinePicker = Template.bind({});
+InlinePicker.args = {
+  label: 'Дата',
+  selectionMode: 'range',
+  placeholder: 'Выберите даты',
+  ngModel: '10.01.2022',
+  disabled: false,
+  inline: true,
+  showOtherMonths: true,
+  selectOtherMonths: false,
+  showIcon: false,
+  showOnFocus: true,
+  showWeek: false,
+  readonlyInput: false,
+  showTime: false,
+  timeOnly: false,
+  required: false,
+  showButtonBar: false,
+  firstDayOfWeek: 1,
+  view: 'date',
+  dateFormat: 'dd.mm.yy',
 };
 
 export const Multiple = Template.bind({});
@@ -307,6 +339,7 @@ Time.args = {
   required: false,
   showButtonBar: false,
   firstDayOfWeek: 1,
+  view: 'date',
 };
 
 export const OnlyTime = Template.bind({});
@@ -327,6 +360,7 @@ OnlyTime.args = {
   required: false,
   showButtonBar: false,
   firstDayOfWeek: 1,
+  view: 'date',
 };
 
 const CustomTemplate: Story = args => ({
@@ -345,4 +379,5 @@ CustomButtons.args = {
   label: 'Время',
   selectedTime: '16:00:00',
   times: items,
+  view: 'date',
 };
