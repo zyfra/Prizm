@@ -11,7 +11,7 @@ export class ZyfraCheckboxComponent extends WrappedFormComponent implements Cont
   @Input() name: string = null;
   @Input() value: any = null;
   @Input() label: string;
-  @Input() disabled: boolean;
+  @Input() disabledControl: boolean;
   @Input() binary: boolean = true;
   @Input() tabindex: number = null;
   @Input() inputId: string = null;

@@ -31,7 +31,7 @@ const Template: Story<ZyfraCheckboxComponent> = args => ({
       [name]="name"
       [value]="value"
       [label]="label"
-      [disabled]="disabled"
+      [disabledControl]="disabledControl"
       [binary]="binary"
       [tabindex]="tabindex"
       [inputId]="inputId"
@@ -58,7 +58,7 @@ export const Basic = Template.bind({});
 Basic.args = {
   label: 'Простой чекбокс',
   binary: true,
-  disabled: false,
+  disabledControl: false,
   trueValue: true,
   falseValue: false,
 };
@@ -68,7 +68,7 @@ CustomIcon.args = {
   checkboxIcon: 'zyfra-icon arrows-replay',
   label: 'Чекбокс с измененнной иконкой',
   binary: true,
-  disabled: false,
+  disabledControl: false,
   trueValue: true,
   falseValue: false,
 };
