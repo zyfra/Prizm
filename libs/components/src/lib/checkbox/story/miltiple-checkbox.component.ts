@@ -16,6 +16,7 @@ import { data, DataFormControl } from './data';
     </div>
   </form>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ['./miltiple-checkbox.component.less'],
 })
 export class ZyfraCheckboxMultipleComponent {
   @Input() label: string;
