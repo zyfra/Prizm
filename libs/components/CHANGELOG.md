@@ -1,5 +1,29 @@
 # Changelog
 
+## [v0.8.0] - 05-05-2022
+### @digital-plant/zyfra-components [v0.8.0]
+
+**Added**
+
+- feat(helpers): add library base directives, pipes, services [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/129)
+- feat(demo): added textearea test [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/113)
+- feat(components/calendar): set end time in range picker [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/132)
+
+**Fixes**
+
+- fix(helpers): did publishable library [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/135)
+- fix(components/calendar): fixes styles [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/141)
+- fix(storybook): not loading stories [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/140)
+- fix(components/relativeTimePicker): relative time picker chose current time without 0; fix validation [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/139)
+- fix(components/button): fixes styles [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/138)
+
+>  **Special thanks**
+>
+> ✏️ **MR:**  Zurab Magomadov, Dmitriy Kshichkovskiy, Rustam Imaikin
+>
+> ️🐛 **Issue:** Konstantin Khimenkov, Kirill Galkin, Zurab Magomadov, Dmitriy Sokolov, Stepan Fedorov, Igor Kozlov
+
+
 ## [v0.7.0] - 19-04-2022
 ### @digital-plant/zyfra-components [v0.7.0]
 
