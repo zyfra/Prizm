@@ -1,4 +1,4 @@
-@margin: @8px;
+@margin: @16px;
 
 zyfra-checkbox,
 zyfra-table-checkbox,
@@ -9,7 +9,6 @@ p-tristatecheckbox {
   p-checkbox {
     font-family: var(--fontFamily);
     display: flex;
-    margin-bottom: @margin;
   }
 
   .p-checkbox {
@@ -50,7 +49,7 @@ p-tristatecheckbox {
   }
 
   .p-checkbox-label {
-    margin-left: @margin;
+    margin-left: calc(@margin / 2);
 
     &.p-checkbox-label-active.p-disabled {
       color: var(--text);

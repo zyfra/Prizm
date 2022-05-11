@@ -5,7 +5,7 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ZyfraButtonModule } from '../button';
 import { ZyfraCheckBoxModule } from './zyfra-checkbox.module';
 import { ZyfraCheckboxComponent } from './zyfra-checkbox.component';
-import { action } from '@storybook/addon-actions';
+import { ZyfraCheckboxMultipleComponent } from './story/miltiple-checkbox.component';
 
 export default {
   moduleId: module.id,
@@ -14,6 +14,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [FormsModule, ReactiveFormsModule, CommonModule, ZyfraButtonModule, ZyfraCheckBoxModule],
+      declarations: [ZyfraCheckboxMultipleComponent],
     }),
   ],
   parameters: {
@@ -26,12 +27,11 @@ export default {
 const Template: Story<ZyfraCheckboxComponent> = args => ({
   template: `<div>
     <zyfra-checkbox
-      [(ngModel)]="model"
       [formControl]="formControl"
       [name]="name"
       [value]="value"
       [label]="label"
-      [disabled]="disabled"
+      [disabledControl]="disabledControl"
       [binary]="binary"
       [tabindex]="tabindex"
       [inputId]="inputId"
@@ -42,81 +42,41 @@ const Template: Story<ZyfraCheckboxComponent> = args => ({
       [checkboxIcon]="checkboxIcon"
       [readonly]="readonly"
       [required]="required"
-      (modelChange)="modelChange($event)"
+      [trueValue]="trueValue"
+      [falseValue]="falseValue"
     ></zyfra-checkbox>
     </div>
-    <div style="font-family: var(--fontFamily); margin-top: 20px;">(Значение чекбокса: {{model === null ? 'null' : model}})</div>
+    <div style="font-family: var(--fontFamily); margin-top: 20px;">(Значение чекбокса: {{formControl?.value === undefined ? 'undefined' : formControl?.value}})</div>
   `,
   props: {
     ...args,
-    modelChange: action('modelChange'),
+    formControl: new FormControl(true),
   },
 });
 
 export const Basic = Template.bind({});
 Basic.args = {
-  model: false,
   label: 'Простой чекбокс',
   binary: true,
-  disabled: false,
-  formControl: new FormControl(false),
-};
-
-const Custom: Story<ZyfraCheckboxComponent> = args => ({
-  template: `
-    <zyfra-checkbox
-      [(ngModel)]="model"
-      value="Value 1"
-      label="Label 1"
-      (modelChange)="modelChange($event)"
-    ></zyfra-checkbox>
-    <zyfra-checkbox
-      [(ngModel)]="model"
-      value="Value 2"
-      label="Label 2"
-      (modelChange)="modelChange($event)"
-    ></zyfra-checkbox>
-    <zyfra-checkbox
-      [(ngModel)]="model"
-      value="Value 3"
-      label="Label 3"
-      (modelChange)="modelChange($event)"
-    ></zyfra-checkbox>
-    <zyfra-checkbox
-      [(ngModel)]="model"
-      value="Value 4"
-      label="Label 4"
-      (modelChange)="modelChange($event)"
-    ></zyfra-checkbox>
-  `,
-  props: {
-    ...args,
-    modelChange: action('modelChange'),
-  },
-});
-
-const items: string[] = [];
-
-export const MultipleValues = Custom.bind({});
-MultipleValues.args = {
-  model: items,
-  binary: false,
-  disabled: false,
+  disabledControl: false,
+  trueValue: true,
+  falseValue: false,
 };
 
 export const CustomIcon = Template.bind({});
 CustomIcon.args = {
-  model: true,
   checkboxIcon: 'zyfra-icon arrows-replay',
   label: 'Чекбокс с измененнной иконкой',
   binary: true,
-  disabled: false,
+  disabledControl: false,
+  trueValue: true,
+  falseValue: false,
 };
 
-const CheckboxWithFormControlComponentTemplate: Story = args => ({
+const CheckboxWithFormControlComponentTemplate: Story<ZyfraCheckboxComponent> = args => ({
   template: `
-    <div><zyfra-checkbox label="Чекбокс с FormControl" [formControl]="fControl"></zyfra-checkbox></div>
-    <div style="font-family: var(--fontFamily); margin-top: 20px;">(Значение чекбокса: {{fControl?.value === undefined ? 'undefined' : fControl?.value}})</div>
+    <div><zyfra-checkbox label="Чекбокс с FormControl" [formControl]="formControl"></zyfra-checkbox></div>
+    <div style="font-family: var(--fontFamily); margin-top: 20px;">(Значение чекбокса: {{formControl?.value === undefined ? 'undefined' : formControl?.value}})</div>
     <br>
     <br>
     <zyfra-button [style]="{ 'margin-right': '5px' }" label="toggle disable/enable" (click)="toggleStatus()"></zyfra-button>
@@ -124,18 +84,29 @@ const CheckboxWithFormControlComponentTemplate: Story = args => ({
   `,
   props: {
     ...args,
-    fControl: new FormControl(true),
+    formControl: new FormControl(false),
     toggleStatus(): void {
-      if (this.fControl.disabled) {
-        this.fControl.enable();
+      if (this.formControl.disabled) {
+        this.formControl.enable();
       } else {
-        this.fControl.disable();
+        this.formControl.disable();
       }
     },
     toggleValue(): void {
-      this.fControl.setValue(!this.fControl.value);
+      this.formControl.setValue(!this.formControl.value);
     },
   },
 });
 
 export const WithFormControl = CheckboxWithFormControlComponentTemplate.bind({});
+
+const CheckboxMultipleTemplate: Story = args => ({
+  template: `
+  <zyfra-checkbox-multiple></zyfra-checkbox-multiple>
+  `,
+  props: {
+    ...args,
+  },
+});
+
+export const Multiple = CheckboxMultipleTemplate.bind({});
