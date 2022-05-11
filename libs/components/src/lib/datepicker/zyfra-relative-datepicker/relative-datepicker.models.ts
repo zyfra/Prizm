@@ -1,9 +1,9 @@
 // Global
 export interface RelativeDateModel {
-  time: RelativeDateTimeId,
-  direction: RelativeDateDirectionId,
-  number: string,
-  period: RelativeDatePeriodId
+  time: RelativeDateTimeId;
+  direction: RelativeDateDirectionId;
+  number: string;
+  period: RelativeDatePeriodId;
 }
 
 // Menu

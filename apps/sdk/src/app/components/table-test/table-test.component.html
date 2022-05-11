@@ -1,0 +1,18 @@
+<zyfra-table title="Базовая таблица" responsiveLayout="scroll" [value]="value">
+  <ng-template zyfraTableTemplate="header">
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Quantity</th>
+    </tr>
+  </ng-template>
+  <ng-template zyfraTableTemplate="body" let-item>
+    <tr [zyfraRow]="item">
+      <td>{{ item.code }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.category }}</td>
+      <td>{{ item.quantity }}</td>
+    </tr>
+  </ng-template>
+</zyfra-table>
