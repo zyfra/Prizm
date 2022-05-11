@@ -1094,3 +1094,12 @@ export const Icon16Defs = [
     ],
   },
 ];
+
+export const ZyfraIcons16Array = [];
+Icon16Defs.forEach(item => {
+  item.data.forEach(icon => {
+    ZyfraIcons16Array.push(icon);
+  });
+});
+
+export const ZyfraIcons16Set = new Set([...ZyfraIcons16Array]);
