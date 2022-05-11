@@ -25,14 +25,14 @@ export default {
         CommonModule,
         ZyfraTreeTableModule,
         ZyfraButtonModule,
-      ]
+      ],
     }),
   ],
   parameters: {
     docs: {
       page: TreeTableDoc,
-    }
-  }
+    },
+  },
 } as Meta;
 
 export * from './stories/basic.stories';

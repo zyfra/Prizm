@@ -5,7 +5,8 @@ import {
   forwardRef,
   OnDestroy,
   Injector,
-  ChangeDetectorRef, AfterViewInit
+  ChangeDetectorRef,
+  AfterViewInit,
 } from '@angular/core';
 import { ControlValueAccessor, FormControl, NgControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -27,12 +28,12 @@ const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?';
   selector: 'zyfra-relative-datepicker',
   templateUrl: './zyfra-relative-datepicker.component.html',
   styleUrls: ['./zyfra-relative-datepicker.component.less'],
-  providers:[
+  providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => ZyfraRelativeDatepickerComponent),
-      multi: true
-    }
+      multi: true,
+    },
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -67,7 +68,7 @@ export class ZyfraRelativeDatepickerComponent implements AfterViewInit, ControlV
       this.value.valueChanges.subscribe(() => {
         this.parseInputValue();
         this.actualizeMenu();
-        this.onChangeFn(this.value.value)
+        this.onChangeFn(this.value.value);
       })
     );
   }
@@ -90,7 +91,7 @@ export class ZyfraRelativeDatepickerComponent implements AfterViewInit, ControlV
   }
 
   public clearValue(): void {
-    this.value.setValue("");
+    this.value.setValue('');
   }
 
   /**
@@ -113,7 +114,7 @@ export class ZyfraRelativeDatepickerComponent implements AfterViewInit, ControlV
 
     this.actualizeMenu();
     this.actualizeInput();
-    this.onChangeFn(this.value.value)
+    this.onChangeFn(this.value.value);
 
     this.cdr.detectChanges();
   }

@@ -40,17 +40,13 @@ export default {
     },
   },
   argTypes: {
-    selectionMode:  {
+    selectionMode: {
       control: {
-        type: "select",
-        options: [
-          'range',
-          'single',
-          'multiple',
-        ]
-      }
+        type: 'select',
+        options: ['range', 'single', 'multiple'],
+      },
     },
-  }
+  },
 } as Meta;
 
 const Template: Story = args => ({
@@ -88,7 +84,7 @@ const Template: Story = args => ({
   <br>
   <p>Содежимое ngModel</p>
   <div>{{ngModel | json}}</div>
-  `
+  `,
 });
 
 export const Basic = Template.bind({});
@@ -203,8 +199,6 @@ DisabledDays.args = {
   disabledDays: [0, 6],
   firstDayOfWeek: 1,
 };
-
-
 
 export const InlinePicker = Template.bind({});
 InlinePicker.args = {
