@@ -1,11 +1,12 @@
 # Changelog
 
-## [v0.8.0] - 05-05-2022
+## [v0.8.0] - 11-05-2022
 ### @digital-plant/zyfra-components [v0.8.0]
 
 **Added**
 
 - feat(helpers): add library base directives, pipes, services [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/129)
+- feat(helpers): added rxjs pipeble operations [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/136)
 - feat(demo): added textearea test [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/113)
 - feat(components/calendar): set end time in range picker [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/132)
 
@@ -16,10 +17,12 @@
 - fix(storybook): not loading stories [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/140)
 - fix(components/relativeTimePicker): relative time picker chose current time without 0; fix validation [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/139)
 - fix(components/button): fixes styles [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/138)
+- fix(components/checkbox): fixes multiple and CVA [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/134)
+- fix(components/table) fixes null in Input - value [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/137)
 
 >  **Special thanks**
 >
-> ✏️ **MR:**  Zurab Magomadov, Dmitriy Kshichkovskiy, Rustam Imaikin
+> ✏️ **MR:**  Zurab Magomadov, Dmitriy Kshichkovskiy, Ekaterina Kovergina, Maryana Kabardina, Rustam Imaikin
 >
 > ️🐛 **Issue:** Konstantin Khimenkov, Kirill Galkin, Zurab Magomadov, Dmitriy Sokolov, Stepan Fedorov, Igor Kozlov
 
