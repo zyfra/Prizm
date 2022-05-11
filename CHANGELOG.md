@@ -1,7 +1,7 @@
 # Changelog
 Все изменения в этом файле отражают изменения в коде во всем монорепозитории.
 
-## [v0.8.0] - 05-05-2022
+## [v0.8.0] - 11-05-2022
 ### @digital-plant/zyfra-components [v0.8.0]
 
 **Added**
@@ -17,10 +17,11 @@
 - fix(storybook): not loading stories [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/140)
 - fix(components/relativeTimePicker): relative time picker chose current time without 0; fix validation [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/139)
 - fix(components/button): fixes styles [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/138)
+- fix(components/checkbox): fixes multiple and CVA [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/134)
 
 >  **Special thanks**
 >
-> ✏️ **MR:**  Zurab Magomadov, Dmitriy Kshichkovskiy, Rustam Imaikin
+> ✏️ **MR:**  Zurab Magomadov, Dmitriy Kshichkovskiy, Ekaterina Kovergina, Rustam Imaikin
 >
 > ️🐛 **Issue:** Konstantin Khimenkov, Kirill Galkin, Zurab Magomadov, Dmitriy Sokolov, Stepan Fedorov, Igor Kozlov
 
