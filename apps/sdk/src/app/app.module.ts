@@ -12,15 +12,16 @@ import {
   ZyfraIconModule,
   ZyfraInputGroupModule,
   ZyfraInputModule,
-  ZyfraInputTextModule
+  ZyfraInputTextModule,
 } from '@digital-plant/zyfra-components';
 import { TranslateModule } from '@digital-plant/zyfra-translate';
 import { AppComponent } from './app.component';
 import { DropdownTestComponent } from './dropdown-test/dropdown-test.component';
 import { CalendarTestComponent } from './calendar-test/calendar-test.component';
+import { ZyfraIconTestComponent } from './icon-test/icon-test.component';
 
 @NgModule({
-  declarations: [AppComponent, DropdownTestComponent, CalendarTestComponent],
+  declarations: [AppComponent, DropdownTestComponent, CalendarTestComponent, ZyfraIconTestComponent],
   imports: [
     BrowserModule,
     CommonModule,
