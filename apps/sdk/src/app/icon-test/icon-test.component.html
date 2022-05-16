@@ -1,9 +1,0 @@
-<div *ngFor="let def of defs">
-  <h4>{{ def.dir }}</h4>
-  <div class="icons">
-    <div *ngFor="let name of def.data" class="icon-def">
-      <zyfra-icon [iconClass]="name" [className]="className" class="icon-16"></zyfra-icon>
-      <div class="name">{{ name }}</div>
-    </div>
-  </div>
-</div>
