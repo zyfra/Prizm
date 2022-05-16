@@ -69,3 +69,75 @@ Style:
   color: yellow;
 }
 ```
+
+### Manual add: 
+
+**Install global styles:**
+
+angular.json:
+```
+{
+  "projects": {
+    "your-app": {
+      "architect": {
+        "build": {
+          "options": {
+            "styles": [
+              "src/styles.css",
+              "node_modules/primeng/resources/themes/luna-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/@digital-plant/zyfra-components/src/styles/theme/default.less",
+              "node_modules/@digital-plant/zyfra-components/src/styles/styles.less"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+You can also use component LESS styles with import:
+
+my-component.component.less
+```
+@import '~@digital-plant/zyfra-components/src/styles/icons/icons.less';
+@import '~@digital-plant/zyfra-components/src/styles//icons-16/icons-16.less';
+```
+
+**Install icons styles:**
+
+angular.json:
+```
+{
+  "projects": {
+    "your-app": {
+      "architect": {
+        "build": {
+          "options": {
+            "styles": [
+              ...your styles,
+              "node_modules/@digital-plant/zyfra-components/src/styles/icons/icons.less",
+              "node_modules/@digital-plant/zyfra-components/src/styles//icons-16/icons-16.less",
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+**Install fonts, icons assets:**
+
+angular.json
+```
+"assets": [
+    {
+        "glob": "**/*",
+        "input": "node_modules/@digital-plant/zyfra-components/src/styles/fonts",
+        "output": "assets/ui-platform/components/fonts"
+    }
+],
+```
