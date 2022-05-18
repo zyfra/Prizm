@@ -1,13 +1,17 @@
 import {
+  ChangeDetectorRef,
   Directive,
   DoCheck,
   ElementRef,
   HostListener,
   Input,
+  OnInit,
   Optional,
   Self,
 } from '@angular/core';
 import { NgControl, Validators } from '@angular/forms';
+import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { takeUntil, tap } from 'rxjs/operators';
 import { ZyfraInputGroupControl } from '../input-group/zyfra-input-group-control.class';
 
 @Directive({
@@ -23,9 +27,9 @@ import { ZyfraInputGroupControl } from '../input-group/zyfra-input-group-control
     '[disabled]': 'disabled',
     '[required]': 'required',
   },
-  providers: [{ provide: ZyfraInputGroupControl, useExisting: ZyfraInputDirective }],
+  providers: [{ provide: ZyfraInputGroupControl, useExisting: ZyfraInputDirective }, ZuiDestroyService],
 })
-export class ZyfraInputDirective implements ZyfraInputGroupControl<string>, DoCheck {
+export class ZyfraInputDirective implements ZyfraInputGroupControl<string>, DoCheck, OnInit {
   /**
    * Disabled input
    */
@@ -77,24 +81,40 @@ export class ZyfraInputDirective implements ZyfraInputGroupControl<string>, DoCh
    */
   public empty: boolean;
 
+
+  @HostListener('input', ['$event'])
+  public onInput(e): void {
+    this.updateEmptyState();
+  }
+
   /**
    * Create instance
    */
   constructor(
     @Optional() @Self() public readonly ngControl: NgControl,
+    private readonly zuiDestroyService: ZuiDestroyService,
+    private readonly cdRef: ChangeDetectorRef,
     private readonly elementRef: ElementRef<HTMLInputElement | HTMLTextAreaElement>
   ) {
     this._inputValue = elementRef.nativeElement;
+  }
+
+  ngOnInit(): void {
+    if (this.ngControl) this.initControlListener();
   }
 
   ngDoCheck(): void {
     this.updateEmptyState();
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
-  @HostListener('input', ['$event'])
-  onInput(e): void {
-    this.updateEmptyState();
+  private initControlListener (): void {
+    this.ngControl.statusChanges.pipe(
+      tap(() => {
+        this.updateEmptyState();
+        this.cdRef.markForCheck();
+      }),
+      takeUntil(this.zuiDestroyService),
+    ).subscribe();
   }
 
   private updateEmptyState(): void {
