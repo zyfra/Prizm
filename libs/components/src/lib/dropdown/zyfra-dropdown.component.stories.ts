@@ -37,7 +37,7 @@ export default {
 
 const Template: Story<ZyfraDropdownComponent> = args => ({
   component: ZyfraDropdownComponent,
-  template: `<div>
+  template: `<div style="height: 100px; padding: 1rem;" [ngStyle]="{'border': appendTo && '2px solid red', 'overflow': appendTo && 'hidden'}">
     <zyfra-dropdown
       [(ngModel)]="value"
       [options]="options"
@@ -47,6 +47,7 @@ const Template: Story<ZyfraDropdownComponent> = args => ({
       [label]="label"
       [style]="{ width: '360px' }"
       [group]="group"
+      [appendTo]="appendTo"
       [mini]="mini"
       [virtualScroll]="virtualScroll"
       [itemSize]="itemSize"
@@ -62,6 +63,10 @@ const Template: Story<ZyfraDropdownComponent> = args => ({
     <div style="font-family: var(--fontFamily); margin-top: 20px;">
       <p>Selected value:</p>
       <pre style="font-family: var(--fontFamily);">{{value | json}}</pre>
+    </div>
+    <div>
+      Привязка к body: <b>{{appendTo ? 'Есть' : 'Нет'}}</b><br>
+      <i *ngIf='appendTo'>Граница красного цвета, пример родительского контейнера c overflow hidden</i>
     </div>
   `,
   props: {
@@ -86,6 +91,39 @@ Simple.args = {
   ],
   value: { name: 'New York', code: 'NY' },
   optionLabel: 'name',
+  placeholder: 'Select a City',
+  showClear: true,
+  label: 'City',
+};
+
+
+export const AppendToBody = Template.bind({});
+AppendToBody.args = {
+  options: [
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' },
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' },
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' },
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' },
+  ],
+  value: { name: 'New York', code: 'NY' },
+  optionLabel: 'name',
+  appendTo: 'body',
   placeholder: 'Select a City',
   showClear: true,
   label: 'City',

@@ -43,24 +43,24 @@ i.pi-times:before {
     line-height: @30px;
   }
 
-  .p-dropdown-panel {
-    border: @1px solid var(--standartBorder);
-    background: var(--standartBg);
-    border-radius: @border-radius;
-
-    .p-dropdown-items .p-dropdown-item-group {
-      background-color: var(--headerTabDisabled);
-      color: var(--text);
-    }
-
-    .p-dropdown-items-wrapper {
-      border-radius: @border-radius;
-    }
-  }
-
   &:not(.p-disabled):hover,
   &:not(.p-disabled).p-focus {
     border-color: var(--z-accentColor);
+  }
+}
+
+.p-dropdown-panel {
+  border: @1px solid var(--standartBorder);
+  background: var(--standartBg);
+  border-radius: @border-radius;
+
+  .p-dropdown-items .p-dropdown-item-group {
+    background-color: var(--headerTabDisabled);
+    color: var(--text);
+  }
+
+  .p-dropdown-items-wrapper {
+    border-radius: @border-radius;
   }
 }
 
