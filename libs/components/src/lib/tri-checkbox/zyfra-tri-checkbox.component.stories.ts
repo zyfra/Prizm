@@ -29,44 +29,69 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ZyfraTriCheckboxComponent> = (args) => ({
+const Template: Story<ZyfraTriCheckboxComponent> = args => ({
   template: `
-    <zyfra-tri-checkbox
-      [label]="label"
-      [name]="name"
-      [disabled]="disabled"
-      [readonly]="readonly"
-      [tabindex]="tabindex"
-      [inputId]="inputId"
-      [ariaLabelledBy]="ariaLabelledBy"
-      [style]="style"
-      [styleClass]="styleClass"
-      [(ngModel)]="model"
-    ></zyfra-tri-checkbox>
-    <br>
-    (Значение чекбокса: {{model === undefined || model === null ? 'null' : model}})
-    <br>
-    <br>
-    <br>
-    <zyfra-tri-checkbox
-      [formControl]="fControl"
-      [tabindex]="tabindex"
-      [inputId]="inputId"
-      [ariaLabelledBy]="ariaLabelledBy"
-      [style]="style"
-      [styleClass]="styleClass"
-      label="Чекбокс С FormControl. Свойства disabled, readonly, name, label не распространяются"
-    ></zyfra-tri-checkbox>
-    <br>
-    (Значение чекбокса: {{fControl.value === undefined || fControl.value === null ? 'null' : fControl.value}})
-    <br>
-    <br>
-    <zyfra-button
-      label="toggle disable/enable"
-      [style]="{ 'margin-right': '5px' }"
-      (click)="this.fControl.disabled ? this.fControl.enable() : this.fControl.disable()"
-    ></zyfra-button>
-    <zyfra-button label="toggle true/false" (click)="fControl.setValue(!fControl.value)"></zyfra-button>
+    <div>
+      <h3>Работа через ngModel</h3>
+      <zyfra-tri-checkbox
+        [label]="label"
+        [name]="name"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [tabindex]="tabindex"
+        [inputId]="inputId"
+        [ariaLabelledBy]="ariaLabelledBy"
+        [style]="style"
+        [styleClass]="styleClass"
+        [(ngModel)]="model"
+        [checkboxTrueIcon]="checkboxTrueIcon"
+        [checkboxFalseIcon]="checkboxFalseIcon"
+      ></zyfra-tri-checkbox>
+      <br>
+      <small>(Значение чекбокса: {{model === undefined || model === null ? 'null' : model}})</small>
+      <br>
+      <br>
+      <h3>Работа через formControl</h3>
+      <zyfra-tri-checkbox
+        [formControl]="fControl"
+        [tabindex]="tabindex"
+        [inputId]="inputId"
+        [ariaLabelledBy]="ariaLabelledBy"
+        [style]="style"
+        [styleClass]="styleClass"
+        label="Чекбокс FormControl. Свойства disabled, readonly, name, label не распространяются"
+      ></zyfra-tri-checkbox>
+      <br>
+      <small>(Значение чекбокса: {{fControl.value === undefined || fControl.value === null ? 'null' : fControl.value}})</small>
+      <br>
+      <br>
+      <zyfra-button
+        label="toggle disable/enable"
+        [style]="{ 'margin-right': '5px' }"
+        (click)="this.fControl.disabled ? this.fControl.enable() : this.fControl.disable()"
+      ></zyfra-button>
+      <zyfra-button [style]="{ 'margin-right': '5px' }" label="toggle true/false" (click)="fControl.setValue(!fControl.value)"></zyfra-button>
+      <zyfra-button label="toggle null" (click)="fControl.setValue(null)"></zyfra-button>
+    </div>
+    <div>
+      <h3>Изменены checkboxTrueIcon zyfra-icon add-plus и checkboxFalseIcon на zyfra-icon delete-minus</h3>
+      <zyfra-tri-checkbox
+        [label]="label"
+        [name]="name"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [tabindex]="tabindex"
+        [inputId]="inputId"
+        [ariaLabelledBy]="ariaLabelledBy"
+        [style]="style"
+        [styleClass]="styleClass"
+        [(ngModel)]="model"
+        checkboxTrueIcon="zyfra-icon add-plus"
+        checkboxFalseIcon="zyfra-icon delete-minus"
+      ></zyfra-tri-checkbox>
+      <br>
+      <small>(Значение чекбокса: {{model === undefined || model === null ? 'null' : model}})</small>
+    </div>
   `,
   props: {
     ...args,
@@ -77,5 +102,7 @@ const Template: Story<ZyfraTriCheckboxComponent> = (args) => ({
 export const Binary = Template.bind({});
 Binary.args = {
   model: false,
-  label: 'Чекбокс БЕЗ FormControl',
+  checkboxTrueIcon: 'pi pi-check',
+  checkboxFalseIcon: 'pi pi-times',
+  label: 'Чекбокс ngModel',
 };
