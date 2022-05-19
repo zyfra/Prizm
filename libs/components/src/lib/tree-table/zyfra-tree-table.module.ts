@@ -34,12 +34,6 @@ import { ZyfraBaseTableComponent, ZyfraRowBaseDirective } from '../@core/base-ta
     ZyfraTreeTableReorderableColumnDirective,
     ZyfraTreeTableSearchCellComponent,
   ],
-  providers: [
-    {
-      provide: ZyfraBaseTableComponent,
-      useClass: ZyfraTreeTableComponent,
-    },
-  ],
   imports: [CommonModule, TreeTableModule, ZyfraTableSharedModule],
   exports: [
     ZyfraTreeTableComponent,
