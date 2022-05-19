@@ -69,12 +69,12 @@ export class ZyfraInputDirective implements ZyfraInputGroupControl<string>, DoCh
     return this._inputValue.value;
   }
 
-  set value(value: any) {
+  set value(value: string) {
     if (value !== this.value) {
       this._inputValue.value = value;
     }
   }
-  private _inputValue: { value: any };
+  private _inputValue: { value: string };
 
   /**
    * Empty state
@@ -83,7 +83,7 @@ export class ZyfraInputDirective implements ZyfraInputGroupControl<string>, DoCh
 
 
   @HostListener('input', ['$event'])
-  public onInput(e): void {
+  public onInput(e: unknown): void {
     this.updateEmptyState();
   }
 
