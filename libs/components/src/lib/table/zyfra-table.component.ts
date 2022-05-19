@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 import { FilterService } from 'primeng/api';
 import { Table, TableService } from 'primeng/table';
-import { ZyfraBaseTableComponent } from '../@core/base-table';
+import { TargetTableToken, ZyfraBaseTableComponent } from '../@core/base-table';
 import { BaseTableTemplateDirective } from '../@core/base-table/directives/base-table-template.directive';
 import { Filters, RowSelectionEvent } from './zyfra-table.types';
 
@@ -24,6 +24,11 @@ import { Filters, RowSelectionEvent } from './zyfra-table.types';
   providers: [
     TableService,
     FilterService,
+    {
+      provide: TargetTableToken,
+      useFactory: (zyfraTable: ZyfraTableComponent): ZyfraTableComponent => zyfraTable,
+      deps: [ZyfraTableComponent],
+    },
     {
       provide: Table,
       useFactory: (zyfraTable: ZyfraTableComponent): Table => zyfraTable.table,
