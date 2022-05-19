@@ -18,7 +18,7 @@ const Template: Story<ZyfraTreeTableComponent> = args => ({
       [stripedMode]="stripedMode"
       (onNodeExpand)="onNodeExpand($event)"
       (onNodeCollapse)="onNodeCollapse($event)"
-      (activeElementChange)="elementChange($event)"
+      (activeElementChange)="activeElementChange($event)"
     >
       <ng-template zyfraTableTemplate="header" let-columns>
         <tr>
@@ -51,7 +51,7 @@ const Template: Story<ZyfraTreeTableComponent> = args => ({
     ...args,
     onNodeExpand: (event): void => actions.onNodeExpand({ node: event.node, ...event }),
     onNodeCollapse: (event): void => actions.onNodeCollapse({ node: event.node, ...event }),
-    elementChange: actions.elementChange,
+    activeElementChange: actions.elementChange,
   },
 });
 
