@@ -1,5 +1,30 @@
 # Changelog
 
+## [v0.9.0] - 20-05-2022
+### @digital-plant/zyfra-components [v0.9.0]
+
+**Added**
+
+- feat(components/tri-checkbox): added icon custom inputs [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/157)
+- feat(component/splitter): add hide/show [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/143)
+
+**Fixes**
+
+- fix(components/checkbox): fixes checkbox FCA(change) and added disabled property [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/155)
+- fix(components/checkbox): fixes checkbox FCA(change) and added disabled property [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/155)
+- fix(components/input): fixes setter typings (eslit) [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/156)
+- fix(components/table): fix ngOnChanges if undefined value [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/153)
+- fix(components/table): fix output event activeElementChange [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/154)
+- fix(components/dropdown) style & add storybook example with append to body [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/151)
+- fix(components/input): Input group fix control changes [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/150)
+
+>  **Special thanks**
+>
+> ✏️ **MR:**  Zurab Magomadov, Stepan Fedorov, Anton Osechkin, Rustam Imaikin
+>
+> ️🐛 **Issue:** Aleksey S. Polyakov, Stepan Fedorov, Andrey Blokhin
+
+
 ## [v0.8.0] - 11-05-2022
 ### @digital-plant/zyfra-components [v0.8.0]
 
