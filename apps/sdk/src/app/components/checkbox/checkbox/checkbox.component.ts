@@ -9,7 +9,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 export class CheckboxComponent {
   public checked = true;
 
-  public onModelChange(value: boolean) {
+  public onModelChange(value: boolean): void {
     console.log('Checked value:', value);
   }
 }
