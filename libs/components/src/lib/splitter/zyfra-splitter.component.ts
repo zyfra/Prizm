@@ -1,14 +1,21 @@
 import {
   AfterContentInit,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ContentChildren,
   EventEmitter,
   Input,
   Output,
   QueryList,
+  ViewChild,
 } from '@angular/core';
 import { ZyfraSplitterTemplateDirective } from './zyfra-splitter.directives';
+import { ZyfraSplitterTemplatesService } from './zyfra-splitter-templates.service';
+import { debounceTime, delay, takeUntil, tap, timeout } from 'rxjs/operators';
+import { SplitterExtended } from './p-splitter/splitter';
+import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { timer } from 'rxjs';
 
 type onResizeEvent = { originalEvent: MouseEvent; sizes: [number, number] };
 
@@ -16,6 +23,7 @@ type onResizeEvent = { originalEvent: MouseEvent; sizes: [number, number] };
   selector: 'zyfra-splitter',
   templateUrl: './zyfra-splitter.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [ZyfraSplitterTemplatesService, ZuiDestroyService]
 })
 export class ZyfraSplitterComponent implements AfterContentInit {
   // Вся информация о методах и свойствах хранится тут import { Splitter } from 'primeng/splitter';
@@ -77,6 +85,8 @@ export class ZyfraSplitterComponent implements AfterContentInit {
   @ContentChildren(ZyfraSplitterTemplateDirective)
   templates: QueryList<ZyfraSplitterTemplateDirective>;
 
+  @ViewChild(SplitterExtended, { static: true }) splitter: SplitterExtended;
+
   /**
    * Callback to invoke when resize starts.
    *
@@ -91,10 +101,21 @@ export class ZyfraSplitterComponent implements AfterContentInit {
 
   panels = [];
 
+  constructor(
+    private readonly zyfraSplitterService: ZyfraSplitterTemplatesService,
+    private readonly zuiDestroyService: ZuiDestroyService,
+    private readonly cdRef: ChangeDetectorRef) {}
+
   ngAfterContentInit(): void {
-    this.templates.forEach((item) => {
-      this.panels.push(item.template);
-    });
+    this.zyfraSplitterService.list$.pipe(
+      tap((templates) => {
+        this.panels = templates.map(item => item.template);
+        this.cdRef.markForCheck();
+      }),
+      delay(0),
+      tap(() => this.splitter.updateTemplates()),
+      takeUntil(this.zuiDestroyService),
+    ).subscribe();
   }
 
   public onResizeStartHandler(event): void {

@@ -34,7 +34,7 @@ To component:
 
 ```html
 <zyfra-splitter [panelSizes]="[50, 0]" [minSizes]="[1, 0]" [style]="{ height: '300px' }">
-  <ng-template zyfraSplitterTemplate>
+  <ng-template zyfraSplitterTemplate [visible]="false">
     <div>Panel 1</div>
   </ng-template>
   <ng-template zyfraSplitterTemplate>
