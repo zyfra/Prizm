@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { ButtonModule } from './components/button/button.module';
+import { CheckboxModule } from './components/checkbox/checkbox.module';
 import { TranslateModule } from './components/translate/translate.module';
 import { InputModule } from './components/input/input.module';
 import { InputTextModule } from './components/input-text/input-text.module';
@@ -22,6 +23,7 @@ import { AppDirective } from './app.directive';
     BrowserModule,
     ButtonModule,
     CalendarTestModule,
+    CheckboxModule,
     CommonModule,
     DropdownTestModule,
     HttpClientModule,
