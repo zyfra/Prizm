@@ -39,7 +39,7 @@ const Template: Story<ZyfraSplitterComponent> = (args) => ({
       (onResizeStart)="onResizeStart($event)"
       (onResizeEnd)="onResizeEnd($event)"
     >
-      <ng-template zyfraSplitterTemplate>
+      <ng-template zyfraSplitterTemplate [visible]="visibleFirstTemplate">
         <div>Panel 1</div>
       </ng-template>
       <ng-template zyfraSplitterTemplate>
@@ -56,5 +56,6 @@ export const Simple = Template.bind({});
 Simple.args = {
   panelSizes: [50, 0],
   minSizes: [1, 0],
+  visibleFirstTemplate: false,
   style: { height: '300px' },
 };
