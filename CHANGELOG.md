@@ -2,6 +2,13 @@
 
 Все изменения в этом файле отражают изменения в коде во всем монорепозитории.
 
+## [v0.9.1] - 23-05-2022
+### @digital-plant/zyfra-components [v0.9.1]
+
+**Fixes**
+
+- fix(components): fixes publishable library
+
 ## [v0.9.0] - 20-05-2022
 
 ### @digital-plant/zyfra-components [v0.9.0]

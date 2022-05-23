@@ -12,10 +12,9 @@ import {
 } from '@angular/core';
 import { ZyfraSplitterTemplateDirective } from './zyfra-splitter.directives';
 import { ZyfraSplitterTemplatesService } from './zyfra-splitter-templates.service';
-import { debounceTime, delay, takeUntil, tap, timeout } from 'rxjs/operators';
+import { delay, takeUntil, tap } from 'rxjs/operators';
 import { SplitterExtended } from './p-splitter/splitter';
 import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-import { timer } from 'rxjs';
 
 type onResizeEvent = { originalEvent: MouseEvent; sizes: [number, number] };
 
