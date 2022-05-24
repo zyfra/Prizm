@@ -11,8 +11,8 @@ interface LetContext<T> {
  * Это директива позволяет повторно использовать вычисленное значение в нескольких местах в шаблоне,
  * чтобы избежать пересчета геттеров или множества асинхронных каналов.
  *
- * @example <ng-container *zuiLet="{items: items$ | async, center: center} as $"> {{$.items?.count}} {{$.center}}</ng-container>
- * @example <ng-container *zuiLet="queryParams.isMap$ | async as isMap">{{isMap}}</ng-container>
+ * @button <ng-container *zuiLet="{items: items$ | async, center: center} as $"> {{$.items?.count}} {{$.center}}</ng-container>
+ * @button <ng-container *zuiLet="queryParams.isMap$ | async as isMap">{{isMap}}</ng-container>
  */
 @Directive({ selector: '[zuiLet]' })
 export class ZuiLetDirective<T> implements OnDestroy {
