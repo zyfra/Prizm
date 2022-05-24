@@ -12,7 +12,7 @@ export const pages: TuiDocPages = [
     {
         section: `Components`,
         title: 'Button',
-        keywords: 'кнопка, button, icon-button, иконка',
+        keywords: 'кнопка, button, иконка',
         route: '/components/button',
     },
     // Helpers
