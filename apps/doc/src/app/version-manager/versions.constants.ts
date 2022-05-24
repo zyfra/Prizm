@@ -4,12 +4,13 @@ export interface ZuiVersionMeta {
 }
 
 export const ZUI_VERSIONS_META: readonly ZuiVersionMeta[] = [
+    // TODO later add next version
     // {
     //     label: 'next',
     //     baseHref: 'next',
     // },
     {
-        label: `latest (v1.0.0)`,
+        label: `latest (v0.8.0)`,
         baseHref: '',
     },
 ];
