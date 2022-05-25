@@ -14,7 +14,7 @@ export function filterTruthy<T>(): MonoTypeOperatorFunction<T> {
   return filter(Compare.isTruthy);
 }
 
-export function filterNotNullish<T>(): OperatorFunction<T, NonNullable<T>> {
+export function filterNotNullish<T>(): OperatorFunction<T, T> {
   return filter(Compare.isNotNullish);
 }
 
