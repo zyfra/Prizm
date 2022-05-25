@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.9.2] - 25-05-2022
+### @digital-plant/zyfra-components [v0.9.2]
+
+**Fixes**
+
+- fix(helpers): fixes strict null checks
+- fix(components): add export zyfra-template.module
+
 ## [v0.9.1] - 23-05-2022
 ### @digital-plant/zyfra-components [v0.9.1]
 
