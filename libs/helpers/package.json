@@ -1,6 +1,6 @@
 {
   "name": "@digital-plant/zyfra-helpers",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "peerDependencies": {
     "@angular/common": "^12.2.0",
     "@angular/core": "^12.2.0"
