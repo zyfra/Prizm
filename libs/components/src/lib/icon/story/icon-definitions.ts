@@ -101,7 +101,10 @@ export const IconDefs = [
       'alerts-square',
       'alerts-warning',
       'alerts',
+      'success-circle-fill',
+      'success-circle-outline',
       'success-decagram-fill',
+      'success-decagram-outline',
     ],
   },
   {
@@ -796,6 +799,7 @@ export const IconDefs = [
       'poi-barley',
       'poi-bdrv-administration',
       'poi-boiler-hot-water-gas-and-oil',
+      'poi-cancel-sample-reject',
       'poi-coal',
       'poi-crane',
       'poi-difference',
@@ -833,6 +837,7 @@ export const IconDefs = [
       'poi-press',
       'poi-pump-drop',
       'poi-pump',
+      'poi-reject-the-sample',
       'poi-respirator-2-1',
       'poi-respirator-2',
       'poi-respirator-3',
@@ -1113,12 +1118,3 @@ export const IconDefs = [
     ],
   },
 ];
-
-export const ZyfraIconsArray = [];
-IconDefs.forEach(item => {
-  item.data.forEach(icon => {
-    ZyfraIconsArray.push(icon);
-  });
-});
-
-export const ZyfraIconsSet = new Set([...ZyfraIconsArray]);
