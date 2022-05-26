@@ -31,8 +31,6 @@
     "@angular/platform-browser-dynamic": "^12.2.0",
     "@angular/router": "^12.2.0",
     "@compodoc/compodoc": "^1.1.15",
-    "@digital-plant/zyfra-components": "0.9.1",
-    "@digital-plant/zyfra-helpers": "0.9.1",
     "@nrwl/angular": "13.1.2",
     "@storybook/addon-storysource": "^6.4.20",
     "@taiga-ui/addon-doc": "^2.45.0",
