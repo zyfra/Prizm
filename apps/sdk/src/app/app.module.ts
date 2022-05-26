@@ -12,7 +12,7 @@ import { InputTextModule } from './components/input-text/input-text.module';
 import { IconModule } from './components/icon/icon.module';
 import { CalendarTestModule } from './components/calendar-test/calendar-test.module';
 import { DropdownTestModule } from './components/dropdown-test/dropdown-test.module';
-import { ZyfraTabViewModule } from '@digital-plant/zyfra-components';
+import { ZyfraTabViewModule, ZyfraUiRootModule } from '@digital-plant/zyfra-components';
 import { TableTestModule } from './components/table-test/table-test.module';
 import { AppDirective } from './app.directive';
 
@@ -33,7 +33,8 @@ import { AppDirective } from './app.directive';
     TableTestModule,
     TranslateModule,
     ZyfraTabViewModule,
-  ],
+      ZyfraUiRootModule
+],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

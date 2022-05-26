@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ZyfraTime } from '../../model/zyfra-time.model';
 
 /**
- * This component only for example in storybook
+ * This component only for button in storybook
  */
 // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
 @Component({

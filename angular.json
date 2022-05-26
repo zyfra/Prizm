@@ -109,6 +109,145 @@
       "tags": [],
       "implicitDependencies": ["components"]
     },
+    "doc": {
+      "projectType": "application",
+      "root": "apps/doc",
+      "sourceRoot": "apps/doc/src",
+      "prefix": "zyfra",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/doc",
+            "index": "apps/doc/src/index.html",
+            "main": "apps/doc/src/main.ts",
+            "polyfills": "apps/doc/src/polyfills.ts",
+            "tsConfig": "apps/doc/tsconfig.app.json",
+            "inlineStyleLanguage": "less",
+            "assets": [
+              "apps/doc/src/favicon.ico",
+              "apps/doc/src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@taiga-ui/icons/src",
+                "output": "assets/taiga-ui/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@digital-plant/zyfra-components/src/styles/fonts",
+                "output": "assets/ui-platform/components/fonts"
+              }
+            ],
+            "styles": [
+              "apps/doc/src/styles.less",
+              "node_modules/@taiga-ui/core/styles/taiga-ui-global.less",
+              "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
+              "node_modules/primeng/resources/themes/luna-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/@digital-plant/zyfra-components/src/styles/theme/default.less",
+              "node_modules/@digital-plant/zyfra-components/src/styles/styles.less",
+              "node_modules/@digital-plant/zyfra-components/src/styles/icons/icons.less"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/doc/src/environments/environment.ts",
+                  "with": "apps/doc/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "doc:build:production"
+            },
+            "development": {
+              "browserTarget": "doc:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "doc:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/doc/src/**/*.ts", "apps/doc/src/**/*.html"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/doc"],
+          "options": {
+            "jestConfig": "apps/doc/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "doc-e2e": {
+      "root": "apps/doc-e2e",
+      "sourceRoot": "apps/doc-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/doc-e2e/cypress.json",
+            "devServerTarget": "doc:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "doc:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/doc-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["doc"]
+    },
     "helpers": {
       "projectType": "library",
       "root": "libs/helpers",
@@ -143,6 +282,45 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/helpers/src/**/*.ts", "libs/helpers/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
+    "next": {
+      "projectType": "library",
+      "root": "libs/next",
+      "sourceRoot": "libs/next/src",
+      "prefix": "zyfra",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/next"],
+          "options": {
+            "project": "libs/next/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/next/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/next/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/next"],
+          "options": {
+            "jestConfig": "libs/next/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/next/src/**/*.ts", "libs/next/src/**/*.html"]
           }
         }
       },
@@ -227,7 +405,15 @@
             "polyfills": "apps/sdk/src/polyfills.ts",
             "tsConfig": "apps/sdk/tsconfig.app.json",
             "inlineStyleLanguage": "less",
-            "assets": ["apps/sdk/src/favicon.ico", "apps/sdk/src/assets"],
+            "assets": [
+              "apps/sdk/src/favicon.ico",
+              "apps/sdk/src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@digital-plant/zyfra-components/src/styles/fonts",
+                "output": "assets/ui-platform/components/fonts"
+              }
+            ],
             "extractCss": true,
             "styles": [
               "apps/sdk/src/styles.less",
@@ -236,7 +422,13 @@
               "node_modules/primeicons/primeicons.css",
               "libs/components/src/styles/theme/default.less",
               "libs/components/src/styles/styles.less",
-              "libs/components/src/styles/icons/icons.less"
+              "libs/components/src/styles/icons/icons.less",
+              "node_modules/primeng/resources/themes/luna-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/@digital-plant/zyfra-components/src/styles/theme/default.less",
+              "node_modules/@digital-plant/zyfra-components/src/styles/styles.less",
+              "node_modules/@digital-plant/zyfra-components/src/styles/icons/icons.less"
             ],
             "scripts": []
           },
