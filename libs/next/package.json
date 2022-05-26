@@ -1,5 +1,5 @@
 {
-  "name": "@digital-plant/zui-core",
+  "name": "@digital-plant/zui-components",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^12.2.0",

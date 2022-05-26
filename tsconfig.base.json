@@ -19,7 +19,7 @@
     "strictPropertyInitialization": false,
     "baseUrl": ".",
     "paths": {
-      "@digital-plant/zui-core": ["libs/next/src/index.ts"],
+      "@digital-plant/zui-components": ["libs/next/src/index.ts"],
       "@digital-plant/zyfra-components": ["libs/components/src/index.ts"],
       "@digital-plant/zyfra-helpers": ["libs/helpers/src/index.ts"],
       "@digital-plant/zyfra-translate": ["libs/translate/src/index.ts"],
