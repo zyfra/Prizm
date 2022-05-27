@@ -12,7 +12,7 @@ import {
   ZyfraIconModule,
   ZyfraInputGroupModule,
   ZyfraInputModule,
-  ZyfraInputTextModule,
+  ZyfraInputTextModule
 } from '@digital-plant/zyfra-components';
 import { TranslateModule } from '@digital-plant/zyfra-translate';
 import { AppComponent } from './app.component';
