@@ -560,6 +560,7 @@ export const Icon16Defs = [
     data: [
       'export-files-csv',
       'export-files-pdf',
+      'export-files-sap',
       'export-files-xlsx',
       'files-alarm',
       'files-archive',
