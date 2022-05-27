@@ -3,12 +3,12 @@ import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
 import {TZyfraButtonIconPosision} from "@digital-plant/zyfra-components";
 
 @Component({
-  selector: 'zyfra-button-button',
-  templateUrl: './example.component.html',
-  styleUrls: ['./example.component.less'],
+  selector: 'zui-button-example',
+  templateUrl: './button.component.html',
+  styleUrls: ['./button.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ExampleComponent {
+export class ButtonComponent {
   // List inputs
   styleClass: string;
   label = 'Button Name';

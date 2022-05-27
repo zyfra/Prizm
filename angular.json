@@ -135,7 +135,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "node_modules/@digital-plant/zyfra-components/src/styles/fonts",
+                "input": "libs/components/src/styles/fonts",
                 "output": "assets/ui-platform/components/fonts"
               }
             ],
@@ -146,9 +146,9 @@
               "node_modules/primeng/resources/themes/luna-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeicons/primeicons.css",
-              "node_modules/@digital-plant/zyfra-components/src/styles/theme/default.less",
-              "node_modules/@digital-plant/zyfra-components/src/styles/styles.less",
-              "node_modules/@digital-plant/zyfra-components/src/styles/icons/icons.less"
+              "libs/components/src/styles/theme/default.less",
+              "libs/components/src/styles/styles.less",
+              "libs/components/src/styles/icons/icons.less"
             ],
             "scripts": []
           },
@@ -291,7 +291,7 @@
       "projectType": "library",
       "root": "libs/next",
       "sourceRoot": "libs/next/src",
-      "prefix": "zyfra",
+      "prefix": "zui",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -410,7 +410,7 @@
               "apps/sdk/src/assets",
               {
                 "glob": "**/*",
-                "input": "node_modules/@digital-plant/zyfra-components/src/styles/fonts",
+                "input": "libs/components/src/styles/fonts",
                 "output": "assets/ui-platform/components/fonts"
               }
             ],
@@ -422,13 +422,7 @@
               "node_modules/primeicons/primeicons.css",
               "libs/components/src/styles/theme/default.less",
               "libs/components/src/styles/styles.less",
-              "libs/components/src/styles/icons/icons.less",
-              "node_modules/primeng/resources/themes/luna-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/@digital-plant/zyfra-components/src/styles/theme/default.less",
-              "node_modules/@digital-plant/zyfra-components/src/styles/styles.less",
-              "node_modules/@digital-plant/zyfra-components/src/styles/icons/icons.less"
+              "libs/components/src/styles/icons/icons.less"
             ],
             "scripts": []
           },

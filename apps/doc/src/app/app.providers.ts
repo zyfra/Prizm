@@ -32,7 +32,7 @@ export const DEFAULT_TABS = [
   `Setup`,
   `How to use`,
 ];
-const TITLE_PREFIX = 'Taiga UI: ';
+const TITLE_PREFIX = 'Zyfra UI: ';
 
 export const HIGHLIGHT_OPTIONS_VALUE = {
   coreLibraryLoader: async () => import('highlight.js/lib/core'),

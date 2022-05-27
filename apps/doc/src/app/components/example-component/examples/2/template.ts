@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'zui-button-example-2',
+  selector: 'zui-component-example-2',
   templateUrl: './template.html',
 })
-export class ZuiButtonExample2 {
+export class ZuiComponentExample2 {
 }

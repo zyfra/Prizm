@@ -11,17 +11,26 @@ export const ROUTES = [
       title: 'Getting started',
     },
   },
-  // COMPONENTS
   {
-    path: 'components/button',
+    path: 'example-component',
     loadChildren: async () =>
-      (await import('./components/button/button.module'))
-        .ExampleButtonModule,
+      (await import('./components/example-component/example.module'))
+        .ExampleModule,
     data: {
-      title: 'Button',
+      title: 'Example',
     },
   },
-  {path: '**', redirectTo: 'components/button'},
+  // COMPONENTS
+  // {
+  //   path: 'components/button',
+  //   loadChildren: async () =>
+  //     (await import('./components/button/button.module'))
+  //       .ButtonModule,
+  //   data: {
+  //     title: 'Button',
+  //   },
+  // },
+  {path: '**', redirectTo: 'getting-started'},
 ]
 
 
