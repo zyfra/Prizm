@@ -595,6 +595,7 @@ export const IconDefs = [
       'files-export-arr',
       'files-export-csv',
       'files-export-pdf',
+      'files-export-sap',
       'files-export-xlsx',
       'files-export',
       'files-file-close',
