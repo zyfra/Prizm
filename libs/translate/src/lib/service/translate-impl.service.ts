@@ -42,7 +42,7 @@ export class TranslateImplService implements TranslateService {
     private compiler: TranslateCompiler,
     private parser: TranslateParser,
     private loaderFactory: TranslateLoaderFactory
-  ) {}
+  ) { }
 
   public use(lang: string): Observable<void> {
     return lang === this.lang ? of(null) : this.applyLang(lang);
@@ -120,16 +120,16 @@ export class TranslateImplService implements TranslateService {
         const loading$ = chunk.initLangs.has(currentLang)
           ? of(currentLang)
           : chunk.loader.getTranslation(currentLang).pipe(
-              map((translation: object) => {
-                const translations = this.compiler.compileTranslations(translation, currentLang);
-                const currentTranslation = <ITranslateStore>this.store.translations[currentLang];
-                this.store.translations[currentLang] = currentTranslation
-                  ? { ...translations, ...currentTranslation }
-                  : translations;
-                chunk.initLangs.add(currentLang);
-                return currentLang;
-              })
-            );
+            map((translation: object) => {
+              const translations = this.compiler.compileTranslations(translation, currentLang);
+              const currentTranslation = <ITranslateStore>this.store.translations[currentLang];
+              this.store.translations[currentLang] = currentTranslation
+                ? { ...translations, ...currentTranslation }
+                : translations;
+              chunk.initLangs.add(currentLang);
+              return currentLang;
+            })
+          );
         loading$
           .pipe(
             take(1),
@@ -151,7 +151,14 @@ export class TranslateImplService implements TranslateService {
   private applyLang(lang: string): Observable<void> {
     this.nextLang = lang;
     this.chunks.forEach((chunk) => this.setLangByChunk(chunk, lang));
-    return this.loadingTranslations || of(null);
+    let result: Observable<void> = of(undefined);
+    if (this.loadingTranslations) {
+      result = this.loadingTranslations;
+    } else {
+      this._lang = this.nextLang;
+      this.onLang.next(this._lang);
+    }
+    return result;
   }
 
   private checkAllLoaded(key: string): void {

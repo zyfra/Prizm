@@ -1,5 +1,15 @@
 # Change log
 
+## [v1.0.2] - 
+
+### @digital-plant/zyfra-translate [v1.0.2]
+
+**Fixed**
+
+- change language without chunks;
+
+---
+
 ## [v1.0.1] - 30-12-2021
 ### @digital-plant/zyfra-translate [v1.0.1]
 
