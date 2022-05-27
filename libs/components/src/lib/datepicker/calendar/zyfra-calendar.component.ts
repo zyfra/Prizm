@@ -26,14 +26,14 @@ import { Subscription } from 'rxjs';
 export const CALENDAR_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => ZyfraCalendarComponent),
-  multi: true
+  multi: true,
 };
 
 /**
  * Forked from https://github.com/primefaces/primeng/blob/master/src/app/components/calendar/calendar.ts
  * Update this after release primeng,  Last changes 20.12.2021
  */
-@Component({template: ''})
+@Component({ template: '' })
 abstract class Calendar implements OnInit, OnDestroy, ControlValueAccessor {
   @Input() style: any;
 
@@ -238,9 +238,9 @@ abstract class Calendar implements OnInit, OnDestroy, ControlValueAccessor {
 
   inputFieldValue: string = null;
 
-  _minDate: Date;
+  _minDate: Date | null;
 
-  _maxDate: Date;
+  _maxDate: Date | null;
 
   _showTime: boolean;
 
@@ -303,11 +303,11 @@ abstract class Calendar implements OnInit, OnDestroy, ControlValueAccessor {
     this.currentView = this._view;
   }
 
-  @Input() get defaultDate(): Date {
+  @Input() get defaultDate(): Date | null {
     return this._defaultDate;
   }
 
-  set defaultDate(defaultDate: Date) {
+  set defaultDate(defaultDate: Date | null) {
     this._defaultDate = defaultDate;
 
     if (this.initialized) {
@@ -319,13 +319,13 @@ abstract class Calendar implements OnInit, OnDestroy, ControlValueAccessor {
     }
   }
 
-  _defaultDate: Date;
+  _defaultDate: Date | null;
 
-  @Input() get minDate(): Date {
+  @Input() get minDate(): Date | null {
     return this._minDate;
   }
 
-  set minDate(date: Date) {
+  set minDate(date: Date | null) {
     this._minDate = date;
 
     if (this.currentMonth != undefined && this.currentMonth != null && this.currentYear) {
@@ -333,11 +333,11 @@ abstract class Calendar implements OnInit, OnDestroy, ControlValueAccessor {
     }
   }
 
-  @Input() get maxDate(): Date {
+  @Input() get maxDate(): Date | null {
     return this._maxDate;
   }
 
-  set maxDate(date: Date) {
+  set maxDate(date: Date | null) {
     this._maxDate = date;
 
     if (this.currentMonth != undefined && this.currentMonth != null && this.currentYear) {
@@ -2909,7 +2909,6 @@ abstract class Calendar implements OnInit, OnDestroy, ControlValueAccessor {
   }
 }
 
-
 export type CALENDAR_SELECTION_MODE = 'single' | 'range' | 'multiple';
 
 // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
@@ -2962,20 +2961,11 @@ export class ZyfraCalendarComponent extends Calendar {
     private config: PrimeNGConfig,
     public overlayService: OverlayService
   ) {
-    super(
-      el,
-      renderer,
-      cd,
-      zone,
-      config,
-      overlayService
-    );
+    super(el, renderer, cd, zone, config, overlayService);
   }
 
   private isMonthInRange(month: number, start: Date, end: Date) {
-    return start.getFullYear() === this.currentYear
-      && month >= start.getMonth()
-      && month <= end.getMonth();
+    return start.getFullYear() === this.currentYear && month >= start.getMonth() && month <= end.getMonth();
   }
 
   override isMonthSelected(month: number) {
@@ -2992,17 +2982,17 @@ export class ZyfraCalendarComponent extends Calendar {
     super.registerOnChange((...args) => {
       this.correctEndDateIfRange(args[0]);
       return fn(...args);
-    })
+    });
   }
 
   private correctEndDateIfRange(value: Date | Date[]): void {
     if (!this.isRangeSelection() || !(value[1] instanceof Date)) return;
     if (this.view === 'month') {
-        // set end day if was selected month picker
-        value[1].setMonth(this.value[1].getMonth() + 1, 0);
+      // set end day if was selected month picker
+      value[1].setMonth(this.value[1].getMonth() + 1, 0);
     } else if (this.view === 'year') {
-        // set end month and day if was selected year picker
-        value[1].setMonth(12, 0);
+      // set end month and day if was selected year picker
+      value[1].setMonth(12, 0);
     }
     // set end time for day
     value[1].setHours(23, 59, 59, 999);
