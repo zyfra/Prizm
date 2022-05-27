@@ -164,6 +164,7 @@
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeicons/primeicons.css",
               "node_modules/@digital-plant/zyfra-components/src/styles/theme/default.less",
+              "node_modules/@digital-plant/zyfra-components/src/styles/theme/_new_default_theme.less",
               "node_modules/@digital-plant/zyfra-components/src/styles/styles.less",
               "node_modules/@digital-plant/zyfra-components/src/styles/icons/icons.less"
             ],

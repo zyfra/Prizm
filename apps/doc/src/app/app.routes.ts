@@ -1,6 +1,6 @@
-import {NgModule} from '@angular/core';
-import {RouterModule} from '@angular/router';
-import {GettingStartedComponent} from "./getting-started/getting-started.component";
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { GettingStartedComponent } from './getting-started/getting-started.component';
 
 export const ROUTES = [
   // DOCS
@@ -14,16 +14,20 @@ export const ROUTES = [
   // COMPONENTS
   {
     path: 'components/button',
-    loadChildren: async () =>
-      (await import('./components/button/button.module'))
-        .ExampleButtonModule,
+    loadChildren: async () => (await import('./components/button/button.module')).ExampleButtonModule,
     data: {
       title: 'Button',
     },
   },
-  {path: '**', redirectTo: 'components/button'},
-]
-
+  {
+    path: 'components/input',
+    loadChildren: async () => (await import('./components/input/input-example.module')).InputExampleModule,
+    data: {
+      title: 'Input',
+    },
+  },
+  { path: '**', redirectTo: 'components/button' },
+];
 
 @NgModule({
   imports: [

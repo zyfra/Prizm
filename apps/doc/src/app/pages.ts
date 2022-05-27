@@ -15,6 +15,13 @@ export const pages: TuiDocPages = [
         keywords: 'кнопка, button, иконка',
         route: '/components/button',
     },
+    // Inputs
+    {
+      section: `Components`,
+      title: 'Inputs',
+      keywords: 'кнопка, button, иконка',
+      route: '/components/input',
+    },
     // Helpers
     {
         section: `Helpers`,
