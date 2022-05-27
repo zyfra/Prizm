@@ -50,12 +50,6 @@ import { ZyfraBaseTableComponent, ZyfraRowBaseDirective } from '../@core/base-ta
     ZyfraRowTogglerComponent,
     ZyfraSearchCellComponent,
   ],
-  providers: [
-    {
-      provide: ZyfraBaseTableComponent,
-      useClass: ZyfraTableComponent,
-    },
-  ],
   imports: [CommonModule, TableModule, ZyfraTableSharedModule],
   exports: [
     ZyfraTableComponent,

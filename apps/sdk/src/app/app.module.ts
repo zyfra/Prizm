@@ -1,42 +1,38 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  ZyfraButtonModule,
-  ZyfraDatepickerModule,
-  ZyfraDropdownModule,
-  ZyfraIconButtonModule,
-  ZyfraIconModule,
-  ZyfraInputGroupModule,
-  ZyfraInputModule,
-  ZyfraInputTextModule
-} from '@digital-plant/zyfra-components';
-import { TranslateModule } from '@digital-plant/zyfra-translate';
 import { AppComponent } from './app.component';
-import { DropdownTestComponent } from './dropdown-test/dropdown-test.component';
-import { CalendarTestComponent } from './calendar-test/calendar-test.component';
+import { ButtonModule } from './components/button/button.module';
+import { CheckboxModule } from './components/checkbox/checkbox.module';
+import { TranslateModule } from './components/translate/translate.module';
+import { InputModule } from './components/input/input.module';
+import { InputTextModule } from './components/input-text/input-text.module';
+import { IconModule } from './components/icon/icon.module';
+import { CalendarTestModule } from './components/calendar-test/calendar-test.module';
+import { DropdownTestModule } from './components/dropdown-test/dropdown-test.module';
+import { ZyfraTabViewModule } from '@digital-plant/zyfra-components';
+import { TableTestModule } from './components/table-test/table-test.module';
+import { AppDirective } from './app.directive';
 
 @NgModule({
-  declarations: [AppComponent, DropdownTestComponent, CalendarTestComponent],
+  declarations: [AppComponent, AppDirective],
   imports: [
-    BrowserModule,
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
-    ZyfraDropdownModule,
-    ZyfraDatepickerModule,
-    ZyfraButtonModule,
-    ZyfraInputGroupModule,
-    ZyfraInputTextModule,
-    ZyfraInputModule,
-    ZyfraIconModule,
-    ZyfraIconButtonModule,
+    BrowserModule,
+    ButtonModule,
+    CalendarTestModule,
+    CheckboxModule,
+    CommonModule,
+    DropdownTestModule,
     HttpClientModule,
-    TranslateModule.forRoot(),
+    IconModule,
+    InputModule,
+    InputTextModule,
+    TableTestModule,
+    TranslateModule,
+    ZyfraTabViewModule,
   ],
   bootstrap: [AppComponent],
 })

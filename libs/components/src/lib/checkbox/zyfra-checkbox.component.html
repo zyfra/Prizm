@@ -3,7 +3,7 @@
   [name]="name"
   [value]="value"
   [label]="label"
-  [disabled]="disabled"
+  [zyfraDisableControl]="disabled || disabledControl"
   [binary]="binary"
   [tabindex]="tabindex"
   [inputId]="inputId"
@@ -17,4 +17,5 @@
   [required]="required"
   [trueValue]="trueValue"
   [falseValue]="falseValue"
+  (ngModelChange)="accessorOnChangeFn($event)"
 ></p-checkbox>
