@@ -1,5 +1,12 @@
 # Changelog
 
+## [v0.9.3] - 27-05-2022
+### @digital-plant/zyfra-components [v0.9.3]
+
+**Fixes**
+
+- fix(calendar): hotfix types [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/167)
+
 ## [v0.9.2] - 25-05-2022
 ### @digital-plant/zyfra-components [v0.9.2]
 
@@ -20,8 +27,8 @@
 
 **Added**
 
-- feat(components/tri-checkbox): added icon custom inputs [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/157)
 - feat(component/splitter): add hide/show [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/143)
+- feat(components/tri-checkbox): added icon custom inputs [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/157)
 
 **Fixes**
 

@@ -1,6 +1,6 @@
 # Change log
 
-## [v1.0.2] - 
+## [v1.0.2] - 27-05-2022
 
 ### @digital-plant/zyfra-translate [v1.0.2]
 

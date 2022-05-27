@@ -2,6 +2,25 @@
 
 Все изменения в этом файле отражают изменения в коде во всем монорепозитории.
 
+## [v0.9.3] - 27-05-2022
+
+### @digital-plant/zyfra-translate [v1.0.2]
+
+**Fixed**
+
+- change language without chunks;
+
+### @digital-plant/zyfra-components [v0.9.3]
+
+**Fixes**
+
+- fix(calendar): hotfix types [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/167)
+
+> **Special thanks**
+>
+> ✏️ **MR:** Dmitriy Sokolov, Konstantin Khimenkov
+
+
 ## [v0.9.2] - 25-05-2022
 ### @digital-plant/zyfra-components [v0.9.2]
 
