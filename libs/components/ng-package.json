@@ -5,5 +5,5 @@
     "entryFile": "src/index.ts"
   },
   "assets": ["./src/styles/", "assets", "./src/lib/**/*.less"],
-  "allowedNonPeerDependencies": ["@angular/cdk", "primeicons", "primeng", "date-fns"]
+  "allowedNonPeerDependencies": ["@angular/cdk", "primeicons", "primeng", "date-fns", "@digital-plant/zyfra-helpers"]
 }

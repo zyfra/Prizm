@@ -1,12 +1,13 @@
 {
   "name": "@digital-plant/sdk",
-  "version": "0.7.0",
+  "version": "0.9.2",
   "license": "MIT",
   "scripts": {
     "docs": "nx run components:doc",
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "nx run components:storybook",
+    "serve:sdk": "nx run sdk:serve:development",
     "build": "nx affected:build --all",
     "build:storybook": "nx run components:build-storybook",
     "build:stats": "nx build sdk --stats-json",

@@ -1,8 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { Language, TranslateService } from '@digital-plant/zyfra-translate';
-
-const DefaultLang = Language.ruRU;
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { APP_TOKEN } from './app.token';
+import { TabPanelItem } from './app.types';
 
 @Component({
   selector: 'zyfra-root',
@@ -10,34 +8,8 @@ const DefaultLang = Language.ruRU;
   styleUrls: ['./app.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   public title = 'sdk';
 
-  public lang: Language = DefaultLang;
-
-  public inputControl = new FormControl({value: 'text', disabled: false}, Validators.required);
-  public zyfraInputControl = new FormControl({value: 'text', disabled: true}, Validators.required);
-
-  constructor(private readonly translateService: TranslateService) {
-    translateService.addChunk({
-      defaultLang: DefaultLang,
-      id: 'sdk',
-      supportedLangs: [Language.enUS, Language.ruRU],
-    });
-
-    translateService.use(DefaultLang);
-  }
-
-  ngOnInit(): void {
-    this.translateService.onLang.subscribe(lang => console.log(lang))
-  }
-
-  /**
-   * Change locale
-   */
-  public toggleTranslate(): void {
-    const lang = this.translateService.lang == Language.enUS ? Language.ruRU : Language.enUS;
-
-    this.translateService.use(lang);
-  }
+  constructor(@Inject(APP_TOKEN) public components: TabPanelItem[]) {}
 }

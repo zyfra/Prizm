@@ -25,21 +25,21 @@ export default {
         CommonModule,
         ZyfraTreeTableModule,
         ZyfraButtonModule,
-      ]
+      ],
     }),
   ],
   parameters: {
     docs: {
       page: TreeTableDoc,
-    }
-  }
+    },
+  },
 } as Meta;
 
-export * from './stories/Basic';
-export * from './stories/Selection';
-export * from './stories/Edit';
-export * from './stories/Sort';
-export * from './stories/Scroll';
-export * from './stories/ColGroup';
-export * from './stories/Reorder';
-export * from './stories/Filter';
+export * from './stories/basic.stories';
+export * from './stories/selection.stories';
+export * from './stories/edit.stories';
+export * from './stories/sort.stories';
+export * from './stories/scroll.stories';
+export * from './stories/col-group.stories';
+export * from './stories/reorder.stories';
+export * from './stories/filter.stories';

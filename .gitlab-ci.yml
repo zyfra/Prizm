@@ -84,6 +84,8 @@ release_package:
     - npm publish
     - cd ../schematics
     - npm publish
+    - cd ../helpers
+    - npm publish
     - cd ../translate
     - npm publish
 

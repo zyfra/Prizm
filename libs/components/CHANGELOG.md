@@ -1,5 +1,72 @@
 # Changelog
 
+## [v0.9.2] - 25-05-2022
+### @digital-plant/zyfra-components [v0.9.2]
+
+**Fixes**
+
+- fix(helpers): fixes strict null checks
+- fix(components): add export zyfra-template.module
+
+## [v0.9.1] - 23-05-2022
+### @digital-plant/zyfra-components [v0.9.1]
+
+**Fixes**
+
+- fix(components): fixes publishable library
+
+## [v0.9.0] - 20-05-2022
+### @digital-plant/zyfra-components [v0.9.0]
+
+**Added**
+
+- feat(components/tri-checkbox): added icon custom inputs [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/157)
+- feat(component/splitter): add hide/show [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/143)
+
+**Fixes**
+
+- fix(components/checkbox): fixes checkbox FCA(change) and added disabled property [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/155)
+- fix(components/checkbox): fixes checkbox FCA(change) and added disabled property [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/155)
+- fix(components/input): fixes setter typings (eslit) [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/156)
+- fix(components/table): fix ngOnChanges if undefined value [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/153)
+- fix(components/table): fix output event activeElementChange [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/154)
+- fix(components/dropdown) style & add storybook example with append to body [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/151)
+- fix(components/input): Input group fix control changes [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/150)
+
+>  **Special thanks**
+>
+> ✏️ **MR:**  Zurab Magomadov, Stepan Fedorov, Anton Osechkin, Rustam Imaikin
+>
+> ️🐛 **Issue:** Aleksey S. Polyakov, Stepan Fedorov, Andrey Blokhin
+
+
+## [v0.8.0] - 11-05-2022
+### @digital-plant/zyfra-components [v0.8.0]
+
+**Added**
+
+- feat(helpers): add library base directives, pipes, services [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/129)
+- feat(helpers): added rxjs pipeble operations [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/136)
+- feat(demo): added textearea test [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/113)
+- feat(components/calendar): set end time in range picker [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/132)
+
+**Fixes**
+
+- fix(helpers): did publishable library [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/135)
+- fix(components/calendar): fixes styles [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/141)
+- fix(storybook): not loading stories [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/140)
+- fix(components/relativeTimePicker): relative time picker chose current time without 0; fix validation [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/139)
+- fix(components/button): fixes styles [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/138)
+- fix(components/checkbox): fixes multiple and CVA [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/134)
+- fix(components/table) fixes null in Input - value [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/137)
+
+>  **Special thanks**
+>
+> ✏️ **MR:**  Zurab Magomadov, Dmitriy Kshichkovskiy, Ekaterina Kovergina, Maryana Kabardina, Rustam Imaikin
+>
+> ️🐛 **Issue:** Konstantin Khimenkov, Kirill Galkin, Zurab Magomadov, Dmitriy Sokolov, Stepan Fedorov, Igor Kozlov
+
+
 ## [v0.7.0] - 19-04-2022
 ### @digital-plant/zyfra-components [v0.7.0]
 

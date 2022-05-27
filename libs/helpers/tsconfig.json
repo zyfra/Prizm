@@ -7,6 +7,9 @@
       "path": "./tsconfig.lib.json"
     },
     {
+      "path": "./tsconfig.lib.prod.json"
+    },
+    {
       "path": "./tsconfig.spec.json"
     }
   ],
@@ -14,6 +17,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
+    "strictNullChecks": true,
     "noFallthroughCasesInSwitch": true
   },
   "angularCompilerOptions": {

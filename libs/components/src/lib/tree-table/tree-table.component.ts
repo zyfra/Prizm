@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { FilterMetadata } from 'primeng/api';
 import { TreeTable, TreeTableService } from 'primeng/treetable';
-import { ZyfraBaseTableComponent } from '../@core/base-table';
+import { TargetTableToken, ZyfraBaseTableComponent } from '../@core/base-table';
 import { BaseTableTemplateDirective } from '../@core/base-table/directives/base-table-template.directive';
 
 @Component({
@@ -21,6 +21,11 @@ import { BaseTableTemplateDirective } from '../@core/base-table/directives/base-
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     TreeTableService,
+    {
+      provide: TargetTableToken,
+      useFactory: (zyfraTable: ZyfraTreeTableComponent): ZyfraTreeTableComponent => zyfraTable,
+      deps: [ZyfraTreeTableComponent],
+    },
     {
       provide: TreeTable,
       useFactory: (zyfraTable: ZyfraTreeTableComponent): TreeTable => zyfraTable.table,

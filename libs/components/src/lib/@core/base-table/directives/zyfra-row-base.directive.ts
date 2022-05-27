@@ -1,4 +1,5 @@
-import { Directive, HostBinding, HostListener, Input } from '@angular/core';
+import { Directive, HostBinding, HostListener, Inject, Input } from '@angular/core';
+import { TargetTableToken } from '../target-table.token';
 import { ZyfraBaseTableComponent } from '../zyfra-base-table.directive';
 
 @Directive({
@@ -8,7 +9,7 @@ export class ZyfraRowBaseDirective<T> {
   @Input('zyfraRow') data: T;
   @Input('zyfraRowStatus') status: 'primary' | 'error' | 'warning' | 'info' = 'primary';
 
-  constructor(private readonly targetTable: ZyfraBaseTableComponent<T>) {}
+  constructor(@Inject(TargetTableToken) private readonly targetTable: ZyfraBaseTableComponent<T>) {}
 
   @HostBinding('class')
   get rowStatusClass(): string {

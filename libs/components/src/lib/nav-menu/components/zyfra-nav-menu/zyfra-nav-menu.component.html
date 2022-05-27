@@ -64,10 +64,10 @@
       <div class="settings-block">
         <span>Представление</span>
         <zyfra-checkbox label="Одиночный режим групповых панелей"
-                        [(model)]="settingsPanelConfig.singleGroup"></zyfra-checkbox>
+                        [(ngModel)]="settingsPanelConfig.singleGroup"></zyfra-checkbox>
         <zyfra-checkbox label="Режим множественного выбора элементов"
-                        [model]="settingsPanelConfig.selectionMode === 'checkbox'"
-                        (modelChange)="settingsPanelConfig.selectionMode = $event ? 'checkbox' : 'single'"></zyfra-checkbox>
+                        [ngModel]="settingsPanelConfig.selectionMode === 'checkbox'"
+                        (ngModelChange)="settingsPanelConfig.selectionMode = $event ? 'checkbox' : 'single'"></zyfra-checkbox>
       </div>
       <div class="settings-block">
         <span>Степень компактности</span>

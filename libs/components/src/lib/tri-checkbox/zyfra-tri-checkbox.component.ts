@@ -18,6 +18,8 @@ export class ZyfraTriCheckboxComponent extends WrappedFormComponent implements C
   @Input() styleClass: string;
   @Input() readonly: boolean;
   @Input() model: boolean | null;
+  @Input() checkboxTrueIcon: string = 'pi pi-check';
+  @Input() checkboxFalseIcon: string = 'pi pi-times';
 
   public override setDisabledState(): void {
     // do nothing

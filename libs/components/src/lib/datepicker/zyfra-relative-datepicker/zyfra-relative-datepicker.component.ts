@@ -5,7 +5,8 @@ import {
   forwardRef,
   OnDestroy,
   Injector,
-  ChangeDetectorRef, AfterViewInit
+  ChangeDetectorRef,
+  AfterViewInit,
 } from '@angular/core';
 import { ControlValueAccessor, FormControl, NgControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -21,18 +22,18 @@ import {
 import { ParseTextInput, RenderText, UpdateActiveItem } from './relative-datepicker.utils';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
-const ValidationPattern = '(T|\\*)(\\+|\\-)(\\d+)(Y|M|d|h|m|s)';
+const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?';
 
 @Component({
   selector: 'zyfra-relative-datepicker',
   templateUrl: './zyfra-relative-datepicker.component.html',
   styleUrls: ['./zyfra-relative-datepicker.component.less'],
-  providers:[
+  providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => ZyfraRelativeDatepickerComponent),
-      multi: true
-    }
+      multi: true,
+    },
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -50,7 +51,7 @@ export class ZyfraRelativeDatepickerComponent implements AfterViewInit, ControlV
   private activeTimeId: RelativeDateTimeId;
   private activeDirectionId: RelativeDateDirectionId;
   private activePeriodId: RelativeDatePeriodId;
-  private activeNumber: string = '0';
+  private activeNumber: string = '';
 
   onChangeFn: (_: unknown) => unknown;
   onTouched: VoidFunction;
@@ -67,7 +68,7 @@ export class ZyfraRelativeDatepickerComponent implements AfterViewInit, ControlV
       this.value.valueChanges.subscribe(() => {
         this.parseInputValue();
         this.actualizeMenu();
-        this.onChangeFn(this.value.value)
+        this.onChangeFn(this.value.value);
       })
     );
   }
@@ -90,7 +91,7 @@ export class ZyfraRelativeDatepickerComponent implements AfterViewInit, ControlV
   }
 
   public clearValue(): void {
-    this.value.setValue("");
+    this.value.setValue('');
   }
 
   /**
@@ -113,7 +114,7 @@ export class ZyfraRelativeDatepickerComponent implements AfterViewInit, ControlV
 
     this.actualizeMenu();
     this.actualizeInput();
-    this.onChangeFn(this.value.value)
+    this.onChangeFn(this.value.value);
 
     this.cdr.detectChanges();
   }
