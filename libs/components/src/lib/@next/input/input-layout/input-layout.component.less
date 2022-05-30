@@ -56,10 +56,6 @@
     border-color: var(--index-plan);
   }
 
-  &-disabled {
-    border-color: transparent;
-  }
-
   &-status {
     &-success {
       border-color: var(--index-good);
@@ -95,6 +91,13 @@
 
     &:hover {
       border-color: var(--index-plan);
+    }
+  }
+
+  &-disabled {
+    border-color: transparent;
+    &:hover {
+      border-color: transparent;
     }
   }
 

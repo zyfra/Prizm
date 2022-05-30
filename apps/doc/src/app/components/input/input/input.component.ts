@@ -13,4 +13,5 @@ export class InputComponent implements OnInit {
   ngOnInit(): void {}
 
   public requiredInputControl = new FormControl('', Validators.required);
+  public disabledInputControl = new FormControl({ value: 'Задизайблено', disabled: true });
 }
