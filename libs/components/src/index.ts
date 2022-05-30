@@ -45,4 +45,6 @@ export * from './lib/tree-table';
 export * from './lib/tri-checkbox';
 export * from "./lib/@core/shared/zyfra-template.module";
 
+export * from './lib/@next';
+
 

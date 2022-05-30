@@ -1,0 +1,79 @@
+:host {
+  font-family: Inter, sans-serif; // TODO to main
+  display: block;
+  position: relative;
+  width: 20rem;
+}
+
+.zui-input-label {
+  display: block;
+  font-weight: 600;
+  color: var(--text-subscript);
+  padding-left: 13px;
+  line-height: 16px;
+  margin-bottom: 4px;
+
+  &-required {
+    color: var(--index-danger);
+  }
+
+  &-inner {
+    position: absolute;
+  }
+}
+
+.zui-input-form {
+  background-color: var(--bg-dashboard-forms);
+  border: 1px solid var(--border-forms);
+  border-radius: 2px;
+
+  width: 100%;
+
+  &:hover {
+    border-color: var(--index-plan);
+  }
+
+  &-focused {
+    border-color: var(--index-plan);
+    box-shadow: 0px 0px 0px 2px var(--lite-b130-20);
+  }
+
+  &-disabled {
+    border-color: transparent;
+  }
+
+  &-inner {
+    min-height: 44px;
+
+    &[data-size='l'] {
+      min-height: 44px;
+    }
+    &[data-size='m'] {
+      min-height: 36px;
+    }
+  }
+
+  /**
+  Special input for outer
+   */
+  &-outer {
+    min-height: 32px;
+
+    &[data-size='l'] {
+      min-height: 40px;
+    }
+    &[data-size='m'] {
+      min-height: 32px;
+    }
+    &[data-size='s'] {
+      min-height: 24px;
+    }
+  }
+}
+
+.zui-input-form-subtext {
+  padding-left: 13px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 22px;
+}
