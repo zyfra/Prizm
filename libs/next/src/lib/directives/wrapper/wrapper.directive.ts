@@ -18,10 +18,10 @@ export class ZuiWrapperDirective {
     readOnly = false;
 
     @Input()
-    hover: boolean | null = null;
+    hovered: boolean | null = null;
 
     @Input()
-    active: boolean | null = null;
+    pressed: boolean | null = null;
 
     @Input()
     focused = false;
@@ -53,11 +53,11 @@ export class ZuiWrapperDirective {
             return ZuiInteractiveState.Readonly;
         }
 
-        if (this.active) {
+        if (this.pressed) {
             return ZuiInteractiveState.Pressed;
         }
 
-        if (this.hover) {
+        if (this.hovered) {
             return ZuiInteractiveState.Hovered;
         }
 
@@ -66,11 +66,11 @@ export class ZuiWrapperDirective {
 
     @HostBinding('class._no-hover')
     get noHover(): boolean {
-        return this.readOnly || this.hover === false;
+        return this.readOnly || this.hovered === false;
     }
 
     @HostBinding('class._no-active')
     get noActive(): boolean {
-        return this.readOnly || this.hover === false;
+        return this.readOnly || this.hovered === false;
     }
 }

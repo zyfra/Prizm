@@ -1,295 +1,179 @@
-@miniButtonHeight: @36px;
-@boxShadowActive: inset 0 @4px @4px rgb(0 0 0 / 32%);
-@buttonBorder: none;
+:host {
+  outline: none;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  vertical-align: top;
+  border: 0;
+  padding: 0;
+  border-radius: 2px;
 
-.button-style(@color, @background, @backgroundHover, @backgroundActive) {
-  color: @color;
-  font-weight: 700;
-  background: @background;
-  &:enabled {
-    &:hover,
-    &:focus-visible {
-      border: @buttonBorder;
-      background: @backgroundHover;
-      color: @color;
-    }
-    &:active {
-      box-shadow: @boxShadowActive;
-      border: @buttonBorder;
-      background: @backgroundActive;
-      color: @color;
+  // TODO #move to vars
+  &[data-size='xl'] {
+    height: 44px;
+    font-weight: normal;
+
+    .z-wrapper {
+      padding: 14px 16px 14px 16px;
     }
   }
-}
 
-.button-default-style() {
-  .button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
-}
+  &[data-size='l'] {
+    height: 40px;
+    font-weight: normal;
 
-.button-success-style() {
-  .button-style(var(--buttonSuccessFont),var(--buttonSuccess),  var(--buttonSuccessHover), var(--buttonSuccessActive));
-}
+    .z-wrapper {
+      padding: 12px 16px 12px 16px;
+    }
+  }
+  &[data-size='xm'] {
+    height: 36px;
+    font-weight: normal;
 
-.button-secondary-style() {
-  .button-style(var(--buttonSecondaryFont), var(--buttonSecondary), var(--buttonSecondaryHover), var(--buttonSecondaryActive));
-}
-
-.button-info-style() {
-  .button-style(var(--buttonInfoFont),var(--buttonInfo),  var(--buttonInfoHover), var(--buttonInfoActive));
-}
-
-.button-danger-style() {
-  .button-style(var(--buttonDangerFont), var(--buttonDanger), var(--buttonDangerHover), var(--buttonDangerActive));
-}
-
-.button-warning-style() {
-  .button-style(var(--buttonWarningFont), var(--buttonWarning), var(--buttonWarningHover), var(--buttonWarningActive));
-}
-
-/* ================================= simple button ==================================== */
-.p-button {
-  font-size: @13px;
-  border-radius: @4px;
-  height: @44px;
-
-  .p-badge {
-    line-height: @14px;
-    color: var(--z-accentColor);
-    background-color: var(--standartBg);
+    .z-wrapper {
+      padding: 10px 16px 10px 16px;
+    }
   }
 
-  // повышаю вес селектора
-  &.p-button {
-    border: @buttonBorder;
-    font-family: var(--fontFamily);
-    padding: @16px;
+  &[data-size='m'] {
+    height: 32px;
+    font-weight: normal;
 
-    .button-default-style();
-
-    &.p-button-icon-only {
-      width: @48px;
+    .z-wrapper {
+      padding: 8px 16px 8px 16px;
     }
+  }
 
-    &.p-button span.p-button-icon-left {
-      margin-right: @24px;
-    }
 
-    &.p-component:disabled,// для кнопок тип select toggle и тд
-    &.p-disabled.p-disabled.p-disabled {
-      background: var(--buttonDisabled);
-      color: var(--buttonDisabledFont);
-      opacity: initial;
-    }
+  &[data-size='s'] {
+    height: 24px;
+    font-weight: normal;
 
-    &-mini {
-      height: @miniButtonHeight;
-    }
-
-    &-default {
-      .button-default-style();
-    }
-
-    &-success {
-      .button-success-style();
-    }
-
-    &-secondary {
-      .button-secondary-style();
-    }
-
-    &-info {
-      .button-info-style();
-    }
-
-    &-danger {
-      .button-danger-style();
-    }
-
-    &-warning {
-      .button-warning-style();
+    .z-wrapper {
+      padding: 4px 8px 4px 8px;
     }
   }
 }
 
-/* ================================= toggle-button ==================================== */
-.toggle-button-style(@color, @bg, @bgHover, @bgActive) {
-  &.p-button {
-    background: @bg;
-    .p-button-icon-left,
-    .p-button-icon-right {
-      color: @color;
+// TODO move to folder for styles theme
+.z-wrapper {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+  appearance: none;
+  border-radius: inherit;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: white;
+
+  &[data-appearance='primary'] {
+    background: #337EFF;
+
+    &[data-appearance-type='outline'] {
+      border: 1px solid #337EFF;
+      background: transparent;
+      color: #337EFF;
     }
 
-    &.p-highlight {
-      background: @bgActive;
-      border: @buttonBorder;
-      color: @color;
-      box-shadow: @boxShadowActive;
-      &:hover,
-      &:focus-visible {
-        background: @bgHover;
-        border: @buttonBorder;
-        color: @color;
-        .p-button-icon-left,
-        .p-button-icon-right {
-          color: @color;
-        }
-      }
-      .p-button-icon-left,
-      .p-button-icon-right {
-        color: @color;
-      }
+    &:hover {
+      background: #0F62FE;
+      color: white;
     }
 
-    &:not(.p-disabled):not(.p-highlight) {
-      &:hover,
-      &:focus-visible {
-        background: @bgHover;
-        border: @buttonBorder;
-        color: @color;
-        .p-button-icon-left,
-        .p-button-icon-right {
-          color: @color;
-        }
-      }
+    &[data-state='pressed'] {
+      background: #003ED6;
+      color: white;
     }
   }
-}
 
-.p-togglebutton {
-  &-mini {
-    height: @miniButtonHeight;
-  }
+  &[data-appearance='secondary'] {
+    background: #8D91A4;
 
-  .toggle-button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
-
-  &-default {
-    .toggle-button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
-  }
-
-  &-success {
-    .toggle-button-style(var(--standartButtonFont), var(--standartButton), var(--standartButtonHover), var(--standartButtonActive));
-  }
-
-  &-secondary {
-    .toggle-button-style(var(--buttonSecondaryFont), var(--buttonSecondary), var(--buttonSecondaryHover), var(--buttonSecondaryActive));
-  }
-
-  &-info {
-    .toggle-button-style(var(--buttonInfoFont), var(--buttonInfo), var(--buttonInfoHover), var(--buttonInfoActive));
-  }
-
-  &-danger {
-    .toggle-button-style(var(--buttonDangerFont), var(--buttonDanger), var(--buttonDangerHover), var(--buttonDangerActive));
-  }
-
-  &-warning {
-    .toggle-button-style(var(--buttonWarningFont), var(--buttonWarning), var(--buttonWarningHover), var(--buttonWarningActive));
-  }
-}
-
-/* ================================ select-button ===================================== */
-.select-button-style(@color, @bg, @bgHover, @bgActive) {
-  // повышаю вес селектора
-  .p-button.p-button {
-    background: @bg;
-    border-color: @bg;
-    color: @color;
-
-    &.p-highlight {
-      box-shadow: @boxShadowActive;
-      background: @bgHover;
-      border-color: @bg;
-      color: @color;
-
-      &:hover,
-      &:focus-visible {
-        background: @bgActive;
-        border-color: @bg;
-        color: @color;
-      }
+    &[data-appearance-type='outline'] {
+      border: 1px solid #8D91A4;
+      background: transparent;
+      color: #8D91A4;
     }
 
-    &:not(.p-disabled):not(.p-highlight) {
-      &:hover,
-      &:focus-visible {
-        background: @bgActive;
-        color: @color;
-        border-color: @bg;
-      }
+    &:hover {
+      background: #777B92;
+      color: white;
+    }
+
+    &[data-state='pressed'] {
+      background: #606580;
+      color: white;
     }
   }
-}
 
-.p-selectbutton {
-  &-mini .p-button {
-    height: @miniButtonHeight;
+  &[data-appearance='warning'] {
+    background: #FF7C0A;
+
+    &[data-appearance-type='outline'] {
+      border: 1px solid #FF7C0A;
+      background: transparent;
+      color: #FF7C0A;
+    }
+
+    &:hover {
+      background: #E67B0F;
+      color: white;
+    }
+
+    &[data-state='pressed'] {
+      background: #D36300;
+      color: white;
+    }
   }
 
-  .select-button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
+  &[data-appearance='danger'] {
+    background: #F14141;
 
-  &-default {
-    .select-button-style(var(--buttonPrimaryFont), var(--buttonPrimary), var(--buttonPrimaryHover), var(--buttonPrimaryActive));
+    &[data-appearance-type='outline'] {
+      border: 1px solid #F14141;
+      background: transparent;
+      color: #F14141;
+    }
+
+    &:hover {
+      background: #DA181E;
+      color: white;
+    }
+
+    &[data-state='pressed'] {
+      background: #AD1218;
+      color: white;
+    }
   }
 
-  &-success {
-    .select-button-style(var(--standartButtonFont), var(--standartButton), var(--standartButtonHover), var(--standartButtonActive));
+  &[data-appearance='success'] {
+    background: #49AB4D;
+
+    &[data-appearance-type='outline'] {
+      border: 1px solid #49AB4D;
+      background: transparent;
+      color: #49AB4D;
+    }
+
+    &:hover {
+      background: #118F3F;
+      color: white;
+    }
+
+    &[data-state='pressed'] {
+      background: #0C7733;
+      color: white;
+    }
   }
 
-  &-secondary {
-    .select-button-style(var(--buttonSecondaryFont), var(--buttonSecondary), var(--buttonSecondaryHover), var(--buttonSecondaryActive));
+  &[data-state='disabled'][data-state='disabled'] {
+    &[data-appearance-type='outline'] {
+      border: 1px solid #F4F6FB;
+      background: transparent;
+    }
+
+    background: #F4F6FB;
+    color: #BFC6D7;
   }
-
-  &-info {
-    .select-button-style(var(--buttonInfoFont), var(--buttonInfo), var(--buttonInfoHover), var(--buttonInfoActive));
-  }
-
-  &-danger {
-    .select-button-style(var(--buttonDangerFont), var(--buttonDanger), var(--buttonDangerHover), var(--buttonDangerActive));
-  }
-
-  &-warning {
-    .select-button-style(var(--buttonWarningFont), var(--buttonWarning), var(--buttonWarningHover), var(--buttonWarningActive));
-  }
-}
-
-/* ================================ splitbutton ===================================== */
-.p-splitbutton {
-  &-mini .p-button {
-    height: @miniButtonHeight;
-  }
-
-  .p-button,
-  &-default .p-button {
-    .button-default-style();
-  }
-
-  &-success .p-button {
-    .button-success-style();
-  }
-
-  &-secondary .p-button {
-    .button-secondary-style();
-  }
-
-  &-info .p-button {
-    .button-info-style();
-  }
-
-  &-danger .p-button {
-    .button-danger-style();
-  }
-
-  &-warning .p-button {
-    .button-warning-style();
-  }
-}
-
-/* ================================ common ===================================== */
-
-.p-button:focus,
-.p-button.p-button-danger:enabled:focus,
-.p-buttonset.p-button-danger > .p-button:enabled:focus,
-.p-splitbutton.p-button-danger > .p-button:enabled:focus {
-  box-shadow: none;
 }

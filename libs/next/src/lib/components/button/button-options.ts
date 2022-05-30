@@ -1,41 +1,22 @@
 import {InjectionToken, TemplateRef, ValueProvider} from '@angular/core';
+import {ZuiSize} from "../../util/size-bigger";
 
-// TODO move to shared
-export enum ZuiSize {
-  L = 'l',
-  SL = 'sl',
-  M = 'm',
-  SM = 'sm',
-  S = 's',
-}
+export type ZuiAppearance = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'disabled';
 
-// TODO move to shared
-export enum ZuiAppearance {
-  primary = 'primary',
-  secondary = 'secondary',
-  success = 'success',
-  warning = 'warning',
-  danger = 'danger',
-  disabled = 'disabled',
-}
 
-// TODO think about it shared enum or only for button
-export enum ZuiButtonShape {
-  fill = 'fill',
-  outline = 'outline',
-  ghost = 'ghost',
-}
+// TODO think about it shared or only for button
+export type ZuiAppearanceType = 'fill' | 'outline' | 'ghost';
 
 export interface ZuiButtonOptions {
     readonly size: ZuiSize;
     readonly appearance: ZuiAppearance;
-    readonly shape: ZuiButtonShape;
+    readonly appearanceType: ZuiAppearanceType;
 }
 
 export const ZUI_BUTTON_DEFAULT_OPTIONS: ZuiButtonOptions = {
-    size: ZuiSize.L,
-    appearance: ZuiAppearance.primary,
-    shape: ZuiButtonShape.fill,
+    size: 'l',
+    appearance: 'primary',
+    appearanceType: 'fill',
 };
 
 export const ZUI_BUTTON_OPTIONS = new InjectionToken<ZuiButtonOptions>(

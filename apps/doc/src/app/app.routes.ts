@@ -21,15 +21,15 @@ export const ROUTES = [
     },
   },
   // COMPONENTS
-  // {
-  //   path: 'components/button',
-  //   loadChildren: async () =>
-  //     (await import('./components/button/button.module'))
-  //       .ButtonModule,
-  //   data: {
-  //     title: 'Button',
-  //   },
-  // },
+  {
+    path: 'components/button',
+    loadChildren: async () =>
+      (await import('./components/button/button.module'))
+        .ButtonModule,
+    data: {
+      title: 'Button',
+    },
+  },
   {path: '**', redirectTo: 'getting-started'},
 ]
 

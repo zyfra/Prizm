@@ -15,12 +15,12 @@ export const pages: TuiDocPages = [
         route: 'example-component',
     },
   // Components
-    //   {
-    //       section: `Components`,
-    //       title: 'Button',
-    //       keywords: 'кнопка, zui-button, иконка',
-    //       route: '/components/button',
-    //   },
+      {
+          section: `Components`,
+          title: 'Button',
+          keywords: 'кнопка, zui-button, иконка',
+          route: '/components/button',
+      },
   // Helpers
     {
         section: `Helpers`,

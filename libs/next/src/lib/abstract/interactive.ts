@@ -48,13 +48,11 @@ export abstract class AbstractZuiInteractive {
         return this.disabled;
     }
 
-    /** @deprecated */
     @HostBinding('class._hovered')
     get computedHovered(): boolean {
         return !this.computedDisabled && (this.pseudoHovered ?? this.hovered);
     }
 
-    /** @deprecated */
     @HostBinding('class._pressed')
     get computedPressed(): boolean {
         return !this.computedDisabled && (this.pseudoPressed ?? this.pressed);

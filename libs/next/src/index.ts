@@ -1,1 +1,1 @@
-export * from './lib/next.module';
+export * from './lib/components/button';

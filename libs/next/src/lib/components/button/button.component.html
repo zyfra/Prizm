@@ -1,9 +1,12 @@
 <zui-wrapper
-  class="t-wrapper"
+  class="z-wrapper"
+  [attr.data-appearance-type]="appearanceType"
   [appearance]="appearance"
   [hovered]="computedHovered"
   [pressed]="computedPressed"
   [disabled]="computedDisabled"
   [focused]="computedFocusVisible">
-
+  <span class="t-content">
+    <ng-content></ng-content>
+  </span>
 </zui-wrapper>
