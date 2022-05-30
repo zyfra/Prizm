@@ -3,7 +3,6 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChild,
-  HostBinding,
   Injector,
   Input,
   OnDestroy,
@@ -11,7 +10,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ZuiInputControl } from '../input-directives/zui-input-control.class';
-import { ZuiInputSize } from '../models/zui-input.models';
+import { ZuiInputSize, ZuiInputStatus } from '../models/zui-input.models';
 
 @Component({
   selector: 'zui-input-layout',
@@ -28,6 +27,7 @@ export class InputLayoutComponent implements OnInit, OnDestroy {
   @Input() size: ZuiInputSize = 'l';
 
   @Input() outer: boolean | string = false;
+  @Input() status: ZuiInputStatus = 'default';
 
   @ContentChild(ZuiInputControl, { static: true }) control: ZuiInputControl<any>;
 

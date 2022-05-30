@@ -5,13 +5,11 @@
     <h4>L</h4>
     <zui-input-layout label="Заголовок" size="l">
       <input zuiInput value="Введенный текст" placeholder="Введите текст" />
-      <div zui-input-subtext>Обязательное поле</div>
     </zui-input-layout>
 
     <h4>M</h4>
     <zui-input-layout label="Заголовок" size="m">
       <input zuiInput value="Введенный текст" placeholder="Введите текст" />
-      <div zui-input-subtext>Обязательное поле</div>
     </zui-input-layout>
 
     <h2>Outer</h2>
@@ -19,19 +17,59 @@
     <h4>L</h4>
     <zui-input-layout label="Заголовок" size="l" outer="true">
       <input zuiInput value="Введенный текст" placeholder="Введите текст" />
-      <div zui-input-subtext>Обязательное поле</div>
     </zui-input-layout>
 
     <h4>M</h4>
     <zui-input-layout label="Заголовок" size="m" outer="true">
       <input zuiInput value="Введенный текст" placeholder="Введите текст" />
-      <div zui-input-subtext>Обязательное поле</div>
     </zui-input-layout>
 
     <h4>S</h4>
     <zui-input-layout label="Заголовок" size="s" outer="true">
       <input zuiInput value="Введенный текст" placeholder="Введите текст" />
-      <div zui-input-subtext>Обязательное поле</div>
+    </zui-input-layout>
+
+    <h2>Status</h2>
+
+    <h4>Default</h4>
+    <zui-input-layout label="Заголовок" size="l" status="default">
+      <input zuiInput value="Введенный текст" placeholder="Введите текст" />
+    </zui-input-layout>
+
+    <h4>Success</h4>
+    <zui-input-layout label="Заголовок" size="l" status="success">
+      <input zuiInput value="Введенный текст" placeholder="Введите текст" />
+    </zui-input-layout>
+
+    <h4>Warning</h4>
+    <zui-input-layout label="Заголовок" size="l" status="warning">
+      <input zuiInput value="Введенный текст" placeholder="Введите текст" />
+    </zui-input-layout>
+
+    <h4>Danger</h4>
+    <zui-input-layout label="Заголовок" size="l" status="danger">
+      <input zuiInput value="Введенный текст" placeholder="Введите текст" />
+    </zui-input-layout>
+
+    <h2>Subtext</h2>
+
+    <zui-input-layout label="Заголовок" size="l">
+      <input zuiInput value="Введенный текст" placeholder="Введите текст" />
+      <div zui-input-subtext>Подтекст</div>
+    </zui-input-layout>
+
+    <h2>Validation</h2>
+
+    <h4>Default</h4>
+    <zui-input-layout label="Заголовок" size="l" status="default">
+      <input
+        #input
+        zuiInput
+        value="Введенный текст"
+        placeholder="Введите текст"
+        [formControl]="requiredInputControl"
+      />
+      <zui-input-invalid-subtext zui-input-subtext [control]="input"></zui-input-invalid-subtext>
     </zui-input-layout>
   </ng-template>
 </tui-doc-page>

@@ -25,4 +25,7 @@ export abstract class ZuiInputControl<T> {
 
   /** Whether the control is validity. */
   readonly invalid: boolean;
+
+  /** Whether the control is validity. */
+  readonly touched: boolean;
 }

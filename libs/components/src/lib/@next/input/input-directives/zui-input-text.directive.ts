@@ -92,6 +92,11 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck {
   public focused: boolean;
 
   /**
+   * Touched state
+   */
+  public touched: boolean;
+
+  /**
    * Create instance
    */
   constructor(
@@ -130,6 +135,7 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck {
   @HostListener('blur', ['$event'])
   onBlur(e): void {
     this.focused = false;
+    this.touched = true;
     this.stateChanges.next();
   }
 
