@@ -12,9 +12,21 @@
 // In inner context
 :host-context(.zui-input-form-inner) {
   padding: 22px 12px 6px 12px;
+
+  :host::placeholder {
+    opacity: 0;
+  }
+
+  :host:focus::placeholder {
+    opacity: 1;
+    transition: opacity 300ms ease 0s;
+  }
 }
 :host-context(.zui-input-form-inner[data-size='l']) {
-  padding: 12px;
+  padding: 22px 12px 6px 12px;
+}
+:host-context(.zui-input-form-inner[data-size='m']) {
+  padding: 12px 18px 2px 12px;
 }
 
 // In outer context

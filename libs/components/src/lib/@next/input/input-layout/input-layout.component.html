@@ -1,4 +1,10 @@
-<label class="zui-input-label" [class.zui-input-label-inner]="!outer">
+<label
+  class="zui-input-label"
+  [attr.data-size]="size"
+  [class.zui-input-label-inner]="!outer"
+  [class.zui-input-label-focused]="control.focused"
+  [class.zui-input-label-empty]="control.empty"
+>
   {{ label }}
   <span *ngIf="control.required" class="zui-input-label-required">*</span>
 </label>

@@ -147,9 +147,10 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck {
   }
 
   private updateEmptyState(): void {
-    this.empty =
+    this.empty = !(
       (this.elementRef.nativeElement.value && this.elementRef.nativeElement.value.length) ||
-      (this.ngControl && this.ngControl.value);
+      (this.ngControl && this.ngControl.value)
+    );
   }
 
   private updateErrorState(): void {

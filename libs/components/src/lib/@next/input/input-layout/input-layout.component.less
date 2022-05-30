@@ -12,6 +12,8 @@
   padding-left: 13px;
   line-height: 16px;
   margin-bottom: 4px;
+  transition: top 300ms ease 0s;
+  pointer-events: none;
 
   &-required {
     color: var(--index-danger);
@@ -19,6 +21,27 @@
 
   &-inner {
     position: absolute;
+
+    &[data-size='l'] {
+      top: 6px;
+
+      &.zui-input-label-empty {
+        top: 16px;
+      }
+      &.zui-input-label-focused {
+        top: 6px;
+      }
+    }
+
+    &[data-size='m'] {
+      top: 2px;
+      &.zui-input-label-empty {
+        top: 10px;
+      }
+      &.zui-input-label-focused {
+        top: 2px;
+      }
+    }
   }
 }
 
@@ -50,6 +73,12 @@
     }
     &[data-size='m'] {
       min-height: 36px;
+    }
+
+    .zui-input-label-empty {
+    }
+
+    .zui-input-label-focused {
     }
   }
 
