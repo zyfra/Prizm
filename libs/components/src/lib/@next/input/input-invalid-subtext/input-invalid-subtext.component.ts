@@ -51,7 +51,7 @@ export class InputInvalidSubtextComponent extends InputInvalidSubtextBaseClass i
     if (!this.control.touched) return;
 
     const errors = this.control.ngControl.errors || {};
-    const firstInvalidKey = Object.keys(errors)[0];
+    const firstInvalidKey = Object.keys(errors)?.[0];
     const errorText = this.getText(firstInvalidKey);
 
     if (this.invalidText !== errorText) {
