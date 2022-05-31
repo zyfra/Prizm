@@ -2,6 +2,24 @@
 
 Все изменения в этом файле отражают изменения в коде во всем монорепозитории.
 
+## [v0.10.0] - 31-05-2022
+
+### @digital-plant/zyfra-components [v0.10.0]
+
+**Feature**
+
+- docs(sdk): add example input-group [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/166)
+
+**Fixes**
+
+- fix(components/input-mask) add default inputs options [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/161)
+
+> **Special thanks**
+>
+> ✏️ **MR:** Stepan Fedorov, Konstantin Skok
+>
+> ️🐛 **Issue:** Stepan Fedorov
+
 ## [v0.9.3] - 27-05-2022
 
 ### @digital-plant/zyfra-translate [v1.0.2]
@@ -20,16 +38,17 @@
 >
 > ✏️ **MR:** Dmitriy Sokolov, Konstantin Khimenkov
 
-
 ## [v0.9.2] - 25-05-2022
+
 ### @digital-plant/zyfra-components [v0.9.2]
 
 **Fixes**
 
 - fix(helpers): fixes strict null checks
-- fix(components): add export zyfra-template.module 
+- fix(components): add export zyfra-template.module
 
 ## [v0.9.1] - 23-05-2022
+
 ### @digital-plant/zyfra-components [v0.9.1]
 
 **Fixes**
