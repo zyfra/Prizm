@@ -7,11 +7,26 @@
   border: 0;
   padding: 0;
   border-radius: 2px;
+  background: transparent;
+
+  &[zuiIconButton] .z-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   // TODO #move to vars
   &[data-size='xl'] {
     height: 44px;
     font-weight: normal;
+
+    &[zuiIconButton] {
+      width: 44px;
+
+      .z-wrapper {
+        padding: 0;
+      }
+    }
 
     .z-wrapper {
       padding: 14px 16px 14px 16px;
@@ -22,6 +37,14 @@
     height: 40px;
     font-weight: normal;
 
+    &[zuiIconButton] {
+      width: 40px;
+
+      .z-wrapper {
+        padding: 0;
+      }
+    }
+
     .z-wrapper {
       padding: 12px 16px 12px 16px;
     }
@@ -29,6 +52,14 @@
   &[data-size='xm'] {
     height: 36px;
     font-weight: normal;
+
+    &[zuiIconButton] {
+      width: 36px;
+
+      .z-wrapper {
+        padding: 0;
+      }
+    }
 
     .z-wrapper {
       padding: 10px 16px 10px 16px;
@@ -38,6 +69,14 @@
   &[data-size='m'] {
     height: 32px;
     font-weight: normal;
+
+    &[zuiIconButton] {
+      width: 32px;
+
+      .z-wrapper {
+        padding: 0;
+      }
+    }
 
     .z-wrapper {
       padding: 8px 16px 8px 16px;
@@ -49,11 +88,20 @@
     height: 24px;
     font-weight: normal;
 
+    &[zuiIconButton] {
+      width: 24px;
+
+      .z-wrapper {
+        padding: 0;
+      }
+    }
+
     .z-wrapper {
       padding: 4px 8px 4px 8px;
     }
   }
 }
+
 
 // TODO move to folder for styles theme
 .z-wrapper {
@@ -76,6 +124,21 @@
       color: #337EFF;
     }
 
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: #337EFF;
+
+      &:hover {
+        background: #F4F6FB;
+        color: #337EFF;
+      }
+
+      &[data-state='pressed'] {
+        background: #D6E5FF;
+        color: #337EFF;
+      }
+    }
+
     &:hover {
       background: #0F62FE;
       color: white;
@@ -94,6 +157,23 @@
       border: 1px solid #8D91A4;
       background: transparent;
       color: #8D91A4;
+    }
+
+
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: #8D91A4;
+
+      &:hover {
+        background: #F4F6FB;
+        color: #8D91A4;
+      }
+
+      &[data-state='pressed'] {
+        background: #D6E5FF;
+        //color: #337EFF;
+        color: #8D91A4;
+      }
     }
 
     &:hover {
@@ -116,6 +196,21 @@
       color: #FF7C0A;
     }
 
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: #FF7C0A;
+
+      &:hover {
+        background: #F4F6FB;
+        color: #FF7C0A;
+      }
+
+      &[data-state='pressed'] {
+        background: #FFE5CE;
+        color: #FF7C0A;
+      }
+    }
+
     &:hover {
       background: #E67B0F;
       color: white;
@@ -129,6 +224,21 @@
 
   &[data-appearance='danger'] {
     background: #F14141;
+
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: #F14141;
+
+      &:hover {
+        background: #F4F6FB;
+        color: #F14141;
+      }
+
+      &[data-state='pressed'] {
+        background: #FCD9D9;
+        color: #F14141;
+      }
+    }
 
     &[data-appearance-type='outline'] {
       border: 1px solid #F14141;
@@ -150,6 +260,22 @@
   &[data-appearance='success'] {
     background: #49AB4D;
 
+
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: #49AB4D;
+
+      &:hover {
+        background: #F4F6FB;
+        color: #49AB4D;
+      }
+
+      &[data-state='pressed'] {
+        background: #DBEEDB;
+        color: #49AB4D;
+      }
+    }
+
     &[data-appearance-type='outline'] {
       border: 1px solid #49AB4D;
       background: transparent;
@@ -168,6 +294,16 @@
   }
 
   &[data-state='disabled'][data-state='disabled'] {
+
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: #BFC6D7;
+
+      &[data-state='pressed'] {
+        background: #F4F6FB;
+      }
+    }
+
     &[data-appearance-type='outline'] {
       border: 1px solid #F4F6FB;
       background: transparent;
@@ -176,4 +312,9 @@
     background: #F4F6FB;
     color: #BFC6D7;
   }
+}
+
+.z-content {
+  display: flex;
+  gap: 9px;
 }

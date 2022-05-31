@@ -6,7 +6,16 @@
   [pressed]="computedPressed"
   [disabled]="computedDisabled"
   [focused]="computedFocusVisible">
-  <span class="t-content">
+  <span class="z-content">
+    <ng-container *ngIf='icon' [ngTemplateOutlet]="showIconTemp" [ngTemplateOutletContext]="{icon: icon}"></ng-container>
     <ng-content></ng-content>
+    <ng-container *ngIf='iconRight' [ngTemplateOutlet]="showIconTemp" [ngTemplateOutletContext]="{icon: iconRight}"></ng-container>
   </span>
 </zui-wrapper>
+
+<ng-template #showIconTemp let-icon="icon">
+  <ng-container [ngSwitch]="icon | zuiCallFunc : isTemplateRef">
+    <ng-container *ngSwitchCase="true" [ngTemplateOutlet]="$any(icon)"></ng-container>
+    <zui-icon *ngSwitchDefault [iconClass]="$any(icon)"></zui-icon>
+  </ng-container>
+</ng-template>

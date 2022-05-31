@@ -21,6 +21,12 @@ export const pages: TuiDocPages = [
           keywords: 'кнопка, zui-button, иконка',
           route: '/components/button',
       },
+      {
+        section: `Components`,
+        title: 'Icon',
+        keywords: 'иконка, icon',
+        route: '/components/icon',
+      },
   // Helpers
     {
         section: `Helpers`,

@@ -148,7 +148,9 @@
               "node_modules/primeicons/primeicons.css",
               "libs/components/src/styles/theme/default.less",
               "libs/components/src/styles/styles.less",
-              "libs/components/src/styles/icons/icons.less"
+              "libs/components/src/styles/icons/icons.less",
+              "libs/next/src/styles/styles.less",
+              "libs/next/src/styles/icons/icons.less"
             ],
             "scripts": []
           },

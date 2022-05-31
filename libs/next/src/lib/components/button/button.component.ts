@@ -5,7 +5,7 @@ import {
   ElementRef,
   HostBinding,
   Inject,
-  Input,
+  Input, TemplateRef,
 } from '@angular/core';
 import {ZUI_BUTTON_OPTIONS, ZuiAppearance, ZuiAppearanceType, ZuiButtonOptions, ZuiContent} from "./button-options";
 import {AbstractZuiInteractive} from "../../abstract/interactive";
@@ -17,7 +17,8 @@ import {takeUntil, tap} from "rxjs/operators";
 import {zuiPressedObservable} from "../../directives/observables/zui-pressed-observable";
 
 @Component({
-  selector: 'zui-button,zuiButton',
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'button[zuiButton], button[zuiIconButton], a[zuiButton], a[zuiIconButton]',
   styleUrls: ['./button.component.less'],
   templateUrl: './button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -32,7 +33,11 @@ export class ZuiButtonComponent extends AbstractZuiInteractive {
 
   /** can pass template or icon class */
   @Input()
-  icon: ZuiContent<unknown>;
+  icon: ZuiContent;
+
+  /** can pass template or icon class */
+  @Input()
+  iconRight: ZuiContent;
 
   @Input()
   @HostBinding('attr.data-appearance')
@@ -47,6 +52,8 @@ export class ZuiButtonComponent extends AbstractZuiInteractive {
 
   @Input()
   showLoader = false;
+
+  readonly TemplateRef = TemplateRef;
 
   get focused(): boolean {
     return !this.showLoader && isNativeFocused(this.elementRef.nativeElement);
@@ -68,5 +75,9 @@ export class ZuiButtonComponent extends AbstractZuiInteractive {
         watch(changeDetectorRef),
         takeUntil(destroy$)
       ).subscribe();
+  }
+
+  public isTemplateRef(icon: ZuiContent): icon is TemplateRef<unknown> {
+    return icon instanceof TemplateRef;
   }
 }

@@ -33,4 +33,4 @@ export const zuiButtonOptionsProvider: (
     useValue: {...ZUI_BUTTON_DEFAULT_OPTIONS, ...options},
 });
 
-export type ZuiContent<T> = TemplateRef<T> | string
+export type ZuiContent<T = unknown> = TemplateRef<T> | string

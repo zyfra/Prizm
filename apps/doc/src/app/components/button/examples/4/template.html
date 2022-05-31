@@ -1,0 +1,58 @@
+<h1>Icon</h1>
+
+<div class="box">
+  <div class="title">Pass icon name</div>
+  <div class="content">
+    <button zuiButton [icon]="'account-card-details'">Left Icon</button>
+    <button zuiButton [iconRight]="'account-card-details'">Right Icon</button>
+    <button zuiButton [icon]="'account-card-details'" [iconRight]="'account-card-details'">Right and Left Icon</button>
+  </div>
+</div>
+
+<div class="box">
+  <div class="title">Pass Template</div>
+  <div class="content">
+    <button zuiButton [icon]="someTemplate">Left Template</button>
+    <button zuiButton [iconRight]="someTemplate">Right Template</button>
+    <button zuiButton [icon]="someTemplate" [iconRight]="someTemplate">Right and Reft Template</button>
+    <ng-template #someTemplate>%</ng-template>
+  </div>
+</div>
+
+<div class="box">
+  <div class="title">Fill button[zuiIconButton] </div>
+  <div class="content">
+    <button zuiIconButton appearanceType="fill" [icon]="'account-card-details'" appearance="primary" size="m"></button>
+    <button zuiIconButton appearanceType="fill" [icon]="'account-card-details'" appearance="secondary" size="m"></button>
+    <button zuiIconButton appearanceType="fill" [icon]="'account-card-details'" appearance="success" size="m"></button>
+    <button zuiIconButton appearanceType="fill" [icon]="'account-card-details'" appearance="warning" size="m"></button>
+    <button zuiIconButton appearanceType="fill" [icon]="'account-card-details'" appearance="danger" size="m"></button>
+    <button zuiIconButton appearanceType="fill" [icon]="'account-card-details'" [disabled]="true" size="m"></button>
+  </div>
+</div>
+
+<div class="box">
+  <div class="title">Ghost button[zuiIconButton] </div>
+  <div class="content">
+    <button zuiIconButton appearanceType="ghost" [icon]="'account-card-details'" appearance="primary" size="m"></button>
+    <button zuiIconButton appearanceType="ghost" [icon]="'account-card-details'" appearance="secondary" size="m"></button>
+    <button zuiIconButton appearanceType="ghost" [icon]="'account-card-details'" appearance="success" size="m"></button>
+    <button zuiIconButton appearanceType="ghost" [icon]="'account-card-details'" appearance="warning" size="m"></button>
+    <button zuiIconButton appearanceType="ghost" [icon]="'account-card-details'" appearance="danger" size="m"></button>
+    <button zuiIconButton appearanceType="ghost" [icon]="'account-card-details'" [disabled]="true" size="m"></button>
+  </div>
+</div>
+
+<div class="box">
+  <div class="title">Outline button[zuiIconButton] </div>
+  <div class="content">
+    <button zuiIconButton appearanceType="outline" [icon]="'account-card-details'" appearance="primary" size="m"></button>
+    <button zuiIconButton appearanceType="outline" [icon]="'account-card-details'" appearance="secondary" size="m"></button>
+    <button zuiIconButton appearanceType="outline" [icon]="'account-card-details'" appearance="success" size="m"></button>
+    <button zuiIconButton appearanceType="outline" [icon]="'account-card-details'" appearance="warning" size="m"></button>
+    <button zuiIconButton appearanceType="outline" [icon]="'account-card-details'" appearance="danger" size="m"></button>
+    <button zuiIconButton appearanceType="outline" [icon]="'account-card-details'" [disabled]="true" size="m"></button>
+  </div>
+</div>
+
+

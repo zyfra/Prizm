@@ -10,7 +10,7 @@
 
     <tui-doc-example
       id="base"
-      heading="Sizes for filled buttons"
+      heading="Filled buttons"
       [content]="example1"
     >
       <zui-button-example-2></zui-button-example-2>
@@ -18,85 +18,112 @@
 
     <tui-doc-example
       id="base"
-      heading="Sizes for outline buttons"
+      heading="Outline buttons"
       [content]="example2"
     >
       <zui-button-example-1></zui-button-example-1>
+    </tui-doc-example>
+
+
+    <tui-doc-example
+      id="base"
+      heading="Ghost buttons"
+      [content]="example3"
+    >
+      <zui-button-example-3></zui-button-example-3>
+    </tui-doc-example>
+
+
+    <tui-doc-example
+      id="base"
+      heading="Icons"
+      [content]="example4"
+    >
+      <zui-button-example-4></zui-button-example-4>
+    </tui-doc-example>
+
+
+    <tui-doc-example
+      id="base"
+      heading="Split Button"
+      [content]="example5"
+    >
+      <zui-button-example-5></zui-button-example-5>
     </tui-doc-example>
 
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-button
+      <button zuiButton
         [icon]="icon"
-        [style]="style"
-      ></zui-button>
+        [size]="size"
+        [appearanceType]="appearanceType"
+        [appearance]="appearance"
+        [disabled]="disabled"
+        [showLoader]="showLoader"
+      >{{content}}</button>
     </tui-doc-demo>
     <tui-doc-documentation>
+
+
       <ng-template
-        documentationPropertyName="label"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="label"
+        documentationPropertyName="content"
+        documentationPropertyType="ng-content"
+        [(documentationPropertyValue)]="content"
       >
-        Label
+        NgContent
       </ng-template>
 
       <ng-template
-        documentationPropertyName="type"
-        documentationPropertyType="button | submit | reset"
+        documentationPropertyName="size"
+        documentationPropertyType="ZuiSize"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="typeVariants"
-        [(documentationPropertyValue)]="type"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
       >
-        Type
+        Size
+      </ng-template>
+
+
+      <ng-template
+        documentationPropertyName="appearance"
+        documentationPropertyType="ZuiAppearance"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="appearanceVariants"
+        [(documentationPropertyValue)]="appearance"
+      >
+        Appearance
       </ng-template>
 
       <ng-template
-        documentationPropertyName="badge"
-        documentationPropertyType="string"
+        documentationPropertyName="appearanceType"
+        documentationPropertyType="ZuiAppearanceType"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="badge"
+        [documentationPropertyValues]="appearanceTypeVariants"
+        [(documentationPropertyValue)]="appearanceType"
       >
-        Badge
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="style"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="style"
-      >
-        style
+        AppearanceType
       </ng-template>
 
       <ng-template
         documentationPropertyName="icon"
-        documentationPropertyType="string"
+        documentationPropertyType="ZuiContent"
         documentationPropertyMode="input"
+        [documentationPropertyValues]="iconVariants"
         [(documentationPropertyValue)]="icon"
       >
         Icon
       </ng-template>
 
       <ng-template
-        documentationPropertyName="iconPos"
-        documentationPropertyType="left | right | bottom | top"
+        documentationPropertyName="iconRight"
+        documentationPropertyType="ZuiContent"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="iconPosVariants"
-        [(documentationPropertyValue)]="iconPos"
+        [documentationPropertyValues]="iconVariants"
+        [(documentationPropertyValue)]="iconRight"
       >
-        Icon Position
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="styleClass"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="styleClass"
-      >
-        Style class
+        Right Icon
       </ng-template>
 
       <ng-template
@@ -109,27 +136,12 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="onClick"
-        documentationPropertyType="PointerEvent"
-        documentationPropertyMode="output"
+        documentationPropertyName="showLoader"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="showLoader"
       >
-        On Click
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="onFocus"
-        documentationPropertyType="FocusEvent"
-        documentationPropertyMode="output"
-      >
-        On Focus
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="onBlur"
-        documentationPropertyType="FocusEvent"
-        documentationPropertyMode="output"
-      >
-        On Blur
+        Show Loader
       </ng-template>
 
     </tui-doc-documentation>

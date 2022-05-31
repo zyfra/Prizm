@@ -6,6 +6,9 @@ import {ButtonComponent} from "./button.component";
 import {ZuiButtonExample2} from "./examples/2/template";
 import {ZuiButtonExample1} from "./examples/1/template";
 import {ZuiButtonModule} from "@digital-plant/zui-components";
+import {ZuiButtonExample3} from "./examples/3/template";
+import {ZuiButtonExample4} from "./examples/4/template";
+import { ZuiButtonExample5 } from "./examples/5/template";
 
 @NgModule({
   imports: [
@@ -17,6 +20,9 @@ import {ZuiButtonModule} from "@digital-plant/zui-components";
   declarations: [
     ZuiButtonExample1,
     ZuiButtonExample2,
+    ZuiButtonExample3,
+    ZuiButtonExample4,
+    ZuiButtonExample5,
     ButtonComponent
   ],
   exports: [ButtonComponent],

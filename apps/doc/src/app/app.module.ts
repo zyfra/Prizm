@@ -30,7 +30,7 @@ import {APP_PROVIDERS} from "./app.providers";
     TuiSelectModule,
     TuiStringifyContentPipeModule,
     TuiStringifyPipeModule,
-      ZyfraUiRootModule
+    ZyfraUiRootModule
 ],
   declarations: [
     AppComponent,

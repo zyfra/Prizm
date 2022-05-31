@@ -1,6 +1,7 @@
-import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
-import {TZyfraButtonIconPosision} from "@digital-plant/zyfra-components";
+import {ZuiSize, ZuiAppearance, ZuiAppearanceType, ZuiContent} from "@digital-plant/zui-components";
+import {ALL_ICONS} from "../icon/examples/mock";
 
 @Component({
   selector: 'zui-button-example',
@@ -9,43 +10,68 @@ import {TZyfraButtonIconPosision} from "@digital-plant/zyfra-components";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonComponent {
-  // List inputs
-  styleClass: string;
-  label = 'Button Name';
-
-
-  // list
-  readonly typeVariants: ReadonlyArray<'button' | 'submit' | 'reset'> = [
-    'submit',
-    'reset',
-    'button',
+  sizeVariants: ReadonlyArray<ZuiSize> = [
+    's',
+    'm',
+    'xm',
+    'l',
+    'xl',
   ];
-  type = this.typeVariants[0];
+  size: ZuiSize = this.sizeVariants[0];
 
-  icon: string;
-
-  readonly iconPosVariants: ReadonlyArray<TZyfraButtonIconPosision> = [
-    'left',
-    'right',
-    'top',
-    'bottom'
+  iconVariants: ReadonlyArray<ZuiContent> = [
+    '',
+    ...ALL_ICONS
   ];
-  iconPos: TZyfraButtonIconPosision = this.iconPosVariants[0];
+  icon: ZuiContent = this.iconVariants[0];
+  iconRight: ZuiContent = this.iconVariants[0];
+  appearanceVariants: ReadonlyArray<ZuiAppearance> = [
+    'primary',
+    'secondary',
+    'success',
+    'warning',
+    'danger',
+    'disabled'
+  ];
+  appearance: ZuiAppearance = this.appearanceVariants[0];
+
+
+  appearanceTypeVariants: ReadonlyArray<ZuiAppearanceType> = [
+    'fill',
+    'outline',
+    'ghost',
+  ];
+  appearanceType: ZuiAppearanceType = this.appearanceTypeVariants[0];
   disabled = false;
-  badge: string;
-  style: string;
+  content = 'Button Name';
+  showLoader = false;
 
   readonly exampleModule: RawLoaderContent = import(
     '!!raw-loader!./examples/import-module.md'
-    );
+  );
+
+  readonly example1: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/2/template.ts'),
+    HTML: import('!!raw-loader!./examples/2/template.html'),
+  };
 
   readonly example2: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/1/template.ts'),
     HTML: import('!!raw-loader!./examples/1/template.html'),
   };
 
-  readonly example1: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/2/template.ts'),
-    HTML: import('!!raw-loader!./examples/2/template.html'),
+  readonly example3: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/3/template.ts'),
+    HTML: import('!!raw-loader!./examples/3/template.html'),
+  };
+
+  readonly example4: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/4/template.ts'),
+    HTML: import('!!raw-loader!./examples/4/template.html'),
+  };
+
+  readonly example5: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/5/template.ts'),
+    HTML: import('!!raw-loader!./examples/5/template.html'),
   };
 }

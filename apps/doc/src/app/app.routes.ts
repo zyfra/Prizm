@@ -30,6 +30,15 @@ export const ROUTES = [
       title: 'Button',
     },
   },
+  {
+    path: 'components/icon',
+    loadChildren: async () =>
+      (await import('./components/icon/icon.module'))
+        .IconModule,
+    data: {
+      title: 'Icon',
+    },
+  },
   {path: '**', redirectTo: 'getting-started'},
 ]
 

@@ -3,5 +3,6 @@
   "dest": "../../dist/libs/next",
   "lib": {
     "entryFile": "src/index.ts"
-  }
+  },
+  "assets": ["./src/styles/styles.less"]
 }
