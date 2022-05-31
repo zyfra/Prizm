@@ -780,6 +780,7 @@ export const Icon16Defs = [
       'poi-barley',
       'poi-bdrv-administration',
       'poi-boiler-hot-water-gas-and-oil',
+      'poi-cancel sample reject',
       'poi-coal',
       'poi-crane',
       'poi-difference',
