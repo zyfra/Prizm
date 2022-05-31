@@ -1,17 +1,8 @@
 import {DOCUMENT} from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  HostBinding,
-  Inject,
-  Input,
-  TemplateRef,
-} from '@angular/core';
-// import {sizeBigger} from '@taiga-ui/core/utils/miscellaneous';
-import {isNativeFocusedIn} from "../../util/is-native-focused-in";
-import {blurNativeFocused} from "../../util/blur-native-focused";
-import {ZuiSize} from "../button";
+import {ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, Input, TemplateRef,} from '@angular/core';
+import {zuiIsNativeFocusedIn} from "../../util/zui-is-native-focused-in";
+import {zuiBlurNativeFocused} from "../../util/zui-blur-native-focused";
+import {ZuiSize} from '../../util/zui-size-bigger';
 
 @Component({
     selector: 'zui-loader',
@@ -35,7 +26,7 @@ export class ZuiLoaderComponent {
     @Input()
     set showLoader(value: boolean) {
         if (value && this.focused) {
-            blurNativeFocused(this.documentRef);
+            zuiBlurNativeFocused(this.documentRef);
         }
 
         this.loading = value;
@@ -57,11 +48,11 @@ export class ZuiLoaderComponent {
         return !!this.textContent;
     }
 
-    get isHorizontal(): boolean {
-        return !sizeBigger(this.size);
-    }
+    // get isHorizontal(): boolean {
+    //     return !zuiSizeBigger(this.size);
+    // }
 
     get focused(): boolean {
-        return isNativeFocusedIn(this.elementRef.nativeElement);
+        return zuiIsNativeFocusedIn(this.elementRef.nativeElement);
     }
 }

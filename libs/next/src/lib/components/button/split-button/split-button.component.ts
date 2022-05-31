@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import {ZuiAppearance, ZuiAppearanceType, ZuiContent} from "../button-options";
 import {ZuiDestroyService} from "@digital-plant/zyfra-helpers";
-import {ZuiSize} from "../../../util/size-bigger";
+import {ZuiSize} from "../../../util/zui-size-bigger";
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

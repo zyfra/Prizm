@@ -9,8 +9,8 @@ import {
 } from '@angular/core';
 import {ZUI_BUTTON_OPTIONS, ZuiAppearance, ZuiAppearanceType, ZuiButtonOptions, ZuiContent} from "./button-options";
 import {AbstractZuiInteractive} from "../../abstract/interactive";
-import {isNativeFocused} from "../../util/is-native-focused";
-import {ZuiSize} from "../../util/size-bigger";
+import {zuiIsNativeFocused} from "../../util/zui-is-native-focused";
+import {ZuiSize} from "../../util/zui-size-bigger";
 import {ZuiDestroyService} from "@digital-plant/zyfra-helpers";
 import {watch} from "@taiga-ui/cdk";
 import {takeUntil, tap} from "rxjs/operators";
@@ -56,7 +56,7 @@ export class ZuiButtonComponent extends AbstractZuiInteractive {
   readonly TemplateRef = TemplateRef;
 
   get focused(): boolean {
-    return !this.showLoader && isNativeFocused(this.elementRef.nativeElement);
+    return !this.showLoader && zuiIsNativeFocused(this.elementRef.nativeElement);
   }
 
   constructor(

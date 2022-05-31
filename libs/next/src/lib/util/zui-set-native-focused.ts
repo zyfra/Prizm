@@ -1,4 +1,4 @@
-export function setNativeFocused(
+export function zuiSetNativeFocused(
     element: HTMLOrSVGElement,
     focused: boolean = true,
     preventScroll: boolean = false,

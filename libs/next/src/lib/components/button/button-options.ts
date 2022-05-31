@@ -1,5 +1,5 @@
 import {InjectionToken, TemplateRef, ValueProvider} from '@angular/core';
-import {ZuiSize} from "../../util/size-bigger";
+import {ZuiSize} from "../../util/zui-size-bigger";
 
 export type ZuiAppearance = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'disabled';
 

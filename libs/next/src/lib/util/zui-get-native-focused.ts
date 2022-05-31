@@ -3,7 +3,7 @@
  *
  * @return element or null
  */
-export function getNativeFocused(documentRef: Document): Element | null {
+export function zuiGetNativeFocused(documentRef: Document): Element | null {
     if (!documentRef.activeElement || !documentRef.activeElement.shadowRoot) {
         return documentRef.activeElement;
     }
