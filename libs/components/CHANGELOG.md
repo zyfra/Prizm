@@ -1,5 +1,16 @@
 # Changelog
 
+## [v0.10.0] - 31-05-2022
+### @digital-plant/zyfra-components [v0.10.0]
+
+**Feature**
+
+- docs(sdk): add example input-group [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/166)
+
+**Fixes**
+
+- fix(components/input-mask) add default inputs options [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/161)
+
 ## [v0.9.3] - 27-05-2022
 ### @digital-plant/zyfra-components [v0.9.3]
 
