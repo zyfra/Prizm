@@ -10,7 +10,7 @@ import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
 import { takeUntil } from 'rxjs/operators';
 import { ZuiInputControl } from '../input-directives/zui-input-control.class';
 import { InputInvalidSubtextBaseClass } from './input-invalid-subtext-base.class';
-import { ZuiInputValidationTexts } from './input-invalid-subtext.models';
+import { ZuiInputValidationTexts } from './input-invalid-subtext.service';
 
 @Component({
   selector: 'zui-input-invalid-subtext',
