@@ -11,6 +11,12 @@
     <ng-content></ng-content>
     <ng-container *ngIf='iconRight' [ngTemplateOutlet]="showIconTemp" [ngTemplateOutletContext]="{icon: iconRight}"></ng-container>
   </span>
+  <zui-loader
+    *ngIf="showLoader"
+    class="z-loader"
+    [size]="loaderSize"
+    [inheritColor]="true"
+  ></zui-loader>
 </zui-wrapper>
 
 <ng-template #showIconTemp let-icon="icon">

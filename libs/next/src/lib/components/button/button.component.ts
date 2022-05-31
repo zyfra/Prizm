@@ -80,4 +80,8 @@ export class ZuiButtonComponent extends AbstractZuiInteractive {
   public isTemplateRef(icon: ZuiContent): icon is TemplateRef<unknown> {
     return icon instanceof TemplateRef;
   }
+
+  get loaderSize(): ZuiSize {
+    return this.size === 'l' || this.size === 'xl' ? 'm' : 's';
+  }
 }

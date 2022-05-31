@@ -1,12 +1,11 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {PolymorpheusModule} from '@tinkoff/ng-polymorpheus';
-
-import {TuiLoaderComponent} from './loader.component';
+import {ZuiLoaderComponent} from './loader.component';
 
 @NgModule({
     imports: [CommonModule, PolymorpheusModule],
-    declarations: [TuiLoaderComponent],
-    exports: [TuiLoaderComponent],
+    declarations: [ZuiLoaderComponent],
+    exports: [ZuiLoaderComponent],
 })
-export class TuiLoaderModule {}
+export class ZuiLoaderModule {}

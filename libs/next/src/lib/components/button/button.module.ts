@@ -5,6 +5,7 @@ import {ZuiWrapperModule} from "../../directives/wrapper";
 import {ZuiIconModule} from "../icon";
 import {CallFuncModule} from "@digital-plant/zyfra-helpers";
 import {ZuiSplitButtonComponent} from "./split-button/split-button.component";
+import {ZuiLoaderModule} from '../loader/loader.module';
 
 @NgModule({
   declarations: [ZuiButtonComponent, ZuiSplitButtonComponent],
@@ -12,6 +13,7 @@ import {ZuiSplitButtonComponent} from "./split-button/split-button.component";
     CommonModule,
     ZuiWrapperModule,
     ZuiIconModule,
+    ZuiLoaderModule,
     CallFuncModule,
   ],
   exports: [ZuiButtonComponent, ZuiSplitButtonComponent],

@@ -2,7 +2,7 @@ import {DOCUMENT} from '@angular/common';
 import {ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, Input, TemplateRef,} from '@angular/core';
 import {zuiIsNativeFocusedIn} from "../../util/zui-is-native-focused-in";
 import {zuiBlurNativeFocused} from "../../util/zui-blur-native-focused";
-import {ZuiSize} from '../../util/zui-size-bigger';
+import {ZuiSize, zuiSizeBigger} from '../../util/zui-size-bigger';
 
 @Component({
     selector: 'zui-loader',
@@ -21,7 +21,7 @@ export class ZuiLoaderComponent {
     overlay: boolean = false;
 
     @Input()
-    textContent: TemplateRef<any> | null = null;
+    textContent: TemplateRef<unknown> | null = null;
 
     @Input()
     set showLoader(value: boolean) {
@@ -48,9 +48,9 @@ export class ZuiLoaderComponent {
         return !!this.textContent;
     }
 
-    // get isHorizontal(): boolean {
-    //     return !zuiSizeBigger(this.size);
-    // }
+    get isHorizontal(): boolean {
+        return !zuiSizeBigger(this.size);
+    }
 
     get focused(): boolean {
         return zuiIsNativeFocusedIn(this.elementRef.nativeElement);
