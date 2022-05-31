@@ -18,7 +18,7 @@
         focusable="false"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
-        class="t-icon"
+        class="z-icon"
     >
         <circle
             cx="50"
@@ -33,6 +33,7 @@
         *ngIf="hasText"
         class="z-text"
         [class.z-text_horizontal]="isHorizontal"
-        [content]="textContent"
-    ></div>
+    >
+      <ng-container [ngTemplateOutlet]="textContent"></ng-container>
+    </div>
 </div>

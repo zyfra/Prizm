@@ -2,6 +2,7 @@
   <button zuiButton
     [size]="size"
     [appearance]="appearance"
+    [showLoader]="showLoader"
     [disabled]="disabled"
     (click)="clickButton.emit()"
     [appearanceType]="appearanceType"
@@ -11,7 +12,7 @@
 </div>
 <div class="icon">
   <button zuiIconButton
-    (click)="clickIcon.emit()"
+    (click)="!showLoader && clickIcon.emit()"
     [size]="size"
     [disabled]="disabled"
     [appearance]="appearance"

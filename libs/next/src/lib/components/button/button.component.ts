@@ -51,6 +51,7 @@ export class ZuiButtonComponent extends AbstractZuiInteractive {
   disabled = false;
 
   @Input()
+  @HostBinding('class._loading')
   showLoader = false;
 
   readonly TemplateRef = TemplateRef;

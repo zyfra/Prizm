@@ -316,5 +316,22 @@
 
 .z-content {
   display: flex;
-  gap: 9px;
+  height: 100%;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  :host._loading & {
+    opacity: 0;
+  }
+}
+
+.z-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: default;
 }
