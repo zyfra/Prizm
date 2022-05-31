@@ -1,0 +1,8 @@
+<form [formGroup]="form">
+  <zyfra-input-group label="Label">
+    <input zyfraInput placeholder="Placeholder" formControlName="inputName" />
+    <zyfra-input-group-clear
+      [hidden]="!form.controls.inputName.value || form.disabled"
+    ></zyfra-input-group-clear>
+  </zyfra-input-group>
+</form>
