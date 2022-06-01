@@ -1,0 +1,11 @@
+<h4>Custom validation texts</h4>
+<zui-input-layout label="Заголовок">
+  <input
+    #input
+    zuiInput
+    value="Введенный текст"
+    placeholder="Введите текст"
+    [formControl]="requiredInputControl"
+  />
+  <zui-input-invalid-subtext zui-input-subtext [control]="input"></zui-input-invalid-subtext>
+</zui-input-layout>

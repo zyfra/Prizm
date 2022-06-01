@@ -1,6 +1,6 @@
-import {NgModule} from '@angular/core';
-import {RouterModule} from '@angular/router';
-import {GettingStartedComponent} from "./getting-started/getting-started.component";
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { GettingStartedComponent } from './getting-started/getting-started.component';
 
 export const ROUTES = [
   // DOCS
@@ -13,9 +13,7 @@ export const ROUTES = [
   },
   {
     path: 'example-component',
-    loadChildren: async () =>
-      (await import('./components/example-component/example.module'))
-        .ExampleModule,
+    loadChildren: async () => (await import('./components/example-component/example.module')).ExampleModule,
     data: {
       title: 'Example',
     },
@@ -23,34 +21,34 @@ export const ROUTES = [
   // COMPONENTS
   {
     path: 'components/button',
-    loadChildren: async () =>
-      (await import('./components/button/button.module'))
-        .ButtonModule,
+    loadChildren: async () => (await import('./components/button/button.module')).ButtonModule,
     data: {
       title: 'Button',
     },
   },
   {
     path: 'components/icon',
-    loadChildren: async () =>
-      (await import('./components/icon/icon.module'))
-        .IconModule,
+    loadChildren: async () => (await import('./components/icon/icon.module')).IconModule,
+    data: {
+      title: 'Icon',
+    },
+  },
+  {
+    path: 'components/input',
+    loadChildren: async () => (await import('./components/input/input-example.module')).InputExampleModule,
     data: {
       title: 'Icon',
     },
   },
   {
     path: 'components/loader',
-    loadChildren: async () =>
-      (await import('./components/loader/loader.module'))
-        .LoaderModule,
+    loadChildren: async () => (await import('./components/loader/loader.module')).LoaderModule,
     data: {
       title: 'Loader',
     },
   },
-  {path: '**', redirectTo: 'getting-started'},
-]
-
+  { path: '**', redirectTo: 'getting-started' },
+];
 
 @NgModule({
   imports: [

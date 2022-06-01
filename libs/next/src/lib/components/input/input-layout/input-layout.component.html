@@ -1,9 +1,15 @@
-<label class="zui-input-label" [class.zui-input-label-inner]="!outer">
+<label
+  class="zui-input-label"
+  [attr.data-size]="size"
+  [class.zui-input-label-inner]="!outer"
+  [class.zui-input-label-focused]="control.focused"
+  [class.zui-input-label-empty]="control.empty"
+>
   {{ label }}
   <span *ngIf="control.required" class="zui-input-label-required">*</span>
 </label>
 <div
-  class="zui-input-form"
+  class="zui-input-form zui-input-form-status-{{ status }}"
   [attr.data-size]="size"
   [ngClass]="{
     'zui-input-form-outer': outer,
@@ -11,6 +17,7 @@
     'zui-input-form-focused': control.focused,
     'zui-input-form-empty': control.empty,
     'zui-input-form-disabled': control.disabled,
+    'zui-input-form-touched': control.touched,
     'zui-input-form-invalid': control.invalid
   }"
 >

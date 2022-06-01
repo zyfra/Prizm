@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ZuiInputControl } from '../input-directives/zui-input-control.class';
-import { ZuiInputSize } from '../models/zui-input.models';
+import { ZuiInputSize, ZuiInputStatus } from '../models/zui-input.models';
 
 @Component({
   selector: 'zui-input-layout',
@@ -23,8 +23,11 @@ import { ZuiInputSize } from '../models/zui-input.models';
 })
 export class InputLayoutComponent implements OnInit, OnDestroy {
   @Input() label: string;
+
   @Input() size: ZuiInputSize = 'l';
+
   @Input() outer: boolean | string = false;
+  @Input() status: ZuiInputStatus = 'default';
 
   @ContentChild(ZuiInputControl, { static: true }) control: ZuiInputControl<any>;
 
@@ -35,7 +38,11 @@ export class InputLayoutComponent implements OnInit, OnDestroy {
   constructor(private readonly injector: Injector) {}
 
   ngOnInit(): void {
-    this.subscriptions.add(this.control.stateChanges.subscribe(() => this.cdr.detectChanges()));
+    this.subscriptions.add(
+      this.control.stateChanges.subscribe(() => {
+        this.cdr.detectChanges();
+      })
+    );
   }
 
   ngOnDestroy(): void {

@@ -92,6 +92,11 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck {
   public focused: boolean;
 
   /**
+   * Touched state
+   */
+  public touched: boolean;
+
+  /**
    * Create instance
    */
   constructor(
@@ -114,22 +119,23 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck {
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('input', ['$event'])
-  onInput(e): void {
+  onInput(e: unknown): void {
     this.updateEmptyState();
     this.stateChanges.next();
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('focus', ['$event'])
-  onFocus(e): void {
+  onFocus(e: unknown): void {
     this.focused = true;
     this.stateChanges.next();
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('blur', ['$event'])
-  onBlur(e): void {
+  onBlur(e: unknown): void {
     this.focused = false;
+    this.touched = true;
     this.stateChanges.next();
   }
 
@@ -147,9 +153,10 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck {
   }
 
   private updateEmptyState(): void {
-    this.empty =
+    this.empty = !(
       (this.elementRef.nativeElement.value && this.elementRef.nativeElement.value.length) ||
-      (this.ngControl && this.ngControl.value);
+      (this.ngControl && this.ngControl.value)
+    );
   }
 
   private updateErrorState(): void {

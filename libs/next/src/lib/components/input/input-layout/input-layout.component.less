@@ -12,6 +12,8 @@
   padding-left: 13px;
   line-height: 16px;
   margin-bottom: 4px;
+  transition: top 200ms ease 0s;
+  pointer-events: none;
 
   &-required {
     color: var(--index-danger);
@@ -19,6 +21,27 @@
 
   &-inner {
     position: absolute;
+
+    &[data-size='l'] {
+      top: 6px;
+
+      &.zui-input-label-empty {
+        top: 16px;
+      }
+      &.zui-input-label-focused {
+        top: 6px;
+      }
+    }
+
+    &[data-size='m'] {
+      top: 2px;
+      &.zui-input-label-empty {
+        top: 10px;
+      }
+      &.zui-input-label-focused {
+        top: 2px;
+      }
+    }
   }
 }
 
@@ -33,13 +56,49 @@
     border-color: var(--index-plan);
   }
 
+  &-status {
+    &-success {
+      border-color: var(--index-good);
+      &:hover {
+        border-color: var(--index-good);
+      }
+    }
+    &-warning {
+      border-color: var(--index-warning);
+      &:hover {
+        border-color: var(--index-warning);
+      }
+    }
+
+    &-danger {
+      border-color: var(--index-danger);
+      &:hover {
+        border-color: var(--index-danger);
+      }
+    }
+  }
+
+  &-invalid {
+    &.zui-input-form-touched {
+      border-color: var(--index-danger);
+    }
+  }
+
+  // rewrite all if focused
   &-focused {
     border-color: var(--index-plan);
     box-shadow: 0px 0px 0px 2px var(--lite-b130-20);
+
+    &:hover {
+      border-color: var(--index-plan);
+    }
   }
 
   &-disabled {
     border-color: transparent;
+    &:hover {
+      border-color: transparent;
+    }
   }
 
   &-inner {
