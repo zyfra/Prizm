@@ -10,6 +10,7 @@
     "serve:sdk": "nx run sdk:serve:development",
     "build": "nx affected:build --all",
     "build:storybook": "nx run components:build-storybook",
+    "build:next": "nx run doc:build",
     "build:stats": "nx build sdk --stats-json",
     "analize": "webpack-bundle-analyzer dist/apps/sdk/stats.json",
     "lint:libs": "nx lint components && nx lint schematics && nx lint translate",
