@@ -466,8 +466,6 @@ export const IconDefs = [
   {
     dir: 'editor',
     data: [
-      'add-brace-right',
-      'add-curly-brace-right',
       'editor-add-column',
       'editor-add-row',
       'editor-alfavit',
@@ -488,6 +486,7 @@ export const IconDefs = [
       'editor-border-top',
       'editor-border-vertical',
       'editor-brace-left',
+      'editor-brace-right',
       'editor-copy-column',
       'editor-copy-drop',
       'editor-copy-row',
@@ -495,6 +494,7 @@ export const IconDefs = [
       'editor-crop',
       'editor-cross-out',
       'editor-curly-brace-left',
+      'editor-curly-brace-right',
       'editor-delete-column',
       'editor-delete-row',
       'editor-disconnect-link',
@@ -544,6 +544,7 @@ export const IconDefs = [
       'editor-minus',
       'editor-mode',
       'editor-multiplication',
+      'editor-panel-down',
       'editor-panel-left',
       'editor-panel-right',
       'editor-panel-top',
