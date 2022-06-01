@@ -12,7 +12,7 @@ import {ZuiSize, zuiSizeBigger} from '../../util/zui-size-bigger';
 })
 export class ZuiLoaderComponent {
     @Input()
-    size: ZuiSize;
+    size: ZuiSize = 's';
 
     @Input()
     inheritColor: boolean = false;

@@ -27,6 +27,12 @@ export const pages: TuiDocPages = [
         keywords: 'иконка, icon',
         route: '/components/icon',
       },
+      {
+        section: `Components`,
+        title: 'Loader',
+        keywords: 'loader, spinner, лоадер, спиннер, загрузка',
+        route: '/components/loader',
+      },
   // Helpers
     {
         section: `Helpers`,

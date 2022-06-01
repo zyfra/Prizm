@@ -39,6 +39,15 @@ export const ROUTES = [
       title: 'Icon',
     },
   },
+  {
+    path: 'components/loader',
+    loadChildren: async () =>
+      (await import('./components/loader/loader.module'))
+        .LoaderModule,
+    data: {
+      title: 'Loader',
+    },
+  },
   {path: '**', redirectTo: 'getting-started'},
 ]
 
