@@ -119,21 +119,21 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck {
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('input', ['$event'])
-  onInput(e): void {
+  onInput(e: unknown): void {
     this.updateEmptyState();
     this.stateChanges.next();
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('focus', ['$event'])
-  onFocus(e): void {
+  onFocus(e: unknown): void {
     this.focused = true;
     this.stateChanges.next();
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('blur', ['$event'])
-  onBlur(e): void {
+  onBlur(e: unknown): void {
     this.focused = false;
     this.touched = true;
     this.stateChanges.next();
