@@ -23,6 +23,12 @@ export const pages: TuiDocPages = [
       },
       {
         section: `Components`,
+        title: 'Input',
+        keywords: 'input, text, form',
+        route: '/components/input',
+      },
+      {
+        section: `Components`,
         title: 'Icon',
         keywords: 'иконка, icon',
         route: '/components/icon',
