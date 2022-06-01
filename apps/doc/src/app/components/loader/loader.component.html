@@ -19,18 +19,46 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-loader></zui-loader>
+      <div style="position: relative; color: black;">
+        <zui-loader [showLoader]="showLoader"
+                    [inheritColor]="inheritColor"
+                    [overlay]="overlay">
+          Lorem Ipsum is simply dummy text of the printing and
+          typesetting industry. Lorem Ipsum has been the industry's
+          standard dummy text ever since the 1500s, when an unknown
+          printer took a galley of type and scrambled it to make a
+          type specimen book. It has survived not only five centuries,
+          but also the leap into electronic typesetting.
+        </zui-loader>
+      </div>
+
     </tui-doc-demo>
     <tui-doc-documentation>
-<!--      <ng-template-->
-<!--        documentationPropertyName="type"-->
-<!--        documentationPropertyType="string"-->
-<!--        documentationPropertyMode="input"-->
-<!--        [documentationPropertyValues]="iconVariants"-->
-<!--        [(documentationPropertyValue)]="Loader"-->
-<!--      >-->
-<!--        Loader-->
-<!--      </ng-template>-->
+      <ng-template
+        documentationPropertyName="showLoader"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="showLoader"
+      >
+        Show Loader
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="overlay"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="overlay"
+      >
+        Overlay
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="textContent"
+        documentationPropertyType="TemplateRef<unknown> | null"
+        documentationPropertyMode="input"
+      >
+        Text Content
+      </ng-template>
     </tui-doc-documentation>
   </ng-template>
 

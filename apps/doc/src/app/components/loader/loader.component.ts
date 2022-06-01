@@ -8,6 +8,10 @@ import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoaderComponent {
+  showLoader = true;
+  inheritColor = false;
+  overlay = true;
+
   readonly exampleModule: RawLoaderContent = import(
     '!!raw-loader!./examples/import-module.md'
   );
