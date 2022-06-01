@@ -1,0 +1,53 @@
+<tui-doc-page
+  header="Icon"
+  package="NEXT"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Icon set.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Set"
+      [content]="example1"
+    >
+      <zui-icon-example-1></zui-icon-example-1>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-icon [iconClass]="icon"></zui-icon>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="type"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="iconVariants"
+        [(documentationPropertyValue)]="icon"
+      >
+        Icon
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p >
+          Import
+          <code>ZuiIconModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="exampleModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

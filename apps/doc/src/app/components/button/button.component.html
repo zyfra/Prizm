@@ -1,0 +1,166 @@
+<tui-doc-page
+  header="Button"
+  package="NEXT"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use Button.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Filled buttons"
+      [content]="example1"
+    >
+      <zui-button-example-2></zui-button-example-2>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="base"
+      heading="Outline buttons"
+      [content]="example2"
+    >
+      <zui-button-example-1></zui-button-example-1>
+    </tui-doc-example>
+
+
+    <tui-doc-example
+      id="base"
+      heading="Ghost buttons"
+      [content]="example3"
+    >
+      <zui-button-example-3></zui-button-example-3>
+    </tui-doc-example>
+
+
+    <tui-doc-example
+      id="base"
+      heading="Icons"
+      [content]="example4"
+    >
+      <zui-button-example-4></zui-button-example-4>
+    </tui-doc-example>
+
+
+    <tui-doc-example
+      id="base"
+      heading="Split Button"
+      [content]="example5"
+    >
+      <zui-button-example-5></zui-button-example-5>
+    </tui-doc-example>
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <button zuiButton
+        [icon]="icon"
+        [size]="size"
+        [appearanceType]="appearanceType"
+        [appearance]="appearance"
+        [disabled]="disabled"
+        [showLoader]="showLoader"
+      >{{content}}</button>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+
+
+      <ng-template
+        documentationPropertyName="content"
+        documentationPropertyType="ng-content"
+        [(documentationPropertyValue)]="content"
+      >
+        NgContent
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="ZuiSize"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+
+
+      <ng-template
+        documentationPropertyName="appearance"
+        documentationPropertyType="ZuiAppearance"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="appearanceVariants"
+        [(documentationPropertyValue)]="appearance"
+      >
+        Appearance
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="appearanceType"
+        documentationPropertyType="ZuiAppearanceType"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="appearanceTypeVariants"
+        [(documentationPropertyValue)]="appearanceType"
+      >
+        AppearanceType
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="icon"
+        documentationPropertyType="ZuiContent"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="iconVariants"
+        [(documentationPropertyValue)]="icon"
+      >
+        Icon
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="iconRight"
+        documentationPropertyType="ZuiContent"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="iconVariants"
+        [(documentationPropertyValue)]="iconRight"
+      >
+        Right Icon
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="showLoader"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="showLoader"
+      >
+        Show Loader
+      </ng-template>
+
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p >
+          Import
+          <code>ZyfraButtonModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="exampleModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

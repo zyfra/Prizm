@@ -43,6 +43,7 @@ export * from './lib/toggle-button';
 export * from './lib/tree';
 export * from './lib/tree-table';
 export * from './lib/tri-checkbox';
+export * from "./lib/@core/shared/zyfra-template.module";
 
 export * from './lib/@next';
 

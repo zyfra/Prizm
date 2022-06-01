@@ -1,0 +1,8 @@
+<h1>ALL ICONS ({{ALL_ICONS.length}}шт)</h1>
+<div class="box">
+  <div class="title">Кликните для копирования названия выбранной иконки</div>
+  <div class="content">
+    <zui-icon [title]="'Кликните для копирования - ' + icon" (click)="copy(icon)" *ngFor="let icon of ALL_ICONS" [iconClass]="icon"></zui-icon>
+  </div>
+</div>
+

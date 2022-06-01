@@ -1,0 +1,22 @@
+<div class="button">
+  <button zuiButton
+    [size]="size"
+    [appearance]="appearance"
+    [showLoader]="showLoader"
+    [disabled]="disabled"
+    (click)="clickButton.emit()"
+    [appearanceType]="appearanceType"
+  >
+    <ng-content></ng-content>
+  </button>
+</div>
+<div class="icon">
+  <button zuiIconButton
+    (click)="!showLoader && clickIcon.emit()"
+    [size]="size"
+    [disabled]="disabled"
+    [appearance]="appearance"
+    [appearanceType]="appearanceType"
+    [icon]="icon">
+  </button>
+</div>

@@ -8,21 +8,32 @@ export const pages: TuiDocPages = [
         keywords: 'intro, how to, guide, main, главная, начало, инструкция',
         route: 'getting-started',
     },
-    // Components
     {
+        section: `Documentation`,
+        title: 'Example Component',
+        keywords: 'демо кнопка, example-component, example-button',
+        route: 'example-component',
+    },
+  // Components
+      {
+          section: `Components`,
+          title: 'Button',
+          keywords: 'кнопка, zui-button, иконка',
+          route: '/components/button',
+      },
+      {
         section: `Components`,
-        title: 'Button',
-        keywords: 'кнопка, button, иконка',
-        route: '/components/button',
-    },
-    // Inputs
-    {
-      section: `Components`,
-      title: 'Inputs',
-      keywords: 'кнопка, button, иконка',
-      route: '/components/input',
-    },
-    // Helpers
+        title: 'Icon',
+        keywords: 'иконка, icon',
+        route: '/components/icon',
+      },
+      {
+        section: `Components`,
+        title: 'Loader',
+        keywords: 'loader, spinner, лоадер, спиннер, загрузка',
+        route: '/components/loader',
+      },
+  // Helpers
     {
         section: `Helpers`,
         title: `Helpers`,

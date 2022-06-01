@@ -8,7 +8,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {BrowserModule} from "@angular/platform-browser";
 import {AppRoutes} from "./app.routes";
 import {VersionManagerComponent} from "./version-manager/version-manager.component";
-import {TuiDataListModule} from '@taiga-ui/core';
+import {TuiDataListModule, TuiTextfieldControllerModule} from '@taiga-ui/core';
 import {TuiDataListWrapperModule, TuiSelectModule, TuiStringifyContentPipeModule, TuiStringifyPipeModule} from '@taiga-ui/kit';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MarkdownModule} from 'ngx-markdown';
@@ -20,6 +20,7 @@ import {APP_PROVIDERS} from "./app.providers";
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutes,
+    TuiTextfieldControllerModule,
     MarkdownModule,
     TuiDocMainModule,
     TuiAddonDocModule,
@@ -29,7 +30,7 @@ import {APP_PROVIDERS} from "./app.providers";
     TuiSelectModule,
     TuiStringifyContentPipeModule,
     TuiStringifyPipeModule,
-      ZyfraUiRootModule
+    ZyfraUiRootModule
 ],
   declarations: [
     AppComponent,

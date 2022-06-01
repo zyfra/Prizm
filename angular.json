@@ -9,9 +9,7 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/components"
-          ],
+          "outputs": ["dist/libs/components"],
           "options": {
             "project": "libs/components/ng-package.json"
           },
@@ -27,9 +25,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/components"
-          ],
+          "outputs": ["coverage/libs/components"],
           "options": {
             "jestConfig": "libs/components/jest.config.js",
             "passWithNoTests": true
@@ -38,10 +34,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/components/src/**/*.ts",
-              "libs/components/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/components/src/**/*.ts", "libs/components/src/**/*.html"]
           }
         },
         "storybook": {
@@ -61,9 +54,7 @@
         },
         "build-storybook": {
           "builder": "@nrwl/storybook:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/components",
@@ -109,20 +100,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/components-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/components-e2e/**/*.{js,ts}"]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": [
-        "components"
-      ]
+      "implicitDependencies": ["components"]
     },
     "doc": {
       "projectType": "application",
@@ -132,9 +117,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/doc",
             "index": "apps/doc/src/index.html",
@@ -152,7 +135,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "node_modules/@digital-plant/zyfra-components/src/styles/fonts",
+                "input": "libs/components/src/styles/fonts",
                 "output": "assets/ui-platform/components/fonts"
               }
             ],
@@ -163,10 +146,11 @@
               "node_modules/primeng/resources/themes/luna-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeicons/primeicons.css",
-              "node_modules/@digital-plant/zyfra-components/src/styles/theme/default.less",
-              "node_modules/@digital-plant/zyfra-components/src/styles/theme/_new_default_theme.less",
-              "node_modules/@digital-plant/zyfra-components/src/styles/styles.less",
-              "node_modules/@digital-plant/zyfra-components/src/styles/icons/icons.less"
+              "libs/components/src/styles/theme/default.less",
+              "libs/components/src/styles/styles.less",
+              "libs/components/src/styles/icons/icons.less",
+              "libs/next/src/styles/styles.less",
+              "libs/next/src/styles/icons/icons.less"
             ],
             "scripts": []
           },
@@ -224,17 +208,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/doc/src/**/*.ts",
-              "apps/doc/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/doc/src/**/*.ts", "apps/doc/src/**/*.html"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/doc"
-          ],
+          "outputs": ["coverage/apps/doc"],
           "options": {
             "jestConfig": "apps/doc/jest.config.js",
             "passWithNoTests": true
@@ -262,20 +241,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/doc-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/doc-e2e/**/*.{js,ts}"]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": [
-        "doc"
-      ]
+      "implicitDependencies": ["doc"]
     },
     "helpers": {
       "projectType": "library",
@@ -285,9 +258,7 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/helpers"
-          ],
+          "outputs": ["dist/libs/helpers"],
           "options": {
             "project": "libs/helpers/ng-package.json"
           },
@@ -303,9 +274,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/helpers"
-          ],
+          "outputs": ["coverage/libs/helpers"],
           "options": {
             "jestConfig": "libs/helpers/jest.config.js",
             "passWithNoTests": true
@@ -314,10 +283,46 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/helpers/src/**/*.ts",
-              "libs/helpers/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/helpers/src/**/*.ts", "libs/helpers/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
+    "next": {
+      "projectType": "library",
+      "root": "libs/next",
+      "sourceRoot": "libs/next/src",
+      "prefix": "zui",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/next"],
+          "options": {
+            "project": "libs/next/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/next/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/next/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/next"],
+          "options": {
+            "jestConfig": "libs/next/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/next/src/**/*.ts", "libs/next/src/**/*.html"]
           }
         }
       },
@@ -331,9 +336,7 @@
       "architect": {
         "prebuild": {
           "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/schematics"
-          ],
+          "outputs": ["dist/libs/schematics"],
           "options": {
             "project": "libs/schematics/ng-package.json"
           },
@@ -351,10 +354,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "parallel": false,
-            "commands": [
-              "nx prebuild schematics",
-              "nx postbuild schematics"
-            ]
+            "commands": ["nx prebuild schematics", "nx postbuild schematics"]
           },
           "dependsOn": [
             {
@@ -376,9 +376,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/schematics"
-          ],
+          "outputs": ["coverage/libs/schematics"],
           "options": {
             "jestConfig": "libs/schematics/jest.config.js",
             "passWithNoTests": true
@@ -387,10 +385,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/schematics/src/**/*.ts",
-              "libs/schematics/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/schematics/src/**/*.ts", "libs/schematics/src/**/*.html"]
           }
         }
       },
@@ -404,9 +399,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/sdk",
             "index": "apps/sdk/src/index.html",
@@ -419,7 +412,7 @@
               "apps/sdk/src/assets",
               {
                 "glob": "**/*",
-                "input": "node_modules/@digital-plant/zyfra-components/src/styles/fonts",
+                "input": "libs/components/src/styles/fonts",
                 "output": "assets/ui-platform/components/fonts"
               }
             ],
@@ -431,13 +424,7 @@
               "node_modules/primeicons/primeicons.css",
               "libs/components/src/styles/theme/default.less",
               "libs/components/src/styles/styles.less",
-              "libs/components/src/styles/icons/icons.less",
-              "node_modules/primeng/resources/themes/luna-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/@digital-plant/zyfra-components/src/styles/theme/default.less",
-              "node_modules/@digital-plant/zyfra-components/src/styles/styles.less",
-              "node_modules/@digital-plant/zyfra-components/src/styles/icons/icons.less"
+              "libs/components/src/styles/icons/icons.less"
             ],
             "scripts": []
           },
@@ -495,17 +482,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/sdk/src/**/*.ts",
-              "apps/sdk/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/sdk/src/**/*.ts", "apps/sdk/src/**/*.html"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/sdk"
-          ],
+          "outputs": ["coverage/apps/sdk"],
           "options": {
             "jestConfig": "apps/sdk/jest.config.js",
             "passWithNoTests": true
@@ -534,20 +516,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/sdk-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/sdk-e2e/**/*.{js,ts}"]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": [
-        "sdk"
-      ]
+      "implicitDependencies": ["sdk"]
     },
     "translate": {
       "projectType": "library",
@@ -557,9 +533,7 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/translate"
-          ],
+          "outputs": ["dist/libs/translate"],
           "options": {
             "project": "libs/translate/ng-package.json"
           },
@@ -575,9 +549,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/translate"
-          ],
+          "outputs": ["coverage/libs/translate"],
           "options": {
             "jestConfig": "libs/translate/jest.config.js",
             "passWithNoTests": true
@@ -586,10 +558,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/translate/src/**/*.ts",
-              "libs/translate/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/translate/src/**/*.ts", "libs/translate/src/**/*.html"]
           }
         }
       },

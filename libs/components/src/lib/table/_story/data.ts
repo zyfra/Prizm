@@ -198,7 +198,7 @@ export const Customers: Customer[] = [
     },
     company: 'Feltz Printing Service',
     date: new Date('2020-09-15'),
-    status: 'new',
+    status: 'zui',
     verified: false,
     activity: 37,
     representative: {
@@ -396,7 +396,7 @@ export const Customers: Customer[] = [
     },
     company: 'Rousseaux, Michael Esq',
     date: new Date('2019-06-25'),
-    status: 'new',
+    status: 'zui',
     verified: true,
     activity: 90,
     representative: {
@@ -612,7 +612,7 @@ export const Customers: Customer[] = [
     },
     company: 'Professional Image Inc',
     date: new Date('2018-06-24'),
-    status: 'new',
+    status: 'zui',
     verified: true,
     activity: 26,
     representative: {
@@ -630,7 +630,7 @@ export const Customers: Customer[] = [
     },
     company: 'Sider, Donald C Esq',
     date: new Date('2016-09-24'),
-    status: 'new',
+    status: 'zui',
     verified: false,
     activity: 76,
     representative: {
@@ -990,7 +990,7 @@ export const Customers: Customer[] = [
     },
     company: 'Schroer, Gene E Esq',
     date: new Date('2019-11-27'),
-    status: 'new',
+    status: 'zui',
     verified: false,
     activity: 80,
     representative: {
@@ -1008,7 +1008,7 @@ export const Customers: Customer[] = [
     },
     company: 'Knights Inn',
     date: new Date('2018-11-24'),
-    status: 'new',
+    status: 'zui',
     verified: false,
     activity: 63,
     representative: {
@@ -1026,7 +1026,7 @@ export const Customers: Customer[] = [
     },
     company: 'Bollinger Mach Shp & Shipyard',
     date: new Date('2018-04-19'),
-    status: 'new',
+    status: 'zui',
     verified: true,
     activity: 92,
     representative: {

@@ -425,7 +425,7 @@ abstract class Calendar implements OnInit, OnDestroy, ControlValueAccessor {
 
   @Input()
   set locale(newLocale: LocaleSettings) {
-    console.warn('Locale property has no effect, use new i18n API instead.');
+    console.warn('Locale property has no effect, use zui i18n API instead.');
   }
 
   constructor(

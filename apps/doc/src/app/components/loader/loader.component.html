@@ -1,0 +1,81 @@
+<tui-doc-page
+  header="Loader"
+  package="NEXT"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Loader.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Set"
+      [content]="example1"
+    >
+      <zui-loader-example-1></zui-loader-example-1>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <div style="position: relative; color: black;">
+        <zui-loader [showLoader]="showLoader"
+                    [inheritColor]="inheritColor"
+                    [overlay]="overlay">
+          Lorem Ipsum is simply dummy text of the printing and
+          typesetting industry. Lorem Ipsum has been the industry's
+          standard dummy text ever since the 1500s, when an unknown
+          printer took a galley of type and scrambled it to make a
+          type specimen book. It has survived not only five centuries,
+          but also the leap into electronic typesetting.
+        </zui-loader>
+      </div>
+
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="showLoader"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="showLoader"
+      >
+        Show Loader
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="overlay"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="overlay"
+      >
+        Overlay
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="textContent"
+        documentationPropertyType="TemplateRef<unknown> | null"
+        documentationPropertyMode="input"
+      >
+        Text Content
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p >
+          Import
+          <code>ZuiLoaderModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="exampleModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>
