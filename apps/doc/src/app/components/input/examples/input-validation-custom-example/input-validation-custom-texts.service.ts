@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ZuiInputValidationTexts } from '@digital-plant/zyfra-components';
+import { ZuiInputValidationTexts } from '@digital-plant/zui-components';
 
 @Injectable()
 export class InputValidationCustomTextsService extends ZuiInputValidationTexts {

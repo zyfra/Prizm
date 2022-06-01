@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'zyfra-input-statuses-example',
+  selector: 'zui-input-statuses-example',
   templateUrl: './input-statuses-example.component.html',
   styleUrls: ['./input-statuses-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

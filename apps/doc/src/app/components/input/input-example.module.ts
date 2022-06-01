@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { InputModule } from '@digital-plant/zyfra-components';
+import { InputModule } from '@digital-plant/zui-components';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { InputComponent } from './input/input.component';
 import { InputExampleComponent } from './examples/input-example/input-example.component';

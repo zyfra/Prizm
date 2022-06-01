@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zyfra-input-disabled-example',
+  selector: 'zui-input-disabled-example',
   templateUrl: './input-disabled-example.component.html',
   styleUrls: ['./input-disabled-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
