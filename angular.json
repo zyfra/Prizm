@@ -154,6 +154,8 @@
           },
           "configurations": {
             "production": {
+              "deployUrl": "/zui-sdk/doc/",
+              "baseHref": "/zui-sdk/doc/",
               "budgets": [
                 {
                   "type": "initial",
