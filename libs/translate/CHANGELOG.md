@@ -1,5 +1,15 @@
 # Change log
 
+## [v1.0.3] - 
+
+### @digital-plant/zyfra-translate [v1.0.3]
+
+**Fixed**
+
+- lazy loading module with translations [#13645](https://jira.zyfra.com/browse/PLATFORM01-13645);
+
+---
+
 ## [v1.0.2] - 27-05-2022
 
 ### @digital-plant/zyfra-translate [v1.0.2]
