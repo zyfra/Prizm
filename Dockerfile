@@ -1,7 +1,7 @@
 # Define base images and tags
 # ---------------------------
 ARG DOCKERFILE_BUILD_IMAGE="node"
-ARG DOCKERFILE_BUILD_TAG="14.18.3"
+ARG DOCKERFILE_BUILD_TAG="16.13.0"
 ARG DOCKERFILE_BASE_IMAGE="registry.dp.zyfra.com/digital-plant/zui-ci-basedockerimage"
 ARG DOCKERFILE_BASE_TAG="2.2.2"
 
