@@ -43,4 +43,3 @@ export class ZyfraInputMaskComponent extends WrappedFormComponent implements Con
     // do nothing
   }
 }
-
