@@ -22,7 +22,7 @@ export class TranslateImplService implements TranslateService {
   private _lang: string;
 
   /** После загрузки переводов
-   * устанавливает языка текущим
+   * устанавливает язык текущим
    */
   private nextLang: string;
 
@@ -45,7 +45,7 @@ export class TranslateImplService implements TranslateService {
   ) { }
 
   public use(lang: string): Observable<void> {
-    return lang === this.lang ? of(null) : this.applyLang(lang);
+    return lang === this.lang ? of(undefined) : this.applyLang(lang);
   }
 
   public get lang(): string {
@@ -62,8 +62,8 @@ export class TranslateImplService implements TranslateService {
       };
       this.chunks.set(res.id, res);
 
-      if (this.lang) {
-        this.setLangByChunk(res, this.lang);
+      if (this.nextLang) {
+        this.setLangByChunk(res, this.nextLang);
       }
     }
   }
@@ -111,7 +111,7 @@ export class TranslateImplService implements TranslateService {
     const currentLang = this.tryUseChunkLang(lang, chunk)
 
     if (chunk.lang !== currentLang) {
-      const key = this.loadingChunkKey(chunk.id, lang);
+      const key = this.loadingChunkKey(chunk.id, currentLang);
       // проверка, когда слишком много подписок на смену языка
       // нужно загрузить только раз
       if (!this.loadingChunk.has(key)) {
@@ -150,13 +150,12 @@ export class TranslateImplService implements TranslateService {
 
   private applyLang(lang: string): Observable<void> {
     this.nextLang = lang;
-    this.chunks.forEach((chunk) => this.setLangByChunk(chunk, lang));
+    this.chunks.forEach((chunk) => this.setLangByChunk(chunk, this.nextLang));
     let result: Observable<void> = of(undefined);
     if (this.loadingTranslations) {
       result = this.loadingTranslations;
     } else {
-      this._lang = this.nextLang;
-      this.onLang.next(this._lang);
+      this.emitLang();
     }
     return result;
   }
@@ -165,7 +164,7 @@ export class TranslateImplService implements TranslateService {
     this.loadingChunk.delete(key);
     if (!this.loadingChunk.size) {
       this.loadingTranslations = null;
-      this.loadingSubscriber.next();
+      this.loadingSubscriber.next(undefined);
       this.loadingSubscriber.complete();
       this.loadingSubscriber = null;
     }
@@ -177,11 +176,13 @@ export class TranslateImplService implements TranslateService {
         this.loadingSubscriber = obs;
       }).pipe(share(), take(1));
 
-      this.loadingTranslations.subscribe((_) => {
-        this._lang = this.nextLang;
-        this.onLang.next(this._lang);
-      });
+      this.loadingTranslations.subscribe((_) => this.emitLang());
     }
+  }
+
+  private emitLang(): void {
+    this._lang = this.nextLang;
+    this.onLang.next(this._lang);
   }
 
   private loadingChunkKey(chunkId: string, lang: string): string {
