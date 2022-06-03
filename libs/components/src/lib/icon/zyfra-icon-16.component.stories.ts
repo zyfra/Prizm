@@ -13,7 +13,7 @@ import doc from './zyfra-icon.component.story.doc.mdx';
       <h4>{{ def.dir }}</h4>
       <div class="icons">
         <div *ngFor="let name of def.data" class="icon-def">
-          <zyfra-icon [iconClass]="name" [className]="className" class="icon-16"></zyfra-icon>
+          <zyfra-icon [iconClass]="name" [size]="size" class="icon-16"></zyfra-icon>
           <div class="name">{{ name }}</div>
         </div>
       </div>
@@ -68,7 +68,7 @@ import doc from './zyfra-icon.component.story.doc.mdx';
 })
 class Icon16Components {
   defs = Icon16Defs;
-  className = 'zyfra-icon-16';
+  size = '16';
 }
 
 export default {
