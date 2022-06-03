@@ -2,6 +2,14 @@
 
 Все изменения в этом файле отражают изменения в коде во всем монорепозитории.
 
+## [v0.11.1] - 03-06-2022
+
+### @digital-plant/zyfra-components [v0.11.1]
+
+**Fixes**
+
+- fix(components/icon): fixes default icons size 24
+
 ## [v0.11.0] - 03-06-2022
 
 ### @digital-plant/zyfra-components [v0.11.0]

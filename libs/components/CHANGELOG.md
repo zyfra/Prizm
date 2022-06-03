@@ -1,11 +1,19 @@
 # Changelog
 
+## [v0.11.1] - 03-06-2022
+### @digital-plant/zyfra-components [v0.11.1]
+
+**Fixes**
+
+- fix(components/icon): fixes default icons size 24
+
+
 ## [v0.11.0] - 03-06-2022
 ### @digital-plant/zyfra-components [v0.11.0]
 
 **Added**
 
-- feat(components): Added 16[size] icons  [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/144)
+- feat(components): Added 16[size] icons [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/144)
 
 **Fixes**
 
