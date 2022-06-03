@@ -77,6 +77,19 @@
         },
         "build-icons": {
           "builder": "./tools/executors/icon-font-builder:build"
+        },
+        "build-icons-16": {
+          "builder": "./tools/executors/icon-font-builder:build",
+          "options": {
+            "fontFileName": "ZyfraIcons16",
+            "fontName": "Zyfra Icons 16",
+            "default": ".zyfra-icon-16",
+            "inputPath": "./libs/components/assets/icons-16",
+            "outputPath": "./libs/components/src/styles/icons-16",
+            "outputStyleFile": "icons-16.less",
+            "outputDefinitionsTs": "./libs/components/src/lib/icon/story/icon-16-definitions.ts",
+            "outputDefinitionsVar": "Icon16Defs"
+          }
         }
       },
       "tags": []
@@ -236,7 +249,8 @@
               "node_modules/primeicons/primeicons.css",
               "libs/components/src/styles/theme/default.less",
               "libs/components/src/styles/styles.less",
-              "libs/components/src/styles/icons/icons.less"
+              "libs/components/src/styles/icons/icons.less",
+              "libs/components/src/styles/icons-16/icons-16.less"
             ],
             "scripts": []
           },

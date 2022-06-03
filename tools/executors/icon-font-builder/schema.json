@@ -37,6 +37,11 @@
       "type": "string",
       "default": "./libs/components/src/lib/icon/story/icon-definitions.ts",
       "description": "File name for output definitions"
+    },
+    "outputDefinitionsVar": {
+      "type": "string",
+      "default": "IconDefs",
+      "description": "File name for output definitions"
     }
   }
 }
