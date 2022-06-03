@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.11.0] - 03-06-2022
+### @digital-plant/zyfra-components [v0.11.0]
+
+**Added**
+
+- feat(components): Added 16[size] icons  [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/144)
+
+**Fixes**
+
+- fix(components/input): style input label with button [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/171)
+
+
 ## [v0.10.0] - 31-05-2022
 ### @digital-plant/zyfra-components [v0.10.0]
 

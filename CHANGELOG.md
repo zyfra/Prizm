@@ -2,6 +2,30 @@
 
 Все изменения в этом файле отражают изменения в коде во всем монорепозитории.
 
+## [v0.11.0] - 03-06-2022
+
+### @digital-plant/zyfra-components [v0.11.0]
+
+**Added**
+
+- feat(components): Added 16[size] icons [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/144)
+
+**Fixes**
+
+- fix(components/input): style input label with button [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/171)
+
+### @digital-plant/zyfra-translate [v1.0.3]
+
+**Fixes**
+
+- lazy loading module with translations [#13645](https://jira.zyfra.com/browse/PLATFORM01-13645);
+
+> **Special thanks**
+>
+> ✏️ **MR:** Ekaterina Kovergina, Stepan Fedorov, Dmitriy Sokolov
+>
+> ️🐛 **Issue:** Stepan Fedorov, Anton Grekov,
+
 ## [v0.10.0] - 31-05-2022
 
 ### @digital-plant/zyfra-components [v0.10.0]
