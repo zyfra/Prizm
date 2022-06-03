@@ -14,7 +14,7 @@ import doc from './zyfra-icon.component.story.doc.mdx';
 
       <div class="icons">
         <div *ngFor="let name of def.data" class="icon-def">
-          <zyfra-icon [iconClass]="name" class="icon"></zyfra-icon>
+          <zyfra-icon [iconClass]="name" [className]="className" class="icon"></zyfra-icon>
           <div class="name">{{ name }}</div>
         </div>
       </div>
@@ -24,12 +24,12 @@ import doc from './zyfra-icon.component.story.doc.mdx';
     `
       :host {
         font-family: Inter;
-        color: #777B92;
+        color: #777b92;
       }
 
       h4 {
         text-transform: capitalize;
-        color: #353E50;
+        color: #353e50;
       }
 
       .icons {
@@ -62,13 +62,14 @@ import doc from './zyfra-icon.component.story.doc.mdx';
         font-size: 12px;
         text-align: center;
         margin-top: 12px;
-        color: #353E50;
+        color: #353e50;
       }
     `,
   ],
 })
 class IconComponents {
   defs = IconDefs;
+  className = 'zyfra-icon';
 }
 
 export default {

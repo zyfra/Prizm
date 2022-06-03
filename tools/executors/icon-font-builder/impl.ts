@@ -22,6 +22,7 @@ export interface IconFontExecutorOptions {
   outputPath: string;
   outputStyleFile: string;
   outputDefinitionsTs: string;
+  outputDefinitionsVar: string;
 }
 
 interface IconDefinition {
@@ -37,7 +38,7 @@ export default async function builderExecutor(options: IconFontExecutorOptions, 
   const definitions: IconDefinition[] = [];
 
   dirs.forEach((dir, dirIndex) => {
-    const definition: IconDefinition = {dir, data:[]};
+    const definition: IconDefinition = { dir, data: [] };
 
     // Read files in dir
     const iconFiles = fs.readdirSync(path.join(options.inputPath, dir));
@@ -55,8 +56,6 @@ export default async function builderExecutor(options: IconFontExecutorOptions, 
     });
 
     definitions.push(definition);
-
-
   });
 
   // Write defs ts
@@ -107,7 +106,7 @@ ${options.iconClassName} {
 
 function writeToFileDefs(defs: IconDefinition[], options: IconFontExecutorOptions) {
   const data = JSON.stringify(defs, null, 4);
-  const defFileText = `export const IconDefs = ${data};\n`
+  const defFileText = `export const ${options.outputDefinitionsVar} = ${data};\n`;
 
   fs.writeFileSync(path.join(options.outputDefinitionsTs), defFileText);
 }
