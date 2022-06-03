@@ -32,7 +32,7 @@ import {
 
 ## Zyfra-icon
 
-To module:
+### To module:
 <Preview>
 
     import { ZyfraIconModule } from '@digital-plant/zyfra-components';
@@ -49,27 +49,34 @@ To module:
 
 </Preview>
 
-In component:
+### In component:
 
 ```
-<zyfra-icon iconClass="icon-name"></zyfra-icon>
+<zyfra-icon iconClass="icon-name" className="className"></zyfra-icon>
+
 ```
+##### To add icons 16px: 
+`className = 'zyfra-icon-16';`
+
+##### To add icons 24px: 
+`className = 'zyfra-icon';`
+***
 
 ### Custom style:
 
-In component:
+#### In component:
 
 ```
 <zyfra-icon class="my-yellow-icon"></zyfra-icon>
 ```
-Style: 
+#### Style: 
 
 ```
 .my-yellow-icon {
   color: yellow;
 }
 ```
-
+***
 ### Manual add: 
 
 **Install global styles:**
