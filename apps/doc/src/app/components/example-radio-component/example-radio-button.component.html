@@ -1,0 +1,117 @@
+<tui-doc-page header="Radio Button" package="Equinox" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="base" heading="Basic" [content]="exampleBasicRadio">
+      <zui-radio-button-example-base></zui-radio-button-example-base>
+    </tui-doc-example>
+
+    <tui-doc-example id="big" heading="Big Size" [content]="exampleBasicRadio">
+      <zui-radio-button-example-base size="l"></zui-radio-button-example-base>
+    </tui-doc-example>
+
+    <tui-doc-example id="small" heading="Small Size" [content]="exampleBasicRadio">
+      <zui-radio-button-example-base size="s"></zui-radio-button-example-base>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-radio-button
+        [value]="value"
+        [label]="label"
+        [disabled]="disabled"
+        [size]="size"
+      ></zui-radio-button>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="label"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="value"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="value"
+      >
+        Value
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="m | l | s"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
+      >
+        Type
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="clickEvent"
+        documentationPropertyType="PointerEvent"
+        documentationPropertyMode="output"
+      >
+        Click
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="focusEvent"
+        documentationPropertyType="FocusEvent"
+        documentationPropertyMode="output"
+      >
+        Focus
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="focusOutEvent"
+        documentationPropertyType="FocusEvent"
+        documentationPropertyMode="output"
+      >
+        Focus out
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="blurEvent"
+        documentationPropertyType="FocusEvent"
+        documentationPropertyMode="output"
+      >
+        Blur
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="changeEvent"
+        documentationPropertyType="Event"
+        documentationPropertyMode="output"
+      >
+        Change
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>ZuiRadioButtonModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <tui-doc-code filename="MyComponent.module.ts" [code]="exampleModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>
