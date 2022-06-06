@@ -13,7 +13,8 @@ export const ROUTES = [
   },
   {
     path: 'example-component',
-    loadChildren: async () => (await import('./components/example-component/example.module')).ExampleModule,
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/example-component/example.module')).ExampleModule,
     data: {
       title: 'Example',
     },
@@ -21,31 +22,40 @@ export const ROUTES = [
   // COMPONENTS
   {
     path: 'components/button',
-    loadChildren: async () => (await import('./components/button/button.module')).ButtonModule,
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/button/button.module')).ButtonModule,
     data: {
       title: 'Button',
     },
   },
   {
     path: 'components/icon',
-    loadChildren: async () => (await import('./components/icon/icon.module')).IconModule,
+    loadChildren: async (): Promise<unknown> => (await import('./components/icon/icon.module')).IconModule,
     data: {
       title: 'Icon',
     },
   },
   {
     path: 'components/input',
-    loadChildren: async () => (await import('./components/input/input-example.module')).InputExampleModule,
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/input/input-example.module')).InputExampleModule,
     data: {
       title: 'Icon',
     },
   },
   {
     path: 'components/loader',
-    loadChildren: async () => (await import('./components/loader/loader.module')).LoaderModule,
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/loader/loader.module')).LoaderModule,
     data: {
       title: 'Loader',
     },
+  },
+  {
+    path: 'components/radio-button',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/example-radio-component/example-radio-button.module'))
+        .ExampleRadioButtonModule,
   },
   { path: '**', redirectTo: 'getting-started' },
 ];
