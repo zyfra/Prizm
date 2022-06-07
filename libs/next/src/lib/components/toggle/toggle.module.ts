@@ -1,28 +1,22 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {
-  TuiCheckedModule,
-  TuiFocusableModule,
-  TuiFocusedModule,
-  TuiFocusVisibleModule,
-  TuiHoveredModule,
-  TuiPressedModule,
-} from '@taiga-ui/cdk';
-import {TuiSvgModule, TuiWrapperModule} from '@taiga-ui/core';
-
 import {ZuiToggleComponent} from './toggle.component';
-import {ZuiLoaderModule} from "@digital-plant/zui-components";
+import {ZuiLoaderModule} from "../loader";
 import {ZuiWrapperModule} from '../../directives/wrapper';
+import {PolymorpheusModule, ZuiCheckedModule, ZuiFocusableModule, ZuiFocusedModule, ZuiPressedModule} from "../../directives";
+import {ZuiFocusVisibleModule} from "../../directives/focus-visible";
+import {ZuiHoveredModule} from '../../directives/hovered';
 
 @NgModule({
     imports: [
         CommonModule,
-        TuiFocusedModule,
-        TuiFocusableModule,
-        TuiHoveredModule,
-        TuiPressedModule,
-        TuiFocusVisibleModule,
-        TuiCheckedModule,
+        ZuiFocusedModule,
+        ZuiFocusableModule,
+        ZuiFocusVisibleModule,
+        ZuiHoveredModule,
+        ZuiPressedModule,
+        ZuiCheckedModule,
+        PolymorpheusModule,
         ZuiWrapperModule,
         ZuiLoaderModule,
     ],

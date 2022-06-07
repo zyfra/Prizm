@@ -8,13 +8,13 @@
     [invalid]="computedInvalid"
 >
     <div class="toggle">
-        <tui-loader
+        <zui-loader
             *ngIf="showLoader"
             class="loader"
             [size]="loaderSize"
             [inheritColor]="true"
             [showLoader]="checked"
-        ></tui-loader>
+        ></zui-loader>
         <span
             polymorpheus-outlet
             class="icon-wrapper"
@@ -22,22 +22,22 @@
             [context]="{$implicit: size}"
         >
             <ng-template let-icon>
-                <tui-svg
+                <zui-svg
                     *ngIf="showIcons && !showLoader"
-                    automation-id="tui-toggle__check-icon"
+                    automation-id="zui-toggle__check-icon"
                     class="icon"
                     [src]="icon"
-                ></tui-svg>
+                ></zui-svg>
             </ng-template>
         </span>
         <div class="circle"></div>
-        <tui-loader
+        <zui-loader
             *ngIf="showLoader"
             class="loader"
             [size]="loaderSize"
             [inheritColor]="true"
             [showLoader]="!checked"
-        ></tui-loader>
+        ></zui-loader>
         <span
             polymorpheus-outlet
             class="icon-wrapper"
@@ -45,12 +45,12 @@
             [context]="{$implicit: size}"
         >
             <ng-template let-icon>
-                <tui-svg
+                <zui-svg
                     *ngIf="showIcons && !showLoader"
-                    automation-id="tui-toggle__cancel-icon"
+                    automation-id="zui-toggle__cancel-icon"
                     class="icon icon_off"
                     [src]="icon"
-                ></tui-svg>
+                ></zui-svg>
             </ng-template>
         </span>
     </div>
@@ -58,17 +58,17 @@
         #focusableElement
         type="checkbox"
         role="switch"
-        automation-id="tui-toggle__checkbox"
+        automation-id="zui-toggle__checkbox"
         class="checkbox"
         [attr.aria-checked]="value"
         [id]="id"
         [disabled]="disabled"
-        [tuiChecked]="checked"
-        [tuiFocusable]="focusable"
-        (tuiCheckedChange)="onChecked($event)"
-        (tuiFocusedChange)="onFocused($event)"
-        (tuiHoveredChange)="onHovered($event)"
-        (tuiPressedChange)="onPressed($event)"
-        (tuiFocusVisibleChange)="onFocusVisible($event)"
+        [zuiChecked]="checked"
+        [zuiFocusable]="focusable"
+        (zuiCheckedChange)="onChecked($event)"
+        (zuiFocusedChange)="onFocused($event)"
+        (zuiHoveredChange)="onHovered($event)"
+        (zuiPressedChange)="onPressed($event)"
+        (zuiFocusVisibleChange)="onFocusVisible($event)"
     />
 </zui-wrapper>

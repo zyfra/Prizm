@@ -1,11 +1,7 @@
 import {InjectionToken, TemplateRef, ValueProvider} from '@angular/core';
 import {ZuiSize} from "../../util/zui-size-bigger";
+import {ZuiAppearance, ZuiAppearanceType} from "../../types/appearance.types";
 
-export type ZuiAppearance = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'disabled';
-
-
-// TODO think about it shared or only for button
-export type ZuiAppearanceType = 'fill' | 'outline' | 'ghost';
 
 export interface ZuiButtonOptions {
     readonly size: ZuiSize;

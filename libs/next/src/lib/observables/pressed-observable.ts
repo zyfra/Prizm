@@ -1,9 +1,9 @@
-import {TuiOwnerDocumentException} from '@taiga-ui/cdk/exceptions';
 import {Observable} from 'rxjs';
 import {filter, mapTo, startWith, switchMapTo, take} from 'rxjs/operators';
+import {ZuiOwnerDocumentException} from '../exceptions/owner-document.exception';
 
 import {zuiMouseDragFinishFrom} from './zui-mouse-drag-finish-from';
-import {zuiTypedFromEvent} from './zui-typed-from-event';
+import {zuiTypedFromEvent} from './typed-from-event';
 
 export interface ZuiPressedObservableOptions {
     onlyTrusted: boolean;
@@ -16,7 +16,7 @@ export function zuiPressedObservable(
     const {ownerDocument} = element;
 
     if (!ownerDocument) {
-        throw new TuiOwnerDocumentException();
+        throw new ZuiOwnerDocumentException();
     }
 
     return zuiTypedFromEvent(element, 'mousedown').pipe(

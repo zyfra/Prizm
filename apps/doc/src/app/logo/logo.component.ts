@@ -9,4 +9,4 @@ import {PolymorpheusComponent} from '@digital-plant/zui-components';
 })
 export class LogoComponent {}
 
-export const LOGO_CONTENT = 'Zyfra UI';
+export const LOGO_CONTENT = 'assets/images/logo.png';

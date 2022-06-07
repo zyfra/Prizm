@@ -11,14 +11,15 @@ import {
   ViewChild,
 } from '@angular/core';
 import {NgControl} from '@angular/forms';
-import {isNativeFocused, TuiContextWithImplicit, TuiNativeFocusableElement,} from '@taiga-ui/cdk';
-import {PolymorpheusContent} from '@digital-plant/zui-components';
+import {PolymorpheusContent} from '../../directives/polymorpheus';
 
 import {ZUI_TOGGLE_OPTIONS, ZuiToggleOptions} from './toggle-options';
 import {zuiDefaultProp} from "../../decorators";
 import {AbstractZuiControl} from "../../abstract/control";
-import {ZuiAppearance, ZuiSize, ZuiSizeL, ZuiSizeM} from '@digital-plant/zui-components';
-import { ZuiNativeFocusableElement } from '../../interfaces/focusable-element-accessor';
+import {zuiIsNativeFocused, ZuiSize, ZuiSizeL, ZuiSizeM} from '../../util';
+import {ZuiNativeFocusableElement} from '../../types/focusable-element-accessor';
+import {ZuiContextWithImplicit} from "../../types/context-with-implicit";
+import {ZuiAppearance} from '../../types/appearance.types';
 
 @Component({
     selector: 'zui-toggle',
@@ -62,20 +63,20 @@ export class ZuiToggleComponent
         super(control, changeDetectorRef);
     }
 
-    get iconOn(): PolymorpheusContent<TuiContextWithImplicit<ZuiSizeL>> {
+    get iconOn(): PolymorpheusContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>> {
         return this.options.icons.toggleOn;
     }
 
-    get iconOff(): PolymorpheusContent<TuiContextWithImplicit<ZuiSizeL>> {
+    get iconOff(): PolymorpheusContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>> {
         return this.options.icons.toggleOff;
     }
 
-    get nativeFocusableElement(): TuiNativeFocusableElement | null {
+    get nativeFocusableElement(): ZuiNativeFocusableElement | null {
         return this.focusableElement ? this.focusableElement.nativeElement : null;
     }
 
     get focused(): boolean {
-        return isNativeFocused(this.nativeFocusableElement);
+        return zuiIsNativeFocused(this.nativeFocusableElement);
     }
 
     get appearance(): ZuiAppearance {

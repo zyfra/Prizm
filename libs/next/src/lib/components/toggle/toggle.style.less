@@ -1,5 +1,3 @@
-@import 'taiga-ui-local';
-
 @width-m: 2rem;
 @height-m: 1rem;
 @width-l: 3rem;
@@ -70,7 +68,7 @@
     margin: 0.125rem 0;
     flex-shrink: 0;
     border-radius: 100%;
-    background-color: var(--tui-base-01);
+    background-color: var(--zui-base-01);
 
     :host._disabled &_light {
         opacity: 0.24;
@@ -87,33 +85,33 @@
     }
 
     :host._disabled & {
-        background-color: var(--tui-base-01);
+        background-color: var(--zui-base-01);
     }
 }
 
 .loader {
     :host:not(._checked) & {
-        color: var(--tui-base-06);
+        color: var(--zui-base-06);
     }
 
     :host:not(._checked)._disabled & {
-        color: var(--tui-base-05);
+        color: var(--zui-base-05);
     }
 
     :host:not(._checked)[data-mode='onDark'] & {
-        color: var(--tui-text-03-night);
+        color: var(--zui-text-03-night);
     }
 
     :host:not(._checked)[data-mode='onDark']._disabled & {
-        color: var(--tui-clear-inverse-active);
+        color: var(--zui-clear-inverse-active);
     }
 
     :host:not(._checked)[data-mode='onLight'] & {
-        color: var(--tui-text-03);
+        color: var(--zui-text-03);
     }
 
     :host:not(._checked)[data-mode='onLight']._disabled & {
-        color: var(--tui-clear-active);
+        color: var(--zui-clear-active);
     }
 
     :host[data-size='m'] & {
@@ -136,26 +134,26 @@
     opacity: 0.8;
 
     &_off {
-        color: var(--tui-base-06);
+        color: var(--zui-base-06);
 
         :host._disabled & {
-            color: var(--tui-base-05);
+            color: var(--zui-base-05);
         }
 
         :host[data-mode='onDark'] & {
-            color: var(--tui-text-03-night);
+            color: var(--zui-text-03-night);
         }
 
         :host[data-mode='onDark']._disabled & {
-            color: var(--tui-clear-inverse-active);
+            color: var(--zui-clear-inverse-active);
         }
 
         :host[data-mode='onLight'] & {
-            color: var(--tui-text-03);
+            color: var(--zui-text-03);
         }
 
         :host[data-mode='onLight']._disabled & {
-            color: var(--tui-clear-active);
+            color: var(--zui-clear-active);
         }
     }
 

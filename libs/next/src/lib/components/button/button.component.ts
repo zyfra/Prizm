@@ -7,14 +7,16 @@ import {
   Inject,
   Input, TemplateRef,
 } from '@angular/core';
-import {ZUI_BUTTON_OPTIONS, ZuiAppearance, ZuiAppearanceType, ZuiButtonOptions, ZuiContent} from "./button-options";
+import {ZUI_BUTTON_OPTIONS, ZuiButtonOptions, ZuiContent} from "./button-options";
 import {AbstractZuiInteractive} from "../../abstract/interactive";
 import {zuiIsNativeFocused} from "../../util/zui-is-native-focused";
 import {ZuiSize} from "../../util/zui-size-bigger";
 import {ZuiDestroyService} from "@digital-plant/zyfra-helpers";
-import {watch} from "@taiga-ui/cdk";
 import {takeUntil, tap} from "rxjs/operators";
-import {zuiPressedObservable} from "../../directives/observables/zui-pressed-observable";
+import {zuiPressedObservable} from "../../observables/pressed-observable";
+import {ZuiAppearance, ZuiAppearanceType} from "../../types/appearance.types";
+import {zuiWatch} from '../../observables/watch';
+import {zuiDefaultProp} from "../../decorators";
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -29,6 +31,7 @@ import {zuiPressedObservable} from "../../directives/observables/zui-pressed-obs
 export class ZuiButtonComponent extends AbstractZuiInteractive {
   @Input()
   @HostBinding('attr.data-size')
+  @zuiDefaultProp()
   size: ZuiSize = this.options.size;
 
   /** can pass template or icon class */
@@ -41,17 +44,21 @@ export class ZuiButtonComponent extends AbstractZuiInteractive {
 
   @Input()
   @HostBinding('attr.data-appearance')
+  @zuiDefaultProp()
   appearance: ZuiAppearance = this.options.appearance;
 
   @Input()
   @HostBinding('attr.data-appearance-type')
+  @zuiDefaultProp()
   appearanceType: ZuiAppearanceType = this.options.appearanceType;
 
   @Input()
+  @zuiDefaultProp()
   disabled = false;
 
   @Input()
   @HostBinding('class._loading')
+  @zuiDefaultProp()
   showLoader = false;
 
   readonly TemplateRef = TemplateRef;
@@ -73,7 +80,7 @@ export class ZuiButtonComponent extends AbstractZuiInteractive {
     })
       .pipe(
         tap(pressed => {this.updatePressed(pressed)}),
-        watch(changeDetectorRef),
+        zuiWatch(changeDetectorRef),
         takeUntil(destroy$)
       ).subscribe();
   }

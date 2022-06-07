@@ -1,6 +1,6 @@
 import {InjectionToken, ValueProvider} from '@angular/core';
 import {PolymorpheusContent} from '@digital-plant/zui-components';
-import {ZuiContextWithImplicit} from "../../interfaces/context-with-implicit";
+import {ZuiContextWithImplicit} from "../../types/context-with-implicit";
 import {ZuiSizeL, ZuiSizeM} from "@digital-plant/zui-components";
 
 export interface ZuiToggleOptions {

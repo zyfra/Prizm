@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
-import {ZuiSize, ZuiAppearance, ZuiAppearanceType, ZuiContent} from "@digital-plant/zui-components";
+import {ZuiSize, ZuiContent} from "@digital-plant/zui-components";
 import {ALL_ICONS} from "../icon/examples/mock";
 
 @Component({

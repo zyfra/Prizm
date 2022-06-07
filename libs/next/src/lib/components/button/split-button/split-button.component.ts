@@ -8,9 +8,10 @@ import {
   Output,
   TemplateRef,
 } from '@angular/core';
-import {ZuiAppearance, ZuiAppearanceType, ZuiContent} from "../button-options";
+import {ZuiContent} from "../button-options";
 import {ZuiDestroyService} from "@digital-plant/zyfra-helpers";
 import {ZuiSize} from "../../../util/zui-size-bigger";
+import {ZuiAppearance, ZuiAppearanceType} from "../../../types/appearance.types";
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
