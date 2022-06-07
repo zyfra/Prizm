@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExampleComponent } from './example.component';
+import { ZuiRadioButtonComponent } from './zui-radio-button.component';
 
-describe('ExampleComponent', () => {
-  let component: ExampleComponent;
-  let fixture: ComponentFixture<ExampleComponent>;
+describe('ZuiRadioButtonComponent', () => {
+  let component: ZuiRadioButtonComponent;
+  let fixture: ComponentFixture<ZuiRadioButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExampleComponent ]
+      declarations: [ ZuiRadioButtonComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExampleComponent);
+    fixture = TestBed.createComponent(ZuiRadioButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

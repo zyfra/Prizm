@@ -1,0 +1,9 @@
+<div class="container">
+  <zui-radio-button
+    *ngFor="let item of data"
+    [formControl]="form"
+    [label]="item"
+    [value]="item"
+    [size]="size"
+  ></zui-radio-button>
+</div>

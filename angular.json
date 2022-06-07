@@ -154,16 +154,18 @@
           },
           "configurations": {
             "production": {
+              "deployUrl": "/zui-sdk-new/doc/",
+              "baseHref": "/zui-sdk-new/doc/",
               "budgets": [
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumError": "6kb"
                 }
               ],
               "fileReplacements": [
