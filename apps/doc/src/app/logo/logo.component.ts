@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {PolymorpheusComponent} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusComponent} from '@digital-plant/zui-components';
 
 @Component({
     selector: 'logo',
@@ -9,4 +9,4 @@ import {PolymorpheusComponent} from '@tinkoff/ng-polymorpheus';
 })
 export class LogoComponent {}
 
-export const LOGO_CONTENT = new PolymorpheusComponent(LogoComponent);
+export const LOGO_CONTENT = 'Zyfra UI';

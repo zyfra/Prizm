@@ -16,90 +16,29 @@
   }
 
   // TODO #move to vars
-  &[data-size='xl'] {
-    height: 44px;
-    font-weight: normal;
+  .addSize(@size, @height, @width, @padding) {
+    &[data-size='@{size}'] {
+      height: @height;
+      font-weight: normal;
 
-    &[zuiIconButton] {
-      width: 44px;
+      &[zuiIconButton] {
+        width: @width;
+
+        .z-wrapper {
+          padding: 0;
+        }
+      }
 
       .z-wrapper {
-        padding: 0;
+        padding: @padding;
       }
     }
-
-    .z-wrapper {
-      padding: 14px 16px 14px 16px;
-    }
   }
-
-  &[data-size='l'] {
-    height: 40px;
-    font-weight: normal;
-
-    &[zuiIconButton] {
-      width: 40px;
-
-      .z-wrapper {
-        padding: 0;
-      }
-    }
-
-    .z-wrapper {
-      padding: 12px 16px 12px 16px;
-    }
-  }
-  &[data-size='xm'] {
-    height: 36px;
-    font-weight: normal;
-
-    &[zuiIconButton] {
-      width: 36px;
-
-      .z-wrapper {
-        padding: 0;
-      }
-    }
-
-    .z-wrapper {
-      padding: 10px 16px 10px 16px;
-    }
-  }
-
-  &[data-size='m'] {
-    height: 32px;
-    font-weight: normal;
-
-    &[zuiIconButton] {
-      width: 32px;
-
-      .z-wrapper {
-        padding: 0;
-      }
-    }
-
-    .z-wrapper {
-      padding: 8px 16px 8px 16px;
-    }
-  }
-
-
-  &[data-size='s'] {
-    height: 24px;
-    font-weight: normal;
-
-    &[zuiIconButton] {
-      width: 24px;
-
-      .z-wrapper {
-        padding: 0;
-      }
-    }
-
-    .z-wrapper {
-      padding: 4px 8px 4px 8px;
-    }
-  }
+  .addSize('xl', 44px, 44px, 14px 16px 14px 16px);
+  .addSize('l', 40px, 40px, 12px 16px 12px 16px);
+  .addSize('xm', 36px, 36px, 10px 16px 10px 16px);
+  .addSize('m', 32px, 32px, 8px 16px 8px 16px);
+  .addSize('s', 24px, 24px, 4px 8px 4px 8px);
 }
 
 

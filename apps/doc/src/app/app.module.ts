@@ -9,10 +9,11 @@ import {BrowserModule} from "@angular/platform-browser";
 import {AppRoutes} from "./app.routes";
 import {VersionManagerComponent} from "./version-manager/version-manager.component";
 import {TuiDataListModule, TuiTextfieldControllerModule} from '@taiga-ui/core';
-import {TuiDataListWrapperModule, TuiSelectModule, TuiStringifyContentPipeModule, TuiStringifyPipeModule} from '@taiga-ui/kit';
+import {TuiSelectModule, TuiStringifyContentPipeModule, TuiStringifyPipeModule} from '@taiga-ui/kit';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MarkdownModule} from 'ngx-markdown';
 import {APP_PROVIDERS} from "./app.providers";
+import {LogoModule} from "./logo/logo.module";
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -22,6 +23,7 @@ import {APP_PROVIDERS} from "./app.providers";
     AppRoutes,
     TuiTextfieldControllerModule,
     MarkdownModule,
+    LogoModule,
     TuiDocMainModule,
     TuiAddonDocModule,
     TuiDataListModule,
@@ -30,7 +32,8 @@ import {APP_PROVIDERS} from "./app.providers";
     TuiSelectModule,
     TuiStringifyContentPipeModule,
     TuiStringifyPipeModule,
-    ZyfraUiRootModule
+    ZyfraUiRootModule,
+    // PolymorpheusModule
 ],
   declarations: [
     AppComponent,
@@ -38,18 +41,6 @@ import {APP_PROVIDERS} from "./app.providers";
     VersionManagerComponent,
   ],
   providers: [
-    // {
-    //   provide: HIGHLIGHT_OPTIONS,
-    //   useValue: {
-    //     coreLibraryLoader: () => import('highlight.js/lib/core' as string),
-    //     lineNumbersLoader: () => import('highlightjs-line-numbers.js' as string), // Optional, only if you want the line numbers
-    //     languages: {
-    //       typescript: () => import('highlight.js/lib/languages/typescript' as string),
-    //       less: () => import('highlight.js/lib/languages/less' as string),
-    //       xml: () => import('highlight.js/lib/languages/xml' as string),
-    //     },
-    //   },
-    // },
     ...APP_PROVIDERS
   ],
 })

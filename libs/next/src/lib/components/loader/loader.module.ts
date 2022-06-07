@@ -1,6 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {PolymorpheusModule} from '@tinkoff/ng-polymorpheus';
+import {PolymorpheusModule} from '../../directives/polymorpheus';
 import {ZuiLoaderComponent} from './loader.component';
 
 @NgModule({
