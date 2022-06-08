@@ -25,6 +25,7 @@
         [showLoader]="showLoader"
         [singleColor]="singleColor"
         [iconOn]="iconOn"
+        [size]="size"
         [iconOff]="iconOff"
         [disabled]="disabled"
         [(ngModel)]="value"
@@ -66,6 +67,18 @@
         [(documentationPropertyValue)]="singleColor"
       >
         Single Color
+      </ng-template>
+
+
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="ZuiSizeL | ZuiSizeM"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+      >
+        Size
       </ng-template>
 
 

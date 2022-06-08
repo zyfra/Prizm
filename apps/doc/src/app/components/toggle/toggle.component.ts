@@ -16,6 +16,12 @@ export class ToggleComponent {
 
   singleColor = false;
 
+  readonly sizeVariants: ReadonlyArray<ZuiSizeL | ZuiSizeM> = [
+    'm',
+    'l'
+  ];
+  size: ZuiSizeL | ZuiSizeM = this.sizeVariants[0];
+
   readonly iconVariants: ReadonlyArray<PolymorpheusContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>> = [
     '',
     'selection-checkbox-marked-circle',
