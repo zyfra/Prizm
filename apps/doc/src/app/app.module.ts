@@ -1,9 +1,9 @@
-import { ZyfraUiRootModule } from "@digital-plant/zyfra-components";
+import {ZyfraUiRootModule} from "@digital-plant/zyfra-components";
 import {NgModule} from '@angular/core';
 import {TuiAddonDocModule, TuiDocMainModule} from '@taiga-ui/addon-doc';
 // import {HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
 import {AppComponent} from './app.component';
-import { GettingStartedComponent } from './getting-started/getting-started.component';
+import {GettingStartedComponent} from './getting-started/getting-started.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {BrowserModule} from "@angular/platform-browser";
 import {AppRoutes} from "./app.routes";
@@ -33,7 +33,6 @@ import {LogoModule} from "./logo/logo.module";
     TuiStringifyContentPipeModule,
     TuiStringifyPipeModule,
     ZyfraUiRootModule,
-    // PolymorpheusModule
 ],
   declarations: [
     AppComponent,
