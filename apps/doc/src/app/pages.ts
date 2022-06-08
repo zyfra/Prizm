@@ -41,6 +41,12 @@ export const pages: TuiDocPages = [
   },
   {
     section: `Components`,
+    title: 'Toggle',
+    keywords: 'toggle, тоггл, переключатель, switcher',
+    route: '/components/toggle',
+  },
+  {
+    section: `Components`,
     title: 'Radio Button',
     keywords: 'radio, button, кнопка, радио',
     route: '/components/radio-button',

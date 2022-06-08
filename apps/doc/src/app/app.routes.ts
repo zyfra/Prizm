@@ -29,6 +29,14 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/toggle',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/toggle/toggle.module')).ToggleModule,
+    data: {
+      title: 'Toggle',
+    },
+  },
+  {
     path: 'components/icon',
     loadChildren: async (): Promise<unknown> => (await import('./components/icon/icon.module')).IconModule,
     data: {

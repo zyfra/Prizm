@@ -2,7 +2,7 @@ import {Observable} from 'rxjs';
 import {filter, mapTo, startWith, switchMapTo, take} from 'rxjs/operators';
 import {ZuiOwnerDocumentException} from '../exceptions/owner-document.exception';
 
-import {zuiMouseDragFinishFrom} from './zui-mouse-drag-finish-from';
+import {zuiMouseDragFinishFrom} from './mouse-drag-finish-from';
 import {zuiTypedFromEvent} from './typed-from-event';
 
 export interface ZuiPressedObservableOptions {

@@ -1,7 +1,7 @@
 import {InjectionToken, ValueProvider} from '@angular/core';
-import {PolymorpheusContent} from '@digital-plant/zui-components';
+import {PolymorpheusContent} from '../../directives/polymorpheus';
 import {ZuiContextWithImplicit} from "../../types/context-with-implicit";
-import {ZuiSizeL, ZuiSizeM} from "@digital-plant/zui-components";
+import {ZuiSizeL, ZuiSizeM} from "../../util";
 
 export interface ZuiToggleOptions {
     readonly icons: Readonly<{
@@ -16,12 +16,8 @@ export interface ZuiToggleOptions {
 /** Default values for the toggle options. */
 export const ZUI_TOGGLE_DEFAULT_OPTIONS: ZuiToggleOptions = {
     icons: {
-        toggleOff({$implicit}: ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>): string {
-            return $implicit === 'm' ? 'zuiIconToggleOff' : 'zuiIconToggleOffLarge';
-        },
-        toggleOn({$implicit}: ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>): string {
-            return $implicit === 'm' ? 'zuiIconToggleOn' : 'zuiIconToggleOnLarge';
-        },
+        toggleOff: '',
+        toggleOn: '',
     },
     singleColor: false,
     showIcons: false,

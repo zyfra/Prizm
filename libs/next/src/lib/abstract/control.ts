@@ -11,7 +11,7 @@ import {merge, Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {AbstractZuiInteractive} from './interactive';
 import {zuiDefaultProp} from "../decorators";
-import {ZuiControlValueTransformer} from "../interfaces/control-value-transformer";
+import {ZuiControlValueTransformer} from "../types/control-value-transformer";
 import {EMPTY_FUNCTION} from '../constants/empty';
 
 /**

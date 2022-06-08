@@ -15,7 +15,7 @@ import {
 import {PolymorpheusComponent} from '../classes/component';
 import {PrimitiveContext} from '../classes/primitive-context';
 import {PolymorpheusContent} from '../types/content';
-import {PolymorpheusTemplateDirective} from './template';
+import {PolymorpheusTemplate} from './template';
 
 @Directive({
     // eslint-disable-next-line @angular-eslint/directive-selector
@@ -105,8 +105,8 @@ export class PolymorpheusOutletDirective<C extends Record<string, unknown>> impl
 
 function isDirective<C extends Record<string, unknown>>(
     content: PolymorpheusContent<C> | null,
-): content is PolymorpheusTemplateDirective<C> {
-    return content instanceof PolymorpheusTemplateDirective;
+): content is PolymorpheusTemplate<C> {
+    return content instanceof PolymorpheusTemplate;
 }
 
 function isComponent<C extends Record<string, unknown>>(
@@ -117,6 +117,6 @@ function isComponent<C extends Record<string, unknown>>(
 
 function isTemplate<C extends Record<string, unknown>>(
     content: PolymorpheusContent<C> | null,
-): content is PolymorpheusTemplateDirective<C> | TemplateRef<C> {
+): content is PolymorpheusTemplate<C> | TemplateRef<C> {
     return isDirective(content) || content instanceof TemplateRef;
 }

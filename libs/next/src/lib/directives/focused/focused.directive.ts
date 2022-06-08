@@ -15,14 +15,14 @@ import {zuiIsNativeFocused} from "../../util";
 })
 export class ZuiFocusedDirective {
     @Output()
-    readonly tuiFocusedChange: Observable<boolean>;
+    readonly zuiFocusedChange: Observable<boolean>;
 
     constructor(
         @Inject(ElementRef)
         {nativeElement}: ElementRef<HTMLElement>,
         @Inject(NgZone) ngZone: NgZone,
     ) {
-        this.tuiFocusedChange = merge(
+        this.zuiFocusedChange = merge(
             zuiTypedFromEvent(nativeElement, 'focusin'),
             zuiTypedFromEvent(nativeElement, 'focusout'),
         ).pipe(

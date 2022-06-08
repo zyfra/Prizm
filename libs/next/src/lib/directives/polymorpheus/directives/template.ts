@@ -4,11 +4,13 @@ import {ChangeDetectorRef, Directive, Inject, Input, Self, TemplateRef} from '@a
  * ng-template wrapper directive also stores {@link ChangeDetectorRef} to properly handle change detection.
  */
 @Directive({
-  // eslint-disable-next-line @angular-eslint/directive-selector
+    // eslint-disable-next-line @angular-eslint/directive-selector
     selector: 'ng-template[polymorpheus]',
+    // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+    inputs: ['polymorpheus'],
     exportAs: 'polymorpheus',
 })
-export class PolymorpheusTemplateDirective<C extends Record<any, any>> {
+export class PolymorpheusTemplate<C extends Record<any, any>> {
     @Input() polymorpheus: C | string = '';
 
     constructor(
@@ -19,7 +21,7 @@ export class PolymorpheusTemplateDirective<C extends Record<any, any>> {
     ) {}
 
     public static ngTemplateContextGuard<T>(
-      _dir: PolymorpheusTemplateDirective<T>,
+      _dir: PolymorpheusTemplate<T>,
       _ctx: any,
     ): _ctx is T extends string ? any : T {
       return true;

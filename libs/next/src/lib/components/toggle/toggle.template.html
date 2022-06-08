@@ -1,4 +1,5 @@
 <zui-wrapper
+    [attr.checked]="value"
     [appearance]="appearance"
     [readOnly]="readOnly"
     [disabled]="computedDisabled"
@@ -15,20 +16,10 @@
             [inheritColor]="true"
             [showLoader]="checked"
         ></zui-loader>
-        <span
-            polymorpheus-outlet
-            class="icon-wrapper"
-            [content]="iconOn"
-            [context]="{$implicit: size}"
-        >
-            <ng-template let-icon>
-                <zui-svg
-                    *ngIf="showIcons && !showLoader"
-                    automation-id="zui-toggle__check-icon"
-                    class="icon"
-                    [src]="icon"
-                ></zui-svg>
-            </ng-template>
+        <span class="icon-wrapper">
+          <ng-container *polymorpheusOutlet="iconOn as content; context: {$implicit: size}">
+            <zui-icon class="icon" *ngIf="content" [iconClass]="$any(content)"></zui-icon>
+          </ng-container>
         </span>
         <div class="circle"></div>
         <zui-loader
@@ -38,30 +29,18 @@
             [inheritColor]="true"
             [showLoader]="!checked"
         ></zui-loader>
-        <span
-            polymorpheus-outlet
-            class="icon-wrapper"
-            [content]="iconOff"
-            [context]="{$implicit: size}"
-        >
-            <ng-template let-icon>
-                <zui-svg
-                    *ngIf="showIcons && !showLoader"
-                    automation-id="zui-toggle__cancel-icon"
-                    class="icon icon_off"
-                    [src]="icon"
-                ></zui-svg>
-            </ng-template>
-        </span>
+        <span class="icon-wrapper">
+            <ng-container *polymorpheusOutlet="iconOff as content; context: {$implicit: size}">
+              <zui-icon class="icon" *ngIf="content" [iconClass]="$any(content)"></zui-icon>
+            </ng-container>
+          </span>
     </div>
     <input
         #focusableElement
         type="checkbox"
         role="switch"
-        automation-id="zui-toggle__checkbox"
         class="checkbox"
         [attr.aria-checked]="value"
-        [id]="id"
         [disabled]="disabled"
         [zuiChecked]="checked"
         [zuiFocusable]="focusable"
