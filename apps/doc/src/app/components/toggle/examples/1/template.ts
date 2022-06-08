@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -12,8 +12,12 @@ import { FormControl } from '@angular/forms';
     }
   `]
 })
-export class ZuiToggleExample1 {
+export class ZuiToggleExample1 implements OnInit {
   value = true;
   readonly value2 = new FormControl(false);
-  readonly value3 = new FormControl(true);
+  readonly valueDisabled = new FormControl(false);
+
+  ngOnInit(): void {
+    this.valueDisabled.disable();
+  }
 }

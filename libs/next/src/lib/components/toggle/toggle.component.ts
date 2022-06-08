@@ -45,6 +45,7 @@ export class ZuiToggleComponent
     iconOff = this.options.icons.toggleOff;
 
     @Input()
+    @HostBinding('class._loading')
     @zuiDefaultProp()
     showLoader = false;
 
@@ -74,7 +75,7 @@ export class ZuiToggleComponent
     }
 
     get appearance(): ZuiAppearance {
-        return this.singleColor || this.checked
+        return (this.singleColor || this.checked)
             ? 'primary'
             : 'secondary';
     }
@@ -89,7 +90,7 @@ export class ZuiToggleComponent
     }
 
     get loaderSize(): ZuiSize {
-        return this.sizeM ? 'l' : 's';
+        return this.sizeM ? 'xs' : 's';
     }
 
     public onChecked(checked: boolean): void {

@@ -8,27 +8,20 @@
     [pressed]="computedPressed"
     [invalid]="computedInvalid"
 >
+    <zui-loader
+      *ngIf="showLoader"
+      class="z-loader"
+      [size]="loaderSize"
+      [inheritColor]="true"
+      [showLoader]="showLoader"
+    ></zui-loader>
     <div class="toggle">
-        <zui-loader
-            *ngIf="showLoader"
-            class="loader"
-            [size]="loaderSize"
-            [inheritColor]="true"
-            [showLoader]="checked"
-        ></zui-loader>
         <span class="icon-wrapper">
           <ng-container *polymorpheusOutlet="iconOn as content; context: {$implicit: size}">
             <zui-icon class="icon" *ngIf="content" [iconClass]="$any(content)"></zui-icon>
           </ng-container>
         </span>
         <div class="circle"></div>
-        <zui-loader
-            *ngIf="showLoader"
-            class="loader"
-            [size]="loaderSize"
-            [inheritColor]="true"
-            [showLoader]="!checked"
-        ></zui-loader>
         <span class="icon-wrapper">
             <ng-container *polymorpheusOutlet="iconOff as content; context: {$implicit: size}">
               <zui-icon class="icon" *ngIf="content" [iconClass]="$any(content)"></zui-icon>

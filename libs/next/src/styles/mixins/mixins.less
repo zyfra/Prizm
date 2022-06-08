@@ -1,0 +1,55 @@
+.fullsize(@position: absolute, @mode: height) {
+  position: @position;
+  top: 0;
+  left: 0;
+
+  & when (@mode = height) {
+    width: 100%;
+    height: 100%;
+  }
+
+  & when (@mode = inset) {
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.transition(@param, @speed: var(--zui-duration, 300ms)) {
+  transition-property: @param;
+  transition-duration: @speed;
+  transition-timing-function: ease-in-out;
+}
+
+.autofill(@mode:default) {
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    border-radius: inherit;
+    color: inherit !important;
+    background-color: transparent !important;
+
+    & when (@mode = default) {
+      -webkit-text-fill-color: black !important;
+      border-color: #FFF5C0FF;
+      -webkit-box-shadow: 0 0 0 100rem #FFF5C0FF inset !important; // to overlay native background
+    }
+  }
+}
+
+.clearinput(@mode: default) {
+  .autofill(@mode);
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: inherit;
+  background: none;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+  caret-color: currentColor;
+  outline: none;
+  appearance: none;
+  word-break: keep-all;
+  -webkit-text-fill-color: currentColor; // for Safari
+}

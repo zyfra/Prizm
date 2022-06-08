@@ -1,5 +1,5 @@
 <div>
-  <p>Size M</p>
+  <h2>Size M</h2>
   <div class="box">
     <div>
       simple
@@ -35,22 +35,36 @@
     </div>
   </div>
 </div>
-<div>
-  <p>Size L</p>
-  <div>
-    <zui-toggle
-      size="l"
-      [formControl]="value2">Form Controll</zui-toggle>
-  </div>
-</div>
-<div>
-  <p>Size L (with icons)</p>
-  <div>
-    <zui-toggle
-      size="l"
-      iconOn="selection-checkbox-marked-circle"
-      iconOff="selection-checkbox-marked-circle-chanel"
-      [formControl]="value3">Form Controll</zui-toggle>
-  </div>
-</div>
 
+<div>
+  <h2>Size L</h2>
+  <div class="box">
+    <div>
+      simple
+      <zui-toggle
+        size="l"
+        [formControl]="value2"></zui-toggle>
+    </div>
+    <div>
+      disabled
+      <zui-toggle
+        size="l"
+        [formControl]="valueDisabled"></zui-toggle>
+    </div>
+    <div>
+      with loader
+      <zui-toggle
+        size="l"
+        [showLoader]="true"
+        [formControl]="value2"></zui-toggle>
+    </div>
+    <div>
+      with icon
+      <zui-toggle
+        size="l"
+        iconOn="arrows-chevron-left"
+        iconOff="arrows-chevron-right"
+        [formControl]="value2"></zui-toggle>
+    </div>
+  </div>
+</div>

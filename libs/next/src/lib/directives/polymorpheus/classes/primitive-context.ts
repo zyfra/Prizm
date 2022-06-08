@@ -1,10 +1,7 @@
 export class PrimitiveContext {
-    constructor(public $implicit: unknown) {
-      console.log('#mz PrimitiveContext', {$implicit});
-    }
+    constructor(public $implicit: unknown) {}
 
     get polymorpheusOutlet(): unknown {
-      console.log('#mz polymorpheusOutlet', {$implicit: this.$implicit});
         return this.$implicit;
     }
 }

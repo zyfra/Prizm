@@ -1,3 +1,5 @@
+@import  '../../../styles/ui-local';
+
 :host {
   outline: none;
   position: relative;
@@ -41,15 +43,9 @@
   .addSize('s', 24px, 24px, 4px 8px 4px 8px);
 }
 
-
-// TODO move to folder for styles theme
-
-
 .z-loader {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  .fullsize();
   cursor: default;
+  background: inherit;
+  border-radius: inherit;
 }

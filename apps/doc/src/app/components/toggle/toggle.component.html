@@ -21,13 +21,75 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <div>value - {{value}}</div>
       <zui-toggle
+        [showLoader]="showLoader"
+        [singleColor]="singleColor"
+        [iconOn]="iconOn"
+        [iconOff]="iconOff"
+        [disabled]="disabled"
         [(ngModel)]="value"
         [ngModelOptions]="{standalone: true}"
       ></zui-toggle>
     </tui-doc-demo>
     <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="value"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="value"
+      >
+        Value
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="showLoader"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="showLoader"
+      >
+        Show Loader
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="singleColor"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="singleColor"
+      >
+        Single Color
+      </ng-template>
+
+
+
+      <ng-template
+        documentationPropertyName="iconOn"
+        documentationPropertyType="PolymorpheusContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="iconOn"
+        [documentationPropertyValues]="iconVariants"
+      >
+        Icon On
+      </ng-template>
+
+
+      <ng-template
+        documentationPropertyName="iconOff"
+        documentationPropertyType="PolymorpheusContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="iconOff"
+        [documentationPropertyValues]="iconVariants"
+      >
+        Icon Off
+      </ng-template>
 
     </tui-doc-documentation>
   </ng-template>
@@ -35,7 +97,7 @@
   <ng-template pageTab>
     <ol class="b-demo-steps">
       <li>
-        <p >
+        <p>
           Import
           <code>ZuiToggleModule</code>
           into a module where you want to use our component

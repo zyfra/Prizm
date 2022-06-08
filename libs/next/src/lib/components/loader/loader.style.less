@@ -1,9 +1,12 @@
+@size-xs: 0.75rem;
 @size-s: 1rem;
 @size-m: 1.5rem;
 @size-xm: 2rem;
 @size-l: 2.5rem;
 @size-xl: 3.5rem;
 
+
+@width-xs: 38;
 @width-s: 25;
 @width-m: 17;
 @width-xm: 38;
@@ -98,6 +101,11 @@
     &[data-zui-element-size='s'] {
         font-size: @size-s;
         stroke-width: @width-s;
+    }
+
+    &[data-zui-element-size='xs'] {
+        font-size: @size-xs;
+        stroke-width: @width-xs;
     }
 
     &[data-zui-element-size='m'] {
