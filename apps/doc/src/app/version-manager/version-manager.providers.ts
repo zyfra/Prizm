@@ -4,7 +4,7 @@ import {InjectionToken, Provider} from '@angular/core';
 import {ZUI_VERSIONS_META, ZuiVersionMeta} from './versions.constants';
 
 export const SELECTED_VERSION_META = new InjectionToken<ZuiVersionMeta | null>(
-    'Meta information about selected version of Taiga docs',
+    'Meta information about selected version of Zyfra docs',
 );
 
 export const VERSION_MANAGER_PROVIDERS: Provider[] = [
