@@ -1,9 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {ChangeDetectorRef, Component} from '@angular/core';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'zui-toggle-example-1',
+  selector: 'zui-dropdown-host-example-1',
   templateUrl: './template.html',
   styles: [`
     .box {
@@ -12,12 +11,24 @@ import { FormControl } from '@angular/forms';
     }
   `]
 })
-export class ZuiToggleExample1 implements OnInit {
-  value = true;
-  readonly value2 = new FormControl(false);
-  readonly valueDisabled = new FormControl(false);
+export class ZuiDropdownHostExample1 {
+  readonly items = [
+    'Edit',
+    'Download',
+    'Rename',
+    'Edit',
+    'Download',
+    'Rename',
+    'Delete'
+  ];
 
-  ngOnInit(): void {
-    this.valueDisabled.disable();
+  open = false;
+
+  constructor(private cdRef: ChangeDetectorRef) {
+  }
+
+  public onClick(): void {
+    this.open = false;
+    this.cdRef.markForCheck();
   }
 }

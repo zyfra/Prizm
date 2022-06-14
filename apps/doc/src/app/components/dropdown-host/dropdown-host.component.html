@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiToggleComponent to view toggle.
+      Use ZuiDropdownHostComponent to view toggle.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Basic"
       [content]="example1"
     >
-      <zui-toggle-example-1></zui-toggle-example-1>
+      <zui-dropdown-host-example-1></zui-dropdown-host-example-1>
     </tui-doc-example>
 
 
@@ -21,88 +21,10 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-toggle
-        [showLoader]="showLoader"
-        [singleColor]="singleColor"
-        [iconOn]="iconOn"
-        [size]="size"
-        [iconOff]="iconOff"
-        [disabled]="disabled"
-        [(ngModel)]="value"
-        [ngModelOptions]="{standalone: true}"
-      ></zui-toggle>
+      <zui-dropdown-host
+      ></zui-dropdown-host>
     </tui-doc-demo>
     <tui-doc-documentation>
-      <ng-template
-        documentationPropertyName="value"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="value"
-      >
-        Value
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="disabled"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
-      >
-        Disabled
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="showLoader"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="showLoader"
-      >
-        Show Loader
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="singleColor"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="singleColor"
-      >
-        Single Color
-      </ng-template>
-
-
-
-      <ng-template
-        documentationPropertyName="size"
-        documentationPropertyType="ZuiSizeL | ZuiSizeM"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="size"
-        [documentationPropertyValues]="sizeVariants"
-      >
-        Size
-      </ng-template>
-
-
-
-      <ng-template
-        documentationPropertyName="iconOn"
-        documentationPropertyType="PolymorpheusContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="iconOn"
-        [documentationPropertyValues]="iconVariants"
-      >
-        Icon On
-      </ng-template>
-
-
-      <ng-template
-        documentationPropertyName="iconOff"
-        documentationPropertyType="PolymorpheusContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="iconOff"
-        [documentationPropertyValues]="iconVariants"
-      >
-        Icon Off
-      </ng-template>
 
     </tui-doc-documentation>
   </ng-template>

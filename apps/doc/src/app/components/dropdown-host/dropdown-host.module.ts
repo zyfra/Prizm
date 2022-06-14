@@ -2,10 +2,10 @@ import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {generateRoutes, TuiAddonDocModule} from "@taiga-ui/addon-doc";
 import {RouterModule} from "@angular/router";
-import {ToggleComponent} from "./toggle.component";
-import {ZuiToggleExample1} from "./examples/1/template";
-import {PolymorpheusModule, ZuiToggleModule} from "@digital-plant/zui-components";
+import {PolymorpheusModule, ZuiDropdownHostModule, ZuiToggleModule} from "@digital-plant/zui-components";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {DropdownHostComponent} from "./dropdown-host.component";
+import {ZuiDropdownHostExample1} from "./examples/1/template";
 
 @NgModule({
   imports: [
@@ -15,12 +15,13 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     ReactiveFormsModule,
     PolymorpheusModule,
     ZuiToggleModule,
-    RouterModule.forChild(generateRoutes(ToggleComponent)),
+    ZuiDropdownHostModule,
+    RouterModule.forChild(generateRoutes(DropdownHostComponent)),
   ],
   declarations: [
-    ZuiToggleExample1,
-    ToggleComponent
+    ZuiDropdownHostExample1,
+    DropdownHostComponent
   ],
-  exports: [ToggleComponent],
+  exports: [DropdownHostComponent],
 })
-export class ToggleModule {}
+export class DropdownHostModule {}

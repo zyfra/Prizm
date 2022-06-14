@@ -1,6 +1,6 @@
-export abstract class ZuiOverlayPosition<T extends Record<string, any> = Record<string, any>> {
+export abstract class ZuiOverlayAbstractPosition<T extends Record<string, any> = Record<string, any>> {
   protected config: T = {} as T;
-  abstract getPositions(host: HTMLElement): any;
+  abstract getPositions(host: HTMLElement): Record<string, any>;
 
   public getClassName(): string {
     return this.constructor.name.replace('Pos', '-pos').toLowerCase();
@@ -10,5 +10,5 @@ export abstract class ZuiOverlayPosition<T extends Record<string, any> = Record<
     this.config = { ...this.config, ...config };
   }
 
-  public init(tid: string): void {}
+  public init(zid: string): void {}
 }

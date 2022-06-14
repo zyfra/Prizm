@@ -1,70 +1,18 @@
-<div>
-  <h2>Size M</h2>
-  <div class="box">
-    <div>
-      simple
-      <zui-toggle
-        size="m"
-        [(ngModel)]="value"
-        [ngModelOptions]="{standalone: true}">Ng Model</zui-toggle>
-    </div>
-    <div>
-      disabled
-      <zui-toggle
-        size="m"
-        [disabled]="true"
-        [(ngModel)]="value"
-        [ngModelOptions]="{standalone: true}">Ng Model</zui-toggle>
-    </div>
-    <div>
-      with loader
-      <zui-toggle
-        size="m"
-        [showLoader]="true"
-        [(ngModel)]="value"
-        [ngModelOptions]="{standalone: true}">Ng Model</zui-toggle>
-    </div>
-    <div>
-      with icon
-      <zui-toggle
-        size="m"
-        iconOn="selection-checkbox-marked-circle"
-        iconOff="selection-checkbox-marked-circle-chanel"
-        [(ngModel)]="value"
-        [ngModelOptions]="{standalone: true}">Ng Model</zui-toggle>
-    </div>
-  </div>
-</div>
+<zui-dropdown-host
+  [content]="dropdown"
+  [open]="open"
+>
+  <button type="button" (click)="open = !open">
+    Button
+  </button>
+</zui-dropdown-host>
 
-<div>
-  <h2>Size L</h2>
-  <div class="box">
-    <div>
-      simple
-      <zui-toggle
-        size="l"
-        [formControl]="value2"></zui-toggle>
-    </div>
-    <div>
-      disabled
-      <zui-toggle
-        size="l"
-        [formControl]="valueDisabled"></zui-toggle>
-    </div>
-    <div>
-      with loader
-      <zui-toggle
-        size="l"
-        [showLoader]="true"
-        [formControl]="value2"></zui-toggle>
-    </div>
-    <div>
-      with icon
-      <zui-toggle
-        size="l"
-        iconOn="arrows-chevron-left"
-        iconOff="arrows-chevron-right"
-        [formControl]="value2"></zui-toggle>
-    </div>
-  </div>
-</div>
+<ng-template #dropdown>
+  <ul>
+    <li *ngFor="let item of items">
+      <button (click)="onClick()">
+        [{{open ? 1 : 0}}] {{item}}
+      </button>
+    </li>
+  </ul>
+</ng-template>

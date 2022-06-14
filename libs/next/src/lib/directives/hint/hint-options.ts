@@ -1,31 +1,28 @@
 import {InjectionToken, ValueProvider} from '@angular/core';
-import {
-    ZUI_ABSTRACT_HINT_DEFAULT_OPTIONS,
-    ZuiAbstractHintOptions,
-} from 'deleted/core/abstract';
-import {PolymorpheusContent} from 'deleted/ng-polymorpheus';
+import {ZuiOverlayOutsidePlacement} from "../../modules/overlay/models";
 
-export interface ZuiHintOptions extends ZuiAbstractHintOptions {
+export type ZuiHintMode = 'error' | 'dark' | 'light' | null
+export interface ZuiHintOptions {
     readonly zuiHintShowDelay: number;
     readonly zuiHintHideDelay: number;
-    readonly tooltipIcon: PolymorpheusContent;
+    readonly mode: ZuiHintMode;
+    readonly autoReposition: boolean;
+    readonly direction: ZuiOverlayOutsidePlacement;
 }
-
-// TODO: 3.0 remove in ivy compilation
-export const ZUI_TOOLTIP_ICON = 'zuiIconTooltipLarge';
 
 /** Default values for hint options */
 export const ZUI_HINT_DEFAULT_OPTIONS: ZuiHintOptions = {
-    ...ZUI_ABSTRACT_HINT_DEFAULT_OPTIONS,
     zuiHintShowDelay: 500,
     zuiHintHideDelay: 200,
-    tooltipIcon: ZUI_TOOLTIP_ICON,
+    autoReposition: true,
+    mode: null,
+    direction: ZuiOverlayOutsidePlacement.RIGHT,
 };
 
 export const ZUI_HINT_OPTIONS = new InjectionToken<ZuiHintOptions>(
     'Default parameters for hint directive',
     {
-        factory: () => ZUI_HINT_DEFAULT_OPTIONS,
+        factory: (): ZuiHintOptions => ZUI_HINT_DEFAULT_OPTIONS,
     },
 );
 

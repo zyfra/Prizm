@@ -1,8 +1,11 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
+import {PolymorpheusComponent} from "@digital-plant/zui-components";
+import {ZuiHintSomeComponent} from "./some-component";
+import {ZuiOverlayOutsidePlacement} from "../../../../../../../../libs/next/src/lib/modules/overlay";
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'zui-hint-example-1',
+  selector: 'zui-hint-example-with-component',
   templateUrl: './template.html',
   styles: [`
     .box {
@@ -11,24 +14,7 @@ import {ChangeDetectorRef, Component} from '@angular/core';
     }
   `]
 })
-export class ZuiHintExample1 {
-  readonly items = [
-    'Edit',
-    'Download',
-    'Rename',
-    'Edit',
-    'Download',
-    'Rename',
-    'Delete'
-  ];
-
-  open = false;
-
-  constructor(private cdRef: ChangeDetectorRef) {
-  }
-
-  public onClick(): void {
-    this.open = false;
-    this.cdRef.markForCheck();
-  }
+export class ZuiHintExampleWithComponent {
+  readonly component = new PolymorpheusComponent(ZuiHintSomeComponent);
+  readonly direction = ZuiOverlayOutsidePlacement.LEFT_BOTTOM;
 }

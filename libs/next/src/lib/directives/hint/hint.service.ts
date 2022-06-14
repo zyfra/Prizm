@@ -1,36 +1,20 @@
-import {InjectionToken, ValueProvider} from '@angular/core';
-import {ZuiOverlayOutsidePlacement} from "../../modules/overlay/models";
+import {Injectable} from "@angular/core";
+import {Observable, ReplaySubject} from "rxjs";
+import {filter, map, startWith} from "rxjs/operators";
 
-export type ZuiHintMode = 'error' | 'dark' | 'light' | null
-export interface ZuiHintOptions {
-    readonly zuiHintShowDelay: number;
-    readonly zuiHintHideDelay: number;
-    readonly mode: ZuiHintMode;
-    readonly autoReposition: boolean;
-    readonly direction: ZuiOverlayOutsidePlacement;
+@Injectable({providedIn: "root"})
+export class ZuiHintService {
+  private readonly subHoveredSource$ = new ReplaySubject<{id: string, hovered: boolean}>();
+
+  public childHovered(hintId: string): Observable<boolean> {
+    return this.subHoveredSource$.pipe(
+      filter(({id}) => id === hintId),
+      map(({hovered}) => hovered),
+      startWith(false)
+    )
+  }
+
+  public emit(hintId: string, hovered: boolean): void {
+    this.subHoveredSource$.next({id: hintId, hovered});
+  }
 }
-
-/** Default values for hint options */
-export const ZUI_HINT_DEFAULT_OPTIONS: ZuiHintOptions = {
-    zuiHintShowDelay: 500,
-    zuiHintHideDelay: 200,
-    autoReposition: true,
-    mode: null,
-    direction: ZuiOverlayOutsidePlacement.RIGHT,
-};
-
-export const ZUI_HINT_OPTIONS = new InjectionToken<ZuiHintOptions>(
-    'Default parameters for hint directive',
-    {
-        factory: (): ZuiHintOptions => ZUI_HINT_DEFAULT_OPTIONS,
-    },
-);
-
-export const zuiHintOptionsProvider: (
-    options: Partial<ZuiHintOptions>,
-) => ValueProvider = (options: Partial<ZuiHintOptions>) => ({
-    provide: ZUI_HINT_OPTIONS,
-    useValue: {...ZUI_HINT_DEFAULT_OPTIONS, ...options},
-});
-
-export const ZuiSubHoveredToken = new InjectionToken('child hovered');

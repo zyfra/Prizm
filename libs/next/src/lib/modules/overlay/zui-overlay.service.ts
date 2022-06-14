@@ -1,29 +1,37 @@
-import { ApplicationRef, ComponentFactoryResolver, Injectable, Injector } from '@angular/core';
-import { ZuiOverlayDefaultConfig } from './config';
-import { ZuiOverlayContentData, ZuiOverlayContentProps, ZuiOverlayContentType, ZuiOverlayInputs, ZuiOverlayInsidePlacement, ZuiOverlayId, ZuiOverlayConfig } from './models';
-import { ZuiOverlayGlobalPosition } from './position';
-import { ZuiOverlayPosition } from './position/position';
-import { ZuiOverlayControl } from './zui-overlay-control';
-import { EventBus, generateID, getContent } from './utils';
+import {ApplicationRef, ComponentFactoryResolver, Injectable, Injector} from '@angular/core';
+import {ZuiOverlayDefaultConfig} from './config';
+import {
+  ZuiOverlayConfig,
+  ZuiOverlayContentData,
+  ZuiOverlayContentProps,
+  ZuiOverlayContentType,
+  ZuiOverlayId,
+  ZuiOverlayInputs,
+  ZuiOverlayInsidePlacement
+} from './models';
+import {ZuiOverlayGlobalPosition} from './position';
+import {ZuiOverlayAbstractPosition} from './position/position';
+import {ZuiOverlayControl} from './zui-overlay-control';
+import {EventBus, generateID, getContent} from './utils';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ZuiOverlayService {
   static controls: { [key: string]: ZuiOverlayControl } = {};
-  private tid: ZuiOverlayId;
+  private zid: ZuiOverlayId;
   private inputs: ZuiOverlayInputs = {
     position: null,
     config: ZuiOverlayDefaultConfig,
     content: { type: ZuiOverlayContentType.STRING, data: 'hello', props: {} },
-    tid: null
+    zid: null
   };
 
   constructor(private injector: Injector) {
     this.inputs.position = new ZuiOverlayGlobalPosition({ placement: ZuiOverlayInsidePlacement.TOP });
   }
 
-  public position(position: ZuiOverlayPosition): ZuiOverlayService {
+  public position(position: ZuiOverlayAbstractPosition): ZuiOverlayService {
     this.inputs.position = position;
     return this;
   }
@@ -39,7 +47,7 @@ export class ZuiOverlayService {
   }
 
   public create(key: string = null): ZuiOverlayControl {
-    this.tid = this.inputs.tid = key || generateID();
+    this.zid = this.inputs.zid = key || generateID();
 
     const injector = Injector.create(
       [
@@ -52,20 +60,19 @@ export class ZuiOverlayService {
     );
 
     const tc = injector.get(ZuiOverlayControl);
-    if (ZuiOverlayService.controls[this.tid]) {
-      this.tid = generateID();
+    if (ZuiOverlayService.controls[this.zid]) {
+      this.zid = generateID();
     }
-    this.inputs.position.init(this.tid);
-    ZuiOverlayService.controls[this.tid] = Object.assign(tc, this.inputs);
+    this.inputs.position.init(this.zid);
+    ZuiOverlayService.controls[this.zid] = Object.assign(tc, this.inputs);
     return tc;
   }
 
-  public getCtrl(tid: ZuiOverlayId): ZuiOverlayControl {
-    return ZuiOverlayService.controls[tid];
+  public getCtrl(zid: ZuiOverlayId): ZuiOverlayControl {
+    return ZuiOverlayService.controls[zid];
   }
 
   public destroy(): void {
-    // tslint:disable-nexz-line:forin
     for (const key in ZuiOverlayService.controls) {
       ZuiOverlayService.controls[key].close();
     }

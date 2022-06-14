@@ -20,8 +20,8 @@ import {PolymorpheusContent} from "../../directives";
 
 @Component({
     selector: 'zui-dropdown-host',
-    templateUrl: './dropdown-host.template.html',
-    styleUrls: ['./dropdown-host.style.less'],
+    templateUrl: './tooltip.template.html',
+    styleUrls: ['./tooltip.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [],
 })

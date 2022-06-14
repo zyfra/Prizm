@@ -1,9 +1,14 @@
 import {NgModule} from '@angular/core';
-
-import {TuiDropdownHostComponent} from './dropdown-host.component';
+import {ZuiDropdownHostComponent} from './dropdown-host.component';
+import {ZuiOverlayModule} from "../../modules/overlay";
+import {PolymorpheusModule} from "../../directives";
 
 @NgModule({
-    declarations: [TuiDropdownHostComponent],
-    exports: [TuiDropdownHostComponent],
+    imports: [
+      ZuiOverlayModule,
+      PolymorpheusModule
+    ],
+    declarations: [ZuiDropdownHostComponent],
+    exports: [ZuiDropdownHostComponent],
 })
-export class TuiDropdownHostModule {}
+export class ZuiDropdownHostModule {}

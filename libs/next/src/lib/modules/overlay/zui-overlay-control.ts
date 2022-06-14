@@ -6,18 +6,25 @@ import {
   Injector,
   ViewRef
 } from '@angular/core';
-import { animationFrameScheduler, fromEvent, merge as mergeObs, Observable, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, map, observeOn, skipWhile, takeUntil, tap } from 'rxjs/operators';
-import { ZuiOverlayContent, ZuiOverlayContentData, ZuiOverlayContentProps, ZuiOverlayId, ZuiOverlayConfig, ZuiOverlayEventName } from './models';
-import { ZuiOverlayPosition } from './position/position';
-import { ZuiOverlayComponent } from './zui-overlay.component';
-import { BODY_ELEMENT, EventBus, getContent } from './utils';
+import {animationFrameScheduler, fromEvent, merge as mergeObs, Observable, Subject} from 'rxjs';
+import {debounceTime, distinctUntilChanged, filter, map, observeOn, skipWhile, takeUntil, tap} from 'rxjs/operators';
+import {
+  ZuiOverlayConfig,
+  ZuiOverlayContent,
+  ZuiOverlayContentData,
+  ZuiOverlayContentProps,
+  ZuiOverlayEventName,
+  ZuiOverlayId
+} from './models';
+import {ZuiOverlayAbstractPosition} from './position/position';
+import {ZuiOverlayComponent} from './zui-overlay.component';
+import {BODY_ELEMENT, EventBus, getContent} from './utils';
 
 export class ZuiOverlayControl {
-  position: ZuiOverlayPosition;
-  config: ZuiOverlayConfig;
+  position: ZuiOverlayAbstractPosition;
+  readonly config: ZuiOverlayConfig;
   content: ZuiOverlayContent;
-  tid: ZuiOverlayId;
+  zid: ZuiOverlayId;
   comp: ZuiOverlayComponent;
   updateTextContent: Subject<string> = new Subject();
   hostView: ViewRef;
@@ -26,7 +33,7 @@ export class ZuiOverlayControl {
   private viewEl: HTMLElement;
   private isOpen = false;
   private compFac: ComponentFactory<ZuiOverlayComponent>;
-  private die: Subject<1> = new Subject();
+  private destroy$: Subject<1> = new Subject();
 
   constructor(
     private appRef: ApplicationRef,
@@ -44,10 +51,10 @@ export class ZuiOverlayControl {
     this.attach();
     if (this.viewEl) {
       mergeObs(this.onDocumentClick(), this.onWindowResize(), this.onEscClick()).subscribe();
-      setTimeout(() => EventBus.send(this.tid, 'z_dynpos'), 1);
+      setTimeout(() => EventBus.send(this.zid, 'z_dynpos'), 1);
     }
 
-    EventBus.send(this.tid, 'z_open');
+    EventBus.send(this.zid, 'z_open');
     this.isOpen = true;
   }
 
@@ -55,8 +62,8 @@ export class ZuiOverlayControl {
     if (!this.isOpen) return;
 
     this.detach();
-    this.die.next(1);
-    EventBus.send(this.tid, 'z_close');
+    this.destroy$.next(1);
+    EventBus.send(this.zid, 'z_close');
     this.isOpen = false;
   }
 
@@ -66,7 +73,7 @@ export class ZuiOverlayControl {
 
   public onEscClick(): Observable<any> {
     return fromEvent(BODY_ELEMENT, 'keydown').pipe(
-      takeUntil(this.die),
+      takeUntil(this.destroy$),
       skipWhile(() => !this.config.closeOnEsc),
       filter((e: any) => (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) && e.target.nodeName === 'BODY'),
       tap(e => e.preventDefault()),
@@ -77,7 +84,7 @@ export class ZuiOverlayControl {
 
   public onDocumentClick(): Observable<any> {
     return fromEvent(this.viewEl, 'click').pipe(
-      takeUntil(this.die),
+      takeUntil(this.destroy$),
       map((e: any) => e.target),
       skipWhile(() => !this.config.closeOnDocClick),
       filter(this.isNotHostElement.bind(this)),
@@ -93,18 +100,18 @@ export class ZuiOverlayControl {
     const onScroll = fromEvent(window, 'scroll', { passive: true });
     return mergeObs(onResize, onScroll).pipe(
       skipWhile(() => !this.config.listenWindowEvents),
-      takeUntil(this.die),
+      takeUntil(this.destroy$),
       debounceTime(5),
       observeOn(animationFrameScheduler),
       distinctUntilChanged(),
       tap(() => {
-        EventBus.send(this.tid, 'z_dynpos');
+        EventBus.send(this.zid, 'z_dynpos');
         this.config.windowResizeCallback();
       })
     );
   }
 
-  public changePosition(newPosition: ZuiOverlayPosition): void {
+  public changePosition(newPosition: ZuiOverlayAbstractPosition): void {
     this.position = newPosition;
   }
 
@@ -117,7 +124,7 @@ export class ZuiOverlayControl {
   }
 
   public listen<T = any>(eventName: ZuiOverlayEventName): Observable<T> {
-    return EventBus.listen(this.tid, eventName);
+    return EventBus.listen(this.zid, eventName);
   }
 
   private isNotHostElement(el: HTMLElement): boolean {
@@ -132,9 +139,9 @@ export class ZuiOverlayControl {
     this.comp = this.compRef.instance;
 
     /* assign props */
-    const { position, content, config, tid } = this;
+    const { position, content, config, zid } = this;
     content.props.close = this.close.bind(this);
-    Object.assign(this.comp, { position, content, config, tid });
+    Object.assign(this.comp, { position, content, config, zid: zid });
 
     /* attach view */
     this.hostView = this.compRef.hostView;

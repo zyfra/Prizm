@@ -1,6 +1,6 @@
-import { ZuiOverlayInsidePlacement } from '../models';
-import { setWidthHeight } from '../utils';
-import { ZuiOverlayPosition } from './position';
+import {ZuiOverlayInsidePlacement} from '../models';
+import {setWidthHeight} from '../utils';
+import {ZuiOverlayAbstractPosition} from './position';
 
 interface ZuiOverlayGlobalPositionConfig {
   placement?: ZuiOverlayInsidePlacement;
@@ -16,12 +16,14 @@ interface OverlayOffsetPosition {
   right: number,
 }
 
-export class ZuiOverlayGlobalPosition extends ZuiOverlayPosition {
-  protected override config: ZuiOverlayGlobalPositionConfig = { placement: ZuiOverlayInsidePlacement.CENTER, width: 100, height: 100, offset: 0 };
+export class ZuiOverlayGlobalPosition extends ZuiOverlayAbstractPosition<ZuiOverlayGlobalPositionConfig> {
 
   constructor(config: ZuiOverlayGlobalPositionConfig) {
     super();
-    this.updateConfig(config);
+    this.updateConfig({
+      ...{ placement: ZuiOverlayInsidePlacement.CENTER, width: 100, height: 100, offset: 0 },
+      ...config,
+    });
   }
   public getPositions(hostEl?: HTMLElement) {
     const host = hostEl.getBoundingClientRect() as any;

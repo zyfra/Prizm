@@ -1,5 +1,5 @@
-import { TemplateRef } from '@angular/core';
-import { ZuiOverlayPosition } from './position/position';
+import {TemplateRef} from '@angular/core';
+import {ZuiOverlayAbstractPosition} from './position/position';
 
 export interface ZuiOverlayPositionMeta {
   top?: number;
@@ -12,6 +12,13 @@ export interface ZuiOverlayPositionMeta {
   extra?: string;
 }
 
+enum b {
+  TOP = 't',
+  LEFT = 'l',
+  RIGHT = 'r',
+  BOTTOM = 'b',
+}
+
 enum p {
   TOP = 't',
   LEFT = 'l',
@@ -21,6 +28,14 @@ enum p {
   TOP_RIGHT = 'tr',
   BOTTOM_LEFT = 'bl',
   BOTTOM_RIGHT = 'br'
+}
+
+
+enum base {
+  TOP = 't',
+  LEFT = 'l',
+  RIGHT = 'r',
+  BOTTOM = 'b',
 }
 
 enum o {
@@ -37,12 +52,16 @@ export const ZuiOverlayOutsidePlacement = {
   ...p,
   ...o
 };
+export const ZuiOverlayBasePlacement = {
+  ...b
+};
 export const ZuiOverlayInsidePlacement = {
   ...p,
   ...i
 };
 export type ZuiOverlayOutsidePlacement = p | o;
 export type ZuiOverlayInsidePlacement = p | i;
+export type ZuiOverlayBasePlacement = b;
 
 export enum ZuiOverlaySlidePlacement {
   LEFT = 'l',
@@ -97,8 +116,8 @@ export interface ZuiOverlayContent {
 }
 
 export interface ZuiOverlayInputs {
-  position: ZuiOverlayPosition | null;
+  position: ZuiOverlayAbstractPosition | null;
   config: ZuiOverlayConfig;
   content: ZuiOverlayContent;
-  tid: ZuiOverlayId;
+  zid: ZuiOverlayId;
 }

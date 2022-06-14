@@ -2,16 +2,27 @@ import {ChangeDetectorRef, Component} from '@angular/core';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'zui-hint-example-1',
-  templateUrl: './template.html',
+  selector: 'zui-hint-some-component',
+  template: `
+    <div>Header</div>
+    <div class="button-box">
+      <button zuiButton *ngFor="let item of items">{{item}}</button>
+    </div>
+    <div>Footer</div>
+  `,
   styles: [`
-    .box {
-      display: flex;
-      gap: 1rem;
+    .button-box {
+      display: grid;
+      grid-template-rows: 1fr;
+      gap: 8px;
+    }
+
+    button {
+      width: 100%;
     }
   `]
 })
-export class ZuiHintExample1 {
+export class ZuiHintSomeComponent {
   readonly items = [
     'Edit',
     'Download',
@@ -21,14 +32,4 @@ export class ZuiHintExample1 {
     'Rename',
     'Delete'
   ];
-
-  open = false;
-
-  constructor(private cdRef: ChangeDetectorRef) {
-  }
-
-  public onClick(): void {
-    this.open = false;
-    this.cdRef.markForCheck();
-  }
 }

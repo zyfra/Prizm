@@ -1,14 +1,15 @@
 ```ts
 import {NgModule} from '@angular/core';
-import {ZuiToggleModule} from "@digital-plant/zui-components";
+import {ZuiDropdownHostModule} from "@digital-plant/zui-components";
 
 // ...
 
 @NgModule({
   imports: [
     // ...
-    ZuiToggleModule,
+    ZuiDropdownHostModule,
   ],
 })
-export class MyModule {}
+export class MyModule {
+}
 ```

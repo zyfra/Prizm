@@ -21,6 +21,14 @@ export const ROUTES = [
   },
   // COMPONENTS
   {
+    path: 'components/dropdown-host',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/dropdown-host/dropdown-host.module')).DropdownHostModule,
+    data: {
+      title: 'DropdownHost',
+    },
+  },
+  {
     path: 'components/button',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/button/button.module')).ButtonModule,
@@ -34,6 +42,14 @@ export const ROUTES = [
       (await import('./components/toggle/toggle.module')).ToggleModule,
     data: {
       title: 'Toggle',
+    },
+  },
+  {
+    path: 'components/hint',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/hint/hint.module')).HintModule,
+    data: {
+      title: 'Hint',
     },
   },
   {

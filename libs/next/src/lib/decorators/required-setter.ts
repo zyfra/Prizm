@@ -1,14 +1,12 @@
-import {tuiAssert} from '@taiga-ui/cdk/classes';
-import {TuiBooleanHandler} from '@taiga-ui/cdk/types';
-
 /**
  * Decorator for checking input setter values against a custom assertion which
  * takes value passed to input setter and component instance as arguments.
  * It specifically checks for undefined values and prevents calls to the
  * original setter in this case.
  */
-export function tuiRequiredSetter<T extends object, K extends keyof T>(
-    assertion?: TuiBooleanHandler<T[K]>,
+
+export function zuiRequiredSetter<T extends Record<string, unknown>, K extends keyof T>(
+    assertion?: (a: unknown) => boolean,
     ...args: any[]
 ): MethodDecorator {
     return (
@@ -22,9 +20,9 @@ export function tuiRequiredSetter<T extends object, K extends keyof T>(
             configurable,
             enumerable,
             get,
-            set(this: T, value: T[K]) {
+            set(this: T, value: T[K]): void {
                 if (value !== undefined && assertion) {
-                    tuiAssert.assert(
+                    console.assert(
                         assertion.call(this, value),
                         `${String(key)} in ${name} received:`,
                         value,
@@ -33,7 +31,7 @@ export function tuiRequiredSetter<T extends object, K extends keyof T>(
                 }
 
                 if (!set || value === undefined) {
-                    tuiAssert.assert(value !== undefined, errorSet(key, name));
+                    console.assert(value !== undefined, errorSet(key, name));
 
                     return;
                 }

@@ -1,34 +1,37 @@
-import { ZuiOverlayOutsidePlacement, ZuiOverlayPositionMeta } from '../models';
-import { EventBus, setWidthHeight } from '../utils';
-import { ZuiOverlayPosition } from './position';
+import {ZuiOverlayOutsidePlacement, ZuiOverlayPositionMeta} from '../models';
+import {EventBus, setWidthHeight} from '../utils';
+import {ZuiOverlayAbstractPosition} from './position';
 
 interface ZuiOverlayRelativePositionConfig {
-  src: HTMLElement;
+  element: HTMLElement;
   placement?: ZuiOverlayOutsidePlacement;
-  autoUpdate?: boolean;
+  autoReposition?: boolean;
   width?: string | number;
   height?: string | number;
 }
 
-export class ZuiOverlayRelativePosition extends ZuiOverlayPosition<ZuiOverlayRelativePositionConfig> {
-  protected override config: ZuiOverlayRelativePositionConfig = {
-    src: null,
-    placement: ZuiOverlayOutsidePlacement.TOP,
-    autoUpdate: false,
-    width: 'auto',
-    height: 'auto'
-  };
+export class ZuiOverlayRelativePosition extends ZuiOverlayAbstractPosition<ZuiOverlayRelativePositionConfig> {
   obs: MutationObserver;
   constructor(config: ZuiOverlayRelativePositionConfig) {
     super();
-    this.updateConfig(config);
+    this.updateConfig({
+      ...{
+        element: null,
+        placement: ZuiOverlayOutsidePlacement.TOP,
+        autoReposition: false,
+        width: 'auto',
+        height: 'auto'
+      },
+      ...config
+    });
   }
-  public override init(tid: string): void {
-    if (this.config.autoUpdate) this.listenDrag(tid);
+
+  public override init(zid: string): void {
+    if (this.config.autoReposition) this.listenDrag(zid);
   }
 
   public getPositions(targetEl: HTMLElement): Pick<ZuiOverlayPositionMeta, any> {
-    const s = this.getCoords(this.config.src);
+    const s = this.getCoords(this.config.element);
     const h = this.getCoords(targetEl);
     let { width: w, height: ht } = this.config;
 
@@ -84,7 +87,7 @@ export class ZuiOverlayRelativePosition extends ZuiOverlayPosition<ZuiOverlayRel
   private calculatePos(pos: ZuiOverlayOutsidePlacement, s: any, h: any, c = true): Record<string, any> {
     const props = this.calc(pos, s, h);
 
-    if (c && this.config.autoUpdate && this.isOverflowed({ ...props, width: h.width, height: h.height })) {
+    if (c && this.config.autoReposition && this.isOverflowed({ ...props, width: h.width, height: h.height })) {
       return this.calculatePos(this.nextPosition(pos), s, h, false);
     }
 
@@ -111,15 +114,15 @@ export class ZuiOverlayRelativePosition extends ZuiOverlayPosition<ZuiOverlayRel
     return props;
   }
 
-  private listenDrag(tid: string): void {
+  private listenDrag(zid: string): void {
     if (this.obs) this.obs.disconnect();
     this.obs = new MutationObserver(mutationsList => {
       for (const mutation of mutationsList) {
-        if (mutation.type === 'attributes') EventBus.send(tid, 'z_dynpos');
+        if (mutation.type === 'attributes') EventBus.send(zid, 'z_dynpos');
       }
     });
 
-    this.obs.observe(this.config.src, {
+    this.obs.observe(this.config.element, {
       attributeFilter: ['style']
     });
   }

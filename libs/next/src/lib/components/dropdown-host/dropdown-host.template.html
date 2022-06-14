@@ -1,6 +1,4 @@
-<div
-    #positionFixedOffset
-    class="position-fixed-offset"
-></div>
 <ng-content></ng-content>
-<ng-container #viewContainer></ng-container>
+<ng-template #temp>
+  <ng-container  *polymorpheusOutlet="content"></ng-container>
+</ng-template>

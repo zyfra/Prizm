@@ -23,9 +23,21 @@ export const pages: TuiDocPages = [
   },
   {
     section: `Components`,
+    title: 'DropdownHost',
+    keywords: 'dropdown, zui-dropdown-host, overlay',
+    route: '/components/dropdown-host',
+  },
+  {
+    section: `Components`,
     title: 'Input',
     keywords: 'input, text, form',
     route: '/components/input',
+  },
+  {
+    section: `Components`,
+    title: 'Hint',
+    keywords: 'hint, хинт',
+    route: '/components/hint',
   },
   {
     section: `Components`,

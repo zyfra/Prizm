@@ -2,10 +2,13 @@ import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {generateRoutes, TuiAddonDocModule} from "@taiga-ui/addon-doc";
 import {RouterModule} from "@angular/router";
-import {PolymorpheusModule, ZuiDropdownHostModule, ZuiToggleModule} from "@digital-plant/zui-components";
+import {PolymorpheusModule, ZuiButtonModule, ZuiHintModule} from "@digital-plant/zui-components";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {DropdownHostComponent} from "./dropdown-host.component";
-import {ZuiDropdownHostExample1} from "./examples/1/template";
+import {HintComponent} from "./hint.component";
+import {ZuiHintExampleWithTemplate} from "./examples/with-template/template";
+import {ZuiHintExampleBasic} from "./examples/basic/template";
+import {ZuiHintSomeComponent} from "./examples/with-component/some-component";
+import {ZuiHintExampleWithComponent} from "./examples/with-component/template";
 
 @NgModule({
   imports: [
@@ -14,14 +17,17 @@ import {ZuiDropdownHostExample1} from "./examples/1/template";
     FormsModule,
     ReactiveFormsModule,
     PolymorpheusModule,
-    ZuiToggleModule,
-    ZuiDropdownHostModule,
-    RouterModule.forChild(generateRoutes(DropdownHostComponent)),
+    ZuiHintModule,
+    ZuiButtonModule,
+    RouterModule.forChild(generateRoutes(HintComponent)),
   ],
   declarations: [
-    ZuiDropdownHostExample1,
-    DropdownHostComponent
+    ZuiHintExampleWithTemplate,
+    ZuiHintExampleWithComponent,
+    ZuiHintSomeComponent,
+    ZuiHintExampleBasic,
+    HintComponent
   ],
-  exports: [DropdownHostComponent],
+  exports: [HintComponent],
 })
-export class DropdownHostModule {}
+export class HintModule {}

@@ -1,31 +1,128 @@
 <tui-doc-page
-  header="Example"
+  header="Hint"
   package="next"
   type="components"
 >
   <ng-template pageTab>
     <p>
-      Use ZuiDropdownHostComponent to view toggle.
+      Use ZuiHintDirective to control hint.
     </p>
 
     <tui-doc-example
       id="base"
       heading="Basic"
-      [content]="example1"
+      [content]="exampleBasic"
     >
-      <zui-dropdown-host-example-1></zui-dropdown-host-example-1>
+      <zui-hint-example-basic></zui-hint-example-basic>
     </tui-doc-example>
 
+    <tui-doc-example
+      id="base"
+      heading="With Template"
+      [content]="exampleWithTemplate"
+    >
+      <zui-hint-example-with-template></zui-hint-example-with-template>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="base"
+      heading="With Component"
+      [content]="exampleWithComponent"
+    >
+      <zui-hint-example-with-component></zui-hint-example-with-component>
+    </tui-doc-example>
 
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-dropdown-host
-      ></zui-dropdown-host>
+      <button
+        zuiButton
+        zuiHint="Тестовое содержимое"
+        [zuiHintMode]="zuiHintMode"
+        [zuiAutoReposition]="zuiAutoReposition"
+        [zuiHintDirection]="zuiHintDirection"
+        [zuiHintId]="zuiHintId"
+        [zuiHintShowDelay]="zuiHintShowDelay"
+        [zuiHintHideDelay]="zuiHintHideDelay"
+        [zuiHintHost]="zuiHintHost"
+      >
+        Button
+      </button>
     </tui-doc-demo>
     <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="zuiHintMode"
+        documentationPropertyType="ZuiHintMode"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="zuiHintModeVariants"
+        [(documentationPropertyValue)]="zuiHintMode"
+      >
+        Mode
+      </ng-template>
 
+      <ng-template
+        documentationPropertyName="zuiAutoReposition"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiAutoReposition"
+      >
+        Auto Reposition
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiHintDirection"
+        documentationPropertyType="ZuiOverlayOutsidePlacement"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="zuiHintDirectionVariants"
+        [(documentationPropertyValue)]="zuiHintDirection"
+      >
+        Hint Direction
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiHintId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiHintId"
+      >
+        Hint Id
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiHintId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiHintId"
+      >
+        Hint Id
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiHintShowDelay"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiHintShowDelay"
+      >
+        Show Delay
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiHintHideDelay"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiHintHideDelay"
+      >
+        Hide Delay
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiHintHost"
+        documentationPropertyType="HtmlElement"
+        documentationPropertyMode="input"
+      >
+        Host
+      </ng-template>
     </tui-doc-documentation>
   </ng-template>
 
@@ -34,7 +131,7 @@
       <li>
         <p>
           Import
-          <code>ZuiToggleModule</code>
+          <code>ZuiHintModule</code>
           into a module where you want to use our component
         </p>
 
