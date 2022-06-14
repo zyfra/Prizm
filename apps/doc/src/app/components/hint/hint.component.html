@@ -1,0 +1,48 @@
+<tui-doc-page
+  header="Example"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use ZuiDropdownHostComponent to view toggle.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Basic"
+      [content]="example1"
+    >
+      <zui-dropdown-host-example-1></zui-dropdown-host-example-1>
+    </tui-doc-example>
+
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-dropdown-host
+      ></zui-dropdown-host>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>ZuiToggleModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="exampleModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>
