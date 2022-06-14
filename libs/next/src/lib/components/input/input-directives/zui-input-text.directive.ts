@@ -1,7 +1,6 @@
 import {
   ChangeDetectorRef,
   Component,
-  Directive,
   DoCheck,
   ElementRef,
   HostListener,
@@ -14,6 +13,7 @@ import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 import { ZuiInputControl } from './zui-input-control.class';
+import { MaskApplierService } from 'ngx-mask';
 
 @Component({
   selector: 'input[zuiInput],textarea[zuiInput]',
@@ -63,7 +63,7 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck {
 
   protected _required: boolean | undefined;
 
-  public invalid: boolean = false;
+  public invalid = false;
 
   public readonly stateChanges: Subject<void> = new Subject<void>();
   /**
@@ -103,7 +103,8 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck {
     @Optional() @Self() public readonly ngControl: NgControl,
     private readonly elementRef: ElementRef<HTMLInputElement | HTMLTextAreaElement>,
     private readonly zuiDestroyService: ZuiDestroyService,
-    private readonly cdr: ChangeDetectorRef
+    private readonly cdr: ChangeDetectorRef,
+    private readonly maskService: MaskApplierService
   ) {
     this._inputValue = elementRef.nativeElement;
   }
