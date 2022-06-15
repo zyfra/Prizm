@@ -13,8 +13,6 @@ import { InputValidationExampleComponent } from './examples/input-validation-exa
 import { InputDisabledExampleComponent } from './examples/input-disabled-example/input-disabled-example.component';
 import { InputBasicExampleComponent } from './examples/input-basic-example/input-basic-example.component';
 import { InputValidationCustomExampleComponent } from './examples/input-validation-custom-example/input-validation-custom-example.component';
-import { InputPhoneExampleComponent } from './examples/input-phone-example/input-phone-example.component';
-import { InputMaskExampleComponent } from './examples/input-mask-example/input-mask-example.component';
 
 @NgModule({
   imports: [
@@ -25,19 +23,7 @@ import { InputMaskExampleComponent } from './examples/input-mask-example/input-m
     ReactiveFormsModule,
     FormsModule,
   ],
-  declarations: [
-    InputComponent,
-    InputExampleComponent,
-    InputSizesExampleComponent,
-    InputStatusesExampleComponent,
-    InputSubtextExampleComponent,
-    InputValidationExampleComponent,
-    InputDisabledExampleComponent,
-    InputBasicExampleComponent,
-    InputValidationCustomExampleComponent,
-    InputPhoneExampleComponent,
-    InputMaskExampleComponent,
-  ],
+  declarations: [InputComponent, InputExampleComponent, InputSizesExampleComponent, InputStatusesExampleComponent, InputSubtextExampleComponent, InputValidationExampleComponent, InputDisabledExampleComponent, InputBasicExampleComponent, InputValidationCustomExampleComponent],
   exports: [InputComponent],
 })
 export class InputExampleModule {}

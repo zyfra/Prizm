@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
@@ -18,18 +19,6 @@ export class InputComponent {
   public readonly zyfraInputExample: TuiDocExample = {
     TypeScript: import('!!raw-loader!../examples/input-example/input-example.component.ts'),
     HTML: import('!!raw-loader!../examples/input-example/input-example.component.html'),
-  };
-
-  public readonly zyfraInputPhoneExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!../examples/input-phone-example/input-phone-example.component.ts'),
-    HTML: import('!!raw-loader!../examples/input-phone-example/input-phone-example.component.html'),
-    LESS: import('!!raw-loader!../examples/input-phone-example/input-phone-example.component.less')
-  };
-
-  public readonly zyfraInputMaskExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!../examples/input-mask-example/input-mask-example.component.ts'),
-    HTML: import('!!raw-loader!../examples/input-mask-example/input-mask-example.component.html'),
-    LESS: import('!!raw-loader!../examples/input-mask-example/input-mask-example.component.less')
   };
 
   public readonly zyfraInputSizesExample: TuiDocExample = {

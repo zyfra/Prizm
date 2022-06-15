@@ -33,8 +33,8 @@ import { AppDirective } from './app.directive';
     TableTestModule,
     TranslateModule,
     ZyfraTabViewModule,
-    ZyfraUiRootModule,
-  ],
+      ZyfraUiRootModule
+],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
