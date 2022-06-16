@@ -1,3 +1,29 @@
 :root {
-  --zui-dropdown-host-container-margin: 8px;
+  --zui-dropdown-host-container-offset: 8px;
+}
+
+.zui-overlay-dropdown-host {
+  &.t,
+  &.tl,
+  &.tr{
+    transform: translateY(calc(0px - var(--zui-dropdown-host-container-offset)))
+  }
+
+  &.b,
+  &.bl,
+  &.br{
+    transform: translateY(var(--zui-dropdown-host-container-offset));
+  }
+
+  &.l,
+  &.lt,
+  &.lb{
+    transform: translateX(calc(0px - var(--zui-dropdown-host-container-offset)))
+  }
+
+  &.r,
+  &.rt,
+  &.rb {
+    transform: translateX(var(--zui-dropdown-host-container-offset));
+  }
 }

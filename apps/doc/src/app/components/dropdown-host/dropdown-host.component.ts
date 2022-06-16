@@ -1,6 +1,14 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  TemplateRef,
+  ViewChild
+} from '@angular/core';
 import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
 import {PolymorpheusContent, ZuiContextWithImplicit, ZuiSizeL, ZuiSizeM} from '@digital-plant/zui-components';
+import {ZuiOverlayOutsidePlacement} from "../../../../../../libs/next/src/lib/modules/overlay";
 
 @Component({
   selector: 'zui-dropdown-host-example',
@@ -8,13 +16,42 @@ import {PolymorpheusContent, ZuiContextWithImplicit, ZuiSizeL, ZuiSizeM} from '@
   styleUrls: ['./dropdown-host.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DropdownHostComponent {
+export class DropdownHostComponent implements AfterViewInit{
+  isOpen = false;
+  content: PolymorpheusContent;
+  contentVariants: Array<TemplateRef<unknown>>;
+
+  autoReposition: boolean;
+
+  placementVariants: ReadonlyArray<ZuiOverlayOutsidePlacement> = [
+    ...Object.values(ZuiOverlayOutsidePlacement)
+  ];
+  placement: ZuiOverlayOutsidePlacement;
+  closeOnBackdropClick = false;
+
+  @ViewChild('withHeaderAndFooter') withHeaderAndFooter: TemplateRef<unknown>;
+  @ViewChild('withHeader') withHeader: TemplateRef<unknown>;
+  @ViewChild('withFooter') withFooter: TemplateRef<unknown>;
+  @ViewChild('onlyContent') onlyContent: TemplateRef<unknown>;
+
   readonly exampleModule: RawLoaderContent = import(
     '!!raw-loader!./examples/import-module.md'
   );
 
-  readonly example1: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/1/template.ts'),
-    HTML: import('!!raw-loader!./examples/1/template.html'),
+  readonly exampleWithTemplate: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/with-template/template.ts'),
+    HTML: import('!!raw-loader!./examples/with-template/template.html'),
   };
+
+  constructor(public readonly cdRef: ChangeDetectorRef) {
+  }
+
+  ngAfterViewInit(): void {
+    this.contentVariants = [
+      this.withHeaderAndFooter,
+      this.withHeader,
+      this.withFooter,
+      this.onlyContent
+    ]
+  }
 }

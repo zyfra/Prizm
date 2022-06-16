@@ -18,7 +18,7 @@
     height: 100%;
     background: var(zui-overlay-backdrop, rgba(0, 0, 0, 0.5));
   }
-  > div.z-wrapper {
+  > div.z-overlay-wrapper {
     position: absolute;
     visibility: hidden;
     opacity: 0;

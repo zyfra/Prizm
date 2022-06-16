@@ -1,5 +1,6 @@
+
 <div class="z-backdrop" *ngIf="config.backdrop" [ngClass]="config.backdropClass"></div>
-<div class="z-wrapper" [ngClass]="config.wrapperClass" [class]="extra" #wrapperEl>
+<div class="z-overlay-wrapper" [ngClass]="config.wrapperClass" [class]="extra" #wrapperEl>
   <ng-container [ngSwitch]="content.type">
     <ng-container *ngSwitchCase="'s'">
       <div [class]="content.props.class">{{ content.data }}</div>

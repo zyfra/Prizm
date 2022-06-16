@@ -10,7 +10,7 @@ import {
 } from "@digital-plant/zui-components";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {DropdownHostComponent} from "./dropdown-host.component";
-import {ZuiDropdownHostExample1} from "./examples/1/template";
+import {ZuiDropdownHostExampleWithTemplate} from "./examples/with-template/template";
 
 @NgModule({
   imports: [
@@ -25,7 +25,7 @@ import {ZuiDropdownHostExample1} from "./examples/1/template";
     RouterModule.forChild(generateRoutes(DropdownHostComponent)),
   ],
   declarations: [
-    ZuiDropdownHostExample1,
+    ZuiDropdownHostExampleWithTemplate,
     DropdownHostComponent
   ],
   exports: [DropdownHostComponent],

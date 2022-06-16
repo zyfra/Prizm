@@ -1,6 +1,6 @@
 <zui-dropdown-host
   [content]="dropdown"
-  [open]="open"
+  [(isOpen)]="open"
 >
   <button zuiButton type="button" (click)="open = !open">
     Button
@@ -15,7 +15,7 @@
         <button zuiButton appearanceType="outline">Кнопка 2</button>
       </div>
     <ng-container footer>
-      <button zuiButton>Футер</button>
+      <button zuiButton (click)="open = false; cdRef.markForCheck()">Закрыть</button>
     </ng-container>
   </zui-data-list>
 </ng-template>

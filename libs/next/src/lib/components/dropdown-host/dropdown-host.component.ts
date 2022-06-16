@@ -1,13 +1,14 @@
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
+  Inject,
   Input,
   OnDestroy,
   Output,
-  Renderer2,
   TemplateRef,
   ViewChild
 } from '@angular/core';
@@ -18,61 +19,126 @@ import {
   ZuiOverlayService
 } from "../../modules/overlay";
 import {PolymorpheusContent} from "../../directives";
-import {takeUntil, tap} from "rxjs/operators";
-import {filterNotNullish, ZuiDestroyService} from "@digital-plant/zyfra-helpers";
-import {Observable, ReplaySubject} from "rxjs";
+import {delay, filter, switchMap, take, takeUntil, tap} from "rxjs/operators";
+import {ZuiDestroyService} from "@digital-plant/zyfra-helpers";
+import {BehaviorSubject, fromEvent, Observable} from "rxjs";
+import {DOCUMENT} from "@angular/common";
+import {zuiDefaultProp} from "../../decorators";
 
 @Component({
-    selector: 'zui-dropdown-host',
-    templateUrl: './dropdown-host.template.html',
-    styleUrls: ['./dropdown-host.style.less'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [
-      ZuiDestroyService
-    ],
+  selector: 'zui-dropdown-host',
+  templateUrl: './dropdown-host.template.html',
+  styleUrls: ['./dropdown-host.style.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    ZuiDestroyService
+  ],
+  exportAs: 'zui-dropdown-host'
 })
 export class ZuiDropdownHostComponent implements AfterViewInit, OnDestroy {
   @Input() content: PolymorpheusContent;
-  @Input() autoReposition = true;
-  @Input() placement: ZuiOverlayOutsidePlacement = ZuiOverlayOutsidePlacement.BOTTOM_LEFT;
-  @Input() set open(state: boolean) {
+
+  @Input()
+  @zuiDefaultProp()
+  zuiDropdownHostId: string = 'dropdownHostId_' + Math.random();
+
+  @Input()
+  @zuiDefaultProp()
+  closeOnBackdropClick = true;
+
+  private _autoReposition: boolean;
+  @Input() set autoReposition(state: boolean) {
+    this.position?.updateConfig({autoReposition: this._autoReposition = state});
+  }
+  get autoReposition (): boolean {
+    return this._autoReposition;
+  }
+
+  private _placement: ZuiOverlayOutsidePlacement = ZuiOverlayOutsidePlacement.BOTTOM_LEFT;
+  @Input() set placement(place: ZuiOverlayOutsidePlacement) {
+    this.position?.updateConfig({placement: place});
+  }
+  get placement(): ZuiOverlayOutsidePlacement {
+    return this._placement;
+  }
+
+  @Input() set isOpen(state: boolean) {
     if (state) {
-      this.overlay?.open();
+      this.open();
     } else {
-      this.overlay?.close();
+      this.close();
     }
   }
 
-  @Output() readonly openChange = new EventEmitter<boolean>();
+  @ViewChild('temp') temp: TemplateRef<HTMLDivElement>;
 
-  @ViewChild('temp', {read: TemplateRef}) templateRef: TemplateRef<unknown>;
+  @Output() readonly isOpenChange = new EventEmitter<boolean>();
+
   private overlay: ZuiOverlayControl;
 
-  private readonly positionSource$ = new ReplaySubject<string>();
+  private readonly positionSource$ = new BehaviorSubject<string>('');
   readonly position$: Observable<string> = this.positionSource$.pipe(
-    filterNotNullish()
+    delay(0)
   );
+
+  private position: ZuiOverlayRelativePosition;
+  readonly wrapper_class = 'zui-overlay-dropdown-host';
 
   constructor(
     private readonly zuiOverlayService: ZuiOverlayService,
+    @Inject(DOCUMENT) private readonly document: Document,
     private readonly el: ElementRef,
+    private readonly cdRef: ChangeDetectorRef,
     private readonly destroy$: ZuiDestroyService,
-    private readonly renderer2: Renderer2,
   ) {}
 
+
   ngAfterViewInit(): void {
-    const position = new ZuiOverlayRelativePosition({
+    this.initOverlay();
+    this.initClickListener();
+  }
+
+  ngOnDestroy(): void {
+    this.close();
+  }
+
+  private initClickListener(): void {
+    this.overlay.listen('z_open').pipe(
+      delay(0),
+      switchMap(() => fromEvent<MouseEvent>(this.document, 'click').pipe(
+        filter(() => this.overlay?.isOpen && this.closeOnBackdropClick),
+        filter(({target}) => !this.document.getElementById(this.zuiDropdownHostId)?.contains(target as HTMLElement)),
+        tap(() => this.close()),
+        takeUntil( this.overlay.listen('z_close')),
+      )),
+      takeUntil(this.destroy$)
+    ).subscribe();
+  }
+
+  public close(): void {
+    this.overlay?.close();
+    this.isOpenChange.emit(false);
+  }
+
+  public open(): void {
+    this.overlay?.open();
+    this.isOpenChange.emit(true);
+  }
+
+  private initOverlay(): void {
+    this.position = new ZuiOverlayRelativePosition({
       placement: this.placement,
       autoReposition: this.autoReposition,
       element: this.el.nativeElement
     });
 
     this.overlay = this.zuiOverlayService
-      .position(position)
-      .content(this.content as TemplateRef<unknown>)
+      .position(this.position)
+      .config({wrapperClass: this.wrapper_class})
+      .content(this.temp)
       .create();
 
-    this.initPositionListener(position);
+    this.initPositionListener(this.position);
   }
 
   private initPositionListener(position: ZuiOverlayRelativePosition): void {
@@ -82,10 +148,6 @@ export class ZuiDropdownHostComponent implements AfterViewInit, OnDestroy {
         this.positionSource$.next(data.extra);
       }),
       takeUntil(this.destroy$)
-    ).subscribe()
-  }
-
-  ngOnDestroy(): void {
-    this.overlay.close();
+    ).subscribe();
   }
 }

@@ -1,4 +1,4 @@
-import {ZuiOverlayOutsidePlacement, ZuiOverlayPositionMeta} from '../models';
+import {ZuiOverlayConfig, ZuiOverlayOutsidePlacement, ZuiOverlayPositionMeta} from '../models';
 import {EventBus, setWidthHeight} from '../utils';
 import {ZuiOverlayAbstractPosition} from './position';
 

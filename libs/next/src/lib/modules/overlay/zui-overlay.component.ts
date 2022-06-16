@@ -20,7 +20,7 @@ import {ZuiDestroyService} from "@digital-plant/zyfra-helpers";
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'overlay',
+  selector: 'zui-overlay',
   templateUrl: './template.html',
   styleUrls: ['./styles.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -54,7 +54,7 @@ export class ZuiOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public ngOnInit(): void {
     this.el = this.elRef.nativeElement;
-    this.wrapperEl = this.el.querySelector('.z-wrapper');
+    this.wrapperEl = this.el.querySelector('.z-overlay-wrapper');
     let cls = ['z-container', this.config.containerClass, this.position.getClassName()];
     if (this.config.closeOnDocClick) {
       cls = cls.concat(['no-pointers']);

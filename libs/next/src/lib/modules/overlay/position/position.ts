@@ -13,7 +13,7 @@ export abstract class ZuiOverlayAbstractPosition<T extends Record<string, any> =
     return this.constructor.name.replace('Pos', '-pos').toLowerCase();
   }
 
-  public updateConfig(config: T): void {
+  public updateConfig(config: Partial<T>): void {
     this.config = { ...this.config, ...config };
     this.configSource$.next(this.config);
   }

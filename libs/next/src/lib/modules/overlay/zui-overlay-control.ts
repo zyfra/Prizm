@@ -31,7 +31,7 @@ export class ZuiOverlayControl {
   compRef: ComponentRef<ZuiOverlayComponent>;
 
   private viewEl: HTMLElement;
-  private isOpen = false;
+  isOpen = false;
   private compFac: ComponentFactory<ZuiOverlayComponent>;
   private destroy$: Subject<1> = new Subject();
 
@@ -128,7 +128,7 @@ export class ZuiOverlayControl {
   }
 
   private isNotHostElement(el: HTMLElement): boolean {
-    const wrapperEl = this.viewEl.querySelector('.z-wrapper');
+    const wrapperEl = this.viewEl.querySelector('.z-overlay-wrapper');
     return el !== wrapperEl && !wrapperEl.contains(el);
   }
 
