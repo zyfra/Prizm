@@ -10,7 +10,7 @@ export function zuiRequiredSetter<T extends Record<string, unknown>, K extends k
     ...args: any[]
 ): MethodDecorator {
     return (
-        target: object,
+        target: Record<string, any>,
         key,
         {configurable, enumerable, get, set}: PropertyDescriptor,
     ): PropertyDescriptor => {

@@ -10,7 +10,7 @@
 import {ZuiPureException} from "../exceptions";
 
 export function zuiPure<T>(
-  _target: object,
+  _target: Record<string, unknown>,
   propertyKey: string,
   {get, enumerable, value}: TypedPropertyDescriptor<T>,
 ): TypedPropertyDescriptor<T> {

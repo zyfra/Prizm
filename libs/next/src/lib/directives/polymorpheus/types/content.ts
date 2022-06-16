@@ -11,6 +11,7 @@ import {PolymorpheusPrimitive} from './primitive';
 export type PolymorpheusContent<C extends object = {}> =
     | TemplateRef<C>
     | PolymorpheusTemplate<C>
+    // eslint-disable-next-line @typescript-eslint/ban-types
     | PolymorpheusComponent<object, C>
     | PolymorpheusHandler<C>
     | PolymorpheusPrimitive;

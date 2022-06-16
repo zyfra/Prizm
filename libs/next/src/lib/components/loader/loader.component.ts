@@ -15,10 +15,10 @@ export class ZuiLoaderComponent {
     size: ZuiSize = 's';
 
     @Input()
-    inheritColor: boolean = false;
+    inheritColor = false;
 
     @Input()
-    overlay: boolean = false;
+    overlay = false;
 
     @Input()
     textContent: TemplateRef<unknown> | null = null;

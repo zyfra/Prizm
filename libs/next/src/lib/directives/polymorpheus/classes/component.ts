@@ -7,6 +7,7 @@ import {POLYMORPHEUS_CONTEXT} from '../tokens/context';
  * @param component — an Angular component to be dynamically created
  * @param injector — optional {@link Injector} for lazy loaded module case
  */
+// eslint-disable-next-line @typescript-eslint/ban-types
 export class PolymorpheusComponent<T extends object, C extends object> {
     constructor(
         readonly component: Type<T>,

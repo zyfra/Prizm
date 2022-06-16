@@ -16,7 +16,8 @@ import { takeUntil, tap } from 'rxjs/operators';
 import { ZuiInputControl } from './zui-input-control.class';
 
 @Component({
-  selector: 'input[zuiInput],textarea[zuiInput]',
+  // eslint-disable-next-line @angular-eslint/component-selector
+  selector: 'input[zuiInput], textarea[zuiInput]',
   template: '',
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
@@ -63,7 +64,7 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck {
 
   protected _required: boolean | undefined;
 
-  public invalid: boolean = false;
+  public invalid = false;
 
   public readonly stateChanges: Subject<void> = new Subject<void>();
   /**
@@ -119,21 +120,21 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck {
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('input', ['$event'])
-  onInput(e: unknown): void {
+  onInput(): void {
     this.updateEmptyState();
     this.stateChanges.next();
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('focus', ['$event'])
-  onFocus(e: unknown): void {
+  onFocus(): void {
     this.focused = true;
     this.stateChanges.next();
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('blur', ['$event'])
-  onBlur(e: unknown): void {
+  onBlur(): void {
     this.focused = false;
     this.touched = true;
     this.stateChanges.next();

@@ -25,7 +25,8 @@ export class ZuiOverlayGlobalPosition extends ZuiOverlayAbstractPosition<ZuiOver
       ...config,
     });
   }
-  public getPositions(hostEl?: HTMLElement) {
+
+  public getPositions(hostEl?: HTMLElement): any {
     const host = hostEl.getBoundingClientRect() as any;
     const src = {
       width: window['innerWidth'],

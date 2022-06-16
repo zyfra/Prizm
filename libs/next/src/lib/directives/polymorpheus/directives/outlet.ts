@@ -86,7 +86,7 @@ export class PolymorpheusOutletDirective<C extends Record<string, unknown>> impl
     }
 
     // eslint-disable-next-line @angular-eslint/no-conflicting-lifecycle
-    ngDoCheck() {
+    ngDoCheck(): void {
         if (isDirective(this.content)) {
             this.content.check();
         }

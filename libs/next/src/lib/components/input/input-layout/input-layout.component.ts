@@ -17,6 +17,7 @@ import { ZuiInputSize, ZuiInputStatus } from '../models/zui-input.models';
   templateUrl: './input-layout.component.html',
   styleUrls: ['./input-layout.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
     class: 'zui-input-layout',
   },

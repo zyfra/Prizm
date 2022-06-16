@@ -13,7 +13,7 @@ import {
 } from 'rxjs/operators';
 import {zuiIsAlive} from "./is-alive";
 import {ZuiOwnerDocumentException} from "../exceptions";
-import {zuiIsNativeFocused} from "@digital-plant/zui-components";
+import {zuiIsNativeFocused} from "../util";
 import { zuiTypedFromEvent } from './typed-from-event';
 
 let documentMouseUpIsAlive$: Observable<boolean>;
