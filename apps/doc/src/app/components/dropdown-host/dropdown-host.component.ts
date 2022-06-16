@@ -16,10 +16,9 @@ import {ZuiOverlayOutsidePlacement} from "../../../../../../libs/next/src/lib/mo
   styleUrls: ['./dropdown-host.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DropdownHostComponent implements AfterViewInit{
+export class DropdownHostComponent {
   isOpen = false;
   content: PolymorpheusContent;
-  contentVariants: Array<TemplateRef<unknown>>;
 
   autoReposition: boolean;
 
@@ -44,14 +43,5 @@ export class DropdownHostComponent implements AfterViewInit{
   };
 
   constructor(public readonly cdRef: ChangeDetectorRef) {
-  }
-
-  ngAfterViewInit(): void {
-    this.contentVariants = [
-      this.withHeaderAndFooter,
-      this.withHeader,
-      this.withFooter,
-      this.onlyContent
-    ]
   }
 }
