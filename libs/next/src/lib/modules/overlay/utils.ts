@@ -50,7 +50,7 @@ export function setWidthHeight(
   host: Record<string, any>,
   key: string,
   value: number | string
-) {
+): number | string {
   if (typeof value === 'number') {
     host[key] = value = Math.abs(value);
   }

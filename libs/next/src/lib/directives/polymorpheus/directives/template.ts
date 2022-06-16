@@ -10,6 +10,7 @@ import {ChangeDetectorRef, Directive, Inject, Input, Self, TemplateRef} from '@a
     inputs: ['polymorpheus'],
     exportAs: 'polymorpheus',
 })
+// eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class PolymorpheusTemplate<C extends Record<any, any>> {
     @Input() polymorpheus: C | string = '';
 

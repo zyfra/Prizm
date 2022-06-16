@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-input-rename */
 import {Directive, forwardRef, Input,} from '@angular/core';
 import {ZuiDestroyService} from '@digital-plant/zyfra-helpers';
 import {ZuiTooltipContainerComponent} from "./tooltip-container.component";

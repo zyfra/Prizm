@@ -24,5 +24,6 @@ export abstract class ZuiOverlayAbstractPosition<T extends Record<string, any> =
     this.positionSource$.next(position);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   public init(zid: string): void {}
 }

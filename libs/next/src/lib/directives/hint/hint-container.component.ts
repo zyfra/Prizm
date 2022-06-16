@@ -1,6 +1,6 @@
-import {ChangeDetectorRef, Component, ElementRef, HostListener, Inject, Input, OnInit, Renderer2,} from '@angular/core';
+import {Component, ElementRef, HostListener, Inject, Input, OnInit, Renderer2,} from '@angular/core';
 import {PolymorpheusContent} from '../index';
-import {ZuiHintOptions} from "@digital-plant/zui-components";
+import {ZuiHintOptions} from "../hint";
 import {zuiDefaultProp} from "../../decorators";
 import {ZuiDestroyService} from "@digital-plant/zyfra-helpers";
 import {ZuiHoveredService} from "../../services";

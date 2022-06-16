@@ -31,7 +31,7 @@ export class ZuiCheckedDirective {
     }
 
     @HostListener('change', ['$event.target'])
-    onChange({checked}: HTMLInputElement): void {
+    public onChange({checked}: HTMLInputElement): void {
         this.updateProperty('indeterminate', false);
         this.zuiCheckedChange.emit(checked);
     }

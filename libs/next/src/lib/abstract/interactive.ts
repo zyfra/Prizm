@@ -41,8 +41,6 @@ export abstract class AbstractZuiInteractive {
 
     focusVisible = false;
 
-    protected constructor() {}
-
     @HostBinding('class._disabled')
     get computedDisabled(): boolean {
         return this.disabled;
