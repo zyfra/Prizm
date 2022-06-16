@@ -1,14 +1,14 @@
 import {
-  Component,
   ChangeDetectionStrategy,
-  Input,
-  HostBinding,
-  ViewEncapsulation,
-  Output,
+  Component,
   EventEmitter,
+  HostBinding,
+  Input,
+  Output,
+  ViewEncapsulation,
 } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { ZuiWrappedFormComponent } from '../../@core/value-accessor/zui-wrapped-form.component';
+import {FormControl} from '@angular/forms';
+import {ZuiWrappedFormComponent} from '../../@core/value-accessor/zui-wrapped-form.component';
 
 @Component({
   selector: 'zui-radio-button',
@@ -18,7 +18,10 @@ import { ZuiWrappedFormComponent } from '../../@core/value-accessor/zui-wrapped-
   encapsulation: ViewEncapsulation.None,
 })
 export class ZuiRadioButtonComponent extends ZuiWrappedFormComponent {
-  @Input() @HostBinding('attr.radio-size') public size: 's' | 'm' | 'l' = 'm';
+  @Input()
+  @HostBinding('attr.radio-size')
+  size: 's' | 'm' | 'l' = 'm';
+
   @HostBinding('attr.disabled') get isDisabled(): boolean {
     return this.accessorIsDisabled;
   }
