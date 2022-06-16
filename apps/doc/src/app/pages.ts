@@ -41,6 +41,12 @@ export const pages: TuiDocPages = [
   },
   {
     section: `Components`,
+    title: 'Tooltip',
+    keywords: 'tooltip, тултип',
+    route: '/components/tooltip',
+  },
+  {
+    section: `Components`,
     title: 'Icon',
     keywords: 'иконка, icon',
     route: '/components/icon',

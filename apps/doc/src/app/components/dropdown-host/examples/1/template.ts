@@ -7,7 +7,13 @@ import {ChangeDetectorRef, Component} from '@angular/core';
   styles: [`
     .box {
       display: flex;
-      gap: 1rem;
+      flex-flow: column;
+      gap: 8px;
+      padding: 16px;
+    }
+
+    [zuiButton] {
+      width: 100%;
     }
   `]
 })

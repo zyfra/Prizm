@@ -1,0 +1,29 @@
+:host {
+  border: 1px solid var(--zui-data-list-border);
+  border-radius: var(--zui-data-list-border-radius);
+  display: inline-block;
+  background: var(--zui-data-list-background);
+
+  .header:empty {
+    display: none;
+  }
+
+  .header, .footer {
+    padding: var(--zui-data-list-padding);
+  }
+
+  .header {
+    color: var(--zui-data-list-header-text);
+    font-size: var(--zui-data-list-header-text-size);
+    border-bottom: 1px solid var(--zui-data-list-border);
+  }
+
+  .footer {
+    border-top: 1px solid var(--zui-data-list-border);
+  }
+
+  .footer:empty {
+    display: none;
+  }
+
+}

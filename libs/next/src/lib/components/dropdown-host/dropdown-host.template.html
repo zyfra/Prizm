@@ -1,4 +1,6 @@
 <ng-content></ng-content>
 <ng-template #temp>
-  <ng-container  *polymorpheusOutlet="content"></ng-container>
+  <div class="modal-box" [ngClass]="position$ | async">
+    <ng-container  *polymorpheusOutlet="content"></ng-container>
+  </div>
 </ng-template>

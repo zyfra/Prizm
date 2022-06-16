@@ -106,13 +106,15 @@ export class ZuiOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private setPos(): void {
-    const { extra, ...coords } = this.position.getPositions(this.wrapperEl);
+    const positions = this.position.getPositions(this.wrapperEl);
+    const { extra, ...coords } = positions;
     if (this.extra !== extra) {
       this.extra = extra;
       this.cd.detectChanges();
     }
     Object.assign(coords, { visibility: 'visible', opacity: '1' });
     this.wrapperEl.style = objToCss(coords);
+    this.position.savePosition(positions);
     EventBus.send(this.zid, 'z_posupdate');
   }
 }

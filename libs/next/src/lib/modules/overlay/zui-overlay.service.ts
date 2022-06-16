@@ -31,7 +31,7 @@ export class ZuiOverlayService {
     this.inputs.position = new ZuiOverlayGlobalPosition({ placement: ZuiOverlayInsidePlacement.TOP });
   }
 
-  public position(position: ZuiOverlayAbstractPosition): ZuiOverlayService {
+  public position<T extends ZuiOverlayAbstractPosition<any>>(position: T): ZuiOverlayService {
     this.inputs.position = position;
     return this;
   }

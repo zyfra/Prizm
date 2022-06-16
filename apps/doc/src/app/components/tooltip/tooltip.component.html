@@ -1,0 +1,145 @@
+<tui-doc-page
+  header="Tooltip"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use ZuiTooltipDirective to control tooltip.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Basic"
+      [content]="exampleBasic"
+    >
+      <zui-tooltip-example-basic></zui-tooltip-example-basic>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="base"
+      heading="With Template"
+      [content]="exampleWithTemplate"
+    >
+      <zui-tooltip-example-with-template></zui-tooltip-example-with-template>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="base"
+      heading="With Component"
+      [content]="exampleWithComponent"
+    >
+      <zui-tooltip-example-with-component></zui-tooltip-example-with-component>
+    </tui-doc-example>
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <button
+        zuiButton
+        zuiTooltip="Тестовое содержимое"
+        [zuiTooltipMode]="zuiTooltipMode"
+        [zuiAutoReposition]="zuiAutoReposition"
+        [zuiTooltipDirection]="zuiTooltipDirection"
+        [zuiTooltipId]="zuiTooltipId"
+        [zuiTooltipShowDelay]="zuiTooltipShowDelay"
+        [zuiTooltipHideDelay]="zuiTooltipHideDelay"
+        [zuiTooltipHost]="zuiTooltipHost"
+      >
+        Button
+      </button>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="zuiTooltipMode"
+        documentationPropertyType="ZuiTooltipMode"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="zuiTooltipModeVariants"
+        [(documentationPropertyValue)]="zuiTooltipMode"
+      >
+        Mode
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiAutoReposition"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiAutoReposition"
+      >
+        Auto Reposition
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiTooltipDirection"
+        documentationPropertyType="ZuiOverlayOutsidePlacement"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="zuiTooltipDirectionVariants"
+        [(documentationPropertyValue)]="zuiTooltipDirection"
+      >
+        Tooltip Direction
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiTooltipId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiTooltipId"
+      >
+        Tooltip Id
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiTooltipId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiTooltipId"
+      >
+        Tooltip Id
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiTooltipShowDelay"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiTooltipShowDelay"
+      >
+        Show Delay
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiTooltipHideDelay"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiTooltipHideDelay"
+      >
+        Hide Delay
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiTooltipHost"
+        documentationPropertyType="HtmlElement"
+        documentationPropertyMode="input"
+      >
+        Host
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>ZuiTooltipModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="exampleModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

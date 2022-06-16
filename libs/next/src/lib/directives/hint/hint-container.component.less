@@ -1,0 +1,41 @@
+:host {
+  display: inline-block;
+  max-width: var(--zui-hint-container-max-width);
+  background-color: var(--zui-hint-container-background);
+  padding: var(--zui-hint-container-padding);
+  border-radius: var(--zui-hint-container-border-radius);
+  color: var(--zui-hint-container-text);
+  font-size: var(--zui-hint-container-font-size);
+
+  &[position="t"],
+  &[position="tl"],
+  &[position="tr"]{
+    margin-bottom: var(--zui-hint-container-margin);
+  }
+
+  &[position="b"],
+  &[position="bl"],
+  &[position="br"]{
+    margin-top: var(--zui-hint-container-margin);
+  }
+
+  &[position="l"],
+  &[position="lt"],
+  &[position="lb"]{
+    margin-right: var(--zui-hint-container-margin);
+  }
+
+  &[position="r"],
+  &[position="rt"],
+  &[position="rb"]{
+    margin-left: var(--zui-hint-container-margin);
+  }
+}
+
+:host[mode="error"] {
+  background-color: var(--zui-hint-container-background-error);
+}
+
+/* TODO add dark theme  */
+:host[mode="dark"] {
+}

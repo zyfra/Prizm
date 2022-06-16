@@ -2,7 +2,7 @@ import {ZuiOverlayOutsidePlacement, ZuiOverlayPositionMeta} from '../models';
 import {EventBus, setWidthHeight} from '../utils';
 import {ZuiOverlayAbstractPosition} from './position';
 
-interface ZuiOverlayRelativePositionConfig {
+export interface ZuiOverlayRelativePositionConfig {
   element: HTMLElement;
   placement?: ZuiOverlayOutsidePlacement;
   autoReposition?: boolean;
@@ -84,7 +84,7 @@ export class ZuiOverlayRelativePosition extends ZuiOverlayAbstractPosition<ZuiOv
     return p;
   }
 
-  private calculatePos(pos: ZuiOverlayOutsidePlacement, s: any, h: any, c = true): Record<string, any> {
+  private calculatePos(pos: ZuiOverlayOutsidePlacement, s: any, h: any, c = true): {pos: string, props: Record<string, unknown>} {
     const props = this.calc(pos, s, h);
 
     if (c && this.config.autoReposition && this.isOverflowed({ ...props, width: h.width, height: h.height })) {

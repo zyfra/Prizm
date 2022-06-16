@@ -1,11 +1,11 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
 import {PolymorpheusComponent} from "@digital-plant/zui-components";
-import {ZuiHintSomeComponent} from "./some-component";
+import {ZuiTooltipSomeComponent} from "./some-component";
 import {ZuiOverlayOutsidePlacement} from "../../../../../../../../libs/next/src/lib/modules/overlay";
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'zui-hint-example-with-component',
+  selector: 'zui-tooltip-example-with-component',
   templateUrl: './template.html',
   styles: [`
     .box {
@@ -14,7 +14,7 @@ import {ZuiOverlayOutsidePlacement} from "../../../../../../../../libs/next/src/
     }
   `]
 })
-export class ZuiHintExampleWithComponent {
-  readonly component = new PolymorpheusComponent(ZuiHintSomeComponent);
-  readonly direction = ZuiOverlayOutsidePlacement.BOTTOM;
+export class ZuiTooltipExampleWithComponent {
+  readonly component = new PolymorpheusComponent(ZuiTooltipSomeComponent);
+  readonly direction = ZuiOverlayOutsidePlacement.TOP_RIGHT;
 }

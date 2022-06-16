@@ -53,6 +53,14 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/tooltip',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/tooltip/tooltip.module')).TooltipModule,
+    data: {
+      title: 'Tooltip',
+    },
+  },
+  {
     path: 'components/icon',
     loadChildren: async (): Promise<unknown> => (await import('./components/icon/icon.module')).IconModule,
     data: {

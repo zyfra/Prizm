@@ -1,41 +1,41 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
-import {PolymorpheusContent, ZUI_HINT_DEFAULT_OPTIONS, ZuiHintOptions} from "@digital-plant/zui-components";
+import {PolymorpheusContent, ZUI_HINT_DEFAULT_OPTIONS, ZuiTooltipOptions} from "@digital-plant/zui-components";
 import {ZuiOverlayOutsidePlacement} from "../../../../../../libs/next/src/lib/modules/overlay/models";
 
 @Component({
-  selector: 'zui-hint-example',
-  templateUrl: './hint.component.html',
-  styleUrls: ['./hint.component.less'],
+  selector: 'zui-tooltip-example',
+  templateUrl: './tooltip.component.html',
+  styleUrls: ['./tooltip.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HintComponent {
-  public readonly zuiHintModeVariants: ReadonlyArray<ZuiHintOptions['mode']> = [
+export class TooltipComponent {
+  public readonly zuiTooltipModeVariants: ReadonlyArray<ZuiTooltipOptions['mode']> = [
     'light',
     'error',
     'dark',
   ];
-  public zuiHintMode: ZuiHintOptions['mode'] = this.zuiHintModeVariants[0];
+  public zuiTooltipMode: ZuiTooltipOptions['mode'] = this.zuiTooltipModeVariants[0];
 
   public zuiAutoReposition = false;
 
-  public readonly zuiHintDirectionVariants: ReadonlyArray<ZuiHintOptions['direction']> = Object.values(ZuiOverlayOutsidePlacement);
+  public readonly zuiTooltipDirectionVariants: ReadonlyArray<ZuiTooltipOptions['direction']> = Object.values(ZuiOverlayOutsidePlacement);
 
-  public zuiHintDirection: ZuiHintOptions['direction'] = ZUI_HINT_DEFAULT_OPTIONS.direction;
+  public zuiTooltipDirection: ZuiTooltipOptions['direction'] = ZUI_HINT_DEFAULT_OPTIONS.direction;
 
-  public zuiHintId: string;
+  public zuiTooltipId: string;
 
-  public zuiHintShowDelay: number = ZUI_HINT_DEFAULT_OPTIONS.showDelay;
+  public zuiTooltipShowDelay: number = ZUI_HINT_DEFAULT_OPTIONS.showDelay;
 
-  public zuiHintHideDelay: number = ZUI_HINT_DEFAULT_OPTIONS.hideDelay;
+  public zuiTooltipHideDelay: number = ZUI_HINT_DEFAULT_OPTIONS.hideDelay;
 
-  public zuiHintHost: HTMLElement
+  public zuiTooltipHost: HTMLElement
 
-  public readonly zuiHintVariants = [
-    'Новый хинт'
+  public readonly zuiTooltipVariants = [
+    'Tooltip'
   ];
 
-  public zuiHint: PolymorpheusContent =  this.zuiHintVariants[0];
+  public zuiTooltip: PolymorpheusContent =  this.zuiTooltipVariants[0];
 
   readonly exampleModule: RawLoaderContent = import(
     '!!raw-loader!./examples/import-module.md'

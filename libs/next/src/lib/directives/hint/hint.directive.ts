@@ -1,4 +1,4 @@
-import {Directive, ElementRef, Inject, Input, OnChanges, OnDestroy, Output, Renderer2,} from '@angular/core';
+import {Directive, ElementRef, Inject, Input, OnChanges, OnDestroy, Output, Renderer2, Type,} from '@angular/core';
 import {ZuiDestroyService} from '@digital-plant/zyfra-helpers';
 import {zuiDefaultProp, zuiRequiredSetter} from '../../decorators';
 import {PolymorpheusContent} from '../index';
@@ -39,11 +39,11 @@ export class ZuiHintDirective implements OnChanges, OnDestroy {
 
     @Input()
     @zuiDefaultProp()
-    zuiHintShowDelay: ZuiHintOptions['zuiHintShowDelay'] = this.options.zuiHintShowDelay;
+    zuiHintShowDelay: ZuiHintOptions['showDelay'] = this.options.showDelay;
 
     @Input()
     @zuiDefaultProp()
-    zuiHintHideDelay: ZuiHintOptions['zuiHintHideDelay'] = this.options.zuiHintHideDelay;
+    zuiHintHideDelay: ZuiHintOptions['hideDelay'] = this.options.hideDelay;
 
     @Input()
     @zuiDefaultProp()
@@ -65,6 +65,7 @@ export class ZuiHintDirective implements OnChanges, OnDestroy {
 
     content: PolymorpheusContent;
     overlay: ZuiOverlayControl;
+    protected readonly containerComponent: Type<unknown> = ZuiHintContainerComponent;
 
     constructor(
       private readonly zuiOverlayService: ZuiOverlayService,
@@ -93,29 +94,28 @@ export class ZuiHintDirective implements OnChanges, OnDestroy {
         element: this.host
       });
 
-
       this.overlay = this.zuiOverlayService
         .position(position)
-        .content(ZuiHintContainerComponent, {
+        .content(this.containerComponent, {
           content: () => this.content,
           mode: () => this.zuiHintMode,
           id: this.zuiHintId,
           context: {
             // TODO add optional context $implicit
-            hintMode: this.zuiHintMode,
-            autoReposition: this.zuiAutoReposition,
-            hintDirection: this.zuiHintDirection,
-            hintId: this.zuiHintId,
-            hintShowDelay: this.zuiHintShowDelay,
-            hintHideDelay: this.zuiHintHideDelay,
-            hintHost: this.zuiHintHost,
+            mode: this.zuiHintMode,
+            reposition: this.zuiAutoReposition,
+            direction: this.zuiHintDirection,
+            id: this.zuiHintId,
+            showDelay: this.zuiHintShowDelay,
+            hideDelay: this.zuiHintHideDelay,
+            host: this.zuiHintHost,
           },
         })
         .create();
 
       combineLatest([
         this.hoveredService.createHovered$(this.host),
-        this.hintService.childHovered(this.id)
+        this.hintService.childHovered(this.id),
       ]).pipe(
         map(([thisHovered, containerHovered]) => {
           return thisHovered || containerHovered
