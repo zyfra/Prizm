@@ -83,6 +83,11 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/indicators',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/example-indicators/example-indicators.module')).ExampleIndicatorsModule,
+  },
+  {
     path: 'components/paginator',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/paginator-example/paginator-example.module')).PaginatorExampleModule,

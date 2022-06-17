@@ -7,8 +7,8 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {ZuiWrappedFormComponent} from '../../@core/value-accessor/zui-wrapped-form.component';
+import { FormControl } from '@angular/forms';
+import { ZuiWrappedFormComponent } from '../../@core/value-accessor/zui-wrapped-form.component';
 
 @Component({
   selector: 'zui-radio-button',

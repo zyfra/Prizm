@@ -64,6 +64,12 @@ export const pages: TuiDocPages = [
   },
   {
     section: `Components`,
+    title: 'Indicators',
+    keywords: 'indicator, индикатор, danger, warning, success',
+    route: '/components/indicators',
+  },
+  {
+    section: `Components`,
     title: 'Checkbox',
     keywords: 'кнопка, чекбокс',
     route: '/components/checkbox',
