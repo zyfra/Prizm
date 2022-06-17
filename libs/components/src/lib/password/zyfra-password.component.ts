@@ -19,7 +19,7 @@ export class ZyfraPasswordComponent extends WrappedFormComponent implements Cont
   @Input() appendTo: string;
   @Input() inputStyle: any;
   @Input() inputStyleClass: string;
-  @Input() style: string;
+  @Input() style: any;
   @Input() styleClass: string;
   @Input() disabled: boolean;
   @Input() label = '';

@@ -39,7 +39,7 @@ export class ZyfraPaginatorComponent {
   /**
    * 	Inline style of the component.
    */
-  @Input() style: string = null;
+  @Input() style: any = null;
   /**
    * 	Style class of the component.
    */

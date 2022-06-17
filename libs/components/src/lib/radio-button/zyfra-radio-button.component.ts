@@ -25,7 +25,7 @@ export class ZyfraRadioButtonComponent<T> extends WrappedFormComponent implement
   @Input() inputId: string;
   @Input() ariaLabelledBy: string;
   @Input() ariaLabel: string;
-  @Input() style: string;
+  @Input() style: any;
   @Input() styleClass: string;
   @Input() labelStyleClass: string;
   @Input() formControlName: string;

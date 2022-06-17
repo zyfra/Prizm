@@ -18,7 +18,7 @@ export class ZyfraToggleButtonComponent {
   @Input() offIcon = 'zyfra-icon cancel-close';
   @Input() iconPos: 'left' | 'right' = 'left';
   @Input() disabled: boolean;
-  @Input() style: string;
+  @Input() style: any;
   @Input() styleClass: string;
   @Input() tabindex: number;
   @Input() inputId: string;

@@ -12,8 +12,8 @@ export class ZyfraSplitButtonComponent {
   @Input() icon: string;
   @Input() iconPos: 'left' | 'right' = 'left';
   @Input() disabled: boolean;
-  @Input() style: string;
-  @Input() menuStyle: string;
+  @Input() style: any;
+  @Input() menuStyle: any;
   @Input() menuStyleClass: string;
   @Input() styleClass: string;
   @Input() appendTo: any;

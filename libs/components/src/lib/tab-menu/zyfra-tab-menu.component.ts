@@ -39,7 +39,7 @@ export class ZyfraTabMenuComponent implements AfterViewInit, AfterViewChecked, O
   @ViewChild('prevControl') public prevControl: ElementRef;
   @ViewChild('nextControl') public nextControl: ElementRef;
   @Input() activeItem: MenuItem = null;
-  @Input() style: string = null;
+  @Input() style: any = null;
   @Input() styleClass: string = null;
   @Input() set model(items: MenuItem[]) {
     this._model = items;

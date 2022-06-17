@@ -23,7 +23,7 @@ export class ZyfraSelectButtonComponent<OPTION, VALUE> {
   @Input() optionDisabled: string;
   @Input() multiple: boolean;
   @Input() tabindex: number = 0;
-  @Input() style: string;
+  @Input() style: any;
   @Input() styleClass: string;
   @Input() ariaLabelledBy: string;
   @Input() disabled: boolean;
