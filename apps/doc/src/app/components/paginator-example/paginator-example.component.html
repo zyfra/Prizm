@@ -1,0 +1,100 @@
+<tui-doc-page header="Paginator" package="Equinox" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="base" heading="Basic" [content]="exampleBasicPaginator">
+      <zui-paginator-example-base></zui-paginator-example-base>
+    </tui-doc-example>
+
+    <tui-doc-example id="withLabels" heading="With Labels" [content]="exampleLabelsPaginator">
+      <zui-paginator-example-with-labels></zui-paginator-example-with-labels>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-paginator
+        [totalRecords]="totalRecords"
+        [initialValue]="initialValue"
+        [rows]="rows"
+        [pageLinkSize]="pageLinkSize"
+        [leftButtonLabel]="leftButtonLabel"
+        [rightButtonLabel]="rightButtonLabel"
+      ></zui-paginator>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="totalRecords"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="totalRecords"
+      >
+        Total records
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="initialValue"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="initialValue"
+      >
+        Initial Value
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="rows"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="rows"
+      >
+        Rows
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="pageLinkSize"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="pageLinkSize"
+      >
+        Page link size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="leftButtonLabel"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="leftButtonLabel"
+      >
+        Left button label
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="rightButtonLabel"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="rightButtonLabel"
+      >
+        Right button label
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="changePage"
+        documentationPropertyType="IPaginatorOutput"
+        documentationPropertyMode="output"
+      >
+        Change Page
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>ZuiPaginatorModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <tui-doc-code filename="myComponent.module.ts" [code]="exampleModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

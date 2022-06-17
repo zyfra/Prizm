@@ -1,0 +1,31 @@
+<div class="container" *ngIf="paginationGenerator as pagingData">
+  <button class="control control_left" [disabled]="currentPage === 1" (click)="decrease()">
+    <zui-icon iconClass="arrows-chevron-left"></zui-icon>
+    <span *ngIf="!!leftButtonLabel">{{ leftButtonLabel }}</span>
+  </button>
+
+  <ng-container *ngIf="pagingData.left">
+    <button class="page" type="button" (click)="changePage(pagingData.left)">{{ pagingData.left }}</button>
+    <div class="dots">...</div>
+  </ng-container>
+
+  <button
+    class="page"
+    type="button"
+    *ngFor="let page of pagingData.mid"
+    [class.page_selected]="page === currentPage"
+    (click)="changePage(page)"
+  >
+    {{ page }}
+  </button>
+
+  <ng-container *ngIf="pagingData.right">
+    <div class="dots">...</div>
+    <button class="page" type="button" (click)="changePage(pagingData.right)">{{ pagingData.right }}</button>
+  </ng-container>
+
+  <button class="control control_right" [disabled]="currentPage === pagesCount" (click)="increase()">
+    <span *ngIf="!!rightButtonLabel">{{ rightButtonLabel }}</span>
+    <zui-icon iconClass="arrows-chevron-right"></zui-icon>
+  </button>
+</div>
