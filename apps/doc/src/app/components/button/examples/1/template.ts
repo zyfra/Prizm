@@ -22,6 +22,6 @@ import {Component} from '@angular/core';
     `
   ],
 })
-export class ZuiButtonExample1 {
+export class ZuiButtonExample1Component {
   visible = true;
 }

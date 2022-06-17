@@ -8,6 +8,7 @@ export * from './lib/components/data-list';
 export * from './lib/directives/hint';
 export * from './lib/directives/tooltip';
 export * from './lib/components/toggle';
+export * from './lib/modules/overlay';
 
 export * from './lib/types';
 export * from './lib/directives';

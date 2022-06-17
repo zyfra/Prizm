@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'zui-tooltip-example-with-template',
   templateUrl: './template.html',
   styles: [`
@@ -11,5 +10,4 @@ import {Component} from '@angular/core';
     }
   `]
 })
-export class ZuiTooltipExampleWithTemplate {
-}
+export class ZuiTooltipExampleWithTemplateComponent {}

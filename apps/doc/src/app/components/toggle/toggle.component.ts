@@ -4,7 +4,7 @@ import {TZyfraButtonIconPosision} from "@digital-plant/zyfra-components";
 import { PolymorpheusContent, ZuiContextWithImplicit, ZuiSizeL, ZuiSizeM } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zyfra-toggle-example',
+  selector: 'zui-toggle-example',
   templateUrl: './toggle.component.html',
   styleUrls: ['./toggle.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

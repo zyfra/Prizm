@@ -3,7 +3,7 @@ import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
 import {TZyfraButtonIconPosision} from "@digital-plant/zyfra-components";
 
 @Component({
-  selector: 'zyfra-example-example',
+  selector: 'zui-example-example',
   templateUrl: './example.component.html',
   styleUrls: ['./example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

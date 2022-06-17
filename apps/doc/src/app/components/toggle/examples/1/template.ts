@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'zui-toggle-example-1',
   templateUrl: './template.html',
   styles: [`
@@ -12,7 +11,7 @@ import { FormControl } from '@angular/forms';
     }
   `]
 })
-export class ZuiToggleExample1 implements OnInit {
+export class ZuiToggleExample1Component implements OnInit {
   value = true;
   readonly value2 = new FormControl(false);
   readonly valueDisabled = new FormControl(false);

@@ -3,7 +3,7 @@ import {CommonModule} from "@angular/common";
 import {generateRoutes, TuiAddonDocModule} from "@taiga-ui/addon-doc";
 import {RouterModule} from "@angular/router";
 import {LoaderComponent} from "./loader.component";
-import {ZuiLoaderExample1} from "./examples/1/template";
+import {ZuiLoaderExample1Component} from "./examples/1/template";
 import {ZuiLoaderModule} from "@digital-plant/zui-components";
 
 @NgModule({
@@ -14,7 +14,7 @@ import {ZuiLoaderModule} from "@digital-plant/zui-components";
     RouterModule.forChild(generateRoutes(LoaderComponent)),
   ],
   declarations: [
-    ZuiLoaderExample1,
+    ZuiLoaderExample1Component,
     LoaderComponent
   ],
   exports: [LoaderComponent],

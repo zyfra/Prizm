@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {PolymorpheusComponent} from '@digital-plant/zui-components';
 
 @Component({
-    selector: 'logo',
+    selector: 'zui-logo',
     templateUrl: './logo.template.html',
     styleUrls: ['./logo.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

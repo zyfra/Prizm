@@ -2,7 +2,7 @@ declare module '!!raw-loader!*';
 declare module 'highlight*';
 
 /* SystemJS module definition */
-declare var module: NodeModule;
+declare const module: NodeModule;
 
 interface NodeModule {
     id: string;
