@@ -5,8 +5,8 @@ import {RouterModule} from "@angular/router";
 import {PolymorpheusModule, ZuiButtonModule, ZuiHintModule} from "@digital-plant/zui-components";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HintComponent} from "./hint.component";
-import {ZuiHintExampleWithTemplate} from "./examples/with-template/template";
-import {ZuiHintExampleBasic} from "./examples/basic/template";
+import {ZuiHintExampleWithTemplateComponent} from "./examples/with-template/template";
+import {ZuiHintExampleBasicComponent} from "./examples/basic/template";
 import {ZuiHintSomeComponent} from "./examples/with-component/some-component";
 import {ZuiHintExampleWithComponent} from "./examples/with-component/template";
 
@@ -22,10 +22,10 @@ import {ZuiHintExampleWithComponent} from "./examples/with-component/template";
     RouterModule.forChild(generateRoutes(HintComponent)),
   ],
   declarations: [
-    ZuiHintExampleWithTemplate,
+    ZuiHintExampleWithTemplateComponent,
     ZuiHintExampleWithComponent,
     ZuiHintSomeComponent,
-    ZuiHintExampleBasic,
+    ZuiHintExampleBasicComponent,
     HintComponent
   ],
   exports: [HintComponent],

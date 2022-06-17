@@ -1,7 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, TemplateRef, ViewChild} from '@angular/core';
 import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
-import {PolymorpheusContent} from '@digital-plant/zui-components';
-import {ZuiOverlayOutsidePlacement} from "../../../../../../libs/next/src/lib/modules/overlay";
+import {PolymorpheusContent, ZuiOverlayOutsidePlacement} from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-dropdown-host-example',

@@ -9,8 +9,8 @@
         "@angular-eslint/directive-selector": [
           "error",
           {
-            "type": "attribute",
-            "prefix": "zui",
+            "type": ["attribute", "element"],
+            "prefix": ["zui"],
             "style": "camelCase"
           }
         ],

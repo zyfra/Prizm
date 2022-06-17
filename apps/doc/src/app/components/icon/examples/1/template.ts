@@ -28,10 +28,10 @@ import {ALL_ICONS} from "../mock";
     `
   ],
 })
-export class ZuiIconExample1 {
+export class ZuiIconExample1Component {
   readonly ALL_ICONS = ALL_ICONS;
 
-  copy(icon: string): void {
+  public copy(icon: string): void {
     navigator?.clipboard?.writeText(icon)
   }
 }

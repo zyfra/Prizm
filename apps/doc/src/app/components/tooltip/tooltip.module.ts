@@ -5,8 +5,8 @@ import {RouterModule} from "@angular/router";
 import {PolymorpheusModule, ZuiButtonModule, ZuiTooltipModule} from "@digital-plant/zui-components";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TooltipComponent} from "./tooltip.component";
-import {ZuiTooltipExampleWithTemplate} from "./examples/with-template/template";
-import {ZuiTooltipExampleBasic} from "./examples/basic/template";
+import {ZuiTooltipExampleWithTemplateComponent} from "./examples/with-template/template";
+import {ZuiTooltipExampleBasicComponent} from "./examples/basic/template";
 import {ZuiTooltipSomeComponent} from "./examples/with-component/some-component";
 import {ZuiTooltipExampleWithComponent} from "./examples/with-component/template";
 
@@ -22,10 +22,10 @@ import {ZuiTooltipExampleWithComponent} from "./examples/with-component/template
     RouterModule.forChild(generateRoutes(TooltipComponent)),
   ],
   declarations: [
-    ZuiTooltipExampleWithTemplate,
+    ZuiTooltipExampleWithTemplateComponent,
     ZuiTooltipExampleWithComponent,
     ZuiTooltipSomeComponent,
-    ZuiTooltipExampleBasic,
+    ZuiTooltipExampleBasicComponent,
     TooltipComponent
   ],
   exports: [TooltipComponent],

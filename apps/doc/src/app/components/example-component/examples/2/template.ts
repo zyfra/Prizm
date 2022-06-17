@@ -4,5 +4,5 @@ import {Component} from '@angular/core';
   selector: 'zui-component-example-2',
   templateUrl: './template.html',
 })
-export class ZuiComponentExample2 {
+export class ZuiComponentExample2Component {
 }

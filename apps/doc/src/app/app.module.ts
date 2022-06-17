@@ -14,6 +14,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MarkdownModule} from 'ngx-markdown';
 import {APP_PROVIDERS} from "./app.providers";
 import {LogoModule} from "./logo/logo.module";
+import {VersionManagerModule} from "./version-manager/version-manager.module";
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -33,11 +34,11 @@ import {LogoModule} from "./logo/logo.module";
     TuiStringifyContentPipeModule,
     TuiStringifyPipeModule,
     ZyfraUiRootModule,
+    VersionManagerModule
 ],
   declarations: [
     AppComponent,
     GettingStartedComponent,
-    VersionManagerComponent,
   ],
   providers: [
     ...APP_PROVIDERS

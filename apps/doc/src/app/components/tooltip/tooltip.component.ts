@@ -1,7 +1,11 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
-import {PolymorpheusContent, ZUI_HINT_DEFAULT_OPTIONS, ZuiTooltipOptions} from "@digital-plant/zui-components";
-import {ZuiOverlayOutsidePlacement} from "../../../../../../libs/next/src/lib/modules/overlay/models";
+import {
+  PolymorpheusContent,
+  ZUI_HINT_DEFAULT_OPTIONS,
+  ZuiOverlayOutsidePlacement,
+  ZuiTooltipOptions
+} from "@digital-plant/zui-components";
 
 @Component({
   selector: 'zui-tooltip-example',

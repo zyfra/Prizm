@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'zyfra-input',
+  selector: 'zui-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

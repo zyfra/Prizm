@@ -14,7 +14,6 @@ import {ZuiSize} from "../../../util/zui-size-bigger";
 import {ZuiAppearance, ZuiAppearanceType} from "../../../types/appearance.types";
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'zui-split-button',
   styleUrls: ['./split-button.component.less'],
   templateUrl: './split-button.component.html',

@@ -9,7 +9,7 @@ import {
 import {ZUI_VERSIONS_META, ZuiVersionMeta} from './versions.constants';
 
 @Component({
-    selector: 'version-manager',
+    selector: 'zui-version-manager',
     templateUrl: './version-manager.template.html',
     styleUrls: ['./version-manager.style.less'],
     providers: VERSION_MANAGER_PROVIDERS,

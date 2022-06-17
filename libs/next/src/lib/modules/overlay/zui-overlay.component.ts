@@ -19,7 +19,6 @@ import {cssClass, EventBus, objToCss} from './utils';
 import {ZuiDestroyService} from "@digital-plant/zyfra-helpers";
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'zui-overlay',
   templateUrl: './template.html',
   styleUrls: ['./styles.scss'],

@@ -29,9 +29,14 @@ export const pages: TuiDocPages = [
   },
   {
     section: `Components`,
-    title: 'Input',
-    keywords: 'input, text, form',
-    route: '/components/input',
+    title: 'Inputs',
+    subPages: [
+      {
+        title: 'Input',
+        keywords: 'input, text, form',
+        route: '/components/input',
+      }
+    ]
   },
   {
     section: `Components`,

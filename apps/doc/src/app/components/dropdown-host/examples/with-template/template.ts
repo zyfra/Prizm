@@ -16,9 +16,8 @@ import {ChangeDetectorRef, Component} from '@angular/core';
     }
   `]
 })
-export class ZuiDropdownHostExampleWithTemplate {
+export class ZuiDropdownHostExampleWithTemplateComponent {
   open = false;
 
-  constructor(public readonly cdRef: ChangeDetectorRef) {
-  }
+  constructor(public readonly cdRef: ChangeDetectorRef) {}
 }

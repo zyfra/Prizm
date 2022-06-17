@@ -21,5 +21,5 @@ import {Component} from '@angular/core';
   ],
   templateUrl: './template.html',
 })
-export class ZuiButtonExample3 {
+export class ZuiButtonExample3Component {
 }

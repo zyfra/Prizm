@@ -1,7 +1,6 @@
-import {ChangeDetectorRef, Component} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'zui-hint-example-basic',
   templateUrl: './template.html',
   styles: [`
@@ -11,5 +10,5 @@ import {ChangeDetectorRef, Component} from '@angular/core';
     }
   `]
 })
-export class ZuiHintExampleBasic {
+export class ZuiHintExampleBasicComponent {
 }
