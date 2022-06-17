@@ -40,7 +40,7 @@ export class ZyfraTabViewComponent implements AfterContentInit, AfterViewInit, A
   @ContentChildren(ZyfraTabPanelComponent) tabPanels: QueryList<ZyfraTabPanelComponent>;
   @Input() activeIndex: number | null = null;
   @Input() controlClose = false;
-  @Input() style: string | null = null;
+  @Input() style: any | null = null;
   @Input() styleClass: string | null = null;
 
   @Output() activeIndexChange: EventEmitter<number> = new EventEmitter();

@@ -14,7 +14,7 @@ export class ZyfraTriCheckboxComponent extends WrappedFormComponent implements C
   @Input() tabindex: number;
   @Input() inputId: string;
   @Input() ariaLabelledBy: string;
-  @Input() style: string;
+  @Input() style: any;
   @Input() styleClass: string;
   @Input() readonly: boolean;
   @Input() model: boolean | null;

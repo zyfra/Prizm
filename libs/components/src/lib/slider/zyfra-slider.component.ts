@@ -17,7 +17,7 @@ export class ZyfraSliderComponent extends WrappedFormComponent implements Contro
   @Input() orientation: SliderOrientation = 'horizontal';
   @Input() step: number = 1;
   @Input() range: boolean;
-  @Input() style: string;
+  @Input() style: any;
   @Input() styleClass: string = '';
   @Input() tabindex: number;
   @Input() ariaLabelledBy: string;

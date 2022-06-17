@@ -14,7 +14,7 @@ export class ZyfraInputMaskComponent extends WrappedFormComponent implements Con
   @Input() characterPattern: string = '[A-Za-z]';
   @Input() mask: string;
   @Input() unmask: boolean;
-  @Input() style: string;
+  @Input() style: any;
   @Input() styleClass: string;
   @Input() placeholder: string;
   @Input() size: number;

@@ -21,7 +21,7 @@ export class ZyfraTabPanelComponent {
   @ViewChild(TemplateRef) implicitContent: TemplateRef<any>;
   @Input() selected: boolean = false;
   @Input() closable: boolean = false;
-  @Input() headerStyle: string = null;
+  @Input() headerStyle: any = null;
   @Input() headerStyleClass: string = null;
   @Input() cache: boolean = true;
   @Input() tooltip: any = null;

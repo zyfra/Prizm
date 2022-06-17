@@ -38,8 +38,8 @@ export class ZyfraDropdownComponent<T = unknown>
   @Input() optionGroupChildren = 'items';
   @Input() name: string;
   @Input() scrollHeight = '200px';
-  @Input() style: string;
-  @Input() panelStyle: string;
+  @Input() style: any;
+  @Input() panelStyle: any;
   @Input() styleClass: string;
   @Input() panelStyleClass: string;
   @Input() filter: boolean;
