@@ -12,7 +12,7 @@ export class ZyfraMessageComponent {
   //---- message component --------
   @Input() value: Message[];
   @Input() closable: boolean = true;
-  @Input() style: string = '';
+  @Input() style: any = '';
   @Input() styleClass: string = '';
   @Input() enableService: boolean = true;
   @Input() escape: boolean = true;

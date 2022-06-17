@@ -21,7 +21,7 @@ export class ZyfraDialogComponent {
   @Input() rtl: boolean;
   @Input() closable: boolean = true;
   @Input() appendTo: any;
-  @Input() style: string;
+  @Input() style: any;
   @Input() styleClass: string;
   @Input() maskStyleClass: string;
   @Input() contentStyleClass: string;
