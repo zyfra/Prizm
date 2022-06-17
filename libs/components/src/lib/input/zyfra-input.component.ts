@@ -11,7 +11,7 @@ import { CustomInputEvent, HtmlInputEvent } from '../@core/models/events.models'
 export class ZyfraInputComponent extends WrappedFormComponent implements ControlValueAccessor {
   @Input() type: string;
   @Input() id: string;
-  @Input() placeholder: string;
+  @Input() placeholder: string = '';
   @Input() label: string;
   @Input() iClass: string;
   @Input() spanClass: string;
