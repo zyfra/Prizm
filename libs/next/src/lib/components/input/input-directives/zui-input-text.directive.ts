@@ -1,7 +1,6 @@
 import {
   ChangeDetectorRef,
   Component,
-  Directive,
   DoCheck,
   ElementRef,
   HostListener,
@@ -14,6 +13,7 @@ import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 import { ZuiInputControl } from './zui-input-control.class';
+import { MaskApplierService } from 'ngx-mask';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
