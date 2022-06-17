@@ -11,6 +11,7 @@ type TRadioButtonSize = 'm' | 'l' | 's';
 export class ExamplesRadioButtonComponent {
   public value = 'property1';
   public label = 'Свойство 1';
+  public name = 'name';
   public disabled = false;
 
   public sizeVariants: TRadioButtonSize[] = ['m', 'l', 's'];

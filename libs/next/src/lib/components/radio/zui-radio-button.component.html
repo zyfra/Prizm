@@ -1,7 +1,6 @@
 <div class="container" [class.disabled]="accessorIsDisabled">
   <input
     type="radio"
-    id="radio-btn"
     class="native-radio-button"
     (click)="onClickEventHandler($event)"
     (change)="onChangeEventHandler($event)"
@@ -9,6 +8,7 @@
     (blur)="onBlurEventHandler($event)"
     (focusout)="onFocusOutEventHandler($event)"
     [formControl]="ngControl ? $any(ngControl.control) : formControl"
+    [name]="name"
     [value]="value"
     [id]="value"
   />

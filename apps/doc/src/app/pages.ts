@@ -64,9 +64,15 @@ export const pages: TuiDocPages = [
   },
   {
     section: `Components`,
+    title: 'Checkbox',
+    keywords: 'кнопка, чекбокс',
+    route: '/components/checkbox'
+  },
+  {
+    section: `Components`,
     title: 'Toggle',
     keywords: 'toggle, тоггл, переключатель, switcher',
-    route: '/components/toggle',
+    route: '/components/toggle'
   },
   {
     section: `Components`,

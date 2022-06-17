@@ -27,6 +27,7 @@ export class ZuiRadioButtonComponent extends ZuiWrappedFormComponent {
   }
 
   @Input() value: unknown;
+  @Input() name: string;
   @Input() public label: string | null = null;
   @Input() set disabled(isDisabled: boolean) {
     this.accessorIsDisabled = isDisabled;

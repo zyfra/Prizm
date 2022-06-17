@@ -13,4 +13,4 @@ export * from './lib/modules/overlay';
 export * from './lib/types';
 export * from './lib/directives';
 export * from './lib/util';
-export * from "./lib/types";
+export * from './lib/components/checkbox';

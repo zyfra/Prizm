@@ -18,7 +18,7 @@ zui-radio-button {
     position: relative;
 
     .label {
-      margin-left: 8px
+      margin-left: 8px;
     }
 
     .radio-button {
@@ -57,17 +57,17 @@ zui-radio-button {
 
       &:focus + .radio-button {
         box-shadow: 0 0 0 2px var(--lite-b130-20);
-        transition: .3s;
+        transition: 0.3s;
       }
 
       &:checked + .radio-button {
         border-color: var(--index-plan);
         background: var(--index-plan);
-        transition: .3s;
+        transition: 0.3s;
 
         .radio-button__mark {
           opacity: 1;
-          transition: .3s;
+          transition: 0.3s;
         }
       }
 
@@ -77,17 +77,27 @@ zui-radio-button {
 
       &:hover + .radio-button {
         border-color: var(--index-plan);
-        transition: .3s;
+        transition: 0.3s;
       }
     }
   }
 
-  &[disabled='true'], .disabled {
+  &[disabled='true'],
+  .disabled {
     pointer-events: none;
     cursor: default;
 
     .native-radio-button {
       pointer-events: none;
+
+      & + .radio-button {
+        border-color: var(--bg-dashboard-forms);
+      }
+
+      &:checked + .radio-button {
+        border-color: var(--bg-dashboard-forms);
+        background: var(--index-lock);
+      }
     }
   }
 
@@ -98,7 +108,8 @@ zui-radio-button {
         line-height: @sizeL;
       }
 
-      .native-radio-button, .radio-button {
+      .native-radio-button,
+      .radio-button {
         height: @sizeL;
         width: @sizeL;
         min-width: @sizeL;
@@ -121,7 +132,8 @@ zui-radio-button {
         line-height: @sizeM;
       }
 
-      .native-radio-button, .radio-button {
+      .native-radio-button,
+      .radio-button {
         height: @sizeM;
         width: @sizeM;
         min-width: @sizeM;
@@ -144,7 +156,8 @@ zui-radio-button {
         line-height: @sizeS;
       }
 
-      .native-radio-button, .radio-button {
+      .native-radio-button,
+      .radio-button {
         height: @sizeS;
         width: @sizeS;
         min-width: @sizeS;
