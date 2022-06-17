@@ -10,7 +10,7 @@ export class ZyfraChipComponent {
   @Input() icon: string;
   @Input() image: string;
   @Input() removable: boolean;
-  @Input() style: string;
+  @Input() style: any;
   @Input() styleClass: string;
   @Input() removeIcon: string = 'zyfra-icon cancel-close';
 

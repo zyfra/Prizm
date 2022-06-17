@@ -28,7 +28,7 @@ export class ZyfraConfirmDialogComponent {
   @Input() rejectButtonStyleClass: string;
   @Input() acceptVisible: boolean = true;
   @Input() rejectVisible: boolean = true;
-  @Input() style: string;
+  @Input() style: any;
   @Input() styleClass: string;
   @Input() maskStyleClass: string;
   @Input() blockScroll: boolean = true;

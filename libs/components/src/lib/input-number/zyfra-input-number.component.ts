@@ -33,10 +33,10 @@ export class ZyfraInputNumberComponent extends WrappedFormComponent implements C
   @Input() min: number;
   @Input() max: number;
   @Input() step = 1;
-  @Input() style: string;
+  @Input() style: any;
   @Input() styleClass: string;
   @Input() inputId: string;
-  @Input() inputStyle: string;
+  @Input() inputStyle: any;
   @Input() inputStyleClass: string;
   @Input() placeholder: string;
   @Input() size: number;

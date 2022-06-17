@@ -22,7 +22,7 @@ export class ZyfraButtonComponent {
   @Input() iconPos: TZyfraButtonIconPosision = 'left';
   @Input() disabled: boolean;
   @Input() badge: string;
-  @Input() style: string;
+  @Input() style: any;
   @Input() styleClass: string;
 
   @Output() onClick = new EventEmitter<PointerEvent>();
