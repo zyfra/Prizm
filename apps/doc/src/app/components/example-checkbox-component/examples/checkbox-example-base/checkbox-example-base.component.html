@@ -1,0 +1,10 @@
+<div class="container">
+  <zui-checkbox
+    *ngFor="let item of data; let i = index"
+    [label]="item.label"
+    [value]="item.value"
+    [children]="item?.child ?? []"
+    [state]="item?.state"
+    [size]="size"
+  ></zui-checkbox>
+</div>

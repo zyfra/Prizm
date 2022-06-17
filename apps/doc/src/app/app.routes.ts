@@ -84,6 +84,11 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/checkbox',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/example-checkbox-component/example-checkbox.module')).ExampleCheckboxModule
+  },
+  {
     path: 'components/radio-button',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/example-radio-component/example-radio-button.module'))
@@ -101,4 +106,4 @@ export const ROUTES = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutes {}
+export class AppRoutes { }

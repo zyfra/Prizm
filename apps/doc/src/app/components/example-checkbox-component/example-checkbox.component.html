@@ -1,27 +1,27 @@
-<tui-doc-page header="Radio Button" package="Equinox" type="components">
+<tui-doc-page header="Checkbox" package="Equinox" type="components">
   <ng-template pageTab>
-    <tui-doc-example id="base" heading="Basic" [content]="exampleBasicRadio">
-      <zui-radio-button-example-base></zui-radio-button-example-base>
+    <tui-doc-example id="base" heading="Basic" [content]="exampleBasicCheckbox">
+      <zui-checkbox-example-base size="s"></zui-checkbox-example-base>
     </tui-doc-example>
 
-    <tui-doc-example id="big" heading="Big Size" [content]="exampleBasicRadio">
-      <zui-radio-button-example-base size="l"></zui-radio-button-example-base>
+    <tui-doc-example id="big" heading="Big Size" [content]="exampleBasicCheckbox">
+      <zui-checkbox-example-base size="l"></zui-checkbox-example-base>
     </tui-doc-example>
 
-    <tui-doc-example id="small" heading="Small Size" [content]="exampleBasicRadio">
-      <zui-radio-button-example-base size="s"></zui-radio-button-example-base>
+    <tui-doc-example id="form" heading="With Reactive Forms" [content]="exampleReactiveFormCheckbox">
+      <zui-checkbox-example-form></zui-checkbox-example-form>
     </tui-doc-example>
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-radio-button
+      <zui-checkbox
         [value]="value"
         [label]="label"
         [disabled]="disabled"
         [size]="size"
-        [name]="name"
-      ></zui-radio-button>
+        [state]="state"
+      ></zui-checkbox>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
@@ -53,21 +53,30 @@
 
       <ng-template
         documentationPropertyName="size"
-        documentationPropertyType="m | l | s"
+        documentationPropertyType="l | s"
         documentationPropertyMode="input"
         [documentationPropertyValues]="sizeVariants"
         [(documentationPropertyValue)]="size"
       >
-        Type
+        Size
       </ng-template>
 
       <ng-template
-        documentationPropertyName="name"
-        documentationPropertyType="string"
+        documentationPropertyName="state"
+        documentationPropertyType="ICheckbox[]"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="name"
       >
-        Name
+        Children
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="state"
+        documentationPropertyType="TZuiCheckboxState"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="stateVariants"
+        [(documentationPropertyValue)]="state"
+      >
+        State
       </ng-template>
 
       <ng-template
@@ -116,7 +125,7 @@
     <ol class="b-demo-steps">
       <li>
         <p>
-          Импортируйте <code>ZuiRadioButtonModule</code>
+          Импортируйте <code>ZuiCheckboxModule</code>
           в модуль в котором хотите использовать компоненту
         </p>
 
