@@ -3,7 +3,8 @@
   "version": "0.0.2",
   "peerDependencies": {
     "@angular/common": "^12.2.0",
-    "@angular/core": "^12.2.0"
+    "@angular/core": "^12.2.0",
+    "ngx-mask": "<=12.9.9"
   },
   "dependencies": {
     "tslib": "^2.3.0"
