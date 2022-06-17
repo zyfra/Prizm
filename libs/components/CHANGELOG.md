@@ -1,5 +1,20 @@
 # Changelog
 
+## [v0.11.2] - 17-06-2022
+### @digital-plant/zyfra-components [v0.11.2]
+
+**Fixes**
+
+- fix(components/icon): fixes default icons size 24 [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/185)
+- fix (components): forwarding styles for component which use PrimeNg [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/179)
+
+>  **Special thanks**
+>
+> ✏️ **MR:**  Anton Grekov, Dmitrii Piankov
+>
+> ️🐛 **Issue:** Anton Grekov
+
+
 ## [v0.11.1] - 03-06-2022
 ### @digital-plant/zyfra-components [v0.11.1]
 
