@@ -15,6 +15,7 @@
   --zui-disabled-active: #99BFFF;
 }
 
+
 zui-wrapper[checked=true] {
     --zui-disabled: var(--zui-disabled-active);
 }
@@ -110,18 +111,30 @@ zui-wrapper[checked=true] {
 
 .icon-wrapper {
   display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+
+  :host[data-size='m'] & {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  :host[data-size='l'] & {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 
   & > * {
+    max-width: 100%;
+    max-height: 100%;
+
     :host[data-size='m'] & {
-      width: 1rem;
-      height: 1rem;
       transform: scale(0.75);
     }
 
     :host[data-size='l'] & {
       margin: 0 (@space / 2);
-      width: 1.5rem;
-      height: 1.5rem;
     }
   }
 }

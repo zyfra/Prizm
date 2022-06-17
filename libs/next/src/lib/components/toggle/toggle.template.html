@@ -17,16 +17,16 @@
     ></zui-loader>
     <div class="toggle">
         <span class="icon-wrapper">
-          <ng-container *polymorpheusOutlet="iconOn as content; context: {$implicit: size}">
+          <ng-container *polymorpheusOutlet="(iconOn) as content; context: {$implicit: size}">
             <zui-icon class="icon" *ngIf="content" [iconClass]="$any(content)"></zui-icon>
           </ng-container>
         </span>
         <div class="circle"></div>
         <span class="icon-wrapper">
-            <ng-container *polymorpheusOutlet="iconOff as content; context: {$implicit: size}">
+            <ng-container *polymorpheusOutlet="(iconOff) as content; context: {$implicit: size}">
               <zui-icon class="icon" *ngIf="content" [iconClass]="$any(content)"></zui-icon>
             </ng-container>
-          </span>
+        </span>
     </div>
     <input
         #focusableElement
