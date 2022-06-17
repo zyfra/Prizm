@@ -40,7 +40,7 @@ export class ZuiOverlayControl {
     private compResolver: ComponentFactoryResolver,
     private injector: Injector
   ) {
-    this.updateTextContent.subscribe(content => {
+    this.updateTextContent.pipe(takeUntil(this.destroy$)).subscribe(content => {
       if (this.isOpen) this.comp.updateTextContent(content);
     });
   }
@@ -72,10 +72,10 @@ export class ZuiOverlayControl {
   }
 
   public onEscClick(): Observable<any> {
-    return fromEvent(BODY_ELEMENT, 'keydown').pipe(
+    return fromEvent<KeyboardEvent>(BODY_ELEMENT, 'keydown').pipe(
       takeUntil(this.destroy$),
       skipWhile(() => !this.config.closeOnEsc),
-      filter((e: any) => (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) && e.target.nodeName === 'BODY'),
+      filter((e: KeyboardEvent) => (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) && (e.target as HTMLElement).nodeName === 'BODY'),
       tap(e => e.preventDefault()),
       map(e => e.target),
       tap(() => this.close())
@@ -115,7 +115,7 @@ export class ZuiOverlayControl {
     this.position = newPosition;
   }
 
-  public updatePosition(positionConfig: any): void {
+  public updatePosition(positionConfig: ZuiOverlayAbstractPosition): void {
     this.position.updateConfig(positionConfig);
   }
 

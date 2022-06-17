@@ -27,7 +27,8 @@ export class ZuiOverlayRelativePosition extends ZuiOverlayAbstractPosition<ZuiOv
   }
 
   public override init(zid: string): void {
-    if (this.config.autoReposition) this.listenDrag(zid);
+    super.init(zid);
+    if (this.config.autoReposition) this.listenDrag(this.zid);
   }
 
   public getPositions(targetEl: HTMLElement): Pick<ZuiOverlayPositionMeta, any> {

@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, Inject, Input, OnInit, Renderer2,} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, Inject, Input, OnInit, Renderer2,} from '@angular/core';
 import {PolymorpheusContent} from '../index';
 import {ZuiHintOptions} from "../hint";
 import {zuiDefaultProp} from "../../decorators";
@@ -7,6 +7,7 @@ import {ZuiHoveredService} from "../../services";
 import {takeUntil, tap} from "rxjs/operators";
 import {ZuiHintService} from "./hint.service";
 import {ZuiOverlayControl} from "../../modules/overlay";
+import {animationFrameScheduler, timer} from "rxjs";
 
 @Component({
   selector: 'zui-hint-container',
@@ -18,7 +19,7 @@ import {ZuiOverlayControl} from "../../modules/overlay";
   styleUrls: ['./hint-container.component.less'],
   providers: [ZuiDestroyService]
 })
-export class ZuiHintContainerComponent implements OnInit {
+export class ZuiHintContainerComponent implements OnInit, AfterViewInit {
   @Input()
   @HostListener('attr.id')
   id: string;
@@ -49,6 +50,14 @@ export class ZuiHintContainerComponent implements OnInit {
   public ngOnInit(): void {
     this.initPositionListener();
     this.initHoverListener();
+  }
+
+  public ngAfterViewInit(): void {
+    // re-calc positions after fist get container sizes
+    timer(10, animationFrameScheduler).pipe(
+      tap(() => this.zuiOverlayControl.position.calculate()),
+      takeUntil(this.destroy$)
+    ).subscribe();
   }
 
   private initPositionListener(): void {

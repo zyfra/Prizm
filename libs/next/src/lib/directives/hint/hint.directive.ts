@@ -5,7 +5,7 @@ import {PolymorpheusContent} from '../index';
 
 import {ZUI_HINT_OPTIONS, ZuiHintOptions} from './hint-options';
 import {ZuiOverlayControl, ZuiOverlayRelativePosition, ZuiOverlayService} from "../../modules/overlay";
-import {combineLatest, Observable, of} from "rxjs";
+import {combineLatest, Observable, of, timer} from "rxjs";
 import {ZuiHoveredService} from "../../services";
 import {delay, map, skip, switchMap, takeUntil, tap} from "rxjs/operators";
 import {ZuiHintContainerComponent} from "./hint-container.component";
@@ -88,8 +88,7 @@ export class ZuiHintDirective implements OnChanges, OnDestroy {
     ngOnChanges(): void {
       this.destroy$.next();
       const position = new ZuiOverlayRelativePosition({
-        // TODO remove any
-        placement: this.zuiHintDirection as any,
+        placement: this.zuiHintDirection,
         autoReposition: this.zuiAutoReposition,
         element: this.host
       });
