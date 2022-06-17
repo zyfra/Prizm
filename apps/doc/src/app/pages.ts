@@ -35,8 +35,8 @@ export const pages: TuiDocPages = [
         title: 'Input',
         keywords: 'input, text, form',
         route: '/components/input',
-      }
-    ]
+      },
+    ],
   },
   {
     section: `Components`,
@@ -66,13 +66,19 @@ export const pages: TuiDocPages = [
     section: `Components`,
     title: 'Checkbox',
     keywords: 'кнопка, чекбокс',
-    route: '/components/checkbox'
+    route: '/components/checkbox',
+  },
+  {
+    section: `Components`,
+    title: 'Paginator',
+    keywords: 'paginator, paging, пагинатор, пэйджинг',
+    route: '/components/paginator',
   },
   {
     section: `Components`,
     title: 'Toggle',
     keywords: 'toggle, тоггл, переключатель, switcher',
-    route: '/components/toggle'
+    route: '/components/toggle',
   },
   {
     section: `Components`,

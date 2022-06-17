@@ -46,8 +46,7 @@ export const ROUTES = [
   },
   {
     path: 'components/hint',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/hint/hint.module')).HintModule,
+    loadChildren: async (): Promise<unknown> => (await import('./components/hint/hint.module')).HintModule,
     data: {
       title: 'Hint',
     },
@@ -84,9 +83,14 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/paginator',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/paginator-example/paginator-example.module')).PaginatorExampleModule,
+  },
+  {
     path: 'components/checkbox',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./components/example-checkbox-component/example-checkbox.module')).ExampleCheckboxModule
+      (await import('./components/example-checkbox-component/example-checkbox.module')).ExampleCheckboxModule,
   },
   {
     path: 'components/radio-button',
@@ -106,4 +110,4 @@ export const ROUTES = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutes { }
+export class AppRoutes {}
