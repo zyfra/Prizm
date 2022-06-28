@@ -5,7 +5,7 @@
 
 **Fixes**
 
-- fix(components/icon): fixes default icons size 24 [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/185)
+- fix (component/input): Placeholder add default value empty string for placeholder [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/185)
 - fix (components): forwarding styles for component which use PrimeNg [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/179)
 
 >  **Special thanks**
