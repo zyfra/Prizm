@@ -47,7 +47,7 @@ class ZyfraDynamicDialogComponent implements OnDestroy {
   @Input() set rtl(rtl: boolean) {
     this.options.rtl = rtl;
   }
-  @Input() set style(style: string) {
+  @Input() set style(style: any) {
     this.options.style = style;
   }
   @Input() set contentStyle(contentStyle: string) {

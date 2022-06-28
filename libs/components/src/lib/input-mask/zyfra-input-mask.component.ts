@@ -8,12 +8,13 @@ import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.compo
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraInputMaskComponent extends WrappedFormComponent implements ControlValueAccessor {
+  @Input() type: string = 'text';
+  @Input() slotChar: string = '_';
+  @Input() autoClear: boolean = true;
+  @Input() characterPattern: string = '[A-Za-z]';
   @Input() mask: string;
-  @Input() type: string;
-  @Input() slotChar: string;
-  @Input() autoClear: boolean;
   @Input() unmask: boolean;
-  @Input() style: string;
+  @Input() style: any;
   @Input() styleClass: string;
   @Input() placeholder: string;
   @Input() size: number;
@@ -24,7 +25,7 @@ export class ZyfraInputMaskComponent extends WrappedFormComponent implements Con
   @Input() name: string;
   @Input() inputId: string;
   @Input() required: boolean;
-  @Input() characterPattern: string;
+
   @Input() autoFocus: boolean;
   @Input() autocomplete: string;
   @Input() ariaLabel: string;

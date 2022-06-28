@@ -32,9 +32,9 @@ export class ZyfraAutoCompleteComponent<T = unknown>
   @Input() minLength = 1;
   @Input() delay = 300;
   @Input() completeOnFocus: boolean;
-  @Input() style: string;
-  @Input() inputStyle: string;
-  @Input() panelStyle: string;
+  @Input() style: any;
+  @Input() inputStyle: any;
+  @Input() panelStyle: any;
   @Input() styleClass: string;
   @Input() inputStyleClass: string;
   @Input() panelStyleClass: string;

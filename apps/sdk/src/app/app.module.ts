@@ -8,7 +8,7 @@ import { ButtonModule } from './components/button/button.module';
 import { CheckboxModule } from './components/checkbox/checkbox.module';
 import { TranslateModule } from './components/translate/translate.module';
 import { InputModule } from './components/input/input.module';
-import { InputTextModule } from './components/input-text/input-text.module';
+import { InputGroupModule } from './components/input-group/input-group.module';
 import { IconModule } from './components/icon/icon.module';
 import { CalendarTestModule } from './components/calendar-test/calendar-test.module';
 import { DropdownTestModule } from './components/dropdown-test/dropdown-test.module';
@@ -29,7 +29,7 @@ import { AppDirective } from './app.directive';
     HttpClientModule,
     IconModule,
     InputModule,
-    InputTextModule,
+    InputGroupModule,
     TableTestModule,
     TranslateModule,
     ZyfraTabViewModule,

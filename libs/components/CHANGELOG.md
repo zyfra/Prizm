@@ -1,5 +1,58 @@
 # Changelog
 
+## [v0.11.2] - 17-06-2022
+### @digital-plant/zyfra-components [v0.11.2]
+
+**Fixes**
+
+- fix(components/icon): fixes default icons size 24 [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/185)
+- fix (components): forwarding styles for component which use PrimeNg [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/179)
+
+>  **Special thanks**
+>
+> ✏️ **MR:**  Anton Grekov, Dmitrii Piankov
+>
+> ️🐛 **Issue:** Anton Grekov
+
+
+## [v0.11.1] - 03-06-2022
+### @digital-plant/zyfra-components [v0.11.1]
+
+**Fixes**
+
+- fix(components/icon): fixes default icons size 24
+
+
+## [v0.11.0] - 03-06-2022
+### @digital-plant/zyfra-components [v0.11.0]
+
+**Added**
+
+- feat(components): Added 16[size] icons [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/144)
+
+**Fixes**
+
+- fix(components/input): style input label with button [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/171)
+
+
+## [v0.10.0] - 31-05-2022
+### @digital-plant/zyfra-components [v0.10.0]
+
+**Feature**
+
+- docs(sdk): add example input-group [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/166)
+
+**Fixes**
+
+- fix(components/input-mask) add default inputs options [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/161)
+
+## [v0.9.3] - 27-05-2022
+### @digital-plant/zyfra-components [v0.9.3]
+
+**Fixes**
+
+- fix(calendar): hotfix types [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/167)
+
 ## [v0.9.2] - 25-05-2022
 ### @digital-plant/zyfra-components [v0.9.2]
 
@@ -20,8 +73,8 @@
 
 **Added**
 
-- feat(components/tri-checkbox): added icon custom inputs [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/157)
 - feat(component/splitter): add hide/show [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/143)
+- feat(components/tri-checkbox): added icon custom inputs [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/157)
 
 **Fixes**
 

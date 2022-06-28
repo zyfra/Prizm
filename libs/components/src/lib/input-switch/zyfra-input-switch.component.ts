@@ -8,7 +8,7 @@ import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.compo
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraInputSwitchComponent extends WrappedFormComponent implements ControlValueAccessor {
-  @Input() style: string;
+  @Input() style: any;
   @Input() styleClass: string;
   @Input() tabindex: number;
   @Input() inputId: string;

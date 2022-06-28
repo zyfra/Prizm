@@ -11,7 +11,7 @@ type ItemClickEvent = { originalEvent: Event; item: MenuItem };
 export class ZyfraBreadcrumbComponent {
   @Input() items: MenuItem[] = [];
   @Input() home: MenuItem = { icon: 'zyfra-icon social-home-breadcrumbs' };
-  @Input() style: string = null;
+  @Input() style: any = null;
   @Input() styleClass: string = null;
 
   @Output() onItemClick = new EventEmitter<ItemClickEvent>();

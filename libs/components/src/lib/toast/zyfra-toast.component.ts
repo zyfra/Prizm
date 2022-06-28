@@ -10,7 +10,7 @@ export class ZyfraToastComponent {
   @Input() customTemplate: TemplateRef<any>;
 
   @Input() key: string;
-  @Input() style: string;
+  @Input() style: any;
   @Input() styleClass: string;
   @Input() position: string = 'top-right';
   @Input() baseZIndex: number = 0;
