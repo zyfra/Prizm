@@ -13,7 +13,7 @@ variables:
 
 include:
   - project: devops/gitlab-ci-templates
-    ref: main
+    ref: latest
     file: Settings/variables.yml
 
 stages:
