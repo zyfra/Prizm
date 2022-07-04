@@ -101,6 +101,10 @@
       <zui-input-subtext-example></zui-input-subtext-example>
     </tui-doc-example>
 
+    <tui-doc-example id="base" heading="Icon buttons" [content]="zyfraInputIconButtonsExample">
+      <zui-input-icon-buttons-example></zui-input-icon-buttons-example>
+    </tui-doc-example>
+
     <h2>Validation</h2>
 
     Сообщение об ошибке <br />
@@ -133,15 +137,78 @@
       <zui-input-disabled-example></zui-input-disabled-example>
     </tui-doc-example>
 
+    <!--  TODO вынести в отдельный модуль и доку  -->
     <h2>Как работать с масками можно посмотреть в документации ngx-mask</h2>
 
     <tui-doc-example id="phone" heading="Phone example" [content]="zyfraInputPhoneExample">
       <zui-input-phone-example></zui-input-phone-example>
     </tui-doc-example>
 
+    <!--  TODO вынести в отдельный модуль и доку  -->
     <tui-doc-example id="mask" heading="Mask example" [content]="zyfraInputMaskExample">
       <zui-input-mask-example></zui-input-mask-example>
     </tui-doc-example>
+  </ng-template>
 
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-input-layout [label]="label" [outer]="outer" [size]="size" [status]="status">
+        <input zuiInput />
+      </zui-input-layout>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="label"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="outer"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="[true, false]"
+        [(documentationPropertyValue)]="outer"
+      >
+        Outer
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="outer ? sizesOuter : sizesInner"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="status"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="statuses"
+        [(documentationPropertyValue)]="status"
+      >
+        Status
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>InputModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code filename="myComponent.module.ts" [code]="exampleModule"></tui-doc-code>
+      </li>
+    </ol>
   </ng-template>
 </tui-doc-page>

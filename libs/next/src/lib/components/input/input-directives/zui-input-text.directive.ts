@@ -163,4 +163,9 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck {
   private updateErrorState(): void {
     this.invalid = this.ngControl && this.ngControl.invalid;
   }
+
+  public clear(): void {
+    this.ngControl?.reset();
+    this.elementRef.nativeElement.value = '';
+  }
 }
