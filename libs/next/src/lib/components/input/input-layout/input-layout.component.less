@@ -3,13 +3,23 @@
   display: block;
   position: relative;
   width: 20rem;
+
+  .zui-input-button-default {
+    display: none;
+  }
+
+  &:hover {
+    .zui-input-button-default {
+      display: inline-block;
+    }
+  }
 }
 
 .zui-input-label {
   display: block;
   font-weight: 600;
   color: var(--text-subscript);
-  padding-left: 13px;
+  padding-left: 16px;
   line-height: 16px;
   margin-bottom: 4px;
   transition: top 200ms ease 0s;
@@ -21,25 +31,26 @@
 
   &-inner {
     position: absolute;
+    padding-left: 8px;
 
     &[data-size='l'] {
-      top: 6px;
+      top: 5px;
 
       &.zui-input-label-empty {
-        top: 16px;
+        top: 15px;
       }
       &.zui-input-label-focused {
-        top: 6px;
+        top: 5px;
       }
     }
 
     &[data-size='m'] {
-      top: 2px;
+      top: 1px;
       &.zui-input-label-empty {
-        top: 10px;
+        top: 9px;
       }
       &.zui-input-label-focused {
-        top: 2px;
+        top: 1px;
       }
     }
   }
@@ -49,11 +60,18 @@
   background-color: var(--bg-dashboard-forms);
   border: 1px solid var(--border-forms);
   border-radius: 2px;
+  display: flex;
+  padding: 0px 8px;
 
   width: 100%;
 
   &:hover {
     border-color: var(--index-plan);
+  }
+
+  &-body {
+    position: relative;
+    width: 100%;
   }
 
   &-status {
@@ -62,11 +80,20 @@
       &:hover {
         border-color: var(--index-good);
       }
+
+      .zui-input-form-status-button {
+        color: var(--index-good);
+      }
     }
+
     &-warning {
       border-color: var(--index-warning);
       &:hover {
         border-color: var(--index-warning);
+      }
+
+      .zui-input-form-status-button {
+        color: var(--index-warning);
       }
     }
 
@@ -75,12 +102,20 @@
       &:hover {
         border-color: var(--index-danger);
       }
+
+      .zui-input-form-status-button {
+        color: var(--index-danger);
+      }
     }
   }
 
   &-invalid {
     &.zui-input-form-touched {
       border-color: var(--index-danger);
+    }
+
+    .zui-input-form-status-button {
+      color: var(--index-danger);
     }
   }
 
@@ -91,6 +126,10 @@
 
     &:hover {
       border-color: var(--index-plan);
+    }
+
+    .zui-input-button-default {
+      display: inline-block;
     }
   }
 
@@ -131,8 +170,20 @@
 }
 
 .zui-input-form-subtext {
-  padding-left: 13px;
+  padding-left: 16px;
   font-size: 10px;
   font-weight: 500;
   line-height: 22px;
+
+  &-success {
+    color: var(--index-good);
+  }
+
+  &-warning {
+    color: var(--index-warning);
+  }
+
+  &-danger {
+    color: var(--index-danger);
+  }
 }

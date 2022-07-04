@@ -83,7 +83,7 @@
           "options": {
             "fontFileName": "ZyfraIcons16",
             "fontName": "Zyfra Icons 16",
-            "default": ".zyfra-icon-16",
+            "iconClassName": ".zyfra-icon-16",
             "inputPath": "./libs/components/assets/icons-16",
             "outputPath": "./libs/components/src/styles/icons-16",
             "outputStyleFile": "icons-16.less",
@@ -161,7 +161,8 @@
               "node_modules/primeicons/primeicons.css",
               "libs/next/src/styles/styles.less",
               "libs/next/src/styles/theme/default.less",
-              "libs/next/src/styles/icons/icons.less"
+              "libs/next/src/styles/icons/icons.less",
+              "libs/next/src/styles/icons-16/icons-16.less"
             ],
             "scripts": []
           },
@@ -336,6 +337,32 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/next/src/**/*.ts", "libs/next/src/**/*.html"]
+          }
+        },
+        "build-icons": {
+          "builder": "./tools/executors/icon-font-builder:build",
+          "options": {
+            "fontFileName": "ZuiIcons",
+            "fontName": "Zui Icons",
+            "iconClassName": ".zui-icon",
+            "inputPath": "./libs/components/assets/icons",
+            "outputPath": "./libs/next/src/styles/icons",
+            "outputStyleFile": "icons.less",
+            "outputDefinitionsTs": "./libs/next/src/lib/components/icon/icon-definitions.ts",
+            "outputDefinitionsVar": "IconDefs"
+          }
+        },
+        "build-icons-16": {
+          "builder": "./tools/executors/icon-font-builder:build",
+          "options": {
+            "fontFileName": "ZuiIcons16",
+            "fontName": "Zui Icons 16",
+            "iconClassName": ".zui-icon-16",
+            "inputPath": "./libs/components/assets/icons-16",
+            "outputPath": "./libs/next/src/styles/icons-16",
+            "outputStyleFile": "icons-16.less",
+            "outputDefinitionsTs": "./libs/next/src/lib/components/icon/icon-16-definitions.ts",
+            "outputDefinitionsVar": "Icon16Defs"
           }
         }
       },

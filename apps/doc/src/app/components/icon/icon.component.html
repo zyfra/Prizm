@@ -4,22 +4,34 @@
   type="components"
 >
   <ng-template pageTab>
-    <p>
-      Icon set.
-    </p>
-
     <tui-doc-example
       id="base"
-      heading="Set"
+      heading="Example"
       [content]="example1"
     >
       <zui-icon-example-1></zui-icon-example-1>
     </tui-doc-example>
+
+    <h1>
+      Icon set.
+    </h1>
+
+    <div *ngFor="let def of defs">
+      <h4>{{ def.dir }}</h4>
+
+      <div class="icons">
+        <div *ngFor="let name of def.data" class="icon-def">
+          <zui-icon [iconClass]="name" class="icon"></zui-icon>
+          <div class="name">{{ name }}</div>
+        </div>
+      </div>
+    </div>
+
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-icon [iconClass]="icon"></zui-icon>
+      <zui-icon [iconClass]="icon" [size]='iconSize'></zui-icon>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
@@ -30,6 +42,15 @@
         [(documentationPropertyValue)]="icon"
       >
         Icon
+      </ng-template>
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="iconSizes"
+        [(documentationPropertyValue)]="iconSize"
+      >
+        Size
       </ng-template>
     </tui-doc-documentation>
   </ng-template>

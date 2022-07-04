@@ -1,26 +1,20 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  Input,
-  Injector,
-  ChangeDetectorRef,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectorRef, Directive, Injector, Input } from '@angular/core';
 import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
 import { takeUntil } from 'rxjs/operators';
 import { ZuiInputControl } from '../input-directives/zui-input-control.class';
-import { InputInvalidSubtextBaseClass } from './input-invalid-subtext-base.class';
 import { ZuiInputValidationTexts } from './input-invalid-subtext.service';
 
-@Component({
-  selector: 'zui-input-invalid-subtext',
-  templateUrl: './input-invalid-subtext.component.html',
-  styleUrls: ['./input-invalid-subtext.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ZuiDestroyService],
-})
-export class InputInvalidSubtextComponent extends InputInvalidSubtextBaseClass implements OnInit {
-  @Input() control: ZuiInputControl<unknown>;
+@Directive()
+export abstract class InputInvalidTextBaseClass {
+  /**
+   * Gets invalid text
+   */
+  public abstract getText(firstInvalidKey: string): string;
+}
+
+@Directive()
+export class DefaultInputInvalidTextClass extends InputInvalidTextBaseClass {
+  @Input() control?: ZuiInputControl<unknown>;
 
   public invalidText: string;
 
@@ -37,7 +31,7 @@ export class InputInvalidSubtextComponent extends InputInvalidSubtextBaseClass i
   ngOnInit(): void {
     this.actualizeText();
 
-    this.control.stateChanges.pipe(takeUntil(this.destroy$)).subscribe(() => {
+    this.control?.stateChanges.pipe(takeUntil(this.destroy$)).subscribe(() => {
       this.actualizeText();
     });
   }
@@ -48,15 +42,20 @@ export class InputInvalidSubtextComponent extends InputInvalidSubtextBaseClass i
 
   private actualizeText(): void {
     // By default show only touched
-    if (!this.control.touched) return;
+    if (!this.control?.touched) return;
 
     const errors = this.control.ngControl.errors || {};
+
     const firstInvalidKey = Object.keys(errors)?.[0];
     const errorText = this.getText(firstInvalidKey);
 
     if (this.invalidText !== errorText) {
-      this.invalidText = errorText;
+      this.setInvalidText(errorText);
       this.cdr.detectChanges();
     }
+  }
+
+  protected setInvalidText(text: string): void {
+    this.invalidText = text;
   }
 }

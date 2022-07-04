@@ -28,4 +28,6 @@ export abstract class ZuiInputControl<T> {
 
   /** Whether the control is validity. */
   readonly touched: boolean;
+
+  public abstract clear(): void;
 }

@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { InputModule } from '@digital-plant/zui-components';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { ZuiIconModule } from '@digital-plant/zui-components';
+import { InputIconButtonsExampleComponent } from './examples/input-icon-buttons-example/input-icon-buttons-example.component';
 import { InputComponent } from './input/input.component';
 import { InputExampleComponent } from './examples/input-example/input-example.component';
 import { InputSizesExampleComponent } from './examples/input-sizes-example/input-sizes-example.component';
@@ -21,6 +23,7 @@ import { InputMaskExampleComponent } from './examples/input-mask-example/input-m
     CommonModule,
     TuiAddonDocModule,
     RouterModule.forChild(generateRoutes(InputComponent)),
+    ZuiIconModule,
     InputModule,
     ReactiveFormsModule,
     FormsModule,
@@ -37,6 +40,7 @@ import { InputMaskExampleComponent } from './examples/input-mask-example/input-m
     InputValidationCustomExampleComponent,
     InputPhoneExampleComponent,
     InputMaskExampleComponent,
+    InputIconButtonsExampleComponent,
   ],
   exports: [InputComponent],
 })

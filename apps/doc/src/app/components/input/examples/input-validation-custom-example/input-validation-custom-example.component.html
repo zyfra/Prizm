@@ -7,5 +7,6 @@
     placeholder="Введите текст"
     [formControl]="requiredInputControl"
   />
-  <zui-input-invalid-subtext zui-input-subtext [control]="input"></zui-input-invalid-subtext>
+  <ng-template zuiInputStatusText [control]="input"></ng-template>
+  <zui-input-status-subtext zui-input-subtext [control]="input"></zui-input-status-subtext>
 </zui-input-layout>
