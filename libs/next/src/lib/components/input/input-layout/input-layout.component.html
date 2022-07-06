@@ -26,27 +26,30 @@
     'zui-input-form-invalid': control.invalid
   }"
 >
-  <ng-content select="[zui-input-left]"></ng-content>
+  <div class="zui-input-form__first">
+    <ng-content select="[zui-input-left]"></ng-content>
 
-  <div class="zui-input-form-body">
-    <ng-container *ngIf="outer; else labelTemplate"></ng-container>
+    <div class="zui-input-form-body">
+      <ng-container *ngIf="outer; else labelTemplate"></ng-container>
 
-    <ng-content></ng-content>
+      <ng-content></ng-content>
+    </div>
+
+    <button
+      *ngIf="!control.disabled && !control.empty"
+      zuiInputIconButton="cansel-delete-content"
+      (click)="onClearClick()"
+      class="zui-input-button-default"
+    ></button>
+    <button
+      *ngIf="!control.disabled && (status !== 'default' || (control.invalid && control.touched))"
+      [zuiInputIconButton]="statusIcon"
+      [zuiHint]="statusMessage"
+      class="zui-input-form-status-button"
+    ></button>
+    <ng-content select="[zui-input-right]"></ng-content>
   </div>
-
-  <button
-    *ngIf="!control.disabled && !control.empty"
-    zuiInputIconButton="cansel-delete-content"
-    (click)="onClearClick()"
-    class="zui-input-button-default"
-  ></button>
-  <button
-    *ngIf="!control.disabled && (status !== 'default' || (control.invalid && control.touched))"
-    [zuiInputIconButton]="statusIcon"
-    [zuiHint]="statusMessage"
-    class="zui-input-form-status-button"
-  ></button>
-  <ng-content select="[zui-input-right]"></ng-content>
+  <ng-content select="[zui-input-bottom]"></ng-content>
 </div>
 
 <div class="zui-input-form-subtext zui-input-form-subtext-{{ status }}">

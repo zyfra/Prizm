@@ -36,6 +36,11 @@ export const pages: TuiDocPages = [
         keywords: 'input, text, form',
         route: '/components/input',
       },
+      {
+        title: 'InputChips',
+        keywords: 'input-chips, input, чипс',
+        route: 'components/input-chips',
+      },
     ],
   },
   {
