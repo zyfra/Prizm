@@ -9,21 +9,22 @@ import {
   OnDestroy,
   OnInit,
   ViewChild,
-  ViewContainerRef
+  ViewContainerRef,
+  ViewEncapsulation
 } from '@angular/core';
-import {Observable} from 'rxjs';
-import {startWith, takeUntil, tap} from 'rxjs/operators';
-import {ZuiOverlayConfig, ZuiOverlayContent, ZuiOverlayContentType, ZuiOverlayId} from './models';
-import {ZuiOverlayAbstractPosition} from './position/position';
-import {cssClass, EventBus, objToCss} from './utils';
-import {ZuiDestroyService} from "@digital-plant/zyfra-helpers";
+import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { Observable } from 'rxjs';
+import { startWith, takeUntil, tap } from 'rxjs/operators';
+import { ZuiOverlayConfig, ZuiOverlayContent, ZuiOverlayContentType, ZuiOverlayId } from './models';
+import { ZuiOverlayAbstractPosition } from './position/position';
+import { cssClass, EventBus, objToCss } from './utils';
 
 @Component({
   selector: 'zui-overlay',
   templateUrl: './template.html',
   styleUrls: ['./styles.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ZuiDestroyService]
+  providers: [ZuiDestroyService],
 })
 export class ZuiOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('compOutlet', { read: ViewContainerRef }) compOutlet: ViewContainerRef;

@@ -1,0 +1,35 @@
+<p>
+  <b>FormControl</b>
+</p>
+
+<zui-input-layout label="Заголовок">
+  <input zuiInput [formControl]="control" />
+</zui-input-layout>
+
+<p>
+  <button zuiButton (click)="changeControl()">Change control form!</button>
+</p>
+
+<p>
+  <b>[value]</b>
+</p>
+
+<zui-input-layout label="Заголовок">
+  <input zuiInput [value]="valueText" />
+</zui-input-layout>
+
+<p>
+  <button zuiButton (click)="changeText()">Change text value!</button>
+</p>
+
+<p>
+  <b>[ngModel]</b>
+</p>
+
+<zui-input-layout label="Заголовок">
+  <input zuiInput [(ngModel)]="ngModelText" />
+</zui-input-layout>
+
+<p>
+  <button zuiButton (click)="changeNgModel()">Change ngModel text!</button>
+</p>

@@ -80,6 +80,15 @@ export class InputComponent {
     HTML: import('!!raw-loader!../examples/input-validation-example/input-validation-example.component.html'),
   };
 
+  public readonly zyfraInputFormControlExample: TuiDocExample = {
+    TypeScript: import(
+      '!!raw-loader!../examples/input-form-control-example/input-form-control-example.component.ts'
+    ),
+    HTML: import(
+      '!!raw-loader!../examples/input-form-control-example/input-form-control-example.component.html'
+    ),
+  };
+
   public readonly zyfraInputValidationCustomExample: TuiDocExample = {
     TypeScript: import(
       '!!raw-loader!../examples/input-validation-custom-example/input-validation-custom-example.component.ts'
