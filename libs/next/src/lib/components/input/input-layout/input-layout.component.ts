@@ -80,6 +80,7 @@ export class InputLayoutComponent implements OnInit, OnDestroy, OnChanges, After
 
   public onClearClick(): void {
     this.control.clear();
+    this.actualaizeStatus();
   }
 
   private actualaizeStatus(): void {

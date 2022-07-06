@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { InputModule, ZuiIconModule } from '@digital-plant/zui-components';
+import { InputModule,ZuiButtonModule, ZuiIconModule } from '@digital-plant/zui-components';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { InputIconButtonsExampleComponent } from './examples/input-icon-buttons-example/input-icon-buttons-example.component';
 import { InputComponent } from './input/input.component';
@@ -16,6 +16,7 @@ import { InputBasicExampleComponent } from './examples/input-basic-example/input
 import { InputValidationCustomExampleComponent } from './examples/input-validation-custom-example/input-validation-custom-example.component';
 import { InputPhoneExampleComponent } from './examples/input-phone-example/input-phone-example.component';
 import { InputMaskExampleComponent } from './examples/input-mask-example/input-mask-example.component';
+import { InputFormControlExampleComponent } from './examples/input-form-control-example/input-form-control-example.component';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { InputMaskExampleComponent } from './examples/input-mask-example/input-m
     RouterModule.forChild(generateRoutes(InputComponent)),
     ZuiIconModule,
     InputModule,
+    ZuiButtonModule,
     ReactiveFormsModule,
     FormsModule,
   ],
@@ -40,6 +42,7 @@ import { InputMaskExampleComponent } from './examples/input-mask-example/input-m
     InputPhoneExampleComponent,
     InputMaskExampleComponent,
     InputIconButtonsExampleComponent,
+    InputFormControlExampleComponent,
   ],
   exports: [InputComponent],
 })

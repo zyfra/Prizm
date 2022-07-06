@@ -5,6 +5,7 @@ import {
   ElementRef,
   HostListener,
   Input,
+  OnDestroy,
   Optional,
   Self,
 } from '@angular/core';
@@ -13,7 +14,6 @@ import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 import { ZuiInputControl } from './zui-input-control.class';
-import { MaskApplierService } from 'ngx-mask';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -32,7 +32,7 @@ import { MaskApplierService } from 'ngx-mask';
   styleUrls: ['zui-input-text.directive.less'],
   providers: [{ provide: ZuiInputControl, useExisting: ZuiInputTextComponent }, ZuiDestroyService],
 })
-export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck {
+export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck, OnDestroy {
   /**
    * Disabled input
    */
@@ -67,17 +67,24 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck {
   public invalid = false;
 
   public readonly stateChanges: Subject<void> = new Subject<void>();
+
   /**
-   * Inputvalue input
+   * Input value input
    */
-  @Input()
   get value(): string {
-    return this._inputValue.value;
+    return this.ngControl?.value || this._inputValue.value;
   }
 
+  @Input()
   set value(value: any) {
     if (value !== this.value) {
-      this._inputValue.value = value;
+      if (this.ngControl) {
+        this.ngControl.valueAccessor.writeValue(value);
+      } else {
+        this._inputValue.value = value;
+        this.updateEmptyState();
+        this.stateChanges.next();
+      }
     }
   }
   private _inputValue: { value: any };
@@ -118,10 +125,15 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck {
     this.updateErrorState();
   }
 
+  ngOnDestroy() {
+    this.stateChanges.complete();
+  }
+
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('input', ['$event'])
   onInput(): void {
     this.updateEmptyState();
+    this._inputValue.value = this.elementRef.nativeElement.value;
     this.stateChanges.next();
   }
 
@@ -151,6 +163,17 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck {
         takeUntil(this.zuiDestroyService)
       )
       .subscribe();
+
+    this.ngControl.valueChanges
+      .pipe(
+        tap(() => {
+          this.updateEmptyState();
+          this.updateErrorState();
+          this.stateChanges.next();
+        }),
+        takeUntil(this.zuiDestroyService)
+      )
+      .subscribe();
   }
 
   private updateEmptyState(): void {
@@ -167,5 +190,7 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck {
   public clear(): void {
     this.ngControl?.reset();
     this.elementRef.nativeElement.value = '';
+    this._inputValue.value = '';
+    this.updateEmptyState();
   }
 }
