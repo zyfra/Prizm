@@ -1,0 +1,15 @@
+<zui-input-layout label="Заголовок" size="l" status="default">
+  <input
+    #input
+    zuiInputChips
+    placeholder="Введите название"
+    [chipsComponent]="chipsComponent"
+    [formControl]="requiredInputControl"
+  />
+  <zui-input-chips
+    #chipsComponent
+    [formControl]="chipsControl"
+    [deletable]="deletable"
+    zui-input-bottom
+  ></zui-input-chips>
+</zui-input-layout>

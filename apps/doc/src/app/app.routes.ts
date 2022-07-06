@@ -75,6 +75,14 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/input-chips',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/input/input-chips/input-chips-example.module')).InputChipsExampleModule,
+    data: {
+      title: 'Input Chips',
+    },
+  },
+  {
     path: 'components/loader',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/loader/loader.module')).LoaderModule,
