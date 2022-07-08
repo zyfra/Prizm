@@ -1,0 +1,16 @@
+<zyfra-datepicker-multi
+  class="datepicker-from"
+  (onSelect)="valueChange($event, 'onSelect')"
+  (onInput)="valueChange($event, 'onInput')"
+  (valueChange)="valueChange($event, 'valueChange')"
+  dateFormat="dd.mm.yy"
+  [mode]="$any(mode)"
+  [showTime]="false"
+  [showSeconds]="true"
+  [autoZIndex]="true"
+  [hideOnDateTimeSelect]="true"
+  [showOnFocus]="true"
+  hourFormat="24"
+  [absoluteValue]="value"
+  placeholder=""
+></zyfra-datepicker-multi>
