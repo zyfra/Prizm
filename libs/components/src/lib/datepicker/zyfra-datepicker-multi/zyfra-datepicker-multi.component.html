@@ -15,6 +15,17 @@
 
 <ng-template #absoluteTemplate>
   <zyfra-calendar
+    (onInput)="onInput.emit($event)"
+    (onBlur)="onBlur.emit($event)"
+    (onClose)="onClose.emit($event)"
+    (onSelect)="onSelect.emit($event)"
+    (onTodayClick)="onTodayClick.emit($event)"
+    (onClearClick)="onClearClick.emit($event)"
+    (onMonthChange)="onMonthChange.emit($event)"
+    (onYearChange)="onYearChange.emit($event)"
+    (onClickOutside)="onClickOutside.emit($event)"
+    (onShow)="onShow.emit($event)"
+    (ngModelChange)="valueChange.emit($event)"
     [label]="label"
     [ngModel]="absoluteValue"
     [defaultDate]="defaultDate"
