@@ -6,7 +6,7 @@
 
   <ng-container *ngIf="pagingData.left">
     <button class="page" type="button" (click)="changePage(pagingData.left)">{{ pagingData.left }}</button>
-    <div class="dots">...</div>
+    <div class="dots" *ngIf="pagingData.left + 1 !== pagingData.mid[0]">...</div>
   </ng-container>
 
   <button
@@ -20,7 +20,7 @@
   </button>
 
   <ng-container *ngIf="pagingData.right">
-    <div class="dots">...</div>
+    <div class="dots" *ngIf="pagingData.right - 1 !== pagingData.mid[pagingData.mid.length - 1]">...</div>
     <button class="page" type="button" (click)="changePage(pagingData.right)">{{ pagingData.right }}</button>
   </ng-container>
 
