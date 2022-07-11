@@ -1,0 +1,11 @@
+<zyfra-button (click)="confirmDialog.onClick()" label="Confirm Dialog"></zyfra-button>
+
+<zyfra-confirm-dialog
+  #confirmDialog
+  [message]="message"
+  [header]="header"
+  [acceptLabel]="acceptLabel"
+  [rejectLabel]="rejectLabel"
+  [acceptButtonStyleClass]="acceptButtonStyleClass"
+  [rejectButtonStyleClass]="rejectButtonStyleClass"
+></zyfra-confirm-dialog>

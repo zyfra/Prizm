@@ -1,0 +1,12 @@
+<div class="p-radiobutton-group">
+  <ng-container *ngFor="let item of items">
+    <zyfra-radio-button
+      [label]="item.label"
+      [value]="item.value"
+      [formControl]="control"
+      [(ngModel)]="model"
+      [disabled]="disabled"
+    ></zyfra-radio-button>
+    <br />
+  </ng-container>
+</div>
