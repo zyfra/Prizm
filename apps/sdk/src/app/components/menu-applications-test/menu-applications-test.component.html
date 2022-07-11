@@ -1,0 +1,9 @@
+<zyfra-menu-applications
+  [transition]="transition"
+  [tooltipDelay]="tooltipDelay"
+  [style]="layoutShift ? null : { position: 'absolute', top: '0', left: '0', height: '100%' }"
+  [topMenuItems]="topMenuItems"
+  [bottomMenuItems]="bottomMenuItems"
+  [activeItem]="activeItem"
+  (selectItem)="selectItem($event)"
+></zyfra-menu-applications>

@@ -1,0 +1,16 @@
+<zyfra-tree-table [value]="fileSystem" [columns]="columns" [title]="title">
+  <ng-template zyfraTableTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">{{ col.header }}</th>
+    </tr>
+  </ng-template>
+
+  <ng-template zyfraTableTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+    <tr [zyfraRow]="rowData">
+      <td *ngFor="let col of columns; let i = index">
+        <zyfra-tree-table-toggler [rowNode]="rowNode" *ngIf="i === 0"></zyfra-tree-table-toggler>
+        <span>{{ rowData[col.field] }}</span>
+      </td>
+    </tr>
+  </ng-template>
+</zyfra-tree-table>
