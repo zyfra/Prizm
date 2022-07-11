@@ -70,7 +70,7 @@ export class ZuiRadioButtonComponent extends ZuiWrappedFormComponent {
     }
   }
 
-  public override setDisabledState(): void {
-    // nothing
+  public override setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 }
