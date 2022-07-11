@@ -1,0 +1,10 @@
+<zyfra-auto-complete
+  [(ngModel)]="selectedCountry"
+  [suggestions]="suggestions"
+  [field]="field"
+  [minLength]="minLength"
+  placeholder="Выберите страну"
+  [label]="label"
+  [dropdown]="dropdown"
+  (completeMethod)="completeMethod($event)"
+></zyfra-auto-complete>

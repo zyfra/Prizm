@@ -1,0 +1,17 @@
+<zyfra-accordion
+  [multiple]="multiple"
+  (onOpen)="onOpen($event)"
+  (onClose)="onClose($event)"
+  (activeIndexChange)="activeIndexChange($event)"
+>
+  <zyfra-accordion-tab header="Header 1" [disabled]="disabled"> Content 1 </zyfra-accordion-tab>
+
+  <zyfra-accordion-tab [disabled]="disabled" [selected]="selectedTwo">
+    <ng-template zyfraTemplate="header"> {{ dynamicString }} Header 2 </ng-template>
+    <ng-template zyfraTemplate="icons">
+      <span class="zyfra-icon selection-radio-off" title="{{ dynamicString }} title"></span>
+      <span class="zyfra-icon selection-radio-off" title="static title"></span>
+    </ng-template>
+    <ng-template zyfraTemplate="content"> {{ dynamicString }} Content 2 </ng-template>
+  </zyfra-accordion-tab>
+</zyfra-accordion>

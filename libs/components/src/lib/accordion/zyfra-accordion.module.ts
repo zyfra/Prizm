@@ -8,6 +8,6 @@ import { ZyfraAccordionTabComponent } from './zyfra-accordion-tab/zyfra-accordio
 @NgModule({
   declarations: [ZyfraAccordionComponent, ZyfraAccordionTabComponent],
   imports: [AccordionModule, CommonModule, ZyfraTemplateModule],
-  exports: [ZyfraAccordionComponent, ZyfraAccordionTabComponent],
+  exports: [ZyfraAccordionComponent, ZyfraAccordionTabComponent, ZyfraTemplateModule],
 })
 export class ZyfraAccordionModule {}
