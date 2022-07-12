@@ -318,6 +318,38 @@
       "extends": "InputEvent"
     },
     {
+      "name": "MultiSelectChangeEvent",
+      "id": "interface-MultiSelectChangeEvent-01ace1aaee7ca505c8c946bc5252f0db",
+      "file": "libs/components/src/lib/multiselect/zyfra-multiselect.component.ts",
+      "deprecated": false,
+      "deprecationMessage": "",
+      "type": "interface",
+      "sourceCode": "import {\r\n  AfterContentInit,\r\n  ChangeDetectionStrategy,\r\n  Component,\r\n  EventEmitter,\r\n  Input,\r\n  Output,\r\n  TemplateRef,\r\n  ViewChild,\r\n  ContentChildren,\r\n  QueryList,\r\n} from '@angular/core';\r\nimport { ControlValueAccessor } from '@angular/forms';\r\nimport { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';\r\nimport { MultiSelectModule } from 'primeng/multiselect';\r\nimport { ZyfraMultiSelectTemplateDirective } from './zyfra-multiselect-template.directive';\r\n\r\nexport interface MultiSelectChangeEvent<T> {\r\n  originalEvent: PointerEvent;\r\n  value: T;\r\n}\r\n\r\n@Component({\r\n  selector: 'zyfra-multiselect',\r\n  templateUrl: './zyfra-multiselect.component.html',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ZyfraMultiSelectComponent<T = unknown>\r\n  extends WrappedFormComponent\r\n  implements ControlValueAccessor, AfterContentInit\r\n{\r\n  @Input() options: T[];\r\n  @Input() style: any;\r\n  @Input() styleClass: string;\r\n  @Input() panelStyle: any;\r\n  @Input() panelStyleClass: string;\r\n  @Input() inputId: string;\r\n  @Input() disabled: boolean;\r\n  @Input() readonly: boolean;\r\n  @Input() group: boolean;\r\n  @Input() filter: boolean = true;\r\n  @Input() filterPlaceHolder: string;\r\n  @Input() filterLocale: string;\r\n  @Input() filterValue: string;\r\n  @Input() overlayVisible: boolean;\r\n  @Input() tabindex: number;\r\n  @Input() appendTo: any;\r\n  @Input() dataKey: string;\r\n  @Input() name: string;\r\n  @Input() label: string;\r\n  @Input() ariaLabelledBy: string;\r\n  @Input() displaySelectedLabel: boolean = true;\r\n  @Input() maxSelectedLabels = 3;\r\n  @Input() selectionLimit: number;\r\n  @Input() selectedItemsLabel: string = 'ellipsis';\r\n  @Input() showToggleAll: boolean = true;\r\n  @Input() emptyFilterMessage: 'No results found';\r\n  @Input() emptyMessage: 'No records found';\r\n  @Input() resetFilterOnHide: boolean = false;\r\n  @Input() dropdownIcon = 'zyfra-icon chevrons-down';\r\n  @Input() optionLabel: string;\r\n  @Input() optionValue: string;\r\n  @Input() optionDisabled: string;\r\n  @Input() optionGroupLabel: string;\r\n  @Input() optionGroupChildren: string = 'items';\r\n  @Input() showHeader: boolean = true;\r\n  @Input() autoZIndex: boolean = true;\r\n  @Input() baseZIndex = 0;\r\n  @Input() filterBy: string;\r\n  @Input() virtualScroll: boolean;\r\n  @Input() itemSize = 30;\r\n  @Input() showTransitionOptions: string = '.12s cubic-bezier(0, 0, 0.2, 1)';\r\n  @Input() hideTransitionOptions: string = '.1s linear';\r\n  @Input() ariaFilterLabel: string;\r\n  @Input() filterMatchMode:\r\n    | 'contains'\r\n    | 'startsWith'\r\n    | 'endsWith'\r\n    | 'equals'\r\n    | 'notEquals'\r\n    | 'in'\r\n    | 'lt'\r\n    | 'lte'\r\n    | 'gt'\r\n    | 'gte' = 'contains';\r\n  @Input() tooltip: string = '';\r\n  @Input() tooltipPosition: string = 'right';\r\n  @Input() tooltipPositionStyle = 'absolute';\r\n  @Input() tooltipStyleClass: string;\r\n  @Input() autofocusFilter: boolean = true;\r\n  @Input() display: string = 'comma';\r\n  @Input() autocomplete: string = 'on';\r\n  @Input() showClear: boolean;\r\n  @Input() scrollHeight: string = '200px';\r\n  @Input() placeholder: string;\r\n\r\n  @Output() onChange = new EventEmitter<MultiSelectChangeEvent<unknown>>();\r\n  @Output() onFocus = new EventEmitter<FocusEvent>();\r\n  @Output() onBlur = new EventEmitter<FocusEvent>();\r\n  @Output() onClick = new EventEmitter<PointerEvent>();\r\n  @Output() onPanelShow = new EventEmitter();\r\n  @Output() onPanelHide = new EventEmitter();\r\n\r\n  @ViewChild('multiselect') multiselect: MultiSelectModule;\r\n  @ContentChildren(ZyfraMultiSelectTemplateDirective) templates: QueryList<ZyfraMultiSelectTemplateDirective>;\r\n\r\n  itemTemplate: TemplateRef<unknown>;\r\n  groupTemplate: TemplateRef<unknown>;\r\n  selectedItemTemplate: TemplateRef<unknown>;\r\n  headerTemplate: TemplateRef<unknown>;\r\n  emptyTemplate: TemplateRef<unknown>;\r\n  emptyfilterTemplate: TemplateRef<unknown>;\r\n  footerTemplate: TemplateRef<unknown>;\r\n\r\n  ngAfterContentInit(): void {\r\n    this.templates.forEach(item => {\r\n      switch (item.getType()) {\r\n        case 'item':\r\n          this.itemTemplate = item.template;\r\n          break;\r\n        case 'group':\r\n          this.groupTemplate = item.template;\r\n          break;\r\n        case 'selectedItem':\r\n          this.selectedItemTemplate = item.template;\r\n          break;\r\n        case 'header':\r\n          this.headerTemplate = item.template;\r\n          break;\r\n        case 'empty':\r\n          this.emptyTemplate = item.template;\r\n          break;\r\n        case 'emptyfilter':\r\n          this.emptyfilterTemplate = item.template;\r\n          break;\r\n        case 'footer':\r\n          this.footerTemplate = item.template;\r\n          break;\r\n      }\r\n    });\r\n  }\r\n  public override setDisabledState(): void {\r\n    // do nothing, because have `disabled` input\r\n  }\r\n}\r\n",
+      "properties": [
+        {
+          "name": "originalEvent",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "PointerEvent",
+          "optional": false,
+          "description": "",
+          "line": 19
+        },
+        {
+          "name": "value",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "T",
+          "optional": false,
+          "description": "",
+          "line": 20
+        }
+      ],
+      "indexSignatures": [],
+      "kind": 164,
+      "methods": []
+    },
+    {
       "name": "NavMenuEvent",
       "id": "interface-NavMenuEvent-57f079d3b616cde4f867bef250868c61",
       "file": "libs/components/src/lib/nav-menu/model/nav-menu-config.ts",
@@ -5558,6 +5590,93 @@
         }
       ],
       "methodsClass": []
+    },
+    {
+      "name": "ZyfraMultiSelectTemplateDirective",
+      "id": "directive-ZyfraMultiSelectTemplateDirective-83e3a710d64d25851403e4025a7b5924",
+      "file": "libs/components/src/lib/multiselect/zyfra-multiselect-template.directive.ts",
+      "type": "directive",
+      "description": "",
+      "rawdescription": "\n",
+      "sourceCode": "import { Directive, Input, TemplateRef } from '@angular/core';\r\n\r\ntype MultiSelectTemplateType = 'item' | 'group' | 'selectedItem' | 'header' | 'empty' | 'emptyfilter' | 'footer';\r\n\r\n@Directive({\r\n  selector: '[zyfraMultiSelectTemplate]',\r\n})\r\nexport class ZyfraMultiSelectTemplateDirective {\r\n  @Input() zyfraMultiSelectTemplate: MultiSelectTemplateType;\r\n\r\n  constructor(public templateRef: TemplateRef<any>) {}\r\n\r\n  get template(): TemplateRef<any> {\r\n    return this.templateRef;\r\n  }\r\n\r\n  public getType(): MultiSelectTemplateType {\r\n    return this.zyfraMultiSelectTemplate;\r\n  }\r\n}\r\n",
+      "selector": "[zyfraMultiSelectTemplate]",
+      "providers": [],
+      "inputsClass": [
+        {
+          "name": "zyfraMultiSelectTemplate",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 9,
+          "type": "MultiSelectTemplateType"
+        }
+      ],
+      "outputsClass": [],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "propertiesClass": [
+        {
+          "name": "templateRef",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "TemplateRef<any>",
+          "optional": false,
+          "description": "",
+          "line": 11,
+          "modifierKind": [123]
+        }
+      ],
+      "methodsClass": [
+        {
+          "name": "getType",
+          "args": [],
+          "optional": false,
+          "returnType": "MultiSelectTemplateType",
+          "typeParameters": [],
+          "line": 17,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "modifierKind": [123]
+        }
+      ],
+      "constructorObj": {
+        "name": "constructor",
+        "description": "",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "args": [
+          {
+            "name": "templateRef",
+            "type": "TemplateRef<any>",
+            "deprecated": false,
+            "deprecationMessage": ""
+          }
+        ],
+        "line": 9,
+        "jsdoctags": [
+          {
+            "name": "templateRef",
+            "type": "TemplateRef<any>",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "tagName": {
+              "text": "param"
+            }
+          }
+        ]
+      },
+      "accessors": {
+        "template": {
+          "name": "template",
+          "getSignature": {
+            "name": "template",
+            "type": "",
+            "returnType": "TemplateRef<any>",
+            "line": 13
+          }
+        }
+      }
     },
     {
       "name": "ZyfraNavMenuGroupDirective",
@@ -29536,6 +29655,658 @@
       "templateData": "<p-messages\r\n  [(value)]=\"value\"\r\n  [closable]=\"closable\"\r\n  [style]=\"style\"\r\n  [styleClass]=\"styleClass\"\r\n  [enableService]=\"enableService\"\r\n  [escape]=\"escape\"\r\n  [showTransitionOptions]=\"showTransitionOptions\"\r\n  [hideTransitionOptions]=\"hideTransitionOptions\"\r\n></p-messages>\r\n"
     },
     {
+      "name": "ZyfraMultiSelectComponent",
+      "id": "component-ZyfraMultiSelectComponent-01ace1aaee7ca505c8c946bc5252f0db",
+      "file": "libs/components/src/lib/multiselect/zyfra-multiselect.component.ts",
+      "changeDetection": "ChangeDetectionStrategy.OnPush",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "zyfra-multiselect",
+      "styleUrls": [],
+      "styles": [],
+      "templateUrl": ["./zyfra-multiselect.component.html"],
+      "viewProviders": [],
+      "inputsClass": [
+        {
+          "name": "appendTo",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 47,
+          "type": "any"
+        },
+        {
+          "name": "ariaFilterLabel",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 74,
+          "type": "string"
+        },
+        {
+          "name": "ariaLabelledBy",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 51,
+          "type": "string"
+        },
+        {
+          "name": "autocomplete",
+          "defaultValue": "'on'",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 92,
+          "type": "string"
+        },
+        {
+          "name": "autofocusFilter",
+          "defaultValue": "true",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 90,
+          "type": "boolean"
+        },
+        {
+          "name": "autoZIndex",
+          "defaultValue": "true",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 67,
+          "type": "boolean"
+        },
+        {
+          "name": "baseZIndex",
+          "defaultValue": "0",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 68,
+          "type": "number"
+        },
+        {
+          "name": "dataKey",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 48,
+          "type": "string"
+        },
+        {
+          "name": "disabled",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 38,
+          "type": "boolean"
+        },
+        {
+          "name": "display",
+          "defaultValue": "'comma'",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 91,
+          "type": "string"
+        },
+        {
+          "name": "displaySelectedLabel",
+          "defaultValue": "true",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 52,
+          "type": "boolean"
+        },
+        {
+          "name": "dropdownIcon",
+          "defaultValue": "'zyfra-icon chevrons-down'",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 60,
+          "type": "string"
+        },
+        {
+          "name": "emptyFilterMessage",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 57,
+          "type": ""
+        },
+        {
+          "name": "emptyMessage",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 58,
+          "type": ""
+        },
+        {
+          "name": "filter",
+          "defaultValue": "true",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 41,
+          "type": "boolean"
+        },
+        {
+          "name": "filterBy",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 69,
+          "type": "string"
+        },
+        {
+          "name": "filterLocale",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 43,
+          "type": "string"
+        },
+        {
+          "name": "filterMatchMode",
+          "defaultValue": "'contains'",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 75,
+          "type": "\"contains\" | \"startsWith\" | \"endsWith\" | \"equals\" | \"notEquals\" | \"in\" | \"lt\" | \"lte\" | \"gt\" | \"gte\""
+        },
+        {
+          "name": "filterPlaceHolder",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 42,
+          "type": "string"
+        },
+        {
+          "name": "filterValue",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 44,
+          "type": "string"
+        },
+        {
+          "name": "group",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 40,
+          "type": "boolean"
+        },
+        {
+          "name": "hideTransitionOptions",
+          "defaultValue": "'.1s linear'",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 73,
+          "type": "string"
+        },
+        {
+          "name": "inputId",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 37,
+          "type": "string"
+        },
+        {
+          "name": "itemSize",
+          "defaultValue": "30",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 71,
+          "type": "number"
+        },
+        {
+          "name": "label",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 50,
+          "type": "string"
+        },
+        {
+          "name": "maxSelectedLabels",
+          "defaultValue": "3",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 53,
+          "type": "number"
+        },
+        {
+          "name": "name",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 49,
+          "type": "string"
+        },
+        {
+          "name": "optionDisabled",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 63,
+          "type": "string"
+        },
+        {
+          "name": "optionGroupChildren",
+          "defaultValue": "'items'",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 65,
+          "type": "string"
+        },
+        {
+          "name": "optionGroupLabel",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 64,
+          "type": "string"
+        },
+        {
+          "name": "optionLabel",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 61,
+          "type": "string"
+        },
+        {
+          "name": "options",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 32,
+          "type": "T[]"
+        },
+        {
+          "name": "optionValue",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 62,
+          "type": "string"
+        },
+        {
+          "name": "overlayVisible",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 45,
+          "type": "boolean"
+        },
+        {
+          "name": "panelStyle",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 35,
+          "type": "any"
+        },
+        {
+          "name": "panelStyleClass",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 36,
+          "type": "string"
+        },
+        {
+          "name": "placeholder",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 95,
+          "type": "string"
+        },
+        {
+          "name": "readonly",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 39,
+          "type": "boolean"
+        },
+        {
+          "name": "resetFilterOnHide",
+          "defaultValue": "false",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 59,
+          "type": "boolean"
+        },
+        {
+          "name": "scrollHeight",
+          "defaultValue": "'200px'",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 94,
+          "type": "string"
+        },
+        {
+          "name": "selectedItemsLabel",
+          "defaultValue": "'ellipsis'",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 55,
+          "type": "string"
+        },
+        {
+          "name": "selectionLimit",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 54,
+          "type": "number"
+        },
+        {
+          "name": "showClear",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 93,
+          "type": "boolean"
+        },
+        {
+          "name": "showHeader",
+          "defaultValue": "true",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 66,
+          "type": "boolean"
+        },
+        {
+          "name": "showToggleAll",
+          "defaultValue": "true",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 56,
+          "type": "boolean"
+        },
+        {
+          "name": "showTransitionOptions",
+          "defaultValue": "'.12s cubic-bezier(0, 0, 0.2, 1)'",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 72,
+          "type": "string"
+        },
+        {
+          "name": "style",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 33,
+          "type": "any"
+        },
+        {
+          "name": "styleClass",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 34,
+          "type": "string"
+        },
+        {
+          "name": "tabindex",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 46,
+          "type": "number"
+        },
+        {
+          "name": "tooltip",
+          "defaultValue": "''",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 86,
+          "type": "string"
+        },
+        {
+          "name": "tooltipPosition",
+          "defaultValue": "'right'",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 87,
+          "type": "string"
+        },
+        {
+          "name": "tooltipPositionStyle",
+          "defaultValue": "'absolute'",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 88,
+          "type": "string"
+        },
+        {
+          "name": "tooltipStyleClass",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 89,
+          "type": "string"
+        },
+        {
+          "name": "virtualScroll",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 70,
+          "type": "boolean"
+        }
+      ],
+      "outputsClass": [
+        {
+          "name": "onBlur",
+          "defaultValue": "new EventEmitter<FocusEvent>()",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 99,
+          "type": "EventEmitter"
+        },
+        {
+          "name": "onChange",
+          "defaultValue": "new EventEmitter<MultiSelectChangeEvent<unknown>>()",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 97,
+          "type": "EventEmitter"
+        },
+        {
+          "name": "onClick",
+          "defaultValue": "new EventEmitter<PointerEvent>()",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 100,
+          "type": "EventEmitter"
+        },
+        {
+          "name": "onFocus",
+          "defaultValue": "new EventEmitter<FocusEvent>()",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 98,
+          "type": "EventEmitter"
+        },
+        {
+          "name": "onPanelHide",
+          "defaultValue": "new EventEmitter()",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 102,
+          "type": "EventEmitter"
+        },
+        {
+          "name": "onPanelShow",
+          "defaultValue": "new EventEmitter()",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 101,
+          "type": "EventEmitter"
+        }
+      ],
+      "propertiesClass": [
+        {
+          "name": "emptyfilterTemplate",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "TemplateRef<>",
+          "optional": false,
+          "description": "",
+          "line": 112
+        },
+        {
+          "name": "emptyTemplate",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "TemplateRef<>",
+          "optional": false,
+          "description": "",
+          "line": 111
+        },
+        {
+          "name": "footerTemplate",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "TemplateRef<>",
+          "optional": false,
+          "description": "",
+          "line": 113
+        },
+        {
+          "name": "groupTemplate",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "TemplateRef<>",
+          "optional": false,
+          "description": "",
+          "line": 108
+        },
+        {
+          "name": "headerTemplate",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "TemplateRef<>",
+          "optional": false,
+          "description": "",
+          "line": 110
+        },
+        {
+          "name": "itemTemplate",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "TemplateRef<>",
+          "optional": false,
+          "description": "",
+          "line": 107
+        },
+        {
+          "name": "multiselect",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "MultiSelectModule",
+          "optional": false,
+          "description": "",
+          "line": 104,
+          "decorators": [
+            {
+              "name": "ViewChild",
+              "stringifiedArguments": "'multiselect'"
+            }
+          ]
+        },
+        {
+          "name": "selectedItemTemplate",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "TemplateRef<>",
+          "optional": false,
+          "description": "",
+          "line": 109
+        },
+        {
+          "name": "templates",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "QueryList<ZyfraMultiSelectTemplateDirective>",
+          "optional": false,
+          "description": "",
+          "line": 105,
+          "decorators": [
+            {
+              "name": "ContentChildren",
+              "stringifiedArguments": "ZyfraMultiSelectTemplateDirective"
+            }
+          ]
+        },
+        {
+          "name": "formControl",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "FormControl",
+          "optional": false,
+          "description": "",
+          "line": 7,
+          "modifierKind": [123, 143],
+          "inheritance": {
+            "file": "WrappedFormComponent"
+          }
+        },
+        {
+          "name": "injector",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Injector",
+          "optional": false,
+          "description": "",
+          "line": 9,
+          "modifierKind": [123, 143],
+          "inheritance": {
+            "file": "WrappedFormComponent"
+          }
+        },
+        {
+          "name": "ngControl",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "NgControl",
+          "optional": false,
+          "description": "",
+          "line": 9,
+          "decorators": [
+            {
+              "name": "Optional",
+              "stringifiedArguments": ""
+            },
+            {
+              "name": "Self",
+              "stringifiedArguments": ""
+            }
+          ],
+          "modifierKind": [123, 143],
+          "inheritance": {
+            "file": "WrappedFormComponent"
+          }
+        }
+      ],
+      "methodsClass": [
+        {
+          "name": "ngAfterContentInit",
+          "args": [],
+          "optional": false,
+          "returnType": "void",
+          "typeParameters": [],
+          "line": 115,
+          "deprecated": false,
+          "deprecationMessage": ""
+        },
+        {
+          "name": "setDisabledState",
+          "args": [],
+          "optional": false,
+          "returnType": "void",
+          "typeParameters": [],
+          "line": 142,
+          "deprecated": false,
+          "deprecationMessage": "",
+          "modifierKind": [123, 157],
+          "inheritance": {
+            "file": "WrappedFormComponent"
+          }
+        }
+      ],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import {\r\n  AfterContentInit,\r\n  ChangeDetectionStrategy,\r\n  Component,\r\n  EventEmitter,\r\n  Input,\r\n  Output,\r\n  TemplateRef,\r\n  ViewChild,\r\n  ContentChildren,\r\n  QueryList,\r\n} from '@angular/core';\r\nimport { ControlValueAccessor } from '@angular/forms';\r\nimport { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';\r\nimport { MultiSelectModule } from 'primeng/multiselect';\r\nimport { ZyfraMultiSelectTemplateDirective } from './zyfra-multiselect-template.directive';\r\n\r\nexport interface MultiSelectChangeEvent<T> {\r\n  originalEvent: PointerEvent;\r\n  value: T;\r\n}\r\n\r\n@Component({\r\n  selector: 'zyfra-multiselect',\r\n  templateUrl: './zyfra-multiselect.component.html',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ZyfraMultiSelectComponent<T = unknown>\r\n  extends WrappedFormComponent\r\n  implements ControlValueAccessor, AfterContentInit\r\n{\r\n  @Input() options: T[];\r\n  @Input() style: any;\r\n  @Input() styleClass: string;\r\n  @Input() panelStyle: any;\r\n  @Input() panelStyleClass: string;\r\n  @Input() inputId: string;\r\n  @Input() disabled: boolean;\r\n  @Input() readonly: boolean;\r\n  @Input() group: boolean;\r\n  @Input() filter: boolean = true;\r\n  @Input() filterPlaceHolder: string;\r\n  @Input() filterLocale: string;\r\n  @Input() filterValue: string;\r\n  @Input() overlayVisible: boolean;\r\n  @Input() tabindex: number;\r\n  @Input() appendTo: any;\r\n  @Input() dataKey: string;\r\n  @Input() name: string;\r\n  @Input() label: string;\r\n  @Input() ariaLabelledBy: string;\r\n  @Input() displaySelectedLabel: boolean = true;\r\n  @Input() maxSelectedLabels = 3;\r\n  @Input() selectionLimit: number;\r\n  @Input() selectedItemsLabel: string = 'ellipsis';\r\n  @Input() showToggleAll: boolean = true;\r\n  @Input() emptyFilterMessage: 'No results found';\r\n  @Input() emptyMessage: 'No records found';\r\n  @Input() resetFilterOnHide: boolean = false;\r\n  @Input() dropdownIcon = 'zyfra-icon chevrons-down';\r\n  @Input() optionLabel: string;\r\n  @Input() optionValue: string;\r\n  @Input() optionDisabled: string;\r\n  @Input() optionGroupLabel: string;\r\n  @Input() optionGroupChildren: string = 'items';\r\n  @Input() showHeader: boolean = true;\r\n  @Input() autoZIndex: boolean = true;\r\n  @Input() baseZIndex = 0;\r\n  @Input() filterBy: string;\r\n  @Input() virtualScroll: boolean;\r\n  @Input() itemSize = 30;\r\n  @Input() showTransitionOptions: string = '.12s cubic-bezier(0, 0, 0.2, 1)';\r\n  @Input() hideTransitionOptions: string = '.1s linear';\r\n  @Input() ariaFilterLabel: string;\r\n  @Input() filterMatchMode:\r\n    | 'contains'\r\n    | 'startsWith'\r\n    | 'endsWith'\r\n    | 'equals'\r\n    | 'notEquals'\r\n    | 'in'\r\n    | 'lt'\r\n    | 'lte'\r\n    | 'gt'\r\n    | 'gte' = 'contains';\r\n  @Input() tooltip: string = '';\r\n  @Input() tooltipPosition: string = 'right';\r\n  @Input() tooltipPositionStyle = 'absolute';\r\n  @Input() tooltipStyleClass: string;\r\n  @Input() autofocusFilter: boolean = true;\r\n  @Input() display: string = 'comma';\r\n  @Input() autocomplete: string = 'on';\r\n  @Input() showClear: boolean;\r\n  @Input() scrollHeight: string = '200px';\r\n  @Input() placeholder: string;\r\n\r\n  @Output() onChange = new EventEmitter<MultiSelectChangeEvent<unknown>>();\r\n  @Output() onFocus = new EventEmitter<FocusEvent>();\r\n  @Output() onBlur = new EventEmitter<FocusEvent>();\r\n  @Output() onClick = new EventEmitter<PointerEvent>();\r\n  @Output() onPanelShow = new EventEmitter();\r\n  @Output() onPanelHide = new EventEmitter();\r\n\r\n  @ViewChild('multiselect') multiselect: MultiSelectModule;\r\n  @ContentChildren(ZyfraMultiSelectTemplateDirective) templates: QueryList<ZyfraMultiSelectTemplateDirective>;\r\n\r\n  itemTemplate: TemplateRef<unknown>;\r\n  groupTemplate: TemplateRef<unknown>;\r\n  selectedItemTemplate: TemplateRef<unknown>;\r\n  headerTemplate: TemplateRef<unknown>;\r\n  emptyTemplate: TemplateRef<unknown>;\r\n  emptyfilterTemplate: TemplateRef<unknown>;\r\n  footerTemplate: TemplateRef<unknown>;\r\n\r\n  ngAfterContentInit(): void {\r\n    this.templates.forEach(item => {\r\n      switch (item.getType()) {\r\n        case 'item':\r\n          this.itemTemplate = item.template;\r\n          break;\r\n        case 'group':\r\n          this.groupTemplate = item.template;\r\n          break;\r\n        case 'selectedItem':\r\n          this.selectedItemTemplate = item.template;\r\n          break;\r\n        case 'header':\r\n          this.headerTemplate = item.template;\r\n          break;\r\n        case 'empty':\r\n          this.emptyTemplate = item.template;\r\n          break;\r\n        case 'emptyfilter':\r\n          this.emptyfilterTemplate = item.template;\r\n          break;\r\n        case 'footer':\r\n          this.footerTemplate = item.template;\r\n          break;\r\n      }\r\n    });\r\n  }\r\n  public override setDisabledState(): void {\r\n    // do nothing, because have `disabled` input\r\n  }\r\n}\r\n",
+      "assetsDirs": [],
+      "styleUrlsData": "",
+      "stylesData": "",
+      "extends": "WrappedFormComponent",
+      "implements": ["ControlValueAccessor", "AfterContentInit"],
+      "templateData": "<span class=\"zyfra-input\" [class.zyfra-input_disabled]=\"disabled\" [class.p-float-label]=\"label\">\r\n  <p-multiSelect\r\n    #multiselect\r\n    [formControl]=\"$any(ngControl.control)\"\r\n    [options]=\"options\"\r\n    [appendTo]=\"appendTo\"\r\n    [ariaFilterLabel]=\"ariaFilterLabel\"\r\n    [ariaLabelledBy]=\"ariaLabelledBy\"\r\n    [autofocusFilter]=\"autofocusFilter\"\r\n    [autoZIndex]=\"autoZIndex\"\r\n    [baseZIndex]=\"baseZIndex\"\r\n    [dataKey]=\"dataKey\"\r\n    [displaySelectedLabel]=\"displaySelectedLabel\"\r\n    [dropdownIcon]=\"dropdownIcon\"\r\n    [emptyFilterMessage]=\"emptyFilterMessage\"\r\n    [filter]=\"filter\"\r\n    [filterMatchMode]=\"filterMatchMode\"\r\n    [filterValue]=\"filterValue\"\r\n    [filterLocale]=\"filterLocale\"\r\n    [filterBy]=\"filterBy\"\r\n    [filterPlaceHolder]=\"filterPlaceHolder\"\r\n    [hideTransitionOptions]=\"hideTransitionOptions\"\r\n    [inputId]=\"inputId\"\r\n    [itemSize]=\"itemSize\"\r\n    [maxSelectedLabels]=\"maxSelectedLabels\"\r\n    [name]=\"name\"\r\n    [options]=\"options\"\r\n    [optionLabel]=\"optionLabel\"\r\n    [optionValue]=\"optionValue\"\r\n    [optionDisabled]=\"optionDisabled\"\r\n    [optionGroupLabel]=\"optionGroupLabel\"\r\n    [optionGroupChildren]=\"optionGroupChildren\"\r\n    [group]=\"group\"\r\n    [overlayVisible]=\"overlayVisible\"\r\n    [panelStyle]=\"panelStyle\"\r\n    [placeholder]=\"placeholder\"\r\n    [readonly]=\"readonly\"\r\n    [emptyMessage]=\"emptyMessage\"\r\n    [emptyFilterMessage]=\"emptyFilterMessage\"\r\n    [resetFilterOnHide]=\"resetFilterOnHide\"\r\n    [scrollHeight]=\"scrollHeight\"\r\n    [selectedItemsLabel]=\"selectedItemsLabel\"\r\n    [selectionLimit]=\"selectionLimit\"\r\n    [showHeader]=\"showHeader\"\r\n    [showTransitionOptions]=\"showTransitionOptions\"\r\n    [showToggleAll]=\"showToggleAll\"\r\n    [style]=\"style\"\r\n    [styleClass]=\"styleClass\"\r\n    [tabindex]=\"tabindex\"\r\n    [tooltip]=\"tooltip\"\r\n    [tooltipStyleClass]=\"tooltipStyleClass\"\r\n    [tooltipPosition]=\"tooltipPosition\"\r\n    [tooltipPositionStyle]=\"tooltipPositionStyle\"\r\n    [virtualScroll]=\"virtualScroll\"\r\n    (ngModelChange)=\"accessorOnChangeFn($event)\"\r\n    (onChange)=\"onChange.emit($event)\"\r\n    (onClick)=\"onClick.emit($event)\"\r\n    (onFocus)=\"onFocus.emit($event)\"\r\n    (onBlur)=\"onBlur.emit($event)\"\r\n    (onPanelShow)=\"onPanelShow.emit($event)\"\r\n    (onPanelHide)=\"onPanelHide.emit($event)\"\r\n  >\r\n    <ng-template *ngIf=\"itemTemplate\" let-item pTemplate=\"item\">\r\n      <ng-container *ngTemplateOutlet=\"itemTemplate; context: { $implicit: item }\"></ng-container>\r\n    </ng-template>\r\n    <ng-template *ngIf=\"groupTemplate\" let-group pTemplate=\"group\">\r\n      <ng-container *ngTemplateOutlet=\"groupTemplate; context: { $implicit: group }\"></ng-container>\r\n    </ng-template>\r\n    <ng-template *ngIf=\"selectedItemTemplate\" let-selectedItem pTemplate=\"selectedItem\">\r\n      <ng-container\r\n        *ngTemplateOutlet=\"selectedItemTemplate; context: { $implicit: selectedItem }\"\r\n      ></ng-container>\r\n    </ng-template>\r\n    <ng-template *ngIf=\"headerTemplate\" let-selectedItem pTemplate=\"header\">\r\n      <ng-container *ngTemplateOutlet=\"headerTemplate\"></ng-container>\r\n    </ng-template>\r\n    <ng-template *ngIf=\"emptyTemplate\" pTemplate=\"empty\">\r\n      <ng-container *ngTemplateOutlet=\"emptyTemplate\"></ng-container>\r\n    </ng-template>\r\n    <ng-template *ngIf=\"emptyfilterTemplate\" pTemplate=\"emptyfilter\">\r\n      <ng-container *ngTemplateOutlet=\"emptyfilterTemplate\"></ng-container>\r\n    </ng-template>\r\n    <ng-template *ngIf=\"footerTemplate\" pTemplate=\"footer\">\r\n      <ng-container *ngTemplateOutlet=\"footerTemplate\"></ng-container>\r\n    </ng-template>\r\n  </p-multiSelect>\r\n</span>\r\n"
+    },
+    {
       "name": "ZyfraNavMenuComponent",
       "id": "component-ZyfraNavMenuComponent-d25fae2018d4eebddf3fc08b98197224",
       "file": "libs/components/src/lib/nav-menu/components/zyfra-nav-menu/zyfra-nav-menu.component.ts",
@@ -43709,6 +44480,63 @@
       ]
     },
     {
+      "name": "ZyfraMultiSelectModule",
+      "id": "module-ZyfraMultiSelectModule-eb28511acc93811710e0fa9f808257af",
+      "description": "",
+      "deprecationMessage": "",
+      "deprecated": false,
+      "file": "libs/components/src/lib/multiselect/zyfra-multiselect.module.ts",
+      "methods": [],
+      "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { FormsModule, ReactiveFormsModule } from '@angular/forms';\r\nimport { ZyfraDisableControlModule } from '../@core/shared/zyfra-disable-control.module';\r\nimport { ZyfraTemplateModule } from '../@core/shared/zyfra-template.module';\r\nimport { ZyfraMultiSelectComponent } from './zyfra-multiselect.component';\r\nimport { ZyfraMultiSelectTemplateDirective } from './zyfra-multiselect-template.directive';\r\nimport { MultiSelectModule } from 'primeng/multiselect';\r\n\r\n@NgModule({\r\n  declarations: [ZyfraMultiSelectComponent, ZyfraMultiSelectTemplateDirective],\r\n  imports: [\r\n    CommonModule,\r\n    FormsModule,\r\n    ReactiveFormsModule,\r\n    ZyfraTemplateModule,\r\n    ZyfraDisableControlModule,\r\n    MultiSelectModule,\r\n  ],\r\n  exports: [ZyfraMultiSelectComponent, ZyfraMultiSelectTemplateDirective],\r\n})\r\nexport class ZyfraMultiSelectModule {}\r\n",
+      "children": [
+        {
+          "type": "providers",
+          "elements": []
+        },
+        {
+          "type": "declarations",
+          "elements": [
+            {
+              "name": "ZyfraMultiSelectComponent"
+            },
+            {
+              "name": "ZyfraMultiSelectTemplateDirective"
+            }
+          ]
+        },
+        {
+          "type": "imports",
+          "elements": [
+            {
+              "name": "ZyfraDisableControlModule"
+            },
+            {
+              "name": "ZyfraTemplateModule"
+            }
+          ]
+        },
+        {
+          "type": "exports",
+          "elements": [
+            {
+              "name": "ZyfraMultiSelectComponent"
+            },
+            {
+              "name": "ZyfraMultiSelectTemplateDirective"
+            }
+          ]
+        },
+        {
+          "type": "bootstrap",
+          "elements": []
+        },
+        {
+          "type": "classes",
+          "elements": []
+        }
+      ]
+    },
+    {
       "name": "ZyfraNavMenuModule",
       "id": "module-ZyfraNavMenuModule-4646c97f90922c8e88a5cd00a6838aeb",
       "description": "",
@@ -45900,6 +46728,16 @@
         "name": "Filter",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "libs/components/src/lib/multiselect/zyfra-multiselect.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "Template.bind({})"
+      },
+      {
+        "name": "Filter",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "libs/components/src/lib/table/_story/stories/filter.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -46021,6 +46859,16 @@
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "libs/components/src/lib/dropdown/zyfra-dropdown.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "Template.bind({})"
+      },
+      {
+        "name": "Group",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/components/src/lib/multiselect/zyfra-multiselect.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
@@ -46181,6 +47029,16 @@
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "libs/components/src/lib/dropdown/zyfra-dropdown.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "SelectItem[]",
+        "defaultValue": "[]"
+      },
+      {
+        "name": "items",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "libs/components/src/lib/multiselect/zyfra-multiselect.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "SelectItem[]",
@@ -46920,7 +47778,7 @@
         "name": "Simple",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "libs/components/src/lib/password/zyfra-password.component.stories.ts",
+        "file": "libs/components/src/lib/multiselect/zyfra-multiselect.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
@@ -47463,8 +48321,8 @@
         "file": "libs/components/src/lib/menu-applications/zyfra-menu-applications.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
-        "type": "Story<ZyfraMenuApplicationsComponent>",
-        "defaultValue": "(args) => ({\r\n  template: `\r\n    <div>\r\n      <zyfra-button\r\n        label=\"Toggle\"\r\n        [style]=\"{'margin-right': '10px'}\"\r\n        (onClick)=\"menu.toggle()\"\r\n      ></zyfra-button>\r\n\r\n      <zyfra-button\r\n        label=\"Open\"\r\n        [style]=\"{'margin-right': '10px'}\"\r\n        (onClick)=\"menu.open()\"\r\n      ></zyfra-button>\r\n\r\n      <zyfra-button\r\n        label=\"Close\"\r\n        [style]=\"{'margin-right': '10px'}\"\r\n        (onClick)=\"menu.close()\"\r\n      ></zyfra-button>\r\n    </div>\r\n\r\n    <br>\r\n\r\n    <div style=\"height: 650px; display: flex; position: relative;\">\r\n      <zyfra-menu-applications\r\n        #menu\r\n        [transition]=\"transition\"\r\n        [tooltipDelay]=\"tooltipDelay\"\r\n        [style]=\"layoutShift ? null : { position: 'absolute', top: '0', left: '0', height: '100%' }\"\r\n        [topMenuItems]=\"topMenuItems\"\r\n        [bottomMenuItems]=\"bottomMenuItems\"\r\n        [activeItem]=\"activeItem\"\r\n        (selectItem)=\"selectItem($event);\"\r\n        (toggleState)=\"toggleState($event)\"\r\n      ></zyfra-menu-applications>\r\n\r\n      <div id=\"content\" [style]=\"layoutShift ? { 'padding-left': '10px' } : { 'padding-left': '60px' }\">\r\n        <p>Some content</p>\r\n      </div>\r\n    </div>\r\n  `,\r\n  props: {\r\n    ...args,\r\n    activeItem: null,\r\n    toggleState: value => action('toggleState')({ value }),\r\n    selectItem(item: any): void {\r\n      action('selectItem')(item);\r\n\r\n      const isTopItem = this.topMenuItems.includes(item);\r\n\r\n      if (isTopItem) {\r\n        this.activeItem = item;\r\n      } else {\r\n        alert(JSON.stringify(item, null, 2));\r\n      }\r\n    }\r\n  },\r\n})"
+        "type": "Story<ZyfraMultiSelectComponent>",
+        "defaultValue": "args => ({\r\n  component: ZyfraMultiSelectComponent,\r\n  template: `<div>\r\n    <zyfra-multiselect\r\n      [(ngModel)]=\"value\"\r\n      [options]=\"options\"\r\n      [optionLabel]=\"optionLabel\"\r\n      [placeholder]=\"placeholder\"\r\n      [label]=\"label\"\r\n      [style]=\"{ width: '360px' }\"\r\n      [group]=\"group\"\r\n      [virtualScroll]=\"virtualScroll\"\r\n      [itemSize]=\"itemSize\"\r\n      [filter]=\"filter\"\r\n      (onChange)=\"onChange($event)\"\r\n      (onClick)=\"onClick($event)\"\r\n      (onFocus)=\"onFocus($event)\"\r\n      (onBlur)=\"onBlur($event)\"\r\n      (onPanelShow)=\"onPanelShow.emit($event)\"\r\n      (onPanelHide)=\"onPanelHide.emit($event)\"\r\n    ></zyfra-multiselect>\r\n    </div>\r\n    <div style=\"font-family: var(--fontFamily); margin-top: 20px;\">\r\n      <p>Selected value:</p>\r\n      <pre style=\"font-family: var(--fontFamily);\">{{value | json}}</pre>\r\n    </div>\r\n  `,\r\n  props: {\r\n    ...args,\r\n    onChange: event => action('onChange')({ value: event.value, ...event }),\r\n    onClick: action('onClick'),\r\n    onFocus: action('onFocus'),\r\n    onBlur: action('onBlur'),\r\n    onShow: action('onShow'),\r\n    onHide: action('onHide'),\r\n  },\r\n})"
       },
       {
         "name": "Template",
@@ -48710,6 +49568,17 @@
         "subtype": "typealias",
         "rawtype": "\"standard\" | \"enlarged\"",
         "file": "libs/components/src/lib/nav-menu/model/nav-menu-config.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 185
+      },
+      {
+        "name": "MultiSelectTemplateType",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "\"item\" | \"group\" | \"selectedItem\" | \"header\" | \"empty\" | \"emptyfilter\" | \"footer\"",
+        "file": "libs/components/src/lib/multiselect/zyfra-multiselect-template.directive.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -53089,6 +53958,19 @@
           "kind": 180
         }
       ],
+      "libs/components/src/lib/multiselect/zyfra-multiselect-template.directive.ts": [
+        {
+          "name": "MultiSelectTemplateType",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "\"item\" | \"group\" | \"selectedItem\" | \"header\" | \"empty\" | \"emptyfilter\" | \"footer\"",
+          "file": "libs/components/src/lib/multiselect/zyfra-multiselect-template.directive.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 185
+        }
+      ],
       "libs/components/src/lib/datepicker/zyfra-datepicker.component.ts": [
         {
           "name": "OnChangeCallback",
@@ -55251,6 +56133,93 @@
         "name": "ZyfraMessageComponent",
         "coveragePercent": 0,
         "coverageCount": "0/11",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/components/src/lib/multiselect/zyfra-multiselect-template.directive.ts",
+        "type": "directive",
+        "linktype": "directive",
+        "name": "ZyfraMultiSelectTemplateDirective",
+        "coveragePercent": 0,
+        "coverageCount": "0/5",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/components/src/lib/multiselect/zyfra-multiselect.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Filter",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/components/src/lib/multiselect/zyfra-multiselect.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Group",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/components/src/lib/multiselect/zyfra-multiselect.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "items",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/components/src/lib/multiselect/zyfra-multiselect.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Simple",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/components/src/lib/multiselect/zyfra-multiselect.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Template",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/components/src/lib/multiselect/zyfra-multiselect.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "VirtualScroll",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/components/src/lib/multiselect/zyfra-multiselect.component.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "ZyfraMultiSelectComponent",
+        "coveragePercent": 0,
+        "coverageCount": "0/75",
+        "status": "low"
+      },
+      {
+        "filePath": "libs/components/src/lib/multiselect/zyfra-multiselect.component.ts",
+        "type": "interface",
+        "linktype": "interface",
+        "name": "MultiSelectChangeEvent",
+        "coveragePercent": 0,
+        "coverageCount": "0/3",
         "status": "low"
       },
       {

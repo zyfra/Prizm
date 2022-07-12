@@ -9,4 +9,3 @@ import { ZyfraIconModule } from '../icon/zyfra-icon.module';
   imports: [CommonModule, ZyfraIconModule],
 })
 export class ZyfraIconButtonModule {}
-

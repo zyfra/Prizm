@@ -1,0 +1,86 @@
+<span class="zyfra-input" [class.zyfra-input_disabled]="disabled" [class.p-float-label]="label">
+  <p-multiSelect
+    #multiselect
+    [formControl]="$any(ngControl.control)"
+    [options]="options"
+    [appendTo]="appendTo"
+    [ariaFilterLabel]="ariaFilterLabel"
+    [ariaLabelledBy]="ariaLabelledBy"
+    [autofocusFilter]="autofocusFilter"
+    [autoZIndex]="autoZIndex"
+    [baseZIndex]="baseZIndex"
+    [dataKey]="dataKey"
+    [displaySelectedLabel]="displaySelectedLabel"
+    [dropdownIcon]="dropdownIcon"
+    [defaultLabel]="defaultLabel"
+    [filter]="filter"
+    [filterMatchMode]="filterMatchMode"
+    [filterValue]="filterValue"
+    [filterLocale]="filterLocale"
+    [filterBy]="filterBy"
+    [filterPlaceHolder]="filterPlaceHolder"
+    [hideTransitionOptions]="hideTransitionOptions"
+    [inputId]="inputId"
+    [itemSize]="itemSize"
+    [maxSelectedLabels]="maxSelectedLabels"
+    [name]="name"
+    [optionLabel]="optionLabel"
+    [optionValue]="optionValue"
+    [optionDisabled]="optionDisabled"
+    [optionGroupLabel]="optionGroupLabel"
+    [optionGroupChildren]="optionGroupChildren"
+    [group]="group"
+    [overlayVisible]="overlayVisible"
+    [panelStyle]="panelStyle"
+    [placeholder]="placeholder"
+    [readonly]="readonly"
+    [emptyMessage]="emptyMessage"
+    [emptyFilterMessage]="emptyFilterMessage"
+    [resetFilterOnHide]="resetFilterOnHide"
+    [scrollHeight]="scrollHeight"
+    [selectedItemsLabel]="selectedItemsLabel"
+    [selectionLimit]="selectionLimit"
+    [showHeader]="showHeader"
+    [showTransitionOptions]="showTransitionOptions"
+    [showToggleAll]="showToggleAll"
+    [style]="style"
+    [styleClass]="styleClass"
+    [tabindex]="tabindex"
+    [tooltip]="tooltip"
+    [tooltipStyleClass]="tooltipStyleClass"
+    [tooltipPosition]="tooltipPosition"
+    [tooltipPositionStyle]="tooltipPositionStyle"
+    [virtualScroll]="virtualScroll"
+    (ngModelChange)="accessorOnChangeFn($event)"
+    (onChange)="onChange.emit($event)"
+    (onClick)="onClick.emit($event)"
+    (onFocus)="onFocus.emit($event)"
+    (onBlur)="onBlur.emit($event)"
+    (onPanelShow)="onPanelShow.emit($event)"
+    (onPanelHide)="onPanelHide.emit($event)"
+  >
+    <ng-template *ngIf="itemTemplate" let-item pTemplate="item">
+      <ng-container *ngTemplateOutlet="itemTemplate; context: { $implicit: item }"></ng-container>
+    </ng-template>
+    <ng-template *ngIf="groupTemplate" let-group pTemplate="group">
+      <ng-container *ngTemplateOutlet="groupTemplate; context: { $implicit: group }"></ng-container>
+    </ng-template>
+    <ng-template *ngIf="selectedItemsTemplate" let-selectedItems pTemplate="selectedItems">
+      <ng-container
+        *ngTemplateOutlet="selectedItemsTemplate; context: { $implicit: selectedItems }"
+      ></ng-container>
+    </ng-template>
+    <ng-template *ngIf="headerTemplate" let-selectedItem pTemplate="header">
+      <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+    </ng-template>
+    <ng-template *ngIf="emptyTemplate" pTemplate="empty">
+      <ng-container *ngTemplateOutlet="emptyTemplate"></ng-container>
+    </ng-template>
+    <ng-template *ngIf="emptyFilterTemplate" pTemplate="emptyfilter">
+      <ng-container *ngTemplateOutlet="emptyFilterTemplate"></ng-container>
+    </ng-template>
+    <ng-template *ngIf="footerTemplate" pTemplate="footer">
+      <ng-container *ngTemplateOutlet="footerTemplate"></ng-container>
+    </ng-template>
+  </p-multiSelect>
+</span>
