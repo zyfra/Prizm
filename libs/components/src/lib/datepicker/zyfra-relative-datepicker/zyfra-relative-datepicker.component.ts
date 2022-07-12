@@ -22,7 +22,7 @@ import {
 import { ParseTextInput, RenderText, UpdateActiveItem } from './relative-datepicker.utils';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
-const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?';
+const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?';
 
 @Component({
   selector: 'zyfra-relative-datepicker',
