@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ToastService } from '../../../../../../libs/components/src/lib/toast/toast.service';
+import { ToastService } from '@digital-plant/zyfra-components';
+
 @Component({
   selector: 'zyfra-toast-test',
   templateUrl: './toast-test.component.html',
