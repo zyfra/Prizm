@@ -9,6 +9,7 @@ import {
   SimpleChanges,
   TemplateRef,
 } from '@angular/core';
+
 import { SortMeta } from 'primeng/api';
 import { TableSortEvent } from '../../table/zyfra-table.types';
 import { BaseTableTemplateDirective } from './directives/base-table-template.directive';
@@ -368,7 +369,7 @@ export class ZyfraBaseTableComponent<T = unknown> implements OnChanges, AfterCon
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.value) {
-      this.initialData = Array.isArray(changes.value.currentValue) ? [...changes.value.currentValue] : [];
+      this.initialData = Array.isArray(changes.value?.currentValue) ? [...changes.value.currentValue] : [];
       this.value = this.initialData;
     }
 

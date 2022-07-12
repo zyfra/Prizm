@@ -23,6 +23,7 @@ export * from './lib/input-group';
 export * from './lib/input-text';
 export * from './lib/menu-applications';
 export * from './lib/message';
+export * from './lib/multiselect';
 export * from './lib/nav-menu';
 export * from './lib/paginator';
 export * from './lib/password';

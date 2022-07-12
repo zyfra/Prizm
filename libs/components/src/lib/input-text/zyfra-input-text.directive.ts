@@ -81,7 +81,6 @@ export class ZyfraInputDirective implements ZyfraInputGroupControl<string>, DoCh
    */
   public empty: boolean;
 
-
   @HostListener('input', ['$event'])
   public onInput(e: unknown): void {
     this.updateEmptyState();
@@ -107,14 +106,16 @@ export class ZyfraInputDirective implements ZyfraInputGroupControl<string>, DoCh
     this.updateEmptyState();
   }
 
-  private initControlListener (): void {
-    this.ngControl.statusChanges.pipe(
-      tap(() => {
-        this.updateEmptyState();
-        this.cdRef.markForCheck();
-      }),
-      takeUntil(this.zuiDestroyService),
-    ).subscribe();
+  private initControlListener(): void {
+    this.ngControl.statusChanges
+      .pipe(
+        tap(() => {
+          this.updateEmptyState();
+          this.cdRef.markForCheck();
+        }),
+        takeUntil(this.zuiDestroyService)
+      )
+      .subscribe();
   }
 
   private updateEmptyState(): void {
