@@ -4,7 +4,6 @@
 
 .button-style(@color, @background, @backgroundHover, @backgroundActive) {
   color: @color;
-  font-weight: 700;
   background: @background;
   &:enabled {
     &:hover,
@@ -51,11 +50,16 @@
   font-size: @13px;
   border-radius: @4px;
   height: @44px;
+  font-weight: 700;
 
   .p-badge {
     line-height: @14px;
     color: var(--z-accentColor);
     background-color: var(--standartBg);
+  }
+
+  .p-button-icon {
+    font-weight: 400;
   }
 
   // повышаю вес селектора
