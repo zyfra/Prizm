@@ -1,29 +1,56 @@
 # Changelog
 
+## [v0.12.0] - 13-07-2022
+
+### @digital-plant/zyfra-components [v0.12.0]
+
+**Added**
+
+- feat(components/icon): Added export icon dictionary [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/219)
+- feat(components/multiselect): Added multiselect component [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/152)
+- feat(components/icons): Added 16[size] icons [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/144)
+- docs: Added more components to demo app [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/218)
+- docs: Fix typo in changelog [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/208)
+
+**Fixes**
+
+- fix(components/datepicker): Added all inputs on multi calendar [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/223)
+- fix(components): revert default box-sizing in all (primeng theme) [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/228)
+- fix(components/button): Fixes font weight icon in buttons [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/220)
+- fix(component/input): Fixes clear icon style [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/207)
+- fix(components/datepicker): Fixes set empty array on selectionMode='multiple' or 'range' [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/202)
+
+> **Special thanks**
+>
+> ✏️ **MR:** Dmitriy Bahtiyarov, Stepan Fedorov, Ekaterina Kovergina, Maryana Kabardina, Rustam Imaikin, Dmitriy Badeev, Konstantin Skok,
+>
+> ️🐛 **Issue:** Dmitriy Bahtiyarov, Ilia Petrov, Stepan Fedorov, Aleksey S. Polyakov
+
 ## [v0.11.2] - 17-06-2022
+
 ### @digital-plant/zyfra-components [v0.11.2]
 
 **Fixes**
 
-- fix (component/input): Placeholder add default value empty string for placeholder [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/185)
-- fix (components): forwarding styles for component which use PrimeNg [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/179)
+- fix(component/input): Placeholder add default value empty string for placeholder [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/185)
+- fix(components): forwarding styles for component which use PrimeNg [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/179)
 
->  **Special thanks**
+> **Special thanks**
 >
-> ✏️ **MR:**  Anton Grekov, Dmitrii Piankov
+> ✏️ **MR:** Anton Grekov, Dmitrii Piankov
 >
 > ️🐛 **Issue:** Anton Grekov
 
-
 ## [v0.11.1] - 03-06-2022
+
 ### @digital-plant/zyfra-components [v0.11.1]
 
 **Fixes**
 
 - fix(components/icon): fixes default icons size 24
 
-
 ## [v0.11.0] - 03-06-2022
+
 ### @digital-plant/zyfra-components [v0.11.0]
 
 **Added**
@@ -34,8 +61,8 @@
 
 - fix(components/input): style input label with button [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/171)
 
-
 ## [v0.10.0] - 31-05-2022
+
 ### @digital-plant/zyfra-components [v0.10.0]
 
 **Feature**
@@ -47,6 +74,7 @@
 - fix(components/input-mask) add default inputs options [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/161)
 
 ## [v0.9.3] - 27-05-2022
+
 ### @digital-plant/zyfra-components [v0.9.3]
 
 **Fixes**
@@ -54,6 +82,7 @@
 - fix(calendar): hotfix types [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/167)
 
 ## [v0.9.2] - 25-05-2022
+
 ### @digital-plant/zyfra-components [v0.9.2]
 
 **Fixes**
@@ -62,6 +91,7 @@
 - fix(components): add export zyfra-template.module
 
 ## [v0.9.1] - 23-05-2022
+
 ### @digital-plant/zyfra-components [v0.9.1]
 
 **Fixes**
@@ -69,6 +99,7 @@
 - fix(components): fixes publishable library
 
 ## [v0.9.0] - 20-05-2022
+
 ### @digital-plant/zyfra-components [v0.9.0]
 
 **Added**
@@ -86,14 +117,14 @@
 - fix(components/dropdown) style & add storybook example with append to body [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/151)
 - fix(components/input): Input group fix control changes [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/150)
 
->  **Special thanks**
+> **Special thanks**
 >
-> ✏️ **MR:**  Zurab Magomadov, Stepan Fedorov, Anton Osechkin, Rustam Imaikin
+> ✏️ **MR:** Zurab Magomadov, Stepan Fedorov, Anton Osechkin, Rustam Imaikin
 >
 > ️🐛 **Issue:** Aleksey S. Polyakov, Stepan Fedorov, Andrey Blokhin
 
-
 ## [v0.8.0] - 11-05-2022
+
 ### @digital-plant/zyfra-components [v0.8.0]
 
 **Added**
@@ -113,20 +144,21 @@
 - fix(components/checkbox): fixes multiple and CVA [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/134)
 - fix(components/table) fixes null in Input - value [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/137)
 
->  **Special thanks**
+> **Special thanks**
 >
-> ✏️ **MR:**  Zurab Magomadov, Dmitriy Kshichkovskiy, Ekaterina Kovergina, Maryana Kabardina, Rustam Imaikin
+> ✏️ **MR:** Zurab Magomadov, Dmitriy Kshichkovskiy, Ekaterina Kovergina, Maryana Kabardina, Rustam Imaikin
 >
 > ️🐛 **Issue:** Konstantin Khimenkov, Kirill Galkin, Zurab Magomadov, Dmitriy Sokolov, Stepan Fedorov, Igor Kozlov
 
-
 ## [v0.7.0] - 19-04-2022
+
 ### @digital-plant/zyfra-components [v0.7.0]
 
 **BREAKING CHANGES**
+
 - PLATFORM01-10710: Reformat icons, rebuild new icons
-[[Changes]](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/117#%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D0%B5%D1%82-%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%B8%D1%82%D1%8C-%D0%B2%D0%BD%D0%B8%D0%BC%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B0-%D1%80%D0%B5%D0%B2%D1%8C%D1%8E)
-[[MR]](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/117) 
+  [[Changes]](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/117#%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D0%B5%D1%82-%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%B8%D1%82%D1%8C-%D0%B2%D0%BD%D0%B8%D0%BC%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B0-%D1%80%D0%B5%D0%B2%D1%8C%D1%8E)
+  [[MR]](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/117)
 
 **Added**
 
@@ -141,13 +173,14 @@
 - fix: condition disabled in controls, close #66 [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/127)
 - PLATFORM01-12343 [API] ControlValueAccessor for CheckboxComponent [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/122)
 
->  **Special thanks**
+> **Special thanks**
 >
-> ✏️ **MR:**  Zurab Magomadov, Ekaterina Kovergina, Rustam Imaikin
+> ✏️ **MR:** Zurab Magomadov, Ekaterina Kovergina, Rustam Imaikin
 >
 > ️🐛 **Issue:** Dmitriy Kshichkovskiy, Dmitriy Badeev, Stepan Fedorov, Igor Kozlov, Vladislav Druzyakin ext
 
 ## [v0.6.0] - 08-04-2022
+
 ### @digital-plant/zyfra-components [v0.6.0]
 
 **Added**
@@ -160,13 +193,14 @@
 
 - PLATFORM01-13204 dropdown filter border [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/116)
 
->  **Special thanks**
+> **Special thanks**
 >
-> ✏️ **MR:**  Stepan Fedorov, Rustam Imaikin
+> ✏️ **MR:** Stepan Fedorov, Rustam Imaikin
 >
 > ️🐛 **Issue:** Kirill Galkin, Stepan Fedorov, Nikolay Sizov, Vladislav Druzyakin ext
 
 ## [v0.5.0] - 29-03-2022
+
 ### @digital-plant/zyfra-components [v0.5.0]
 
 **Added**
@@ -179,14 +213,14 @@
 - PLATFORM01-12857 [Bug] [Checkbox] Неверные стили и неверный пример с ngModel [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/110)
 - PLATFORM01-12859 [Bug] Неверные стили чекбокса в таблицах [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/111)
 
->  **Special thanks**
+> **Special thanks**
 >
 > ✏️ **MR:** Anton Osechkin
 >
 > ️🐛 **Issue:** Anton Osechkin, Konstantin Khimenkov
 
-
 ## [v0.4.1] - 21-03-2022
+
 ### @digital-plant/zyfra-components [v0.4.1]
 
 **Fixes**
@@ -196,14 +230,14 @@
 - PLATFORM01-12620 [Баг] - невозможно использовать в одном приложении TreeTable & Table [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/103)
 - PLATFORM01-9682 Dropdown VirtualScroll - некорректная работа компонента, страница тормозит [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/102)
 
->  **Special thanks**
-> 
+> **Special thanks**
+>
 > ✏️ **MR:** Anton Osechkin, Dmitrii Vakarchuk
-> 
+>
 > ️🐛 **Issue:** Nikolay Sizov, Dmitry Donchenko.ext, Konstantin Khimenkov
 
-
 ## [v0.4.0] - 14-03-2022
+
 ### @digital-plant/zyfra-components [v0.4.0]
 
 **Added**
@@ -215,12 +249,13 @@
 - PLATFORM01-12374 [Таблица] Исправить фильтрацию по дате [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/100)
 - PLATFORM01-12208 Компоненты zyfra-dropdown и zyfra-input разной высоты [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/98)
 - fix calendar story doc [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/97)
-- PLATFORM01-12178: Черные стили в компоненте zyfra-dropdown с фильтром [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/96) 
+- PLATFORM01-12178: Черные стили в компоненте zyfra-dropdown с фильтром [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/96)
 - PLATFORM01-12131 Обновить документацию для zyfra-input [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/94)
 - PLATFORM01-12128 Обновить документацию по компоненту ZyfraIcon [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/93)
 - PLATFORM01-11909 Не работает мультисортировка в таблице [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/92)
 
 ## [v0.3.0] - 18-02-2022
+
 ### @digital-plant/zyfra-components [v0.3.0]
 
 **Added**
@@ -236,6 +271,7 @@
 - PLATFORM01-11482 Поп ап с выбором даты в календаре двигает остальные блоки [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/90)
 
 ## [v0.2.1] - 14-01-2022
+
 ### @digital-plant/zyfra-components [v0.2.1]
 
 **Fixes**
@@ -245,12 +281,14 @@
 - PLATFORM01-10021: Fixes calendar Issue #11 #12 #13 [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/78)
 - PLATFORM01-10021: Fixes API ToastComponent, Add ToastService [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/79)
 
------
+---
 
 ## [v0.2.0] - 10-01-2022
+
 ### @digital-plant/zyfra-components [v0.2.0]
 
 **BREAKING CHANGES**
+
 - PLATFORM-10021: fix dialog component api. [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/73)
 
 **Fixes**
@@ -259,18 +297,20 @@
 - PLATFORM01-10388: calendar - update docs. [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/72)
 - PLATFORM01-10388: input - fix props `mini`. [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/74)
 
------
+---
 
 ## [v0.1.1] - 30-12-2021
+
 ### @digital-plant/zyfra-components [v0.1.1]
 
 **Fixes**
 
 - PLATFORM01-10021: fixes disable input on dropdown. [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/68)
 
------
+---
 
 ## [v0.1.0] - 28-12-2021
+
 ### @digital-plant/zyfra-components [v0.1.0]
 
 **Added**
@@ -319,4 +359,4 @@ Modules:
 - tree-table
 - tri-checkbox
 
--------
+---
