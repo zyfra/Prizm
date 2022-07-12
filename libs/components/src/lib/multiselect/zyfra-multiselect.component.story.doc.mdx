@@ -1,0 +1,57 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  ColorPalette,
+  ColorItem,
+  Preview,
+  Typeset,
+  Title,
+  Subtitle,
+  Description,
+} from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+import { storiesOf } from '@storybook/angular';
+import { ZyfraMultiSelectComponent } from './zyfra-multiselect.component';
+
+## Zyfra - MultiSelect
+
+<Subtitle>MultiSelect</Subtitle>
+
+Import module:
+
+```typescript
+import { ZyfraMultiSelectModule } from '@digital-plant/zyfra-components';
+
+@NgModule({
+  imports: [ZyfraMultiSelectModule],
+})
+export class YourModule {}
+```
+
+To component:
+
+```html
+<zyfra-multiselect
+  [(ngModel)]="model"
+  [options]="cities"
+  [optionLabel]="name"
+  [placeholder]="Select a City"
+></zyfra-multiselect>
+```
+
+```typescript
+public cities = [
+  { name: 'New York', code: 'NY' },
+  { name: 'Rome', code: 'RM' },
+  { name: 'London', code: 'LDN' },
+  { name: 'Istanbul', code: 'IST' },
+  { name: 'Paris', code: 'PRS' }
+];
+public model = null;
+```
+
+## ArgsTable
+
+<ArgsTable of={ZyfraMultiSelectComponent} />

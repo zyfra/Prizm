@@ -42,7 +42,7 @@ export class TranslateImplService implements TranslateService {
     private compiler: TranslateCompiler,
     private parser: TranslateParser,
     private loaderFactory: TranslateLoaderFactory
-  ) { }
+  ) {}
 
   public use(lang: string): Observable<void> {
     return lang === this.lang ? of(undefined) : this.applyLang(lang);
@@ -80,7 +80,7 @@ export class TranslateImplService implements TranslateService {
     // check if we are loading a new translation to use
     if (this.loadingTranslations) {
       result = this.loadingTranslations.pipe(
-        map((_) => this.getParsedResult(this.translation(key), key, interpolateParams))
+        map(_ => this.getParsedResult(this.translation(key), key, interpolateParams))
       );
     } else {
       result = of(this.getParsedResult(this.translation(key), key, interpolateParams));
@@ -108,7 +108,7 @@ export class TranslateImplService implements TranslateService {
   }
 
   private setLangByChunk(chunk: IChunkExt, lang: string): void {
-    const currentLang = this.tryUseChunkLang(lang, chunk)
+    const currentLang = this.tryUseChunkLang(lang, chunk);
 
     if (chunk.lang !== currentLang) {
       const key = this.loadingChunkKey(chunk.id, currentLang);
@@ -120,22 +120,22 @@ export class TranslateImplService implements TranslateService {
         const loading$ = chunk.initLangs.has(currentLang)
           ? of(currentLang)
           : chunk.loader.getTranslation(currentLang).pipe(
-            map((translation: object) => {
-              const translations = this.compiler.compileTranslations(translation, currentLang);
-              const currentTranslation = <ITranslateStore>this.store.translations[currentLang];
-              this.store.translations[currentLang] = currentTranslation
-                ? { ...translations, ...currentTranslation }
-                : translations;
-              chunk.initLangs.add(currentLang);
-              return currentLang;
-            })
-          );
+              map((translation: object) => {
+                const translations = this.compiler.compileTranslations(translation, currentLang);
+                const currentTranslation = <ITranslateStore>this.store.translations[currentLang];
+                this.store.translations[currentLang] = currentTranslation
+                  ? { ...translations, ...currentTranslation }
+                  : translations;
+                chunk.initLangs.add(currentLang);
+                return currentLang;
+              })
+            );
         loading$
           .pipe(
             take(1),
             finalize(() => this.checkAllLoaded(key))
           )
-          .subscribe((lang) => {
+          .subscribe(lang => {
             if (lang === this.tryUseChunkLang(this.nextLang, chunk)) {
               chunk.lang = lang;
             }
@@ -150,7 +150,7 @@ export class TranslateImplService implements TranslateService {
 
   private applyLang(lang: string): Observable<void> {
     this.nextLang = lang;
-    this.chunks.forEach((chunk) => this.setLangByChunk(chunk, this.nextLang));
+    this.chunks.forEach(chunk => this.setLangByChunk(chunk, this.nextLang));
     let result: Observable<void> = of(undefined);
     if (this.loadingTranslations) {
       result = this.loadingTranslations;
@@ -172,11 +172,11 @@ export class TranslateImplService implements TranslateService {
 
   private initChangeLang(): void {
     if (!this.loadingTranslations) {
-      this.loadingTranslations = new Observable<void>((obs) => {
+      this.loadingTranslations = new Observable<void>(obs => {
         this.loadingSubscriber = obs;
       }).pipe(share(), take(1));
 
-      this.loadingTranslations.subscribe((_) => this.emitLang());
+      this.loadingTranslations.subscribe(_ => this.emitLang());
     }
   }
 

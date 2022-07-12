@@ -1,15 +1,17 @@
-import { ComponentFactoryResolver, Directive, Input, OnInit, Type, ViewContainerRef } from '@angular/core';
+import { ComponentFactoryResolver, Directive, Input, OnChanges, Type, ViewContainerRef } from '@angular/core';
 
 @Directive({
   selector: '[zyfraApp]',
 })
-export class AppDirective<T> implements OnInit {
+export class AppDirective<T> implements OnChanges {
   @Input() zyfraApp: Type<T>;
 
   constructor(private cfr: ComponentFactoryResolver, private vcr: ViewContainerRef) {}
 
-  ngOnInit(): void {
-    const componentFactory = this.cfr.resolveComponentFactory(this.zyfraApp);
-    this.vcr.createComponent(componentFactory);
+  ngOnChanges(): void {
+    if (this.zyfraApp) {
+      const componentFactory = this.cfr.resolveComponentFactory(this.zyfraApp);
+      this.vcr.createComponent(componentFactory);
+    }
   }
 }

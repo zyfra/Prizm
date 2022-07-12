@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ZyfraTabViewModule } from '@digital-plant/zyfra-components';
 import { AppComponent } from './app.component';
 import { AppDirective } from './app.directive';
+import { MultiselectModule } from './components/multiselect/multiselect.module';
 import { AccordionModule } from './components/accordion/accordion.module';
 import { AutoCompleteModule } from './components/auto-complete/auto-complete.module';
 import { BlockTestModule } from './components/blockUI/block-test.module';
@@ -68,6 +69,7 @@ import { TranslateModule } from './components/translate/translate.module';
     IconModule,
     InputModule,
     InputGroupModule,
+    MultiselectModule,
     InputMaskModule,
     InputNumberModule,
     InputSwitchModule,
