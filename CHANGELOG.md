@@ -2,14 +2,40 @@
 
 Все изменения в этом файле отражают изменения в коде во всем монорепозитории.
 
+## [v0.12.0] - 13-07-2022
+
+### @digital-plant/zyfra-components [v0.12.0]
+
+**Added**
+
+- feat(components/icon): Added export icon dictionary [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/219)
+- feat(components/multiselect): Added multiselect component [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/152)
+- feat(components/icons): Added 16[size] icons [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/144)
+- docs: Added more components to demo app [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/218)
+- docs: Fix typo in changelog [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/208)
+
+**Fixes**
+
+- fix(components/datepicker): Added all inputs on multi calendar [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/223)
+- fix(components): revert default box-sizing in all (primeng theme) [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/228)
+- fix(components/button): Fixes font weight icon in buttons [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/220)
+- fix(component/input): Fixes clear icon style [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/207)
+- fix(components/datepicker): Fixes set empty array on selectionMode='multiple' or 'range' [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/202)
+
+> **Special thanks**
+>
+> ✏️ **MR:** Dmitriy Bahtiyarov, Stepan Fedorov, Ekaterina Kovergina, Maryana Kabardina, Rustam Imaikin, Dmitriy Badeev, Konstantin Skok,
+>
+> ️🐛 **Issue:** Dmitriy Bahtiyarov, Ilia Petrov, Stepan Fedorov, Aleksey S. Polyakov
+
 ## [v0.11.2] - 17-06-2022
+
 ### @digital-plant/zyfra-components [v0.11.2]
 
 **Fixes**
 
 - fix (component/input): Placeholder add default value empty string for placeholder [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/185)
 - fix (components): forwarding styles for component which use PrimeNg [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/179)
-
 
 ## [v0.11.1] - 03-06-2022
 
