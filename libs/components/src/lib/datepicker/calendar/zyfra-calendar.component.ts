@@ -1,20 +1,23 @@
 /* eslint-disable */
 // @ts-nocheck
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { ChangeDetectorRef, forwardRef, NgZone, Renderer2 } from '@angular/core';
 import {
-  Component,
-  Input,
   ChangeDetectionStrategy,
-  Output,
-  EventEmitter,
-  OnInit,
-  OnDestroy,
-  ViewChild,
+  ChangeDetectorRef,
+  Component,
   ContentChildren,
-  QueryList,
   ElementRef,
+  EventEmitter,
+  forwardRef,
+  Input,
+  NgZone,
+  OnDestroy,
+  OnInit,
+  Output,
+  QueryList,
+  Renderer2,
   TemplateRef,
+  ViewChild,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { OverlayService, PrimeNGConfig, PrimeTemplate, TranslationKeys } from 'primeng/api';
@@ -22,6 +25,7 @@ import { LocaleSettings } from 'primeng/calendar';
 import { ConnectedOverlayScrollHandler, DomHandler } from 'primeng/dom';
 import { UniqueComponentId, ZIndexUtils } from 'primeng/utils';
 import { Subscription } from 'rxjs';
+import { isValidDate } from '../utils/is-valid-date';
 
 export const CALENDAR_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -2143,10 +2147,17 @@ abstract class Calendar implements OnInit, OnDestroy, ControlValueAccessor {
   }
 
   updateUI() {
-    let val = this.value || this.defaultDate || new Date();
-    if (Array.isArray(val)) {
-      val = val[0];
+    let propValue = this.value;
+    if (Array.isArray(propValue)) {
+      propValue = propValue[0];
     }
+
+    let val =
+      this.defaultDate && isValidDate(this.defaultDate) && !this.value
+        ? this.defaultDate
+        : propValue && isValidDate(propValue)
+        ? propValue
+        : new Date();
 
     this.currentMonth = val.getMonth();
     this.currentYear = val.getFullYear();
