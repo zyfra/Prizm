@@ -113,3 +113,9 @@ html {
 .p-overlaypanel:after {
   border-bottom-color: var(--standartBg);
 }
+
+// fix for node_modules/primeng/resources/themes/luna-blue/theme.css
+// из-за border-box есть проблемы в нескольких приложениях
+* {
+  box-sizing: content-box;
+}
