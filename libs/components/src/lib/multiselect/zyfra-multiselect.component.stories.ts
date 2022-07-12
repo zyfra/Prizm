@@ -1,21 +1,21 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
-import { ZyfraDropdownComponent } from './zyfra-dropdown.component';
+import { ZyfraMultiSelectComponent } from './zyfra-multiselect.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SelectItem } from 'primeng/api';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ZyfraDropdownModule } from './zyfra-dropdown.module';
+import { ZyfraMultiSelectModule } from './zyfra-multiselect.module';
 import { BrowserModule } from '@angular/platform-browser';
 
 // @ts-ignore
-import DropdownDoc from './zyfra-dropdown.component.story.doc.mdx';
+import MultiSelectDoc from './zyfra-multiselect.component.story.doc.mdx';
 import { action } from '@storybook/addon-actions';
 
 export default {
   moduleId: module.id,
-  title: 'Form/Dropdown',
-  component: ZyfraDropdownComponent,
+  title: 'Form/MultiSelect',
+  component: ZyfraMultiSelectComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -24,49 +24,41 @@ export default {
         FormsModule,
         ReactiveFormsModule,
         CommonModule,
-        ZyfraDropdownModule,
+        ZyfraMultiSelectModule,
       ],
     }),
   ],
   parameters: {
     docs: {
-      page: DropdownDoc,
+      page: MultiSelectDoc,
     },
   },
 } as Meta;
 
-const Template: Story<ZyfraDropdownComponent> = args => ({
-  component: ZyfraDropdownComponent,
-  template: `<div style="height: 100px; padding: 1rem;" [ngStyle]="{'border': appendTo && '2px solid red', 'overflow': appendTo && 'hidden'}">
-    <zyfra-dropdown
+const Template: Story<ZyfraMultiSelectComponent<any>> = args => ({
+  component: ZyfraMultiSelectComponent,
+  template: `<div>
+    <zyfra-multiselect
       [(ngModel)]="value"
       [options]="options"
       [optionLabel]="optionLabel"
       [placeholder]="placeholder"
-      [showClear]="showClear"
       [label]="label"
       [style]="{ width: '360px' }"
       [group]="group"
-      [appendTo]="appendTo"
-      [mini]="mini"
       [virtualScroll]="virtualScroll"
       [itemSize]="itemSize"
       [filter]="filter"
+      [showToggleAll]="showToggleAll"
       (onChange)="onChange($event)"
       (onClick)="onClick($event)"
       (onFocus)="onFocus($event)"
       (onBlur)="onBlur($event)"
-      (onShow)="onShow($event)"
-      (onHide)="onHide($event)"
-    ></zyfra-dropdown>
+    ></zyfra-multiselect>
     </div>
     <div style="font-family: var(--fontFamily); margin-top: 20px;">
       <p>Selected value:</p>
       <pre style="font-family: var(--fontFamily);">{{value | json}}</pre>
-    </div>
-    <div>
-      Привязка к body: <b>{{appendTo ? 'Есть' : 'Нет'}}</b><br>
-      <i *ngIf='appendTo'>Граница красного цвета, пример родительского контейнера c overflow hidden</i>
     </div>
   `,
   props: {
@@ -75,8 +67,6 @@ const Template: Story<ZyfraDropdownComponent> = args => ({
     onClick: action('onClick'),
     onFocus: action('onFocus'),
     onBlur: action('onBlur'),
-    onShow: action('onShow'),
-    onHide: action('onHide'),
   },
 });
 
@@ -89,43 +79,12 @@ Simple.args = {
     { name: 'Istanbul', code: 'IST' },
     { name: 'Paris', code: 'PRS' },
   ],
-  value: { name: 'New York', code: 'NY' },
+  value: null,
   optionLabel: 'name',
   placeholder: 'Select a City',
-  showClear: true,
   label: 'City',
-};
-
-export const AppendToBody = Template.bind({});
-AppendToBody.args = {
-  options: [
-    { name: 'New York', code: 'NY' },
-    { name: 'Rome', code: 'RM' },
-    { name: 'London', code: 'LDN' },
-    { name: 'Istanbul', code: 'IST' },
-    { name: 'Paris', code: 'PRS' },
-    { name: 'New York', code: 'NY' },
-    { name: 'Rome', code: 'RM' },
-    { name: 'London', code: 'LDN' },
-    { name: 'Istanbul', code: 'IST' },
-    { name: 'Paris', code: 'PRS' },
-    { name: 'New York', code: 'NY' },
-    { name: 'Rome', code: 'RM' },
-    { name: 'London', code: 'LDN' },
-    { name: 'Istanbul', code: 'IST' },
-    { name: 'Paris', code: 'PRS' },
-    { name: 'New York', code: 'NY' },
-    { name: 'Rome', code: 'RM' },
-    { name: 'London', code: 'LDN' },
-    { name: 'Istanbul', code: 'IST' },
-    { name: 'Paris', code: 'PRS' },
-  ],
-  value: { name: 'New York', code: 'NY' },
-  optionLabel: 'name',
-  appendTo: 'body',
-  placeholder: 'Select a City',
-  showClear: true,
-  label: 'City',
+  filter: false,
+  showToggleAll: true,
 };
 
 export const Filter = Template.bind({});
@@ -137,12 +96,12 @@ Filter.args = {
     { name: 'Istanbul', code: 'IST' },
     { name: 'Paris', code: 'PRS' },
   ],
-  value: { name: 'New York', code: 'NY' },
   optionLabel: 'name',
   placeholder: 'Select a City',
   showClear: true,
   label: 'City',
   filter: true,
+  showToggleAll: false,
 };
 
 export const Group = Template.bind({});
@@ -182,6 +141,7 @@ Group.args = {
   value: null,
   placeholder: 'Select a City',
   group: true,
+  showToggleAll: true,
 };
 
 const items: SelectItem[] = [];
@@ -198,6 +158,7 @@ VirtualScroll.args = {
   virtualScroll: true,
   itemSize: 31,
   filter: false,
+  showToggleAll: false,
 };
 VirtualScroll.argTypes = {
   options: {

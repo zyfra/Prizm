@@ -1,10 +1,6 @@
-import { Compare } from "../compare/compare";
-import {
-  filter,
-  map,
-} from 'rxjs/operators';
-import { MonoTypeOperatorFunction, OperatorFunction } from "rxjs";
-
+import { Compare } from '../compare/compare';
+import { filter, map } from 'rxjs/operators';
+import { MonoTypeOperatorFunction, OperatorFunction } from 'rxjs';
 
 export function filterFalsy<T>(): MonoTypeOperatorFunction<T> {
   return filter(Compare.isFalsy);
