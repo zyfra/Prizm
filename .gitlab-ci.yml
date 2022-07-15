@@ -2,7 +2,6 @@ include:
   - project: devops/gitlab-ci-templates
     ref: latest
     file: Settings/variables.yml
-    
 variables:
   ZUI_BUILD_IMAGE_TAG: 14-alpine
   LANGUAGE: "typescript"
@@ -17,6 +16,7 @@ variables:
   ZIF_TOOLS_RUNNER_IMAGE: 'registry.dp.zyfra.com/infra/zif-tools-runner'
   ZIF_TOOLS_RUNNER_TAG: '1.13.0'
   DEPLOY_NAMESPACE: ziiot-dev-11
+  KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_MR_ONE=${CI_MERGE_REQUEST_IID}"
 
 stages:
   - build
@@ -43,9 +43,9 @@ Build js image:
   rules:
     - if: "$SKIP_KANIKO_BUILD =~ /^(true|yes|on|1)$/i"
       when: never
-    - if: >- 
-        $CI_COMMIT_BRANCH != null && 
-        $CI_PIPELINE_SOURCE == 'push' && 
+    - if: >-
+        $CI_COMMIT_BRANCH != null &&
+        $CI_PIPELINE_SOURCE == 'push' &&
         $CI_OPEN_MERGE_REQUESTS != null
       when: never
     - if: |-
@@ -87,13 +87,13 @@ Release package:
 
 Deploy:
   stage: deploy
-  image: 
+  image:
     name: $ZIF_TOOLS_RUNNER_IMAGE:$ZIF_TOOLS_RUNNER_TAG
     entrypoint: [""]
   rules:
     - if: >-
-        $CI_COMMIT_BRANCH != null && 
-        $CI_PIPELINE_SOURCE == 'push' && 
+        $CI_COMMIT_BRANCH != null &&
+        $CI_PIPELINE_SOURCE == 'push' &&
         $CI_OPEN_MERGE_REQUESTS != null
       when: never
     - if: >-
@@ -107,7 +107,7 @@ Deploy:
     - helm registry login $REGISTRY_DOMAIN -u $QUAY_REGISTRY_LOGIN -p $QUAY_REGISTRY_PASSWORD
     - helm chart pull $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
     - helm chart export $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
-    - | 
+    - |
       if [ "$CI_COMMIT_REF_NAME" = $CI_DEFAULT_BRANCH ]; then
         DEPLOY_RELEASE="latest"
         DEPLOY_VERSION="latest"

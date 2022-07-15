@@ -11,6 +11,7 @@ FROM $DOCKERFILE_BUILD_IMAGE:$DOCKERFILE_BUILD_TAG AS builder
 
 # Build arguments
 ARG NPM_GITLAB_REGISTRY_HOST="${CI_SERVER_HOST:-gitdp.zyfra.com}"
+ARG NPM_MR_ONE="0"
 ARG NPM_GITLAB_REGISTRY_TOKEN
 ARG NPM_BUILD_ENVIRONMENT="storybook"
 ARG NPM_BUILD_NEXT="next"
@@ -35,13 +36,13 @@ RUN npm --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
         install
 # Set separate cache layers, build from sources
 COPY ./ /project/
-RUN npm --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
-    run --verbose build:"$NPM_BUILD_ENVIRONMENT" && \
-    chgrp -R 0 /project && \
-    chmod -R g+rw /project
+#RUN npm --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
+#    run --verbose build:"$NPM_BUILD_ENVIRONMENT" && \
+#    chgrp -R 0 /project && \
+#    chmod -R g+rw /project
 
 RUN npm --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
-    run --verbose build:"$NPM_BUILD_NEXT" && \
+    run --verbose build:"$NPM_BUILD_NEXT" -- --deployUrl /zui-sdk/mr-$NPM_MR_ONE/doc/ --baseHref /zui-sdk/mr-$NPM_MR_ONE/doc/ && \
     chgrp -R 0 /project && \
     chmod -R g+rw /project
 
@@ -49,6 +50,6 @@ RUN npm --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
 # --------------------------
 FROM $DOCKERFILE_BASE_IMAGE:$DOCKERFILE_BASE_TAG
 
-COPY --from=builder --chown=101:0 /project/dist/storybook/components /www/storybook
+#COPY --from=builder --chown=101:0 /project/dist/storybook/components /www/storybook
 COPY --from=builder --chown=101:0 /project/dist/apps/doc /www/doc
 COPY ./.env /.env
