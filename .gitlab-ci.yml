@@ -1,5 +1,8 @@
-image: node:14.18.3
-
+include:
+  - project: devops/gitlab-ci-templates
+    ref: latest
+    file: Settings/variables.yml
+    
 variables:
   ZUI_BUILD_IMAGE_TAG: 14-alpine
   LANGUAGE: "typescript"
@@ -9,33 +12,41 @@ variables:
   SKIP_FRONTEND_IMAGE_TEST: 'true'
   GITLAB_REGISTRY_AUTH_TOKEN: "//gitdp.zyfra.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}"
   ENABLE_APP_REGISTRATION: 'false'
-
-
-include:
-  - project: devops/gitlab-ci-templates
-    ref: latest
-    file: Settings/variables.yml
+  ZIF_GENERIC_SERVICE_CHART: 'registry.dp.zyfra.com/charts/zif-generic-service'
+  ZIF_GENERIC_SERVICE_TAG: '1.11.0'
+  ZIF_TOOLS_RUNNER_IMAGE: 'registry.dp.zyfra.com/infra/zif-tools-runner'
+  ZIF_TOOLS_RUNNER_TAG: '1.13.0'
+  DEPLOY_NAMESPACE: ziiot-dev-11
 
 stages:
   - build
   - release
+  - deploy
+
+.tags_k8s:
+  tags: ["k8s"]
+
+.except_skip_ci:
+  except:
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /skip-ci/
 
 Build js image:
   stage: build
-  allow_failure: false
   tags:
     - docker
   script:
     - sh /kaniko/kaniko-build
   image:
     name: "$KANIKO_IMAGE"
-    entrypoint:
-      - ''
+    entrypoint: [""]
   rules:
     - if: "$SKIP_KANIKO_BUILD =~ /^(true|yes|on|1)$/i"
       when: never
-    - if: "$CI_COMMIT_BRANCH != null && $CI_PIPELINE_SOURCE == 'push' && $CI_OPEN_MERGE_REQUESTS
-      != null"
+    - if: >- 
+        $CI_COMMIT_BRANCH != null && 
+        $CI_PIPELINE_SOURCE == 'push' && 
+        $CI_OPEN_MERGE_REQUESTS != null
       when: never
     - if: |-
         $LANGUAGE =~ /\b(typescript|javascript|node\.js)\b/i || (
@@ -45,10 +56,7 @@ Build js image:
       exists:
         - "{[Dd]ockerfile,[Dd]ockerfile\\.*,**/[Dd]ockerfile,**/[Dd]ockerfile\\.*}"
 
-
 Build library:
-  tags:
-      - k8s
   stage: build
   # // include after k8s stable work
   # cache:
@@ -56,40 +64,69 @@ Build library:
   #     - node_modules
   #     - /cache/Cypress
   #     - node_modules/.cache/nx
-  before_script:
-    - npm config set $GITLAB_REGISTRY_AUTH_TOKEN
-    - npm install
-
+  image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
   script:
-    - npm run all
-  except:
-    variables:
-      - $CI_COMMIT_MESSAGE =~ /skip-ci/
+    - npm config set $GITLAB_REGISTRY_AUTH_TOKEN
+    - npm install && npm run all
   artifacts:
     expire_in: 1 day
     paths:
-        - dist/
+      - dist/
+  extends: [".tags_k8s", ".except_skip_ci"]
 
-release_package:
-  tags:
-      - k8s
+Release package:
   stage: release
-  only:
-    - main
-  before_script:
+  script:
     - npm config set @$CI_PROJECT_ROOT_NAMESPACE:registry "$CI_SERVER_PROTOCOL://$CI_SERVER_HOST/api/v4/projects/$CI_PROJECT_ID/packages/npm/"
     - npm config set "//$CI_SERVER_HOST/api/v4/projects/$CI_PROJECT_ID/packages/npm/:_authToken" "$CI_JOB_TOKEN"
-  script:
-    - cd dist/libs/components
-    - npm publish
-    - cd ../schematics
-    - npm publish
-    - cd ../helpers
-    - npm publish
-    - cd ../translate
-    - npm publish
-
+    - cd dist/libs
+    - for i in `(ls -l | awk '{ print $9 }')`; npm publish ./$i
   when: manual
-  except:
-    variables:
-      - $CI_COMMIT_MESSAGE =~ /skip-ci/
+  only: ["main"]
+  extends: [".tags_k8s", ".except_skip_ci"]
+
+Deploy:
+  stage: deploy
+  image: 
+    name: $ZIF_TOOLS_RUNNER_IMAGE:$ZIF_TOOLS_RUNNER_TAG
+    entrypoint: [""]
+  rules:
+    - if: >-
+        $CI_COMMIT_BRANCH != null && 
+        $CI_PIPELINE_SOURCE == 'push' && 
+        $CI_OPEN_MERGE_REQUESTS != null
+      when: never
+    - if: >-
+        $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH ||
+        $CI_COMMIT_TAG != null ||
+        $CI_OPEN_MERGE_REQUESTS != null
+  script:
+    - mkdir -p $HOME/.kube
+    - cat $KUBECONFIG > $HOME/.kube/config
+    - export HELM_EXPERIMENTAL_OCI=1
+    - helm registry login $REGISTRY_DOMAIN -u $QUAY_REGISTRY_LOGIN -p $QUAY_REGISTRY_PASSWORD
+    - helm chart pull $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
+    - helm chart export $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
+    - | 
+      if [ "$CI_COMMIT_REF_NAME" = $CI_DEFAULT_BRANCH ]; then
+        DEPLOY_RELEASE="latest"
+        DEPLOY_VERSION="latest"
+      elif [ -n "$CI_COMMIT_TAG" ]; then
+        DEPLOY_NOSLASH=$(echo "$CI_COMMIT_TAG" | tr -s / - )
+        DEPLOY_SANITIZED="${DEPLOY_NOSLASH//[^a-zA-Z0-9\-\.]/}"
+        DEPLOY_RELEASE="${DEPLOY_SANITIZED//\./}"
+        DEPLOY_VERSION="$DEPLOY_SANITIZED"
+      else
+        DEPLOY_RELEASE="mr-$CI_MERGE_REQUEST_IID"
+        DEPLOY_VERSION="MR-$CI_MERGE_REQUEST_IID"
+      fi
+      echo "DEPLOY_RELEASE - ${DEPLOY_RELEASE}"
+      echo "DEPLOY_VERSION - ${DEPLOY_VERSION}"
+      helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
+      -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
+      --set image.tag=$DEPLOY_VERSION \
+      --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
+      --set ingress.path=/$CI_PROJECT_NAME/$DEPLOY_VERSION
+  needs:
+    - Build js image
+  extends: [".tags_k8s"]

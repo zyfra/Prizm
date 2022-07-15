@@ -1,0 +1,263 @@
+# -- Name of application
+# @default -- name of the image
+serviceName: "zui-sdk"
+
+# -- Deploy as StatefulSet: true/false
+statefulSetDeployment: false
+
+# -- Kube version override (for Ingress API choose)
+# @default -- helm auto-detect
+kubeVersion: ""
+
+# Pod-level secrutity context
+podSecurityContext: {}
+
+# Service Container-level secrutity context
+containerSecurityContext: {}
+
+## Service object configuration
+service:
+  # -- Create service object: true/false
+  enabled: true
+  # -- Hedaless service type: true/false
+  headless: false
+
+# -- Additional kubernetes services (insert **ServiceSpec** objects "as is" from values file, you can use helm-templates here)
+# Format: *name:{ serviceSpec }*
+extraServices: {}
+
+# -- Common custom labes for all API objects
+commonLabels: {}
+
+# -- Common annotation (for Deployment/SS)
+commonAnnotations: {}
+
+# -- Number of replicas
+replicaCount: 1
+
+# -- Update strategy for Deployment or StatefulSet (used "as is")
+updateStrategy: {}
+
+# -- custom pod labels
+podLabels: {}
+
+# -- custom pod annotations
+podAnnotations: {}
+
+# -- custom node selector
+nodeSelector: {}
+
+# -- custom pod tolerations
+tolerations: []
+
+## Main container image configuration
+image:
+# -- Image registry name (optional)
+  registry: registry.dp.zyfra.com
+# -- Image registry path (optional)
+  namespace: digital-plant
+# -- Image name
+  name: zui-sdk
+# -- Image tag
+  tag: latest
+# -- Image pull secrets (optional)  
+  pullSecrets: #[]
+    - name: zif-registry-pull-secret
+# -- Image pull policy
+  pullPolicy:
+
+# -- Use specific service account for pod
+serviceAccountName:
+
+tls: 
+# -- Mount or not CA-bundle from ConfigMap
+  CABundleMount: false
+
+# -- Name of ConfigMap with global trusted CA-certificates (ex: ca-bundle)
+  CABundleConfigMap: infra-ca-bundle
+
+# -- ConfigMap key with CA-certificates list (optional)
+  CABundleMapKey: "ca-bundle.crt"
+
+# -- Mount type for global trusted certificates:
+# **ubuntu** (PEM file), **alpine** (PEM), **java** (JKS), **custom**
+  CABundleMountType: ubuntu
+
+# -- Custom mount path for global trusted certificates (set type to "custom" and change this parameter )
+  CABundleMountPath: "/etc/ssl/certs/ca-certificates.crt"
+
+# -- Additional ConfigMap to mount as volumes
+# Format: *name: { mountPath: /data, subPath: "", readOnly: false, configMap: map-name, defaultMode: 256 }* or
+# *name: { configMap: map-name }*
+extraConfigmapMounts: {}
+#  guardian-volume: 
+#    configMap: zif-startup-guardian-config
+#    defaultMode: 420
+
+# -- Additional Secrets to mount as volumes
+# Format: *name: { mountPath: /data, subPath: "", readOnly: false, secret: secret-name, defaultMode: 256 }* or
+# name: *{ secret: secret-name }*
+extraSecretMounts: {}
+
+# -- Create additional ConfigMap
+# Format: { configMapName: { name: "value", * }, * }
+extraConfigMaps: {}
+
+# -- Create additional binaryConfigMap
+# Format: { binaryConfigMapName: { name: "value", * }, * }
+extraBinaryConfigMaps: {}
+
+# -- Create additional extraSecrets
+# Format: { extraSecretsName: { name: "value", * }, * }
+extraSecrets: {}
+
+# -- Additional Volumes to mount
+# Format: *name: { mountPath: /data, volume: { "volume configuration as is" } }*
+extraVolumes: {}
+
+# -- Additional init-containers (insert **Container** objects "as is" from values file, you can use helm-templates here)
+# Format: *name:{ container }*
+initContainers: {}  
+
+# -- Additional containers (insert **Container** objects "as is" from values file, you can use helm-templates here)
+# Format: *name:{ container }*
+extraContainers: {}
+
+# -- Override entry-point of the main service container
+command: []
+
+# -- Override arguments for entry-point of the main service container
+args: []
+
+# -- Mount ConfigMaps as Environment variables for service container (list of names, all - optional)
+# Format: [ { name: "configMap name", optional: "true" }, * ]
+environmentVarsFrom: []
+
+# -- Mount Secrets as Environment variables for service container (list of names, all - optional)
+# Format: [ { name: "secret name", optional: "true" }, * ]
+environmentVarsFromSecrets: []
+
+# -- Environment variables for container. Can be name: "value", or name: { valueFrom: { .. } }
+# Value alvays must be string, valueFrom used "as is" from values file
+environmentVars: {}
+
+# -- Network ports for the service application. List of objects:
+# { name: http, container: 5000, service: 80, proto: TCP }
+containerPorts: #[]
+  - name: http
+    container: 8080
+    service: 80
+    proto: TCP
+    
+# -- Liveness probe for service container (used "as is", you can use variable substitution)
+livenessProbe: {}
+#  failureThreshold: 3
+#  httpGet:
+#    path: /health/liveness
+#    port: http
+#    scheme: HTTP
+#  initialDelaySeconds: 60
+#  periodSeconds: 30
+#  successThreshold: 1
+#  timeoutSeconds: 10
+
+# -- Readiness probe for service container (used "as is", you can use variable substitution)
+readinessProbe: {}
+#  failureThreshold: 3
+#  httpGet:
+#    path: /health/readiness
+#    port: http
+#    scheme: HTTP
+#  initialDelaySeconds: 60
+#  periodSeconds: 30
+#  successThreshold: 1
+#  timeoutSeconds: 10
+
+# -- Startup probe for service container (used "as is", you can use variable substitution)
+startupProbe: {}
+
+# -- Container resources (used "as is", you can use variable substitution)
+# Format: {requests: { cpu: 0.1, memory: 512Mi }, limits: { cpu: 1, memory: 1024Mi }}
+resources: #{}
+  limits:
+    cpu: 250m
+    memory: 384Mi
+  requests:
+    cpu: 40m
+    memory: 128Mi
+
+# -- PVC templates for StatefulSet deployments
+# Format: { name: pvcName, accessMode: ReadWriteOnce, size: 1Gi, mountPath: /var/data  }
+pvcTemplates: []
+
+# -- custom pvc labels
+pvcLabels: {}
+
+# -- custom pvc annotations
+pvcAnnotations: {}
+
+# -- Default StorageClass for PVC templates (can be overridden in the PVC template definition)
+globalStorageClass: yc-network-ssd
+
+## Ingress/Route object configuration
+ingress:
+
+# -- Enable Route/Ingress creation
+  enabled: true
+
+# -- Enable URL rewrite on Ingress ( ziiot.cluster.com/service-name/api/call => ziiot.cluster.com/api/call )
+  urlRewrite: true
+
+# -- (string) Service name to redirect traffic
+# @default -- image name or custom service name (serviceName)
+  service: ""
+
+# -- Service port name to redirect traffic
+# @default -- first container port name (containerPorts[0].name) or http
+  port: "http"
+
+# -- Ingress/Route hostname (required for correct route/ingress work)
+  host: "ziiot-dev-11.kube01.yc.ziiot.ru"
+
+# -- Publish path for service (https://hostname/path)
+# @default -- image name or custom service name (serviceName)
+  path: "/zui-sdk"
+
+# -- Ingress class name (required, for Ingress objects only)  
+  ingressClassName: nginx
+
+# -- Include CertManager ingress annotation with Issuer (optional, for Ingress objects only)
+  certmanagerIssuer:
+
+# -- Include CertManager ingress annotation with Cluster Issuer (optional, for Ingress objects only)
+  certmanagerClusterIssuer:
+
+# -- TLS parameters on Route/Ingress (tls enabled by default, set tls.enabled = false to disable)
+  tls:
+
+# -- TLS enabled/disabled (default - enabled, termination 'edge')
+    enabled: true
+  
+# -- TLS termination type: edge, reencrypt, passthrough (required)
+    termination: edge
+
+# -- HTTP -> HTTPS Redirect policy. Only for OpenShift/OKD (in kubernetes enabled by default).
+# Posible values: "Redirect", "Node"
+    insecureEdgeTerminationPolicy: Redirect
+
+# -- Hostname for TLS certificate (optional, for Ingress objects only)
+# @default -- ingress.host
+    tlsHost: "ziiot-dev-11.kube01.yc.ziiot.ru"
+  
+# -- Secret with certificate (for Ingress objects only)
+    secret: "zif-tls-ingress-secret" 
+
+# -- Server timeout (in seconds)
+  serverTimeout: 120
+
+# -- Additional annotration fot Route/Ingress object
+  extraAnnotations: {}
+
+# -- Additional Ingress/Route objects configuration ()
+# Format: *name: { ingress object, properties like ingress.* }*
+extraIngress: {}
