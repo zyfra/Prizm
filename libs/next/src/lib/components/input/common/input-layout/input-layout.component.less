@@ -1,0 +1,248 @@
+:host {
+  font-family: Inter, sans-serif; // TODO to main
+  display: block;
+  position: relative;
+  width: 20rem;
+
+  .zui-input-button-default {
+    display: none;
+  }
+
+  &:hover {
+    .zui-input-button-default {
+      display: block;
+    }
+  }
+}
+
+.zui-input-label {
+  display: block;
+  font-weight: 600;
+  color: var(--text-subscript);
+  padding-left: 16px;
+  line-height: 16px;
+  margin-bottom: 4px;
+  transition: top 200ms ease 0s;
+  pointer-events: none;
+
+  &-required {
+    color: var(--index-danger);
+  }
+
+  &-inner {
+    position: absolute;
+    padding-left: 8px;
+
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &[data-size='l'] {
+      top: 5px;
+
+      &.zui-input-label-empty {
+        top: 15px;
+      }
+      &.zui-input-label-focused {
+        top: 5px;
+      }
+    }
+
+    &[data-size='m'] {
+      top: 1px;
+      &.zui-input-label-empty {
+        top: 9px;
+      }
+      &.zui-input-label-focused {
+        top: 1px;
+      }
+    }
+
+    &-center {
+      padding: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.zui-input-form {
+  background-color: var(--bg-dashboard-forms);
+  border: 1px solid var(--border-forms);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px;
+  justify-content: center;
+
+  width: 100%;
+
+  .zui-input-form-inner-container {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .zui-input-form-status-button,
+    .zui-input-button-default {
+      flex-shrink: 0;
+      height: 100%;
+    }
+  }
+
+  &:hover {
+    border-color: var(--index-plan);
+  }
+
+  &__first {
+    display: flex;
+    align-items: center;
+  }
+
+  &-body {
+    position: relative;
+    width: 100%;
+  }
+
+  &-status {
+    &-success {
+      border-color: var(--index-good);
+      &:hover {
+        border-color: var(--index-good);
+      }
+
+      .zui-input-form-status-button {
+        color: var(--index-good);
+      }
+    }
+
+    &-warning {
+      border-color: var(--index-warning);
+      &:hover {
+        border-color: var(--index-warning);
+      }
+
+      .zui-input-form-status-button {
+        color: var(--index-warning);
+      }
+    }
+
+    &-danger {
+      border-color: var(--index-danger);
+      &:hover {
+        border-color: var(--index-danger);
+      }
+
+      .zui-input-form-status-button {
+        color: var(--index-danger);
+      }
+    }
+  }
+
+  &-invalid {
+    &.zui-input-form-touched {
+      border-color: var(--index-danger);
+    }
+
+    .zui-input-form-status-button {
+      color: var(--index-danger);
+    }
+  }
+
+  // rewrite all if focused
+  &-focused,
+  &:focus-within {
+    border-color: var(--index-plan);
+    box-shadow: 0 0 0 2px var(--lite-b130-20);
+
+    &:hover {
+      border-color: var(--index-plan);
+    }
+
+    .zui-input-button-default {
+      display: inline-block;
+    }
+  }
+
+  &-disabled {
+    border-color: transparent;
+    &:hover {
+      border-color: transparent;
+    }
+
+    cursor: not-allowed;
+  }
+
+  &-inner {
+    min-height: 44px;
+
+    &[data-size='l'] {
+      min-height: 44px;
+    }
+    &[data-size='m'] {
+      min-height: 36px;
+    }
+  }
+
+  /**
+  Special input for outer
+   */
+  &-outer {
+    min-height: 32px;
+
+    &[data-size='l'] {
+      min-height: 40px;
+    }
+    &[data-size='m'] {
+      min-height: 32px;
+    }
+    &[data-size='s'] {
+      min-height: 24px;
+    }
+  }
+
+  &-center {
+    .zui-input-form-inner-container {
+      .zui-input-form-status-button,
+      .zui-input-button-default {
+        position: absolute;
+        z-index: 100;
+        background-color: var(--bg-dashboard-forms);
+      }
+
+      .zui-input-button-default {
+        right: 32px;
+
+        &.alone {
+          right: 0;
+        }
+      }
+
+      .zui-input-form-status-button {
+        right: 0;
+      }
+    }
+  }
+}
+
+.zui-input-form-subtext {
+  padding-left: 16px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 22px;
+
+  &-success {
+    color: var(--index-good);
+  }
+
+  &-warning {
+    color: var(--index-warning);
+  }
+
+  &-danger {
+    color: var(--index-danger);
+  }
+}
+

@@ -6,7 +6,10 @@
   </ng-template>
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-input-chips [chips]="chips" [disabled]="disabled" [deletable]="deletable"></zui-input-chips>
+      <zui-input-layout label="Заголовок" size="l" status="default">
+        <input zuiInput placeholder="Введите название" (enter)="onEnter($event)" [disabled]="disabled" />
+        <zui-chips [chips]="chips" [deletable]="deletable" [disabled]="disabled" zui-input-bottom></zui-chips>
+      </zui-input-layout>
     </tui-doc-demo>
 
     <tui-doc-documentation>
@@ -27,46 +30,13 @@
       >
         Deletable
       </ng-template>
-
-      <ng-template
-        documentationPropertyName="chips"
-        documentationPropertyType="string[]"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="deletable"
-      >
-        Chips array
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="addChipEvent"
-        documentationPropertyType="string"
-        documentationPropertyMode="output"
-      >
-        Add new chip
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="removeChipEvent"
-        documentationPropertyType="string"
-        documentationPropertyMode="output"
-      >
-        Remove chip
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="clickChipEvent"
-        documentationPropertyType="string"
-        documentationPropertyMode="output"
-      >
-        Click chip
-      </ng-template>
     </tui-doc-documentation>
   </ng-template>
   <ng-template pageTab>
     <ol class="b-demo-steps">
       <li>
         <p>
-          Импортируйте <code>ZuiInputChipsModule</code>
+          Импортируйте <code>ZuiInputChipsModule</code> и <code>ZuiInputTextModule</code>
           в модуль в котором хотите использовать компоненту
         </p>
 
@@ -75,3 +45,4 @@
     </ol>
   </ng-template>
 </tui-doc-page>
+

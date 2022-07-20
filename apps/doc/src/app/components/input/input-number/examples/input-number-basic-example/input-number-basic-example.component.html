@@ -1,0 +1,17 @@
+<zui-input-layout label="Заголовок" size="l" status="default">
+  <input
+    zuiInputNumber
+    placeholder="Введите название"
+    #inputText
+    [value]="2"
+    [step]="2"
+    [formControl]="requiredInputControl"
+    #inputNumber="zuiInputNumber"
+  />
+  <ng-template zuiInputStatusText [control]="inputText"></ng-template>
+  <zui-input-number-auxiliary-controls
+    zui-input-right
+    [inputNumber]="inputNumber"
+  ></zui-input-number-auxiliary-controls>
+</zui-input-layout>
+

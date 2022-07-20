@@ -2,7 +2,7 @@ export * from './lib/components/radio';
 export * from './lib/components/button';
 export * from './lib/components/icon';
 export * from './lib/components/input';
-export * from './lib/components/input-chips';
+export * from './lib/components/chips';
 export * from './lib/components/loader';
 export * from './lib/components/paginator';
 export * from './lib/components/dropdown-host';

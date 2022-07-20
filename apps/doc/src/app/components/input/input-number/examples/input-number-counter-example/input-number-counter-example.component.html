@@ -1,0 +1,26 @@
+<zui-input-layout label="Заголовок" size="l" status="default" [position]="'center'">
+  <button
+    zuiInputIconButton="delete-minus"
+    zuiInputNumberAuxiliaryControl="decrement"
+    zui-input-left
+    [inputNumber]="inputNumber"
+  ></button>
+
+  <input
+    zuiInputNumber
+    placeholder="Введите название"
+    [min]="0"
+    [max]="10"
+    [value]="2"
+    [step]="2"
+    #inputNumber="zuiInputNumber"
+  />
+
+  <button
+    zuiInputIconButton="add-plus"
+    zuiInputNumberAuxiliaryControl="increment"
+    [inputNumber]="inputNumber"
+    zui-input-right
+  ></button>
+</zui-input-layout>
+

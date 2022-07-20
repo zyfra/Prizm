@@ -1,0 +1,127 @@
+<tui-doc-page header="Carousel" type="components">
+  <ng-template pageTab>
+    <tui-doc-example heading="Basic example" [content]="zyfraCarouselBasicExample">
+      <zui-carousel-basic-example></zui-carousel-basic-example>
+    </tui-doc-example>
+
+    <tui-doc-example heading="Carousel light example" [content]="zyfraCarouselLightExample">
+      <zui-carousel-light-example></zui-carousel-light-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      heading="Carousel array of objects example"
+      [content]="zyfraCarouselArrayofObjectsExample"
+    >
+      <zui-carousel-array-of-objects-example></zui-carousel-array-of-objects-example>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-input-layout [label]="label" [size]="size" [status]="status" [outer]="outer" [position]="'center'">
+        <zui-carousel-auxiliary-left zui-input-left [carousel]="carousel"></zui-carousel-auxiliary-left>
+        <zui-carousel
+          #carousel
+          [disabled]="disabled"
+          [required]="required"
+          [carouselContent]="carouselContent"
+          [lightMode]="lightMode"
+          [value]="value"
+        ></zui-carousel>
+        <zui-carousel-auxiliary-right zui-input-right [carousel]="carousel"></zui-carousel-auxiliary-right>
+        <ng-template zuiInputStatusText>Текст статуса</ng-template>
+      </zui-input-layout>
+    </tui-doc-demo>
+
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="value"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="[1, 5, 10]"
+        [(documentationPropertyValue)]="value"
+      >
+        Value
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="label"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="status"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="statuses"
+        [(documentationPropertyValue)]="status"
+      >
+        Status
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="required"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="required"
+      >
+        Required
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="outer"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="outer"
+      >
+        Outer
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="outer ? sizesOuter : sizesInner"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="lightMode"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="lightMode"
+      >
+        LightMode
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>ZuiInputCarouselModule</code>
+          в тот модуль, котором хотите использовать компонент
+        </p>
+
+        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>
+

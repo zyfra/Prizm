@@ -1,0 +1,5 @@
+<zui-input-layout label="Поиск">
+  <input zuiInput (enter)="search($event)" #input />
+  <button zuiInputIconButton="sort-zoom-in" zui-input-right (click)="search(input.value)"></button>
+</zui-input-layout>
+

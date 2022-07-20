@@ -69,7 +69,7 @@ export const ROUTES = [
   {
     path: 'components/input',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./components/input/input-example.module')).InputExampleModule,
+      (await import('./components/input/input-text/input-example.module')).InputExampleModule,
     data: {
       title: 'Icon',
     },
@@ -80,6 +80,39 @@ export const ROUTES = [
       (await import('./components/input/input-chips/input-chips-example.module')).InputChipsExampleModule,
     data: {
       title: 'Input Chips',
+    },
+  },
+  {
+    path: 'components/input-number',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/input/input-number/input-number-example.module')).InputNumberExampleModule,
+    data: {
+      title: 'Input Number',
+    },
+  },
+  {
+    path: 'components/input-mask',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/input/input-mask/input-mask-example.module')).InputMaskExampleModule,
+    data: {
+      title: 'Input Mask',
+    },
+  },
+  {
+    path: 'components/input-password',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/input/input-password/input-password-example.module'))
+        .InputPasswordExampleModule,
+    data: {
+      title: 'Input Password',
+    },
+  },
+  {
+    path: 'components/carousel',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/input/carousel/carousel-example.module')).CarouselExampleModule,
+    data: {
+      title: 'Carousel',
     },
   },
   {
@@ -111,6 +144,7 @@ export const ROUTES = [
       (await import('./components/example-radio-component/example-radio-button.module'))
         .ExampleRadioButtonModule,
   },
+
   { path: '**', redirectTo: 'getting-started' },
 ];
 
@@ -124,3 +158,4 @@ export const ROUTES = [
   exports: [RouterModule],
 })
 export class AppRoutes {}
+
