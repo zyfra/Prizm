@@ -2,6 +2,7 @@ include:
   - project: devops/gitlab-ci-templates
     ref: latest
     file: Settings/variables.yml
+
 variables:
   ZUI_BUILD_IMAGE_TAG: 14-alpine
   LANGUAGE: "typescript"
@@ -76,6 +77,7 @@ Build library:
 
 Release package:
   stage: release
+  image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
   script:
     - npm config set @$CI_PROJECT_ROOT_NAMESPACE:registry "$CI_SERVER_PROTOCOL://$CI_SERVER_HOST/api/v4/projects/$CI_PROJECT_ID/packages/npm/"
     - npm config set "//$CI_SERVER_HOST/api/v4/projects/$CI_PROJECT_ID/packages/npm/:_authToken" "$CI_JOB_TOKEN"
