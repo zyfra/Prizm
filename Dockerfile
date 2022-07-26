@@ -42,7 +42,7 @@ COPY ./ /project/
 #    chmod -R g+rw /project
 
 RUN npm --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
-    run --verbose build:"$NPM_BUILD_NEXT" -- --deployUrl /zui-sdk/mr-$NPM_MR_ONE/doc/ --baseHref /zui-sdk/mr-$NPM_MR_ONE/doc/ && \
+    run --verbose build:"$NPM_BUILD_NEXT" -- --deployUrl /zui-sdk/mr-$NPM_MR_ONE/ --baseHref /zui-sdk/mr-$NPM_MR_ONE/ && \
     chgrp -R 0 /project && \
     chmod -R g+rw /project
 
@@ -51,5 +51,5 @@ RUN npm --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
 FROM $DOCKERFILE_BASE_IMAGE:$DOCKERFILE_BASE_TAG
 
 #COPY --from=builder --chown=101:0 /project/dist/storybook/components /www/storybook
-COPY --from=builder --chown=101:0 /project/dist/apps/doc /www/doc
+COPY --from=builder --chown=101:0 /project/dist/apps/doc /www
 COPY ./.env /.env

@@ -132,7 +132,8 @@ Deploy:
       -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
       --set image.tag=$DEPLOY_VERSION \
       --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
-      --set ingress.path=/$CI_PROJECT_NAME/$DEPLOY_VERSION
+      --set ingress.path=/$CI_PROJECT_NAME/$DEPLOY_VERSION \
+      --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
   needs:
     - Build js image
   extends: [".tags_k8s"]
