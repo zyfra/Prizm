@@ -20,12 +20,6 @@ export function getContent(data: ZuiOverlayContentData, props: ZuiOverlayContent
   return { data, type, props };
 }
 
-export function generateID(): string {
-  return Math.random()
-    .toString(36)
-    .substr(2, 5);
-}
-
 /* html dom utils */
 export function cssClass(method: 'add' | 'remove', cls: string[], target: string = 'body'): void {
   document.querySelector(target).classList[method](...cls);

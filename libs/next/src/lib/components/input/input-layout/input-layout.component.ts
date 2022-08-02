@@ -12,7 +12,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { PolymorpheusContent } from '../../../directives';
+import { PolymorphContent } from '../../../directives';
 import { ZuiInputControl } from '../input-directives/zui-input-control.class';
 import { ZuiInputStatusTextDirective } from '../input-directives/zui-input-status-text.directive';
 import { ZuiInputSize, ZuiInputStatus } from '../models/zui-input.models';
@@ -39,7 +39,7 @@ export class InputLayoutComponent implements OnInit, OnDestroy, OnChanges, After
   @ContentChild(ZuiInputStatusTextDirective, { static: false }) inputStatusText: ZuiInputStatusTextDirective;
 
   public statusIcon: string;
-  public statusMessage: PolymorpheusContent | null;
+  public statusMessage: PolymorphContent | null;
 
   private readonly cdr: ChangeDetectorRef = this.injector.get(ChangeDetectorRef);
 

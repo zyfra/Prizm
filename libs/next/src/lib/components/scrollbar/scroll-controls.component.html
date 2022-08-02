@@ -1,0 +1,26 @@
+<ng-container *zuiLet="refresh$ | async as bars">
+    <div
+        *ngIf="bars[0]"
+        zuiScrollbarWrapper
+        class="bar bar_vertical"
+        [@zuiFadeIn]="animation"
+        [class.bar_has-horizontal]="bars[1]"
+    >
+        <div
+            zuiScrollbar="vertical"
+            class="thumb"
+        ></div>
+    </div>
+    <div
+        *ngIf="bars[1]"
+        zuiScrollbarWrapper
+        class="bar bar_horizontal"
+        [@zuiFadeIn]="animation"
+        [class.bar_has-vertical]="bars[0]"
+    >
+        <div
+            zuiScrollbar="horizontal"
+            class="thumb"
+        ></div>
+    </div>
+</ng-container>

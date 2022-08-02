@@ -7,7 +7,6 @@ import {GettingStartedComponent} from './getting-started/getting-started.compone
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {BrowserModule} from "@angular/platform-browser";
 import {AppRoutes} from "./app.routes";
-import {VersionManagerComponent} from "./version-manager/version-manager.component";
 import {TuiDataListModule, TuiTextfieldControllerModule} from '@taiga-ui/core';
 import {TuiSelectModule, TuiStringifyContentPipeModule, TuiStringifyPipeModule} from '@taiga-ui/kit';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";

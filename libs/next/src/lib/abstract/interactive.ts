@@ -1,4 +1,4 @@
-import {Directive, EventEmitter, HostBinding, Input, Output} from '@angular/core';
+import { Directive, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 
 /**
  * The most basic class for interactive components
@@ -22,6 +22,9 @@ export abstract class AbstractZuiInteractive {
 
     @Input()
     focusable = true;
+
+    @Input()
+    pseudoState: string;
 
     @Output()
     readonly focusedChange = new EventEmitter<boolean>();

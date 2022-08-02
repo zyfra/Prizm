@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ElementRef, HostListener, Inject, Input, OnInit, Renderer2,} from '@angular/core';
-import {PolymorpheusContent} from '../index';
+import {PolymorphContent} from '../index';
 import {ZuiHintOptions} from "../hint";
 import {zuiDefaultProp} from "../../decorators";
 import {ZuiDestroyService} from "@digital-plant/zyfra-helpers";
@@ -12,7 +12,7 @@ import {animationFrameScheduler, timer} from "rxjs";
 @Component({
   selector: 'zui-hint-container',
   template: `
-    <ng-container *polymorpheusOutlet="content() as data; context: context">
+    <ng-container *polymorphOutlet="content() as data; context: context">
       {{data}}
     </ng-container>
   `,
@@ -25,7 +25,7 @@ export class ZuiHintContainerComponent implements OnInit, AfterViewInit {
   id: string;
 
   @Input()
-  content: () => PolymorpheusContent;
+  content: () => PolymorphContent;
 
   @Input()
   mode: () => ZuiHintOptions['mode'];

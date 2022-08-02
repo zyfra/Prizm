@@ -7,7 +7,6 @@ import {zuiSetNativeFocused} from './zui-set-native-focused';
 export function zuiBlurNativeFocused(documentRef: Document): void {
     const activeElement = zuiGetNativeFocused(documentRef);
 
-    // TODO: iframe warning
     if (activeElement instanceof HTMLElement) {
         zuiSetNativeFocused(activeElement, false);
     }

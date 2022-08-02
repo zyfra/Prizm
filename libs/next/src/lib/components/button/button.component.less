@@ -19,7 +19,7 @@
 
   .addSize(@size, @height, @width, @padding) {
     &[data-size='@{size}'] {
-      height: @height;
+      min-height: @height;
       font-weight: normal;
 
       &[zuiIconButton] {
@@ -47,4 +47,14 @@
   cursor: default;
   background: inherit;
   border-radius: inherit;
+}
+
+.z-content[hidden] {
+  visibility: hidden;
+}
+
+.z-content {
+  gap: var(--zui-button-gap, 8px);
+  display: flex;
+  justify-content: space-between;
 }

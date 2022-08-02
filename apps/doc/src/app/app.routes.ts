@@ -75,6 +75,13 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/scrollbar',
+    loadChildren: async (): Promise<unknown> => (await import('./components/scrollbar/scrollbar.module')).ScrollbarModule,
+    data: {
+      title: 'Scrollbar',
+    },
+  },
+  {
     path: 'components/input',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/input/input-example.module')).InputExampleModule,
@@ -96,6 +103,30 @@ export const ROUTES = [
       (await import('./components/loader/loader.module')).LoaderModule,
     data: {
       title: 'Loader',
+    },
+  },
+  {
+    path: 'components/dialogs/dialog',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/dialogs/dialog/dialog.module')).DialogModule,
+    data: {
+      title: 'Dialog',
+    },
+  },
+  {
+    path: 'components/dialogs/confirm-dialog',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/dialogs/confirm-dialog/confirm.module')).ConfirmModule,
+    data: {
+      title: 'Confirm Dialog',
+    },
+  },
+  {
+    path: 'components/toast',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/toast/toast.module')).ToastModule,
+    data: {
+      title: 'Toast',
     },
   },
   {

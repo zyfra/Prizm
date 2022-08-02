@@ -1,5 +1,4 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {PolymorpheusComponent} from '@digital-plant/zui-components';
 
 @Component({
     selector: 'zui-logo',

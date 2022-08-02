@@ -18,12 +18,13 @@ import {
   ZuiOverlayRelativePosition,
   ZuiOverlayService
 } from "../../modules/overlay";
-import {PolymorpheusContent} from "../../directives";
+import {PolymorphContent} from "../../directives";
 import {delay, filter, switchMap, take, takeUntil, tap} from "rxjs/operators";
 import {ZuiDestroyService} from "@digital-plant/zyfra-helpers";
 import {BehaviorSubject, fromEvent, Observable} from "rxjs";
 import {DOCUMENT} from "@angular/common";
 import {zuiDefaultProp} from "../../decorators";
+import {generateId} from "../../util";
 
 @Component({
   selector: 'zui-dropdown-host',
@@ -36,11 +37,11 @@ import {zuiDefaultProp} from "../../decorators";
   exportAs: 'zui-dropdown-host'
 })
 export class ZuiDropdownHostComponent implements AfterViewInit, OnDestroy {
-  @Input() content: PolymorpheusContent;
+  @Input() content: PolymorphContent;
 
   @Input()
   @zuiDefaultProp()
-  zuiDropdownHostId: string = 'dropdownHostId_' + Math.random();
+  zuiDropdownHostId: string = 'dropdownHostId_' + generateId();
 
   @Input()
   @zuiDefaultProp()

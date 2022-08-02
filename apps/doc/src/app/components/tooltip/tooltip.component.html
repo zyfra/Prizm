@@ -38,8 +38,7 @@
     <tui-doc-demo>
       <button
         zuiButton
-        zuiTooltip="Тестовое содержимое"
-        [zuiTooltipMode]="zuiTooltipMode"
+        [zuiTooltip]="content"
         [zuiAutoReposition]="zuiAutoReposition"
         [zuiTooltipDirection]="zuiTooltipDirection"
         [zuiTooltipId]="zuiTooltipId"
@@ -51,14 +50,14 @@
       </button>
     </tui-doc-demo>
     <tui-doc-documentation>
+
       <ng-template
-        documentationPropertyName="zuiTooltipMode"
-        documentationPropertyType="ZuiTooltipMode"
+        documentationPropertyName="zuiTooltip"
+        documentationPropertyType="string"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="zuiTooltipModeVariants"
-        [(documentationPropertyValue)]="zuiTooltipMode"
+        [(documentationPropertyValue)]="content"
       >
-        Mode
+        Content
       </ng-template>
 
       <ng-template
@@ -78,15 +77,6 @@
         [(documentationPropertyValue)]="zuiTooltipDirection"
       >
         Tooltip Direction
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="zuiTooltipId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiTooltipId"
-      >
-        Tooltip Id
       </ng-template>
 
       <ng-template

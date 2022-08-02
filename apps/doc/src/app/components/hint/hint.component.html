@@ -38,8 +38,7 @@
     <tui-doc-demo>
       <button
         zuiButton
-        zuiHint="Тестовое содержимое"
-        [zuiHintMode]="zuiHintMode"
+        [zuiHint]="content"
         [zuiAutoReposition]="zuiAutoReposition"
         [zuiHintDirection]="zuiHintDirection"
         [zuiHintId]="zuiHintId"
@@ -52,13 +51,12 @@
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
-        documentationPropertyName="zuiHintMode"
-        documentationPropertyType="ZuiHintMode"
+        documentationPropertyName="zuiHint"
+        documentationPropertyType="string"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="zuiHintModeVariants"
-        [(documentationPropertyValue)]="zuiHintMode"
+        [(documentationPropertyValue)]="content"
       >
-        Mode
+        Content
       </ng-template>
 
       <ng-template
@@ -78,15 +76,6 @@
         [(documentationPropertyValue)]="zuiHintDirection"
       >
         Hint Direction
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="zuiHintId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiHintId"
-      >
-        Hint Id
       </ng-template>
 
       <ng-template

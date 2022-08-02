@@ -1,31 +1,57 @@
 @import  '../../../styles/ui-local';
 
-@width-m: 2rem;
-@height-m: 1rem;
-@width-l: 3rem;
-@height-l: 1.5rem;
-@toggle-width-m: 3rem;
-@toggle-interval-m: 1rem;
-@toggle-width-l: 4.5rem;
-@toggle-interval-l: 1.5rem;
+@width-m: 32px;
+@height-m: 16px;
+@width-l: 40px;
+@height-l: 20px;
+@toggle-width-m: 48px;
+@toggle-interval-m: 16px;
+@toggle-width-l: 60px;
+@toggle-interval-l: 20px;
+@radius: 16px;
+
 
 :host {
-  --zui-secondary: #BFC6D7;
-  --zui-disabled: #D6DBE7;
+  --zui-secondary: var(--palette-g4);
+  --zui-disabled: var(--palette-g3);
   --zui-disabled-active: #99BFFF;
+  --zui-primary-hover: var(--zui-primary);
+  --zui-secondary-hover: var(--zui-secondary);
 }
 
+zui-wrapper {
+  overflow: hidden;
+  border-radius: @radius;
 
-zui-wrapper[checked=true] {
+  &[checked=true] {
     --zui-disabled: var(--zui-disabled-active);
+  }
 }
+
+
 
 :host {
     position: relative;
     display: inline-block;
     vertical-align: middle;
-    overflow: hidden;
-    border-radius: 6.25rem;
+    border-radius: @radius;
+
+
+    &:hover:not(._disabled), &:focus-within:not(._disabled) {
+      outline: 1px solid var(--zui-primary-hover);
+    }
+
+    &._disabled  {
+
+      &._checked zui-wrapper {
+        background-color: var(--zui-disabled-active);
+      }
+
+      zui-wrapper {
+        background-color: var(--zui-disabled);
+        cursor: not-allowed;
+      }
+    }
 
     &[data-size='m'] {
         width: @width-m;
@@ -49,8 +75,8 @@ zui-wrapper[checked=true] {
     cursor: pointer;
 
     :host._disabled & {
-        pointer-events: none;
-        cursor: default;
+        pointer-events: inherit;
+        cursor: inherit;
     }
 }
 
@@ -78,7 +104,7 @@ zui-wrapper[checked=true] {
 }
 
 .circle {
-    margin: 0.125rem 0;
+    margin: 2px 0;
     flex-shrink: 0;
     border-radius: 100%;
     background-color: var(--zui-base-01);
@@ -88,13 +114,13 @@ zui-wrapper[checked=true] {
     }
 
     :host[data-size='m'] & {
-        width: 0.75rem;
-        height: 0.75rem;
+        width: 12px;
+        height: 12px;
     }
 
     :host[data-size='l'] & {
-        width: 1rem;
-        height: 1rem;
+        width: 16px;
+        height: 16px;
     }
 
     :host._disabled & {
@@ -116,13 +142,13 @@ zui-wrapper[checked=true] {
   justify-content: center;
 
   :host[data-size='m'] & {
-    width: 1rem;
-    height: 1rem;
+    width: 16px;
+    height: 16px;
   }
 
   :host[data-size='l'] & {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 24px;
+    height: 24px;
   }
 
   & > * {

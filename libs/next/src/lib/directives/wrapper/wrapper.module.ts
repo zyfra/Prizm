@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {ZuiWrapperDirective} from './wrapper.directive';
+import { NgModule } from '@angular/core';
+import { ZuiWrapperComponent } from './wrapper.component';
 
 @NgModule({
-    declarations: [ZuiWrapperDirective],
-    exports: [ZuiWrapperDirective],
+    declarations: [ZuiWrapperComponent],
+    exports: [ZuiWrapperComponent],
 })
 export class ZuiWrapperModule {}

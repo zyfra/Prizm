@@ -1,11 +1,12 @@
 /* eslint-disable @angular-eslint/no-input-rename */
-import {Directive, forwardRef, Input,} from '@angular/core';
-import {ZuiDestroyService} from '@digital-plant/zyfra-helpers';
-import {ZuiTooltipContainerComponent} from "./tooltip-container.component";
-import {ZUI_HINT_OPTIONS, ZuiHintDirective, ZuiHintOptions} from '../hint';
-import {ZUI_TOOLTIP_OPTIONS} from "./tooltip-options";
-import {zuiDefaultProp, zuiRequiredSetter} from "../../decorators";
-import {PolymorpheusContent} from "../polymorpheus";
+import { Directive, forwardRef, HostListener, Input } from '@angular/core';
+import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { ZuiTooltipContainerComponent } from './tooltip-container.component';
+import { ZUI_HINT_OPTIONS, ZuiHintDirective, ZuiHintOptions } from '../hint';
+import { ZUI_TOOLTIP_OPTIONS } from './tooltip-options';
+import { zuiDefaultProp, zuiRequiredSetter } from '../../decorators';
+import { PolymorphContent } from '../polymorph';
+import { generateId } from '../../util';
 
 @Directive({
     selector: '[zuiTooltip]:not(ng-container)',
@@ -33,7 +34,7 @@ export class ZuiTooltipDirective extends ZuiHintDirective {
 
   @Input('zuiTooltipId')
   @zuiDefaultProp()
-  override zuiHintId: string = 'hintId_' + Math.random();
+  override zuiHintId: string = 'hintId_' + generateId();
 
   @Input('zuiTooltipShowDelay')
   @zuiDefaultProp()
@@ -49,7 +50,7 @@ export class ZuiTooltipDirective extends ZuiHintDirective {
 
   @Input('zuiTooltip')
   @zuiRequiredSetter()
-  override set zuiHint(value: PolymorpheusContent | null) {
+  override set zuiHint(value: PolymorphContent | null) {
     if (!value) {
       this.content = '';
       return;
@@ -58,4 +59,9 @@ export class ZuiTooltipDirective extends ZuiHintDirective {
     this.content = value;
   }
   protected override readonly containerComponent = ZuiTooltipContainerComponent;
+  protected override readonly onHoverActive = false;
+
+  @HostListener('document:click', ['$event.target']) public onClick(target: HTMLElement): void {
+    this.show$.next(this.elementRef.nativeElement.contains(target));
+  }
 }

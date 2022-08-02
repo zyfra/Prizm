@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import {
-  PolymorpheusModule,
+  PolymorphModule,
   ZuiButtonModule,
   ZuiDataListModule,
   ZuiDropdownHostModule,
@@ -20,7 +20,7 @@ import {
     TuiAddonDocModule,
     FormsModule,
     ReactiveFormsModule,
-    PolymorpheusModule,
+    PolymorphModule,
     ZuiDataListModule,
     ZuiButtonModule,
     ZuiDropdownHostModule,

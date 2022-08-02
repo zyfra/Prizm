@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {PolymorpheusComponent, ZuiOverlayOutsidePlacement} from "@digital-plant/zui-components";
-import {ZuiTooltipSomeComponent} from "./some.component";
+import { Component } from '@angular/core';
+import { PolymorphComponent, ZuiOverlayOutsidePlacement } from '@digital-plant/zui-components';
+import { ZuiTooltipSomeComponent } from './some.component';
 
 @Component({
   selector: 'zui-tooltip-with-component-example',
@@ -13,6 +13,6 @@ import {ZuiTooltipSomeComponent} from "./some.component";
   `]
 })
 export class ZuiTooltipWithComponentExampleComponent {
-  readonly component = new PolymorpheusComponent(ZuiTooltipSomeComponent);
+  readonly component = new PolymorphComponent(ZuiTooltipSomeComponent);
   readonly direction = ZuiOverlayOutsidePlacement.TOP_RIGHT;
 }

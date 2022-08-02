@@ -7,8 +7,8 @@ import {ZuiHintContainerComponent} from '../hint/hint-container.component';
   selector: 'zui-tooltip-container',
   template: `
     <div class="box">
-      <ng-container *polymorpheusOutlet="content() as data; context: context">
-        {{data}} [{{position$ | async}}]
+      <ng-container *polymorphOutlet="content() as data; context: context">
+        {{data}}
       </ng-container>
 
       <ng-container [ngSwitch]="position$ | async">

@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
 import {
-  PolymorpheusContent,
+  PolymorphContent,
   ZUI_HINT_DEFAULT_OPTIONS,
   ZuiHintOptions,
   ZuiOverlayOutsidePlacement
@@ -14,14 +14,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HintComponent {
-  public readonly zuiHintModeVariants: ReadonlyArray<ZuiHintOptions['mode']> = [
-    'light',
-    'error',
-    'dark',
-  ];
-  public zuiHintMode: ZuiHintOptions['mode'] = this.zuiHintModeVariants[0];
-
   public zuiAutoReposition = false;
+  public content = "Тестовое содержимое";
 
   public readonly zuiHintDirectionVariants: ReadonlyArray<ZuiHintOptions['direction']> = Object.values(ZuiOverlayOutsidePlacement);
 
@@ -39,7 +33,7 @@ export class HintComponent {
     'Новый хинт'
   ];
 
-  public zuiHint: PolymorpheusContent =  this.zuiHintVariants[0];
+  public zuiHint: PolymorphContent =  this.zuiHintVariants[0];
 
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'

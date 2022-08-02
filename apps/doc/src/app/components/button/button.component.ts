@@ -5,11 +5,10 @@ import { IconDefs, ZuiAppearance, ZuiAppearanceType, ZuiContent, ZuiSize } from 
 @Component({
   selector: 'zui-button-example',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-  sizeVariants: ReadonlyArray<ZuiSize> = ['s', 'm', 'xm', 'l', 'xl'];
+  sizeVariants: ReadonlyArray<ZuiSize> = ['s', 'm', 'l'];
   size: ZuiSize = this.sizeVariants[0];
 
   iconVariants: ReadonlyArray<ZuiContent> = ['', ...IconDefs.reduce((a, c) => a.concat(c.data), [])];
@@ -21,7 +20,6 @@ export class ButtonComponent {
     'success',
     'warning',
     'danger',
-    'disabled',
   ];
   appearance: ZuiAppearance = this.appearanceVariants[0];
 

@@ -10,7 +10,8 @@
 import {ZuiPureException} from "../exceptions";
 
 export function zuiPure<T>(
-  _target: Record<string, unknown>,
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  _target: object,
   propertyKey: string,
   {get, enumerable, value}: TypedPropertyDescriptor<T>,
 ): TypedPropertyDescriptor<T> {

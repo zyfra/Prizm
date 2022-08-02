@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { ToggleComponent } from './toggle.component';
-import { ZuiToggleBaseExampleComponent } from './examples/base/toggle-base-example.component';
-import { PolymorpheusModule, ZuiToggleModule } from '@digital-plant/zui-components';
+import { PolymorphModule, ZuiToggleModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ZuiToggleBaseExampleComponent } from './examples/base/toggle-base-example.component';
+
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TuiAddonDocModule,
     FormsModule,
     ReactiveFormsModule,
-    PolymorpheusModule,
+    PolymorphModule,
     ZuiToggleModule,
     RouterModule.forChild(generateRoutes(ToggleComponent)),
   ],

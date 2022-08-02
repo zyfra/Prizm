@@ -1,8 +1,8 @@
 import {InjectionToken, ValueProvider} from '@angular/core';
-import {PolymorpheusContent} from "../../directives";
+import {PolymorphContent} from "../../directives";
 
 export interface ZuiDataListOptions {
-    readonly empty: PolymorpheusContent;
+    readonly empty: PolymorphContent;
 }
 
 /** Default values for data-list options */

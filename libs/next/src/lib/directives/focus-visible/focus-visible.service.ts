@@ -1,15 +1,14 @@
-import {ChangeDetectorRef, ElementRef, Inject, Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
-import {ZuiDestroyService} from "@digital-plant/zyfra-helpers";
-import {zuiWatch} from '../../observables/watch';
-import {zuiFocusVisibleObservable} from "../../observables/focus-visible-observable";
+import { ChangeDetectorRef, ElementRef, Inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { zuiWatch } from '../../observables/watch';
+import { zuiFocusVisibleObservable } from '../../observables/focus-visible-observable';
 
 /**
  * Service to imitate :focus-visible
  * (https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible)
  * in browsers that do not support it
- * @dynamic
  */
 @Injectable()
 export class ZuiFocusVisibleService extends Observable<boolean> {
