@@ -23,6 +23,12 @@ export const pages: TuiDocPages = [
   },
   {
     section: `Components`,
+    title: 'Tree',
+    keywords: 'дерево, zui-tree, tree',
+    route: '/components/tree',
+  },
+  {
+    section: `Components`,
     title: 'Shadow',
     keywords: 'shadow, zui-shadow, тень',
     route: '/components/shadow',

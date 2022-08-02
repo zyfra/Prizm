@@ -45,6 +45,14 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/tree',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/tree/tree.module')).TreeModule,
+    data: {
+      title: 'Tree',
+    },
+  },
+  {
     path: 'components/toggle',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/toggle/toggle.module')).ToggleModule,

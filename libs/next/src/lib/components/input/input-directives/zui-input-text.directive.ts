@@ -131,7 +131,7 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck, 
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('input', ['$event'])
-  onInput(): void {
+  public onInput(): void {
     this.updateEmptyState();
     this._inputValue.value = this.elementRef.nativeElement.value;
     this.stateChanges.next();
@@ -139,14 +139,14 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck, 
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('focus', ['$event'])
-  onFocus(): void {
+  public onFocus(): void {
     this.focused = true;
     this.stateChanges.next();
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('blur', ['$event'])
-  onBlur(): void {
+  public onBlur(): void {
     this.focused = false;
     this.touched = true;
     this.stateChanges.next();

@@ -1,0 +1,16 @@
+<div
+    #wrapper
+    class="wrapper"
+>
+    <ng-container *ngIf="contentVisible">
+        <ng-content></ng-content>
+        <zui-loader
+            *ngIf="this.isLoading; else content"
+            size="l"
+            [overlay]="true"
+            [showLoader]="loading"
+        >
+            <ng-container [ngTemplateOutlet]="content"></ng-container>
+        </zui-loader>
+    </ng-container>
+</div>

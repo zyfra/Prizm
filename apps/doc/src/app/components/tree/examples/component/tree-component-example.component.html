@@ -1,0 +1,14 @@
+<zui-tree
+  *ngFor="let item of data.children"
+  [zuiTreeController]="true"
+  [value]="item"
+  [content]="content"
+  [childrenHandler]="handler"
+></zui-tree>
+
+<ng-template
+  #content
+  let-item
+>
+  {{ item.text }}
+</ng-template>

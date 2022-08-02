@@ -12,10 +12,14 @@ export * from './lib/directives/hint';
 export * from './lib/directives/tooltip';
 export * from './lib/components/scrollbar';
 export * from './lib/directives/shadow';
+export * from './lib/directives/tooltip';
 export * from './lib/components/dialogs/dialog';
 export * from './lib/components/dialogs/confirm-dialog';
 export * from './lib/directives/overscroll';
 export * from './lib/decorators';
+export * from './lib/components/expand';
+export * from './lib/components/tree';
+export * from './lib/constants';
 
 export * from './lib/components/toggle';
 export * from './lib/modules/overlay';
