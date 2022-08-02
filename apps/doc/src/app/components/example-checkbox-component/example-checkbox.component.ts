@@ -31,5 +31,5 @@ export class ExampleCheckboxComponent {
     LESS: import('!!raw-loader!./examples/checkbox-example-form/checkbox-example-form.component.less'),
   };
 
-  readonly exampleModule: RawLoaderContent = import('!!raw-loader!./examples/import-module.md');
+  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/import-module.md');
 }

@@ -41,22 +41,22 @@ export class HintComponent {
 
   public zuiHint: PolymorpheusContent =  this.zuiHintVariants[0];
 
-  readonly exampleModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/import-module.md'
+  readonly setupModule: RawLoaderContent = import(
+    '!!raw-loader!./examples/setup-module.md'
   );
 
   readonly exampleBasic: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/basic/template.ts'),
-    HTML: import('!!raw-loader!./examples/basic/template.html'),
+    TypeScript: import('!!raw-loader!./examples/base/hint-base-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/base/hint-base-example.component.html'),
   };
 
   readonly exampleWithTemplate: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-template/template.ts'),
-    HTML: import('!!raw-loader!./examples/with-template/template.html'),
+    TypeScript: import('!!raw-loader!./examples/with-template/hint-with-template-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/with-template/hint-with-template-example.component.html'),
   };
 
   readonly exampleWithComponent: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-component/template.ts'),
-    HTML: import('!!raw-loader!./examples/with-component/template.html'),
+    TypeScript: import('!!raw-loader!./examples/with-component/hint-with-component-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/with-component/hint-with-component-example.component.html'),
   };
 }

@@ -1,11 +1,11 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorpheusContent,
   ZUI_HINT_DEFAULT_OPTIONS,
   ZuiOverlayOutsidePlacement,
-  ZuiTooltipOptions
-} from "@digital-plant/zui-components";
+  ZuiTooltipOptions,
+} from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-tooltip-example',
@@ -41,22 +41,22 @@ export class TooltipComponent {
 
   public zuiTooltip: PolymorpheusContent =  this.zuiTooltipVariants[0];
 
-  readonly exampleModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/import-module.md'
+  readonly setupModule: RawLoaderContent = import(
+    '!!raw-loader!./examples/setup-module.md'
   );
 
-  readonly exampleBasic: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/basic/template.ts'),
-    HTML: import('!!raw-loader!./examples/basic/template.html'),
+  readonly exampleBase: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/base/tooltip-base-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/base/tooltip-base-example.component.html'),
   };
 
   readonly exampleWithTemplate: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-template/template.ts'),
-    HTML: import('!!raw-loader!./examples/with-template/template.html'),
+    TypeScript: import('!!raw-loader!./examples/with-template/tooltip-with-template-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/with-template/tooltip-with-template-example.component.html'),
   };
 
   readonly exampleWithComponent: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-component/template.ts'),
-    HTML: import('!!raw-loader!./examples/with-component/template.html'),
+    TypeScript: import('!!raw-loader!./examples/with-component/tooltip-with-component-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/with-component/tooltip-with-component-example.component.html'),
   };
 }

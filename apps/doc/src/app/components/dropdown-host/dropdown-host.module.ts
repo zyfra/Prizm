@@ -1,16 +1,18 @@
-import {NgModule} from "@angular/core";
-import {CommonModule} from "@angular/common";
-import {generateRoutes, TuiAddonDocModule} from "@taiga-ui/addon-doc";
-import {RouterModule} from "@angular/router";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { RouterModule } from '@angular/router';
 import {
   PolymorpheusModule,
   ZuiButtonModule,
   ZuiDataListModule,
-  ZuiDropdownHostModule
-} from "@digital-plant/zui-components";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {DropdownHostComponent} from "./dropdown-host.component";
-import {ZuiDropdownHostExampleWithTemplateComponent} from "./examples/with-template/template";
+  ZuiDropdownHostModule,
+} from '@digital-plant/zui-components';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DropdownHostComponent } from './dropdown-host.component';
+import {
+  ZuiDropdownHostExampleWithTemplateComponent,
+} from './examples/with-template/dropdown-host-with-template-example.component';
 
 @NgModule({
   imports: [

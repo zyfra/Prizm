@@ -116,16 +116,16 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck, 
     this._inputValue = elementRef.nativeElement;
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     if (this.ngControl) this.initControlListener();
   }
 
-  ngDoCheck(): void {
+  public ngDoCheck(): void {
     this.updateEmptyState();
     this.updateErrorState();
   }
 
-  ngOnDestroy() {
+  public ngOnDestroy(): void {
     this.stateChanges.complete();
   }
 

@@ -2,24 +2,24 @@
   <ng-template pageTab>
     <p>Use Button.</p>
 
-    <tui-doc-example id="base" heading="Filled buttons" [content]="example1">
-      <zui-button-example-2></zui-button-example-2>
+    <tui-doc-example id="base" heading="Filled buttons" [content]="exampleFilled">
+      <zui-outline-buttons-example></zui-outline-buttons-example>
     </tui-doc-example>
 
-    <tui-doc-example id="base" heading="Outline buttons" [content]="example2">
-      <zui-button-example-1></zui-button-example-1>
+    <tui-doc-example id="base" heading="Outline buttons" [content]="exampleOutline">
+      <zui-filled-buttons-example></zui-filled-buttons-example>
     </tui-doc-example>
 
-    <tui-doc-example id="base" heading="Ghost buttons" [content]="example3">
-      <zui-button-example-3></zui-button-example-3>
+    <tui-doc-example id="base" heading="Ghost buttons" [content]="exampleGhost">
+      <zui-ghost-buttons-example></zui-ghost-buttons-example>
     </tui-doc-example>
 
-    <tui-doc-example id="base" heading="Icons" [content]="example4">
-      <zui-button-example-4></zui-button-example-4>
+    <tui-doc-example id="base" heading="Icons" [content]="exampleIcons">
+      <zui-icons-buttons-example></zui-icons-buttons-example>
     </tui-doc-example>
 
-    <tui-doc-example id="base" heading="Split Button" [content]="example5">
-      <zui-button-example-5></zui-button-example-5>
+    <tui-doc-example id="base" heading="Split Button" [content]="exampleSplit">
+      <zui-split-buttons-example></zui-split-buttons-example>
     </tui-doc-example>
   </ng-template>
 
@@ -125,7 +125,7 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code filename="myComponent.module.ts" [code]="exampleModule"></tui-doc-code>
+        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
       </li>
     </ol>
   </ng-template>

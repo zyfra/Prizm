@@ -8,6 +8,7 @@ export * from './lib/components/paginator';
 export * from './lib/components/dropdown-host';
 export * from './lib/components/data-list';
 export * from './lib/directives/hint';
+export * from './lib/directives/shadow';
 export * from './lib/directives/tooltip';
 
 export * from './lib/components/toggle';

@@ -1,14 +1,18 @@
-import {NgModule} from "@angular/core";
-import {CommonModule} from "@angular/common";
-import {generateRoutes, TuiAddonDocModule} from "@taiga-ui/addon-doc";
-import {RouterModule} from "@angular/router";
-import {PolymorpheusModule, ZuiButtonModule, ZuiTooltipModule} from "@digital-plant/zui-components";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {TooltipComponent} from "./tooltip.component";
-import {ZuiTooltipExampleWithTemplateComponent} from "./examples/with-template/template";
-import {ZuiTooltipExampleBasicComponent} from "./examples/basic/template";
-import {ZuiTooltipSomeComponent} from "./examples/with-component/some-component";
-import {ZuiTooltipExampleWithComponent} from "./examples/with-component/template";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { RouterModule } from '@angular/router';
+import { PolymorpheusModule, ZuiButtonModule, ZuiTooltipModule } from '@digital-plant/zui-components';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TooltipComponent } from './tooltip.component';
+import {
+  ZuiTooltipWithTemplateExampleComponent,
+} from './examples/with-template/tooltip-with-template-example.component';
+import { ZuiTooltipBaseExampleComponent } from './examples/base/tooltip-base-example.component';
+import { ZuiTooltipSomeComponent } from './examples/with-component/some.component';
+import {
+  ZuiTooltipWithComponentExampleComponent,
+} from './examples/with-component/tooltip-with-component-example.component';
 
 @NgModule({
   imports: [
@@ -22,10 +26,10 @@ import {ZuiTooltipExampleWithComponent} from "./examples/with-component/template
     RouterModule.forChild(generateRoutes(TooltipComponent)),
   ],
   declarations: [
-    ZuiTooltipExampleWithTemplateComponent,
-    ZuiTooltipExampleWithComponent,
+    ZuiTooltipWithTemplateExampleComponent,
+    ZuiTooltipWithComponentExampleComponent,
     ZuiTooltipSomeComponent,
-    ZuiTooltipExampleBasicComponent,
+    ZuiTooltipBaseExampleComponent,
     TooltipComponent
   ],
   exports: [TooltipComponent],
