@@ -1,2 +1,2 @@
-export * from './wrapper.directive';
+export * from './wrapper.component';
 export * from './wrapper.module';

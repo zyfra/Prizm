@@ -30,14 +30,6 @@ enum p {
   BOTTOM_RIGHT = 'br'
 }
 
-
-enum base {
-  TOP = 't',
-  LEFT = 'l',
-  RIGHT = 'r',
-  BOTTOM = 'b',
-}
-
 enum o {
   LEFT_TOP = 'lt',
   RIGHT_TOP = 'rt',

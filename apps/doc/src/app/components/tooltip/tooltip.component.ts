@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
-  PolymorpheusContent,
-  ZUI_HINT_DEFAULT_OPTIONS,
+  PolymorphContent,
+  ZUI_HINT_DEFAULT_OPTIONS, ZUI_TOOLTIP_DEFAULT_OPTIONS,
   ZuiOverlayOutsidePlacement,
   ZuiTooltipOptions,
 } from '@digital-plant/zui-components';
@@ -14,13 +14,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TooltipComponent {
-  public readonly zuiTooltipModeVariants: ReadonlyArray<ZuiTooltipOptions['mode']> = [
-    'light',
-    'error',
-    'dark',
-  ];
-  public zuiTooltipMode: ZuiTooltipOptions['mode'] = this.zuiTooltipModeVariants[0];
-
+  public content = 'Тестовое содержимое';
   public zuiAutoReposition = false;
 
   public readonly zuiTooltipDirectionVariants: ReadonlyArray<ZuiTooltipOptions['direction']> = Object.values(ZuiOverlayOutsidePlacement);
@@ -29,9 +23,9 @@ export class TooltipComponent {
 
   public zuiTooltipId: string;
 
-  public zuiTooltipShowDelay: number = ZUI_HINT_DEFAULT_OPTIONS.showDelay;
+  public zuiTooltipShowDelay: number = ZUI_TOOLTIP_DEFAULT_OPTIONS.showDelay;
 
-  public zuiTooltipHideDelay: number = ZUI_HINT_DEFAULT_OPTIONS.hideDelay;
+  public zuiTooltipHideDelay: number = ZUI_TOOLTIP_DEFAULT_OPTIONS.hideDelay;
 
   public zuiTooltipHost: HTMLElement
 
@@ -39,7 +33,7 @@ export class TooltipComponent {
     'Tooltip'
   ];
 
-  public zuiTooltip: PolymorpheusContent =  this.zuiTooltipVariants[0];
+  public zuiTooltip: PolymorphContent =  this.zuiTooltipVariants[0];
 
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'

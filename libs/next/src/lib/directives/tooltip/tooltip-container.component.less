@@ -1,3 +1,4 @@
+
 :host {
   display: inline-block;
   padding: var(--zui-tooltip-container-padding);
@@ -5,6 +6,10 @@
   font-size: var(--zui-tooltip-container-font-size);
 
   .box {
+    max-height: 90vh;
+    max-width: var(--zui-tooltip-container-max-width, 288px);
+    overflow: hidden;
+    text-overflow: ellipsis;
     position: relative;
     padding: var(--zui-tooltip-container-padding);
     border-radius: var(--zui-tooltip-container-border-radius);

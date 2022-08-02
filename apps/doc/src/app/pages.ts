@@ -57,6 +57,28 @@ export const pages: TuiDocPages = [
   },
   {
     section: `Components`,
+    title: 'Toast',
+    keywords: 'toast, тост',
+    route: '/components/toast',
+  },
+  {
+    section: `Components`,
+    title: 'Dialogs',
+    subPages: [
+      {
+        title: 'Dialog',
+        keywords: 'dialog, диалог, окно, модальное, window',
+        route: '/components/dialogs/dialog',
+      },
+      {
+        title: 'Confirm Dialog',
+        keywords: 'confirm-dialog',
+        route: '/components/dialogs/confirm-dialog',
+      }
+    ]
+  },
+  {
+    section: `Components`,
     title: 'Tooltip',
     keywords: 'tooltip, тултип',
     route: '/components/tooltip',
@@ -90,6 +112,12 @@ export const pages: TuiDocPages = [
     title: 'Paginator',
     keywords: 'paginator, paging, пагинатор, пэйджинг',
     route: '/components/paginator',
+  },
+  {
+    section: `Components`,
+    title: 'Scrollbar',
+    keywords: 'scrollbar, скролбар, скрол, scroll',
+    route: '/components/scrollbar',
   },
   {
     section: `Components`,

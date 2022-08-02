@@ -28,6 +28,7 @@
       <button
         zuiButton
         [icon]="icon"
+        [iconRight]="iconRight"
         [size]="size"
         [appearanceType]="appearanceType"
         [appearance]="appearance"
@@ -39,8 +40,8 @@
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
-        documentationPropertyName="content"
-        documentationPropertyType="ng-content"
+        documentationPropertyName="ng-content"
+        documentationPropertyType="string"
         [(documentationPropertyValue)]="content"
       >
         NgContent

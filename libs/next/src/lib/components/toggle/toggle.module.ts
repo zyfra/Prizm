@@ -4,7 +4,7 @@ import {ZuiToggleComponent} from './toggle.component';
 import {ZuiLoaderModule} from "../loader";
 import {ZuiWrapperModule} from '../../directives/wrapper';
 import {
-  PolymorpheusModule,
+  PolymorphModule,
   ZuiCheckedModule,
   ZuiFocusableModule,
   ZuiFocusedModule,
@@ -25,7 +25,7 @@ import {ZuiIconModule} from "../icon";
     ZuiCheckedModule,
     ZuiWrapperModule,
     ZuiLoaderModule,
-    PolymorpheusModule,
+    PolymorphModule,
     ZuiIconModule
   ],
     declarations: [ZuiToggleComponent],

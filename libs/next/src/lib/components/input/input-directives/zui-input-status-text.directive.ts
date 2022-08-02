@@ -2,7 +2,7 @@ import { Directive, Injector, TemplateRef } from '@angular/core';
 import { Subject } from 'rxjs';
 import { DefaultInputInvalidTextClass } from '../input-invalid-subtext/input-invalid-text-base-class.directive';
 import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-import { PolymorpheusContent } from '../../../directives/polymorpheus';
+import { PolymorphContent } from '../../../directives';
 
 @Directive({
   selector: '[zuiInputStatusText]',
@@ -24,7 +24,7 @@ export class ZuiInputStatusTextDirective extends DefaultInputInvalidTextClass {
     this.changed.next();
   }
 
-  public getStatusMessage(): PolymorpheusContent {
+  public getStatusMessage(): PolymorphContent {
     return this.invalidText || this.templateRef;
   }
 }

@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, TemplateRef, ViewChild } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PolymorpheusContent, ZuiOverlayOutsidePlacement } from '@digital-plant/zui-components';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, TemplateRef, ViewChild} from '@angular/core';
+import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
+import {PolymorphContent, ZuiOverlayOutsidePlacement} from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-dropdown-host-example',
@@ -10,7 +10,7 @@ import { PolymorpheusContent, ZuiOverlayOutsidePlacement } from '@digital-plant/
 })
 export class DropdownHostComponent {
   isOpen = false;
-  content: PolymorpheusContent;
+  content: PolymorphContent;
 
   autoReposition: boolean;
 

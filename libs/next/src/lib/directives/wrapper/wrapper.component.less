@@ -1,0 +1,226 @@
+:host {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+  appearance: none;
+  border-radius: inherit;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: white;
+
+  &[data-state="disabled"] {
+    cursor: not-allowed;
+  }
+
+  &[data-appearance='primary'] {
+    background: var(--zui-primary);
+
+    &[data-appearance-type='outline'] {
+      border: 1px solid var(--zui-primary);
+      background: transparent;
+      color: var(--zui-primary);
+    }
+
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: var(--zui-primary);
+
+      &[data-state="hovered"], &._focused {
+        background: var(--zui-primary-ghost);
+        color: var(--zui-primary);
+      }
+
+      &[data-state='pressed'] {
+        background: var(--zui-primary-ghost-pressed);
+        color: var(--zui-primary);
+      }
+    }
+
+    &[data-state="hovered"], &._focused {
+      background: var(--zui-primary-hover);
+      color: white;
+    }
+
+    &[data-state='pressed'] {
+      background: var(--zui-primary-pressed);
+      color: white;
+    }
+  }
+
+  &[data-appearance='secondary'] {
+    background: var(--zui-secondary);
+
+    &[data-appearance-type='outline'] {
+      border: 1px solid var(--zui-secondary);
+      background: transparent;
+      color: var(--zui-secondary);
+    }
+
+
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: var(--zui-secondary);
+
+      &[data-state="hovered"], &._focused {
+        background: var(--zui-secondary-ghost-hover);
+        color: var(--zui-secondary);
+      }
+
+      &[data-state='pressed'] {
+        background: var(--zui-secondary-ghost-pressed);
+        color: var(--zui-secondary);
+      }
+    }
+
+    &[data-state="hovered"], &._focused {
+      background: var(--zui-secondary-hover);
+      color: white;
+    }
+
+    &[data-state='pressed'] {
+      background: var(--zui-secondary-pressed);
+      color: white;
+    }
+  }
+
+  &[data-appearance='warning'] {
+    background: #FF7C0A;
+
+    &[data-appearance-type='outline'] {
+      border: 1px solid #FF7C0A;
+      background: transparent;
+      color: #FF7C0A;
+    }
+
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: #FF7C0A;
+
+      &[data-state="hovered"], &._focused {
+        background: #F4F6FB;
+        color: #FF7C0A;
+      }
+
+      &[data-state='pressed'] {
+        background: #FFE5CE;
+        color: #FF7C0A;
+      }
+    }
+
+    &[data-state="hovered"], &._focused {
+      background: #E67B0F;
+      color: white;
+    }
+
+    &[data-state='pressed'] {
+      background: #D36300;
+      color: white;
+    }
+  }
+
+  &[data-appearance='danger'] {
+    background: #F14141;
+
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: #F14141;
+
+      &[data-state="hovered"], &._focused {
+        background: #F4F6FB;
+        color: #F14141;
+      }
+
+      &[data-state='pressed'] {
+        background: #FCD9D9;
+        color: #F14141;
+      }
+    }
+
+    &[data-appearance-type='outline'] {
+      border: 1px solid #F14141;
+      background: transparent;
+      color: #F14141;
+    }
+
+    &[data-state="hovered"], &._focused {
+      background: #DA181E;
+      color: white;
+    }
+
+    &[data-state='pressed'] {
+      background: #AD1218;
+      color: white;
+    }
+  }
+
+  &[data-appearance='success'] {
+    background: #49AB4D;
+
+
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: #49AB4D;
+
+
+      &[data-state="hovered"], &._focused {
+        background: #F4F6FB;
+        color: #49AB4D;
+      }
+
+      &[data-state='pressed'] {
+        background: #DBEEDB;
+        color: #49AB4D;
+      }
+    }
+
+    &[data-appearance-type='outline'] {
+      border: 1px solid #49AB4D;
+      background: transparent;
+      color: #49AB4D;
+    }
+
+    &[data-state="hovered"], &._focused {
+      background: #118F3F;
+      color: white;
+    }
+
+    &[data-state='pressed'] {
+      background: #0C7733;
+      color: white;
+    }
+  }
+
+
+  &[data-state='disabled'][data-state='disabled'] {
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: var(--zui-disabled-text);
+
+      &[data-state='pressed'] {
+        background: var(--zui-disabled);
+      }
+    }
+
+    &[data-appearance-type='outline'] {
+      border: 1px solid var(--zui-disabled);
+      background: transparent;
+    }
+
+    background: var(--zui-disabled);
+    color: var(--zui-disabled-text);
+  }
+}
+
+.z-content {
+  display: flex;
+  height: 100%;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  :host._loading & {
+    opacity: 0;
+  }
+}

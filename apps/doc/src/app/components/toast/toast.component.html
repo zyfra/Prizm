@@ -1,0 +1,135 @@
+<tui-doc-page
+  header="Toast"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use Toast to show tosts and inline messages.
+    </p>
+
+    <tui-doc-example
+      heading="Info Toast"
+      id="info-toast"
+      [content]="exampleToastInfo"
+    >
+      <zui-toast-info-example></zui-toast-info-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      heading="Warning Toast"
+      id="warning-toast"
+      [content]="exampleToastWarning"
+    >
+      <zui-toast-warning-example></zui-toast-warning-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="success-toast"
+      heading="Success Toast"
+      [content]="exampleToastSuccess"
+    >
+      <zui-toast-success-example></zui-toast-success-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="danger-toast"
+      heading="Danger Toast"
+      [content]="exampleToastDanger"
+    >
+      <zui-toast-danger-example></zui-toast-danger-example>
+    </tui-doc-example>
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <button zuiButton (click)="showToast()">Показать тост</button>
+      <div>
+        <p>Container inline</p>
+        <zui-toast-container [containerId]="containerId"></zui-toast-container>
+      </div>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="timer"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="timer"
+      >
+        Timer expire
+        (0 - it will be never auto closed)
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="id"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="id"
+      >
+        Id for toast (can show only one with same id)
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="appearance"
+        documentationPropertyType="ZuiToastAppearance"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="appearanceVariants"
+        [(documentationPropertyValue)]="appearance"
+      >
+        Appearance toast
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="position"
+        documentationPropertyType="ZuiToastPosition"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="positionVariants"
+        [(documentationPropertyValue)]="position"
+      >
+        Position place
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="title"
+        documentationPropertyType="PolymorphContent<ZuiToastRef>"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="getContentVariants(template)"
+        [(documentationPropertyValue)]="title"
+      >
+        Title
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="content"
+        documentationPropertyType="PolymorphContent<ZuiToastRef>"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="getContentVariants(template)"
+        [(documentationPropertyValue)]="content"
+      >
+        Content
+      </ng-template>
+
+      <ng-template #template>
+        <a href="">Ссылка</a>
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p >
+          Import
+          <code>ZuiToastModule</code>
+          into a module where you want to use our toasts
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="exampleModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

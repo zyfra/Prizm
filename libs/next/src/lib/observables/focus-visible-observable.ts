@@ -1,19 +1,19 @@
-import {concat, merge, Observable} from 'rxjs';
+import { concat, merge, Observable } from 'rxjs';
 import {
-    distinctUntilChanged,
-    filter,
-    ignoreElements,
-    mapTo,
-    repeat,
-    shareReplay,
-    startWith,
-    switchMapTo,
-    take,
-    withLatestFrom,
+  distinctUntilChanged,
+  filter,
+  ignoreElements,
+  mapTo,
+  repeat,
+  shareReplay,
+  startWith,
+  switchMapTo,
+  take,
+  withLatestFrom,
 } from 'rxjs/operators';
-import {zuiIsAlive} from "./is-alive";
-import {ZuiOwnerDocumentException} from "../exceptions";
-import {zuiIsNativeFocused} from "../util";
+import { zuiIsAlive } from './is-alive';
+import { ZuiOwnerDocumentException } from '../exceptions';
+import { zuiIsNativeFocused } from '../util';
 import { zuiTypedFromEvent } from './typed-from-event';
 
 let documentMouseUpIsAlive$: Observable<boolean>;

@@ -1,15 +1,27 @@
-import {Directive, ElementRef, Inject, Input, OnChanges, OnDestroy, Output, Renderer2, Type,} from '@angular/core';
-import {ZuiDestroyService} from '@digital-plant/zyfra-helpers';
-import {zuiDefaultProp, zuiRequiredSetter} from '../../decorators';
-import {PolymorpheusContent} from '../index';
+import {
+  Directive,
+  ElementRef,
+  Inject,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  Renderer2,
+  Type,
+} from '@angular/core';
+import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { zuiDefaultProp, zuiRequiredSetter } from '../../decorators';
+import { PolymorphContent } from '../index';
 
-import {ZUI_HINT_OPTIONS, ZuiHintOptions} from './hint-options';
-import {ZuiOverlayControl, ZuiOverlayRelativePosition, ZuiOverlayService} from "../../modules/overlay";
-import {combineLatest, Observable, of, timer} from "rxjs";
-import {ZuiHoveredService} from "../../services";
-import {delay, map, skip, switchMap, takeUntil, tap} from "rxjs/operators";
-import {ZuiHintContainerComponent} from "./hint-container.component";
+import { ZUI_HINT_OPTIONS, ZuiHintOptions } from './hint-options';
+import { ZuiOverlayControl, ZuiOverlayRelativePosition, ZuiOverlayService } from '../../modules/overlay';
+import { combineLatest, Observable, of, Subject } from 'rxjs';
+import { ZuiHoveredService } from '../../services';
+import { delay, map, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { ZuiHintContainerComponent } from './hint-container.component';
 import { ZuiHintService } from './hint.service';
+import { generateId } from '../../util';
 
 export const HINT_HOVERED_CLASS = '_hint_hovered';
 
@@ -20,7 +32,7 @@ export const HINT_HOVERED_CLASS = '_hint_hovered';
     ],
     exportAs: 'zuiHint'
 })
-export class ZuiHintDirective implements OnChanges, OnDestroy {
+export class ZuiHintDirective implements OnChanges, OnInit, OnDestroy {
     @Input()
     @zuiDefaultProp()
     zuiHintMode: ZuiHintOptions['mode'] = this.options.mode;
@@ -35,7 +47,7 @@ export class ZuiHintDirective implements OnChanges, OnDestroy {
 
     @Input()
     @zuiDefaultProp()
-    zuiHintId: string = 'hintId_' + Math.random();
+    zuiHintId: string = 'hintId_' + generateId();
 
     @Input()
     @zuiDefaultProp()
@@ -51,7 +63,7 @@ export class ZuiHintDirective implements OnChanges, OnDestroy {
 
     @Input()
     @zuiRequiredSetter()
-    set zuiHint(value: PolymorpheusContent | null) {
+    set zuiHint(value: PolymorphContent | null) {
       if (!value) {
         this.content = '';
         return;
@@ -63,14 +75,18 @@ export class ZuiHintDirective implements OnChanges, OnDestroy {
     @Output()
     readonly zuiHoveredChange: Observable<boolean>;
 
-    content: PolymorpheusContent;
+    protected readonly onHoverActive: boolean = true;
+
+    content: PolymorphContent;
     overlay: ZuiOverlayControl;
     protected readonly containerComponent: Type<unknown> = ZuiHintContainerComponent;
+    protected readonly show$ = new Subject<boolean>();
+    protected readonly destroyListeners$ = new Subject<boolean>();
 
     constructor(
       private readonly zuiOverlayService: ZuiOverlayService,
       @Inject(Renderer2) private readonly renderer: Renderer2,
-      @Inject(ElementRef) private readonly elementRef: ElementRef<HTMLElement>,
+      @Inject(ElementRef) protected readonly elementRef: ElementRef<HTMLElement>,
       @Inject(ZuiDestroyService) private readonly destroy$: ZuiDestroyService,
       @Inject(ZUI_HINT_OPTIONS) protected readonly options: ZuiHintOptions,
       @Inject(ZuiHoveredService) private readonly hoveredService: ZuiHoveredService,
@@ -85,60 +101,83 @@ export class ZuiHintDirective implements OnChanges, OnDestroy {
       return this.zuiHintHost ?? this.elementRef.nativeElement;
     }
 
-    ngOnChanges(): void {
-      this.destroy$.next();
-      const position = new ZuiOverlayRelativePosition({
-        placement: this.zuiHintDirection,
-        autoReposition: this.zuiAutoReposition,
-        element: this.host
-      });
-
-      this.overlay = this.zuiOverlayService
-        .position(position)
-        .content(this.containerComponent, {
-          content: () => this.content,
-          mode: () => this.zuiHintMode,
-          id: this.zuiHintId,
-          context: {
-            // TODO add optional context $implicit
-            mode: this.zuiHintMode,
-            reposition: this.zuiAutoReposition,
-            direction: this.zuiHintDirection,
-            id: this.zuiHintId,
-            showDelay: this.zuiHintShowDelay,
-            hideDelay: this.zuiHintHideDelay,
-            host: this.zuiHintHost,
-          },
-        })
-        .create();
-
-      combineLatest([
-        this.hoveredService.createHovered$(this.host),
-        this.hintService.childHovered(this.id),
-      ]).pipe(
-        map(([thisHovered, containerHovered]) => {
-          return thisHovered || containerHovered
-        }),
-        switchMap(show => {
-          const delayTime = show ? this.zuiHintShowDelay : this.zuiHintHideDelay;
-          return of(show).pipe(delay(delayTime));
-        }),
-        tap(show => this.toggle(show)),
-        takeUntil(this.destroy$.pipe(skip(1))),
-      ).subscribe();
+    public ngOnChanges(): void {
+      this.initOverlayController();
     }
 
-    ngOnDestroy(): void {
-      if (this.overlay) this.overlay.close();
+    public ngOnInit(): void {
+      this.initVisibleController();
     }
 
-    public toggle(add: boolean): void {
-      if (add) {
-          this.renderer.addClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
-          this.overlay.open();
-      } else {
-          this.renderer.removeClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
-          this.overlay.close();
+    public ngOnDestroy(): void {
+        if (this.overlay) this.overlay.close();
       }
-    }
+
+      public toggle(add: boolean): void {
+        if (add) {
+            this.renderer.addClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
+            this.overlay.open();
+        } else {
+            this.renderer.removeClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
+            this.overlay.close();
+        }
+      }
+
+      private initVisibleController(): void {
+        this.show$.pipe(
+          switchMap(show => {
+            const delayTime = show ? this.zuiHintShowDelay : this.zuiHintHideDelay;
+            return of(show).pipe(delay(delayTime));
+          }),
+          tap(show => this.toggle(show)),
+          takeUntil(this.destroy$),
+        ).subscribe()
+      }
+
+      private initOverlayController(): void {
+        this.destroyListeners$.next();
+        this.show$.next(false);
+        this.overlay?.close();
+
+        const position = new ZuiOverlayRelativePosition({
+          placement: this.zuiHintDirection,
+          autoReposition: this.zuiAutoReposition,
+          element: this.host
+        });
+        this.overlay = this.zuiOverlayService
+          .position(position)
+          .config({
+            backdrop: false,
+          })
+          .content(this.containerComponent, {
+            content: () => this.content,
+            mode: () => this.zuiHintMode,
+            id: this.zuiHintId,
+            context: {
+              // TODO add optional context $implicit
+              mode: this.zuiHintMode,
+              reposition: this.zuiAutoReposition,
+              direction: this.zuiHintDirection,
+              id: this.zuiHintId,
+              showDelay: this.zuiHintShowDelay,
+              hideDelay: this.zuiHintHideDelay,
+              host: this.zuiHintHost,
+            },
+          })
+          .create();
+
+        if (this.onHoverActive) {
+          combineLatest([
+            this.hoveredService.createHovered$(this.host),
+            this.hintService.childHovered(this.id),
+          ]).pipe(
+            map(([thisHovered, containerHovered]) => {
+              return thisHovered || containerHovered
+            }),
+            tap(hovered => this.show$.next(hovered)),
+            takeUntil(this.destroyListeners$),
+            takeUntil(this.destroy$),
+          ).subscribe();
+        }
+      }
 }

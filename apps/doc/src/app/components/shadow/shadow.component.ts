@@ -1,13 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import {
-  PolymorpheusContent,
-  ZuiContextWithImplicit,
-  ZuiShadowType,
-  ZuiShadowTypeEnum,
-  ZuiSizeL,
-  ZuiSizeM,
-} from '@digital-plant/zui-components';
+import { ZuiShadowType, ZuiShadowTypeEnum } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-toggle-example',
@@ -29,15 +22,6 @@ export class ShadowComponent {
   ];
   value: ZuiShadowType = ZuiShadowTypeEnum.bigRight;
 
-  readonly iconVariants: ReadonlyArray<PolymorpheusContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>> = [
-    '',
-    'selection-checkbox-marked-circle',
-    'selection-checkbox-marked-circle-chanel',
-    'arrows-chevron-left',
-    'arrows-chevron-right'
-  ];
-  iconOn: PolymorpheusContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>> = this.iconVariants[0];
-  iconOff: PolymorpheusContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>> = this.iconVariants[0];
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
     );

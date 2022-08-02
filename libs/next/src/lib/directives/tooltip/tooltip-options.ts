@@ -12,8 +12,8 @@ export interface ZuiTooltipOptions {
 
 /** Default values for hint options */
 export const ZUI_TOOLTIP_DEFAULT_OPTIONS: ZuiTooltipOptions = {
-    showDelay: 500,
-    hideDelay: 200,
+    showDelay: 100,
+    hideDelay: 100,
     autoReposition: true,
     mode: null,
     direction: ZuiOverlayOutsidePlacement.RIGHT,

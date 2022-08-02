@@ -10,11 +10,13 @@
     <ng-content></ng-content>
   </button>
 </div>
+
 <div class="icon">
   <button zuiIconButton
     (click)="!showLoader && clickIcon.emit()"
     [size]="size"
     [disabled]="disabled"
+    [pseudoState]='showLoader && "none"'
     [appearance]="appearance"
     [appearanceType]="appearanceType"
     [icon]="icon">

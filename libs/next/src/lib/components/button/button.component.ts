@@ -3,20 +3,28 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
+  forwardRef,
   HostBinding,
+  HostListener,
   Inject,
-  Input, TemplateRef,
+  Input,
+  TemplateRef,
 } from '@angular/core';
-import {ZUI_BUTTON_OPTIONS, ZuiButtonOptions, ZuiContent} from "./button-options";
-import {AbstractZuiInteractive} from "../../abstract/interactive";
-import {zuiIsNativeFocused} from "../../util/zui-is-native-focused";
-import {ZuiSize} from "../../util/zui-size-bigger";
-import {ZuiDestroyService} from "@digital-plant/zyfra-helpers";
-import {takeUntil, tap} from "rxjs/operators";
-import {zuiPressedObservable} from "../../observables/pressed-observable";
-import {ZuiAppearance, ZuiAppearanceType} from "../../types/appearance.types";
-import {zuiWatch} from '../../observables/watch';
-import {zuiDefaultProp} from "../../decorators";
+import { ZUI_BUTTON_OPTIONS, ZuiButtonOptions, ZuiContent } from './button-options';
+import { AbstractZuiInteractive } from '../../abstract/interactive';
+import { zuiIsNativeFocused } from '../../util/zui-is-native-focused';
+import { ZuiSize } from '../../util/zui-size-bigger';
+import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { takeUntil, tap } from 'rxjs/operators';
+import { zuiPressedObservable } from '../../observables/pressed-observable';
+import { ZuiAppearance, ZuiAppearanceType } from '../../types/appearance.types';
+import { zuiWatch } from '../../observables/watch';
+import { zuiDefaultProp } from '../../decorators';
+import { ZUI_FOCUSABLE_ITEM_ACCESSOR } from '../../tokens';
+import { ZuiFocusableElementAccessor } from '../../types';
+import { ZuiFocusVisibleService } from '../../directives/focus-visible/focus-visible.service';
+import { ZuiHoveredService } from '../../services';
+import { watch } from '@taiga-ui/cdk';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -26,9 +34,15 @@ import {zuiDefaultProp} from "../../decorators";
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     ZuiDestroyService,
+    {
+      provide: ZUI_FOCUSABLE_ITEM_ACCESSOR,
+      useExisting: forwardRef(() => ZuiButtonComponent),
+    },
+    ZuiFocusVisibleService
   ],
 })
-export class ZuiButtonComponent extends AbstractZuiInteractive {
+export class ZuiButtonComponent extends AbstractZuiInteractive
+  implements ZuiFocusableElementAccessor {
   @Input()
   @HostBinding('attr.data-size')
   @zuiDefaultProp()
@@ -61,7 +75,21 @@ export class ZuiButtonComponent extends AbstractZuiInteractive {
   @zuiDefaultProp()
   showLoader = false;
 
-  readonly TemplateRef = TemplateRef;
+  @HostBinding('attr.disabled')
+  get nativeDisabled(): '' | null {
+    return this.computedDisabled || this.showLoader ? '' : null;
+  }
+
+  @HostBinding('tabIndex')
+  get tabIndex(): number {
+    return this.focusable ? 0 : -1;
+  }
+
+  @HostListener('focusin', ['true'])
+  @HostListener('focusout', ['false'])
+  public onFocused(focused: boolean): void {
+    this.updateFocused(focused);
+  }
 
   get focused(): boolean {
     return !this.showLoader && zuiIsNativeFocused(this.elementRef.nativeElement);
@@ -70,21 +98,40 @@ export class ZuiButtonComponent extends AbstractZuiInteractive {
   constructor(
     @Inject(ZUI_BUTTON_OPTIONS) private readonly options: ZuiButtonOptions,
     private readonly elementRef: ElementRef,
+    private readonly focusVisible$: ZuiFocusVisibleService,
+    private readonly hoveredService: ZuiHoveredService,
     private readonly changeDetectorRef: ChangeDetectorRef,
     private readonly destroy$: ZuiDestroyService,
   ) {
     super();
 
+    this.hoveredService.createHovered$(this.elementRef.nativeElement).pipe(
+      tap(hovered => this.updateHovered(hovered)),
+      watch(this.changeDetectorRef),
+      takeUntil(this.destroy$),
+    ).subscribe();
+
+    focusVisible$.pipe(
+      takeUntil(destroy$),
+    ).subscribe(focusVisible => {
+      this.updateFocusVisible(focusVisible);
+    });
+
     zuiPressedObservable(elementRef.nativeElement, {
       onlyTrusted: true,
     })
       .pipe(
-        tap(pressed => {this.updatePressed(pressed)}),
+        tap(pressed => {
+          this.updatePressed(pressed);
+        }),
         zuiWatch(changeDetectorRef),
-        takeUntil(destroy$)
+        takeUntil(destroy$),
       ).subscribe();
   }
 
+  get nativeFocusableElement(): HTMLElement | null {
+    return this.nativeDisabled ? null : this.elementRef.nativeElement;
+  }
   public isTemplateRef(icon: ZuiContent): icon is TemplateRef<unknown> {
     return icon instanceof TemplateRef;
   }

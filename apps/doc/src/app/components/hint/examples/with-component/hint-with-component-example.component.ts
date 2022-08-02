@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { PolymorpheusComponent, ZuiOverlayOutsidePlacement } from '@digital-plant/zui-components';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { PolymorphComponent, ZuiOverlayOutsidePlacement } from '@digital-plant/zui-components';
 import { ZuiHintSomeComponent } from './some.component';
 
 @Component({
@@ -10,9 +10,10 @@ import { ZuiHintSomeComponent } from './some.component';
       display: flex;
       gap: 1rem;
     }
-  `]
+  `],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ZuiHintWithComponentExampleComponent {
-  readonly component = new PolymorpheusComponent(ZuiHintSomeComponent);
+  readonly component = new PolymorphComponent(ZuiHintSomeComponent);
   readonly direction = ZuiOverlayOutsidePlacement.BOTTOM;
 }

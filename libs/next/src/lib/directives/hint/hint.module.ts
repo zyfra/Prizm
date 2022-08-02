@@ -3,12 +3,12 @@ import {NgModule} from '@angular/core';
 import {ZuiHintDirective} from './hint.directive';
 import {ZuiHintContainerComponent} from "./hint-container.component";
 import {CommonModule} from "@angular/common";
-import {PolymorpheusModule} from "../polymorpheus";
+import {PolymorphModule} from "../polymorph";
 
 @NgModule({
   imports: [
     CommonModule,
-    PolymorpheusModule
+    PolymorphModule
   ],
   declarations: [ZuiHintDirective, ZuiHintContainerComponent],
   exports: [ZuiHintDirective],

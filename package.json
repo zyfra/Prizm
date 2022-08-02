@@ -5,6 +5,7 @@
   "scripts": {
     "docs": "nx run components:doc",
     "ng": "nx",
+    "cypress:open": "cypress open",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "nx run components:storybook",
     "serve:sdk": "nx run sdk:serve:development",
@@ -19,7 +20,9 @@
     "test:doc": "nx test doc",
     "lint:next": "nx lint next",
     "test:next": "nx test next",
-    "check-next-doc": "npm run lint:doc && npm run test:doc && npm run lint:next && npm run test:next",
+    "doc:e2e": "nx e2e doc-e2e",
+    "doc:e2e:watch": "nx e2e doc-e2e --watch",
+    "check-next-doc": "npm run lint:doc && npm run test:doc && npm run lint:next && npm run test:next && npm run build:next && npm run doc:e2e",
     "lint:e2e": "nx lint components-e2e && nx lint sdk-e2e",
     "lint": "npm run lint:libs && npm run lint:sdk && npm run lint:e2e",
     "test": "nx affected:test --all",
@@ -57,6 +60,7 @@
     "primeng": "^12.2.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
+    "uuid": "^8.3.2",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -88,9 +92,10 @@
     "@types/dompurify": "^2.3.3",
     "@types/jest": "27.0.2",
     "@types/node": "^14.18.18",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "~4.33.0",
     "@typescript-eslint/parser": "~4.33.0",
-    "cypress": "^8.3.0",
+    "cypress": "^8.7.0",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
