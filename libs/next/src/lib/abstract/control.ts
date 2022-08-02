@@ -65,9 +65,11 @@ export abstract class AbstractZuiControl<T>
   get computedInvalid(): boolean {
     return (
       this.interactive &&
-      (this.pseudoInvalid !== null
+      (
+        (this.pseudoInvalid != null)
         ? this.pseudoInvalid
-        : this.touched && this.invalid)
+        : this.touched && this.invalid
+      )
     );
   }
 
