@@ -33,5 +33,5 @@ export class PaginatorExampleComponent {
     ),
   };
 
-  readonly exampleModule: RawLoaderContent = import('!!raw-loader!./examples/import-module.md');
+  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/import-module.md');
 }

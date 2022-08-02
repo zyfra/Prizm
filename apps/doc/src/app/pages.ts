@@ -23,6 +23,12 @@ export const pages: TuiDocPages = [
   },
   {
     section: `Components`,
+    title: 'Shadow',
+    keywords: 'shadow, zui-shadow, тень',
+    route: '/components/shadow',
+  },
+  {
+    section: `Components`,
     title: 'DropdownHost',
     keywords: 'dropdown, zui-dropdown-host, overlay',
     route: '/components/dropdown-host',

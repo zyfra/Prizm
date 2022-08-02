@@ -29,6 +29,14 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/shadow',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/shadow/shadow.module')).ShadowModule,
+    data: {
+      title: 'Shadow',
+    },
+  },
+  {
     path: 'components/button',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/button/button.module')).ButtonModule,

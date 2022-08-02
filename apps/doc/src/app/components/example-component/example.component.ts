@@ -1,6 +1,6 @@
-import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
-import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
-import {TZyfraButtonIconPosision} from "@digital-plant/zyfra-components";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { TZyfraButtonIconPosision } from '@digital-plant/zyfra-components';
 
 @Component({
   selector: 'zui-example-example',
@@ -35,7 +35,7 @@ export class ExampleComponent {
   badge: string;
   style: string;
 
-  readonly exampleModule: RawLoaderContent = import(
+  readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/import-module.md'
     );
 

@@ -17,10 +17,10 @@ export class IconComponent {
 
   public defs = IconDefs;
 
-  readonly exampleModule: RawLoaderContent = import('!!raw-loader!./examples/import-module.md');
+  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
-  readonly example1: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/1/template.ts'),
-    HTML: import('!!raw-loader!./examples/1/template.html'),
+  readonly exampleBase: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/base/icon-base-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/base/icon-base-example.component.html'),
   };
 }

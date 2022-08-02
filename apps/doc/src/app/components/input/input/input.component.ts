@@ -10,8 +10,8 @@ import { default as d } from '!!raw-loader!../examples/input-phone-example/input
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent {
-  public label: string = 'Заголовок';
-  public outer: boolean = false;
+  public label = 'Заголовок';
+  public outer = false;
   public size: ZuiInputSize = 'l';
   public sizesOuter: ZuiInputSize[] = ['l', 'm', 's'];
   public sizesInner: ZuiInputSize[] = ['l', 'm'];
@@ -101,5 +101,5 @@ export class InputComponent {
     ),
   };
 
-  public readonly exampleModule: RawLoaderContent = import('!!raw-loader!../examples/import-module.md');
+  public readonly setupModule: RawLoaderContent = import('!!raw-loader!../examples/import-module.md');
 }

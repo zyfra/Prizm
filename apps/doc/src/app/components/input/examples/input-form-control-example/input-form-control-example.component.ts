@@ -9,8 +9,8 @@ import { FormControl } from '@angular/forms';
 export class InputFormControlExampleComponent {
   public readonly control: FormControl = new FormControl();
 
-  public valueText: string = '';
-  public ngModelText: string = '';
+  public valueText = '';
+  public ngModelText = '';
 
   public changeControl(): void {
     this.control.setValue('New text control from method!');
