@@ -10,6 +10,7 @@ import {PolymorphPrimitive} from './primitive';
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type PolymorphContent<C extends object = {}> =
     | TemplateRef<C>
+    | C
     | PolymorphTemplate<C>
     // eslint-disable-next-line @typescript-eslint/ban-types
     | PolymorphComponent<object, C>

@@ -9,6 +9,7 @@
  */
 import {ZuiPureException} from "../exceptions";
 
+
 export function zuiPure<T>(
   // eslint-disable-next-line @typescript-eslint/ban-types
   _target: object,
@@ -36,7 +37,7 @@ export function zuiPure<T>(
 
   return {
     enumerable,
-    get(): T {
+    get: function (): T {
       let previousArgs: readonly unknown[] = [];
       let originalFnWasCalledLeastAtOnce = false;
       let pureValue: unknown;
@@ -52,6 +53,8 @@ export function zuiPure<T>(
         }
 
         previousArgs = args;
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         pureValue = original.apply(this, args);
         originalFnWasCalledLeastAtOnce = true;
 

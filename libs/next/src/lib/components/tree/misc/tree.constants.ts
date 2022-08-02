@@ -1,5 +1,5 @@
 import { EMPTY_FUNCTION } from '../../../constants';
-import { PolymorphComponent } from '../../../directives';
+import { PolymorphComponent } from '../../../directives/polymorph';
 import { ZuiTreeItemContentComponent } from '../components/tree-item-content/tree-item-content.component';
 import { ZuiTreeController } from './tree.interfaces';
 
