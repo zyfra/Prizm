@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ZuiDialogComponent } from './dialog.component';
-import { PolymorphModule } from '../../../directives';
+import { PolymorphModule, ZuiFocusTrapModule } from '../../../directives';
 import { ZuiOverlayModule } from '../../../modules/overlay';
 import { ZuiButtonModule } from '../../button';
+import { ZuiIconModule } from '../../icon';
 import { ZuiScrollbarModule } from '../../scrollbar';
-import { ZuiFocusTrapModule } from '../../../directives/focus-trap';
 
 @NgModule({
   imports: [
@@ -14,6 +14,7 @@ import { ZuiFocusTrapModule } from '../../../directives/focus-trap';
     ZuiOverlayModule,
     ZuiButtonModule,
     ZuiFocusTrapModule,
+    ZuiIconModule,
     ZuiScrollbarModule
   ],
   declarations: [
