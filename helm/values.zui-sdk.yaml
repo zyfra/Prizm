@@ -105,134 +105,134 @@ extraSecretMounts: {}
 
 # -- Create additional ConfigMap
 # Format: { configMapName: { name: "value", * }, * }
-extraConfigMaps: # {}
-  nginx-default-conf:
-    default.conf: |
-      # default kaniko /etc/nginx/conf.d/default.conf changed for single page application (SPA)
-      server {
-          listen      0.0.0.0:8080 default_server;
-          listen      [::]:8080 default_server;
-      
-          server_name           _ "";
-          root                  /www;
-      port_in_redirect off;
-      
-          location ~ / {
-            index              index.html;
-            add_header         Cache-Control $control;
-            expires            $expires;
-            etag               on;
-            if_modified_since  exact;
-
-            location ~* \.(js(on)?|css|png|jpe?g|gif|ico|svg|webp|woff2?|ttf|eot)$ {
-                try_files      $uri =404;
-            }
-            try_files          $uri $uri/ $uri.html /index.html =404;
-          }
-
-          error_page 404 = /index.html;
-      
-          location = /app_logs {
-              access_log      /dev/stdout main_post;
-              limit_except    POST {
-                  deny all;
-              }
-              proxy_pass      http://0.0.0.0:8080/app_logs_write;
-          }
-      
-          location = /app_logs_write {
-              access_log      off;
-              default_type    application/json;
-              limit_except    POST {
-                  deny all;
-              }
-              return 200 '{\r\n"msg": "ok"\r\n}\r\n';
-          }
-      
-          location = /health {
-              access_log   off;
-              default_type application/json;
-              return 200 '{\r
-                  "code": 200,\r
-                  "state": "running",\r
-                  "app": "zui-sdk",\r
-                  "version": "feat_PLATFORM01-14519",\r
-                  "description": "SDK",\r
-                  "hash": "6902af98c2527d5fc3a2ac7e84695ea41c532c37"\r
-              }\r\n';
-      
-              allow       0.0.0.0/8;
-              allow       10.0.0.0/8;
-              allow       127.0.0.0/8;
-              allow       172.16.0.0/12;
-              allow       192.168.0.0/16;
-              allow       fc00::/7;
-              allow       2002::/24;
-              allow       2002:a00::/24;
-              allow       2002:7f00::/24;
-              allow       2002:ac10::/28;
-              allow       2002:c0a8::/32;
-              deny        all;
-          }
-      
-          location /info {
-              access_log       off;
-              alias            /usr/share/nginx/info;
-              index            index.html;
-          }
-      
-          location = /status {
-              stub_status;
-              access_log  off;
-      
-              allow       0.0.0.0/8;
-              allow       10.0.0.0/8;
-              allow       127.0.0.0/8;
-              allow       172.16.0.0/12;
-              allow       192.168.0.0/16;
-              allow       fc00::/7;
-              allow       2002::/24;
-              allow       2002:a00::/24;
-              allow       2002:7f00::/24;
-              allow       2002:ac10::/28;
-              allow       2002:c0a8::/32;
-              deny        all;
-          }
-      
-          location = /status_json {
-              access_log  off;
-              add_header Content-Type application/json;
-              return 200 '{\r
-                  "connections_active": $connections_active,\r
-                  "connections_reading": $connections_reading,\r
-                  "connections_writing": $connections_writing,\r
-                  "connections_waiting": $connections_waiting\r
-              }\r\n';
-      
-              allow       0.0.0.0/8;
-              allow       10.0.0.0/8;
-              allow       127.0.0.0/8;
-              allow       172.16.0.0/12;
-              allow       192.168.0.0/16;
-              allow       fc00::/7;
-              allow       2002::/24;
-              allow       2002:a00::/24;
-              allow       2002:7f00::/24;
-              allow       2002:ac10::/28;
-              allow       2002:c0a8::/32;
-              deny        all;
-          }
-      
-          error_page 500 502 503 504 /50x.html;
-          location = /50x.html {
-              root   /usr/share/nginx/html;
-          }
-      
-          location ~ /\. {
-              deny   all;
-          }
-      }
-
+extraConfigMaps: {}
+#   nginx-default-conf:
+#     default.conf: |
+#       # default kaniko /etc/nginx/conf.d/default.conf changed for single page application (SPA)
+#       server {
+#           listen      0.0.0.0:8080 default_server;
+#           listen      [::]:8080 default_server;
+#       
+#           server_name           _ "";
+#           root                  /www;
+#       port_in_redirect off;
+#       
+#           location ~ / {
+#             index              index.html;
+#             add_header         Cache-Control $control;
+#             expires            $expires;
+#             etag               on;
+#             if_modified_since  exact;
+# 
+#             location ~* \.(js(on)?|css|png|jpe?g|gif|ico|svg|webp|woff2?|ttf|eot)$ {
+#                 try_files      $uri =404;
+#             }
+#             try_files          $uri $uri/ $uri.html /index.html =404;
+#           }
+# 
+#           error_page 404 = /index.html;
+#       
+#           location = /app_logs {
+#               access_log      /dev/stdout main_post;
+#               limit_except    POST {
+#                   deny all;
+#               }
+#               proxy_pass      http://0.0.0.0:8080/app_logs_write;
+#           }
+#       
+#           location = /app_logs_write {
+#               access_log      off;
+#               default_type    application/json;
+#               limit_except    POST {
+#                   deny all;
+#               }
+#               return 200 '{\r\n"msg": "ok"\r\n}\r\n';
+#           }
+#       
+#           location = /health {
+#               access_log   off;
+#               default_type application/json;
+#               return 200 '{\r
+#                   "code": 200,\r
+#                   "state": "running",\r
+#                   "app": "zui-sdk",\r
+#                   "version": "feat_PLATFORM01-14519",\r
+#                   "description": "SDK",\r
+#                   "hash": "6902af98c2527d5fc3a2ac7e84695ea41c532c37"\r
+#               }\r\n';
+#       
+#               allow       0.0.0.0/8;
+#               allow       10.0.0.0/8;
+#               allow       127.0.0.0/8;
+#               allow       172.16.0.0/12;
+#               allow       192.168.0.0/16;
+#               allow       fc00::/7;
+#               allow       2002::/24;
+#               allow       2002:a00::/24;
+#               allow       2002:7f00::/24;
+#               allow       2002:ac10::/28;
+#               allow       2002:c0a8::/32;
+#               deny        all;
+#           }
+#       
+#           location /info {
+#               access_log       off;
+#               alias            /usr/share/nginx/info;
+#               index            index.html;
+#           }
+#       
+#           location = /status {
+#               stub_status;
+#               access_log  off;
+#       
+#               allow       0.0.0.0/8;
+#               allow       10.0.0.0/8;
+#               allow       127.0.0.0/8;
+#               allow       172.16.0.0/12;
+#               allow       192.168.0.0/16;
+#               allow       fc00::/7;
+#               allow       2002::/24;
+#               allow       2002:a00::/24;
+#               allow       2002:7f00::/24;
+#               allow       2002:ac10::/28;
+#               allow       2002:c0a8::/32;
+#               deny        all;
+#           }
+#       
+#           location = /status_json {
+#               access_log  off;
+#               add_header Content-Type application/json;
+#               return 200 '{\r
+#                   "connections_active": $connections_active,\r
+#                   "connections_reading": $connections_reading,\r
+#                   "connections_writing": $connections_writing,\r
+#                   "connections_waiting": $connections_waiting\r
+#               }\r\n';
+#       
+#               allow       0.0.0.0/8;
+#               allow       10.0.0.0/8;
+#               allow       127.0.0.0/8;
+#               allow       172.16.0.0/12;
+#               allow       192.168.0.0/16;
+#               allow       fc00::/7;
+#               allow       2002::/24;
+#               allow       2002:a00::/24;
+#               allow       2002:7f00::/24;
+#               allow       2002:ac10::/28;
+#               allow       2002:c0a8::/32;
+#               deny        all;
+#           }
+#       
+#           error_page 500 502 503 504 /50x.html;
+#           location = /50x.html {
+#               root   /usr/share/nginx/html;
+#           }
+#       
+#           location ~ /\. {
+#               deny   all;
+#           }
+#       }
+# 
 # -- Create additional binaryConfigMap
 # Format: { binaryConfigMapName: { name: "value", * }, * }
 extraBinaryConfigMaps: {}
