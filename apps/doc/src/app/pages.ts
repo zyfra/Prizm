@@ -17,15 +17,21 @@ export const pages: TuiDocPages = [
   // Components
   {
     section: `Components`,
+    title: 'Tree',
+    keywords: 'дерево, zui-tree, tree',
+    route: '/components/tree',
+  },
+  {
+    section: `Components`,
     title: 'Button',
     keywords: 'кнопка, zui-button, иконка',
     route: '/components/button',
   },
   {
     section: `Components`,
-    title: 'Tree',
-    keywords: 'дерево, zui-tree, tree',
-    route: '/components/tree',
+    title: 'DropdownHost',
+    keywords: 'dropdown, zui-dropdown-host, overlay',
+    route: '/components/dropdown-host',
   },
   {
     section: `Components`,
@@ -35,9 +41,15 @@ export const pages: TuiDocPages = [
   },
   {
     section: `Components`,
-    title: 'DropdownHost',
-    keywords: 'dropdown, zui-dropdown-host, overlay',
-    route: '/components/dropdown-host',
+    title: 'Card',
+    keywords: 'card, zui-card, карточка',
+    route: '/components/card',
+  },
+  {
+    section: `Components`,
+    title: 'Widget',
+    keywords: 'widget, zui-widget, виджет',
+    route: '/components/widget',
   },
   {
     section: `Components`,

@@ -37,6 +37,22 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/card',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/card/card.module')).CardModule,
+    data: {
+      title: 'Card',
+    },
+  },
+  {
+    path: 'components/widget',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/widget/widget.module')).WidgetModule,
+    data: {
+      title: 'Widget',
+    },
+  },
+  {
     path: 'components/button',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/button/button.module')).ButtonModule,

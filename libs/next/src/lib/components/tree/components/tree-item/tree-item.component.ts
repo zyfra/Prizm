@@ -12,7 +12,7 @@ import {
 import { PolymorphContent } from '../../../../directives';
 import { Subject } from 'rxjs';
 import { distinctUntilChanged, map, startWith } from 'rxjs/operators';
-import { ZuiTreeController, ZuiTreeItemContext } from '../../misc/tree.interfaces';
+import { ZuiTreeController } from '../../misc/tree.interfaces';
 import { ZUI_TREE_CONTENT, ZUI_TREE_CONTROLLER, ZUI_TREE_LEVEL, ZUI_TREE_NODE } from '../../misc/tree.tokens';
 import { ZUI_TREE_ITEM_PROVIDERS } from './tree-item.providers';
 import { EMPTY_QUERY } from '../../../../constants';

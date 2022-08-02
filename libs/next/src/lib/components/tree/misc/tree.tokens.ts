@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core';
-import { PolymorphContent } from '../../../directives';
+import { PolymorphContent } from '../../../directives/polymorph';
 import { ZUI_DEFAULT_TREE_CONTROLLER, ZUI_TREE_ITEM_CONTENT } from './tree.constants';
 import { ZuiTreeAccessor, ZuiTreeController, ZuiTreeItemContext, ZuiTreeLoader } from './tree.interfaces';
 

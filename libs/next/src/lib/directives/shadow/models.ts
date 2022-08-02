@@ -7,6 +7,7 @@ export enum ZuiShadowTypeEnum {
   miniLeft = 'mini-left',
   bigRight = 'big-right',
   bigLeft = 'big-left',
+  none = 'none',
 }
 
 export type ZuiShadowType = `${ZuiShadowTypeEnum.miniBottom}`
@@ -16,6 +17,7 @@ export type ZuiShadowType = `${ZuiShadowTypeEnum.miniBottom}`
   | `${ZuiShadowTypeEnum.bigTop}`
   | `${ZuiShadowTypeEnum.bigBottom}`
   | `${ZuiShadowTypeEnum.bigLeft}`
+  | `${ZuiShadowTypeEnum.none}`
   | `${ZuiShadowTypeEnum.bigRight}`;
 
 export enum ZuiShadowValue {
@@ -26,7 +28,8 @@ export enum ZuiShadowValue {
   miniRight = '2px 0px 4px rgba(191, 198, 215, .5)',
   bigRight = '8px 0px 32px rgba(191, 198, 215, .5)',
   miniLeft = '-2px 0px 4px rgba(191, 198, 215, .5)',
-  bigLeft = '-8px 0px 32px rgba(191, 198, 215, .5)'
+  bigLeft = '-8px 0px 32px rgba(191, 198, 215, .5)',
+  none = ''
 }
 
 

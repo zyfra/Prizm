@@ -14,8 +14,8 @@ import { FormControl } from '@angular/forms';
 export class ZuiToggleBaseExampleComponent implements OnInit {
   public value = true;
   public readonly value2 = new FormControl(false);
-  public valueDisabled = true;
-  readonly value2Disabled = new FormControl(false);
+  public valueDisabled = false;
+  public readonly value2Disabled = new FormControl(false);
 
   public ngOnInit(): void {
     this.value2Disabled.disable();
