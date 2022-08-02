@@ -10,6 +10,7 @@ import { TreeTemplateExampleComponent } from './examples/template/tree-template-
 import { FoldersComponent } from './examples/component/folder.component';
 import { TreeComponentExampleComponent } from './examples/component/tree-component-example.component';
 
+
 @NgModule({
   imports: [
     CommonModule,

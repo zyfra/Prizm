@@ -21,8 +21,8 @@ import {PolymorphTemplate} from './template';
     // eslint-disable-next-line @angular-eslint/directive-selector
     selector: '[polymorphOutlet]',
 })
-// eslint-disable-next-line @angular-eslint/no-conflicting-lifecycle
-export class PolymorphOutletDirective<C extends Record<string, unknown>> implements OnChanges, DoCheck {
+// eslint-disable-next-line @angular-eslint/no-conflicting-lifecycle,@typescript-eslint/ban-types
+export class PolymorphOutletDirective<C extends object> implements OnChanges, DoCheck {
     private viewRef?: EmbeddedViewRef<unknown>;
 
     private componentRef?: ComponentRef<unknown>;
@@ -103,19 +103,22 @@ export class PolymorphOutletDirective<C extends Record<string, unknown>> impleme
     }
 }
 
-function isDirective<C extends Record<string, unknown>>(
+// eslint-disable-next-line @typescript-eslint/ban-types
+function isDirective<C extends object>(
     content: PolymorphContent<C> | null,
 ): content is PolymorphTemplate<C> {
     return content instanceof PolymorphTemplate;
 }
 
-function isComponent<C extends Record<string, unknown>>(
+// eslint-disable-next-line @typescript-eslint/ban-types
+function isComponent<C extends object>(
     content: PolymorphContent<C> | null,
 ): content is PolymorphComponent<Record<string, unknown>, C> {
     return content instanceof PolymorphComponent;
 }
 
-function isTemplate<C extends Record<string, unknown>>(
+// eslint-disable-next-line @typescript-eslint/ban-types
+function isTemplate<C extends object>(
     content: PolymorphContent<C> | null,
 ): content is PolymorphTemplate<C> | TemplateRef<C> {
     return isDirective(content) || content instanceof TemplateRef;

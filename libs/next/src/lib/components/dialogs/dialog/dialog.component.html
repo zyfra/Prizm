@@ -2,7 +2,7 @@
   <div *ngIf="context.header" class='header'>
     <div
       class='title'
-      *polymorpheusOutlet="context.header as data; context: context">
+      *polymorphOutlet="context.header as data; context: context">
       {{data}}
     </div>
     <button *ngIf="context.closeable"
@@ -17,7 +17,7 @@
 
   <div class="content">
     <zui-scrollbar class='scrollbar'>
-      <div *polymorpheusOutlet="context.content as text; context: context">
+      <div *polymorphOutlet="context.content as text; context: context">
         {{ text }}
       </div>
     </zui-scrollbar>
@@ -29,7 +29,7 @@
     *ngIf="footer"
   >
     <ng-container
-      *polymorpheusOutlet="$any(footer) as data; context: context">
+      *polymorphOutlet="$any(footer) as data; context: context">
       <div class="buttons" *ngIf='isFooterArray; else temp'>
         <button
           *ngFor='let footerButton of data'

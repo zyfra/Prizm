@@ -5,7 +5,7 @@
 >
   <ng-container *ngIf="$any(value) !== children">
     <div
-      *polymorpheusOutlet="content as val; context: {$implicit: value, node: view}"
+      *polymorphOutlet="content as val; context: {$implicit: value, node: view}"
     >{{val}}</div>
   </ng-container>
   <zui-tree
