@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { GettingStartedComponent } from './getting-started/getting-started.component';
 
 export const ROUTES = [
-  // DOCS
+  // DOC
   {
     path: 'getting-started',
     component: GettingStartedComponent,
@@ -12,11 +12,11 @@ export const ROUTES = [
     },
   },
   {
-    path: 'example-component',
+    path: 'generate-example',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./components/example-component/example.module')).ExampleModule,
+      (await import('./generate-example/generate-example.module')).GenerateExampleModule,
     data: {
-      title: 'Example',
+      title: 'Generate example',
     },
   },
   // COMPONENTS

@@ -10,9 +10,9 @@ export const pages: TuiDocPages = [
   },
   {
     section: `Documentation`,
-    title: 'Example Component',
-    keywords: 'демо кнопка, example-component, example-button',
-    route: 'example-component',
+    title: 'Generate example',
+    keywords: 'создать пример, шаблон, generate, template, example',
+    route: 'generate-example',
   },
   // Components
   {

@@ -1,0 +1,19 @@
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+
+@Component({
+  selector: '<%= normalizedComponentSelectorName %>',
+  templateUrl: './<%= normalizedComponentFileName %>.component.html',
+  styleUrls: ['./<%= normalizedComponentFileName %>.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class  <%= normalizedComponentClassName %> {
+  readonly exampleModule: RawLoaderContent = import(
+    '!!raw-loader!./examples/setup-module.md'
+  );
+
+  readonly exampleBase: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/base/base.component.ts'),
+    HTML: import('!!raw-loader!./examples/base/base.component.html'),
+  };
+}
