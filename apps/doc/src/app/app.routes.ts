@@ -156,7 +156,7 @@ export const ROUTES = [
   {
     path: 'components/indicators',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./components/example-indicators/example-indicators.module')).ExampleIndicatorsModule,
+      (await import('./components/indicators/indicators-example.module')).IndicatorsExampleModule,
   },
   {
     path: 'components/paginator',
