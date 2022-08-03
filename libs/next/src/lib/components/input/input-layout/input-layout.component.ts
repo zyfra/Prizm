@@ -35,7 +35,7 @@ export class InputLayoutComponent implements OnInit, OnDestroy, OnChanges, After
   @Input() outer: boolean | string = false;
   @Input() status: ZuiInputStatus = 'default';
 
-  @ContentChild(ZuiInputControl, { static: true }) control: ZuiInputControl<any>;
+  @ContentChild(ZuiInputControl, { static: true }) control: ZuiInputControl<unknown>;
   @ContentChild(ZuiInputStatusTextDirective, { static: false }) inputStatusText: ZuiInputStatusTextDirective;
 
   public statusIcon: string;

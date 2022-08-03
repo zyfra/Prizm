@@ -18,10 +18,12 @@ export abstract class ZuiCheckboxFormDirective implements ControlValueAccessor {
     this.accessorIsDisabled = isDisabled;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public writeValue(data: ICheckbox): void {
     // is not empty
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public onTouched(event: FocusEvent): void {
     // is not empty
   }

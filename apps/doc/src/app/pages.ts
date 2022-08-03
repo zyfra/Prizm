@@ -149,6 +149,24 @@ export const pages: TuiDocPages = [
     keywords: 'radio, button, кнопка, радио',
     route: '/components/radio-button',
   },
+  {
+    section: `Components`,
+    title: 'Panel',
+    keywords: 'panel, панель, header, хэдер',
+    route: '/components/panel',
+  },
+  {
+    section: `Components`,
+    title: 'Tabs',
+    keywords: 'tabs, табы, nav, навигация',
+    route: '/components/tabs',
+  },
+  {
+    section: `Components`,
+    title: 'Breadcrumbs',
+    keywords: 'breadcrumbs, хлебные крошки, таб, nav, навигация',
+    route: '/components/breadcrumbs',
+  },
   // Helpers
   {
     section: `Helpers`,

@@ -110,7 +110,7 @@ export const ROUTES = [
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/input/input-example.module')).InputExampleModule,
     data: {
-      title: 'Icon',
+      title: 'Input',
     },
   },
   {
@@ -157,22 +157,58 @@ export const ROUTES = [
     path: 'components/indicators',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/indicators/indicators-example.module')).IndicatorsExampleModule,
+    data: {
+      title: 'Indicators',
+    },
   },
   {
     path: 'components/paginator',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/paginator-example/paginator-example.module')).PaginatorExampleModule,
+    data: {
+      title: 'Paginator',
+    },
   },
   {
     path: 'components/checkbox',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/example-checkbox-component/example-checkbox.module')).ExampleCheckboxModule,
+    data: {
+      title: 'Checkbox',
+    },
   },
   {
     path: 'components/radio-button',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/example-radio-component/example-radio-button.module'))
         .ExampleRadioButtonModule,
+    data: {
+      title: 'Radio-button',
+    },
+  },
+  {
+    path: 'components/panel',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/panel/panel-example.module')).PanelExampleModule,
+    data: {
+      title: 'Panel',
+    },
+  },
+  {
+    path: 'components/tabs',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/tabs/tabs-example.module')).TabsExampleModule,
+    data: {
+      title: 'Tabs',
+    },
+  },
+  {
+    path: 'components/breadcrumbs',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/breadcrumbs/breadcrumbs-example.module')).BreadcrumbsExampleModule,
+    data: {
+      title: 'Breadcrumbs',
+    },
   },
   { path: '**', redirectTo: 'getting-started' },
 ];

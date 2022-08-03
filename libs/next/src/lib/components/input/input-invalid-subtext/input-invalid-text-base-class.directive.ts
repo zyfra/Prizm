@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Directive, Injector, Input } from '@angular/core';
+import { ChangeDetectorRef, Directive, Injector, Input, OnInit } from '@angular/core';
 import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
 import { takeUntil } from 'rxjs/operators';
 import { ZuiInputControl } from '../input-directives/zui-input-control.class';
@@ -13,7 +13,7 @@ export abstract class InputInvalidTextBaseClass {
 }
 
 @Directive()
-export class DefaultInputInvalidTextClass extends InputInvalidTextBaseClass {
+export class DefaultInputInvalidTextClass extends InputInvalidTextBaseClass implements OnInit {
   @Input() control?: ZuiInputControl<unknown>;
 
   public invalidText: string;
