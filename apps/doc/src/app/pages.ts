@@ -92,8 +92,8 @@ export const pages: TuiDocPages = [
         title: 'Confirm Dialog',
         keywords: 'confirm-dialog',
         route: '/components/dialogs/confirm-dialog',
-      }
-    ]
+      },
+    ],
   },
   {
     section: `Components`,
@@ -148,6 +148,12 @@ export const pages: TuiDocPages = [
     title: 'Radio Button',
     keywords: 'radio, button, кнопка, радио',
     route: '/components/radio-button',
+  },
+  {
+    section: `Components`,
+    title: 'Table',
+    keywords: 'table, таблица',
+    route: '/components/table',
   },
   {
     section: `Components`,

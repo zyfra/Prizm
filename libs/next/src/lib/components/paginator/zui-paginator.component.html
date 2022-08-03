@@ -1,6 +1,6 @@
 <div class="container" *ngIf="paginationGenerator as pagingData">
   <button class="control control_left" [disabled]="currentPage === 1" (click)="decrease()">
-    <zui-icon iconClass="arrows-chevron-left"></zui-icon>
+    <zui-icon size="16" iconClass="arrows-chevron-left"></zui-icon>
     <span *ngIf="!!leftButtonLabel">{{ leftButtonLabel }}</span>
   </button>
 
@@ -26,6 +26,6 @@
 
   <button class="control control_right" [disabled]="currentPage === pagesCount" (click)="increase()">
     <span *ngIf="!!rightButtonLabel">{{ rightButtonLabel }}</span>
-    <zui-icon iconClass="arrows-chevron-right"></zui-icon>
+    <zui-icon size="16" iconClass="arrows-chevron-right"></zui-icon>
   </button>
 </div>
