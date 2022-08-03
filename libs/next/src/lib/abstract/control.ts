@@ -151,6 +151,8 @@ export abstract class AbstractZuiControl<T>
   }
 
   public registerOnChange(onChange: (value: T | unknown) => void): void {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     this.onChange = (componentValue: T): void => {
       onChange(this.toControlValue(componentValue));
     };

@@ -1,4 +1,3 @@
-export * from './lib/components/indicator';
 export * from './lib/components/radio';
 export * from './lib/components/button';
 export * from './lib/components/icon';
@@ -9,6 +8,7 @@ export * from './lib/components/paginator';
 export * from './lib/components/dropdown-host';
 export * from './lib/components/data-list';
 export * from './lib/directives/hint';
+export * from './lib/directives/shadow';
 export * from './lib/directives/tooltip';
 export * from './lib/components/toast';
 export * from './lib/directives/shadow';
@@ -20,6 +20,10 @@ export * from './lib/components/tree';
 export * from './lib/constants';
 export * from './lib/components/card';
 export * from './lib/components/widget';
+export * from './lib/components/panel';
+export * from './lib/components/tabs';
+export * from './lib/components/breadcrumbs';
+export * from './lib/components/indicator';
 
 export * from './lib/components/toggle';
 export * from './lib/modules/overlay';

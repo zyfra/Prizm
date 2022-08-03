@@ -6,6 +6,7 @@ import {
   HostListener,
   Input,
   OnDestroy,
+  OnInit,
   Optional,
   Self,
 } from '@angular/core';
@@ -32,7 +33,7 @@ import { ZuiInputControl } from './zui-input-control.class';
   styleUrls: ['zui-input-text.directive.less'],
   providers: [{ provide: ZuiInputControl, useExisting: ZuiInputTextComponent }, ZuiDestroyService],
 })
-export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck, OnDestroy {
+export class ZuiInputTextComponent implements ZuiInputControl<string>, OnInit, DoCheck, OnDestroy {
   /**
    * Disabled input
    */
@@ -76,7 +77,7 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck, 
   }
 
   @Input()
-  set value(value: any) {
+  set value(value: unknown) {
     if (value !== this.value) {
       if (this.ngControl) {
         this.ngControl.valueAccessor.writeValue(value);
@@ -87,7 +88,7 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck, 
       }
     }
   }
-  private _inputValue: { value: any };
+  private _inputValue: { value: unknown };
 
   /**
    * Empty state
@@ -124,6 +125,7 @@ export class ZuiInputTextComponent implements ZuiInputControl<string>, DoCheck, 
     this.updateEmptyState();
     this.updateErrorState();
   }
+
 
   public ngOnDestroy(): void {
     this.stateChanges.complete();

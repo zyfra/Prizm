@@ -5,30 +5,24 @@ import { Component } from '@angular/core';
   template: `
     <div>Header</div>
     <div class="button-box">
-      <button zuiButton *ngFor="let item of items">{{item}}</button>
+      <button zuiButton *ngFor="let item of items">{{ item }}</button>
     </div>
     <div>Footer</div>
   `,
-  styles: [`
-    .button-box {
-      display: grid;
-      grid-template-rows: 1fr;
-      gap: 8px;
-    }
+  styles: [
+    `
+      .button-box {
+        display: grid;
+        grid-template-rows: 1fr;
+        gap: 8px;
+      }
 
-    button {
-      width: 100%;
-    }
-  `]
+      button {
+        width: 100%;
+      }
+    `,
+  ],
 })
 export class ZuiTooltipSomeComponent {
-  readonly items = [
-    'Edit',
-    'Download',
-    'Rename',
-    'Edit',
-    'Download',
-    'Rename',
-    'Delete'
-  ];
+  readonly items = ['Edit', 'Download', 'Rename', 'Edit', 'Download', 'Rename', 'Delete'];
 }

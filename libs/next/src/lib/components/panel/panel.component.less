@@ -1,0 +1,106 @@
+:host {
+  display: block;
+
+  button {
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+
+  .panel {
+    height: 48px;
+
+    display: flex;
+
+    border-bottom: 1px solid var(--border-widget);
+
+    .back-btn {
+      height: 24px;
+      padding: 0 25px;
+      margin: auto 15px auto 0;
+
+      border-right: 1px solid var(--grey-g10-g4);
+
+      cursor: pointer;
+
+      &__icon {
+        height: 16px;
+        width: 16px;
+
+        display: flex;
+
+        font-size: 16px;
+        line-height: 16px;
+        color: var(--grey-g8-g6);
+      }
+
+      &:hover,
+      &:focus {
+        border-color: var(--index-plan);
+
+        .back-btn__icon {
+          color: var(--index-plan);
+        }
+      }
+    }
+
+    .title {
+      margin: 0 15px;
+      min-width: 15%;
+
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      overflow: hidden;
+
+      span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &__main {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+
+        color: var(--text-contrast);
+      }
+
+      &__sub {
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 400;
+
+        color: var(--grey-g7-g7);
+      }
+    }
+
+    .header {
+      padding-right: 15px;
+      flex: 1;
+      display: flex;
+
+      overflow: hidden;
+
+      &_empty {
+        padding: 0;
+        width: 0;
+        flex: 0;
+      }
+    }
+
+    .buttons {
+      display: flex;
+    }
+
+    .instruments {
+      margin-left: auto;
+
+      display: flex;
+      overflow: hidden;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<div class="container">
+  <zui-panel
+    [withBackButton]="true"
+    header="Хлебные крошки справа"
+    subheader="На них можно нажать и обработать это событие"
+  >
+    <div class="breadcrumbs" header>
+      <zui-breadcrumbs
+        [breadcrumbs]="breadcrumbs"
+        (breadcrumbChange)="changeCrumbListener($event)"
+      ></zui-breadcrumbs>
+    </div>
+  </zui-panel>
+  <div class="content">
+    <span>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consequatur delectus dolores magnam
+      quibusdam reiciendis, reprehenderit sapiente sequi sit sunt tempora tenetur vel veritatis? Incidunt modi
+      perferendis quas? Accusantium aut exercitationem id pariatur quisquam, sequi suscipit. A aspernatur
+      atque cum cumque error exercitationem hic id, in ipsa magni nesciunt quam qui, quidem quod ratione rem
+      repudiandae sint sunt suscipit, vitae.
+    </span>
+  </div>
+</div>

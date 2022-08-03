@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="control" [class.control_active]="isLeftBtnActive">
+    <button class="control__chevron" (click)="decrease()">
+      <zui-icon class="control__icon" iconClass="arrows-chevron-left" [size]="16"></zui-icon>
+    </button>
+    <zui-dropdown-host
+      class="dropdown-host"
+      [content]="dropdown"
+      [(isOpen)]="openLeft"
+      *ngIf="!isRightBtnActive"
+    >
+      <zui-icon
+        class="control__settings"
+        [class.control__settings_active]="openLeft"
+        iconClass="settings-more-vert"
+        [size]="16"
+        (click)="openLeft = !openLeft"
+      ></zui-icon>
+    </zui-dropdown-host>
+  </div>
+
+  <div class="tabs" #tabsContainer>
+    <zui-tab
+      #zuiTab
+      *ngFor="let tab of tabs; let i = index"
+      [type]="type"
+      [icon]="tab.icon"
+      [title]="tab.title"
+      [count]="tab.count"
+      [closable]="closable"
+      [disabled]="tab.disabled"
+      [isActive]="selectedTabNumber === i"
+      (tabClick)="tabClickHandler(i)"
+      (cancelClick)="tabCancelClick(i)"
+    ></zui-tab>
+  </div>
+
+  <div class="control" [class.control_active]="isRightBtnActive">
+    <zui-dropdown-host class="dropdown-host" [content]="dropdown" [(isOpen)]="openRight">
+      <zui-icon
+        class="control__settings"
+        [class.control__settings_active]="openRight"
+        iconClass="settings-more-vert"
+        [size]="16"
+        (click)="openRight = !openRight"
+      ></zui-icon>
+    </zui-dropdown-host>
+    <button class="control__chevron" (click)="increase()">
+      <zui-icon class="control__icon" iconClass="arrows-chevron-right" [size]="16"></zui-icon>
+    </button>
+  </div>
+
+  <ng-template #dropdown>
+    <div class="tabs-column">
+      <zui-tab
+        *ngFor="let tab of tabs; let i = index"
+        [type]="type"
+        [icon]="tab.icon"
+        [title]="tab.title"
+        [count]="tab.count"
+        [closable]="closable"
+        [disabled]="tab.disabled"
+        [isActive]="selectedTabNumber === i"
+        (tabClick)="tabClickHandler(i)"
+        (cancelClick)="tabCancelClick(i)"
+        [attr.dropdown-tab]="true"
+      ></zui-tab>
+    </div>
+  </ng-template>
+</div>

@@ -6,44 +6,39 @@
  */
 
 export function zuiRequiredSetter<T extends Record<string, unknown>, K extends keyof T>(
-    assertion?: (a: unknown) => boolean,
-    ...args: any[]
+  assertion?: (a: unknown) => boolean,
+  ...args: unknown[]
 ): MethodDecorator {
-    return (
-        target: Record<string, any>,
-        key,
-        {configurable, enumerable, get, set}: PropertyDescriptor,
-    ): PropertyDescriptor => {
-        const {name} = target.constructor;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  return (
+    target: Record<string, unknown>,
+    key,
+    { configurable, enumerable, get, set }: PropertyDescriptor
+  ): PropertyDescriptor => {
+    const { name } = target.constructor;
 
-        return {
-            configurable,
-            enumerable,
-            get,
-            set(this: T, value: T[K]): void {
-                if (value !== undefined && assertion) {
-                    console.assert(
-                        assertion.call(this, value),
-                        `${String(key)} in ${name} received:`,
-                        value,
-                        ...args,
-                    );
-                }
+    return {
+      configurable,
+      enumerable,
+      get,
+      set(this: T, value: T[K]): void {
+        if (value !== undefined && assertion) {
+          console.assert(assertion.call(this, value), `${String(key)} in ${name} received:`, value, ...args);
+        }
 
-                if (!set || value === undefined) {
-                    console.assert(value !== undefined, errorSet(key, name));
+        if (!set || value === undefined) {
+          console.assert(value !== undefined, errorSet(key, name));
 
-                    return;
-                }
+          return;
+        }
 
-                set.call(this, value);
-            },
-        };
+        set.call(this, value);
+      },
     };
+  };
 }
 
 function errorSet(key: string | symbol, component: string): string {
-    return `Undefined was passed as ${String(
-        key,
-    )} to ${component}, setter will not be called`;
+  return `Undefined was passed as ${String(key)} to ${component}, setter will not be called`;
 }

@@ -23,7 +23,7 @@ export class ZuiPaginatorComponent {
   @Input() leftButtonLabel = '';
   @Input() rightButtonLabel = '';
 
-  @Output() public pageChange: EventEmitter<IPaginatorOutput> = new EventEmitter<IPaginatorOutput>();
+  @Output() public tabChange: EventEmitter<IPaginatorOutput> = new EventEmitter<IPaginatorOutput>();
   public currentPage = 1;
   public pagesCount = 0;
 
@@ -45,11 +45,11 @@ export class ZuiPaginatorComponent {
         );
       }
 
-      this.pageChange.emit({
+      this.tabChange.emit({
         page: this.currentPage - 1,
         first: (this.currentPage - 1) * this.rows,
         rows: this.rows,
-        pageCount: this.pagesCount,
+        tabCount: this.pagesCount,
       });
 
       return {

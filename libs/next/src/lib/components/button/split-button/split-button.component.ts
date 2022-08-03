@@ -1,26 +1,15 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  EventEmitter,
-  HostBinding,
-  Input,
-  Output,
-  TemplateRef,
-} from '@angular/core';
-import {ZuiContent} from "../button-options";
-import {ZuiDestroyService} from "@digital-plant/zyfra-helpers";
-import {ZuiSize} from "../../../util/zui-size-bigger";
-import {ZuiAppearance, ZuiAppearanceType} from "../../../types/appearance.types";
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
+import { ZuiContent } from '../button-options';
+import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { ZuiSize } from '../../../util';
+import { ZuiAppearance, ZuiAppearanceType } from '../../../types';
 
 @Component({
   selector: 'zui-split-button',
   styleUrls: ['./split-button.component.less'],
   templateUrl: './split-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    ZuiDestroyService,
-  ],
+  providers: [ZuiDestroyService],
 })
 export class ZuiSplitButtonComponent {
   @Input()
