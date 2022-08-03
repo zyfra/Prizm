@@ -1,3 +1,4 @@
+export * from './lib/components/table';
 export * from './lib/components/radio';
 export * from './lib/components/button';
 export * from './lib/components/icon';

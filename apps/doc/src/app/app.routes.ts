@@ -210,6 +210,14 @@ export const ROUTES = [
       title: 'Breadcrumbs',
     },
   },
+  {
+    path: 'components/table',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/table/table-example.module')).TableExampleModule,
+    data: {
+      title: 'Table',
+    },
+  },
   { path: '**', redirectTo: 'getting-started' },
 ];
 
