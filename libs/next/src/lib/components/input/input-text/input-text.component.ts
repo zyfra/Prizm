@@ -85,7 +85,7 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
       this.stateChanges.next();
     }
   }
-  private _inputValue: { value: any };
+  private _inputValue: { value: unknown };
 
   @Output() enter = new EventEmitter<any>();
   /**
@@ -118,11 +118,11 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
     this._inputValue = elementRef.nativeElement;
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     if (this.ngControl) this.initControlListener();
   }
 
-  ngDoCheck(): void {
+  public ngDoCheck(): void {
     this.updateEmptyState();
     this.updateErrorState();
   }
@@ -133,21 +133,21 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('input', ['$event'])
-  onInput(): void {
+  public onInput(): void {
     this.updateEmptyState();
     this.stateChanges.next();
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('focus', ['$event'])
-  onFocus(): void {
+  public onFocus(): void {
     this.focused = true;
     this.stateChanges.next();
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('blur', ['$event'])
-  onBlur(): void {
+  public onBlur(): void {
     this.focused = false;
     this.touched = true;
     this.stateChanges.next();

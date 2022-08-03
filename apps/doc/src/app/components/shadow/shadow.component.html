@@ -1,0 +1,57 @@
+<tui-doc-page
+  header="Shadow"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use ZuiShadowDirective to show shadow.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Basic"
+      [content]="exampleBase"
+    >
+      <zui-shadow-base-example></zui-shadow-base-example>
+    </tui-doc-example>
+
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <div class='shadow-container' [zuiShadow]='value'>
+        {{value}}
+      </div>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+        <ng-template
+          documentationPropertyName="zuiShadow"
+          documentationPropertyType="ZuiShadowType"
+          documentationPropertyMode="input"
+          [(documentationPropertyValue)]="value"
+          [documentationPropertyValues]="valueVariants"
+        >
+          Shadow type
+        </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>ZuiShadowModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

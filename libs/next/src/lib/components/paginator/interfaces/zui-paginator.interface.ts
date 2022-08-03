@@ -8,5 +8,5 @@ export interface IPaginatorOutput {
   page: number;
   first: number;
   rows: number;
-  pageCount: number;
+  tabCount: number;
 }

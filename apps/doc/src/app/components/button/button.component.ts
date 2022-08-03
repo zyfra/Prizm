@@ -1,21 +1,14 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import {
-  ZuiSize,
-  ZuiContent,
-  ZuiAppearance,
-  ZuiAppearanceType,
-  IconDefs,
-} from '@digital-plant/zui-components';
+import { IconDefs, ZuiAppearance, ZuiAppearanceType, ZuiContent, ZuiSize } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-button-example',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-  sizeVariants: ReadonlyArray<ZuiSize> = ['s', 'm', 'xm', 'l', 'xl'];
+  sizeVariants: ReadonlyArray<ZuiSize> = ['s', 'm', 'l'];
   size: ZuiSize = this.sizeVariants[0];
 
   iconVariants: ReadonlyArray<ZuiContent> = ['', ...IconDefs.reduce((a, c) => a.concat(c.data), [])];
@@ -27,7 +20,6 @@ export class ButtonComponent {
     'success',
     'warning',
     'danger',
-    'disabled',
   ];
   appearance: ZuiAppearance = this.appearanceVariants[0];
 
@@ -37,30 +29,30 @@ export class ButtonComponent {
   content = 'Button Name';
   showLoader = false;
 
-  readonly exampleModule: RawLoaderContent = import('!!raw-loader!./examples/import-module.md');
+  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
-  readonly example1: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/2/template.ts'),
-    HTML: import('!!raw-loader!./examples/2/template.html'),
+  readonly exampleOutline: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/outline/outline-buttons-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/outline/outline-buttons-example.component.html'),
   };
 
-  readonly example2: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/1/template.ts'),
-    HTML: import('!!raw-loader!./examples/1/template.html'),
+  readonly exampleFilled: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/filled/filled-buttons-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/filled/filled-buttons-example.component.html'),
   };
 
-  readonly example3: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/3/template.ts'),
-    HTML: import('!!raw-loader!./examples/3/template.html'),
+  readonly exampleGhost: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/ghost/ghost-buttons-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/ghost/ghost-buttons-example.component.html'),
   };
 
-  readonly example4: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/4/template.ts'),
-    HTML: import('!!raw-loader!./examples/4/template.html'),
+  readonly exampleIcons: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/icons/icons-buttons-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/icons/icons-buttons-example.component.html'),
   };
 
-  readonly example5: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/5/template.ts'),
-    HTML: import('!!raw-loader!./examples/5/template.html'),
+  readonly exampleSplit: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/split/split-buttons-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/split/split-buttons-example.component.html'),
   };
 }

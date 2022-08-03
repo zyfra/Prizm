@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, TemplateRef, ViewChild} from '@angular/core';
 import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
-import {PolymorpheusContent, ZuiOverlayOutsidePlacement} from '@digital-plant/zui-components';
+import {PolymorphContent, ZuiOverlayOutsidePlacement} from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-dropdown-host-example',
@@ -10,7 +10,7 @@ import {PolymorpheusContent, ZuiOverlayOutsidePlacement} from '@digital-plant/zu
 })
 export class DropdownHostComponent {
   isOpen = false;
-  content: PolymorpheusContent;
+  content: PolymorphContent;
 
   autoReposition: boolean;
 
@@ -25,15 +25,14 @@ export class DropdownHostComponent {
   @ViewChild('withFooter') withFooter: TemplateRef<unknown>;
   @ViewChild('onlyContent') onlyContent: TemplateRef<unknown>;
 
-  readonly exampleModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/import-module.md'
+  readonly setupModule: RawLoaderContent = import(
+    '!!raw-loader!./examples/setup-module.md'
   );
 
   readonly exampleWithTemplate: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-template/template.ts'),
-    HTML: import('!!raw-loader!./examples/with-template/template.html'),
+    TypeScript: import('!!raw-loader!./examples/with-template/dropdown-host-with-template-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/with-template/dropdown-host-with-template-example.component.html'),
   };
 
-  constructor(public readonly cdRef: ChangeDetectorRef) {
-  }
+  constructor(public readonly cdRef: ChangeDetectorRef) {}
 }

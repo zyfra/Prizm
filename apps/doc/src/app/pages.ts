@@ -17,6 +17,12 @@ export const pages: TuiDocPages = [
   // Components
   {
     section: `Components`,
+    title: 'Tree',
+    keywords: 'дерево, zui-tree, tree',
+    route: '/components/tree',
+  },
+  {
+    section: `Components`,
     title: 'Button',
     keywords: 'кнопка, zui-button, иконка',
     route: '/components/button',
@@ -26,6 +32,24 @@ export const pages: TuiDocPages = [
     title: 'DropdownHost',
     keywords: 'dropdown, zui-dropdown-host, overlay',
     route: '/components/dropdown-host',
+  },
+  {
+    section: `Components`,
+    title: 'Shadow',
+    keywords: 'shadow, zui-shadow, тень',
+    route: '/components/shadow',
+  },
+  {
+    section: `Components`,
+    title: 'Card',
+    keywords: 'card, zui-card, карточка',
+    route: '/components/card',
+  },
+  {
+    section: `Components`,
+    title: 'Widget',
+    keywords: 'widget, zui-widget, виджет',
+    route: '/components/widget',
   },
   {
     section: `Components`,
@@ -71,6 +95,28 @@ export const pages: TuiDocPages = [
   },
   {
     section: `Components`,
+    title: 'Toast',
+    keywords: 'toast, тост',
+    route: '/components/toast',
+  },
+  {
+    section: `Components`,
+    title: 'Dialogs',
+    subPages: [
+      {
+        title: 'Dialog',
+        keywords: 'dialog, диалог, окно, модальное, window',
+        route: '/components/dialogs/dialog',
+      },
+      {
+        title: 'Confirm Dialog',
+        keywords: 'confirm-dialog',
+        route: '/components/dialogs/confirm-dialog',
+      },
+    ],
+  },
+  {
+    section: `Components`,
     title: 'Tooltip',
     keywords: 'tooltip, тултип',
     route: '/components/tooltip',
@@ -107,6 +153,12 @@ export const pages: TuiDocPages = [
   },
   {
     section: `Components`,
+    title: 'Scrollbar',
+    keywords: 'scrollbar, скролбар, скрол, scroll',
+    route: '/components/scrollbar',
+  },
+  {
+    section: `Components`,
     title: 'Toggle',
     keywords: 'toggle, тоггл, переключатель, switcher',
     route: '/components/toggle',
@@ -116,6 +168,30 @@ export const pages: TuiDocPages = [
     title: 'Radio Button',
     keywords: 'radio, button, кнопка, радио',
     route: '/components/radio-button',
+  },
+  {
+    section: `Components`,
+    title: 'Table',
+    keywords: 'table, таблица',
+    route: '/components/table',
+  },
+  {
+    section: `Components`,
+    title: 'Panel',
+    keywords: 'panel, панель, header, хэдер',
+    route: '/components/panel',
+  },
+  {
+    section: `Components`,
+    title: 'Tabs',
+    keywords: 'tabs, табы, nav, навигация',
+    route: '/components/tabs',
+  },
+  {
+    section: `Components`,
+    title: 'Breadcrumbs',
+    keywords: 'breadcrumbs, хлебные крошки, таб, nav, навигация',
+    route: '/components/breadcrumbs',
   },
   // Helpers
   {

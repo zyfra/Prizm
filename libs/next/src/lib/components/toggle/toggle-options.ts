@@ -1,12 +1,12 @@
 import {InjectionToken, ValueProvider} from '@angular/core';
-import {PolymorpheusContent} from '../../directives/polymorpheus';
+import {PolymorphContent} from '../../directives/polymorph';
 import {ZuiContextWithImplicit} from "../../types/context-with-implicit";
 import {ZuiSizeL, ZuiSizeM} from "../../util";
 
 export interface ZuiToggleOptions {
     readonly icons: Readonly<{
-        toggleOff: PolymorpheusContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>;
-        toggleOn: PolymorpheusContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>;
+        toggleOff: PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>;
+        toggleOn: PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>;
     }>;
     readonly singleColor: boolean;
     readonly showIcons: boolean;

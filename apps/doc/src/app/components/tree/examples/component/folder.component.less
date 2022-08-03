@@ -1,0 +1,47 @@
+@import '~libs/next/src/styles/ui-local';
+
+:host {
+  .transition(background);
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  border-radius: 0.25rem;
+  background: #fff;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    left: -0.75rem;
+    z-index: -1;
+  }
+
+  &:before {
+    width: 1rem;
+    border-bottom: 1px solid #d7d7d7;
+  }
+
+  &:after {
+    top: -1rem;
+    bottom: 1rem;
+    border-left: 1px solid #d7d7d7;
+  }
+
+  &._expandable {
+    &:hover {
+      cursor: pointer;
+      background: #f6f6f6;
+    }
+  }
+}
+
+:host-context(zui-tree:last-child > zui-tree-item > .t-dynamic-content) {
+  position: relative;
+}
+
+zui-icon {
+  position: relative;
+  background: inherit;
+  z-index: 1;
+}

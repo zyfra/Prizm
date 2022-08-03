@@ -29,11 +29,43 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/shadow',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/shadow/shadow.module')).ShadowModule,
+    data: {
+      title: 'Shadow',
+    },
+  },
+  {
+    path: 'components/card',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/card/card.module')).CardModule,
+    data: {
+      title: 'Card',
+    },
+  },
+  {
+    path: 'components/widget',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/widget/widget.module')).WidgetModule,
+    data: {
+      title: 'Widget',
+    },
+  },
+  {
     path: 'components/button',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/button/button.module')).ButtonModule,
     data: {
       title: 'Button',
+    },
+  },
+  {
+    path: 'components/tree',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/tree/tree.module')).TreeModule,
+    data: {
+      title: 'Tree',
     },
   },
   {
@@ -67,11 +99,18 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/scrollbar',
+    loadChildren: async (): Promise<unknown> => (await import('./components/scrollbar/scrollbar.module')).ScrollbarModule,
+    data: {
+      title: 'Scrollbar',
+    },
+  },
+  {
     path: 'components/input',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/input/input-text/input-example.module')).InputExampleModule,
     data: {
-      title: 'Icon',
+      title: 'Input',
     },
   },
   {
@@ -124,25 +163,93 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/dialogs/dialog',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/dialogs/dialog/dialog.module')).DialogModule,
+    data: {
+      title: 'Dialog',
+    },
+  },
+  {
+    path: 'components/dialogs/confirm-dialog',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/dialogs/confirm-dialog/confirm.module')).ConfirmModule,
+    data: {
+      title: 'Confirm Dialog',
+    },
+  },
+  {
+    path: 'components/toast',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/toast/toast.module')).ToastModule,
+    data: {
+      title: 'Toast',
+    },
+  },
+  {
     path: 'components/indicators',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./components/example-indicators/example-indicators.module')).ExampleIndicatorsModule,
+      (await import('./components/indicators/indicators-example.module')).IndicatorsExampleModule,
+    data: {
+      title: 'Indicators',
+    },
   },
   {
     path: 'components/paginator',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/paginator-example/paginator-example.module')).PaginatorExampleModule,
+    data: {
+      title: 'Paginator',
+    },
   },
   {
     path: 'components/checkbox',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/example-checkbox-component/example-checkbox.module')).ExampleCheckboxModule,
+    data: {
+      title: 'Checkbox',
+    },
   },
   {
     path: 'components/radio-button',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/example-radio-component/example-radio-button.module'))
         .ExampleRadioButtonModule,
+    data: {
+      title: 'Radio-button',
+    },
+  },
+  {
+    path: 'components/panel',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/panel/panel-example.module')).PanelExampleModule,
+    data: {
+      title: 'Panel',
+    },
+  },
+  {
+    path: 'components/tabs',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/tabs/tabs-example.module')).TabsExampleModule,
+    data: {
+      title: 'Tabs',
+    },
+  },
+  {
+    path: 'components/breadcrumbs',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/breadcrumbs/breadcrumbs-example.module')).BreadcrumbsExampleModule,
+    data: {
+      title: 'Breadcrumbs',
+    },
+  },
+  {
+    path: 'components/table',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/table/table-example.module')).TableExampleModule,
+    data: {
+      title: 'Table',
+    },
   },
 
   { path: '**', redirectTo: 'getting-started' },

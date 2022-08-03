@@ -1,10 +1,10 @@
-import {NgModule} from "@angular/core";
-import {CommonModule} from "@angular/common";
-import {generateRoutes, TuiAddonDocModule} from "@taiga-ui/addon-doc";
-import {RouterModule} from "@angular/router";
-import {LoaderComponent} from "./loader.component";
-import {ZuiLoaderExample1Component} from "./examples/1/template";
-import {ZuiLoaderModule} from "@digital-plant/zui-components";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { RouterModule } from '@angular/router';
+import { LoaderComponent } from './loader.component';
+import { ZuiLoaderBaseExampleComponent } from './examples/base/loader-base-example.component';
+import { ZuiLoaderModule } from '@digital-plant/zui-components';
 
 @NgModule({
   imports: [
@@ -14,7 +14,7 @@ import {ZuiLoaderModule} from "@digital-plant/zui-components";
     RouterModule.forChild(generateRoutes(LoaderComponent)),
   ],
   declarations: [
-    ZuiLoaderExample1Component,
+    ZuiLoaderBaseExampleComponent,
     LoaderComponent
   ],
   exports: [LoaderComponent],

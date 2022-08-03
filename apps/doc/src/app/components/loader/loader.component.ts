@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
   selector: 'zui-loader-example',
@@ -12,12 +12,12 @@ export class LoaderComponent {
   inheritColor = false;
   overlay = true;
 
-  readonly exampleModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/import-module.md'
+  readonly setupModule: RawLoaderContent = import(
+    '!!raw-loader!./examples/setup-module.md'
   );
 
-  readonly example1: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/1/template.ts'),
-    HTML: import('!!raw-loader!./examples/1/template.html'),
+  readonly exampleBase: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/base/loader-base-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/base/loader-base-example.component.html'),
   };
 }

@@ -11,9 +11,9 @@
     <tui-doc-example
       id="base"
       heading="Basic"
-      [content]="exampleBasic"
+      [content]="exampleBase"
     >
-      <zui-tooltip-example-basic></zui-tooltip-example-basic>
+      <zui-tooltip-base-example></zui-tooltip-base-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -21,7 +21,7 @@
       heading="With Template"
       [content]="exampleWithTemplate"
     >
-      <zui-tooltip-example-with-template></zui-tooltip-example-with-template>
+      <zui-tooltip-with-template-example></zui-tooltip-with-template-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -29,7 +29,7 @@
       heading="With Component"
       [content]="exampleWithComponent"
     >
-      <zui-tooltip-example-with-component></zui-tooltip-example-with-component>
+      <zui-tooltip-with-component-example></zui-tooltip-with-component-example>
     </tui-doc-example>
 
   </ng-template>
@@ -38,8 +38,7 @@
     <tui-doc-demo>
       <button
         zuiButton
-        zuiTooltip="Тестовое содержимое"
-        [zuiTooltipMode]="zuiTooltipMode"
+        [zuiTooltip]="content"
         [zuiAutoReposition]="zuiAutoReposition"
         [zuiTooltipDirection]="zuiTooltipDirection"
         [zuiTooltipId]="zuiTooltipId"
@@ -51,14 +50,14 @@
       </button>
     </tui-doc-demo>
     <tui-doc-documentation>
+
       <ng-template
-        documentationPropertyName="zuiTooltipMode"
-        documentationPropertyType="ZuiTooltipMode"
+        documentationPropertyName="zuiTooltip"
+        documentationPropertyType="string"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="zuiTooltipModeVariants"
-        [(documentationPropertyValue)]="zuiTooltipMode"
+        [(documentationPropertyValue)]="content"
       >
-        Mode
+        Content
       </ng-template>
 
       <ng-template
@@ -78,15 +77,6 @@
         [(documentationPropertyValue)]="zuiTooltipDirection"
       >
         Tooltip Direction
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="zuiTooltipId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiTooltipId"
-      >
-        Tooltip Id
       </ng-template>
 
       <ng-template
@@ -137,7 +127,7 @@
 
         <tui-doc-code
           filename="myComponent.module.ts"
-          [code]="exampleModule"
+          [code]="setupModule"
         ></tui-doc-code>
       </li>
     </ol>

@@ -1,0 +1,69 @@
+@indicatorSize: 14px;
+
+:host {
+  display: inline-flex;
+
+  .indicator {
+    height: @indicatorSize;
+    width: @indicatorSize;
+    min-height: @indicatorSize;
+    min-width: @indicatorSize;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    &__icon {
+      height: @indicatorSize;
+      width: @indicatorSize;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--exceptions-white);
+    }
+
+    &[status='info'] {
+      background: var(--index-plan);
+    }
+
+    &[status='secondary'] {
+      background: var(--grey-g10-g4);
+    }
+
+    &[status='success'] {
+      background: var(--index-good);
+    }
+
+    &[status='warning'] {
+      background: var(--index-warning);
+
+      &[type='icon'] {
+        width: 0;
+        height: 0;
+
+        background: none;
+
+        border-left: (@indicatorSize / 2) solid transparent;
+        border-right: (@indicatorSize / 2) solid transparent;
+        border-bottom: @indicatorSize solid var(--index-warning);
+
+        border-radius: 0;
+
+        position: relative;
+
+        .indicator__icon {
+          position: absolute;
+          top: 1px;
+        }
+      }
+    }
+
+    &[status='danger'] {
+      background: var(--index-danger);
+    }
+  }
+}

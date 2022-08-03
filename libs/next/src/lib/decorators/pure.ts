@@ -9,8 +9,10 @@
  */
 import {ZuiPureException} from "../exceptions";
 
+
 export function zuiPure<T>(
-  _target: Record<string, unknown>,
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  _target: object,
   propertyKey: string,
   {get, enumerable, value}: TypedPropertyDescriptor<T>,
 ): TypedPropertyDescriptor<T> {
@@ -35,7 +37,7 @@ export function zuiPure<T>(
 
   return {
     enumerable,
-    get(): T {
+    get: function (): T {
       let previousArgs: readonly unknown[] = [];
       let originalFnWasCalledLeastAtOnce = false;
       let pureValue: unknown;
@@ -51,6 +53,8 @@ export function zuiPure<T>(
         }
 
         previousArgs = args;
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         pureValue = original.apply(this, args);
         originalFnWasCalledLeastAtOnce = true;
 

@@ -1,5 +1,5 @@
 <tui-doc-page
-  header="Example"
+  header="Toggle"
   package="next"
   type="components"
 >
@@ -11,9 +11,9 @@
     <tui-doc-example
       id="base"
       heading="Basic"
-      [content]="example1"
+      [content]="exampleBase"
     >
-      <zui-toggle-example-1></zui-toggle-example-1>
+      <zui-toggle-base-example></zui-toggle-base-example>
     </tui-doc-example>
 
 
@@ -85,7 +85,7 @@
 
       <ng-template
         documentationPropertyName="iconOn"
-        documentationPropertyType="PolymorpheusContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>"
+        documentationPropertyType="PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="iconOn"
         [documentationPropertyValues]="iconVariants"
@@ -96,7 +96,7 @@
 
       <ng-template
         documentationPropertyName="iconOff"
-        documentationPropertyType="PolymorpheusContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>"
+        documentationPropertyType="PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="iconOff"
         [documentationPropertyValues]="iconVariants"
@@ -118,7 +118,7 @@
 
         <tui-doc-code
           filename="myComponent.module.ts"
-          [code]="exampleModule"
+          [code]="setupModule"
         ></tui-doc-code>
       </li>
     </ol>

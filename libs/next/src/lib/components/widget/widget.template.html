@@ -1,0 +1,21 @@
+<zui-card [shadow]="shadow">
+  <div class='header'>
+    <ng-container *polymorphOutlet="header">
+      <div class='title'>
+        <ng-container *polymorphOutlet="title">
+          {{title}}
+        </ng-container>
+      </div>
+      <div class='icons'>
+        <ng-container *polymorphOutlet="icons">
+          <ng-container *ngFor="let icon of $any(icons)">
+            <zui-icon (click)='iconClick.emit(icon)' [iconClass]="icon"></zui-icon>
+          </ng-container>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+  <div class='body'>
+    <ng-content></ng-content>
+  </div>
+</zui-card>

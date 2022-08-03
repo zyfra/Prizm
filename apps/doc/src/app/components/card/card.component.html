@@ -1,0 +1,69 @@
+<tui-doc-page
+  header="Card"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use ZuiCardComponent to view card.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Base"
+      [content]="exampleBase"
+    >
+      <zui-card-base-example></zui-card-base-example>
+    </tui-doc-example>
+
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-card [shadow]='shadow'>
+        {{content}}
+      </zui-card>
+
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="ngContent"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="content"
+      >
+        Content
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="shadow"
+        documentationPropertyType="ZuiShadowType"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="shadow"
+        [documentationPropertyValues]="shadowVariants"
+      >
+        Shadow
+      </ng-template>
+
+
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>ZuiCardModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

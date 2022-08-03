@@ -1,6 +1,6 @@
 ```ts
-import {NgModule} from '@angular/core';
-import {ZuiRadioButtonModule} from "...";
+import { NgModule } from '@angular/core';
+import { ZuiRadioButtonModule } from '@digital-plant/zui-components';
 // ...
 
 @NgModule({

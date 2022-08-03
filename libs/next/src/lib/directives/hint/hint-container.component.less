@@ -1,41 +1,36 @@
 :host {
   display: inline-block;
-  max-width: var(--zui-hint-container-max-width);
-  background-color: var(--zui-hint-container-background);
-  padding: var(--zui-hint-container-padding);
-  border-radius: var(--zui-hint-container-border-radius);
-  color: var(--zui-hint-container-text);
-  font-size: var(--zui-hint-container-font-size);
+  max-width: var(--zui-hint-container-max-width, 288px);
+  max-height: var(--zui-hint-container-max-height, 60vh);
+  background-color: var(--zui-hint-container-background, var(--palette-g11));
+  padding: var(--zui-hint-container-padding, 8px);
+  border-radius: var(--zui-hint-container-border-radius, 2px);
+  color: var(--zui-hint-container-text, white);
+  font-size: var(--zui-hint-container-font-size, 12px);
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &[position="t"],
   &[position="tl"],
   &[position="tr"]{
-    margin-bottom: var(--zui-hint-container-margin);
+    margin-bottom: var(--zui-hint-container-margin, 8px);
   }
 
   &[position="b"],
   &[position="bl"],
   &[position="br"]{
-    margin-top: var(--zui-hint-container-margin);
+    margin-top: var(--zui-hint-container-margin, 8px);
   }
 
   &[position="l"],
   &[position="lt"],
   &[position="lb"]{
-    margin-right: var(--zui-hint-container-margin);
+    margin-right: var(--zui-hint-container-margin, 8px);
   }
 
   &[position="r"],
   &[position="rt"],
   &[position="rb"]{
-    margin-left: var(--zui-hint-container-margin);
+    margin-left: var(--zui-hint-container-margin, 8px);
   }
-}
-
-:host[mode="error"] {
-  background-color: var(--zui-hint-container-background-error);
-}
-
-/* TODO add dark theme  */
-:host[mode="dark"] {
 }

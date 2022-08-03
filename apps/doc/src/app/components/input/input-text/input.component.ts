@@ -102,6 +102,6 @@ export class InputComponent {
     HTML: import('!!raw-loader!./examples/input-search-example/input-search-example.component.html'),
   };
 
-  public readonly exampleModule: RawLoaderContent = import('!!raw-loader!./examples/import-module.md');
+  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/import-module.md');
 }
 

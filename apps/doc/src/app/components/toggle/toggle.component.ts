@@ -1,7 +1,6 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
-import {TZyfraButtonIconPosision} from "@digital-plant/zyfra-components";
-import { PolymorpheusContent, ZuiContextWithImplicit, ZuiSizeL, ZuiSizeM } from '@digital-plant/zui-components';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { PolymorphContent, ZuiContextWithImplicit, ZuiSizeL, ZuiSizeM } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-toggle-example',
@@ -22,21 +21,21 @@ export class ToggleComponent {
   ];
   size: ZuiSizeL | ZuiSizeM = this.sizeVariants[0];
 
-  readonly iconVariants: ReadonlyArray<PolymorpheusContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>> = [
+  readonly iconVariants: ReadonlyArray<PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>> = [
     '',
     'selection-checkbox-marked-circle',
     'selection-checkbox-marked-circle-chanel',
     'arrows-chevron-left',
     'arrows-chevron-right'
   ];
-  iconOn: PolymorpheusContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>> = this.iconVariants[0];
-  iconOff: PolymorpheusContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>> = this.iconVariants[0];
-  readonly exampleModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/import-module.md'
-    );
+  iconOn: PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>> = this.iconVariants[0];
+  iconOff: PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>> = this.iconVariants[0];
+  readonly setupModule: RawLoaderContent = import(
+    '!!raw-loader!./examples/setup-module.md'
+  );
 
-  readonly example1: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/1/template.ts'),
-    HTML: import('!!raw-loader!./examples/1/template.html'),
+  readonly exampleBase: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/base/toggle-base-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/base/toggle-base-example.component.html'),
   };
 }

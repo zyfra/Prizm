@@ -1,0 +1,19 @@
+<ng-template #template><ng-content></ng-content></ng-template>
+<div class='t-dynamic-content'>
+  <ng-container
+    *polymorphOutlet="content; context: {$implicit: this, template: template}"
+  >
+  </ng-container>
+</div>
+<zui-expand
+    *ngIf="isExpandable"
+    role="group"
+    class="t-children"
+    [expanded]="expanded$ | async"
+>
+    <div>
+        <ng-content select="zui-tree-item"></ng-content>
+        <ng-content select="zui-tree"></ng-content>
+    </div>
+</zui-expand>
+<ng-container *ngIf="attached$ | async"></ng-container>

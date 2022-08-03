@@ -1,0 +1,51 @@
+<tui-doc-page header="Indicators" package="EQUINOX" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="base" heading="Basic" [content]="indicatorBasicExample">
+      <zui-indicators-base></zui-indicators-base>
+    </tui-doc-example>
+
+    <tui-doc-example id="withIcon" heading="With Icon" [content]="indicatorIconExample">
+      <zui-indicators-icons></zui-indicators-icons>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-indicator [status]="status" [type]="type"></zui-indicator>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="type"
+        documentationPropertyType="IndicatorType"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="typeVariants"
+        [(documentationPropertyValue)]="type"
+      >
+        Indicator type
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="status"
+        documentationPropertyType="IndicatorStatus"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="statusVariants"
+        [(documentationPropertyValue)]="status"
+      >
+        Indicator status
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>ZuiIndicatorModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

@@ -6,6 +6,7 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { InputIconButtonsExampleComponent } from './examples/input-icon-buttons-example/input-icon-buttons-example.component';
 import { InputComponent } from './input.component';
 import { InputLabelPositionExampleComponent } from './examples/input-label-position-example/input-label-position-example.component';
+
 import { InputSizesExampleComponent } from './examples/input-sizes-example/input-sizes-example.component';
 import { InputStatusesExampleComponent } from './examples/input-statuses-example/input-statuses-example.component';
 import { InputSubtextExampleComponent } from './examples/input-subtext-example/input-subtext-example.component';
