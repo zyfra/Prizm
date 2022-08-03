@@ -1,4 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { ZuiChipsComponent, ZuiInputTextComponent } from '@digital-plant/zui-components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
@@ -12,6 +14,9 @@ export class InputChipsExampleComponent {
   public deletable = true;
   public disabled = false;
 
+  @ViewChild(ZuiInputTextComponent, { static: false }) input: ZuiInputTextComponent;
+  @ViewChild(ZuiChipsComponent, { static: false }) chipsComponent: ZuiChipsComponent;
+
   public readonly zuiInputChipsExample: TuiDocExample = {
     TypeScript: import(
       '!!raw-loader!./examples/input-chips-basic-example/input-chips-basic-example.component.ts'
@@ -22,4 +27,12 @@ export class InputChipsExampleComponent {
   };
 
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+
+  public onEnter(value: string): void {
+    console.log('enter');
+    if (value === '') return;
+    this.chipsComponent.addChips(value);
+    this.input.value = '';
+  }
 }
+

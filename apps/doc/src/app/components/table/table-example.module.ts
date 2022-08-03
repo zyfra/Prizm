@@ -5,8 +5,8 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { TableBasicExampleComponent } from './examples/table-basic-example/table-basic-example.component';
 import {
-  InputModule,
   ZuiIconModule,
+  ZuiInputTextModule,
   ZuiPaginatorModule,
   ZuiTableModule,
 } from '@digital-plant/zui-components';
@@ -35,9 +35,10 @@ import { TableStatusExampleComponent } from './examples/table-status-example/tab
     RouterModule.forChild(generateRoutes(TableExampleComponent)),
     TableModule,
     FormsModule,
-    InputModule,
+    ZuiInputTextModule,
     ZuiIconModule,
     ZuiPaginatorModule,
   ],
 })
 export class TableExampleModule {}
+

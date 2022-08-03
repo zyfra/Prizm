@@ -65,6 +65,26 @@ export const pages: TuiDocPages = [
         keywords: 'input-chips, input, чипс',
         route: 'components/input-chips',
       },
+      {
+        title: 'InputNumber',
+        keywords: 'input-number, input, number',
+        route: 'components/input-number',
+      },
+      {
+        title: 'InputMask',
+        keywords: 'input-mask, input, mask, phone',
+        route: '/components/input-mask',
+      },
+      {
+        title: 'InputPassword',
+        keywords: 'input-password, input, password',
+        route: 'components/input-password',
+      },
+      {
+        title: 'Carousel',
+        keywords: 'carousel',
+        route: 'components/carousel',
+      },
     ],
   },
   {
@@ -186,3 +206,4 @@ export const pages: TuiDocPages = [
     subPages: [],
   },
 ];
+

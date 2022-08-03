@@ -1,15 +1,18 @@
 <zui-input-layout label="Заголовок" size="l" status="default">
   <input
     #input
-    zuiInputChips
+    zuiInput
     placeholder="Введите название"
-    [chipsComponent]="chipsComponent"
+    (enter)="onEnter($event)"
     [formControl]="requiredInputControl"
   />
-  <zui-input-chips
+  <zui-chips
     #chipsComponent
     [formControl]="chipsControl"
     [deletable]="deletable"
     zui-input-bottom
-  ></zui-input-chips>
+  ></zui-chips>
 </zui-input-layout>
+
+<div>Chips form control value: {{ chipsControl.value | json }}</div>
+
