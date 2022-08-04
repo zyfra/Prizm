@@ -1,14 +1,9 @@
 <div class="zui-toast-info-container {{toastRef.appearance}}">
   <div class="icon-block">
-    <div class="zui-indicator icon"
-         [class.info]="toastRef.appearance === 'info'"
-         [class.warning]="toastRef.appearance === 'warning'"
-         [class.success]="toastRef.appearance === 'success'"
-         [class.danger]="toastRef.appearance === 'danger'"
-    ></div>
+    <zui-indicator type="icon" [status]="toastRef.appearance"></zui-indicator>
   </div>
   <div class="content-box">
-    <span class="title">
+    <span class="title" *ngIf='toastRef.title'>
       <ng-container *polymorphOutlet="toastRef.title as content; context: context">{{content}}</ng-container>
     </span>
     <div class="content">

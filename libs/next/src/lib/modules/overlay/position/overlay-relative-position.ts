@@ -88,17 +88,26 @@ export class ZuiOverlayRelativePosition extends ZuiOverlayAbstractPosition<ZuiOv
   private calculatePos(pos: ZuiOverlayOutsidePlacement, s: any, h: any, c = true): {pos: string, props: Record<string, unknown>} {
     const props = this.calc(pos, s, h);
 
-    if (c && this.config.autoReposition && this.isOverflowed({ ...props, width: h.width, height: h.height })) {
+    if (c && this.config.autoReposition && this.isOverflowed({ ...props, width: h.width, height: h.height }, pos)) {
       return this.calculatePos(this.nextPosition(pos), s, h, false);
     }
 
     return { pos, props };
   }
 
-  private isOverflowed(props: { [x: string]: any }): boolean {
+  private isOverflowed(
+    props: { [x: string]: any },
+    placement: ZuiOverlayOutsidePlacement
+  ): boolean {
+    const [main] = placement.split('');
+    /* TODO later add re-position by x coordinates after is-overflowed */
+    if (main !== 't' && main !== 'b') {
+      return false;
+    }
     const { innerHeight, innerWidth } = window;
     props.bottom = props.top + props.height;
     props.right = props.left + props.width;
+
     return props.bottom > innerHeight || props.top <= 0 || props.left <= 0 || props.right > innerWidth;
   }
 
@@ -107,6 +116,7 @@ export class ZuiOverlayRelativePosition extends ZuiOverlayAbstractPosition<ZuiOv
 
     const index = placements.indexOf(current);
     const even = index % 2 === 0;
+
     return even ? placements[index + 1] : placements[index - 1];
   }
 

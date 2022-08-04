@@ -10,7 +10,6 @@ import {
   OnInit,
   ViewChild,
   ViewContainerRef,
-  ViewEncapsulation
 } from '@angular/core';
 import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
 import { Observable } from 'rxjs';

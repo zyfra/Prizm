@@ -38,7 +38,6 @@ export class ZuiTreeComponent<T> implements DoCheck {
     readonly children$ = this.check$.pipe(
         startWith(null),
         map(() => this.handler(this.value)),
-        tap((tree) => console.log('#mz tree', {tree})),
         distinctUntilChanged(),
     );
 

@@ -9,8 +9,10 @@ import {
   ZuiOverlayInsidePlacement,
   ZuiOverlayService,
 } from '../modules/overlay';
-import { finalize, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { ZuiOverscrollMode } from '../directives/overscroll/overscroll.model';
+import { generateId } from '../util';
+
 
 @Injectable()
 export abstract class AbstractZuiDialogService<T extends ZuiDialogBaseOptions, O = unknown, DATA = unknown> {
@@ -50,8 +52,7 @@ export abstract class AbstractZuiDialogService<T extends ZuiDialogBaseOptions, O
         completeWith,
         $implicit: observer,
         createdAt: Date.now(),
-        // TODO #mz replace after merge to next another branch - generate by uuid
-        id: options.id ?? this.defaultOptions.id ?? ('id_' + Math.random()),
+        id: options.id ?? this.defaultOptions.id ?? generateId(),
       };
 
       const control = this.overlayService
