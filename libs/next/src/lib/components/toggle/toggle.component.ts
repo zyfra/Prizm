@@ -22,7 +22,7 @@ import {ZuiAppearance} from '../../types/appearance.types';
 @Component({
     selector: 'zui-toggle',
     templateUrl: './toggle.component.html',
-    styleUrls: ['./toggle.style.less'],
+    styleUrls: ['./toggle.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [],
 })

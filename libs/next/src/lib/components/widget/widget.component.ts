@@ -4,8 +4,8 @@ import { ZuiShadowType } from '../../directives/shadow';
 
 @Component({
     selector: 'zui-widget',
-    templateUrl: './widget.template.html',
-    styleUrls: ['./widget.style.less'],
+    templateUrl: './widget.component.html',
+    styleUrls: ['./widget.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [],
 })

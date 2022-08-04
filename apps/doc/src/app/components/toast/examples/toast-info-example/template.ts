@@ -102,6 +102,7 @@ export class ZuiToastInfoExampleComponent {
     this.toastService.create(
       'Старайтесь уместить текст в 1 строку.',
       {
+        timer: 5000,
         appearance: this.appearance,
         position: this.formControl.value
       }

@@ -161,7 +161,7 @@ export class ZuiHintDirective implements OnChanges, OnInit, OnDestroy {
               id: this.zuiHintId,
               showDelay: this.zuiHintShowDelay,
               hideDelay: this.zuiHintHideDelay,
-              host: this.zuiHintHost,
+              host: this.host,
             },
           })
           .create();
