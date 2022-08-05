@@ -34,7 +34,7 @@ export function ParseTextInput(text: string): RelativeDateModel {
   result.time = timeMap.get(match[1]);
   result.direction = directionMap.get(match[2]);
   result.period = periodMap.get(match[4]);
-  result.number = match[3] || (result.direction || result.period ? '0' : '');
+  result.number = match[3] || '';
 
   return result;
 }
@@ -50,7 +50,7 @@ export function RenderText(model: RelativeDateModel): string {
 
   result += renderTimeMap.get(model.time) || '';
   result += direction || '';
-  result += model.number || (direction || period ? '0' : '');
+  result += model.number || '';
   result += period || '';
 
   return result;
