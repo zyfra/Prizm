@@ -9,4 +9,5 @@ import { FormControl } from '@angular/forms';
 })
 export class CalendarTestComponent {
   public readonly control = new FormControl('13.01.2022');
+  public mode: any = 'absolute';
 }
