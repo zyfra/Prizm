@@ -48,6 +48,7 @@ const Template: Story<ZyfraDropdownComponent> = args => ({
       [style]="{ width: '360px' }"
       [group]="group"
       [appendTo]="appendTo"
+      [disabled]="disabled"
       [mini]="mini"
       [virtualScroll]="virtualScroll"
       [itemSize]="itemSize"
