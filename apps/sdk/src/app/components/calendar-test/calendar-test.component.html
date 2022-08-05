@@ -1,6 +1,35 @@
+<h3>Calendar</h3>
 <zyfra-calendar
   [formControl]="control"
   label="Календарь"
   dateFormat="dd.mm.yy"
   class="calendar-test"
 ></zyfra-calendar>
+<br />
+<br />
+<h4>Calendar - multi</h4>
+
+<zyfra-datepicker-multi
+  [mode]="mode"
+  [relativeValue]="'10/01/2022'"
+  [absoluteValue]="'10/01/2022'"
+  [label]="'Дата'"
+  [placeholder]="'Выберите дату'"
+  [dateFormat]="'dd/mm/yy'"
+  [disabled]="false"
+  [inline]="false"
+  [showOtherMonths]="true"
+  [selectOtherMonths]="false"
+  [showOnFocus]="true"
+  [showWeek]="false"
+  [readonlyInput]="false"
+  [showTime]="false"
+  [timeOnly]="false"
+  [required]="false"
+  [numberOfMonths]="1"
+  [selectionMode]="'single'"
+  [disabledDates]="null"
+  [showButtonBar]="false"
+  [firstDayOfWeek]="1"
+>
+</zyfra-datepicker-multi>
