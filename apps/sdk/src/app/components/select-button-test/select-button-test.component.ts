@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'zyfra-select-button-test',
   templateUrl: './select-button-test.component.html',
@@ -8,6 +9,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 export class SelectButtonTestComponent {
   public city: any[];
   public multiple = true;
+  public form: FormControl = new FormControl('3');
 
   constructor() {
     this.city = [

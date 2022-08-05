@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-
+import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
+import { ControlValueAccessor } from '@angular/forms';
 export interface SelectButtonOptionClick<T> {
   index: number;
   option: T;
@@ -16,7 +17,10 @@ export interface SelectButtonChange<T> {
   templateUrl: './zyfra-select-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZyfraSelectButtonComponent<OPTION, VALUE> {
+export class ZyfraSelectButtonComponent<OPTION, VALUE>
+  extends WrappedFormComponent
+  implements ControlValueAccessor
+{
   @Input() options: OPTION[];
   @Input() optionLabel: string;
   @Input() optionValue: string;

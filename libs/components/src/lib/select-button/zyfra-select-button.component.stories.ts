@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { moduleMetadata } from '@storybook/angular';
 import { Meta, Story } from '@storybook/angular/types-6-0';
 import { ZyfraSelectButtonComponent } from './zyfra-select-button.component';
@@ -10,7 +11,7 @@ export default {
   component: ZyfraSelectButtonComponent,
   decorators: [
     moduleMetadata({
-      imports: [CommonModule, ZyfraSelectButtonModule],
+      imports: [CommonModule, ZyfraSelectButtonModule, FormsModule],
     }),
   ],
   parameters: {
@@ -33,13 +34,29 @@ const cities: StoryCity[] = [
   { name: 'Paris', code: 'PRS' },
 ];
 
-const Template: Story<ZyfraSelectButtonComponent<StoryCity, string>> = (args) => ({
+const Template: Story<ZyfraSelectButtonComponent<StoryCity, string>> = args => ({
   component: ZyfraSelectButtonComponent,
+  template: `
+  <div style="height: 100px; padding: 1rem;">
+    <zyfra-select-button
+      [(ngModel)]="value"
+      [options]="options"
+      [optionLabel]="optionLabel"
+      [optionValue]="optionValue"
+      [optionDisabled]="optionDisabled"
+      [multiple]="multiple"
+      [disabled]="disabled"
+      [styleClass]="styleClass"
+      [dataKey]="dataKey"
+    ></zyfra-select-button>
+  </div>
+  `,
   props: args,
 });
 
 export const Default = Template.bind({});
 Default.args = {
+  value: ['RU'],
   options: cities,
   optionLabel: 'name',
   optionDisabled: 'inactive',

@@ -12,7 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   providers: [
     {
       provide: APP_TOKEN,
-      useValue: ['SelectButton', SelectButtonTestComponent],
+      useValue: ['Select-Button', SelectButtonTestComponent],
       multi: true,
     },
   ],

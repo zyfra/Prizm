@@ -95,6 +95,7 @@ import { TranslateModule } from './components/translate/translate.module';
     TreeTableTestModule,
     TriCheckboxTestModule,
     ZyfraTabViewModule,
+    SelectButtonTestModule,
   ],
   bootstrap: [AppComponent],
 })
