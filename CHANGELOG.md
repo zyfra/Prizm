@@ -2,6 +2,31 @@
 
 Все изменения в этом файле отражают изменения в коде во всем монорепозитории.
 
+## [v0.13.0] - 05-08-2022
+
+### @digital-plant/zyfra-components [v0.13.0]
+
+**Added**
+
+- feat(components/select-button,toggle-button): Added reactive forms [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/206)
+
+**Fixes**
+
+- fix(components/dropdown): zyfra-dropdown-with-content fiexes background [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/238)
+- fix(components/dropdown): Fixed disabled dropdown style [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/242)
+- fix(components/icon-button): Fixed disabled icon style [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/245)
+- fix(components/dropdown): fix size of elements with property 'mini' [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/258)
+- fix(components/dropdown): fixes min sizes [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/233)
+- fix(component/calendar): fixes relative calendar input parser [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/204)
+- docs(components/calendar): fixes example [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/226)
+- fix(components/dropdown): fixes editable + mini [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/230)
+
+> **Special thanks**
+>
+> ✏️ **MR:** Maryana Kabardina, Yakov Korolev, Ilia Petrov, Anton Grekov
+>
+> ️🐛 **Issue:** Anton Osechkin, Ilia Petrov, Aleksey S. Polyakov
+
 ## [v0.12.0] - 13-07-2022
 
 ### @digital-plant/zyfra-components [v0.12.0]
