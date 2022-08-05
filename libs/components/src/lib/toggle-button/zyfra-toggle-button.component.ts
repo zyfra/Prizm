@@ -1,4 +1,6 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.component';
+import { ControlValueAccessor } from '@angular/forms';
 
 export interface TToggleButtonClick {
   originalEvent: PointerEvent;
@@ -10,7 +12,7 @@ export interface TToggleButtonClick {
   templateUrl: './zyfra-toggle-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZyfraToggleButtonComponent {
+export class ZyfraToggleButtonComponent extends WrappedFormComponent implements ControlValueAccessor {
   @Input() model = true;
   @Input() onLabel: string = 'confirm';
   @Input() offLabel: string;

@@ -20,8 +20,20 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ZyfraToggleButtonComponent> = (args) => ({
+const Template: Story<ZyfraToggleButtonComponent> = args => ({
   component: ZyfraToggleButtonComponent,
+  template: `
+  <div style="height: 100px; padding: 1rem;">
+  <zyfra-toggle-button
+  [(ngModel)]="model"
+  [onLabel]="onLabel"
+  [offLabel]="offLabel"
+  [onIcon]="onIcon"
+  [offIcon]="offIcon"
+  [styleClass]="styleClass"
+  ></zyfra-toggle-button>
+  </div>
+  `,
   props: args,
 });
 
@@ -31,6 +43,7 @@ Default.args = {
   offLabel: 'I reject',
   inIcon: 'zyfra-icon selection-check-simple',
   offIcon: 'zyfra-icon cancel-close',
+  model: false,
 };
 
 export const Info = Template.bind({});
