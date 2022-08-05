@@ -9,27 +9,24 @@
 
   width: 32px;
   font-size: inherit;
-  cursor: pointer;
 
   color: var(--border-icon);
-
-  &:hover {
-    color: var(--index-plan);
-  }
-
-  &:focus {
-    color: var(--index-plan);
-    text-shadow: 0 0 2px var(--index-plan);
-  }
 
   &:disabled {
     color: var(--grey-g9-g5);
   }
 }
 
-:host-context(.zui-input-form-status-button) {
-  &:focus {
-    text-shadow: none;
+:host-context(.interactive) {
+  &:hover {
+    color: var(--index-plan);
   }
+
+  &:focus {
+    color: var(--index-plan);
+    text-shadow: 0 0 1px var(--index-plan);
+  }
+
+  cursor: pointer;
 }
 

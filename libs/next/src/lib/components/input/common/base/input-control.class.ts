@@ -29,6 +29,8 @@ export abstract class ZuiInputControl<T> {
   /** Whether the control is validity. */
   abstract readonly touched: boolean;
 
+  abstract nativeElementType: string | undefined;
+
   abstract hasClearButton: boolean;
   public abstract clear(): void;
 }

@@ -9,11 +9,13 @@ import { ZuiCarouselComponent } from './carousel.component';
       zuiInputIconButton="chevrons-right"
       (click)="carousel.stepRight()"
       *ngIf="!carousel.disabled"
+      [interactive]="true"
     ></button>
     <button
       zuiInputIconButton="chevrons-double-right"
       (click)="carousel.right()"
       *ngIf="!carousel.disabled && !carousel.lightMode"
+      [interactive]="true"
     ></button>
   `,
   styles: [

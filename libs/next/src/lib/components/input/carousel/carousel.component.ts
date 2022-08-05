@@ -10,7 +10,6 @@ import {
 } from '@angular/core';
 import { NgControl, Validators, ControlValueAccessor } from '@angular/forms';
 import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-import { Subject } from 'rxjs';
 
 import { ZuiInputControl } from '../common/base/input-control.class';
 import { ZuiCarouselContent } from './carousel-content/carousel-content.interface';
@@ -92,6 +91,8 @@ export class ZuiCarouselComponent extends ZuiInputControl<any> implements Contro
   @Input() lightMode = false;
 
   hasClearButton = false;
+  nativeElementType = 'carousel';
+
   changeFn: (value: number) => void;
   touchedFn: () => void;
 
@@ -101,6 +102,7 @@ export class ZuiCarouselComponent extends ZuiInputControl<any> implements Contro
     private readonly cdr: ChangeDetectorRef
   ) {
     super();
+
     if (ngControl) {
       ngControl.valueAccessor = this;
     }
@@ -209,8 +211,6 @@ export class ZuiCarouselComponent extends ZuiInputControl<any> implements Contro
     this.el.nativeElement.focus();
   }
 
-  public clear(): void {
-    //test
-  }
+  public clear(): void {}
 }
 

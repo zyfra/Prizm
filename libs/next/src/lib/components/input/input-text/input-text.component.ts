@@ -103,7 +103,9 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
    */
   public touched: boolean;
 
-  hasClearButton = true;
+  public hasClearButton = true;
+  public nativeElementType: string;
+
   /**
    * Create instance
    */
@@ -115,7 +117,13 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
     @Optional() @Attribute('mask') private maskAttr: string
   ) {
     super();
+
     this._inputValue = elementRef.nativeElement;
+
+    this.nativeElementType = elementRef.nativeElement.type;
+    if (this.elementRef.nativeElement instanceof HTMLTextAreaElement) {
+      this.elementRef.nativeElement.rows = 1;
+    }
   }
 
   public ngOnInit(): void {
@@ -131,34 +139,34 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
     this.stateChanges.complete();
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('input', ['$event'])
-  public onInput(): void {
+  private onInput(): void {
     this.updateEmptyState();
     this.stateChanges.next();
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('focus', ['$event'])
-  public onFocus(): void {
+  private onFocus(): void {
     this.focused = true;
     this.stateChanges.next();
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('blur', ['$event'])
-  public onBlur(): void {
+  private onBlur(): void {
     this.focused = false;
     this.touched = true;
     this.stateChanges.next();
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('keydown.enter', ['$event'])
-  onEnter(): void {
+  private onEnter(): void {
     this.enter.next(this.value);
   }
 
+  @HostListener('scroll', ['$event'])
+  private onScroll(): void {
+    console.log('scroll');
+  }
   private initControlListener(): void {
     this.ngControl.statusChanges
       .pipe(

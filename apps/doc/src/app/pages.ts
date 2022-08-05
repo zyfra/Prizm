@@ -56,9 +56,14 @@ export const pages: TuiDocPages = [
     title: 'Inputs',
     subPages: [
       {
-        title: 'Input',
+        title: 'InputText',
         keywords: 'input, text, form',
         route: '/components/input',
+      },
+      {
+        title: 'Textarea',
+        keywords: 'input, text, form',
+        route: '/components/textarea',
       },
       {
         title: 'InputChips',
