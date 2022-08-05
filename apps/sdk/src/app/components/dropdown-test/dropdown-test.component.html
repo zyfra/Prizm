@@ -4,7 +4,8 @@
   [optionLabel]="optionLabel"
   [placeholder]="placeholder"
   [showClear]="showClear"
-  [label]="label"
+  [mini]="mini"
+  [editable]="editable"
   (onChange)="onChange($event)"
   (onClick)="onClick($event)"
   (onFocus)="onFocus($event)"
@@ -12,3 +13,9 @@
   (onShow)="onShow($event)"
   (onHide)="onHide($event)"
 ></zyfra-dropdown>
+<br />
+<zyfra-button label="editable true/false" (click)="editable = !editable"></zyfra-button>
+<br />
+<small>(Значение editable: {{ editable }})</small>
+<br />
+<small>(Значение mini: {{ mini }})</small>
