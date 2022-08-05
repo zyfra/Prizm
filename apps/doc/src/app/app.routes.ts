@@ -38,8 +38,7 @@ export const ROUTES = [
   },
   {
     path: 'components/card',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/card/card.module')).CardModule,
+    loadChildren: async (): Promise<unknown> => (await import('./components/card/card.module')).CardModule,
     data: {
       title: 'Card',
     },
@@ -62,8 +61,7 @@ export const ROUTES = [
   },
   {
     path: 'components/tree',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/tree/tree.module')).TreeModule,
+    loadChildren: async (): Promise<unknown> => (await import('./components/tree/tree.module')).TreeModule,
     data: {
       title: 'Tree',
     },
@@ -100,7 +98,8 @@ export const ROUTES = [
   },
   {
     path: 'components/scrollbar',
-    loadChildren: async (): Promise<unknown> => (await import('./components/scrollbar/scrollbar.module')).ScrollbarModule,
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/scrollbar/scrollbar.module')).ScrollbarModule,
     data: {
       title: 'Scrollbar',
     },
@@ -155,6 +154,14 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/textarea',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/input/textarea/textarea-example.module')).TextareaExampleModule,
+    data: {
+      title: 'Textarea',
+    },
+  },
+  {
     path: 'components/loader',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/loader/loader.module')).LoaderModule,
@@ -180,8 +187,7 @@ export const ROUTES = [
   },
   {
     path: 'components/toast',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/toast/toast.module')).ToastModule,
+    loadChildren: async (): Promise<unknown> => (await import('./components/toast/toast.module')).ToastModule,
     data: {
       title: 'Toast',
     },

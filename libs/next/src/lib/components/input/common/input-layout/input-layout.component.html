@@ -2,7 +2,9 @@
   <label
     class="zui-input-label
     zui-input-label-{{ outer ? 'outer' : 'inner' }}
-    zui-input-label-{{ outer ? 'outer' : 'inner' }}-{{ position }}"
+    zui-input-label-{{ outer ? 'outer' : 'inner' }}-{{ position }}
+    {{ control.nativeElementType ? 'zui-input-label-' + control.nativeElementType : '' }}
+"
     [attr.data-size]="size"
     [class.zui-input-label-focused]="control.focused"
     [class.zui-input-label-empty]="control.empty"
@@ -20,6 +22,7 @@
   zui-input-form-{{ outer ? 'outer' : 'inner' }}
   zui-input-form-{{ position }}
   zui-input-form-{{ outer ? 'outer' : 'inner' }}-{{ position }}
+  {{ control.nativeElementType ? 'zui-input-form-' + control.nativeElementType : '' }}
 "
   [attr.data-size]="size"
   [ngClass]="{
@@ -45,12 +48,14 @@
         zuiInputIconButton="cansel-delete-content"
         (click)="onClearClick()"
         class="zui-input-button-default {{ showStatusButton ? '' : 'alone' }}"
+        [interactive]="true"
       ></button>
       <button
         *ngIf="showStatusButton"
         [zuiInputIconButton]="statusIcon"
         [zuiHint]="statusMessage"
         class="zui-input-form-status-button"
+        [interactive]="true"
       ></button>
     </div>
 

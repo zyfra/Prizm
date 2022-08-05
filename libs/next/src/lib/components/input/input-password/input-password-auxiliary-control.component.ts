@@ -16,7 +16,7 @@ import { ZuiInputPasswordDirective } from './input-password.directive';
 
 @Component({
   selector: 'zui-input-password-auxiliary-control',
-  template: ` <button [zuiInputIconButton]="icon" class="btn" #btn></button> `,
+  template: ` <button [zuiInputIconButton]="icon" class="btn" #btn [interactive]="true"></button>`,
   styles: [
     `
       :host {

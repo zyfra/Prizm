@@ -5,8 +5,18 @@ import { ZuiInputNumberDirective } from './input-number.directive';
 @Component({
   selector: 'zui-input-number-auxiliary-controls',
   template: `<div class="container">
-    <button zuiInputIconButton="chevrons-up" (click)="increment()" [size]="size"></button>
-    <button zuiInputIconButton="chevrons-down" (click)="decrement()" [size]="size"></button>
+    <button
+      zuiInputIconButton="chevrons-up"
+      (click)="increment()"
+      [size]="size"
+      [interactive]="true"
+    ></button>
+    <button
+      zuiInputIconButton="chevrons-down"
+      (click)="decrement()"
+      [size]="size"
+      [interactive]="true"
+    ></button>
   </div> `,
   styles: [
     `
