@@ -18,7 +18,8 @@ export class DropdownTestComponent {
   public optionLabel = 'name';
   public placeholder = 'Select a City';
   public showClear = true;
-  public label = 'City';
+  public mini = true;
+  public editable = true;
 
   public onChange(e: any): void {
     console.log(e);
