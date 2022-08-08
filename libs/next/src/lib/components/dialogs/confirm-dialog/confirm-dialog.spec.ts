@@ -1,15 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { ZuiOverlayControl } from '../../../modules/overlay';
-import {
-  ZuiConfirmDialogModule,
-  ZuiConfirmDialogResult,
-  ZuiConfirmDialogResultDefaultType,
-  ZuiConfirmDialogService,
-} from './index';
+import { ZuiConfirmDialogModule, ZuiConfirmDialogResultDefaultType, ZuiConfirmDialogService } from './index';
 import { first, take } from 'rxjs/operators';
 
 
-describe('ZuiConfirmDialog', () => {
+xdescribe('ZuiConfirmDialog', () => {
   let service: ZuiConfirmDialogService;
   beforeEach(() => {
     TestBed.configureTestingModule({

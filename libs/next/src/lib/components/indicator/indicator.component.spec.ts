@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { IndicatorComponent } from './indicator.component';
+import { CommonModule } from '@angular/common';
 
 describe('IndicatorComponent', () => {
   let component: IndicatorComponent;
@@ -9,6 +10,7 @@ describe('IndicatorComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [IndicatorComponent],
+      imports: [CommonModule]
     }).compileComponents();
   });
 
