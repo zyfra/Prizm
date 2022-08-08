@@ -52,7 +52,7 @@ export class ZuiChipsComponent implements ControlValueAccessor, OnInit, OnDestro
   public onTouched: (value: unknown) => void = () => {};
 
   get chipsList(): string[] {
-    return this.chipsList$.getValue() as string[];
+    return this.chipsList$.getValue() ?? [] as string[];
   }
 
   set chipsList(data: string[]) {

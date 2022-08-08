@@ -127,6 +127,10 @@ export class ZuiOverlayControl {
     return EventBus.listen(this.zid, eventName);
   }
 
+  public reCalculatePositions(): void {
+    EventBus.send(this.zid, 'z_dynpos');
+  }
+
   private isNotHostElement(el: HTMLElement): boolean {
     const wrapperEl = this.viewEl.querySelector('.z-overlay-wrapper');
     return el !== wrapperEl && !wrapperEl.contains(el);
