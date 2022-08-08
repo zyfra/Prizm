@@ -211,6 +211,8 @@ export class ZuiCarouselComponent extends ZuiInputControl<any> implements Contro
     this.el.nativeElement.focus();
   }
 
-  public clear(): void {}
+  public clear(): void {
+    console.log('clear');
+  }
 }
 
