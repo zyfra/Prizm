@@ -29,6 +29,7 @@ export * from './lib/components/table';
 export * from './lib/components/dropdowns/dropdown-host';
 export * from './lib/components/dropdowns/select';
 export * from './lib/components/dropdowns/multi-select';
+export * from './lib/services';
 
 export * from './lib/components/toggle';
 export * from './lib/modules/overlay';

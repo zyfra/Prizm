@@ -1,6 +1,6 @@
 @import './variables.less';
 
-:root {
+[data-zui-theme="dark"] {
   /* Color styles */
 
   /* Text */
@@ -47,4 +47,20 @@
   --exceptions-white: var(--palette-g1);
   --link: var(--palette-lock-l);
   --exeptions-g1-b1: var(--palette-g1);
+
+  --zui-disabled: #20222B;
+  --zui-disabled-text: #50546B;
+
+  // TODO later remove and change to base vars (after designer)
+  --zui-primary: #337EFF;
+  --zui-primary-pressed: #003ED6;
+  --zui-primary-ghost-pressed: #1D3460;
+  --zui-primary-ghost: #20222B;
+  --zui-primary-hover: #0F62FE;
+
+  --zui-secondary: #606580;
+  --zui-secondary-ghost-pressed: #1D3460;
+  --zui-secondary-pressed: #8D91A4;
+  --zui-secondary-ghost-hover: #20222B;
+  --zui-secondary-hover: #777B92;
 }
