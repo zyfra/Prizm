@@ -17,7 +17,7 @@ variables:
   ZIF_TOOLS_RUNNER_IMAGE: 'registry.dp.zyfra.com/infra/zif-tools-runner'
   ZIF_TOOLS_RUNNER_TAG: '1.13.0'
   DEPLOY_NAMESPACE: ziiot-dev-11
-  KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_MR_ONE=${CI_MERGE_REQUEST_IID}"
+  KANIKO_EXECUTOR_ARGUMENTS: "--build-arg $NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/"
 
 stages:
   - build
@@ -44,6 +44,15 @@ Build js image:
   rules:
     - if: "$SKIP_KANIKO_BUILD =~ /^(true|yes|on|1)$/i"
       when: never
+    - if: $CI_COMMIT_BRANCH == "next"
+      variables:
+        KANIKO_EXECUTOR_ARGUMENTS: "--build-arg $NPM_SDK_DEPLOY_URL=/"
+    - if: $CI_COMMIT_TAG != ""
+      variables:
+        KANIKO_EXECUTOR_ARGUMENTS: "--build-arg $NPM_SDK_DEPLOY_URL=/"
+    - if: $CI_COMMIT_BRANCH != "next"
+      variables:
+        KANIKO_EXECUTOR_ARGUMENTS: "--build-arg $NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/"
     - if: >-
         $CI_COMMIT_BRANCH != null &&
         $CI_PIPELINE_SOURCE == 'push' &&
