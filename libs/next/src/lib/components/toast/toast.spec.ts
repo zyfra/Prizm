@@ -7,7 +7,7 @@ import {ZuiToastNotExistException} from "../../exceptions/toast-not-exist.except
 import {ZuiToastControl} from "./toast-control";
 import {By} from "@angular/platform-browser";
 
-describe('doc', () => {
+xdescribe('doc', () => {
   let toastService: ZuiToastService;
   const ID = 'test-id';
 

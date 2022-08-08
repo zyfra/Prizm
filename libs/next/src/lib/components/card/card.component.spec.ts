@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ZuiCardComponent } from './card.component';
+import { CommonModule } from '@angular/common';
 
 describe('ZuiCardComponent', () => {
   let component: ZuiCardComponent;
@@ -8,7 +9,8 @@ describe('ZuiCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ZuiCardComponent ]
+      imports: [ CommonModule ],
+      declarations: [ ZuiCardComponent ],
     })
     .compileComponents();
   });

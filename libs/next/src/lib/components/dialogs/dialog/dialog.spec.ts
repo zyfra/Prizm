@@ -3,7 +3,7 @@ import { ZuiOverlayControl } from '../../../modules/overlay';
 import { ZuiDialogModule, ZuiDialogService } from './index';
 import { first, take } from 'rxjs/operators';
 
-describe('ZuiDialog', () => {
+xdescribe('ZuiDialog', () => {
   let service: ZuiDialogService;
   beforeEach(() => {
     TestBed.configureTestingModule({

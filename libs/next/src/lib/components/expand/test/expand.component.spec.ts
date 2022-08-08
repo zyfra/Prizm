@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ZUI_EXPAND_LOADED } from '../expand.const';
 import { ZuiExpandModule } from '../expand.module';
+import { CommonModule } from '@angular/common';
 
 const ANIMATION_DELAY = 900;
 
@@ -9,7 +10,6 @@ describe('expand', () => {
     @Component({
         template: `
             <zui-expand
-                [async]="async"
                 [expanded]="expanded"
             >
                 <ng-template zuiExpandContent>
@@ -33,7 +33,7 @@ describe('expand', () => {
     beforeEach(
       () => {
         TestBed.configureTestingModule({
-          imports: [ZuiExpandModule],
+          imports: [ZuiExpandModule, CommonModule],
           declarations: [TestComponent],
         });
       }
