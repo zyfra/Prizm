@@ -11,7 +11,7 @@ FROM $DOCKERFILE_BUILD_IMAGE:$DOCKERFILE_BUILD_TAG AS builder
 
 # Build arguments
 ARG NPM_GITLAB_REGISTRY_HOST="${CI_SERVER_HOST:-gitdp.zyfra.com}"
-ARG NPM_MR_ONE="0"
+ARG NPM_SDK_DEPLOY_URL="/"
 ARG NPM_GITLAB_REGISTRY_TOKEN
 ARG NPM_BUILD_ENVIRONMENT="storybook"
 ARG NPM_BUILD_NEXT="next"
@@ -42,7 +42,7 @@ COPY ./ /project/
 #    chmod -R g+rw /project
 
 RUN npm --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
-    run --verbose build:"$NPM_BUILD_NEXT" -- --deployUrl /zui-sdk/mr-$NPM_MR_ONE/ --baseHref /zui-sdk/mr-$NPM_MR_ONE/ && \
+    run --verbose build:"$NPM_BUILD_NEXT" -- --deployUrl $NPM_SDK_DEPLOY_URL --baseHref $NPM_SDK_DEPLOY_URL/ && \
     chgrp -R 0 /project && \
     chmod -R g+rw /project
 
