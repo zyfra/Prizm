@@ -273,7 +273,15 @@ export const ROUTES = [
       title: 'Table',
     },
   },
-
+  {
+    path: 'components/accordion',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/accordion/accordion-example.module'))
+        .AccordionExampleModule,
+    data: {
+      title: 'Accordion',
+    },
+  },
   { path: '**', redirectTo: 'getting-started' },
 ];
 

@@ -62,7 +62,7 @@ export class ZuiCheckboxComponent extends ZuiCheckboxFormDirective implements On
   public childrenList: ICheckbox[] = [];
 
   public form: FormGroup = new FormGroup({
-    state: new FormControl(''),
+    state: new FormControl('unselected'),
     value: new FormControl(''),
     label: new FormControl(''),
     child: new FormArray([]),

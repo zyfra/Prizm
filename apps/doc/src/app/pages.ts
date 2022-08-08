@@ -214,6 +214,12 @@ export const pages: TuiDocPages = [
     keywords: 'breadcrumbs, хлебные крошки, таб, nav, навигация',
     route: '/components/breadcrumbs',
   },
+  {
+    section: `Components`,
+    title: 'Accordion',
+    keywords: 'accordion, аккордеон',
+    route: '/components/accordion',
+  },
   // Helpers
   {
     section: `Helpers`,
