@@ -1,0 +1,86 @@
+<tui-doc-page header="Accordion" package="Equinox" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="base" heading="Basic" [content]="exampleBasicAccordion">
+      <zui-accordion-basic-example></zui-accordion-basic-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="instruments" heading="With instruments and disabled item" [content]="exampleWithInstrumentsAccordion">
+      <zui-accordion-with-instruments-example></zui-accordion-with-instruments-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="single" heading="Only one expanded item" [content]="exampleOneExpandedAccordion">
+      <zui-accordion-single-expand-example></zui-accordion-single-expand-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="multiple" heading="Multiple expanded" [content]="exampleMultipleExpandedAccordion">
+      <zui-accordion-multiple-expand-example></zui-accordion-multiple-expand-example>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-accordion [onlyOneExpanded]="onlyOneExpanded">
+        <zui-accordion-item [disabled]="disabled" title='Title number 2'>
+          <ng-template zuiAccordionTools>
+            <zui-checkbox [disabled]="disabled" label='Checkbox label is here'></zui-checkbox>
+          </ng-template>
+          <ng-template zuiAccordionContent>
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной
+            "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую
+            коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только
+            успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в
+            новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее
+            время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+            Не дочитали до конца - ошибка, дочитали и думали, что текст тот же, что и выше - фатальная ошибка.
+          </ng-template>
+        </zui-accordion-item>
+        <zui-accordion-item [disabled]="disabled" title='Title number 3'>
+          <ng-template zuiAccordionTools>
+            <zui-checkbox label='Checkbox label is here but...' [disabled]="disabled"></zui-checkbox>
+          </ng-template>
+          <ng-template zuiAccordionContent>
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной
+            "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую
+            коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только
+            успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в
+            новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее
+            время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum!
+            Не дочитали до конца - ошибка, дочитали и думали, что текст тот же, что и выше - фатальная ошибка.
+          </ng-template>
+        </zui-accordion-item>
+      </zui-accordion>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="onlyOneExpanded"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="onlyOneExpanded"
+      >
+        Only one accordion can be expanded
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>ZuiAccordion</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>
