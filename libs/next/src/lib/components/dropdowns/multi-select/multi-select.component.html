@@ -1,0 +1,45 @@
+<zui-dropdown-host
+  [content]="dropdown"
+  [(isOpen)]="open"
+  [zuiDropdownMinHeight]='minDropdownHeight'
+  [zuiDropdownMaxHeight]='maxDropdownHeight'
+>
+  <zui-input-layout
+    [label]="label"
+    (click)='safeOpenModal()'
+    [size]="size">
+    <input
+      zuiInput
+      #focusableElementRef
+      [placeholder]="placeholder"
+      [formControl]="requiredInputControl"
+    />
+    <zui-chips
+      [style.display]='!chipsFormControl.value?.length ? "none" : ""'
+      #chipsComponent
+      [formControl]="chipsFormControl"
+    ></zui-chips>
+  </zui-input-layout>
+
+  <ng-template #dropdown>
+    <zui-data-list class='block'>
+      <div class='item' *ngFor='let item of filteredItems$ | async' (click)='toggle(!item.checked, $any(item))'>
+        <ng-container
+          *polymorphOutlet="valueTemplate as content; context: {
+            $implicit: {
+              obj: item.obj,
+              checked: item.checked,
+              stringify: item.obj | zuiCallFunc : stringify
+            }
+          } as context"
+        >
+          <zui-checkbox
+            [state]="item.checked ? 'selected' : 'unselected'"
+            [size]="checkboxSize"
+          ></zui-checkbox>
+          {{context.$implicit.stringify}}
+        </ng-container>
+      </div>
+    </zui-data-list>
+  </ng-template>
+</zui-dropdown-host>

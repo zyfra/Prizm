@@ -88,6 +88,8 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
   private _inputValue: { value: unknown };
 
   @Output() enter = new EventEmitter<any>();
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
+  @Output() onClear = new EventEmitter<void>();
   /**
    * Empty state
    */
@@ -226,6 +228,7 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
     }
 
     this.stateChanges.next();
+    this.onClear.emit();
   }
 
   public focus(): void {

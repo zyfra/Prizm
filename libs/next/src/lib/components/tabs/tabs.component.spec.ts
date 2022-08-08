@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TabsComponent } from './tabs.component';
-import { ZuiDropdownHostModule } from '../dropdown-host/dropdown-host.module';
+import { ZuiDropdownHostModule } from '../dropdowns/dropdown-host/dropdown-host.module';
 import { ZuiIconModule } from '../icon/icon.module';
 
 describe('TabsComponent', () => {

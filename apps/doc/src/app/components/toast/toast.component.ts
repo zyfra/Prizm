@@ -1,14 +1,13 @@
-import {ChangeDetectionStrategy, Component, TemplateRef} from '@angular/core';
-import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
-import {TZyfraButtonIconPosision} from "@digital-plant/zyfra-components";
+import { ChangeDetectionStrategy, Component, TemplateRef } from '@angular/core';
+import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
-  PolymorphContent, ZuiToastOptions,
-  ZuiAppearance,
+  PolymorphContent,
   zuiPure,
   ZuiToastAppearance,
-  ZuiToastPosition, ZuiToastRef,
-  ZuiToastService
-} from "@digital-plant/zui-components";
+  ZuiToastOptions,
+  ZuiToastPosition,
+  ZuiToastService,
+} from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-example-example',
@@ -17,8 +16,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ToastComponent {
-  readonly exampleModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/import-module.md'
+  readonly setupModule: RawLoaderContent = import(
+    '!!raw-loader!./examples/setup-module.md'
     );
 
   readonly exampleToastInfo: TuiDocExample = {

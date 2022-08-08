@@ -43,6 +43,10 @@ export class ZuiOverlayRelativePosition extends ZuiOverlayAbstractPosition<ZuiOv
     return { ...this.round(props), width: w, height: ht, extra: pos };
   }
 
+  public reCalc(): void {
+    EventBus.send(this.zid, 'z_dynpos');
+  }
+
   private getCoords(elem: HTMLElement): ZuiOverlayPositionMeta {
     return elem.getBoundingClientRect();
   }

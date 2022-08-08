@@ -1,0 +1,11 @@
+<zui-multi-select
+  [items]='items'
+  [valueTemplate]='valueTemplate'
+></zui-multi-select>
+
+<ng-template #valueTemplate let-value>
+  <div class='item'>
+    <zui-icon iconClass='account-done'></zui-icon>
+    <span>{{value}}</span>
+  </div>
+</ng-template>

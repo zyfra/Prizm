@@ -1,6 +1,6 @@
-import {Injectable} from "@angular/core";
-import {Observable, ReplaySubject} from "rxjs";
-import {filter, map, startWith} from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { Observable, ReplaySubject } from 'rxjs';
+import { filter, map, startWith } from 'rxjs/operators';
 
 @Injectable({providedIn: "root"})
 export class ZuiHintService {

@@ -29,9 +29,25 @@ export const pages: TuiDocPages = [
   },
   {
     section: `Components`,
-    title: 'DropdownHost',
-    keywords: 'dropdown, zui-dropdown-host, overlay',
-    route: '/components/dropdown-host',
+    title: 'Dropdowns',
+    subPages: [
+      {
+        title: 'DropdownHost',
+        keywords: 'dropdown, zui-dropdown-host, overlay',
+        route: '/components/dropdowns/dropdown-host',
+      },
+      {
+        title: 'Select',
+        keywords: 'select, zui-select, overlay',
+        route: '/components/dropdowns/select',
+      }
+      // TODO hide by feature flag
+      // {
+      //   title: 'MultiSelect',
+      //   keywords: 'multi-select, zui-multi-select, overlay',
+      //   route: '/components/dropdowns/multi-select',
+      // },
+    ],
   },
   {
     section: `Components`,

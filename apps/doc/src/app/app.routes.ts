@@ -21,11 +21,27 @@ export const ROUTES = [
   },
   // COMPONENTS
   {
-    path: 'components/dropdown-host',
+    path: 'components/dropdowns/dropdown-host',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./components/dropdown-host/dropdown-host.module')).DropdownHostModule,
+      (await import('./components/dropdowns/dropdown-host/dropdown-host.module')).DropdownHostModule,
     data: {
       title: 'DropdownHost',
+    },
+  },
+  {
+    path: 'components/dropdowns/select',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/dropdowns/select/select.module')).SelectModule,
+    data: {
+      title: 'Select',
+    },
+  },
+  {
+    path: 'components/dropdowns/multi-select',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/dropdowns/multi-select/multi-select.module')).MultiSelectModule,
+    data: {
+      title: 'Multi Select',
     },
   },
   {
