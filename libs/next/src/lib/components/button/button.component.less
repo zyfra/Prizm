@@ -49,12 +49,26 @@
   border-radius: inherit;
 }
 
-.z-content[hidden] {
-  visibility: hidden;
+
+:host[zuiButton] {
+  min-width: 120px;
 }
 
 .z-content {
   gap: var(--zui-button-gap, 8px);
   display: flex;
   justify-content: space-between;
+
+  *[hidden] {
+    visibility: hidden;
+  }
+}
+
+.text {
+  text-align: inherit;
+  width: 100%;
+
+  &:empty {
+    display: none;
+  }
 }

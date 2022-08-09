@@ -24,7 +24,6 @@ import { ZUI_FOCUSABLE_ITEM_ACCESSOR } from '../../tokens';
 import { ZuiFocusableElementAccessor } from '../../types';
 import { ZuiFocusVisibleService } from '../../directives/focus-visible/focus-visible.service';
 import { ZuiHoveredService } from '../../services';
-import { watch } from '@taiga-ui/cdk';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -107,7 +106,7 @@ export class ZuiButtonComponent extends AbstractZuiInteractive
 
     this.hoveredService.createHovered$(this.elementRef.nativeElement).pipe(
       tap(hovered => this.updateHovered(hovered)),
-      watch(this.changeDetectorRef),
+      tap(() => this.changeDetectorRef.markForCheck()),
       takeUntil(this.destroy$),
     ).subscribe();
 
