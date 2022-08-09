@@ -1,5 +1,13 @@
-<tui-doc-main>
+<tui-doc-main #docRef>
   <ng-container ngProjectAs="tuiDocHeader">
+      <label class="zui-night-mode">
+        Night mode
+        <tui-toggle
+          class="tui-toggle"
+          [ngModel]="isNight$ | async"
+          (ngModelChange)="onMode($event)"
+        ></tui-toggle>
+      </label>
       <a
           tuiLink
           tuiMode="onLight"

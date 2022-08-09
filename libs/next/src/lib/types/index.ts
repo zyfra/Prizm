@@ -5,3 +5,4 @@ export * from "./context-with-implicit";
 export * from "./event-with";
 export * from "./handler";
 export * from "./orientation";
+export * from "./theme";

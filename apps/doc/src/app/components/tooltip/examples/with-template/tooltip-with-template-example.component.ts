@@ -31,7 +31,12 @@ import { ZuiOverlayOutsidePlacement } from '@digital-plant/zui-components';
       .footer {
         display: flex;
         margin-top: 32px;
-        justify-content: space-between;
+        gap: 8px;
+        flex-wrap: nowrap;
+
+        button {
+          flex-grow: 1;
+        }
       }
     }
   `]

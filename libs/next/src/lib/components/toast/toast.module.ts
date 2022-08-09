@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { ZuiToastContainerComponent } from './toast-container/toast-container.component';
 import { CommonModule } from '@angular/common';
 import { ZuiOverlayModule } from '../../modules/overlay';
-import { TuiForModule } from '@taiga-ui/cdk';
 import { ToastComponent } from './toast/toast.component';
 import { ToastWrapperComponent } from './toast-wrapper/toast-wrapper.component';
 import { PolymorphModule } from '../../directives';
@@ -21,7 +20,6 @@ import { ZuiIndicatorModule } from '../indicator';
     CommonModule,
     ZuiOverlayModule,
     ZuiIndicatorModule,
-    TuiForModule,
     PolymorphModule,
     ZuiButtonModule,
     ZuiFocusTrapModule

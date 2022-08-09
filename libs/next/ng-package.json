@@ -4,5 +4,6 @@
   "lib": {
     "entryFile": "src/index.ts"
   },
-  "assets": ["./src/styles/styles.less"]
+  "assets": ["./src/styles/", "assets", "./src/lib/**/*.less"],
+  "allowedNonPeerDependencies": ["@angular/cdk", "@digital-plant/zyfra-helpers"]
 }

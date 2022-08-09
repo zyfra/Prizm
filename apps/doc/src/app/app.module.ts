@@ -6,8 +6,8 @@ import { GettingStartedComponent } from './getting-started/getting-started.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutes } from './app.routes';
-import { TuiDataListModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
-import { TuiSelectModule, TuiStringifyContentPipeModule, TuiStringifyPipeModule } from '@taiga-ui/kit';
+import { TuiDataListModule, TuiLinkModule, TuiModeModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
+import { TuiSelectModule, TuiStringifyContentPipeModule, TuiStringifyPipeModule, TuiToggleModule } from '@taiga-ui/kit';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MarkdownModule } from 'ngx-markdown';
 import { APP_PROVIDERS } from './app.providers';
@@ -32,6 +32,9 @@ import { VersionManagerModule } from './version-manager/version-manager.module';
     TuiStringifyContentPipeModule,
     TuiStringifyPipeModule,
     ZyfraUiRootModule,
+    TuiToggleModule,
+    TuiModeModule,
+    TuiLinkModule,
     VersionManagerModule
 ],
   declarations: [
