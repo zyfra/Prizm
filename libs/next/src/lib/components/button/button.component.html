@@ -9,7 +9,7 @@
   [focused]="computedFocusVisible">
   <span class="z-content" [style.visibility]='showLoader ? "hidden" : ""'>
     <ng-container *ngIf='icon' [ngTemplateOutlet]="showIconTemp" [ngTemplateOutletContext]="{icon: icon}"></ng-container>
-    <ng-content></ng-content>
+    <div class='text'><ng-content></ng-content></div>
     <ng-container *ngIf='iconRight' [ngTemplateOutlet]="showIconTemp" [ngTemplateOutletContext]="{icon: iconRight}"></ng-container>
   </span>
   <zui-loader
