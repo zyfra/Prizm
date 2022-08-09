@@ -27,7 +27,7 @@
     "lint:e2e": "nx lint components-e2e && nx lint sdk-e2e",
     "lint": "npm run lint:libs && npm run lint:sdk && npm run lint:e2e",
     "test": "nx affected:test --all",
-    "all": "npm run lint && npm run build && npm run test",
+    "all": "npm run lint && npm run build",
     "prepare": "husky install"
   },
   "private": true,
