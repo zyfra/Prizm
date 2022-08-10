@@ -1,4 +1,5 @@
 :host {
+  height: 32px;
   display: inline-flex;
 
   button {
@@ -55,6 +56,7 @@
     }
 
     .control {
+      height: 32px;
       display: flex;
       align-items: center;
       gap: 14px;
@@ -81,6 +83,8 @@
 
       &:disabled {
         color: var(--grey-g10-g4);
+
+        cursor: not-allowed;
       }
     }
   }

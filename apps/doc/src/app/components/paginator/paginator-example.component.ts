@@ -16,22 +16,22 @@ export class PaginatorExampleComponent {
   public rightButtonLabel = 'Вперед';
 
   readonly exampleBasicPaginator: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/paginator-example-base/paginator-example-base.component'),
-    HTML: import('!!raw-loader!./examples/paginator-example-base/paginator-example-base.component.html'),
-    LESS: import('!!raw-loader!./examples/paginator-example-base/paginator-example-base.component.less'),
+    TypeScript: import('!!raw-loader!./examples/paginator-basic-example/paginator-basic-example.component'),
+    HTML: import('!!raw-loader!./examples/paginator-basic-example/paginator-basic-example.component.html'),
+    LESS: import('!!raw-loader!./examples/paginator-basic-example/paginator-basic-example.component.less'),
   };
 
   readonly exampleLabelsPaginator: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!./examples/paginator-example-with-labels/paginator-example-with-labels.component'
+      '!!raw-loader!./examples/paginator-with-labels-example/paginator-with-labels-example.component'
     ),
     HTML: import(
-      '!!raw-loader!./examples/paginator-example-with-labels/paginator-example-with-labels.component.html'
+      '!!raw-loader!./examples/paginator-with-labels-example/paginator-with-labels-example.component.html'
     ),
     LESS: import(
-      '!!raw-loader!./examples/paginator-example-with-labels/paginator-example-with-labels.component.less'
+      '!!raw-loader!./examples/paginator-with-labels-example/paginator-with-labels-example.component.less'
     ),
   };
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/import-module.md');
+  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 }

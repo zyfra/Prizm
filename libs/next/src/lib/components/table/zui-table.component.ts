@@ -22,7 +22,11 @@ import { ZuiSizeL, ZuiSizeM, ZuiSizeS, ZuiSizeXS } from '../../util';
 @Component({
   selector: 'zui-table',
   templateUrl: './zui-table.component.html',
-  styleUrls: ['./zui-table-prime.component.less', './zui-table.component.less'],
+  styleUrls: [
+    './zui-table-prime.component.less',
+    './zui-table.component.less',
+    './zui-table-status.component.less',
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     TableService,

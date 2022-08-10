@@ -2,12 +2,12 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { ICheckbox } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-checkbox-example-base',
-  templateUrl: './checkbox-example-base.component.html',
-  styleUrls: ['./checkbox-example-base.component.less'],
+  selector: 'zui-checkbox-basic-example',
+  templateUrl: './checkbox-basic-example.component.html',
+  styleUrls: ['./checkbox-basic-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CheckboxExampleBaseComponent {
+export class CheckboxBasicExampleComponent {
   @Input() public size: 'l' | 's' = 'l';
   public data: ICheckbox[] = [
     {
