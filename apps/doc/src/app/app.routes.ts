@@ -276,10 +276,17 @@ export const ROUTES = [
   {
     path: 'components/accordion',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./components/accordion/accordion-example.module'))
-        .AccordionExampleModule,
+      (await import('./components/accordion/accordion-example.module')).AccordionExampleModule,
     data: {
       title: 'Accordion',
+    },
+  },
+  {
+    path: 'components/side-menu',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/side-menu/side-menu-example.module')).SideMenuExampleModule,
+    data: {
+      title: 'Side menu',
     },
   },
   { path: '**', redirectTo: 'getting-started' },
@@ -295,4 +302,3 @@ export const ROUTES = [
   exports: [RouterModule],
 })
 export class AppRoutes {}
-
