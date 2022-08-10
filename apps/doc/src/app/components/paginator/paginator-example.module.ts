@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginatorExampleComponent } from './paginator-example.component';
-import { PaginatorExampleBaseComponent } from './examples/paginator-example-base/paginator-example-base.component';
+import { PaginatorBasicExampleComponent } from './examples/paginator-basic-example/paginator-basic-example.component';
 import {
   generateRoutes,
   TuiDocCodeModule,
@@ -12,13 +12,13 @@ import {
 } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { ZuiPaginatorModule } from '@digital-plant/zui-components';
-import { PaginatorExampleWithLabelsComponent } from './examples/paginator-example-with-labels/paginator-example-with-labels.component';
+import { PaginatorWithLabelsExampleComponent } from './examples/paginator-with-labels-example/paginator-with-labels-example.component';
 
 @NgModule({
   declarations: [
     PaginatorExampleComponent,
-    PaginatorExampleBaseComponent,
-    PaginatorExampleWithLabelsComponent,
+    PaginatorBasicExampleComponent,
+    PaginatorWithLabelsExampleComponent,
   ],
   imports: [
     CommonModule,

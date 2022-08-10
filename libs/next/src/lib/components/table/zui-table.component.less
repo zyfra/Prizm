@@ -5,12 +5,20 @@
       th {
         height: 16px;
       }
+
+      .p-datatable .p-datatable-footer {
+        min-height: 16px;
+      }
     }
 
     &[data-size='s'] {
       tr,
       th {
         height: 24px;
+      }
+
+      .p-datatable .p-datatable-footer {
+        min-height: 24px;
       }
     }
 
@@ -19,12 +27,20 @@
       th {
         height: 32px;
       }
+
+      .p-datatable .p-datatable-footer {
+        min-height: 32px;
+      }
     }
 
     &[data-size='l'] {
       tr,
       th {
         height: 40px;
+      }
+
+      .p-datatable .p-datatable-footer {
+        min-height: 40px;
       }
     }
   }
@@ -128,23 +144,6 @@
       line-height: 18px;
       color: var(--text-contrast);
       border-color: var(--border-widget);
-    }
-
-    .p-datatable-thead > tr > th,
-    .p-datatable-tbody > tr > td {
-      border-color: var(--border-widget);
-
-      &[cell-status='danger'] {
-        background: var(--lite-r130-20);
-      }
-
-      &[cell-status='warning'] {
-        background: var(--lite-y130-20);
-      }
-
-      &[cell-status='success'] {
-        background: var(--lite-g-r130-20);
-      }
     }
 
     .pi-filter-icon.pi-filter {

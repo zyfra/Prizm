@@ -219,7 +219,7 @@ export const ROUTES = [
   {
     path: 'components/paginator',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./components/paginator-example/paginator-example.module')).PaginatorExampleModule,
+      (await import('./components/paginator/paginator-example.module')).PaginatorExampleModule,
     data: {
       title: 'Paginator',
     },
@@ -227,7 +227,7 @@ export const ROUTES = [
   {
     path: 'components/checkbox',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./components/example-checkbox-component/example-checkbox.module')).ExampleCheckboxModule,
+      (await import('./components/checkbox/checkbox-example.module')).CheckboxExampleModule,
     data: {
       title: 'Checkbox',
     },
@@ -235,8 +235,7 @@ export const ROUTES = [
   {
     path: 'components/radio-button',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./components/example-radio-component/example-radio-button.module'))
-        .ExampleRadioButtonModule,
+      (await import('./components/radio/radio-button-example.module')).RadioButtonExampleModule,
     data: {
       title: 'Radio-button',
     },
@@ -276,8 +275,7 @@ export const ROUTES = [
   {
     path: 'components/accordion',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./components/accordion/accordion-example.module'))
-        .AccordionExampleModule,
+      (await import('./components/accordion/accordion-example.module')).AccordionExampleModule,
     data: {
       title: 'Accordion',
     },
@@ -295,4 +293,3 @@ export const ROUTES = [
   exports: [RouterModule],
 })
 export class AppRoutes {}
-

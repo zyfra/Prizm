@@ -3,12 +3,12 @@ import { FormControl } from '@angular/forms';
 import { ICheckbox } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-checkbox-example-form',
-  templateUrl: './checkbox-example-form.component.html',
-  styleUrls: ['./checkbox-example-form.component.less'],
+  selector: 'zui-checkbox-form-example',
+  templateUrl: './checkbox-form-example.component.html',
+  styleUrls: ['./checkbox-form-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CheckboxExampleFormComponent {
+export class CheckboxFormExampleComponent {
   data: ICheckbox = {
     value: 'Parent',
     label: 'Родительский элемент',

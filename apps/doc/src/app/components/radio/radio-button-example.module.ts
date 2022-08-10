@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
-import { RadioButtonExampleBaseComponent } from './examples/radio-button-example-base/radio-button-example-base.component';
-import { ExamplesRadioButtonComponent } from './example-radio-button.component';
+import { RadioButtonBasicExampleComponent } from './examples/radio-button-basic-example/radio-button-basic-example.component';
+import { ExamplesRadioButtonComponent } from './radio-button-example.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ZuiRadioButtonModule } from '@digital-plant/zui-components';
 
@@ -15,7 +15,7 @@ import { ZuiRadioButtonModule } from '@digital-plant/zui-components';
     RouterModule.forChild(generateRoutes(ExamplesRadioButtonComponent)),
     ReactiveFormsModule,
   ],
-  declarations: [ExamplesRadioButtonComponent, RadioButtonExampleBaseComponent],
+  declarations: [ExamplesRadioButtonComponent, RadioButtonBasicExampleComponent],
   exports: [ExamplesRadioButtonComponent],
 })
-export class ExampleRadioButtonModule {}
+export class RadioButtonExampleModule {}

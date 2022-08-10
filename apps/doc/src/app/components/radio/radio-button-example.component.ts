@@ -4,8 +4,8 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 type TRadioButtonSize = 'm' | 'l' | 's';
 
 @Component({
-  templateUrl: './example-radio-button.component.html',
-  styleUrls: ['./example-radio-button.component.less'],
+  templateUrl: './radio-button-example.component.html',
+  styleUrls: ['./radio-button-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExamplesRadioButtonComponent {
@@ -19,15 +19,15 @@ export class ExamplesRadioButtonComponent {
 
   readonly exampleBasicRadio: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!./examples/radio-button-example-base/radio-button-example-base.component'
+      '!!raw-loader!./examples/radio-button-basic-example/radio-button-basic-example.component'
     ),
     HTML: import(
-      '!!raw-loader!./examples/radio-button-example-base/radio-button-example-base.component.html'
+      '!!raw-loader!./examples/radio-button-basic-example/radio-button-basic-example.component.html'
     ),
     LESS: import(
-      '!!raw-loader!./examples/radio-button-example-base/radio-button-example-base.component.less'
+      '!!raw-loader!./examples/radio-button-basic-example/radio-button-basic-example.component.less'
     ),
   };
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/import-module.md');
+  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 }
