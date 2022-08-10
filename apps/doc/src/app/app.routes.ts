@@ -280,6 +280,14 @@ export const ROUTES = [
       title: 'Accordion',
     },
   },
+  {
+    path: 'components/side-menu',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/side-menu/side-menu-example.module')).SideMenuExampleModule,
+    data: {
+      title: 'Side menu',
+    },
+  },
   { path: '**', redirectTo: 'getting-started' },
 ];
 

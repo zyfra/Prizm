@@ -40,7 +40,7 @@ export const pages: TuiDocPages = [
         title: 'Select',
         keywords: 'select, zui-select, overlay',
         route: '/components/dropdowns/select',
-      }
+      },
       // TODO hide by feature flag
       // {
       //   title: 'MultiSelect',
@@ -220,6 +220,12 @@ export const pages: TuiDocPages = [
     keywords: 'accordion, аккордеон',
     route: '/components/accordion',
   },
+  {
+    section: `Components`,
+    title: 'Side-menu',
+    keywords: 'side-menu, side, menu, меню, боковое меню',
+    route: '/components/side-menu',
+  },
   // Helpers
   {
     section: `Helpers`,
@@ -233,4 +239,3 @@ export const pages: TuiDocPages = [
     subPages: [],
   },
 ];
-
