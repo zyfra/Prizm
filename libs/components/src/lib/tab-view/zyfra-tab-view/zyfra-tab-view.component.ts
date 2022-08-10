@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import {
   AfterContentInit,
   AfterViewChecked,
@@ -11,6 +12,7 @@ import {
   HostBinding,
   Inject,
   Input,
+  NgZone,
   OnDestroy,
   Output,
   QueryList,
@@ -18,11 +20,11 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { debounceTime, takeUntil } from 'rxjs/operators';
-import { fromEvent, merge, Subject } from 'rxjs';
 import { TabView } from 'primeng/tabview';
+import { fromEvent, merge, Subject } from 'rxjs';
+import { debounceTime, takeUntil } from 'rxjs/operators';
+
 import { ZyfraTabPanelComponent } from '../zyfra-tab-panel/zyfra-tab-panel.component';
-import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'zyfra-tab-view',
@@ -76,6 +78,7 @@ export class ZyfraTabViewComponent implements AfterContentInit, AfterViewInit, A
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
+    private ngZone: NgZone,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -90,16 +93,21 @@ export class ZyfraTabViewComponent implements AfterContentInit, AfterViewInit, A
   public ngAfterViewInit(): void {
     this.navContentElement = this.tabView.content.nativeElement;
     this.navContentElement.addEventListener('keydown', this.keyDownHandler);
+
     fromEvent(this.navContentElement, 'scroll')
       .pipe(debounceTime(50), takeUntil(this.destroyed$))
       .subscribe(() => this.updateControlsState());
+
+    new ResizeObserver(() => {
+      this.ngZone.run(() => this.updateControls());
+    }).observe(this.navContentElement);
   }
 
   private initialPrepare(): void {
     this.navLinks = this.navContentElement.querySelectorAll('a.p-tabview-nav-link');
     const highlight = this.navContentElement.querySelector('li.p-highlight');
     let focusPresent = false;
-    this.navLinks.forEach((value) => {
+    this.navLinks.forEach(value => {
       if (this.lastFocused === value) {
         focusPresent = true;
       }
@@ -112,14 +120,7 @@ export class ZyfraTabViewComponent implements AfterContentInit, AfterViewInit, A
   public ngAfterViewChecked(): void {
     if (this.tabsChanged || this.tabClosed) {
       requestAnimationFrame(() => {
-        this.hasOverflow = this.navContentElement.scrollWidth > this.navContentElement.offsetWidth;
-        this.updateControlsState();
-        if (this.tabsChanged) {
-          this.initialPrepare();
-        }
-        this.tabsChanged = false;
-        this.tabClosed = false;
-        this.cdr.markForCheck();
+        this.updateControls();
       });
     }
   }
@@ -178,11 +179,22 @@ export class ZyfraTabViewComponent implements AfterContentInit, AfterViewInit, A
     }));
 
     this.tabsChanged = true;
-    merge(...this.tabs.map((value) => value.propChange))
+    merge(...this.tabs.map(value => value.propChange))
       .pipe(takeUntil(this.tabsChanged$))
       .subscribe(() => {
         this.cdr.markForCheck();
       });
+    this.cdr.markForCheck();
+  }
+
+  private updateControls(): void {
+    this.hasOverflow = this.navContentElement.scrollWidth > this.navContentElement.offsetWidth;
+    this.updateControlsState();
+    if (this.tabsChanged) {
+      this.initialPrepare();
+    }
+    this.tabsChanged = false;
+    this.tabClosed = false;
     this.cdr.markForCheck();
   }
 
