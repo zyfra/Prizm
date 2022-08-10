@@ -15,9 +15,7 @@ export class ZuiDestroyService extends ReplaySubject<void> implements OnDestroy 
   public ngOnDestroy(): void {
     this.next();
     this.complete();
-    this.cb.forEach(
-      (cb: ZuiDestroyCallback) => cb()
-    );
+    this.cb.forEach((cb: ZuiDestroyCallback) => cb());
     this.cb.clear();
   }
 
