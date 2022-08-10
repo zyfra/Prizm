@@ -3,8 +3,10 @@
   <zyfra-dropdown-style></zyfra-dropdown-style>
 </div>
 
-<zyfra-tab-view>
-  <zyfra-tab-panel *ngFor="let component of components" [header]="component[0]">
-    <ng-template [zyfraApp]="component[1]"></ng-template>
-  </zyfra-tab-panel>
-</zyfra-tab-view>
+<div class="main__container">
+  <zyfra-tab-view>
+    <zyfra-tab-panel *ngFor="let component of components" [header]="component[0]">
+      <ng-template [zyfraApp]="component[1]"></ng-template>
+    </zyfra-tab-panel>
+  </zyfra-tab-view>
+</div>
