@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.13.1] - 10-08-2022
+
+### @digital-plant/zyfra-components [v0.13.1]
+
+**Added**
+
+- feat/(helpers/destroy): add optional callback  [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/279)
+
+
 ## [v0.13.0] - 05-08-2022
 
 ### @digital-plant/zyfra-components [v0.13.0]
