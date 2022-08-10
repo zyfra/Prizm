@@ -10,9 +10,11 @@
 
 .tab-container {
   position: relative;
+  height: 100%;
 }
 
 .p-tabview {
+  height: 100%;
   .p-tabview-close,
   .zyfra-icon {
     font-size: @16px;
@@ -100,7 +102,7 @@
     box-shadow: var(--shadow-mini);
     margin-top: @8px;
     border-radius: @8px;
-    height: 90vh;
+    height: calc(100% - @56px);
   }
 
   .p-tabview-close:hover {
@@ -211,13 +213,15 @@
 }
 
 .p-disabled {
-  .p-tabview-left-icon, .p-tabview-right-icon {
+  .p-tabview-left-icon,
+  .p-tabview-right-icon {
     color: var(--tabDisabled);
   }
 }
 
 .p-highlight {
-  .p-tabview-left-icon:not(.no-active-color), .p-tabview-right-icon:not(.no-active-color) {
+  .p-tabview-left-icon:not(.no-active-color),
+  .p-tabview-right-icon:not(.no-active-color) {
     color: var(--z-accentColor);
   }
 }

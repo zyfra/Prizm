@@ -10,6 +10,7 @@ import { ZyfraDropdownModule, ZyfraTabViewModule } from '@digital-plant/zyfra-co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppDirective } from './app.directive';
+import { TabViewModule } from './components/tabview-test/tabview-test.module';
 import { MultiselectModule } from './components/multiselect/multiselect.module';
 import { AccordionModule } from './components/accordion/accordion.module';
 import { AutoCompleteModule } from './components/auto-complete/auto-complete.module';
@@ -97,6 +98,7 @@ import { TranslateModule } from './components/translate/translate.module';
     TreeTableTestModule,
     TriCheckboxTestModule,
     ZyfraTabViewModule,
+    TabViewModule,
     ZyfraDropdownModule,
     FormsModule,
     ReactiveFormsModule,
