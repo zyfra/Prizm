@@ -1,0 +1,300 @@
+@import '../typography/typography-const.less';
+@import './base.less';
+
+/**
+ DEPRECATED styles, for use in apps please use base.less
+*/
+:root {
+  /* --------- standard ------------ */
+  --bgStandart: #ffffff;
+  --bgSecond: #dadee7;
+  --bgScreen: #ced3de;
+  --colorDisabled: #bcc3d2;
+
+  --textColor: #ffffff;
+  --primaryColor: #0089ff;
+  --primaryColorHover: #0f62fe;
+  --primaryColorActive: rgba(0, 137, 255, 0.2);
+  --secondaryColor: #6d9ab0;
+  --infoColor: #22bfaf;
+  --infoColorHover: #1fad9f;
+  --infoColorActive: #15796f;
+  --warningColor: #ff983d;
+  --warningColorHover: #ff8214;
+  --warningColorActive: #cc5f00;
+  --dangerColor: #ec5050;
+  --dangerColorHover: #ea3e3e;
+  --dangerColorActive: #af1313;
+  --successColor: #ffffff;
+  --successColorHover: #0089ff;
+  --successColorActive: rgba(0, 137, 255, 0.2);
+
+  --text: #353e50;
+  --eventer: #7887a5;
+  --link: var(--primaryColor);
+  --fontFamily: Inter, sans-serif;
+
+  /* ----------- buttons ------------- */
+  --buttonSuccess: var(--successColor);
+  --buttonSuccessHover: var(--successColorHover);
+  --buttonSuccessActive: var(--successColorActive);
+  --buttonSuccessFont: var(--textColor);
+
+  --buttonDisabled: var(--colorDisabled);
+  --buttonDisabledFont: var(--textColor);
+
+  --buttonWarning: var(--warningColor);
+  --buttonWarningHover: var(--warningColorHover);
+  --buttonWarningActive: var(--warningColorActive);
+  --buttonWarningFont: var(--textColor);
+
+  --buttonDanger: var(--dangerColor);
+  --buttonDangerHover: var(--dangerColorHover);
+  --buttonDangerActive: var(--dangerColorActive);
+  --buttonDangerFont: var(--textColor);
+
+  --buttonInfo: var(--infoColor);
+  --buttonInfoHover: var(--infoColorHover);
+  --buttonInfoActive: var(--infoColorActive);
+  --buttonInfoFont: var(--textColor);
+
+  --buttonSecondary: var(--secondaryColor);
+  --buttonSecondaryHover: #4f7b92;
+  --buttonSecondaryActive: #406578;
+  --buttonSecondaryFont: var(--textColor);
+
+  --buttonPrimary: var(--primaryColor);
+  --buttonPrimaryHover: var(--primaryColorHover);
+  --buttonPrimaryActive: var(--primaryColorActive);
+  --buttonPrimaryFont: var(--textColor);
+
+  /* ------------ checkbox ------------ */
+  --checkBoxUnactive: #7887a5;
+  --checkBox: #000000;
+  --checkBoxHover: var(--buttonSuccessHover);
+  --checkBoxActive: var(--buttonSuccessHover);
+  --checkBoxBg: var(--bgStandart);
+  --checkBoxBgHover: var(--bgStandart);
+  --checkBoxFontDisabled: var(--colorDisabled);
+  --checkBoxBgDisabled: #f3f4f7;
+
+  /* ------------ radioButton ------------ */
+  --radioButton: #7887a5;
+  --radioButtonHover: var(--successColorHover);
+  --radioButtonActive: var(--successColorHover);
+  --radioButtonDisabled: var(--colorDisabled);
+  --radioButtonBg: var(--bgStandart);
+  --radioButtonDisabledBg: #edeff3;
+
+  /* ----------- chips ------------- */
+  --chipsSuccess: var(--successColor);
+  --chipsSuccessHover: var(--buttonSuccessHover);
+  --chipsSuccessActive: var(--successColorActive);
+  --chipsSuccessFont: var(--textColor);
+
+  --chipsDisabled: var(--colorDisabled);
+  --chipsDisabledFont: var(--textColor);
+
+  --chipsWarning: var(--warningColor);
+  --chipsWarningHover: var(--warningColorHover);
+  --chipsWarningActive: var(--warningColorActive);
+  --chipsWarningFont: var(--textColor);
+
+  --chipsDanger: var(--dangerColor);
+  --chipsDangerHover: var(--dangerColorHover);
+  --chipsDangerActive: var(--dangerColorActive);
+  --chipsDangerFont: var(--textColor);
+
+  --chipsInfo: var(--infoColor);
+  --chipsInfoHover: var(--infoColorHover);
+  --chipsInfoActive: var(--infoColorActive);
+  --chipsInfoFont: var(--textColor);
+
+  --chipsPrimary: var(--primaryColor);
+  --chipsPrimaryHover: var(--primaryColorHover);
+  --chipsPrimaryActive: var(--primaryColorActive);
+  --chipsPrimaryFont: var(--textColor);
+
+  /* ----------- inputSwitch ------------- */
+  --inputSwitchBg: var(--bgStandart);
+  --inputSwitchHover: var(--buttonSuccessHover);
+  --inputSwitchActive: var(--buttonSuccessHover);
+  --inputSwitchUnactive: #7887a5;
+
+  --inputSwitchDisabled: var(--colorDisabled);
+  --inputSwitchDisabledBg: #f3f4f7;
+
+  /* --------------------------------------------  */
+
+  /* --------- standart ------------ */
+  --standartBg: var(--bgStandart);
+  --standartFont: #353e50;
+  --standartBorder: #e7e9ef;
+
+  /* --------- for color bg ----------- */
+  --z-accentColor: var(--buttonSuccessHover);
+  --standartActive: var(--successColorActive);
+  --bgFont: var(--textColor);
+
+  /* ------- font for/in input -------- */
+  --inputFont: #afb8ca;
+  --inputPlaceholder: var(--colorDisabled);
+  --inputLabel: #7887a5;
+  --inputDisabledBgColor: #edeff3;
+  --inputDisabledLabelColor: #edeff3;
+
+  /* -- standart variables for button -- */
+  --standartButton: var(--successColor);
+  --standartButtonHover: var(--buttonSuccessHover);
+  --standartButtonActive: var(--successColorActive);
+  --standartButtonFont: var(--textColor);
+
+  --stButtonDisabled: #dadee7;
+  --stButtonDisabledFont: var(--textColor);
+
+  --dangerButton: var(--dangerColor);
+  --dangerButtonHover: var(--dangerColorHover);
+  --dangerButtonActive: var(--dangerColorActive);
+
+  --warningButton: #ff8d29;
+  --warningButtonHover: #f57200;
+  --warningButtonActive: #a34c00;
+
+  /* ------------- slider ------------  */
+  --sliderBg: #7887a5;
+  --sliderDisabledBg: #bcc3d2;
+  --sliderHandle: #49ab4d;
+  /* ------------ calendar ------------ */
+  --calendarBgChecked: #3d8f40;
+  --calendarBgHighlight: rgba(0, 137, 255, 0.2);
+  --calendarBgHover: var(--calendarBgHighlight);
+  --weekendDayColor: #ec5050;
+  --calendarBoxShadow: 0px 8px 32px rgba(102, 119, 153, 0.24);
+  --calendarHeaderColor: #7887a5;
+  --calendarBgToday: #49ab4d;
+
+  /* list */
+  --listItemBg: var(--bgFont);
+  --listItemActive: var(--z-accentColor);
+  --listItemHover: rgba(0, 137, 255, 0.2);
+
+  /* ------------ messages ------------ */
+  --messageFont: #353e50;
+
+  --messageSuccessBg: #f1f9f1;
+  --messageSuccessBorder: #a3d7a4;
+
+  --messageErrorBg: #fdeded;
+  --messageErrorBorder: #f28888;
+
+  /* tabs */
+  --tabNavHeight: @48px;
+  --secondaryTabNavHeight: @36px;
+
+  --navControl: #7887a5;
+  --scrollControlDisabled: var(--colorDisabled);
+  --tabviewBg: var(--bgStandart);
+  --tabFont: #8c99b2;
+  --tabActiveFont: #0089ff;
+  --tabBadgeText: var(--textColor);
+  --tabDisabled: var(--colorDisabled);
+  --headerTabBg: #e7e9ef;
+  --headerTabDisabled: #e7e9ef;
+  --tabContentContainerBg: #e7e9ef;
+  --tabListItemHover: linear-gradient(0deg, rgba(61, 143, 64, 0.2), rgba(61, 143, 64, 0.2)), var(--bgStandart);
+
+  /*shadows*/
+  --shadow-mini: 0 @2px @8px rgba(102, 119, 153, 0.3);
+  --shadow-big: 0 @8px @32px rgba(102, 119, 153, 0.24);
+  @shadowBottom: 0 -@2px @8px rgba(102, 119, 153, 0.16);
+  --shadow-bottom: @shadowBottom;
+
+  /* splitter */
+  --fontInput: #a3adc2;
+  --panelBg: #29303d;
+  --controlsPanel: #252b37;
+
+  /* progress bar  */
+  --progressBarPrimary: var(--primaryColor);
+  --progressBarSecondary: var(--secondaryColor);
+  --progressBarInfo: var(--infoColor);
+  --progressBarWarning: var(--warningColor);
+  --progressBarDanger: var(--dangerColor);
+  --progressBarSuccess: var(--successColor);
+
+  /* spinner */
+  --spinnerColorPrimary: var(--primaryColor);
+  --spinnerColorSecondary: var(--secondaryColor);
+  --spinnerColorInfo: var(--infoColor);
+  --spinnerColorWarning: var(--warningColor);
+  --spinnerColorDanger: var(--dangerColor);
+  --spinnerColorSuccess: var(--successColor);
+
+  /* menu applications */
+  --menuAppBg: #29303d;
+  --menuAppItemBorder: #252b37;
+  --menuAppItemColor: #a3adc2;
+  --menuAppItemArrowColor: #a3adc2;
+  --menuAppItemIconColor: #a3adc2;
+  --menuAppItemActiveBg: rgba(61, 143, 64, 0.2);
+  --menuAppItemActiveShadow: inset @4px 0 0 0 #49ab4d;
+  --menuAppItemActiveColor: #ffffff;
+  --menuAppItemActiveIconColor: #ffffff;
+
+  /* accordion  */
+  --accordionFontColor: #353e50;
+  --accordionHeaderBg: #e7e9ef;
+  --accordionBodyBg: #f3f4f7;
+  --accordiondButtonColor: #7887a5;
+  --accordionDisabledButtonColor: #bcc3d2;
+
+  /* table */
+  --tableHeaderBg: #e7e9ef;
+  --tableBorderRadius: @8px;
+  --tableBorder: #ced3de;
+  --tableActiveRowBg: rgba(0, 137, 255, 0.2);
+  --tableActiveIcon: #0089ff;
+  --tableStripedRowBg: #f9fafb;
+
+  --tablePrimaryRowBg: #ffffff;
+  --tablePrimaryMarker: #0089ff;
+  --tablePrimaryBorder: #dadee7;
+
+  --tableWarningRowBg: #f5dfcc;
+  --tableWarningMarker: #ff8214;
+  --tableWarningBorder: #dadee7;
+
+  --tableErrorRowBg: #f1d0d0;
+  --tableErrorMarker: #ea3e3e;
+  --tableErrorBorder: #dadee7;
+
+  --tableInfoRowBg: #d2efec;
+  --tableInfoMarker: #1fad9f;
+  --tableInfoBorder: #dadee7;
+
+  /* nav menu */
+  --navMenuBg: #252b37;
+  --navMenuFont: var(--textColor);
+  --navMenuIcon: #a3adc2;
+  --navMenuIconHover: var(--successColorHover);
+  --navMenuItemActiveMarker: var(--successColorHover);
+  --navMenuItemBorder: #212631;
+  --navMenuItemHover: linear-gradient(0deg, rgba(61, 143, 64, 0.2), rgba(61, 143, 64, 0.2)), var(--navMenuBg);
+
+  /* tooltip */
+  --tooltipPrimaryBg: #edf3fd;
+  --tooltipPrimaryBorder: #88aff2;
+  --tooltipSecondaryBg: #f2f6f8;
+  --tooltipSecondaryBorder: #a9c4d1;
+  --tooltipSuccessBg: #f1f9f1;
+  --tooltipSuccessBorder: #a3d7a4;
+  --tooltipInfoBg: #eefcfb;
+  --tooltipInfoBorder: #22bfaf;
+  --tooltipWarningBg: #fff4eb;
+  --tooltipWarningBorder: #ffb97b;
+  --tooltipDangerBg: #fdeded;
+  --tooltipDangerBorder: #f28888;
+
+  /* dialog */
+  --overlayBg: rgba(33, 38, 49, 0.6);
+}
