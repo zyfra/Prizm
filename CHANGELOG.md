@@ -2,6 +2,19 @@
 
 Все изменения в этом файле отражают изменения в коде во всем монорепозитории.
 
+
+## [v0.13.1] - 10-08-2022
+
+### @digital-plant/zyfra-components [v0.13.1]
+
+**Added**
+
+- feat/(helpers/destroy): add optional callback  [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/279)
+
+> **Special thanks**
+>
+> ✏️ **MR:** Zurab Magomadov
+
 ## [v0.13.0] - 05-08-2022
 
 ### @digital-plant/zyfra-components [v0.13.0]
