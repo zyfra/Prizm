@@ -21,14 +21,14 @@ export type ZuiShadowType = `${ZuiShadowTypeEnum.miniBottom}`
   | `${ZuiShadowTypeEnum.bigRight}`;
 
 export enum ZuiShadowValue {
-  miniBottom = '0px 2px 4px rgba(191, 198, 215, .5)',
-  bigTop = '0px -8px 32px rgba(191, 198, 215, .5)',
-  miniTop = '0px -2px 4px rgba(191, 198, 215, .5)',
-  bigBottom = '0px 8px 32px rgba(191, 198, 215, .5)',
-  miniRight = '2px 0px 4px rgba(191, 198, 215, .5)',
-  bigRight = '8px 0px 32px rgba(191, 198, 215, .5)',
-  miniLeft = '-2px 0px 4px rgba(191, 198, 215, .5)',
-  bigLeft = '-8px 0px 32px rgba(191, 198, 215, .5)',
+  miniBottom = '0px 2px 4px var(--shadow)',
+  bigTop = '0px -8px 32px var(--shadow)',
+  miniTop = '0px -2px 4px var(--shadow)',
+  bigBottom = '0px 8px 32px var(--shadow)',
+  miniRight = '2px 0px 4px var(--shadow)',
+  bigRight = '8px 0px 32px var(--shadow)',
+  miniLeft = '-2px 0px 4px var(--shadow)',
+  bigLeft = '-8px 0px 32px var(--shadow)',
   none = ''
 }
 

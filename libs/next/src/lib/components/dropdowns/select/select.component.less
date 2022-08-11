@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   padding: var(--zui-select-item-padding, 8px 16px);
-  background: var(--zui-select-item-background, white);
+  background: var(--zui-select-item-background, var(--bg-body));
   cursor: pointer;
   font-weight: var(--zui-select-item-font-weight, 400);
   font-size: var(--zui-select-item-font-size,14px);
@@ -31,9 +31,7 @@
 }
 
 .block {
-  background: var(--zui-select-background, white);
-  // TODO remove after merge shadow directive
-  box-shadow: 0 8px 32px rgba(191, 198, 215, 0.5);
+  background: var(--zui-select-background, var(--bg-body));
   border-radius: 2px;
   border: none;
   padding:  var(--zui-select-padding, 8px 0);
@@ -45,7 +43,7 @@
 
 .empty-template {
   padding: var(--zui-select-item-padding, 8px 16px);
-  background: var(--zui-select-item-background, white);
+  background: var(--zui-select-item-background, var(--bg-body));
   font-weight: var(--zui-select-item-font-weight, 400);
   font-size: var(--zui-select-item-font-size,14px);
   color: var(--zui-select-empty-text, var(--text-subscript, #20222B));

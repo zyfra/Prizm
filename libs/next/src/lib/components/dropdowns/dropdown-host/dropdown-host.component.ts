@@ -28,8 +28,8 @@ import { ZuiDropdownHostWidth } from './models';
 
 @Component({
   selector: 'zui-dropdown-host',
-  templateUrl: './dropdown-host.template.html',
-  styleUrls: ['./dropdown-host.style.less'],
+  templateUrl: './dropdown-host.component.html',
+  styleUrls: ['./dropdown-host.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     ZuiDestroyService

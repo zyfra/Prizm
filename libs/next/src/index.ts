@@ -11,6 +11,7 @@ export * from './lib/components/data-list';
 export * from './lib/directives/hint';
 export * from './lib/directives/shadow';
 export * from './lib/directives/tooltip';
+export * from './lib/directives/theme';
 export * from './lib/components/toast';
 export * from './lib/directives/shadow';
 export * from './lib/components/dialogs/dialog';

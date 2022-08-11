@@ -1,11 +1,11 @@
 <div zuiFocusTrap>
   <div class="content">
-    <div class='title'>
+    <div class='title zui-font-title-h4'>
       <ng-container *polymorphOutlet="context.title as data; context: context">
         {{data}}
       </ng-container>
     </div>
-    <div class='description'>
+    <div class='description zui-font-main-body-14'>
       <zui-scrollbar class='scrollbar'>
         <ng-container *polymorphOutlet="context.description as data; context: context">
           {{data}}
@@ -15,7 +15,7 @@
 
   </div>
 
-  <div class="footer">
+  <div class="footer zui-font-btn-links-14">
     <ng-container [ngSwitch]='!context.showByVertical'>
       <div *ngSwitchCase='true' class='horizontal'>
         <div class='left'>

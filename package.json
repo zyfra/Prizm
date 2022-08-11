@@ -62,7 +62,8 @@
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "uuid": "^8.3.2",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@ng-web-apis/common": "^1.13.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.0",

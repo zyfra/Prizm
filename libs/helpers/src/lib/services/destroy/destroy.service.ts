@@ -1,5 +1,5 @@
-import {Injectable, OnDestroy} from '@angular/core';
-import {ReplaySubject} from 'rxjs';
+import { Injectable, OnDestroy } from '@angular/core';
+import { ReplaySubject } from 'rxjs';
 import { ZuiDestroyCallback } from './models';
 
 /**
