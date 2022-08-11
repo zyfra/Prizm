@@ -12,9 +12,11 @@ import {animationFrameScheduler, timer} from "rxjs";
 @Component({
   selector: 'zui-hint-container',
   template: `
-    <ng-container *polymorphOutlet="content() as data; context: context">
-      {{data}}
-    </ng-container>
+    <div class='zui-font-main-body-12'>
+      <ng-container *polymorphOutlet="content() as data; context: context">
+        {{data}}
+      </ng-container>
+    </div>
   `,
   styleUrls: ['./hint-container.component.less'],
   providers: [ZuiDestroyService]

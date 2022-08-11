@@ -1,7 +1,7 @@
 import { ZuiChipsComponent } from './chips.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-xdescribe('InputChipsControlComponent', () => {
+describe('InputChipsControlComponent', () => {
   let component: ZuiChipsComponent;
   let fixture: ComponentFixture<ZuiChipsComponent>;
 

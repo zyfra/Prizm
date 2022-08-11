@@ -6,7 +6,7 @@ import {ZuiHintContainerComponent} from '../hint/hint-container.component';
 @Component({
   selector: 'zui-tooltip-container',
   template: `
-    <div class="box">
+    <div class="box zui-font-main-body-14">
       <ng-container *polymorphOutlet="content() as data; context: context">
         {{data}}
       </ng-container>

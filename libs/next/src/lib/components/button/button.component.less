@@ -10,6 +10,11 @@
   padding: 0;
   border-radius: 2px;
   background: transparent;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
 
   &[zuiIconButton] .z-wrapper {
     display: flex;
@@ -20,7 +25,6 @@
   .addSize(@size, @height, @width, @padding) {
     &[data-size='@{size}'] {
       min-height: @height;
-      font-weight: normal;
 
       &[zuiIconButton] {
         width: @width;

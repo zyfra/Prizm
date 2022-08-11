@@ -1,24 +1,24 @@
 
 :host {
   display: inline-block;
-  padding: var(--zui-tooltip-container-padding);
-  color: var(--zui-tooltip-container-text);
-  font-size: var(--zui-tooltip-container-font-size);
+  padding: var(--zui-tooltip-container-padding, 8px);
+  color: var(--zui-tooltip-container-text, var(--grey-g12-g2));
+  font-size: var(--zui-tooltip-container-font-size, 12px);
 
   .box {
-    max-height: 90vh;
+    max-height: var(--zui-tooltip-container-max-height, 60vh);
     max-width: var(--zui-tooltip-container-max-width, 288px);
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
-    padding: var(--zui-tooltip-container-padding);
-    border-radius: var(--zui-tooltip-container-border-radius);
-    background-color: var(--zui-tooltip-container-background);
+    padding: var(--zui-tooltip-container-padding, 8px);
+    border-radius: var(--zui-tooltip-container-border-radius, 2px);
+    background-color: var(--zui-tooltip-container-background, var(--grey-g3-g11));
   }
 
   .arrow-icon {
     position: absolute;
-    color: var(--zui-tooltip-container-background);
+    color: var(--zui-tooltip-container-background, var(--grey-g3-g11));
     font-size: 20px;
     display: block;
   }
@@ -106,12 +106,4 @@
       transform: translateY(-10px);
     }
   }
-}
-
-:host[mode="error"] {
-  background-color: var(--zui-tooltip-container-background-error);
-}
-
-/* TODO add dark theme  */
-:host[mode="dark"] {
 }

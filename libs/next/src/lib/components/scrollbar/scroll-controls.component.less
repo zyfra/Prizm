@@ -59,6 +59,10 @@
     box-sizing: border-box;
     transition-property: width, height;
 
+    &[data-zui-theme="dark"] {
+      background-color: var(--zui-scrollbar-thumb-color, var(--grey-g8-g6));
+    }
+
     &:hover {
         opacity: var(--zui-scrollbar-thumb-opacity-hover, @scroll-opacity-hover);
     }

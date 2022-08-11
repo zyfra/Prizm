@@ -1,5 +1,5 @@
 <div zuiFocusTrap>
-  <div *ngIf="context.header" class='header'>
+  <div *ngIf="context.header" class='header zui-font-title-h4'>
     <div
       class='title'
       *polymorphOutlet="context.header as data; context: context">
@@ -15,7 +15,7 @@
     </button>
   </div>
 
-  <div class="content">
+  <div class="content zui-font-main-body-14">
     <zui-scrollbar class='scrollbar'>
       <div *polymorphOutlet="context.content as text; context: context">
         {{ text }}

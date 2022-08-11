@@ -12,11 +12,11 @@
 
 
 :host {
-  --zui-secondary: var(--palette-g4);
-  --zui-disabled: var(--palette-g3);
-  --zui-disabled-active: #99BFFF;
-  --zui-primary-hover: var(--zui-primary);
-  --zui-secondary-hover: var(--zui-secondary);
+  --zui-secondary: var(--border-forms);
+  --zui-disabled: var(--grey-g11-g3);
+  --zui-disabled-active: var(--index-lock);
+  --zui-primary-hover: var(--index-plan);
+  --zui-secondary-hover: var(--border-forms);
 }
 
 zui-wrapper {
@@ -105,7 +105,7 @@ zui-wrapper {
     margin: 2px 0;
     flex-shrink: 0;
     border-radius: 100%;
-    background-color: var(--bg-body);
+    background-color: var(--exceptions-white);
 
     :host._disabled &_light {
         opacity: 0.24;
@@ -122,7 +122,7 @@ zui-wrapper {
     }
 
     :host._disabled & {
-        background-color: var(--bg-body);
+        background-color: var(--exceptions-white);
     }
 }
 

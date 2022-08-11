@@ -13,7 +13,7 @@ export class ZuiThemeService {
     get theme(): ZuiTheme {
       return this.themeSource$.value
     }
-    private readonly attThemeKey = 'data-zui-theme';
+    public readonly attThemeKey = 'data-zui-theme';
 
     constructor(
       @Inject(DOCUMENT) private document: Document,

@@ -5,9 +5,10 @@ import { ZuiScrollControlsComponent } from './scroll-controls.component';
 import { ZuiScrollbarWrapperDirective } from './scrollbar-wrapper.directive';
 import { ZuiLetModule } from '@digital-plant/zyfra-helpers';
 import { ZuiScrollbarDirective } from './scrollbar.directive';
+import { ZuiThemeModule } from '../../directives/theme';
 
 @NgModule({
-    imports: [CommonModule, ZuiLetModule],
+    imports: [CommonModule, ZuiLetModule, ZuiThemeModule],
     declarations: [
         ZuiScrollbarDirective,
         ZuiScrollbarWrapperDirective,

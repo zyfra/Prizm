@@ -1,10 +1,12 @@
 {
   "name": "@digital-plant/zui-components",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "peerDependencies": {
     "@angular/common": "^12.2.0",
     "@angular/core": "^12.2.0",
-    "ngx-mask": "<=12.9.9"
+    "ngx-mask": "<=12.9.9",
+    "@ng-web-apis/common": "^1.13.0",
+    "@digital-plant/zyfra-helpers": "^0.13.1"
   },
   "dependencies": {
     "tslib": "^2.3.0"

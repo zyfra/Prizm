@@ -3,6 +3,7 @@
 </div>
 <ng-template #temp>
   <div class="zui-dropdown-host-modal"
+       zuiShadow='big-left'
        (zuiAfterViewInit)='reCalculatePositions()'
        [id]="zuiDropdownHostId"
        [attr.position]="position$ | async">
