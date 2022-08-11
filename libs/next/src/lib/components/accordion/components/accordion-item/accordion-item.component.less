@@ -37,6 +37,8 @@
       display: flex;
       align-items: center;
 
+      background: var(--bg-header);
+
       outline: none;
       overflow: hidden;
 
@@ -64,6 +66,8 @@
       align-items: center;
 
       border-radius: 2px;
+      color: var(--border-icon);
+
       transition: 400ms;
 
       &-icon {
@@ -89,6 +93,7 @@
       opacity: 0;
 
       overflow: hidden;
+      background: var(--bg-body);
 
       transition: 400ms;
     }
@@ -122,7 +127,8 @@
         box-shadow: none;
       }
 
-      .accordion__header .title, .accordion__button {
+      .accordion__header .title,
+      .accordion__button {
         color: var(--grey-g10-g4);
         pointer-events: none;
       }

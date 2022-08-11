@@ -4,7 +4,7 @@ import { SideMenuExampleComponent } from './side-menu-example.component';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { SideMenuExampleBasicComponent } from './examples/side-menu-example-basic/side-menu-example-basic.component';
-import { ZuiIconModule, ZuiPanelModule } from '@digital-plant/zui-components';
+import { ZuiIconModule, ZuiInputTextModule, ZuiPanelModule } from '@digital-plant/zui-components';
 
 @NgModule({
   declarations: [SideMenuExampleComponent, SideMenuExampleBasicComponent],
@@ -14,6 +14,7 @@ import { ZuiIconModule, ZuiPanelModule } from '@digital-plant/zui-components';
     ZuiIconModule,
     RouterModule.forChild(generateRoutes(SideMenuExampleComponent)),
     ZuiPanelModule,
+    ZuiInputTextModule,
   ],
 })
 export class SideMenuExampleModule {}

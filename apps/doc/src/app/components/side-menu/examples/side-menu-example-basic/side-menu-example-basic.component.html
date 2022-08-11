@@ -41,9 +41,11 @@
         </zui-panel>
       </div>
       <div class="side-menu__content" [class.side-menu__content_empty]="selectedElementIdx === -1">
-        <span *ngIf="selectedElementIdx > -1"
-          >Здес может быть любой конетент для элемента номер {{ selectedElementIdx + 1 }}</span
-        >
+        <div class="input" *ngIf="selectedElementIdx > -1">
+          <zui-input-layout [style.width.%]="100" [label]="'Заголовок ' + (selectedElementIdx + 1)">
+            <input zuiInput value="Контент" />
+          </zui-input-layout>
+        </div>
         <div class="empty-message" *ngIf="selectedElementIdx === -1">
           <span class="empty-message__main">Нет данных для отображения</span>
           <span class="empty-message__sub"

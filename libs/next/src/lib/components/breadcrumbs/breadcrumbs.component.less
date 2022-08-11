@@ -36,10 +36,14 @@ span {
       display: flex;
       align-items: center;
 
+      .dropdown-inner {
+        display: flex;
+      }
+
       &__chevron {
         display: flex;
 
-        color: var(--border-widget);
+        color: var(--border-icon);
       }
 
       &__dots {
@@ -71,7 +75,7 @@ span {
           font-size: 12px;
           line-height: 16px;
 
-          color: var(--text-main);
+          color: var(--text-subscript);
         }
 
         &__icon {
@@ -81,7 +85,7 @@ span {
           align-items: center;
           justify-content: center;
 
-          color: var(--text-main);
+          color: var(--text-subscript);
         }
 
         &_active {
@@ -114,9 +118,6 @@ span {
 
   display: flex;
   flex-direction: column;
-
-  border: 1px solid var(--border-widget);
-  border-radius: 2px;
 
   background: var(--bg-body);
 

@@ -48,7 +48,7 @@
         border: 1px solid var(--border-widget);
         border-radius: 2px;
 
-        filter: drop-shadow(0 2px 4px rgba(191, 198, 215, 0.5));
+        filter: drop-shadow(0 2px 4px var(--shadow));
 
         overflow: hidden;
 
@@ -93,23 +93,24 @@
         }
 
         &__content {
-          padding: 40px;
-
           display: flex;
           align-items: center;
           justify-content: center;
           flex: 1;
 
-          font-size: 20px;
-          line-height: 26px;
-          font-weight: 600;
-          color: var(--text-contrast);
-          text-align: center;
-
           overflow: hidden;
 
           &_empty {
+            padding: 40px;
             background: var(--bg-dashboard-forms);
+          }
+
+          .input {
+            height: 100%;
+            padding: 8px;
+
+            display: flex;
+            flex: 1;
           }
 
           .empty-message {
@@ -121,6 +122,7 @@
 
             font-size: 14px;
             line-height: 20px;
+            text-align: center;
 
             &__main {
               font-weight: 600;
@@ -148,7 +150,7 @@
             display: flex;
             gap: 10px;
 
-            border-right: 1px solid #bfc6d7;
+            border-right: 1px solid var(--grey-g10-g4);
 
             &:last-child {
               border: none;
