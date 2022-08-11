@@ -1,5 +1,5 @@
-@indicatorSize: 14px;
-
+@indicatorSize: 8px;
+@indicatorSizeWithIcon: 14px;
 :host {
   display: inline-flex;
 
@@ -9,6 +9,13 @@
     min-height: @indicatorSize;
     min-width: @indicatorSize;
 
+    &_with-icon {
+      height: @indicatorSizeWithIcon;
+      width: @indicatorSizeWithIcon;
+      min-height: @indicatorSizeWithIcon;
+      min-width: @indicatorSizeWithIcon;
+    }
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,8 +23,10 @@
     border-radius: 50%;
 
     &__icon {
-      height: @indicatorSize;
-      width: @indicatorSize;
+      height: @indicatorSizeWithIcon;
+      width: @indicatorSizeWithIcon;
+      min-height: @indicatorSizeWithIcon;
+      min-width: @indicatorSizeWithIcon;
 
       display: flex;
       align-items: center;
@@ -31,7 +40,7 @@
     }
 
     &[status='secondary'] {
-      background: var(--grey-g10-g4);
+      background: var(--border-forms);
     }
 
     &[status='success'] {
@@ -47,9 +56,9 @@
 
         background: none;
 
-        border-left: (@indicatorSize / 2) solid transparent;
-        border-right: (@indicatorSize / 2) solid transparent;
-        border-bottom: @indicatorSize solid var(--index-warning);
+        border-left: (@indicatorSizeWithIcon / 2) solid transparent;
+        border-right: (@indicatorSizeWithIcon / 2) solid transparent;
+        border-bottom: @indicatorSizeWithIcon solid var(--index-warning);
 
         border-radius: 0;
 

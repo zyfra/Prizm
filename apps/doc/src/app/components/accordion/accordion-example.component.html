@@ -4,7 +4,11 @@
       <zui-accordion-basic-example></zui-accordion-basic-example>
     </tui-doc-example>
 
-    <tui-doc-example id="instruments" heading="With instruments and disabled item" [content]="exampleWithInstrumentsAccordion">
+    <tui-doc-example
+      id="instruments"
+      heading="With instruments and disabled item"
+      [content]="exampleWithInstrumentsAccordion"
+    >
       <zui-accordion-with-instruments-example></zui-accordion-with-instruments-example>
     </tui-doc-example>
 
@@ -20,32 +24,38 @@
   <ng-template pageTab>
     <tui-doc-demo>
       <zui-accordion [onlyOneExpanded]="onlyOneExpanded">
-        <zui-accordion-item [disabled]="disabled" title='Title number 2'>
+        <zui-accordion-item [disabled]="disabled" title="Title number 2">
           <ng-template zuiAccordionTools>
-            <zui-checkbox [disabled]="disabled" label='Checkbox label is here'></zui-checkbox>
+            <zui-checkbox [disabled]="disabled" label="Checkbox label is here"></zui-checkbox>
           </ng-template>
           <ng-template zuiAccordionContent>
-            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной
-            "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую
-            коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только
-            успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в
-            новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее
-            время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
-            Не дочитали до конца - ошибка, дочитали и думали, что текст тот же, что и выше - фатальная ошибка.
+            <span class="inner-text">
+              Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является
+              стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный
+              печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки
+              образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и
+              перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов
+              Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной
+              вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum. Не дочитали до конца
+              - ошибка, дочитали и думали, что текст тот же, что и выше - фатальная ошибка.
+            </span>
           </ng-template>
         </zui-accordion-item>
-        <zui-accordion-item [disabled]="disabled" title='Title number 3'>
+        <zui-accordion-item [disabled]="disabled" title="Title number 3">
           <ng-template zuiAccordionTools>
-            <zui-checkbox label='Checkbox label is here but...' [disabled]="disabled"></zui-checkbox>
+            <zui-checkbox label="Checkbox label is here but..." [disabled]="disabled"></zui-checkbox>
           </ng-template>
           <ng-template zuiAccordionContent>
-            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной
-            "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую
-            коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только
-            успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в
-            новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее
-            время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum!
-            Не дочитали до конца - ошибка, дочитали и думали, что текст тот же, что и выше - фатальная ошибка.
+            <span class="inner-text">
+              Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является
+              стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный
+              печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки
+              образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и
+              перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов
+              Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной
+              вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum! Не дочитали до конца
+              - ошибка, дочитали и думали, что текст тот же, что и выше - фатальная ошибка.
+            </span>
           </ng-template>
         </zui-accordion-item>
       </zui-accordion>

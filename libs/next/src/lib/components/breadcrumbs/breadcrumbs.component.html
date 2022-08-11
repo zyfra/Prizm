@@ -27,9 +27,12 @@
         class="breadcrumbs__dots"
         [content]="dropdown"
         [(isOpen)]="isDropdownOpened"
+        zuiDropdownHostWidth="auto"
       >
-        <zui-icon class="breadcrumbs__chevron" iconClass="chevrons-right" [size]="16"></zui-icon>
-        <button (click)="isDropdownOpened = !isDropdownOpened">...</button>
+        <div class="dropdown-inner">
+          <zui-icon class="breadcrumbs__chevron" iconClass="chevrons-right" [size]="16"></zui-icon>
+          <button (click)="isDropdownOpened = !isDropdownOpened">...</button>
+        </div>
       </zui-dropdown-host>
     </div>
   </ng-container>

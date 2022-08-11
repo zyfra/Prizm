@@ -5,6 +5,7 @@
     </button>
     <zui-dropdown-host
       class="dropdown-host"
+      zuiDropdownHostType="content"
       [content]="dropdown"
       [(isOpen)]="openLeft"
       *ngIf="!isRightBtnActive"
@@ -36,7 +37,12 @@
   </div>
 
   <div class="control" [class.control_active]="isRightBtnActive">
-    <zui-dropdown-host class="dropdown-host" [content]="dropdown" [(isOpen)]="openRight">
+    <zui-dropdown-host
+      class="dropdown-host"
+      zuiDropdownHostWidth="auto"
+      [content]="dropdown"
+      [(isOpen)]="openRight"
+    >
       <zui-icon
         class="control__settings"
         [class.control__settings_active]="openRight"
@@ -51,20 +57,22 @@
   </div>
 
   <ng-template #dropdown>
-    <div class="tabs-column">
-      <zui-tab
-        *ngFor="let tab of tabs; let i = index"
-        [type]="type"
-        [icon]="tab.icon"
-        [title]="tab.title"
-        [count]="tab.count"
-        [closable]="closable"
-        [disabled]="tab.disabled"
-        [isActive]="selectedTabNumber === i"
-        (tabClick)="tabClickHandler(i)"
-        (cancelClick)="tabCancelClick(i)"
-        [attr.dropdown-tab]="true"
-      ></zui-tab>
-    </div>
+    <zui-data-list>
+      <div class="tabs-column">
+        <zui-tab
+          *ngFor="let tab of tabs; let i = index"
+          [type]="type"
+          [icon]="tab.icon"
+          [title]="tab.title"
+          [count]="tab.count"
+          [closable]="closable"
+          [disabled]="tab.disabled"
+          [isActive]="selectedTabNumber === i"
+          (tabClick)="tabClickHandler(i)"
+          (cancelClick)="tabCancelClick(i)"
+          [attr.dropdown-tab]="true"
+        ></zui-tab>
+      </div>
+    </zui-data-list>
   </ng-template>
 </div>
