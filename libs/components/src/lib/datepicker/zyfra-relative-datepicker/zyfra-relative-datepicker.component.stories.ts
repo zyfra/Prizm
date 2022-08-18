@@ -28,7 +28,7 @@ export default {
         ZyfraButtonModule,
         ZyfraCheckBoxModule,
         ZyfraInputModule,
-        ListboxModule
+        ListboxModule,
       ],
     }),
   ],
@@ -47,6 +47,7 @@ const Template: Story<ZyfraRelativeDatepickerComponent> = (args: ZyfraRelativeDa
     [placeholder]='placeholder'
     [disabled]='disabled'
     [showClear]='showClear'
+    [required]='required'
     [(ngModel)]='ngModel'
   >
   </zyfra-relative-datepicker>
@@ -60,5 +61,6 @@ Primary.args = {
   placeholder: 'Введите значение',
   disabled: false,
   showClear: false,
+  required: false,
   ngModel: '*+8h',
 };
