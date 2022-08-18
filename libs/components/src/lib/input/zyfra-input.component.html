@@ -1,4 +1,13 @@
-<div class="p-inputgroup" [class.zyfra-input-group_disabled]="disabled">
+<div
+  class="p-inputgroup"
+  [class.zyfra-input-group_disabled]="disabled"
+  [ngClass]="{
+    'ng-invalid': ngControl?.invalid,
+    'ng-valid': ngControl?.valid,
+    'ng-dirty': ngControl?.dirty,
+    'ng-touched': ngControl?.touched
+  }"
+>
   <span class="zyfra-input" [class.zyfra-input_disabled]="disabled" [class.p-float-label]="label">
     <i *ngIf="iClass" [class]="iClass"></i>
 
