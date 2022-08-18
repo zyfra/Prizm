@@ -18,9 +18,14 @@
   }
 }
 
-.p-inputgroup:focus-within,
-.zyfra-input:focus-within {
-  border-color: var(--z-accentColor);
+.p-inputgroup.ng-invalid.ng-touched {
+  border-color: var(--dangerColor);
+}
+
+.p-inputgroup:focus-within {
+  &:not(.ng-invalid) {
+    border-color: var(--z-accentColor);
+  }
 
   .p-inputtext {
     box-shadow: none;
