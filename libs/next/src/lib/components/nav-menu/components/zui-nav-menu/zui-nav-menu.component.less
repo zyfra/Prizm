@@ -1,0 +1,73 @@
+:host {
+  .zui-nav-menu {
+    background: var(--grey-g11-g3);
+  }
+
+  .header {
+    height: 40px;
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--grey-g10-g4);
+    overflow: hidden;
+
+    .app-name {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+
+      color: var(--text-contrast);
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .right-side {
+      margin-left: 8px;
+
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    &__btn {
+      height: 16px;
+      width: 16px;
+
+      display: flex;
+      color: var(--border-icon);
+
+      cursor: pointer;
+      transition: 400ms;
+
+      &:hover {
+        color: var(--exeptions-g1-b1);
+      }
+    }
+  }
+
+  &::ng-deep {
+    .p-tree-container {
+      &::-webkit-scrollbar {
+        height: 8px;
+        width: 8px;
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--grey-g10-g4);
+        border-radius: 4px;
+      }
+    }
+  }
+}

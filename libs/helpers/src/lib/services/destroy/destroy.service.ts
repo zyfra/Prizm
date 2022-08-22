@@ -7,19 +7,21 @@ import { ZuiDestroyCallback } from './models';
  */
 @Injectable()
 export class ZuiDestroyService extends ReplaySubject<void> implements OnDestroy {
-  private readonly cb = new Set<ZuiDestroyCallback>();
-  constructor() {
-    super(1);
-  }
+    private readonly cb = new Set<ZuiDestroyCallback>();
+    constructor() {
+      super(1);
+    }
 
-  public ngOnDestroy(): void {
-    this.next();
-    this.complete();
-    this.cb.forEach((cb: ZuiDestroyCallback) => cb());
-    this.cb.clear();
-  }
+    ngOnDestroy(): void {
+      this.next();
+      this.complete();
+      this.cb.forEach(
+        (cb: ZuiDestroyCallback) => cb()
+      );
+      this.cb.clear();
+    }
 
-  public addCallback(cb: () => void): void {
-    this.cb.add(cb);
-  }
+    public addCallback(cb: () => void): void {
+      this.cb.add(cb);
+    }
 }

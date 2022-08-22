@@ -1,0 +1,45 @@
+<div class="box">
+  <button zuiButton (click)="showToast()">С заголовком</button>
+  <button zuiButton (click)="showToastWithoutTitle()">Без заголовка</button>
+  <button zuiButton (click)="showToastWithBigText()">Длинный текст</button>
+  <button zuiButton (click)="showToastWithBigTitle()">Длинный заголовок</button>
+  <button zuiButton (click)="showToastWithoutTimer()">Без таймера</button>
+  <button zuiButton (click)="showToastWithContentTemplate(contentTemplate)">Шаблон в содержимом</button>
+  <button zuiButton (click)="showToastWithHeaderTemplate(headerTemplate)">Шаблон в хедере</button>
+
+  <ng-template #contentTemplate let-close="close">
+    <div>В toast-сообщении старайтесь уместить текст в 2 строки.</div>
+
+    <div class="date">
+      16.05.2022 10:00
+    </div>
+    <div class="link">
+      <a href="#">Ссылка</a>
+    </div>
+    <div class="footer"><button zuiButton (click)="close()">Закрыть</button></div>
+  </ng-template>
+
+  <ng-template #headerTemplate let-close="close">
+    <div class="header-title">
+      <span class="title">Заголовок</span>
+
+      <span class="link">
+        <a href="#">Ссылка</a>
+      </span>
+    </div>
+  </ng-template>
+</div>
+
+<br>
+<hr>
+<p>Position</p>
+<div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+  <zui-radio-button
+    *ngFor="let item of data"
+    [formControl]="formControl"
+    [label]="item.label"
+    [name]="appearance"
+    [value]="item.val"
+  ></zui-radio-button>
+</div>
+

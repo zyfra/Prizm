@@ -1,0 +1,116 @@
+@import '../../../../styles/ui-local';
+
+
+.content {
+  .ellipsis();
+  padding: var(--zui-sidebar-padding, 32px 16px);
+  color: var(--text-main);
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.header {
+  border-bottom: 1px solid var(--border-widget);
+  padding: var(--zui-sidebar-padding, 14px 16px);
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  overflow: hidden;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: var(--zui-sidebar-font-size, 14px);
+  color: var(--text-contrast);
+
+  zui-scrollbar {
+    max-height: 150px;
+    width: 100%;
+  }
+
+  .title {
+    .ellipsis();
+    max-width: 90%;
+    display: flex;
+    align-items: center;
+  }
+
+  .icon {
+    color: var(--border-icon);
+    font-weight: 300;
+    cursor: pointer;
+    margin-left: 16px;
+  }
+}
+
+.description {
+  .ellipsis();
+  font-weight: var(--zui-sidebar-description-font-weight, 400);
+  font-size: var(--zui-sidebar-description-font-size, 14px);
+  line-height: var(--zui-sidebar-description-line-height, 20px);
+  text-align: var(--zui-sidebar-description-align, center);
+  color: var(--zui-sidebar-description, var(--text-subscript));
+}
+
+:host {
+  display: block;
+  background: var(--zui-sidebar-background, var(--bg-body));
+  border: 1px solid var(--border-widget);
+  border-radius: var(--zui-sidebar-border-radius, 2px);
+  pointer-events: all;
+  width: 100%;
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.full-height {
+    height: 100%;
+  }
+}
+
+*:focus-visible {
+  outline: none;
+}
+
+
+.horizontal {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+
+}
+
+.left, .right, .top, .bottom {
+  display: flex;
+  gap: 8px;
+}
+
+
+.footer {
+  border-top: 1px solid var(--border-widget);
+  padding: var(--zui-sidebar-padding, 14px 16px);
+  max-width: 100%;
+  max-height: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+}
+
+.scrollbar {
+  max-height: var(--zui-sidebar-max-scrollbar-height, 60vh);
+}
+
+.box {
+  height: 100%;
+  grid-template-rows: min-content 1fr min-content;
+  display: grid;
+}
+
+.close-btn {
+  height: 24px;
+}

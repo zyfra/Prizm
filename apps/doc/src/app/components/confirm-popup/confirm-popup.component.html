@@ -1,0 +1,137 @@
+<tui-doc-page
+  header="ConfirmPopup"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use ZuiConfirmPopupDirective to control tooltip.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Base"
+      [content]="exampleBase"
+    >
+      <zui-confirm-popup-base-example></zui-confirm-popup-base-example>
+    </tui-doc-example>
+
+<!--    TODO LATER ACTIVE after finished FOR DEV -->
+<!--    <tui-doc-example-->
+<!--      id="base"-->
+<!--      heading="With Template"-->
+<!--      [content]="exampleWithTemplate"-->
+<!--    >-->
+<!--      <zui-confirm-popup-with-template-example></zui-confirm-popup-with-template-example>-->
+<!--    </tui-doc-example>-->
+
+<!--    TODO LATER ACTIVE after finished FOR DEV -->
+<!--    <tui-doc-example-->
+<!--      id="base"-->
+<!--      heading="With Component"-->
+<!--      [content]="exampleWithComponent"-->
+<!--    >-->
+<!--      <zui-confirm-popup-with-component-example></zui-confirm-popup-with-component-example>-->
+<!--    </tui-doc-example>-->
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <button
+        zuiButton
+        [zuiConfirmPopup]="content"
+        [zuiAutoReposition]="zuiAutoReposition"
+        [zuiConfirmPopupDirection]="zuiConfirmPopupDirection"
+        [zuiConfirmPopupId]="zuiConfirmPopupId"
+        [zuiConfirmPopupShowDelay]="zuiConfirmPopupShowDelay"
+        [zuiConfirmPopupHideDelay]="zuiConfirmPopupHideDelay"
+        [zuiConfirmPopupHost]="zuiConfirmPopupHost"
+      >
+        Button
+      </button>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+
+      <ng-template
+        documentationPropertyName="zuiConfirmPopup"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="content"
+      >
+        Content
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiAutoReposition"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiAutoReposition"
+      >
+        Auto Reposition
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiConfirmPopupDirection"
+        documentationPropertyType="ZuiOverlayOutsidePlacement"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="zuiConfirmPopupDirectionVariants"
+        [(documentationPropertyValue)]="zuiConfirmPopupDirection"
+      >
+        ConfirmPopup Direction
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiConfirmPopupId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiConfirmPopupId"
+      >
+        ConfirmPopup Id
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiConfirmPopupShowDelay"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiConfirmPopupShowDelay"
+      >
+        Show Delay
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiConfirmPopupHideDelay"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiConfirmPopupHideDelay"
+      >
+        Hide Delay
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiConfirmPopupHost"
+        documentationPropertyType="HtmlElement"
+        documentationPropertyMode="input"
+      >
+        Host
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>ZuiConfirmPopupModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

@@ -1,0 +1,100 @@
+<tui-doc-page header="Panel" package="Equinox" type="components">
+  <ng-template pageTab>
+    <p>Чтобы вставить контент слева от заголовка используйте аттрибут <b>buttons</b></p>
+    <p>Чтобы вставить контент справа от заголовков используйте аттрибут <b>header</b></p>
+    <p>
+      Чтобы вставить различные инструменты, прибитые к правому краю, используйте аттрибут <b>instruments</b>
+    </p>
+
+    <tui-doc-example id="base" heading="Base" [content]="panelBasicExample">
+      <zui-panel-example-basic></zui-panel-example-basic>
+    </tui-doc-example>
+
+    <tui-doc-example id="withBack" heading="Panel with back button" [content]="panelWithBackExample">
+      <zui-panel-with-back></zui-panel-with-back>
+    </tui-doc-example>
+
+    <tui-doc-example id="withTabs" heading="Panel with tabs" [content]="panelWithTabsExample">
+      <zui-panel-with-tabs></zui-panel-with-tabs>
+    </tui-doc-example>
+
+    <tui-doc-example id="withPages" heading="Panel with pages" [content]="panelWithPagesExample">
+      <zui-panel-with-pages></zui-panel-with-pages>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="withBreadcrumbs"
+      heading="Panel with breadcrumbs"
+      [content]="panelWithBreadcrumbsExample"
+    >
+      <zui-panel-with-breadcrumbs></zui-panel-with-breadcrumbs>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="withInstruments1"
+      heading="Panel with instruments 1"
+      [content]="panelWithInstrumentsSimpleExample"
+    >
+      <zui-panel-with-instruments-simple></zui-panel-with-instruments-simple>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="withInstruments2"
+      heading="Panel with instruments 2"
+      [content]="panelWithInstrumentsHardExample"
+    >
+      <zui-panel-with-instruments-hard></zui-panel-with-instruments-hard>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-panel [withBackButton]="withBackButton" [header]="header" [subheader]="subheader"></zui-panel>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="withBackButton"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="withBackButton"
+      >
+        Is panel with back button
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="header"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="header"
+      >
+        Panel header text
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="subheader"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="subheader"
+      >
+        Panel subheader text
+      </ng-template>
+
+      <ng-template documentationPropertyName="backClick" documentationPropertyMode="output">
+        Back button click event
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>ZuiPanelModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

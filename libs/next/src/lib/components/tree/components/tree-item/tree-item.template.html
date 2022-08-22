@@ -1,0 +1,19 @@
+<ng-template #template><ng-content></ng-content></ng-template>
+<div class='z-dynamic-content zui-font-main-body-12'>
+  <ng-container
+    *polymorphOutlet="content; context: {$implicit: this, template: template}"
+  >
+  </ng-container>
+</div>
+<zui-expand
+    *ngIf="isExpandable"
+    role="group"
+    class="z-children zui-font-main-body-12"
+    [expanded]="expanded$ | async"
+>
+    <div>
+        <ng-content select="zui-tree-item"></ng-content>
+        <ng-content select="zui-tree"></ng-content>
+    </div>
+</zui-expand>
+<ng-container *ngIf="attached$ | async"></ng-container>

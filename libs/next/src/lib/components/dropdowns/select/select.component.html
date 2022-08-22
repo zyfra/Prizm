@@ -1,0 +1,50 @@
+<zui-dropdown-host
+  #dropdownHostRef
+  [content]="dropdown"
+  [(isOpen)]="open"
+  [zuiDropdownMinHeight]='minDropdownHeight'
+  [zuiDropdownMaxHeight]='maxDropdownHeight'
+  *zuiLet='filteredItems$ | async as items'
+>
+  <zui-input-layout
+    [label]="label"
+    (click)='safeOpenModal()'
+    [outer]='outer'
+    [size]="size">
+    <input
+      class='input-search'
+      zuiInput
+      #focusableElementRef
+      (onClear)='onClear()'
+      [placeholder]="placeholder"
+      [disabled]='!searchable || this.disabled'
+      [readonly]='!searchable || this.disabled'
+      [formControl]="requiredInputControl"
+    />
+    <zui-icon *ngIf='!disabled'
+              (click)='focusableElementRef.focus()'
+              [class.active]='focusableElementRef.focused'
+              class='icon-dropdown' zui-input-right iconClass='chevrons-dropdown'></zui-icon>
+  </zui-input-layout>
+
+  <ng-template #dropdown>
+    <zui-data-list class='block'>
+      <ng-container *ngIf='items?.length; else emptyTemplate'>
+        <div class='item' [class.selected]='item | zuiCallFunc : identityMatcher : value' *ngFor='let item of filteredItems$ | async' (click)='select(item)'>
+          <span class='text' *zuiLet='item | zuiCallFunc : stringify : $any(nullContent) as text'>
+<!--            [zuiHint]='text'-->
+<!--            [zuiHintDirection]='$any("b")'-->
+            <ng-container *polymorphOutlet="valueTemplate as content; context: {$implicit: item, nullContent: nullContent}">
+              {{text}}
+            </ng-container>
+          </span>
+        </div>
+      </ng-container>
+      <ng-template #emptyTemplate>
+        <ng-container *polymorphOutlet="emptyContent as data;">
+          <div class='empty-template'>{{emptyContent}}</div>
+        </ng-container>
+      </ng-template>
+    </zui-data-list>
+  </ng-template>
+</zui-dropdown-host>

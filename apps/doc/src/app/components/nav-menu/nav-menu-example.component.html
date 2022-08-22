@@ -1,0 +1,111 @@
+<tui-doc-page header="Navigation menu" package="UI" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="base" heading="Basic" [content]="exampleBasicNavMenu">
+      <zui-nav-menu-basic-example></zui-nav-menu-basic-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="advanced" heading="Advanced" [content]="exampleAdvancedNavMenu">
+      <zui-nav-menu-advanced-example></zui-nav-menu-advanced-example>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-nav-menu
+        [model]="navigationList"
+        [menuTitle]="menuTitle"
+        [emptyMessage]="emptyMessage"
+        [toolbarConfig]="toolbarConfig"
+        [headerConfig]="headerConfig"
+      ></zui-nav-menu>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="model"
+        documentationPropertyType="ZuiMenuItem[]"
+        documentationPropertyMode="input"
+      >
+        Navigation menu data
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="menuTitle"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="menuTitle"
+      >
+        Title
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="emptyMessage"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="emptyMessage"
+      >
+        Empty message
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="headerConfig"
+        documentationPropertyType="HeaderConfig"
+        documentationPropertyMode="input"
+      >
+        Header content config
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="toolbarConfig"
+        documentationPropertyType="ToolbarConfig"
+        documentationPropertyMode="input"
+      >
+        Toolbar content config
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="activeItemChange"
+        documentationPropertyType="NavMenuEvent"
+        documentationPropertyMode="output"
+      >
+        Active item change event
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="selectionChange"
+        documentationPropertyType="NavMenuEvent"
+        documentationPropertyMode="output"
+      >
+        Selected item change event
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="nodeExpand"
+        documentationPropertyType="NavMenuEvent"
+        documentationPropertyMode="output"
+      >
+        Expand node event
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="nodeCollapse"
+        documentationPropertyType="NavMenuEvent"
+        documentationPropertyMode="output"
+      >
+        Collapse node event
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>ZuiNavMenuModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

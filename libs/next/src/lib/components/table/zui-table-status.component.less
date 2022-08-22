@@ -1,0 +1,32 @@
+:host::ng-deep {
+  .p-datatable-thead > tr > th,
+  .p-datatable-tbody > tr > td {
+    border-color: var(--border-widget);
+
+    &[cell-status='danger'] {
+      background: var(--lite-r130-20);
+    }
+
+    &[cell-status='warning'] {
+      background: var(--lite-y130-20);
+    }
+
+    &[cell-status='success'] {
+      background: var(--lite-g-r130-20);
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--grey-g10-g4);
+    border-radius: 4px;
+  }
+}

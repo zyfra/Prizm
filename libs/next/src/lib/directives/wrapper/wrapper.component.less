@@ -1,0 +1,249 @@
+
+:host {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+  appearance: none;
+  border-radius: inherit;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: white;
+
+  &[data-state="disabled"] {
+    cursor: not-allowed;
+  }
+
+  &[data-appearance='primary'] {
+    background: var(--zui-primary);
+
+    &[data-appearance-type='outline'] {
+      border: 1px solid var(--zui-primary);
+      background: transparent;
+      color: var(--zui-primary);
+
+      &[data-state='pressed'] {
+        border: 1px solid var(--zui-primary-pressed);
+      }
+    }
+
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: var(--zui-primary);
+
+      &[data-state="hovered"], &._focused_deleted {
+        background: var(--zui-primary-ghost-hover);
+        color: var(--zui-primary);
+      }
+
+      &[data-state='pressed'] {
+        background: var(--zui-primary-ghost-pressed);
+        color: var(--zui-primary);
+      }
+    }
+
+    &[data-state="hovered"], &._focused_deleted {
+      background: var(--zui-primary-hover);
+      color: var(--exceptions-white);
+    }
+
+    &[data-state='pressed'] {
+      background: var(--zui-primary-pressed);
+      color: var(--exceptions-white);
+    }
+  }
+
+  &[data-appearance='secondary'] {
+    background: var(--zui-secondary);
+
+    &[data-appearance-type='outline'] {
+      border: 1px solid var(--zui-secondary);
+      background: transparent;
+      color: var(--zui-secondary);
+
+      &[data-state='pressed'] {
+        border-color: var(--zui-secondary-pressed);
+      }
+    }
+
+
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: var(--zui-secondary);
+
+      &[data-state="hovered"], &._focused_deleted {
+        background: var(--zui-secondary-ghost-hover);
+        color: var(--zui-secondary);
+      }
+
+      &[data-state='pressed'] {
+        background: var(--zui-secondary-ghost-pressed);
+        color: var(--zui-secondary);
+      }
+    }
+
+    &[data-state="hovered"], &._focused_deleted {
+      background: var(--zui-secondary-hover);
+      color: white;
+    }
+
+    &[data-state='pressed'] {
+      background: var(--zui-secondary-pressed);
+      color: white;
+    }
+  }
+
+  &[data-appearance='warning'] {
+    --base: var(--index-warning);
+
+    background: var(--base);
+
+    &[data-appearance-type='outline'] {
+      border: 1px solid var(--base);
+      background: transparent;
+      color: var(--base);
+
+      &[data-state='pressed'] {
+        border-color: var(--zui-warning-pressed);
+      }
+    }
+
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: var(--base);
+
+      &[data-state="hovered"], &._focused_deleted {
+        background: var(--zui-warning-ghost-hover);
+        color: var(--base);
+      }
+
+      &[data-state='pressed'] {
+        background: var(--zui-warning-ghost-pressed);
+        color: var(--base);
+      }
+    }
+
+    &[data-state="hovered"], &._focused_deleted {
+      background: #E67B0F;
+      color: white;
+    }
+
+    &[data-state='pressed'] {
+      background: var(--zui-warning-pressed);
+      color: white;
+    }
+  }
+
+  &[data-appearance='danger'] {
+    background: var(--index-danger);
+
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: var(--index-danger);
+
+      &[data-state="hovered"], &._focused_deleted {
+        background: var(--zui-danger-ghost-hover);
+        color: var(--index-danger);
+      }
+
+      &[data-state='pressed'] {
+        background: var(--zui-danger-ghost-pressed);
+        color: var(--index-danger);
+      }
+    }
+
+    &[data-appearance-type='outline'] {
+      border: 1px solid var(--index-danger);
+      background: transparent;
+      color: var(--index-danger);
+
+      &[data-state='pressed'] {
+        border-color: var(--zui-danger-pressed);
+      }
+    }
+
+    &[data-state="hovered"], &._focused_deleted {
+      background: var(--palette-r2);
+      color: var(--exceptions-white);
+    }
+
+    &[data-state='pressed'] {
+      background: var(--zui-danger-pressed);
+      color: var(--exceptions-white);
+    }
+  }
+
+  &[data-appearance='success'] {
+    background: var(--index-good);
+
+
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: var(--index-good);
+
+
+      &[data-state="hovered"], &._focused_deleted {
+        background: var(--zui-success-ghost-hover); //
+        color: var(--index-good);
+      }
+
+      &[data-state='pressed'] {
+        background: var(--zui-success-ghost-pressed); //
+        color: var(--index-good);
+      }
+    }
+
+    &[data-appearance-type='outline'] {
+      border: 1px solid #49AB4D;
+      background: transparent;
+      color: #49AB4D;
+    }
+
+    &[data-state="hovered"], &._focused_deleted {
+      background: #118F3F;
+      color: white;
+    }
+
+    &[data-state='pressed'] {
+      background: #0C7733;
+      color: white;
+    }
+  }
+
+
+  &[data-state='disabled'][data-state='disabled'] {
+    &[data-appearance-type='ghost'] {
+      background: transparent;
+      color: var(--zui-disabled-ghost-text);
+
+      &[data-state='pressed'] {
+        background: var(--zui-disabled-ghost-pressed);
+      }
+
+      &[data-state='hovered'] {
+        background: var(--zui-disabled-ghost-hover);
+      }
+    }
+
+    &[data-appearance-type='outline'] {
+      border: 1px solid var(--grey-g12-g2);
+      background: transparent;
+    }
+
+    background: var(--zui-disabled);
+    color: var(--zui-disabled-text);
+  }
+}
+
+.z-content {
+  display: flex;
+  height: 100%;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  :host._loading & {
+    opacity: 0;
+  }
+}

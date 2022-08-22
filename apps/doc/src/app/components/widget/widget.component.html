@@ -1,0 +1,116 @@
+<tui-doc-page
+  header="Widget"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use ZuiWidgetComponent to view widget.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Base"
+      [content]="exampleBase"
+    >
+      <zui-widget-base-example></zui-widget-base-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="base"
+      heading="With Buttons"
+      [content]="exampleWithButtons"
+    >
+      <zui-widget-with-buttons-example></zui-widget-with-buttons-example>
+    </tui-doc-example>
+
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-widget
+        [header]='header'
+        [title]='title'
+        [icons]='icons'>
+        {{content}}
+      </zui-widget>
+
+    </tui-doc-demo>
+    <tui-doc-documentation>
+
+      <ng-template
+        documentationPropertyName="content"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="content"
+      >
+        NgContent
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="header"
+        documentationPropertyType="PolymorphContent"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="header"
+        [documentationPropertyValues]="$any(getHeaderVariants(headerTemplate))"
+      >
+        Header
+        ( if passed header, title and icons will be not showed )
+      </ng-template>
+
+      <ng-template #headerTemplate>
+        Отдельный шаблон для реализации своего хедера
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="title"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="title"
+      >
+        Title
+      </ng-template>
+
+      <ng-template #iconTemplate>
+        Какой то шаблон
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="icons"
+        documentationPropertyType="PolymorphContent | string[]"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="icons"
+        [documentationPropertyValues]="$any(getIconVariants(iconTemplate))"
+      >
+        Icons
+      </ng-template>
+
+
+      <ng-template
+        documentationPropertyName="iconClick"
+        documentationPropertyType="string"
+        documentationPropertyMode="output"
+      >
+        Click on icon
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>ZuiWidgetModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

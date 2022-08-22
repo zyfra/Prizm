@@ -83,7 +83,7 @@
           "options": {
             "fontFileName": "ZyfraIcons16",
             "fontName": "Zyfra Icons 16",
-            "default": ".zyfra-icon-16",
+            "iconClassName": ".zyfra-icon-16",
             "inputPath": "./libs/components/assets/icons-16",
             "outputPath": "./libs/components/src/styles/icons-16",
             "outputStyleFile": "icons-16.less",
@@ -122,6 +122,145 @@
       "tags": [],
       "implicitDependencies": ["components"]
     },
+    "doc": {
+      "projectType": "application",
+      "root": "apps/doc",
+      "sourceRoot": "apps/doc/src",
+      "prefix": "zyfra",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/doc",
+            "index": "apps/doc/src/index.html",
+            "main": "apps/doc/src/main.ts",
+            "polyfills": "apps/doc/src/polyfills.ts",
+            "tsConfig": "apps/doc/tsconfig.app.json",
+            "inlineStyleLanguage": "less",
+            "assets": [
+              "apps/doc/src/favicon.ico",
+              "apps/doc/src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@taiga-ui/icons/src",
+                "output": "assets/taiga-ui/icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/components/src/styles/fonts",
+                "output": "assets/ui-platform/components/fonts"
+              }
+            ],
+            "styles": [
+              "apps/doc/src/styles.less",
+              "node_modules/@taiga-ui/core/styles/taiga-ui-global.less",
+              "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
+              "node_modules/primeicons/primeicons.css",
+              "libs/next/src/styles/styles.less",
+              "libs/next/src/styles/icons/icons.less",
+              "libs/next/src/styles/icons-16/icons-16.less"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "deployUrl": "/zui-sdk-new/doc/",
+              "baseHref": "/zui-sdk-new/doc/",
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "10kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/doc/src/environments/environment.ts",
+                  "with": "apps/doc/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "doc:build:production"
+            },
+            "development": {
+              "browserTarget": "doc:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "doc:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/doc/src/**/*.ts", "apps/doc/src/**/*.html"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/doc"],
+          "options": {
+            "jestConfig": "apps/doc/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "doc-e2e": {
+      "root": "apps/doc-e2e",
+      "sourceRoot": "apps/doc-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/doc-e2e/cypress.json",
+            "devServerTarget": "doc:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "doc:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/doc-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["doc"]
+    },
     "helpers": {
       "projectType": "library",
       "root": "libs/helpers",
@@ -156,6 +295,71 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/helpers/src/**/*.ts", "libs/helpers/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
+    "next": {
+      "projectType": "library",
+      "root": "libs/next",
+      "sourceRoot": "libs/next/src",
+      "prefix": "zui",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/next"],
+          "options": {
+            "project": "libs/next/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/next/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/next/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/next"],
+          "options": {
+            "jestConfig": "libs/next/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/next/src/**/*.ts", "libs/next/src/**/*.html"]
+          }
+        },
+        "build-icons": {
+          "builder": "./tools/executors/icon-font-builder:build",
+          "options": {
+            "fontFileName": "ZuiIcons",
+            "fontName": "Zui Icons",
+            "iconClassName": ".zui-icon",
+            "inputPath": "./libs/components/assets/icons",
+            "outputPath": "./libs/next/src/styles/icons",
+            "outputStyleFile": "icons.less",
+            "outputDefinitionsTs": "./libs/next/src/lib/components/icon/icon-definitions.ts",
+            "outputDefinitionsVar": "IconDefs"
+          }
+        },
+        "build-icons-16": {
+          "builder": "./tools/executors/icon-font-builder:build",
+          "options": {
+            "fontFileName": "ZuiIcons16",
+            "fontName": "Zui Icons 16",
+            "iconClassName": ".zui-icon-16",
+            "inputPath": "./libs/components/assets/icons-16",
+            "outputPath": "./libs/next/src/styles/icons-16",
+            "outputStyleFile": "icons-16.less",
+            "outputDefinitionsTs": "./libs/next/src/lib/components/icon/icon-16-definitions.ts",
+            "outputDefinitionsVar": "Icon16Defs"
           }
         }
       },

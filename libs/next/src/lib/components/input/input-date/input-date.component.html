@@ -1,0 +1,64 @@
+<zui-dropdown-host
+    class="z-hosted"
+    [canOpen]="canOpen"
+    [isOpen]="open && canOpen"
+    [content]="dropdown"
+    zuiDropdownHostWidth='auto'
+    [closeByEsc]='true'
+    (isOpenChange)="onOpenChange($event)"
+>
+  <zui-input-layout
+    [label]="label"
+    [outer]='outer'
+    [size]="size">
+    <input
+      class='input-search'
+      zuiInput
+      #focusableElementRef
+      [mask]="computedMask"
+      [showMaskTyped]='focusableElementRef.focused'
+      [dropSpecialCharacters]="false"
+      [placeholder]='placeholder'
+      [readonly]='readOnly'
+      [disabled]="computedDisabled"
+      [ngModel]="stringValue"
+      (ngModelChange)='onValueChange($event || "")'
+    />
+    <ng-container zui-input-right>
+      <button
+        zuiInputIconButton="date-calendar-blank"
+        [interactive]="true"
+        (click)='focusableElementRef.focus()'></button>
+      <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>
+      </ng-container>
+    </ng-container>
+  </zui-input-layout>
+
+  <ng-template #dropdown>
+      <zui-calendar
+          zuiPreventDefault="mousedown"
+          automation-id="zui-input-date__calendar"
+          [min]="min"
+          [max]="max"
+          [markerHandler]="markerHandler"
+          [disabledItemHandler]="disabledItemHandler"
+          [month]="computedActiveYearMonth"
+          [value]="value"
+          (dayClick)="onDayClick($event)"
+          (monthChange)="onMonthChange($event)"
+      ></zui-calendar>
+      <div
+          *ngIf="items.length === 1"
+          zuiPreventDefault="mousedown"
+          class="z-button"
+      >
+          <button
+              zuiLink
+              type="button"
+              (click)="onDayClick(items[0].day)"
+          >
+              {{ items[0] }}
+          </button>
+      </div>
+  </ng-template>
+</zui-dropdown-host>

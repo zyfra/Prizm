@@ -1,0 +1,153 @@
+@sizeM: 44px;
+@sizeS: 32px;
+
+:host {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+
+  .container {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    .tabs {
+      height: 100%;
+      display: flex;
+
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      scroll-behavior: smooth;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    button {
+      padding: 0;
+
+      border: none;
+      outline: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .control {
+      height: 100%;
+      padding: 0;
+
+      display: flex;
+      align-items: center;
+
+      background: var(--bg-body);
+
+      position: absolute;
+
+      opacity: 0;
+      z-index: 100;
+      pointer-events: none;
+      transition: 0.4s;
+
+      .dropdown-host {
+        height: 100%;
+      }
+
+      &__icon {
+        height: 100%;
+        width: @sizeM;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 2px;
+      }
+
+      &__settings {
+        height: 100%;
+        width: @sizeM;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: var(--bg-body);
+
+        border-radius: 2px;
+
+        color: var(--grey-g8-g6);
+
+        cursor: pointer;
+
+        &:hover {
+          color: var(--index-plan);
+        }
+
+        &_active {
+          background: var(--lite-b130-20);
+          transition: 0.4s;
+        }
+      }
+
+      &:first-child {
+        left: 0;
+        box-shadow: 2px 0 4px var(--shadow);
+      }
+
+      &:last-child {
+        right: 0;
+        box-shadow: -2px 0 4px var(--shadow);
+      }
+
+      &_active {
+        opacity: 1;
+        pointer-events: auto;
+        transition: 0.4s;
+
+        .control__chevron:hover,
+        .control__chevron:active {
+          .control__icon {
+            color: var(--index-plan);
+          }
+        }
+      }
+    }
+  }
+
+  &[data-size='m'] {
+    height: @sizeM;
+
+    .container {
+      .control__icon,
+      .control__settings {
+        width: @sizeM;
+      }
+    }
+  }
+
+  &[data-size='s'] {
+    height: @sizeS;
+
+    .container {
+      .control__icon,
+      .control__settings {
+        width: @sizeS;
+      }
+    }
+  }
+}
+
+.tabs-column {
+  padding: 8px 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--bg-body);
+}

@@ -1,0 +1,157 @@
+<tui-doc-page
+  header="SideBar"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use ZuiSidebarService to control sidebar.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Base"
+      [content]="exampleBasic"
+    >
+      <zui-sidebar-service-example></zui-sidebar-service-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="base"
+      heading="Top Bottom"
+      [content]="exampleTopBottom"
+    >
+      <zui-sidebar-top-bottom-example></zui-sidebar-top-bottom-example>
+    </tui-doc-example>
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <button type="button"
+        (click)="show()"
+        zuiButton>
+        Show SideBar
+      </button>
+    </tui-doc-demo>
+
+    <ng-template #headerTemp>
+      Header из <a href='#'>шаблона</a>
+    </ng-template>
+
+    <ng-template #contentTemp>
+      Content из <a href='#'>шаблона</a>
+      <button style='margin-top: 10px;' zuiButton>Кнопка</button>
+    </ng-template>
+
+    <ng-template #footerTemp let-observer>
+      Footer из <i (click)='observer.next(1)'>шаблона</i>
+    </ng-template>
+
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="position"
+        documentationPropertyType="ZuiOverlayInsidePlacement"
+        [documentationPropertyValues]="positionVariants"
+        [(documentationPropertyValue)]="position"
+      >
+        Position
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="ZuiSidebarSize"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="backdrop"
+        documentationPropertyType="boolean"
+        [(documentationPropertyValue)]="backdrop"
+      >
+        Backdrop
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="height"
+        documentationPropertyType="string"
+        [(documentationPropertyValue)]="height"
+      >
+        Height
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="overscroll"
+        documentationPropertyType="ZuiOverscrollMode"
+        [documentationPropertyValues]="overscrollVariants"
+        [(documentationPropertyValue)]="overscroll"
+      >
+        Overscroll
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="width"
+        documentationPropertyType="string"
+        [(documentationPropertyValue)]="width"
+      >
+        Width
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="closeWord"
+        documentationPropertyType="string"
+        [(documentationPropertyValue)]="closeWord"
+      >
+        Close Word
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="header"
+        documentationPropertyType="PolymorphContent<ZuiBaseDialogContext>"
+        [documentationPropertyValues]="generatePolymorphVariants(headerTemp)"
+        [(documentationPropertyValue)]="header"
+      >
+        Header
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="content"
+        documentationPropertyType="PolymorphContent<ZuiBaseDialogContext>"
+        [documentationPropertyValues]="generatePolymorphVariants(contentTemp)"
+        [(documentationPropertyValue)]="content"
+      >
+        Content
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="footer"
+        documentationPropertyType="PolymorphContent<ZuiBaseDialogContext> |  | ZuiSidebarButton[]"
+        [documentationPropertyValues]="generatePolymorphVariants(footerTemp, '')"
+        [(documentationPropertyValue)]="footer"
+      >
+        Footer template or button array (ZuiSidebarButton)
+        If pass empty string '', footer will not be showed
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>ZuiSidebarModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="exampleModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

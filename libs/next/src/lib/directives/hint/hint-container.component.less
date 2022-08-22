@@ -1,0 +1,43 @@
+:host {
+  display: inline-block;
+  background-color: var(--zui-hint-container-background, var(--grey-g3-g11));
+  padding: var(--zui-hint-container-padding, 8px);
+  border-radius: var(--zui-hint-container-border-radius, 2px);
+  color: var(--zui-hint-container-text, var(--grey-g12-g2));
+  font-size: var(--zui-hint-container-font-size, 14px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &, zui-scrollbar {
+    max-width: var(--zui-hint-container-max-width, 288px);
+    max-height: var(--zui-hint-container-max-height, 60vh);
+  }
+
+  zui-scrollbar {
+    padding: var(--zui-hint-container-padding, 0px);
+  }
+
+  &[position="t"],
+  &[position="tl"],
+  &[position="tr"]{
+    margin-bottom: var(--zui-hint-container-margin, 8px);
+  }
+
+  &[position="b"],
+  &[position="bl"],
+  &[position="br"]{
+    margin-top: var(--zui-hint-container-margin, 8px);
+  }
+
+  &[position="l"],
+  &[position="lt"],
+  &[position="lb"]{
+    margin-right: var(--zui-hint-container-margin, 8px);
+  }
+
+  &[position="r"],
+  &[position="rt"],
+  &[position="rb"]{
+    margin-left: var(--zui-hint-container-margin, 8px);
+  }
+}

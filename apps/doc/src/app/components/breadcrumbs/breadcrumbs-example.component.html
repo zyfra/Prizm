@@ -1,0 +1,44 @@
+<tui-doc-page header="Breadcrumbs" package="Equinox" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="basic" heading="Base" [content]="breadcrumbsBasicExample">
+      <zui-breadcrumbs-basic></zui-breadcrumbs-basic>
+    </tui-doc-example>
+
+    <tui-doc-example id="icon" heading="With Icon" [content]="breadcrumbsWithIconExample">
+      <zui-breadcrumbs-example-with-icon></zui-breadcrumbs-example-with-icon>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-breadcrumbs [breadcrumbs]="breadcrumbs"></zui-breadcrumbs>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="breadcrumbs"
+        documentationPropertyType="IBreadcrumb[]"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="breadcrumbs"
+      >
+        Breadcrumbs array
+      </ng-template>
+
+      <ng-template documentationPropertyName="breadcrumbChange" documentationPropertyMode="output">
+        Breadcrumb was changed
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>ZuiBreadcrumbsModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

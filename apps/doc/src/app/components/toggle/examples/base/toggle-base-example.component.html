@@ -1,0 +1,70 @@
+<div>
+  <h2>Size M</h2>
+  <div class="box zui-font-main-body-14">
+    <div>
+      simple
+      <zui-toggle
+        size="m"
+        [(ngModel)]="value"
+        [ngModelOptions]="{standalone: true}">Ng Model</zui-toggle>
+    </div>
+    <div>
+      disabled
+      <zui-toggle
+        size="m"
+        [disabled]="true"
+        [(ngModel)]="valueDisabled"
+        [ngModelOptions]="{standalone: true}">Ng Model</zui-toggle>
+    </div>
+    <div>
+      with loader
+      <zui-toggle
+        size="m"
+        [showLoader]="true"
+        [(ngModel)]="value"
+        [ngModelOptions]="{standalone: true}">Ng Model</zui-toggle>
+    </div>
+    <div>
+      with icon
+      <zui-toggle
+        size="m"
+        iconOn="selection-checkbox-marked-circle"
+        iconOff="selection-checkbox-marked-circle-chanel"
+        [(ngModel)]="value"
+        [ngModelOptions]="{standalone: true}">Ng Model</zui-toggle>
+    </div>
+  </div>
+</div>
+
+<div>
+  <h2>Size L</h2>
+  <div class="box zui-font-main-body-14">
+    <div>
+      simple
+      <zui-toggle
+        size="l"
+        [formControl]="value2"></zui-toggle>
+    </div>
+    <div>
+      disabled
+      <zui-toggle
+        size="l"
+        [formControl]="value2Disabled"></zui-toggle>
+    </div>
+    <div>
+      with loader
+      <zui-toggle
+        size="l"
+        [showLoader]="true"
+        [formControl]="value2"></zui-toggle>
+    </div>
+    <div>
+      with icon
+      <zui-toggle
+        size="l"
+        iconOn="arrows-chevron-left"
+        iconOff="arrows-chevron-right"
+        [formControl]="value2"></zui-toggle>
+    </div>
+  </div>
+</div>

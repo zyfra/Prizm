@@ -1,0 +1,28 @@
+<zui-wrapper
+  class="z-wrapper"
+  [attr.data-appearance-type]="appearanceType"
+  [appearance]="appearance"
+  [hovered]="computedHovered"
+  [pseudoState]="pseudoState"
+  [pressed]="computedPressed"
+  [disabled]="computedDisabled"
+  [focused]="computedFocusVisible">
+  <span class="z-content" [style.visibility]='showLoader ? "hidden" : ""'>
+    <ng-container *ngIf='icon' [ngTemplateOutlet]="showIconTemp" [ngTemplateOutletContext]="{icon: icon}"></ng-container>
+    <div class='text zui-font-btn-links-14'><ng-content></ng-content></div>
+    <ng-container *ngIf='iconRight' [ngTemplateOutlet]="showIconTemp" [ngTemplateOutletContext]="{icon: iconRight}"></ng-container>
+  </span>
+  <zui-loader
+    *ngIf="showLoader"
+    class="z-loader"
+    [size]="loaderSize"
+    [inheritColor]="true"
+  ></zui-loader>
+</zui-wrapper>
+
+<ng-template #showIconTemp let-icon="icon">
+  <ng-container [ngSwitch]="icon | zuiCallFunc : isTemplateRef">
+    <ng-container *ngSwitchCase="true" [ngTemplateOutlet]="$any(icon)"></ng-container>
+    <zui-icon *ngSwitchDefault [iconClass]="$any(icon)" [size]='16'></zui-icon>
+  </ng-container>
+</ng-template>

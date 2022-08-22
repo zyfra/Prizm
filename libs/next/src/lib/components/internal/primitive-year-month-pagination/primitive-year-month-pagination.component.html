@@ -1,0 +1,57 @@
+<div class='box'>
+  <div class='year-month zui-font-input-text-14px'>
+    <div *ngIf="oneMonth; else buttonMonth">
+      {{ value | zuiMonth | async }}
+    </div>
+
+    <div *ngIf="oneYear; else button">
+      {{ value.formattedYear }}
+    </div>
+  </div>
+  <div>
+    <zui-primitive-spin-button
+      *ngIf="!hideButtons"
+      [focusable]="false"
+      [leftDisabled]="prevMonthDisabled"
+      [rightDisabled]="nextMonthDisabled"
+      (leftClick)="onPrevMonthClick()"
+      (rightClick)="onNextMonthClick()"
+    >
+    </zui-primitive-spin-button>
+  </div>
+</div>
+
+
+
+<ng-template #button>
+  <div class='year-box' (click)="onYearClick($event)">
+    <button
+      automation-id="zui-primitive-year-month-pagination__year-button"
+      zuiLink
+      type="button"
+      [zuiFocusable]="false"
+    >
+      {{ value.formattedYear }}
+    </button>
+    <span>
+      <zui-icon iconClass='chevrons-dropdown-small'></zui-icon>
+    </span>
+  </div>
+</ng-template>
+
+
+<ng-template #buttonMonth>
+  <div class='month-box' (click)="onMonthClick($event)">
+    <button
+      automation-id="zui-primitive-year-month-pagination__year-button"
+      zuiLink
+      type="button"
+      [zuiFocusable]="false"
+    >
+      {{ value | zuiMonth | async }}
+    </button>
+    <span>
+      <zui-icon iconClass='chevrons-dropdown-small'></zui-icon>
+    </span>
+  </div>
+</ng-template>
