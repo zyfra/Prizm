@@ -14,7 +14,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
-    padding: var(--zui-confirm-popup-container-padding, 16px);
+    padding: var(--zui-confirm-popup-container-padding, 16px 14px);
     border-radius: var(--zui-confirm-popup-container-border-radius, 2px);
     background-color: var(--zui-confirm-popup-container-background, var(--grey-g3-g11));
   }
@@ -117,7 +117,7 @@ zui-scrollbar {
 
 
 .footer {
-  padding: var(--zui-confirm-dialog-padding, 32px 0 16px 0);
+  padding: var(--zui-confirm-dialog-padding, 32px 0 0 0);
   max-width: 100%;
 
   .buttons {
@@ -138,10 +138,8 @@ zui-scrollbar {
 
 .vertical {
   [zuiButton] {
-    width: calc(100% - 4px);
     box-sizing: border-box;
     text-align: center;
-    margin: 0 2px;
   }
 
   .top, .bottom {
@@ -155,4 +153,8 @@ zui-scrollbar {
 
 .title {
   margin-bottom: 8px;
+}
+
+.content {
+  padding: 0 2px;
 }
