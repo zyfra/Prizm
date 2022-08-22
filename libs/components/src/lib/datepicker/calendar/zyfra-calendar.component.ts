@@ -2156,8 +2156,8 @@ abstract class Calendar implements OnInit, OnDestroy, ControlValueAccessor {
       this.defaultDate && isValidDate(this.defaultDate) && !this.value
         ? this.defaultDate
         : propValue && isValidDate(propValue)
-        ? propValue
-        : new Date();
+          ? propValue
+          : new Date();
 
     this.currentMonth = val.getMonth();
     this.currentYear = val.getFullYear();
@@ -2430,7 +2430,7 @@ abstract class Calendar implements OnInit, OnDestroy, ControlValueAccessor {
                 Math.round(
                   (new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime() -
                     new Date(date.getFullYear(), 0, 0).getTime()) /
-                    86400000
+                  86400000
                 ),
                 3
               );

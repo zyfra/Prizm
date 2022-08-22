@@ -1,0 +1,18 @@
+<div class="panel">
+  <button class="back-btn" *ngIf="withBackButton" (click)="back()">
+    <zui-icon iconClass="arrows-back" class="back-btn__icon"></zui-icon>
+  </button>
+  <div class="buttons">
+    <ng-content select="[buttons]"></ng-content>
+  </div>
+  <div class="title" *ngIf="!!(header || subheader)">
+    <span class="title__main">{{ header }}</span>
+    <span class="title__sub">{{ subheader }}</span>
+  </div>
+  <div class="header" #headerElement [class.header_empty]="headerRef.nativeElement.children.length === 0">
+    <ng-content select="[header]"></ng-content>
+  </div>
+  <div class="instruments">
+    <ng-content select="[instruments]"></ng-content>
+  </div>
+</div>

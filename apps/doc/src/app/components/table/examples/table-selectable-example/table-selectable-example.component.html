@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="table">
+    <div class="table__description">Single selection</div>
+    <div class="table__content">
+      <zui-table
+        [value]="products"
+        selectionMode="single"
+        [(selection)]="selectedProduct1"
+        dataKey="code"
+        [scrollable]="true"
+        scrollHeight="200px"
+        (selectionChange)="selectedRowWasChanged()"
+      >
+        <ng-template zuiTableTemplate="header">
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Count</th>
+          </tr>
+        </ng-template>
+        <ng-template zuiTableTemplate="body" let-product>
+          <tr [zuiSelectableRow]="product">
+            <td>{{ product.code }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.count }}</td>
+          </tr>
+        </ng-template>
+      </zui-table>
+    </div>
+  </div>
+
+  <div class="table">
+    <div class="table__description">Multiple selection with meta key</div>
+    <div class="table__content">
+      <zui-table
+        [value]="products"
+        selectionMode="multiple"
+        [(selection)]="selectedProducts1"
+        [metaKeySelection]="true"
+      >
+        <ng-template zuiTableTemplate="header">
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Count</th>
+          </tr>
+        </ng-template>
+        <ng-template zuiTableTemplate="body" let-product let-rowIndex="rowIndex">
+          <tr [pSelectableRow]="product" [pSelectableRowIndex]="rowIndex">
+            <td>{{ product.code }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.count }}</td>
+          </tr>
+        </ng-template>
+      </zui-table>
+    </div>
+  </div>
+
+  <div class="table">
+    <div class="table__description">Multiple selection</div>
+    <div class="table__content">
+      <zui-table [value]="products" selectionMode="multiple" [(selection)]="selectedProducts2">
+        <ng-template zuiTableTemplate="header">
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Count</th>
+          </tr>
+        </ng-template>
+        <ng-template zuiTableTemplate="body" let-product let-rowIndex="rowIndex">
+          <tr [pSelectableRow]="product" [pSelectableRowIndex]="rowIndex">
+            <td>{{ product.code }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.count }}</td>
+          </tr>
+        </ng-template>
+      </zui-table>
+    </div>
+  </div>
+</div>

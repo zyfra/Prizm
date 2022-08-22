@@ -1,0 +1,67 @@
+<zui-dropdown-host
+    class="z-wrapper"
+    [canOpen]="interactive && !!filtered.length"
+    [content]="dropdownContent"
+    [isOpen]="interactive && open && !!filtered.length"
+    (isOpenChange)="onOpen($event)"
+    [closeByEsc]='true'
+>
+<!--  (focusedChange)="onFocused($event)"-->
+    <zui-input-layout
+      [label]="label"
+      [outer]='outer'
+      (click)='safeOpenModal()'
+      [size]="size">
+      <input
+        class='input-search'
+        zuiInput
+        #focusableElementRef
+        [mask]="textMaskOptions"
+        [showMaskTyped]='focusableElementRef.focused'
+        [dropSpecialCharacters]="false"
+        [required]='readOnly'
+        [placeholder]='placeholder'
+        [disabled]='disabled'
+        [ngModel]="stringValue"
+        (ngModelChange)='onValueChange($event || "")'
+        (keydown.arrowUp)="onArrowUp($event)"
+        (keydown.arrowDown)="onArrowDown($event)"
+      />
+      <ng-container zui-input-right>
+        <button
+          zuiInputIconButton="date-clock"
+          (click)='focusableElementRef.focus()'
+          [interactive]="true"
+        ></button>
+        <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>
+        </ng-container>
+      </ng-container>
+<!--      (hoveredChange)="onHovered($event)"-->
+    </zui-input-layout>
+</zui-dropdown-host>
+<ng-template #dropdownContent>
+    <zui-data-list class='block'>
+      <ng-container *ngIf='items?.length;'>
+        <div class='item'
+             *ngFor='let item of filtered; let idx = index'
+             (click)='onMenuClick(item)'>
+            <span class='text'>
+              {{ item }}
+            </span>
+        </div>
+      </ng-container>
+    </zui-data-list>
+<!--    <zui-data-list automation-id="zui-input-time__dropdown">-->
+<!--        <button-->
+<!--            *ngFor="let item of filtered"-->
+<!--            zuiButton-->
+<!--            appearanceType='ghost'-->
+<!--            automation-id="zui-input-time__item"-->
+<!--            [size]="itemSize"-->
+<!--            [disabled]="disabledItemHandler(item)"-->
+<!--            (click)="onMenuClick(item)"-->
+<!--        >-->
+<!--            {{ item }}-->
+<!--        </button>-->
+<!--    </zui-data-list>-->
+</ng-template>

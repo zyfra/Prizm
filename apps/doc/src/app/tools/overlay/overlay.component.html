@@ -1,0 +1,187 @@
+<tui-doc-page
+  header="Overlay"
+  package="NEXT"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use OverlayModule.
+    </p>
+
+    <tui-doc-example
+      id="global"
+      heading="Global Position"
+      [content]="globalExample"
+    >
+      <zui-overlay-global-example></zui-overlay-global-example>
+    </tui-doc-example>
+
+
+    <tui-doc-example
+      id="relative"
+      heading="Relative Position"
+      [content]="relativeExample"
+    >
+      <zui-overlay-relative></zui-overlay-relative>
+    </tui-doc-example>
+
+
+    <tui-doc-example
+      id="fullscreen"
+      heading="Fullscreen Position"
+      [content]="fullscreenExample"
+    >
+      <zui-overlay-fullscreen-example></zui-overlay-fullscreen-example>
+    </tui-doc-example>
+
+
+    <tui-doc-example
+      id="slide"
+      heading="Slide Position"
+      [content]="slideExample"
+    >
+      <zui-overlay-slide-example></zui-overlay-slide-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="component"
+      heading="Component pass"
+      [content]="withComponentExample"
+    >
+      <zui-overlay-component-example></zui-overlay-component-example>
+    </tui-doc-example>
+
+  </ng-template>
+
+<!--  <ng-template pageTab>-->
+<!--    <tui-doc-demo>-->
+<!--      <zyfra-button-->
+<!--        [label]="label"-->
+<!--        [type]="type"-->
+<!--        [icon]="icon"-->
+<!--        [iconPos]="iconPos"-->
+<!--        [disabled]="disabled"-->
+<!--        [badge]="badge"-->
+<!--        [style]="style"-->
+<!--        [styleClass]="styleClass"-->
+<!--      ></zyfra-button>-->
+<!--    </tui-doc-demo>-->
+<!--    <tui-doc-documentation>-->
+<!--      <ng-template-->
+<!--        documentationPropertyName="label"-->
+<!--        documentationPropertyType="string"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [(documentationPropertyValue)]="label"-->
+<!--      >-->
+<!--        Label-->
+<!--      </ng-template>-->
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="type"-->
+<!--        documentationPropertyType="button | submit | reset"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [documentationPropertyValues]="typeVariants"-->
+<!--        [(documentationPropertyValue)]="type"-->
+<!--      >-->
+<!--        Type-->
+<!--      </ng-template>-->
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="badge"-->
+<!--        documentationPropertyType="string"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [(documentationPropertyValue)]="badge"-->
+<!--      >-->
+<!--        Badge-->
+<!--      </ng-template>-->
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="style"-->
+<!--        documentationPropertyType="string"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [(documentationPropertyValue)]="style"-->
+<!--      >-->
+<!--        style-->
+<!--      </ng-template>-->
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="icon"-->
+<!--        documentationPropertyType="string"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [(documentationPropertyValue)]="icon"-->
+<!--      >-->
+<!--        Icon-->
+<!--      </ng-template>-->
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="iconPos"-->
+<!--        documentationPropertyType="left | right | bottom | top"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [documentationPropertyValues]="iconPosVariants"-->
+<!--        [(documentationPropertyValue)]="iconPos"-->
+<!--      >-->
+<!--        Icon Position-->
+<!--      </ng-template>-->
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="styleClass"-->
+<!--        documentationPropertyType="string"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [(documentationPropertyValue)]="styleClass"-->
+<!--      >-->
+<!--        Style class-->
+<!--      </ng-template>-->
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="disabled"-->
+<!--        documentationPropertyType="boolean"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [(documentationPropertyValue)]="disabled"-->
+<!--      >-->
+<!--        Disabled-->
+<!--      </ng-template>-->
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="onClick"-->
+<!--        documentationPropertyType="PointerEvent"-->
+<!--        documentationPropertyMode="output"-->
+<!--      >-->
+<!--        On Click-->
+<!--      </ng-template>-->
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="onFocus"-->
+<!--        documentationPropertyType="FocusEvent"-->
+<!--        documentationPropertyMode="output"-->
+<!--      >-->
+<!--        On Focus-->
+<!--      </ng-template>-->
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="onBlur"-->
+<!--        documentationPropertyType="FocusEvent"-->
+<!--        documentationPropertyMode="output"-->
+<!--      >-->
+<!--        On Blur-->
+<!--      </ng-template>-->
+
+<!--    </tui-doc-documentation>-->
+<!--  </ng-template>-->
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p >
+          Import
+          <code>ZyfraButtonModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="exampleModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

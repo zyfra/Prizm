@@ -1,0 +1,134 @@
+<tui-doc-page
+  header="Hint"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use ZuiHintDirective to control hint.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Base"
+      [content]="exampleBasic"
+    >
+      <zui-hint-base-example></zui-hint-base-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="base"
+      heading="With Template"
+      [content]="exampleWithTemplate"
+    >
+      <zui-hint-with-template-example></zui-hint-with-template-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="base"
+      heading="With Component"
+      [content]="exampleWithComponent"
+    >
+      <zui-hint-with-component-example></zui-hint-with-component-example>
+    </tui-doc-example>
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <button
+        zuiButton
+        [zuiHint]="content"
+        [zuiAutoReposition]="zuiAutoReposition"
+        [zuiHintDirection]="zuiHintDirection"
+        [zuiHintId]="zuiHintId"
+        [zuiHintShowDelay]="zuiHintShowDelay"
+        [zuiHintHideDelay]="zuiHintHideDelay"
+        [zuiHintHost]="zuiHintHost"
+      >
+        Button
+      </button>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="zuiHint"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="content"
+      >
+        Content
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiAutoReposition"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiAutoReposition"
+      >
+        Auto Reposition
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiHintDirection"
+        documentationPropertyType="ZuiOverlayOutsidePlacement"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="zuiHintDirectionVariants"
+        [(documentationPropertyValue)]="zuiHintDirection"
+      >
+        Hint Direction
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiHintId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiHintId"
+      >
+        Hint Id
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiHintShowDelay"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiHintShowDelay"
+      >
+        Show Delay
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiHintHideDelay"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiHintHideDelay"
+      >
+        Hide Delay
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiHintHost"
+        documentationPropertyType="HtmlElement"
+        documentationPropertyMode="input"
+      >
+        Host
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>ZuiHintModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

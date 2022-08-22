@@ -1,0 +1,64 @@
+<zui-dropdown-host
+  class="z-hosted"
+  [canOpen]="canOpen"
+  [content]="dropdown"
+  [isOpen]="isOpen && canOpen"
+  [closeByEsc]='true'
+  (isOpenChange)="onOpenChange($event)"
+  zuiDropdownHostWidth='auto'
+>
+  <zui-input-layout
+    [label]="label"
+    [outer]='outer'
+    (click)='safeOpenModal()'
+    [size]="size">
+    <input
+      class='input-search'
+      zuiInput
+      [formControl]='value'
+      (onClear)='onClear()'
+      [placeholder]='placeholder'
+      #focusableElementRef
+    />
+    <ng-container zui-input-right>
+      <button
+        zuiInputIconButton="date-update"
+        [interactive]="true"
+        (click)='focusableElementRef.focus()'
+      ></button>
+      <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>
+      </ng-container>
+    </ng-container>
+  </zui-input-layout>
+</zui-dropdown-host>
+
+
+<ng-template #dropdown>
+  <ul role="listbox" class="zui-datepicker-relative-menu">
+    <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: timeItems }"></ng-container>
+    <li class="relative-menu-item-divider"></li>
+    <ng-container
+      *ngTemplateOutlet="menuItemsTemplate; context: { items: directionItems }"
+    ></ng-container>
+    <li class="relative-menu-item-divider"></li>
+    <ng-container
+      *ngTemplateOutlet="menuItemsTemplate; context: { items: periodItems }"
+    ></ng-container>
+
+    <ng-template #menuItemsTemplate let-items="items">
+      <li
+        *ngFor="let item of items"
+        [class.relative-menu-item-active]="item.active"
+        (click)="onMenuItemClick($event, item)"
+        class="relative-menu-item"
+        role="button"
+        tabindex="0"
+      >
+        <div class="relative-menu-item-icon">
+          <i class="zui-icon {{ item.icon }}"></i>
+        </div>
+        <div class="relative-menu-item-label">{{ item.label }}</div>
+      </li>
+    </ng-template>
+  </ul>
+</ng-template>

@@ -1,0 +1,57 @@
+<tui-doc-page
+  header="InputDateTime"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use ZuiInputDateTimeComponent to view input-date.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Base"
+      [content]="exampleBase"
+    >
+      <zui-input-date-time-base-example></zui-input-date-time-base-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="base"
+      heading="With Seconds"
+      [content]="exampleWithSeconds"
+    >
+      <zui-input-date-time-with-seconds-example></zui-input-date-time-with-seconds-example>
+    </tui-doc-example>
+
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-input-date-time
+        [formControl]='valueControl'
+      ></zui-input-date-time>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      -
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>ZuiInputDateTimeModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

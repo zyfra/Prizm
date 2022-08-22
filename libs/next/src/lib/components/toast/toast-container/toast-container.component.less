@@ -1,0 +1,21 @@
+.zui-toast-container {
+  display: flex;
+  flex-flow: column;
+  gap: var(--zui-toast-gap, 10px);
+  padding: var(--zui-toast-padding, 10px);
+  max-height: var(--zui-toast-max-height, 90vh);
+
+  &.tl, &.bl {
+    align-items: flex-start;
+  }
+  &.tm, &.bm {
+    align-items: center;
+  }
+  &.tr, &.br {
+    align-items: flex-end;
+  }
+}
+
+*:focus-visible {
+  outline: none;
+}

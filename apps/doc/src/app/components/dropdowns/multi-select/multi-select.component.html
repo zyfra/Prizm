@@ -1,0 +1,200 @@
+<tui-doc-page
+  header="MultiSelect"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use ZuiMultiSelectComponent to view toggle.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Base"
+      [content]="exampleBase"
+    >
+      <zui-multi-select-base-example></zui-multi-select-base-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="base"
+      heading="With Search"
+      [content]="exampleWithSearch"
+    >
+      <zui-multi-select-with-search-example></zui-multi-select-with-search-example>
+    </tui-doc-example>
+
+
+<!--    <tui-doc-example-->
+<!--      id="base"-->
+<!--      heading="With Template"-->
+<!--      [content]="exampleWithTemplate"-->
+<!--    >-->
+<!--      <zui-multi-select-with-template-example></zui-multi-select-with-template-example>-->
+<!--    </tui-doc-example>-->
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+<!--      <zui-multi-select-->
+<!--        [formControl]='control'-->
+<!--        [items]='items'-->
+<!--        [searchable]='searchable'-->
+<!--        [emptyContent]='emptyContent'-->
+<!--        [minDropdownHeight]='minDropdownHeight'-->
+<!--        [maxDropdownHeight]='maxDropdownHeight'-->
+<!--        [label]='label'-->
+<!--        [placeholder]='placeholder'-->
+<!--        [valueTemplate]='valueTemplate'-->
+<!--        [searchMatcher]='searchMatcher'-->
+<!--        [identityMatcher]='identityMatcher'-->
+<!--        [stringify]='stringify'-->
+<!--      ></zui-multi-select>-->
+      <zui-multi-select
+        [formControl]='valueControl'
+        [items]='items'
+      ></zui-multi-select>
+    </tui-doc-demo>
+
+<!--    <ng-template-->
+<!--      documentationPropertyName="value"-->
+<!--      documentationPropertyType="T"-->
+<!--      documentationPropertyMode="input"-->
+<!--      [documentationPropertyValue]="val"-->
+<!--      (documentationPropertyValueChange)="setValue($event)"-->
+<!--      [documentationPropertyValues]="valVariants"-->
+<!--    >-->
+<!--      Value (use FormControl)-->
+<!--    </ng-template>-->
+
+<!--    <ng-template-->
+<!--      documentationPropertyName="identityMatcher"-->
+<!--      documentationPropertyType="ZuiMultiSelectIdentityMatcher<T>"-->
+<!--      documentationPropertyMode="input"-->
+<!--    >-->
+<!--      Identity Matcher-->
+<!--    </ng-template>-->
+
+<!--    <ng-template-->
+<!--      documentationPropertyName="stringify"-->
+<!--      documentationPropertyType="ZuiMultiSelectIdentityMatcher<T>"-->
+<!--      documentationPropertyMode="input"-->
+<!--    >-->
+<!--      Stringify-->
+<!--    </ng-template>-->
+
+    <tui-doc-documentation>
+<!--      <ng-template-->
+<!--        documentationPropertyName="searchMatcher"-->
+<!--        documentationPropertyType="ZuiSelectSearchMatcher"-->
+<!--        documentationPropertyMode="input"-->
+<!--      >-->
+<!--        Search matcher-->
+<!--        (use for custom search)-->
+<!--      </ng-template>-->
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="items"-->
+<!--        documentationPropertyType="string[] | any[]"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [(documentationPropertyValue)]="items"-->
+<!--        [documentationPropertyValues]="itemsVariants"-->
+<!--      >-->
+<!--        Items-->
+<!--      </ng-template>-->
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="valueTemplate"-->
+<!--        documentationPropertyType="PolymorphContent"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [(documentationPropertyValue)]="valueTemplate"-->
+<!--        [documentationPropertyValues]="getValueTemplate(valueTemp)"-->
+<!--      >-->
+<!--        Value Template-->
+<!--      </ng-template>-->
+
+<!--      <ng-template #valueTemp let-value>-->
+<!--        <div class='item'>-->
+<!--          <zui-icon iconClass='account-done'></zui-icon>-->
+<!--          <span>{{value}}</span>-->
+<!--        </div>-->
+<!--      </ng-template>-->
+
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="searchable"-->
+<!--        documentationPropertyType="boolean"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [(documentationPropertyValue)]="searchable"-->
+<!--      >-->
+<!--        Searchable-->
+<!--      </ng-template>-->
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="disabled"-->
+<!--        documentationPropertyType="boolean"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [(documentationPropertyValue)]="disabled"-->
+<!--      >-->
+<!--        Disabled-->
+<!--        (Use formControl to disable)-->
+<!--      </ng-template>-->
+
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="label"-->
+<!--        documentationPropertyType="string"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [(documentationPropertyValue)]="label"-->
+<!--      >-->
+<!--        Label-->
+<!--      </ng-template>-->
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="minDropdownHeight"-->
+<!--        documentationPropertyType="number"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [(documentationPropertyValue)]="minDropdownHeight"-->
+<!--      >-->
+<!--        Min Dropdown Height-->
+<!--      </ng-template>-->
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="maxDropdownHeight"-->
+<!--        documentationPropertyType="number"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [(documentationPropertyValue)]="maxDropdownHeight"-->
+<!--      >-->
+<!--        Max Dropdown Height-->
+<!--      </ng-template>-->
+
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="placeholder"-->
+<!--        documentationPropertyType="string"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [(documentationPropertyValue)]="placeholder"-->
+<!--      >-->
+<!--        Placeholder-->
+<!--      </ng-template>-->
+
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>ZuiMultiSelectModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

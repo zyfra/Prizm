@@ -1,0 +1,8 @@
+<div
+  class="indicator"
+  [class.indicator_with-icon]="type === 'icon'"
+  [attr.status]="status"
+  [attr.type]="type"
+>
+  <span *ngIf="type === 'icon'" class="indicator__icon zui-icon {{iconMap?.[status]}}"></span>
+</div>

@@ -1,0 +1,16 @@
+<div class="chips-list" *ngIf="chipsList.length">
+  <button
+    class="chips-list__item"
+    *ngFor="let item of chipsList; let i = index"
+    (click)="chipClick(item)"
+    [disabled]="accessorIsDisabled"
+  >
+    <div class="chips-name">{{ item }}</div>
+    <button
+      *ngIf="deletable"
+      class="chips-cancel zui-icon cancel-close-small"
+      (click)="removeChips($event, i)"
+      [disabled]="accessorIsDisabled"
+    ></button>
+  </button>
+</div>

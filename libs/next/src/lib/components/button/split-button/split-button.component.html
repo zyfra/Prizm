@@ -1,0 +1,28 @@
+<div class="button">
+  <button zuiButton
+    [size]="size"
+    #buttonRef
+    [appearance]="appearance"
+    [showLoader]="showLoader"
+    [disabled]="disabled"
+    (click)="clickButton.emit()"
+    (focusedChange)='updateZIndex(buttonEl, $event)'
+    [appearanceType]="appearanceType"
+  >
+    <ng-content></ng-content>
+  </button>
+</div>
+
+<div class="icon">
+  <button zuiIconButton
+    #iconButtonRef
+    (click)="!showLoader && clickIcon.emit()"
+    [size]="size"
+    (focusedChange)='updateZIndex(iconButtonEl, $event)'
+    [disabled]="disabled"
+    [pseudoState]='showLoader && "none"'
+    [appearance]="appearance"
+    [appearanceType]="appearanceType"
+    [icon]="icon">
+  </button>
+</div>

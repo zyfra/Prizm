@@ -1,0 +1,167 @@
+:host {
+  .header {
+    height: 40px;
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--grey-g10-g4);
+    overflow: hidden;
+
+    .right-side {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      margin-left: auto;
+    }
+
+    &__btn {
+      height: 16px;
+      width: 16px;
+
+      display: flex;
+      color: var(--border-icon);
+
+      cursor: pointer;
+      transition: 400ms;
+
+      &:hover,
+      &_active {
+        color: var(--exeptions-g1-b1);
+      }
+    }
+
+    &-search-bar {
+      height: auto;
+      padding: 0;
+
+      .search-input {
+        width: 100%;
+      }
+    }
+  }
+
+  ::ng-deep {
+    .p-tree-empty-message {
+      padding: 16px;
+
+      text-align: center;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    ul {
+      li {
+        padding-left: 20px;
+      }
+    }
+
+    .p-tree-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .p-menuitem-link {
+      display: flex;
+      align-items: center;
+    }
+
+    .p-menuitem-icon {
+      height: 16px;
+      width: 16px;
+      font-size: 16px;
+
+      margin-right: 8px;
+
+      color: var(--text-contrast);
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    li {
+      &::before {
+        content: '';
+
+        height: 40px;
+        width: 100%;
+
+        border-left: 4px solid transparent;
+        border-bottom: 1px solid var(--grey-g10-g4);
+
+        position: absolute;
+        left: 0;
+
+        cursor: pointer;
+      }
+
+      &:hover::before {
+        background: var(--index-lock);
+      }
+    }
+
+    .p-treenode {
+      &.active .p-highlight,
+      &.active-root {
+        background: var(--index-lock);
+
+        .p-tree-toggler {
+          color: var(--text-contrast);
+        }
+      }
+
+      &.active,
+      &.active-root {
+        &::before {
+          background: var(--index-lock);
+          border-left-color: var(--index-plan);
+        }
+      }
+    }
+
+    .p-treenode-content {
+      height: 40px;
+      padding-right: 14px;
+
+      display: flex;
+
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+
+      color: var(--text-contrast);
+
+      position: relative;
+
+      .p-tree-toggler {
+        height: 16px;
+        width: 16px;
+        margin-left: auto;
+
+        display: flex;
+        order: 2;
+
+        background: transparent;
+        outline: none;
+        border: none;
+
+        font-size: 16px;
+        color: var(--border-icon);
+      }
+    }
+
+    .p-menuitem-text {
+      margin-right: 8px;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

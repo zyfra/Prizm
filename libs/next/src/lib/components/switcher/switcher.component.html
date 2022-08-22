@@ -1,0 +1,13 @@
+<div class="container">
+  <zui-switcher-item
+    *ngFor="let switcher of switchers; let i = index"
+    [attr.first-child]="i === 0"
+    [attr.last-child]="i === switchers.length - 1"
+    [data]="switcher"
+    [isActive]="selectedSwitcherIdx === i"
+    [type]="type"
+    [size]="size"
+    class="switcher-item"
+    (click)="selectSwitcher(i)"
+  ></zui-switcher-item>
+</div>

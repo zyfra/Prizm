@@ -1,0 +1,69 @@
+<ng-template #labelTemplate>
+  <label
+    class="zui-input-label
+    zui-input-label-{{ outer ? 'outer' : 'inner' }}
+    zui-input-label-{{ outer ? 'outer' : 'inner' }}-{{ position }}
+    {{ control.nativeElementType ? 'zui-input-label-' + control.nativeElementType : '' }}
+"
+    [attr.data-size]="size"
+    [class.zui-input-label-focused]="control.focused"
+    [class.zui-input-label-empty]="control.empty"
+  >
+    {{ label }}
+    <span *ngIf="control.required" class="zui-input-label-required">*</span>
+  </label>
+</ng-template>
+
+<ng-container *ngIf="!outer; else labelTemplate"></ng-container>
+
+<div
+  class="zui-input-form
+  zui-input-form-status-{{ status }}
+  zui-input-form-{{ outer ? 'outer' : 'inner' }}
+  zui-input-form-{{ position }}
+  zui-input-form-{{ outer ? 'outer' : 'inner' }}-{{ position }}
+  {{ control.nativeElementType ? 'zui-input-form-' + control.nativeElementType : '' }}
+"
+  [attr.data-size]="size"
+  [ngClass]="{
+    'zui-input-form-focused': control.focused,
+    'zui-input-form-empty': control.empty,
+    'zui-input-form-disabled': control.disabled,
+    'zui-input-form-touched': control.touched,
+    'zui-input-form-invalid': control.invalid
+  }"
+>
+  <div class="zui-input-form__first">
+    <ng-content select="[zui-input-left]" *ngIf="!control.disabled"></ng-content>
+
+    <div class="zui-input-form-inner-container">
+      <div class="zui-input-form-body">
+        <ng-container *ngIf="outer; else labelTemplate"></ng-container>
+
+        <ng-content></ng-content>
+      </div>
+
+      <button
+        *ngIf="showClearButton"
+        zuiInputIconButton="cansel-delete-content"
+        (click)="onClearClick($event)"
+        class="zui-input-button-default {{ showStatusButton ? '' : 'alone' }}"
+        [interactive]="true"
+      ></button>
+      <button
+        *ngIf="showStatusButton"
+        [zuiInputIconButton]="statusIcon"
+        [zuiHint]="statusMessage"
+        class="zui-input-form-status-button"
+        [interactive]="true"
+      ></button>
+    </div>
+
+    <ng-content select="[zui-input-right]" *ngIf="!control.disabled"></ng-content>
+  </div>
+  <ng-content select="[zui-input-bottom]"></ng-content>
+</div>
+
+<div class="zui-input-form-subtext zui-input-form-subtext-{{ status }}">
+  <ng-content select="[zui-input-subtext]"></ng-content>
+</div>

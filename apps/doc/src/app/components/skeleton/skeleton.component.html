@@ -1,0 +1,124 @@
+<tui-doc-page
+  header="Skeleton"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use ZuiSkeletonDirective to view skeleton.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Base"
+      [content]="exampleBase"
+    >
+      <zui-skeleton-base-example></zui-skeleton-base-example>
+    </tui-doc-example>
+
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <div class='example'>
+       <div>
+         <button zuiButton
+                 [zuiSkeleton]='active'
+                 [zuiSkeletonText]='isText'
+                 [zuiSkeletonRounded]='isRounded'
+                 [zuiSkeletonShort]='isShort'
+         >Test Button</button>
+       </div>
+        <div>
+          <zui-toggle
+            [zuiSkeleton]='active'
+            [zuiSkeletonText]='isText'
+            [zuiSkeletonRounded]='isRounded'
+            [zuiSkeletonShort]='isShort'>
+            Value
+          </zui-toggle>
+        </div>
+        <div>
+          <span
+            [zuiSkeleton]='active'
+            [zuiSkeletonText]='isText'
+            [zuiSkeletonRounded]='isRounded'
+            [zuiSkeletonShort]='isShort'>Short Span Element</span>
+        </div>
+        <div>
+          <div
+          [zuiSkeleton]='active'
+          [zuiSkeletonText]='isText'
+          [zuiSkeletonRounded]='isRounded'
+          [zuiSkeletonShort]='isShort'>Block Element
+        </div>
+        </div>
+        <div>
+          <p
+          [zuiSkeleton]='active'
+          [zuiSkeletonText]='isText'
+          [zuiSkeletonRounded]='isRounded'
+          [zuiSkeletonShort]='isShort'>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+        </div>
+      </div>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="zuiSkeleton"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="active"
+      >
+        Active skeleton
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiSkeletonText"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="isText"
+      >
+        Is Text
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiSkeletonRounded"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="isRounded"
+      >
+        Is Rounded
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="zuiSkeletonShort"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="isShort"
+      >
+        Is Short
+      </ng-template>
+
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>ZuiSkeletonModule</code>
+          into a module where you want to use our directive
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

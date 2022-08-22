@@ -8,7 +8,7 @@
   import {takeUntil} from 'rxjs/operators';
   
   @Component({
-      selector: 'destroy-example',
+      selector: 'destroy-button',
       templateUrl: './template.html',
       changeDetection: ChangeDetectionStrategy.OnPush,
       providers: [ZuiDestroyService],

@@ -1,0 +1,80 @@
+<zui-dropdown-host
+  #dropdownHostRef
+  [content]="dropdown"
+  [(isOpen)]="open"
+  [zuiDropdownMinHeight]='minDropdownHeight'
+  [zuiDropdownMaxHeight]='maxDropdownHeight'
+  *zuiLet='{selectedItems: selectedItems$ | async, filteredItems: filteredItems$ | async} as $'
+>
+  <zui-input-layout
+    [label]="label"
+    [forceShowClearButton]="$.selectedItems.length > 0"
+    (click)='safeOpenModal()'
+    [outer]='outer'
+    [size]="size">
+    <input
+      zuiInput
+      #focusableElementRef
+      (onClear)='onClear()'
+      [placeholder]="placeholder"
+      [disabled]='this.disabled'
+      [readonly]='this.disabled'
+      [formControl]="requiredInputControl"
+    />
+    <zui-chips
+      #chipsComponent
+      [chips]="selectedItemsChips$ | async"
+      zui-input-bottom
+    ></zui-chips>
+    <zui-icon *ngIf='!disabled'
+              (click)='focusableElementRef.focus()'
+              [class.active]='focusableElementRef.focused'
+              class='icon-dropdown' zui-input-right iconClass='chevrons-dropdown'></zui-icon>
+  </zui-input-layout>
+
+  <ng-template #dropdown>
+    <zui-data-list class='block'>
+      <div class='list-search-item' *ngIf='searchable'>
+        <zui-input-layout size='m' label="Поиск" (click)='safeStopPropagation(input.value, $event)'>
+          <input zuiInput
+                 zuiAutoFocus
+                 class='input-search'
+                 #input
+                 [formControl]="searchInputControl"
+          />
+          <button
+            zuiInputIconButton="sort-zoom-in"
+            zui-input-right
+            [interactive]="true"
+          ></button>
+        </zui-input-layout>
+      </div>
+      <ng-container *ngIf='$.filteredItems?.length; else emptyTemplate'>
+        <div class='item' [class.selected]='item.obj | zuiCallFunc : identityMatcher : value'
+             *ngFor='let item of $.filteredItems'
+             (click)='select(item)'>
+
+          <zui-checkbox
+            [state]="item.checked ? 'selected' : 'unselected'"
+          ></zui-checkbox>
+          <span class='text' *zuiLet='item | zuiCallFunc : stringify : $any(nullContent) as text'>
+            <ng-container *polymorphOutlet="valueTemplate as content; context:{
+              $implicit: {
+                obj: item.obj,
+                checked: item.checked,
+                stringify: item | zuiCallFunc : stringify
+              }
+            } as context">
+              {{text}}
+            </ng-container>
+          </span>
+        </div>
+      </ng-container>
+      <ng-template #emptyTemplate>
+        <ng-container *polymorphOutlet="emptyContent as data;">
+          <div class='empty-template'>{{emptyContent}}</div>
+        </ng-container>
+      </ng-template>
+    </zui-data-list>
+  </ng-template>
+</zui-dropdown-host>

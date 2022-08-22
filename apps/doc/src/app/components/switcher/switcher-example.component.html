@@ -1,0 +1,105 @@
+<tui-doc-page header="Switcher" package="Equinox" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="base" heading="Basic" [content]="exampleBasicSwitcher">
+      <zui-switcher-basic-example></zui-switcher-basic-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="innerL" heading="Type inner, size L" [content]="exampleInnerLSwitcher">
+      <zui-switcher-inner-l-example></zui-switcher-inner-l-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="innerM" heading="Type inner, size M" [content]="exampleInnerMSwitcher">
+      <zui-switcher-inner-m-example></zui-switcher-inner-m-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="outerL" heading="Type outer, size L" [content]="exampleOuterLSwitcher">
+      <zui-switcher-outer-l-example></zui-switcher-outer-l-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="outerM" heading="Type outer, size M" [content]="exampleOuterMSwitcher">
+      <zui-switcher-outer-m-example></zui-switcher-outer-m-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="outerS" heading="Type outer, size S" [content]="exampleOuterSSwitcher">
+      <zui-switcher-outer-s-example></zui-switcher-outer-s-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="withIcon" heading="Switcher with icon" [content]="exampleWithIconSwitcher">
+      <zui-switcher-with-icon-example></zui-switcher-with-icon-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="onlyIcon" heading="Only icon switcher" [content]="exampleOnlyIconSwitcher">
+      <zui-switcher-only-icon-example></zui-switcher-only-icon-example>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-switcher
+        [switchers]="switchers"
+        [type]="type"
+        [selectedSwitcherIdx]="selectedSwitcherIdx"
+        [size]="size"
+      ></zui-switcher>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyType="ISwitcher[]"
+        documentationPropertyMode="input"
+      >
+        Switcher list
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="selectedSwitcherIdx"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="selectedSwitcherIdx"
+      >
+        Selected switcher index
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="SwitcherSize"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="type"
+        documentationPropertyType="SwitcherType"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="typeVariants"
+        [(documentationPropertyValue)]="type"
+      >
+        Switcher type
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="switcherSelection"
+        documentationPropertyType="number"
+        documentationPropertyMode="output"
+      >
+        Selected switcher event emitter
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>ZuiSwitcherModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

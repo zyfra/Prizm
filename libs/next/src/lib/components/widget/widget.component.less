@@ -1,0 +1,42 @@
+.body {
+  padding: var(--zui-widget-content-padding, 16px);
+}
+
+.header {
+  min-height: var(--zui-widget-header-min-height, 16px);
+}
+
+.title {
+  font-weight: var(--zui-widget-title-weight, 600);
+  font-size: var(--zui-widget-title-size, 14px);
+  color: var(--zui-widget-title-text, var(--text-contrast));
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.header {
+  padding: var(--zui-widget-header-padding, 14px 16px);
+  border-bottom: 1px solid var(--zui-widget-header-border-color, var(--border-widget));
+  display: var(--zui-widget-header-display, flex);
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.icons {
+  color: var(--zui-widget-icons-color, var(--grey-g8-g6));
+  padding-left: 16px;
+  border-left: 1px solid var(--zui-widget-icons-border-left, var(--grey-g8-g6));
+  display: flex;
+  gap: var(--zui-widget-icons-gap, 4px);
+  cursor: pointer;
+
+  &:empty {
+    display: none;
+  }
+}
+
+zui-icon {
+  display: flex;
+  align-items: center;
+}
