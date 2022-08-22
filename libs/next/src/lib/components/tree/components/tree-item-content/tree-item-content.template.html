@@ -1,0 +1,15 @@
+<button
+    *ngIf="isExpandable"
+    zuiIconButton
+    class="z-button"
+    appearance='secondary'
+    appearanceType='ghost'
+    size='xs'
+    icon='chevrons-right'
+    [class.t-button_expanded]="isExpanded"
+    (click)="onClick()"
+></button>
+<ng-container [ngTemplateOutlet]="context.template"></ng-container>
+
+<!--size="s"-->
+<!--icon="zuiIconChevronRight"-->

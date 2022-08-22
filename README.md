@@ -40,8 +40,8 @@ And remove from Component declaration `zyfra-button.component`
 ```ts
 @Component({
   selector: 'zyfra-button',
-  templateUrl: './zyfra-button.component.html',
-  // styleUrls: ['./zyfra-button.component.less'], remove this
+  templateUrl: './button.component.html',
+  // styleUrls: ['./button.component.less'], remove this
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 ```

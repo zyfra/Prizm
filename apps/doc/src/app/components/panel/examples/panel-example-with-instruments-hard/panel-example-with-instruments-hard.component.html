@@ -1,0 +1,41 @@
+<div class="container">
+  <zui-panel [withBackButton]="true" header="Заголовок" subheader="Подзаголовок">
+    <div class="buttons" buttons>
+      <zui-toggle size="m" [(ngModel)]="toggleValue" [ngModelOptions]="{ standalone: true }"
+        >Ng Model
+      </zui-toggle>
+    </div>
+
+    <div class="tabs" header></div>
+
+    <div class="instruments" instruments>
+      <div class="instruments__group">
+        <zui-icon [size]="16" class="instruments__icon" iconClass="add-plus"></zui-icon>
+        <zui-icon [size]="16" class="instruments__icon" iconClass="editor-mode"></zui-icon>
+        <zui-icon [size]="16" class="instruments__icon" iconClass="editor-copy"></zui-icon>
+        <zui-icon [size]="16" class="instruments__icon" iconClass="delete"></zui-icon>
+      </div>
+
+      <div class="instruments__group">
+        <zui-icon [size]="16" class="instruments__icon" iconClass="bookmarks-bookmark-check"></zui-icon>
+        <zui-icon [size]="16" class="instruments__icon" iconClass="arrows-expand-all"></zui-icon>
+        <zui-icon [size]="16" class="instruments__icon" iconClass="files-import-arr"></zui-icon>
+        <zui-icon [size]="16" class="instruments__icon" iconClass="files-export-arr"></zui-icon>
+      </div>
+
+      <div class="instruments__group">
+        <button zuiButton appearance="success" size="m">Кнопка 2</button>
+        <button zuiButton appearance="primary" size="m">Кнопка</button>
+      </div>
+    </div>
+  </zui-panel>
+  <div class="content">
+    <span>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consequatur delectus dolores magnam
+      quibusdam reiciendis, reprehenderit sapiente sequi sit sunt tempora tenetur vel veritatis? Incidunt modi
+      perferendis quas? Accusantium aut exercitationem id pariatur quisquam, sequi suscipit. A aspernatur
+      atque cum cumque error exercitationem hic id, in ipsa magni nesciunt quam qui, quidem quod ratione rem
+      repudiandae sint sunt suscipit, vitae.
+    </span>
+  </div>
+</div>

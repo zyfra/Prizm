@@ -1,0 +1,97 @@
+<tui-doc-page
+  header="Tree"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use ZuiTreeComponent to view tree.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Base"
+      [content]="exampleBase"
+    >
+      <zui-tree-base-example></zui-tree-base-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="array"
+      heading="Array"
+      [content]="exampleArray"
+    >
+      <zui-tree-array-example></zui-tree-array-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="template"
+      heading="Template"
+      [content]="exampleTemplate"
+    >
+      <zui-tree-template-example></zui-tree-template-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="component"
+      heading="Component"
+      [content]="exampleComponent"
+    >
+      <zui-tree-component-example></zui-tree-component-example>
+    </tui-doc-example>
+
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="zuiTreeController"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="treeController"
+      >
+        Tree Controller
+      </ng-template>
+      <ng-template
+        documentationPropertyName="value"
+        documentationPropertyType="DeepArray"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="treeController"
+      >
+        Tree Controller
+      </ng-template>
+      <ng-template
+        documentationPropertyName="childrenHandler"
+        documentationPropertyType="ZuiHandler<TreeNode, readonly TreeNode[]> "
+        documentationPropertyMode="input"
+      >
+        Handler
+      </ng-template>
+      <ng-template
+        documentationPropertyName="content"
+        documentationPropertyType="PolymorhContent"
+        documentationPropertyMode="input"
+      >
+        Content
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>ZuiTreeModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

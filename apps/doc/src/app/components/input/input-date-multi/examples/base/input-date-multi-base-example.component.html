@@ -1,0 +1,10 @@
+<zui-input-date-multi
+  [items]="items">
+</zui-input-date-multi>
+
+<ng-template #dateTime let-injector="injector">
+  <zui-input-date-time [formControl]='timeControl' [extraButtonInjector]='injector'></zui-input-date-time>
+</ng-template>
+<ng-template #dateRelativeTime let-injector="injector">
+  <zui-input-date-relative [formControl]='relativeControl' [extraButtonInjector]='injector'></zui-input-date-relative>
+</ng-template>

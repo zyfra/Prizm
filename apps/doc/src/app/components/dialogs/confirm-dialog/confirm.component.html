@@ -1,0 +1,143 @@
+<tui-doc-page
+  header="Confirm Dialog"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use ZuiConfirmDialogService to control dialog.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Base"
+      [content]="exampleBase"
+    >
+      <zui-dialog-service-example></zui-dialog-service-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="horizontal"
+      heading="Horizontal"
+      [content]="exampleHorizontal"
+    >
+      <zui-dialog-horizontal-example></zui-dialog-horizontal-example>
+    </tui-doc-example>
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <button type="button"
+        (click)="show()"
+        zuiButton>
+        Show Dialog
+      </button>
+    </tui-doc-demo>
+
+    <ng-template #headerTemp>
+      Header из <a href='#'>шаблона</a>
+    </ng-template>
+
+    <ng-template #contentTemp>
+      Content из <a href='#'>шаблона</a>
+
+
+      <zui-select
+        [items]='items'
+      ></zui-select>
+    </ng-template>
+
+    <ng-template #footerTemp let-observer>
+      Footer из <i (click)='observer.next(1)'>шаблона</i>
+    </ng-template>
+
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="position"
+        documentationPropertyType="ZuiOverlayInsidePlacement"
+        [documentationPropertyValues]="positionVariants"
+        [(documentationPropertyValue)]="position"
+      >
+        Position
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="overscroll"
+        documentationPropertyType="ZuiOverscrollMode"
+        [documentationPropertyValues]="overscrollVariants"
+        [(documentationPropertyValue)]="overscroll"
+      >
+        Overscroll
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="ZuiDialogSize"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="backdrop"
+        documentationPropertyType="boolean"
+        [(documentationPropertyValue)]="backdrop"
+      >
+        Backdrop
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="height"
+        documentationPropertyType="string"
+        [(documentationPropertyValue)]="height"
+      >
+        Height
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="width"
+        documentationPropertyType="string"
+        [(documentationPropertyValue)]="width"
+      >
+        Width
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="title"
+        documentationPropertyType="PolymorphContent<ZuiBaseDialogContext<ZuiConfirmDialogResultDefaultType,ZuiConfirmDialogOptions>>"
+        [documentationPropertyValues]="generatePolymorphVariants(defaultTitle)"
+        [(documentationPropertyValue)]="title"
+      >
+        Title
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="description"
+        documentationPropertyType="PolymorphContent<ZuiBaseDialogContext<ZuiConfirmDialogResultDefaultType,ZuiConfirmDialogOptions>>"
+        [documentationPropertyValues]="generatePolymorphVariants(defaultDescription, contentTemp)"
+        [(documentationPropertyValue)]="description"
+      >
+        Description
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>ZuiConfirmDialogModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

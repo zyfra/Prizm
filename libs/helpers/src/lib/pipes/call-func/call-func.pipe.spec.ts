@@ -2,7 +2,7 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { CallFuncPipe } from './call-func.pipe';
-import { CallFuncModule } from './call-func.module';
+import { ZuiCallFuncModule } from './call-func.module';
 
 describe('Pipe: CallFunc', () => {
   const pipe = new CallFuncPipe({} as any);

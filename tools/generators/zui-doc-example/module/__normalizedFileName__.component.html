@@ -1,0 +1,65 @@
+<tui-doc-page
+  header="<%= title %>"
+  package="DEMO"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use <%= normalizedModuleName %> module.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Basic"
+      [content]="exampleBase"
+    >
+      <zui-component-example-2></zui-component-example-2>
+    </tui-doc-example>
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+        <!-- TODO add you component here -->
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <!-- TODO create you controls -->
+<!--      <ng-template-->
+<!--        documentationPropertyName="label"-->
+<!--        documentationPropertyType="string"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [(documentationPropertyValue)]="label"-->
+<!--      >-->
+<!--        Label-->
+<!--      </ng-template>-->
+
+<!--      <ng-template-->
+<!--        documentationPropertyName="type"-->
+<!--        documentationPropertyType="button | submit | reset"-->
+<!--        documentationPropertyMode="input"-->
+<!--        [documentationPropertyValues]="typeVariants"-->
+<!--        [(documentationPropertyValue)]="type"-->
+<!--      >-->
+<!--        Type-->
+<!--      </ng-template>-->
+
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p >
+          Import
+          <code><%= normalizedModuleName %></code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

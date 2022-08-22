@@ -1,0 +1,62 @@
+<zui-table [value]="products" editMode="cell" dataKey="id" responsiveLayout="scroll">
+  <ng-template zuiTableTemplate="header">
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Count</th>
+    </tr>
+  </ng-template>
+  <ng-template zuiTableTemplate="body" let-product>
+    <tr>
+      <td zuiEditableColumn>
+        <zui-cell-editor>
+          <ng-template zuiTableTemplate="input">
+            <zui-input-layout class="input-layout" [outer]="true" size="s">
+              <input [(ngModel)]="product.code" zuiInput />
+            </zui-input-layout>
+          </ng-template>
+          <ng-template zuiTableTemplate="output">
+            {{ product.code }}
+          </ng-template>
+        </zui-cell-editor>
+      </td>
+      <td zuiEditableColumn>
+        <zui-cell-editor>
+          <ng-template zuiTableTemplate="input">
+            <zui-input-layout class="input-layout" [outer]="true" size="s">
+              <input [(ngModel)]="product.name" zuiInput />
+            </zui-input-layout>
+          </ng-template>
+          <ng-template zuiTableTemplate="output">
+            <span>{{ product.name }}</span>
+          </ng-template>
+        </zui-cell-editor>
+      </td>
+      <td zuiEditableColumn>
+        <zui-cell-editor>
+          <ng-template zuiTableTemplate="input">
+            <zui-input-layout class="input-layout" [outer]="true" size="s">
+              <input [(ngModel)]="product.category" zuiInput />
+            </zui-input-layout>
+          </ng-template>
+          <ng-template zuiTableTemplate="output">
+            {{ product.category }}
+          </ng-template>
+        </zui-cell-editor>
+      </td>
+      <td zuiEditableColumn>
+        <zui-cell-editor>
+          <ng-template zuiTableTemplate="input">
+            <zui-input-layout class="input-layout" [outer]="true" size="s">
+              <input [(ngModel)]="product.count" zuiInput />
+            </zui-input-layout>
+          </ng-template>
+          <ng-template zuiTableTemplate="output">
+            {{ product.count }}
+          </ng-template>
+        </zui-cell-editor>
+      </td>
+    </tr>
+  </ng-template>
+</zui-table>

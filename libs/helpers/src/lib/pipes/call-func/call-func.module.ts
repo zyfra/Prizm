@@ -9,4 +9,4 @@ import { CallFuncPipe } from './call-func.pipe';
     CallFuncPipe,
   ]
 })
-export class CallFuncModule { }
+export class ZuiCallFuncModule { }

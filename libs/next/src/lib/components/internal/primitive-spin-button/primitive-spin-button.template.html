@@ -1,0 +1,44 @@
+<div
+    *ngIf="spinTexts$ | async as texts"
+    #wrapper
+    zuiPreventDefault="mousedown"
+    class="z-wrapper"
+    [zuiFocusable]="computedFocusable"
+    (zuiFocusedChange)="onFocused($event)"
+    (zuiFocusVisibleChange)="onFocusVisible($event)"
+    (keydown.arrowLeft)="onLeftClick()"
+    (keydown.arrowRight)="onRightClick()"
+>
+    <button
+        zuiIconButton
+        type="button"
+        size="xs"
+        [appearanceType]='mode'
+        automation-id="zui-primitive-spin-button__left"
+        icon="arrows-chevron-left"
+        class="z-arrow"
+        appearance='secondary'
+        [class.z-arrow_hidden]="leftComputedDisabled"
+        [title]="texts[0]"
+        [focusable]="false"
+        (click)="onLeftClick()"
+    ></button>
+    <span class="z-content">
+        <ng-content></ng-content>
+    </span>
+    <button
+        zuiIconButton
+        type="button"
+        size="xs"
+        appearance='secondary'
+        automation-id="zui-primitive-spin-button__right"
+        icon="arrows-chevron-right"
+        class="z-arrow"
+        [appearanceType]='mode'
+        [class.z-arrow_hidden]="rightComputedDisabled"
+        [title]="texts[1]"
+        [focusable]="false"
+        (click)="onRightClick()"
+    ></button>
+<!--  [appearanceType]='mode'-->
+</div>

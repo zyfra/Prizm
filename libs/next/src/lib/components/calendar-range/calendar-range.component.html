@@ -1,0 +1,47 @@
+<zui-primitive-calendar-range
+    *ngIf="!items.length; else presets"
+    automation-id="zui-calendar-range__calendars"
+    zuiPreventDefault="mousedown"
+    [markerHandler]="markerHandler"
+    [min]="min | zuiMapper: maxLengthMapper:value:maxLength:true"
+    [max]="max | zuiMapper: maxLengthMapper:value:maxLength:false"
+    [defaultViewedMonthFirst]="defaultViewedMonth"
+    [defaultViewedMonthSecond]="defaultViewedMonth | zuiMapper: monthShiftMapper"
+    [disabledItemHandler]="calculatedDisabledItemHandler"
+    [value]="value"
+    (dayClick)="onDayClick($event)"
+></zui-primitive-calendar-range>
+<ng-template #presets>
+    <div class="z-wrapper">
+        <zui-calendar
+            automation-id="zui-calendar-range__calendar"
+            zuiPreventDefault="mousedown"
+            [value]="value"
+            [markerHandler]="markerHandler"
+            [min]="min | zuiMapper: maxLengthMapper:value:maxLength:true"
+            [max]="max | zuiMapper: maxLengthMapper:value:maxLength:false"
+            [month]="computedMonth"
+            [disabledItemHandler]="calculatedDisabledItemHandler"
+            (dayClick)="onDayClick($event)"
+        ></zui-calendar>
+        <zui-data-list
+            role="menu"
+            automation-id="zui-calendar-range__menu"
+            class="z-menu"
+        >
+            <button
+                *ngFor="let item of items | zuiMapper: mapper:min:max:minLength:(otherDateText$ | async)"
+                zuiOption
+                zuiPreventDefault="mousedown"
+                role="menuitemradio"
+                automation-id="zui-calendar-range__menu__item"
+                [attr.aria-checked]="isItemActive(item)"
+                (keydown.enter.prevent)="onItemSelect(item)"
+                (keydown.space.prevent)="onItemSelect(item)"
+                (click)="onItemSelect(item)"
+            >
+                {{ item }}
+            </button>
+        </zui-data-list>
+    </div>
+</ng-template>

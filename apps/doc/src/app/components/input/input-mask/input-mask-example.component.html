@@ -1,0 +1,109 @@
+<tui-doc-page header="Input Mask" type="components">
+  <h2>Как работать с масками можно посмотреть в документации ngx-mask</h2>
+  <ng-template pageTab>
+    <tui-doc-example heading="Basic example" [content]="zyfraInputMaskBasicExample">
+      <zui-input-mask-basic-example></zui-input-mask-basic-example>
+    </tui-doc-example>
+
+    <tui-doc-example heading="Phone example" [content]="zyfraInputPhoneExample">
+      <zui-input-phone-example></zui-input-phone-example>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-input-layout [label]="label" [size]="size" [status]="status" [outer]="outer">
+        <input
+          zuiInput
+          [mask]="mask"
+          [showMaskTyped]="true && input.focused"
+          #input
+          [(ngModel)]="value"
+          [disabled]="disabled"
+          [required]="required"
+        />
+        <ng-template zuiInputStatusText>Текст статуса</ng-template>
+      </zui-input-layout>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="Mask"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="mask"
+      >
+        Mask
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="label"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="status"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="statuses"
+        [(documentationPropertyValue)]="status"
+      >
+        Status
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="required"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="required"
+      >
+        Required
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="outer"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="outer"
+      >
+        Outer
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="outer ? sizesOuter : sizesInner"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>ZuiInputMaskModule</code>
+          в тот модуль, котором хотите использовать компонент
+        </p>
+
+        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>
+

@@ -1,0 +1,32 @@
+:host {
+  outline: none;
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+
+  width: 32px;
+  font-size: inherit;
+
+  color: var(--border-icon);
+
+  &:disabled {
+    color: var(--grey-g9-g5);
+  }
+}
+
+:host-context(.interactive) {
+  &:hover {
+    color: var(--index-plan);
+  }
+
+  &:focus {
+    color: var(--index-plan);
+    text-shadow: 0 0 1px var(--index-plan);
+  }
+
+  cursor: pointer;
+}
+

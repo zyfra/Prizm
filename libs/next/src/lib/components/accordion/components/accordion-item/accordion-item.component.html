@@ -1,0 +1,39 @@
+<div
+  class="accordion"
+  [class.accordion_expanded]="isExpanded"
+  [class.accordion_disabled]="disabled"
+  [class.accordion_focused]="isAccordionFocused"
+>
+  <div
+    class="accordion__header"
+    [tabindex]="disabled ? -1 : 0"
+
+    (click)="toggle()"
+    (keydown.enter)="toggle()"
+    (keydown.space)="toggle()"
+
+    (focus)="isAccordionFocused = true"
+    (focusout)="isAccordionFocused = false"
+  >
+    <span class="title" *ngIf="title">{{ title }}</span>
+    <div
+      class="accordion__tools"
+      *ngIf="accordionTools"
+      (click)="stopProp($event)"
+      (keydown.enter)="stopProp($event)"
+      (keydown.space)="stopProp($event)"
+    >
+      <ng-container *ngTemplateOutlet="accordionTools"></ng-container>
+    </div>
+    <button class="accordion__button" tabindex='-1'>
+      <zui-icon size="16" class="accordion__button-icon" iconClass="chevrons-double-down"></zui-icon>
+    </button>
+  </div>
+  <div
+    class="accordion__content"
+    *ngIf="accordionContent"
+    [@expand]="isExpanded? 'expanded' : 'init'"
+  >
+    <ng-container *ngTemplateOutlet="accordionContent"></ng-container>
+  </div>
+</div>

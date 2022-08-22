@@ -1,0 +1,35 @@
+<zui-dropdown-host
+    class="z-hosted"
+    [(isOpen)]="open"
+    [content]="dropdown"
+    zuiDropdownHostWidth='100%'
+    [closeByEsc]='true'
+>
+  <ng-container *ngFor='let item of items; let idx = index'>
+    <ng-container *ngIf='idx === currentIdx'>
+      <ng-container *ngTemplateOutlet="item.template as data; context: context"></ng-container>
+    </ng-container>
+  </ng-container>
+</zui-dropdown-host>
+
+<ng-template #dropdown>
+  <zui-data-list class='block'>
+    <ng-container *ngIf='items?.length;'>
+      <div class='item' [class.selected]='idx === currentIdx'
+           *ngFor='let item of items; let idx = index'
+           (click)='select(idx)'>
+          <span class='text'>
+            {{item.name}}
+          </span>
+      </div>
+    </ng-container>
+  </zui-data-list>
+</ng-template>
+
+<ng-template #buttonLeft>
+  <button
+    (zuiAfterViewInit)='setListener($event.nativeElement)'
+    zuiInputIconButton="chevrons-dropdown-small"
+    [interactive]="true"
+  ></button>
+</ng-template>

@@ -1,0 +1,20 @@
+@import  '../../../../../styles/ui-local';
+
+:host {
+    display: flex;
+    align-items: center;
+
+    :host-context(zui-tree-item._expandable):not(._expandable) {
+        padding-left: 28px;
+    }
+}
+
+.z-button {
+    .transition(transform);
+    margin-right: 12px;
+    --zui-secondary: var(--text-main);
+
+    &_expanded {
+        transform: rotate(90deg);
+    }
+}

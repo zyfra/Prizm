@@ -1,0 +1,141 @@
+<tui-doc-page header="Tabs" package="Equinox" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="base" heading="Base" [content]="tabsExampleBasic">
+      <zui-tabs-example-basic></zui-tabs-example-basic>
+    </tui-doc-example>
+
+    <tui-doc-example id="line" heading="Lined tabs" [content]="tabsLinedExample">
+      <zui-tabs-example-lined></zui-tabs-example-lined>
+    </tui-doc-example>
+
+    <tui-doc-example id="contained" heading="Contained tabs" [content]="tabsContainedExample">
+      <zui-tabs-example-contained></zui-tabs-example-contained>
+    </tui-doc-example>
+
+    <tui-doc-example id="icon" heading="Icon tabs" [content]="tabsIconExample">
+      <zui-tabs-example-icon></zui-tabs-example-icon>
+    </tui-doc-example>
+
+    <tui-doc-example id="counter" heading="Tabs with counter" [content]="tabsWithCounterExample">
+      <zui-tabs-example-counter></zui-tabs-example-counter>
+    </tui-doc-example>
+
+    <tui-doc-example id="closable" heading="Closable tabs" [content]="tabsClosableExample">
+      <zui-tabs-example-closable></zui-tabs-example-closable>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <div class="container container__{{ size }}">
+        <zui-tab
+          [title]="title"
+          [icon]="icon"
+          [closable]="closable"
+          [type]="type"
+          [disabled]="disabled"
+          [count]="count"
+          [isActive]="isActive"
+          (tabClick)="isActive = !isActive"
+        ></zui-tab>
+      </div>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="TabSize"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+      >
+        Tab title
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="type"
+        documentationPropertyType="TabType"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="type"
+        [documentationPropertyValues]="typeVariants"
+      >
+        Tab title
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="title"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="title"
+      >
+        Tab title
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="count"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="count"
+      >
+        Tab counter
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="closable"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="closable"
+      >
+        Is tab closable
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="isActive"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="isActive"
+      >
+        Is tab active
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Is tab disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="icon"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="icon"
+        [documentationPropertyValues]="iconVariants"
+      >
+        Tab icon
+      </ng-template>
+
+      <ng-template documentationPropertyName="cancelClick" documentationPropertyMode="output">
+        Cancel button click event
+      </ng-template>
+
+      <ng-template documentationPropertyName="tabClick" documentationPropertyMode="output">
+        Tab click
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>ZuiTabsModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

@@ -1,0 +1,5 @@
+<div class="zui-toast-container {{position}}" zuiFocusTrap>
+  <ng-container *ngFor="let ref of refs$ | async; trackBy: trackByHash">
+    <zui-toast-wrapper [ref]="ref"></zui-toast-wrapper>
+  </ng-container>
+</div>

@@ -1,0 +1,28 @@
+@import '../../../../styles/ui-local';
+
+@itemSize: 3.9375rem;
+
+.picker(@itemSize);
+
+:host {
+    width: @itemSize * 4;
+}
+
+.z-row {
+    margin: 0.875rem 0;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.z-cell {
+  &[data-state="pressed"] .z-item {
+    background-color: var(--index-plan);
+  }
+}
+
