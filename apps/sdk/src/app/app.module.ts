@@ -58,6 +58,8 @@ import { TranslateModule } from './components/translate/translate.module';
     BlockTestModule,
     BreadcrumbModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     ButtonModule,
     CalendarTestModule,
