@@ -1,6 +1,5 @@
 <p-toggleButton
   [formControl]="$any(ngControl.control)"
-  [(ngModel)]="model"
   [onLabel]="onLabel"
   [offLabel]="offLabel"
   [onIcon]="onIcon"
@@ -12,6 +11,6 @@
   [tabindex]="tabindex"
   [inputId]="inputId"
   [ariaLabelledBy]="ariaLabelledBy"
-  (onChange)="handleChange($event)"
+  (ngModelChange)="accessorOnChangeFn($event)"
 >
 </p-toggleButton>
