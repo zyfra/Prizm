@@ -12,12 +12,18 @@
   </div>
 
   <div class="control">
-    <button size='s'
+<!--    <button size='s'-->
+<!--      (click)="toastRef.close()"-->
+<!--      appearance='secondary'-->
+<!--      appearanceType='ghost'-->
+<!--      zuiIconButton-->
+<!--      icon='cancel-close'>-->
+<!--    </button>-->
+    <button
+      [size]='16'
+      zuiInputIconButton="cancel-close"
       (click)="toastRef.close()"
-      appearance='secondary'
-      appearanceType='ghost'
-      zuiIconButton
-      icon='cancel-close'>
-    </button>
+      [interactive]="true"
+    ></button>
   </div>
 </div>

@@ -11,6 +11,7 @@ import { ZuiToastService } from './toast.service';
 import { ZuiFocusTrapModule } from '../../directives/focus-trap';
 import { ZuiButtonModule } from '../button';
 import { ZuiIndicatorModule } from '../indicator';
+import { ZuiInputCommonModule } from '../input';
 
 @NgModule({
   exports: [
@@ -19,6 +20,7 @@ import { ZuiIndicatorModule } from '../indicator';
   imports: [
     CommonModule,
     ZuiOverlayModule,
+    ZuiInputCommonModule,
     ZuiIndicatorModule,
     PolymorphModule,
     ZuiButtonModule,
