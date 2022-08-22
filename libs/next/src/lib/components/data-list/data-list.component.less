@@ -1,0 +1,29 @@
+:host {
+  border: 1px solid var(--zui-data-list-border, var(--border-widget));
+  border-radius: var(--zui-data-list-border-radius, 2px);
+  display: block;
+  background: var(--zui-data-list-background, var(--bg-body));
+
+  .header:empty {
+    display: none;
+  }
+
+  .header, .footer {
+    padding: var(--zui-data-list-padding, 16px);
+  }
+
+  .header {
+    color: var(--zui-data-list-header-text, var(--text-subscript));
+    font-size: var(--zui-data-list-header-text-size, 14px);
+    border-bottom: 1px solid var(--zui-data-list-border, var(--border-widget));
+  }
+
+  .footer {
+    border-top: 1px solid var(--zui-data-list-border, var(--border-widget));
+  }
+
+  .footer:empty {
+    display: none;
+  }
+
+}

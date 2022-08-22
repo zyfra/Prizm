@@ -1,0 +1,18 @@
+<zui-table [value]="products" editMode="cell" responsiveLayout="scroll">
+  <ng-template zuiTableTemplate="header">
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Count</th>
+    </tr>
+  </ng-template>
+  <ng-template zuiTableTemplate="body" let-product let-rowIndex="rowIndex">
+    <tr>
+      <td [zuiCellStatus]="rowIndex === 1 ? 'danger' : 'default'">{{ product.code }}</td>
+      <td [zuiCellStatus]="rowIndex === 2 ? 'success' : 'default'">{{ product.name }}</td>
+      <td [zuiCellStatus]="rowIndex === 3 ? 'warning' : 'default'">{{ product.category }}</td>
+      <td [zuiCellStatus]="rowIndex === 4 ? 'danger' : 'success'">{{ product.count }}</td>
+    </tr>
+  </ng-template>
+</zui-table>

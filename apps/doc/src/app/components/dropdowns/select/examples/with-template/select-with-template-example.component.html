@@ -1,0 +1,14 @@
+<zui-select
+  [items]='items'
+  [valueTemplate]='valueTemplate'
+></zui-select>
+
+<ng-template #valueTemplate let-value let-nullContent="nullContent">
+  <div class='item' *ngIf='value; else empty'>
+    <zui-icon iconClass='account-done'></zui-icon>
+    <span>{{value}}</span>
+  </div>
+  <ng-template #empty>
+    {{nullContent}}
+  </ng-template>
+</ng-template>

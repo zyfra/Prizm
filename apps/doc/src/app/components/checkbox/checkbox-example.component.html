@@ -1,0 +1,136 @@
+<tui-doc-page header="Checkbox" package="Equinox" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="base" heading="Base" [content]="exampleBasicCheckbox">
+      <zui-checkbox-basic-example size="s"></zui-checkbox-basic-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="big" heading="Big Size" [content]="exampleBasicCheckbox">
+      <zui-checkbox-basic-example size="l"></zui-checkbox-basic-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="form" heading="With Reactive Forms" [content]="exampleReactiveFormCheckbox">
+      <zui-checkbox-form-example></zui-checkbox-form-example>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-checkbox
+        [value]="value"
+        [label]="label"
+        [disabled]="disabled"
+        [size]="size"
+        [state]="state"
+      ></zui-checkbox>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="label"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="value"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="value"
+      >
+        Value
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="l | s"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="children"
+        documentationPropertyType="ICheckbox[]"
+        documentationPropertyMode="input"
+      >
+        Children
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="state"
+        documentationPropertyType="TZuiCheckboxState"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="stateVariants"
+        [(documentationPropertyValue)]="state"
+      >
+        State
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="clickEvent"
+        documentationPropertyType="PointerEvent"
+        documentationPropertyMode="output"
+      >
+        Click
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="focusEvent"
+        documentationPropertyType="FocusEvent"
+        documentationPropertyMode="output"
+      >
+        Focus
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="focusOutEvent"
+        documentationPropertyType="FocusEvent"
+        documentationPropertyMode="output"
+      >
+        Focus out
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="blurEvent"
+        documentationPropertyType="FocusEvent"
+        documentationPropertyMode="output"
+      >
+        Blur
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="changeEvent"
+        documentationPropertyType="Event"
+        documentationPropertyMode="output"
+      >
+        Change
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>ZuiCheckboxModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

@@ -1,0 +1,162 @@
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+:host {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  position: relative;
+  overflow: hidden;
+
+  .container {
+    flex: 1;
+    display: flex;
+
+    overflow: hidden;
+
+    &__fake {
+      position: absolute;
+      opacity: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+
+      .dropdown-inner {
+        display: flex;
+      }
+
+      &__chevron {
+        display: flex;
+
+        color: var(--border-icon);
+      }
+
+      &__dots {
+        display: flex;
+        align-items: center;
+      }
+
+      &__dots button {
+        &:hover,
+        &:focus {
+          color: var(--index-plan);
+        }
+      }
+
+      .breadcrumb {
+        height: 32px;
+        padding: 0 6px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        border: 2px solid transparent;
+        border-radius: 4px;
+
+        &__name {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 16px;
+
+          color: var(--text-subscript);
+        }
+
+        &__icon {
+          height: 32px;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          color: var(--text-subscript);
+        }
+
+        &_active {
+          cursor: auto;
+
+          .breadcrumb__name,
+          .breadcrumb__icon {
+            color: var(--text-contrast);
+          }
+        }
+
+        &:hover:not(.breadcrumb_active) {
+          .breadcrumb__name,
+          .breadcrumb__icon {
+            color: var(--index-plan);
+            transition: 0.4s;
+          }
+        }
+
+        &:focus:not(.breadcrumb_active) {
+          border-color: var(--lite-b130-20);
+        }
+      }
+    }
+  }
+}
+
+.dropdown-content {
+  padding: 8px 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--bg-body);
+
+  .dropdown-breadcrumb {
+    height: 32px;
+    min-width: 32px;
+    max-width: 210px;
+    padding: 0 8px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &__name {
+      height: 24px;
+
+      display: flex;
+      align-items: center;
+
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+
+      color: var(--text-contrast);
+    }
+
+    &__icon {
+      height: 32px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--text-main);
+    }
+
+    &:hover,
+    &:focus {
+      background: var(--grey-g12-g2);
+    }
+  }
+}

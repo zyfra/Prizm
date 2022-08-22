@@ -1,0 +1,73 @@
+<tui-doc-page
+  header="InputTime"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use ZuiInputTimeComponent to view input-date.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Base"
+      [content]="exampleBase"
+    >
+      <zui-input-time-base-example></zui-input-time-base-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="base"
+      heading="With Seconds"
+      [content]="exampleWithSeconds"
+    >
+      <zui-input-time-with-seconds-example></zui-input-time-with-seconds-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="base"
+      heading="With Micro Seconds"
+      [content]="exampleWithMicroSeconds"
+    >
+      <zui-input-time-with-ms-example></zui-input-time-with-ms-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="base"
+      heading="With Preset"
+      [content]="exampleWithPreset"
+    >
+      <zui-input-time-with-preset-example></zui-input-time-with-preset-example>
+    </tui-doc-example>
+
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-input-time
+        [formControl]='valueControl'
+      ></zui-input-time>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      -
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>ZuiInputTimeModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

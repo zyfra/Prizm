@@ -1,0 +1,33 @@
+<zui-table [value]="products" editMode="cell" responsiveLayout="scroll">
+  <ng-template zuiTableTemplate="header">
+    <tr>
+      <th rowspan="2">Product</th>
+      <th rowspan="2">Name</th>
+      <th colspan="2">Equipment</th>
+    </tr>
+    <tr>
+      <th>Type</th>
+      <th>Count</th>
+    </tr>
+  </ng-template>
+  <ng-template zuiTableTemplate="body" let-product>
+    <tr>
+      <td>{{ product.code }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.count }}</td>
+    </tr>
+  </ng-template>
+  <ng-template zuiTableTemplate="summary">
+    <div class="paginator">
+      <zui-paginator
+        [totalRecords]="160"
+        [pageLinkSize]="5"
+        [rows]="10"
+        [initialValue]="6"
+        leftButtonLabel="Назад"
+        rightButtonLabel="Вперед"
+      ></zui-paginator>
+    </div>
+  </ng-template>
+</zui-table>

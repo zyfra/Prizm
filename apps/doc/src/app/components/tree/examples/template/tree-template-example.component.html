@@ -1,0 +1,23 @@
+<zui-tree
+  [zuiTreeController]="true"
+  [value]="data"
+  [content]="content"
+  [childrenHandler]="handler"
+></zui-tree>
+
+<ng-template
+  #content
+  let-value
+  let-node="node"
+>
+  <div
+    class="wrapper"
+  >
+    <zui-icon
+      *ngIf="value.icon"
+      size='16'
+      [iconClass]="value.icon"
+    ></zui-icon>
+    {{ value.text }}
+  </div>
+</ng-template>

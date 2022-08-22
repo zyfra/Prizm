@@ -1,2 +1,2 @@
-export {CallFuncModule} from './call-func.module';
+export {ZuiCallFuncModule} from './call-func.module';
 export {CallFuncPipe} from './call-func.pipe';

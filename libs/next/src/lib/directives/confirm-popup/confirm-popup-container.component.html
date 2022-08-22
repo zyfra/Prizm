@@ -1,0 +1,54 @@
+<div zuiFocusTrap class='box zui-font-main-body-14'>
+  <div class="content">
+    <div *ngIf='context.title' class='title zui-font-dynamic-title-h4'>
+      <ng-container *polymorphOutlet="context.title as data; context: context">
+        {{data}}
+      </ng-container>
+    </div>
+    <div class='description zui-font-main-body-14'>
+<!--      <zui-scrollbar class='scrollbar' visibility='hidden'>-->
+        <ng-container *polymorphOutlet="content() as data; context: context">
+          {{data}}
+        </ng-container>
+
+        <div class="footer zui-font-btn-links-14">
+          <ng-container >
+            <div class='vertical'>
+              <div class='top'>
+                <ng-container *ngIf='context.confirmButton'
+                              [ngTemplateOutlet]='buttonTemplate'
+                              [ngTemplateOutletContext]='{button: context.confirmButton}'>
+                </ng-container>
+                <ng-container *ngIf='context.supportButton'
+                              [ngTemplateOutlet]='buttonTemplate'
+                              [ngTemplateOutletContext]='{button: context.supportButton}'>
+                </ng-container>
+              </div>
+              <div class='bottom'>
+                <ng-container *ngIf='context.cancelButton'
+                              [ngTemplateOutlet]='buttonTemplate'
+                              [ngTemplateOutletContext]='{button: context.cancelButton}'>
+                </ng-container>
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-template #buttonTemplate let-button="button">
+            <button
+              [style]='button.style'
+              [appearance]='button.appearance'
+              [appearanceType]='button.appearanceType'
+              zuiButton
+              [size]="button.size"
+              (click)="button.action(context)"
+            >{{button.text}}</button>
+          </ng-template>
+        </div>
+
+<!--      </zui-scrollbar>-->
+    </div>
+
+  </div>
+
+
+</div>

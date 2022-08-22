@@ -1,0 +1,213 @@
+<tui-doc-page header="Input number" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="number" heading="Input number basic example" [content]="zuiInputNumberBasic">
+      <zui-input-number-basic-example></zui-input-number-basic-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="counter" heading="Input number counter example" [content]="zuiInputNumberCounter">
+      <zui-input-number-counter-example></zui-input-number-counter-example>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <div [ngStyle]="{ display: 'flex', gap: '2rem', 'align-items': 'flex-end' }">
+        <div>
+          <h4>Number</h4>
+          <zui-input-layout
+            [label]="label"
+            [size]="size"
+            [outer]="outer"
+            [status]="status"
+            [position]="inputPosition"
+          >
+            <input
+              zuiInputNumber
+              [min]="min"
+              [max]="max"
+              [step]="step"
+              [value]="value"
+              [disabled]="disabled"
+              [placeholder]="placeholder"
+              [required]="required"
+              #inputNumber="zuiInputNumber"
+            />
+            <zui-input-number-auxiliary-controls
+              zui-input-right
+              [inputNumber]="inputNumber"
+            ></zui-input-number-auxiliary-controls>
+
+            <ng-template zuiInputStatusText>Текст статуса</ng-template>
+          </zui-input-layout>
+        </div>
+        <div>
+          <h4>Counter</h4>
+          <zui-input-layout
+            [label]="label"
+            [size]="size"
+            [status]="status"
+            [outer]="outer"
+            [position]="'center'"
+          >
+            <button
+              zuiInputIconButton="delete-minus"
+              zuiInputNumberAuxiliaryControl="decrement"
+              zui-input-left
+              [inputNumber]="inputCounter"
+              [interactive]="true"
+            ></button>
+
+            <input
+              zuiInputNumber
+              [min]="min"
+              [max]="max"
+              [step]="step"
+              [value]="value"
+              [disabled]="disabled"
+              [placeholder]="placeholder"
+              [required]="required"
+              #inputCounter="zuiInputNumber"
+            />
+
+            <button
+              zuiInputIconButton="add-plus"
+              zuiInputNumberAuxiliaryControl="increment"
+              zui-input-right
+              [inputNumber]="inputCounter"
+              [interactive]="true"
+            ></button>
+
+            <ng-template zuiInputStatusText>Текст статуса</ng-template>
+          </zui-input-layout>
+        </div>
+      </div>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="status"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="[1, 6, null]"
+        [(documentationPropertyValue)]="value"
+      >
+        Value
+      </ng-template>
+      <ng-template
+        documentationPropertyName="min"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="min"
+      >
+        Min
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="max"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="max"
+      >
+        Max
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="step"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="[2, 4]"
+        [(documentationPropertyValue)]="step"
+      >
+        Step
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="label"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="placeholder"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="placeholder"
+      >
+        Placeholder
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="required"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="required"
+      >
+        Required
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="status"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="statuses"
+        [(documentationPropertyValue)]="status"
+      >
+        Status
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="outer"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="outer"
+      >
+        Outer
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="position"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="inputPositions"
+        [(documentationPropertyValue)]="inputPosition"
+      >
+        Input position
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="outer ? sizesOuter : sizesInner"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>ZuiInputNumberModule</code>
+          в тот модуль, котором хотите использовать компонент
+        </p>
+
+        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>
+

@@ -1,0 +1,21 @@
+<zui-table [value]="products" editMode="cell" responsiveLayout="scroll">
+  <ng-template zuiTableTemplate="header">
+    <tr>
+      <th zuiSortableColumn="code">Code <zui-sort-icon field="code"></zui-sort-icon></th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Count</th>
+    </tr>
+  </ng-template>
+  <ng-template zuiTableTemplate="body" let-product>
+    <tr>
+      <td>{{ product.code }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.count }}</td>
+    </tr>
+  </ng-template>
+  <ng-template zuiTableTemplate="summary">
+    <div class="summary">Table summary</div>
+  </ng-template>
+</zui-table>

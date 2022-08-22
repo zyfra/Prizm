@@ -1,0 +1,56 @@
+<tui-doc-page
+  header="InputDateRange"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use ZuiInputDateComponent to view input-date.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Base"
+      [content]="exampleBase"
+    >
+      <zui-input-date-range-base-example></zui-input-date-range-base-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="base"
+      heading="Disabled"
+      [content]="exampleDisabled"
+    >
+      <zui-input-date-range-disabled-example></zui-input-date-range-disabled-example>
+    </tui-doc-example>
+
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-input-date-range
+      ></zui-input-date-range>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      -
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>ZuiInputDateRangeModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

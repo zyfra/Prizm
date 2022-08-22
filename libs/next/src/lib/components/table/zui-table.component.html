@@ -1,0 +1,153 @@
+<p-table
+  [class]="className"
+  [attr.data-size]="size"
+  #ptable
+  [value]="value"
+  [columns]="columns"
+  [frozenColumns]="frozenColumns"
+  [frozenValue]="frozenValue"
+  [style]="style"
+  [styleClass]="styleClasses"
+  [first]="first"
+  [totalRecords]="totalRecords"
+  [showFirstLastIcon]="showFirstLastIcon"
+  [currentPageReportTemplate]="currentPageReportTemplate"
+  [showCurrentPageReport]="showCurrentPageReport"
+  [showPageLinks]="showPageLinks"
+  [sortMode]="sortMode"
+  [sortField]="sortField"
+  [sortOrder]="sortOrder"
+  [multiSortMeta]="multiSortMeta"
+  [defaultSortOrder]="defaultSortOrder"
+  [customSort]="customSort"
+  [showInitialSortBadge]="showInitialSortBadge"
+  [selectionMode]="selectionMode"
+  [selection]="selection"
+  [contextMenuSelection]="contextMenuSelection"
+  [contextMenuSelectionMode]="contextMenuSelectionMode"
+  [dataKey]="dataKey"
+  [metaKeySelection]="metaKeySelection"
+  [rowTrackBy]="rowTrackBy"
+  [lazy]="lazy"
+  [lazyLoadOnInit]="lazyLoadOnInit"
+  [compareSelectionBy]="compareSelectionBy"
+  [csvSeparator]="csvSeparator"
+  [exportFilename]="exportFilename"
+  [filters]="filters"
+  [filterDelay]="filterDelay"
+  [globalFilterFields]="globalFilterFields"
+  [filterLocale]="filterLocale"
+  [expandedRowKeys]="expandedRowKeys"
+  [rowExpandMode]="rowExpandMode"
+  [scrollable]="scrollable"
+  [scrollDirection]="scrollDirection"
+  [scrollHeight]="scrollHeight"
+  [virtualScroll]="virtualScroll"
+  [virtualScrollDelay]="virtualScrollDelay"
+  [virtualRowHeight]="virtualRowHeight"
+  [responsive]="responsive"
+  [contextMenu]="contextMenu"
+  [reorderableColumns]="reorderableColumns"
+  [rowHover]="rowHover"
+  [autoLayout]="autoLayout"
+  [stateKey]="stateKey"
+  [stateStorage]="stateStorage"
+  [editMode]="editMode"
+  [editingRowKeys]="editingRowKeys"
+  [minBufferPx]="minBufferPx"
+  [maxBufferPx]="maxBufferPx"
+  [groupRowsBy]="groupRowsBy"
+  [rowGroupMode]="rowGroupMode"
+  (onRowSelect)="rowSelect.emit($event)"
+  (onRowUnselect)="rowUnselect.emit($event)"
+  (onSort)="onSort.emit($event)"
+  (onEditInit)="editInit.emit($event)"
+  (onEditComplete)="editComplete.emit($event)"
+  (onEditCancel)="editCancel.emit($event)"
+  (selectionChange)="selectionChange.emit($event)"
+>
+  <ng-template pTemplate="caption" *ngIf="captionTemplate || title">
+    <div class="zui-table-title">{{ title }}</div>
+    <ng-container *ngIf="captionTemplate">
+      <ng-container *ngTemplateOutlet="captionTemplate"></ng-container>
+    </ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="header" *ngIf="headerTemplate" let-columns>
+    <ng-container *ngTemplateOutlet="headerTemplate; context: { $implicit: columns }"></ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="groupheader" let-item *ngIf="groupHeaderTemplate">
+    <ng-container *ngTemplateOutlet="groupHeaderTemplate; context: { $implicit: item }"></ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="groupfooter" let-item *ngIf="groupFooterTemplate">
+    <ng-container *ngTemplateOutlet="groupFooterTemplate; context: { $implicit: item }"></ng-container>
+  </ng-template>
+
+  <ng-template
+    pTemplate="body"
+    let-item
+    let-rowIndex="rowIndex"
+    let-rowgroup="rowgroup"
+    let-rowspan="rowspan"
+    let-expanded="expanded"
+    let-editing="editing"
+    let-columns="columns"
+    *ngIf="bodyTemplate"
+  >
+    <ng-container
+      *ngTemplateOutlet="
+        bodyTemplate;
+        context: {
+          $implicit: item,
+          rowIndex: rowIndex,
+          rowgroup: rowgroup,
+          rowspan: rowspan,
+          expanded: expanded,
+          editing: editing,
+          columns: columns
+        }
+      "
+    ></ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="frozenbody" let-item let-rowIndex="rowIndex" *ngIf="frozenBodyTemplate">
+    <ng-container
+      *ngTemplateOutlet="
+        frozenBodyTemplate;
+        context: {
+          $implicit: item,
+          rowIndex: rowIndex
+        }
+      "
+    ></ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="loadingbody" let-columns="columns" *ngIf="loadingBodyTemplate">
+    <ng-container
+      *ngTemplateOutlet="
+        loadingBodyTemplate;
+        context: {
+          columns: columns
+        }
+      "
+    ></ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="rowexpansion" let-item *ngIf="expandedRowTemplate">
+    <ng-container *ngTemplateOutlet="expandedRowTemplate; context: { $implicit: item }"></ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="footer" *ngIf="footerTemplate">
+    <ng-container *ngTemplateOutlet="footerTemplate"></ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="summary" *ngIf="summaryTemplate">
+    <ng-container *ngTemplateOutlet="summaryTemplate"></ng-container>
+  </ng-template>
+
+  <ng-template pTemplate="emptymessage" *ngIf="emptyMessageTemplate">
+    <ng-container *ngTemplateOutlet="emptyMessageTemplate"></ng-container>
+  </ng-template>
+</p-table>

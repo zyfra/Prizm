@@ -1,0 +1,48 @@
+<zui-dropdown-host
+    class="z-hosted"
+    [canOpen]="canOpen"
+    [content]="dropdown"
+    [closeByEsc]='true'
+    [isOpen]="open && canOpen"
+    (isOpenChange)="onOpenChange($event)"
+    zuiDropdownHostWidth='auto'
+>
+  <zui-input-layout
+    [label]="label"
+    [outer]='outer'
+    [size]="size">
+    <input
+      class='input-search'
+      zuiInput
+      #focusableElementRef
+      [mask]="computedMask"
+      [showMaskTyped]='focusableElementRef.focused'
+      [dropSpecialCharacters]="false"
+      [readOnly]="readOnly"
+      [disabled]="computedDisabled"
+      [ngModel]="stringValue"
+      (ngModelChange)='onValueChange($event || "")'
+    />
+
+    <ng-container zui-input-right>
+      <button
+        zuiInputIconButton="date-calendar-range"
+        [interactive]="true"
+        (click)='focusableElementRef.focus()'></button>
+    </ng-container>
+  </zui-input-layout>
+  <ng-template #dropdown>
+      <zui-calendar-range
+          [defaultViewedMonth]="defaultViewedMonth"
+          [disabledItemHandler]="disabledItemHandler"
+          [items]="items"
+          [min]="min"
+          [max]="max"
+          [markerHandler]="markerHandler"
+          [minLength]="minLength"
+          [maxLength]="maxLength"
+          [value]="value"
+          (valueChange)="onRangeChange($event)"
+      ></zui-calendar-range>
+  </ng-template>
+</zui-dropdown-host>

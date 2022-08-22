@@ -1,0 +1,86 @@
+@import '../../../../styles/ui-local';
+
+.title {
+  .ellipsis();
+  font-weight: var(--zui-confirm-dialog-title-font-weight, 800);
+  font-size: var(--zui-confirm-dialog-title-font-size, 14px);
+  line-height: var(--zui-confirm-dialog-title-line-height, 20px);
+  text-align: var(--zui-confirm-dialog-title-align, center);
+  color: var(--zui-confirm-dialog-title, var(--text-main));
+}
+
+.description {
+  .ellipsis();
+  font-weight: var(--zui-confirm-dialog-description-font-weight, 400);
+  font-size: var(--zui-confirm-dialog-description-font-size, 14px);
+  line-height: var(--zui-confirm-dialog-description-line-height, 20px);
+  text-align: var(--zui-confirm-dialog-description-align, center);
+  color: var(--zui-confirm-dialog-description, var(--text-subscript));
+}
+
+:host {
+  display: block;
+  background: var(--zui-confirm-dialog-background, var(--bg-body));
+  border: 1px solid var(--border-widget);
+  border-radius: var(--zui-confirm-dialog-border-radius, 2px);
+  margin: var(--zui-confirm-dialog-margin, 10px);
+  pointer-events: all;
+
+}
+
+*:focus-visible {
+  outline: none;
+}
+
+
+.horizontal {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+
+}
+
+.left, .right, .top, .bottom {
+  display: flex;
+  gap: 8px;
+}
+
+
+.vertical {
+  [zuiButton] {
+    width: 100%;
+    text-align: center;
+  }
+
+  .top, .bottom {
+    flex-flow: column;
+  }
+
+  .bottom {
+    margin-top: 16px;
+  }
+}
+
+
+.content {
+  display: flex;
+  flex-flow: column;
+  gap: 16px;
+  padding: 32px 16px;
+}
+
+.footer {
+  border-top: 1px solid var(--border-widget);
+  padding: var(--zui-confirm-dialog-padding, 14px 16px);
+  max-width: 100%;
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+}
+
+.scrollbar {
+  max-height: var(--zui-confirm-dialog-max-scrollbar-height, 60vh);
+}

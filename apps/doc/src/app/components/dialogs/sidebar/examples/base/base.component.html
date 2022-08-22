@@ -1,0 +1,26 @@
+<button type="button"
+        (click)="show()"
+        zuiButton>
+  Show SideBar
+</button>
+
+<div style='margin-top: 16px;'>
+  <tui-doc-documentation>
+    <ng-template
+      documentationPropertyName="position"
+      documentationPropertyType="ZuiOverlayInsidePlacement"
+      [documentationPropertyValues]="positionVariants"
+      [(documentationPropertyValue)]="position"
+    >
+      Position
+    </ng-template>
+
+    <ng-template
+      documentationPropertyName="backdrop"
+      documentationPropertyType="boolean"
+      [(documentationPropertyValue)]="backdrop"
+    >
+      Backdrop
+    </ng-template>
+  </tui-doc-documentation>
+</div>

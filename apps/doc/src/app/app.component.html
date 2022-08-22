@@ -1,0 +1,30 @@
+<tui-doc-main #docRef>
+  <ng-container ngProjectAs="tuiDocHeader">
+    <label class="zui-night-mode">
+      Night mode
+      <tui-toggle
+        class="tui-toggle"
+        [ngModel]="isNight$ | async"
+        (ngModelChange)="onMode($event)"
+      ></tui-toggle>
+    </label>
+    <a
+      tuiLink
+      tuiMode="onLight"
+      href="https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk"
+      target="_blank"
+      class="app-link"
+    >
+      <img
+        src="assets/images/git.svg"
+        alt=""
+        class="app-github"
+      />
+    </a>
+  </ng-container>
+
+  <zui-version-manager
+    ngProjectAs="tuiDocNavigation"
+    class="app-version"
+  ></zui-version-manager>
+</tui-doc-main>

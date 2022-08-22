@@ -1,0 +1,48 @@
+<tui-doc-page header="Input Chips" package="Equinox" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="chips" heading="Chips example" [content]="zuiInputChipsExample">
+      <zui-input-chips-basic-example></zui-input-chips-basic-example>
+    </tui-doc-example>
+  </ng-template>
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <zui-input-layout label="Заголовок" size="l" status="default">
+        <input zuiInput placeholder="Введите название" (enter)="onEnter($event)" [disabled]="disabled" />
+        <zui-chips [chips]="chips" [deletable]="deletable" [disabled]="disabled" zui-input-bottom></zui-chips>
+      </zui-input-layout>
+    </tui-doc-demo>
+
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="deletable"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="deletable"
+      >
+        Deletable
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>ZuiInputChipsModule</code> и <code>ZuiInputTextModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>
+

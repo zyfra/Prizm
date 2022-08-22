@@ -6,7 +6,7 @@ export interface PageChangeEvent {
   first: number;
   rows: number;
   page: number;
-  pageCount: number;
+  tabCount: number;
 }
 
 @Component({
@@ -91,9 +91,9 @@ export class ZyfraPaginatorComponent {
    */
   @Input() showPageLinks = true;
 
-  @Output() pageChange = new EventEmitter<PageChangeEvent>();
+  @Output() tabChange = new EventEmitter<PageChangeEvent>();
 
   public onPageChange(event: PageChangeEvent): void {
-    this.pageChange.emit(event);
+    this.tabChange.emit(event);
   }
 }
