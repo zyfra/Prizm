@@ -13,23 +13,19 @@ export interface TToggleButtonClick {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraToggleButtonComponent extends WrappedFormComponent implements ControlValueAccessor {
-  @Input() model = true;
   @Input() onLabel: string = 'confirm';
   @Input() offLabel: string;
   @Input() onIcon = 'zyfra-icon selection-check-simple';
   @Input() offIcon = 'zyfra-icon cancel-close';
   @Input() iconPos: 'left' | 'right' = 'left';
-  @Input() disabled: boolean;
+  @Input() disabled: boolean; // TODO remove this, use FormControl disable state
   @Input() style: any;
   @Input() styleClass: string;
   @Input() tabindex: number;
   @Input() inputId: string;
   @Input() ariaLabelledBy: string;
 
-  @Output() onChange: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  public handleChange(event: TToggleButtonClick): void {
-    this.model = event.checked;
-    this.onChange.emit(this.model);
+  public override setDisabledState(): void {
+    // do nothing
   }
 }

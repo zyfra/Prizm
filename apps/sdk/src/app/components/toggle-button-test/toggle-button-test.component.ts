@@ -8,4 +8,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 export class ToggleButtonTestComponent {
   public onLabel = 'I confirm';
   public offLabel = 'I reject';
+
+  public model = true;
 }

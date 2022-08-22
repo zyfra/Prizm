@@ -18,15 +18,19 @@ module.exports = {
       // подключаю style map. другие способы не работают (через angular.json)
       const angularJson = require('../../../angular.json');
       const rootPath = process.cwd();
-      const angularJsonStyles = angularJson.projects.sdk.architect.build.options.styles.map((style) =>
-        path.resolve(rootPath, style)
-      );
+      const angularJsonStyles = angularJson.projects.sdk.architect.build.options.styles
+        .filter(n => typeof n === 'string')
+        .map(style => path.resolve(rootPath, style));
+
+      // Adding default theme
+      angularJsonStyles.push(path.resolve(rootPath,'libs/components/src/styles/theme/default.less'));
+
       const includePath = [...angularJsonStyles, path.resolve(rootPath, 'libs/components')];
-      const ruleChanger = (rule) => {
+      const ruleChanger = rule => {
         delete rule.rules;
         rule.include = includePath;
       };
-      config.module.rules.forEach((rule) => {
+      config.module.rules.forEach(rule => {
         const pattern = rule.test.toString();
         if (pattern === '/\\.(?:less)$/i') {
           ruleChanger(rule);
@@ -36,8 +40,8 @@ module.exports = {
           // ruleChanger(rule)
           // rule.use = ['style-loader', 'css-loader'];
           // это способ вставляет праймовые стили в код выше и у них меньший приоритет, если вес совпадает
-          rule.rules[0].oneOf.forEach((subRule) => {
-            subRule.use.forEach((u) => {
+          rule.rules[0].oneOf.forEach(subRule => {
+            subRule.use.forEach(u => {
               if (typeof u === 'object' && u.options?.sourceMap === false) {
                 u.options.sourceMap = true;
               }
