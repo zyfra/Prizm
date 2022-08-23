@@ -18,8 +18,19 @@ import { ZuiContextWithImplicit, ZuiFocusableElementAccessor, ZuiNativeFocusable
 import { ZuiInputSize } from '../../input';
 import { AbstractZuiControl } from '../../../abstract/control';
 import { zuiIsNativeFocused } from '../../../util';
-import { debounceTime, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
+import {
+  debounceTime,
+  delay,
+  filter,
+  map,
+  mapTo,
+  shareReplay,
+  startWith,
+  switchMap,
+  takeUntil,
+  tap,
+} from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, concat, Observable, of, Subject, timer, zip } from 'rxjs';
 import { ZUI_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens';
 import { zuiDefaultProp } from '../../../decorators';
 import { ZuiDropdownHostComponent } from '../dropdown-host';
@@ -114,6 +125,8 @@ implements ZuiFocusableElementAccessor
   @zuiDefaultProp()
   outer: boolean = this.options.outer;
 
+  readonly stop$ = new BehaviorSubject(false);
+
   public open = false;
   public readonly items$ = new BehaviorSubject([]);
   public readonly requiredInputControl = new FormControl();
@@ -159,8 +172,9 @@ implements ZuiFocusableElementAccessor
   );
 
   readonly selectedItems$: Observable<T[]> =
-    this.valChange.pipe(startWith(this.value)).pipe(
-    switchMap((selectedItems: T[]) => {
+    this.valChange.pipe(delay(0),startWith(this.value)).pipe(
+    switchMap(() => {
+      const selectedItems = this.value;
       return this.items$.pipe(
         map((items) => {
             return items?.filter(
@@ -183,6 +197,10 @@ implements ZuiFocusableElementAccessor
           obj: i
         })
       ) ?? [];
+      console.log('#mz selectedItemsChips$', {
+        selectedItems,
+        result
+      })
 
       return result;
     }),
@@ -256,6 +274,12 @@ implements ZuiFocusableElementAccessor
 
   public safeOpenModal(): void {
     const inputElement = this.focusableElement.nativeElement;
+    if (this.stop$.value) return
+    console.log('#mz safeOpenModal', {
+      inputElement,
+      open: this.open,
+      stop: this.stop$.value
+    })
     if (
       !this.open &&
       this.interactive &&
@@ -269,6 +293,14 @@ implements ZuiFocusableElementAccessor
 
   // TODO remove after finish activezone to dropdown component
   public safeStopPropagation(value: string, $event: Event): void {
-    if (!value) $event.stopPropagation();
+    if (!value) $event.stopImmediatePropagation();
+    this.stop$.next(true);
+    timer(0).pipe(
+      tap(() => {
+        this.focusableElement.nativeElement.blur();
+        this.stop$.next(false)
+      }),
+      takeUntil(this.destroy$)
+    ).subscribe();
   }
 }
