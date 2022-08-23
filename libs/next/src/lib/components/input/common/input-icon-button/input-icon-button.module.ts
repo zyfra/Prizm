@@ -11,6 +11,4 @@ import { ZuiInputIconButtonComponent } from './input-icon-button.component';
     ZuiInputIconButtonComponent,
   ],
 })
-export class ZuiInputIconButtonModule {
-
-}
+export class ZuiInputIconButtonModule {}
