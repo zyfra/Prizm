@@ -13,7 +13,7 @@ import {
 import { ZuiOverlayGlobalPosition } from './position';
 import { ZuiOverlayAbstractPosition } from './position/position';
 import { EventBus, getContent } from './utils';
-import { generateId } from '../../util';
+import { zuiGenerateId } from '../../util';
 import { ZuiOverlayControl } from './overlay-control';
 import { ZuiOverlayContentToken } from './token';
 
@@ -53,7 +53,7 @@ export class ZuiOverlayService {
     key?: string,
     parentInjector?: Injector
   } = {}): ZuiOverlayControl {
-    this.zid = this.inputs.zid = key ?? generateId();
+    this.zid = this.inputs.zid = key ?? zuiGenerateId();
 
     const injector = Injector.create({
         providers: [
@@ -71,7 +71,7 @@ export class ZuiOverlayService {
 
     const tc = injector.get(ZuiOverlayControl);
     if (ZuiOverlayService.controls[this.zid]) {
-      this.zid = generateId();
+      this.zid = zuiGenerateId();
     }
     this.inputs.position.init(this.zid);
     ZuiOverlayService.controls[this.zid] = Object.assign(tc, this.inputs);
