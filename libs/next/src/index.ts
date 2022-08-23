@@ -1,3 +1,4 @@
+export * from './lib/components/grid';
 export * from './lib/components/switcher';
 export * from './lib/components/accordion';
 export * from './lib/components/table';

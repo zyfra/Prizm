@@ -195,7 +195,8 @@ export const ROUTES = [
   {
     path: 'components/input-date-relative',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./components/input/input-date-relative/input-date-relative.module')).InputDateRelativeRelativeModule,
+      (await import('./components/input/input-date-relative/input-date-relative.module'))
+        .InputDateRelativeRelativeModule,
     data: {
       title: 'Input Date Relative',
     },
@@ -355,8 +356,7 @@ export const ROUTES = [
   {
     path: 'tools/overlay',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./tools/overlay/overlay.module'))
-        .OverlayModule,
+      (await import('./tools/overlay/overlay.module')).OverlayModule,
     data: {
       title: 'Overlay',
     },
@@ -375,7 +375,7 @@ export const ROUTES = [
       (await import('./components/nav-menu/nav-menu-example.module')).NavMenuExampleModule,
     data: {
       title: 'Navigation menu',
-    }
+    },
   },
   {
     path: 'components/switcher',
@@ -399,6 +399,14 @@ export const ROUTES = [
       (await import('./components/calendars/calendar-range/calendar-range.module')).CalendarRangeModule,
     data: {
       title: 'Calendar Range',
+    },
+  },
+  {
+    path: 'components/grids',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/grid/grid-example.module')).GridExampleModule,
+    data: {
+      title: 'Grids',
     },
   },
   { path: '**', redirectTo: 'getting-started' },
