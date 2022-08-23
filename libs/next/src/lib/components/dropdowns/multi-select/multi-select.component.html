@@ -9,6 +9,7 @@
   <zui-input-layout
     [label]="label"
     [forceShowClearButton]="$.selectedItems.length > 0"
+    (clear)='safeStopPropagation(focusableElementRef.value, $event)'
     (click)='safeOpenModal()'
     [outer]='outer'
     [size]="size">
@@ -18,7 +19,7 @@
       (onClear)='onClear()'
       [placeholder]="placeholder"
       [disabled]='this.disabled'
-      [readonly]='this.disabled'
+      [readonly]='true'
       [formControl]="requiredInputControl"
     />
     <zui-chips

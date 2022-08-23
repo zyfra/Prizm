@@ -4,12 +4,12 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChild,
-  ElementRef,
+  ElementRef, EventEmitter,
   Injector,
   Input,
   OnChanges,
   OnDestroy,
-  OnInit,
+  OnInit, Output,
   SimpleChanges,
 } from '@angular/core';
 
@@ -41,6 +41,7 @@ export class ZuiInputLayoutComponent implements OnInit, OnDestroy, OnChanges, Af
   @Input() outer = false;
   @Input() position: ZuiInputPosition = 'left';
   @Input() forceShowClearButton: boolean | null = null;
+  @Output() clear = new EventEmitter<MouseEvent>();
 
   get showClearButton(): boolean {
     return typeof this.forceShowClearButton === 'boolean'
@@ -92,6 +93,7 @@ export class ZuiInputLayoutComponent implements OnInit, OnDestroy, OnChanges, Af
   }
 
   public onClearClick(event: MouseEvent): void {
+    this.clear.next(event);
     this.control.clear();
     this.actualaizeStatus();
   }
