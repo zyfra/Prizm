@@ -25,6 +25,7 @@
     <zui-chips
       #chipsComponent
       [chips]="selectedItemsChips$ | async"
+      (removeChipEvent)='removeChip($event)'
       zui-input-bottom
     ></zui-chips>
     <zui-icon *ngIf='!disabled'
