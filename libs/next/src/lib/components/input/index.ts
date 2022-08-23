@@ -28,4 +28,4 @@ export * from './input-date-relative';
 export * from './input-date-time';
 export * from './input-date-multi';
 export * from './input-time';
-export *  from './common/input-common.module';
+export *  from './common/input-icon-button';
