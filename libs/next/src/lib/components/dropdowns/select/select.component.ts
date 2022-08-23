@@ -79,6 +79,10 @@ implements ZuiFocusableElementAccessor
 
   @Input()
   @zuiDefaultProp()
+  dropdownWidth = this.options.dropdownWidth;
+
+  @Input()
+  @zuiDefaultProp()
   size: ZuiInputSize =  this.options.size;
 
   @Input()

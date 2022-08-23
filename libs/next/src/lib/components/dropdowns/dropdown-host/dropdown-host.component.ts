@@ -4,7 +4,8 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  EventEmitter, HostListener,
+  EventEmitter,
+  HostListener,
   Inject,
   Input,
   Output,
@@ -20,11 +21,12 @@ import {
 import { PolymorphContent } from '../../../directives';
 import { debounceTime, delay, filter, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-import { animationFrameScheduler, BehaviorSubject, fromEvent, Observable, Subject, timer } from 'rxjs';
+import { BehaviorSubject, fromEvent, Observable, Subject, timer } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 import { zuiDefaultProp } from '../../../decorators';
 import { ZUI_DROPDOWN_HOST_OPTIONS, ZuiDropdownHostOptions } from './dropdown-host.options';
 import { ZuiDropdownHostWidth } from './models';
+import { zuiGenerateId } from '../../../util';
 
 @Component({
   selector: 'zui-dropdown-host',
@@ -41,7 +43,7 @@ export class ZuiDropdownHostComponent implements AfterViewInit {
 
   @Input()
   @zuiDefaultProp()
-  zuiDropdownHostId: string = 'dropdownHostId_' + Math.random();
+  zuiDropdownHostId: string = 'dropdownHostId_' + zuiGenerateId();
 
   @Input()
   @zuiDefaultProp()

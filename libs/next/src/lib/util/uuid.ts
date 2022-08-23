@@ -1,5 +1,5 @@
 import { v4 } from 'uuid';
 
-export function generateId(): string {
+export function zuiGenerateId(): string {
   return v4()
 }

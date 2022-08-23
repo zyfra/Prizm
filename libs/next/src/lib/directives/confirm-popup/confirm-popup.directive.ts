@@ -11,7 +11,7 @@ import {
 } from './confirm-popup-options';
 import { zuiDefaultProp, zuiRequiredSetter } from '../../decorators';
 import { PolymorphContent } from '../polymorph';
-import { generateId, ZuiSizeL, ZuiSizeM } from '../../util';
+import { zuiGenerateId, ZuiSizeL, ZuiSizeM } from '../../util';
 import { ZuiConfirmDialogButton, ZuiConfirmDialogResultDefaultType } from '../../components/dialogs/confirm-dialog';
 import { ZuiAppearance, ZuiAppearanceType } from '../../types';
 import { ZuiBaseDialogContext } from '../../components/dialogs/dialog';
@@ -42,7 +42,7 @@ export class ZuiConfirmPopupDirective<T extends Record<string, unknown>> extends
 
   @Input('zuiConfirmPopupId')
   @zuiDefaultProp()
-  override zuiHintId: string = 'hintId_' + generateId();
+  override zuiHintId: string = 'hintId_' + zuiGenerateId();
 
   @Input('zuiConfirmPopupShowDelay')
   @zuiDefaultProp()

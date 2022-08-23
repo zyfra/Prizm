@@ -86,6 +86,10 @@ implements ZuiFocusableElementAccessor
 
   @Input()
   @zuiDefaultProp()
+  dropdownWidth = this.options.dropdownWidth;
+
+  @Input()
+  @zuiDefaultProp()
   maxDropdownHeight = this.options.maxDropdownHeight;
 
   @Input()
