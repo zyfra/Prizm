@@ -5,7 +5,7 @@ import { WrappedFormComponent } from '../@core/value-accessor/wrapped-form.compo
 @Component({
   selector: 'zyfra-textarea',
   templateUrl: './zyfra-textarea.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZyfraTextareaComponent extends WrappedFormComponent implements ControlValueAccessor {
   @Input() rows: number;
@@ -20,6 +20,7 @@ export class ZyfraTextareaComponent extends WrappedFormComponent implements Cont
   @Input() minlength: number;
   @Input() label = '';
   @Input() required = false;
+  @Input() readonly = false;
 
   @Output() onResize = new EventEmitter<unknown>();
 

@@ -23,6 +23,7 @@
       (ngModelChange)="accessorOnChangeFn($event)"
       (blur)="onBlur.emit($event)"
       (input)="handleInputEvent($event)"
+      [readonly]="readonly"
       [placeholder]="placeholder"
       [ngClass]="
         ngControl
