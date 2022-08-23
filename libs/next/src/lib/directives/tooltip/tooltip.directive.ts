@@ -6,7 +6,7 @@ import { ZUI_HINT_OPTIONS, ZuiHintDirective, ZuiHintOptions } from '../hint';
 import { ZUI_TOOLTIP_OPTIONS } from './tooltip-options';
 import { zuiDefaultProp, zuiRequiredSetter } from '../../decorators';
 import { PolymorphContent } from '../polymorph';
-import { generateId } from '../../util';
+import { zuiGenerateId } from '../../util';
 
 @Directive({
     selector: '[zuiTooltip]:not(ng-container)',
@@ -34,7 +34,7 @@ export class ZuiTooltipDirective extends ZuiHintDirective {
 
   @Input('zuiTooltipId')
   @zuiDefaultProp()
-  override zuiHintId: string = 'hintId_' + generateId();
+  override zuiHintId: string = 'hintId_' + zuiGenerateId();
 
   @Input('zuiTooltipShowDelay')
   @zuiDefaultProp()

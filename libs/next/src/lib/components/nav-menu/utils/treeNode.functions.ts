@@ -1,6 +1,6 @@
 import { TreeNode } from 'primeng/api';
 import { ZuiMenuItem } from '../model/zui-menu-item.interface';
-import { generateId } from '../../../util';
+import { zuiGenerateId } from '../../../util';
 
 export const flatNodes = (nodes: TreeNode[]): TreeNode[] => {
   return [].concat(...nodes.map(node => (node.children ? flatNodes(node.children) : [node])));
@@ -11,7 +11,7 @@ export const convertToNode = (item: ZuiMenuItem, parent?: TreeNode): TreeNode =>
   const node: TreeNode = {
     label: item.label,
     data: item,
-    key: generateId(),
+    key: zuiGenerateId(),
     parent,
   };
   if (item.items) {
