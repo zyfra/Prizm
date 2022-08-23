@@ -5,12 +5,14 @@ import { ZuiOverlayModule } from '../../../modules/overlay';
 import { ZuiButtonModule } from '../../button';
 import { ZuiSidebarComponent } from './sidebar.component';
 import { ZuiScrollbarModule } from '../../scrollbar';
+import { ZuiInputIconButtonModule } from '../../input/common/input-icon-button/input-icon-button.module';
 
 @NgModule({
   imports: [
     CommonModule,
     PolymorphModule,
     ZuiOverlayModule,
+    ZuiInputIconButtonModule,
     ZuiButtonModule,
     ZuiFocusTrapModule,
     ZuiScrollbarModule

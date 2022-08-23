@@ -4,8 +4,8 @@ import { ZuiDialogComponent } from './dialog.component';
 import { PolymorphModule, ZuiFocusTrapModule } from '../../../directives';
 import { ZuiOverlayModule } from '../../../modules/overlay';
 import { ZuiButtonModule } from '../../button';
-import { ZuiIconModule } from '../../icon';
 import { ZuiScrollbarModule } from '../../scrollbar';
+import { ZuiInputIconButtonModule } from '../../input/common/input-icon-button/input-icon-button.module';
 
 @NgModule({
   imports: [
@@ -14,7 +14,7 @@ import { ZuiScrollbarModule } from '../../scrollbar';
     ZuiOverlayModule,
     ZuiButtonModule,
     ZuiFocusTrapModule,
-    ZuiIconModule,
+    ZuiInputIconButtonModule,
     ZuiScrollbarModule
   ],
   declarations: [
