@@ -86,7 +86,7 @@ export const pages: TuiDocPages = [
         keywords: 'calendar-range, календарь, диапозон',
         route: '/components/calendar-range',
       },
-    ]
+    ],
   },
   {
     section: `Components`,
@@ -299,6 +299,12 @@ export const pages: TuiDocPages = [
     title: 'Switcher',
     keywords: 'switcher, select-button, переключатель',
     route: '/components/switcher',
+  },
+  {
+    section: `Components`,
+    title: 'Grids',
+    keywords: 'grids, сетка, сетки',
+    route: '/components/grids',
   },
   // Tools
   {
