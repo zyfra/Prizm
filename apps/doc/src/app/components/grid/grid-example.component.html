@@ -1,0 +1,20 @@
+<tui-doc-page header="Grids" package="Equinox" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="base" heading="Base" [content]="gridBasicExample">
+      <zui-grid-example-basic></zui-grid-example-basic>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab="Setup">
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>ZuiGridModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>
