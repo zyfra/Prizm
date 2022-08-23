@@ -9,6 +9,7 @@
   <zui-input-layout
     [label]="label"
     (click)='safeOpenModal()'
+    (clear)='safeStopPropagation(focusableElementRef.value, $event);'
     [outer]='outer'
     [size]="size">
     <input

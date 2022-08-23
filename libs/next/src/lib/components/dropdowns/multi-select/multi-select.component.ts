@@ -125,7 +125,7 @@ implements ZuiFocusableElementAccessor
   @zuiDefaultProp()
   outer: boolean = this.options.outer;
 
-  readonly stop$ = new BehaviorSubject(false);
+  private readonly stop$ = new BehaviorSubject(false);
 
   public open = false;
   public readonly items$ = new BehaviorSubject([]);
@@ -189,18 +189,21 @@ implements ZuiFocusableElementAccessor
     shareReplay(1)
   );
 
+  readonly chipsSet = new Map<string, T>();
   readonly selectedItemsChips$: Observable<string[]> = this.selectedItems$.pipe(
     map((selectedItems: T[]) => {
+      this.chipsSet.clear();
       const result = selectedItems?.map(
-        i => this.stringify({
-          checked: true,
-          obj: i
-        })
+        i => {
+          const str = this.stringify({
+            checked: true,
+            obj: i
+          });
+
+          this.chipsSet.set(str, i);
+          return str;
+        }
       ) ?? [];
-      console.log('#mz selectedItemsChips$', {
-        selectedItems,
-        result
-      })
 
       return result;
     }),
@@ -275,11 +278,6 @@ implements ZuiFocusableElementAccessor
   public safeOpenModal(): void {
     const inputElement = this.focusableElement.nativeElement;
     if (this.stop$.value) return
-    console.log('#mz safeOpenModal', {
-      inputElement,
-      open: this.open,
-      stop: this.stop$.value
-    })
     if (
       !this.open &&
       this.interactive &&
@@ -302,5 +300,13 @@ implements ZuiFocusableElementAccessor
       }),
       takeUntil(this.destroy$)
     ).subscribe();
+  }
+
+  public removeChip(str: string): void {
+    const item = this.chipsSet.get(str);
+    this.select({
+      checked: true,
+      obj: item,
+    } as ZuiMultiSelectItemWithChecked<T>)
   }
 }

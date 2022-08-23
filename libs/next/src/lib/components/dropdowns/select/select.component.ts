@@ -19,7 +19,7 @@ import { ZuiInputSize } from '../../input';
 import { AbstractZuiControl } from '../../../abstract/control';
 import { zuiIsNativeFocused } from '../../../util';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, timer } from 'rxjs';
 import { ZuiSelectIdentityMatcher, ZuiSelectSearchMatcher } from './select.model';
 import { ZUI_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens';
 import { zuiDefaultProp } from '../../../decorators';
@@ -92,6 +92,8 @@ implements ZuiFocusableElementAccessor
   @Input()
   @zuiDefaultProp()
   nullContent: string = this.options.nullContent;
+
+  private readonly stop$ = new BehaviorSubject(false);
 
   /**
    * need only clear function
@@ -204,7 +206,7 @@ implements ZuiFocusableElementAccessor
   }
 
   public onClear(): void {
-    this.control?.setValue(null);
+    this.select(null);
   }
 
   protected getFallbackValue(): T {
@@ -219,6 +221,7 @@ implements ZuiFocusableElementAccessor
 
   public safeOpenModal(): void {
     const inputElement = this.focusableElement.nativeElement;
+    if (this.stop$.value) return
     if (
       !this.open &&
       this.interactive &&
@@ -228,5 +231,18 @@ implements ZuiFocusableElementAccessor
       this.open = true;
       this.changeDetectorRef.markForCheck();
     }
+  }
+
+  // TODO remove after finish activezone to dropdown component
+  public safeStopPropagation(value: string, $event: Event): void {
+    if (!value) $event.stopImmediatePropagation();
+    this.stop$.next(true);
+    timer(0).pipe(
+      tap(() => {
+        this.focusableElement.nativeElement.blur();
+        this.stop$.next(false)
+      }),
+      takeUntil(this.destroy$)
+    ).subscribe();
   }
 }
