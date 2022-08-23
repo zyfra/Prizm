@@ -6,15 +6,13 @@
         {{data}}
       </div>
     </zui-scrollbar>
-    <button *ngIf="context.closeable"
-            class='close-btn'
-            size='s'
-            appearance='secondary'
-            appearanceType='ghost'
-            zuiIconButton
-            icon='cancel-close'
-            (click)='close()'>
-    </button>
+    <button
+      *ngIf="context.closeable"
+      [size]='16'
+      zuiInputIconButton="cancel-close"
+      (click)='close()'
+      [interactive]="true"
+    ></button>
   </div>
 
   <div class="content zui-font-main-body-14">
