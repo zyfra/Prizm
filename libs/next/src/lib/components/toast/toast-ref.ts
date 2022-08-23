@@ -4,12 +4,12 @@ import {ZuiToastDefaultOptions} from "./toast-options";
 import {takeUntil, tap} from "rxjs/operators";
 import { PolymorphContent } from "../../directives/polymorph";
 import { ZuiToastService } from "./toast.service";
-import {generateId} from "../../util";
+import {zuiGenerateId} from "../../util";
 
 export class ZuiToastRef {
   private show$ = new ReplaySubject<boolean>(1);
   private destroy$ = new Subject<void>();
-  private hash_ = generateId();
+  private hash_ = zuiGenerateId();
   get hash(): string {
     return this.hash_;
   };
@@ -70,7 +70,7 @@ export class ZuiToastRef {
   }
 
   private detect(): void {
-    this.hash_ = generateId();
+    this.hash_ = zuiGenerateId();
     this.toastService.detect();
   }
 }

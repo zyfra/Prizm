@@ -18,6 +18,7 @@ export interface ZuiSelectOptions<T> {
     readonly minDropdownHeight: number;
     readonly outer: boolean;
     readonly maxDropdownHeight: number;
+    readonly dropdownWidth: string;
     readonly valueContent: PolymorphContent<ZuiContextWithImplicit<T> & {nullContent: string}>;
 
 }
@@ -27,6 +28,7 @@ export const ZUI_SELECT_DEFAULT_OPTIONS: ZuiSelectOptions<unknown> = {
   items: [],
   searchable: false,
   outer: false,
+  dropdownWidth: '100%',
   minDropdownHeight: 0,
   maxDropdownHeight: 342,
   emptyContent: "Ничего не найдено",

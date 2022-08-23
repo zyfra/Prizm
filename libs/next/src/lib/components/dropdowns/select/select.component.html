@@ -2,6 +2,7 @@
   #dropdownHostRef
   [content]="dropdown"
   [(isOpen)]="open"
+  [zuiDropdownHostWidth]='dropdownWidth'
   [zuiDropdownMinHeight]='minDropdownHeight'
   [zuiDropdownMaxHeight]='maxDropdownHeight'
   *zuiLet='filteredItems$ | async as items'

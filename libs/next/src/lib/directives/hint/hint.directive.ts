@@ -20,7 +20,7 @@ import { ZuiHoveredService } from '../../services';
 import { delay, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { ZuiHintContainerComponent } from './hint-container.component';
 import { ZuiHintService } from './hint.service';
-import { generateId } from '../../util';
+import { zuiGenerateId } from '../../util';
 
 export const HINT_HOVERED_CLASS = '_hint_hovered';
 
@@ -49,7 +49,7 @@ export class ZuiHintDirective<
 
     @Input()
     @zuiDefaultProp()
-    zuiHintId: string = 'hintId_' + generateId();
+    zuiHintId: string = 'hintId_' + zuiGenerateId();
 
     @Input()
     @zuiDefaultProp()

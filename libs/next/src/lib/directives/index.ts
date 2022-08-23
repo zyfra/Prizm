@@ -1,5 +1,4 @@
 export * from './polymorph';
-export * from './wrapper';
 export * from './focused';
 export * from './focusable';
 export * from './pressed';
@@ -18,3 +17,9 @@ export * from './dropdown-controller';
 export * from './mutation-observer';
 export * from './scroll-into-view';
 export * from './repeat-times';
+export * from './hint';
+export * from './shadow';
+export * from './theme';
+export * from './tooltip';
+export * from './value-accessor';
+export * from './wrapper';

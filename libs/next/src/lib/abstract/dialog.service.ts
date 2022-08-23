@@ -11,7 +11,7 @@ import {
 } from '../modules/overlay';
 import { takeUntil } from 'rxjs/operators';
 import { ZuiOverscrollMode } from '../directives/overscroll/overscroll.model';
-import { generateId } from '../util';
+import { zuiGenerateId } from '../util';
 import { ZuiOverlayConfig } from '../modules/overlay/models';
 
 
@@ -53,7 +53,7 @@ export abstract class AbstractZuiDialogService<T extends ZuiDialogBaseOptions, O
         completeWith,
         $implicit: observer,
         createdAt: Date.now(),
-        id: options.id ?? this.defaultOptions.id ?? generateId(),
+        id: options.id ?? this.defaultOptions.id ?? zuiGenerateId(),
       };
 
       const control = this.overlayService
