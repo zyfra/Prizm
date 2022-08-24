@@ -3,6 +3,7 @@ export interface ITab {
   icon?: string;
   count?: number;
   disabled?: boolean;
+  closable?: boolean;
 }
 
 export type TabType = 'line' | 'contained';
