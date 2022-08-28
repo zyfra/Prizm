@@ -16,6 +16,30 @@
     .zui-input-button-default {
       display: block;
     }
+
+    .label-container-textarea.label-container-outer {
+      .zui-input-label-clear-btn {
+        display: block;
+      }
+    }
+  }
+}
+
+.label-container {
+  display: flex;
+
+  .zui-input-label-clear-btn {
+    display: none;
+    position: relative;
+    bottom: 2px;
+    width: auto;
+    padding-left: 5px;
+  }
+
+  &-focused.label-container-textarea.label-container-outer {
+    .zui-input-label-clear-btn {
+      display: block;
+    }
   }
 }
 
@@ -29,6 +53,8 @@
   margin-bottom: 4px;
   transition: top 200ms ease 0s;
   pointer-events: none;
+
+
 
   &-required {
     color: var(--index-danger);
@@ -105,6 +131,8 @@
         }
       }
     }
+
+
   }
 }
 
@@ -269,6 +297,7 @@
 
     .zui-input-button-default {
       height: auto;
+
     }
 
     .@{form}__first {
@@ -288,9 +317,14 @@
     }
 
     &.@{form}-inner{
+      .zui-input-button-default {
+        position: absolute;
+        right: 0;
+      }
       &[data-size='m'] {
         .zui-input-button-default {
           padding-top: 1px;
+
         }
       }
 
@@ -302,6 +336,12 @@
     }
 
     &.@{form}-outer{
+
+      .zui-input-button-default {
+        display: none;
+      }
+
+
       &[data-size='l'] {
         .zui-input-button-default {
           padding-top: 11px;
