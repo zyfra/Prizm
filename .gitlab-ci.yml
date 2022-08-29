@@ -120,6 +120,7 @@ Deploy:
     - helm chart pull $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
     - helm chart export $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
     - |
+      # transform branch/commit name to image tag and ingress path
       if [ "$CI_COMMIT_REF_NAME" = $CI_DEFAULT_BRANCH ]; then
         DEPLOY_RELEASE="latest"
         DEPLOY_VERSION="latest"
@@ -132,14 +133,28 @@ Deploy:
         DEPLOY_RELEASE="mr-$CI_MERGE_REQUEST_IID"
         DEPLOY_VERSION="MR-$CI_MERGE_REQUEST_IID"
       fi
+      
       echo "DEPLOY_RELEASE - ${DEPLOY_RELEASE}"
       echo "DEPLOY_VERSION - ${DEPLOY_VERSION}"
-      helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
-      -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
-      --set image.tag=$DEPLOY_VERSION \
-      --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
-      --set ingress.path=/$CI_PROJECT_NAME/$DEPLOY_VERSION \
-      --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
+
+
+      # if latest - ingress path: / pathType: Prefix 
+      # else      - ingress path: /$CI_PROJECT_NAME/$DEPLOY_VERSION pathType: Exact 
+      if [ "$DEPLOY_VERSION" = "latest" ]
+        helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
+        -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
+        --set image.tag=$DEPLOY_VERSION \
+        --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
+        --set ingress.path=/ \
+        --set ingress.urlRewrite=false
+        --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
+      else
+        helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
+        -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
+        --set image.tag=$DEPLOY_VERSION \
+        --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
+        --set ingress.path=/$CI_PROJECT_NAME/$DEPLOY_VERSION \
+        --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
   needs:
     - Build js image
   extends: [".tags_k8s"]
