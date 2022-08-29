@@ -84,6 +84,7 @@ export class ZuiInputDateRelativeComponent implements AfterViewInit, OnInit, Con
   extraButtonInjector: Injector = this.injector;
 
   public isOpen = false;
+
   public value = new FormControl('', Validators.pattern(ValidationPattern));
   public timeItems: RelativeDateMenuItem<RelativeDateTimeId>[] = [...MenuItems.time];
   public directionItems: RelativeDateMenuItem<RelativeDateDirectionId>[] = [...MenuItems.direction];

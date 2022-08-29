@@ -10,6 +10,7 @@ import { FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalendarComponent {
+  public showAdjacent = true;
   public readonly control = new FormControl(new ZuiDay(2017, 0, 15));
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'

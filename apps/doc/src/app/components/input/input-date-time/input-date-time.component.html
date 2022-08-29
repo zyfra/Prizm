@@ -24,6 +24,14 @@
       <zui-input-date-time-with-seconds-example></zui-input-date-time-with-seconds-example>
     </tui-doc-example>
 
+    <tui-doc-example
+      id="base"
+      heading="Native Date"
+      [content]="exampleNative"
+    >
+      <zui-input-date-time-native-example></zui-input-date-time-native-example>
+    </tui-doc-example>
+
 
   </ng-template>
 
@@ -31,10 +39,91 @@
     <tui-doc-demo>
       <zui-input-date-time
         [formControl]='valueControl'
+        [label]='label'
+        [placeholder]='placeholder'
+        [outer]='outer'
+        [timeMode]='timeMode'
+        [size]='size'
       ></zui-input-date-time>
     </tui-doc-demo>
     <tui-doc-documentation>
-      -
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        [(documentationPropertyValue)]="label"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="placeholder"
+        documentationPropertyType="string"
+        [(documentationPropertyValue)]="placeholder"
+      >
+        Placeholder
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="outer"
+        documentationPropertyType="boolean"
+        [(documentationPropertyValue)]="outer"
+      >
+        Outer
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="ZuiInputSize"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="extraButtonInjector"
+        documentationPropertyType="Injector"
+      >
+        Injector for nested buttons
+        (use in multi datepicker and similar case)
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="min"
+        documentationPropertyType="ZuiDay | [ZuiDay, ZuiTime]"
+      >
+        Min Date
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="max"
+        documentationPropertyType="ZuiDay | [ZuiDay, ZuiTime]"
+      >
+        Max Date
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabledItemHandler"
+        documentationPropertyType="ZuiBooleanHandler<ZuiDay>"
+      >
+        Disabled Item Handler
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="defaultActiveYearMonth"
+        documentationPropertyType="ZuiMonth"
+      >
+        Default Active Year Month
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="timeMode"
+        documentationPropertyType="ZuiTimeMode"
+        [documentationPropertyValues]="timeModeVariants"
+        [(documentationPropertyValue)]="timeMode"
+      >
+        Time Mode
+      </ng-template>
     </tui-doc-documentation>
   </ng-template>
 

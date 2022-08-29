@@ -47,10 +47,93 @@
     <tui-doc-demo>
       <zui-input-time
         [formControl]='valueControl'
+        [label]='label'
+        [placeholder]='placeholder'
+        [outer]='outer'
+        [mode]='timeMode'
+        [strict]='strict'
+        [size]='size'
       ></zui-input-time>
     </tui-doc-demo>
     <tui-doc-documentation>
-      -
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        [(documentationPropertyValue)]="label"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="placeholder"
+        documentationPropertyType="string"
+        [(documentationPropertyValue)]="placeholder"
+      >
+        Placeholder
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="outer"
+        documentationPropertyType="boolean"
+        [(documentationPropertyValue)]="outer"
+      >
+        Outer
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="ZuiInputSize"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="strict"
+        documentationPropertyType="boolean"
+        [(documentationPropertyValue)]="strict"
+      >
+        Strict
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="mode"
+        documentationPropertyType="ZuiTimeMode"
+        [documentationPropertyValues]="timeModeVariants"
+        [(documentationPropertyValue)]="timeMode"
+      >
+        Mode
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="items"
+        documentationPropertyType="ZuiTime[]"
+      >
+        Items
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabledItemHandler"
+        documentationPropertyType="ZuiBooleanHandler<ZuiTime>"
+      >
+        Disabled Item Handler
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="itemSize"
+        documentationPropertyType="ZuiSizeS | ZuiSizeL | ZuiSizeM"
+      >
+        Items Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="extraButtonInjector"
+        documentationPropertyType="Injector"
+      >
+        Injector for nested buttons
+        (use in multi datepicker and similar case)
+      </ng-template>
     </tui-doc-documentation>
   </ng-template>
 

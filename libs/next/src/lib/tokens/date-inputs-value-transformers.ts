@@ -13,3 +13,7 @@ export const ZUI_DATE_RANGE_VALUE_TRANSFORMER = new InjectionToken<
 export const ZUI_DATE_TIME_VALUE_TRANSFORMER = new InjectionToken<
     ZuiControlValueTransformer<[ZuiDay | null, ZuiTime | null]>
 >(`Control value transformer for InputDateTime component`);
+
+export const ZUI_TIME_VALUE_TRANSFORMER = new InjectionToken<
+    ZuiControlValueTransformer<[ZuiDay | null, ZuiTime | null]>
+>(`Control value transformer for InputTime component`);

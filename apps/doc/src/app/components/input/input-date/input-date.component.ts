@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { ZuiDay } from '@digital-plant/zui-components';
+import { ZuiDay, ZuiInputSize } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -11,6 +11,18 @@ import { FormControl } from '@angular/forms';
 })
 export class InputDateComponent {
   public readonly control = new FormControl(new ZuiDay(2017, 0, 15));
+
+  public label = 'Абсолютное';
+  public placeholder = 'Выберите дату';
+  public sizeVariants: ReadonlyArray<ZuiInputSize> = [
+    'l',
+    'm',
+    's'
+  ]
+  public size: ZuiInputSize = 'm';
+  public outer = false;
+
+
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
   );
@@ -18,5 +30,10 @@ export class InputDateComponent {
   readonly exampleBase: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/input-date-base-example.component.ts'),
     HTML: import('!!raw-loader!./examples/base/input-date-base-example.component.html'),
+  };
+
+  readonly exampleNative: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/native-date/input-native-date-base-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/native-date/input-native-date-base-example.component.html'),
   };
 }

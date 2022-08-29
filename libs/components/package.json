@@ -6,7 +6,7 @@
     "primeng": "^12.2.1",
     "@angular/cdk": "^12.2.0",
     "date-fns": "^2.26.0",
-    "@digital-plant/zyfra-helpers": "^1.0.0-alpha.7"
+    "@digital-plant/zyfra-helpers": "^1.0.0-alpha.8"
   },
   "peerDependencies": {
     "@angular/common": "^12.2.0",

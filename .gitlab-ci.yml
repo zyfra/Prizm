@@ -89,9 +89,9 @@ Release package:
     - npm config set "//$CI_SERVER_HOST/api/v4/projects/$CI_PROJECT_ID/packages/npm/:_authToken" "$CI_JOB_TOKEN"
     - cd dist/libs
     - npm publish next
+    - npm publish helpers
     - npm publish components
     - npm publish schematics
-    - npm publish helpers
     - npm publish translate
   when: manual
   only: ["main", "next"]

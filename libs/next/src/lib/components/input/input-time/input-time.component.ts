@@ -97,10 +97,6 @@ export class ZuiInputTimeComponent
 
     @Input()
     @zuiDefaultProp()
-    postfix: ZuiInputTimeOptions['postfix'] = this.options.postfix;
-
-    @Input()
-    @zuiDefaultProp()
     extraButtonInjector: Injector = this.injector;
 
     public open = false;
@@ -155,10 +151,6 @@ export class ZuiInputTimeComponent
         }
 
         return null;
-    }
-
-    get icon(): ZuiInputTimeOptions['icon'] {
-        return this.options.icon;
     }
 
     get nativeValue(): string {

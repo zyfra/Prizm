@@ -11,7 +11,7 @@ export const ZUI_VERSIONS_META: readonly ZuiVersionMeta[] = [
   //     baseHref: 'next',
   // },
   {
-    label: 'NEXT (v1.0.0)',
+    label: 'NEXT (1.0.0-alpha.8)',
     baseHref: '',
   },
   {

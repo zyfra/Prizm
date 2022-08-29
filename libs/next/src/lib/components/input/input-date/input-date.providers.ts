@@ -1,4 +1,4 @@
-import { forwardRef, Optional, Self } from '@angular/core';
+import { forwardRef, Optional, Provider, Self } from '@angular/core';
 import { NgControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ZUI_CALENDAR_DATA_STREAM } from '../../../tokens/calendar-data-stream';
@@ -36,3 +36,5 @@ export const ZUI_INPUT_DATE_PROVIDERS = [
     },
     ZUI_LEFT_ALIGNED_DROPDOWN_CONTROLLER_PROVIDER,
 ];
+
+
