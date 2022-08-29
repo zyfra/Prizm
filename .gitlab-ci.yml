@@ -140,7 +140,7 @@ Deploy:
 
       # if latest - ingress path: / pathType: Prefix 
       # else      - ingress path: /$CI_PROJECT_NAME/$DEPLOY_VERSION pathType: Exact 
-      if [ "$DEPLOY_VERSION" = "MR-303" ]
+      if [ "$DEPLOY_VERSION" = "MR-303" ]; then
         helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
         -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
         --set image.tag=$DEPLOY_VERSION \
