@@ -12,10 +12,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { NgControl } from '@angular/forms';
-import { TextMaskConfig } from 'angular2-text-mask';
 import { Observable } from 'rxjs';
-import { map, takeUntil } from 'rxjs/operators';
-
+import { map } from 'rxjs/operators';
 import { ZUI_INPUT_DATE_RANGE_PROVIDERS } from './input-date-range.providers';
 import { AbstractZuiNullableControl } from '../../../abstract/nullable-control';
 import { ZuiDayRange } from '../../../@core/date-time/day-range';
@@ -23,8 +21,6 @@ import { ZuiWithOptionalMinMax } from '../../../types/with-optional-min-max';
 import { ZuiDay } from '../../../@core/date-time/day';
 import { ZuiFocusableElementAccessor } from '../../../types/focusable-element-accessor';
 import { zuiCreateDateRangeMask } from '../../../@core/mask/create-date-range-mask';
-import { ZuiTextMaskOptions } from '../../../@core/mask/text-mask-options';
-import { zuiCreateAutoCorrectedDateRangePipe } from '../../../@core/mask/create-auto-corrected-date-range-pipe';
 import { zuiDefaultProp } from '../../../decorators/default-prop';
 import { ZuiBooleanHandler } from '../../../types/handler';
 import { ZUI_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
@@ -46,9 +42,6 @@ import { ZUI_DATE_TEXTS } from '../../../tokens/i18n';
 import { ZUI_DATE_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { ZuiControlValueTransformer } from '../../../types/control-value-transformer';
 import { zuiNullableSame } from '../../../util/common/nullable-same';
-import { ZUI_EMPTY_MASK } from '../../../constants/empty-mask';
-import { zuiSizeBigger } from '../../../util/size-bigger';
-import { PolymorphComponent } from '../../../directives/polymorph/classes/component';
 import { ZuiInputSize } from '../common/models/zui-input.models';
 import { ZUI_DATE_FILLER_LENGTH, ZUI_DATE_RANGE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
 import { ZUI_RANGE_SEPARATOR_CHAR } from '../../../@core/date-time/date-time';
@@ -83,6 +76,10 @@ export class ZuiInputDateRangeComponent
     @Input()
     @zuiDefaultProp()
     items: readonly ZuiDayRangePeriod[] = [];
+
+    @Input()
+    @zuiDefaultProp()
+    placeholder = '';
 
     @Input()
     @zuiDefaultProp()

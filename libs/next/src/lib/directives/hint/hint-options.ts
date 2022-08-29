@@ -1,5 +1,5 @@
-import {InjectionToken, ValueProvider} from '@angular/core';
-import {ZuiOverlayOutsidePlacement} from "../../modules/overlay/models";
+import { InjectionToken, ValueProvider } from '@angular/core';
+import { ZuiOverlayOutsidePlacement } from '../../modules';
 
 export type ZuiHintMode = 'error' | 'dark' | 'light' | null
 export interface ZuiHintOptions {

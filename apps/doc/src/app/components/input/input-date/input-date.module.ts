@@ -6,6 +6,9 @@ import { InputDateComponent } from './input-date.component';
 import { PolymorphModule, ZuiInputDateModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ZuiInputDateBaseExampleComponent } from './examples/base/input-date-base-example.component';
+import {
+  ZuiInputNativeDateBaseExampleComponent,
+} from './examples/native-date/input-native-date-base-example.component';
 
 
 @NgModule({
@@ -20,6 +23,7 @@ import { ZuiInputDateBaseExampleComponent } from './examples/base/input-date-bas
   ],
   declarations: [
     ZuiInputDateBaseExampleComponent,
+    ZuiInputNativeDateBaseExampleComponent,
     InputDateComponent
   ],
   exports: [InputDateComponent],

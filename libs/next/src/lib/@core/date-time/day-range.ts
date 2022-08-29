@@ -34,6 +34,13 @@ export class ZuiDayRange extends ZuiMonthRange {
             : new ZuiDayRange(day2, day1);
     }
 
+    public static fromLocalNativeDate(date1: Date, date2: Date): ZuiDayRange {
+      return new ZuiDayRange(
+        ZuiDay.fromLocalNativeDate(date1),
+        ZuiDay.fromLocalNativeDate(date2),
+      );
+    }
+
     /**
      * @deprecated
      */
@@ -119,6 +126,13 @@ export class ZuiDayRange extends ZuiMonthRange {
         const to = this.to.getFormattedDay(dateFormat, dateSeparator);
 
         return `${from}${ZUI_RANGE_SEPARATOR_CHAR}${to}`;
+    }
+
+    public toLocalNativeDate(): [Date, Date] {
+      return [
+        this.from.toLocalNativeDate(),
+        this.to.toLocalNativeDate(),
+      ];
     }
 
     public override toString(dateFormat: ZuiDateMode = `DMY`, dateSeparator: string = `.`): string {

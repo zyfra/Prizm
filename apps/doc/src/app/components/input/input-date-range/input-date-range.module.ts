@@ -9,6 +9,9 @@ import { PolymorphModule, ZuiInputDateRangeModule } from '@digital-plant/zui-com
 import {
   ZuiInputDateRangeDisabledExampleComponent,
 } from './examples/disabled/input-date-range-disabled-example.component';
+import {
+  ZuiInputNativeDateRangeBaseExampleComponent
+} from './examples/native-date/input-native-date-range-base-example.component';
 
 
 @NgModule({
@@ -24,6 +27,7 @@ import {
   declarations: [
     ZuiInputDateRangeBaseExampleComponent,
     ZuiInputDateRangeDisabledExampleComponent,
+    ZuiInputNativeDateRangeBaseExampleComponent,
     InputDateRangeComponent
   ],
   exports: [InputDateRangeComponent],

@@ -9,6 +9,9 @@ import { ZuiInputDateTimeBaseExampleComponent } from './examples/base/input-date
 import {
   ZuiInputDateTimeWithSecondsExampleComponent,
 } from './examples/with-seconds/input-date-time-with-seconds-example.component';
+import {
+  ZuiInputDateTimeNativeExampleComponent,
+} from './examples/native-date/input-native-date-time-base-example.component';
 
 
 @NgModule({
@@ -24,6 +27,7 @@ import {
   declarations: [
     ZuiInputDateTimeBaseExampleComponent,
     ZuiInputDateTimeWithSecondsExampleComponent,
+    ZuiInputDateTimeNativeExampleComponent,
     InputDateTimeTimeComponent
   ],
   exports: [InputDateTimeTimeComponent],
