@@ -1,13 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import {
-  PolymorphContent,
-  ZuiContextWithImplicit,
-  ZuiDay,
-  ZuiSizeL,
-  ZuiSizeM,
-  ZuiTime,
-} from '@digital-plant/zui-components';
+import { ZuiDay, ZuiInputSize, ZuiTime, ZuiTimeMode } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -17,7 +10,27 @@ import { FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InputDateTimeTimeComponent {
-  public readonly valueControl = new FormControl([new ZuiDay(2017, 2, 15), new ZuiTime(12, 30)]);
+  public readonly valueControl = new FormControl([
+    new ZuiDay(2017, 2, 15),
+    new ZuiTime(12, 30, 25, 500)
+  ]);
+  public label = 'Абсолютное';
+  public placeholder = 'Выберите дату и время';
+  public sizeVariants: ReadonlyArray<ZuiInputSize> = [
+    'l',
+    'm',
+    's'
+  ]
+  public size: ZuiInputSize = 'm';
+  public outer = false;
+
+  public timeModeVariants: ReadonlyArray<ZuiTimeMode> = [
+    'HH:MM',
+    'HH:MM:SS',
+    'HH:MM:SS.MSS'
+  ];
+  public timeMode: ZuiTimeMode = `HH:MM`;
+
   public readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
   );
@@ -25,6 +38,11 @@ export class InputDateTimeTimeComponent {
   public readonly exampleBase: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/input-date-time-base-example.component.ts'),
     HTML: import('!!raw-loader!./examples/base/input-date-time-base-example.component.html'),
+  };
+
+  public readonly exampleNative: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/native-date/input-native-date-time-base-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/native-date/input-native-date-time-base-example.component.html'),
   };
 
   public readonly exampleWithSeconds: TuiDocExample = {

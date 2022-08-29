@@ -1,12 +1,12 @@
 import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
-  forwardRef,
-  Injector,
+  ChangeDetectionStrategy,
   Input,
+  forwardRef,
   OnDestroy,
+  Injector,
+  ChangeDetectorRef,
+  AfterViewInit,
 } from '@angular/core';
 import { ControlValueAccessor, FormControl, NgControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';

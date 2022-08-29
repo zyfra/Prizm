@@ -23,10 +23,72 @@
     <tui-doc-demo>
       <zui-input-date-relative
         [formControl]='valueControl'
+        [label]='label'
+        [placeholder]='placeholder'
+        [outer]='outer'
+        [disabled]='disabled'
+        [showClear]='showClear'
+        [size]='size'
       ></zui-input-date-relative>
     </tui-doc-demo>
     <tui-doc-documentation>
-      -
+
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        [(documentationPropertyValue)]="label"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="placeholder"
+        documentationPropertyType="string"
+        [(documentationPropertyValue)]="placeholder"
+      >
+        Placeholder
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="outer"
+        documentationPropertyType="boolean"
+        [(documentationPropertyValue)]="outer"
+      >
+        Outer
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="showClear"
+        documentationPropertyType="boolean"
+        [(documentationPropertyValue)]="showClear"
+      >
+        Show Clear
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="ZuiInputSize"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="extraButtonInjector"
+        documentationPropertyType="Injector"
+      >
+        Injector for nested buttons
+        (use in multi datepicker and similar case)
+      </ng-template>
     </tui-doc-documentation>
   </ng-template>
 

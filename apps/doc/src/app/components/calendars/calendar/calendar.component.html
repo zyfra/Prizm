@@ -26,7 +26,89 @@
       ></zui-calendar>
     </tui-doc-demo>
     <tui-doc-documentation>
-      -
+      <ng-template
+        documentationPropertyName="month"
+        documentationPropertyType="ZuiMonth"
+      >
+        Month
+      </ng-template>
+      <ng-template
+        documentationPropertyName="value"
+        documentationPropertyType="ZuiDayRange | ZuiDay | null"
+      >
+        Value
+      </ng-template>
+      <ng-template
+        documentationPropertyName="disabledItemHandler"
+        documentationPropertyType="ZuiBooleanHandler<ZuiDay>"
+      >
+        Disabled Item Handler
+      </ng-template>
+      <ng-template
+        documentationPropertyName="min"
+        documentationPropertyType="ZuiDay"
+      >
+        Min Day
+      </ng-template>
+      <ng-template
+        documentationPropertyName="max"
+        documentationPropertyType="ZuiDay"
+      >
+        Max Day
+      </ng-template>
+      <ng-template
+        documentationPropertyName="minViewedMonth"
+        documentationPropertyType="ZuiMonth"
+      >
+        Min Viewed Month
+      </ng-template>
+      <ng-template
+        documentationPropertyName="maxViewedMonth"
+        documentationPropertyType="ZuiMonth"
+      >
+        Max Viewed Month
+      </ng-template>
+      <ng-template
+        documentationPropertyName="hoveredItem"
+        documentationPropertyType="ZuiDay | null"
+      >
+        Hovered Item
+      </ng-template>
+      <ng-template
+        documentationPropertyName="showAdjacent"
+        documentationPropertyType="boolean"
+        [(documentationPropertyValue)]="showAdjacent"
+      >
+        Show Adjacent
+      </ng-template>
+      <ng-template
+        documentationPropertyName="markerHandler"
+        documentationPropertyType="ZuiMarkerHandler"
+      >
+        Marker Handler
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="dayClick"
+        documentationPropertyType="ZuiDay"
+        documentationPropertyMode="output"
+      >
+        Day Click
+      </ng-template>
+      <ng-template
+        documentationPropertyName="monthChange"
+        documentationPropertyType="ZuiMonth"
+        documentationPropertyMode="output"
+      >
+        Month Change
+      </ng-template>
+      <ng-template
+        documentationPropertyName="hoveredItemChange"
+        documentationPropertyType="ZuiDay | null"
+        documentationPropertyMode="output"
+      >
+        Hovered Item Change
+      </ng-template>
     </tui-doc-documentation>
   </ng-template>
 
