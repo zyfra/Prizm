@@ -16,7 +16,13 @@ import { ZuiInputPasswordDirective } from './input-password.directive';
 
 @Component({
   selector: 'zui-input-password-auxiliary-control',
-  template: ` <button [zuiInputIconButton]="icon" class="btn" #btn [interactive]="true"></button>`,
+  template: ` <button
+    [zuiInputIconButton]="icon"
+    class="btn"
+    #btn
+    [interactive]="true"
+    (click)="toggle()"
+  ></button>`,
   styles: [
     `
       :host {
@@ -39,9 +45,7 @@ import { ZuiInputPasswordDirective } from './input-password.directive';
   providers: [ZuiDestroyService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiInputPasswordDefaultControlComponent implements OnInit {
-  @ViewChild('btn', { static: true, read: ElementRef }) btn!: ElementRef<HTMLButtonElement>;
-
+export class ZuiInputPasswordDefaultControlComponent {
   @Input() inputPassword!: ZuiInputPasswordDirective;
 
   constructor(
@@ -54,37 +58,8 @@ export class ZuiInputPasswordDefaultControlComponent implements OnInit {
     return this.inputPassword.passwordHidden ? 'sort-eye' : 'sort-eye-off-2';
   }
 
-  ngOnInit(): void {
-    const el = this.btn.nativeElement;
-
-    const onMouseDown$ = merge(merge(fromEvent(el, 'mouseleave')), fromEvent(el, 'mouseup'));
-
-    fromEvent(el, 'mousedown')
-      .pipe(
-        tap(() => {
-          this.showPassword();
-          this.cdr.markForCheck();
-        }),
-        switchMap(() =>
-          onMouseDown$.pipe(
-            tap(() => {
-              this.hidePassword();
-              this.cdr.markForCheck();
-            }),
-            take(1)
-          )
-        ),
-        takeUntil(this.destroy$)
-      )
-      .subscribe();
-  }
-
-  private showPassword(): void {
-    this.inputPassword.showPassword();
-  }
-
-  private hidePassword(): void {
-    this.inputPassword.hidePassword();
+  public toggle(): void {
+    this.inputPassword.toggle();
   }
 }
 
