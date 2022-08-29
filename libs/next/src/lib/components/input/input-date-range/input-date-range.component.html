@@ -19,6 +19,7 @@
       [showMaskTyped]='focusableElementRef.focused'
       [dropSpecialCharacters]="false"
       [readOnly]="readOnly"
+      [placeholder]='placeholder'
       [disabled]="computedDisabled"
       [ngModel]="stringValue"
       (ngModelChange)='onValueChange($event || "")'

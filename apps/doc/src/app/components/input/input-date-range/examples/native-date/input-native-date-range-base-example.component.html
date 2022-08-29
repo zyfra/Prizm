@@ -1,0 +1,12 @@
+<zui-input-date-range
+  [formControl]='value'
+></zui-input-date-range>
+
+<div *ngIf='value.value as value'>
+  <div>
+    <b>start</b>: {{ value?.[0] && (value[0] | date : 'shortDate') }}
+  </div>
+  <div>
+    <b>end</b>: {{ value?.[1] && (value[1] | date : 'shortDate') }}
+  </div>
+</div>

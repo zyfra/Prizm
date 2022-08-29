@@ -24,16 +24,110 @@
       <zui-input-date-range-disabled-example></zui-input-date-range-disabled-example>
     </tui-doc-example>
 
+    <tui-doc-example
+      id="native-date"
+      heading="Native Date"
+      [content]="exampleNativeDate"
+    >
+      <zui-input-date-range-native-example></zui-input-date-range-native-example>
+    </tui-doc-example>
+
 
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
       <zui-input-date-range
+        [label]='label'
+        [placeholder]='placeholder'
+        [outer]='outer'
+        [size]='size'
       ></zui-input-date-range>
     </tui-doc-demo>
     <tui-doc-documentation>
-      -
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        [(documentationPropertyValue)]="label"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="placeholder"
+        documentationPropertyType="string"
+        [(documentationPropertyValue)]="placeholder"
+      >
+        Placeholder
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="outer"
+        documentationPropertyType="boolean"
+        [(documentationPropertyValue)]="outer"
+      >
+        Outer
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="ZuiInputSize"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabledItemHandler"
+        documentationPropertyType="ZuiBooleanHandler<ZuiDay>"
+      >
+        Disabled Item Handler
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="markerHandler"
+        documentationPropertyType="ZuiMarkerHandler"
+      >
+        Marker Handler
+      </ng-template>
+
+
+      <ng-template
+        documentationPropertyName="items"
+        documentationPropertyType="ZuiDayRangePeriod[]"
+      >
+        Items
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="min"
+        documentationPropertyType="ZuiDay"
+      >
+        Min Date
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="max"
+        documentationPropertyType="ZuiDay"
+      >
+        Max Date
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="minLength"
+        documentationPropertyType="ZuiDayLike | null"
+      >
+        Min Length
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="maxLength"
+        documentationPropertyType="ZuiDayLike | null"
+      >
+        Max Length
+      </ng-template>
+
     </tui-doc-documentation>
   </ng-template>
 

@@ -6,7 +6,6 @@
     (isOpenChange)="onOpen($event)"
     [closeByEsc]='true'
 >
-<!--  (focusedChange)="onFocused($event)"-->
     <zui-input-layout
       [label]="label"
       [outer]='outer'
@@ -36,7 +35,6 @@
         <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>
         </ng-container>
       </ng-container>
-<!--      (hoveredChange)="onHovered($event)"-->
     </zui-input-layout>
 </zui-dropdown-host>
 <ng-template #dropdownContent>
@@ -51,17 +49,4 @@
         </div>
       </ng-container>
     </zui-data-list>
-<!--    <zui-data-list automation-id="zui-input-time__dropdown">-->
-<!--        <button-->
-<!--            *ngFor="let item of filtered"-->
-<!--            zuiButton-->
-<!--            appearanceType='ghost'-->
-<!--            automation-id="zui-input-time__item"-->
-<!--            [size]="itemSize"-->
-<!--            [disabled]="disabledItemHandler(item)"-->
-<!--            (click)="onMenuClick(item)"-->
-<!--        >-->
-<!--            {{ item }}-->
-<!--        </button>-->
-<!--    </zui-data-list>-->
 </ng-template>

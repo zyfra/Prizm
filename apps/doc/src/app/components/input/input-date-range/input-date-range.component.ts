@@ -1,6 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PolymorphContent, ZuiContextWithImplicit, ZuiSizeL, ZuiSizeM } from '@digital-plant/zui-components';
+import {
+  PolymorphContent,
+  ZuiContextWithImplicit,
+  ZuiInputSize,
+  ZuiSizeL,
+  ZuiSizeM,
+} from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-input-date-range-example',
@@ -9,26 +15,16 @@ import { PolymorphContent, ZuiContextWithImplicit, ZuiSizeL, ZuiSizeM } from '@d
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InputDateRangeComponent {
-  value = true;
-  disabled = false;
-  showLoader = false;
-
-
-  readonly sizeVariants: ReadonlyArray<ZuiSizeL | ZuiSizeM> = [
+  public label = 'Период';
+  public placeholder = 'Выберите период';
+  public sizeVariants: ReadonlyArray<ZuiInputSize> = [
+    'l',
     'm',
-    'l'
-  ];
-  size: ZuiSizeL | ZuiSizeM = this.sizeVariants[0];
+    's'
+  ]
+  public size: ZuiInputSize = 'm';
+  public outer = false;
 
-  readonly iconVariants: ReadonlyArray<PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>> = [
-    '',
-    'selection-checkbox-marked-circle',
-    'selection-checkbox-marked-circle-chanel',
-    'arrows-chevron-left',
-    'arrows-chevron-right'
-  ];
-  iconOn: PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>> = this.iconVariants[0];
-  iconOff: PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>> = this.iconVariants[0];
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
   );
@@ -41,5 +37,10 @@ export class InputDateRangeComponent {
   readonly exampleDisabled: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/disabled/input-date-range-disabled-example.component.ts'),
     HTML: import('!!raw-loader!./examples/disabled/input-date-range-disabled-example.component.html'),
+  };
+
+  readonly exampleNativeDate: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/native-date/input-native-date-range-base-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/native-date/input-native-date-range-base-example.component.html'),
   };
 }

@@ -3,10 +3,10 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
   ZuiContextWithImplicit,
-  ZuiDay,
+  ZuiDay, ZuiInputSize,
   ZuiSizeL,
   ZuiSizeM,
-  ZuiTime,
+  ZuiTime, ZuiTimeMode,
 } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
@@ -17,7 +17,29 @@ import { FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InputTimeTimeComponent {
-  public readonly valueControl = new FormControl(new ZuiTime(12, 30));
+  public readonly valueControl = new FormControl(
+    new ZuiTime(12, 30, 25, 500)
+  );
+
+  public label = 'Абсолютное время';
+  public placeholder = 'Выберите время';
+  public sizeVariants: ReadonlyArray<ZuiInputSize> = [
+    'l',
+    'm',
+    's'
+  ]
+  public size: ZuiInputSize = 'm';
+  public strict = false;
+
+  public timeModeVariants: ReadonlyArray<ZuiTimeMode> = [
+    'HH:MM',
+    'HH:MM:SS',
+    'HH:MM:SS.MSS'
+  ];
+  public timeMode: ZuiTimeMode = `HH:MM`;
+  public outer = false;
+
+
   public readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
   );
