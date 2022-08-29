@@ -146,7 +146,7 @@ Deploy:
         --set image.tag=$DEPLOY_VERSION \
         --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
         --set ingress.path=/ \
-        --set ingress.urlRewrite=false
+        --set ingress.urlRewrite=false \
         --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
       else
         helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
