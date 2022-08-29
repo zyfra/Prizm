@@ -31,5 +31,13 @@ export class ZuiInputPasswordDirective {
     this._passwordHidden = true;
     this.zuiInputText.markControl({ touched: true });
   }
+
+  public toggle(): void {
+    if (this.passwordHidden) {
+      this.showPassword();
+    } else {
+      this.hidePassword();
+    }
+  }
 }
 
