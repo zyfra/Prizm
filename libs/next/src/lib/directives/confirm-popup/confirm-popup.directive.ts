@@ -2,7 +2,6 @@
 import { Directive, EventEmitter, forwardRef, HostListener, Input, Output } from '@angular/core';
 import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
 import { ZuiConfirmPopupContainerComponent } from './confirm-popup-container.component';
-import { ZUI_HINT_OPTIONS, ZuiHintDirective, ZuiHintOptions } from '../hint';
 import {
   ZUI_CONFIRM_POPUP_OPTIONS,
   ZuiConfirmPopupButton,
@@ -11,10 +10,11 @@ import {
 } from './confirm-popup-options';
 import { zuiDefaultProp, zuiRequiredSetter } from '../../decorators';
 import { PolymorphContent } from '../polymorph';
-import { zuiGenerateId, ZuiSizeL, ZuiSizeM } from '../../util';
+import { zuiGenerateId } from '../../util';
 import { ZuiConfirmDialogButton, ZuiConfirmDialogResultDefaultType } from '../../components/dialogs/confirm-dialog';
 import { ZuiAppearance, ZuiAppearanceType } from '../../types';
-import { ZuiBaseDialogContext } from '../../components/dialogs/dialog';
+import { ZUI_HINT_OPTIONS, ZuiHintOptions } from '../hint/hint-options';
+import { ZuiHintDirective } from '../hint/hint.directive';
 
 @Directive({
     selector: '[zuiConfirmPopup]:not(ng-container)',

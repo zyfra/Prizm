@@ -2,11 +2,12 @@
 import { Directive, forwardRef, HostListener, Input } from '@angular/core';
 import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
 import { ZuiTooltipContainerComponent } from './tooltip-container.component';
-import { ZUI_HINT_OPTIONS, ZuiHintDirective, ZuiHintOptions } from '../hint';
 import { ZUI_TOOLTIP_OPTIONS } from './tooltip-options';
 import { zuiDefaultProp, zuiRequiredSetter } from '../../decorators';
 import { PolymorphContent } from '../polymorph';
 import { zuiGenerateId } from '../../util';
+import { ZuiHintOptions, ZUI_HINT_OPTIONS } from '../hint/hint-options';
+import { ZuiHintDirective } from '../hint/hint.directive';
 
 @Directive({
     selector: '[zuiTooltip]:not(ng-container)',
