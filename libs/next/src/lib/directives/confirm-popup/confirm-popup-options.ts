@@ -1,10 +1,9 @@
-import {InjectionToken, ValueProvider} from '@angular/core';
-import {ZuiOverlayOutsidePlacement} from "../../modules/overlay/models";
+import { InjectionToken, ValueProvider } from '@angular/core';
+import { ZuiOverlayOutsidePlacement } from '../../modules/overlay/models';
 import { ZuiDialogButton } from '../../components/dialogs/dialog';
 import { ZuiSizeL, ZuiSizeM } from '../../util';
-import { ZuiHintContext, ZuiHintOptions } from '../hint';
-import { ZuiConfirmDialogButton, ZuiConfirmDialogResultDefaultType } from '../../components/dialogs/confirm-dialog';
-
+import { ZuiConfirmDialogResultDefaultType } from '../../components/dialogs/confirm-dialog';
+import { ZuiHintContext, ZuiHintOptions } from '../hint/hint-options';
 
 
 export type ZuiConfirmPopupButton = Omit<ZuiDialogButton, 'action'> & Partial<Pick<ZuiDialogButton, 'action'>>

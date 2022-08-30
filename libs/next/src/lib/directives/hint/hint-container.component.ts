@@ -1,13 +1,13 @@
-import {AfterViewInit, Component, ElementRef, HostListener, Inject, Input, OnInit, Renderer2,} from '@angular/core';
-import {PolymorphContent} from '../index';
-import {ZuiHintOptions} from "../hint";
-import {zuiDefaultProp} from "../../decorators";
-import {ZuiDestroyService} from "@digital-plant/zyfra-helpers";
-import {ZuiHoveredService} from "../../services";
-import {takeUntil, tap} from "rxjs/operators";
-import {ZuiHintService} from "./hint.service";
-import {ZuiOverlayControl} from "../../modules/overlay";
-import {animationFrameScheduler, timer} from "rxjs";
+import { AfterViewInit, Component, ElementRef, HostListener, Inject, Input, OnInit, Renderer2 } from '@angular/core';
+import { zuiDefaultProp } from '../../decorators';
+import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { ZuiHoveredService } from '../../services';
+import { takeUntil, tap } from 'rxjs/operators';
+import { ZuiHintService } from './hint.service';
+import { ZuiOverlayControl } from '../../modules/overlay';
+import { animationFrameScheduler, timer } from 'rxjs';
+import { PolymorphContent } from '../polymorph/types/content';
+import { ZuiHintOptions } from './hint-options';
 
 @Component({
   selector: 'zui-hint-container',
