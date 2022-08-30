@@ -88,7 +88,7 @@ Release package:
     - npm config set @$CI_PROJECT_ROOT_NAMESPACE:registry "$CI_SERVER_PROTOCOL://$CI_SERVER_HOST/api/v4/projects/$CI_PROJECT_ID/packages/npm/"
     - npm config set "//$CI_SERVER_HOST/api/v4/projects/$CI_PROJECT_ID/packages/npm/:_authToken" "$CI_JOB_TOKEN"
     - cd dist/libs
-    - for i in `(ls -l | awk '{ print $9 }')`; do npm publish ./$i; done
+    - for i in `(ls -l | awk '{ print $9 }')`; do npm publish ./$i; doneы
   when: manual
   only: ["main", "next"]
   extends: [".tags_k8s", ".except_skip_ci"]
