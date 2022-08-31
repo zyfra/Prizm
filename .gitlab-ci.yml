@@ -44,10 +44,10 @@ Build js image:
   rules:
     - if: "$SKIP_KANIKO_BUILD =~ /^(true|yes|on|1)$/i"
       when: never
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH == "next"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       variables:
         KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/"
-    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH != "next"
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
       variables:
         KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/"
     - if: >-
@@ -88,7 +88,12 @@ Release package:
     - npm config set @$CI_PROJECT_ROOT_NAMESPACE:registry "$CI_SERVER_PROTOCOL://$CI_SERVER_HOST/api/v4/projects/$CI_PROJECT_ID/packages/npm/"
     - npm config set "//$CI_SERVER_HOST/api/v4/projects/$CI_PROJECT_ID/packages/npm/:_authToken" "$CI_JOB_TOKEN"
     - cd dist/libs
-    - for i in `(ls -l | awk '{ print $9 }')`; do npm publish ./$i; doneы
+    #- for i in `(ls -l | awk '{ print $9 }')`; do npm publish ./$i; done
+    - npm publish next
+    - npm publish helpers
+    - npm publish components
+    - npm publish schematics
+    - npm publish translate
   when: manual
   only: ["main", "next"]
   extends: [".tags_k8s", ".except_skip_ci"]
