@@ -1,17 +1,31 @@
 <ng-template #labelTemplate>
-  <label
-    class="zui-input-label
+  <div
+    class="label-container {{
+      control.nativeElementType ? 'label-container-' + control.nativeElementType : ''
+    }}   label-container-{{ outer ? 'outer' : 'inner' }}"
+    [class.label-container-focused]="control.focused"
+  >
+    <label
+      class="zui-input-label
     zui-input-label-{{ outer ? 'outer' : 'inner' }}
     zui-input-label-{{ outer ? 'outer' : 'inner' }}-{{ position }}
     {{ control.nativeElementType ? 'zui-input-label-' + control.nativeElementType : '' }}
 "
-    [attr.data-size]="size"
-    [class.zui-input-label-focused]="control.focused"
-    [class.zui-input-label-empty]="control.empty"
-  >
-    {{ label }}
-    <span *ngIf="control.required" class="zui-input-label-required">*</span>
-  </label>
+      [attr.data-size]="size"
+      [class.zui-input-label-focused]="control.focused"
+      [class.zui-input-label-empty]="control.empty"
+    >
+      {{ label }}
+      <span *ngIf="control.required" class="zui-input-label-required">*</span>
+    </label>
+    <button
+      *ngIf="showClearButton"
+      zuiInputIconButton="cansel-delete-content"
+      (click)="onClearClick($event)"
+      class="zui-input-label-clear-btn"
+      [interactive]="true"
+    ></button>
+  </div>
 </ng-template>
 
 <ng-container *ngIf="!outer; else labelTemplate"></ng-container>
@@ -67,3 +81,4 @@
 <div class="zui-input-form-subtext zui-input-form-subtext-{{ status }}">
   <ng-content select="[zui-input-subtext]"></ng-content>
 </div>
+
