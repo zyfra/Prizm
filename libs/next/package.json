@@ -6,6 +6,8 @@
     "@angular/core": "^12.2.0",
     "ngx-mask": "<=12.9.9",
     "@ng-web-apis/common": "^1.13.0",
+    "primeicons": "^4.1.0",
+    "primeng": "^12.2.1",
     "@digital-plant/zyfra-helpers": "^0.13.1"
   },
   "dependencies": {
