@@ -30,7 +30,7 @@ export abstract class AbstractZuiDialogService<T extends ZuiDialogBaseOptions, O
 
   public open<O = unknown, DATA = unknown>(
     content: PolymorphContent<ZuiBaseDialogContext<O>> | unknown,
-    options: Partial<T> = {},
+    options: Partial<T>,
     cb: (data: {
       control: ZuiOverlayControl,
       dialog: ZuiBaseDialogContext<any, any>,
@@ -44,6 +44,8 @@ export abstract class AbstractZuiDialogService<T extends ZuiDialogBaseOptions, O
         observer.next(result);
         observer.complete();
       };
+
+      options = options ?? {}
 
       const dialog = {
         ...this.defaultOptions,
