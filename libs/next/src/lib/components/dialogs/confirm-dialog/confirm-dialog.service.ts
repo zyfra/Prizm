@@ -33,7 +33,7 @@ export class ZuiConfirmDialogService<
 
   public override open(
     title: T['title'],
-    options: Omit<Partial<T>, 'title'> ,
+    options: Omit<Partial<T>, 'title'>,
     cb?: (data: {
       control: ZuiOverlayControl,
       dialog: ZuiBaseDialogContext<ZuiConfirmDialogResult, ZuiConfirmDialogOptions>,
