@@ -37,6 +37,18 @@
       border: @2px solid var(--inputSwitchHover);
     }
   }
+
+  &--mini {
+    .p-inputswitch-slider {
+      height: @16px;
+      &:before {
+        margin-top: @2px;
+        width: @9px;
+        height: @9px;
+        left: @4px;
+      }
+    }
+  }
 }
 
 .p-disabled {
