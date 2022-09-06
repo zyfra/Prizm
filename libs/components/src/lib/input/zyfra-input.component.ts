@@ -14,6 +14,7 @@ export class ZyfraInputComponent extends WrappedFormComponent implements Control
   @Input() placeholder: string = '';
   @Input() label: string;
   @Input() iClass: string;
+  @Input() readonly = false;
   @Input() spanClass: string;
   @Input() inputClass:
     | string
