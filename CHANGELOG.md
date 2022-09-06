@@ -2,6 +2,40 @@
 
 Все изменения в этом файле отражают изменения в коде во всем монорепозитории.
 
+## [1.0.0-beta.4] - 06-09-2022
+
+### @digital-plant/zyfra-components [v0.13.2]
+
+**Added**
+
+- feat/(next/tab): add closable ability for each tab [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/302)
+
+
+> **Special thanks**
+>
+> ✏️ **MR:** Andrey Smirnov
+
+----
+
+## [v0.13.2] - 06-09-2022
+
+### @digital-plant/zyfra-components [v0.13.2]
+
+**Added**
+
+- fix(components/datepicker-multi): Не блокируется выпадающее меню в ZyfraDatepickerMultiComponent [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/306)
+- fix(components/relative-datepicker): fixed validator pattern [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/250)
+- feat/(components/textarea,input): add readonly attribute to textarea and input components [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/313)
+- feat/(components/zyfra-input-switch): add small size [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/300)
+- fix/(components/styles): removed global variables [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/318)
+
+> **Special thanks**
+>
+> ✏️ **MR:** Rustam Imaikin, Anton Grekov, Ekaterina Kovergina, Dmitriy Bahtiyarov
+>
+> 🐛 **Issue:** Anton Grekov
+
+----
 
 ## [v0.13.1] - 10-08-2022
 
@@ -16,6 +50,8 @@
 > ✏️ **MR:** Zurab Magomadov
 
 ## [v0.13.0] - 05-08-2022
+
+----
 
 ### @digital-plant/zyfra-components [v0.13.0]
 
@@ -42,6 +78,8 @@
 
 ## [v0.12.0] - 13-07-2022
 
+----
+
 ### @digital-plant/zyfra-components [v0.12.0]
 
 **Added**
@@ -67,6 +105,8 @@
 > ️🐛 **Issue:** Dmitriy Bahtiyarov, Ilia Petrov, Stepan Fedorov, Aleksey S. Polyakov
 
 ## [v0.11.2] - 17-06-2022
+
+----
 
 ### @digital-plant/zyfra-components [v0.11.2]
 
@@ -109,6 +149,8 @@
 
 ## [v0.10.0] - 31-05-2022
 
+----
+
 ### @digital-plant/zyfra-components [v0.10.0]
 
 **Feature**
@@ -127,6 +169,8 @@
 
 ## [v0.9.3] - 27-05-2022
 
+----
+
 ### @digital-plant/zyfra-translate [v1.0.2]
 
 **Fixed**
@@ -143,6 +187,8 @@
 >
 > ✏️ **MR:** Dmitriy Sokolov, Konstantin Khimenkov
 
+----
+
 ## [v0.9.2] - 25-05-2022
 
 ### @digital-plant/zyfra-components [v0.9.2]
@@ -152,6 +198,9 @@
 - fix(helpers): fixes strict null checks
 - fix(components): add export zyfra-template.module
 
+
+----
+
 ## [v0.9.1] - 23-05-2022
 
 ### @digital-plant/zyfra-components [v0.9.1]
@@ -159,6 +208,8 @@
 **Fixes**
 
 - fix(components): fixes publishable library
+
+----
 
 ## [v0.9.0] - 20-05-2022
 
@@ -183,6 +234,8 @@
 > ✏️ **MR:** Zurab Magomadov, Stepan Fedorov, Anton Osechkin, Rustam Imaikin
 >
 > ️🐛 **Issue:** Aleksey S. Polyakov, Stepan Fedorov, Andrey Blokhin
+
+----
 
 ## [v0.8.0] - 11-05-2022
 
