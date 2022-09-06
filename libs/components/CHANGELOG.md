@@ -1,5 +1,25 @@
 # Changelog
 
+## [v0.13.2] - 06-09-2022
+
+### @digital-plant/zyfra-components [v0.13.2]
+
+**Added**
+
+- fix(components/datepicker-multi): Не блокируется выпадающее меню в ZyfraDatepickerMultiComponent [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/306)
+- fix(components/relative-datepicker): fixed validator pattern [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/250)
+- feat/(components/textarea,input): add readonly attribute to textarea and input components [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/313)
+- feat/(components/zyfra-input-switch): add small size [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/300)
+- fix/(components/styles): removed global variables [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/318)
+
+> **Special thanks**
+>
+> ✏️ **MR:** Rustam Imaikin, Anton Grekov, Ekaterina Kovergina, Dmitriy Bahtiyarov
+>
+> 🐛 **Issue:** Anton Grekov
+
+----
+
 ## [v0.13.1] - 10-08-2022
 
 ### @digital-plant/zyfra-components [v0.13.1]
@@ -8,6 +28,8 @@
 
 - feat/(helpers/destroy): add optional callback  [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/279)
 
+
+----
 
 ## [v0.13.0] - 05-08-2022
 
@@ -34,6 +56,7 @@
 >
 > ️🐛 **Issue:** Anton Osechkin, Ilia Petrov, Aleksey S. Polyakov
 
+----
 
 ## [v0.12.0] - 13-07-2022
 
@@ -61,6 +84,8 @@
 >
 > ️🐛 **Issue:** Dmitriy Bahtiyarov, Ilia Petrov, Stepan Fedorov, Aleksey S. Polyakov
 
+----
+
 ## [v0.11.2] - 17-06-2022
 
 ### @digital-plant/zyfra-components [v0.11.2]
@@ -75,6 +100,8 @@
 > ✏️ **MR:** Anton Grekov, Dmitrii Piankov
 >
 > ️🐛 **Issue:** Anton Grekov
+
+----
 
 ## [v0.11.1] - 03-06-2022
 
