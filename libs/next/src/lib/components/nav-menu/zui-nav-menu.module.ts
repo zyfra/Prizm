@@ -19,7 +19,7 @@ import { ZuiNavMenuItemComponent } from './components/zui-menu-item/zui-nav-menu
 import { ZuiNavMenuGroupComponent } from './components/zui-nav-menu-group/zui-nav-menu-group.component';
 import { ZuiTemplateDirective } from './directives/zui-template.directive';
 import { AccordionModule } from 'primeng/accordion';
-import { ZuiCheckboxModule } from '../checkbox';
+
 import { ZuiInputTextModule } from '../input';
 import { ZuiIconModule } from '../icon';
 
@@ -46,7 +46,6 @@ import { ZuiIconModule } from '../icon';
     RadioButtonModule,
     TooltipModule,
     AccordionModule,
-    ZuiCheckboxModule,
     ZuiInputTextModule,
     ZuiIconModule,
     ReactiveFormsModule,
@@ -55,3 +54,4 @@ import { ZuiIconModule } from '../icon';
   exports: [ZuiNavMenuComponent, ZuiNavMenuGroupDirective, ZuiTemplateDirective],
 })
 export class ZuiNavMenuModule {}
+

@@ -1,3 +1,21 @@
-<div class="container">
-  <zui-checkbox [formControl]="form" size="l"></zui-checkbox>
+<form [formGroup]="formGroup">
+  <div>
+    <zui-checkbox formControlName="control1">Control 1</zui-checkbox>
+  </div>
+
+  <div>
+    <zui-checkbox formControlName="control2">Control 2</zui-checkbox>
+  </div>
+
+  <div>
+    <zui-checkbox formControlName="control3">Control 3</zui-checkbox>
+  </div>
+</form>
+
+<div>
+  FormValue:
+  <pre>
+    {{ formGroup.value | json }}
+  </pre>
 </div>
+

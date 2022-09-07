@@ -1,0 +1,29 @@
+<div class="header">Название группы</div>
+
+<div *ngFor="let checkbox of data">
+  <zui-checkbox
+    [checked]="checkbox.checked"
+    class="checkbox"
+    *ngIf="!checkbox.children"
+    [(ngModel)]="checkbox.checked"
+  >
+    {{ checkbox.label }}
+  </zui-checkbox>
+
+  <div class="checkbox-container" *ngIf="checkbox.children">
+    <zui-checkbox
+      [checked]="allChecked(checkbox.children)"
+      class="checkbox"
+      [indeterminate]="someChecked(checkbox)"
+      (changed)="setAll($event, checkbox.children)"
+    >
+      {{ checkbox.label }}
+    </zui-checkbox>
+    <div class="children">
+      <div *ngFor="let child of checkbox.children">
+        <zui-checkbox [(ngModel)]="child.checked" class="checkbox">{{ child.label }}</zui-checkbox>
+      </div>
+    </div>
+  </div>
+</div>
+
