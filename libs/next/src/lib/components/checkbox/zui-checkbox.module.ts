@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ZuiCheckboxComponent } from './zui-checkbox.component';
+
 import { ReactiveFormsModule } from '@angular/forms';
+import { ZuiCheckboxComponent } from './checkbox.component';
 
 @NgModule({
   declarations: [ZuiCheckboxComponent],
@@ -9,3 +10,4 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports: [ZuiCheckboxComponent],
 })
 export class ZuiCheckboxModule {}
+

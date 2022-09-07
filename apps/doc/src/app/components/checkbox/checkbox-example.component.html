@@ -1,11 +1,11 @@
 <tui-doc-page header="Checkbox" package="Equinox" type="components">
   <ng-template pageTab>
     <tui-doc-example id="base" heading="Base" [content]="exampleBasicCheckbox">
-      <zui-checkbox-basic-example size="s"></zui-checkbox-basic-example>
+      <zui-checkbox-basic-example></zui-checkbox-basic-example>
     </tui-doc-example>
 
-    <tui-doc-example id="big" heading="Big Size" [content]="exampleBasicCheckbox">
-      <zui-checkbox-basic-example size="l"></zui-checkbox-basic-example>
+    <tui-doc-example id="group" heading="Group" [content]="checkboxGroup">
+      <zui-checkbox-group-example></zui-checkbox-group-example>
     </tui-doc-example>
 
     <tui-doc-example id="form" heading="With Reactive Forms" [content]="exampleReactiveFormCheckbox">
@@ -15,13 +15,9 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-checkbox
-        [value]="value"
-        [label]="label"
-        [disabled]="disabled"
-        [size]="size"
-        [state]="state"
-      ></zui-checkbox>
+      <zui-checkbox [checked]="checked" [disabled]="disabled" [size]="size" [indeterminate]="indeterminate">
+        {{ label }}
+      </zui-checkbox>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
@@ -34,14 +30,26 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="value"
-        documentationPropertyType="string"
+        documentationPropertyName="checked"
+        documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="value"
+        [(documentationPropertyValue)]="checked"
       >
-        Value
+        Checked
       </ng-template>
 
+      <ng-template
+        documentationPropertyName="indeterminate"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="indeterminate"
+      >
+        Indeterminate
+
+        <p>При изменении checked indeterminate устанавливается в false</p>
+      </ng-template>
+
+      indeterminate
       <ng-template
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
@@ -62,61 +70,11 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="children"
-        documentationPropertyType="ICheckbox[]"
-        documentationPropertyMode="input"
-      >
-        Children
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="state"
-        documentationPropertyType="TZuiCheckboxState"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="stateVariants"
-        [(documentationPropertyValue)]="state"
-      >
-        State
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="clickEvent"
-        documentationPropertyType="PointerEvent"
-        documentationPropertyMode="output"
-      >
-        Click
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="focusEvent"
-        documentationPropertyType="FocusEvent"
-        documentationPropertyMode="output"
-      >
-        Focus
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="focusOutEvent"
-        documentationPropertyType="FocusEvent"
-        documentationPropertyMode="output"
-      >
-        Focus out
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="blurEvent"
-        documentationPropertyType="FocusEvent"
-        documentationPropertyMode="output"
-      >
-        Blur
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="changeEvent"
+        documentationPropertyName="changedEvent"
         documentationPropertyType="Event"
         documentationPropertyMode="output"
       >
-        Change
+        Changed
       </ng-template>
     </tui-doc-documentation>
   </ng-template>
@@ -134,3 +92,4 @@
     </ol>
   </ng-template>
 </tui-doc-page>
+
