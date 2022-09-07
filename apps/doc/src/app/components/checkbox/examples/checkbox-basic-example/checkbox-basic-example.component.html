@@ -1,10 +1,30 @@
-<div class="container">
-  <zui-checkbox
-    *ngFor="let item of data; let i = index"
-    [label]="item.label"
-    [value]="item.value"
-    [children]="item?.child ?? []"
-    [state]="item?.state"
-    [size]="size"
-  ></zui-checkbox>
+<div class="example">
+  <h2>Basic</h2>
+  <zui-checkbox>ОНПЗ</zui-checkbox>
 </div>
+
+<div class="example">
+  <h2>Big size</h2>
+  <zui-checkbox [size]="'l'">ОНПЗ</zui-checkbox>
+</div>
+
+<div class="example">
+  <h2>Disabled</h2>
+  <zui-checkbox [disabled]="true">ОНПЗ</zui-checkbox>
+</div>
+
+<div class="example">
+  <h2>Indeterminate</h2>
+  <zui-checkbox [indeterminate]="true">ОНПЗ</zui-checkbox>
+</div>
+
+<div class="example">
+  <h2>Custom label</h2>
+  <zui-checkbox>
+    <div class="custom-label">
+      <span class="custom-label__primary">КБ 4</span>
+      <span class="custom-label__secondary">КБ 4 чекбокс</span>
+    </div>
+  </zui-checkbox>
+</div>
+

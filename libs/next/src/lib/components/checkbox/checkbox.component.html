@@ -1,0 +1,18 @@
+<div
+  class="checkbox checkbox--size-{{ size }}"
+  [ngClass]="{ 'checkbox--checked': checked, 'checkbox--indeterminate': indeterminate }"
+>
+  <div
+    class="checkbox__icon zui-icon checkbox__icon--size-{{ size }}"
+    [ngClass]="{
+      'checkbox__icon--no-icon': indeterminate === false && checked === false,
+      'checkbox__icon--checked': indeterminate === false && checked === true,
+      'checkbox__icon--indeterminate': indeterminate,
+      'selection-check-simple': indeterminate === false && checked === true,
+      'delete-minus': indeterminate === true
+    }"
+  ></div>
+</div>
+
+<div class="label label--size-{{ size }}"><ng-content></ng-content></div>
+
