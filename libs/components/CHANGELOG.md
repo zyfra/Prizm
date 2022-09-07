@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.13.3] - 07-09-2022
+
+### @digital-plant/zyfra-components [v0.13.3]
+
+**Reverted**
+
+- fix/(components/styles): removed global variables [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/318)
+
 ## [v0.13.2] - 06-09-2022
 
 ### @digital-plant/zyfra-components [v0.13.2]
