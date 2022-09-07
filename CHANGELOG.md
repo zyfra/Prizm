@@ -2,6 +2,15 @@
 
 Все изменения в этом файле отражают изменения в коде во всем монорепозитории.
 
+## [v0.13.3] - 07-09-2022
+
+### @digital-plant/zyfra-components [v0.13.3]
+
+**Reverted**
+
+- fix/(components/styles): removed global variables [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/318)
+
+
 ## [1.0.0-beta.4] - 06-09-2022
 
 ### @digital-plant/zyfra-components [v0.13.2]
