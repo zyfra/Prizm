@@ -1,5 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { ICheckbox } from '@digital-plant/zui-components';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'zui-checkbox-basic-example',
@@ -7,33 +6,5 @@ import { ICheckbox } from '@digital-plant/zui-components';
   styleUrls: ['./checkbox-basic-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CheckboxBasicExampleComponent {
-  @Input() public size: 'l' | 's' = 'l';
-  public data: ICheckbox[] = [
-    {
-      value: 'First',
-      state: 'selected',
-      label: 'МНПЗ',
-    },
-    {
-      value: 'Second',
-      label: 'ЯНОС',
-      child: [
-        {
-          label: 'ЯНОС 1',
-          value: 1,
-          state: 'selected',
-        },
-        {
-          label: 'ЯНОС 2',
-          value: 2,
-        },
-        {
-          label: 'ЯНОС 3',
-          value: 3,
-        },
-      ],
-    },
-    { value: 'Third', state: 'selected', label: 'ОНПЗ' },
-  ];
-}
+export class CheckboxBasicExampleComponent {}
+

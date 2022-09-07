@@ -4,9 +4,10 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { CheckboxBasicExampleComponent } from './examples/checkbox-basic-example/checkbox-basic-example.component';
 import { CheckboxExampleComponent } from './checkbox-example.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ZuiCheckboxModule } from '@digital-plant/zui-components';
 import { CheckboxFormExampleComponent } from './examples/checkbox-form-example/checkbox-form-example.component';
+import { ZuiCheckboxGroupExampleComponent } from './examples/checkbox-group-example/checkbox-group-example.component';
 
 @NgModule({
   imports: [
@@ -14,9 +15,16 @@ import { CheckboxFormExampleComponent } from './examples/checkbox-form-example/c
     TuiAddonDocModule,
     ZuiCheckboxModule,
     RouterModule.forChild(generateRoutes(CheckboxExampleComponent)),
+    FormsModule,
     ReactiveFormsModule,
   ],
-  declarations: [CheckboxExampleComponent, CheckboxBasicExampleComponent, CheckboxFormExampleComponent],
+  declarations: [
+    CheckboxExampleComponent,
+    CheckboxBasicExampleComponent,
+    ZuiCheckboxGroupExampleComponent,
+    CheckboxFormExampleComponent,
+  ],
   exports: [CheckboxExampleComponent],
 })
 export class CheckboxExampleModule {}
+
