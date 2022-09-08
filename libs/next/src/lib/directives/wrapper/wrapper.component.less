@@ -44,12 +44,12 @@
 
     &[data-state="hovered"], &._focused_deleted {
       background: var(--zui-primary-hover);
-      color: var(--exceptions-white);
+      color: var(--zui-exceptions-white);
     }
 
     &[data-state='pressed'] {
       background: var(--zui-primary-pressed);
-      color: var(--exceptions-white);
+      color: var(--zui-exceptions-white);
     }
   }
 
@@ -94,7 +94,7 @@
   }
 
   &[data-appearance='warning'] {
-    --base: var(--index-warning);
+    --base: var(--zui-index-warning);
 
     background: var(--base);
 
@@ -135,27 +135,27 @@
   }
 
   &[data-appearance='danger'] {
-    background: var(--index-danger);
+    background: var(--zui-index-danger);
 
     &[data-appearance-type='ghost'] {
       background: transparent;
-      color: var(--index-danger);
+      color: var(--zui-index-danger);
 
       &[data-state="hovered"], &._focused_deleted {
         background: var(--zui-danger-ghost-hover);
-        color: var(--index-danger);
+        color: var(--zui-index-danger);
       }
 
       &[data-state='pressed'] {
         background: var(--zui-danger-ghost-pressed);
-        color: var(--index-danger);
+        color: var(--zui-index-danger);
       }
     }
 
     &[data-appearance-type='outline'] {
-      border: 1px solid var(--index-danger);
+      border: 1px solid var(--zui-index-danger);
       background: transparent;
-      color: var(--index-danger);
+      color: var(--zui-index-danger);
 
       &[data-state='pressed'] {
         border-color: var(--zui-danger-pressed);
@@ -163,33 +163,33 @@
     }
 
     &[data-state="hovered"], &._focused_deleted {
-      background: var(--palette-r2);
-      color: var(--exceptions-white);
+      background: var(--zui-palette-r2);
+      color: var(--zui-exceptions-white);
     }
 
     &[data-state='pressed'] {
       background: var(--zui-danger-pressed);
-      color: var(--exceptions-white);
+      color: var(--zui-exceptions-white);
     }
   }
 
   &[data-appearance='success'] {
-    background: var(--index-good);
+    background: var(--zui-index-good);
 
 
     &[data-appearance-type='ghost'] {
       background: transparent;
-      color: var(--index-good);
+      color: var(--zui-index-good);
 
 
       &[data-state="hovered"], &._focused_deleted {
         background: var(--zui-success-ghost-hover); //
-        color: var(--index-good);
+        color: var(--zui-index-good);
       }
 
       &[data-state='pressed'] {
         background: var(--zui-success-ghost-pressed); //
-        color: var(--index-good);
+        color: var(--zui-index-good);
       }
     }
 
@@ -226,7 +226,7 @@
     }
 
     &[data-appearance-type='outline'] {
-      border: 1px solid var(--grey-g12-g2);
+      border: 1px solid var(--zui-grey-g12-g2);
       background: transparent;
     }
 

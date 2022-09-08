@@ -52,18 +52,18 @@
     border-top-right-radius: var(--border-widgetRadius);
 
     table {
-      background-color: var(--bg-body);
+      background-color: var(--zui-bg-body);
     }
 
     .p-datatable-header {
       display: flex;
       justify-content: space-between;
-      background-color: var(--grey-g12-g2);
+      background-color: var(--zui-grey-g12-g2);
       padding: 0 8px;
       line-height: 48px;
-      color: var(--text-contrast);
+      color: var(--zui-text-contrast);
       border-width: 0 0 1px 0;
-      border-color: var(--border-widget);
+      border-color: var(--zui-border-widget);
       border-top-left-radius: var(--border-widgetRadius);
       border-top-right-radius: var(--border-widgetRadius);
 
@@ -76,8 +76,8 @@
 
     &.p-datatable-gridlines .p-datatable-header,
     .p-datatable-tbody > tr {
-      background-color: var(--bg-body);
-      color: var(--text-contrast);
+      background-color: var(--zui-bg-body);
+      color: var(--zui-text-contrast);
       transition: none;
       outline: none;
 
@@ -90,14 +90,14 @@
       th {
         padding: 6px 8px;
         line-height: 18px;
-        background-color: var(--grey-g12-g2);
-        color: var(--text-contrast);
+        background-color: var(--zui-grey-g12-g2);
+        color: var(--zui-text-contrast);
         font-weight: 500;
 
         &.search-cell {
           position: relative;
           padding: 0 8px;
-          background-color: var(--bg-body);
+          background-color: var(--zui-bg-body);
 
           .search-cell__input {
             font-family: var(--fontFamily);
@@ -135,15 +135,15 @@
     }
 
     &.p-datatable-scrollable .p-datatable-wrapper {
-      border-bottom: 1px solid var(--border-widget);
+      border-bottom: 1px solid var(--zui-border-widget);
     }
 
     .p-datatable-tfoot > tr > td {
-      background-color: var(--grey-g12-g2);
+      background-color: var(--zui-grey-g12-g2);
       padding: 6px 8px;
       line-height: 18px;
-      color: var(--text-contrast);
-      border-color: var(--border-widget);
+      color: var(--zui-text-contrast);
+      border-color: var(--zui-border-widget);
     }
 
     .pi-filter-icon.pi-filter {
@@ -164,7 +164,7 @@
 
       &.p-highlight {
         .p-sortable-column-icon {
-          color: var(--index-plan);
+          color: var(--zui-index-plan);
         }
 
         &:focus {
@@ -179,10 +179,10 @@
       }
 
       &:not(.p-highlight):hover {
-        color: var(--text-contrast);
+        color: var(--zui-text-contrast);
 
         .p-sortable-column-icon {
-          color: var(--index-plan);
+          color: var(--zui-index-plan);
         }
       }
     }
@@ -190,20 +190,20 @@
     &.p-datatable-hoverable-rows .p-datatable-tbody,
     &.p-treetable-hoverable-rows .p-treetable-tbody {
       > tr:not(.p-highlight):hover {
-        color: var(--text-contrast);
-        background: var(--lite-g730-20);
+        color: var(--zui-text-contrast);
+        background: var(--zui-lite-g730-20);
       }
     }
 
     .p-column-filter {
       .p-column-filter-menu-button.p-column-filter-menu-button-open,
       .p-column-filter-menu-button.p-column-filter-menu-button-open:hover {
-        color: var(--index-plan) !important;
+        color: var(--zui-index-plan) !important;
       }
 
       .p-column-filter-menu-button.p-column-filter-menu-button-active,
       .p-column-filter-menu-button.p-column-filter-menu-button-active:hover {
-        color: var(--index-plan) !important;
+        color: var(--zui-index-plan) !important;
         background-color: transparent;
       }
 
@@ -213,7 +213,7 @@
         color: var(--eventer);
 
         &:hover {
-          color: var(--index-plan);
+          color: var(--zui-index-plan);
         }
 
         &:focus {
@@ -237,15 +237,15 @@
 
   .p-datatable .p-datatable-tbody > tr {
     &:hover {
-      background: var(--lite-g730-20);
+      background: var(--zui-lite-g730-20);
     }
 
     &.p-highlight {
-      background: var(--lite-b130-20);
+      background: var(--zui-lite-b130-20);
     }
   }
 
   .p-datatable .p-sortable-column:not(.p-highlight):hover {
-    background: var(--grey-g12-g2);
+    background: var(--zui-grey-g12-g2);
   }
 }
