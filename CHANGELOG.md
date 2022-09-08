@@ -2,6 +2,13 @@
 
 Все изменения в этом файле отражают изменения в коде во всем монорепозитории.
 
+## [1.0.0-beta.5] - 08-09-2022
+
+### @digital-plant/zyfra-components [1.0.0-beta.5]
+
+- feat: new global variables [320](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/320)
+- fix(components/icon): up poi-2 icon [323](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/323)
+
 ## [v0.13.3] - 07-09-2022
 
 ### @digital-plant/zyfra-components [v0.13.3]
@@ -9,7 +16,6 @@
 **Reverted**
 
 - fix/(components/styles): removed global variables [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/318)
-
 
 ## [1.0.0-beta.4] - 06-09-2022
 
@@ -19,12 +25,11 @@
 
 - feat/(next/tab): add closable ability for each tab [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/302)
 
-
 > **Special thanks**
 >
 > ✏️ **MR:** Andrey Smirnov
 
-----
+---
 
 ## [v0.13.2] - 06-09-2022
 
@@ -44,7 +49,7 @@
 >
 > 🐛 **Issue:** Anton Grekov
 
-----
+---
 
 ## [v0.13.1] - 10-08-2022
 
@@ -52,7 +57,7 @@
 
 **Added**
 
-- feat/(helpers/destroy): add optional callback  [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/279)
+- feat/(helpers/destroy): add optional callback [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/279)
 
 > **Special thanks**
 >
@@ -60,7 +65,7 @@
 
 ## [v0.13.0] - 05-08-2022
 
-----
+---
 
 ### @digital-plant/zyfra-components [v0.13.0]
 
@@ -87,7 +92,7 @@
 
 ## [v0.12.0] - 13-07-2022
 
-----
+---
 
 ### @digital-plant/zyfra-components [v0.12.0]
 
@@ -115,7 +120,7 @@
 
 ## [v0.11.2] - 17-06-2022
 
-----
+---
 
 ### @digital-plant/zyfra-components [v0.11.2]
 
@@ -158,7 +163,7 @@
 
 ## [v0.10.0] - 31-05-2022
 
-----
+---
 
 ### @digital-plant/zyfra-components [v0.10.0]
 
@@ -178,7 +183,7 @@
 
 ## [v0.9.3] - 27-05-2022
 
-----
+---
 
 ### @digital-plant/zyfra-translate [v1.0.2]
 
@@ -196,7 +201,7 @@
 >
 > ✏️ **MR:** Dmitriy Sokolov, Konstantin Khimenkov
 
-----
+---
 
 ## [v0.9.2] - 25-05-2022
 
@@ -207,8 +212,7 @@
 - fix(helpers): fixes strict null checks
 - fix(components): add export zyfra-template.module
 
-
-----
+---
 
 ## [v0.9.1] - 23-05-2022
 
@@ -218,7 +222,7 @@
 
 - fix(components): fixes publishable library
 
-----
+---
 
 ## [v0.9.0] - 20-05-2022
 
@@ -244,7 +248,7 @@
 >
 > ️🐛 **Issue:** Aleksey S. Polyakov, Stepan Fedorov, Andrey Blokhin
 
-----
+---
 
 ## [v0.8.0] - 11-05-2022
 
