@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styles: [`
     zui-widget {
       padding: 16px;
-      color: var(--text-main);
+      color: var(--zui-text-main);
       font-style: normal;
       font-weight: 400;
       font-size: 14px;

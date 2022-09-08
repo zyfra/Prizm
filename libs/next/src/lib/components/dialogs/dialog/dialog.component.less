@@ -1,8 +1,8 @@
 @import '../../../../styles/ui-local';
 :host {
   display: block;
-  background: var(--zui-dialog-background, var(--bg-body));
-  border: 1px solid var(--border-widget);
+  background: var(--zui-dialog-background, var(--zui-bg-body));
+  border: 1px solid var(--zui-border-widget);
   border-radius: var(--zui-dialog-border-radius, 2px);
   margin: var(--zui-dialog-margin, 16px);
   pointer-events: all;
@@ -11,12 +11,12 @@
 .content {
   .ellipsis();
   padding: var(--zui-dialog-padding, 32px 16px);
-  color: var(--text-main);
+  color: var(--zui-text-main);
   max-width: 100%;
 }
 
 .header {
-  border-bottom: 1px solid var(--border-widget);
+  border-bottom: 1px solid var(--zui-border-widget);
   padding: var(--zui-dialog-padding, 14px 16px);
   display: flex;
   justify-content: space-between;
@@ -24,7 +24,7 @@
   font-style: normal;
   font-weight: 600;
   font-size: var(--zui-dialog-font-size, 14px);
-  color: var(--text-contrast);
+  color: var(--zui-text-contrast);
 
   .title {
     .ellipsis();
@@ -34,7 +34,7 @@
   }
 
   .icon {
-    color: var(--border-icon);
+    color: var(--zui-border-icon);
     font-weight: 300;
     cursor: pointer;
     margin-left: 16px;
@@ -43,7 +43,7 @@
 
 .footer {
   .ellipsis();
-  border-top: 1px solid var(--border-widget);
+  border-top: 1px solid var(--zui-border-widget);
   padding: var(--zui-dialog-padding, 14px 16px);
   max-width: 100%;
 

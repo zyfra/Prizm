@@ -22,7 +22,7 @@ zui-radio-button {
       margin-left: 8px;
       word-break: break-word;
 
-      color: var(--text-contrast);
+      color: var(--zui-text-contrast);
     }
 
     .radio-button {
@@ -30,17 +30,17 @@ zui-radio-button {
       align-items: center;
       justify-content: center;
 
-      background: var(--bg-dashboard-forms);
+      background: var(--zui-bg-dashboard-forms);
       box-shadow: 0 0 0 2px transparent;
 
-      border: 1px solid var(--border-forms);
+      border: 1px solid var(--zui-border-forms);
       border-radius: 50%;
 
       cursor: pointer;
 
       &__mark {
         border-radius: 50%;
-        background: var(--exceptions-white);
+        background: var(--zui-exceptions-white);
         opacity: 0;
 
         pointer-events: none;
@@ -60,13 +60,13 @@ zui-radio-button {
       cursor: pointer;
 
       &:focus + .radio-button {
-        box-shadow: 0 0 0 2px var(--lite-b130-20);
+        box-shadow: 0 0 0 2px var(--zui-lite-b130-20);
         transition: 0.3s;
       }
 
       &:checked + .radio-button {
-        border-color: var(--index-plan);
-        background: var(--index-plan);
+        border-color: var(--zui-index-plan);
+        background: var(--zui-index-plan);
         transition: 0.3s;
 
         .radio-button__mark {
@@ -76,11 +76,11 @@ zui-radio-button {
       }
 
       &:not(:checked):focus + .radio-button {
-        border-color: var(--index-plan);
+        border-color: var(--zui-index-plan);
       }
 
       &:hover + .radio-button {
-        border-color: var(--index-plan);
+        border-color: var(--zui-index-plan);
         transition: 0.3s;
       }
     }
@@ -95,12 +95,12 @@ zui-radio-button {
       pointer-events: none;
 
       & + .radio-button {
-        border-color: var(--bg-dashboard-forms);
+        border-color: var(--zui-bg-dashboard-forms);
       }
 
       &:checked + .radio-button {
-        border-color: var(--bg-dashboard-forms);
-        background: var(--index-lock);
+        border-color: var(--zui-bg-dashboard-forms);
+        background: var(--zui-index-lock);
       }
     }
   }

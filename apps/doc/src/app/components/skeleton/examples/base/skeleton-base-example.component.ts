@@ -8,8 +8,9 @@ import { FormControl } from '@angular/forms';
     .header {
       margin: 8px 0;
       padding: 8px 0;
-      border-bottom: 1px solid var(--border-widget);
+      border-bottom: 1px solid var(--zui-border-widget);
     }
+
     .body {
       margin-top: 16px;
       display: flex;

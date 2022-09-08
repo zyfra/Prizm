@@ -14,7 +14,7 @@ import { ZuiShadowTypeEnum } from '@digital-plant/zui-components';
     .shadow-container {
       width: 200px;
       height: 200px;
-      background: var(--bg-body);
+      background: var(--zui-bg-body);
       border-radius: .5rem;
       display: flex;
       flex-flow: column;
@@ -22,13 +22,13 @@ import { ZuiShadowTypeEnum } from '@digital-plant/zui-components';
       padding: 16px;
 
       .title {
-        color: var(--text-main);
+        color: var(--zui-text-main);
         font-size: 14px;
         font-weight: 800;
       }
 
       .description {
-        color: var(--text-subscript);
+        color: var(--zui-text-subscript);
         font-size: 12px;
       }
     }
