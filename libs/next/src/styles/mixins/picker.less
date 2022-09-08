@@ -47,8 +47,8 @@
           border-radius: 2px;
 
           .z-item {
-            border: 1px solid var(--index-plan);
-            color: var(--exeptions-g1-b1);
+            border: 1px solid var(--zui-index-plan);
+            color: var(--zui-exeptions-g1-b1);
           }
         }
 
@@ -66,10 +66,10 @@
 
         &_interval {
             &:before {
-                background: var(--lite-b130-20);
+                background: var(--zui-lite-b130-20);
 
                 :host._single & {
-                    background-color: var(--lite-b130-20);
+                    background-color: var(--zui-lite-b130-20);
                 }
             }
 
@@ -93,7 +93,7 @@
 
             & > .z-item {
                 border-radius: 0;
-                color: var(--index-plan)
+                color: var(--zui-index-plan)
             }
         }
 
@@ -103,30 +103,30 @@
             }
 
             & > .z-item {
-                color: var(--grey-g13-g1);
+                color: var(--zui-grey-g13-g1);
 
                 &:before,
                 &:after {
-                    background-color: var(--index-plan);
+                    background-color: var(--zui-index-plan);
                 }
             }
 
             &[data-state='hovered'] > .z-item {
-              background-color: var(--index-plan);
-              color: var(--exceptions-white);
+              background-color: var(--zui-index-plan);
+              color: var(--zui-exceptions-white);
             }
 
 
           &[data-state='hovered'] > .z-item:before,
             &[data-state='hovered'] > .z-item:after {
-                background-color: var(--grey-g12-g2);
-                color: var(--index-plan);
+                background-color: var(--zui-grey-g12-g2);
+                color: var(--zui-index-plan);
             }
 
             &[data-state='pressed'] > .z-item:before,
             &[data-state='pressed'] > .z-item:after {
                 //background-color: var(--tui-primary-active);
-                background-color: var(--index-plan);
+                background-color: var(--zui-index-plan);
             }
         }
 
@@ -167,14 +167,14 @@
 
 
         &[data-state='hovered']:not([data-range]) > .z-item {
-            background-color: var(--g2-g11);
-            color: var(--exeptions-g1-b1)
+            background-color: var(--zui-g2-g11);
+            color: var(--zui-exeptions-g1-b1)
         }
 
         &[data-state='pressed']:hover:not([data-range]) > .z-item {
-            background-color: var(--index-plan);
+            background-color: var(--zui-index-plan);
             border-radius: 2px;
-            color: var(--grey-g13-g1);
+            color: var(--zui-grey-g13-g1);
         }
     }
 }

@@ -25,7 +25,7 @@
 
   &[last-child='true'] {
     .switcher {
-      border-right: 1px solid var(--border-forms);
+      border-right: 1px solid var(--zui-border-forms);
     }
   }
 
@@ -47,7 +47,7 @@
     justify-content: center;
     gap: 8px;
 
-    border: 1px solid var(--border-forms);
+    border: 1px solid var(--zui-border-forms);
     border-right: none;
 
     transition: 400ms;
@@ -57,7 +57,7 @@
       font-weight: 600;
       line-height: 16px;
 
-      color: var(--grey-g7-g7);
+      color: var(--zui-grey-g7-g7);
     }
 
     &__icon {
@@ -66,15 +66,15 @@
 
       display: flex;
 
-      color: var(--grey-g7-g7);
+      color: var(--zui-grey-g7-g7);
     }
 
     &:hover:not(&_active) {
-      background: var(--grey-g12-g2);
+      background: var(--zui-grey-g12-g2);
 
       .switcher__title,
       .switcher__icon {
-        color: var(--exeptions-g1-b1);
+        color: var(--zui-exeptions-g1-b1);
       }
     }
 
@@ -82,15 +82,15 @@
       border-color: transparent;
       border-radius: 2px;
       position: relative;
-      box-shadow: 0 0 0 2px var(--lite-b130-20);
+      box-shadow: 0 0 0 2px var(--zui-lite-b130-20);
     }
 
     &_active {
-      background: var(--lite-b130-20);
+      background: var(--zui-lite-b130-20);
 
       .switcher__title,
       .switcher__icon {
-        color: var(--exeptions-g1-b1);
+        color: var(--zui-exeptions-g1-b1);
       }
     }
   }

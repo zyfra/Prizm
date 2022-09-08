@@ -47,7 +47,7 @@
   display: block;
   font-weight: 600;
   font-size: 12px;
-  color: var(--text-subscript);
+  color: var(--zui-text-subscript);
   padding-left: 16px;
   line-height: 16px;
   margin-bottom: 4px;
@@ -57,7 +57,7 @@
 
 
   &-required {
-    color: var(--index-danger);
+    color: var(--zui-index-danger);
   }
 
   &-inner {
@@ -101,7 +101,7 @@
 
   &-textarea {
     &.@{label}-inner {
-      background-color: var(--bg-dashboard-forms);
+      background-color: var(--zui-bg-dashboard-forms);
       width: 100%;
       &[data-size='l'] {
         top: 0;
@@ -137,8 +137,8 @@
 }
 
 .zui-input-form {
-  background-color: var(--bg-dashboard-forms);
-  border: 1px solid var(--border-forms);
+  background-color: var(--zui-bg-dashboard-forms);
+  border: 1px solid var(--zui-border-forms);
   border-radius: 2px;
   display: flex;
   flex-direction: column;
@@ -156,7 +156,7 @@
   }
 
   &:hover {
-    border-color: var(--index-plan);
+    border-color: var(--zui-index-plan);
   }
 
   &__first {
@@ -172,57 +172,57 @@
 
   &-status {
     &-success {
-      border-color: var(--index-good);
+      border-color: var(--zui-index-good);
       &:hover {
-        border-color: var(--index-good);
+        border-color: var(--zui-index-good);
       }
 
       .zui-input-form-status-button {
-        color: var(--index-good);
+        color: var(--zui-index-good);
       }
     }
 
     &-warning {
-      border-color: var(--index-warning);
+      border-color: var(--zui-index-warning);
       &:hover {
-        border-color: var(--index-warning);
+        border-color: var(--zui-index-warning);
       }
 
       .zui-input-form-status-button {
-        color: var(--index-warning);
+        color: var(--zui-index-warning);
       }
     }
 
     &-danger {
-      border-color: var(--index-danger);
+      border-color: var(--zui-index-danger);
       &:hover {
-        border-color: var(--index-danger);
+        border-color: var(--zui-index-danger);
       }
 
       .zui-input-form-status-button {
-        color: var(--index-danger);
+        color: var(--zui-index-danger);
       }
     }
   }
 
   &-invalid {
     &.zui-input-form-touched {
-      border-color: var(--index-danger);
+      border-color: var(--zui-index-danger);
     }
 
     .zui-input-form-status-button {
-      color: var(--index-danger);
+      color: var(--zui-index-danger);
     }
   }
 
   // rewrite all if focused
   &-focused,
   &:focus-within {
-    border-color: var(--index-plan);
-    box-shadow: 0 0 0 2px var(--lite-b130-20);
+    border-color: var(--zui-index-plan);
+    box-shadow: 0 0 0 2px var(--zui-lite-b130-20);
 
     &:hover {
-      border-color: var(--index-plan);
+      border-color: var(--zui-index-plan);
     }
 
     .zui-input-button-default {
@@ -273,7 +273,7 @@
       .zui-input-button-default {
         position: absolute;
         z-index: 100;
-        background-color: var(--bg-dashboard-forms);
+        background-color: var(--zui-bg-dashboard-forms);
       }
 
       .zui-input-button-default {
@@ -370,15 +370,15 @@
   line-height: 22px;
 
   &-success {
-    color: var(--index-good);
+    color: var(--zui-index-good);
   }
 
   &-warning {
-    color: var(--index-warning);
+    color: var(--zui-index-warning);
   }
 
   &-danger {
-    color: var(--index-danger);
+    color: var(--zui-index-danger);
   }
 }
 
