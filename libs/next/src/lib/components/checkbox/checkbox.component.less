@@ -13,10 +13,10 @@
   justify-content: center;
   transition: 0.3s;
 
-  background: var(--bg-dashboard-forms);
+  background: var(--zui-bg-dashboard-forms);
   box-shadow: 0 0 0 2px transparent;
 
-  border: 1px solid var(--border-forms);
+  border: 1px solid var(--zui-border-forms);
   border-radius: 2px;
 
   &--size-s {
@@ -31,12 +31,12 @@
 
   &--checked,
   &--indeterminate {
-    border-color: var(--index-plan);
-    background: var(--index-plan);
+    border-color: var(--zui-index-plan);
+    background: var(--zui-index-plan);
   }
 
   &:hover {
-    border-color: var(--index-plan);
+    border-color: var(--zui-index-plan);
   }
 
   &__icon {
@@ -44,7 +44,7 @@
     align-items: center;
     justify-content: center;
 
-    color: var(--exceptions-white);
+    color: var(--zui-exceptions-white);
     opacity: 0;
 
     pointer-events: none;
@@ -79,7 +79,7 @@
 
 .label {
   margin-left: 8px;
-  color: var(--text-contrast);
+  color: var(--zui-text-contrast);
 
   &--size-s {
     font-size: 12px;
@@ -96,22 +96,22 @@
   cursor: not-allowed;
 
   .checkbox {
-    border-color: var(--bg-dashboard-forms);
+    border-color: var(--zui-bg-dashboard-forms);
     &--checked,
     &--indeterminate {
-      background-color: var(--index-lock);
+      background-color: var(--zui-index-lock);
     }
   }
 }
 
 :host:focus {
   .checkbox {
-    box-shadow: 0 0 0 2px var(--lite-b130-20);
+    box-shadow: 0 0 0 2px var(--zui-lite-b130-20);
 
     &--checked,
     &--indeterminate {
-      border-color: var(--palette-b2);
-      background: var(--palette-b2);
+      border-color: var(--zui-palette-b2);
+      background: var(--zui-palette-b2);
     }
   }
 }
