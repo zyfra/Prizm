@@ -7,4 +7,4 @@ export interface ITab {
 }
 
 export type TabType = 'line' | 'contained';
-export type TabSize = 'm' | 's' | 'adaptive';
+export type TabSize = 's' | 'adaptive';

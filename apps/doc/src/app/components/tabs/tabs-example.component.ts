@@ -12,7 +12,7 @@ export class TabsExampleComponent {
   public type: TabType = 'line';
   public typeVariants: TabType[] = ['line', 'contained'];
   public size: TabSize = 'adaptive';
-  public sizeVariants: TabSize[] = ['m', 's', 'adaptive'];
+  public sizeVariants: TabSize[] = ['s', 'adaptive'];
   public title = 'Title';
   iconVariants: string[] = ['', ...IconDefs.reduce((a, c) => a.concat(c.data), [])];
   icon: string = this.iconVariants[0];
