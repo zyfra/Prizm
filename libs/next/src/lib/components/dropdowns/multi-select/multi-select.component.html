@@ -43,7 +43,7 @@
   <ng-template #dropdown>
     <zui-data-list class="block">
       <div class="list-search-item" *ngIf="searchable">
-        <zui-input-layout size="m" label="Поиск" (click)="safeStopPropagation(input.value, $event)">
+        <zui-input-layout size="m" label="Поиск">
           <input zuiInput zuiAutoFocus class="input-search" #input [formControl]="searchInputControl" />
           <button zuiInputIconButton="sort-zoom-in" zui-input-right [interactive]="true"></button>
         </zui-input-layout>
@@ -51,7 +51,7 @@
       <ng-container *ngIf="$.filteredItems?.length; else emptyTemplate">
         <div
           class="item"
-          [class.selected]="item.obj | zuiCallFunc: identityMatcher:value"
+          [class.selected]="item.checked"
           *ngFor="let item of $.filteredItems"
           (click)="select(item)"
         >

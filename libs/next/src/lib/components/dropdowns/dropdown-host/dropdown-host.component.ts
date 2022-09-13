@@ -19,14 +19,16 @@ import {
   ZuiOverlayService,
 } from '../../../modules/overlay';
 import { PolymorphContent } from '../../../directives';
-import { debounceTime, delay, filter, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, delay, filter, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-import { BehaviorSubject, fromEvent, Observable, Subject, timer } from 'rxjs';
+import { BehaviorSubject, combineLatest, fromEvent, Observable, Subject, timer, zip } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 import { zuiDefaultProp } from '../../../decorators';
 import { ZUI_DROPDOWN_HOST_OPTIONS, ZuiDropdownHostOptions } from './dropdown-host.options';
 import { ZuiDropdownHostWidth } from './models';
 import { zuiGenerateId } from '../../../util';
+
+const ZUI_DROPDOWN_TIME_DIFFERENCE = 1000/60;
 
 @Component({
   selector: 'zui-dropdown-host',
@@ -65,7 +67,8 @@ export class ZuiDropdownHostComponent implements AfterViewInit {
   @zuiDefaultProp()
   zuiDropdownHostCloseOnBackdropClick = this.options.closeOnBackdrop;
 
-
+  private readonly documentClick$ = new Subject<number>();
+  private readonly containerClick$ = new Subject<number>();
 
   private destroyReCalc$ = new Subject<void>();
   private _autoReposition = this.options.autoReposition;
@@ -132,12 +135,24 @@ export class ZuiDropdownHostComponent implements AfterViewInit {
     })
   }
 
+  @HostListener('window:click', ['$event']) public onDocumentClick(event: MouseEvent): void {
+    this.documentClick$.next(Date.now());
+  }
+
   private initClickListener(): void {
     this.overlay.listen('z_open').pipe(
       delay(0),
-      switchMap(() => fromEvent<MouseEvent>(this.document, 'click').pipe(
-        filter(() => this.overlay?.isOpen && this.zuiDropdownHostCloseOnBackdropClick),
-        filter(({target}) => !this.document.getElementById(this.zuiDropdownHostId)?.contains(target as HTMLElement)),
+      switchMap(() => combineLatest([
+        this.documentClick$,
+        this.containerClick$.pipe(startWith(Date.now())),
+      ]).pipe(
+        debounceTime(0),
+        map(([document, container]: [number, number]) => document - container),
+        filter(
+          (diff: number) => diff > ZUI_DROPDOWN_TIME_DIFFERENCE &&
+            this.overlay?.isOpen &&
+            this.zuiDropdownHostCloseOnBackdropClick
+        ),
         tap(() => this.close()),
         takeUntil( this.overlay.listen('z_close')),
       )),
@@ -188,6 +203,10 @@ export class ZuiDropdownHostComponent implements AfterViewInit {
       takeUntil(this.destroy$),
       takeUntil(this.destroyReCalc$),
     ).subscribe();
+  }
+
+  public clickOnContainer(event: MouseEvent): void {
+    this.containerClick$.next(Date.now());
   }
 
   private initPositionListener(position: ZuiOverlayRelativePosition): void {
