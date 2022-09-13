@@ -1,5 +1,4 @@
-@sizeM: 44px;
-@sizeS: 32px;
+@sizeS: 40px;
 
 :host {
   width: 100%;
@@ -60,7 +59,7 @@
 
       &__icon {
         height: 100%;
-        width: @sizeM;
+        width: @sizeS;
 
         display: flex;
         align-items: center;
@@ -71,7 +70,7 @@
 
       &__settings {
         height: 100%;
-        width: @sizeM;
+        width: @sizeS;
 
         display: flex;
         align-items: center;
@@ -116,17 +115,6 @@
             color: var(--zui-index-plan);
           }
         }
-      }
-    }
-  }
-
-  &[data-size='m'] {
-    height: @sizeM;
-
-    .container {
-      .control__icon,
-      .control__settings {
-        width: @sizeM;
       }
     }
   }
