@@ -1,5 +1,6 @@
 <ng-template #labelTemplate>
   <div
+    *ngIf="label"
     class="label-container {{
       control.nativeElementType ? 'label-container-' + control.nativeElementType : ''
     }}   label-container-{{ outer ? 'outer' : 'inner' }}"
@@ -81,4 +82,3 @@
 <div class="zui-input-form-subtext zui-input-form-subtext-{{ status }}">
   <ng-content select="[zui-input-subtext]"></ng-content>
 </div>
-
