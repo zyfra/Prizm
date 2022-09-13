@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'zui-multi-select-with-search-example',
   templateUrl: './multi-select-with-search-example.component.html',
 })
-export class ZuiMultiSelectWithSearchExampleComponent implements OnInit {
+export class ZuiMultiSelectWithSearchExampleComponent {
   value = true;
   readonly valueControl = new FormControl(['Андрей Сафанов']);
   readonly items = [
@@ -19,9 +19,4 @@ export class ZuiMultiSelectWithSearchExampleComponent implements OnInit {
     'Рустам Гусев',
     'Филип Уваров',
   ]
-  readonly valueDisabled = new FormControl(false);
-
-  ngOnInit(): void {
-    this.valueDisabled.disable();
-  }
 }

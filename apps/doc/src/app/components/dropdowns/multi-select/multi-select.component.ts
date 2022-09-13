@@ -16,13 +16,15 @@ import { FormControl } from '@angular/forms';
 })
 export class MultiSelectComponent {
   readonly control = new FormControl();
-  public emptyContent = 'Ничего не найдено';
-  public searchable = false;
-  public label = 'Выберите участника';
-  public minDropdownHeight = 0;
-  public maxDropdownHeight = 250;
-  public placeholder = '';
-  public visibility: ZuiScrollbarVisibility = 'auto';
+  searchable = false;
+  outer = false;
+  label = 'Выберите участника';
+  emptyContent = 'Ничего не найдено';
+  nullContent = 'Не выбрано';
+  minDropdownHeight = 0;
+  maxDropdownHeight = 342;
+  placeholder = '';
+  visibility: ZuiScrollbarVisibility = 'auto';
   readonly itemsVariants: ReadonlyArray<string[] | null> = [
     [
       'Андрей Сафанов',
@@ -41,9 +43,8 @@ export class MultiSelectComponent {
     ...this.itemsVariants[0],
     null
   ];
-  // items: string[] | null = this.itemsVariants[0];
   readonly valueControl = new FormControl([]);
-  readonly items = [
+  public items = [
     'One',
     'Two',
     'Three',
@@ -72,6 +73,11 @@ export class MultiSelectComponent {
   readonly exampleWithTemplate: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/with-template/multi-select-with-template-example.component.ts'),
     HTML: import('!!raw-loader!./examples/with-template/multi-select-with-template-example.component.html'),
+  };
+
+  readonly exampleWithObject: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/with-object/multi-select-with-object-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/with-object/multi-select-with-object-example.component.html'),
   };
 
   readonly exampleWithSearch: TuiDocExample = {

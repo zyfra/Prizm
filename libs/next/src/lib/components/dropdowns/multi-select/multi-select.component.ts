@@ -35,7 +35,7 @@ import { ZUI_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens';
 import { zuiDefaultProp } from '../../../decorators';
 import { ZuiDropdownHostComponent } from '../dropdown-host';
 import {
-  ZuiMultiSelectIdentityMatcher,
+  ZuiMultiSelectIdentityMatcher, ZuiMultiSelectItemStringifyFunc,
   ZuiMultiSelectItemWithChecked,
   ZuiMultiSelectSearchMatcher,
 } from './multi-select.model';
@@ -115,7 +115,7 @@ implements ZuiFocusableElementAccessor
   /** need only clear function */
   @Input()
   @zuiDefaultProp()
-  stringify: (i: Omit<ZuiMultiSelectItemWithChecked<T>, 'stringify'>, content?: string) => string = this.options.stringify;
+  stringify: ZuiMultiSelectItemStringifyFunc<T> = this.options.stringify;
 
   @Input()
   @zuiDefaultProp()

@@ -6,3 +6,6 @@ export type ZuiMultiSelectItemWithChecked<T> = {
   obj: T,
   stringify: string
 }
+
+export type ZuiMultiSelectItemStringifyFunc<T> = (i: ZuiMultiSelectItemStringifyItem<T>, nullContent?: string) => string
+export type ZuiMultiSelectItemStringifyItem<T> = Omit<ZuiMultiSelectItemWithChecked<T>, 'stringify'>
