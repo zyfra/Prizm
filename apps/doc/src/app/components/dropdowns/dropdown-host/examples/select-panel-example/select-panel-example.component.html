@@ -1,0 +1,58 @@
+<zui-dropdown-host [content]="dropdown" zuiDropdownHostWidth="auto" [(isOpen)]="showPanel">
+  <button zuiButton type="button" (click)="show()">Button</button>
+</zui-dropdown-host>
+
+<ng-template #dropdown>
+  <zui-data-list class="data-list" [defaultStyle]="false">
+    <ng-container header>
+      <div class="header">
+        <zui-checkbox
+          class="header__checkbox"
+          (changed)="onChange($event)"
+          [checked]="allChecked"
+          [indeterminate]="someChecked"
+        >
+          <span class="header__label"> Заголовок блока </span>
+        </zui-checkbox>
+      </div>
+    </ng-container>
+
+    <div class="content">
+      <div class="filter">
+        <zui-input-layout class="filter__input-layout" [label]="'Фильтр'" [size]="'m'">
+          <input
+            zuiInput
+            #input
+            [placeholder]="'Введите значение'"
+            (input)="filter(input.value)"
+            (onClear)="filter('')"
+          />
+          <button
+            zuiInputIconButton="sort-zoom-in"
+            zui-input-right
+            [interactive]="true"
+            (click)="filter(input.value)"
+          ></button>
+        </zui-input-layout>
+      </div>
+
+      <ul class="options">
+        <li *ngFor="let option of filteredData" class="options__item option">
+          <zui-checkbox class="option__checkbox" [(ngModel)]="option.checked">
+            <div class="option__label">
+              <span class="option__title">{{ option.label.title }}</span>
+              <span class="option__subtitle">{{ option.label.subtitle }}</span>
+            </div>
+          </zui-checkbox>
+        </li>
+      </ul>
+    </div>
+
+    <ng-container footer>
+      <div class="footer">
+        <button zuiButton (click)="hide()" class="footer__btn">Применить запрос</button>
+      </div>
+    </ng-container>
+  </zui-data-list>
+</ng-template>
+

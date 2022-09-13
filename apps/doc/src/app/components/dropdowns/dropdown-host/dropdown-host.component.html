@@ -1,19 +1,13 @@
-<tui-doc-page
-  header="DropdownHost"
-  package="next"
-  type="components"
->
+<tui-doc-page header="DropdownHost" package="next" type="components">
   <ng-template pageTab>
-    <p>
-      Use ZuiDropdownHostComponent to view dropdown.
-    </p>
+    <p>Use ZuiDropdownHostComponent to view dropdown.</p>
 
-    <tui-doc-example
-      id="base"
-      heading="With Template"
-      [content]="exampleWithTemplate"
-    >
+    <tui-doc-example id="base" heading="With Template" [content]="exampleWithTemplate">
       <zui-dropdown-host-example-with-template></zui-dropdown-host-example-with-template>
+    </tui-doc-example>
+
+    <tui-doc-example id="select-panel" heading="Select panel" [content]="exampleWithSelectPanel">
+      <zui-select-panel-example></zui-select-panel-example>
     </tui-doc-example>
   </ng-template>
 
@@ -23,13 +17,11 @@
         [content]="withHeaderAndFooter"
         [(isOpen)]="isOpen"
         [autoReposition]="autoReposition"
-        [zuiDropdownHostWidth]='zuiDropdownHostWidth'
+        [zuiDropdownHostWidth]="zuiDropdownHostWidth"
         [placement]="placement"
         [zuiDropdownHostCloseOnBackdropClick]="closeOnBackdropClick"
       >
-        <button zuiButton type="button" (click)="isOpen = !isOpen">
-          Button
-        </button>
+        <button zuiButton type="button" (click)="isOpen = !isOpen">Button</button>
       </zui-dropdown-host>
 
       <ng-template #withHeaderAndFooter>
@@ -69,7 +61,6 @@
         </zui-data-list>
       </ng-template>
 
-
       <ng-template #onlyContent>
         <zui-data-list>
           <div class="box">
@@ -78,7 +69,6 @@
           </div>
         </zui-data-list>
       </ng-template>
-
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
@@ -135,7 +125,6 @@
       >
         Content
       </ng-template>
-
     </tui-doc-documentation>
   </ng-template>
 
@@ -148,11 +137,9 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code
-          filename="myComponent.module.ts"
-          [code]="exampleModule"
-        ></tui-doc-code>
+        <tui-doc-code filename="myComponent.module.ts" [code]="exampleModule"></tui-doc-code>
       </li>
     </ol>
   </ng-template>
 </tui-doc-page>
+
