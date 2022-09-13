@@ -7,6 +7,10 @@
     <tui-doc-example id="withLabels" heading="With Labels" [content]="exampleLabelsPaginator">
       <zui-paginator-with-labels-example></zui-paginator-with-labels-example>
     </tui-doc-example>
+
+    <tui-doc-example id="inf" heading="Infinite" [content]="exampleInfinitePaginator">
+      <zui-paginator-infinite-example></zui-paginator-infinite-example>
+    </tui-doc-example>
   </ng-template>
 
   <ng-template pageTab>
@@ -18,9 +22,40 @@
         [pageLinkSize]="pageLinkSize"
         [leftButtonLabel]="leftButtonLabel"
         [rightButtonLabel]="rightButtonLabel"
+        [paginatorType]="paginatorType"
+        [paginatorOptions]="paginatorOptions"
+        [rowsCountOptions]="rowsCountOptions"
       ></zui-paginator>
     </tui-doc-demo>
     <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="paginatorType"
+        documentationPropertyType="IPaginatorType"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="paginatorTypesVariants"
+        [(documentationPropertyValue)]="paginatorType"
+      >
+        Paginator type
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="paginatorOptions"
+        documentationPropertyType="IPaginatorOptions"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="paginatorOptionsVariants"
+        [(documentationPropertyValue)]="paginatorOptions"
+      >
+        Paginator inner content options
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="rowsCountOptions"
+        documentationPropertyType="number[]"
+        documentationPropertyMode="input"
+      >
+        Rows count selector inner
+      </ng-template>
+
       <ng-template
         documentationPropertyName="totalRecords"
         documentationPropertyType="number"
@@ -44,6 +79,7 @@
         documentationPropertyType="number"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="rows"
+        (documentationPropertyValueChange)="changeRowValue()"
       >
         Rows
       </ng-template>

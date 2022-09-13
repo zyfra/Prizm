@@ -10,3 +10,12 @@ export interface IPaginatorOutput {
   rows: number;
   tabCount: number;
 }
+
+export interface IPaginatorOptions {
+  noRowsSelector?: boolean;
+  noRowsSelectorLabel?: boolean;
+  noInfo?: boolean;
+  noPages?: boolean;
+}
+
+export type PaginatorType = 'finite' | 'infinite';
