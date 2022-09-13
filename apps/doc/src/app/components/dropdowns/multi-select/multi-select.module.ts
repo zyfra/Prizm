@@ -12,6 +12,9 @@ import { ZuiMultiSelectBaseExampleComponent } from './examples/base/multi-select
 import {
   ZuiMultiSelectWithSearchExampleComponent,
 } from './examples/with-search/multi-select-with-search-example.component';
+import {
+  ZuiMultiSelectWithObjectExampleComponent,
+} from './examples/with-object/multi-select-with-object-example.component';
 
 @NgModule({
   imports: [
@@ -28,6 +31,7 @@ import {
     ZuiMultiSelectBaseExampleComponent,
     ZuiMultiSelectWithSearchExampleComponent,
     ZuiMultiSelectWithTemplateExampleComponent,
+    ZuiMultiSelectWithObjectExampleComponent,
     MultiSelectComponent
   ],
   exports: [MultiSelectComponent],

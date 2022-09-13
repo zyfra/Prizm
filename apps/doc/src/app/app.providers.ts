@@ -7,7 +7,7 @@ import {
   TUI_DOC_LOGO,
   TUI_DOC_PAGES,
   TUI_DOC_SOURCE_CODE,
-  TUI_DOC_TITLE,
+  TUI_DOC_TITLE, TuiDocPages,
   TuiDocSourceCodePathOptions,
 } from '@taiga-ui/addon-doc';
 import {isInsideIframe, TUI_DIALOG_CLOSES_ON_BACK, TUI_IS_CYPRESS, TUI_TAKE_ONLY_TRUSTED_EVENTS,} from '@taiga-ui/cdk';
@@ -17,6 +17,7 @@ import {Observable, of} from 'rxjs';
 import {NgDompurifySanitizer} from '@tinkoff/ng-dompurify';
 import {pages} from './pages';
 import {LOGO_CONTENT} from "./logo/logo.component";
+import { TuiDocPage, TuiDocPageGroup } from '@taiga-ui/addon-doc/interfaces/page';
 
 export const DEFAULT_TABS = [
   `Description and examples`,
@@ -74,16 +75,14 @@ export const APP_PROVIDERS = [
   },
   {
     provide: TUI_DOC_PAGES,
-    useValue: pages,
+    useFactory: (): TuiDocPages => {
+      return sortDocPages(pages);
+    },
   },
 
   {
     provide: TUI_DOC_TITLE,
     useValue: TITLE_PREFIX,
-  },
-  {
-    provide: TUI_DOC_PAGES,
-    useValue: pages,
   },
   {
     provide: TUI_DOC_DEFAULT_TABS,
@@ -106,3 +105,16 @@ export const APP_PROVIDERS = [
     useFactory: (): Observable<unknown> => of(!isInsideIframe(inject(WINDOW))), // for cypress tests
   },
 ];
+
+function sortDocPages(pages: ReadonlyArray<TuiDocPage | TuiDocPageGroup>): (TuiDocPage | TuiDocPageGroup)[] {
+  return [...pages].sort((a, b) => {
+    return a.title.localeCompare(b.title);
+  }).map(
+    (page: TuiDocPage | TuiDocPageGroup) => {
+      return {
+        ...page,
+        ...('subPages' in page ? {subPages: sortDocPages(page.subPages)} : {}),
+      } as TuiDocPage | TuiDocPageGroup;
+    }
+  );
+}

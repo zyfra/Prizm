@@ -2,7 +2,12 @@ import { InjectionToken, ValueProvider } from '@angular/core';
 import { PolymorphContent } from '../../../directives';
 import { ZuiInputSize } from '../../input';
 import { ZuiContextWithImplicit } from '../../../types';
-import { ZuiMultiSelectItemWithChecked, ZuiMultiSelectIdentityMatcher, ZuiMultiSelectSearchMatcher } from './multi-select.model';
+import {
+  ZuiMultiSelectItemWithChecked,
+  ZuiMultiSelectIdentityMatcher,
+  ZuiMultiSelectSearchMatcher,
+  ZuiMultiSelectItemStringifyFunc,
+} from './multi-select.model';
 
 export interface ZuiMultiSelectOptions<T> {
     readonly items: unknown[];
@@ -10,7 +15,7 @@ export interface ZuiMultiSelectOptions<T> {
     readonly label: string;
     readonly placeholder: string;
     readonly size: ZuiInputSize;
-    readonly stringify: (i:Omit<ZuiMultiSelectItemWithChecked<T>, 'stringify'>, nullContent?: string) => string;
+    readonly stringify: ZuiMultiSelectItemStringifyFunc<T>;
     readonly emptyContent: string;
     readonly nullContent: string;
     readonly searchMatcher: ZuiMultiSelectSearchMatcher<T>,
