@@ -1,12 +1,12 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, TemplateRef, ViewChild} from '@angular/core';
-import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
-import {PolymorphContent, ZuiOverlayOutsidePlacement} from '@digital-plant/zui-components';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, TemplateRef, ViewChild } from '@angular/core';
+import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { PolymorphContent, ZuiOverlayOutsidePlacement } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-dropdown-host-example',
   templateUrl: './dropdown-host.component.html',
   styleUrls: ['./dropdown-host.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropdownHostComponent {
   isOpen = false;
@@ -16,7 +16,7 @@ export class DropdownHostComponent {
   autoReposition: boolean;
 
   placementVariants: ReadonlyArray<ZuiOverlayOutsidePlacement> = [
-    ...Object.values(ZuiOverlayOutsidePlacement)
+    ...Object.values(ZuiOverlayOutsidePlacement),
   ];
   placement: ZuiOverlayOutsidePlacement;
   closeOnBackdropClick = false;
@@ -26,15 +26,19 @@ export class DropdownHostComponent {
   @ViewChild('withFooter') withFooter: TemplateRef<unknown>;
   @ViewChild('onlyContent') onlyContent: TemplateRef<unknown>;
 
-  readonly exampleModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/setup-module.md'
-  );
+  readonly exampleModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   readonly exampleWithTemplate: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/with-template/template.ts'),
     HTML: import('!!raw-loader!./examples/with-template/template.html'),
   };
 
-  constructor(public readonly cdRef: ChangeDetectorRef) {
-  }
+  readonly exampleWithSelectPanel: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/select-panel-example/select-panel-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/select-panel-example/select-panel-example.component.html'),
+    LESS: import('!!raw-loader!./examples/select-panel-example/select-panel-example.component.less'),
+  };
+
+  constructor(public readonly cdRef: ChangeDetectorRef) {}
 }
+
