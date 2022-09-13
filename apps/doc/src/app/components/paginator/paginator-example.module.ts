@@ -13,12 +13,14 @@ import {
 import { RouterModule } from '@angular/router';
 import { ZuiPaginatorModule } from '@digital-plant/zui-components';
 import { PaginatorWithLabelsExampleComponent } from './examples/paginator-with-labels-example/paginator-with-labels-example.component';
+import { PaginatorInfiniteExampleComponent } from './examples/paginator-infinite-example/paginator-infinite-example.component';
 
 @NgModule({
   declarations: [
     PaginatorExampleComponent,
     PaginatorBasicExampleComponent,
     PaginatorWithLabelsExampleComponent,
+    PaginatorInfiniteExampleComponent,
   ],
   imports: [
     CommonModule,

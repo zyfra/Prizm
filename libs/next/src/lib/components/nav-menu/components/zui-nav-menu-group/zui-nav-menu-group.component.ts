@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -112,7 +111,6 @@ export class ZuiNavMenuGroupComponent implements OnInit, OnDestroy {
   private _activeNode: TreeNode;
   private _toolbarConfig: ToolbarConfig = DEFAULT_TOOLBAR_CONFIG;
   private activeRootNode: TreeNode;
-  private treeWrapper: Element;
   private rubricatorNodes: TreeNode[] = [];
   private pathToActiveNode: unknown[] = [];
   private folderPath: unknown[] = [];
@@ -231,7 +229,6 @@ export class ZuiNavMenuGroupComponent implements OnInit, OnDestroy {
   }
 
   public changeSearchValue(searchString: string): void {
-    console.log(searchString);
     this.tree._filter(searchString);
   }
 

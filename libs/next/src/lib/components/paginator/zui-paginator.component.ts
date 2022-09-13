@@ -1,5 +1,10 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { IPaginatorData, IPaginatorOutput } from './interfaces/zui-paginator.interface';
+import {
+  IPaginatorData,
+  IPaginatorOptions,
+  IPaginatorOutput,
+  PaginatorType,
+} from './interfaces/zui-paginator.interface';
 
 @Component({
   selector: 'zui-paginator',
@@ -8,28 +13,42 @@ import { IPaginatorData, IPaginatorOutput } from './interfaces/zui-paginator.int
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZuiPaginatorComponent {
+  @Input() public paginatorType: PaginatorType = 'finite';
+  // Суммарное количество данных
   @Input() public totalRecords: number | null = null;
 
-  // Сколько показать за раз
+  // Сколько номеров видно на экране
   @Input() public pageLinkSize: number | null = null;
 
-  // Сколько показать всего
+  // Сколько данных в одном пакете
   @Input() public rows: number | null = null;
 
   @Input() public set initialValue(val: number) {
     this.currentPage = val;
   }
 
-  @Input() leftButtonLabel = '';
-  @Input() rightButtonLabel = '';
+  @Input() paginatorOptions: IPaginatorOptions = {
+    noRowsSelector: false,
+    noRowsSelectorLabel: false,
+    noInfo: false,
+    noPages: false,
+  };
+
+  @Input() public leftButtonLabel = '';
+  @Input() public rightButtonLabel = '';
+
+  @Input() public rowsCountOptions: number[] = [];
 
   @Output() public tabChange: EventEmitter<IPaginatorOutput> = new EventEmitter<IPaginatorOutput>();
+
   public currentPage = 1;
+  // Количесвто пакетов = Суммарное количество данных / Сколько данных в одном пакете
   public pagesCount = 0;
 
   public get paginationGenerator(): IPaginatorData | null {
     if (this.isDataValid) {
       this.pagesCount = Math.ceil(this.totalRecords / this.rows);
+      this.currentPage = this.currentPage > this.pagesCount ? this.pagesCount : this.currentPage;
       const allNumbers = new Array(this.pagesCount).fill(0).map((page, i) => i + 1);
 
       let mid: number[];
@@ -45,13 +64,6 @@ export class ZuiPaginatorComponent {
         );
       }
 
-      this.tabChange.emit({
-        page: this.currentPage - 1,
-        first: (this.currentPage - 1) * this.rows,
-        rows: this.rows,
-        tabCount: this.pagesCount,
-      });
-
       return {
         mid: mid,
         left: mid[0] === 1 ? null : 1,
@@ -59,6 +71,11 @@ export class ZuiPaginatorComponent {
       };
     }
     return null;
+  }
+
+  public get realTotalRecord(): number {
+    return (this.totalRecords =
+      this.paginatorType === 'infinite' ? this.rows * (this.currentPage + 1) : this.totalRecords);
   }
 
   public get isDataValid(): boolean {
@@ -78,14 +95,28 @@ export class ZuiPaginatorComponent {
   public changePage(page: number): void {
     if (this.currentPage !== page) {
       this.currentPage = page;
+      this.emitChangedValues();
     }
   }
 
   public increase(): void {
     this.currentPage++;
+    this.emitChangedValues();
   }
 
   public decrease(): void {
-    this.currentPage--;
+    if (this.currentPage > 0) {
+      this.currentPage--;
+      this.emitChangedValues();
+    }
+  }
+
+  private emitChangedValues(): void {
+    this.tabChange.emit({
+      page: this.currentPage - 1,
+      first: (this.currentPage - 1) * this.rows,
+      rows: this.rows,
+      tabCount: this.pagesCount,
+    });
   }
 }
