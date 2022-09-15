@@ -41,13 +41,14 @@ var fs = require("fs");
 var icon_font_buildr_1 = require("icon-font-buildr");
 function builderExecutor(options, context) {
     return __awaiter(this, void 0, void 0, function () {
-        var sources, icons, dirs, definitions, builder, ligatures, codepoints;
+        var sources, icons, dirs, staticCodepoints, definitions, builder, ligatures, codepoints;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     sources = [];
                     icons = [];
                     dirs = fs.readdirSync(path.join(options.inputPath));
+                    staticCodepoints = JSON.parse(fs.readFileSync(path.join(options.inputCodepoints)).toString());
                     definitions = [];
                     dirs.forEach(function (dir, dirIndex) {
                         var definition = { dir: dir, data: [] };
@@ -57,10 +58,20 @@ function builderExecutor(options, context) {
                         iconFiles.forEach(function (iconFile, iconIndex) {
                             var iconName = iconFile.replace('.svg', '');
                             definition.data.push(iconName);
-                            icons.push({
-                                icon: iconName,
-                                ligatures: [iconName + "-icon"]
-                            });
+                            if (staticCodepoints[iconName]) {
+                                icons.push({
+                                    icon: iconName,
+                                    ligatures: [iconName + "-icon"],
+                                    codepoints: [staticCodepoints[iconName].content]
+                                });
+                            }
+                            else {
+                                console.warn('No codepoint for ' + iconName);
+                                icons.push({
+                                    icon: iconName,
+                                    ligatures: [iconName + "-icon"]
+                                });
+                            }
                         });
                         definitions.push(definition);
                     });
@@ -70,7 +81,7 @@ function builderExecutor(options, context) {
                         sources: sources,
                         icons: icons,
                         output: {
-                            codepoints: true,
+                            // codepoints: true,
                             ligatures: true,
                             fonts: path.join(options.outputPath),
                             fontName: options.fontFileName,

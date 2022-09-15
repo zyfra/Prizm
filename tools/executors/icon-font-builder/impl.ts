@@ -10,6 +10,7 @@ import IconFontBuildr from 'icon-font-buildr';
  * fontName = Zyfra Icons
  * iconClassName = .zyfra-icon
  * inputPath = ./libs/components/assets/icons
+ * inputCodepoints = ./libs/components/assets/icon-codepoints.json
  * outputPath = ./libs/components/src/styles/icons
  * outputStyleFile = icons.less
  * outputDefinitionsTs = ./libs/components/src/lib/story/icon-definitions.ts
@@ -19,6 +20,7 @@ export interface IconFontExecutorOptions {
   fontFileName: string;
   iconClassName: string;
   inputPath: string;
+  inputCodepoints: string;
   outputPath: string;
   outputStyleFile: string;
   outputDefinitionsTs: string;
@@ -34,6 +36,7 @@ export default async function builderExecutor(options: IconFontExecutorOptions, 
   const sources = [];
   const icons = [];
   const dirs = fs.readdirSync(path.join(options.inputPath));
+  const staticCodepoints = JSON.parse(fs.readFileSync(path.join(options.inputCodepoints)).toString());
 
   const definitions: IconDefinition[] = [];
 
@@ -49,10 +52,19 @@ export default async function builderExecutor(options: IconFontExecutorOptions, 
 
       definition.data.push(iconName);
 
-      icons.push({
-        icon: iconName,
-        ligatures: [`${iconName}-icon`],
-      });
+      if(staticCodepoints[iconName]) {
+        icons.push({
+          icon: iconName,
+          ligatures: [`${iconName}-icon`],
+          codepoints: [staticCodepoints[iconName].content],
+        });
+      } else {
+        console.warn('No codepoint for ' + iconName)
+        icons.push({
+          icon: iconName,
+          ligatures: [`${iconName}-icon`],
+        });
+      }
     });
 
     definitions.push(definition);
@@ -66,7 +78,7 @@ export default async function builderExecutor(options: IconFontExecutorOptions, 
     sources: sources,
     icons: icons,
     output: {
-      codepoints: true,
+      // codepoints: true,
       ligatures: true,
       fonts: path.join(options.outputPath),
       fontName: options.fontFileName,
