@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.13.4] - 07-09-2022
+
+### @digital-plant/zyfra-components [v0.13.3]
+
+**Fixes**
+
+- fix(icons): Fix breaking in codepoint in icons, make static
+
 ## [v0.13.3] - 07-09-2022
 
 ### @digital-plant/zyfra-components [v0.13.3]
@@ -26,7 +34,7 @@
 >
 > 🐛 **Issue:** Anton Grekov
 
-----
+---
 
 ## [v0.13.1] - 10-08-2022
 
@@ -34,10 +42,9 @@
 
 **Added**
 
-- feat/(helpers/destroy): add optional callback  [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/279)
+- feat/(helpers/destroy): add optional callback [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/279)
 
-
-----
+---
 
 ## [v0.13.0] - 05-08-2022
 
@@ -45,18 +52,18 @@
 
 **Added**
 
-- feat(components/select-button,toggle-button): Added reactive forms  [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/206)
+- feat(components/select-button,toggle-button): Added reactive forms [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/206)
 
 **Fixes**
 
-- fix(components/dropdown): zyfra-dropdown-with-content fiexes background  [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/238)
-- fix(components/dropdown): Fixed disabled dropdown style  [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/242)
-- fix(components/icon-button): Fixed disabled icon style  [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/245)
+- fix(components/dropdown): zyfra-dropdown-with-content fiexes background [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/238)
+- fix(components/dropdown): Fixed disabled dropdown style [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/242)
+- fix(components/icon-button): Fixed disabled icon style [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/245)
 - fix(components/dropdown): fix size of elements with property 'mini' [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/258)
-- fix(components/dropdown): fixes min sizes  [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/233)
-- fix(component/calendar): fixes relative calendar input parser  [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/204)
-- docs(components/calendar): fixes example  [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/226)
-- fix(components/dropdown): fixes editable + mini  [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/230)
+- fix(components/dropdown): fixes min sizes [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/233)
+- fix(component/calendar): fixes relative calendar input parser [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/204)
+- docs(components/calendar): fixes example [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/226)
+- fix(components/dropdown): fixes editable + mini [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/230)
 
 > **Special thanks**
 >
@@ -64,7 +71,7 @@
 >
 > ️🐛 **Issue:** Anton Osechkin, Ilia Petrov, Aleksey S. Polyakov
 
-----
+---
 
 ## [v0.12.0] - 13-07-2022
 
@@ -92,7 +99,7 @@
 >
 > ️🐛 **Issue:** Dmitriy Bahtiyarov, Ilia Petrov, Stepan Fedorov, Aleksey S. Polyakov
 
-----
+---
 
 ## [v0.11.2] - 17-06-2022
 
@@ -109,7 +116,7 @@
 >
 > ️🐛 **Issue:** Anton Grekov
 
-----
+---
 
 ## [v0.11.1] - 03-06-2022
 

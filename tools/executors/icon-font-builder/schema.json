@@ -23,6 +23,11 @@
       "default": "./libs/components/assets/icons",
       "description": "Path to input folder"
     },
+    "inputCodepoints": {
+      "type": "string",
+      "default": "./libs/components/assets/icon-codepoints.json",
+      "description": "Path to codepoints file"
+    },
     "outputPath": {
       "type": "string",
       "default": "./libs/components/src/styles/icons",
