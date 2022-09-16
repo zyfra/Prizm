@@ -10,13 +10,14 @@ import {
   QueryList,
   TemplateRef,
   ViewChild,
+  ViewEncapsulation
 } from '@angular/core';
 import { FilterService } from 'primeng/api';
 import { Table, TableService } from 'primeng/table';
-import { Filters, RowSelectionEvent } from './zui-table.types';
+import { ZuiSizeL, ZuiSizeM, ZuiSizeS, ZuiSizeXS } from '../../util';
 import { TargetTableToken, ZuiBaseTableComponent } from './base-table';
 import { BaseTableTemplateDirective } from './base-table/directives/base-table-template.directive';
-import { ZuiSizeL, ZuiSizeM, ZuiSizeS, ZuiSizeXS } from '../../util';
+import { Filters, RowSelectionEvent } from './zui-table.types';
 
 // Todo после этапа MVP выпилить всю таблицу целиком, забыть как страшный сон и сделать нормально
 @Component({
@@ -28,6 +29,7 @@ import { ZuiSizeL, ZuiSizeM, ZuiSizeS, ZuiSizeXS } from '../../util';
     './zui-table-status.component.less',
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.ShadowDom,
   providers: [
     TableService,
     FilterService,
