@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 import { PolymorphContent } from '../../../directives/polymorph';
 import { ZuiToastRef } from '../toast-ref';
 
@@ -9,6 +9,9 @@ import { ZuiToastRef } from '../toast-ref';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToastComponent {
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_toast_single';
+
   // TODO remove record to context type
   get context(): Record<string, any> {
     return this.toastRef as Record<string, any>

@@ -1,10 +1,10 @@
 import {Component, TemplateRef} from '@angular/core';
-import {ZuiToastService, ZuiToastAppearance, ZuiToastPosition} from "@digital-plant/zui-components";
+import {ZuiToastAppearance, ZuiToastPosition, ZuiToastService} from "@digital-plant/zui-components";
 import {FormControl} from "@angular/forms";
 
 @Component({
-  selector: 'zui-toast-warning-example',
-  templateUrl: './template.html',
+  selector: 'zui-message-info-example',
+  templateUrl: './message-success-example.component.html',
   styles: [`
     .box{
       display: flex;
@@ -19,6 +19,11 @@ import {FormControl} from "@angular/forms";
 
     .footer {
       margin-top: 8px;
+    }
+
+    .inline-container {
+      border: 1px solid black;
+      padding: 10px;
     }
 
     .date {
@@ -37,9 +42,12 @@ import {FormControl} from "@angular/forms";
         font-size: inherit;
       }
     }
-  `]
+  `],
 })
-export class ZuiToastWarningExampleComponent {
+export class ZuiToastInfoExampleComponent {
+
+  readonly containerId = 'inline-container-info';
+
   readonly data = [
     {
       val: ZuiToastPosition.TOP_MIDDLE,
@@ -65,12 +73,18 @@ export class ZuiToastWarningExampleComponent {
       val: ZuiToastPosition.BOTTOM_RIGHT,
       label: 'Bottom Right',
     },
+    {
+      val: this.containerId,
+      label: 'В строковом контейнере',
+    },
   ];
 
-  appearance: ZuiToastAppearance = 'warning';
+  appearance: ZuiToastAppearance = 'info';
   readonly formControl = new FormControl(ZuiToastPosition.TOP_RIGHT);
-  constructor(private readonly toastService: ZuiToastService) {
-  }
+
+  constructor(
+    private readonly toastService: ZuiToastService,
+  ) {}
 
   public showToast(): void {
     this.toastService.create(
@@ -78,7 +92,6 @@ export class ZuiToastWarningExampleComponent {
       {
         appearance: this.appearance,
         position: this.formControl.value,
-        timer: 5000,
         title: 'Заголовок'
       }
     );
@@ -89,9 +102,9 @@ export class ZuiToastWarningExampleComponent {
     this.toastService.create(
       'Старайтесь уместить текст в 1 строку.',
       {
-        appearance: this.appearance,
-        position: this.formControl.value,
         timer: 5000,
+        appearance: this.appearance,
+        position: this.formControl.value
       }
     );
   }
@@ -102,12 +115,50 @@ export class ZuiToastWarningExampleComponent {
     this.toastService.create(
       'Это сообщение будет показываться пока не закроете.',
       {
-        appearance: this.appearance,
-        position: this.formControl.value,
         timer: 0,
-        title: 'Заголовок'
+        appearance: this.appearance,
+        title: 'Заголовок',
+        position: this.formControl.value
       }
     );
+  }
+
+
+  public showWithId(): void {
+    this.toastService.create(
+      'Это сообщение будет показываться пока не закроете.',
+      {
+        timer: 0,
+        id: 'our-id-1',
+        appearance: this.appearance,
+        title: 'Заголовок',
+        position: this.formControl.value
+      }
+    );
+  }
+
+  public updateContentWithId(): void {
+    this.toastService.updateContent(
+      'our-id-1',
+      'Обновили содержимое №' + Math.random()
+    );
+  }
+
+  public updateTitleWithId(template: TemplateRef<unknown>): void {
+    this.toastService.updateTitle(
+      'our-id-1',
+      template
+    );
+  }
+
+  public closeWithId(): void {
+    this.toastService.delete(
+      'our-id-1'
+    );
+  }
+
+  public closeAll(): void {
+    this.toastService.deleteAll();
   }
 
 
@@ -115,10 +166,10 @@ export class ZuiToastWarningExampleComponent {
     this.toastService.create(
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
       {
-        appearance: this.appearance,
-        position: this.formControl.value,
         timer: 5000,
-        title: 'Большой заголовок очень очень очень очень'
+        appearance: this.appearance,
+        title: 'Большой заголовок очень очень очень очень',
+        position: this.formControl.value
       }
     );
   }
@@ -127,10 +178,10 @@ export class ZuiToastWarningExampleComponent {
     this.toastService.create(
       contentTemplate,
       {
-        appearance: this.appearance,
-        position: this.formControl.value,
         timer: 5000,
-        title: 'Большой заголовок очень очень очень очень'
+        appearance: this.appearance,
+        title: 'Большой заголовок очень очень очень очень',
+        position: this.formControl.value
       }
     );
   }
@@ -139,10 +190,10 @@ export class ZuiToastWarningExampleComponent {
     this.toastService.create(
       'Шаблон в хедере',
       {
-        appearance: this.appearance,
-        position: this.formControl.value,
         timer: 5000,
-        title: headerTemplate
+        appearance: this.appearance,
+        title: headerTemplate,
+        position: this.formControl.value
       }
     );
   }
@@ -152,9 +203,9 @@ export class ZuiToastWarningExampleComponent {
     this.toastService.create(
       'Содержимое',
       {
+        timer: 5000,
         appearance: this.appearance,
         position: this.formControl.value,
-        timer: 5000,
         title: ' Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
       }
     );

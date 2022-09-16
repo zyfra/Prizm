@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ElementRef,
+  ElementRef, HostBinding,
   HostListener,
   Inject,
   Injector,
@@ -115,6 +115,9 @@ export class ZuiInputDateComponent
     @Input()
     @zuiDefaultProp()
     extraButtonInjector: Injector = this.injector;
+
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_input_date';
 
     public open = false;
 

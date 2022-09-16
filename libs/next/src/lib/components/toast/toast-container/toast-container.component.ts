@@ -1,9 +1,9 @@
-import {ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation,} from '@angular/core';
-import {ZuiToastRef} from "../toast-ref";
-import {Observable, of} from "rxjs";
-import {map} from "rxjs/operators";
-import {ZuiToastPosition} from "../types";
-import {ZuiToastService} from '../toast.service';
+import { ChangeDetectionStrategy, Component, HostBinding, Input, OnChanges, ViewEncapsulation } from '@angular/core';
+import { ZuiToastRef } from '../toast-ref';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { ZuiToastPosition } from '../types';
+import { ZuiToastService } from '../toast.service';
 
 @Component({
   selector: 'zui-toast-container',
@@ -18,6 +18,9 @@ export class ZuiToastContainerComponent implements OnChanges {
 
   @Input() containerId?: string;
   @Input() position?: ZuiToastPosition;
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_toast_container';
 
   constructor(private readonly zuiToastService: ZuiToastService) {}
 

@@ -6,8 +6,8 @@ import {ZuiSize, zuiSizeBigger} from '../../util/size-bigger';
 
 @Component({
     selector: 'zui-loader',
-    templateUrl: './loader.template.html',
-    styleUrls: ['./loader.style.less'],
+    templateUrl: './loader.component.html',
+    styleUrls: ['./loader.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZuiLoaderComponent {
@@ -34,6 +34,9 @@ export class ZuiLoaderComponent {
 
     @HostBinding('class._loading')
     loading = true;
+
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_loader';
 
     constructor(
         @Inject(DOCUMENT) private readonly documentRef: Document,

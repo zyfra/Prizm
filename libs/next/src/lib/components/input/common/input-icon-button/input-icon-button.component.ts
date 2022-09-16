@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -16,6 +16,9 @@ export class ZuiInputIconButtonComponent {
   @Input() size = 16;
   @Input() zuiInputIconButton: string;
   @Input() interactive = false;
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_input_icon_button';
 
   get tabindex(): number {
     return this.interactive ? 0 : -1;

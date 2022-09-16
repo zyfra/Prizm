@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, Optional, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input, Optional, ViewChild } from '@angular/core';
 import { ZuiSelectableRowDirective } from '../directives/selectable-row.directive';
 import { TableCheckbox } from 'primeng/table';
 
@@ -17,6 +17,9 @@ export class ZuiTableCheckboxComponent {
   @Input() name: string;
   @Input() required: boolean;
   @Input() ariaLabel: string;
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_table_checkbox';
 
   constructor(@Optional() private zuiSelectableRow: ZuiSelectableRowDirective) {}
 

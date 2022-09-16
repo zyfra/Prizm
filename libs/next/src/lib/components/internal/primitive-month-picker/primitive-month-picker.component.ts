@@ -58,6 +58,9 @@ export class ZuiPrimitiveMonthPickerComponent {
         return !!value && this.isRange(value) && value.from.monthSame(value.to);
     }
 
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_primitive_month_picker';
+
     get rows(): number {
         return ROWS;
     }

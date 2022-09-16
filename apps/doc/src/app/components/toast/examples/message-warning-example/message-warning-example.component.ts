@@ -3,8 +3,8 @@ import {ZuiToastService, ZuiToastAppearance, ZuiToastPosition} from "@digital-pl
 import {FormControl} from "@angular/forms";
 
 @Component({
-  selector: 'zui-toast-success-example',
-  templateUrl: './template.html',
+  selector: 'zui-message-warning-example',
+  templateUrl: './message-warning-example.component.html',
   styles: [`
     .box{
       display: flex;
@@ -39,8 +39,7 @@ import {FormControl} from "@angular/forms";
     }
   `]
 })
-export class ZuiToastSuccessExampleComponent {
-
+export class ZuiToastWarningExampleComponent {
   readonly data = [
     {
       val: ZuiToastPosition.TOP_MIDDLE,
@@ -68,7 +67,7 @@ export class ZuiToastSuccessExampleComponent {
     },
   ];
 
-  appearance: ZuiToastAppearance = 'success';
+  appearance: ZuiToastAppearance = 'warning';
   readonly formControl = new FormControl(ZuiToastPosition.TOP_RIGHT);
   constructor(private readonly toastService: ZuiToastService) {
   }

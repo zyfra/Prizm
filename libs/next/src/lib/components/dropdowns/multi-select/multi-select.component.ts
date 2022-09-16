@@ -4,6 +4,7 @@ import {
   Component,
   ElementRef,
   forwardRef,
+  HostBinding,
   Inject,
   Input,
   Optional,
@@ -17,28 +18,19 @@ import { ZUI_MULTI_SELECT_OPTIONS, ZuiMultiSelectOptions } from './multi-select.
 import { ZuiContextWithImplicit, ZuiFocusableElementAccessor, ZuiNativeFocusableElement } from '../../../types';
 import { ZuiInputSize } from '../../input';
 import { AbstractZuiControl } from '../../../abstract/control';
-import { zuiIsNativeFocused } from '../../../util';
-import {
-  debounceTime,
-  delay,
-  filter,
-  map,
-  mapTo,
-  shareReplay,
-  startWith,
-  switchMap,
-  takeUntil,
-  tap,
-} from 'rxjs/operators';
-import { BehaviorSubject, combineLatest, concat, Observable, of, Subject, timer, zip } from 'rxjs';
+import { zuiIsNativeFocused, zuiIsTextOverflow$ } from '../../../util';
+import { debounceTime, delay, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, Observable, timer } from 'rxjs';
 import { ZUI_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens';
 import { zuiDefaultProp } from '../../../decorators';
 import { ZuiDropdownHostComponent } from '../dropdown-host';
 import {
-  ZuiMultiSelectIdentityMatcher, ZuiMultiSelectItemStringifyFunc,
+  ZuiMultiSelectIdentityMatcher,
+  ZuiMultiSelectItemStringifyFunc,
   ZuiMultiSelectItemWithChecked,
   ZuiMultiSelectSearchMatcher,
 } from './multi-select.model';
+import { ZuiOverlayOutsidePlacement } from '../../../modules';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({
@@ -129,6 +121,12 @@ implements ZuiFocusableElementAccessor
   @zuiDefaultProp()
   outer: boolean = this.options.outer;
 
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_multi_select';
+
+
+  readonly zuiIsTextOverflow$ = zuiIsTextOverflow$;
+  public readonly direction: ZuiOverlayOutsidePlacement = ZuiOverlayOutsidePlacement.RIGHT;
   private readonly stop$ = new BehaviorSubject(false);
 
   public open = false;

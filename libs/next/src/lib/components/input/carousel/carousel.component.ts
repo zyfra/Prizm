@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ElementRef,
+  ElementRef, HostBinding,
   HostListener,
   Input,
   Optional,
@@ -43,6 +43,9 @@ export class ZuiCarouselComponent extends ZuiInputControl<any> implements Contro
     this._disabled = value;
     this.stateChanges.next();
   }
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_carousel';
 
   private _disabled = false;
 

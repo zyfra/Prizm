@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Host, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, Host, HostBinding, HostListener, Input } from '@angular/core';
 import { ZuiInputTextComponent } from '../input-text/input-text.component';
 
 @Directive({
@@ -10,6 +10,9 @@ export class ZuiInputNumberDirective {
   @Input() max: number | null = null;
   @Input() step = 1;
   @Input() value!: number;
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_input_number';
 
   constructor(
     @Host() private readonly el: ElementRef<HTMLInputElement>,

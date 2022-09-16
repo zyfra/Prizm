@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'zui-row-toggler',
@@ -8,4 +8,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 export class ZuiRowTogglerComponent {
   @Input() data: any;
   @Input() expanded: boolean;
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_row_toggler';
 }

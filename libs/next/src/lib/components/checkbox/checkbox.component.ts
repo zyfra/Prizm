@@ -41,6 +41,9 @@ export class ZuiCheckboxComponent implements ControlValueAccessor {
 
   @Output() changed = new EventEmitter<boolean>();
 
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_checkbox';
+
   changeFn: (value: boolean) => void;
   touchedFn: () => void;
 

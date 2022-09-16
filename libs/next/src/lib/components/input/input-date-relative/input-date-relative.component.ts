@@ -4,7 +4,7 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  forwardRef,
+  forwardRef, HostBinding,
   Inject,
   Injector,
   Input,
@@ -82,6 +82,9 @@ export class ZuiInputDateRelativeComponent implements AfterViewInit, OnInit, Con
   @Input()
   @zuiDefaultProp()
   extraButtonInjector: Injector = this.injector;
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_input_date_relative';
 
   public isOpen = false;
 

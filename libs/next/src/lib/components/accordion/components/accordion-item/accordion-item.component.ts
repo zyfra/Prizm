@@ -5,7 +5,7 @@ import {
   ContentChild,
   TemplateRef,
   OnDestroy,
-  ChangeDetectorRef,
+  ChangeDetectorRef, HostBinding,
 } from '@angular/core';
 import { AccordionContentDirective } from '../../directives/accordion-content.directive';
 import { AccordionToolsDirective } from '../../directives/accordion-tools.directive';
@@ -23,6 +23,9 @@ export class AccordionItemComponent implements OnDestroy {
   @Input() public title: string = null;
   @Input() isExpanded = false;
   @Input() disabled = false;
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_accordion_item';
 
   @ContentChild(AccordionContentDirective, { read: TemplateRef })
   public readonly accordionContent: TemplateRef<AccordionContentDirective>;

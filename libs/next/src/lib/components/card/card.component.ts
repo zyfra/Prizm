@@ -16,4 +16,7 @@ export class ZuiCardComponent {
   private get boxShadow(): ZuiShadowValue {
     return zuiGetShadow(this.shadow)
   }
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_card';
 }

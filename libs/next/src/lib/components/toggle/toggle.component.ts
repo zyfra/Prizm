@@ -54,6 +54,9 @@ export class ZuiToggleComponent
     @zuiDefaultProp()
     size: ZuiSizeL | ZuiSizeM = this.options.size;
 
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_toggle';
+
     constructor(
         @Optional()
         @Self()

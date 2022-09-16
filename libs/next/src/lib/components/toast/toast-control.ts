@@ -1,11 +1,16 @@
-import {Observable, Subject} from "rxjs";
-import {ZuiToastOptions, ZuiToastPosition} from "./types";
-import {finalize, map, shareReplay, takeUntil, tap} from "rxjs/operators";
-import {ZuiToastRef} from "./toast-ref";
-import {ZuiToastContainerComponent} from "./toast-container/toast-container.component";
-import {Injectable, Injector} from "@angular/core";
-import {ZuiOverlayControl, ZuiOverlayGlobalPosition, ZuiOverlayInsidePlacement, ZuiOverlayService} from "../../modules/overlay";
-import {ZuiToastService} from "./toast.service";
+import { Observable, Subject } from 'rxjs';
+import { ZuiToastOptions, ZuiToastPosition } from './types';
+import { finalize, map, shareReplay, takeUntil, tap } from 'rxjs/operators';
+import { ZuiToastRef } from './toast-ref';
+import { ZuiToastContainerComponent } from './toast-container/toast-container.component';
+import { Injectable, Injector } from '@angular/core';
+import {
+  ZuiOverlayControl,
+  ZuiOverlayGlobalPosition,
+  ZuiOverlayInsidePlacement,
+  ZuiOverlayService,
+} from '../../modules/overlay';
+import { ZuiToastService } from './toast.service';
 
 @Injectable()
 export class ZuiToastControl {

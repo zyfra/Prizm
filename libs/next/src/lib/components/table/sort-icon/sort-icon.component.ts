@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'zui-sort-icon',
@@ -8,4 +8,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class ZuiSortIconComponent {
   @Input() field: string;
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_sort_icon';
 }

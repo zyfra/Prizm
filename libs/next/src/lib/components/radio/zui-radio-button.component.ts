@@ -40,6 +40,9 @@ export class ZuiRadioButtonComponent extends ZuiWrappedFormComponent {
   @Output() public focusOutEvent: EventEmitter<FocusEvent> = new EventEmitter();
   @Output() public blurEvent: EventEmitter<FocusEvent> = new EventEmitter();
 
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_radio_button';
+
   public onClickEventHandler(event: MouseEvent): void {
     if (!this.accessorIsDisabled) {
       this.clickEvent.emit(event);

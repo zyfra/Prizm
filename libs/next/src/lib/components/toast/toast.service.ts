@@ -53,6 +53,7 @@ export class ZuiToastService implements OnDestroy {
       this.options,
       this,
       options.show,
+      options.isPlatform ?? this.options.isPlatform,
     );
 
     this.refs.set(id, ref);

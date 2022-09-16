@@ -54,6 +54,9 @@ export class ZuiPrimitiveCalendarComponent {
     @Output()
     readonly dayClick = new EventEmitter<ZuiDay>();
 
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_primitive_calendar';
+
     constructor(
         @Inject(ZUI_ORDERED_SHORT_WEEK_DAYS)
         readonly weekDays$: Observable<ZUI_WEEK_DAYS_NAMES>,

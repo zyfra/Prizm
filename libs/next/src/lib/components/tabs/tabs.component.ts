@@ -35,6 +35,9 @@ export class TabsComponent implements OnInit, OnDestroy {
   @ViewChild('tabsContainer', { static: true }) public tabsContainer: ElementRef;
   @ViewChildren('zuiTab', { read: ElementRef }) public tabElements: QueryList<ElementRef>;
 
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_tabs';
+
   public openLeft = false;
   public openRight = false;
 

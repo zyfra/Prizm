@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { ZuiDay } from '../../@core/date-time/day';
 import { ZuiDayRange } from '../../@core/date-time/day-range';
 import { ZUI_FIRST_DAY, ZUI_LAST_DAY } from '../../@core/date-time/days.const';
@@ -68,6 +68,9 @@ export class ZuiCalendarComponent implements ZuiWithOptionalMinMax<ZuiDay> {
 
     @Output()
     readonly hoveredItemChange = new EventEmitter<ZuiDay | null>();
+
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_calendar';
 
     year: ZuiYear | null = null;
     clickedMonth: ZuiMonth | null = null;
