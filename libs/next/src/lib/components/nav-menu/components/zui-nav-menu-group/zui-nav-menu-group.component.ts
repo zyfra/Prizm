@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  EventEmitter,
+  EventEmitter, HostBinding,
   Input,
   OnDestroy,
   OnInit,
@@ -65,6 +65,9 @@ export class ZuiNavMenuGroupComponent implements OnInit, OnDestroy {
   get nodes(): TreeNode[] {
     return this._nodes;
   }
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_menu_group_content';
 
   @Input() set selectionMode(mode: SelectionType) {
     this._selectionMode = mode;

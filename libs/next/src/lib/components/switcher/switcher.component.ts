@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, HostBinding } from '@angular/core';
 import { ISwitcher, SwitcherSize, SwitcherType } from './switcher.interface';
 
 @Component({
@@ -14,6 +14,9 @@ export class SwitcherComponent {
   @Input() public selectedSwitcherIdx = 0;
 
   @Output() public switcherSelection: EventEmitter<number> = new EventEmitter();
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_switcher';
 
   public selectSwitcher(idx: number): void {
     if (this.selectedSwitcherIdx !== idx) {

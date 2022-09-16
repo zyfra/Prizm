@@ -19,8 +19,8 @@ import { EMPTY_QUERY } from '../../../../constants';
 
 @Component({
     selector: 'zui-tree-item',
-    templateUrl: './tree-item.template.html',
-    styleUrls: ['./tree-item.style.less'],
+    templateUrl: './tree-item.component.html',
+    styleUrls: ['./tree-item.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: ZUI_TREE_ITEM_PROVIDERS,
     // eslint-disable-next-line @angular-eslint/no-host-metadata-property
@@ -44,6 +44,9 @@ export class ZuiTreeItemComponent implements DoCheck {
         map(() => this.elementRef.nativeElement.isConnected),
         distinctUntilChanged(),
     );
+
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_tree_item';
 
     constructor(
         @Inject(ElementRef)

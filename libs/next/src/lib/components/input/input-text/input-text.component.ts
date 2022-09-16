@@ -4,7 +4,7 @@ import {
   Component,
   DoCheck,
   ElementRef,
-  EventEmitter,
+  EventEmitter, HostBinding,
   HostListener,
   Input,
   OnDestroy,
@@ -61,6 +61,9 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
     this._required = value;
     this.stateChanges.next();
   }
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_input_text';
 
   private _required: boolean | undefined;
 

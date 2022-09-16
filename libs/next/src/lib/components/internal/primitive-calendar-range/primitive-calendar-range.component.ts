@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  EventEmitter,
+  EventEmitter, HostBinding,
   Inject,
   Input,
   OnInit,
@@ -65,6 +65,9 @@ export class ZuiPrimitiveCalendarRangeComponent implements OnInit {
 
     @Output()
     readonly dayClick = new EventEmitter<ZuiDay>();
+
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_primitive_calendar_range';
 
     hoveredItem: ZuiDay | null = null;
 

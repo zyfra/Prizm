@@ -9,35 +9,43 @@
     </p>
 
     <tui-doc-example
-      heading="Info Toast"
+      heading="Info Message"
       id="info-toast"
-      [content]="exampleToastInfo"
+      [content]="exampleMessageInfo"
     >
-      <zui-toast-info-example></zui-toast-info-example>
+      <zui-message-info-example></zui-message-info-example>
     </tui-doc-example>
 
     <tui-doc-example
-      heading="Warning Toast"
+      heading="Warning Message"
       id="warning-toast"
-      [content]="exampleToastWarning"
+      [content]="exampleMessageWarning"
     >
-      <zui-toast-warning-example></zui-toast-warning-example>
+      <zui-message-warning-example></zui-message-warning-example>
     </tui-doc-example>
 
     <tui-doc-example
       id="success-toast"
-      heading="Success Toast"
-      [content]="exampleToastSuccess"
+      heading="Success Message"
+      [content]="exampleMessageSuccess"
     >
-      <zui-toast-success-example></zui-toast-success-example>
+      <zui-message-success-example></zui-message-success-example>
     </tui-doc-example>
 
     <tui-doc-example
       id="danger-toast"
-      heading="Danger Toast"
-      [content]="exampleToastDanger"
+      heading="Danger Message"
+      [content]="exampleMessageDanger"
     >
-      <zui-toast-danger-example></zui-toast-danger-example>
+      <zui-message-danger-example></zui-message-danger-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="toast-platform"
+      heading="Platform Toast"
+      [content]="exampleToast"
+    >
+      <zui-toast-example></zui-toast-example>
     </tui-doc-example>
 
   </ng-template>
@@ -108,6 +116,15 @@
         [(documentationPropertyValue)]="content"
       >
         Content
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="isPlatform"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="isPlatform"
+      >
+        isPlatform
       </ng-template>
 
       <ng-template #template>

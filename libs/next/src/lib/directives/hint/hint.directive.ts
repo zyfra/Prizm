@@ -64,6 +64,10 @@ export class ZuiHintDirective<
     zuiHintHost: HTMLElement | null = null;
 
     @Input()
+    @zuiDefaultProp()
+    zuiCanShow = false;
+
+    @Input()
     @zuiRequiredSetter()
     set zuiHint(value: PolymorphContent | null) {
       if (!value) {
@@ -124,6 +128,7 @@ export class ZuiHintDirective<
     }
 
     protected open(): void {
+      if (!this.zuiCanShow) return;
       this.renderer.addClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
       this.overlay.open();
     }

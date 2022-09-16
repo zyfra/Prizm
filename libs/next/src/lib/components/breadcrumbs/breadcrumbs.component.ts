@@ -11,7 +11,7 @@ import {
   QueryList,
   ChangeDetectorRef,
   OnInit,
-  AfterViewInit,
+  AfterViewInit, HostBinding,
 } from '@angular/core';
 import { IBreadcrumb } from './breadcrumb.interface';
 import { animationFrameScheduler, BehaviorSubject, merge, Subject } from 'rxjs';
@@ -33,6 +33,9 @@ export class BreadcrumbsComponent implements OnInit, OnDestroy, AfterViewInit {
   public get breadcrumbs(): IBreadcrumb[] {
     return this.breadcrumbs$.getValue();
   }
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_breadcrumbs';
 
   @Output() public breadcrumbChange: EventEmitter<IBreadcrumb> = new EventEmitter();
   @ViewChild('container', { static: true }) public containerRef: ElementRef;

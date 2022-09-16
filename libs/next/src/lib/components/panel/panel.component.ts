@@ -5,7 +5,7 @@ import {
   Output,
   EventEmitter,
   ViewChild,
-  ElementRef,
+  ElementRef, HostBinding,
 } from '@angular/core';
 
 @Component({
@@ -21,6 +21,9 @@ export class PanelComponent {
 
   @Output() backClick: EventEmitter<void> = new EventEmitter<void>();
   @ViewChild('headerElement', { static: true }) public headerRef: ElementRef;
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_panel';
 
   public back(): void {
     this.backClick.emit();

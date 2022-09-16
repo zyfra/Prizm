@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  EventEmitter,
+  EventEmitter, HostBinding,
   Inject,
   Input,
   Output,
@@ -47,6 +47,9 @@ export class ZuiPrimitiveSpinButtonComponent extends AbstractZuiInteractive {
 
     @Output()
     readonly rightClick = new EventEmitter<void>();
+
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_primitive_spin_button';
 
     constructor(
         @Inject(ZUI_SPIN_TEXTS) readonly spinTexts$: Observable<[string, string]>,

@@ -84,6 +84,9 @@ export class ZuiButtonComponent extends AbstractZuiInteractive
     return this.focusable ? 0 : -1;
   }
 
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_button';
+
   @HostListener('focusin', ['true'])
   @HostListener('focusout', ['false'])
   public onFocused(focused: boolean): void {

@@ -1,7 +1,7 @@
 import {
   ChangeDetectorRef,
   Component,
-  ElementRef,
+  ElementRef, HostBinding,
   HostListener,
   Inject,
   Injector,
@@ -96,6 +96,9 @@ export class ZuiInputDateRangeComponent
     @Input()
     @zuiDefaultProp()
     maxLength: ZuiDayLike | null = null;
+
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_input_date_range';
 
     open = false;
 

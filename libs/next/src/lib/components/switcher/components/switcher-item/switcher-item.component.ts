@@ -13,4 +13,7 @@ export class SwitcherItemComponent {
 
   @Input() public data: ISwitcher = null;
   @Input() public isActive = false;
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_switcher_item';
 }

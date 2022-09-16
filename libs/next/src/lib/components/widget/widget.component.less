@@ -26,10 +26,13 @@
 .icons {
   color: var(--zui-widget-icons-color, var(--zui-grey-g8-g6));
   padding-left: 16px;
-  border-left: 1px solid var(--zui-widget-icons-border-left, var(--zui-grey-g8-g6));
   display: flex;
   gap: var(--zui-widget-icons-gap, 4px);
   cursor: pointer;
+
+  &.divider {
+    border-left: 1px solid var(--zui-widget-icons-border-left, var(--zui-grey-g8-g6));
+  }
 
   &:empty {
     display: none;

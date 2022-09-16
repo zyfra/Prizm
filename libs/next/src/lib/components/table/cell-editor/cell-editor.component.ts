@@ -2,7 +2,7 @@ import {
   AfterContentInit,
   Component,
   ContentChildren,
-  EventEmitter,
+  EventEmitter, HostBinding,
   Input,
   Output,
   QueryList,
@@ -21,6 +21,9 @@ export class ZuiCellEditorComponent implements AfterContentInit {
 
   @Input() value = '';
   @Output() valueChange = new EventEmitter<string>();
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_cell_editor';
 
   inputTemplate: TemplateRef<unknown>;
   outputTemplate: TemplateRef<unknown>;

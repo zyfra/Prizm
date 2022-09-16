@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Host } from '@angular/core';
+import { Directive, ElementRef, Host, HostBinding } from '@angular/core';
 import { ZuiInputTextComponent } from '../input-text/input-text.component';
 
 @Directive({
@@ -6,6 +6,9 @@ import { ZuiInputTextComponent } from '../input-text/input-text.component';
   exportAs: 'zuiInputPassword',
 })
 export class ZuiInputPasswordDirective {
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_input_password';
+
   constructor(
     @Host() private readonly el: ElementRef<HTMLInputElement>,
     @Host() private readonly zuiInputText: ZuiInputTextComponent

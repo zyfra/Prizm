@@ -1,7 +1,7 @@
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  Component,
+  Component, HostBinding,
   Inject,
   Input,
   OnInit,
@@ -41,6 +41,9 @@ export class ZuiDataListComponent implements OnInit {
   @Input()
   @zuiDefaultProp()
   scroll: ZuiScrollbarVisibility = 'auto';
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_data_list';
 
   constructor(
     @Inject(ZUI_DROPDOWN_CONTROLLER)

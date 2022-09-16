@@ -29,9 +29,9 @@ const LOADER_HEIGHT = 48;
 
 @Component({
     selector: 'zui-expand',
-    templateUrl: './expand.template.html',
+    templateUrl: './expand.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    styleUrls: ['./expand.style.less'],
+    styleUrls: ['./expand.component.less'],
 })
 export class ZuiExpandComponent {
     @ViewChild('wrapper')
@@ -69,6 +69,9 @@ export class ZuiExpandComponent {
     @HostBinding('class._expanded')
     @HostBinding('attr.aria-expanded')
     private expanded_: boolean | null = null;
+
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_expand';
 
     @HostListener('transitionend', ['$event'])
     public onTransitionEnd(event: TransitionEvent): void {

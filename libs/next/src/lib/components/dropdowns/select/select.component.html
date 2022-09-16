@@ -33,9 +33,13 @@
     <zui-data-list class='block'>
       <ng-container *ngIf='items?.length; else emptyTemplate'>
         <div class='item' [class.selected]='item | zuiCallFunc : identityMatcher : value' *ngFor='let item of filteredItems$ | async' (click)='select(item)'>
-          <span class='text' *zuiLet='item | zuiCallFunc : stringify : $any(nullContent) as text'>
-<!--            [zuiHint]='text'-->
-<!--            [zuiHintDirection]='$any("b")'-->
+          <span class='text'
+                #elem
+                *zuiLet='item | zuiCallFunc : stringify : $any(nullContent) as text'
+                [zuiHint]='text'
+                [zuiHintDirection]='direction'
+                [zuiCanShow]='elem | zuiCallFunc : zuiIsTextOverflow$ | async'
+          >
             <ng-container *polymorphOutlet="valueTemplate as content; context: {$implicit: item, nullContent: nullContent}">
               {{text}}
             </ng-container>

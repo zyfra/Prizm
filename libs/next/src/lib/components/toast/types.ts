@@ -12,7 +12,7 @@ export enum ZuiToastPosition {
 export type ZUI_TOAST_ID = string;
 export type ZUI_TOAST_CONTAINER_ID = string;
 
-export type ZuiToastAppearance = 'info' | 'success' | 'warning' | 'danger'
+export type ZuiToastAppearance = 'info' | 'success' | 'warning' | 'danger';
 
 export type ZuiToastOptions = {
   position?: ZuiToastPosition | ZUI_TOAST_CONTAINER_ID,
@@ -26,4 +26,5 @@ export type ZuiToastOptions = {
   autoClose?: boolean,
   context?: Record<string, unknown>,
   show?: boolean;
+  isPlatform?: boolean;
 }

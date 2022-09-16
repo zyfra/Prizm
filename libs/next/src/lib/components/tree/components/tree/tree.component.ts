@@ -1,4 +1,13 @@
-import { ChangeDetectionStrategy, Component, DoCheck, Inject, Input, Optional, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DoCheck,
+  HostBinding,
+  Inject,
+  Input,
+  Optional,
+  ViewChild,
+} from '@angular/core';
 import { Subject } from 'rxjs';
 import { distinctUntilChanged, map, startWith, tap } from 'rxjs/operators';
 import { ZuiTreeChildrenDirective } from '../../directives/tree-children.directive';
@@ -9,8 +18,8 @@ import { PolymorphContent } from '../../../../directives';
 
 @Component({
     selector: 'zui-tree[value]',
-    templateUrl: 'tree.template.html',
-    styleUrls: ['tree.style.less'],
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
@@ -41,13 +50,15 @@ export class ZuiTreeComponent<T> implements DoCheck {
         distinctUntilChanged(),
     );
 
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_tree';
+
     constructor(
         @Optional()
         @Inject(ZuiTreeChildrenDirective)
         readonly directive: ZuiTreeChildrenDirective<T> | null,
     ) {}
 
-  // ZuiTreeContext<T>
     @Input()
     content: PolymorphContent = ({$implicit}: any) => String($implicit);
 

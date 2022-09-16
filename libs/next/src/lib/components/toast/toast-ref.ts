@@ -1,10 +1,10 @@
-import {ZuiToastOptions} from "./types";
-import {ReplaySubject, Subject, timer} from "rxjs";
-import {ZuiToastDefaultOptions} from "./toast-options";
-import {takeUntil, tap} from "rxjs/operators";
-import { PolymorphContent } from "../../directives/polymorph";
-import { ZuiToastService } from "./toast.service";
-import {zuiGenerateId} from "../../util";
+import { ZuiToastOptions } from './types';
+import { ReplaySubject, Subject, timer } from 'rxjs';
+import { ZuiToastDefaultOptions } from './toast-options';
+import { takeUntil, tap } from 'rxjs/operators';
+import { PolymorphContent } from '../../directives/polymorph';
+import { ZuiToastService } from './toast.service';
+import { zuiGenerateId } from '../../util';
 
 export class ZuiToastRef {
   private show$ = new ReplaySubject<boolean>(1);
@@ -12,6 +12,9 @@ export class ZuiToastRef {
   private hash_ = zuiGenerateId();
   get hash(): string {
     return this.hash_;
+  };
+  get buttonAppearance(): string {
+    return this.appearance === 'info' ? 'primary' : this.appearance;
   };
   constructor(
     public content: PolymorphContent,
@@ -25,6 +28,7 @@ export class ZuiToastRef {
     readonly options: ZuiToastDefaultOptions,
     readonly toastService: ZuiToastService,
     public show: boolean = true,
+    readonly isPlatform: ZuiToastOptions['isPlatform'],
   ) {
     if (this.show) this.open();
     if (this.closeAfter) this.close(this.closeAfter);

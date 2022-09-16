@@ -6,7 +6,7 @@ import {
   Component,
   ContentChildren,
   ElementRef,
-  EventEmitter,
+  EventEmitter, HostBinding,
   Input,
   OnDestroy,
   Output,
@@ -57,6 +57,9 @@ export class ZuiNavMenuComponent implements AfterViewInit, AfterContentInit, OnD
     }
     this._settings = { ...DEFAULT_SETTINGS, ...settings, selectionMode: 'single' };
   }
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_nav_menu';
 
   @Input() set headerConfig(config: HeaderConfig) {
     this.headerConfiguration = { ...config, settings: false };

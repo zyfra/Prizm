@@ -4,7 +4,7 @@ import {
   ContentChildren,
   QueryList,
   AfterContentInit,
-  Input,
+  Input, HostBinding,
 } from '@angular/core';
 import { AccordionItemComponent } from './components/accordion-item/accordion-item.component';
 import { merge } from 'rxjs';
@@ -21,6 +21,9 @@ import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
 export class AccordionComponent implements AfterContentInit {
   @Input() public onlyOneExpanded = false;
   @ContentChildren(AccordionItemComponent) accordionItems: QueryList<AccordionItemComponent>;
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_accordion';
 
   constructor(private readonly destroy$: ZuiDestroyService) {}
 

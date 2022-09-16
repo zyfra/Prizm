@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'zui-grid-item',
@@ -9,4 +9,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 export class GridItemComponent {
   @Input() public colPos = '0';
   @Input() public rowPos = '0';
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_grid_item';
 }

@@ -20,24 +20,29 @@ export class ToastComponent {
     '!!raw-loader!./examples/setup-module.md'
     );
 
-  readonly exampleToastInfo: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/toast-info-example/template.ts'),
-    HTML: import('!!raw-loader!./examples/toast-info-example/template.html'),
+  readonly exampleMessageInfo: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/message-info-example/message-success-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/message-info-example/message-success-example.component.html'),
   };
 
-  readonly exampleToastWarning: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/toast-warning-example/template.ts'),
-    HTML: import('!!raw-loader!./examples/toast-warning-example/template.html'),
+  readonly exampleMessageWarning: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/message-warning-example/message-warning-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/message-warning-example/message-warning-example.component.html'),
   };
 
-  readonly exampleToastDanger: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/toast-danger-example/template.ts'),
-    HTML: import('!!raw-loader!./examples/toast-danger-example/template.html'),
+  readonly exampleMessageDanger: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/message-danger-example/message-success-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/message-danger-example/message-success-example.component.html'),
   };
 
-  readonly exampleToastSuccess: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/toast-success-example/template.ts'),
-    HTML: import('!!raw-loader!./examples/toast-success-example/template.html'),
+  readonly exampleMessageSuccess: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/message-success-example/message-success-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/message-success-example/message-success-example.component.html'),
+  };
+
+  readonly exampleToast: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/toast-example/toast-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/toast-example/toast-example.component.html'),
   };
 
   readonly appearanceVariants: ReadonlyArray<ZuiToastAppearance> = [
@@ -60,7 +65,7 @@ export class ToastComponent {
   ];
   position: ZuiToastOptions['position'] = this.positionVariants[0];
   timer = 3000;
-
+  isPlatform = false;
   id = '';
 
   title: PolymorphContent = 'Заголовок';
@@ -88,6 +93,7 @@ export class ToastComponent {
         timer: this.timer,
         appearance: this.appearance,
         position: this.position,
+        isPlatform: this.isPlatform,
         id: this.id,
         title: this.title
       }
