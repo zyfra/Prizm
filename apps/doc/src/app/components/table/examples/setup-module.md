@@ -7,7 +7,7 @@ import { ZuiTableModule } from './zui-checkbox.module';
 @NgModule({
   imports: [
     // ...
-    ZuiTableModuleModule,
+    ZuiTableModule,
   ],
 })
 export class MyModule {

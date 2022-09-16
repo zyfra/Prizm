@@ -15,28 +15,30 @@ import {
   TemplateRef,
   ViewChild,
   ViewContainerRef,
+  ViewEncapsulation
 } from '@angular/core';
-import { TreeNode } from 'primeng/api';
-import { ZuiNavMenuGroupDirective } from '../../directives/nav-menu-group.directive';
 import { Router } from '@angular/router';
-import { ZuiMenuItem } from '../../model/zui-menu-item.interface';
+import { TreeNode } from 'primeng/api';
 import { Subject } from 'rxjs';
-import { convertToNode } from '../../utils/treeNode.functions';
+import { ZuiNavMenuGroupDirective } from '../../directives/nav-menu-group.directive';
+import { ZuiTemplateDirective } from '../../directives/zui-template.directive';
 import {
   DEFAULT_SETTINGS,
   HeaderConfig,
   NavMenuEvent,
   NavMenuSelectionEvent,
   SettingsConfig,
-  ToolbarConfig,
+  ToolbarConfig
 } from '../../model/nav-menu-config';
-import { ZuiTemplateDirective } from '../../directives/zui-template.directive';
+import { ZuiMenuItem } from '../../model/zui-menu-item.interface';
+import { convertToNode } from '../../utils/treeNode.functions';
 
 @Component({
   selector: 'zui-nav-menu',
   templateUrl: './zui-nav-menu.component.html',
   styleUrls: ['./zui-nav-menu.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class ZuiNavMenuComponent implements AfterViewInit, AfterContentInit, OnDestroy {
   @ViewChild('navMenu') menu: ElementRef;
