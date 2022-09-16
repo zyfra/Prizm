@@ -87,12 +87,16 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
       this.updateEmptyState();
       this.stateChanges.next();
     }
+
+    this.valueChanged.next(this.value);
   }
   private _inputValue: { value: unknown };
 
   @Output() enter = new EventEmitter<any>();
   // eslint-disable-next-line @angular-eslint/no-output-on-prefix
   @Output() onClear = new EventEmitter<void>();
+
+  @Output() valueChanged = new EventEmitter<any>();
   /**
    * Empty state
    */
@@ -116,19 +120,15 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
    */
   constructor(
     @Optional() @Self() public readonly ngControl: NgControl,
-    private readonly elementRef: ElementRef<HTMLInputElement | HTMLTextAreaElement>,
+    public readonly elementRef: ElementRef<HTMLInputElement | HTMLTextAreaElement>,
     private readonly zuiDestroyService: ZuiDestroyService,
-    private readonly cdr: ChangeDetectorRef,
-    @Optional() @Attribute('mask') private maskAttr: string
+    private readonly cdr: ChangeDetectorRef
   ) {
     super();
 
     this._inputValue = elementRef.nativeElement;
 
     this.nativeElementType = elementRef.nativeElement.type;
-    if (this.elementRef.nativeElement instanceof HTMLTextAreaElement) {
-      this.elementRef.nativeElement.rows = 1;
-    }
   }
 
   public ngOnInit(): void {
@@ -148,6 +148,7 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
   private onInput(): void {
     this.updateEmptyState();
     this.stateChanges.next();
+    this.valueChanged.next(this.value);
   }
 
   @HostListener('focus', ['$event'])
@@ -168,10 +169,6 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
     this.enter.next(this.value);
   }
 
-  @HostListener('scroll', ['$event'])
-  private onScroll(): void {
-    console.log('scroll');
-  }
   private initControlListener(): void {
     this.ngControl.statusChanges
       .pipe(
@@ -220,18 +217,17 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
 
     this.focus();
 
-    // Нужно для input-mask
-    if (this.maskAttr) {
-      this.elementRef.nativeElement.dispatchEvent(
-        new KeyboardEvent('keydown', {
-          key: 'Backspace',
-          code: 'Backspace',
-        })
-      );
-    }
+    this.elementRef.nativeElement.dispatchEvent(
+      new InputEvent('input', {
+        data: null,
+        detail: 0,
+        inputType: 'deleteContentBackward',
+      })
+    );
 
     this.stateChanges.next();
     this.onClear.emit();
+    this.valueChanged.next(this.value);
   }
 
   public focus(): void {
