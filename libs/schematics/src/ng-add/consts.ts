@@ -15,7 +15,7 @@ export const MAIN_PACKAGES: ReadonlyArray<Package> = [
   },
   {
     name: '@digital-plant/zyfra-helpers',
-    version: '1.0.0-beta.6',
+    version: '1.0.0-beta.7',
   },
 ];
 

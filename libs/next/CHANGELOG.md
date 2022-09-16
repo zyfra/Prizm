@@ -1,5 +1,22 @@
 # Changelog
 
+---
+
+## [1.0.0-beta.7] - 16-09-2022
+
+### @digital-plant/zui-components [1.0.0-beta.7]
+
+- fix/(next/*): add testId [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/336)
+- fix/(components/textarea) Textarea fix [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/329)
+- feat(components/zoom-control) Добавлен паттерн zoom-control [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/328)
+- feat(components): shadow encapsulation for primeng wrappers [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/324)
+
+> **Special thanks**
+>
+> ✏️ **MR:** Rustam Imaikin, Konstantin Skok, Khachatur Matevosyan, Zurab Magomadov
+
+
+
 ----
 
 ## [1.0.0-beta.6] - 13-09-2022
