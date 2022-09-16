@@ -20,14 +20,23 @@ export class TextareaExampleComponent {
 
   public disabled = false;
 
-  height = 'auto';
+  height = null;
   width = '20rem';
 
   public required = false;
 
-  public readonly zyfraInputPasswordBasicExample: TuiDocExample = {
+  public readonly zyfraTextareaBasicExample: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/textarea-basic-example/textarea-basic-example.component.ts'),
     HTML: import('!!raw-loader!./examples/textarea-basic-example/textarea-basic-example.component.html'),
+  };
+
+  public readonly zyfraTextareaAutosizeExample: TuiDocExample = {
+    TypeScript: import(
+      '!!raw-loader!./examples/textarea-autosize-example/textarea-autosize-example.component.ts'
+    ),
+    HTML: import(
+      '!!raw-loader!./examples/textarea-autosize-example/textarea-autosize-example.component.html'
+    ),
   };
 
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');

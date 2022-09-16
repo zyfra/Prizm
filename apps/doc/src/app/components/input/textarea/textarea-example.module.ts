@@ -7,6 +7,7 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { TextareaBasicExampleComponent } from './examples/textarea-basic-example/textarea-basic-example.component';
 import { TextareaExampleComponent } from './textarea-example.component';
 import { ZuiInputTextModule } from '@digital-plant/zui-components';
+import { TextareAautosizeExampleComponent } from './examples/textarea-autosize-example/textarea-autosize-example.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { ZuiInputTextModule } from '@digital-plant/zui-components';
     FormsModule,
     ZuiInputTextModule,
   ],
-  declarations: [TextareaExampleComponent, TextareaBasicExampleComponent],
+  declarations: [TextareaExampleComponent, TextareaBasicExampleComponent, TextareAautosizeExampleComponent],
   exports: [TextareaExampleComponent],
 })
 export class TextareaExampleModule {}
