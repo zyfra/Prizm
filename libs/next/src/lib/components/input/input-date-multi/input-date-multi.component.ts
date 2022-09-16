@@ -1,7 +1,7 @@
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  Component,
+  Component, HostBinding,
   Inject,
   Injector,
   Input,
@@ -56,6 +56,9 @@ export class ZuiInputDateMultiComponent implements OnInit {
     @Input()
     @zuiDefaultProp()
     outer = false;
+
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_input_date_multi';
 
     public open = false;
 

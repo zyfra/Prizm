@@ -40,6 +40,7 @@
         zuiButton
         [zuiHint]="content"
         [zuiAutoReposition]="zuiAutoReposition"
+        [zuiCanShow]="zuiCanShow"
         [zuiHintDirection]="zuiHintDirection"
         [zuiHintId]="zuiHintId"
         [zuiHintShowDelay]="zuiHintShowDelay"
@@ -66,6 +67,15 @@
         [(documentationPropertyValue)]="zuiAutoReposition"
       >
         Auto Reposition
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="canShow"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="zuiCanShow"
+      >
+        Can Show
       </ng-template>
 
       <ng-template

@@ -4,7 +4,7 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  EventEmitter,
+  EventEmitter, HostBinding,
   HostListener,
   Inject,
   Input,
@@ -66,6 +66,9 @@ export class ZuiDropdownHostComponent implements AfterViewInit {
   @Input()
   @zuiDefaultProp()
   zuiDropdownHostCloseOnBackdropClick = this.options.closeOnBackdrop;
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_dropdown_host';
 
   private readonly documentClick$ = new Subject<number>();
   private readonly containerClick$ = new Subject<number>();

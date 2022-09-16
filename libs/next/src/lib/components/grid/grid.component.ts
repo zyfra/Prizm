@@ -25,6 +25,9 @@ export class GridComponent implements AfterContentInit {
   @ContentChildren(GridItemComponent, { read: ElementRef }) public gridItems: QueryList<ElementRef>;
   @ContentChildren(GridItemComponent) public gridItemsData: QueryList<GridItemComponent>;
 
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_grid';
+
   public ngAfterContentInit(): void {
     const containerElement = this.container.nativeElement;
     containerElement.style['grid-template-columns'] = `repeat(${this.cols}, 1fr)`;

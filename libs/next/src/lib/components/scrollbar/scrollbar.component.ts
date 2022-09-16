@@ -48,6 +48,9 @@ export class ZuiScrollbarComponent {
       return this.visibility$.value;
     }
 
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_scrollbar';
+
     private delegated = false;
 
     private readonly isLegacy: boolean =

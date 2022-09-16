@@ -49,6 +49,9 @@ export class ZuiSplitButtonComponent {
   @Output()
   clickButton = new EventEmitter<void>();
 
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_split_button';
+
   @ViewChild('buttonRef', {static: true, read: ElementRef}) buttonEl: ElementRef;
   @ViewChild('iconButtonRef', {static: true, read: ElementRef}) iconButtonEl: ElementRef;
 

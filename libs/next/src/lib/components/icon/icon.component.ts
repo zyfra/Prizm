@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'zui-icon',
@@ -9,4 +9,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 export class IconComponent {
   @Input() iconClass: string = null;
   @Input() size: string | number = 16;
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_icon';
 }

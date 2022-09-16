@@ -1,0 +1,62 @@
+<div class="box">
+  <button
+    zuiButton
+    appearance='success'
+    (click)="showSuccessToastWithContentTemplate(contentTemplate)">
+    Success Toast
+  </button>
+
+  <button
+    zuiButton
+    appearance='warning'
+    (click)="showWarningToastWithContentTemplate(contentTemplate)">
+    Warning Toast
+  </button>
+
+  <button
+    zuiButton
+    appearance='danger'
+    (click)="showDangerToastWithContentTemplate(contentTemplate)">
+    Danger Toast
+  </button>
+
+  <button
+    zuiButton
+    appearance='primary'
+    (click)="showInfoToastWithContentTemplate(contentTemplate)">
+    Info Toast
+  </button>
+
+  <ng-template #contentTemplate let-close="close" let-buttonAppearance="buttonAppearance">
+    <div>В toast-сообщении старайтесь уместить текст в 2 строки.</div>
+
+    <div class="date">
+      16.05.2022 10:00
+    </div>
+    <div class="link">
+      <a href="#">Ссылка</a>
+    </div>
+    <div class="footer">
+      <button
+        zuiButton
+        [appearance]='buttonAppearance'
+        (click)="close()">
+        Закрыть
+      </button>
+    </div>
+  </ng-template>
+</div>
+
+<br>
+<hr>
+<p>Position</p>
+<div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+  <zui-radio-button
+    *ngFor="let item of data"
+    [formControl]="formControl"
+    [label]="item.label"
+    [name]="'success'"
+    [value]="item.val"
+  ></zui-radio-button>
+</div>
+

@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, Inject, NgZone, Optional } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, NgZone, Optional } from '@angular/core';
 import { ANIMATION_FRAME } from '@ng-web-apis/common';
 import { Observable } from 'rxjs';
 import { distinctUntilChanged, map, startWith, throttleTime } from 'rxjs/operators';
@@ -18,6 +18,9 @@ import { AnimationOptions } from '@angular/animations';
     ],
 })
 export class ZuiScrollControlsComponent {
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_scroll_controls';
+
     readonly refresh$ = this.animationFrame$.pipe(
         throttleTime(300),
         map(() => this.scrollbars),

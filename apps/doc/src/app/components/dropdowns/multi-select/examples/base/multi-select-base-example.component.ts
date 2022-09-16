@@ -18,6 +18,7 @@ export class ZuiMultiSelectBaseExampleComponent implements OnInit {
     'One',
     'Two',
     'Three',
+    'Very long text with a lot of characters and spaces and other stuff and things',
   ]
   readonly valueDisabled = new FormControl(false);
 

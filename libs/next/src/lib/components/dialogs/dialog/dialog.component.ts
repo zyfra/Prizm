@@ -40,6 +40,9 @@ export class ZuiDialogComponent<O = unknown, DATA = unknown> {
       return this.animation;
     }
 
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_dialog';
+
     @zuiPure
     public get isFooterArray(): boolean {
       return Boolean(this.footer && Array.isArray(this.footer) && this.footer.length);

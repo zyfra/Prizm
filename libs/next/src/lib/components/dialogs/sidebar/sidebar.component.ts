@@ -51,6 +51,9 @@ export class ZuiSidebarComponent<DATA = unknown> {
       return this.animation;
     }
 
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_sidebar';
+
     private readonly animation = {
         value: '',
         params: {

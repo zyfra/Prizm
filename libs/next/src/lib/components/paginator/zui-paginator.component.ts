@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import {
   IPaginatorData,
   IPaginatorOptions,
@@ -40,6 +40,9 @@ export class ZuiPaginatorComponent {
   @Input() public rowsCountOptions: number[] = [];
 
   @Output() public tabChange: EventEmitter<IPaginatorOutput> = new EventEmitter<IPaginatorOutput>();
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_paginator';
 
   public currentPage = 1;
   // Количесвто пакетов = Суммарное количество данных / Сколько данных в одном пакете

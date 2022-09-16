@@ -1,6 +1,6 @@
-import {InjectionToken, Type, ValueProvider} from '@angular/core';
-import {ZuiToastOptions, ZuiToastAppearance, ZuiToastPosition} from "./types";
-import {ToastComponent} from './toast/toast.component';
+import { InjectionToken, Type, ValueProvider } from '@angular/core';
+import { ZuiToastAppearance, ZuiToastOptions, ZuiToastPosition } from './types';
+import { ToastComponent } from './toast/toast.component';
 
 export interface ZuiToastDefaultOptions {
     readonly position: ZuiToastPosition,
@@ -12,6 +12,7 @@ export interface ZuiToastDefaultOptions {
     readonly templateDanger: Type<unknown>,
     readonly templateWarning: Type<unknown>,
     readonly templateInfo: Type<unknown>,
+    readonly isPlatform: boolean,
 }
 
 /** Default values for the toast options. */
@@ -20,6 +21,7 @@ export const ZUI_TOAST_DEFAULT_OPTIONS: ZuiToastDefaultOptions = {
     timer: 5000,
     title: '',
     appearance: 'info',
+    isPlatform: false,
     data: {},
     /* You can use also different components for each appearance*/
     templateSuccess: ToastComponent,

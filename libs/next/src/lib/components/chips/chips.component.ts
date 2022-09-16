@@ -40,6 +40,9 @@ export class ZuiChipsComponent implements ControlValueAccessor, OnInit, OnDestro
   @Output() public removeChipEvent: EventEmitter<string> = new EventEmitter();
   @Output() public clickChipEvent: EventEmitter<string> = new EventEmitter();
 
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_chips';
+
   public accessorIsDisabled = false;
   public chipsList$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   private subscription: Subscription = new Subscription();

@@ -55,6 +55,9 @@ export class ZuiLinkComponent implements ZuiFocusableElementAccessor {
     @HostBinding(`class._focus-visible`)
     focusVisible = false;
 
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_link';
+
     readonly focusedChange = merge(
         zuiTypedFromEvent(this.elementRef.nativeElement, `focusin`).pipe(mapTo(true)),
         zuiTypedFromEvent(this.elementRef.nativeElement, `focusout`).pipe(mapTo(false)),
