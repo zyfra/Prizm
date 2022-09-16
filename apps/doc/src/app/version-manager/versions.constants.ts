@@ -6,7 +6,7 @@ export interface ZuiVersionMeta {
 
 export const ZUI_VERSIONS_META: readonly ZuiVersionMeta[] = [
   {
-    label: 'NEXT (1.0.0-beta.6)',
+    label: 'NEXT (1.0.0-beta.7)',
     baseHref: '',
   },
   {
