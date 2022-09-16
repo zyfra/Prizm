@@ -1,0 +1,184 @@
+:host {
+  button {
+    outline: none;
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    background: var(--zui-bg-body);
+    border: 1px solid var(--zui-border-widget);
+
+    .content {
+      height: 400px;
+      width: 100%;
+
+      display: grid;
+      align-items: center;
+      justify-content: center;
+
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .scalable-item {
+        height: 100%;
+        width: 100%;
+
+        background: #c38989;
+
+        border-radius: 20%;
+
+        transition: 400ms;
+      }
+
+      &::-webkit-scrollbar {
+        width: 8px;
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--zui-grey-g10-g4);
+        border-radius: 4px;
+      }
+    }
+
+    .zoom-control {
+      height: 100%;
+      padding: 0 16px;
+
+      display: flex;
+      align-items: center;
+      gap: 2px;
+
+      &__btn {
+        height: 32px;
+        width: 32px;
+
+        z-index: 10001;
+      }
+
+      &__select {
+        height: 32px;
+        width: 256px;
+        padding-left: 16px;
+        padding-right: 8px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        background: var(--zui-bg-dashboard-forms);
+        border: 1px solid var(--zui-border-forms);
+        border-radius: 2px;
+
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+
+        color: var(--zui-text-contrast);
+
+        transition: 400ms;
+
+        &-icon {
+          height: 32px;
+          width: 32px;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          color: var(--zui-border-icon);
+        }
+
+        &:hover,
+        &:focus {
+          border-color: var(--zui-index-plan);
+
+          .zoom-control__select-icon {
+            color: var(--zui-index-plan);
+          }
+        }
+      }
+    }
+  }
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+
+  background: var(--zui-bg-body);
+
+  &.default {
+    border: none;
+  }
+
+  &-group {
+    padding: 16px 0;
+
+    border-bottom: 1px solid var(--zui-border-widget);
+
+    &__item {
+      height: 40px;
+      width: 100%;
+      padding: 0 16px;
+
+      display: flex;
+      align-items: center;
+
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+
+      color: var(--zui-text-contrast);
+
+      overflow: hidden;
+      cursor: pointer;
+
+      transition: 400ms;
+
+      &:hover {
+        background: var(--zui-lite-b130-20);
+
+        .icon,
+        .key {
+          color: var(--zui-index-plan);
+        }
+      }
+
+      .icon,
+      .key {
+        height: 16px;
+        width: 16px;
+        margin-right: 8px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: var(--zui-border-icon);
+      }
+
+      .key {
+        height: 24px;
+        width: 24px;
+
+        margin-right: 0;
+        margin-left: auto;
+      }
+    }
+
+    &:last-child {
+      border: none;
+    }
+  }
+}

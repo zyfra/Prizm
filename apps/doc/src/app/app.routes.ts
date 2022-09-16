@@ -409,6 +409,14 @@ export const ROUTES = [
       title: 'Grids',
     },
   },
+  {
+    path: 'components/zoom-control',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/zoom-control/zoom-control-example.module')).ZoomControlExampleModule,
+    data: {
+      title: 'Zoom Control',
+    },
+  },
   { path: '**', redirectTo: 'getting-started' },
 ];
 

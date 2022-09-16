@@ -306,6 +306,12 @@ export const pages: TuiDocPages = [
     keywords: 'grids, сетка, сетки',
     route: '/components/grids',
   },
+  {
+    section: `Components`,
+    title: 'Zoom control',
+    keywords: 'zoom, zoom control, зум',
+    route: '/components/zoom-control',
+  },
   // Tools
   {
     section: `Tools`,
