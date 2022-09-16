@@ -1,0 +1,94 @@
+<div class="container">
+  <zui-panel header="Заголовок">
+    <div class="zoom-control" instruments>
+      <button
+        zuiIconButton
+        appearanceType="ghost"
+        icon="sort-zoom-out"
+        appearance="secondary"
+        class="zoom-control__btn"
+        size="m"
+        [disabled]="scaleIdx === scalesList.length - 1"
+        (click)="scaleDecrease()"
+      ></button>
+      <zui-dropdown-host [content]="dropdown" zuiDropdownHostWidth="100%" [(isOpen)]="openDropdown">
+        <button class="zoom-control__select" (click)="openDropdown = !openDropdown">
+          {{ currentScale | number: '.0-1' }}%
+          <zui-icon iconClass="chevrons-dropdown" class="zoom-control__select-icon"></zui-icon>
+        </button>
+      </zui-dropdown-host>
+      <button
+        zuiIconButton
+        appearanceType="ghost"
+        icon="sort-maximize"
+        appearance="secondary"
+        size="m"
+        class="zoom-control__btn"
+        (click)="scaleIncrease()"
+        [disabled]="scaleIdx === 0"
+      ></button>
+    </div>
+  </zui-panel>
+  <div class="content" #content>
+    <div
+      [ngStyle]="{
+        'width.px': (250 * currentScale) / 100,
+        'height.px': (250 * currentScale) / 100
+      }"
+      class="scalable-item"
+    ></div>
+  </div>
+</div>
+
+<ng-template #dropdown>
+  <zui-data-list class="settings">
+    <div class="settings-group">
+      <div
+        class="settings-group__item"
+        *ngFor="let scale of scalesList; let i = index"
+        (click)="chooseScale(i)"
+      >
+        {{ scale }}%
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <div class="settings-group__item" (click)="scaleIncrease()">
+        <zui-icon iconClass="sort-zoom-out" class="icon"></zui-icon>
+        Увеличить
+        <span class="key"> F </span>
+      </div>
+      <div class="settings-group__item" (click)="scaleDecrease()">
+        <zui-icon iconClass="sort-maximize" class="icon"></zui-icon>
+        Уменьшить
+        <span class="key"> F </span>
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <div class="settings-group__item" (click)="setScale(100)">
+        <zui-icon iconClass="arrows-expand-all" class="icon"></zui-icon>
+        Полный размер
+        <span class="key"> F </span>
+      </div>
+      <div class="settings-group__item">
+        <zui-icon iconClass="editor-border-outer" class="icon"></zui-icon>
+        Вписать
+        <span class="key"> F </span>
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <div class="settings-group__item" (click)="setScale((400 / 250) * 100)">
+        <zui-icon iconClass="arrows-arrow-expand-vertical" class="icon"></zui-icon>
+        По высоте
+        <span class="key"> F </span>
+      </div>
+      <div class="settings-group__item" (click)="setScale((contentWidth / 250) * 100)">
+        <zui-icon iconClass="arrows-arrow-expand-horizontal" class="icon"></zui-icon>
+        По ширине
+        <span class="key"> F </span>
+      </div>
+    </div>
+  </zui-data-list>
+</ng-template>

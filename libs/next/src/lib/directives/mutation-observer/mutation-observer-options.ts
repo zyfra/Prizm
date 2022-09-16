@@ -8,7 +8,8 @@ export interface ZuiMutationObserveOptions {
 export const ZUI_MUTATION_OBSERVER_DEFAULT_OPTIONS: ZuiMutationObserveOptions = {
   config: {
     childList: true,
-    attributes: true
+    attributes: true,
+    subtree: true,
   },
 };
 
@@ -16,12 +17,12 @@ export const ZUI_MUTATION_OBSERVER_OPTIONS = new InjectionToken<ZuiMutationObser
   'Default parameters for mutation observer directive',
   {
     factory: (): ZuiMutationObserveOptions => ZUI_MUTATION_OBSERVER_DEFAULT_OPTIONS,
-  },
+  }
 );
 
 export const zuiMutationObserverOptionsProvider: (
-  options: Partial<ZuiMutationObserveOptions>,
+  options: Partial<ZuiMutationObserveOptions>
 ) => ValueProvider = (options: Partial<ZuiMutationObserveOptions>) => ({
   provide: ZUI_MUTATION_OBSERVER_OPTIONS,
-  useValue: {...ZUI_MUTATION_OBSERVER_DEFAULT_OPTIONS, ...options},
+  useValue: { ...ZUI_MUTATION_OBSERVER_DEFAULT_OPTIONS, ...options },
 });
