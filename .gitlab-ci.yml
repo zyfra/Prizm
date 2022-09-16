@@ -89,11 +89,11 @@ Release package:
     - npm config set "//$CI_SERVER_HOST/api/v4/projects/$CI_PROJECT_ID/packages/npm/:_authToken" "$CI_JOB_TOKEN"
     - cd dist/libs
     #- for i in `(ls -l | awk '{ print $9 }')`; do npm publish ./$i; done
-    - npx publish-if-not-exists next
-    - npx publish-if-not-exists helpers
-    - npx publish-if-not-exists components
-    - npx publish-if-not-exists schematics
-    - npx publish-if-not-exists translate
+    - npm publish --verbose  next
+    - npm publish --verbose  helpers
+    - npm publish --verbose  components
+    - npm publish --verbose  schematics
+    - npm publish --verbose  translate
   when: manual
   only: ["main", "next"]
   extends: [".tags_k8s", ".except_skip_ci"]
