@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { ZuiTableComponent } from '../zui-table.component';
 import { ZuiBaseSearchCellComponent } from '../base-table';
 
@@ -10,6 +10,9 @@ import { ZuiBaseSearchCellComponent } from '../base-table';
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZuiSearchCellComponent extends ZuiBaseSearchCellComponent {
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_search_cell';
+
   constructor(public readonly table: ZuiTableComponent) {
     super();
   }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { PolymorphContent } from '../../directives';
 import { ZuiShadowType } from '../../directives/shadow';
 
@@ -12,7 +12,10 @@ import { ZuiShadowType } from '../../directives/shadow';
 export class ZuiWidgetComponent {
   @Input() public header: PolymorphContent = '';
   @Input() public title: PolymorphContent = '';
-  @Input() public icons: PolymorphContent = [];
+  @Input() public icons: PolymorphContent[] = [];
   @Output() public iconClick: EventEmitter<string> = new EventEmitter();
   readonly shadow: ZuiShadowType = 'none';
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_widget';
 }

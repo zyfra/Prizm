@@ -19,6 +19,9 @@ export class TabComponent {
   @Output() cancelClick: EventEmitter<void> = new EventEmitter();
   @Output() public tabClick: EventEmitter<void> = new EventEmitter();
 
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_tab';
+
   public cancel(event: MouseEvent): void {
     event.stopPropagation();
     this.cancelClick.emit();

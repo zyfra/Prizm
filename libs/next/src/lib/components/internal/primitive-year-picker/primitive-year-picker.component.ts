@@ -53,6 +53,9 @@ export class ZuiPrimitiveYearPickerComponent {
         return !!value && this.isRange(value) && value.from.yearSame(value.to);
     }
 
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_primitive_year_picker';
+
     get rows(): number {
         return Math.ceil((this.calculatedMax - this.calculatedMin) / ITEMS_IN_ROW);
     }

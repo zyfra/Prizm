@@ -3,7 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ContentChildren,
-  EventEmitter,
+  EventEmitter, HostBinding,
   Input,
   OnChanges,
   Output,
@@ -49,6 +49,9 @@ export class ZuiTableComponent<T = unknown>
 {
   @ViewChild('ptable', { static: true }) table: Table;
   @ContentChildren(BaseTableTemplateDirective) templates: QueryList<BaseTableTemplateDirective>;
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_table';
 
   public expandedRowTemplate: TemplateRef<any>;
   public footerGroupedTemplate: TemplateRef<any>;

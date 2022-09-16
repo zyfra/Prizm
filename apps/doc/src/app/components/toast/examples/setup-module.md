@@ -1,6 +1,6 @@
 ```ts
-import {NgModule} from '@angular/core';
-import {ZuiToastModule, zuiToastOptionsProvider} from "@digital-plant/zui-components";
+import { NgModule } from '@angular/core';
+import { ZuiToastModule, zuiToastOptionsProvider } from '@digital-plant/zui-components';
 
 @NgModule({
   imports: [
@@ -8,11 +8,12 @@ import {ZuiToastModule, zuiToastOptionsProvider} from "@digital-plant/zui-compon
     ZuiToastModule,
   ],
   providers: [
-    /* optional - we can override default options */  
+    /* optional - we can override default options */
     zuiToastOptionsProvider({
       timer: 1000
     })
   ]
 })
-export class MyModule {}
+export class MyModule {
+}
 ```

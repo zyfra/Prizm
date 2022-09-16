@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  EventEmitter,
+  EventEmitter, HostBinding,
   Inject,
   Input,
   Optional,
@@ -80,6 +80,10 @@ export class ZuiCalendarRangeComponent implements ZuiWithOptionalMinMax<ZuiDay> 
     /** @deprecated TODO: 2.0 remove */
     @Output()
     readonly rangeChange = new EventEmitter<ZuiDayRange | null>();
+
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_calendar_range';
+
 
     readonly maxLengthMapper: ZuiMapper<ZuiDay, ZuiDay> = ZUI_MAX_DAY_RANGE_LENGTH_MAPPER;
 

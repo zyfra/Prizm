@@ -7,11 +7,14 @@ import { ZUI_TREE_CONTROLLER } from '../../misc/tree.tokens';
 
 @Component({
     selector: 'zui-tree-item-content',
-    templateUrl: 'tree-item-content.template.html',
-    styleUrls: ['tree-item-content.style.less'],
+    templateUrl: './tree-item-content.component.html',
+    styleUrls: ['./tree-item-content.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZuiTreeItemContentComponent {
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_tree_item_content';
+
     constructor(
         @Inject(POLYMORPH_CONTEXT) readonly context: ZuiTreeItemContext,
         @Inject(forwardRef(() => ZUI_TREE_CONTROLLER))

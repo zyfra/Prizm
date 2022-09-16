@@ -3,16 +3,15 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  forwardRef,
-  HostListener,
-  Inject, Injector,
+  forwardRef, HostBinding,
+  Inject,
+  Injector,
   Input,
   Optional,
   Self,
   ViewChild,
 } from '@angular/core';
 import { NgControl } from '@angular/forms';
-import { TextMaskConfig } from 'angular2-text-mask';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ZuiTime } from '../../../@core/date-time/time';
@@ -26,10 +25,8 @@ import { ZuiBooleanHandler } from '../../../types/handler';
 import { ZUI_INPUT_TIME_OPTIONS, ZuiInputTimeOptions } from './input-time-options';
 import { ZUI_TIME_TEXTS } from '../../../tokens/i18n';
 import { ZuiTimeMode } from '../../../types/time-mode';
-import { ZuiTextMaskOptions } from '../../../@core/mask/text-mask-options';
 import { zuiPure } from '../../../decorators/pure';
-import { zuiCreateTimeMask, zuiCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
-import { zuiCreateAutoCorrectedTimePipe } from '../../../@core/mask/create-auto-corrected-time-pipe';
+import { zuiCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
 import { ZUI_STRICT_MATCHER } from '../../../constants/matcher';
 import { ZuiTimeLike } from '../../../types/time-like';
 import { zuiSetNativeFocused } from '../../../util/set-native-focused';
@@ -98,6 +95,9 @@ export class ZuiInputTimeComponent
     @Input()
     @zuiDefaultProp()
     extraButtonInjector: Injector = this.injector;
+
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_input_time';
 
     public open = false;
     public rightButtons$: BehaviorSubject<ZuiDateButton[]>

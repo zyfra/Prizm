@@ -1,13 +1,5 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  HostBinding,
-  Inject,
-  Input,
-} from '@angular/core';
-import { fromEvent, Observable } from 'rxjs';
+import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ZUI_ANIMATIONS_DURATION } from '../../../tokens';
 import { ZUI_DIALOG_CLOSE_STREAM, ZUI_DIALOG_PROVIDERS } from '../dialog/dialog-options';
 import { ZuiAnimationOptions, zuiFadeIn, zuiSlideInTop } from '../../../animations';
@@ -46,6 +38,9 @@ export class ZuiDialogConfirmComponent<DATA = unknown> {
     public get slideInTop(): ZuiAnimationOptions {
       return this.animation;
     }
+
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_confirm_dialog';
 
     private readonly animation = {
         value: '',

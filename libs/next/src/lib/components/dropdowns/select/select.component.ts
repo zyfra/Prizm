@@ -4,6 +4,7 @@ import {
   Component,
   ElementRef,
   forwardRef,
+  HostBinding,
   Inject,
   Input,
   Optional,
@@ -17,13 +18,14 @@ import { ZUI_SELECT_OPTIONS, ZuiSelectOptions } from './select.options';
 import { ZuiContextWithImplicit, ZuiFocusableElementAccessor, ZuiNativeFocusableElement } from '../../../types';
 import { ZuiInputSize } from '../../input';
 import { AbstractZuiControl } from '../../../abstract/control';
-import { zuiIsNativeFocused } from '../../../util';
+import { zuiIsNativeFocused, zuiIsTextOverflow$ } from '../../../util';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { BehaviorSubject, timer } from 'rxjs';
 import { ZuiSelectIdentityMatcher, ZuiSelectSearchMatcher } from './select.model';
 import { ZUI_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens';
 import { zuiDefaultProp } from '../../../decorators';
 import { ZuiDropdownHostComponent } from '../dropdown-host';
+import { ZuiOverlayOutsidePlacement } from '../../../modules';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({
@@ -97,6 +99,8 @@ implements ZuiFocusableElementAccessor
   @zuiDefaultProp()
   nullContent: string = this.options.nullContent;
 
+  readonly zuiIsTextOverflow$ = zuiIsTextOverflow$;
+
   private readonly stop$ = new BehaviorSubject(false);
 
   /**
@@ -118,7 +122,11 @@ implements ZuiFocusableElementAccessor
   @zuiDefaultProp()
   outer: boolean = this.options.outer;
 
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_select';
+
   public open = false;
+  public readonly direction: ZuiOverlayOutsidePlacement = ZuiOverlayOutsidePlacement.RIGHT;
   public readonly items$ = new BehaviorSubject([]);
   public readonly requiredInputControl = new FormControl();
 

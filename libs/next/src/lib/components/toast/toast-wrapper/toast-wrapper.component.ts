@@ -8,7 +8,7 @@ import {
   Type,
   ViewEncapsulation,
 } from '@angular/core';
-import {ZuiToastRef} from "../toast-ref";
+import { ZuiToastRef } from '../toast-ref';
 
 @Component({
   selector: 'zui-toast-wrapper',
@@ -19,6 +19,9 @@ import {ZuiToastRef} from "../toast-ref";
 })
 export class ToastWrapperComponent implements OnInit {
   @Input() ref!: ZuiToastRef;
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_toast_wrapper';
 
   @HostBinding('attr.id') get getRefId (): string {
     return 'zui-toast-id' + this.ref.id;

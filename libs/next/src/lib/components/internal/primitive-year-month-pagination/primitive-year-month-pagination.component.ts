@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { ZUI_FIRST_DAY, ZUI_LAST_DAY } from '../../../@core/date-time/days.const';
 import { ZuiMonth } from '../../../@core/date-time/month';
 import { ZuiYear } from '../../../@core/date-time/year';
@@ -38,6 +38,9 @@ export class ZuiPrimitiveYearMonthPaginationComponent
 
     @Output()
     readonly monthClick = new EventEmitter<ZuiMonth>();
+
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_primitive_year_month_pagination';
 
     public get prevMonthDisabled(): boolean {
         return this.value.monthSameOrBefore?.(this.min);

@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  HostBinding,
+  Input,
+  Output,
+  TemplateRef,
+} from '@angular/core';
 import { ZuiMenuItem } from '../../model/zui-menu-item.interface';
 
 @Component({
@@ -11,6 +19,9 @@ export class ZuiNavMenuItemComponent {
   @Input() itemExtra: TemplateRef<any>;
 
   @Output() itemClick: EventEmitter<ZuiMenuItem> = new EventEmitter();
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_nav_menu_item';
 
   public itemClickHandler(event: MouseEvent, item: ZuiMenuItem): void {
     if (item.disabled) {

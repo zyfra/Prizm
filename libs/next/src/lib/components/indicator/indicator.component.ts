@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
 import { IndicatorStatus, IndicatorType } from './indicator.models';
 
 @Component({
@@ -10,6 +10,9 @@ import { IndicatorStatus, IndicatorType } from './indicator.models';
 export class IndicatorComponent {
   @Input() public type: IndicatorType = 'simple';
   @Input() public status: IndicatorStatus = 'info';
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_indicator';
 
   public readonly iconMap = {
     info: 'alerts-information-variant',

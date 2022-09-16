@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ElementRef,
+  ElementRef, HostBinding,
   HostListener,
   Inject,
   Injector,
@@ -103,6 +103,9 @@ export class ZuiInputDateTimeComponent
     @Input()
     @zuiDefaultProp()
     timeMode: ZuiTimeMode = `HH:MM`;
+
+    @HostBinding('attr.testId')
+    readonly testId = 'zui_input_date_time';
 
     open = false;
 

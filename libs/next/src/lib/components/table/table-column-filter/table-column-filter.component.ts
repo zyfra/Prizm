@@ -2,7 +2,7 @@ import {
   AfterContentInit,
   ChangeDetectionStrategy,
   Component,
-  ContentChildren,
+  ContentChildren, HostBinding,
   Input,
   QueryList,
   TemplateRef,
@@ -55,6 +55,9 @@ export class ZuiTableColumnFilterComponent implements AfterContentInit {
   @Input() currency: string;
   @Input() currencyDisplay: string;
   @Input() useGrouping = true;
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zui_table_column_filter';
 
   ngAfterContentInit(): void {
     this.templates.forEach(item => {

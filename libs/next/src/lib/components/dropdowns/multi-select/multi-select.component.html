@@ -56,7 +56,13 @@
           (click)="select(item)"
         >
           <zui-checkbox [checked]="item.checked">
-            <span class="text" *zuiLet="item | zuiCallFunc: stringify:$any(nullContent) as text">
+            <div class="text"
+                  #elem
+                  *zuiLet="item | zuiCallFunc: stringify:$any(nullContent) as text"
+                  [zuiHint]='text'
+                  [zuiHintDirection]='direction'
+                  [zuiCanShow]='elem | zuiCallFunc : zuiIsTextOverflow$ | async'
+            >
               <ng-container
                 *polymorphOutlet="
                   valueTemplate as content;
@@ -71,7 +77,7 @@
               >
                 {{ text }}
               </ng-container>
-            </span>
+            </div>
           </zui-checkbox>
         </div>
       </ng-container>
