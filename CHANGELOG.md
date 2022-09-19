@@ -2,6 +2,15 @@
 
 Все изменения в этом файле отражают изменения в коде во всем монорепозитории.
 
+---
+
+## [v0.13.5] - 19-09-2022
+
+### @digital-plant/zyfra-components [v0.13.5]
+
+**Fixes**
+
+- fix(icons): Rebuild icon fonts with codepoints
 
 ---
 
@@ -9,7 +18,7 @@
 
 ### @digital-plant/zui-components [1.0.0-beta.7]
 
-- fix/(next/*): add testId [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/336)
+- fix/(next/\*): add testId [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/336)
 - fix/(components/textarea) Textarea fix [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/329)
 - feat(components/zoom-control) Добавлен паттерн zoom-control [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/328)
 - feat(components): shadow encapsulation for primeng wrappers [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/324)
@@ -18,10 +27,9 @@
 >
 > ✏️ **MR:** Rustam Imaikin, Konstantin Skok, Khachatur Matevosyan, Zurab Magomadov
 
-
 ---
 
-## [v0.13.4] - 07-09-2022
+## [v0.13.4] - 16-09-2022
 
 ### @digital-plant/zyfra-components [v0.13.4]
 
