@@ -1,6 +1,6 @@
 {
   "name": "@digital-plant/sdk",
-  "version": "0.13.4",
+  "version": "0.13.5",
   "license": "MIT",
   "scripts": {
     "docs": "nx run components:doc",
