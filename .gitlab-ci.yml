@@ -89,10 +89,10 @@ Release package:
     - npm config set "//$CI_SERVER_HOST/api/v4/projects/$CI_PROJECT_ID/packages/npm/:_authToken" "$CI_JOB_TOKEN"
     - cd dist/libs
     #- for i in `(ls -l | awk '{ print $9 }')`; do npm publish ./$i; done
-    - npm publish --verbose  next
-    - npm publish --verbose  helpers
     - npm publish --verbose  components
     - npm publish --verbose  schematics
+    - npm publish --verbose  helpers
+    - npm publish --verbose  next
     - npm publish --verbose  translate
   when: manual
   only: ["main", "next"]

@@ -81,7 +81,7 @@ function builderExecutor(options, context) {
                         sources: sources,
                         icons: icons,
                         output: {
-                            // codepoints: true,
+                            codepoints: true,
                             ligatures: true,
                             fonts: path.join(options.outputPath),
                             fontName: options.fontFileName,
