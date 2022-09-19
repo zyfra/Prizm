@@ -1,8 +1,16 @@
 # Changelog
 
-## [v0.13.4] - 07-09-2022
+## [v0.13.5] - 19-09-2022
 
-### @digital-plant/zyfra-components [v0.13.3]
+### @digital-plant/zyfra-components [v0.13.5]
+
+**Fixes**
+
+- fix(icons): Rebuild icon fonts with codepoints
+
+## [v0.13.4] - 17-09-2022
+
+### @digital-plant/zyfra-components [v0.13.4]
 
 **Fixes**
 
