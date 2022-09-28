@@ -47,12 +47,12 @@
     <tui-doc-demo>
       <zui-multi-select
         [formControl]='control'
-        [nullContent]='nullContent'
         [items]='items'
         [outer]='outer'
         [searchable]='searchable'
         [emptyContent]='emptyContent'
         [minDropdownHeight]='minDropdownHeight'
+        [dropdownWidth]='dropdownWidth'
         [maxDropdownHeight]='maxDropdownHeight'
         [label]='label'
         [placeholder]='placeholder'
@@ -103,9 +103,6 @@
         documentationPropertyName="value"
         documentationPropertyType="unknown"
         documentationPropertyMode="input"
-        [documentationPropertyValue]="val"
-        (documentationPropertyValueChange)="setValue($event)"
-        [documentationPropertyValues]="valVariants"
       >
         Value (use FormControl)
       </ng-template>
@@ -115,21 +112,9 @@
         documentationPropertyType="PolymorphContent"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="valueTemplate"
-        [documentationPropertyValues]="getValueTemplate(valueTemp)"
       >
         Value Template
       </ng-template>
-
-      <ng-template #valueTemp let-value let-nullContent="nullContent">
-        <div class='item' *ngIf='value; else empty'>
-          <zui-icon iconClass='account-done'></zui-icon>
-          <span>{{value}}</span>
-        </div>
-        <ng-template #empty>
-          {{nullContent}}
-        </ng-template>
-      </ng-template>
-
 
       <ng-template
         documentationPropertyName="searchable"
@@ -179,6 +164,15 @@
       </ng-template>
 
       <ng-template
+        documentationPropertyName="dropdownWidth"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="dropdownWidth"
+      >
+        Dropdown Width
+      </ng-template>
+
+      <ng-template
         documentationPropertyName="maxDropdownHeight"
         documentationPropertyType="number"
         documentationPropertyMode="input"
@@ -195,16 +189,6 @@
         [(documentationPropertyValue)]="placeholder"
       >
         Placeholder
-      </ng-template>
-
-
-      <ng-template
-        documentationPropertyName="nullContent"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="nullContent"
-      >
-        Null Content
       </ng-template>
 
 

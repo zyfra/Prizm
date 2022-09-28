@@ -1,3 +1,4 @@
+declare module '*?raw';
 declare module '!!raw-loader!*';
 declare module 'highlight*';
 
@@ -18,4 +19,18 @@ declare module '*.html' {
     const result: string;
 
     export = result;
+}
+
+
+interface NodeModule {
+  id: string;
+}
+
+/* Import file's content as string.
+To understand how it works, see `projects/demo/webpack.config.ts`.
+*/
+declare module '*?raw' {
+  const result: string;
+
+  export default result;
 }

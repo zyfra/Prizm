@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PolymorphModule } from '../../directives';
+import { PolymorphModule, ZuiThemeModule } from '../../directives';
 import { ZuiCardModule } from '../card';
 import { ZuiWidgetComponent } from './widget.component';
 import { ZuiIconModule } from '../icon';
@@ -10,6 +10,7 @@ import { ZuiIconModule } from '../icon';
     CommonModule,
     ZuiCardModule,
     ZuiIconModule,
+    ZuiThemeModule,
     PolymorphModule,
   ],
   declarations: [ZuiWidgetComponent],

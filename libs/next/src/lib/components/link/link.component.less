@@ -12,78 +12,12 @@
     outline: none;
 
     &:hover {
-        color: var(--zui-link-hover);
+        color: var(--zui-index-plan);
     }
 
     &:disabled {
         opacity: var(--zui-disabled-opacity);
         cursor: default;
-    }
-
-    &[data-mode='onLight'] {
-        color: var(--zui-text-02);
-
-        &:hover,
-        &._active {
-            color: var(--zui-text-01);
-        }
-
-        &._pseudo {
-            color: var(--zui-text-01);
-
-            .t-content {
-                text-decoration-color: rgba(0, 0, 0, 0.48);
-            }
-
-            &:hover,
-            &._active {
-                color: var(--zui-text-03);
-            }
-        }
-
-        &[data-host-mode='negative'] {
-            color: var(--zui-negative-night);
-
-            &:hover,
-            &:active,
-            &._active {
-                color: var(--zui-negative-night-hover);
-            }
-        }
-    }
-
-    &[data-mode='onDark'] {
-        color: var(--zui-text-03-night);
-
-        &:hover,
-        &:active,
-        &._active {
-            color: var(--zui-text-01-night);
-        }
-
-        &._pseudo {
-            color: var(--zui-text-01-night);
-
-            .t-content {
-                text-decoration-color: rgba(255, 255, 255, 0.48);
-            }
-
-            &:hover,
-            &:active,
-            &._active {
-                color: var(--zui-text-03-night);
-            }
-        }
-
-        &[data-host-mode='positive'] {
-            color: var(--zui-positive-night);
-
-            &:hover,
-            &:active,
-            &._active {
-                color: var(--zui-positive-night-hover);
-            }
-        }
     }
 
     &[data-host-mode='negative'] {
@@ -114,16 +48,6 @@
 .t-content {
     :host._focus-visible & {
         background: var(--zui-selection);
-    }
-
-    :host[data-mode='onLight']._focus-visible & {
-        background: var(--zui-clear);
-        color: var(--zui-text-01);
-    }
-
-    :host[data-mode='onDark']._focus-visible & {
-        background: var(--zui-clear-inverse);
-        color: var(--zui-text-01-night);
     }
 
     :host[data-host-mode='positive']._focus-visible & {

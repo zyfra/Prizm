@@ -58,10 +58,10 @@
           <zui-checkbox [checked]="item.checked">
             <div class="text"
                   #elem
-                  *zuiLet="item | zuiCallFunc: stringify:$any(nullContent) as text"
+                  *zuiLet="item | zuiCallFunc: stringify:$any(emptyContent) as text"
                   [zuiHint]='text'
                   [zuiHintDirection]='direction'
-                  [zuiCanShow]='elem | zuiCallFunc : zuiIsTextOverflow$ | async'
+                  [zuiHintCanShow]='elem | zuiCallFunc : zuiIsTextOverflow$ | async'
             >
               <ng-container
                 *polymorphOutlet="

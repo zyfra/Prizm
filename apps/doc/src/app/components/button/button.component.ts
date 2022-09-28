@@ -8,7 +8,7 @@ import { IconDefs, ZuiAppearance, ZuiAppearanceType, ZuiContent, ZuiSize } from 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-  sizeVariants: ReadonlyArray<ZuiSize> = ['s', 'm', 'l'];
+  sizeVariants: ReadonlyArray<ZuiSize> = ['s', 'm', 'xm', 'l', 'xl'];
   size: ZuiSize = this.sizeVariants[0];
 
   iconVariants: ReadonlyArray<ZuiContent> = ['', ...IconDefs.reduce((a, c) => a.concat(c.data), [])];

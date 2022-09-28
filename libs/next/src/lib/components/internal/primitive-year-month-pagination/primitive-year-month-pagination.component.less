@@ -21,10 +21,18 @@
   cursor: pointer;
 
   zui-icon {
-    color: var(--zui-border-icon)
+    color: var(--zui-border-icon);
   }
 
   &:hover, &:hover zui-icon {
-    color: var(--zui-index-plan)
+    color: var(--zui-index-plan);
+  }
+}
+
+[zuiLink] {
+  --zui-link: var(--zui-text-contrast);
+
+  &.active {
+    --zui-link: var(--zui-index-plan);
   }
 }

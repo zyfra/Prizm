@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { GettingStartedComponent } from './getting-started/getting-started.component';
+import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
 
 export const ROUTES = [
   // DOC
@@ -14,9 +14,17 @@ export const ROUTES = [
   {
     path: 'generate-example',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./generate-example/generate-example.module')).GenerateExampleModule,
+      (await import('./documentation/generate-example/generate-example.module')).GenerateExampleModule,
     data: {
       title: 'Generate example',
+    },
+  },
+  {
+    path: 'changelog',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./documentation/changelog/changelog.module')).ChangelogModule,
+    data: {
+      title: 'Changelog',
     },
   },
   // COMPONENTS

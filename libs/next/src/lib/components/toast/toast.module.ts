@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ZuiOverlayModule } from '../../modules/overlay';
 import { ToastComponent } from './toast/toast.component';
 import { ToastWrapperComponent } from './toast-wrapper/toast-wrapper.component';
-import { PolymorphModule } from '../../directives';
+import { PolymorphModule, ZuiThemeModule } from '../../directives';
 import { ZuiToastControl } from './toast-control';
 import { ZuiToastPosition } from './types';
 import { ZuiToastService } from './toast.service';
@@ -24,6 +24,7 @@ import { ZuiInputCommonModule } from '../input';
     ZuiIndicatorModule,
     PolymorphModule,
     ZuiButtonModule,
+    ZuiThemeModule,
     ZuiFocusTrapModule
   ],
   declarations: [

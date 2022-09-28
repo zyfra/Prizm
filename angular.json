@@ -129,9 +129,12 @@
       "prefix": "zyfra",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "outputs": ["{options.outputPath}"],
           "options": {
+            "customWebpackConfig": {
+              "path": "apps/doc/webpack.config.ts"
+            },
             "outputPath": "dist/apps/doc",
             "index": "apps/doc/src/index.html",
             "main": "apps/doc/src/main.ts",
@@ -159,9 +162,19 @@
               "node_modules/primeicons/primeicons.css",
               "libs/next/src/styles/styles.less",
               "libs/next/src/styles/icons/icons.less",
-              "libs/next/src/styles/icons-16/icons-16.less"
+              "libs/next/src/styles/icons-16/icons-16.less",
+              "node_modules/prismjs/themes/prism-okaidia.css",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/marked/lib/marked.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-less.min.js",
+              "node_modules/prismjs/components/prism-markup.min.js",
+              "node_modules/prismjs/components/prism-typescript.min.js",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js",
+              "node_modules/clipboard/dist/clipboard.min.js"
+            ]
           },
           "configurations": {
             "production": {

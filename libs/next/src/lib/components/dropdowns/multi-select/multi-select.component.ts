@@ -58,7 +58,7 @@ implements ZuiFocusableElementAccessor
   public readonly dropdownHostElement?: ZuiDropdownHostComponent;
 
   @Input() set items(data:T[]) {
-    this.items$.next(data);
+    this.items$.next(data ?? []);
   }
   get items(): T[] {
     return this.items$.value;
@@ -99,10 +99,6 @@ implements ZuiFocusableElementAccessor
   @Input()
   @zuiDefaultProp()
   emptyContent: string = this.options.emptyContent;
-
-  @Input()
-  @zuiDefaultProp()
-  nullContent: string = this.options.nullContent;
 
   /** need only clear function */
   @Input()

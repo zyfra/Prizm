@@ -14,7 +14,7 @@ export class AccordionExampleComponent {
   public readonly exampleBasicAccordion: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/accordion-basic-example/accordion-basic-example.component'),
     HTML: import('!!raw-loader!./examples/accordion-basic-example/accordion-basic-example.component.html'),
-    LESS: import('!!raw-loader!./examples/accordion-basic-example/accordion-basic-example.component.less'),
+    LESS: import('./examples/accordion-basic-example/accordion-basic-example.component.less?raw'),
   };
 
   public readonly exampleWithInstrumentsAccordion: TuiDocExample = {
@@ -25,7 +25,7 @@ export class AccordionExampleComponent {
       '!!raw-loader!./examples/accordion-with-instruments-example/accordion-with-instruments-example.component.html'
     ),
     LESS: import(
-      '!!raw-loader!./examples/accordion-with-instruments-example/accordion-with-instruments-example.component.less'
+      './examples/accordion-with-instruments-example/accordion-with-instruments-example.component.less?raw'
     ),
   };
 
@@ -37,7 +37,7 @@ export class AccordionExampleComponent {
       '!!raw-loader!./examples/accordion-single-expand-example/accordion-single-expand-example.component.html'
     ),
     LESS: import(
-      '!!raw-loader!./examples/accordion-single-expand-example/accordion-single-expand-example.component.less'
+      './examples/accordion-single-expand-example/accordion-single-expand-example.component.less?raw'
     ),
   };
 
@@ -49,7 +49,7 @@ export class AccordionExampleComponent {
       '!!raw-loader!./examples/accordion-multiple-expand-example/accordion-multiple-expand-example.component.html'
     ),
     LESS: import(
-      '!!raw-loader!./examples/accordion-multiple-expand-example/accordion-multiple-expand-example.component.less'
+      './examples/accordion-multiple-expand-example/accordion-multiple-expand-example.component.less?raw'
     ),
   };
 
