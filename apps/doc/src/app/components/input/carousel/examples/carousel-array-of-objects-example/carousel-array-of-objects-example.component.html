@@ -7,7 +7,7 @@
     [carouselContent]="arrayWithObjects"
     [value]="arrayWithObjects.set[0]"
   >
-    {{ carousel.value?.title }}
+    {{ arrayWithObjects.currentValue.title }}
   </zui-carousel>
   <zui-carousel-auxiliary-right zui-input-right [carousel]="carousel"></zui-carousel-auxiliary-right>
   <ng-template zuiInputStatusText>Текст статуса</ng-template>

@@ -2,7 +2,8 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ElementRef, HostBinding,
+  ElementRef,
+  HostBinding,
   HostListener,
   Input,
   Optional,
@@ -24,7 +25,7 @@ import { ZuiCarouselContent } from './carousel-content/carousel-content.interfac
   host: {
     '[class.ng-filled]': '!empty',
     class: 'zui-carousel',
-    tabindex: '0',
+    '[attr.tabindex]': "disabled ? null : '0'",
   },
 })
 export class ZuiCarouselComponent extends ZuiInputControl<any> implements ControlValueAccessor {
