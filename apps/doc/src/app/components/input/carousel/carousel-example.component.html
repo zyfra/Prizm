@@ -14,6 +14,10 @@
     >
       <zui-carousel-array-of-objects-example></zui-carousel-array-of-objects-example>
     </tui-doc-example>
+
+    <tui-doc-example heading="Carousel select month example" [content]="zyfraCarouselYearMonthExample">
+      <zui-carousel-year-month-example></zui-carousel-year-month-example>
+    </tui-doc-example>
   </ng-template>
 
   <ng-template pageTab>
@@ -27,7 +31,9 @@
           [carouselContent]="carouselContent"
           [lightMode]="lightMode"
           [value]="value"
-        ></zui-carousel>
+        >
+          {{ carouselContent.currentValue }}
+        </zui-carousel>
         <zui-carousel-auxiliary-right zui-input-right [carousel]="carousel"></zui-carousel-auxiliary-right>
         <ng-template zuiInputStatusText>Текст статуса</ng-template>
       </zui-input-layout>

@@ -9,7 +9,7 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
   styleUrls: ['./carousel-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CarouselExampleComponent {
+export class ZuiCarouselExampleComponent {
   value = 5;
   formControl = new FormControl();
   public label = 'Заголовок';
@@ -40,6 +40,17 @@ export class CarouselExampleComponent {
       '!!raw-loader!./examples/carousel-array-of-objects-example/carousel-array-of-objects-example.component.html'
     ),
   };
+
+  public readonly zyfraCarouselYearMonthExample: TuiDocExample = {
+    TypeScript: import(
+      '!!raw-loader!./examples/carousel-year-month-example/carousel-year-month-example.component.ts'
+    ),
+    HTML: import(
+      '!!raw-loader!./examples/carousel-year-month-example/carousel-year-month-example.component.html'
+    ),
+    PIPE: import('!!raw-loader!./examples/carousel-year-month-example/month.pipe.ts'),
+  };
+
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 }
 
