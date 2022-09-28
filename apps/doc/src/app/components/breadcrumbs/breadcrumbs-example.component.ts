@@ -19,15 +19,21 @@ export class BreadcrumbsExampleComponent {
   ];
 
   public readonly breadcrumbsBasicExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/breadcrumbs-example-basic/breadcrumbs-example-basic.component'),
-    HTML: import('!!raw-loader!./examples/breadcrumbs-example-basic/breadcrumbs-example-basic.component.html'),
-    LESS: import('./examples/breadcrumbs-example-basic/breadcrumbs-example-basic.component.less?raw'),
+    TypeScript: import(
+      '!!raw-loader!.//examples/breadcrumbs-example-basic/breadcrumbs-example-basic.component'
+    ),
+    HTML: import(
+      '!!raw-loader!.//examples/breadcrumbs-example-basic/breadcrumbs-example-basic.component.html'
+    ),
   };
 
   public readonly breadcrumbsWithIconExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/breadcrumbs-example-with-icon/breadcrumbs-example-with-icon.component'),
-    HTML: import('!!raw-loader!./examples/breadcrumbs-example-with-icon/breadcrumbs-example-with-icon.component.html'),
-    LESS: import('./examples/breadcrumbs-example-with-icon/breadcrumbs-example-with-icon.component.less?raw'),
+    TypeScript: import(
+      '!!raw-loader!.//examples/breadcrumbs-example-with-icon/breadcrumbs-example-with-icon.component'
+    ),
+    HTML: import(
+      '!!raw-loader!.//examples/breadcrumbs-example-with-icon/breadcrumbs-example-with-icon.component.html'
+    ),
   };
 
   public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
