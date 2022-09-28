@@ -7,6 +7,8 @@
       [max]="computedMaxViewedMonth"
       [value]="month"
       [hideButtons]="true"
+      [monthActive]='!!clickedMonth'
+      [yearActive]='!!year'
       (valueChange)="onPaginationValueChange($event)"
       (yearClick)="onPaginationYearClick($event)"
       (monthClick)="onPaginationMonthClick($event)"

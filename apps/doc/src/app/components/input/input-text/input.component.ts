@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ZuiInputPosition, ZuiInputSize, ZuiInputStatus } from '@digital-plant/zui-components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { default as d } from '!!raw-loader!./examples/input-phone-example/input-phone-example.component.less';
+import { default as d } from './examples/input-phone-example/input-phone-example.component.less?raw';
 
 @Component({
   selector: 'zui-input',
@@ -45,7 +45,7 @@ export class InputComponent {
       '!!raw-loader!./examples/input-icon-buttons-example/input-icon-buttons-example.component.html'
     ),
     LESS: import(
-      '!!raw-loader!./examples/input-icon-buttons-example/input-icon-buttons-example.component.less'
+      './examples/input-icon-buttons-example/input-icon-buttons-example.component.less?raw'
     ),
   };
 

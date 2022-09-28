@@ -7,6 +7,14 @@
   padding: 16px;
   border-width: 1px 1px 1px 4px;
 
+  &.is-platform {
+    .content-box {
+      .title, .content {
+        color: var(--zui-grey-g12-g2);
+      }
+    }
+  }
+
   .content-box {
     display: flex;
     width: 100%;
@@ -14,12 +22,15 @@
     justify-content: space-between;
     gap: 8px;
 
+    .title, .content {
+      color: var(--zui-text-contrast);
+    }
+
     .title {
       font-weight: 800;
       font-size: 14px;
       min-height: 14px;
       line-height: 20px;
-      color: var(--zui-text-contrast);
     }
   }
 
@@ -28,7 +39,7 @@
     &.success,
     &.warning,
     &.danger {
-      background: var(--zui-bg-body);
+      background: var(--zui-grey-g2-g12);
     }
   }
 

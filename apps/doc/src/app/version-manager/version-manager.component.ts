@@ -7,8 +7,8 @@ import { ZUI_VERSIONS_META, ZuiVersionMeta } from './versions.constants';
 
 @Component({
   selector: 'zui-version-manager',
-  templateUrl: './version-manager.template.html',
-  styleUrls: ['./version-manager.style.less'],
+  templateUrl: './version-manager.component.html',
+  styleUrls: ['./version-manager.component.less'],
   providers: VERSION_MANAGER_PROVIDERS,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

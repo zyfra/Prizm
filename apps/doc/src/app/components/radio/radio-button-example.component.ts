@@ -25,7 +25,7 @@ export class ExamplesRadioButtonComponent {
       '!!raw-loader!./examples/radio-button-basic-example/radio-button-basic-example.component.html'
     ),
     LESS: import(
-      '!!raw-loader!./examples/radio-button-basic-example/radio-button-basic-example.component.less'
+      './examples/radio-button-basic-example/radio-button-basic-example.component.less?raw'
     ),
   };
 

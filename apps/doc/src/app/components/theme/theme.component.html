@@ -1,0 +1,66 @@
+<tui-doc-page
+  header="Theme"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use ZuiThemeDirective to control theme.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Base"
+      [content]="exampleBase"
+    >
+      <zui-theme-base-example></zui-theme-base-example>
+    </tui-doc-example>
+
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+<!--      <zui-theme-base-example></zui-theme-base-example>-->
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="ngContent"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="content"
+      >
+        Content
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="shadow"
+        documentationPropertyType="ZuiShadowType"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="shadow"
+        [documentationPropertyValues]="shadowVariants"
+      >
+        Shadow
+      </ng-template>
+
+
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>ZuiThemeModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

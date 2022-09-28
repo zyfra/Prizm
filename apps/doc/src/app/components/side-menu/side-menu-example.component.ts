@@ -9,8 +9,8 @@ import { TuiDocExample } from '@taiga-ui/addon-doc';
 })
 export class SideMenuExampleComponent {
   public readonly sideMenuBasicExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!.//examples/side-menu-example-basic/side-menu-example-basic.component'),
-    HTML: import('!!raw-loader!.//examples/side-menu-example-basic/side-menu-example-basic.component.html'),
-    LESS: import('!!raw-loader!.//examples/side-menu-example-basic/side-menu-example-basic.component.less'),
+    TypeScript: import('!!raw-loader!./examples/side-menu-example-basic/side-menu-example-basic.component'),
+    HTML: import('!!raw-loader!./examples/side-menu-example-basic/side-menu-example-basic.component.html'),
+    LESS: import('./examples/side-menu-example-basic/side-menu-example-basic.component.less?raw'),
   };
 }
