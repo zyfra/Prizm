@@ -13,7 +13,7 @@ import {
 import { SortMeta } from 'primeng/api';
 import { TableSortEvent } from '../../table/zyfra-table.types';
 import { BaseTableTemplateDirective } from './directives/base-table-template.directive';
-import { SortOrder } from './shared-table.types';
+import { LazyLoadEvent, SortOrder } from './shared-table.types';
 
 @Directive({
   selector: '[zyfraBaseTable]',
@@ -303,15 +303,7 @@ export class ZyfraBaseTableComponent<T = unknown> implements OnChanges, AfterCon
   /**
    * Callback to invoke when paging, sorting or filtering happens in lazy mode
    */
-  @Output() lazyLoad = new EventEmitter<{
-    first: number;
-    rows: number;
-    sortField: string;
-    sortOrder: SortOrder;
-    multiSortMeta: SortMeta[];
-    filters: Record<string, unknown>;
-    globalFilter: unknown;
-  }>();
+  @Output() lazyLoad = new EventEmitter<LazyLoadEvent>();
 
   /**
    * A function to implement custom sorting
