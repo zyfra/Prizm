@@ -13,7 +13,7 @@ interface SomeEntity {
   styleUrls: ['./carousel-array-of-objects-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CarouselArrayOfObjectsExampleComponent {
+export class ZuiCarouselArrayOfObjectsExampleComponent {
   arrayWithObjects = new ZuiCarouselArrayContent<SomeEntity>(
     [
       {

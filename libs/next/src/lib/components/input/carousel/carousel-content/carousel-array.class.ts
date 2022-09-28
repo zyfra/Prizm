@@ -1,7 +1,7 @@
 import { zuiDefaultCarouselControlsState, ZuiCarouselContent } from './carousel-content.interface';
 
 export class ZuiCarouselArrayContent<T> implements ZuiCarouselContent {
-  currentIndex = -1;
+  private currentIndex = -1;
   currentValue: T = undefined;
 
   public controlsState = { ...zuiDefaultCarouselControlsState };

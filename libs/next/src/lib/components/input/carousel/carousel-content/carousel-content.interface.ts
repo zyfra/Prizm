@@ -14,13 +14,11 @@ export const zuiDefaultCarouselControlsState: ZuiCarouselControlsState = {
 
 export interface ZuiCarouselContent {
   currentValue: any;
-  set: any;
-
   currentValueNotSet: boolean;
 
-  controlsState: ZuiCarouselControlsState;
-
   setCurrentValue(value: any): void;
+
+  controlsState: ZuiCarouselControlsState;
 
   stepLeft(): void;
 

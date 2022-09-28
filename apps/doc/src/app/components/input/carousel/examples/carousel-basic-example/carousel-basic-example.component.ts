@@ -7,7 +7,7 @@ import { ZuiCarouselArrayContent } from '@digital-plant/zui-components';
   styleUrls: ['./carousel-basic-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CarouselBasicExampleComponent {
+export class ZuiCarouselBasicExampleComponent {
   carouselContent = new ZuiCarouselArrayContent([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], (item, el) => item === el);
 }
 
