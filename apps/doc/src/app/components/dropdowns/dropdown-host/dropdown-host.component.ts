@@ -36,7 +36,7 @@ export class DropdownHostComponent {
   readonly exampleWithSelectPanel: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/select-panel-example/select-panel-example.component.ts'),
     HTML: import('!!raw-loader!./examples/select-panel-example/select-panel-example.component.html'),
-    LESS: import('!!raw-loader!./examples/select-panel-example/select-panel-example.component.less'),
+    LESS: import('./examples/select-panel-example/select-panel-example.component.less?raw'),
   };
 
   constructor(public readonly cdRef: ChangeDetectorRef) {}

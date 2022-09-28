@@ -13,64 +13,64 @@ export class PanelExampleComponent {
   public subheader = 'Subheader text is here';
 
   public readonly panelBasicExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!.//examples/panel-example-basic/panel-example-basic.component'),
-    HTML: import('!!raw-loader!.//examples/panel-example-basic/panel-example-basic.component.html'),
-    LESS: import('!!raw-loader!.//examples/panel-example-basic/panel-example-basic.component.less'),
+    TypeScript: import('!!raw-loader!./examples/panel-example-basic/panel-example-basic.component'),
+    HTML: import('!!raw-loader!./examples/panel-example-basic/panel-example-basic.component.html'),
+    LESS: import('./examples/panel-example-basic/panel-example-basic.component.less?raw'),
   };
 
   public readonly panelWithBackExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!.//examples/panel-example-with-back/panel-example-with-back.component'),
-    HTML: import('!!raw-loader!.//examples/panel-example-with-back/panel-example-with-back.component.html'),
-    LESS: import('!!raw-loader!.//examples/panel-example-with-back/panel-example-with-back.component.less'),
+    TypeScript: import('!!raw-loader!./examples/panel-example-with-back/panel-example-with-back.component'),
+    HTML: import('!!raw-loader!./examples/panel-example-with-back/panel-example-with-back.component.html'),
+    LESS: import('./examples/panel-example-with-back/panel-example-with-back.component.less?raw'),
   };
 
   public readonly panelWithBreadcrumbsExample: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!.//examples/panel-example-with-breadcrumbs/panel-example-with-breadcrumbs.component'
+      '!!raw-loader!./examples/panel-example-with-breadcrumbs/panel-example-with-breadcrumbs.component'
     ),
     HTML: import(
-      '!!raw-loader!.//examples/panel-example-with-breadcrumbs/panel-example-with-breadcrumbs.component.html'
+      '!!raw-loader!./examples/panel-example-with-breadcrumbs/panel-example-with-breadcrumbs.component.html'
     ),
     LESS: import(
-      '!!raw-loader!.//examples/panel-example-with-breadcrumbs/panel-example-with-breadcrumbs.component.less'
+      './examples/panel-example-with-breadcrumbs/panel-example-with-breadcrumbs.component.less?raw'
     ),
   };
 
   public readonly panelWithTabsExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!.//examples/panel-example-with-tabs/panel-example-with-tabs.component'),
-    HTML: import('!!raw-loader!.//examples/panel-example-with-tabs/panel-example-with-tabs.component.html'),
-    LESS: import('!!raw-loader!.//examples/panel-example-with-tabs/panel-example-with-tabs.component.less'),
+    TypeScript: import('!!raw-loader!./examples/panel-example-with-tabs/panel-example-with-tabs.component'),
+    HTML: import('!!raw-loader!./examples/panel-example-with-tabs/panel-example-with-tabs.component.html'),
+    LESS: import('./examples/panel-example-with-tabs/panel-example-with-tabs.component.less?raw'),
   };
 
   public readonly panelWithPagesExample: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!.//examples/panel-example-with-pages/panel-example-with-pages.component'
+      '!!raw-loader!./examples/panel-example-with-pages/panel-example-with-pages.component'
     ),
-    HTML: import('!!raw-loader!.//examples/panel-example-with-pages/panel-example-with-pages.component.html'),
-    LESS: import('!!raw-loader!.//examples/panel-example-with-pages/panel-example-with-pages.component.less'),
+    HTML: import('!!raw-loader!./examples/panel-example-with-pages/panel-example-with-pages.component.html'),
+    LESS: import('./examples/panel-example-with-pages/panel-example-with-pages.component.less?raw'),
   };
 
   public readonly panelWithInstrumentsSimpleExample: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!.//examples/panel-example-with-instruments-simple/panel-example-with-instruments-simple.component'
+      '!!raw-loader!./examples/panel-example-with-instruments-simple/panel-example-with-instruments-simple.component'
     ),
     HTML: import(
-      '!!raw-loader!.//examples/panel-example-with-instruments-simple/panel-example-with-instruments-simple.component.html'
+      '!!raw-loader!./examples/panel-example-with-instruments-simple/panel-example-with-instruments-simple.component.html'
     ),
     LESS: import(
-      '!!raw-loader!.//examples/panel-example-with-instruments-simple/panel-example-with-instruments-simple.component.less'
+      './examples/panel-example-with-instruments-simple/panel-example-with-instruments-simple.component.less?raw'
     ),
   };
 
   public readonly panelWithInstrumentsHardExample: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!.//examples/panel-example-with-instruments-hard/panel-example-with-instruments-hard.component'
+      '!!raw-loader!./examples/panel-example-with-instruments-hard/panel-example-with-instruments-hard.component'
     ),
     HTML: import(
-      '!!raw-loader!.//examples/panel-example-with-instruments-hard/panel-example-with-instruments-hard.component.html'
+      '!!raw-loader!./examples/panel-example-with-instruments-hard/panel-example-with-instruments-hard.component.html'
     ),
     LESS: import(
-      '!!raw-loader!.//examples/panel-example-with-instruments-hard/panel-example-with-instruments-hard.component.less'
+      './examples/panel-example-with-instruments-hard/panel-example-with-instruments-hard.component.less?raw'
     ),
   };
 

@@ -30,7 +30,7 @@ export class CheckboxExampleComponent {
   readonly exampleReactiveFormCheckbox: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/checkbox-form-example/checkbox-form-example.component'),
     HTML: import('!!raw-loader!./examples/checkbox-form-example/checkbox-form-example.component.html'),
-    LESS: import('!!raw-loader!./examples/checkbox-form-example/checkbox-form-example.component.less'),
+    LESS: import('./examples/checkbox-form-example/checkbox-form-example.component.less?raw'),
   };
 
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');

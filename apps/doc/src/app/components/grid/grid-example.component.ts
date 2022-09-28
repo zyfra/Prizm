@@ -9,9 +9,9 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 })
 export class GridExampleComponent {
   public readonly gridBasicExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!.//examples/grid-example-basic/grid-example-basic.component'),
-    HTML: import('!!raw-loader!.//examples/grid-example-basic/grid-example-basic.component.html'),
-    LESS: import('!!raw-loader!.//examples/grid-example-basic/grid-example-basic.component.less'),
+    TypeScript: import('!!raw-loader!./examples/grid-example-basic/grid-example-basic.component'),
+    HTML: import('!!raw-loader!./examples/grid-example-basic/grid-example-basic.component.html'),
+    LESS: import('./examples/grid-example-basic/grid-example-basic.component.less?raw'),
   };
 
   public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');

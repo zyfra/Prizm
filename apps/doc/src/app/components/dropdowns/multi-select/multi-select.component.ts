@@ -20,12 +20,17 @@ export class MultiSelectComponent {
   outer = false;
   label = 'Выберите участника';
   emptyContent = 'Ничего не найдено';
-  nullContent = 'Не выбрано';
   minDropdownHeight = 0;
+  dropdownWidth = '100%';
   maxDropdownHeight = 342;
   placeholder = '';
   visibility: ZuiScrollbarVisibility = 'auto';
   readonly itemsVariants: ReadonlyArray<string[] | null> = [
+    [
+      'One',
+      'Two',
+      'Three',
+    ],
     [
       'Андрей Сафанов',
       'Сергей Марков',
@@ -37,18 +42,11 @@ export class MultiSelectComponent {
       'Рустам Гусев',
       'Филип Уваров',
     ],
+    [],
     null
   ];
-  readonly valVariants: ReadonlyArray<string | null> =  [
-    ...this.itemsVariants[0],
-    null
-  ];
-  readonly valueControl = new FormControl([]);
-  public items = [
-    'One',
-    'Two',
-    'Three',
-  ]
+  readonly valueControl = new FormControl();
+  public items = this.itemsVariants[0];
 
 
   set disabled(state: boolean) {
@@ -111,7 +109,7 @@ export class MultiSelectComponent {
     return i?.toString?.() ?? '';
   };
 
-  public setValue(val: string): void {
+  public setValue(val: string[]): void {
     this.control.setValue(val)
   }
 

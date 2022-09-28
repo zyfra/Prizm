@@ -87,7 +87,7 @@ export class NavMenuExampleComponent {
   public readonly exampleBasicNavMenu: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/nav-menu-basic-example/nav-menu-basic-example.component'),
     HTML: import('!!raw-loader!./examples/nav-menu-basic-example/nav-menu-basic-example.component.html'),
-    LESS: import('!!raw-loader!./examples/nav-menu-basic-example/nav-menu-basic-example.component.less'),
+    LESS: import('./examples/nav-menu-basic-example/nav-menu-basic-example.component.less?raw'),
   };
 
   public readonly exampleAdvancedNavMenu: TuiDocExample = {
@@ -98,7 +98,7 @@ export class NavMenuExampleComponent {
       '!!raw-loader!./examples/nav-menu-advanced-example/nav-menu-advanced-example.component.html'
     ),
     LESS: import(
-      '!!raw-loader!./examples/nav-menu-advanced-example/nav-menu-advanced-example.component.less'
+      './examples/nav-menu-advanced-example/nav-menu-advanced-example.component.less?raw'
     ),
   };
 

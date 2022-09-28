@@ -1,8 +1,8 @@
 import { ZyfraUiRootModule } from '@digital-plant/zyfra-components';
-import { NgModule } from '@angular/core';
+import { NgModule, SecurityContext } from '@angular/core';
 import { TuiAddonDocModule, TuiDocMainModule } from '@taiga-ui/addon-doc';
 import { AppComponent } from './app.component';
-import { GettingStartedComponent } from './getting-started/getting-started.component';
+import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutes } from './app.routes';
@@ -13,6 +13,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { APP_PROVIDERS } from './app.providers';
 import { LogoModule } from './logo/logo.module';
 import { VersionManagerModule } from './version-manager/version-manager.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -21,7 +22,6 @@ import { VersionManagerModule } from './version-manager/version-manager.module';
     BrowserModule,
     AppRoutes,
     TuiTextfieldControllerModule,
-    MarkdownModule,
     LogoModule,
     TuiDocMainModule,
     TuiAddonDocModule,
@@ -35,7 +35,12 @@ import { VersionManagerModule } from './version-manager/version-manager.module';
     TuiToggleModule,
     TuiModeModule,
     TuiLinkModule,
-    VersionManagerModule
+    VersionManagerModule,
+    HttpClientModule,
+    MarkdownModule.forRoot({
+      loader: HttpClient,
+      sanitize: SecurityContext.NONE,
+    }),
 ],
   declarations: [
     AppComponent,

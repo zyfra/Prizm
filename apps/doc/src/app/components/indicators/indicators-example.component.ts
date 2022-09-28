@@ -16,21 +16,21 @@ export class IndicatorsExampleComponent {
 
   public readonly indicatorBasicExample: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!.//examples/indicators-basic-example/indicators-basic-example.component'
+      '!!raw-loader!./examples/indicators-basic-example/indicators-basic-example.component'
     ),
-    HTML: import('!!raw-loader!.//examples/indicators-basic-example/indicators-basic-example.component.html'),
-    LESS: import('!!raw-loader!.//examples/indicators-basic-example/indicators-basic-example.component.less'),
+    HTML: import('!!raw-loader!./examples/indicators-basic-example/indicators-basic-example.component.html'),
+    LESS: import('./examples/indicators-basic-example/indicators-basic-example.component.less?raw'),
   };
 
   public readonly indicatorIconExample: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!.//examples/indicators-with-icon-example/indicators-with-icon-example.component'
+      '!!raw-loader!./examples/indicators-with-icon-example/indicators-with-icon-example.component'
     ),
     HTML: import(
-      '!!raw-loader!.//examples/indicators-with-icon-example/indicators-with-icon-example.component.html'
+      '!!raw-loader!./examples/indicators-with-icon-example/indicators-with-icon-example.component.html'
     ),
     LESS: import(
-      '!!raw-loader!.//examples/indicators-with-icon-example/indicators-with-icon-example.component.less'
+      './examples/indicators-with-icon-example/indicators-with-icon-example.component.less?raw'
     ),
   };
 
