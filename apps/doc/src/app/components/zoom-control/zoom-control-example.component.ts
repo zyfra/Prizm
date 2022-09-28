@@ -10,13 +10,13 @@ import { TuiDocExample } from '@taiga-ui/addon-doc';
 export class ZoomControlExampleComponent {
   public readonly zoomControlBasicExample: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!.//examples/zoom-control-example-basic/zoom-control-example-basic.component'
+      '!!raw-loader!./examples/zoom-control-example-basic/zoom-control-example-basic.component'
     ),
     HTML: import(
-      '!!raw-loader!.//examples/zoom-control-example-basic/zoom-control-example-basic.component.html'
+      '!!raw-loader!./examples/zoom-control-example-basic/zoom-control-example-basic.component.html'
     ),
     LESS: import(
-      '!!raw-loader!.//examples/zoom-control-example-basic/zoom-control-example-basic.component.less'
+      './examples/zoom-control-example-basic/zoom-control-example-basic.component.less?raw'
     ),
   };
 }

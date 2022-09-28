@@ -65,7 +65,7 @@ export class ZuiHintDirective<
 
     @Input()
     @zuiDefaultProp()
-    zuiCanShow = false;
+    zuiHintCanShow = true;
 
     @Input()
     @zuiRequiredSetter()
@@ -128,7 +128,7 @@ export class ZuiHintDirective<
     }
 
     protected open(): void {
-      if (!this.zuiCanShow) return;
+      if (!this.zuiHintCanShow) return;
       this.renderer.addClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
       this.overlay.open();
     }

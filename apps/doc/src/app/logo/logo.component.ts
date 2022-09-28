@@ -2,8 +2,8 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
     selector: 'zui-logo',
-    templateUrl: './logo.template.html',
-    styleUrls: ['./logo.style.less'],
+    templateUrl: './logo.component.html',
+    styleUrls: ['./logo.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LogoComponent {}

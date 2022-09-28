@@ -15,7 +15,7 @@ import {
 })
 export class HintComponent {
   public zuiAutoReposition = false;
-  public zuiCanShow = true;
+  public zuiHintCanShow = true;
   public content = "Тестовое содержимое";
 
   public readonly zuiHintDirectionVariants: ReadonlyArray<ZuiHintOptions['direction']> = Object.values(ZuiOverlayOutsidePlacement);

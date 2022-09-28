@@ -10,9 +10,9 @@ export const pages: TuiDocPages = [
   },
   {
     section: `Documentation`,
-    title: 'Generate example',
-    keywords: 'создать пример, шаблон, generate, template, example',
-    route: 'generate-example',
+    title: 'Changelog',
+    keywords: 'ченджлог, changelog',
+    route: 'changelog',
   },
   // Components
   {

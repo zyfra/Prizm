@@ -32,13 +32,17 @@
   <ng-template #dropdown>
     <zui-data-list class='block'>
       <ng-container *ngIf='items?.length; else emptyTemplate'>
-        <div class='item' [class.selected]='item | zuiCallFunc : identityMatcher : value' *ngFor='let item of filteredItems$ | async' (click)='select(item)'>
+        <div class='item' [class.selected]='item | zuiCallFunc : identityMatcher : value'
+             #hostHint
+             *ngFor='let item of filteredItems$ | async'
+             (click)='select(item)'>
           <span class='text'
                 #elem
                 *zuiLet='item | zuiCallFunc : stringify : $any(nullContent) as text'
                 [zuiHint]='text'
+                [zuiHintHost]='hostHint'
                 [zuiHintDirection]='direction'
-                [zuiCanShow]='elem | zuiCallFunc : zuiIsTextOverflow$ | async'
+                [zuiHintCanShow]='elem | zuiCallFunc : zuiIsTextOverflow$ | async'
           >
             <ng-container *polymorphOutlet="valueTemplate as content; context: {$implicit: item, nullContent: nullContent}">
               {{text}}

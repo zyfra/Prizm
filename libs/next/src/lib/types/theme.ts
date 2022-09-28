@@ -1,1 +1,1 @@
-export type ZuiTheme = 'dark' | 'light';
+export type ZuiTheme = 'dark' | 'light' | string;

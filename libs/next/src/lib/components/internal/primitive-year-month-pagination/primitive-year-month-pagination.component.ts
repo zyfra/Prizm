@@ -30,6 +30,14 @@ export class ZuiPrimitiveYearMonthPaginationComponent
     @zuiDefaultProp()
     max: ZuiMonth = ZUI_LAST_DAY;
 
+    @Input()
+    @zuiDefaultProp()
+    monthActive = false;
+
+    @Input()
+    @zuiDefaultProp()
+    yearActive = false;
+
     @Output()
     readonly valueChange = new EventEmitter<ZuiMonth>();
 
