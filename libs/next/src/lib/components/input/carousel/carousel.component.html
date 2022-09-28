@@ -1,7 +1,5 @@
 <ng-container *ngIf="!empty; else emptyTpl">
-  <span #content><ng-content></ng-content></span>
-
-  <ng-container *ngIf="content.childNodes.length === 0"> {{ carouselContent.currentValue }} </ng-container>
+  <ng-content></ng-content>
 </ng-container>
 
 <ng-template #emptyTpl>&nbsp;</ng-template>
