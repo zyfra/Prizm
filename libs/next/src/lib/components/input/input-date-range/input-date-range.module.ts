@@ -10,25 +10,24 @@ import { FormsModule } from '@angular/forms';
 import { ZuiInputTextModule } from '../input-text/input-text.module';
 import { ZuiIconModule } from '../../icon/icon.module';
 import { ZuiDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
-import { NgxMaskModule } from 'ngx-mask';
+import { ZuiMaskModule } from '../../../modules';
 
 @NgModule({
-    imports: [
-      CommonModule,
-      NgxMaskModule.forRoot(),
-      ZuiActiveZoneModule,
-      ZuiLetModule,
-      PolymorphModule,
-      ZuiInputTextModule,
-      ZuiIconModule,
-      ZuiDropdownHostModule,
-      ZuiCalendarRangeModule,
-      ZuiValueAccessorModule,
-      FormsModule
-    ],
-    declarations: [ZuiInputDateRangeComponent],
-    exports: [
-      ZuiInputDateRangeComponent
-    ],
+  imports: [
+    CommonModule,
+    ZuiMaskModule,
+    ZuiActiveZoneModule,
+    ZuiLetModule,
+    PolymorphModule,
+    ZuiInputTextModule,
+    ZuiIconModule,
+    ZuiDropdownHostModule,
+    ZuiCalendarRangeModule,
+    ZuiValueAccessorModule,
+    FormsModule,
+  ],
+  declarations: [ZuiInputDateRangeComponent],
+  exports: [ZuiInputDateRangeComponent],
 })
 export class ZuiInputDateRangeModule {}
+

@@ -11,24 +11,25 @@ import { ZuiLetModule } from '@digital-plant/zyfra-helpers';
 import { ZuiInputTextModule } from '../input-text/input-text.module';
 import { ZuiIconModule } from '../../icon/icon.module';
 import { FormsModule } from '@angular/forms';
-import { NgxMaskModule } from 'ngx-mask';
+import { ZuiMaskModule } from '../../../modules';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        NgxMaskModule.forRoot(),
-        PolymorphModule,
-        ZuiPreventDefaultModule,
-        ZuiCalendarModule,
-        ZuiInputTextModule,
-        ZuiIconModule,
-        ZuiLinkModule,
-        FormsModule,
-        ZuiDropdownHostModule,
-        ZuiValueAccessorModule,
-        ZuiLetModule,
-    ],
-    declarations: [ZuiInputDateComponent],
-    exports: [ZuiInputDateComponent],
+  imports: [
+    CommonModule,
+    ZuiMaskModule,
+    PolymorphModule,
+    ZuiPreventDefaultModule,
+    ZuiCalendarModule,
+    ZuiInputTextModule,
+    ZuiIconModule,
+    ZuiLinkModule,
+    FormsModule,
+    ZuiDropdownHostModule,
+    ZuiValueAccessorModule,
+    ZuiLetModule,
+  ],
+  declarations: [ZuiInputDateComponent],
+  exports: [ZuiInputDateComponent],
 })
 export class ZuiInputDateModule {}
+
