@@ -1,7 +1,6 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { ZuiInputTextModule } from '@digital-plant/zui-components';
-import { NgxMaskModule } from 'ngx-mask';
+import { ZuiInputTextModule, ZuiMaskModule } from '@digital-plant/zui-components';
 
 // ...
 
@@ -9,7 +8,7 @@ import { NgxMaskModule } from 'ngx-mask';
   imports: [
     // ...
     ZuiInputTextModule,
-    NgxMaskModule.forRoot(),
+    ZuiMaskModule,
   ],
 })
 export class MyModule {}
