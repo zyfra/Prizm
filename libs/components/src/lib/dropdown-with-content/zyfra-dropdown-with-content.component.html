@@ -86,7 +86,7 @@
         *ngTemplateOutlet="selectedItemTemplate; context: { $implicit: selectedItem }"
       ></ng-container>
     </ng-template>
-    <ng-template *ngIf="headerTemplate" let-selectedItem pTemplate="header">
+    <ng-template *ngIf="headerTemplate" pTemplate="header">
       <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
     </ng-template>
     <ng-template *ngIf="emptyTemplate" pTemplate="empty">
