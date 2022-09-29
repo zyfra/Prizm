@@ -6,5 +6,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./input-mask-basic-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InputMaskBasicExampleComponent {}
+export class InputMaskBasicExampleComponent {
+  model;
+}
 

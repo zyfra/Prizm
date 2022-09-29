@@ -7,22 +7,23 @@ import { ZuiDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-ho
 import { ZuiInputTextModule } from '../input-text/input-text.module';
 import { FormsModule } from '@angular/forms';
 import { ZuiButtonModule } from '../../button/button.module';
-import { NgxMaskModule } from 'ngx-mask';
 import { ZuiDropdownControllerModule } from '../../../directives';
+import { ZuiMaskModule } from '../../../modules';
 
 @NgModule({
-    imports: [
-      CommonModule,
-      NgxMaskModule.forRoot(),
-      ZuiDataListModule,
-      ZuiDropdownControllerModule,
-      ZuiDropdownHostModule,
-      ZuiInputTextModule,
-      ZuiButtonModule,
-      FormsModule,
-      ZuiValueAccessorModule
-    ],
-    declarations: [ZuiInputTimeComponent],
-    exports: [ZuiInputTimeComponent],
+  imports: [
+    CommonModule,
+    ZuiMaskModule,
+    ZuiDataListModule,
+    ZuiDropdownControllerModule,
+    ZuiDropdownHostModule,
+    ZuiInputTextModule,
+    ZuiButtonModule,
+    FormsModule,
+    ZuiValueAccessorModule,
+  ],
+  declarations: [ZuiInputTimeComponent],
+  exports: [ZuiInputTimeComponent],
 })
 export class ZuiInputTimeModule {}
+

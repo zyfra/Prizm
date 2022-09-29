@@ -4,7 +4,8 @@ import {
   Component,
   DoCheck,
   ElementRef,
-  EventEmitter, HostBinding,
+  EventEmitter,
+  HostBinding,
   HostListener,
   Input,
   OnDestroy,
@@ -217,6 +218,10 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
 
     this.focus();
 
+    this.stateChanges.next();
+    this.onClear.emit();
+    this.valueChanged.next(this.value);
+
     this.elementRef.nativeElement.dispatchEvent(
       new InputEvent('input', {
         data: null,
@@ -225,9 +230,12 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
       })
     );
 
-    this.stateChanges.next();
-    this.onClear.emit();
-    this.valueChanged.next(this.value);
+    this.elementRef.nativeElement.dispatchEvent(
+      new KeyboardEvent('keydown', {
+        key: 'Backspace',
+        code: 'Backspace',
+      })
+    );
   }
 
   public focus(): void {
