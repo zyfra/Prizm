@@ -168,7 +168,9 @@ export class ZyfraDropdownWithContentComponent<T = unknown>
 
   public handleOnShow(e: AnimationEvent): void {
     this.isOpen = true;
-    this.dropdownService.setDropdownPanelPosition();
+    requestAnimationFrame(() => {
+      this.dropdownService.setDropdownPanelPosition();
+    });
     this.onShow.emit(e);
   }
 
