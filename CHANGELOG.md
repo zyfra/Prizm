@@ -4,6 +4,58 @@
 
 ---
 
+## [v0.13.6] - 03-10-2022
+
+### @digital-plant/zyfra-components [v0.13.6]
+
+**Changes**
+
+- fix(components/dropdown-with-content): fix dropdown position [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/344)
+- fix(zyfra-base-table.directive): export interface LazyLoadEvent [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/340)
+- fix(components/dropdown): Fixed dropdown filter mini size [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/335)
+- fix(component/zyfra-input-switch):fix color zyfra-input-switch unselected [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/332)
+
+> **Special thanks**
+>
+> ✏️ **MR:** Yakov Korolev, Rustam Imaikin,  Anton Osechkin
+>
+> 🐛 **Issue:** Yakov Korolev
+
+
+
+---
+
+## [1.0.0-beta.8] - 03-10-2022
+
+### BUG FIXES
+
+- fix(components/nav-menu): Фикс бага с отображением иконок, фикс бага с границей.
+  [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/343)
+- fix/(doc): fix less output [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
+- fix/(next/input-mask): Настройки NgxMaskModule. [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/341)
+- fix/(next/select): show initial value from control [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
+
+
+### Features
+
+- feat/(next/carousel): PLATFORM01-17936 Пример с выбором месяца и года. [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/339)
+- feat/(tree): increase font-weigt [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
+- feat/(doc): add webpack build [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
+- feat/(next/widget): change header, body background color [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
+- feat/(next/hint): add zuiHintCanShow [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
+- feat/(next/): add themes mixins [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
+- feat/(next/select): add isChipsDeletable, forceShowClearButton for multi-select [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
+- feat/(next/multi-select): add forceShowClearButton for select [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
+
+
+
+> **Special thanks**
+>
+> ✏️ **MR:** Konstantin Skok, Khachatur Matevosyan, Zurab Magomadov
+
+
+---
+
 ## [v0.13.5] - 19-09-2022
 
 ### @digital-plant/zyfra-components [v0.13.5]

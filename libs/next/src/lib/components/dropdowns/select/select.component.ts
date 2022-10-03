@@ -20,7 +20,7 @@ import { ZuiInputSize } from '../../input';
 import { AbstractZuiControl } from '../../../abstract/control';
 import { zuiIsNativeFocused, zuiIsTextOverflow$ } from '../../../util';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { BehaviorSubject, timer } from 'rxjs';
+import { BehaviorSubject, concat, timer } from 'rxjs';
 import { ZuiSelectIdentityMatcher, ZuiSelectSearchMatcher } from './select.model';
 import { ZUI_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens';
 import { zuiDefaultProp } from '../../../decorators';
@@ -65,6 +65,10 @@ implements ZuiFocusableElementAccessor
 
   @Input()
   @zuiDefaultProp()
+  forceShowClearButton = this.options.forceShowClearButton;
+
+  @Input()
+  @zuiDefaultProp()
   label = this.options.label;
 
   @Input()
@@ -85,7 +89,7 @@ implements ZuiFocusableElementAccessor
 
   @Input()
   @zuiDefaultProp()
-  size: ZuiInputSize =  this.options.size;
+  size: ZuiInputSize = this.options.size;
 
   @Input()
   @zuiDefaultProp()
@@ -194,7 +198,10 @@ implements ZuiFocusableElementAccessor
   }
 
   private initControlValueChangerIfExist(): void {
-    this.control?.valueChanges.pipe(
+    concat(
+      timer(0).pipe(map(() => this.control?.value)),
+      this.control?.valueChanges,
+    ).pipe(
       distinctUntilChanged(),
       tap((value) => {
         if (value) {

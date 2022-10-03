@@ -9,6 +9,7 @@
 >
   <zui-input-layout
     [label]="label"
+    [forceShowClearButton]='forceShowClearButton'
     (click)='safeOpenModal()'
     (clear)='safeStopPropagation(focusableElementRef.value, $event);'
     [outer]='outer'
@@ -19,6 +20,7 @@
       #focusableElementRef
       (onClear)='onClear()'
       [placeholder]="placeholder"
+      [size]="size"
       [disabled]='!searchable || this.disabled'
       [readonly]='!searchable || this.disabled'
       [formControl]="requiredInputControl"
