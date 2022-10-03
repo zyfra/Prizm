@@ -11,6 +11,7 @@ import {
 import { ZuiSelectBaseExampleComponent } from './examples/base/select-base-example.component';
 import { ZuiSelectWithSearchExampleComponent } from './examples/with-search/select-with-search-example.component';
 import { ZuiLetModule } from '@digital-plant/zyfra-helpers';
+import { ZuiSelectWithObjectExampleComponent } from './examples/with-object/select-with-object-example.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { ZuiLetModule } from '@digital-plant/zyfra-helpers';
   declarations: [
     ZuiSelectBaseExampleComponent,
     ZuiSelectWithSearchExampleComponent,
+    ZuiSelectWithObjectExampleComponent,
     ZuiSelectWithTemplateExampleComponent,
     SelectComponent
   ],

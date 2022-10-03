@@ -11,17 +11,17 @@ interface ImportingModule {
 export const MAIN_PACKAGES: ReadonlyArray<Package> = [
   {
     name: '@digital-plant/zyfra-components',
-    version: '0.13.5',
+    version: '0.13.6',
   },
   {
     name: '@digital-plant/zyfra-helpers',
-    version: '1.0.0-beta.7',
+    version: '1.0.0-beta.8',
   },
 ];
 
 export const INSTALL_PACKAGE: Readonly<Package> = {
   name: '@digital-plant/zyfra-ui',
-  version: '0.13.5',
+  version: '0.13.6',
 };
 
 export const MAIN_MODULES: ReadonlyArray<ImportingModule> = [

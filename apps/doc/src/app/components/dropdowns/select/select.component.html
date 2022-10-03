@@ -41,6 +41,8 @@
         [nullContent]='nullContent'
         [items]='items'
         [outer]='outer'
+        [forceShowClearButton]='forceShowClearButton'
+        [size]='size'
         [searchable]='searchable'
         [emptyContent]='emptyContent'
         [minDropdownHeight]='minDropdownHeight'
@@ -90,6 +92,16 @@
       </ng-template>
 
       <ng-template
+        documentationPropertyName="forceShowClearButton"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="forceShowClearButtonVariants"
+        [(documentationPropertyValue)]="forceShowClearButton"
+      >
+        Show clear button
+      </ng-template>
+
+      <ng-template
         documentationPropertyName="value"
         documentationPropertyType="unknown"
         documentationPropertyMode="input"
@@ -108,6 +120,16 @@
         [documentationPropertyValues]="getValueTemplate(valueTemp)"
       >
         Value Template
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="ZuiInputSize"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+      >
+        Size
       </ng-template>
 
       <ng-template #valueTemp let-value let-nullContent="nullContent">

@@ -10,8 +10,11 @@ import {
 } from './multi-select.model';
 
 export interface ZuiMultiSelectOptions<T> {
-    readonly items: unknown[];
+    readonly items: T[];
+    readonly chooseAllItem: T;
     readonly searchable: boolean;
+    readonly forceShowClearButton: null | boolean;
+    readonly isChipsDeletable:boolean;
     readonly label: string;
     readonly placeholder: string;
     readonly size: ZuiInputSize;
@@ -31,7 +34,10 @@ export interface ZuiMultiSelectOptions<T> {
 /** Default values for dropdown-host options */
 export const ZUI_MULTI_SELECT_DEFAULT_OPTIONS: ZuiMultiSelectOptions<unknown> = {
   items: [],
+  chooseAllItem: null,
   searchable: false,
+  forceShowClearButton: null,
+  isChipsDeletable: true,
   outer: false,
   dropdownWidth: '100%',
   minDropdownHeight: 0,

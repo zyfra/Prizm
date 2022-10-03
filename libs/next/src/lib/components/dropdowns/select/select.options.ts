@@ -7,6 +7,7 @@ import { ZuiSelectIdentityMatcher, ZuiSelectSearchMatcher } from './select.model
 export interface ZuiSelectOptions<T> {
     readonly items: unknown[];
     readonly searchable: boolean;
+    readonly forceShowClearButton: boolean | null;
     readonly label: string;
     readonly placeholder: string;
     readonly size: ZuiInputSize;
@@ -28,6 +29,7 @@ export const ZUI_SELECT_DEFAULT_OPTIONS: ZuiSelectOptions<unknown> = {
   items: [],
   searchable: false,
   outer: false,
+  forceShowClearButton: null,
   dropdownWidth: '100%',
   minDropdownHeight: 0,
   maxDropdownHeight: 342,

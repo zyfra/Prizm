@@ -47,7 +47,10 @@
     <tui-doc-demo>
       <zui-multi-select
         [formControl]='control'
+        [forceShowClearButton]='forceShowClearButton'
+        [isChipsDeletable]='isChipsDeletable'
         [items]='items'
+        [size]='size'
         [outer]='outer'
         [searchable]='searchable'
         [emptyContent]='emptyContent'
@@ -63,6 +66,35 @@
     </tui-doc-demo>
 
     <tui-doc-documentation>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="ZuiInputSize"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="forceShowClearButton"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="forceShowClearButtonVariants"
+        [(documentationPropertyValue)]="forceShowClearButton"
+      >
+        Show clear button
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="isChipsDeletable"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="isChipsDeletable"
+      >
+        Chips Deletable
+      </ng-template>
 
       <ng-template
         documentationPropertyName="identityMatcher"
