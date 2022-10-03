@@ -1,11 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import {
-  PolymorphContent,
-  ZuiContextWithImplicit,
-  zuiPure,
-  ZuiScrollbarVisibility,
-} from '@digital-plant/zui-components';
+import { PolymorphContent, ZuiInputSize, zuiPure, ZuiScrollbarVisibility } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -19,6 +14,18 @@ export class SelectComponent {
   searchable = false;
   outer = false;
   label = 'Выберите участника';
+  sizeVariants: ReadonlyArray<ZuiInputSize> = [
+    'l',
+    'm',
+    's',
+  ];
+  size = this.sizeVariants[0];
+  forceShowClearButtonVariants: ReadonlyArray<boolean | null> = [
+    null,
+    false,
+    true
+  ];
+  forceShowClearButton = this.forceShowClearButtonVariants[0];
   emptyContent = 'Ничего не найдено';
   nullContent = 'Не выбрано';
   minDropdownHeight = 0;
