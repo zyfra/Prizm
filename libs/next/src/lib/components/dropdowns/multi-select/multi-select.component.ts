@@ -66,7 +66,19 @@ implements ZuiFocusableElementAccessor
 
   @Input()
   @zuiDefaultProp()
+  chooseAllItem: T | null = this.options.chooseAllItem;
+
+  @Input()
+  @zuiDefaultProp()
   searchable = this.options.searchable;
+
+  @Input()
+  @zuiDefaultProp()
+  forceShowClearButton = this.options.forceShowClearButton;
+
+  @Input()
+  @zuiDefaultProp()
+  isChipsDeletable = this.options.isChipsDeletable;
 
   @Input()
   @zuiDefaultProp()
@@ -148,7 +160,10 @@ implements ZuiFocusableElementAccessor
           }
         ),
         map((items: T[]) => {
-          return items.map(
+            return [
+              ...(this.chooseAllItem ? [this.chooseAllItem] : []),
+              ...items
+            ].map(
             (item: T) => {
               return {
                 checked: !!selectedItems?.find(

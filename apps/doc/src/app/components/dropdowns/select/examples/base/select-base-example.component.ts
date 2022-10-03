@@ -11,8 +11,7 @@ import { FormControl } from '@angular/forms';
     }
   `]
 })
-export class ZuiSelectBaseExampleComponent implements OnInit {
-  value = true;
+export class ZuiSelectBaseExampleComponent {
   readonly items = [
     'One',
     'Two',
@@ -20,9 +19,9 @@ export class ZuiSelectBaseExampleComponent implements OnInit {
     'Very long text with a lot of characters and spaces and other stuff and things',
 
   ]
-  readonly valueDisabled = new FormControl(false);
+  readonly control = new FormControl(this.items[1]);
 
-  ngOnInit(): void {
-    this.valueDisabled.disable();
+  public setDefaultValue(): void {
+    this.control.setValue(this.items[0]);
   }
 }

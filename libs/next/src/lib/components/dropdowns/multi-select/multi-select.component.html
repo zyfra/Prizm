@@ -9,7 +9,7 @@
 >
   <zui-input-layout
     [label]="label"
-    [forceShowClearButton]="$.selectedItems.length > 0"
+    [forceShowClearButton]='forceShowClearButton && $.selectedItems.length > 0'
     (clear)="safeStopPropagation(focusableElementRef.value, $event)"
     (click)="safeOpenModal()"
     [outer]="outer"
@@ -26,6 +26,7 @@
     />
     <zui-chips
       #chipsComponent
+      [deletable]='isChipsDeletable'
       [chips]="selectedItemsChips$ | async"
       (removeChipEvent)="removeChip($event)"
       zui-input-bottom

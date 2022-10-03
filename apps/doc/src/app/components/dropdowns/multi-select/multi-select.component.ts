@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  ZuiContextWithImplicit,
+  ZuiContextWithImplicit, ZuiInputSize,
   zuiPure,
   ZuiScrollbarVisibility,
 } from '@digital-plant/zui-components';
@@ -20,6 +20,19 @@ export class MultiSelectComponent {
   outer = false;
   label = 'Выберите участника';
   emptyContent = 'Ничего не найдено';
+  isChipsDeletable = true;
+  forceShowClearButtonVariants: ReadonlyArray<boolean | null> = [
+    null,
+    false,
+    true
+  ];
+  forceShowClearButton = this.forceShowClearButtonVariants[0];
+  sizeVariants: ReadonlyArray<ZuiInputSize> = [
+    'l',
+    'm',
+    's',
+  ];
+  size = this.sizeVariants[0];
   minDropdownHeight = 0;
   dropdownWidth = '100%';
   maxDropdownHeight = 342;
