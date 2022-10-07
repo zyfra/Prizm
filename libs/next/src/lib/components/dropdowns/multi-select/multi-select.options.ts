@@ -19,8 +19,7 @@ export interface ZuiMultiSelectOptions<T> {
     readonly placeholder: string;
     readonly size: ZuiInputSize;
     readonly stringify: ZuiMultiSelectItemStringifyFunc<T>;
-    readonly emptyContent: string;
-    readonly nullContent: string;
+    readonly emptyContent: PolymorphContent;
     readonly searchMatcher: ZuiMultiSelectSearchMatcher<T>,
     readonly identityMatcher: ZuiMultiSelectIdentityMatcher<T>,
     readonly minDropdownHeight: number;
@@ -43,7 +42,6 @@ export const ZUI_MULTI_SELECT_DEFAULT_OPTIONS: ZuiMultiSelectOptions<unknown> = 
   minDropdownHeight: 0,
   maxDropdownHeight: 342,
   emptyContent: "Ничего не найдено",
-  nullContent: "Не выбрано",
   searchMatcher: (searchValue: string, item: unknown): boolean => {
     return item?.toString().toLowerCase().includes(searchValue.toLowerCase());
   },

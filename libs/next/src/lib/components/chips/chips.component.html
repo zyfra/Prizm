@@ -4,8 +4,15 @@
     *ngFor="let item of chipsList; let i = index"
     (click)="chipClick(item)"
     [disabled]="accessorIsDisabled"
+    #hostHint
   >
-    <div class="chips-name">{{ item }}</div>
+    <div class="chips-name"
+         #elem
+         [zuiHint]='item'
+         [zuiHintHost]='hostHint'
+         [zuiHintDirection]='hintDirection'
+         [zuiHintCanShow]='hintCanShow && elem | zuiCallFunc : zuiIsTextOverflow$ | async'
+    >{{ item }}</div>
     <button
       *ngIf="deletable"
       class="chips-cancel zui-icon cancel-close-small"

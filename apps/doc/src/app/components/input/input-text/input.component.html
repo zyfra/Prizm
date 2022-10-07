@@ -163,12 +163,24 @@
         [outer]="outer"
         [status]="status"
         [position]="inputPosition"
+        [forceShowClearButton]="forceShowClearButton"
         [size]="size"
       >
         <input zuiInput />
       </zui-input-layout>
     </tui-doc-demo>
     <tui-doc-documentation>
+
+      <ng-template
+        documentationPropertyName="forceShowClearButton"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="forceShowClearButtonVariants"
+        [(documentationPropertyValue)]="forceShowClearButton"
+      >
+        Show clear button
+      </ng-template>
+
       <ng-template
         documentationPropertyName="label"
         documentationPropertyType="string"

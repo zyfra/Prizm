@@ -1,5 +1,6 @@
 <zui-multi-select
   [items]='items'
+  [selectAllItem]='selectAllItem'
   [valueTemplate]='valueTemplate'
   [formControl]='valueControl'
   [searchMatcher]='searchMatcher'
@@ -9,8 +10,11 @@
 ></zui-multi-select>
 
 <ng-template #valueTemplate let-value>
-  <div class='item'>
+  <div class='item' *ngIf='value.obj.id !== -1; else allTemplate'>
     <zui-icon iconClass='account-done'></zui-icon>
     <span>{{value.stringify}}</span>
   </div>
+  <ng-template #allTemplate>
+    Выбрать все
+  </ng-template>
 </ng-template>
