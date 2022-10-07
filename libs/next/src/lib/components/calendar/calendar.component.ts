@@ -12,6 +12,7 @@ import { ZuiMapper } from '../../types/mapper';
 import { ZuiMarkerHandler } from '../../types/marker-handler';
 import { ZuiWithOptionalMinMax } from '../../types/with-optional-min-max';
 import { zuiNullableSame } from '../../util/common/nullable-same';
+import { ZuiDayWithStatus } from '../../@core';
 
 @Component({
     selector: `zui-calendar`,
@@ -35,6 +36,10 @@ export class ZuiCalendarComponent implements ZuiWithOptionalMinMax<ZuiDay> {
     @Input()
     @zuiDefaultProp()
     min = ZUI_FIRST_DAY;
+
+    @Input()
+    @zuiDefaultProp()
+    daysWithStatus: ZuiDayWithStatus[] = [];
 
     @Input()
     @zuiDefaultProp()

@@ -13,12 +13,17 @@ import { ZUI_DAYS_IN_WEEK, ZUI_MIN_DAY, ZUI_MONTHS_IN_YEAR } from './date-time';
 import { ZuiMonth } from './month';
 import { ZuiYear } from './year';
 
+
 // TODO: Localized formatting
 /**
  * Immutable date object, consisting of day, month and year
  */
 export class ZuiDay extends ZuiMonth {
-    constructor(year: number, month: number, readonly day: number) {
+    constructor(
+      year: number,
+      month: number,
+      readonly day: number,
+    ) {
         super(year, month);
         console.assert(ZuiDay.isValidDay(year, month, day));
     }

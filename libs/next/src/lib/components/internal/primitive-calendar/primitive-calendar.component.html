@@ -32,6 +32,11 @@
                         [class.z-item_unavailable]="itemIsUnavailable(item)"
                     >
                         {{ item.day }}
+                        <div *ngIf='item | zuiCallFunc : getDayStatus : daysWithStatus as dayStatus'
+                             class='z-status'
+                             [style.--zui-status-day-color]='dayStatus'
+                             [attr.data-zui-status]='dayStatus'>
+                        </div>
                         <div
                             *ngIf="item | zuiMapper: toMarkers:itemIsToday(item):!!getItemRange(item) as markers"
                             class="z-dots"
