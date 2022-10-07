@@ -14,7 +14,7 @@ import {
 import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
 import { FormControl, NgControl } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
-import { ZUI_SELECT_OPTIONS, ZuiSelectOptions } from './select.options';
+import { ZUI_SELECT_OPTIONS, ZuiSelectOptions, ZuiSelectValueContext } from './select.options';
 import { ZuiContextWithImplicit, ZuiFocusableElementAccessor, ZuiNativeFocusableElement } from '../../../types';
 import { ZuiInputSize } from '../../input';
 import { AbstractZuiControl } from '../../../abstract/control';
@@ -97,11 +97,11 @@ implements ZuiFocusableElementAccessor
 
   @Input()
   @zuiDefaultProp()
-  emptyContent: string = this.options.emptyContent;
+  emptyContent: PolymorphContent = this.options.emptyContent;
 
   @Input()
   @zuiDefaultProp()
-  nullContent: string = this.options.nullContent;
+  nullContent: PolymorphContent = this.options.nullContent;
 
   readonly zuiIsTextOverflow$ = zuiIsTextOverflow$;
 
@@ -120,7 +120,7 @@ implements ZuiFocusableElementAccessor
 
   @Input()
   @zuiDefaultProp()
-  valueTemplate: PolymorphContent<ZuiContextWithImplicit<T> & {nullContent: string}> = this.options.valueContent;
+  valueTemplate: PolymorphContent<ZuiSelectValueContext<T>> = this.options.valueContent;
 
   @Input()
   @zuiDefaultProp()
@@ -206,7 +206,7 @@ implements ZuiFocusableElementAccessor
       tap((value) => {
         if (value) {
           value = this.items$.value?.find(
-            i => this.identityMatcher(value, i),
+            i => value && i && this.identityMatcher(value, i),
           );
         }
         this.select(value);
@@ -234,7 +234,7 @@ implements ZuiFocusableElementAccessor
 
   public select(item: T): void {
     this.updateValue(item);
-    this.requiredInputControl.setValue(this.stringify(item));
+    this.requiredInputControl.setValue(item && this.stringify(item));
     this.open = false;
   }
 

@@ -20,7 +20,6 @@
       #focusableElementRef
       (onClear)='onClear()'
       [placeholder]="placeholder"
-      [size]="size"
       [disabled]='!searchable || this.disabled'
       [readonly]='!searchable || this.disabled'
       [formControl]="requiredInputControl"
@@ -34,28 +33,46 @@
   <ng-template #dropdown>
     <zui-data-list class='block'>
       <ng-container *ngIf='items?.length; else emptyTemplate'>
-        <div class='item' [class.selected]='item | zuiCallFunc : identityMatcher : value'
+        <div class='item' [class.selected]='item && value && (item | zuiCallFunc : identityMatcher : value)'
              #hostHint
              *ngFor='let item of filteredItems$ | async'
              (click)='select(item)'>
-          <span class='text'
-                #elem
-                *zuiLet='item | zuiCallFunc : stringify : $any(nullContent) as text'
-                [zuiHint]='text'
-                [zuiHintHost]='hostHint'
-                [zuiHintDirection]='direction'
-                [zuiHintCanShow]='elem | zuiCallFunc : zuiIsTextOverflow$ | async'
-          >
-            <ng-container *polymorphOutlet="valueTemplate as content; context: {$implicit: item, nullContent: nullContent}">
-              {{text}}
+          <ng-container *ngIf='item; else nullContentTemplate'>
+            <span class='text'
+                  #elem
+                  *zuiLet='item | zuiCallFunc : stringify : $any(nullContent) as text'
+                  [zuiHint]='text'
+                  [zuiHintHost]='hostHint'
+                  [zuiHintDirection]='direction'
+                  [zuiHintCanShow]='elem | zuiCallFunc : zuiIsTextOverflow$ | async'
+            >
+              <ng-container *polymorphOutlet="
+                valueTemplate as content;
+                context: {
+                  $implicit: item,
+                  stringify: text
+                }">
+                {{text}}
+              </ng-container>
+            </span>
+          </ng-container>
+
+          <ng-template #nullContentTemplate>
+            <ng-container *polymorphOutlet="
+                nullContent as content;">
+              {{content}}
             </ng-container>
-          </span>
+          </ng-template>
+
         </div>
       </ng-container>
       <ng-template #emptyTemplate>
-        <ng-container *polymorphOutlet="emptyContent as data;">
-          <div class='empty-template'>{{emptyContent}}</div>
-        </ng-container>
+        <div class='empty-template'>
+          <ng-container *polymorphOutlet="
+              emptyContent as content;">
+            {{content}}
+          </ng-container>
+        </div>
       </ng-template>
     </zui-data-list>
   </ng-template>

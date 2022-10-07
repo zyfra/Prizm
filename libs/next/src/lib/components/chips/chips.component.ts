@@ -12,6 +12,8 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BehaviorSubject, Subscription } from 'rxjs';
+import { zuiIsTextOverflow$ } from '../../util/dom/is-textoverflow';
+import { ZuiOverlayOutsidePlacement } from '../../modules';
 
 @Component({
   selector: 'zui-chips',
@@ -32,6 +34,8 @@ export class ZuiChipsComponent implements ControlValueAccessor, OnInit, OnDestro
     this.chipsList = data;
   }
   @Input() public deletable = true;
+  @Input() public hintCanShow = true;
+  @Input() public hintDirection: ZuiOverlayOutsidePlacement = ZuiOverlayOutsidePlacement.RIGHT;
   @Input() set disabled(isDisabled: boolean) {
     this.accessorIsDisabled = isDisabled;
   }
@@ -43,6 +47,8 @@ export class ZuiChipsComponent implements ControlValueAccessor, OnInit, OnDestro
   @HostBinding('attr.testId')
   readonly testId = 'zui_chips';
 
+
+  readonly zuiIsTextOverflow$ = zuiIsTextOverflow$;
   public accessorIsDisabled = false;
   public chipsList$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   private subscription: Subscription = new Subscription();

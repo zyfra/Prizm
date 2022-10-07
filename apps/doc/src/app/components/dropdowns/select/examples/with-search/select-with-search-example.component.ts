@@ -5,8 +5,9 @@ import { FormControl } from '@angular/forms';
   selector: 'zui-select-with-search-example',
   templateUrl: './select-with-search-example.component.html',
 })
-export class ZuiSelectWithSearchExampleComponent implements OnInit {
+export class ZuiSelectWithSearchExampleComponent {
   value = true;
+  readonly control = new FormControl();
   readonly items = [
     'Андрей Сафанов',
     'Сергей Марков',
@@ -18,9 +19,4 @@ export class ZuiSelectWithSearchExampleComponent implements OnInit {
     'Рустам Гусев',
     'Филип Уваров',
   ]
-  readonly valueDisabled = new FormControl(false);
-
-  ngOnInit(): void {
-    this.valueDisabled.disable();
-  }
 }

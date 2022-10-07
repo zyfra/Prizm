@@ -11,16 +11,11 @@ import { FormControl } from '@angular/forms';
     }
   `]
 })
-export class ZuiSelectWithTemplateExampleComponent implements OnInit {
-  value = true;
+export class ZuiSelectWithTemplateExampleComponent {
   readonly items = [
     'One',
     'Two',
     'Three',
   ]
-  readonly valueDisabled = new FormControl(false);
-
-  ngOnInit(): void {
-    this.valueDisabled.disable();
-  }
+  readonly control = new FormControl();
 }
