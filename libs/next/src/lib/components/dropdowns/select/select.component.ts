@@ -15,7 +15,7 @@ import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
 import { FormControl, NgControl } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
 import { ZUI_SELECT_OPTIONS, ZuiSelectOptions, ZuiSelectValueContext } from './select.options';
-import { ZuiContextWithImplicit, ZuiFocusableElementAccessor, ZuiNativeFocusableElement } from '../../../types';
+import { ZuiFocusableElementAccessor, ZuiNativeFocusableElement } from '../../../types';
 import { ZuiInputSize } from '../../input';
 import { AbstractZuiControl } from '../../../abstract/control';
 import { zuiIsNativeFocused, zuiIsTextOverflow$ } from '../../../util';
@@ -160,7 +160,7 @@ implements ZuiFocusableElementAccessor
           this.dropdownHostElement?.reCalculatePositions(1000/60);
         }),
         debounceTime(0),
-        tap(() => this.safeOpenModal())
+        // tap(() => this.safeOpenModal())
       )
     }),
   );
@@ -240,28 +240,28 @@ implements ZuiFocusableElementAccessor
 
   public safeOpenModal(): void {
     const inputElement = this.focusableElement.nativeElement;
-    if (this.stop$.value) return
-    if (
+    // if (this.stop$.value) return
+    const open = (
       !this.open &&
       this.interactive &&
       inputElement &&
       zuiIsNativeFocused(inputElement)
-    ) {
-      this.open = true;
-      this.changeDetectorRef.markForCheck();
-    }
+    )
+    this.open = open;
+    console.log('#mz safeOpenModal open', {
+      open
+    })
+    this.changeDetectorRef.markForCheck();
   }
 
   // TODO remove after finish activezone to dropdown component
   public safeStopPropagation(value: string, $event: Event): void {
+    console.log('#mz safeStopPropagation', {
+      value,
+      $event
+    });
+    this.open = false;
+    this.changeDetectorRef.markForCheck();
     if (!value) $event.stopImmediatePropagation();
-    this.stop$.next(true);
-    timer(0).pipe(
-      tap(() => {
-        this.focusableElement.nativeElement.blur();
-        this.stop$.next(false)
-      }),
-      takeUntil(this.destroy$)
-    ).subscribe();
   }
 }

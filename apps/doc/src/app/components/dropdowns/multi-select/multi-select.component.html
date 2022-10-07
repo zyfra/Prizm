@@ -68,6 +68,14 @@
     <tui-doc-documentation>
 
       <ng-template
+        documentationPropertyName="selectAllItem"
+        documentationPropertyType="T | null"
+        documentationPropertyMode="input"
+      >
+        select All Item
+      </ng-template>
+
+      <ng-template
         documentationPropertyName="size"
         documentationPropertyType="ZuiInputSize"
         documentationPropertyMode="input"
@@ -123,7 +131,7 @@
 
       <ng-template
         documentationPropertyName="items"
-        documentationPropertyType="unknown[]"
+        documentationPropertyType="T[]"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="items"
         [documentationPropertyValues]="itemsVariants"
@@ -133,7 +141,7 @@
 
       <ng-template
         documentationPropertyName="value"
-        documentationPropertyType="unknown"
+        documentationPropertyType="T"
         documentationPropertyMode="input"
       >
         Value (use FormControl)

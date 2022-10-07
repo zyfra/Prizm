@@ -58,9 +58,11 @@
           </ng-container>
 
           <ng-template #nullContentTemplate>
-            <ng-container *polymorphOutlet="
+            <ng-container *ngIf='!requiredInputControl.value'>
+              <ng-container *polymorphOutlet="
                 nullContent as content;">
-              {{content}}
+                {{content}}
+              </ng-container>
             </ng-container>
           </ng-template>
 
