@@ -26,6 +26,15 @@ export class InputChipsExampleComponent {
     ),
   };
 
+  public readonly zuiInputChipsOuterExample: TuiDocExample = {
+    TypeScript: import(
+      '!!raw-loader!./examples/input-chips-outer-example/input-chips-outer-example.component.ts'
+    ),
+    HTML: import(
+      '!!raw-loader!./examples/input-chips-outer-example/input-chips-outer-example.component.html'
+    ),
+  };
+
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   public onEnter(value: string): void {
