@@ -16,7 +16,7 @@ export class ZyfraInputSwitchComponent extends WrappedFormComponent implements C
   @Input() ariaLabelledBy: string;
   @Input() disabled: boolean; // TODO remove, use FormControl disabled
   @Input() readonly: boolean;
-  @Input() mini: boolean = true;
+  @Input() mini: boolean = false;
 
   public override setDisabledState(isDisabled: boolean): void {
     // do nothing
