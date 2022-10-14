@@ -11,18 +11,22 @@ export interface ZuiSelectOptions<T> {
     readonly label: string;
     readonly placeholder: string;
     readonly size: ZuiInputSize;
-    readonly stringify: (i:T, nullContent?: string) => string;
-    readonly emptyContent: string;
-    readonly nullContent: string;
+    readonly stringify: ZuiSelectStringify<T>;
+    readonly emptyContent: PolymorphContent;
+    readonly nullContent: PolymorphContent;
     readonly searchMatcher: ZuiSelectSearchMatcher<T>,
     readonly identityMatcher: ZuiSelectIdentityMatcher<T>,
     readonly minDropdownHeight: number;
     readonly outer: boolean;
     readonly maxDropdownHeight: number;
     readonly dropdownWidth: string;
-    readonly valueContent: PolymorphContent<ZuiContextWithImplicit<T> & {nullContent: string}>;
+    readonly valueContent: PolymorphContent<ZuiSelectValueContext<T>>;
 
 }
+
+
+export type ZuiSelectStringify<T> = (i:T, nullContent?: string) => string;
+export type ZuiSelectValueContext<T> = ZuiContextWithImplicit<T> & {stringify: string};
 
 /** Default values for dropdown-host options */
 export const ZUI_SELECT_DEFAULT_OPTIONS: ZuiSelectOptions<unknown> = {

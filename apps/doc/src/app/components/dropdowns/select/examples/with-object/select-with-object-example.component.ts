@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import {
-  ZuiMultiSelectIdentityMatcher,
-  ZuiMultiSelectItemStringifyFunc,
-  ZuiMultiSelectItemStringifyItem,
-  ZuiMultiSelectSearchMatcher,
-} from '@digital-plant/zui-components';
+import { ZuiSelectIdentityMatcher, ZuiSelectSearchMatcher, ZuiSelectStringify } from '@digital-plant/zui-components';
 
 type ZuiItem = {
   id: number;
@@ -28,13 +23,13 @@ export class ZuiSelectWithObjectExampleComponent {
     {id: 3, name: 'ОАЭ'},
   ];
   readonly valueControl = new FormControl([{id: 3}]);
-  readonly searchMatcher: ZuiMultiSelectSearchMatcher<ZuiItem> = (search: string, item: ZuiItem) => {
+  readonly searchMatcher: ZuiSelectSearchMatcher<ZuiItem> = (search: string, item: ZuiItem) => {
     return item.name.toLowerCase().includes(search.toLowerCase());
   };
-  readonly identityMatcher: ZuiMultiSelectIdentityMatcher<ZuiItem> = (a: ZuiItem, b: ZuiItem) => {
+  readonly identityMatcher: ZuiSelectIdentityMatcher<ZuiItem> = (a: ZuiItem, b: ZuiItem) => {
     return a.id === b.id;
   }
-  readonly stringify: ZuiMultiSelectItemStringifyFunc<ZuiItem> = (item: ZuiMultiSelectItemStringifyItem<ZuiItem>) => {
-    return item.obj.name;
+  readonly stringify: ZuiSelectStringify<ZuiItem> = (item: ZuiItem) => {
+    return item.name;
   }
 }

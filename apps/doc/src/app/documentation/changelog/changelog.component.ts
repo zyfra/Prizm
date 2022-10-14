@@ -11,7 +11,7 @@ import { rawLoad } from '@taiga-ui/addon-doc';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChangelogComponent {
-    readonly changelog = of(import(`!!raw-loader!../../../CHANGELOG.md?raw`)).pipe(
+    readonly changelog = of(import(`!!raw-loader!./CHANGELOG.md`)).pipe(
         switchMap(rawLoad),
     );
 }
