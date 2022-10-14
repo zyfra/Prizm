@@ -1,5 +1,17 @@
+<h3>Inner</h3>
 <zui-input-layout label="Поиск">
   <input zuiInput (enter)="search($event)" #input />
+  <button
+    zuiInputIconButton="sort-zoom-in"
+    zui-input-right
+    (click)="search(input.value)"
+    [interactive]="true"
+  ></button>
+</zui-input-layout>
+
+<h3>Outer</h3>
+<zui-input-layout label="Поиск" [outer]="true">
+  <input zuiInput (enter)="search($event)" #input [placeholder]="'Поиск'" />
   <button
     zuiInputIconButton="sort-zoom-in"
     zui-input-right

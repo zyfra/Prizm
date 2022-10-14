@@ -2,7 +2,7 @@
   display: inline-flex;
   cursor: pointer;
   outline: none;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .checkbox {
@@ -80,15 +80,18 @@
 .label {
   margin-left: 8px;
   color: var(--zui-text-contrast);
-  line-height: 1;
+
   max-width: 100%;
+  font-family: Inter;
 
   &--size-s {
     font-size: 12px;
+    line-height: 16px;
   }
 
   &--size-l {
     font-size: 14px;
+    line-height: 20px;
   }
 }
 
