@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Inject, 
 import { Observable } from 'rxjs';
 import { ZuiDay } from '../../../@core/date-time/day';
 import { ZuiDayRange } from '../../../@core/date-time/day-range';
+import { ZuiDayWithStatus } from '../../../@core/date-time/day-with-status';
 import { ZuiMonth } from '../../../@core/date-time/month';
 import { ZuiRangeState } from '../../../@core/enums';
 import { ZUI_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
@@ -39,6 +40,10 @@ export class ZuiPrimitiveCalendarComponent {
     @Input()
     @zuiDefaultProp()
     value: ZuiDayRange | ZuiDay | null = null;
+
+    @Input()
+    @zuiDefaultProp()
+    daysWithStatus: ZuiDayWithStatus[] = [];
 
     @Input()
     @zuiDefaultProp()
@@ -193,5 +198,11 @@ export class ZuiPrimitiveCalendarComponent {
 
     public capitalizeFirstLetter(string: string): string {
       return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    }
+
+    public getDayStatus(day: ZuiDay, daysWithStatus: ZuiDayWithStatus[]): string | null {
+      return daysWithStatus.find(
+        dayWithStatus => dayWithStatus.daySame(day)
+      )?.status ?? null
     }
 }

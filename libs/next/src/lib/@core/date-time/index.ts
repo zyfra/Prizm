@@ -3,6 +3,7 @@ export * from './date-format';
 export * from './date-separator';
 export * from './date-time';
 export * from './day';
+export * from './day-with-status';
 export * from './day-range';
 export * from './days.const';
 export * from './month';

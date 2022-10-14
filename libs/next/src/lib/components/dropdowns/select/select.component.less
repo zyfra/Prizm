@@ -14,6 +14,10 @@
   font-size: var(--zui-select-item-font-size,14px);
   color: var(--zui-select-item-text, var(--zui-text-contrast, #20222B));
 
+  &:empty {
+    display: none;
+  }
+
   .text {
     max-width: 100%;
     overflow: hidden;

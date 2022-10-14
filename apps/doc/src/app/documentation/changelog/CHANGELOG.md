@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See
 
+## [1.0.0-beta.9](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (14-10-2022)
+
+### Features
+- fix/(next/calendar): add day with status [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
+- fix/(next/multi-select): add select-all button [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
+- fix/(doc/input-layout): add forceShowClearButton option to doc [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
+
+### BUG FIXES
+
+- fix(next/checkbox): fix checkbox, input-search, input-chips
+  [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/348)
+- fix/(select): fix less output [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/milestones/29#tab-issues)
+- fix/(next/input-mask): Настройки NgxMaskModule. [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/341)
+- fix/(next/select): fix size error logging [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
+
+
 ## [1.0.0-beta.8](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (03-10-2022)
 
 ### BUG FIXES

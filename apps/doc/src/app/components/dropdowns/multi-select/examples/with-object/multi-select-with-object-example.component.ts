@@ -27,6 +27,7 @@ export class ZuiMultiSelectWithObjectExampleComponent {
     {id: 2, name: 'США'},
     {id: 3, name: 'ОАЭ'},
   ];
+  readonly selectAllItem = {id: -1, name: 'Выбрать все'};
   readonly valueControl = new FormControl([{id: 3}]);
   readonly searchMatcher: ZuiMultiSelectSearchMatcher<ZuiItem> = (search: string, item: ZuiItem) => {
     return item.name.toLowerCase().includes(search.toLowerCase());

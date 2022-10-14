@@ -85,6 +85,12 @@ export class SelectComponent {
     HTML: import('!!raw-loader!./examples/with-template/select-with-template-example.component.html'),
   };
 
+
+  readonly exampleWithObject: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/with-object/select-with-object-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/with-object/select-with-object-example.component.html'),
+  };
+
   readonly exampleWithSearch: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/with-search/select-with-search-example.component.ts'),
     HTML: import('!!raw-loader!./examples/with-search/select-with-search-example.component.html'),

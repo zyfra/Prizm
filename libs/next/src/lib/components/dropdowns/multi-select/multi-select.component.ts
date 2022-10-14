@@ -20,7 +20,7 @@ import { ZuiInputSize } from '../../input';
 import { AbstractZuiControl } from '../../../abstract/control';
 import { zuiIsNativeFocused, zuiIsTextOverflow$ } from '../../../util';
 import { debounceTime, delay, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { BehaviorSubject, combineLatest, Observable, timer } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { ZUI_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens';
 import { zuiDefaultProp } from '../../../decorators';
 import { ZuiDropdownHostComponent } from '../dropdown-host';
@@ -66,7 +66,7 @@ implements ZuiFocusableElementAccessor
 
   @Input()
   @zuiDefaultProp()
-  chooseAllItem: T | null = this.options.chooseAllItem;
+  selectAllItem: T | null = this.options.chooseAllItem;
 
   @Input()
   @zuiDefaultProp()
@@ -110,7 +110,7 @@ implements ZuiFocusableElementAccessor
 
   @Input()
   @zuiDefaultProp()
-  emptyContent: string = this.options.emptyContent;
+  emptyContent: PolymorphContent = this.options.emptyContent;
 
   /** need only clear function */
   @Input()
@@ -135,7 +135,7 @@ implements ZuiFocusableElementAccessor
 
   readonly zuiIsTextOverflow$ = zuiIsTextOverflow$;
   public readonly direction: ZuiOverlayOutsidePlacement = ZuiOverlayOutsidePlacement.RIGHT;
-  private readonly stop$ = new BehaviorSubject(false);
+  // private readonly stop$ = new BehaviorSubject(false);
 
   public open = false;
   public readonly items$ = new BehaviorSubject([]);
@@ -160,10 +160,7 @@ implements ZuiFocusableElementAccessor
           }
         ),
         map((items: T[]) => {
-            return [
-              ...(this.chooseAllItem ? [this.chooseAllItem] : []),
-              ...items
-            ].map(
+            const selectItems = items.map(
             (item: T) => {
               return {
                 checked: !!selectedItems?.find(
@@ -172,14 +169,24 @@ implements ZuiFocusableElementAccessor
                 obj: item
               } as ZuiMultiSelectItemWithChecked<T>
             }
-          )
+          );
+
+          return [
+            ...(this.selectAllItem ? [this.selectAllItem] : []).map(
+              item => ({
+                checked: selectItems.length === this.value.length,
+                obj: item
+              })
+            ) as ZuiMultiSelectItemWithChecked<T>[],
+            ...selectItems
+          ];
         }),
         tap((items) => {
           this.filteredItems = items;
           this.dropdownHostElement?.reCalculatePositions(1000/60);
         }),
         debounceTime(0),
-        tap(() => this.safeOpenModal())
+        // tap(() => this.safeOpenModal())
       )
     }),
   );
@@ -276,13 +283,35 @@ implements ZuiFocusableElementAccessor
     return [];
   }
 
-  public select(item: ZuiMultiSelectItemWithChecked<T>): void {
-    const values = !item.checked
-      ? [
-        ...(this.value ?? [] as any),
+  private isSelectAllItem(
+    item: ZuiMultiSelectItemWithChecked<T>
+  ): boolean {
+    return Boolean(
+      this.selectAllItem &&
+      this.identityMatcher(
+        this.selectAllItem,
         item.obj
-      ]
-      : this.value.filter(i => !this.identityMatcher(i, item.obj));
+      )
+    )
+  }
+
+  public select(item: ZuiMultiSelectItemWithChecked<T>): void {
+    const newItemState = !item.checked;
+    let values: T[];
+    if (
+      this.isSelectAllItem(item)
+    ) {
+      values = newItemState
+        ? [...this.items]
+        : [];
+    } else {
+      values = newItemState
+        ? [
+          ...(this.value ?? []),
+          item.obj
+        ]
+        : this.value.filter(i => !this.identityMatcher(i, item.obj));
+    }
 
     this.updateValue(values);
     this.dropdownHostElement?.reCalculatePositions();
@@ -290,29 +319,24 @@ implements ZuiFocusableElementAccessor
 
   public safeOpenModal(): void {
     const inputElement = this.focusableElement.nativeElement;
-    if (this.stop$.value) return
-    if (
+    this.open =  (
       !this.open &&
       this.interactive &&
       inputElement &&
       zuiIsNativeFocused(inputElement)
-    ) {
-      this.open = true;
-      this.changeDetectorRef.markForCheck();
-    }
+    )
+    this.changeDetectorRef.markForCheck();
   }
 
   // TODO remove after finish activezone to dropdown component
   public safeStopPropagation(value: string, $event: Event): void {
+    console.log('#mz safeStopPropagation', {
+      value,
+      $event
+    });
+    this.open = false;
+    this.cdRef.markForCheck();
     if (!value) $event.stopImmediatePropagation();
-    this.stop$.next(true);
-    timer(0).pipe(
-      tap(() => {
-        this.focusableElement.nativeElement.blur();
-        this.stop$.next(false)
-      }),
-      takeUntil(this.destroy$)
-    ).subscribe();
   }
 
   public removeChip(str: string): void {
