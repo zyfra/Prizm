@@ -464,6 +464,7 @@
               "node_modules/primeng/resources/themes/luna-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeicons/primeicons.css",
+              "node_modules/@angular/cdk/overlay-prebuilt.css",
               {
                 "input": "libs/components/src/styles/theme/default.less",
                 "bundleName": "default",
