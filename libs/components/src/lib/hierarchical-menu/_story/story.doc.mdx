@@ -1,0 +1,229 @@
+import {Subtitle} from "@storybook/addon-docs";
+import {ArgsTable} from '@storybook/addon-docs';
+import ZyfraHierarchicalMenuUtils
+  from "../common/utils/zyfra-hierarchical-menu-utils";
+import {
+  ZyfraHierarchicalTreeMenuComponent
+} from "../hierarchical-tree-menu/components/zyfra-hierarchical-tree-menu/zyfra-hierarchical-tree-menu.component";
+
+# Zyfra - Hierarchical Tree Menu
+
+<Subtitle> This component is designed to display and navigate through a hierarchical menu with the option to open a
+  submenu </Subtitle>
+
+#### Import module:
+
+```typescript
+import { ZyfraHierarchicalMenuModule } from '@digital-plant/zyfra-components';
+
+@NgModule({
+  imports: [ZyfraHierarchicalMenuModule],
+})
+export class YourModule {}
+```
+
+#### Basic use to component:
+
+```html
+<zyfra-hierarchical-tree-menu
+  class="your-custom-style"
+  [root]="root"
+  [subMenuRootId]="subMenuRootId"
+  [subMenuSelectedNodeId]="subMenuSelectedNodeId"
+  [collapsed]="collapsed"
+  (nodeCollapse)="nodeCollapse($event);"
+  (nodeExpand)="nodeExpand($event)"
+  (needLoadChildren)="needLoadChildren($event)"
+  (selectNode)="selectNode($event)"
+></zyfra-hierarchical-tree-menu>
+```
+
+### Base Types
+```ts
+export type HierarchicalMenuNodeAttributes = {
+  mainMenuItem: boolean;
+  subMenuItem: boolean;
+  order: number;
+  icon: string;
+  name: string;
+} & Record<string, any>;
+
+export type HierarchicalMenuNode = {
+  id: string;
+  name?: string;
+  attributes?: Partial<HierarchicalMenuNodeAttributes>;
+  children?: Array<HierarchicalMenuNode>;
+  hierarchy?: {
+    onlyFolder?: boolean;
+    levelNested?: number;
+    collapsed?: boolean;
+    type?: HierarchicalMenuNodeHierarchyType;
+  };
+} & Record<string, any>;
+```
+
+### Args Table
+
+<ArgsTable of={ZyfraHierarchicalTreeMenuComponent}/>
+
+## Configuration
+
+### CSS variables
+
+| Name Variable   |                                      Description                                      |
+|----------|:-------------------------------------------------------------------------------------:|
+| --hierarchicalMenuMainBackground |    Цвет фона основного меню |
+| --hierarchicalMenuSubBackground |    Цвет фона вспомогательного меню (открывающегося справа) |
+| --hierarchicalMenuItemActiveBackground |    Цвет фона выбранного элемента в меню |
+| --hierarchicalMenuItemHoverBackground |    Цвет фона при наведении на пункт меню |
+| --hierarchicalMenuItemBorder |    Цвет границы между элемента меню |
+| --hierarchicalMenuItemIconColor |    Цвет иконок по умолчанию |
+| --hierarchicalMenuItemIconHoverColor |    Цвет иконок при наведении |
+| --hierarchicalMenuItemIconActiveColor |    Цвет иконок при активном состоянии иконки (например открыты опции) |
+| --hierarchicalMenuShiftSize |                Размер оступа между родительским и дочерними элементами  |
+| --hierarchicalMenuItemLeftMargin |    Левый margin у всех элементов в меню |
+| --hierarchicalMenuItemHeight |     Высота одного элемента   |
+| --hierarchicalMenuItemMainIconSize |     Размер основную иконку у элемента меню |
+| --hierarchicalMenuItemMainIconWrapperSize |    Размер оберкти над основной иконки у элемента меню  |
+| --hierarchicalMenuItemAddIconWrapperSize |     Размер дополнительных иконок у элемента меню (навигации, открытие опций)   |
+| --hierarchicalMenuItemAddIconSize |     Размер оберкти над дополнительными иконками у элемента меню (навигации, открытие опций)   |
+| --hierarchicalMenuItemLeftPadding |     Левый padding у всех элементов в меню   |
+| --hierarchicalMenuMarginBetweenIconAndName |     Отступ между основной иконой элемента и его названием  |
+| --hierarchicalMenuItemTextColor |     Цвет текста в меню  |
+
+
+### CSS selectors for customization
+
+У каждой колонки меню (основной, дополнительной, всплывающей в свернутом виде) есть атрибуты и допустимые состояния,
+к которым можно обратиться и переопределить в своём глобальном css файле
+
+```
+.zyfra-hierarchical-menu-list[type="'main' | 'sub' | 'popover'"]
+
+.zyfra-hierarchical-menu-list[theme="'main' | 'sub'"]
+ // P.S. Всплывающее меню находится в одной из тем, в зависимости от того открывается ли основное меню или дополнительное в свернутом виде
+```
+
+У каждого элемента меню есть данные атрибуты
+к которым можно обратиться и переопределить в своём глобальном css файле
+
+```
+// значение true если элемент selected
+.hierarchical-menu-item[attr.active]="true | false"
+
+// значение true если элемент является по смыслу папкой
+// (клик на него может приветси к разворачиванию дочерних элементов)
+// ставится на основе options.checkFolder в token
+.hierarchical-menu-item[folder]="true | false"
+
+// значение true если у элемента есть дочерние элементы
+.hierarchical-menu-item[hasChildren]="true | false"
+
+// значение true если элемент является элементов первого уровня в меню
+.hierarchical-menu-item[root]="true | false"
+
+// значение true если элемент является элементов первого уровня в меню
+.hierarchical-menu-item[disabled]="true | false"
+```
+
+### Token for Configuration
+
+По токену устанавливаются все статичные опции (неизменяемые на протяжении жизни компоненты) конфигурации меню.
+
+**Options Interface**
+```ts
+export interface ZuiHierarchicalMenuOptions {
+  tooltipDelay: number;
+  collapsedView: {
+    showMainMenu: 'empty' | 'roots' | 'active';
+    showSubMenu: 'empty' | 'active';
+  };
+  popover: {
+    closeAfterUpdateSelectItem: true,
+    customClass: string;
+  }
+  checkHasChildren: (node: HierarchicalMenuNode) => boolean;
+  checkFolder: (node: HierarchicalMenuNode) => boolean;
+  checkDisable: (node: HierarchicalMenuNode) => boolean;
+}
+```
+
+| Name property                                      |                                              Description                                               |
+|----------------------------------------------------|:------------------------------------------------------------------------------------------------------:|
+| tooltipDelay                                       |                                            Время задержки появления тултипа при наведении на элемент (по необходимости)                                             |
+| collapsedView.showMainMenu                         | Как отображается основное меню в свернутом виде <br/> 'root' - только корневые элемент <br/> 'empty' - не отображается <br/> 'active' - выбранный элемент                                          |
+| collapsedView.showSubMenu                          | Как отображается дополнительное меню в свернутом виде <br/> 'empty' - не отображается <br/> 'active' - отображается активный уровень дополнительного меню                                       |
+| popover.closeAfterUpdateSelectItem                 | Необходимо ли закрывать всплыающее меню (в свернутом виде) когда происходит изменение состояния меню <br/> (это создано для того, чтобы добиться поведения закрытия меню на клике внутри меню, если это приводит к каким-то изменениям state)   |
+| popover.customClass                 | css класс который будет добавлен к overlay menu (всплывающее меню в свернутом виде)  |
+| checkHasChildren                | Функция проверки есть ли у элемента дочерние элементы   |
+| checkFolder                | Функция проверки является ли элемент папкой - т.е. создан ли он только для агрегации других элементов (в зависимости от статуса папки возможно менять поведение при клике на элемент)   |
+| checkDisable                | Функция проверки является ли элемент заблокированным   |
+
+**Options Default**
+```ts
+export interface ZuiHierarchicalMenuOptions {
+  tooltipDelay: number;
+  collapsedView: {
+    showMainMenu?: HierarchicalMenuCollapsedViewMainMenuTypes;
+    showSubMenu?: HierarchicalMenuCollapsedViewSubMenuTypes;
+    modeChildrenOpen?: HierarchicalMenuCollapsedViewChildrenOpenModes;
+  };
+  popover: {
+    closeAfterUpdateSelectItem?: true,
+    customClass?: string;
+  }
+  checkHasChildren: (node: HierarchicalMenuNode) => boolean;
+  checkFolder: (node: HierarchicalMenuNode) => boolean;
+  checkDisable: (node: HierarchicalMenuNode) => boolean;
+}
+```
+
+#### How use in your project
+
+```ts
+  providers: [
+    zuiHierarchicalMenuOptionsProvider({
+      tooltipDelay: 1000,
+      collapsedView: {
+        showMainMenu: 'empty',
+      }
+    })
+  ]
+```
+
+
+## How change state menu
+
+For the menu to work, you need to listen to component events and change the input parameters according to the required behaviour.
+
+#### ZyfraHierarchicalMenuUtils
+
+The ZyfraHierarchicalMenuUtils class is implemented for convenient state changes. All methods return new objects.
+
+<ArgsTable of={ZyfraHierarchicalMenuUtils}/>
+
+#### Example of a collapse and expand implementation
+
+```typescript
+root: HierarchicalMenuItem = ...;
+
+nodeCollapse(event: HierarchicalMenuCollapseNodeEvent): void {
+  const {target} = event;
+  this.root = HierarchicalMenuTreeUtils.setCollapseStatus(this.root, target.id, true);
+}
+
+nodeExpand(event: HierarchicalMenuExpandNodeEvent): void {
+  const {target} = event;
+  this.root = HierarchicalMenuTreeUtils.setCollapseStatus(this.root, target.id, false);
+}
+```
+
+### Troubleshoot
+
+- Before using the menu, you must create a node with `id: root` - `this.root: HierarchicalMenuNode = {id: 'root', children: YOUR_DATA}`
+
+- If you have changed the state menu but nothing has changed on the screen check that the correct links in @Input have changed. **The component only works with immutable objects** (you need to create a new object to change it)
+
+- If you do not see the additional menu displayed, make sure that the blocks in which the menu is embedded **do not have** an `overflow: hidden`
+
+- If popup menus do not work correctly when collapse view, make sure that `@angular/cdk` is installed and styles are connected `@angular/cdk/overlay-prebuilt.css`
