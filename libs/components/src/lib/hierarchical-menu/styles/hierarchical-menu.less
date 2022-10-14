@@ -1,0 +1,93 @@
+@import '../../../styles/typography/typography-const';
+
+.zyfra-hierarchical-menu {
+  --hierarchicalMenuShiftSize: 12px;
+  --hierarchicalMenuItemLeftMargin: 0px;
+  --hierarchicalMenuItemHeight: 48px;
+  --hierarchicalMenuItemMainIconWrapperSize: 48px;
+  --hierarchicalMenuItemMainIconSize: 22px;
+  --hierarchicalMenuItemAddIconWrapperSize: 36px;
+  --hierarchicalMenuItemAddIconSize: 22px;
+  --hierarchicalMenuItemLeftPadding: 0px;
+  --hierarchicalMenuMarginBetweenIconAndName: 0px;
+  --hierarchicalMenuItemTextColor: white;
+}
+
+.zyfra-hierarchical-menu {
+  display: flex;
+  height: 100%;
+
+  .hierarchical-menu {
+    display: flex;
+    position: relative;
+    color: var(--hierarchicalMenuItemTextColor);
+    width: 100%;
+  }
+
+  .hierarchical-menu[expanded='true'] {
+    .zyfra-hierarchical-menu-list[type='sub'] {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0px;
+      z-index: 0;
+      transform: translateX(100%);
+      height: calc(100vh - @80px);
+    }
+  }
+
+  .hierarchical-menu[collapsed='true'] {
+    flex-direction: column;
+    overflow: auto;
+
+    .zyfra-hierarchical-menu-list {
+      overflow: initial;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .zyfra-hierarchical-menu-list[type='main'],
+    .zyfra-hierarchical-menu-list[type='sub'] {
+      width: var(--hierarchicalMenuItemHeight) !important;
+      .hierarchical-menu-item,
+      .hierarchical-menu-item__content {
+        padding-left: 0 !important;
+      }
+    }
+
+    .zyfra-hierarchical-menu-list[type='main'] {
+      margin-bottom: @24px;
+    }
+  }
+
+  .zyfra-hierarchical-menu-list[type='main'] {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: var(--hierarchicalMenuMainBackground);
+    width: 100%;
+  }
+
+  .zyfra-hierarchical-menu-list[type='sub'] {
+    display: flex;
+    flex-direction: column;
+    width: @360px;
+    position: relative;
+    background: var(--hierarchicalMenuSubBackground);
+  }
+}
+
+.hierarchical-folder-menu {
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0px;
+  z-index: 0;
+  transform: translateX(100%);
+  height: calc(100vh - @80px);
+  width: 320px;
+  box-shadow: 0px 4px 8px rgba(21, 23, 30, 0.15);
+}
