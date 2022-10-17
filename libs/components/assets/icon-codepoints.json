@@ -2060,6 +2060,9 @@
   "poi-factory-pipe": {
     "content": ""
   },
+  "poi-factory-pipes": {
+    "content": ""
+  },
   "poi-factory": {
     "content": ""
   },
@@ -2087,6 +2090,9 @@
   "poi-fuel": {
     "content": ""
   },
+  "poi-gas-balloon": {
+    "content": ""
+  },
   "poi-gas-monitoring": {
     "content": ""
   },
@@ -2111,6 +2117,9 @@
   "poi-high-speed-reduction-cooling": {
     "content": ""
   },
+  "poi-lng-storage": {
+    "content": ""
+  },
   "poi-medicine": {
     "content": ""
   },
@@ -2122,6 +2131,15 @@
   },
   "poi-oil-factory": {
     "content": ""
+  },
+  "poi-oil-field": {
+    "content": ""
+  },
+  "poi-oil-storage": {
+    "content": ""
+  },
+  "poi-oil-tank": {
+    "content": ""
   },
   "poi-owl": {
     "content": ""
