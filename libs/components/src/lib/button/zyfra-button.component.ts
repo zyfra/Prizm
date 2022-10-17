@@ -5,6 +5,7 @@ import {
   ViewEncapsulation,
   Output,
   EventEmitter,
+  HostBinding,
 } from '@angular/core';
 
 export type TZyfraButtonIconPosision = 'left' | 'right' | 'top' | 'bottom';
@@ -28,6 +29,9 @@ export class ZyfraButtonComponent {
   @Output() onClick = new EventEmitter<PointerEvent>();
   @Output() onFocus = new EventEmitter<FocusEvent>();
   @Output() onBlur = new EventEmitter<FocusEvent>();
+
+  @HostBinding('attr.testId')
+  readonly testId = 'zyfra_button';
 
   // останавливаю всплытие клика (именно так. через HostListener не работает)
   public nativeClick(event: Event): void {
