@@ -3,7 +3,6 @@ import {
   Component,
   ElementRef,
   EventEmitter,
-  HostBinding,
   Inject,
   Input,
   Output,
@@ -15,19 +14,13 @@ import {
   HierarchicalMenuNode,
   HierarchicalMenuNodeHierarchyType,
   HierarchicalMenuSelectNodeEvent,
-  HierarchicalMenuViewType,
+  HierarchicalMenuType,
 } from '../../../zyfra-hierarchical-menu.interface';
 import ZyfraHierarchicalMenuUtils from '../../../common/utils/zyfra-hierarchical-menu-utils';
 import {
   ZUI_HIERARCHICAL_MENU_OPTIONS_TOKEN,
   ZuiHierarchicalMenuOptions,
 } from '../../../common/hierarhical-menu-options';
-
-enum NavigationEventInTreeType {
-  down = 'down',
-  up = 'up',
-  toRoot = 'toRoot',
-}
 
 @Component({
   selector: 'zyfra-hierarchical-tree-menu-list',
@@ -40,6 +33,7 @@ export class ZyfraHierarchicalTreeMenuListComponent {
   @Input() tree: HierarchicalMenuNode[];
   @Input() closed: boolean = false;
   @Input() activeNodeId: string;
+  @Input() menuType: HierarchicalMenuType = 'main';
 
   @Input() itemContentTemplate: TemplateRef<unknown>;
   @Input() suffixItemTemplate: TemplateRef<unknown>;
@@ -76,7 +70,8 @@ export class ZyfraHierarchicalTreeMenuListComponent {
 
   public checkNeedNavigationButtons(item: HierarchicalMenuNode): boolean {
     return (
-      item.hierarchy?.type !== HierarchicalMenuNodeHierarchyType.header && this.options.checkHasChildren(item)
+      item.hierarchy?.type !== HierarchicalMenuNodeHierarchyType.header &&
+      this.options.checkHasChildren(item, this.menuType)
     );
   }
 

@@ -223,7 +223,7 @@ export class ZyfraHierarchicalTreeMenuComponent implements OnChanges {
       this.needLoadChildren.emit(event.target);
     }
 
-    if (this.collapsed && this.options.checkHasChildren(target)) {
+    if (this.collapsed && this.options.checkHasChildren(target, menu)) {
       this.updatePopoverMenu(target.id, menu);
       this.popoverMenu.rootId = target.id;
       this.openFolderInCollapsedView(elementRef);

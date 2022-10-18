@@ -66,6 +66,12 @@ class ZyfraHierarchicalMenuUtils {
           node.children[idx] = child;
         }
       }
+
+      node.children.sort((a, b): number => {
+        if (a.attributes?.order && !b.attributes?.order) return -1;
+        if (!a.attributes?.order && b.attributes?.order) return 1;
+        return a.attributes?.order - b.attributes?.order;
+      });
     }
 
     return JSON.parse(JSON.stringify(root));
