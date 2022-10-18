@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See
 
+## [1.0.0-beta.10](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (18-10-2022)
+
+### Features
+- feat(next/icon): add poi svg icons [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/333)
+- feat(next/multi-select): add single line chips multi-select [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/353)
+- feat(next/chips): add single line for chips [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/353)
+
+### BUG FIXES
+- feat(next/chips): fix select border [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/353)
+
+
 ## [1.0.0-beta.9](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (14-10-2022)
 
 ### Features
