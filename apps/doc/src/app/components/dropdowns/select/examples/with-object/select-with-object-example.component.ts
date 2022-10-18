@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ZuiSelectIdentityMatcher, ZuiSelectSearchMatcher, ZuiSelectStringify } from '@digital-plant/zui-components';
+import { tap } from 'rxjs/operators';
 
 type ZuiItem = {
   id: number;
@@ -22,14 +23,21 @@ export class ZuiSelectWithObjectExampleComponent {
     {id: 2, name: 'США'},
     {id: 3, name: 'ОАЭ'},
   ];
-  readonly valueControl = new FormControl([{id: 3}]);
+  readonly valueControl = new FormControl({id: 3});
+
   readonly searchMatcher: ZuiSelectSearchMatcher<ZuiItem> = (search: string, item: ZuiItem) => {
     return item.name.toLowerCase().includes(search.toLowerCase());
   };
+
   readonly identityMatcher: ZuiSelectIdentityMatcher<ZuiItem> = (a: ZuiItem, b: ZuiItem) => {
     return a.id === b.id;
   }
+
   readonly stringify: ZuiSelectStringify<ZuiItem> = (item: ZuiItem) => {
     return item.name;
+  }
+
+  public setDefaultValue(): void {
+    this.valueControl.setValue(this.items[0]);
   }
 }

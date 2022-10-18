@@ -73,7 +73,7 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
   /**
    * Input value input
    */
-  get value(): string {
+  get value(): any {
     return this.ngControl?.value || this._inputValue.value;
   }
 

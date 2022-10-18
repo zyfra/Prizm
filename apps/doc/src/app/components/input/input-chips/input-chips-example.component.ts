@@ -13,6 +13,7 @@ export class InputChipsExampleComponent {
   public chips: string[] = ['Чипс 1', 'Чипс 2', 'Чипс 3'];
   public deletable = true;
   public disabled = false;
+  public singleLine = false;
 
   @ViewChild(ZuiInputTextComponent, { static: false }) input: ZuiInputTextComponent;
   @ViewChild(ZuiChipsComponent, { static: false }) chipsComponent: ZuiChipsComponent;
@@ -24,6 +25,9 @@ export class InputChipsExampleComponent {
     HTML: import(
       '!!raw-loader!./examples/input-chips-basic-example/input-chips-basic-example.component.html'
     ),
+    LESS: import(
+      './examples/input-chips-basic-example/input-chips-basic-example.component.less?raw'
+    ),
   };
 
   public readonly zuiInputChipsOuterExample: TuiDocExample = {
@@ -32,6 +36,9 @@ export class InputChipsExampleComponent {
     ),
     HTML: import(
       '!!raw-loader!./examples/input-chips-outer-example/input-chips-outer-example.component.html'
+    ),
+    LESS: import(
+      './examples/input-chips-outer-example/input-chips-outer-example.component.less?raw'
     ),
   };
 

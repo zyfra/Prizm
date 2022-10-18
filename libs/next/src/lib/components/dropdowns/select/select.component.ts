@@ -181,6 +181,9 @@ implements ZuiFocusableElementAccessor
 
   override ngOnInit(): void {
     super.ngOnInit();
+  }
+
+  ngAfterViewInit(): void {
     this.initControlStatusChangerIfExist();
     this.initControlValueChangerIfExist();
   }
@@ -248,18 +251,11 @@ implements ZuiFocusableElementAccessor
       zuiIsNativeFocused(inputElement)
     )
     this.open = open;
-    console.log('#mz safeOpenModal open', {
-      open
-    })
     this.changeDetectorRef.markForCheck();
   }
 
   // TODO remove after finish activezone to dropdown component
   public safeStopPropagation(value: string, $event: Event): void {
-    console.log('#mz safeStopPropagation', {
-      value,
-      $event
-    });
     this.open = false;
     this.changeDetectorRef.markForCheck();
     if (!value) $event.stopImmediatePropagation();

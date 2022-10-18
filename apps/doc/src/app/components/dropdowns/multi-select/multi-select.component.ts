@@ -27,11 +27,11 @@ export class MultiSelectComponent {
     true
   ];
   forceShowClearButton = this.forceShowClearButtonVariants[0];
-  sizeVariants: ReadonlyArray<ZuiInputSize> = [
-    'l',
-    'm',
-    's',
-  ];
+  get sizeVariants(): ReadonlyArray<ZuiInputSize> {
+    return this.outer
+      ? ['s', 'm', 'l']
+      : ['m', 'l'];
+  };
   size = this.sizeVariants[0];
   minDropdownHeight = 0;
   dropdownWidth = '100%';
@@ -59,7 +59,7 @@ export class MultiSelectComponent {
     null
   ];
   readonly valueControl = new FormControl();
-  public items = this.itemsVariants[0];
+  public items = this.itemsVariants[1];
 
 
   set disabled(state: boolean) {

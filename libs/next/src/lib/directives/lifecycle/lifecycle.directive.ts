@@ -1,19 +1,22 @@
 import {
+  AfterContentInit,
   AfterViewInit,
   Directive,
   ElementRef,
   EventEmitter,
-  HostListener,
   Inject,
-  Input, OnDestroy, OnInit,
+  OnDestroy,
+  OnInit,
   Output,
-  Renderer2,
 } from '@angular/core';
+import { ReplaySubject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Directive({
-    selector: '[zuiAfterViewInit], [zuiOnInit], [zuiOnDestroy]',
+    selector: '[zuiLifecycle], [zuiAfterViewInit], [zuiAfterContentInit], [zuiOnInit], [zuiOnDestroy]',
+    exportAs: 'zuiLifecycle'
 })
-export class ZuiLifecycleDirective implements AfterViewInit, OnInit, OnDestroy {
+export class ZuiLifecycleDirective implements AfterViewInit, OnInit, OnDestroy, AfterContentInit {
     @Output()
     readonly zuiAfterViewInit = new EventEmitter<ElementRef>();
 
@@ -21,7 +24,15 @@ export class ZuiLifecycleDirective implements AfterViewInit, OnInit, OnDestroy {
     readonly zuiOnInit = new EventEmitter<ElementRef>();
 
     @Output()
+    readonly zuiAfterContentInit = new EventEmitter<ElementRef>();
+
+    @Output()
     readonly zuiOnDestroy = new EventEmitter<ElementRef>();
+
+    private readonly afterViewInitSource$ = new ReplaySubject(1);
+    readonly afterViewInit$ = this.afterViewInitSource$.pipe(
+      debounceTime(0)
+    );
 
     constructor(
         @Inject(ElementRef)
@@ -30,6 +41,11 @@ export class ZuiLifecycleDirective implements AfterViewInit, OnInit, OnDestroy {
 
     ngAfterViewInit(): void {
       this.zuiAfterViewInit.next(this.element);
+      this.afterViewInitSource$.next(this.element);
+    }
+
+    ngAfterContentInit(): void {
+      this.zuiAfterContentInit.next(this.element);
     }
 
     ngOnDestroy(): void {

@@ -31,7 +31,7 @@
   </zui-input-layout>
 
   <ng-template #dropdown>
-    <zui-data-list class='block'>
+    <zui-data-list class='block' [style.--zui-data-list-border]='0'>
       <ng-container *ngIf='items?.length; else emptyTemplate'>
         <div class='item' [class.selected]='item && value && (item | zuiCallFunc : identityMatcher : value)'
              #hostHint

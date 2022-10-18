@@ -1,15 +1,15 @@
 {
   "name": "@digital-plant/zyfra-components",
-  "version": "0.13.7",
+  "version": "0.13.8",
   "dependencies": {
     "primeicons": "^4.1.0",
     "primeng": "^12.2.1",
     "date-fns": "^2.26.0",
-    "@digital-plant/zyfra-helpers": "^1.0.0-beta.9"
+    "@angular/cdk": "^12.2.0",
+    "@digital-plant/zyfra-helpers": "^1.0.0-beta.10"
   },
   "peerDependencies": {
     "@angular/common": "^12.2.0",
-    "@angular/core": "^12.2.0",
-    "@angular/cdk": "^12.2.0"
+    "@angular/core": "^12.2.0"
   }
 }
