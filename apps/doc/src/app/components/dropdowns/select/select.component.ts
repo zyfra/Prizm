@@ -14,11 +14,11 @@ export class SelectComponent {
   searchable = false;
   outer = false;
   label = 'Выберите участника';
-  sizeVariants: ReadonlyArray<ZuiInputSize> = [
-    'l',
-    'm',
-    's',
-  ];
+  get sizeVariants(): ReadonlyArray<ZuiInputSize> {
+    return this.outer
+      ? ['s', 'm', 'l']
+      : ['m', 'l'];
+  };
   size = this.sizeVariants[0];
   forceShowClearButtonVariants: ReadonlyArray<boolean | null> = [
     null,

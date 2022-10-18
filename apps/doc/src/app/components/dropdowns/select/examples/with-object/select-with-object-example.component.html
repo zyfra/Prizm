@@ -7,6 +7,19 @@
   [stringify]='stringify'
   [searchable]='true'
 ></zui-select>
+<br>
+<br>
+<div>
+  <button (click)='setDefaultValue()'>Set default value: <b>{{items[0].name | json}}</b></button>
+</div>
+
+<br>
+<br>
+<div>
+  Current value: {{valueControl.value  | json}}
+</div>
+
+
 
 <ng-template #valueTemplate let-value let-stringify='stringify'>
   <div class='item'>

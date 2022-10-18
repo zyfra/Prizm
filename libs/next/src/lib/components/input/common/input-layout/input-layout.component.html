@@ -56,6 +56,7 @@
         <ng-container *ngIf="outer; else labelTemplate"></ng-container>
 
         <ng-content></ng-content>
+        <ng-content select='[zui-input-in-body]'></ng-content>
       </div>
 
       <button

@@ -135,7 +135,6 @@ implements ZuiFocusableElementAccessor
 
   readonly zuiIsTextOverflow$ = zuiIsTextOverflow$;
   public readonly direction: ZuiOverlayOutsidePlacement = ZuiOverlayOutsidePlacement.RIGHT;
-  // private readonly stop$ = new BehaviorSubject(false);
 
   public open = false;
   public readonly items$ = new BehaviorSubject([]);
@@ -186,7 +185,6 @@ implements ZuiFocusableElementAccessor
           this.dropdownHostElement?.reCalculatePositions(1000/60);
         }),
         debounceTime(0),
-        // tap(() => this.safeOpenModal())
       )
     }),
   );
@@ -227,7 +225,7 @@ implements ZuiFocusableElementAccessor
 
       return result;
     }),
-    shareReplay(1)
+    shareReplay(1),
   );
 
   public filteredItems: ZuiMultiSelectItemWithChecked<T>[] = [];
@@ -323,17 +321,13 @@ implements ZuiFocusableElementAccessor
       !this.open &&
       this.interactive &&
       inputElement &&
-      zuiIsNativeFocused(inputElement)
+      (this.outer || zuiIsNativeFocused(inputElement))
     )
     this.changeDetectorRef.markForCheck();
   }
 
   // TODO remove after finish activezone to dropdown component
   public safeStopPropagation(value: string, $event: Event): void {
-    console.log('#mz safeStopPropagation', {
-      value,
-      $event
-    });
     this.open = false;
     this.cdRef.markForCheck();
     if (!value) $event.stopImmediatePropagation();

@@ -1,23 +1,69 @@
-<div class="chips-list" *ngIf="chipsList.length">
+<div class="chips-list"
+     *ngIf="(chipsList$ | async).length"
+     [class.hidden]='singleLine'
+     zuiElementReady
+     [checker]='ready'
+     #zuiElementReady='zuiElementReady'
+     #parent
+>
+  <ng-container *ngIf='zuiElementReady.ready$ | async'>
+    <ng-container
+      *ngFor="let item of chipsList$ | async; let i = index"
+      [ngTemplateOutlet]='buttonTemplate'
+      [ngTemplateOutletContext]="{
+        item: item,
+        idx: i,
+        allChipsCount: (chipsList$ | async).length,
+        parent: parent,
+        singleLine: singleLine
+      }"
+    >
+    </ng-container>
+
+    <ng-container
+      *ngIf="(overflowedChipsList$ | async) as chipsOverflowedList"
+    >
+      <div class='more-item'
+           *ngIf="chipsOverflowedList.size"
+           [zuiHint]='getOverflowedChipsListHint()'
+           [zuiHintDirection]='hintDirection'
+      >...</div>
+    </ng-container>
+  </ng-container>
+
+</div>
+
+<ng-template #buttonTemplate
+             let-item="item"
+             let-idx="idx"
+             let-parent="parent"
+             let-background="background"
+             let-hint="hint"
+             let-allChipsCount="allChipsCount"
+             let-hideDelete="hideDelete"
+             let-singleLine="singleLine"
+             let-forceShowHint="forceShowHint">
   <button
-    class="chips-list__item"
-    *ngFor="let item of chipsList; let i = index"
+    class="chips-list__item {{zuiLifecycle.afterViewInit$ | zuiCallFunc : isChipsContent$ : parent : singleLine : item : idx : allChipsCount | async}}"
     (click)="chipClick(item)"
+    [style.background]='background'
     [disabled]="accessorIsDisabled"
+    zuiLifecycle
+    #zuiLifecycle="zuiLifecycle"
     #hostHint
   >
     <div class="chips-name"
          #elem
-         [zuiHint]='item'
+         [zuiHint]='hint || item'
          [zuiHintHost]='hostHint'
          [zuiHintDirection]='hintDirection'
-         [zuiHintCanShow]='hintCanShow && elem | zuiCallFunc : zuiIsTextOverflow$ | async'
+         [zuiHintCanShow]='elem | zuiCallFunc : zuiIsTextOverflow$: hintCanShow : forceShowHint | async'
     >{{ item }}</div>
     <button
-      *ngIf="deletable"
+      *ngIf="!hideDelete && deletable"
       class="chips-cancel zui-icon cancel-close-small"
-      (click)="removeChips($event, i)"
+      (click)="removeChips($event, idx)"
       [disabled]="accessorIsDisabled"
     ></button>
   </button>
-</div>
+</ng-template>
