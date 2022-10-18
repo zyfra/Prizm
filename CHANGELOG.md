@@ -4,6 +4,21 @@
 
 ---
 
+## [v0.13.9] - 18-10-2022
+
+### @digital-plant/zyfra-components [v0.13.8]
+
+**Changes**
+
+- fix(components/hierarhical-menu): export utils and InjectionToken + hot fix [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/352)
+
+> **Special thanks**
+>
+> ✏️ **MR:** Viktor Yudin Ext
+
+
+---
+
 ## [v0.13.8] - 18-10-2022
 
 ### @digital-plant/zyfra-components [v0.13.8]

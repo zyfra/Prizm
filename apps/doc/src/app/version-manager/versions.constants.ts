@@ -10,7 +10,7 @@ export const ZUI_VERSIONS_META: readonly ZuiVersionMeta[] = [
     baseHref: '',
   },
   {
-    label: 'LTS (v0.13.8)',
+    label: 'LTS (v0.13.9)',
     link: 'https://ziiot-dev-07.kube01.yc.ziiot.ru/zui-sdk/storybook/',
   },
 ];
