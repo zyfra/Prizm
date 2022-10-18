@@ -4,6 +4,7 @@
     class="hierarchical-main-menu"
     [attr.type]="'main'"
     [attr.theme]="'main'"
+    [menuType]="'main'"
     [tree]="mainTree"
     [activeNodeId]="subMenuRootId ?? mainMenuSelectedNodeId"
     [closed]="collapsed"
@@ -20,6 +21,7 @@
     class="hierarchical-sub-menu"
     [attr.type]="'sub'"
     [attr.theme]="'sub'"
+    [menuType]="'sub'"
     [tree]="subTree"
     [activeNodeId]="elementIdHighlightedInSubMenu"
     [closed]="collapsed"
@@ -36,6 +38,7 @@
   <zyfra-hierarchical-tree-menu-list
     #popoverMenuListRef
     [attr.type]="'popover'"
+    [menuType]="popoverMenu.mode"
     [tree]="popoverMenu.data"
     (selectNode)="selectNodeHandlerPopoverMenu($event)"
     (nodeExpand)="expandHandler($event)"

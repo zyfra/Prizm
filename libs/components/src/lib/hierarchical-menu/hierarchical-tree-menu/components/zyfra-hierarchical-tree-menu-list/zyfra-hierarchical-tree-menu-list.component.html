@@ -4,6 +4,7 @@
     *ngFor="let item of tree; trackBy: identify"
     [item]="item"
     [closed]="closed"
+    [menuType]="menuType"
     [activeNodeId]="activeNodeId"
     [attr.node-type]="item.hierarchy?.type ?? 'default'"
     [suffixItemTemplate]="suffixItemTemplate"
