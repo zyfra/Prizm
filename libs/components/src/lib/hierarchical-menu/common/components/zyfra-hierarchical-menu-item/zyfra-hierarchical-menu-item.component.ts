@@ -9,7 +9,11 @@ import {
   Output,
   TemplateRef,
 } from '@angular/core';
-import { HierarchicalMenuNode, HierarchicalMenuViewType } from '../../../zyfra-hierarchical-menu.interface';
+import {
+  HierarchicalMenuNode,
+  HierarchicalMenuType,
+  HierarchicalMenuViewType,
+} from '../../../zyfra-hierarchical-menu.interface';
 import {
   ZUI_HIERARCHICAL_MENU_OPTIONS_TOKEN,
   ZuiHierarchicalMenuOptions,
@@ -26,7 +30,7 @@ export class ZyfraHierarchicalMenuItemComponent {
   @Input() item: HierarchicalMenuNode;
   @Input() closed: boolean = false;
   @Input() activeNodeId: string;
-
+  @Input() menuType: HierarchicalMenuType;
   @Input() itemTemplate: TemplateRef<unknown>;
   @Input() itemContentTemplate: TemplateRef<unknown>;
   @Input() suffixItemTemplate: TemplateRef<unknown>;
