@@ -22,23 +22,38 @@
     flex-wrap: wrap;
     gap: 4px;
 
+    &.hidden {
+      height: 20px;
+      padding-top: 1px;
+      overflow: hidden;
+      max-width: calc(100% - 20px);
+    }
+
     &__item {
       height: 18px;
       min-width: 4px;
       padding: 4px;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       border-radius: 2px;
       background: var(--zui-grey-g11-g3);
+
+      visibility: hidden;
 
       font-size: 14px;
       line-height: 16px;
       color: var(--zui-text-contrast);
 
       cursor: pointer;
+
+      &.hidden {
+        display: none;
+      }
+
+      &.visible {
+        visibility: visible;
+      }
 
       &:not(:disabled) {
         &:hover,

@@ -10,27 +10,45 @@
   <zui-input-layout
     [label]="label"
     [forceShowClearButton]='(forceShowClearButton || forceShowClearButton === null) && $.selectedItems.length > 0'
-    (clear)="safeStopPropagation(focusableElementRef.value, $event)"
+    (clear)="focusableElementRef.focus(); safeStopPropagation(focusableElementRef.value, $event)"
     (click)="safeOpenModal()"
     [outer]="outer"
     [size]="size"
+    [ngSwitch]='outer'
   >
     <input
       zuiInput
+      [style.display]='outer ? "none" : ""'
       #focusableElementRef
       (onClear)="onClear()"
-      [placeholder]="placeholder"
-      [disabled]="this.disabled"
+      [disabled]="disabled"
       [readonly]="true"
+      [placeholder]="placeholder"
       [formControl]="requiredInputControl"
     />
-    <zui-chips
-      #chipsComponent
-      [deletable]='isChipsDeletable'
-      [chips]="selectedItemsChips$ | async"
-      (removeChipEvent)="removeChip($event)"
-      zui-input-bottom
-    ></zui-chips>
+    <div class='in-body-chips-box' zui-input-in-body *ngSwitchCase='true'>
+      <ng-container [ngTemplateOutlet]='chipsTemplate'></ng-container>
+    </div>
+
+    <ng-container zui-input-bottom  *ngSwitchCase='false'>
+      <ng-container [ngTemplateOutlet]='chipsTemplate'></ng-container>
+    </ng-container>
+
+    <ng-template #chipsTemplate>
+      <ng-container *ngIf='selectedItemsChips$ | async as chips'>
+        <zui-chips
+          *ngIf='chips.length'
+          #chipsComponent
+          [class.inner]='!outer'
+          [singleLine]='true'
+          [deletable]='isChipsDeletable'
+          [chips]="chips"
+          (removeChipEvent)="removeChip($event)"
+        ></zui-chips>
+      </ng-container>
+    </ng-template>
+
+
     <zui-icon
       *ngIf="!disabled"
       (click)="focusableElementRef.focus()"
@@ -42,7 +60,7 @@
   </zui-input-layout>
 
   <ng-template #dropdown>
-    <zui-data-list class="block">
+    <zui-data-list class="block" [style.--zui-data-list-border]='0'>
       <div class="list-search-item" *ngIf="searchable">
         <zui-input-layout size="m" label="Поиск">
           <input zuiInput zuiAutoFocus class="input-search" #input [formControl]="searchInputControl" />
@@ -56,7 +74,7 @@
           *ngFor="let item of $.filteredItems"
           (click)="select(item)"
         >
-          <zui-checkbox [checked]="item.checked">
+          <zui-checkbox [checked]="item.checked" (changed)='select(item)'>
             <div class="text"
                   #elem
                   *zuiLet="item | zuiCallFunc: stringify:$any(emptyContent) as text"

@@ -12,7 +12,14 @@
     <tui-doc-demo>
       <zui-input-layout label="Заголовок" size="l" status="default">
         <input zuiInput placeholder="Введите название" (enter)="onEnter($event)" [disabled]="disabled" />
-        <zui-chips [chips]="chips" [deletable]="deletable" [disabled]="disabled" zui-input-bottom></zui-chips>
+        <zui-chips
+          [class.single-line]='singleLine'
+          [singleLine]="singleLine"
+          [chips]="chips"
+          [deletable]="deletable"
+          [disabled]="disabled"
+          zui-input-bottom>
+        </zui-chips>
       </zui-input-layout>
     </tui-doc-demo>
 
@@ -24,6 +31,14 @@
         [(documentationPropertyValue)]="disabled"
       >
         Disabled
+      </ng-template>
+      <ng-template
+        documentationPropertyName="singleLine"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="singleLine"
+      >
+        Single Line
       </ng-template>
 
       <ng-template
