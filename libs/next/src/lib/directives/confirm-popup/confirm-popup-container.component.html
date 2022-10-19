@@ -37,7 +37,7 @@
             <button
               [style]='button.style'
               [appearance]='button.appearance'
-              [appearanceType]='button.appearanceType'
+              [appearanceType]='button.appearanceType ?? "fill"'
               zuiButton
               [size]="button.size"
               (click)="button.action(context)"
