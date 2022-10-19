@@ -1,0 +1,42 @@
+<zui-dropdown-host
+  [content]="dropdown"
+  zuiDropdownHostWidth='auto'
+  [(isOpen)]="open"
+>
+  <button zuiButton type="button" (click)="open = !open">
+    Установить дату
+  </button>
+</zui-dropdown-host>
+
+<ng-template #dropdown>
+  <zui-data-list>
+    <div class='header' header>
+        <zui-icon iconClass='date-calendar-range'></zui-icon>
+        <span>Выбор периода</span>
+    </div>
+    <div class="box">
+      <div class='list'>
+        <zui-radio-button
+          *ngFor="let item of data"
+          (click)="select(item)"
+          [label]="item.title"
+          [value]="item.range"
+        ></zui-radio-button>
+        <zui-radio-button
+          (click)="select(null)"
+          [label]="'Произвольный диапазон'"
+          [value]="null"
+        ></zui-radio-button>
+      </div>
+
+      <div class='date-control'>
+        <zui-input-date-time label='Начало' [formControl]='startControl'></zui-input-date-time>
+        <zui-input-date-time label='Конец' [formControl]='endControl'></zui-input-date-time>
+      </div>
+    </div>
+    <div class='footer' footer>
+      <button appearanceType='ghost' appearance='secondary' zuiButton (click)="open = false; cdRef.markForCheck()">Отменить</button>
+      <button zuiButton (click)="open = false; cdRef.markForCheck()">Выбрать</button>
+    </div>
+  </zui-data-list>
+</ng-template>
