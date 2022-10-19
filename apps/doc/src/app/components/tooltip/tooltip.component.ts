@@ -21,13 +21,13 @@ export class TooltipComponent {
 
   public zuiTooltipDirection: ZuiTooltipOptions['direction'] = ZUI_HINT_DEFAULT_OPTIONS.direction;
 
-  public zuiTooltipId: string;
+  public zuiTooltipId = 'tooltip-id';
 
   public zuiTooltipShowDelay: number = ZUI_TOOLTIP_DEFAULT_OPTIONS.showDelay;
 
   public zuiTooltipHideDelay: number = ZUI_TOOLTIP_DEFAULT_OPTIONS.hideDelay;
 
-  public zuiTooltipHost: HTMLElement
+  public zuiTooltipHost: HTMLElement | null = null
 
   public readonly zuiTooltipVariants = [
     'Tooltip'

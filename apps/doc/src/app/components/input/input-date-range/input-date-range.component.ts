@@ -1,12 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import {
-  PolymorphContent,
-  ZuiContextWithImplicit,
-  ZuiInputSize,
-  ZuiSizeL,
-  ZuiSizeM,
-} from '@digital-plant/zui-components';
+import { ZuiInputSize } from '@digital-plant/zui-components';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'zui-input-date-range-example',
@@ -16,6 +11,7 @@ import {
 })
 export class InputDateRangeComponent {
   public label = 'Период';
+  public dateControl = new FormControl();
   public placeholder = 'Выберите период';
   public sizeVariants: ReadonlyArray<ZuiInputSize> = [
     'l',

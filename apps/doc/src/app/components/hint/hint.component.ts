@@ -22,13 +22,13 @@ export class HintComponent {
 
   public zuiHintDirection: ZuiHintOptions['direction'] = ZUI_HINT_DEFAULT_OPTIONS.direction;
 
-  public zuiHintId: string;
+  public zuiHintId = 'hint-id';
 
   public zuiHintShowDelay: number = ZUI_HINT_DEFAULT_OPTIONS.showDelay;
 
   public zuiHintHideDelay: number = ZUI_HINT_DEFAULT_OPTIONS.hideDelay;
 
-  public zuiHintHost: HTMLElement
+  public zuiHintHost: HTMLElement = null;
 
   public readonly zuiHintVariants = [
     'Новый хинт'
