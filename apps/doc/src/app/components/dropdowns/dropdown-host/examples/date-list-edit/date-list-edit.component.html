@@ -1,0 +1,43 @@
+<zui-dropdown-host
+  [content]="dropdown"
+  zuiDropdownHostWidth='auto'
+  [(isOpen)]="open"
+  #elem
+>
+  <button zuiButton type="button" (click)="open = !open">
+    Пример выбора периода
+  </button>
+
+  <ng-template #dropdown>
+    <zui-data-list>
+      <div class='header' header>
+        <zui-icon iconClass='date-calendar-range'></zui-icon>
+        <span>Выбор периода</span>
+      </div>
+      <div class="box">
+        <div class='list'>
+          <ng-container *ngFor="let item of data; let idx = index">
+            <div
+              class='list-item'
+              *zuiLet='item.range | zuiCallFunc : convertDate as dateArr'>
+              <zui-radio-button
+                (click)="select(item)"
+                [value]="item.range"
+                [label]='(dateArr[0] | date : "short") + " - " + (dateArr[1] | date : "short")'
+              ></zui-radio-button>
+              <div class='btns'>
+                <zui-icon class='edit-icon' iconClass='editor-mode'></zui-icon>
+                <zui-icon (click)='remove(idx); elem.reCalculatePositions();' class='trash-icon' iconClass='delete'></zui-icon>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class='footer' footer>
+        <button appearanceType='ghost' appearance='secondary' zuiButton (click)="open = false; cdRef.markForCheck()">Отменить</button>
+        <button zuiButton (click)="open = false; cdRef.markForCheck()">Сохранить</button>
+      </div>
+    </zui-data-list>
+  </ng-template>
+
+</zui-dropdown-host>

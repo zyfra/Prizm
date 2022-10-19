@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { PolymorphContent, ZuiContextWithImplicit, ZuiSizeL, ZuiSizeM } from '@digital-plant/zui-components';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'zui-skeleton-example',
@@ -13,6 +14,7 @@ export class SkeletonComponent {
   isText = false;
   isRounded = false;
   isShort = false;
+  public readonly toggleControl = new FormControl();
 
   readonly iconVariants: ReadonlyArray<PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>> = [
     '',
