@@ -1,0 +1,12 @@
+<progress
+    class="z-hidden-progress"
+    [value]="value"
+    [max]="max"
+></progress>
+
+<span
+    *zuiRepeatTimes="let index of max"
+    aria-hidden="true"
+    class="z-segment"
+    [style.background]="index < value ? getActiveColor(index) : null"
+></span>
