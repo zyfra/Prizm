@@ -39,6 +39,11 @@ export class DropdownHostComponent {
     LESS: import('./examples/select-panel-example/select-panel-example.component.less?raw'),
   };
 
+  readonly exampleDateRangeList: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/date-list/date-list.component'),
+    HTML: import('!!raw-loader!./examples/date-list/date-list.component.html'),
+  };
+
   constructor(public readonly cdRef: ChangeDetectorRef) {}
 }
 

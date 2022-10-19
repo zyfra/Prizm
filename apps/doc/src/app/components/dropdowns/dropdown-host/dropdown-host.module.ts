@@ -7,13 +7,14 @@ import {
   ZuiButtonModule,
   ZuiCheckboxModule,
   ZuiDataListModule,
-  ZuiDropdownHostModule,
-  ZuiInputTextModule,
+  ZuiDropdownHostModule, ZuiIconModule, ZuiInputDateTimeModule,
+  ZuiInputTextModule, ZuiRadioButtonModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownHostComponent } from './dropdown-host.component';
 import { ZuiDropdownHostExampleWithTemplateComponent } from './examples/with-template/template';
 import { ZuiSelectPanelExampleComponent } from './examples/select-panel-example/select-panel-example.component';
+import { ZuiDropdownHostDateListExampleComponent } from './examples/date-list/date-list.component';
 
 @NgModule({
   imports: [
@@ -27,11 +28,15 @@ import { ZuiSelectPanelExampleComponent } from './examples/select-panel-example/
     ZuiDropdownHostModule,
     RouterModule.forChild(generateRoutes(DropdownHostComponent)),
     ZuiCheckboxModule,
+    ZuiInputDateTimeModule,
     ZuiInputTextModule,
+    ZuiIconModule,
+    ZuiRadioButtonModule,
     FormsModule,
   ],
   declarations: [
     ZuiDropdownHostExampleWithTemplateComponent,
+    ZuiDropdownHostDateListExampleComponent,
     DropdownHostComponent,
     ZuiSelectPanelExampleComponent,
   ],
