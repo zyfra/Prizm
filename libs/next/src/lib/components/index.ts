@@ -22,6 +22,7 @@ export * from './tree';
 export * from './card';
 export * from './widget';
 export * from './panel';
+export * from './progress';
 export * from './nav-menu';
 export * from './tabs';
 export * from './breadcrumbs';

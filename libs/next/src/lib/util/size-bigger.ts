@@ -5,6 +5,7 @@ export type ZuiSizeL = 'l';
 export type ZuiSizeM = 'm';
 export type ZuiSizeXM = 'xm';
 export type ZuiSizeS = 's';
+export type ZuiSizesXl = "m" | "l" | "xl";
 export type ZuiSizeXl = 'xl';
 /* SIZES asc order */
 const SIZES: ReadonlyArray<ZuiSize> = [
