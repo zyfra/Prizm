@@ -44,6 +44,11 @@ export class DropdownHostComponent {
     HTML: import('!!raw-loader!./examples/date-list/date-list.component.html'),
   };
 
+  readonly exampleDateRangeListEdit: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/date-list-edit/date-list-edit.component'),
+    HTML: import('!!raw-loader!./examples/date-list-edit/date-list-edit.component.html'),
+  };
+
   constructor(public readonly cdRef: ChangeDetectorRef) {}
 }
 

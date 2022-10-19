@@ -24,7 +24,8 @@ export class ZuiSkeletonBaseExampleComponent implements OnInit {
 
   ];
   public readonly activeControl = new FormControl(false);
-  public valueDisabled = false;
+  public readonly selectControl = new FormControl();
+  public readonly toggleControl = new FormControl();
   public readonly value2Disabled = new FormControl(false);
 
   public ngOnInit(): void {

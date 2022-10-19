@@ -24,6 +24,7 @@
 
   <div>
     <zui-select
+      [formControl]='selectControl'
       [items]='items'
       [zuiSkeleton]='activeControl.value'
     ></zui-select>
@@ -31,6 +32,7 @@
 
   <div>
     <zui-toggle
+      [formControl]='toggleControl'
       [zuiSkeletonRounded]='true'
       [zuiSkeleton]='activeControl.value'
     ></zui-toggle>
