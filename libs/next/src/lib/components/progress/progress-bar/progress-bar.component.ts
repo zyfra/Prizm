@@ -16,7 +16,7 @@ export class ZuiProgressBarComponent {
     color?: string;
 
     @Input()
-    @HostBinding(`style.--zui-progress-line-track-color`)
+    @HostBinding(`style.--zui-progress-track-color`)
     @zuiDefaultProp()
     trackColor: string | null = null;
 
