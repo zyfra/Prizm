@@ -259,6 +259,11 @@ export const pages: TuiDocPages = [
         title: 'Progress Circle',
         keywords: 'progress-circle, прогресс, круг, circle, bar',
         route: '/components/progress-circle-bar',
+      },
+      {
+        title: 'Progress Segmented',
+        keywords: 'progress-segmented, прогресс, сегментация, segmented, bar',
+        route: '/components/progress-line-segmented'
       }
     ]
   },
