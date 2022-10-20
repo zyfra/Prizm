@@ -1,6 +1,6 @@
 ```ts
-import {NgModule} from '@angular/core';
-import {ZuiProgressModule} from "@digital-plant/zui-components";
+import { NgModule } from '@angular/core';
+import { ZuiProgressModule } from '@digital-plant/zui-components';
 
 // ...
 
@@ -10,5 +10,6 @@ import {ZuiProgressModule} from "@digital-plant/zui-components";
     ZuiProgressModule,
   ],
 })
-export class MyModule {}
+export class MyModule {
+}
 ```
