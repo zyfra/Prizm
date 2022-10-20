@@ -90,6 +90,13 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/progress-line-segmented',
+    loadChildren: async (): Promise<unknown> => (await import('./components/progress/line-segmented/progress-line-segmented.module')).ProgressLineSegmentedModule,
+    data: {
+      title: 'Progress Segmented',
+    },
+  },
+  {
     path: 'components/widget',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/widget/widget.module')).WidgetModule,

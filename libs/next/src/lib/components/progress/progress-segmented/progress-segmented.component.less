@@ -7,8 +7,8 @@
 .z-segment {
     .transition(background-color);
     flex: 1 1 100%;
-    border-radius: var(--zui-radius-xs);
-    background-color: var(--zui-base-03);
+    border-radius: var(--zui-segment-radius, 2px);
+    background-color: var(--zui-segment-line, var(--zui-grey-g11-g3));
 
     &:not(:last-child) {
         margin-right: @space;
