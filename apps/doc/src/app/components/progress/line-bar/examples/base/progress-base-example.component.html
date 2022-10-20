@@ -1,6 +1,6 @@
 <div>
   <p>Size M</p>
-  <div>
+  <div class='progress-block zui-font-input-text-helper'>
     <progress
       zuiProgressBar
       max="100"
@@ -9,13 +9,15 @@
       class="progress"
       [value]="value$ | async"
     ></progress>
+    <span>{{value$ | async}}</span>
   </div>
 </div>
 <br>
 
 <div>
   <p>Size S</p>
-  <div>
+  <div class='progress-block'>
+    <span>{{value$ | async}}</span>
     <progress
       zuiProgressBar
       max="100"
@@ -95,7 +97,16 @@
   <div>
     <progress
       zuiProgressBar
-      max="100"
+      color='var(--zui-index-plan)'
+      class="progress"
+      size='s'
+    ></progress>
+    <br>
+    <br>
+    <progress
+      zuiProgressBar
+      color='var(--zui-index-danger)'
+      size='m'
       class="progress"
     ></progress>
   </div>

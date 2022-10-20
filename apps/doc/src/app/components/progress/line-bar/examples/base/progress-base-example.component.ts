@@ -19,6 +19,12 @@ import { map, startWith, takeWhile } from 'rxjs/operators';
       width: 50%;
     }
 
+    .progress-block {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
     .progress {
       &:nth-child(1) {
         color: #a3ecb3;
