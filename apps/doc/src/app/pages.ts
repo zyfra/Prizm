@@ -248,6 +248,22 @@ export const pages: TuiDocPages = [
   },
   {
     section: `Components`,
+    title: 'Progress',
+    subPages: [
+      {
+        title: 'Progress Line',
+        keywords: 'progress-line, прогресс, линия, line, bar',
+        route: '/components/progress-line-bar',
+      },
+      {
+        title: 'Progress Circle',
+        keywords: 'progress-circle, прогресс, круг, circle, bar',
+        route: '/components/progress-circle-bar',
+      }
+    ]
+  },
+  {
+    section: `Components`,
     title: 'Radio Button',
     keywords: 'radio, button, кнопка, радио',
     route: '/components/radio-button',

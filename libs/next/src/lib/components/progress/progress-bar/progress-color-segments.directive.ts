@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Inject, Input } from '@angular/core';
 import { USER_AGENT } from '@ng-web-apis/common';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
 import { ZuiResizeService } from '../../../services/resize.service';
 import { zuiIsEdgeOlderThan } from '../../../util/browser/is-edge-older-than';
@@ -41,6 +41,11 @@ export class ZuiProgressColorSegmentsDirective {
     @zuiPure
     get calcSegments$(): Observable<string> {
         return this.resize$.pipe(
+          tap(
+            (colors) => {
+              console.log('#mz calcSegments$', 1, colors)
+            }
+          ),
             map(() =>
                 this.isOldBrowsers
                     ? this.zuiProgressColorSegments[0]
@@ -49,6 +54,11 @@ export class ZuiProgressColorSegmentsDirective {
                           this.elementRef.nativeElement.offsetWidth,
                       ),
             ),
+            tap(
+              (colors) => {
+                console.log('#mz calcSegments$', 2, colors)
+              }
+            )
         );
     }
 

@@ -1,0 +1,104 @@
+<div>
+  <p>Size M</p>
+  <div>
+    <progress
+      zuiProgressBar
+      max="100"
+      size='m'
+      color='var(--zui-index-plan)'
+      class="progress"
+      [value]="value$ | async"
+    ></progress>
+  </div>
+</div>
+<br>
+
+<div>
+  <p>Size S</p>
+  <div>
+    <progress
+      zuiProgressBar
+      max="100"
+      size='s'
+      color='green'
+      class="progress"
+      [value]="value$ | async"
+    ></progress>
+  </div>
+</div>
+<div>
+  <p>Segments</p>
+  <div>
+    <progress
+      zuiProgressBar
+      [zuiProgressColorSegments]="colors"
+      max="100"
+      size='m'
+      color='green'
+      class="progress"
+      [value]="value$ | async"
+    ></progress>
+  </div>
+</div>
+
+
+<div>
+  <p>Label</p>
+  <div>
+    <label
+      *ngIf="value$ | async as value"
+      zuiProgressLabel
+      class="label-wrapper"
+    >
+      {{ value }}%
+      <progress
+        zuiProgressBar
+        max="100"
+        color='var(--zui-index-warning)'
+        size='m'
+        [value]="value"
+      ></progress>
+    </label>
+  </div>
+</div>
+
+
+<div>
+  <p>Stacked progress bars</p>
+  <div>
+    <label
+      zuiProgressLabel
+      class="label-wrapper"
+    >
+      <progress
+        zuiProgressBar
+        max="4"
+        size="m"
+        class="progress"
+        [value]="3"
+      ></progress>
+
+      <progress
+        zuiProgressBar
+        max="4"
+        size="m"
+        class="progress"
+        [value]="1"
+      ></progress>
+    </label>
+  </div>
+</div>
+
+
+<div>
+  <p>Indeterminate</p>
+  <div>
+    <progress
+      zuiProgressBar
+      max="100"
+      class="progress"
+    ></progress>
+  </div>
+</div>
+
+

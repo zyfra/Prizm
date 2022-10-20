@@ -1,7 +1,7 @@
 @import '../../../../styles/ui-local';
 
 .clearProgress() {
-    -webkiz-appearance: none;
+    -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     border: none;
@@ -56,24 +56,24 @@
     .clearProgress();
     .progressAnimation();
     .progressValueColor(var(--zui-progress-color, currentColor));
-    .progressContainer(background-color, var(--zui-base-03));
+    .progressContainer(background-color, var(--zui-progress-line-track-color, var(--zui-grey-g11-g3)));
     display: block;
     width: 100%;
     color: var(--zui-primary);
-    border-radius: var(--zui-radius-xs);
+    border-radius: 2px;
     overflow: hidden;
 
     &[data-size='m'] {
-        height: 1.5rem;
+        height: 16px;
     }
 
     &[data-size='s'] {
         .progressValue(border-radius, var(--zui-radius-xs));
-        height: 0.5rem;
+        height: 4px;
     }
 }
 
-:hosz-context(label[zuiProgressLabel]):not(:first-child) {
+:host-context(label[zuiProgressLabel]):not(:first-child) {
     .fullsize();
     .progressContainer(background-color, transparent);
 }

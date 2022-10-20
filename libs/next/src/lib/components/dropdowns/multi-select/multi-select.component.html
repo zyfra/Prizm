@@ -9,7 +9,7 @@
 >
   <zui-input-layout
     [label]="label"
-    [forceShowClearButton]='(forceShowClearButton || forceShowClearButton === null) && $.selectedItems.length > 0'
+    [forceClear]='(forceClear || forceClear === null) && $.selectedItems.length > 0'
     (clear)="focusableElementRef.focus(); safeStopPropagation(focusableElementRef.value, $event)"
     (click)="safeOpenModal()"
     [outer]="outer"

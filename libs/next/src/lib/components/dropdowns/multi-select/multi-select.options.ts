@@ -13,7 +13,7 @@ export interface ZuiMultiSelectOptions<T> {
     readonly items: T[];
     readonly chooseAllItem: T;
     readonly searchable: boolean;
-    readonly forceShowClearButton: null | boolean;
+    readonly forceClear: null | boolean;
     readonly isChipsDeletable:boolean;
     readonly label: string;
     readonly placeholder: string;
@@ -35,7 +35,7 @@ export const ZUI_MULTI_SELECT_DEFAULT_OPTIONS: ZuiMultiSelectOptions<unknown> = 
   items: [],
   chooseAllItem: null,
   searchable: false,
-  forceShowClearButton: null,
+  forceClear: null,
   isChipsDeletable: true,
   outer: false,
   dropdownWidth: '100%',

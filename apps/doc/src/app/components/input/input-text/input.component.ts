@@ -23,12 +23,12 @@ export class InputComponent {
   public status: ZuiInputStatus = 'default';
   public statuses: ZuiInputStatus[] = ['default', 'success', 'warning', 'danger'];
 
-  public forceShowClearButtonVariants: ReadonlyArray<boolean | null> = [
+  public forceClearVariants: ReadonlyArray<boolean | null> = [
     null,
     false,
     true
   ];
-  public forceShowClearButton = this.forceShowClearButtonVariants[0];
+  public forceClear = this.forceClearVariants[0];
 
   public readonly zyfraInputBasicExample: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/input-basic-example/input-basic-example.component.ts'),

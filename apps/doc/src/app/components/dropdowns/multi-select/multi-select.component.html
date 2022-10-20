@@ -47,7 +47,7 @@
     <tui-doc-demo>
       <zui-multi-select
         [formControl]='control'
-        [forceShowClearButton]='forceShowClearButton'
+        [forceClear]='forceClear'
         [isChipsDeletable]='isChipsDeletable'
         [items]='items'
         [size]='size'
@@ -86,11 +86,11 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="forceShowClearButton"
+        documentationPropertyName="forceClear"
         documentationPropertyType="boolean | null"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="forceShowClearButtonVariants"
-        [(documentationPropertyValue)]="forceShowClearButton"
+        [documentationPropertyValues]="forceClearVariants"
+        [(documentationPropertyValue)]="forceClear"
       >
         Show clear button
       </ng-template>

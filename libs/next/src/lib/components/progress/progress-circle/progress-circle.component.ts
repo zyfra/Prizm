@@ -29,6 +29,11 @@ export class ZuiProgressCircleComponent {
     color: string | null = null;
 
     @Input()
+    @HostBinding(`style.--zui-progress-circle-track-color`)
+    @zuiDefaultProp()
+    trackColor: string | null = null;
+
+    @Input()
     @HostBinding(`attr.data-size`)
     @zuiDefaultProp()
     size: ZuiSizeS | ZuiSizesXl = `m`;
