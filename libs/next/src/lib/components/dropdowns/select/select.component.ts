@@ -65,7 +65,7 @@ implements ZuiFocusableElementAccessor
 
   @Input()
   @zuiDefaultProp()
-  forceShowClearButton = this.options.forceShowClearButton;
+  forceClear = this.options.forceClear;
 
   @Input()
   @zuiDefaultProp()

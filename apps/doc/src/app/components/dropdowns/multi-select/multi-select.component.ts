@@ -21,12 +21,12 @@ export class MultiSelectComponent {
   label = 'Выберите участника';
   emptyContent = 'Ничего не найдено';
   isChipsDeletable = true;
-  forceShowClearButtonVariants: ReadonlyArray<boolean | null> = [
+  forceClearVariants: ReadonlyArray<boolean | null> = [
     null,
     false,
     true
   ];
-  forceShowClearButton = this.forceShowClearButtonVariants[0];
+  forceClear = this.forceClearVariants[0];
   get sizeVariants(): ReadonlyArray<ZuiInputSize> {
     return this.outer
       ? ['s', 'm', 'l']

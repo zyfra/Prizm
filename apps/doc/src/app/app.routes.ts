@@ -76,6 +76,20 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/progress-line-bar',
+    loadChildren: async (): Promise<unknown> => (await import('./components/progress/line-bar/progress-line-bar.module')).ProgressLineBarModule,
+    data: {
+      title: 'Progress Line',
+    },
+  },
+  {
+    path: 'components/progress-circle-bar',
+    loadChildren: async (): Promise<unknown> => (await import('./components/progress/circle-bar/progress-circle-bar.module')).ProgressCircleBarModule,
+    data: {
+      title: 'Progress Circle',
+    },
+  },
+  {
     path: 'components/widget',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/widget/widget.module')).WidgetModule,

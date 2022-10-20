@@ -40,12 +40,12 @@ export class ZuiInputLayoutComponent implements OnInit, OnDestroy, OnChanges, Af
 
   @Input() outer = false;
   @Input() position: ZuiInputPosition = 'left';
-  @Input() forceShowClearButton: boolean | null = null;
+  @Input() forceClear: boolean | null = null;
   @Output() clear = new EventEmitter<MouseEvent>();
 
   get showClearButton(): boolean {
-    return typeof this.forceShowClearButton === 'boolean'
-      ? this.forceShowClearButton
+    return typeof this.forceClear === 'boolean'
+      ? this.forceClear
       : this.control.hasClearButton && !this.control.disabled && !this.control.empty;
   }
 

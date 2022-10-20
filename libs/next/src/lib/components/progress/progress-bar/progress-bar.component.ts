@@ -16,6 +16,11 @@ export class ZuiProgressBarComponent {
     color?: string;
 
     @Input()
+    @HostBinding(`style.--zui-progress-line-track-color`)
+    @zuiDefaultProp()
+    trackColor: string | null = null;
+
+    @Input()
     @HostBinding(`attr.data-size`)
     @zuiDefaultProp()
     size: ZuiSizeS | ZuiSizeM = `m`;

@@ -20,12 +20,12 @@ export class SelectComponent {
       : ['m', 'l'];
   };
   size = this.sizeVariants[0];
-  forceShowClearButtonVariants: ReadonlyArray<boolean | null> = [
+  forceClearVariants: ReadonlyArray<boolean | null> = [
     null,
     false,
     true
   ];
-  forceShowClearButton = this.forceShowClearButtonVariants[0];
+  forceClear = this.forceClearVariants[0];
   emptyContent = 'Ничего не найдено';
   nullContent = 'Не выбрано';
   minDropdownHeight = 0;
