@@ -107,9 +107,25 @@ export const ROUTES = [
   {
     path: 'components/button',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./components/button/button.module')).ButtonModule,
+      (await import('./components/buttons/button/button.module')).ButtonModule,
     data: {
       title: 'Button',
+    },
+  },
+  {
+    path: 'components/split-button',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/buttons/split-button/split-button.module')).SplitButtonModule,
+    data: {
+      title: 'Split Button',
+    },
+  },
+  {
+    path: 'components/icon-button',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/buttons/icon-button/icon-button.module')).IconButtonModule,
+    data: {
+      title: 'Icon Button',
     },
   },
   {

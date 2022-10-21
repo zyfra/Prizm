@@ -29,9 +29,24 @@ export const pages: TuiDocPages = [
   },
   {
     section: `Components`,
-    title: 'Button',
-    keywords: 'кнопка, zui-button, иконка',
-    route: '/components/button',
+    title: 'Buttons',
+    subPages: [
+      {
+        title: 'Button',
+        keywords: 'button, кнопка',
+        route: '/components/button',
+      },
+      {
+        title: 'Split Button',
+        keywords: 'split-button, split, раздельная, кнопка, button',
+        route: '/components/split-button',
+      },
+      {
+        title: 'Icon Button',
+        keywords: 'icon, icon-button, button, кнопка',
+        route: '/components/icon-button',
+      },
+    ]
   },
   {
     section: `Components`,
