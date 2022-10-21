@@ -14,6 +14,7 @@ export class InputDateMultiRelativeComponent implements OnInit {
   @ViewChild('dateRelativeTime', { static: true }) dateRelativeTime: TemplateRef<unknown>;
   @ViewChild('dateTime', { static: true }) dateTime: TemplateRef<unknown>;
 
+  public currentIdx = 0;
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
     );

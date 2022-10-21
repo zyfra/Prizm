@@ -30,11 +30,26 @@
   <ng-template pageTab>
     <tui-doc-demo>
       <zui-input-date-multi
+        [currentIdx]='currentIdx'
         [items]="items">
       </zui-input-date-multi>
     </tui-doc-demo>
     <tui-doc-documentation>
-      -
+
+      <ng-template
+        documentationPropertyName="items"
+        documentationPropertyType="ZuiDateItemTemplate[]"
+      >
+        Items
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="currentIdx"
+        documentationPropertyType="number"
+        [(documentationPropertyValue)]="currentIdx"
+      >
+        Selected item idx
+      </ng-template>
     </tui-doc-documentation>
   </ng-template>
 

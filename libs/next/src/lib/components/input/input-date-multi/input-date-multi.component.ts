@@ -43,19 +43,7 @@ export class ZuiInputDateMultiComponent implements OnInit {
 
     @Input()
     @zuiDefaultProp()
-    label = 'Выберите дату';
-
-    @Input()
-    @zuiDefaultProp()
     currentIdx = 0;
-
-    @Input()
-    @zuiDefaultProp()
-    size: ZuiInputSize = 'm';
-
-    @Input()
-    @zuiDefaultProp()
-    outer = false;
 
     @HostBinding('attr.testId')
     readonly testId = 'zui_input_date_multi';
