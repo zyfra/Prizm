@@ -24,8 +24,9 @@ export class ProgressLineBarComponent {
     'transparent',
     'var(--zui-index-danger)',
     'var(--zui-index-warning)',
+    'var(--zui-index-plan)',
+    'var(--zui-index-good)',
     'lightblue',
-    'green'
   ];
   color: string | null = this.colorVariants[0];
 
