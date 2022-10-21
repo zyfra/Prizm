@@ -22,13 +22,13 @@ export class ConfirmPopupComponent {
 
   public zuiConfirmPopupDirection: ZuiConfirmPopupOptions['direction'] = ZUI_HINT_DEFAULT_OPTIONS.direction;
 
-  public zuiConfirmPopupId: string;
+  public zuiConfirmPopupId: string = 'confirm-id';
 
   public zuiConfirmPopupShowDelay: number = ZUI_CONFIRM_POPUP_DEFAULT_OPTIONS.showDelay;
 
   public zuiConfirmPopupHideDelay: number = ZUI_CONFIRM_POPUP_DEFAULT_OPTIONS.hideDelay;
 
-  public zuiConfirmPopupHost: HTMLElement
+  public zuiConfirmPopupHost: HTMLElement = null;
 
   public readonly zuiConfirmPopupVariants = [
     'ConfirmPopup'
