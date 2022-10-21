@@ -50,9 +50,4 @@ export class ButtonComponent {
     TypeScript: import('!!raw-loader!./examples/icons/icons-buttons-example.component.ts'),
     HTML: import('!!raw-loader!./examples/icons/icons-buttons-example.component.html'),
   };
-
-  readonly exampleSplit: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/split/split-buttons-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/split/split-buttons-example.component.html'),
-  };
 }

@@ -1,0 +1,22 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { RouterModule } from '@angular/router';
+import { IconButtonComponent } from './icon-button.component';
+import { ZuiButtonModule } from '@digital-plant/zui-components';
+import { ZuiIconsButtonsExampleComponent } from './examples/icons/icons-buttons-example.component';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    TuiAddonDocModule,
+    ZuiButtonModule,
+    RouterModule.forChild(generateRoutes(IconButtonComponent)),
+  ],
+  declarations: [
+    ZuiIconsButtonsExampleComponent,
+    IconButtonComponent
+  ],
+  exports: [IconButtonComponent],
+})
+export class IconButtonModule {}

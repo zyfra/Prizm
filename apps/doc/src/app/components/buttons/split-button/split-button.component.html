@@ -1,0 +1,107 @@
+<tui-doc-page header="Split Button" package="NEXT" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="base" heading="Split Button" [content]="exampleSplit">
+      <zui-split-buttons-example></zui-split-buttons-example>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <div class="box">
+        <div class="content">
+          <zui-split-button
+            [icon]="icon"
+            [size]="size"
+            [appearanceType]="appearanceType"
+            [appearance]="appearance"
+            [disabled]="disabled"
+            [showLoader]="showLoader"
+          >
+            {{ content }}
+          </zui-split-button>
+        </div>
+      </div>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="ng-content"
+        documentationPropertyType="string"
+        [(documentationPropertyValue)]="content"
+      >
+        NgContent
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="ZuiSize"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="appearance"
+        documentationPropertyType="ZuiAppearance"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="appearanceVariants"
+        [(documentationPropertyValue)]="appearance"
+      >
+        Appearance
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="appearanceType"
+        documentationPropertyType="ZuiAppearanceType"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="appearanceTypeVariants"
+        [(documentationPropertyValue)]="appearanceType"
+      >
+        AppearanceType
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="icon"
+        documentationPropertyType="ZuiContent"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="iconVariants"
+        [(documentationPropertyValue)]="icon"
+      >
+        Icon
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="showLoader"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="showLoader"
+      >
+        Show Loader
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>ZyfraButtonModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

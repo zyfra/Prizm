@@ -8,7 +8,6 @@ import { ZuiFilledButtonsExampleComponent } from './examples/filled/filled-butto
 import { ZuiButtonModule } from '@digital-plant/zui-components';
 import { ZuiGhostButtonsExampleComponent } from './examples/ghost/ghost-buttons-example.component';
 import { ZuiIconsButtonsExampleComponent } from './examples/icons/icons-buttons-example.component';
-import { ZuiSplitButtonsExampleComponent } from './examples/split/split-buttons-example.component';
 
 @NgModule({
   imports: [
@@ -20,9 +19,8 @@ import { ZuiSplitButtonsExampleComponent } from './examples/split/split-buttons-
   declarations: [
     ZuiFilledButtonsExampleComponent,
     ZuiOutlineButtonsExampleComponent,
-    ZuiGhostButtonsExampleComponent,
     ZuiIconsButtonsExampleComponent,
-    ZuiSplitButtonsExampleComponent,
+    ZuiGhostButtonsExampleComponent,
     ButtonComponent
   ],
   exports: [ButtonComponent],
