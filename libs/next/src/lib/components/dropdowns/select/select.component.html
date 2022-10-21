@@ -26,6 +26,7 @@
     />
     <zui-icon *ngIf='!disabled'
               (click)='focusableElementRef.focus()'
+              [class.opened]="open"
               [class.active]='focusableElementRef.focused'
               class='icon-dropdown' zui-input-right iconClass='chevrons-dropdown'></zui-icon>
   </zui-input-layout>
@@ -33,10 +34,13 @@
   <ng-template #dropdown>
     <zui-data-list class='block' [style.--zui-data-list-border]='0'>
       <ng-container *ngIf='items?.length; else emptyTemplate'>
-        <div class='item' [class.selected]='item && value && (item | zuiCallFunc : identityMatcher : value)'
+        <div class='item'
+             [class.most-relevant]="searchable && focusableElementRef.value && ((!items[0] && idx === 1) || idx === 0)"
+             [class.selected]='item && value && (item | zuiCallFunc : identityMatcher : value)'
              #hostHint
-             *ngFor='let item of filteredItems$ | async'
-             (click)='select(item)'>
+             *ngFor='let item of filteredItems$ | async; let idx = index'
+             (click)='select(item)'
+        >
           <ng-container *ngIf='item; else nullContentTemplate'>
             <span class='text'
                   #elem
@@ -65,7 +69,6 @@
               </ng-container>
             </ng-container>
           </ng-template>
-
         </div>
       </ng-container>
       <ng-template #emptyTemplate>

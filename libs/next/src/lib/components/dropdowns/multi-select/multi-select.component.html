@@ -53,6 +53,7 @@
       *ngIf="!disabled"
       (click)="focusableElementRef.focus()"
       [class.active]="focusableElementRef.focused"
+      [class.opened]="open"
       class="icon-dropdown"
       zui-input-right
       iconClass="chevrons-dropdown"
@@ -71,7 +72,8 @@
         <div
           class="item"
           [class.selected]="item.checked"
-          *ngFor="let item of $.filteredItems"
+          [class.most-relevant]="searchable && searchInputControl.value && idx === 0"
+          *ngFor="let item of $.filteredItems; let idx = index"
           (click)="select(item)"
         >
           <zui-checkbox [checked]="item.checked" (changed)='select(item)'>
