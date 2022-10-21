@@ -25,7 +25,7 @@
     white-space: nowrap;
   }
 
-  &.selected {
+  &.selected, &.most-relevant {
     background: var(--zui-select-item-selected-background, var(--zui-bg-dashboard-forms));
   }
 
@@ -56,6 +56,15 @@
 .icon-dropdown {
   color: #777B92;
   cursor: pointer;
+  transition-property: transform;
+  transition-property: all;
+  transition-property: color,transform;
+  transition-duration: var(--tui-duration, .3s);
+  transition-timing-function: ease-in-out;
+
+  &.opened {
+    transform: rotate(180deg);
+  }
 
   &.active {
     color: #337EFF;
