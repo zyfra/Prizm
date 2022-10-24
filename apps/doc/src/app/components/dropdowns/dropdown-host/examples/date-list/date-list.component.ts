@@ -200,8 +200,8 @@ export class ZuiDropdownHostDateListExampleComponent {
   ];
 
 
-  readonly startControl = new FormControl();
-  readonly endControl = new FormControl();
+  readonly startControl = new FormControl('');
+  readonly endControl = new FormControl('');
 
   constructor(public readonly cdRef: ChangeDetectorRef) {}
 
