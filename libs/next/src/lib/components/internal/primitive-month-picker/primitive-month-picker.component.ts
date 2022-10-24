@@ -115,7 +115,9 @@ export class ZuiPrimitiveMonthPickerComponent {
         if (
            this.value instanceof ZuiDayRange &&
           this.value.isMonthInRange(new ZuiMonth(this.currentYear, item))
-        )  return ZuiRangeState.Single;
+        )  {
+          return ZuiRangeState.Single;
+        }
 
         if (
             (value.from.month === item && !value.from.monthSame(value.to)) ||
@@ -152,7 +154,7 @@ export class ZuiPrimitiveMonthPickerComponent {
         //   // return ZuiRangeState.End;
         // }
 
-        return value.from.monthSame(value.to) && value.from.month === item
+        return value.from.monthSame(value.to) && value.from.month === item && value.from.year === this.currentYear
             ? ZuiRangeState.Single
             : null;
     }
