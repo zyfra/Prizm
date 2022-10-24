@@ -378,9 +378,14 @@ export class ZuiInputDateTimeComponent
     public onTimeMenuClick(item: ZuiTime, ev: Event): void {
       ev.preventDefault();
       ev.stopPropagation();
-      this.openTimeTemplate = false;
+
+      this.openTimeTemplate = this.open = false;
+      this.changeDetectorRef.markForCheck();
+
+      if (this.value[1] && item.isSameTime(this.value[1])) return;
+
       this.onDayClick(
-        this.value[0] ?? null,
+        this.value[0] ?? ZuiDay.currentLocal(),
         item
       );
     }

@@ -193,4 +193,11 @@ export class ZuiTime implements ZuiTimeLike {
     private formatTime(time: number, digits: number = 2): string {
         return zuiPadStart(String(time), digits, `0`);
     }
+
+    public isSameTime(time: ZuiTime): boolean {
+      return this.ms === time.ms &&
+        this.seconds === time.seconds &&
+        this.hours === time.hours &&
+        this.minutes === time.minutes
+    }
 }

@@ -23,7 +23,7 @@
         [readonly]='readOnly'
         [placeholder]='placeholder'
         [disabled]='computedDisabled'
-        [ngModel]="stringValue"
+        [ngModel]="computedValue"
         (ngModelChange)='onValueChange($event || "")'
       />
       <ng-container zui-input-right>
