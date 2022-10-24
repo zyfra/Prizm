@@ -25,7 +25,11 @@ export class ZuiDay extends ZuiMonth {
       readonly day: number,
     ) {
         super(year, month);
-        console.assert(ZuiDay.isValidDay(year, month, day));
+        console.assert(ZuiDay.isValidDay(year, month, day), {
+          year,
+          month,
+          day
+        });
     }
 
     /**
