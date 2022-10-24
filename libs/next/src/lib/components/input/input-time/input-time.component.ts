@@ -78,7 +78,9 @@ export class ZuiInputTimeComponent
 
     @Input()
     @zuiDefaultProp()
-    items: readonly ZuiTime[] = [];
+    items: readonly ZuiTime[] = new Array(24).fill(null).map(
+      (_, i) => new ZuiTime(i, 0, 0, 0)
+    );
 
     @Input()
     @zuiDefaultProp()

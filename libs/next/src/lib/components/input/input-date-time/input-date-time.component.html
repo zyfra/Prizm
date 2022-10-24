@@ -1,10 +1,12 @@
+[[ openTimeTemplate : {{openTimeTemplate}}]
+[[ open : {{open}}]
 <zui-dropdown-host
     [style.--zui-dropdown-host-width]='"100%"'
     class="z-hosted"
     [canOpen]="interactive"
-    [content]="dropdown"
+    [content]="openTimeTemplate ? dropdownTimeTemplate : dropdownDateTemplate"
     zuiDropdownHostWidth='auto'
-    [isOpen]="open && interactive"
+    [isOpen]="interactive && (openTimeTemplate || open)"
     [closeByEsc]='true'
     (isOpenChange)="onOpenChange($event)"
 >
@@ -33,25 +35,42 @@
           (click)='focusableElementRef.focus()'></button>
         <button
           zuiInputIconButton="date-clock"
-          (click)='focusableElementRef.focus()'
+          (click)='openTimeDropdown();'
           [interactive]="true"
         ></button>
         <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>
         </ng-container>
       </ng-container>
     </zui-input-layout>
-
-    <ng-template #dropdown>
-        <zui-calendar
-            zuiPreventDefault="mousedown"
-            automation-id="zui-input-date-time__calendar"
-            [min]="calendarMinDay"
-            [max]="calendarMaxDay"
-            [disabledItemHandler]="disabledItemHandler"
-            [month]="computedActiveYearMonth"
-            [value]="calendarValue"
-            (dayClick)="onDayClick($event)"
-            (monthChange)="onMonthChange($event)"
-        ></zui-calendar>
-    </ng-template>
 </zui-dropdown-host>
+
+<ng-template #dropdownDateTemplate>
+  <zui-calendar
+    zuiPreventDefault="mousedown"
+    automation-id="zui-input-date-time__calendar"
+    [min]="calendarMinDay"
+    [max]="calendarMaxDay"
+    [disabledItemHandler]="disabledItemHandler"
+    [month]="computedActiveYearMonth"
+    [value]="calendarValue"
+    (dayClick)="onDayClick($event)"
+    (monthChange)="onMonthChange($event)"
+  ></zui-calendar>
+</ng-template>
+
+<ng-template #dropdownTimeTemplate>
+  <zui-data-list
+    zuiLifecycle
+    (zuiOnDestroy)='openTimeTemplate = false'
+    *ngIf='timeItems.length;' class='block' [style.--zui-data-list-border]='0'>
+    <ng-container>
+      <div class='time-item'
+           *ngFor='let item of timeItems; let idx = index'
+           (click)='$event.stopPropagation(); onTimeMenuClick(item, $event)'>
+            <span class='text'>
+              {{ item }}
+            </span>
+      </div>
+    </ng-container>
+  </zui-data-list>
+</ng-template>
