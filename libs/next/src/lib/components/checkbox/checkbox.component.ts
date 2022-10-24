@@ -77,6 +77,7 @@ export class ZuiCheckboxComponent implements ControlValueAccessor, OnDestroy, On
     this.destroyElement$.next();
     this.destroyElement$.complete();
   }
+
   private onClick(event: Event): void {
     event.preventDefault();
     if (this.disabled) {
@@ -113,7 +114,6 @@ export class ZuiCheckboxComponent implements ControlValueAccessor, OnDestroy, On
       zuiWatch(this.cdr),
       takeUntil(this.destroyElement$)
     ).subscribe();
-
   }
 
   private setValue(value: boolean): void {
