@@ -2,7 +2,8 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ElementRef, HostBinding,
+  ElementRef,
+  HostBinding,
   HostListener,
   Inject,
   Injector,
@@ -66,6 +67,12 @@ export class ZuiInputDateTimeComponent
 
     @Input()
     @zuiDefaultProp()
+    timeItems: readonly ZuiTime[] = new Array(24).fill(null).map(
+      (_, i) => new ZuiTime(i, 0, 0, 0)
+    );
+
+    @Input()
+    @zuiDefaultProp()
     label = 'Абсолютное';
 
     @Input()
@@ -107,9 +114,19 @@ export class ZuiInputDateTimeComponent
     @HostBinding('attr.testId')
     readonly testId = 'zui_input_date_time';
 
+    public openTimeTemplate = false;
+
     open = false;
 
     readonly type!: ZuiContextWithImplicit<ZuiActiveZoneDirective>;
+
+    get filteredTime(): readonly ZuiTime[] {
+      return this.filterTime(this.timeItems, this.timeMode, this.computedSearchTime);
+    }
+
+    get computedSearchTime(): string {
+      return this.computedValue.length !== this.timeMode.length ? this.computedValue : ``;
+    }
 
     readonly filler$: Observable<string> = combineLatest([
         this.dateTexts$.pipe(
@@ -143,6 +160,15 @@ export class ZuiInputDateTimeComponent
         > | null,
     ) {
         super(control, changeDetectorRef, valueTransformer);
+    }
+
+    @zuiPure
+    private filterTime(
+      items: readonly ZuiTime[],
+      mode: ZuiTimeMode,
+      search: string,
+    ): readonly ZuiTime[] {
+      return items.filter(item => item.toString(mode).includes(search));
     }
 
 
@@ -241,8 +267,8 @@ export class ZuiInputDateTimeComponent
         this.open = false;
     }
 
-    public onDayClick(day: ZuiDay): void {
-        const modifiedTime = this.value[1] && this.zuiClampTime(this.value[1], day);
+    public onDayClick(day: ZuiDay, time?: ZuiTime): void {
+        const modifiedTime = time ?? (this.value[1] && this.zuiClampTime(this.value[1], day));
 
         this.updateValue([day, modifiedTime]);
         this.updateNativeValue(day);
@@ -349,6 +375,16 @@ export class ZuiInputDateTimeComponent
         this.nativeValue = this.getDateTimeString(day, time);
     }
 
+    public onTimeMenuClick(item: ZuiTime, ev: Event): void {
+      ev.preventDefault();
+      ev.stopPropagation();
+      this.openTimeTemplate = false;
+      this.onDayClick(
+        this.value[0] ?? null,
+        item
+      );
+    }
+
     private zuiClampTime(time: ZuiTime, day: ZuiDay): ZuiTime {
         const ms = time.toAbsoluteMilliseconds();
         const min =
@@ -361,5 +397,12 @@ export class ZuiInputDateTimeComponent
                 : Infinity;
 
         return ZuiTime.fromAbsoluteMilliseconds(zuiClamp(ms, min, max));
+    }
+
+    public openTimeDropdown(): void {
+      this.openTimeTemplate = true;
+      console.log('#mz openTimeDropdown', {
+        openTimeTemplate: this.openTimeTemplate
+      });
     }
 }

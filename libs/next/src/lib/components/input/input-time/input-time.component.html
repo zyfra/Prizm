@@ -37,8 +37,9 @@
       </ng-container>
     </zui-input-layout>
 </zui-dropdown-host>
+
 <ng-template #dropdownContent>
-    <zui-data-list class='block'>
+    <zui-data-list class='block' [style.--zui-data-list-border]='0'>
       <ng-container *ngIf='items?.length;'>
         <div class='item'
              *ngFor='let item of filtered; let idx = index'

@@ -11,15 +11,19 @@ import { FormsModule } from '@angular/forms';
 import { ZuiInputTextModule } from '../input-text/input-text.module';
 import { ZuiIconModule } from '../../icon/icon.module';
 import { ZuiMaskModule } from '../../../modules';
+import { ZuiDataListModule } from '../../data-list';
+import { ZuiLifecycleModule } from '../../../directives';
 
 @NgModule({
   imports: [
     CommonModule,
     ZuiMaskModule,
+    ZuiDataListModule,
     PolymorphModule,
     ZuiInputTextModule,
     ZuiIconModule,
     FormsModule,
+    ZuiLifecycleModule,
     ZuiPreventDefaultModule,
     ZuiCalendarModule,
     ZuiLinkModule,
