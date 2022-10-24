@@ -401,8 +401,5 @@ export class ZuiInputDateTimeComponent
 
     public openTimeDropdown(): void {
       this.openTimeTemplate = true;
-      console.log('#mz openTimeDropdown', {
-        openTimeTemplate: this.openTimeTemplate
-      });
     }
 }

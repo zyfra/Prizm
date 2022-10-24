@@ -170,12 +170,15 @@ implements ZuiFocusableElementAccessor
             }
           );
           const selectedCount = this.value?.length;
+          const allItem = this.items$.value?.length;
+          const currentlySearching = this.searchInputControl.value;
+          const addSelectAllItem = this.selectAllItem && !currentlySearching;
 
           return [
-            ...(this.selectAllItem ? [this.selectAllItem] : []).map(
+            ...(addSelectAllItem ? [this.selectAllItem] : []).map(
               item => ({
-                checked: selectItems.length === selectedCount,
-                indeterminate: selectedCount && selectItems.length !== this.value.length,
+                checked: allItem === selectedCount,
+                indeterminate: selectedCount && allItem !== this.value.length,
                 obj: item
               })
             ) as ZuiMultiSelectItemWithChecked<T>[],

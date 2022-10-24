@@ -1,11 +1,9 @@
-[[ openTimeTemplate : {{openTimeTemplate}}]
-[[ open : {{open}}]
 <zui-dropdown-host
     [style.--zui-dropdown-host-width]='"100%"'
     class="z-hosted"
     [canOpen]="interactive"
     [content]="openTimeTemplate ? dropdownTimeTemplate : dropdownDateTemplate"
-    zuiDropdownHostWidth='auto'
+    [zuiDropdownHostWidth]='openTimeTemplate ? "100%" : "auto"'
     [isOpen]="interactive && (openTimeTemplate || open)"
     [closeByEsc]='true'
     (isOpenChange)="onOpenChange($event)"
