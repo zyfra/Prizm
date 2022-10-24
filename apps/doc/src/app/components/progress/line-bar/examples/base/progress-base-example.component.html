@@ -9,7 +9,7 @@
       class="progress"
       [value]="value$ | async"
     ></progress>
-    <span>{{value$ | async}}</span>
+    <span>{{value$ | async}}%</span>
   </div>
 </div>
 <br>
@@ -17,7 +17,7 @@
 <div>
   <p>Size S</p>
   <div class='progress-block'>
-    <span>{{value$ | async}}</span>
+    <span>{{value$ | async}}%</span>
     <progress
       zuiProgressBar
       max="100"

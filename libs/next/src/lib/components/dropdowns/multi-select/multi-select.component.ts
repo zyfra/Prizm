@@ -169,11 +169,13 @@ implements ZuiFocusableElementAccessor
               } as ZuiMultiSelectItemWithChecked<T>
             }
           );
+          const selectedCount = this.value?.length;
 
           return [
             ...(this.selectAllItem ? [this.selectAllItem] : []).map(
               item => ({
-                checked: selectItems.length === this.value.length,
+                checked: selectItems.length === selectedCount,
+                indeterminate: selectedCount && selectItems.length !== this.value.length,
                 obj: item
               })
             ) as ZuiMultiSelectItemWithChecked<T>[],

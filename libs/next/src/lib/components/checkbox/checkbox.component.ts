@@ -2,15 +2,22 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  ElementRef,
   EventEmitter,
   HostBinding,
-  HostListener,
   Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
   Optional,
   Output,
   Self,
+  SimpleChanges,
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { fromEvent, merge, Subject } from 'rxjs';
+import { filter, takeUntil, tap } from 'rxjs/operators';
+import { zuiWatch } from '../../observables';
 
 @Component({
   selector: 'zui-checkbox',
@@ -23,10 +30,11 @@ import { ControlValueAccessor, NgControl } from '@angular/forms';
     '[attr.tabindex]': "disabled ? null : '0'",
   },
 })
-export class ZuiCheckboxComponent implements ControlValueAccessor {
+export class ZuiCheckboxComponent implements ControlValueAccessor, OnDestroy, OnChanges, OnInit {
   @Input() @HostBinding('attr.data-size') public size: 's' | 'l' = 's';
 
   @Input() indeterminate = false;
+  @Input() host: HTMLElement | null = null;
   @Input() @HostBinding('class.zui-checkbox--disabled') disabled = false;
   @Input() @HostBinding('class.zui-checkbox--required') required = false;
 
@@ -46,28 +54,31 @@ export class ZuiCheckboxComponent implements ControlValueAccessor {
 
   changeFn: (value: boolean) => void;
   touchedFn: () => void;
+  private readonly destroyElement$ = new Subject<void>();
 
-  public writeValue(value: boolean): void {
-    this.setValue(value);
+
+  constructor(
+    private readonly el: ElementRef,
+    @Optional() @Self() private ngControl: NgControl, private cdr: ChangeDetectorRef) {
+    if (this.ngControl) {
+      this.ngControl.valueAccessor = this;
+    }
   }
 
-  public registerOnChange(fn: any): void {
-    this.changeFn = fn;
+  ngOnInit(): void {
+    this.initListener();
   }
 
-  public registerOnTouched(fn: any): void {
-    this.touchedFn = fn;
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.host) this.initListener();
   }
 
-  public setDisabledState?(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+  ngOnDestroy(): void {
+    this.destroyElement$.next();
+    this.destroyElement$.complete();
   }
-
-  @HostListener('click', ['$event'])
-  @HostListener('keydown.space', ['$event'])
-  public onClick(event: Event): void {
+  private onClick(event: Event): void {
     event.preventDefault();
-
     if (this.disabled) {
       return;
     }
@@ -83,16 +94,48 @@ export class ZuiCheckboxComponent implements ControlValueAccessor {
     this.changed.next(this._checked);
   }
 
+  private initListener(): void {
+    this.destroyElement$.next();
+    const el = this.host ?? this.el.nativeElement;
+    merge(
+      fromEvent(
+        el,
+        'click',
+      ),
+      fromEvent<KeyboardEvent>(
+        el,
+        'keydown',
+      ).pipe(
+        filter((i) => i.key === ' ')
+      )
+    ).pipe(
+      tap((event) => this.onClick(event)),
+      zuiWatch(this.cdr),
+      takeUntil(this.destroyElement$)
+    ).subscribe();
+
+  }
+
   private setValue(value: boolean): void {
     this.indeterminate = false;
     this._checked = value;
     this.cdr.markForCheck();
   }
 
-  constructor(@Optional() @Self() private ngControl: NgControl, private cdr: ChangeDetectorRef) {
-    if (this.ngControl) {
-      this.ngControl.valueAccessor = this;
-    }
+  public writeValue(value: boolean): void {
+    this.setValue(value);
+  }
+
+  public registerOnChange(fn: any): void {
+    this.changeFn = fn;
+  }
+
+  public registerOnTouched(fn: any): void {
+    this.touchedFn = fn;
+  }
+
+  public setDisabledState?(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 }
 

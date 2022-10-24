@@ -145,6 +145,15 @@ export class ZuiPrimitiveCalendarRangeComponent implements OnInit {
             this.userViewedMonthFirst = this.updatedViewedMonthFirst(
                 this.defaultViewedMonthFirst,
             );
+        } else {
+          this.userViewedMonthFirst = this.updatedViewedMonthFirst(
+            this.value.from
+          );
+          this.userViewedMonthSecond = this.updatedViewedMonthSecond(
+            this.value.to.monthSame(this.value.from) ?
+              this.value.to.append({month: 1})
+              : this.value.to
+          );
         }
     }
 
