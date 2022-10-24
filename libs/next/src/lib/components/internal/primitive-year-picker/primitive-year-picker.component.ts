@@ -117,6 +117,13 @@ export class ZuiPrimitiveYearPickerComponent {
         }
 
         if (
+          (value instanceof ZuiDayRange || value instanceof ZuiMonthRange) &&
+          value.isYearInRange(new ZuiYear(item))
+        ) {
+          return ZuiRangeState.Single;
+        }
+
+        if (
             (value.from.year === item && !value.from.yearSame(value.to)) ||
             (hoveredItem !== null &&
                 hoveredItem > value.from.year &&
