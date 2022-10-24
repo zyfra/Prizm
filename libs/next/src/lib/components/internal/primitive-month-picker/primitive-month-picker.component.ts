@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { ZuiMonthRange } from '../../../@core/date-time/month-range';
 import { zuiDefaultProp } from '../../../decorators/default-prop';
-import { ZUI_FIRST_DAY, ZUI_LAST_DAY, ZuiDayRange, ZuiMonth } from '../../../@core/date-time';
+import { ZUI_FIRST_DAY, ZUI_LAST_DAY, ZuiDay, ZuiDayRange, ZuiMonth } from '../../../@core/date-time';
 import { ZuiBooleanHandler } from '../../../types/handler';
 import { ZUI_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
 import { zuiInRange } from '../../../util/math/in-range';
@@ -111,6 +111,11 @@ export class ZuiPrimitiveMonthPickerComponent {
         if (value instanceof ZuiMonth) {
             return value.month === item && value.year === this.currentYear ? ZuiRangeState.Single : null;
         }
+
+        if (
+           this.value instanceof ZuiDayRange &&
+          this.value.isMonthInRange(new ZuiMonth(this.currentYear, item))
+        )  return ZuiRangeState.Single;
 
         if (
             (value.from.month === item && !value.from.monthSame(value.to)) ||

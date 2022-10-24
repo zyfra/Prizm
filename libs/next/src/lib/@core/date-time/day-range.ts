@@ -97,6 +97,12 @@ export class ZuiDayRange extends ZuiMonthRange {
         return `${from}${ZUI_RANGE_SEPARATOR_CHAR}${to}`;
     }
 
+    public isDayInRange(
+      day: ZuiDay
+    ) {
+      return day.daySameOrAfter(this.from) && day.daySameOrBefore(this.to)
+    }
+
     /**
      * Tests ranges for identity
      *

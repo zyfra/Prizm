@@ -1,5 +1,6 @@
 import { ZUI_RANGE_SEPARATOR_CHAR } from './date-time';
 import { ZuiMonth } from './month';
+import { ZuiDay } from './day';
 
 /**
  * An immutable range of two {@link ZuiMonth} objects
@@ -25,6 +26,12 @@ export class ZuiMonthRange {
     public get formattedMonthRange(): string {
         return `${this.from.formattedMonth}${ZUI_RANGE_SEPARATOR_CHAR}${this.to.formattedMonth}`;
     }
+
+  public isMonthInRange(
+    month: ZuiMonth
+  ) {
+    return month.monthSameOrAfter(this.from) && month.monthSameOrBefore(this.to)
+  }
 
     public monthSame(another: ZuiMonthRange): boolean {
         return this.from.monthSame(another.from) && this.to.monthSame(another.to);
