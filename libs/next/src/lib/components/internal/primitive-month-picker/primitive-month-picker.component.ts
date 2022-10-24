@@ -120,7 +120,7 @@ export class ZuiPrimitiveMonthPickerComponent {
                 value.from.monthSame(value.to)) ||
             (hoveredItem !== null &&
                 hoveredItem === item &&
-                hoveredItem < value.from.month &&
+                hoveredItem === value.from.month &&
                 value.from.monthSame(value.to))
         ) {
             return ZuiRangeState.Single;
