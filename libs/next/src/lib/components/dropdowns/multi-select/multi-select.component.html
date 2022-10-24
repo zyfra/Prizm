@@ -74,9 +74,14 @@
           [class.selected]="item.checked"
           [class.most-relevant]="searchable && searchInputControl.value && idx === 0"
           *ngFor="let item of $.filteredItems; let idx = index"
-          (click)="select(item)"
+          #parent
         >
-          <zui-checkbox [checked]="item.checked" (changed)='select(item)'>
+          <zui-checkbox
+            #currentCheckbox
+            [checked]="item.checked"
+            [host]='parent'
+            [indeterminate]='!!item.indeterminate'
+            (changed)='select(item)'>
             <div class="text"
                   #elem
                   *zuiLet="item | zuiCallFunc: stringify:$any(emptyContent) as text"

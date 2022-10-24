@@ -1,16 +1,18 @@
-<zui-primitive-calendar-range
-    *ngIf="!items.length; else presets"
+<ng-container
+  *ngIf="!items.length; else presets">
+  <zui-primitive-calendar-range
     automation-id="zui-calendar-range__calendars"
     zuiPreventDefault="mousedown"
     [markerHandler]="markerHandler"
     [min]="min | zuiMapper: maxLengthMapper:value:maxLength:true"
     [max]="max | zuiMapper: maxLengthMapper:value:maxLength:false"
-    [defaultViewedMonthFirst]="defaultViewedMonth"
-    [defaultViewedMonthSecond]="defaultViewedMonth | zuiMapper: monthShiftMapper"
+    [defaultViewedMonthFirst]="computedMonth"
+    [defaultViewedMonthSecond]="computedMonth | zuiMapper: monthShiftMapper"
     [disabledItemHandler]="calculatedDisabledItemHandler"
     [value]="value"
     (dayClick)="onDayClick($event)"
-></zui-primitive-calendar-range>
+  ></zui-primitive-calendar-range>
+</ng-container>
 <ng-template #presets>
     <div class="z-wrapper">
         <zui-calendar

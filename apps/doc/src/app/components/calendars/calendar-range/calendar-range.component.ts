@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { ZuiDay } from '@digital-plant/zui-components';
+import { ZuiDay, ZuiDayRange } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,7 @@ import { FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalendarRangeComponent {
-  public readonly control = new FormControl(new ZuiDay(2017, 0, 15));
+  public value = new ZuiDayRange(new ZuiDay(2022, 1, 7), new ZuiDay(2022, 3, 14));
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
   );

@@ -1,4 +1,10 @@
 <zui-calendar
   [value]='day'
+  [month]='day'
   [daysWithStatus]='daysWithStatus'
   (dayClick)='onDayClick($event)'></zui-calendar>
+
+<div>
+  <p>Выбрано</p>
+  <span>{{day && (day.toLocalNativeDate() | date:'dd/MM/yyyy')}}</span>
+</div>
