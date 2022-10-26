@@ -21,7 +21,7 @@
         [required]='readOnly'
         [placeholder]='placeholder'
         [disabled]='disabled'
-        [ngModel]="stringValue"
+        [ngModel]="computedValue"
         (ngModelChange)='onValueChange($event || "")'
         (keydown.arrowUp)="onArrowUp($event)"
         (keydown.arrowDown)="onArrowDown($event)"
