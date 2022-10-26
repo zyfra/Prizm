@@ -182,11 +182,6 @@ export class ZuiInputTimeComponent
         return this.timeTexts$.pipe(map(texts => texts[mode]));
     }
 
-    // @HostListener(`click`)
-    // public onClick(): void {
-    //     this.safeOpenModal()
-    // }
-
     public onValueChange(value: string): void {
         this.open = !!this.items.length;
 
@@ -256,7 +251,6 @@ export class ZuiInputTimeComponent
     }
 
     public onMenuClick(item: ZuiTime): void {
-        // this.focusInput();
         this.open = false;
         this.updateValue(item);
     }
