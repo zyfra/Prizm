@@ -5,7 +5,7 @@ import {
   HierarchicalMenuSelectNodeEvent,
 } from '../../zyfra-hierarchical-menu.interface';
 import { action } from '@storybook/addon-actions';
-import ZyfraHierarchicalMenuUtils from '../../common/utils/zyfra-hierarchical-menu-utils';
+import { ZyfraHierarchicalMenuUtils } from '../../common/utils/zyfra-hierarchical-menu-utils';
 import { ViewEncapsulation } from '@angular/core';
 import { exampleData2 } from '../dataForStories';
 

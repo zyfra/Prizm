@@ -4,7 +4,7 @@ import {
   HierarchicalMenuNodeHierarchyType,
   HierarchicalMenuType,
 } from '../../zyfra-hierarchical-menu.interface';
-import ZyfraHierarchicalMenuUtils from '../../common/utils/zyfra-hierarchical-menu-utils';
+import { ZyfraHierarchicalMenuUtils } from '../../common/utils/zyfra-hierarchical-menu-utils';
 
 const filterByTypeHierarchicalMenu = new Map([
   ['main', (node: HierarchicalMenuNode): boolean => !node.attributes?.subMenuItem],
