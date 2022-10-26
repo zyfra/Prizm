@@ -16,7 +16,7 @@ import {
   HierarchicalMenuSelectNodeEvent,
   HierarchicalMenuType,
 } from '../../../zyfra-hierarchical-menu.interface';
-import ZyfraHierarchicalMenuUtils from '../../../common/utils/zyfra-hierarchical-menu-utils';
+import { ZyfraHierarchicalMenuUtils } from '../../../common/utils/zyfra-hierarchical-menu-utils';
 import {
   ZUI_HIERARCHICAL_MENU_OPTIONS_TOKEN,
   ZuiHierarchicalMenuOptions,

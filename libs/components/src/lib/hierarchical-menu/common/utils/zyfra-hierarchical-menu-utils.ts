@@ -1,6 +1,6 @@
 import { HierarchicalMenuNode } from '../../zyfra-hierarchical-menu.interface';
 
-class ZyfraHierarchicalMenuUtils {
+export class ZyfraHierarchicalMenuUtils {
   /**
    * Finds a node in a given subtree by id
    * @param root - the root element of the subtree in which the search is performed
@@ -158,5 +158,3 @@ class ZyfraHierarchicalMenuUtils {
     }
   }
 }
-
-export default ZyfraHierarchicalMenuUtils;
