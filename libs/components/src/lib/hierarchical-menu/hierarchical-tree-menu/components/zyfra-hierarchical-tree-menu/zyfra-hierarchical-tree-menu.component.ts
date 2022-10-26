@@ -28,7 +28,7 @@ import {
 } from '../../../zyfra-hierarchical-menu.interface';
 
 import { TemplatePortal } from '@angular/cdk/portal';
-import ZyfraHierarchicalMenuUtils from '../../../common/utils/zyfra-hierarchical-menu-utils';
+import { ZyfraHierarchicalMenuUtils } from '../../../common/utils/zyfra-hierarchical-menu-utils';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { TreeHierarchicalMenuBuilder } from '../../services/hiierarchical-tree-menu-builder';
 import { CollapsedHierarchicalMenuBuilder } from '../../../common/services/hierarchical-collapsed-menu-builder';

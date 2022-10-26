@@ -5,7 +5,7 @@ import {
   HierarchicalMenuSelectNodeEvent,
 } from '../../zyfra-hierarchical-menu.interface';
 import { action } from '@storybook/addon-actions';
-import ZyfraHierarchicalMenuUtils from '../../common/utils/zyfra-hierarchical-menu-utils';
+import { ZyfraHierarchicalMenuUtils } from '../../common/utils/zyfra-hierarchical-menu-utils';
 import { exampleData } from '../dataForStories';
 
 const BasicTemplate: Story = args => ({
