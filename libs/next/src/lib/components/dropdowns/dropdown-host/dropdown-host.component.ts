@@ -4,11 +4,16 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  EventEmitter, HostBinding,
+  EventEmitter,
+  HostBinding,
   HostListener,
   Inject,
+  Injector,
   Input,
+  OnInit,
+  Optional,
   Output,
+  SkipSelf,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
@@ -18,15 +23,16 @@ import {
   ZuiOverlayRelativePosition,
   ZuiOverlayService,
 } from '../../../modules/overlay';
-import { PolymorphContent } from '../../../directives';
+import { PolymorphContent, ZuiDropdownZoneDirective } from '../../../directives';
 import { debounceTime, delay, filter, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-import { BehaviorSubject, combineLatest, fromEvent, Observable, Subject, timer, zip } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, Subject, timer } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 import { zuiDefaultProp } from '../../../decorators';
 import { ZUI_DROPDOWN_HOST_OPTIONS, ZuiDropdownHostOptions } from './dropdown-host.options';
 import { ZuiDropdownHostWidth } from './models';
 import { zuiGenerateId } from '../../../util';
+import { ZuiEventZoneService } from '../../../directives/event-zone/event-zone.service';
 
 const ZUI_DROPDOWN_TIME_DIFFERENCE = 1000/60;
 
@@ -36,16 +42,21 @@ const ZUI_DROPDOWN_TIME_DIFFERENCE = 1000/60;
   styleUrls: ['./dropdown-host.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
-    ZuiDestroyService
+    ZuiDestroyService,
+    // ZuiDropdownZoneService
   ],
   exportAs: 'zui-dropdown-host'
 })
 export class ZuiDropdownHostComponent implements AfterViewInit {
-  @Input() content: PolymorphContent;
+  @Input() content: PolymorphContent<{zone: ZuiDropdownZoneDirective}>;
 
   @Input()
   @zuiDefaultProp()
   zuiDropdownHostId: string = 'dropdownHostId_' + zuiGenerateId();
+
+  @Input()
+  @zuiDefaultProp()
+  parentZone?: ZuiDropdownZoneDirective | null = null;
 
   @Input()
   @zuiDefaultProp()
@@ -117,6 +128,7 @@ export class ZuiDropdownHostComponent implements AfterViewInit {
     @Inject(ZUI_DROPDOWN_HOST_OPTIONS) private readonly options: ZuiDropdownHostOptions,
     public readonly el: ElementRef<HTMLElement>,
     private readonly cdRef: ChangeDetectorRef,
+    public readonly injector: Injector,
     private readonly destroy$: ZuiDestroyService,
   ) {
     this.destroy$.addCallback(() => this.close());
@@ -125,6 +137,10 @@ export class ZuiDropdownHostComponent implements AfterViewInit {
   @HostListener('window:keyup.esc')
   public closeIfNeed(): void {
     if (this.closeByEsc) this.close()
+  }
+
+  @HostListener('window:click', ['$event']) public onDocumentClick(event: MouseEvent): void {
+    this.documentClick$.next(Date.now());
   }
 
   public ngAfterViewInit(): void {
@@ -138,16 +154,14 @@ export class ZuiDropdownHostComponent implements AfterViewInit {
     })
   }
 
-  @HostListener('window:click', ['$event']) public onDocumentClick(event: MouseEvent): void {
-    this.documentClick$.next(Date.now());
-  }
-
   private initClickListener(): void {
     this.overlay.listen('z_open').pipe(
       delay(0),
       switchMap(() => combineLatest([
         this.documentClick$,
-        this.containerClick$.pipe(startWith(Date.now())),
+        this.containerClick$.pipe(
+          startWith(Date.now())
+        ),
       ]).pipe(
         debounceTime(0),
         map(([document, container]: [number, number]) => document - container),
@@ -208,7 +222,7 @@ export class ZuiDropdownHostComponent implements AfterViewInit {
     ).subscribe();
   }
 
-  public clickOnContainer(event: MouseEvent): void {
+  public clickOnContainer(): void {
     this.containerClick$.next(Date.now());
   }
 

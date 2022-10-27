@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ZuiLetModule } from '@digital-plant/zyfra-helpers';
-import { ZuiActiveZoneModule } from '../../../directives/active-zone/active-zone.module';
 import { PolymorphModule } from '../../../directives/polymorph/polymorph.module';
 import { ZuiInputDateRangeComponent } from './input-date-range.component';
 import { ZuiValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
@@ -16,7 +15,6 @@ import { ZuiMaskModule } from '../../../modules';
   imports: [
     CommonModule,
     ZuiMaskModule,
-    ZuiActiveZoneModule,
     ZuiLetModule,
     PolymorphModule,
     ZuiInputTextModule,
