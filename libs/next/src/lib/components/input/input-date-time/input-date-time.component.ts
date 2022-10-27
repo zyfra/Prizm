@@ -26,7 +26,6 @@ import { AbstractZuiControl } from '../../../abstract/control';
 import { ZUI_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
 import { ZUI_DATE_TIME_SEPARATOR, ZUI_DATE_TIME_SEPARATOR_NGX } from '../../../constants/date-time-separator';
 import { zuiDefaultProp } from '../../../decorators/default-prop';
-import { ZuiActiveZoneDirective } from '../../../directives/active-zone/active-zone.directive';
 import { ZUI_DATE_TIME_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { ZUI_DATE_TEXTS, ZUI_TIME_TEXTS } from '../../../tokens/i18n';
 import { ZuiContextWithImplicit } from '../../../types/context-with-implicit';
@@ -46,6 +45,7 @@ import { zuiClamp } from '../../../util/math/clamp';
 import { ZuiInputSize } from '../common/models/zui-input.models';
 import { ZUI_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { ZuiDateButton } from '../../../types/date-button';
+import { ZUI_STRICT_MATCHER } from '../../../constants';
 
 @Component({
     selector: `zui-input-date-time`,
@@ -101,6 +101,10 @@ export class ZuiInputDateTimeComponent
 
     @Input()
     @zuiDefaultProp()
+    timeStrict = false;
+
+    @Input()
+    @zuiDefaultProp()
     disabledItemHandler: ZuiBooleanHandler<ZuiDay> = ZUI_ALWAYS_FALSE_HANDLER;
 
     @Input()
@@ -118,7 +122,7 @@ export class ZuiInputDateTimeComponent
 
     open = false;
 
-    readonly type!: ZuiContextWithImplicit<ZuiActiveZoneDirective>;
+    readonly type!: ZuiContextWithImplicit<unknown>;
 
     get filteredTime(): readonly ZuiTime[] {
       return this.filterTime(this.timeItems, this.timeMode, this.computedSearchTime);
@@ -263,7 +267,9 @@ export class ZuiInputDateTimeComponent
                 ? this.zuiClampTime(ZuiTime.fromString(time), parsedDate)
                 : null;
 
-        this.updateValue([parsedDate, parsedTime]);
+        const match = parsedTime && this.getMatch(time);
+
+        this.updateValue([parsedDate, match || (this.timeStrict ? this.findNearestTimeFromItems(parsedTime) : parsedTime)]);
         this.open = false;
     }
 
@@ -373,6 +379,19 @@ export class ZuiInputDateTimeComponent
         const time = this.nativeValue.split(ZUI_DATE_TIME_SEPARATOR)[1] || ``;
 
         this.nativeValue = this.getDateTimeString(day, time);
+    }
+
+    private findNearestTimeFromItems(value: ZuiTime): ZuiTime | null {
+      return this.timeItems.reduce((previous, current) =>
+        Math.abs(current.toAbsoluteMilliseconds() - value.toAbsoluteMilliseconds()) <
+        Math.abs(previous.toAbsoluteMilliseconds() - value.toAbsoluteMilliseconds())
+          ? current
+          : previous,
+      );
+    }
+
+    private getMatch(value: string): ZuiTime | undefined {
+      return this.timeItems.find(item => ZUI_STRICT_MATCHER(item, value));
     }
 
     public onTimeMenuClick(item: ZuiTime, ev: Event): void {

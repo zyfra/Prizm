@@ -15,6 +15,7 @@ export class InputDateTimeTimeComponent {
     new ZuiTime(12, 30, 25, 500)
   ]);
   public label = 'Абсолютное';
+  public timeStrict = false;
   public placeholder = 'Выберите дату и время';
   public sizeVariants: ReadonlyArray<ZuiInputSize> = [
     'l',

@@ -39,6 +39,7 @@
     <tui-doc-demo>
       <zui-input-date-time
         [formControl]='valueControl'
+        [timeStrict]='timeStrict'
         [label]='label'
         [placeholder]='placeholder'
         [outer]='outer'
@@ -121,6 +122,16 @@
         documentationPropertyType="ZuiMonth"
       >
         Default Active Year Month
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="timeStrict"
+        documentationPropertyType="boolean"
+        [(documentationPropertyValue)]="timeStrict"
+      >
+        Time Strict
+        <br>
+        (Correct time to nearest from items array)
       </ng-template>
 
       <ng-template

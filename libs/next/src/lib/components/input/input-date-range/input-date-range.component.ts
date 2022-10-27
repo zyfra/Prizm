@@ -290,22 +290,6 @@ export class ZuiInputDateRangeComponent
         this.updatePressed(pressed);
     }
 
-    public onActiveZone(focused: boolean): void {
-        this.updateFocused(focused);
-
-        if (
-            !focused &&
-            !this.itemSelected &&
-            (this.nativeValue.length === ZUI_DATE_FILLER_LENGTH ||
-                this.nativeValue.length ===
-                    ZUI_DATE_FILLER_LENGTH + ZUI_RANGE_SEPARATOR_CHAR.length)
-        ) {
-            this.updateValue(
-                ZuiDayRange.normalizeParse(this.nativeValue, this.dateFormat),
-            );
-        }
-    }
-
     public override writeValue(value: ZuiDayRange | null): void {
         super.writeValue(value);
         this.nativeValue = value ? this.computedValue : ``;

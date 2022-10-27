@@ -2,7 +2,8 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ElementRef, HostBinding,
+  ElementRef,
+  HostBinding,
   HostListener,
   Inject,
   Injector,
@@ -19,7 +20,7 @@ import { ZUI_INPUT_DATE_PROVIDERS } from './input-date.providers';
 import { zuiDefaultProp } from '../../../decorators/default-prop';
 import {
   ZUI_DATE_FILLER_LENGTH,
-  ZUI_DATE_FORMAT, ZUI_DATE_RANGE_FILLER_LENGTH,
+  ZUI_DATE_FORMAT,
   ZUI_DATE_SEPARATOR,
   ZUI_FIRST_DAY,
   ZUI_LAST_DAY,
@@ -44,7 +45,6 @@ import { ZuiNamedDay } from '../../../@core/classes/named-day';
 import { ZUI_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
 import { zuiCreateDateNgxMask } from '../../../@core/mask/create-date-mask';
 import { AbstractZuiNullableControl } from '../../../abstract/nullable-control';
-import { ZuiActiveZoneDirective } from '../../../directives/active-zone/active-zone.directive';
 import { ZUI_MOBILE_CALENDAR } from '../../../tokens/mobile-calendar';
 import { ZUI_DATE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { ZUI_DATE_TEXTS } from '../../../tokens/i18n';
@@ -121,7 +121,7 @@ export class ZuiInputDateComponent
 
     public open = false;
 
-    readonly type!: ZuiContextWithImplicit<ZuiActiveZoneDirective>;
+    readonly type!: ZuiContextWithImplicit<unknown>;
 
     readonly filler$: Observable<string> = this.dateTexts$.pipe(
         map(dateTexts =>

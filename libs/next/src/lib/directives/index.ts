@@ -3,6 +3,7 @@ export * from './focused';
 export * from './focusable';
 export * from './pressed';
 export * from './droppable';
+export * from './event-zone';
 export * from './focus-visible';
 export * from './hovered';
 export * from './overscroll';
