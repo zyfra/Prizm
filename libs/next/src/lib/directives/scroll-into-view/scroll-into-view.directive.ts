@@ -1,23 +1,23 @@
 import { DOCUMENT } from '@angular/common';
 import { Directive, ElementRef, Inject, Input } from '@angular/core';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { Observable, timer } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { ZUI_SCROLL_INTO_VIEW } from '../../constants/events';
-import { zuiRequiredSetter } from '../../decorators/required-setter';
+import { PZM_SCROLL_INTO_VIEW } from '../../constants/events';
+import { pzmRequiredSetter } from '../../decorators/required-setter';
 import { zuiCustomEvent } from '../../util/dom/custom-event';
 
 /**
- * Directive scrolls element into view inside zui-scrollbar
+ * Directive scrolls element into view inside pzm-scrollbar
  */
 @Directive({
-    selector: `[zuiScrollIntoView]`,
-    providers: [ZuiDestroyService],
+    selector: `[pzmScrollIntoView]`,
+    providers: [PzmDestroyService],
 })
-export class ZuiScrollIntoViewDirective {
+export class PzmScrollIntoViewDirective {
     @Input()
-    @zuiRequiredSetter()
-    set zuiScrollIntoView(scroll: boolean) {
+    @pzmRequiredSetter()
+    set pzmScrollIntoView(scroll: boolean) {
         if (!scroll) {
             return;
         }
@@ -29,7 +29,7 @@ export class ZuiScrollIntoViewDirective {
             .subscribe(() => {
                 this.elementRef.nativeElement.dispatchEvent(
                     zuiCustomEvent<Element>(
-                        ZUI_SCROLL_INTO_VIEW,
+                        PZM_SCROLL_INTO_VIEW,
                         {
                             bubbles: true,
                             detail: this.elementRef.nativeElement,
@@ -43,6 +43,6 @@ export class ZuiScrollIntoViewDirective {
     constructor(
         @Inject(ElementRef) private readonly elementRef: ElementRef<Element>,
         @Inject(DOCUMENT) private readonly documentRef: Document,
-        @Inject(ZuiDestroyService) private readonly destroy$: Observable<void>,
+        @Inject(PzmDestroyService) private readonly destroy$: Observable<void>,
     ) {}
 }

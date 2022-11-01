@@ -11,5 +11,5 @@ export class IconComponent {
   @Input() size: string | number = 16;
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_icon';
+  readonly testId = 'pzm_icon';
 }

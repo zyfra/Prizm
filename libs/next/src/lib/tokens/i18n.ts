@@ -15,7 +15,7 @@ export const ZUI_CLOSE_WORD = new InjectionToken(`i18n 'close' word`, {
     factory: zuiExtractI18n(`close`),
 });
 
-export const ZUI_OTHER_DATE_TEXT = new InjectionToken(`i18n 'Other date' text`, {
+export const PZM_OTHER_DATE_TEXT = new InjectionToken(`i18n 'Other date' text`, {
   factory: zuiExtractI18n(`otherDate`),
 });
 

@@ -1,15 +1,15 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { HeaderConfig, ToolbarConfig, ZuiMenuItem } from '@digital-plant/zui-components';
+import { HeaderConfig, ToolbarConfig, PzmMenuItem } from '@digital-plant/zui-components';
 import { PrimeIcons } from 'primeng/api';
 
 @Component({
-  selector: 'zui-nav-menu-advanced-example',
+  selector: 'pzm-nav-menu-advanced-example',
   templateUrl: './nav-menu-advanced-example.component.html',
   styleUrls: ['./nav-menu-advanced-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavMenuAdvancedExampleComponent {
-  public navigationList: ZuiMenuItem[] = [
+  public navigationList: PzmMenuItem[] = [
     {
       label: 'А приложение 1',
       icon: PrimeIcons.BAN,

@@ -5,7 +5,7 @@ import {Component} from '@angular/core';
   template: `
     <div class="header">Header</div>
     <div class="button-box">
-      <button zuiButton *ngFor="let item of items">{{item}}</button>
+      <button pzmButton *ngFor="let item of items">{{item}}</button>
     </div>
   `,
   styles: [`

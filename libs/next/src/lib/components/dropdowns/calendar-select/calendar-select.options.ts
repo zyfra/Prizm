@@ -1,12 +1,12 @@
 import { InjectionToken, ValueProvider } from '@angular/core';
-import { ZuiOverlayOutsidePlacement } from '../../../modules/overlay';
+import { PzmOverlayOutsidePlacement } from '../../../modules/overlay';
 import { ZuiDropdownHostWidth } from './models';
 
 export interface ZuiDropdownHostOptions {
     readonly width: ZuiDropdownHostWidth;
     readonly closeOnBackdrop: boolean;
     readonly autoReposition: boolean;
-    readonly placement: ZuiOverlayOutsidePlacement
+    readonly placement: PzmOverlayOutsidePlacement
 
 }
 
@@ -15,7 +15,7 @@ export const ZUI_DROPDOWN_HOST_DEFAULT_OPTIONS: ZuiDropdownHostOptions = {
   closeOnBackdrop: true,
   width: null,
   autoReposition: true,
-  placement: ZuiOverlayOutsidePlacement.BOTTOM_LEFT
+  placement: PzmOverlayOutsidePlacement.BOTTOM_LEFT
 };
 
 export const ZUI_DROPDOWN_HOST_OPTIONS = new InjectionToken<ZuiDropdownHostOptions>(

@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { ZuiDestroyService } from './destroy.service';
+import { PzmDestroyService } from './destroy.service';
 
 describe('Service: Destroy', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ZuiDestroyService]
+      providers: [PzmDestroyService]
     });
   });
 
-  it('should ...', inject([ZuiDestroyService], (service: ZuiDestroyService) => {
+  it('should ...', inject([PzmDestroyService], (service: PzmDestroyService) => {
     expect(service).toBeTruthy();
   }));
 });

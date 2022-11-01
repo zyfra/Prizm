@@ -1,4 +1,4 @@
-export function zuiGetElementOffset(
+export function pzmGetElementOffset(
     host: Element,
     element: HTMLElement,
 ): {offsetTop: number; offsetLeft: number} {

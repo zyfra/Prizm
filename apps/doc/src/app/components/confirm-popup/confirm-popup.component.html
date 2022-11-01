@@ -39,9 +39,9 @@
   <ng-template pageTab>
     <tui-doc-demo>
       <button
-        zuiButton
+        pzmButton
         [zuiConfirmPopup]="content"
-        [zuiAutoReposition]="zuiAutoReposition"
+        [pzmAutoReposition]="pzmAutoReposition"
         [zuiConfirmPopupDirection]="zuiConfirmPopupDirection"
         [zuiConfirmPopupId]="zuiConfirmPopupId"
         [zuiConfirmPopupShowDelay]="zuiConfirmPopupShowDelay"
@@ -63,17 +63,17 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiAutoReposition"
+        documentationPropertyName="pzmAutoReposition"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiAutoReposition"
+        [(documentationPropertyValue)]="pzmAutoReposition"
       >
         Auto Reposition
       </ng-template>
 
       <ng-template
         documentationPropertyName="zuiConfirmPopupDirection"
-        documentationPropertyType="ZuiOverlayOutsidePlacement"
+        documentationPropertyType="PzmOverlayOutsidePlacement"
         documentationPropertyMode="input"
         [documentationPropertyValues]="zuiConfirmPopupDirectionVariants"
         [(documentationPropertyValue)]="zuiConfirmPopupDirection"

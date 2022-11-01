@@ -4,15 +4,15 @@ import {
   IPaginatorOptions,
   IPaginatorOutput,
   PaginatorType,
-} from './interfaces/zui-paginator.interface';
+} from './interfaces/pzm-paginator.interface';
 
 @Component({
-  selector: 'zui-paginator',
-  templateUrl: './zui-paginator.component.html',
-  styleUrls: ['./zui-paginator.component.less'],
+  selector: 'pzm-paginator',
+  templateUrl: './pzm-paginator.component.html',
+  styleUrls: ['./pzm-paginator.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiPaginatorComponent {
+export class PzmPaginatorComponent {
   @Input() public paginatorType: PaginatorType = 'finite';
   // Суммарное количество данных
   @Input() public totalRecords: number | null = null;
@@ -42,7 +42,7 @@ export class ZuiPaginatorComponent {
   @Output() public tabChange: EventEmitter<IPaginatorOutput> = new EventEmitter<IPaginatorOutput>();
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_paginator';
+  readonly testId = 'pzm_paginator';
 
   public currentPage = 1;
   // Количесвто пакетов = Суммарное количество данных / Сколько данных в одном пакете

@@ -1,7 +1,7 @@
 import { InjectionToken, ValueProvider } from '@angular/core';
 import { PolymorphContent } from '../../../directives';
-import { ZuiInputSize } from '../../input';
-import { ZuiContextWithImplicit } from '../../../types';
+import { PzmInputSize } from '../../input';
+import { PzmContextWithImplicit } from '../../../types';
 import { ZuiSelectIdentityMatcher, ZuiSelectSearchMatcher } from './select.model';
 
 export interface ZuiSelectOptions<T> {
@@ -10,7 +10,7 @@ export interface ZuiSelectOptions<T> {
     readonly forceClear: boolean | null;
     readonly label: string;
     readonly placeholder: string;
-    readonly size: ZuiInputSize;
+    readonly size: PzmInputSize;
     readonly stringify: ZuiSelectStringify<T>;
     readonly emptyContent: PolymorphContent;
     readonly nullContent: PolymorphContent;
@@ -26,7 +26,7 @@ export interface ZuiSelectOptions<T> {
 
 
 export type ZuiSelectStringify<T> = (i:T, nullContent?: string) => string;
-export type ZuiSelectValueContext<T> = ZuiContextWithImplicit<T> & {stringify: string};
+export type ZuiSelectValueContext<T> = PzmContextWithImplicit<T> & {stringify: string};
 
 /** Default values for dropdown-host options */
 export const ZUI_SELECT_DEFAULT_OPTIONS: ZuiSelectOptions<unknown> = {

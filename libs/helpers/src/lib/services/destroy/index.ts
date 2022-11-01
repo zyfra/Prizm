@@ -1,1 +1,1 @@
-export {ZuiDestroyService} from './destroy.service'
+export {PzmDestroyService} from './destroy.service'

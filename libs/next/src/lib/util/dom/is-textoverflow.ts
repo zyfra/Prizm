@@ -10,9 +10,9 @@ export function zuiIsTextOverflow(element: HTMLElement): boolean {
   }
 }
 
-export function zuiIsTextOverflow$(elem: HTMLElement, delayWhen: Observable<unknown>): Observable<boolean>
-export function zuiIsTextOverflow$(elem: HTMLElement, delayTime?: number): Observable<boolean>
-export function zuiIsTextOverflow$(elem: HTMLElement, delaySource: number | Observable<unknown> = 0): Observable<boolean> {
+export function pzmIsTextOverflow$(elem: HTMLElement, delayWhen: Observable<unknown>): Observable<boolean>
+export function pzmIsTextOverflow$(elem: HTMLElement, delayTime?: number): Observable<boolean>
+export function pzmIsTextOverflow$(elem: HTMLElement, delaySource: number | Observable<unknown> = 0): Observable<boolean> {
     return of(0).pipe(
       (
         (source$: Observable<number>) => {

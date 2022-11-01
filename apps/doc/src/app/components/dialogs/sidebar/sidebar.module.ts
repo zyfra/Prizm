@@ -4,8 +4,8 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
-  ZuiButtonModule,
-  ZuiRadioButtonModule,
+  PzmButtonModule,
+  PzmRadioButtonModule,
   ZuiSidebarModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,9 +20,9 @@ import { ZuiSidebarTopBottomExampleComponent } from './examples/top-bottom/top-b
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    ZuiButtonModule,
+    PzmButtonModule,
     ZuiSidebarModule,
-    ZuiRadioButtonModule,
+    PzmRadioButtonModule,
     RouterModule.forChild(generateRoutes(SidebarComponent)),
   ],
   declarations: [

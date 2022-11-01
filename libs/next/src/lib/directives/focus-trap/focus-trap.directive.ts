@@ -9,15 +9,15 @@ import {
   OnDestroy,
   Renderer2,
 } from '@angular/core';
-import { zuiBlurNativeFocused, zuiGetNativeFocused, zuiSetNativeFocused } from '../../util';
-import { zuiContainsOrAfter } from '../../util/dom';
-import { zuiGetClosestFocusable } from '../../util/get-closest-keyboard-focusable';
+import { pzmBlurNativeFocused, pzmGetNativeFocused, pzmSetNativeFocused } from '../../util';
+import { pzmContainsOrAfter } from '../../util/dom';
+import { pzmGetClosestFocusable } from '../../util/get-closest-keyboard-focusable';
 
 @Directive({
-    selector: '[zuiFocusTrap]',
+    selector: '[pzmFocusTrap]',
 })
-export class ZuiFocusTrapDirective implements OnDestroy {
-    private readonly activeElement = zuiGetNativeFocused(this.documentRef);
+export class PzmFocusTrapDirective implements OnDestroy {
+    private readonly activeElement = pzmGetNativeFocused(this.documentRef);
 
     @HostBinding('tabIndex') public tabIndex = 0;
 
@@ -35,7 +35,7 @@ export class ZuiFocusTrapDirective implements OnDestroy {
          */
         // eslint-disable-next-line @typescript-eslint/no-floating-promises
         Promise.resolve().then(() => {
-            zuiSetNativeFocused(this.elementRef.nativeElement);
+            pzmSetNativeFocused(this.elementRef.nativeElement);
         });
     }
 
@@ -46,24 +46,24 @@ export class ZuiFocusTrapDirective implements OnDestroy {
 
     @HostListener('window:focusin.silent', ['$event.target'])
     public onFocusIn(node: Node): void {
-        if (zuiContainsOrAfter(this.elementRef.nativeElement, node)) {
+        if (pzmContainsOrAfter(this.elementRef.nativeElement, node)) {
           this.cdRef.markForCheck();
             return;
         }
 
-        const focusable = zuiGetClosestFocusable(
+        const focusable = pzmGetClosestFocusable(
             this.elementRef.nativeElement,
             false,
             this.elementRef.nativeElement,
         );
 
         if (focusable) {
-            zuiSetNativeFocused(focusable);
+            pzmSetNativeFocused(focusable);
         }
     }
 
     ngOnDestroy(): void {
-        zuiBlurNativeFocused(this.documentRef);
+        pzmBlurNativeFocused(this.documentRef);
 
         /**
          * HostListeners are triggered even after ngOnDestroy
@@ -74,7 +74,7 @@ export class ZuiFocusTrapDirective implements OnDestroy {
         // eslint-disable-next-line
         Promise.resolve().then(() => {
             if (this.activeElement instanceof HTMLElement) {
-                zuiSetNativeFocused(this.activeElement);
+                pzmSetNativeFocused(this.activeElement);
             }
         });
     }

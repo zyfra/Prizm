@@ -3,7 +3,7 @@ import { FormControl, NgControl } from '@angular/forms';
 import { ZuiAccessorImplClass } from './zui-accessor-impl.class';
 
 @Directive()
-export abstract class ZuiWrappedFormComponent extends ZuiAccessorImplClass {
+export abstract class PzmWrappedFormComponent extends ZuiAccessorImplClass {
   public readonly formControl: FormControl;
 
   constructor(public readonly injector: Injector, @Optional() @Self() public readonly ngControl: NgControl) {

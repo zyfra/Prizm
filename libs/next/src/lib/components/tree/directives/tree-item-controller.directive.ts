@@ -1,5 +1,5 @@
 import { Directive, Input } from '@angular/core';
-import { zuiDefaultProp } from '../../../decorators';
+import { pzmDefaultProp } from '../../../decorators';
 
 import { ZuiTreeItemComponent } from '../components/tree-item/tree-item.component';
 import { ZuiTreeController } from '../misc/tree.interfaces';
@@ -19,7 +19,7 @@ export class ZuiTreeItemControllerDirective implements ZuiTreeController {
     private readonly map = new WeakMap<ZuiTreeItemComponent, boolean>();
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     zuiTreeController = true;
 
     public isExpanded(item: ZuiTreeItemComponent): boolean {

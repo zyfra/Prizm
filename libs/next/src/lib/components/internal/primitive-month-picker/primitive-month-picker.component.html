@@ -1,9 +1,9 @@
 <div
-    *zuiRepeatTimes="let rowIndex of rows"
+    *pzmRepeatTimes="let rowIndex of rows"
     automation-id="zui-primitive-year-picker__row"
     class="z-row"
 >
-    <ng-container *zuiRepeatTimes="let colIndex of ITEMS_IN_ROW">
+    <ng-container *pzmRepeatTimes="let colIndex of ITEMS_IN_ROW">
         <div
             *zuiLet="getItem(rowIndex, colIndex) as item"
             automation-id="zui-primitive-year-picker__cell"
@@ -12,9 +12,9 @@
             [class.z-cell_interval]="itemIsInterval(item.month)"
             [attr.data-range]="getItemRange(item.month)"
             [attr.data-state]="getItemState(item.month)"
-            [zuiScrollIntoView]="scrollItemIntoView(item.month)"
-            (zuiHoveredChange)="onItemHovered($event, item.month)"
-            (zuiPressedChange)="onItemPressed($event, item.month)"
+            [pzmScrollIntoView]="scrollItemIntoView(item.month)"
+            (pzmHoveredChange)="onItemHovered($event, item.month)"
+            (pzmPressedChange)="onItemPressed($event, item.month)"
             (click)="onItemClick($event, item.month)"
         >
             <div class="z-item">{{ item | zuiMonth | async }}</div>

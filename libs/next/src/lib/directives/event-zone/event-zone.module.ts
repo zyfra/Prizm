@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
-
-import { ZuiDropdownZoneDirective } from './event-zone.directive';
+import { PzmDropdownZoneDirective } from './event-zone.directive';
 
 @NgModule({
-    declarations: [ZuiDropdownZoneDirective],
-    exports: [ZuiDropdownZoneDirective],
+    declarations: [PzmDropdownZoneDirective],
+    exports: [PzmDropdownZoneDirective],
 })
-export class ZuiDropdownZoneModule {}
+export class PzmDropdownZoneModule {}

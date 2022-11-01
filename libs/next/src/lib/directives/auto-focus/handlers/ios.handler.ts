@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Inject, NgZone, Optional, Renderer2, Self } from '@angular/core';
 import { WINDOW } from '@ng-web-apis/common';
-import { ZUI_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
-import { ZuiFocusableElementAccessor } from '../../../types/focusable-element-accessor';
+import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
+import { PzmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
 import { zuiPx } from '../../../util/format/px';
 import { AbstractZuiAutofocusHandler } from './abstract.handler';
 
@@ -10,8 +10,8 @@ export class ZuiIosAutofocusHandler extends AbstractZuiAutofocusHandler {
     constructor(
         @Optional()
         @Self()
-        @Inject(ZUI_FOCUSABLE_ITEM_ACCESSOR)
-        zuiFocusableComponent: ZuiFocusableElementAccessor | null,
+        @Inject(PZM_FOCUSABLE_ITEM_ACCESSOR)
+        zuiFocusableComponent: PzmFocusableElementAccessor | null,
         @Inject(ElementRef) elementRef: ElementRef<HTMLElement>,
         @Inject(Renderer2) private readonly renderer: Renderer2,
         @Inject(NgZone) private readonly ngZone: NgZone,

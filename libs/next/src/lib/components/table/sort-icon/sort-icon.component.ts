@@ -10,5 +10,5 @@ export class ZuiSortIconComponent {
   @Input() field: string;
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_sort_icon';
+  readonly testId = 'pzm_sort_icon';
 }

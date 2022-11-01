@@ -1,10 +1,10 @@
 import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 
 @Directive({
-  selector: '[zuiAutofocus]',
+  selector: '[pzmAutofocus]',
 })
-export class ZuiAutofocusDirective implements OnInit {
-  @Input() set zuiAutofocus(condition: boolean) {
+export class PzmAutofocusDirective implements OnInit {
+  @Input() set pzmAutofocus(condition: boolean) {
     this.focus = condition !== false;
   }
 

@@ -9,22 +9,22 @@ import {
 import {animationFrameScheduler, fromEvent, merge as mergeObs, Observable, Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map, observeOn, skipWhile, takeUntil, tap} from 'rxjs/operators';
 import {
-  ZuiOverlayConfig,
-  ZuiOverlayContent,
-  ZuiOverlayContentData,
-  ZuiOverlayContentProps,
-  ZuiOverlayEventName,
-  ZuiOverlayId
+  PzmOverlayConfig,
+  PzmOverlayContent,
+  PzmOverlayContentData,
+  PzmOverlayContentProps,
+  PzmOverlayEventName,
+  PzmOverlayId
 } from './models';
-import {ZuiOverlayAbstractPosition} from './position/position';
+import {PzmOverlayAbstractPosition} from './position/position';
 import {ZuiOverlayComponent} from './overlay.component';
 import {BODY_ELEMENT, EventBus, getContent} from './utils';
 
 export class ZuiOverlayControl {
-  position: ZuiOverlayAbstractPosition;
-  readonly config: ZuiOverlayConfig;
-  content: ZuiOverlayContent;
-  zid: ZuiOverlayId;
+  position: PzmOverlayAbstractPosition;
+  readonly config: PzmOverlayConfig;
+  content: PzmOverlayContent;
+  zid: PzmOverlayId;
   comp: ZuiOverlayComponent;
   updateTextContent: Subject<string> = new Subject();
   hostView: ViewRef;
@@ -111,19 +111,19 @@ export class ZuiOverlayControl {
     );
   }
 
-  public changePosition(newPosition: ZuiOverlayAbstractPosition): void {
+  public changePosition(newPosition: PzmOverlayAbstractPosition): void {
     this.position = newPosition;
   }
 
-  public updatePosition(positionConfig: ZuiOverlayAbstractPosition): void {
+  public updatePosition(positionConfig: PzmOverlayAbstractPosition): void {
     this.position.updateConfig(positionConfig);
   }
 
-  public updateContent(content: ZuiOverlayContentData, props: ZuiOverlayContentProps = {}): void {
+  public updateContent(content: PzmOverlayContentData, props: PzmOverlayContentProps = {}): void {
     this.content = getContent(content, { ...this.content.props, ...props });
   }
 
-  public listen<T = any>(eventName: ZuiOverlayEventName): Observable<T> {
+  public listen<T = any>(eventName: PzmOverlayEventName): Observable<T> {
     return EventBus.listen(this.zid, eventName);
   }
 

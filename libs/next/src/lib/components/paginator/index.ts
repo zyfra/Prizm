@@ -1,3 +1,3 @@
-export * from './zui-paginator.component';
-export * from './interfaces/zui-paginator.interface';
-export * from './zui-paginator.module';
+export * from './pzm-paginator.component';
+export * from './interfaces/pzm-paginator.interface';
+export * from './pzm-paginator.module';

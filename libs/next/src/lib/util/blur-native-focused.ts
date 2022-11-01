@@ -1,13 +1,13 @@
-import {zuiGetNativeFocused} from './get-native-focused';
-import {zuiSetNativeFocused} from './set-native-focused';
+import {pzmGetNativeFocused} from './get-native-focused';
+import {pzmSetNativeFocused} from './set-native-focused';
 
 /**
  * Finds and blurs current active element, including shadow DOM
  */
-export function zuiBlurNativeFocused(documentRef: Document): void {
-    const activeElement = zuiGetNativeFocused(documentRef);
+export function pzmBlurNativeFocused(documentRef: Document): void {
+    const activeElement = pzmGetNativeFocused(documentRef);
 
     if (activeElement instanceof HTMLElement) {
-        zuiSetNativeFocused(activeElement, false);
+        pzmSetNativeFocused(activeElement, false);
     }
 }

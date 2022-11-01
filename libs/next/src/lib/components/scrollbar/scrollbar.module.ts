@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ZuiScrollRefDirective } from './scroll-ref.directive';
-import { ZuiScrollbarComponent } from './scrollbar.component';
-import { ZuiScrollableDirective } from './scrollable.directive';
-import { ZuiScrollControlsModule } from './scroll-controls.module';
+import { PzmScrollRefDirective } from './scroll-ref.directive';
+import { PzmScrollbarComponent } from './scrollbar.component';
+import { PzmScrollableDirective } from './scrollable.directive';
+import { PzmScrollControlsModule } from './scroll-controls.module';
 
 @NgModule({
-    imports: [CommonModule, ZuiScrollControlsModule],
-    declarations: [ZuiScrollbarComponent, ZuiScrollRefDirective, ZuiScrollableDirective],
-    exports: [ZuiScrollbarComponent, ZuiScrollRefDirective, ZuiScrollableDirective],
+    imports: [CommonModule, PzmScrollControlsModule],
+    declarations: [PzmScrollbarComponent, PzmScrollRefDirective, PzmScrollableDirective],
+    exports: [PzmScrollbarComponent, PzmScrollRefDirective, PzmScrollableDirective],
 })
-export class ZuiScrollbarModule {}
+export class PzmScrollbarModule {}

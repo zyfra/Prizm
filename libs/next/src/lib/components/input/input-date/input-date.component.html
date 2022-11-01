@@ -7,7 +7,7 @@
     [closeByEsc]='true'
     (isOpenChange)="onOpenChange($event)"
 >
-  <zui-input-layout
+  <pzm-input-layout
     [label]="label"
     [outer]='outer'
     [size]="size">
@@ -26,17 +26,17 @@
     />
     <ng-container zui-input-right>
       <button
-        zuiInputIconButton="date-calendar-blank"
+        pzmInputIconButton="date-calendar-blank"
         [interactive]="true"
         (click)='focusableElementRef.focus()'></button>
       <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>
       </ng-container>
     </ng-container>
-  </zui-input-layout>
+  </pzm-input-layout>
 
   <ng-template #dropdown>
-      <zui-calendar
-          zuiPreventDefault="mousedown"
+      <pzm-calendar
+          pzmPreventDefault="mousedown"
           automation-id="zui-input-date__calendar"
           [min]="min"
           [max]="max"
@@ -46,14 +46,14 @@
           [value]="value"
           (dayClick)="onDayClick($event)"
           (monthChange)="onMonthChange($event)"
-      ></zui-calendar>
+      ></pzm-calendar>
       <div
           *ngIf="items.length === 1"
-          zuiPreventDefault="mousedown"
+          pzmPreventDefault="mousedown"
           class="z-button"
       >
           <button
-              zuiLink
+              pzmLink
               type="button"
               (click)="onDayClick(items[0].day)"
           >

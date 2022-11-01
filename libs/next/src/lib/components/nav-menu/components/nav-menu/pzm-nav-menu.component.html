@@ -1,4 +1,4 @@
-<div class="zui-nav-menu p-component" #navMenu>
+<div class="pzm-nav-menu p-component" #navMenu>
   <div class="header" #header>
     <div class="app-name">{{ menuTitle }}</div>
     <div class="right-side">
@@ -24,7 +24,7 @@
     <ng-container *ngIf="menuGroups.length; else noGroups">
       <p-accordion [multiple]="!settingsConfig.singleGroup">
         <p-accordionTab *ngFor="let group of menuGroups; let i = index" [selected]="i === activeGroup">
-          <zui-menu-group-content
+          <pzm-menu-group-content
             [nodes]="groupNodes[i]"
             [selectionMode]="settingsConfig.selectionMode"
             [activeNode]="activeGroup === i ? activeNode : null"
@@ -38,13 +38,13 @@
             (nodeCollapse)="nodeCollapseHandler($event, i)"
             (nodeExpand)="nodeExpandHandler($event, i)"
           >
-          </zui-menu-group-content>
+          </pzm-menu-group-content>
         </p-accordionTab>
       </p-accordion>
     </ng-container>
 
     <ng-template #noGroups>
-      <zui-menu-group-content
+      <pzm-menu-group-content
         [nodes]="nodes"
         [activeNode]="activeNode"
         [selectionMode]="settingsConfig.selectionMode"
@@ -58,7 +58,7 @@
         (nodeCollapse)="nodeCollapseHandler($event)"
         (nodeExpand)="nodeExpandHandler($event)"
       >
-      </zui-menu-group-content>
+      </pzm-menu-group-content>
     </ng-template>
   </div>
 </div>

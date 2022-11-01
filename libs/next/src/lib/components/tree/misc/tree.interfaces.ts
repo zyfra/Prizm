@@ -1,14 +1,14 @@
 import { TemplateRef } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ZuiContextWithImplicit } from '../../../types';
+import { PzmContextWithImplicit } from '../../../types';
 
 import { ZuiTreeItemComponent } from '../components/tree-item/tree-item.component';
 
-export interface ZuiTreeItemContext extends ZuiContextWithImplicit<ZuiTreeItemComponent> {
+export interface ZuiTreeItemContext extends PzmContextWithImplicit<ZuiTreeItemComponent> {
     readonly template: TemplateRef<Record<string, unknown>>;
 }
 
-export interface ZuiTreeContext<T> extends ZuiContextWithImplicit<T> {
+export interface ZuiTreeContext<T> extends PzmContextWithImplicit<T> {
     readonly node: ZuiTreeItemComponent;
 }
 

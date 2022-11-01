@@ -3,9 +3,9 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
   ZuiBaseDialogContext, ZuiDialogSize,
-  ZuiOverlayInsidePlacement,
-  ZuiOverscrollMode,
-  zuiPure,
+  PzmOverlayInsidePlacement,
+  PzmOverscrollMode,
+  pzmPure,
   ZuiSidebarOptions,
   ZuiSidebarService,
 } from '@digital-plant/zui-components';
@@ -18,14 +18,14 @@ import { generatePolymorphVariants } from '../../../util';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidebarComponent {
-  public overscrollVariants: ReadonlyArray<ZuiOverscrollMode> = [
+  public overscrollVariants: ReadonlyArray<PzmOverscrollMode> = [
     'scroll',
     'all',
     'none',
   ];
-  public overscroll: ZuiOverscrollMode = this.overscrollVariants[0];
+  public overscroll: PzmOverscrollMode = this.overscrollVariants[0];
   public positionVariants: any = ['t', 'b' , 'l', 'r'];
-  public position: ZuiOverlayInsidePlacement = ZuiOverlayInsidePlacement.LEFT;
+  public position: PzmOverlayInsidePlacement = PzmOverlayInsidePlacement.LEFT;
   public backdrop = false;
   public height = 'auto';
   public width = '500px';
@@ -55,7 +55,7 @@ export class SidebarComponent {
     @Inject(ZuiSidebarService) private readonly sidebarService: ZuiSidebarService,
   ) {}
 
-  @zuiPure
+  @pzmPure
   public generatePolymorphVariants(...content: PolymorphContent[]): any[] {
     return generatePolymorphVariants(...content)
   };

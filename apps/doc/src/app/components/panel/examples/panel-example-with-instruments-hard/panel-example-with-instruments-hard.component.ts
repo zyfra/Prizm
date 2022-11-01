@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'zui-panel-with-instruments-hard',
+  selector: 'pzm-panel-with-instruments-hard',
   templateUrl: './panel-example-with-instruments-hard.component.html',
   styleUrls: ['./panel-example-with-instruments-hard.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

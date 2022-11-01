@@ -9,8 +9,8 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { zuiDefaultProp } from '../../../decorators/default-prop';
-import { ZuiInputSize } from '../common/models/zui-input.models';
+import { pzmDefaultProp } from '../../../decorators/default-prop';
+import { PzmInputSize } from '../common/models/zui-input.models';
 import { getProviderZuiDateLeftButtons, ZUI_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { BehaviorSubject } from 'rxjs';
 import { ZuiDateButton, ZuiDateButtonContext } from '../../../types/date-button';
@@ -33,7 +33,7 @@ export class ZuiInputDateMultiComponent implements OnInit {
 
     private readonly _items$ = new BehaviorSubject<ZuiDateItemTemplate[]>([]);
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     set items(value: ZuiDateItemTemplate[]) {
       this._items$.next(value);
     }
@@ -42,11 +42,11 @@ export class ZuiInputDateMultiComponent implements OnInit {
     }
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     currentIdx = 0;
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_input_date_multi';
+    readonly testId = 'pzm_input_date_multi';
 
     public open = false;
 

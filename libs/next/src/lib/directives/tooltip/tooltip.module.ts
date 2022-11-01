@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PolymorphModule } from '../polymorph';
-import { ZuiTooltipDirective } from './tooltip.directive';
-import { ZuiHintModule } from '../hint';
-import { ZuiTooltipContainerComponent } from './tooltip-container.component';
-import { ZuiIconModule } from '../../components/icon';
-import { ZuiScrollbarModule } from '../../components/scrollbar';
-import { ZuiFocusTrapModule } from '../focus-trap';
+import { PzmTooltipDirective } from './tooltip.directive';
+import { PzmHintModule } from '../hint';
+import { PzmTooltipContainerComponent } from './tooltip-container.component';
+import { PzmIconModule } from '../../components/icon';
+import { PzmScrollbarModule } from '../../components/scrollbar';
+import { PzmFocusTrapModule } from '../focus-trap';
 
 @NgModule({
   imports: [
     CommonModule,
     PolymorphModule,
-    ZuiFocusTrapModule,
-    ZuiHintModule,
-    ZuiScrollbarModule,
-    ZuiIconModule
+    PzmFocusTrapModule,
+    PzmHintModule,
+    PzmScrollbarModule,
+    PzmIconModule
   ],
   declarations: [
-    ZuiTooltipDirective,
-    ZuiTooltipContainerComponent
+    PzmTooltipDirective,
+    PzmTooltipContainerComponent
   ],
-  exports: [ZuiTooltipDirective],
+  exports: [PzmTooltipDirective],
 })
-export class ZuiTooltipModule {}
+export class PzmTooltipModule {}

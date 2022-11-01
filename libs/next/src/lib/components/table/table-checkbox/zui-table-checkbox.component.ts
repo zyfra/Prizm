@@ -19,7 +19,7 @@ export class ZuiTableCheckboxComponent {
   @Input() ariaLabel: string;
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_table_checkbox';
+  readonly testId = 'pzm_table_checkbox';
 
   constructor(@Optional() private zuiSelectableRow: ZuiSelectableRowDirective) {}
 

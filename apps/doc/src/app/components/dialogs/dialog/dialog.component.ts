@@ -6,9 +6,9 @@ import {
   ZuiDialogOptions,
   ZuiDialogService,
   ZuiDialogSize,
-  ZuiOverlayInsidePlacement,
-  ZuiOverscrollMode,
-  zuiPure,
+  PzmOverlayInsidePlacement,
+  PzmOverscrollMode,
+  pzmPure,
 } from '@digital-plant/zui-components';
 import { generatePolymorphVariants } from '../../../util';
 
@@ -19,14 +19,14 @@ import { generatePolymorphVariants } from '../../../util';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DialogComponent {
-  public overscrollVariants: ReadonlyArray<ZuiOverscrollMode> = [
+  public overscrollVariants: ReadonlyArray<PzmOverscrollMode> = [
     'scroll',
     'all',
     'none',
   ];
-  public overscroll: ZuiOverscrollMode = this.overscrollVariants[0];
-  public positionVariants: ZuiOverlayInsidePlacement[] = Object.values(ZuiOverlayInsidePlacement);
-  public position: ZuiOverlayInsidePlacement = ZuiOverlayInsidePlacement.CENTER;
+  public overscroll: PzmOverscrollMode = this.overscrollVariants[0];
+  public positionVariants: PzmOverlayInsidePlacement[] = Object.values(PzmOverlayInsidePlacement);
+  public position: PzmOverlayInsidePlacement = PzmOverlayInsidePlacement.CENTER;
   public backdrop = false;
   public height = 'auto';
   public width = '500px';
@@ -51,7 +51,7 @@ export class DialogComponent {
     @Inject(ZuiDialogService) private readonly dialogService: ZuiDialogService,
   ) {}
 
-  @zuiPure
+  @pzmPure
   public generatePolymorphVariants(...content: PolymorphContent[]): any[] {
     return generatePolymorphVariants(...content)
   };

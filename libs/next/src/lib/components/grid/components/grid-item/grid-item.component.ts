@@ -11,5 +11,5 @@ export class GridItemComponent {
   @Input() public rowPos = '0';
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_grid_item';
+  readonly testId = 'pzm_grid_item';
 }

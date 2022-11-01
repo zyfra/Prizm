@@ -12,13 +12,13 @@ export function zuiZoneFull<T>(ngZone: NgZone): MonoTypeOperatorFunction<T> {
         );
 }
 
-export function zuiZoneFree<T>(ngZone: NgZone): MonoTypeOperatorFunction<T> {
+export function pzmZoneFree<T>(ngZone: NgZone): MonoTypeOperatorFunction<T> {
     return (source): Observable<T> =>
         new Observable(subscriber =>
             ngZone.runOutsideAngular(() => source.subscribe(subscriber)),
         );
 }
 
-export function zuiZoneOptimized<T>(ngZone: NgZone): MonoTypeOperatorFunction<T> {
-    return pipe(zuiZoneFree(ngZone), zuiZoneFull(ngZone));
+export function pzmZoneOptimized<T>(ngZone: NgZone): MonoTypeOperatorFunction<T> {
+    return pipe(pzmZoneFree(ngZone), zuiZoneFull(ngZone));
 }

@@ -10,9 +10,9 @@ import {
   Self,
 } from '@angular/core';
 import { NgControl, Validators, ControlValueAccessor } from '@angular/forms';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 
-import { ZuiInputControl } from '../common/base/input-control.class';
+import { PzmInputControl } from '../common/base/input-control.class';
 import { ZuiCarouselContent } from './carousel-content/carousel-content.interface';
 
 @Component({
@@ -20,7 +20,7 @@ import { ZuiCarouselContent } from './carousel-content/carousel-content.interfac
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: ZuiInputControl, useExisting: ZuiCarouselComponent }, ZuiDestroyService],
+  providers: [{ provide: PzmInputControl, useExisting: ZuiCarouselComponent }, PzmDestroyService],
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
     '[class.ng-filled]': '!empty',
@@ -28,7 +28,7 @@ import { ZuiCarouselContent } from './carousel-content/carousel-content.interfac
     '[attr.tabindex]': "disabled ? null : '0'",
   },
 })
-export class ZuiCarouselComponent extends ZuiInputControl<any> implements ControlValueAccessor {
+export class ZuiCarouselComponent extends PzmInputControl<any> implements ControlValueAccessor {
   /**
    * Disabled input
    */
@@ -46,7 +46,7 @@ export class ZuiCarouselComponent extends ZuiInputControl<any> implements Contro
   }
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_carousel';
+  readonly testId = 'pzm_carousel';
 
   private _disabled = false;
 

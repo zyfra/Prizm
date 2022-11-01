@@ -5,7 +5,7 @@ import { zuiIsNativeMouseFocusable } from './is-native-mouse-focusable';
 /**
  * Finds the closest element that can be focused with a keyboard or mouse
  */
-export function zuiGetClosestFocusable(
+export function pzmGetClosestFocusable(
     initial: HTMLElement,
     prev: boolean = false,
     root: Node,

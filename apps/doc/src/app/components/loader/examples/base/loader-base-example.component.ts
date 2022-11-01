@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'zui-loader-base-example',
+  selector: 'pzm-loader-base-example',
   templateUrl: './loader-base-example.component.html',
   styles: [
     `

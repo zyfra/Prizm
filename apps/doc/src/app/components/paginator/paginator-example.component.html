@@ -1,21 +1,21 @@
 <tui-doc-page header="Paginator" package="Equinox" type="components">
   <ng-template pageTab>
     <tui-doc-example id="base" heading="Base" [content]="exampleBasicPaginator">
-      <zui-paginator-basic-example></zui-paginator-basic-example>
+      <pzm-paginator-basic-example></pzm-paginator-basic-example>
     </tui-doc-example>
 
     <tui-doc-example id="withLabels" heading="With Labels" [content]="exampleLabelsPaginator">
-      <zui-paginator-with-labels-example></zui-paginator-with-labels-example>
+      <pzm-paginator-with-labels-example></pzm-paginator-with-labels-example>
     </tui-doc-example>
 
     <tui-doc-example id="inf" heading="Infinite" [content]="exampleInfinitePaginator">
-      <zui-paginator-infinite-example></zui-paginator-infinite-example>
+      <pzm-paginator-infinite-example></pzm-paginator-infinite-example>
     </tui-doc-example>
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-paginator
+      <pzm-paginator
         [totalRecords]="totalRecords"
         [initialValue]="initialValue"
         [rows]="rows"
@@ -25,7 +25,7 @@
         [paginatorType]="paginatorType"
         [paginatorOptions]="paginatorOptions"
         [rowsCountOptions]="rowsCountOptions"
-      ></zui-paginator>
+      ></pzm-paginator>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template

@@ -23,7 +23,7 @@ export class ZuiCellEditorComponent implements AfterContentInit {
   @Output() valueChange = new EventEmitter<string>();
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_cell_editor';
+  readonly testId = 'pzm_cell_editor';
 
   inputTemplate: TemplateRef<unknown>;
   outputTemplate: TemplateRef<unknown>;

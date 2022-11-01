@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
-import { PolymorphModule, ZuiButtonModule, ZuiConfirmPopupModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PzmButtonModule, ZuiConfirmPopupModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmPopupComponent } from './confirm-popup.component';
 import { ZuiConfirmPopupBaseExampleComponent } from './examples/base/confirm-popup-base-example.component';
@@ -23,7 +23,7 @@ import {
     ReactiveFormsModule,
     PolymorphModule,
     ZuiConfirmPopupModule,
-    ZuiButtonModule,
+    PzmButtonModule,
     RouterModule.forChild(generateRoutes(ConfirmPopupComponent)),
   ],
   declarations: [

@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  ZuiContextWithImplicit,
-  ZuiDay, ZuiInputSize,
+  PzmContextWithImplicit,
+  PzmDay, PzmInputSize,
   ZuiSizeL,
   ZuiSizeM,
   ZuiTime, ZuiTimeMode,
@@ -23,12 +23,12 @@ export class InputTimeTimeComponent {
 
   public label = 'Абсолютное время';
   public placeholder = 'Выберите время';
-  public sizeVariants: ReadonlyArray<ZuiInputSize> = [
+  public sizeVariants: ReadonlyArray<PzmInputSize> = [
     'l',
     'm',
     's'
   ]
-  public size: ZuiInputSize = 'm';
+  public size: PzmInputSize = 'm';
   public strict = false;
 
   public timeModeVariants: ReadonlyArray<ZuiTimeMode> = [

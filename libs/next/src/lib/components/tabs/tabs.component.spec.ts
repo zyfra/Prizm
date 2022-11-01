@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TabsComponent } from './tabs.component';
 import { ZuiDropdownHostModule } from '../dropdowns/dropdown-host/dropdown-host.module';
-import { ZuiIconModule } from '../icon/icon.module';
+import { PzmIconModule } from '../icon/icon.module';
 
 xdescribe('TabsComponent', () => {
   let component: TabsComponent;
@@ -37,7 +37,7 @@ xdescribe('TabsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [TabsComponent],
-      imports: [ZuiDropdownHostModule, ZuiIconModule]
+      imports: [ZuiDropdownHostModule, PzmIconModule]
     }).compileComponents();
   });
 

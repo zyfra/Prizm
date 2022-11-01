@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
-import { ZuiHintDirective } from './hint.directive';
-import { ZuiHintContainerComponent } from './hint-container.component';
+import { PzmHintDirective } from './hint.directive';
+import { PzmHintContainerComponent } from './hint-container.component';
 import { CommonModule } from '@angular/common';
 import { PolymorphModule } from '../polymorph';
-import { ZuiScrollbarModule } from '../../components/scrollbar';
+import { PzmScrollbarModule } from '../../components/scrollbar';
 
 @NgModule({
   imports: [
     CommonModule,
-    ZuiScrollbarModule,
+    PzmScrollbarModule,
     PolymorphModule
   ],
-  declarations: [ZuiHintDirective, ZuiHintContainerComponent],
-  exports: [ZuiHintDirective],
+  declarations: [PzmHintDirective, PzmHintContainerComponent],
+  exports: [PzmHintDirective],
 })
-export class ZuiHintModule {}
+export class PzmHintModule {}

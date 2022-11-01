@@ -1,37 +1,37 @@
 import { Directive, ElementRef, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-import { zuiDefaultProp } from '../../decorators';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { pzmDefaultProp } from '../../decorators';
 
-import { ZUI_MUTATION_OBSERVER_OPTIONS, ZuiMutationObserveOptions } from './mutation-observer-options';
+import { PZM_MUTATION_OBSERVER_OPTIONS, PzmMutationObserveOptions } from './mutation-observer-options';
 
 @Directive({
-  selector: '[zuiMutationObserver]',
+  selector: '[pzmMutationObserver]',
   providers: [
-    ZuiDestroyService,
+    PzmDestroyService,
   ],
-  exportAs: 'zuiMutationObserverEl'
+  exportAs: 'pzmMutationObserverEl'
 })
-export class ZuiMutationObserveDirective implements OnInit {
+export class PzmMutationObserveDirective implements OnInit {
   @Input()
-  @zuiDefaultProp()
-  public zuiMutationObserverConfig: ZuiMutationObserveOptions['config'] = this.options.config;
+  @pzmDefaultProp()
+  public zuiMutationObserverConfig: PzmMutationObserveOptions['config'] = this.options.config;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   public zuiMutationObserverHost: HTMLElement | null = null;
 
   @Output()
-  readonly zuiMutationObserver: EventEmitter<MutationRecord[]> = new EventEmitter();
+  readonly pzmMutationObserver: EventEmitter<MutationRecord[]> = new EventEmitter();
 
   readonly observer: MutationObserver;
 
   constructor(
     @Inject(ElementRef) private readonly el: ElementRef<HTMLElement>,
-    @Inject(ZuiDestroyService) private readonly destroy$: ZuiDestroyService,
-    @Inject(ZUI_MUTATION_OBSERVER_OPTIONS) protected readonly options: ZuiMutationObserveOptions,
+    @Inject(PzmDestroyService) private readonly destroy$: PzmDestroyService,
+    @Inject(PZM_MUTATION_OBSERVER_OPTIONS) protected readonly options: PzmMutationObserveOptions,
   ) {
     this.observer = new MutationObserver((records: MutationRecord[]) => {
-      this.zuiMutationObserver.emit(records);
+      this.pzmMutationObserver.emit(records);
     });
   }
 

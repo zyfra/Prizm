@@ -1,4 +1,4 @@
-export function zuiCanScroll(
+export function pzmCanScroll(
     element: Element,
     rootElement: Element,
     vertical: boolean,

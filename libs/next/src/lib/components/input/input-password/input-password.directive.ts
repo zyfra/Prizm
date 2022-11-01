@@ -7,7 +7,7 @@ import { ZuiInputTextComponent } from '../input-text/input-text.component';
 })
 export class ZuiInputPasswordDirective {
   @HostBinding('attr.testId')
-  readonly testId = 'zui_input_password';
+  readonly testId = 'pzm_input_password';
 
   constructor(
     @Host() private readonly el: ElementRef<HTMLInputElement>,

@@ -1,17 +1,17 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { ZuiDay } from '@digital-plant/zui-components';
+import { PzmDay } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-calendar-example',
+  selector: 'pzm-calendar-example',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalendarComponent {
   public showAdjacent = true;
-  public readonly control = new FormControl(new ZuiDay(2017, 0, 15));
+  public readonly control = new FormControl(new PzmDay(2017, 0, 15));
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
   );

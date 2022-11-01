@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
-import { ZuiMonth } from '../../../@core/date-time/month';
-import { ZuiMonthRange } from '../../../@core/date-time/month-range';
-import { zuiDefaultProp } from '../../../decorators/default-prop';
-import { ZUI_FIRST_DAY, ZUI_LAST_DAY, ZuiDayRange, ZuiYear } from '../../../@core/date-time';
-import { ZuiBooleanHandler } from '../../../types/handler';
-import { ZUI_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
-import { zuiInRange } from '../../../util/math/in-range';
-import { ZuiInteractiveState } from '../../../directives';
-import { ZuiRangeState } from '../../../@core/enums/range-state';
+import { PzmMonth } from '../../../@core/date-time/month';
+import { PzmMonthRange } from '../../../@core/date-time/month-range';
+import { pzmDefaultProp } from '../../../decorators/default-prop';
+import { PZM_FIRST_DAY, PZM_LAST_DAY, PzmDayRange, PzmYear } from '../../../@core/date-time';
+import { PzmBooleanHandler } from '../../../types/handler';
+import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
+import { pzmInRange } from '../../../util/math/in-range';
+import { PzmInteractiveState } from '../../../directives';
+import { PzmRangeState } from '../../../@core/enums/range-state';
 
 const LIMIT = 100;
 const ITEMS_IN_ROW = 3;
@@ -21,30 +21,30 @@ const ITEMS_IN_ROW = 3;
 export class ZuiPrimitiveYearPickerComponent {
     private hoveredItem: number | null = null;
     private pressedItem: number | null = null;
-    private readonly currentYear = ZuiMonth.currentLocal().year;
+    private readonly currentYear = PzmMonth.currentLocal().year;
     public readonly ITEMS_IN_ROW = ITEMS_IN_ROW;
     @Input()
-    @zuiDefaultProp()
-    value: ZuiMonthRange | ZuiYear | ZuiDayRange | null = null;
+    @pzmDefaultProp()
+    value: PzmMonthRange | PzmYear | PzmDayRange | null = null;
 
     @Input()
-    @zuiDefaultProp()
-    initialItem: ZuiYear = ZuiMonth.currentLocal();
+    @pzmDefaultProp()
+    initialItem: PzmYear = PzmMonth.currentLocal();
 
     @Input()
-    @zuiDefaultProp()
-    min: ZuiYear = ZUI_FIRST_DAY;
+    @pzmDefaultProp()
+    min: PzmYear = PZM_FIRST_DAY;
 
     @Input()
-    @zuiDefaultProp()
-    max: ZuiYear = ZUI_LAST_DAY;
+    @pzmDefaultProp()
+    max: PzmYear = PZM_LAST_DAY;
 
     @Input()
-    @zuiDefaultProp()
-    disabledItemHandler: ZuiBooleanHandler<number> = ZUI_ALWAYS_FALSE_HANDLER;
+    @pzmDefaultProp()
+    disabledItemHandler: PzmBooleanHandler<number> = PZM_ALWAYS_FALSE_HANDLER;
 
     @Output()
-    readonly yearClick = new EventEmitter<ZuiYear>();
+    readonly yearClick = new EventEmitter<PzmYear>();
 
     @HostBinding(`class._single`)
     get isSingle(): boolean {
@@ -54,7 +54,7 @@ export class ZuiPrimitiveYearPickerComponent {
     }
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_primitive_year_picker';
+    readonly testId = 'pzm_primitive_year_picker';
 
     get rows(): number {
         return Math.ceil((this.calculatedMax - this.calculatedMin) / ITEMS_IN_ROW);
@@ -72,8 +72,8 @@ export class ZuiPrimitiveYearPickerComponent {
         return this.max.year < initial ? this.max.year + 1 : initial;
     }
 
-    public isRange(item: ZuiMonthRange | ZuiYear): item is ZuiMonthRange {
-        return item instanceof ZuiMonthRange;
+    public isRange(item: PzmMonthRange | PzmYear): item is PzmMonthRange {
+        return item instanceof PzmMonthRange;
     }
 
     public scrollItemIntoView(item: number): boolean {
@@ -84,43 +84,43 @@ export class ZuiPrimitiveYearPickerComponent {
         return rowIndex * ITEMS_IN_ROW + colIndex + this.calculatedMin;
     }
 
-    public getItemState(item: number): ZuiInteractiveState | null {
+    public getItemState(item: number): PzmInteractiveState | null {
         const {disabledItemHandler, max, pressedItem, hoveredItem} = this;
 
         if (
             max.year < item ||
-            (disabledItemHandler !== ZUI_ALWAYS_FALSE_HANDLER && disabledItemHandler(item))
+            (disabledItemHandler !== PZM_ALWAYS_FALSE_HANDLER && disabledItemHandler(item))
         ) {
-            return ZuiInteractiveState.Disabled;
+            return PzmInteractiveState.Disabled;
         }
 
         if (pressedItem === item) {
-            return ZuiInteractiveState.Pressed;
+            return PzmInteractiveState.Pressed;
         }
 
         if (hoveredItem === item) {
-            return ZuiInteractiveState.Hovered;
+            return PzmInteractiveState.Hovered;
         }
 
         return null;
     }
 
-    public getItemRange(item: number): ZuiRangeState | null {
+    public getItemRange(item: number): PzmRangeState | null {
         const {value, hoveredItem} = this;
 
         if (value === null) {
             return null;
         }
 
-        if (value instanceof ZuiYear) {
-            return value.year === item ? ZuiRangeState.Single : null;
+        if (value instanceof PzmYear) {
+            return value.year === item ? PzmRangeState.Single : null;
         }
 
         if (
-          (value instanceof ZuiDayRange || value instanceof ZuiMonthRange) &&
-          value.isYearInRange(new ZuiYear(item))
+          (value instanceof PzmDayRange || value instanceof PzmMonthRange) &&
+          value.isYearInRange(new PzmYear(item))
         ) {
-          return ZuiRangeState.Single;
+          return PzmRangeState.Single;
         }
 
         if (
@@ -134,7 +134,7 @@ export class ZuiPrimitiveYearPickerComponent {
                 hoveredItem < value.from.year &&
                 value.from.yearSame(value.to))
         ) {
-            return ZuiRangeState.Single;
+            return PzmRangeState.Single;
 
             // TODO add after add support intervals
             // return ZuiRangeState.Start;
@@ -151,14 +151,14 @@ export class ZuiPrimitiveYearPickerComponent {
                 hoveredItem > value.from.year &&
                 value.from.yearSame(value.to))
         ) {
-          return ZuiRangeState.Single;
+          return PzmRangeState.Single;
 
           // TODO add after add support intervals
           // return ZuiRangeState.End;
         }
 
         return value.from.yearSame(value.to) && value.from.year === item
-            ? ZuiRangeState.Single
+            ? PzmRangeState.Single
             : null;
     }
 
@@ -191,7 +191,7 @@ export class ZuiPrimitiveYearPickerComponent {
             return false;
         }
 
-        return zuiInRange(
+        return pzmInRange(
             item,
             Math.min(value.from.year, hoveredItem),
             Math.max(value.from.year, hoveredItem),
@@ -210,7 +210,7 @@ export class ZuiPrimitiveYearPickerComponent {
         // TODO delete after update dropdown-host (need activeZone optionan, for dynamic change elements)
         $event.stopImmediatePropagation();
 
-        this.yearClick.emit(new ZuiYear(item));
+        this.yearClick.emit(new PzmYear(item));
     }
 
     private updateHoveredItem(hovered: boolean, item: number): void {

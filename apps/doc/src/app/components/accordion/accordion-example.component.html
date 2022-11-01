@@ -1,7 +1,7 @@
 <tui-doc-page header="Accordion" package="Equinox" type="components">
   <ng-template pageTab>
     <tui-doc-example id="base" heading="Base" [content]="exampleBasicAccordion">
-      <zui-accordion-basic-example></zui-accordion-basic-example>
+      <pzm-accordion-basic-example></pzm-accordion-basic-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -9,26 +9,26 @@
       heading="With instruments and disabled item"
       [content]="exampleWithInstrumentsAccordion"
     >
-      <zui-accordion-with-instruments-example></zui-accordion-with-instruments-example>
+      <pzm-accordion-with-instruments-example></pzm-accordion-with-instruments-example>
     </tui-doc-example>
 
     <tui-doc-example id="single" heading="Only one expanded item" [content]="exampleOneExpandedAccordion">
-      <zui-accordion-single-expand-example></zui-accordion-single-expand-example>
+      <pzm-accordion-single-expand-example></pzm-accordion-single-expand-example>
     </tui-doc-example>
 
     <tui-doc-example id="multiple" heading="Multiple expanded" [content]="exampleMultipleExpandedAccordion">
-      <zui-accordion-multiple-expand-example></zui-accordion-multiple-expand-example>
+      <pzm-accordion-multiple-expand-example></pzm-accordion-multiple-expand-example>
     </tui-doc-example>
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-accordion [onlyOneExpanded]="onlyOneExpanded">
-        <zui-accordion-item [disabled]="disabled" title="Title number 2">
-          <ng-template zuiAccordionTools>
+      <pzm-accordion [onlyOneExpanded]="onlyOneExpanded">
+        <pzm-accordion-item [disabled]="disabled" title="Title number 2">
+          <ng-template pzmAccordionTools>
             <zui-checkbox [disabled]="disabled" label="Checkbox label is here"></zui-checkbox>
           </ng-template>
-          <ng-template zuiAccordionContent>
+          <ng-template pzmAccordionContent>
             <span class="inner-text">
               Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является
               стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный
@@ -40,12 +40,12 @@
               - ошибка, дочитали и думали, что текст тот же, что и выше - фатальная ошибка.
             </span>
           </ng-template>
-        </zui-accordion-item>
-        <zui-accordion-item [disabled]="disabled" title="Title number 3">
-          <ng-template zuiAccordionTools>
+        </pzm-accordion-item>
+        <pzm-accordion-item [disabled]="disabled" title="Title number 3">
+          <ng-template pzmAccordionTools>
             <zui-checkbox label="Checkbox label is here but..." [disabled]="disabled"></zui-checkbox>
           </ng-template>
-          <ng-template zuiAccordionContent>
+          <ng-template pzmAccordionContent>
             <span class="inner-text">
               Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является
               стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный
@@ -57,8 +57,8 @@
               - ошибка, дочитали и думали, что текст тот же, что и выше - фатальная ошибка.
             </span>
           </ng-template>
-        </zui-accordion-item>
-      </zui-accordion>
+        </pzm-accordion-item>
+      </pzm-accordion>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template

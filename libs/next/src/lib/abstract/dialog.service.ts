@@ -1,31 +1,31 @@
 import { Injectable, Injector, Type } from '@angular/core';
 import { noop, Observable, Observer, Subject } from 'rxjs';
 import { ZuiBaseDialogContext, ZuiDialogBaseOptions } from '../components/dialogs/dialog/dialog.models';
-import { PolymorphContent, ZuiOverscrollService } from '../directives';
+import { PolymorphContent, PzmOverscrollService } from '../directives';
 import {
   ZUI_OVERLAY_BACKDROP_NO_POINTERS,
   ZuiOverlayControl,
   ZuiOverlayGlobalPosition,
-  ZuiOverlayInsidePlacement,
-  ZuiOverlayService, ZuiOverlaySlidePosition,
+  PzmOverlayInsidePlacement,
+  PzmOverlayService, ZuiOverlaySlidePosition,
 } from '../modules/overlay';
 import { takeUntil } from 'rxjs/operators';
-import { ZuiOverscrollMode } from '../directives/overscroll/overscroll.model';
-import { zuiGenerateId } from '../util';
-import { ZuiOverlayConfig } from '../modules/overlay/models';
+import { PzmOverscrollMode } from '../directives/overscroll/overscroll.model';
+import { pzmGenerateId } from '../util';
+import { PzmOverlayConfig } from '../modules/overlay/models';
 
 
 @Injectable()
 export abstract class AbstractZuiDialogService<T extends ZuiDialogBaseOptions, O = unknown, DATA = unknown> {
   protected abstract readonly component: Type<unknown>;
   protected abstract readonly defaultOptions: T;
-  protected readonly overlayService: ZuiOverlayService;
-  protected readonly overscrollService: ZuiOverscrollService
+  protected readonly overlayService: PzmOverlayService;
+  protected readonly overscrollService: PzmOverscrollService
   protected constructor(
     injector: Injector
   ) {
-    this.overlayService = injector.get(ZuiOverlayService);
-    this.overscrollService = injector.get(ZuiOverscrollService);
+    this.overlayService = injector.get(PzmOverlayService);
+    this.overscrollService = injector.get(PzmOverscrollService);
   }
 
   public open<O = unknown, DATA = unknown>(
@@ -55,7 +55,7 @@ export abstract class AbstractZuiDialogService<T extends ZuiDialogBaseOptions, O
         completeWith,
         $implicit: observer,
         createdAt: Date.now(),
-        id: options.id ?? this.defaultOptions.id ?? zuiGenerateId(),
+        id: options.id ?? this.defaultOptions.id ?? pzmGenerateId(),
       };
 
       const control = this.overlayService
@@ -89,7 +89,7 @@ export abstract class AbstractZuiDialogService<T extends ZuiDialogBaseOptions, O
 
   protected getConfig(
     dialog: ZuiBaseDialogContext<any, any>,
-  ): Partial<ZuiOverlayConfig> {
+  ): Partial<PzmOverlayConfig> {
     return {
       backdrop: dialog.backdrop ?? true,
       containerClass: dialog.containerClass ?? '',
@@ -106,7 +106,7 @@ export abstract class AbstractZuiDialogService<T extends ZuiDialogBaseOptions, O
   ): ZuiOverlayGlobalPosition | ZuiOverlaySlidePosition | ZuiOverlayGlobalPosition {
     return new ZuiOverlayGlobalPosition(
       {
-        placement: dialog.position ?? ZuiOverlayInsidePlacement.CENTER,
+        placement: dialog.position ?? PzmOverlayInsidePlacement.CENTER,
         width: dialog.width ?? 'auto',
         height: dialog.height ?? 'auto'
       }
@@ -114,7 +114,7 @@ export abstract class AbstractZuiDialogService<T extends ZuiDialogBaseOptions, O
   }
 
   private setOverscrollMode(
-    mode: ZuiOverscrollMode,
+    mode: PzmOverscrollMode,
     control: ZuiOverlayControl,
     destroy$: Observable<void>
   ): void {

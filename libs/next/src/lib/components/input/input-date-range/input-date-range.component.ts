@@ -16,21 +16,21 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ZUI_INPUT_DATE_RANGE_PROVIDERS } from './input-date-range.providers';
 import { AbstractZuiNullableControl } from '../../../abstract/nullable-control';
-import { ZuiDayRange } from '../../../@core/date-time/day-range';
-import { ZuiWithOptionalMinMax } from '../../../types/with-optional-min-max';
-import { ZuiDay } from '../../../@core/date-time/day';
-import { ZuiFocusableElementAccessor } from '../../../types/focusable-element-accessor';
+import { PzmDayRange } from '../../../@core/date-time/day-range';
+import { PzmWithOptionalMinMax } from '../../../types/with-optional-min-max';
+import { PzmDay } from '../../../@core/date-time/day';
+import { PzmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
 import { zuiCreateDateRangeMask } from '../../../@core/mask/create-date-range-mask';
-import { zuiDefaultProp } from '../../../decorators/default-prop';
-import { ZuiBooleanHandler } from '../../../types/handler';
-import { ZUI_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
-import { ZuiMarkerHandler } from '../../../types/marker-handler';
-import { ZUI_DEFAULT_MARKER_HANDLER } from '../../../constants/default-marker-handler';
-import { ZuiMonth } from '../../../@core/date-time/month';
-import { ZuiDayRangePeriod } from '../../../@core/classes/day-range-period';
-import { ZUI_FIRST_DAY, ZUI_LAST_DAY } from '../../../@core/date-time/days.const';
-import { ZuiDayLike } from '../../../types/day-like';
-import { ZuiMapper } from '../../../types/mapper';
+import { pzmDefaultProp } from '../../../decorators/default-prop';
+import { PzmBooleanHandler } from '../../../types/handler';
+import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
+import { PzmMarkerHandler } from '../../../types/marker-handler';
+import { PZM_DEFAULT_MARKER_HANDLER } from '../../../constants/default-marker-handler';
+import { PzmMonth } from '../../../@core/date-time/month';
+import { PzmDayRangePeriod } from '../../../@core/classes/day-range-period';
+import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../../@core/date-time/days.const';
+import { PzmDayLike } from '../../../types/day-like';
+import { PzmMapper } from '../../../types/mapper';
 import { ZUI_MAX_DAY_RANGE_LENGTH_MAPPER } from '../../../constants/max-day-range-length-mapper';
 import { ZUI_DATE_SEPARATOR, zuiChangeDateSeparator } from '../../../@core/date-time/date-separator';
 import { ZUI_IS_MOBILE } from '../../../tokens/is-mobile';
@@ -41,12 +41,12 @@ import { ZuiDateMode } from '../../../types/date-mode';
 import { ZUI_DATE_TEXTS } from '../../../tokens/i18n';
 import { ZUI_DATE_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { ZuiControlValueTransformer } from '../../../types/control-value-transformer';
-import { zuiNullableSame } from '../../../util/common/nullable-same';
-import { ZuiInputSize } from '../common/models/zui-input.models';
+import { pzmNullableSame } from '../../../util/common/nullable-same';
+import { PzmInputSize } from '../common/models/zui-input.models';
 import { ZUI_DATE_FILLER_LENGTH, ZUI_DATE_RANGE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
 import { ZUI_RANGE_SEPARATOR_CHAR } from '../../../@core/date-time/date-time';
-import { zuiSetNativeFocused } from '../../../util/set-native-focused';
-import { zuiIsNativeFocusedIn } from '../../../util';
+import { pzmSetNativeFocused } from '../../../util/set-native-focused';
+import { pzmIsNativeFocusedIn } from '../../../util';
 
 @Component({
     selector: `zui-input-date-range`,
@@ -55,54 +55,54 @@ import { zuiIsNativeFocusedIn } from '../../../util';
     providers: ZUI_INPUT_DATE_RANGE_PROVIDERS,
 })
 export class ZuiInputDateRangeComponent
-    extends AbstractZuiNullableControl<ZuiDayRange>
-    implements ZuiWithOptionalMinMax<ZuiDay>, ZuiFocusableElementAccessor
+    extends AbstractZuiNullableControl<PzmDayRange>
+    implements PzmWithOptionalMinMax<PzmDay>, PzmFocusableElementAccessor
 {
     @ViewChild('focusableElementRef', {read: ElementRef})
     public readonly focusableElement?: ElementRef<HTMLInputElement>;
 
     @Input()
-    @zuiDefaultProp()
-    disabledItemHandler: ZuiBooleanHandler<ZuiDay> = ZUI_ALWAYS_FALSE_HANDLER;
+    @pzmDefaultProp()
+    disabledItemHandler: PzmBooleanHandler<PzmDay> = PZM_ALWAYS_FALSE_HANDLER;
 
     @Input()
-    @zuiDefaultProp()
-    markerHandler: ZuiMarkerHandler = ZUI_DEFAULT_MARKER_HANDLER;
+    @pzmDefaultProp()
+    markerHandler: PzmMarkerHandler = PZM_DEFAULT_MARKER_HANDLER;
 
     @Input()
-    @zuiDefaultProp()
-    defaultViewedMonth = ZuiMonth.currentLocal();
+    @pzmDefaultProp()
+    defaultViewedMonth = PzmMonth.currentLocal();
 
     @Input()
-    @zuiDefaultProp()
-    items: readonly ZuiDayRangePeriod[] = [];
+    @pzmDefaultProp()
+    items: readonly PzmDayRangePeriod[] = [];
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     placeholder = '';
 
     @Input()
-    @zuiDefaultProp()
-    min = ZUI_FIRST_DAY;
+    @pzmDefaultProp()
+    min = PZM_FIRST_DAY;
 
     @Input()
-    @zuiDefaultProp()
-    max = ZUI_LAST_DAY;
+    @pzmDefaultProp()
+    max = PZM_LAST_DAY;
 
     @Input()
-    @zuiDefaultProp()
-    minLength: ZuiDayLike | null = null;
+    @pzmDefaultProp()
+    minLength: PzmDayLike | null = null;
 
     @Input()
-    @zuiDefaultProp()
-    maxLength: ZuiDayLike | null = null;
+    @pzmDefaultProp()
+    maxLength: PzmDayLike | null = null;
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_input_date_range';
+    readonly testId = 'pzm_input_date_range';
 
     open = false;
 
-    readonly maxLengthMapper: ZuiMapper<ZuiDay, ZuiDay> = ZUI_MAX_DAY_RANGE_LENGTH_MAPPER;
+    readonly maxLengthMapper: PzmMapper<PzmDay, PzmDay> = ZUI_MAX_DAY_RANGE_LENGTH_MAPPER;
     readonly dateFiller$ = this.dateTexts$.pipe(
         map(dateTexts =>
             zuiChangeDateSeparator(dateTexts[this.dateFormat], this.dateSeparator),
@@ -110,15 +110,15 @@ export class ZuiInputDateRangeComponent
     );
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     label = 'Выберите дату';
 
     @Input()
-    @zuiDefaultProp()
-    size: ZuiInputSize = 'm';
+    @pzmDefaultProp()
+    size: PzmInputSize = 'm';
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     outer = false;
 
     constructor(
@@ -139,7 +139,7 @@ export class ZuiInputDateRangeComponent
         readonly dateTexts$: Observable<Record<ZuiDateMode, string>>,
         @Optional()
         @Inject(ZUI_DATE_RANGE_VALUE_TRANSFORMER)
-        override readonly valueTransformer: ZuiControlValueTransformer<ZuiDayRange | null> | null,
+        override readonly valueTransformer: ZuiControlValueTransformer<PzmDayRange | null> | null,
     ) {
         super(control, changeDetectorRef, valueTransformer);
     }
@@ -149,7 +149,7 @@ export class ZuiInputDateRangeComponent
     }
 
     public get focused(): boolean {
-      return this.focusableElement?.nativeElement ? zuiIsNativeFocusedIn(this.focusableElement.nativeElement) : false;
+      return this.focusableElement?.nativeElement ? pzmIsNativeFocusedIn(this.focusableElement.nativeElement) : false;
     }
 
     public get computedMobile(): boolean {
@@ -169,10 +169,10 @@ export class ZuiInputDateRangeComponent
     }
 
 
-  get activePeriod(): ZuiDayRangePeriod | null {
+  get activePeriod(): PzmDayRangePeriod | null {
         return (
             this.items.find(item =>
-                zuiNullableSame(
+                pzmNullableSame(
                     this.value,
                     item.range,
                     (a, b) =>
@@ -244,7 +244,7 @@ export class ZuiInputDateRangeComponent
           return;
         }
 
-        const parsedValue = ZuiDayRange.normalizeParse(value, this.dateFormat);
+        const parsedValue = PzmDayRange.normalizeParse(value, this.dateFormat);
 
         this.updateValue(
             !this.minLength && !this.maxLength
@@ -253,7 +253,7 @@ export class ZuiInputDateRangeComponent
         );
     }
 
-    public onRangeChange(range: ZuiDayRange | null): void {
+    public onRangeChange(range: PzmDayRange | null): void {
         this.toggle();
         this.focusInput();
 
@@ -261,12 +261,12 @@ export class ZuiInputDateRangeComponent
             this.nativeValue = ``;
         }
 
-        if (!zuiNullableSame<ZuiDayRange>(this.value, range, (a, b) => a.daySame(b))) {
+        if (!pzmNullableSame<PzmDayRange>(this.value, range, (a, b) => a.daySame(b))) {
             this.updateValue(range);
         }
     }
 
-    public onItemSelect(item: string | ZuiDayRangePeriod): void {
+    public onItemSelect(item: string | PzmDayRangePeriod): void {
         this.toggle();
         this.focusInput();
 
@@ -290,7 +290,7 @@ export class ZuiInputDateRangeComponent
         this.updatePressed(pressed);
     }
 
-    public override writeValue(value: ZuiDayRange | null): void {
+    public override writeValue(value: PzmDayRange | null): void {
         super.writeValue(value);
         this.nativeValue = value ? this.computedValue : ``;
     }
@@ -305,14 +305,14 @@ export class ZuiInputDateRangeComponent
 
     private focusInput(preventScroll: boolean = false): void {
         if (this.nativeFocusableElement) {
-            zuiSetNativeFocused(this.nativeFocusableElement, true, preventScroll);
+            pzmSetNativeFocused(this.nativeFocusableElement, true, preventScroll);
         }
     }
 
-    private clampValue(value: ZuiDayRange): ZuiDayRange {
+    private clampValue(value: PzmDayRange): PzmDayRange {
         const clampedBottom =
             this.minLength && value.from.append(this.minLength).dayAfter(value.to)
-                ? new ZuiDayRange(
+                ? new PzmDayRange(
                       value.from,
                       value.from.append(this.minLength).append({day: -1}),
                   )
@@ -323,7 +323,7 @@ export class ZuiInputDateRangeComponent
             : this.max;
 
         return clampedBottom.to.dayAfter(availableMax)
-            ? new ZuiDayRange(clampedBottom.from, availableMax)
+            ? new PzmDayRange(clampedBottom.from, availableMax)
             : clampedBottom;
     }
 

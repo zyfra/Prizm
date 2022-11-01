@@ -26,7 +26,7 @@ export class GridComponent implements AfterContentInit {
   @ContentChildren(GridItemComponent) public gridItemsData: QueryList<GridItemComponent>;
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_grid';
+  readonly testId = 'pzm_grid';
 
   public ngAfterContentInit(): void {
     const containerElement = this.container.nativeElement;

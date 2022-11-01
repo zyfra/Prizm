@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ZuiInputPosition, ZuiInputSize, ZuiInputStatus } from '@digital-plant/zui-components';
+import { PzmInputPosition, PzmInputSize, PzmInputStatus } from '@digital-plant/zui-components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
@@ -18,18 +18,18 @@ export class InputNumberExampleComponent {
   public label = 'Заголовок';
   public placeholder = '';
 
-  public inputPosition: ZuiInputPosition = 'left';
-  public inputPositions: ZuiInputPosition[] = ['left', 'center'];
+  public inputPosition: PzmInputPosition = 'left';
+  public inputPositions: PzmInputPosition[] = ['left', 'center'];
   public outer: false;
 
-  public size: ZuiInputSize = 'l';
-  public sizesOuter: ZuiInputSize[] = ['l', 'm', 's'];
-  public sizesInner: ZuiInputSize[] = ['l', 'm'];
+  public size: PzmInputSize = 'l';
+  public sizesOuter: PzmInputSize[] = ['l', 'm', 's'];
+  public sizesInner: PzmInputSize[] = ['l', 'm'];
 
   public disabled = false;
 
-  public status: ZuiInputStatus = 'default';
-  public statuses: ZuiInputStatus[] = ['default', 'success', 'warning', 'danger'];
+  public status: PzmInputStatus = 'default';
+  public statuses: PzmInputStatus[] = ['default', 'success', 'warning', 'danger'];
 
   public required = false;
 

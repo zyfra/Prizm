@@ -6,4 +6,4 @@ import {ZuiLifecycleDirective} from './lifecycle.directive';
     declarations: [ZuiLifecycleDirective],
     exports: [ZuiLifecycleDirective],
 })
-export class ZuiLifecycleModule {}
+export class PzmLifecycleModule {}

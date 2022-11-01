@@ -1,8 +1,8 @@
 <div class="container">
-  <zui-panel header="Заголовок">
+  <pzm-panel header="Заголовок">
     <div class="zoom-control" instruments>
       <button
-        zuiIconButton
+        pzmIconButton
         appearanceType="ghost"
         icon="sort-zoom-out"
         appearance="secondary"
@@ -18,7 +18,7 @@
         </button>
       </zui-dropdown-host>
       <button
-        zuiIconButton
+        pzmIconButton
         appearanceType="ghost"
         icon="sort-maximize"
         appearance="secondary"
@@ -28,7 +28,7 @@
         [disabled]="scaleIdx === 0"
       ></button>
     </div>
-  </zui-panel>
+  </pzm-panel>
   <div class="content" #content>
     <div
       [ngStyle]="{

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { MultiSelectComponent } from './multi-select.component';
-import { PolymorphModule, ZuiIconModule, ZuiMultiSelectModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PzmIconModule, ZuiMultiSelectModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   ZuiMultiSelectWithTemplateExampleComponent,
@@ -24,7 +24,7 @@ import {
     ReactiveFormsModule,
     PolymorphModule,
     ZuiMultiSelectModule,
-    ZuiIconModule,
+    PzmIconModule,
     RouterModule.forChild(generateRoutes(MultiSelectComponent)),
   ],
   declarations: [

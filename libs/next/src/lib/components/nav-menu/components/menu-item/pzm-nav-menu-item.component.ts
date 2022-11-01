@@ -7,23 +7,23 @@ import {
   Output,
   TemplateRef,
 } from '@angular/core';
-import { ZuiMenuItem } from '../../model/zui-menu-item.interface';
+import { PzmMenuItem } from '../../model/zui-menu-item.interface';
 
 @Component({
-  selector: 'zui-nav-menu-item',
-  templateUrl: './zui-nav-menu-item.component.html',
+  selector: 'pzm-nav-menu-item',
+  templateUrl: './pzm-nav-menu-item.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiNavMenuItemComponent {
-  @Input() item: ZuiMenuItem;
+export class PzmNavMenuItemComponent {
+  @Input() item: PzmMenuItem;
   @Input() itemExtra: TemplateRef<any>;
 
-  @Output() itemClick: EventEmitter<ZuiMenuItem> = new EventEmitter();
+  @Output() itemClick: EventEmitter<PzmMenuItem> = new EventEmitter();
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_nav_menu_item';
+  readonly testId = 'pzm_nav_menu_item';
 
-  public itemClickHandler(event: MouseEvent, item: ZuiMenuItem): void {
+  public itemClickHandler(event: MouseEvent, item: PzmMenuItem): void {
     if (item.disabled) {
       event.preventDefault();
       return;

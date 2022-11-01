@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ZuiChipsComponent } from '@digital-plant/zui-components';
+import { PzmChipsComponent } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-input-chips-outer-example',
@@ -13,7 +13,7 @@ export class InputChipsOuterExampleComponent {
   public requiredInputControl = new FormControl('');
   public chipsControl = new FormControl(['Чипс 1', 'Чипс 2', 'Чипс 3']);
 
-  @ViewChild(ZuiChipsComponent, { static: true }) chipsComponent: ZuiChipsComponent;
+  @ViewChild(PzmChipsComponent, { static: true }) chipsComponent: PzmChipsComponent;
 
   public onEnter(value: string): void {
     if (value === '') return;

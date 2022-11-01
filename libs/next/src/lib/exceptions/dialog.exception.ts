@@ -1,4 +1,4 @@
-export class ZuiDialogRequiredException extends Error {
+export class PzmDialogRequiredException extends Error {
   constructor() {
     super('Required zuiDialog was dismissed');
   }

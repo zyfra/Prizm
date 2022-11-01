@@ -1,13 +1,13 @@
 import { ElementRef, InjectionToken, Provider } from '@angular/core';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { merge, Observable, Subject } from 'rxjs';
 import { WINDOW } from '@ng-web-apis/common';
 import { DOCUMENT } from '@angular/common';
-import { zuiTypedFromEvent } from '../../../observables';
-import { zuiContainsOrAfter, zuiIsCurrentTarget } from '../../../util/dom';
+import { pzmTypedFromEvent } from '../../../observables';
+import { pzmContainsOrAfter, zuiIsCurrentTarget } from '../../../util/dom';
 import { filter, switchMapTo, take, takeUntil } from 'rxjs/operators';
 import { ZuiOverlayContentToken } from '../../../modules/overlay';
-import { ZuiOverlayContent } from '../../../modules/overlay/models';
+import { PzmOverlayContent } from '../../../modules/overlay/models';
 
 export const ZUI_DIALOGS_CLOSE = new InjectionToken<Observable<void>>(
     'Default close event',
@@ -22,7 +22,7 @@ export const ZUI_DIALOG_CLOSE_STREAM = new InjectionToken<Observable<unknown>>(
   'Dialogs closing stream',
 );
 export const ZUI_DIALOG_PROVIDERS: Provider[] = [
-  ZuiDestroyService,
+  PzmDestroyService,
   {
     provide: ZUI_DIALOG_CLOSE_STREAM,
     deps: [
@@ -30,7 +30,7 @@ export const ZUI_DIALOG_PROVIDERS: Provider[] = [
       WINDOW,
       ElementRef,
       ZUI_DIALOGS_CLOSE,
-      ZuiDestroyService,
+      PzmDestroyService,
       ZuiOverlayContentToken
     ],
     useFactory: zuiDialogCloseStreamFactory,
@@ -42,39 +42,39 @@ export function zuiDialogCloseStreamFactory(
   windowRef: Window,
   {nativeElement}: ElementRef<HTMLElement>,
   close$: Observable<void>,
-  destroy$: ZuiDestroyService,
-  content: ZuiOverlayContent,
+  destroy$: PzmDestroyService,
+  content: PzmOverlayContent,
 ): Observable<unknown> {
   const {dismissible} = content.props.context;
   return dismissible
     ? merge(
       /* on click esc */
-      zuiTypedFromEvent(documentRef, 'keydown').pipe(
+      pzmTypedFromEvent(documentRef, 'keydown').pipe(
         filter(
           ({key, target}) =>
             key === 'Escape' &&
             target instanceof Element &&
-            (!zuiContainsOrAfter(nativeElement, target) ||
+            (!pzmContainsOrAfter(nativeElement, target) ||
               nativeElement.contains(target)),
         ),
       ),
       /* on backdrop click*/
-      zuiTypedFromEvent(nativeElement, 'click').pipe(filter(zuiIsCurrentTarget)),
+      pzmTypedFromEvent(nativeElement, 'click').pipe(filter(zuiIsCurrentTarget)),
       /* on outdoor mouse events */
-      zuiTypedFromEvent(documentRef, 'mousedown').pipe(
+      pzmTypedFromEvent(documentRef, 'mousedown').pipe(
         filter(
           ({target, clientX}) =>
             target instanceof Element &&
             windowRef.innerWidth - clientX > SCROLLBAR_PLACEHOLDER &&
-            !zuiContainsOrAfter(nativeElement, target),
+            !pzmContainsOrAfter(nativeElement, target),
         ),
         switchMapTo(
-          zuiTypedFromEvent(documentRef, 'mouseup').pipe(
+          pzmTypedFromEvent(documentRef, 'mouseup').pipe(
             take(1),
             filter(
               ({target}) =>
                 target instanceof Element &&
-                !zuiContainsOrAfter(nativeElement, target),
+                !pzmContainsOrAfter(nativeElement, target),
             ),
           ),
         ),

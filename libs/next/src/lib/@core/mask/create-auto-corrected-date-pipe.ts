@@ -1,11 +1,11 @@
 import { ZuiDateMode } from '../../types';
 import { ZuiWithOptionalMinMaxWithValue } from '../../types/with-optional-min-max';
-import { ZuiDay } from '../date-time';
+import { PzmDay } from '../date-time';
 import { ZUI_DATE_FILLER_LENGTH } from '../date-time/date-fillers';
 import { ZuiTextMaskPipeHandler } from './text-mask-pipe-handler';
 
 export interface ZuiAutoCorrectedDatePipeConfigs
-    extends ZuiWithOptionalMinMaxWithValue<ZuiDay | null, ZuiDay> {
+    extends ZuiWithOptionalMinMaxWithValue<PzmDay | null, PzmDay> {
     dateFormat: ZuiDateMode;
     dateSeparator: string;
 }
@@ -16,7 +16,7 @@ export function zuiNormalizeDateValue(
 ): string {
     return value && value.toString(dateFormat, dateSeparator) === dateValue
         ? dateValue
-        : ZuiDay.normalizeParse(dateValue, dateFormat)
+        : PzmDay.normalizeParse(dateValue, dateFormat)
               .dayLimit(min, max)
               .toString(dateFormat, dateSeparator);
 }

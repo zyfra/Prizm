@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { ZuiWrapperComponent } from './wrapper.component';
+import { PzmWrapperComponent } from './wrapper.component';
 
 @NgModule({
-    declarations: [ZuiWrapperComponent],
-    exports: [ZuiWrapperComponent],
+    declarations: [PzmWrapperComponent],
+    exports: [PzmWrapperComponent],
 })
-export class ZuiWrapperModule {}
+export class PzmWrapperModule {}

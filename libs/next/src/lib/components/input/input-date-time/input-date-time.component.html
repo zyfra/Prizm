@@ -8,11 +8,11 @@
     [closeByEsc]='true'
     (isOpenChange)="onOpenChange($event)"
 >
-    <zui-input-layout
+    <pzm-input-layout
       [label]="label"
       [outer]='outer'
       [size]="size">
-      <ng-template zuiInputStatusText>Ошибка! Неправильный формат</ng-template>
+      <ng-template pzmInputStatusText>Ошибка! Неправильный формат</ng-template>
       <input
         class='input-search'
         zuiInput
@@ -28,23 +28,23 @@
       />
       <ng-container zui-input-right>
         <button
-          zuiInputIconButton="date-calendar-blank"
+          pzmInputIconButton="date-calendar-blank"
           [interactive]="true"
           (click)='focusableElementRef.focus()'></button>
         <button
-          zuiInputIconButton="date-clock"
+          pzmInputIconButton="date-clock"
           (click)='openTimeDropdown();'
           [interactive]="true"
         ></button>
         <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>
         </ng-container>
       </ng-container>
-    </zui-input-layout>
+    </pzm-input-layout>
 </zui-dropdown-host>
 
 <ng-template #dropdownDateTemplate>
-  <zui-calendar
-    zuiPreventDefault="mousedown"
+  <pzm-calendar
+    pzmPreventDefault="mousedown"
     automation-id="zui-input-date-time__calendar"
     [min]="calendarMinDay"
     [max]="calendarMaxDay"
@@ -53,13 +53,13 @@
     [value]="calendarValue"
     (dayClick)="onDayClick($event)"
     (monthChange)="onMonthChange($event)"
-  ></zui-calendar>
+  ></pzm-calendar>
 </ng-template>
 
 <ng-template #dropdownTimeTemplate>
   <zui-data-list
-    zuiLifecycle
-    (zuiOnDestroy)='openTimeTemplate = false'
+    pzmLifecycle
+    (pzmOnDestroy)='openTimeTemplate = false'
     *ngIf='timeItems.length;' class='block' [style.--zui-data-list-border]='0'>
     <ng-container>
       <div class='time-item'

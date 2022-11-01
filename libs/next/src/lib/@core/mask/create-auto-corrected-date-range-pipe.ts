@@ -2,18 +2,18 @@ import { ZuiDateMode } from '../../types/date-mode';
 import { ZuiWithOptionalMinMaxWithValue } from '../../types/with-optional-min-max';
 import { ZUI_DATE_FILLER_LENGTH, ZUI_DATE_RANGE_FILLER_LENGTH } from '../date-time/date-fillers';
 import { ZUI_RANGE_SEPARATOR_CHAR } from '../date-time/date-time';
-import { ZuiDay } from '../date-time/day';
-import { ZuiDayRange } from '../date-time/day-range';
+import { PzmDay } from '../date-time/day';
+import { PzmDayRange } from '../date-time/day-range';
 import { ZuiTextMaskPipeHandler } from './text-mask-pipe-handler';
 
 interface ZuiAutoCorrectedDatePipeConfigs
-    extends ZuiWithOptionalMinMaxWithValue<ZuiDayRange | null, ZuiDay> {
+    extends ZuiWithOptionalMinMaxWithValue<PzmDayRange | null, PzmDay> {
     dateFormat: ZuiDateMode;
     dateSeparator: string;
 }
 
-function parseWithLimit(value: string, config: ZuiAutoCorrectedDatePipeConfigs): ZuiDay {
-    return ZuiDay.normalizeParse(
+function parseWithLimit(value: string, config: ZuiAutoCorrectedDatePipeConfigs): PzmDay {
+    return PzmDay.normalizeParse(
         value.slice(0, ZUI_DATE_FILLER_LENGTH),
         config.dateFormat,
     ).dayLimit(config.min, config.max);
@@ -34,7 +34,7 @@ function processRawValue(value: string, config: ZuiAutoCorrectedDatePipeConfigs)
             return config.value &&
                 config.value.toString(dateFormat, dateSeparator) === value
                 ? value
-                : ZuiDayRange.sort(
+                : PzmDayRange.sort(
                       parseWithLimit(value.slice(0, ZUI_DATE_FILLER_LENGTH), config),
                       parseWithLimit(
                           value.slice(ZUI_DATE_FILLER_LENGTH + ZUI_RANGE_SEPARATOR_CHAR.length),

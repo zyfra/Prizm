@@ -2,10 +2,10 @@ import { ChangeDetectionStrategy, Component, HostBinding, Inject, Input } from '
 import { Observable } from 'rxjs';
 import { ZUI_ANIMATIONS_DURATION } from '../../../tokens';
 import { ZUI_DIALOG_CLOSE_STREAM, ZUI_DIALOG_PROVIDERS } from './dialog-options';
-import { ZuiAnimationOptions, zuiFadeIn, zuiSlideInTop } from '../../../animations';
-import { zuiPure } from '../../../decorators';
+import { ZuiAnimationOptions, pzmFadeIn, zuiSlideInTop } from '../../../animations';
+import { pzmPure } from '../../../decorators';
 import { takeUntil } from 'rxjs/operators';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { ZuiBaseDialogContext, ZuiDialogButton, ZuiDialogOptions, ZuiDialogSize } from './dialog.models';
 import { PolymorphContent } from '../../../directives';
 
@@ -15,7 +15,7 @@ import { PolymorphContent } from '../../../directives';
     styleUrls: ['./dialog.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: ZUI_DIALOG_PROVIDERS,
-    animations: [zuiSlideInTop, zuiFadeIn],
+    animations: [zuiSlideInTop, pzmFadeIn],
 })
 export class ZuiDialogComponent<O = unknown, DATA = unknown> {
     @Input()
@@ -41,14 +41,14 @@ export class ZuiDialogComponent<O = unknown, DATA = unknown> {
     }
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_dialog';
+    readonly testId = 'pzm_dialog';
 
-    @zuiPure
+    @pzmPure
     public get isFooterArray(): boolean {
       return Boolean(this.footer && Array.isArray(this.footer) && this.footer.length);
     }
 
-    @zuiPure
+    @pzmPure
     public get footer(): PolymorphContent<ZuiBaseDialogContext<O, ZuiDialogOptions<O, DATA>>> | (ZuiDialogButton<O, ZuiDialogOptions<O, DATA>>[]) {
       return this.context.footer ?? [
         {
@@ -72,7 +72,7 @@ export class ZuiDialogComponent<O = unknown, DATA = unknown> {
     constructor(
         @Inject(ZUI_ANIMATIONS_DURATION) private readonly duration: number,
         @Inject(ZUI_DIALOG_CLOSE_STREAM) readonly close$: Observable<unknown>,
-        private readonly destroy$: ZuiDestroyService
+        private readonly destroy$: PzmDestroyService
     ) {
         close$.pipe(takeUntil(this.destroy$)).subscribe(() => {
             this.close();

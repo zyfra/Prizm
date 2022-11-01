@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ZuiOverlayOutsidePlacement } from '@digital-plant/zui-components';
+import { PzmOverlayOutsidePlacement } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-tooltip-with-template-example',
@@ -39,5 +39,5 @@ import { ZuiOverlayOutsidePlacement } from '@digital-plant/zui-components';
   `]
 })
 export class ZuiTooltipWithTemplateExampleComponent {
-  direction = ZuiOverlayOutsidePlacement.RIGHT
+  direction = PzmOverlayOutsidePlacement.RIGHT
 }

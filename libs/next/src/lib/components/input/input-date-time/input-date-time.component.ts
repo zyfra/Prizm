@@ -18,31 +18,31 @@ import { map, pluck } from 'rxjs/operators';
 import { ZUI_DATE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
 import { ZUI_DATE_FORMAT } from '../../../@core/date-time/date-format';
 import { ZUI_DATE_SEPARATOR, zuiChangeDateSeparator } from '../../../@core/date-time/date-separator';
-import { ZuiDay } from '../../../@core/date-time/day';
-import { ZUI_FIRST_DAY, ZUI_LAST_DAY } from '../../../@core/date-time/days.const';
-import { ZuiMonth } from '../../../@core/date-time/month';
+import { PzmDay } from '../../../@core/date-time/day';
+import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../../@core/date-time/days.const';
+import { PzmMonth } from '../../../@core/date-time/month';
 import { ZuiTime } from '../../../@core/date-time/time';
 import { AbstractZuiControl } from '../../../abstract/control';
-import { ZUI_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
+import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
 import { ZUI_DATE_TIME_SEPARATOR, ZUI_DATE_TIME_SEPARATOR_NGX } from '../../../constants/date-time-separator';
-import { zuiDefaultProp } from '../../../decorators/default-prop';
+import { pzmDefaultProp } from '../../../decorators/default-prop';
 import { ZUI_DATE_TIME_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { ZUI_DATE_TEXTS, ZUI_TIME_TEXTS } from '../../../tokens/i18n';
-import { ZuiContextWithImplicit } from '../../../types/context-with-implicit';
+import { PzmContextWithImplicit } from '../../../types/context-with-implicit';
 import { ZuiControlValueTransformer } from '../../../types/control-value-transformer';
 import { ZuiDateMode } from '../../../types/date-mode';
-import { ZuiFocusableElementAccessor } from '../../../types/focusable-element-accessor';
-import { ZuiBooleanHandler } from '../../../types/handler';
+import { PzmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
+import { PzmBooleanHandler } from '../../../types/handler';
 import { ZuiTimeMode } from '../../../types/time-mode';
-import { ZuiWithOptionalMinMax } from '../../../types/with-optional-min-max';
+import { PzmWithOptionalMinMax } from '../../../types/with-optional-min-max';
 import { ZUI_INPUT_DATE_TIME_PROVIDERS } from './input-date-time.providers';
-import { zuiNullableSame } from '../../../util/common/nullable-same';
-import { zuiIsNativeFocusedIn } from '../../../util/is-native-focused-in';
-import { zuiPure } from '../../../decorators/pure';
+import { pzmNullableSame } from '../../../util/common/nullable-same';
+import { pzmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
+import { pzmPure } from '../../../decorators/pure';
 import { zuiCreateDateNgxMask } from '../../../@core/mask/create-date-mask';
 import { zuiCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
-import { zuiClamp } from '../../../util/math/clamp';
-import { ZuiInputSize } from '../common/models/zui-input.models';
+import { pzmClamp } from '../../../util/math/clamp';
+import { PzmInputSize } from '../common/models/zui-input.models';
 import { ZUI_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { ZuiDateButton } from '../../../types/date-button';
 import { ZUI_STRICT_MATCHER } from '../../../constants';
@@ -55,74 +55,74 @@ import { ZUI_STRICT_MATCHER } from '../../../constants';
     providers: ZUI_INPUT_DATE_TIME_PROVIDERS,
 })
 export class ZuiInputDateTimeComponent
-    extends AbstractZuiControl<[ZuiDay | null, ZuiTime | null]>
+    extends AbstractZuiControl<[PzmDay | null, ZuiTime | null]>
     implements
-        ZuiWithOptionalMinMax<ZuiDay | [ZuiDay, ZuiTime]>,
-        ZuiFocusableElementAccessor
+        PzmWithOptionalMinMax<PzmDay | [PzmDay, ZuiTime]>,
+        PzmFocusableElementAccessor
 {
-    private month: ZuiMonth | null = null;
+    private month: PzmMonth | null = null;
 
     @ViewChild('focusableElementRef', {read: ElementRef})
     public readonly focusableElement?: ElementRef<HTMLInputElement>;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     timeItems: readonly ZuiTime[] = new Array(24).fill(null).map(
       (_, i) => new ZuiTime(i, 0, 0, 0)
     );
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     label = 'Абсолютное';
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     placeholder = 'Выберите дату и время';
 
     @Input()
-    @zuiDefaultProp()
-    size: ZuiInputSize = 'm';
+    @pzmDefaultProp()
+    size: PzmInputSize = 'm';
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     extraButtonInjector: Injector = this.injector;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     outer = false;
 
     @Input()
-    @zuiDefaultProp()
-    min: ZuiDay | [ZuiDay, ZuiTime] = ZUI_FIRST_DAY;
+    @pzmDefaultProp()
+    min: PzmDay | [PzmDay, ZuiTime] = PZM_FIRST_DAY;
 
     @Input()
-    @zuiDefaultProp()
-    max: ZuiDay | [ZuiDay, ZuiTime] = ZUI_LAST_DAY;
+    @pzmDefaultProp()
+    max: PzmDay | [PzmDay, ZuiTime] = PZM_LAST_DAY;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     timeStrict = false;
 
     @Input()
-    @zuiDefaultProp()
-    disabledItemHandler: ZuiBooleanHandler<ZuiDay> = ZUI_ALWAYS_FALSE_HANDLER;
+    @pzmDefaultProp()
+    disabledItemHandler: PzmBooleanHandler<PzmDay> = PZM_ALWAYS_FALSE_HANDLER;
 
     @Input()
-    @zuiDefaultProp()
-    defaultActiveYearMonth = ZuiMonth.currentLocal();
+    @pzmDefaultProp()
+    defaultActiveYearMonth = PzmMonth.currentLocal();
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     timeMode: ZuiTimeMode = `HH:MM`;
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_input_date_time';
+    readonly testId = 'pzm_input_date_time';
 
     public openTimeTemplate = false;
 
     open = false;
 
-    readonly type!: ZuiContextWithImplicit<unknown>;
+    readonly type!: PzmContextWithImplicit<unknown>;
 
     get filteredTime(): readonly ZuiTime[] {
       return this.filterTime(this.timeItems, this.timeMode, this.computedSearchTime);
@@ -160,13 +160,13 @@ export class ZuiInputDateTimeComponent
         @Optional()
         @Inject(ZUI_DATE_TIME_VALUE_TRANSFORMER)
         override readonly valueTransformer: ZuiControlValueTransformer<
-            [ZuiDay | null, ZuiTime | null]
+            [PzmDay | null, ZuiTime | null]
         > | null,
     ) {
         super(control, changeDetectorRef, valueTransformer);
     }
 
-    @zuiPure
+    @pzmPure
     private filterTime(
       items: readonly ZuiTime[],
       mode: ZuiTimeMode,
@@ -186,7 +186,7 @@ export class ZuiInputDateTimeComponent
     }
 
     public get focused(): boolean {
-      return this.focusableElement?.nativeElement ? zuiIsNativeFocusedIn(this.focusableElement.nativeElement) : false;
+      return this.focusableElement?.nativeElement ? pzmIsNativeFocusedIn(this.focusableElement.nativeElement) : false;
     }
 
     get fillerLength(): number {
@@ -220,19 +220,19 @@ export class ZuiInputDateTimeComponent
         return this.getDateTimeString(date, time, timeMode);
     }
 
-    get calendarValue(): ZuiDay | null {
+    get calendarValue(): PzmDay | null {
         return this.value[0];
     }
 
-    get calendarMinDay(): ZuiDay {
+    get calendarMinDay(): PzmDay {
         return Array.isArray(this.min) ? this.min[0] : this.min;
     }
 
-    get calendarMaxDay(): ZuiDay {
+    get calendarMaxDay(): PzmDay {
         return Array.isArray(this.max) ? this.max[0] : this.max;
     }
 
-    get computedActiveYearMonth(): ZuiMonth {
+    get computedActiveYearMonth(): PzmMonth {
         return this.month || this.value[0] || this.defaultActiveYearMonth;
     }
 
@@ -261,7 +261,7 @@ export class ZuiInputDateTimeComponent
 
         const [date, time] = value.split(ZUI_DATE_TIME_SEPARATOR_NGX);
 
-        const parsedDate = ZuiDay.normalizeParse(date, this.dateFormat);
+        const parsedDate = PzmDay.normalizeParse(date, this.dateFormat);
         const parsedTime =
             time && time.length === this.timeMode.length
                 ? this.zuiClampTime(ZuiTime.fromString(time), parsedDate)
@@ -273,7 +273,7 @@ export class ZuiInputDateTimeComponent
         this.open = false;
     }
 
-    public onDayClick(day: ZuiDay, time?: ZuiTime): void {
+    public onDayClick(day: PzmDay, time?: ZuiTime): void {
         const modifiedTime = time ?? (this.value[1] && this.zuiClampTime(this.value[1], day));
 
         this.updateValue([day, modifiedTime]);
@@ -285,7 +285,7 @@ export class ZuiInputDateTimeComponent
         this.updateHovered(hovered);
     }
 
-    public onMonthChange(month: ZuiMonth): void {
+    public onMonthChange(month: PzmMonth): void {
         this.month = month;
     }
 
@@ -328,31 +328,31 @@ export class ZuiInputDateTimeComponent
         this.open = false;
     }
 
-    public override writeValue(value: [ZuiDay | null, ZuiTime | null] | null): void {
+    public override writeValue(value: [PzmDay | null, ZuiTime | null] | null): void {
         super.writeValue(value);
 
         this.nativeValue = value && (value[0] || value[1]) ? this.computedValue : ``;
     }
 
-    protected getFallbackValue(): [ZuiDay | null, ZuiTime | null] {
+    protected getFallbackValue(): [PzmDay | null, ZuiTime | null] {
         return [null, null];
     }
 
     protected override valueIdenticalComparator(
-        oldValue: [ZuiDay | null, ZuiTime | null],
-        newValue: [ZuiDay | null, ZuiTime | null],
+        oldValue: [PzmDay | null, ZuiTime | null],
+        newValue: [PzmDay | null, ZuiTime | null],
     ): boolean {
         return (
-            zuiNullableSame(oldValue[0], newValue[0], (a, b) => a.daySame(b)) &&
-            zuiNullableSame(oldValue[1], newValue[1], (a, b) => String(a) === String(b))
+            pzmNullableSame(oldValue[0], newValue[0], (a, b) => a.daySame(b)) &&
+            pzmNullableSame(oldValue[1], newValue[1], (a, b) => String(a) === String(b))
         );
     }
 
-    @zuiPure
+    @pzmPure
     private calculateMask(
-        day: ZuiDay | null,
-        min: ZuiDay,
-        max: ZuiDay,
+        day: PzmDay | null,
+        min: PzmDay,
+        max: PzmDay,
         timeMode: ZuiTimeMode,
         dateFormat: ZuiDateMode,
         dateSeparator: string,
@@ -360,14 +360,14 @@ export class ZuiInputDateTimeComponent
         return `${zuiCreateDateNgxMask(dateFormat, dateSeparator)} ${zuiCreateTimeNgxMask(timeMode)}`
     }
 
-    @zuiPure
+    @pzmPure
     private getDateTimeString(
-        date: ZuiDay | string,
+        date: PzmDay | string,
         time: ZuiTime | string | null,
         timeMode: ZuiTimeMode = `HH:MM`,
     ): string {
         const dateString =
-            date instanceof ZuiDay
+            date instanceof PzmDay
                 ? date.toString(this.dateFormat, this.dateSeparator)
                 : date;
         const timeString = time instanceof ZuiTime ? time.toString(timeMode) : time || ``;
@@ -375,7 +375,7 @@ export class ZuiInputDateTimeComponent
         return `${dateString}${ZUI_DATE_TIME_SEPARATOR}${timeString}`;
     }
 
-    private updateNativeValue(day: ZuiDay): void {
+    private updateNativeValue(day: PzmDay): void {
         const time = this.nativeValue.split(ZUI_DATE_TIME_SEPARATOR)[1] || ``;
 
         this.nativeValue = this.getDateTimeString(day, time);
@@ -404,12 +404,12 @@ export class ZuiInputDateTimeComponent
       if (this.value[1] && item.isSameTime(this.value[1])) return;
 
       this.onDayClick(
-        this.value[0] ?? ZuiDay.currentLocal(),
+        this.value[0] ?? PzmDay.currentLocal(),
         item
       );
     }
 
-    private zuiClampTime(time: ZuiTime, day: ZuiDay): ZuiTime {
+    private zuiClampTime(time: ZuiTime, day: PzmDay): ZuiTime {
         const ms = time.toAbsoluteMilliseconds();
         const min =
             Array.isArray(this.min) && day.daySame(this.calendarMinDay)
@@ -420,7 +420,7 @@ export class ZuiInputDateTimeComponent
                 ? this.max[1].toAbsoluteMilliseconds()
                 : Infinity;
 
-        return ZuiTime.fromAbsoluteMilliseconds(zuiClamp(ms, min, max));
+        return ZuiTime.fromAbsoluteMilliseconds(pzmClamp(ms, min, max));
     }
 
     public openTimeDropdown(): void {

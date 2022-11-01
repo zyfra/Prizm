@@ -8,15 +8,15 @@ import {
   Optional,
 } from '@angular/core';
 import { ZUI_DATALIST_OPTIONS, ZuiDataListOptions } from './data-list-options';
-import { zuiDefaultProp } from '../../decorators';
-import { ZuiScrollbarVisibility } from '../scrollbar';
+import { pzmDefaultProp } from '../../decorators';
+import { PzmScrollbarVisibility } from '../scrollbar';
 import {
   ZUI_DROPDOWN_CONTROLLER,
   ZUI_DROPDOWN_DEFAULT_MAX_HEIGHT,
   ZUI_DROPDOWN_DEFAULT_MIN_HEIGHT,
   ZuiDropdownControllerDirective,
 } from '../../directives/dropdown-controller';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 
 @Component({
@@ -24,7 +24,7 @@ import { takeUntil, tap } from 'rxjs/operators';
   templateUrl: './data-list.component.html',
   styleUrls: ['./data-list.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ZuiDestroyService],
+  providers: [PzmDestroyService],
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
     class: 'zui-data-list',
@@ -35,15 +35,15 @@ export class ZuiDataListComponent implements OnInit {
   @Input() defaultStyle = true;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   iconOff = this.options.empty;
 
   @Input()
-  @zuiDefaultProp()
-  scroll: ZuiScrollbarVisibility = 'auto';
+  @pzmDefaultProp()
+  scroll: PzmScrollbarVisibility = 'auto';
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_data_list';
+  readonly testId = 'pzm_data_list';
 
   constructor(
     @Inject(ZUI_DROPDOWN_CONTROLLER)
@@ -51,7 +51,7 @@ export class ZuiDataListComponent implements OnInit {
     private readonly controller: ZuiDropdownControllerDirective | null,
     @Inject(ZUI_DATALIST_OPTIONS)
     public readonly options: ZuiDataListOptions,
-    private readonly destroy$: ZuiDestroyService,
+    private readonly destroy$: PzmDestroyService,
     private readonly cdRef: ChangeDetectorRef
   ) {}
 

@@ -4,9 +4,9 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
-  ZuiButtonModule,
+  PzmButtonModule,
   ZuiConfirmDialogModule,
-  ZuiRadioButtonModule, ZuiSelectModule,
+  PzmRadioButtonModule, PzmSelectModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmComponent } from './confirm.component';
@@ -20,10 +20,10 @@ import { ZuiDialogHorizontalExampleComponent } from './examples/horizontal/horiz
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    ZuiSelectModule,
-    ZuiButtonModule,
+    PzmSelectModule,
+    PzmButtonModule,
     ZuiConfirmDialogModule,
-    ZuiRadioButtonModule,
+    PzmRadioButtonModule,
     RouterModule.forChild(generateRoutes(ConfirmComponent)),
   ],
   declarations: [

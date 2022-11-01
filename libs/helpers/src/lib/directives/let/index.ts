@@ -1,2 +1,2 @@
-export {ZuiLetModule} from './let.module';
+export {PzmLetModule} from './let.module';
 export {ZuiLetDirective} from './let.directive';

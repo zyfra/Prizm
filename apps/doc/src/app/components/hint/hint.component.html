@@ -37,22 +37,22 @@
   <ng-template pageTab>
     <tui-doc-demo>
       <button
-        zuiButton
-        [zuiHint]="content"
-        [zuiAutoReposition]="zuiAutoReposition"
-        [zuiHintCanShow]="zuiHintCanShow"
-        [zuiHintDirection]="zuiHintDirection"
-        [zuiHintId]="zuiHintId"
-        [zuiHintShowDelay]="zuiHintShowDelay"
-        [zuiHintHideDelay]="zuiHintHideDelay"
-        [zuiHintHost]="zuiHintHost"
+        pzmButton
+        [pzmHint]="content"
+        [pzmAutoReposition]="pzmAutoReposition"
+        [pzmHintCanShow]="zuiHintCanShow"
+        [pzmHintDirection]="zuiHintDirection"
+        [pzmHintId]="zuiHintId"
+        [pzmHintShowDelay]="zuiHintShowDelay"
+        [pzmHintHideDelay]="zuiHintHideDelay"
+        [pzmHintHost]="zuiHintHost"
       >
         Button
       </button>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
-        documentationPropertyName="zuiHint"
+        documentationPropertyName="pzmHint"
         documentationPropertyType="string"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="content"
@@ -61,10 +61,10 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiAutoReposition"
+        documentationPropertyName="pzmAutoReposition"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiAutoReposition"
+        [(documentationPropertyValue)]="pzmAutoReposition"
       >
         Auto Reposition
       </ng-template>
@@ -80,7 +80,7 @@
 
       <ng-template
         documentationPropertyName="zuiHintDirection"
-        documentationPropertyType="ZuiOverlayOutsidePlacement"
+        documentationPropertyType="PzmOverlayOutsidePlacement"
         documentationPropertyMode="input"
         [documentationPropertyValues]="zuiHintDirectionVariants"
         [(documentationPropertyValue)]="zuiHintDirection"

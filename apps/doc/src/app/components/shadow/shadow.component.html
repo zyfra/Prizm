@@ -21,13 +21,13 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <div class='shadow-container zui-font-dynamic-title-h4' [zuiShadow]='value'>
+      <div class='shadow-container zui-font-dynamic-title-h4' [pzmShadow]='value'>
         {{value}}
       </div>
     </tui-doc-demo>
     <tui-doc-documentation>
         <ng-template
-          documentationPropertyName="zuiShadow"
+          documentationPropertyName="pzmShadow"
           documentationPropertyType="ZuiShadowType"
           documentationPropertyMode="input"
           [(documentationPropertyValue)]="value"
@@ -43,7 +43,7 @@
       <li>
         <p>
           Import
-          <code>ZuiShadowModule</code>
+          <code>PzmShadowModule</code>
           into a module where you want to use our component
         </p>
 

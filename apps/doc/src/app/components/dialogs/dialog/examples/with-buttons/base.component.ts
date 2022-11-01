@@ -1,5 +1,5 @@
 import {Component, Inject} from '@angular/core';
-import { ZuiDialogService, ZuiOverlayInsidePlacement } from '@digital-plant/zui-components';
+import { ZuiDialogService, PzmOverlayInsidePlacement } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-dialog-service-example',
@@ -12,8 +12,8 @@ import { ZuiDialogService, ZuiOverlayInsidePlacement } from '@digital-plant/zui-
   `]
 })
 export class ZuiDialogServiceExampleComponent {
-  public positionVariants: ZuiOverlayInsidePlacement[] = Object.values(ZuiOverlayInsidePlacement);
-  public position: ZuiOverlayInsidePlacement = this.positionVariants[1];
+  public positionVariants: PzmOverlayInsidePlacement[] = Object.values(PzmOverlayInsidePlacement);
+  public position: PzmOverlayInsidePlacement = this.positionVariants[1];
   public backdrop = false;
 
   constructor(

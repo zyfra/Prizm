@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ZuiDay, ZuiDayWithStatus } from '@digital-plant/zui-components';
+import { PzmDay, PzmDayWithStatus } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-calendar-base-example',
+  selector: 'pzm-calendar-base-example',
   templateUrl: './calendar-base-example.component.html',
   styles: [`
     .box {
@@ -12,16 +12,16 @@ import { ZuiDay, ZuiDayWithStatus } from '@digital-plant/zui-components';
   `]
 })
 export class ZuiCalendarBaseExampleComponent {
-  public day = new ZuiDay(2017, 0, 15);
+  public day = new PzmDay(2017, 0, 15);
   public daysWithStatus = [
-    new ZuiDayWithStatus(2017, 0, 10, 'index'),
-    new ZuiDayWithStatus(2017, 0, 11, 'warning'),
-    new ZuiDayWithStatus(2017, 0, 12, 'danger'),
-    new ZuiDayWithStatus(2017, 0, 13, 'success'),
-    new ZuiDayWithStatus(2017, 0, 17, 'yellow'),
+    new PzmDayWithStatus(2017, 0, 10, 'index'),
+    new PzmDayWithStatus(2017, 0, 11, 'warning'),
+    new PzmDayWithStatus(2017, 0, 12, 'danger'),
+    new PzmDayWithStatus(2017, 0, 13, 'success'),
+    new PzmDayWithStatus(2017, 0, 17, 'yellow'),
   ];
 
-  public onDayClick(day: ZuiDay): void {
+  public onDayClick(day: PzmDay): void {
     this.day = day;
   }
 }

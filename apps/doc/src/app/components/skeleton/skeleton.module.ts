@@ -5,10 +5,10 @@ import { RouterModule } from '@angular/router';
 import { SkeletonComponent } from './skeleton.component';
 import {
   PolymorphModule,
-  ZuiButtonModule, ZuiCardModule,
-  ZuiInputTextModule,
-  ZuiSelectModule,
-  ZuiSkeletonModule,
+  PzmButtonModule, ZuiCardModule,
+  PzmInputTextModule,
+  PzmSelectModule,
+  PzmSkeletonModule,
   ZuiToggleModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -22,12 +22,12 @@ import { ZuiSkeletonBaseExampleComponent } from './examples/base/skeleton-base-e
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    ZuiButtonModule,
+    PzmButtonModule,
     ZuiCardModule,
     ZuiToggleModule,
-    ZuiSelectModule,
-    ZuiInputTextModule,
-    ZuiSkeletonModule,
+    PzmSelectModule,
+    PzmInputTextModule,
+    PzmSkeletonModule,
     RouterModule.forChild(generateRoutes(SkeletonComponent)),
   ],
   declarations: [

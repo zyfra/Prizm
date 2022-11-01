@@ -19,17 +19,17 @@ import { filter, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { fromRubricatorNodes, getPath } from '../../utils/treeNode.functions';
 import { DEFAULT_TOOLBAR_CONFIG, SelectionType, ToolbarConfig, ViewMode } from '../../model/nav-menu-config';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-menu-group-content',
-  templateUrl: './zui-nav-menu-group.component.html',
-  styleUrls: ['./zui-nav-menu-group.component.less'],
+  selector: 'pzm-menu-group-content',
+  templateUrl: './pzm-nav-menu-group.component.html',
+  styleUrls: ['./pzm-nav-menu-group.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ZuiDestroyService],
+  providers: [PzmDestroyService],
 })
-export class ZuiNavMenuGroupComponent implements OnInit, OnDestroy {
+export class PzmNavMenuGroupComponent implements OnInit, OnDestroy {
   @ViewChild(Tree) public tree: Tree;
   @ViewChild('folderIcons') public folderIcons: TemplateRef<unknown>;
   @Input() itemExtra: TemplateRef<unknown>;
@@ -67,7 +67,7 @@ export class ZuiNavMenuGroupComponent implements OnInit, OnDestroy {
   }
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_menu_group_content';
+  readonly testId = 'pzm_menu_group_content';
 
   @Input() set selectionMode(mode: SelectionType) {
     this._selectionMode = mode;
@@ -124,7 +124,7 @@ export class ZuiNavMenuGroupComponent implements OnInit, OnDestroy {
     private viewContainerRef: ViewContainerRef,
     private cdr: ChangeDetectorRef,
     private navMenuService: NavMenuService,
-    private readonly destroy$: ZuiDestroyService
+    private readonly destroy$: PzmDestroyService
   ) {}
 
   ngOnInit(): void {

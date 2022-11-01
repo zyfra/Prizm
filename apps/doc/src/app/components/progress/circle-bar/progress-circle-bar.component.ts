@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  ZuiContextWithImplicit,
+  PzmContextWithImplicit,
   ZuiSizeL,
   ZuiSizeM,
   ZuiSizeS,

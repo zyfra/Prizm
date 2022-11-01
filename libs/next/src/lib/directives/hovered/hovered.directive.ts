@@ -1,19 +1,18 @@
-import {Directive, ElementRef, Inject, Output} from '@angular/core';
-// import {ZuiHoveredService} from 'deleted/cdk/services';
-import {Observable} from 'rxjs';
-import { ZuiHoveredService } from '../../services/hovered.service';
+import { Directive, ElementRef, Inject, Output } from '@angular/core';
+import { Observable } from 'rxjs';
+import { PzmHoveredService } from '../../services/hovered.service';
 
 @Directive({
-    selector: '[zuiHoveredChange]',
+    selector: '[pzmHoveredChange]',
 })
-export class ZuiHoveredDirective {
+export class PzmHoveredDirective {
     @Output()
-    readonly zuiHoveredChange: Observable<boolean>;
+    readonly pzmHoveredChange: Observable<boolean>;
 
     constructor(
         @Inject(ElementRef) {nativeElement}: ElementRef<Element>,
-        @Inject(ZuiHoveredService) hoveredService: ZuiHoveredService,
+        @Inject(PzmHoveredService) hoveredService: PzmHoveredService,
     ) {
-        this.zuiHoveredChange = hoveredService.createHovered$(nativeElement);
+        this.pzmHoveredChange = hoveredService.createHovered$(nativeElement);
     }
 }

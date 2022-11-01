@@ -12,30 +12,30 @@ import {
   withLatestFrom,
 } from 'rxjs/operators';
 import { zuiIsAlive } from './is-alive';
-import { ZuiOwnerDocumentException } from '../exceptions';
-import { zuiIsNativeFocused } from '../util';
-import { zuiTypedFromEvent } from './typed-from-event';
+import { PzmOwnerDocumentException } from '../exceptions';
+import { pzmIsNativeFocused } from '../util';
+import { pzmTypedFromEvent } from './typed-from-event';
 
 let documentMouseUpIsAlive$: Observable<boolean>;
 let documentMouseDownIsAlive$: Observable<boolean>;
 
 export function zuiFocusVisibleObservable(element: Element): Observable<boolean> {
-    const elementBlur$ = zuiTypedFromEvent(element, 'blur');
+    const elementBlur$ = pzmTypedFromEvent(element, 'blur');
     const {ownerDocument} = element;
 
     if (!ownerDocument) {
-        throw new ZuiOwnerDocumentException();
+        throw new PzmOwnerDocumentException();
     }
 
     if (!documentMouseDownIsAlive$ || !documentMouseUpIsAlive$) {
-        documentMouseUpIsAlive$ = zuiTypedFromEvent(ownerDocument, 'mouseup', {
+        documentMouseUpIsAlive$ = pzmTypedFromEvent(ownerDocument, 'mouseup', {
             capture: true,
         }).pipe(
             zuiIsAlive(),
             startWith(false),
             shareReplay({bufferSize: 1, refCount: true}),
         );
-        documentMouseDownIsAlive$ = zuiTypedFromEvent(ownerDocument, 'mousedown', {
+        documentMouseDownIsAlive$ = pzmTypedFromEvent(ownerDocument, 'mousedown', {
             capture: true,
         }).pipe(
             zuiIsAlive(),
@@ -47,10 +47,10 @@ export function zuiFocusVisibleObservable(element: Element): Observable<boolean>
     return merge(
         // focus events excluding ones that came right after mouse action
         concat(
-            zuiTypedFromEvent(element, 'focus').pipe(take(1)),
+            pzmTypedFromEvent(element, 'focus').pipe(take(1)),
             // filtering out blur events when element remains focused so that we ignore browser tab focus loss
             elementBlur$.pipe(
-                filter(() => !zuiIsNativeFocused(element)),
+                filter(() => !pzmIsNativeFocused(element)),
                 take(1),
                 ignoreElements(),
             ),

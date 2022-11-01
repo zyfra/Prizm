@@ -10,68 +10,68 @@ import {
   Input,
   TemplateRef,
 } from '@angular/core';
-import { ZUI_BUTTON_OPTIONS, ZuiButtonOptions, ZuiContent } from './button-options';
+import { PZM_BUTTON_OPTIONS, PzmButtonOptions, PzmContent } from './button-options';
 import { AbstractZuiInteractive } from '../../abstract/interactive';
-import { zuiIsNativeFocused } from '../../util/is-native-focused';
-import { ZuiSize } from '../../util/size-bigger';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { pzmIsNativeFocused } from '../../util/is-native-focused';
+import { PzmSize } from '../../util/size-bigger';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { takeUntil, tap } from 'rxjs/operators';
-import { zuiPressedObservable } from '../../observables/pressed-observable';
-import { ZuiAppearance, ZuiAppearanceType } from '../../types/appearance.types';
-import { zuiWatch } from '../../observables/watch';
-import { zuiDefaultProp } from '../../decorators';
-import { ZUI_FOCUSABLE_ITEM_ACCESSOR } from '../../tokens';
-import { ZuiFocusableElementAccessor } from '../../types';
-import { ZuiFocusVisibleService } from '../../directives/focus-visible/focus-visible.service';
-import { ZuiHoveredService } from '../../services';
+import { pzmPressedObservable } from '../../observables/pressed-observable';
+import { PzmAppearance, PzmAppearanceType } from '../../types/appearance.types';
+import { pzmWatch } from '../../observables/watch';
+import { pzmDefaultProp } from '../../decorators';
+import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../tokens';
+import { PzmFocusableElementAccessor } from '../../types';
+import { PzmFocusVisibleService } from '../../directives/focus-visible/focus-visible.service';
+import { PzmHoveredService } from '../../services';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'button[zuiButton], button[zuiIconButton], a[zuiButton], a[zuiIconButton]',
+  selector: 'button[pzmButton], button[pzmIconButton], a[pzmButton], a[pzmIconButton]',
   styleUrls: ['./button.component.less'],
   templateUrl: './button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
-    ZuiDestroyService,
+    PzmDestroyService,
     {
-      provide: ZUI_FOCUSABLE_ITEM_ACCESSOR,
-      useExisting: forwardRef(() => ZuiButtonComponent),
+      provide: PZM_FOCUSABLE_ITEM_ACCESSOR,
+      useExisting: forwardRef(() => PzmButtonComponent),
     },
-    ZuiFocusVisibleService
+    PzmFocusVisibleService
   ],
 })
-export class ZuiButtonComponent extends AbstractZuiInteractive
-  implements ZuiFocusableElementAccessor {
+export class PzmButtonComponent extends AbstractZuiInteractive
+  implements PzmFocusableElementAccessor {
   @Input()
   @HostBinding('attr.data-size')
-  @zuiDefaultProp()
-  size: ZuiSize = this.options.size;
+  @pzmDefaultProp()
+  size: PzmSize = this.options.size;
 
   /** can pass template or icon class */
   @Input()
-  icon: ZuiContent;
+  icon: PzmContent;
 
   /** can pass template or icon class */
   @Input()
-  iconRight: ZuiContent;
+  iconRight: PzmContent;
 
   @Input()
   @HostBinding('attr.data-appearance')
-  @zuiDefaultProp()
-  appearance: ZuiAppearance = this.options.appearance;
+  @pzmDefaultProp()
+  appearance: PzmAppearance = this.options.appearance;
 
   @Input()
   @HostBinding('attr.data-appearance-type')
-  @zuiDefaultProp()
-  appearanceType: ZuiAppearanceType = this.options.appearanceType;
+  @pzmDefaultProp()
+  appearanceType: PzmAppearanceType = this.options.appearanceType;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   disabled = false;
 
   @Input()
   @HostBinding('class._loading')
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   showLoader = false;
 
   @HostBinding('attr.disabled')
@@ -85,7 +85,7 @@ export class ZuiButtonComponent extends AbstractZuiInteractive
   }
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_button';
+  readonly testId = 'pzm_button';
 
   @HostListener('focusin', ['true'])
   @HostListener('focusout', ['false'])
@@ -94,16 +94,16 @@ export class ZuiButtonComponent extends AbstractZuiInteractive
   }
 
   get focused(): boolean {
-    return !this.showLoader && zuiIsNativeFocused(this.elementRef.nativeElement);
+    return !this.showLoader && pzmIsNativeFocused(this.elementRef.nativeElement);
   }
 
   constructor(
-    @Inject(ZUI_BUTTON_OPTIONS) private readonly options: ZuiButtonOptions,
+    @Inject(PZM_BUTTON_OPTIONS) private readonly options: PzmButtonOptions,
     private readonly elementRef: ElementRef,
-    private readonly focusVisible$: ZuiFocusVisibleService,
-    private readonly hoveredService: ZuiHoveredService,
+    private readonly focusVisible$: PzmFocusVisibleService,
+    private readonly hoveredService: PzmHoveredService,
     private readonly changeDetectorRef: ChangeDetectorRef,
-    private readonly destroy$: ZuiDestroyService,
+    private readonly destroy$: PzmDestroyService,
   ) {
     super();
 
@@ -119,14 +119,14 @@ export class ZuiButtonComponent extends AbstractZuiInteractive
       this.updateFocusVisible(focusVisible);
     });
 
-    zuiPressedObservable(elementRef.nativeElement, {
+    pzmPressedObservable(elementRef.nativeElement, {
       onlyTrusted: true,
     })
       .pipe(
         tap(pressed => {
           this.updatePressed(pressed);
         }),
-        zuiWatch(changeDetectorRef),
+        pzmWatch(changeDetectorRef),
         takeUntil(destroy$),
       ).subscribe();
   }
@@ -134,11 +134,11 @@ export class ZuiButtonComponent extends AbstractZuiInteractive
   get nativeFocusableElement(): HTMLElement | null {
     return this.nativeDisabled ? null : this.elementRef.nativeElement;
   }
-  public isTemplateRef(icon: ZuiContent): icon is TemplateRef<unknown> {
+  public isTemplateRef(icon: PzmContent): icon is TemplateRef<unknown> {
     return icon instanceof TemplateRef;
   }
 
-  get loaderSize(): ZuiSize {
+  get loaderSize(): PzmSize {
     return this.size === 'l' || this.size === 'xl' ? 'm' : 's';
   }
 }

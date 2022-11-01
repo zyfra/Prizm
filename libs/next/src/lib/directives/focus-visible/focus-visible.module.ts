@@ -5,4 +5,4 @@ import {ZuiFocusVisibleDirective} from './focus-visible.directive';
     declarations: [ZuiFocusVisibleDirective],
     exports: [ZuiFocusVisibleDirective],
 })
-export class ZuiFocusVisibleModule {}
+export class PzmFocusVisibleModule {}

@@ -1,27 +1,27 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
-import { zuiDefaultProp } from '../../../decorators/default-prop';
+import { pzmDefaultProp } from '../../../decorators/default-prop';
 import { ZuiSizeM, ZuiSizeS } from '../../../util/size-bigger';
 
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-    selector: `progress[zuiProgressBar]`,
+    selector: `progress[pzmProgressBar]`,
     template: ``,
     styleUrls: [`./progress-bar.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiProgressBarComponent {
+export class PzmProgressBarComponent {
     @Input()
     @HostBinding(`style.--zui-progress-color`)
     color?: string;
 
     @Input()
     @HostBinding(`style.--zui-progress-track-color`)
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     trackColor: string | null = null;
 
     @Input()
     @HostBinding(`attr.data-size`)
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     size: ZuiSizeS | ZuiSizeM = `m`;
 }

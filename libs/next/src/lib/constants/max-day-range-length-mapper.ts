@@ -1,11 +1,11 @@
-import { ZuiDay, ZuiDayRange } from '../@core/date-time';
-import { ZuiDayLike } from '../types/day-like';
-import { ZuiMapper } from '../types/mapper';
+import { PzmDay, PzmDayRange } from '../@core/date-time';
+import { PzmDayLike } from '../types/day-like';
+import { PzmMapper } from '../types/mapper';
 
-export const ZUI_MAX_DAY_RANGE_LENGTH_MAPPER: ZuiMapper<ZuiDay, ZuiDay> = (
+export const ZUI_MAX_DAY_RANGE_LENGTH_MAPPER: PzmMapper<PzmDay, PzmDay> = (
     min,
-    value: ZuiDayRange,
-    maxLength: ZuiDayLike | null,
+    value: PzmDayRange,
+    maxLength: PzmDayLike | null,
     backwards: boolean,
 ) => {
     if (!value || !value.isSingleDay || !maxLength) {

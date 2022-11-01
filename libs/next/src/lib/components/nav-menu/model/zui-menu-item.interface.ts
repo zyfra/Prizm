@@ -1,11 +1,11 @@
 import { QueryParamsHandling } from '@angular/router';
 
-export interface ZuiMenuItem {
+export interface PzmMenuItem {
   label?: string;
   icon?: string;
   command?: (event?: any) => void;
   url?: string;
-  items?: ZuiMenuItem[];
+  items?: PzmMenuItem[];
   expanded?: boolean;
   disabled?: boolean;
   visible?: boolean;

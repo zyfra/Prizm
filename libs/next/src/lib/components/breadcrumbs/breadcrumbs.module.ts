@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BreadcrumbsComponent } from './breadcrumbs.component';
-import { ZuiIconModule } from '../icon';
+import { PzmIconModule } from '../icon';
 import { ZuiDropdownHostModule } from '../dropdowns/dropdown-host';
 
 @NgModule({
   declarations: [BreadcrumbsComponent],
-  imports: [CommonModule, ZuiIconModule, ZuiDropdownHostModule],
+  imports: [CommonModule, PzmIconModule, ZuiDropdownHostModule],
   exports: [BreadcrumbsComponent],
 })
-export class ZuiBreadcrumbsModule {}
+export class PzmBreadcrumbsModule {}

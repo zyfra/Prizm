@@ -7,5 +7,5 @@ import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 })
 export class ZuiTableHeaderCheckboxComponent {
   @HostBinding('attr.testId')
-  readonly testId = 'zui_table_header_checkbox';
+  readonly testId = 'pzm_table_header_checkbox';
 }

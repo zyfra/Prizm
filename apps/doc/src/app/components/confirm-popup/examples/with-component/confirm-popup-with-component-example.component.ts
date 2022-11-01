@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PolymorphComponent, ZuiOverlayOutsidePlacement } from '@digital-plant/zui-components';
+import { PolymorphComponent, PzmOverlayOutsidePlacement } from '@digital-plant/zui-components';
 import { ZuiConfirmPopupSomeComponent } from './some.component';
 
 @Component({
@@ -14,5 +14,5 @@ import { ZuiConfirmPopupSomeComponent } from './some.component';
 })
 export class ZuiConfirmPopupWithComponentExampleComponent {
   readonly component = new PolymorphComponent(ZuiConfirmPopupSomeComponent);
-  readonly direction = ZuiOverlayOutsidePlacement.TOP_RIGHT;
+  readonly direction = PzmOverlayOutsidePlacement.TOP_RIGHT;
 }

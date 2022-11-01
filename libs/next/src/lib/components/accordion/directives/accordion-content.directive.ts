@@ -1,6 +1,6 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[zuiAccordionContent]'
+  selector: '[pzmAccordionContent]'
 })
 export class AccordionContentDirective {}

@@ -1,29 +1,29 @@
 import { AfterViewInit, Component, ElementRef, HostListener, Inject, Input, OnInit, Renderer2 } from '@angular/core';
-import { zuiDefaultProp } from '../../decorators';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-import { ZuiHoveredService } from '../../services';
+import { pzmDefaultProp } from '../../decorators';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmHoveredService } from '../../services';
 import { takeUntil, tap } from 'rxjs/operators';
-import { ZuiHintService } from './hint.service';
+import { PzmHintService } from './hint.service';
 import { ZuiOverlayControl } from '../../modules/overlay';
 import { animationFrameScheduler, timer } from 'rxjs';
 import { PolymorphContent } from '../polymorph/types/content';
-import { ZuiHintOptions } from './hint-options';
+import { PzmHintOptions } from './hint-options';
 
 @Component({
   selector: 'zui-hint-container',
   template: `
     <div class='zui-font-main-body-12'>
-      <zui-scrollbar visibility='hidden'>
+      <pzm-scrollbar visibility='hidden'>
         <ng-container *polymorphOutlet="content() as data; context: context">
           {{data}}
         </ng-container>
-      </zui-scrollbar>
+      </pzm-scrollbar>
     </div>
   `,
   styleUrls: ['./hint-container.component.less'],
-  providers: [ZuiDestroyService]
+  providers: [PzmDestroyService]
 })
-export class ZuiHintContainerComponent<CONTEXT extends Record<string, unknown> = Record<string, unknown>> implements OnInit, AfterViewInit {
+export class PzmHintContainerComponent<CONTEXT extends Record<string, unknown> = Record<string, unknown>> implements OnInit, AfterViewInit {
   @Input()
   @HostListener('attr.id')
   id: string;
@@ -32,23 +32,23 @@ export class ZuiHintContainerComponent<CONTEXT extends Record<string, unknown> =
   content: () => PolymorphContent;
 
   @Input()
-  mode: () => ZuiHintOptions['mode'];
+  mode: () => PzmHintOptions['mode'];
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   context: CONTEXT = {} as CONTEXT;
 
-  @HostListener('attr.mode') get getMode(): ZuiHintOptions['mode'] {
+  @HostListener('attr.mode') get getMode(): PzmHintOptions['mode'] {
     return this.mode()
   };
 
   constructor(
-    protected readonly destroy$: ZuiDestroyService,
+    protected readonly destroy$: PzmDestroyService,
     protected readonly el: ElementRef,
     protected readonly renderer2: Renderer2,
-    protected readonly zuiOverlayControl: ZuiOverlayControl,
-    @Inject(ZuiHintService) private readonly hintService: ZuiHintService,
-    @Inject(ZuiHoveredService) private readonly hoveredService: ZuiHoveredService
+    protected readonly pzmOverlayControl: ZuiOverlayControl,
+    @Inject(PzmHintService) private readonly hintService: PzmHintService,
+    @Inject(PzmHoveredService) private readonly hoveredService: PzmHoveredService
   ) {}
 
   public ngOnInit(): void {
@@ -59,13 +59,13 @@ export class ZuiHintContainerComponent<CONTEXT extends Record<string, unknown> =
   public ngAfterViewInit(): void {
     // re-calc positions after fist get container sizes
     timer(10, animationFrameScheduler).pipe(
-      tap(() => this.zuiOverlayControl.position.calculate()),
+      tap(() => this.pzmOverlayControl.position.calculate()),
       takeUntil(this.destroy$)
     ).subscribe();
   }
 
   private initPositionListener(): void {
-    this.zuiOverlayControl.position.pos$.pipe(
+    this.pzmOverlayControl.position.pos$.pipe(
       tap((data) => {
         if(!data.extra) return;
         this.renderer2.setAttribute(this.el.nativeElement, 'position', data.extra);

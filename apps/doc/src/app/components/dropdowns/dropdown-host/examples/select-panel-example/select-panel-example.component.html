@@ -1,5 +1,5 @@
 <zui-dropdown-host [content]="dropdown" zuiDropdownHostWidth="auto" [(isOpen)]="showPanel">
-  <button zuiButton type="button" (click)="show()">Button</button>
+  <button pzmButton type="button" (click)="show()">Button</button>
 </zui-dropdown-host>
 
 <ng-template #dropdown>
@@ -19,7 +19,7 @@
 
     <div class="content">
       <div class="filter">
-        <zui-input-layout class="filter__input-layout" [label]="'Фильтр'" [size]="'m'">
+        <pzm-input-layout class="filter__input-layout" [label]="'Фильтр'" [size]="'m'">
           <input
             zuiInput
             #input
@@ -28,12 +28,12 @@
             (onClear)="filter('')"
           />
           <button
-            zuiInputIconButton="sort-zoom-in"
+            pzmInputIconButton="sort-zoom-in"
             zui-input-right
             [interactive]="true"
             (click)="filter(input.value)"
           ></button>
-        </zui-input-layout>
+        </pzm-input-layout>
       </div>
 
       <ul class="options">
@@ -50,7 +50,7 @@
 
     <ng-container footer>
       <div class="footer">
-        <button zuiButton (click)="hide()" class="footer__btn">Применить запрос</button>
+        <button pzmButton (click)="hide()" class="footer__btn">Применить запрос</button>
       </div>
     </ng-container>
   </zui-data-list>

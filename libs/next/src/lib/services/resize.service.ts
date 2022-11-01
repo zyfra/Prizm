@@ -3,8 +3,8 @@ import { ANIMATION_FRAME } from '@ng-web-apis/common';
 import { RESIZE_OBSERVER_SUPPORT, RESIZE_OPTION_BOX, ResizeObserverService } from '@ng-web-apis/resize-observer';
 import { Observable } from 'rxjs';
 import { catchError, debounceTime, distinctUntilChanged, map, mapTo, takeUntil, throttleTime } from 'rxjs/operators';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-import { zuiZoneFree } from '../observables/zone-free';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { pzmZoneFree } from '../observables/zone-free';
 import { ZUI_EMPTY_ARRAY } from '../constants/empty';
 import { ZUI_POLLING_TIME } from '../constants/polling-time';
 
@@ -13,7 +13,7 @@ export class ZuiResizeService extends ResizeObserverService {
     constructor(
         @Inject(ElementRef) elementRef: ElementRef<HTMLElement>,
         @Inject(NgZone) ngZone: NgZone,
-        @Inject(ZuiDestroyService) destroy$: Observable<void>,
+        @Inject(PzmDestroyService) destroy$: Observable<void>,
         @Inject(RESIZE_OBSERVER_SUPPORT) support: boolean,
         @Inject(RESIZE_OPTION_BOX) box: ResizeObserverBoxOptions,
         @Inject(ANIMATION_FRAME) animationFrame$: Observable<number>,
@@ -33,7 +33,7 @@ export class ZuiResizeService extends ResizeObserverService {
                 ),
             ),
             debounceTime(0),
-            zuiZoneFree(ngZone),
+            pzmZoneFree(ngZone),
             takeUntil(destroy$),
         );
     }

@@ -1,8 +1,8 @@
-import { ZuiDay } from '../@core/date-time';
-import { ZuiColor } from './color';
+import { PzmDay } from '../@core/date-time';
+import { PzmColor } from './color';
 import { ZuiHandler } from './handler';
 
-export type ZuiMarkerHandler = ZuiHandler<
-    ZuiDay,
-    [] | [ZuiColor | string] | [ZuiColor | string, ZuiColor | string]
+export type PzmMarkerHandler = ZuiHandler<
+    PzmDay,
+    [] | [PzmColor | string] | [PzmColor | string, PzmColor | string]
 >;

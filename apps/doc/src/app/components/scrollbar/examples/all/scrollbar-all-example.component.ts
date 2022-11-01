@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'zui-scrollbar-all-example',
+  selector: 'pzm-scrollbar-all-example',
   templateUrl: './scrollbar-all-example.component.html',
   styles: [`
     .box {

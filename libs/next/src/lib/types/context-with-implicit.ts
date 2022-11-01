@@ -1,3 +1,3 @@
-export interface ZuiContextWithImplicit<T> {
+export interface PzmContextWithImplicit<T> {
   $implicit: T;
 }

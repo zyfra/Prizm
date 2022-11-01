@@ -1,19 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-
-import { ZuiScrollControlsComponent } from './scroll-controls.component';
-import { ZuiScrollbarWrapperDirective } from './scrollbar-wrapper.directive';
-import { ZuiLetModule } from '@digital-plant/zyfra-helpers';
-import { ZuiScrollbarDirective } from './scrollbar.directive';
-import { ZuiThemeModule } from '../../directives/theme';
+import { PzmScrollControlsComponent } from './scroll-controls.component';
+import { PzmScrollbarWrapperDirective } from './scrollbar-wrapper.directive';
+import { PzmLetModule } from '@digital-plant/zyfra-helpers';
+import { PzmScrollbarDirective } from './scrollbar.directive';
+import { PzmThemeModule } from '../../directives/theme';
 
 @NgModule({
-    imports: [CommonModule, ZuiLetModule, ZuiThemeModule],
+    imports: [CommonModule, PzmLetModule, PzmThemeModule],
     declarations: [
-        ZuiScrollbarDirective,
-        ZuiScrollbarWrapperDirective,
-        ZuiScrollControlsComponent,
+        PzmScrollbarDirective,
+        PzmScrollbarWrapperDirective,
+        PzmScrollControlsComponent,
     ],
-    exports: [ZuiScrollControlsComponent],
+    exports: [PzmScrollControlsComponent],
 })
-export class ZuiScrollControlsModule {}
+export class PzmScrollControlsModule {}

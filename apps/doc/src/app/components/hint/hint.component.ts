@@ -2,9 +2,9 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
 import {
   PolymorphContent,
-  ZUI_HINT_DEFAULT_OPTIONS,
-  ZuiHintOptions,
-  ZuiOverlayOutsidePlacement
+  PZM_HINT_DEFAULT_OPTIONS,
+  PzmHintOptions,
+  PzmOverlayOutsidePlacement
 } from "@digital-plant/zui-components";
 
 @Component({
@@ -14,19 +14,19 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HintComponent {
-  public zuiAutoReposition = false;
+  public pzmAutoReposition = false;
   public zuiHintCanShow = true;
   public content = "Тестовое содержимое";
 
-  public readonly zuiHintDirectionVariants: ReadonlyArray<ZuiHintOptions['direction']> = Object.values(ZuiOverlayOutsidePlacement);
+  public readonly zuiHintDirectionVariants: ReadonlyArray<PzmHintOptions['direction']> = Object.values(PzmOverlayOutsidePlacement);
 
-  public zuiHintDirection: ZuiHintOptions['direction'] = ZUI_HINT_DEFAULT_OPTIONS.direction;
+  public zuiHintDirection: PzmHintOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
 
   public zuiHintId = 'hint-id';
 
-  public zuiHintShowDelay: number = ZUI_HINT_DEFAULT_OPTIONS.showDelay;
+  public zuiHintShowDelay: number = PZM_HINT_DEFAULT_OPTIONS.showDelay;
 
-  public zuiHintHideDelay: number = ZUI_HINT_DEFAULT_OPTIONS.hideDelay;
+  public zuiHintHideDelay: number = PZM_HINT_DEFAULT_OPTIONS.hideDelay;
 
   public zuiHintHost: HTMLElement = null;
 
@@ -34,7 +34,7 @@ export class HintComponent {
     'Новый хинт'
   ];
 
-  public zuiHint: PolymorphContent =  this.zuiHintVariants[0];
+  public pzmHint: PolymorphContent =  this.zuiHintVariants[0];
 
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'

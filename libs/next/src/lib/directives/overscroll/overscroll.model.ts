@@ -1,1 +1,1 @@
-export type ZuiOverscrollMode = 'all' | 'scroll' | 'none';
+export type PzmOverscrollMode = 'all' | 'scroll' | 'none';

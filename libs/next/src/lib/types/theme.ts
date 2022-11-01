@@ -1,1 +1,1 @@
-export type ZuiTheme = 'dark' | 'light' | string;
+export type PzmTheme = 'dark' | 'light' | string;

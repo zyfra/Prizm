@@ -1,32 +1,32 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {ZuiToggleComponent} from './toggle.component';
-import {ZuiLoaderModule} from "../loader";
-import {ZuiWrapperModule} from '../../directives/wrapper';
+import {PzmLoaderModule} from "../loader";
+import {PzmWrapperModule} from '../../directives/wrapper';
 import {
   PolymorphModule,
-  ZuiCheckedModule,
-  ZuiFocusableModule,
-  ZuiFocusedModule,
-  ZuiPressedModule
+  PzmCheckedModule,
+  PzmFocusableModule,
+  PzmFocusedModule,
+  PzmPressedModule
 } from "../../directives";
-import {ZuiFocusVisibleModule} from "../../directives/focus-visible";
-import {ZuiHoveredModule} from '../../directives/hovered';
-import {ZuiIconModule} from "../icon";
+import {PzmFocusVisibleModule} from "../../directives/focus-visible";
+import {PzmHoveredModule} from '../../directives/hovered';
+import {PzmIconModule} from "../icon";
 
 @NgModule({
   imports: [
     CommonModule,
-    ZuiFocusedModule,
-    ZuiFocusableModule,
-    ZuiFocusVisibleModule,
-    ZuiHoveredModule,
-    ZuiPressedModule,
-    ZuiCheckedModule,
-    ZuiWrapperModule,
-    ZuiLoaderModule,
+    PzmFocusedModule,
+    PzmFocusableModule,
+    PzmFocusVisibleModule,
+    PzmHoveredModule,
+    PzmPressedModule,
+    PzmCheckedModule,
+    PzmWrapperModule,
+    PzmLoaderModule,
     PolymorphModule,
-    ZuiIconModule
+    PzmIconModule
   ],
     declarations: [ZuiToggleComponent],
     exports: [ZuiToggleComponent],

@@ -1,11 +1,11 @@
 import { Directive, ElementRef } from '@angular/core';
-import { ZuiFocusableElementAccessor, ZuiNativeFocusableElement } from '../../../types/focusable-element-accessor';
+import { PzmFocusableElementAccessor, ZuiNativeFocusableElement } from '../../../types/focusable-element-accessor';
 import { ZuiAutofocusHandler } from '../autofocus.options';
 
 @Directive()
 export abstract class AbstractZuiAutofocusHandler implements ZuiAutofocusHandler {
     protected constructor(
-        protected readonly zuiFocusableComponent: ZuiFocusableElementAccessor | null,
+        protected readonly zuiFocusableComponent: PzmFocusableElementAccessor | null,
         protected readonly elementRef: ElementRef<HTMLElement>,
     ) {}
 

@@ -5,14 +5,14 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { ZoomControlExampleBasicComponent } from './examples/zoom-control-example-basic/zoom-control-example-basic.component';
 import {
-  ZuiButtonModule,
+  PzmButtonModule,
   ZuiDataListModule,
   ZuiDropdownControllerModule,
   ZuiDropdownHostModule,
-  ZuiIconModule,
-  ZuiInputTextModule,
+  PzmIconModule,
+  PzmInputTextModule,
   ZuiPanelModule,
-  ZuiSelectModule,
+  PzmSelectModule,
 } from '@digital-plant/zui-components';
 
 @NgModule({
@@ -20,14 +20,14 @@ import {
   imports: [
     CommonModule,
     TuiAddonDocModule,
-    ZuiIconModule,
+    PzmIconModule,
     RouterModule.forChild(generateRoutes(ZoomControlExampleComponent)),
     ZuiPanelModule,
-    ZuiInputTextModule,
-    ZuiSelectModule,
+    PzmInputTextModule,
+    PzmSelectModule,
     ZuiDropdownHostModule,
     ZuiDataListModule,
-    ZuiButtonModule,
+    PzmButtonModule,
     ZuiDropdownControllerModule,
   ],
 })

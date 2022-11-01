@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
-import { zuiGetShadow, ZuiShadowType } from '../../directives/shadow';
-import { ZuiShadowValue } from '../../directives/shadow/models';
+import { zuiGetShadow, PzmShadowType } from '../../directives/shadow';
+import { PzmShadowValue } from '../../directives/shadow/models';
 
 @Component({
     selector: 'zui-card',
@@ -10,13 +10,13 @@ import { ZuiShadowValue } from '../../directives/shadow/models';
     providers: [],
 })
 export class ZuiCardComponent {
-  @Input() shadow: ZuiShadowType = 'mini-bottom';
+  @Input() shadow: PzmShadowType = 'mini-bottom';
 
   @HostBinding('style.box-shadow')
-  private get boxShadow(): ZuiShadowValue {
+  private get boxShadow(): PzmShadowValue {
     return zuiGetShadow(this.shadow)
   }
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_card';
+  readonly testId = 'pzm_card';
 }

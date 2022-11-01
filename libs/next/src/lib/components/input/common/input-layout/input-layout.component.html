@@ -21,7 +21,7 @@
     </label>
     <button
       *ngIf="showClearButton"
-      zuiInputIconButton="cansel-delete-content"
+      pzmInputIconButton="cansel-delete-content"
       (click)="onClearClick($event)"
       class="zui-input-label-clear-btn"
       [interactive]="true"
@@ -61,15 +61,15 @@
 
       <button
         *ngIf="showClearButton"
-        zuiInputIconButton="cansel-delete-content"
+        pzmInputIconButton="cansel-delete-content"
         (click)="onClearClick($event)"
         class="zui-input-button-default {{ showStatusButton ? '' : 'alone' }}"
         [interactive]="true"
       ></button>
       <button
         *ngIf="showStatusButton"
-        [zuiInputIconButton]="statusIcon"
-        [zuiHint]="statusMessage"
+        [pzmInputIconButton]="statusIcon"
+        [pzmHint]="statusMessage"
         class="zui-input-form-status-button"
         [interactive]="true"
       ></button>

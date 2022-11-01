@@ -1,6 +1,6 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[zuiAccordionTools]'
+  selector: '[pzmAccordionTools]'
 })
 export class AccordionToolsDirective {}

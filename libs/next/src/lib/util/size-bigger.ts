@@ -1,4 +1,4 @@
-export type ZuiSize = ZuiSizeS | ZuiSizeXS | ZuiSizeM | ZuiSizeXM | ZuiSizeL | ZuiSizeXl;
+export type PzmSize = ZuiSizeS | ZuiSizeXS | ZuiSizeM | ZuiSizeXM | ZuiSizeL | ZuiSizeXl;
 
 export type ZuiSizeXS = 'xs';
 export type ZuiSizeL = 'l';
@@ -8,7 +8,7 @@ export type ZuiSizeS = 's';
 export type ZuiSizesXl = "m" | "l" | "xl";
 export type ZuiSizeXl = 'xl';
 /* SIZES asc order */
-const SIZES: ReadonlyArray<ZuiSize> = [
+const SIZES: ReadonlyArray<PzmSize> = [
   'xs',
   's',
   'm',
@@ -23,9 +23,9 @@ const SIZES: ReadonlyArray<ZuiSize> = [
  * @param size size that we need to compare
  * @param biggerThanSize size to compare with, 's' by default
  */
-export function zuiSizeBigger(
-    size: ZuiSize,
-    biggerThanSize: ZuiSize = SIZES[0],
+export function pzmSizeBigger(
+    size: PzmSize,
+    biggerThanSize: PzmSize = SIZES[0],
 ): boolean {
     return SIZES.indexOf(size) > SIZES.indexOf(biggerThanSize);
 }

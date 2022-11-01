@@ -1,9 +1,8 @@
-import {NgModule} from '@angular/core';
-
-import {ZuiCheckedDirective} from './checked.directive';
+import { NgModule } from '@angular/core';
+import { PzmCheckedDirective } from './checked.directive';
 
 @NgModule({
-    declarations: [ZuiCheckedDirective],
-    exports: [ZuiCheckedDirective],
+    declarations: [PzmCheckedDirective],
+    exports: [PzmCheckedDirective],
 })
-export class ZuiCheckedModule {}
+export class PzmCheckedModule {}

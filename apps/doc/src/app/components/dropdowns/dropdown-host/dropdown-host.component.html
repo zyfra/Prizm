@@ -29,7 +29,7 @@
         [placement]="placement"
         [zuiDropdownHostCloseOnBackdropClick]="closeOnBackdropClick"
       >
-        <button zuiButton type="button" (click)="isOpen = !isOpen">Button</button>
+        <button pzmButton type="button" (click)="isOpen = !isOpen">Button</button>
       </zui-dropdown-host>
 
       <ng-template #withHeaderAndFooter>
@@ -37,11 +37,11 @@
           <zui-data-list>
             <ng-container header>Заголовок блока</ng-container>
             <div class="box">
-              <button zuiButton appearanceType="outline">Кнопка 1</button>
-              <button zuiButton appearanceType="outline">Кнопка 2</button>
+              <button pzmButton appearanceType="outline">Кнопка 1</button>
+              <button pzmButton appearanceType="outline">Кнопка 2</button>
             </div>
             <ng-container footer>
-              <button zuiButton (click)="isOpen = false; cdRef.markForCheck()">Закрыть</button>
+              <button pzmButton (click)="isOpen = false; cdRef.markForCheck()">Закрыть</button>
             </ng-container>
           </zui-data-list>
         </div>
@@ -50,11 +50,11 @@
       <ng-template #withHeader>
         <zui-data-list>
           <div class="box">
-            <button zuiButton appearanceType="outline">Кнопка 1</button>
-            <button zuiButton appearanceType="outline">Кнопка 2</button>
+            <button pzmButton appearanceType="outline">Кнопка 1</button>
+            <button pzmButton appearanceType="outline">Кнопка 2</button>
           </div>
           <ng-container footer>
-            <button zuiButton (click)="isOpen = false; cdRef.markForCheck()">Закрыть</button>
+            <button pzmButton (click)="isOpen = false; cdRef.markForCheck()">Закрыть</button>
           </ng-container>
         </zui-data-list>
       </ng-template>
@@ -63,8 +63,8 @@
         <zui-data-list>
           <ng-container header>Заголовок блока</ng-container>
           <div class="box">
-            <button zuiButton appearanceType="outline">Кнопка 1</button>
-            <button zuiButton appearanceType="outline">Кнопка 2</button>
+            <button pzmButton appearanceType="outline">Кнопка 1</button>
+            <button pzmButton appearanceType="outline">Кнопка 2</button>
           </div>
         </zui-data-list>
       </ng-template>
@@ -72,8 +72,8 @@
       <ng-template #onlyContent>
         <zui-data-list>
           <div class="box">
-            <button zuiButton appearanceType="outline">Кнопка 1</button>
-            <button zuiButton appearanceType="outline">Кнопка 2</button>
+            <button pzmButton appearanceType="outline">Кнопка 1</button>
+            <button pzmButton appearanceType="outline">Кнопка 2</button>
           </div>
         </zui-data-list>
       </ng-template>
@@ -117,7 +117,7 @@
 
       <ng-template
         documentationPropertyName="placement"
-        documentationPropertyType="ZuiOverlayOutsidePlacement"
+        documentationPropertyType="PzmOverlayOutsidePlacement"
         documentationPropertyMode="input"
         [documentationPropertyValues]="placementVariants"
         [(documentationPropertyValue)]="placement"

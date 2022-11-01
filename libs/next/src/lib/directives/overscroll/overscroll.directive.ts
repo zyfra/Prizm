@@ -1,19 +1,19 @@
 import { Directive, ElementRef, HostBinding, Input, OnInit } from '@angular/core';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-import { ZuiOverscrollMode } from './overscroll.model';
-import { ZuiOverscrollService } from './overscroll.service';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmOverscrollMode } from './overscroll.model';
+import { PzmOverscrollService } from './overscroll.service';
 import { takeUntil } from 'rxjs/operators';
 
 /**
  * Directive to isolate scrolling, i.e. prevent body scroll behind modal dialog
  */
 @Directive({
-    selector: '[zuiOverscroll]',
-    providers: [ZuiDestroyService],
+    selector: '[pzmOverscroll]',
+    providers: [PzmDestroyService],
 })
-export class ZuiOverscrollDirective implements OnInit {
-  @Input('zuiOverscroll')
-  public mode: ZuiOverscrollMode | '' = 'scroll';
+export class PzmOverscrollDirective implements OnInit {
+  @Input('pzmOverscroll')
+  public mode: PzmOverscrollMode | '' = 'scroll';
 
   public get enabled(): boolean {
     return this.mode !== 'none';
@@ -26,8 +26,8 @@ export class ZuiOverscrollDirective implements OnInit {
 
   constructor(
       private readonly elRef: ElementRef<HTMLElement>,
-      private readonly overscrollService: ZuiOverscrollService,
-      private readonly destroy$: ZuiDestroyService,
+      private readonly overscrollService: PzmOverscrollService,
+      private readonly destroy$: PzmDestroyService,
   ) {}
 
   public ngOnInit(): void {

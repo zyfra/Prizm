@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { ZuiExpandComponent } from './expand.component';
 import { ZuiExpandContentDirective } from './expand-content.directive';
-import { ZuiLoaderModule } from '../loader';
+import { PzmLoaderModule } from '../loader';
 
 @NgModule({
-    imports: [CommonModule, ZuiLoaderModule],
+    imports: [CommonModule, PzmLoaderModule],
     declarations: [ZuiExpandComponent, ZuiExpandContentDirective],
     exports: [ZuiExpandComponent, ZuiExpandContentDirective],
 })

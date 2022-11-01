@@ -1,7 +1,7 @@
-import { ZuiDayRange } from '../date-time/day-range';
+import { PzmDayRange } from '../date-time/day-range';
 
-export class ZuiDayRangePeriod {
-    constructor(readonly range: ZuiDayRange, private readonly name: string) {}
+export class PzmDayRangePeriod {
+    constructor(readonly range: PzmDayRange, private readonly name: string) {}
 
     public toString(): string {
         return this.name;

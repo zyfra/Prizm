@@ -6,12 +6,12 @@ import { ZUI_DATE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-tr
 import { zuiReplayControlValueChangesFactory } from '../../../util/common/replay-control-value-changes-factory';
 import { ZuiInputDateComponent } from './input-date.component';
 import { ZUI_LEFT_ALIGNED_DROPDOWN_CONTROLLER_PROVIDER } from '../../../providers/specific-dropdown-controllers';
-import { ZuiDay } from '../../../@core/date-time/day';
+import { PzmDay } from '../../../@core/date-time/day';
 import { ZuiControlValueTransformer } from '../../../types/control-value-transformer';
-import { ZUI_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
+import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
 import { AbstractZuiControl } from '../../../abstract/control';
 
-export const DATE_STREAM_FACTORY = <T extends ZuiDay>(
+export const DATE_STREAM_FACTORY = <T extends PzmDay>(
     control: NgControl | null,
     valueTransformer: ZuiControlValueTransformer<T>,
 ): Observable<T | null> | null =>
@@ -19,7 +19,7 @@ export const DATE_STREAM_FACTORY = <T extends ZuiDay>(
 
 export const ZUI_INPUT_DATE_PROVIDERS = [
     {
-        provide: ZUI_FOCUSABLE_ITEM_ACCESSOR,
+        provide: PZM_FOCUSABLE_ITEM_ACCESSOR,
         useExisting: forwardRef(() => ZuiInputDateComponent),
     },
     {

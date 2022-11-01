@@ -1,7 +1,7 @@
 import { InjectionToken, ValueProvider } from '@angular/core';
 import { PolymorphContent } from '../../../directives';
-import { ZuiInputSize } from '../../input';
-import { ZuiContextWithImplicit } from '../../../types';
+import { PzmInputSize } from '../../input';
+import { PzmContextWithImplicit } from '../../../types';
 import {
   ZuiMultiSelectItemWithChecked,
   ZuiMultiSelectIdentityMatcher,
@@ -17,7 +17,7 @@ export interface ZuiMultiSelectOptions<T> {
     readonly isChipsDeletable:boolean;
     readonly label: string;
     readonly placeholder: string;
-    readonly size: ZuiInputSize;
+    readonly size: PzmInputSize;
     readonly stringify: ZuiMultiSelectItemStringifyFunc<T>;
     readonly emptyContent: PolymorphContent;
     readonly searchMatcher: ZuiMultiSelectSearchMatcher<T>,
@@ -26,7 +26,7 @@ export interface ZuiMultiSelectOptions<T> {
     readonly outer: boolean;
     readonly maxDropdownHeight: number;
     readonly dropdownWidth: string;
-    readonly valueContent: PolymorphContent<ZuiContextWithImplicit<ZuiMultiSelectItemWithChecked<T>>>;
+    readonly valueContent: PolymorphContent<PzmContextWithImplicit<ZuiMultiSelectItemWithChecked<T>>>;
 
 }
 

@@ -11,7 +11,7 @@ import {ChangeDetectorRef, Component} from '@angular/core';
       padding: 16px;
     }
 
-    [zuiButton] {
+    [pzmButton] {
       width: 100%;
     }
   `]

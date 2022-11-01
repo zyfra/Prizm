@@ -1,6 +1,6 @@
-import type {ZuiLanguageName} from './language-names';
+import type { PzmLanguageName } from './language-names';
 
-export interface ZuiLanguageStorage extends Storage {
-    getItem(key: string): ZuiLanguageName | null;
-    setItem(key: string, value: ZuiLanguageName): void;
+export interface PzmLanguageStorage extends Storage {
+    getItem(key: string): PzmLanguageName | null;
+    setItem(key: string, value: PzmLanguageName): void;
 }

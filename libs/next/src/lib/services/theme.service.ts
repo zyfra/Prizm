@@ -1,16 +1,16 @@
 import { ElementRef, Inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { debounce, debounceTime, tap } from 'rxjs/operators';
-import { ZuiTheme } from '../types/theme';
+import { PzmTheme } from '../types/theme';
 import { DOCUMENT } from '@angular/common';
 
 @Injectable({
     providedIn: 'platform',
 })
-export class ZuiThemeService {
-    private readonly themeSource$ = new BehaviorSubject<ZuiTheme>('light');
+export class PzmThemeService {
+    private readonly themeSource$ = new BehaviorSubject<PzmTheme>('light');
     readonly theme$ = this.themeSource$.asObservable();
-    get theme(): ZuiTheme {
+    get theme(): PzmTheme {
       return this.themeSource$.value
     }
     public readonly attThemeKey = 'data-zui-theme';
@@ -23,7 +23,7 @@ export class ZuiThemeService {
       ).subscribe();
     }
 
-    public updateElementOnChange(el: HTMLElement): Observable<ZuiTheme> {
+    public updateElementOnChange(el: HTMLElement): Observable<PzmTheme> {
       return this.theme$.pipe(
         tap(
           (theme) => this.setToHtml(theme, el)
@@ -31,14 +31,14 @@ export class ZuiThemeService {
       )
     }
 
-    private setToHtml(theme: ZuiTheme, el: HTMLElement = this.document.body.parentElement): void {
+    private setToHtml(theme: PzmTheme, el: HTMLElement = this.document.body.parentElement): void {
       el.setAttribute(
         this.attThemeKey,
         theme
       )
     }
 
-    public update(theme: ZuiTheme): void {
+    public update(theme: PzmTheme): void {
       this.themeSource$.next(theme);
     }
 }

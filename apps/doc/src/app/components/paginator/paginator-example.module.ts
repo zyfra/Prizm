@@ -11,7 +11,7 @@ import {
   TuiDocPageModule,
 } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
-import { ZuiPaginatorModule } from '@digital-plant/zui-components';
+import { PzmPaginatorModule } from '@digital-plant/zui-components';
 import { PaginatorWithLabelsExampleComponent } from './examples/paginator-with-labels-example/paginator-with-labels-example.component';
 import { PaginatorInfiniteExampleComponent } from './examples/paginator-infinite-example/paginator-infinite-example.component';
 
@@ -30,7 +30,7 @@ import { PaginatorInfiniteExampleComponent } from './examples/paginator-infinite
     TuiDocExampleModule,
     TuiDocCodeModule,
     RouterModule.forChild(generateRoutes(PaginatorExampleComponent)),
-    ZuiPaginatorModule,
+    PzmPaginatorModule,
   ],
 })
 export class PaginatorExampleModule {}

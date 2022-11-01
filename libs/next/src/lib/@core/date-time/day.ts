@@ -1,31 +1,31 @@
-import { ZuiInvalidDayException } from '../../exceptions/invalid-day.exception';
-import { ZuiInvalidMonthException } from '../../exceptions/invalid-month.exception';
-import { ZuiInvalidYearException } from '../../exceptions/invalid-year.exception';
+import { PzmInvalidDayException } from '../../exceptions/invalid-day.exception';
+import { PzmInvalidMonthException } from '../../exceptions/invalid-month.exception';
+import { PzmInvalidYearException } from '../../exceptions/invalid-year.exception';
 import { ZuiDateMode } from '../../types/date-mode';
-import { ZuiDayLike } from '../../types/day-like';
+import { PzmDayLike } from '../../types/day-like';
 import { zuiPadStart } from '../../util/format/pad-start';
-import { zuiInRange, zuiNormalizeToIntNumber } from '../../util/math';
+import { pzmInRange, zuiNormalizeToIntNumber } from '../../util/math';
 import { ZuiDayOfWeek } from '../enums/day-of-week';
 import { ZuiMonthNumber } from '../enums/month-number';
 
 import { ZUI_DATE_FILLER_LENGTH } from './date-fillers';
 import { ZUI_DAYS_IN_WEEK, ZUI_MIN_DAY, ZUI_MONTHS_IN_YEAR } from './date-time';
-import { ZuiMonth } from './month';
-import { ZuiYear } from './year';
+import { PzmMonth } from './month';
+import { PzmYear } from './year';
 
 
 // TODO: Localized formatting
 /**
  * Immutable date object, consisting of day, month and year
  */
-export class ZuiDay extends ZuiMonth {
+export class PzmDay extends PzmMonth {
     constructor(
       year: number,
       month: number,
       readonly day: number,
     ) {
         super(year, month);
-        console.assert(ZuiDay.isValidDay(year, month, day), {
+        console.assert(PzmDay.isValidDay(year, month, day), {
           year,
           month,
           day
@@ -33,17 +33,17 @@ export class ZuiDay extends ZuiMonth {
     }
 
     /**
-     * Creates {@link ZuiDay} from native {@link Date} based on local time zone
+     * Creates {@link PzmDay} from native {@link Date} based on local time zone
      */
-    public static fromLocalNativeDate(date: Date): ZuiDay {
-        return new ZuiDay(date.getFullYear(), date.getMonth(), date.getDate());
+    public static fromLocalNativeDate(date: Date): PzmDay {
+        return new PzmDay(date.getFullYear(), date.getMonth(), date.getDate());
     }
 
     /**
-     * Creates {@link ZuiDay} from native {@link Date} using UTC
+     * Creates {@link PzmDay} from native {@link Date} using UTC
      */
-    public static fromUtcNativeDate(date: Date): ZuiDay {
-        return new ZuiDay(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+    public static fromUtcNativeDate(date: Date): PzmDay {
+        return new PzmDay(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
     }
 
     /**
@@ -56,12 +56,12 @@ export class ZuiDay extends ZuiMonth {
      */
     public static isValidDay(year: number, month: number, day: number): boolean {
         return (
-            ZuiMonth.isValidMonth(year, month) &&
+            PzmMonth.isValidMonth(year, month) &&
             Number.isInteger(day) &&
-            zuiInRange(
+            pzmInRange(
                 day,
                 ZUI_MIN_DAY,
-                ZuiMonth.getMonthDaysCount(month, ZuiYear.isLeapYear(year)) + 1,
+                PzmMonth.getMonthDaysCount(month, PzmYear.isLeapYear(year)) + 1,
             )
         );
     }
@@ -76,11 +76,11 @@ export class ZuiDay extends ZuiMonth {
      * @param col column in a calendar
      * @return resulting day on these coordinates (could exceed passed month)
      */
-    public static getDayFromMonthRowCol(month: ZuiMonth, row: number, col: number): ZuiDay {
+    public static getDayFromMonthRowCol(month: PzmMonth, row: number, col: number): PzmDay {
         console.assert(Number.isInteger(row));
-        console.assert(zuiInRange(row, 0, 6));
+        console.assert(pzmInRange(row, 0, 6));
         console.assert(Number.isInteger(col));
-        console.assert(zuiInRange(col, 0, ZUI_DAYS_IN_WEEK));
+        console.assert(pzmInRange(col, 0, ZUI_DAYS_IN_WEEK));
 
         let day = row * ZUI_DAYS_IN_WEEK + col - month.monthStartDaysOffset + 1;
 
@@ -94,54 +94,54 @@ export class ZuiDay extends ZuiMonth {
             day = month.daysCount + day;
         }
 
-        return new ZuiDay(month.year, month.month, day);
+        return new PzmDay(month.year, month.month, day);
     }
 
     /**
      * Current day based on local time zone
      */
-    public static override currentLocal(): ZuiDay {
+    public static override currentLocal(): PzmDay {
         const nativeDate = new Date();
         const year = nativeDate.getFullYear();
         const month = nativeDate.getMonth();
         const day = nativeDate.getDate();
 
-        return new ZuiDay(year, month, day);
+        return new PzmDay(year, month, day);
     }
 
     /**
      * Returns current day based on UTC
      */
-    public static override currentUtc(): ZuiDay {
+    public static override currentUtc(): PzmDay {
         const nativeDate = new Date();
         const year = nativeDate.getUTCFullYear();
         const month = nativeDate.getUTCMonth();
         const day = nativeDate.getUTCDate();
 
-        return new ZuiDay(year, month, day);
+        return new PzmDay(year, month, day);
     }
 
     /**
-     * Calculates {@link ZuiDay} normalizing year, month and day. {@link NaN} is turned into minimal value.
+     * Calculates {@link PzmDay} normalizing year, month and day. {@link NaN} is turned into minimal value.
      *
      * @param year any year value, including invalid
      * @param month any month value, including invalid (months start with 0)
      * @param day any day value, including invalid
      * @return normalized date
      */
-    public static normalizeOf(year: number, month: number, day: number): ZuiDay {
-        const normalizedYear = ZuiYear.normalizeYearPart(year);
-        const normalizedMonth = ZuiMonth.normalizeMonthPart(month);
-        const normalizedDay = ZuiDay.normalizeDayPart(
+    public static normalizeOf(year: number, month: number, day: number): PzmDay {
+        const normalizedYear = PzmYear.normalizeYearPart(year);
+        const normalizedMonth = PzmMonth.normalizeMonthPart(month);
+        const normalizedDay = PzmDay.normalizeDayPart(
             day,
             normalizedMonth,
             normalizedYear,
         );
 
-        return new ZuiDay(normalizedYear, normalizedMonth, normalizedDay);
+        return new PzmDay(normalizedYear, normalizedMonth, normalizedDay);
     }
 
-    public static override lengthBetween(from: ZuiDay, to: ZuiDay): number {
+    public static override lengthBetween(from: PzmDay, to: PzmDay): number {
         return Math.round(
             (to.toLocalNativeDate().getTime() - from.toLocalNativeDate().getTime()) /
                 (1000 * 60 * 60 * 24),
@@ -190,10 +190,10 @@ export class ZuiDay extends ZuiMonth {
      * @param dateMode date format of the date string (DMY | MDY | YMD)
      * @return normalized date
      */
-    public static normalizeParse(rawDate: string, dateMode: ZuiDateMode = `DMY`): ZuiDay {
+    public static normalizeParse(rawDate: string, dateMode: ZuiDateMode = `DMY`): PzmDay {
         const {day, month, year} = this.parseRawDateString(rawDate, dateMode);
 
-        return ZuiDay.normalizeOf(year, month, day);
+        return PzmDay.normalizeOf(year, month, day);
     }
 
     /**
@@ -202,37 +202,37 @@ export class ZuiDay extends ZuiMonth {
      * @return date
      * @throws exceptions if any part of the date is invalid
      */
-    public static jsonParse(yearMonthDayString: string): ZuiDay {
+    public static jsonParse(yearMonthDayString: string): PzmDay {
         const {day, month, year} = this.parseRawDateString(yearMonthDayString, `YMD`);
 
-        if (!ZuiYear.isValidYear(year)) {
-            throw new ZuiInvalidYearException(year);
+        if (!PzmYear.isValidYear(year)) {
+            throw new PzmInvalidYearException(year);
         }
 
-        if (!ZuiMonth.isValidMonth(year, month)) {
-            throw new ZuiInvalidMonthException(month);
+        if (!PzmMonth.isValidMonth(year, month)) {
+            throw new PzmInvalidMonthException(month);
         }
 
         if (
             !Number.isInteger(day) ||
-            !zuiInRange(
+            !pzmInRange(
                 day,
                 ZUI_MIN_DAY,
-                ZuiMonth.getMonthDaysCount(month, ZuiYear.isLeapYear(year)) + 1,
+                PzmMonth.getMonthDaysCount(month, PzmYear.isLeapYear(year)) + 1,
             )
         ) {
-            throw new ZuiInvalidDayException(day);
+            throw new PzmInvalidDayException(day);
         }
 
-        return new ZuiDay(year, month, day);
+        return new PzmDay(year, month, day);
     }
 
     protected static normalizeDayPart(day: number, month: number, year: number): number {
-        console.assert(ZuiMonth.isValidMonth(year, month));
+        console.assert(PzmMonth.isValidMonth(year, month));
 
-        const monthDaysCount = ZuiMonth.getMonthDaysCount(
+        const monthDaysCount = PzmMonth.getMonthDaysCount(
             month,
-            ZuiYear.isLeapYear(year),
+            PzmYear.isLeapYear(year),
         );
 
         return zuiNormalizeToIntNumber(day, 1, monthDaysCount);
@@ -273,7 +273,7 @@ export class ZuiDay extends ZuiMonth {
     /**
      * Passed date is after current
      */
-    public dayBefore(another: ZuiDay): boolean {
+    public dayBefore(another: PzmDay): boolean {
         return (
             this.monthBefore(another) ||
             (this.monthSame(another) && this.day < another.day)
@@ -283,7 +283,7 @@ export class ZuiDay extends ZuiMonth {
     /**
      * Passed date is after or equals to current
      */
-    public daySameOrBefore(another: ZuiDay): boolean {
+    public daySameOrBefore(another: PzmDay): boolean {
         return (
             this.monthBefore(another) ||
             (this.monthSame(another) && this.day <= another.day)
@@ -293,14 +293,14 @@ export class ZuiDay extends ZuiMonth {
     /**
      * Passed date is the same as current
      */
-    public daySame(another: ZuiDay): boolean {
+    public daySame(another: PzmDay): boolean {
         return this.monthSame(another) && this.day === another.day;
     }
 
     /**
      * Passed date is either before or the same as current
      */
-    public daySameOrAfter(another: ZuiDay): boolean {
+    public daySameOrAfter(another: PzmDay): boolean {
         return (
             this.monthAfter(another) ||
             (this.monthSame(another) && this.day >= another.day)
@@ -310,7 +310,7 @@ export class ZuiDay extends ZuiMonth {
     /**
      * Passed date is before current
      */
-    public dayAfter(another: ZuiDay): boolean {
+    public dayAfter(another: PzmDay): boolean {
         return (
             this.monthAfter(another) ||
             (this.monthSame(another) && this.day > another.day)
@@ -324,7 +324,7 @@ export class ZuiDay extends ZuiMonth {
      * @param max
      * @return clamped date
      */
-    public dayLimit(min: ZuiDay | null, max: ZuiDay | null): ZuiDay {
+    public dayLimit(min: PzmDay | null, max: PzmDay | null): PzmDay {
         if (min !== null && this.dayBefore(min)) {
             return min;
         }
@@ -349,9 +349,9 @@ export class ZuiDay extends ZuiMonth {
      * @return new date object as a result of offsetting current
      */
     public override append(
-        {year = 0, month = 0, day = 0}: ZuiDayLike,
+        {year = 0, month = 0, day = 0}: PzmDayLike,
         backwards: boolean = false,
-    ): ZuiDay {
+    ): PzmDay {
         if (backwards) {
             year *= -1;
             month *= -1;
@@ -365,11 +365,11 @@ export class ZuiDay extends ZuiMonth {
         let days =
             Math.min(
                 this.day,
-                ZuiMonth.getMonthDaysCount(months, ZuiYear.isLeapYear(years)),
+                PzmMonth.getMonthDaysCount(months, PzmYear.isLeapYear(years)),
             ) + day;
 
-        while (days > ZuiMonth.getMonthDaysCount(months, ZuiYear.isLeapYear(years))) {
-            days -= ZuiMonth.getMonthDaysCount(months, ZuiYear.isLeapYear(years));
+        while (days > PzmMonth.getMonthDaysCount(months, PzmYear.isLeapYear(years))) {
+            days -= PzmMonth.getMonthDaysCount(months, PzmYear.isLeapYear(years));
 
             if (months === ZuiMonthNumber.December) {
                 years++;
@@ -387,10 +387,10 @@ export class ZuiDay extends ZuiMonth {
                 months--;
             }
 
-            days += ZuiMonth.getMonthDaysCount(months, ZuiYear.isLeapYear(years));
+            days += PzmMonth.getMonthDaysCount(months, PzmYear.isLeapYear(years));
         }
 
-        return new ZuiDay(years, months, days);
+        return new PzmDay(years, months, days);
     }
 
     /**

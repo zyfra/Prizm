@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'button[zuiInputIconButton]',
+  selector: 'button[pzmInputIconButton]',
   templateUrl: './input-icon-button.component.html',
   styleUrls: ['./input-icon-button.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -12,13 +12,13 @@ import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular
     '[attr.tabindex]': 'tabindex',
   },
 })
-export class ZuiInputIconButtonComponent {
+export class PzmInputIconButtonComponent {
   @Input() size = 16;
-  @Input() zuiInputIconButton: string;
+  @Input() pzmInputIconButton: string;
   @Input() interactive = false;
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_input_icon_button';
+  readonly testId = 'pzm_input_icon_button';
 
   get tabindex(): number {
     return this.interactive ? 0 : -1;

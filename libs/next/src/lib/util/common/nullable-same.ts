@@ -8,7 +8,7 @@ import { ZuiIdentityMatcher } from '../../types/matcher';
  * @param handler called if both elements are not null
  * @return true if either both are null or they pass identity handler
  */
-export function zuiNullableSame<T>(
+export function pzmNullableSame<T>(
     a: T | null,
     b: T | null,
     handler: ZuiIdentityMatcher<T>,

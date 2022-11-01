@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component, HostBinding, Inject, Input } from '
 import { Observable } from 'rxjs';
 import { ZUI_ANIMATIONS_DURATION } from '../../../tokens';
 import { ZUI_DIALOG_CLOSE_STREAM, ZUI_DIALOG_PROVIDERS } from '../dialog/dialog-options';
-import { ZuiAnimationOptions, zuiFadeIn, zuiSlideInTop } from '../../../animations';
+import { ZuiAnimationOptions, pzmFadeIn, zuiSlideInTop } from '../../../animations';
 import { takeUntil } from 'rxjs/operators';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { ZuiBaseDialogContext, ZuiDialogSize } from '../dialog';
 import { ZuiSidebarOptions, ZuiSidebarResultDefaultType } from './sidebar.models';
 
@@ -14,7 +14,7 @@ import { ZuiSidebarOptions, ZuiSidebarResultDefaultType } from './sidebar.models
     styleUrls: ['./sidebar.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: ZUI_DIALOG_PROVIDERS,
-    animations: [zuiSlideInTop, zuiFadeIn],
+    animations: [zuiSlideInTop, pzmFadeIn],
 })
 export class ZuiSidebarComponent<DATA = unknown> {
     @Input()
@@ -52,7 +52,7 @@ export class ZuiSidebarComponent<DATA = unknown> {
     }
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_sidebar';
+    readonly testId = 'pzm_sidebar';
 
     private readonly animation = {
         value: '',
@@ -65,7 +65,7 @@ export class ZuiSidebarComponent<DATA = unknown> {
     constructor(
         @Inject(ZUI_ANIMATIONS_DURATION) private readonly duration: number,
         @Inject(ZUI_DIALOG_CLOSE_STREAM) readonly close$: Observable<unknown>,
-        private readonly destroy$: ZuiDestroyService,
+        private readonly destroy$: PzmDestroyService,
     ) {
         close$.pipe(takeUntil(this.destroy$)).subscribe(() => {
             this.close();

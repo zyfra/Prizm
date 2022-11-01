@@ -50,23 +50,23 @@
     </div>
 
     <div *ngIf="search" class="header header-search-bar">
-      <zui-input-layout label="Поиск" class="search-input">
+      <pzm-input-layout label="Поиск" class="search-input">
         <input zuiInput [formControl]="searchFormControl" #input />
         <button
-          zuiInputIconButton="sort-zoom-in"
+          pzmInputIconButton="sort-zoom-in"
           zui-input-right
           (click)="changeSearchValue(input.value)"
           [interactive]="true"
         ></button>
-      </zui-input-layout>
+      </pzm-input-layout>
     </div>
   </ng-template>
 
   <ng-template let-node pTemplate="default">
-    <zui-nav-menu-item
+    <pzm-nav-menu-item
       [item]="node.data"
       (itemClick)="setActiveNode(node)"
       [itemExtra]="itemExtra"
-    ></zui-nav-menu-item>
+    ></pzm-nav-menu-item>
   </ng-template>
 </p-tree>

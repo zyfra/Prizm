@@ -6,4 +6,4 @@ import { ZuiCalendarSheetPipe } from './calendar-sheet.pipe';
     declarations: [ZuiCalendarSheetPipe],
     exports: [ZuiCalendarSheetPipe],
 })
-export class ZuiCalendarSheetPipeModule {}
+export class PzmCalendarSheetPipeModule {}
