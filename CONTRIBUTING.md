@@ -68,10 +68,10 @@ import-module.md - всегда про setup компонента
 #### Naming
 
 Модули, компоненты, директивы, pipe и все что выступает в public через `import {...} from "@digital-plant/,,,"`
-Должны иметь префикс - `zui (zyfra-ui)`
+Должны иметь префикс - `pzm (zyfra-ui)`
 
 Пример:
-`ZuiInputModule`
+`PzmInputModule`
 
 Именование файлов:
 
@@ -101,11 +101,11 @@ ViewEncapsulation - всегда Emulated (то что по дефолту).
 Отписка - всегда сопровождается отпиской.
 Для отписок используем
 
-providers: [ZuiDestroyService],
+providers: [PzmDestroyService],
 
 **Переменные (css)**
 
---zui-<name>
+--pzm-<name>
 name - название переменной
 
 **Exceptions**
@@ -119,16 +119,16 @@ name - название переменной
 Пример:
 
 ```
-export class ZuiPureException extends Error {
+export class PzmPureException extends Error {
 constructor() {
-super('zuiPure can only be used with functions or getters');
+super('pzmPure can only be used with functions or getters');
 }
 }
 
 // use
 
 if (typeof value !== 'function') {
-throw new ZuiPureException();
+throw new PzmPureException();
 }
 ```
 

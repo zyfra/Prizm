@@ -7,10 +7,10 @@ import { RouterModule } from '@angular/router';
 import {
   PzmButtonModule,
   PzmIconModule,
-  ZuiPanelModule,
+  PzmPanelModule,
   PzmBreadcrumbsModule,
-  ZuiTabsModule,
-  ZuiToggleModule,
+  PzmTabsModule,
+  PzmToggleModule,
 } from '@digital-plant/zui-components';
 import { PanelExampleWithTabsComponent } from './examples/panel-example-with-tabs/panel-example-with-tabs.component';
 import { PanelExampleWithPagesComponent } from './examples/panel-example-with-pages/panel-example-with-pages.component';
@@ -35,13 +35,13 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     TuiAddonDocModule,
     RouterModule.forChild(generateRoutes(PanelExampleComponent)),
-    ZuiPanelModule,
+    PzmPanelModule,
     PzmButtonModule,
     PzmIconModule,
     FormsModule,
-    ZuiToggleModule,
+    PzmToggleModule,
     PzmBreadcrumbsModule,
-    ZuiTabsModule,
+    PzmTabsModule,
   ],
 })
 export class PanelExampleModule {}

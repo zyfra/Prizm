@@ -1,6 +1,6 @@
-import { ZuiTextMaskOptions } from "../@core/mask/text-mask-options";
+import { PzmTextMaskOptions } from "../@core/mask/text-mask-options";
 
-export const ZUI_EMPTY_MASK: ZuiTextMaskOptions = {
+export const PZM_EMPTY_MASK: PzmTextMaskOptions = {
     mask(): false {
         return false;
     },

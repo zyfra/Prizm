@@ -1,11 +1,11 @@
 import { Directive, HostBinding, Input } from '@angular/core';
-import { TRowStatus } from '../zui-table.types';
+import { TRowStatus } from '../pzm-table.types';
 
 @Directive({
-  selector: '[zuiCellStatus]',
+  selector: '[pzmCellStatus]',
 })
-export class ZuiCellStatusDirective {
-  @Input('zuiCellStatus')
+export class PzmCellStatusDirective {
+  @Input('pzmCellStatus')
   @HostBinding('attr.cell-status')
   status: TRowStatus = 'default';
 }

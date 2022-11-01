@@ -19,13 +19,13 @@
     <div class="toggle">
         <span class="icon-wrapper">
           <ng-container *polymorphOutlet="(iconOn) as content; context: {$implicit: size}">
-            <zui-icon size='16' class="icon" *ngIf="content" [iconClass]="$any(content)"></zui-icon>
+            <pzm-icon size='16' class="icon" *ngIf="content" [iconClass]="$any(content)"></pzm-icon>
           </ng-container>
         </span>
         <div class="circle"></div>
         <span class="icon-wrapper">
             <ng-container *polymorphOutlet="(iconOff) as content; context: {$implicit: size}">
-              <zui-icon size='16' class="icon" *ngIf="content" [iconClass]="$any(content)"></zui-icon>
+              <pzm-icon size='16' class="icon" *ngIf="content" [iconClass]="$any(content)"></pzm-icon>
             </ng-container>
         </span>
     </div>
@@ -42,6 +42,6 @@
         (pzmFocusedChange)="onFocused($event)"
         (pzmHoveredChange)="onHovered($event)"
         (pzmPressedChange)="onPressed($event)"
-        (zuiFocusVisibleChange)="onFocusVisible($event)"
+        (pzmFocusVisibleChange)="onFocusVisible($event)"
     />
 </pzm-wrapper>

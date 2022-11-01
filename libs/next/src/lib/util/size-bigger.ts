@@ -1,12 +1,12 @@
-export type PzmSize = ZuiSizeS | ZuiSizeXS | ZuiSizeM | ZuiSizeXM | ZuiSizeL | ZuiSizeXl;
+export type PzmSize = PzmSizeS | PzmSizeXS | PzmSizeM | PzmSizeXM | PzmSizeL | PzmSizeXl;
 
-export type ZuiSizeXS = 'xs';
-export type ZuiSizeL = 'l';
-export type ZuiSizeM = 'm';
-export type ZuiSizeXM = 'xm';
-export type ZuiSizeS = 's';
-export type ZuiSizesXl = "m" | "l" | "xl";
-export type ZuiSizeXl = 'xl';
+export type PzmSizeXS = 'xs';
+export type PzmSizeL = 'l';
+export type PzmSizeM = 'm';
+export type PzmSizeXM = 'xm';
+export type PzmSizeS = 's';
+export type PzmSizesXl = "m" | "l" | "xl";
+export type PzmSizeXl = 'xl';
 /* SIZES asc order */
 const SIZES: ReadonlyArray<PzmSize> = [
   'xs',

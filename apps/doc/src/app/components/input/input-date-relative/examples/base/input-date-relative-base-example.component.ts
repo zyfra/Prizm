@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-input-date-relative-base-example',
+  selector: 'pzm-input-date-relative-base-example',
   templateUrl: './input-date-relative-base-example.component.html',
   styles: [`
     .box {
@@ -11,6 +11,6 @@ import { FormControl } from '@angular/forms';
     }
   `]
 })
-export class ZuiInputDateRelativeBaseExampleComponent {
+export class PzmInputDateRelativeBaseExampleComponent {
   public readonly valueControl = new FormControl();
 }

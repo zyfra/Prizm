@@ -1,6 +1,6 @@
 import { PzmDay } from '../date-time';
 
-export class ZuiNamedDay {
+export class PzmNamedDay {
     constructor(
         readonly day: PzmDay,
         private readonly name: string,

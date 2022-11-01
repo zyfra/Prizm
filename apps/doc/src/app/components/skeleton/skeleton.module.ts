@@ -5,14 +5,14 @@ import { RouterModule } from '@angular/router';
 import { SkeletonComponent } from './skeleton.component';
 import {
   PolymorphModule,
-  PzmButtonModule, ZuiCardModule,
+  PzmButtonModule, PzmCardModule,
   PzmInputTextModule,
   PzmSelectModule,
   PzmSkeletonModule,
-  ZuiToggleModule,
+  PzmToggleModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ZuiSkeletonBaseExampleComponent } from './examples/base/skeleton-base-example.component';
+import { PzmSkeletonBaseExampleComponent } from './examples/base/skeleton-base-example.component';
 
 
 @NgModule({
@@ -23,15 +23,15 @@ import { ZuiSkeletonBaseExampleComponent } from './examples/base/skeleton-base-e
     ReactiveFormsModule,
     PolymorphModule,
     PzmButtonModule,
-    ZuiCardModule,
-    ZuiToggleModule,
+    PzmCardModule,
+    PzmToggleModule,
     PzmSelectModule,
     PzmInputTextModule,
     PzmSkeletonModule,
     RouterModule.forChild(generateRoutes(SkeletonComponent)),
   ],
   declarations: [
-    ZuiSkeletonBaseExampleComponent,
+    PzmSkeletonBaseExampleComponent,
     SkeletonComponent
   ],
   exports: [SkeletonComponent],

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
-import { ZuiCalendarSheetPipe } from './calendar-sheet.pipe';
+import { PzmCalendarSheetPipe } from './calendar-sheet.pipe';
 
 @NgModule({
-    declarations: [ZuiCalendarSheetPipe],
-    exports: [ZuiCalendarSheetPipe],
+    declarations: [PzmCalendarSheetPipe],
+    exports: [PzmCalendarSheetPipe],
 })
 export class PzmCalendarSheetPipeModule {}

@@ -2,10 +2,10 @@ import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  ZuiBaseDialogContext,
-  ZuiDialogOptions,
-  ZuiDialogService,
-  ZuiDialogSize,
+  PzmBaseDialogContext,
+  PzmDialogOptions,
+  PzmDialogService,
+  PzmDialogSize,
   PzmOverlayInsidePlacement,
   PzmOverscrollMode,
   pzmPure,
@@ -13,7 +13,7 @@ import {
 import { generatePolymorphVariants } from '../../../util';
 
 @Component({
-  selector: 'zui-tooltip-example',
+  selector: 'pzm-tooltip-example',
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -31,12 +31,12 @@ export class DialogComponent {
   public height = 'auto';
   public width = '500px';
   public closeWord = 'Продолжить';
-  public sizeVariants: ZuiDialogSize[] = ['m', 'l'];
-  public size: ZuiDialogSize = 'm';
+  public sizeVariants: PzmDialogSize[] = ['m', 'l'];
+  public size: PzmDialogSize = 'm';
   public closeable = true;
   public header = 'Static_title_h3 - 16 Medium';
   public content = 'Базовый текст для диалога';
-  public footer: PolymorphContent<ZuiBaseDialogContext<any, ZuiDialogOptions<any, any>>> = null;
+  public footer: PolymorphContent<PzmBaseDialogContext<any, PzmDialogOptions<any, any>>> = null;
 
   public readonly exampleModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
@@ -48,7 +48,7 @@ export class DialogComponent {
   };
 
   constructor(
-    @Inject(ZuiDialogService) private readonly dialogService: ZuiDialogService,
+    @Inject(PzmDialogService) private readonly dialogService: PzmDialogService,
   ) {}
 
   @pzmPure

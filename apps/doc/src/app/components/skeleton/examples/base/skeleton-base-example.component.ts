@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-skeleton-base-example',
+  selector: 'pzm-skeleton-base-example',
   templateUrl: './skeleton-base-example.component.html',
   styles: [`
     .header {
       margin: 8px 0;
       padding: 8px 0;
-      border-bottom: 1px solid var(--zui-border-widget);
+      border-bottom: 1px solid var(--pzm-border-widget);
     }
 
     .body {
@@ -19,7 +19,7 @@ import { FormControl } from '@angular/forms';
     }
   `]
 })
-export class ZuiSkeletonBaseExampleComponent implements OnInit {
+export class PzmSkeletonBaseExampleComponent implements OnInit {
   public items = [
 
   ];

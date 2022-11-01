@@ -1,31 +1,31 @@
 import { InjectionToken, ValueProvider } from '@angular/core';
-import { ZUI_MAX_TIME_VALUES } from '../../../constants/max-time-values';
-import { ZuiTimeFormatParts } from '../../../types/time-format-parts';
-import { ZuiTimeMode } from '../../../types/time-mode';
-import { ZuiSizeL, ZuiSizeM, ZuiSizeS } from '../../../util/size-bigger';
+import { PZM_MAX_TIME_VALUES } from '../../../constants/max-time-values';
+import { PzmTimeFormatParts } from '../../../types/time-format-parts';
+import { PzmTimeMode } from '../../../types/time-mode';
+import { PzmSizeL, PzmSizeM, PzmSizeS } from '../../../util/size-bigger';
 
-export interface ZuiInputTimeOptions {
-    readonly mode: ZuiTimeMode;
-    readonly maxValues: Record<ZuiTimeFormatParts, number>;
-    readonly itemSize: ZuiSizeS | ZuiSizeL | ZuiSizeM;
+export interface PzmInputTimeOptions {
+    readonly mode: PzmTimeMode;
+    readonly maxValues: Record<PzmTimeFormatParts, number>;
+    readonly itemSize: PzmSizeS | PzmSizeL | PzmSizeM;
 }
 
-export const ZUI_INPUT_TIME_DEFAULT_OPTIONS: ZuiInputTimeOptions = {
+export const PZM_INPUT_TIME_DEFAULT_OPTIONS: PzmInputTimeOptions = {
     mode: `HH:MM`,
-    maxValues: ZUI_MAX_TIME_VALUES,
+    maxValues: PZM_MAX_TIME_VALUES,
     itemSize: `m`,
 };
 
-export const ZUI_INPUT_TIME_OPTIONS = new InjectionToken<ZuiInputTimeOptions>(
+export const PZM_INPUT_TIME_OPTIONS = new InjectionToken<PzmInputTimeOptions>(
     `Default parameters for input time component`,
     {
-        factory: (): ZuiInputTimeOptions => ZUI_INPUT_TIME_DEFAULT_OPTIONS,
+        factory: (): PzmInputTimeOptions => PZM_INPUT_TIME_DEFAULT_OPTIONS,
     },
 );
 
-export const zuiInputTimeOptionsProvider: (
-    options: Partial<ZuiInputTimeOptions>,
-) => ValueProvider = (options: Partial<ZuiInputTimeOptions>) => ({
-    provide: ZUI_INPUT_TIME_OPTIONS,
-    useValue: {...ZUI_INPUT_TIME_DEFAULT_OPTIONS, ...options},
+export const pzmInputTimeOptionsProvider: (
+    options: Partial<PzmInputTimeOptions>,
+) => ValueProvider = (options: Partial<PzmInputTimeOptions>) => ({
+    provide: PZM_INPUT_TIME_OPTIONS,
+    useValue: {...PZM_INPUT_TIME_DEFAULT_OPTIONS, ...options},
 });

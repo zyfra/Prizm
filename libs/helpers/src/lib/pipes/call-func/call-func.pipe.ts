@@ -8,10 +8,10 @@ type Tail<T extends Method> = T extends (first: any, ...rest: infer R) => any ? 
  * Этот пайп позволяет снизить кол-во вызовов функций которые вызываются из шаблона,
  * когда входящие аргументы не меняются.
  *
- * @button <ng-container *ngIf="firstArg | zuiCallFunc : someMethod">SomeValue</ng-container>
- * @button <ng-container>{{firstArg | zuiCallFunc : someMethod : secondArg}}</ng-container>
+ * @button <ng-container *ngIf="firstArg | pzmCallFunc : someMethod">SomeValue</ng-container>
+ * @button <ng-container>{{firstArg | pzmCallFunc : someMethod : secondArg}}</ng-container>
  */
-@Pipe({ name: 'zuiCallFunc' })
+@Pipe({ name: 'pzmCallFunc' })
 export class CallFuncPipe<C> implements PipeTransform {
   private readonly context: C;
 

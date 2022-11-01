@@ -1,9 +1,9 @@
-<zui-tree
-  [zuiTreeController]="true"
+<pzm-tree
+  [pzmTreeController]="true"
   [value]="data"
   [content]="content"
   [childrenHandler]="handler"
-></zui-tree>
+></pzm-tree>
 
 <ng-template
   #content
@@ -13,11 +13,11 @@
   <div
     class="wrapper"
   >
-    <zui-icon
+    <pzm-icon
       *ngIf="value.icon"
       size='16'
       [iconClass]="value.icon"
-    ></zui-icon>
+    ></pzm-icon>
     {{ value.text }}
   </div>
 </ng-template>

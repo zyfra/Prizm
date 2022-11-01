@@ -1,9 +1,9 @@
-<zui-dropdown-host
-    [style.--zui-dropdown-host-width]='"100%"'
+<pzm-dropdown-host
+    [style.--pzm-dropdown-host-width]='"100%"'
     class="z-hosted"
     [canOpen]="interactive"
     [content]="openTimeTemplate ? dropdownTimeTemplate : dropdownDateTemplate"
-    [zuiDropdownHostWidth]='openTimeTemplate ? "100%" : "auto"'
+    [pzmDropdownHostWidth]='openTimeTemplate ? "100%" : "auto"'
     [isOpen]="interactive && (openTimeTemplate || open)"
     [closeByEsc]='true'
     (isOpenChange)="onOpenChange($event)"
@@ -15,7 +15,7 @@
       <ng-template pzmInputStatusText>Ошибка! Неправильный формат</ng-template>
       <input
         class='input-search'
-        zuiInput
+        pzmInput
         #focusableElementRef
         [mask]="textMaskOptions"
         [showMaskTyped]='focusableElementRef.focused'
@@ -26,7 +26,7 @@
         [ngModel]="computedValue"
         (ngModelChange)='onValueChange($event || "")'
       />
-      <ng-container zui-input-right>
+      <ng-container pzm-input-right>
         <button
           pzmInputIconButton="date-calendar-blank"
           [interactive]="true"
@@ -40,12 +40,12 @@
         </ng-container>
       </ng-container>
     </pzm-input-layout>
-</zui-dropdown-host>
+</pzm-dropdown-host>
 
 <ng-template #dropdownDateTemplate>
   <pzm-calendar
     pzmPreventDefault="mousedown"
-    automation-id="zui-input-date-time__calendar"
+    automation-id="pzm-input-date-time__calendar"
     [min]="calendarMinDay"
     [max]="calendarMaxDay"
     [disabledItemHandler]="disabledItemHandler"
@@ -57,10 +57,10 @@
 </ng-template>
 
 <ng-template #dropdownTimeTemplate>
-  <zui-data-list
+  <pzm-data-list
     pzmLifecycle
     (pzmOnDestroy)='openTimeTemplate = false'
-    *ngIf='timeItems.length;' class='block' [style.--zui-data-list-border]='0'>
+    *ngIf='timeItems.length;' class='block' [style.--pzm-data-list-border]='0'>
     <ng-container>
       <div class='time-item'
            *ngFor='let item of timeItems; let idx = index'
@@ -70,5 +70,5 @@
             </span>
       </div>
     </ng-container>
-  </zui-data-list>
+  </pzm-data-list>
 </ng-template>

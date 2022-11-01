@@ -4,12 +4,12 @@ import { merge, Observable, Subject } from 'rxjs';
 import { WINDOW } from '@ng-web-apis/common';
 import { DOCUMENT } from '@angular/common';
 import { pzmTypedFromEvent } from '../../../observables';
-import { pzmContainsOrAfter, zuiIsCurrentTarget } from '../../../util/dom';
+import { pzmContainsOrAfter, pzmIsCurrentTarget } from '../../../util/dom';
 import { filter, switchMapTo, take, takeUntil } from 'rxjs/operators';
-import { ZuiOverlayContentToken } from '../../../modules/overlay';
+import { PzmOverlayContentToken } from '../../../modules/overlay';
 import { PzmOverlayContent } from '../../../modules/overlay/models';
 
-export const ZUI_DIALOGS_CLOSE = new InjectionToken<Observable<void>>(
+export const PZM_DIALOGS_CLOSE = new InjectionToken<Observable<void>>(
     'Default close event',
     {
         factory: (): Observable<void> => new Subject<void>().asObservable(),
@@ -18,26 +18,26 @@ export const ZUI_DIALOGS_CLOSE = new InjectionToken<Observable<void>>(
 
 const SCROLLBAR_PLACEHOLDER = 17;
 
-export const ZUI_DIALOG_CLOSE_STREAM = new InjectionToken<Observable<unknown>>(
+export const PZM_DIALOG_CLOSE_STREAM = new InjectionToken<Observable<unknown>>(
   'Dialogs closing stream',
 );
-export const ZUI_DIALOG_PROVIDERS: Provider[] = [
+export const PZM_DIALOG_PROVIDERS: Provider[] = [
   PzmDestroyService,
   {
-    provide: ZUI_DIALOG_CLOSE_STREAM,
+    provide: PZM_DIALOG_CLOSE_STREAM,
     deps: [
       DOCUMENT,
       WINDOW,
       ElementRef,
-      ZUI_DIALOGS_CLOSE,
+      PZM_DIALOGS_CLOSE,
       PzmDestroyService,
-      ZuiOverlayContentToken
+      PzmOverlayContentToken
     ],
-    useFactory: zuiDialogCloseStreamFactory,
+    useFactory: pzmDialogCloseStreamFactory,
   },
 ];
 
-export function zuiDialogCloseStreamFactory(
+export function pzmDialogCloseStreamFactory(
   documentRef: Document,
   windowRef: Window,
   {nativeElement}: ElementRef<HTMLElement>,
@@ -59,7 +59,7 @@ export function zuiDialogCloseStreamFactory(
         ),
       ),
       /* on backdrop click*/
-      pzmTypedFromEvent(nativeElement, 'click').pipe(filter(zuiIsCurrentTarget)),
+      pzmTypedFromEvent(nativeElement, 'click').pipe(filter(pzmIsCurrentTarget)),
       /* on outdoor mouse events */
       pzmTypedFromEvent(documentRef, 'mousedown').pipe(
         filter(

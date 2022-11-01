@@ -1,17 +1,17 @@
 import { AfterViewInit, Directive, Inject, Input } from '@angular/core';
 
-import { ZUI_AUTOFOCUS_HANDLER, ZUI_AUTOFOCUS_PROVIDERS, ZuiAutofocusHandler } from './autofocus.options';
+import { PZM_AUTOFOCUS_HANDLER, PZM_AUTOFOCUS_PROVIDERS, PzmAutofocusHandler } from './autofocus.options';
 
 @Directive({
-    selector: `[zuiAutoFocus]`,
-    providers: ZUI_AUTOFOCUS_PROVIDERS,
+    selector: `[pzmAutoFocus]`,
+    providers: PZM_AUTOFOCUS_PROVIDERS,
 })
-export class ZuiAutoFocusDirective implements AfterViewInit {
+export class PzmAutoFocusDirective implements AfterViewInit {
     @Input()
     public autoFocus = true;
 
     constructor(
-        @Inject(ZUI_AUTOFOCUS_HANDLER) private readonly handler: ZuiAutofocusHandler,
+        @Inject(PZM_AUTOFOCUS_HANDLER) private readonly handler: PzmAutofocusHandler,
     ) {}
 
     public ngAfterViewInit(): void {

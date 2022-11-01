@@ -3,7 +3,7 @@ import {PzmToastContainerComponent, PzmToastModule, PzmToastRef, PzmToastService
 import {ToastWrapperComponent} from "./toast-wrapper/toast-wrapper.component";
 import {ToastComponent} from "./toast/toast.component";
 import {PzmToastExistException} from "../../exceptions/toast-exist.exception";
-import {ZuiToastNotExistException} from "../../exceptions/toast-not-exist.exception";
+import {PzmToastNotExistException} from "../../exceptions/toast-not-exist.exception";
 import {PzmToastControl} from "./toast-control";
 import {By} from "@angular/platform-browser";
 
@@ -31,7 +31,7 @@ xdescribe('doc', () => {
     toastService = TestBed.inject(PzmToastService);
   });
 
-  it('should create ZuiToastContainerComponent', () => {
+  it('should create PzmToastContainerComponent', () => {
     const fixture = TestBed.createComponent(PzmToastContainerComponent);
     fixture.nativeElement.d
     const app = fixture.componentInstance;
@@ -79,6 +79,6 @@ xdescribe('doc', () => {
   });
 
   it('should get error update not exist toast', () => {
-    expect(() => toastService.updateTitle(ID, 'new title')).toThrowError(ZuiToastNotExistException);
+    expect(() => toastService.updateTitle(ID, 'new title')).toThrowError(PzmToastNotExistException);
   });
 });

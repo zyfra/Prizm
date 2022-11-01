@@ -4,45 +4,45 @@ import { Observable } from 'rxjs';
 import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../tokens/focusable-item-accessor';
 import { PZM_IS_IOS } from '../../tokens/is-ios';
 import { PzmFocusableElementAccessor } from '../../types/focusable-element-accessor';
-import { ZuiDefaultAutofocusHandler } from './handlers/default.handler';
-import { ZuiIosAutofocusHandler } from './handlers/ios.handler';
+import { PzmDefaultAutofocusHandler } from './handlers/default.handler';
+import { PzmIosAutofocusHandler } from './handlers/ios.handler';
 
-export interface ZuiAutofocusHandler {
+export interface PzmAutofocusHandler {
     setFocus(): void;
 }
 
-export const ZUI_AUTOFOCUS_HANDLER = new InjectionToken<ZuiAutofocusHandler>(
+export const PZM_AUTOFOCUS_HANDLER = new InjectionToken<PzmAutofocusHandler>(
     `Autofocusing handler`,
 );
 
-export function zuiAutofocusHandlerFactory(
-    zuiFocusableComponent: PzmFocusableElementAccessor | null,
+export function pzmAutofocusHandlerFactory(
+    pzmFocusableComponent: PzmFocusableElementAccessor | null,
     elementRef: ElementRef<HTMLElement>,
     animationFrame$: Observable<number>,
     renderer: Renderer2,
     ngZone: NgZone,
     windowRef: Window,
     isIos: boolean,
-): ZuiAutofocusHandler {
+): PzmAutofocusHandler {
     return isIos
-        ? new ZuiIosAutofocusHandler(
-              zuiFocusableComponent,
+        ? new PzmIosAutofocusHandler(
+              pzmFocusableComponent,
               elementRef,
               renderer,
               ngZone,
               windowRef,
           )
-        : new ZuiDefaultAutofocusHandler(
-              zuiFocusableComponent,
+        : new PzmDefaultAutofocusHandler(
+              pzmFocusableComponent,
               elementRef,
               animationFrame$,
           );
 }
 
-export const ZUI_AUTOFOCUS_PROVIDERS = [
+export const PZM_AUTOFOCUS_PROVIDERS = [
     {
-        provide: ZUI_AUTOFOCUS_HANDLER,
-        useFactory: zuiAutofocusHandlerFactory,
+        provide: PZM_AUTOFOCUS_HANDLER,
+        useFactory: pzmAutofocusHandlerFactory,
         deps: [
             [new Optional(), new Self(), PZM_FOCUSABLE_ITEM_ACCESSOR],
             ElementRef,

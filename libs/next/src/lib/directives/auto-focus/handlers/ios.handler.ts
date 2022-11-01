@@ -2,22 +2,22 @@ import { Directive, ElementRef, Inject, NgZone, Optional, Renderer2, Self } from
 import { WINDOW } from '@ng-web-apis/common';
 import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
 import { PzmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
-import { zuiPx } from '../../../util/format/px';
-import { AbstractZuiAutofocusHandler } from './abstract.handler';
+import { pzmPx } from '../../../util/format/px';
+import { AbstractPzmAutofocusHandler } from './abstract.handler';
 
 @Directive()
-export class ZuiIosAutofocusHandler extends AbstractZuiAutofocusHandler {
+export class PzmIosAutofocusHandler extends AbstractPzmAutofocusHandler {
     constructor(
         @Optional()
         @Self()
         @Inject(PZM_FOCUSABLE_ITEM_ACCESSOR)
-        zuiFocusableComponent: PzmFocusableElementAccessor | null,
+        pzmFocusableComponent: PzmFocusableElementAccessor | null,
         @Inject(ElementRef) elementRef: ElementRef<HTMLElement>,
         @Inject(Renderer2) private readonly renderer: Renderer2,
         @Inject(NgZone) private readonly ngZone: NgZone,
         @Inject(WINDOW) private readonly windowRef: Window,
     ) {
-        super(zuiFocusableComponent, elementRef);
+        super(pzmFocusableComponent, elementRef);
         this.patchCssStyles();
     }
 
@@ -73,16 +73,16 @@ export class ZuiIosAutofocusHandler extends AbstractZuiAutofocusHandler {
         const fakeInput: HTMLInputElement = this.renderer.createElement(`input`);
         const rect: DOMRect = this.element.getBoundingClientRect();
 
-        fakeInput.style.height = zuiPx(rect.height);
-        fakeInput.style.width = zuiPx(rect.width / 2);
+        fakeInput.style.height = pzmPx(rect.height);
+        fakeInput.style.width = pzmPx(rect.width / 2);
         fakeInput.style.position = `fixed`;
         fakeInput.style.opacity = `0`;
-        fakeInput.style.fontSize = zuiPx(16); // disable possible auto zoom
+        fakeInput.style.fontSize = pzmPx(16); // disable possible auto zoom
         fakeInput.readOnly = true; // prevent keyboard for fake input
 
         // @note: emulate position cursor before focus to real textfield element
-        fakeInput.style.top = zuiPx(rect.top);
-        fakeInput.style.left = zuiPx(rect.left);
+        fakeInput.style.top = pzmPx(rect.top);
+        fakeInput.style.left = pzmPx(rect.left);
 
         return fakeInput;
     }
@@ -92,7 +92,7 @@ export class ZuiIosAutofocusHandler extends AbstractZuiAutofocusHandler {
             parseFloat(
                 this.windowRef
                     .getComputedStyle(this.element)
-                    .getPropertyValue(`--zui-duration`),
+                    .getPropertyValue(`--pzm-duration`),
             ) || 0
         );
     }
@@ -105,7 +105,7 @@ export class ZuiIosAutofocusHandler extends AbstractZuiAutofocusHandler {
      * and then that dialog will be shaking
      */
     private insideDialog(): boolean {
-        return !!this.element.closest(`zui-dialog`);
+        return !!this.element.closest(`pzm-dialog`);
     }
 
     /**

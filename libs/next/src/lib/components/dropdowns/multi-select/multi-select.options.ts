@@ -3,13 +3,13 @@ import { PolymorphContent } from '../../../directives';
 import { PzmInputSize } from '../../input';
 import { PzmContextWithImplicit } from '../../../types';
 import {
-  ZuiMultiSelectItemWithChecked,
-  ZuiMultiSelectIdentityMatcher,
-  ZuiMultiSelectSearchMatcher,
-  ZuiMultiSelectItemStringifyFunc,
+  PzmMultiSelectItemWithChecked,
+  PzmMultiSelectIdentityMatcher,
+  PzmMultiSelectSearchMatcher,
+  PzmMultiSelectItemStringifyFunc,
 } from './multi-select.model';
 
-export interface ZuiMultiSelectOptions<T> {
+export interface PzmMultiSelectOptions<T> {
     readonly items: T[];
     readonly chooseAllItem: T;
     readonly searchable: boolean;
@@ -18,20 +18,20 @@ export interface ZuiMultiSelectOptions<T> {
     readonly label: string;
     readonly placeholder: string;
     readonly size: PzmInputSize;
-    readonly stringify: ZuiMultiSelectItemStringifyFunc<T>;
+    readonly stringify: PzmMultiSelectItemStringifyFunc<T>;
     readonly emptyContent: PolymorphContent;
-    readonly searchMatcher: ZuiMultiSelectSearchMatcher<T>,
-    readonly identityMatcher: ZuiMultiSelectIdentityMatcher<T>,
+    readonly searchMatcher: PzmMultiSelectSearchMatcher<T>,
+    readonly identityMatcher: PzmMultiSelectIdentityMatcher<T>,
     readonly minDropdownHeight: number;
     readonly outer: boolean;
     readonly maxDropdownHeight: number;
     readonly dropdownWidth: string;
-    readonly valueContent: PolymorphContent<PzmContextWithImplicit<ZuiMultiSelectItemWithChecked<T>>>;
+    readonly valueContent: PolymorphContent<PzmContextWithImplicit<PzmMultiSelectItemWithChecked<T>>>;
 
 }
 
 /** Default values for dropdown-host options */
-export const ZUI_MULTI_SELECT_DEFAULT_OPTIONS: ZuiMultiSelectOptions<unknown> = {
+export const PZM_MULTI_SELECT_DEFAULT_OPTIONS: PzmMultiSelectOptions<unknown> = {
   items: [],
   chooseAllItem: null,
   searchable: false,
@@ -45,7 +45,7 @@ export const ZUI_MULTI_SELECT_DEFAULT_OPTIONS: ZuiMultiSelectOptions<unknown> = 
   searchMatcher: (searchValue: string, item: unknown): boolean => {
     return item?.toString().toLowerCase().includes(searchValue.toLowerCase());
   },
-  stringify: (i: Omit<ZuiMultiSelectItemWithChecked<unknown>, 'stringify'>, nullContent: string) => {
+  stringify: (i: Omit<PzmMultiSelectItemWithChecked<unknown>, 'stringify'>, nullContent: string) => {
     if (i.obj == null && nullContent) return nullContent;
     return i.obj?.toString?.();
   },
@@ -58,16 +58,16 @@ export const ZUI_MULTI_SELECT_DEFAULT_OPTIONS: ZuiMultiSelectOptions<unknown> = 
   label: 'Выберите из списка',
 };
 
-export const ZUI_MULTI_SELECT_OPTIONS = new InjectionToken<ZuiMultiSelectOptions<unknown>>(
+export const PZM_MULTI_SELECT_OPTIONS = new InjectionToken<PzmMultiSelectOptions<unknown>>(
     'Default parameters for select',
     {
-        factory: (): ZuiMultiSelectOptions<unknown> => ZUI_MULTI_SELECT_DEFAULT_OPTIONS,
+        factory: (): PzmMultiSelectOptions<unknown> => PZM_MULTI_SELECT_DEFAULT_OPTIONS,
     },
 );
 
-export const zuiMultiSelectOptionsProvider: (
-    options: Partial<ZuiMultiSelectOptions<unknown>>,
-) => ValueProvider = (options: Partial<ZuiMultiSelectOptions<unknown>>) => ({
-    provide: ZUI_MULTI_SELECT_OPTIONS,
-    useValue: {...ZUI_MULTI_SELECT_DEFAULT_OPTIONS, ...options},
+export const pzmMultiSelectOptionsProvider: (
+    options: Partial<PzmMultiSelectOptions<unknown>>,
+) => ValueProvider = (options: Partial<PzmMultiSelectOptions<unknown>>) => ({
+    provide: PZM_MULTI_SELECT_OPTIONS,
+    useValue: {...PZM_MULTI_SELECT_DEFAULT_OPTIONS, ...options},
 });

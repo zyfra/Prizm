@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'zui-icons-buttons-example',
+  selector: 'pzm-icons-buttons-example',
   styles: [
     `
       .box {
@@ -21,4 +21,4 @@ import { Component } from '@angular/core';
   ],
   templateUrl: './icons-buttons-example.component.html',
 })
-export class ZuiIconsButtonsExampleComponent {}
+export class PzmIconsButtonsExampleComponent {}

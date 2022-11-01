@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { ZuiSizeM, ZuiSizeS } from '@digital-plant/zui-components';
+import { PzmSizeM, PzmSizeS } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-progress-example',
+  selector: 'pzm-progress-example',
   templateUrl: './progress-line-bar.component.html',
   styleUrls: ['./progress-line-bar.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -13,19 +13,19 @@ export class ProgressLineBarComponent {
   public max = 100;
   public value = 50;
 
-  readonly sizeVariants: ReadonlyArray<ZuiSizeS | ZuiSizeM> = [
+  readonly sizeVariants: ReadonlyArray<PzmSizeS | PzmSizeM> = [
     's',
     'm',
   ];
-  size: ZuiSizeS | ZuiSizeM = this.sizeVariants[1];
+  size: PzmSizeS | PzmSizeM = this.sizeVariants[1];
 
   readonly colorVariants: ReadonlyArray<string | null> = [
     null,
     'transparent',
-    'var(--zui-index-danger)',
-    'var(--zui-index-warning)',
-    'var(--zui-index-plan)',
-    'var(--zui-index-good)',
+    'var(--pzm-index-danger)',
+    'var(--pzm-index-warning)',
+    'var(--pzm-index-plan)',
+    'var(--pzm-index-good)',
     'lightblue',
   ];
   color: string | null = this.colorVariants[0];
@@ -34,8 +34,8 @@ export class ProgressLineBarComponent {
   readonly trackColorVariants: ReadonlyArray<string | null> = [
     null,
     'transparent',
-    'var(--zui-index-danger)',
-    'var(--zui-index-warning)',
+    'var(--pzm-index-danger)',
+    'var(--pzm-index-warning)',
     'lightblue',
     'gray',
     'green'

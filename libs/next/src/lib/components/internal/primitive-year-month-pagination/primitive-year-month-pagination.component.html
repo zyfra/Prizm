@@ -1,7 +1,7 @@
 <div class='box'>
-  <div class='year-month zui-font-input-text-14px'>
+  <div class='year-month pzm-font-input-text-14px'>
     <div *ngIf="oneMonth; else buttonMonth">
-      {{ value | zuiMonth | async }}
+      {{ value | pzmMonth | async }}
     </div>
 
     <div *ngIf="oneYear; else button">
@@ -26,7 +26,7 @@
 <ng-template #button>
   <div class='year-box' (click)="onYearClick($event)">
     <button
-      [attr.testId]="'zui-primitive-year-month-pagination__year-button'"
+      [attr.testId]="'pzm-primitive-year-month-pagination__year-button'"
       type="button"
       pzmLink
       [pzmFocusable]="false"
@@ -35,7 +35,7 @@
       {{ value.formattedYear }}
     </button>
     <span>
-      <zui-icon iconClass='chevrons-dropdown-small'></zui-icon>
+      <pzm-icon iconClass='chevrons-dropdown-small'></pzm-icon>
     </span>
   </div>
 </ng-template>
@@ -44,16 +44,16 @@
 <ng-template #buttonMonth>
   <div class='month-box' (click)="onMonthClick($event)">
     <button
-      [attr.testId]="'zui-primitive-year-month-pagination__year-button'"
+      [attr.testId]="'pzm-primitive-year-month-pagination__year-button'"
       type="button"
       pzmLink
       [class.active]='monthActive'
       [pzmFocusable]="false"
     >
-      {{ value | zuiMonth | async }}
+      {{ value | pzmMonth | async }}
     </button>
     <span>
-      <zui-icon iconClass='chevrons-dropdown-small'></zui-icon>
+      <pzm-icon iconClass='chevrons-dropdown-small'></pzm-icon>
     </span>
   </div>
 </ng-template>

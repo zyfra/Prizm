@@ -1,6 +1,6 @@
 import { PzmShadowType, PzmShadowTypeEnum, PzmShadowValue } from './models';
 
-export function zuiGetShadow(type: PzmShadowType): PzmShadowValue {
+export function pzmGetShadow(type: PzmShadowType): PzmShadowValue {
   switch (type) {
     case PzmShadowTypeEnum.miniBottom:
       return PzmShadowValue.miniBottom

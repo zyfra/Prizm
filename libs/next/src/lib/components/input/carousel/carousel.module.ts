@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 
 import { PzmInputCommonModule } from '../common/input-common.module';
-import { ZuiCarouselAuxiliaryLeftComponent } from './carousel-auxiliary-left.component';
-import { ZuiCarouselAuxiliaryRightComponent } from './carousel-auxiliary-right.component';
-import { ZuiCarouselComponent } from './carousel.component';
+import { PzmCarouselAuxiliaryLeftComponent } from './carousel-auxiliary-left.component';
+import { PzmCarouselAuxiliaryRightComponent } from './carousel-auxiliary-right.component';
+import { PzmCarouselComponent } from './carousel.component';
 
 @NgModule({
   imports: [PzmInputCommonModule],
-  declarations: [ZuiCarouselComponent, ZuiCarouselAuxiliaryLeftComponent, ZuiCarouselAuxiliaryRightComponent],
+  declarations: [PzmCarouselComponent, PzmCarouselAuxiliaryLeftComponent, PzmCarouselAuxiliaryRightComponent],
   exports: [
-    ZuiCarouselComponent,
-    ZuiCarouselAuxiliaryLeftComponent,
-    ZuiCarouselAuxiliaryRightComponent,
+    PzmCarouselComponent,
+    PzmCarouselAuxiliaryLeftComponent,
+    PzmCarouselAuxiliaryRightComponent,
     PzmInputCommonModule,
   ],
 })
-export class ZuiCarouselModule {}
+export class PzmCarouselModule {}
 

@@ -6,7 +6,7 @@ import { PzmValueChangesException } from '../exceptions/value-changes.exception'
 /**
  * Turns AbstractControl/Abstract-control-directive valueChanges into ReplaySubject(1)
  */
-export function zuiReplayedValueChangesFrom<T>(
+export function pzmReplayedValueChangesFrom<T>(
     control: AbstractControl | AbstractControlDirective,
 ): Observable<T> {
     return new Observable(subscriber => {

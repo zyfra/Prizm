@@ -9,7 +9,7 @@ import {
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-multi-select-example',
+  selector: 'pzm-multi-select-example',
   templateUrl: './multi-select.component.html',
   styleUrls: ['./multi-select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -4,7 +4,7 @@
  * @param value
  * @param quantum series step
  */
-export function zuiQuantize(value: number, quantum: number): number {
+export function pzmQuantize(value: number, quantum: number): number {
     console.assert(Number.isFinite(value));
     console.assert(Number.isFinite(quantum));
     console.assert(quantum > 0);

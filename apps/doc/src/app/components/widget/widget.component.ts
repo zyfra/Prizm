@@ -3,7 +3,7 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { PolymorphContent, pzmPure } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-widget-example',
+  selector: 'pzm-widget-example',
   templateUrl: './widget.component.html',
   styleUrls: ['./widget.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

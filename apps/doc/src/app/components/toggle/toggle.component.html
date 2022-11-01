@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiToggleComponent to view toggle.
+      Use PzmToggleComponent to view toggle.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <zui-toggle-base-example></zui-toggle-base-example>
+      <pzm-toggle-base-example></pzm-toggle-base-example>
     </tui-doc-example>
 
 
@@ -21,7 +21,7 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-toggle
+      <pzm-toggle
         [showLoader]="showLoader"
         [singleColor]="singleColor"
         [iconOn]="iconOn"
@@ -30,7 +30,7 @@
         [disabled]="disabled"
         [(ngModel)]="value"
         [ngModelOptions]="{standalone: true}"
-      ></zui-toggle>
+      ></pzm-toggle>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
@@ -73,7 +73,7 @@
 
       <ng-template
         documentationPropertyName="size"
-        documentationPropertyType="ZuiSizeL | ZuiSizeM"
+        documentationPropertyType="PzmSizeL | PzmSizeM"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="size"
         [documentationPropertyValues]="sizeVariants"
@@ -85,7 +85,7 @@
 
       <ng-template
         documentationPropertyName="iconOn"
-        documentationPropertyType="PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>"
+        documentationPropertyType="PolymorphContent<PzmContextWithImplicit<PzmSizeL | PzmSizeM>>"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="iconOn"
         [documentationPropertyValues]="iconVariants"
@@ -96,7 +96,7 @@
 
       <ng-template
         documentationPropertyName="iconOff"
-        documentationPropertyType="PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>"
+        documentationPropertyType="PolymorphContent<PzmContextWithImplicit<PzmSizeL | PzmSizeM>>"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="iconOff"
         [documentationPropertyValues]="iconVariants"
@@ -112,7 +112,7 @@
       <li>
         <p>
           Import
-          <code>ZuiToggleModule</code>
+          <code>PzmToggleModule</code>
           into a module where you want to use our component
         </p>
 

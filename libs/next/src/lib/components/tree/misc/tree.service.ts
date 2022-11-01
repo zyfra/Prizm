@@ -2,12 +2,12 @@ import { Inject, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { map, mapTo, startWith, switchMap, tap } from 'rxjs/operators';
 
-import { ZuiTreeLoader } from './tree.interfaces';
-import { ZUI_TREE_LOADER, ZUI_TREE_LOADING, ZUI_TREE_START } from './tree.tokens';
+import { PzmTreeLoader } from './tree.interfaces';
+import { PZM_TREE_LOADER, PZM_TREE_LOADING, PZM_TREE_START } from './tree.tokens';
 
 // @dynamic
 @Injectable()
-export class ZuiTreeService<T> {
+export class PzmTreeService<T> {
     private readonly map = new Map<T, readonly T[]>([[this.loading, []]]);
 
     private readonly load$ = new Subject<T>();
@@ -25,9 +25,9 @@ export class ZuiTreeService<T> {
     );
 
     constructor(
-        @Inject(ZUI_TREE_LOADING) private readonly loading: T,
-        @Inject(ZUI_TREE_START) private readonly start: T,
-        @Inject(ZUI_TREE_LOADER) private readonly loader: ZuiTreeLoader<T>,
+        @Inject(PZM_TREE_LOADING) private readonly loading: T,
+        @Inject(PZM_TREE_START) private readonly start: T,
+        @Inject(PZM_TREE_LOADER) private readonly loader: PzmTreeLoader<T>,
     ) {}
 
     public getChildren(item: T): readonly T[] {

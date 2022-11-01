@@ -12,7 +12,7 @@ describe('doc', () => {
   const ids = {
     showByIdBtn: '.show-toast-by-id[pzmButton]',
     closeByIdBtn: '.close-toast-by-id[pzmButton]',
-    toastId: '#zui-toast-idour-id-1',
+    toastId: '#pzm-toast-idour-id-1',
     topMiddleRadio: 'pzm-radio-button.toast-position-button-tm',
     topLeftRadio: 'pzm-radio-button.toast-position-button-tl',
     topRightRadio: 'pzm-radio-button.toast-position-button-tr',

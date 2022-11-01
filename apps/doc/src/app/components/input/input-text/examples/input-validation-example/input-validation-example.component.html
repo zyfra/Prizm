@@ -2,11 +2,11 @@
 <pzm-input-layout label="Заголовок">
   <input
     #input
-    zuiInput
+    pzmInput
     value="Введенный текст"
     placeholder="Введите текст"
     [formControl]="requiredInputControl"
   />
   <ng-template pzmInputStatusText [control]="input"></ng-template>
-  <pzm-input-status-subtext zui-input-subtext [control]="input"></pzm-input-status-subtext>
+  <pzm-input-status-subtext pzm-input-subtext [control]="input"></pzm-input-status-subtext>
 </pzm-input-layout>

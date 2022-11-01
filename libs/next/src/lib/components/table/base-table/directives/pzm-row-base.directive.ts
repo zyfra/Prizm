@@ -1,22 +1,22 @@
 import { Directive, HostBinding, HostListener, Inject, Input } from '@angular/core';
 import { TargetTableToken } from '../target-table.token';
-import { ZuiBaseTableComponent } from '../zui-base-table.directive';
+import { PzmBaseTableComponent } from '../pzm-base-table.directive';
 
 @Directive({
-  selector: '[zuiRow]',
+  selector: '[pzmRow]',
 })
-export class ZuiRowBaseDirective<T> {
-  @Input('zuiRow') data: T;
-  @Input('zuiRowStatus') status: 'primary' | 'error' | 'warning' | 'info' = 'primary';
+export class PzmRowBaseDirective<T> {
+  @Input('pzmRow') data: T;
+  @Input('pzmRowStatus') status: 'primary' | 'error' | 'warning' | 'info' = 'primary';
 
-  constructor(@Inject(TargetTableToken) private readonly targetTable: ZuiBaseTableComponent<T>) {}
+  constructor(@Inject(TargetTableToken) private readonly targetTable: PzmBaseTableComponent<T>) {}
 
   @HostBinding('class')
   get rowStatusClass(): string {
     return `row_status-${this.status}`;
   }
 
-  @HostBinding('class.zui-active-element')
+  @HostBinding('class.pzm-active-element')
   get isActiveElement(): boolean {
     return this.data === this.targetTable.activeElement;
   }

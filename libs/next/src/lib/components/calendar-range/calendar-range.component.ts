@@ -19,10 +19,10 @@ import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../@core/date-time/days.const';
 import { PzmMonth } from '../../@core/date-time/month';
 import { PZM_ALWAYS_FALSE_HANDLER } from '../../constants/always-false-handler';
 import { PZM_DEFAULT_MARKER_HANDLER } from '../../constants/default-marker-handler';
-import { ZUI_MAX_DAY_RANGE_LENGTH_MAPPER } from '../../constants/max-day-range-length-mapper';
+import { PZM_MAX_DAY_RANGE_LENGTH_MAPPER } from '../../constants/max-day-range-length-mapper';
 import { pzmDefaultProp } from '../../decorators/default-prop';
 import { pzmPure } from '../../decorators/pure';
-import { ZUI_CALENDAR_DATA_STREAM } from '../../tokens/calendar-data-stream';
+import { PZM_CALENDAR_DATA_STREAM } from '../../tokens/calendar-data-stream';
 import { PzmDayLike } from '../../types/day-like';
 import { PzmBooleanHandler } from '../../types/handler';
 import { PzmMapper } from '../../types/mapper';
@@ -38,7 +38,7 @@ import { PZM_OTHER_DATE_TEXT } from '../../tokens/i18n';
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [PzmDestroyService],
 })
-export class ZuiCalendarRangeComponent implements PzmWithOptionalMinMax<PzmDay> {
+export class PzmCalendarRangeComponent implements PzmWithOptionalMinMax<PzmDay> {
     @Input()
     @pzmDefaultProp()
     defaultViewedMonth: PzmMonth = PzmMonth.currentLocal();
@@ -86,10 +86,10 @@ export class ZuiCalendarRangeComponent implements PzmWithOptionalMinMax<PzmDay> 
     readonly testId = 'pzm_calendar_range';
 
 
-    readonly maxLengthMapper: PzmMapper<PzmDay, PzmDay> = ZUI_MAX_DAY_RANGE_LENGTH_MAPPER;
+    readonly maxLengthMapper: PzmMapper<PzmDay, PzmDay> = PZM_MAX_DAY_RANGE_LENGTH_MAPPER;
 
     constructor(
-        @Inject(ZUI_CALENDAR_DATA_STREAM)
+        @Inject(PZM_CALENDAR_DATA_STREAM)
         @Optional()
         valueChanges: Observable<PzmDayRange | null> | null,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,

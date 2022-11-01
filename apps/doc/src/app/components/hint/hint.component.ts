@@ -8,33 +8,33 @@ import {
 } from "@digital-plant/zui-components";
 
 @Component({
-  selector: 'zui-hint-example',
+  selector: 'pzm-hint-example',
   templateUrl: './hint.component.html',
   styleUrls: ['./hint.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HintComponent {
   public pzmAutoReposition = false;
-  public zuiHintCanShow = true;
+  public pzmHintCanShow = true;
   public content = "Тестовое содержимое";
 
-  public readonly zuiHintDirectionVariants: ReadonlyArray<PzmHintOptions['direction']> = Object.values(PzmOverlayOutsidePlacement);
+  public readonly pzmHintDirectionVariants: ReadonlyArray<PzmHintOptions['direction']> = Object.values(PzmOverlayOutsidePlacement);
 
-  public zuiHintDirection: PzmHintOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
+  public pzmHintDirection: PzmHintOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
 
-  public zuiHintId = 'hint-id';
+  public pzmHintId = 'hint-id';
 
-  public zuiHintShowDelay: number = PZM_HINT_DEFAULT_OPTIONS.showDelay;
+  public pzmHintShowDelay: number = PZM_HINT_DEFAULT_OPTIONS.showDelay;
 
-  public zuiHintHideDelay: number = PZM_HINT_DEFAULT_OPTIONS.hideDelay;
+  public pzmHintHideDelay: number = PZM_HINT_DEFAULT_OPTIONS.hideDelay;
 
-  public zuiHintHost: HTMLElement = null;
+  public pzmHintHost: HTMLElement = null;
 
-  public readonly zuiHintVariants = [
+  public readonly pzmHintVariants = [
     'Новый хинт'
   ];
 
-  public pzmHint: PolymorphContent =  this.zuiHintVariants[0];
+  public pzmHint: PolymorphContent =  this.pzmHintVariants[0];
 
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'

@@ -1,11 +1,11 @@
 <div>
   <p>Size M</p>
-  <div class='progress-block zui-font-input-text-helper'>
+  <div class='progress-block pzm-font-input-text-helper'>
     <progress
       pzmProgressBar
       max="100"
       size='m'
-      color='var(--zui-index-plan)'
+      color='var(--pzm-index-plan)'
       class="progress"
       [value]="value$ | async"
     ></progress>
@@ -33,7 +33,7 @@
   <div>
     <progress
       pzmProgressBar
-      [zuiProgressColorSegments]="colors"
+      [pzmProgressColorSegments]="colors"
       max="100"
       size='m'
       color='green'
@@ -49,14 +49,14 @@
   <div>
     <label
       *ngIf="value$ | async as value"
-      zuiProgressLabel
+      pzmProgressLabel
       class="label-wrapper"
     >
       {{ value }}%
       <progress
         pzmProgressBar
         max="100"
-        color='var(--zui-index-warning)'
+        color='var(--pzm-index-warning)'
         size='m'
         [value]="value"
       ></progress>
@@ -69,7 +69,7 @@
   <p>Stacked progress bars</p>
   <div>
     <label
-      zuiProgressLabel
+      pzmProgressLabel
       class="label-wrapper"
     >
       <progress
@@ -97,7 +97,7 @@
   <div>
     <progress
       pzmProgressBar
-      color='var(--zui-index-plan)'
+      color='var(--pzm-index-plan)'
       class="progress"
       size='s'
     ></progress>
@@ -105,7 +105,7 @@
     <br>
     <progress
       pzmProgressBar
-      color='var(--zui-index-danger)'
+      color='var(--pzm-index-danger)'
       size='m'
       class="progress"
     ></progress>

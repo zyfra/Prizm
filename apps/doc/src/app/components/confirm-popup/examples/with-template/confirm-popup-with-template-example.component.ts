@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { PzmOverlayOutsidePlacement } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-confirm-popup-with-template-example',
+  selector: 'pzm-confirm-popup-with-template-example',
   templateUrl: './confirm-popup-with-template-example.component.html',
   styles: [`
     .box {
@@ -41,6 +41,6 @@ import { PzmOverlayOutsidePlacement } from '@digital-plant/zui-components';
     }
   `]
 })
-export class ZuiConfirmPopupWithTemplateExampleComponent {
+export class PzmConfirmPopupWithTemplateExampleComponent {
   direction = PzmOverlayOutsidePlacement.RIGHT
 }

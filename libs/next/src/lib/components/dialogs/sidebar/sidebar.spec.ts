@@ -1,20 +1,20 @@
 import { TestBed } from '@angular/core/testing';
-import { ZuiOverlayControl } from '../../../modules/overlay';
-import { ZuiSidebarModule, ZuiSidebarResultDefaultType, ZuiSidebarService } from './index';
+import { PzmOverlayControl } from '../../../modules/overlay';
+import { PzmSidebarModule, PzmSidebarResultDefaultType, PzmSidebarService } from './index';
 import { first, take } from 'rxjs/operators';
 
 
-xdescribe('ZuiSidebar', () => {
-  let service: ZuiSidebarService;
+xdescribe('PzmSidebar', () => {
+  let service: PzmSidebarService;
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ZuiSidebarModule],
+      imports: [PzmSidebarModule],
     });
-    service = TestBed.inject(ZuiSidebarService);
+    service = TestBed.inject(PzmSidebarService);
   });
 
   it('create and close', async () => {
-    let c: ZuiOverlayControl;
+    let c: PzmOverlayControl;
     const result = service.open('Hello', {}, ({control, dialog}) => {
       c = control;
       dialog.completeWith(true);
@@ -27,7 +27,7 @@ xdescribe('ZuiSidebar', () => {
   });
 
   it('pass data and not close', async () => {
-    let c: ZuiOverlayControl;
+    let c: PzmOverlayControl;
     const result = service.open(null, {}, async ({control, dialog}) => {
       c = control;
       dialog.$implicit.next(true);
@@ -39,7 +39,7 @@ xdescribe('ZuiSidebar', () => {
   });
 
   it('pass description and close', async () => {
-    let c: ZuiOverlayControl;
+    let c: PzmOverlayControl;
     const h = 'Our Description';
     const result = service.open('Hello', {
       description: h
@@ -55,11 +55,11 @@ xdescribe('ZuiSidebar', () => {
   });
 
   it('pass confirmed and close', async () => {
-    let c: ZuiOverlayControl;
-    const content = ZuiSidebarResultDefaultType.confirmed;
+    let c: PzmOverlayControl;
+    const content = PzmSidebarResultDefaultType.confirmed;
     const result = service.open(content, {}, ({control, dialog}) => {
       c = control;
-      dialog.completeWith(ZuiSidebarResultDefaultType.confirmed);
+      dialog.completeWith(PzmSidebarResultDefaultType.confirmed);
     })
 
     const r = await result.pipe(take(1)).toPromise();

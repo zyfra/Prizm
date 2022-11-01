@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ITab } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-tabs-example-lined',
+  selector: 'pzm-tabs-example-lined',
   templateUrl: './tabs-example-lined.component.html',
   styleUrls: ['./tabs-example-lined.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -37,7 +37,7 @@ export const PZM_TOAST_OPTIONS = new InjectionToken<PzmToastDefaultOptions>(
     },
 );
 
-export const zuiToastOptionsProvider: (
+export const pzmToastOptionsProvider: (
     options: Partial<PzmToastDefaultOptions>,
 ) => ValueProvider = (options: Partial<PzmToastDefaultOptions>) => ({
     provide: PZM_TOAST_OPTIONS,

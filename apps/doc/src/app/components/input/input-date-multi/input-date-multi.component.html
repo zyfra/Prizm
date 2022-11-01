@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiInputDateMultiComponent to view input-date.
+      Use PzmInputDateMultiComponent to view input-date.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <zui-input-date-multi-base-example></zui-input-date-multi-base-example>
+      <pzm-input-date-multi-base-example></pzm-input-date-multi-base-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -21,7 +21,7 @@
       heading="Four"
       [content]="exampleFour"
     >
-      <zui-input-date-multi-four-example></zui-input-date-multi-four-example>
+      <pzm-input-date-multi-four-example></pzm-input-date-multi-four-example>
     </tui-doc-example>
 
 
@@ -29,16 +29,16 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-input-date-multi
+      <pzm-input-date-multi
         [currentIdx]='currentIdx'
         [items]="items">
-      </zui-input-date-multi>
+      </pzm-input-date-multi>
     </tui-doc-demo>
     <tui-doc-documentation>
 
       <ng-template
         documentationPropertyName="items"
-        documentationPropertyType="ZuiDateItemTemplate[]"
+        documentationPropertyType="PzmDateItemTemplate[]"
       >
         Items
       </ng-template>
@@ -58,7 +58,7 @@
       <li>
         <p>
           Import
-          <code>ZuiInputDateMultiModule</code>
+          <code>PzmInputDateMultiModule</code>
           into a module where you want to use our component
         </p>
 
@@ -72,8 +72,8 @@
 </tui-doc-page>
 
 <ng-template #dateTime let-injector="injector">
-  <zui-input-date-time [formControl]='timeControl' [extraButtonInjector]='injector'></zui-input-date-time>
+  <pzm-input-date-time [formControl]='timeControl' [extraButtonInjector]='injector'></pzm-input-date-time>
 </ng-template>
 <ng-template #dateRelativeTime let-injector="injector">
-  <zui-input-date-relative [formControl]='relativeControl' [extraButtonInjector]='injector'></zui-input-date-relative>
+  <pzm-input-date-relative [formControl]='relativeControl' [extraButtonInjector]='injector'></pzm-input-date-relative>
 </ng-template>

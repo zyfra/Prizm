@@ -8,4 +8,4 @@ import { GridItemComponent } from './components/grid-item/grid-item.component';
   imports: [CommonModule],
   exports: [GridComponent, GridItemComponent],
 })
-export class ZuiGridModule {}
+export class PzmGridModule {}

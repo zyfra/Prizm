@@ -4,11 +4,11 @@ import { filter, take, takeUntil, tap } from 'rxjs/operators';
 import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 
 @Directive({
-    selector: '[zuiElementReady]',
-    exportAs: 'zuiElementReady',
+    selector: '[pzmElementReady]',
+    exportAs: 'pzmElementReady',
     providers: [PzmDestroyService]
 })
-export class ZuiElementReadyDirective implements OnInit {
+export class PzmElementReadyDirective implements OnInit {
     @Output()
     readonly ready$ = new ReplaySubject<boolean>();
 

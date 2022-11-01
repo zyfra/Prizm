@@ -4,7 +4,7 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { IconButtonComponent } from './icon-button.component';
 import { PzmButtonModule } from '@digital-plant/zui-components';
-import { ZuiIconsButtonsExampleComponent } from './examples/icons/icons-buttons-example.component';
+import { PzmIconsButtonsExampleComponent } from './examples/icons/icons-buttons-example.component';
 
 @NgModule({
   imports: [
@@ -14,7 +14,7 @@ import { ZuiIconsButtonsExampleComponent } from './examples/icons/icons-buttons-
     RouterModule.forChild(generateRoutes(IconButtonComponent)),
   ],
   declarations: [
-    ZuiIconsButtonsExampleComponent,
+    PzmIconsButtonsExampleComponent,
     IconButtonComponent
   ],
   exports: [IconButtonComponent],

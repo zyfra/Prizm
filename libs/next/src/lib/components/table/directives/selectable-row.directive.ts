@@ -2,11 +2,11 @@ import { Directive, HostBinding, Input } from '@angular/core';
 import { SelectableRow } from 'primeng/table';
 
 @Directive({
-  selector: '[zuiSelectableRow]',
+  selector: '[pzmSelectableRow]',
 })
-export class ZuiSelectableRowDirective extends SelectableRow {
-  @Input('zuiSelectableRow') override data: any;
-  @Input('zuiSelectableRowIndex') override index: number;
+export class PzmSelectableRowDirective extends SelectableRow {
+  @Input('pzmSelectableRow') override data: any;
+  @Input('pzmSelectableRowIndex') override index: number;
 
   @HostBinding('class.p-highlight')
   get isSelected(): boolean {

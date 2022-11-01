@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { PzmInputLayoutComponent } from '../common/input-layout/input-layout.component';
-import { ZuiInputNumberDirective } from './input-number.directive';
+import { PzmInputNumberDirective } from './input-number.directive';
 
 @Component({
-  selector: 'zui-input-number-auxiliary-controls',
+  selector: 'pzm-input-number-auxiliary-controls',
   template: `<div class="container">
     <button
       pzmInputIconButton="chevrons-up"
@@ -25,18 +25,18 @@ import { ZuiInputNumberDirective } from './input-number.directive';
         flex-direction: column;
       }
 
-      :host-context(.zui-input-form-outer[data-size='m']) {
+      :host-context(.pzm-input-form-outer[data-size='m']) {
         font-size: 15px;
       }
 
-      :host-context(.zui-input-form-outer[data-size='s']) {
+      :host-context(.pzm-input-form-outer[data-size='s']) {
         font-size: 11px;
       }
     `,
   ],
 })
-export class ZuiInputNumberDefaultControlsComponent {
-  @Input() inputNumber: ZuiInputNumberDirective;
+export class PzmInputNumberDefaultControlsComponent {
+  @Input() inputNumber: PzmInputNumberDirective;
 
   constructor(private readonly layout: PzmInputLayoutComponent) {}
 

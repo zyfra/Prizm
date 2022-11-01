@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 
-import { ZuiCarouselComponent } from './carousel.component';
+import { PzmCarouselComponent } from './carousel.component';
 
 @Component({
-  selector: 'zui-carousel-auxiliary-left',
+  selector: 'pzm-carousel-auxiliary-left',
   template: `
     <button
       pzmInputIconButton="chevrons-double-left"
@@ -27,7 +27,7 @@ import { ZuiCarouselComponent } from './carousel.component';
     `,
   ],
 })
-export class ZuiCarouselAuxiliaryLeftComponent {
-  @Input() carousel: ZuiCarouselComponent;
+export class PzmCarouselAuxiliaryLeftComponent {
+  @Input() carousel: PzmCarouselComponent;
 }
 

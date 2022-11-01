@@ -2,11 +2,11 @@ import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  ZuiBaseDialogContext,
-  ZuiConfirmDialogOptions,
-  ZuiConfirmDialogResultDefaultType,
-  ZuiConfirmDialogService,
-  ZuiDialogSize,
+  PzmBaseDialogContext,
+  PzmConfirmDialogOptions,
+  PzmConfirmDialogResultDefaultType,
+  PzmConfirmDialogService,
+  PzmDialogSize,
   PzmOverlayInsidePlacement,
   PzmOverscrollMode,
   pzmPure,
@@ -14,7 +14,7 @@ import {
 import { generatePolymorphVariants } from '../../../util';
 
 @Component({
-  selector: 'zui-tooltip-example',
+  selector: 'pzm-tooltip-example',
   templateUrl: './confirm.component.html',
   styleUrls: ['./confirm.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -31,14 +31,14 @@ export class ConfirmComponent {
   public backdrop = true;
   public height = 'auto';
   public width = '500px';
-  public sizeVariants: ZuiDialogSize[] = ['m', 'l'];
-  public size: ZuiDialogSize = 'm';
+  public sizeVariants: PzmDialogSize[] = ['m', 'l'];
+  public size: PzmDialogSize = 'm';
 
   public readonly defaultTitle = 'Вы уверены, что хотите перейти на следующий этап?';
   public readonly defaultDescription = `Дальнейшее редактирование этого раздела
 будет недоступно`;
-  public title: PolymorphContent<ZuiBaseDialogContext<ZuiConfirmDialogResultDefaultType,ZuiConfirmDialogOptions>> = this.defaultTitle;
-  public description: PolymorphContent<ZuiBaseDialogContext<ZuiConfirmDialogResultDefaultType,ZuiConfirmDialogOptions>> = this.defaultDescription;
+  public title: PolymorphContent<PzmBaseDialogContext<PzmConfirmDialogResultDefaultType,PzmConfirmDialogOptions>> = this.defaultTitle;
+  public description: PolymorphContent<PzmBaseDialogContext<PzmConfirmDialogResultDefaultType,PzmConfirmDialogOptions>> = this.defaultDescription;
 
   public confirmButton = 'Перейти на следующий этап'
   public cancelButton = 'Вернуться к текущему этапу'
@@ -67,7 +67,7 @@ export class ConfirmComponent {
 
 
   constructor(
-    @Inject(ZuiConfirmDialogService) private readonly dialogConfirmService: ZuiConfirmDialogService,
+    @Inject(PzmConfirmDialogService) private readonly dialogConfirmService: PzmConfirmDialogService,
   ) {}
 
   @pzmPure

@@ -1,4 +1,4 @@
-import { ZuiIdentityMatcher } from '../../types/matcher';
+import { PzmIdentityMatcher } from '../../types/matcher';
 
 /**
  * Checks identity for nullable elements.
@@ -11,7 +11,7 @@ import { ZuiIdentityMatcher } from '../../types/matcher';
 export function pzmNullableSame<T>(
     a: T | null,
     b: T | null,
-    handler: ZuiIdentityMatcher<T>,
+    handler: PzmIdentityMatcher<T>,
 ): boolean {
     if (a === null) {
         return b === null;

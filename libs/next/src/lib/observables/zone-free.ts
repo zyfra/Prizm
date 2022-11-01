@@ -1,7 +1,7 @@
 import {NgZone} from '@angular/core';
 import {MonoTypeOperatorFunction, Observable, pipe} from 'rxjs';
 
-export function zuiZoneFull<T>(ngZone: NgZone): MonoTypeOperatorFunction<T> {
+export function pzmZoneFull<T>(ngZone: NgZone): MonoTypeOperatorFunction<T> {
     return (source): Observable<T> =>
         new Observable(subscriber =>
             source.subscribe({
@@ -20,5 +20,5 @@ export function pzmZoneFree<T>(ngZone: NgZone): MonoTypeOperatorFunction<T> {
 }
 
 export function pzmZoneOptimized<T>(ngZone: NgZone): MonoTypeOperatorFunction<T> {
-    return pipe(pzmZoneFree(ngZone), zuiZoneFull(ngZone));
+    return pipe(pzmZoneFree(ngZone), pzmZoneFull(ngZone));
 }

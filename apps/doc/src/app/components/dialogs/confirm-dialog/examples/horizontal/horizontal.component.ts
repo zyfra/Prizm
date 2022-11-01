@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ZuiConfirmDialogService, PzmOverlayInsidePlacement } from '@digital-plant/zui-components';
+import { PzmConfirmDialogService, PzmOverlayInsidePlacement } from '@digital-plant/zui-components';
 import { takeUntil } from 'rxjs/operators';
 import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 
 @Component({
-  selector: 'zui-dialog-horizontal-example',
+  selector: 'pzm-dialog-horizontal-example',
   templateUrl: './horizontal.component.html',
   styles: [`
     .box {
@@ -16,13 +16,13 @@ import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
     PzmDestroyService
   ]
 })
-export class ZuiDialogHorizontalExampleComponent {
+export class PzmDialogHorizontalExampleComponent {
   public positionVariants: PzmOverlayInsidePlacement[] = Object.values(PzmOverlayInsidePlacement);
   public position: PzmOverlayInsidePlacement = PzmOverlayInsidePlacement.CENTER;
   public backdrop = true;
 
   constructor(
-    private readonly confirmDialogService: ZuiConfirmDialogService,
+    private readonly confirmDialogService: PzmConfirmDialogService,
     private readonly destroy$: PzmDestroyService,
   ) {}
 

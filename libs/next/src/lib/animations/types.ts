@@ -1,10 +1,10 @@
 import {AnimationOptions} from "@angular/animations";
 
-export interface ZuiAnimationOptions extends AnimationOptions {
+export interface PzmAnimationOptions extends AnimationOptions {
   readonly value: string;
 }
 
-export const enum ZuiDropdownAnimation {
+export const enum PzmDropdownAnimation {
   FadeInBottom = 'fadeInBottom',
   FadeInTop = 'fadeInTop',
 }

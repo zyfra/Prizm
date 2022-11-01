@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PzmDay, ZuiTime } from '@digital-plant/zui-components';
+import { PzmDay, PzmTime } from '@digital-plant/zui-components';
 import { formatRelative, addDays, addHours, addMonths } from 'date-fns';
 
 type DateItem = {
@@ -8,17 +8,17 @@ type DateItem = {
   range: [
     [
         PzmDay,
-        ZuiTime
+        PzmTime
     ],
     [
       PzmDay,
-      ZuiTime
+      PzmTime
     ],
   ],
 };
 
 @Component({
-  selector: 'zui-dropdown-host-date-list-example',
+  selector: 'pzm-dropdown-host-date-list-example',
   templateUrl: './date-list.component.html',
   styles: [`
     .box {
@@ -37,7 +37,7 @@ type DateItem = {
       color: black;
       align-items: center;
 
-      zui-icon {
+      pzm-icon {
         font-weight: 300;
       }
     }
@@ -48,7 +48,7 @@ type DateItem = {
       flex-direction: column;
       gap: 16px;
 
-      zui-input-date-time ::ng-deep {
+      pzm-input-date-time ::ng-deep {
         width: 100%;
 
         pzm-input-layout {
@@ -64,7 +64,7 @@ type DateItem = {
     }
   `]
 })
-export class ZuiDropdownHostDateListExampleComponent {
+export class PzmDropdownHostDateListExampleComponent {
   open = false;
   data: DateItem[] = [
     {
@@ -72,11 +72,11 @@ export class ZuiDropdownHostDateListExampleComponent {
       range: [
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          new ZuiTime(new Date().getHours() - 1, new Date().getMinutes(), 0)
+          new PzmTime(new Date().getHours() - 1, new Date().getMinutes(), 0)
         ],
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -85,11 +85,11 @@ export class ZuiDropdownHostDateListExampleComponent {
       range: [
         [
           PzmDay.fromLocalNativeDate(addDays(new Date(), -1)),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -98,11 +98,11 @@ export class ZuiDropdownHostDateListExampleComponent {
       range: [
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(addHours(new Date(), -2))
+          PzmTime.fromLocalNativeDate(addHours(new Date(), -2))
         ],
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -111,11 +111,11 @@ export class ZuiDropdownHostDateListExampleComponent {
       range: [
         [
           PzmDay.fromLocalNativeDate(addDays(new Date(), -7)),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -124,11 +124,11 @@ export class ZuiDropdownHostDateListExampleComponent {
       range: [
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(addHours(new Date(), -4))
+          PzmTime.fromLocalNativeDate(addHours(new Date(), -4))
         ],
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -137,11 +137,11 @@ export class ZuiDropdownHostDateListExampleComponent {
       range: [
         [
           PzmDay.fromLocalNativeDate(addDays(new Date(), -30)),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -150,11 +150,11 @@ export class ZuiDropdownHostDateListExampleComponent {
       range: [
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(addHours(new Date(), -8))
+          PzmTime.fromLocalNativeDate(addHours(new Date(), -8))
         ],
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -163,11 +163,11 @@ export class ZuiDropdownHostDateListExampleComponent {
       range: [
         [
           PzmDay.fromLocalNativeDate(addDays(new Date(), -90)),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -176,11 +176,11 @@ export class ZuiDropdownHostDateListExampleComponent {
       range: [
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(addHours(new Date(), -12))
+          PzmTime.fromLocalNativeDate(addHours(new Date(), -12))
         ],
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -189,11 +189,11 @@ export class ZuiDropdownHostDateListExampleComponent {
       range: [
         [
           PzmDay.fromLocalNativeDate(addMonths(new Date(), -6)),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
       ],
     }

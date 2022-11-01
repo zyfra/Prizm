@@ -4,10 +4,10 @@
     automation-id="pzm-calendar-range__calendars"
     pzmPreventDefault="mousedown"
     [markerHandler]="markerHandler"
-    [min]="min | zuiMapper: maxLengthMapper:value:maxLength:true"
-    [max]="max | zuiMapper: maxLengthMapper:value:maxLength:false"
+    [min]="min | pzmMapper: maxLengthMapper:value:maxLength:true"
+    [max]="max | pzmMapper: maxLengthMapper:value:maxLength:false"
     [defaultViewedMonthFirst]="computedMonth"
-    [defaultViewedMonthSecond]="computedMonth | zuiMapper: monthShiftMapper"
+    [defaultViewedMonthSecond]="computedMonth | pzmMapper: monthShiftMapper"
     [disabledItemHandler]="calculatedDisabledItemHandler"
     [value]="value"
     (dayClick)="onDayClick($event)"
@@ -20,20 +20,20 @@
             pzmPreventDefault="mousedown"
             [value]="value"
             [markerHandler]="markerHandler"
-            [min]="min | zuiMapper: maxLengthMapper:value:maxLength:true"
-            [max]="max | zuiMapper: maxLengthMapper:value:maxLength:false"
+            [min]="min | pzmMapper: maxLengthMapper:value:maxLength:true"
+            [max]="max | pzmMapper: maxLengthMapper:value:maxLength:false"
             [month]="computedMonth"
             [disabledItemHandler]="calculatedDisabledItemHandler"
             (dayClick)="onDayClick($event)"
         ></pzm-calendar>
-        <zui-data-list
+        <pzm-data-list
             role="menu"
             automation-id="pzm-calendar-range__menu"
             class="z-menu"
         >
             <button
-                *ngFor="let item of items | zuiMapper: mapper:min:max:minLength:(otherDateText$ | async)"
-                zuiOption
+                *ngFor="let item of items | pzmMapper: mapper:min:max:minLength:(otherDateText$ | async)"
+                pzmOption
                 pzmPreventDefault="mousedown"
                 role="menuitemradio"
                 automation-id="pzm-calendar-range__menu__item"
@@ -44,6 +44,6 @@
             >
                 {{ item }}
             </button>
-        </zui-data-list>
+        </pzm-data-list>
     </div>
 </ng-template>

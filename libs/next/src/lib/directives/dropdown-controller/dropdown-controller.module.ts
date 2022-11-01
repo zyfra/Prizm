@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
-import { ZuiDropdownControllerDirective } from './dropdown-controller.directive';
+import { PzmDropdownControllerDirective } from './dropdown-controller.directive';
 
 @NgModule({
-    declarations: [ZuiDropdownControllerDirective],
-    exports: [ZuiDropdownControllerDirective],
+    declarations: [PzmDropdownControllerDirective],
+    exports: [PzmDropdownControllerDirective],
 })
-export class ZuiDropdownControllerModule {}
+export class PzmDropdownControllerModule {}

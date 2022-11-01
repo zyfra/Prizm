@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiConfirmPopupDirective to control tooltip.
+      Use PzmConfirmPopupDirective to control tooltip.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <zui-confirm-popup-base-example></zui-confirm-popup-base-example>
+      <pzm-confirm-popup-base-example></pzm-confirm-popup-base-example>
     </tui-doc-example>
 
 <!--    TODO LATER ACTIVE after finished FOR DEV -->
@@ -22,7 +22,7 @@
 <!--      heading="With Template"-->
 <!--      [content]="exampleWithTemplate"-->
 <!--    >-->
-<!--      <zui-confirm-popup-with-template-example></zui-confirm-popup-with-template-example>-->
+<!--      <pzm-confirm-popup-with-template-example></pzm-confirm-popup-with-template-example>-->
 <!--    </tui-doc-example>-->
 
 <!--    TODO LATER ACTIVE after finished FOR DEV -->
@@ -31,7 +31,7 @@
 <!--      heading="With Component"-->
 <!--      [content]="exampleWithComponent"-->
 <!--    >-->
-<!--      <zui-confirm-popup-with-component-example></zui-confirm-popup-with-component-example>-->
+<!--      <pzm-confirm-popup-with-component-example></pzm-confirm-popup-with-component-example>-->
 <!--    </tui-doc-example>-->
 
   </ng-template>
@@ -40,13 +40,13 @@
     <tui-doc-demo>
       <button
         pzmButton
-        [zuiConfirmPopup]="content"
+        [pzmConfirmPopup]="content"
         [pzmAutoReposition]="pzmAutoReposition"
-        [zuiConfirmPopupDirection]="zuiConfirmPopupDirection"
-        [zuiConfirmPopupId]="zuiConfirmPopupId"
-        [zuiConfirmPopupShowDelay]="zuiConfirmPopupShowDelay"
-        [zuiConfirmPopupHideDelay]="zuiConfirmPopupHideDelay"
-        [zuiConfirmPopupHost]="zuiConfirmPopupHost"
+        [pzmConfirmPopupDirection]="pzmConfirmPopupDirection"
+        [pzmConfirmPopupId]="pzmConfirmPopupId"
+        [pzmConfirmPopupShowDelay]="pzmConfirmPopupShowDelay"
+        [pzmConfirmPopupHideDelay]="pzmConfirmPopupHideDelay"
+        [pzmConfirmPopupHost]="pzmConfirmPopupHost"
       >
         Button
       </button>
@@ -54,7 +54,7 @@
     <tui-doc-documentation>
 
       <ng-template
-        documentationPropertyName="zuiConfirmPopup"
+        documentationPropertyName="pzmConfirmPopup"
         documentationPropertyType="string"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="content"
@@ -72,44 +72,44 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiConfirmPopupDirection"
+        documentationPropertyName="pzmConfirmPopupDirection"
         documentationPropertyType="PzmOverlayOutsidePlacement"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="zuiConfirmPopupDirectionVariants"
-        [(documentationPropertyValue)]="zuiConfirmPopupDirection"
+        [documentationPropertyValues]="pzmConfirmPopupDirectionVariants"
+        [(documentationPropertyValue)]="pzmConfirmPopupDirection"
       >
         ConfirmPopup Direction
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiConfirmPopupId"
+        documentationPropertyName="pzmConfirmPopupId"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiConfirmPopupId"
+        [(documentationPropertyValue)]="pzmConfirmPopupId"
       >
         ConfirmPopup Id
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiConfirmPopupShowDelay"
+        documentationPropertyName="pzmConfirmPopupShowDelay"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiConfirmPopupShowDelay"
+        [(documentationPropertyValue)]="pzmConfirmPopupShowDelay"
       >
         Show Delay
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiConfirmPopupHideDelay"
+        documentationPropertyName="pzmConfirmPopupHideDelay"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiConfirmPopupHideDelay"
+        [(documentationPropertyValue)]="pzmConfirmPopupHideDelay"
       >
         Hide Delay
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiConfirmPopupHost"
+        documentationPropertyName="pzmConfirmPopupHost"
         documentationPropertyType="HtmlElement"
         documentationPropertyMode="input"
       >
@@ -123,7 +123,7 @@
       <li>
         <p>
           Import
-          <code>ZuiConfirmPopupModule</code>
+          <code>PzmConfirmPopupModule</code>
           into a module where you want to use our component
         </p>
 

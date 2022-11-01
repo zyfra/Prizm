@@ -6,12 +6,12 @@ import {
   PolymorphModule,
   PzmButtonModule,
   PzmRadioButtonModule,
-  ZuiSidebarModule,
+  PzmSidebarModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar.component';
-import { ZuiSidebarServiceExampleComponent } from './examples/base/base.component';
-import { ZuiSidebarTopBottomExampleComponent } from './examples/top-bottom/top-bottom.component';
+import { PzmSidebarServiceExampleComponent } from './examples/base/base.component';
+import { PzmSidebarTopBottomExampleComponent } from './examples/top-bottom/top-bottom.component';
 
 @NgModule({
   imports: [
@@ -21,13 +21,13 @@ import { ZuiSidebarTopBottomExampleComponent } from './examples/top-bottom/top-b
     ReactiveFormsModule,
     PolymorphModule,
     PzmButtonModule,
-    ZuiSidebarModule,
+    PzmSidebarModule,
     PzmRadioButtonModule,
     RouterModule.forChild(generateRoutes(SidebarComponent)),
   ],
   declarations: [
-    ZuiSidebarServiceExampleComponent,
-    ZuiSidebarTopBottomExampleComponent,
+    PzmSidebarServiceExampleComponent,
+    PzmSidebarTopBottomExampleComponent,
     SidebarComponent
   ],
   exports: [SidebarComponent],

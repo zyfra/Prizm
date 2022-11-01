@@ -2,7 +2,7 @@ import {PzmOverlayConfig, PzmOverlayInsidePlacement} from '../models';
 import {setWidthHeight} from '../utils';
 import {PzmOverlayAbstractPosition} from './position';
 
-interface ZuiOverlayGlobalPositionConfig {
+interface PzmOverlayGlobalPositionConfig {
   placement?: PzmOverlayInsidePlacement;
   offset?: number;
   width?: string | number;
@@ -17,9 +17,9 @@ interface OverlayOffsetPosition {
   right: number,
 }
 
-export class ZuiOverlayGlobalPosition extends PzmOverlayAbstractPosition<ZuiOverlayGlobalPositionConfig> {
+export class PzmOverlayGlobalPosition extends PzmOverlayAbstractPosition<PzmOverlayGlobalPositionConfig> {
 
-  constructor(config: ZuiOverlayGlobalPositionConfig) {
+  constructor(config: PzmOverlayGlobalPositionConfig) {
     super();
     this.updateConfig({
       ...{ placement: PzmOverlayInsidePlacement.CENTER, width: 100, height: 100, offset: 0 },

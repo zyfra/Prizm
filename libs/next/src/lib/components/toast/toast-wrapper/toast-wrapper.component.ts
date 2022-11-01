@@ -24,7 +24,7 @@ export class ToastWrapperComponent implements OnInit {
   readonly testId = 'pzm_toast_wrapper';
 
   @HostBinding('attr.id') get getRefId (): string {
-    return 'zui-toast-id' + this.ref.id;
+    return 'pzm-toast-id' + this.ref.id;
   }
 
   get component(): Type<unknown> {

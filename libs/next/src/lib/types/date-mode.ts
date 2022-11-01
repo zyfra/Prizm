@@ -3,4 +3,4 @@
  * * MDY - mm.dd.yyyy
  * * YMD - yyyy.mm.dd
  */
-export type ZuiDateMode = 'DMY' | 'MDY' | 'YMD';
+export type PzmDateMode = 'DMY' | 'MDY' | 'YMD';

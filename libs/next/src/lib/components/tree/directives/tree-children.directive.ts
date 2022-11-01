@@ -1,15 +1,15 @@
 import { Directive, Input } from '@angular/core';
 import { pzmDefaultProp } from '../../../decorators';
-import { ZuiHandler } from '../../../types';
+import { PzmHandler } from '../../../types';
 
 @Directive({
-    selector: 'zui-tree[childrenHandler]',
+    selector: 'pzm-tree[childrenHandler]',
 })
-export class ZuiTreeChildrenDirective<T> {
+export class PzmTreeChildrenDirective<T> {
     @Input()
     @pzmDefaultProp()
-    childrenHandler: ZuiHandler<T, readonly T[]> =
-        ZuiTreeChildrenDirective.defaultHandler;
+    childrenHandler: PzmHandler<T, readonly T[]> =
+        PzmTreeChildrenDirective.defaultHandler;
 
     public static defaultHandler<G>(item: G): readonly G[] {
         return Array.isArray(item) ? item : [];

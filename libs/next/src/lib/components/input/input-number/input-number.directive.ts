@@ -1,11 +1,11 @@
 import { Directive, ElementRef, Host, HostBinding, HostListener, Input } from '@angular/core';
-import { ZuiInputTextComponent } from '../input-text/input-text.component';
+import { PzmInputTextComponent } from '../input-text/input-text.component';
 
 @Directive({
-  selector: 'input[zuiInputNumber]',
-  exportAs: 'zuiInputNumber',
+  selector: 'input[pzmInputNumber]',
+  exportAs: 'pzmInputNumber',
 })
-export class ZuiInputNumberDirective {
+export class PzmInputNumberDirective {
   @Input() min: number | null = null;
   @Input() max: number | null = null;
   @Input() step = 1;
@@ -16,24 +16,24 @@ export class ZuiInputNumberDirective {
 
   constructor(
     @Host() private readonly el: ElementRef<HTMLInputElement>,
-    @Host() private readonly zuiInputText: ZuiInputTextComponent
+    @Host() private readonly pzmInputText: PzmInputTextComponent
   ) {
     el.nativeElement.type = 'number';
   }
 
   public increment(): void {
-    if (this.zuiInputText.disabled) return;
+    if (this.pzmInputText.disabled) return;
 
     if (this.max === null || this.hostValue < this.max) {
       const devider = this.hostValue % this.step;
       this.hostValue = Math.min(this.max ?? Number.POSITIVE_INFINITY, this.hostValue + this.step - devider);
     }
 
-    this.zuiInputText.markControl({ touched: true, dirty: true });
+    this.pzmInputText.markControl({ touched: true, dirty: true });
   }
 
   public decrement(): void {
-    if (this.zuiInputText.disabled) return;
+    if (this.pzmInputText.disabled) return;
 
     if (this.min === null || this.hostValue > this.min) {
       const devider = this.hostValue % this.step;
@@ -43,7 +43,7 @@ export class ZuiInputNumberDirective {
       );
     }
 
-    this.zuiInputText.markControl({ touched: true, dirty: true });
+    this.pzmInputText.markControl({ touched: true, dirty: true });
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
@@ -59,11 +59,11 @@ export class ZuiInputNumberDirective {
   }
 
   private get hostValue(): number {
-    return +this.zuiInputText.value;
+    return +this.pzmInputText.value;
   }
 
   private set hostValue(value: number) {
-    this.zuiInputText.value = value;
+    this.pzmInputText.value = value;
   }
 }
 

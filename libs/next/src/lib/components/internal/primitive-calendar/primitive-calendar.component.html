@@ -1,18 +1,18 @@
-<div class="z-row z-row_weekday zui-font-main-body-12">
+<div class="z-row z-row_weekday pzm-font-main-body-12">
     <div
         *ngFor="let day of weekDays$ | async"
         class="z-cell"
-        [innerText]="day | zuiCallFunc : capitalizeFirstLetter"
+        [innerText]="day | pzmCallFunc : capitalizeFirstLetter"
     ></div>
 </div>
-<div *zuiLet="month | zuiCalendarSheet: true as sheet">
+<div *pzmLet="month | pzmCalendarSheet: true as sheet">
     <div
         *pzmRepeatTimes="let rowIndex of sheet.length"
         automation-id="pzm-primitive-calendar__row"
         class="z-row"
     >
         <ng-container *pzmRepeatTimes="let colIndex of sheet[rowIndex].length">
-            <ng-container *zuiLet="sheet[rowIndex][colIndex] as item">
+            <ng-container *pzmLet="sheet[rowIndex][colIndex] as item">
                 <div
                     *ngIf="!itemIsUnavailable(item) || showAdjacent"
                     automation-id="pzm-primitive-calendar__cell"
@@ -28,17 +28,17 @@
                 >
                     <div
                         automation-id="pzm-primitive-calendar__item"
-                        class="z-item zui-font-btn-links-14"
+                        class="z-item pzm-font-btn-links-14"
                         [class.z-item_unavailable]="itemIsUnavailable(item)"
                     >
                         {{ item.day }}
-                        <div *ngIf='item | zuiCallFunc : getDayStatus : daysWithStatus as dayStatus'
+                        <div *ngIf='item | pzmCallFunc : getDayStatus : daysWithStatus as dayStatus'
                              class='z-status'
-                             [style.--zui-status-day-color]='dayStatus'
-                             [attr.data-zui-status]='dayStatus'>
+                             [style.--pzm-status-day-color]='dayStatus'
+                             [attr.data-pzm-status]='dayStatus'>
                         </div>
                         <div
-                            *ngIf="item | zuiMapper: toMarkers:itemIsToday(item):!!getItemRange(item) as markers"
+                            *ngIf="item | pzmMapper: toMarkers:itemIsToday(item):!!getItemRange(item) as markers"
                             class="z-dots"
                         >
                             <div

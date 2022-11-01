@@ -2,14 +2,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  ZUI_CONFIRM_POPUP_DEFAULT_OPTIONS,
+  PZM_CONFIRM_POPUP_DEFAULT_OPTIONS,
   PZM_HINT_DEFAULT_OPTIONS,
-  ZuiConfirmPopupOptions,
+  PzmConfirmPopupOptions,
   PzmOverlayOutsidePlacement,
 } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-confirm-popup-example',
+  selector: 'pzm-confirm-popup-example',
   templateUrl: './confirm-popup.component.html',
   styleUrls: ['./confirm-popup.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -18,23 +18,23 @@ export class ConfirmPopupComponent {
   public content = 'Тестовое содержимое';
   public pzmAutoReposition = false;
 
-  public readonly zuiConfirmPopupDirectionVariants: ReadonlyArray<ZuiConfirmPopupOptions['direction']> = Object.values(PzmOverlayOutsidePlacement);
+  public readonly pzmConfirmPopupDirectionVariants: ReadonlyArray<PzmConfirmPopupOptions['direction']> = Object.values(PzmOverlayOutsidePlacement);
 
-  public zuiConfirmPopupDirection: ZuiConfirmPopupOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
+  public pzmConfirmPopupDirection: PzmConfirmPopupOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
 
-  public zuiConfirmPopupId: string = 'confirm-id';
+  public pzmConfirmPopupId: string = 'confirm-id';
 
-  public zuiConfirmPopupShowDelay: number = ZUI_CONFIRM_POPUP_DEFAULT_OPTIONS.showDelay;
+  public pzmConfirmPopupShowDelay: number = PZM_CONFIRM_POPUP_DEFAULT_OPTIONS.showDelay;
 
-  public zuiConfirmPopupHideDelay: number = ZUI_CONFIRM_POPUP_DEFAULT_OPTIONS.hideDelay;
+  public pzmConfirmPopupHideDelay: number = PZM_CONFIRM_POPUP_DEFAULT_OPTIONS.hideDelay;
 
-  public zuiConfirmPopupHost: HTMLElement = null;
+  public pzmConfirmPopupHost: HTMLElement = null;
 
-  public readonly zuiConfirmPopupVariants = [
+  public readonly pzmConfirmPopupVariants = [
     'ConfirmPopup'
   ];
 
-  public zuiConfirmPopup: PolymorphContent =  this.zuiConfirmPopupVariants[0];
+  public pzmConfirmPopup: PolymorphContent =  this.pzmConfirmPopupVariants[0];
 
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'

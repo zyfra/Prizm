@@ -1,8 +1,8 @@
-<zui-dropdown-host
+<pzm-dropdown-host
     class="z-hosted"
     [(isOpen)]="open"
     [content]="dropdown"
-    zuiDropdownHostWidth='100%'
+    pzmDropdownHostWidth='100%'
     [closeByEsc]='true'
 >
   <ng-container *ngFor='let item of items; let idx = index'>
@@ -10,10 +10,10 @@
       <ng-container *ngTemplateOutlet="item.template as data; context: context"></ng-container>
     </ng-container>
   </ng-container>
-</zui-dropdown-host>
+</pzm-dropdown-host>
 
 <ng-template #dropdown>
-  <zui-data-list class='block'>
+  <pzm-data-list class='block'>
     <ng-container *ngIf='items?.length;'>
       <div class='item' [class.selected]='idx === currentIdx'
            *ngFor='let item of items; let idx = index'
@@ -23,7 +23,7 @@
           </span>
       </div>
     </ng-container>
-  </zui-data-list>
+  </pzm-data-list>
 </ng-template>
 
 <ng-template #buttonLeft>

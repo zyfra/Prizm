@@ -1,6 +1,6 @@
 <div pzmFocusTrap>
   <div class="content">
-    <div class='title zui-font-title-h4'>
+    <div class='title pzm-font-title-h4'>
       <ng-container *polymorphOutlet="context.title as data; context: context">
         {{data}}
       </ng-container>
@@ -15,7 +15,7 @@
 
   </div>
 
-  <div class="footer zui-font-btn-links-14">
+  <div class="footer pzm-font-btn-links-14">
     <ng-container [ngSwitch]='!context.showByVertical'>
       <div *ngSwitchCase='true' class='horizontal'>
         <div class='left'>

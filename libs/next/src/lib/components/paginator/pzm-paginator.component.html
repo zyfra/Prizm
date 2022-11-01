@@ -6,7 +6,7 @@
       >Строк на странице
     </span>
     <div class="rows-selector" *ngIf="!paginatorOptions?.noRowsSelector">
-      <zui-select
+      <pzm-select
         size="s"
         [forceClear]='false'
         [label]="null"
@@ -14,7 +14,7 @@
         [nullContent]="null"
         [(ngModel)]="rows"
         [items]="this.rowsCountOptions?.length > 0 ? this.rowsCountOptions : [rows]"
-      ></zui-select>
+      ></pzm-select>
     </div>
   </div>
 
@@ -30,7 +30,7 @@
       *ngIf="paginatorType === 'finite' && paginationGenerator as pagingData"
     >
       <button class="control control_left" [disabled]="currentPage === 1" (click)="decrease()">
-        <zui-icon size="16" iconClass="arrows-chevron-left"></zui-icon>
+        <pzm-icon size="16" iconClass="arrows-chevron-left"></pzm-icon>
         <span *ngIf="!!leftButtonLabel">{{ leftButtonLabel }}</span>
       </button>
 
@@ -68,7 +68,7 @@
         (click)="increase()"
       >
         <span *ngIf="!!rightButtonLabel">{{ rightButtonLabel }}</span>
-        <zui-icon size="16" iconClass="arrows-chevron-right"></zui-icon>
+        <pzm-icon size="16" iconClass="arrows-chevron-right"></pzm-icon>
       </button>
     </div>
 

@@ -14,7 +14,7 @@ import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { pzmDefaultProp, pzmRequiredSetter } from '../../decorators';
 import { PolymorphContent } from '../index';
 import { PZM_HINT_OPTIONS, PzmHintContext, PzmHintOptions } from './hint-options';
-import { ZuiOverlayControl, ZuiOverlayRelativePosition, PzmOverlayService } from '../../modules/overlay';
+import { PzmOverlayControl, PzmOverlayRelativePosition, PzmOverlayService } from '../../modules/overlay';
 import { combineLatest, Observable, of, Subject } from 'rxjs';
 import { PzmHoveredService } from '../../services';
 import { delay, map, switchMap, takeUntil, tap } from 'rxjs/operators';
@@ -84,7 +84,7 @@ export class PzmHintDirective<
     protected readonly onHoverActive: boolean = true;
 
     content: PolymorphContent;
-    overlay: ZuiOverlayControl;
+    overlay: PzmOverlayControl;
     protected readonly containerComponent: Type<unknown> = PzmHintContainerComponent;
     protected readonly show$ = new Subject<boolean>();
     protected readonly destroyListeners$ = new Subject<boolean>();
@@ -154,7 +154,7 @@ export class PzmHintDirective<
       this.show$.next(false);
       this.overlay?.close();
 
-      const position = new ZuiOverlayRelativePosition({
+      const position = new PzmOverlayRelativePosition({
         placement: this.pzmHintDirection,
         autoReposition: this.pzmAutoReposition,
         element: this.host

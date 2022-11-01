@@ -16,15 +16,15 @@ import {
   withLatestFrom,
 } from 'rxjs/operators';
 import { pzmTypedFromEvent } from '../observables/typed-from-event';
-import { zuiGetActualTarget } from '../util/dom/get-actual-target';
-import { zuiGetDocumentOrShadowRoot } from '../util/dom/zui-get-document-or-shadow-root';
+import { pzmGetActualTarget } from '../util/dom/get-actual-target';
+import { pzmGetDocumentOrShadowRoot } from '../util/dom/pzm-get-document-or-shadow-root';
 
 
-export const ZUI_ACTIVE_ELEMENT = new InjectionToken<Observable<EventTarget | null>>(
+export const PZM_ACTIVE_ELEMENT = new InjectionToken<Observable<EventTarget | null>>(
     `Active element on the document for ActiveZone`,
     {
         factory: (): Observable<any> => {
-            const removedElement$ = inject(ZUI_REMOVED_ELEMENT);
+            const removedElement$ = inject(PZM_REMOVED_ELEMENT);
             const windowRef = inject(WINDOW);
             const documentRef = inject(DOCUMENT);
             const focusout$ = pzmTypedFromEvent(windowRef, `focusout`);
@@ -39,7 +39,7 @@ export const ZUI_ACTIVE_ELEMENT = new InjectionToken<Observable<EventTarget | nu
                     repeatWhen(() => mouseup$),
                     withLatestFrom(removedElement$),
                     filter(([event, removedElement]) =>
-                        isValidFocusout(zuiGetActualTarget(event), removedElement as Element),
+                        isValidFocusout(pzmGetActualTarget(event), removedElement as Element),
                     ),
                     map(([{relatedTarget}]) => relatedTarget),
                 ),
@@ -49,8 +49,8 @@ export const ZUI_ACTIVE_ELEMENT = new InjectionToken<Observable<EventTarget | nu
                 ),
                 focusin$.pipe(
                     switchMap(event => {
-                        const target = zuiGetActualTarget(event);
-                        const root = zuiGetDocumentOrShadowRoot(target) as Document;
+                        const target = pzmGetActualTarget(event);
+                        const root = pzmGetDocumentOrShadowRoot(target) as Document;
 
                         return root === documentRef
                             ? of(target)
@@ -61,10 +61,10 @@ export const ZUI_ACTIVE_ELEMENT = new InjectionToken<Observable<EventTarget | nu
                     switchMap(event =>
                         !documentRef.activeElement ||
                         documentRef.activeElement === documentRef.body
-                            ? of(zuiGetActualTarget(event))
+                            ? of(pzmGetActualTarget(event))
                             : focusout$.pipe(
                                   take(1),
-                                  mapTo(zuiGetActualTarget(event)),
+                                  mapTo(pzmGetActualTarget(event)),
                                   takeUntil(timer(0)),
                               ),
                     ),
@@ -78,7 +78,7 @@ export const ZUI_ACTIVE_ELEMENT = new InjectionToken<Observable<EventTarget | nu
 function isValidFocusout(target: any, removedElement: Element | null = null): boolean {
     return (
         // Not due to switching tabs/going to DevTools
-        zuiGetDocumentOrShadowRoot(target).activeElement !== target &&
+        pzmGetDocumentOrShadowRoot(target).activeElement !== target &&
         // Not due to button/input becoming disabled
         !target.disabled &&
         // Not due to element being removed from DOM
@@ -97,7 +97,7 @@ function shadowRootActiveElement(root: Document): Observable<EventTarget | null>
         ),
     );
 }
-function ZUI_REMOVED_ELEMENT(ZUI_REMOVED_ELEMENT: any): never {
+function PZM_REMOVED_ELEMENT(PZM_REMOVED_ELEMENT: any): never {
     throw new Error('Function not implemented.');
 }
 

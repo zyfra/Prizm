@@ -1,6 +1,6 @@
 import { pzmGetScrollParent } from './get-scroll-parent';
 
-describe('zuiGetScrollParent', () => {
+describe('pzmGetScrollParent', () => {
     it('There is no element', () => {
         expect(pzmGetScrollParent(null)).toEqual(null);
     });

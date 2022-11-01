@@ -6,7 +6,7 @@ interface IGridItem {
 }
 
 @Component({
-  selector: 'zui-grid-example-basic',
+  selector: 'pzm-grid-example-basic',
   templateUrl: './grid-example-basic.component.html',
   styleUrls: ['./grid-example-basic.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

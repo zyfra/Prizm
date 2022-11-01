@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, HostBi
 import { TabType } from '../tabs.interface';
 
 @Component({
-  selector: 'zui-tab',
+  selector: 'pzm-tab',
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

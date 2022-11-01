@@ -1,7 +1,7 @@
 import { isObservable, Observable, of } from 'rxjs';
 import { delay, delayWhen, map } from 'rxjs/operators';
 
-export function zuiIsTextOverflow(element: HTMLElement): boolean {
+export function pzmIsTextOverflow(element: HTMLElement): boolean {
   if (element) {
     return (element.offsetWidth < element.scrollWidth);
   }
@@ -27,6 +27,6 @@ export function pzmIsTextOverflow$(elem: HTMLElement, delaySource: number | Obse
           }
         }
       ),
-      map(() => zuiIsTextOverflow(elem)),
+      map(() => pzmIsTextOverflow(elem)),
     )
 }

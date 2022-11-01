@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { ZuiCheckboxComponent } from './checkbox.component';
+import { PzmCheckboxComponent } from './checkbox.component';
 
 @NgModule({
-  declarations: [ZuiCheckboxComponent],
+  declarations: [PzmCheckboxComponent],
   imports: [CommonModule, ReactiveFormsModule],
-  exports: [ZuiCheckboxComponent],
+  exports: [PzmCheckboxComponent],
 })
-export class ZuiCheckboxModule {}
+export class PzmCheckboxModule {}
 

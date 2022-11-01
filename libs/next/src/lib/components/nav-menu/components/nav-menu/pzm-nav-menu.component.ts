@@ -31,7 +31,7 @@ import {
   SettingsConfig,
   ToolbarConfig,
 } from '../../model/nav-menu-config';
-import { PzmMenuItem } from '../../model/zui-menu-item.interface';
+import { PzmMenuItem } from '../../model/pzm-menu-item.interface';
 import { convertToNode } from '../../utils/treeNode.functions';
 
 @Component({

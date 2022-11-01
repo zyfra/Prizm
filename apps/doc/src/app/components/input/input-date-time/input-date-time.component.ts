@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PzmDay, PzmInputSize, ZuiTime, ZuiTimeMode } from '@digital-plant/zui-components';
+import { PzmDay, PzmInputSize, PzmTime, PzmTimeMode } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-input-date-example',
+  selector: 'pzm-input-date-example',
   templateUrl: './input-date-time.component.html',
   styleUrls: ['./input-date.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -12,7 +12,7 @@ import { FormControl } from '@angular/forms';
 export class InputDateTimeTimeComponent {
   public readonly valueControl = new FormControl([
     new PzmDay(2017, 2, 15),
-    new ZuiTime(12, 30, 25, 500)
+    new PzmTime(12, 30, 25, 500)
   ]);
   public label = 'Абсолютное';
   public timeStrict = false;
@@ -25,12 +25,12 @@ export class InputDateTimeTimeComponent {
   public size: PzmInputSize = 'm';
   public outer = false;
 
-  public timeModeVariants: ReadonlyArray<ZuiTimeMode> = [
+  public timeModeVariants: ReadonlyArray<PzmTimeMode> = [
     'HH:MM',
     'HH:MM:SS',
     'HH:MM:SS.MSS'
   ];
-  public timeMode: ZuiTimeMode = `HH:MM`;
+  public timeMode: PzmTimeMode = `HH:MM`;
 
   public readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'

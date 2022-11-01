@@ -1,9 +1,9 @@
 import { InjectionToken } from '@angular/core';
-import { ZuiDateMode } from '../../types/date-mode';
+import { PzmDateMode } from '../../types/date-mode';
 
-export const ZUI_DATE_FORMAT = new InjectionToken<ZuiDateMode>(
+export const PZM_DATE_FORMAT = new InjectionToken<PzmDateMode>(
     `Active date format for Zyfra UI`,
     {
-        factory: (): ZuiDateMode => `DMY`,
+        factory: (): PzmDateMode => `DMY`,
     },
 );

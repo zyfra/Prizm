@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { PzmShadowTypeEnum } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-shadow-base-example',
+  selector: 'pzm-shadow-base-example',
   templateUrl: './shadow-base-example.component.html',
   styles: [`
     .box {
@@ -14,7 +14,7 @@ import { PzmShadowTypeEnum } from '@digital-plant/zui-components';
     .shadow-container {
       width: 200px;
       height: 200px;
-      background: var(--zui-bg-body);
+      background: var(--pzm-bg-body);
       border-radius: .5rem;
       display: flex;
       flex-flow: column;
@@ -22,18 +22,18 @@ import { PzmShadowTypeEnum } from '@digital-plant/zui-components';
       padding: 16px;
 
       .title {
-        color: var(--zui-text-main);
+        color: var(--pzm-text-main);
         font-size: 14px;
         font-weight: 800;
       }
 
       .description {
-        color: var(--zui-text-subscript);
+        color: var(--pzm-text-subscript);
         font-size: 12px;
       }
     }
   `]
 })
-export class ZuiShadowBaseExampleComponent {
-  readonly ZuiShadowTypeEnum  = PzmShadowTypeEnum;
+export class PzmShadowBaseExampleComponent {
+  readonly PzmShadowTypeEnum  = PzmShadowTypeEnum;
 }

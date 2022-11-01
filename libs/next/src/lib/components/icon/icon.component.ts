@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
 
 @Component({
-  selector: 'zui-icon',
+  selector: 'pzm-icon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

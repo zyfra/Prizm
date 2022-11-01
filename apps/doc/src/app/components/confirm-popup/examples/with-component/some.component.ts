@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'zui-confirm-popup-some-component',
+  selector: 'pzm-confirm-popup-some-component',
   template: `
     <div>Header</div>
     <div class="button-box">
@@ -23,6 +23,6 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class ZuiConfirmPopupSomeComponent {
+export class PzmConfirmPopupSomeComponent {
   readonly items = ['Edit', 'Download', 'Rename', 'Edit', 'Download', 'Rename', 'Delete'];
 }

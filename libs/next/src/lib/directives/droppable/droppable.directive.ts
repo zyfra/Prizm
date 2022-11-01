@@ -14,27 +14,27 @@ import {pzmTypedFromEvent} from '../../observables/typed-from-event';
 import {pzmPreventDefault} from '../../observables/prevent-default';
 
 @Directive({
-    selector: '[zuiDroppableDropped], [zuiDroppableDragOverChange]',
+    selector: '[pzmDroppableDropped], [pzmDroppableDragOverChange]',
     providers: [PzmDestroyService],
 })
-export class ZuiDroppableDirective {
+export class PzmDroppableDirective {
     @Output()
-    readonly zuiDroppableDropped: Observable<DataTransfer>;
+    readonly pzmDroppableDropped: Observable<DataTransfer>;
 
     @Output()
-    readonly zuiDroppableDragOverChange: Observable<DataTransfer | null>;
+    readonly pzmDroppableDragOverChange: Observable<DataTransfer | null>;
 
     constructor(
         @Inject(ElementRef) {nativeElement}: ElementRef<HTMLElement>,
         @Inject(PzmDestroyService) destroy$: Observable<void>,
     ) {
-        this.zuiDroppableDropped = pzmTypedFromEvent(nativeElement, 'drop').pipe(
+        this.pzmDroppableDropped = pzmTypedFromEvent(nativeElement, 'drop').pipe(
             pzmPreventDefault(),
             map(event => event.dataTransfer),
             filterNotNullish()
         );
 
-        this.zuiDroppableDragOverChange = pzmTypedFromEvent(nativeElement, 'dragenter').pipe(
+        this.pzmDroppableDragOverChange = pzmTypedFromEvent(nativeElement, 'dragenter').pipe(
             switchMap(({target, dataTransfer}) =>
                 merge(
                     pzmTypedFromEvent(nativeElement, 'dragleave').pipe(

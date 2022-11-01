@@ -1,7 +1,7 @@
 <div class='calendar-host'>
   <ng-container *ngIf="year || clickedMonth; else calendar">
     <pzm-primitive-year-month-pagination
-      automation-id="zui-calendar__pagination"
+      automation-id="pzm-calendar__pagination"
       class="z-pagination"
       [min]="computedMinViewedMonth"
       [max]="computedMaxViewedMonth"
@@ -14,21 +14,21 @@
       (monthClick)="onPaginationMonthClick($event)"
     ></pzm-primitive-year-month-pagination>
     <pzm-scrollbar
-      automation-id="zui-calendar__scrollbar"
+      automation-id="pzm-calendar__scrollbar"
       class="z-scrollbar"
     >
-      <zui-primitive-year-picker
+      <pzm-primitive-year-picker
         *ngIf="year; else monthPickerTemplate"
-        automation-id="zui-calendar__year"
+        automation-id="pzm-calendar__year"
         [min]="min"
         [max]="max"
         [initialItem]="year"
         [value]="value"
         (yearClick)="onPickerYearClick($event)"
-      ></zui-primitive-year-picker>
+      ></pzm-primitive-year-picker>
       <ng-template #monthPickerTemplate>
         <pzm-primitive-month-picker
-          automation-id="zui-calendar__year"
+          automation-id="pzm-calendar__year"
           [min]="min"
           [max]="max"
           [initialItem]="clickedMonth"
@@ -41,7 +41,7 @@
   </ng-container>
   <ng-template #calendar>
     <pzm-primitive-year-month-pagination
-      automation-id="zui-calendar__pagination"
+      automation-id="pzm-calendar__pagination"
       class="z-pagination"
       [min]="computedMinViewedMonth"
       [max]="computedMaxViewedMonth"
@@ -51,12 +51,12 @@
       (monthClick)="onPaginationMonthClick($event)"
     ></pzm-primitive-year-month-pagination>
     <pzm-primitive-calendar
-      automation-id="zui-calendar__calendar"
+      automation-id="pzm-calendar__calendar"
       [showAdjacent]="showAdjacent"
       [value]="value"
       [month]="month"
       [daysWithStatus]="daysWithStatus"
-      [disabledItemHandler]="disabledItemHandler | zuiMapper: disabledItemHandlerMapper:min:max"
+      [disabledItemHandler]="disabledItemHandler | pzmMapper: disabledItemHandlerMapper:min:max"
       [markerHandler]="markerHandler"
       [hoveredItem]="hoveredItem"
       (hoveredItemChange)="onHoveredItemChange($event)"

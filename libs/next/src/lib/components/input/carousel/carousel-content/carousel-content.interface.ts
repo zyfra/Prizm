@@ -1,24 +1,24 @@
-export interface ZuiCarouselControlsState {
+export interface PzmCarouselControlsState {
   leftCtrlDisabled: boolean;
   stepleftCtrlDisabled: boolean;
   stepRightCtrlDisabled: boolean;
   rightCtrlDisabled: boolean;
 }
 
-export const zuiDefaultCarouselControlsState: ZuiCarouselControlsState = {
+export const pzmDefaultCarouselControlsState: PzmCarouselControlsState = {
   leftCtrlDisabled: true,
   stepleftCtrlDisabled: true,
   stepRightCtrlDisabled: true,
   rightCtrlDisabled: true,
 };
 
-export interface ZuiCarouselContent {
+export interface PzmCarouselContent {
   currentValue: any;
   currentValueNotSet: boolean;
 
   setCurrentValue(value: any): void;
 
-  controlsState: ZuiCarouselControlsState;
+  controlsState: PzmCarouselControlsState;
 
   stepLeft(): void;
 

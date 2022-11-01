@@ -2,20 +2,20 @@ import { from, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PzmLanguage, PzmLanguageLoader, PzmLanguageName } from '../interfaces';
 
-export function zuiAsyncLoadLanguage(
+export function pzmAsyncLoadLanguage(
     language: PzmLanguageName | null,
     loader: PzmLanguageLoader | null,
     fallback: PzmLanguage,
 ): Observable<PzmLanguage> {
-    return language && loader ? zuiLoadLanguage(language, loader) : of(fallback);
+    return language && loader ? pzmLoadLanguage(language, loader) : of(fallback);
 }
 
-export function zuiLoadLanguage(
+export function pzmLoadLanguage(
     language: PzmLanguageName,
     loader: PzmLanguageLoader,
 ): Observable<PzmLanguage> {
     return from(normalizeCommonJSImport(loader(language))).pipe(
-        map((module: any) => module?.[`ZUI_${language.toUpperCase()}_LANGUAGE`]),
+        map((module: any) => module?.[`PZM_${language.toUpperCase()}_LANGUAGE`]),
     );
 }
 

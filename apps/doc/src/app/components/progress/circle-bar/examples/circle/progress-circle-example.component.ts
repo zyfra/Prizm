@@ -3,7 +3,7 @@ import { timer } from 'rxjs';
 import { map, startWith, takeWhile } from 'rxjs/operators';
 
 @Component({
-  selector: 'zui-progress-circle-example',
+  selector: 'pzm-progress-circle-example',
   templateUrl: './progress-circle-example.component.html',
   styles: [`
     .box {
@@ -25,14 +25,14 @@ import { map, startWith, takeWhile } from 'rxjs/operators';
     }
   `]
 })
-export class ZuiProgressCircleExampleComponent {
+export class PzmProgressCircleExampleComponent {
   readonly value$ = timer(300, 500).pipe(
       map(i => i + 30),
       takeWhile(i => i != 101),
       startWith(30),
   );
   readonly colors = [
-    `var(--zui-index-warning)`,
+    `var(--pzm-index-warning)`,
     `lightskyblue`,
     `#3682db`,
     `red`,

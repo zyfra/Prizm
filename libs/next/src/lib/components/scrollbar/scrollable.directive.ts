@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Inject, OnInit } from '@angular/core';
-import { ZUI_SCROLLABLE } from '../../constants/events';
+import { PZM_SCROLLABLE } from '../../constants/events';
 
 @Directive({
     selector: '[pzmScrollable]',
@@ -11,7 +11,7 @@ export class PzmScrollableDirective implements OnInit {
 
     ngOnInit(): void {
         this.elementRef.nativeElement.dispatchEvent(
-            new CustomEvent(ZUI_SCROLLABLE, {
+            new CustomEvent(PZM_SCROLLABLE, {
                 bubbles: true,
                 detail: this.elementRef.nativeElement,
             }),

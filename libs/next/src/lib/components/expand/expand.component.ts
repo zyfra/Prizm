@@ -13,10 +13,10 @@ import {
   ViewChild,
 } from '@angular/core';
 import { pzmDefaultProp, pzmRequiredSetter } from '../../decorators';
-import { zuiIsCurrentTarget } from '../../util/dom';
+import { pzmIsCurrentTarget } from '../../util/dom';
 
-import { ZuiExpandContentDirective } from './expand-content.directive';
-import { ZUI_EXPAND_LOADED } from './expand.const';
+import { PzmExpandContentDirective } from './expand-content.directive';
+import { PZM_EXPAND_LOADED } from './expand.const';
 
 enum State {
     Idle,
@@ -28,12 +28,12 @@ enum State {
 const LOADER_HEIGHT = 48;
 
 @Component({
-    selector: 'zui-expand',
+    selector: 'pzm-expand',
     templateUrl: './expand.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['./expand.component.less'],
 })
-export class ZuiExpandComponent {
+export class PzmExpandComponent {
     @ViewChild('wrapper')
     private readonly contentWrapper?: ElementRef<HTMLDivElement>;
 
@@ -63,7 +63,7 @@ export class ZuiExpandComponent {
         this.reTrigger(this.isLoading && expanded ? State.Loading : State.Animated);
     }
 
-    @ContentChild(ZuiExpandContentDirective, {read: TemplateRef})
+    @ContentChild(PzmExpandContentDirective, {read: TemplateRef})
     public content: TemplateRef<NgIfContext<boolean>> | null = null;
 
     @HostBinding('class._expanded')
@@ -76,7 +76,7 @@ export class ZuiExpandComponent {
     @HostListener('transitionend', ['$event'])
     public onTransitionEnd(event: TransitionEvent): void {
       if (
-        zuiIsCurrentTarget(event) &&
+        pzmIsCurrentTarget(event) &&
         event.propertyName === 'opacity' &&
         this.state === State.Animated
       ) {
@@ -84,7 +84,7 @@ export class ZuiExpandComponent {
       }
     }
 
-    @HostListener(ZUI_EXPAND_LOADED, ['$event'])
+    @HostListener(PZM_EXPAND_LOADED, ['$event'])
     public onExpandLoaded(event: Event): void {
       event.stopPropagation();
 

@@ -10,7 +10,7 @@ import {
 import { PZM_IS_IOS, PZM_SCROLL_REF } from '../../tokens';
 import { CSS, USER_AGENT } from '@ng-web-apis/common';
 import { pzmIsFirefox } from '../../util/browser';
-import { PZM_SCROLL_INTO_VIEW, ZUI_SCROLLABLE } from '../../constants/events';
+import { PZM_SCROLL_INTO_VIEW, PZM_SCROLLABLE } from '../../constants/events';
 import { pzmGetElementOffset } from '../../util/dom';
 import { PzmHoveredService } from '../../services';
 import { BehaviorSubject, Observable, of } from 'rxjs';
@@ -97,7 +97,7 @@ export class PzmScrollbarComponent {
         return this.isLegacy && this.visibility === 'visible' && !this.delegated;
     }
 
-    @HostListener(`${ZUI_SCROLLABLE}.stop`, ['$event.detail'])
+    @HostListener(`${PZM_SCROLLABLE}.stop`, ['$event.detail'])
     public onScrollable(element: HTMLElement): void {
         this.delegated = true;
         this.browserScrollRef.nativeElement = element;

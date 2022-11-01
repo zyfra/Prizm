@@ -1,7 +1,7 @@
-import {Directive, Inject} from '@angular/core';
+import { Directive, Inject } from '@angular/core';
 import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
-import {Observable} from 'rxjs';
-import {PzmFocusVisibleService} from "./focus-visible.service";
+import { Observable } from 'rxjs';
+import { PzmFocusVisibleService } from './focus-visible.service';
 
 /**
  * Directive to imitate :focus-visible
@@ -9,14 +9,14 @@ import {PzmFocusVisibleService} from "./focus-visible.service";
  * in browsers that do not support it
  */
 @Directive({
-    selector: '[zuiFocusVisibleChange]',
+    selector: '[pzmFocusVisibleChange]',
     // eslint-disable-next-line @angular-eslint/no-outputs-metadata-property
-    outputs: ['zuiFocusVisibleChange'],
+    outputs: ['pzmFocusVisibleChange'],
     providers: [PzmDestroyService, PzmFocusVisibleService],
 })
-export class ZuiFocusVisibleDirective {
+export class PzmFocusVisibleDirective {
     constructor(
         @Inject(PzmFocusVisibleService)
-        readonly zuiFocusVisibleChange: Observable<boolean>,
+        readonly pzmFocusVisibleChange: Observable<boolean>,
     ) {}
 }

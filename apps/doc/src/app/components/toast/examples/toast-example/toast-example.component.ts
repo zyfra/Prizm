@@ -3,7 +3,7 @@ import {PzmToastService, PzmToastAppearance, PzmToastPosition} from "@digital-pl
 import {FormControl} from "@angular/forms";
 
 @Component({
-  selector: 'zui-toast-example',
+  selector: 'pzm-toast-example',
   templateUrl: './toast-example.component.html',
   styles: [`
     .box{
@@ -39,7 +39,7 @@ import {FormControl} from "@angular/forms";
     }
   `]
 })
-export class ZuiToastExampleComponent {
+export class PzmToastExampleComponent {
 
   readonly data = [
     {

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'zui-filled-buttons-example',
+  selector: 'pzm-filled-buttons-example',
   templateUrl: './filled-buttons-example.component.html',
   styles: [
     `
@@ -21,4 +21,4 @@ import { Component } from '@angular/core';
     `
   ],
 })
-export class ZuiFilledButtonsExampleComponent {}
+export class PzmFilledButtonsExampleComponent {}

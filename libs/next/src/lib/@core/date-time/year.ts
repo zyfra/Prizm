@@ -1,15 +1,15 @@
-import { ZuiYearLike } from '../../types/year-like';
-import { zuiPadStart } from '../../util/format/pad-start';
+import { PzmYearLike } from '../../types/year-like';
+import { pzmPadStart } from '../../util/format/pad-start';
 import { pzmInRange } from '../../util/math/in-range';
-import { zuiNormalizeToIntNumber } from '../../util/math/normalize-to-int-number';
+import { pzmNormalizeToIntNumber } from '../../util/math/normalize-to-int-number';
 
-import { ZUI_DAYS_IN_LEAP_YEAR, ZUI_DAYS_IN_NORMAL_YEAR, ZUI_DAYS_IN_WEEK, ZUI_MAX_YEAR, ZUI_MIN_YEAR } from './date-time';
+import { PZM_DAYS_IN_LEAP_YEAR, PZM_DAYS_IN_NORMAL_YEAR, PZM_DAYS_IN_WEEK, PZM_MAX_YEAR, PZM_MIN_YEAR } from './date-time';
 
 /**
  * Immutable year object
  * @nosideeffects
  */
-export class PzmYear implements ZuiYearLike {
+export class PzmYear implements PzmYearLike {
     constructor(readonly year: number) {
         console.assert(PzmYear.isValidYear(year));
     }
@@ -18,7 +18,7 @@ export class PzmYear implements ZuiYearLike {
      * Checks year for validity
      */
     public static isValidYear(year: number): boolean {
-        return Number.isInteger(year) && pzmInRange(year, ZUI_MIN_YEAR, ZUI_MAX_YEAR + 1);
+        return Number.isInteger(year) && pzmInRange(year, PZM_MIN_YEAR, PZM_MAX_YEAR + 1);
     }
 
     /**
@@ -55,10 +55,10 @@ export class PzmYear implements ZuiYearLike {
         console.assert(absoluteLeapYears >= 0);
 
         return (
-            (absoluteLeapYears * ZUI_DAYS_IN_LEAP_YEAR +
-                (year - absoluteLeapYears) * ZUI_DAYS_IN_NORMAL_YEAR +
+            (absoluteLeapYears * PZM_DAYS_IN_LEAP_YEAR +
+                (year - absoluteLeapYears) * PZM_DAYS_IN_NORMAL_YEAR +
                 5) %
-            ZUI_DAYS_IN_WEEK
+            PZM_DAYS_IN_WEEK
         );
     }
 
@@ -70,11 +70,11 @@ export class PzmYear implements ZuiYearLike {
      * Normalizes year by clamping it between min and max years
      */
     protected static normalizeYearPart(year: number): number {
-        return zuiNormalizeToIntNumber(year, ZUI_MIN_YEAR, ZUI_MAX_YEAR);
+        return pzmNormalizeToIntNumber(year, PZM_MIN_YEAR, PZM_MAX_YEAR);
     }
 
     public get formattedYear(): string {
-        return zuiPadStart(String(this.year), 4, `0`);
+        return pzmPadStart(String(this.year), 4, `0`);
     }
 
     public get isLeapYear(): boolean {
@@ -136,7 +136,7 @@ export class PzmYear implements ZuiYearLike {
     /**
      * Immutably offsets year
      */
-    public append({year = 0}: ZuiYearLike, backwards: boolean = false): PzmYear {
+    public append({year = 0}: PzmYearLike, backwards: boolean = false): PzmYear {
         console.assert(Number.isInteger(year));
 
         if (backwards) {

@@ -4,7 +4,7 @@ import { PzmInputPosition, PzmInputSize, PzmInputStatus } from '@digital-plant/z
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'zui-input-number-example',
+  selector: 'pzm-input-number-example',
   templateUrl: './input-number-example.component.html',
   styleUrls: ['./input-number-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -33,7 +33,7 @@ export class InputNumberExampleComponent {
 
   public required = false;
 
-  public readonly zuiInputNumberBasic: TuiDocExample = {
+  public readonly pzmInputNumberBasic: TuiDocExample = {
     TypeScript: import(
       '!!raw-loader!./examples/input-number-basic-example/input-number-basic-example.component.ts'
     ),
@@ -42,7 +42,7 @@ export class InputNumberExampleComponent {
     ),
   };
 
-  public readonly zuiInputNumberCounter: TuiDocExample = {
+  public readonly pzmInputNumberCounter: TuiDocExample = {
     TypeScript: import(
       '!!raw-loader!./examples/input-number-counter-example/input-number-counter-example.component.ts'
     ),

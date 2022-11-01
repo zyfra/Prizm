@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { zuiGetInputDateTimeNativeTransformer } from '@digital-plant/zui-components';
+import { pzmGetInputDateTimeNativeTransformer } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-input-date-time-native-example',
+  selector: 'pzm-input-date-time-native-example',
   templateUrl: './input-native-date-time-base-example.component.html',
   providers: [
-    zuiGetInputDateTimeNativeTransformer()
+    pzmGetInputDateTimeNativeTransformer()
   ],
   styles: [`
     .box {
@@ -15,7 +15,7 @@ import { zuiGetInputDateTimeNativeTransformer } from '@digital-plant/zui-compone
     }
   `]
 })
-export class ZuiInputDateTimeNativeExampleComponent {
+export class PzmInputDateTimeNativeExampleComponent {
   public readonly value = new FormControl(
     new Date(2020, 0, 1, 13, 30, 0, 0)
   );

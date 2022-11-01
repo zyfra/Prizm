@@ -12,7 +12,7 @@ import {
 import { GridItemComponent } from './components/grid-item/grid-item.component';
 
 @Component({
-  selector: 'zui-grid',
+  selector: 'pzm-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

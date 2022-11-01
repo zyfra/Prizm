@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'zui-checkbox-basic-example',
+  selector: 'pzm-checkbox-basic-example',
   templateUrl: './checkbox-basic-example.component.html',
   styleUrls: ['./checkbox-basic-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

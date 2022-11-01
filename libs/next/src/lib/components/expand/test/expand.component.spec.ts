@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { ZUI_EXPAND_LOADED } from '../expand.const';
-import { ZuiExpandModule } from '../expand.module';
+import { PZM_EXPAND_LOADED } from '../expand.const';
+import { PzmExpandModule } from '../expand.module';
 import { CommonModule } from '@angular/common';
 
 const ANIMATION_DELAY = 900;
@@ -9,13 +9,13 @@ const ANIMATION_DELAY = 900;
 describe('expand', () => {
     @Component({
         template: `
-            <zui-expand
+            <pzm-expand
                 [expanded]="expanded"
             >
-                <ng-template zuiExpandContent>
+                <ng-template pzmExpandContent>
                     <div #content>content</div>
                 </ng-template>
-            </zui-expand>
+            </pzm-expand>
         `,
     })
     class TestComponent {
@@ -33,7 +33,7 @@ describe('expand', () => {
     beforeEach(
       () => {
         TestBed.configureTestingModule({
-          imports: [ZuiExpandModule, CommonModule],
+          imports: [PzmExpandModule, CommonModule],
           declarations: [TestComponent],
         });
       }
@@ -116,8 +116,8 @@ describe('expand', () => {
             fixture.detectChanges();
         });
 
-        it('after the ZUI_EXPAND_LOADED event, the loader is hidden', fakeAsync(() => {
-            const event = new CustomEvent(ZUI_EXPAND_LOADED, {bubbles: true});
+        it('after the PZM_EXPAND_LOADED event, the loader is hidden', fakeAsync(() => {
+            const event = new CustomEvent(PZM_EXPAND_LOADED, {bubbles: true});
 
             testComponent.content.nativeElement.dispatchEvent(event);
             fixture.detectChanges();

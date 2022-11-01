@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular
 import { IndicatorStatus, IndicatorType } from './indicator.models';
 
 @Component({
-  selector: 'zui-indicator',
+  selector: 'pzm-indicator',
   templateUrl: './indicator.component.html',
   styleUrls: ['./indicator.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

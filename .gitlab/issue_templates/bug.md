@@ -79,5 +79,5 @@ _Есть проблема следующего характера:_
 
 _Шаги воспроизведения_:
 
-1. Зайти по адресу [storybook](https://zui-sdk.apps.okd01.ziiot.ru/storybook/index.html)
+1. Зайти по адресу [storybook](https://pzm-sdk.apps.okd01.ziiot.ru/storybook/index.html)
 2. ...

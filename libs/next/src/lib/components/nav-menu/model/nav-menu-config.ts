@@ -1,4 +1,4 @@
-import { PzmMenuItem } from './zui-menu-item.interface';
+import { PzmMenuItem } from './pzm-menu-item.interface';
 
 export type SelectionType = 'single' | 'checkbox';
 export type MenuItemSize = 'standard' | 'enlarged';

@@ -1,15 +1,15 @@
-import { ZuiStringHandler } from './handler';
+import { PzmStringHandler } from './handler';
 import { PzmMapper } from './mapper';
 
 /**
  * A matcher function to test items against with extra arguments.
  */
-export type ZuiMatcher<I> = PzmMapper<I, boolean>;
+export type PzmMatcher<I> = PzmMapper<I, boolean>;
 
-export type ZuiStringMatcher<I> = (
+export type PzmStringMatcher<I> = (
     item: I,
     matchValue: string,
-    stringify: ZuiStringHandler<I>,
+    stringify: PzmStringHandler<I>,
 ) => boolean;
 
-export type ZuiIdentityMatcher<I> = (item1: I, item2: I) => boolean;
+export type PzmIdentityMatcher<I> = (item1: I, item2: I) => boolean;

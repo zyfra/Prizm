@@ -18,7 +18,7 @@ import { animationFrameScheduler, Subject, Subscription } from 'rxjs';
 import { debounceTime, observeOn } from 'rxjs/operators';
 
 @Component({
-  selector: 'zui-tabs',
+  selector: 'pzm-tabs',
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -33,7 +33,7 @@ export class TabsComponent implements OnInit, OnDestroy {
   @Output() public cancelClick: EventEmitter<void> = new EventEmitter<void>();
   @Output() public tabClick: EventEmitter<void> = new EventEmitter();
   @ViewChild('tabsContainer', { static: true }) public tabsContainer: ElementRef;
-  @ViewChildren('zuiTab', { read: ElementRef }) public tabElements: QueryList<ElementRef>;
+  @ViewChildren('pzmTab', { read: ElementRef }) public tabElements: QueryList<ElementRef>;
 
   @HostBinding('attr.testId')
   readonly testId = 'pzm_tabs';

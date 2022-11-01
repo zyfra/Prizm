@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ZuiDialogComponent } from './dialog.component';
+import { PzmDialogComponent } from './dialog.component';
 import { PolymorphModule, PzmFocusTrapModule } from '../../../directives';
 import { PzmOverlayModule } from '../../../modules/overlay';
 import { PzmButtonModule } from '../../button';
@@ -18,10 +18,10 @@ import { PzmInputIconButtonModule } from '../../input/common/input-icon-button/i
     PzmScrollbarModule
   ],
   declarations: [
-    ZuiDialogComponent,
+    PzmDialogComponent,
   ],
   exports: [
-    ZuiDialogComponent,
+    PzmDialogComponent,
   ],
 })
-export class ZuiDialogModule {}
+export class PzmDialogModule {}

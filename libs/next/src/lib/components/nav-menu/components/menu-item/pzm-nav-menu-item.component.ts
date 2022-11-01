@@ -7,7 +7,7 @@ import {
   Output,
   TemplateRef,
 } from '@angular/core';
-import { PzmMenuItem } from '../../model/zui-menu-item.interface';
+import { PzmMenuItem } from '../../model/pzm-menu-item.interface';
 
 @Component({
   selector: 'pzm-nav-menu-item',

@@ -102,7 +102,7 @@ export class ZyfraSplitterComponent implements AfterContentInit {
 
   constructor(
     private readonly zyfraSplitterService: ZyfraSplitterTemplatesService,
-    private readonly zuiDestroyService: PzmDestroyService,
+    private readonly pzmDestroyService: PzmDestroyService,
     private readonly cdRef: ChangeDetectorRef) {}
 
   ngAfterContentInit(): void {
@@ -113,7 +113,7 @@ export class ZyfraSplitterComponent implements AfterContentInit {
       }),
       delay(0),
       tap(() => this.splitter.updateTemplates()),
-      takeUntil(this.zuiDestroyService),
+      takeUntil(this.pzmDestroyService),
     ).subscribe();
   }
 

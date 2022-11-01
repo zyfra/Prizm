@@ -12,24 +12,24 @@ import {
 import { PolymorphContent } from '../../../../directives';
 import { Subject } from 'rxjs';
 import { distinctUntilChanged, map, startWith } from 'rxjs/operators';
-import { ZuiTreeController } from '../../misc/tree.interfaces';
-import { ZUI_TREE_CONTENT, ZUI_TREE_CONTROLLER, ZUI_TREE_LEVEL, ZUI_TREE_NODE } from '../../misc/tree.tokens';
-import { ZUI_TREE_ITEM_PROVIDERS } from './tree-item.providers';
+import { PzmTreeController } from '../../misc/tree.interfaces';
+import { PZM_TREE_CONTENT, PZM_TREE_CONTROLLER, PZM_TREE_LEVEL, PZM_TREE_NODE } from '../../misc/tree.tokens';
+import { PZM_TREE_ITEM_PROVIDERS } from './tree-item.providers';
 import { EMPTY_QUERY } from '../../../../constants';
 
 @Component({
-    selector: 'zui-tree-item',
+    selector: 'pzm-tree-item',
     templateUrl: './tree-item.component.html',
     styleUrls: ['./tree-item.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: ZUI_TREE_ITEM_PROVIDERS,
+    providers: PZM_TREE_ITEM_PROVIDERS,
     // eslint-disable-next-line @angular-eslint/no-host-metadata-property
     host: {
         role: 'treeitem',
     },
 })
-export class ZuiTreeItemComponent implements DoCheck {
-    @ContentChildren(ZUI_TREE_NODE as any)
+export class PzmTreeItemComponent implements DoCheck {
+    @ContentChildren(PZM_TREE_NODE as any)
     private readonly nested: QueryList<unknown> = EMPTY_QUERY;
 
     private readonly change$ = new Subject<void>();
@@ -51,11 +51,11 @@ export class ZuiTreeItemComponent implements DoCheck {
     constructor(
         @Inject(ElementRef)
         private readonly elementRef: ElementRef<HTMLElement>,
-        @Inject(forwardRef(() => ZUI_TREE_CONTROLLER))
-        private readonly controller: ZuiTreeController,
-        @Inject(forwardRef(() => ZUI_TREE_LEVEL))
+        @Inject(forwardRef(() => PZM_TREE_CONTROLLER))
+        private readonly controller: PzmTreeController,
+        @Inject(forwardRef(() => PZM_TREE_LEVEL))
         readonly level: number,
-        @Inject(forwardRef(() => ZUI_TREE_CONTENT))
+        @Inject(forwardRef(() => PZM_TREE_CONTENT))
         readonly content: PolymorphContent,
     ) {}
 

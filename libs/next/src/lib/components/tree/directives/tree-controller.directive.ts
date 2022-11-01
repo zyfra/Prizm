@@ -1,31 +1,31 @@
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
 
-import { ZuiTreeItemComponent } from '../components/tree-item/tree-item.component';
-import { ZuiTreeAccessor, ZuiTreeController } from '../misc/tree.interfaces';
-import { ZUI_TREE_ACCESSOR, ZUI_TREE_CONTROLLER } from '../misc/tree.tokens';
+import { PzmTreeItemComponent } from '../components/tree-item/tree-item.component';
+import { PzmTreeAccessor, PzmTreeController } from '../misc/tree.interfaces';
+import { PZM_TREE_ACCESSOR, PZM_TREE_CONTROLLER } from '../misc/tree.tokens';
 import { pzmDefaultProp } from '../../../decorators';
-import { zuiIsPresent } from '../../../util';
+import { pzmIsPresent } from '../../../util';
 
 @Directive({
-    selector: '[zuiTreeController][map]',
-    exportAs: 'zuiTreeController',
+    selector: '[pzmTreeController][map]',
+    exportAs: 'pzmTreeController',
     providers: [
         {
-            provide: ZUI_TREE_ACCESSOR,
-            useExisting: ZuiTreeControllerDirective,
+            provide: PZM_TREE_ACCESSOR,
+            useExisting: PzmTreeControllerDirective,
         },
         {
-            provide: ZUI_TREE_CONTROLLER,
-            useExisting: ZuiTreeControllerDirective,
+            provide: PZM_TREE_CONTROLLER,
+            useExisting: PzmTreeControllerDirective,
         },
     ],
 })
-export class ZuiTreeControllerDirective<T>
-    implements ZuiTreeController, ZuiTreeAccessor<T>
+export class PzmTreeControllerDirective<T>
+    implements PzmTreeController, PzmTreeAccessor<T>
 {
     @Input()
     @pzmDefaultProp()
-    zuiTreeController = true;
+    pzmTreeController = true;
 
     @Input()
     @pzmDefaultProp()
@@ -34,27 +34,27 @@ export class ZuiTreeControllerDirective<T>
     @Output()
     readonly toggled = new EventEmitter<T>();
 
-    readonly items = new Map<ZuiTreeItemComponent, T>();
+    readonly items = new Map<PzmTreeItemComponent, T>();
 
-    public register(item: ZuiTreeItemComponent, value: T): void {
+    public register(item: PzmTreeItemComponent, value: T): void {
         this.items.set(item, value);
     }
 
-    public unregister(item: ZuiTreeItemComponent): void {
+    public unregister(item: PzmTreeItemComponent): void {
         this.items.delete(item);
     }
 
-    public isExpanded(item: ZuiTreeItemComponent): boolean {
+    public isExpanded(item: PzmTreeItemComponent): boolean {
         const value = this.items.get(item);
 
-        return (value && this.map.get(value)) ?? this.zuiTreeController;
+        return (value && this.map.get(value)) ?? this.pzmTreeController;
     }
 
-    public toggle(item: ZuiTreeItemComponent): void {
+    public toggle(item: PzmTreeItemComponent): void {
         const value = this.items.get(item);
         const expanded = this.isExpanded(item);
 
-        if (!zuiIsPresent(value)) {
+        if (!pzmIsPresent(value)) {
             return;
         }
 

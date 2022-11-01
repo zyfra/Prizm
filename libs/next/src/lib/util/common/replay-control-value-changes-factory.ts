@@ -4,18 +4,18 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PzmDay } from '../../@core/date-time/day';
 import { PzmDayRange } from '../../@core/date-time/day-range';
-import { ZuiTime } from '../../@core/date-time/time';
-import { zuiReplayedValueChangesFrom } from '../../observables/replay-control-value-changes';
-import { ZuiControlValueTransformer } from '../../types/control-value-transformer';
+import { PzmTime } from '../../@core/date-time/time';
+import { pzmReplayedValueChangesFrom } from '../../observables/replay-control-value-changes';
+import { PzmControlValueTransformer } from '../../types/control-value-transformer';
 
-export function zuiReplayControlValueChangesFactory<
-    T extends PzmDayRange | PzmDay | [PzmDay | null, ZuiTime | null],
+export function pzmReplayControlValueChangesFactory<
+    T extends PzmDayRange | PzmDay | [PzmDay | null, PzmTime | null],
 >(
     control: NgControl | null,
-    valueTransformer?: ZuiControlValueTransformer<T> | null,
+    valueTransformer?: PzmControlValueTransformer<T> | null,
 ): Observable<T | null> | null {
     return control
-        ? zuiReplayedValueChangesFrom(control).pipe(
+        ? pzmReplayedValueChangesFrom(control).pipe(
               map(value =>
                   valueTransformer
                       ? valueTransformer.fromControlValue(value)

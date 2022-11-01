@@ -13,7 +13,7 @@ export class PzmThemeService {
     get theme(): PzmTheme {
       return this.themeSource$.value
     }
-    public readonly attThemeKey = 'data-zui-theme';
+    public readonly attThemeKey = 'data-pzm-theme';
 
     constructor(
       @Inject(DOCUMENT) private document: Document,

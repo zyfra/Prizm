@@ -6,7 +6,7 @@
  * @param minResultLength
  * @param padString string to pad with
  */
-export function zuiPadStart(
+export function pzmPadStart(
     sourceString: string,
     minResultLength: number,
     padString: string = ` `,

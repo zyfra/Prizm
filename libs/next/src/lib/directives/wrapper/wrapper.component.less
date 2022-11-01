@@ -15,86 +15,86 @@
   }
 
   &[data-appearance='primary'] {
-    background: var(--zui-primary);
+    background: var(--pzm-primary);
 
     &[data-appearance-type='outline'] {
-      border: 1px solid var(--zui-primary);
+      border: 1px solid var(--pzm-primary);
       background: transparent;
-      color: var(--zui-primary);
+      color: var(--pzm-primary);
 
       &[data-state='pressed'] {
-        border: 1px solid var(--zui-primary-pressed);
+        border: 1px solid var(--pzm-primary-pressed);
       }
     }
 
     &[data-appearance-type='ghost'] {
       background: transparent;
-      color: var(--zui-primary);
+      color: var(--pzm-primary);
 
       &[data-state="hovered"], &._focused_deleted {
-        background: var(--zui-primary-ghost-hover);
-        color: var(--zui-primary);
+        background: var(--pzm-primary-ghost-hover);
+        color: var(--pzm-primary);
       }
 
       &[data-state='pressed'] {
-        background: var(--zui-primary-ghost-pressed);
-        color: var(--zui-primary);
+        background: var(--pzm-primary-ghost-pressed);
+        color: var(--pzm-primary);
       }
     }
 
     &[data-state="hovered"], &._focused_deleted {
-      background: var(--zui-primary-hover);
-      color: var(--zui-exceptions-white);
+      background: var(--pzm-primary-hover);
+      color: var(--pzm-exceptions-white);
     }
 
     &[data-state='pressed'] {
-      background: var(--zui-primary-pressed);
-      color: var(--zui-exceptions-white);
+      background: var(--pzm-primary-pressed);
+      color: var(--pzm-exceptions-white);
     }
   }
 
   &[data-appearance='secondary'] {
-    background: var(--zui-secondary);
+    background: var(--pzm-secondary);
 
     &[data-appearance-type='outline'] {
-      border: 1px solid var(--zui-secondary);
+      border: 1px solid var(--pzm-secondary);
       background: transparent;
-      color: var(--zui-secondary);
+      color: var(--pzm-secondary);
 
       &[data-state='pressed'] {
-        border-color: var(--zui-secondary-pressed);
+        border-color: var(--pzm-secondary-pressed);
       }
     }
 
 
     &[data-appearance-type='ghost'] {
       background: transparent;
-      color: var(--zui-secondary);
+      color: var(--pzm-secondary);
 
       &[data-state="hovered"], &._focused_deleted {
-        background: var(--zui-secondary-ghost-hover);
-        color: var(--zui-secondary);
+        background: var(--pzm-secondary-ghost-hover);
+        color: var(--pzm-secondary);
       }
 
       &[data-state='pressed'] {
-        background: var(--zui-secondary-ghost-pressed);
-        color: var(--zui-secondary);
+        background: var(--pzm-secondary-ghost-pressed);
+        color: var(--pzm-secondary);
       }
     }
 
     &[data-state="hovered"], &._focused_deleted {
-      background: var(--zui-secondary-hover);
+      background: var(--pzm-secondary-hover);
       color: white;
     }
 
     &[data-state='pressed'] {
-      background: var(--zui-secondary-pressed);
+      background: var(--pzm-secondary-pressed);
       color: white;
     }
   }
 
   &[data-appearance='warning'] {
-    --base: var(--zui-index-warning);
+    --base: var(--pzm-index-warning);
 
     background: var(--base);
 
@@ -104,7 +104,7 @@
       color: var(--base);
 
       &[data-state='pressed'] {
-        border-color: var(--zui-warning-pressed);
+        border-color: var(--pzm-warning-pressed);
       }
     }
 
@@ -113,12 +113,12 @@
       color: var(--base);
 
       &[data-state="hovered"], &._focused_deleted {
-        background: var(--zui-warning-ghost-hover);
+        background: var(--pzm-warning-ghost-hover);
         color: var(--base);
       }
 
       &[data-state='pressed'] {
-        background: var(--zui-warning-ghost-pressed);
+        background: var(--pzm-warning-ghost-pressed);
         color: var(--base);
       }
     }
@@ -129,67 +129,67 @@
     }
 
     &[data-state='pressed'] {
-      background: var(--zui-warning-pressed);
+      background: var(--pzm-warning-pressed);
       color: white;
     }
   }
 
   &[data-appearance='danger'] {
-    background: var(--zui-index-danger);
+    background: var(--pzm-index-danger);
 
     &[data-appearance-type='ghost'] {
       background: transparent;
-      color: var(--zui-index-danger);
+      color: var(--pzm-index-danger);
 
       &[data-state="hovered"], &._focused_deleted {
-        background: var(--zui-danger-ghost-hover);
-        color: var(--zui-index-danger);
+        background: var(--pzm-danger-ghost-hover);
+        color: var(--pzm-index-danger);
       }
 
       &[data-state='pressed'] {
-        background: var(--zui-danger-ghost-pressed);
-        color: var(--zui-index-danger);
+        background: var(--pzm-danger-ghost-pressed);
+        color: var(--pzm-index-danger);
       }
     }
 
     &[data-appearance-type='outline'] {
-      border: 1px solid var(--zui-index-danger);
+      border: 1px solid var(--pzm-index-danger);
       background: transparent;
-      color: var(--zui-index-danger);
+      color: var(--pzm-index-danger);
 
       &[data-state='pressed'] {
-        border-color: var(--zui-danger-pressed);
+        border-color: var(--pzm-danger-pressed);
       }
     }
 
     &[data-state="hovered"], &._focused_deleted {
-      background: var(--zui-palette-r2);
-      color: var(--zui-exceptions-white);
+      background: var(--pzm-palette-r2);
+      color: var(--pzm-exceptions-white);
     }
 
     &[data-state='pressed'] {
-      background: var(--zui-danger-pressed);
-      color: var(--zui-exceptions-white);
+      background: var(--pzm-danger-pressed);
+      color: var(--pzm-exceptions-white);
     }
   }
 
   &[data-appearance='success'] {
-    background: var(--zui-index-good);
+    background: var(--pzm-index-good);
 
 
     &[data-appearance-type='ghost'] {
       background: transparent;
-      color: var(--zui-index-good);
+      color: var(--pzm-index-good);
 
 
       &[data-state="hovered"], &._focused_deleted {
-        background: var(--zui-success-ghost-hover); //
-        color: var(--zui-index-good);
+        background: var(--pzm-success-ghost-hover); //
+        color: var(--pzm-index-good);
       }
 
       &[data-state='pressed'] {
-        background: var(--zui-success-ghost-pressed); //
-        color: var(--zui-index-good);
+        background: var(--pzm-success-ghost-pressed); //
+        color: var(--pzm-index-good);
       }
     }
 
@@ -214,24 +214,24 @@
   &[data-state='disabled'][data-state='disabled'] {
     &[data-appearance-type='ghost'] {
       background: transparent;
-      color: var(--zui-disabled-ghost-text);
+      color: var(--pzm-disabled-ghost-text);
 
       &[data-state='pressed'] {
-        background: var(--zui-disabled-ghost-pressed);
+        background: var(--pzm-disabled-ghost-pressed);
       }
 
       &[data-state='hovered'] {
-        background: var(--zui-disabled-ghost-hover);
+        background: var(--pzm-disabled-ghost-hover);
       }
     }
 
     &[data-appearance-type='outline'] {
-      border: 1px solid var(--zui-grey-g12-g2);
+      border: 1px solid var(--pzm-grey-g12-g2);
       background: transparent;
     }
 
-    background: var(--zui-disabled);
-    color: var(--zui-disabled-text);
+    background: var(--pzm-disabled);
+    color: var(--pzm-disabled-text);
   }
 }
 

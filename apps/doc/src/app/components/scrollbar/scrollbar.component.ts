@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PzmScrollbarVisibility, ZuiSizeL, ZuiSizeM } from '@digital-plant/zui-components';
+import { PzmScrollbarVisibility, PzmSizeL, PzmSizeM } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-scrollbar-example',

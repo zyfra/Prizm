@@ -11,7 +11,7 @@ import {
   TemplateRef,
 } from '@angular/core';
 import { PZM_BUTTON_OPTIONS, PzmButtonOptions, PzmContent } from './button-options';
-import { AbstractZuiInteractive } from '../../abstract/interactive';
+import { AbstractPzmInteractive } from '../../abstract/interactive';
 import { pzmIsNativeFocused } from '../../util/is-native-focused';
 import { PzmSize } from '../../util/size-bigger';
 import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
@@ -40,7 +40,7 @@ import { PzmHoveredService } from '../../services';
     PzmFocusVisibleService
   ],
 })
-export class PzmButtonComponent extends AbstractZuiInteractive
+export class PzmButtonComponent extends AbstractPzmInteractive
   implements PzmFocusableElementAccessor {
   @Input()
   @HostBinding('attr.data-size')

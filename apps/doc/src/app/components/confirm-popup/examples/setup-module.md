@@ -1,13 +1,13 @@
 ```ts
 import {NgModule} from '@angular/core';
-import {ZuiConfirmPopupModule} from "@digital-plant/zui-components";
+import {PzmConfirmPopupModule} from "@digital-plant/pzm-components";
 
 // ...
 
 @NgModule({
   imports: [
     // ...
-    ZuiConfirmPopupModule,
+    PzmConfirmPopupModule,
   ],
 })
 export class MyModule {

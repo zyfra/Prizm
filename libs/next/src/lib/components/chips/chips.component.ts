@@ -64,7 +64,7 @@ export class PzmChipsComponent implements ControlValueAccessor, OnInit, OnDestro
 
   constructor(private readonly cdRef: ChangeDetectorRef, private readonly destroy$: PzmDestroyService) {}
 
-  readonly zuiIsTextOverflow$ = (elem: HTMLElement, hintCanShow: boolean, forceShowHint: boolean): Observable<boolean> => {
+  readonly pzmIsTextOverflow$ = (elem: HTMLElement, hintCanShow: boolean, forceShowHint: boolean): Observable<boolean> => {
     return of(forceShowHint).pipe(
       switchMap(
         val => {

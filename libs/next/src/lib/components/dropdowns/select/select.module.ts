@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { ZuiSelectComponent } from './select.component';
+import { PzmSelectComponent } from './select.component';
 import { PzmOverlayModule } from '../../../modules/overlay';
 import { PolymorphModule } from '../../../directives';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ZuiDataListModule } from '../../data-list';
-import { ZuiDropdownHostModule } from '../dropdown-host';
+import { PzmDataListModule } from '../../data-list';
+import { PzmDropdownHostModule } from '../dropdown-host';
 import { PzmScrollbarModule } from '../../scrollbar';
-import { ZuiDropdownControllerModule } from '../../../directives/dropdown-controller';
+import { PzmDropdownControllerModule } from '../../../directives/dropdown-controller';
 import { PzmChipsModule } from '../../chips';
 import { PzmInputTextModule } from '../../input/input-text/input-text.module';
 import { PzmCallFuncModule, PzmLetModule } from '@digital-plant/zyfra-helpers';
@@ -28,11 +28,11 @@ import { PzmIconModule } from '../../icon';
       PzmIconModule,
       PzmCallFuncModule,
       PzmScrollbarModule,
-      ZuiDropdownControllerModule,
-      ZuiDataListModule,
-      ZuiDropdownHostModule
+      PzmDropdownControllerModule,
+      PzmDataListModule,
+      PzmDropdownHostModule
     ],
-    declarations: [ZuiSelectComponent],
-    exports: [ZuiSelectComponent],
+    declarations: [PzmSelectComponent],
+    exports: [PzmSelectComponent],
 })
 export class PzmSelectModule {}

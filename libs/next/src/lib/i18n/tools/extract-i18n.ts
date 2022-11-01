@@ -5,7 +5,7 @@ import { PzmLanguage } from '../interfaces';
 
 import { PZM_LANGUAGE } from './language';
 
-export function zuiExtractI18n<K extends keyof PzmLanguage>(
+export function pzmExtractI18n<K extends keyof PzmLanguage>(
     key: K,
 ): () => Observable<PzmLanguage[K]> {
     return (): any =>

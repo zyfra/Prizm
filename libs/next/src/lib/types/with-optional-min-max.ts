@@ -3,6 +3,6 @@ export interface PzmWithOptionalMinMax<T> {
     max: T | null;
 }
 
-export interface ZuiWithOptionalMinMaxWithValue<T, V> extends PzmWithOptionalMinMax<V> {
+export interface PzmWithOptionalMinMaxWithValue<T, V> extends PzmWithOptionalMinMax<V> {
     value: T;
 }

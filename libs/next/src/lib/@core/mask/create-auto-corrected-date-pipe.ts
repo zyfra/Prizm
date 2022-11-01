@@ -1,18 +1,18 @@
-import { ZuiDateMode } from '../../types';
-import { ZuiWithOptionalMinMaxWithValue } from '../../types/with-optional-min-max';
+import { PzmDateMode } from '../../types';
+import { PzmWithOptionalMinMaxWithValue } from '../../types/with-optional-min-max';
 import { PzmDay } from '../date-time';
-import { ZUI_DATE_FILLER_LENGTH } from '../date-time/date-fillers';
-import { ZuiTextMaskPipeHandler } from './text-mask-pipe-handler';
+import { PZM_DATE_FILLER_LENGTH } from '../date-time/date-fillers';
+import { PzmTextMaskPipeHandler } from './text-mask-pipe-handler';
 
-export interface ZuiAutoCorrectedDatePipeConfigs
-    extends ZuiWithOptionalMinMaxWithValue<PzmDay | null, PzmDay> {
-    dateFormat: ZuiDateMode;
+export interface PzmAutoCorrectedDatePipeConfigs
+    extends PzmWithOptionalMinMaxWithValue<PzmDay | null, PzmDay> {
+    dateFormat: PzmDateMode;
     dateSeparator: string;
 }
 
-export function zuiNormalizeDateValue(
+export function pzmNormalizeDateValue(
     dateValue: string,
-    {value, min, max, dateFormat, dateSeparator}: ZuiAutoCorrectedDatePipeConfigs,
+    {value, min, max, dateFormat, dateSeparator}: PzmAutoCorrectedDatePipeConfigs,
 ): string {
     return value && value.toString(dateFormat, dateSeparator) === dateValue
         ? dateValue
@@ -21,16 +21,16 @@ export function zuiNormalizeDateValue(
               .toString(dateFormat, dateSeparator);
 }
 
-export function zuiCreateAutoCorrectedDatePipe(
-    config: ZuiAutoCorrectedDatePipeConfigs,
-): ZuiTextMaskPipeHandler {
+export function pzmCreateAutoCorrectedDatePipe(
+    config: PzmAutoCorrectedDatePipeConfigs,
+): PzmTextMaskPipeHandler {
     return (value: any): any => {
-        if (value.length !== ZUI_DATE_FILLER_LENGTH) {
+        if (value.length !== PZM_DATE_FILLER_LENGTH) {
             return {value};
         }
 
         return {
-            value: zuiNormalizeDateValue(value, config),
+            value: pzmNormalizeDateValue(value, config),
         };
     };
 }

@@ -1,6 +1,6 @@
 import { pzmCanScroll } from './can-scroll';
 
-describe('zuiCanScroll', () => {
+describe('pzmCanScroll', () => {
     it('works vertically', () => {
         const parent = document.createElement('div');
         const child = document.createElement('div');

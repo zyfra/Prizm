@@ -1,15 +1,15 @@
-import { ZuiTextMaskList } from './text-mask-list';
-import { ZuiTextMaskListHandler } from './text-mask-list-handler';
-import { ZuiTextMaskPipeHandler } from './text-mask-pipe-handler';
+import { PzmTextMaskList } from './text-mask-list';
+import { PzmTextMaskListHandler } from './text-mask-list-handler';
+import { PzmTextMaskPipeHandler } from './text-mask-pipe-handler';
 
 /**
  * {@link https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md}
  */
-export interface ZuiTextMaskOptions {
+export interface PzmTextMaskOptions {
     /**
      * {@link https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#mask}
      */
-    mask: ZuiTextMaskList | ZuiTextMaskListHandler | false;
+    mask: PzmTextMaskList | PzmTextMaskListHandler | false;
 
     /**
      * {@link https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#guide}
@@ -24,7 +24,7 @@ export interface ZuiTextMaskOptions {
     /**
      * {@link https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#pipe}
      */
-    pipe?: ZuiTextMaskPipeHandler;
+    pipe?: PzmTextMaskPipeHandler;
 
     /**
      * {@link https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#keepcharpositions}

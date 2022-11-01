@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiTreeComponent to view tree.
+      Use PzmTreeComponent to view tree.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <zui-tree-base-example></zui-tree-base-example>
+      <pzm-tree-base-example></pzm-tree-base-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -21,7 +21,7 @@
       heading="Array"
       [content]="exampleArray"
     >
-      <zui-tree-array-example></zui-tree-array-example>
+      <pzm-tree-array-example></pzm-tree-array-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -29,7 +29,7 @@
       heading="Template"
       [content]="exampleTemplate"
     >
-      <zui-tree-template-example></zui-tree-template-example>
+      <pzm-tree-template-example></pzm-tree-template-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -37,7 +37,7 @@
       heading="Component"
       [content]="exampleComponent"
     >
-      <zui-tree-component-example></zui-tree-component-example>
+      <pzm-tree-component-example></pzm-tree-component-example>
     </tui-doc-example>
 
 
@@ -46,7 +46,7 @@
   <ng-template pageTab>
     <tui-doc-documentation>
       <ng-template
-        documentationPropertyName="zuiTreeController"
+        documentationPropertyName="pzmTreeController"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="treeController"
@@ -63,7 +63,7 @@
       </ng-template>
       <ng-template
         documentationPropertyName="childrenHandler"
-        documentationPropertyType="ZuiHandler<TreeNode, readonly TreeNode[]> "
+        documentationPropertyType="PzmHandler<TreeNode, readonly TreeNode[]> "
         documentationPropertyMode="input"
       >
         Handler
@@ -83,7 +83,7 @@
       <li>
         <p>
           Import
-          <code>ZuiTreeModule</code>
+          <code>PzmTreeModule</code>
           into a module where you want to use our component
         </p>
 

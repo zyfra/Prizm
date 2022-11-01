@@ -1,7 +1,7 @@
 /**
  * Gets actual target from open Shadow DOM if event happened within it
  */
-export function zuiGetActualTarget(event: Event): Node {
+export function pzmGetActualTarget(event: Event): Node {
     if ('composedPath' in event) {
         return (event as any).composedPath()[0];
     }

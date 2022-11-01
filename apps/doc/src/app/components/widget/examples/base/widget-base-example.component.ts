@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'zui-widget-base-example',
+  selector: 'pzm-widget-base-example',
   templateUrl: './widget-base-example.component.html',
   styles: [`
-    zui-widget {
+    pzm-widget {
       padding: 16px;
-      color: var(--zui-text-main);
+      color: var(--pzm-text-main);
       font-style: normal;
       font-weight: 400;
       font-size: 14px;
     }
   `]
 })
-export class ZuiWidgetBaseExampleComponent {}
+export class PzmWidgetBaseExampleComponent {}

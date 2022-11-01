@@ -1,18 +1,18 @@
 import { Directive, Input } from '@angular/core';
 import { SortableColumn } from 'primeng/table';
 import { onSortColumnClick } from '../base-table';
-import { ZuiTableComponent } from '../zui-table.component';
+import { PzmTableComponent } from '../pzm-table.component';
 
 @Directive({
-  selector: '[zuiSortableColumn]',
+  selector: '[pzmSortableColumn]',
 })
-export class ZuiSortableColumnDirective extends SortableColumn {
+export class PzmSortableColumnDirective extends SortableColumn {
   /* eslint-disable @angular-eslint/no-input-rename */
-  @Input('zuiSortableColumn') override field: string;
-  @Input('zuiSortableColumnDisabled') override pSortableColumnDisabled: boolean;
+  @Input('pzmSortableColumn') override field: string;
+  @Input('pzmSortableColumnDisabled') override pSortableColumnDisabled: boolean;
 
-  constructor(private zuiTable: ZuiTableComponent) {
-    super(zuiTable.table);
+  constructor(private pzmTable: PzmTableComponent) {
+    super(pzmTable.table);
   }
 
   public override onClick(event: MouseEvent): void {
@@ -25,9 +25,9 @@ export class ZuiSortableColumnDirective extends SortableColumn {
 
   private shouldReset(): boolean {
     return (
-      this.zuiTable.sortMode !== 'multiple' &&
-      ((this.zuiTable.defaultSortOrder === 1 && this.sortOrder === 'descending') ||
-        (this.zuiTable.defaultSortOrder === -1 && this.sortOrder === 'ascending'))
+      this.pzmTable.sortMode !== 'multiple' &&
+      ((this.pzmTable.defaultSortOrder === 1 && this.sortOrder === 'descending') ||
+        (this.pzmTable.defaultSortOrder === -1 && this.sortOrder === 'ascending'))
     );
   }
 

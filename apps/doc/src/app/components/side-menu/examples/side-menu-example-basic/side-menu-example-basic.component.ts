@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'zui-side-menu-example-basic',
+  selector: 'pzm-side-menu-example-basic',
   templateUrl: './side-menu-example-basic.component.html',
   styleUrls: ['./side-menu-example-basic.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

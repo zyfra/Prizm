@@ -8,7 +8,7 @@ import {
 } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-tooltip-example',
+  selector: 'pzm-tooltip-example',
   templateUrl: './tooltip.component.html',
   styleUrls: ['./tooltip.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -17,7 +17,7 @@ export class TooltipComponent {
   public content = 'Тестовое содержимое';
   public pzmAutoReposition = false;
 
-  public readonly zuiTooltipDirectionVariants: ReadonlyArray<PzmTooltipOptions['direction']> = Object.values(PzmOverlayOutsidePlacement);
+  public readonly pzmTooltipDirectionVariants: ReadonlyArray<PzmTooltipOptions['direction']> = Object.values(PzmOverlayOutsidePlacement);
 
   public pzmTooltipDirection: PzmTooltipOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
 
@@ -29,11 +29,11 @@ export class TooltipComponent {
 
   public pzmTooltipHost: HTMLElement | null = null
 
-  public readonly zuiTooltipVariants = [
+  public readonly pzmTooltipVariants = [
     'Tooltip'
   ];
 
-  public pzmTooltip: PolymorphContent =  this.zuiTooltipVariants[0];
+  public pzmTooltip: PolymorphContent =  this.pzmTooltipVariants[0];
 
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'

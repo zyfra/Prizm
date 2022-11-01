@@ -1,9 +1,9 @@
 import { Directive, Injector, Optional, Self } from '@angular/core';
 import { FormControl, NgControl } from '@angular/forms';
-import { ZuiAccessorImplClass } from './zui-accessor-impl.class';
+import { PzmAccessorImplClass } from './pzm-accessor-impl.class';
 
 @Directive()
-export abstract class PzmWrappedFormComponent extends ZuiAccessorImplClass {
+export abstract class PzmWrappedFormComponent extends PzmAccessorImplClass {
   public readonly formControl: FormControl;
 
   constructor(public readonly injector: Injector, @Optional() @Self() public readonly ngControl: NgControl) {

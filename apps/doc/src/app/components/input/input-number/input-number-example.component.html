@@ -1,11 +1,11 @@
 <tui-doc-page header="Input number" type="components">
   <ng-template pageTab>
-    <tui-doc-example id="number" heading="Input number basic example" [content]="zuiInputNumberBasic">
-      <zui-input-number-basic-example></zui-input-number-basic-example>
+    <tui-doc-example id="number" heading="Input number basic example" [content]="pzmInputNumberBasic">
+      <pzm-input-number-basic-example></pzm-input-number-basic-example>
     </tui-doc-example>
 
-    <tui-doc-example id="counter" heading="Input number counter example" [content]="zuiInputNumberCounter">
-      <zui-input-number-counter-example></zui-input-number-counter-example>
+    <tui-doc-example id="counter" heading="Input number counter example" [content]="pzmInputNumberCounter">
+      <pzm-input-number-counter-example></pzm-input-number-counter-example>
     </tui-doc-example>
   </ng-template>
 
@@ -22,7 +22,7 @@
             [position]="inputPosition"
           >
             <input
-              zuiInputNumber
+              pzmInputNumber
               [min]="min"
               [max]="max"
               [step]="step"
@@ -30,12 +30,12 @@
               [disabled]="disabled"
               [placeholder]="placeholder"
               [required]="required"
-              #inputNumber="zuiInputNumber"
+              #inputNumber="pzmInputNumber"
             />
-            <zui-input-number-auxiliary-controls
-              zui-input-right
+            <pzm-input-number-auxiliary-controls
+              pzm-input-right
               [inputNumber]="inputNumber"
-            ></zui-input-number-auxiliary-controls>
+            ></pzm-input-number-auxiliary-controls>
 
             <ng-template pzmInputStatusText>Текст статуса</ng-template>
           </pzm-input-layout>
@@ -51,14 +51,14 @@
           >
             <button
               pzmInputIconButton="delete-minus"
-              zuiInputNumberAuxiliaryControl="decrement"
-              zui-input-left
+              pzmInputNumberAuxiliaryControl="decrement"
+              pzm-input-left
               [inputNumber]="inputCounter"
               [interactive]="true"
             ></button>
 
             <input
-              zuiInputNumber
+              pzmInputNumber
               [min]="min"
               [max]="max"
               [step]="step"
@@ -66,13 +66,13 @@
               [disabled]="disabled"
               [placeholder]="placeholder"
               [required]="required"
-              #inputCounter="zuiInputNumber"
+              #inputCounter="pzmInputNumber"
             />
 
             <button
               pzmInputIconButton="add-plus"
-              zuiInputNumberAuxiliaryControl="increment"
-              zui-input-right
+              pzmInputNumberAuxiliaryControl="increment"
+              pzm-input-right
               [inputNumber]="inputCounter"
               [interactive]="true"
             ></button>
@@ -201,7 +201,7 @@
     <ol class="b-demo-steps">
       <li>
         <p>
-          Импортируйте <code>ZuiInputNumberModule</code>
+          Импортируйте <code>PzmInputNumberModule</code>
           в тот модуль, котором хотите использовать компонент
         </p>
 

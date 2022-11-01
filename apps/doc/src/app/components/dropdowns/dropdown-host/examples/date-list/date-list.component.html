@@ -1,17 +1,17 @@
-<zui-dropdown-host
+<pzm-dropdown-host
   [content]="dropdown"
-  zuiDropdownHostWidth='auto'
+  pzmDropdownHostWidth='auto'
   [(isOpen)]="open"
 >
   <button pzmButton type="button" (click)="open = !open">
     Пример выбора периода
   </button>
-</zui-dropdown-host>
+</pzm-dropdown-host>
 
 <ng-template #dropdown let-zone='zone'>
-  <zui-data-list [style.--zui-data-list-border]='0'>
+  <pzm-data-list [style.--pzm-data-list-border]='0'>
     <div class='header' header>
-        <zui-icon iconClass='date-calendar-range'></zui-icon>
+        <pzm-icon iconClass='date-calendar-range'></pzm-icon>
         <span>Выбор периода</span>
     </div>
     <div class="box">
@@ -30,13 +30,13 @@
       </div>
 
       <div class='date-control'>
-        <zui-input-date-time [pzmEventZoneParent]='zone' label='Начало' [formControl]='startControl'></zui-input-date-time>
-        <zui-input-date-time [pzmEventZoneParent]='zone' label='Конец' [formControl]='endControl'></zui-input-date-time>
+        <pzm-input-date-time [pzmEventZoneParent]='zone' label='Начало' [formControl]='startControl'></pzm-input-date-time>
+        <pzm-input-date-time [pzmEventZoneParent]='zone' label='Конец' [formControl]='endControl'></pzm-input-date-time>
       </div>
     </div>
     <div class='footer' footer>
       <button appearanceType='ghost' appearance='secondary' pzmButton (click)="open = false; cdRef.markForCheck()">Отменить</button>
       <button pzmButton (click)="open = false; cdRef.markForCheck()">Выбрать</button>
     </div>
-  </zui-data-list>
+  </pzm-data-list>
 </ng-template>

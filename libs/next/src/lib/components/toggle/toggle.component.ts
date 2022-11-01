@@ -12,25 +12,25 @@ import {
 } from '@angular/core';
 import {NgControl} from '@angular/forms';
 
-import {ZUI_TOGGLE_OPTIONS, ZuiToggleOptions} from './toggle-options';
+import {PZM_TOGGLE_OPTIONS, PzmToggleOptions} from './toggle-options';
 import {pzmDefaultProp} from "../../decorators";
-import {AbstractZuiControl} from "../../abstract/control";
-import {pzmIsNativeFocused, PzmSize, ZuiSizeL, ZuiSizeM} from '../../util';
-import {ZuiNativeFocusableElement} from '../../types/focusable-element-accessor';
+import {AbstractPzmControl} from "../../abstract/control";
+import {pzmIsNativeFocused, PzmSize, PzmSizeL, PzmSizeM} from '../../util';
+import {PzmNativeFocusableElement} from '../../types/focusable-element-accessor';
 import {PzmAppearance} from '../../types/appearance.types';
 
 @Component({
-    selector: 'zui-toggle',
+    selector: 'pzm-toggle',
     templateUrl: './toggle.component.html',
     styleUrls: ['./toggle.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [],
 })
-export class ZuiToggleComponent
-    extends AbstractZuiControl<boolean>
+export class PzmToggleComponent
+    extends AbstractPzmControl<boolean>
 {
     @ViewChild('focusableElement')
-    private readonly focusableElement?: ElementRef<ZuiNativeFocusableElement>;
+    private readonly focusableElement?: ElementRef<PzmNativeFocusableElement>;
 
     @Input()
     @pzmDefaultProp()
@@ -52,7 +52,7 @@ export class ZuiToggleComponent
     @Input()
     @HostBinding('attr.data-size')
     @pzmDefaultProp()
-    size: ZuiSizeL | ZuiSizeM = this.options.size;
+    size: PzmSizeL | PzmSizeM = this.options.size;
 
     @HostBinding('attr.testId')
     readonly testId = 'pzm_toggle';
@@ -63,13 +63,13 @@ export class ZuiToggleComponent
         @Inject(NgControl) control: NgControl | null,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
         @Optional()
-        @Inject(ZUI_TOGGLE_OPTIONS)
-        readonly options: ZuiToggleOptions,
+        @Inject(PZM_TOGGLE_OPTIONS)
+        readonly options: PzmToggleOptions,
     ) {
         super(control, changeDetectorRef);
     }
 
-    get nativeFocusableElement(): ZuiNativeFocusableElement | null {
+    get nativeFocusableElement(): PzmNativeFocusableElement | null {
         return this.focusableElement ? this.focusableElement.nativeElement : null;
     }
 

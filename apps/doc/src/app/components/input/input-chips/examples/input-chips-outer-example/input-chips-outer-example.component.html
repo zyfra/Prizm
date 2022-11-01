@@ -1,7 +1,7 @@
 <pzm-input-layout label="Заголовок" size="l" status="default" [outer]="true">
   <input
     #input
-    zuiInput
+    pzmInput
     placeholder="Введите название"
     (enter)="onEnter($event)"
     [formControl]="requiredInputControl"
@@ -10,7 +10,7 @@
     #chipsComponent
     [formControl]="chipsControl"
     [deletable]="deletable"
-    zui-input-bottom
+    pzm-input-bottom
   ></pzm-chips>
 </pzm-input-layout>
 

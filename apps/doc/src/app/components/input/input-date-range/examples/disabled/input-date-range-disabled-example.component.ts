@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { PzmDay, PzmDayRange } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-input-date-range-disabled-example',
+  selector: 'pzm-input-date-range-disabled-example',
   templateUrl: './input-date-range-disabled-example.component.html',
   styles: [`
     .box {
@@ -12,7 +12,7 @@ import { PzmDay, PzmDayRange } from '@digital-plant/zui-components';
     }
   `]
 })
-export class ZuiInputDateRangeDisabledExampleComponent implements OnInit {
+export class PzmInputDateRangeDisabledExampleComponent implements OnInit {
   readonly value = new FormControl(
     new PzmDayRange(new PzmDay(2018, 2, 10), new PzmDay(2018, 3, 20)),
   );

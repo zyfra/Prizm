@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { PolymorphModule, PzmFocusTrapModule } from '../../../directives';
 import { PzmOverlayModule } from '../../../modules/overlay';
 import { PzmButtonModule } from '../../button';
-import { ZuiSidebarComponent } from './sidebar.component';
+import { PzmSidebarComponent } from './sidebar.component';
 import { PzmScrollbarModule } from '../../scrollbar';
 import { PzmInputIconButtonModule } from '../../input/common/input-icon-button/input-icon-button.module';
 
@@ -18,10 +18,10 @@ import { PzmInputIconButtonModule } from '../../input/common/input-icon-button/i
     PzmScrollbarModule
   ],
   declarations: [
-    ZuiSidebarComponent
+    PzmSidebarComponent
   ],
   exports: [
-    ZuiSidebarComponent
+    PzmSidebarComponent
   ],
 })
-export class ZuiSidebarModule {}
+export class PzmSidebarModule {}

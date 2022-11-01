@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { pzmWatch } from '../../observables/watch';
-import { zuiFocusVisibleObservable } from '../../observables/focus-visible-observable';
+import { pzmFocusVisibleObservable } from '../../observables/focus-visible-observable';
 
 /**
  * Service to imitate :focus-visible
@@ -21,7 +21,7 @@ export class PzmFocusVisibleService extends Observable<boolean> {
     ) {
         super(subscriber => this.focusVisible$.subscribe(subscriber));
 
-        this.focusVisible$ = zuiFocusVisibleObservable(nativeElement).pipe(
+        this.focusVisible$ = pzmFocusVisibleObservable(nativeElement).pipe(
             pzmWatch(changeDetectorRef),
             takeUntil(destroy$),
         );

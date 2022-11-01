@@ -3,13 +3,13 @@ import { PolymorphContent } from '../../directives';
 import { PzmShadowType } from '../../directives/shadow';
 
 @Component({
-    selector: 'zui-widget',
+    selector: 'pzm-widget',
     templateUrl: './widget.component.html',
     styleUrls: ['./widget.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [],
 })
-export class ZuiWidgetComponent {
+export class PzmWidgetComponent {
   @Input() public header: PolymorphContent = '';
   @Input() public title: PolymorphContent = '';
   @Input() public icons: PolymorphContent[] = [];

@@ -33,8 +33,8 @@ import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { TreeHierarchicalMenuBuilder } from '../../services/hiierarchical-tree-menu-builder';
 import { CollapsedHierarchicalMenuBuilder } from '../../../common/services/hierarchical-collapsed-menu-builder';
 import {
-  ZUI_HIERARCHICAL_MENU_OPTIONS_TOKEN,
-  ZuiHierarchicalMenuOptions,
+  PZM_HIERARCHICAL_MENU_OPTIONS_TOKEN,
+  PzmHierarchicalMenuOptions,
 } from '../../../common/hierarhical-menu-options';
 import { styleCSSVariablesObject } from '../../../styles/style-variables';
 
@@ -147,7 +147,7 @@ export class ZyfraHierarchicalTreeMenuComponent implements OnChanges {
     private overlay: Overlay,
     private cd: ChangeDetectorRef,
     private render2: Renderer2,
-    @Inject(ZUI_HIERARCHICAL_MENU_OPTIONS_TOKEN) public options: ZuiHierarchicalMenuOptions
+    @Inject(PZM_HIERARCHICAL_MENU_OPTIONS_TOKEN) public options: PzmHierarchicalMenuOptions
   ) {}
 
   private updatePopoverMenu(currentNodeId?: string, mode?: HierarchicalMenuType): void {

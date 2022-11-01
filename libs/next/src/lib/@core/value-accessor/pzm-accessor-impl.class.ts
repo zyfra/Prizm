@@ -1,6 +1,6 @@
 import { ControlValueAccessor } from '@angular/forms';
 
-export abstract class ZuiAccessorImplClass implements ControlValueAccessor {
+export abstract class PzmAccessorImplClass implements ControlValueAccessor {
   public accessorValue: unknown;
   public accessorOnChangeFn: (_: unknown) => unknown;
   public accessorOnTouchedFn: VoidFunction;

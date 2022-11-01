@@ -1,4 +1,4 @@
-export interface ZuiTypedEventTarget<E> {
+export interface PzmTypedEventTarget<E> {
     addEventListener(
         type: string,
         listener: ((evt: E) => void) | null,
@@ -14,6 +14,6 @@ export interface ZuiTypedEventTarget<E> {
 /**
  * Wrapper around {@link Event} to add typings to target and currentTarget.
  */
-export type PzmEventWith<G extends Event, T extends ZuiTypedEventTarget<G>> = G & {
+export type PzmEventWith<G extends Event, T extends PzmTypedEventTarget<G>> = G & {
     readonly currentTarget: T;
 };

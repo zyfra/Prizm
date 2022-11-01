@@ -1,11 +1,11 @@
 <tui-doc-page header="Textarea" type="components">
   <ng-template pageTab>
     <tui-doc-example heading="Basic example" [content]="zyfraTextareaBasicExample">
-      <zui-textarea-basic-example></zui-textarea-basic-example>
+      <pzm-textarea-basic-example></pzm-textarea-basic-example>
     </tui-doc-example>
 
     <tui-doc-example heading="Autosize example" [content]="zyfraTextareaAutosizeExample">
-      <zui-textarea-autosize-example></zui-textarea-autosize-example>
+      <pzm-textarea-autosize-example></pzm-textarea-autosize-example>
     </tui-doc-example>
   </ng-template>
 
@@ -13,7 +13,7 @@
     <tui-doc-demo>
       <pzm-input-layout [label]="label" [size]="size" [outer]="outer" [ngStyle]="{ width }">
         <textarea
-          zuiInput
+          pzmInput
           [disabled]="disabled"
           [placeholder]="placeholder"
           [required]="required"
@@ -105,7 +105,7 @@
       <li>
         <p>
           Import
-          <code>ZuiInputTextModule</code>
+          <code>PzmInputTextModule</code>
           into a module where you want to use our component
         </p>
 

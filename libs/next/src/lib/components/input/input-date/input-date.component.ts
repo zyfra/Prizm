@@ -16,53 +16,53 @@ import {
 import { NgControl } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ZUI_INPUT_DATE_PROVIDERS } from './input-date.providers';
+import { PZM_INPUT_DATE_PROVIDERS } from './input-date.providers';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
 import {
-  ZUI_DATE_FILLER_LENGTH,
-  ZUI_DATE_FORMAT,
-  ZUI_DATE_SEPARATOR,
+  PZM_DATE_FILLER_LENGTH,
+  PZM_DATE_FORMAT,
+  PZM_DATE_SEPARATOR,
   PZM_FIRST_DAY,
   PZM_LAST_DAY,
-  zuiChangeDateSeparator,
+  pzmChangeDateSeparator,
   PzmDay,
   PzmMonth,
 } from '../../../@core/date-time';
-import { ZUI_IS_MOBILE } from '../../../tokens/is-mobile';
+import { PZM_IS_MOBILE } from '../../../tokens/is-mobile';
 import {
   PzmBooleanHandler,
   PzmContextWithImplicit,
-  ZuiControlValueTransformer,
-  ZuiDateMode,
+  PzmControlValueTransformer,
+  PzmDateMode,
   PzmFocusableElementAccessor,
 } from '../../../types';
 import { pzmNullableSame } from '../../../util/common/nullable-same';
 import { PzmWithOptionalMinMax } from '../../../types/with-optional-min-max';
 import { PzmMarkerHandler } from '../../../types/marker-handler';
-import { ZuiDialogService } from '../../dialogs/dialog';
+import { PzmDialogService } from '../../dialogs/dialog';
 import { PZM_DEFAULT_MARKER_HANDLER } from '../../../constants/default-marker-handler';
-import { ZuiNamedDay } from '../../../@core/classes/named-day';
+import { PzmNamedDay } from '../../../@core/classes/named-day';
 import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
-import { zuiCreateDateNgxMask } from '../../../@core/mask/create-date-mask';
-import { AbstractZuiNullableControl } from '../../../abstract/nullable-control';
-import { ZUI_MOBILE_CALENDAR } from '../../../tokens/mobile-calendar';
-import { ZUI_DATE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
-import { ZUI_DATE_TEXTS } from '../../../tokens/i18n';
-import { PzmInputSize } from '../common/models/zui-input.models';
+import { pzmCreateDateNgxMask } from '../../../@core/mask/create-date-mask';
+import { AbstractPzmNullableControl } from '../../../abstract/nullable-control';
+import { PZM_MOBILE_CALENDAR } from '../../../tokens/mobile-calendar';
+import { PZM_DATE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
+import { PZM_DATE_TEXTS } from '../../../tokens/i18n';
+import { PzmInputSize } from '../common/models/pzm-input.models';
 import { pzmIsNativeFocusedIn } from '../../../util';
-import { ZUI_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
-import { ZuiDateButton } from '../../../types/date-button';
+import { PZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
+import { PzmDateButton } from '../../../types/date-button';
 
 
 @Component({
-    selector: `zui-input-date`,
+    selector: `pzm-input-date`,
     templateUrl: `./input-date.component.html`,
     styleUrls: [`./input-date.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: ZUI_INPUT_DATE_PROVIDERS,
+    providers: PZM_INPUT_DATE_PROVIDERS,
 })
-export class ZuiInputDateComponent
-    extends AbstractZuiNullableControl<PzmDay>
+export class PzmInputDateComponent
+    extends AbstractPzmNullableControl<PzmDay>
     implements PzmWithOptionalMinMax<PzmDay>, PzmFocusableElementAccessor
 {
     @ViewChild('focusableElementRef', {read: ElementRef})
@@ -70,7 +70,7 @@ export class ZuiInputDateComponent
 
     private month: PzmMonth | null = null;
 
-    public mask = zuiCreateDateNgxMask(this.dateFormat, this.dateSeparator)
+    public mask = pzmCreateDateNgxMask(this.dateFormat, this.dateSeparator)
 
     @Input()
     @pzmDefaultProp()
@@ -94,7 +94,7 @@ export class ZuiInputDateComponent
 
     @Input()
     @pzmDefaultProp()
-    items: readonly ZuiNamedDay[] = [];
+    items: readonly PzmNamedDay[] = [];
 
     @Input()
     @pzmDefaultProp()
@@ -125,10 +125,10 @@ export class ZuiInputDateComponent
 
     readonly filler$: Observable<string> = this.dateTexts$.pipe(
         map(dateTexts =>
-            zuiChangeDateSeparator(dateTexts[this.dateFormat], this.dateSeparator),
+            pzmChangeDateSeparator(dateTexts[this.dateFormat], this.dateSeparator),
         ),
     );
-    public rightButtons$: BehaviorSubject<ZuiDateButton[]>
+    public rightButtons$: BehaviorSubject<PzmDateButton[]>
 
 
     @HostListener(`click`)
@@ -145,25 +145,25 @@ export class ZuiInputDateComponent
         control: NgControl | null,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
         @Inject(Injector) private readonly injector: Injector,
-        @Inject(ZUI_IS_MOBILE) private readonly isMobile: boolean,
-        @Inject(ZuiDialogService) private readonly dialogService: ZuiDialogService,
+        @Inject(PZM_IS_MOBILE) private readonly isMobile: boolean,
+        @Inject(PzmDialogService) private readonly dialogService: PzmDialogService,
         @Optional()
-        @Inject(ZUI_MOBILE_CALENDAR)
+        @Inject(PZM_MOBILE_CALENDAR)
         private readonly mobileCalendar: Type<any> | null,
-        @Inject(ZUI_DATE_FORMAT) readonly dateFormat: ZuiDateMode,
-        @Inject(ZUI_DATE_SEPARATOR) readonly dateSeparator: string,
-        @Inject(ZUI_DATE_TEXTS)
-        readonly dateTexts$: Observable<Record<ZuiDateMode, string>>,
+        @Inject(PZM_DATE_FORMAT) readonly dateFormat: PzmDateMode,
+        @Inject(PZM_DATE_SEPARATOR) readonly dateSeparator: string,
+        @Inject(PZM_DATE_TEXTS)
+        readonly dateTexts$: Observable<Record<PzmDateMode, string>>,
         @Optional()
-        @Inject(ZUI_DATE_VALUE_TRANSFORMER)
-        override readonly valueTransformer: ZuiControlValueTransformer<PzmDay | null> | null,
+        @Inject(PZM_DATE_VALUE_TRANSFORMER)
+        override readonly valueTransformer: PzmControlValueTransformer<PzmDay | null> | null,
     ) {
         super(control, changeDetectorRef, valueTransformer);
     }
 
     public override ngOnInit(): void {
       super.ngOnInit();
-      this.rightButtons$ = this.extraButtonInjector.get(ZUI_DATE_RIGHT_BUTTONS);
+      this.rightButtons$ = this.extraButtonInjector.get(PZM_DATE_RIGHT_BUTTONS);
     }
 
     get computedMobile(): boolean {
@@ -199,13 +199,13 @@ export class ZuiInputDateComponent
         //     this.onOpenChange(true);
         // }
 
-        if (!value || (value.length !== ZUI_DATE_FILLER_LENGTH)) {
+        if (!value || (value.length !== PZM_DATE_FILLER_LENGTH)) {
           if (!value) this.updateValue(null);
           return;
         }
 
         this.updateValue(
-            value.length !== ZUI_DATE_FILLER_LENGTH
+            value.length !== PZM_DATE_FILLER_LENGTH
                 ? null
                 : PzmDay.normalizeParse(value, this.dateFormat),
         );

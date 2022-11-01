@@ -15,7 +15,7 @@
 
 @space: 0.25rem;
 
-@keyframes zuiLoaderDashOffset {
+@keyframes pzmLoaderDashOffset {
     0% {
         stroke-dashoffset: -66;
     }
@@ -29,7 +29,7 @@
     }
 }
 
-@keyframes zuiLoaderRotate {
+@keyframes pzmLoaderRotate {
     0% {
         transform: rotate(0deg);
     }
@@ -79,9 +79,9 @@
     min-width: 100%;
     flex-shrink: 0;
     align-self: center;
-    color: var(--zui-text-main);
-    stroke: var(--zui-exeptions-g1-b1);
-    animation: zuiFadeIn var(--zui-duration);
+    color: var(--pzm-text-main);
+    stroke: var(--pzm-exeptions-g1-b1);
+    animation: pzmFadeIn var(--pzm-duration);
 
     &&_horizontal {
         flex-direction: row;
@@ -92,32 +92,32 @@
         stroke: currentColor;
     }
 
-    &[data-zui-element-size='xm'] {
+    &[data-pzm-element-size='xm'] {
         font-size: @size-xm;
         stroke-width: @width-xm;
     }
 
-    &[data-zui-element-size='s'] {
+    &[data-pzm-element-size='s'] {
         font-size: @size-s;
         stroke-width: @width-s;
     }
 
-    &[data-zui-element-size='xs'] {
+    &[data-pzm-element-size='xs'] {
         font-size: @size-xs;
         stroke-width: @width-xs;
     }
 
-    &[data-zui-element-size='m'] {
+    &[data-pzm-element-size='m'] {
         font-size: @size-m;
         stroke-width: @width-m;
     }
 
-    &[data-zui-element-size='l'] {
+    &[data-pzm-element-size='l'] {
         font-size: @size-l;
         stroke-width: @width-l;
     }
 
-    &[data-zui-element-size='xl'] {
+    &[data-pzm-element-size='xl'] {
         font-size: @size-xl;
         stroke-width: @width-xl;
     }
@@ -149,12 +149,12 @@
     border-radius: 100%;
     overflow: hidden;
     transform: scale(1, -1);
-    animation: zuiLoaderRotate 3s linear infinite;
+    animation: pzmLoaderRotate 3s linear infinite;
 }
 
 .z-circle {
     fill: none;
     stroke: inherit;
     stroke-width: inherit;
-    animation: zuiLoaderDashOffset 3s linear infinite;
+    animation: pzmLoaderDashOffset 3s linear infinite;
 }

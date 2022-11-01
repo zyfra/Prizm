@@ -11,12 +11,12 @@
         [disabled]="scaleIdx === scalesList.length - 1"
         (click)="scaleDecrease()"
       ></button>
-      <zui-dropdown-host [content]="dropdown" zuiDropdownHostWidth="100%" [(isOpen)]="openDropdown">
+      <pzm-dropdown-host [content]="dropdown" pzmDropdownHostWidth="100%" [(isOpen)]="openDropdown">
         <button class="zoom-control__select" (click)="openDropdown = !openDropdown">
           {{ currentScale | number: '.0-1' }}%
-          <zui-icon iconClass="chevrons-dropdown" class="zoom-control__select-icon"></zui-icon>
+          <pzm-icon iconClass="chevrons-dropdown" class="zoom-control__select-icon"></pzm-icon>
         </button>
-      </zui-dropdown-host>
+      </pzm-dropdown-host>
       <button
         pzmIconButton
         appearanceType="ghost"
@@ -41,7 +41,7 @@
 </div>
 
 <ng-template #dropdown>
-  <zui-data-list class="settings">
+  <pzm-data-list class="settings">
     <div class="settings-group">
       <div
         class="settings-group__item"
@@ -54,12 +54,12 @@
 
     <div class="settings-group">
       <div class="settings-group__item" (click)="scaleIncrease()">
-        <zui-icon iconClass="sort-zoom-out" class="icon"></zui-icon>
+        <pzm-icon iconClass="sort-zoom-out" class="icon"></pzm-icon>
         Увеличить
         <span class="key"> F </span>
       </div>
       <div class="settings-group__item" (click)="scaleDecrease()">
-        <zui-icon iconClass="sort-maximize" class="icon"></zui-icon>
+        <pzm-icon iconClass="sort-maximize" class="icon"></pzm-icon>
         Уменьшить
         <span class="key"> F </span>
       </div>
@@ -67,12 +67,12 @@
 
     <div class="settings-group">
       <div class="settings-group__item" (click)="setScale(100)">
-        <zui-icon iconClass="arrows-expand-all" class="icon"></zui-icon>
+        <pzm-icon iconClass="arrows-expand-all" class="icon"></pzm-icon>
         Полный размер
         <span class="key"> F </span>
       </div>
       <div class="settings-group__item">
-        <zui-icon iconClass="editor-border-outer" class="icon"></zui-icon>
+        <pzm-icon iconClass="editor-border-outer" class="icon"></pzm-icon>
         Вписать
         <span class="key"> F </span>
       </div>
@@ -80,15 +80,15 @@
 
     <div class="settings-group">
       <div class="settings-group__item" (click)="setScale((400 / 250) * 100)">
-        <zui-icon iconClass="arrows-arrow-expand-vertical" class="icon"></zui-icon>
+        <pzm-icon iconClass="arrows-arrow-expand-vertical" class="icon"></pzm-icon>
         По высоте
         <span class="key"> F </span>
       </div>
       <div class="settings-group__item" (click)="setScale((contentWidth / 250) * 100)">
-        <zui-icon iconClass="arrows-arrow-expand-horizontal" class="icon"></zui-icon>
+        <pzm-icon iconClass="arrows-arrow-expand-horizontal" class="icon"></pzm-icon>
         По ширине
         <span class="key"> F </span>
       </div>
     </div>
-  </zui-data-list>
+  </pzm-data-list>
 </ng-template>

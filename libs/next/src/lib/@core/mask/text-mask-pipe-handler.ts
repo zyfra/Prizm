@@ -1,11 +1,11 @@
-import { ZuiTextMaskConfig } from './text-mask-config';
-import { ZuiTextMaskOptions } from './text-mask-options';
-import { ZuiTextMaskPipeResult } from './text-mask-pipe-result';
+import { PzmTextMaskConfig } from './text-mask-config';
+import { PzmTextMaskOptions } from './text-mask-options';
+import { PzmTextMaskPipeResult } from './text-mask-pipe-result';
 
 /**
  * {@link https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#pipe}
  */
-export type ZuiTextMaskPipeHandler = (
+export type PzmTextMaskPipeHandler = (
     conformedValue: string,
-    config: ZuiTextMaskOptions & ZuiTextMaskConfig,
-) => string | ZuiTextMaskPipeResult | false;
+    config: PzmTextMaskOptions & PzmTextMaskConfig,
+) => string | PzmTextMaskPipeResult | false;

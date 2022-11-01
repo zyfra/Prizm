@@ -6,7 +6,7 @@ interface SlidePlacementConfig {
   width?: string;
 }
 
-export class ZuiOverlaySlidePosition extends PzmOverlayAbstractPosition<SlidePlacementConfig> {
+export class PzmOverlaySlidePosition extends PzmOverlayAbstractPosition<SlidePlacementConfig> {
   constructor(config: SlidePlacementConfig) {
     super();
     this.config = { ...{ placement: PzmOverlaySlidePlacement.LEFT, width: '30%' }, ...config };

@@ -1,4 +1,4 @@
-<zui-multi-select
+<pzm-multi-select
   [items]='items'
   [selectAllItem]='selectAllItem'
   [valueTemplate]='valueTemplate'
@@ -7,11 +7,11 @@
   [identityMatcher]='identityMatcher'
   [stringify]='stringify'
   [searchable]='true'
-></zui-multi-select>
+></pzm-multi-select>
 
 <ng-template #valueTemplate let-value>
   <div class='item' *ngIf='value.obj.id !== -1; else allTemplate'>
-    <zui-icon iconClass='account-done'></zui-icon>
+    <pzm-icon iconClass='account-done'></pzm-icon>
     <span>{{value.stringify}}</span>
   </div>
   <ng-template #allTemplate>

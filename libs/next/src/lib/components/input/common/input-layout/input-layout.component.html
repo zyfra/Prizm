@@ -7,23 +7,23 @@
     [class.label-container-focused]="control.focused"
   >
     <label
-      class="zui-input-label
-    zui-input-label-{{ outer ? 'outer' : 'inner' }}
-    zui-input-label-{{ outer ? 'outer' : 'inner' }}-{{ position }}
-    {{ control.nativeElementType ? 'zui-input-label-' + control.nativeElementType : '' }}
+      class="pzm-input-label
+    pzm-input-label-{{ outer ? 'outer' : 'inner' }}
+    pzm-input-label-{{ outer ? 'outer' : 'inner' }}-{{ position }}
+    {{ control.nativeElementType ? 'pzm-input-label-' + control.nativeElementType : '' }}
 "
       [attr.data-size]="size"
-      [class.zui-input-label-focused]="control.focused"
-      [class.zui-input-label-empty]="control.empty"
+      [class.pzm-input-label-focused]="control.focused"
+      [class.pzm-input-label-empty]="control.empty"
     >
       {{ label }}
-      <span *ngIf="control.required" class="zui-input-label-required">*</span>
+      <span *ngIf="control.required" class="pzm-input-label-required">*</span>
     </label>
     <button
       *ngIf="showClearButton"
       pzmInputIconButton="cansel-delete-content"
       (click)="onClearClick($event)"
-      class="zui-input-label-clear-btn"
+      class="pzm-input-label-clear-btn"
       [interactive]="true"
     ></button>
   </div>
@@ -32,54 +32,54 @@
 <ng-container *ngIf="!outer; else labelTemplate"></ng-container>
 
 <div
-  class="zui-input-form
-  zui-input-form-status-{{ status }}
-  zui-input-form-{{ outer ? 'outer' : 'inner' }}
-  zui-input-form-{{ position }}
-  zui-input-form-{{ outer ? 'outer' : 'inner' }}-{{ position }}
-  {{ control.nativeElementType ? 'zui-input-form-' + control.nativeElementType : '' }}
+  class="pzm-input-form
+  pzm-input-form-status-{{ status }}
+  pzm-input-form-{{ outer ? 'outer' : 'inner' }}
+  pzm-input-form-{{ position }}
+  pzm-input-form-{{ outer ? 'outer' : 'inner' }}-{{ position }}
+  {{ control.nativeElementType ? 'pzm-input-form-' + control.nativeElementType : '' }}
 "
   [attr.data-size]="size"
   [ngClass]="{
-    'zui-input-form-focused': control.focused,
-    'zui-input-form-empty': control.empty,
-    'zui-input-form-disabled': control.disabled,
-    'zui-input-form-touched': control.touched,
-    'zui-input-form-invalid': control.invalid
+    'pzm-input-form-focused': control.focused,
+    'pzm-input-form-empty': control.empty,
+    'pzm-input-form-disabled': control.disabled,
+    'pzm-input-form-touched': control.touched,
+    'pzm-input-form-invalid': control.invalid
   }"
 >
-  <div class="zui-input-form__first">
-    <ng-content select="[zui-input-left]" *ngIf="!control.disabled"></ng-content>
+  <div class="pzm-input-form__first">
+    <ng-content select="[pzm-input-left]" *ngIf="!control.disabled"></ng-content>
 
-    <div class="zui-input-form-inner-container">
-      <div class="zui-input-form-body">
+    <div class="pzm-input-form-inner-container">
+      <div class="pzm-input-form-body">
         <ng-container *ngIf="outer; else labelTemplate"></ng-container>
 
         <ng-content></ng-content>
-        <ng-content select='[zui-input-in-body]'></ng-content>
+        <ng-content select='[pzm-input-in-body]'></ng-content>
       </div>
 
       <button
         *ngIf="showClearButton"
         pzmInputIconButton="cansel-delete-content"
         (click)="onClearClick($event)"
-        class="zui-input-button-default {{ showStatusButton ? '' : 'alone' }}"
+        class="pzm-input-button-default {{ showStatusButton ? '' : 'alone' }}"
         [interactive]="true"
       ></button>
       <button
         *ngIf="showStatusButton"
         [pzmInputIconButton]="statusIcon"
         [pzmHint]="statusMessage"
-        class="zui-input-form-status-button"
+        class="pzm-input-form-status-button"
         [interactive]="true"
       ></button>
     </div>
 
-    <ng-content select="[zui-input-right]" *ngIf="!control.disabled"></ng-content>
+    <ng-content select="[pzm-input-right]" *ngIf="!control.disabled"></ng-content>
   </div>
-  <ng-content select="[zui-input-bottom]"></ng-content>
+  <ng-content select="[pzm-input-bottom]"></ng-content>
 </div>
 
-<div class="zui-input-form-subtext zui-input-form-subtext-{{ status }}">
-  <ng-content select="[zui-input-subtext]"></ng-content>
+<div class="pzm-input-form-subtext pzm-input-form-subtext-{{ status }}">
+  <ng-content select="[pzm-input-subtext]"></ng-content>
 </div>

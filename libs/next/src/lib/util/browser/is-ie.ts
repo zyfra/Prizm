@@ -1,3 +1,3 @@
-export function zuiIsIE(userAgent: string): boolean {
+export function pzmIsIE(userAgent: string): boolean {
     return userAgent.toLowerCase().includes('trident');
 }

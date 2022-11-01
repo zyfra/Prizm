@@ -1,8 +1,8 @@
-import { ZuiDecimalSymbol } from '../../types/decimal-symbol';
+import { PzmDecimalSymbol } from '../../types/decimal-symbol';
 
-export interface ZuiNumberMaskOptions {
+export interface PzmNumberMaskOptions {
     readonly allowDecimal?: boolean;
-    readonly decimalSymbol?: ZuiDecimalSymbol;
+    readonly decimalSymbol?: PzmDecimalSymbol;
     readonly thousandSymbol?: string;
     readonly autoCorrectDecimalSymbol?: boolean;
     readonly decimalLimit?: number;

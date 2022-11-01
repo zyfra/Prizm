@@ -19,13 +19,13 @@ import { PzmOverlayAbstractPosition } from './position/position';
 import { cssClass, EventBus, objToCss } from './utils';
 
 @Component({
-  selector: 'zui-overlay',
+  selector: 'pzm-overlay',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PzmDestroyService],
 })
-export class ZuiOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
+export class PzmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('compOutlet', { read: ViewContainerRef }) compOutlet: ViewContainerRef;
   content: PzmOverlayContent = {
     type: PzmOverlayContentType.STRING,

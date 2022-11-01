@@ -1,5 +1,5 @@
 import { TreeNode } from 'primeng/api';
-import { PzmMenuItem } from '../model/zui-menu-item.interface';
+import { PzmMenuItem } from '../model/pzm-menu-item.interface';
 import { pzmGenerateId } from '../../../util';
 
 export const flatNodes = (nodes: TreeNode[]): TreeNode[] => {

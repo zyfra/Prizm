@@ -1,37 +1,37 @@
 import { InjectionToken, ValueProvider } from '@angular/core';
 import { PzmOverlayOutsidePlacement } from '../../modules/overlay/models';
-import { ZuiDialogButton } from '../../components/dialogs/dialog';
-import { ZuiSizeL, ZuiSizeM } from '../../util';
-import { ZuiConfirmDialogResultDefaultType } from '../../components/dialogs/confirm-dialog';
+import { PzmDialogButton } from '../../components/dialogs/dialog';
+import { PzmSizeL, PzmSizeM } from '../../util';
+import { PzmConfirmDialogResultDefaultType } from '../../components/dialogs/confirm-dialog';
 import { PzmHintContext, PzmHintOptions } from '../hint/hint-options';
 
 
-export type ZuiConfirmPopupButton = Omit<ZuiDialogButton, 'action'> & Partial<Pick<ZuiDialogButton, 'action'>>
+export type PzmConfirmPopupButton = Omit<PzmDialogButton, 'action'> & Partial<Pick<PzmDialogButton, 'action'>>
 
-export type ZuiConfirmPopupMode = 'error' | 'dark' | 'light' | null
+export type PzmConfirmPopupMode = 'error' | 'dark' | 'light' | null
 
-export interface ZuiConfirmPopupOptions extends PzmHintOptions {
+export interface PzmConfirmPopupOptions extends PzmHintOptions {
     readonly showDelay: number;
     readonly hideDelay: number;
-    readonly size: ZuiSizeM | ZuiSizeL;
-    confirmButton?: ZuiConfirmPopupButton | string,
-    supportButton?: ZuiConfirmPopupButton | string,
-    cancelButton?: ZuiConfirmPopupButton | string,
-    readonly mode: ZuiConfirmPopupMode;
+    readonly size: PzmSizeM | PzmSizeL;
+    confirmButton?: PzmConfirmPopupButton | string,
+    supportButton?: PzmConfirmPopupButton | string,
+    cancelButton?: PzmConfirmPopupButton | string,
+    readonly mode: PzmConfirmPopupMode;
     readonly autoReposition: boolean;
     readonly direction: PzmOverlayOutsidePlacement;
 }
-export interface ZuiConfirmPopupContext extends PzmHintContext {
-    readonly size: ZuiSizeM | ZuiSizeL;
-    readonly completeWith: (ctx: ZuiConfirmDialogResultDefaultType | unknown) => void;
-    confirmButton?: ZuiConfirmPopupButton | string,
-    supportButton?: ZuiConfirmPopupButton | string,
-    cancelButton?: ZuiConfirmPopupButton | string,
+export interface PzmConfirmPopupContext extends PzmHintContext {
+    readonly size: PzmSizeM | PzmSizeL;
+    readonly completeWith: (ctx: PzmConfirmDialogResultDefaultType | unknown) => void;
+    confirmButton?: PzmConfirmPopupButton | string,
+    supportButton?: PzmConfirmPopupButton | string,
+    cancelButton?: PzmConfirmPopupButton | string,
 }
 
 
 /** Default values for hint options */
-export const ZUI_CONFIRM_POPUP_DEFAULT_OPTIONS: ZuiConfirmPopupOptions = {
+export const PZM_CONFIRM_POPUP_DEFAULT_OPTIONS: PzmConfirmPopupOptions = {
     showDelay: 100,
     size: 'm',
     hideDelay: 100,
@@ -40,16 +40,16 @@ export const ZUI_CONFIRM_POPUP_DEFAULT_OPTIONS: ZuiConfirmPopupOptions = {
     direction: PzmOverlayOutsidePlacement.RIGHT,
 };
 
-export const ZUI_CONFIRM_POPUP_OPTIONS = new InjectionToken<ZuiConfirmPopupOptions>(
+export const PZM_CONFIRM_POPUP_OPTIONS = new InjectionToken<PzmConfirmPopupOptions>(
     'Default parameters for tooltip directive',
     {
-        factory: (): ZuiConfirmPopupOptions => ZUI_CONFIRM_POPUP_DEFAULT_OPTIONS,
+        factory: (): PzmConfirmPopupOptions => PZM_CONFIRM_POPUP_DEFAULT_OPTIONS,
     },
 );
 
-export const zuiConfirmPopupOptionsProvider: (
-    options: Partial<ZuiConfirmPopupOptions>,
-) => ValueProvider = (options: Partial<ZuiConfirmPopupOptions>) => ({
-    provide: ZUI_CONFIRM_POPUP_OPTIONS,
-    useValue: {...ZUI_CONFIRM_POPUP_DEFAULT_OPTIONS, ...options},
+export const pzmConfirmPopupOptionsProvider: (
+    options: Partial<PzmConfirmPopupOptions>,
+) => ValueProvider = (options: Partial<PzmConfirmPopupOptions>) => ({
+    provide: PZM_CONFIRM_POPUP_OPTIONS,
+    useValue: {...PZM_CONFIRM_POPUP_DEFAULT_OPTIONS, ...options},
 });

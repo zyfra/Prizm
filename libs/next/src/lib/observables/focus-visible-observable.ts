@@ -11,7 +11,7 @@ import {
   take,
   withLatestFrom,
 } from 'rxjs/operators';
-import { zuiIsAlive } from './is-alive';
+import { pzmIsAlive } from './is-alive';
 import { PzmOwnerDocumentException } from '../exceptions';
 import { pzmIsNativeFocused } from '../util';
 import { pzmTypedFromEvent } from './typed-from-event';
@@ -19,7 +19,7 @@ import { pzmTypedFromEvent } from './typed-from-event';
 let documentMouseUpIsAlive$: Observable<boolean>;
 let documentMouseDownIsAlive$: Observable<boolean>;
 
-export function zuiFocusVisibleObservable(element: Element): Observable<boolean> {
+export function pzmFocusVisibleObservable(element: Element): Observable<boolean> {
     const elementBlur$ = pzmTypedFromEvent(element, 'blur');
     const {ownerDocument} = element;
 
@@ -31,14 +31,14 @@ export function zuiFocusVisibleObservable(element: Element): Observable<boolean>
         documentMouseUpIsAlive$ = pzmTypedFromEvent(ownerDocument, 'mouseup', {
             capture: true,
         }).pipe(
-            zuiIsAlive(),
+            pzmIsAlive(),
             startWith(false),
             shareReplay({bufferSize: 1, refCount: true}),
         );
         documentMouseDownIsAlive$ = pzmTypedFromEvent(ownerDocument, 'mousedown', {
             capture: true,
         }).pipe(
-            zuiIsAlive(),
+            pzmIsAlive(),
             startWith(false),
             shareReplay({bufferSize: 1, refCount: true}),
         );

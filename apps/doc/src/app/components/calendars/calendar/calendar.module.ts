@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { CalendarComponent } from './calendar.component';
 import { PolymorphModule, PzmCalendarModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ZuiCalendarBaseExampleComponent } from './examples/base/calendar-base-example.component';
+import { PzmCalendarBaseExampleComponent } from './examples/base/calendar-base-example.component';
 
 
 @NgModule({
@@ -19,7 +19,7 @@ import { ZuiCalendarBaseExampleComponent } from './examples/base/calendar-base-e
     RouterModule.forChild(generateRoutes(CalendarComponent)),
   ],
   declarations: [
-    ZuiCalendarBaseExampleComponent,
+    PzmCalendarBaseExampleComponent,
     CalendarComponent
   ],
   exports: [CalendarComponent],

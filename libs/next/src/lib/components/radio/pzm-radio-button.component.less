@@ -22,7 +22,7 @@ pzm-radio-button {
       margin-left: 8px;
       word-break: break-word;
 
-      color: var(--zui-text-contrast);
+      color: var(--pzm-text-contrast);
     }
 
     .radio-button {
@@ -30,17 +30,17 @@ pzm-radio-button {
       align-items: center;
       justify-content: center;
 
-      background: var(--zui-bg-dashboard-forms);
+      background: var(--pzm-bg-dashboard-forms);
       box-shadow: 0 0 0 2px transparent;
 
-      border: 1px solid var(--zui-border-forms);
+      border: 1px solid var(--pzm-border-forms);
       border-radius: 50%;
 
       cursor: pointer;
 
       &__mark {
         border-radius: 50%;
-        background: var(--zui-exceptions-white);
+        background: var(--pzm-exceptions-white);
         opacity: 0;
 
         pointer-events: none;
@@ -60,13 +60,13 @@ pzm-radio-button {
       cursor: pointer;
 
       &:focus + .radio-button {
-        box-shadow: 0 0 0 2px var(--zui-lite-b130-20);
+        box-shadow: 0 0 0 2px var(--pzm-lite-b130-20);
         transition: 0.3s;
       }
 
       &:checked + .radio-button {
-        border-color: var(--zui-index-plan);
-        background: var(--zui-index-plan);
+        border-color: var(--pzm-index-plan);
+        background: var(--pzm-index-plan);
         transition: 0.3s;
 
         .radio-button__mark {
@@ -76,11 +76,11 @@ pzm-radio-button {
       }
 
       &:not(:checked):focus + .radio-button {
-        border-color: var(--zui-index-plan);
+        border-color: var(--pzm-index-plan);
       }
 
       &:hover + .radio-button {
-        border-color: var(--zui-index-plan);
+        border-color: var(--pzm-index-plan);
         transition: 0.3s;
       }
     }
@@ -95,12 +95,12 @@ pzm-radio-button {
       pointer-events: none;
 
       & + .radio-button {
-        border-color: var(--zui-bg-dashboard-forms);
+        border-color: var(--pzm-bg-dashboard-forms);
       }
 
       &:checked + .radio-button {
-        border-color: var(--zui-bg-dashboard-forms);
-        background: var(--zui-index-lock);
+        border-color: var(--pzm-bg-dashboard-forms);
+        background: var(--pzm-index-lock);
       }
     }
   }

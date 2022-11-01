@@ -5,7 +5,7 @@ import { Observable, timer } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { PZM_SCROLL_INTO_VIEW } from '../../constants/events';
 import { pzmRequiredSetter } from '../../decorators/required-setter';
-import { zuiCustomEvent } from '../../util/dom/custom-event';
+import { pzmCustomEvent } from '../../util/dom/custom-event';
 
 /**
  * Directive scrolls element into view inside pzm-scrollbar
@@ -28,7 +28,7 @@ export class PzmScrollIntoViewDirective {
             .pipe(takeUntil(this.destroy$))
             .subscribe(() => {
                 this.elementRef.nativeElement.dispatchEvent(
-                    zuiCustomEvent<Element>(
+                    pzmCustomEvent<Element>(
                         PZM_SCROLL_INTO_VIEW,
                         {
                             bubbles: true,

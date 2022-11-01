@@ -7,13 +7,13 @@
 .item {
   display: flex;
   align-items: center;
-  padding: var(--zui-select-item-padding, 8px 16px);
-  background: var(--zui-select-item-background, var(--zui-bg-body));
+  padding: var(--pzm-select-item-padding, 8px 16px);
+  background: var(--pzm-select-item-background, var(--pzm-bg-body));
   cursor: pointer;
-  font-weight: var(--zui-select-item-font-weight, 400);
-  font-size: var(--zui-select-item-font-size,14px);
-  gap: var(--zui-select-item-gap, 8px);
-  color: var(--zui-select-item-text, var(--zui-text-contrast, #20222B));
+  font-weight: var(--pzm-select-item-font-weight, 400);
+  font-size: var(--pzm-select-item-font-size,14px);
+  gap: var(--pzm-select-item-gap, 8px);
+  color: var(--pzm-select-item-text, var(--pzm-text-contrast, #20222B));
 
   .text {
     max-width: 100%;
@@ -23,19 +23,19 @@
   }
 
   &.selected, &.most-relevant {
-    background: var(--zui-select-item-selected-background, var(--zui-bg-dashboard-forms));
+    background: var(--pzm-select-item-selected-background, var(--pzm-bg-dashboard-forms));
   }
 
   &:hover {
-    background: var(--zui-select-item-hover-background, var(--zui-bg-dashboard-forms));
+    background: var(--pzm-select-item-hover-background, var(--pzm-bg-dashboard-forms));
   }
 }
 
 .block {
-  background: var(--zui-select-background, var(--zui-bg-body));
+  background: var(--pzm-select-background, var(--pzm-bg-body));
   border-radius: 2px;
   border: none;
-  padding:  var(--zui-select-padding, 8px 0);
+  padding:  var(--pzm-select-padding, 8px 0);
 }
 
 .input-chips[readonly] {
@@ -43,11 +43,11 @@
 }
 
 .empty-template {
-  padding: var(--zui-select-item-padding, 8px 16px);
-  background: var(--zui-select-item-background, var(--zui-bg-body));
-  font-weight: var(--zui-select-item-font-weight, 400);
-  font-size: var(--zui-select-item-font-size,14px);
-  color: var(--zui-select-empty-text, var(--zui-text-subscript, #20222B));
+  padding: var(--pzm-select-item-padding, 8px 16px);
+  background: var(--pzm-select-item-background, var(--pzm-bg-body));
+  font-weight: var(--pzm-select-item-font-weight, 400);
+  font-size: var(--pzm-select-item-font-size,14px);
+  color: var(--pzm-select-empty-text, var(--pzm-text-subscript, #20222B));
 }
 
 .icon-dropdown {
@@ -69,14 +69,14 @@
 }
 
 .list-search-item {
-  padding: var(--zui-select-item-padding, 8px 16px);
+  padding: var(--pzm-select-item-padding, 8px 16px);
 
   pzm-input-layout {
     width: 100%;
   }
 }
 
-zui-checkbox {
+pzm-checkbox {
   max-width: calc(100% - 8px);
 }
 

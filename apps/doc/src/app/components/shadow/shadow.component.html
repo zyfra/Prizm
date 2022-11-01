@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiShadowDirective to show shadow.
+      Use PzmShadowDirective to show shadow.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <zui-shadow-base-example></zui-shadow-base-example>
+      <pzm-shadow-base-example></pzm-shadow-base-example>
     </tui-doc-example>
 
 
@@ -21,14 +21,14 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <div class='shadow-container zui-font-dynamic-title-h4' [pzmShadow]='value'>
+      <div class='shadow-container pzm-font-dynamic-title-h4' [pzmShadow]='value'>
         {{value}}
       </div>
     </tui-doc-demo>
     <tui-doc-documentation>
         <ng-template
           documentationPropertyName="pzmShadow"
-          documentationPropertyType="ZuiShadowType"
+          documentationPropertyType="PzmShadowType"
           documentationPropertyMode="input"
           [(documentationPropertyValue)]="value"
           [documentationPropertyValues]="valueVariants"

@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input, Optional, ViewChild } from '@angular/core';
-import { ZuiSelectableRowDirective } from '../directives/selectable-row.directive';
+import { PzmSelectableRowDirective } from '../directives/selectable-row.directive';
 import { TableCheckbox } from 'primeng/table';
 
 @Component({
-  selector: 'zui-table-checkbox',
-  templateUrl: './zui-table-checkbox.component.html',
+  selector: 'pzm-table-checkbox',
+  templateUrl: './pzm-table-checkbox.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiTableCheckboxComponent {
+export class PzmTableCheckboxComponent {
   @ViewChild('checkbox', { static: true }) checkbox: TableCheckbox;
 
   @Input() disabled: boolean;
@@ -21,10 +21,10 @@ export class ZuiTableCheckboxComponent {
   @HostBinding('attr.testId')
   readonly testId = 'pzm_table_checkbox';
 
-  constructor(@Optional() private zuiSelectableRow: ZuiSelectableRowDirective) {}
+  constructor(@Optional() private pzmSelectableRow: PzmSelectableRowDirective) {}
 
   public onClick(event: Event): void {
-    if (this.zuiSelectableRow) {
+    if (this.pzmSelectableRow) {
       event.stopPropagation();
     }
   }

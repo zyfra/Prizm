@@ -1,21 +1,21 @@
-import { ZUI_MAX_TIME_VALUES } from '../../constants/max-time-values';
-import { ZuiTimeFormatParts } from '../../types/time-format-parts';
-import { ZuiTimeMode } from '../../types/time-mode';
-import { ZuiTextMaskPipeHandler } from './text-mask-pipe-handler';
-import { ZuiTextMaskPipeResult } from './text-mask-pipe-result';
+import { PZM_MAX_TIME_VALUES } from '../../constants/max-time-values';
+import { PzmTimeFormatParts } from '../../types/time-format-parts';
+import { PzmTimeMode } from '../../types/time-mode';
+import { PzmTextMaskPipeHandler } from './text-mask-pipe-handler';
+import { PzmTextMaskPipeResult } from './text-mask-pipe-result';
 
 
-export function zuiCreateAutoCorrectedTimePipe(
-    timeMode: ZuiTimeMode = `HH:MM`,
-    maxValues: Partial<Record<ZuiTimeFormatParts, number>> = {},
-): ZuiTextMaskPipeHandler {
+export function pzmCreateAutoCorrectedTimePipe(
+    timeMode: PzmTimeMode = `HH:MM`,
+    maxValues: Partial<Record<PzmTimeFormatParts, number>> = {},
+): PzmTextMaskPipeHandler {
     const timeFormatArray = [`HH`, `MM`, `SS`, `MS`] as const;
     const safeValues = {
-        ...ZUI_MAX_TIME_VALUES,
+        ...PZM_MAX_TIME_VALUES,
         ...maxValues,
     };
 
-    return (conformedValue: string): string | ZuiTextMaskPipeResult | false => {
+    return (conformedValue: string): string | PzmTextMaskPipeResult | false => {
         const indexesOfPipedChars: number[] = [];
         const conformedValueArr = conformedValue.split(``);
 

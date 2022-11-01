@@ -13,10 +13,10 @@
   justify-content: center;
   transition: 0.3s;
 
-  background: var(--zui-bg-dashboard-forms);
+  background: var(--pzm-bg-dashboard-forms);
   box-shadow: 0 0 0 2px transparent;
 
-  border: 1px solid var(--zui-border-forms);
+  border: 1px solid var(--pzm-border-forms);
   border-radius: 2px;
 
   &--size-s {
@@ -31,12 +31,12 @@
 
   &--checked,
   &--indeterminate {
-    border-color: var(--zui-index-plan);
-    background: var(--zui-index-plan);
+    border-color: var(--pzm-index-plan);
+    background: var(--pzm-index-plan);
   }
 
   &:hover {
-    border-color: var(--zui-index-plan);
+    border-color: var(--pzm-index-plan);
   }
 
   &__icon {
@@ -44,7 +44,7 @@
     align-items: center;
     justify-content: center;
 
-    color: var(--zui-exceptions-white);
+    color: var(--pzm-exceptions-white);
     opacity: 0;
 
     pointer-events: none;
@@ -79,7 +79,7 @@
 
 .label {
   margin-left: 8px;
-  color: var(--zui-text-contrast);
+  color: var(--pzm-text-contrast);
 
   max-width: 100%;
   font-family: Inter;
@@ -95,26 +95,26 @@
   }
 }
 
-:host-context(.zui-checkbox--disabled) {
+:host-context(.pzm-checkbox--disabled) {
   cursor: not-allowed;
 
   .checkbox {
-    border-color: var(--zui-bg-dashboard-forms);
+    border-color: var(--pzm-bg-dashboard-forms);
     &--checked,
     &--indeterminate {
-      background-color: var(--zui-index-lock);
+      background-color: var(--pzm-index-lock);
     }
   }
 }
 
 :host:focus {
   .checkbox {
-    box-shadow: 0 0 0 2px var(--zui-lite-b130-20);
+    box-shadow: 0 0 0 2px var(--pzm-lite-b130-20);
 
     &--checked,
     &--indeterminate {
-      border-color: var(--zui-palette-b2);
-      background: var(--zui-palette-b2);
+      border-color: var(--pzm-palette-b2);
+      background: var(--pzm-palette-b2);
     }
   }
 }
