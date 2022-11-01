@@ -4,7 +4,7 @@ import { mapTo } from 'rxjs/operators';
 import { pzmDefaultProp } from '../../decorators/default-prop';
 import { PzmFocusVisibleService } from '../../directives/focus-visible/focus-visible.service';
 import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../tokens/focusable-item-accessor';
-import { PzmFocusableElementAccessor, ZuiNativeFocusableElement } from '../../types/focusable-element-accessor';
+import { PzmFocusableElementAccessor, PzmNativeFocusableElement } from '../../types/focusable-element-accessor';
 import { pzmTypedFromEvent } from '../../observables';
 import { pzmIsNativeFocused } from '../../util/is-native-focused';
 import { PzmHorizontalDirection } from '../../types/direction';
@@ -65,7 +65,7 @@ export class PzmLinkComponent implements PzmFocusableElementAccessor {
 
     constructor(
         @Inject(ElementRef)
-        private readonly elementRef: ElementRef<ZuiNativeFocusableElement>,
+        private readonly elementRef: ElementRef<PzmNativeFocusableElement>,
         public readonly mode$: PzmThemeService,
         @Inject(PzmFocusVisibleService)
         focusVisible$: PzmFocusVisibleService,
@@ -75,7 +75,7 @@ export class PzmLinkComponent implements PzmFocusableElementAccessor {
         });
     }
 
-    get nativeFocusableElement(): ZuiNativeFocusableElement {
+    get nativeFocusableElement(): PzmNativeFocusableElement {
         return this.elementRef.nativeElement;
     }
 

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { PolymorphModule, PzmFocusTrapModule } from '../../../directives';
 import { PzmOverlayModule } from '../../../modules/overlay';
 import { PzmButtonModule } from '../../button';
-import { ZuiDialogConfirmComponent } from './confirm-dialog.component';
+import { PzmDialogConfirmComponent } from './confirm-dialog.component';
 import { PzmScrollbarModule } from '../../scrollbar';
 
 @NgModule({
@@ -16,10 +16,10 @@ import { PzmScrollbarModule } from '../../scrollbar';
     PzmScrollbarModule
   ],
   declarations: [
-    ZuiDialogConfirmComponent
+    PzmDialogConfirmComponent
   ],
   exports: [
-    ZuiDialogConfirmComponent
+    PzmDialogConfirmComponent
   ],
 })
-export class ZuiConfirmDialogModule {}
+export class PzmConfirmDialogModule {}

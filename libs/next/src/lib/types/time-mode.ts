@@ -1,1 +1,1 @@
-export type ZuiTimeMode = 'HH:MM' | 'HH:MM:SS' | 'HH:MM:SS.MSS';
+export type PzmTimeMode = 'HH:MM' | 'HH:MM:SS' | 'HH:MM:SS.MSS';

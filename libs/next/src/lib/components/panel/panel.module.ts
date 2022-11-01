@@ -8,4 +8,4 @@ import { PzmIconModule } from '../icon';
   imports: [CommonModule, PzmIconModule],
   exports: [PanelComponent],
 })
-export class ZuiPanelModule {}
+export class PzmPanelModule {}

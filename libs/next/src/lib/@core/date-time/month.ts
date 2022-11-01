@@ -1,16 +1,16 @@
-import { ZuiMonthLike } from '../../types/month-like';
-import { zuiPadStart } from '../../util/format/pad-start';
+import { PzmMonthLike } from '../../types/month-like';
+import { pzmPadStart } from '../../util/format/pad-start';
 import { pzmInRange } from '../../util/math/in-range';
-import { zuiNormalizeToIntNumber } from '../../util/math/normalize-to-int-number';
-import { ZuiMonthNumber } from '../enums/month-number';
+import { pzmNormalizeToIntNumber } from '../../util/math/normalize-to-int-number';
+import { PzmMonthNumber } from '../enums/month-number';
 
-import { ZUI_DAYS_IN_WEEK, ZUI_MAX_MONTH, ZUI_MIN_MONTH, ZUI_MONTHS_IN_YEAR } from './date-time';
+import { PZM_DAYS_IN_WEEK, PZM_MAX_MONTH, PZM_MIN_MONTH, PZM_MONTHS_IN_YEAR } from './date-time';
 import { PzmYear } from './year';
 
 /**
  * Immutable object consisting of year and month
  */
-export class PzmMonth extends PzmYear implements ZuiMonthLike {
+export class PzmMonth extends PzmYear implements PzmMonthLike {
     /**
      * @param year
      * @param month (starting with 0)
@@ -34,12 +34,12 @@ export class PzmMonth extends PzmYear implements ZuiMonthLike {
         console.assert(PzmMonth.isValidMonthPart(month));
 
         switch (month) {
-            case ZuiMonthNumber.February:
+            case PzmMonthNumber.February:
                 return isLeapYear ? 29 : 28;
-            case ZuiMonthNumber.April:
-            case ZuiMonthNumber.June:
-            case ZuiMonthNumber.September:
-            case ZuiMonthNumber.November:
+            case PzmMonthNumber.April:
+            case PzmMonthNumber.June:
+            case PzmMonthNumber.September:
+            case PzmMonthNumber.November:
                 return 30;
             default:
                 return 31;
@@ -76,18 +76,18 @@ export class PzmMonth extends PzmYear implements ZuiMonthLike {
      * Normalizes number by clamping it between min and max month
      */
     protected static normalizeMonthPart(month: number): number {
-        return zuiNormalizeToIntNumber(month, ZUI_MIN_MONTH, ZUI_MAX_MONTH);
+        return pzmNormalizeToIntNumber(month, PZM_MIN_MONTH, PZM_MAX_MONTH);
     }
 
     /**
      * Tests month for validity
      */
     private static isValidMonthPart(month: number): boolean {
-        return Number.isInteger(month) && pzmInRange(month, ZUI_MIN_MONTH, ZUI_MAX_MONTH + 1);
+        return Number.isInteger(month) && pzmInRange(month, PZM_MIN_MONTH, PZM_MAX_MONTH + 1);
     }
 
     get formattedMonthPart(): string {
-        return zuiPadStart(String(this.month + 1), 2, `0`);
+        return pzmPadStart(String(this.month + 1), 2, `0`);
     }
 
     /**
@@ -104,7 +104,7 @@ export class PzmMonth extends PzmYear implements ZuiMonthLike {
      * Calculates number of weeks in a month (counting non-full weeks)
      */
     get weeksRowsCount(): number {
-        return Math.ceil((this.monthStartDaysOffset + this.daysCount) / ZUI_DAYS_IN_WEEK);
+        return Math.ceil((this.monthStartDaysOffset + this.daysCount) / PZM_DAYS_IN_WEEK);
     }
 
     /**
@@ -126,7 +126,7 @@ export class PzmMonth extends PzmYear implements ZuiMonthLike {
             result += PzmMonth.getMonthDaysCount(currentMonth, this.isLeapYear);
         }
 
-        return result % ZUI_DAYS_IN_WEEK;
+        return result % PZM_DAYS_IN_WEEK;
     }
 
     /**
@@ -184,17 +184,17 @@ export class PzmMonth extends PzmYear implements ZuiMonthLike {
      * @param backwards shift date backwards
      * @return new month and year object as a result of offsetting current
      */
-    public override append({year = 0, month = 0}: ZuiMonthLike, backwards: boolean = false): PzmMonth {
+    public override append({year = 0, month = 0}: PzmMonthLike, backwards: boolean = false): PzmMonth {
         if (backwards) {
             year *= -1;
             month *= -1;
         }
 
-        const totalMonths = (this.year + year) * ZUI_MONTHS_IN_YEAR + this.month + month;
+        const totalMonths = (this.year + year) * PZM_MONTHS_IN_YEAR + this.month + month;
 
         return new PzmMonth(
-            Math.floor(totalMonths / ZUI_MONTHS_IN_YEAR),
-            totalMonths % ZUI_MONTHS_IN_YEAR,
+            Math.floor(totalMonths / PZM_MONTHS_IN_YEAR),
+            totalMonths % PZM_MONTHS_IN_YEAR,
         );
     }
 

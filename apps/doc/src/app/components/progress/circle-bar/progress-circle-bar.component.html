@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiProgressCircleComponent to view circle progress.
+      Use PzmProgressCircleComponent to view circle progress.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Circle"
       [content]="exampleCircle"
     >
-      <zui-progress-circle-example></zui-progress-circle-example>
+      <pzm-progress-circle-example></pzm-progress-circle-example>
     </tui-doc-example>
 
 
@@ -21,13 +21,13 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-progress-circle
+      <pzm-progress-circle
         [size]="size"
         [max]="max"
         [color]="color"
         [trackColor]="trackColor"
         [value]="value"
-      ></zui-progress-circle>
+      ></pzm-progress-circle>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
@@ -70,7 +70,7 @@
 
       <ng-template
         documentationPropertyName="size"
-        documentationPropertyType="ZuiSizeS | ZuiSizesXl"
+        documentationPropertyType="PzmSizeS | PzmSizesXl"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="size"
         [documentationPropertyValues]="sizeVariants"
@@ -86,7 +86,7 @@
       <li>
         <p>
           Import
-          <code>ZuiProgressModule</code>
+          <code>PzmProgressModule</code>
           into a module where you want to use our component
         </p>
 

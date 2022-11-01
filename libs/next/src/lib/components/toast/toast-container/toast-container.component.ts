@@ -22,11 +22,11 @@ export class PzmToastContainerComponent implements OnChanges {
   @HostBinding('attr.testId')
   readonly testId = 'pzm_toast_container';
 
-  constructor(private readonly zuiToastService: PzmToastService) {}
+  constructor(private readonly pzmToastService: PzmToastService) {}
 
   ngOnChanges(): void {
     this.refs$ = (
-      this.containerId ? this.zuiToastService.changes$.pipe(
+      this.containerId ? this.pzmToastService.changes$.pipe(
         map(refs => refs.filter(ref => ref.position === this.containerId)),
       ) : this.refs$
     ) ?? of([])

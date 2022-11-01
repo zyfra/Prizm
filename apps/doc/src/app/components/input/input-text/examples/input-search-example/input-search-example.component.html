@@ -1,9 +1,9 @@
 <h3>Inner</h3>
 <pzm-input-layout label="Поиск">
-  <input zuiInput (enter)="search($event)" #input />
+  <input pzmInput (enter)="search($event)" #input />
   <button
     pzmInputIconButton="sort-zoom-in"
-    zui-input-right
+    pzm-input-right
     (click)="search(input.value)"
     [interactive]="true"
   ></button>
@@ -11,10 +11,10 @@
 
 <h3>Outer</h3>
 <pzm-input-layout label="Поиск" [outer]="true">
-  <input zuiInput (enter)="search($event)" #input [placeholder]="'Поиск'" />
+  <input pzmInput (enter)="search($event)" #input [placeholder]="'Поиск'" />
   <button
     pzmInputIconButton="sort-zoom-in"
-    zui-input-right
+    pzm-input-right
     (click)="search(input.value)"
     [interactive]="true"
   ></button>

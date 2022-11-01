@@ -1,15 +1,15 @@
-import { AbstractZuiDialogService } from '../../../abstract/dialog.service';
+import { AbstractPzmDialogService } from '../../../abstract/dialog.service';
 import { Injectable } from '@angular/core';
-import { ZuiOverlayControl, PzmOverlayInsidePlacement } from '../../../modules/overlay';
+import { PzmOverlayControl, PzmOverlayInsidePlacement } from '../../../modules/overlay';
 import { Observable, Observer } from 'rxjs';
-import { ZuiDialogConfirmComponent } from './confirm-dialog.component';
+import { PzmDialogConfirmComponent } from './confirm-dialog.component';
 import {
-  ZuiConfirmDialogButton,
-  ZuiConfirmDialogOptions,
-  ZuiConfirmDialogResult,
-  ZuiConfirmDialogResultDefaultType,
+  PzmConfirmDialogButton,
+  PzmConfirmDialogOptions,
+  PzmConfirmDialogResult,
+  PzmConfirmDialogResultDefaultType,
 } from './confirm-dialog.models';
-import { ZuiBaseDialogContext } from '../dialog/dialog.models';
+import { PzmBaseDialogContext } from '../dialog/dialog.models';
 import { PzmAppearance, PzmAppearanceType } from '../../../types';
 
 const DEFAULT_OPTIONS = {
@@ -19,28 +19,28 @@ const DEFAULT_OPTIONS = {
   confirmButton: null,
   supportButton: null,
   cancelButton: null
-} as ZuiConfirmDialogOptions<ZuiConfirmDialogResult>;
+} as PzmConfirmDialogOptions<PzmConfirmDialogResult>;
 
 @Injectable({
   providedIn: 'root',
 })
-export class ZuiConfirmDialogService<
-    T extends ZuiConfirmDialogOptions<ZuiConfirmDialogResult> = ZuiConfirmDialogOptions<ZuiConfirmDialogResult>
+export class PzmConfirmDialogService<
+    T extends PzmConfirmDialogOptions<PzmConfirmDialogResult> = PzmConfirmDialogOptions<PzmConfirmDialogResult>
   >
-  extends AbstractZuiDialogService<T, ZuiConfirmDialogResult> {
-  protected readonly component = ZuiDialogConfirmComponent;
+  extends AbstractPzmDialogService<T, PzmConfirmDialogResult> {
+  protected readonly component = PzmDialogConfirmComponent;
   protected readonly defaultOptions = DEFAULT_OPTIONS as T;
 
   public override open(
     title: T['title'],
     options: Omit<Partial<T>, 'title'>,
     cb?: (data: {
-      control: ZuiOverlayControl,
-      dialog: ZuiBaseDialogContext<ZuiConfirmDialogResult, ZuiConfirmDialogOptions>,
-      observer: Observer<ZuiConfirmDialogResult>,
+      control: PzmOverlayControl,
+      dialog: PzmBaseDialogContext<PzmConfirmDialogResult, PzmConfirmDialogOptions>,
+      observer: Observer<PzmConfirmDialogResult>,
       destroy$: Observable<void>,
     }) => void
-  ): Observable<ZuiConfirmDialogResult> {
+  ): Observable<PzmConfirmDialogResult> {
     options = {
       ...options,
       title,
@@ -48,7 +48,7 @@ export class ZuiConfirmDialogService<
       backdrop: options.backdrop ?? true,
     };
     this.safeUpdateButtonsWithDefaultStyles(options as Partial<T>);
-    return super.open<ZuiConfirmDialogResult, unknown>(
+    return super.open<PzmConfirmDialogResult, unknown>(
       title,
       options as Partial<T>,
       cb,
@@ -62,7 +62,7 @@ export class ZuiConfirmDialogService<
       options,
       options.supportButton,
       'Продолжить',
-      ZuiConfirmDialogResultDefaultType.confirmed,
+      PzmConfirmDialogResultDefaultType.confirmed,
       'danger',
       'ghost'
     );
@@ -71,7 +71,7 @@ export class ZuiConfirmDialogService<
       options,
       options.confirmButton,
       'Подтвердить',
-      ZuiConfirmDialogResultDefaultType.confirmed,
+      PzmConfirmDialogResultDefaultType.confirmed,
       'primary'
     );
 
@@ -79,7 +79,7 @@ export class ZuiConfirmDialogService<
       options,
       options.cancelButton,
       'Отмена',
-      ZuiConfirmDialogResultDefaultType.cancel,
+      PzmConfirmDialogResultDefaultType.cancel,
       'secondary',
       'ghost'
     );
@@ -91,17 +91,17 @@ export class ZuiConfirmDialogService<
 
   private generateButton(
     options: Partial<T>,
-    button: ZuiConfirmDialogButton | string,
+    button: PzmConfirmDialogButton | string,
     defaultText: string,
-    defaultComplete: ZuiConfirmDialogResultDefaultType,
+    defaultComplete: PzmConfirmDialogResultDefaultType,
     defaultAppearance?: PzmAppearance,
     defaultAppearanceType?: PzmAppearanceType,
-  ): ZuiConfirmDialogButton {
+  ): PzmConfirmDialogButton {
     const buttonText = (typeof button === 'string'
       ? button
       : button?.text
     ) ?? defaultText;
-    const btn = ((typeof button === 'string' ? {} : button) ?? {}) as Partial<ZuiConfirmDialogButton>;
+    const btn = ((typeof button === 'string' ? {} : button) ?? {}) as Partial<PzmConfirmDialogButton>;
 
     return  {
       ...btn,

@@ -14,27 +14,27 @@ import {
 import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { FormControl, NgControl } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
-import { ZUI_MULTI_SELECT_OPTIONS, ZuiMultiSelectOptions } from './multi-select.options';
-import { PzmContextWithImplicit, PzmFocusableElementAccessor, ZuiNativeFocusableElement } from '../../../types';
+import { PZM_MULTI_SELECT_OPTIONS, PzmMultiSelectOptions } from './multi-select.options';
+import { PzmContextWithImplicit, PzmFocusableElementAccessor, PzmNativeFocusableElement } from '../../../types';
 import { PzmInputSize } from '../../input';
-import { AbstractZuiControl } from '../../../abstract/control';
+import { AbstractPzmControl } from '../../../abstract/control';
 import { pzmIsNativeFocused, pzmIsTextOverflow$ } from '../../../util';
 import { debounceTime, delay, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens';
 import { pzmDefaultProp } from '../../../decorators';
-import { ZuiDropdownHostComponent } from '../dropdown-host';
+import { PzmDropdownHostComponent } from '../dropdown-host';
 import {
-  ZuiMultiSelectIdentityMatcher,
-  ZuiMultiSelectItemStringifyFunc,
-  ZuiMultiSelectItemWithChecked,
-  ZuiMultiSelectSearchMatcher,
+  PzmMultiSelectIdentityMatcher,
+  PzmMultiSelectItemStringifyFunc,
+  PzmMultiSelectItemWithChecked,
+  PzmMultiSelectSearchMatcher,
 } from './multi-select.model';
 import { PzmOverlayOutsidePlacement } from '../../../modules';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({
-  selector: 'zui-multi-select',
+  selector: 'pzm-multi-select',
   templateUrl: './multi-select.component.html',
   styleUrls: ['./multi-select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -42,20 +42,20 @@ import { PzmOverlayOutsidePlacement } from '../../../modules';
     PzmDestroyService,
     {
       provide: PZM_FOCUSABLE_ITEM_ACCESSOR,
-      useExisting: forwardRef(() => ZuiMultiSelectComponent),
+      useExisting: forwardRef(() => PzmMultiSelectComponent),
     },
   ],
-  exportAs: 'zuiDropdownSelect'
+  exportAs: 'pzmDropdownSelect'
 })
-export class ZuiMultiSelectComponent<T>
-extends AbstractZuiControl<T[]>
+export class PzmMultiSelectComponent<T>
+extends AbstractPzmControl<T[]>
 implements PzmFocusableElementAccessor
 {
   @ViewChild('focusableElementRef', {read: ElementRef})
   public readonly focusableElement?: ElementRef<HTMLElement>;
 
   @ViewChild('dropdownHostRef')
-  public readonly dropdownHostElement?: ZuiDropdownHostComponent;
+  public readonly dropdownHostElement?: PzmDropdownHostComponent;
 
   @Input() set items(data:T[]) {
     this.items$.next(data ?? []);
@@ -106,7 +106,7 @@ implements PzmFocusableElementAccessor
 
   @Input()
   @pzmDefaultProp()
-  searchMatcher: ZuiMultiSelectSearchMatcher<T> = this.options.searchMatcher;
+  searchMatcher: PzmMultiSelectSearchMatcher<T> = this.options.searchMatcher;
 
   @Input()
   @pzmDefaultProp()
@@ -115,15 +115,15 @@ implements PzmFocusableElementAccessor
   /** need only clear function */
   @Input()
   @pzmDefaultProp()
-  stringify: ZuiMultiSelectItemStringifyFunc<T> = this.options.stringify;
+  stringify: PzmMultiSelectItemStringifyFunc<T> = this.options.stringify;
 
   @Input()
   @pzmDefaultProp()
-  identityMatcher: ZuiMultiSelectIdentityMatcher<T> = this.options.identityMatcher;
+  identityMatcher: PzmMultiSelectIdentityMatcher<T> = this.options.identityMatcher;
 
   @Input()
   @pzmDefaultProp()
-  valueTemplate: PolymorphContent<PzmContextWithImplicit<ZuiMultiSelectItemWithChecked<T>>> = this.options.valueContent;
+  valueTemplate: PolymorphContent<PzmContextWithImplicit<PzmMultiSelectItemWithChecked<T>>> = this.options.valueContent;
 
   @Input()
   @pzmDefaultProp()
@@ -133,7 +133,7 @@ implements PzmFocusableElementAccessor
   readonly testId = 'pzm_multi_select';
 
 
-  readonly zuiIsTextOverflow$ = pzmIsTextOverflow$;
+  readonly pzmIsTextOverflow$ = pzmIsTextOverflow$;
   public readonly direction: PzmOverlayOutsidePlacement = PzmOverlayOutsidePlacement.RIGHT;
 
   public open = false;
@@ -143,7 +143,7 @@ implements PzmFocusableElementAccessor
   public readonly chipsControl = new FormControl([] as string[]);
 
 
-  readonly filteredItems$: Observable<ZuiMultiSelectItemWithChecked<T>[]> = this.controlReady$.pipe(
+  readonly filteredItems$: Observable<PzmMultiSelectItemWithChecked<T>[]> = this.controlReady$.pipe(
     switchMap(() => combineLatest([
       this.searchInputControl.valueChanges.pipe(startWith('')),
       this.valChange.pipe(startWith(this.value)),
@@ -166,7 +166,7 @@ implements PzmFocusableElementAccessor
                   (selected) => this.identityMatcher(selected, item)
                 ),
                 obj: item
-              } as ZuiMultiSelectItemWithChecked<T>
+              } as PzmMultiSelectItemWithChecked<T>
             }
           );
           const selectedCount = this.value?.length;
@@ -181,7 +181,7 @@ implements PzmFocusableElementAccessor
                 indeterminate: selectedCount && allItem !== this.value.length,
                 obj: item
               })
-            ) as ZuiMultiSelectItemWithChecked<T>[],
+            ) as PzmMultiSelectItemWithChecked<T>[],
             ...selectItems
           ];
         }),
@@ -233,12 +233,12 @@ implements PzmFocusableElementAccessor
     shareReplay(1),
   );
 
-  public filteredItems: ZuiMultiSelectItemWithChecked<T>[] = [];
+  public filteredItems: PzmMultiSelectItemWithChecked<T>[] = [];
   private searchValue: string;
 
 
   constructor(
-    @Inject(ZUI_MULTI_SELECT_OPTIONS) private readonly options: ZuiMultiSelectOptions<T>,
+    @Inject(PZM_MULTI_SELECT_OPTIONS) private readonly options: PzmMultiSelectOptions<T>,
     @Optional()
     @Self()
     @Inject(NgControl) control: NgControl | null,
@@ -270,7 +270,7 @@ implements PzmFocusableElementAccessor
     ).subscribe();
   }
 
-  get nativeFocusableElement(): ZuiNativeFocusableElement | null {
+  get nativeFocusableElement(): PzmNativeFocusableElement | null {
     return this.focusableElement ? this.focusableElement.nativeElement : null;
   }
 
@@ -287,7 +287,7 @@ implements PzmFocusableElementAccessor
   }
 
   private isSelectAllItem(
-    item: ZuiMultiSelectItemWithChecked<T>
+    item: PzmMultiSelectItemWithChecked<T>
   ): boolean {
     return Boolean(
       this.selectAllItem &&
@@ -298,7 +298,7 @@ implements PzmFocusableElementAccessor
     )
   }
 
-  public select(item: ZuiMultiSelectItemWithChecked<T>): void {
+  public select(item: PzmMultiSelectItemWithChecked<T>): void {
     const newItemState = !item.checked;
     let values: T[];
     if (
@@ -343,6 +343,6 @@ implements PzmFocusableElementAccessor
     this.select({
       checked: true,
       obj: item,
-    } as ZuiMultiSelectItemWithChecked<T>)
+    } as PzmMultiSelectItemWithChecked<T>)
   }
 }

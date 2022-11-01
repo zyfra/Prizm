@@ -6,12 +6,12 @@ import { RouterModule } from '@angular/router';
 import { ZoomControlExampleBasicComponent } from './examples/zoom-control-example-basic/zoom-control-example-basic.component';
 import {
   PzmButtonModule,
-  ZuiDataListModule,
-  ZuiDropdownControllerModule,
-  ZuiDropdownHostModule,
+  PzmDataListModule,
+  PzmDropdownControllerModule,
+  PzmDropdownHostModule,
   PzmIconModule,
   PzmInputTextModule,
-  ZuiPanelModule,
+  PzmPanelModule,
   PzmSelectModule,
 } from '@digital-plant/zui-components';
 
@@ -22,13 +22,13 @@ import {
     TuiAddonDocModule,
     PzmIconModule,
     RouterModule.forChild(generateRoutes(ZoomControlExampleComponent)),
-    ZuiPanelModule,
+    PzmPanelModule,
     PzmInputTextModule,
     PzmSelectModule,
-    ZuiDropdownHostModule,
-    ZuiDataListModule,
+    PzmDropdownHostModule,
+    PzmDataListModule,
     PzmButtonModule,
-    ZuiDropdownControllerModule,
+    PzmDropdownControllerModule,
   ],
 })
 export class ZoomControlExampleModule {}

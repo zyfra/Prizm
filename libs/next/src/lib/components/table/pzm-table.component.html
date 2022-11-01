@@ -67,7 +67,7 @@
   (selectionChange)="selectionChange.emit($event)"
 >
   <ng-template pTemplate="caption" *ngIf="captionTemplate || title">
-    <div class="zui-table-title">{{ title }}</div>
+    <div class="pzm-table-title">{{ title }}</div>
     <ng-container *ngIf="captionTemplate">
       <ng-container *ngTemplateOutlet="captionTemplate"></ng-container>
     </ng-container>

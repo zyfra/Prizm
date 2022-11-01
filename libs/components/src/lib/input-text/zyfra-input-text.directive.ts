@@ -91,7 +91,7 @@ export class ZyfraInputDirective implements ZyfraInputGroupControl<string>, DoCh
    */
   constructor(
     @Optional() @Self() public readonly ngControl: NgControl,
-    private readonly zuiDestroyService: PzmDestroyService,
+    private readonly pzmDestroyService: PzmDestroyService,
     private readonly cdRef: ChangeDetectorRef,
     private readonly elementRef: ElementRef<HTMLInputElement | HTMLTextAreaElement>
   ) {
@@ -113,7 +113,7 @@ export class ZyfraInputDirective implements ZyfraInputGroupControl<string>, DoCh
           this.updateEmptyState();
           this.cdRef.markForCheck();
         }),
-        takeUntil(this.zuiDestroyService)
+        takeUntil(this.pzmDestroyService)
       )
       .subscribe();
   }

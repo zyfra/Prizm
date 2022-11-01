@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { ZuiSizeM, ZuiSizeS } from '@digital-plant/zui-components';
+import { PzmSizeM, PzmSizeS } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-progress-example',
+  selector: 'pzm-progress-example',
   templateUrl: './progress-line-segmented.component.html',
   styleUrls: ['./progress-line-segmented.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -13,26 +13,26 @@ export class ProgressLineSegmentedComponent {
   public max = 10;
   public value = 3;
 
-  readonly sizeVariants: ReadonlyArray<ZuiSizeS | ZuiSizeM> = [
+  readonly sizeVariants: ReadonlyArray<PzmSizeS | PzmSizeM> = [
     's',
     'm',
   ];
-  size: ZuiSizeS | ZuiSizeM = this.sizeVariants[1];
+  size: PzmSizeS | PzmSizeM = this.sizeVariants[1];
 
   readonly colorsVariants: ReadonlyArray<string | string[]> = [
     [],
     'transparent',
     [
-      'var(--zui-index-danger)',
-      'var(--zui-index-warning)',
+      'var(--pzm-index-danger)',
+      'var(--pzm-index-warning)',
       'lightblue',
     ],
     [
       'black',
       'gray',
     ],
-    'var(--zui-index-danger)',
-    'var(--zui-index-warning)',
+    'var(--pzm-index-danger)',
+    'var(--pzm-index-warning)',
     'lightblue',
     'green'
   ];

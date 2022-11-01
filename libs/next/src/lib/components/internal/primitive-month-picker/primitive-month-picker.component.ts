@@ -18,7 +18,7 @@ const ROWS = 4;
     styleUrls: [`./primitive-month-picker.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiPrimitiveMonthPickerComponent {
+export class PzmPrimitiveMonthPickerComponent {
     private hoveredItem: number | null = null;
     private pressedItem: number | null = null;
     private readonly currentMonth = PzmMonth.currentLocal().month;
@@ -133,7 +133,7 @@ export class ZuiPrimitiveMonthPickerComponent {
             return PzmRangeState.Single;
 
             // TODO finish it after add support intervals
-            // return ZuiRangeState.Start;
+            // return PzmRangeState.Start;
         }
 
         // TODO finish it after add support intervals
@@ -148,10 +148,10 @@ export class ZuiPrimitiveMonthPickerComponent {
         //         hoveredItem > value.from.month &&
         //         value.from.monthSame(value.to))
         // ) {
-        //   return ZuiRangeState.Single;
+        //   return PzmRangeState.Single;
         //
         //
-        //   // return ZuiRangeState.End;
+        //   // return PzmRangeState.End;
         // }
 
         return value.from.monthSame(value.to) && value.from.month === item && value.from.year === this.currentYear

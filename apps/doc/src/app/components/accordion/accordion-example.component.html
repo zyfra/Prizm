@@ -26,7 +26,7 @@
       <pzm-accordion [onlyOneExpanded]="onlyOneExpanded">
         <pzm-accordion-item [disabled]="disabled" title="Title number 2">
           <ng-template pzmAccordionTools>
-            <zui-checkbox [disabled]="disabled" label="Checkbox label is here"></zui-checkbox>
+            <pzm-checkbox [disabled]="disabled" label="Checkbox label is here"></pzm-checkbox>
           </ng-template>
           <ng-template pzmAccordionContent>
             <span class="inner-text">
@@ -43,7 +43,7 @@
         </pzm-accordion-item>
         <pzm-accordion-item [disabled]="disabled" title="Title number 3">
           <ng-template pzmAccordionTools>
-            <zui-checkbox label="Checkbox label is here but..." [disabled]="disabled"></zui-checkbox>
+            <pzm-checkbox label="Checkbox label is here but..." [disabled]="disabled"></pzm-checkbox>
           </ng-template>
           <ng-template pzmAccordionContent>
             <span class="inner-text">
@@ -85,7 +85,7 @@
     <ol class="b-demo-steps">
       <li>
         <p>
-          Импортируйте <code>ZuiAccordion</code>
+          Импортируйте <code>PzmAccordion</code>
           в модуль в котором хотите использовать компоненту
         </p>
 

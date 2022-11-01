@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
 
 @Component({
-  selector: 'zui-grid-item',
+  selector: 'pzm-grid-item',
   templateUrl: './grid-item.component.html',
   styleUrls: ['./grid-item.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

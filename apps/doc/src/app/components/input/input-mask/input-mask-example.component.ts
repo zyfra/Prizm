@@ -3,7 +3,7 @@ import { PzmInputSize, PzmInputStatus } from '@digital-plant/zui-components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'zui-input-mask-example',
+  selector: 'pzm-input-mask-example',
   templateUrl: './input-mask-example.component.html',
   styleUrls: ['./input-mask-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

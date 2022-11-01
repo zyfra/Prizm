@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'zui-outline-buttons-example',
+  selector: 'pzm-outline-buttons-example',
   styles: [
     `
       .box {
@@ -21,4 +21,4 @@ import { Component } from '@angular/core';
   ],
   templateUrl: './outline-buttons-example.component.html',
 })
-export class ZuiOutlineButtonsExampleComponent {}
+export class PzmOutlineButtonsExampleComponent {}

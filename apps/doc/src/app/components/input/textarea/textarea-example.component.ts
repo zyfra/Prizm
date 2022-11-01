@@ -3,7 +3,7 @@ import { PzmInputSize, PzmInputStatus } from '@digital-plant/zui-components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'zui-textarea-example',
+  selector: 'pzm-textarea-example',
   templateUrl: './textarea-example.component.html',
   styleUrls: ['./textarea-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

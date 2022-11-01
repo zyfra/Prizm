@@ -20,23 +20,23 @@ import { filter, takeUntil, tap } from 'rxjs/operators';
 import { pzmWatch } from '../../observables';
 
 @Component({
-  selector: 'zui-checkbox',
+  selector: 'pzm-checkbox',
   templateUrl: 'checkbox.component.html',
   styleUrls: ['checkbox.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
-    class: 'zui-checkbox',
+    class: 'pzm-checkbox',
     '[attr.tabindex]': "disabled ? null : '0'",
   },
 })
-export class ZuiCheckboxComponent implements ControlValueAccessor, OnDestroy, OnChanges, OnInit {
+export class PzmCheckboxComponent implements ControlValueAccessor, OnDestroy, OnChanges, OnInit {
   @Input() @HostBinding('attr.data-size') public size: 's' | 'l' = 's';
 
   @Input() indeterminate = false;
   @Input() host: HTMLElement | null = null;
-  @Input() @HostBinding('class.zui-checkbox--disabled') disabled = false;
-  @Input() @HostBinding('class.zui-checkbox--required') required = false;
+  @Input() @HostBinding('class.pzm-checkbox--disabled') disabled = false;
+  @Input() @HostBinding('class.pzm-checkbox--required') required = false;
 
   private _checked = false;
   get checked(): boolean {

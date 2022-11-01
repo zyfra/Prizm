@@ -1,6 +1,6 @@
-<zui-dropdown-host
+<pzm-dropdown-host
   [content]="dropdown"
-  zuiDropdownHostWidth='auto'
+  pzmDropdownHostWidth='auto'
   [(isOpen)]="open"
   #elem
 >
@@ -9,9 +9,9 @@
   </button>
 
   <ng-template #dropdown>
-    <zui-data-list [style.--zui-data-list-border]='0'>
+    <pzm-data-list [style.--pzm-data-list-border]='0'>
       <div class='header' header>
-        <zui-icon iconClass='date-calendar-range'></zui-icon>
+        <pzm-icon iconClass='date-calendar-range'></pzm-icon>
         <span>Выбор периода</span>
       </div>
       <div class="box">
@@ -19,15 +19,15 @@
           <ng-container *ngFor="let item of data; let idx = index">
             <div
               class='list-item'
-              *zuiLet='item.range | zuiCallFunc : convertDate as dateArr'>
+              *pzmLet='item.range | pzmCallFunc : convertDate as dateArr'>
               <pzm-radio-button
                 (click)="select(item)"
                 [value]="item.range"
                 [label]='(dateArr[0] | date : "short") + " - " + (dateArr[1] | date : "short")'
               ></pzm-radio-button>
               <div class='btns'>
-                <zui-icon class='edit-icon' iconClass='editor-mode'></zui-icon>
-                <zui-icon (click)='remove(idx); elem.reCalculatePositions();' class='trash-icon' iconClass='delete'></zui-icon>
+                <pzm-icon class='edit-icon' iconClass='editor-mode'></pzm-icon>
+                <pzm-icon (click)='remove(idx); elem.reCalculatePositions();' class='trash-icon' iconClass='delete'></pzm-icon>
               </div>
             </div>
           </ng-container>
@@ -37,7 +37,7 @@
         <button appearanceType='ghost' appearance='secondary' pzmButton (click)="open = false; cdRef.markForCheck()">Отменить</button>
         <button pzmButton (click)="open = false; cdRef.markForCheck()">Сохранить</button>
       </div>
-    </zui-data-list>
+    </pzm-data-list>
   </ng-template>
 
-</zui-dropdown-host>
+</pzm-dropdown-host>

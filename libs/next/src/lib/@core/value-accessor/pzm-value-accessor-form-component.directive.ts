@@ -1,10 +1,10 @@
 import { AfterViewInit, Directive, ViewChild } from '@angular/core';
 import { DefaultValueAccessor } from '@angular/forms';
-import { ZuiAccessorImplClass } from './zui-accessor-impl.class';
+import { PzmAccessorImplClass } from './pzm-accessor-impl.class';
 
 @Directive()
 export abstract class ValueAccessorFormComponent
-  extends ZuiAccessorImplClass
+  extends PzmAccessorImplClass
   implements AfterViewInit
 {
   @ViewChild(DefaultValueAccessor) private valueAccessor: DefaultValueAccessor;

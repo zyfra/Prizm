@@ -13,7 +13,7 @@
       id="info-toast"
       [content]="exampleMessageInfo"
     >
-      <zui-message-info-example></zui-message-info-example>
+      <pzm-message-info-example></pzm-message-info-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -21,7 +21,7 @@
       id="warning-toast"
       [content]="exampleMessageWarning"
     >
-      <zui-message-warning-example></zui-message-warning-example>
+      <pzm-message-warning-example></pzm-message-warning-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -29,7 +29,7 @@
       heading="Success Message"
       [content]="exampleMessageSuccess"
     >
-      <zui-message-success-example></zui-message-success-example>
+      <pzm-message-success-example></pzm-message-success-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -37,7 +37,7 @@
       heading="Danger Message"
       [content]="exampleMessageDanger"
     >
-      <zui-message-danger-example></zui-message-danger-example>
+      <pzm-message-danger-example></pzm-message-danger-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -45,7 +45,7 @@
       heading="Platform Toast"
       [content]="exampleToast"
     >
-      <zui-toast-example></zui-toast-example>
+      <pzm-toast-example></pzm-toast-example>
     </tui-doc-example>
 
   </ng-template>
@@ -80,7 +80,7 @@
 
       <ng-template
         documentationPropertyName="appearance"
-        documentationPropertyType="ZuiToastAppearance"
+        documentationPropertyType="PzmToastAppearance"
         documentationPropertyMode="input"
         [documentationPropertyValues]="appearanceVariants"
         [(documentationPropertyValue)]="appearance"
@@ -90,7 +90,7 @@
 
       <ng-template
         documentationPropertyName="position"
-        documentationPropertyType="ZuiToastPosition"
+        documentationPropertyType="PzmToastPosition"
         documentationPropertyMode="input"
         [documentationPropertyValues]="positionVariants"
         [(documentationPropertyValue)]="position"
@@ -100,7 +100,7 @@
 
       <ng-template
         documentationPropertyName="title"
-        documentationPropertyType="PolymorphContent<ZuiToastRef>"
+        documentationPropertyType="PolymorphContent<PzmToastRef>"
         documentationPropertyMode="input"
         [documentationPropertyValues]="getContentVariants(template)"
         [(documentationPropertyValue)]="title"
@@ -110,7 +110,7 @@
 
       <ng-template
         documentationPropertyName="content"
-        documentationPropertyType="PolymorphContent<ZuiToastRef>"
+        documentationPropertyType="PolymorphContent<PzmToastRef>"
         documentationPropertyMode="input"
         [documentationPropertyValues]="getContentVariants(template)"
         [(documentationPropertyValue)]="content"
@@ -138,7 +138,7 @@
       <li>
         <p >
           Import
-          <code>ZuiToastModule</code>
+          <code>PzmToastModule</code>
           into a module where you want to use our toasts
         </p>
 

@@ -7,7 +7,7 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { InputMaskExampleComponent } from './input-mask-example.component';
 import { InputMaskBasicExampleComponent } from './examples/input-mask-basic-example/input-mask-basic-example.component';
 import { InputPhoneExampleComponent } from './examples/input-phone-example/input-phone-example.component';
-import { PzmInputTextModule, ZuiMaskModule } from '@digital-plant/zui-components';
+import { PzmInputTextModule, PzmMaskModule } from '@digital-plant/zui-components';
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import { PzmInputTextModule, ZuiMaskModule } from '@digital-plant/zui-components
     ReactiveFormsModule,
     FormsModule,
     PzmInputTextModule,
-    ZuiMaskModule,
+    PzmMaskModule,
   ],
   declarations: [InputMaskExampleComponent, InputMaskBasicExampleComponent, InputPhoneExampleComponent],
   exports: [InputMaskExampleComponent],

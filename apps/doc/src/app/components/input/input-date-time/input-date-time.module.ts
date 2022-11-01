@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { InputDateTimeTimeComponent } from './input-date-time.component';
-import { PolymorphModule, ZuiInputDateTimeModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PzmInputDateTimeModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ZuiInputDateTimeBaseExampleComponent } from './examples/base/input-date-time-base-example.component';
+import { PzmInputDateTimeBaseExampleComponent } from './examples/base/input-date-time-base-example.component';
 import {
-  ZuiInputDateTimeWithSecondsExampleComponent,
+  PzmInputDateTimeWithSecondsExampleComponent,
 } from './examples/with-seconds/input-date-time-with-seconds-example.component';
 import {
-  ZuiInputDateTimeNativeExampleComponent,
+  PzmInputDateTimeNativeExampleComponent,
 } from './examples/native-date/input-native-date-time-base-example.component';
 
 
@@ -21,13 +21,13 @@ import {
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    ZuiInputDateTimeModule,
+    PzmInputDateTimeModule,
     RouterModule.forChild(generateRoutes(InputDateTimeTimeComponent)),
   ],
   declarations: [
-    ZuiInputDateTimeBaseExampleComponent,
-    ZuiInputDateTimeWithSecondsExampleComponent,
-    ZuiInputDateTimeNativeExampleComponent,
+    PzmInputDateTimeBaseExampleComponent,
+    PzmInputDateTimeWithSecondsExampleComponent,
+    PzmInputDateTimeNativeExampleComponent,
     InputDateTimeTimeComponent
   ],
   exports: [InputDateTimeTimeComponent],

@@ -3,7 +3,7 @@ import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../../@core/date-time/days.const
 import { PzmMonth } from '../../../@core/date-time/month';
 import { PzmYear } from '../../../@core/date-time/year';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { ZuiMonthLike } from '../../../types/month-like';
+import { PzmMonthLike } from '../../../types/month-like';
 import { PzmWithOptionalMinMax } from '../../../types/with-optional-min-max';
 
 @Component({
@@ -88,7 +88,7 @@ export class PzmPrimitiveYearMonthPaginationComponent
         this.appendValueWithLimit({month: 1});
     }
 
-    private appendValueWithLimit(date: ZuiMonthLike): void {
+    private appendValueWithLimit(date: PzmMonthLike): void {
         const newMonth: PzmMonth = this.value.append(date);
 
         if (this.min.monthSameOrAfter(newMonth)) {

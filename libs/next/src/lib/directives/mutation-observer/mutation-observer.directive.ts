@@ -14,11 +14,11 @@ import { PZM_MUTATION_OBSERVER_OPTIONS, PzmMutationObserveOptions } from './muta
 export class PzmMutationObserveDirective implements OnInit {
   @Input()
   @pzmDefaultProp()
-  public zuiMutationObserverConfig: PzmMutationObserveOptions['config'] = this.options.config;
+  public pzmMutationObserverConfig: PzmMutationObserveOptions['config'] = this.options.config;
 
   @Input()
   @pzmDefaultProp()
-  public zuiMutationObserverHost: HTMLElement | null = null;
+  public pzmMutationObserverHost: HTMLElement | null = null;
 
   @Output()
   readonly pzmMutationObserver: EventEmitter<MutationRecord[]> = new EventEmitter();
@@ -41,8 +41,8 @@ export class PzmMutationObserveDirective implements OnInit {
 
   private startObserve(): void {
     this.observer.observe(
-      this.zuiMutationObserverHost ?? this.el.nativeElement,
-      this.zuiMutationObserverConfig
+      this.pzmMutationObserverHost ?? this.el.nativeElement,
+      this.pzmMutationObserverConfig
     );
     this.destroy$.addCallback(() => {
       this.observer.disconnect();

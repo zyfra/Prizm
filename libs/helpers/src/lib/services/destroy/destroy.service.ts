@@ -1,13 +1,13 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
-import { ZuiDestroyCallback } from './models';
+import { PzmDestroyCallback } from './models';
 
 /**
  * Observable abstraction over ngOnDestroy for use with takeUntil
  */
 @Injectable()
 export class PzmDestroyService extends ReplaySubject<void> implements OnDestroy {
-    private readonly cb = new Set<ZuiDestroyCallback>();
+    private readonly cb = new Set<PzmDestroyCallback>();
     constructor() {
       super(1);
     }
@@ -16,7 +16,7 @@ export class PzmDestroyService extends ReplaySubject<void> implements OnDestroy 
       this.next();
       this.complete();
       this.cb.forEach(
-        (cb: ZuiDestroyCallback) => cb()
+        (cb: PzmDestroyCallback) => cb()
       );
       this.cb.clear();
     }

@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PolymorphComponent, PzmOverlayOutsidePlacement } from '@digital-plant/zui-components';
-import { ZuiHintSomeComponent } from './some.component';
+import { PzmHintSomeComponent } from './some.component';
 
 @Component({
-  selector: 'zui-hint-with-component-example',
+  selector: 'pzm-hint-with-component-example',
   templateUrl: './hint-with-component-example.component.html',
   styles: [`
     .box {
@@ -13,7 +13,7 @@ import { ZuiHintSomeComponent } from './some.component';
   `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ZuiHintWithComponentExampleComponent {
-  readonly component = new PolymorphComponent(ZuiHintSomeComponent);
+export class PzmHintWithComponentExampleComponent {
+  readonly component = new PolymorphComponent(PzmHintSomeComponent);
   readonly direction = PzmOverlayOutsidePlacement.BOTTOM;
 }

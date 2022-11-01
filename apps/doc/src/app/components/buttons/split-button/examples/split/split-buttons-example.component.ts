@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'zui-split-buttons-example',
+  selector: 'pzm-split-buttons-example',
   styles: [
     `
       .box {
@@ -21,4 +21,4 @@ import { Component } from '@angular/core';
   ],
   templateUrl: './split-buttons-example.component.html',
 })
-export class ZuiSplitButtonsExampleComponent {}
+export class PzmSplitButtonsExampleComponent {}

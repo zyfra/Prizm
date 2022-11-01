@@ -3,7 +3,7 @@ import {PzmToastService, PzmToastAppearance, PzmToastPosition} from "@digital-pl
 import {FormControl} from "@angular/forms";
 
 @Component({
-  selector: 'zui-message-warning-example',
+  selector: 'pzm-message-warning-example',
   templateUrl: './message-warning-example.component.html',
   styles: [`
     .box{
@@ -39,7 +39,7 @@ import {FormControl} from "@angular/forms";
     }
   `]
 })
-export class ZuiToastWarningExampleComponent {
+export class PzmToastWarningExampleComponent {
   readonly data = [
     {
       val: PzmToastPosition.TOP_MIDDLE,

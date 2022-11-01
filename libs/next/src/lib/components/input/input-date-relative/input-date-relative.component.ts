@@ -16,7 +16,7 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgControl, Valida
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
 import { pzmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
-import { PzmInputSize } from '../common/models/zui-input.models';
+import { PzmInputSize } from '../common/models/pzm-input.models';
 import {
   getDefaultRelativeDateMenuItems,
   IdByGroup,
@@ -28,26 +28,26 @@ import {
 } from './input-date-relative.models';
 import { ParseTextInput, RenderText, UpdateActiveItem } from './input-date-relative.utils';
 import { pzmIsNativeFocused } from '../../../util';
-import { ZUI_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
-import { ZuiDateButton } from '../../../types/date-button';
+import { PZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
+import { PzmDateButton } from '../../../types/date-button';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
 const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?';
 
 @Component({
-  selector: 'zui-input-date-relative',
+  selector: 'pzm-input-date-relative',
   templateUrl: './input-date-relative.component.html',
   styleUrls: ['./input-date-relative.component.less'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => ZuiInputDateRelativeComponent),
+      useExisting: forwardRef(() => PzmInputDateRelativeComponent),
       multi: true,
     },
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiInputDateRelativeComponent implements AfterViewInit, OnInit, ControlValueAccessor, OnDestroy {
+export class PzmInputDateRelativeComponent implements AfterViewInit, OnInit, ControlValueAccessor, OnDestroy {
   @ViewChild('focusableElementRef', {read: ElementRef})
   public readonly focusableElement?: ElementRef<HTMLInputElement>;
 
@@ -103,7 +103,7 @@ export class ZuiInputDateRelativeComponent implements AfterViewInit, OnInit, Con
 
   private readonly subscriptions = new Subscription();
 
-  public rightButtons$: BehaviorSubject<ZuiDateButton[]>;
+  public rightButtons$: BehaviorSubject<PzmDateButton[]>;
 
   constructor(
     public readonly injector: Injector,
@@ -111,7 +111,7 @@ export class ZuiInputDateRelativeComponent implements AfterViewInit, OnInit, Con
   ) {}
 
   public ngOnInit(): void {
-    this.rightButtons$ = this.extraButtonInjector.get(ZUI_DATE_RIGHT_BUTTONS);
+    this.rightButtons$ = this.extraButtonInjector.get(PZM_DATE_RIGHT_BUTTONS);
   }
 
   public ngAfterViewInit(): void {

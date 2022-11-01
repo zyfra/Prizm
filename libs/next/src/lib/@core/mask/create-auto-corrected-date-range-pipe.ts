@@ -1,43 +1,43 @@
-import { ZuiDateMode } from '../../types/date-mode';
-import { ZuiWithOptionalMinMaxWithValue } from '../../types/with-optional-min-max';
-import { ZUI_DATE_FILLER_LENGTH, ZUI_DATE_RANGE_FILLER_LENGTH } from '../date-time/date-fillers';
-import { ZUI_RANGE_SEPARATOR_CHAR } from '../date-time/date-time';
+import { PzmDateMode } from '../../types/date-mode';
+import { PzmWithOptionalMinMaxWithValue } from '../../types/with-optional-min-max';
+import { PZM_DATE_FILLER_LENGTH, PZM_DATE_RANGE_FILLER_LENGTH } from '../date-time/date-fillers';
+import { PZM_RANGE_SEPARATOR_CHAR } from '../date-time/date-time';
 import { PzmDay } from '../date-time/day';
 import { PzmDayRange } from '../date-time/day-range';
-import { ZuiTextMaskPipeHandler } from './text-mask-pipe-handler';
+import { PzmTextMaskPipeHandler } from './text-mask-pipe-handler';
 
-interface ZuiAutoCorrectedDatePipeConfigs
-    extends ZuiWithOptionalMinMaxWithValue<PzmDayRange | null, PzmDay> {
-    dateFormat: ZuiDateMode;
+interface PzmAutoCorrectedDatePipeConfigs
+    extends PzmWithOptionalMinMaxWithValue<PzmDayRange | null, PzmDay> {
+    dateFormat: PzmDateMode;
     dateSeparator: string;
 }
 
-function parseWithLimit(value: string, config: ZuiAutoCorrectedDatePipeConfigs): PzmDay {
+function parseWithLimit(value: string, config: PzmAutoCorrectedDatePipeConfigs): PzmDay {
     return PzmDay.normalizeParse(
-        value.slice(0, ZUI_DATE_FILLER_LENGTH),
+        value.slice(0, PZM_DATE_FILLER_LENGTH),
         config.dateFormat,
     ).dayLimit(config.min, config.max);
 }
 
-function processRawValue(value: string, config: ZuiAutoCorrectedDatePipeConfigs): string {
+function processRawValue(value: string, config: PzmAutoCorrectedDatePipeConfigs): string {
     const {dateFormat, dateSeparator} = config;
 
     switch (value.length) {
-        case ZUI_DATE_FILLER_LENGTH:
+        case PZM_DATE_FILLER_LENGTH:
             return parseWithLimit(value, config).toString(dateFormat, dateSeparator);
-        case ZUI_DATE_FILLER_LENGTH + ZUI_RANGE_SEPARATOR_CHAR.length:
+        case PZM_DATE_FILLER_LENGTH + PZM_RANGE_SEPARATOR_CHAR.length:
             return (
                 parseWithLimit(value, config).toString(dateFormat, dateSeparator) +
-                ZUI_RANGE_SEPARATOR_CHAR
+                PZM_RANGE_SEPARATOR_CHAR
             );
-        case ZUI_DATE_RANGE_FILLER_LENGTH:
+        case PZM_DATE_RANGE_FILLER_LENGTH:
             return config.value &&
                 config.value.toString(dateFormat, dateSeparator) === value
                 ? value
                 : PzmDayRange.sort(
-                      parseWithLimit(value.slice(0, ZUI_DATE_FILLER_LENGTH), config),
+                      parseWithLimit(value.slice(0, PZM_DATE_FILLER_LENGTH), config),
                       parseWithLimit(
-                          value.slice(ZUI_DATE_FILLER_LENGTH + ZUI_RANGE_SEPARATOR_CHAR.length),
+                          value.slice(PZM_DATE_FILLER_LENGTH + PZM_RANGE_SEPARATOR_CHAR.length),
                           config,
                       ),
                   ).toString(dateFormat, dateSeparator);
@@ -60,8 +60,8 @@ function processRawValue(value: string, config: ZuiAutoCorrectedDatePipeConfigs)
  * @param config with min and max date
  * @return mask pipe handler that handles `min` and `max`
  */
-export function zuiCreateAutoCorrectedDateRangePipe(
-    config: ZuiAutoCorrectedDatePipeConfigs,
-): ZuiTextMaskPipeHandler {
+export function pzmCreateAutoCorrectedDateRangePipe(
+    config: PzmAutoCorrectedDatePipeConfigs,
+): PzmTextMaskPipeHandler {
     return (value: any): any => ({value: processRawValue(value, config)});
 }

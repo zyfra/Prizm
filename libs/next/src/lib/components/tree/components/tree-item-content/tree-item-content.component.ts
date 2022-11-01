@@ -1,24 +1,24 @@
 import { ChangeDetectionStrategy, Component, forwardRef, HostBinding, Inject } from '@angular/core';
 import { POLYMORPH_CONTEXT } from '../../../../directives';
 
-import { ZUI_DEFAULT_TREE_CONTROLLER } from '../../misc/tree.constants';
-import { ZuiTreeController, ZuiTreeItemContext } from '../../misc/tree.interfaces';
-import { ZUI_TREE_CONTROLLER } from '../../misc/tree.tokens';
+import { PZM_DEFAULT_TREE_CONTROLLER } from '../../misc/tree.constants';
+import { PzmTreeController, PzmTreeItemContext } from '../../misc/tree.interfaces';
+import { PZM_TREE_CONTROLLER } from '../../misc/tree.tokens';
 
 @Component({
-    selector: 'zui-tree-item-content',
+    selector: 'pzm-tree-item-content',
     templateUrl: './tree-item-content.component.html',
     styleUrls: ['./tree-item-content.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiTreeItemContentComponent {
+export class PzmTreeItemContentComponent {
     @HostBinding('attr.testId')
     readonly testId = 'pzm_tree_item_content';
 
     constructor(
-        @Inject(POLYMORPH_CONTEXT) readonly context: ZuiTreeItemContext,
-        @Inject(forwardRef(() => ZUI_TREE_CONTROLLER))
-        private readonly controller: ZuiTreeController,
+        @Inject(POLYMORPH_CONTEXT) readonly context: PzmTreeItemContext,
+        @Inject(forwardRef(() => PZM_TREE_CONTROLLER))
+        private readonly controller: PzmTreeController,
     ) {}
 
     public get isExpanded(): boolean {
@@ -29,7 +29,7 @@ export class ZuiTreeItemContentComponent {
     public get isExpandable(): boolean {
         return (
             this.context.$implicit.isExpandable &&
-            this.controller !== ZUI_DEFAULT_TREE_CONTROLLER
+            this.controller !== PZM_DEFAULT_TREE_CONTROLLER
         );
     }
 

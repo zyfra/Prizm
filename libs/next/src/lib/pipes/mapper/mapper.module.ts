@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
-import { ZuiMapperPipe } from './mapper.pipe';
+import { PzmMapperPipe } from './mapper.pipe';
 
 @NgModule({
-    exports: [ZuiMapperPipe],
-    declarations: [ZuiMapperPipe],
+    exports: [PzmMapperPipe],
+    declarations: [PzmMapperPipe],
 })
 export class PzmMapperPipeModule {}

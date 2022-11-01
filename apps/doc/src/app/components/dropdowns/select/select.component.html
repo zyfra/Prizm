@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiSelectComponent to view toggle.
+      Use PzmSelectComponent to view toggle.
     </p>
 
     <tui-doc-example
@@ -13,14 +13,14 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <zui-select-base-example></zui-select-base-example>
+      <pzm-select-base-example></pzm-select-base-example>
     </tui-doc-example>
 
     <tui-doc-example
       heading="With Search"
       [content]="exampleWithSearch"
     >
-      <zui-select-with-search-example></zui-select-with-search-example>
+      <pzm-select-with-search-example></pzm-select-with-search-example>
     </tui-doc-example>
 
 
@@ -28,7 +28,7 @@
       heading="With Template"
       [content]="exampleWithTemplate"
     >
-      <zui-select-with-template-example></zui-select-with-template-example>
+      <pzm-select-with-template-example></pzm-select-with-template-example>
     </tui-doc-example>
 
 
@@ -36,13 +36,13 @@
       heading="With Object"
       [content]="exampleWithObject"
     >
-      <zui-select-with-object-example></zui-select-with-object-example>
+      <pzm-select-with-object-example></pzm-select-with-object-example>
     </tui-doc-example>
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-select
+      <pzm-select
         [formControl]='control'
         [nullContent]='nullContent'
         [items]='items'
@@ -58,13 +58,13 @@
         [valueTemplate]='valueTemplate'
         [searchMatcher]='searchMatcher'
         [identityMatcher]='identityMatcher'
-      ></zui-select>
+      ></pzm-select>
 
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
         documentationPropertyName="identityMatcher"
-        documentationPropertyType="ZuiSelectIdentityMatcher"
+        documentationPropertyType="PzmSelectIdentityMatcher"
         documentationPropertyMode="input"
       >
         Identity Matcher
@@ -72,7 +72,7 @@
 
       <ng-template
         documentationPropertyName="stringify"
-        documentationPropertyType="ZuiSelectIdentityMatcher"
+        documentationPropertyType="PzmSelectIdentityMatcher"
         documentationPropertyMode="input"
       >
         Stringify
@@ -80,7 +80,7 @@
 
       <ng-template
         documentationPropertyName="searchMatcher"
-        documentationPropertyType="ZuiSelectSearchMatcher"
+        documentationPropertyType="PzmSelectSearchMatcher"
         documentationPropertyMode="input"
       >
         Search matcher
@@ -130,7 +130,7 @@
 
       <ng-template
         documentationPropertyName="size"
-        documentationPropertyType="ZuiInputSize"
+        documentationPropertyType="PzmInputSize"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="size"
         [documentationPropertyValues]="sizeVariants"
@@ -140,7 +140,7 @@
 
       <ng-template #valueTemp let-value let-nullContent="nullContent">
         <div class='item' *ngIf='value; else empty'>
-          <zui-icon iconClass='account-done'></zui-icon>
+          <pzm-icon iconClass='account-done'></pzm-icon>
           <span>{{value}}</span>
         </div>
         <ng-template #empty>
@@ -243,7 +243,7 @@
       <li>
         <p>
           Import
-          <code>ZuiSelectModule</code>
+          <code>PzmSelectModule</code>
           into a module where you want to use our component
         </p>
 

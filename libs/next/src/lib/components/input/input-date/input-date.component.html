@@ -1,9 +1,9 @@
-<zui-dropdown-host
+<pzm-dropdown-host
     class="z-hosted"
     [canOpen]="canOpen"
     [isOpen]="open && canOpen"
     [content]="dropdown"
-    zuiDropdownHostWidth='auto'
+    pzmDropdownHostWidth='auto'
     [closeByEsc]='true'
     (isOpenChange)="onOpenChange($event)"
 >
@@ -13,7 +13,7 @@
     [size]="size">
     <input
       class='input-search'
-      zuiInput
+      pzmInput
       #focusableElementRef
       [mask]="computedMask"
       [showMaskTyped]='focusableElementRef.focused'
@@ -24,7 +24,7 @@
       [ngModel]="stringValue"
       (ngModelChange)='onValueChange($event || "")'
     />
-    <ng-container zui-input-right>
+    <ng-container pzm-input-right>
       <button
         pzmInputIconButton="date-calendar-blank"
         [interactive]="true"
@@ -37,7 +37,7 @@
   <ng-template #dropdown>
       <pzm-calendar
           pzmPreventDefault="mousedown"
-          automation-id="zui-input-date__calendar"
+          automation-id="pzm-input-date__calendar"
           [min]="min"
           [max]="max"
           [markerHandler]="markerHandler"
@@ -61,4 +61,4 @@
           </button>
       </div>
   </ng-template>
-</zui-dropdown-host>
+</pzm-dropdown-host>

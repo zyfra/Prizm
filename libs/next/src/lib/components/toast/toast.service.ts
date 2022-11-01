@@ -7,7 +7,7 @@ import {PZM_TOAST_OPTIONS, PzmToastDefaultOptions} from "./toast-options";
 import {PzmToastExistException} from "../../exceptions/toast-exist.exception";
 import {Subject} from "rxjs";
 import {map, shareReplay} from "rxjs/operators";
-import {ZuiToastNotExistException} from "../../exceptions/toast-not-exist.exception";
+import {PzmToastNotExistException} from "../../exceptions/toast-not-exist.exception";
 
 export type ToastRefMap =  Map<PZM_TOAST_ID, PzmToastRef>;
 
@@ -69,7 +69,7 @@ export class PzmToastService implements OnDestroy {
     id: PZM_TOAST_ID,
     content: PolymorphContent,
   ): void {
-    if (!this.refs.has(id)) throw new ZuiToastNotExistException(id);
+    if (!this.refs.has(id)) throw new PzmToastNotExistException(id);
     this.refs.get(id).updateContent(content);
   }
 
@@ -77,7 +77,7 @@ export class PzmToastService implements OnDestroy {
     id: PZM_TOAST_ID,
     title: PzmToastOptions['title']
   ): PzmToastRef {
-    if (!this.refs.has(id)) throw new ZuiToastNotExistException(id);
+    if (!this.refs.has(id)) throw new PzmToastNotExistException(id);
     const ref = this.refs.get(id);
     ref.updateTitle(title);
 
@@ -87,7 +87,7 @@ export class PzmToastService implements OnDestroy {
   public delete(
     id: PZM_TOAST_ID,
   ): void {
-    if (!this.refs.has(id)) throw new ZuiToastNotExistException(id);
+    if (!this.refs.has(id)) throw new PzmToastNotExistException(id);
     this.refs.get(id).destroy();
     this.refs.delete(id);
     this.detect();

@@ -18,13 +18,13 @@ export const pages: TuiDocPages = [
   {
     section: `Components`,
     title: 'Skeleton',
-    keywords: 'skeleton, zuiSkeleton, скелетор',
+    keywords: 'skeleton, pzmSkeleton, скелетор',
     route: '/components/skeleton',
   },
   {
     section: `Components`,
     title: 'Tree',
-    keywords: 'дерево, zui-tree, tree',
+    keywords: 'дерево, pzm-tree, tree',
     route: '/components/tree',
   },
   {
@@ -54,17 +54,17 @@ export const pages: TuiDocPages = [
     subPages: [
       {
         title: 'DropdownHost',
-        keywords: 'dropdown, zui-dropdown-host, overlay',
+        keywords: 'dropdown, pzm-dropdown-host, overlay',
         route: '/components/dropdowns/dropdown-host',
       },
       {
         title: 'Select',
-        keywords: 'select, zui-select, overlay',
+        keywords: 'select, pzm-select, overlay',
         route: '/components/dropdowns/select',
       },
       {
         title: 'MultiSelect',
-        keywords: 'multi-select, zui-multi-select, overlay',
+        keywords: 'multi-select, pzm-multi-select, overlay',
         route: '/components/dropdowns/multi-select',
       },
     ],
@@ -72,19 +72,19 @@ export const pages: TuiDocPages = [
   {
     section: `Components`,
     title: 'Shadow',
-    keywords: 'shadow, zui-shadow, тень',
+    keywords: 'shadow, pzm-shadow, тень',
     route: '/components/shadow',
   },
   {
     section: `Components`,
     title: 'Card',
-    keywords: 'card, zui-card, карточка',
+    keywords: 'card, pzm-card, карточка',
     route: '/components/card',
   },
   {
     section: `Components`,
     title: 'Widget',
-    keywords: 'widget, zui-widget, виджет',
+    keywords: 'widget, pzm-widget, виджет',
     route: '/components/widget',
   },
   {

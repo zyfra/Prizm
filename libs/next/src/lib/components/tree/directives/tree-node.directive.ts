@@ -1,24 +1,24 @@
 import { Directive, Inject, Input, OnDestroy, Optional } from '@angular/core';
 
-import { ZuiTreeItemComponent } from '../components/tree-item/tree-item.component';
-import { ZuiTreeAccessor } from '../misc/tree.interfaces';
-import { ZUI_TREE_ACCESSOR } from '../misc/tree.tokens';
+import { PzmTreeItemComponent } from '../components/tree-item/tree-item.component';
+import { PzmTreeAccessor } from '../misc/tree.interfaces';
+import { PZM_TREE_ACCESSOR } from '../misc/tree.tokens';
 
 @Directive({
-    selector: 'zui-tree-item[zuiTreeNode]',
+    selector: 'pzm-tree-item[pzmTreeNode]',
 })
-export class ZuiTreeNodeDirective<T> implements OnDestroy {
+export class PzmTreeNodeDirective<T> implements OnDestroy {
     @Input()
-    public set zuiTreeNode(value: T) {
+    public set pzmTreeNode(value: T) {
         this.directive?.register(this.component, value);
     }
 
     constructor(
         @Optional()
-        @Inject(ZUI_TREE_ACCESSOR)
-        private readonly directive: ZuiTreeAccessor<T>,
-        @Inject(ZuiTreeItemComponent)
-        private readonly component: ZuiTreeItemComponent,
+        @Inject(PZM_TREE_ACCESSOR)
+        private readonly directive: PzmTreeAccessor<T>,
+        @Inject(PzmTreeItemComponent)
+        private readonly component: PzmTreeItemComponent,
     ) {}
 
     public ngOnDestroy(): void {

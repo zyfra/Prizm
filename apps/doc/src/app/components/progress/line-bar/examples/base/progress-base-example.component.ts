@@ -3,7 +3,7 @@ import { timer } from 'rxjs';
 import { map, startWith, takeWhile } from 'rxjs/operators';
 
 @Component({
-  selector: 'zui-progress-base-example',
+  selector: 'pzm-progress-base-example',
   templateUrl: './progress-base-example.component.html',
   styles: [`
     .box {
@@ -11,7 +11,7 @@ import { map, startWith, takeWhile } from 'rxjs/operators';
       gap: 1rem;
     }
 
-    [zuiProgressLabel] {
+    [pzmProgressLabel] {
       width: 100%;
     }
 
@@ -35,14 +35,14 @@ import { map, startWith, takeWhile } from 'rxjs/operators';
     }
   `]
 })
-export class ZuiProgressBaseExampleComponent {
+export class PzmProgressBaseExampleComponent {
   readonly value$ = timer(300, 500).pipe(
       map(i => i + 30),
       takeWhile(i => i != 101),
       startWith(30),
   );
   readonly colors = [
-    `var(--zui-index-warning)`,
+    `var(--pzm-index-warning)`,
     `lightskyblue`,
     `#3682db`,
     `red`,

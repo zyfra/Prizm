@@ -4,15 +4,15 @@ import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { PzmHoveredService } from '../../services';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PzmHintService } from './hint.service';
-import { ZuiOverlayControl } from '../../modules/overlay';
+import { PzmOverlayControl } from '../../modules/overlay';
 import { animationFrameScheduler, timer } from 'rxjs';
 import { PolymorphContent } from '../polymorph/types/content';
 import { PzmHintOptions } from './hint-options';
 
 @Component({
-  selector: 'zui-hint-container',
+  selector: 'pzm-hint-container',
   template: `
-    <div class='zui-font-main-body-12'>
+    <div class='pzm-font-main-body-12'>
       <pzm-scrollbar visibility='hidden'>
         <ng-container *polymorphOutlet="content() as data; context: context">
           {{data}}
@@ -46,7 +46,7 @@ export class PzmHintContainerComponent<CONTEXT extends Record<string, unknown> =
     protected readonly destroy$: PzmDestroyService,
     protected readonly el: ElementRef,
     protected readonly renderer2: Renderer2,
-    protected readonly pzmOverlayControl: ZuiOverlayControl,
+    protected readonly pzmOverlayControl: PzmOverlayControl,
     @Inject(PzmHintService) private readonly hintService: PzmHintService,
     @Inject(PzmHoveredService) private readonly hoveredService: PzmHoveredService
   ) {}

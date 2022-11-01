@@ -1,23 +1,23 @@
 <tui-doc-page header="Checkbox" package="Equinox" type="components">
   <ng-template pageTab>
     <tui-doc-example id="base" heading="Base" [content]="exampleBasicCheckbox">
-      <zui-checkbox-basic-example></zui-checkbox-basic-example>
+      <pzm-checkbox-basic-example></pzm-checkbox-basic-example>
     </tui-doc-example>
 
     <tui-doc-example id="group" heading="Group" [content]="checkboxGroup">
-      <zui-checkbox-group-example></zui-checkbox-group-example>
+      <pzm-checkbox-group-example></pzm-checkbox-group-example>
     </tui-doc-example>
 
     <tui-doc-example id="form" heading="With Reactive Forms" [content]="exampleReactiveFormCheckbox">
-      <zui-checkbox-form-example></zui-checkbox-form-example>
+      <pzm-checkbox-form-example></pzm-checkbox-form-example>
     </tui-doc-example>
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-checkbox [checked]="checked" [disabled]="disabled" [size]="size" [indeterminate]="indeterminate">
+      <pzm-checkbox [checked]="checked" [disabled]="disabled" [size]="size" [indeterminate]="indeterminate">
         {{ label }}
-      </zui-checkbox>
+      </pzm-checkbox>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
@@ -92,7 +92,7 @@
     <ol class="b-demo-steps">
       <li>
         <p>
-          Импортируйте <code>ZuiCheckboxModule</code>
+          Импортируйте <code>PzmCheckboxModule</code>
           в модуль в котором хотите использовать компоненту
         </p>
 

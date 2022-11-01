@@ -12,13 +12,13 @@ import {
 import { SortMeta } from 'primeng/api';
 import { BaseTableTemplateDirective } from './directives/base-table-template.directive';
 import { SortOrder } from './shared-table.types';
-import { TableSortEvent } from '../zui-table.types';
+import { TableSortEvent } from '../pzm-table.types';
 
 @Directive({
-  selector: '[zuiBaseTable]',
+  selector: '[pzmBaseTable]',
 })
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
-export class ZuiBaseTableComponent<T = unknown> implements OnChanges, AfterContentInit {
+export class PzmBaseTableComponent<T = unknown> implements OnChanges, AfterContentInit {
   @Output() activeElementChange: EventEmitter<T>;
 
   styleClasses = 'p-datatable-gridlines';
@@ -387,7 +387,7 @@ export class ZuiBaseTableComponent<T = unknown> implements OnChanges, AfterConte
     const classes = ['p-datatable-gridlines'];
 
     if (this.stripedMode) {
-      classes.push('zui-table_striped');
+      classes.push('pzm-table_striped');
     }
 
     classes.push(this.styleClass);

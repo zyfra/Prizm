@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'zui-tooltip-base-example',
+  selector: 'pzm-tooltip-base-example',
   templateUrl: './tooltip-base-example.component.html',
   styles: [`
     .box {
@@ -10,4 +10,4 @@ import { Component } from '@angular/core';
     }
   `]
 })
-export class ZuiTooltipBaseExampleComponent {}
+export class PzmTooltipBaseExampleComponent {}

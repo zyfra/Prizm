@@ -5,13 +5,13 @@ import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
   PzmButtonModule,
-  ZuiConfirmDialogModule,
+  PzmConfirmDialogModule,
   PzmRadioButtonModule, PzmSelectModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmComponent } from './confirm.component';
-import { ZuiDialogServiceExampleComponent } from './examples/base/base.component';
-import { ZuiDialogHorizontalExampleComponent } from './examples/horizontal/horizontal.component';
+import { PzmDialogServiceExampleComponent } from './examples/base/base.component';
+import { PzmDialogHorizontalExampleComponent } from './examples/horizontal/horizontal.component';
 
 @NgModule({
   imports: [
@@ -22,13 +22,13 @@ import { ZuiDialogHorizontalExampleComponent } from './examples/horizontal/horiz
     PolymorphModule,
     PzmSelectModule,
     PzmButtonModule,
-    ZuiConfirmDialogModule,
+    PzmConfirmDialogModule,
     PzmRadioButtonModule,
     RouterModule.forChild(generateRoutes(ConfirmComponent)),
   ],
   declarations: [
-    ZuiDialogServiceExampleComponent,
-    ZuiDialogHorizontalExampleComponent,
+    PzmDialogServiceExampleComponent,
+    PzmDialogHorizontalExampleComponent,
     ConfirmComponent
   ],
   exports: [ConfirmComponent],

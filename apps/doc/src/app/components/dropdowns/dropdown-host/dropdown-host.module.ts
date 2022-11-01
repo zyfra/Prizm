@@ -5,21 +5,21 @@ import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
   PzmButtonModule,
-  ZuiCheckboxModule,
-  ZuiDataListModule,
-  ZuiDropdownHostModule,
+  PzmCheckboxModule,
+  PzmDataListModule,
+  PzmDropdownHostModule,
   PzmDropdownZoneModule,
   PzmIconModule,
-  ZuiInputDateTimeModule,
+  PzmInputDateTimeModule,
   PzmInputTextModule,
   PzmRadioButtonModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownHostComponent } from './dropdown-host.component';
-import { ZuiDropdownHostExampleWithTemplateComponent } from './examples/with-template/template';
-import { ZuiSelectPanelExampleComponent } from './examples/select-panel-example/select-panel-example.component';
-import { ZuiDropdownHostDateListExampleComponent } from './examples/date-list/date-list.component';
-import { ZuiDropdownHostDateListEditExampleComponent } from './examples/date-list-edit/date-list-edit.component';
+import { PzmDropdownHostExampleWithTemplateComponent } from './examples/with-template/template';
+import { PzmSelectPanelExampleComponent } from './examples/select-panel-example/select-panel-example.component';
+import { PzmDropdownHostDateListExampleComponent } from './examples/date-list/date-list.component';
+import { PzmDropdownHostDateListEditExampleComponent } from './examples/date-list-edit/date-list-edit.component';
 import { PzmCallFuncModule, PzmLetModule } from '@digital-plant/zyfra-helpers';
 
 @NgModule({
@@ -29,13 +29,13 @@ import { PzmCallFuncModule, PzmLetModule } from '@digital-plant/zyfra-helpers';
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    ZuiDataListModule,
+    PzmDataListModule,
     PzmDropdownZoneModule,
     PzmButtonModule,
-    ZuiDropdownHostModule,
+    PzmDropdownHostModule,
     RouterModule.forChild(generateRoutes(DropdownHostComponent)),
-    ZuiCheckboxModule,
-    ZuiInputDateTimeModule,
+    PzmCheckboxModule,
+    PzmInputDateTimeModule,
     PzmInputTextModule,
     PzmIconModule,
     PzmRadioButtonModule,
@@ -44,11 +44,11 @@ import { PzmCallFuncModule, PzmLetModule } from '@digital-plant/zyfra-helpers';
     FormsModule,
   ],
   declarations: [
-    ZuiDropdownHostExampleWithTemplateComponent,
-    ZuiDropdownHostDateListEditExampleComponent,
-    ZuiDropdownHostDateListExampleComponent,
+    PzmDropdownHostExampleWithTemplateComponent,
+    PzmDropdownHostDateListEditExampleComponent,
+    PzmDropdownHostDateListExampleComponent,
     DropdownHostComponent,
-    ZuiSelectPanelExampleComponent,
+    PzmSelectPanelExampleComponent,
   ],
   exports: [DropdownHostComponent],
 })

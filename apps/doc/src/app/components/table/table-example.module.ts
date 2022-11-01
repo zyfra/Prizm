@@ -8,7 +8,7 @@ import {
   PzmIconModule,
   PzmInputTextModule,
   PzmPaginatorModule,
-  ZuiTableModule,
+  PzmTableModule,
 } from '@digital-plant/zui-components';
 import { TableModule } from 'primeng/table';
 import { FormsModule } from '@angular/forms';
@@ -31,7 +31,7 @@ import { TableStatusExampleComponent } from './examples/table-status-example/tab
   imports: [
     CommonModule,
     TuiAddonDocModule,
-    ZuiTableModule,
+    PzmTableModule,
     RouterModule.forChild(generateRoutes(TableExampleComponent)),
     TableModule,
     FormsModule,

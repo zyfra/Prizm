@@ -3,14 +3,14 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { PolymorphContent, PzmOverlayOutsidePlacement } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-dropdown-host-example',
+  selector: 'pzm-dropdown-host-example',
   templateUrl: './dropdown-host.component.html',
   styleUrls: ['./dropdown-host.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropdownHostComponent {
   isOpen = false;
-  zuiDropdownHostWidth = 'auto';
+  pzmDropdownHostWidth = 'auto';
   content: PolymorphContent;
 
   autoReposition: boolean;

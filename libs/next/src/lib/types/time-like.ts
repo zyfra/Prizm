@@ -1,4 +1,4 @@
-export interface ZuiTimeLike {
+export interface PzmTimeLike {
     readonly hours?: number;
     readonly minutes?: number;
     readonly seconds?: number;

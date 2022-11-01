@@ -3,7 +3,7 @@ import { PzmInputSize, PzmInputStatus } from '@digital-plant/zui-components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'zui-input-password-example',
+  selector: 'pzm-input-password-example',
   templateUrl: './input-password-example.component.html',
   styleUrls: ['./input-password-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

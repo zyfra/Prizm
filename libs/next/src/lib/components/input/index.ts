@@ -1,5 +1,5 @@
 export * from './common/input-common.module';
-export * from './common/models/zui-input.models';
+export * from './common/models/pzm-input.models';
 export * from './common/base/input-control.class';
 export * from './common/base/input-invalid-text-base-class.directive';
 

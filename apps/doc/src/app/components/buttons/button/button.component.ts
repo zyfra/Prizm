@@ -3,7 +3,7 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { IconDefs, PzmAppearance, PzmAppearanceType, PzmContent, PzmSize } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-button-example',
+  selector: 'pzm-button-example',
   templateUrl: './button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

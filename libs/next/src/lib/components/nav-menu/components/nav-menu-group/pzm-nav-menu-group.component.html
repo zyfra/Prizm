@@ -15,46 +15,46 @@
     <div class="header header-toolbar">
       <div class="right-side">
         <ng-container *ngTemplateOutlet="toolbarExtra"></ng-container>
-        <zui-icon
+        <pzm-icon
           class="header__btn"
           [class.header__btn_active]="viewMode === 'folder'"
           [size]="16"
           iconClass="files-mode"
           (click)="changeViewMode('folder')"
-        ></zui-icon>
+        ></pzm-icon>
 
-        <zui-icon
+        <pzm-icon
           class="header__btn"
           [class.header__btn_active]="viewMode === 'rubricator'"
           [size]="16"
           iconClass="editor-alfavit"
           (click)="changeViewMode('rubricator')"
-        ></zui-icon>
+        ></pzm-icon>
 
-        <zui-icon
+        <pzm-icon
           class="header__btn"
           [class.header__btn_active]="false"
           [size]="16"
           iconClass="chevrons-close-all"
           (click)="closeAll()"
-        ></zui-icon>
+        ></pzm-icon>
 
-        <zui-icon
+        <pzm-icon
           class="header__btn"
           [class.header__btn_active]="search"
           [size]="16"
           iconClass="sort-zoom-in"
           (click)="toggleSearch()"
-        ></zui-icon>
+        ></pzm-icon>
       </div>
     </div>
 
     <div *ngIf="search" class="header header-search-bar">
       <pzm-input-layout label="Поиск" class="search-input">
-        <input zuiInput [formControl]="searchFormControl" #input />
+        <input pzmInput [formControl]="searchFormControl" #input />
         <button
           pzmInputIconButton="sort-zoom-in"
-          zui-input-right
+          pzm-input-right
           (click)="changeSearchValue(input.value)"
           [interactive]="true"
         ></button>

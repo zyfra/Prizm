@@ -4,7 +4,7 @@ import { Directive, EventEmitter, HostBinding, Input, Output } from '@angular/co
  * The most basic class for interactive components
  */
 @Directive()
-export abstract class AbstractZuiInteractive {
+export abstract class AbstractPzmInteractive {
     abstract disabled: boolean;
 
     abstract focused: boolean;

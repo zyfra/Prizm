@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 
 @Component({
-  selector: 'zui-sort-icon',
+  selector: 'pzm-sort-icon',
   templateUrl: './sort-icon.component.html',
   styleUrls: ['./sort-icon.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiSortIconComponent {
+export class PzmSortIconComponent {
   @Input() field: string;
 
   @HostBinding('attr.testId')

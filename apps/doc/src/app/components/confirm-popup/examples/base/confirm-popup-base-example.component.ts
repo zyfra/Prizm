@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'zui-confirm-popup-base-example',
+  selector: 'pzm-confirm-popup-base-example',
   templateUrl: './confirm-popup-base-example.component.html',
   styles: [`
     .box {
@@ -10,4 +10,4 @@ import { Component } from '@angular/core';
     }
   `]
 })
-export class ZuiConfirmPopupBaseExampleComponent {}
+export class PzmConfirmPopupBaseExampleComponent {}

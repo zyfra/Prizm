@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { ProgressLineSegmentedComponent } from './progress-line-segmented.component';
 import { PolymorphModule, PzmProgressModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ZuiProgressBaseExampleComponent } from './examples/base/progress-base-example.component';
+import { PzmProgressBaseExampleComponent } from './examples/base/progress-base-example.component';
 
 
 @NgModule({
@@ -19,7 +19,7 @@ import { ZuiProgressBaseExampleComponent } from './examples/base/progress-base-e
     RouterModule.forChild(generateRoutes(ProgressLineSegmentedComponent)),
   ],
   declarations: [
-    ZuiProgressBaseExampleComponent,
+    PzmProgressBaseExampleComponent,
     ProgressLineSegmentedComponent
   ],
   exports: [ProgressLineSegmentedComponent],

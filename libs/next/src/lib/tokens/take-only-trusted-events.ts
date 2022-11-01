@@ -8,7 +8,7 @@ import {InjectionToken} from '@angular/core';
  */
 export const PZM_TAKE_ONLY_TRUSTED_EVENTS: InjectionToken<boolean> =
     new InjectionToken<boolean>(
-        'This token need for override behavior the `zuiPressedObservable` function',
+        'This token need for override behavior the `pzmPressedObservable` function',
         {
             factory: (): boolean => true,
         },

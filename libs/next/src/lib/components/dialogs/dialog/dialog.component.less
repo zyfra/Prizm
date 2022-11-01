@@ -1,30 +1,30 @@
 @import '../../../../styles/ui-local';
 :host {
   display: block;
-  background: var(--zui-dialog-background, var(--zui-bg-body));
-  border: 1px solid var(--zui-border-widget);
-  border-radius: var(--zui-dialog-border-radius, 2px);
-  margin: var(--zui-dialog-margin, 16px);
+  background: var(--pzm-dialog-background, var(--pzm-bg-body));
+  border: 1px solid var(--pzm-border-widget);
+  border-radius: var(--pzm-dialog-border-radius, 2px);
+  margin: var(--pzm-dialog-margin, 16px);
   pointer-events: all;
 }
 
 .content {
   .ellipsis();
-  padding: var(--zui-dialog-padding, 32px 16px);
-  color: var(--zui-text-main);
+  padding: var(--pzm-dialog-padding, 32px 16px);
+  color: var(--pzm-text-main);
   max-width: 100%;
 }
 
 .header {
-  border-bottom: 1px solid var(--zui-border-widget);
-  padding: var(--zui-dialog-padding, 14px 16px);
+  border-bottom: 1px solid var(--pzm-border-widget);
+  padding: var(--pzm-dialog-padding, 14px 16px);
   display: flex;
   justify-content: space-between;
 
   font-style: normal;
   font-weight: 600;
-  font-size: var(--zui-dialog-font-size, 14px);
-  color: var(--zui-text-contrast);
+  font-size: var(--pzm-dialog-font-size, 14px);
+  color: var(--pzm-text-contrast);
 
   .title {
     .ellipsis();
@@ -34,7 +34,7 @@
   }
 
   .icon {
-    color: var(--zui-border-icon);
+    color: var(--pzm-border-icon);
     font-weight: 300;
     cursor: pointer;
     margin-left: 16px;
@@ -43,8 +43,8 @@
 
 .footer {
   .ellipsis();
-  border-top: 1px solid var(--zui-border-widget);
-  padding: var(--zui-dialog-padding, 14px 16px);
+  border-top: 1px solid var(--pzm-border-widget);
+  padding: var(--pzm-dialog-padding, 14px 16px);
   max-width: 100%;
 
   .buttons {
@@ -56,7 +56,7 @@
 }
 
 .scrollbar {
-  max-height: var(--zui-dialog-max-scrollbar-height, 60vh);
+  max-height: var(--pzm-dialog-max-scrollbar-height, 60vh);
 }
 
 *:focus-visible {

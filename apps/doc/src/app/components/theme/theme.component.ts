@@ -3,7 +3,7 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { PzmShadowType, PzmShadowTypeEnum } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-card-example',
+  selector: 'pzm-card-example',
   templateUrl: './theme.component.html',
   styleUrls: ['./theme.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

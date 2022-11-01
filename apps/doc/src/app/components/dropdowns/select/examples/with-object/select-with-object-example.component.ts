@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ZuiSelectIdentityMatcher, ZuiSelectSearchMatcher, ZuiSelectStringify } from '@digital-plant/zui-components';
+import { PzmSelectIdentityMatcher, PzmSelectSearchMatcher, PzmSelectStringify } from '@digital-plant/zui-components';
 import { tap } from 'rxjs/operators';
 
-type ZuiItem = {
+type PzmItem = {
   id: number;
   name: string;
 }
 @Component({
-  selector: 'zui-select-with-object-example',
+  selector: 'pzm-select-with-object-example',
   templateUrl: './select-with-object-example.component.html',
   styles: [`
     .item {
@@ -17,23 +17,23 @@ type ZuiItem = {
     }
   `]
 })
-export class ZuiSelectWithObjectExampleComponent {
-  readonly items: ZuiItem[] = [
+export class PzmSelectWithObjectExampleComponent {
+  readonly items: PzmItem[] = [
     {id: 1, name: 'Россия'},
     {id: 2, name: 'США'},
     {id: 3, name: 'ОАЭ'},
   ];
   readonly valueControl = new FormControl({id: 3});
 
-  readonly searchMatcher: ZuiSelectSearchMatcher<ZuiItem> = (search: string, item: ZuiItem) => {
+  readonly searchMatcher: PzmSelectSearchMatcher<PzmItem> = (search: string, item: PzmItem) => {
     return item.name.toLowerCase().includes(search.toLowerCase());
   };
 
-  readonly identityMatcher: ZuiSelectIdentityMatcher<ZuiItem> = (a: ZuiItem, b: ZuiItem) => {
+  readonly identityMatcher: PzmSelectIdentityMatcher<PzmItem> = (a: PzmItem, b: PzmItem) => {
     return a.id === b.id;
   }
 
-  readonly stringify: ZuiSelectStringify<ZuiItem> = (item: ZuiItem) => {
+  readonly stringify: PzmSelectStringify<PzmItem> = (item: PzmItem) => {
     return item.name;
   }
 

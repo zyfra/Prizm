@@ -3,7 +3,7 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { PzmShadowType, PzmShadowTypeEnum } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-toggle-example',
+  selector: 'pzm-toggle-example',
   templateUrl: './shadow.component.html',
   styleUrls: ['./shadow.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

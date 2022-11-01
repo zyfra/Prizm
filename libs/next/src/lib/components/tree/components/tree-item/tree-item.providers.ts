@@ -1,17 +1,17 @@
 import {forwardRef, Provider, SkipSelf} from '@angular/core';
 
-import {ZUI_TREE_LEVEL, ZUI_TREE_NODE} from '../../misc/tree.tokens';
-import {ZuiTreeItemComponent} from './tree-item.component';
+import {PZM_TREE_LEVEL, PZM_TREE_NODE} from '../../misc/tree.tokens';
+import {PzmTreeItemComponent} from './tree-item.component';
 
-export const ZUI_TREE_ITEM_PROVIDERS: Provider[] = [
+export const PZM_TREE_ITEM_PROVIDERS: Provider[] = [
     {
-        provide: ZUI_TREE_LEVEL,
-        deps: [[new SkipSelf(), ZUI_TREE_LEVEL]],
+        provide: PZM_TREE_LEVEL,
+        deps: [[new SkipSelf(), PZM_TREE_LEVEL]],
         useFactory: treeLevelFactory,
     },
     {
-        provide: ZUI_TREE_NODE,
-        useExisting: forwardRef(() => ZuiTreeItemComponent),
+        provide: PZM_TREE_NODE,
+        useExisting: forwardRef(() => PzmTreeItemComponent),
     },
 ];
 

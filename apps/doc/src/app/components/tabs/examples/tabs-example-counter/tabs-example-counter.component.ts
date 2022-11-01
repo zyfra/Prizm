@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ITab } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-tabs-example-counter',
+  selector: 'pzm-tabs-example-counter',
   templateUrl: './tabs-example-counter.component.html',
   styleUrls: ['./tabs-example-counter.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,1 +1,1 @@
-export type ZuiTextMaskCorrectionHandler = (char: string, index: number) => string | null;
+export type PzmTextMaskCorrectionHandler = (char: string, index: number) => string | null;

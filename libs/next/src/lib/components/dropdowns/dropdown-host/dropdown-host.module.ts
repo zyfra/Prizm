@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ZuiDropdownHostComponent } from './dropdown-host.component';
+import { PzmDropdownHostComponent } from './dropdown-host.component';
 import { PzmOverlayModule } from '../../../modules/overlay';
 import {
   PolymorphModule,
@@ -20,7 +20,7 @@ import { PzmShadowModule } from '../../../directives/shadow';
       PzmDropdownZoneModule,
       PzmMutationObserveModule,
     ],
-    declarations: [ZuiDropdownHostComponent],
-    exports: [ZuiDropdownHostComponent],
+    declarations: [PzmDropdownHostComponent],
+    exports: [PzmDropdownHostComponent],
 })
-export class ZuiDropdownHostModule {}
+export class PzmDropdownHostModule {}

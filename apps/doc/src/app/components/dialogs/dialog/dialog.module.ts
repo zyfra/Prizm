@@ -5,12 +5,12 @@ import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
   PzmButtonModule,
-  ZuiDialogModule,
+  PzmDialogModule,
   PzmRadioButtonModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogComponent } from './dialog.component';
-import { ZuiDialogServiceExampleComponent } from './examples/base/base.component';
+import { PzmDialogServiceExampleComponent } from './examples/base/base.component';
 
 @NgModule({
   imports: [
@@ -20,12 +20,12 @@ import { ZuiDialogServiceExampleComponent } from './examples/base/base.component
     ReactiveFormsModule,
     PolymorphModule,
     PzmButtonModule,
-    ZuiDialogModule,
+    PzmDialogModule,
     PzmRadioButtonModule,
     RouterModule.forChild(generateRoutes(DialogComponent)),
   ],
   declarations: [
-    ZuiDialogServiceExampleComponent,
+    PzmDialogServiceExampleComponent,
     DialogComponent
   ],
   exports: [DialogComponent],

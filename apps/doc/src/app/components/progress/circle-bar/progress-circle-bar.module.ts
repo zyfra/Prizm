@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { ProgressCircleBarComponent } from './progress-circle-bar.component';
 import { PolymorphModule, PzmProgressModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ZuiProgressCircleExampleComponent } from './examples/circle/progress-circle-example.component';
+import { PzmProgressCircleExampleComponent } from './examples/circle/progress-circle-example.component';
 
 
 @NgModule({
@@ -19,7 +19,7 @@ import { ZuiProgressCircleExampleComponent } from './examples/circle/progress-ci
     RouterModule.forChild(generateRoutes(ProgressCircleBarComponent)),
   ],
   declarations: [
-    ZuiProgressCircleExampleComponent,
+    PzmProgressCircleExampleComponent,
     ProgressCircleBarComponent
   ],
   exports: [ProgressCircleBarComponent],

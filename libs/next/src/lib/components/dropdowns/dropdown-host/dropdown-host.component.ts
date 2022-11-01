@@ -18,9 +18,9 @@ import {
   ViewChild,
 } from '@angular/core';
 import {
-  ZuiOverlayControl,
+  PzmOverlayControl,
   PzmOverlayOutsidePlacement,
-  ZuiOverlayRelativePosition,
+  PzmOverlayRelativePosition,
   PzmOverlayService,
 } from '../../../modules/overlay';
 import { PolymorphContent, PzmDropdownZoneDirective } from '../../../directives';
@@ -29,30 +29,30 @@ import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { BehaviorSubject, combineLatest, Observable, Subject, timer } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 import { pzmDefaultProp } from '../../../decorators';
-import { ZUI_DROPDOWN_HOST_OPTIONS, ZuiDropdownHostOptions } from './dropdown-host.options';
-import { ZuiDropdownHostWidth } from './models';
+import { PZM_DROPDOWN_HOST_OPTIONS, PzmDropdownHostOptions } from './dropdown-host.options';
+import { PzmDropdownHostWidth } from './models';
 import { pzmGenerateId } from '../../../util';
 import { PzmEventZoneService } from '../../../directives/event-zone/event-zone.service';
 
-const ZUI_DROPDOWN_TIME_DIFFERENCE = 1000/60;
+const PZM_DROPDOWN_TIME_DIFFERENCE = 1000/60;
 
 @Component({
-  selector: 'zui-dropdown-host',
+  selector: 'pzm-dropdown-host',
   templateUrl: './dropdown-host.component.html',
   styleUrls: ['./dropdown-host.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     PzmDestroyService,
-    // ZuiDropdownZoneService
+    // PzmDropdownZoneService
   ],
-  exportAs: 'zui-dropdown-host'
+  exportAs: 'pzm-dropdown-host'
 })
-export class ZuiDropdownHostComponent implements AfterViewInit {
+export class PzmDropdownHostComponent implements AfterViewInit {
   @Input() content: PolymorphContent<{zone: PzmDropdownZoneDirective}>;
 
   @Input()
   @pzmDefaultProp()
-  zuiDropdownHostId: string = 'dropdownHostId_' + pzmGenerateId();
+  pzmDropdownHostId: string = 'dropdownHostId_' + pzmGenerateId();
 
   @Input()
   @pzmDefaultProp()
@@ -72,11 +72,11 @@ export class ZuiDropdownHostComponent implements AfterViewInit {
 
   @Input()
   @pzmDefaultProp()
-  zuiDropdownHostWidth?: ZuiDropdownHostWidth = this.options.width;
+  pzmDropdownHostWidth?: PzmDropdownHostWidth = this.options.width;
 
   @Input()
   @pzmDefaultProp()
-  zuiDropdownHostCloseOnBackdropClick = this.options.closeOnBackdrop;
+  pzmDropdownHostCloseOnBackdropClick = this.options.closeOnBackdrop;
 
   @HostBinding('attr.testId')
   readonly testId = 'pzm_dropdown_host';
@@ -109,7 +109,7 @@ export class ZuiDropdownHostComponent implements AfterViewInit {
 
   @Output() readonly isOpenChange = new EventEmitter<boolean>();
 
-  private overlay: ZuiOverlayControl;
+  private overlay: PzmOverlayControl;
   private isOpen$ = new BehaviorSubject(false);
 
   private readonly positionSource$ = new BehaviorSubject<string>('');
@@ -117,15 +117,15 @@ export class ZuiDropdownHostComponent implements AfterViewInit {
     delay(0)
   );
 
-  private position: ZuiOverlayRelativePosition;
-  readonly wrapper_class = 'zui-overlay-dropdown-host no-overflow';
+  private position: PzmOverlayRelativePosition;
+  readonly wrapper_class = 'pzm-overlay-dropdown-host no-overflow';
 
   @ViewChild('contentBlockRef') contentBlockRef: ElementRef;
 
   constructor(
-    private readonly zuiOverlayService: PzmOverlayService,
+    private readonly pzmOverlayService: PzmOverlayService,
     @Inject(DOCUMENT) private readonly document: Document,
-    @Inject(ZUI_DROPDOWN_HOST_OPTIONS) private readonly options: ZuiDropdownHostOptions,
+    @Inject(PZM_DROPDOWN_HOST_OPTIONS) private readonly options: PzmDropdownHostOptions,
     public readonly el: ElementRef<HTMLElement>,
     private readonly cdRef: ChangeDetectorRef,
     public readonly injector: Injector,
@@ -150,7 +150,7 @@ export class ZuiDropdownHostComponent implements AfterViewInit {
 
   public updateWidth(): void {
     this.position.updateConfig({
-      width: this.zuiDropdownHostWidth ??  this.el.nativeElement.offsetWidth
+      width: this.pzmDropdownHostWidth ??  this.el.nativeElement.offsetWidth
     })
   }
 
@@ -166,9 +166,9 @@ export class ZuiDropdownHostComponent implements AfterViewInit {
         debounceTime(0),
         map(([document, container]: [number, number]) => document - container),
         filter(
-          (diff: number) => diff > ZUI_DROPDOWN_TIME_DIFFERENCE &&
+          (diff: number) => diff > PZM_DROPDOWN_TIME_DIFFERENCE &&
             this.overlay?.isOpen &&
-            this.zuiDropdownHostCloseOnBackdropClick
+            this.pzmDropdownHostCloseOnBackdropClick
         ),
         tap(() => this.close()),
         takeUntil( this.overlay.listen('z_close')),
@@ -200,12 +200,12 @@ export class ZuiDropdownHostComponent implements AfterViewInit {
   }
 
   private initOverlay(): void {
-    this.position = new ZuiOverlayRelativePosition({
+    this.position = new PzmOverlayRelativePosition({
       placement: this.placement,
       autoReposition: this.autoReposition,
       element: this.el.nativeElement,
     });
-    this.overlay = this.zuiOverlayService
+    this.overlay = this.pzmOverlayService
       .position(this.position)
       .config({wrapperClass: this.wrapper_class})
       .content(this.temp)
@@ -226,7 +226,7 @@ export class ZuiDropdownHostComponent implements AfterViewInit {
     this.containerClick$.next(Date.now());
   }
 
-  private initPositionListener(position: ZuiOverlayRelativePosition): void {
+  private initPositionListener(position: PzmOverlayRelativePosition): void {
     position.pos$.pipe(
       tap((data) => {
         if(!data.extra) return;

@@ -1,15 +1,15 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { ZuiToastModule, zuiToastOptionsProvider } from '@digital-plant/zui-components';
+import { PzmToastModule, pzmToastOptionsProvider } from '@digital-plant/pzm-components';
 
 @NgModule({
   imports: [
     // required - import our module
-    ZuiToastModule,
+    PzmToastModule,
   ],
   providers: [
     /* optional - we can override default options */
-    zuiToastOptionsProvider({
+    pzmToastOptionsProvider({
       timer: 1000
     })
   ]

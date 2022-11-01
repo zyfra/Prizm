@@ -28,7 +28,7 @@
   text-overflow: ellipsis;
 }
 
-.transition(@param, @speed: var(--zui-duration, 300ms)) {
+.transition(@param, @speed: var(--pzm-duration, 300ms)) {
   transition-property: @param;
   transition-duration: @speed;
   transition-timing-function: ease-in-out;
@@ -89,15 +89,15 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: var(--zui-clear-hover);
+      background-color: var(--pzm-clear-hover);
     }
 
     &::-webkit-scrollbar-thumb:hover {
-      background-color: var(--zui-clear-active);
+      background-color: var(--pzm-clear-active);
     }
 
     &::-webkit-scrollbar-thumb:active {
-      background-color: var(--zui-text-03);
+      background-color: var(--pzm-text-03);
     }
   }
 }

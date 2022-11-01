@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { ZuiSizeM, ZuiSizeS } from '../../../util/size-bigger';
+import { PzmSizeM, PzmSizeS } from '../../../util/size-bigger';
 
 
 @Component({
@@ -12,16 +12,16 @@ import { ZuiSizeM, ZuiSizeS } from '../../../util/size-bigger';
 })
 export class PzmProgressBarComponent {
     @Input()
-    @HostBinding(`style.--zui-progress-color`)
+    @HostBinding(`style.--pzm-progress-color`)
     color?: string;
 
     @Input()
-    @HostBinding(`style.--zui-progress-track-color`)
+    @HostBinding(`style.--pzm-progress-track-color`)
     @pzmDefaultProp()
     trackColor: string | null = null;
 
     @Input()
     @HostBinding(`attr.data-size`)
     @pzmDefaultProp()
-    size: ZuiSizeS | ZuiSizeM = `m`;
+    size: PzmSizeS | PzmSizeM = `m`;
 }

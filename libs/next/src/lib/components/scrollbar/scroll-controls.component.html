@@ -1,9 +1,9 @@
-<ng-container *zuiLet="refresh$ | async as bars">
+<ng-container *pzmLet="refresh$ | async as bars">
     <div
         *ngIf="bars[0]"
         pzmScrollbarWrapper
         class="bar bar_vertical"
-        [@zuiFadeIn]="animation"
+        [@pzmFadeIn]="animation"
         [class.bar_has-horizontal]="bars[1]"
     >
         <div
@@ -16,7 +16,7 @@
         *ngIf="bars[1]"
         pzmScrollbarWrapper
         class="bar bar_horizontal"
-        [@zuiFadeIn]="animation"
+        [@pzmFadeIn]="animation"
         [class.bar_has-vertical]="bars[0]"
     >
         <div

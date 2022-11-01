@@ -34,19 +34,19 @@
 */
 .progressAnimation() {
   &::-webkit-progress-value {
-    transition: width var(--zui-duration) linear;
+    transition: width var(--pzm-duration) linear;
   }
 }
 
-@keyframes zuiIndeterminateAnimation {
+@keyframes pzmIndeterminateAnimation {
   50% {
     background-position: left;
   }
 }
 
 :host {
-  @track-color:  var(--zui-progress-track-color, var(--zui-grey-g11-g3));
-  @progress-color: var(--zui-progress-color, currentColor);
+  @track-color:  var(--pzm-progress-track-color, var(--pzm-grey-g11-g3));
+  @progress-color: var(--pzm-progress-color, currentColor);
 
   .clearProgress();
   .progressAnimation();
@@ -58,8 +58,8 @@
   });
   display: block;
   width: 100%;
-  color: var(--zui-primary);
-  border-radius: var(--zui-radius-xs, 2px);
+  color: var(--pzm-primary);
+  border-radius: var(--pzm-radius-xs, 2px);
   overflow: hidden;
 
   &[data-size='m'] {
@@ -68,7 +68,7 @@
 
   &[data-size='s'] {
     .progressValue({
-      border-radius: var(--zui-radius-xs);
+      border-radius: var(--pzm-radius-xs);
     });
     height: 4px;
   }
@@ -83,11 +83,11 @@
     background-image: linear-gradient(to right, @track-color 0 45%, @progress-color 45% 55%, @track-color 55% 100%);
     background-size: 225%;
     background-position: right;
-    animation: zuiIndeterminateAnimation 3s infinite ease-in-out;
+    animation: pzmIndeterminateAnimation 3s infinite ease-in-out;
   }
 }
 
-:host-context(label[zuiProgressLabel]):not(:first-child) {
+:host-context(label[pzmProgressLabel]):not(:first-child) {
   .fullsize();
   .progressContainer({
     background-color: transparent;

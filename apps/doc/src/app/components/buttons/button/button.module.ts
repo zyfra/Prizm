@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from './button.component';
-import { ZuiOutlineButtonsExampleComponent } from './examples/outline/outline-buttons-example.component';
-import { ZuiFilledButtonsExampleComponent } from './examples/filled/filled-buttons-example.component';
+import { PzmOutlineButtonsExampleComponent } from './examples/outline/outline-buttons-example.component';
+import { PzmFilledButtonsExampleComponent } from './examples/filled/filled-buttons-example.component';
 import { PzmButtonModule } from '@digital-plant/zui-components';
-import { ZuiGhostButtonsExampleComponent } from './examples/ghost/ghost-buttons-example.component';
-import { ZuiIconsButtonsExampleComponent } from './examples/icons/icons-buttons-example.component';
+import { PzmGhostButtonsExampleComponent } from './examples/ghost/ghost-buttons-example.component';
+import { PzmIconsButtonsExampleComponent } from './examples/icons/icons-buttons-example.component';
 
 @NgModule({
   imports: [
@@ -17,10 +17,10 @@ import { ZuiIconsButtonsExampleComponent } from './examples/icons/icons-buttons-
     RouterModule.forChild(generateRoutes(ButtonComponent)),
   ],
   declarations: [
-    ZuiFilledButtonsExampleComponent,
-    ZuiOutlineButtonsExampleComponent,
-    ZuiIconsButtonsExampleComponent,
-    ZuiGhostButtonsExampleComponent,
+    PzmFilledButtonsExampleComponent,
+    PzmOutlineButtonsExampleComponent,
+    PzmIconsButtonsExampleComponent,
+    PzmGhostButtonsExampleComponent,
     ButtonComponent
   ],
   exports: [ButtonComponent],

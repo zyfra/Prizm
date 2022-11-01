@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
-import { ZuiInputPasswordModule } from '@digital-plant/zui-components';
+import { PzmInputPasswordModule } from '@digital-plant/zui-components';
 import { InputPasswordBasicExampleComponent } from './examples/input-password-basic-example/input-password-basic-example.component';
 import { InputPasswordExampleComponent } from './input-password-example.component';
 
@@ -14,7 +14,7 @@ import { InputPasswordExampleComponent } from './input-password-example.componen
     RouterModule.forChild(generateRoutes(InputPasswordExampleComponent)),
     ReactiveFormsModule,
     FormsModule,
-    ZuiInputPasswordModule,
+    PzmInputPasswordModule,
   ],
   declarations: [InputPasswordExampleComponent, InputPasswordBasicExampleComponent],
   exports: [InputPasswordExampleComponent],

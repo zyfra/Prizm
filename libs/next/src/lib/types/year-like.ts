@@ -1,6 +1,6 @@
 /**
  * Optionally has year
  */
-export interface ZuiYearLike {
+export interface PzmYearLike {
     readonly year?: number;
 }

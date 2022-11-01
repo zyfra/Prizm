@@ -10,12 +10,12 @@ export enum PzmToastPosition {
 }
 
 export type PZM_TOAST_ID = string;
-export type ZUI_TOAST_CONTAINER_ID = string;
+export type PZM_TOAST_CONTAINER_ID = string;
 
 export type PzmToastAppearance = 'info' | 'success' | 'warning' | 'danger';
 
 export type PzmToastOptions = {
-  position?: PzmToastPosition | ZUI_TOAST_CONTAINER_ID,
+  position?: PzmToastPosition | PZM_TOAST_CONTAINER_ID,
   /* weight - use for DESC sorting */
   weight?: number,
   title?: PolymorphContent,

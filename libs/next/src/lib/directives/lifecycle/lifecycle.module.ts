@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 
-import {ZuiLifecycleDirective} from './lifecycle.directive';
+import {PzmLifecycleDirective} from './lifecycle.directive';
 
 @NgModule({
-    declarations: [ZuiLifecycleDirective],
-    exports: [ZuiLifecycleDirective],
+    declarations: [PzmLifecycleDirective],
+    exports: [PzmLifecycleDirective],
 })
 export class PzmLifecycleModule {}

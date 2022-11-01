@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-multi-select-with-search-example',
+  selector: 'pzm-multi-select-with-search-example',
   templateUrl: './multi-select-with-search-example.component.html',
 })
-export class ZuiMultiSelectWithSearchExampleComponent {
+export class PzmMultiSelectWithSearchExampleComponent {
   value = true;
   readonly valueControl = new FormControl(['Андрей Сафанов']);
   readonly items = [

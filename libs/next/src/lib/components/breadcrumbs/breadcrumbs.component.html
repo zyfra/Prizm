@@ -1,53 +1,53 @@
 <div class="container" #container>
   <ng-container>
     <div class="breadcrumbs" *ngFor="let breadcrumb of breadcrumbsToShow$ | async; let i = index" #breadcrumb>
-      <zui-icon
+      <pzm-icon
         class="breadcrumbs__chevron"
         iconClass="chevrons-right"
         [size]="16"
         *ngIf="i !== 0"
-      ></zui-icon>
+      ></pzm-icon>
 
       <button
         class="breadcrumb"
         (click)="changeBreadcrumb(i)"
         [class.breadcrumb_active]="i === activeBreadcrumbIdx"
       >
-        <zui-icon
+        <pzm-icon
           class="breadcrumb__icon"
           [size]="16"
           [iconClass]="breadcrumb.icon"
           *ngIf="!!breadcrumb.icon"
-        ></zui-icon>
+        ></pzm-icon>
         <span class="breadcrumb__name">{{ breadcrumb?.name }}</span>
       </button>
 
-      <zui-dropdown-host
+      <pzm-dropdown-host
         *ngIf="i === 0 && this.isContainerOverflowed"
         class="breadcrumbs__dots"
         [content]="dropdown"
         [(isOpen)]="isDropdownOpened"
-        zuiDropdownHostWidth="auto"
+        pzmDropdownHostWidth="auto"
       >
         <div class="dropdown-inner">
-          <zui-icon class="breadcrumbs__chevron" iconClass="chevrons-right" [size]="16"></zui-icon>
+          <pzm-icon class="breadcrumbs__chevron" iconClass="chevrons-right" [size]="16"></pzm-icon>
           <button (click)="isDropdownOpened = !isDropdownOpened">...</button>
         </div>
-      </zui-dropdown-host>
+      </pzm-dropdown-host>
     </div>
   </ng-container>
 </div>
 
 <div class="container container__fake" #breadcrumbsFake>
   <div class="breadcrumbs" *ngFor="let breadcrumb of breadcrumbs$ | async; let i = index" #breadcrumbsFake>
-    <zui-icon class="breadcrumbs__chevron" iconClass="chevrons-right" [size]="16" *ngIf="i !== 0"></zui-icon>
+    <pzm-icon class="breadcrumbs__chevron" iconClass="chevrons-right" [size]="16" *ngIf="i !== 0"></pzm-icon>
     <button class="breadcrumb">
-      <zui-icon
+      <pzm-icon
         class="breadcrumb__icon"
         [size]="16"
         [iconClass]="breadcrumb.icon"
         *ngIf="!!breadcrumb.icon"
-      ></zui-icon>
+      ></pzm-icon>
       <span class="breadcrumb__name">{{ breadcrumb?.name }}</span>
     </button>
   </div>
@@ -57,12 +57,12 @@
   <div class="dropdown-content" *ngIf="breadcrumbsInMenu$ | async as breadcrumbsInMenu">
     <ng-container *ngFor="let breadcrumb of breadcrumbsInMenu; let i = index">
       <button class="dropdown-breadcrumb" (click)="changeBreadcrumb(i + 1)">
-        <zui-icon
+        <pzm-icon
           class="dropdown-breadcrumb__icon"
           [size]="16"
           [iconClass]="breadcrumb.icon"
           *ngIf="!!breadcrumb.icon"
-        ></zui-icon>
+        ></pzm-icon>
         <span class="dropdown-breadcrumb__name">{{ breadcrumb?.name }}</span>
       </button>
     </ng-container>

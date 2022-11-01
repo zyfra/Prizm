@@ -19,12 +19,12 @@ import {Component} from '@angular/core';
           flex-wrap: wrap;
         }
 
-        zui-icon {
+        pzm-icon {
           cursor: pointer;
         }
       }
     `
   ],
 })
-export class ZuiLoaderBaseExampleComponent {
+export class PzmLoaderBaseExampleComponent {
 }

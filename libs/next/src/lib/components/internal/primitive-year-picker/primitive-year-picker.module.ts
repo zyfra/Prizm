@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ZuiPrimitiveYearPickerComponent } from './primitive-year-picker.component';
+import { PzmPrimitiveYearPickerComponent } from './primitive-year-picker.component';
 import { PzmLetModule } from '@digital-plant/zyfra-helpers';
 import { PzmRepeatTimesModule } from '../../../directives/repeat-times/repeat-times.module';
 import { PzmHoveredModule } from '../../../directives/hovered/hovered.module';
@@ -14,7 +14,7 @@ import { PzmScrollIntoViewModule } from '../../../directives/scroll-into-view/sc
         PzmLetModule,
         PzmScrollIntoViewModule,
     ],
-    declarations: [ZuiPrimitiveYearPickerComponent],
-    exports: [ZuiPrimitiveYearPickerComponent],
+    declarations: [PzmPrimitiveYearPickerComponent],
+    exports: [PzmPrimitiveYearPickerComponent],
 })
 export class PzmPrimitiveYearPickerModule {}

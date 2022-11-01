@@ -1,7 +1,7 @@
 import {PzmOverlayConfig} from './models';
 import {noop} from "rxjs";
 
-export const ZuiOverlayDefaultConfig: PzmOverlayConfig = {
+export const PzmOverlayDefaultConfig: PzmOverlayConfig = {
   containerClass: 'z-overlay',
   bodyClass: 'z-open',
   wrapperClass: '',

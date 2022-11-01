@@ -18,8 +18,8 @@ import {
 } from '../../../zyfra-hierarchical-menu.interface';
 import ZyfraHierarchicalMenuUtils from '../../../common/utils/zyfra-hierarchical-menu-utils';
 import {
-  ZUI_HIERARCHICAL_MENU_OPTIONS_TOKEN,
-  ZuiHierarchicalMenuOptions,
+  PZM_HIERARCHICAL_MENU_OPTIONS_TOKEN,
+  PzmHierarchicalMenuOptions,
 } from '../../../common/hierarhical-menu-options';
 
 @Component({
@@ -44,7 +44,7 @@ export class ZyfraHierarchicalTreeMenuListComponent {
   @Output() nodeExpand = new EventEmitter<HierarchicalMenuExpandNodeEvent>();
 
   constructor(
-    @Inject(ZUI_HIERARCHICAL_MENU_OPTIONS_TOKEN) public options: ZuiHierarchicalMenuOptions,
+    @Inject(PZM_HIERARCHICAL_MENU_OPTIONS_TOKEN) public options: PzmHierarchicalMenuOptions,
     private elementRef: ElementRef
   ) {}
 

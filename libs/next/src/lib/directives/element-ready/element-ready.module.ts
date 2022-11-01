@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
-import { ZuiElementReadyDirective } from './element-ready.directive';
+import { PzmElementReadyDirective } from './element-ready.directive';
 
 @NgModule({
-    declarations: [ZuiElementReadyDirective],
-    exports: [ZuiElementReadyDirective],
+    declarations: [PzmElementReadyDirective],
+    exports: [PzmElementReadyDirective],
 })
 export class PzmElementReadyModule {}

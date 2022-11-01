@@ -13,22 +13,22 @@ import { NgControl, Validators, ControlValueAccessor } from '@angular/forms';
 import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 
 import { PzmInputControl } from '../common/base/input-control.class';
-import { ZuiCarouselContent } from './carousel-content/carousel-content.interface';
+import { PzmCarouselContent } from './carousel-content/carousel-content.interface';
 
 @Component({
-  selector: 'zui-carousel',
+  selector: 'pzm-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: PzmInputControl, useExisting: ZuiCarouselComponent }, PzmDestroyService],
+  providers: [{ provide: PzmInputControl, useExisting: PzmCarouselComponent }, PzmDestroyService],
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
     '[class.ng-filled]': '!empty',
-    class: 'zui-carousel',
+    class: 'pzm-carousel',
     '[attr.tabindex]': "disabled ? null : '0'",
   },
 })
-export class ZuiCarouselComponent extends PzmInputControl<any> implements ControlValueAccessor {
+export class PzmCarouselComponent extends PzmInputControl<any> implements ControlValueAccessor {
   /**
    * Disabled input
    */
@@ -90,7 +90,7 @@ export class ZuiCarouselComponent extends PzmInputControl<any> implements Contro
     this.writeValue(value);
   }
 
-  @Input() carouselContent: ZuiCarouselContent;
+  @Input() carouselContent: PzmCarouselContent;
 
   @Input() lightMode = false;
 

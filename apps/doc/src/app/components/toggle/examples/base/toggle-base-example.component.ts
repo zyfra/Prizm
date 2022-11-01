@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-toggle-base-example',
+  selector: 'pzm-toggle-base-example',
   templateUrl: './toggle-base-example.component.html',
   styles: [`
     .box {
@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
     }
   `]
 })
-export class ZuiToggleBaseExampleComponent implements OnInit {
+export class PzmToggleBaseExampleComponent implements OnInit {
   public value = true;
   public readonly value2 = new FormControl(false);
   public valueDisabled = false;

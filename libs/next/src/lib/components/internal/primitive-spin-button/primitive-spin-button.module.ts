@@ -8,7 +8,7 @@ import {
 } from '../../../directives';
 import { PzmButtonModule } from '../../button/button.module';
 
-import { ZuiPrimitiveSpinButtonComponent } from './primitive-spin-button.component';
+import { PzmPrimitiveSpinButtonComponent } from './primitive-spin-button.component';
 
 @NgModule({
     imports: [
@@ -19,7 +19,7 @@ import { ZuiPrimitiveSpinButtonComponent } from './primitive-spin-button.compone
         PzmPreventDefaultModule,
         PzmButtonModule,
     ],
-    declarations: [ZuiPrimitiveSpinButtonComponent],
-    exports: [ZuiPrimitiveSpinButtonComponent],
+    declarations: [PzmPrimitiveSpinButtonComponent],
+    exports: [PzmPrimitiveSpinButtonComponent],
 })
-export class ZuiPrimitiveSpinButtonModule {}
+export class PzmPrimitiveSpinButtonModule {}

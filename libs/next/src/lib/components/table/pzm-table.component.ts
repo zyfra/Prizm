@@ -14,19 +14,19 @@ import {
 } from '@angular/core';
 import { FilterService } from 'primeng/api';
 import { Table, TableService } from 'primeng/table';
-import { ZuiSizeL, ZuiSizeM, ZuiSizeS, ZuiSizeXS } from '../../util';
-import { TargetTableToken, ZuiBaseTableComponent } from './base-table';
+import { PzmSizeL, PzmSizeM, PzmSizeS, PzmSizeXS } from '../../util';
+import { TargetTableToken, PzmBaseTableComponent } from './base-table';
 import { BaseTableTemplateDirective } from './base-table/directives/base-table-template.directive';
-import { Filters, RowSelectionEvent } from './zui-table.types';
+import { Filters, RowSelectionEvent } from './pzm-table.types';
 
 // Todo после этапа MVP выпилить всю таблицу целиком, забыть как страшный сон и сделать нормально
 @Component({
-  selector: 'zui-table',
-  templateUrl: './zui-table.component.html',
+  selector: 'pzm-table',
+  templateUrl: './pzm-table.component.html',
   styleUrls: [
-    './zui-table-prime.component.less',
-    './zui-table.component.less',
-    './zui-table-status.component.less',
+    './pzm-table-prime.component.less',
+    './pzm-table.component.less',
+    './pzm-table-status.component.less',
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.ShadowDom,
@@ -35,18 +35,18 @@ import { Filters, RowSelectionEvent } from './zui-table.types';
     FilterService,
     {
       provide: TargetTableToken,
-      useFactory: (zuiTable: ZuiTableComponent): ZuiTableComponent => zuiTable,
-      deps: [ZuiTableComponent],
+      useFactory: (pzmTable: PzmTableComponent): PzmTableComponent => pzmTable,
+      deps: [PzmTableComponent],
     },
     {
       provide: Table,
-      useFactory: (zuiTable: ZuiTableComponent): Table => zuiTable.table,
-      deps: [ZuiTableComponent],
+      useFactory: (pzmTable: PzmTableComponent): Table => pzmTable.table,
+      deps: [PzmTableComponent],
     },
   ],
 })
-export class ZuiTableComponent<T = unknown>
-  extends ZuiBaseTableComponent<T>
+export class PzmTableComponent<T = unknown>
+  extends PzmBaseTableComponent<T>
   implements AfterContentInit, OnChanges
 {
   @ViewChild('ptable', { static: true }) table: Table;
@@ -77,7 +77,7 @@ export class ZuiTableComponent<T = unknown>
   /**
    * Defines table row hright
    */
-  @Input() size: ZuiSizeL | ZuiSizeM | ZuiSizeXS | ZuiSizeS = 'l';
+  @Input() size: PzmSizeL | PzmSizeM | PzmSizeXS | PzmSizeS = 'l';
   /**
    * The breakpoint to define the maximum width boundary when using stack responsive layout
    */
@@ -166,7 +166,7 @@ export class ZuiTableComponent<T = unknown>
    */
   @Input() groupRowsByOrder = 1;
 
-  @Input() className = 'zui-table-class';
+  @Input() className = 'pzm-table-class';
 
   //endregion
 

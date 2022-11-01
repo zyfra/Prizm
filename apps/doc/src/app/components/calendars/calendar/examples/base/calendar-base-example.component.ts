@@ -11,7 +11,7 @@ import { PzmDay, PzmDayWithStatus } from '@digital-plant/zui-components';
     }
   `]
 })
-export class ZuiCalendarBaseExampleComponent {
+export class PzmCalendarBaseExampleComponent {
   public day = new PzmDay(2017, 0, 15);
   public daysWithStatus = [
     new PzmDayWithStatus(2017, 0, 10, 'index'),

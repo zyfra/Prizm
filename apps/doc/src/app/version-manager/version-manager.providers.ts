@@ -1,9 +1,9 @@
 import {LocationStrategy} from '@angular/common';
 import {InjectionToken, Provider} from '@angular/core';
 
-import {ZUI_VERSIONS_META, ZuiVersionMeta} from './versions.constants';
+import {PZM_VERSIONS_META, PzmVersionMeta} from './versions.constants';
 
-export const SELECTED_VERSION_META = new InjectionToken<ZuiVersionMeta | null>(
+export const SELECTED_VERSION_META = new InjectionToken<PzmVersionMeta | null>(
     'Meta information about selected version of Zyfra docs',
 );
 
@@ -15,9 +15,9 @@ export const VERSION_MANAGER_PROVIDERS: Provider[] = [
     },
 ];
 
-export function selectedVersionMetaFactory(s: LocationStrategy): ZuiVersionMeta | null {
+export function selectedVersionMetaFactory(s: LocationStrategy): PzmVersionMeta | null {
     return (
-        ZUI_VERSIONS_META.find(
+        PZM_VERSIONS_META.find(
             meta => meta.baseHref === s.getBaseHref().replace(/\//g, ''),
         ) || null
     );

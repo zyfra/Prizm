@@ -5,8 +5,8 @@ import { PzmToastRef } from './toast-ref';
 import { PzmToastContainerComponent } from './toast-container/toast-container.component';
 import { Injectable, Injector } from '@angular/core';
 import {
-  ZuiOverlayControl,
-  ZuiOverlayGlobalPosition,
+  PzmOverlayControl,
+  PzmOverlayGlobalPosition,
   PzmOverlayInsidePlacement,
   PzmOverlayService,
 } from '../../modules/overlay';
@@ -24,10 +24,10 @@ export class PzmToastControl {
   private create(
     changesForThisPosition$:  Observable<PzmToastRef[]>,
     position: PzmToastOptions['position']
-  ): ZuiOverlayControl | void {
+  ): PzmOverlayControl | void {
     const placement = this.getOverlayPosition(position);
     if (!placement) return;
-    const overlayPosition = new ZuiOverlayGlobalPosition({
+    const overlayPosition = new PzmOverlayGlobalPosition({
       placement,
       width: 'auto',
       height: 'auto',
@@ -85,16 +85,16 @@ export class PzmToastControl {
     ).subscribe()
   }
 
-  private destroy(control: ZuiOverlayControl): void {
+  private destroy(control: PzmOverlayControl): void {
     this.close(control);
     control = null;
   }
 
-  private close(control: ZuiOverlayControl): void {
+  private close(control: PzmOverlayControl): void {
     control?.close();
   }
 
-  private open(control: ZuiOverlayControl): void {
+  private open(control: PzmOverlayControl): void {
     control?.open();
   }
 }

@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 
-import {ZuiDroppableDirective} from './droppable.directive';
+import {PzmDroppableDirective} from './droppable.directive';
 
 @NgModule({
-    declarations: [ZuiDroppableDirective],
-    exports: [ZuiDroppableDirective],
+    declarations: [PzmDroppableDirective],
+    exports: [PzmDroppableDirective],
 })
-export class ZuiDroppableModule {}
+export class PzmDroppableModule {}

@@ -2,6 +2,6 @@ import { Directive } from '@angular/core';
 import { RowGroupHeader } from 'primeng/table';
 
 @Directive({
-  selector: '[zuiRowGroupHeader]',
+  selector: '[pzmRowGroupHeader]',
 })
-export class ZuiRowGroupHeaderDirective extends RowGroupHeader {}
+export class PzmRowGroupHeaderDirective extends RowGroupHeader {}

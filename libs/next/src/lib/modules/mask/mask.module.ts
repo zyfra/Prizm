@@ -11,5 +11,5 @@ const maskConfig: Partial<IConfig> = {
   imports: [NgxMaskModule.forRoot(maskConfig)],
   exports: [NgxMaskModule],
 })
-export class ZuiMaskModule {}
+export class PzmMaskModule {}
 

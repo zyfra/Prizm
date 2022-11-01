@@ -2,10 +2,10 @@ import { Directive, HostListener } from '@angular/core';
 import { EditableColumn } from 'primeng/table';
 
 @Directive({
-  selector: '[zuiEditableColumn]',
-  providers: [{ provide: EditableColumn, useClass: ZuiEditableColumnDirective }],
+  selector: '[pzmEditableColumn]',
+  providers: [{ provide: EditableColumn, useClass: PzmEditableColumnDirective }],
 })
-export class ZuiEditableColumnDirective extends EditableColumn {
+export class PzmEditableColumnDirective extends EditableColumn {
   public override onClick(event: MouseEvent): void {
     // doing nothing, redefining parent class method
   }

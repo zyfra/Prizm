@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 
 @Component({
-  selector: 'zui-row-toggler',
+  selector: 'pzm-row-toggler',
   templateUrl: './row-toggler.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiRowTogglerComponent {
+export class PzmRowTogglerComponent {
   @Input() data: any;
   @Input() expanded: boolean;
 

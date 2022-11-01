@@ -12,10 +12,10 @@ import { fromEvent, merge } from 'rxjs';
 import { switchMap, take, takeUntil, tap } from 'rxjs/operators';
 
 import { PzmInputLayoutComponent } from '../common/input-layout/input-layout.component';
-import { ZuiInputPasswordDirective } from './input-password.directive';
+import { PzmInputPasswordDirective } from './input-password.directive';
 
 @Component({
-  selector: 'zui-input-password-auxiliary-control',
+  selector: 'pzm-input-password-auxiliary-control',
   template: ` <button
     [pzmInputIconButton]="icon"
     class="btn"
@@ -29,11 +29,11 @@ import { ZuiInputPasswordDirective } from './input-password.directive';
         display: block;
       }
 
-      :host-context(.zui-input-form-outer[data-size='m']) {
+      :host-context(.pzm-input-form-outer[data-size='m']) {
         font-size: 15px;
       }
 
-      :host-context(.zui-input-form-outer[data-size='s']) {
+      :host-context(.pzm-input-form-outer[data-size='s']) {
         font-size: 11px;
       }
 
@@ -45,8 +45,8 @@ import { ZuiInputPasswordDirective } from './input-password.directive';
   providers: [PzmDestroyService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiInputPasswordDefaultControlComponent {
-  @Input() inputPassword!: ZuiInputPasswordDirective;
+export class PzmInputPasswordDefaultControlComponent {
+  @Input() inputPassword!: PzmInputPasswordDirective;
 
   constructor(
     public readonly layout: PzmInputLayoutComponent,

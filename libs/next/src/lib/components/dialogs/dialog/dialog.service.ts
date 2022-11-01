@@ -1,10 +1,10 @@
-import { AbstractZuiDialogService } from '../../../abstract/dialog.service';
+import { AbstractPzmDialogService } from '../../../abstract/dialog.service';
 import { Injectable } from '@angular/core';
-import { ZuiDialogComponent } from './dialog.component';
+import { PzmDialogComponent } from './dialog.component';
 import { PzmOverlayInsidePlacement } from '../../../modules/overlay';
-import { ZuiDialogOptions } from './dialog.models';
+import { PzmDialogOptions } from './dialog.models';
 
-const DEFAULT_OPTIONS: ZuiDialogOptions = {
+const DEFAULT_OPTIONS: PzmDialogOptions = {
   size: 'm',
   required: false,
   closeable: true,
@@ -18,7 +18,7 @@ const DEFAULT_OPTIONS: ZuiDialogOptions = {
 @Injectable({
   providedIn: 'root',
 })
-export class ZuiDialogService extends AbstractZuiDialogService<ZuiDialogOptions> {
-  protected readonly component = ZuiDialogComponent;
-  protected readonly defaultOptions: ZuiDialogOptions = DEFAULT_OPTIONS;
+export class PzmDialogService extends AbstractPzmDialogService<PzmDialogOptions> {
+  protected readonly component = PzmDialogComponent;
+  protected readonly defaultOptions: PzmDialogOptions = DEFAULT_OPTIONS;
 }

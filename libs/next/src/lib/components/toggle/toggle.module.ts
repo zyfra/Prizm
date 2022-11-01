@@ -1,6 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {ZuiToggleComponent} from './toggle.component';
+import {PzmToggleComponent} from './toggle.component';
 import {PzmLoaderModule} from "../loader";
 import {PzmWrapperModule} from '../../directives/wrapper';
 import {
@@ -28,7 +28,7 @@ import {PzmIconModule} from "../icon";
     PolymorphModule,
     PzmIconModule
   ],
-    declarations: [ZuiToggleComponent],
-    exports: [ZuiToggleComponent],
+    declarations: [PzmToggleComponent],
+    exports: [PzmToggleComponent],
 })
-export class ZuiToggleModule {}
+export class PzmToggleModule {}

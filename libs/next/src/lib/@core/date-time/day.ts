@@ -1,15 +1,15 @@
 import { PzmInvalidDayException } from '../../exceptions/invalid-day.exception';
 import { PzmInvalidMonthException } from '../../exceptions/invalid-month.exception';
 import { PzmInvalidYearException } from '../../exceptions/invalid-year.exception';
-import { ZuiDateMode } from '../../types/date-mode';
+import { PzmDateMode } from '../../types/date-mode';
 import { PzmDayLike } from '../../types/day-like';
-import { zuiPadStart } from '../../util/format/pad-start';
-import { pzmInRange, zuiNormalizeToIntNumber } from '../../util/math';
-import { ZuiDayOfWeek } from '../enums/day-of-week';
-import { ZuiMonthNumber } from '../enums/month-number';
+import { pzmPadStart } from '../../util/format/pad-start';
+import { pzmInRange, pzmNormalizeToIntNumber } from '../../util/math';
+import { PzmDayOfWeek } from '../enums/day-of-week';
+import { PzmMonthNumber } from '../enums/month-number';
 
-import { ZUI_DATE_FILLER_LENGTH } from './date-fillers';
-import { ZUI_DAYS_IN_WEEK, ZUI_MIN_DAY, ZUI_MONTHS_IN_YEAR } from './date-time';
+import { PZM_DATE_FILLER_LENGTH } from './date-fillers';
+import { PZM_DAYS_IN_WEEK, PZM_MIN_DAY, PZM_MONTHS_IN_YEAR } from './date-time';
 import { PzmMonth } from './month';
 import { PzmYear } from './year';
 
@@ -60,7 +60,7 @@ export class PzmDay extends PzmMonth {
             Number.isInteger(day) &&
             pzmInRange(
                 day,
-                ZUI_MIN_DAY,
+                PZM_MIN_DAY,
                 PzmMonth.getMonthDaysCount(month, PzmYear.isLeapYear(year)) + 1,
             )
         );
@@ -80,9 +80,9 @@ export class PzmDay extends PzmMonth {
         console.assert(Number.isInteger(row));
         console.assert(pzmInRange(row, 0, 6));
         console.assert(Number.isInteger(col));
-        console.assert(pzmInRange(col, 0, ZUI_DAYS_IN_WEEK));
+        console.assert(pzmInRange(col, 0, PZM_DAYS_IN_WEEK));
 
-        let day = row * ZUI_DAYS_IN_WEEK + col - month.monthStartDaysOffset + 1;
+        let day = row * PZM_DAYS_IN_WEEK + col - month.monthStartDaysOffset + 1;
 
         if (day > month.daysCount) {
             day = day - month.daysCount;
@@ -150,10 +150,10 @@ export class PzmDay extends PzmMonth {
 
     public static parseRawDateString(
         date: string,
-        dateMode: ZuiDateMode = `DMY`,
+        dateMode: PzmDateMode = `DMY`,
     ): {day: number; month: number; year: number} {
         console.assert(
-            date.length === ZUI_DATE_FILLER_LENGTH,
+            date.length === PZM_DATE_FILLER_LENGTH,
             `[parseRawDateString]: wrong date string length`,
         );
 
@@ -190,7 +190,7 @@ export class PzmDay extends PzmMonth {
      * @param dateMode date format of the date string (DMY | MDY | YMD)
      * @return normalized date
      */
-    public static normalizeParse(rawDate: string, dateMode: ZuiDateMode = `DMY`): PzmDay {
+    public static normalizeParse(rawDate: string, dateMode: PzmDateMode = `DMY`): PzmDay {
         const {day, month, year} = this.parseRawDateString(rawDate, dateMode);
 
         return PzmDay.normalizeOf(year, month, day);
@@ -217,7 +217,7 @@ export class PzmDay extends PzmMonth {
             !Number.isInteger(day) ||
             !pzmInRange(
                 day,
-                ZUI_MIN_DAY,
+                PZM_MIN_DAY,
                 PzmMonth.getMonthDaysCount(month, PzmYear.isLeapYear(year)) + 1,
             )
         ) {
@@ -235,11 +235,11 @@ export class PzmDay extends PzmMonth {
             PzmYear.isLeapYear(year),
         );
 
-        return zuiNormalizeToIntNumber(day, 1, monthDaysCount);
+        return pzmNormalizeToIntNumber(day, 1, monthDaysCount);
     }
 
     get formattedDayPart(): string {
-        return zuiPadStart(String(this.day), 2, `0`);
+        return pzmPadStart(String(this.day), 2, `0`);
     }
 
     /**
@@ -253,7 +253,7 @@ export class PzmDay extends PzmMonth {
     public get isWeekend(): boolean {
         const dayOfWeek = this.dayOfWeek(false);
 
-        return dayOfWeek === ZuiDayOfWeek.Saturday || dayOfWeek === ZuiDayOfWeek.Sunday;
+        return dayOfWeek === PzmDayOfWeek.Saturday || dayOfWeek === PzmDayOfWeek.Sunday;
     }
 
     /**
@@ -358,9 +358,9 @@ export class PzmDay extends PzmMonth {
             day *= -1;
         }
 
-        const totalMonths = (this.year + year) * ZUI_MONTHS_IN_YEAR + this.month + month;
-        let years = Math.floor(totalMonths / ZUI_MONTHS_IN_YEAR);
-        let months = totalMonths % ZUI_MONTHS_IN_YEAR;
+        const totalMonths = (this.year + year) * PZM_MONTHS_IN_YEAR + this.month + month;
+        let years = Math.floor(totalMonths / PZM_MONTHS_IN_YEAR);
+        let months = totalMonths % PZM_MONTHS_IN_YEAR;
 
         let days =
             Math.min(
@@ -371,18 +371,18 @@ export class PzmDay extends PzmMonth {
         while (days > PzmMonth.getMonthDaysCount(months, PzmYear.isLeapYear(years))) {
             days -= PzmMonth.getMonthDaysCount(months, PzmYear.isLeapYear(years));
 
-            if (months === ZuiMonthNumber.December) {
+            if (months === PzmMonthNumber.December) {
                 years++;
-                months = ZuiMonthNumber.January;
+                months = PzmMonthNumber.January;
             } else {
                 months++;
             }
         }
 
-        while (days < ZUI_MIN_DAY) {
-            if (months === ZuiMonthNumber.January) {
+        while (days < PZM_MIN_DAY) {
+            if (months === PzmMonthNumber.January) {
                 years--;
-                months = ZuiMonthNumber.December;
+                months = PzmMonthNumber.December;
             } else {
                 months--;
             }
@@ -396,7 +396,7 @@ export class PzmDay extends PzmMonth {
     /**
      * Returns formatted whole date
      */
-    public getFormattedDay(dateFormat: ZuiDateMode, separator: string): string {
+    public getFormattedDay(dateFormat: PzmDateMode, separator: string): string {
         console.assert(
             separator.length === 1,
             `Separator should consist of only 1 symbol`,
@@ -417,7 +417,7 @@ export class PzmDay extends PzmMonth {
         }
     }
 
-    public override toString(dateFormat: ZuiDateMode = `DMY`, separator: string = `.`): string {
+    public override toString(dateFormat: PzmDateMode = `DMY`, separator: string = `.`): string {
         return this.getFormattedDay(dateFormat, separator);
     }
 

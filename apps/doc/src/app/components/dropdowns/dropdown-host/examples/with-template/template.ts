@@ -1,7 +1,7 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
 
 @Component({
-  selector: 'zui-dropdown-host-example-with-template',
+  selector: 'pzm-dropdown-host-example-with-template',
   templateUrl: './template.html',
   styles: [`
     .box {
@@ -16,7 +16,7 @@ import {ChangeDetectorRef, Component} from '@angular/core';
     }
   `]
 })
-export class ZuiDropdownHostExampleWithTemplateComponent {
+export class PzmDropdownHostExampleWithTemplateComponent {
   open = false;
 
   constructor(public readonly cdRef: ChangeDetectorRef) {}

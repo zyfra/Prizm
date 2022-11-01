@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({ name: 'zuiMonthExample' })
-export class ZuiMonthExamplePipe implements PipeTransform {
+@Pipe({ name: 'pzmMonthExample' })
+export class PzmMonthExamplePipe implements PipeTransform {
   private defaultMonthNames = [
     'январь',
     'февраль',

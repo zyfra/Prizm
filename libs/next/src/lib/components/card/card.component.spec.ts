@@ -1,22 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ZuiCardComponent } from './card.component';
+import { PzmCardComponent } from './card.component';
 import { CommonModule } from '@angular/common';
 
-describe('ZuiCardComponent', () => {
-  let component: ZuiCardComponent;
-  let fixture: ComponentFixture<ZuiCardComponent>;
+describe('PzmCardComponent', () => {
+  let component: PzmCardComponent;
+  let fixture: ComponentFixture<PzmCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ CommonModule ],
-      declarations: [ ZuiCardComponent ],
+      declarations: [ PzmCardComponent ],
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ZuiCardComponent);
+    fixture = TestBed.createComponent(PzmCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

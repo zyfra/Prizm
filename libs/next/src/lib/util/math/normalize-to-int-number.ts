@@ -6,7 +6,7 @@
  * @param max upper inclusive integer
  * @return an integer between min and max inclusive
  */
-export function zuiNormalizeToIntNumber(value: number, min: number, max: number): number {
+export function pzmNormalizeToIntNumber(value: number, min: number, max: number): number {
     console.assert(Number.isInteger(min));
     console.assert(Number.isInteger(max));
     console.assert(min <= max);

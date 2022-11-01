@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 import { PzmInputCommonModule } from '../common/input-common.module';
 import { PzmInputTextModule } from '../input-text/input-text.module';
-import { ZuiInputNumberAuxiliaryControlDirective } from './input-number-auxiliary-control.directive';
-import { ZuiInputNumberDefaultControlsComponent } from './input-number-auxiliary-controls.component';
-import { ZuiInputNumberDirective } from './input-number.directive';
+import { PzmInputNumberAuxiliaryControlDirective } from './input-number-auxiliary-control.directive';
+import { PzmInputNumberDefaultControlsComponent } from './input-number-auxiliary-controls.component';
+import { PzmInputNumberDirective } from './input-number.directive';
 
 @NgModule({
   imports: [PzmInputCommonModule, PzmInputTextModule],
   declarations: [
-    ZuiInputNumberDirective,
-    ZuiInputNumberAuxiliaryControlDirective,
-    ZuiInputNumberDefaultControlsComponent,
+    PzmInputNumberDirective,
+    PzmInputNumberAuxiliaryControlDirective,
+    PzmInputNumberDefaultControlsComponent,
   ],
   exports: [
-    ZuiInputNumberAuxiliaryControlDirective,
+    PzmInputNumberAuxiliaryControlDirective,
     PzmInputCommonModule,
-    ZuiInputNumberDirective,
+    PzmInputNumberDirective,
     PzmInputTextModule,
-    ZuiInputNumberDefaultControlsComponent,
+    PzmInputNumberDefaultControlsComponent,
   ],
 })
-export class ZuiInputNumberModule {}
+export class PzmInputNumberModule {}
 

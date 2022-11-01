@@ -19,7 +19,7 @@ import { PzmMonth } from '../../../@core/date-time/month';
 import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
 import { PZM_DEFAULT_MARKER_HANDLER } from '../../../constants/default-marker-handler';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { ZUI_CALENDAR_DATA_STREAM } from '../../../tokens/calendar-data-stream';
+import { PZM_CALENDAR_DATA_STREAM } from '../../../tokens/calendar-data-stream';
 import { PzmBooleanHandler } from '../../../types/handler';
 import { PzmMapper } from '../../../types/mapper';
 import { PzmMarkerHandler } from '../../../types/marker-handler';
@@ -75,7 +75,7 @@ export class PzmPrimitiveCalendarRangeComponent implements OnInit {
     userViewedMonthSecond: PzmMonth = this.defaultViewedMonthSecond;
 
     constructor(
-        @Inject(ZUI_CALENDAR_DATA_STREAM)
+        @Inject(PZM_CALENDAR_DATA_STREAM)
         @Optional()
         valueChanges: Observable<PzmDayRange | null> | null,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,

@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ZuiDateTime, PzmDay, ZuiTime } from '@digital-plant/zui-components';
+import { PzmDateTime, PzmDay, PzmTime } from '@digital-plant/zui-components';
 import { formatRelative, addDays, addHours, addMonths } from 'date-fns';
 
 type DateItem = {
@@ -8,23 +8,23 @@ type DateItem = {
   range: [
     [
         PzmDay,
-        ZuiTime
+        PzmTime
     ],
     [
       PzmDay,
-      ZuiTime
+      PzmTime
     ],
   ],
 };
 
 @Component({
-  selector: 'zui-dropdown-host-date-list-edit-example',
+  selector: 'pzm-dropdown-host-date-list-edit-example',
   templateUrl: './date-list-edit.component.html',
   styleUrls: [
    './date-list-edit.component.less'
   ]
 })
-export class ZuiDropdownHostDateListEditExampleComponent {
+export class PzmDropdownHostDateListEditExampleComponent {
   open = false;
   data: DateItem[] = [
     {
@@ -32,11 +32,11 @@ export class ZuiDropdownHostDateListEditExampleComponent {
       range: [
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          new ZuiTime(new Date().getHours() - 1, new Date().getMinutes(), 0)
+          new PzmTime(new Date().getHours() - 1, new Date().getMinutes(), 0)
         ],
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -45,11 +45,11 @@ export class ZuiDropdownHostDateListEditExampleComponent {
       range: [
         [
           PzmDay.fromLocalNativeDate(addDays(new Date(), -1)),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -58,11 +58,11 @@ export class ZuiDropdownHostDateListEditExampleComponent {
       range: [
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(addHours(new Date(), -2))
+          PzmTime.fromLocalNativeDate(addHours(new Date(), -2))
         ],
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -71,11 +71,11 @@ export class ZuiDropdownHostDateListEditExampleComponent {
       range: [
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(addHours(new Date(), -4))
+          PzmTime.fromLocalNativeDate(addHours(new Date(), -4))
         ],
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -84,11 +84,11 @@ export class ZuiDropdownHostDateListEditExampleComponent {
       range: [
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(addHours(new Date(), -8))
+          PzmTime.fromLocalNativeDate(addHours(new Date(), -8))
         ],
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -97,11 +97,11 @@ export class ZuiDropdownHostDateListEditExampleComponent {
       range: [
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(addHours(new Date(), -12))
+          PzmTime.fromLocalNativeDate(addHours(new Date(), -12))
         ],
         [
           PzmDay.fromLocalNativeDate(new Date()),
-          ZuiTime.fromLocalNativeDate(new Date())
+          PzmTime.fromLocalNativeDate(new Date())
         ],
       ],
     }
@@ -128,11 +128,11 @@ export class ZuiDropdownHostDateListEditExampleComponent {
 
   public convertDate([start, end]: DateItem['range']): [Date, Date] {
     return [
-      new ZuiDateTime(
+      new PzmDateTime(
         start[0],
         start[1]
       ).toLocalNativeDate(),
-      new ZuiDateTime(
+      new PzmDateTime(
         end[0],
         end[1]
       ).toLocalNativeDate()

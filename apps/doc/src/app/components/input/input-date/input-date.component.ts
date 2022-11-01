@@ -4,7 +4,7 @@ import { PzmDay, PzmInputSize } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-input-date-example',
+  selector: 'pzm-input-date-example',
   templateUrl: './input-date.component.html',
   styleUrls: ['./input-date.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

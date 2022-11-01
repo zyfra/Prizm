@@ -4,7 +4,7 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { SplitButtonComponent } from './split-button.component';
 import { PzmButtonModule } from '@digital-plant/zui-components';
-import { ZuiSplitButtonsExampleComponent } from './examples/split/split-buttons-example.component';
+import { PzmSplitButtonsExampleComponent } from './examples/split/split-buttons-example.component';
 
 @NgModule({
   imports: [
@@ -14,7 +14,7 @@ import { ZuiSplitButtonsExampleComponent } from './examples/split/split-buttons-
     RouterModule.forChild(generateRoutes(SplitButtonComponent)),
   ],
   declarations: [
-    ZuiSplitButtonsExampleComponent,
+    PzmSplitButtonsExampleComponent,
     SplitButtonComponent
   ],
   exports: [SplitButtonComponent],

@@ -1,13 +1,13 @@
 <h4>Default subtext info</h4>
 <pzm-input-layout label="Заголовок" size="l">
-  <input zuiInput value="Введенный текст" placeholder="Введите текст" />
-  <div zui-input-subtext>Подтекст</div>
+  <input pzmInput value="Введенный текст" placeholder="Введите текст" />
+  <div pzm-input-subtext>Подтекст</div>
 </pzm-input-layout>
 
 
 <h4>Warning with subtext info</h4>
 <pzm-input-layout label="Заголовок" size="l" status="warning">
-  <input zuiInput value="Введенный текст" placeholder="Введите текст" />
+  <input pzmInput value="Введенный текст" placeholder="Введите текст" />
   <ng-template #statusText pzmInputStatusText>Warning text</ng-template>
-  <div zui-input-subtext *ngTemplateOutlet='statusText'></div>
+  <div pzm-input-subtext *ngTemplateOutlet='statusText'></div>
 </pzm-input-layout>

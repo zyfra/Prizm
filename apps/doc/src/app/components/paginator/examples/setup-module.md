@@ -1,12 +1,12 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { ZuiPaginatorModule } from '@digital-plant/zui-components';
+import { PzmPaginatorModule } from '@digital-plant/pzm-components';
 // ...
 
 @NgModule({
   imports: [
     // ...
-    ZuiPaginatorModule,
+    PzmPaginatorModule,
   ],
 })
 export class MyModule {}

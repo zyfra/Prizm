@@ -1,27 +1,27 @@
 <pzm-input-layout label="Заголовок" size="l" status="default" [position]="'center'">
   <button
     pzmInputIconButton="delete-minus"
-    zuiInputNumberAuxiliaryControl="decrement"
-    zui-input-left
+    pzmInputNumberAuxiliaryControl="decrement"
+    pzm-input-left
     [inputNumber]="inputNumber"
     [interactive]="true"
   ></button>
 
   <input
-    zuiInputNumber
+    pzmInputNumber
     placeholder="Введите название"
     [min]="0"
     [max]="10"
     [value]="2"
     [step]="2"
-    #inputNumber="zuiInputNumber"
+    #inputNumber="pzmInputNumber"
   />
 
   <button
     pzmInputIconButton="add-plus"
-    zuiInputNumberAuxiliaryControl="increment"
+    pzmInputNumberAuxiliaryControl="increment"
     [inputNumber]="inputNumber"
-    zui-input-right
+    pzm-input-right
     [interactive]="true"
   ></button>
 </pzm-input-layout>

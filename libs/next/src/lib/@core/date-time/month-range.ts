@@ -1,4 +1,4 @@
-import { ZUI_RANGE_SEPARATOR_CHAR } from './date-time';
+import { PZM_RANGE_SEPARATOR_CHAR } from './date-time';
 import { PzmMonth } from './month';
 import { PzmDay } from './day';
 import { PzmYear } from './year';
@@ -25,7 +25,7 @@ export class PzmMonthRange {
      * @deprecated
      */
     public get formattedMonthRange(): string {
-        return `${this.from.formattedMonth}${ZUI_RANGE_SEPARATOR_CHAR}${this.to.formattedMonth}`;
+        return `${this.from.formattedMonth}${PZM_RANGE_SEPARATOR_CHAR}${this.to.formattedMonth}`;
     }
 
     public isMonthInRange(
@@ -45,6 +45,6 @@ export class PzmMonthRange {
     }
 
     public toString(): string {
-        return `${this.from}${ZUI_RANGE_SEPARATOR_CHAR}${this.to}`;
+        return `${this.from}${PZM_RANGE_SEPARATOR_CHAR}${this.to}`;
     }
 }

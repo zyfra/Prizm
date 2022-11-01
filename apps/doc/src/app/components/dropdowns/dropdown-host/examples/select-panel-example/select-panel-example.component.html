@@ -1,19 +1,19 @@
-<zui-dropdown-host [content]="dropdown" zuiDropdownHostWidth="auto" [(isOpen)]="showPanel">
+<pzm-dropdown-host [content]="dropdown" pzmDropdownHostWidth="auto" [(isOpen)]="showPanel">
   <button pzmButton type="button" (click)="show()">Button</button>
-</zui-dropdown-host>
+</pzm-dropdown-host>
 
 <ng-template #dropdown>
-  <zui-data-list class="data-list" [defaultStyle]="false">
+  <pzm-data-list class="data-list" [defaultStyle]="false">
     <ng-container header>
       <div class="header">
-        <zui-checkbox
+        <pzm-checkbox
           class="header__checkbox"
           (changed)="onChange($event)"
           [checked]="allChecked"
           [indeterminate]="someChecked"
         >
           <span class="header__label"> Заголовок блока </span>
-        </zui-checkbox>
+        </pzm-checkbox>
       </div>
     </ng-container>
 
@@ -21,7 +21,7 @@
       <div class="filter">
         <pzm-input-layout class="filter__input-layout" [label]="'Фильтр'" [size]="'m'">
           <input
-            zuiInput
+            pzmInput
             #input
             [placeholder]="'Введите значение'"
             (input)="filter(input.value)"
@@ -29,7 +29,7 @@
           />
           <button
             pzmInputIconButton="sort-zoom-in"
-            zui-input-right
+            pzm-input-right
             [interactive]="true"
             (click)="filter(input.value)"
           ></button>
@@ -38,12 +38,12 @@
 
       <ul class="options">
         <li *ngFor="let option of filteredData" class="options__item option">
-          <zui-checkbox class="option__checkbox" [(ngModel)]="option.checked">
+          <pzm-checkbox class="option__checkbox" [(ngModel)]="option.checked">
             <div class="option__label">
               <span class="option__title">{{ option.label.title }}</span>
               <span class="option__subtitle">{{ option.label.subtitle }}</span>
             </div>
-          </zui-checkbox>
+          </pzm-checkbox>
         </li>
       </ul>
     </div>
@@ -53,6 +53,6 @@
         <button pzmButton (click)="hide()" class="footer__btn">Применить запрос</button>
       </div>
     </ng-container>
-  </zui-data-list>
+  </pzm-data-list>
 </ng-template>
 

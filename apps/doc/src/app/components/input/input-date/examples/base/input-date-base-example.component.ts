@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { PzmDay } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-input-date-base-example',
+  selector: 'pzm-input-date-base-example',
   templateUrl: './input-date-base-example.component.html',
   styles: [`
     .box {
@@ -12,6 +12,6 @@ import { PzmDay } from '@digital-plant/zui-components';
     }
   `]
 })
-export class ZuiInputDateBaseExampleComponent {
+export class PzmInputDateBaseExampleComponent {
   public readonly control = new FormControl(new PzmDay(2017, 0, 15));
 }

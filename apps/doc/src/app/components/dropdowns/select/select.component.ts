@@ -4,7 +4,7 @@ import { PolymorphContent, PzmInputSize, pzmPure, PzmScrollbarVisibility } from 
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-select-example',
+  selector: 'pzm-select-example',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

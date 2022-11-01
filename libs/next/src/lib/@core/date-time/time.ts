@@ -1,21 +1,21 @@
-import { ZuiTimeLike } from '../../types/time-like';
-import { ZuiTimeMode } from '../../types/time-mode';
-import { zuiPadStart } from '../../util/format/pad-start';
+import { PzmTimeLike } from '../../types/time-like';
+import { PzmTimeMode } from '../../types/time-mode';
+import { pzmPadStart } from '../../util/format/pad-start';
 import { pzmInRange } from '../../util/math/in-range';
 
 import {
-  ZUI_HOURS_IN_DAY,
-  ZUI_MILLISECONDS_IN_DAY,
-  ZUI_MILLISECONDS_IN_HOUR,
-  ZUI_MILLISECONDS_IN_MINUTE,
-  ZUI_MINUTES_IN_HOUR,
-  ZUI_SECONDS_IN_MINUTE,
+  PZM_HOURS_IN_DAY,
+  PZM_MILLISECONDS_IN_DAY,
+  PZM_MILLISECONDS_IN_HOUR,
+  PZM_MILLISECONDS_IN_MINUTE,
+  PZM_MINUTES_IN_HOUR,
+  PZM_SECONDS_IN_MINUTE,
 } from './date-time';
 
 /**
  * Immutable time object with hours, minutes, seconds and ms
  */
-export class ZuiTime implements ZuiTimeLike {
+export class PzmTime implements PzmTimeLike {
     constructor(
         readonly hours: number,
         readonly minutes: number,
@@ -23,7 +23,7 @@ export class ZuiTime implements ZuiTimeLike {
         readonly ms: number = 0,
     ) {
         console.assert(
-            ZuiTime.isValidTime(hours, minutes, seconds, ms),
+            PzmTime.isValidTime(hours, minutes, seconds, ms),
             `Time must be real, but got:`,
             hours,
             minutes,
@@ -43,11 +43,11 @@ export class ZuiTime implements ZuiTimeLike {
     ): boolean {
         return (
             Number.isInteger(hours) &&
-            pzmInRange(hours, 0, ZUI_HOURS_IN_DAY) &&
+            pzmInRange(hours, 0, PZM_HOURS_IN_DAY) &&
             Number.isInteger(minutes) &&
-            pzmInRange(minutes, 0, ZUI_MINUTES_IN_HOUR) &&
+            pzmInRange(minutes, 0, PZM_MINUTES_IN_HOUR) &&
             Number.isInteger(seconds) &&
-            pzmInRange(seconds, 0, ZUI_SECONDS_IN_MINUTE) &&
+            pzmInRange(seconds, 0, PZM_SECONDS_IN_MINUTE) &&
             Number.isInteger(ms) &&
             pzmInRange(ms, 0, 1000)
         );
@@ -56,66 +56,66 @@ export class ZuiTime implements ZuiTimeLike {
     /**
      * Current UTC time.
      */
-    public static current(): ZuiTime {
-        return ZuiTime.fromAbsoluteMilliseconds(Date.now() % ZUI_MILLISECONDS_IN_DAY);
+    public static current(): PzmTime {
+        return PzmTime.fromAbsoluteMilliseconds(Date.now() % PZM_MILLISECONDS_IN_DAY);
     }
 
     /**
      * Current time in local timezone
      */
-    public static currentLocal(): ZuiTime {
+    public static currentLocal(): PzmTime {
         const date = new Date();
 
-        return ZuiTime.fromAbsoluteMilliseconds(
-            (Date.now() - date.getTimezoneOffset() * ZUI_MILLISECONDS_IN_MINUTE) %
-                ZUI_MILLISECONDS_IN_DAY,
+        return PzmTime.fromAbsoluteMilliseconds(
+            (Date.now() - date.getTimezoneOffset() * PZM_MILLISECONDS_IN_MINUTE) %
+                PZM_MILLISECONDS_IN_DAY,
         );
     }
 
     /**
-     * Calculates ZuiTime from milliseconds
+     * Calculates PzmTime from milliseconds
      */
-    public static fromAbsoluteMilliseconds(milliseconds: number): ZuiTime {
+    public static fromAbsoluteMilliseconds(milliseconds: number): PzmTime {
         console.assert(Number.isInteger(milliseconds));
         console.assert(
-            pzmInRange(milliseconds, 0, ZUI_MILLISECONDS_IN_DAY),
-            `Milliseconds must be below ${ZUI_MILLISECONDS_IN_DAY} (milliseconds in a day).`,
+            pzmInRange(milliseconds, 0, PZM_MILLISECONDS_IN_DAY),
+            `Milliseconds must be below ${PZM_MILLISECONDS_IN_DAY} (milliseconds in a day).`,
         );
 
-        const hours = Math.floor(milliseconds / ZUI_MILLISECONDS_IN_HOUR);
+        const hours = Math.floor(milliseconds / PZM_MILLISECONDS_IN_HOUR);
         const minutes = Math.floor(
-            (milliseconds % ZUI_MILLISECONDS_IN_HOUR) / ZUI_MILLISECONDS_IN_MINUTE,
+            (milliseconds % PZM_MILLISECONDS_IN_HOUR) / PZM_MILLISECONDS_IN_MINUTE,
         );
         const seconds =
             Math.floor(
-                ((milliseconds % ZUI_MILLISECONDS_IN_HOUR) % ZUI_MILLISECONDS_IN_MINUTE) / 1000,
+                ((milliseconds % PZM_MILLISECONDS_IN_HOUR) % PZM_MILLISECONDS_IN_MINUTE) / 1000,
             ) || 0;
         const ms =
             Math.floor(
-                ((milliseconds % ZUI_MILLISECONDS_IN_HOUR) % ZUI_MILLISECONDS_IN_MINUTE) % 1000,
+                ((milliseconds % PZM_MILLISECONDS_IN_HOUR) % PZM_MILLISECONDS_IN_MINUTE) % 1000,
             ) || 0;
 
-        return new ZuiTime(hours, minutes, seconds, ms);
+        return new PzmTime(hours, minutes, seconds, ms);
     }
 
     /**
-     * Parses string into ZuiTime object
+     * Parses string into PzmTime object
      */
-    public static fromString(time: string): ZuiTime {
+    public static fromString(time: string): PzmTime {
         const hours = Number(time.slice(0, 2));
         const minutes = Number(time.slice(3, 5));
         const seconds = Number(time.slice(6, 8)) || 0;
         const ms = Number(time.slice(9, 12)) || 0;
 
-        return new ZuiTime(hours, minutes, seconds, ms);
+        return new PzmTime(hours, minutes, seconds, ms);
     }
 
     /**
-     * Converts Date object into ZuiTime
+     * Converts Date object into PzmTime
      * @param date
      */
-    public static fromLocalNativeDate(date: Date): ZuiTime {
-        return new ZuiTime(
+    public static fromLocalNativeDate(date: Date): PzmTime {
+        return new PzmTime(
             date.getHours(),
             date.getMinutes(),
             date.getSeconds(),
@@ -126,7 +126,7 @@ export class ZuiTime implements ZuiTimeLike {
     /**
      * Shifts time by hours and minutes
      */
-    public shift({hours = 0, minutes = 0, seconds = 0, ms = 0}: ZuiTimeLike): ZuiTime {
+    public shift({hours = 0, minutes = 0, seconds = 0, ms = 0}: PzmTimeLike): PzmTime {
         const newMs = (1000 + this.ms + (ms % 1000)) % 1000;
 
         const secondsInMs = ms < 0 ? Math.ceil(ms / 1000) : Math.floor(ms / 1000);
@@ -147,13 +147,13 @@ export class ZuiTime implements ZuiTimeLike {
         const hoursToAdd = hoursInMinutes + hours;
         const newHours = (24 + this.hours + (hoursToAdd % 24)) % 24;
 
-        return new ZuiTime(newHours, newMinutes, newSeconds, newMs);
+        return new PzmTime(newHours, newMinutes, newSeconds, newMs);
     }
 
     /**
-     * Converts ZuiTime to string
+     * Converts PzmTime to string
      */
-    public toString(mode?: ZuiTimeMode): string {
+    public toString(mode?: PzmTimeMode): string {
         const needAddMs = mode === `HH:MM:SS.MSS` || (!mode && this.ms > 0);
         const needAddSeconds =
             needAddMs || mode === `HH:MM:SS` || (!mode && this.seconds > 0);
@@ -179,22 +179,22 @@ export class ZuiTime implements ZuiTimeLike {
     }
 
     /**
-     * Converts ZuiTime to milliseconds
+     * Converts PzmTime to milliseconds
      */
     public toAbsoluteMilliseconds(): number {
         return (
-            this.hours * ZUI_MILLISECONDS_IN_HOUR +
-            this.minutes * ZUI_MILLISECONDS_IN_MINUTE +
+            this.hours * PZM_MILLISECONDS_IN_HOUR +
+            this.minutes * PZM_MILLISECONDS_IN_MINUTE +
             this.seconds * 1000 +
             this.ms
         );
     }
 
     private formatTime(time: number, digits: number = 2): string {
-        return zuiPadStart(String(time), digits, `0`);
+        return pzmPadStart(String(time), digits, `0`);
     }
 
-    public isSameTime(time: ZuiTime): boolean {
+    public isSameTime(time: PzmTime): boolean {
       return this.ms === time.ms &&
         this.seconds === time.seconds &&
         this.hours === time.hours &&

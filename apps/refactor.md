@@ -95,19 +95,19 @@
 
 ### @Core
 
-- Избавиться от этого, перейти на AbstractZuiControl
-- Избавиться от ZuiWrappedFormComponent
+- Избавиться от этого, перейти на AbstractPzmControl
+- Избавиться от PzmWrappedFormComponent
 
 ### Radio-button
 
-- перейти на AbstractZuiControl
+- перейти на AbstractPzmControl
 
 ### Button
 
 - Вынести отдельно Split Button
 - Добавить public/private...
 
-### ZuiDroppableDirective
+### PzmDroppableDirective
 
 - убрать?
 

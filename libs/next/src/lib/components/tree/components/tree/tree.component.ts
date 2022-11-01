@@ -10,21 +10,21 @@ import {
 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { distinctUntilChanged, map, startWith, tap } from 'rxjs/operators';
-import { ZuiTreeChildrenDirective } from '../../directives/tree-children.directive';
-import { ZUI_TREE_NODE } from '../../misc/tree.tokens';
-import { ZuiTreeItemComponent } from '../tree-item/tree-item.component';
-import { ZuiHandler } from '../../../../types';
+import { PzmTreeChildrenDirective } from '../../directives/tree-children.directive';
+import { PZM_TREE_NODE } from '../../misc/tree.tokens';
+import { PzmTreeItemComponent } from '../tree-item/tree-item.component';
+import { PzmHandler } from '../../../../types';
 import { PolymorphContent } from '../../../../directives';
 
 @Component({
-    selector: 'zui-tree[value]',
+    selector: 'pzm-tree[value]',
     templateUrl: './tree.component.html',
     styleUrls: ['./tree.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
-            provide: ZUI_TREE_NODE,
-            useExisting: ZuiTreeComponent,
+            provide: PZM_TREE_NODE,
+            useExisting: PzmTreeComponent,
         },
     ],
     // eslint-disable-next-line @angular-eslint/no-host-metadata-property
@@ -32,17 +32,17 @@ import { PolymorphContent } from '../../../../directives';
         role: 'tree',
     },
 })
-export class ZuiTreeComponent<T> implements DoCheck {
+export class PzmTreeComponent<T> implements DoCheck {
     private readonly check$ = new Subject<void>();
 
     @Input()
     value!: T;
 
-    @ViewChild(ZuiTreeItemComponent)
-    readonly item?: ZuiTreeItemComponent;
+    @ViewChild(PzmTreeItemComponent)
+    readonly item?: PzmTreeItemComponent;
 
-    @ViewChild(ZuiTreeComponent)
-    readonly child?: ZuiTreeComponent<T>;
+    @ViewChild(PzmTreeComponent)
+    readonly child?: PzmTreeComponent<T>;
 
     readonly children$ = this.check$.pipe(
         startWith(null),
@@ -55,8 +55,8 @@ export class ZuiTreeComponent<T> implements DoCheck {
 
     constructor(
         @Optional()
-        @Inject(ZuiTreeChildrenDirective)
-        readonly directive: ZuiTreeChildrenDirective<T> | null,
+        @Inject(PzmTreeChildrenDirective)
+        readonly directive: PzmTreeChildrenDirective<T> | null,
     ) {}
 
     @Input()
@@ -68,7 +68,7 @@ export class ZuiTreeComponent<T> implements DoCheck {
         this.child?.ngDoCheck();
     }
 
-    private get handler(): ZuiHandler<T, readonly T[]> {
-        return this.directive?.childrenHandler ?? ZuiTreeChildrenDirective.defaultHandler;
+    private get handler(): PzmHandler<T, readonly T[]> {
+        return this.directive?.childrenHandler ?? PzmTreeChildrenDirective.defaultHandler;
     }
 }

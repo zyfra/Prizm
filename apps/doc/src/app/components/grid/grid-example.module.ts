@@ -4,7 +4,7 @@ import { GridExampleComponent } from './grid-example.component';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { GridExampleBasicComponent } from './examples/grid-example-basic/grid-example-basic.component';
-import { ZuiGridModule } from '@digital-plant/zui-components';
+import { PzmGridModule } from '@digital-plant/zui-components';
 
 @NgModule({
   declarations: [GridExampleComponent, GridExampleBasicComponent],
@@ -12,7 +12,7 @@ import { ZuiGridModule } from '@digital-plant/zui-components';
     CommonModule,
     TuiAddonDocModule,
     RouterModule.forChild(generateRoutes(GridExampleComponent)),
-    ZuiGridModule,
+    PzmGridModule,
   ],
 })
 export class GridExampleModule {}

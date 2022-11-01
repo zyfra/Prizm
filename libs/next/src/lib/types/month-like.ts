@@ -1,8 +1,8 @@
-import { ZuiYearLike } from './year-like';
+import { PzmYearLike } from './year-like';
 
 /**
  * Optionaly has year and/or month
  */
-export interface ZuiMonthLike extends ZuiYearLike {
+export interface PzmMonthLike extends PzmYearLike {
     readonly month?: number;
 }

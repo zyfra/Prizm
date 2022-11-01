@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
-import { ZuiMultiSelectComponent } from './multi-select.component';
+import { PzmMultiSelectComponent } from './multi-select.component';
 import { PzmOverlayModule } from '../../../modules/overlay';
-import { PolymorphModule, ZuiAutoFocusModule } from '../../../directives';
+import { PolymorphModule, PzmAutoFocusModule } from '../../../directives';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ZuiDataListModule } from '../../data-list';
-import { ZuiDropdownHostModule } from '../dropdown-host';
+import { PzmDataListModule } from '../../data-list';
+import { PzmDropdownHostModule } from '../dropdown-host';
 import { PzmScrollbarModule } from '../../scrollbar';
-import { ZuiDropdownControllerModule } from '../../../directives/dropdown-controller';
+import { PzmDropdownControllerModule } from '../../../directives/dropdown-controller';
 import { PzmChipsModule } from '../../chips';
 import { PzmInputTextModule } from '../../input/input-text/input-text.module';
 import { PzmCallFuncModule, PzmLetModule } from '@digital-plant/zyfra-helpers';
 import { PzmHintModule } from '../../../directives/hint';
 import { PzmIconModule } from '../../icon';
-import { ZuiCheckboxModule } from '../../checkbox';
+import { PzmCheckboxModule } from '../../checkbox';
 
 @NgModule({
     imports: [
@@ -28,14 +28,14 @@ import { ZuiCheckboxModule } from '../../checkbox';
       PzmHintModule,
       PzmIconModule,
       PzmCallFuncModule,
-      ZuiAutoFocusModule,
+      PzmAutoFocusModule,
       PzmScrollbarModule,
-      ZuiDropdownControllerModule,
-      ZuiDataListModule,
-      ZuiCheckboxModule,
-      ZuiDropdownHostModule
+      PzmDropdownControllerModule,
+      PzmDataListModule,
+      PzmCheckboxModule,
+      PzmDropdownHostModule
     ],
-    declarations: [ZuiMultiSelectComponent],
-    exports: [ZuiMultiSelectComponent],
+    declarations: [PzmMultiSelectComponent],
+    exports: [PzmMultiSelectComponent],
 })
-export class ZuiMultiSelectModule {}
+export class PzmMultiSelectModule {}

@@ -9,22 +9,22 @@ import {
 } from '@angular/core';
 import { FilterOperator, SelectItem } from 'primeng/api';
 import { Table } from 'primeng/table';
-import { ZuiTableComponent } from '../zui-table.component';
+import { PzmTableComponent } from '../pzm-table.component';
 import { BaseTableTemplateDirective } from '../base-table/directives/base-table-template.directive';
 
 @Component({
-  selector: 'zui-table-column-filter',
+  selector: 'pzm-table-column-filter',
   templateUrl: './table-column-filter.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: Table,
-      useFactory: (zuiTable: ZuiTableComponent): Table => zuiTable.table,
-      deps: [ZuiTableComponent],
+      useFactory: (pzmTable: PzmTableComponent): Table => pzmTable.table,
+      deps: [PzmTableComponent],
     },
   ],
 })
-export class ZuiTableColumnFilterComponent implements AfterContentInit {
+export class PzmTableColumnFilterComponent implements AfterContentInit {
   @ContentChildren(BaseTableTemplateDirective) templates: QueryList<BaseTableTemplateDirective>;
 
   headerTemplate: TemplateRef<any>;

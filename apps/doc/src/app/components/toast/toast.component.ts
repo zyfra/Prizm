@@ -10,7 +10,7 @@ import {
 } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-example-example',
+  selector: 'pzm-example-example',
   templateUrl: './toast.component.html',
   styleUrls: ['./toast.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

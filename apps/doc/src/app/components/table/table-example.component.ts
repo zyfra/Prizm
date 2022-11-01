@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { ITableProduct } from './examples/table-basic-example/table-basic-example.component';
-import { ZuiSizeL, ZuiSizeM, ZuiSizeS, ZuiSizeXS } from '@digital-plant/zui-components';
+import { PzmSizeL, PzmSizeM, PzmSizeS, PzmSizeXS } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-table-example',
+  selector: 'pzm-table-example',
   templateUrl: './table-example.component.html',
   styleUrls: ['./table-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -49,8 +49,8 @@ export class TableExampleComponent {
     },
   ];
 
-  public size: ZuiSizeL | ZuiSizeM | ZuiSizeXS | ZuiSizeS = 'l';
-  public sizeVariants: (ZuiSizeL | ZuiSizeM | ZuiSizeXS | ZuiSizeS)[] = ['xs', 'l', 'm', 's'];
+  public size: PzmSizeL | PzmSizeM | PzmSizeXS | PzmSizeS = 'l';
+  public sizeVariants: (PzmSizeL | PzmSizeM | PzmSizeXS | PzmSizeS)[] = ['xs', 'l', 'm', 's'];
   public scrollable = false;
   public scrollHeight = null;
   public scrollHeightVariants: string[] = [null, '160px', '200px', '300px', '500px'];

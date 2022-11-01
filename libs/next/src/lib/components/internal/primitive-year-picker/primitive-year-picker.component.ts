@@ -13,12 +13,12 @@ const LIMIT = 100;
 const ITEMS_IN_ROW = 3;
 
 @Component({
-    selector: `zui-primitive-year-picker`,
+    selector: `pzm-primitive-year-picker`,
     templateUrl: `./primitive-year-picker.component.html`,
     styleUrls: [`./primitive-year-picker.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiPrimitiveYearPickerComponent {
+export class PzmPrimitiveYearPickerComponent {
     private hoveredItem: number | null = null;
     private pressedItem: number | null = null;
     private readonly currentYear = PzmMonth.currentLocal().year;
@@ -137,7 +137,7 @@ export class ZuiPrimitiveYearPickerComponent {
             return PzmRangeState.Single;
 
             // TODO add after add support intervals
-            // return ZuiRangeState.Start;
+            // return PzmRangeState.Start;
         }
 
         if (
@@ -154,7 +154,7 @@ export class ZuiPrimitiveYearPickerComponent {
           return PzmRangeState.Single;
 
           // TODO add after add support intervals
-          // return ZuiRangeState.End;
+          // return PzmRangeState.End;
         }
 
         return value.from.yearSame(value.to) && value.from.year === item

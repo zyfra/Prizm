@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { PolymorphComponent, PzmOverlayOutsidePlacement } from '@digital-plant/zui-components';
-import { ZuiTooltipSomeComponent } from './some.component';
+import { PzmTooltipSomeComponent } from './some.component';
 
 @Component({
-  selector: 'zui-tooltip-with-component-example',
+  selector: 'pzm-tooltip-with-component-example',
   templateUrl: './tooltip-with-component-example.component.html',
   styles: [`
     .box {
@@ -12,7 +12,7 @@ import { ZuiTooltipSomeComponent } from './some.component';
     }
   `]
 })
-export class ZuiTooltipWithComponentExampleComponent {
-  readonly component = new PolymorphComponent(ZuiTooltipSomeComponent);
+export class PzmTooltipWithComponentExampleComponent {
+  readonly component = new PolymorphComponent(PzmTooltipSomeComponent);
   readonly direction = PzmOverlayOutsidePlacement.TOP_RIGHT;
 }

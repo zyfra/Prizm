@@ -15,8 +15,8 @@ import {
   HierarchicalMenuViewType,
 } from '../../../zyfra-hierarchical-menu.interface';
 import {
-  ZUI_HIERARCHICAL_MENU_OPTIONS_TOKEN,
-  ZuiHierarchicalMenuOptions,
+  PZM_HIERARCHICAL_MENU_OPTIONS_TOKEN,
+  PzmHierarchicalMenuOptions,
 } from '../../hierarhical-menu-options';
 
 @Component({
@@ -48,6 +48,6 @@ export class ZyfraHierarchicalMenuItemComponent {
 
   constructor(
     public elementRef: ElementRef,
-    @Inject(ZUI_HIERARCHICAL_MENU_OPTIONS_TOKEN) public options: ZuiHierarchicalMenuOptions
+    @Inject(PZM_HIERARCHICAL_MENU_OPTIONS_TOKEN) public options: PzmHierarchicalMenuOptions
   ) {}
 }

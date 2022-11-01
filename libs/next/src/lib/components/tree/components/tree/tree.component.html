@@ -1,16 +1,16 @@
-<zui-tree-item
-    *zuiLet="children$ | async as children"
+<pzm-tree-item
+    *pzmLet="children$ | async as children"
     #view
-    [zuiTreeNode]="value"
+    [pzmTreeNode]="value"
 >
   <ng-container *ngIf="$any(value) !== children">
     <div
       *polymorphOutlet="content as val; context: {$implicit: value, node: view}"
     >{{val}}</div>
   </ng-container>
-  <zui-tree
+  <pzm-tree
       *ngFor="let child of children"
       [value]="child"
       [content]="content"
-  ></zui-tree>
-</zui-tree-item>
+  ></pzm-tree>
+</pzm-tree-item>

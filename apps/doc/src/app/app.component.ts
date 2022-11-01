@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import { LOCAL_STORAGE } from '@ng-web-apis/common';
 import { TuiBrightness } from '@taiga-ui/core';
 @Component({
-  selector: 'zui-doc-root',
+  selector: 'pzm-doc-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less'],
 })

@@ -15,7 +15,7 @@ import {
 import { Subscription } from 'rxjs';
 import { PzmInputControl } from '../base/input-control.class';
 import { PzmInputStatusTextDirective } from '../input-status-text/input-status-text.directive';
-import { PzmInputPosition, PzmInputSize, PzmInputStatus } from '../models/zui-input.models';
+import { PzmInputPosition, PzmInputSize, PzmInputStatus } from '../models/pzm-input.models';
 import { debounceTime } from 'rxjs/operators';
 import { PolymorphContent } from '../../../../directives/polymorph';
 

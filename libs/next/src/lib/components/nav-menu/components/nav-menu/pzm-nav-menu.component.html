@@ -3,20 +3,20 @@
     <div class="app-name">{{ menuTitle }}</div>
     <div class="right-side">
       <ng-container *ngTemplateOutlet="headerExtraTemplate"></ng-container>
-      <zui-icon
+      <pzm-icon
         *ngIf="headerConfiguration?.settings"
         class="header__btn"
         [size]="16"
         iconClass="settings"
         (click)="copyConfig()"
-      ></zui-icon>
-      <zui-icon
+      ></pzm-icon>
+      <pzm-icon
         *ngIf="headerConfiguration?.home"
         class="header__btn"
         [size]="16"
         iconClass="social-home"
         (click)="homeClick.emit()"
-      ></zui-icon>
+      ></pzm-icon>
     </div>
   </div>
 

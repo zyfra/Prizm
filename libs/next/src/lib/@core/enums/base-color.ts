@@ -1,7 +1,7 @@
 /**
  * @deprecated
  */
-export const enum ZuiBaseColor {
+export const enum PzmBaseColor {
     Primary = `primary`,
     Secondary = `secondary`,
     Success = `success`,

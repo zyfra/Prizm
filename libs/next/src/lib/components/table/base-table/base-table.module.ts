@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BaseTableTemplateDirective } from './directives/base-table-template.directive';
-import { ZuiRowBaseDirective } from './directives/zui-row-base.directive';
-import { ZuiBaseTableComponent } from './zui-base-table.directive';
+import { PzmRowBaseDirective } from './directives/pzm-row-base.directive';
+import { PzmBaseTableComponent } from './pzm-base-table.directive';
 
 @NgModule({
-  declarations: [BaseTableTemplateDirective, ZuiRowBaseDirective, ZuiBaseTableComponent],
-  exports: [BaseTableTemplateDirective, ZuiRowBaseDirective, ZuiBaseTableComponent],
+  declarations: [BaseTableTemplateDirective, PzmRowBaseDirective, PzmBaseTableComponent],
+  exports: [BaseTableTemplateDirective, PzmRowBaseDirective, PzmBaseTableComponent],
 })
-export class ZuiTableSharedModule {}
+export class PzmTableSharedModule {}

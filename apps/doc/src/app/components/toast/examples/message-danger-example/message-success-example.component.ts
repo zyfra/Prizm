@@ -3,7 +3,7 @@ import {PzmToastService, PzmToastAppearance, PzmToastPosition} from "@digital-pl
 import {FormControl} from "@angular/forms";
 
 @Component({
-  selector: 'zui-message-danger-example',
+  selector: 'pzm-message-danger-example',
   templateUrl: './message-success-example.component.html',
   styles: [`
     .box{
@@ -39,7 +39,7 @@ import {FormControl} from "@angular/forms";
     }
   `]
 })
-export class ZuiToastDangerExampleComponent {
+export class PzmToastDangerExampleComponent {
 
   readonly data = [
     {

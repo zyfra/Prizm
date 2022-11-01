@@ -11,6 +11,6 @@ import { PzmDay, PzmDayRange } from '@digital-plant/zui-components';
     }
   `]
 })
-export class ZuiCalendarRangeBaseExampleComponent {
+export class PzmCalendarRangeBaseExampleComponent {
   public value = new PzmDayRange(new PzmDay(2022, 1, 7), new PzmDay(2022, 1, 14));
 }

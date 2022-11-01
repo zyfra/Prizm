@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { pzmDefaultProp } from '../../../decorators';
-import { zuiIsString } from '../../../util/common/is-string';
+import { pzmIsString } from '../../../util/common/is-string';
 
 @Component({
     selector: `pzm-progress-segmented`,
@@ -29,10 +29,10 @@ export class PzmProgressSegmentedComponent {
 
     @Input()
     @pzmDefaultProp()
-    colors: string | readonly string[] = `var(--zui-primary)`;
+    colors: string | readonly string[] = `var(--pzm-primary)`;
 
     public getActiveColor(index: number = 0): string | null {
-        return zuiIsString(this.colors)
+        return pzmIsString(this.colors)
             ? this.colors
             : this.colors[index] || this.colors[this.colors.length - 1];
     }

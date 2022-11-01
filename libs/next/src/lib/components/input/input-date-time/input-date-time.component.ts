@@ -15,49 +15,49 @@ import {
 import { NgControl } from '@angular/forms';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map, pluck } from 'rxjs/operators';
-import { ZUI_DATE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
-import { ZUI_DATE_FORMAT } from '../../../@core/date-time/date-format';
-import { ZUI_DATE_SEPARATOR, zuiChangeDateSeparator } from '../../../@core/date-time/date-separator';
+import { PZM_DATE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
+import { PZM_DATE_FORMAT } from '../../../@core/date-time/date-format';
+import { PZM_DATE_SEPARATOR, pzmChangeDateSeparator } from '../../../@core/date-time/date-separator';
 import { PzmDay } from '../../../@core/date-time/day';
 import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../../@core/date-time/days.const';
 import { PzmMonth } from '../../../@core/date-time/month';
-import { ZuiTime } from '../../../@core/date-time/time';
-import { AbstractZuiControl } from '../../../abstract/control';
+import { PzmTime } from '../../../@core/date-time/time';
+import { AbstractPzmControl } from '../../../abstract/control';
 import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
-import { ZUI_DATE_TIME_SEPARATOR, ZUI_DATE_TIME_SEPARATOR_NGX } from '../../../constants/date-time-separator';
+import { PZM_DATE_TIME_SEPARATOR, PZM_DATE_TIME_SEPARATOR_NGX } from '../../../constants/date-time-separator';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { ZUI_DATE_TIME_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
-import { ZUI_DATE_TEXTS, ZUI_TIME_TEXTS } from '../../../tokens/i18n';
+import { PZM_DATE_TIME_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
+import { PZM_DATE_TEXTS, PZM_TIME_TEXTS } from '../../../tokens/i18n';
 import { PzmContextWithImplicit } from '../../../types/context-with-implicit';
-import { ZuiControlValueTransformer } from '../../../types/control-value-transformer';
-import { ZuiDateMode } from '../../../types/date-mode';
+import { PzmControlValueTransformer } from '../../../types/control-value-transformer';
+import { PzmDateMode } from '../../../types/date-mode';
 import { PzmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
 import { PzmBooleanHandler } from '../../../types/handler';
-import { ZuiTimeMode } from '../../../types/time-mode';
+import { PzmTimeMode } from '../../../types/time-mode';
 import { PzmWithOptionalMinMax } from '../../../types/with-optional-min-max';
-import { ZUI_INPUT_DATE_TIME_PROVIDERS } from './input-date-time.providers';
+import { PZM_INPUT_DATE_TIME_PROVIDERS } from './input-date-time.providers';
 import { pzmNullableSame } from '../../../util/common/nullable-same';
 import { pzmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
 import { pzmPure } from '../../../decorators/pure';
-import { zuiCreateDateNgxMask } from '../../../@core/mask/create-date-mask';
-import { zuiCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
+import { pzmCreateDateNgxMask } from '../../../@core/mask/create-date-mask';
+import { pzmCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
 import { pzmClamp } from '../../../util/math/clamp';
-import { PzmInputSize } from '../common/models/zui-input.models';
-import { ZUI_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
-import { ZuiDateButton } from '../../../types/date-button';
-import { ZUI_STRICT_MATCHER } from '../../../constants';
+import { PzmInputSize } from '../common/models/pzm-input.models';
+import { PZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
+import { PzmDateButton } from '../../../types/date-button';
+import { PZM_STRICT_MATCHER } from '../../../constants';
 
 @Component({
-    selector: `zui-input-date-time`,
+    selector: `pzm-input-date-time`,
     templateUrl: `./input-date-time.component.html`,
     styleUrls: [`./input-date-time.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: ZUI_INPUT_DATE_TIME_PROVIDERS,
+    providers: PZM_INPUT_DATE_TIME_PROVIDERS,
 })
-export class ZuiInputDateTimeComponent
-    extends AbstractZuiControl<[PzmDay | null, ZuiTime | null]>
+export class PzmInputDateTimeComponent
+    extends AbstractPzmControl<[PzmDay | null, PzmTime | null]>
     implements
-        PzmWithOptionalMinMax<PzmDay | [PzmDay, ZuiTime]>,
+        PzmWithOptionalMinMax<PzmDay | [PzmDay, PzmTime]>,
         PzmFocusableElementAccessor
 {
     private month: PzmMonth | null = null;
@@ -67,8 +67,8 @@ export class ZuiInputDateTimeComponent
 
     @Input()
     @pzmDefaultProp()
-    timeItems: readonly ZuiTime[] = new Array(24).fill(null).map(
-      (_, i) => new ZuiTime(i, 0, 0, 0)
+    timeItems: readonly PzmTime[] = new Array(24).fill(null).map(
+      (_, i) => new PzmTime(i, 0, 0, 0)
     );
 
     @Input()
@@ -93,11 +93,11 @@ export class ZuiInputDateTimeComponent
 
     @Input()
     @pzmDefaultProp()
-    min: PzmDay | [PzmDay, ZuiTime] = PZM_FIRST_DAY;
+    min: PzmDay | [PzmDay, PzmTime] = PZM_FIRST_DAY;
 
     @Input()
     @pzmDefaultProp()
-    max: PzmDay | [PzmDay, ZuiTime] = PZM_LAST_DAY;
+    max: PzmDay | [PzmDay, PzmTime] = PZM_LAST_DAY;
 
     @Input()
     @pzmDefaultProp()
@@ -113,7 +113,7 @@ export class ZuiInputDateTimeComponent
 
     @Input()
     @pzmDefaultProp()
-    timeMode: ZuiTimeMode = `HH:MM`;
+    timeMode: PzmTimeMode = `HH:MM`;
 
     @HostBinding('attr.testId')
     readonly testId = 'pzm_input_date_time';
@@ -124,7 +124,7 @@ export class ZuiInputDateTimeComponent
 
     readonly type!: PzmContextWithImplicit<unknown>;
 
-    get filteredTime(): readonly ZuiTime[] {
+    get filteredTime(): readonly PzmTime[] {
       return this.filterTime(this.timeItems, this.timeMode, this.computedSearchTime);
     }
 
@@ -135,14 +135,14 @@ export class ZuiInputDateTimeComponent
     readonly filler$: Observable<string> = combineLatest([
         this.dateTexts$.pipe(
             map(dateTexts =>
-                zuiChangeDateSeparator(dateTexts[this.dateFormat], this.dateSeparator),
+                pzmChangeDateSeparator(dateTexts[this.dateFormat], this.dateSeparator),
             ),
         ),
         this.timeTexts$.pipe(pluck(this.timeMode)),
     ]).pipe(map(fillers => this.getDateTimeString(...fillers)));
 
 
-    public rightButtons$: BehaviorSubject<ZuiDateButton[]>;
+    public rightButtons$: BehaviorSubject<PzmDateButton[]>;
 
     constructor(
         @Optional()
@@ -150,17 +150,17 @@ export class ZuiInputDateTimeComponent
         @Inject(NgControl)
         control: NgControl | null,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
-        @Inject(ZUI_DATE_FORMAT) readonly dateFormat: ZuiDateMode,
-        @Inject(ZUI_DATE_SEPARATOR) readonly dateSeparator: string,
-        @Inject(ZUI_TIME_TEXTS)
-        readonly timeTexts$: Observable<Record<ZuiTimeMode, string>>,
+        @Inject(PZM_DATE_FORMAT) readonly dateFormat: PzmDateMode,
+        @Inject(PZM_DATE_SEPARATOR) readonly dateSeparator: string,
+        @Inject(PZM_TIME_TEXTS)
+        readonly timeTexts$: Observable<Record<PzmTimeMode, string>>,
         private readonly injector: Injector,
-        @Inject(ZUI_DATE_TEXTS)
-        readonly dateTexts$: Observable<Record<ZuiDateMode, string>>,
+        @Inject(PZM_DATE_TEXTS)
+        readonly dateTexts$: Observable<Record<PzmDateMode, string>>,
         @Optional()
-        @Inject(ZUI_DATE_TIME_VALUE_TRANSFORMER)
-        override readonly valueTransformer: ZuiControlValueTransformer<
-            [PzmDay | null, ZuiTime | null]
+        @Inject(PZM_DATE_TIME_VALUE_TRANSFORMER)
+        override readonly valueTransformer: PzmControlValueTransformer<
+            [PzmDay | null, PzmTime | null]
         > | null,
     ) {
         super(control, changeDetectorRef, valueTransformer);
@@ -168,17 +168,17 @@ export class ZuiInputDateTimeComponent
 
     @pzmPure
     private filterTime(
-      items: readonly ZuiTime[],
-      mode: ZuiTimeMode,
+      items: readonly PzmTime[],
+      mode: PzmTimeMode,
       search: string,
-    ): readonly ZuiTime[] {
+    ): readonly PzmTime[] {
       return items.filter(item => item.toString(mode).includes(search));
     }
 
 
     public override ngOnInit(): void {
       super.ngOnInit();
-      this.rightButtons$ = this.extraButtonInjector.get(ZUI_DATE_RIGHT_BUTTONS);
+      this.rightButtons$ = this.extraButtonInjector.get(PZM_DATE_RIGHT_BUTTONS);
     }
 
     public get nativeFocusableElement(): HTMLInputElement | null {
@@ -190,7 +190,7 @@ export class ZuiInputDateTimeComponent
     }
 
     get fillerLength(): number {
-        return ZUI_DATE_FILLER_LENGTH + ZUI_DATE_TIME_SEPARATOR.length + this.timeMode.length;
+        return PZM_DATE_FILLER_LENGTH + PZM_DATE_TIME_SEPARATOR.length + this.timeMode.length;
     }
 
     get textMaskOptions(): string {
@@ -211,7 +211,7 @@ export class ZuiInputDateTimeComponent
     get computedValue(): string {
         const {value, nativeValue, timeMode} = this;
         const [date, time] = value;
-        const hasTimeInputChars = nativeValue.length > ZUI_DATE_FILLER_LENGTH;
+        const hasTimeInputChars = nativeValue.length > PZM_DATE_FILLER_LENGTH;
 
         if (!date || (!time && hasTimeInputChars)) {
             return nativeValue;
@@ -259,12 +259,12 @@ export class ZuiInputDateTimeComponent
             return;
         }
 
-        const [date, time] = value.split(ZUI_DATE_TIME_SEPARATOR_NGX);
+        const [date, time] = value.split(PZM_DATE_TIME_SEPARATOR_NGX);
 
         const parsedDate = PzmDay.normalizeParse(date, this.dateFormat);
         const parsedTime =
             time && time.length === this.timeMode.length
-                ? this.zuiClampTime(ZuiTime.fromString(time), parsedDate)
+                ? this.pzmClampTime(PzmTime.fromString(time), parsedDate)
                 : null;
 
         const match = parsedTime && this.getMatch(time);
@@ -273,8 +273,8 @@ export class ZuiInputDateTimeComponent
         this.open = false;
     }
 
-    public onDayClick(day: PzmDay, time?: ZuiTime): void {
-        const modifiedTime = time ?? (this.value[1] && this.zuiClampTime(this.value[1], day));
+    public onDayClick(day: PzmDay, time?: PzmTime): void {
+        const modifiedTime = time ?? (this.value[1] && this.pzmClampTime(this.value[1], day));
 
         this.updateValue([day, modifiedTime]);
         this.updateNativeValue(day);
@@ -300,19 +300,19 @@ export class ZuiInputDateTimeComponent
             focused ||
             this.value[0] === null ||
             this.value[1] !== null ||
-            this.nativeValue.length <= this.fillerLength + ZUI_DATE_TIME_SEPARATOR.length ||
+            this.nativeValue.length <= this.fillerLength + PZM_DATE_TIME_SEPARATOR.length ||
             this.timeMode === `HH:MM`
         ) {
             return;
         }
 
-        const [, time] = this.nativeValue.split(ZUI_DATE_TIME_SEPARATOR);
+        const [, time] = this.nativeValue.split(PZM_DATE_TIME_SEPARATOR);
 
         if (!time) {
             return;
         }
 
-        const parsedTime = ZuiTime.fromString(time);
+        const parsedTime = PzmTime.fromString(time);
 
         this.updateValue([this.value[0], parsedTime]);
 
@@ -328,19 +328,19 @@ export class ZuiInputDateTimeComponent
         this.open = false;
     }
 
-    public override writeValue(value: [PzmDay | null, ZuiTime | null] | null): void {
+    public override writeValue(value: [PzmDay | null, PzmTime | null] | null): void {
         super.writeValue(value);
 
         this.nativeValue = value && (value[0] || value[1]) ? this.computedValue : ``;
     }
 
-    protected getFallbackValue(): [PzmDay | null, ZuiTime | null] {
+    protected getFallbackValue(): [PzmDay | null, PzmTime | null] {
         return [null, null];
     }
 
     protected override valueIdenticalComparator(
-        oldValue: [PzmDay | null, ZuiTime | null],
-        newValue: [PzmDay | null, ZuiTime | null],
+        oldValue: [PzmDay | null, PzmTime | null],
+        newValue: [PzmDay | null, PzmTime | null],
     ): boolean {
         return (
             pzmNullableSame(oldValue[0], newValue[0], (a, b) => a.daySame(b)) &&
@@ -353,35 +353,35 @@ export class ZuiInputDateTimeComponent
         day: PzmDay | null,
         min: PzmDay,
         max: PzmDay,
-        timeMode: ZuiTimeMode,
-        dateFormat: ZuiDateMode,
+        timeMode: PzmTimeMode,
+        dateFormat: PzmDateMode,
         dateSeparator: string,
     ): string {
-        return `${zuiCreateDateNgxMask(dateFormat, dateSeparator)} ${zuiCreateTimeNgxMask(timeMode)}`
+        return `${pzmCreateDateNgxMask(dateFormat, dateSeparator)} ${pzmCreateTimeNgxMask(timeMode)}`
     }
 
     @pzmPure
     private getDateTimeString(
         date: PzmDay | string,
-        time: ZuiTime | string | null,
-        timeMode: ZuiTimeMode = `HH:MM`,
+        time: PzmTime | string | null,
+        timeMode: PzmTimeMode = `HH:MM`,
     ): string {
         const dateString =
             date instanceof PzmDay
                 ? date.toString(this.dateFormat, this.dateSeparator)
                 : date;
-        const timeString = time instanceof ZuiTime ? time.toString(timeMode) : time || ``;
+        const timeString = time instanceof PzmTime ? time.toString(timeMode) : time || ``;
 
-        return `${dateString}${ZUI_DATE_TIME_SEPARATOR}${timeString}`;
+        return `${dateString}${PZM_DATE_TIME_SEPARATOR}${timeString}`;
     }
 
     private updateNativeValue(day: PzmDay): void {
-        const time = this.nativeValue.split(ZUI_DATE_TIME_SEPARATOR)[1] || ``;
+        const time = this.nativeValue.split(PZM_DATE_TIME_SEPARATOR)[1] || ``;
 
         this.nativeValue = this.getDateTimeString(day, time);
     }
 
-    private findNearestTimeFromItems(value: ZuiTime): ZuiTime | null {
+    private findNearestTimeFromItems(value: PzmTime): PzmTime | null {
       return this.timeItems.reduce((previous, current) =>
         Math.abs(current.toAbsoluteMilliseconds() - value.toAbsoluteMilliseconds()) <
         Math.abs(previous.toAbsoluteMilliseconds() - value.toAbsoluteMilliseconds())
@@ -390,11 +390,11 @@ export class ZuiInputDateTimeComponent
       );
     }
 
-    private getMatch(value: string): ZuiTime | undefined {
-      return this.timeItems.find(item => ZUI_STRICT_MATCHER(item, value));
+    private getMatch(value: string): PzmTime | undefined {
+      return this.timeItems.find(item => PZM_STRICT_MATCHER(item, value));
     }
 
-    public onTimeMenuClick(item: ZuiTime, ev: Event): void {
+    public onTimeMenuClick(item: PzmTime, ev: Event): void {
       ev.preventDefault();
       ev.stopPropagation();
 
@@ -409,7 +409,7 @@ export class ZuiInputDateTimeComponent
       );
     }
 
-    private zuiClampTime(time: ZuiTime, day: PzmDay): ZuiTime {
+    private pzmClampTime(time: PzmTime, day: PzmDay): PzmTime {
         const ms = time.toAbsoluteMilliseconds();
         const min =
             Array.isArray(this.min) && day.daySame(this.calendarMinDay)
@@ -420,7 +420,7 @@ export class ZuiInputDateTimeComponent
                 ? this.max[1].toAbsoluteMilliseconds()
                 : Infinity;
 
-        return ZuiTime.fromAbsoluteMilliseconds(pzmClamp(ms, min, max));
+        return PzmTime.fromAbsoluteMilliseconds(pzmClamp(ms, min, max));
     }
 
     public openTimeDropdown(): void {

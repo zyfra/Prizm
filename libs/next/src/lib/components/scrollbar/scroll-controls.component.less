@@ -53,14 +53,14 @@
     border: var(--pzm-scrollbar-thumb-border, 4px solid transparent);
     cursor: pointer;
     pointer-events: auto;
-    background: var(--pzm-scrollbar-thumb-color, var(--zui-grey-g10-g4, #bfc6d7));
+    background: var(--pzm-scrollbar-thumb-color, var(--pzm-grey-g10-g4, #bfc6d7));
     background-clip: content-box;
     opacity: var(--pzm-scrollbar-thumb-opacity, @scroll-opacity);
     box-sizing: border-box;
     transition-property: width, height;
 
-    &[data-zui-theme="dark"] {
-      background-color: var(--pzm-scrollbar-thumb-color, var(--zui-grey-g8-g6));
+    &[data-pzm-theme="dark"] {
+      background-color: var(--pzm-scrollbar-thumb-color, var(--pzm-grey-g8-g6));
     }
 
     &:hover {

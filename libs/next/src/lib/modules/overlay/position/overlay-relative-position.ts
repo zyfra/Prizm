@@ -2,7 +2,7 @@ import {PzmOverlayOutsidePlacement, PzmOverlayPositionMeta} from '../models';
 import {EventBus, setWidthHeight} from '../utils';
 import {PzmOverlayAbstractPosition} from './position';
 
-export interface ZuiOverlayRelativePositionConfig {
+export interface PzmOverlayRelativePositionConfig {
   element: HTMLElement;
   placement?: PzmOverlayOutsidePlacement;
   // re-calculate position on scroll, resize
@@ -11,9 +11,9 @@ export interface ZuiOverlayRelativePositionConfig {
   height?: string | number;
 }
 
-export class ZuiOverlayRelativePosition extends PzmOverlayAbstractPosition<ZuiOverlayRelativePositionConfig> {
+export class PzmOverlayRelativePosition extends PzmOverlayAbstractPosition<PzmOverlayRelativePositionConfig> {
   obs: MutationObserver;
-  constructor(config: ZuiOverlayRelativePositionConfig) {
+  constructor(config: PzmOverlayRelativePositionConfig) {
     super();
     this.updateConfig({
       ...{

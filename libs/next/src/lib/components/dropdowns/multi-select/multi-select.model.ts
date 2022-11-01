@@ -1,12 +1,12 @@
-export type ZuiMultiSelectSearchMatcher<T> = (searchValue: string, item: T) => boolean;
-export type ZuiMultiSelectIdentityMatcher<T> = (item1: T, item2: T) => boolean;
+export type PzmMultiSelectSearchMatcher<T> = (searchValue: string, item: T) => boolean;
+export type PzmMultiSelectIdentityMatcher<T> = (item1: T, item2: T) => boolean;
 
-export type ZuiMultiSelectItemWithChecked<T> = {
+export type PzmMultiSelectItemWithChecked<T> = {
   checked: boolean,
   indeterminate?: boolean,
   obj: T,
   stringify: string
 }
 
-export type ZuiMultiSelectItemStringifyFunc<T> = (i: ZuiMultiSelectItemStringifyItem<T>, nullContent?: string) => string
-export type ZuiMultiSelectItemStringifyItem<T> = Omit<ZuiMultiSelectItemWithChecked<T>, 'stringify'>
+export type PzmMultiSelectItemStringifyFunc<T> = (i: PzmMultiSelectItemStringifyItem<T>, nullContent?: string) => string
+export type PzmMultiSelectItemStringifyItem<T> = Omit<PzmMultiSelectItemWithChecked<T>, 'stringify'>

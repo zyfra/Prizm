@@ -4,11 +4,11 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { ScrollbarComponent } from './scrollbar.component';
 import { PzmScrollbarModule } from '@digital-plant/zui-components';
-import { ZuiScrollbarBaseExampleComponent } from './examples/base/scrollbar-base-example.component';
-import { ZuiScrollbarHorizontalExampleComponent } from './examples/horizontal/scrollbar-horizontal-example.component';
-import { ZuiScrollbarHiddenExampleComponent } from './examples/hidden/scrollbar-hidden-example.component';
-import { ZuiScrollbarVisibleExampleComponent } from './examples/visible/scrollbar-visible-example.component';
-import { ZuiScrollbarAllExampleComponent } from './examples/all/scrollbar-all-example.component';
+import { PzmScrollbarBaseExampleComponent } from './examples/base/scrollbar-base-example.component';
+import { PzmScrollbarHorizontalExampleComponent } from './examples/horizontal/scrollbar-horizontal-example.component';
+import { PzmScrollbarHiddenExampleComponent } from './examples/hidden/scrollbar-hidden-example.component';
+import { PzmScrollbarVisibleExampleComponent } from './examples/visible/scrollbar-visible-example.component';
+import { PzmScrollbarAllExampleComponent } from './examples/all/scrollbar-all-example.component';
 
 @NgModule({
   imports: [
@@ -18,11 +18,11 @@ import { ZuiScrollbarAllExampleComponent } from './examples/all/scrollbar-all-ex
     RouterModule.forChild(generateRoutes(ScrollbarComponent)),
   ],
   declarations: [
-    ZuiScrollbarBaseExampleComponent,
-    ZuiScrollbarHorizontalExampleComponent,
-    ZuiScrollbarHiddenExampleComponent,
-    ZuiScrollbarVisibleExampleComponent,
-    ZuiScrollbarAllExampleComponent,
+    PzmScrollbarBaseExampleComponent,
+    PzmScrollbarHorizontalExampleComponent,
+    PzmScrollbarHiddenExampleComponent,
+    PzmScrollbarVisibleExampleComponent,
+    PzmScrollbarAllExampleComponent,
     ScrollbarComponent
   ],
   exports: [ScrollbarComponent],

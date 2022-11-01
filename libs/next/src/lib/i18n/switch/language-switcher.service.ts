@@ -6,7 +6,7 @@ import { PZM_LANGUAGE_STORAGE_KEY } from '../tokens';
 import { PZM_LANGUAGE_LOADER } from '../tokens/language-loader';
 import { PZM_DEFAULT_LANGUAGE } from '../tools';
 
-import { zuiAsyncLoadLanguage } from './utils';
+import { pzmAsyncLoadLanguage } from './utils';
 
 @Injectable({providedIn: `root`})
 export class PzmLanguageSwitcher extends BehaviorSubject<Observable<PzmLanguage>> {
@@ -21,7 +21,7 @@ export class PzmLanguageSwitcher extends BehaviorSubject<Observable<PzmLanguage>
         @Inject(PZM_LANGUAGE_LOADER)
         private readonly loader: PzmLanguageLoader | null,
     ) {
-        super(zuiAsyncLoadLanguage(storage.getItem(key), loader, fallback));
+        super(pzmAsyncLoadLanguage(storage.getItem(key), loader, fallback));
     }
 
     public get language(): PzmLanguageName {
@@ -31,7 +31,7 @@ export class PzmLanguageSwitcher extends BehaviorSubject<Observable<PzmLanguage>
     public setLanguage(language: PzmLanguageName): void {
         this.storage.setItem(this.key, language);
 
-        this.next(zuiAsyncLoadLanguage(language, this.loader, this.fallback));
+        this.next(pzmAsyncLoadLanguage(language, this.loader, this.fallback));
     }
 
     public clear(): void {

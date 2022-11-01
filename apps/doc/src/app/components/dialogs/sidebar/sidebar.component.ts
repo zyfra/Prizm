@@ -2,17 +2,17 @@ import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  ZuiBaseDialogContext, ZuiDialogSize,
+  PzmBaseDialogContext, PzmDialogSize,
   PzmOverlayInsidePlacement,
   PzmOverscrollMode,
   pzmPure,
-  ZuiSidebarOptions,
-  ZuiSidebarService,
+  PzmSidebarOptions,
+  PzmSidebarService,
 } from '@digital-plant/zui-components';
 import { generatePolymorphVariants } from '../../../util';
 
 @Component({
-  selector: 'zui-tooltip-example',
+  selector: 'pzm-tooltip-example',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -30,12 +30,12 @@ export class SidebarComponent {
   public height = 'auto';
   public width = '500px';
   public closeWord = 'Продолжить';
-  public sizeVariants: ZuiDialogSize[] = ['m', 'l'];
-  public size: ZuiDialogSize = 'm';
+  public sizeVariants: PzmDialogSize[] = ['m', 'l'];
+  public size: PzmDialogSize = 'm';
   public closeable = true;
   public header = 'Static_title_h3 - 16 Medium';
   public content = 'Базовый текст для диалога';
-  public footer: PolymorphContent<ZuiBaseDialogContext<ZuiSidebarOptions<any>>> = null;
+  public footer: PolymorphContent<PzmBaseDialogContext<PzmSidebarOptions<any>>> = null;
 
   public readonly exampleModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
@@ -52,7 +52,7 @@ export class SidebarComponent {
   };
 
   constructor(
-    @Inject(ZuiSidebarService) private readonly sidebarService: ZuiSidebarService,
+    @Inject(PzmSidebarService) private readonly sidebarService: PzmSidebarService,
   ) {}
 
   @pzmPure

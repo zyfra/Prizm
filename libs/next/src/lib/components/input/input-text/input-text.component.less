@@ -6,13 +6,13 @@
   height: 100%;
   line-height: 16px;
   font-size: 14px;
-  color: var(--zui-text-contrast);
+  color: var(--pzm-text-contrast);
   display: block;
   text-overflow: ellipsis;
 }
 
 // In inner context
-:host-context(.zui-input-form-inner) {
+:host-context(.pzm-input-form-inner) {
   padding: 22px 8px 4px 8px;
 
   :host::placeholder {
@@ -25,31 +25,31 @@
   }
 }
 
-:host-context(.zui-input-form-center) {
+:host-context(.pzm-input-form-center) {
   text-align: center;
 }
 
-:host-context(.zui-input-form-inner[data-size='l']) {
+:host-context(.pzm-input-form-inner[data-size='l']) {
   padding: 22px 8px 4px 8px;
 }
-:host-context(.zui-input-form-inner[data-size='m']) {
+:host-context(.pzm-input-form-inner[data-size='m']) {
   padding: 16px 8px 2px 8px;
 }
 
 // In outer context
-:host-context(.zui-input-form-outer) {
+:host-context(.pzm-input-form-outer) {
   padding: 7px 8px;
 }
 
 // need for optimization output selector in less
-:host-context(.zui-input-form-outer[data-size='l']) {
+:host-context(.pzm-input-form-outer[data-size='l']) {
   padding: 11px 8px;
 }
 
-:host-context(.zui-input-form-outer[data-size='m']) {
+:host-context(.pzm-input-form-outer[data-size='m']) {
   padding: 7px 8px;
 }
-:host-context(.zui-input-form-outer[data-size='s']) {
+:host-context(.pzm-input-form-outer[data-size='s']) {
   font-size: 12px;
   padding: 4px 8px;
 }

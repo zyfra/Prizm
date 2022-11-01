@@ -17,22 +17,22 @@ import {
   PzmOverlayId
 } from './models';
 import {PzmOverlayAbstractPosition} from './position/position';
-import {ZuiOverlayComponent} from './overlay.component';
+import {PzmOverlayComponent} from './overlay.component';
 import {BODY_ELEMENT, EventBus, getContent} from './utils';
 
-export class ZuiOverlayControl {
+export class PzmOverlayControl {
   position: PzmOverlayAbstractPosition;
   readonly config: PzmOverlayConfig;
   content: PzmOverlayContent;
   zid: PzmOverlayId;
-  comp: ZuiOverlayComponent;
+  comp: PzmOverlayComponent;
   updateTextContent: Subject<string> = new Subject();
   hostView: ViewRef;
-  compRef: ComponentRef<ZuiOverlayComponent>;
+  compRef: ComponentRef<PzmOverlayComponent>;
 
   public viewEl: HTMLElement;
   isOpen = false;
-  private compFac: ComponentFactory<ZuiOverlayComponent>;
+  private compFac: ComponentFactory<PzmOverlayComponent>;
   private destroy$: Subject<1> = new Subject();
 
   constructor(
@@ -138,7 +138,7 @@ export class ZuiOverlayControl {
 
   private attach(): void {
     /* create component */
-    this.compFac = this.compResolver.resolveComponentFactory(ZuiOverlayComponent);
+    this.compFac = this.compResolver.resolveComponentFactory(PzmOverlayComponent);
     this.compRef = this.compFac.create(this.injector);
     this.comp = this.compRef.instance;
 

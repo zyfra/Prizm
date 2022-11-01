@@ -1,15 +1,15 @@
-import { zuiIsEdge } from '../is-edge';
-import { zuiIsEdgeOlderThan } from '../is-edge-older-than';
+import { pzmIsEdge } from '../is-edge';
+import { pzmIsEdgeOlderThan } from '../is-edge-older-than';
 import { pzmIsFirefox } from '../is-firefox';
-import { zuiIsIE } from '../is-ie';
+import { pzmIsIE } from '../is-ie';
 
 describe('Browsers', () => {
     it('isIE', () => {
-        expect(zuiIsIE('trident')).toBe(true);
+        expect(pzmIsIE('trident')).toBe(true);
     });
 
     it('isEdge', () => {
-        expect(zuiIsEdge('edge')).toBe(true);
+        expect(pzmIsEdge('edge')).toBe(true);
     });
 
     it('isFirefox', () => {
@@ -18,7 +18,7 @@ describe('Browsers', () => {
     });
 
     it('isEdgeOlderThan', () => {
-        expect(zuiIsEdgeOlderThan(17, 'edge/16')).toBe(true);
-        expect(zuiIsEdgeOlderThan(17, 'edge/18')).toBe(false);
+        expect(pzmIsEdgeOlderThan(17, 'edge/16')).toBe(true);
+        expect(pzmIsEdgeOlderThan(17, 'edge/18')).toBe(false);
     });
 });

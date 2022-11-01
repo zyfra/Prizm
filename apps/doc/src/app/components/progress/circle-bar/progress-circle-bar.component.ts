@@ -3,14 +3,14 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
   PzmContextWithImplicit,
-  ZuiSizeL,
-  ZuiSizeM,
-  ZuiSizeS,
-  ZuiSizesXl,
+  PzmSizeL,
+  PzmSizeM,
+  PzmSizeS,
+  PzmSizesXl,
 } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-progress-example',
+  selector: 'pzm-progress-example',
   templateUrl: './progress-circle-bar.component.html',
   styleUrls: ['./progress-circle-bar.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -21,21 +21,21 @@ export class ProgressCircleBarComponent {
   public max = 100;
   public value = 50;
 
-  readonly sizeVariants: ReadonlyArray<ZuiSizeS | ZuiSizesXl> = [
+  readonly sizeVariants: ReadonlyArray<PzmSizeS | PzmSizesXl> = [
     's',
     'm',
     'l',
     'xl'
   ];
-  size: ZuiSizeS | ZuiSizesXl = this.sizeVariants[2];
+  size: PzmSizeS | PzmSizesXl = this.sizeVariants[2];
 
   readonly colorVariants: ReadonlyArray<string | null> = [
     null,
     'transparent',
-    'var(--zui-index-danger)',
-    'var(--zui-index-warning)',
-    'var(--zui-index-plan)',
-    'var(--zui-index-good)',
+    'var(--pzm-index-danger)',
+    'var(--pzm-index-warning)',
+    'var(--pzm-index-plan)',
+    'var(--pzm-index-good)',
     'lightblue',
   ];
   color: string | null = this.colorVariants[0];
@@ -43,8 +43,8 @@ export class ProgressCircleBarComponent {
   readonly trackColorVariants: ReadonlyArray<string | null> = [
     null,
     'transparent',
-    'var(--zui-index-danger)',
-    'var(--zui-index-warning)',
+    'var(--pzm-index-danger)',
+    'var(--pzm-index-warning)',
     'lightblue',
     'gray',
     'green'

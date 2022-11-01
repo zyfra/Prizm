@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { PzmChipsComponent } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-input-chips-basic-example',
+  selector: 'pzm-input-chips-basic-example',
   templateUrl: './input-chips-basic-example.component.html',
   styleUrls: ['./input-chips-basic-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

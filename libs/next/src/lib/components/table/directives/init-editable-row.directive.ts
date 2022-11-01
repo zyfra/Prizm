@@ -2,6 +2,6 @@ import { Directive } from '@angular/core';
 import { InitEditableRow } from 'primeng/table';
 
 @Directive({
-  selector: '[zuiInitEditableRow]',
+  selector: '[pzmInitEditableRow]',
 })
-export class ZuiInitEditableRowDirective extends InitEditableRow {}
+export class PzmInitEditableRowDirective extends InitEditableRow {}

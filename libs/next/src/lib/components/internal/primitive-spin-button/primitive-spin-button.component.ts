@@ -10,9 +10,9 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AbstractZuiInteractive } from '../../../abstract/interactive';
+import { AbstractPzmInteractive } from '../../../abstract/interactive';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { ZUI_SPIN_TEXTS } from '../../../tokens/i18n';
+import { PZM_SPIN_TEXTS } from '../../../tokens/i18n';
 import { PzmAppearanceTypeGhost } from '../../../types/appearance.types';
 import { pzmIsNativeFocused } from '../../../util/is-native-focused';
 
@@ -23,7 +23,7 @@ import { pzmIsNativeFocused } from '../../../util/is-native-focused';
     templateUrl: `./primitive-spin-button.template.html`,
     styleUrls: [`./primitive-spin-button.component.less`],
 })
-export class ZuiPrimitiveSpinButtonComponent extends AbstractZuiInteractive {
+export class PzmPrimitiveSpinButtonComponent extends AbstractPzmInteractive {
     @ViewChild(`wrapper`)
     private readonly wrapper?: ElementRef<HTMLElement>;
 
@@ -53,7 +53,7 @@ export class ZuiPrimitiveSpinButtonComponent extends AbstractZuiInteractive {
     readonly testId = 'pzm_primitive_spin_button';
 
     constructor(
-        @Inject(ZUI_SPIN_TEXTS) readonly spinTexts$: Observable<[string, string]>,
+        @Inject(PZM_SPIN_TEXTS) readonly spinTexts$: Observable<[string, string]>,
     ) {
         super();
     }

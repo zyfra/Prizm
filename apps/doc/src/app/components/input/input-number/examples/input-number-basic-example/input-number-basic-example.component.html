@@ -1,17 +1,17 @@
 <pzm-input-layout label="Заголовок" size="l" status="default">
   <input
-    zuiInputNumber
+    pzmInputNumber
     placeholder="Введите название"
     #inputText
     [value]="2"
     [step]="2"
     [formControl]="requiredInputControl"
-    #inputNumber="zuiInputNumber"
+    #inputNumber="pzmInputNumber"
   />
   <ng-template pzmInputStatusText [control]="inputText"></ng-template>
-  <zui-input-number-auxiliary-controls
-    zui-input-right
+  <pzm-input-number-auxiliary-controls
+    pzm-input-right
     [inputNumber]="inputNumber"
-  ></zui-input-number-auxiliary-controls>
+  ></pzm-input-number-auxiliary-controls>
 </pzm-input-layout>
 

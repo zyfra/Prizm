@@ -1,8 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { PzmMapper } from '../../types/mapper';
 
-@Pipe({name: `zuiMapper`})
-export class ZuiMapperPipe implements PipeTransform {
+@Pipe({name: `pzmMapper`})
+export class PzmMapperPipe implements PipeTransform {
     /**
      * Maps object to an arbitrary result through a mapper function
      *

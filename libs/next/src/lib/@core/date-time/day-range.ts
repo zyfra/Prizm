@@ -1,6 +1,6 @@
-import { ZuiDateMode } from '../../types/date-mode';
-import { ZUI_DATE_FILLER_LENGTH, ZUI_DATE_RANGE_FILLER_LENGTH } from './date-fillers';
-import { ZUI_RANGE_SEPARATOR_CHAR } from './date-time';
+import { PzmDateMode } from '../../types/date-mode';
+import { PZM_DATE_FILLER_LENGTH, PZM_DATE_RANGE_FILLER_LENGTH } from './date-fillers';
+import { PZM_RANGE_SEPARATOR_CHAR } from './date-time';
 import { PzmDay } from './day';
 import { PzmMonthRange } from './month-range';
 
@@ -8,7 +8,7 @@ import { PzmMonthRange } from './month-range';
  * Temporary type guard to satisfy ts-overloading of normalizeParse method
  * @deprecated
  */
-export const zuiIsDateMode = (dateMode: string): dateMode is ZuiDateMode =>
+export const pzmIsDateMode = (dateMode: string): dateMode is PzmDateMode =>
     [`DMY`, `YMD`, `MDY`].includes(dateMode);
 
 /**
@@ -49,34 +49,34 @@ export class PzmDayRange extends PzmMonthRange {
         dateFiller: string,
         dateRangeFiller: string,
     ): PzmDayRange;
-    public static normalizeParse(rangeString: string, dateMode?: ZuiDateMode): PzmDayRange;
+    public static normalizeParse(rangeString: string, dateMode?: PzmDateMode): PzmDayRange;
 
     /**
      * Parse and correct a day range in string format
      *
      * @param rangeString a string of dates in a format dd.mm.yyyy - dd.mm.yyyy
-     * @param dateMode {@link ZuiDateMode}
+     * @param dateMode {@link PzmDateMode}
      * @return normalized day range object
      */
     public static normalizeParse(
         rangeString: string,
-        dateMode: string | ZuiDateMode = `DMY`,
+        dateMode: string | PzmDateMode = `DMY`,
     ): PzmDayRange {
-        const dateFormat = zuiIsDateMode(dateMode) ? dateMode : `DMY`;
+        const dateFormat = pzmIsDateMode(dateMode) ? dateMode : `DMY`;
 
         const leftDay = PzmDay.normalizeParse(
-            rangeString.slice(0, ZUI_DATE_FILLER_LENGTH),
+            rangeString.slice(0, PZM_DATE_FILLER_LENGTH),
             dateFormat,
         );
 
-        if (rangeString.length < ZUI_DATE_RANGE_FILLER_LENGTH) {
+        if (rangeString.length < PZM_DATE_RANGE_FILLER_LENGTH) {
             return new PzmDayRange(leftDay, leftDay);
         }
 
         return PzmDayRange.sort(
             leftDay,
             PzmDay.normalizeParse(
-                rangeString.slice(ZUI_DATE_FILLER_LENGTH + ZUI_RANGE_SEPARATOR_CHAR.length),
+                rangeString.slice(PZM_DATE_FILLER_LENGTH + PZM_RANGE_SEPARATOR_CHAR.length),
                 dateFormat,
             ),
         );
@@ -94,7 +94,7 @@ export class PzmDayRange extends PzmMonthRange {
         const from = this.from.getFormattedDay(`DMY`, `.`);
         const to = this.to.getFormattedDay(`DMY`, `.`);
 
-        return `${from}${ZUI_RANGE_SEPARATOR_CHAR}${to}`;
+        return `${from}${PZM_RANGE_SEPARATOR_CHAR}${to}`;
     }
 
     public isDayInRange(
@@ -127,11 +127,11 @@ export class PzmDayRange extends PzmMonthRange {
     /**
      * Human readable format.
      */
-    public getFormattedDayRange(dateFormat: ZuiDateMode, dateSeparator: string): string {
+    public getFormattedDayRange(dateFormat: PzmDateMode, dateSeparator: string): string {
         const from = this.from.getFormattedDay(dateFormat, dateSeparator);
         const to = this.to.getFormattedDay(dateFormat, dateSeparator);
 
-        return `${from}${ZUI_RANGE_SEPARATOR_CHAR}${to}`;
+        return `${from}${PZM_RANGE_SEPARATOR_CHAR}${to}`;
     }
 
     public toLocalNativeDate(): [Date, Date] {
@@ -141,10 +141,10 @@ export class PzmDayRange extends PzmMonthRange {
       ];
     }
 
-    public override toString(dateFormat: ZuiDateMode = `DMY`, dateSeparator: string = `.`): string {
+    public override toString(dateFormat: PzmDateMode = `DMY`, dateSeparator: string = `.`): string {
         const from = this.from.getFormattedDay(dateFormat, dateSeparator);
         const to = this.to.getFormattedDay(dateFormat, dateSeparator);
 
-        return `${from}${ZUI_RANGE_SEPARATOR_CHAR}${to}`;
+        return `${from}${PZM_RANGE_SEPARATOR_CHAR}${to}`;
     }
 }

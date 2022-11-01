@@ -14,13 +14,13 @@ import {
 import { NgControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ZUI_INPUT_DATE_RANGE_PROVIDERS } from './input-date-range.providers';
-import { AbstractZuiNullableControl } from '../../../abstract/nullable-control';
+import { PZM_INPUT_DATE_RANGE_PROVIDERS } from './input-date-range.providers';
+import { AbstractPzmNullableControl } from '../../../abstract/nullable-control';
 import { PzmDayRange } from '../../../@core/date-time/day-range';
 import { PzmWithOptionalMinMax } from '../../../types/with-optional-min-max';
 import { PzmDay } from '../../../@core/date-time/day';
 import { PzmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
-import { zuiCreateDateRangeMask } from '../../../@core/mask/create-date-range-mask';
+import { pzmCreateDateRangeMask } from '../../../@core/mask/create-date-range-mask';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
 import { PzmBooleanHandler } from '../../../types/handler';
 import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
@@ -31,31 +31,31 @@ import { PzmDayRangePeriod } from '../../../@core/classes/day-range-period';
 import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../../@core/date-time/days.const';
 import { PzmDayLike } from '../../../types/day-like';
 import { PzmMapper } from '../../../types/mapper';
-import { ZUI_MAX_DAY_RANGE_LENGTH_MAPPER } from '../../../constants/max-day-range-length-mapper';
-import { ZUI_DATE_SEPARATOR, zuiChangeDateSeparator } from '../../../@core/date-time/date-separator';
-import { ZUI_IS_MOBILE } from '../../../tokens/is-mobile';
-import { ZuiDialogService } from '../../dialogs/dialog/dialog.service';
-import { ZUI_MOBILE_CALENDAR } from '../../../tokens/mobile-calendar';
-import { ZUI_DATE_FORMAT } from '../../../@core/date-time/date-format';
-import { ZuiDateMode } from '../../../types/date-mode';
-import { ZUI_DATE_TEXTS } from '../../../tokens/i18n';
-import { ZUI_DATE_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
-import { ZuiControlValueTransformer } from '../../../types/control-value-transformer';
+import { PZM_MAX_DAY_RANGE_LENGTH_MAPPER } from '../../../constants/max-day-range-length-mapper';
+import { PZM_DATE_SEPARATOR, pzmChangeDateSeparator } from '../../../@core/date-time/date-separator';
+import { PZM_IS_MOBILE } from '../../../tokens/is-mobile';
+import { PzmDialogService } from '../../dialogs/dialog/dialog.service';
+import { PZM_MOBILE_CALENDAR } from '../../../tokens/mobile-calendar';
+import { PZM_DATE_FORMAT } from '../../../@core/date-time/date-format';
+import { PzmDateMode } from '../../../types/date-mode';
+import { PZM_DATE_TEXTS } from '../../../tokens/i18n';
+import { PZM_DATE_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
+import { PzmControlValueTransformer } from '../../../types/control-value-transformer';
 import { pzmNullableSame } from '../../../util/common/nullable-same';
-import { PzmInputSize } from '../common/models/zui-input.models';
-import { ZUI_DATE_FILLER_LENGTH, ZUI_DATE_RANGE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
-import { ZUI_RANGE_SEPARATOR_CHAR } from '../../../@core/date-time/date-time';
+import { PzmInputSize } from '../common/models/pzm-input.models';
+import { PZM_DATE_FILLER_LENGTH, PZM_DATE_RANGE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
+import { PZM_RANGE_SEPARATOR_CHAR } from '../../../@core/date-time/date-time';
 import { pzmSetNativeFocused } from '../../../util/set-native-focused';
 import { pzmIsNativeFocusedIn } from '../../../util';
 
 @Component({
-    selector: `zui-input-date-range`,
+    selector: `pzm-input-date-range`,
     templateUrl: `./input-date-range.component.html`,
     styleUrls: [`./input-date-range.component.less`],
-    providers: ZUI_INPUT_DATE_RANGE_PROVIDERS,
+    providers: PZM_INPUT_DATE_RANGE_PROVIDERS,
 })
-export class ZuiInputDateRangeComponent
-    extends AbstractZuiNullableControl<PzmDayRange>
+export class PzmInputDateRangeComponent
+    extends AbstractPzmNullableControl<PzmDayRange>
     implements PzmWithOptionalMinMax<PzmDay>, PzmFocusableElementAccessor
 {
     @ViewChild('focusableElementRef', {read: ElementRef})
@@ -102,10 +102,10 @@ export class ZuiInputDateRangeComponent
 
     open = false;
 
-    readonly maxLengthMapper: PzmMapper<PzmDay, PzmDay> = ZUI_MAX_DAY_RANGE_LENGTH_MAPPER;
+    readonly maxLengthMapper: PzmMapper<PzmDay, PzmDay> = PZM_MAX_DAY_RANGE_LENGTH_MAPPER;
     readonly dateFiller$ = this.dateTexts$.pipe(
         map(dateTexts =>
-            zuiChangeDateSeparator(dateTexts[this.dateFormat], this.dateSeparator),
+            pzmChangeDateSeparator(dateTexts[this.dateFormat], this.dateSeparator),
         ),
     );
 
@@ -128,18 +128,18 @@ export class ZuiInputDateRangeComponent
         control: NgControl | null,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
         @Inject(Injector) private readonly injector: Injector,
-        @Inject(ZUI_IS_MOBILE) private readonly isMobile: boolean,
-        @Inject(ZuiDialogService) private readonly dialogService: ZuiDialogService,
+        @Inject(PZM_IS_MOBILE) private readonly isMobile: boolean,
+        @Inject(PzmDialogService) private readonly dialogService: PzmDialogService,
         @Optional()
-        @Inject(ZUI_MOBILE_CALENDAR)
+        @Inject(PZM_MOBILE_CALENDAR)
         private readonly mobileCalendar: Type<any> | null,
-        @Inject(ZUI_DATE_FORMAT) readonly dateFormat: ZuiDateMode,
-        @Inject(ZUI_DATE_SEPARATOR) readonly dateSeparator: string,
-        @Inject(ZUI_DATE_TEXTS)
-        readonly dateTexts$: Observable<Record<ZuiDateMode, string>>,
+        @Inject(PZM_DATE_FORMAT) readonly dateFormat: PzmDateMode,
+        @Inject(PZM_DATE_SEPARATOR) readonly dateSeparator: string,
+        @Inject(PZM_DATE_TEXTS)
+        readonly dateTexts$: Observable<Record<PzmDateMode, string>>,
         @Optional()
-        @Inject(ZUI_DATE_RANGE_VALUE_TRANSFORMER)
-        override readonly valueTransformer: ZuiControlValueTransformer<PzmDayRange | null> | null,
+        @Inject(PZM_DATE_RANGE_VALUE_TRANSFORMER)
+        override readonly valueTransformer: PzmControlValueTransformer<PzmDayRange | null> | null,
     ) {
         super(control, changeDetectorRef, valueTransformer);
     }
@@ -161,7 +161,7 @@ export class ZuiInputDateRangeComponent
     }
 
     get computedMask(): string {
-        return zuiCreateDateRangeMask(this.dateFormat, this.dateSeparator);
+        return pzmCreateDateRangeMask(this.dateFormat, this.dateSeparator);
     }
 
     get stringValue(): string {
@@ -239,7 +239,7 @@ export class ZuiInputDateRangeComponent
             this.onOpenChange(true);
         }
 
-        if (!value || (value.length !== ZUI_DATE_RANGE_FILLER_LENGTH)) {
+        if (!value || (value.length !== PZM_DATE_RANGE_FILLER_LENGTH)) {
           if (!value) this.updateValue(null);
           return;
         }
@@ -328,6 +328,6 @@ export class ZuiInputDateRangeComponent
     }
 
     private getDateRangeFiller(dateFiller: string): string {
-        return `${dateFiller}${ZUI_RANGE_SEPARATOR_CHAR}${dateFiller}`;
+        return `${dateFiller}${PZM_RANGE_SEPARATOR_CHAR}${dateFiller}`;
     }
 }

@@ -11,7 +11,7 @@ import {
 } from 'rxjs/operators';
 import { pzmZoneOptimized } from '../observables/zone-free';
 import { pzmTypedFromEvent } from '../observables/typed-from-event';
-import {zuiGetActualTarget} from "../util/dom/get-actual-target";
+import {pzmGetActualTarget} from "../util/dom/get-actual-target";
 
 @Injectable({
     providedIn: 'root',
@@ -41,7 +41,7 @@ export class PzmHoveredService {
                 merge(
                     pzmTypedFromEvent(target, 'mouseleave', options),
                     this.documentEvents$.pipe(
-                        filter(event => !target.contains(zuiGetActualTarget(event))),
+                        filter(event => !target.contains(pzmGetActualTarget(event))),
                         pzmZoneOptimized(this.ngZone),
                         take(1),
                     ),

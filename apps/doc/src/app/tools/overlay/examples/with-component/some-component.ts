@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'zui-overlay-some-component',
+  selector: 'pzm-overlay-some-component',
   template: `
     <div class="header">Header</div>
     <div class="button-box">
@@ -33,7 +33,7 @@ import {Component} from '@angular/core';
     }
   `]
 })
-export class ZuiOverlaySomeComponent {
+export class PzmOverlaySomeComponent {
   readonly items = [
     'Edit',
     'Download',
