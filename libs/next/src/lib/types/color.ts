@@ -1,7 +1,7 @@
 import { ZuiBaseColor } from '../@core/enums/base-color';
 import { ZuiSupportColor } from '../@core/enums/support-color';
 
-export type ZuiColor =
+export type PzmColor =
     | ZuiBaseColor
     | ZuiSupportColor
     | 'base-01'

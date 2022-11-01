@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { ZuiDay, ZuiInputSize } from '@digital-plant/zui-components';
+import { PzmDay, PzmInputSize } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -10,16 +10,16 @@ import { FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InputDateComponent {
-  public readonly control = new FormControl(new ZuiDay(2017, 0, 15));
+  public readonly control = new FormControl(new PzmDay(2017, 0, 15));
 
   public label = 'Абсолютное';
   public placeholder = 'Выберите дату';
-  public sizeVariants: ReadonlyArray<ZuiInputSize> = [
+  public sizeVariants: ReadonlyArray<PzmInputSize> = [
     'l',
     'm',
     's'
   ]
-  public size: ZuiInputSize = 'm';
+  public size: PzmInputSize = 'm';
   public outer = false;
 
 

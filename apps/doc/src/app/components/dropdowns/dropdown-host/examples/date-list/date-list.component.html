@@ -3,7 +3,7 @@
   zuiDropdownHostWidth='auto'
   [(isOpen)]="open"
 >
-  <button zuiButton type="button" (click)="open = !open">
+  <button pzmButton type="button" (click)="open = !open">
     Пример выбора периода
   </button>
 </zui-dropdown-host>
@@ -16,27 +16,27 @@
     </div>
     <div class="box">
       <div class='list'>
-        <zui-radio-button
+        <pzm-radio-button
           *ngFor="let item of data"
           (click)="select(item)"
           [label]="item.title"
           [value]="item.range"
-        ></zui-radio-button>
-        <zui-radio-button
+        ></pzm-radio-button>
+        <pzm-radio-button
           (click)="select(null)"
           [label]="'Произвольный диапазон'"
           [value]="null"
-        ></zui-radio-button>
+        ></pzm-radio-button>
       </div>
 
       <div class='date-control'>
-        <zui-input-date-time [zuiEventZoneParent]='zone' label='Начало' [formControl]='startControl'></zui-input-date-time>
-        <zui-input-date-time [zuiEventZoneParent]='zone' label='Конец' [formControl]='endControl'></zui-input-date-time>
+        <zui-input-date-time [pzmEventZoneParent]='zone' label='Начало' [formControl]='startControl'></zui-input-date-time>
+        <zui-input-date-time [pzmEventZoneParent]='zone' label='Конец' [formControl]='endControl'></zui-input-date-time>
       </div>
     </div>
     <div class='footer' footer>
-      <button appearanceType='ghost' appearance='secondary' zuiButton (click)="open = false; cdRef.markForCheck()">Отменить</button>
-      <button zuiButton (click)="open = false; cdRef.markForCheck()">Выбрать</button>
+      <button appearanceType='ghost' appearance='secondary' pzmButton (click)="open = false; cdRef.markForCheck()">Отменить</button>
+      <button pzmButton (click)="open = false; cdRef.markForCheck()">Выбрать</button>
     </div>
   </zui-data-list>
 </ng-template>

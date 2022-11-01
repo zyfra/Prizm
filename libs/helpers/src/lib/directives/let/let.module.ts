@@ -5,4 +5,4 @@ import {ZuiLetDirective} from './let.directive';
     declarations: [ZuiLetDirective],
     exports: [ZuiLetDirective],
 })
-export class ZuiLetModule {}
+export class PzmLetModule {}

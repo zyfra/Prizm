@@ -1,17 +1,17 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ZuiDateTime, ZuiDay, ZuiTime } from '@digital-plant/zui-components';
+import { ZuiDateTime, PzmDay, ZuiTime } from '@digital-plant/zui-components';
 import { formatRelative, addDays, addHours, addMonths } from 'date-fns';
 
 type DateItem = {
   title: string,
   range: [
     [
-        ZuiDay,
+        PzmDay,
         ZuiTime
     ],
     [
-      ZuiDay,
+      PzmDay,
       ZuiTime
     ],
   ],
@@ -31,11 +31,11 @@ export class ZuiDropdownHostDateListEditExampleComponent {
       title: 'Последний час',
       range: [
         [
-          ZuiDay.fromLocalNativeDate(new Date()),
+          PzmDay.fromLocalNativeDate(new Date()),
           new ZuiTime(new Date().getHours() - 1, new Date().getMinutes(), 0)
         ],
         [
-          ZuiDay.fromLocalNativeDate(new Date()),
+          PzmDay.fromLocalNativeDate(new Date()),
           ZuiTime.fromLocalNativeDate(new Date())
         ],
       ],
@@ -44,11 +44,11 @@ export class ZuiDropdownHostDateListEditExampleComponent {
       title: 'Последние сутки',
       range: [
         [
-          ZuiDay.fromLocalNativeDate(addDays(new Date(), -1)),
+          PzmDay.fromLocalNativeDate(addDays(new Date(), -1)),
           ZuiTime.fromLocalNativeDate(new Date())
         ],
         [
-          ZuiDay.fromLocalNativeDate(new Date()),
+          PzmDay.fromLocalNativeDate(new Date()),
           ZuiTime.fromLocalNativeDate(new Date())
         ],
       ],
@@ -57,11 +57,11 @@ export class ZuiDropdownHostDateListEditExampleComponent {
       title: 'Последние 2 часа',
       range: [
         [
-          ZuiDay.fromLocalNativeDate(new Date()),
+          PzmDay.fromLocalNativeDate(new Date()),
           ZuiTime.fromLocalNativeDate(addHours(new Date(), -2))
         ],
         [
-          ZuiDay.fromLocalNativeDate(new Date()),
+          PzmDay.fromLocalNativeDate(new Date()),
           ZuiTime.fromLocalNativeDate(new Date())
         ],
       ],
@@ -70,11 +70,11 @@ export class ZuiDropdownHostDateListEditExampleComponent {
       title: 'Последние 4 часа',
       range: [
         [
-          ZuiDay.fromLocalNativeDate(new Date()),
+          PzmDay.fromLocalNativeDate(new Date()),
           ZuiTime.fromLocalNativeDate(addHours(new Date(), -4))
         ],
         [
-          ZuiDay.fromLocalNativeDate(new Date()),
+          PzmDay.fromLocalNativeDate(new Date()),
           ZuiTime.fromLocalNativeDate(new Date())
         ],
       ],
@@ -83,11 +83,11 @@ export class ZuiDropdownHostDateListEditExampleComponent {
       title: 'Последние 8 часов',
       range: [
         [
-          ZuiDay.fromLocalNativeDate(new Date()),
+          PzmDay.fromLocalNativeDate(new Date()),
           ZuiTime.fromLocalNativeDate(addHours(new Date(), -8))
         ],
         [
-          ZuiDay.fromLocalNativeDate(new Date()),
+          PzmDay.fromLocalNativeDate(new Date()),
           ZuiTime.fromLocalNativeDate(new Date())
         ],
       ],
@@ -96,11 +96,11 @@ export class ZuiDropdownHostDateListEditExampleComponent {
       title: 'Последние 12 часов',
       range: [
         [
-          ZuiDay.fromLocalNativeDate(new Date()),
+          PzmDay.fromLocalNativeDate(new Date()),
           ZuiTime.fromLocalNativeDate(addHours(new Date(), -12))
         ],
         [
-          ZuiDay.fromLocalNativeDate(new Date()),
+          PzmDay.fromLocalNativeDate(new Date()),
           ZuiTime.fromLocalNativeDate(new Date())
         ],
       ],

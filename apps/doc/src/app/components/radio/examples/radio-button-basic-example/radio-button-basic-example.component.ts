@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-radio-button-basic-example',
+  selector: 'pzm-radio-button-basic-example',
   templateUrl: './radio-button-basic-example.component.html',
   styleUrls: ['./radio-button-basic-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

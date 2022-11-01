@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { ProgressLineSegmentedComponent } from './progress-line-segmented.component';
-import { PolymorphModule, ZuiProgressModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PzmProgressModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ZuiProgressBaseExampleComponent } from './examples/base/progress-base-example.component';
 
@@ -15,7 +15,7 @@ import { ZuiProgressBaseExampleComponent } from './examples/base/progress-base-e
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    ZuiProgressModule,
+    PzmProgressModule,
     RouterModule.forChild(generateRoutes(ProgressLineSegmentedComponent)),
   ],
   declarations: [

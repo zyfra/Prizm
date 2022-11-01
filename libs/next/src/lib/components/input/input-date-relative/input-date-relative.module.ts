@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { ZuiInputDateRelativeComponent } from './input-date-relative.component';
 import { CommonModule } from '@angular/common';
 import { PolymorphModule } from '../../../directives/polymorph/polymorph.module';
-import { ZuiInputTextModule } from '../input-text/input-text.module';
-import { ZuiIconModule } from '../../icon/icon.module';
+import { PzmInputTextModule } from '../input-text/input-text.module';
+import { PzmIconModule } from '../../icon/icon.module';
 import { ZuiDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -14,8 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     PolymorphModule,
-    ZuiInputTextModule,
-    ZuiIconModule,
+    PzmInputTextModule,
+    PzmIconModule,
     ReactiveFormsModule,
     ZuiDropdownHostModule,
   ],

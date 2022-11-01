@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { PolymorphContent } from '../../directives';
-import { ZuiShadowType } from '../../directives/shadow';
+import { PzmShadowType } from '../../directives/shadow';
 
 @Component({
     selector: 'zui-widget',
@@ -14,8 +14,8 @@ export class ZuiWidgetComponent {
   @Input() public title: PolymorphContent = '';
   @Input() public icons: PolymorphContent[] = [];
   @Output() public iconClick: EventEmitter<string> = new EventEmitter();
-  readonly shadow: ZuiShadowType = 'none';
+  readonly shadow: PzmShadowType = 'none';
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_widget';
+  readonly testId = 'pzm_widget';
 }

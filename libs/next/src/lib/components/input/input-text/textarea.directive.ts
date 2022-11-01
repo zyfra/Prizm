@@ -8,7 +8,7 @@ import {
   HostListener,
   Input,
 } from '@angular/core';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { fromEvent } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 
@@ -22,7 +22,7 @@ export class ZuiTextareaDirective implements AfterViewInit {
   constructor(
     @Host() private elementRef: ElementRef<HTMLTextAreaElement>,
     @Attribute('autoSize') private autoSize: any,
-    private destroy$: ZuiDestroyService
+    private destroy$: PzmDestroyService
   ) {
     this.elementRef.nativeElement.rows = 1;
   }

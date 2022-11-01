@@ -10,5 +10,5 @@ export class ZuiRowTogglerComponent {
   @Input() expanded: boolean;
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_row_toggler';
+  readonly testId = 'pzm_row_toggler';
 }

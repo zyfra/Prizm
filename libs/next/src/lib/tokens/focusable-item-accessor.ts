@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core';
-import { ZuiFocusableElementAccessor } from '../types';
+import { PzmFocusableElementAccessor } from '../types';
 
-export const ZUI_FOCUSABLE_ITEM_ACCESSOR =
-    new InjectionToken<ZuiFocusableElementAccessor>('A component that can be focused');
+export const PZM_FOCUSABLE_ITEM_ACCESSOR =
+    new InjectionToken<PzmFocusableElementAccessor>('A component that can be focused');

@@ -4,7 +4,7 @@ import {generateRoutes, TuiAddonDocModule} from "@taiga-ui/addon-doc";
 import {RouterModule} from "@angular/router";
 import {OverlayComponent} from "./overlay.component";
 import {ZuiOverlayExampleWithViewComponent} from "./examples/with-component/template";
-import {ZuiButtonModule, ZuiOverlayModule} from "@digital-plant/zui-components";
+import {PzmButtonModule, PzmOverlayModule} from "@digital-plant/zui-components";
 import {ZuiOverlayExampleSlideComponent} from "./examples/slide/template";
 import {ZuiOverlayExampleRelativeComponent} from "./examples/relative/template";
 import {ZuiOverlayExampleGlobalComponent} from "./examples/global/template";
@@ -15,8 +15,8 @@ import {ZuiOverlaySomeComponent} from "./examples/with-component/some-component"
   imports: [
     CommonModule,
     TuiAddonDocModule,
-    ZuiButtonModule,
-    ZuiOverlayModule,
+    PzmButtonModule,
+    PzmOverlayModule,
     RouterModule.forChild(generateRoutes(OverlayComponent)),
   ],
   declarations: [

@@ -13,7 +13,7 @@ import { ZUI_TREE_CONTROLLER } from '../../misc/tree.tokens';
 })
 export class ZuiTreeItemContentComponent {
     @HostBinding('attr.testId')
-    readonly testId = 'zui_tree_item_content';
+    readonly testId = 'pzm_tree_item_content';
 
     constructor(
         @Inject(POLYMORPH_CONTEXT) readonly context: ZuiTreeItemContext,

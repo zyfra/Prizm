@@ -7,4 +7,4 @@ import {ZuiOverlayComponent} from './overlay.component';
   declarations: [ZuiOverlayComponent],
   entryComponents: [ZuiOverlayComponent]
 })
-export class ZuiOverlayModule {}
+export class PzmOverlayModule {}

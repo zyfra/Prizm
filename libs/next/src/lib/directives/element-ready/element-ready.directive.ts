@@ -1,12 +1,12 @@
 import { Directive, ElementRef, Inject, Input, OnInit, Output } from '@angular/core';
 import { interval, ReplaySubject } from 'rxjs';
 import { filter, take, takeUntil, tap } from 'rxjs/operators';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 
 @Directive({
     selector: '[zuiElementReady]',
     exportAs: 'zuiElementReady',
-    providers: [ZuiDestroyService]
+    providers: [PzmDestroyService]
 })
 export class ZuiElementReadyDirective implements OnInit {
     @Output()
@@ -21,7 +21,7 @@ export class ZuiElementReadyDirective implements OnInit {
     constructor(
         @Inject(ElementRef)
         private readonly element: ElementRef<HTMLInputElement>,
-        private destroy$: ZuiDestroyService
+        private destroy$: PzmDestroyService
     ) {}
 
     ngOnInit(): void {

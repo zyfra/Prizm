@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { ZuiPreventDefaultDirective } from './prevent-default.directive';
+import { PzmPreventDefaultDirective } from './prevent-default.directive';
 
 @NgModule({
-    declarations: [ZuiPreventDefaultDirective],
-    exports: [ZuiPreventDefaultDirective],
+    declarations: [PzmPreventDefaultDirective],
+    exports: [PzmPreventDefaultDirective],
 })
-export class ZuiPreventDefaultModule {}
+export class PzmPreventDefaultModule {}

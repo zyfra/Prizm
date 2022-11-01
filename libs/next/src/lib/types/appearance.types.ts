@@ -4,7 +4,7 @@ export type ZuiAppearanceDisabled = 'disabled';
 export type ZuiAppearancePrimary = 'primary';
 export type ZuiAppearanceSecondary = 'secondary';
 export type ZuiAppearanceSuccess = 'success';
-export type ZuiAppearance =
+export type PzmAppearance =
   ZuiAppearancePrimary
   | ZuiAppearanceSecondary
   | ZuiAppearanceSuccess
@@ -14,5 +14,5 @@ export type ZuiAppearance =
 
 export type ZuiAppearanceTypeFill = 'fill';
 export type ZuiAppearanceTypeOutline = 'outline';
-export type ZuiAppearanceTypeGhost = 'ghost';
-export type ZuiAppearanceType = ZuiAppearanceTypeFill | ZuiAppearanceTypeOutline | ZuiAppearanceTypeGhost;
+export type PzmAppearanceTypeGhost = 'ghost';
+export type PzmAppearanceType = ZuiAppearanceTypeFill | ZuiAppearanceTypeOutline | PzmAppearanceTypeGhost;

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ZuiRadioButtonComponent } from './zui-radio-button.component';
+import { ZuiRadioButtonComponent } from './pzm-radio-button.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 describe('ZuiRadioButtonComponent', () => {

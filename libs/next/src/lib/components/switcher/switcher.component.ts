@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, HostBi
 import { ISwitcher, SwitcherSize, SwitcherType } from './switcher.interface';
 
 @Component({
-  selector: 'zui-switcher',
+  selector: 'pzm-switcher',
   templateUrl: './switcher.component.html',
   styleUrls: ['./switcher.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -16,7 +16,7 @@ export class SwitcherComponent {
   @Output() public switcherSelection: EventEmitter<number> = new EventEmitter();
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_switcher';
+  readonly testId = 'pzm_switcher';
 
   public selectSwitcher(idx: number): void {
     if (this.selectedSwitcherIdx !== idx) {

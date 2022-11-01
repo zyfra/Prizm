@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, Input, ViewChild } from '@angular/core';
 import { USER_AGENT, WINDOW } from '@ng-web-apis/common';
-import { zuiDefaultProp } from '../../../decorators/default-prop';
+import { pzmDefaultProp } from '../../../decorators/default-prop';
 import { ZUI_CHROMIUM_EDGE_START_VERSION } from '../../../constants/chromium';
 import { ZuiSizeS, ZuiSizesXl } from '../../../util/size-bigger';
 import { zuiIsEdgeOlderThan } from '../../../util/browser/is-edge-older-than';
@@ -11,31 +11,31 @@ import { zuiIsEdgeOlderThan } from '../../../util/browser/is-edge-older-than';
     styleUrls: [`./progress-circle.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiProgressCircleComponent {
+export class PzmProgressCircleComponent {
     @ViewChild(`progressCircle`, {static: true})
     private readonly progressCircle!: ElementRef<SVGCircleElement>;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     value = 0;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     max = 1;
 
     @Input()
     @HostBinding(`style.--zui-progress-color`)
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     color: string | null = null;
 
     @Input()
     @HostBinding(`style.--zui-progress-circle-track-color`)
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     trackColor: string | null = null;
 
     @Input()
     @HostBinding(`attr.data-size`)
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     size: ZuiSizeS | ZuiSizesXl = `m`;
 
     @HostBinding(`style.--progress-percentage`)

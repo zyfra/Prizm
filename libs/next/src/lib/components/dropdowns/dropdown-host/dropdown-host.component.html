@@ -1,16 +1,16 @@
 <div class='block'
      (click)='clickOnContainer()'
-     (zuiMutationObserver)='updateWidth()'
+     (pzmMutationObserver)='updateWidth()'
      [zuiMutationObserverHost]='el.nativeElement'
 >
   <ng-content></ng-content>
   <ng-template #temp>
     <div class="zui-dropdown-host-modal"
-         zuiEventZone
-         zuiShadow='big-left'
-         #zone="zuiEventZone"
-         (zuiEventZoneEvent)='clickOnContainer()'
-         (zuiAfterViewInit)='reCalculatePositions()'
+         pzmEventZone
+         pzmShadow='big-left'
+         #zone="pzmEventZone"
+         (pzmEventZoneEvent)='clickOnContainer()'
+         (pzmAfterViewInit)='reCalculatePositions()'
          [id]="zuiDropdownHostId"
          [attr.position]="position$ | async">
       <ng-container *polymorphOutlet="content; context: {zone: zone}"></ng-container>

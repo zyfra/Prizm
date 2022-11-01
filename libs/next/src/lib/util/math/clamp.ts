@@ -5,7 +5,7 @@
  * @param min lower limit
  * @param max upper limit
  */
-export function zuiClamp(value: number, min: number, max: number): number {
+export function pzmClamp(value: number, min: number, max: number): number {
     console.assert(!isNaN(value));
     console.assert(!isNaN(min));
     console.assert(!isNaN(max));

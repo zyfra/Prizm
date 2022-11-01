@@ -1,12 +1,12 @@
-<div zuiFocusTrap class='box zui-font-main-body-14'>
+<div pzmFocusTrap class='box pzm-font-main-body-14'>
   <div class="content">
     <div *ngIf='context.title' class='title zui-font-dynamic-title-h4'>
       <ng-container *polymorphOutlet="context.title as data; context: context">
         {{data}}
       </ng-container>
     </div>
-    <div class='description zui-font-main-body-14'>
-<!--      <zui-scrollbar class='scrollbar' visibility='hidden'>-->
+    <div class='description pzm-font-main-body-14'>
+<!--      <pzm-scrollbar class='scrollbar' visibility='hidden'>-->
         <ng-container *polymorphOutlet="content() as data; context: context">
           {{data}}
         </ng-container>
@@ -38,14 +38,14 @@
               [style]='button.style'
               [appearance]='button.appearance'
               [appearanceType]='button.appearanceType ?? "fill"'
-              zuiButton
+              pzmButton
               [size]="button.size"
               (click)="button.action(context)"
             >{{button.text}}</button>
           </ng-template>
         </div>
 
-<!--      </zui-scrollbar>-->
+<!--      </pzm-scrollbar>-->
     </div>
 
   </div>

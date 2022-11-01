@@ -7,7 +7,7 @@
   (isOpenChange)="onOpenChange($event)"
   zuiDropdownHostWidth='auto'
 >
-  <zui-input-layout
+  <pzm-input-layout
     [label]="label"
     [outer]='outer'
     (click)='safeOpenModal()'
@@ -22,14 +22,14 @@
     />
     <ng-container zui-input-right>
       <button
-        zuiInputIconButton="date-update"
+        pzmInputIconButton="date-update"
         [interactive]="true"
         (click)='focusableElementRef.focus()'
       ></button>
       <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>
       </ng-container>
     </ng-container>
-  </zui-input-layout>
+  </pzm-input-layout>
 </zui-dropdown-host>
 
 

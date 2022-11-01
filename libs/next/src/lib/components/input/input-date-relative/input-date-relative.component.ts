@@ -14,9 +14,9 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgControl, Validators } from '@angular/forms';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { zuiDefaultProp } from '../../../decorators/default-prop';
-import { zuiIsNativeFocusedIn } from '../../../util/is-native-focused-in';
-import { ZuiInputSize } from '../common/models/zui-input.models';
+import { pzmDefaultProp } from '../../../decorators/default-prop';
+import { pzmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
+import { PzmInputSize } from '../common/models/zui-input.models';
 import {
   getDefaultRelativeDateMenuItems,
   IdByGroup,
@@ -27,7 +27,7 @@ import {
   RelativeDateTimeId,
 } from './input-date-relative.models';
 import { ParseTextInput, RenderText, UpdateActiveItem } from './input-date-relative.utils';
-import { zuiIsNativeFocused } from '../../../util';
+import { pzmIsNativeFocused } from '../../../util';
 import { ZUI_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { ZuiDateButton } from '../../../types/date-button';
 
@@ -52,39 +52,39 @@ export class ZuiInputDateRelativeComponent implements AfterViewInit, OnInit, Con
   public readonly focusableElement?: ElementRef<HTMLInputElement>;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   public label = 'Относительное';
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   public placeholder = 'Выберите относительное время';
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   public disabled: boolean;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   public showClear: boolean;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   public canOpen = true;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   public outer = false;
 
   @Input()
-  @zuiDefaultProp()
-  public size: ZuiInputSize = 'm';
+  @pzmDefaultProp()
+  public size: PzmInputSize = 'm';
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   extraButtonInjector: Injector = this.injector;
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_input_date_relative';
+  readonly testId = 'pzm_input_date_relative';
 
   public isOpen = false;
 
@@ -190,7 +190,7 @@ export class ZuiInputDateRelativeComponent implements AfterViewInit, OnInit, Con
   }
 
   public get focused(): boolean {
-    return zuiIsNativeFocusedIn(this.focusableElement.nativeElement);
+    return pzmIsNativeFocusedIn(this.focusableElement.nativeElement);
   }
 
   /**
@@ -231,7 +231,7 @@ export class ZuiInputDateRelativeComponent implements AfterViewInit, OnInit, Con
       !this.isOpen &&
       !this.disabled &&
       inputElement &&
-      zuiIsNativeFocused(inputElement)
+      pzmIsNativeFocused(inputElement)
     ) {
       this.isOpen = true;
       this.cdr.markForCheck();

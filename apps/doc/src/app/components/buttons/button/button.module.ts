@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { ButtonComponent } from './button.component';
 import { ZuiOutlineButtonsExampleComponent } from './examples/outline/outline-buttons-example.component';
 import { ZuiFilledButtonsExampleComponent } from './examples/filled/filled-buttons-example.component';
-import { ZuiButtonModule } from '@digital-plant/zui-components';
+import { PzmButtonModule } from '@digital-plant/zui-components';
 import { ZuiGhostButtonsExampleComponent } from './examples/ghost/ghost-buttons-example.component';
 import { ZuiIconsButtonsExampleComponent } from './examples/icons/icons-buttons-example.component';
 
@@ -13,7 +13,7 @@ import { ZuiIconsButtonsExampleComponent } from './examples/icons/icons-buttons-
   imports: [
     CommonModule,
     TuiAddonDocModule,
-    ZuiButtonModule,
+    PzmButtonModule,
     RouterModule.forChild(generateRoutes(ButtonComponent)),
   ],
   declarations: [

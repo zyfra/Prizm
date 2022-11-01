@@ -1,7 +1,7 @@
 import { ZuiTimeLike } from '../../types/time-like';
 import { ZuiTimeMode } from '../../types/time-mode';
 import { zuiPadStart } from '../../util/format/pad-start';
-import { zuiInRange } from '../../util/math/in-range';
+import { pzmInRange } from '../../util/math/in-range';
 
 import {
   ZUI_HOURS_IN_DAY,
@@ -43,13 +43,13 @@ export class ZuiTime implements ZuiTimeLike {
     ): boolean {
         return (
             Number.isInteger(hours) &&
-            zuiInRange(hours, 0, ZUI_HOURS_IN_DAY) &&
+            pzmInRange(hours, 0, ZUI_HOURS_IN_DAY) &&
             Number.isInteger(minutes) &&
-            zuiInRange(minutes, 0, ZUI_MINUTES_IN_HOUR) &&
+            pzmInRange(minutes, 0, ZUI_MINUTES_IN_HOUR) &&
             Number.isInteger(seconds) &&
-            zuiInRange(seconds, 0, ZUI_SECONDS_IN_MINUTE) &&
+            pzmInRange(seconds, 0, ZUI_SECONDS_IN_MINUTE) &&
             Number.isInteger(ms) &&
-            zuiInRange(ms, 0, 1000)
+            pzmInRange(ms, 0, 1000)
         );
     }
 
@@ -78,7 +78,7 @@ export class ZuiTime implements ZuiTimeLike {
     public static fromAbsoluteMilliseconds(milliseconds: number): ZuiTime {
         console.assert(Number.isInteger(milliseconds));
         console.assert(
-            zuiInRange(milliseconds, 0, ZUI_MILLISECONDS_IN_DAY),
+            pzmInRange(milliseconds, 0, ZUI_MILLISECONDS_IN_DAY),
             `Milliseconds must be below ${ZUI_MILLISECONDS_IN_DAY} (milliseconds in a day).`,
         );
 

@@ -1,4 +1,4 @@
-export type ZuiHorizontalDirection = 'left' | 'right';
+export type PzmHorizontalDirection = 'left' | 'right';
 
 export type ZuiVerticalDirection = 'top' | 'bottom';
 
@@ -10,4 +10,4 @@ export type ZuiSideDirection =
     | 'top-right'
     | 'top-middle';
 
-export type ZuiDirection = ZuiHorizontalDirection | ZuiSideDirection;
+export type ZuiDirection = PzmHorizontalDirection | ZuiSideDirection;

@@ -12,7 +12,7 @@ export class ZuiInputNumberDirective {
   @Input() value!: number;
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_input_number';
+  readonly testId = 'pzm_input_number';
 
   constructor(
     @Host() private readonly el: ElementRef<HTMLInputElement>,

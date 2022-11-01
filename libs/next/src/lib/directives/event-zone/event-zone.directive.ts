@@ -12,8 +12,8 @@ import {
   SimpleChanges,
   SkipSelf,
 } from '@angular/core';
-import { ZuiEventZoneService } from './event-zone.service';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmEventZoneService } from './event-zone.service';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 
 /**
@@ -21,39 +21,39 @@ import { takeUntil, tap } from 'rxjs/operators';
  * injector support for ng-template
  * */
 @Directive({
-    selector: `[zuiEventZone]:not(ng-container), [zuiEventZoneChange]:not(ng-container), [zuiEventZoneParent]:not(ng-container)`,
-    exportAs: `zuiEventZone`,
+    selector: `[pzmEventZone]:not(ng-container), [pzmEventZoneChange]:not(ng-container), [pzmEventZoneParent]:not(ng-container)`,
+    exportAs: `pzmEventZone`,
     providers: [
-      ZuiEventZoneService,
-      ZuiDestroyService
+      PzmEventZoneService,
+      PzmDestroyService
     ]
 })
-export class ZuiDropdownZoneDirective implements OnInit, OnChanges {
-  @Output() zuiEventZoneEvent = new EventEmitter<number>();
-  @Input() zuiEventZoneParent?: ZuiDropdownZoneDirective;
-  @Input() zuiEventZoneHost?: HTMLElement;
+export class PzmDropdownZoneDirective implements OnInit, OnChanges {
+  @Output() pzmEventZoneEvent = new EventEmitter<number>();
+  @Input() pzmEventZoneParent?: PzmDropdownZoneDirective;
+  @Input() pzmEventZoneHost?: HTMLElement;
 
   get host(): HTMLElement {
-    return this.zuiEventZoneHost ?? this.elementRef.nativeElement;
+    return this.pzmEventZoneHost ?? this.elementRef.nativeElement;
   }
 
   constructor(
-    @Self() private readonly dz: ZuiEventZoneService,
-    @Optional() @SkipSelf() public readonly parentDropdownZoneService: ZuiEventZoneService,
-    private readonly destroy$: ZuiDestroyService,
+    @Self() private readonly dz: PzmEventZoneService,
+    @Optional() @SkipSelf() public readonly parentDropdownZoneService: PzmEventZoneService,
+    private readonly destroy$: PzmDestroyService,
     private readonly elementRef: ElementRef,
     public readonly injector: Injector,
   ) {}
 
   public ngOnInit(): void {
-    this.dz.init(this.host, 'click', this.zuiEventZoneParent?.dz ?? this.parentDropdownZoneService);
+    this.dz.init(this.host, 'click', this.pzmEventZoneParent?.dz ?? this.parentDropdownZoneService);
     this.dz.event$.pipe(
-      tap((time) => this.zuiEventZoneEvent.next(time)),
+      tap((time) => this.pzmEventZoneEvent.next(time)),
       takeUntil(this.destroy$)
     ).subscribe()
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.zuiEventZoneElement) this.dz.init(this.host, 'click', this.zuiEventZoneParent?.dz);
+    if (changes.pzmEventZoneElement) this.dz.init(this.host, 'click', this.pzmEventZoneParent?.dz);
   }
 }

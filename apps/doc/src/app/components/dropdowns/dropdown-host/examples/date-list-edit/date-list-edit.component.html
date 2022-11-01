@@ -4,7 +4,7 @@
   [(isOpen)]="open"
   #elem
 >
-  <button zuiButton type="button" (click)="open = !open">
+  <button pzmButton type="button" (click)="open = !open">
     Пример выбора периода
   </button>
 
@@ -20,11 +20,11 @@
             <div
               class='list-item'
               *zuiLet='item.range | zuiCallFunc : convertDate as dateArr'>
-              <zui-radio-button
+              <pzm-radio-button
                 (click)="select(item)"
                 [value]="item.range"
                 [label]='(dateArr[0] | date : "short") + " - " + (dateArr[1] | date : "short")'
-              ></zui-radio-button>
+              ></pzm-radio-button>
               <div class='btns'>
                 <zui-icon class='edit-icon' iconClass='editor-mode'></zui-icon>
                 <zui-icon (click)='remove(idx); elem.reCalculatePositions();' class='trash-icon' iconClass='delete'></zui-icon>
@@ -34,8 +34,8 @@
         </div>
       </div>
       <div class='footer' footer>
-        <button appearanceType='ghost' appearance='secondary' zuiButton (click)="open = false; cdRef.markForCheck()">Отменить</button>
-        <button zuiButton (click)="open = false; cdRef.markForCheck()">Сохранить</button>
+        <button appearanceType='ghost' appearance='secondary' pzmButton (click)="open = false; cdRef.markForCheck()">Отменить</button>
+        <button pzmButton (click)="open = false; cdRef.markForCheck()">Сохранить</button>
       </div>
     </zui-data-list>
   </ng-template>

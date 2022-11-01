@@ -53,7 +53,7 @@ export class ZuiTableComponent<T = unknown>
   @ContentChildren(BaseTableTemplateDirective) templates: QueryList<BaseTableTemplateDirective>;
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_table';
+  readonly testId = 'pzm_table';
 
   public expandedRowTemplate: TemplateRef<any>;
   public footerGroupedTemplate: TemplateRef<any>;

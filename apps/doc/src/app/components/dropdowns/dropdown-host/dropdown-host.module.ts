@@ -4,15 +4,15 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
-  ZuiButtonModule,
+  PzmButtonModule,
   ZuiCheckboxModule,
   ZuiDataListModule,
   ZuiDropdownHostModule,
-  ZuiDropdownZoneModule,
-  ZuiIconModule,
+  PzmDropdownZoneModule,
+  PzmIconModule,
   ZuiInputDateTimeModule,
-  ZuiInputTextModule,
-  ZuiRadioButtonModule,
+  PzmInputTextModule,
+  PzmRadioButtonModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownHostComponent } from './dropdown-host.component';
@@ -20,7 +20,7 @@ import { ZuiDropdownHostExampleWithTemplateComponent } from './examples/with-tem
 import { ZuiSelectPanelExampleComponent } from './examples/select-panel-example/select-panel-example.component';
 import { ZuiDropdownHostDateListExampleComponent } from './examples/date-list/date-list.component';
 import { ZuiDropdownHostDateListEditExampleComponent } from './examples/date-list-edit/date-list-edit.component';
-import { ZuiCallFuncModule, ZuiLetModule } from '@digital-plant/zyfra-helpers';
+import { PzmCallFuncModule, PzmLetModule } from '@digital-plant/zyfra-helpers';
 
 @NgModule({
   imports: [
@@ -30,17 +30,17 @@ import { ZuiCallFuncModule, ZuiLetModule } from '@digital-plant/zyfra-helpers';
     ReactiveFormsModule,
     PolymorphModule,
     ZuiDataListModule,
-    ZuiDropdownZoneModule,
-    ZuiButtonModule,
+    PzmDropdownZoneModule,
+    PzmButtonModule,
     ZuiDropdownHostModule,
     RouterModule.forChild(generateRoutes(DropdownHostComponent)),
     ZuiCheckboxModule,
     ZuiInputDateTimeModule,
-    ZuiInputTextModule,
-    ZuiIconModule,
-    ZuiRadioButtonModule,
-    ZuiCallFuncModule,
-    ZuiLetModule,
+    PzmInputTextModule,
+    PzmIconModule,
+    PzmRadioButtonModule,
+    PzmCallFuncModule,
+    PzmLetModule,
     FormsModule,
   ],
   declarations: [

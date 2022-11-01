@@ -1,15 +1,15 @@
 import { AbstractZuiDialogService } from '../../../abstract/dialog.service';
 import { Injectable } from '@angular/core';
-import { ZuiOverlayControl, ZuiOverlayGlobalPosition, ZuiOverlayInsidePlacement } from '../../../modules/overlay';
+import { ZuiOverlayControl, ZuiOverlayGlobalPosition, PzmOverlayInsidePlacement } from '../../../modules/overlay';
 import { Observable, Observer } from 'rxjs';
 import { ZuiSidebarComponent } from './sidebar.component';
 import { ZuiSidebarButton, ZuiSidebarOptions, ZuiSidebarResult, ZuiSidebarResultDefaultType } from './sidebar.models';
 import { ZuiBaseDialogContext } from '../dialog/dialog.models';
-import { ZuiAppearance, ZuiAppearanceType } from '../../../types';
-import { ZuiSize } from '../../../util';
+import { PzmAppearance, PzmAppearanceType } from '../../../types';
+import { PzmSize } from '../../../util';
 
 const DEFAULT_OPTIONS = {
-  position: ZuiOverlayInsidePlacement.CENTER,
+  position: PzmOverlayInsidePlacement.CENTER,
   dismissible: true,
   showByVertical: true,
   confirmButton: null,
@@ -58,7 +58,7 @@ export class ZuiSidebarService<
   ): ZuiOverlayGlobalPosition {
     return new ZuiOverlayGlobalPosition(
       {
-        placement: dialog.position ?? ZuiOverlayInsidePlacement.LEFT,
+        placement: dialog.position ?? PzmOverlayInsidePlacement.LEFT,
         width: (['t', 'b'].includes(dialog.position) && '100%') || dialog.width,
         height: (['l', 'r'].includes(dialog.position) && '100%') || dialog.height
       }
@@ -104,8 +104,8 @@ export class ZuiSidebarService<
     button: ZuiSidebarButton | string,
     defaultText: string,
     defaultComplete: ZuiSidebarResultDefaultType,
-    defaultAppearance?: ZuiAppearance,
-    defaultAppearanceType?: ZuiAppearanceType,
+    defaultAppearance?: PzmAppearance,
+    defaultAppearanceType?: PzmAppearanceType,
   ): ZuiSidebarButton {
     const buttonText = (typeof button === 'string'
       ? button
@@ -116,7 +116,7 @@ export class ZuiSidebarService<
     return  {
       ...btn,
       text: buttonText,
-      size: btn.size ?? options.size as ZuiSize,
+      size: btn.size ?? options.size as PzmSize,
       action: btn.action ?? ((c): void => c.completeWith(defaultComplete)),
       appearance: btn.appearance ?? defaultAppearance,
       appearanceType: btn.appearanceType ?? defaultAppearanceType

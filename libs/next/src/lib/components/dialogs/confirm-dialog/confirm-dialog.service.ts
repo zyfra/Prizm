@@ -1,6 +1,6 @@
 import { AbstractZuiDialogService } from '../../../abstract/dialog.service';
 import { Injectable } from '@angular/core';
-import { ZuiOverlayControl, ZuiOverlayInsidePlacement } from '../../../modules/overlay';
+import { ZuiOverlayControl, PzmOverlayInsidePlacement } from '../../../modules/overlay';
 import { Observable, Observer } from 'rxjs';
 import { ZuiDialogConfirmComponent } from './confirm-dialog.component';
 import {
@@ -10,10 +10,10 @@ import {
   ZuiConfirmDialogResultDefaultType,
 } from './confirm-dialog.models';
 import { ZuiBaseDialogContext } from '../dialog/dialog.models';
-import { ZuiAppearance, ZuiAppearanceType } from '../../../types';
+import { PzmAppearance, PzmAppearanceType } from '../../../types';
 
 const DEFAULT_OPTIONS = {
-  position: ZuiOverlayInsidePlacement.CENTER,
+  position: PzmOverlayInsidePlacement.CENTER,
   dismissible: true,
   showByVertical: true,
   confirmButton: null,
@@ -94,8 +94,8 @@ export class ZuiConfirmDialogService<
     button: ZuiConfirmDialogButton | string,
     defaultText: string,
     defaultComplete: ZuiConfirmDialogResultDefaultType,
-    defaultAppearance?: ZuiAppearance,
-    defaultAppearanceType?: ZuiAppearanceType,
+    defaultAppearance?: PzmAppearance,
+    defaultAppearanceType?: PzmAppearanceType,
   ): ZuiConfirmDialogButton {
     const buttonText = (typeof button === 'string'
       ? button

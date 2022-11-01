@@ -8,8 +8,8 @@ import { ZuiTreeControllerDirective } from './directives/tree-controller.directi
 import { ZuiTreeItemControllerDirective } from './directives/tree-item-controller.directive';
 import { ZuiTreeNodeDirective } from './directives/tree-node.directive';
 import { ZuiExpandModule } from '../expand';
-import { ZuiLetModule } from '@digital-plant/zyfra-helpers';
-import { ZuiButtonModule } from '../button';
+import { PzmLetModule } from '@digital-plant/zyfra-helpers';
+import { PzmButtonModule } from '../button';
 import { PolymorphModule } from '../../directives';
 
 @NgModule({
@@ -17,8 +17,8 @@ import { PolymorphModule } from '../../directives';
         CommonModule,
         PolymorphModule,
         ZuiExpandModule,
-        ZuiLetModule,
-        ZuiButtonModule,
+        PzmLetModule,
+        PzmButtonModule,
     ],
     entryComponents: [ZuiTreeItemContentComponent],
     declarations: [

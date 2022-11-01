@@ -1,5 +1,5 @@
 import {Component, TemplateRef} from '@angular/core';
-import {ZuiToastService, ZuiToastAppearance, ZuiToastPosition} from "@digital-plant/zui-components";
+import {PzmToastService, PzmToastAppearance, PzmToastPosition} from "@digital-plant/zui-components";
 import {FormControl} from "@angular/forms";
 
 @Component({
@@ -43,32 +43,32 @@ export class ZuiToastExampleComponent {
 
   readonly data = [
     {
-      val: ZuiToastPosition.TOP_MIDDLE,
+      val: PzmToastPosition.TOP_MIDDLE,
       label: 'Top Middle',
     },
     {
-      val: ZuiToastPosition.TOP_LEFT,
+      val: PzmToastPosition.TOP_LEFT,
       label: 'Top Left',
     },
     {
-      val: ZuiToastPosition.TOP_RIGHT,
+      val: PzmToastPosition.TOP_RIGHT,
       label: 'Top Right',
     },
     {
-      val: ZuiToastPosition.BOTTOM_MIDDLE,
+      val: PzmToastPosition.BOTTOM_MIDDLE,
       label: 'Bottom Middle',
     },
     {
-      val: ZuiToastPosition.BOTTOM_LEFT,
+      val: PzmToastPosition.BOTTOM_LEFT,
       label: 'Bottom Left',
     },
     {
-      val: ZuiToastPosition.BOTTOM_RIGHT,
+      val: PzmToastPosition.BOTTOM_RIGHT,
       label: 'Bottom Right',
     },
   ];
-  readonly formControl = new FormControl(ZuiToastPosition.TOP_RIGHT);
-  constructor(private readonly toastService: ZuiToastService) {
+  readonly formControl = new FormControl(PzmToastPosition.TOP_RIGHT);
+  constructor(private readonly toastService: PzmToastService) {
   }
 
   public showSuccessToastWithContentTemplate(contentTemplate: TemplateRef<unknown>): void {

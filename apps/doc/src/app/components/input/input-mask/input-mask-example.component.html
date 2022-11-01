@@ -12,7 +12,7 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-input-layout [label]="label" [size]="size" [status]="status" [outer]="outer">
+      <pzm-input-layout [label]="label" [size]="size" [status]="status" [outer]="outer">
         <input
           zuiInput
           [mask]="mask"
@@ -22,8 +22,8 @@
           [disabled]="disabled"
           [required]="required"
         />
-        <ng-template zuiInputStatusText>Текст статуса</ng-template>
-      </zui-input-layout>
+        <ng-template pzmInputStatusText>Текст статуса</ng-template>
+      </pzm-input-layout>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template

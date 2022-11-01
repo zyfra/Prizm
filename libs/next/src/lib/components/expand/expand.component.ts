@@ -12,7 +12,7 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { zuiDefaultProp, zuiRequiredSetter } from '../../decorators';
+import { pzmDefaultProp, pzmRequiredSetter } from '../../decorators';
 import { zuiIsCurrentTarget } from '../../util/dom';
 
 import { ZuiExpandContentDirective } from './expand-content.directive';
@@ -40,11 +40,11 @@ export class ZuiExpandComponent {
     private state = State.Idle;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     isLoading = false;
 
     @Input()
-    @zuiRequiredSetter()
+    @pzmRequiredSetter()
     set expanded(expanded: boolean | null) {
         if (this.expanded_ === null) {
             this.expanded_ = expanded;
@@ -71,7 +71,7 @@ export class ZuiExpandComponent {
     private expanded_: boolean | null = null;
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_expand';
+    readonly testId = 'pzm_expand';
 
     @HostListener('transitionend', ['$event'])
     public onTransitionEnd(event: TransitionEvent): void {

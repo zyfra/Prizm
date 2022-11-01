@@ -1,27 +1,27 @@
 import { Attribute, Directive, ElementRef, Inject, NgZone } from '@angular/core';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { fromEvent, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { zuiPreventDefault } from '../../observables/prevent-default';
-import { zuiZoneFree } from '../../observables/zone-free';
+import { pzmPreventDefault } from '../../observables/prevent-default';
+import { pzmZoneFree } from '../../observables/zone-free';
 
 /**
  * Simple prevent default on event directive when you do not need anything
  * else on event and do not want to trigger change detection
  */
 @Directive({
-    selector: `[zuiPreventDefault]`,
-    providers: [ZuiDestroyService],
+    selector: `[pzmPreventDefault]`,
+    providers: [PzmDestroyService],
 })
-export class ZuiPreventDefaultDirective {
+export class PzmPreventDefaultDirective {
     constructor(
         @Inject(ElementRef) {nativeElement}: ElementRef<HTMLElement>,
         @Inject(NgZone) ngZone: NgZone,
-        @Inject(ZuiDestroyService) destroy$: Observable<void>,
-        @Attribute(`zuiPreventDefault`) eventName: string,
+        @Inject(PzmDestroyService) destroy$: Observable<void>,
+        @Attribute(`pzmPreventDefault`) eventName: string,
     ) {
         fromEvent(nativeElement, eventName, {passive: false})
-            .pipe(zuiZoneFree(ngZone), zuiPreventDefault(), takeUntil(destroy$))
+            .pipe(pzmZoneFree(ngZone), pzmPreventDefault(), takeUntil(destroy$))
             .subscribe();
     }
 }

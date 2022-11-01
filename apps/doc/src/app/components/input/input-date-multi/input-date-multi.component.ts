@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { FormControl } from '@angular/forms';
-import { ZuiDateItemTemplate, ZuiDay, ZuiTime } from '@digital-plant/zui-components';
+import { ZuiDateItemTemplate, PzmDay, ZuiTime } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-input-date-multi-example',
@@ -29,7 +29,7 @@ export class InputDateMultiRelativeComponent implements OnInit {
     HTML: import('!!raw-loader!./examples/four/input-date-multi-four-example.component.html'),
   };
 
-  public readonly timeControl = new FormControl([new ZuiDay(2017, 2, 15), new ZuiTime(12, 30)]);
+  public readonly timeControl = new FormControl([new PzmDay(2017, 2, 15), new ZuiTime(12, 30)]);
   public readonly relativeControl = new FormControl();
   public items: ZuiDateItemTemplate[] = [];
 

@@ -1,4 +1,4 @@
-export type ZuiInputSize = 'l' | 'm' | 's';
-export type ZuiInputStatus = 'default' | 'success' | 'warning' | 'danger';
-export type ZuiInputPosition = 'left' | 'center';
+export type PzmInputSize = 'l' | 'm' | 's';
+export type PzmInputStatus = 'default' | 'success' | 'warning' | 'danger';
+export type PzmInputPosition = 'left' | 'center';
 

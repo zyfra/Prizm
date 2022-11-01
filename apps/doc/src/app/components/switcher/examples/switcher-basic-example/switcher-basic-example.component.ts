@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ISwitcher } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-switcher-basic-example',
+  selector: 'pzm-switcher-basic-example',
   templateUrl: './switcher-basic-example.component.html',
   styleUrls: ['./switcher-basic-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

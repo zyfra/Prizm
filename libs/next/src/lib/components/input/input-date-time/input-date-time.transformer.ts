@@ -1,16 +1,16 @@
 import { Provider } from '@angular/core';
-import { ZuiDay } from '../../../@core/date-time/day';
+import { PzmDay } from '../../../@core/date-time/day';
 import { ZuiTime } from '../../../@core/date-time/time';
 import { ZUI_DATE_TIME_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { ZuiControlValueTransformer } from '../../../types/control-value-transformer';
 
-type From = [ZuiDay | null, ZuiTime | null] | null;
+type From = [PzmDay | null, ZuiTime | null] | null;
 type To = Date | null;
 
 export class ZuiInputDateTimeNativeTransformer implements ZuiControlValueTransformer<From, To> {
   public fromControlValue(controlValue: To): From {
     return controlValue && [
-       ZuiDay.fromLocalNativeDate(controlValue),
+       PzmDay.fromLocalNativeDate(controlValue),
        ZuiTime.fromLocalNativeDate(controlValue)
     ];
   }

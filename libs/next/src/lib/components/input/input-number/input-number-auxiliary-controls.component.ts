@@ -1,18 +1,18 @@
 import { Component, Input } from '@angular/core';
-import { ZuiInputLayoutComponent } from '../common/input-layout/input-layout.component';
+import { PzmInputLayoutComponent } from '../common/input-layout/input-layout.component';
 import { ZuiInputNumberDirective } from './input-number.directive';
 
 @Component({
   selector: 'zui-input-number-auxiliary-controls',
   template: `<div class="container">
     <button
-      zuiInputIconButton="chevrons-up"
+      pzmInputIconButton="chevrons-up"
       (click)="increment()"
       [size]="size"
       [interactive]="true"
     ></button>
     <button
-      zuiInputIconButton="chevrons-down"
+      pzmInputIconButton="chevrons-down"
       (click)="decrement()"
       [size]="size"
       [interactive]="true"
@@ -38,7 +38,7 @@ import { ZuiInputNumberDirective } from './input-number.directive';
 export class ZuiInputNumberDefaultControlsComponent {
   @Input() inputNumber: ZuiInputNumberDirective;
 
-  constructor(private readonly layout: ZuiInputLayoutComponent) {}
+  constructor(private readonly layout: PzmInputLayoutComponent) {}
 
   get size(): number {
     const { outer, size } = this.layout;

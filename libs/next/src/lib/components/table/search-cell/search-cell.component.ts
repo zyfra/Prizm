@@ -11,7 +11,7 @@ import { ZuiBaseSearchCellComponent } from '../base-table';
 })
 export class ZuiSearchCellComponent extends ZuiBaseSearchCellComponent {
   @HostBinding('attr.testId')
-  readonly testId = 'zui_search_cell';
+  readonly testId = 'pzm_search_cell';
 
   constructor(public readonly table: ZuiTableComponent) {
     super();

@@ -46,7 +46,7 @@ export class ZuiTreeItemComponent implements DoCheck {
     );
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_tree_item';
+    readonly testId = 'pzm_tree_item';
 
     constructor(
         @Inject(ElementRef)

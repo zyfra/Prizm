@@ -1,6 +1,6 @@
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { Component, HostListener, Input } from '@angular/core';
-import { ZuiInputControl } from '../input';
+import { PzmInputControl } from '../input';
 import { ZuiInputTextComponent } from '../input/input-text/input-text.component';
 
 interface IZuiChipsComponent {
@@ -24,7 +24,7 @@ interface IZuiChipsComponent {
     '[required]': 'required',
   },
   styleUrls: ['../input/input-text/input-text.component.less'],
-  providers: [{ provide: ZuiInputControl, useExisting: ZuiInputChipsComponent }, ZuiDestroyService],
+  providers: [{ provide: PzmInputControl, useExisting: ZuiInputChipsComponent }, PzmDestroyService],
 })
 export class ZuiInputChipsComponent extends ZuiInputTextComponent {
   @Input() chipsComponent: IZuiChipsComponent;

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PolymorphContent, ZuiContextWithImplicit, ZuiSizeL, ZuiSizeM } from '@digital-plant/zui-components';
+import { PolymorphContent, PzmContextWithImplicit, ZuiSizeL, ZuiSizeM } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-toggle-example',
@@ -21,15 +21,15 @@ export class ToggleComponent {
   ];
   size: ZuiSizeL | ZuiSizeM = this.sizeVariants[0];
 
-  readonly iconVariants: ReadonlyArray<PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>> = [
+  readonly iconVariants: ReadonlyArray<PolymorphContent<PzmContextWithImplicit<ZuiSizeL | ZuiSizeM>>> = [
     '',
     'selection-checkbox-marked-circle',
     'selection-checkbox-marked-circle-chanel',
     'arrows-chevron-left',
     'arrows-chevron-right'
   ];
-  iconOn: PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>> = this.iconVariants[0];
-  iconOff: PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>> = this.iconVariants[0];
+  iconOn: PolymorphContent<PzmContextWithImplicit<ZuiSizeL | ZuiSizeM>> = this.iconVariants[0];
+  iconOff: PolymorphContent<PzmContextWithImplicit<ZuiSizeL | ZuiSizeM>> = this.iconVariants[0];
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
   );

@@ -1,15 +1,15 @@
-import { ZuiToastOptions } from './types';
+import { PzmToastOptions } from './types';
 import { ReplaySubject, Subject, timer } from 'rxjs';
-import { ZuiToastDefaultOptions } from './toast-options';
+import { PzmToastDefaultOptions } from './toast-options';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PolymorphContent } from '../../directives/polymorph';
-import { ZuiToastService } from './toast.service';
-import { zuiGenerateId } from '../../util';
+import { PzmToastService } from './toast.service';
+import { pzmGenerateId } from '../../util';
 
-export class ZuiToastRef {
+export class PzmToastRef {
   private show$ = new ReplaySubject<boolean>(1);
   private destroy$ = new Subject<void>();
-  private hash_ = zuiGenerateId();
+  private hash_ = pzmGenerateId();
   get hash(): string {
     return this.hash_;
   };
@@ -18,17 +18,17 @@ export class ZuiToastRef {
   };
   constructor(
     public content: PolymorphContent,
-    readonly weight: ZuiToastOptions['weight'],
-    readonly closeAfter: ZuiToastOptions['timer'],
-    public title: ZuiToastOptions['title'],
-    readonly data: ZuiToastOptions['data'],
-    readonly position: ZuiToastOptions['position'],
-    readonly id: ZuiToastOptions['id'],
-    readonly appearance: ZuiToastOptions['appearance'],
-    readonly options: ZuiToastDefaultOptions,
-    readonly toastService: ZuiToastService,
+    readonly weight: PzmToastOptions['weight'],
+    readonly closeAfter: PzmToastOptions['timer'],
+    public title: PzmToastOptions['title'],
+    readonly data: PzmToastOptions['data'],
+    readonly position: PzmToastOptions['position'],
+    readonly id: PzmToastOptions['id'],
+    readonly appearance: PzmToastOptions['appearance'],
+    readonly options: PzmToastDefaultOptions,
+    readonly toastService: PzmToastService,
     public show: boolean = true,
-    readonly isPlatform: ZuiToastOptions['isPlatform'],
+    readonly isPlatform: PzmToastOptions['isPlatform'],
   ) {
     if (this.show) this.open();
     if (this.closeAfter) this.close(this.closeAfter);
@@ -61,7 +61,7 @@ export class ZuiToastRef {
     this.detect();
   }
 
-  public readonly updateTitle = (title: ZuiToastOptions['title']): void => {
+  public readonly updateTitle = (title: PzmToastOptions['title']): void => {
     if (title === this.title) return;
     this.title = title;
     this.detect();
@@ -74,7 +74,7 @@ export class ZuiToastRef {
   }
 
   private detect(): void {
-    this.hash_ = zuiGenerateId();
+    this.hash_ = pzmGenerateId();
     this.toastService.detect();
   }
 }

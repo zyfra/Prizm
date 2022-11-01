@@ -9,13 +9,13 @@ import {
     switchMap,
     takeUntil,
 } from 'rxjs/operators';
-import {filterNotNullish, ZuiDestroyService} from "@digital-plant/zyfra-helpers";
-import {zuiTypedFromEvent} from '../../observables/typed-from-event';
-import {zuiPreventDefault} from '../../observables/prevent-default';
+import {filterNotNullish, PzmDestroyService} from "@digital-plant/zyfra-helpers";
+import {pzmTypedFromEvent} from '../../observables/typed-from-event';
+import {pzmPreventDefault} from '../../observables/prevent-default';
 
 @Directive({
     selector: '[zuiDroppableDropped], [zuiDroppableDragOverChange]',
-    providers: [ZuiDestroyService],
+    providers: [PzmDestroyService],
 })
 export class ZuiDroppableDirective {
     @Output()
@@ -26,29 +26,29 @@ export class ZuiDroppableDirective {
 
     constructor(
         @Inject(ElementRef) {nativeElement}: ElementRef<HTMLElement>,
-        @Inject(ZuiDestroyService) destroy$: Observable<void>,
+        @Inject(PzmDestroyService) destroy$: Observable<void>,
     ) {
-        this.zuiDroppableDropped = zuiTypedFromEvent(nativeElement, 'drop').pipe(
-            zuiPreventDefault(),
+        this.zuiDroppableDropped = pzmTypedFromEvent(nativeElement, 'drop').pipe(
+            pzmPreventDefault(),
             map(event => event.dataTransfer),
             filterNotNullish()
         );
 
-        this.zuiDroppableDragOverChange = zuiTypedFromEvent(nativeElement, 'dragenter').pipe(
+        this.zuiDroppableDragOverChange = pzmTypedFromEvent(nativeElement, 'dragenter').pipe(
             switchMap(({target, dataTransfer}) =>
                 merge(
-                    zuiTypedFromEvent(nativeElement, 'dragleave').pipe(
+                    pzmTypedFromEvent(nativeElement, 'dragleave').pipe(
                         filter(event => event.target === target),
                     ),
-                    zuiTypedFromEvent(nativeElement, 'drop'),
+                    pzmTypedFromEvent(nativeElement, 'drop'),
                 ).pipe(mapTo(null), startWith(dataTransfer)),
             ),
             distinctUntilChanged((a, b) => (!!a && !!b) || (!a && !b)),
         );
 
         // Required by Drag and Drop API to stop redirecting
-        zuiTypedFromEvent(nativeElement, 'dragover')
-            .pipe(zuiPreventDefault(), takeUntil(destroy$))
+        pzmTypedFromEvent(nativeElement, 'dragover')
+            .pipe(pzmPreventDefault(), takeUntil(destroy$))
             .subscribe();
     }
 }

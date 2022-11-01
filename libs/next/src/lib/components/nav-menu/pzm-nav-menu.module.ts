@@ -11,26 +11,25 @@ import { InputTextModule } from 'primeng/inputtext';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { TooltipModule } from 'primeng/tooltip';
-import { ZuiNavMenuComponent } from './components/zui-nav-menu/zui-nav-menu.component';
-import { ZuiAutofocusDirective } from './directives/zui-autofocus.directives';
-import { ZuiNavMenuGroupDirective } from './directives/nav-menu-group.directive';
+import { PzmNavMenuComponent } from './components/nav-menu/pzm-nav-menu.component';
+import { PzmAutofocusDirective } from './directives/autofocus.directives';
+import { PzmNavMenuGroupDirective } from './directives/nav-menu-group.directive';
 import { NavMenuService } from './service/selection.service';
-import { ZuiNavMenuItemComponent } from './components/zui-menu-item/zui-nav-menu-item.component';
-import { ZuiNavMenuGroupComponent } from './components/zui-nav-menu-group/zui-nav-menu-group.component';
-import { ZuiTemplateDirective } from './directives/zui-template.directive';
+import { PzmNavMenuItemComponent } from './components/menu-item/pzm-nav-menu-item.component';
+import { PzmNavMenuGroupComponent } from './components/nav-menu-group/pzm-nav-menu-group.component';
+import { PzmTemplateDirective } from './directives/pzm-template.directive';
 import { AccordionModule } from 'primeng/accordion';
-
-import { ZuiInputTextModule } from '../input';
-import { ZuiIconModule } from '../icon';
+import { PzmInputTextModule } from '../input';
+import { PzmIconModule } from '../icon';
 
 @NgModule({
   declarations: [
-    ZuiNavMenuComponent,
-    ZuiAutofocusDirective,
-    ZuiNavMenuGroupDirective,
-    ZuiNavMenuGroupComponent,
-    ZuiNavMenuItemComponent,
-    ZuiTemplateDirective,
+    PzmNavMenuComponent,
+    PzmAutofocusDirective,
+    PzmNavMenuGroupDirective,
+    PzmNavMenuGroupComponent,
+    PzmNavMenuItemComponent,
+    PzmTemplateDirective,
   ],
   imports: [
     PanelMenuModule,
@@ -46,12 +45,12 @@ import { ZuiIconModule } from '../icon';
     RadioButtonModule,
     TooltipModule,
     AccordionModule,
-    ZuiInputTextModule,
-    ZuiIconModule,
+    PzmInputTextModule,
+    PzmIconModule,
     ReactiveFormsModule,
   ],
   providers: [NavMenuService],
-  exports: [ZuiNavMenuComponent, ZuiNavMenuGroupDirective, ZuiTemplateDirective],
+  exports: [PzmNavMenuComponent, PzmNavMenuGroupDirective, PzmTemplateDirective],
 })
-export class ZuiNavMenuModule {}
+export class PzmNavMenuModule {}
 

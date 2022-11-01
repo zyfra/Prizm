@@ -1,16 +1,16 @@
 import { InjectionToken, ValueProvider } from '@angular/core';
-import { ZuiOverlayOutsidePlacement } from '../../modules/overlay/models';
+import { PzmOverlayOutsidePlacement } from '../../modules/overlay/models';
 import { ZuiDialogButton } from '../../components/dialogs/dialog';
 import { ZuiSizeL, ZuiSizeM } from '../../util';
 import { ZuiConfirmDialogResultDefaultType } from '../../components/dialogs/confirm-dialog';
-import { ZuiHintContext, ZuiHintOptions } from '../hint/hint-options';
+import { PzmHintContext, PzmHintOptions } from '../hint/hint-options';
 
 
 export type ZuiConfirmPopupButton = Omit<ZuiDialogButton, 'action'> & Partial<Pick<ZuiDialogButton, 'action'>>
 
 export type ZuiConfirmPopupMode = 'error' | 'dark' | 'light' | null
 
-export interface ZuiConfirmPopupOptions extends ZuiHintOptions {
+export interface ZuiConfirmPopupOptions extends PzmHintOptions {
     readonly showDelay: number;
     readonly hideDelay: number;
     readonly size: ZuiSizeM | ZuiSizeL;
@@ -19,9 +19,9 @@ export interface ZuiConfirmPopupOptions extends ZuiHintOptions {
     cancelButton?: ZuiConfirmPopupButton | string,
     readonly mode: ZuiConfirmPopupMode;
     readonly autoReposition: boolean;
-    readonly direction: ZuiOverlayOutsidePlacement;
+    readonly direction: PzmOverlayOutsidePlacement;
 }
-export interface ZuiConfirmPopupContext extends ZuiHintContext {
+export interface ZuiConfirmPopupContext extends PzmHintContext {
     readonly size: ZuiSizeM | ZuiSizeL;
     readonly completeWith: (ctx: ZuiConfirmDialogResultDefaultType | unknown) => void;
     confirmButton?: ZuiConfirmPopupButton | string,
@@ -37,7 +37,7 @@ export const ZUI_CONFIRM_POPUP_DEFAULT_OPTIONS: ZuiConfirmPopupOptions = {
     hideDelay: 100,
     autoReposition: true,
     mode: null,
-    direction: ZuiOverlayOutsidePlacement.RIGHT,
+    direction: PzmOverlayOutsidePlacement.RIGHT,
 };
 
 export const ZUI_CONFIRM_POPUP_OPTIONS = new InjectionToken<ZuiConfirmPopupOptions>(

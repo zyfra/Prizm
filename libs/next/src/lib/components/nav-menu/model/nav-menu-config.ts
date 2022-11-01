@@ -1,16 +1,16 @@
-import { ZuiMenuItem } from './zui-menu-item.interface';
+import { PzmMenuItem } from './zui-menu-item.interface';
 
 export type SelectionType = 'single' | 'checkbox';
 export type MenuItemSize = 'standard' | 'enlarged';
 export type ViewMode = 'rubricator' | 'folder' | 'hierarchy';
 
 export interface NavMenuEvent {
-  item: ZuiMenuItem;
+  item: PzmMenuItem;
   groupIndex?: number;
 }
 
 export interface NavMenuSelectionEvent {
-  selection: ZuiMenuItem | ZuiMenuItem[];
+  selection: PzmMenuItem | PzmMenuItem[];
   groupIndex?: number;
 }
 

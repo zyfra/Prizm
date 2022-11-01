@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, TemplateRef } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PolymorphContent, zuiPure } from '@digital-plant/zui-components';
+import { PolymorphContent, pzmPure } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-widget-example',
@@ -34,14 +34,14 @@ export class WidgetComponent {
     HTML: import('!!raw-loader!./examples/with-buttons/widget-with-buttons-example.component.html'),
   };
 
-  @zuiPure
+  @pzmPure
   public getIconVariants(...templates: TemplateRef<unknown>[]): ReadonlyArray<PolymorphContent> {
     return [
       ...templates,
       ...this.iconVariants
     ]
   }
-  @zuiPure
+  @pzmPure
   public getHeaderVariants(...templates: TemplateRef<unknown>[]): ReadonlyArray<PolymorphContent> {
     return [
       null,

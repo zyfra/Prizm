@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { IBreadcrumb } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-breadcrumbs-example-with-icon',
+  selector: 'pzm-breadcrumbs-example-with-icon',
   templateUrl: './breadcrumbs-example-with-icon.component.html',
   styleUrls: ['./breadcrumbs-example-with-icon.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

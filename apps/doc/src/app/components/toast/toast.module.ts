@@ -5,9 +5,9 @@ import { RouterModule } from '@angular/router';
 import { ToastComponent } from './toast.component';
 import { ZuiToastInfoExampleComponent } from './examples/message-info-example/message-success-example.component';
 import {
-  ZuiButtonModule,
-  ZuiRadioButtonModule,
-  ZuiToastModule,
+  PzmButtonModule,
+  PzmRadioButtonModule,
+  PzmToastModule,
   zuiToastOptionsProvider,
 } from '@digital-plant/zui-components';
 import { ZuiToastWarningExampleComponent } from './examples/message-warning-example/message-warning-example.component';
@@ -20,11 +20,11 @@ import { ZuiToastExampleComponent } from './examples/toast-example/toast-example
   imports: [
     CommonModule,
     TuiAddonDocModule,
-    ZuiButtonModule,
-    ZuiRadioButtonModule,
+    PzmButtonModule,
+    PzmRadioButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    ZuiToastModule,
+    PzmToastModule,
     RouterModule.forChild(generateRoutes(ToastComponent)),
   ],
   declarations: [

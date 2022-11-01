@@ -1,6 +1,6 @@
 import { zuiIsEdge } from '../is-edge';
 import { zuiIsEdgeOlderThan } from '../is-edge-older-than';
-import { zuiIsFirefox } from '../is-firefox';
+import { pzmIsFirefox } from '../is-firefox';
 import { zuiIsIE } from '../is-ie';
 
 describe('Browsers', () => {
@@ -13,8 +13,8 @@ describe('Browsers', () => {
     });
 
     it('isFirefox', () => {
-        expect(zuiIsFirefox('firefox')).toBe(true);
-        expect(zuiIsFirefox('Firefox')).toBe(true);
+        expect(pzmIsFirefox('firefox')).toBe(true);
+        expect(pzmIsFirefox('Firefox')).toBe(true);
     });
 
     it('isEdgeOlderThan', () => {

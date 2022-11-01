@@ -6,7 +6,7 @@ import { ZuiDestroyCallback } from './models';
  * Observable abstraction over ngOnDestroy for use with takeUntil
  */
 @Injectable()
-export class ZuiDestroyService extends ReplaySubject<void> implements OnDestroy {
+export class PzmDestroyService extends ReplaySubject<void> implements OnDestroy {
     private readonly cb = new Set<ZuiDestroyCallback>();
     constructor() {
       super(1);

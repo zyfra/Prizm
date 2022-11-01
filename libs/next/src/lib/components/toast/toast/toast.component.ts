@@ -1,16 +1,16 @@
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 import { PolymorphContent } from '../../../directives/polymorph';
-import { ZuiToastRef } from '../toast-ref';
+import { PzmToastRef } from '../toast-ref';
 
 @Component({
-  selector: 'zui-toast-single',
+  selector: 'pzmi-toast-single',
   templateUrl: './toast.component.html',
   styleUrls: ['./toast.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToastComponent {
   @HostBinding('attr.testId')
-  readonly testId = 'zui_toast_single';
+  readonly testId = 'pzm_toast_single';
 
   // TODO remove record to context type
   get context(): Record<string, any> {
@@ -19,6 +19,6 @@ export class ToastComponent {
   get temp(): PolymorphContent {
     return this.toastRef.content
   }
-  constructor(public readonly toastRef: ZuiToastRef) {
+  constructor(public readonly toastRef: PzmToastRef) {
   }
 }

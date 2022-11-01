@@ -7,7 +7,7 @@
     (isOpenChange)="onOpenChange($event)"
     zuiDropdownHostWidth='auto'
 >
-  <zui-input-layout
+  <pzm-input-layout
     [label]="label"
     [outer]='outer'
     [size]="size">
@@ -27,13 +27,13 @@
 
     <ng-container zui-input-right>
       <button
-        zuiInputIconButton="date-calendar-range"
+        pzmInputIconButton="date-calendar-range"
         [interactive]="true"
         (click)='focusableElementRef.focus()'></button>
     </ng-container>
-  </zui-input-layout>
+  </pzm-input-layout>
   <ng-template #dropdown>
-      <zui-calendar-range
+      <pzm-calendar-range
           [defaultViewedMonth]="defaultViewedMonth"
           [disabledItemHandler]="disabledItemHandler"
           [items]="items"
@@ -44,6 +44,6 @@
           [maxLength]="maxLength"
           [value]="value"
           (valueChange)="onRangeChange($event)"
-      ></zui-calendar-range>
+      ></pzm-calendar-range>
   </ng-template>
 </zui-dropdown-host>

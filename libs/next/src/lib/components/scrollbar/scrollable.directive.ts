@@ -2,9 +2,9 @@ import { Directive, ElementRef, Inject, OnInit } from '@angular/core';
 import { ZUI_SCROLLABLE } from '../../constants/events';
 
 @Directive({
-    selector: '[zuiScrollable]',
+    selector: '[pzmScrollable]',
 })
-export class ZuiScrollableDirective implements OnInit {
+export class PzmScrollableDirective implements OnInit {
     constructor(
         @Inject(ElementRef) private readonly elementRef: ElementRef<HTMLElement>,
     ) {}

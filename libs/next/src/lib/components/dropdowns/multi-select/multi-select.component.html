@@ -7,7 +7,7 @@
   [zuiDropdownMaxHeight]="maxDropdownHeight"
   *zuiLet="{ selectedItems: selectedItems$ | async, filteredItems: filteredItems$ | async } as $"
 >
-  <zui-input-layout
+  <pzm-input-layout
     [label]="label"
     [forceClear]='(forceClear || forceClear === null) && $.selectedItems.length > 0'
     (clear)="focusableElementRef.focus(); safeStopPropagation(focusableElementRef.value, $event)"
@@ -36,7 +36,7 @@
 
     <ng-template #chipsTemplate>
       <ng-container *ngIf='selectedItemsChips$ | async as chips'>
-        <zui-chips
+        <pzm-chips
           *ngIf='chips.length'
           #chipsComponent
           [class.inner]='!outer'
@@ -44,7 +44,7 @@
           [deletable]='isChipsDeletable'
           [chips]="chips"
           (removeChipEvent)="removeChip($event)"
-        ></zui-chips>
+        ></pzm-chips>
       </ng-container>
     </ng-template>
 
@@ -58,15 +58,15 @@
       zui-input-right
       iconClass="chevrons-dropdown"
     ></zui-icon>
-  </zui-input-layout>
+  </pzm-input-layout>
 
   <ng-template #dropdown>
     <zui-data-list class="block" [style.--zui-data-list-border]='0'>
       <div class="list-search-item" *ngIf="searchable">
-        <zui-input-layout size="m" label="Поиск">
+        <pzm-input-layout size="m" label="Поиск">
           <input zuiInput zuiAutoFocus class="input-search" #input [formControl]="searchInputControl" />
-          <button zuiInputIconButton="sort-zoom-in" zui-input-right [interactive]="true"></button>
-        </zui-input-layout>
+          <button pzmInputIconButton="sort-zoom-in" zui-input-right [interactive]="true"></button>
+        </pzm-input-layout>
       </div>
       <ng-container *ngIf="$.filteredItems?.length; else emptyTemplate">
         <div
@@ -84,9 +84,9 @@
             <div class="text"
                   #elem
                   *zuiLet="item | zuiCallFunc: stringify:$any(emptyContent) as text"
-                  [zuiHint]='text'
-                  [zuiHintDirection]='direction'
-                  [zuiHintCanShow]='elem | zuiCallFunc : zuiIsTextOverflow$ | async'
+                  [pzmHint]='text'
+                  [pzmHintDirection]='direction'
+                  [pzmHintCanShow]='elem | zuiCallFunc : zuiIsTextOverflow$ | async'
             >
               <ng-container
                 *polymorphOutlet="

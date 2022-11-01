@@ -1,5 +1,5 @@
 import { Directive, Input } from '@angular/core';
-import { zuiDefaultProp } from '../../../decorators';
+import { pzmDefaultProp } from '../../../decorators';
 import { ZuiHandler } from '../../../types';
 
 @Directive({
@@ -7,7 +7,7 @@ import { ZuiHandler } from '../../../types';
 })
 export class ZuiTreeChildrenDirective<T> {
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     childrenHandler: ZuiHandler<T, readonly T[]> =
         ZuiTreeChildrenDirective.defaultHandler;
 

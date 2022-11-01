@@ -3,9 +3,9 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
   ZUI_CONFIRM_POPUP_DEFAULT_OPTIONS,
-  ZUI_HINT_DEFAULT_OPTIONS,
+  PZM_HINT_DEFAULT_OPTIONS,
   ZuiConfirmPopupOptions,
-  ZuiOverlayOutsidePlacement,
+  PzmOverlayOutsidePlacement,
 } from '@digital-plant/zui-components';
 
 @Component({
@@ -16,11 +16,11 @@ import {
 })
 export class ConfirmPopupComponent {
   public content = 'Тестовое содержимое';
-  public zuiAutoReposition = false;
+  public pzmAutoReposition = false;
 
-  public readonly zuiConfirmPopupDirectionVariants: ReadonlyArray<ZuiConfirmPopupOptions['direction']> = Object.values(ZuiOverlayOutsidePlacement);
+  public readonly zuiConfirmPopupDirectionVariants: ReadonlyArray<ZuiConfirmPopupOptions['direction']> = Object.values(PzmOverlayOutsidePlacement);
 
-  public zuiConfirmPopupDirection: ZuiConfirmPopupOptions['direction'] = ZUI_HINT_DEFAULT_OPTIONS.direction;
+  public zuiConfirmPopupDirection: ZuiConfirmPopupOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
 
   public zuiConfirmPopupId: string = 'confirm-id';
 

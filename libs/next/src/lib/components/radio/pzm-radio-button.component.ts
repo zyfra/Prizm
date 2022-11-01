@@ -8,16 +8,16 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ZuiWrappedFormComponent } from '../../@core/value-accessor/zui-wrapped-form.component';
+import { PzmWrappedFormComponent } from '../../@core/value-accessor/pzm-wrapped-form-component.directive';
 
 @Component({
-  selector: 'zui-radio-button',
-  templateUrl: './zui-radio-button.component.html',
-  styleUrls: ['./zui-radio-button.component.less'],
+  selector: 'pzm-radio-button',
+  templateUrl: './pzm-radio-button.component.html',
+  styleUrls: ['./pzm-radio-button.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class ZuiRadioButtonComponent extends ZuiWrappedFormComponent {
+export class PzmRadioButtonComponent extends PzmWrappedFormComponent {
   @Input()
   @HostBinding('attr.radio-size')
   size: 's' | 'm' | 'l' = 'm';
@@ -41,7 +41,7 @@ export class ZuiRadioButtonComponent extends ZuiWrappedFormComponent {
   @Output() public blurEvent: EventEmitter<FocusEvent> = new EventEmitter();
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_radio_button';
+  readonly testId = 'pzm_radio_button';
 
   public onClickEventHandler(event: MouseEvent): void {
     if (!this.accessorIsDisabled) {

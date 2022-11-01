@@ -1,10 +1,10 @@
 import { Directive, Input, TemplateRef } from '@angular/core';
 
 @Directive({
-  selector: '[zuiTemplate]',
+  selector: '[pzmTemplate]',
 })
-export class ZuiTemplateDirective {
-  @Input() zuiTemplate: string;
+export class PzmTemplateDirective {
+  @Input() pzmTemplate: string;
 
   constructor(public templateRef: TemplateRef<unknown>) {}
 }

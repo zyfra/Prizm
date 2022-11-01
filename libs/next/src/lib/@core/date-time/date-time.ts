@@ -1,6 +1,6 @@
 import { ZUI_CHAR_EN_DASH, ZUI_CHAR_NO_BREAK_SPACE } from "../../constants/unicode-chars";
 import { ZuiTime } from './time';
-import { ZuiDay } from './day';
+import { PzmDay } from './day';
 
 export const ZUI_DAYS_IN_WEEK = 7;
 
@@ -39,13 +39,13 @@ export const ZUI_MILLISECONDS_IN_DAY = ZUI_MILLISECONDS_IN_HOUR * ZUI_HOURS_IN_D
 export class ZuiDateTime {
   public static fromLocalNativeDate(date: Date): ZuiDateTime {
     return new ZuiDateTime(
-      ZuiDay.fromLocalNativeDate(date),
+      PzmDay.fromLocalNativeDate(date),
       ZuiTime.fromLocalNativeDate(date),
     );
   }
 
   constructor(
-    public day: ZuiDay,
+    public day: PzmDay,
     public time: ZuiTime
   ) {}
 

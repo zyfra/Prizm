@@ -16,25 +16,25 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ZuiTime } from '../../../@core/date-time/time';
 import { AbstractZuiNullableControl } from '../../../abstract/nullable-control';
-import { ZUI_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
-import { zuiDefaultProp } from '../../../decorators/default-prop';
+import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
+import { pzmDefaultProp } from '../../../decorators/default-prop';
 import { ZUI_FIXED_DROPDOWN_CONTROLLER_PROVIDER } from '../../../providers/specific-dropdown-controllers';
-import { ZUI_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
-import { ZuiFocusableElementAccessor } from '../../../types/focusable-element-accessor';
-import { ZuiBooleanHandler } from '../../../types/handler';
+import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
+import { PzmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
+import { PzmBooleanHandler } from '../../../types/handler';
 import { ZUI_INPUT_TIME_OPTIONS, ZuiInputTimeOptions } from './input-time-options';
 import { ZUI_TIME_TEXTS } from '../../../tokens/i18n';
 import { ZuiTimeMode } from '../../../types/time-mode';
-import { zuiPure } from '../../../decorators/pure';
+import { pzmPure } from '../../../decorators/pure';
 import { zuiCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
 import { ZUI_STRICT_MATCHER } from '../../../constants/matcher';
 import { ZuiTimeLike } from '../../../types/time-like';
-import { zuiSetNativeFocused } from '../../../util/set-native-focused';
-import { ZuiInputSize } from '../common/models/zui-input.models';
-import { zuiIsNativeFocusedIn } from '../../../util/is-native-focused-in';
+import { pzmSetNativeFocused } from '../../../util/set-native-focused';
+import { PzmInputSize } from '../common/models/zui-input.models';
+import { pzmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
 import { ZUI_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { ZuiDateButton } from '../../../types/date-button';
-import { zuiIsNativeFocused } from '../../../util';
+import { pzmIsNativeFocused } from '../../../util';
 
 @Component({
     selector: `zui-input-time`,
@@ -43,7 +43,7 @@ import { zuiIsNativeFocused } from '../../../util';
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
-            provide: ZUI_FOCUSABLE_ITEM_ACCESSOR,
+            provide: PZM_FOCUSABLE_ITEM_ACCESSOR,
             useExisting: forwardRef(() => ZuiInputTimeComponent),
         },
         ZUI_FIXED_DROPDOWN_CONTROLLER_PROVIDER,
@@ -51,55 +51,55 @@ import { zuiIsNativeFocused } from '../../../util';
 })
 export class ZuiInputTimeComponent
     extends AbstractZuiNullableControl<ZuiTime>
-    implements ZuiFocusableElementAccessor
+    implements PzmFocusableElementAccessor
 {
     @ViewChild('focusableElementRef', {read: ElementRef})
     public readonly focusableElement?: ElementRef<HTMLInputElement>;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     placeholder = '';
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     label = 'Выберите время';
 
     @Input()
-    @zuiDefaultProp()
-    size: ZuiInputSize = 'm';
+    @pzmDefaultProp()
+    size: PzmInputSize = 'm';
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     outer = false;
 
     @Input()
-    @zuiDefaultProp()
-    disabledItemHandler: ZuiBooleanHandler<ZuiTime> = ZUI_ALWAYS_FALSE_HANDLER;
+    @pzmDefaultProp()
+    disabledItemHandler: PzmBooleanHandler<ZuiTime> = PZM_ALWAYS_FALSE_HANDLER;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     items: readonly ZuiTime[] = new Array(24).fill(null).map(
       (_, i) => new ZuiTime(i, 0, 0, 0)
     );
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     itemSize: ZuiInputTimeOptions['itemSize'] = this.options.itemSize;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     strict = false;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     mode: ZuiInputTimeOptions['mode'] = this.options.mode;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     extraButtonInjector: Injector = this.injector;
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_input_time';
+    readonly testId = 'pzm_input_time';
 
     public open = false;
     public rightButtons$: BehaviorSubject<ZuiDateButton[]>
@@ -165,7 +165,7 @@ export class ZuiInputTimeComponent
     }
 
     public get focused(): boolean {
-      return this.focusableElement?.nativeElement ? zuiIsNativeFocusedIn(this.focusableElement.nativeElement) : false;
+      return this.focusableElement?.nativeElement ? pzmIsNativeFocusedIn(this.focusableElement.nativeElement) : false;
     }
 
     // eslint-disable-next-line @typescript-eslint/adjacent-overload-signatures
@@ -177,7 +177,7 @@ export class ZuiInputTimeComponent
         this.nativeFocusableElement.value = value;
     }
 
-    @zuiPure
+    @pzmPure
     public getFiller$(mode: ZuiTimeMode): Observable<string> {
         return this.timeTexts$.pipe(map(texts => texts[mode]));
     }
@@ -264,7 +264,7 @@ export class ZuiInputTimeComponent
         this.nativeValue = value ? this.computedValue : ``;
     }
 
-    @zuiPure
+    @pzmPure
     private calculateMask(mode: ZuiTimeMode): string {
         return zuiCreateTimeNgxMask(mode, this.options.maxValues);
     }
@@ -273,7 +273,7 @@ export class ZuiInputTimeComponent
       return this.value?.toString() ?? '';
     }
 
-    @zuiPure
+    @pzmPure
     private filter(
         items: readonly ZuiTime[],
         mode: ZuiTimeMode,
@@ -345,7 +345,7 @@ export class ZuiInputTimeComponent
 
     private focusInput(preventScroll: boolean = false): void {
         if (this.nativeFocusableElement) {
-            zuiSetNativeFocused(this.nativeFocusableElement, true, preventScroll);
+            pzmSetNativeFocused(this.nativeFocusableElement, true, preventScroll);
             this.close();
         }
     }
@@ -356,7 +356,7 @@ export class ZuiInputTimeComponent
         !this.open &&
         !this.disabled &&
         inputElement &&
-        zuiIsNativeFocused(inputElement)
+        pzmIsNativeFocused(inputElement)
       ) {
         this.open = true;
         this.cdr.markForCheck();

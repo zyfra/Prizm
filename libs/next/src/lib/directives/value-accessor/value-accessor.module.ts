@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { ZuiValueAccessorDirective } from './value-accessor.directive';
+import { PzmValueAccessorDirective } from './value-accessor.directive';
 
 @NgModule({
-    declarations: [ZuiValueAccessorDirective],
-    exports: [ZuiValueAccessorDirective],
+    declarations: [PzmValueAccessorDirective],
+    exports: [PzmValueAccessorDirective],
 })
-export class ZuiValueAccessorModule {}
+export class PzmValueAccessorModule {}

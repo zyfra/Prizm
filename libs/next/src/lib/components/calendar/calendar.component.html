@@ -1,6 +1,6 @@
 <div class='calendar-host'>
   <ng-container *ngIf="year || clickedMonth; else calendar">
-    <zui-primitive-year-month-pagination
+    <pzm-primitive-year-month-pagination
       automation-id="zui-calendar__pagination"
       class="z-pagination"
       [min]="computedMinViewedMonth"
@@ -12,8 +12,8 @@
       (valueChange)="onPaginationValueChange($event)"
       (yearClick)="onPaginationYearClick($event)"
       (monthClick)="onPaginationMonthClick($event)"
-    ></zui-primitive-year-month-pagination>
-    <zui-scrollbar
+    ></pzm-primitive-year-month-pagination>
+    <pzm-scrollbar
       automation-id="zui-calendar__scrollbar"
       class="z-scrollbar"
     >
@@ -27,7 +27,7 @@
         (yearClick)="onPickerYearClick($event)"
       ></zui-primitive-year-picker>
       <ng-template #monthPickerTemplate>
-        <zui-primitive-month-picker
+        <pzm-primitive-month-picker
           automation-id="zui-calendar__year"
           [min]="min"
           [max]="max"
@@ -35,12 +35,12 @@
           [value]="value"
           [currentYear]='month.year'
           (monthClick)="onPickerMonthClick($event)"
-        ></zui-primitive-month-picker>
+        ></pzm-primitive-month-picker>
       </ng-template>
-    </zui-scrollbar>
+    </pzm-scrollbar>
   </ng-container>
   <ng-template #calendar>
-    <zui-primitive-year-month-pagination
+    <pzm-primitive-year-month-pagination
       automation-id="zui-calendar__pagination"
       class="z-pagination"
       [min]="computedMinViewedMonth"
@@ -49,8 +49,8 @@
       (valueChange)="onPaginationValueChange($event)"
       (yearClick)="onPaginationYearClick($event)"
       (monthClick)="onPaginationMonthClick($event)"
-    ></zui-primitive-year-month-pagination>
-    <zui-primitive-calendar
+    ></pzm-primitive-year-month-pagination>
+    <pzm-primitive-calendar
       automation-id="zui-calendar__calendar"
       [showAdjacent]="showAdjacent"
       [value]="value"
@@ -61,6 +61,6 @@
       [hoveredItem]="hoveredItem"
       (hoveredItemChange)="onHoveredItemChange($event)"
       (dayClick)="onDayClick($event)"
-    ></zui-primitive-calendar>
+    ></pzm-primitive-calendar>
   </ng-template>
 </div>

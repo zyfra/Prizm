@@ -2,7 +2,8 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  EventEmitter, HostBinding,
+  EventEmitter,
+  HostBinding,
   Inject,
   Input,
   Output,
@@ -10,14 +11,14 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AbstractZuiInteractive } from '../../../abstract/interactive';
-import { zuiDefaultProp } from '../../../decorators/default-prop';
+import { pzmDefaultProp } from '../../../decorators/default-prop';
 import { ZUI_SPIN_TEXTS } from '../../../tokens/i18n';
-import { ZuiAppearanceTypeGhost } from '../../../types/appearance.types';
-import { zuiIsNativeFocused } from '../../../util/is-native-focused';
+import { PzmAppearanceTypeGhost } from '../../../types/appearance.types';
+import { pzmIsNativeFocused } from '../../../util/is-native-focused';
 
 // @dynamic
 @Component({
-    selector: `zui-primitive-spin-button`,
+    selector: `pzm-primitive-spin-button`,
     changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: `./primitive-spin-button.template.html`,
     styleUrls: [`./primitive-spin-button.component.less`],
@@ -27,19 +28,19 @@ export class ZuiPrimitiveSpinButtonComponent extends AbstractZuiInteractive {
     private readonly wrapper?: ElementRef<HTMLElement>;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     disabled = false;
 
     @Input()
-    @zuiDefaultProp()
-    mode: ZuiAppearanceTypeGhost = 'ghost';
+    @pzmDefaultProp()
+    mode: PzmAppearanceTypeGhost = 'ghost';
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     leftDisabled = false;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     rightDisabled = false;
 
     @Output()
@@ -49,7 +50,7 @@ export class ZuiPrimitiveSpinButtonComponent extends AbstractZuiInteractive {
     readonly rightClick = new EventEmitter<void>();
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_primitive_spin_button';
+    readonly testId = 'pzm_primitive_spin_button';
 
     constructor(
         @Inject(ZUI_SPIN_TEXTS) readonly spinTexts$: Observable<[string, string]>,
@@ -58,7 +59,7 @@ export class ZuiPrimitiveSpinButtonComponent extends AbstractZuiInteractive {
     }
 
     public get focused(): boolean {
-        return !!this.wrapper && zuiIsNativeFocused(this.wrapper.nativeElement);
+        return !!this.wrapper && pzmIsNativeFocused(this.wrapper.nativeElement);
     }
 
     public get leftComputedDisabled(): boolean {

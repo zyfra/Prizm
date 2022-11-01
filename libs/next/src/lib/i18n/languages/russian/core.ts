@@ -1,7 +1,7 @@
-import { ZUI_RUSSIAN_LANGUAGE_COUNTRIES } from './countries';
-import { ZuiLanguageCore } from '../../interfaces';
+import { PZM_RUSSIAN_LANGUAGE_COUNTRIES } from './countries';
+import { PzmLanguageCore } from '../../interfaces';
 
-export const ZUI_RUSSIAN_LANGUAGE_CORE: ZuiLanguageCore = {
+export const PZM_RUSSIAN_LANGUAGE_CORE: PzmLanguageCore = {
     months: [
         `Январь`,
         `Февраль`,
@@ -21,5 +21,5 @@ export const ZUI_RUSSIAN_LANGUAGE_CORE: ZuiLanguageCore = {
     defaultErrorMessage: `Поле заполнено неверно`,
     spinTexts: [`Предыдущий`, `Следующий`],
     shortWeekDays: [`ПН`, `ВТ`, `СР`, `ЧТ`, `ПТ`, `СБ`, `ВС`],
-    countries: ZUI_RUSSIAN_LANGUAGE_COUNTRIES,
+    countries: PZM_RUSSIAN_LANGUAGE_COUNTRIES,
 };

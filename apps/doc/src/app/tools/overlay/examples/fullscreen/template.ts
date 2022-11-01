@@ -2,8 +2,8 @@ import {Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/co
 import {
   ZuiOverlayControl, ZuiOverlayFullscreenPosition,
   ZuiOverlayGlobalPosition,
-  ZuiOverlayInsidePlacement,
-  ZuiOverlayService
+  PzmOverlayInsidePlacement,
+  PzmOverlayService
 } from "@digital-plant/zui-components";
 
 @Component({
@@ -25,7 +25,7 @@ export class ZuiOverlayExampleFullscreenComponent implements OnInit {
   @ViewChild('someTemplate', { read: TemplateRef, static: true }) templateRef: TemplateRef<unknown>;
 
   private control: ZuiOverlayControl;
-  constructor(private readonly overlay: ZuiOverlayService) {}
+  constructor(private readonly overlay: PzmOverlayService) {}
 
   public ngOnInit(): void {
     this.control = this.overlay

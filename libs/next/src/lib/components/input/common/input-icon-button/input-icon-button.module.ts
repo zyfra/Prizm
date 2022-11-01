@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
-import { ZuiIconModule } from '../../../icon/icon.module';
-import { ZuiInputIconButtonComponent } from './input-icon-button.component';
+import { PzmIconModule } from '../../../icon/icon.module';
+import { PzmInputIconButtonComponent } from './input-icon-button.component';
 
 @NgModule({
-  imports: [ZuiIconModule],
+  imports: [PzmIconModule],
   declarations: [
-    ZuiInputIconButtonComponent,
+    PzmInputIconButtonComponent,
   ],
   exports: [
-    ZuiInputIconButtonComponent,
+    PzmInputIconButtonComponent,
   ],
 })
-export class ZuiInputIconButtonModule {}
+export class PzmInputIconButtonModule {}

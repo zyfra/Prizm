@@ -1,9 +1,9 @@
 import { Directive, forwardRef, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ZUI_DROPDOWN_CONTROLLER } from './dropdown-controller.token';
-import { zuiDefaultProp } from '../../decorators';
+import { pzmDefaultProp } from '../../decorators';
 import { ZUI_DROPDOWN_DEFAULT_MAX_HEIGHT, ZUI_DROPDOWN_DEFAULT_MIN_HEIGHT } from './dropdown-controller.const';
 import { Subject } from 'rxjs';
-import { ZuiHorizontalDirection } from '../../types/direction';
+import { PzmHorizontalDirection } from '../../types/direction';
 import { ZuiDropdownWidthT } from '../../types/dropdown-width';
 
 @Directive({
@@ -18,19 +18,19 @@ import { ZuiDropdownWidthT } from '../../types/dropdown-width';
 })
 export class ZuiDropdownControllerDirective implements OnChanges {
     @Input('zuiDropdownMinHeight')
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     minHeight = ZUI_DROPDOWN_DEFAULT_MIN_HEIGHT;
 
     @Input('zuiDropdownAlign')
-    @zuiDefaultProp()
-    align: ZuiHorizontalDirection = `right`;
+    @pzmDefaultProp()
+    align: PzmHorizontalDirection = `right`;
 
     @Input('zuiDropdownLimitWidth')
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     limitWidth: ZuiDropdownWidthT = `auto`;
 
     @Input('zuiDropdownMaxHeight')
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     maxHeight = ZUI_DROPDOWN_DEFAULT_MAX_HEIGHT;
 
     readonly changes$ = new Subject();

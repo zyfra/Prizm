@@ -14,6 +14,6 @@ export interface ZuiTypedEventTarget<E> {
 /**
  * Wrapper around {@link Event} to add typings to target and currentTarget.
  */
-export type ZuiEventWith<G extends Event, T extends ZuiTypedEventTarget<G>> = G & {
+export type PzmEventWith<G extends Event, T extends ZuiTypedEventTarget<G>> = G & {
     readonly currentTarget: T;
 };

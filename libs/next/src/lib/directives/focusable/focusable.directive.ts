@@ -1,16 +1,16 @@
-import {Directive, HostBinding, Input} from '@angular/core';
+import { Directive, HostBinding, Input } from '@angular/core';
 
 /**
  * Abstraction over `tabindex`
  */
 @Directive({
-    selector: '[zuiFocusable]',
+    selector: '[pzmFocusable]',
 })
-export class ZuiFocusableDirective {
+export class PzmFocusableDirective {
     /**
      * Element can be focused with keyboard
      */
-    @Input('zuiFocusable')
+    @Input('pzmFocusable')
     focusable = true;
 
     @HostBinding('tabIndex')

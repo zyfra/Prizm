@@ -2,98 +2,99 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  EventEmitter, HostBinding,
+  EventEmitter,
+  HostBinding,
   Inject,
   Input,
   Optional,
   Output,
 } from '@angular/core';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { Observable } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
-import { ZuiDayRangePeriod } from '../../@core/classes/day-range-period';
-import { ZuiDay } from '../../@core/date-time/day';
-import { ZuiDayRange } from '../../@core/date-time/day-range';
-import { ZUI_FIRST_DAY, ZUI_LAST_DAY } from '../../@core/date-time/days.const';
-import { ZuiMonth } from '../../@core/date-time/month';
-import { ZUI_ALWAYS_FALSE_HANDLER } from '../../constants/always-false-handler';
-import { ZUI_DEFAULT_MARKER_HANDLER } from '../../constants/default-marker-handler';
+import { PzmDayRangePeriod } from '../../@core/classes/day-range-period';
+import { PzmDay } from '../../@core/date-time/day';
+import { PzmDayRange } from '../../@core/date-time/day-range';
+import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../@core/date-time/days.const';
+import { PzmMonth } from '../../@core/date-time/month';
+import { PZM_ALWAYS_FALSE_HANDLER } from '../../constants/always-false-handler';
+import { PZM_DEFAULT_MARKER_HANDLER } from '../../constants/default-marker-handler';
 import { ZUI_MAX_DAY_RANGE_LENGTH_MAPPER } from '../../constants/max-day-range-length-mapper';
-import { zuiDefaultProp } from '../../decorators/default-prop';
-import { zuiPure } from '../../decorators/pure';
+import { pzmDefaultProp } from '../../decorators/default-prop';
+import { pzmPure } from '../../decorators/pure';
 import { ZUI_CALENDAR_DATA_STREAM } from '../../tokens/calendar-data-stream';
-import { ZuiDayLike } from '../../types/day-like';
-import { ZuiBooleanHandler } from '../../types/handler';
-import { ZuiMapper } from '../../types/mapper';
-import { ZuiMarkerHandler } from '../../types/marker-handler';
-import { ZuiWithOptionalMinMax } from '../../types/with-optional-min-max';
-import { zuiNullableSame } from '../../util/common/nullable-same';
-import { ZUI_OTHER_DATE_TEXT } from '../../tokens/i18n';
+import { PzmDayLike } from '../../types/day-like';
+import { PzmBooleanHandler } from '../../types/handler';
+import { PzmMapper } from '../../types/mapper';
+import { PzmMarkerHandler } from '../../types/marker-handler';
+import { PzmWithOptionalMinMax } from '../../types/with-optional-min-max';
+import { pzmNullableSame } from '../../util/common/nullable-same';
+import { PZM_OTHER_DATE_TEXT } from '../../tokens/i18n';
 
 @Component({
-    selector: `zui-calendar-range`,
+    selector: `pzm-calendar-range`,
     templateUrl: `./calendar-range.component.html`,
     styleUrls: [`./calendar-range.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [ZuiDestroyService],
+    providers: [PzmDestroyService],
 })
-export class ZuiCalendarRangeComponent implements ZuiWithOptionalMinMax<ZuiDay> {
+export class ZuiCalendarRangeComponent implements PzmWithOptionalMinMax<PzmDay> {
     @Input()
-    @zuiDefaultProp()
-    defaultViewedMonth: ZuiMonth = ZuiMonth.currentLocal();
+    @pzmDefaultProp()
+    defaultViewedMonth: PzmMonth = PzmMonth.currentLocal();
 
     @Input()
-    @zuiDefaultProp()
-    disabledItemHandler: ZuiBooleanHandler<ZuiDay> = ZUI_ALWAYS_FALSE_HANDLER;
+    @pzmDefaultProp()
+    disabledItemHandler: PzmBooleanHandler<PzmDay> = PZM_ALWAYS_FALSE_HANDLER;
 
     @Input()
-    @zuiDefaultProp()
-    markerHandler: ZuiMarkerHandler = ZUI_DEFAULT_MARKER_HANDLER;
+    @pzmDefaultProp()
+    markerHandler: PzmMarkerHandler = PZM_DEFAULT_MARKER_HANDLER;
 
     @Input()
-    @zuiDefaultProp()
-    items: readonly ZuiDayRangePeriod[] = [];
+    @pzmDefaultProp()
+    items: readonly PzmDayRangePeriod[] = [];
 
     @Input()
-    @zuiDefaultProp()
-    min: ZuiDay = ZUI_FIRST_DAY;
+    @pzmDefaultProp()
+    min: PzmDay = PZM_FIRST_DAY;
 
     @Input()
-    @zuiDefaultProp()
-    max: ZuiDay = ZUI_LAST_DAY;
+    @pzmDefaultProp()
+    max: PzmDay = PZM_LAST_DAY;
 
     @Input()
-    @zuiDefaultProp()
-    minLength: ZuiDayLike | null = null;
+    @pzmDefaultProp()
+    minLength: PzmDayLike | null = null;
 
     @Input()
-    @zuiDefaultProp()
-    maxLength: ZuiDayLike | null = null;
+    @pzmDefaultProp()
+    maxLength: PzmDayLike | null = null;
 
     @Input()
-    @zuiDefaultProp()
-    value: ZuiDayRange | null = null;
+    @pzmDefaultProp()
+    value: PzmDayRange | null = null;
 
     @Output()
-    readonly valueChange = new EventEmitter<ZuiDayRange | null>();
+    readonly valueChange = new EventEmitter<PzmDayRange | null>();
 
     /** @deprecated TODO: 2.0 remove */
     @Output()
-    readonly rangeChange = new EventEmitter<ZuiDayRange | null>();
+    readonly rangeChange = new EventEmitter<PzmDayRange | null>();
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_calendar_range';
+    readonly testId = 'pzm_calendar_range';
 
 
-    readonly maxLengthMapper: ZuiMapper<ZuiDay, ZuiDay> = ZUI_MAX_DAY_RANGE_LENGTH_MAPPER;
+    readonly maxLengthMapper: PzmMapper<PzmDay, PzmDay> = ZUI_MAX_DAY_RANGE_LENGTH_MAPPER;
 
     constructor(
         @Inject(ZUI_CALENDAR_DATA_STREAM)
         @Optional()
-        valueChanges: Observable<ZuiDayRange | null> | null,
+        valueChanges: Observable<PzmDayRange | null> | null,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
-        @Inject(ZuiDestroyService) destroy$: ZuiDestroyService,
-        @Inject(ZUI_OTHER_DATE_TEXT) readonly otherDateText$: Observable<string>,
+        @Inject(PzmDestroyService) destroy$: PzmDestroyService,
+        @Inject(PZM_OTHER_DATE_TEXT) readonly otherDateText$: Observable<string>,
     ) {
         if (!valueChanges) {
             return;
@@ -106,17 +107,17 @@ export class ZuiCalendarRangeComponent implements ZuiWithOptionalMinMax<ZuiDay> 
             });
     }
 
-    readonly monthShiftMapper: ZuiMapper<ZuiMonth, ZuiMonth> = item =>
+    readonly monthShiftMapper: PzmMapper<PzmMonth, PzmMonth> = item =>
         item.append({month: 1});
 
-    readonly mapper: ZuiMapper<
-        readonly ZuiDayRangePeriod[],
-        ReadonlyArray<ZuiDayRangePeriod | string>
+    readonly mapper: PzmMapper<
+        readonly PzmDayRangePeriod[],
+        ReadonlyArray<PzmDayRangePeriod | string>
     > = (
         items,
-        min: ZuiDay,
-        max: ZuiDay | null,
-        minLength: ZuiDayLike | null,
+        min: PzmDay,
+        max: PzmDay | null,
+        minLength: PzmDayLike | null,
         otherDateText: string,
     ) => [
         ...items.filter(
@@ -129,7 +130,7 @@ export class ZuiCalendarRangeComponent implements ZuiWithOptionalMinMax<ZuiDay> 
         otherDateText,
     ];
 
-    get calculatedDisabledItemHandler(): ZuiBooleanHandler<ZuiDay> {
+    get calculatedDisabledItemHandler(): PzmBooleanHandler<PzmDay> {
         return this.calculateDisabledItemHandler(
             this.disabledItemHandler,
             this.value,
@@ -137,11 +138,11 @@ export class ZuiCalendarRangeComponent implements ZuiWithOptionalMinMax<ZuiDay> 
         );
     }
 
-   public get computedMonth(): ZuiMonth {
+   public get computedMonth(): PzmMonth {
         return this.value ? this.value.to : this.defaultViewedMonth;
     }
 
-    public isItemActive(item: string | ZuiDayRangePeriod): boolean {
+    public isItemActive(item: string | PzmDayRangePeriod): boolean {
         const {activePeriod} = this;
 
         return (
@@ -149,23 +150,23 @@ export class ZuiCalendarRangeComponent implements ZuiWithOptionalMinMax<ZuiDay> 
         );
     }
 
-    public onRangeChange(dayRange: ZuiDayRange): void {
+    public onRangeChange(dayRange: PzmDayRange): void {
         this.updateValue(dayRange);
     }
 
-    public onDayClick(day: ZuiDay): void {
+    public onDayClick(day: PzmDay): void {
         const {value} = this;
 
         if (value === null || !value.isSingleDay) {
-            this.value = new ZuiDayRange(day, day);
+            this.value = new PzmDayRange(day, day);
 
             return;
         }
 
-        this.updateValue(ZuiDayRange.sort(value.from, day));
+        this.updateValue(PzmDayRange.sort(value.from, day));
     }
 
-    public onItemSelect(item: string | ZuiDayRangePeriod): void {
+    public onItemSelect(item: string | PzmDayRangePeriod): void {
         if (typeof item !== `string`) {
             this.updateValue(item.range.dayLimit(this.min, this.max));
 
@@ -177,16 +178,16 @@ export class ZuiCalendarRangeComponent implements ZuiWithOptionalMinMax<ZuiDay> 
         }
     }
 
-    public updateValue(value: ZuiDayRange | null): void {
+    public updateValue(value: PzmDayRange | null): void {
         this.value = value;
         this.valueChange.emit(value);
         this.rangeChange.emit(value);
     }
 
-    private get activePeriod(): ZuiDayRangePeriod | null {
+    private get activePeriod(): PzmDayRangePeriod | null {
         return (
             this.items.find(item =>
-                zuiNullableSame<ZuiDayRange>(
+                pzmNullableSame<PzmDayRange>(
                     this.value,
                     item.range,
                     (a, b) =>
@@ -197,13 +198,13 @@ export class ZuiCalendarRangeComponent implements ZuiWithOptionalMinMax<ZuiDay> 
         );
     }
 
-    @zuiPure
+    @pzmPure
     private calculateDisabledItemHandler(
-        disabledItemHandler: ZuiBooleanHandler<ZuiDay>,
-        value: ZuiDayRange | null,
-        minLength: ZuiDayLike | null,
-    ): ZuiBooleanHandler<ZuiDay> {
-        return (item: ZuiDay): boolean => {
+        disabledItemHandler: PzmBooleanHandler<PzmDay>,
+        value: PzmDayRange | null,
+        minLength: PzmDayLike | null,
+    ): PzmBooleanHandler<PzmDay> {
+        return (item: PzmDay): boolean => {
             if (!value || !value.isSingleDay || !minLength) {
                 return disabledItemHandler(item);
             }

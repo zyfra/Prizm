@@ -1,9 +1,9 @@
-import {ZuiOverlayConfig, ZuiOverlayInsidePlacement} from '../models';
+import {PzmOverlayConfig, PzmOverlayInsidePlacement} from '../models';
 import {setWidthHeight} from '../utils';
-import {ZuiOverlayAbstractPosition} from './position';
+import {PzmOverlayAbstractPosition} from './position';
 
 interface ZuiOverlayGlobalPositionConfig {
-  placement?: ZuiOverlayInsidePlacement;
+  placement?: PzmOverlayInsidePlacement;
   offset?: number;
   width?: string | number;
   height?: string | number;
@@ -17,12 +17,12 @@ interface OverlayOffsetPosition {
   right: number,
 }
 
-export class ZuiOverlayGlobalPosition extends ZuiOverlayAbstractPosition<ZuiOverlayGlobalPositionConfig> {
+export class ZuiOverlayGlobalPosition extends PzmOverlayAbstractPosition<ZuiOverlayGlobalPositionConfig> {
 
   constructor(config: ZuiOverlayGlobalPositionConfig) {
     super();
     this.updateConfig({
-      ...{ placement: ZuiOverlayInsidePlacement.CENTER, width: 100, height: 100, offset: 0 },
+      ...{ placement: PzmOverlayInsidePlacement.CENTER, width: 100, height: 100, offset: 0 },
       ...config,
     });
   }
@@ -48,7 +48,7 @@ export class ZuiOverlayGlobalPosition extends ZuiOverlayAbstractPosition<ZuiOver
     };
   }
 
-  private calc(placement: ZuiOverlayInsidePlacement, src: any, host: any): Partial<OverlayOffsetPosition> {
+  private calc(placement: PzmOverlayInsidePlacement, src: any, host: any): Partial<OverlayOffsetPosition> {
     const [main, sub] = placement.split('');
     const result: Partial<OverlayOffsetPosition> = {};
 

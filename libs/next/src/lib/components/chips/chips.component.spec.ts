@@ -1,12 +1,12 @@
-import { ZuiChipsComponent } from './chips.component';
+import { PzmChipsComponent } from './chips.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 describe('InputChipsControlComponent', () => {
-  let component: ZuiChipsComponent;
-  let fixture: ComponentFixture<ZuiChipsComponent>;
+  let component: PzmChipsComponent;
+  let fixture: ComponentFixture<PzmChipsComponent>;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ZuiChipsComponent);
+    fixture = TestBed.createComponent(PzmChipsComponent);
     component = fixture.componentInstance;
   });
 

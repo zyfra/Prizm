@@ -3,7 +3,7 @@ import { Directive, EventEmitter, Input, Output } from '@angular/core';
 import { ZuiTreeItemComponent } from '../components/tree-item/tree-item.component';
 import { ZuiTreeAccessor, ZuiTreeController } from '../misc/tree.interfaces';
 import { ZUI_TREE_ACCESSOR, ZUI_TREE_CONTROLLER } from '../misc/tree.tokens';
-import { zuiDefaultProp } from '../../../decorators';
+import { pzmDefaultProp } from '../../../decorators';
 import { zuiIsPresent } from '../../../util';
 
 @Directive({
@@ -24,11 +24,11 @@ export class ZuiTreeControllerDirective<T>
     implements ZuiTreeController, ZuiTreeAccessor<T>
 {
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     zuiTreeController = true;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     map: Map<T, boolean> = new Map();
 
     @Output()

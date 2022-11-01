@@ -10,7 +10,7 @@ import {
   Self,
 } from '@angular/core';
 import { NgControl, Validators } from '@angular/forms';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { ZyfraInputGroupControl } from '../input-group/zyfra-input-group-control.class';
 
@@ -27,7 +27,7 @@ import { ZyfraInputGroupControl } from '../input-group/zyfra-input-group-control
     '[disabled]': 'disabled',
     '[required]': 'required',
   },
-  providers: [{ provide: ZyfraInputGroupControl, useExisting: ZyfraInputDirective }, ZuiDestroyService],
+  providers: [{ provide: ZyfraInputGroupControl, useExisting: ZyfraInputDirective }, PzmDestroyService],
 })
 export class ZyfraInputDirective implements ZyfraInputGroupControl<string>, DoCheck, OnInit {
   /**
@@ -91,7 +91,7 @@ export class ZyfraInputDirective implements ZyfraInputGroupControl<string>, DoCh
    */
   constructor(
     @Optional() @Self() public readonly ngControl: NgControl,
-    private readonly zuiDestroyService: ZuiDestroyService,
+    private readonly zuiDestroyService: PzmDestroyService,
     private readonly cdRef: ChangeDetectorRef,
     private readonly elementRef: ElementRef<HTMLInputElement | HTMLTextAreaElement>
   ) {

@@ -3,18 +3,18 @@
 <div class="box">
   <div class="title">Pass icon name</div>
   <div class="content">
-    <button zuiButton [icon]="'account-card-details'">Left Icon</button>
-    <button zuiButton [iconRight]="'account-card-details'">Right Icon</button>
-    <button zuiButton [icon]="'account-card-details'" [iconRight]="'account-card-details'">Right and Left Icon</button>
+    <button pzmButton [icon]="'account-card-details'">Left Icon</button>
+    <button pzmButton [iconRight]="'account-card-details'">Right Icon</button>
+    <button pzmButton [icon]="'account-card-details'" [iconRight]="'account-card-details'">Right and Left Icon</button>
   </div>
 </div>
 
 <div class="box">
   <div class="title">Pass Template</div>
   <div class="content">
-    <button zuiButton [icon]="someTemplate">Left Template</button>
-    <button zuiButton [iconRight]="someTemplate">Right Template</button>
-    <button zuiButton [icon]="someTemplate" [iconRight]="someTemplate">Right and Reft Template</button>
+    <button pzmButton [icon]="someTemplate">Left Template</button>
+    <button pzmButton [iconRight]="someTemplate">Right Template</button>
+    <button pzmButton [icon]="someTemplate" [iconRight]="someTemplate">Right and Reft Template</button>
     <ng-template #someTemplate>%</ng-template>
   </div>
 </div>

@@ -6,4 +6,4 @@ import { ZuiMapperPipe } from './mapper.pipe';
     exports: [ZuiMapperPipe],
     declarations: [ZuiMapperPipe],
 })
-export class ZuiMapperPipeModule {}
+export class PzmMapperPipeModule {}

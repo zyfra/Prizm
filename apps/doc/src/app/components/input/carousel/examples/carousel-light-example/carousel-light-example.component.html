@@ -1,4 +1,4 @@
-<zui-input-layout [label]="'Карусель'" [size]="'l'" [outer]="true" [position]="'center'">
+<pzm-input-layout [label]="'Карусель'" [size]="'l'" [outer]="true" [position]="'center'">
   <zui-carousel-auxiliary-left zui-input-left [carousel]="carousel"></zui-carousel-auxiliary-left>
   <zui-carousel
     #carousel
@@ -10,6 +10,6 @@
     {{ carouselContent.currentValue }}
   </zui-carousel>
   <zui-carousel-auxiliary-right zui-input-right [carousel]="carousel"></zui-carousel-auxiliary-right>
-  <ng-template zuiInputStatusText>Текст статуса</ng-template>
-</zui-input-layout>
+  <ng-template pzmInputStatusText>Текст статуса</ng-template>
+</pzm-input-layout>
 

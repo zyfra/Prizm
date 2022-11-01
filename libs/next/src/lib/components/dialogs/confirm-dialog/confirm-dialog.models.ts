@@ -5,7 +5,7 @@ import {
   ZuiDialogButton,
   ZuiDialogSize,
 } from '../dialog/dialog.models';
-import { ZuiOverscrollMode } from '../../../directives/overscroll/overscroll.model';
+import { PzmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
 
 export type ZuiConfirmDialogButton = Omit<ZuiDialogButton, 'action'> & Partial<Pick<ZuiDialogButton, 'action'>>
 
@@ -28,7 +28,7 @@ export interface ZuiConfirmDialogOptions<DATA = unknown> extends ZuiDialogBaseOp
       ZuiConfirmDialogOptions<DATA>
       >
     >,
-  overscrollMode?: ZuiOverscrollMode
+  overscrollMode?: PzmOverscrollMode
 }
 
 export enum ZuiConfirmDialogResultDefaultType {

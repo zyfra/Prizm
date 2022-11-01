@@ -6,4 +6,4 @@ import { ZuiElementReadyDirective } from './element-ready.directive';
     declarations: [ZuiElementReadyDirective],
     exports: [ZuiElementReadyDirective],
 })
-export class ZuiElementReadyModule {}
+export class PzmElementReadyModule {}

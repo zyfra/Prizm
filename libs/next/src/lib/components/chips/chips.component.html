@@ -25,8 +25,8 @@
     >
       <div class='more-item'
            *ngIf="chipsOverflowedList.size"
-           [zuiHint]='getOverflowedChipsListHint()'
-           [zuiHintDirection]='hintDirection'
+           [pzmHint]='getOverflowedChipsListHint()'
+           [pzmHintDirection]='hintDirection'
       >...</div>
     </ng-container>
   </ng-container>
@@ -44,20 +44,20 @@
              let-singleLine="singleLine"
              let-forceShowHint="forceShowHint">
   <button
-    class="chips-list__item {{zuiLifecycle.afterViewInit$ | zuiCallFunc : isChipsContent$ : parent : singleLine : item : idx : allChipsCount | async}}"
+    class="chips-list__item {{pzmLifecycle.afterViewInit$ | zuiCallFunc : isChipsContent$ : parent : singleLine : item : idx : allChipsCount | async}}"
     (click)="chipClick(item)"
     [style.background]='background'
     [disabled]="accessorIsDisabled"
-    zuiLifecycle
-    #zuiLifecycle="zuiLifecycle"
+    pzmLifecycle
+    #pzmLifecycle="pzmLifecycle"
     #hostHint
   >
     <div class="chips-name"
          #elem
-         [zuiHint]='hint || item'
-         [zuiHintHost]='hostHint'
-         [zuiHintDirection]='hintDirection'
-         [zuiHintCanShow]='elem | zuiCallFunc : zuiIsTextOverflow$: hintCanShow : forceShowHint | async'
+         [pzmHint]='hint || item'
+         [pzmHintHost]='hostHint'
+         [pzmHintDirection]='hintDirection'
+         [pzmHintCanShow]='elem | zuiCallFunc : zuiIsTextOverflow$: hintCanShow : forceShowHint | async'
     >{{ item }}</div>
     <button
       *ngIf="!hideDelete && deletable"

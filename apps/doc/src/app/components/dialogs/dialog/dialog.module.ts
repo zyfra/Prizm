@@ -4,9 +4,9 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
-  ZuiButtonModule,
+  PzmButtonModule,
   ZuiDialogModule,
-  ZuiRadioButtonModule,
+  PzmRadioButtonModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogComponent } from './dialog.component';
@@ -19,9 +19,9 @@ import { ZuiDialogServiceExampleComponent } from './examples/base/base.component
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    ZuiButtonModule,
+    PzmButtonModule,
     ZuiDialogModule,
-    ZuiRadioButtonModule,
+    PzmRadioButtonModule,
     RouterModule.forChild(generateRoutes(DialogComponent)),
   ],
   declarations: [

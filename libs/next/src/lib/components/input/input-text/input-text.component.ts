@@ -15,9 +15,9 @@ import {
   Self,
 } from '@angular/core';
 import { NgControl, Validators } from '@angular/forms';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { takeUntil, tap } from 'rxjs/operators';
-import { ZuiInputControl } from '../common/base/input-control.class';
+import { PzmInputControl } from '../common/base/input-control.class';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -29,9 +29,9 @@ import { ZuiInputControl } from '../common/base/input-control.class';
     '[disabled]': 'disabled',
   },
   styleUrls: ['input-text.component.less'],
-  providers: [{ provide: ZuiInputControl, useExisting: ZuiInputTextComponent }, ZuiDestroyService],
+  providers: [{ provide: PzmInputControl, useExisting: ZuiInputTextComponent }, PzmDestroyService],
 })
-export class ZuiInputTextComponent extends ZuiInputControl<string> implements DoCheck, OnInit, OnDestroy {
+export class ZuiInputTextComponent extends PzmInputControl<string> implements DoCheck, OnInit, OnDestroy {
   /**
    * Disabled input
    */
@@ -64,7 +64,7 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
   }
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_input_text';
+  readonly testId = 'pzm_input_text';
 
   private _required: boolean | undefined;
 
@@ -122,7 +122,7 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
   constructor(
     @Optional() @Self() public readonly ngControl: NgControl,
     public readonly elementRef: ElementRef<HTMLInputElement | HTMLTextAreaElement>,
-    private readonly zuiDestroyService: ZuiDestroyService,
+    private readonly zuiDestroyService: PzmDestroyService,
     private readonly cdr: ChangeDetectorRef
   ) {
     super();

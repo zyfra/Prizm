@@ -1,19 +1,19 @@
 import { InjectionToken, ValueProvider } from '@angular/core';
-import { ZuiOverlayOutsidePlacement } from '../../modules/overlay/models';
+import { PzmOverlayOutsidePlacement } from '../../modules/overlay/models';
 
-export type ZuiHintMode = 'error' | 'dark' | 'light' | null
-export interface ZuiHintOptions {
+export type PzmHintMode = 'error' | 'dark' | 'light' | null
+export interface PzmHintOptions {
     readonly showDelay: number;
     readonly hideDelay: number;
-    readonly mode: ZuiHintMode;
+    readonly mode: PzmHintMode;
     readonly autoReposition: boolean;
-    readonly direction: ZuiOverlayOutsidePlacement;
+    readonly direction: PzmOverlayOutsidePlacement;
 }
 
-export interface ZuiHintContext {
-  mode: ZuiHintOptions['mode'],
+export interface PzmHintContext {
+  mode: PzmHintOptions['mode'],
   reposition: boolean,
-  direction: ZuiHintOptions['direction'],
+  direction: PzmHintOptions['direction'],
   id: string,
   showDelay: number,
   hideDelay: number,
@@ -21,24 +21,24 @@ export interface ZuiHintContext {
 }
 
 /** Default values for hint options */
-export const ZUI_HINT_DEFAULT_OPTIONS: ZuiHintOptions = {
+export const PZM_HINT_DEFAULT_OPTIONS: PzmHintOptions = {
     showDelay: 500,
     hideDelay: 200,
     autoReposition: true,
     mode: null,
-    direction: ZuiOverlayOutsidePlacement.RIGHT,
+    direction: PzmOverlayOutsidePlacement.RIGHT,
 };
 
-export const ZUI_HINT_OPTIONS = new InjectionToken<ZuiHintOptions>(
+export const PZM_HINT_OPTIONS = new InjectionToken<PzmHintOptions>(
     'Default parameters for hint directive',
     {
-        factory: (): ZuiHintOptions => ZUI_HINT_DEFAULT_OPTIONS,
+        factory: (): PzmHintOptions => PZM_HINT_DEFAULT_OPTIONS,
     },
 );
 
-export const zuiHintOptionsProvider: (
-    options: Partial<ZuiHintOptions>,
-) => ValueProvider = (options: Partial<ZuiHintOptions>) => ({
-    provide: ZUI_HINT_OPTIONS,
-    useValue: {...ZUI_HINT_DEFAULT_OPTIONS, ...options},
+export const pzmHintOptionsProvider: (
+    options: Partial<PzmHintOptions>,
+) => ValueProvider = (options: Partial<PzmHintOptions>) => ({
+    provide: PZM_HINT_OPTIONS,
+    useValue: {...PZM_HINT_DEFAULT_OPTIONS, ...options},
 });

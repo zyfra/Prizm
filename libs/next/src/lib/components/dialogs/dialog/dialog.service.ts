@@ -1,7 +1,7 @@
 import { AbstractZuiDialogService } from '../../../abstract/dialog.service';
 import { Injectable } from '@angular/core';
 import { ZuiDialogComponent } from './dialog.component';
-import { ZuiOverlayInsidePlacement } from '../../../modules/overlay';
+import { PzmOverlayInsidePlacement } from '../../../modules/overlay';
 import { ZuiDialogOptions } from './dialog.models';
 
 const DEFAULT_OPTIONS: ZuiDialogOptions = {
@@ -10,7 +10,7 @@ const DEFAULT_OPTIONS: ZuiDialogOptions = {
   closeable: true,
   content: '',
   footer: '',
-  position: ZuiOverlayInsidePlacement.CENTER,
+  position: PzmOverlayInsidePlacement.CENTER,
   dismissible: true,
   header: '',
 } as const;

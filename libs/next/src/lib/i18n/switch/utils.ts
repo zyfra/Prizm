@@ -1,19 +1,19 @@
 import { from, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ZuiLanguage, ZuiLanguageLoader, ZuiLanguageName } from '../interfaces';
+import { PzmLanguage, PzmLanguageLoader, PzmLanguageName } from '../interfaces';
 
 export function zuiAsyncLoadLanguage(
-    language: ZuiLanguageName | null,
-    loader: ZuiLanguageLoader | null,
-    fallback: ZuiLanguage,
-): Observable<ZuiLanguage> {
+    language: PzmLanguageName | null,
+    loader: PzmLanguageLoader | null,
+    fallback: PzmLanguage,
+): Observable<PzmLanguage> {
     return language && loader ? zuiLoadLanguage(language, loader) : of(fallback);
 }
 
 export function zuiLoadLanguage(
-    language: ZuiLanguageName,
-    loader: ZuiLanguageLoader,
-): Observable<ZuiLanguage> {
+    language: PzmLanguageName,
+    loader: PzmLanguageLoader,
+): Observable<PzmLanguage> {
     return from(normalizeCommonJSImport(loader(language))).pipe(
         map((module: any) => module?.[`ZUI_${language.toUpperCase()}_LANGUAGE`]),
     );

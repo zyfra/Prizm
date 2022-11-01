@@ -6,7 +6,8 @@ import {
   Component,
   ContentChildren,
   ElementRef,
-  EventEmitter, HostBinding,
+  EventEmitter,
+  HostBinding,
   Input,
   OnDestroy,
   Output,
@@ -15,35 +16,35 @@ import {
   TemplateRef,
   ViewChild,
   ViewContainerRef,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { TreeNode } from 'primeng/api';
 import { Subject } from 'rxjs';
-import { ZuiNavMenuGroupDirective } from '../../directives/nav-menu-group.directive';
-import { ZuiTemplateDirective } from '../../directives/zui-template.directive';
+import { PzmNavMenuGroupDirective } from '../../directives/nav-menu-group.directive';
+import { PzmTemplateDirective } from '../../directives/pzm-template.directive';
 import {
   DEFAULT_SETTINGS,
   HeaderConfig,
   NavMenuEvent,
   NavMenuSelectionEvent,
   SettingsConfig,
-  ToolbarConfig
+  ToolbarConfig,
 } from '../../model/nav-menu-config';
-import { ZuiMenuItem } from '../../model/zui-menu-item.interface';
+import { PzmMenuItem } from '../../model/zui-menu-item.interface';
 import { convertToNode } from '../../utils/treeNode.functions';
 
 @Component({
-  selector: 'zui-nav-menu',
-  templateUrl: './zui-nav-menu.component.html',
-  styleUrls: ['./zui-nav-menu.component.less'],
+  selector: 'pzm-nav-menu',
+  templateUrl: './pzm-nav-menu.component.html',
+  styleUrls: ['./pzm-nav-menu.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class ZuiNavMenuComponent implements AfterViewInit, AfterContentInit, OnDestroy {
+export class PzmNavMenuComponent implements AfterViewInit, AfterContentInit, OnDestroy {
   @ViewChild('navMenu') menu: ElementRef;
-  @ContentChildren(ZuiTemplateDirective) templates: QueryList<ZuiTemplateDirective>;
-  @ContentChildren(ZuiNavMenuGroupDirective) menuGroups: QueryList<ZuiNavMenuGroupDirective>;
+  @ContentChildren(PzmTemplateDirective) templates: QueryList<PzmTemplateDirective>;
+  @ContentChildren(PzmNavMenuGroupDirective) menuGroups: QueryList<PzmNavMenuGroupDirective>;
   @Input() menuTitle: string;
   @Input() emptyMessage: string;
   @Input() searchPlaceholder = '';
@@ -61,13 +62,13 @@ export class ZuiNavMenuComponent implements AfterViewInit, AfterContentInit, OnD
   }
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_nav_menu';
+  readonly testId = 'pzm_nav_menu';
 
   @Input() set headerConfig(config: HeaderConfig) {
     this.headerConfiguration = { ...config, settings: false };
   }
 
-  @Input() set model(items: ZuiMenuItem[]) {
+  @Input() set model(items: PzmMenuItem[]) {
     this.nodes = (items || []).map(item => convertToNode(item));
   }
 
@@ -113,7 +114,7 @@ export class ZuiNavMenuComponent implements AfterViewInit, AfterContentInit, OnD
 
   ngAfterContentInit(): void {
     this.templates.forEach(item => {
-      switch (item.zuiTemplate) {
+      switch (item.pzmTemplate) {
         case 'header':
           this.headerExtraTemplate = item.templateRef;
           break;
@@ -180,7 +181,7 @@ export class ZuiNavMenuComponent implements AfterViewInit, AfterContentInit, OnD
   }
 
   public selectionChangeHandler(
-    selection: TreeNode<ZuiMenuItem> | TreeNode<ZuiMenuItem>[],
+    selection: TreeNode<PzmMenuItem> | TreeNode<PzmMenuItem>[],
     groupIndex?: number
   ): void {
     let selectionData;
@@ -212,7 +213,7 @@ export class ZuiNavMenuComponent implements AfterViewInit, AfterContentInit, OnD
     return false;
   }
 
-  private isActive(item: ZuiMenuItem): boolean {
+  private isActive(item: PzmMenuItem): boolean {
     return (
       item.routerLink &&
       this.router.isActive(this.router.createUrlTree(item.routerLink), {

@@ -1,8 +1,8 @@
 import { Directive } from '@angular/core';
-import { ZUI_VALUE_ACCESSOR_PROVIDER } from '../../providers/value-accessor.provider';
+import { PZM_VALUE_ACCESSOR_PROVIDER } from '../../providers/value-accessor.provider';
 
 @Directive({
-    selector: `[zuiValueAccessor]`,
-    providers: [ZUI_VALUE_ACCESSOR_PROVIDER],
+    selector: `[pzmValueAccessor]`,
+    providers: [PZM_VALUE_ACCESSOR_PROVIDER],
 })
-export class ZuiValueAccessorDirective {}
+export class PzmValueAccessorDirective {}

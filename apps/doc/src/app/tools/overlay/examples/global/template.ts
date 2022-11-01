@@ -2,8 +2,8 @@ import {Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/co
 import {
   ZuiOverlayControl,
   ZuiOverlayGlobalPosition,
-  ZuiOverlayInsidePlacement,
-  ZuiOverlayService
+  PzmOverlayInsidePlacement,
+  PzmOverlayService
 } from "@digital-plant/zui-components";
 
 @Component({
@@ -24,12 +24,12 @@ export class ZuiOverlayExampleGlobalComponent implements OnInit {
   @ViewChild('someTemplate', { read: TemplateRef, static: true }) templateRef: TemplateRef<unknown>;
 
   private control: ZuiOverlayControl;
-  constructor(private readonly overlay: ZuiOverlayService) {}
+  constructor(private readonly overlay: PzmOverlayService) {}
 
   public ngOnInit(): void {
     const position = new ZuiOverlayGlobalPosition({
       // Pass position placement
-      placement: ZuiOverlayInsidePlacement.BOTTOM_LEFT,
+      placement: PzmOverlayInsidePlacement.BOTTOM_LEFT,
       // Pass source element
       element: this.elementRef.nativeElement
     });

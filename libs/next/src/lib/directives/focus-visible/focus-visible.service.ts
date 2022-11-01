@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, ElementRef, Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-import { zuiWatch } from '../../observables/watch';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { pzmWatch } from '../../observables/watch';
 import { zuiFocusVisibleObservable } from '../../observables/focus-visible-observable';
 
 /**
@@ -11,18 +11,18 @@ import { zuiFocusVisibleObservable } from '../../observables/focus-visible-obser
  * in browsers that do not support it
  */
 @Injectable()
-export class ZuiFocusVisibleService extends Observable<boolean> {
+export class PzmFocusVisibleService extends Observable<boolean> {
     private readonly focusVisible$: Observable<boolean>;
 
     constructor(
         @Inject(ElementRef) {nativeElement}: ElementRef<Element>,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
-        @Inject(ZuiDestroyService) destroy$: Observable<void>,
+        @Inject(PzmDestroyService) destroy$: Observable<void>,
     ) {
         super(subscriber => this.focusVisible$.subscribe(subscriber));
 
         this.focusVisible$ = zuiFocusVisibleObservable(nativeElement).pipe(
-            zuiWatch(changeDetectorRef),
+            pzmWatch(changeDetectorRef),
             takeUntil(destroy$),
         );
     }

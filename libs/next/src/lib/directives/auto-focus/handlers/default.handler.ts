@@ -3,8 +3,8 @@ import { ANIMATION_FRAME } from '@ng-web-apis/common';
 import { Observable, race, timer } from 'rxjs';
 import { map, skipWhile, take, throttleTime } from 'rxjs/operators';
 import { ZUI_POLLING_TIME } from '../../../constants/polling-time';
-import { ZUI_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
-import { ZuiFocusableElementAccessor } from '../../../types/focusable-element-accessor';
+import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
+import { PzmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
 import { AbstractZuiAutofocusHandler } from './abstract.handler';
 
 const TIMEOUT = 1000;
@@ -15,8 +15,8 @@ export class ZuiDefaultAutofocusHandler extends AbstractZuiAutofocusHandler {
     constructor(
         @Optional()
         @Self()
-        @Inject(ZUI_FOCUSABLE_ITEM_ACCESSOR)
-        zuiFocusableComponent: ZuiFocusableElementAccessor | null,
+        @Inject(PZM_FOCUSABLE_ITEM_ACCESSOR)
+        zuiFocusableComponent: PzmFocusableElementAccessor | null,
         @Inject(ElementRef) elementRef: ElementRef<HTMLElement>,
         @Inject(ANIMATION_FRAME) private readonly animationFrame$: Observable<number>,
     ) {

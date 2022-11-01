@@ -17,7 +17,7 @@ import {
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { fromEvent, merge, Subject } from 'rxjs';
 import { filter, takeUntil, tap } from 'rxjs/operators';
-import { zuiWatch } from '../../observables';
+import { pzmWatch } from '../../observables';
 
 @Component({
   selector: 'zui-checkbox',
@@ -50,7 +50,7 @@ export class ZuiCheckboxComponent implements ControlValueAccessor, OnDestroy, On
   @Output() changed = new EventEmitter<boolean>();
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_checkbox';
+  readonly testId = 'pzm_checkbox';
 
   changeFn: (value: boolean) => void;
   touchedFn: () => void;
@@ -111,7 +111,7 @@ export class ZuiCheckboxComponent implements ControlValueAccessor, OnDestroy, On
       )
     ).pipe(
       tap((event) => this.onClick(event)),
-      zuiWatch(this.cdr),
+      pzmWatch(this.cdr),
       takeUntil(this.destroyElement$)
     ).subscribe();
   }

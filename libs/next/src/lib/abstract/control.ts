@@ -14,7 +14,7 @@ import { AbstractControl, ControlValueAccessor, FormControl, NgControl, NgModel 
 import { merge, ReplaySubject, Subject } from 'rxjs';
 import { map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { AbstractZuiInteractive } from './interactive';
-import { zuiDefaultProp } from '../decorators';
+import { pzmDefaultProp } from '../decorators';
 import { ZuiControlValueTransformer } from '../types/control-value-transformer';
 import { EMPTY_FUNCTION } from '../constants/empty';
 
@@ -40,15 +40,15 @@ export abstract class AbstractZuiControl<T>
 
   @Input()
   @HostBinding('class._readonly')
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   readOnly = false;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   val: T;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   pseudoInvalid: boolean | null = null;
 
   @Output()

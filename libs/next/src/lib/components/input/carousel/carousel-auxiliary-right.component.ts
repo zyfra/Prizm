@@ -6,13 +6,13 @@ import { ZuiCarouselComponent } from './carousel.component';
   selector: 'zui-carousel-auxiliary-right',
   template: `
     <button
-      zuiInputIconButton="chevrons-right"
+      pzmInputIconButton="chevrons-right"
       (click)="carousel.stepRight()"
       *ngIf="!carousel.disabled"
       [interactive]="true"
     ></button>
     <button
-      zuiInputIconButton="chevrons-double-right"
+      pzmInputIconButton="chevrons-double-right"
       (click)="carousel.right()"
       *ngIf="!carousel.disabled && !carousel.lightMode"
       [interactive]="true"

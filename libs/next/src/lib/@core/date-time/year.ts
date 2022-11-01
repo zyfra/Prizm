@@ -1,6 +1,6 @@
 import { ZuiYearLike } from '../../types/year-like';
 import { zuiPadStart } from '../../util/format/pad-start';
-import { zuiInRange } from '../../util/math/in-range';
+import { pzmInRange } from '../../util/math/in-range';
 import { zuiNormalizeToIntNumber } from '../../util/math/normalize-to-int-number';
 
 import { ZUI_DAYS_IN_LEAP_YEAR, ZUI_DAYS_IN_NORMAL_YEAR, ZUI_DAYS_IN_WEEK, ZUI_MAX_YEAR, ZUI_MIN_YEAR } from './date-time';
@@ -9,23 +9,23 @@ import { ZUI_DAYS_IN_LEAP_YEAR, ZUI_DAYS_IN_NORMAL_YEAR, ZUI_DAYS_IN_WEEK, ZUI_M
  * Immutable year object
  * @nosideeffects
  */
-export class ZuiYear implements ZuiYearLike {
+export class PzmYear implements ZuiYearLike {
     constructor(readonly year: number) {
-        console.assert(ZuiYear.isValidYear(year));
+        console.assert(PzmYear.isValidYear(year));
     }
 
     /**
      * Checks year for validity
      */
     public static isValidYear(year: number): boolean {
-        return Number.isInteger(year) && zuiInRange(year, ZUI_MIN_YEAR, ZUI_MAX_YEAR + 1);
+        return Number.isInteger(year) && pzmInRange(year, ZUI_MIN_YEAR, ZUI_MAX_YEAR + 1);
     }
 
     /**
      * Check if passed year is a leap year
      */
     public static isLeapYear(year: number): boolean {
-        console.assert(ZuiYear.isValidYear(year));
+        console.assert(PzmYear.isValidYear(year));
 
         return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
     }
@@ -34,7 +34,7 @@ export class ZuiYear implements ZuiYearLike {
      * Returns amount of leap years from year 0 to the passed one
      */
     public static getAbsoluteLeapYears(year: number): number {
-        console.assert(ZuiYear.isValidYear(year));
+        console.assert(PzmYear.isValidYear(year));
 
         return Math.ceil(year / 400) + (Math.ceil(year / 4) - Math.ceil(year / 100));
     }
@@ -49,7 +49,7 @@ export class ZuiYear implements ZuiYearLike {
      * @return offset in days
      */
     public static getYearStartDaysOffset(year: number, absoluteLeapYears: number): number {
-        console.assert(ZuiYear.isValidYear(year));
+        console.assert(PzmYear.isValidYear(year));
         console.assert(Number.isInteger(absoluteLeapYears));
         console.assert(year >= absoluteLeapYears);
         console.assert(absoluteLeapYears >= 0);
@@ -62,7 +62,7 @@ export class ZuiYear implements ZuiYearLike {
         );
     }
 
-    public static lengthBetween(from: ZuiYear, to: ZuiYear): number {
+    public static lengthBetween(from: PzmYear, to: PzmYear): number {
         return to.year - from.year;
     }
 
@@ -78,14 +78,14 @@ export class ZuiYear implements ZuiYearLike {
     }
 
     public get isLeapYear(): boolean {
-        return ZuiYear.isLeapYear(this.year);
+        return PzmYear.isLeapYear(this.year);
     }
 
     /**
      * Returns amount of leap years from year 0 to current
      */
     public get absoluteLeapYears(): number {
-        return ZuiYear.getAbsoluteLeapYears(this.year);
+        return PzmYear.getAbsoluteLeapYears(this.year);
     }
 
     /**
@@ -94,41 +94,41 @@ export class ZuiYear implements ZuiYearLike {
      * Returns day of week offset of the beginning of the current year
      */
     public get yearStartDaysOffset(): number {
-        return ZuiYear.getYearStartDaysOffset(this.year, this.absoluteLeapYears);
+        return PzmYear.getYearStartDaysOffset(this.year, this.absoluteLeapYears);
     }
 
     /**
      * Passed year is after current
      */
-    public yearBefore({year}: ZuiYear): boolean {
+    public yearBefore({year}: PzmYear): boolean {
         return this.year < year;
     }
 
     /**
      * Passed year is the same or after current
      */
-    public yearSameOrBefore({year}: ZuiYear): boolean {
+    public yearSameOrBefore({year}: PzmYear): boolean {
         return this.year <= year;
     }
 
     /**
      * Passed year is the same as current
      */
-    public yearSame({year}: ZuiYear): boolean {
+    public yearSame({year}: PzmYear): boolean {
         return this.year === year;
     }
 
     /**
      * Passed year is either the same of before the current
      */
-    public yearSameOrAfter({year}: ZuiYear): boolean {
+    public yearSameOrAfter({year}: PzmYear): boolean {
         return this.year >= year;
     }
 
     /**
      * Passed year is before current
      */
-    public yearAfter({year}: ZuiYear): boolean {
+    public yearAfter({year}: PzmYear): boolean {
         return this.year > year;
     }
 
@@ -136,7 +136,7 @@ export class ZuiYear implements ZuiYearLike {
     /**
      * Immutably offsets year
      */
-    public append({year = 0}: ZuiYearLike, backwards: boolean = false): ZuiYear {
+    public append({year = 0}: ZuiYearLike, backwards: boolean = false): PzmYear {
         console.assert(Number.isInteger(year));
 
         if (backwards) {
@@ -145,9 +145,9 @@ export class ZuiYear implements ZuiYearLike {
 
         const resultYear = this.year + year;
 
-        console.assert(ZuiYear.isValidYear(resultYear));
+        console.assert(PzmYear.isValidYear(resultYear));
 
-        return new ZuiYear(resultYear);
+        return new PzmYear(resultYear);
     }
 
     public toString(): string {

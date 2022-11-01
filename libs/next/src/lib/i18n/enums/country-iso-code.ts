@@ -1,4 +1,4 @@
-export enum ZuiCountryIsoCode {
+export enum PzmCountryIsoCode {
     AD = `AD`,
     AE = `AE`,
     AF = `AF`,

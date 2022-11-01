@@ -1,18 +1,18 @@
 import { inject, InjectionToken } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { ZuiLanguage } from '../interfaces';
-import { ZUI_RUSSIAN_LANGUAGE } from '../languages';
+import { PzmLanguage } from '../interfaces';
+import { PZM_RUSSIAN_LANGUAGE } from '../languages';
 
-export const ZUI_DEFAULT_LANGUAGE = new InjectionToken<ZuiLanguage>(
+export const PZM_DEFAULT_LANGUAGE = new InjectionToken<PzmLanguage>(
     `Default Language for Zyfra UI libraries i18n`,
     {
-        factory: (): ZuiLanguage => ZUI_RUSSIAN_LANGUAGE,
+        factory: (): PzmLanguage => PZM_RUSSIAN_LANGUAGE,
     },
 );
 
-export const ZUI_LANGUAGE = new InjectionToken<Observable<ZuiLanguage>>(
+export const PZM_LANGUAGE = new InjectionToken<Observable<PzmLanguage>>(
     `Language for Zyfra UI libraries i18n`,
     {
-        factory: (): Observable<ZuiLanguage> => of(inject(ZUI_DEFAULT_LANGUAGE)),
+        factory: (): Observable<PzmLanguage> => of(inject(PZM_DEFAULT_LANGUAGE)),
     },
 );

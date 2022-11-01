@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ZuiDay, zuiGetInputDateRangeNativeTransformer } from '@digital-plant/zui-components';
+import { PzmDay, zuiGetInputDateRangeNativeTransformer } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-input-date-range-native-example',

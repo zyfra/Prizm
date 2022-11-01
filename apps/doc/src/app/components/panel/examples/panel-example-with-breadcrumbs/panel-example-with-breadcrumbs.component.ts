@@ -6,7 +6,7 @@ interface ITranslator extends IBreadcrumb {
 }
 
 @Component({
-  selector: 'zui-panel-with-breadcrumbs',
+  selector: 'pzm-panel-with-breadcrumbs',
   templateUrl: './panel-example-with-breadcrumbs.component.html',
   styleUrls: ['./panel-example-with-breadcrumbs.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

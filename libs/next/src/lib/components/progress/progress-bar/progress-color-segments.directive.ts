@@ -2,11 +2,11 @@ import { Directive, ElementRef, Inject, Input } from '@angular/core';
 import { USER_AGENT } from '@ng-web-apis/common';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { ZuiResizeService } from '../../../services/resize.service';
 import { zuiIsEdgeOlderThan } from '../../../util/browser/is-edge-older-than';
 import { ZUI_CHROMIUM_EDGE_START_VERSION } from '../../../constants/chromium';
-import { zuiPure } from '../../../decorators/pure';
+import { pzmPure } from '../../../decorators/pure';
 
 function calculateColorSegments(colors: string[], progressWidth: number): string {
     const segmentWidth = Math.ceil(progressWidth / colors.length);
@@ -20,15 +20,15 @@ function calculateColorSegments(colors: string[], progressWidth: number): string
 }
 
 @Directive({
-    selector: `progress[zuiProgressBar][zuiProgressColorSegments]`,
+    selector: `progress[pzmProgressBar][zuiProgressColorSegments]`,
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
     host: {
         '[$.style.--zui-progress-color]': `calcSegments$`,
         '($.style.--zui-progress-color)': `0`,
     },
-    providers: [ZuiDestroyService, ZuiResizeService],
+    providers: [PzmDestroyService, ZuiResizeService],
 })
-export class ZuiProgressColorSegmentsDirective {
+export class PzmProgressColorSegmentsDirective {
     // TODO: drop support of legacy Edge (EdgeHTML) in v4.x
     private readonly isOldBrowsers = zuiIsEdgeOlderThan(
         ZUI_CHROMIUM_EDGE_START_VERSION,
@@ -38,7 +38,7 @@ export class ZuiProgressColorSegmentsDirective {
     @Input()
     zuiProgressColorSegments: string[] = [];
 
-    @zuiPure
+    @pzmPure
     get calcSegments$(): Observable<string> {
         return this.resize$.pipe(
             map(() =>

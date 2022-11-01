@@ -1,32 +1,32 @@
-import {InjectionToken, TemplateRef, ValueProvider} from '@angular/core';
-import {ZuiSize} from "../../util/size-bigger";
-import {ZuiAppearance, ZuiAppearanceType} from "../../types/appearance.types";
+import { InjectionToken, TemplateRef, ValueProvider } from '@angular/core';
+import { PzmSize } from '../../util/size-bigger';
+import { PzmAppearance, PzmAppearanceType } from '../../types/appearance.types';
 
 
-export interface ZuiButtonOptions {
-    readonly size: ZuiSize;
-    readonly appearance: ZuiAppearance;
-    readonly appearanceType: ZuiAppearanceType;
+export interface PzmButtonOptions {
+    readonly size: PzmSize;
+    readonly appearance: PzmAppearance;
+    readonly appearanceType: PzmAppearanceType;
 }
 
-export const ZUI_BUTTON_DEFAULT_OPTIONS: ZuiButtonOptions = {
+export const PZM_BUTTON_DEFAULT_OPTIONS: PzmButtonOptions = {
     size: 'l',
     appearance: 'primary',
     appearanceType: 'fill',
 };
 
-export const ZUI_BUTTON_OPTIONS = new InjectionToken<ZuiButtonOptions>(
+export const PZM_BUTTON_OPTIONS = new InjectionToken<PzmButtonOptions>(
     'Default parameters for button component',
     {
-        factory: (): ZuiButtonOptions  => ZUI_BUTTON_DEFAULT_OPTIONS,
+        factory: (): PzmButtonOptions  => PZM_BUTTON_DEFAULT_OPTIONS,
     },
 );
 
-export const zuiButtonOptionsProvider: (
-    options: Partial<ZuiButtonOptions>,
-) => ValueProvider = (options: Partial<ZuiButtonOptions>) => ({
-    provide: ZUI_BUTTON_OPTIONS,
-    useValue: {...ZUI_BUTTON_DEFAULT_OPTIONS, ...options},
+export const pzmButtonOptionsProvider: (
+    options: Partial<PzmButtonOptions>,
+) => ValueProvider = (options: Partial<PzmButtonOptions>) => ({
+    provide: PZM_BUTTON_OPTIONS,
+    useValue: {...PZM_BUTTON_DEFAULT_OPTIONS, ...options},
 });
 
-export type ZuiContent<T = unknown> = TemplateRef<T> | string
+export type PzmContent<T = unknown> = TemplateRef<T> | string

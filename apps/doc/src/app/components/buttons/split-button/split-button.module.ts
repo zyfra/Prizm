@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { SplitButtonComponent } from './split-button.component';
-import { ZuiButtonModule } from '@digital-plant/zui-components';
+import { PzmButtonModule } from '@digital-plant/zui-components';
 import { ZuiSplitButtonsExampleComponent } from './examples/split/split-buttons-example.component';
 
 @NgModule({
   imports: [
     CommonModule,
     TuiAddonDocModule,
-    ZuiButtonModule,
+    PzmButtonModule,
     RouterModule.forChild(generateRoutes(SplitButtonComponent)),
   ],
   declarations: [

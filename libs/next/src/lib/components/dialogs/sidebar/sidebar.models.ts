@@ -5,8 +5,8 @@ import {
   ZuiDialogButton,
   ZuiDialogSize,
 } from '../dialog/dialog.models';
-import { ZuiOverscrollMode } from '../../../directives/overscroll/overscroll.model';
-import { ZuiOverlayInsidePlacement } from '../../../modules/overlay';
+import { PzmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
+import { PzmOverlayInsidePlacement } from '../../../modules/overlay';
 
 export type ZuiSidebarButton = Omit<ZuiDialogButton, 'action'> & Partial<Pick<ZuiDialogButton, 'action'>>
 
@@ -29,7 +29,7 @@ export interface ZuiSidebarOptions<DATA = unknown> extends ZuiDialogBaseOptions 
       ZuiSidebarOptions<DATA>
       >
     >,
-  overscrollMode?: ZuiOverscrollMode;
+  overscrollMode?: PzmOverscrollMode;
 
   closeWord: string;
   readonly content?: any;

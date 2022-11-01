@@ -1,23 +1,23 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
-import { zuiDefaultProp } from '../../../decorators';
+import { pzmDefaultProp } from '../../../decorators';
 import { zuiIsString } from '../../../util/common/is-string';
 
 @Component({
-    selector: `zui-progress-segmented`,
+    selector: `pzm-progress-segmented`,
     templateUrl: `./progress-segmented.component.html`,
     styleUrls: [`./progress-segmented.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiProgressSegmentedComponent {
+export class PzmProgressSegmentedComponent {
     @Input()
-    @zuiDefaultProp(
+    @pzmDefaultProp(
         (value: number) => Number.isInteger(value) && value >= 0,
         `Must be non-negative integer between 0 and max`,
     )
     value = 0;
 
     @Input()
-    @zuiDefaultProp(
+    @pzmDefaultProp(
         (value: number) => Number.isInteger(value) && value > 0,
         `Must be positive integer`,
     )
@@ -28,7 +28,7 @@ export class ZuiProgressSegmentedComponent {
     size: "s" | "m" = `m`;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     colors: string | readonly string[] = `var(--zui-primary)`;
 
     public getActiveColor(index: number = 0): string | null {

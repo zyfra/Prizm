@@ -13,11 +13,11 @@ import {
 import {NgControl} from '@angular/forms';
 
 import {ZUI_TOGGLE_OPTIONS, ZuiToggleOptions} from './toggle-options';
-import {zuiDefaultProp} from "../../decorators";
+import {pzmDefaultProp} from "../../decorators";
 import {AbstractZuiControl} from "../../abstract/control";
-import {zuiIsNativeFocused, ZuiSize, ZuiSizeL, ZuiSizeM} from '../../util';
+import {pzmIsNativeFocused, PzmSize, ZuiSizeL, ZuiSizeM} from '../../util';
 import {ZuiNativeFocusableElement} from '../../types/focusable-element-accessor';
-import {ZuiAppearance} from '../../types/appearance.types';
+import {PzmAppearance} from '../../types/appearance.types';
 
 @Component({
     selector: 'zui-toggle',
@@ -33,29 +33,29 @@ export class ZuiToggleComponent
     private readonly focusableElement?: ElementRef<ZuiNativeFocusableElement>;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     singleColor = this.options.singleColor;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     iconOn = this.options.icons.toggleOn;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     iconOff = this.options.icons.toggleOff;
 
     @Input()
     @HostBinding('class._loading')
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     showLoader = false;
 
     @Input()
     @HostBinding('attr.data-size')
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     size: ZuiSizeL | ZuiSizeM = this.options.size;
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_toggle';
+    readonly testId = 'pzm_toggle';
 
     constructor(
         @Optional()
@@ -74,10 +74,10 @@ export class ZuiToggleComponent
     }
 
     get focused(): boolean {
-        return zuiIsNativeFocused(this.nativeFocusableElement);
+        return pzmIsNativeFocused(this.nativeFocusableElement);
     }
 
-    get appearance(): ZuiAppearance {
+    get appearance(): PzmAppearance {
         return (this.singleColor || this.checked)
             ? 'primary'
             : 'secondary';
@@ -92,7 +92,7 @@ export class ZuiToggleComponent
         return this.value;
     }
 
-    get loaderSize(): ZuiSize {
+    get loaderSize(): PzmSize {
         return this.sizeM ? 'xs' : 's';
     }
 

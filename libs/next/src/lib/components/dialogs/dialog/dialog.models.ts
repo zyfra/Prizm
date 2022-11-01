@@ -1,13 +1,13 @@
 import { Observer } from 'rxjs';
 import { PolymorphContent } from '../../../directives';
-import { ZuiAppearance, ZuiAppearanceType, ZuiContextWithImplicit } from '../../../types';
+import { PzmAppearance, PzmAppearanceType, PzmContextWithImplicit } from '../../../types';
 import { Type } from '@angular/core';
-import { ZuiOverlayInsidePlacement } from '../../../modules/overlay';
-import { ZuiSize, ZuiSizeL, ZuiSizeM } from '../../../util';
-import { ZuiOverscrollMode } from '../../../directives/overscroll/overscroll.model';
+import { PzmOverlayInsidePlacement } from '../../../modules/overlay';
+import { PzmSize, ZuiSizeL, ZuiSizeM } from '../../../util';
+import { PzmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
 
 export type ZuiBaseDialogContext<O, T = ZuiDialogBaseOptions> =
-  & ZuiContextWithImplicit<Observer<O>>
+  & PzmContextWithImplicit<Observer<O>>
   & ZuiAriaDialogContext
   & T
   & {
@@ -30,9 +30,9 @@ export interface ZuiDialogBaseOptions {
   readonly height?: string | number;
   readonly id?: string;
   readonly backdrop?: boolean;
-  readonly overscroll?: ZuiOverscrollMode;
+  readonly overscroll?: PzmOverscrollMode;
   readonly dismissible?: boolean;
-  readonly position: ZuiOverlayInsidePlacement;
+  readonly position: PzmOverlayInsidePlacement;
 }
 
 export interface ZuiDialogOptions<O = unknown, DATA = unknown> extends ZuiDialogBaseOptions{
@@ -48,10 +48,10 @@ export interface ZuiDialogOptions<O = unknown, DATA = unknown> extends ZuiDialog
 }
 
 export interface ZuiDialogButton<O = unknown, T = ZuiDialogBaseOptions> {
-  size?: ZuiSize;
+  size?: PzmSize;
   style?: string;
-  appearance?: ZuiAppearance;
-  appearanceType?: ZuiAppearanceType;
+  appearance?: PzmAppearance;
+  appearanceType?: PzmAppearanceType;
   text: string;
   action: (context: ZuiBaseDialogContext<O, T>) => void
 }

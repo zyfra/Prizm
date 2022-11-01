@@ -7,5 +7,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     styleUrls: [`./progress-label.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiProgressLabelComponent {
+export class PzmProgressLabelComponent {
 }

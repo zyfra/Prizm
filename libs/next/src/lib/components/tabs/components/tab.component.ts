@@ -20,7 +20,7 @@ export class TabComponent {
   @Output() public tabClick: EventEmitter<void> = new EventEmitter();
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_tab';
+  readonly testId = 'pzm_tab';
 
   public cancel(event: MouseEvent): void {
     event.stopPropagation();

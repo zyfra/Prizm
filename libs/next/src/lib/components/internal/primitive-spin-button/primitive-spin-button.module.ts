@@ -1,23 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {
-  ZuiFocusableModule,
-  ZuiFocusedModule,
-  ZuiFocusVisibleModule,
-  ZuiPreventDefaultModule,
+  PzmFocusableModule,
+  PzmFocusedModule,
+  PzmFocusVisibleModule,
+  PzmPreventDefaultModule,
 } from '../../../directives';
-import { ZuiButtonModule } from '../../button/button.module';
+import { PzmButtonModule } from '../../button/button.module';
 
 import { ZuiPrimitiveSpinButtonComponent } from './primitive-spin-button.component';
 
 @NgModule({
     imports: [
         CommonModule,
-        ZuiFocusVisibleModule,
-        ZuiFocusedModule,
-        ZuiFocusableModule,
-        ZuiPreventDefaultModule,
-        ZuiButtonModule,
+        PzmFocusVisibleModule,
+        PzmFocusedModule,
+        PzmFocusableModule,
+        PzmPreventDefaultModule,
+        PzmButtonModule,
     ],
     declarations: [ZuiPrimitiveSpinButtonComponent],
     exports: [ZuiPrimitiveSpinButtonComponent],

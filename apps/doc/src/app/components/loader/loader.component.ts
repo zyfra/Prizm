@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'zui-loader-example',
+  selector: 'pzm-loader-example',
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

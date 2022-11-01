@@ -10,17 +10,17 @@
   </ng-template>
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-input-layout label="Заголовок" size="l" status="default">
+      <pzm-input-layout label="Заголовок" size="l" status="default">
         <input zuiInput placeholder="Введите название" (enter)="onEnter($event)" [disabled]="disabled" />
-        <zui-chips
+        <pzm-chips
           [class.single-line]='singleLine'
           [singleLine]="singleLine"
           [chips]="chips"
           [deletable]="deletable"
           [disabled]="disabled"
           zui-input-bottom>
-        </zui-chips>
-      </zui-input-layout>
+        </pzm-chips>
+      </pzm-input-layout>
     </tui-doc-demo>
 
     <tui-doc-documentation>

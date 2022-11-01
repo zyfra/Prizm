@@ -15,7 +15,7 @@ import {
   takeUntil,
   withLatestFrom,
 } from 'rxjs/operators';
-import { zuiTypedFromEvent } from '../observables/typed-from-event';
+import { pzmTypedFromEvent } from '../observables/typed-from-event';
 import { zuiGetActualTarget } from '../util/dom/get-actual-target';
 import { zuiGetDocumentOrShadowRoot } from '../util/dom/zui-get-document-or-shadow-root';
 
@@ -27,11 +27,11 @@ export const ZUI_ACTIVE_ELEMENT = new InjectionToken<Observable<EventTarget | nu
             const removedElement$ = inject(ZUI_REMOVED_ELEMENT);
             const windowRef = inject(WINDOW);
             const documentRef = inject(DOCUMENT);
-            const focusout$ = zuiTypedFromEvent(windowRef, `focusout`);
-            const focusin$ = zuiTypedFromEvent(windowRef, `focusin`);
-            const blur$ = zuiTypedFromEvent(windowRef, `blur`);
-            const mousedown$ = zuiTypedFromEvent(windowRef, `mousedown`);
-            const mouseup$ = zuiTypedFromEvent(windowRef, `mouseup`);
+            const focusout$ = pzmTypedFromEvent(windowRef, `focusout`);
+            const focusin$ = pzmTypedFromEvent(windowRef, `focusin`);
+            const blur$ = pzmTypedFromEvent(windowRef, `blur`);
+            const mousedown$ = pzmTypedFromEvent(windowRef, `mousedown`);
+            const mouseup$ = pzmTypedFromEvent(windowRef, `mouseup`);
 
             return merge(
                 focusout$.pipe(
@@ -88,8 +88,8 @@ function isValidFocusout(target: any, removedElement: Element | null = null): bo
 
 function shadowRootActiveElement(root: Document): Observable<EventTarget | null> {
     return merge(
-        zuiTypedFromEvent(root, `focusin`).pipe(map(({target}) => target)),
-        zuiTypedFromEvent(root, `focusout`).pipe(
+        pzmTypedFromEvent(root, `focusin`).pipe(map(({target}) => target)),
+        pzmTypedFromEvent(root, `focusout`).pipe(
             filter(
                 ({target, relatedTarget}) => !!relatedTarget && isValidFocusout(target),
             ),

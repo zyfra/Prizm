@@ -37,14 +37,14 @@
   <ng-template pageTab>
     <tui-doc-demo>
       <button
-        zuiButton
-        [zuiTooltip]="content"
-        [zuiAutoReposition]="zuiAutoReposition"
-        [zuiTooltipDirection]="zuiTooltipDirection"
-        [zuiTooltipId]="zuiTooltipId"
-        [zuiTooltipShowDelay]="zuiTooltipShowDelay"
-        [zuiTooltipHideDelay]="zuiTooltipHideDelay"
-        [zuiTooltipHost]="zuiTooltipHost"
+        pzmButton
+        [pzmTooltip]="content"
+        [pzmAutoReposition]="pzmAutoReposition"
+        [pzmTooltipDirection]="pzmTooltipDirection"
+        [pzmTooltipId]="pzmTooltipId"
+        [pzmTooltipShowDelay]="pzmTooltipShowDelay"
+        [pzmTooltipHideDelay]="pzmTooltipHideDelay"
+        [pzmTooltipHost]="pzmTooltipHost"
       >
         Button
       </button>
@@ -52,7 +52,7 @@
     <tui-doc-documentation>
 
       <ng-template
-        documentationPropertyName="zuiTooltip"
+        documentationPropertyName="pzmTooltip"
         documentationPropertyType="string"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="content"
@@ -61,53 +61,53 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiAutoReposition"
+        documentationPropertyName="pzmAutoReposition"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiAutoReposition"
+        [(documentationPropertyValue)]="pzmAutoReposition"
       >
         Auto Reposition
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiTooltipDirection"
-        documentationPropertyType="ZuiOverlayOutsidePlacement"
+        documentationPropertyName="pzmTooltipDirection"
+        documentationPropertyType="PzmOverlayOutsidePlacement"
         documentationPropertyMode="input"
         [documentationPropertyValues]="zuiTooltipDirectionVariants"
-        [(documentationPropertyValue)]="zuiTooltipDirection"
+        [(documentationPropertyValue)]="pzmTooltipDirection"
       >
         Tooltip Direction
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiTooltipId"
+        documentationPropertyName="pzmTooltipId"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiTooltipId"
+        [(documentationPropertyValue)]="pzmTooltipId"
       >
         Tooltip Id
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiTooltipShowDelay"
+        documentationPropertyName="pzmTooltipShowDelay"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiTooltipShowDelay"
+        [(documentationPropertyValue)]="pzmTooltipShowDelay"
       >
         Show Delay
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiTooltipHideDelay"
+        documentationPropertyName="pzmTooltipHideDelay"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiTooltipHideDelay"
+        [(documentationPropertyValue)]="pzmTooltipHideDelay"
       >
         Hide Delay
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiTooltipHost"
+        documentationPropertyName="pzmTooltipHost"
         documentationPropertyType="HtmlElement"
         documentationPropertyMode="input"
       >
@@ -121,7 +121,7 @@
       <li>
         <p>
           Import
-          <code>ZuiTooltipModule</code>
+          <code>PzmTooltipModule</code>
           into a module where you want to use our component
         </p>
 

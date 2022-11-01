@@ -1,25 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ZuiChipsComponent } from './chips.component';
-import { ZuiCallFuncModule, ZuiLetModule } from '@digital-plant/zyfra-helpers';
-import { ZuiHintModule, ZuiLifecycleModule, ZuiElementReadyModule } from '../../directives';
+import { PzmChipsComponent } from './chips.component';
+import { PzmCallFuncModule, PzmLetModule } from '@digital-plant/zyfra-helpers';
+import { PzmElementReadyModule, PzmHintModule, PzmLifecycleModule } from '../../directives';
 
 @NgModule({
   imports: [
     CommonModule,
-    ZuiCallFuncModule,
-    ZuiCallFuncModule,
-    ZuiLifecycleModule,
-    ZuiElementReadyModule,
-    ZuiLetModule,
-    ZuiHintModule
+    PzmCallFuncModule,
+    PzmCallFuncModule,
+    PzmLifecycleModule,
+    PzmElementReadyModule,
+    PzmLetModule,
+    PzmHintModule
   ],
   declarations: [
-    ZuiChipsComponent
+    PzmChipsComponent
   ],
   exports: [
-    ZuiChipsComponent
+    PzmChipsComponent
   ],
 })
-export class ZuiChipsModule {}
+export class PzmChipsModule {}
 

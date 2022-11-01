@@ -57,7 +57,7 @@ export class ZuiTableColumnFilterComponent implements AfterContentInit {
   @Input() useGrouping = true;
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_table_column_filter';
+  readonly testId = 'pzm_table_column_filter';
 
   ngAfterContentInit(): void {
     this.templates.forEach(item => {

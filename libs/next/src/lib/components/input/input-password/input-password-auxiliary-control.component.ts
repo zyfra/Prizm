@@ -7,17 +7,17 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { fromEvent, merge } from 'rxjs';
 import { switchMap, take, takeUntil, tap } from 'rxjs/operators';
 
-import { ZuiInputLayoutComponent } from '../common/input-layout/input-layout.component';
+import { PzmInputLayoutComponent } from '../common/input-layout/input-layout.component';
 import { ZuiInputPasswordDirective } from './input-password.directive';
 
 @Component({
   selector: 'zui-input-password-auxiliary-control',
   template: ` <button
-    [zuiInputIconButton]="icon"
+    [pzmInputIconButton]="icon"
     class="btn"
     #btn
     [interactive]="true"
@@ -42,15 +42,15 @@ import { ZuiInputPasswordDirective } from './input-password.directive';
       }
     `,
   ],
-  providers: [ZuiDestroyService],
+  providers: [PzmDestroyService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZuiInputPasswordDefaultControlComponent {
   @Input() inputPassword!: ZuiInputPasswordDirective;
 
   constructor(
-    public readonly layout: ZuiInputLayoutComponent,
-    private readonly destroy$: ZuiDestroyService,
+    public readonly layout: PzmInputLayoutComponent,
+    private readonly destroy$: PzmDestroyService,
     private readonly cdr: ChangeDetectorRef
   ) {}
 

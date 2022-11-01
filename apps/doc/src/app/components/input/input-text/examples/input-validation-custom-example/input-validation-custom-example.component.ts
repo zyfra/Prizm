@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ZuiInputValidationTexts } from '@digital-plant/zui-components';
+import { PzmInputValidationTexts } from '@digital-plant/zui-components';
 import { InputValidationCustomTextsService } from './input-validation-custom-texts.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { InputValidationCustomTextsService } from './input-validation-custom-tex
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
-      provide: ZuiInputValidationTexts,
+      provide: PzmInputValidationTexts,
       useClass: InputValidationCustomTextsService,
     },
   ],

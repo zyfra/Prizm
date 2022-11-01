@@ -1,5 +1,5 @@
 import {Component, Inject} from '@angular/core';
-import { ZuiSidebarService, ZuiOverlayInsidePlacement } from '@digital-plant/zui-components';
+import { ZuiSidebarService, PzmOverlayInsidePlacement } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'zui-sidebar-service-example',
@@ -12,11 +12,11 @@ import { ZuiSidebarService, ZuiOverlayInsidePlacement } from '@digital-plant/zui
   `]
 })
 export class ZuiSidebarServiceExampleComponent {
-  public positionVariants: ZuiOverlayInsidePlacement[] = [
-    ZuiOverlayInsidePlacement.LEFT,
-    ZuiOverlayInsidePlacement.RIGHT,
+  public positionVariants: PzmOverlayInsidePlacement[] = [
+    PzmOverlayInsidePlacement.LEFT,
+    PzmOverlayInsidePlacement.RIGHT,
   ];
-  public position: ZuiOverlayInsidePlacement = this.positionVariants[1];
+  public position: PzmOverlayInsidePlacement = this.positionVariants[1];
   public backdrop = false;
 
   constructor(

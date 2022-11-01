@@ -10,7 +10,7 @@ export interface ZuiDurationOptions {
   params: {duration: number};
 }
 
-export const zuiFadeIn = trigger('zuiFadeIn', [
+export const pzmFadeIn = trigger('zuiFadeIn', [
   transition(
     ':enter',
     [style({opacity: 0}), animate(TRANSITION, style({opacity: 1}))],

@@ -30,7 +30,7 @@
     <tui-doc-demo>
       <button type="button"
         (click)="show()"
-        zuiButton>
+        pzmButton>
         Show SideBar
       </button>
     </tui-doc-demo>
@@ -41,7 +41,7 @@
 
     <ng-template #contentTemp>
       Content из <a href='#'>шаблона</a>
-      <button style='margin-top: 10px;' zuiButton>Кнопка</button>
+      <button style='margin-top: 10px;' pzmButton>Кнопка</button>
     </ng-template>
 
     <ng-template #footerTemp let-observer>
@@ -51,7 +51,7 @@
     <tui-doc-documentation>
       <ng-template
         documentationPropertyName="position"
-        documentationPropertyType="ZuiOverlayInsidePlacement"
+        documentationPropertyType="PzmOverlayInsidePlacement"
         [documentationPropertyValues]="positionVariants"
         [(documentationPropertyValue)]="position"
       >

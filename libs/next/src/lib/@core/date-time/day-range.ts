@@ -1,8 +1,8 @@
 import { ZuiDateMode } from '../../types/date-mode';
 import { ZUI_DATE_FILLER_LENGTH, ZUI_DATE_RANGE_FILLER_LENGTH } from './date-fillers';
 import { ZUI_RANGE_SEPARATOR_CHAR } from './date-time';
-import { ZuiDay } from './day';
-import { ZuiMonthRange } from './month-range';
+import { PzmDay } from './day';
+import { PzmMonthRange } from './month-range';
 
 /**
  * Temporary type guard to satisfy ts-overloading of normalizeParse method
@@ -12,10 +12,10 @@ export const zuiIsDateMode = (dateMode: string): dateMode is ZuiDateMode =>
     [`DMY`, `YMD`, `MDY`].includes(dateMode);
 
 /**
- * An immutable range of two {@link ZuiDay} objects
+ * An immutable range of two {@link PzmDay} objects
  */
-export class ZuiDayRange extends ZuiMonthRange {
-    constructor(override readonly from: ZuiDay, override readonly to: ZuiDay) {
+export class PzmDayRange extends PzmMonthRange {
+    constructor(override readonly from: PzmDay, override readonly to: PzmDay) {
         super(from, to);
 
         console.assert(from.daySameOrBefore(to));
@@ -28,16 +28,16 @@ export class ZuiDayRange extends ZuiMonthRange {
      * @param day2
      * @return new range with sorted days
      */
-    public static override sort(day1: ZuiDay, day2: ZuiDay): ZuiDayRange {
+    public static override sort(day1: PzmDay, day2: PzmDay): PzmDayRange {
         return day1.daySameOrBefore(day2)
-            ? new ZuiDayRange(day1, day2)
-            : new ZuiDayRange(day2, day1);
+            ? new PzmDayRange(day1, day2)
+            : new PzmDayRange(day2, day1);
     }
 
-    public static fromLocalNativeDate(date1: Date, date2: Date): ZuiDayRange {
-      return new ZuiDayRange(
-        ZuiDay.fromLocalNativeDate(date1),
-        ZuiDay.fromLocalNativeDate(date2),
+    public static fromLocalNativeDate(date1: Date, date2: Date): PzmDayRange {
+      return new PzmDayRange(
+        PzmDay.fromLocalNativeDate(date1),
+        PzmDay.fromLocalNativeDate(date2),
       );
     }
 
@@ -48,8 +48,8 @@ export class ZuiDayRange extends ZuiMonthRange {
         rangeString: string,
         dateFiller: string,
         dateRangeFiller: string,
-    ): ZuiDayRange;
-    public static normalizeParse(rangeString: string, dateMode?: ZuiDateMode): ZuiDayRange;
+    ): PzmDayRange;
+    public static normalizeParse(rangeString: string, dateMode?: ZuiDateMode): PzmDayRange;
 
     /**
      * Parse and correct a day range in string format
@@ -61,21 +61,21 @@ export class ZuiDayRange extends ZuiMonthRange {
     public static normalizeParse(
         rangeString: string,
         dateMode: string | ZuiDateMode = `DMY`,
-    ): ZuiDayRange {
+    ): PzmDayRange {
         const dateFormat = zuiIsDateMode(dateMode) ? dateMode : `DMY`;
 
-        const leftDay = ZuiDay.normalizeParse(
+        const leftDay = PzmDay.normalizeParse(
             rangeString.slice(0, ZUI_DATE_FILLER_LENGTH),
             dateFormat,
         );
 
         if (rangeString.length < ZUI_DATE_RANGE_FILLER_LENGTH) {
-            return new ZuiDayRange(leftDay, leftDay);
+            return new PzmDayRange(leftDay, leftDay);
         }
 
-        return ZuiDayRange.sort(
+        return PzmDayRange.sort(
             leftDay,
-            ZuiDay.normalizeParse(
+            PzmDay.normalizeParse(
                 rangeString.slice(ZUI_DATE_FILLER_LENGTH + ZUI_RANGE_SEPARATOR_CHAR.length),
                 dateFormat,
             ),
@@ -98,7 +98,7 @@ export class ZuiDayRange extends ZuiMonthRange {
     }
 
     public isDayInRange(
-      day: ZuiDay
+      day: PzmDay
     ) {
       return day.daySameOrAfter(this.from) && day.daySameOrBefore(this.to)
     }
@@ -109,7 +109,7 @@ export class ZuiDayRange extends ZuiMonthRange {
      * @param another second range to test against current
      * @return `true` if days are identical
      */
-    public daySame(another: ZuiDayRange): boolean {
+    public daySame(another: PzmDayRange): boolean {
         return this.from.daySame(another.from) && this.to.daySame(another.to);
     }
 
@@ -120,8 +120,8 @@ export class ZuiDayRange extends ZuiMonthRange {
      * @param max
      * @return range — clamped range
      */
-    public dayLimit(min: ZuiDay | null, max: ZuiDay | null): ZuiDayRange {
-        return new ZuiDayRange(this.from.dayLimit(min, max), this.to.dayLimit(min, max));
+    public dayLimit(min: PzmDay | null, max: PzmDay | null): PzmDayRange {
+        return new PzmDayRange(this.from.dayLimit(min, max), this.to.dayLimit(min, max));
     }
 
     /**

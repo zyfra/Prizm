@@ -1,13 +1,13 @@
 import {Component, OnInit,} from '@angular/core';
-import {ZuiDestroyService} from "@digital-plant/zyfra-helpers";
+import {PzmDestroyService} from "@digital-plant/zyfra-helpers";
 import { map } from 'rxjs/operators';
-import {ZuiHintContainerComponent} from '../hint/hint-container.component';
+import {PzmHintContainerComponent} from '../hint/hint-container.component';
 
 @Component({
   selector: 'zui-confirm-popup-container',
   templateUrl: './confirm-popup-container.component.html',
   styleUrls: ['./confirm-popup-container.component.less'],
-  providers: [ZuiDestroyService]
+  providers: [PzmDestroyService]
 })
-export class ZuiConfirmPopupContainerComponent extends ZuiHintContainerComponent<any> {
+export class ZuiConfirmPopupContainerComponent extends PzmHintContainerComponent<any> {
 }

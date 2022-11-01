@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { PolymorphComponent, ZuiOverlayOutsidePlacement } from '@digital-plant/zui-components';
+import { PolymorphComponent, PzmOverlayOutsidePlacement } from '@digital-plant/zui-components';
 import { ZuiHintSomeComponent } from './some.component';
 
 @Component({
@@ -15,5 +15,5 @@ import { ZuiHintSomeComponent } from './some.component';
 })
 export class ZuiHintWithComponentExampleComponent {
   readonly component = new PolymorphComponent(ZuiHintSomeComponent);
-  readonly direction = ZuiOverlayOutsidePlacement.BOTTOM;
+  readonly direction = PzmOverlayOutsidePlacement.BOTTOM;
 }

@@ -1,19 +1,19 @@
-import {Directive, ElementRef, Inject, Output} from '@angular/core';
-import { zuiPressedObservable } from '../../observables/pressed-observable';
-import { ZUI_TAKE_ONLY_TRUSTED_EVENTS } from '../../tokens/take-only-trusted-events';
+import { Directive, ElementRef, Inject, Output } from '@angular/core';
+import { pzmPressedObservable } from '../../observables/pressed-observable';
+import { PZM_TAKE_ONLY_TRUSTED_EVENTS } from '../../tokens/take-only-trusted-events';
 
 @Directive({
-    selector: '[zuiPressedChange]',
+    selector: '[pzmPressedChange]',
 })
-export class ZuiPressedDirective {
+export class PzmPressedDirective {
     @Output()
-    readonly zuiPressedChange = zuiPressedObservable(this.elementRef.nativeElement, {
+    readonly pzmPressedChange = pzmPressedObservable(this.elementRef.nativeElement, {
         onlyTrusted: this.takeOnlyTrustedEvents,
     });
 
     constructor(
         @Inject(ElementRef) private readonly elementRef: ElementRef<Element>,
-        @Inject(ZUI_TAKE_ONLY_TRUSTED_EVENTS)
+        @Inject(PZM_TAKE_ONLY_TRUSTED_EVENTS)
         private readonly takeOnlyTrustedEvents: boolean,
     ) {}
 }

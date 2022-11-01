@@ -1,4 +1,4 @@
-<zui-calendar
+<pzm-calendar
     [min]="min"
     [max]="max"
     [month]="userViewedMonthFirst"
@@ -10,9 +10,9 @@
     [(hoveredItem)]="hoveredItem"
     (dayClick)="onDayClick($event)"
     (monthChange)="onSectionFirstViewedMonth($event)"
-></zui-calendar>
+></pzm-calendar>
 
-<zui-calendar
+<pzm-calendar
     class="z-border"
     [min]="min"
     [max]="max"
@@ -25,4 +25,4 @@
     [(hoveredItem)]="hoveredItem"
     (dayClick)="onDayClick($event)"
     (monthChange)="onSectionSecondViewedMonth($event)"
-></zui-calendar>
+></pzm-calendar>

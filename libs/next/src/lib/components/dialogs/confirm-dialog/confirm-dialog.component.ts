@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, In
 import { Observable } from 'rxjs';
 import { ZUI_ANIMATIONS_DURATION } from '../../../tokens';
 import { ZUI_DIALOG_CLOSE_STREAM, ZUI_DIALOG_PROVIDERS } from '../dialog/dialog-options';
-import { ZuiAnimationOptions, zuiFadeIn, zuiSlideInTop } from '../../../animations';
+import { ZuiAnimationOptions, pzmFadeIn, zuiSlideInTop } from '../../../animations';
 import { takeUntil } from 'rxjs/operators';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { ZuiBaseDialogContext, ZuiDialogSize } from '../dialog';
 import { ZuiConfirmDialogOptions, ZuiConfirmDialogResultDefaultType } from './confirm-dialog.models';
 
@@ -14,7 +14,7 @@ import { ZuiConfirmDialogOptions, ZuiConfirmDialogResultDefaultType } from './co
     styleUrls: ['./confirm-dialog.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: ZUI_DIALOG_PROVIDERS,
-    animations: [zuiSlideInTop, zuiFadeIn],
+    animations: [zuiSlideInTop, pzmFadeIn],
 })
 export class ZuiDialogConfirmComponent<DATA = unknown> {
     @Input()
@@ -40,7 +40,7 @@ export class ZuiDialogConfirmComponent<DATA = unknown> {
     }
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_confirm_dialog';
+    readonly testId = 'pzm_confirm_dialog';
 
     private readonly animation = {
         value: '',
@@ -53,7 +53,7 @@ export class ZuiDialogConfirmComponent<DATA = unknown> {
     constructor(
         @Inject(ZUI_ANIMATIONS_DURATION) private readonly duration: number,
         @Inject(ZUI_DIALOG_CLOSE_STREAM) readonly close$: Observable<unknown>,
-        private readonly destroy$: ZuiDestroyService,
+        private readonly destroy$: PzmDestroyService,
         private readonly elRef: ElementRef,
     ) {
         close$.pipe(takeUntil(this.destroy$)).subscribe(() => {
