@@ -62,6 +62,7 @@ Build js image:
         )
       exists:
         - "{[Dd]ockerfile,[Dd]ockerfile\\.*,**/[Dd]ockerfile,**/[Dd]ockerfile\\.*}"
+      extends: [".tags_k8s", ".except_skip_ci"]
 
 Build library:
   stage: build
