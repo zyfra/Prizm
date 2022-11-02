@@ -36,7 +36,6 @@ Build js image:
   stage: build
   tags:
     - docker
-    - k8s
   script:
     - sh /kaniko/kaniko-build
   image:
