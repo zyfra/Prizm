@@ -50,7 +50,7 @@ export const APP_PROVIDERS = [
   {
     provide: TUI_DOC_SOURCE_CODE,
     useValue: (context: TuiDocSourceCodePathOptions): null | string => {
-      const link = 'https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk';
+      const link = 'https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk';
 
       if (!context.package) {
         return null;

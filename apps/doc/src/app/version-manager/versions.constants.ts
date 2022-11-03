@@ -11,6 +11,6 @@ export const PZM_VERSIONS_META: readonly PzmVersionMeta[] = [
   },
   {
     label: 'LTS (v0.13.9)',
-    link: 'https://ziiot-dev-07.kube01.yc.ziiot.ru/pzm-sdk/storybook/',
+    link: 'https://ziiot-dev-07.kube01.yc.ziiot.ru/zui-sdk/storybook/',
   },
 ];
