@@ -1,10 +1,10 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {ZuiOverlayComponent} from './overlay.component';
+import {PzmOverlayComponent} from './overlay.component';
 // TODO move to seperated lib
 @NgModule({
   imports: [CommonModule],
-  declarations: [ZuiOverlayComponent],
-  entryComponents: [ZuiOverlayComponent]
+  declarations: [PzmOverlayComponent],
+  entryComponents: [PzmOverlayComponent]
 })
-export class ZuiOverlayModule {}
+export class PzmOverlayModule {}

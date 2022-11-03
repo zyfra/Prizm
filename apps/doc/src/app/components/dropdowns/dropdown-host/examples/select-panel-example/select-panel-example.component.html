@@ -1,58 +1,58 @@
-<zui-dropdown-host [content]="dropdown" zuiDropdownHostWidth="auto" [(isOpen)]="showPanel">
-  <button zuiButton type="button" (click)="show()">Button</button>
-</zui-dropdown-host>
+<pzm-dropdown-host [content]="dropdown" pzmDropdownHostWidth="auto" [(isOpen)]="showPanel">
+  <button pzmButton type="button" (click)="show()">Button</button>
+</pzm-dropdown-host>
 
 <ng-template #dropdown>
-  <zui-data-list class="data-list" [defaultStyle]="false">
+  <pzm-data-list class="data-list" [defaultStyle]="false">
     <ng-container header>
       <div class="header">
-        <zui-checkbox
+        <pzm-checkbox
           class="header__checkbox"
           (changed)="onChange($event)"
           [checked]="allChecked"
           [indeterminate]="someChecked"
         >
           <span class="header__label"> Заголовок блока </span>
-        </zui-checkbox>
+        </pzm-checkbox>
       </div>
     </ng-container>
 
     <div class="content">
       <div class="filter">
-        <zui-input-layout class="filter__input-layout" [label]="'Фильтр'" [size]="'m'">
+        <pzm-input-layout class="filter__input-layout" [label]="'Фильтр'" [size]="'m'">
           <input
-            zuiInput
+            pzmInput
             #input
             [placeholder]="'Введите значение'"
             (input)="filter(input.value)"
             (onClear)="filter('')"
           />
           <button
-            zuiInputIconButton="sort-zoom-in"
-            zui-input-right
+            pzmInputIconButton="sort-zoom-in"
+            pzm-input-right
             [interactive]="true"
             (click)="filter(input.value)"
           ></button>
-        </zui-input-layout>
+        </pzm-input-layout>
       </div>
 
       <ul class="options">
         <li *ngFor="let option of filteredData" class="options__item option">
-          <zui-checkbox class="option__checkbox" [(ngModel)]="option.checked">
+          <pzm-checkbox class="option__checkbox" [(ngModel)]="option.checked">
             <div class="option__label">
               <span class="option__title">{{ option.label.title }}</span>
               <span class="option__subtitle">{{ option.label.subtitle }}</span>
             </div>
-          </zui-checkbox>
+          </pzm-checkbox>
         </li>
       </ul>
     </div>
 
     <ng-container footer>
       <div class="footer">
-        <button zuiButton (click)="hide()" class="footer__btn">Применить запрос</button>
+        <button pzmButton (click)="hide()" class="footer__btn">Применить запрос</button>
       </div>
     </ng-container>
-  </zui-data-list>
+  </pzm-data-list>
 </ng-template>
 

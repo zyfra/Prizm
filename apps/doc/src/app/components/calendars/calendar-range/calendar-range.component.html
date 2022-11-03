@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiCalendarRangeComponent to view calendar-range.
+      Use PzmCalendarRangeComponent to view calendar-range.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <zui-calendar-range-base-example></zui-calendar-range-base-example>
+      <pzm-calendar-range-base-example></pzm-calendar-range-base-example>
     </tui-doc-example>
 
 
@@ -21,76 +21,74 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-calendar-range
-        [formControl]='control'
-      ></zui-calendar-range>
+      <pzm-calendar-range [(value)]='value'></pzm-calendar-range>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
         documentationPropertyName="defaultViewedMonth"
-        documentationPropertyType="ZuiMonth"
+        documentationPropertyType="PzmMonth"
       >
         Default Viewed Month
       </ng-template>
       <ng-template
         documentationPropertyName="disabledItemHandler"
-        documentationPropertyType="ZuiBooleanHandler<ZuiDay>"
+        documentationPropertyType="PzmBooleanHandler<PzmDay>"
       >
         Disabled Item Handler
       </ng-template>
 
       <ng-template
         documentationPropertyName="markerHandler"
-        documentationPropertyType="ZuiMarkerHandler"
+        documentationPropertyType="PzmMarkerHandler"
       >
         Marker Handler
       </ng-template>
 
       <ng-template
         documentationPropertyName="min"
-        documentationPropertyType="ZuiDay"
+        documentationPropertyType="PzmDay"
       >
         Min Day
       </ng-template>
 
       <ng-template
         documentationPropertyName="max"
-        documentationPropertyType="ZuiDay"
+        documentationPropertyType="PzmDay"
       >
         Max Day
       </ng-template>
 
       <ng-template
         documentationPropertyName="minLength"
-        documentationPropertyType="ZuiDayLike | null"
+        documentationPropertyType="PzmDayLike | null"
       >
         Min Length
       </ng-template>
 
       <ng-template
         documentationPropertyName="maxLength"
-        documentationPropertyType="ZuiDayLike | null"
+        documentationPropertyType="PzmDayLike | null"
       >
         Max Length
       </ng-template>
 
       <ng-template
         documentationPropertyName="value"
-        documentationPropertyType="ZuiDayRange | null"
+        documentationPropertyType="PzmDayRange | null"
       >
         Value
       </ng-template>
 
       <ng-template
         documentationPropertyName="items"
-        documentationPropertyType="ZuiDayRangePeriod[]"
+        documentationPropertyType="PzmDayRangePeriod[]"
       >
         Items
       </ng-template>
 
       <ng-template
         documentationPropertyName="valueChange"
-        documentationPropertyType="ZuiDayRange | null"
+        documentationPropertyType="PzmDayRange | null"
         documentationPropertyMode="output"
       >
         Value Change
@@ -103,7 +101,7 @@
       <li>
         <p>
           Import
-          <code>ZuiCalendarRangeModule</code>
+          <code>PzmCalendarRangeModule</code>
           into a module where you want to use our component
         </p>
 

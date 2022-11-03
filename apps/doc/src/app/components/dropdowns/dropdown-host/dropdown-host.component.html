@@ -1,81 +1,89 @@
 <tui-doc-page header="DropdownHost" package="next" type="components">
   <ng-template pageTab>
-    <p>Use ZuiDropdownHostComponent to view dropdown.</p>
+    <p>Use PzmDropdownHostComponent to view dropdown.</p>
 
     <tui-doc-example id="base" heading="With Template" [content]="exampleWithTemplate">
-      <zui-dropdown-host-example-with-template></zui-dropdown-host-example-with-template>
+      <pzm-dropdown-host-example-with-template></pzm-dropdown-host-example-with-template>
     </tui-doc-example>
 
     <tui-doc-example id="select-panel" heading="Select panel" [content]="exampleWithSelectPanel">
-      <zui-select-panel-example></zui-select-panel-example>
+      <pzm-select-panel-example></pzm-select-panel-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="select-panel" heading="Date Range Template (Nested Dropdown)" [content]="exampleDateRangeList">
+      <pzm-dropdown-host-date-list-example></pzm-dropdown-host-date-list-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="select-panel" heading="Date Range 2 Template" [content]="exampleDateRangeListEdit">
+      <pzm-dropdown-host-date-list-edit-example></pzm-dropdown-host-date-list-edit-example>
     </tui-doc-example>
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-dropdown-host
+      <pzm-dropdown-host
         [content]="withHeaderAndFooter"
         [(isOpen)]="isOpen"
         [autoReposition]="autoReposition"
-        [zuiDropdownHostWidth]="zuiDropdownHostWidth"
+        [pzmDropdownHostWidth]="pzmDropdownHostWidth"
         [placement]="placement"
-        [zuiDropdownHostCloseOnBackdropClick]="closeOnBackdropClick"
+        [pzmDropdownHostCloseOnBackdropClick]="closeOnBackdropClick"
       >
-        <button zuiButton type="button" (click)="isOpen = !isOpen">Button</button>
-      </zui-dropdown-host>
+        <button pzmButton type="button" (click)="isOpen = !isOpen">Button</button>
+      </pzm-dropdown-host>
 
       <ng-template #withHeaderAndFooter>
         <div>
-          <zui-data-list>
+          <pzm-data-list>
             <ng-container header>Заголовок блока</ng-container>
             <div class="box">
-              <button zuiButton appearanceType="outline">Кнопка 1</button>
-              <button zuiButton appearanceType="outline">Кнопка 2</button>
+              <button pzmButton appearanceType="outline">Кнопка 1</button>
+              <button pzmButton appearanceType="outline">Кнопка 2</button>
             </div>
             <ng-container footer>
-              <button zuiButton (click)="isOpen = false; cdRef.markForCheck()">Закрыть</button>
+              <button pzmButton (click)="isOpen = false; cdRef.markForCheck()">Закрыть</button>
             </ng-container>
-          </zui-data-list>
+          </pzm-data-list>
         </div>
       </ng-template>
 
       <ng-template #withHeader>
-        <zui-data-list>
+        <pzm-data-list>
           <div class="box">
-            <button zuiButton appearanceType="outline">Кнопка 1</button>
-            <button zuiButton appearanceType="outline">Кнопка 2</button>
+            <button pzmButton appearanceType="outline">Кнопка 1</button>
+            <button pzmButton appearanceType="outline">Кнопка 2</button>
           </div>
           <ng-container footer>
-            <button zuiButton (click)="isOpen = false; cdRef.markForCheck()">Закрыть</button>
+            <button pzmButton (click)="isOpen = false; cdRef.markForCheck()">Закрыть</button>
           </ng-container>
-        </zui-data-list>
+        </pzm-data-list>
       </ng-template>
 
       <ng-template #withFooter>
-        <zui-data-list>
+        <pzm-data-list>
           <ng-container header>Заголовок блока</ng-container>
           <div class="box">
-            <button zuiButton appearanceType="outline">Кнопка 1</button>
-            <button zuiButton appearanceType="outline">Кнопка 2</button>
+            <button pzmButton appearanceType="outline">Кнопка 1</button>
+            <button pzmButton appearanceType="outline">Кнопка 2</button>
           </div>
-        </zui-data-list>
+        </pzm-data-list>
       </ng-template>
 
       <ng-template #onlyContent>
-        <zui-data-list>
+        <pzm-data-list>
           <div class="box">
-            <button zuiButton appearanceType="outline">Кнопка 1</button>
-            <button zuiButton appearanceType="outline">Кнопка 2</button>
+            <button pzmButton appearanceType="outline">Кнопка 1</button>
+            <button pzmButton appearanceType="outline">Кнопка 2</button>
           </div>
-        </zui-data-list>
+        </pzm-data-list>
       </ng-template>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
-        documentationPropertyName="zuiDropdownHostWidth"
+        documentationPropertyName="pzmDropdownHostWidth"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiDropdownHostWidth"
+        [(documentationPropertyValue)]="pzmDropdownHostWidth"
       >
         Host Witdh
       </ng-template>
@@ -109,7 +117,7 @@
 
       <ng-template
         documentationPropertyName="placement"
-        documentationPropertyType="ZuiOverlayOutsidePlacement"
+        documentationPropertyType="PzmOverlayOutsidePlacement"
         documentationPropertyMode="input"
         [documentationPropertyValues]="placementVariants"
         [(documentationPropertyValue)]="placement"
@@ -133,7 +141,7 @@
       <li>
         <p>
           Import
-          <code>ZuDropdownHostModule</code>
+          <code>PzmDropdownHostModule</code>
           into a module where you want to use our component
         </p>
 

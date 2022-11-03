@@ -1,9 +1,8 @@
-import {NgModule} from '@angular/core';
-
-import {ZuiFocusedDirective} from './focused.directive';
+import { NgModule } from '@angular/core';
+import { PzmFocusedDirective } from './focused.directive';
 
 @NgModule({
-    declarations: [ZuiFocusedDirective],
-    exports: [ZuiFocusedDirective],
+    declarations: [PzmFocusedDirective],
+    exports: [PzmFocusedDirective],
 })
-export class ZuiFocusedModule {}
+export class PzmFocusedModule {}

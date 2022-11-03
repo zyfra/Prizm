@@ -13,27 +13,27 @@ import {
   Output,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { zuiIsTextOverflow$ } from '../../util/dom/is-textoverflow';
-import { ZuiOverlayOutsidePlacement } from '../../modules';
+import { pzmIsTextOverflow$ } from '../../util/dom/is-textoverflow';
+import { PzmOverlayOutsidePlacement } from '../../modules';
 import { BehaviorSubject, Observable, of, Subscription, timer } from 'rxjs';
 import { map, switchMap, takeUntil } from 'rxjs/operators';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 
 @Component({
-  selector: 'zui-chips',
+  selector: 'pzm-chips',
   templateUrl: './chips.component.html',
   styleUrls: ['./chips.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => ZuiChipsComponent),
+      useExisting: forwardRef(() => PzmChipsComponent),
       multi: true,
     },
-    ZuiDestroyService
+    PzmDestroyService
   ],
 })
-export class ZuiChipsComponent implements ControlValueAccessor, OnInit, OnDestroy, AfterViewInit {
+export class PzmChipsComponent implements ControlValueAccessor, OnInit, OnDestroy, AfterViewInit {
   @Input() @HostBinding('attr.data-size') public size: 's' | 'l' = 'l';
   @Input() set chips(data: string[]) {
     this.chipsList = data;
@@ -41,7 +41,7 @@ export class ZuiChipsComponent implements ControlValueAccessor, OnInit, OnDestro
   @Input() public deletable = true;
   @Input() public singleLine = true;
   @Input() public hintCanShow = true;
-  @Input() public hintDirection: ZuiOverlayOutsidePlacement = ZuiOverlayOutsidePlacement.RIGHT;
+  @Input() public hintDirection: PzmOverlayOutsidePlacement = PzmOverlayOutsidePlacement.RIGHT;
   @Input() set disabled(isDisabled: boolean) {
     this.accessorIsDisabled = isDisabled;
   }
@@ -51,7 +51,7 @@ export class ZuiChipsComponent implements ControlValueAccessor, OnInit, OnDestro
   @Output() public clickChipEvent: EventEmitter<string> = new EventEmitter();
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_chips';
+  readonly testId = 'pzm_chips';
   public accessorIsDisabled = false;
   public readonly overflowedChipsList$ = new BehaviorSubject<Set<number>>(new Set());
 
@@ -62,9 +62,9 @@ export class ZuiChipsComponent implements ControlValueAccessor, OnInit, OnDestro
     return Math.max(x, y) > 0
   }
 
-  constructor(private readonly cdRef: ChangeDetectorRef, private readonly destroy$: ZuiDestroyService) {}
+  constructor(private readonly cdRef: ChangeDetectorRef, private readonly destroy$: PzmDestroyService) {}
 
-  readonly zuiIsTextOverflow$ = (elem: HTMLElement, hintCanShow: boolean, forceShowHint: boolean): Observable<boolean> => {
+  readonly pzmIsTextOverflow$ = (elem: HTMLElement, hintCanShow: boolean, forceShowHint: boolean): Observable<boolean> => {
     return of(forceShowHint).pipe(
       switchMap(
         val => {
@@ -76,7 +76,7 @@ export class ZuiChipsComponent implements ControlValueAccessor, OnInit, OnDestro
             return of(false);
           }
 
-          return zuiIsTextOverflow$(elem);
+          return pzmIsTextOverflow$(elem);
         }
       )
     )

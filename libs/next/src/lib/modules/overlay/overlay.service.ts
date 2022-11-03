@@ -1,50 +1,50 @@
 import { ApplicationRef, ComponentFactoryResolver, Injectable, Injector } from '@angular/core';
-import { ZuiOverlayDefaultConfig } from './config';
+import { PzmOverlayDefaultConfig } from './config';
 import {
-  ZuiOverlayConfig,
-  ZuiOverlayContent,
-  ZuiOverlayContentData,
-  ZuiOverlayContentProps,
-  ZuiOverlayContentType,
-  ZuiOverlayId,
-  ZuiOverlayInputs,
-  ZuiOverlayInsidePlacement,
+  PzmOverlayConfig,
+  PzmOverlayContent,
+  PzmOverlayContentData,
+  PzmOverlayContentProps,
+  PzmOverlayContentType,
+  PzmOverlayId,
+  PzmOverlayInputs,
+  PzmOverlayInsidePlacement,
 } from './models';
-import { ZuiOverlayGlobalPosition } from './position';
-import { ZuiOverlayAbstractPosition } from './position/position';
+import { PzmOverlayGlobalPosition } from './position';
+import { PzmOverlayAbstractPosition } from './position/position';
 import { EventBus, getContent } from './utils';
-import { zuiGenerateId } from '../../util';
-import { ZuiOverlayControl } from './overlay-control';
-import { ZuiOverlayContentToken } from './token';
+import { pzmGenerateId } from '../../util';
+import { PzmOverlayControl } from './overlay-control';
+import { PzmOverlayContentToken } from './token';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ZuiOverlayService {
-  static controls: { [key: string]: ZuiOverlayControl } = {};
-  private zid: ZuiOverlayId;
-  private inputs: ZuiOverlayInputs = {
+export class PzmOverlayService {
+  static controls: { [key: string]: PzmOverlayControl } = {};
+  private zid: PzmOverlayId;
+  private inputs: PzmOverlayInputs = {
     position: null,
-    config: ZuiOverlayDefaultConfig,
-    content: { type: ZuiOverlayContentType.STRING, data: '', props: {} },
+    config: PzmOverlayDefaultConfig,
+    content: { type: PzmOverlayContentType.STRING, data: '', props: {} },
     zid: null
   };
 
   constructor(private injector: Injector) {
-    this.inputs.position = new ZuiOverlayGlobalPosition({ placement: ZuiOverlayInsidePlacement.TOP });
+    this.inputs.position = new PzmOverlayGlobalPosition({ placement: PzmOverlayInsidePlacement.TOP });
   }
 
-  public position<T extends ZuiOverlayAbstractPosition<any>>(position: T): ZuiOverlayService {
+  public position<T extends PzmOverlayAbstractPosition<any>>(position: T): PzmOverlayService {
     this.inputs.position = position;
     return this;
   }
 
-  public config(config: Partial<ZuiOverlayConfig>): ZuiOverlayService {
-    this.inputs.config = { ...ZuiOverlayDefaultConfig, ...config };
+  public config(config: Partial<PzmOverlayConfig>): PzmOverlayService {
+    this.inputs.config = { ...PzmOverlayDefaultConfig, ...config };
     return this;
   }
 
-  public content(data: ZuiOverlayContentData, props: ZuiOverlayContentProps = {}): ZuiOverlayService {
+  public content(data: PzmOverlayContentData, props: PzmOverlayContentProps = {}): PzmOverlayService {
     this.inputs.content = getContent(data, props);
     return this;
   }
@@ -52,41 +52,41 @@ export class ZuiOverlayService {
   public create({key, parentInjector}: {
     key?: string,
     parentInjector?: Injector
-  } = {}): ZuiOverlayControl {
-    this.zid = this.inputs.zid = key ?? zuiGenerateId();
+  } = {}): PzmOverlayControl {
+    this.zid = this.inputs.zid = key ?? pzmGenerateId();
 
     const injector = Injector.create({
         providers: [
           {
-            provide: ZuiOverlayContentToken,
-            useFactory: (): ZuiOverlayContent => this.inputs.content
+            provide: PzmOverlayContentToken,
+            useFactory: (): PzmOverlayContent => this.inputs.content
           },
           {
-            provide: ZuiOverlayControl,
+            provide: PzmOverlayControl,
             deps: [ApplicationRef, ComponentFactoryResolver, Injector]
           }
         ],
         parent: parentInjector ?? this.injector
     });
 
-    const tc = injector.get(ZuiOverlayControl);
-    if (ZuiOverlayService.controls[this.zid]) {
-      this.zid = zuiGenerateId();
+    const tc = injector.get(PzmOverlayControl);
+    if (PzmOverlayService.controls[this.zid]) {
+      this.zid = pzmGenerateId();
     }
     this.inputs.position.init(this.zid);
-    ZuiOverlayService.controls[this.zid] = Object.assign(tc, this.inputs);
+    PzmOverlayService.controls[this.zid] = Object.assign(tc, this.inputs);
     return tc;
   }
 
-  public getCtrl(zid: ZuiOverlayId): ZuiOverlayControl {
-    return ZuiOverlayService.controls[zid];
+  public getCtrl(zid: PzmOverlayId): PzmOverlayControl {
+    return PzmOverlayService.controls[zid];
   }
 
   public destroy(): void {
-    for (const key in ZuiOverlayService.controls) {
-      ZuiOverlayService.controls[key].close();
+    for (const key in PzmOverlayService.controls) {
+      PzmOverlayService.controls[key].close();
     }
-    ZuiOverlayService.controls = {};
+    PzmOverlayService.controls = {};
     EventBus.stop();
   }
 }

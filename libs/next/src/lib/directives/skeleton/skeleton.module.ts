@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { ZuiSkeletonDirective } from './skeleton.directive';
+import { PzmSkeletonDirective } from './skeleton.directive';
 
 @NgModule({
-    declarations: [ZuiSkeletonDirective],
-    exports: [ZuiSkeletonDirective],
+    declarations: [PzmSkeletonDirective],
+    exports: [PzmSkeletonDirective],
 })
-export class ZuiSkeletonModule {}
+export class PzmSkeletonModule {}

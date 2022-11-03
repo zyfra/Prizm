@@ -1,7 +1,7 @@
 <div class='calendar-host'>
   <ng-container *ngIf="year || clickedMonth; else calendar">
-    <zui-primitive-year-month-pagination
-      automation-id="zui-calendar__pagination"
+    <pzm-primitive-year-month-pagination
+      automation-id="pzm-calendar__pagination"
       class="z-pagination"
       [min]="computedMinViewedMonth"
       [max]="computedMaxViewedMonth"
@@ -12,36 +12,36 @@
       (valueChange)="onPaginationValueChange($event)"
       (yearClick)="onPaginationYearClick($event)"
       (monthClick)="onPaginationMonthClick($event)"
-    ></zui-primitive-year-month-pagination>
-    <zui-scrollbar
-      automation-id="zui-calendar__scrollbar"
+    ></pzm-primitive-year-month-pagination>
+    <pzm-scrollbar
+      automation-id="pzm-calendar__scrollbar"
       class="z-scrollbar"
     >
-      <zui-primitive-year-picker
+      <pzm-primitive-year-picker
         *ngIf="year; else monthPickerTemplate"
-        automation-id="zui-calendar__year"
+        automation-id="pzm-calendar__year"
         [min]="min"
         [max]="max"
         [initialItem]="year"
         [value]="value"
         (yearClick)="onPickerYearClick($event)"
-      ></zui-primitive-year-picker>
+      ></pzm-primitive-year-picker>
       <ng-template #monthPickerTemplate>
-        <zui-primitive-month-picker
-          automation-id="zui-calendar__year"
+        <pzm-primitive-month-picker
+          automation-id="pzm-calendar__year"
           [min]="min"
           [max]="max"
           [initialItem]="clickedMonth"
           [value]="value"
           [currentYear]='month.year'
           (monthClick)="onPickerMonthClick($event)"
-        ></zui-primitive-month-picker>
+        ></pzm-primitive-month-picker>
       </ng-template>
-    </zui-scrollbar>
+    </pzm-scrollbar>
   </ng-container>
   <ng-template #calendar>
-    <zui-primitive-year-month-pagination
-      automation-id="zui-calendar__pagination"
+    <pzm-primitive-year-month-pagination
+      automation-id="pzm-calendar__pagination"
       class="z-pagination"
       [min]="computedMinViewedMonth"
       [max]="computedMaxViewedMonth"
@@ -49,18 +49,18 @@
       (valueChange)="onPaginationValueChange($event)"
       (yearClick)="onPaginationYearClick($event)"
       (monthClick)="onPaginationMonthClick($event)"
-    ></zui-primitive-year-month-pagination>
-    <zui-primitive-calendar
-      automation-id="zui-calendar__calendar"
+    ></pzm-primitive-year-month-pagination>
+    <pzm-primitive-calendar
+      automation-id="pzm-calendar__calendar"
       [showAdjacent]="showAdjacent"
       [value]="value"
       [month]="month"
       [daysWithStatus]="daysWithStatus"
-      [disabledItemHandler]="disabledItemHandler | zuiMapper: disabledItemHandlerMapper:min:max"
+      [disabledItemHandler]="disabledItemHandler | pzmMapper: disabledItemHandlerMapper:min:max"
       [markerHandler]="markerHandler"
       [hoveredItem]="hoveredItem"
       (hoveredItemChange)="onHoveredItemChange($event)"
       (dayClick)="onDayClick($event)"
-    ></zui-primitive-calendar>
+    ></pzm-primitive-calendar>
   </ng-template>
 </div>

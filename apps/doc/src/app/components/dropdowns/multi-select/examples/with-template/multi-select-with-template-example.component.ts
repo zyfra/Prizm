@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-multi-select-with-template-example',
+  selector: 'pzm-multi-select-with-template-example',
   templateUrl: './multi-select-with-template-example.component.html',
   styles: [`
     .item {
@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
     }
   `]
 })
-export class ZuiMultiSelectWithTemplateExampleComponent {
+export class PzmMultiSelectWithTemplateExampleComponent {
   readonly items = [
     'One',
     'Two',

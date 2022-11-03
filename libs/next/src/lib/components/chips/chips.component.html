@@ -1,12 +1,12 @@
 <div class="chips-list"
      *ngIf="(chipsList$ | async).length"
      [class.hidden]='singleLine'
-     zuiElementReady
+     pzmElementReady
      [checker]='ready'
-     #zuiElementReady='zuiElementReady'
+     #pzmElementReady='pzmElementReady'
      #parent
 >
-  <ng-container *ngIf='zuiElementReady.ready$ | async'>
+  <ng-container *ngIf='pzmElementReady.ready$ | async'>
     <ng-container
       *ngFor="let item of chipsList$ | async; let i = index"
       [ngTemplateOutlet]='buttonTemplate'
@@ -25,8 +25,8 @@
     >
       <div class='more-item'
            *ngIf="chipsOverflowedList.size"
-           [zuiHint]='getOverflowedChipsListHint()'
-           [zuiHintDirection]='hintDirection'
+           [pzmHint]='getOverflowedChipsListHint()'
+           [pzmHintDirection]='hintDirection'
       >...</div>
     </ng-container>
   </ng-container>
@@ -44,24 +44,24 @@
              let-singleLine="singleLine"
              let-forceShowHint="forceShowHint">
   <button
-    class="chips-list__item {{zuiLifecycle.afterViewInit$ | zuiCallFunc : isChipsContent$ : parent : singleLine : item : idx : allChipsCount | async}}"
+    class="chips-list__item {{pzmLifecycle.afterViewInit$ | pzmCallFunc : isChipsContent$ : parent : singleLine : item : idx : allChipsCount | async}}"
     (click)="chipClick(item)"
     [style.background]='background'
     [disabled]="accessorIsDisabled"
-    zuiLifecycle
-    #zuiLifecycle="zuiLifecycle"
+    pzmLifecycle
+    #pzmLifecycle="pzmLifecycle"
     #hostHint
   >
     <div class="chips-name"
          #elem
-         [zuiHint]='hint || item'
-         [zuiHintHost]='hostHint'
-         [zuiHintDirection]='hintDirection'
-         [zuiHintCanShow]='elem | zuiCallFunc : zuiIsTextOverflow$: hintCanShow : forceShowHint | async'
+         [pzmHint]='hint || item'
+         [pzmHintHost]='hostHint'
+         [pzmHintDirection]='hintDirection'
+         [pzmHintCanShow]='elem | pzmCallFunc : pzmIsTextOverflow$: hintCanShow : forceShowHint | async'
     >{{ item }}</div>
     <button
       *ngIf="!hideDelete && deletable"
-      class="chips-cancel zui-icon cancel-close-small"
+      class="chips-cancel pzm-icon cancel-close-small"
       (click)="removeChips($event, idx)"
       [disabled]="accessorIsDisabled"
     ></button>

@@ -1,3 +1,3 @@
-export type ZuiScrollbarVisibility = `auto`
+export type PzmScrollbarVisibility = `auto`
   | `hidden`
   | `visible`;

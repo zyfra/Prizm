@@ -12,18 +12,18 @@ import { BaseTableTemplateDirective } from '../base-table/directives/base-table-
 
 // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
 @Component({
-  selector: 'zui-cell-editor',
+  selector: 'pzm-cell-editor',
   templateUrl: './cell-editor.component.html',
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiCellEditorComponent implements AfterContentInit {
+export class PzmCellEditorComponent implements AfterContentInit {
   @ContentChildren(BaseTableTemplateDirective) templates: QueryList<BaseTableTemplateDirective>;
 
   @Input() value = '';
   @Output() valueChange = new EventEmitter<string>();
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_cell_editor';
+  readonly testId = 'pzm_cell_editor';
 
   inputTemplate: TemplateRef<unknown>;
   outputTemplate: TemplateRef<unknown>;

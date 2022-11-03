@@ -9,77 +9,77 @@ import {
   Optional,
   Output,
 } from '@angular/core';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { Observable } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
-import { ZuiDay } from '../../../@core/date-time/day';
-import { ZuiDayRange } from '../../../@core/date-time/day-range';
-import { ZUI_FIRST_DAY, ZUI_LAST_DAY } from '../../../@core/date-time/days.const';
-import { ZuiMonth } from '../../../@core/date-time/month';
-import { ZUI_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
-import { ZUI_DEFAULT_MARKER_HANDLER } from '../../../constants/default-marker-handler';
-import { zuiDefaultProp } from '../../../decorators/default-prop';
-import { ZUI_CALENDAR_DATA_STREAM } from '../../../tokens/calendar-data-stream';
-import { ZuiBooleanHandler } from '../../../types/handler';
-import { ZuiMapper } from '../../../types/mapper';
-import { ZuiMarkerHandler } from '../../../types/marker-handler';
+import { PzmDay } from '../../../@core/date-time/day';
+import { PzmDayRange } from '../../../@core/date-time/day-range';
+import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../../@core/date-time/days.const';
+import { PzmMonth } from '../../../@core/date-time/month';
+import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
+import { PZM_DEFAULT_MARKER_HANDLER } from '../../../constants/default-marker-handler';
+import { pzmDefaultProp } from '../../../decorators/default-prop';
+import { PZM_CALENDAR_DATA_STREAM } from '../../../tokens/calendar-data-stream';
+import { PzmBooleanHandler } from '../../../types/handler';
+import { PzmMapper } from '../../../types/mapper';
+import { PzmMarkerHandler } from '../../../types/marker-handler';
 
 /**
  * @internal
  */
 @Component({
-    selector: `zui-primitive-calendar-range`,
+    selector: `pzm-primitive-calendar-range`,
     templateUrl: `./primitive-calendar-range.component.html`,
     styleUrls: [`./primitive-calendar-range.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [ZuiDestroyService],
+    providers: [PzmDestroyService],
 })
-export class ZuiPrimitiveCalendarRangeComponent implements OnInit {
+export class PzmPrimitiveCalendarRangeComponent implements OnInit {
     @Input()
-    @zuiDefaultProp()
-    disabledItemHandler: ZuiBooleanHandler<ZuiDay> = ZUI_ALWAYS_FALSE_HANDLER;
+    @pzmDefaultProp()
+    disabledItemHandler: PzmBooleanHandler<PzmDay> = PZM_ALWAYS_FALSE_HANDLER;
 
     @Input()
-    @zuiDefaultProp()
-    markerHandler: ZuiMarkerHandler = ZUI_DEFAULT_MARKER_HANDLER;
+    @pzmDefaultProp()
+    markerHandler: PzmMarkerHandler = PZM_DEFAULT_MARKER_HANDLER;
 
     @Input()
-    @zuiDefaultProp()
-    defaultViewedMonthFirst = ZuiMonth.currentLocal();
+    @pzmDefaultProp()
+    defaultViewedMonthFirst = PzmMonth.currentLocal();
 
     @Input()
-    @zuiDefaultProp()
-    defaultViewedMonthSecond = ZuiMonth.currentLocal().append({month: 1});
+    @pzmDefaultProp()
+    defaultViewedMonthSecond = PzmMonth.currentLocal().append({month: 1});
 
     @Input()
-    @zuiDefaultProp()
-    min = ZUI_FIRST_DAY;
+    @pzmDefaultProp()
+    min = PZM_FIRST_DAY;
 
     @Input()
-    @zuiDefaultProp()
-    max = ZUI_LAST_DAY;
+    @pzmDefaultProp()
+    max = PZM_LAST_DAY;
 
     @Input()
-    @zuiDefaultProp()
-    value: ZuiDayRange | null = null;
+    @pzmDefaultProp()
+    value: PzmDayRange | null = null;
 
     @Output()
-    readonly dayClick = new EventEmitter<ZuiDay>();
+    readonly dayClick = new EventEmitter<PzmDay>();
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_primitive_calendar_range';
+    readonly testId = 'pzm_primitive_calendar_range';
 
-    hoveredItem: ZuiDay | null = null;
+    hoveredItem: PzmDay | null = null;
 
-    userViewedMonthFirst: ZuiMonth = this.defaultViewedMonthFirst;
-    userViewedMonthSecond: ZuiMonth = this.defaultViewedMonthSecond;
+    userViewedMonthFirst: PzmMonth = this.defaultViewedMonthFirst;
+    userViewedMonthSecond: PzmMonth = this.defaultViewedMonthSecond;
 
     constructor(
-        @Inject(ZUI_CALENDAR_DATA_STREAM)
+        @Inject(PZM_CALENDAR_DATA_STREAM)
         @Optional()
-        valueChanges: Observable<ZuiDayRange | null> | null,
+        valueChanges: Observable<PzmDayRange | null> | null,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
-        @Inject(ZuiDestroyService) destroy$: ZuiDestroyService,
+        @Inject(PzmDestroyService) destroy$: PzmDestroyService,
     ) {
         if (!valueChanges) {
             return;
@@ -93,26 +93,26 @@ export class ZuiPrimitiveCalendarRangeComponent implements OnInit {
             });
     }
 
-    get cappedUserViewedMonthSecond(): ZuiMonth {
+    get cappedUserViewedMonthSecond(): PzmMonth {
         return this.userViewedMonthSecond.monthBefore(this.max)
             ? this.userViewedMonthSecond
             : this.max;
     }
 
-    get cappedUserViewedMonthFirst(): ZuiMonth {
+    get cappedUserViewedMonthFirst(): PzmMonth {
         return this.userViewedMonthFirst.monthSameOrBefore(this.userViewedMonthSecond)
             ? this.userViewedMonthFirst
             : this.userViewedMonthSecond;
     }
 
-    monthOffset: ZuiMapper<ZuiMonth, ZuiMonth> = (value, offset: number) =>
+    monthOffset: PzmMapper<PzmMonth, PzmMonth> = (value, offset: number) =>
         value.append({month: offset});
 
     public ngOnInit(): void {
         this.setInitialMonths();
     }
 
-    public onSectionFirstViewedMonth(month: ZuiMonth): void {
+    public onSectionFirstViewedMonth(month: PzmMonth): void {
         this.userViewedMonthFirst = month;
 
         if (this.userViewedMonthSecond.year < this.userViewedMonthFirst.year) {
@@ -122,7 +122,7 @@ export class ZuiPrimitiveCalendarRangeComponent implements OnInit {
         }
     }
 
-    public onSectionSecondViewedMonth(month: ZuiMonth): void {
+    public onSectionSecondViewedMonth(month: PzmMonth): void {
         this.userViewedMonthSecond = month;
 
         if (this.userViewedMonthFirst.year > this.userViewedMonthSecond.year) {
@@ -132,7 +132,7 @@ export class ZuiPrimitiveCalendarRangeComponent implements OnInit {
         }
     }
 
-    public onDayClick(day: ZuiDay): void {
+    public onDayClick(day: PzmDay): void {
         this.dayClick.emit(day);
     }
 
@@ -145,10 +145,19 @@ export class ZuiPrimitiveCalendarRangeComponent implements OnInit {
             this.userViewedMonthFirst = this.updatedViewedMonthFirst(
                 this.defaultViewedMonthFirst,
             );
+        } else {
+          this.userViewedMonthFirst = this.updatedViewedMonthFirst(
+            this.value.from
+          );
+          this.userViewedMonthSecond = this.updatedViewedMonthSecond(
+            this.value.to.monthSame(this.value.from) ?
+              this.value.to.append({month: 1})
+              : this.value.to
+          );
         }
     }
 
-    private updatedViewedMonthSecond(month: ZuiMonth): ZuiMonth {
+    private updatedViewedMonthSecond(month: PzmMonth): PzmMonth {
         if (month.monthSameOrAfter(this.max)) {
             return this.max;
         }
@@ -160,7 +169,7 @@ export class ZuiPrimitiveCalendarRangeComponent implements OnInit {
         return month;
     }
 
-    private updatedViewedMonthFirst(month: ZuiMonth): ZuiMonth {
+    private updatedViewedMonthFirst(month: PzmMonth): PzmMonth {
         if (month.monthSameOrAfter(this.userViewedMonthSecond)) {
             return this.userViewedMonthSecond.append({month: -1});
         }

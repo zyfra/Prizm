@@ -1,18 +1,18 @@
-import {ZuiOverlayPositionMeta, ZuiOverlaySlidePlacement} from '../models';
-import {ZuiOverlayAbstractPosition} from './position';
+import {PzmOverlayPositionMeta, PzmOverlaySlidePlacement} from '../models';
+import {PzmOverlayAbstractPosition} from './position';
 
 interface SlidePlacementConfig {
-  placement?: ZuiOverlaySlidePlacement;
+  placement?: PzmOverlaySlidePlacement;
   width?: string;
 }
 
-export class ZuiOverlaySlidePosition extends ZuiOverlayAbstractPosition<SlidePlacementConfig> {
+export class PzmOverlaySlidePosition extends PzmOverlayAbstractPosition<SlidePlacementConfig> {
   constructor(config: SlidePlacementConfig) {
     super();
-    this.config = { ...{ placement: ZuiOverlaySlidePlacement.LEFT, width: '30%' }, ...config };
+    this.config = { ...{ placement: PzmOverlaySlidePlacement.LEFT, width: '30%' }, ...config };
   }
-  public getPositions(): ZuiOverlayPositionMeta {
-    const props = this.config.placement === ZuiOverlaySlidePlacement.LEFT ? { left: 0 } : { right: 0 };
+  public getPositions(): PzmOverlayPositionMeta {
+    const props = this.config.placement === PzmOverlaySlidePlacement.LEFT ? { left: 0 } : { right: 0 };
     return {
       ...props,
       top: 0,

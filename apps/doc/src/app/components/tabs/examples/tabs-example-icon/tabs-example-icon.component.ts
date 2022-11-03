@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ITab } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-tabs-example-icon',
+  selector: 'pzm-tabs-example-icon',
   templateUrl: './tabs-example-icon.component.html',
   styleUrls: ['./tabs-example-icon.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

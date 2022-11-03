@@ -67,7 +67,7 @@
 ### Features
 - fix/(next/calendar): add day with status [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
 - fix/(next/multi-select): add select-all button [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
-- fix/(doc/input-layout): add forceShowClearButton option to doc [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
+- fix/(doc/input-layout): add forceClear option to doc [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
 
 ### BUG FIXES
 
@@ -118,10 +118,10 @@
 - feat/(tree): increase font-weigt [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
 - feat/(doc): add webpack build [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
 - feat/(next/widget): change header, body background color [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
-- feat/(next/hint): add zuiHintCanShow [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
+- feat/(next/hint): add pzmHintCanShow [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
 - feat/(next/): add themes mixins [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
-- feat/(next/select): add isChipsDeletable, forceShowClearButton for multi-select [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
-- feat/(next/multi-select): add forceShowClearButton for select [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
+- feat/(next/select): add isChipsDeletable, forceClear for multi-select [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
+- feat/(next/multi-select): add forceClear for select [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
 
 
 

@@ -1,4 +1,4 @@
-<zui-wrapper
+<pzm-wrapper
     [attr.checked]="value"
     [appearance]="appearance"
     pseudoState='toggle'
@@ -9,23 +9,23 @@
     [pressed]="computedPressed"
     [invalid]="computedInvalid"
 >
-    <zui-loader
+    <pzm-loader
       *ngIf="showLoader"
       class="z-loader"
       [size]="loaderSize"
       [inheritColor]="true"
       [showLoader]="showLoader"
-    ></zui-loader>
+    ></pzm-loader>
     <div class="toggle">
         <span class="icon-wrapper">
           <ng-container *polymorphOutlet="(iconOn) as content; context: {$implicit: size}">
-            <zui-icon size='16' class="icon" *ngIf="content" [iconClass]="$any(content)"></zui-icon>
+            <pzm-icon size='16' class="icon" *ngIf="content" [iconClass]="$any(content)"></pzm-icon>
           </ng-container>
         </span>
         <div class="circle"></div>
         <span class="icon-wrapper">
             <ng-container *polymorphOutlet="(iconOff) as content; context: {$implicit: size}">
-              <zui-icon size='16' class="icon" *ngIf="content" [iconClass]="$any(content)"></zui-icon>
+              <pzm-icon size='16' class="icon" *ngIf="content" [iconClass]="$any(content)"></pzm-icon>
             </ng-container>
         </span>
     </div>
@@ -36,12 +36,12 @@
         class="checkbox"
         [attr.aria-checked]="value"
         [disabled]="disabled"
-        [zuiChecked]="checked"
-        [zuiFocusable]="focusable"
-        (zuiCheckedChange)="onChecked($event)"
-        (zuiFocusedChange)="onFocused($event)"
-        (zuiHoveredChange)="onHovered($event)"
-        (zuiPressedChange)="onPressed($event)"
-        (zuiFocusVisibleChange)="onFocusVisible($event)"
+        [pzmChecked]="checked"
+        [pzmFocusable]="focusable"
+        (pzmCheckedChange)="onChecked($event)"
+        (pzmFocusedChange)="onFocused($event)"
+        (pzmHoveredChange)="onHovered($event)"
+        (pzmPressedChange)="onPressed($event)"
+        (pzmFocusVisibleChange)="onFocusVisible($event)"
     />
-</zui-wrapper>
+</pzm-wrapper>

@@ -1,12 +1,12 @@
 import { Directive, HostListener, Input } from '@angular/core';
-import { ZuiInputNumberDirective } from './input-number.directive';
+import { PzmInputNumberDirective } from './input-number.directive';
 
 @Directive({
-  selector: '[zuiInputNumberAuxiliaryControl]',
+  selector: '[pzmInputNumberAuxiliaryControl]',
 })
-export class ZuiInputNumberAuxiliaryControlDirective {
-  @Input('zuiInputNumberAuxiliaryControl') type!: 'increment' | 'decrement';
-  @Input() inputNumber: ZuiInputNumberDirective;
+export class PzmInputNumberAuxiliaryControlDirective {
+  @Input('pzmInputNumberAuxiliaryControl') type!: 'increment' | 'decrement';
+  @Input() inputNumber: PzmInputNumberDirective;
 
   @HostListener('click') public action(): void {
     this.inputNumber[this.type]();

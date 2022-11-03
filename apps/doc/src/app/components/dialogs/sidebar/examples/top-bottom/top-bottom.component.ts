@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
-import { ZuiOverlayInsidePlacement, ZuiSidebarService } from '@digital-plant/zui-components';
+import { PzmOverlayInsidePlacement, PzmSidebarService } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-sidebar-top-bottom-example',
+  selector: 'pzm-sidebar-top-bottom-example',
   templateUrl: './top-bottom.component.html',
   styles: [`
     .box {
@@ -11,16 +11,16 @@ import { ZuiOverlayInsidePlacement, ZuiSidebarService } from '@digital-plant/zui
     }
   `]
 })
-export class ZuiSidebarTopBottomExampleComponent {
-  public positionVariants: ZuiOverlayInsidePlacement[] = [
-    ZuiOverlayInsidePlacement.TOP,
-    ZuiOverlayInsidePlacement.BOTTOM,
+export class PzmSidebarTopBottomExampleComponent {
+  public positionVariants: PzmOverlayInsidePlacement[] = [
+    PzmOverlayInsidePlacement.TOP,
+    PzmOverlayInsidePlacement.BOTTOM,
   ];
-  public position: ZuiOverlayInsidePlacement = this.positionVariants[1];
+  public position: PzmOverlayInsidePlacement = this.positionVariants[1];
   public backdrop = false;
 
   constructor(
-    @Inject(ZuiSidebarService) private readonly sidebarService: ZuiSidebarService,
+    @Inject(PzmSidebarService) private readonly sidebarService: PzmSidebarService,
   ) {}
 
   public show(): void {

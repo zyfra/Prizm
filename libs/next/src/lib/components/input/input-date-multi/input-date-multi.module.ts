@@ -1,23 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ZuiInputDateMultiComponent } from './input-date-multi.component';
-import { ZuiDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
+import { PzmInputDateMultiComponent } from './input-date-multi.component';
+import { PzmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ZuiInputTextModule } from '../input-text/input-text.module';
-import { PolymorphModule, ZuiLifecycleModule } from '../../../directives';
-import { ZuiDataListModule } from '../../data-list';
+import { PzmInputTextModule } from '../input-text/input-text.module';
+import { PolymorphModule, PzmLifecycleModule } from '../../../directives';
+import { PzmDataListModule } from '../../data-list';
 
 @NgModule({
     imports: [
       CommonModule,
-      ZuiInputTextModule,
-      ZuiLifecycleModule,
+      PzmInputTextModule,
+      PzmLifecycleModule,
       ReactiveFormsModule,
-      ZuiDataListModule,
+      PzmDataListModule,
       PolymorphModule,
-      ZuiDropdownHostModule
+      PzmDropdownHostModule
     ],
-    declarations: [ZuiInputDateMultiComponent],
-    exports: [ZuiInputDateMultiComponent],
+    declarations: [PzmInputDateMultiComponent],
+    exports: [PzmInputDateMultiComponent],
 })
-export class ZuiInputDateMultiModule {}
+export class PzmInputDateMultiModule {}

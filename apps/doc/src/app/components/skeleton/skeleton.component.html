@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiSkeletonDirective to view skeleton.
+      Use PzmSkeletonDirective to view skeleton.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <zui-skeleton-base-example></zui-skeleton-base-example>
+      <pzm-skeleton-base-example></pzm-skeleton-base-example>
     </tui-doc-example>
 
 
@@ -23,43 +23,44 @@
     <tui-doc-demo>
       <div class='example'>
        <div>
-         <button zuiButton
-                 [zuiSkeleton]='active'
-                 [zuiSkeletonText]='isText'
-                 [zuiSkeletonRounded]='isRounded'
-                 [zuiSkeletonShort]='isShort'
+         <button pzmButton
+                 [pzmSkeleton]='active'
+                 [pzmSkeletonText]='isText'
+                 [pzmSkeletonRounded]='isRounded'
+                 [pzmSkeletonShort]='isShort'
          >Test Button</button>
        </div>
         <div>
-          <zui-toggle
-            [zuiSkeleton]='active'
-            [zuiSkeletonText]='isText'
-            [zuiSkeletonRounded]='isRounded'
-            [zuiSkeletonShort]='isShort'>
+          <pzm-toggle
+            [formControl]='toggleControl'
+            [pzmSkeleton]='active'
+            [pzmSkeletonText]='isText'
+            [pzmSkeletonRounded]='isRounded'
+            [pzmSkeletonShort]='isShort'>
             Value
-          </zui-toggle>
+          </pzm-toggle>
         </div>
         <div>
           <span
-            [zuiSkeleton]='active'
-            [zuiSkeletonText]='isText'
-            [zuiSkeletonRounded]='isRounded'
-            [zuiSkeletonShort]='isShort'>Short Span Element</span>
+            [pzmSkeleton]='active'
+            [pzmSkeletonText]='isText'
+            [pzmSkeletonRounded]='isRounded'
+            [pzmSkeletonShort]='isShort'>Short Span Element</span>
         </div>
         <div>
           <div
-          [zuiSkeleton]='active'
-          [zuiSkeletonText]='isText'
-          [zuiSkeletonRounded]='isRounded'
-          [zuiSkeletonShort]='isShort'>Block Element
+          [pzmSkeleton]='active'
+          [pzmSkeletonText]='isText'
+          [pzmSkeletonRounded]='isRounded'
+          [pzmSkeletonShort]='isShort'>Block Element
         </div>
         </div>
         <div>
           <p
-          [zuiSkeleton]='active'
-          [zuiSkeletonText]='isText'
-          [zuiSkeletonRounded]='isRounded'
-          [zuiSkeletonShort]='isShort'>
+          [pzmSkeleton]='active'
+          [pzmSkeletonText]='isText'
+          [pzmSkeletonRounded]='isRounded'
+          [pzmSkeletonShort]='isShort'>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
         </p>
         </div>
@@ -67,7 +68,7 @@
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
-        documentationPropertyName="zuiSkeleton"
+        documentationPropertyName="pzmSkeleton"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="active"
@@ -76,7 +77,7 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiSkeletonText"
+        documentationPropertyName="pzmSkeletonText"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="isText"
@@ -85,7 +86,7 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiSkeletonRounded"
+        documentationPropertyName="pzmSkeletonRounded"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="isRounded"
@@ -94,7 +95,7 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiSkeletonShort"
+        documentationPropertyName="pzmSkeletonShort"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="isShort"
@@ -110,7 +111,7 @@
       <li>
         <p>
           Import
-          <code>ZuiSkeletonModule</code>
+          <code>PzmSkeletonModule</code>
           into a module where you want to use our directive
         </p>
 

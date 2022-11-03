@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { ZuiRepeatTimesDirective } from './repeat-times.directive';
+import { PzmRepeatTimesDirective } from './repeat-times.directive';
 
 @NgModule({
-    declarations: [ZuiRepeatTimesDirective],
-    exports: [ZuiRepeatTimesDirective],
+    declarations: [PzmRepeatTimesDirective],
+    exports: [PzmRepeatTimesDirective],
 })
-export class ZuiRepeatTimesModule {}
+export class PzmRepeatTimesModule {}

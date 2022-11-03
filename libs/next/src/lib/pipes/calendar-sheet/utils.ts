@@ -1,33 +1,33 @@
 
 // TODO: 2.0 Remove export in ivy compilation
 
-import { ZUI_DAYS_IN_WEEK } from '../../@core/date-time/date-time';
-import { ZuiDay } from '../../@core/date-time/day';
-import { ZuiMonth } from '../../@core/date-time/month';
-import { ZuiDayOfWeek } from '../../@core/enums/day-of-week';
-import { zuiInRange } from '../../util/math/in-range';
+import { PZM_DAYS_IN_WEEK } from '../../@core/date-time/date-time';
+import { PzmDay } from '../../@core/date-time/day';
+import { PzmMonth } from '../../@core/date-time/month';
+import { PzmDayOfWeek } from '../../@core/enums/day-of-week';
+import { pzmInRange } from '../../util/math/in-range';
 
 /**
  * Computes day of week offset of the beginning of the month
  */
 export const getMonthStartDaysOffset = (
-    month: ZuiMonth,
-    firstDayOfWeek: ZuiDayOfWeek,
+    month: PzmMonth,
+    firstDayOfWeek: PzmDayOfWeek,
 ): number => {
     const startMonthOffsetFromSunday = new Date(month.year, month.month, 1).getDay();
 
     return startMonthOffsetFromSunday >= firstDayOfWeek
         ? startMonthOffsetFromSunday - firstDayOfWeek
-        : ZUI_DAYS_IN_WEEK - (firstDayOfWeek - startMonthOffsetFromSunday);
+        : PZM_DAYS_IN_WEEK - (firstDayOfWeek - startMonthOffsetFromSunday);
 };
 
 /*
 TODO: 2.0 delete:
- * ZuiDay.getDayFromMonthRowCol
- * ZuiMonth.monthStartDaysOffset
- * ZuiMonth.weeksRowsCount
- * ZuiYear.yearStartDaysOffset
- * ZuiYear.getYearStartDaysOffset
+ * PzmDay.getDayFromMonthRowCol
+ * PzmMonth.monthStartDaysOffset
+ * PzmMonth.weeksRowsCount
+ * PzmYear.yearStartDaysOffset
+ * PzmYear.getYearStartDaysOffset
  */
 /**
  * Calculated day on a calendar grid
@@ -39,7 +39,7 @@ export const getDayFromMonthRowCol = ({
     colIndex,
     firstDayOfWeek,
 }: {
-    month: ZuiMonth;
+    month: PzmMonth;
     /**
      * row in a calendar
      */
@@ -51,15 +51,15 @@ export const getDayFromMonthRowCol = ({
     /**
      * first day of the week index (Sunday - 0, Saturday - 6)
      */
-    firstDayOfWeek: ZuiDayOfWeek;
-}): ZuiDay => {
+    firstDayOfWeek: PzmDayOfWeek;
+}): PzmDay => {
     console.assert(Number.isInteger(rowIndex));
-    console.assert(zuiInRange(rowIndex, 0, 6));
+    console.assert(pzmInRange(rowIndex, 0, 6));
     console.assert(Number.isInteger(colIndex));
-    console.assert(zuiInRange(colIndex, 0, ZUI_DAYS_IN_WEEK));
+    console.assert(pzmInRange(colIndex, 0, PZM_DAYS_IN_WEEK));
 
     let day =
-        rowIndex * ZUI_DAYS_IN_WEEK +
+        rowIndex * PZM_DAYS_IN_WEEK +
         colIndex -
         getMonthStartDaysOffset(month, firstDayOfWeek) +
         1;
@@ -74,5 +74,5 @@ export const getDayFromMonthRowCol = ({
         day = month.daysCount + day;
     }
 
-    return new ZuiDay(month.year, month.month, day);
+    return new PzmDay(month.year, month.month, day);
 };

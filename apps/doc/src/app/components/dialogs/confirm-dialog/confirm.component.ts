@@ -2,43 +2,43 @@ import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  ZuiBaseDialogContext,
-  ZuiConfirmDialogOptions,
-  ZuiConfirmDialogResultDefaultType,
-  ZuiConfirmDialogService,
-  ZuiDialogSize,
-  ZuiOverlayInsidePlacement,
-  ZuiOverscrollMode,
-  zuiPure,
+  PzmBaseDialogContext,
+  PzmConfirmDialogOptions,
+  PzmConfirmDialogResultDefaultType,
+  PzmConfirmDialogService,
+  PzmDialogSize,
+  PzmOverlayInsidePlacement,
+  PzmOverscrollMode,
+  pzmPure,
 } from '@digital-plant/zui-components';
 import { generatePolymorphVariants } from '../../../util';
 
 @Component({
-  selector: 'zui-tooltip-example',
+  selector: 'pzm-tooltip-example',
   templateUrl: './confirm.component.html',
   styleUrls: ['./confirm.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConfirmComponent {
-  public overscrollVariants: ReadonlyArray<ZuiOverscrollMode> = [
+  public overscrollVariants: ReadonlyArray<PzmOverscrollMode> = [
     'scroll',
     'all',
     'none',
   ];
-  public overscroll: ZuiOverscrollMode = this.overscrollVariants[0];
-  public positionVariants: ZuiOverlayInsidePlacement[] = Object.values(ZuiOverlayInsidePlacement);
-  public position: ZuiOverlayInsidePlacement = ZuiOverlayInsidePlacement.CENTER;
+  public overscroll: PzmOverscrollMode = this.overscrollVariants[0];
+  public positionVariants: PzmOverlayInsidePlacement[] = Object.values(PzmOverlayInsidePlacement);
+  public position: PzmOverlayInsidePlacement = PzmOverlayInsidePlacement.CENTER;
   public backdrop = true;
   public height = 'auto';
   public width = '500px';
-  public sizeVariants: ZuiDialogSize[] = ['m', 'l'];
-  public size: ZuiDialogSize = 'm';
+  public sizeVariants: PzmDialogSize[] = ['m', 'l'];
+  public size: PzmDialogSize = 'm';
 
   public readonly defaultTitle = 'Вы уверены, что хотите перейти на следующий этап?';
   public readonly defaultDescription = `Дальнейшее редактирование этого раздела
 будет недоступно`;
-  public title: PolymorphContent<ZuiBaseDialogContext<ZuiConfirmDialogResultDefaultType,ZuiConfirmDialogOptions>> = this.defaultTitle;
-  public description: PolymorphContent<ZuiBaseDialogContext<ZuiConfirmDialogResultDefaultType,ZuiConfirmDialogOptions>> = this.defaultDescription;
+  public title: PolymorphContent<PzmBaseDialogContext<PzmConfirmDialogResultDefaultType,PzmConfirmDialogOptions>> = this.defaultTitle;
+  public description: PolymorphContent<PzmBaseDialogContext<PzmConfirmDialogResultDefaultType,PzmConfirmDialogOptions>> = this.defaultDescription;
 
   public confirmButton = 'Перейти на следующий этап'
   public cancelButton = 'Вернуться к текущему этапу'
@@ -67,10 +67,10 @@ export class ConfirmComponent {
 
 
   constructor(
-    @Inject(ZuiConfirmDialogService) private readonly dialogConfirmService: ZuiConfirmDialogService,
+    @Inject(PzmConfirmDialogService) private readonly dialogConfirmService: PzmConfirmDialogService,
   ) {}
 
-  @zuiPure
+  @pzmPure
   public generatePolymorphVariants(...content: PolymorphContent[]): any[] {
     return generatePolymorphVariants(...content)
   };

@@ -3,7 +3,7 @@ import { inject, InjectFlags, InjectionToken } from '@angular/core';
 import { BehaviorSubject, Observable, timer } from 'rxjs';
 import { mapTo, share, startWith, switchMap } from 'rxjs/operators';
 
-export const ZUI_REMOVED_ELEMENT = new InjectionToken<Observable<Element | null>>(
+export const PZM_REMOVED_ELEMENT = new InjectionToken<Observable<Element | null>>(
     `Element currently being removed by AnimationEngine`,
     {
         factory: (): Observable<Element | null> => {

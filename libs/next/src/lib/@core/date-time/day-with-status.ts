@@ -1,13 +1,13 @@
-import { ZuiDay } from "./day";
+import { PzmDay } from "./day";
 
-export type ZuiDayWithStatusColor = 'index' | 'warning' | 'success' | 'danger' | string;
+export type PzmDayWithStatusColor = 'index' | 'warning' | 'success' | 'danger' | string;
 
-export class ZuiDayWithStatus extends ZuiDay {
+export class PzmDayWithStatus extends PzmDay {
   constructor(
     year: number,
     month: number,
     day: number,
-    readonly status: ZuiDayWithStatusColor,
+    readonly status: PzmDayWithStatusColor,
   ) {
     super(year, month, day);
   }

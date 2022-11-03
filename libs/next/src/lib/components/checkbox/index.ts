@@ -1,3 +1,3 @@
-export * from './zui-checkbox.module';
+export * from './pzm-checkbox.module';
 export * from './checkbox.component';
 

@@ -1,27 +1,27 @@
 <div class="box">
   <button
-    zuiButton
+    pzmButton
     appearance='success'
     (click)="showSuccessToastWithContentTemplate(contentTemplate)">
     Success Toast
   </button>
 
   <button
-    zuiButton
+    pzmButton
     appearance='warning'
     (click)="showWarningToastWithContentTemplate(contentTemplate)">
     Warning Toast
   </button>
 
   <button
-    zuiButton
+    pzmButton
     appearance='danger'
     (click)="showDangerToastWithContentTemplate(contentTemplate)">
     Danger Toast
   </button>
 
   <button
-    zuiButton
+    pzmButton
     appearance='primary'
     (click)="showInfoToastWithContentTemplate(contentTemplate)">
     Info Toast
@@ -38,7 +38,7 @@
     </div>
     <div class="footer">
       <button
-        zuiButton
+        pzmButton
         [appearance]='buttonAppearance'
         (click)="close()">
         Закрыть
@@ -51,12 +51,12 @@
 <hr>
 <p>Position</p>
 <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-  <zui-radio-button
+  <pzm-radio-button
     *ngFor="let item of data"
     [formControl]="formControl"
     [label]="item.label"
     [name]="'success'"
     [value]="item.val"
-  ></zui-radio-button>
+  ></pzm-radio-button>
 </div>
 

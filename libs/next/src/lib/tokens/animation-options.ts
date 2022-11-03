@@ -1,14 +1,14 @@
 import { AnimationOptions } from '@angular/animations';
 import { inject, InjectionToken } from '@angular/core';
 
-import { ZUI_ANIMATIONS_DURATION } from './animations-duration';
+import { PZM_ANIMATIONS_DURATION } from './animations-duration';
 
-export const ZUI_ANIMATION_OPTIONS = new InjectionToken<AnimationOptions>(
-  'Options for ZUI animations',
+export const PZM_ANIMATION_OPTIONS = new InjectionToken<AnimationOptions>(
+  'Options for PZM animations',
   {
     factory: (): AnimationOptions  => ({
       params: {
-        duration: inject(ZUI_ANIMATIONS_DURATION),
+        duration: inject(PZM_ANIMATIONS_DURATION),
       },
     }),
   },

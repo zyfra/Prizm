@@ -1,5 +1,5 @@
-<zui-table [value]="products" editMode="cell" dataKey="id" responsiveLayout="scroll">
-  <ng-template zuiTableTemplate="header">
+<pzm-table [value]="products" editMode="cell" dataKey="id" responsiveLayout="scroll">
+  <ng-template pzmTableTemplate="header">
     <tr>
       <th>Code</th>
       <th>Name</th>
@@ -7,56 +7,56 @@
       <th>Count</th>
     </tr>
   </ng-template>
-  <ng-template zuiTableTemplate="body" let-product>
+  <ng-template pzmTableTemplate="body" let-product>
     <tr>
-      <td zuiEditableColumn>
-        <zui-cell-editor>
-          <ng-template zuiTableTemplate="input">
-            <zui-input-layout class="input-layout" [outer]="true" size="s">
-              <input [(ngModel)]="product.code" zuiInput />
-            </zui-input-layout>
+      <td pzmEditableColumn>
+        <pzm-cell-editor>
+          <ng-template pzmTableTemplate="input">
+            <pzm-input-layout class="input-layout" [outer]="true" size="s">
+              <input [(ngModel)]="product.code" pzmInput />
+            </pzm-input-layout>
           </ng-template>
-          <ng-template zuiTableTemplate="output">
+          <ng-template pzmTableTemplate="output">
             {{ product.code }}
           </ng-template>
-        </zui-cell-editor>
+        </pzm-cell-editor>
       </td>
-      <td zuiEditableColumn>
-        <zui-cell-editor>
-          <ng-template zuiTableTemplate="input">
-            <zui-input-layout class="input-layout" [outer]="true" size="s">
-              <input [(ngModel)]="product.name" zuiInput />
-            </zui-input-layout>
+      <td pzmEditableColumn>
+        <pzm-cell-editor>
+          <ng-template pzmTableTemplate="input">
+            <pzm-input-layout class="input-layout" [outer]="true" size="s">
+              <input [(ngModel)]="product.name" pzmInput />
+            </pzm-input-layout>
           </ng-template>
-          <ng-template zuiTableTemplate="output">
+          <ng-template pzmTableTemplate="output">
             <span>{{ product.name }}</span>
           </ng-template>
-        </zui-cell-editor>
+        </pzm-cell-editor>
       </td>
-      <td zuiEditableColumn>
-        <zui-cell-editor>
-          <ng-template zuiTableTemplate="input">
-            <zui-input-layout class="input-layout" [outer]="true" size="s">
-              <input [(ngModel)]="product.category" zuiInput />
-            </zui-input-layout>
+      <td pzmEditableColumn>
+        <pzm-cell-editor>
+          <ng-template pzmTableTemplate="input">
+            <pzm-input-layout class="input-layout" [outer]="true" size="s">
+              <input [(ngModel)]="product.category" pzmInput />
+            </pzm-input-layout>
           </ng-template>
-          <ng-template zuiTableTemplate="output">
+          <ng-template pzmTableTemplate="output">
             {{ product.category }}
           </ng-template>
-        </zui-cell-editor>
+        </pzm-cell-editor>
       </td>
-      <td zuiEditableColumn>
-        <zui-cell-editor>
-          <ng-template zuiTableTemplate="input">
-            <zui-input-layout class="input-layout" [outer]="true" size="s">
-              <input [(ngModel)]="product.count" zuiInput />
-            </zui-input-layout>
+      <td pzmEditableColumn>
+        <pzm-cell-editor>
+          <ng-template pzmTableTemplate="input">
+            <pzm-input-layout class="input-layout" [outer]="true" size="s">
+              <input [(ngModel)]="product.count" pzmInput />
+            </pzm-input-layout>
           </ng-template>
-          <ng-template zuiTableTemplate="output">
+          <ng-template pzmTableTemplate="output">
             {{ product.count }}
           </ng-template>
-        </zui-cell-editor>
+        </pzm-cell-editor>
       </td>
     </tr>
   </ng-template>
-</zui-table>
+</pzm-table>

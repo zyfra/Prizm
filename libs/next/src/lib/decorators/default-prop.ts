@@ -4,7 +4,7 @@
  *
  * CAUTION: This decorator overwrites other getters and setters.
  */
-export function zuiDefaultProp<T extends Record<string, unknown>, K extends keyof T>(
+export function pzmDefaultProp<T extends any, K extends keyof T>(
   assertion?: (item: T) => boolean,
   ...args: unknown[]
 ): PropertyDecorator {

@@ -1,28 +1,28 @@
 import {Observable} from 'rxjs';
 import {filter, mapTo, startWith, switchMapTo, take} from 'rxjs/operators';
-import {ZuiOwnerDocumentException} from '../exceptions/owner-document.exception';
+import {PzmOwnerDocumentException} from '../exceptions/owner-document.exception';
 
-import {zuiMouseDragFinishFrom} from './mouse-drag-finish-from';
-import {zuiTypedFromEvent} from './typed-from-event';
+import {pzmMouseDragFinishFrom} from './mouse-drag-finish-from';
+import {pzmTypedFromEvent} from './typed-from-event';
 
-export interface ZuiPressedObservableOptions {
+export interface PzmPressedObservableOptions {
     onlyTrusted: boolean;
 }
 
-export function zuiPressedObservable(
+export function pzmPressedObservable(
     element: Element,
-    {onlyTrusted}: ZuiPressedObservableOptions = {onlyTrusted: true},
+    {onlyTrusted}: PzmPressedObservableOptions = {onlyTrusted: true},
 ): Observable<boolean> {
     const {ownerDocument} = element;
 
     if (!ownerDocument) {
-        throw new ZuiOwnerDocumentException();
+        throw new PzmOwnerDocumentException();
     }
 
-    return zuiTypedFromEvent(element, 'mousedown').pipe(
+    return pzmTypedFromEvent(element, 'mousedown').pipe(
         filter(({isTrusted}) => isTrusted || !onlyTrusted),
         switchMapTo(
-            zuiMouseDragFinishFrom(ownerDocument).pipe(
+            pzmMouseDragFinishFrom(ownerDocument).pipe(
                 mapTo(false),
                 take(1),
                 startWith(true),

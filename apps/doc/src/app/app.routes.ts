@@ -76,6 +76,27 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/progress-line-bar',
+    loadChildren: async (): Promise<unknown> => (await import('./components/progress/line-bar/progress-line-bar.module')).ProgressLineBarModule,
+    data: {
+      title: 'Progress Line',
+    },
+  },
+  {
+    path: 'components/progress-circle-bar',
+    loadChildren: async (): Promise<unknown> => (await import('./components/progress/circle-bar/progress-circle-bar.module')).ProgressCircleBarModule,
+    data: {
+      title: 'Progress Circle',
+    },
+  },
+  {
+    path: 'components/progress-line-segmented',
+    loadChildren: async (): Promise<unknown> => (await import('./components/progress/line-segmented/progress-line-segmented.module')).ProgressLineSegmentedModule,
+    data: {
+      title: 'Progress Segmented',
+    },
+  },
+  {
     path: 'components/widget',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/widget/widget.module')).WidgetModule,
@@ -86,9 +107,25 @@ export const ROUTES = [
   {
     path: 'components/button',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./components/button/button.module')).ButtonModule,
+      (await import('./components/buttons/button/button.module')).ButtonModule,
     data: {
       title: 'Button',
+    },
+  },
+  {
+    path: 'components/split-button',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/buttons/split-button/split-button.module')).SplitButtonModule,
+    data: {
+      title: 'Split Button',
+    },
+  },
+  {
+    path: 'components/icon-button',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/buttons/icon-button/icon-button.module')).IconButtonModule,
+    data: {
+      title: 'Icon Button',
     },
   },
   {

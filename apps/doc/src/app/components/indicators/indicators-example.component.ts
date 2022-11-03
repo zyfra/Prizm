@@ -3,7 +3,7 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { IndicatorStatus, IndicatorType } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-example-indicators',
+  selector: 'pzm-example-indicators',
   templateUrl: './indicators-example.component.html',
   styleUrls: ['./indicators-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

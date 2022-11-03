@@ -12,45 +12,43 @@ import {
   OnInit, Output,
   SimpleChanges,
 } from '@angular/core';
-
 import { Subscription } from 'rxjs';
-import { ZuiInputControl } from '../base/input-control.class';
-import { ZuiInputStatusTextDirective } from '../input-status-text/input-status-text.directive';
-
-import { ZuiInputPosition, ZuiInputSize, ZuiInputStatus } from '../models/zui-input.models';
+import { PzmInputControl } from '../base/input-control.class';
+import { PzmInputStatusTextDirective } from '../input-status-text/input-status-text.directive';
+import { PzmInputPosition, PzmInputSize, PzmInputStatus } from '../models/pzm-input.models';
 import { debounceTime } from 'rxjs/operators';
 import { PolymorphContent } from '../../../../directives/polymorph';
 
 @Component({
-  selector: 'zui-input-layout',
+  selector: 'pzm-input-layout',
   templateUrl: './input-layout.component.html',
   styleUrls: ['./input-layout.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
-    class: 'zui-input-layout',
+    class: 'pzm-input-layout',
   },
 })
-export class ZuiInputLayoutComponent implements OnInit, OnDestroy, OnChanges, AfterContentInit {
+export class PzmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, AfterContentInit {
   @Input() label: string;
 
-  @Input() size: ZuiInputSize = 'l';
+  @Input() size: PzmInputSize = 'l';
 
-  @Input() status: ZuiInputStatus = 'default';
+  @Input() status: PzmInputStatus = 'default';
 
   @Input() outer = false;
-  @Input() position: ZuiInputPosition = 'left';
-  @Input() forceShowClearButton: boolean | null = null;
+  @Input() position: PzmInputPosition = 'left';
+  @Input() forceClear: boolean | null = null;
   @Output() clear = new EventEmitter<MouseEvent>();
 
   get showClearButton(): boolean {
-    return typeof this.forceShowClearButton === 'boolean'
-      ? this.forceShowClearButton
+    return typeof this.forceClear === 'boolean'
+      ? this.forceClear
       : this.control.hasClearButton && !this.control.disabled && !this.control.empty;
   }
 
-  @ContentChild(ZuiInputControl, { static: true }) control: ZuiInputControl<any>;
-  @ContentChild(ZuiInputStatusTextDirective, { static: false }) inputStatusText: ZuiInputStatusTextDirective;
+  @ContentChild(PzmInputControl, { static: true }) control: PzmInputControl<any>;
+  @ContentChild(PzmInputStatusTextDirective, { static: false }) inputStatusText: PzmInputStatusTextDirective;
 
   public statusIcon: string;
   public statusMessage: PolymorphContent | null;

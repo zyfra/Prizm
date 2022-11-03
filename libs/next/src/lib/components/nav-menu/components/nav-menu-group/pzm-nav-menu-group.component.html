@@ -1,0 +1,72 @@
+<p-tree
+  #headerToolbar
+  filterBy="label"
+  filterMode="strict"
+  [value]="viewNodes"
+  [class.folder-open]="viewMode === 'folder' && currentFolder"
+  [emptyMessage]="emptyMessage"
+  [selectionMode]="selectionMode"
+  [filterPlaceholder]="searchPlaceholder"
+  (selectionChange)="selectionChangeHandler($event)"
+  (onNodeCollapse)="nodeCollapseHandler($event.node)"
+  (onNodeExpand)="nodeExpandHandler($event.node)"
+>
+  <ng-template *ngIf="isToolbarNotEmpty || toolbarExtra" pTemplate="header">
+    <div class="header header-toolbar">
+      <div class="right-side">
+        <ng-container *ngTemplateOutlet="toolbarExtra"></ng-container>
+        <pzm-icon
+          class="header__btn"
+          [class.header__btn_active]="viewMode === 'folder'"
+          [size]="16"
+          iconClass="files-mode"
+          (click)="changeViewMode('folder')"
+        ></pzm-icon>
+
+        <pzm-icon
+          class="header__btn"
+          [class.header__btn_active]="viewMode === 'rubricator'"
+          [size]="16"
+          iconClass="editor-alfavit"
+          (click)="changeViewMode('rubricator')"
+        ></pzm-icon>
+
+        <pzm-icon
+          class="header__btn"
+          [class.header__btn_active]="false"
+          [size]="16"
+          iconClass="chevrons-close-all"
+          (click)="closeAll()"
+        ></pzm-icon>
+
+        <pzm-icon
+          class="header__btn"
+          [class.header__btn_active]="search"
+          [size]="16"
+          iconClass="sort-zoom-in"
+          (click)="toggleSearch()"
+        ></pzm-icon>
+      </div>
+    </div>
+
+    <div *ngIf="search" class="header header-search-bar">
+      <pzm-input-layout label="Поиск" class="search-input">
+        <input pzmInput [formControl]="searchFormControl" #input />
+        <button
+          pzmInputIconButton="sort-zoom-in"
+          pzm-input-right
+          (click)="changeSearchValue(input.value)"
+          [interactive]="true"
+        ></button>
+      </pzm-input-layout>
+    </div>
+  </ng-template>
+
+  <ng-template let-node pTemplate="default">
+    <pzm-nav-menu-item
+      [item]="node.data"
+      (itemClick)="setActiveNode(node)"
+      [itemExtra]="itemExtra"
+    ></pzm-nav-menu-item>
+  </ng-template>
+</p-tree>

@@ -4,7 +4,7 @@
  * be focused, for example element can have display: none applied to it or any other
  * circumstances could prevent actual focus.
  */
-export function zuiIsNativeKeyboardFocusable(element: Element): boolean {
+export function pzmIsNativeKeyboardFocusable(element: Element): boolean {
     if (element.hasAttribute('disabled') || element.getAttribute('tabIndex') === '-1') {
         return false;
     }

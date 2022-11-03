@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
-import { ZuiPrimitiveYearPickerComponent } from './primitive-year-picker.component';
-import { ZuiLetModule } from '@digital-plant/zyfra-helpers';
-import { ZuiRepeatTimesModule } from '../../../directives/repeat-times/repeat-times.module';
-import { ZuiHoveredModule } from '../../../directives/hovered/hovered.module';
-import { ZuiPressedModule } from '../../../directives/pressed/pressed.module';
-import { ZuiScrollIntoViewModule } from '../../../directives/scroll-into-view/scroll-into-view.module';
+import { PzmPrimitiveYearPickerComponent } from './primitive-year-picker.component';
+import { PzmLetModule } from '@digital-plant/zyfra-helpers';
+import { PzmRepeatTimesModule } from '../../../directives/repeat-times/repeat-times.module';
+import { PzmHoveredModule } from '../../../directives/hovered/hovered.module';
+import { PzmPressedModule } from '../../../directives/pressed/pressed.module';
+import { PzmScrollIntoViewModule } from '../../../directives/scroll-into-view/scroll-into-view.module';
 
 @NgModule({
     imports: [
-        ZuiHoveredModule,
-        ZuiPressedModule,
-        ZuiRepeatTimesModule,
-        ZuiLetModule,
-        ZuiScrollIntoViewModule,
+        PzmHoveredModule,
+        PzmPressedModule,
+        PzmRepeatTimesModule,
+        PzmLetModule,
+        PzmScrollIntoViewModule,
     ],
-    declarations: [ZuiPrimitiveYearPickerComponent],
-    exports: [ZuiPrimitiveYearPickerComponent],
+    declarations: [PzmPrimitiveYearPickerComponent],
+    exports: [PzmPrimitiveYearPickerComponent],
 })
-export class ZuiPrimitiveYearPickerModule {}
+export class PzmPrimitiveYearPickerModule {}

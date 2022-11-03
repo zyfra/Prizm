@@ -1,18 +1,18 @@
 import { inject } from '@angular/core';
 import { isObservable, Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { ZuiLanguage } from '../interfaces';
+import { PzmLanguage } from '../interfaces';
 
-import { ZUI_LANGUAGE } from './language';
+import { PZM_LANGUAGE } from './language';
 
-export function zuiExtractI18n<K extends keyof ZuiLanguage>(
+export function pzmExtractI18n<K extends keyof PzmLanguage>(
     key: K,
-): () => Observable<ZuiLanguage[K]> {
+): () => Observable<PzmLanguage[K]> {
     return (): any =>
-        inject(ZUI_LANGUAGE).pipe(
-            switchMap((streamOrValue: Observable<ZuiLanguage> | ZuiLanguage) =>
+        inject(PZM_LANGUAGE).pipe(
+            switchMap((streamOrValue: Observable<PzmLanguage> | PzmLanguage) =>
                 isObservable(streamOrValue) ? streamOrValue : of(streamOrValue),
             ),
-            map((lang: ZuiLanguage) => lang[key]),
+            map((lang: PzmLanguage) => lang[key]),
         );
 }

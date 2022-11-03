@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { CalendarComponent } from './calendar.component';
-import { PolymorphModule, ZuiCalendarModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PzmCalendarModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ZuiCalendarBaseExampleComponent } from './examples/base/calendar-base-example.component';
+import { PzmCalendarBaseExampleComponent } from './examples/base/calendar-base-example.component';
 
 
 @NgModule({
@@ -15,11 +15,11 @@ import { ZuiCalendarBaseExampleComponent } from './examples/base/calendar-base-e
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    ZuiCalendarModule,
+    PzmCalendarModule,
     RouterModule.forChild(generateRoutes(CalendarComponent)),
   ],
   declarations: [
-    ZuiCalendarBaseExampleComponent,
+    PzmCalendarBaseExampleComponent,
     CalendarComponent
   ],
   exports: [CalendarComponent],

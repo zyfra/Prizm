@@ -1,1 +1,1 @@
-export type ZuiDropdownHostWidth = string | number | null;
+export type PzmDropdownHostWidth = string | number | null;

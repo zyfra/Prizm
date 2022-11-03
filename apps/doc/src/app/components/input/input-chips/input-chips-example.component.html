@@ -1,26 +1,26 @@
 <tui-doc-page header="Input Chips" package="Equinox" type="components">
   <ng-template pageTab>
-    <tui-doc-example id="chips" heading="Chips example" [content]="zuiInputChipsExample">
-      <zui-input-chips-basic-example></zui-input-chips-basic-example>
+    <tui-doc-example id="chips" heading="Chips example" [content]="pzmInputChipsExample">
+      <pzm-input-chips-basic-example></pzm-input-chips-basic-example>
     </tui-doc-example>
 
-    <tui-doc-example id="chips-outer" heading="Chips outer example" [content]="zuiInputChipsOuterExample">
-      <zui-input-chips-outer-example></zui-input-chips-outer-example>
+    <tui-doc-example id="chips-outer" heading="Chips outer example" [content]="pzmInputChipsOuterExample">
+      <pzm-input-chips-outer-example></pzm-input-chips-outer-example>
     </tui-doc-example>
   </ng-template>
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-input-layout label="Заголовок" size="l" status="default">
-        <input zuiInput placeholder="Введите название" (enter)="onEnter($event)" [disabled]="disabled" />
-        <zui-chips
+      <pzm-input-layout label="Заголовок" size="l" status="default">
+        <input pzmInput placeholder="Введите название" (enter)="onEnter($event)" [disabled]="disabled" />
+        <pzm-chips
           [class.single-line]='singleLine'
           [singleLine]="singleLine"
           [chips]="chips"
           [deletable]="deletable"
           [disabled]="disabled"
-          zui-input-bottom>
-        </zui-chips>
-      </zui-input-layout>
+          pzm-input-bottom>
+        </pzm-chips>
+      </pzm-input-layout>
     </tui-doc-demo>
 
     <tui-doc-documentation>
@@ -55,7 +55,7 @@
     <ol class="b-demo-steps">
       <li>
         <p>
-          Импортируйте <code>ZuiInputChipsModule</code> и <code>ZuiInputTextModule</code>
+          Импортируйте <code>PzmInputChipsModule</code> и <code>PzmInputTextModule</code>
           в модуль в котором хотите использовать компоненту
         </p>
 

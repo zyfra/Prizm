@@ -4,7 +4,7 @@ import { NavMenuExampleComponent } from './nav-menu-example.component';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { NavMenuBasicExampleComponent } from './examples/nav-menu-basic-example/nav-menu-basic-example.component';
-import { ZuiNavMenuModule } from '@digital-plant/zui-components';
+import { PzmNavMenuModule } from '@digital-plant/zui-components';
 import { NavMenuAdvancedExampleComponent } from './examples/nav-menu-advanced-example/nav-menu-advanced-example.component';
 
 @NgModule({
@@ -12,7 +12,7 @@ import { NavMenuAdvancedExampleComponent } from './examples/nav-menu-advanced-ex
   imports: [
     CommonModule,
     TuiAddonDocModule,
-    ZuiNavMenuModule,
+    PzmNavMenuModule,
     RouterModule.forChild(generateRoutes(NavMenuExampleComponent)),
   ],
 })

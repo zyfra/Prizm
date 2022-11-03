@@ -1,20 +1,22 @@
-<zui-dropdown-host
+<pzm-dropdown-host
+    [style.--pzm-dropdown-host-width]='"100%"'
     class="z-hosted"
+    #pzmDropdownHostComponent
     [canOpen]="interactive"
-    [content]="dropdown"
-    zuiDropdownHostWidth='auto'
-    [isOpen]="open && interactive"
+    [content]="openTimeTemplate ? dropdownTimeTemplate : dropdownDateTemplate"
+    [pzmDropdownHostWidth]='openTimeTemplate ? "100%" : "auto"'
+    [isOpen]="interactive && (openTimeTemplate || open)"
     [closeByEsc]='true'
     (isOpenChange)="onOpenChange($event)"
 >
-    <zui-input-layout
+    <pzm-input-layout
       [label]="label"
       [outer]='outer'
       [size]="size">
-      <ng-template zuiInputStatusText>Ошибка! Неправильный формат</ng-template>
+      <ng-template pzmInputStatusText>Ошибка! Неправильный формат</ng-template>
       <input
         class='input-search'
-        zuiInput
+        pzmInput
         #focusableElementRef
         [mask]="textMaskOptions"
         [showMaskTyped]='focusableElementRef.focused'
@@ -22,35 +24,53 @@
         [readonly]='readOnly'
         [placeholder]='placeholder'
         [disabled]='computedDisabled'
-        [ngModel]="stringValue"
+        [ngModel]="computedValue"
         (ngModelChange)='onValueChange($event || "")'
       />
-      <ng-container zui-input-right>
+      <ng-container pzm-input-right>
         <button
-          zuiInputIconButton="date-calendar-blank"
+          pzmInputIconButton="date-calendar-blank"
           [interactive]="true"
           (click)='focusableElementRef.focus()'></button>
         <button
-          zuiInputIconButton="date-clock"
-          (click)='focusableElementRef.focus()'
+          pzmInputIconButton="date-clock"
+          (click)='openTimeDropdown();'
           [interactive]="true"
         ></button>
         <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>
         </ng-container>
       </ng-container>
-    </zui-input-layout>
+    </pzm-input-layout>
+</pzm-dropdown-host>
 
-    <ng-template #dropdown>
-        <zui-calendar
-            zuiPreventDefault="mousedown"
-            automation-id="zui-input-date-time__calendar"
-            [min]="calendarMinDay"
-            [max]="calendarMaxDay"
-            [disabledItemHandler]="disabledItemHandler"
-            [month]="computedActiveYearMonth"
-            [value]="calendarValue"
-            (dayClick)="onDayClick($event)"
-            (monthChange)="onMonthChange($event)"
-        ></zui-calendar>
-    </ng-template>
-</zui-dropdown-host>
+<ng-template #dropdownDateTemplate>
+  <pzm-calendar
+    pzmPreventDefault="mousedown"
+    automation-id="pzm-input-date-time__calendar"
+    [min]="calendarMinDay"
+    [max]="calendarMaxDay"
+    [disabledItemHandler]="disabledItemHandler"
+    [month]="computedActiveYearMonth"
+    [value]="calendarValue"
+    (dayClick)="onDayClick($event)"
+    (monthChange)="onMonthChange($event)"
+  ></pzm-calendar>
+</ng-template>
+
+<ng-template #dropdownTimeTemplate>
+  <pzm-data-list
+    pzmLifecycle
+    (pzmAfterViewInit)='pzmDropdownHostComponent.reCalculatePositions()'
+    (pzmOnDestroy)='openTimeTemplate = false'
+    *ngIf='timeItems.length;' class='block' [style.--pzm-data-list-border]='0'>
+    <ng-container>
+      <div class='time-item'
+           *ngFor='let item of timeItems; let idx = index'
+           (click)='$event.stopPropagation(); onTimeMenuClick(item, $event)'>
+            <span class='text'>
+              {{ item }}
+            </span>
+      </div>
+    </ng-container>
+  </pzm-data-list>
+</ng-template>

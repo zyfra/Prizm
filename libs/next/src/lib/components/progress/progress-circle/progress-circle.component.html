@@ -1,0 +1,27 @@
+<progress
+    class="z-hidden-progress"
+    [value]="value"
+    [max]="max"
+></progress>
+
+<svg
+    height="100%"
+    width="100%"
+    aria-hidden="true"
+    class="z-svg"
+>
+    <circle
+        cx="50%"
+        cy="50%"
+        class="z-track"
+        [attr.r]="oldEdgeRadiusFallback"
+    ></circle>
+
+    <circle
+        #progressCircle
+        cx="50%"
+        cy="50%"
+        class="z-progress"
+        [attr.r]="oldEdgeRadiusFallback"
+    ></circle>
+</svg>

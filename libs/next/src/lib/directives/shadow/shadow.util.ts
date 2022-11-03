@@ -1,24 +1,24 @@
-import { ZuiShadowType, ZuiShadowTypeEnum, ZuiShadowValue } from './models';
+import { PzmShadowType, PzmShadowTypeEnum, PzmShadowValue } from './models';
 
-export function zuiGetShadow(type: ZuiShadowType): ZuiShadowValue {
+export function pzmGetShadow(type: PzmShadowType): PzmShadowValue {
   switch (type) {
-    case ZuiShadowTypeEnum.miniBottom:
-      return ZuiShadowValue.miniBottom
-    case ZuiShadowTypeEnum.bigTop:
-      return ZuiShadowValue.bigTop;
-    case ZuiShadowTypeEnum.miniTop:
-      return ZuiShadowValue.miniTop
-    case ZuiShadowTypeEnum.bigBottom:
-      return ZuiShadowValue.bigBottom
-    case ZuiShadowTypeEnum.miniRight:
-      return ZuiShadowValue.miniRight
-    case ZuiShadowTypeEnum.bigRight:
-      return ZuiShadowValue.bigRight
-    case ZuiShadowTypeEnum.miniLeft:
-      return ZuiShadowValue.miniLeft
-    case ZuiShadowTypeEnum.bigLeft:
-      return ZuiShadowValue.bigLeft
+    case PzmShadowTypeEnum.miniBottom:
+      return PzmShadowValue.miniBottom
+    case PzmShadowTypeEnum.bigTop:
+      return PzmShadowValue.bigTop;
+    case PzmShadowTypeEnum.miniTop:
+      return PzmShadowValue.miniTop
+    case PzmShadowTypeEnum.bigBottom:
+      return PzmShadowValue.bigBottom
+    case PzmShadowTypeEnum.miniRight:
+      return PzmShadowValue.miniRight
+    case PzmShadowTypeEnum.bigRight:
+      return PzmShadowValue.bigRight
+    case PzmShadowTypeEnum.miniLeft:
+      return PzmShadowValue.miniLeft
+    case PzmShadowTypeEnum.bigLeft:
+      return PzmShadowValue.bigLeft
     default:
-      return ZuiShadowValue.none;
+      return PzmShadowValue.none;
   }
 }

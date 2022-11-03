@@ -1,27 +1,27 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ZuiDialogComponent } from './dialog.component';
-import { PolymorphModule, ZuiFocusTrapModule } from '../../../directives';
-import { ZuiOverlayModule } from '../../../modules/overlay';
-import { ZuiButtonModule } from '../../button';
-import { ZuiScrollbarModule } from '../../scrollbar';
-import { ZuiInputIconButtonModule } from '../../input/common/input-icon-button/input-icon-button.module';
+import { PzmDialogComponent } from './dialog.component';
+import { PolymorphModule, PzmFocusTrapModule } from '../../../directives';
+import { PzmOverlayModule } from '../../../modules/overlay';
+import { PzmButtonModule } from '../../button';
+import { PzmScrollbarModule } from '../../scrollbar';
+import { PzmInputIconButtonModule } from '../../input/common/input-icon-button/input-icon-button.module';
 
 @NgModule({
   imports: [
     CommonModule,
     PolymorphModule,
-    ZuiOverlayModule,
-    ZuiButtonModule,
-    ZuiFocusTrapModule,
-    ZuiInputIconButtonModule,
-    ZuiScrollbarModule
+    PzmOverlayModule,
+    PzmButtonModule,
+    PzmFocusTrapModule,
+    PzmInputIconButtonModule,
+    PzmScrollbarModule
   ],
   declarations: [
-    ZuiDialogComponent,
+    PzmDialogComponent,
   ],
   exports: [
-    ZuiDialogComponent,
+    PzmDialogComponent,
   ],
 })
-export class ZuiDialogModule {}
+export class PzmDialogModule {}

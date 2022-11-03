@@ -1,19 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PolymorphModule, ZuiThemeModule } from '../../directives';
-import { ZuiCardModule } from '../card';
-import { ZuiWidgetComponent } from './widget.component';
-import { ZuiIconModule } from '../icon';
+import { PolymorphModule, PzmThemeModule } from '../../directives';
+import { PzmCardModule } from '../card';
+import { PzmWidgetComponent } from './widget.component';
+import { PzmIconModule } from '../icon';
 
 @NgModule({
   imports: [
     CommonModule,
-    ZuiCardModule,
-    ZuiIconModule,
-    ZuiThemeModule,
+    PzmCardModule,
+    PzmIconModule,
+    PzmThemeModule,
     PolymorphModule,
   ],
-  declarations: [ZuiWidgetComponent],
-  exports: [ZuiWidgetComponent],
+  declarations: [PzmWidgetComponent],
+  exports: [PzmWidgetComponent],
 })
-export class ZuiWidgetModule {}
+export class PzmWidgetModule {}

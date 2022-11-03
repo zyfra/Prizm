@@ -11,46 +11,46 @@ import {
   Self,
   ViewChild,
 } from '@angular/core';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { FormControl, NgControl } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
-import { ZUI_SELECT_OPTIONS, ZuiSelectOptions, ZuiSelectValueContext } from './select.options';
-import { ZuiFocusableElementAccessor, ZuiNativeFocusableElement } from '../../../types';
-import { ZuiInputSize } from '../../input';
-import { AbstractZuiControl } from '../../../abstract/control';
-import { zuiIsNativeFocused, zuiIsTextOverflow$ } from '../../../util';
+import { PZM_SELECT_OPTIONS, PzmSelectOptions, PzmSelectValueContext } from './select.options';
+import { PzmFocusableElementAccessor, PzmNativeFocusableElement } from '../../../types';
+import { PzmInputSize } from '../../input';
+import { AbstractPzmControl } from '../../../abstract/control';
+import { pzmIsNativeFocused, pzmIsTextOverflow$ } from '../../../util';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { BehaviorSubject, concat, timer } from 'rxjs';
-import { ZuiSelectIdentityMatcher, ZuiSelectSearchMatcher } from './select.model';
-import { ZUI_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens';
-import { zuiDefaultProp } from '../../../decorators';
-import { ZuiDropdownHostComponent } from '../dropdown-host';
-import { ZuiOverlayOutsidePlacement } from '../../../modules';
+import { PzmSelectIdentityMatcher, PzmSelectSearchMatcher } from './select.model';
+import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens';
+import { pzmDefaultProp } from '../../../decorators';
+import { PzmDropdownHostComponent } from '../dropdown-host';
+import { PzmOverlayOutsidePlacement } from '../../../modules';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({
-  selector: 'zui-select',
+  selector: 'pzm-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
-    ZuiDestroyService,
+    PzmDestroyService,
     {
-      provide: ZUI_FOCUSABLE_ITEM_ACCESSOR,
-      useExisting: forwardRef(() => ZuiSelectComponent),
+      provide: PZM_FOCUSABLE_ITEM_ACCESSOR,
+      useExisting: forwardRef(() => PzmSelectComponent),
     },
   ],
-  exportAs: 'zuiDropdownSelect'
+  exportAs: 'pzmDropdownSelect'
 })
-export class ZuiSelectComponent<T>
-extends AbstractZuiControl<T>
-implements ZuiFocusableElementAccessor
+export class PzmSelectComponent<T>
+extends AbstractPzmControl<T>
+implements PzmFocusableElementAccessor
 {
   @ViewChild('focusableElementRef', {read: ElementRef})
   public readonly focusableElement?: ElementRef<HTMLElement>;
 
   @ViewChild('dropdownHostRef')
-  public readonly dropdownHostElement?: ZuiDropdownHostComponent;
+  public readonly dropdownHostElement?: PzmDropdownHostComponent;
 
   @Input() set items(data:T[]) {
     this.items$.next(data);
@@ -60,50 +60,50 @@ implements ZuiFocusableElementAccessor
   }
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   searchable = this.options.searchable;
 
   @Input()
-  @zuiDefaultProp()
-  forceShowClearButton = this.options.forceShowClearButton;
+  @pzmDefaultProp()
+  forceClear = this.options.forceClear;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   label = this.options.label;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   minDropdownHeight = this.options.minDropdownHeight;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   maxDropdownHeight = this.options.maxDropdownHeight;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   placeholder = this.options.placeholder;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   dropdownWidth = this.options.dropdownWidth;
 
   @Input()
-  @zuiDefaultProp()
-  size: ZuiInputSize = this.options.size;
+  @pzmDefaultProp()
+  size: PzmInputSize = this.options.size;
 
   @Input()
-  @zuiDefaultProp()
-  searchMatcher: ZuiSelectSearchMatcher<T> = this.options.searchMatcher;
+  @pzmDefaultProp()
+  searchMatcher: PzmSelectSearchMatcher<T> = this.options.searchMatcher;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   emptyContent: PolymorphContent = this.options.emptyContent;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   nullContent: PolymorphContent = this.options.nullContent;
 
-  readonly zuiIsTextOverflow$ = zuiIsTextOverflow$;
+  readonly pzmIsTextOverflow$ = pzmIsTextOverflow$;
 
   private readonly stop$ = new BehaviorSubject(false);
 
@@ -111,26 +111,26 @@ implements ZuiFocusableElementAccessor
    * need only clear function
    * */
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   stringify: (i:T, content?: string) => string = this.options.stringify;
 
   @Input()
-  @zuiDefaultProp()
-  identityMatcher: ZuiSelectIdentityMatcher<T> = this.options.identityMatcher;
+  @pzmDefaultProp()
+  identityMatcher: PzmSelectIdentityMatcher<T> = this.options.identityMatcher;
 
   @Input()
-  @zuiDefaultProp()
-  valueTemplate: PolymorphContent<ZuiSelectValueContext<T>> = this.options.valueContent;
+  @pzmDefaultProp()
+  valueTemplate: PolymorphContent<PzmSelectValueContext<T>> = this.options.valueContent;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   outer: boolean = this.options.outer;
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_select';
+  readonly testId = 'pzm_select';
 
   public open = false;
-  public readonly direction: ZuiOverlayOutsidePlacement = ZuiOverlayOutsidePlacement.RIGHT;
+  public readonly direction: PzmOverlayOutsidePlacement = PzmOverlayOutsidePlacement.RIGHT;
   public readonly items$ = new BehaviorSubject([]);
   public readonly requiredInputControl = new FormControl();
 
@@ -170,7 +170,7 @@ implements ZuiFocusableElementAccessor
 
 
   constructor(
-    @Inject(ZUI_SELECT_OPTIONS) private readonly options: ZuiSelectOptions<T>,
+    @Inject(PZM_SELECT_OPTIONS) private readonly options: PzmSelectOptions<T>,
     @Optional()
     @Self()
     @Inject(NgControl) control: NgControl | null,
@@ -219,12 +219,12 @@ implements ZuiFocusableElementAccessor
     ).subscribe();
   }
 
-  get nativeFocusableElement(): ZuiNativeFocusableElement | null {
+  get nativeFocusableElement(): PzmNativeFocusableElement | null {
     return this.focusableElement ? this.focusableElement.nativeElement : null;
   }
 
   get focused(): boolean {
-    return zuiIsNativeFocused(this.nativeFocusableElement);
+    return pzmIsNativeFocused(this.nativeFocusableElement);
   }
 
   public onClear(): void {
@@ -248,7 +248,7 @@ implements ZuiFocusableElementAccessor
       !this.open &&
       this.interactive &&
       inputElement &&
-      zuiIsNativeFocused(inputElement)
+      pzmIsNativeFocused(inputElement)
     )
     this.open = open;
     this.changeDetectorRef.markForCheck();

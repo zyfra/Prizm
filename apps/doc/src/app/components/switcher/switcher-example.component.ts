@@ -3,7 +3,7 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { ISwitcher, SwitcherSize, SwitcherType } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-switcher-example',
+  selector: 'pzm-switcher-example',
   templateUrl: './switcher-example.component.html',
   styleUrls: ['./switcher-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

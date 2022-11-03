@@ -1,19 +1,19 @@
 import { TestBed } from '@angular/core/testing';
-import { ZuiOverlayControl } from '../../../modules/overlay';
-import { ZuiDialogModule, ZuiDialogService } from './index';
+import { PzmOverlayControl } from '../../../modules/overlay';
+import { PzmDialogModule, PzmDialogService } from './index';
 import { first, take } from 'rxjs/operators';
 
-xdescribe('ZuiDialog', () => {
-  let service: ZuiDialogService;
+xdescribe('PzmDialog', () => {
+  let service: PzmDialogService;
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ZuiDialogModule],
+      imports: [PzmDialogModule],
     });
-    service = TestBed.inject(ZuiDialogService);
+    service = TestBed.inject(PzmDialogService);
   });
 
   it('create and close', async () => {
-    let c: ZuiOverlayControl;
+    let c: PzmOverlayControl;
     const result = service.open('Hello', {}, ({control, dialog}) => {
       c = control;
       dialog.completeWith(true);
@@ -26,7 +26,7 @@ xdescribe('ZuiDialog', () => {
   });
 
   it('pass data and not close', async () => {
-    let c: ZuiOverlayControl;
+    let c: PzmOverlayControl;
     const result = service.open(null, {}, async ({control, dialog}) => {
       c = control;
       dialog.$implicit.next(true);
@@ -38,7 +38,7 @@ xdescribe('ZuiDialog', () => {
   });
 
   it('pass header and close', async () => {
-    let c: ZuiOverlayControl;
+    let c: PzmOverlayControl;
     const h = 'Our Header';
     const result = service.open('Hello', {
       header: h
@@ -54,7 +54,7 @@ xdescribe('ZuiDialog', () => {
   });
 
   it('pass content and close', async () => {
-    let c: ZuiOverlayControl;
+    let c: PzmOverlayControl;
     const content = 'Our content';
     const result = service.open(content, {}, ({control, dialog}) => {
       c = control;

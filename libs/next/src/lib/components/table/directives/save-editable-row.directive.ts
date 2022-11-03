@@ -2,6 +2,6 @@ import { Directive } from '@angular/core';
 import { SaveEditableRow } from 'primeng/table';
 
 @Directive({
-  selector: '[zuiSaveEditableRow]',
+  selector: '[pzmSaveEditableRow]',
 })
-export class ZuiSaveEditableRowDirective extends SaveEditableRow {}
+export class PzmSaveEditableRowDirective extends SaveEditableRow {}

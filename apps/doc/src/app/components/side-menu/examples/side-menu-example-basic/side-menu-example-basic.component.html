@@ -1,11 +1,11 @@
 <div class="container">
-  <zui-panel header="Заголовок">
+  <pzm-panel header="Заголовок">
     <div class="toggle-container" instruments>
       <div class="toggle" [class.toggle_active]="isSideMenuOpened" (click)="toggleSideMenu()">
-        <zui-icon class="toggle__icon" [size]="16" iconClass="editor-panel-right"></zui-icon>
+        <pzm-icon class="toggle__icon" [size]="16" iconClass="editor-panel-right"></pzm-icon>
       </div>
     </div>
-  </zui-panel>
+  </pzm-panel>
   <div class="content" [class.content_column]="sideMenuType === 'col'">
     <div class="content__inner">
       <ul class="elements-list">
@@ -22,29 +22,29 @@
 
     <div class="side-menu" *ngIf="isSideMenuOpened">
       <div class="header">
-        <zui-panel header="Side Menu">
+        <pzm-panel header="Side Menu">
           <div class="instruments" instruments>
             <div class="instruments__group">
-              <zui-icon
+              <pzm-icon
                 [size]="16"
                 class="instruments__icon"
                 iconClass="editor-down-1"
                 (click)="changeSideMenuType()"
-              ></zui-icon>
+              ></pzm-icon>
             </div>
 
             <div class="instruments__group">
-              <zui-icon [size]="16" class="instruments__icon" iconClass="cansel-delete-content"></zui-icon>
-              <zui-icon [size]="16" class="instruments__icon" iconClass="tools-content-save"></zui-icon>
+              <pzm-icon [size]="16" class="instruments__icon" iconClass="cansel-delete-content"></pzm-icon>
+              <pzm-icon [size]="16" class="instruments__icon" iconClass="tools-content-save"></pzm-icon>
             </div>
           </div>
-        </zui-panel>
+        </pzm-panel>
       </div>
       <div class="side-menu__content" [class.side-menu__content_empty]="selectedElementIdx === -1">
         <div class="input" *ngIf="selectedElementIdx > -1">
-          <zui-input-layout [style.width.%]="100" [label]="'Заголовок ' + (selectedElementIdx + 1)">
-            <input zuiInput value="Контент" />
-          </zui-input-layout>
+          <pzm-input-layout [style.width.%]="100" [label]="'Заголовок ' + (selectedElementIdx + 1)">
+            <input pzmInput value="Контент" />
+          </pzm-input-layout>
         </div>
         <div class="empty-message" *ngIf="selectedElementIdx === -1">
           <span class="empty-message__main">Нет данных для отображения</span>

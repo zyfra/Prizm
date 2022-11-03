@@ -5,15 +5,15 @@ import { RouterModule } from '@angular/router';
 import { CheckboxBasicExampleComponent } from './examples/checkbox-basic-example/checkbox-basic-example.component';
 import { CheckboxExampleComponent } from './checkbox-example.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ZuiCheckboxModule } from '@digital-plant/zui-components';
+import { PzmCheckboxModule } from '@digital-plant/zui-components';
 import { CheckboxFormExampleComponent } from './examples/checkbox-form-example/checkbox-form-example.component';
-import { ZuiCheckboxGroupExampleComponent } from './examples/checkbox-group-example/checkbox-group-example.component';
+import { PzmCheckboxGroupExampleComponent } from './examples/checkbox-group-example/checkbox-group-example.component';
 
 @NgModule({
   imports: [
     CommonModule,
     TuiAddonDocModule,
-    ZuiCheckboxModule,
+    PzmCheckboxModule,
     RouterModule.forChild(generateRoutes(CheckboxExampleComponent)),
     FormsModule,
     ReactiveFormsModule,
@@ -21,7 +21,7 @@ import { ZuiCheckboxGroupExampleComponent } from './examples/checkbox-group-exam
   declarations: [
     CheckboxExampleComponent,
     CheckboxBasicExampleComponent,
-    ZuiCheckboxGroupExampleComponent,
+    PzmCheckboxGroupExampleComponent,
     CheckboxFormExampleComponent,
   ],
   exports: [CheckboxExampleComponent],

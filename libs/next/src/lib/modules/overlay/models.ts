@@ -1,7 +1,7 @@
-import {TemplateRef} from '@angular/core';
-import {ZuiOverlayAbstractPosition} from './position/position';
+import { TemplateRef } from '@angular/core';
+import { PzmOverlayAbstractPosition } from './position/position';
 
-export interface ZuiOverlayPositionMeta {
+export interface PzmOverlayPositionMeta {
   top?: number;
   left?: number;
   bottom?: number;
@@ -40,33 +40,33 @@ enum o {
 enum i {
   CENTER = 'c'
 }
-export const ZuiOverlayOutsidePlacement = {
+export const PzmOverlayOutsidePlacement = {
   ...p,
   ...o
 };
 
-export const ZuiOverlayBasePlacement = {
+export const PzmOverlayBasePlacement = {
   ...b
 };
-export const ZuiOverlayInsidePlacement = {
+export const PzmOverlayInsidePlacement = {
   ...p,
   ...i
 };
-export type ZuiOverlayOutsidePlacement = p | o;
-export type ZuiOverlayInsidePlacement = p | i;
-export type ZuiOverlayBasePlacement = b;
+export type PzmOverlayOutsidePlacement = p | o;
+export type PzmOverlayInsidePlacement = p | i;
+export type PzmOverlayBasePlacement = b;
 
-export enum ZuiOverlaySlidePlacement {
+export enum PzmOverlaySlidePlacement {
   LEFT = 'l',
   RIGHT = 'r'
 }
 
-export interface ZuiOverlayContainerSize {
+export interface PzmOverlayContainerSize {
   width: string | number;
   height: string | number;
 }
 
-export interface ZuiOverlayConfig {
+export interface PzmOverlayConfig {
   backdrop: boolean;
   containerClass: string;
   wrapperClass: string;
@@ -79,38 +79,38 @@ export interface ZuiOverlayConfig {
   docClickCallback: () => void;
 }
 
-export interface ZuiOverlayComponentType<T> {
+export interface PzmOverlayComponentType<T> {
   new (...args: any[]): T;
 }
 
-export type ZuiOverlayId = string;
+export type PzmOverlayId = string;
 
-export type ZuiOverlayEventName = 'z_open' | 'z_close' | 'z_dynpos' | 'z_detach' | 'z_posupdate' | 'z_compins';
+export type PzmOverlayEventName = 'z_open' | 'z_close' | 'z_dynpos' | 'z_detach' | 'z_posupdate' | 'z_compins';
 
-export interface ZuiOverlayEvent {
-  from: ZuiOverlayId;
-  name: ZuiOverlayEventName;
+export interface PzmOverlayEvent {
+  from: PzmOverlayId;
+  name: PzmOverlayEventName;
   data?: any;
 }
 
-export const enum ZuiOverlayContentType {
+export const enum PzmOverlayContentType {
   STRING = 's',
   HTML = 'h',
   TEMPLATE = 't',
   COMPONENT = 'c'
 }
-export type ZuiOverlayContentData = string | TemplateRef<any> | ZuiOverlayComponentType<any>;
-export type ZuiOverlayContentProps = { [x: string]: any } | any;
+export type PzmOverlayContentData = string | TemplateRef<any> | PzmOverlayComponentType<any>;
+export type PzmOverlayContentProps = { [x: string]: any } | any;
 
-export interface ZuiOverlayContent {
-  type?: ZuiOverlayContentType;
-  data: ZuiOverlayContentData;
-  props?: ZuiOverlayContentProps;
+export interface PzmOverlayContent {
+  type?: PzmOverlayContentType;
+  data: PzmOverlayContentData;
+  props?: PzmOverlayContentProps;
 }
 
-export interface ZuiOverlayInputs {
-  position: ZuiOverlayAbstractPosition | null;
-  config: ZuiOverlayConfig;
-  content: ZuiOverlayContent;
-  zid: ZuiOverlayId;
+export interface PzmOverlayInputs {
+  position: PzmOverlayAbstractPosition | null;
+  config: PzmOverlayConfig;
+  content: PzmOverlayContent;
+  zid: PzmOverlayId;
 }

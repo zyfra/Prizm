@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ZuiCardComponent } from './card.component';
-import { ZuiShadowModule } from '../../directives/shadow';
+import { PzmCardComponent } from './card.component';
+import { PzmShadowModule } from '../../directives/shadow';
 
 @NgModule({
   imports: [
     CommonModule,
-    ZuiShadowModule,
+    PzmShadowModule,
   ],
-  declarations: [ZuiCardComponent],
-  exports: [ZuiCardComponent],
+  declarations: [PzmCardComponent],
+  exports: [PzmCardComponent],
 })
-export class ZuiCardModule {}
+export class PzmCardModule {}

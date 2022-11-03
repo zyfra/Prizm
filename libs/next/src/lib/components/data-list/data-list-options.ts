@@ -1,25 +1,25 @@
 import {InjectionToken, ValueProvider} from '@angular/core';
 import {PolymorphContent} from "../../directives";
 
-export interface ZuiDataListOptions {
+export interface PzmDataListOptions {
     readonly empty: PolymorphContent;
 }
 
 /** Default values for data-list options */
-export const ZUI_DATALIST_DEFAULT_OPTIONS: ZuiDataListOptions = {
+export const PZM_DATALIST_DEFAULT_OPTIONS: PzmDataListOptions = {
     empty: '',
 };
 
-export const ZUI_DATALIST_OPTIONS = new InjectionToken<ZuiDataListOptions>(
+export const PZM_DATALIST_OPTIONS = new InjectionToken<PzmDataListOptions>(
     'Default parameters for datalist directive',
     {
-        factory: (): ZuiDataListOptions => ZUI_DATALIST_DEFAULT_OPTIONS,
+        factory: (): PzmDataListOptions => PZM_DATALIST_DEFAULT_OPTIONS,
     },
 );
 
-export const ZuiDataListOptionsProvider: (
-    options: Partial<ZuiDataListOptions>,
-) => ValueProvider = (options: Partial<ZuiDataListOptions>) => ({
-    provide: ZUI_DATALIST_OPTIONS,
-    useValue: {...ZUI_DATALIST_DEFAULT_OPTIONS, ...options},
+export const PzmDataListOptionsProvider: (
+    options: Partial<PzmDataListOptions>,
+) => ValueProvider = (options: Partial<PzmDataListOptions>) => ({
+    provide: PZM_DATALIST_OPTIONS,
+    useValue: {...PZM_DATALIST_DEFAULT_OPTIONS, ...options},
 });

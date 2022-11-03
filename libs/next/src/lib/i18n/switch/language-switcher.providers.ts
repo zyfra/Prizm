@@ -1,18 +1,18 @@
 import type { Provider } from '@angular/core';
-import { ZuiLanguageLoader } from '../interfaces';
-import { ZUI_LANGUAGE_LOADER } from '../tokens';
-import { ZUI_LANGUAGE } from '../tools';
-import { ZuiLanguageSwitcher } from './language-switcher.service';
+import { PzmLanguageLoader } from '../interfaces';
+import { PZM_LANGUAGE_LOADER } from '../tokens';
+import { PZM_LANGUAGE } from '../tools';
+import { PzmLanguageSwitcher } from './language-switcher.service';
 
-export function zuiLanguageSwitcher(loader: ZuiLanguageLoader): Provider[] {
+export function pzmLanguageSwitcher(loader: PzmLanguageLoader): Provider[] {
     return [
         {
-            provide: ZUI_LANGUAGE_LOADER,
-            useFactory: (): ZuiLanguageLoader => loader,
+            provide: PZM_LANGUAGE_LOADER,
+            useFactory: (): PzmLanguageLoader => loader,
         },
         {
-            provide: ZUI_LANGUAGE,
-            useExisting: ZuiLanguageSwitcher,
+            provide: PZM_LANGUAGE,
+            useExisting: PzmLanguageSwitcher,
         },
     ];
 }

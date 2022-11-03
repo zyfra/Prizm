@@ -1,7 +1,7 @@
-import { ZuiTextMaskConfig } from './text-mask-config';
-import { ZuiTextMaskList } from './text-mask-list';
+import { PzmTextMaskConfig } from './text-mask-config';
+import { PzmTextMaskList } from './text-mask-list';
 
-export type ZuiTextMaskListHandler = (
+export type PzmTextMaskListHandler = (
     rawValue: string,
-    config: ZuiTextMaskConfig,
-) => ZuiTextMaskList | false;
+    config: PzmTextMaskConfig,
+) => PzmTextMaskList | false;

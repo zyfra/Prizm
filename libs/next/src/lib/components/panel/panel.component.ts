@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'zui-panel',
+  selector: 'pzm-panel',
   templateUrl: './panel.component.html',
   styleUrls: ['./panel.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -23,7 +23,7 @@ export class PanelComponent {
   @ViewChild('headerElement', { static: true }) public headerRef: ElementRef;
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_panel';
+  readonly testId = 'pzm_panel';
 
   public back(): void {
     this.backClick.emit();

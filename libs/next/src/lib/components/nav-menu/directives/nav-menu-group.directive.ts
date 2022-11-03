@@ -1,9 +1,9 @@
 import { Directive, Input } from '@angular/core';
-import { ZuiMenuItem } from '../model/zui-menu-item.interface';
+import { PzmMenuItem } from '../model/pzm-menu-item.interface';
 @Directive({
-  selector: '[zuiNavMenuGroup]',
+  selector: '[pzmNavMenuGroup]',
 })
-export class ZuiNavMenuGroupDirective {
-  @Input() items: ZuiMenuItem[] = [];
+export class PzmNavMenuGroupDirective {
+  @Input() items: PzmMenuItem[] = [];
   @Input() header: string;
 }

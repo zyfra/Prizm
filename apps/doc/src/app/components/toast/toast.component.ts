@@ -2,15 +2,15 @@ import { ChangeDetectionStrategy, Component, TemplateRef } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  zuiPure,
-  ZuiToastAppearance,
-  ZuiToastOptions,
-  ZuiToastPosition,
-  ZuiToastService,
+  pzmPure,
+  PzmToastAppearance,
+  PzmToastOptions,
+  PzmToastPosition,
+  PzmToastService,
 } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-example-example',
+  selector: 'pzm-example-example',
   templateUrl: './toast.component.html',
   styleUrls: ['./toast.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -45,25 +45,25 @@ export class ToastComponent {
     HTML: import('!!raw-loader!./examples/toast-example/toast-example.component.html'),
   };
 
-  readonly appearanceVariants: ReadonlyArray<ZuiToastAppearance> = [
+  readonly appearanceVariants: ReadonlyArray<PzmToastAppearance> = [
     'info',
     'success',
     'warning',
     'danger',
   ];
-  appearance: ZuiToastAppearance = this.appearanceVariants[0];
+  appearance: PzmToastAppearance = this.appearanceVariants[0];
 
   readonly containerId = 'test-inline-container';
-  readonly positionVariants: ReadonlyArray<ZuiToastOptions['position']> = [
-    ZuiToastPosition.TOP_RIGHT,
-    ZuiToastPosition.TOP_LEFT,
-    ZuiToastPosition.TOP_MIDDLE,
-    ZuiToastPosition.BOTTOM_RIGHT,
-    ZuiToastPosition.BOTTOM_LEFT,
-    ZuiToastPosition.BOTTOM_MIDDLE,
+  readonly positionVariants: ReadonlyArray<PzmToastOptions['position']> = [
+    PzmToastPosition.TOP_RIGHT,
+    PzmToastPosition.TOP_LEFT,
+    PzmToastPosition.TOP_MIDDLE,
+    PzmToastPosition.BOTTOM_RIGHT,
+    PzmToastPosition.BOTTOM_LEFT,
+    PzmToastPosition.BOTTOM_MIDDLE,
     this.containerId
   ];
-  position: ZuiToastOptions['position'] = this.positionVariants[0];
+  position: PzmToastOptions['position'] = this.positionVariants[0];
   timer = 3000;
   isPlatform = false;
   id = '';
@@ -72,9 +72,9 @@ export class ToastComponent {
   content: PolymorphContent = 'Содержимое';
 
 
-  constructor(private readonly toastService: ZuiToastService) {}
+  constructor(private readonly toastService: PzmToastService) {}
 
-  @zuiPure
+  @pzmPure
   public getContentVariants(
     template: TemplateRef<Record<string, unknown>>,
   ): readonly PolymorphContent[] {

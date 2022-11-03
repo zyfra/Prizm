@@ -1,39 +1,39 @@
 import { PolymorphContent } from '../../../directives';
 import {
-  ZuiBaseDialogContext,
-  ZuiDialogBaseOptions,
-  ZuiDialogButton,
-  ZuiDialogSize,
+  PzmBaseDialogContext,
+  PzmDialogBaseOptions,
+  PzmDialogButton,
+  PzmDialogSize,
 } from '../dialog/dialog.models';
-import { ZuiOverscrollMode } from '../../../directives/overscroll/overscroll.model';
+import { PzmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
 
-export type ZuiConfirmDialogButton = Omit<ZuiDialogButton, 'action'> & Partial<Pick<ZuiDialogButton, 'action'>>
+export type PzmConfirmDialogButton = Omit<PzmDialogButton, 'action'> & Partial<Pick<PzmDialogButton, 'action'>>
 
-export interface ZuiConfirmDialogOptions<DATA = unknown> extends ZuiDialogBaseOptions {
-  confirmButton?: ZuiConfirmDialogButton | string,
-  supportButton?: ZuiConfirmDialogButton | string,
-  cancelButton?: ZuiConfirmDialogButton | string,
+export interface PzmConfirmDialogOptions<DATA = unknown> extends PzmDialogBaseOptions {
+  confirmButton?: PzmConfirmDialogButton | string,
+  supportButton?: PzmConfirmDialogButton | string,
+  cancelButton?: PzmConfirmDialogButton | string,
   showByVertical?: boolean;
   data?: DATA;
-  size?: ZuiDialogSize;
+  size?: PzmDialogSize;
   title: PolymorphContent<
-    ZuiBaseDialogContext<
-      ZuiConfirmDialogResultDefaultType,
-      ZuiConfirmDialogOptions<DATA>
+    PzmBaseDialogContext<
+      PzmConfirmDialogResultDefaultType,
+      PzmConfirmDialogOptions<DATA>
       >
     >,
   description?: PolymorphContent<
-    ZuiBaseDialogContext<
-      ZuiConfirmDialogResultDefaultType,
-      ZuiConfirmDialogOptions<DATA>
+    PzmBaseDialogContext<
+      PzmConfirmDialogResultDefaultType,
+      PzmConfirmDialogOptions<DATA>
       >
     >,
-  overscrollMode?: ZuiOverscrollMode
+  overscrollMode?: PzmOverscrollMode
 }
 
-export enum ZuiConfirmDialogResultDefaultType {
+export enum PzmConfirmDialogResultDefaultType {
   confirmed = 'confirmed',
   support = 'support',
   cancel = 'cancel',
 }
-export type ZuiConfirmDialogResult = ZuiConfirmDialogResultDefaultType | any;
+export type PzmConfirmDialogResult = PzmConfirmDialogResultDefaultType | any;

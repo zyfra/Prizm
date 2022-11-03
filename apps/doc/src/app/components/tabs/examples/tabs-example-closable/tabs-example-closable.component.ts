@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ITab } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-tabs-example-closable',
+  selector: 'pzm-tabs-example-closable',
   templateUrl: './tabs-example-closable.component.html',
   styleUrls: ['./tabs-example-closable.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

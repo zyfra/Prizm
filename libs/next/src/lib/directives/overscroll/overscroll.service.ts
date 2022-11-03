@@ -1,28 +1,28 @@
 import { Injectable, NgZone } from '@angular/core';
 import { merge, Observable } from 'rxjs';
 import { filter, mapTo, switchMap, tap } from 'rxjs/operators';
-import { zuiTypedFromEvent, zuiZoneFree } from '../../observables';
-import { ZuiEventWith } from '../../types';
-import { zuiCanScroll, zuiGetScrollParent } from '../../util/dom';
-import { ZuiOverscrollMode } from './overscroll.model';
+import { pzmTypedFromEvent, pzmZoneFree } from '../../observables';
+import { PzmEventWith } from '../../types';
+import { pzmCanScroll, pzmGetScrollParent } from '../../util/dom';
+import { PzmOverscrollMode } from './overscroll.model';
 
 @Injectable({
     providedIn: 'root'
 })
-export class ZuiOverscrollService {
+export class PzmOverscrollService {
     constructor(
       private readonly ngZone: NgZone,
     ) {}
 
     public run(
-      mode: ZuiOverscrollMode | '',
+      mode: PzmOverscrollMode | '',
       nativeElement: HTMLElement,
     ): Observable<void> {
       return merge(
-          zuiTypedFromEvent(nativeElement, 'wheel', {passive: false})
+          pzmTypedFromEvent(nativeElement, 'wheel', {passive: false})
           .pipe(
             filter(() => this.isEnabled(mode)),
-            zuiZoneFree(this.ngZone),
+            pzmZoneFree(this.ngZone),
             tap(
               event => {
                 this.processEvent(
@@ -34,7 +34,7 @@ export class ZuiOverscrollService {
               }
             )
           ),
-          zuiTypedFromEvent(nativeElement, 'touchstart', {passive: true})
+          pzmTypedFromEvent(nativeElement, 'touchstart', {passive: true})
             .pipe(
               switchMap(({touches}: {touches: TouchList}) => {
                 let {clientX, clientY} = touches[0];
@@ -42,7 +42,7 @@ export class ZuiOverscrollService {
                 let deltaY = 0;
                 let vertical: boolean;
 
-                return zuiTypedFromEvent(nativeElement, 'touchmove', {
+                return pzmTypedFromEvent(nativeElement, 'touchmove', {
                   passive: false,
                 }).pipe(
                   filter(() => this.isEnabled(mode)),
@@ -68,20 +68,20 @@ export class ZuiOverscrollService {
                   }),
                 );
               }),
-              zuiZoneFree(this.ngZone),
+              pzmZoneFree(this.ngZone),
           )
       ).pipe(
         mapTo(void 0)
       );
     }
 
-    private isEnabled(mode: ZuiOverscrollMode | ''): boolean {
+    private isEnabled(mode: PzmOverscrollMode | ''): boolean {
       return mode !== 'none'
     }
 
     private processEvent(
-      mode: ZuiOverscrollMode | '',
-      event: ZuiEventWith<Event, HTMLElement>,
+      mode: PzmOverscrollMode | '',
+      event: PzmEventWith<Event, HTMLElement>,
       vertical: boolean,
       negative: boolean,
     ): void {
@@ -98,8 +98,8 @@ export class ZuiOverscrollService {
       // This is all what's needed in Chrome/Firefox thanks to CSS overscroll-behavior
       if (
         mode === 'all' &&
-        ((vertical && !currentTarget.contains(zuiGetScrollParent(target))) ||
-          (!vertical && !currentTarget.contains(zuiGetScrollParent(target, false))))
+        ((vertical && !currentTarget.contains(pzmGetScrollParent(target))) ||
+          (!vertical && !currentTarget.contains(pzmGetScrollParent(target, false))))
       ) {
         event.preventDefault();
 
@@ -109,8 +109,8 @@ export class ZuiOverscrollService {
       // This is Safari/IE/Edge fallback
       if (
         vertical &&
-        ((negative && !zuiCanScroll(target, currentTarget, true, false)) ||
-          (!negative && !zuiCanScroll(target, currentTarget, true, true)))
+        ((negative && !pzmCanScroll(target, currentTarget, true, false)) ||
+          (!negative && !pzmCanScroll(target, currentTarget, true, true)))
       ) {
         event.preventDefault();
 
@@ -119,8 +119,8 @@ export class ZuiOverscrollService {
 
       if (
         !vertical &&
-        ((negative && !zuiCanScroll(target, currentTarget, false, false)) ||
-          (!negative && !zuiCanScroll(target, currentTarget, false, true)))
+        ((negative && !pzmCanScroll(target, currentTarget, false, false)) ||
+          (!negative && !pzmCanScroll(target, currentTarget, false, true)))
       ) {
         event.preventDefault();
       }

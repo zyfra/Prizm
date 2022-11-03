@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 
 @Component({
-  selector: 'zui-select-panel-example',
+  selector: 'pzm-select-panel-example',
   templateUrl: './select-panel-example.component.html',
   styleUrls: ['./select-panel-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiSelectPanelExampleComponent {
+export class PzmSelectPanelExampleComponent {
   showPanel = false;
 
   data = new Array(5).fill(null).map((item, index) => ({

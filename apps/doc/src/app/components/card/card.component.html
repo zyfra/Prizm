@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiCardComponent to view card.
+      Use PzmCardComponent to view card.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <zui-card-base-example></zui-card-base-example>
+      <pzm-card-base-example></pzm-card-base-example>
     </tui-doc-example>
 
 
@@ -21,9 +21,9 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-card [shadow]='shadow'>
+      <pzm-card [shadow]='shadow'>
         {{content}}
-      </zui-card>
+      </pzm-card>
 
     </tui-doc-demo>
     <tui-doc-documentation>
@@ -38,7 +38,7 @@
 
       <ng-template
         documentationPropertyName="shadow"
-        documentationPropertyType="ZuiShadowType"
+        documentationPropertyType="PzmShadowType"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="shadow"
         [documentationPropertyValues]="shadowVariants"
@@ -55,7 +55,7 @@
       <li>
         <p>
           Import
-          <code>ZuiCardModule</code>
+          <code>PzmCardModule</code>
           into a module where you want to use our component
         </p>
 

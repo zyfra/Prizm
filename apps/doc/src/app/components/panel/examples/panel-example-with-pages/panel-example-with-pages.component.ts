@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ITab } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-panel-with-pages',
+  selector: 'pzm-panel-with-pages',
   templateUrl: './panel-example-with-pages.component.html',
   styleUrls: ['./panel-example-with-pages.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

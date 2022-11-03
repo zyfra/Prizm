@@ -1,49 +1,49 @@
 import { NgModule } from '@angular/core';
-import { ZuiToastContainerComponent } from './toast-container/toast-container.component';
+import { PzmToastContainerComponent } from './toast-container/toast-container.component';
 import { CommonModule } from '@angular/common';
-import { ZuiOverlayModule } from '../../modules/overlay';
+import { PzmOverlayModule } from '../../modules/overlay';
 import { ToastComponent } from './toast/toast.component';
 import { ToastWrapperComponent } from './toast-wrapper/toast-wrapper.component';
-import { PolymorphModule, ZuiThemeModule } from '../../directives';
-import { ZuiToastControl } from './toast-control';
-import { ZuiToastPosition } from './types';
-import { ZuiToastService } from './toast.service';
-import { ZuiFocusTrapModule } from '../../directives/focus-trap';
-import { ZuiButtonModule } from '../button';
-import { ZuiIndicatorModule } from '../indicator';
-import { ZuiInputCommonModule } from '../input';
+import { PolymorphModule, PzmThemeModule } from '../../directives';
+import { PzmToastControl } from './toast-control';
+import { PzmToastPosition } from './types';
+import { PzmToastService } from './toast.service';
+import { PzmFocusTrapModule } from '../../directives/focus-trap';
+import { PzmButtonModule } from '../button';
+import { PzmIndicatorModule } from '../indicator';
+import { PzmInputCommonModule } from '../input';
 
 @NgModule({
   exports: [
-    ZuiToastContainerComponent
+    PzmToastContainerComponent
   ],
   imports: [
     CommonModule,
-    ZuiOverlayModule,
-    ZuiInputCommonModule,
-    ZuiIndicatorModule,
+    PzmOverlayModule,
+    PzmInputCommonModule,
+    PzmIndicatorModule,
     PolymorphModule,
-    ZuiButtonModule,
-    ZuiThemeModule,
-    ZuiFocusTrapModule
+    PzmButtonModule,
+    PzmThemeModule,
+    PzmFocusTrapModule
   ],
   declarations: [
-    ZuiToastContainerComponent,
+    PzmToastContainerComponent,
     ToastWrapperComponent,
     ToastComponent,
   ],
   providers: [
-    ZuiToastControl,
-    ZuiToastService,
+    PzmToastControl,
+    PzmToastService,
   ]
 })
-export class ZuiToastModule {
-  constructor(private readonly toastControl: ZuiToastControl) {
-    this.toastControl.init(ZuiToastPosition.TOP_RIGHT);
-    this.toastControl.init(ZuiToastPosition.TOP_LEFT);
-    this.toastControl.init(ZuiToastPosition.TOP_MIDDLE);
-    this.toastControl.init(ZuiToastPosition.BOTTOM_RIGHT);
-    this.toastControl.init(ZuiToastPosition.BOTTOM_LEFT);
-    this.toastControl.init(ZuiToastPosition.BOTTOM_MIDDLE);
+export class PzmToastModule {
+  constructor(private readonly toastControl: PzmToastControl) {
+    this.toastControl.init(PzmToastPosition.TOP_RIGHT);
+    this.toastControl.init(PzmToastPosition.TOP_LEFT);
+    this.toastControl.init(PzmToastPosition.TOP_MIDDLE);
+    this.toastControl.init(PzmToastPosition.BOTTOM_RIGHT);
+    this.toastControl.init(PzmToastPosition.BOTTOM_LEFT);
+    this.toastControl.init(PzmToastPosition.BOTTOM_MIDDLE);
   }
 }

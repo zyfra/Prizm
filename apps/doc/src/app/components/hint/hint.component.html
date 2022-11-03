@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiHintDirective to control hint.
+      Use PzmHintDirective to control hint.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBasic"
     >
-      <zui-hint-base-example></zui-hint-base-example>
+      <pzm-hint-base-example></pzm-hint-base-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -21,7 +21,7 @@
       heading="With Template"
       [content]="exampleWithTemplate"
     >
-      <zui-hint-with-template-example></zui-hint-with-template-example>
+      <pzm-hint-with-template-example></pzm-hint-with-template-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -29,7 +29,7 @@
       heading="With Component"
       [content]="exampleWithComponent"
     >
-      <zui-hint-with-component-example></zui-hint-with-component-example>
+      <pzm-hint-with-component-example></pzm-hint-with-component-example>
     </tui-doc-example>
 
   </ng-template>
@@ -37,22 +37,22 @@
   <ng-template pageTab>
     <tui-doc-demo>
       <button
-        zuiButton
-        [zuiHint]="content"
-        [zuiAutoReposition]="zuiAutoReposition"
-        [zuiHintCanShow]="zuiHintCanShow"
-        [zuiHintDirection]="zuiHintDirection"
-        [zuiHintId]="zuiHintId"
-        [zuiHintShowDelay]="zuiHintShowDelay"
-        [zuiHintHideDelay]="zuiHintHideDelay"
-        [zuiHintHost]="zuiHintHost"
+        pzmButton
+        [pzmHint]="content"
+        [pzmAutoReposition]="pzmAutoReposition"
+        [pzmHintCanShow]="pzmHintCanShow"
+        [pzmHintDirection]="pzmHintDirection"
+        [pzmHintId]="pzmHintId"
+        [pzmHintShowDelay]="pzmHintShowDelay"
+        [pzmHintHideDelay]="pzmHintHideDelay"
+        [pzmHintHost]="pzmHintHost"
       >
         Button
       </button>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
-        documentationPropertyName="zuiHint"
+        documentationPropertyName="pzmHint"
         documentationPropertyType="string"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="content"
@@ -61,62 +61,62 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiAutoReposition"
+        documentationPropertyName="pzmAutoReposition"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiAutoReposition"
+        [(documentationPropertyValue)]="pzmAutoReposition"
       >
         Auto Reposition
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiHintCanShow"
+        documentationPropertyName="pzmHintCanShow"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiHintCanShow"
+        [(documentationPropertyValue)]="pzmHintCanShow"
       >
         Can Show
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiHintDirection"
-        documentationPropertyType="ZuiOverlayOutsidePlacement"
+        documentationPropertyName="pzmHintDirection"
+        documentationPropertyType="PzmOverlayOutsidePlacement"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="zuiHintDirectionVariants"
-        [(documentationPropertyValue)]="zuiHintDirection"
+        [documentationPropertyValues]="pzmHintDirectionVariants"
+        [(documentationPropertyValue)]="pzmHintDirection"
       >
         Hint Direction
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiHintId"
+        documentationPropertyName="pzmHintId"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiHintId"
+        [(documentationPropertyValue)]="pzmHintId"
       >
         Hint Id
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiHintShowDelay"
+        documentationPropertyName="pzmHintShowDelay"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiHintShowDelay"
+        [(documentationPropertyValue)]="pzmHintShowDelay"
       >
         Show Delay
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiHintHideDelay"
+        documentationPropertyName="pzmHintHideDelay"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="zuiHintHideDelay"
+        [(documentationPropertyValue)]="pzmHintHideDelay"
       >
         Hide Delay
       </ng-template>
 
       <ng-template
-        documentationPropertyName="zuiHintHost"
+        documentationPropertyName="pzmHintHost"
         documentationPropertyType="HtmlElement"
         documentationPropertyMode="input"
       >
@@ -130,7 +130,7 @@
       <li>
         <p>
           Import
-          <code>ZuiHintModule</code>
+          <code>PzmHintModule</code>
           into a module where you want to use our component
         </p>
 

@@ -1,14 +1,14 @@
 const MAX_PRECISION = 292;
 
-export function zuiRound(value: number, precision: number = 0): number {
+export function pzmRound(value: number, precision: number = 0): number {
     return calculate(value, precision, Math.round);
 }
 
-export function zuiCeil(value: number, precision: number = 0): number {
+export function pzmCeil(value: number, precision: number = 0): number {
     return calculate(value, precision, Math.ceil);
 }
 
-export function zuiFloor(value: number, precision: number = 0): number {
+export function pzmFloor(value: number, precision: number = 0): number {
     return calculate(value, precision, Math.floor);
 }
 

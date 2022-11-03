@@ -1,37 +1,37 @@
 import { Inject, Injectable, Optional } from '@angular/core';
 import { LOCAL_STORAGE } from '@ng-web-apis/common';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { ZuiLanguage, ZuiLanguageLoader, ZuiLanguageName, ZuiLanguageStorage } from '../interfaces';
-import { ZUI_LANGUAGE_STORAGE_KEY } from '../tokens';
-import { ZUI_LANGUAGE_LOADER } from '../tokens/language-loader';
-import { ZUI_DEFAULT_LANGUAGE } from '../tools';
+import { PzmLanguage, PzmLanguageLoader, PzmLanguageName, PzmLanguageStorage } from '../interfaces';
+import { PZM_LANGUAGE_STORAGE_KEY } from '../tokens';
+import { PZM_LANGUAGE_LOADER } from '../tokens/language-loader';
+import { PZM_DEFAULT_LANGUAGE } from '../tools';
 
-import { zuiAsyncLoadLanguage } from './utils';
+import { pzmAsyncLoadLanguage } from './utils';
 
 @Injectable({providedIn: `root`})
-export class ZuiLanguageSwitcher extends BehaviorSubject<Observable<ZuiLanguage>> {
+export class PzmLanguageSwitcher extends BehaviorSubject<Observable<PzmLanguage>> {
     constructor(
-        @Inject(ZUI_DEFAULT_LANGUAGE)
-        private readonly fallback: ZuiLanguage,
-        @Inject(ZUI_LANGUAGE_STORAGE_KEY)
+        @Inject(PZM_DEFAULT_LANGUAGE)
+        private readonly fallback: PzmLanguage,
+        @Inject(PZM_LANGUAGE_STORAGE_KEY)
         private readonly key: string,
         @Inject(LOCAL_STORAGE)
-        private readonly storage: ZuiLanguageStorage,
+        private readonly storage: PzmLanguageStorage,
         @Optional()
-        @Inject(ZUI_LANGUAGE_LOADER)
-        private readonly loader: ZuiLanguageLoader | null,
+        @Inject(PZM_LANGUAGE_LOADER)
+        private readonly loader: PzmLanguageLoader | null,
     ) {
-        super(zuiAsyncLoadLanguage(storage.getItem(key), loader, fallback));
+        super(pzmAsyncLoadLanguage(storage.getItem(key), loader, fallback));
     }
 
-    public get language(): ZuiLanguageName {
+    public get language(): PzmLanguageName {
         return this.storage.getItem(this.key) || this.fallback.name;
     }
 
-    public setLanguage(language: ZuiLanguageName): void {
+    public setLanguage(language: PzmLanguageName): void {
         this.storage.setItem(this.key, language);
 
-        this.next(zuiAsyncLoadLanguage(language, this.loader, this.fallback));
+        this.next(pzmAsyncLoadLanguage(language, this.loader, this.fallback));
     }
 
     public clear(): void {

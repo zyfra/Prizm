@@ -15,13 +15,13 @@ import {
   Self,
 } from '@angular/core';
 import { NgControl, Validators } from '@angular/forms';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { takeUntil, tap } from 'rxjs/operators';
-import { ZuiInputControl } from '../common/base/input-control.class';
+import { PzmInputControl } from '../common/base/input-control.class';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'input[zuiInput], textarea[zuiInput], input[zuiInputNumber], input[zuiInputPassword]',
+  selector: 'input[pzmInput], textarea[pzmInput], input[pzmInputNumber], input[pzmInputPassword]',
   template: '',
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
@@ -29,9 +29,9 @@ import { ZuiInputControl } from '../common/base/input-control.class';
     '[disabled]': 'disabled',
   },
   styleUrls: ['input-text.component.less'],
-  providers: [{ provide: ZuiInputControl, useExisting: ZuiInputTextComponent }, ZuiDestroyService],
+  providers: [{ provide: PzmInputControl, useExisting: PzmInputTextComponent }, PzmDestroyService],
 })
-export class ZuiInputTextComponent extends ZuiInputControl<string> implements DoCheck, OnInit, OnDestroy {
+export class PzmInputTextComponent extends PzmInputControl<string> implements DoCheck, OnInit, OnDestroy {
   /**
    * Disabled input
    */
@@ -64,7 +64,7 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
   }
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_input_text';
+  readonly testId = 'pzm_input_text';
 
   private _required: boolean | undefined;
 
@@ -122,7 +122,7 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
   constructor(
     @Optional() @Self() public readonly ngControl: NgControl,
     public readonly elementRef: ElementRef<HTMLInputElement | HTMLTextAreaElement>,
-    private readonly zuiDestroyService: ZuiDestroyService,
+    private readonly pzmDestroyService: PzmDestroyService,
     private readonly cdr: ChangeDetectorRef
   ) {
     super();
@@ -178,7 +178,7 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
           this.updateErrorState();
           this.cdr.markForCheck();
         }),
-        takeUntil(this.zuiDestroyService)
+        takeUntil(this.pzmDestroyService)
       )
       .subscribe();
 
@@ -189,7 +189,7 @@ export class ZuiInputTextComponent extends ZuiInputControl<string> implements Do
           this.updateErrorState();
           this.stateChanges.next();
         }),
-        takeUntil(this.zuiDestroyService)
+        takeUntil(this.pzmDestroyService)
       )
       .subscribe();
   }

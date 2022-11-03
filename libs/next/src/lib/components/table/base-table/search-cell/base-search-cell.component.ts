@@ -6,7 +6,7 @@ type ValueChangeEvent = {
 };
 
 @Directive()
-export abstract class ZuiBaseSearchCellComponent {
+export abstract class PzmBaseSearchCellComponent {
   @Input() placeholder = '';
   @Input() field: string;
   /**

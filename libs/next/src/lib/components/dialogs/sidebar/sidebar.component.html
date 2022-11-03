@@ -1,29 +1,29 @@
-<div class='box' zuiFocusTrap>
-  <div *ngIf="context.header" class='header zui-font-title-h4'>
-    <zui-scrollbar visibility='hidden'
+<div class='box' pzmFocusTrap>
+  <div *ngIf="context.header" class='header pzm-font-title-h4'>
+    <pzm-scrollbar visibility='hidden'
        *polymorphOutlet="context.header as data; context: context">
       <div class='title'>
         {{data}}
       </div>
-    </zui-scrollbar>
+    </pzm-scrollbar>
     <button
       *ngIf="context.closeable"
       [size]='16'
-      zuiInputIconButton="cancel-close"
+      pzmInputIconButton="cancel-close"
       (click)='close()'
       [interactive]="true"
     ></button>
   </div>
 
-  <div class="content zui-font-main-body-14">
-    <zui-scrollbar class='scrollbar'>
+  <div class="content pzm-font-main-body-14">
+    <pzm-scrollbar class='scrollbar'>
       <div *polymorphOutlet="context.content as text; context: context">
         {{ text }}
       </div>
-    </zui-scrollbar>
+    </pzm-scrollbar>
   </div>
 
-  <div class="footer zui-font-btn-links-14">
+  <div class="footer pzm-font-btn-links-14">
     <ng-container>
       <div class='horizontal'>
         <div class='left'>
@@ -51,7 +51,7 @@
         [style]='button.style'
         [appearance]='button.appearance'
         [appearanceType]='button.appearanceType'
-        zuiButton
+        pzmButton
         [size]="button.size"
         (click)="button.action(context)"
       >{{button.text}}</button>

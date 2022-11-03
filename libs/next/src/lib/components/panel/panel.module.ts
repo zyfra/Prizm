@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PanelComponent } from './panel.component';
-import { ZuiIconModule } from '../icon';
+import { PzmIconModule } from '../icon';
 
 @NgModule({
   declarations: [PanelComponent],
-  imports: [CommonModule, ZuiIconModule],
+  imports: [CommonModule, PzmIconModule],
   exports: [PanelComponent],
 })
-export class ZuiPanelModule {}
+export class PzmPanelModule {}

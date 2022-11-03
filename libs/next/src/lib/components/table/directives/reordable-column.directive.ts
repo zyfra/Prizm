@@ -2,11 +2,11 @@ import { Directive, HostBinding, Input } from '@angular/core';
 import { ReorderableColumn } from 'primeng/table';
 
 @Directive({
-  selector: '[zuiReordableColumn]',
+  selector: '[pzmReordableColumn]',
 })
-export class ZuiReordableColumnDirective extends ReorderableColumn {
+export class PzmReordableColumnDirective extends ReorderableColumn {
   /* eslint-disable @angular-eslint/no-input-rename */
-  @Input('zuiReordableColumnDisabled') override pReorderableColumnDisabled: boolean;
+  @Input('pzmReordableColumnDisabled') override pReorderableColumnDisabled: boolean;
 
   @HostBinding('attr.preorderablecolumn') reorderableColumnAttribute = true;
 }

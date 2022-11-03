@@ -38,14 +38,14 @@
 
 ---
 
-### [zui-pkg-translate] v1.0.2 - 2021-04-06
+### [pzm-pkg-translate] v1.0.2 - 2021-04-06
 
 **Fixed:**
 - TranslatePipe: @Optional() ChangeDetectorRef;
 
 ---
 
-### [zui-pkg-translate] v1.0.0 - 2021-01-13
+### [pzm-pkg-translate] v1.0.0 - 2021-01-13
 
 Initial release.
 

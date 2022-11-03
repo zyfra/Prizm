@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiConfirmDialogService to control dialog.
+      Use PzmConfirmDialogService to control dialog.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <zui-dialog-service-example></zui-dialog-service-example>
+      <pzm-dialog-service-example></pzm-dialog-service-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -21,7 +21,7 @@
       heading="Horizontal"
       [content]="exampleHorizontal"
     >
-      <zui-dialog-horizontal-example></zui-dialog-horizontal-example>
+      <pzm-dialog-horizontal-example></pzm-dialog-horizontal-example>
     </tui-doc-example>
 
   </ng-template>
@@ -30,7 +30,7 @@
     <tui-doc-demo>
       <button type="button"
         (click)="show()"
-        zuiButton>
+        pzmButton>
         Show Dialog
       </button>
     </tui-doc-demo>
@@ -43,9 +43,9 @@
       Content из <a href='#'>шаблона</a>
 
 
-      <zui-select
+      <pzm-select
         [items]='items'
-      ></zui-select>
+      ></pzm-select>
     </ng-template>
 
     <ng-template #footerTemp let-observer>
@@ -55,7 +55,7 @@
     <tui-doc-documentation>
       <ng-template
         documentationPropertyName="position"
-        documentationPropertyType="ZuiOverlayInsidePlacement"
+        documentationPropertyType="PzmOverlayInsidePlacement"
         [documentationPropertyValues]="positionVariants"
         [(documentationPropertyValue)]="position"
       >
@@ -64,7 +64,7 @@
 
       <ng-template
         documentationPropertyName="overscroll"
-        documentationPropertyType="ZuiOverscrollMode"
+        documentationPropertyType="PzmOverscrollMode"
         [documentationPropertyValues]="overscrollVariants"
         [(documentationPropertyValue)]="overscroll"
       >
@@ -73,7 +73,7 @@
 
       <ng-template
         documentationPropertyName="size"
-        documentationPropertyType="ZuiDialogSize"
+        documentationPropertyType="PzmDialogSize"
         [documentationPropertyValues]="sizeVariants"
         [(documentationPropertyValue)]="size"
       >
@@ -106,7 +106,7 @@
 
       <ng-template
         documentationPropertyName="title"
-        documentationPropertyType="PolymorphContent<ZuiBaseDialogContext<ZuiConfirmDialogResultDefaultType,ZuiConfirmDialogOptions>>"
+        documentationPropertyType="PolymorphContent<PzmBaseDialogContext<PzmConfirmDialogResultDefaultType,PzmConfirmDialogOptions>>"
         [documentationPropertyValues]="generatePolymorphVariants(defaultTitle)"
         [(documentationPropertyValue)]="title"
       >
@@ -115,7 +115,7 @@
 
       <ng-template
         documentationPropertyName="description"
-        documentationPropertyType="PolymorphContent<ZuiBaseDialogContext<ZuiConfirmDialogResultDefaultType,ZuiConfirmDialogOptions>>"
+        documentationPropertyType="PolymorphContent<PzmBaseDialogContext<PzmConfirmDialogResultDefaultType,PzmConfirmDialogOptions>>"
         [documentationPropertyValues]="generatePolymorphVariants(defaultDescription, contentTemp)"
         [(documentationPropertyValue)]="description"
       >
@@ -129,7 +129,7 @@
       <li>
         <p>
           Import
-          <code>ZuiConfirmDialogModule</code>
+          <code>PzmConfirmDialogModule</code>
           into a module where you want to use our component
         </p>
 

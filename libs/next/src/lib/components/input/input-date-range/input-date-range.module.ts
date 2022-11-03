@@ -1,33 +1,31 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ZuiLetModule } from '@digital-plant/zyfra-helpers';
-import { ZuiActiveZoneModule } from '../../../directives/active-zone/active-zone.module';
+import { PzmLetModule } from '@digital-plant/zyfra-helpers';
 import { PolymorphModule } from '../../../directives/polymorph/polymorph.module';
-import { ZuiInputDateRangeComponent } from './input-date-range.component';
-import { ZuiValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
-import { ZuiCalendarRangeModule } from '../../calendar-range/calendar-range.module';
+import { PzmInputDateRangeComponent } from './input-date-range.component';
+import { PzmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
+import { PzmCalendarRangeModule } from '../../calendar-range/calendar-range.module';
 import { FormsModule } from '@angular/forms';
-import { ZuiInputTextModule } from '../input-text/input-text.module';
-import { ZuiIconModule } from '../../icon/icon.module';
-import { ZuiDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
-import { ZuiMaskModule } from '../../../modules';
+import { PzmInputTextModule } from '../input-text/input-text.module';
+import { PzmIconModule } from '../../icon/icon.module';
+import { PzmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
+import { PzmMaskModule } from '../../../modules';
 
 @NgModule({
   imports: [
     CommonModule,
-    ZuiMaskModule,
-    ZuiActiveZoneModule,
-    ZuiLetModule,
+    PzmMaskModule,
+    PzmLetModule,
     PolymorphModule,
-    ZuiInputTextModule,
-    ZuiIconModule,
-    ZuiDropdownHostModule,
-    ZuiCalendarRangeModule,
-    ZuiValueAccessorModule,
+    PzmInputTextModule,
+    PzmIconModule,
+    PzmDropdownHostModule,
+    PzmCalendarRangeModule,
+    PzmValueAccessorModule,
     FormsModule,
   ],
-  declarations: [ZuiInputDateRangeComponent],
-  exports: [ZuiInputDateRangeComponent],
+  declarations: [PzmInputDateRangeComponent],
+  exports: [PzmInputDateRangeComponent],
 })
-export class ZuiInputDateRangeModule {}
+export class PzmInputDateRangeModule {}
 

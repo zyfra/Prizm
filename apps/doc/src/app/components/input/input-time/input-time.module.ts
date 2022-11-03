@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { InputTimeTimeComponent } from './input-time.component';
-import { PolymorphModule, ZuiInputTimeModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PzmInputTimeModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ZuiInputTimeBaseExampleComponent } from './examples/base/input-time-base-example.component';
+import { PzmInputTimeBaseExampleComponent } from './examples/base/input-time-base-example.component';
 import {
-  ZuiInputTimeWithSecondsExampleComponent,
+  PzmInputTimeWithSecondsExampleComponent,
 } from './examples/with-seconds/input-time-with-seconds-example.component';
 import {
-  ZuiInputTimeWithPresetExampleComponent,
+  PzmInputTimeWithPresetExampleComponent,
 } from './examples/with-preset/input-time-with-preset-example.component';
-import { ZuiInputTimeWithMsExampleComponent } from './examples/with-ms/input-time-with-ms-example.component';
+import { PzmInputTimeWithMsExampleComponent } from './examples/with-ms/input-time-with-ms-example.component';
 
 
 @NgModule({
@@ -22,14 +22,14 @@ import { ZuiInputTimeWithMsExampleComponent } from './examples/with-ms/input-tim
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    ZuiInputTimeModule,
+    PzmInputTimeModule,
     RouterModule.forChild(generateRoutes(InputTimeTimeComponent)),
   ],
   declarations: [
-    ZuiInputTimeBaseExampleComponent,
-    ZuiInputTimeWithSecondsExampleComponent,
-    ZuiInputTimeWithPresetExampleComponent,
-    ZuiInputTimeWithMsExampleComponent,
+    PzmInputTimeBaseExampleComponent,
+    PzmInputTimeWithSecondsExampleComponent,
+    PzmInputTimeWithPresetExampleComponent,
+    PzmInputTimeWithMsExampleComponent,
     InputTimeTimeComponent
   ],
   exports: [InputTimeTimeComponent],

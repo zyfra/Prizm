@@ -1,17 +1,17 @@
 import { TreeNode } from 'primeng/api';
-import { ZuiMenuItem } from '../model/zui-menu-item.interface';
-import { zuiGenerateId } from '../../../util';
+import { PzmMenuItem } from '../model/pzm-menu-item.interface';
+import { pzmGenerateId } from '../../../util';
 
 export const flatNodes = (nodes: TreeNode[]): TreeNode[] => {
   return [].concat(...nodes.map(node => (node.children ? flatNodes(node.children) : [node])));
 };
 
-export const convertToNode = (item: ZuiMenuItem, parent?: TreeNode): TreeNode => {
+export const convertToNode = (item: PzmMenuItem, parent?: TreeNode): TreeNode => {
   let children;
   const node: TreeNode = {
     label: item.label,
     data: item,
-    key: zuiGenerateId(),
+    key: pzmGenerateId(),
     parent,
   };
   if (item.items) {

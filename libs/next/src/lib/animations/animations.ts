@@ -1,16 +1,16 @@
 import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
-import {ZuiDropdownAnimation} from "./types";
+import {PzmDropdownAnimation} from "./types";
 
 const TRANSITION = '{{duration}}ms ease-in-out';
 const DURATION = {params: {duration: 300}};
 const STAGGER = 300;
 
-export interface ZuiDurationOptions {
+export interface PzmDurationOptions {
   value: string;
   params: {duration: number};
 }
 
-export const zuiFadeIn = trigger('zuiFadeIn', [
+export const pzmFadeIn = trigger('pzmFadeIn', [
   transition(
     ':enter',
     [style({opacity: 0}), animate(TRANSITION, style({opacity: 1}))],
@@ -24,7 +24,7 @@ export const zuiFadeIn = trigger('zuiFadeIn', [
 ]);
 
 
-export const zuiHeightCollapse = trigger('zuiHeightCollapse', [
+export const pzmHeightCollapse = trigger('pzmHeightCollapse', [
   transition(
     ':enter',
     [style({height: 0}), animate(TRANSITION, style({height: '*'}))],
@@ -37,7 +37,7 @@ export const zuiHeightCollapse = trigger('zuiHeightCollapse', [
   ),
 ]);
 
-export const zuiHeightCollapseList = trigger('zuiHeightCollapseList', [
+export const pzmHeightCollapseList = trigger('pzmHeightCollapseList', [
   transition(
     '* => *',
     [
@@ -66,7 +66,7 @@ export const zuiHeightCollapseList = trigger('zuiHeightCollapseList', [
   ),
 ]);
 
-export const zuiWidthCollapse = trigger('zuiWidthCollapse', [
+export const pzmWidthCollapse = trigger('pzmWidthCollapse', [
   transition(
     ':enter',
     [style({width: 0}), animate(TRANSITION, style({width: '*'}))],
@@ -79,7 +79,7 @@ export const zuiWidthCollapse = trigger('zuiWidthCollapse', [
   ),
 ]);
 
-export const zuiWidthCollapseList = trigger('zuiWidthCollapseList', [
+export const pzmWidthCollapseList = trigger('pzmWidthCollapseList', [
   transition(
     '* => *',
     [
@@ -108,7 +108,7 @@ export const zuiWidthCollapseList = trigger('zuiWidthCollapseList', [
   ),
 ]);
 
-export const zuiFadeInList = trigger('zuiFadeInList', [
+export const pzmFadeInList = trigger('pzmFadeInList', [
   transition(
     '* => *',
     [
@@ -137,7 +137,7 @@ export const zuiFadeInList = trigger('zuiFadeInList', [
   ),
 ]);
 
-export const zuiFadeInTop = trigger('zuiFadeInTop', [
+export const pzmFadeInTop = trigger('pzmFadeInTop', [
   transition(
     ':enter',
     [
@@ -156,7 +156,7 @@ export const zuiFadeInTop = trigger('zuiFadeInTop', [
   ),
 ]);
 
-export const zuiFadeInBottom = trigger('zuiFadeInBottom', [
+export const pzmFadeInBottom = trigger('pzmFadeInBottom', [
   transition(
     ':enter',
     [
@@ -175,9 +175,9 @@ export const zuiFadeInBottom = trigger('zuiFadeInBottom', [
   ),
 ]);
 
-export const zuiDropdownAnimation = trigger('zuiDropdownAnimation', [
+export const pzmDropdownAnimation = trigger('pzmDropdownAnimation', [
   transition(
-    `* => ${ZuiDropdownAnimation.FadeInTop}`,
+    `* => ${PzmDropdownAnimation.FadeInTop}`,
     [
       style({transform: 'translateY(-10px)', opacity: 0}),
       animate(TRANSITION, style({transform: 'translateY(0)', opacity: 1})),
@@ -185,7 +185,7 @@ export const zuiDropdownAnimation = trigger('zuiDropdownAnimation', [
     DURATION,
   ),
   transition(
-    `* => ${ZuiDropdownAnimation.FadeInBottom}`,
+    `* => ${PzmDropdownAnimation.FadeInBottom}`,
     [
       style({transform: 'translateY(10px)', opacity: 0}),
       animate(TRANSITION, style({transform: 'translateY(0)', opacity: 1})),
@@ -193,7 +193,7 @@ export const zuiDropdownAnimation = trigger('zuiDropdownAnimation', [
     DURATION,
   ),
   transition(
-    `${ZuiDropdownAnimation.FadeInBottom} => *`,
+    `${PzmDropdownAnimation.FadeInBottom} => *`,
     [
       style({transform: 'translateY(0)', opacity: 1}),
       animate(TRANSITION, style({transform: 'translateY(10px)', opacity: 0})),
@@ -201,7 +201,7 @@ export const zuiDropdownAnimation = trigger('zuiDropdownAnimation', [
     DURATION,
   ),
   transition(
-    `${ZuiDropdownAnimation.FadeInTop} => *`,
+    `${PzmDropdownAnimation.FadeInTop} => *`,
     [
       style({transform: 'translateY(0)', opacity: 1}),
       animate(TRANSITION, style({transform: 'translateY(-10px)', opacity: 0})),
@@ -210,7 +210,7 @@ export const zuiDropdownAnimation = trigger('zuiDropdownAnimation', [
   ),
 ]);
 
-export const zuiScaleIn = trigger('zuiScaleIn', [
+export const pzmScaleIn = trigger('pzmScaleIn', [
   transition(
     ':enter',
     [
@@ -229,7 +229,7 @@ export const zuiScaleIn = trigger('zuiScaleIn', [
   ),
 ]);
 
-export const zuiScaleInList = trigger('zuiScaleInList', [
+export const pzmScaleInList = trigger('pzmScaleInList', [
   transition(
     '* => *',
     [
@@ -258,7 +258,7 @@ export const zuiScaleInList = trigger('zuiScaleInList', [
   ),
 ]);
 
-export const zuiSlideIn = trigger('zuiSlideIn', [
+export const pzmSlideIn = trigger('pzmSlideIn', [
   transition(
     `* => left`,
     [
@@ -293,7 +293,7 @@ export const zuiSlideIn = trigger('zuiSlideIn', [
   ),
 ]);
 
-export const zuiSlideInLeft = trigger('zuiSlideInLeft', [
+export const pzmSlideInLeft = trigger('pzmSlideInLeft', [
   transition(
     ':enter',
     [
@@ -312,7 +312,7 @@ export const zuiSlideInLeft = trigger('zuiSlideInLeft', [
   ),
 ]);
 
-export const zuiSlideInLeftList = trigger('zuiSlideInLeftList', [
+export const pzmSlideInLeftList = trigger('pzmSlideInLeftList', [
   transition(
     '* => *',
     [
@@ -341,7 +341,7 @@ export const zuiSlideInLeftList = trigger('zuiSlideInLeftList', [
   ),
 ]);
 
-export const zuiSlideInRight = trigger('zuiSlideInRight', [
+export const pzmSlideInRight = trigger('pzmSlideInRight', [
   transition(
     ':enter',
     [
@@ -360,7 +360,7 @@ export const zuiSlideInRight = trigger('zuiSlideInRight', [
   ),
 ]);
 
-export const zuiSlideInRightList = trigger('zuiSlideInRightList', [
+export const pzmSlideInRightList = trigger('pzmSlideInRightList', [
   transition(
     '* => *',
     [
@@ -389,7 +389,7 @@ export const zuiSlideInRightList = trigger('zuiSlideInRightList', [
   ),
 ]);
 
-export const zuiSlideInTop = trigger('zuiSlideInTop', [
+export const pzmSlideInTop = trigger('pzmSlideInTop', [
   transition(
     ':enter',
     [
@@ -408,7 +408,7 @@ export const zuiSlideInTop = trigger('zuiSlideInTop', [
   ),
 ]);
 
-export const zuiSlideInTopList = trigger('zuiSlideInTopList', [
+export const pzmSlideInTopList = trigger('pzmSlideInTopList', [
   transition(
     '* => *',
     [
@@ -437,7 +437,7 @@ export const zuiSlideInTopList = trigger('zuiSlideInTopList', [
   ),
 ]);
 
-export const zuiSlideInBottom = trigger('zuiSlideInBottom', [
+export const pzmSlideInBottom = trigger('pzmSlideInBottom', [
   transition(
     ':enter',
     [
@@ -456,7 +456,7 @@ export const zuiSlideInBottom = trigger('zuiSlideInBottom', [
   ),
 ]);
 
-export const zuiSlideInBottomList = trigger('zuiSlideInBottomList', [
+export const pzmSlideInBottomList = trigger('pzmSlideInBottomList', [
   transition(
     '* => *',
     [

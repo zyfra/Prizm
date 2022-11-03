@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiSidebarService to control sidebar.
+      Use PzmSidebarService to control sidebar.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBasic"
     >
-      <zui-sidebar-service-example></zui-sidebar-service-example>
+      <pzm-sidebar-service-example></pzm-sidebar-service-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -21,7 +21,7 @@
       heading="Top Bottom"
       [content]="exampleTopBottom"
     >
-      <zui-sidebar-top-bottom-example></zui-sidebar-top-bottom-example>
+      <pzm-sidebar-top-bottom-example></pzm-sidebar-top-bottom-example>
     </tui-doc-example>
 
   </ng-template>
@@ -30,7 +30,7 @@
     <tui-doc-demo>
       <button type="button"
         (click)="show()"
-        zuiButton>
+        pzmButton>
         Show SideBar
       </button>
     </tui-doc-demo>
@@ -41,7 +41,7 @@
 
     <ng-template #contentTemp>
       Content из <a href='#'>шаблона</a>
-      <button style='margin-top: 10px;' zuiButton>Кнопка</button>
+      <button style='margin-top: 10px;' pzmButton>Кнопка</button>
     </ng-template>
 
     <ng-template #footerTemp let-observer>
@@ -51,7 +51,7 @@
     <tui-doc-documentation>
       <ng-template
         documentationPropertyName="position"
-        documentationPropertyType="ZuiOverlayInsidePlacement"
+        documentationPropertyType="PzmOverlayInsidePlacement"
         [documentationPropertyValues]="positionVariants"
         [(documentationPropertyValue)]="position"
       >
@@ -60,7 +60,7 @@
 
       <ng-template
         documentationPropertyName="size"
-        documentationPropertyType="ZuiSidebarSize"
+        documentationPropertyType="PzmSidebarSize"
         [documentationPropertyValues]="sizeVariants"
         [(documentationPropertyValue)]="size"
       >
@@ -85,7 +85,7 @@
 
       <ng-template
         documentationPropertyName="overscroll"
-        documentationPropertyType="ZuiOverscrollMode"
+        documentationPropertyType="PzmOverscrollMode"
         [documentationPropertyValues]="overscrollVariants"
         [(documentationPropertyValue)]="overscroll"
       >
@@ -110,7 +110,7 @@
 
       <ng-template
         documentationPropertyName="header"
-        documentationPropertyType="PolymorphContent<ZuiBaseDialogContext>"
+        documentationPropertyType="PolymorphContent<PzmBaseDialogContext>"
         [documentationPropertyValues]="generatePolymorphVariants(headerTemp)"
         [(documentationPropertyValue)]="header"
       >
@@ -119,7 +119,7 @@
 
       <ng-template
         documentationPropertyName="content"
-        documentationPropertyType="PolymorphContent<ZuiBaseDialogContext>"
+        documentationPropertyType="PolymorphContent<PzmBaseDialogContext>"
         [documentationPropertyValues]="generatePolymorphVariants(contentTemp)"
         [(documentationPropertyValue)]="content"
       >
@@ -128,11 +128,11 @@
 
       <ng-template
         documentationPropertyName="footer"
-        documentationPropertyType="PolymorphContent<ZuiBaseDialogContext> |  | ZuiSidebarButton[]"
+        documentationPropertyType="PolymorphContent<PzmBaseDialogContext> |  | PzmSidebarButton[]"
         [documentationPropertyValues]="generatePolymorphVariants(footerTemp, '')"
         [(documentationPropertyValue)]="footer"
       >
-        Footer template or button array (ZuiSidebarButton)
+        Footer template or button array (PzmSidebarButton)
         If pass empty string '', footer will not be showed
       </ng-template>
     </tui-doc-documentation>
@@ -143,7 +143,7 @@
       <li>
         <p>
           Import
-          <code>ZuiSidebarModule</code>
+          <code>PzmSidebarModule</code>
           into a module where you want to use our component
         </p>
 

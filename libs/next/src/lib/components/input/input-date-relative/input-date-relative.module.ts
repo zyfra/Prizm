@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
-import { ZuiInputDateRelativeComponent } from './input-date-relative.component';
+import { PzmInputDateRelativeComponent } from './input-date-relative.component';
 import { CommonModule } from '@angular/common';
 import { PolymorphModule } from '../../../directives/polymorph/polymorph.module';
-import { ZuiInputTextModule } from '../input-text/input-text.module';
-import { ZuiIconModule } from '../../icon/icon.module';
-import { ZuiDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
+import { PzmInputTextModule } from '../input-text/input-text.module';
+import { PzmIconModule } from '../../icon/icon.module';
+import { PzmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    ZuiInputDateRelativeComponent
+    PzmInputDateRelativeComponent
   ],
   imports: [
     CommonModule,
     PolymorphModule,
-    ZuiInputTextModule,
-    ZuiIconModule,
+    PzmInputTextModule,
+    PzmIconModule,
     ReactiveFormsModule,
-    ZuiDropdownHostModule,
+    PzmDropdownHostModule,
   ],
   exports: [
-    ZuiInputDateRelativeComponent
+    PzmInputDateRelativeComponent
   ],
 })
-export class ZuiInputDateRelativeModule {}
+export class PzmInputDateRelativeModule {}

@@ -1,9 +1,8 @@
-import {NgModule} from '@angular/core';
-
-import {ZuiOverscrollDirective} from './overscroll.directive';
+import { NgModule } from '@angular/core';
+import { PzmOverscrollDirective } from './overscroll.directive';
 
 @NgModule({
-    declarations: [ZuiOverscrollDirective],
-    exports: [ZuiOverscrollDirective],
+    declarations: [PzmOverscrollDirective],
+    exports: [PzmOverscrollDirective],
 })
-export class ZuiOverscrollModule {}
+export class PzmOverscrollModule {}

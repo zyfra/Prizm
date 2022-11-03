@@ -1,10 +1,10 @@
-<zui-tree
+<pzm-tree
   *ngFor="let item of data.children"
-  [zuiTreeController]="true"
+  [pzmTreeController]="true"
   [value]="item"
   [content]="content"
   [childrenHandler]="handler"
-></zui-tree>
+></pzm-tree>
 
 <ng-template
   #content

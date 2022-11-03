@@ -1,13 +1,13 @@
 import { InjectionToken, Type, ValueProvider } from '@angular/core';
-import { ZuiToastAppearance, ZuiToastOptions, ZuiToastPosition } from './types';
+import { PzmToastAppearance, PzmToastOptions, PzmToastPosition } from './types';
 import { ToastComponent } from './toast/toast.component';
 
-export interface ZuiToastDefaultOptions {
-    readonly position: ZuiToastPosition,
+export interface PzmToastDefaultOptions {
+    readonly position: PzmToastPosition,
     readonly timer: number,
-    readonly data: ZuiToastOptions['data'],
-    readonly title: ZuiToastOptions['title'],
-    readonly appearance: ZuiToastAppearance,
+    readonly data: PzmToastOptions['data'],
+    readonly title: PzmToastOptions['title'],
+    readonly appearance: PzmToastAppearance,
     readonly templateSuccess: Type<unknown>,
     readonly templateDanger: Type<unknown>,
     readonly templateWarning: Type<unknown>,
@@ -16,8 +16,8 @@ export interface ZuiToastDefaultOptions {
 }
 
 /** Default values for the toast options. */
-export const ZUI_TOAST_DEFAULT_OPTIONS: ZuiToastDefaultOptions = {
-    position: ZuiToastPosition.TOP_RIGHT,
+export const PZM_TOAST_DEFAULT_OPTIONS: PzmToastDefaultOptions = {
+    position: PzmToastPosition.TOP_RIGHT,
     timer: 5000,
     title: '',
     appearance: 'info',
@@ -30,16 +30,16 @@ export const ZUI_TOAST_DEFAULT_OPTIONS: ZuiToastDefaultOptions = {
     templateInfo: ToastComponent,
 };
 
-export const ZUI_TOAST_OPTIONS = new InjectionToken<ZuiToastDefaultOptions>(
+export const PZM_TOAST_OPTIONS = new InjectionToken<PzmToastDefaultOptions>(
     'Default parameters for toast component',
     {
-        factory: (): typeof ZUI_TOAST_DEFAULT_OPTIONS => ZUI_TOAST_DEFAULT_OPTIONS,
+        factory: (): typeof PZM_TOAST_DEFAULT_OPTIONS => PZM_TOAST_DEFAULT_OPTIONS,
     },
 );
 
-export const zuiToastOptionsProvider: (
-    options: Partial<ZuiToastDefaultOptions>,
-) => ValueProvider = (options: Partial<ZuiToastDefaultOptions>) => ({
-    provide: ZUI_TOAST_OPTIONS,
-    useValue: {...ZUI_TOAST_DEFAULT_OPTIONS, ...options},
+export const pzmToastOptionsProvider: (
+    options: Partial<PzmToastDefaultOptions>,
+) => ValueProvider = (options: Partial<PzmToastDefaultOptions>) => ({
+    provide: PZM_TOAST_OPTIONS,
+    useValue: {...PZM_TOAST_DEFAULT_OPTIONS, ...options},
 });

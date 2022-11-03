@@ -2,41 +2,41 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  ZuiContextWithImplicit,
-  ZuiDay, ZuiInputSize,
-  ZuiSizeL,
-  ZuiSizeM,
-  ZuiTime, ZuiTimeMode,
+  PzmContextWithImplicit,
+  PzmDay, PzmInputSize,
+  PzmSizeL,
+  PzmSizeM,
+  PzmTime, PzmTimeMode,
 } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-input-date-example',
+  selector: 'pzm-input-date-example',
   templateUrl: './input-time.component.html',
   styleUrls: ['./input-time.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InputTimeTimeComponent {
   public readonly valueControl = new FormControl(
-    new ZuiTime(12, 30, 25, 500)
+    new PzmTime(12, 30, 25, 500)
   );
 
   public label = 'Абсолютное время';
   public placeholder = 'Выберите время';
-  public sizeVariants: ReadonlyArray<ZuiInputSize> = [
+  public sizeVariants: ReadonlyArray<PzmInputSize> = [
     'l',
     'm',
     's'
   ]
-  public size: ZuiInputSize = 'm';
+  public size: PzmInputSize = 'm';
   public strict = false;
 
-  public timeModeVariants: ReadonlyArray<ZuiTimeMode> = [
+  public timeModeVariants: ReadonlyArray<PzmTimeMode> = [
     'HH:MM',
     'HH:MM:SS',
     'HH:MM:SS.MSS'
   ];
-  public timeMode: ZuiTimeMode = `HH:MM`;
+  public timeMode: PzmTimeMode = `HH:MM`;
   public outer = false;
 
 

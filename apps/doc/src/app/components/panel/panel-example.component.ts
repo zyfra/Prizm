@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'zui-example-panel',
+  selector: 'pzm-example-panel',
   templateUrl: './panel-example.component.html',
   styleUrls: ['./panel-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

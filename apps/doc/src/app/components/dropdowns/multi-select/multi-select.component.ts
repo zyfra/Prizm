@@ -2,14 +2,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  ZuiContextWithImplicit, ZuiInputSize,
-  zuiPure,
-  ZuiScrollbarVisibility,
+  PzmContextWithImplicit, PzmInputSize,
+  pzmPure,
+  PzmScrollbarVisibility,
 } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-multi-select-example',
+  selector: 'pzm-multi-select-example',
   templateUrl: './multi-select.component.html',
   styleUrls: ['./multi-select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -21,13 +21,13 @@ export class MultiSelectComponent {
   label = 'Выберите участника';
   emptyContent = 'Ничего не найдено';
   isChipsDeletable = true;
-  forceShowClearButtonVariants: ReadonlyArray<boolean | null> = [
+  forceClearVariants: ReadonlyArray<boolean | null> = [
     null,
     false,
     true
   ];
-  forceShowClearButton = this.forceShowClearButtonVariants[0];
-  get sizeVariants(): ReadonlyArray<ZuiInputSize> {
+  forceClear = this.forceClearVariants[0];
+  get sizeVariants(): ReadonlyArray<PzmInputSize> {
     return this.outer
       ? ['s', 'm', 'l']
       : ['m', 'l'];
@@ -37,7 +37,7 @@ export class MultiSelectComponent {
   dropdownWidth = '100%';
   maxDropdownHeight = 342;
   placeholder = '';
-  visibility: ZuiScrollbarVisibility = 'auto';
+  visibility: PzmScrollbarVisibility = 'auto';
   readonly itemsVariants: ReadonlyArray<string[] | null> = [
     [
       'One',
@@ -97,8 +97,8 @@ export class MultiSelectComponent {
   };
 
 
-  public valueTemplate: PolymorphContent<ZuiContextWithImplicit<any>> = ''
-  @zuiPure
+  public valueTemplate: PolymorphContent<PzmContextWithImplicit<any>> = ''
+  @pzmPure
   public getValueTemplate (...temps: PolymorphContent[]): PolymorphContent<any>[] {
     return [
       null,

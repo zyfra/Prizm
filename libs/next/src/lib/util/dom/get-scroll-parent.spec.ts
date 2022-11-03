@@ -1,8 +1,8 @@
-import { zuiGetScrollParent } from './get-scroll-parent';
+import { pzmGetScrollParent } from './get-scroll-parent';
 
-describe('zuiGetScrollParent', () => {
+describe('pzmGetScrollParent', () => {
     it('There is no element', () => {
-        expect(zuiGetScrollParent(null)).toEqual(null);
+        expect(pzmGetScrollParent(null)).toEqual(null);
     });
 
     it('Should return element. Vertical is true', () => {
@@ -11,7 +11,7 @@ describe('zuiGetScrollParent', () => {
         Object.defineProperty(element, 'scrollHeight', {value: 5});
         Object.defineProperty(element, 'clientHeight', {value: 0});
 
-        expect(zuiGetScrollParent(element)).toEqual(element);
+        expect(pzmGetScrollParent(element)).toEqual(element);
     });
 
     it('Should return element. Vertical is false', () => {
@@ -20,7 +20,7 @@ describe('zuiGetScrollParent', () => {
         Object.defineProperty(element, 'scrollWidth', {value: 5});
         Object.defineProperty(element, 'clientWidth', {value: 0});
 
-        expect(zuiGetScrollParent(element, false)).toEqual(element);
+        expect(pzmGetScrollParent(element, false)).toEqual(element);
     });
 
     it('Should return parent element', () => {
@@ -35,6 +35,6 @@ describe('zuiGetScrollParent', () => {
         Object.defineProperty(parentElement, 'scrollWidth', {value: 5});
         Object.defineProperty(parentElement, 'clientWidth', {value: 0});
 
-        expect(zuiGetScrollParent(childElement, false)).toEqual(parentElement);
+        expect(pzmGetScrollParent(childElement, false)).toEqual(parentElement);
     });
 });

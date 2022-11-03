@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ZuiInputPosition, ZuiInputSize, ZuiInputStatus } from '@digital-plant/zui-components';
+import { PzmInputPosition, PzmInputSize, PzmInputStatus } from '@digital-plant/zui-components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { default as d } from './examples/input-phone-example/input-phone-example.component.less?raw';
 
 @Component({
-  selector: 'zui-input',
+  selector: 'pzm-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -12,23 +12,23 @@ import { default as d } from './examples/input-phone-example/input-phone-example
 export class InputComponent {
   public label = 'Заголовок';
 
-  public inputPosition: ZuiInputPosition = 'left';
-  public inputPositions: ZuiInputPosition[] = ['left', 'center'];
+  public inputPosition: PzmInputPosition = 'left';
+  public inputPositions: PzmInputPosition[] = ['left', 'center'];
   public outer: false;
 
-  public size: ZuiInputSize = 'l';
-  public sizesOuter: ZuiInputSize[] = ['l', 'm', 's'];
-  public sizesInner: ZuiInputSize[] = ['l', 'm'];
+  public size: PzmInputSize = 'l';
+  public sizesOuter: PzmInputSize[] = ['l', 'm', 's'];
+  public sizesInner: PzmInputSize[] = ['l', 'm'];
 
-  public status: ZuiInputStatus = 'default';
-  public statuses: ZuiInputStatus[] = ['default', 'success', 'warning', 'danger'];
+  public status: PzmInputStatus = 'default';
+  public statuses: PzmInputStatus[] = ['default', 'success', 'warning', 'danger'];
 
-  public forceShowClearButtonVariants: ReadonlyArray<boolean | null> = [
+  public forceClearVariants: ReadonlyArray<boolean | null> = [
     null,
     false,
     true
   ];
-  public forceShowClearButton = this.forceShowClearButtonVariants[0];
+  public forceClear = this.forceClearVariants[0];
 
   public readonly zyfraInputBasicExample: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/input-basic-example/input-basic-example.component.ts'),

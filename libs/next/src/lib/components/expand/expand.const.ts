@@ -1,5 +1,5 @@
 /**
  * An event indicating that async data for expand has finished loading.
- * Dispatch to finish loading states for {@link ZuiExpandComponent}.
+ * Dispatch to finish loading states for {@link PzmExpandComponent}.
  */
-export const ZUI_EXPAND_LOADED = 'tui-expand-loaded';
+export const PZM_EXPAND_LOADED = 'tui-expand-loaded';

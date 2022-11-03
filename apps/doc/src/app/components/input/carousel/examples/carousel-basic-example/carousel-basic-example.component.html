@@ -1,9 +1,9 @@
-<zui-input-layout [label]="'Карусель'" [size]="'l'" [outer]="true" [position]="'center'">
-  <zui-carousel-auxiliary-left zui-input-left [carousel]="carousel"></zui-carousel-auxiliary-left>
-  <zui-carousel #carousel [required]="true" [carouselContent]="carouselContent" [value]="5">
+<pzm-input-layout [label]="'Карусель'" [size]="'l'" [outer]="true" [position]="'center'">
+  <pzm-carousel-auxiliary-left pzm-input-left [carousel]="carousel"></pzm-carousel-auxiliary-left>
+  <pzm-carousel #carousel [required]="true" [carouselContent]="carouselContent" [value]="5">
     {{ carouselContent.currentValue }}
-  </zui-carousel>
-  <zui-carousel-auxiliary-right zui-input-right [carousel]="carousel"></zui-carousel-auxiliary-right>
-  <ng-template zuiInputStatusText>Текст статуса</ng-template>
-</zui-input-layout>
+  </pzm-carousel>
+  <pzm-carousel-auxiliary-right pzm-input-right [carousel]="carousel"></pzm-carousel-auxiliary-right>
+  <ng-template pzmInputStatusText>Текст статуса</ng-template>
+</pzm-input-layout>
 

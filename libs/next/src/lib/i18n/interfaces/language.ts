@@ -1,10 +1,10 @@
-import { ZuiCountryIsoCode } from '../enums/country-iso-code';
-import { ZuiLanguageName } from './language-names';
+import { PzmCountryIsoCode } from '../enums/country-iso-code';
+import { PzmLanguageName } from './language-names';
 
 // prettier-ignore
 type MONTHS_ARRAY = [string, string, string, string, string, string, string, string, string, string, string, string];
 
-export interface ZuiLanguageCore {
+export interface PzmLanguageCore {
     months: MONTHS_ARRAY;
     close: string;
     nothingFoundMessage: string;
@@ -18,10 +18,10 @@ export interface ZuiLanguageCore {
      * starts with Mon (Monday)
      */
     shortWeekDays: [string, string, string, string, string, string, string];
-    countries: Record<ZuiCountryIsoCode, string>;
+    countries: Record<PzmCountryIsoCode, string>;
 }
 
-export interface ZuiLanguageKit {
+export interface PzmLanguageKit {
     cancel: string;
     done: string;
     more: string;
@@ -85,7 +85,7 @@ export interface ZuiLanguageKit {
     };
 }
 
-export interface ZuiLanguageEditor {
+export interface PzmLanguageEditor {
     colorSelectorModeNames: [string, string];
     toolbarTools: {
         undo: string;
@@ -141,7 +141,7 @@ export interface ZuiLanguageEditor {
     };
 }
 
-export type ZuiLanguagePreview = {
+export type PzmLanguagePreview = {
     previewTexts: {
         rotate: string;
     };
@@ -152,14 +152,14 @@ export type ZuiLanguagePreview = {
     };
 };
 
-export interface ZuiLanguageMeta {
-    name: ZuiLanguageName;
+export interface PzmLanguageMeta {
+    name: PzmLanguageName;
 }
 
-export interface ZuiLanguage
-    extends ZuiLanguageCore,
-        ZuiLanguageKit,
-        ZuiLanguageEditor,
-        ZuiLanguagePreview,
-        ZuiLanguageMeta {}
+export interface PzmLanguage
+    extends PzmLanguageCore,
+        PzmLanguageKit,
+        PzmLanguageEditor,
+        PzmLanguagePreview,
+        PzmLanguageMeta {}
 

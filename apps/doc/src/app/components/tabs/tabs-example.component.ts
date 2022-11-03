@@ -3,7 +3,7 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { IconDefs, TabSize, TabType } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-tabs-example',
+  selector: 'pzm-tabs-example',
   templateUrl: './tabs-example.component.html',
   styleUrls: ['./tabs-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,17 +1,17 @@
 import { Provider } from '@angular/core';
-import { ZuiDay } from '../../../@core/date-time/day';
-import { ZuiTime } from '../../../@core/date-time/time';
-import { ZUI_DATE_TIME_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
-import { ZuiControlValueTransformer } from '../../../types/control-value-transformer';
+import { PzmDay } from '../../../@core/date-time/day';
+import { PzmTime } from '../../../@core/date-time/time';
+import { PZM_DATE_TIME_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
+import { PzmControlValueTransformer } from '../../../types/control-value-transformer';
 
-type From = [ZuiDay | null, ZuiTime | null] | null;
+type From = [PzmDay | null, PzmTime | null] | null;
 type To = Date | null;
 
-export class ZuiInputDateTimeNativeTransformer implements ZuiControlValueTransformer<From, To> {
+export class PzmInputDateTimeNativeTransformer implements PzmControlValueTransformer<From, To> {
   public fromControlValue(controlValue: To): From {
     return controlValue && [
-       ZuiDay.fromLocalNativeDate(controlValue),
-       ZuiTime.fromLocalNativeDate(controlValue)
+       PzmDay.fromLocalNativeDate(controlValue),
+       PzmTime.fromLocalNativeDate(controlValue)
     ];
   }
 
@@ -34,9 +34,9 @@ export class ZuiInputDateTimeNativeTransformer implements ZuiControlValueTransfo
   }
 }
 
-export function zuiGetInputDateTimeNativeTransformer(): Provider {
+export function pzmGetInputDateTimeNativeTransformer(): Provider {
   return  {
-    provide: ZUI_DATE_TIME_VALUE_TRANSFORMER,
-    useClass: ZuiInputDateTimeNativeTransformer,
+    provide: PZM_DATE_TIME_VALUE_TRANSFORMER,
+    useClass: PzmInputDateTimeNativeTransformer,
   };
 }

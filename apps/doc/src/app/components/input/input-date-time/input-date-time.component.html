@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiInputDateTimeComponent to view input-date.
+      Use PzmInputDateTimeComponent to view input-date.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <zui-input-date-time-base-example></zui-input-date-time-base-example>
+      <pzm-input-date-time-base-example></pzm-input-date-time-base-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -21,7 +21,7 @@
       heading="With Seconds"
       [content]="exampleWithSeconds"
     >
-      <zui-input-date-time-with-seconds-example></zui-input-date-time-with-seconds-example>
+      <pzm-input-date-time-with-seconds-example></pzm-input-date-time-with-seconds-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -29,7 +29,7 @@
       heading="Native Date"
       [content]="exampleNative"
     >
-      <zui-input-date-time-native-example></zui-input-date-time-native-example>
+      <pzm-input-date-time-native-example></pzm-input-date-time-native-example>
     </tui-doc-example>
 
 
@@ -37,14 +37,15 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-input-date-time
+      <pzm-input-date-time
         [formControl]='valueControl'
+        [timeStrict]='timeStrict'
         [label]='label'
         [placeholder]='placeholder'
         [outer]='outer'
         [timeMode]='timeMode'
         [size]='size'
-      ></zui-input-date-time>
+      ></pzm-input-date-time>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
@@ -73,11 +74,18 @@
 
       <ng-template
         documentationPropertyName="size"
-        documentationPropertyType="ZuiInputSize"
+        documentationPropertyType="PzmInputSize"
         [documentationPropertyValues]="sizeVariants"
         [(documentationPropertyValue)]="size"
       >
         Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="timeItems"
+        documentationPropertyType="PzmTime[]"
+      >
+        Time preset for dropdown
       </ng-template>
 
       <ng-template
@@ -90,35 +98,45 @@
 
       <ng-template
         documentationPropertyName="min"
-        documentationPropertyType="ZuiDay | [ZuiDay, ZuiTime]"
+        documentationPropertyType="PzmDay | [PzmDay, PzmTime]"
       >
         Min Date
       </ng-template>
 
       <ng-template
         documentationPropertyName="max"
-        documentationPropertyType="ZuiDay | [ZuiDay, ZuiTime]"
+        documentationPropertyType="PzmDay | [PzmDay, PzmTime]"
       >
         Max Date
       </ng-template>
 
       <ng-template
         documentationPropertyName="disabledItemHandler"
-        documentationPropertyType="ZuiBooleanHandler<ZuiDay>"
+        documentationPropertyType="PzmBooleanHandler<PzmDay>"
       >
         Disabled Item Handler
       </ng-template>
 
       <ng-template
         documentationPropertyName="defaultActiveYearMonth"
-        documentationPropertyType="ZuiMonth"
+        documentationPropertyType="PzmMonth"
       >
         Default Active Year Month
       </ng-template>
 
       <ng-template
+        documentationPropertyName="timeStrict"
+        documentationPropertyType="boolean"
+        [(documentationPropertyValue)]="timeStrict"
+      >
+        Time Strict
+        <br>
+        (Correct time to nearest from items array)
+      </ng-template>
+
+      <ng-template
         documentationPropertyName="timeMode"
-        documentationPropertyType="ZuiTimeMode"
+        documentationPropertyType="PzmTimeMode"
         [documentationPropertyValues]="timeModeVariants"
         [(documentationPropertyValue)]="timeMode"
       >
@@ -132,7 +150,7 @@
       <li>
         <p>
           Import
-          <code>ZuiInputDateTimeModule</code>
+          <code>PzmInputDateTimeModule</code>
           into a module where you want to use our component
         </p>
 

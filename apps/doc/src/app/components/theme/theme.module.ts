@@ -3,18 +3,18 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { ThemeComponent } from './theme.component';
-import { ZuiThemeBaseExampleComponent } from './examples/base/theme-base-example.component';
-import { ZuiThemeModule } from '@digital-plant/zui-components';
+import { PzmThemeBaseExampleComponent } from './examples/base/theme-base-example.component';
+import { PzmThemeModule } from '@digital-plant/zui-components';
 
 @NgModule({
   imports: [
     CommonModule,
     TuiAddonDocModule,
-    ZuiThemeModule,
+    PzmThemeModule,
     RouterModule.forChild(generateRoutes(ThemeComponent)),
   ],
   declarations: [
-    ZuiThemeBaseExampleComponent,
+    PzmThemeBaseExampleComponent,
     ThemeComponent,
   ],
   exports: [ThemeComponent],

@@ -1,5 +1,5 @@
 import { v4 } from 'uuid';
 
-export function zuiGenerateId(): string {
+export function pzmGenerateId(): string {
   return v4()
 }

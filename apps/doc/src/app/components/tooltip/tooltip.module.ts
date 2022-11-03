@@ -2,17 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
-import { PolymorphModule, ZuiButtonModule, ZuiTooltipModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PzmButtonModule, PzmTooltipModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TooltipComponent } from './tooltip.component';
 import {
-  ZuiTooltipWithTemplateExampleComponent,
+  PzmTooltipWithTemplateExampleComponent,
 } from './examples/with-template/tooltip-with-template-example.component';
 import {
-  ZuiTooltipWithComponentExampleComponent,
+  PzmTooltipWithComponentExampleComponent,
 } from './examples/with-component/tooltip-with-component-example.component';
-import { ZuiTooltipBaseExampleComponent } from './examples/base/tooltip-base-example.component';
-import { ZuiTooltipSomeComponent } from './examples/with-component/some.component';
+import { PzmTooltipBaseExampleComponent } from './examples/base/tooltip-base-example.component';
+import { PzmTooltipSomeComponent } from './examples/with-component/some.component';
 
 
 @NgModule({
@@ -22,15 +22,15 @@ import { ZuiTooltipSomeComponent } from './examples/with-component/some.componen
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    ZuiTooltipModule,
-    ZuiButtonModule,
+    PzmTooltipModule,
+    PzmButtonModule,
     RouterModule.forChild(generateRoutes(TooltipComponent)),
   ],
   declarations: [
-    ZuiTooltipWithTemplateExampleComponent,
-    ZuiTooltipWithComponentExampleComponent,
-    ZuiTooltipSomeComponent,
-    ZuiTooltipBaseExampleComponent,
+    PzmTooltipWithTemplateExampleComponent,
+    PzmTooltipWithComponentExampleComponent,
+    PzmTooltipSomeComponent,
+    PzmTooltipBaseExampleComponent,
     TooltipComponent
   ],
   exports: [TooltipComponent],

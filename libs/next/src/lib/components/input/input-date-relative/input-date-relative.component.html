@@ -1,40 +1,40 @@
-<zui-dropdown-host
+<pzm-dropdown-host
   class="z-hosted"
   [canOpen]="canOpen"
   [content]="dropdown"
   [isOpen]="isOpen && canOpen"
   [closeByEsc]='true'
   (isOpenChange)="onOpenChange($event)"
-  zuiDropdownHostWidth='auto'
+  pzmDropdownHostWidth='auto'
 >
-  <zui-input-layout
+  <pzm-input-layout
     [label]="label"
     [outer]='outer'
     (click)='safeOpenModal()'
     [size]="size">
     <input
       class='input-search'
-      zuiInput
+      pzmInput
       [formControl]='value'
       (onClear)='onClear()'
       [placeholder]='placeholder'
       #focusableElementRef
     />
-    <ng-container zui-input-right>
+    <ng-container pzm-input-right>
       <button
-        zuiInputIconButton="date-update"
+        pzmInputIconButton="date-update"
         [interactive]="true"
         (click)='focusableElementRef.focus()'
       ></button>
       <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>
       </ng-container>
     </ng-container>
-  </zui-input-layout>
-</zui-dropdown-host>
+  </pzm-input-layout>
+</pzm-dropdown-host>
 
 
 <ng-template #dropdown>
-  <ul role="listbox" class="zui-datepicker-relative-menu">
+  <ul role="listbox" class="pzm-datepicker-relative-menu">
     <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: timeItems }"></ng-container>
     <li class="relative-menu-item-divider"></li>
     <ng-container
@@ -55,7 +55,7 @@
         tabindex="0"
       >
         <div class="relative-menu-item-icon">
-          <i class="zui-icon {{ item.icon }}"></i>
+          <i class="pzm-icon {{ item.icon }}"></i>
         </div>
         <div class="relative-menu-item-label">{{ item.label }}</div>
       </li>

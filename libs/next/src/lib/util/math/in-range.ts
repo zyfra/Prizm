@@ -5,7 +5,7 @@
  * @param fromInclude lower inclusive limit
  * @param toExclude upper exclusive limit
  */
-export function zuiInRange(value: number, fromInclude: number, toExclude: number): boolean {
+export function pzmInRange(value: number, fromInclude: number, toExclude: number): boolean {
     console.assert(!isNaN(value));
     console.assert(!isNaN(fromInclude));
     console.assert(!isNaN(toExclude));

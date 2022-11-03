@@ -1,20 +1,26 @@
 import { NgModule } from '@angular/core';
-import { ZuiDropdownHostComponent } from './dropdown-host.component';
-import { ZuiOverlayModule } from '../../../modules/overlay';
-import { PolymorphModule, ZuiLifecycleModule, ZuiMutationObserveModule } from '../../../directives';
+import { PzmDropdownHostComponent } from './dropdown-host.component';
+import { PzmOverlayModule } from '../../../modules/overlay';
+import {
+  PolymorphModule,
+  PzmDropdownZoneModule,
+  PzmLifecycleModule,
+  PzmMutationObserveModule,
+} from '../../../directives';
 import { CommonModule } from '@angular/common';
-import { ZuiShadowModule } from '../../../directives/shadow';
+import { PzmShadowModule } from '../../../directives/shadow';
 
 @NgModule({
     imports: [
       CommonModule,
-      ZuiOverlayModule,
-      ZuiLifecycleModule,
-      ZuiShadowModule,
+      PzmOverlayModule,
+      PzmLifecycleModule,
+      PzmShadowModule,
       PolymorphModule,
-      ZuiMutationObserveModule,
+      PzmDropdownZoneModule,
+      PzmMutationObserveModule,
     ],
-    declarations: [ZuiDropdownHostComponent],
-    exports: [ZuiDropdownHostComponent],
+    declarations: [PzmDropdownHostComponent],
+    exports: [PzmDropdownHostComponent],
 })
-export class ZuiDropdownHostModule {}
+export class PzmDropdownHostModule {}

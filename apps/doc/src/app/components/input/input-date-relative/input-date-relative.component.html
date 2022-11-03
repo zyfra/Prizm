@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiInputDateRelativeComponent to view input-date.
+      Use PzmInputDateRelativeComponent to view input-date.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <zui-input-date-relative-base-example></zui-input-date-relative-base-example>
+      <pzm-input-date-relative-base-example></pzm-input-date-relative-base-example>
     </tui-doc-example>
 
 
@@ -21,7 +21,7 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-input-date-relative
+      <pzm-input-date-relative
         [formControl]='valueControl'
         [label]='label'
         [placeholder]='placeholder'
@@ -29,7 +29,7 @@
         [disabled]='disabled'
         [showClear]='showClear'
         [size]='size'
-      ></zui-input-date-relative>
+      ></pzm-input-date-relative>
     </tui-doc-demo>
     <tui-doc-documentation>
 
@@ -75,7 +75,7 @@
 
       <ng-template
         documentationPropertyName="size"
-        documentationPropertyType="ZuiInputSize"
+        documentationPropertyType="PzmInputSize"
         [documentationPropertyValues]="sizeVariants"
         [(documentationPropertyValue)]="size"
       >
@@ -97,7 +97,7 @@
       <li>
         <p>
           Import
-          <code>ZuiInputDateRelativeModule</code>
+          <code>PzmInputDateRelativeModule</code>
           into a module where you want to use our component
         </p>
 

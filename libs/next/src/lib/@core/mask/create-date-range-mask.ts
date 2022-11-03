@@ -1,8 +1,8 @@
-import { ZuiDateMode } from '../../types/date-mode';
-import { zuiCreateDateNgxMask } from './create-date-mask';
+import { PzmDateMode } from '../../types/date-mode';
+import { pzmCreateDateNgxMask } from './create-date-mask';
 
-export function zuiCreateDateRangeMask(
-    dateMode: ZuiDateMode,
+export function pzmCreateDateRangeMask(
+    dateMode: PzmDateMode,
     dateSeparator: string,
 ): string {
     console.assert(
@@ -10,7 +10,7 @@ export function zuiCreateDateRangeMask(
         `Separator should consist of only 1 symbol`,
     );
 
-    const dateMask = zuiCreateDateNgxMask(dateMode, dateSeparator);
+    const dateMask = pzmCreateDateNgxMask(dateMode, dateSeparator);
 
     return `${dateMask} - ${dateMask}`
 }

@@ -1,25 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PolymorphModule, ZuiFocusTrapModule } from '../../../directives';
-import { ZuiOverlayModule } from '../../../modules/overlay';
-import { ZuiButtonModule } from '../../button';
-import { ZuiDialogConfirmComponent } from './confirm-dialog.component';
-import { ZuiScrollbarModule } from '../../scrollbar';
+import { PolymorphModule, PzmFocusTrapModule } from '../../../directives';
+import { PzmOverlayModule } from '../../../modules/overlay';
+import { PzmButtonModule } from '../../button';
+import { PzmDialogConfirmComponent } from './confirm-dialog.component';
+import { PzmScrollbarModule } from '../../scrollbar';
 
 @NgModule({
   imports: [
     CommonModule,
     PolymorphModule,
-    ZuiOverlayModule,
-    ZuiButtonModule,
-    ZuiFocusTrapModule,
-    ZuiScrollbarModule
+    PzmOverlayModule,
+    PzmButtonModule,
+    PzmFocusTrapModule,
+    PzmScrollbarModule
   ],
   declarations: [
-    ZuiDialogConfirmComponent
+    PzmDialogConfirmComponent
   ],
   exports: [
-    ZuiDialogConfirmComponent
+    PzmDialogConfirmComponent
   ],
 })
-export class ZuiConfirmDialogModule {}
+export class PzmConfirmDialogModule {}

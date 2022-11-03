@@ -11,30 +11,30 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { Observable } from 'rxjs';
 import { startWith, takeUntil, tap } from 'rxjs/operators';
-import { ZuiOverlayConfig, ZuiOverlayContent, ZuiOverlayContentType, ZuiOverlayId } from './models';
-import { ZuiOverlayAbstractPosition } from './position/position';
+import { PzmOverlayConfig, PzmOverlayContent, PzmOverlayContentType, PzmOverlayId } from './models';
+import { PzmOverlayAbstractPosition } from './position/position';
 import { cssClass, EventBus, objToCss } from './utils';
 
 @Component({
-  selector: 'zui-overlay',
+  selector: 'pzm-overlay',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ZuiDestroyService],
+  providers: [PzmDestroyService],
 })
-export class ZuiOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
+export class PzmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('compOutlet', { read: ViewContainerRef }) compOutlet: ViewContainerRef;
-  content: ZuiOverlayContent = {
-    type: ZuiOverlayContentType.STRING,
+  content: PzmOverlayContent = {
+    type: PzmOverlayContentType.STRING,
     data: '',
     props: {}
   };
-  config: ZuiOverlayConfig;
-  position: ZuiOverlayAbstractPosition;
-  zid: ZuiOverlayId;
+  config: PzmOverlayConfig;
+  position: PzmOverlayAbstractPosition;
+  zid: PzmOverlayId;
   el: HTMLElement | any;
   wrapperEl: HTMLElement | any;
   extra: string;
@@ -44,7 +44,7 @@ export class ZuiOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     public readonly inj: Injector,
     private readonly cd: ChangeDetectorRef,
-    private readonly destroy$: ZuiDestroyService,
+    private readonly destroy$: PzmDestroyService,
     private readonly compResolver: ComponentFactoryResolver,
     private readonly elRef: ElementRef
   ) {
@@ -67,7 +67,7 @@ export class ZuiOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.listenPos().subscribe();
-    if (this.content.type === ZuiOverlayContentType.COMPONENT) {
+    if (this.content.type === PzmOverlayContentType.COMPONENT) {
       this.compInstance = this.setComponent(this.content.props);
       EventBus.send(this.zid, 'z_compins', this.compInstance);
     }
@@ -83,7 +83,7 @@ export class ZuiOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public updateTextContent(data: string): void {
-    if (this.content.type === ZuiOverlayContentType.STRING) {
+    if (this.content.type === PzmOverlayContentType.STRING) {
       this.content.data = data;
       this.cd.detectChanges();
     }

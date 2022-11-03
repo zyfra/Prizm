@@ -1,35 +1,35 @@
 import { PolymorphContent } from '../../../directives';
 import {
-  ZuiBaseDialogContext,
-  ZuiDialogBaseOptions,
-  ZuiDialogButton,
-  ZuiDialogSize,
+  PzmBaseDialogContext,
+  PzmDialogBaseOptions,
+  PzmDialogButton,
+  PzmDialogSize,
 } from '../dialog/dialog.models';
-import { ZuiOverscrollMode } from '../../../directives/overscroll/overscroll.model';
-import { ZuiOverlayInsidePlacement } from '../../../modules/overlay';
+import { PzmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
+import { PzmOverlayInsidePlacement } from '../../../modules/overlay';
 
-export type ZuiSidebarButton = Omit<ZuiDialogButton, 'action'> & Partial<Pick<ZuiDialogButton, 'action'>>
+export type PzmSidebarButton = Omit<PzmDialogButton, 'action'> & Partial<Pick<PzmDialogButton, 'action'>>
 
-export interface ZuiSidebarOptions<DATA = unknown> extends ZuiDialogBaseOptions {
-  confirmButton?: ZuiSidebarButton | string,
-  supportButton?: ZuiSidebarButton | string,
-  cancelButton?: ZuiSidebarButton | string,
+export interface PzmSidebarOptions<DATA = unknown> extends PzmDialogBaseOptions {
+  confirmButton?: PzmSidebarButton | string,
+  supportButton?: PzmSidebarButton | string,
+  cancelButton?: PzmSidebarButton | string,
   showByVertical?: boolean;
   data?: DATA;
-  size?: ZuiDialogSize;
+  size?: PzmDialogSize;
   title: PolymorphContent<
-    ZuiBaseDialogContext<
-      ZuiSidebarResultDefaultType,
-      ZuiSidebarOptions<DATA>
+    PzmBaseDialogContext<
+      PzmSidebarResultDefaultType,
+      PzmSidebarOptions<DATA>
       >
     >,
   description?: PolymorphContent<
-    ZuiBaseDialogContext<
-      ZuiSidebarResultDefaultType,
-      ZuiSidebarOptions<DATA>
+    PzmBaseDialogContext<
+      PzmSidebarResultDefaultType,
+      PzmSidebarOptions<DATA>
       >
     >,
-  overscrollMode?: ZuiOverscrollMode;
+  overscrollMode?: PzmOverscrollMode;
 
   closeWord: string;
   readonly content?: any;
@@ -37,9 +37,9 @@ export interface ZuiSidebarOptions<DATA = unknown> extends ZuiDialogBaseOptions 
   readonly header: any;
 }
 
-export enum ZuiSidebarResultDefaultType {
+export enum PzmSidebarResultDefaultType {
   confirmed = 'confirmed',
   support = 'support',
   cancel = 'cancel',
 }
-export type ZuiSidebarResult = ZuiSidebarResultDefaultType | any;
+export type PzmSidebarResult = PzmSidebarResultDefaultType | any;

@@ -2,38 +2,38 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  ZUI_HINT_DEFAULT_OPTIONS, ZUI_TOOLTIP_DEFAULT_OPTIONS,
-  ZuiOverlayOutsidePlacement,
-  ZuiTooltipOptions,
+  PZM_HINT_DEFAULT_OPTIONS, PZM_TOOLTIP_DEFAULT_OPTIONS,
+  PzmOverlayOutsidePlacement,
+  PzmTooltipOptions,
 } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-tooltip-example',
+  selector: 'pzm-tooltip-example',
   templateUrl: './tooltip.component.html',
   styleUrls: ['./tooltip.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TooltipComponent {
   public content = 'Тестовое содержимое';
-  public zuiAutoReposition = false;
+  public pzmAutoReposition = false;
 
-  public readonly zuiTooltipDirectionVariants: ReadonlyArray<ZuiTooltipOptions['direction']> = Object.values(ZuiOverlayOutsidePlacement);
+  public readonly pzmTooltipDirectionVariants: ReadonlyArray<PzmTooltipOptions['direction']> = Object.values(PzmOverlayOutsidePlacement);
 
-  public zuiTooltipDirection: ZuiTooltipOptions['direction'] = ZUI_HINT_DEFAULT_OPTIONS.direction;
+  public pzmTooltipDirection: PzmTooltipOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
 
-  public zuiTooltipId: string;
+  public pzmTooltipId = 'tooltip-id';
 
-  public zuiTooltipShowDelay: number = ZUI_TOOLTIP_DEFAULT_OPTIONS.showDelay;
+  public pzmTooltipShowDelay: number = PZM_TOOLTIP_DEFAULT_OPTIONS.showDelay;
 
-  public zuiTooltipHideDelay: number = ZUI_TOOLTIP_DEFAULT_OPTIONS.hideDelay;
+  public pzmTooltipHideDelay: number = PZM_TOOLTIP_DEFAULT_OPTIONS.hideDelay;
 
-  public zuiTooltipHost: HTMLElement
+  public pzmTooltipHost: HTMLElement | null = null
 
-  public readonly zuiTooltipVariants = [
+  public readonly pzmTooltipVariants = [
     'Tooltip'
   ];
 
-  public zuiTooltip: PolymorphContent =  this.zuiTooltipVariants[0];
+  public pzmTooltip: PolymorphContent =  this.pzmTooltipVariants[0];
 
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'

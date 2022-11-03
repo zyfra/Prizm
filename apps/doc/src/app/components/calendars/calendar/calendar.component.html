@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiCalendarComponent to view calendar.
+      Use PzmCalendarComponent to view calendar.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <zui-calendar-base-example></zui-calendar-base-example>
+      <pzm-calendar-base-example></pzm-calendar-base-example>
     </tui-doc-example>
 
 
@@ -21,15 +21,16 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-calendar
-        [formControl]='control'
+      <pzm-calendar
+        [value]='day'
+        (dayClick)='onDayClick($event)'
         [showAdjacent]='showAdjacent'
-      ></zui-calendar>
+      ></pzm-calendar>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
         documentationPropertyName="daysWithStatus"
-        documentationPropertyType="ZuiDayWithStatus"
+        documentationPropertyType="PzmDayWithStatus"
       >
         Days With Status
       </ng-template>
@@ -37,49 +38,49 @@
 
       <ng-template
         documentationPropertyName="month"
-        documentationPropertyType="ZuiMonth"
+        documentationPropertyType="PzmMonth"
       >
         Month
       </ng-template>
       <ng-template
         documentationPropertyName="value"
-        documentationPropertyType="ZuiDayRange | ZuiDay | null"
+        documentationPropertyType="PzmDayRange | PzmDay | null"
       >
         Value
       </ng-template>
       <ng-template
         documentationPropertyName="disabledItemHandler"
-        documentationPropertyType="ZuiBooleanHandler<ZuiDay>"
+        documentationPropertyType="PzmBooleanHandler<PzmDay>"
       >
         Disabled Item Handler
       </ng-template>
       <ng-template
         documentationPropertyName="min"
-        documentationPropertyType="ZuiDay"
+        documentationPropertyType="PzmDay"
       >
         Min Day
       </ng-template>
       <ng-template
         documentationPropertyName="max"
-        documentationPropertyType="ZuiDay"
+        documentationPropertyType="PzmDay"
       >
         Max Day
       </ng-template>
       <ng-template
         documentationPropertyName="minViewedMonth"
-        documentationPropertyType="ZuiMonth"
+        documentationPropertyType="PzmMonth"
       >
         Min Viewed Month
       </ng-template>
       <ng-template
         documentationPropertyName="maxViewedMonth"
-        documentationPropertyType="ZuiMonth"
+        documentationPropertyType="PzmMonth"
       >
         Max Viewed Month
       </ng-template>
       <ng-template
         documentationPropertyName="hoveredItem"
-        documentationPropertyType="ZuiDay | null"
+        documentationPropertyType="PzmDay | null"
       >
         Hovered Item
       </ng-template>
@@ -92,28 +93,28 @@
       </ng-template>
       <ng-template
         documentationPropertyName="markerHandler"
-        documentationPropertyType="ZuiMarkerHandler"
+        documentationPropertyType="PzmMarkerHandler"
       >
         Marker Handler
       </ng-template>
 
       <ng-template
         documentationPropertyName="dayClick"
-        documentationPropertyType="ZuiDay"
+        documentationPropertyType="PzmDay"
         documentationPropertyMode="output"
       >
         Day Click
       </ng-template>
       <ng-template
         documentationPropertyName="monthChange"
-        documentationPropertyType="ZuiMonth"
+        documentationPropertyType="PzmMonth"
         documentationPropertyMode="output"
       >
         Month Change
       </ng-template>
       <ng-template
         documentationPropertyName="hoveredItemChange"
-        documentationPropertyType="ZuiDay | null"
+        documentationPropertyType="PzmDay | null"
         documentationPropertyMode="output"
       >
         Hovered Item Change
@@ -126,7 +127,7 @@
       <li>
         <p>
           Import
-          <code>ZuiCalendarModule</code>
+          <code>PzmCalendarModule</code>
           into a module where you want to use our component
         </p>
 

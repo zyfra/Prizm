@@ -1,6 +1,6 @@
-import { ZuiHandler } from "../types/handler";
-import { ZuiIdentityMatcher } from "../types/matcher";
-import { ZUI_DEFAULT_STRINGIFY } from "./stringify";
+import { PzmHandler } from "../types/handler";
+import { PzmIdentityMatcher } from "../types/matcher";
+import { PZM_DEFAULT_STRINGIFY } from "./stringify";
 
 /**
  * Default handler for matching stringified version of an item and a search query
@@ -8,10 +8,10 @@ import { ZUI_DEFAULT_STRINGIFY } from "./stringify";
  * @param search search query
  * @param stringify handler to turn item into a string
  */
-export const ZUI_DEFAULT_MATCHER = <T>(
+export const PZM_DEFAULT_MATCHER = <T>(
     item: T,
     search: string,
-    stringify: ZuiHandler<T, string> = ZUI_DEFAULT_STRINGIFY,
+    stringify: PzmHandler<T, string> = PZM_DEFAULT_STRINGIFY,
 ): boolean => stringify(item).toLowerCase().includes(search.toLowerCase());
 
 /**
@@ -20,10 +20,10 @@ export const ZUI_DEFAULT_MATCHER = <T>(
  * @param search search query
  * @param stringify handler to turn item into a string
  */
-export const ZUI_STRICT_MATCHER = <T>(
+export const PZM_STRICT_MATCHER = <T>(
     item: T,
     search: string,
-    stringify: ZuiHandler<T, string> = ZUI_DEFAULT_STRINGIFY,
+    stringify: PzmHandler<T, string> = PZM_DEFAULT_STRINGIFY,
 ): boolean => stringify(item).toLowerCase() === search.toLowerCase();
 
 /**
@@ -33,7 +33,7 @@ export const ZUI_STRICT_MATCHER = <T>(
  * @param item1 first element
  * @param item2 second element
  */
-export const ZUI_DEFAULT_IDENTITY_MATCHER: ZuiIdentityMatcher<unknown> = (item1, item2) =>
+export const PZM_DEFAULT_IDENTITY_MATCHER: PzmIdentityMatcher<unknown> = (item1, item2) =>
     item1 === item2 || bothEmpty(item1, item2);
 
 function bothEmpty(item1: unknown, item2: unknown): boolean {

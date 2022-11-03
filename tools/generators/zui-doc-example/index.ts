@@ -1,12 +1,12 @@
 import { formatFiles, generateFiles, joinPathFragments, names, Tree } from '@nrwl/devkit';
-import { ZuiDocExampleGeneratorSchema } from './models';
+import { PzmDocExampleGeneratorSchema } from './models';
 import { capitalizeFirstLetter, updatePages, updateRoutes } from './util';
 import { chain } from '@angular-devkit/schematics';
 
-export default async function (tree: Tree, schema: ZuiDocExampleGeneratorSchema) {
+export default async function (tree: Tree, schema: PzmDocExampleGeneratorSchema) {
   const moduleName = schema.name
   const normalizedClassName= names(moduleName).className;
-  const normalizedExampleSelectorName= names(`zui-doc-${moduleName}-base-example`).fileName;
+  const normalizedExampleSelectorName= names(`pzm-doc-${moduleName}-base-example`).fileName;
   const normalizedExampleClassName = names(`${moduleName}BaseExample`).className;
   const variables = {
     title: capitalizeFirstLetter(schema.title ?? schema.name),
@@ -15,7 +15,7 @@ export default async function (tree: Tree, schema: ZuiDocExampleGeneratorSchema)
     normalizedFileName: names(schema.name).fileName,
     normalizedExampleClassName,
     normalizedExampleSelectorName,
-    normalizedModuleImportModuleName: names(`Zui${normalizedClassName}Module`).className,
+    normalizedModuleImportModuleName: names(`Pzm${normalizedClassName}Module`).className,
     creationDate: new Date().toISOString(),
   };
   const relativePathToFile = `components/${variables.normalizedFileName}`;

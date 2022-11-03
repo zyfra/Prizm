@@ -1,41 +1,41 @@
 import { NgModule } from '@angular/core';
-import { ZuiMultiSelectComponent } from './multi-select.component';
-import { ZuiOverlayModule } from '../../../modules/overlay';
-import { PolymorphModule, ZuiAutoFocusModule } from '../../../directives';
+import { PzmMultiSelectComponent } from './multi-select.component';
+import { PzmOverlayModule } from '../../../modules/overlay';
+import { PolymorphModule, PzmAutoFocusModule } from '../../../directives';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ZuiDataListModule } from '../../data-list';
-import { ZuiDropdownHostModule } from '../dropdown-host';
-import { ZuiScrollbarModule } from '../../scrollbar';
-import { ZuiDropdownControllerModule } from '../../../directives/dropdown-controller';
-import { ZuiChipsModule } from '../../chips';
-import { ZuiInputTextModule } from '../../input/input-text/input-text.module';
-import { ZuiCallFuncModule, ZuiLetModule } from '@digital-plant/zyfra-helpers';
-import { ZuiHintModule } from '../../../directives/hint';
-import { ZuiIconModule } from '../../icon';
-import { ZuiCheckboxModule } from '../../checkbox';
+import { PzmDataListModule } from '../../data-list';
+import { PzmDropdownHostModule } from '../dropdown-host';
+import { PzmScrollbarModule } from '../../scrollbar';
+import { PzmDropdownControllerModule } from '../../../directives/dropdown-controller';
+import { PzmChipsModule } from '../../chips';
+import { PzmInputTextModule } from '../../input/input-text/input-text.module';
+import { PzmCallFuncModule, PzmLetModule } from '@digital-plant/zyfra-helpers';
+import { PzmHintModule } from '../../../directives/hint';
+import { PzmIconModule } from '../../icon';
+import { PzmCheckboxModule } from '../../checkbox';
 
 @NgModule({
     imports: [
-      ZuiOverlayModule,
+      PzmOverlayModule,
       PolymorphModule,
-      ZuiInputTextModule,
-      ZuiChipsModule,
+      PzmInputTextModule,
+      PzmChipsModule,
       FormsModule,
       ReactiveFormsModule,
       CommonModule,
-      ZuiLetModule,
-      ZuiHintModule,
-      ZuiIconModule,
-      ZuiCallFuncModule,
-      ZuiAutoFocusModule,
-      ZuiScrollbarModule,
-      ZuiDropdownControllerModule,
-      ZuiDataListModule,
-      ZuiCheckboxModule,
-      ZuiDropdownHostModule
+      PzmLetModule,
+      PzmHintModule,
+      PzmIconModule,
+      PzmCallFuncModule,
+      PzmAutoFocusModule,
+      PzmScrollbarModule,
+      PzmDropdownControllerModule,
+      PzmDataListModule,
+      PzmCheckboxModule,
+      PzmDropdownHostModule
     ],
-    declarations: [ZuiMultiSelectComponent],
-    exports: [ZuiMultiSelectComponent],
+    declarations: [PzmMultiSelectComponent],
+    exports: [PzmMultiSelectComponent],
 })
-export class ZuiMultiSelectModule {}
+export class PzmMultiSelectModule {}

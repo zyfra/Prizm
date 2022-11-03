@@ -1,1 +1,1 @@
-export type ZuiDecimalSymbol = '.' | ',';
+export type PzmDecimalSymbol = '.' | ',';

@@ -1,0 +1,115 @@
+<div>
+  <p>Size M</p>
+  <div class='progress-block pzm-font-input-text-helper'>
+    <progress
+      pzmProgressBar
+      max="100"
+      size='m'
+      color='var(--pzm-index-plan)'
+      class="progress"
+      [value]="value$ | async"
+    ></progress>
+    <span>{{value$ | async}}%</span>
+  </div>
+</div>
+<br>
+
+<div>
+  <p>Size S</p>
+  <div class='progress-block'>
+    <span>{{value$ | async}}%</span>
+    <progress
+      pzmProgressBar
+      max="100"
+      size='s'
+      color='green'
+      class="progress"
+      [value]="value$ | async"
+    ></progress>
+  </div>
+</div>
+<div>
+  <p>Segments</p>
+  <div>
+    <progress
+      pzmProgressBar
+      [pzmProgressColorSegments]="colors"
+      max="100"
+      size='m'
+      color='green'
+      class="progress"
+      [value]="value$ | async"
+    ></progress>
+  </div>
+</div>
+
+
+<div>
+  <p>Label</p>
+  <div>
+    <label
+      *ngIf="value$ | async as value"
+      pzmProgressLabel
+      class="label-wrapper"
+    >
+      {{ value }}%
+      <progress
+        pzmProgressBar
+        max="100"
+        color='var(--pzm-index-warning)'
+        size='m'
+        [value]="value"
+      ></progress>
+    </label>
+  </div>
+</div>
+
+
+<div>
+  <p>Stacked progress bars</p>
+  <div>
+    <label
+      pzmProgressLabel
+      class="label-wrapper"
+    >
+      <progress
+        pzmProgressBar
+        max="4"
+        size="m"
+        class="progress"
+        [value]="3"
+      ></progress>
+
+      <progress
+        pzmProgressBar
+        max="4"
+        size="m"
+        class="progress"
+        [value]="1"
+      ></progress>
+    </label>
+  </div>
+</div>
+
+
+<div>
+  <p>Indeterminate</p>
+  <div>
+    <progress
+      pzmProgressBar
+      color='var(--pzm-index-plan)'
+      class="progress"
+      size='s'
+    ></progress>
+    <br>
+    <br>
+    <progress
+      pzmProgressBar
+      color='var(--pzm-index-danger)'
+      size='m'
+      class="progress"
+    ></progress>
+  </div>
+</div>
+
+

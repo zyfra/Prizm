@@ -2,6 +2,6 @@ import { Directive } from '@angular/core';
 import { FrozenColumn } from 'primeng/table';
 
 @Directive({
-  selector: '[zuiFrozenColumn]',
+  selector: '[pzmFrozenColumn]',
 })
-export class ZuiFrozenColumnDirective extends FrozenColumn {}
+export class PzmFrozenColumnDirective extends FrozenColumn {}

@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiInputDateComponent to view input-date.
+      Use PzmInputDateComponent to view input-date.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <zui-input-date-range-base-example></zui-input-date-range-base-example>
+      <pzm-input-date-range-base-example></pzm-input-date-range-base-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -21,7 +21,7 @@
       heading="Disabled"
       [content]="exampleDisabled"
     >
-      <zui-input-date-range-disabled-example></zui-input-date-range-disabled-example>
+      <pzm-input-date-range-disabled-example></pzm-input-date-range-disabled-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -29,7 +29,7 @@
       heading="Native Date"
       [content]="exampleNativeDate"
     >
-      <zui-input-date-range-native-example></zui-input-date-range-native-example>
+      <pzm-input-date-range-native-example></pzm-input-date-range-native-example>
     </tui-doc-example>
 
 
@@ -37,12 +37,13 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-input-date-range
+      <pzm-input-date-range
         [label]='label'
+        [formControl]='dateControl'
         [placeholder]='placeholder'
         [outer]='outer'
         [size]='size'
-      ></zui-input-date-range>
+      ></pzm-input-date-range>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
@@ -71,7 +72,7 @@
 
       <ng-template
         documentationPropertyName="size"
-        documentationPropertyType="ZuiInputSize"
+        documentationPropertyType="PzmInputSize"
         [documentationPropertyValues]="sizeVariants"
         [(documentationPropertyValue)]="size"
       >
@@ -80,14 +81,14 @@
 
       <ng-template
         documentationPropertyName="disabledItemHandler"
-        documentationPropertyType="ZuiBooleanHandler<ZuiDay>"
+        documentationPropertyType="PzmBooleanHandler<PzmDay>"
       >
         Disabled Item Handler
       </ng-template>
 
       <ng-template
         documentationPropertyName="markerHandler"
-        documentationPropertyType="ZuiMarkerHandler"
+        documentationPropertyType="PzmMarkerHandler"
       >
         Marker Handler
       </ng-template>
@@ -95,35 +96,35 @@
 
       <ng-template
         documentationPropertyName="items"
-        documentationPropertyType="ZuiDayRangePeriod[]"
+        documentationPropertyType="PzmDayRangePeriod[]"
       >
         Items
       </ng-template>
 
       <ng-template
         documentationPropertyName="min"
-        documentationPropertyType="ZuiDay"
+        documentationPropertyType="PzmDay"
       >
         Min Date
       </ng-template>
 
       <ng-template
         documentationPropertyName="max"
-        documentationPropertyType="ZuiDay"
+        documentationPropertyType="PzmDay"
       >
         Max Date
       </ng-template>
 
       <ng-template
         documentationPropertyName="minLength"
-        documentationPropertyType="ZuiDayLike | null"
+        documentationPropertyType="PzmDayLike | null"
       >
         Min Length
       </ng-template>
 
       <ng-template
         documentationPropertyName="maxLength"
-        documentationPropertyType="ZuiDayLike | null"
+        documentationPropertyType="PzmDayLike | null"
       >
         Max Length
       </ng-template>
@@ -136,7 +137,7 @@
       <li>
         <p>
           Import
-          <code>ZuiInputDateRangeModule</code>
+          <code>PzmInputDateRangeModule</code>
           into a module where you want to use our component
         </p>
 

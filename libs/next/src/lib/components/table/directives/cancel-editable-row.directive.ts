@@ -2,6 +2,6 @@ import { Directive } from '@angular/core';
 import { CancelEditableRow } from 'primeng/table';
 
 @Directive({
-  selector: '[zuiCancelEditableRow]',
+  selector: '[pzmCancelEditableRow]',
 })
-export class ZuiCancelEditableRowDirective extends CancelEditableRow {}
+export class PzmCancelEditableRowDirective extends CancelEditableRow {}

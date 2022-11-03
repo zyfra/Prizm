@@ -1,10 +1,10 @@
-import { zuiDefaultCarouselControlsState, ZuiCarouselContent } from './carousel-content.interface';
+import { pzmDefaultCarouselControlsState, PzmCarouselContent } from './carousel-content.interface';
 
-export class ZuiCarouselArrayContent<T> implements ZuiCarouselContent {
+export class PzmCarouselArrayContent<T> implements PzmCarouselContent {
   private currentIndex = -1;
   currentValue: T = undefined;
 
-  public controlsState = { ...zuiDefaultCarouselControlsState };
+  public controlsState = { ...pzmDefaultCarouselControlsState };
 
   constructor(public set: Array<T>, private searchFn: (arrayItem: T, findEl: T) => boolean) {}
 

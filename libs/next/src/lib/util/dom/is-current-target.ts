@@ -1,3 +1,3 @@
-export function zuiIsCurrentTarget({target, currentTarget}: Event): boolean {
+export function pzmIsCurrentTarget({target, currentTarget}: Event): boolean {
     return target === currentTarget;
 }

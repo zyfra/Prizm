@@ -1,30 +1,30 @@
 <tui-doc-page header="Carousel" type="components">
   <ng-template pageTab>
     <tui-doc-example heading="Basic example" [content]="zyfraCarouselBasicExample">
-      <zui-carousel-basic-example></zui-carousel-basic-example>
+      <pzm-carousel-basic-example></pzm-carousel-basic-example>
     </tui-doc-example>
 
     <tui-doc-example heading="Carousel light example" [content]="zyfraCarouselLightExample">
-      <zui-carousel-light-example></zui-carousel-light-example>
+      <pzm-carousel-light-example></pzm-carousel-light-example>
     </tui-doc-example>
 
     <tui-doc-example
       heading="Carousel array of objects example"
       [content]="zyfraCarouselArrayofObjectsExample"
     >
-      <zui-carousel-array-of-objects-example></zui-carousel-array-of-objects-example>
+      <pzm-carousel-array-of-objects-example></pzm-carousel-array-of-objects-example>
     </tui-doc-example>
 
     <tui-doc-example heading="Carousel select month example" [content]="zyfraCarouselYearMonthExample">
-      <zui-carousel-year-month-example></zui-carousel-year-month-example>
+      <pzm-carousel-year-month-example></pzm-carousel-year-month-example>
     </tui-doc-example>
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-input-layout [label]="label" [size]="size" [status]="status" [outer]="outer" [position]="'center'">
-        <zui-carousel-auxiliary-left zui-input-left [carousel]="carousel"></zui-carousel-auxiliary-left>
-        <zui-carousel
+      <pzm-input-layout [label]="label" [size]="size" [status]="status" [outer]="outer" [position]="'center'">
+        <pzm-carousel-auxiliary-left pzm-input-left [carousel]="carousel"></pzm-carousel-auxiliary-left>
+        <pzm-carousel
           #carousel
           [disabled]="disabled"
           [required]="required"
@@ -33,10 +33,10 @@
           [value]="value"
         >
           {{ carouselContent.currentValue }}
-        </zui-carousel>
-        <zui-carousel-auxiliary-right zui-input-right [carousel]="carousel"></zui-carousel-auxiliary-right>
-        <ng-template zuiInputStatusText>Текст статуса</ng-template>
-      </zui-input-layout>
+        </pzm-carousel>
+        <pzm-carousel-auxiliary-right pzm-input-right [carousel]="carousel"></pzm-carousel-auxiliary-right>
+        <ng-template pzmInputStatusText>Текст статуса</ng-template>
+      </pzm-input-layout>
     </tui-doc-demo>
 
     <tui-doc-documentation>
@@ -121,7 +121,7 @@
     <ol class="b-demo-steps">
       <li>
         <p>
-          Импортируйте <code>ZuiInputCarouselModule</code>
+          Импортируйте <code>PzmInputCarouselModule</code>
           в тот модуль, котором хотите использовать компонент
         </p>
 

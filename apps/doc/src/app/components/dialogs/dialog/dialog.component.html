@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiDialogService to control dialog.
+      Use PzmDialogService to control dialog.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBasic"
     >
-      <zui-dialog-service-example></zui-dialog-service-example>
+      <pzm-dialog-service-example></pzm-dialog-service-example>
     </tui-doc-example>
 
   </ng-template>
@@ -22,7 +22,7 @@
     <tui-doc-demo>
       <button type="button"
         (click)="show()"
-        zuiButton>
+        pzmButton>
         Show Dialog
       </button>
     </tui-doc-demo>
@@ -33,7 +33,7 @@
 
     <ng-template #contentTemp>
       Content из <a href='#'>шаблона</a>
-      <button style='margin-top: 10px;' zuiButton>Кнопка</button>
+      <button style='margin-top: 10px;' pzmButton>Кнопка</button>
     </ng-template>
 
     <ng-template #footerTemp let-observer>
@@ -43,7 +43,7 @@
     <tui-doc-documentation>
       <ng-template
         documentationPropertyName="position"
-        documentationPropertyType="ZuiOverlayInsidePlacement"
+        documentationPropertyType="PzmOverlayInsidePlacement"
         [documentationPropertyValues]="positionVariants"
         [(documentationPropertyValue)]="position"
       >
@@ -52,7 +52,7 @@
 
       <ng-template
         documentationPropertyName="size"
-        documentationPropertyType="ZuiDialogSize"
+        documentationPropertyType="PzmDialogSize"
         [documentationPropertyValues]="sizeVariants"
         [(documentationPropertyValue)]="size"
       >
@@ -77,7 +77,7 @@
 
       <ng-template
         documentationPropertyName="overscroll"
-        documentationPropertyType="ZuiOverscrollMode"
+        documentationPropertyType="PzmOverscrollMode"
         [documentationPropertyValues]="overscrollVariants"
         [(documentationPropertyValue)]="overscroll"
       >
@@ -102,7 +102,7 @@
 
       <ng-template
         documentationPropertyName="header"
-        documentationPropertyType="PolymorphContent<ZuiBaseDialogContext>"
+        documentationPropertyType="PolymorphContent<PzmBaseDialogContext>"
         [documentationPropertyValues]="generatePolymorphVariants(headerTemp)"
         [(documentationPropertyValue)]="header"
       >
@@ -111,7 +111,7 @@
 
       <ng-template
         documentationPropertyName="content"
-        documentationPropertyType="PolymorphContent<ZuiBaseDialogContext>"
+        documentationPropertyType="PolymorphContent<PzmBaseDialogContext>"
         [documentationPropertyValues]="generatePolymorphVariants(contentTemp)"
         [(documentationPropertyValue)]="content"
       >
@@ -120,11 +120,11 @@
 
       <ng-template
         documentationPropertyName="footer"
-        documentationPropertyType="PolymorphContent<ZuiBaseDialogContext> |  | ZuiDialogButton[]"
+        documentationPropertyType="PolymorphContent<PzmBaseDialogContext> |  | PzmDialogButton[]"
         [documentationPropertyValues]="generatePolymorphVariants(footerTemp, '')"
         [(documentationPropertyValue)]="footer"
       >
-        Footer template or button array (ZuiDialogButton)
+        Footer template or button array (PzmDialogButton)
         If pass empty string '', footer will not be showed
       </ng-template>
     </tui-doc-documentation>
@@ -135,7 +135,7 @@
       <li>
         <p>
           Import
-          <code>ZuiDialogModule</code>
+          <code>PzmDialogModule</code>
           into a module where you want to use our component
         </p>
 

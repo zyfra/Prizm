@@ -1,26 +1,26 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ZuiHintModule } from '../../../directives/hint';
-import { ZuiIconModule } from '../../icon';
-import { ZuiInputStatusSubtextComponent } from './input-invalid-subtext/input-status-subtext.component';
-import { ZuiInputLayoutComponent } from './input-layout/input-layout.component';
-import { ZuiInputStatusTextDirective } from './input-status-text/input-status-text.directive';
-import { ZuiInputIconButtonModule } from './input-icon-button/input-icon-button.module';
+import { PzmHintModule } from '../../../directives/hint';
+import { PzmIconModule } from '../../icon';
+import { PzmInputStatusSubtextComponent } from './input-invalid-subtext/input-status-subtext.component';
+import { PzmInputLayoutComponent } from './input-layout/input-layout.component';
+import { PzmInputStatusTextDirective } from './input-status-text/input-status-text.directive';
+import { PzmInputIconButtonModule } from './input-icon-button/input-icon-button.module';
 
 @NgModule({
-  imports: [CommonModule, ZuiIconModule, ZuiHintModule, ZuiInputIconButtonModule],
+  imports: [CommonModule, PzmIconModule, PzmHintModule, PzmInputIconButtonModule],
   declarations: [
-    ZuiInputLayoutComponent,
-    ZuiInputStatusSubtextComponent,
-    ZuiInputStatusTextDirective,
+    PzmInputLayoutComponent,
+    PzmInputStatusSubtextComponent,
+    PzmInputStatusTextDirective,
   ],
   exports: [
     CommonModule,
-    ZuiInputLayoutComponent,
-    ZuiInputStatusSubtextComponent,
-    ZuiInputIconButtonModule,
-    ZuiInputStatusTextDirective,
+    PzmInputLayoutComponent,
+    PzmInputStatusSubtextComponent,
+    PzmInputIconButtonModule,
+    PzmInputStatusTextDirective,
   ],
 })
-export class ZuiInputCommonModule {}
+export class PzmInputCommonModule {}
 

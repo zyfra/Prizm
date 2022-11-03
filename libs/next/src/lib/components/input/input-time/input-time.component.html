@@ -1,4 +1,4 @@
-<zui-dropdown-host
+<pzm-dropdown-host
     class="z-wrapper"
     [canOpen]="interactive && !!filtered.length"
     [content]="dropdownContent"
@@ -6,14 +6,14 @@
     (isOpenChange)="onOpen($event)"
     [closeByEsc]='true'
 >
-    <zui-input-layout
+    <pzm-input-layout
       [label]="label"
       [outer]='outer'
       (click)='safeOpenModal()'
       [size]="size">
       <input
         class='input-search'
-        zuiInput
+        pzmInput
         #focusableElementRef
         [mask]="textMaskOptions"
         [showMaskTyped]='focusableElementRef.focused'
@@ -21,24 +21,25 @@
         [required]='readOnly'
         [placeholder]='placeholder'
         [disabled]='disabled'
-        [ngModel]="stringValue"
+        [ngModel]="computedValue"
         (ngModelChange)='onValueChange($event || "")'
         (keydown.arrowUp)="onArrowUp($event)"
         (keydown.arrowDown)="onArrowDown($event)"
       />
-      <ng-container zui-input-right>
+      <ng-container pzm-input-right>
         <button
-          zuiInputIconButton="date-clock"
+          pzmInputIconButton="date-clock"
           (click)='focusableElementRef.focus()'
           [interactive]="true"
         ></button>
         <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>
         </ng-container>
       </ng-container>
-    </zui-input-layout>
-</zui-dropdown-host>
+    </pzm-input-layout>
+</pzm-dropdown-host>
+
 <ng-template #dropdownContent>
-    <zui-data-list class='block'>
+    <pzm-data-list class='block' [style.--pzm-data-list-border]='0'>
       <ng-container *ngIf='items?.length;'>
         <div class='item'
              *ngFor='let item of filtered; let idx = index'
@@ -48,5 +49,5 @@
             </span>
         </div>
       </ng-container>
-    </zui-data-list>
+    </pzm-data-list>
 </ng-template>

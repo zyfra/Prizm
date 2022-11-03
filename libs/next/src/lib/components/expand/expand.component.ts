@@ -12,11 +12,11 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { zuiDefaultProp, zuiRequiredSetter } from '../../decorators';
-import { zuiIsCurrentTarget } from '../../util/dom';
+import { pzmDefaultProp, pzmRequiredSetter } from '../../decorators';
+import { pzmIsCurrentTarget } from '../../util/dom';
 
-import { ZuiExpandContentDirective } from './expand-content.directive';
-import { ZUI_EXPAND_LOADED } from './expand.const';
+import { PzmExpandContentDirective } from './expand-content.directive';
+import { PZM_EXPAND_LOADED } from './expand.const';
 
 enum State {
     Idle,
@@ -28,23 +28,23 @@ enum State {
 const LOADER_HEIGHT = 48;
 
 @Component({
-    selector: 'zui-expand',
+    selector: 'pzm-expand',
     templateUrl: './expand.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['./expand.component.less'],
 })
-export class ZuiExpandComponent {
+export class PzmExpandComponent {
     @ViewChild('wrapper')
     private readonly contentWrapper?: ElementRef<HTMLDivElement>;
 
     private state = State.Idle;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     isLoading = false;
 
     @Input()
-    @zuiRequiredSetter()
+    @pzmRequiredSetter()
     set expanded(expanded: boolean | null) {
         if (this.expanded_ === null) {
             this.expanded_ = expanded;
@@ -63,7 +63,7 @@ export class ZuiExpandComponent {
         this.reTrigger(this.isLoading && expanded ? State.Loading : State.Animated);
     }
 
-    @ContentChild(ZuiExpandContentDirective, {read: TemplateRef})
+    @ContentChild(PzmExpandContentDirective, {read: TemplateRef})
     public content: TemplateRef<NgIfContext<boolean>> | null = null;
 
     @HostBinding('class._expanded')
@@ -71,12 +71,12 @@ export class ZuiExpandComponent {
     private expanded_: boolean | null = null;
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_expand';
+    readonly testId = 'pzm_expand';
 
     @HostListener('transitionend', ['$event'])
     public onTransitionEnd(event: TransitionEvent): void {
       if (
-        zuiIsCurrentTarget(event) &&
+        pzmIsCurrentTarget(event) &&
         event.propertyName === 'opacity' &&
         this.state === State.Animated
       ) {
@@ -84,7 +84,7 @@ export class ZuiExpandComponent {
       }
     }
 
-    @HostListener(ZUI_EXPAND_LOADED, ['$event'])
+    @HostListener(PZM_EXPAND_LOADED, ['$event'])
     public onExpandLoaded(event: Event): void {
       event.stopPropagation();
 

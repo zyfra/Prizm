@@ -1,16 +1,14 @@
 import { Directive, Injector, TemplateRef } from '@angular/core';
 import { Subject } from 'rxjs';
-
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { DefaultInputInvalidTextClass } from '../base/input-invalid-text-base-class.directive';
 import { PolymorphContent } from '../../../../directives/polymorph';
 
 @Directive({
-  selector: '[zuiInputStatusText]',
-  providers: [ZuiDestroyService],
+  selector: '[pzmInputStatusText]',
+  providers: [PzmDestroyService],
 })
-export class ZuiInputStatusTextDirective extends DefaultInputInvalidTextClass {
+export class PzmInputStatusTextDirective extends DefaultInputInvalidTextClass {
   public templateRef: TemplateRef<any>;
   public readonly changed: Subject<void> = new Subject<void>();
 

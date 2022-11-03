@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ZuiDay, ZuiTime } from '@digital-plant/zui-components';
+import { PzmDay, PzmTime } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-input-date-time-with-seconds-example',
+  selector: 'pzm-input-date-time-with-seconds-example',
   templateUrl: './input-date-time-with-seconds-example.component.html',
   styles: [`
     .box {
@@ -12,6 +12,6 @@ import { ZuiDay, ZuiTime } from '@digital-plant/zui-components';
     }
   `]
 })
-export class ZuiInputDateTimeWithSecondsExampleComponent {
-  public readonly value = new FormControl([new ZuiDay(2017, 2, 15), new ZuiTime(12, 30, 15)]);
+export class PzmInputDateTimeWithSecondsExampleComponent {
+  public readonly value = new FormControl([new PzmDay(2017, 2, 15), new PzmTime(12, 30, 15)]);
 }

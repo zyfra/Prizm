@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ZUI_EMPTY_ARRAY, PolymorphComponent, ZUI_TREE_CONTENT, ZuiHandler } from '@digital-plant/zui-components';
+import { PZM_EMPTY_ARRAY, PolymorphComponent, PZM_TREE_CONTENT, PzmHandler } from '@digital-plant/zui-components';
 
 import { FoldersComponent } from './folder.component';
 
@@ -8,16 +8,16 @@ interface TreeNode {
   readonly children?: readonly TreeNode[];
 }
 @Component({
-  selector: 'zui-tree-component-example',
+  selector: 'pzm-tree-component-example',
   templateUrl: './tree-component-example.component.html',
   styles: [`
-    zui-tree {
+    pzm-tree {
       overflow: hidden;
     }
   `],
   providers: [
     {
-      provide: ZUI_TREE_CONTENT,
+      provide: PZM_TREE_CONTENT,
       useValue: new PolymorphComponent(FoldersComponent),
     },
   ]
@@ -47,7 +47,7 @@ export class TreeComponentExampleComponent {
     ],
   };
 
-  readonly handler: ZuiHandler<TreeNode, readonly TreeNode[]> = item =>
-    item.children || ZUI_EMPTY_ARRAY;
+  readonly handler: PzmHandler<TreeNode, readonly TreeNode[]> = item =>
+    item.children || PZM_EMPTY_ARRAY;
 }
 

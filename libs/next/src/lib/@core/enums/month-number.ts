@@ -1,4 +1,4 @@
-export const enum ZuiMonthNumber {
+export const enum PzmMonthNumber {
     January,
     February,
     March,

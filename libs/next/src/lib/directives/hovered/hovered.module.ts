@@ -1,9 +1,8 @@
-import {NgModule} from '@angular/core';
-
-import {ZuiHoveredDirective} from './hovered.directive';
+import { NgModule } from '@angular/core';
+import { PzmHoveredDirective } from './hovered.directive';
 
 @NgModule({
-    declarations: [ZuiHoveredDirective],
-    exports: [ZuiHoveredDirective],
+    declarations: [PzmHoveredDirective],
+    exports: [PzmHoveredDirective],
 })
-export class ZuiHoveredModule {}
+export class PzmHoveredModule {}

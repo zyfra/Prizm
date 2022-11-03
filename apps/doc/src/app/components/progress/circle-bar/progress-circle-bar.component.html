@@ -1,0 +1,100 @@
+<tui-doc-page
+  header="Progress Circle"
+  package="next"
+  type="components"
+>
+  <ng-template pageTab>
+    <p>
+      Use PzmProgressCircleComponent to view circle progress.
+    </p>
+
+    <tui-doc-example
+      id="base"
+      heading="Circle"
+      [content]="exampleCircle"
+    >
+      <pzm-progress-circle-example></pzm-progress-circle-example>
+    </tui-doc-example>
+
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <pzm-progress-circle
+        [size]="size"
+        [max]="max"
+        [color]="color"
+        [trackColor]="trackColor"
+        [value]="value"
+      ></pzm-progress-circle>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="color"
+        documentationPropertyType="string | null"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="color"
+        [documentationPropertyValues]="colorVariants"
+      >
+        Color
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="trackColor"
+        documentationPropertyType="string | null"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="trackColor"
+        [documentationPropertyValues]="trackColorVariants"
+      >
+        Track Color
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="value"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="value"
+      >
+        Value
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="max"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="max"
+      >
+        Max
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="PzmSizeS | PzmSizesXl"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+      >
+        Size
+      </ng-template>
+
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PzmProgressModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>
