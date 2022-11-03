@@ -34,13 +34,12 @@ stages:
 
 Build js image:
   stage: build
-  tags:
-    - docker
   script:
     - sh /kaniko/kaniko-build
   image:
     name: "$KANIKO_IMAGE"
     entrypoint: [""]
+  extends: [".tags_large"]
   rules:
     - if: "$SKIP_KANIKO_BUILD =~ /^(true|yes|on|1)$/i"
       when: never
