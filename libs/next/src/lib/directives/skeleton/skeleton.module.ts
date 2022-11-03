@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { PzmSkeletonDirective } from './skeleton.directive';
+import { PrizmSkeletonDirective } from './skeleton.directive';
 
 @NgModule({
-    declarations: [PzmSkeletonDirective],
-    exports: [PzmSkeletonDirective],
+    declarations: [PrizmSkeletonDirective],
+    exports: [PrizmSkeletonDirective],
 })
-export class PzmSkeletonModule {}
+export class PrizmSkeletonModule {}

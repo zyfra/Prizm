@@ -1,8 +1,8 @@
-export type PzmHorizontalDirection = 'left' | 'right';
+export type PrizmHorizontalDirection = 'left' | 'right';
 
-export type PzmVerticalDirection = 'top' | 'bottom';
+export type PrizmVerticalDirection = 'top' | 'bottom';
 
-export type PzmSideDirection =
+export type PrizmSideDirection =
     | 'bottom-left'
     | 'bottom-right'
     | 'bottom-middle'
@@ -10,4 +10,4 @@ export type PzmSideDirection =
     | 'top-right'
     | 'top-middle';
 
-export type PzmDirection = PzmHorizontalDirection | PzmSideDirection;
+export type PrizmDirection = PrizmHorizontalDirection | PrizmSideDirection;

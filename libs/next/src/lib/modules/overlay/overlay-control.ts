@@ -9,30 +9,30 @@ import {
 import {animationFrameScheduler, fromEvent, merge as mergeObs, Observable, Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map, observeOn, skipWhile, takeUntil, tap} from 'rxjs/operators';
 import {
-  PzmOverlayConfig,
-  PzmOverlayContent,
-  PzmOverlayContentData,
-  PzmOverlayContentProps,
-  PzmOverlayEventName,
-  PzmOverlayId
+  PrizmOverlayConfig,
+  PrizmOverlayContent,
+  PrizmOverlayContentData,
+  PrizmOverlayContentProps,
+  PrizmOverlayEventName,
+  PrizmOverlayId
 } from './models';
-import {PzmOverlayAbstractPosition} from './position/position';
-import {PzmOverlayComponent} from './overlay.component';
+import {PrizmOverlayAbstractPosition} from './position/position';
+import {PrizmOverlayComponent} from './overlay.component';
 import {BODY_ELEMENT, EventBus, getContent} from './utils';
 
-export class PzmOverlayControl {
-  position: PzmOverlayAbstractPosition;
-  readonly config: PzmOverlayConfig;
-  content: PzmOverlayContent;
-  zid: PzmOverlayId;
-  comp: PzmOverlayComponent;
+export class PrizmOverlayControl {
+  position: PrizmOverlayAbstractPosition;
+  readonly config: PrizmOverlayConfig;
+  content: PrizmOverlayContent;
+  zid: PrizmOverlayId;
+  comp: PrizmOverlayComponent;
   updateTextContent: Subject<string> = new Subject();
   hostView: ViewRef;
-  compRef: ComponentRef<PzmOverlayComponent>;
+  compRef: ComponentRef<PrizmOverlayComponent>;
 
   public viewEl: HTMLElement;
   isOpen = false;
-  private compFac: ComponentFactory<PzmOverlayComponent>;
+  private compFac: ComponentFactory<PrizmOverlayComponent>;
   private destroy$: Subject<1> = new Subject();
 
   constructor(
@@ -111,19 +111,19 @@ export class PzmOverlayControl {
     );
   }
 
-  public changePosition(newPosition: PzmOverlayAbstractPosition): void {
+  public changePosition(newPosition: PrizmOverlayAbstractPosition): void {
     this.position = newPosition;
   }
 
-  public updatePosition(positionConfig: PzmOverlayAbstractPosition): void {
+  public updatePosition(positionConfig: PrizmOverlayAbstractPosition): void {
     this.position.updateConfig(positionConfig);
   }
 
-  public updateContent(content: PzmOverlayContentData, props: PzmOverlayContentProps = {}): void {
+  public updateContent(content: PrizmOverlayContentData, props: PrizmOverlayContentProps = {}): void {
     this.content = getContent(content, { ...this.content.props, ...props });
   }
 
-  public listen<T = any>(eventName: PzmOverlayEventName): Observable<T> {
+  public listen<T = any>(eventName: PrizmOverlayEventName): Observable<T> {
     return EventBus.listen(this.zid, eventName);
   }
 
@@ -138,7 +138,7 @@ export class PzmOverlayControl {
 
   private attach(): void {
     /* create component */
-    this.compFac = this.compResolver.resolveComponentFactory(PzmOverlayComponent);
+    this.compFac = this.compResolver.resolveComponentFactory(PrizmOverlayComponent);
     this.compRef = this.compFac.create(this.injector);
     this.comp = this.compRef.instance;
 

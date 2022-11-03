@@ -3,8 +3,8 @@ import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
 import {
   PolymorphContent,
   PZM_HINT_DEFAULT_OPTIONS,
-  PzmHintOptions,
-  PzmOverlayOutsidePlacement
+  PrizmHintOptions,
+  PrizmOverlayOutsidePlacement
 } from "@digital-plant/zui-components";
 
 @Component({
@@ -18,9 +18,9 @@ export class HintComponent {
   public pzmHintCanShow = true;
   public content = "Тестовое содержимое";
 
-  public readonly pzmHintDirectionVariants: ReadonlyArray<PzmHintOptions['direction']> = Object.values(PzmOverlayOutsidePlacement);
+  public readonly pzmHintDirectionVariants: ReadonlyArray<PrizmHintOptions['direction']> = Object.values(PrizmOverlayOutsidePlacement);
 
-  public pzmHintDirection: PzmHintOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
+  public pzmHintDirection: PrizmHintOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
 
   public pzmHintId = 'hint-id';
 

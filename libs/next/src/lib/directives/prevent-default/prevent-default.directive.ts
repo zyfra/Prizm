@@ -1,5 +1,5 @@
 import { Attribute, Directive, ElementRef, Inject, NgZone } from '@angular/core';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { fromEvent, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { pzmPreventDefault } from '../../observables/prevent-default';
@@ -11,13 +11,13 @@ import { pzmZoneFree } from '../../observables/zone-free';
  */
 @Directive({
     selector: `[pzmPreventDefault]`,
-    providers: [PzmDestroyService],
+    providers: [PrizmDestroyService],
 })
-export class PzmPreventDefaultDirective {
+export class PrizmPreventDefaultDirective {
     constructor(
         @Inject(ElementRef) {nativeElement}: ElementRef<HTMLElement>,
         @Inject(NgZone) ngZone: NgZone,
-        @Inject(PzmDestroyService) destroy$: Observable<void>,
+        @Inject(PrizmDestroyService) destroy$: Observable<void>,
         @Attribute(`pzmPreventDefault`) eventName: string,
     ) {
         fromEvent(nativeElement, eventName, {passive: false})

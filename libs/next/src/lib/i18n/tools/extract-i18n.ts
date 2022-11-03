@@ -1,18 +1,18 @@
 import { inject } from '@angular/core';
 import { isObservable, Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { PzmLanguage } from '../interfaces';
+import { PrizmLanguage } from '../interfaces';
 
 import { PZM_LANGUAGE } from './language';
 
-export function pzmExtractI18n<K extends keyof PzmLanguage>(
+export function pzmExtractI18n<K extends keyof PrizmLanguage>(
     key: K,
-): () => Observable<PzmLanguage[K]> {
+): () => Observable<PrizmLanguage[K]> {
     return (): any =>
         inject(PZM_LANGUAGE).pipe(
-            switchMap((streamOrValue: Observable<PzmLanguage> | PzmLanguage) =>
+            switchMap((streamOrValue: Observable<PrizmLanguage> | PrizmLanguage) =>
                 isObservable(streamOrValue) ? streamOrValue : of(streamOrValue),
             ),
-            map((lang: PzmLanguage) => lang[key]),
+            map((lang: PrizmLanguage) => lang[key]),
         );
 }

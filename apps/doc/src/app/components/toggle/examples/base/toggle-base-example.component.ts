@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
     }
   `]
 })
-export class PzmToggleBaseExampleComponent implements OnInit {
+export class PrizmToggleBaseExampleComponent implements OnInit {
   public value = true;
   public readonly value2 = new FormControl(false);
   public valueDisabled = false;

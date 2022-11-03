@@ -7,16 +7,16 @@ import {
   OnInit,
   Optional,
 } from '@angular/core';
-import { PZM_DATALIST_OPTIONS, PzmDataListOptions } from './data-list-options';
+import { PZM_DATALIST_OPTIONS, PrizmDataListOptions } from './data-list-options';
 import { pzmDefaultProp } from '../../decorators';
-import { PzmScrollbarVisibility } from '../scrollbar';
+import { PrizmScrollbarVisibility } from '../scrollbar';
 import {
   PZM_DROPDOWN_CONTROLLER,
   PZM_DROPDOWN_DEFAULT_MAX_HEIGHT,
   PZM_DROPDOWN_DEFAULT_MIN_HEIGHT,
-  PzmDropdownControllerDirective,
+  PrizmDropdownControllerDirective,
 } from '../../directives/dropdown-controller';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 
 @Component({
@@ -24,14 +24,14 @@ import { takeUntil, tap } from 'rxjs/operators';
   templateUrl: './data-list.component.html',
   styleUrls: ['./data-list.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PzmDestroyService],
+  providers: [PrizmDestroyService],
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
     class: 'pzm-data-list',
     '[class.default]': 'defaultStyle',
   },
 })
-export class PzmDataListComponent implements OnInit {
+export class PrizmDataListComponent implements OnInit {
   @Input() defaultStyle = true;
 
   @Input()
@@ -40,7 +40,7 @@ export class PzmDataListComponent implements OnInit {
 
   @Input()
   @pzmDefaultProp()
-  scroll: PzmScrollbarVisibility = 'auto';
+  scroll: PrizmScrollbarVisibility = 'auto';
 
   @HostBinding('attr.testId')
   readonly testId = 'pzm_data_list';
@@ -48,10 +48,10 @@ export class PzmDataListComponent implements OnInit {
   constructor(
     @Inject(PZM_DROPDOWN_CONTROLLER)
     @Optional()
-    private readonly controller: PzmDropdownControllerDirective | null,
+    private readonly controller: PrizmDropdownControllerDirective | null,
     @Inject(PZM_DATALIST_OPTIONS)
-    public readonly options: PzmDataListOptions,
-    private readonly destroy$: PzmDestroyService,
+    public readonly options: PrizmDataListOptions,
+    private readonly destroy$: PrizmDestroyService,
     private readonly cdRef: ChangeDetectorRef
   ) {}
 

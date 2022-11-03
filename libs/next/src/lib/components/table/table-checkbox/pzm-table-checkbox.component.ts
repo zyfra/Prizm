@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input, Optional, ViewChild } from '@angular/core';
-import { PzmSelectableRowDirective } from '../directives/selectable-row.directive';
+import { PrizmSelectableRowDirective } from '../directives/selectable-row.directive';
 import { TableCheckbox } from 'primeng/table';
 
 @Component({
@@ -7,7 +7,7 @@ import { TableCheckbox } from 'primeng/table';
   templateUrl: './pzm-table-checkbox.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmTableCheckboxComponent {
+export class PrizmTableCheckboxComponent {
   @ViewChild('checkbox', { static: true }) checkbox: TableCheckbox;
 
   @Input() disabled: boolean;
@@ -21,7 +21,7 @@ export class PzmTableCheckboxComponent {
   @HostBinding('attr.testId')
   readonly testId = 'pzm_table_checkbox';
 
-  constructor(@Optional() private pzmSelectableRow: PzmSelectableRowDirective) {}
+  constructor(@Optional() private pzmSelectableRow: PrizmSelectableRowDirective) {}
 
   public onClick(event: Event): void {
     if (this.pzmSelectableRow) {

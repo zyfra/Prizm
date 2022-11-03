@@ -15,6 +15,6 @@ import { pzmGetInputDateNativeTransformer } from '@digital-plant/zui-components'
     pzmGetInputDateNativeTransformer()
   ]
 })
-export class PzmInputNativeDateBaseExampleComponent {
+export class PrizmInputNativeDateBaseExampleComponent {
   public readonly control = new FormControl(new Date());
 }

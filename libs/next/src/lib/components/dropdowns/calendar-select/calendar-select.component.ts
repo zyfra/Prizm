@@ -13,19 +13,19 @@ import {
   ViewChild,
 } from '@angular/core';
 import {
-  PzmOverlayControl,
-  PzmOverlayOutsidePlacement,
-  PzmOverlayRelativePosition,
-  PzmOverlayService,
+  PrizmOverlayControl,
+  PrizmOverlayOutsidePlacement,
+  PrizmOverlayRelativePosition,
+  PrizmOverlayService,
 } from '../../../modules/overlay';
 import { PolymorphContent } from '../../../directives';
 import { debounceTime, delay, filter, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { BehaviorSubject, combineLatest, fromEvent, Observable, Subject, timer, zip } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 import { pzmDefaultProp } from '../../../decorators';
-import { PZM_DROPDOWN_HOST_OPTIONS, PzmDropdownHostOptions } from './calendar-select.options';
-import { PzmDropdownHostWidth } from './models';
+import { PZM_DROPDOWN_HOST_OPTIONS, PrizmDropdownHostOptions } from './calendar-select.options';
+import { PrizmDropdownHostWidth } from './models';
 import { pzmGenerateId } from '../../../util';
 
 const PZM_DROPDOWN_TIME_DIFFERENCE = 1000/60;
@@ -36,11 +36,11 @@ const PZM_DROPDOWN_TIME_DIFFERENCE = 1000/60;
   styleUrls: ['./calendar-select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
-    PzmDestroyService
+    PrizmDestroyService
   ],
   exportAs: 'pzm-dropdown-host'
 })
-export class PzmDropdownHostComponent implements AfterViewInit {
+export class PrizmDropdownHostComponent implements AfterViewInit {
   @Input() content: PolymorphContent;
 
   @Input()
@@ -61,7 +61,7 @@ export class PzmDropdownHostComponent implements AfterViewInit {
 
   @Input()
   @pzmDefaultProp()
-  pzmDropdownHostWidth?: PzmDropdownHostWidth = this.options.width;
+  pzmDropdownHostWidth?: PrizmDropdownHostWidth = this.options.width;
 
   @Input()
   @pzmDefaultProp()
@@ -82,11 +82,11 @@ export class PzmDropdownHostComponent implements AfterViewInit {
     return this._autoReposition;
   }
 
-  private _placement: PzmOverlayOutsidePlacement = this.options.placement;
-  @Input() set placement(place: PzmOverlayOutsidePlacement) {
+  private _placement: PrizmOverlayOutsidePlacement = this.options.placement;
+  @Input() set placement(place: PrizmOverlayOutsidePlacement) {
     this.position?.updateConfig({placement: place});
   }
-  get placement(): PzmOverlayOutsidePlacement {
+  get placement(): PrizmOverlayOutsidePlacement {
     return this._placement;
   }
 
@@ -98,7 +98,7 @@ export class PzmDropdownHostComponent implements AfterViewInit {
 
   @Output() readonly isOpenChange = new EventEmitter<boolean>();
 
-  private overlay: PzmOverlayControl;
+  private overlay: PrizmOverlayControl;
   private isOpen$ = new BehaviorSubject(false);
 
   private readonly positionSource$ = new BehaviorSubject<string>('');
@@ -106,18 +106,18 @@ export class PzmDropdownHostComponent implements AfterViewInit {
     delay(0)
   );
 
-  private position: PzmOverlayRelativePosition;
+  private position: PrizmOverlayRelativePosition;
   readonly wrapper_class = 'pzm-overlay-dropdown-host no-overflow';
 
   @ViewChild('contentBlockRef') contentBlockRef: ElementRef;
 
   constructor(
-    private readonly pzmOverlayService: PzmOverlayService,
+    private readonly pzmOverlayService: PrizmOverlayService,
     @Inject(DOCUMENT) private readonly document: Document,
-    @Inject(PZM_DROPDOWN_HOST_OPTIONS) private readonly options: PzmDropdownHostOptions,
+    @Inject(PZM_DROPDOWN_HOST_OPTIONS) private readonly options: PrizmDropdownHostOptions,
     public readonly el: ElementRef<HTMLElement>,
     private readonly cdRef: ChangeDetectorRef,
-    private readonly destroy$: PzmDestroyService,
+    private readonly destroy$: PrizmDestroyService,
   ) {
     this.destroy$.addCallback(() => this.close());
   }
@@ -152,7 +152,7 @@ export class PzmDropdownHostComponent implements AfterViewInit {
   }
 
   private initOverlay(): void {
-    this.position = new PzmOverlayRelativePosition({
+    this.position = new PrizmOverlayRelativePosition({
       placement: this.placement,
       autoReposition: this.autoReposition,
       element: this.el.nativeElement,
@@ -178,7 +178,7 @@ export class PzmDropdownHostComponent implements AfterViewInit {
     this.containerClick$.next(Date.now());
   }
 
-  private initPositionListener(position: PzmOverlayRelativePosition): void {
+  private initPositionListener(position: PrizmOverlayRelativePosition): void {
     position.pos$.pipe(
       tap((data) => {
         if(!data.extra) return;

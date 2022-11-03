@@ -1,24 +1,24 @@
-import { PzmShadowType, PzmShadowTypeEnum, PzmShadowValue } from './models';
+import { PrizmShadowType, PrizmShadowTypeEnum, PrizmShadowValue } from './models';
 
-export function pzmGetShadow(type: PzmShadowType): PzmShadowValue {
+export function pzmGetShadow(type: PrizmShadowType): PrizmShadowValue {
   switch (type) {
-    case PzmShadowTypeEnum.miniBottom:
-      return PzmShadowValue.miniBottom
-    case PzmShadowTypeEnum.bigTop:
-      return PzmShadowValue.bigTop;
-    case PzmShadowTypeEnum.miniTop:
-      return PzmShadowValue.miniTop
-    case PzmShadowTypeEnum.bigBottom:
-      return PzmShadowValue.bigBottom
-    case PzmShadowTypeEnum.miniRight:
-      return PzmShadowValue.miniRight
-    case PzmShadowTypeEnum.bigRight:
-      return PzmShadowValue.bigRight
-    case PzmShadowTypeEnum.miniLeft:
-      return PzmShadowValue.miniLeft
-    case PzmShadowTypeEnum.bigLeft:
-      return PzmShadowValue.bigLeft
+    case PrizmShadowTypeEnum.miniBottom:
+      return PrizmShadowValue.miniBottom
+    case PrizmShadowTypeEnum.bigTop:
+      return PrizmShadowValue.bigTop;
+    case PrizmShadowTypeEnum.miniTop:
+      return PrizmShadowValue.miniTop
+    case PrizmShadowTypeEnum.bigBottom:
+      return PrizmShadowValue.bigBottom
+    case PrizmShadowTypeEnum.miniRight:
+      return PrizmShadowValue.miniRight
+    case PrizmShadowTypeEnum.bigRight:
+      return PrizmShadowValue.bigRight
+    case PrizmShadowTypeEnum.miniLeft:
+      return PrizmShadowValue.miniLeft
+    case PrizmShadowTypeEnum.bigLeft:
+      return PrizmShadowValue.bigLeft
     default:
-      return PzmShadowValue.none;
+      return PrizmShadowValue.none;
   }
 }

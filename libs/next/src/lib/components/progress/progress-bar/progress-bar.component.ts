@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { PzmSizeM, PzmSizeS } from '../../../util/size-bigger';
+import { PrizmSizeM, PrizmSizeS } from '../../../util/size-bigger';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { PzmSizeM, PzmSizeS } from '../../../util/size-bigger';
     styleUrls: [`./progress-bar.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmProgressBarComponent {
+export class PrizmProgressBarComponent {
     @Input()
     @HostBinding(`style.--pzm-progress-color`)
     color?: string;
@@ -23,5 +23,5 @@ export class PzmProgressBarComponent {
     @Input()
     @HostBinding(`attr.data-size`)
     @pzmDefaultProp()
-    size: PzmSizeS | PzmSizeM = `m`;
+    size: PrizmSizeS | PrizmSizeM = `m`;
 }

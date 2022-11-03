@@ -12,7 +12,7 @@ interface SomeData {
   styleUrls: ['./checkbox-group-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmCheckboxGroupExampleComponent {
+export class PrizmCheckboxGroupExampleComponent {
   data: Array<SomeData> = [
     { label: 'Родительский элемент 1', checked: false },
     { label: 'Родительский элемент 2', checked: false },

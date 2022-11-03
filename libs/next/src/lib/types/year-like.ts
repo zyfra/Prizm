@@ -1,6 +1,6 @@
 /**
  * Optionally has year
  */
-export interface PzmYearLike {
+export interface PrizmYearLike {
     readonly year?: number;
 }

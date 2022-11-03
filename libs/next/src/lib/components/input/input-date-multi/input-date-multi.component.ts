@@ -10,14 +10,14 @@ import {
   ViewChild,
 } from '@angular/core';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { PzmInputSize } from '../common/models/pzm-input.models';
-import { getProviderPzmDateLeftButtons, PZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
+import { PrizmInputSize } from '../common/models/pzm-input.models';
+import { getProviderPrizmDateLeftButtons, PZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { BehaviorSubject } from 'rxjs';
-import { PzmDateButton, PzmDateButtonContext } from '../../../types/date-button';
+import { PrizmDateButton, PrizmDateButtonContext } from '../../../types/date-button';
 
-export type PzmDateItemTemplate = {
+export type PrizmDateItemTemplate = {
   name: string;
-} & PzmDateButton;
+} & PrizmDateButton;
 
 @Component({
     selector: `pzm-input-date-multi`,
@@ -25,19 +25,19 @@ export type PzmDateItemTemplate = {
     styleUrls: [`./input-date-multi.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
-      getProviderPzmDateLeftButtons(),
+      getProviderPrizmDateLeftButtons(),
     ]
 })
-export class PzmInputDateMultiComponent implements OnInit {
+export class PrizmInputDateMultiComponent implements OnInit {
     @ViewChild('buttonLeft', { static: true }) buttonLeftTemplate: TemplateRef<unknown>;
 
-    private readonly _items$ = new BehaviorSubject<PzmDateItemTemplate[]>([]);
+    private readonly _items$ = new BehaviorSubject<PrizmDateItemTemplate[]>([]);
     @Input()
     @pzmDefaultProp()
-    set items(value: PzmDateItemTemplate[]) {
+    set items(value: PrizmDateItemTemplate[]) {
       this._items$.next(value);
     }
-    get items(): PzmDateItemTemplate[] {
+    get items(): PrizmDateItemTemplate[] {
       return this._items$.value;
     }
 
@@ -50,14 +50,14 @@ export class PzmInputDateMultiComponent implements OnInit {
 
     public open = false;
 
-    get context(): PzmDateButtonContext {
+    get context(): PrizmDateButtonContext {
       return {
         injector: this.injector
       }
     }
 
     constructor(
-      @Inject(PZM_DATE_RIGHT_BUTTONS) public readonly leftButtons$: BehaviorSubject<PzmDateButton[]>,
+      @Inject(PZM_DATE_RIGHT_BUTTONS) public readonly leftButtons$: BehaviorSubject<PrizmDateButton[]>,
       private readonly cdRef: ChangeDetectorRef,
       private readonly injector: Injector,
     ) {

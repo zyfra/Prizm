@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { PzmPressedDirective } from './pressed.directive';
+import { PrizmPressedDirective } from './pressed.directive';
 
 @NgModule({
-    declarations: [PzmPressedDirective],
-    exports: [PzmPressedDirective],
+    declarations: [PrizmPressedDirective],
+    exports: [PrizmPressedDirective],
 })
-export class PzmPressedModule {}
+export class PrizmPressedModule {}

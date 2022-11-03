@@ -1,13 +1,13 @@
-import { PzmDay } from "./day";
+import { PrizmDay } from "./day";
 
-export type PzmDayWithStatusColor = 'index' | 'warning' | 'success' | 'danger' | string;
+export type PrizmDayWithStatusColor = 'index' | 'warning' | 'success' | 'danger' | string;
 
-export class PzmDayWithStatus extends PzmDay {
+export class PrizmDayWithStatus extends PrizmDay {
   constructor(
     year: number,
     month: number,
     day: number,
-    readonly status: PzmDayWithStatusColor,
+    readonly status: PrizmDayWithStatusColor,
   ) {
     super(year, month, day);
   }

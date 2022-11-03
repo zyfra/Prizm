@@ -1,19 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PolymorphModule, PzmThemeModule } from '../../directives';
-import { PzmCardModule } from '../card';
-import { PzmWidgetComponent } from './widget.component';
-import { PzmIconModule } from '../icon';
+import { PolymorphModule, PrizmThemeModule } from '../../directives';
+import { PrizmCardModule } from '../card';
+import { PrizmWidgetComponent } from './widget.component';
+import { PrizmIconModule } from '../icon';
 
 @NgModule({
   imports: [
     CommonModule,
-    PzmCardModule,
-    PzmIconModule,
-    PzmThemeModule,
+    PrizmCardModule,
+    PrizmIconModule,
+    PrizmThemeModule,
     PolymorphModule,
   ],
-  declarations: [PzmWidgetComponent],
-  exports: [PzmWidgetComponent],
+  declarations: [PrizmWidgetComponent],
+  exports: [PrizmWidgetComponent],
 })
-export class PzmWidgetModule {}
+export class PrizmWidgetModule {}

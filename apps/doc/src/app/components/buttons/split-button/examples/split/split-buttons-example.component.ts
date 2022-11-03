@@ -21,4 +21,4 @@ import { Component } from '@angular/core';
   ],
   templateUrl: './split-buttons-example.component.html',
 })
-export class PzmSplitButtonsExampleComponent {}
+export class PrizmSplitButtonsExampleComponent {}

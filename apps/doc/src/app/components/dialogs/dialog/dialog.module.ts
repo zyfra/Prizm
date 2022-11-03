@@ -4,13 +4,13 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
-  PzmButtonModule,
-  PzmDialogModule,
-  PzmRadioButtonModule,
+  PrizmButtonModule,
+  PrizmDialogModule,
+  PrizmRadioButtonModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogComponent } from './dialog.component';
-import { PzmDialogServiceExampleComponent } from './examples/base/base.component';
+import { PrizmDialogServiceExampleComponent } from './examples/base/base.component';
 
 @NgModule({
   imports: [
@@ -19,13 +19,13 @@ import { PzmDialogServiceExampleComponent } from './examples/base/base.component
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PzmButtonModule,
-    PzmDialogModule,
-    PzmRadioButtonModule,
+    PrizmButtonModule,
+    PrizmDialogModule,
+    PrizmRadioButtonModule,
     RouterModule.forChild(generateRoutes(DialogComponent)),
   ],
   declarations: [
-    PzmDialogServiceExampleComponent,
+    PrizmDialogServiceExampleComponent,
     DialogComponent
   ],
   exports: [DialogComponent],

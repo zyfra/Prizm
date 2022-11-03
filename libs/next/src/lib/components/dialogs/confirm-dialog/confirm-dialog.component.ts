@@ -2,11 +2,11 @@ import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, In
 import { Observable } from 'rxjs';
 import { PZM_ANIMATIONS_DURATION } from '../../../tokens';
 import { PZM_DIALOG_CLOSE_STREAM, PZM_DIALOG_PROVIDERS } from '../dialog/dialog-options';
-import { PzmAnimationOptions, pzmFadeIn, pzmSlideInTop } from '../../../animations';
+import { PrizmAnimationOptions, pzmFadeIn, pzmSlideInTop } from '../../../animations';
 import { takeUntil } from 'rxjs/operators';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
-import { PzmBaseDialogContext, PzmDialogSize } from '../dialog';
-import { PzmConfirmDialogOptions, PzmConfirmDialogResultDefaultType } from './confirm-dialog.models';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmBaseDialogContext, PrizmDialogSize } from '../dialog';
+import { PrizmConfirmDialogOptions, PrizmConfirmDialogResultDefaultType } from './confirm-dialog.models';
 
 @Component({
     selector: 'pzm-confirm-dialog',
@@ -16,15 +16,15 @@ import { PzmConfirmDialogOptions, PzmConfirmDialogResultDefaultType } from './co
     providers: PZM_DIALOG_PROVIDERS,
     animations: [pzmSlideInTop, pzmFadeIn],
 })
-export class PzmDialogConfirmComponent<DATA = unknown> {
+export class PrizmDialogConfirmComponent<DATA = unknown> {
     @Input()
-    public context!: PzmBaseDialogContext<PzmConfirmDialogResultDefaultType, PzmConfirmDialogOptions<DATA>>;
+    public context!: PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogOptions<DATA>>;
 
     @Input()
     public close!: () => void;
 
     @HostBinding('attr.pzm-size')
-    public get size(): PzmDialogSize {
+    public get size(): PrizmDialogSize {
       return this.context.size
     };
 
@@ -35,7 +35,7 @@ export class PzmDialogConfirmComponent<DATA = unknown> {
 
     @HostBinding('@pzmSlideInTop')
     @HostBinding('@pzmFadeIn')
-    public get slideInTop(): PzmAnimationOptions {
+    public get slideInTop(): PrizmAnimationOptions {
       return this.animation;
     }
 
@@ -53,7 +53,7 @@ export class PzmDialogConfirmComponent<DATA = unknown> {
     constructor(
         @Inject(PZM_ANIMATIONS_DURATION) private readonly duration: number,
         @Inject(PZM_DIALOG_CLOSE_STREAM) readonly close$: Observable<unknown>,
-        private readonly destroy$: PzmDestroyService,
+        private readonly destroy$: PrizmDestroyService,
         private readonly elRef: ElementRef,
     ) {
         close$.pipe(takeUntil(this.destroy$)).subscribe(() => {

@@ -1,18 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PzmScrollControlsComponent } from './scroll-controls.component';
-import { PzmScrollbarWrapperDirective } from './scrollbar-wrapper.directive';
-import { PzmLetModule } from '@digital-plant/zyfra-helpers';
-import { PzmScrollbarDirective } from './scrollbar.directive';
-import { PzmThemeModule } from '../../directives/theme';
+import { PrizmScrollControlsComponent } from './scroll-controls.component';
+import { PrizmScrollbarWrapperDirective } from './scrollbar-wrapper.directive';
+import { PrizmLetModule } from '@digital-plant/zyfra-helpers';
+import { PrizmScrollbarDirective } from './scrollbar.directive';
+import { PrizmThemeModule } from '../../directives/theme';
 
 @NgModule({
-    imports: [CommonModule, PzmLetModule, PzmThemeModule],
+    imports: [CommonModule, PrizmLetModule, PrizmThemeModule],
     declarations: [
-        PzmScrollbarDirective,
-        PzmScrollbarWrapperDirective,
-        PzmScrollControlsComponent,
+        PrizmScrollbarDirective,
+        PrizmScrollbarWrapperDirective,
+        PrizmScrollControlsComponent,
     ],
-    exports: [PzmScrollControlsComponent],
+    exports: [PrizmScrollControlsComponent],
 })
-export class PzmScrollControlsModule {}
+export class PrizmScrollControlsModule {}

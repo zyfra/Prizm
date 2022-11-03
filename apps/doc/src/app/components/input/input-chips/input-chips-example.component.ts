@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { PzmChipsComponent, PzmInputTextComponent } from '@digital-plant/zui-components';
+import { PrizmChipsComponent, PrizmInputTextComponent } from '@digital-plant/zui-components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
@@ -15,8 +15,8 @@ export class InputChipsExampleComponent {
   public disabled = false;
   public singleLine = false;
 
-  @ViewChild(PzmInputTextComponent, { static: false }) input: PzmInputTextComponent;
-  @ViewChild(PzmChipsComponent, { static: false }) chipsComponent: PzmChipsComponent;
+  @ViewChild(PrizmInputTextComponent, { static: false }) input: PrizmInputTextComponent;
+  @ViewChild(PrizmChipsComponent, { static: false }) chipsComponent: PrizmChipsComponent;
 
   public readonly pzmInputChipsExample: TuiDocExample = {
     TypeScript: import(

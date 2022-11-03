@@ -1,1 +1,1 @@
-export type PzmTimeFormatParts = 'HH' | 'MM' | 'SS' | 'MS';
+export type PrizmTimeFormatParts = 'HH' | 'MM' | 'SS' | 'MS';

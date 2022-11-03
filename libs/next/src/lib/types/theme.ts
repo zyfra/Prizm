@@ -1,1 +1,1 @@
-export type PzmTheme = 'dark' | 'light' | string;
+export type PrizmTheme = 'dark' | 'light' | string;

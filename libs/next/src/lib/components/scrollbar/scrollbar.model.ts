@@ -1,3 +1,3 @@
-export type PzmScrollbarVisibility = `auto`
+export type PrizmScrollbarVisibility = `auto`
   | `hidden`
   | `visible`;

@@ -5,7 +5,7 @@ import { PZM_TAKE_ONLY_TRUSTED_EVENTS } from '../../tokens/take-only-trusted-eve
 @Directive({
     selector: '[pzmPressedChange]',
 })
-export class PzmPressedDirective {
+export class PrizmPressedDirective {
     @Output()
     readonly pzmPressedChange = pzmPressedObservable(this.elementRef.nativeElement, {
         onlyTrusted: this.takeOnlyTrustedEvents,

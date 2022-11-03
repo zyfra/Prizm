@@ -1,27 +1,27 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PolymorphModule, PzmFocusTrapModule } from '../../../directives';
-import { PzmOverlayModule } from '../../../modules/overlay';
-import { PzmButtonModule } from '../../button';
-import { PzmSidebarComponent } from './sidebar.component';
-import { PzmScrollbarModule } from '../../scrollbar';
-import { PzmInputIconButtonModule } from '../../input/common/input-icon-button/input-icon-button.module';
+import { PolymorphModule, PrizmFocusTrapModule } from '../../../directives';
+import { PrizmOverlayModule } from '../../../modules/overlay';
+import { PrizmButtonModule } from '../../button';
+import { PrizmSidebarComponent } from './sidebar.component';
+import { PrizmScrollbarModule } from '../../scrollbar';
+import { PrizmInputIconButtonModule } from '../../input/common/input-icon-button/input-icon-button.module';
 
 @NgModule({
   imports: [
     CommonModule,
     PolymorphModule,
-    PzmOverlayModule,
-    PzmInputIconButtonModule,
-    PzmButtonModule,
-    PzmFocusTrapModule,
-    PzmScrollbarModule
+    PrizmOverlayModule,
+    PrizmInputIconButtonModule,
+    PrizmButtonModule,
+    PrizmFocusTrapModule,
+    PrizmScrollbarModule
   ],
   declarations: [
-    PzmSidebarComponent
+    PrizmSidebarComponent
   ],
   exports: [
-    PzmSidebarComponent
+    PrizmSidebarComponent
   ],
 })
-export class PzmSidebarModule {}
+export class PrizmSidebarModule {}

@@ -1,2 +1,2 @@
-export {PzmLetModule} from './let.module';
-export {PzmLetDirective} from './let.directive';
+export {PrizmLetModule} from './let.module';
+export {PrizmLetDirective} from './let.directive';

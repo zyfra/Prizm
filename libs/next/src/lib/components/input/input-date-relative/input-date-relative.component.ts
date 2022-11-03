@@ -16,7 +16,7 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgControl, Valida
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
 import { pzmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
-import { PzmInputSize } from '../common/models/pzm-input.models';
+import { PrizmInputSize } from '../common/models/pzm-input.models';
 import {
   getDefaultRelativeDateMenuItems,
   IdByGroup,
@@ -29,7 +29,7 @@ import {
 import { ParseTextInput, RenderText, UpdateActiveItem } from './input-date-relative.utils';
 import { pzmIsNativeFocused } from '../../../util';
 import { PZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
-import { PzmDateButton } from '../../../types/date-button';
+import { PrizmDateButton } from '../../../types/date-button';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
 const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?';
@@ -41,13 +41,13 @@ const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => PzmInputDateRelativeComponent),
+      useExisting: forwardRef(() => PrizmInputDateRelativeComponent),
       multi: true,
     },
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmInputDateRelativeComponent implements AfterViewInit, OnInit, ControlValueAccessor, OnDestroy {
+export class PrizmInputDateRelativeComponent implements AfterViewInit, OnInit, ControlValueAccessor, OnDestroy {
   @ViewChild('focusableElementRef', {read: ElementRef})
   public readonly focusableElement?: ElementRef<HTMLInputElement>;
 
@@ -77,7 +77,7 @@ export class PzmInputDateRelativeComponent implements AfterViewInit, OnInit, Con
 
   @Input()
   @pzmDefaultProp()
-  public size: PzmInputSize = 'm';
+  public size: PrizmInputSize = 'm';
 
   @Input()
   @pzmDefaultProp()
@@ -103,7 +103,7 @@ export class PzmInputDateRelativeComponent implements AfterViewInit, OnInit, Con
 
   private readonly subscriptions = new Subscription();
 
-  public rightButtons$: BehaviorSubject<PzmDateButton[]>;
+  public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
 
   constructor(
     public readonly injector: Injector,

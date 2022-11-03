@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { PzmInputValidationTexts } from '@digital-plant/zui-components';
+import { PrizmInputValidationTexts } from '@digital-plant/zui-components';
 
 @Injectable()
-export class InputValidationCustomTextsService extends PzmInputValidationTexts {
+export class InputValidationCustomTextsService extends PrizmInputValidationTexts {
   private readonly invalidTextCustomMap = new Map<string, string>([['required', 'Очень обязательное поле']]);
 
   public override getText(key: string): string | undefined {

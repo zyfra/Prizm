@@ -1,9 +1,9 @@
 import { InjectionToken } from '@angular/core';
-import { PzmDateMode } from '../../types/date-mode';
+import { PrizmDateMode } from '../../types/date-mode';
 
-export const PZM_DATE_FORMAT = new InjectionToken<PzmDateMode>(
+export const PZM_DATE_FORMAT = new InjectionToken<PrizmDateMode>(
     `Active date format for Zyfra UI`,
     {
-        factory: (): PzmDateMode => `DMY`,
+        factory: (): PrizmDateMode => `DMY`,
     },
 );

@@ -17,7 +17,7 @@ import { AnimationOptions } from '@angular/animations';
       pzmFadeIn
     ],
 })
-export class PzmScrollControlsComponent {
+export class PrizmScrollControlsComponent {
     @HostBinding('attr.testId')
     readonly testId = 'pzm_scroll_controls';
 

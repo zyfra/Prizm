@@ -9,15 +9,15 @@ import {
     switchMap,
     takeUntil,
 } from 'rxjs/operators';
-import {filterNotNullish, PzmDestroyService} from "@digital-plant/zyfra-helpers";
+import {filterNotNullish, PrizmDestroyService} from "@digital-plant/zyfra-helpers";
 import {pzmTypedFromEvent} from '../../observables/typed-from-event';
 import {pzmPreventDefault} from '../../observables/prevent-default';
 
 @Directive({
     selector: '[pzmDroppableDropped], [pzmDroppableDragOverChange]',
-    providers: [PzmDestroyService],
+    providers: [PrizmDestroyService],
 })
-export class PzmDroppableDirective {
+export class PrizmDroppableDirective {
     @Output()
     readonly pzmDroppableDropped: Observable<DataTransfer>;
 
@@ -26,7 +26,7 @@ export class PzmDroppableDirective {
 
     constructor(
         @Inject(ElementRef) {nativeElement}: ElementRef<HTMLElement>,
-        @Inject(PzmDestroyService) destroy$: Observable<void>,
+        @Inject(PrizmDestroyService) destroy$: Observable<void>,
     ) {
         this.pzmDroppableDropped = pzmTypedFromEvent(nativeElement, 'drop').pipe(
             pzmPreventDefault(),

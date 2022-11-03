@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 
-import {PzmLifecycleDirective} from './lifecycle.directive';
+import {PrizmLifecycleDirective} from './lifecycle.directive';
 
 @NgModule({
-    declarations: [PzmLifecycleDirective],
-    exports: [PzmLifecycleDirective],
+    declarations: [PrizmLifecycleDirective],
+    exports: [PrizmLifecycleDirective],
 })
-export class PzmLifecycleModule {}
+export class PrizmLifecycleModule {}

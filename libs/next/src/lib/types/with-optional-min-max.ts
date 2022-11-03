@@ -1,8 +1,8 @@
-export interface PzmWithOptionalMinMax<T> {
+export interface PrizmWithOptionalMinMax<T> {
     min: T | null;
     max: T | null;
 }
 
-export interface PzmWithOptionalMinMaxWithValue<T, V> extends PzmWithOptionalMinMax<V> {
+export interface PrizmWithOptionalMinMaxWithValue<T, V> extends PrizmWithOptionalMinMax<V> {
     value: T;
 }

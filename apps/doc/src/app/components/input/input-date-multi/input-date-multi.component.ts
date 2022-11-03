@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { FormControl } from '@angular/forms';
-import { PzmDateItemTemplate, PzmDay, PzmTime } from '@digital-plant/zui-components';
+import { PrizmDateItemTemplate, PrizmDay, PrizmTime } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-input-date-multi-example',
@@ -29,9 +29,9 @@ export class InputDateMultiRelativeComponent implements OnInit {
     HTML: import('!!raw-loader!./examples/four/input-date-multi-four-example.component.html'),
   };
 
-  public readonly timeControl = new FormControl([new PzmDay(2017, 2, 15), new PzmTime(12, 30)]);
+  public readonly timeControl = new FormControl([new PrizmDay(2017, 2, 15), new PrizmTime(12, 30)]);
   public readonly relativeControl = new FormControl();
-  public items: PzmDateItemTemplate[] = [];
+  public items: PrizmDateItemTemplate[] = [];
 
   public ngOnInit(): void {
     this.items = [

@@ -1,8 +1,8 @@
-import { PzmDecimalSymbol } from '../../types/decimal-symbol';
+import { PrizmDecimalSymbol } from '../../types/decimal-symbol';
 
-export interface PzmNumberMaskOptions {
+export interface PrizmNumberMaskOptions {
     readonly allowDecimal?: boolean;
-    readonly decimalSymbol?: PzmDecimalSymbol;
+    readonly decimalSymbol?: PrizmDecimalSymbol;
     readonly thousandSymbol?: string;
     readonly autoCorrectDecimalSymbol?: boolean;
     readonly decimalLimit?: number;

@@ -1,23 +1,23 @@
-import { PzmTimeMode } from '../../types/time-mode';
+import { PrizmTimeMode } from '../../types/time-mode';
 import { PZM_DATE_FILLER_LENGTH } from '../date-time/date-fillers';
-import { PzmAutoCorrectedDatePipeConfigs, pzmNormalizeDateValue } from './create-auto-corrected-date-pipe';
+import { PrizmAutoCorrectedDatePipeConfigs, pzmNormalizeDateValue } from './create-auto-corrected-date-pipe';
 import { pzmCreateAutoCorrectedTimePipe } from './create-auto-corrected-time-pipe';
-import { PzmTextMaskPipeHandler } from './text-mask-pipe-handler';
-import { PzmTextMaskOptions } from './text-mask-options';
-import { PzmTextMaskConfig } from './text-mask-config';
+import { PrizmTextMaskPipeHandler } from './text-mask-pipe-handler';
+import { PrizmTextMaskOptions } from './text-mask-options';
+import { PrizmTextMaskConfig } from './text-mask-config';
 import { PZM_DATE_TIME_SEPARATOR } from '../../constants/date-time-separator';
-import { PzmTextMaskPipeResult } from './text-mask-pipe-result';
+import { PrizmTextMaskPipeResult } from './text-mask-pipe-result';
 
-interface PzmAutoCorrectedDateTimePipeConfigs extends PzmAutoCorrectedDatePipeConfigs {
-    timeMode: PzmTimeMode;
+interface PrizmAutoCorrectedDateTimePipeConfigs extends PrizmAutoCorrectedDatePipeConfigs {
+    timeMode: PrizmTimeMode;
 }
 
 export function pzmCreateAutoCorrectedDateTimePipe(
-    configs: PzmAutoCorrectedDateTimePipeConfigs,
-): PzmTextMaskPipeHandler {
+    configs: PrizmAutoCorrectedDateTimePipeConfigs,
+): PrizmTextMaskPipeHandler {
     const timePipe = pzmCreateAutoCorrectedTimePipe(configs.timeMode);
 
-    return (value: string): string | PzmTextMaskPipeResult | false => {
+    return (value: string): string | PrizmTextMaskPipeResult | false => {
         if (value.length < PZM_DATE_FILLER_LENGTH) {
             return {value};
         }
@@ -32,7 +32,7 @@ export function pzmCreateAutoCorrectedDateTimePipe(
 
         const pipedTime = timePipe(
             time,
-            {} as unknown as PzmTextMaskOptions & PzmTextMaskConfig,
+            {} as unknown as PrizmTextMaskOptions & PrizmTextMaskConfig,
         );
 
         if (!pipedTime || typeof pipedTime === `string`) {

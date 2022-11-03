@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PzmWidgetComponent } from './widget.component';
+import { PrizmWidgetComponent } from './widget.component';
 
-xdescribe('PzmWidgetComponent', () => {
-  let component: PzmWidgetComponent;
-  let fixture: ComponentFixture<PzmWidgetComponent>;
+xdescribe('PrizmWidgetComponent', () => {
+  let component: PrizmWidgetComponent;
+  let fixture: ComponentFixture<PrizmWidgetComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PzmWidgetComponent]
+      declarations: [PrizmWidgetComponent]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PzmWidgetComponent);
+    fixture = TestBed.createComponent(PrizmWidgetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

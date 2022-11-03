@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
-import { PzmMonthRange } from '../../../@core/date-time/month-range';
+import { PrizmMonthRange } from '../../../@core/date-time/month-range';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { PZM_FIRST_DAY, PZM_LAST_DAY, PzmDay, PzmDayRange, PzmMonth } from '../../../@core/date-time';
-import { PzmBooleanHandler } from '../../../types/handler';
+import { PZM_FIRST_DAY, PZM_LAST_DAY, PrizmDay, PrizmDayRange, PrizmMonth } from '../../../@core/date-time';
+import { PrizmBooleanHandler } from '../../../types/handler';
 import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
 import { pzmInRange } from '../../../util/math/in-range';
-import { PzmInteractiveState } from '../../../directives';
-import { PzmRangeState } from '../../../@core/enums/range-state';
+import { PrizmInteractiveState } from '../../../directives';
+import { PrizmRangeState } from '../../../@core/enums/range-state';
 import { pzmPure } from '../../../decorators/pure';
 
 const ITEMS_IN_ROW = 3;
@@ -18,38 +18,38 @@ const ROWS = 4;
     styleUrls: [`./primitive-month-picker.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmPrimitiveMonthPickerComponent {
+export class PrizmPrimitiveMonthPickerComponent {
     private hoveredItem: number | null = null;
     private pressedItem: number | null = null;
-    private readonly currentMonth = PzmMonth.currentLocal().month;
+    private readonly currentMonth = PrizmMonth.currentLocal().month;
 
     public readonly ITEMS_IN_ROW = ITEMS_IN_ROW;
     @Input()
     @pzmDefaultProp()
-    value: PzmMonthRange | PzmMonth | PzmDayRange | null = null;
+    value: PrizmMonthRange | PrizmMonth | PrizmDayRange | null = null;
 
     @Input()
     @pzmDefaultProp()
-    currentYear: number = PzmMonth.currentLocal().year;
+    currentYear: number = PrizmMonth.currentLocal().year;
 
     @Input()
     @pzmDefaultProp()
-    initialItem: PzmMonth = PzmMonth.currentLocal();
+    initialItem: PrizmMonth = PrizmMonth.currentLocal();
 
     @Input()
     @pzmDefaultProp()
-    min: PzmMonth = PZM_FIRST_DAY;
+    min: PrizmMonth = PZM_FIRST_DAY;
 
     @Input()
     @pzmDefaultProp()
-    max: PzmMonth = PZM_LAST_DAY;
+    max: PrizmMonth = PZM_LAST_DAY;
 
     @Input()
     @pzmDefaultProp()
-    disabledItemHandler: PzmBooleanHandler<number> = PZM_ALWAYS_FALSE_HANDLER;
+    disabledItemHandler: PrizmBooleanHandler<number> = PZM_ALWAYS_FALSE_HANDLER;
 
     @Output()
-    readonly monthClick = new EventEmitter<PzmMonth>();
+    readonly monthClick = new EventEmitter<PrizmMonth>();
 
     @HostBinding(`class._single`)
     get isSingle(): boolean {
@@ -65,8 +65,8 @@ export class PzmPrimitiveMonthPickerComponent {
         return ROWS;
     }
 
-    public isRange(item: PzmMonthRange | PzmMonth): item is PzmMonthRange {
-        return item instanceof PzmMonthRange;
+    public isRange(item: PrizmMonthRange | PrizmMonth): item is PrizmMonthRange {
+        return item instanceof PrizmMonthRange;
     }
 
     public scrollItemIntoView(item: number): boolean {
@@ -74,49 +74,49 @@ export class PzmPrimitiveMonthPickerComponent {
     }
 
     @pzmPure
-    public getItem(rowIndex: number, colIndex: number): PzmMonth {
+    public getItem(rowIndex: number, colIndex: number): PrizmMonth {
       const month = (colIndex) + (rowIndex * ITEMS_IN_ROW);
 
-      return new PzmMonth(this.currentYear, month);
+      return new PrizmMonth(this.currentYear, month);
     }
 
-    public getItemState(item: number): PzmInteractiveState | null {
+    public getItemState(item: number): PrizmInteractiveState | null {
         const {disabledItemHandler, max, pressedItem, hoveredItem} = this;
 
       if (
             (max.month < item && max.year <= this.currentYear) ||
             (disabledItemHandler !== PZM_ALWAYS_FALSE_HANDLER && disabledItemHandler(item))
         ) {
-            return PzmInteractiveState.Disabled;
+            return PrizmInteractiveState.Disabled;
         }
 
         if (pressedItem === item) {
-            return PzmInteractiveState.Pressed;
+            return PrizmInteractiveState.Pressed;
         }
 
         if (hoveredItem === item) {
-            return PzmInteractiveState.Hovered;
+            return PrizmInteractiveState.Hovered;
         }
 
         return null;
     }
 
-    public getItemRange(item: number): PzmRangeState | null {
+    public getItemRange(item: number): PrizmRangeState | null {
         const {value, hoveredItem} = this;
 
         if (value === null) {
             return null;
         }
 
-        if (value instanceof PzmMonth) {
-            return value.month === item && value.year === this.currentYear ? PzmRangeState.Single : null;
+        if (value instanceof PrizmMonth) {
+            return value.month === item && value.year === this.currentYear ? PrizmRangeState.Single : null;
         }
 
         if (
-           this.value instanceof PzmDayRange &&
-          this.value.isMonthInRange(new PzmMonth(this.currentYear, item))
+           this.value instanceof PrizmDayRange &&
+          this.value.isMonthInRange(new PrizmMonth(this.currentYear, item))
         )  {
-          return PzmRangeState.Single;
+          return PrizmRangeState.Single;
         }
 
         if (
@@ -130,10 +130,10 @@ export class PzmPrimitiveMonthPickerComponent {
                 hoveredItem === value.from.month &&
                 value.from.monthSame(value.to))
         ) {
-            return PzmRangeState.Single;
+            return PrizmRangeState.Single;
 
             // TODO finish it after add support intervals
-            // return PzmRangeState.Start;
+            // return PrizmRangeState.Start;
         }
 
         // TODO finish it after add support intervals
@@ -148,14 +148,14 @@ export class PzmPrimitiveMonthPickerComponent {
         //         hoveredItem > value.from.month &&
         //         value.from.monthSame(value.to))
         // ) {
-        //   return PzmRangeState.Single;
+        //   return PrizmRangeState.Single;
         //
         //
-        //   // return PzmRangeState.End;
+        //   // return PrizmRangeState.End;
         // }
 
         return value.from.monthSame(value.to) && value.from.month === item && value.from.year === this.currentYear
-            ? PzmRangeState.Single
+            ? PrizmRangeState.Single
             : null;
     }
 
@@ -208,7 +208,7 @@ export class PzmPrimitiveMonthPickerComponent {
         // TODO delete after update dropdown-host (need activeZone optionan, for dynamic change elements)
         $event.stopImmediatePropagation();
 
-        this.monthClick.emit(new PzmMonth(this.currentYear, item));
+        this.monthClick.emit(new PrizmMonth(this.currentYear, item));
     }
 
     private updateHoveredItem(hovered: boolean, item: number): void {

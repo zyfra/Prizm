@@ -21,4 +21,4 @@ import { Component } from '@angular/core';
   ],
   templateUrl: './icons-buttons-example.component.html',
 })
-export class PzmIconsButtonsExampleComponent {}
+export class pzmIconsButtonsExampleComponent {}

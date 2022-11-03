@@ -1,21 +1,21 @@
 import { PZM_MAX_TIME_VALUES } from '../../constants/max-time-values';
-import { PzmTimeFormatParts } from '../../types/time-format-parts';
-import { PzmTimeMode } from '../../types/time-mode';
-import { PzmTextMaskPipeHandler } from './text-mask-pipe-handler';
-import { PzmTextMaskPipeResult } from './text-mask-pipe-result';
+import { PrizmTimeFormatParts } from '../../types/time-format-parts';
+import { PrizmTimeMode } from '../../types/time-mode';
+import { PrizmTextMaskPipeHandler } from './text-mask-pipe-handler';
+import { PrizmTextMaskPipeResult } from './text-mask-pipe-result';
 
 
 export function pzmCreateAutoCorrectedTimePipe(
-    timeMode: PzmTimeMode = `HH:MM`,
-    maxValues: Partial<Record<PzmTimeFormatParts, number>> = {},
-): PzmTextMaskPipeHandler {
+    timeMode: PrizmTimeMode = `HH:MM`,
+    maxValues: Partial<Record<PrizmTimeFormatParts, number>> = {},
+): PrizmTextMaskPipeHandler {
     const timeFormatArray = [`HH`, `MM`, `SS`, `MS`] as const;
     const safeValues = {
         ...PZM_MAX_TIME_VALUES,
         ...maxValues,
     };
 
-    return (conformedValue: string): string | PzmTextMaskPipeResult | false => {
+    return (conformedValue: string): string | PrizmTextMaskPipeResult | false => {
         const indexesOfPipedChars: number[] = [];
         const conformedValueArr = conformedValue.split(``);
 

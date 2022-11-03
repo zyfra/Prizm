@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { InputDateRelativeRelativeComponent } from './input-date-relative.component';
-import { PolymorphModule, PzmInputDateRelativeModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PrizmInputDateRelativeModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PzmInputDateRelativeBaseExampleComponent } from './examples/base/input-date-relative-base-example.component';
+import { PrizmInputDateRelativeBaseExampleComponent } from './examples/base/input-date-relative-base-example.component';
 
 
 @NgModule({
@@ -15,11 +15,11 @@ import { PzmInputDateRelativeBaseExampleComponent } from './examples/base/input-
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PzmInputDateRelativeModule,
+    PrizmInputDateRelativeModule,
     RouterModule.forChild(generateRoutes(InputDateRelativeRelativeComponent)),
   ],
   declarations: [
-    PzmInputDateRelativeBaseExampleComponent,
+    PrizmInputDateRelativeBaseExampleComponent,
     InputDateRelativeRelativeComponent
   ],
   exports: [InputDateRelativeRelativeComponent],

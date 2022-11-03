@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { PzmScrollIntoViewDirective } from './scroll-into-view.directive';
+import { PrizmScrollIntoViewDirective } from './scroll-into-view.directive';
 
 @NgModule({
-    declarations: [PzmScrollIntoViewDirective],
-    exports: [PzmScrollIntoViewDirective],
+    declarations: [PrizmScrollIntoViewDirective],
+    exports: [PrizmScrollIntoViewDirective],
 })
-export class PzmScrollIntoViewModule {}
+export class PrizmScrollIntoViewModule {}

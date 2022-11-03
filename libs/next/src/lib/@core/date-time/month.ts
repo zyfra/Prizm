@@ -1,45 +1,45 @@
-import { PzmMonthLike } from '../../types/month-like';
+import { PrizmMonthLike } from '../../types/month-like';
 import { pzmPadStart } from '../../util/format/pad-start';
 import { pzmInRange } from '../../util/math/in-range';
 import { pzmNormalizeToIntNumber } from '../../util/math/normalize-to-int-number';
-import { PzmMonthNumber } from '../enums/month-number';
+import { PrizmMonthNumber } from '../enums/month-number';
 
 import { PZM_DAYS_IN_WEEK, PZM_MAX_MONTH, PZM_MIN_MONTH, PZM_MONTHS_IN_YEAR } from './date-time';
-import { PzmYear } from './year';
+import { PrizmYear } from './year';
 
 /**
  * Immutable object consisting of year and month
  */
-export class PzmMonth extends PzmYear implements PzmMonthLike {
+export class PrizmMonth extends PrizmYear implements PrizmMonthLike {
     /**
      * @param year
      * @param month (starting with 0)
      */
     constructor(year: number, readonly month: number) {
         super(year);
-        console.assert(PzmMonth.isValidMonth(year, month));
+        console.assert(PrizmMonth.isValidMonth(year, month));
     }
 
     /**
      * Tests month and year for validity
      */
     public static isValidMonth(year: number, month: number): boolean {
-        return PzmYear.isValidYear(year) && PzmMonth.isValidMonthPart(month);
+        return PrizmYear.isValidYear(year) && PrizmMonth.isValidMonthPart(month);
     }
 
     /**
      * Returns number of days in a month
      */
     public static getMonthDaysCount(month: number, isLeapYear: boolean): number {
-        console.assert(PzmMonth.isValidMonthPart(month));
+        console.assert(PrizmMonth.isValidMonthPart(month));
 
         switch (month) {
-            case PzmMonthNumber.February:
+            case PrizmMonthNumber.February:
                 return isLeapYear ? 29 : 28;
-            case PzmMonthNumber.April:
-            case PzmMonthNumber.June:
-            case PzmMonthNumber.September:
-            case PzmMonthNumber.November:
+            case PrizmMonthNumber.April:
+            case PrizmMonthNumber.June:
+            case PrizmMonthNumber.September:
+            case PrizmMonthNumber.November:
                 return 30;
             default:
                 return 31;
@@ -50,22 +50,22 @@ export class PzmMonth extends PzmYear implements PzmMonthLike {
      * Returns current month and year based on local time zone
      * @nosideeffects
      */
-    public static currentLocal(): PzmMonth {
+    public static currentLocal(): PrizmMonth {
         const nativeDate = new Date();
 
-        return new PzmMonth(nativeDate.getFullYear(), nativeDate.getMonth());
+        return new PrizmMonth(nativeDate.getFullYear(), nativeDate.getMonth());
     }
 
     /**
      * Returns current month and year based on UTC
      */
-    public static currentUtc(): PzmMonth {
+    public static currentUtc(): PrizmMonth {
         const nativeDate = new Date();
 
-        return new PzmMonth(nativeDate.getUTCFullYear(), nativeDate.getUTCMonth());
+        return new PrizmMonth(nativeDate.getUTCFullYear(), nativeDate.getUTCMonth());
     }
 
-    public static override lengthBetween(from: PzmMonth, to: PzmMonth): number {
+    public static override lengthBetween(from: PrizmMonth, to: PrizmMonth): number {
         const absoluteFrom = from.month + from.year * 12;
         const absoluteTo = to.month + to.year * 12;
 
@@ -111,7 +111,7 @@ export class PzmMonth extends PzmYear implements PzmMonthLike {
      * Returns days in a month
      */
     public get daysCount(): number {
-        return PzmMonth.getMonthDaysCount(this.month, this.isLeapYear);
+        return PrizmMonth.getMonthDaysCount(this.month, this.isLeapYear);
     }
 
     /**
@@ -123,7 +123,7 @@ export class PzmMonth extends PzmYear implements PzmMonthLike {
         let result = this.yearStartDaysOffset;
 
         for (let currentMonth = 0; currentMonth <= this.month - 1; currentMonth++) {
-            result += PzmMonth.getMonthDaysCount(currentMonth, this.isLeapYear);
+            result += PrizmMonth.getMonthDaysCount(currentMonth, this.isLeapYear);
         }
 
         return result % PZM_DAYS_IN_WEEK;
@@ -132,7 +132,7 @@ export class PzmMonth extends PzmYear implements PzmMonthLike {
     /**
      * Passed month and year are after current
      */
-    public monthBefore(another: PzmMonth): boolean {
+    public monthBefore(another: PrizmMonth): boolean {
         return (
             this.yearBefore(another) ||
             (this.yearSame(another) && this.month < another.month)
@@ -142,7 +142,7 @@ export class PzmMonth extends PzmYear implements PzmMonthLike {
     /**
      * Passed month and year are after or the same as current
      */
-    public monthSameOrBefore(another: PzmMonth): boolean {
+    public monthSameOrBefore(another: PrizmMonth): boolean {
         return (
             this.yearBefore(another) ||
             (this.yearSame(another) && this.month <= another.month)
@@ -152,14 +152,14 @@ export class PzmMonth extends PzmYear implements PzmMonthLike {
     /**
      * Passed month and year are the same as current
      */
-    public monthSame(another: PzmMonth): boolean {
+    public monthSame(another: PrizmMonth): boolean {
         return this.yearSame(another) && this.month === another.month;
     }
 
     /**
      * Passed month and year are either before or equal to current
      */
-    public monthSameOrAfter(another: PzmMonth): boolean {
+    public monthSameOrAfter(another: PrizmMonth): boolean {
         return (
             this.yearAfter(another) ||
             (this.yearSame(another) && this.month >= another.month)
@@ -169,7 +169,7 @@ export class PzmMonth extends PzmYear implements PzmMonthLike {
     /**
      * Passed month and year are before current
      */
-    public monthAfter(another: PzmMonth): boolean {
+    public monthAfter(another: PrizmMonth): boolean {
         return (
             this.yearAfter(another) ||
             (this.yearSame(another) && this.month > another.month)
@@ -184,7 +184,7 @@ export class PzmMonth extends PzmYear implements PzmMonthLike {
      * @param backwards shift date backwards
      * @return new month and year object as a result of offsetting current
      */
-    public override append({year = 0, month = 0}: PzmMonthLike, backwards: boolean = false): PzmMonth {
+    public override append({year = 0, month = 0}: PrizmMonthLike, backwards: boolean = false): PrizmMonth {
         if (backwards) {
             year *= -1;
             month *= -1;
@@ -192,7 +192,7 @@ export class PzmMonth extends PzmYear implements PzmMonthLike {
 
         const totalMonths = (this.year + year) * PZM_MONTHS_IN_YEAR + this.month + month;
 
-        return new PzmMonth(
+        return new PrizmMonth(
             Math.floor(totalMonths / PZM_MONTHS_IN_YEAR),
             totalMonths % PZM_MONTHS_IN_YEAR,
         );

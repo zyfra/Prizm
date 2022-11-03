@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PolymorphContent, PzmInputSize, pzmPure, PzmScrollbarVisibility } from '@digital-plant/zui-components';
+import { PolymorphContent, PrizmInputSize, pzmPure, PrizmScrollbarVisibility } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -14,7 +14,7 @@ export class SelectComponent {
   searchable = false;
   outer = false;
   label = 'Выберите участника';
-  get sizeVariants(): ReadonlyArray<PzmInputSize> {
+  get sizeVariants(): ReadonlyArray<PrizmInputSize> {
     return this.outer
       ? ['s', 'm', 'l']
       : ['m', 'l'];
@@ -31,7 +31,7 @@ export class SelectComponent {
   minDropdownHeight = 0;
   maxDropdownHeight = 342;
   placeholder = '';
-  visibility: PzmScrollbarVisibility = 'auto';
+  visibility: PrizmScrollbarVisibility = 'auto';
   readonly itemsVariants: ReadonlyArray<string[] | null> = [
     [
       'Андрей Сафанов Андрей Сафанов Андрей Сафанов Андрей Сафанов',

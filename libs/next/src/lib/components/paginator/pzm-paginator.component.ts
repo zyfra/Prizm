@@ -12,7 +12,7 @@ import {
   styleUrls: ['./pzm-paginator.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmPaginatorComponent {
+export class PrizmPaginatorComponent {
   @Input() public paginatorType: PaginatorType = 'finite';
   // Суммарное количество данных
   @Input() public totalRecords: number | null = null;

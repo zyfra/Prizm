@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { PzmInputCommonModule } from '../common/input-common.module';
-import { PzmInputTextComponent } from './input-text.component';
-import { PzmTextareaDirective } from './textarea.directive';
+import { PrizmInputCommonModule } from '../common/input-common.module';
+import { PrizmInputTextComponent } from './input-text.component';
+import { PrizmTextareaDirective } from './textarea.directive';
 
 @NgModule({
-  imports: [PzmInputCommonModule],
-  declarations: [PzmInputTextComponent, PzmTextareaDirective],
-  exports: [PzmInputCommonModule, PzmInputTextComponent, PzmTextareaDirective],
+  imports: [PrizmInputCommonModule],
+  declarations: [PrizmInputTextComponent, PrizmTextareaDirective],
+  exports: [PrizmInputCommonModule, PrizmInputTextComponent, PrizmTextareaDirective],
 })
-export class PzmInputTextModule {}
+export class PrizmInputTextModule {}
 

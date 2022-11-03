@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
-import {PzmLetDirective} from './let.directive';
+import {PrizmLetDirective} from './let.directive';
 
 @NgModule({
-    declarations: [PzmLetDirective],
-    exports: [PzmLetDirective],
+    declarations: [PrizmLetDirective],
+    exports: [PrizmLetDirective],
 })
-export class PzmLetModule {}
+export class PrizmLetModule {}

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { PzmCarouselComponent } from './carousel.component';
+import { PrizmCarouselComponent } from './carousel.component';
 
 @Component({
   selector: 'pzm-carousel-auxiliary-right',
@@ -27,7 +27,7 @@ import { PzmCarouselComponent } from './carousel.component';
     `,
   ],
 })
-export class PzmCarouselAuxiliaryRightComponent {
-  @Input() carousel: PzmCarouselComponent;
+export class PrizmCarouselAuxiliaryRightComponent {
+  @Input() carousel: PrizmCarouselComponent;
 }
 

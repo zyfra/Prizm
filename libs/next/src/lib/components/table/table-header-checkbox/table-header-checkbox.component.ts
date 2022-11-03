@@ -5,7 +5,7 @@ import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
   templateUrl: './table-header-checkbox.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmTableHeaderCheckboxComponent {
+export class PrizmTableHeaderCheckboxComponent {
   @HostBinding('attr.testId')
   readonly testId = 'pzm_table_header_checkbox';
 }

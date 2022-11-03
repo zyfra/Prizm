@@ -1,13 +1,13 @@
 ```ts
 import {NgModule} from '@angular/core';
-import {PzmCardModule} from "@digital-plant/zui-components";
+import {PrizmCardModule} from "@digital-plant/zui-components";
 
 // ...
 
 @NgModule({
   imports: [
     // ...
-    PzmCardModule,
+    PrizmCardModule,
   ],
 })
 export class MyModule {}

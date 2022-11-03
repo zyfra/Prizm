@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, HostBinding, Inject, ViewChild } from '@angular/core';
-import { PzmThemeService } from '@digital-plant/zui-components';
+import { PrizmThemeService } from '@digital-plant/zui-components';
 import { map } from 'rxjs/operators';
 import { LOCAL_STORAGE } from '@ng-web-apis/common';
 import { TuiBrightness } from '@taiga-ui/core';
@@ -22,7 +22,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   constructor(
-    private readonly themeSwitcher: PzmThemeService,
+    private readonly themeSwitcher: PrizmThemeService,
     @Inject(LOCAL_STORAGE) private readonly storage: Storage,
   ) {
   }

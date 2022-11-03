@@ -8,7 +8,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PzmWrappedFormComponent } from '../../@core/value-accessor/pzm-wrapped-form-component.directive';
+import { PrizmWrappedFormComponent } from '../../@core/value-accessor/pzm-wrapped-form-component.directive';
 
 @Component({
   selector: 'pzm-radio-button',
@@ -17,7 +17,7 @@ import { PzmWrappedFormComponent } from '../../@core/value-accessor/pzm-wrapped-
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class PzmRadioButtonComponent extends PzmWrappedFormComponent {
+export class PrizmRadioButtonComponent extends PrizmWrappedFormComponent {
   @Input()
   @HostBinding('attr.radio-size')
   size: 's' | 'm' | 'l' = 'm';

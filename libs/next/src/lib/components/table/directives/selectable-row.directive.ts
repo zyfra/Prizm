@@ -4,7 +4,7 @@ import { SelectableRow } from 'primeng/table';
 @Directive({
   selector: '[pzmSelectableRow]',
 })
-export class PzmSelectableRowDirective extends SelectableRow {
+export class PrizmSelectableRowDirective extends SelectableRow {
   @Input('pzmSelectableRow') override data: any;
   @Input('pzmSelectableRowIndex') override index: number;
 

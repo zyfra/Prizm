@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PzmCarouselArrayContent, PzmInputSize, PzmInputStatus } from '@digital-plant/zui-components';
+import { PrizmCarouselArrayContent, PrizmInputSize, PrizmInputStatus } from '@digital-plant/zui-components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
@@ -9,20 +9,20 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
   styleUrls: ['./carousel-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmCarouselExampleComponent {
+export class PrizmCarouselExampleComponent {
   value = 5;
   formControl = new FormControl();
   public label = 'Заголовок';
   public placeholder = '';
   public outer: false;
-  public size: PzmInputSize = 'l';
-  public sizesOuter: PzmInputSize[] = ['l', 'm', 's'];
-  public sizesInner: PzmInputSize[] = ['l', 'm'];
+  public size: PrizmInputSize = 'l';
+  public sizesOuter: PrizmInputSize[] = ['l', 'm', 's'];
+  public sizesInner: PrizmInputSize[] = ['l', 'm'];
   public disabled = false;
-  public status: PzmInputStatus = 'default';
-  public statuses: PzmInputStatus[] = ['default', 'success', 'warning', 'danger'];
+  public status: PrizmInputStatus = 'default';
+  public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];
   public required = false;
-  carouselContent = new PzmCarouselArrayContent([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], (item, el) => item === el);
+  carouselContent = new PrizmCarouselArrayContent([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], (item, el) => item === el);
   lightMode = false;
   public readonly zyfraCarouselBasicExample: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/carousel-basic-example/carousel-basic-example.component.ts'),

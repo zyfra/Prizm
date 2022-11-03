@@ -1,7 +1,7 @@
 /**
  * @deprecated
  */
-export const enum PzmBaseColor {
+export const enum PrizmBaseColor {
     Primary = `primary`,
     Secondary = `secondary`,
     Success = `success`,

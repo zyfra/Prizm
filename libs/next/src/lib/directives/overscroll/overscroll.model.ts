@@ -1,1 +1,1 @@
-export type PzmOverscrollMode = 'all' | 'scroll' | 'none';
+export type PrizmOverscrollMode = 'all' | 'scroll' | 'none';

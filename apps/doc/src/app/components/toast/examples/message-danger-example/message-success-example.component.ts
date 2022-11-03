@@ -1,5 +1,5 @@
 import {Component, TemplateRef} from '@angular/core';
-import {PzmToastService, PzmToastAppearance, PzmToastPosition} from "@digital-plant/zui-components";
+import {PrizmToastService, PrizmToastAppearance, PrizmToastPosition} from "@digital-plant/zui-components";
 import {FormControl} from "@angular/forms";
 
 @Component({
@@ -39,39 +39,39 @@ import {FormControl} from "@angular/forms";
     }
   `]
 })
-export class PzmToastDangerExampleComponent {
+export class PrizmToastDangerExampleComponent {
 
   readonly data = [
     {
-      val: PzmToastPosition.TOP_MIDDLE,
+      val: PrizmToastPosition.TOP_MIDDLE,
       label: 'Top Middle',
     },
     {
-      val: PzmToastPosition.TOP_LEFT,
+      val: PrizmToastPosition.TOP_LEFT,
       label: 'Top Left',
     },
     {
-      val: PzmToastPosition.TOP_RIGHT,
+      val: PrizmToastPosition.TOP_RIGHT,
       label: 'Top Right',
     },
     {
-      val: PzmToastPosition.BOTTOM_MIDDLE,
+      val: PrizmToastPosition.BOTTOM_MIDDLE,
       label: 'Bottom Middle',
     },
     {
-      val: PzmToastPosition.BOTTOM_LEFT,
+      val: PrizmToastPosition.BOTTOM_LEFT,
       label: 'Bottom Left',
     },
     {
-      val: PzmToastPosition.BOTTOM_RIGHT,
+      val: PrizmToastPosition.BOTTOM_RIGHT,
       label: 'Bottom Right',
     },
   ];
 
-  appearance: PzmToastAppearance = 'danger';
-  readonly formControl = new FormControl(PzmToastPosition.TOP_RIGHT);
+  appearance: PrizmToastAppearance = 'danger';
+  readonly formControl = new FormControl(PrizmToastPosition.TOP_RIGHT);
 
-  constructor(private readonly toastService: PzmToastService) {
+  constructor(private readonly toastService: PrizmToastService) {
   }
 
   public showToast(): void {

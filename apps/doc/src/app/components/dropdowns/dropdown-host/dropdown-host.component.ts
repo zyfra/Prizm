@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, TemplateRef, ViewChild } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PolymorphContent, PzmOverlayOutsidePlacement } from '@digital-plant/zui-components';
+import { PolymorphContent, PrizmOverlayOutsidePlacement } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-dropdown-host-example',
@@ -15,10 +15,10 @@ export class DropdownHostComponent {
 
   autoReposition: boolean;
 
-  placementVariants: ReadonlyArray<PzmOverlayOutsidePlacement> = [
-    ...Object.values(PzmOverlayOutsidePlacement),
+  placementVariants: ReadonlyArray<PrizmOverlayOutsidePlacement> = [
+    ...Object.values(PrizmOverlayOutsidePlacement),
   ];
-  placement: PzmOverlayOutsidePlacement;
+  placement: PrizmOverlayOutsidePlacement;
   closeOnBackdropClick = false;
 
   @ViewChild('withHeaderAndFooter') withHeaderAndFooter: TemplateRef<unknown>;

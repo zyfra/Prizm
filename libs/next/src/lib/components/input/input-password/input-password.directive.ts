@@ -1,17 +1,17 @@
 import { Directive, ElementRef, Host, HostBinding } from '@angular/core';
-import { PzmInputTextComponent } from '../input-text/input-text.component';
+import { PrizmInputTextComponent } from '../input-text/input-text.component';
 
 @Directive({
   selector: 'input[pzmInputPassword]',
   exportAs: 'pzmInputPassword',
 })
-export class PzmInputPasswordDirective {
+export class PrizmInputPasswordDirective {
   @HostBinding('attr.testId')
   readonly testId = 'pzm_input_password';
 
   constructor(
     @Host() private readonly el: ElementRef<HTMLInputElement>,
-    @Host() private readonly pzmInputText: PzmInputTextComponent
+    @Host() private readonly pzmInputText: PrizmInputTextComponent
   ) {
     this.el.nativeElement.type = 'password';
     this._passwordHidden = true;

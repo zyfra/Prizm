@@ -1,20 +1,20 @@
 import { Directive, ElementRef, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { pzmDefaultProp } from '../../decorators';
 
-import { PZM_MUTATION_OBSERVER_OPTIONS, PzmMutationObserveOptions } from './mutation-observer-options';
+import { PZM_MUTATION_OBSERVER_OPTIONS, PrizmMutationObserveOptions } from './mutation-observer-options';
 
 @Directive({
   selector: '[pzmMutationObserver]',
   providers: [
-    PzmDestroyService,
+    PrizmDestroyService,
   ],
   exportAs: 'pzmMutationObserverEl'
 })
-export class PzmMutationObserveDirective implements OnInit {
+export class PrizmMutationObserveDirective implements OnInit {
   @Input()
   @pzmDefaultProp()
-  public pzmMutationObserverConfig: PzmMutationObserveOptions['config'] = this.options.config;
+  public pzmMutationObserverConfig: PrizmMutationObserveOptions['config'] = this.options.config;
 
   @Input()
   @pzmDefaultProp()
@@ -27,8 +27,8 @@ export class PzmMutationObserveDirective implements OnInit {
 
   constructor(
     @Inject(ElementRef) private readonly el: ElementRef<HTMLElement>,
-    @Inject(PzmDestroyService) private readonly destroy$: PzmDestroyService,
-    @Inject(PZM_MUTATION_OBSERVER_OPTIONS) protected readonly options: PzmMutationObserveOptions,
+    @Inject(PrizmDestroyService) private readonly destroy$: PrizmDestroyService,
+    @Inject(PZM_MUTATION_OBSERVER_OPTIONS) protected readonly options: PrizmMutationObserveOptions,
   ) {
     this.observer = new MutationObserver((records: MutationRecord[]) => {
       this.pzmMutationObserver.emit(records);

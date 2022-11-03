@@ -15,9 +15,9 @@ import {
   Self,
 } from '@angular/core';
 import { NgControl, Validators } from '@angular/forms';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { takeUntil, tap } from 'rxjs/operators';
-import { PzmInputControl } from '../common/base/input-control.class';
+import { PrizmInputControl } from '../common/base/input-control.class';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -29,9 +29,9 @@ import { PzmInputControl } from '../common/base/input-control.class';
     '[disabled]': 'disabled',
   },
   styleUrls: ['input-text.component.less'],
-  providers: [{ provide: PzmInputControl, useExisting: PzmInputTextComponent }, PzmDestroyService],
+  providers: [{ provide: PrizmInputControl, useExisting: PrizmInputTextComponent }, PrizmDestroyService],
 })
-export class PzmInputTextComponent extends PzmInputControl<string> implements DoCheck, OnInit, OnDestroy {
+export class PrizmInputTextComponent extends PrizmInputControl<string> implements DoCheck, OnInit, OnDestroy {
   /**
    * Disabled input
    */
@@ -122,7 +122,7 @@ export class PzmInputTextComponent extends PzmInputControl<string> implements Do
   constructor(
     @Optional() @Self() public readonly ngControl: NgControl,
     public readonly elementRef: ElementRef<HTMLInputElement | HTMLTextAreaElement>,
-    private readonly pzmDestroyService: PzmDestroyService,
+    private readonly pzmDestroyService: PrizmDestroyService,
     private readonly cdr: ChangeDetectorRef
   ) {
     super();

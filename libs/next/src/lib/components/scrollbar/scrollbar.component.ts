@@ -12,15 +12,15 @@ import { CSS, USER_AGENT } from '@ng-web-apis/common';
 import { pzmIsFirefox } from '../../util/browser';
 import { PZM_SCROLL_INTO_VIEW, PZM_SCROLLABLE } from '../../constants/events';
 import { pzmGetElementOffset } from '../../util/dom';
-import { PzmHoveredService } from '../../services';
+import { PrizmHoveredService } from '../../services';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { shareReplay, switchMap } from 'rxjs/operators';
-import { PzmScrollbarVisibility } from './scrollbar.model';
+import { PrizmScrollbarVisibility } from './scrollbar.model';
 
 export function scrollRefFactory(
  {
    browserScrollRef,
- }: PzmScrollbarComponent
+ }: PrizmScrollbarComponent
 ): ElementRef<HTMLElement> {
   return browserScrollRef;
 }
@@ -35,16 +35,16 @@ export function scrollRefFactory(
         {
           provide: PZM_SCROLL_REF,
           useFactory: scrollRefFactory,
-          deps: [PzmScrollbarComponent],
+          deps: [PrizmScrollbarComponent],
         },
     ],
 })
-export class PzmScrollbarComponent {
+export class PrizmScrollbarComponent {
     @Input()
-    set visibility(visibility: PzmScrollbarVisibility) {
+    set visibility(visibility: PrizmScrollbarVisibility) {
       this.visibility$.next(visibility)
     }
-    get visibility(): PzmScrollbarVisibility {
+    get visibility(): PrizmScrollbarVisibility {
       return this.visibility$.value;
     }
 
@@ -57,11 +57,11 @@ export class PzmScrollbarComponent {
       !this.cssRef.supports('position', 'sticky') ||
       (pzmIsFirefox(this.userAgent) && !this.cssRef.supports('scrollbar-width', 'none'));
 
-    private readonly visibility$: BehaviorSubject<PzmScrollbarVisibility> = new BehaviorSubject<PzmScrollbarVisibility>('auto');
+    private readonly visibility$: BehaviorSubject<PrizmScrollbarVisibility> = new BehaviorSubject<PrizmScrollbarVisibility>('auto');
 
     public readonly showScrollbars$: Observable<boolean> = this.visibility$.pipe(
-      switchMap<PzmScrollbarVisibility, Observable<boolean>>(
-        (visibility: PzmScrollbarVisibility) => {
+      switchMap<PrizmScrollbarVisibility, Observable<boolean>>(
+        (visibility: PrizmScrollbarVisibility) => {
           const canShow = !this.isIos && (!this.isLegacy || this.delegated);
           if (!canShow) return of(false);
 
@@ -85,7 +85,7 @@ export class PzmScrollbarComponent {
     readonly browserScrollRef = new ElementRef(this.elementRef.nativeElement);
 
     constructor(
-        private readonly hoveredService: PzmHoveredService,
+        private readonly hoveredService: PrizmHoveredService,
         @Inject(CSS) private readonly cssRef: any,
         private readonly elementRef: ElementRef,
         @Inject(USER_AGENT) private readonly userAgent: string,

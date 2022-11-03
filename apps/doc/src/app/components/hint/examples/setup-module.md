@@ -1,10 +1,10 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PzmHintModule } from '@digital-plant/zui-components';
+import { PrizmHintModule } from '@digital-plant/zui-components';
 
 @NgModule({
   imports: [
-    PzmHintModule,
+    PrizmHintModule,
   ],
 })
 export class MyModule {

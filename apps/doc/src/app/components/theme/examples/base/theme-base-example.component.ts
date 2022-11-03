@@ -13,4 +13,4 @@ import { Component } from '@angular/core';
     }
   `]
 })
-export class PzmThemeBaseExampleComponent {}
+export class PrizmThemeBaseExampleComponent {}

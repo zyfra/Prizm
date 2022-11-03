@@ -12,7 +12,7 @@ import {
   withLatestFrom,
 } from 'rxjs/operators';
 import { pzmIsAlive } from './is-alive';
-import { PzmOwnerDocumentException } from '../exceptions';
+import { PrizmOwnerDocumentException } from '../exceptions';
 import { pzmIsNativeFocused } from '../util';
 import { pzmTypedFromEvent } from './typed-from-event';
 
@@ -24,7 +24,7 @@ export function pzmFocusVisibleObservable(element: Element): Observable<boolean>
     const {ownerDocument} = element;
 
     if (!ownerDocument) {
-        throw new PzmOwnerDocumentException();
+        throw new PrizmOwnerDocumentException();
     }
 
     if (!documentMouseDownIsAlive$ || !documentMouseUpIsAlive$) {

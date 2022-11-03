@@ -1,7 +1,7 @@
 import { AbstractControl, AbstractControlDirective } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith } from 'rxjs/operators';
-import { PzmValueChangesException } from '../exceptions/value-changes.exception';
+import { PrizmValueChangesException } from '../exceptions/value-changes.exception';
 
 /**
  * Turns AbstractControl/Abstract-control-directive valueChanges into ReplaySubject(1)
@@ -11,7 +11,7 @@ export function pzmReplayedValueChangesFrom<T>(
 ): Observable<T> {
     return new Observable(subscriber => {
         if (!control.valueChanges) {
-            throw new PzmValueChangesException();
+            throw new PrizmValueChangesException();
         }
 
         control.valueChanges.pipe(startWith(control.value)).subscribe(subscriber);

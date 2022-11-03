@@ -1,7 +1,7 @@
 import { InjectionToken } from '@angular/core';
 import { pzmExtractI18n } from '../i18n/tools';
 import { Observable } from 'rxjs';
-import { PzmDateMode } from '../types/date-mode';
+import { PrizmDateMode } from '../types/date-mode';
 
 export const PZM_MONTHS = new InjectionToken(`Localized months names`, {
     factory: pzmExtractI18n(`months`),
@@ -19,7 +19,7 @@ export const PZM_OTHER_DATE_TEXT = new InjectionToken(`i18n 'Other date' text`, 
   factory: pzmExtractI18n(`otherDate`),
 });
 
-export const PZM_DATE_TEXTS = new InjectionToken<Observable<Record<PzmDateMode, string>>>(
+export const PZM_DATE_TEXTS = new InjectionToken<Observable<Record<PrizmDateMode, string>>>(
   `date format i18n texts`,
   {
     factory: pzmExtractI18n(`dateTexts`),

@@ -26,5 +26,5 @@ import {Component} from '@angular/core';
     `
   ],
 })
-export class PzmLoaderBaseExampleComponent {
+export class PrizmLoaderBaseExampleComponent {
 }

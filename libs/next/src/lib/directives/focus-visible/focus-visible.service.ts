@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, ElementRef, Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { pzmWatch } from '../../observables/watch';
 import { pzmFocusVisibleObservable } from '../../observables/focus-visible-observable';
 
@@ -11,13 +11,13 @@ import { pzmFocusVisibleObservable } from '../../observables/focus-visible-obser
  * in browsers that do not support it
  */
 @Injectable()
-export class PzmFocusVisibleService extends Observable<boolean> {
+export class PrizmFocusVisibleService extends Observable<boolean> {
     private readonly focusVisible$: Observable<boolean>;
 
     constructor(
         @Inject(ElementRef) {nativeElement}: ElementRef<Element>,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
-        @Inject(PzmDestroyService) destroy$: Observable<void>,
+        @Inject(PrizmDestroyService) destroy$: Observable<void>,
     ) {
         super(subscriber => this.focusVisible$.subscribe(subscriber));
 

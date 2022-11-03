@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PzmScrollbarVisibility, PzmSizeL, PzmSizeM } from '@digital-plant/zui-components';
+import { PrizmScrollbarVisibility, PrizmSizeL, PrizmSizeM } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-scrollbar-example',
@@ -10,12 +10,12 @@ import { PzmScrollbarVisibility, PzmSizeL, PzmSizeM } from '@digital-plant/zui-c
 })
 export class ScrollbarComponent {
 
-  public readonly visibilityVariants: ReadonlyArray<PzmScrollbarVisibility> = [
+  public readonly visibilityVariants: ReadonlyArray<PrizmScrollbarVisibility> = [
     'auto',
     'hidden',
     'visible'
   ];
-  public visibility: PzmScrollbarVisibility = this.visibilityVariants[0];
+  public visibility: PrizmScrollbarVisibility = this.visibilityVariants[0];
 
   public readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'

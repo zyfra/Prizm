@@ -15,34 +15,34 @@ import { NgControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PZM_INPUT_DATE_RANGE_PROVIDERS } from './input-date-range.providers';
-import { AbstractPzmNullableControl } from '../../../abstract/nullable-control';
-import { PzmDayRange } from '../../../@core/date-time/day-range';
-import { PzmWithOptionalMinMax } from '../../../types/with-optional-min-max';
-import { PzmDay } from '../../../@core/date-time/day';
-import { PzmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
+import { AbstractPrizmNullableControl } from '../../../abstract/nullable-control';
+import { PrizmDayRange } from '../../../@core/date-time/day-range';
+import { PrizmWithOptionalMinMax } from '../../../types/with-optional-min-max';
+import { PrizmDay } from '../../../@core/date-time/day';
+import { PrizmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
 import { pzmCreateDateRangeMask } from '../../../@core/mask/create-date-range-mask';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { PzmBooleanHandler } from '../../../types/handler';
+import { PrizmBooleanHandler } from '../../../types/handler';
 import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
-import { PzmMarkerHandler } from '../../../types/marker-handler';
+import { PrizmMarkerHandler } from '../../../types/marker-handler';
 import { PZM_DEFAULT_MARKER_HANDLER } from '../../../constants/default-marker-handler';
-import { PzmMonth } from '../../../@core/date-time/month';
-import { PzmDayRangePeriod } from '../../../@core/classes/day-range-period';
+import { PrizmMonth } from '../../../@core/date-time/month';
+import { PrizmDayRangePeriod } from '../../../@core/classes/day-range-period';
 import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../../@core/date-time/days.const';
-import { PzmDayLike } from '../../../types/day-like';
-import { PzmMapper } from '../../../types/mapper';
+import { PrizmDayLike } from '../../../types/day-like';
+import { PrizmMapper } from '../../../types/mapper';
 import { PZM_MAX_DAY_RANGE_LENGTH_MAPPER } from '../../../constants/max-day-range-length-mapper';
 import { PZM_DATE_SEPARATOR, pzmChangeDateSeparator } from '../../../@core/date-time/date-separator';
 import { PZM_IS_MOBILE } from '../../../tokens/is-mobile';
-import { PzmDialogService } from '../../dialogs/dialog/dialog.service';
+import { PrizmDialogService } from '../../dialogs/dialog/dialog.service';
 import { PZM_MOBILE_CALENDAR } from '../../../tokens/mobile-calendar';
 import { PZM_DATE_FORMAT } from '../../../@core/date-time/date-format';
-import { PzmDateMode } from '../../../types/date-mode';
+import { PrizmDateMode } from '../../../types/date-mode';
 import { PZM_DATE_TEXTS } from '../../../tokens/i18n';
 import { PZM_DATE_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
-import { PzmControlValueTransformer } from '../../../types/control-value-transformer';
+import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 import { pzmNullableSame } from '../../../util/common/nullable-same';
-import { PzmInputSize } from '../common/models/pzm-input.models';
+import { PrizmInputSize } from '../common/models/pzm-input.models';
 import { PZM_DATE_FILLER_LENGTH, PZM_DATE_RANGE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
 import { PZM_RANGE_SEPARATOR_CHAR } from '../../../@core/date-time/date-time';
 import { pzmSetNativeFocused } from '../../../util/set-native-focused';
@@ -54,28 +54,28 @@ import { pzmIsNativeFocusedIn } from '../../../util';
     styleUrls: [`./input-date-range.component.less`],
     providers: PZM_INPUT_DATE_RANGE_PROVIDERS,
 })
-export class PzmInputDateRangeComponent
-    extends AbstractPzmNullableControl<PzmDayRange>
-    implements PzmWithOptionalMinMax<PzmDay>, PzmFocusableElementAccessor
+export class PrizmInputDateRangeComponent
+    extends AbstractPrizmNullableControl<PrizmDayRange>
+    implements PrizmWithOptionalMinMax<PrizmDay>, PrizmFocusableElementAccessor
 {
     @ViewChild('focusableElementRef', {read: ElementRef})
     public readonly focusableElement?: ElementRef<HTMLInputElement>;
 
     @Input()
     @pzmDefaultProp()
-    disabledItemHandler: PzmBooleanHandler<PzmDay> = PZM_ALWAYS_FALSE_HANDLER;
+    disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PZM_ALWAYS_FALSE_HANDLER;
 
     @Input()
     @pzmDefaultProp()
-    markerHandler: PzmMarkerHandler = PZM_DEFAULT_MARKER_HANDLER;
+    markerHandler: PrizmMarkerHandler = PZM_DEFAULT_MARKER_HANDLER;
 
     @Input()
     @pzmDefaultProp()
-    defaultViewedMonth = PzmMonth.currentLocal();
+    defaultViewedMonth = PrizmMonth.currentLocal();
 
     @Input()
     @pzmDefaultProp()
-    items: readonly PzmDayRangePeriod[] = [];
+    items: readonly PrizmDayRangePeriod[] = [];
 
     @Input()
     @pzmDefaultProp()
@@ -91,18 +91,18 @@ export class PzmInputDateRangeComponent
 
     @Input()
     @pzmDefaultProp()
-    minLength: PzmDayLike | null = null;
+    minLength: PrizmDayLike | null = null;
 
     @Input()
     @pzmDefaultProp()
-    maxLength: PzmDayLike | null = null;
+    maxLength: PrizmDayLike | null = null;
 
     @HostBinding('attr.testId')
     readonly testId = 'pzm_input_date_range';
 
     open = false;
 
-    readonly maxLengthMapper: PzmMapper<PzmDay, PzmDay> = PZM_MAX_DAY_RANGE_LENGTH_MAPPER;
+    readonly maxLengthMapper: PrizmMapper<PrizmDay, PrizmDay> = PZM_MAX_DAY_RANGE_LENGTH_MAPPER;
     readonly dateFiller$ = this.dateTexts$.pipe(
         map(dateTexts =>
             pzmChangeDateSeparator(dateTexts[this.dateFormat], this.dateSeparator),
@@ -115,7 +115,7 @@ export class PzmInputDateRangeComponent
 
     @Input()
     @pzmDefaultProp()
-    size: PzmInputSize = 'm';
+    size: PrizmInputSize = 'm';
 
     @Input()
     @pzmDefaultProp()
@@ -129,17 +129,17 @@ export class PzmInputDateRangeComponent
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
         @Inject(Injector) private readonly injector: Injector,
         @Inject(PZM_IS_MOBILE) private readonly isMobile: boolean,
-        @Inject(PzmDialogService) private readonly dialogService: PzmDialogService,
+        @Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService,
         @Optional()
         @Inject(PZM_MOBILE_CALENDAR)
         private readonly mobileCalendar: Type<any> | null,
-        @Inject(PZM_DATE_FORMAT) readonly dateFormat: PzmDateMode,
+        @Inject(PZM_DATE_FORMAT) readonly dateFormat: PrizmDateMode,
         @Inject(PZM_DATE_SEPARATOR) readonly dateSeparator: string,
         @Inject(PZM_DATE_TEXTS)
-        readonly dateTexts$: Observable<Record<PzmDateMode, string>>,
+        readonly dateTexts$: Observable<Record<PrizmDateMode, string>>,
         @Optional()
         @Inject(PZM_DATE_RANGE_VALUE_TRANSFORMER)
-        override readonly valueTransformer: PzmControlValueTransformer<PzmDayRange | null> | null,
+        override readonly valueTransformer: PrizmControlValueTransformer<PrizmDayRange | null> | null,
     ) {
         super(control, changeDetectorRef, valueTransformer);
     }
@@ -169,7 +169,7 @@ export class PzmInputDateRangeComponent
     }
 
 
-  get activePeriod(): PzmDayRangePeriod | null {
+  get activePeriod(): PrizmDayRangePeriod | null {
         return (
             this.items.find(item =>
                 pzmNullableSame(
@@ -244,7 +244,7 @@ export class PzmInputDateRangeComponent
           return;
         }
 
-        const parsedValue = PzmDayRange.normalizeParse(value, this.dateFormat);
+        const parsedValue = PrizmDayRange.normalizeParse(value, this.dateFormat);
 
         this.updateValue(
             !this.minLength && !this.maxLength
@@ -253,7 +253,7 @@ export class PzmInputDateRangeComponent
         );
     }
 
-    public onRangeChange(range: PzmDayRange | null): void {
+    public onRangeChange(range: PrizmDayRange | null): void {
         this.toggle();
         this.focusInput();
 
@@ -261,12 +261,12 @@ export class PzmInputDateRangeComponent
             this.nativeValue = ``;
         }
 
-        if (!pzmNullableSame<PzmDayRange>(this.value, range, (a, b) => a.daySame(b))) {
+        if (!pzmNullableSame<PrizmDayRange>(this.value, range, (a, b) => a.daySame(b))) {
             this.updateValue(range);
         }
     }
 
-    public onItemSelect(item: string | PzmDayRangePeriod): void {
+    public onItemSelect(item: string | PrizmDayRangePeriod): void {
         this.toggle();
         this.focusInput();
 
@@ -290,7 +290,7 @@ export class PzmInputDateRangeComponent
         this.updatePressed(pressed);
     }
 
-    public override writeValue(value: PzmDayRange | null): void {
+    public override writeValue(value: PrizmDayRange | null): void {
         super.writeValue(value);
         this.nativeValue = value ? this.computedValue : ``;
     }
@@ -309,10 +309,10 @@ export class PzmInputDateRangeComponent
         }
     }
 
-    private clampValue(value: PzmDayRange): PzmDayRange {
+    private clampValue(value: PrizmDayRange): PrizmDayRange {
         const clampedBottom =
             this.minLength && value.from.append(this.minLength).dayAfter(value.to)
-                ? new PzmDayRange(
+                ? new PrizmDayRange(
                       value.from,
                       value.from.append(this.minLength).append({day: -1}),
                   )
@@ -323,7 +323,7 @@ export class PzmInputDateRangeComponent
             : this.max;
 
         return clampedBottom.to.dayAfter(availableMax)
-            ? new PzmDayRange(clampedBottom.from, availableMax)
+            ? new PrizmDayRange(clampedBottom.from, availableMax)
             : clampedBottom;
     }
 

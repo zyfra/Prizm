@@ -1,6 +1,6 @@
-import { PzmLanguageKit } from '../../interfaces';
+import { PrizmLanguageKit } from '../../interfaces';
 
-export const PZM_RUSSIAN_LANGUAGE_KIT: PzmLanguageKit = {
+export const PZM_RUSSIAN_LANGUAGE_KIT: PrizmLanguageKit = {
     cancel: `Отменить`,
     done: `Готово`,
     more: `Еще`,

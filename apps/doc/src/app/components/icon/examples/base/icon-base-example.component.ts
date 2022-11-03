@@ -4,4 +4,4 @@ import { Component } from '@angular/core';
   selector: 'pzm-icon-base-example',
   templateUrl: './icon-base-example.component.html',
 })
-export class PzmIconBaseExampleComponent {}
+export class PrizmIconBaseExampleComponent {}

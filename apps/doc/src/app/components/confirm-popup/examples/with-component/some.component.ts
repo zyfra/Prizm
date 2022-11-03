@@ -23,6 +23,6 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class PzmConfirmPopupSomeComponent {
+export class PrizmConfirmPopupSomeComponent {
   readonly items = ['Edit', 'Download', 'Rename', 'Edit', 'Download', 'Rename', 'Delete'];
 }

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PzmSelectIdentityMatcher, PzmSelectSearchMatcher, PzmSelectStringify } from '@digital-plant/zui-components';
+import { PrizmSelectIdentityMatcher, PrizmSelectSearchMatcher, PrizmSelectStringify } from '@digital-plant/zui-components';
 import { tap } from 'rxjs/operators';
 
-type PzmItem = {
+type PrizmItem = {
   id: number;
   name: string;
 }
@@ -17,23 +17,23 @@ type PzmItem = {
     }
   `]
 })
-export class PzmSelectWithObjectExampleComponent {
-  readonly items: PzmItem[] = [
+export class PrizmSelectWithObjectExampleComponent {
+  readonly items: PrizmItem[] = [
     {id: 1, name: 'Россия'},
     {id: 2, name: 'США'},
     {id: 3, name: 'ОАЭ'},
   ];
   readonly valueControl = new FormControl({id: 3});
 
-  readonly searchMatcher: PzmSelectSearchMatcher<PzmItem> = (search: string, item: PzmItem) => {
+  readonly searchMatcher: PrizmSelectSearchMatcher<PrizmItem> = (search: string, item: PrizmItem) => {
     return item.name.toLowerCase().includes(search.toLowerCase());
   };
 
-  readonly identityMatcher: PzmSelectIdentityMatcher<PzmItem> = (a: PzmItem, b: PzmItem) => {
+  readonly identityMatcher: PrizmSelectIdentityMatcher<PrizmItem> = (a: PrizmItem, b: PrizmItem) => {
     return a.id === b.id;
   }
 
-  readonly stringify: PzmSelectStringify<PzmItem> = (item: PzmItem) => {
+  readonly stringify: PrizmSelectStringify<PrizmItem> = (item: PrizmItem) => {
     return item.name;
   }
 

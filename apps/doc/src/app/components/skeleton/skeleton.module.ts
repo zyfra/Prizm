@@ -5,14 +5,14 @@ import { RouterModule } from '@angular/router';
 import { SkeletonComponent } from './skeleton.component';
 import {
   PolymorphModule,
-  PzmButtonModule, PzmCardModule,
-  PzmInputTextModule,
-  PzmSelectModule,
-  PzmSkeletonModule,
-  PzmToggleModule,
+  PrizmButtonModule, PrizmCardModule,
+  PrizmInputTextModule,
+  PrizmSelectModule,
+  PrizmSkeletonModule,
+  PrizmToggleModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PzmSkeletonBaseExampleComponent } from './examples/base/skeleton-base-example.component';
+import { PrizmSkeletonBaseExampleComponent } from './examples/base/skeleton-base-example.component';
 
 
 @NgModule({
@@ -22,16 +22,16 @@ import { PzmSkeletonBaseExampleComponent } from './examples/base/skeleton-base-e
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PzmButtonModule,
-    PzmCardModule,
-    PzmToggleModule,
-    PzmSelectModule,
-    PzmInputTextModule,
-    PzmSkeletonModule,
+    PrizmButtonModule,
+    PrizmCardModule,
+    PrizmToggleModule,
+    PrizmSelectModule,
+    PrizmInputTextModule,
+    PrizmSkeletonModule,
     RouterModule.forChild(generateRoutes(SkeletonComponent)),
   ],
   declarations: [
-    PzmSkeletonBaseExampleComponent,
+    PrizmSkeletonBaseExampleComponent,
     SkeletonComponent
   ],
   exports: [SkeletonComponent],

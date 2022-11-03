@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AccordionExampleComponent } from './accordion-example.component';
-import { PzmAccordionModule, PzmCheckboxModule } from '@digital-plant/zui-components';
+import { PrizmAccordionModule, PrizmCheckboxModule } from '@digital-plant/zui-components';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { AccordionBasicExampleComponent } from './examples/accordion-basic-example/accordion-basic-example.component';
@@ -13,9 +13,9 @@ import { AccordionWithInstrumentsExampleComponent } from './examples/accordion-w
   declarations: [AccordionExampleComponent, AccordionBasicExampleComponent, AccordionSingleExpandExampleComponent, AccordionMultipleExpandExampleComponent, AccordionWithInstrumentsExampleComponent],
   imports: [
     CommonModule,
-    PzmAccordionModule,
+    PrizmAccordionModule,
     TuiAddonDocModule,
-    PzmCheckboxModule,
+    PrizmCheckboxModule,
     RouterModule.forChild(generateRoutes(AccordionExampleComponent)),
   ],
 })

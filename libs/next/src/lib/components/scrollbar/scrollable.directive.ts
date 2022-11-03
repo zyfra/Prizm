@@ -4,7 +4,7 @@ import { PZM_SCROLLABLE } from '../../constants/events';
 @Directive({
     selector: '[pzmScrollable]',
 })
-export class PzmScrollableDirective implements OnInit {
+export class PrizmScrollableDirective implements OnInit {
     constructor(
         @Inject(ElementRef) private readonly elementRef: ElementRef<HTMLElement>,
     ) {}

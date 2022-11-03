@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { MultiSelectComponent } from './multi-select.component';
-import { PolymorphModule, PzmIconModule, PzmMultiSelectModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PrizmIconModule, PrizmMultiSelectModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
-  PzmMultiSelectWithTemplateExampleComponent,
+  PrizmMultiSelectWithTemplateExampleComponent,
 } from './examples/with-template/multi-select-with-template-example.component';
-import { PzmMultiSelectBaseExampleComponent } from './examples/base/multi-select-base-example.component';
+import { PrizmMultiSelectBaseExampleComponent } from './examples/base/multi-select-base-example.component';
 import {
-  PzmMultiSelectWithSearchExampleComponent,
+  PrizmMultiSelectWithSearchExampleComponent,
 } from './examples/with-search/multi-select-with-search-example.component';
 import {
-  PzmMultiSelectWithObjectExampleComponent,
+  PrizmMultiSelectWithObjectExampleComponent,
 } from './examples/with-object/multi-select-with-object-example.component';
 
 @NgModule({
@@ -23,15 +23,15 @@ import {
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PzmMultiSelectModule,
-    PzmIconModule,
+    PrizmMultiSelectModule,
+    PrizmIconModule,
     RouterModule.forChild(generateRoutes(MultiSelectComponent)),
   ],
   declarations: [
-    PzmMultiSelectBaseExampleComponent,
-    PzmMultiSelectWithSearchExampleComponent,
-    PzmMultiSelectWithTemplateExampleComponent,
-    PzmMultiSelectWithObjectExampleComponent,
+    PrizmMultiSelectBaseExampleComponent,
+    PrizmMultiSelectWithSearchExampleComponent,
+    PrizmMultiSelectWithTemplateExampleComponent,
+    PrizmMultiSelectWithObjectExampleComponent,
     MultiSelectComponent
   ],
   exports: [MultiSelectComponent],

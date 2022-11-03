@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { PzmFocusedDirective } from './focused.directive';
+import { PrizmFocusedDirective } from './focused.directive';
 
 @NgModule({
-    declarations: [PzmFocusedDirective],
-    exports: [PzmFocusedDirective],
+    declarations: [PrizmFocusedDirective],
+    exports: [PrizmFocusedDirective],
 })
-export class PzmFocusedModule {}
+export class PrizmFocusedModule {}

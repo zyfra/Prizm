@@ -1,35 +1,35 @@
 import { PolymorphContent } from '../../../directives';
 import {
-  PzmBaseDialogContext,
-  PzmDialogBaseOptions,
-  PzmDialogButton,
-  PzmDialogSize,
+  PrizmBaseDialogContext,
+  PrizmDialogBaseOptions,
+  PrizmDialogButton,
+  PrizmDialogSize,
 } from '../dialog/dialog.models';
-import { PzmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
-import { PzmOverlayInsidePlacement } from '../../../modules/overlay';
+import { PrizmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
+import { PrizmOverlayInsidePlacement } from '../../../modules/overlay';
 
-export type PzmSidebarButton = Omit<PzmDialogButton, 'action'> & Partial<Pick<PzmDialogButton, 'action'>>
+export type PrizmSidebarButton = Omit<PrizmDialogButton, 'action'> & Partial<Pick<PrizmDialogButton, 'action'>>
 
-export interface PzmSidebarOptions<DATA = unknown> extends PzmDialogBaseOptions {
-  confirmButton?: PzmSidebarButton | string,
-  supportButton?: PzmSidebarButton | string,
-  cancelButton?: PzmSidebarButton | string,
+export interface PrizmSidebarOptions<DATA = unknown> extends PrizmDialogBaseOptions {
+  confirmButton?: PrizmSidebarButton | string,
+  supportButton?: PrizmSidebarButton | string,
+  cancelButton?: PrizmSidebarButton | string,
   showByVertical?: boolean;
   data?: DATA;
-  size?: PzmDialogSize;
+  size?: PrizmDialogSize;
   title: PolymorphContent<
-    PzmBaseDialogContext<
-      PzmSidebarResultDefaultType,
-      PzmSidebarOptions<DATA>
+    PrizmBaseDialogContext<
+      PrizmSidebarResultDefaultType,
+      PrizmSidebarOptions<DATA>
       >
     >,
   description?: PolymorphContent<
-    PzmBaseDialogContext<
-      PzmSidebarResultDefaultType,
-      PzmSidebarOptions<DATA>
+    PrizmBaseDialogContext<
+      PrizmSidebarResultDefaultType,
+      PrizmSidebarOptions<DATA>
       >
     >,
-  overscrollMode?: PzmOverscrollMode;
+  overscrollMode?: PrizmOverscrollMode;
 
   closeWord: string;
   readonly content?: any;
@@ -37,9 +37,9 @@ export interface PzmSidebarOptions<DATA = unknown> extends PzmDialogBaseOptions 
   readonly header: any;
 }
 
-export enum PzmSidebarResultDefaultType {
+export enum PrizmSidebarResultDefaultType {
   confirmed = 'confirmed',
   support = 'support',
   cancel = 'cancel',
 }
-export type PzmSidebarResult = PzmSidebarResultDefaultType | any;
+export type PrizmSidebarResult = PrizmSidebarResultDefaultType | any;

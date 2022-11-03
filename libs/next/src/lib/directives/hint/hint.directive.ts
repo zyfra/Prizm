@@ -10,16 +10,16 @@ import {
   Renderer2,
   Type,
 } from '@angular/core';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { pzmDefaultProp, pzmRequiredSetter } from '../../decorators';
 import { PolymorphContent } from '../index';
-import { PZM_HINT_OPTIONS, PzmHintContext, PzmHintOptions } from './hint-options';
-import { PzmOverlayControl, PzmOverlayRelativePosition, PzmOverlayService } from '../../modules/overlay';
+import { PZM_HINT_OPTIONS, PrizmHintContext, PrizmHintOptions } from './hint-options';
+import { PrizmOverlayControl, PrizmOverlayRelativePosition, PrizmOverlayService } from '../../modules/overlay';
 import { combineLatest, Observable, of, Subject } from 'rxjs';
-import { PzmHoveredService } from '../../services';
+import { PrizmHoveredService } from '../../services';
 import { delay, map, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { PzmHintContainerComponent } from './hint-container.component';
-import { PzmHintService } from './hint.service';
+import { PrizmHintContainerComponent } from './hint-container.component';
+import { PrizmHintService } from './hint.service';
 import { pzmGenerateId } from '../../util';
 
 export const HINT_HOVERED_CLASS = '_hint_hovered';
@@ -27,25 +27,25 @@ export const HINT_HOVERED_CLASS = '_hint_hovered';
 @Directive({
     selector: '[pzmHint]:not(ng-container)',
     providers: [
-      PzmDestroyService,
+      PrizmDestroyService,
     ],
     exportAs: 'pzmHint'
 })
-export class PzmHintDirective<
-  OPTIONS extends PzmHintOptions = PzmHintOptions,
-  CONTEXT extends PzmHintContext = PzmHintContext
+export class PrizmHintDirective<
+  OPTIONS extends PrizmHintOptions = PrizmHintOptions,
+  CONTEXT extends PrizmHintContext = PrizmHintContext
   > implements OnChanges, OnInit, OnDestroy {
     @Input()
     @pzmDefaultProp()
-    pzmHintMode: PzmHintOptions['mode'] = this.options.mode;
+    pzmHintMode: PrizmHintOptions['mode'] = this.options.mode;
 
     @Input()
     @pzmDefaultProp()
-    pzmAutoReposition: PzmHintOptions['autoReposition'] = this.options.autoReposition;
+    pzmAutoReposition: PrizmHintOptions['autoReposition'] = this.options.autoReposition;
 
     @Input()
     @pzmDefaultProp()
-    pzmHintDirection: PzmHintOptions['direction'] = this.options.direction;
+    pzmHintDirection: PrizmHintOptions['direction'] = this.options.direction;
 
     @Input()
     @pzmDefaultProp()
@@ -53,11 +53,11 @@ export class PzmHintDirective<
 
     @Input()
     @pzmDefaultProp()
-    pzmHintShowDelay: PzmHintOptions['showDelay'] = this.options.showDelay;
+    pzmHintShowDelay: PrizmHintOptions['showDelay'] = this.options.showDelay;
 
     @Input()
     @pzmDefaultProp()
-    pzmHintHideDelay: PzmHintOptions['hideDelay'] = this.options.hideDelay;
+    pzmHintHideDelay: PrizmHintOptions['hideDelay'] = this.options.hideDelay;
 
     @Input()
     @pzmDefaultProp()
@@ -84,19 +84,19 @@ export class PzmHintDirective<
     protected readonly onHoverActive: boolean = true;
 
     content: PolymorphContent;
-    overlay: PzmOverlayControl;
-    protected readonly containerComponent: Type<unknown> = PzmHintContainerComponent;
+    overlay: PrizmOverlayControl;
+    protected readonly containerComponent: Type<unknown> = PrizmHintContainerComponent;
     protected readonly show$ = new Subject<boolean>();
     protected readonly destroyListeners$ = new Subject<boolean>();
 
     constructor(
-      private readonly pzmOverlayService: PzmOverlayService,
+      private readonly pzmOverlayService: PrizmOverlayService,
       @Inject(Renderer2) private readonly renderer: Renderer2,
       @Inject(ElementRef) protected readonly elementRef: ElementRef<HTMLElement>,
-      @Inject(PzmDestroyService) private readonly destroy$: PzmDestroyService,
+      @Inject(PrizmDestroyService) private readonly destroy$: PrizmDestroyService,
       @Inject(PZM_HINT_OPTIONS) protected readonly options: OPTIONS,
-      @Inject(PzmHoveredService) private readonly hoveredService: PzmHoveredService,
-      @Inject(PzmHintService) private readonly hintService: PzmHintService,
+      @Inject(PrizmHoveredService) private readonly hoveredService: PrizmHoveredService,
+      @Inject(PrizmHintService) private readonly hintService: PrizmHintService,
     ) {}
 
     get id(): string | null {
@@ -154,7 +154,7 @@ export class PzmHintDirective<
       this.show$.next(false);
       this.overlay?.close();
 
-      const position = new PzmOverlayRelativePosition({
+      const position = new PrizmOverlayRelativePosition({
         placement: this.pzmHintDirection,
         autoReposition: this.pzmAutoReposition,
         element: this.host

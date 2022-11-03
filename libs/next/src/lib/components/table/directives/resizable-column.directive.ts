@@ -4,4 +4,4 @@ import { ResizableColumn } from 'primeng/table';
 @Directive({
   selector: '[pzmResizableColumn]',
 })
-export class PzmResizableColumnDirective extends ResizableColumn {}
+export class PrizmResizableColumnDirective extends ResizableColumn {}

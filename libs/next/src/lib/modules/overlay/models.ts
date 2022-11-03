@@ -1,7 +1,7 @@
 import { TemplateRef } from '@angular/core';
-import { PzmOverlayAbstractPosition } from './position/position';
+import { PrizmOverlayAbstractPosition } from './position/position';
 
-export interface PzmOverlayPositionMeta {
+export interface PrizmOverlayPositionMeta {
   top?: number;
   left?: number;
   bottom?: number;
@@ -40,33 +40,33 @@ enum o {
 enum i {
   CENTER = 'c'
 }
-export const PzmOverlayOutsidePlacement = {
+export const PrizmOverlayOutsidePlacement = {
   ...p,
   ...o
 };
 
-export const PzmOverlayBasePlacement = {
+export const PrizmOverlayBasePlacement = {
   ...b
 };
-export const PzmOverlayInsidePlacement = {
+export const PrizmOverlayInsidePlacement = {
   ...p,
   ...i
 };
-export type PzmOverlayOutsidePlacement = p | o;
-export type PzmOverlayInsidePlacement = p | i;
-export type PzmOverlayBasePlacement = b;
+export type PrizmOverlayOutsidePlacement = p | o;
+export type PrizmOverlayInsidePlacement = p | i;
+export type PrizmOverlayBasePlacement = b;
 
-export enum PzmOverlaySlidePlacement {
+export enum PrizmOverlaySlidePlacement {
   LEFT = 'l',
   RIGHT = 'r'
 }
 
-export interface PzmOverlayContainerSize {
+export interface PrizmOverlayContainerSize {
   width: string | number;
   height: string | number;
 }
 
-export interface PzmOverlayConfig {
+export interface PrizmOverlayConfig {
   backdrop: boolean;
   containerClass: string;
   wrapperClass: string;
@@ -79,38 +79,38 @@ export interface PzmOverlayConfig {
   docClickCallback: () => void;
 }
 
-export interface PzmOverlayComponentType<T> {
+export interface PrizmOverlayComponentType<T> {
   new (...args: any[]): T;
 }
 
-export type PzmOverlayId = string;
+export type PrizmOverlayId = string;
 
-export type PzmOverlayEventName = 'z_open' | 'z_close' | 'z_dynpos' | 'z_detach' | 'z_posupdate' | 'z_compins';
+export type PrizmOverlayEventName = 'z_open' | 'z_close' | 'z_dynpos' | 'z_detach' | 'z_posupdate' | 'z_compins';
 
-export interface PzmOverlayEvent {
-  from: PzmOverlayId;
-  name: PzmOverlayEventName;
+export interface PrizmOverlayEvent {
+  from: PrizmOverlayId;
+  name: PrizmOverlayEventName;
   data?: any;
 }
 
-export const enum PzmOverlayContentType {
+export const enum PrizmOverlayContentType {
   STRING = 's',
   HTML = 'h',
   TEMPLATE = 't',
   COMPONENT = 'c'
 }
-export type PzmOverlayContentData = string | TemplateRef<any> | PzmOverlayComponentType<any>;
-export type PzmOverlayContentProps = { [x: string]: any } | any;
+export type PrizmOverlayContentData = string | TemplateRef<any> | PrizmOverlayComponentType<any>;
+export type PrizmOverlayContentProps = { [x: string]: any } | any;
 
-export interface PzmOverlayContent {
-  type?: PzmOverlayContentType;
-  data: PzmOverlayContentData;
-  props?: PzmOverlayContentProps;
+export interface PrizmOverlayContent {
+  type?: PrizmOverlayContentType;
+  data: PrizmOverlayContentData;
+  props?: PrizmOverlayContentProps;
 }
 
-export interface PzmOverlayInputs {
-  position: PzmOverlayAbstractPosition | null;
-  config: PzmOverlayConfig;
-  content: PzmOverlayContent;
-  zid: PzmOverlayId;
+export interface PrizmOverlayInputs {
+  position: PrizmOverlayAbstractPosition | null;
+  config: PrizmOverlayConfig;
+  content: PrizmOverlayContent;
+  zid: PrizmOverlayId;
 }

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PzmDay, PzmDayRange } from '@digital-plant/zui-components';
+import { PrizmDay, PrizmDayRange } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,7 @@ import { FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalendarRangeComponent {
-  public value = new PzmDayRange(new PzmDay(2022, 1, 7), new PzmDay(2022, 3, 14));
+  public value = new PrizmDayRange(new PrizmDay(2022, 1, 7), new PrizmDay(2022, 3, 14));
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
   );

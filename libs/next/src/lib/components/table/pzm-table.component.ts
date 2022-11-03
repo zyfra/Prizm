@@ -14,8 +14,8 @@ import {
 } from '@angular/core';
 import { FilterService } from 'primeng/api';
 import { Table, TableService } from 'primeng/table';
-import { PzmSizeL, PzmSizeM, PzmSizeS, PzmSizeXS } from '../../util';
-import { TargetTableToken, PzmBaseTableComponent } from './base-table';
+import { PrizmSizeL, PrizmSizeM, PrizmSizeS, PrizmSizeXS } from '../../util';
+import { TargetTableToken, PrizmBaseTableComponent } from './base-table';
 import { BaseTableTemplateDirective } from './base-table/directives/base-table-template.directive';
 import { Filters, RowSelectionEvent } from './pzm-table.types';
 
@@ -35,18 +35,18 @@ import { Filters, RowSelectionEvent } from './pzm-table.types';
     FilterService,
     {
       provide: TargetTableToken,
-      useFactory: (pzmTable: PzmTableComponent): PzmTableComponent => pzmTable,
-      deps: [PzmTableComponent],
+      useFactory: (pzmTable: PrizmTableComponent): PrizmTableComponent => pzmTable,
+      deps: [PrizmTableComponent],
     },
     {
       provide: Table,
-      useFactory: (pzmTable: PzmTableComponent): Table => pzmTable.table,
-      deps: [PzmTableComponent],
+      useFactory: (pzmTable: PrizmTableComponent): Table => pzmTable.table,
+      deps: [PrizmTableComponent],
     },
   ],
 })
-export class PzmTableComponent<T = unknown>
-  extends PzmBaseTableComponent<T>
+export class PrizmTableComponent<T = unknown>
+  extends PrizmBaseTableComponent<T>
   implements AfterContentInit, OnChanges
 {
   @ViewChild('ptable', { static: true }) table: Table;
@@ -77,7 +77,7 @@ export class PzmTableComponent<T = unknown>
   /**
    * Defines table row hright
    */
-  @Input() size: PzmSizeL | PzmSizeM | PzmSizeXS | PzmSizeS = 'l';
+  @Input() size: PrizmSizeL | PrizmSizeM | PrizmSizeXS | PrizmSizeS = 'l';
   /**
    * The breakpoint to define the maximum width boundary when using stack responsive layout
    */

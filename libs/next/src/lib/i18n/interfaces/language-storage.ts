@@ -1,6 +1,6 @@
-import type { PzmLanguageName } from './language-names';
+import type { PrizmLanguageName } from './language-names';
 
-export interface PzmLanguageStorage extends Storage {
-    getItem(key: string): PzmLanguageName | null;
-    setItem(key: string, value: PzmLanguageName): void;
+export interface PrizmLanguageStorage extends Storage {
+    getItem(key: string): PrizmLanguageName | null;
+    setItem(key: string, value: PrizmLanguageName): void;
 }

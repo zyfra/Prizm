@@ -1,22 +1,22 @@
 import { Directive, ElementRef, EventEmitter, Inject, OnInit, Output, Renderer2 } from '@angular/core';
-import { PzmThemeService } from '../../services/theme.service';
-import { PzmTheme } from '../../types/theme';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmThemeService } from '../../services/theme.service';
+import { PrizmTheme } from '../../types/theme';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 
 @Directive({
     selector: '[pzmTheme]',
-    providers: [PzmDestroyService]
+    providers: [PrizmDestroyService]
 })
-export class PzmThemeDirective implements OnInit {
+export class PrizmThemeDirective implements OnInit {
     @Output()
-    public readonly pzmTheme = new EventEmitter<PzmTheme>();
+    public readonly pzmTheme = new EventEmitter<PrizmTheme>();
 
     constructor(
         @Inject(ElementRef)
         private readonly element: ElementRef<HTMLInputElement>,
-        private readonly themeService: PzmThemeService,
-        private readonly destroy$: PzmDestroyService,
+        private readonly themeService: PrizmThemeService,
+        private readonly destroy$: PrizmDestroyService,
         private readonly renderer2: Renderer2,
     ) {}
 

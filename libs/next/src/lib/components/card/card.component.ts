@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
-import { pzmGetShadow, PzmShadowType } from '../../directives/shadow';
-import { PzmShadowValue } from '../../directives/shadow/models';
+import { pzmGetShadow, PrizmShadowType } from '../../directives/shadow';
+import { PrizmShadowValue } from '../../directives/shadow/models';
 
 @Component({
     selector: 'pzm-card',
@@ -9,11 +9,11 @@ import { PzmShadowValue } from '../../directives/shadow/models';
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [],
 })
-export class PzmCardComponent {
-  @Input() shadow: PzmShadowType = 'mini-bottom';
+export class PrizmCardComponent {
+  @Input() shadow: PrizmShadowType = 'mini-bottom';
 
   @HostBinding('style.box-shadow')
-  private get boxShadow(): PzmShadowValue {
+  private get boxShadow(): PrizmShadowValue {
     return pzmGetShadow(this.shadow)
   }
 

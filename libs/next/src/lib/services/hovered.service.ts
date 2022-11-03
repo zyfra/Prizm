@@ -16,7 +16,7 @@ import {pzmGetActualTarget} from "../util/dom/get-actual-target";
 @Injectable({
     providedIn: 'root',
 })
-export class PzmHoveredService {
+export class PrizmHoveredService {
     private readonly documentEvents$: Observable<Event>;
 
     constructor(

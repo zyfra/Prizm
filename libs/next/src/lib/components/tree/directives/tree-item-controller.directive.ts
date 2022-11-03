@@ -1,8 +1,8 @@
 import { Directive, Input } from '@angular/core';
 import { pzmDefaultProp } from '../../../decorators';
 
-import { PzmTreeItemComponent } from '../components/tree-item/tree-item.component';
-import { PzmTreeController } from '../misc/tree.interfaces';
+import { PrizmTreeItemComponent } from '../components/tree-item/tree-item.component';
+import { PrizmTreeController } from '../misc/tree.interfaces';
 import { PZM_TREE_CONTROLLER } from '../misc/tree.tokens';
 
 @Directive({
@@ -11,22 +11,22 @@ import { PZM_TREE_CONTROLLER } from '../misc/tree.tokens';
     providers: [
         {
             provide: PZM_TREE_CONTROLLER,
-            useExisting: PzmTreeItemControllerDirective,
+            useExisting: PrizmTreeItemControllerDirective,
         },
     ],
 })
-export class PzmTreeItemControllerDirective implements PzmTreeController {
-    private readonly map = new WeakMap<PzmTreeItemComponent, boolean>();
+export class PrizmTreeItemControllerDirective implements PrizmTreeController {
+    private readonly map = new WeakMap<PrizmTreeItemComponent, boolean>();
 
     @Input()
     @pzmDefaultProp()
     pzmTreeController = true;
 
-    public isExpanded(item: PzmTreeItemComponent): boolean {
+    public isExpanded(item: PrizmTreeItemComponent): boolean {
         return this.map.get(item) ?? this.pzmTreeController;
     }
 
-    public toggle(item: PzmTreeItemComponent): void {
+    public toggle(item: PrizmTreeItemComponent): void {
         this.map.set(item, !this.isExpanded(item));
     }
 }

@@ -7,7 +7,7 @@
  *
  * CAUTION: `this` is not available inside such functions/getters, they must be pure.
  */
-import {PzmPureException} from "../exceptions";
+import {PrizmPureException} from "../exceptions";
 
 
 export function pzmPure<T>(
@@ -30,7 +30,7 @@ export function pzmPure<T>(
   }
 
   if (typeof value !== 'function') {
-    throw new PzmPureException();
+    throw new PrizmPureException();
   }
 
   const original = value;

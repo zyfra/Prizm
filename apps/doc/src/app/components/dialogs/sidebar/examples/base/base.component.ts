@@ -1,5 +1,5 @@
 import {Component, Inject} from '@angular/core';
-import { PzmSidebarService, PzmOverlayInsidePlacement } from '@digital-plant/zui-components';
+import { PrizmSidebarService, PrizmOverlayInsidePlacement } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-sidebar-service-example',
@@ -11,16 +11,16 @@ import { PzmSidebarService, PzmOverlayInsidePlacement } from '@digital-plant/zui
     }
   `]
 })
-export class PzmSidebarServiceExampleComponent {
-  public positionVariants: PzmOverlayInsidePlacement[] = [
-    PzmOverlayInsidePlacement.LEFT,
-    PzmOverlayInsidePlacement.RIGHT,
+export class PrizmSidebarServiceExampleComponent {
+  public positionVariants: PrizmOverlayInsidePlacement[] = [
+    PrizmOverlayInsidePlacement.LEFT,
+    PrizmOverlayInsidePlacement.RIGHT,
   ];
-  public position: PzmOverlayInsidePlacement = this.positionVariants[1];
+  public position: PrizmOverlayInsidePlacement = this.positionVariants[1];
   public backdrop = false;
 
   constructor(
-    @Inject(PzmSidebarService) private readonly sidebarService: PzmSidebarService,
+    @Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService,
   ) {}
 
   public show(): void {

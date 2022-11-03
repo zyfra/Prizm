@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
-import { PzmDropdownControllerDirective } from './dropdown-controller.directive';
+import { PrizmDropdownControllerDirective } from './dropdown-controller.directive';
 
 @NgModule({
-    declarations: [PzmDropdownControllerDirective],
-    exports: [PzmDropdownControllerDirective],
+    declarations: [PrizmDropdownControllerDirective],
+    exports: [PrizmDropdownControllerDirective],
 })
-export class PzmDropdownControllerModule {}
+export class PrizmDropdownControllerModule {}

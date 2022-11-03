@@ -4,8 +4,8 @@ import {
   PolymorphContent,
   PZM_CONFIRM_POPUP_DEFAULT_OPTIONS,
   PZM_HINT_DEFAULT_OPTIONS,
-  PzmConfirmPopupOptions,
-  PzmOverlayOutsidePlacement,
+  PrizmConfirmPopupOptions,
+  PrizmOverlayOutsidePlacement,
 } from '@digital-plant/zui-components';
 
 @Component({
@@ -18,9 +18,9 @@ export class ConfirmPopupComponent {
   public content = 'Тестовое содержимое';
   public pzmAutoReposition = false;
 
-  public readonly pzmConfirmPopupDirectionVariants: ReadonlyArray<PzmConfirmPopupOptions['direction']> = Object.values(PzmOverlayOutsidePlacement);
+  public readonly pzmConfirmPopupDirectionVariants: ReadonlyArray<PrizmConfirmPopupOptions['direction']> = Object.values(PrizmOverlayOutsidePlacement);
 
-  public pzmConfirmPopupDirection: PzmConfirmPopupOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
+  public pzmConfirmPopupDirection: PrizmConfirmPopupOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
 
   public pzmConfirmPopupId = 'confirm-id';
 

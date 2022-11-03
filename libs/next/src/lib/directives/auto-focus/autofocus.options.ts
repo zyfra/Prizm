@@ -3,36 +3,36 @@ import { ANIMATION_FRAME, WINDOW } from '@ng-web-apis/common';
 import { Observable } from 'rxjs';
 import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../tokens/focusable-item-accessor';
 import { PZM_IS_IOS } from '../../tokens/is-ios';
-import { PzmFocusableElementAccessor } from '../../types/focusable-element-accessor';
-import { PzmDefaultAutofocusHandler } from './handlers/default.handler';
-import { PzmIosAutofocusHandler } from './handlers/ios.handler';
+import { PrizmFocusableElementAccessor } from '../../types/focusable-element-accessor';
+import { PrizmDefaultAutofocusHandler } from './handlers/default.handler';
+import { PrizmIosAutofocusHandler } from './handlers/ios.handler';
 
-export interface PzmAutofocusHandler {
+export interface PrizmAutofocusHandler {
     setFocus(): void;
 }
 
-export const PZM_AUTOFOCUS_HANDLER = new InjectionToken<PzmAutofocusHandler>(
+export const PZM_AUTOFOCUS_HANDLER = new InjectionToken<PrizmAutofocusHandler>(
     `Autofocusing handler`,
 );
 
 export function pzmAutofocusHandlerFactory(
-    pzmFocusableComponent: PzmFocusableElementAccessor | null,
+    pzmFocusableComponent: PrizmFocusableElementAccessor | null,
     elementRef: ElementRef<HTMLElement>,
     animationFrame$: Observable<number>,
     renderer: Renderer2,
     ngZone: NgZone,
     windowRef: Window,
     isIos: boolean,
-): PzmAutofocusHandler {
+): PrizmAutofocusHandler {
     return isIos
-        ? new PzmIosAutofocusHandler(
+        ? new PrizmIosAutofocusHandler(
               pzmFocusableComponent,
               elementRef,
               renderer,
               ngZone,
               windowRef,
           )
-        : new PzmDefaultAutofocusHandler(
+        : new PrizmDefaultAutofocusHandler(
               pzmFocusableComponent,
               elementRef,
               animationFrame$,

@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostBinding, Input, OnInit } from '@angular/core';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
-import { PzmOverscrollMode } from './overscroll.model';
-import { PzmOverscrollService } from './overscroll.service';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmOverscrollMode } from './overscroll.model';
+import { PrizmOverscrollService } from './overscroll.service';
 import { takeUntil } from 'rxjs/operators';
 
 /**
@@ -9,11 +9,11 @@ import { takeUntil } from 'rxjs/operators';
  */
 @Directive({
     selector: '[pzmOverscroll]',
-    providers: [PzmDestroyService],
+    providers: [PrizmDestroyService],
 })
-export class PzmOverscrollDirective implements OnInit {
+export class PrizmOverscrollDirective implements OnInit {
   @Input('pzmOverscroll')
-  public mode: PzmOverscrollMode | '' = 'scroll';
+  public mode: PrizmOverscrollMode | '' = 'scroll';
 
   public get enabled(): boolean {
     return this.mode !== 'none';
@@ -26,8 +26,8 @@ export class PzmOverscrollDirective implements OnInit {
 
   constructor(
       private readonly elRef: ElementRef<HTMLElement>,
-      private readonly overscrollService: PzmOverscrollService,
-      private readonly destroy$: PzmDestroyService,
+      private readonly overscrollService: PrizmOverscrollService,
+      private readonly destroy$: PrizmDestroyService,
   ) {}
 
   public ngOnInit(): void {

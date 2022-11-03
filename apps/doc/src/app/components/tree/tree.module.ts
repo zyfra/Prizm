@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { TreeComponent } from './tree.component';
-import { PzmIconModule, PzmTreeModule } from '@digital-plant/zui-components';
+import { PrizmIconModule, PrizmTreeModule } from '@digital-plant/zui-components';
 import { TreeBaseExampleComponent } from './examples/base/tree-base-example.component';
 import { TreeArrayExampleComponent } from './examples/array/tree-array-example.component';
 import { TreeTemplateExampleComponent } from './examples/template/tree-template-example.component';
@@ -15,8 +15,8 @@ import { TreeComponentExampleComponent } from './examples/component/tree-compone
   imports: [
     CommonModule,
     TuiAddonDocModule,
-    PzmTreeModule,
-    PzmIconModule,
+    PrizmTreeModule,
+    PrizmIconModule,
     RouterModule.forChild(generateRoutes(TreeComponent)),
   ],
   declarations: [

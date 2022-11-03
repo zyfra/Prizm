@@ -1,22 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PzmMonthPipeModule } from '../../../pipes/month';
-import { PzmPrimitiveYearMonthPaginationComponent } from './primitive-year-month-pagination.component';
-import { PzmPrimitiveSpinButtonModule } from '../primitive-spin-button';
-import { PzmLinkModule } from '../../link/link.module';
-import { PzmFocusableModule } from '../../../directives/focusable/focusable.module';
-import { PzmIconModule } from '../../icon/icon.module';
+import { PrizmMonthPipeModule } from '../../../pipes/month';
+import { PrizmPrimitiveYearMonthPaginationComponent } from './primitive-year-month-pagination.component';
+import { PrizmPrimitiveSpinButtonModule } from '../primitive-spin-button';
+import { PrizmLinkModule } from '../../link/link.module';
+import { PrizmFocusableModule } from '../../../directives/focusable/focusable.module';
+import { PrizmIconModule } from '../../icon/icon.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        PzmFocusableModule,
-        PzmPrimitiveSpinButtonModule,
-        PzmLinkModule,
-        PzmIconModule,
-        PzmMonthPipeModule,
+        PrizmFocusableModule,
+        PrizmPrimitiveSpinButtonModule,
+        PrizmLinkModule,
+        PrizmIconModule,
+        PrizmMonthPipeModule,
     ],
-    declarations: [PzmPrimitiveYearMonthPaginationComponent],
-    exports: [PzmPrimitiveYearMonthPaginationComponent],
+    declarations: [PrizmPrimitiveYearMonthPaginationComponent],
+    exports: [PrizmPrimitiveYearMonthPaginationComponent],
 })
-export class PzmPrimitiveYearMonthPaginationModule {}
+export class PrizmPrimitiveYearMonthPaginationModule {}

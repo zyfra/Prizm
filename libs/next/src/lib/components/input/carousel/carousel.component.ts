@@ -10,17 +10,17 @@ import {
   Self,
 } from '@angular/core';
 import { NgControl, Validators, ControlValueAccessor } from '@angular/forms';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 
-import { PzmInputControl } from '../common/base/input-control.class';
-import { PzmCarouselContent } from './carousel-content/carousel-content.interface';
+import { PrizmInputControl } from '../common/base/input-control.class';
+import { PrizmCarouselContent } from './carousel-content/carousel-content.interface';
 
 @Component({
   selector: 'pzm-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: PzmInputControl, useExisting: PzmCarouselComponent }, PzmDestroyService],
+  providers: [{ provide: PrizmInputControl, useExisting: PrizmCarouselComponent }, PrizmDestroyService],
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
     '[class.ng-filled]': '!empty',
@@ -28,7 +28,7 @@ import { PzmCarouselContent } from './carousel-content/carousel-content.interfac
     '[attr.tabindex]': "disabled ? null : '0'",
   },
 })
-export class PzmCarouselComponent extends PzmInputControl<any> implements ControlValueAccessor {
+export class PrizmCarouselComponent extends PrizmInputControl<any> implements ControlValueAccessor {
   /**
    * Disabled input
    */
@@ -90,7 +90,7 @@ export class PzmCarouselComponent extends PzmInputControl<any> implements Contro
     this.writeValue(value);
   }
 
-  @Input() carouselContent: PzmCarouselContent;
+  @Input() carouselContent: PrizmCarouselContent;
 
   @Input() lightMode = false;
 

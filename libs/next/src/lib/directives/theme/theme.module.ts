@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { PzmThemeDirective } from './theme.directive';
+import { PrizmThemeDirective } from './theme.directive';
 
 @NgModule({
-    declarations: [PzmThemeDirective],
-    exports: [PzmThemeDirective],
+    declarations: [PrizmThemeDirective],
+    exports: [PrizmThemeDirective],
 })
-export class PzmThemeModule {}
+export class PrizmThemeModule {}

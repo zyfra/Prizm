@@ -4,32 +4,32 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 
-import { PzmCarouselModule } from '@digital-plant/zui-components';
-import { PzmCarouselExampleComponent } from './carousel-example.component';
-import { PzmCarouselBasicExampleComponent } from './examples/carousel-basic-example/carousel-basic-example.component';
-import { PzmCarouselLightExampleComponent } from './examples/carousel-light-example/carousel-light-example.component';
-import { PzmCarouselArrayOfObjectsExampleComponent } from './examples/carousel-array-of-objects-example/carousel-array-of-objects-example.component';
-import { PzmCarouselYearMonthExampleComponent } from './examples/carousel-year-month-example/carousel-year-month-example.component';
-import { PzmMonthExamplePipe } from './examples/carousel-year-month-example/month.pipe';
+import { PrizmCarouselModule } from '@digital-plant/zui-components';
+import { PrizmCarouselExampleComponent } from './carousel-example.component';
+import { PrizmCarouselBasicExampleComponent } from './examples/carousel-basic-example/carousel-basic-example.component';
+import { PrizmCarouselLightExampleComponent } from './examples/carousel-light-example/carousel-light-example.component';
+import { PrizmCarouselArrayOfObjectsExampleComponent } from './examples/carousel-array-of-objects-example/carousel-array-of-objects-example.component';
+import { PrizmCarouselYearMonthExampleComponent } from './examples/carousel-year-month-example/carousel-year-month-example.component';
+import { PrizmMonthExamplePipe } from './examples/carousel-year-month-example/month.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
     TuiAddonDocModule,
-    RouterModule.forChild(generateRoutes(PzmCarouselExampleComponent)),
+    RouterModule.forChild(generateRoutes(PrizmCarouselExampleComponent)),
     ReactiveFormsModule,
     FormsModule,
-    PzmCarouselModule,
+    PrizmCarouselModule,
   ],
   declarations: [
-    PzmCarouselExampleComponent,
-    PzmCarouselBasicExampleComponent,
-    PzmCarouselLightExampleComponent,
-    PzmCarouselArrayOfObjectsExampleComponent,
-    PzmCarouselYearMonthExampleComponent,
-    PzmMonthExamplePipe,
+    PrizmCarouselExampleComponent,
+    PrizmCarouselBasicExampleComponent,
+    PrizmCarouselLightExampleComponent,
+    PrizmCarouselArrayOfObjectsExampleComponent,
+    PrizmCarouselYearMonthExampleComponent,
+    PrizmMonthExamplePipe,
   ],
-  exports: [PzmCarouselExampleComponent],
+  exports: [PrizmCarouselExampleComponent],
 })
 export class CarouselExampleModule {}
 

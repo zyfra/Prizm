@@ -16,7 +16,7 @@ import {ChangeDetectorRef, Component} from '@angular/core';
     }
   `]
 })
-export class PzmDropdownHostExampleWithTemplateComponent {
+export class PrizmDropdownHostExampleWithTemplateComponent {
   open = false;
 
   constructor(public readonly cdRef: ChangeDetectorRef) {}

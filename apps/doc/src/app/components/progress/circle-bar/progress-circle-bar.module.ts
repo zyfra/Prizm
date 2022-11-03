@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { ProgressCircleBarComponent } from './progress-circle-bar.component';
-import { PolymorphModule, PzmProgressModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PrizmProgressModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PzmProgressCircleExampleComponent } from './examples/circle/progress-circle-example.component';
+import { PrizmProgressCircleExampleComponent } from './examples/circle/progress-circle-example.component';
 
 
 @NgModule({
@@ -15,11 +15,11 @@ import { PzmProgressCircleExampleComponent } from './examples/circle/progress-ci
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PzmProgressModule,
+    PrizmProgressModule,
     RouterModule.forChild(generateRoutes(ProgressCircleBarComponent)),
   ],
   declarations: [
-    PzmProgressCircleExampleComponent,
+    PrizmProgressCircleExampleComponent,
     ProgressCircleBarComponent
   ],
   exports: [ProgressCircleBarComponent],

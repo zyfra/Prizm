@@ -1,34 +1,34 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {PzmToggleComponent} from './toggle.component';
-import {PzmLoaderModule} from "../loader";
-import {PzmWrapperModule} from '../../directives/wrapper';
+import {PrizmToggleComponent} from './toggle.component';
+import {PrizmLoaderModule} from "../loader";
+import {PrizmWrapperModule} from '../../directives/wrapper';
 import {
   PolymorphModule,
-  PzmCheckedModule,
-  PzmFocusableModule,
-  PzmFocusedModule,
-  PzmPressedModule
+  PrizmCheckedModule,
+  PrizmFocusableModule,
+  PrizmFocusedModule,
+  PrizmPressedModule
 } from "../../directives";
-import {PzmFocusVisibleModule} from "../../directives/focus-visible";
-import {PzmHoveredModule} from '../../directives/hovered';
-import {PzmIconModule} from "../icon";
+import {PrizmFocusVisibleModule} from "../../directives/focus-visible";
+import {PrizmHoveredModule} from '../../directives/hovered';
+import {PrizmIconModule} from "../icon";
 
 @NgModule({
   imports: [
     CommonModule,
-    PzmFocusedModule,
-    PzmFocusableModule,
-    PzmFocusVisibleModule,
-    PzmHoveredModule,
-    PzmPressedModule,
-    PzmCheckedModule,
-    PzmWrapperModule,
-    PzmLoaderModule,
+    PrizmFocusedModule,
+    PrizmFocusableModule,
+    PrizmFocusVisibleModule,
+    PrizmHoveredModule,
+    PrizmPressedModule,
+    PrizmCheckedModule,
+    PrizmWrapperModule,
+    PrizmLoaderModule,
     PolymorphModule,
-    PzmIconModule
+    PrizmIconModule
   ],
-    declarations: [PzmToggleComponent],
-    exports: [PzmToggleComponent],
+    declarations: [PrizmToggleComponent],
+    exports: [PrizmToggleComponent],
 })
-export class PzmToggleModule {}
+export class PrizmToggleModule {}

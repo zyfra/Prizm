@@ -4,4 +4,4 @@ import { CancelEditableRow } from 'primeng/table';
 @Directive({
   selector: '[pzmCancelEditableRow]',
 })
-export class PzmCancelEditableRowDirective extends CancelEditableRow {}
+export class PrizmCancelEditableRowDirective extends CancelEditableRow {}

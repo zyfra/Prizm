@@ -23,6 +23,6 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class PzmTooltipSomeComponent {
+export class PrizmTooltipSomeComponent {
   readonly items = ['Edit', 'Download', 'Rename', 'Edit', 'Download', 'Rename', 'Delete'];
 }

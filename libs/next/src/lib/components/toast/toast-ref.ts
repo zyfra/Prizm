@@ -1,12 +1,12 @@
-import { PzmToastOptions } from './types';
+import { PrizmToastOptions } from './types';
 import { ReplaySubject, Subject, timer } from 'rxjs';
-import { PzmToastDefaultOptions } from './toast-options';
+import { PrizmToastDefaultOptions } from './toast-options';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PolymorphContent } from '../../directives/polymorph';
-import { PzmToastService } from './toast.service';
+import { PrizmToastService } from './toast.service';
 import { pzmGenerateId } from '../../util';
 
-export class PzmToastRef {
+export class PrizmToastRef {
   private show$ = new ReplaySubject<boolean>(1);
   private destroy$ = new Subject<void>();
   private hash_ = pzmGenerateId();
@@ -18,17 +18,17 @@ export class PzmToastRef {
   };
   constructor(
     public content: PolymorphContent,
-    readonly weight: PzmToastOptions['weight'],
-    readonly closeAfter: PzmToastOptions['timer'],
-    public title: PzmToastOptions['title'],
-    readonly data: PzmToastOptions['data'],
-    readonly position: PzmToastOptions['position'],
-    readonly id: PzmToastOptions['id'],
-    readonly appearance: PzmToastOptions['appearance'],
-    readonly options: PzmToastDefaultOptions,
-    readonly toastService: PzmToastService,
+    readonly weight: PrizmToastOptions['weight'],
+    readonly closeAfter: PrizmToastOptions['timer'],
+    public title: PrizmToastOptions['title'],
+    readonly data: PrizmToastOptions['data'],
+    readonly position: PrizmToastOptions['position'],
+    readonly id: PrizmToastOptions['id'],
+    readonly appearance: PrizmToastOptions['appearance'],
+    readonly options: PrizmToastDefaultOptions,
+    readonly toastService: PrizmToastService,
     public show: boolean = true,
-    readonly isPlatform: PzmToastOptions['isPlatform'],
+    readonly isPlatform: PrizmToastOptions['isPlatform'],
   ) {
     if (this.show) this.open();
     if (this.closeAfter) this.close(this.closeAfter);
@@ -61,7 +61,7 @@ export class PzmToastRef {
     this.detect();
   }
 
-  public readonly updateTitle = (title: PzmToastOptions['title']): void => {
+  public readonly updateTitle = (title: PrizmToastOptions['title']): void => {
     if (title === this.title) return;
     this.title = title;
     this.detect();

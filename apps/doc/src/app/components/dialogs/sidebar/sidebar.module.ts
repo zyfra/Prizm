@@ -4,14 +4,14 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
-  PzmButtonModule,
-  PzmRadioButtonModule,
-  PzmSidebarModule,
+  PrizmButtonModule,
+  PrizmRadioButtonModule,
+  PrizmSidebarModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar.component';
-import { PzmSidebarServiceExampleComponent } from './examples/base/base.component';
-import { PzmSidebarTopBottomExampleComponent } from './examples/top-bottom/top-bottom.component';
+import { PrizmSidebarServiceExampleComponent } from './examples/base/base.component';
+import { PrizmSidebarTopBottomExampleComponent } from './examples/top-bottom/top-bottom.component';
 
 @NgModule({
   imports: [
@@ -20,14 +20,14 @@ import { PzmSidebarTopBottomExampleComponent } from './examples/top-bottom/top-b
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PzmButtonModule,
-    PzmSidebarModule,
-    PzmRadioButtonModule,
+    PrizmButtonModule,
+    PrizmSidebarModule,
+    PrizmRadioButtonModule,
     RouterModule.forChild(generateRoutes(SidebarComponent)),
   ],
   declarations: [
-    PzmSidebarServiceExampleComponent,
-    PzmSidebarTopBottomExampleComponent,
+    PrizmSidebarServiceExampleComponent,
+    PrizmSidebarTopBottomExampleComponent,
     SidebarComponent
   ],
   exports: [SidebarComponent],

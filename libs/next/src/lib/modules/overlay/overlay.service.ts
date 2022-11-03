@@ -1,50 +1,50 @@
 import { ApplicationRef, ComponentFactoryResolver, Injectable, Injector } from '@angular/core';
-import { PzmOverlayDefaultConfig } from './config';
+import { PrizmOverlayDefaultConfig } from './config';
 import {
-  PzmOverlayConfig,
-  PzmOverlayContent,
-  PzmOverlayContentData,
-  PzmOverlayContentProps,
-  PzmOverlayContentType,
-  PzmOverlayId,
-  PzmOverlayInputs,
-  PzmOverlayInsidePlacement,
+  PrizmOverlayConfig,
+  PrizmOverlayContent,
+  PrizmOverlayContentData,
+  PrizmOverlayContentProps,
+  PrizmOverlayContentType,
+  PrizmOverlayId,
+  PrizmOverlayInputs,
+  PrizmOverlayInsidePlacement,
 } from './models';
-import { PzmOverlayGlobalPosition } from './position';
-import { PzmOverlayAbstractPosition } from './position/position';
+import { PrizmOverlayGlobalPosition } from './position';
+import { PrizmOverlayAbstractPosition } from './position/position';
 import { EventBus, getContent } from './utils';
 import { pzmGenerateId } from '../../util';
-import { PzmOverlayControl } from './overlay-control';
-import { PzmOverlayContentToken } from './token';
+import { PrizmOverlayControl } from './overlay-control';
+import { PrizmOverlayContentToken } from './token';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PzmOverlayService {
-  static controls: { [key: string]: PzmOverlayControl } = {};
-  private zid: PzmOverlayId;
-  private inputs: PzmOverlayInputs = {
+export class PrizmOverlayService {
+  static controls: { [key: string]: PrizmOverlayControl } = {};
+  private zid: PrizmOverlayId;
+  private inputs: PrizmOverlayInputs = {
     position: null,
-    config: PzmOverlayDefaultConfig,
-    content: { type: PzmOverlayContentType.STRING, data: '', props: {} },
+    config: PrizmOverlayDefaultConfig,
+    content: { type: PrizmOverlayContentType.STRING, data: '', props: {} },
     zid: null
   };
 
   constructor(private injector: Injector) {
-    this.inputs.position = new PzmOverlayGlobalPosition({ placement: PzmOverlayInsidePlacement.TOP });
+    this.inputs.position = new PrizmOverlayGlobalPosition({ placement: PrizmOverlayInsidePlacement.TOP });
   }
 
-  public position<T extends PzmOverlayAbstractPosition<any>>(position: T): PzmOverlayService {
+  public position<T extends PrizmOverlayAbstractPosition<any>>(position: T): PrizmOverlayService {
     this.inputs.position = position;
     return this;
   }
 
-  public config(config: Partial<PzmOverlayConfig>): PzmOverlayService {
-    this.inputs.config = { ...PzmOverlayDefaultConfig, ...config };
+  public config(config: Partial<PrizmOverlayConfig>): PrizmOverlayService {
+    this.inputs.config = { ...PrizmOverlayDefaultConfig, ...config };
     return this;
   }
 
-  public content(data: PzmOverlayContentData, props: PzmOverlayContentProps = {}): PzmOverlayService {
+  public content(data: PrizmOverlayContentData, props: PrizmOverlayContentProps = {}): PrizmOverlayService {
     this.inputs.content = getContent(data, props);
     return this;
   }
@@ -52,41 +52,41 @@ export class PzmOverlayService {
   public create({key, parentInjector}: {
     key?: string,
     parentInjector?: Injector
-  } = {}): PzmOverlayControl {
+  } = {}): PrizmOverlayControl {
     this.zid = this.inputs.zid = key ?? pzmGenerateId();
 
     const injector = Injector.create({
         providers: [
           {
-            provide: PzmOverlayContentToken,
-            useFactory: (): PzmOverlayContent => this.inputs.content
+            provide: PrizmOverlayContentToken,
+            useFactory: (): PrizmOverlayContent => this.inputs.content
           },
           {
-            provide: PzmOverlayControl,
+            provide: PrizmOverlayControl,
             deps: [ApplicationRef, ComponentFactoryResolver, Injector]
           }
         ],
         parent: parentInjector ?? this.injector
     });
 
-    const tc = injector.get(PzmOverlayControl);
-    if (PzmOverlayService.controls[this.zid]) {
+    const tc = injector.get(PrizmOverlayControl);
+    if (PrizmOverlayService.controls[this.zid]) {
       this.zid = pzmGenerateId();
     }
     this.inputs.position.init(this.zid);
-    PzmOverlayService.controls[this.zid] = Object.assign(tc, this.inputs);
+    PrizmOverlayService.controls[this.zid] = Object.assign(tc, this.inputs);
     return tc;
   }
 
-  public getCtrl(zid: PzmOverlayId): PzmOverlayControl {
-    return PzmOverlayService.controls[zid];
+  public getCtrl(zid: PrizmOverlayId): PrizmOverlayControl {
+    return PrizmOverlayService.controls[zid];
   }
 
   public destroy(): void {
-    for (const key in PzmOverlayService.controls) {
-      PzmOverlayService.controls[key].close();
+    for (const key in PrizmOverlayService.controls) {
+      PrizmOverlayService.controls[key].close();
     }
-    PzmOverlayService.controls = {};
+    PrizmOverlayService.controls = {};
     EventBus.stop();
   }
 }

@@ -3,15 +3,15 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { SelectComponent } from './select.component';
-import { PolymorphModule, PzmIconModule, PzmSelectModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PrizmIconModule, PrizmSelectModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
-  PzmSelectWithTemplateExampleComponent,
+  PrizmSelectWithTemplateExampleComponent,
 } from './examples/with-template/select-with-template-example.component';
-import { PzmSelectBaseExampleComponent } from './examples/base/select-base-example.component';
-import { PzmSelectWithSearchExampleComponent } from './examples/with-search/select-with-search-example.component';
-import { PzmLetModule } from '@digital-plant/zyfra-helpers';
-import { PzmSelectWithObjectExampleComponent } from './examples/with-object/select-with-object-example.component';
+import { PrizmSelectBaseExampleComponent } from './examples/base/select-base-example.component';
+import { PrizmSelectWithSearchExampleComponent } from './examples/with-search/select-with-search-example.component';
+import { PrizmLetModule } from '@digital-plant/zyfra-helpers';
+import { PrizmSelectWithObjectExampleComponent } from './examples/with-object/select-with-object-example.component';
 
 @NgModule({
   imports: [
@@ -20,16 +20,16 @@ import { PzmSelectWithObjectExampleComponent } from './examples/with-object/sele
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PzmLetModule,
-    PzmSelectModule,
-    PzmIconModule,
+    PrizmLetModule,
+    PrizmSelectModule,
+    PrizmIconModule,
     RouterModule.forChild(generateRoutes(SelectComponent)),
   ],
   declarations: [
-    PzmSelectBaseExampleComponent,
-    PzmSelectWithSearchExampleComponent,
-    PzmSelectWithObjectExampleComponent,
-    PzmSelectWithTemplateExampleComponent,
+    PrizmSelectBaseExampleComponent,
+    PrizmSelectWithSearchExampleComponent,
+    PrizmSelectWithObjectExampleComponent,
+    PrizmSelectWithTemplateExampleComponent,
     SelectComponent
   ],
   exports: [SelectComponent],

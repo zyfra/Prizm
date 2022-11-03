@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
-import { PzmInputCommonModule } from '../common/input-common.module';
-import { PzmInputTextModule } from '../input-text/input-text.module';
-import { PzmInputNumberAuxiliaryControlDirective } from './input-number-auxiliary-control.directive';
-import { PzmInputNumberDefaultControlsComponent } from './input-number-auxiliary-controls.component';
-import { PzmInputNumberDirective } from './input-number.directive';
+import { PrizmInputCommonModule } from '../common/input-common.module';
+import { PrizmInputTextModule } from '../input-text/input-text.module';
+import { PrizmInputNumberAuxiliaryControlDirective } from './input-number-auxiliary-control.directive';
+import { PrizmInputNumberDefaultControlsComponent } from './input-number-auxiliary-controls.component';
+import { PrizmInputNumberDirective } from './input-number.directive';
 
 @NgModule({
-  imports: [PzmInputCommonModule, PzmInputTextModule],
+  imports: [PrizmInputCommonModule, PrizmInputTextModule],
   declarations: [
-    PzmInputNumberDirective,
-    PzmInputNumberAuxiliaryControlDirective,
-    PzmInputNumberDefaultControlsComponent,
+    PrizmInputNumberDirective,
+    PrizmInputNumberAuxiliaryControlDirective,
+    PrizmInputNumberDefaultControlsComponent,
   ],
   exports: [
-    PzmInputNumberAuxiliaryControlDirective,
-    PzmInputCommonModule,
-    PzmInputNumberDirective,
-    PzmInputTextModule,
-    PzmInputNumberDefaultControlsComponent,
+    PrizmInputNumberAuxiliaryControlDirective,
+    PrizmInputCommonModule,
+    PrizmInputNumberDirective,
+    PrizmInputTextModule,
+    PrizmInputNumberDefaultControlsComponent,
   ],
 })
-export class PzmInputNumberModule {}
+export class PrizmInputNumberModule {}
 

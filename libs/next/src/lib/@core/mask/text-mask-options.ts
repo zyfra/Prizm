@@ -1,15 +1,15 @@
-import { PzmTextMaskList } from './text-mask-list';
-import { PzmTextMaskListHandler } from './text-mask-list-handler';
-import { PzmTextMaskPipeHandler } from './text-mask-pipe-handler';
+import { PrizmTextMaskList } from './text-mask-list';
+import { PrizmTextMaskListHandler } from './text-mask-list-handler';
+import { PrizmTextMaskPipeHandler } from './text-mask-pipe-handler';
 
 /**
  * {@link https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md}
  */
-export interface PzmTextMaskOptions {
+export interface PrizmTextMaskOptions {
     /**
      * {@link https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#mask}
      */
-    mask: PzmTextMaskList | PzmTextMaskListHandler | false;
+    mask: PrizmTextMaskList | PrizmTextMaskListHandler | false;
 
     /**
      * {@link https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#guide}
@@ -24,7 +24,7 @@ export interface PzmTextMaskOptions {
     /**
      * {@link https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#pipe}
      */
-    pipe?: PzmTextMaskPipeHandler;
+    pipe?: PrizmTextMaskPipeHandler;
 
     /**
      * {@link https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#keepcharpositions}

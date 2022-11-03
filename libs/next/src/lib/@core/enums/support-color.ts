@@ -1,7 +1,7 @@
 /**
  * @deprecated
  */
-export const enum PzmSupportColor {
+export const enum PrizmSupportColor {
     Mustard = `support-01`,
     Texas = `support-02`,
     Tan = `support-03`,

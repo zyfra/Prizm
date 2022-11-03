@@ -3,8 +3,8 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
   PZM_HINT_DEFAULT_OPTIONS, PZM_TOOLTIP_DEFAULT_OPTIONS,
-  PzmOverlayOutsidePlacement,
-  PzmTooltipOptions,
+  PrizmOverlayOutsidePlacement,
+  PrizmTooltipOptions,
 } from '@digital-plant/zui-components';
 
 @Component({
@@ -17,9 +17,9 @@ export class TooltipComponent {
   public content = 'Тестовое содержимое';
   public pzmAutoReposition = false;
 
-  public readonly pzmTooltipDirectionVariants: ReadonlyArray<PzmTooltipOptions['direction']> = Object.values(PzmOverlayOutsidePlacement);
+  public readonly pzmTooltipDirectionVariants: ReadonlyArray<PrizmTooltipOptions['direction']> = Object.values(PrizmOverlayOutsidePlacement);
 
-  public pzmTooltipDirection: PzmTooltipOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
+  public pzmTooltipDirection: PrizmTooltipOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
 
   public pzmTooltipId = 'tooltip-id';
 

@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  PzmContextWithImplicit, PzmInputSize,
+  PrizmContextWithImplicit, PrizmInputSize,
   pzmPure,
-  PzmScrollbarVisibility,
+  PrizmScrollbarVisibility,
 } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
@@ -27,7 +27,7 @@ export class MultiSelectComponent {
     true
   ];
   forceClear = this.forceClearVariants[0];
-  get sizeVariants(): ReadonlyArray<PzmInputSize> {
+  get sizeVariants(): ReadonlyArray<PrizmInputSize> {
     return this.outer
       ? ['s', 'm', 'l']
       : ['m', 'l'];
@@ -37,7 +37,7 @@ export class MultiSelectComponent {
   dropdownWidth = '100%';
   maxDropdownHeight = 342;
   placeholder = '';
-  visibility: PzmScrollbarVisibility = 'auto';
+  visibility: PrizmScrollbarVisibility = 'auto';
   readonly itemsVariants: ReadonlyArray<string[] | null> = [
     [
       'One',
@@ -97,7 +97,7 @@ export class MultiSelectComponent {
   };
 
 
-  public valueTemplate: PolymorphContent<PzmContextWithImplicit<any>> = ''
+  public valueTemplate: PolymorphContent<PrizmContextWithImplicit<any>> = ''
   @pzmPure
   public getValueTemplate (...temps: PolymorphContent[]): PolymorphContent<any>[] {
     return [

@@ -6,7 +6,7 @@ type ValueChangeEvent = {
 };
 
 @Directive()
-export abstract class PzmBaseSearchCellComponent {
+export abstract class PrizmBaseSearchCellComponent {
   @Input() placeholder = '';
   @Input() field: string;
   /**

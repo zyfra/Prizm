@@ -3,18 +3,18 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { IconButtonComponent } from './icon-button.component';
-import { PzmButtonModule } from '@digital-plant/zui-components';
-import { PzmIconsButtonsExampleComponent } from './examples/icons/icons-buttons-example.component';
+import { PrizmButtonModule } from '@digital-plant/zui-components';
+import { pzmIconsButtonsExampleComponent } from './examples/icons/icons-buttons-example.component';
 
 @NgModule({
   imports: [
     CommonModule,
     TuiAddonDocModule,
-    PzmButtonModule,
+    PrizmButtonModule,
     RouterModule.forChild(generateRoutes(IconButtonComponent)),
   ],
   declarations: [
-    PzmIconsButtonsExampleComponent,
+    pzmIconsButtonsExampleComponent,
     IconButtonComponent
   ],
   exports: [IconButtonComponent],

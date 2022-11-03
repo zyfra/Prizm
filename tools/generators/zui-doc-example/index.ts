@@ -1,9 +1,9 @@
 import { formatFiles, generateFiles, joinPathFragments, names, Tree } from '@nrwl/devkit';
-import { PzmDocExampleGeneratorSchema } from './models';
+import { PrizmDocExampleGeneratorSchema } from './models';
 import { capitalizeFirstLetter, updatePages, updateRoutes } from './util';
 import { chain } from '@angular-devkit/schematics';
 
-export default async function (tree: Tree, schema: PzmDocExampleGeneratorSchema) {
+export default async function (tree: Tree, schema: PrizmDocExampleGeneratorSchema) {
   const moduleName = schema.name
   const normalizedClassName= names(moduleName).className;
   const normalizedExampleSelectorName= names(`pzm-doc-${moduleName}-base-example`).fileName;
@@ -15,7 +15,7 @@ export default async function (tree: Tree, schema: PzmDocExampleGeneratorSchema)
     normalizedFileName: names(schema.name).fileName,
     normalizedExampleClassName,
     normalizedExampleSelectorName,
-    normalizedModuleImportModuleName: names(`Pzm${normalizedClassName}Module`).className,
+    normalizedModuleImportModuleName: names(`Prizm${normalizedClassName}Module`).className,
     creationDate: new Date().toISOString(),
   };
   const relativePathToFile = `components/${variables.normalizedFileName}`;

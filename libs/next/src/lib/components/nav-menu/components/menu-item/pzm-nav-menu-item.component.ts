@@ -7,23 +7,23 @@ import {
   Output,
   TemplateRef,
 } from '@angular/core';
-import { PzmMenuItem } from '../../model/pzm-menu-item.interface';
+import { PrizmMenuItem } from '../../model/pzm-menu-item.interface';
 
 @Component({
   selector: 'pzm-nav-menu-item',
   templateUrl: './pzm-nav-menu-item.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmNavMenuItemComponent {
-  @Input() item: PzmMenuItem;
+export class PrizmNavMenuItemComponent {
+  @Input() item: PrizmMenuItem;
   @Input() itemExtra: TemplateRef<any>;
 
-  @Output() itemClick: EventEmitter<PzmMenuItem> = new EventEmitter();
+  @Output() itemClick: EventEmitter<PrizmMenuItem> = new EventEmitter();
 
   @HostBinding('attr.testId')
   readonly testId = 'pzm_nav_menu_item';
 
-  public itemClickHandler(event: MouseEvent, item: PzmMenuItem): void {
+  public itemClickHandler(event: MouseEvent, item: PrizmMenuItem): void {
     if (item.disabled) {
       event.preventDefault();
       return;

@@ -1,8 +1,8 @@
 import { InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PzmDay } from '../@core/date-time/day';
-import { PzmDayRange } from '../@core/date-time/day-range';
+import { PrizmDay } from '../@core/date-time/day';
+import { PrizmDayRange } from '../@core/date-time/day-range';
 
 export const PZM_CALENDAR_DATA_STREAM = new InjectionToken<
-    Observable<PzmDay | PzmDayRange | null>
+    Observable<PrizmDay | PrizmDayRange | null>
 >(`Stream that emits calendar data change`);

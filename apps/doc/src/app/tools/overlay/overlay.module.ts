@@ -3,29 +3,29 @@ import {CommonModule} from "@angular/common";
 import {generateRoutes, TuiAddonDocModule} from "@taiga-ui/addon-doc";
 import {RouterModule} from "@angular/router";
 import {OverlayComponent} from "./overlay.component";
-import {PzmOverlayExampleWithViewComponent} from "./examples/with-component/template";
-import {PzmButtonModule, PzmOverlayModule} from "@digital-plant/zui-components";
-import {PzmOverlayExampleSlideComponent} from "./examples/slide/template";
-import {PzmOverlayExampleRelativeComponent} from "./examples/relative/template";
-import {PzmOverlayExampleGlobalComponent} from "./examples/global/template";
-import {PzmOverlayExampleFullscreenComponent} from "./examples/fullscreen/template";
-import {PzmOverlaySomeComponent} from "./examples/with-component/some-component";
+import {PrizmOverlayExampleWithViewComponent} from "./examples/with-component/template";
+import {PrizmButtonModule, PrizmOverlayModule} from "@digital-plant/zui-components";
+import {PrizmOverlayExampleSlideComponent} from "./examples/slide/template";
+import {PrizmOverlayExampleRelativeComponent} from "./examples/relative/template";
+import {PrizmOverlayExampleGlobalComponent} from "./examples/global/template";
+import {PrizmOverlayExampleFullscreenComponent} from "./examples/fullscreen/template";
+import {PrizmOverlaySomeComponent} from "./examples/with-component/some-component";
 
 @NgModule({
   imports: [
     CommonModule,
     TuiAddonDocModule,
-    PzmButtonModule,
-    PzmOverlayModule,
+    PrizmButtonModule,
+    PrizmOverlayModule,
     RouterModule.forChild(generateRoutes(OverlayComponent)),
   ],
   declarations: [
-    PzmOverlayExampleSlideComponent,
-    PzmOverlayExampleRelativeComponent,
-    PzmOverlayExampleGlobalComponent,
-    PzmOverlayExampleFullscreenComponent,
-    PzmOverlayExampleWithViewComponent,
-    PzmOverlaySomeComponent,
+    PrizmOverlayExampleSlideComponent,
+    PrizmOverlayExampleRelativeComponent,
+    PrizmOverlayExampleGlobalComponent,
+    PrizmOverlayExampleFullscreenComponent,
+    PrizmOverlayExampleWithViewComponent,
+    PrizmOverlaySomeComponent,
     OverlayComponent,
   ],
   exports: [OverlayComponent],

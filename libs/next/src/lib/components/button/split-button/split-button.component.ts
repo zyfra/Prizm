@@ -8,34 +8,34 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { PzmContent } from '../button-options';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
-import { PzmSize } from '../../../util';
-import { PzmAppearance, PzmAppearanceType } from '../../../types';
+import { PrizmContent } from '../button-options';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmSize } from '../../../util';
+import { PrizmAppearance, PrizmAppearanceType } from '../../../types';
 
 @Component({
   selector: 'pzm-split-button',
   styleUrls: ['./split-button.component.less'],
   templateUrl: './split-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PzmDestroyService],
+  providers: [PrizmDestroyService],
 })
-export class PzmSplitButtonComponent {
+export class PrizmSplitButtonComponent {
   @Input()
   @HostBinding('attr.data-size')
-  size: PzmSize;
+  size: PrizmSize;
 
   /** can pass template or icon class */
   @Input()
-  icon: PzmContent = 'chevrons-dropdown';
+  icon: PrizmContent = 'chevrons-dropdown';
 
   @Input()
   @HostBinding('attr.data-appearance')
-  appearance: PzmAppearance;
+  appearance: PrizmAppearance;
 
   @Input()
   @HostBinding('attr.data-appearance-type')
-  appearanceType: PzmAppearanceType;
+  appearanceType: PrizmAppearanceType;
 
   @Input()
   disabled = false;

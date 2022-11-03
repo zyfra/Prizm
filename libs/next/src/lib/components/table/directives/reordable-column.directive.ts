@@ -4,7 +4,7 @@ import { ReorderableColumn } from 'primeng/table';
 @Directive({
   selector: '[pzmReordableColumn]',
 })
-export class PzmReordableColumnDirective extends ReorderableColumn {
+export class PrizmReordableColumnDirective extends ReorderableColumn {
   /* eslint-disable @angular-eslint/no-input-rename */
   @Input('pzmReordableColumnDisabled') override pReorderableColumnDisabled: boolean;
 

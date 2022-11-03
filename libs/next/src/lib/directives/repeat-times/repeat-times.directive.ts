@@ -1,25 +1,25 @@
 import { Directive, Inject, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 import { pzmRequiredSetter } from '../../decorators/required-setter';
-import { PzmContextWithImplicit } from '../../types/context-with-implicit';
+import { PrizmContextWithImplicit } from '../../types/context-with-implicit';
 import { pzmClamp } from '../../util/math/clamp';
 
 const MAX_VALUE = 0x10000;
 
-export class PzmRepeatTimesContext implements PzmContextWithImplicit<number> {
+export class PrizmRepeatTimesContext implements PrizmContextWithImplicit<number> {
     constructor(readonly $implicit: number) {}
 }
 
 /**
  * Directive similar to ngFor but using a number of repetitions rather than an array
  *
- * {@link PzmRepeatTimesDirective.pzmRepeatTimesOf requested number of times}.
- * {@link PzmRepeatTimesContext context} for every instance of the template inherits outer context and stores
- * {@link PzmRepeatTimesContext.$implicit index} of a template instance.
+ * {@link PrizmRepeatTimesDirective.pzmRepeatTimesOf requested number of times}.
+ * {@link PrizmRepeatTimesContext context} for every instance of the template inherits outer context and stores
+ * {@link PrizmRepeatTimesContext.$implicit index} of a template instance.
  */
 @Directive({
     selector: `[pzmRepeatTimes][pzmRepeatTimesOf]`,
 })
-export class PzmRepeatTimesDirective {
+export class PrizmRepeatTimesDirective {
     @Input()
     @pzmRequiredSetter()
     set pzmRepeatTimesOf(count: number) {
@@ -38,14 +38,14 @@ export class PzmRepeatTimesDirective {
         @Inject(ViewContainerRef)
         private readonly viewContainer: ViewContainerRef,
         @Inject(TemplateRef)
-        private readonly templateRef: TemplateRef<PzmRepeatTimesContext>,
+        private readonly templateRef: TemplateRef<PrizmRepeatTimesContext>,
     ) {}
 
     private addContainers(count: number): void {
         for (let index = this.viewContainer.length; index < count; index++) {
-            this.viewContainer.createEmbeddedView<PzmRepeatTimesContext>(
+            this.viewContainer.createEmbeddedView<PrizmRepeatTimesContext>(
                 this.templateRef,
-                new PzmRepeatTimesContext(index),
+                new PrizmRepeatTimesContext(index),
             );
         }
     }

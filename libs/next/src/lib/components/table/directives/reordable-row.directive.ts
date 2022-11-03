@@ -4,6 +4,6 @@ import { ReorderableRow } from 'primeng/table';
 @Directive({
   selector: '[pzmReordableRow]',
 })
-export class PzmReordableRowDirective extends ReorderableRow {
+export class PrizmReordableRowDirective extends ReorderableRow {
   @Input('pzmReordableRow') override index: number;
 }

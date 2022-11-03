@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BaseTableTemplateDirective } from './directives/base-table-template.directive';
-import { PzmRowBaseDirective } from './directives/pzm-row-base.directive';
-import { PzmBaseTableComponent } from './pzm-base-table.directive';
+import { PrizmRowBaseDirective } from './directives/pzm-row-base.directive';
+import { PrizmBaseTableComponent } from './pzm-base-table.directive';
 
 @NgModule({
-  declarations: [BaseTableTemplateDirective, PzmRowBaseDirective, PzmBaseTableComponent],
-  exports: [BaseTableTemplateDirective, PzmRowBaseDirective, PzmBaseTableComponent],
+  declarations: [BaseTableTemplateDirective, PrizmRowBaseDirective, PrizmBaseTableComponent],
+  exports: [BaseTableTemplateDirective, PrizmRowBaseDirective, PrizmBaseTableComponent],
 })
-export class PzmTableSharedModule {}
+export class PrizmTableSharedModule {}

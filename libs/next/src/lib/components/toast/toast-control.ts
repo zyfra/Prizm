@@ -1,33 +1,33 @@
 import { Observable, Subject } from 'rxjs';
-import { PzmToastOptions, PzmToastPosition } from './types';
+import { PrizmToastOptions, PrizmToastPosition } from './types';
 import { finalize, map, shareReplay, takeUntil, tap } from 'rxjs/operators';
-import { PzmToastRef } from './toast-ref';
-import { PzmToastContainerComponent } from './toast-container/toast-container.component';
+import { PrizmToastRef } from './toast-ref';
+import { PrizmToastContainerComponent } from './toast-container/toast-container.component';
 import { Injectable, Injector } from '@angular/core';
 import {
-  PzmOverlayControl,
-  PzmOverlayGlobalPosition,
-  PzmOverlayInsidePlacement,
-  PzmOverlayService,
+  PrizmOverlayControl,
+  PrizmOverlayGlobalPosition,
+  PrizmOverlayInsidePlacement,
+  PrizmOverlayService,
 } from '../../modules/overlay';
-import { PzmToastService } from './toast.service';
+import { PrizmToastService } from './toast.service';
 
 @Injectable()
-export class PzmToastControl {
+export class PrizmToastControl {
   readonly destroy$ = new Subject<void>()
   constructor(
-    private readonly overlayService: PzmOverlayService,
-    private readonly toastService: PzmToastService,
+    private readonly overlayService: PrizmOverlayService,
+    private readonly toastService: PrizmToastService,
     private readonly injector: Injector,
   ) {}
 
   private create(
-    changesForThisPosition$:  Observable<PzmToastRef[]>,
-    position: PzmToastOptions['position']
-  ): PzmOverlayControl | void {
+    changesForThisPosition$:  Observable<PrizmToastRef[]>,
+    position: PrizmToastOptions['position']
+  ): PrizmOverlayControl | void {
     const placement = this.getOverlayPosition(position);
     if (!placement) return;
-    const overlayPosition = new PzmOverlayGlobalPosition({
+    const overlayPosition = new PrizmOverlayGlobalPosition({
       placement,
       width: 'auto',
       height: 'auto',
@@ -35,7 +35,7 @@ export class PzmToastControl {
 
     const control = this.overlayService
       .position(overlayPosition)
-      .content(PzmToastContainerComponent, {
+      .content(PrizmToastContainerComponent, {
         refs$: changesForThisPosition$,
         position: position
       })
@@ -45,26 +45,26 @@ export class PzmToastControl {
   }
 
   private getOverlayPosition(
-    position: PzmToastOptions['position']
-  ): PzmOverlayInsidePlacement | void {
+    position: PrizmToastOptions['position']
+  ): PrizmOverlayInsidePlacement | void {
     switch (position) {
-      case PzmToastPosition.BOTTOM_LEFT:
-        return PzmOverlayInsidePlacement.BOTTOM_LEFT;
-      case PzmToastPosition.BOTTOM_RIGHT:
-        return PzmOverlayInsidePlacement.BOTTOM_RIGHT;
-      case PzmToastPosition.BOTTOM_MIDDLE:
-        return PzmOverlayInsidePlacement.BOTTOM;
-      case PzmToastPosition.TOP_LEFT:
-        return PzmOverlayInsidePlacement.TOP_LEFT;
-      case PzmToastPosition.TOP_RIGHT:
-        return PzmOverlayInsidePlacement.TOP_RIGHT;
-      case PzmToastPosition.TOP_MIDDLE:
-        return PzmOverlayInsidePlacement.TOP;
+      case PrizmToastPosition.BOTTOM_LEFT:
+        return PrizmOverlayInsidePlacement.BOTTOM_LEFT;
+      case PrizmToastPosition.BOTTOM_RIGHT:
+        return PrizmOverlayInsidePlacement.BOTTOM_RIGHT;
+      case PrizmToastPosition.BOTTOM_MIDDLE:
+        return PrizmOverlayInsidePlacement.BOTTOM;
+      case PrizmToastPosition.TOP_LEFT:
+        return PrizmOverlayInsidePlacement.TOP_LEFT;
+      case PrizmToastPosition.TOP_RIGHT:
+        return PrizmOverlayInsidePlacement.TOP_RIGHT;
+      case PrizmToastPosition.TOP_MIDDLE:
+        return PrizmOverlayInsidePlacement.TOP;
     }
   }
 
   public init(
-    position: PzmToastOptions['position']
+    position: PrizmToastOptions['position']
   ): void {
     const changesForThisPosition$ = this.toastService.changes$.pipe(
         map(items => items.filter(item => item.position === position && item.show)),
@@ -85,16 +85,16 @@ export class PzmToastControl {
     ).subscribe()
   }
 
-  private destroy(control: PzmOverlayControl): void {
+  private destroy(control: PrizmOverlayControl): void {
     this.close(control);
     control = null;
   }
 
-  private close(control: PzmOverlayControl): void {
+  private close(control: PrizmOverlayControl): void {
     control?.close();
   }
 
-  private open(control: PzmOverlayControl): void {
+  private open(control: PrizmOverlayControl): void {
     control?.open();
   }
 }

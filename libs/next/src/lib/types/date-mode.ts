@@ -3,4 +3,4 @@
  * * MDY - mm.dd.yyyy
  * * YMD - yyyy.mm.dd
  */
-export type PzmDateMode = 'DMY' | 'MDY' | 'YMD';
+export type PrizmDateMode = 'DMY' | 'MDY' | 'YMD';

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { PolymorphComponent, PzmOverlayOutsidePlacement } from '@digital-plant/zui-components';
-import { PzmConfirmPopupSomeComponent } from './some.component';
+import { PolymorphComponent, PrizmOverlayOutsidePlacement } from '@digital-plant/zui-components';
+import { PrizmConfirmPopupSomeComponent } from './some.component';
 
 @Component({
   selector: 'pzm-confirm-popup-with-component-example',
@@ -12,7 +12,7 @@ import { PzmConfirmPopupSomeComponent } from './some.component';
     }
   `]
 })
-export class PzmConfirmPopupWithComponentExampleComponent {
-  readonly component = new PolymorphComponent(PzmConfirmPopupSomeComponent);
-  readonly direction = PzmOverlayOutsidePlacement.TOP_RIGHT;
+export class PrizmConfirmPopupWithComponentExampleComponent {
+  readonly component = new PolymorphComponent(PrizmConfirmPopupSomeComponent);
+  readonly direction = PrizmOverlayOutsidePlacement.TOP_RIGHT;
 }

@@ -3,9 +3,9 @@ import { EditableRow } from 'primeng/table';
 
 @Directive({
   selector: '[pzmEditableRow]',
-  providers: [{ provide: EditableRow, useExisting: PzmEditableRowDirective }],
+  providers: [{ provide: EditableRow, useExisting: PrizmEditableRowDirective }],
 })
-export class PzmEditableRowDirective extends EditableRow {
+export class PrizmEditableRowDirective extends EditableRow {
   /* eslint-disable @angular-eslint/no-input-rename */
   @Input('pzmEditableRowDisabled') override pEditableRowDisabled: boolean;
   @Input('pzmEditableRow') override data: any;

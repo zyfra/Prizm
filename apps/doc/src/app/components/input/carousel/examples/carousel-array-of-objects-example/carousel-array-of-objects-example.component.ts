@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PzmCarouselArrayContent } from '@digital-plant/zui-components';
+import { PrizmCarouselArrayContent } from '@digital-plant/zui-components';
 
 interface SomeEntity {
   id: number;
@@ -13,8 +13,8 @@ interface SomeEntity {
   styleUrls: ['./carousel-array-of-objects-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmCarouselArrayOfObjectsExampleComponent {
-  arrayWithObjects = new PzmCarouselArrayContent<SomeEntity>(
+export class PrizmCarouselArrayOfObjectsExampleComponent {
+  arrayWithObjects = new PrizmCarouselArrayContent<SomeEntity>(
     [
       {
         id: 1,

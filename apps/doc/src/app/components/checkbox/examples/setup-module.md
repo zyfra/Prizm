@@ -1,13 +1,13 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PzmCheckboxModule } from '@digital-plant/zui-components';
+import { PrizmCheckboxModule } from '@digital-plant/zui-components';
 
 // ...
 
 @NgModule({
   imports: [
     // ...
-    PzmCheckboxModuleModule,
+    PrizmCheckboxModuleModule,
   ],
 })
 export class MyModule {

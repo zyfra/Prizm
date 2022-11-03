@@ -1,5 +1,5 @@
 import {Component, TemplateRef} from '@angular/core';
-import {PzmToastAppearance, PzmToastPosition, PzmToastService} from "@digital-plant/zui-components";
+import {PrizmToastAppearance, PrizmToastPosition, PrizmToastService} from "@digital-plant/zui-components";
 import {FormControl} from "@angular/forms";
 
 @Component({
@@ -44,33 +44,33 @@ import {FormControl} from "@angular/forms";
     }
   `],
 })
-export class PzmToastInfoExampleComponent {
+export class PrizmToastInfoExampleComponent {
 
   readonly containerId = 'inline-container-info';
 
   readonly data = [
     {
-      val: PzmToastPosition.TOP_MIDDLE,
+      val: PrizmToastPosition.TOP_MIDDLE,
       label: 'Top Middle',
     },
     {
-      val: PzmToastPosition.TOP_LEFT,
+      val: PrizmToastPosition.TOP_LEFT,
       label: 'Top Left',
     },
     {
-      val: PzmToastPosition.TOP_RIGHT,
+      val: PrizmToastPosition.TOP_RIGHT,
       label: 'Top Right',
     },
     {
-      val: PzmToastPosition.BOTTOM_MIDDLE,
+      val: PrizmToastPosition.BOTTOM_MIDDLE,
       label: 'Bottom Middle',
     },
     {
-      val: PzmToastPosition.BOTTOM_LEFT,
+      val: PrizmToastPosition.BOTTOM_LEFT,
       label: 'Bottom Left',
     },
     {
-      val: PzmToastPosition.BOTTOM_RIGHT,
+      val: PrizmToastPosition.BOTTOM_RIGHT,
       label: 'Bottom Right',
     },
     {
@@ -79,11 +79,11 @@ export class PzmToastInfoExampleComponent {
     },
   ];
 
-  appearance: PzmToastAppearance = 'info';
-  readonly formControl = new FormControl(PzmToastPosition.TOP_RIGHT);
+  appearance: PrizmToastAppearance = 'info';
+  readonly formControl = new FormControl(PrizmToastPosition.TOP_RIGHT);
 
   constructor(
-    private readonly toastService: PzmToastService,
+    private readonly toastService: PrizmToastService,
   ) {}
 
   public showToast(): void {

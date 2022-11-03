@@ -1,20 +1,20 @@
 import { TestBed } from '@angular/core/testing';
-import { PzmOverlayControl } from '../../../modules/overlay';
-import { PzmConfirmDialogModule, PzmConfirmDialogResultDefaultType, PzmConfirmDialogService } from './index';
+import { PrizmOverlayControl } from '../../../modules/overlay';
+import { PrizmConfirmDialogModule, PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogService } from './index';
 import { first, take } from 'rxjs/operators';
 
 
-xdescribe('PzmConfirmDialog', () => {
-  let service: PzmConfirmDialogService;
+xdescribe('PrizmConfirmDialog', () => {
+  let service: PrizmConfirmDialogService;
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [PzmConfirmDialogModule],
+      imports: [PrizmConfirmDialogModule],
     });
-    service = TestBed.inject(PzmConfirmDialogService);
+    service = TestBed.inject(PrizmConfirmDialogService);
   });
 
   it('create and close', async () => {
-    let c: PzmOverlayControl;
+    let c: PrizmOverlayControl;
     const result = service.open('Hello', {}, ({control, dialog}) => {
       c = control;
       dialog.completeWith(true);
@@ -27,7 +27,7 @@ xdescribe('PzmConfirmDialog', () => {
   });
 
   it('pass data and not close', async () => {
-    let c: PzmOverlayControl;
+    let c: PrizmOverlayControl;
     const result = service.open(null, {}, async ({control, dialog}) => {
       c = control;
       dialog.$implicit.next(true);
@@ -39,7 +39,7 @@ xdescribe('PzmConfirmDialog', () => {
   });
 
   it('pass description and close', async () => {
-    let c: PzmOverlayControl;
+    let c: PrizmOverlayControl;
     const h = 'Our Description';
     const result = service.open('Hello', {
       description: h
@@ -55,11 +55,11 @@ xdescribe('PzmConfirmDialog', () => {
   });
 
   it('pass confirmed and close', async () => {
-    let c: PzmOverlayControl;
-    const content = PzmConfirmDialogResultDefaultType.confirmed;
+    let c: PrizmOverlayControl;
+    const content = PrizmConfirmDialogResultDefaultType.confirmed;
     const result = service.open(content, {}, ({control, dialog}) => {
       c = control;
-      dialog.completeWith(PzmConfirmDialogResultDefaultType.confirmed);
+      dialog.completeWith(PrizmConfirmDialogResultDefaultType.confirmed);
     })
 
     const r = await result.pipe(take(1)).toPromise();

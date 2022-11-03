@@ -13,17 +13,17 @@ import {
 import { AbstractControl, ControlValueAccessor, FormControl, NgControl, NgModel } from '@angular/forms';
 import { merge, ReplaySubject, Subject } from 'rxjs';
 import { map, startWith, takeUntil, tap } from 'rxjs/operators';
-import { AbstractPzmInteractive } from './interactive';
+import { AbstractPrizmInteractive } from './interactive';
 import { pzmDefaultProp } from '../decorators';
-import { PzmControlValueTransformer } from '../types/control-value-transformer';
+import { PrizmControlValueTransformer } from '../types/control-value-transformer';
 import { EMPTY_FUNCTION } from '../constants/empty';
 
 /**
  * Basic ControlValueAccessor class to build form components upon
  */
 @Directive()
-export abstract class AbstractPzmControl<T>
-  extends AbstractPzmInteractive
+export abstract class AbstractPrizmControl<T>
+  extends AbstractPrizmInteractive
   implements OnDestroy, OnInit, OnChanges, ControlValueAccessor
 {
   private previousInternalValue?: T | null;
@@ -57,7 +57,7 @@ export abstract class AbstractPzmControl<T>
   protected constructor(
     private readonly ngControl: NgControl | null,
     protected readonly changeDetectorRef: ChangeDetectorRef,
-    protected readonly valueTransformer?: PzmControlValueTransformer<T> | null,
+    protected readonly valueTransformer?: PrizmControlValueTransformer<T> | null,
   ) {
     super();
 

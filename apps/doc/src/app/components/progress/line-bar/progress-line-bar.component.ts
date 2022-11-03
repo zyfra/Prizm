@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PzmSizeM, PzmSizeS } from '@digital-plant/zui-components';
+import { PrizmSizeM, PrizmSizeS } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-progress-example',
@@ -13,11 +13,11 @@ export class ProgressLineBarComponent {
   public max = 100;
   public value = 50;
 
-  readonly sizeVariants: ReadonlyArray<PzmSizeS | PzmSizeM> = [
+  readonly sizeVariants: ReadonlyArray<PrizmSizeS | PrizmSizeM> = [
     's',
     'm',
   ];
-  size: PzmSizeS | PzmSizeM = this.sizeVariants[1];
+  size: PrizmSizeS | PrizmSizeM = this.sizeVariants[1];
 
   readonly colorVariants: ReadonlyArray<string | null> = [
     null,

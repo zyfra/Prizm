@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 import { PolymorphContent } from '../../../directives/polymorph';
-import { PzmToastRef } from '../toast-ref';
+import { PrizmToastRef } from '../toast-ref';
 
 @Component({
   selector: 'pzm-toast-single',
@@ -19,6 +19,6 @@ export class ToastComponent {
   get temp(): PolymorphContent {
     return this.toastRef.content
   }
-  constructor(public readonly toastRef: PzmToastRef) {
+  constructor(public readonly toastRef: PrizmToastRef) {
   }
 }

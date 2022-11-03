@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
-import { PzmDropdownHostComponent } from './dropdown-host.component';
-import { PzmOverlayModule } from '../../../modules/overlay';
+import { PrizmDropdownHostComponent } from './dropdown-host.component';
+import { PrizmOverlayModule } from '../../../modules/overlay';
 import {
   PolymorphModule,
-  PzmDropdownZoneModule,
-  PzmLifecycleModule,
-  PzmMutationObserveModule,
+  PrizmDropdownZoneModule,
+  PrizmLifecycleModule,
+  PrizmMutationObserveModule,
 } from '../../../directives';
 import { CommonModule } from '@angular/common';
-import { PzmShadowModule } from '../../../directives/shadow';
+import { PrizmShadowModule } from '../../../directives/shadow';
 
 @NgModule({
     imports: [
       CommonModule,
-      PzmOverlayModule,
-      PzmLifecycleModule,
-      PzmShadowModule,
+      PrizmOverlayModule,
+      PrizmLifecycleModule,
+      PrizmShadowModule,
       PolymorphModule,
-      PzmDropdownZoneModule,
-      PzmMutationObserveModule,
+      PrizmDropdownZoneModule,
+      PrizmMutationObserveModule,
     ],
-    declarations: [PzmDropdownHostComponent],
-    exports: [PzmDropdownHostComponent],
+    declarations: [PrizmDropdownHostComponent],
+    exports: [PrizmDropdownHostComponent],
 })
-export class PzmDropdownHostModule {}
+export class PrizmDropdownHostModule {}

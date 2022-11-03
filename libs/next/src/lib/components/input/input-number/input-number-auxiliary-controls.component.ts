@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { PzmInputLayoutComponent } from '../common/input-layout/input-layout.component';
-import { PzmInputNumberDirective } from './input-number.directive';
+import { PrizmInputLayoutComponent } from '../common/input-layout/input-layout.component';
+import { PrizmInputNumberDirective } from './input-number.directive';
 
 @Component({
   selector: 'pzm-input-number-auxiliary-controls',
@@ -35,10 +35,10 @@ import { PzmInputNumberDirective } from './input-number.directive';
     `,
   ],
 })
-export class PzmInputNumberDefaultControlsComponent {
-  @Input() inputNumber: PzmInputNumberDirective;
+export class PrizmInputNumberDefaultControlsComponent {
+  @Input() inputNumber: PrizmInputNumberDirective;
 
-  constructor(private readonly layout: PzmInputLayoutComponent) {}
+  constructor(private readonly layout: PrizmInputLayoutComponent) {}
 
   get size(): number {
     const { outer, size } = this.layout;

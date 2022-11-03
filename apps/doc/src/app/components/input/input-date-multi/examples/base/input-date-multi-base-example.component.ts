@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PzmDateItemTemplate, PzmDay, PzmTime } from '@digital-plant/zui-components';
+import { PrizmDateItemTemplate, PrizmDay, PrizmTime } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-input-date-multi-base-example',
@@ -15,12 +15,12 @@ import { PzmDateItemTemplate, PzmDay, PzmTime } from '@digital-plant/zui-compone
     }
   `]
 })
-export class PzmInputDateMultiBaseExampleComponent implements OnInit {
+export class PrizmInputDateMultiBaseExampleComponent implements OnInit {
   @ViewChild('dateTime', { static: true }) dateTime: TemplateRef<unknown>;
   @ViewChild('dateRelativeTime', { static: true }) dateRelativeTime: TemplateRef<unknown>;
-  public readonly timeControl = new FormControl([new PzmDay(2017, 2, 15), new PzmTime(12, 30)]);
+  public readonly timeControl = new FormControl([new PrizmDay(2017, 2, 15), new PrizmTime(12, 30)]);
   public readonly relativeControl = new FormControl();
-  public items: PzmDateItemTemplate[] = [];
+  public items: PrizmDateItemTemplate[] = [];
 
   public ngOnInit(): void {
     this.items = [

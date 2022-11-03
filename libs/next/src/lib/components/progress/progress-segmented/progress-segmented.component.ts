@@ -8,7 +8,7 @@ import { pzmIsString } from '../../../util/common/is-string';
     styleUrls: [`./progress-segmented.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmProgressSegmentedComponent {
+export class PrizmProgressSegmentedComponent {
     @Input()
     @pzmDefaultProp(
         (value: number) => Number.isInteger(value) && value >= 0,

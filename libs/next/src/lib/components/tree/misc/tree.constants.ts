@@ -1,13 +1,13 @@
 import { EMPTY_FUNCTION } from '../../../constants';
 import { PolymorphComponent } from '../../../directives/polymorph';
-import { PzmTreeItemContentComponent } from '../components/tree-item-content/tree-item-content.component';
-import { PzmTreeController } from './tree.interfaces';
+import { PrizmTreeItemContentComponent } from '../components/tree-item-content/tree-item-content.component';
+import { PrizmTreeController } from './tree.interfaces';
 
 export const PZM_TREE_ITEM_CONTENT = new PolymorphComponent(
-    PzmTreeItemContentComponent,
+    PrizmTreeItemContentComponent,
 );
 
-export const PZM_DEFAULT_TREE_CONTROLLER: PzmTreeController = {
+export const PZM_DEFAULT_TREE_CONTROLLER: PrizmTreeController = {
     isExpanded: () => true,
     toggle: EMPTY_FUNCTION as () => void,
 };

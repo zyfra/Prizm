@@ -4,23 +4,23 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
-  PzmButtonModule,
-  PzmCheckboxModule,
-  PzmDataListModule,
-  PzmDropdownHostModule,
-  PzmDropdownZoneModule,
-  PzmIconModule,
-  PzmInputDateTimeModule,
-  PzmInputTextModule,
-  PzmRadioButtonModule,
+  PrizmButtonModule,
+  PrizmCheckboxModule,
+  PrizmDataListModule,
+  PrizmDropdownHostModule,
+  PrizmDropdownZoneModule,
+  PrizmIconModule,
+  PrizmInputDateTimeModule,
+  PrizmInputTextModule,
+  PrizmRadioButtonModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownHostComponent } from './dropdown-host.component';
-import { PzmDropdownHostExampleWithTemplateComponent } from './examples/with-template/template';
-import { PzmSelectPanelExampleComponent } from './examples/select-panel-example/select-panel-example.component';
-import { PzmDropdownHostDateListExampleComponent } from './examples/date-list/date-list.component';
-import { PzmDropdownHostDateListEditExampleComponent } from './examples/date-list-edit/date-list-edit.component';
-import { PzmCallFuncModule, PzmLetModule } from '@digital-plant/zyfra-helpers';
+import { PrizmDropdownHostExampleWithTemplateComponent } from './examples/with-template/template';
+import { PrizmSelectPanelExampleComponent } from './examples/select-panel-example/select-panel-example.component';
+import { PrizmDropdownHostDateListExampleComponent } from './examples/date-list/date-list.component';
+import { PrizmDropdownHostDateListEditExampleComponent } from './examples/date-list-edit/date-list-edit.component';
+import { PrizmCallFuncModule, PrizmLetModule } from '@digital-plant/zyfra-helpers';
 
 @NgModule({
   imports: [
@@ -29,26 +29,26 @@ import { PzmCallFuncModule, PzmLetModule } from '@digital-plant/zyfra-helpers';
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PzmDataListModule,
-    PzmDropdownZoneModule,
-    PzmButtonModule,
-    PzmDropdownHostModule,
+    PrizmDataListModule,
+    PrizmDropdownZoneModule,
+    PrizmButtonModule,
+    PrizmDropdownHostModule,
     RouterModule.forChild(generateRoutes(DropdownHostComponent)),
-    PzmCheckboxModule,
-    PzmInputDateTimeModule,
-    PzmInputTextModule,
-    PzmIconModule,
-    PzmRadioButtonModule,
-    PzmCallFuncModule,
-    PzmLetModule,
+    PrizmCheckboxModule,
+    PrizmInputDateTimeModule,
+    PrizmInputTextModule,
+    PrizmIconModule,
+    PrizmRadioButtonModule,
+    PrizmCallFuncModule,
+    PrizmLetModule,
     FormsModule,
   ],
   declarations: [
-    PzmDropdownHostExampleWithTemplateComponent,
-    PzmDropdownHostDateListEditExampleComponent,
-    PzmDropdownHostDateListExampleComponent,
+    PrizmDropdownHostExampleWithTemplateComponent,
+    PrizmDropdownHostDateListEditExampleComponent,
+    PrizmDropdownHostDateListExampleComponent,
     DropdownHostComponent,
-    PzmSelectPanelExampleComponent,
+    PrizmSelectPanelExampleComponent,
   ],
   exports: [DropdownHostComponent],
 })

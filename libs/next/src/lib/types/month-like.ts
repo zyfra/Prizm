@@ -1,8 +1,8 @@
-import { PzmYearLike } from './year-like';
+import { PrizmYearLike } from './year-like';
 
 /**
  * Optionaly has year and/or month
  */
-export interface PzmMonthLike extends PzmYearLike {
+export interface PrizmMonthLike extends PrizmYearLike {
     readonly month?: number;
 }

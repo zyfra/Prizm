@@ -8,21 +8,21 @@ import {
   HostListener,
   Input,
 } from '@angular/core';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { fromEvent } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 
 @Directive({
   selector: 'textarea[pzmInput]',
 })
-export class PzmTextareaDirective implements AfterViewInit {
+export class PrizmTextareaDirective implements AfterViewInit {
   @Input() @HostBinding('style.height.px') height: number | null = null;
 
   private clone: HTMLTextAreaElement | null = null;
   constructor(
     @Host() private elementRef: ElementRef<HTMLTextAreaElement>,
     @Attribute('autoSize') private autoSize: any,
-    private destroy$: PzmDestroyService
+    private destroy$: PrizmDestroyService
   ) {
     this.elementRef.nativeElement.rows = 1;
   }

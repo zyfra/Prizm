@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { PzmTreeItemContentComponent } from '@digital-plant/zui-components';
+import { PrizmTreeItemContentComponent } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-folders',
@@ -13,7 +13,7 @@ import { PzmTreeItemContentComponent } from '@digital-plant/zui-components';
     `,
   styleUrls: ['folder.component.less'],
 })
-export class FoldersComponent extends PzmTreeItemContentComponent {
+export class FoldersComponent extends PrizmTreeItemContentComponent {
   public get icon(): string {
     return this.isExpandable ? 'files-folder' : 'files-alarm';
   }

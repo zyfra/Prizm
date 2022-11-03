@@ -1,18 +1,18 @@
 import {Inject, Injectable, OnDestroy} from "@angular/core";
 import {PolymorphContent} from "../../directives/polymorph";
-import {PZM_TOAST_ID, PzmToastOptions} from "./types";
-import {PzmToastRef} from "./toast-ref";
+import {PZM_TOAST_ID, PrizmToastOptions} from "./types";
+import {PrizmToastRef} from "./toast-ref";
 import {generateToastId} from "./util";
-import {PZM_TOAST_OPTIONS, PzmToastDefaultOptions} from "./toast-options";
-import {PzmToastExistException} from "../../exceptions/toast-exist.exception";
+import {PZM_TOAST_OPTIONS, PrizmToastDefaultOptions} from "./toast-options";
+import {PrizmToastExistException} from "../../exceptions/toast-exist.exception";
 import {Subject} from "rxjs";
 import {map, shareReplay} from "rxjs/operators";
-import {PzmToastNotExistException} from "../../exceptions/toast-not-exist.exception";
+import {PrizmToastNotExistException} from "../../exceptions/toast-not-exist.exception";
 
-export type ToastRefMap =  Map<PZM_TOAST_ID, PzmToastRef>;
+export type ToastRefMap =  Map<PZM_TOAST_ID, PrizmToastRef>;
 
 @Injectable()
-export class PzmToastService implements OnDestroy {
+export class PrizmToastService implements OnDestroy {
   /* main storage for control by id */
   private readonly refs: ToastRefMap = new Map();
   private readonly changesSource$ = new Subject();
@@ -27,7 +27,7 @@ export class PzmToastService implements OnDestroy {
   readonly destroy$ = new Subject<void>();
 
   constructor(
-    @Inject(PZM_TOAST_OPTIONS) private readonly options: PzmToastDefaultOptions
+    @Inject(PZM_TOAST_OPTIONS) private readonly options: PrizmToastDefaultOptions
   ) {}
 
   get size(): number {
@@ -36,12 +36,12 @@ export class PzmToastService implements OnDestroy {
 
   public create(
     content: PolymorphContent,
-    options: PzmToastOptions = {}
-  ): PzmToastRef {
+    options: PrizmToastOptions = {}
+  ): PrizmToastRef {
     const id = options.id || generateToastId();
-    if (this.refs.has(id)) throw new PzmToastExistException(id);
+    if (this.refs.has(id)) throw new PrizmToastExistException(id);
 
-    const ref = new PzmToastRef(
+    const ref = new PrizmToastRef(
       content,
       options.weight ?? 0,
       options.timer ?? this.options.timer,
@@ -69,15 +69,15 @@ export class PzmToastService implements OnDestroy {
     id: PZM_TOAST_ID,
     content: PolymorphContent,
   ): void {
-    if (!this.refs.has(id)) throw new PzmToastNotExistException(id);
+    if (!this.refs.has(id)) throw new PrizmToastNotExistException(id);
     this.refs.get(id).updateContent(content);
   }
 
   public updateTitle(
     id: PZM_TOAST_ID,
-    title: PzmToastOptions['title']
-  ): PzmToastRef {
-    if (!this.refs.has(id)) throw new PzmToastNotExistException(id);
+    title: PrizmToastOptions['title']
+  ): PrizmToastRef {
+    if (!this.refs.has(id)) throw new PrizmToastNotExistException(id);
     const ref = this.refs.get(id);
     ref.updateTitle(title);
 
@@ -87,7 +87,7 @@ export class PzmToastService implements OnDestroy {
   public delete(
     id: PZM_TOAST_ID,
   ): void {
-    if (!this.refs.has(id)) throw new PzmToastNotExistException(id);
+    if (!this.refs.has(id)) throw new PrizmToastNotExistException(id);
     this.refs.get(id).destroy();
     this.refs.delete(id);
     this.detect();

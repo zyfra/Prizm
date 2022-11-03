@@ -16,7 +16,7 @@ import { debounceTime } from 'rxjs/operators';
     selector: '[pzmLifecycle], [pzmAfterViewInit], [pzmAfterContentInit], [pzmOnInit], [pzmOnDestroy]',
     exportAs: 'pzmLifecycle'
 })
-export class PzmLifecycleDirective implements AfterViewInit, OnInit, OnDestroy, AfterContentInit {
+export class PrizmLifecycleDirective implements AfterViewInit, OnInit, OnDestroy, AfterContentInit {
     @Output()
     readonly pzmAfterViewInit = new EventEmitter<ElementRef>();
 

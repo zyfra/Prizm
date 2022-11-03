@@ -1,11 +1,11 @@
 import { Optional, Provider } from '@angular/core';
-import { PzmDropdownControllerDirective } from '../directives/dropdown-controller/dropdown-controller.directive';
+import { PrizmDropdownControllerDirective } from '../directives/dropdown-controller/dropdown-controller.directive';
 import { PZM_DROPDOWN_CONTROLLER } from '../directives/dropdown-controller/dropdown-controller.token';
 
 export function pzmFixedDropdownControllerFactory(
-    directive: PzmDropdownControllerDirective | null,
-): PzmDropdownControllerDirective {
-    directive = directive || new PzmDropdownControllerDirective();
+    directive: PrizmDropdownControllerDirective | null,
+): PrizmDropdownControllerDirective {
+    directive = directive || new PrizmDropdownControllerDirective();
     directive.limitWidth = `fixed`;
 
     return directive;
@@ -14,15 +14,15 @@ export function pzmFixedDropdownControllerFactory(
 export const PZM_FIXED_DROPDOWN_CONTROLLER_PROVIDER: Provider = [
     {
         provide: PZM_DROPDOWN_CONTROLLER,
-        deps: [[new Optional(), PzmDropdownControllerDirective]],
+        deps: [[new Optional(), PrizmDropdownControllerDirective]],
         useFactory: pzmFixedDropdownControllerFactory,
     },
 ];
 
 export function pzmLeftAlignedDropdownControllerFactory(
-    directive: PzmDropdownControllerDirective | null,
-): PzmDropdownControllerDirective {
-    directive = directive || new PzmDropdownControllerDirective();
+    directive: PrizmDropdownControllerDirective | null,
+): PrizmDropdownControllerDirective {
+    directive = directive || new PrizmDropdownControllerDirective();
     directive.align = `left`;
 
     return directive;
@@ -31,7 +31,7 @@ export function pzmLeftAlignedDropdownControllerFactory(
 export const PZM_LEFT_ALIGNED_DROPDOWN_CONTROLLER_PROVIDER: Provider = [
     {
         provide: PZM_DROPDOWN_CONTROLLER,
-        deps: [[new Optional(), PzmDropdownControllerDirective]],
+        deps: [[new Optional(), PrizmDropdownControllerDirective]],
         useFactory: pzmLeftAlignedDropdownControllerFactory,
     },
 ];

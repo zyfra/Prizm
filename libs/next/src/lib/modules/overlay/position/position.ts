@@ -1,12 +1,12 @@
 import {ReplaySubject} from "rxjs";
-import {PzmOverlayPositionMeta} from "../models";
+import {PrizmOverlayPositionMeta} from "../models";
 import {EventBus} from "../utils";
 
-export abstract class PzmOverlayAbstractPosition<T extends Record<string, any> = Record<string, any>> {
+export abstract class PrizmOverlayAbstractPosition<T extends Record<string, any> = Record<string, any>> {
   protected config: T = {} as T;
   private configSource$: ReplaySubject<T> = new ReplaySubject<T>(1);
   readonly config$ = this.configSource$.asObservable();
-  private readonly positionSource$ = new ReplaySubject<PzmOverlayPositionMeta>();
+  private readonly positionSource$ = new ReplaySubject<PrizmOverlayPositionMeta>();
   readonly pos$ = this.positionSource$.asObservable();
   private _zid: string;
   public get zid(): string {
@@ -29,7 +29,7 @@ export abstract class PzmOverlayAbstractPosition<T extends Record<string, any> =
   }
 
   public savePosition(
-    position: PzmOverlayPositionMeta
+    position: PrizmOverlayPositionMeta
   ): void {
     this.positionSource$.next(position);
   }

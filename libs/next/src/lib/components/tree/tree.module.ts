@@ -1,41 +1,41 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PzmTreeComponent } from './components/tree/tree.component';
-import { PzmTreeItemComponent } from './components/tree-item/tree-item.component';
-import { PzmTreeItemContentComponent } from './components/tree-item-content/tree-item-content.component';
-import { PzmTreeChildrenDirective } from './directives/tree-children.directive';
-import { PzmTreeControllerDirective } from './directives/tree-controller.directive';
-import { PzmTreeItemControllerDirective } from './directives/tree-item-controller.directive';
-import { PzmTreeNodeDirective } from './directives/tree-node.directive';
-import { PzmExpandModule } from '../expand';
-import { PzmLetModule } from '@digital-plant/zyfra-helpers';
-import { PzmButtonModule } from '../button';
+import { PrizmTreeComponent } from './components/tree/tree.component';
+import { PrizmTreeItemComponent } from './components/tree-item/tree-item.component';
+import { PrizmTreeItemContentComponent } from './components/tree-item-content/tree-item-content.component';
+import { PrizmTreeChildrenDirective } from './directives/tree-children.directive';
+import { PrizmTreeControllerDirective } from './directives/tree-controller.directive';
+import { PrizmTreeItemControllerDirective } from './directives/tree-item-controller.directive';
+import { PrizmTreeNodeDirective } from './directives/tree-node.directive';
+import { PrizmExpandModule } from '../expand';
+import { PrizmLetModule } from '@digital-plant/zyfra-helpers';
+import { PrizmButtonModule } from '../button';
 import { PolymorphModule } from '../../directives';
 
 @NgModule({
     imports: [
         CommonModule,
         PolymorphModule,
-        PzmExpandModule,
-        PzmLetModule,
-        PzmButtonModule,
+        PrizmExpandModule,
+        PrizmLetModule,
+        PrizmButtonModule,
     ],
-    entryComponents: [PzmTreeItemContentComponent],
+    entryComponents: [PrizmTreeItemContentComponent],
     declarations: [
-        PzmTreeComponent,
-        PzmTreeItemComponent,
-        PzmTreeItemContentComponent,
-        PzmTreeChildrenDirective,
-        PzmTreeItemControllerDirective,
-        PzmTreeControllerDirective,
-        PzmTreeNodeDirective,
+        PrizmTreeComponent,
+        PrizmTreeItemComponent,
+        PrizmTreeItemContentComponent,
+        PrizmTreeChildrenDirective,
+        PrizmTreeItemControllerDirective,
+        PrizmTreeControllerDirective,
+        PrizmTreeNodeDirective,
     ],
     exports: [
-        PzmTreeComponent,
-        PzmTreeItemComponent,
-        PzmTreeChildrenDirective,
-        PzmTreeItemControllerDirective,
-        PzmTreeControllerDirective,
+        PrizmTreeComponent,
+        PrizmTreeItemComponent,
+        PrizmTreeChildrenDirective,
+        PrizmTreeItemControllerDirective,
+        PrizmTreeControllerDirective,
     ],
 })
-export class PzmTreeModule {}
+export class PrizmTreeModule {}

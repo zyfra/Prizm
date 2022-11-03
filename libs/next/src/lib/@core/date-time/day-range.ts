@@ -1,21 +1,21 @@
-import { PzmDateMode } from '../../types/date-mode';
+import { PrizmDateMode } from '../../types/date-mode';
 import { PZM_DATE_FILLER_LENGTH, PZM_DATE_RANGE_FILLER_LENGTH } from './date-fillers';
 import { PZM_RANGE_SEPARATOR_CHAR } from './date-time';
-import { PzmDay } from './day';
-import { PzmMonthRange } from './month-range';
+import { PrizmDay } from './day';
+import { PrizmMonthRange } from './month-range';
 
 /**
  * Temporary type guard to satisfy ts-overloading of normalizeParse method
  * @deprecated
  */
-export const pzmIsDateMode = (dateMode: string): dateMode is PzmDateMode =>
+export const pzmIsDateMode = (dateMode: string): dateMode is PrizmDateMode =>
     [`DMY`, `YMD`, `MDY`].includes(dateMode);
 
 /**
- * An immutable range of two {@link PzmDay} objects
+ * An immutable range of two {@link PrizmDay} objects
  */
-export class PzmDayRange extends PzmMonthRange {
-    constructor(override readonly from: PzmDay, override readonly to: PzmDay) {
+export class PrizmDayRange extends PrizmMonthRange {
+    constructor(override readonly from: PrizmDay, override readonly to: PrizmDay) {
         super(from, to);
 
         console.assert(from.daySameOrBefore(to));
@@ -28,16 +28,16 @@ export class PzmDayRange extends PzmMonthRange {
      * @param day2
      * @return new range with sorted days
      */
-    public static override sort(day1: PzmDay, day2: PzmDay): PzmDayRange {
+    public static override sort(day1: PrizmDay, day2: PrizmDay): PrizmDayRange {
         return day1.daySameOrBefore(day2)
-            ? new PzmDayRange(day1, day2)
-            : new PzmDayRange(day2, day1);
+            ? new PrizmDayRange(day1, day2)
+            : new PrizmDayRange(day2, day1);
     }
 
-    public static fromLocalNativeDate(date1: Date, date2: Date): PzmDayRange {
-      return new PzmDayRange(
-        PzmDay.fromLocalNativeDate(date1),
-        PzmDay.fromLocalNativeDate(date2),
+    public static fromLocalNativeDate(date1: Date, date2: Date): PrizmDayRange {
+      return new PrizmDayRange(
+        PrizmDay.fromLocalNativeDate(date1),
+        PrizmDay.fromLocalNativeDate(date2),
       );
     }
 
@@ -48,34 +48,34 @@ export class PzmDayRange extends PzmMonthRange {
         rangeString: string,
         dateFiller: string,
         dateRangeFiller: string,
-    ): PzmDayRange;
-    public static normalizeParse(rangeString: string, dateMode?: PzmDateMode): PzmDayRange;
+    ): PrizmDayRange;
+    public static normalizeParse(rangeString: string, dateMode?: PrizmDateMode): PrizmDayRange;
 
     /**
      * Parse and correct a day range in string format
      *
      * @param rangeString a string of dates in a format dd.mm.yyyy - dd.mm.yyyy
-     * @param dateMode {@link PzmDateMode}
+     * @param dateMode {@link PrizmDateMode}
      * @return normalized day range object
      */
     public static normalizeParse(
         rangeString: string,
-        dateMode: string | PzmDateMode = `DMY`,
-    ): PzmDayRange {
+        dateMode: string | PrizmDateMode = `DMY`,
+    ): PrizmDayRange {
         const dateFormat = pzmIsDateMode(dateMode) ? dateMode : `DMY`;
 
-        const leftDay = PzmDay.normalizeParse(
+        const leftDay = PrizmDay.normalizeParse(
             rangeString.slice(0, PZM_DATE_FILLER_LENGTH),
             dateFormat,
         );
 
         if (rangeString.length < PZM_DATE_RANGE_FILLER_LENGTH) {
-            return new PzmDayRange(leftDay, leftDay);
+            return new PrizmDayRange(leftDay, leftDay);
         }
 
-        return PzmDayRange.sort(
+        return PrizmDayRange.sort(
             leftDay,
-            PzmDay.normalizeParse(
+            PrizmDay.normalizeParse(
                 rangeString.slice(PZM_DATE_FILLER_LENGTH + PZM_RANGE_SEPARATOR_CHAR.length),
                 dateFormat,
             ),
@@ -98,7 +98,7 @@ export class PzmDayRange extends PzmMonthRange {
     }
 
     public isDayInRange(
-      day: PzmDay
+      day: PrizmDay
     ): boolean {
       return day.daySameOrAfter(this.from) && day.daySameOrBefore(this.to)
     }
@@ -109,7 +109,7 @@ export class PzmDayRange extends PzmMonthRange {
      * @param another second range to test against current
      * @return `true` if days are identical
      */
-    public daySame(another: PzmDayRange): boolean {
+    public daySame(another: PrizmDayRange): boolean {
         return this.from.daySame(another.from) && this.to.daySame(another.to);
     }
 
@@ -120,14 +120,14 @@ export class PzmDayRange extends PzmMonthRange {
      * @param max
      * @return range — clamped range
      */
-    public dayLimit(min: PzmDay | null, max: PzmDay | null): PzmDayRange {
-        return new PzmDayRange(this.from.dayLimit(min, max), this.to.dayLimit(min, max));
+    public dayLimit(min: PrizmDay | null, max: PrizmDay | null): PrizmDayRange {
+        return new PrizmDayRange(this.from.dayLimit(min, max), this.to.dayLimit(min, max));
     }
 
     /**
      * Human readable format.
      */
-    public getFormattedDayRange(dateFormat: PzmDateMode, dateSeparator: string): string {
+    public getFormattedDayRange(dateFormat: PrizmDateMode, dateSeparator: string): string {
         const from = this.from.getFormattedDay(dateFormat, dateSeparator);
         const to = this.to.getFormattedDay(dateFormat, dateSeparator);
 
@@ -141,7 +141,7 @@ export class PzmDayRange extends PzmMonthRange {
       ];
     }
 
-    public override toString(dateFormat: PzmDateMode = `DMY`, dateSeparator: string = `.`): string {
+    public override toString(dateFormat: PrizmDateMode = `DMY`, dateSeparator: string = `.`): string {
         const from = this.from.getFormattedDay(dateFormat, dateSeparator);
         const to = this.to.getFormattedDay(dateFormat, dateSeparator);
 

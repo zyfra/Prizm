@@ -1,6 +1,6 @@
 import {PolymorphContent} from "../../directives/polymorph";
 
-export enum PzmToastPosition {
+export enum PrizmToastPosition {
   TOP_MIDDLE = 'tm',
   TOP_LEFT = 'tl',
   TOP_RIGHT = 'tr',
@@ -12,15 +12,15 @@ export enum PzmToastPosition {
 export type PZM_TOAST_ID = string;
 export type PZM_TOAST_CONTAINER_ID = string;
 
-export type PzmToastAppearance = 'info' | 'success' | 'warning' | 'danger';
+export type PrizmToastAppearance = 'info' | 'success' | 'warning' | 'danger';
 
-export type PzmToastOptions = {
-  position?: PzmToastPosition | PZM_TOAST_CONTAINER_ID,
+export type PrizmToastOptions = {
+  position?: PrizmToastPosition | PZM_TOAST_CONTAINER_ID,
   /* weight - use for DESC sorting */
   weight?: number,
   title?: PolymorphContent,
   data?: Record<string, unknown>
-  appearance?: PzmToastAppearance,
+  appearance?: PrizmToastAppearance,
   id?: PZM_TOAST_ID,
   timer?: number,
   autoClose?: boolean,

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
-import { PzmCalendarSheetPipe } from './calendar-sheet.pipe';
+import { PrizmCalendarSheetPipe } from './calendar-sheet.pipe';
 
 @NgModule({
-    declarations: [PzmCalendarSheetPipe],
-    exports: [PzmCalendarSheetPipe],
+    declarations: [PrizmCalendarSheetPipe],
+    exports: [PrizmCalendarSheetPipe],
 })
-export class PzmCalendarSheetPipeModule {}
+export class PrizmCalendarSheetPipeModule {}

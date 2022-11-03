@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PzmDay, PzmDayWithStatus } from '@digital-plant/zui-components';
+import { PrizmDay, PrizmDayWithStatus } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-calendar-base-example',
@@ -11,17 +11,17 @@ import { PzmDay, PzmDayWithStatus } from '@digital-plant/zui-components';
     }
   `]
 })
-export class PzmCalendarBaseExampleComponent {
-  public day = new PzmDay(2017, 0, 15);
+export class PrizmCalendarBaseExampleComponent {
+  public day = new PrizmDay(2017, 0, 15);
   public daysWithStatus = [
-    new PzmDayWithStatus(2017, 0, 10, 'index'),
-    new PzmDayWithStatus(2017, 0, 11, 'warning'),
-    new PzmDayWithStatus(2017, 0, 12, 'danger'),
-    new PzmDayWithStatus(2017, 0, 13, 'success'),
-    new PzmDayWithStatus(2017, 0, 17, 'yellow'),
+    new PrizmDayWithStatus(2017, 0, 10, 'index'),
+    new PrizmDayWithStatus(2017, 0, 11, 'warning'),
+    new PrizmDayWithStatus(2017, 0, 12, 'danger'),
+    new PrizmDayWithStatus(2017, 0, 13, 'success'),
+    new PrizmDayWithStatus(2017, 0, 17, 'yellow'),
   ];
 
-  public onDayClick(day: PzmDay): void {
+  public onDayClick(day: PrizmDay): void {
     this.day = day;
   }
 }

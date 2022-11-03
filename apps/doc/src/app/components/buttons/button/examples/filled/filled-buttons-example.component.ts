@@ -21,4 +21,4 @@ import { Component } from '@angular/core';
     `
   ],
 })
-export class PzmFilledButtonsExampleComponent {}
+export class PrizmFilledButtonsExampleComponent {}

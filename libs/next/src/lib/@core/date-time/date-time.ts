@@ -1,6 +1,6 @@
 import { PZM_CHAR_EN_DASH, PZM_CHAR_NO_BREAK_SPACE } from "../../constants/unicode-chars";
-import { PzmTime } from './time';
-import { PzmDay } from './day';
+import { PrizmTime } from './time';
+import { PrizmDay } from './day';
 
 export const PZM_DAYS_IN_WEEK = 7;
 
@@ -36,17 +36,17 @@ export const PZM_MILLISECONDS_IN_HOUR = PZM_MILLISECONDS_IN_MINUTE * PZM_MINUTES
 
 export const PZM_MILLISECONDS_IN_DAY = PZM_MILLISECONDS_IN_HOUR * PZM_HOURS_IN_DAY;
 
-export class PzmDateTime {
-  public static fromLocalNativeDate(date: Date): PzmDateTime {
-    return new PzmDateTime(
-      PzmDay.fromLocalNativeDate(date),
-      PzmTime.fromLocalNativeDate(date),
+export class PrizmDateTime {
+  public static fromLocalNativeDate(date: Date): PrizmDateTime {
+    return new PrizmDateTime(
+      PrizmDay.fromLocalNativeDate(date),
+      PrizmTime.fromLocalNativeDate(date),
     );
   }
 
   constructor(
-    public day: PzmDay,
-    public time: PzmTime
+    public day: PrizmDay,
+    public time: PrizmTime
   ) {}
 
   public toLocalNativeDate(): Date {

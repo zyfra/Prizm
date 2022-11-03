@@ -1,1 +1,1 @@
-export type PzmDestroyCallback = () => void
+export type PrizmDestroyCallback = () => void

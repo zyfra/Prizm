@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PzmMenuItem } from '@digital-plant/zui-components';
+import { PrizmMenuItem } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-nav-menu-basic-example',
@@ -8,7 +8,7 @@ import { PzmMenuItem } from '@digital-plant/zui-components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavMenuBasicExampleComponent {
-  public navigationList: PzmMenuItem[] = [
+  public navigationList: PrizmMenuItem[] = [
     {
       label: 'А приложение 1',
     },

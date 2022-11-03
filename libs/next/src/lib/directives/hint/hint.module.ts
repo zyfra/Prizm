@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
-import { PzmHintDirective } from './hint.directive';
-import { PzmHintContainerComponent } from './hint-container.component';
+import { PrizmHintDirective } from './hint.directive';
+import { PrizmHintContainerComponent } from './hint-container.component';
 import { CommonModule } from '@angular/common';
 import { PolymorphModule } from '../polymorph';
-import { PzmScrollbarModule } from '../../components/scrollbar';
+import { PrizmScrollbarModule } from '../../components/scrollbar';
 
 @NgModule({
   imports: [
     CommonModule,
-    PzmScrollbarModule,
+    PrizmScrollbarModule,
     PolymorphModule
   ],
-  declarations: [PzmHintDirective, PzmHintContainerComponent],
-  exports: [PzmHintDirective],
+  declarations: [PrizmHintDirective, PrizmHintContainerComponent],
+  exports: [PrizmHintDirective],
 })
-export class PzmHintModule {}
+export class PrizmHintModule {}

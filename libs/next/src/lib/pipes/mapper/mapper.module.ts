@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
-import { PzmMapperPipe } from './mapper.pipe';
+import { PrizmMapperPipe } from './mapper.pipe';
 
 @NgModule({
-    exports: [PzmMapperPipe],
-    declarations: [PzmMapperPipe],
+    exports: [PrizmMapperPipe],
+    declarations: [PrizmMapperPipe],
 })
-export class PzmMapperPipeModule {}
+export class PrizmMapperPipeModule {}

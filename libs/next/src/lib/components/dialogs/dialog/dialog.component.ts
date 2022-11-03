@@ -2,11 +2,11 @@ import { ChangeDetectionStrategy, Component, HostBinding, Inject, Input } from '
 import { Observable } from 'rxjs';
 import { PZM_ANIMATIONS_DURATION } from '../../../tokens';
 import { PZM_DIALOG_CLOSE_STREAM, PZM_DIALOG_PROVIDERS } from './dialog-options';
-import { PzmAnimationOptions, pzmFadeIn, pzmSlideInTop } from '../../../animations';
+import { PrizmAnimationOptions, pzmFadeIn, pzmSlideInTop } from '../../../animations';
 import { pzmPure } from '../../../decorators';
 import { takeUntil } from 'rxjs/operators';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
-import { PzmBaseDialogContext, PzmDialogButton, PzmDialogOptions, PzmDialogSize } from './dialog.models';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmBaseDialogContext, PrizmDialogButton, PrizmDialogOptions, PrizmDialogSize } from './dialog.models';
 import { PolymorphContent } from '../../../directives';
 
 @Component({
@@ -17,15 +17,15 @@ import { PolymorphContent } from '../../../directives';
     providers: PZM_DIALOG_PROVIDERS,
     animations: [pzmSlideInTop, pzmFadeIn],
 })
-export class PzmDialogComponent<O = unknown, DATA = unknown> {
+export class PrizmDialogComponent<O = unknown, DATA = unknown> {
     @Input()
-    public context!: PzmBaseDialogContext<O, PzmDialogOptions<O, DATA>>;
+    public context!: PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>;
 
     @Input()
     public close!: () => void;
 
     @HostBinding('attr.pzm-size')
-    public get size(): PzmDialogSize {
+    public get size(): PrizmDialogSize {
       return this.context.size
     };
 
@@ -36,7 +36,7 @@ export class PzmDialogComponent<O = unknown, DATA = unknown> {
 
     @HostBinding('@pzmSlideInTop')
     @HostBinding('@pzmFadeIn')
-    public get slideInTop(): PzmAnimationOptions {
+    public get slideInTop(): PrizmAnimationOptions {
       return this.animation;
     }
 
@@ -49,11 +49,11 @@ export class PzmDialogComponent<O = unknown, DATA = unknown> {
     }
 
     @pzmPure
-    public get footer(): PolymorphContent<PzmBaseDialogContext<O, PzmDialogOptions<O, DATA>>> | (PzmDialogButton<O, PzmDialogOptions<O, DATA>>[]) {
+    public get footer(): PolymorphContent<PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>> | (PrizmDialogButton<O, PrizmDialogOptions<O, DATA>>[]) {
       return this.context.footer ?? [
         {
           size: this.context.size,
-          action: (ctx: PzmBaseDialogContext<O, PzmDialogOptions<O, DATA>>): void => {
+          action: (ctx: PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>): void => {
             ctx.completeWith(null);
           },
           text: this.context.closeWord
@@ -72,7 +72,7 @@ export class PzmDialogComponent<O = unknown, DATA = unknown> {
     constructor(
         @Inject(PZM_ANIMATIONS_DURATION) private readonly duration: number,
         @Inject(PZM_DIALOG_CLOSE_STREAM) readonly close$: Observable<unknown>,
-        private readonly destroy$: PzmDestroyService
+        private readonly destroy$: PrizmDestroyService
     ) {
         close$.pipe(takeUntil(this.destroy$)).subscribe(() => {
             this.close();

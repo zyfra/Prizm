@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { IconDefs, PzmAppearance, PzmAppearanceType, PzmContent, PzmSize } from '@digital-plant/zui-components';
+import { IconDefs, PrizmAppearance, PrizmAppearanceType, PrizmContent, PrizmSize } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-icon-button-example',
@@ -25,23 +25,23 @@ import { IconDefs, PzmAppearance, PzmAppearanceType, PzmContent, PzmSize } from 
   ]
 })
 export class IconButtonComponent {
-  sizeVariants: ReadonlyArray<PzmSize> = ['s', 'm', 'xm', 'l', 'xl'];
-  size: PzmSize = this.sizeVariants[0];
+  sizeVariants: ReadonlyArray<PrizmSize> = ['s', 'm', 'xm', 'l', 'xl'];
+  size: PrizmSize = this.sizeVariants[0];
 
-  iconVariants: ReadonlyArray<PzmContent> = ['account-card-details', ...IconDefs.reduce((a, c) => a.concat(c.data), [])];
-  icon: PzmContent = this.iconVariants[0];
-  iconRight: PzmContent = this.iconVariants[0];
-  appearanceVariants: ReadonlyArray<PzmAppearance> = [
+  iconVariants: ReadonlyArray<PrizmContent> = ['account-card-details', ...IconDefs.reduce((a, c) => a.concat(c.data), [])];
+  icon: PrizmContent = this.iconVariants[0];
+  iconRight: PrizmContent = this.iconVariants[0];
+  appearanceVariants: ReadonlyArray<PrizmAppearance> = [
     'primary',
     'secondary',
     'success',
     'warning',
     'danger',
   ];
-  appearance: PzmAppearance = this.appearanceVariants[0];
+  appearance: PrizmAppearance = this.appearanceVariants[0];
 
-  appearanceTypeVariants: ReadonlyArray<PzmAppearanceType> = ['fill', 'outline', 'ghost'];
-  appearanceType: PzmAppearanceType = this.appearanceTypeVariants[0];
+  appearanceTypeVariants: ReadonlyArray<PrizmAppearanceType> = ['fill', 'outline', 'ghost'];
+  appearanceType: PrizmAppearanceType = this.appearanceTypeVariants[0];
   disabled = false;
   content = 'Button Name';
   showLoader = false;

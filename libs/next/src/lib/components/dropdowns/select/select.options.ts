@@ -1,35 +1,35 @@
 import { InjectionToken, ValueProvider } from '@angular/core';
 import { PolymorphContent } from '../../../directives';
-import { PzmInputSize } from '../../input';
-import { PzmContextWithImplicit } from '../../../types';
-import { PzmSelectIdentityMatcher, PzmSelectSearchMatcher } from './select.model';
+import { PrizmInputSize } from '../../input';
+import { PrizmContextWithImplicit } from '../../../types';
+import { PrizmSelectIdentityMatcher, PrizmSelectSearchMatcher } from './select.model';
 
-export interface PzmSelectOptions<T> {
+export interface PrizmSelectOptions<T> {
     readonly items: unknown[];
     readonly searchable: boolean;
     readonly forceClear: boolean | null;
     readonly label: string;
     readonly placeholder: string;
-    readonly size: PzmInputSize;
-    readonly stringify: PzmSelectStringify<T>;
+    readonly size: PrizmInputSize;
+    readonly stringify: PrizmSelectStringify<T>;
     readonly emptyContent: PolymorphContent;
     readonly nullContent: PolymorphContent;
-    readonly searchMatcher: PzmSelectSearchMatcher<T>,
-    readonly identityMatcher: PzmSelectIdentityMatcher<T>,
+    readonly searchMatcher: PrizmSelectSearchMatcher<T>,
+    readonly identityMatcher: PrizmSelectIdentityMatcher<T>,
     readonly minDropdownHeight: number;
     readonly outer: boolean;
     readonly maxDropdownHeight: number;
     readonly dropdownWidth: string;
-    readonly valueContent: PolymorphContent<PzmSelectValueContext<T>>;
+    readonly valueContent: PolymorphContent<PrizmSelectValueContext<T>>;
 
 }
 
 
-export type PzmSelectStringify<T> = (i:T, nullContent?: string) => string;
-export type PzmSelectValueContext<T> = PzmContextWithImplicit<T> & {stringify: string};
+export type PrizmSelectStringify<T> = (i:T, nullContent?: string) => string;
+export type PrizmSelectValueContext<T> = PrizmContextWithImplicit<T> & {stringify: string};
 
 /** Default values for dropdown-host options */
-export const PZM_SELECT_DEFAULT_OPTIONS: PzmSelectOptions<unknown> = {
+export const PZM_SELECT_DEFAULT_OPTIONS: PrizmSelectOptions<unknown> = {
   items: [],
   searchable: false,
   outer: false,
@@ -55,16 +55,16 @@ export const PZM_SELECT_DEFAULT_OPTIONS: PzmSelectOptions<unknown> = {
   label: 'Выберите из списка',
 };
 
-export const PZM_SELECT_OPTIONS = new InjectionToken<PzmSelectOptions<unknown>>(
+export const PZM_SELECT_OPTIONS = new InjectionToken<PrizmSelectOptions<unknown>>(
     'Default parameters for select',
     {
-        factory: (): PzmSelectOptions<unknown> => PZM_SELECT_DEFAULT_OPTIONS,
+        factory: (): PrizmSelectOptions<unknown> => PZM_SELECT_DEFAULT_OPTIONS,
     },
 );
 
 export const pzmSelectOptionsProvider: (
-    options: Partial<PzmSelectOptions<unknown>>,
-) => ValueProvider = (options: Partial<PzmSelectOptions<unknown>>) => ({
+    options: Partial<PrizmSelectOptions<unknown>>,
+) => ValueProvider = (options: Partial<PrizmSelectOptions<unknown>>) => ({
     provide: PZM_SELECT_OPTIONS,
     useValue: {...PZM_SELECT_DEFAULT_OPTIONS, ...options},
 });

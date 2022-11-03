@@ -95,19 +95,19 @@
 
 ### @Core
 
-- Избавиться от этого, перейти на AbstractPzmControl
-- Избавиться от PzmWrappedFormComponent
+- Избавиться от этого, перейти на AbstractPrizmControl
+- Избавиться от PrizmWrappedFormComponent
 
 ### Radio-button
 
-- перейти на AbstractPzmControl
+- перейти на AbstractPrizmControl
 
 ### Button
 
 - Вынести отдельно Split Button
 - Добавить public/private...
 
-### PzmDroppableDirective
+### PrizmDroppableDirective
 
 - убрать?
 

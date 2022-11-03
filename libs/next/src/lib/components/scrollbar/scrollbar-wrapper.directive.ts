@@ -10,4 +10,4 @@ import { PZM_ELEMENT_REF } from '../../tokens/element-ref';
         },
     ],
 })
-export class PzmScrollbarWrapperDirective {}
+export class PrizmScrollbarWrapperDirective {}

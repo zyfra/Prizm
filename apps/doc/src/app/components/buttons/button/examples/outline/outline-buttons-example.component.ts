@@ -21,4 +21,4 @@ import { Component } from '@angular/core';
   ],
   templateUrl: './outline-buttons-example.component.html',
 })
-export class PzmOutlineButtonsExampleComponent {}
+export class PrizmOutlineButtonsExampleComponent {}

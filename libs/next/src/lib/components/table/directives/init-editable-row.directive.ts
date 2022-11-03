@@ -4,4 +4,4 @@ import { InitEditableRow } from 'primeng/table';
 @Directive({
   selector: '[pzmInitEditableRow]',
 })
-export class PzmInitEditableRowDirective extends InitEditableRow {}
+export class PrizmInitEditableRowDirective extends InitEditableRow {}

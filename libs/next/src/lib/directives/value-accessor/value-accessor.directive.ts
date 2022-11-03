@@ -5,4 +5,4 @@ import { PZM_VALUE_ACCESSOR_PROVIDER } from '../../providers/value-accessor.prov
     selector: `[pzmValueAccessor]`,
     providers: [PZM_VALUE_ACCESSOR_PROVIDER],
 })
-export class PzmValueAccessorDirective {}
+export class PrizmValueAccessorDirective {}

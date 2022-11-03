@@ -2,17 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
-import { PolymorphModule, PzmButtonModule, PzmTooltipModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PrizmButtonModule, PrizmTooltipModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TooltipComponent } from './tooltip.component';
 import {
-  PzmTooltipWithTemplateExampleComponent,
+  PrizmTooltipWithTemplateExampleComponent,
 } from './examples/with-template/tooltip-with-template-example.component';
 import {
-  PzmTooltipWithComponentExampleComponent,
+  PrizmTooltipWithComponentExampleComponent,
 } from './examples/with-component/tooltip-with-component-example.component';
-import { PzmTooltipBaseExampleComponent } from './examples/base/tooltip-base-example.component';
-import { PzmTooltipSomeComponent } from './examples/with-component/some.component';
+import { PrizmTooltipBaseExampleComponent } from './examples/base/tooltip-base-example.component';
+import { PrizmTooltipSomeComponent } from './examples/with-component/some.component';
 
 
 @NgModule({
@@ -22,15 +22,15 @@ import { PzmTooltipSomeComponent } from './examples/with-component/some.componen
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PzmTooltipModule,
-    PzmButtonModule,
+    PrizmTooltipModule,
+    PrizmButtonModule,
     RouterModule.forChild(generateRoutes(TooltipComponent)),
   ],
   declarations: [
-    PzmTooltipWithTemplateExampleComponent,
-    PzmTooltipWithComponentExampleComponent,
-    PzmTooltipSomeComponent,
-    PzmTooltipBaseExampleComponent,
+    PrizmTooltipWithTemplateExampleComponent,
+    PrizmTooltipWithComponentExampleComponent,
+    PrizmTooltipSomeComponent,
+    PrizmTooltipBaseExampleComponent,
     TooltipComponent
   ],
   exports: [TooltipComponent],

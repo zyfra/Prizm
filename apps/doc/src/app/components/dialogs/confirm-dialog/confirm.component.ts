@@ -2,13 +2,13 @@ import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  PzmBaseDialogContext,
-  PzmConfirmDialogOptions,
-  PzmConfirmDialogResultDefaultType,
-  PzmConfirmDialogService,
-  PzmDialogSize,
-  PzmOverlayInsidePlacement,
-  PzmOverscrollMode,
+  PrizmBaseDialogContext,
+  PrizmConfirmDialogOptions,
+  PrizmConfirmDialogResultDefaultType,
+  PrizmConfirmDialogService,
+  PrizmDialogSize,
+  PrizmOverlayInsidePlacement,
+  PrizmOverscrollMode,
   pzmPure,
 } from '@digital-plant/zui-components';
 import { generatePolymorphVariants } from '../../../util';
@@ -20,25 +20,25 @@ import { generatePolymorphVariants } from '../../../util';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConfirmComponent {
-  public overscrollVariants: ReadonlyArray<PzmOverscrollMode> = [
+  public overscrollVariants: ReadonlyArray<PrizmOverscrollMode> = [
     'scroll',
     'all',
     'none',
   ];
-  public overscroll: PzmOverscrollMode = this.overscrollVariants[0];
-  public positionVariants: PzmOverlayInsidePlacement[] = Object.values(PzmOverlayInsidePlacement);
-  public position: PzmOverlayInsidePlacement = PzmOverlayInsidePlacement.CENTER;
+  public overscroll: PrizmOverscrollMode = this.overscrollVariants[0];
+  public positionVariants: PrizmOverlayInsidePlacement[] = Object.values(PrizmOverlayInsidePlacement);
+  public position: PrizmOverlayInsidePlacement = PrizmOverlayInsidePlacement.CENTER;
   public backdrop = true;
   public height = 'auto';
   public width = '500px';
-  public sizeVariants: PzmDialogSize[] = ['m', 'l'];
-  public size: PzmDialogSize = 'm';
+  public sizeVariants: PrizmDialogSize[] = ['m', 'l'];
+  public size: PrizmDialogSize = 'm';
 
   public readonly defaultTitle = 'Вы уверены, что хотите перейти на следующий этап?';
   public readonly defaultDescription = `Дальнейшее редактирование этого раздела
 будет недоступно`;
-  public title: PolymorphContent<PzmBaseDialogContext<PzmConfirmDialogResultDefaultType,PzmConfirmDialogOptions>> = this.defaultTitle;
-  public description: PolymorphContent<PzmBaseDialogContext<PzmConfirmDialogResultDefaultType,PzmConfirmDialogOptions>> = this.defaultDescription;
+  public title: PolymorphContent<PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType,PrizmConfirmDialogOptions>> = this.defaultTitle;
+  public description: PolymorphContent<PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType,PrizmConfirmDialogOptions>> = this.defaultDescription;
 
   public confirmButton = 'Перейти на следующий этап'
   public cancelButton = 'Вернуться к текущему этапу'
@@ -67,7 +67,7 @@ export class ConfirmComponent {
 
 
   constructor(
-    @Inject(PzmConfirmDialogService) private readonly dialogConfirmService: PzmConfirmDialogService,
+    @Inject(PrizmConfirmDialogService) private readonly dialogConfirmService: PrizmConfirmDialogService,
   ) {}
 
   @pzmPure

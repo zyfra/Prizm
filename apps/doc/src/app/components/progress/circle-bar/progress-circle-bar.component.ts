@@ -2,11 +2,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  PzmContextWithImplicit,
-  PzmSizeL,
-  PzmSizeM,
-  PzmSizeS,
-  PzmSizesXl,
+  PrizmContextWithImplicit,
+  PrizmSizeL,
+  PrizmSizeM,
+  PrizmSizeS,
+  PrizmSizesXl,
 } from '@digital-plant/zui-components';
 
 @Component({
@@ -21,13 +21,13 @@ export class ProgressCircleBarComponent {
   public max = 100;
   public value = 50;
 
-  readonly sizeVariants: ReadonlyArray<PzmSizeS | PzmSizesXl> = [
+  readonly sizeVariants: ReadonlyArray<PrizmSizeS | PrizmSizesXl> = [
     's',
     'm',
     'l',
     'xl'
   ];
-  size: PzmSizeS | PzmSizesXl = this.sizeVariants[2];
+  size: PrizmSizeS | PrizmSizesXl = this.sizeVariants[2];
 
   readonly colorVariants: ReadonlyArray<string | null> = [
     null,

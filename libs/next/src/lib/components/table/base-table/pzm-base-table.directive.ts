@@ -18,7 +18,7 @@ import { TableSortEvent } from '../pzm-table.types';
   selector: '[pzmBaseTable]',
 })
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
-export class PzmBaseTableComponent<T = unknown> implements OnChanges, AfterContentInit {
+export class PrizmBaseTableComponent<T = unknown> implements OnChanges, AfterContentInit {
   @Output() activeElementChange: EventEmitter<T>;
 
   styleClasses = 'p-datatable-gridlines';

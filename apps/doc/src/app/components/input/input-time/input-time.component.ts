@@ -2,11 +2,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  PzmContextWithImplicit,
-  PzmDay, PzmInputSize,
-  PzmSizeL,
-  PzmSizeM,
-  PzmTime, PzmTimeMode,
+  PrizmContextWithImplicit,
+  PrizmDay, PrizmInputSize,
+  PrizmSizeL,
+  PrizmSizeM,
+  PrizmTime, PrizmTimeMode,
 } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
@@ -18,25 +18,25 @@ import { FormControl } from '@angular/forms';
 })
 export class InputTimeTimeComponent {
   public readonly valueControl = new FormControl(
-    new PzmTime(12, 30, 25, 500)
+    new PrizmTime(12, 30, 25, 500)
   );
 
   public label = 'Абсолютное время';
   public placeholder = 'Выберите время';
-  public sizeVariants: ReadonlyArray<PzmInputSize> = [
+  public sizeVariants: ReadonlyArray<PrizmInputSize> = [
     'l',
     'm',
     's'
   ]
-  public size: PzmInputSize = 'm';
+  public size: PrizmInputSize = 'm';
   public strict = false;
 
-  public timeModeVariants: ReadonlyArray<PzmTimeMode> = [
+  public timeModeVariants: ReadonlyArray<PrizmTimeMode> = [
     'HH:MM',
     'HH:MM:SS',
     'HH:MM:SS.MSS'
   ];
-  public timeMode: PzmTimeMode = `HH:MM`;
+  public timeMode: PrizmTimeMode = `HH:MM`;
   public outer = false;
 
 

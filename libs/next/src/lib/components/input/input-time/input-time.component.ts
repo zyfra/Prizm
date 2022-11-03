@@ -14,26 +14,26 @@ import {
 import { NgControl } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PzmTime } from '../../../@core/date-time/time';
-import { AbstractPzmNullableControl } from '../../../abstract/nullable-control';
+import { PrizmTime } from '../../../@core/date-time/time';
+import { AbstractPrizmNullableControl } from '../../../abstract/nullable-control';
 import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
 import { PZM_FIXED_DROPDOWN_CONTROLLER_PROVIDER } from '../../../providers/specific-dropdown-controllers';
 import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
-import { PzmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
-import { PzmBooleanHandler } from '../../../types/handler';
-import { PZM_INPUT_TIME_OPTIONS, PzmInputTimeOptions } from './input-time-options';
+import { PrizmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
+import { PrizmBooleanHandler } from '../../../types/handler';
+import { PZM_INPUT_TIME_OPTIONS, PrizmInputTimeOptions } from './input-time-options';
 import { PZM_TIME_TEXTS } from '../../../tokens/i18n';
-import { PzmTimeMode } from '../../../types/time-mode';
+import { PrizmTimeMode } from '../../../types/time-mode';
 import { pzmPure } from '../../../decorators/pure';
 import { pzmCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
 import { PZM_STRICT_MATCHER } from '../../../constants/matcher';
-import { PzmTimeLike } from '../../../types/time-like';
+import { PrizmTimeLike } from '../../../types/time-like';
 import { pzmSetNativeFocused } from '../../../util/set-native-focused';
-import { PzmInputSize } from '../common/models/pzm-input.models';
+import { PrizmInputSize } from '../common/models/pzm-input.models';
 import { pzmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
 import { PZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
-import { PzmDateButton } from '../../../types/date-button';
+import { PrizmDateButton } from '../../../types/date-button';
 import { pzmIsNativeFocused } from '../../../util';
 
 @Component({
@@ -44,14 +44,14 @@ import { pzmIsNativeFocused } from '../../../util';
     providers: [
         {
             provide: PZM_FOCUSABLE_ITEM_ACCESSOR,
-            useExisting: forwardRef(() => PzmInputTimeComponent),
+            useExisting: forwardRef(() => PrizmInputTimeComponent),
         },
         PZM_FIXED_DROPDOWN_CONTROLLER_PROVIDER,
     ],
 })
-export class PzmInputTimeComponent
-    extends AbstractPzmNullableControl<PzmTime>
-    implements PzmFocusableElementAccessor
+export class PrizmInputTimeComponent
+    extends AbstractPrizmNullableControl<PrizmTime>
+    implements PrizmFocusableElementAccessor
 {
     @ViewChild('focusableElementRef', {read: ElementRef})
     public readonly focusableElement?: ElementRef<HTMLInputElement>;
@@ -66,7 +66,7 @@ export class PzmInputTimeComponent
 
     @Input()
     @pzmDefaultProp()
-    size: PzmInputSize = 'm';
+    size: PrizmInputSize = 'm';
 
     @Input()
     @pzmDefaultProp()
@@ -74,17 +74,17 @@ export class PzmInputTimeComponent
 
     @Input()
     @pzmDefaultProp()
-    disabledItemHandler: PzmBooleanHandler<PzmTime> = PZM_ALWAYS_FALSE_HANDLER;
+    disabledItemHandler: PrizmBooleanHandler<PrizmTime> = PZM_ALWAYS_FALSE_HANDLER;
 
     @Input()
     @pzmDefaultProp()
-    items: readonly PzmTime[] = new Array(24).fill(null).map(
-      (_, i) => new PzmTime(i, 0, 0, 0)
+    items: readonly PrizmTime[] = new Array(24).fill(null).map(
+      (_, i) => new PrizmTime(i, 0, 0, 0)
     );
 
     @Input()
     @pzmDefaultProp()
-    itemSize: PzmInputTimeOptions['itemSize'] = this.options.itemSize;
+    itemSize: PrizmInputTimeOptions['itemSize'] = this.options.itemSize;
 
     @Input()
     @pzmDefaultProp()
@@ -92,7 +92,7 @@ export class PzmInputTimeComponent
 
     @Input()
     @pzmDefaultProp()
-    mode: PzmInputTimeOptions['mode'] = this.options.mode;
+    mode: PrizmInputTimeOptions['mode'] = this.options.mode;
 
     @Input()
     @pzmDefaultProp()
@@ -102,7 +102,7 @@ export class PzmInputTimeComponent
     readonly testId = 'pzm_input_time';
 
     public open = false;
-    public rightButtons$: BehaviorSubject<PzmDateButton[]>
+    public rightButtons$: BehaviorSubject<PrizmDateButton[]>
 
     constructor(
         @Optional()
@@ -112,10 +112,10 @@ export class PzmInputTimeComponent
         private readonly cdr: ChangeDetectorRef,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
         @Inject(PZM_TIME_TEXTS)
-        private readonly timeTexts$: Observable<Record<PzmTimeMode, string>>,
+        private readonly timeTexts$: Observable<Record<PrizmTimeMode, string>>,
         private readonly injector: Injector,
         @Inject(PZM_INPUT_TIME_OPTIONS)
-        private readonly options: PzmInputTimeOptions,
+        private readonly options: PrizmInputTimeOptions,
     ) {
         super(control, changeDetectorRef);
     }
@@ -125,7 +125,7 @@ export class PzmInputTimeComponent
       this.rightButtons$ = this.extraButtonInjector.get(PZM_DATE_RIGHT_BUTTONS);
     }
 
-    get filtered(): readonly PzmTime[] {
+    get filtered(): readonly PrizmTime[] {
         return this.filter(this.items, this.mode, this.computedSearch);
     }
 
@@ -178,7 +178,7 @@ export class PzmInputTimeComponent
     }
 
     @pzmPure
-    public getFiller$(mode: PzmTimeMode): Observable<string> {
+    public getFiller$(mode: PrizmTimeMode): Observable<string> {
         return this.timeTexts$.pipe(map(texts => texts[mode]));
     }
 
@@ -202,7 +202,7 @@ export class PzmInputTimeComponent
             return;
         }
 
-        const time = PzmTime.fromString(value);
+        const time = PrizmTime.fromString(value);
 
         this.updateValue(this.strict ? this.findNearestTimeFromItems(time) : time);
     }
@@ -219,7 +219,7 @@ export class PzmInputTimeComponent
             return;
         }
 
-        const parsedTime = PzmTime.fromString(this.nativeValue);
+        const parsedTime = PrizmTime.fromString(this.nativeValue);
 
         this.updateValue(parsedTime);
 
@@ -250,7 +250,7 @@ export class PzmInputTimeComponent
         this.processArrow(event, -1);
     }
 
-    public onMenuClick(item: PzmTime): void {
+    public onMenuClick(item: PrizmTime): void {
         this.open = false;
         this.updateValue(item);
     }
@@ -259,13 +259,13 @@ export class PzmInputTimeComponent
         this.open = open;
     }
 
-    public override writeValue(value: PzmTime | null): void {
+    public override writeValue(value: PrizmTime | null): void {
         super.writeValue(value);
         this.nativeValue = value ? this.computedValue : ``;
     }
 
     @pzmPure
-    private calculateMask(mode: PzmTimeMode): string {
+    private calculateMask(mode: PrizmTimeMode): string {
         return pzmCreateTimeNgxMask(mode, this.options.maxValues);
     }
 
@@ -275,14 +275,14 @@ export class PzmInputTimeComponent
 
     @pzmPure
     private filter(
-        items: readonly PzmTime[],
-        mode: PzmTimeMode,
+        items: readonly PrizmTime[],
+        mode: PrizmTimeMode,
         search: string,
-    ): readonly PzmTime[] {
+    ): readonly PrizmTime[] {
         return items.filter(item => item.toString(mode).includes(search));
     }
 
-    private findNearestTimeFromItems(value: PzmTime): PzmTime | null {
+    private findNearestTimeFromItems(value: PrizmTime): PrizmTime | null {
         return this.items.reduce((previous, current) =>
             Math.abs(current.toAbsoluteMilliseconds() - value.toAbsoluteMilliseconds()) <
             Math.abs(previous.toAbsoluteMilliseconds() - value.toAbsoluteMilliseconds())
@@ -291,7 +291,7 @@ export class PzmInputTimeComponent
         );
     }
 
-    private getMatch(value: string): PzmTime | undefined {
+    private getMatch(value: string): PrizmTime | undefined {
         return this.items.find(item => PZM_STRICT_MATCHER(item, value));
     }
 
@@ -315,7 +315,7 @@ export class PzmInputTimeComponent
         event.preventDefault();
     }
 
-    private calculateShift(selectionStart: number, shift: number): PzmTimeLike {
+    private calculateShift(selectionStart: number, shift: number): PrizmTimeLike {
         if (selectionStart <= 2) {
             return {hours: shift};
         }
@@ -331,12 +331,12 @@ export class PzmInputTimeComponent
         return {ms: shift};
     }
 
-    private shiftTime(shift: PzmTimeLike): void {
+    private shiftTime(shift: PrizmTimeLike): void {
         if (this.value === null) {
             return;
         }
 
-        const increasedTime: PzmTime = this.value.shift(shift);
+        const increasedTime: PrizmTime = this.value.shift(shift);
 
         // Manual update so we can set caret position properly
         this.nativeValue = increasedTime.toString(this.mode);

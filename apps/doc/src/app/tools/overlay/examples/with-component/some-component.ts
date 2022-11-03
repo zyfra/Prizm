@@ -33,7 +33,7 @@ import {Component} from '@angular/core';
     }
   `]
 })
-export class PzmOverlaySomeComponent {
+export class PrizmOverlaySomeComponent {
   readonly items = [
     'Edit',
     'Download',

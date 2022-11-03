@@ -2,20 +2,20 @@ import { Injectable, NgZone } from '@angular/core';
 import { merge, Observable } from 'rxjs';
 import { filter, mapTo, switchMap, tap } from 'rxjs/operators';
 import { pzmTypedFromEvent, pzmZoneFree } from '../../observables';
-import { PzmEventWith } from '../../types';
+import { PrizmEventWith } from '../../types';
 import { pzmCanScroll, pzmGetScrollParent } from '../../util/dom';
-import { PzmOverscrollMode } from './overscroll.model';
+import { PrizmOverscrollMode } from './overscroll.model';
 
 @Injectable({
     providedIn: 'root'
 })
-export class PzmOverscrollService {
+export class PrizmOverscrollService {
     constructor(
       private readonly ngZone: NgZone,
     ) {}
 
     public run(
-      mode: PzmOverscrollMode | '',
+      mode: PrizmOverscrollMode | '',
       nativeElement: HTMLElement,
     ): Observable<void> {
       return merge(
@@ -75,13 +75,13 @@ export class PzmOverscrollService {
       );
     }
 
-    private isEnabled(mode: PzmOverscrollMode | ''): boolean {
+    private isEnabled(mode: PrizmOverscrollMode | ''): boolean {
       return mode !== 'none'
     }
 
     private processEvent(
-      mode: PzmOverscrollMode | '',
-      event: PzmEventWith<Event, HTMLElement>,
+      mode: PrizmOverscrollMode | '',
+      event: PrizmEventWith<Event, HTMLElement>,
       vertical: boolean,
       negative: boolean,
     ): void {

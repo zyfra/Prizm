@@ -1,7 +1,7 @@
-import { PzmTextMaskConfig } from './text-mask-config';
-import { PzmTextMaskList } from './text-mask-list';
+import { PrizmTextMaskConfig } from './text-mask-config';
+import { PrizmTextMaskList } from './text-mask-list';
 
-export type PzmTextMaskListHandler = (
+export type PrizmTextMaskListHandler = (
     rawValue: string,
-    config: PzmTextMaskConfig,
-) => PzmTextMaskList | false;
+    config: PrizmTextMaskConfig,
+) => PrizmTextMaskList | false;

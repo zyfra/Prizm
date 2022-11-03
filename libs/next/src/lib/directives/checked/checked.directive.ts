@@ -12,7 +12,7 @@ import {
 @Directive({
     selector: 'input[pzmChecked], input[pzmCheckedChange]',
 })
-export class PzmCheckedDirective {
+export class PrizmCheckedDirective {
     @Input()
     set pzmChecked(checked: null | boolean) {
         this.updateProperty('checked', checked || false);

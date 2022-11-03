@@ -1,23 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PzmInputDateMultiComponent } from './input-date-multi.component';
-import { PzmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
+import { PrizmInputDateMultiComponent } from './input-date-multi.component';
+import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PzmInputTextModule } from '../input-text/input-text.module';
-import { PolymorphModule, PzmLifecycleModule } from '../../../directives';
-import { PzmDataListModule } from '../../data-list';
+import { PrizmInputTextModule } from '../input-text/input-text.module';
+import { PolymorphModule, PrizmLifecycleModule } from '../../../directives';
+import { PrizmDataListModule } from '../../data-list';
 
 @NgModule({
     imports: [
       CommonModule,
-      PzmInputTextModule,
-      PzmLifecycleModule,
+      PrizmInputTextModule,
+      PrizmLifecycleModule,
       ReactiveFormsModule,
-      PzmDataListModule,
+      PrizmDataListModule,
       PolymorphModule,
-      PzmDropdownHostModule
+      PrizmDropdownHostModule
     ],
-    declarations: [PzmInputDateMultiComponent],
-    exports: [PzmInputDateMultiComponent],
+    declarations: [PrizmInputDateMultiComponent],
+    exports: [PrizmInputDateMultiComponent],
 })
-export class PzmInputDateMultiModule {}
+export class PrizmInputDateMultiModule {}

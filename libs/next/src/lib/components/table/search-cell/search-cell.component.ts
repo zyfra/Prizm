@@ -1,6 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
-import { PzmTableComponent } from '../pzm-table.component';
-import { PzmBaseSearchCellComponent } from '../base-table';
+import { PrizmTableComponent } from '../pzm-table.component';
+import { PrizmBaseSearchCellComponent } from '../base-table';
 
 // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
 @Component({
@@ -9,11 +9,11 @@ import { PzmBaseSearchCellComponent } from '../base-table';
   templateUrl: './search-cell.component.html',
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmSearchCellComponent extends PzmBaseSearchCellComponent {
+export class PrizmSearchCellComponent extends PrizmBaseSearchCellComponent {
   @HostBinding('attr.testId')
   readonly testId = 'pzm_search_cell';
 
-  constructor(public readonly table: PzmTableComponent) {
+  constructor(public readonly table: PrizmTableComponent) {
     super();
   }
 }

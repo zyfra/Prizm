@@ -1,25 +1,25 @@
-import { PzmDateMode } from '../../types/date-mode';
-import { PzmWithOptionalMinMaxWithValue } from '../../types/with-optional-min-max';
+import { PrizmDateMode } from '../../types/date-mode';
+import { PrizmWithOptionalMinMaxWithValue } from '../../types/with-optional-min-max';
 import { PZM_DATE_FILLER_LENGTH, PZM_DATE_RANGE_FILLER_LENGTH } from '../date-time/date-fillers';
 import { PZM_RANGE_SEPARATOR_CHAR } from '../date-time/date-time';
-import { PzmDay } from '../date-time/day';
-import { PzmDayRange } from '../date-time/day-range';
-import { PzmTextMaskPipeHandler } from './text-mask-pipe-handler';
+import { PrizmDay } from '../date-time/day';
+import { PrizmDayRange } from '../date-time/day-range';
+import { PrizmTextMaskPipeHandler } from './text-mask-pipe-handler';
 
-interface PzmAutoCorrectedDatePipeConfigs
-    extends PzmWithOptionalMinMaxWithValue<PzmDayRange | null, PzmDay> {
-    dateFormat: PzmDateMode;
+interface PrizmAutoCorrectedDatePipeConfigs
+    extends PrizmWithOptionalMinMaxWithValue<PrizmDayRange | null, PrizmDay> {
+    dateFormat: PrizmDateMode;
     dateSeparator: string;
 }
 
-function parseWithLimit(value: string, config: PzmAutoCorrectedDatePipeConfigs): PzmDay {
-    return PzmDay.normalizeParse(
+function parseWithLimit(value: string, config: PrizmAutoCorrectedDatePipeConfigs): PrizmDay {
+    return PrizmDay.normalizeParse(
         value.slice(0, PZM_DATE_FILLER_LENGTH),
         config.dateFormat,
     ).dayLimit(config.min, config.max);
 }
 
-function processRawValue(value: string, config: PzmAutoCorrectedDatePipeConfigs): string {
+function processRawValue(value: string, config: PrizmAutoCorrectedDatePipeConfigs): string {
     const {dateFormat, dateSeparator} = config;
 
     switch (value.length) {
@@ -34,7 +34,7 @@ function processRawValue(value: string, config: PzmAutoCorrectedDatePipeConfigs)
             return config.value &&
                 config.value.toString(dateFormat, dateSeparator) === value
                 ? value
-                : PzmDayRange.sort(
+                : PrizmDayRange.sort(
                       parseWithLimit(value.slice(0, PZM_DATE_FILLER_LENGTH), config),
                       parseWithLimit(
                           value.slice(PZM_DATE_FILLER_LENGTH + PZM_RANGE_SEPARATOR_CHAR.length),
@@ -61,7 +61,7 @@ function processRawValue(value: string, config: PzmAutoCorrectedDatePipeConfigs)
  * @return mask pipe handler that handles `min` and `max`
  */
 export function pzmCreateAutoCorrectedDateRangePipe(
-    config: PzmAutoCorrectedDatePipeConfigs,
-): PzmTextMaskPipeHandler {
+    config: PrizmAutoCorrectedDatePipeConfigs,
+): PrizmTextMaskPipeHandler {
     return (value: any): any => ({value: processRawValue(value, config)});
 }

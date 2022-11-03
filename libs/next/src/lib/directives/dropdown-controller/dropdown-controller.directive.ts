@@ -3,8 +3,8 @@ import { PZM_DROPDOWN_CONTROLLER } from './dropdown-controller.token';
 import { pzmDefaultProp } from '../../decorators';
 import { PZM_DROPDOWN_DEFAULT_MAX_HEIGHT, PZM_DROPDOWN_DEFAULT_MIN_HEIGHT } from './dropdown-controller.const';
 import { Subject } from 'rxjs';
-import { PzmHorizontalDirection } from '../../types/direction';
-import { PzmDropdownWidthT } from '../../types/dropdown-width';
+import { PrizmHorizontalDirection } from '../../types/direction';
+import { PrizmDropdownWidthT } from '../../types/dropdown-width';
 
 @Directive({
     selector:
@@ -12,22 +12,22 @@ import { PzmDropdownWidthT } from '../../types/dropdown-width';
     providers: [
         {
             provide: PZM_DROPDOWN_CONTROLLER,
-            useExisting: forwardRef(() => PzmDropdownControllerDirective),
+            useExisting: forwardRef(() => PrizmDropdownControllerDirective),
         },
     ],
 })
-export class PzmDropdownControllerDirective implements OnChanges {
+export class PrizmDropdownControllerDirective implements OnChanges {
     @Input('pzmDropdownMinHeight')
     @pzmDefaultProp()
     minHeight = PZM_DROPDOWN_DEFAULT_MIN_HEIGHT;
 
     @Input('pzmDropdownAlign')
     @pzmDefaultProp()
-    align: PzmHorizontalDirection = `right`;
+    align: PrizmHorizontalDirection = `right`;
 
     @Input('pzmDropdownLimitWidth')
     @pzmDefaultProp()
-    limitWidth: PzmDropdownWidthT = `auto`;
+    limitWidth: PrizmDropdownWidthT = `auto`;
 
     @Input('pzmDropdownMaxHeight')
     @pzmDefaultProp()

@@ -1,16 +1,16 @@
-import { PzmMenuItem } from './pzm-menu-item.interface';
+import { PrizmMenuItem } from './pzm-menu-item.interface';
 
 export type SelectionType = 'single' | 'checkbox';
 export type MenuItemSize = 'standard' | 'enlarged';
 export type ViewMode = 'rubricator' | 'folder' | 'hierarchy';
 
 export interface NavMenuEvent {
-  item: PzmMenuItem;
+  item: PrizmMenuItem;
   groupIndex?: number;
 }
 
 export interface NavMenuSelectionEvent {
-  selection: PzmMenuItem | PzmMenuItem[];
+  selection: PrizmMenuItem | PrizmMenuItem[];
   groupIndex?: number;
 }
 

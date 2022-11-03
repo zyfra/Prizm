@@ -3,26 +3,26 @@ import { Directive, ElementRef, Inject, Input, NgZone, Optional, Renderer2 } fro
 import { ANIMATION_FRAME, WINDOW } from '@ng-web-apis/common';
 import { fromEvent, merge, Observable } from 'rxjs';
 import { map, switchMap, takeUntil, throttleTime } from 'rxjs/operators';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { PZM_ELEMENT_REF, PZM_SCROLL_REF } from '../../tokens';
 import { pzmPreventDefault, pzmStopPropagation, pzmTypedFromEvent, pzmZoneFree } from '../../observables';
-import { PzmOrientation } from '../../types';
+import { PrizmOrientation } from '../../types';
 
 const MIN_WIDTH = 24;
 const POLLING_TIME = 1000 / 15;
 
 @Directive({
     selector: '[pzmScrollbar]',
-    providers: [PzmDestroyService],
+    providers: [PrizmDestroyService],
 })
-export class PzmScrollbarDirective {
+export class PrizmScrollbarDirective {
     @Input()
-    public pzmScrollbar: PzmOrientation = 'vertical';
+    public pzmScrollbar: PrizmOrientation = 'vertical';
 
     constructor(
         @Inject(NgZone) ngZone: NgZone,
         @Inject(Renderer2) renderer: Renderer2,
-        @Inject(PzmDestroyService) destroy$: Observable<void>,
+        @Inject(PrizmDestroyService) destroy$: Observable<void>,
         @Inject(ANIMATION_FRAME) animationFrame$: Observable<number>,
         @Inject(PZM_ELEMENT_REF) private readonly wrapper: ElementRef<HTMLElement>,
         @Optional()

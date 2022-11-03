@@ -4,4 +4,4 @@ import { FrozenColumn } from 'primeng/table';
 @Directive({
   selector: '[pzmFrozenColumn]',
 })
-export class PzmFrozenColumnDirective extends FrozenColumn {}
+export class PrizmFrozenColumnDirective extends FrozenColumn {}

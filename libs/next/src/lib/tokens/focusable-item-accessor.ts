@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core';
-import { PzmFocusableElementAccessor } from '../types';
+import { PrizmFocusableElementAccessor } from '../types';
 
 export const PZM_FOCUSABLE_ITEM_ACCESSOR =
-    new InjectionToken<PzmFocusableElementAccessor>('A component that can be focused');
+    new InjectionToken<PrizmFocusableElementAccessor>('A component that can be focused');

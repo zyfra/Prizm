@@ -1,18 +1,18 @@
-export type PzmAppearanceWarning = 'warning';
-export type PzmAppearanceDanger = 'danger';
-export type PzmAppearanceDisabled = 'disabled';
-export type PzmAppearancePrimary = 'primary';
-export type PzmAppearanceSecondary = 'secondary';
-export type PzmAppearanceSuccess = 'success';
-export type PzmAppearance =
-  PzmAppearancePrimary
-  | PzmAppearanceSecondary
-  | PzmAppearanceSuccess
-  | PzmAppearanceWarning
-  | PzmAppearanceDanger
-  | PzmAppearanceDisabled;
+export type PrizmAppearanceWarning = 'warning';
+export type PrizmAppearanceDanger = 'danger';
+export type PrizmAppearanceDisabled = 'disabled';
+export type PrizmAppearancePrimary = 'primary';
+export type PrizmAppearanceSecondary = 'secondary';
+export type PrizmAppearanceSuccess = 'success';
+export type PrizmAppearance =
+  PrizmAppearancePrimary
+  | PrizmAppearanceSecondary
+  | PrizmAppearanceSuccess
+  | PrizmAppearanceWarning
+  | PrizmAppearanceDanger
+  | PrizmAppearanceDisabled;
 
-export type PzmAppearanceTypeFill = 'fill';
-export type PzmAppearanceTypeOutline = 'outline';
-export type PzmAppearanceTypeGhost = 'ghost';
-export type PzmAppearanceType = PzmAppearanceTypeFill | PzmAppearanceTypeOutline | PzmAppearanceTypeGhost;
+export type PrizmAppearanceTypeFill = 'fill';
+export type PrizmAppearanceTypeOutline = 'outline';
+export type PrizmAppearanceTypeGhost = 'ghost';
+export type PrizmAppearanceType = PrizmAppearanceTypeFill | PrizmAppearanceTypeOutline | PrizmAppearanceTypeGhost;

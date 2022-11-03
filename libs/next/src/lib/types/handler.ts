@@ -1,4 +1,4 @@
-export type PzmHandler<T, G> = (item: T) => G;
-export type PzmBooleanHandler<T> = PzmHandler<T, boolean>;
-export type PzmStringHandler<T> = PzmHandler<T, string>;
-export type PzmNumberHandler<T> = PzmHandler<T, number>;
+export type PrizmHandler<T, G> = (item: T) => G;
+export type PrizmBooleanHandler<T> = PrizmHandler<T, boolean>;
+export type PrizmStringHandler<T> = PrizmHandler<T, string>;
+export type PrizmNumberHandler<T> = PrizmHandler<T, number>;

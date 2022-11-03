@@ -1,18 +1,18 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PzmDateTime, PzmDay, PzmTime } from '@digital-plant/zui-components';
+import { PrizmDateTime, PrizmDay, PrizmTime } from '@digital-plant/zui-components';
 import { formatRelative, addDays, addHours, addMonths } from 'date-fns';
 
 type DateItem = {
   title: string,
   range: [
     [
-        PzmDay,
-        PzmTime
+        PrizmDay,
+        PrizmTime
     ],
     [
-      PzmDay,
-      PzmTime
+      PrizmDay,
+      PrizmTime
     ],
   ],
 };
@@ -24,19 +24,19 @@ type DateItem = {
    './date-list-edit.component.less'
   ]
 })
-export class PzmDropdownHostDateListEditExampleComponent {
+export class PrizmDropdownHostDateListEditExampleComponent {
   open = false;
   data: DateItem[] = [
     {
       title: 'Последний час',
       range: [
         [
-          PzmDay.fromLocalNativeDate(new Date()),
-          new PzmTime(new Date().getHours() - 1, new Date().getMinutes(), 0)
+          PrizmDay.fromLocalNativeDate(new Date()),
+          new PrizmTime(new Date().getHours() - 1, new Date().getMinutes(), 0)
         ],
         [
-          PzmDay.fromLocalNativeDate(new Date()),
-          PzmTime.fromLocalNativeDate(new Date())
+          PrizmDay.fromLocalNativeDate(new Date()),
+          PrizmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -44,12 +44,12 @@ export class PzmDropdownHostDateListEditExampleComponent {
       title: 'Последние сутки',
       range: [
         [
-          PzmDay.fromLocalNativeDate(addDays(new Date(), -1)),
-          PzmTime.fromLocalNativeDate(new Date())
+          PrizmDay.fromLocalNativeDate(addDays(new Date(), -1)),
+          PrizmTime.fromLocalNativeDate(new Date())
         ],
         [
-          PzmDay.fromLocalNativeDate(new Date()),
-          PzmTime.fromLocalNativeDate(new Date())
+          PrizmDay.fromLocalNativeDate(new Date()),
+          PrizmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -57,12 +57,12 @@ export class PzmDropdownHostDateListEditExampleComponent {
       title: 'Последние 2 часа',
       range: [
         [
-          PzmDay.fromLocalNativeDate(new Date()),
-          PzmTime.fromLocalNativeDate(addHours(new Date(), -2))
+          PrizmDay.fromLocalNativeDate(new Date()),
+          PrizmTime.fromLocalNativeDate(addHours(new Date(), -2))
         ],
         [
-          PzmDay.fromLocalNativeDate(new Date()),
-          PzmTime.fromLocalNativeDate(new Date())
+          PrizmDay.fromLocalNativeDate(new Date()),
+          PrizmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -70,12 +70,12 @@ export class PzmDropdownHostDateListEditExampleComponent {
       title: 'Последние 4 часа',
       range: [
         [
-          PzmDay.fromLocalNativeDate(new Date()),
-          PzmTime.fromLocalNativeDate(addHours(new Date(), -4))
+          PrizmDay.fromLocalNativeDate(new Date()),
+          PrizmTime.fromLocalNativeDate(addHours(new Date(), -4))
         ],
         [
-          PzmDay.fromLocalNativeDate(new Date()),
-          PzmTime.fromLocalNativeDate(new Date())
+          PrizmDay.fromLocalNativeDate(new Date()),
+          PrizmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -83,12 +83,12 @@ export class PzmDropdownHostDateListEditExampleComponent {
       title: 'Последние 8 часов',
       range: [
         [
-          PzmDay.fromLocalNativeDate(new Date()),
-          PzmTime.fromLocalNativeDate(addHours(new Date(), -8))
+          PrizmDay.fromLocalNativeDate(new Date()),
+          PrizmTime.fromLocalNativeDate(addHours(new Date(), -8))
         ],
         [
-          PzmDay.fromLocalNativeDate(new Date()),
-          PzmTime.fromLocalNativeDate(new Date())
+          PrizmDay.fromLocalNativeDate(new Date()),
+          PrizmTime.fromLocalNativeDate(new Date())
         ],
       ],
     },
@@ -96,12 +96,12 @@ export class PzmDropdownHostDateListEditExampleComponent {
       title: 'Последние 12 часов',
       range: [
         [
-          PzmDay.fromLocalNativeDate(new Date()),
-          PzmTime.fromLocalNativeDate(addHours(new Date(), -12))
+          PrizmDay.fromLocalNativeDate(new Date()),
+          PrizmTime.fromLocalNativeDate(addHours(new Date(), -12))
         ],
         [
-          PzmDay.fromLocalNativeDate(new Date()),
-          PzmTime.fromLocalNativeDate(new Date())
+          PrizmDay.fromLocalNativeDate(new Date()),
+          PrizmTime.fromLocalNativeDate(new Date())
         ],
       ],
     }
@@ -128,11 +128,11 @@ export class PzmDropdownHostDateListEditExampleComponent {
 
   public convertDate([start, end]: DateItem['range']): [Date, Date] {
     return [
-      new PzmDateTime(
+      new PrizmDateTime(
         start[0],
         start[1]
       ).toLocalNativeDate(),
-      new PzmDateTime(
+      new PrizmDateTime(
         end[0],
         end[1]
       ).toLocalNativeDate()

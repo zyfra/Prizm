@@ -4,4 +4,4 @@ import { RowGroupHeader } from 'primeng/table';
 @Directive({
   selector: '[pzmRowGroupHeader]',
 })
-export class PzmRowGroupHeaderDirective extends RowGroupHeader {}
+export class PrizmRowGroupHeaderDirective extends RowGroupHeader {}

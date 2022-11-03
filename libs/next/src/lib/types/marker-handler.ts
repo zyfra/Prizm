@@ -1,8 +1,8 @@
-import { PzmDay } from '../@core/date-time';
-import { PzmColor } from './color';
-import { PzmHandler } from './handler';
+import { PrizmDay } from '../@core/date-time';
+import { PrizmColor } from './color';
+import { PrizmHandler } from './handler';
 
-export type PzmMarkerHandler = PzmHandler<
-    PzmDay,
-    [] | [PzmColor | string] | [PzmColor | string, PzmColor | string]
+export type PrizmMarkerHandler = PrizmHandler<
+    PrizmDay,
+    [] | [PrizmColor | string] | [PrizmColor | string, PrizmColor | string]
 >;

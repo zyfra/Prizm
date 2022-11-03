@@ -1,16 +1,16 @@
 import { ElementRef, Inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { debounce, debounceTime, tap } from 'rxjs/operators';
-import { PzmTheme } from '../types/theme';
+import { PrizmTheme } from '../types/theme';
 import { DOCUMENT } from '@angular/common';
 
 @Injectable({
     providedIn: 'platform',
 })
-export class PzmThemeService {
-    private readonly themeSource$ = new BehaviorSubject<PzmTheme>('light');
+export class PrizmThemeService {
+    private readonly themeSource$ = new BehaviorSubject<PrizmTheme>('light');
     readonly theme$ = this.themeSource$.asObservable();
-    get theme(): PzmTheme {
+    get theme(): PrizmTheme {
       return this.themeSource$.value
     }
     public readonly attThemeKey = 'data-pzm-theme';
@@ -23,7 +23,7 @@ export class PzmThemeService {
       ).subscribe();
     }
 
-    public updateElementOnChange(el: HTMLElement): Observable<PzmTheme> {
+    public updateElementOnChange(el: HTMLElement): Observable<PrizmTheme> {
       return this.theme$.pipe(
         tap(
           (theme) => this.setToHtml(theme, el)
@@ -31,14 +31,14 @@ export class PzmThemeService {
       )
     }
 
-    private setToHtml(theme: PzmTheme, el: HTMLElement = this.document.body.parentElement): void {
+    private setToHtml(theme: PrizmTheme, el: HTMLElement = this.document.body.parentElement): void {
       el.setAttribute(
         this.attThemeKey,
         theme
       )
     }
 
-    public update(theme: PzmTheme): void {
+    public update(theme: PrizmTheme): void {
       this.themeSource$.next(theme);
     }
 }

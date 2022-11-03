@@ -1,13 +1,13 @@
 import { AfterViewInit, Component, ElementRef, HostListener, Inject, Input, OnInit, Renderer2 } from '@angular/core';
 import { pzmDefaultProp } from '../../decorators';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
-import { PzmHoveredService } from '../../services';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmHoveredService } from '../../services';
 import { takeUntil, tap } from 'rxjs/operators';
-import { PzmHintService } from './hint.service';
-import { PzmOverlayControl } from '../../modules/overlay';
+import { PrizmHintService } from './hint.service';
+import { PrizmOverlayControl } from '../../modules/overlay';
 import { animationFrameScheduler, timer } from 'rxjs';
 import { PolymorphContent } from '../polymorph/types/content';
-import { PzmHintOptions } from './hint-options';
+import { PrizmHintOptions } from './hint-options';
 
 @Component({
   selector: 'pzm-hint-container',
@@ -21,9 +21,9 @@ import { PzmHintOptions } from './hint-options';
     </div>
   `,
   styleUrls: ['./hint-container.component.less'],
-  providers: [PzmDestroyService]
+  providers: [PrizmDestroyService]
 })
-export class PzmHintContainerComponent<CONTEXT extends Record<string, unknown> = Record<string, unknown>> implements OnInit, AfterViewInit {
+export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown> = Record<string, unknown>> implements OnInit, AfterViewInit {
   @Input()
   @HostListener('attr.id')
   id: string;
@@ -32,23 +32,23 @@ export class PzmHintContainerComponent<CONTEXT extends Record<string, unknown> =
   content: () => PolymorphContent;
 
   @Input()
-  mode: () => PzmHintOptions['mode'];
+  mode: () => PrizmHintOptions['mode'];
 
   @Input()
   @pzmDefaultProp()
   context: CONTEXT = {} as CONTEXT;
 
-  @HostListener('attr.mode') get getMode(): PzmHintOptions['mode'] {
+  @HostListener('attr.mode') get getMode(): PrizmHintOptions['mode'] {
     return this.mode()
   };
 
   constructor(
-    protected readonly destroy$: PzmDestroyService,
+    protected readonly destroy$: PrizmDestroyService,
     protected readonly el: ElementRef,
     protected readonly renderer2: Renderer2,
-    protected readonly pzmOverlayControl: PzmOverlayControl,
-    @Inject(PzmHintService) private readonly hintService: PzmHintService,
-    @Inject(PzmHoveredService) private readonly hoveredService: PzmHoveredService
+    protected readonly pzmOverlayControl: PrizmOverlayControl,
+    @Inject(PrizmHintService) private readonly hintService: PrizmHintService,
+    @Inject(PrizmHoveredService) private readonly hoveredService: PrizmHoveredService
   ) {}
 
   public ngOnInit(): void {

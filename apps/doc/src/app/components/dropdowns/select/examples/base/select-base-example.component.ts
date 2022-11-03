@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
     }
   `]
 })
-export class PzmSelectBaseExampleComponent {
+export class PrizmSelectBaseExampleComponent {
   readonly items = [
     'One',
     'Two',

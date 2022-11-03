@@ -1,8 +1,8 @@
 import { PZM_MAX_TIME_VALUES } from '../../constants/max-time-values';
 import { PZM_DIGIT_REGEXP } from '../../constants/regexp';
-import { PzmTimeFormatParts } from '../../types/time-format-parts';
-import { PzmTimeMode } from '../../types/time-mode';
-import { PzmTextMaskList } from './text-mask-list';
+import { PrizmTimeFormatParts } from '../../types/time-format-parts';
+import { PrizmTimeMode } from '../../types/time-mode';
+import { PrizmTextMaskList } from './text-mask-list';
 
 function pzmCreateTimePartMask(
     maxPartValue: number,
@@ -23,9 +23,9 @@ function pzmCreateTimePartMask(
  * use pzmCreateTimeNgxMask
  * */
 export function pzmCreateTimeMask(
-    mode: PzmTimeMode,
-    maxValues: Partial<Record<PzmTimeFormatParts, number>> = {},
-): PzmTextMaskList {
+    mode: PrizmTimeMode,
+    maxValues: Partial<Record<PrizmTimeFormatParts, number>> = {},
+): PrizmTextMaskList {
     const {HH, MM, SS, MS} = {
         ...PZM_MAX_TIME_VALUES,
         ...maxValues,
@@ -40,8 +40,8 @@ export function pzmCreateTimeMask(
 }
 
 export function pzmCreateTimeNgxMask(
-    mode: PzmTimeMode,
-    maxValues: Partial<Record<PzmTimeFormatParts, number>> = {},
+    mode: PrizmTimeMode,
+    maxValues: Partial<Record<PrizmTimeFormatParts, number>> = {},
 ): string {
     return `Hh:m0${(mode.includes(`HH:MM:SS`) ? `:s0` : ``)}${(mode === `HH:MM:SS.MSS` ? `.000` : ``)}`;
 

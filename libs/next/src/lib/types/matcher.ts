@@ -1,15 +1,15 @@
-import { PzmStringHandler } from './handler';
-import { PzmMapper } from './mapper';
+import { PrizmStringHandler } from './handler';
+import { PrizmMapper } from './mapper';
 
 /**
  * A matcher function to test items against with extra arguments.
  */
-export type PzmMatcher<I> = PzmMapper<I, boolean>;
+export type PrizmMatcher<I> = PrizmMapper<I, boolean>;
 
-export type PzmStringMatcher<I> = (
+export type PrizmStringMatcher<I> = (
     item: I,
     matchValue: string,
-    stringify: PzmStringHandler<I>,
+    stringify: PrizmStringHandler<I>,
 ) => boolean;
 
-export type PzmIdentityMatcher<I> = (item1: I, item2: I) => boolean;
+export type PrizmIdentityMatcher<I> = (item1: I, item2: I) => boolean;

@@ -23,14 +23,14 @@ export const PZM_DATE_RANGE_FILLER = new InjectionToken<string>(
 /**
  * @internal 'dd.mm.yyyy'.length
  * Used in:
- * - {@link PzmInputDateComponent}
- * - {@link PzmInputDateRangeComponent}
- * - {@link PzmInputDateTimeComponent}
+ * - {@link PrizmInputDateComponent}
+ * - {@link PrizmInputDateRangeComponent}
+ * - {@link PrizmInputDateTimeComponent}
  */
 export const PZM_DATE_FILLER_LENGTH = 10;
 /**
  * @internal
- * Used in {@link PzmInputDateRangeComponent}
+ * Used in {@link PrizmInputDateRangeComponent}
  */
 export const PZM_DATE_RANGE_FILLER_LENGTH =
     2 * PZM_DATE_FILLER_LENGTH + PZM_RANGE_SEPARATOR_CHAR.length;

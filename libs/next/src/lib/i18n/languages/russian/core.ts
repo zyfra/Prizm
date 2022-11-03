@@ -1,7 +1,7 @@
 import { PZM_RUSSIAN_LANGUAGE_COUNTRIES } from './countries';
-import { PzmLanguageCore } from '../../interfaces';
+import { PrizmLanguageCore } from '../../interfaces';
 
-export const PZM_RUSSIAN_LANGUAGE_CORE: PzmLanguageCore = {
+export const PZM_RUSSIAN_LANGUAGE_CORE: PrizmLanguageCore = {
     months: [
         `Январь`,
         `Февраль`,

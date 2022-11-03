@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PzmShadowTypeEnum } from '@digital-plant/zui-components';
+import { PrizmShadowTypeEnum } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-shadow-base-example',
@@ -34,6 +34,6 @@ import { PzmShadowTypeEnum } from '@digital-plant/zui-components';
     }
   `]
 })
-export class PzmShadowBaseExampleComponent {
-  readonly PzmShadowTypeEnum  = PzmShadowTypeEnum;
+export class PrizmShadowBaseExampleComponent {
+  readonly PrizmShadowTypeEnum  = PrizmShadowTypeEnum;
 }

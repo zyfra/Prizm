@@ -11,25 +11,25 @@ import { InputTextModule } from 'primeng/inputtext';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { TooltipModule } from 'primeng/tooltip';
-import { PzmNavMenuComponent } from './components/nav-menu/pzm-nav-menu.component';
-import { PzmAutofocusDirective } from './directives/autofocus.directives';
-import { PzmNavMenuGroupDirective } from './directives/nav-menu-group.directive';
+import { PrizmNavMenuComponent } from './components/nav-menu/pzm-nav-menu.component';
+import { PrizmAutofocusDirective } from './directives/autofocus.directives';
+import { PrizmNavMenuGroupDirective } from './directives/nav-menu-group.directive';
 import { NavMenuService } from './service/selection.service';
-import { PzmNavMenuItemComponent } from './components/menu-item/pzm-nav-menu-item.component';
-import { PzmNavMenuGroupComponent } from './components/nav-menu-group/pzm-nav-menu-group.component';
-import { PzmTemplateDirective } from './directives/pzm-template.directive';
+import { PrizmNavMenuItemComponent } from './components/menu-item/pzm-nav-menu-item.component';
+import { PrizmNavMenuGroupComponent } from './components/nav-menu-group/pzm-nav-menu-group.component';
+import { PrizmTemplateDirective } from './directives/pzm-template.directive';
 import { AccordionModule } from 'primeng/accordion';
-import { PzmInputTextModule } from '../input';
-import { PzmIconModule } from '../icon';
+import { PrizmInputTextModule } from '../input';
+import { PrizmIconModule } from '../icon';
 
 @NgModule({
   declarations: [
-    PzmNavMenuComponent,
-    PzmAutofocusDirective,
-    PzmNavMenuGroupDirective,
-    PzmNavMenuGroupComponent,
-    PzmNavMenuItemComponent,
-    PzmTemplateDirective,
+    PrizmNavMenuComponent,
+    PrizmAutofocusDirective,
+    PrizmNavMenuGroupDirective,
+    PrizmNavMenuGroupComponent,
+    PrizmNavMenuItemComponent,
+    PrizmTemplateDirective,
   ],
   imports: [
     PanelMenuModule,
@@ -45,12 +45,12 @@ import { PzmIconModule } from '../icon';
     RadioButtonModule,
     TooltipModule,
     AccordionModule,
-    PzmInputTextModule,
-    PzmIconModule,
+    PrizmInputTextModule,
+    PrizmIconModule,
     ReactiveFormsModule,
   ],
   providers: [NavMenuService],
-  exports: [PzmNavMenuComponent, PzmNavMenuGroupDirective, PzmTemplateDirective],
+  exports: [PrizmNavMenuComponent, PrizmNavMenuGroupDirective, PrizmTemplateDirective],
 })
-export class PzmNavMenuModule {}
+export class PrizmNavMenuModule {}
 

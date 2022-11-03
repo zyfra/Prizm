@@ -1,28 +1,28 @@
 import { TemplateRef } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PzmContextWithImplicit } from '../../../types';
+import { PrizmContextWithImplicit } from '../../../types';
 
-import { PzmTreeItemComponent } from '../components/tree-item/tree-item.component';
+import { PrizmTreeItemComponent } from '../components/tree-item/tree-item.component';
 
-export interface PzmTreeItemContext extends PzmContextWithImplicit<PzmTreeItemComponent> {
+export interface PrizmTreeItemContext extends PrizmContextWithImplicit<PrizmTreeItemComponent> {
     readonly template: TemplateRef<Record<string, unknown>>;
 }
 
-export interface PzmTreeContext<T> extends PzmContextWithImplicit<T> {
-    readonly node: PzmTreeItemComponent;
+export interface PrizmTreeContext<T> extends PrizmContextWithImplicit<T> {
+    readonly node: PrizmTreeItemComponent;
 }
 
-export interface PzmTreeController {
-    isExpanded(item: PzmTreeItemComponent): boolean;
-    toggle(item: PzmTreeItemComponent): void;
+export interface PrizmTreeController {
+    isExpanded(item: PrizmTreeItemComponent): boolean;
+    toggle(item: PrizmTreeItemComponent): void;
 }
 
-export interface PzmTreeAccessor<T> {
-    register(item: PzmTreeItemComponent, value: T): void;
-    unregister(item: PzmTreeItemComponent): void;
+export interface PrizmTreeAccessor<T> {
+    register(item: PrizmTreeItemComponent, value: T): void;
+    unregister(item: PrizmTreeItemComponent): void;
 }
 
-export interface PzmTreeLoader<T> {
+export interface PrizmTreeLoader<T> {
     loadChildren(item: T): Observable<T[]>;
     hasChildren(item: T): boolean;
 }

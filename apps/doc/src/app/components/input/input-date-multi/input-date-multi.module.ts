@@ -5,15 +5,15 @@ import { RouterModule } from '@angular/router';
 import { InputDateMultiRelativeComponent } from './input-date-multi.component';
 import {
   PolymorphModule,
-  PzmInputDateModule,
-  PzmInputDateMultiModule,
-  PzmInputDateRelativeModule,
-  PzmInputDateTimeModule,
-  PzmInputTimeModule,
+  PrizmInputDateModule,
+  PrizmInputDateMultiModule,
+  PrizmInputDateRelativeModule,
+  PrizmInputDateTimeModule,
+  PrizmInputTimeModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PzmInputDateMultiBaseExampleComponent } from './examples/base/input-date-multi-base-example.component';
-import { PzmInputDateMultiFourExampleComponent } from './examples/four/input-date-multi-four-example.component';
+import { PrizmInputDateMultiBaseExampleComponent } from './examples/base/input-date-multi-base-example.component';
+import { PrizmInputDateMultiFourExampleComponent } from './examples/four/input-date-multi-four-example.component';
 
 
 @NgModule({
@@ -23,16 +23,16 @@ import { PzmInputDateMultiFourExampleComponent } from './examples/four/input-dat
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PzmInputDateMultiModule,
-    PzmInputDateTimeModule,
-    PzmInputDateModule,
-    PzmInputTimeModule,
-    PzmInputDateRelativeModule,
+    PrizmInputDateMultiModule,
+    PrizmInputDateTimeModule,
+    PrizmInputDateModule,
+    PrizmInputTimeModule,
+    PrizmInputDateRelativeModule,
     RouterModule.forChild(generateRoutes(InputDateMultiRelativeComponent)),
   ],
   declarations: [
-    PzmInputDateMultiFourExampleComponent,
-    PzmInputDateMultiBaseExampleComponent,
+    PrizmInputDateMultiFourExampleComponent,
+    PrizmInputDateMultiBaseExampleComponent,
     InputDateMultiRelativeComponent
   ],
   exports: [InputDateMultiRelativeComponent],

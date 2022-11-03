@@ -1,16 +1,16 @@
-import { AbstractPzmDialogService } from '../../../abstract/dialog.service';
+import { AbstractPrizmDialogService } from '../../../abstract/dialog.service';
 import { Injectable } from '@angular/core';
-import { PzmDialogComponent } from './dialog.component';
-import { PzmOverlayInsidePlacement } from '../../../modules/overlay';
-import { PzmDialogOptions } from './dialog.models';
+import { PrizmDialogComponent } from './dialog.component';
+import { PrizmOverlayInsidePlacement } from '../../../modules/overlay';
+import { PrizmDialogOptions } from './dialog.models';
 
-const DEFAULT_OPTIONS: PzmDialogOptions = {
+const DEFAULT_OPTIONS: PrizmDialogOptions = {
   size: 'm',
   required: false,
   closeable: true,
   content: '',
   footer: '',
-  position: PzmOverlayInsidePlacement.CENTER,
+  position: PrizmOverlayInsidePlacement.CENTER,
   dismissible: true,
   header: '',
 } as const;
@@ -18,7 +18,7 @@ const DEFAULT_OPTIONS: PzmDialogOptions = {
 @Injectable({
   providedIn: 'root',
 })
-export class PzmDialogService extends AbstractPzmDialogService<PzmDialogOptions> {
-  protected readonly component = PzmDialogComponent;
-  protected readonly defaultOptions: PzmDialogOptions = DEFAULT_OPTIONS;
+export class PrizmDialogService extends AbstractPrizmDialogService<PrizmDialogOptions> {
+  protected readonly component = PrizmDialogComponent;
+  protected readonly defaultOptions: PrizmDialogOptions = DEFAULT_OPTIONS;
 }

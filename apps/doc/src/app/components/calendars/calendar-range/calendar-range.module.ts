@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { CalendarRangeComponent } from './calendar-range.component';
-import { PolymorphModule, PzmCalendarRangeModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PrizmCalendarRangeModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PzmCalendarRangeBaseExampleComponent } from './examples/base/calendar-range-base-example.component';
+import { PrizmCalendarRangeBaseExampleComponent } from './examples/base/calendar-range-base-example.component';
 
 
 @NgModule({
@@ -15,11 +15,11 @@ import { PzmCalendarRangeBaseExampleComponent } from './examples/base/calendar-r
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PzmCalendarRangeModule,
+    PrizmCalendarRangeModule,
     RouterModule.forChild(generateRoutes(CalendarRangeComponent)),
   ],
   declarations: [
-    PzmCalendarRangeBaseExampleComponent,
+    PrizmCalendarRangeBaseExampleComponent,
     CalendarRangeComponent
   ],
   exports: [CalendarRangeComponent],

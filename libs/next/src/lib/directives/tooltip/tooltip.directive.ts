@@ -1,18 +1,18 @@
 /* eslint-disable @angular-eslint/no-input-rename */
 import { Directive, forwardRef, HostListener, Input } from '@angular/core';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
-import { PzmTooltipContainerComponent } from './tooltip-container.component';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmTooltipContainerComponent } from './tooltip-container.component';
 import { PZM_TOOLTIP_OPTIONS } from './tooltip-options';
 import { pzmDefaultProp, pzmRequiredSetter } from '../../decorators';
 import { PolymorphContent } from '../polymorph';
 import { pzmGenerateId } from '../../util';
-import { PZM_HINT_OPTIONS, PzmHintOptions } from '../hint/hint-options';
-import { PzmHintDirective } from '../hint/hint.directive';
+import { PZM_HINT_OPTIONS, PrizmHintOptions } from '../hint/hint-options';
+import { PrizmHintDirective } from '../hint/hint.directive';
 
 @Directive({
     selector: '[pzmTooltip]:not(ng-container)',
     providers: [
-      PzmDestroyService,
+      PrizmDestroyService,
       {
         provide: PZM_HINT_OPTIONS,
         useExisting: forwardRef(() => PZM_TOOLTIP_OPTIONS)
@@ -20,18 +20,18 @@ import { PzmHintDirective } from '../hint/hint.directive';
     ],
     exportAs: 'pzmTooltip'
 })
-export class PzmTooltipDirective extends PzmHintDirective {
+export class PrizmTooltipDirective extends PrizmHintDirective {
   @Input('pzmTooltipMode')
   @pzmDefaultProp()
-  override pzmHintMode: PzmHintOptions['mode'] = this.options.mode;
+  override pzmHintMode: PrizmHintOptions['mode'] = this.options.mode;
 
   @Input('pzmAutoReposition')
   @pzmDefaultProp()
-  override pzmAutoReposition: PzmHintOptions['autoReposition'] = this.options.autoReposition;
+  override pzmAutoReposition: PrizmHintOptions['autoReposition'] = this.options.autoReposition;
 
   @Input('pzmTooltipDirection')
   @pzmDefaultProp()
-  override pzmHintDirection: PzmHintOptions['direction'] = this.options.direction;
+  override pzmHintDirection: PrizmHintOptions['direction'] = this.options.direction;
 
   @Input('pzmTooltipId')
   @pzmDefaultProp()
@@ -39,11 +39,11 @@ export class PzmTooltipDirective extends PzmHintDirective {
 
   @Input('pzmTooltipShowDelay')
   @pzmDefaultProp()
-  override pzmHintShowDelay: PzmHintOptions['showDelay'] = this.options.showDelay;
+  override pzmHintShowDelay: PrizmHintOptions['showDelay'] = this.options.showDelay;
 
   @Input('pzmTooltipHideDelay')
   @pzmDefaultProp()
-  override pzmHintHideDelay: PzmHintOptions['hideDelay'] = this.options.hideDelay;
+  override pzmHintHideDelay: PrizmHintOptions['hideDelay'] = this.options.hideDelay;
 
   @Input('pzmTooltipHost')
   @pzmDefaultProp()
@@ -59,7 +59,7 @@ export class PzmTooltipDirective extends PzmHintDirective {
 
     this.content = value;
   }
-  protected override readonly containerComponent = PzmTooltipContainerComponent;
+  protected override readonly containerComponent = PrizmTooltipContainerComponent;
   protected override readonly onHoverActive = false;
 
   @HostListener('document:click', ['$event.target']) public onClick(target: HTMLElement): void {

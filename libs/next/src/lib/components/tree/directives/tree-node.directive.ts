@@ -1,13 +1,13 @@
 import { Directive, Inject, Input, OnDestroy, Optional } from '@angular/core';
 
-import { PzmTreeItemComponent } from '../components/tree-item/tree-item.component';
-import { PzmTreeAccessor } from '../misc/tree.interfaces';
+import { PrizmTreeItemComponent } from '../components/tree-item/tree-item.component';
+import { PrizmTreeAccessor } from '../misc/tree.interfaces';
 import { PZM_TREE_ACCESSOR } from '../misc/tree.tokens';
 
 @Directive({
     selector: 'pzm-tree-item[pzmTreeNode]',
 })
-export class PzmTreeNodeDirective<T> implements OnDestroy {
+export class PrizmTreeNodeDirective<T> implements OnDestroy {
     @Input()
     public set pzmTreeNode(value: T) {
         this.directive?.register(this.component, value);
@@ -16,9 +16,9 @@ export class PzmTreeNodeDirective<T> implements OnDestroy {
     constructor(
         @Optional()
         @Inject(PZM_TREE_ACCESSOR)
-        private readonly directive: PzmTreeAccessor<T>,
-        @Inject(PzmTreeItemComponent)
-        private readonly component: PzmTreeItemComponent,
+        private readonly directive: PrizmTreeAccessor<T>,
+        @Inject(PrizmTreeItemComponent)
+        private readonly component: PrizmTreeItemComponent,
     ) {}
 
     public ngOnDestroy(): void {

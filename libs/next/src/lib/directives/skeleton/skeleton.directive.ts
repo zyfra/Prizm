@@ -4,7 +4,7 @@ import { pzmDefaultProp } from '../../decorators';
 @Directive({
     selector: '[pzmSkeleton], [pzmSkeletonText], [pzmSkeletonRounded], [pzmSkeletonShort]',
 })
-export class PzmSkeletonDirective {
+export class PrizmSkeletonDirective {
   @Input('pzmSkeletonText')
   @HostBinding('class.pzm-skeleton_text')
   @pzmDefaultProp()

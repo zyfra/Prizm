@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PzmCarouselYearMonth, PzmCarouselPzmCarouselYearMonthValue } from '@digital-plant/zui-components';
+import { PrizmCarouselYearMonth, PrizmCarouselPrizmCarouselYearMonthValue } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-carousel-year-month-example',
@@ -7,9 +7,9 @@ import { PzmCarouselYearMonth, PzmCarouselPzmCarouselYearMonthValue } from '@dig
   styleUrls: ['./carousel-year-month-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmCarouselYearMonthExampleComponent {
-  carouselContent = new PzmCarouselYearMonth();
-  currentValue: PzmCarouselPzmCarouselYearMonthValue;
+export class PrizmCarouselYearMonthExampleComponent {
+  carouselContent = new PrizmCarouselYearMonth();
+  currentValue: PrizmCarouselPrizmCarouselYearMonthValue;
 
   constructor() {
     const currentDate = new Date();

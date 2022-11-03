@@ -26,7 +26,7 @@ import { map, startWith, takeWhile } from 'rxjs/operators';
     //}
   `]
 })
-export class PzmProgressBaseExampleComponent {
+export class PrizmProgressBaseExampleComponent {
   readonly max = 30;
   readonly value$ = timer(300, 500).pipe(
       map(i => i + 2),

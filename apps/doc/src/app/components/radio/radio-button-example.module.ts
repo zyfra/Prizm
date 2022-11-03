@@ -5,13 +5,13 @@ import { RouterModule } from '@angular/router';
 import { RadioButtonBasicExampleComponent } from './examples/radio-button-basic-example/radio-button-basic-example.component';
 import { ExamplesRadioButtonComponent } from './radio-button-example.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PzmRadioButtonModule } from '@digital-plant/zui-components';
+import { PrizmRadioButtonModule } from '@digital-plant/zui-components';
 
 @NgModule({
   imports: [
     CommonModule,
     TuiAddonDocModule,
-    PzmRadioButtonModule,
+    PrizmRadioButtonModule,
     RouterModule.forChild(generateRoutes(ExamplesRadioButtonComponent)),
     ReactiveFormsModule,
   ],

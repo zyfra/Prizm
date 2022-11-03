@@ -1,14 +1,14 @@
-export type PzmSize = PzmSizeS | PzmSizeXS | PzmSizeM | PzmSizeXM | PzmSizeL | PzmSizeXl;
+export type PrizmSize = PrizmSizeS | PrizmSizeXS | PrizmSizeM | PrizmSizeXM | PrizmSizeL | PrizmSizeXl;
 
-export type PzmSizeXS = 'xs';
-export type PzmSizeL = 'l';
-export type PzmSizeM = 'm';
-export type PzmSizeXM = 'xm';
-export type PzmSizeS = 's';
-export type PzmSizesXl = "m" | "l" | "xl";
-export type PzmSizeXl = 'xl';
+export type PrizmSizeXS = 'xs';
+export type PrizmSizeL = 'l';
+export type PrizmSizeM = 'm';
+export type PrizmSizeXM = 'xm';
+export type PrizmSizeS = 's';
+export type PrizmSizesXl = "m" | "l" | "xl";
+export type PrizmSizeXl = 'xl';
 /* SIZES asc order */
-const SIZES: ReadonlyArray<PzmSize> = [
+const SIZES: ReadonlyArray<PrizmSize> = [
   'xs',
   's',
   'm',
@@ -24,8 +24,8 @@ const SIZES: ReadonlyArray<PzmSize> = [
  * @param biggerThanSize size to compare with, 's' by default
  */
 export function pzmSizeBigger(
-    size: PzmSize,
-    biggerThanSize: PzmSize = SIZES[0],
+    size: PrizmSize,
+    biggerThanSize: PrizmSize = SIZES[0],
 ): boolean {
     return SIZES.indexOf(size) > SIZES.indexOf(biggerThanSize);
 }

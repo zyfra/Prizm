@@ -1,13 +1,13 @@
 import { ElementRef, InjectionToken, Provider } from '@angular/core';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { merge, Observable, Subject } from 'rxjs';
 import { WINDOW } from '@ng-web-apis/common';
 import { DOCUMENT } from '@angular/common';
 import { pzmTypedFromEvent } from '../../../observables';
 import { pzmContainsOrAfter, pzmIsCurrentTarget } from '../../../util/dom';
 import { filter, switchMapTo, take, takeUntil } from 'rxjs/operators';
-import { PzmOverlayContentToken } from '../../../modules/overlay';
-import { PzmOverlayContent } from '../../../modules/overlay/models';
+import { PrizmOverlayContentToken } from '../../../modules/overlay';
+import { PrizmOverlayContent } from '../../../modules/overlay/models';
 
 export const PZM_DIALOGS_CLOSE = new InjectionToken<Observable<void>>(
     'Default close event',
@@ -22,7 +22,7 @@ export const PZM_DIALOG_CLOSE_STREAM = new InjectionToken<Observable<unknown>>(
   'Dialogs closing stream',
 );
 export const PZM_DIALOG_PROVIDERS: Provider[] = [
-  PzmDestroyService,
+  PrizmDestroyService,
   {
     provide: PZM_DIALOG_CLOSE_STREAM,
     deps: [
@@ -30,8 +30,8 @@ export const PZM_DIALOG_PROVIDERS: Provider[] = [
       WINDOW,
       ElementRef,
       PZM_DIALOGS_CLOSE,
-      PzmDestroyService,
-      PzmOverlayContentToken
+      PrizmDestroyService,
+      PrizmOverlayContentToken
     ],
     useFactory: pzmDialogCloseStreamFactory,
   },
@@ -42,8 +42,8 @@ export function pzmDialogCloseStreamFactory(
   windowRef: Window,
   {nativeElement}: ElementRef<HTMLElement>,
   close$: Observable<void>,
-  destroy$: PzmDestroyService,
-  content: PzmOverlayContent,
+  destroy$: PrizmDestroyService,
+  content: PrizmOverlayContent,
 ): Observable<unknown> {
   const {dismissible} = content.props.context;
   return dismissible

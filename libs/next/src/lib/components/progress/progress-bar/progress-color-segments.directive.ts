@@ -2,8 +2,8 @@ import { Directive, ElementRef, Inject, Input } from '@angular/core';
 import { USER_AGENT } from '@ng-web-apis/common';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
-import { PzmResizeService } from '../../../services/resize.service';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmResizeService } from '../../../services/resize.service';
 import { pzmIsEdgeOlderThan } from '../../../util/browser/is-edge-older-than';
 import { PZM_CHROMIUM_EDGE_START_VERSION } from '../../../constants/chromium';
 import { pzmPure } from '../../../decorators/pure';
@@ -26,9 +26,9 @@ function calculateColorSegments(colors: string[], progressWidth: number): string
         '[$.style.--pzm-progress-color]': `calcSegments$`,
         '($.style.--pzm-progress-color)': `0`,
     },
-    providers: [PzmDestroyService, PzmResizeService],
+    providers: [PrizmDestroyService, PrizmResizeService],
 })
-export class PzmProgressColorSegmentsDirective {
+export class PrizmProgressColorSegmentsDirective {
     // TODO: drop support of legacy Edge (EdgeHTML) in v4.x
     private readonly isOldBrowsers = pzmIsEdgeOlderThan(
         PZM_CHROMIUM_EDGE_START_VERSION,
@@ -54,7 +54,7 @@ export class PzmProgressColorSegmentsDirective {
 
     constructor(
         @Inject(ElementRef) private readonly elementRef: ElementRef<HTMLProgressElement>,
-        @Inject(PzmResizeService) private readonly resize$: Observable<unknown>,
+        @Inject(PrizmResizeService) private readonly resize$: Observable<unknown>,
         @Inject(USER_AGENT) private readonly userAgent: string,
     ) {}
 }

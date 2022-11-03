@@ -9,20 +9,20 @@ import {
   Optional,
   Output,
 } from '@angular/core';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { Observable } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
-import { PzmDay } from '../../../@core/date-time/day';
-import { PzmDayRange } from '../../../@core/date-time/day-range';
+import { PrizmDay } from '../../../@core/date-time/day';
+import { PrizmDayRange } from '../../../@core/date-time/day-range';
 import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../../@core/date-time/days.const';
-import { PzmMonth } from '../../../@core/date-time/month';
+import { PrizmMonth } from '../../../@core/date-time/month';
 import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
 import { PZM_DEFAULT_MARKER_HANDLER } from '../../../constants/default-marker-handler';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
 import { PZM_CALENDAR_DATA_STREAM } from '../../../tokens/calendar-data-stream';
-import { PzmBooleanHandler } from '../../../types/handler';
-import { PzmMapper } from '../../../types/mapper';
-import { PzmMarkerHandler } from '../../../types/marker-handler';
+import { PrizmBooleanHandler } from '../../../types/handler';
+import { PrizmMapper } from '../../../types/mapper';
+import { PrizmMarkerHandler } from '../../../types/marker-handler';
 
 /**
  * @internal
@@ -32,24 +32,24 @@ import { PzmMarkerHandler } from '../../../types/marker-handler';
     templateUrl: `./primitive-calendar-range.component.html`,
     styleUrls: [`./primitive-calendar-range.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [PzmDestroyService],
+    providers: [PrizmDestroyService],
 })
-export class PzmPrimitiveCalendarRangeComponent implements OnInit {
+export class PrizmPrimitiveCalendarRangeComponent implements OnInit {
     @Input()
     @pzmDefaultProp()
-    disabledItemHandler: PzmBooleanHandler<PzmDay> = PZM_ALWAYS_FALSE_HANDLER;
+    disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PZM_ALWAYS_FALSE_HANDLER;
 
     @Input()
     @pzmDefaultProp()
-    markerHandler: PzmMarkerHandler = PZM_DEFAULT_MARKER_HANDLER;
+    markerHandler: PrizmMarkerHandler = PZM_DEFAULT_MARKER_HANDLER;
 
     @Input()
     @pzmDefaultProp()
-    defaultViewedMonthFirst = PzmMonth.currentLocal();
+    defaultViewedMonthFirst = PrizmMonth.currentLocal();
 
     @Input()
     @pzmDefaultProp()
-    defaultViewedMonthSecond = PzmMonth.currentLocal().append({month: 1});
+    defaultViewedMonthSecond = PrizmMonth.currentLocal().append({month: 1});
 
     @Input()
     @pzmDefaultProp()
@@ -61,25 +61,25 @@ export class PzmPrimitiveCalendarRangeComponent implements OnInit {
 
     @Input()
     @pzmDefaultProp()
-    value: PzmDayRange | null = null;
+    value: PrizmDayRange | null = null;
 
     @Output()
-    readonly dayClick = new EventEmitter<PzmDay>();
+    readonly dayClick = new EventEmitter<PrizmDay>();
 
     @HostBinding('attr.testId')
     readonly testId = 'pzm_primitive_calendar_range';
 
-    hoveredItem: PzmDay | null = null;
+    hoveredItem: PrizmDay | null = null;
 
-    userViewedMonthFirst: PzmMonth = this.defaultViewedMonthFirst;
-    userViewedMonthSecond: PzmMonth = this.defaultViewedMonthSecond;
+    userViewedMonthFirst: PrizmMonth = this.defaultViewedMonthFirst;
+    userViewedMonthSecond: PrizmMonth = this.defaultViewedMonthSecond;
 
     constructor(
         @Inject(PZM_CALENDAR_DATA_STREAM)
         @Optional()
-        valueChanges: Observable<PzmDayRange | null> | null,
+        valueChanges: Observable<PrizmDayRange | null> | null,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
-        @Inject(PzmDestroyService) destroy$: PzmDestroyService,
+        @Inject(PrizmDestroyService) destroy$: PrizmDestroyService,
     ) {
         if (!valueChanges) {
             return;
@@ -93,26 +93,26 @@ export class PzmPrimitiveCalendarRangeComponent implements OnInit {
             });
     }
 
-    get cappedUserViewedMonthSecond(): PzmMonth {
+    get cappedUserViewedMonthSecond(): PrizmMonth {
         return this.userViewedMonthSecond.monthBefore(this.max)
             ? this.userViewedMonthSecond
             : this.max;
     }
 
-    get cappedUserViewedMonthFirst(): PzmMonth {
+    get cappedUserViewedMonthFirst(): PrizmMonth {
         return this.userViewedMonthFirst.monthSameOrBefore(this.userViewedMonthSecond)
             ? this.userViewedMonthFirst
             : this.userViewedMonthSecond;
     }
 
-    monthOffset: PzmMapper<PzmMonth, PzmMonth> = (value, offset: number) =>
+    monthOffset: PrizmMapper<PrizmMonth, PrizmMonth> = (value, offset: number) =>
         value.append({month: offset});
 
     public ngOnInit(): void {
         this.setInitialMonths();
     }
 
-    public onSectionFirstViewedMonth(month: PzmMonth): void {
+    public onSectionFirstViewedMonth(month: PrizmMonth): void {
         this.userViewedMonthFirst = month;
 
         if (this.userViewedMonthSecond.year < this.userViewedMonthFirst.year) {
@@ -122,7 +122,7 @@ export class PzmPrimitiveCalendarRangeComponent implements OnInit {
         }
     }
 
-    public onSectionSecondViewedMonth(month: PzmMonth): void {
+    public onSectionSecondViewedMonth(month: PrizmMonth): void {
         this.userViewedMonthSecond = month;
 
         if (this.userViewedMonthFirst.year > this.userViewedMonthSecond.year) {
@@ -132,7 +132,7 @@ export class PzmPrimitiveCalendarRangeComponent implements OnInit {
         }
     }
 
-    public onDayClick(day: PzmDay): void {
+    public onDayClick(day: PrizmDay): void {
         this.dayClick.emit(day);
     }
 
@@ -157,7 +157,7 @@ export class PzmPrimitiveCalendarRangeComponent implements OnInit {
         }
     }
 
-    private updatedViewedMonthSecond(month: PzmMonth): PzmMonth {
+    private updatedViewedMonthSecond(month: PrizmMonth): PrizmMonth {
         if (month.monthSameOrAfter(this.max)) {
             return this.max;
         }
@@ -169,7 +169,7 @@ export class PzmPrimitiveCalendarRangeComponent implements OnInit {
         return month;
     }
 
-    private updatedViewedMonthFirst(month: PzmMonth): PzmMonth {
+    private updatedViewedMonthFirst(month: PrizmMonth): PrizmMonth {
         if (month.monthSameOrAfter(this.userViewedMonthSecond)) {
             return this.userViewedMonthSecond.append({month: -1});
         }

@@ -12,7 +12,7 @@ import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular
     '[attr.tabindex]': 'tabindex',
   },
 })
-export class PzmInputIconButtonComponent {
+export class PrizmInputIconButtonComponent {
   @Input() size = 16;
   @Input() pzmInputIconButton: string;
   @Input() interactive = false;

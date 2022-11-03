@@ -2,14 +2,14 @@ import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, HostBinding
 import { merge } from 'rxjs';
 import { mapTo } from 'rxjs/operators';
 import { pzmDefaultProp } from '../../decorators/default-prop';
-import { PzmFocusVisibleService } from '../../directives/focus-visible/focus-visible.service';
+import { PrizmFocusVisibleService } from '../../directives/focus-visible/focus-visible.service';
 import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../tokens/focusable-item-accessor';
-import { PzmFocusableElementAccessor, PzmNativeFocusableElement } from '../../types/focusable-element-accessor';
+import { PrizmFocusableElementAccessor, PrizmNativeFocusableElement } from '../../types/focusable-element-accessor';
 import { pzmTypedFromEvent } from '../../observables';
 import { pzmIsNativeFocused } from '../../util/is-native-focused';
-import { PzmHorizontalDirection } from '../../types/direction';
-import { PzmThemeService } from '../../services/theme.service';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmHorizontalDirection } from '../../types/direction';
+import { PrizmThemeService } from '../../services/theme.service';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
@@ -19,15 +19,15 @@ import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
     providers: [
         {
             provide: PZM_FOCUSABLE_ITEM_ACCESSOR,
-            useExisting: forwardRef(() => PzmLinkComponent),
+            useExisting: forwardRef(() => PrizmLinkComponent),
         },
-        PzmFocusVisibleService,
-        PzmDestroyService,
+        PrizmFocusVisibleService,
+        PrizmDestroyService,
     ],
     changeDetection: ChangeDetectionStrategy.OnPush,
     exportAs: `pzmLink`,
 })
-export class PzmLinkComponent implements PzmFocusableElementAccessor {
+export class PrizmLinkComponent implements PrizmFocusableElementAccessor {
     @Input()
     @HostBinding(`class._pseudo`)
     @pzmDefaultProp()
@@ -40,7 +40,7 @@ export class PzmLinkComponent implements PzmFocusableElementAccessor {
 
     @Input()
     @pzmDefaultProp()
-    iconAlign: PzmHorizontalDirection = `right`;
+    iconAlign: PrizmHorizontalDirection = `right`;
 
     @Input()
     @HostBinding(`class._icon-rotated`)
@@ -65,17 +65,17 @@ export class PzmLinkComponent implements PzmFocusableElementAccessor {
 
     constructor(
         @Inject(ElementRef)
-        private readonly elementRef: ElementRef<PzmNativeFocusableElement>,
-        public readonly mode$: PzmThemeService,
-        @Inject(PzmFocusVisibleService)
-        focusVisible$: PzmFocusVisibleService,
+        private readonly elementRef: ElementRef<PrizmNativeFocusableElement>,
+        public readonly mode$: PrizmThemeService,
+        @Inject(PrizmFocusVisibleService)
+        focusVisible$: PrizmFocusVisibleService,
     ) {
         focusVisible$.subscribe(visible => {
             this.focusVisible = visible;
         });
     }
 
-    get nativeFocusableElement(): PzmNativeFocusableElement {
+    get nativeFocusableElement(): PrizmNativeFocusableElement {
         return this.elementRef.nativeElement;
     }
 

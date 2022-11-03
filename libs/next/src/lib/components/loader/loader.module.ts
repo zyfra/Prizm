@@ -1,11 +1,11 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {PolymorphModule} from '../../directives/polymorph';
-import {PzmLoaderComponent} from './loader.component';
+import {PrizmLoaderComponent} from './loader.component';
 
 @NgModule({
     imports: [CommonModule, PolymorphModule],
-    declarations: [PzmLoaderComponent],
-    exports: [PzmLoaderComponent],
+    declarations: [PrizmLoaderComponent],
+    exports: [PrizmLoaderComponent],
 })
-export class PzmLoaderModule {}
+export class PrizmLoaderModule {}

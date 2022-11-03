@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { PzmConfirmDialogService, PzmOverlayInsidePlacement } from '@digital-plant/zui-components';
+import { PrizmConfirmDialogService, PrizmOverlayInsidePlacement } from '@digital-plant/zui-components';
 import { takeUntil } from 'rxjs/operators';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 
 @Component({
   selector: 'pzm-dialog-service-example',
@@ -13,17 +13,17 @@ import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
     }
   `],
   providers: [
-    PzmDestroyService
+    PrizmDestroyService
   ]
 })
-export class PzmDialogServiceExampleComponent {
-  public positionVariants: PzmOverlayInsidePlacement[] = Object.values(PzmOverlayInsidePlacement);
-  public position: PzmOverlayInsidePlacement = PzmOverlayInsidePlacement.CENTER;
+export class PrizmDialogServiceExampleComponent {
+  public positionVariants: PrizmOverlayInsidePlacement[] = Object.values(PrizmOverlayInsidePlacement);
+  public position: PrizmOverlayInsidePlacement = PrizmOverlayInsidePlacement.CENTER;
   public backdrop = true;
 
   constructor(
-    private readonly confirmDialogService: PzmConfirmDialogService,
-    private readonly destroy$: PzmDestroyService,
+    private readonly confirmDialogService: PrizmConfirmDialogService,
+    private readonly destroy$: PrizmDestroyService,
   ) {}
 
   public show(): void {

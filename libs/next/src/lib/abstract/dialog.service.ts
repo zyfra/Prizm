@@ -1,39 +1,39 @@
 import { Injectable, Injector, Type } from '@angular/core';
 import { noop, Observable, Observer, Subject } from 'rxjs';
-import { PzmBaseDialogContext, PzmDialogBaseOptions } from '../components/dialogs/dialog/dialog.models';
-import { PolymorphContent, PzmOverscrollService } from '../directives';
+import { PrizmBaseDialogContext, PrizmDialogBaseOptions } from '../components/dialogs/dialog/dialog.models';
+import { PolymorphContent, PrizmOverscrollService } from '../directives';
 import {
   PZM_OVERLAY_BACKDROP_NO_POINTERS,
-  PzmOverlayControl,
-  PzmOverlayGlobalPosition,
-  PzmOverlayInsidePlacement,
-  PzmOverlayService, PzmOverlaySlidePosition,
+  PrizmOverlayControl,
+  PrizmOverlayGlobalPosition,
+  PrizmOverlayInsidePlacement,
+  PrizmOverlayService, PrizmOverlaySlidePosition,
 } from '../modules/overlay';
 import { takeUntil } from 'rxjs/operators';
-import { PzmOverscrollMode } from '../directives/overscroll/overscroll.model';
+import { PrizmOverscrollMode } from '../directives/overscroll/overscroll.model';
 import { pzmGenerateId } from '../util';
-import { PzmOverlayConfig } from '../modules/overlay/models';
+import { PrizmOverlayConfig } from '../modules/overlay/models';
 
 
 @Injectable()
-export abstract class AbstractPzmDialogService<T extends PzmDialogBaseOptions, O = unknown, DATA = unknown> {
+export abstract class AbstractPrizmDialogService<T extends PrizmDialogBaseOptions, O = unknown, DATA = unknown> {
   protected abstract readonly component: Type<unknown>;
   protected abstract readonly defaultOptions: T;
-  protected readonly overlayService: PzmOverlayService;
-  protected readonly overscrollService: PzmOverscrollService
+  protected readonly overlayService: PrizmOverlayService;
+  protected readonly overscrollService: PrizmOverscrollService
   protected constructor(
     injector: Injector
   ) {
-    this.overlayService = injector.get(PzmOverlayService);
-    this.overscrollService = injector.get(PzmOverscrollService);
+    this.overlayService = injector.get(PrizmOverlayService);
+    this.overscrollService = injector.get(PrizmOverscrollService);
   }
 
   public open<O = unknown, DATA = unknown>(
-    content: PolymorphContent<PzmBaseDialogContext<O>> | unknown,
+    content: PolymorphContent<PrizmBaseDialogContext<O>> | unknown,
     options: Partial<T>,
     cb: (data: {
-      control: PzmOverlayControl,
-      dialog: PzmBaseDialogContext<any, any>,
+      control: PrizmOverlayControl,
+      dialog: PrizmBaseDialogContext<any, any>,
       observer: Observer<O>,
       destroy$: Observable<void>,
     }) => void = noop,
@@ -88,8 +88,8 @@ export abstract class AbstractPzmDialogService<T extends PzmDialogBaseOptions, O
   }
 
   protected getConfig(
-    dialog: PzmBaseDialogContext<any, any>,
-  ): Partial<PzmOverlayConfig> {
+    dialog: PrizmBaseDialogContext<any, any>,
+  ): Partial<PrizmOverlayConfig> {
     return {
       backdrop: dialog.backdrop ?? true,
       containerClass: dialog.containerClass ?? '',
@@ -102,11 +102,11 @@ export abstract class AbstractPzmDialogService<T extends PzmDialogBaseOptions, O
   }
 
   protected getPosition(
-    dialog: PzmBaseDialogContext<any, any>,
-  ): PzmOverlayGlobalPosition | PzmOverlaySlidePosition | PzmOverlayGlobalPosition {
-    return new PzmOverlayGlobalPosition(
+    dialog: PrizmBaseDialogContext<any, any>,
+  ): PrizmOverlayGlobalPosition | PrizmOverlaySlidePosition | PrizmOverlayGlobalPosition {
+    return new PrizmOverlayGlobalPosition(
       {
-        placement: dialog.position ?? PzmOverlayInsidePlacement.CENTER,
+        placement: dialog.position ?? PrizmOverlayInsidePlacement.CENTER,
         width: dialog.width ?? 'auto',
         height: dialog.height ?? 'auto'
       }
@@ -114,8 +114,8 @@ export abstract class AbstractPzmDialogService<T extends PzmDialogBaseOptions, O
   }
 
   private setOverscrollMode(
-    mode: PzmOverscrollMode,
-    control: PzmOverlayControl,
+    mode: PrizmOverscrollMode,
+    control: PrizmOverlayControl,
     destroy$: Observable<void>
   ): void {
     control.viewEl.style.pointerEvents = 'unset';
