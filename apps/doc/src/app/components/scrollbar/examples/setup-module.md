@@ -1,6 +1,6 @@
 ```ts
 import {NgModule} from '@angular/core';
-import {PzmScrollbarModule} from "@digital-plant/pzm-components";
+import {PzmScrollbarModule} from "@digital-plant/zui-components";
 
 @NgModule({
   imports: [

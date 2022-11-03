@@ -10,6 +10,7 @@ import { FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalendarComponent {
+  public day = new PzmDay(2017, 0, 15);
   public showAdjacent = true;
   public readonly control = new FormControl(new PzmDay(2017, 0, 15));
   readonly setupModule: RawLoaderContent = import(
@@ -20,4 +21,8 @@ export class CalendarComponent {
     TypeScript: import('!!raw-loader!./examples/base/calendar-base-example.component.ts'),
     HTML: import('!!raw-loader!./examples/base/calendar-base-example.component.html'),
   };
+
+  public onDayClick(day: PzmDay): void {
+    this.day = day;
+  }
 }

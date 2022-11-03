@@ -1,6 +1,7 @@
 <pzm-dropdown-host
     [style.--pzm-dropdown-host-width]='"100%"'
     class="z-hosted"
+    #pzmDropdownHostComponent
     [canOpen]="interactive"
     [content]="openTimeTemplate ? dropdownTimeTemplate : dropdownDateTemplate"
     [pzmDropdownHostWidth]='openTimeTemplate ? "100%" : "auto"'
@@ -59,6 +60,7 @@
 <ng-template #dropdownTimeTemplate>
   <pzm-data-list
     pzmLifecycle
+    (pzmAfterViewInit)='pzmDropdownHostComponent.reCalculatePositions()'
     (pzmOnDestroy)='openTimeTemplate = false'
     *ngIf='timeItems.length;' class='block' [style.--pzm-data-list-border]='0'>
     <ng-container>

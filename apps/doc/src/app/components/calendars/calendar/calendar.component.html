@@ -22,6 +22,8 @@
   <ng-template pageTab>
     <tui-doc-demo>
       <pzm-calendar
+        [value]='day'
+        (dayClick)='onDayClick($event)'
         [showAdjacent]='showAdjacent'
       ></pzm-calendar>
     </tui-doc-demo>

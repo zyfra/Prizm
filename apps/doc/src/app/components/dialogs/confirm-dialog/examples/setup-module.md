@@ -1,6 +1,6 @@
 ```ts
 import {NgModule} from '@angular/core';
-import {PzmConfirmDialogModule} from "@digital-plant/pzm-components";
+import {PzmConfirmDialogModule} from "@digital-plant/zui-components";
 
 @NgModule({
   imports: [

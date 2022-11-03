@@ -1,6 +1,6 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PzmPaginatorModule } from '@digital-plant/pzm-components';
+import { PzmPaginatorModule } from '@digital-plant/zui-components';
 // ...
 
 @NgModule({

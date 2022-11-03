@@ -1,6 +1,6 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PzmToastModule, pzmToastOptionsProvider } from '@digital-plant/pzm-components';
+import { PzmToastModule, pzmToastOptionsProvider } from '@digital-plant/zui-components';
 
 @NgModule({
   imports: [
