@@ -3,11 +3,11 @@ import { BehaviorSubject, fromEvent, Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 
 @Injectable()
-export class PzmEventZoneService implements OnDestroy {
+export class PrizmEventZoneService implements OnDestroy {
   private readonly eventSource$ = new BehaviorSubject<number>(Date.now());
   public readonly event$ = this.eventSource$.asObservable();
   private el_: HTMLElement;
-  private parent: PzmEventZoneService;
+  private parent: PrizmEventZoneService;
   get el(): HTMLElement {
     return this.el_;
   }
@@ -19,7 +19,7 @@ export class PzmEventZoneService implements OnDestroy {
   }
 
 
-  get rootService(): PzmEventZoneService {
+  get rootService(): PrizmEventZoneService {
     if (this.parent) return this.parent.rootService;
     if (this.parentDropdownZoneService) return this.parentDropdownZoneService.rootService;
     return this;
@@ -28,10 +28,10 @@ export class PzmEventZoneService implements OnDestroy {
   private readonly destroyListener$ = new Subject<void>();
 
   constructor(
-    @Optional() @SkipSelf() private readonly parentDropdownZoneService: PzmEventZoneService,
+    @Optional() @SkipSelf() private readonly parentDropdownZoneService: PrizmEventZoneService,
   ) {}
 
-  public init(el: HTMLElement, eventType: string, parent?: PzmEventZoneService): void {
+  public init(el: HTMLElement, eventType: string, parent?: PrizmEventZoneService): void {
     this.el_ = el;
     this.parent = parent;
     this.destroyListener$.next();

@@ -1,25 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PzmChipsComponent } from './chips.component';
-import { PzmCallFuncModule, PzmLetModule } from '@digital-plant/zyfra-helpers';
-import { PzmElementReadyModule, PzmHintModule, PzmLifecycleModule } from '../../directives';
+import { PrizmChipsComponent } from './chips.component';
+import { PrizmCallFuncModule, PrizmLetModule } from '@digital-plant/zyfra-helpers';
+import { PrizmElementReadyModule, PrizmHintModule, PrizmLifecycleModule } from '../../directives';
 
 @NgModule({
   imports: [
     CommonModule,
-    PzmCallFuncModule,
-    PzmCallFuncModule,
-    PzmLifecycleModule,
-    PzmElementReadyModule,
-    PzmLetModule,
-    PzmHintModule
+    PrizmCallFuncModule,
+    PrizmCallFuncModule,
+    PrizmLifecycleModule,
+    PrizmElementReadyModule,
+    PrizmLetModule,
+    PrizmHintModule
   ],
   declarations: [
-    PzmChipsComponent
+    PrizmChipsComponent
   ],
   exports: [
-    PzmChipsComponent
+    PrizmChipsComponent
   ],
 })
-export class PzmChipsModule {}
+export class PrizmChipsModule {}
 

@@ -3,9 +3,9 @@ import { EditableColumn } from 'primeng/table';
 
 @Directive({
   selector: '[pzmEditableColumn]',
-  providers: [{ provide: EditableColumn, useClass: PzmEditableColumnDirective }],
+  providers: [{ provide: EditableColumn, useClass: PrizmEditableColumnDirective }],
 })
-export class PzmEditableColumnDirective extends EditableColumn {
+export class PrizmEditableColumnDirective extends EditableColumn {
   public override onClick(event: MouseEvent): void {
     // doing nothing, redefining parent class method
   }

@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { PzmExpandComponent } from './expand.component';
-import { PzmExpandContentDirective } from './expand-content.directive';
-import { PzmLoaderModule } from '../loader';
+import { PrizmExpandComponent } from './expand.component';
+import { PrizmExpandContentDirective } from './expand-content.directive';
+import { PrizmLoaderModule } from '../loader';
 
 @NgModule({
-    imports: [CommonModule, PzmLoaderModule],
-    declarations: [PzmExpandComponent, PzmExpandContentDirective],
-    exports: [PzmExpandComponent, PzmExpandContentDirective],
+    imports: [CommonModule, PrizmLoaderModule],
+    declarations: [PrizmExpandComponent, PrizmExpandContentDirective],
+    exports: [PrizmExpandComponent, PrizmExpandContentDirective],
 })
-export class PzmExpandModule {}
+export class PrizmExpandModule {}

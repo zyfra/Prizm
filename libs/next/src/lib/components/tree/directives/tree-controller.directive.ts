@@ -1,7 +1,7 @@
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
 
-import { PzmTreeItemComponent } from '../components/tree-item/tree-item.component';
-import { PzmTreeAccessor, PzmTreeController } from '../misc/tree.interfaces';
+import { PrizmTreeItemComponent } from '../components/tree-item/tree-item.component';
+import { PrizmTreeAccessor, PrizmTreeController } from '../misc/tree.interfaces';
 import { PZM_TREE_ACCESSOR, PZM_TREE_CONTROLLER } from '../misc/tree.tokens';
 import { pzmDefaultProp } from '../../../decorators';
 import { pzmIsPresent } from '../../../util';
@@ -12,16 +12,16 @@ import { pzmIsPresent } from '../../../util';
     providers: [
         {
             provide: PZM_TREE_ACCESSOR,
-            useExisting: PzmTreeControllerDirective,
+            useExisting: PrizmTreeControllerDirective,
         },
         {
             provide: PZM_TREE_CONTROLLER,
-            useExisting: PzmTreeControllerDirective,
+            useExisting: PrizmTreeControllerDirective,
         },
     ],
 })
-export class PzmTreeControllerDirective<T>
-    implements PzmTreeController, PzmTreeAccessor<T>
+export class PrizmTreeControllerDirective<T>
+    implements PrizmTreeController, PrizmTreeAccessor<T>
 {
     @Input()
     @pzmDefaultProp()
@@ -34,23 +34,23 @@ export class PzmTreeControllerDirective<T>
     @Output()
     readonly toggled = new EventEmitter<T>();
 
-    readonly items = new Map<PzmTreeItemComponent, T>();
+    readonly items = new Map<PrizmTreeItemComponent, T>();
 
-    public register(item: PzmTreeItemComponent, value: T): void {
+    public register(item: PrizmTreeItemComponent, value: T): void {
         this.items.set(item, value);
     }
 
-    public unregister(item: PzmTreeItemComponent): void {
+    public unregister(item: PrizmTreeItemComponent): void {
         this.items.delete(item);
     }
 
-    public isExpanded(item: PzmTreeItemComponent): boolean {
+    public isExpanded(item: PrizmTreeItemComponent): boolean {
         const value = this.items.get(item);
 
         return (value && this.map.get(value)) ?? this.pzmTreeController;
     }
 
-    public toggle(item: PzmTreeItemComponent): void {
+    public toggle(item: PrizmTreeItemComponent): void {
         const value = this.items.get(item);
         const expanded = this.isExpanded(item);
 

@@ -1,14 +1,14 @@
 import { Provider } from '@angular/core';
-import { PzmDay } from '../../../@core/date-time/day';
+import { PrizmDay } from '../../../@core/date-time/day';
 import { PZM_DATE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
-import { PzmControlValueTransformer } from '../../../types/control-value-transformer';
+import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 
-type From = PzmDay | null;
+type From = PrizmDay | null;
 type To = Date | null;
 
-export class PzmInputDateNativeTransformer implements PzmControlValueTransformer<From, To> {
+export class PrizmInputDateNativeTransformer implements PrizmControlValueTransformer<From, To> {
   public fromControlValue(controlValue: To): From {
-    return controlValue && PzmDay.fromLocalNativeDate(controlValue);
+    return controlValue && PrizmDay.fromLocalNativeDate(controlValue);
   }
 
   public toControlValue(componentValue: From): To {
@@ -19,6 +19,6 @@ export class PzmInputDateNativeTransformer implements PzmControlValueTransformer
 export function pzmGetInputDateNativeTransformer(): Provider {
   return  {
     provide: PZM_DATE_VALUE_TRANSFORMER,
-    useClass: PzmInputDateNativeTransformer,
+    useClass: PrizmInputDateNativeTransformer,
   };
 }

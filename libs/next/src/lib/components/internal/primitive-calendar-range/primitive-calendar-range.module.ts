@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { PzmMapperPipeModule } from '../../../pipes/mapper/mapper.module';
-import { PzmCalendarModule } from '../../calendar/calendar.module';
-import { PzmScrollbarModule } from '../../scrollbar/scrollbar.module';
-import { PzmPrimitiveCalendarRangeComponent } from './primitive-calendar-range.component';
+import { PrizmMapperPipeModule } from '../../../pipes/mapper/mapper.module';
+import { PrizmCalendarModule } from '../../calendar/calendar.module';
+import { PrizmScrollbarModule } from '../../scrollbar/scrollbar.module';
+import { PrizmPrimitiveCalendarRangeComponent } from './primitive-calendar-range.component';
 import { CommonModule } from '@angular/common';
 
 /**
  * @internal
  */
 @NgModule({
-    imports: [PzmMapperPipeModule, CommonModule, PzmScrollbarModule, PzmCalendarModule],
-    declarations: [PzmPrimitiveCalendarRangeComponent],
-    exports: [PzmPrimitiveCalendarRangeComponent],
+    imports: [PrizmMapperPipeModule, CommonModule, PrizmScrollbarModule, PrizmCalendarModule],
+    declarations: [PrizmPrimitiveCalendarRangeComponent],
+    exports: [PrizmPrimitiveCalendarRangeComponent],
 })
-export class PzmPrimitiveCalendarRangeModule {}
+export class PrizmPrimitiveCalendarRangeModule {}

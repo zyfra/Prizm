@@ -1,11 +1,11 @@
 import {Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {
-  PzmOverlayControl, PzmOverlayFullscreenPosition,
-  PzmOverlayGlobalPosition,
-  PzmOverlayInsidePlacement,
-  PzmOverlayService
+  PrizmOverlayControl, PrizmOverlayFullscreenPosition,
+  PrizmOverlayGlobalPosition,
+  PrizmOverlayInsidePlacement,
+  PrizmOverlayService
 } from "@digital-plant/zui-components";
-import {PzmOverlaySomeComponent} from "./some-component";
+import {PrizmOverlaySomeComponent} from "./some-component";
 
 @Component({
   selector: 'pzm-overlay-component-example',
@@ -21,16 +21,16 @@ import {PzmOverlaySomeComponent} from "./some-component";
     }
   `]
 })
-export class PzmOverlayExampleWithViewComponent implements OnInit {
+export class PrizmOverlayExampleWithViewComponent implements OnInit {
   @ViewChild('elementRef', { read: ElementRef, static: true }) elementRef: ElementRef;
 
-  private control: PzmOverlayControl;
-  constructor(private readonly overlay: PzmOverlayService) {}
+  private control: PrizmOverlayControl;
+  constructor(private readonly overlay: PrizmOverlayService) {}
 
   public ngOnInit(): void {
-    const position = new PzmOverlayGlobalPosition({
+    const position = new PrizmOverlayGlobalPosition({
       // Pass position placement
-      placement: PzmOverlayInsidePlacement.TOP,
+      placement: PrizmOverlayInsidePlacement.TOP,
       width: '100%',
       height: 'auto',
       // Pass source element
@@ -43,7 +43,7 @@ export class PzmOverlayExampleWithViewComponent implements OnInit {
         closeOnDocClick: true
       })
       // PASS COMPONENT
-      .content(PzmOverlaySomeComponent)
+      .content(PrizmOverlaySomeComponent)
       .create();
 
   }

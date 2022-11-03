@@ -13,7 +13,7 @@ interface LetContext<T> {
  * @button <ng-container *pzmLet="queryParams.isMap$ | async as isMap">{{isMap}}</ng-container>
  */
 @Directive({ selector: '[pzmLet]' })
-export class PzmLetDirective<T> implements OnDestroy {
+export class PrizmLetDirective<T> implements OnDestroy {
   constructor(private templateRef: TemplateRef<LetContext<T>>, private viewContainer: ViewContainerRef) {}
 
   @Input('pzmLet') set init(newContext: T) {

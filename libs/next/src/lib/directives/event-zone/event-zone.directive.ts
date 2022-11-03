@@ -12,8 +12,8 @@ import {
   SimpleChanges,
   SkipSelf,
 } from '@angular/core';
-import { PzmEventZoneService } from './event-zone.service';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmEventZoneService } from './event-zone.service';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 
 /**
@@ -24,13 +24,13 @@ import { takeUntil, tap } from 'rxjs/operators';
     selector: `[pzmEventZone]:not(ng-container), [pzmEventZoneChange]:not(ng-container), [pzmEventZoneParent]:not(ng-container)`,
     exportAs: `pzmEventZone`,
     providers: [
-      PzmEventZoneService,
-      PzmDestroyService
+      PrizmEventZoneService,
+      PrizmDestroyService
     ]
 })
-export class PzmDropdownZoneDirective implements OnInit, OnChanges {
+export class PrizmDropdownZoneDirective implements OnInit, OnChanges {
   @Output() pzmEventZoneEvent = new EventEmitter<number>();
-  @Input() pzmEventZoneParent?: PzmDropdownZoneDirective;
+  @Input() pzmEventZoneParent?: PrizmDropdownZoneDirective;
   @Input() pzmEventZoneHost?: HTMLElement;
 
   get host(): HTMLElement {
@@ -38,9 +38,9 @@ export class PzmDropdownZoneDirective implements OnInit, OnChanges {
   }
 
   constructor(
-    @Self() private readonly dz: PzmEventZoneService,
-    @Optional() @SkipSelf() public readonly parentDropdownZoneService: PzmEventZoneService,
-    private readonly destroy$: PzmDestroyService,
+    @Self() private readonly dz: PrizmEventZoneService,
+    @Optional() @SkipSelf() public readonly parentDropdownZoneService: PrizmEventZoneService,
+    private readonly destroy$: PrizmDestroyService,
     private readonly elementRef: ElementRef,
     public readonly injector: Injector,
   ) {}

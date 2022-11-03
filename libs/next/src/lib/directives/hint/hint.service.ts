@@ -3,7 +3,7 @@ import { Observable, ReplaySubject } from 'rxjs';
 import { filter, map, startWith } from 'rxjs/operators';
 
 @Injectable({providedIn: "root"})
-export class PzmHintService {
+export class PrizmHintService {
   private readonly subHoveredSource$ = new ReplaySubject<{id: string, hovered: boolean}>();
 
   public childHovered(hintId: string): Observable<boolean> {

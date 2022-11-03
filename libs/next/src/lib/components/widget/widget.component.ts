@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { PolymorphContent } from '../../directives';
-import { PzmShadowType } from '../../directives/shadow';
+import { PrizmShadowType } from '../../directives/shadow';
 
 @Component({
     selector: 'pzm-widget',
@@ -9,12 +9,12 @@ import { PzmShadowType } from '../../directives/shadow';
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [],
 })
-export class PzmWidgetComponent {
+export class PrizmWidgetComponent {
   @Input() public header: PolymorphContent = '';
   @Input() public title: PolymorphContent = '';
   @Input() public icons: PolymorphContent[] = [];
   @Output() public iconClick: EventEmitter<string> = new EventEmitter();
-  readonly shadow: PzmShadowType = 'none';
+  readonly shadow: PrizmShadowType = 'none';
 
   @HostBinding('attr.testId')
   readonly testId = 'pzm_widget';

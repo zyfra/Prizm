@@ -1,25 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PolymorphModule, PzmFocusTrapModule } from '../../../directives';
-import { PzmOverlayModule } from '../../../modules/overlay';
-import { PzmButtonModule } from '../../button';
-import { PzmDialogConfirmComponent } from './confirm-dialog.component';
-import { PzmScrollbarModule } from '../../scrollbar';
+import { PolymorphModule, PrizmFocusTrapModule } from '../../../directives';
+import { PrizmOverlayModule } from '../../../modules/overlay';
+import { PrizmButtonModule } from '../../button';
+import { PrizmDialogConfirmComponent } from './confirm-dialog.component';
+import { PrizmScrollbarModule } from '../../scrollbar';
 
 @NgModule({
   imports: [
     CommonModule,
     PolymorphModule,
-    PzmOverlayModule,
-    PzmButtonModule,
-    PzmFocusTrapModule,
-    PzmScrollbarModule
+    PrizmOverlayModule,
+    PrizmButtonModule,
+    PrizmFocusTrapModule,
+    PrizmScrollbarModule
   ],
   declarations: [
-    PzmDialogConfirmComponent
+    PrizmDialogConfirmComponent
   ],
   exports: [
-    PzmDialogConfirmComponent
+    PrizmDialogConfirmComponent
   ],
 })
-export class PzmConfirmDialogModule {}
+export class PrizmConfirmDialogModule {}

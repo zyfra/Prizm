@@ -1,9 +1,9 @@
 import {Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {
-  PzmOverlayControl,
-  PzmOverlayGlobalPosition,
-  PzmOverlayInsidePlacement,
-  PzmOverlayService
+  PrizmOverlayControl,
+  PrizmOverlayGlobalPosition,
+  PrizmOverlayInsidePlacement,
+  PrizmOverlayService
 } from "@digital-plant/zui-components";
 
 @Component({
@@ -19,17 +19,17 @@ import {
     }
   `]
 })
-export class PzmOverlayExampleGlobalComponent implements OnInit {
+export class PrizmOverlayExampleGlobalComponent implements OnInit {
   @ViewChild('elementRef', { read: ElementRef, static: true }) elementRef: ElementRef;
   @ViewChild('someTemplate', { read: TemplateRef, static: true }) templateRef: TemplateRef<unknown>;
 
-  private control: PzmOverlayControl;
-  constructor(private readonly overlay: PzmOverlayService) {}
+  private control: PrizmOverlayControl;
+  constructor(private readonly overlay: PrizmOverlayService) {}
 
   public ngOnInit(): void {
-    const position = new PzmOverlayGlobalPosition({
+    const position = new PrizmOverlayGlobalPosition({
       // Pass position placement
-      placement: PzmOverlayInsidePlacement.BOTTOM_LEFT,
+      placement: PrizmOverlayInsidePlacement.BOTTOM_LEFT,
       // Pass source element
       element: this.elementRef.nativeElement
     });

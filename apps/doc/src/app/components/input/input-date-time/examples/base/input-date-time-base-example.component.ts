@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PzmDay, PzmTime } from '@digital-plant/zui-components';
+import { PrizmDay, PrizmTime } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-input-date-time-base-example',
@@ -12,6 +12,6 @@ import { PzmDay, PzmTime } from '@digital-plant/zui-components';
     }
   `]
 })
-export class PzmInputDateTimeBaseExampleComponent {
-  public readonly value = new FormControl([new PzmDay(2017, 2, 15), new PzmTime(12, 30)]);
+export class PrizmInputDateTimeBaseExampleComponent {
+  public readonly value = new FormControl([new PrizmDay(2017, 2, 15), new PrizmTime(12, 30)]);
 }

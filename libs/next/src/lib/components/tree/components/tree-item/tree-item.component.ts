@@ -12,7 +12,7 @@ import {
 import { PolymorphContent } from '../../../../directives';
 import { Subject } from 'rxjs';
 import { distinctUntilChanged, map, startWith } from 'rxjs/operators';
-import { PzmTreeController } from '../../misc/tree.interfaces';
+import { PrizmTreeController } from '../../misc/tree.interfaces';
 import { PZM_TREE_CONTENT, PZM_TREE_CONTROLLER, PZM_TREE_LEVEL, PZM_TREE_NODE } from '../../misc/tree.tokens';
 import { PZM_TREE_ITEM_PROVIDERS } from './tree-item.providers';
 import { EMPTY_QUERY } from '../../../../constants';
@@ -28,7 +28,7 @@ import { EMPTY_QUERY } from '../../../../constants';
         role: 'treeitem',
     },
 })
-export class PzmTreeItemComponent implements DoCheck {
+export class PrizmTreeItemComponent implements DoCheck {
     @ContentChildren(PZM_TREE_NODE as any)
     private readonly nested: QueryList<unknown> = EMPTY_QUERY;
 
@@ -52,7 +52,7 @@ export class PzmTreeItemComponent implements DoCheck {
         @Inject(ElementRef)
         private readonly elementRef: ElementRef<HTMLElement>,
         @Inject(forwardRef(() => PZM_TREE_CONTROLLER))
-        private readonly controller: PzmTreeController,
+        private readonly controller: PrizmTreeController,
         @Inject(forwardRef(() => PZM_TREE_LEVEL))
         readonly level: number,
         @Inject(forwardRef(() => PZM_TREE_CONTENT))

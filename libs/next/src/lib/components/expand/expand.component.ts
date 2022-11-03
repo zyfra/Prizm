@@ -15,7 +15,7 @@ import {
 import { pzmDefaultProp, pzmRequiredSetter } from '../../decorators';
 import { pzmIsCurrentTarget } from '../../util/dom';
 
-import { PzmExpandContentDirective } from './expand-content.directive';
+import { PrizmExpandContentDirective } from './expand-content.directive';
 import { PZM_EXPAND_LOADED } from './expand.const';
 
 enum State {
@@ -33,7 +33,7 @@ const LOADER_HEIGHT = 48;
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['./expand.component.less'],
 })
-export class PzmExpandComponent {
+export class PrizmExpandComponent {
     @ViewChild('wrapper')
     private readonly contentWrapper?: ElementRef<HTMLDivElement>;
 
@@ -63,7 +63,7 @@ export class PzmExpandComponent {
         this.reTrigger(this.isLoading && expanded ? State.Loading : State.Animated);
     }
 
-    @ContentChild(PzmExpandContentDirective, {read: TemplateRef})
+    @ContentChild(PrizmExpandContentDirective, {read: TemplateRef})
     public content: TemplateRef<NgIfContext<boolean>> | null = null;
 
     @HostBinding('class._expanded')

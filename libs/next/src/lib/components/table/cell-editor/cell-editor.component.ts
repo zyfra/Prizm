@@ -16,7 +16,7 @@ import { BaseTableTemplateDirective } from '../base-table/directives/base-table-
   templateUrl: './cell-editor.component.html',
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmCellEditorComponent implements AfterContentInit {
+export class PrizmCellEditorComponent implements AfterContentInit {
   @ContentChildren(BaseTableTemplateDirective) templates: QueryList<BaseTableTemplateDirective>;
 
   @Input() value = '';

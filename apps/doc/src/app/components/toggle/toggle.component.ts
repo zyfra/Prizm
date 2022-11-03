@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PolymorphContent, PzmContextWithImplicit, PzmSizeL, PzmSizeM } from '@digital-plant/zui-components';
+import { PolymorphContent, PrizmContextWithImplicit, PrizmSizeL, PrizmSizeM } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-toggle-example',
@@ -15,21 +15,21 @@ export class ToggleComponent {
 
   singleColor = false;
 
-  readonly sizeVariants: ReadonlyArray<PzmSizeL | PzmSizeM> = [
+  readonly sizeVariants: ReadonlyArray<PrizmSizeL | PrizmSizeM> = [
     'm',
     'l'
   ];
-  size: PzmSizeL | PzmSizeM = this.sizeVariants[0];
+  size: PrizmSizeL | PrizmSizeM = this.sizeVariants[0];
 
-  readonly iconVariants: ReadonlyArray<PolymorphContent<PzmContextWithImplicit<PzmSizeL | PzmSizeM>>> = [
+  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>>> = [
     '',
     'selection-checkbox-marked-circle',
     'selection-checkbox-marked-circle-chanel',
     'arrows-chevron-left',
     'arrows-chevron-right'
   ];
-  iconOn: PolymorphContent<PzmContextWithImplicit<PzmSizeL | PzmSizeM>> = this.iconVariants[0];
-  iconOff: PolymorphContent<PzmContextWithImplicit<PzmSizeL | PzmSizeM>> = this.iconVariants[0];
+  iconOn: PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>> = this.iconVariants[0];
+  iconOff: PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>> = this.iconVariants[0];
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
   );

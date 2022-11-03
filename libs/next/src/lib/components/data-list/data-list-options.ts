@@ -1,25 +1,25 @@
 import {InjectionToken, ValueProvider} from '@angular/core';
 import {PolymorphContent} from "../../directives";
 
-export interface PzmDataListOptions {
+export interface PrizmDataListOptions {
     readonly empty: PolymorphContent;
 }
 
 /** Default values for data-list options */
-export const PZM_DATALIST_DEFAULT_OPTIONS: PzmDataListOptions = {
+export const PZM_DATALIST_DEFAULT_OPTIONS: PrizmDataListOptions = {
     empty: '',
 };
 
-export const PZM_DATALIST_OPTIONS = new InjectionToken<PzmDataListOptions>(
+export const PZM_DATALIST_OPTIONS = new InjectionToken<PrizmDataListOptions>(
     'Default parameters for datalist directive',
     {
-        factory: (): PzmDataListOptions => PZM_DATALIST_DEFAULT_OPTIONS,
+        factory: (): PrizmDataListOptions => PZM_DATALIST_DEFAULT_OPTIONS,
     },
 );
 
-export const PzmDataListOptionsProvider: (
-    options: Partial<PzmDataListOptions>,
-) => ValueProvider = (options: Partial<PzmDataListOptions>) => ({
+export const PrizmDataListOptionsProvider: (
+    options: Partial<PrizmDataListOptions>,
+) => ValueProvider = (options: Partial<PrizmDataListOptions>) => ({
     provide: PZM_DATALIST_OPTIONS,
     useValue: {...PZM_DATALIST_DEFAULT_OPTIONS, ...options},
 });

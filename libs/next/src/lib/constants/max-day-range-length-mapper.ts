@@ -1,11 +1,11 @@
-import { PzmDay, PzmDayRange } from '../@core/date-time';
-import { PzmDayLike } from '../types/day-like';
-import { PzmMapper } from '../types/mapper';
+import { PrizmDay, PrizmDayRange } from '../@core/date-time';
+import { PrizmDayLike } from '../types/day-like';
+import { PrizmMapper } from '../types/mapper';
 
-export const PZM_MAX_DAY_RANGE_LENGTH_MAPPER: PzmMapper<PzmDay, PzmDay> = (
+export const PZM_MAX_DAY_RANGE_LENGTH_MAPPER: PrizmMapper<PrizmDay, PrizmDay> = (
     min,
-    value: PzmDayRange,
-    maxLength: PzmDayLike | null,
+    value: PrizmDayRange,
+    maxLength: PrizmDayLike | null,
     backwards: boolean,
 ) => {
     if (!value || !value.isSingleDay || !maxLength) {

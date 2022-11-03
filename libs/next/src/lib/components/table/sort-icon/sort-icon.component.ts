@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular
   styleUrls: ['./sort-icon.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmSortIconComponent {
+export class PrizmSortIconComponent {
   @Input() field: string;
 
   @HostBinding('attr.testId')

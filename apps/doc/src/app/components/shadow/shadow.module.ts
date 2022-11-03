@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { ShadowComponent } from './shadow.component';
-import { PzmShadowBaseExampleComponent } from './examples/base/shadow-base-example.component';
-import { PzmShadowModule } from '@digital-plant/zui-components';
+import { PrizmShadowBaseExampleComponent } from './examples/base/shadow-base-example.component';
+import { PrizmShadowModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -13,11 +13,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TuiAddonDocModule,
     FormsModule,
     ReactiveFormsModule,
-    PzmShadowModule,
+    PrizmShadowModule,
     RouterModule.forChild(generateRoutes(ShadowComponent)),
   ],
   declarations: [
-    PzmShadowBaseExampleComponent,
+    PrizmShadowBaseExampleComponent,
     ShadowComponent
   ],
   exports: [ShadowComponent],

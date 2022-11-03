@@ -9,4 +9,4 @@ import { ToTypePipe } from './to-type.pipe';
     ToTypePipe,
   ]
 })
-export class PzmToTypeModule { }
+export class PrizmToTypeModule { }

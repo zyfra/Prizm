@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Directive, ElementRef, Inject, Input } from '@angular/core';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { Observable, timer } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { PZM_SCROLL_INTO_VIEW } from '../../constants/events';
@@ -12,9 +12,9 @@ import { pzmCustomEvent } from '../../util/dom/custom-event';
  */
 @Directive({
     selector: `[pzmScrollIntoView]`,
-    providers: [PzmDestroyService],
+    providers: [PrizmDestroyService],
 })
-export class PzmScrollIntoViewDirective {
+export class PrizmScrollIntoViewDirective {
     @Input()
     @pzmRequiredSetter()
     set pzmScrollIntoView(scroll: boolean) {
@@ -43,6 +43,6 @@ export class PzmScrollIntoViewDirective {
     constructor(
         @Inject(ElementRef) private readonly elementRef: ElementRef<Element>,
         @Inject(DOCUMENT) private readonly documentRef: Document,
-        @Inject(PzmDestroyService) private readonly destroy$: Observable<void>,
+        @Inject(PrizmDestroyService) private readonly destroy$: Observable<void>,
     ) {}
 }

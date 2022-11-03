@@ -1,17 +1,17 @@
 import { Directive, Input } from '@angular/core';
 import { SortableColumn } from 'primeng/table';
 import { onSortColumnClick } from '../base-table';
-import { PzmTableComponent } from '../pzm-table.component';
+import { PrizmTableComponent } from '../pzm-table.component';
 
 @Directive({
   selector: '[pzmSortableColumn]',
 })
-export class PzmSortableColumnDirective extends SortableColumn {
+export class PrizmSortableColumnDirective extends SortableColumn {
   /* eslint-disable @angular-eslint/no-input-rename */
   @Input('pzmSortableColumn') override field: string;
   @Input('pzmSortableColumnDisabled') override pSortableColumnDisabled: boolean;
 
-  constructor(private pzmTable: PzmTableComponent) {
+  constructor(private pzmTable: PrizmTableComponent) {
     super(pzmTable.table);
   }
 

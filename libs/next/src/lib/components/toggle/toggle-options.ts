@@ -1,20 +1,20 @@
 import {InjectionToken, ValueProvider} from '@angular/core';
 import {PolymorphContent} from '../../directives/polymorph';
-import {PzmContextWithImplicit} from "../../types/context-with-implicit";
-import {PzmSizeL, PzmSizeM} from "../../util";
+import {PrizmContextWithImplicit} from "../../types/context-with-implicit";
+import {PrizmSizeL, PrizmSizeM} from "../../util";
 
-export interface PzmToggleOptions {
+export interface PrizmToggleOptions {
     readonly icons: Readonly<{
-        toggleOff: PolymorphContent<PzmContextWithImplicit<PzmSizeL | PzmSizeM>>;
-        toggleOn: PolymorphContent<PzmContextWithImplicit<PzmSizeL | PzmSizeM>>;
+        toggleOff: PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>>;
+        toggleOn: PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>>;
     }>;
     readonly singleColor: boolean;
     readonly showIcons: boolean;
-    readonly size: PzmSizeL | PzmSizeM;
+    readonly size: PrizmSizeL | PrizmSizeM;
 }
 
 /** Default values for the toggle options. */
-export const PZM_TOGGLE_DEFAULT_OPTIONS: PzmToggleOptions = {
+export const PZM_TOGGLE_DEFAULT_OPTIONS: PrizmToggleOptions = {
     icons: {
         toggleOff: '',
         toggleOn: '',
@@ -24,7 +24,7 @@ export const PZM_TOGGLE_DEFAULT_OPTIONS: PzmToggleOptions = {
     size: 'm',
 };
 
-export const PZM_TOGGLE_OPTIONS = new InjectionToken<PzmToggleOptions>(
+export const PZM_TOGGLE_OPTIONS = new InjectionToken<PrizmToggleOptions>(
     'Default parameters for toggle component',
     {
         factory: (): typeof PZM_TOGGLE_DEFAULT_OPTIONS => PZM_TOGGLE_DEFAULT_OPTIONS,
@@ -32,8 +32,8 @@ export const PZM_TOGGLE_OPTIONS = new InjectionToken<PzmToggleOptions>(
 );
 
 export const pzmToggleOptionsProvider: (
-    options: Partial<PzmToggleOptions>,
-) => ValueProvider = (options: Partial<PzmToggleOptions>) => ({
+    options: Partial<PrizmToggleOptions>,
+) => ValueProvider = (options: Partial<PrizmToggleOptions>) => ({
     provide: PZM_TOGGLE_OPTIONS,
     useValue: {...PZM_TOGGLE_DEFAULT_OPTIONS, ...options},
 });

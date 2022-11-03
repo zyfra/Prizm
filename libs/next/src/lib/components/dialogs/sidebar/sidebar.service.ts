@@ -1,42 +1,42 @@
-import { AbstractPzmDialogService } from '../../../abstract/dialog.service';
+import { AbstractPrizmDialogService } from '../../../abstract/dialog.service';
 import { Injectable } from '@angular/core';
-import { PzmOverlayControl, PzmOverlayGlobalPosition, PzmOverlayInsidePlacement } from '../../../modules/overlay';
+import { PrizmOverlayControl, PrizmOverlayGlobalPosition, PrizmOverlayInsidePlacement } from '../../../modules/overlay';
 import { Observable, Observer } from 'rxjs';
-import { PzmSidebarComponent } from './sidebar.component';
-import { PzmSidebarButton, PzmSidebarOptions, PzmSidebarResult, PzmSidebarResultDefaultType } from './sidebar.models';
-import { PzmBaseDialogContext } from '../dialog/dialog.models';
-import { PzmAppearance, PzmAppearanceType } from '../../../types';
-import { PzmSize } from '../../../util';
+import { PrizmSidebarComponent } from './sidebar.component';
+import { PrizmSidebarButton, PrizmSidebarOptions, PrizmSidebarResult, PrizmSidebarResultDefaultType } from './sidebar.models';
+import { PrizmBaseDialogContext } from '../dialog/dialog.models';
+import { PrizmAppearance, PrizmAppearanceType } from '../../../types';
+import { PrizmSize } from '../../../util';
 
 const DEFAULT_OPTIONS = {
-  position: PzmOverlayInsidePlacement.CENTER,
+  position: PrizmOverlayInsidePlacement.CENTER,
   dismissible: true,
   showByVertical: true,
   confirmButton: null,
   supportButton: null,
   cancelButton: null
-} as PzmSidebarOptions<PzmSidebarResult>;
+} as PrizmSidebarOptions<PrizmSidebarResult>;
 
 @Injectable({
   providedIn: 'root',
 })
-export class PzmSidebarService<
-    T extends PzmSidebarOptions<PzmSidebarResult> = PzmSidebarOptions<PzmSidebarResult>
+export class PrizmSidebarService<
+    T extends PrizmSidebarOptions<PrizmSidebarResult> = PrizmSidebarOptions<PrizmSidebarResult>
   >
-  extends AbstractPzmDialogService<T, PzmSidebarResult> {
-  protected readonly component = PzmSidebarComponent;
+  extends AbstractPrizmDialogService<T, PrizmSidebarResult> {
+  protected readonly component = PrizmSidebarComponent;
   protected readonly defaultOptions = DEFAULT_OPTIONS as T;
 
   public override open(
     title: T['title'],
     options: Omit<Partial<T>, 'title'> ,
     cb?: (data: {
-      control: PzmOverlayControl,
-      dialog: PzmBaseDialogContext<PzmSidebarResult, PzmSidebarOptions>,
-      observer: Observer<PzmSidebarResult>,
+      control: PrizmOverlayControl,
+      dialog: PrizmBaseDialogContext<PrizmSidebarResult, PrizmSidebarOptions>,
+      observer: Observer<PrizmSidebarResult>,
       destroy$: Observable<void>,
     }) => void
-  ): Observable<PzmSidebarResult> {
+  ): Observable<PrizmSidebarResult> {
     options = {
       ...options,
       title,
@@ -46,7 +46,7 @@ export class PzmSidebarService<
     };
 
     this.safeUpdateButtonsWithDefaultStyles(options as Partial<T>);
-    return super.open<PzmSidebarResult, unknown>(
+    return super.open<PrizmSidebarResult, unknown>(
       title,
       options as Partial<T>,
       cb,
@@ -54,11 +54,11 @@ export class PzmSidebarService<
   }
 
   protected override getPosition(
-    dialog: PzmBaseDialogContext<any, any>,
-  ): PzmOverlayGlobalPosition {
-    return new PzmOverlayGlobalPosition(
+    dialog: PrizmBaseDialogContext<any, any>,
+  ): PrizmOverlayGlobalPosition {
+    return new PrizmOverlayGlobalPosition(
       {
-        placement: dialog.position ?? PzmOverlayInsidePlacement.LEFT,
+        placement: dialog.position ?? PrizmOverlayInsidePlacement.LEFT,
         width: (['t', 'b'].includes(dialog.position) && '100%') || dialog.width,
         height: (['l', 'r'].includes(dialog.position) && '100%') || dialog.height
       }
@@ -72,7 +72,7 @@ export class PzmSidebarService<
       options,
       options.supportButton,
       'Продолжить',
-      PzmSidebarResultDefaultType.confirmed,
+      PrizmSidebarResultDefaultType.confirmed,
       'danger',
       'ghost'
     );
@@ -81,7 +81,7 @@ export class PzmSidebarService<
       options,
       options.confirmButton,
       'Подтвердить',
-      PzmSidebarResultDefaultType.confirmed,
+      PrizmSidebarResultDefaultType.confirmed,
       'primary'
     );
 
@@ -89,7 +89,7 @@ export class PzmSidebarService<
       options,
       options.cancelButton,
       'Отмена',
-      PzmSidebarResultDefaultType.cancel,
+      PrizmSidebarResultDefaultType.cancel,
       'secondary',
       'ghost'
     );
@@ -101,22 +101,22 @@ export class PzmSidebarService<
 
   private generateButton(
     options: Partial<T>,
-    button: PzmSidebarButton | string,
+    button: PrizmSidebarButton | string,
     defaultText: string,
-    defaultComplete: PzmSidebarResultDefaultType,
-    defaultAppearance?: PzmAppearance,
-    defaultAppearanceType?: PzmAppearanceType,
-  ): PzmSidebarButton {
+    defaultComplete: PrizmSidebarResultDefaultType,
+    defaultAppearance?: PrizmAppearance,
+    defaultAppearanceType?: PrizmAppearanceType,
+  ): PrizmSidebarButton {
     const buttonText = (typeof button === 'string'
       ? button
       : button?.text
     ) ?? defaultText;
-    const btn = ((typeof button === 'string' ? {} : button) ?? {}) as Partial<PzmSidebarButton>;
+    const btn = ((typeof button === 'string' ? {} : button) ?? {}) as Partial<PrizmSidebarButton>;
 
     return  {
       ...btn,
       text: buttonText,
-      size: btn.size ?? options.size as PzmSize,
+      size: btn.size ?? options.size as PrizmSize,
       action: btn.action ?? ((c): void => c.completeWith(defaultComplete)),
       appearance: btn.appearance ?? defaultAppearance,
       appearanceType: btn.appearanceType ?? defaultAppearanceType

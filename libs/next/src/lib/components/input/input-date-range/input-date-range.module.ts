@@ -1,31 +1,31 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PzmLetModule } from '@digital-plant/zyfra-helpers';
+import { PrizmLetModule } from '@digital-plant/zyfra-helpers';
 import { PolymorphModule } from '../../../directives/polymorph/polymorph.module';
-import { PzmInputDateRangeComponent } from './input-date-range.component';
-import { PzmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
-import { PzmCalendarRangeModule } from '../../calendar-range/calendar-range.module';
+import { PrizmInputDateRangeComponent } from './input-date-range.component';
+import { PrizmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
+import { PrizmCalendarRangeModule } from '../../calendar-range/calendar-range.module';
 import { FormsModule } from '@angular/forms';
-import { PzmInputTextModule } from '../input-text/input-text.module';
-import { PzmIconModule } from '../../icon/icon.module';
-import { PzmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
-import { PzmMaskModule } from '../../../modules';
+import { PrizmInputTextModule } from '../input-text/input-text.module';
+import { PrizmIconModule } from '../../icon/icon.module';
+import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
+import { PrizmMaskModule } from '../../../modules';
 
 @NgModule({
   imports: [
     CommonModule,
-    PzmMaskModule,
-    PzmLetModule,
+    PrizmMaskModule,
+    PrizmLetModule,
     PolymorphModule,
-    PzmInputTextModule,
-    PzmIconModule,
-    PzmDropdownHostModule,
-    PzmCalendarRangeModule,
-    PzmValueAccessorModule,
+    PrizmInputTextModule,
+    PrizmIconModule,
+    PrizmDropdownHostModule,
+    PrizmCalendarRangeModule,
+    PrizmValueAccessorModule,
     FormsModule,
   ],
-  declarations: [PzmInputDateRangeComponent],
-  exports: [PzmInputDateRangeComponent],
+  declarations: [PrizmInputDateRangeComponent],
+  exports: [PrizmInputDateRangeComponent],
 })
-export class PzmInputDateRangeModule {}
+export class PrizmInputDateRangeModule {}
 

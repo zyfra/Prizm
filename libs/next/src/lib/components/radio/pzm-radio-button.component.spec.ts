@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PzmRadioButtonComponent } from './pzm-radio-button.component';
+import { PrizmRadioButtonComponent } from './pzm-radio-button.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-describe('PzmRadioButtonComponent', () => {
-  let component: PzmRadioButtonComponent;
-  let fixture: ComponentFixture<PzmRadioButtonComponent>;
+describe('PrizmRadioButtonComponent', () => {
+  let component: PrizmRadioButtonComponent;
+  let fixture: ComponentFixture<PrizmRadioButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PzmRadioButtonComponent],
+      declarations: [PrizmRadioButtonComponent],
       imports: [ReactiveFormsModule],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PzmRadioButtonComponent);
+    fixture = TestBed.createComponent(PrizmRadioButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

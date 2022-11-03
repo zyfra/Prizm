@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Directive, Injector, Input, OnInit } from '@angular/core';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { takeUntil } from 'rxjs/operators';
-import { PzmInputControl } from './input-control.class';
-import { PzmInputValidationTexts } from '../services/input-invalid-subtext.service';
+import { PrizmInputControl } from './input-control.class';
+import { PrizmInputValidationTexts } from '../services/input-invalid-subtext.service';
 
 @Directive()
 export abstract class InputInvalidTextBaseClass {
@@ -14,18 +14,18 @@ export abstract class InputInvalidTextBaseClass {
 
 @Directive()
 export class DefaultInputInvalidTextClass extends InputInvalidTextBaseClass implements OnInit {
-  @Input() control?: PzmInputControl<unknown>;
+  @Input() control?: PrizmInputControl<unknown>;
 
   public invalidText: string;
 
   private readonly cdr: ChangeDetectorRef = this.injector.get(ChangeDetectorRef);
-  private readonly destroy$: PzmDestroyService = this.injector.get(PzmDestroyService);
-  private readonly validationTexts: PzmInputValidationTexts;
+  private readonly destroy$: PrizmDestroyService = this.injector.get(PrizmDestroyService);
+  private readonly validationTexts: PrizmInputValidationTexts;
 
   constructor(protected readonly injector: Injector) {
     super();
 
-    this.validationTexts = injector.get(PzmInputValidationTexts, new PzmInputValidationTexts());
+    this.validationTexts = injector.get(PrizmInputValidationTexts, new PrizmInputValidationTexts());
   }
 
   ngOnInit(): void {

@@ -1,9 +1,9 @@
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { Component, HostListener, Input } from '@angular/core';
-import { PzmInputControl } from '../input';
-import { PzmInputTextComponent } from '../input/input-text/input-text.component';
+import { PrizmInputControl } from '../input';
+import { PrizmInputTextComponent } from '../input/input-text/input-text.component';
 
-interface IPzmChipsComponent {
+interface IPrizmChipsComponent {
   addChips: (chipsName: string) => void;
   removeChips: (event: MouseEvent, idx: number) => void;
   chipClick: (chipsName: string) => void;
@@ -24,10 +24,10 @@ interface IPzmChipsComponent {
     '[required]': 'required',
   },
   styleUrls: ['../input/input-text/input-text.component.less'],
-  providers: [{ provide: PzmInputControl, useExisting: PzmInputChipsComponent }, PzmDestroyService],
+  providers: [{ provide: PrizmInputControl, useExisting: PrizmInputChipsComponent }, PrizmDestroyService],
 })
-export class PzmInputChipsComponent extends PzmInputTextComponent {
-  @Input() chipsComponent: IPzmChipsComponent;
+export class PrizmInputChipsComponent extends PrizmInputTextComponent {
+  @Input() chipsComponent: IPrizmChipsComponent;
 
   @HostListener('keydown.enter', ['$event'])
   public addChipsHandler(): void {

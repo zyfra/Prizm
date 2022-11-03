@@ -19,7 +19,7 @@ import { FormControl } from '@angular/forms';
     }
   `]
 })
-export class PzmSkeletonBaseExampleComponent implements OnInit {
+export class PrizmSkeletonBaseExampleComponent implements OnInit {
   public items = [
 
   ];

@@ -1,46 +1,46 @@
-import { AbstractPzmDialogService } from '../../../abstract/dialog.service';
+import { AbstractPrizmDialogService } from '../../../abstract/dialog.service';
 import { Injectable } from '@angular/core';
-import { PzmOverlayControl, PzmOverlayInsidePlacement } from '../../../modules/overlay';
+import { PrizmOverlayControl, PrizmOverlayInsidePlacement } from '../../../modules/overlay';
 import { Observable, Observer } from 'rxjs';
-import { PzmDialogConfirmComponent } from './confirm-dialog.component';
+import { PrizmDialogConfirmComponent } from './confirm-dialog.component';
 import {
-  PzmConfirmDialogButton,
-  PzmConfirmDialogOptions,
-  PzmConfirmDialogResult,
-  PzmConfirmDialogResultDefaultType,
+  PrizmConfirmDialogButton,
+  PrizmConfirmDialogOptions,
+  PrizmConfirmDialogResult,
+  PrizmConfirmDialogResultDefaultType,
 } from './confirm-dialog.models';
-import { PzmBaseDialogContext } from '../dialog/dialog.models';
-import { PzmAppearance, PzmAppearanceType } from '../../../types';
+import { PrizmBaseDialogContext } from '../dialog/dialog.models';
+import { PrizmAppearance, PrizmAppearanceType } from '../../../types';
 
 const DEFAULT_OPTIONS = {
-  position: PzmOverlayInsidePlacement.CENTER,
+  position: PrizmOverlayInsidePlacement.CENTER,
   dismissible: true,
   showByVertical: true,
   confirmButton: null,
   supportButton: null,
   cancelButton: null
-} as PzmConfirmDialogOptions<PzmConfirmDialogResult>;
+} as PrizmConfirmDialogOptions<PrizmConfirmDialogResult>;
 
 @Injectable({
   providedIn: 'root',
 })
-export class PzmConfirmDialogService<
-    T extends PzmConfirmDialogOptions<PzmConfirmDialogResult> = PzmConfirmDialogOptions<PzmConfirmDialogResult>
+export class PrizmConfirmDialogService<
+    T extends PrizmConfirmDialogOptions<PrizmConfirmDialogResult> = PrizmConfirmDialogOptions<PrizmConfirmDialogResult>
   >
-  extends AbstractPzmDialogService<T, PzmConfirmDialogResult> {
-  protected readonly component = PzmDialogConfirmComponent;
+  extends AbstractPrizmDialogService<T, PrizmConfirmDialogResult> {
+  protected readonly component = PrizmDialogConfirmComponent;
   protected readonly defaultOptions = DEFAULT_OPTIONS as T;
 
   public override open(
     title: T['title'],
     options: Omit<Partial<T>, 'title'>,
     cb?: (data: {
-      control: PzmOverlayControl,
-      dialog: PzmBaseDialogContext<PzmConfirmDialogResult, PzmConfirmDialogOptions>,
-      observer: Observer<PzmConfirmDialogResult>,
+      control: PrizmOverlayControl,
+      dialog: PrizmBaseDialogContext<PrizmConfirmDialogResult, PrizmConfirmDialogOptions>,
+      observer: Observer<PrizmConfirmDialogResult>,
       destroy$: Observable<void>,
     }) => void
-  ): Observable<PzmConfirmDialogResult> {
+  ): Observable<PrizmConfirmDialogResult> {
     options = {
       ...options,
       title,
@@ -48,7 +48,7 @@ export class PzmConfirmDialogService<
       backdrop: options.backdrop ?? true,
     };
     this.safeUpdateButtonsWithDefaultStyles(options as Partial<T>);
-    return super.open<PzmConfirmDialogResult, unknown>(
+    return super.open<PrizmConfirmDialogResult, unknown>(
       title,
       options as Partial<T>,
       cb,
@@ -62,7 +62,7 @@ export class PzmConfirmDialogService<
       options,
       options.supportButton,
       'Продолжить',
-      PzmConfirmDialogResultDefaultType.confirmed,
+      PrizmConfirmDialogResultDefaultType.confirmed,
       'danger',
       'ghost'
     );
@@ -71,7 +71,7 @@ export class PzmConfirmDialogService<
       options,
       options.confirmButton,
       'Подтвердить',
-      PzmConfirmDialogResultDefaultType.confirmed,
+      PrizmConfirmDialogResultDefaultType.confirmed,
       'primary'
     );
 
@@ -79,7 +79,7 @@ export class PzmConfirmDialogService<
       options,
       options.cancelButton,
       'Отмена',
-      PzmConfirmDialogResultDefaultType.cancel,
+      PrizmConfirmDialogResultDefaultType.cancel,
       'secondary',
       'ghost'
     );
@@ -91,17 +91,17 @@ export class PzmConfirmDialogService<
 
   private generateButton(
     options: Partial<T>,
-    button: PzmConfirmDialogButton | string,
+    button: PrizmConfirmDialogButton | string,
     defaultText: string,
-    defaultComplete: PzmConfirmDialogResultDefaultType,
-    defaultAppearance?: PzmAppearance,
-    defaultAppearanceType?: PzmAppearanceType,
-  ): PzmConfirmDialogButton {
+    defaultComplete: PrizmConfirmDialogResultDefaultType,
+    defaultAppearance?: PrizmAppearance,
+    defaultAppearanceType?: PrizmAppearanceType,
+  ): PrizmConfirmDialogButton {
     const buttonText = (typeof button === 'string'
       ? button
       : button?.text
     ) ?? defaultText;
-    const btn = ((typeof button === 'string' ? {} : button) ?? {}) as Partial<PzmConfirmDialogButton>;
+    const btn = ((typeof button === 'string' ? {} : button) ?? {}) as Partial<PrizmConfirmDialogButton>;
 
     return  {
       ...btn,

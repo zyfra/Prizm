@@ -1,14 +1,14 @@
 import { Directive, ElementRef, Inject, Input, OnInit, Output } from '@angular/core';
 import { interval, ReplaySubject } from 'rxjs';
 import { filter, take, takeUntil, tap } from 'rxjs/operators';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 
 @Directive({
     selector: '[pzmElementReady]',
     exportAs: 'pzmElementReady',
-    providers: [PzmDestroyService]
+    providers: [PrizmDestroyService]
 })
-export class PzmElementReadyDirective implements OnInit {
+export class PrizmElementReadyDirective implements OnInit {
     @Output()
     readonly ready$ = new ReplaySubject<boolean>();
 
@@ -21,7 +21,7 @@ export class PzmElementReadyDirective implements OnInit {
     constructor(
         @Inject(ElementRef)
         private readonly element: ElementRef<HTMLInputElement>,
-        private destroy$: PzmDestroyService
+        private destroy$: PrizmDestroyService
     ) {}
 
     ngOnInit(): void {

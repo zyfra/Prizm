@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Injector } from '@angular/core';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { DefaultInputInvalidTextClass } from '../base/input-invalid-text-base-class.directive';
 
 @Component({
@@ -7,9 +7,9 @@ import { DefaultInputInvalidTextClass } from '../base/input-invalid-text-base-cl
   templateUrl: './input-status-subtext.component.html',
   styleUrls: ['./input-status-subtext.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PzmDestroyService],
+  providers: [PrizmDestroyService],
 })
-export class PzmInputStatusSubtextComponent extends DefaultInputInvalidTextClass {
+export class PrizmInputStatusSubtextComponent extends DefaultInputInvalidTextClass {
   constructor(injector: Injector) {
     super(injector);
   }

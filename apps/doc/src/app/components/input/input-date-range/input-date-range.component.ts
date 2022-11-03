@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PzmInputSize } from '@digital-plant/zui-components';
+import { PrizmInputSize } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -13,12 +13,12 @@ export class InputDateRangeComponent {
   public label = 'Период';
   public dateControl = new FormControl();
   public placeholder = 'Выберите период';
-  public sizeVariants: ReadonlyArray<PzmInputSize> = [
+  public sizeVariants: ReadonlyArray<PrizmInputSize> = [
     'l',
     'm',
     's'
   ]
-  public size: PzmInputSize = 'm';
+  public size: PrizmInputSize = 'm';
   public outer = false;
 
   readonly setupModule: RawLoaderContent = import(

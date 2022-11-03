@@ -16,7 +16,7 @@ import { pzmGetClosestFocusable } from '../../util/get-closest-keyboard-focusabl
 @Directive({
     selector: '[pzmFocusTrap]',
 })
-export class PzmFocusTrapDirective implements OnDestroy {
+export class PrizmFocusTrapDirective implements OnDestroy {
     private readonly activeElement = pzmGetNativeFocused(this.documentRef);
 
     @HostBinding('tabIndex') public tabIndex = 0;

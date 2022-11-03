@@ -18,23 +18,23 @@ import { map, pluck } from 'rxjs/operators';
 import { PZM_DATE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
 import { PZM_DATE_FORMAT } from '../../../@core/date-time/date-format';
 import { PZM_DATE_SEPARATOR, pzmChangeDateSeparator } from '../../../@core/date-time/date-separator';
-import { PzmDay } from '../../../@core/date-time/day';
+import { PrizmDay } from '../../../@core/date-time/day';
 import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../../@core/date-time/days.const';
-import { PzmMonth } from '../../../@core/date-time/month';
-import { PzmTime } from '../../../@core/date-time/time';
-import { AbstractPzmControl } from '../../../abstract/control';
+import { PrizmMonth } from '../../../@core/date-time/month';
+import { PrizmTime } from '../../../@core/date-time/time';
+import { AbstractPrizmControl } from '../../../abstract/control';
 import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
 import { PZM_DATE_TIME_SEPARATOR, PZM_DATE_TIME_SEPARATOR_NGX } from '../../../constants/date-time-separator';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
 import { PZM_DATE_TIME_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { PZM_DATE_TEXTS, PZM_TIME_TEXTS } from '../../../tokens/i18n';
-import { PzmContextWithImplicit } from '../../../types/context-with-implicit';
-import { PzmControlValueTransformer } from '../../../types/control-value-transformer';
-import { PzmDateMode } from '../../../types/date-mode';
-import { PzmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
-import { PzmBooleanHandler } from '../../../types/handler';
-import { PzmTimeMode } from '../../../types/time-mode';
-import { PzmWithOptionalMinMax } from '../../../types/with-optional-min-max';
+import { PrizmContextWithImplicit } from '../../../types/context-with-implicit';
+import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
+import { PrizmDateMode } from '../../../types/date-mode';
+import { PrizmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
+import { PrizmBooleanHandler } from '../../../types/handler';
+import { PrizmTimeMode } from '../../../types/time-mode';
+import { PrizmWithOptionalMinMax } from '../../../types/with-optional-min-max';
 import { PZM_INPUT_DATE_TIME_PROVIDERS } from './input-date-time.providers';
 import { pzmNullableSame } from '../../../util/common/nullable-same';
 import { pzmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
@@ -42,9 +42,9 @@ import { pzmPure } from '../../../decorators/pure';
 import { pzmCreateDateNgxMask } from '../../../@core/mask/create-date-mask';
 import { pzmCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
 import { pzmClamp } from '../../../util/math/clamp';
-import { PzmInputSize } from '../common/models/pzm-input.models';
+import { PrizmInputSize } from '../common/models/pzm-input.models';
 import { PZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
-import { PzmDateButton } from '../../../types/date-button';
+import { PrizmDateButton } from '../../../types/date-button';
 import { PZM_STRICT_MATCHER } from '../../../constants';
 
 @Component({
@@ -54,21 +54,21 @@ import { PZM_STRICT_MATCHER } from '../../../constants';
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: PZM_INPUT_DATE_TIME_PROVIDERS,
 })
-export class PzmInputDateTimeComponent
-    extends AbstractPzmControl<[PzmDay | null, PzmTime | null]>
+export class PrizmInputDateTimeComponent
+    extends AbstractPrizmControl<[PrizmDay | null, PrizmTime | null]>
     implements
-        PzmWithOptionalMinMax<PzmDay | [PzmDay, PzmTime]>,
-        PzmFocusableElementAccessor
+        PrizmWithOptionalMinMax<PrizmDay | [PrizmDay, PrizmTime]>,
+        PrizmFocusableElementAccessor
 {
-    private month: PzmMonth | null = null;
+    private month: PrizmMonth | null = null;
 
     @ViewChild('focusableElementRef', {read: ElementRef})
     public readonly focusableElement?: ElementRef<HTMLInputElement>;
 
     @Input()
     @pzmDefaultProp()
-    timeItems: readonly PzmTime[] = new Array(24).fill(null).map(
-      (_, i) => new PzmTime(i, 0, 0, 0)
+    timeItems: readonly PrizmTime[] = new Array(24).fill(null).map(
+      (_, i) => new PrizmTime(i, 0, 0, 0)
     );
 
     @Input()
@@ -81,7 +81,7 @@ export class PzmInputDateTimeComponent
 
     @Input()
     @pzmDefaultProp()
-    size: PzmInputSize = 'm';
+    size: PrizmInputSize = 'm';
 
     @Input()
     @pzmDefaultProp()
@@ -93,11 +93,11 @@ export class PzmInputDateTimeComponent
 
     @Input()
     @pzmDefaultProp()
-    min: PzmDay | [PzmDay, PzmTime] = PZM_FIRST_DAY;
+    min: PrizmDay | [PrizmDay, PrizmTime] = PZM_FIRST_DAY;
 
     @Input()
     @pzmDefaultProp()
-    max: PzmDay | [PzmDay, PzmTime] = PZM_LAST_DAY;
+    max: PrizmDay | [PrizmDay, PrizmTime] = PZM_LAST_DAY;
 
     @Input()
     @pzmDefaultProp()
@@ -105,15 +105,15 @@ export class PzmInputDateTimeComponent
 
     @Input()
     @pzmDefaultProp()
-    disabledItemHandler: PzmBooleanHandler<PzmDay> = PZM_ALWAYS_FALSE_HANDLER;
+    disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PZM_ALWAYS_FALSE_HANDLER;
 
     @Input()
     @pzmDefaultProp()
-    defaultActiveYearMonth = PzmMonth.currentLocal();
+    defaultActiveYearMonth = PrizmMonth.currentLocal();
 
     @Input()
     @pzmDefaultProp()
-    timeMode: PzmTimeMode = `HH:MM`;
+    timeMode: PrizmTimeMode = `HH:MM`;
 
     @HostBinding('attr.testId')
     readonly testId = 'pzm_input_date_time';
@@ -122,9 +122,9 @@ export class PzmInputDateTimeComponent
 
     open = false;
 
-    readonly type!: PzmContextWithImplicit<unknown>;
+    readonly type!: PrizmContextWithImplicit<unknown>;
 
-    get filteredTime(): readonly PzmTime[] {
+    get filteredTime(): readonly PrizmTime[] {
       return this.filterTime(this.timeItems, this.timeMode, this.computedSearchTime);
     }
 
@@ -142,7 +142,7 @@ export class PzmInputDateTimeComponent
     ]).pipe(map(fillers => this.getDateTimeString(...fillers)));
 
 
-    public rightButtons$: BehaviorSubject<PzmDateButton[]>;
+    public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
 
     constructor(
         @Optional()
@@ -150,17 +150,17 @@ export class PzmInputDateTimeComponent
         @Inject(NgControl)
         control: NgControl | null,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
-        @Inject(PZM_DATE_FORMAT) readonly dateFormat: PzmDateMode,
+        @Inject(PZM_DATE_FORMAT) readonly dateFormat: PrizmDateMode,
         @Inject(PZM_DATE_SEPARATOR) readonly dateSeparator: string,
         @Inject(PZM_TIME_TEXTS)
-        readonly timeTexts$: Observable<Record<PzmTimeMode, string>>,
+        readonly timeTexts$: Observable<Record<PrizmTimeMode, string>>,
         private readonly injector: Injector,
         @Inject(PZM_DATE_TEXTS)
-        readonly dateTexts$: Observable<Record<PzmDateMode, string>>,
+        readonly dateTexts$: Observable<Record<PrizmDateMode, string>>,
         @Optional()
         @Inject(PZM_DATE_TIME_VALUE_TRANSFORMER)
-        override readonly valueTransformer: PzmControlValueTransformer<
-            [PzmDay | null, PzmTime | null]
+        override readonly valueTransformer: PrizmControlValueTransformer<
+            [PrizmDay | null, PrizmTime | null]
         > | null,
     ) {
         super(control, changeDetectorRef, valueTransformer);
@@ -168,10 +168,10 @@ export class PzmInputDateTimeComponent
 
     @pzmPure
     private filterTime(
-      items: readonly PzmTime[],
-      mode: PzmTimeMode,
+      items: readonly PrizmTime[],
+      mode: PrizmTimeMode,
       search: string,
-    ): readonly PzmTime[] {
+    ): readonly PrizmTime[] {
       return items.filter(item => item.toString(mode).includes(search));
     }
 
@@ -220,19 +220,19 @@ export class PzmInputDateTimeComponent
         return this.getDateTimeString(date, time, timeMode);
     }
 
-    get calendarValue(): PzmDay | null {
+    get calendarValue(): PrizmDay | null {
         return this.value[0];
     }
 
-    get calendarMinDay(): PzmDay {
+    get calendarMinDay(): PrizmDay {
         return Array.isArray(this.min) ? this.min[0] : this.min;
     }
 
-    get calendarMaxDay(): PzmDay {
+    get calendarMaxDay(): PrizmDay {
         return Array.isArray(this.max) ? this.max[0] : this.max;
     }
 
-    get computedActiveYearMonth(): PzmMonth {
+    get computedActiveYearMonth(): PrizmMonth {
         return this.month || this.value[0] || this.defaultActiveYearMonth;
     }
 
@@ -261,10 +261,10 @@ export class PzmInputDateTimeComponent
 
         const [date, time] = value.split(PZM_DATE_TIME_SEPARATOR_NGX);
 
-        const parsedDate = PzmDay.normalizeParse(date, this.dateFormat);
+        const parsedDate = PrizmDay.normalizeParse(date, this.dateFormat);
         const parsedTime =
             time && time.length === this.timeMode.length
-                ? this.pzmClampTime(PzmTime.fromString(time), parsedDate)
+                ? this.pzmClampTime(PrizmTime.fromString(time), parsedDate)
                 : null;
 
         const match = parsedTime && this.getMatch(time);
@@ -273,7 +273,7 @@ export class PzmInputDateTimeComponent
         this.open = false;
     }
 
-    public onDayClick(day: PzmDay, time?: PzmTime): void {
+    public onDayClick(day: PrizmDay, time?: PrizmTime): void {
         const modifiedTime = time ?? (this.value[1] && this.pzmClampTime(this.value[1], day));
 
         this.updateValue([day, modifiedTime]);
@@ -285,7 +285,7 @@ export class PzmInputDateTimeComponent
         this.updateHovered(hovered);
     }
 
-    public onMonthChange(month: PzmMonth): void {
+    public onMonthChange(month: PrizmMonth): void {
         this.month = month;
     }
 
@@ -312,7 +312,7 @@ export class PzmInputDateTimeComponent
             return;
         }
 
-        const parsedTime = PzmTime.fromString(time);
+        const parsedTime = PrizmTime.fromString(time);
 
         this.updateValue([this.value[0], parsedTime]);
 
@@ -328,19 +328,19 @@ export class PzmInputDateTimeComponent
         this.open = false;
     }
 
-    public override writeValue(value: [PzmDay | null, PzmTime | null] | null): void {
+    public override writeValue(value: [PrizmDay | null, PrizmTime | null] | null): void {
         super.writeValue(value);
 
         this.nativeValue = value && (value[0] || value[1]) ? this.computedValue : ``;
     }
 
-    protected getFallbackValue(): [PzmDay | null, PzmTime | null] {
+    protected getFallbackValue(): [PrizmDay | null, PrizmTime | null] {
         return [null, null];
     }
 
     protected override valueIdenticalComparator(
-        oldValue: [PzmDay | null, PzmTime | null],
-        newValue: [PzmDay | null, PzmTime | null],
+        oldValue: [PrizmDay | null, PrizmTime | null],
+        newValue: [PrizmDay | null, PrizmTime | null],
     ): boolean {
         return (
             pzmNullableSame(oldValue[0], newValue[0], (a, b) => a?.daySame(b)) &&
@@ -350,11 +350,11 @@ export class PzmInputDateTimeComponent
 
     @pzmPure
     private calculateMask(
-        day: PzmDay | null,
-        min: PzmDay,
-        max: PzmDay,
-        timeMode: PzmTimeMode,
-        dateFormat: PzmDateMode,
+        day: PrizmDay | null,
+        min: PrizmDay,
+        max: PrizmDay,
+        timeMode: PrizmTimeMode,
+        dateFormat: PrizmDateMode,
         dateSeparator: string,
     ): string {
         return `${pzmCreateDateNgxMask(dateFormat, dateSeparator)} ${pzmCreateTimeNgxMask(timeMode)}`
@@ -362,26 +362,26 @@ export class PzmInputDateTimeComponent
 
     @pzmPure
     private getDateTimeString(
-        date: PzmDay | string,
-        time: PzmTime | string | null,
-        timeMode: PzmTimeMode = `HH:MM`,
+        date: PrizmDay | string,
+        time: PrizmTime | string | null,
+        timeMode: PrizmTimeMode = `HH:MM`,
     ): string {
         const dateString =
-            date instanceof PzmDay
+            date instanceof PrizmDay
                 ? date.toString(this.dateFormat, this.dateSeparator)
                 : date;
-        const timeString = time instanceof PzmTime ? time.toString(timeMode) : time || ``;
+        const timeString = time instanceof PrizmTime ? time.toString(timeMode) : time || ``;
 
         return `${dateString}${PZM_DATE_TIME_SEPARATOR}${timeString}`;
     }
 
-    private updateNativeValue(day: PzmDay): void {
+    private updateNativeValue(day: PrizmDay): void {
         const time = this.nativeValue.split(PZM_DATE_TIME_SEPARATOR)[1] || ``;
 
         this.nativeValue = this.getDateTimeString(day, time);
     }
 
-    private findNearestTimeFromItems(value: PzmTime): PzmTime | null {
+    private findNearestTimeFromItems(value: PrizmTime): PrizmTime | null {
       return this.timeItems.reduce((previous, current) =>
         Math.abs(current.toAbsoluteMilliseconds() - value.toAbsoluteMilliseconds()) <
         Math.abs(previous.toAbsoluteMilliseconds() - value.toAbsoluteMilliseconds())
@@ -390,11 +390,11 @@ export class PzmInputDateTimeComponent
       );
     }
 
-    private getMatch(value: string): PzmTime | undefined {
+    private getMatch(value: string): PrizmTime | undefined {
       return this.timeItems.find(item => PZM_STRICT_MATCHER(item, value));
     }
 
-    public onTimeMenuClick(item: PzmTime, ev: Event): void {
+    public onTimeMenuClick(item: PrizmTime, ev: Event): void {
       ev.preventDefault();
       ev.stopPropagation();
 
@@ -404,12 +404,12 @@ export class PzmInputDateTimeComponent
       if (this.value[1] && item.isSameTime(this.value[1])) return;
 
       this.onDayClick(
-        this.value[0] ?? PzmDay.currentLocal(),
+        this.value[0] ?? PrizmDay.currentLocal(),
         item
       );
     }
 
-    private pzmClampTime(time: PzmTime, day: PzmDay): PzmTime {
+    private pzmClampTime(time: PrizmTime, day: PrizmDay): PrizmTime {
         const ms = time.toAbsoluteMilliseconds();
         const min =
             Array.isArray(this.min) && day.daySame(this.calendarMinDay)
@@ -420,7 +420,7 @@ export class PzmInputDateTimeComponent
                 ? this.max[1].toAbsoluteMilliseconds()
                 : Infinity;
 
-        return PzmTime.fromAbsoluteMilliseconds(pzmClamp(ms, min, max));
+        return PrizmTime.fromAbsoluteMilliseconds(pzmClamp(ms, min, max));
     }
 
     public openTimeDropdown(): void {

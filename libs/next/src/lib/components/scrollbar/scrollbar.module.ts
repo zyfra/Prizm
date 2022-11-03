@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PzmScrollRefDirective } from './scroll-ref.directive';
-import { PzmScrollbarComponent } from './scrollbar.component';
-import { PzmScrollableDirective } from './scrollable.directive';
-import { PzmScrollControlsModule } from './scroll-controls.module';
+import { PrizmScrollRefDirective } from './scroll-ref.directive';
+import { PrizmScrollbarComponent } from './scrollbar.component';
+import { PrizmScrollableDirective } from './scrollable.directive';
+import { PrizmScrollControlsModule } from './scroll-controls.module';
 
 @NgModule({
-    imports: [CommonModule, PzmScrollControlsModule],
-    declarations: [PzmScrollbarComponent, PzmScrollRefDirective, PzmScrollableDirective],
-    exports: [PzmScrollbarComponent, PzmScrollRefDirective, PzmScrollableDirective],
+    imports: [CommonModule, PrizmScrollControlsModule],
+    declarations: [PrizmScrollbarComponent, PrizmScrollRefDirective, PrizmScrollableDirective],
+    exports: [PrizmScrollbarComponent, PrizmScrollRefDirective, PrizmScrollableDirective],
 })
-export class PzmScrollbarModule {}
+export class PrizmScrollbarModule {}

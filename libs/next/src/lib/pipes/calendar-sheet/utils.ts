@@ -2,17 +2,17 @@
 // TODO: 2.0 Remove export in ivy compilation
 
 import { PZM_DAYS_IN_WEEK } from '../../@core/date-time/date-time';
-import { PzmDay } from '../../@core/date-time/day';
-import { PzmMonth } from '../../@core/date-time/month';
-import { PzmDayOfWeek } from '../../@core/enums/day-of-week';
+import { PrizmDay } from '../../@core/date-time/day';
+import { PrizmMonth } from '../../@core/date-time/month';
+import { PrizmDayOfWeek } from '../../@core/enums/day-of-week';
 import { pzmInRange } from '../../util/math/in-range';
 
 /**
  * Computes day of week offset of the beginning of the month
  */
 export const getMonthStartDaysOffset = (
-    month: PzmMonth,
-    firstDayOfWeek: PzmDayOfWeek,
+    month: PrizmMonth,
+    firstDayOfWeek: PrizmDayOfWeek,
 ): number => {
     const startMonthOffsetFromSunday = new Date(month.year, month.month, 1).getDay();
 
@@ -23,11 +23,11 @@ export const getMonthStartDaysOffset = (
 
 /*
 TODO: 2.0 delete:
- * PzmDay.getDayFromMonthRowCol
- * PzmMonth.monthStartDaysOffset
- * PzmMonth.weeksRowsCount
- * PzmYear.yearStartDaysOffset
- * PzmYear.getYearStartDaysOffset
+ * PrizmDay.getDayFromMonthRowCol
+ * PrizmMonth.monthStartDaysOffset
+ * PrizmMonth.weeksRowsCount
+ * PrizmYear.yearStartDaysOffset
+ * PrizmYear.getYearStartDaysOffset
  */
 /**
  * Calculated day on a calendar grid
@@ -39,7 +39,7 @@ export const getDayFromMonthRowCol = ({
     colIndex,
     firstDayOfWeek,
 }: {
-    month: PzmMonth;
+    month: PrizmMonth;
     /**
      * row in a calendar
      */
@@ -51,8 +51,8 @@ export const getDayFromMonthRowCol = ({
     /**
      * first day of the week index (Sunday - 0, Saturday - 6)
      */
-    firstDayOfWeek: PzmDayOfWeek;
-}): PzmDay => {
+    firstDayOfWeek: PrizmDayOfWeek;
+}): PrizmDay => {
     console.assert(Number.isInteger(rowIndex));
     console.assert(pzmInRange(rowIndex, 0, 6));
     console.assert(Number.isInteger(colIndex));
@@ -74,5 +74,5 @@ export const getDayFromMonthRowCol = ({
         day = month.daysCount + day;
     }
 
-    return new PzmDay(month.year, month.month, day);
+    return new PrizmDay(month.year, month.month, day);
 };

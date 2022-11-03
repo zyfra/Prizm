@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { PzmFocusVisibleDirective } from './focus-visible.directive';
+import { PrizmFocusVisibleDirective } from './focus-visible.directive';
 
 @NgModule({
-    declarations: [PzmFocusVisibleDirective],
-    exports: [PzmFocusVisibleDirective],
+    declarations: [PrizmFocusVisibleDirective],
+    exports: [PrizmFocusVisibleDirective],
 })
-export class PzmFocusVisibleModule {}
+export class PrizmFocusVisibleModule {}

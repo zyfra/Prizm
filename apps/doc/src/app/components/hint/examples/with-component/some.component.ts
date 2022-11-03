@@ -23,6 +23,6 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class PzmHintSomeComponent {
+export class PrizmHintSomeComponent {
   readonly items = ['Edit', 'Download', 'Rename', 'Edit', 'Download', 'Rename', 'Delete'];
 }

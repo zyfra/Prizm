@@ -1,17 +1,17 @@
 import { Directive, ElementRef, Inject, NgZone, Optional, Renderer2, Self } from '@angular/core';
 import { WINDOW } from '@ng-web-apis/common';
 import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
-import { PzmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
+import { PrizmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
 import { pzmPx } from '../../../util/format/px';
-import { AbstractPzmAutofocusHandler } from './abstract.handler';
+import { AbstractPrizmAutofocusHandler } from './abstract.handler';
 
 @Directive()
-export class PzmIosAutofocusHandler extends AbstractPzmAutofocusHandler {
+export class PrizmIosAutofocusHandler extends AbstractPrizmAutofocusHandler {
     constructor(
         @Optional()
         @Self()
         @Inject(PZM_FOCUSABLE_ITEM_ACCESSOR)
-        pzmFocusableComponent: PzmFocusableElementAccessor | null,
+        pzmFocusableComponent: PrizmFocusableElementAccessor | null,
         @Inject(ElementRef) elementRef: ElementRef<HTMLElement>,
         @Inject(Renderer2) private readonly renderer: Renderer2,
         @Inject(NgZone) private readonly ngZone: NgZone,

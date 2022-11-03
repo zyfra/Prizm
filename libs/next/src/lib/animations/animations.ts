@@ -1,11 +1,11 @@
 import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
-import {PzmDropdownAnimation} from "./types";
+import {PrizmDropdownAnimation} from "./types";
 
 const TRANSITION = '{{duration}}ms ease-in-out';
 const DURATION = {params: {duration: 300}};
 const STAGGER = 300;
 
-export interface PzmDurationOptions {
+export interface PrizmDurationOptions {
   value: string;
   params: {duration: number};
 }
@@ -177,7 +177,7 @@ export const pzmFadeInBottom = trigger('pzmFadeInBottom', [
 
 export const pzmDropdownAnimation = trigger('pzmDropdownAnimation', [
   transition(
-    `* => ${PzmDropdownAnimation.FadeInTop}`,
+    `* => ${PrizmDropdownAnimation.FadeInTop}`,
     [
       style({transform: 'translateY(-10px)', opacity: 0}),
       animate(TRANSITION, style({transform: 'translateY(0)', opacity: 1})),
@@ -185,7 +185,7 @@ export const pzmDropdownAnimation = trigger('pzmDropdownAnimation', [
     DURATION,
   ),
   transition(
-    `* => ${PzmDropdownAnimation.FadeInBottom}`,
+    `* => ${PrizmDropdownAnimation.FadeInBottom}`,
     [
       style({transform: 'translateY(10px)', opacity: 0}),
       animate(TRANSITION, style({transform: 'translateY(0)', opacity: 1})),
@@ -193,7 +193,7 @@ export const pzmDropdownAnimation = trigger('pzmDropdownAnimation', [
     DURATION,
   ),
   transition(
-    `${PzmDropdownAnimation.FadeInBottom} => *`,
+    `${PrizmDropdownAnimation.FadeInBottom} => *`,
     [
       style({transform: 'translateY(0)', opacity: 1}),
       animate(TRANSITION, style({transform: 'translateY(10px)', opacity: 0})),
@@ -201,7 +201,7 @@ export const pzmDropdownAnimation = trigger('pzmDropdownAnimation', [
     DURATION,
   ),
   transition(
-    `${PzmDropdownAnimation.FadeInTop} => *`,
+    `${PrizmDropdownAnimation.FadeInTop} => *`,
     [
       style({transform: 'translateY(0)', opacity: 1}),
       animate(TRANSITION, style({transform: 'translateY(-10px)', opacity: 0})),

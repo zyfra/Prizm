@@ -7,12 +7,12 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { fromEvent, merge } from 'rxjs';
 import { switchMap, take, takeUntil, tap } from 'rxjs/operators';
 
-import { PzmInputLayoutComponent } from '../common/input-layout/input-layout.component';
-import { PzmInputPasswordDirective } from './input-password.directive';
+import { PrizmInputLayoutComponent } from '../common/input-layout/input-layout.component';
+import { PrizmInputPasswordDirective } from './input-password.directive';
 
 @Component({
   selector: 'pzm-input-password-auxiliary-control',
@@ -42,15 +42,15 @@ import { PzmInputPasswordDirective } from './input-password.directive';
       }
     `,
   ],
-  providers: [PzmDestroyService],
+  providers: [PrizmDestroyService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmInputPasswordDefaultControlComponent {
-  @Input() inputPassword!: PzmInputPasswordDirective;
+export class PrizmInputPasswordDefaultControlComponent {
+  @Input() inputPassword!: PrizmInputPasswordDirective;
 
   constructor(
-    public readonly layout: PzmInputLayoutComponent,
-    private readonly destroy$: PzmDestroyService,
+    public readonly layout: PrizmInputLayoutComponent,
+    private readonly destroy$: PrizmDestroyService,
     private readonly cdr: ChangeDetectorRef
   ) {}
 

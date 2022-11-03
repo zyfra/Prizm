@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PzmDay, pzmGetInputDateRangeNativeTransformer } from '@digital-plant/zui-components';
+import { PrizmDay, pzmGetInputDateRangeNativeTransformer } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-input-date-range-native-example',
@@ -15,7 +15,7 @@ import { PzmDay, pzmGetInputDateRangeNativeTransformer } from '@digital-plant/zu
     }
   `]
 })
-export class PzmInputNativeDateRangeBaseExampleComponent {
+export class PrizmInputNativeDateRangeBaseExampleComponent {
   readonly value = new FormControl(
     [
       new Date(2018, 2, 10),

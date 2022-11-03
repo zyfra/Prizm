@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { HeaderConfig, ToolbarConfig, PzmMenuItem } from '@digital-plant/zui-components';
+import { HeaderConfig, ToolbarConfig, PrizmMenuItem } from '@digital-plant/zui-components';
 import { PrimeIcons } from 'primeng/api';
 
 @Component({
@@ -9,7 +9,7 @@ import { PrimeIcons } from 'primeng/api';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavMenuAdvancedExampleComponent {
-  public navigationList: PzmMenuItem[] = [
+  public navigationList: PrizmMenuItem[] = [
     {
       label: 'А приложение 1',
       icon: PrimeIcons.BAN,

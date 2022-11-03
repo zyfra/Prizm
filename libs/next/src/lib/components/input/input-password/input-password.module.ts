@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
-import { PzmInputCommonModule } from '../common/input-common.module';
-import { PzmInputTextModule } from '../input-text/input-text.module';
-import { PzmInputPasswordDefaultControlComponent } from './input-password-auxiliary-control.component';
-import { PzmInputPasswordDirective } from './input-password.directive';
+import { PrizmInputCommonModule } from '../common/input-common.module';
+import { PrizmInputTextModule } from '../input-text/input-text.module';
+import { PrizmInputPasswordDefaultControlComponent } from './input-password-auxiliary-control.component';
+import { PrizmInputPasswordDirective } from './input-password.directive';
 
 @NgModule({
-  imports: [PzmInputCommonModule, PzmInputTextModule],
-  declarations: [PzmInputPasswordDirective, PzmInputPasswordDefaultControlComponent],
+  imports: [PrizmInputCommonModule, PrizmInputTextModule],
+  declarations: [PrizmInputPasswordDirective, PrizmInputPasswordDefaultControlComponent],
   exports: [
-    PzmInputCommonModule,
-    PzmInputTextModule,
-    PzmInputPasswordDirective,
-    PzmInputPasswordDefaultControlComponent,
+    PrizmInputCommonModule,
+    PrizmInputTextModule,
+    PrizmInputPasswordDirective,
+    PrizmInputPasswordDefaultControlComponent,
   ],
 })
-export class PzmInputPasswordModule {}
+export class PrizmInputPasswordModule {}
 

@@ -2,12 +2,12 @@ import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  PzmBaseDialogContext, PzmDialogSize,
-  PzmOverlayInsidePlacement,
-  PzmOverscrollMode,
+  PrizmBaseDialogContext, PrizmDialogSize,
+  PrizmOverlayInsidePlacement,
+  PrizmOverscrollMode,
   pzmPure,
-  PzmSidebarOptions,
-  PzmSidebarService,
+  PrizmSidebarOptions,
+  PrizmSidebarService,
 } from '@digital-plant/zui-components';
 import { generatePolymorphVariants } from '../../../util';
 
@@ -18,24 +18,24 @@ import { generatePolymorphVariants } from '../../../util';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidebarComponent {
-  public overscrollVariants: ReadonlyArray<PzmOverscrollMode> = [
+  public overscrollVariants: ReadonlyArray<PrizmOverscrollMode> = [
     'scroll',
     'all',
     'none',
   ];
-  public overscroll: PzmOverscrollMode = this.overscrollVariants[0];
+  public overscroll: PrizmOverscrollMode = this.overscrollVariants[0];
   public positionVariants: any = ['t', 'b' , 'l', 'r'];
-  public position: PzmOverlayInsidePlacement = PzmOverlayInsidePlacement.LEFT;
+  public position: PrizmOverlayInsidePlacement = PrizmOverlayInsidePlacement.LEFT;
   public backdrop = false;
   public height = 'auto';
   public width = '500px';
   public closeWord = 'Продолжить';
-  public sizeVariants: PzmDialogSize[] = ['m', 'l'];
-  public size: PzmDialogSize = 'm';
+  public sizeVariants: PrizmDialogSize[] = ['m', 'l'];
+  public size: PrizmDialogSize = 'm';
   public closeable = true;
   public header = 'Static_title_h3 - 16 Medium';
   public content = 'Базовый текст для диалога';
-  public footer: PolymorphContent<PzmBaseDialogContext<PzmSidebarOptions<any>>> = null;
+  public footer: PolymorphContent<PrizmBaseDialogContext<PrizmSidebarOptions<any>>> = null;
 
   public readonly exampleModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
@@ -52,7 +52,7 @@ export class SidebarComponent {
   };
 
   constructor(
-    @Inject(PzmSidebarService) private readonly sidebarService: PzmSidebarService,
+    @Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService,
   ) {}
 
   @pzmPure

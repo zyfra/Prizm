@@ -1,15 +1,15 @@
 import { Directive, Input } from '@angular/core';
 import { pzmDefaultProp } from '../../../decorators';
-import { PzmHandler } from '../../../types';
+import { PrizmHandler } from '../../../types';
 
 @Directive({
     selector: 'pzm-tree[childrenHandler]',
 })
-export class PzmTreeChildrenDirective<T> {
+export class PrizmTreeChildrenDirective<T> {
     @Input()
     @pzmDefaultProp()
-    childrenHandler: PzmHandler<T, readonly T[]> =
-        PzmTreeChildrenDirective.defaultHandler;
+    childrenHandler: PrizmHandler<T, readonly T[]> =
+        PrizmTreeChildrenDirective.defaultHandler;
 
     public static defaultHandler<G>(item: G): readonly G[] {
         return Array.isArray(item) ? item : [];

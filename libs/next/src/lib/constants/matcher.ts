@@ -1,5 +1,5 @@
-import { PzmHandler } from "../types/handler";
-import { PzmIdentityMatcher } from "../types/matcher";
+import { PrizmHandler } from "../types/handler";
+import { PrizmIdentityMatcher } from "../types/matcher";
 import { PZM_DEFAULT_STRINGIFY } from "./stringify";
 
 /**
@@ -11,7 +11,7 @@ import { PZM_DEFAULT_STRINGIFY } from "./stringify";
 export const PZM_DEFAULT_MATCHER = <T>(
     item: T,
     search: string,
-    stringify: PzmHandler<T, string> = PZM_DEFAULT_STRINGIFY,
+    stringify: PrizmHandler<T, string> = PZM_DEFAULT_STRINGIFY,
 ): boolean => stringify(item).toLowerCase().includes(search.toLowerCase());
 
 /**
@@ -23,7 +23,7 @@ export const PZM_DEFAULT_MATCHER = <T>(
 export const PZM_STRICT_MATCHER = <T>(
     item: T,
     search: string,
-    stringify: PzmHandler<T, string> = PZM_DEFAULT_STRINGIFY,
+    stringify: PrizmHandler<T, string> = PZM_DEFAULT_STRINGIFY,
 ): boolean => stringify(item).toLowerCase() === search.toLowerCase();
 
 /**
@@ -33,7 +33,7 @@ export const PZM_STRICT_MATCHER = <T>(
  * @param item1 first element
  * @param item2 second element
  */
-export const PZM_DEFAULT_IDENTITY_MATCHER: PzmIdentityMatcher<unknown> = (item1, item2) =>
+export const PZM_DEFAULT_IDENTITY_MATCHER: PrizmIdentityMatcher<unknown> = (item1, item2) =>
     item1 === item2 || bothEmpty(item1, item2);
 
 function bothEmpty(item1: unknown, item2: unknown): boolean {

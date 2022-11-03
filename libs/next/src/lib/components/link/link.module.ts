@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PzmLinkComponent } from './link.component';
+import { PrizmLinkComponent } from './link.component';
 
 @NgModule({
     imports: [CommonModule],
-    declarations: [PzmLinkComponent],
-    exports: [PzmLinkComponent],
+    declarations: [PrizmLinkComponent],
+    exports: [PrizmLinkComponent],
 })
-export class PzmLinkModule {}
+export class PrizmLinkModule {}

@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use PzmConfirmDialogService to control dialog.
+      Use PrizmConfirmDialogService to control dialog.
     </p>
 
     <tui-doc-example
@@ -55,7 +55,7 @@
     <tui-doc-documentation>
       <ng-template
         documentationPropertyName="position"
-        documentationPropertyType="PzmOverlayInsidePlacement"
+        documentationPropertyType="PrizmOverlayInsidePlacement"
         [documentationPropertyValues]="positionVariants"
         [(documentationPropertyValue)]="position"
       >
@@ -64,7 +64,7 @@
 
       <ng-template
         documentationPropertyName="overscroll"
-        documentationPropertyType="PzmOverscrollMode"
+        documentationPropertyType="PrizmOverscrollMode"
         [documentationPropertyValues]="overscrollVariants"
         [(documentationPropertyValue)]="overscroll"
       >
@@ -73,7 +73,7 @@
 
       <ng-template
         documentationPropertyName="size"
-        documentationPropertyType="PzmDialogSize"
+        documentationPropertyType="PrizmDialogSize"
         [documentationPropertyValues]="sizeVariants"
         [(documentationPropertyValue)]="size"
       >
@@ -106,7 +106,7 @@
 
       <ng-template
         documentationPropertyName="title"
-        documentationPropertyType="PolymorphContent<PzmBaseDialogContext<PzmConfirmDialogResultDefaultType,PzmConfirmDialogOptions>>"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType,PrizmConfirmDialogOptions>>"
         [documentationPropertyValues]="generatePolymorphVariants(defaultTitle)"
         [(documentationPropertyValue)]="title"
       >
@@ -115,7 +115,7 @@
 
       <ng-template
         documentationPropertyName="description"
-        documentationPropertyType="PolymorphContent<PzmBaseDialogContext<PzmConfirmDialogResultDefaultType,PzmConfirmDialogOptions>>"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType,PrizmConfirmDialogOptions>>"
         [documentationPropertyValues]="generatePolymorphVariants(defaultDescription, contentTemp)"
         [(documentationPropertyValue)]="description"
       >
@@ -129,7 +129,7 @@
       <li>
         <p>
           Import
-          <code>PzmConfirmDialogModule</code>
+          <code>PrizmConfirmDialogModule</code>
           into a module where you want to use our component
         </p>
 

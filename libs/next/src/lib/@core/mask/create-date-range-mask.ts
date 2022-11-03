@@ -1,8 +1,8 @@
-import { PzmDateMode } from '../../types/date-mode';
+import { PrizmDateMode } from '../../types/date-mode';
 import { pzmCreateDateNgxMask } from './create-date-mask';
 
 export function pzmCreateDateRangeMask(
-    dateMode: PzmDateMode,
+    dateMode: PrizmDateMode,
     dateSeparator: string,
 ): string {
     console.assert(

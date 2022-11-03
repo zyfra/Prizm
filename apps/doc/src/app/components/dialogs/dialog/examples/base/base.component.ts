@@ -1,5 +1,5 @@
 import {Component, Inject} from '@angular/core';
-import { PzmDialogService, PzmOverlayInsidePlacement } from '@digital-plant/zui-components';
+import { PrizmDialogService, PrizmOverlayInsidePlacement } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-dialog-service-example',
@@ -11,13 +11,13 @@ import { PzmDialogService, PzmOverlayInsidePlacement } from '@digital-plant/zui-
     }
   `]
 })
-export class PzmDialogServiceExampleComponent {
-  public positionVariants: PzmOverlayInsidePlacement[] = Object.values(PzmOverlayInsidePlacement);
-  public position: PzmOverlayInsidePlacement = this.positionVariants[1];
+export class PrizmDialogServiceExampleComponent {
+  public positionVariants: PrizmOverlayInsidePlacement[] = Object.values(PrizmOverlayInsidePlacement);
+  public position: PrizmOverlayInsidePlacement = this.positionVariants[1];
   public backdrop = false;
 
   constructor(
-    @Inject(PzmDialogService) private readonly dialogService: PzmDialogService,
+    @Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService,
   ) {}
 
   public show(): void {

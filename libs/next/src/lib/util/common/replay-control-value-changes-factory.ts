@@ -2,17 +2,17 @@
 import { NgControl } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PzmDay } from '../../@core/date-time/day';
-import { PzmDayRange } from '../../@core/date-time/day-range';
-import { PzmTime } from '../../@core/date-time/time';
+import { PrizmDay } from '../../@core/date-time/day';
+import { PrizmDayRange } from '../../@core/date-time/day-range';
+import { PrizmTime } from '../../@core/date-time/time';
 import { pzmReplayedValueChangesFrom } from '../../observables/replay-control-value-changes';
-import { PzmControlValueTransformer } from '../../types/control-value-transformer';
+import { PrizmControlValueTransformer } from '../../types/control-value-transformer';
 
 export function pzmReplayControlValueChangesFactory<
-    T extends PzmDayRange | PzmDay | [PzmDay | null, PzmTime | null],
+    T extends PrizmDayRange | PrizmDay | [PrizmDay | null, PrizmTime | null],
 >(
     control: NgControl | null,
-    valueTransformer?: PzmControlValueTransformer<T> | null,
+    valueTransformer?: PrizmControlValueTransformer<T> | null,
 ): Observable<T | null> | null {
     return control
         ? pzmReplayedValueChangesFrom(control).pipe(

@@ -1,31 +1,31 @@
-import { PzmInvalidDayException } from '../../exceptions/invalid-day.exception';
-import { PzmInvalidMonthException } from '../../exceptions/invalid-month.exception';
-import { PzmInvalidYearException } from '../../exceptions/invalid-year.exception';
-import { PzmDateMode } from '../../types/date-mode';
-import { PzmDayLike } from '../../types/day-like';
+import { PrizmInvalidDayException } from '../../exceptions/invalid-day.exception';
+import { PrizmInvalidMonthException } from '../../exceptions/invalid-month.exception';
+import { PrizmInvalidYearException } from '../../exceptions/invalid-year.exception';
+import { PrizmDateMode } from '../../types/date-mode';
+import { PrizmDayLike } from '../../types/day-like';
 import { pzmPadStart } from '../../util/format/pad-start';
 import { pzmInRange, pzmNormalizeToIntNumber } from '../../util/math';
-import { PzmDayOfWeek } from '../enums/day-of-week';
-import { PzmMonthNumber } from '../enums/month-number';
+import { PrizmDayOfWeek } from '../enums/day-of-week';
+import { PrizmMonthNumber } from '../enums/month-number';
 
 import { PZM_DATE_FILLER_LENGTH } from './date-fillers';
 import { PZM_DAYS_IN_WEEK, PZM_MIN_DAY, PZM_MONTHS_IN_YEAR } from './date-time';
-import { PzmMonth } from './month';
-import { PzmYear } from './year';
+import { PrizmMonth } from './month';
+import { PrizmYear } from './year';
 
 
 // TODO: Localized formatting
 /**
  * Immutable date object, consisting of day, month and year
  */
-export class PzmDay extends PzmMonth {
+export class PrizmDay extends PrizmMonth {
     constructor(
       year: number,
       month: number,
       readonly day: number,
     ) {
         super(year, month);
-        console.assert(PzmDay.isValidDay(year, month, day), {
+        console.assert(PrizmDay.isValidDay(year, month, day), {
           year,
           month,
           day
@@ -33,17 +33,17 @@ export class PzmDay extends PzmMonth {
     }
 
     /**
-     * Creates {@link PzmDay} from native {@link Date} based on local time zone
+     * Creates {@link PrizmDay} from native {@link Date} based on local time zone
      */
-    public static fromLocalNativeDate(date: Date): PzmDay {
-        return new PzmDay(date.getFullYear(), date.getMonth(), date.getDate());
+    public static fromLocalNativeDate(date: Date): PrizmDay {
+        return new PrizmDay(date.getFullYear(), date.getMonth(), date.getDate());
     }
 
     /**
-     * Creates {@link PzmDay} from native {@link Date} using UTC
+     * Creates {@link PrizmDay} from native {@link Date} using UTC
      */
-    public static fromUtcNativeDate(date: Date): PzmDay {
-        return new PzmDay(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+    public static fromUtcNativeDate(date: Date): PrizmDay {
+        return new PrizmDay(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
     }
 
     /**
@@ -56,12 +56,12 @@ export class PzmDay extends PzmMonth {
      */
     public static isValidDay(year: number, month: number, day: number): boolean {
         return (
-            PzmMonth.isValidMonth(year, month) &&
+            PrizmMonth.isValidMonth(year, month) &&
             Number.isInteger(day) &&
             pzmInRange(
                 day,
                 PZM_MIN_DAY,
-                PzmMonth.getMonthDaysCount(month, PzmYear.isLeapYear(year)) + 1,
+                PrizmMonth.getMonthDaysCount(month, PrizmYear.isLeapYear(year)) + 1,
             )
         );
     }
@@ -76,7 +76,7 @@ export class PzmDay extends PzmMonth {
      * @param col column in a calendar
      * @return resulting day on these coordinates (could exceed passed month)
      */
-    public static getDayFromMonthRowCol(month: PzmMonth, row: number, col: number): PzmDay {
+    public static getDayFromMonthRowCol(month: PrizmMonth, row: number, col: number): PrizmDay {
         console.assert(Number.isInteger(row));
         console.assert(pzmInRange(row, 0, 6));
         console.assert(Number.isInteger(col));
@@ -94,54 +94,54 @@ export class PzmDay extends PzmMonth {
             day = month.daysCount + day;
         }
 
-        return new PzmDay(month.year, month.month, day);
+        return new PrizmDay(month.year, month.month, day);
     }
 
     /**
      * Current day based on local time zone
      */
-    public static override currentLocal(): PzmDay {
+    public static override currentLocal(): PrizmDay {
         const nativeDate = new Date();
         const year = nativeDate.getFullYear();
         const month = nativeDate.getMonth();
         const day = nativeDate.getDate();
 
-        return new PzmDay(year, month, day);
+        return new PrizmDay(year, month, day);
     }
 
     /**
      * Returns current day based on UTC
      */
-    public static override currentUtc(): PzmDay {
+    public static override currentUtc(): PrizmDay {
         const nativeDate = new Date();
         const year = nativeDate.getUTCFullYear();
         const month = nativeDate.getUTCMonth();
         const day = nativeDate.getUTCDate();
 
-        return new PzmDay(year, month, day);
+        return new PrizmDay(year, month, day);
     }
 
     /**
-     * Calculates {@link PzmDay} normalizing year, month and day. {@link NaN} is turned into minimal value.
+     * Calculates {@link PrizmDay} normalizing year, month and day. {@link NaN} is turned into minimal value.
      *
      * @param year any year value, including invalid
      * @param month any month value, including invalid (months start with 0)
      * @param day any day value, including invalid
      * @return normalized date
      */
-    public static normalizeOf(year: number, month: number, day: number): PzmDay {
-        const normalizedYear = PzmYear.normalizeYearPart(year);
-        const normalizedMonth = PzmMonth.normalizeMonthPart(month);
-        const normalizedDay = PzmDay.normalizeDayPart(
+    public static normalizeOf(year: number, month: number, day: number): PrizmDay {
+        const normalizedYear = PrizmYear.normalizeYearPart(year);
+        const normalizedMonth = PrizmMonth.normalizeMonthPart(month);
+        const normalizedDay = PrizmDay.normalizeDayPart(
             day,
             normalizedMonth,
             normalizedYear,
         );
 
-        return new PzmDay(normalizedYear, normalizedMonth, normalizedDay);
+        return new PrizmDay(normalizedYear, normalizedMonth, normalizedDay);
     }
 
-    public static override lengthBetween(from: PzmDay, to: PzmDay): number {
+    public static override lengthBetween(from: PrizmDay, to: PrizmDay): number {
         return Math.round(
             (to.toLocalNativeDate().getTime() - from.toLocalNativeDate().getTime()) /
                 (1000 * 60 * 60 * 24),
@@ -150,7 +150,7 @@ export class PzmDay extends PzmMonth {
 
     public static parseRawDateString(
         date: string,
-        dateMode: PzmDateMode = `DMY`,
+        dateMode: PrizmDateMode = `DMY`,
     ): {day: number; month: number; year: number} {
         console.assert(
             date.length === PZM_DATE_FILLER_LENGTH,
@@ -190,10 +190,10 @@ export class PzmDay extends PzmMonth {
      * @param dateMode date format of the date string (DMY | MDY | YMD)
      * @return normalized date
      */
-    public static normalizeParse(rawDate: string, dateMode: PzmDateMode = `DMY`): PzmDay {
+    public static normalizeParse(rawDate: string, dateMode: PrizmDateMode = `DMY`): PrizmDay {
         const {day, month, year} = this.parseRawDateString(rawDate, dateMode);
 
-        return PzmDay.normalizeOf(year, month, day);
+        return PrizmDay.normalizeOf(year, month, day);
     }
 
     /**
@@ -202,15 +202,15 @@ export class PzmDay extends PzmMonth {
      * @return date
      * @throws exceptions if any part of the date is invalid
      */
-    public static jsonParse(yearMonthDayString: string): PzmDay {
+    public static jsonParse(yearMonthDayString: string): PrizmDay {
         const {day, month, year} = this.parseRawDateString(yearMonthDayString, `YMD`);
 
-        if (!PzmYear.isValidYear(year)) {
-            throw new PzmInvalidYearException(year);
+        if (!PrizmYear.isValidYear(year)) {
+            throw new PrizmInvalidYearException(year);
         }
 
-        if (!PzmMonth.isValidMonth(year, month)) {
-            throw new PzmInvalidMonthException(month);
+        if (!PrizmMonth.isValidMonth(year, month)) {
+            throw new PrizmInvalidMonthException(month);
         }
 
         if (
@@ -218,21 +218,21 @@ export class PzmDay extends PzmMonth {
             !pzmInRange(
                 day,
                 PZM_MIN_DAY,
-                PzmMonth.getMonthDaysCount(month, PzmYear.isLeapYear(year)) + 1,
+                PrizmMonth.getMonthDaysCount(month, PrizmYear.isLeapYear(year)) + 1,
             )
         ) {
-            throw new PzmInvalidDayException(day);
+            throw new PrizmInvalidDayException(day);
         }
 
-        return new PzmDay(year, month, day);
+        return new PrizmDay(year, month, day);
     }
 
     protected static normalizeDayPart(day: number, month: number, year: number): number {
-        console.assert(PzmMonth.isValidMonth(year, month));
+        console.assert(PrizmMonth.isValidMonth(year, month));
 
-        const monthDaysCount = PzmMonth.getMonthDaysCount(
+        const monthDaysCount = PrizmMonth.getMonthDaysCount(
             month,
-            PzmYear.isLeapYear(year),
+            PrizmYear.isLeapYear(year),
         );
 
         return pzmNormalizeToIntNumber(day, 1, monthDaysCount);
@@ -253,7 +253,7 @@ export class PzmDay extends PzmMonth {
     public get isWeekend(): boolean {
         const dayOfWeek = this.dayOfWeek(false);
 
-        return dayOfWeek === PzmDayOfWeek.Saturday || dayOfWeek === PzmDayOfWeek.Sunday;
+        return dayOfWeek === PrizmDayOfWeek.Saturday || dayOfWeek === PrizmDayOfWeek.Sunday;
     }
 
     /**
@@ -273,7 +273,7 @@ export class PzmDay extends PzmMonth {
     /**
      * Passed date is after current
      */
-    public dayBefore(another: PzmDay): boolean {
+    public dayBefore(another: PrizmDay): boolean {
         return (
             this.monthBefore(another) ||
             (this.monthSame(another) && this.day < another.day)
@@ -283,7 +283,7 @@ export class PzmDay extends PzmMonth {
     /**
      * Passed date is after or equals to current
      */
-    public daySameOrBefore(another: PzmDay): boolean {
+    public daySameOrBefore(another: PrizmDay): boolean {
         return (
             this.monthBefore(another) ||
             (this.monthSame(another) && this.day <= another.day)
@@ -293,14 +293,14 @@ export class PzmDay extends PzmMonth {
     /**
      * Passed date is the same as current
      */
-    public daySame(another: PzmDay): boolean {
+    public daySame(another: PrizmDay): boolean {
         return this.monthSame(another) && this.day === another.day;
     }
 
     /**
      * Passed date is either before or the same as current
      */
-    public daySameOrAfter(another: PzmDay): boolean {
+    public daySameOrAfter(another: PrizmDay): boolean {
         return (
             this.monthAfter(another) ||
             (this.monthSame(another) && this.day >= another.day)
@@ -310,7 +310,7 @@ export class PzmDay extends PzmMonth {
     /**
      * Passed date is before current
      */
-    public dayAfter(another: PzmDay): boolean {
+    public dayAfter(another: PrizmDay): boolean {
         return (
             this.monthAfter(another) ||
             (this.monthSame(another) && this.day > another.day)
@@ -324,7 +324,7 @@ export class PzmDay extends PzmMonth {
      * @param max
      * @return clamped date
      */
-    public dayLimit(min: PzmDay | null, max: PzmDay | null): PzmDay {
+    public dayLimit(min: PrizmDay | null, max: PrizmDay | null): PrizmDay {
         if (min !== null && this.dayBefore(min)) {
             return min;
         }
@@ -349,9 +349,9 @@ export class PzmDay extends PzmMonth {
      * @return new date object as a result of offsetting current
      */
     public override append(
-        {year = 0, month = 0, day = 0}: PzmDayLike,
+        {year = 0, month = 0, day = 0}: PrizmDayLike,
         backwards: boolean = false,
-    ): PzmDay {
+    ): PrizmDay {
         if (backwards) {
             year *= -1;
             month *= -1;
@@ -365,38 +365,38 @@ export class PzmDay extends PzmMonth {
         let days =
             Math.min(
                 this.day,
-                PzmMonth.getMonthDaysCount(months, PzmYear.isLeapYear(years)),
+                PrizmMonth.getMonthDaysCount(months, PrizmYear.isLeapYear(years)),
             ) + day;
 
-        while (days > PzmMonth.getMonthDaysCount(months, PzmYear.isLeapYear(years))) {
-            days -= PzmMonth.getMonthDaysCount(months, PzmYear.isLeapYear(years));
+        while (days > PrizmMonth.getMonthDaysCount(months, PrizmYear.isLeapYear(years))) {
+            days -= PrizmMonth.getMonthDaysCount(months, PrizmYear.isLeapYear(years));
 
-            if (months === PzmMonthNumber.December) {
+            if (months === PrizmMonthNumber.December) {
                 years++;
-                months = PzmMonthNumber.January;
+                months = PrizmMonthNumber.January;
             } else {
                 months++;
             }
         }
 
         while (days < PZM_MIN_DAY) {
-            if (months === PzmMonthNumber.January) {
+            if (months === PrizmMonthNumber.January) {
                 years--;
-                months = PzmMonthNumber.December;
+                months = PrizmMonthNumber.December;
             } else {
                 months--;
             }
 
-            days += PzmMonth.getMonthDaysCount(months, PzmYear.isLeapYear(years));
+            days += PrizmMonth.getMonthDaysCount(months, PrizmYear.isLeapYear(years));
         }
 
-        return new PzmDay(years, months, days);
+        return new PrizmDay(years, months, days);
     }
 
     /**
      * Returns formatted whole date
      */
-    public getFormattedDay(dateFormat: PzmDateMode, separator: string): string {
+    public getFormattedDay(dateFormat: PrizmDateMode, separator: string): string {
         console.assert(
             separator.length === 1,
             `Separator should consist of only 1 symbol`,
@@ -417,7 +417,7 @@ export class PzmDay extends PzmMonth {
         }
     }
 
-    public override toString(dateFormat: PzmDateMode = `DMY`, separator: string = `.`): string {
+    public override toString(dateFormat: PrizmDateMode = `DMY`, separator: string = `.`): string {
         return this.getFormattedDay(dateFormat, separator);
     }
 

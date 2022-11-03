@@ -25,7 +25,7 @@ import { map, startWith, takeWhile } from 'rxjs/operators';
     }
   `]
 })
-export class PzmProgressCircleExampleComponent {
+export class PrizmProgressCircleExampleComponent {
   readonly value$ = timer(300, 500).pipe(
       map(i => i + 30),
       takeWhile(i => i != 101),

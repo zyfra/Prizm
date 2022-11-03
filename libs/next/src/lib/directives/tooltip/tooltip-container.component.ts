@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { map } from 'rxjs/operators';
-import { PzmHintContainerComponent } from '../hint/hint-container.component';
+import { PrizmHintContainerComponent } from '../hint/hint-container.component';
 
 @Component({
   selector: 'pzm-tooltip-container',
@@ -29,9 +29,9 @@ import { PzmHintContainerComponent } from '../hint/hint-container.component';
     </div>
   `,
   styleUrls: ['./tooltip-container.component.less'],
-  providers: [PzmDestroyService]
+  providers: [PrizmDestroyService]
 })
-export class PzmTooltipContainerComponent extends PzmHintContainerComponent implements OnInit {
+export class PrizmTooltipContainerComponent extends PrizmHintContainerComponent implements OnInit {
   position$ = this.pzmOverlayControl.position.pos$.pipe(
     map(({extra}) => extra)
   );

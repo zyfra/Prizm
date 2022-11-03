@@ -1,8 +1,8 @@
 import { Inject, Pipe, PipeTransform } from '@angular/core';
 import { PZM_DAYS_IN_WEEK } from '../../@core/date-time/date-time';
-import { PzmDay } from '../../@core/date-time/day';
-import { PzmMonth } from '../../@core/date-time/month';
-import { PzmDayOfWeek } from '../../@core/enums/day-of-week';
+import { PrizmDay } from '../../@core/date-time/day';
+import { PrizmMonth } from '../../@core/date-time/month';
+import { PrizmDayOfWeek } from '../../@core/enums/day-of-week';
 import { PZM_FIRST_DAY_OF_WEEK } from '../../tokens/first-day-of-week';
 
 import { getDayFromMonthRowCol } from './utils';
@@ -12,27 +12,27 @@ const CALENDAR_ROWS_COUNT = 6;
 @Pipe({
     name: `pzmCalendarSheet`,
 })
-export class PzmCalendarSheetPipe implements PipeTransform {
-    private currentMonth: PzmMonth | null = null;
-    private currentSheet: ReadonlyArray<readonly PzmDay[]> = [];
+export class PrizmCalendarSheetPipe implements PipeTransform {
+    private currentMonth: PrizmMonth | null = null;
+    private currentSheet: ReadonlyArray<readonly PrizmDay[]> = [];
 
     constructor(
         @Inject(PZM_FIRST_DAY_OF_WEEK)
-        private readonly firstDayOfWeek: PzmDayOfWeek,
+        private readonly firstDayOfWeek: PrizmDayOfWeek,
     ) {}
 
     public transform(
-        month: PzmMonth,
+        month: PrizmMonth,
         showAdjacentDays: boolean = false,
-    ): ReadonlyArray<readonly PzmDay[]> {
+    ): ReadonlyArray<readonly PrizmDay[]> {
         if (this.currentMonth?.monthSame(month)) {
             return this.currentSheet;
         }
 
-        const sheet: Array<readonly PzmDay[]> = [];
+        const sheet: Array<readonly PrizmDay[]> = [];
 
         for (let rowIndex = 0; rowIndex < CALENDAR_ROWS_COUNT; rowIndex++) {
-            const row: PzmDay[] = [];
+            const row: PrizmDay[] = [];
 
             for (let colIndex = 0; colIndex < PZM_DAYS_IN_WEEK; colIndex++) {
                 const day = getDayFromMonthRowCol({
@@ -42,10 +42,10 @@ export class PzmCalendarSheetPipe implements PipeTransform {
                     firstDayOfWeek: this.firstDayOfWeek,
                 });
 
-                const isPrevMonthDay = (day: PzmDay, relativeToMonth = month): boolean =>
+                const isPrevMonthDay = (day: PrizmDay, relativeToMonth = month): boolean =>
                     day.year < relativeToMonth.year || day.month < relativeToMonth.month;
 
-                const isNextMonthDay = (day: PzmDay, relativeToMonth = month): boolean =>
+                const isNextMonthDay = (day: PrizmDay, relativeToMonth = month): boolean =>
                     day.year > relativeToMonth.year || day.month > relativeToMonth.month;
 
                 if (isPrevMonthDay(day) && !showAdjacentDays) {

@@ -3,7 +3,7 @@ import { AbstractControlDirective, NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 
 @Directive()
-export abstract class PzmInputControl<T> {
+export abstract class PrizmInputControl<T> {
   /** The value of the control. */
   abstract value: T | null;
 

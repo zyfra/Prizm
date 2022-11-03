@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/
   styleUrls: ['./select-panel-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmSelectPanelExampleComponent {
+export class PrizmSelectPanelExampleComponent {
   showPanel = false;
 
   data = new Array(5).fill(null).map((item, index) => ({

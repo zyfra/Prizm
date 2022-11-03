@@ -1,15 +1,15 @@
 import { Directive, ElementRef } from '@angular/core';
-import { PzmFocusableElementAccessor, PzmNativeFocusableElement } from '../../../types/focusable-element-accessor';
-import { PzmAutofocusHandler } from '../autofocus.options';
+import { PrizmFocusableElementAccessor, PrizmNativeFocusableElement } from '../../../types/focusable-element-accessor';
+import { PrizmAutofocusHandler } from '../autofocus.options';
 
 @Directive()
-export abstract class AbstractPzmAutofocusHandler implements PzmAutofocusHandler {
+export abstract class AbstractPrizmAutofocusHandler implements PrizmAutofocusHandler {
     protected constructor(
-        protected readonly pzmFocusableComponent: PzmFocusableElementAccessor | null,
+        protected readonly pzmFocusableComponent: PrizmFocusableElementAccessor | null,
         protected readonly elementRef: ElementRef<HTMLElement>,
     ) {}
 
-    protected get element(): PzmNativeFocusableElement {
+    protected get element(): PrizmNativeFocusableElement {
         return (
             this.pzmFocusableComponent?.nativeFocusableElement ||
             this.elementRef.nativeElement

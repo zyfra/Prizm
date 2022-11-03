@@ -1,4 +1,4 @@
-export const enum PzmMonthNumber {
+export const enum PrizmMonthNumber {
     January,
     February,
     March,

@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use PzmDialogService to control dialog.
+      Use PrizmDialogService to control dialog.
     </p>
 
     <tui-doc-example
@@ -43,7 +43,7 @@
     <tui-doc-documentation>
       <ng-template
         documentationPropertyName="position"
-        documentationPropertyType="PzmOverlayInsidePlacement"
+        documentationPropertyType="PrizmOverlayInsidePlacement"
         [documentationPropertyValues]="positionVariants"
         [(documentationPropertyValue)]="position"
       >
@@ -52,7 +52,7 @@
 
       <ng-template
         documentationPropertyName="size"
-        documentationPropertyType="PzmDialogSize"
+        documentationPropertyType="PrizmDialogSize"
         [documentationPropertyValues]="sizeVariants"
         [(documentationPropertyValue)]="size"
       >
@@ -77,7 +77,7 @@
 
       <ng-template
         documentationPropertyName="overscroll"
-        documentationPropertyType="PzmOverscrollMode"
+        documentationPropertyType="PrizmOverscrollMode"
         [documentationPropertyValues]="overscrollVariants"
         [(documentationPropertyValue)]="overscroll"
       >
@@ -102,7 +102,7 @@
 
       <ng-template
         documentationPropertyName="header"
-        documentationPropertyType="PolymorphContent<PzmBaseDialogContext>"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext>"
         [documentationPropertyValues]="generatePolymorphVariants(headerTemp)"
         [(documentationPropertyValue)]="header"
       >
@@ -111,7 +111,7 @@
 
       <ng-template
         documentationPropertyName="content"
-        documentationPropertyType="PolymorphContent<PzmBaseDialogContext>"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext>"
         [documentationPropertyValues]="generatePolymorphVariants(contentTemp)"
         [(documentationPropertyValue)]="content"
       >
@@ -120,11 +120,11 @@
 
       <ng-template
         documentationPropertyName="footer"
-        documentationPropertyType="PolymorphContent<PzmBaseDialogContext> |  | PzmDialogButton[]"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext> |  | PrizmDialogButton[]"
         [documentationPropertyValues]="generatePolymorphVariants(footerTemp, '')"
         [(documentationPropertyValue)]="footer"
       >
-        Footer template or button array (PzmDialogButton)
+        Footer template or button array (PrizmDialogButton)
         If pass empty string '', footer will not be showed
       </ng-template>
     </tui-doc-documentation>
@@ -135,7 +135,7 @@
       <li>
         <p>
           Import
-          <code>PzmDialogModule</code>
+          <code>PrizmDialogModule</code>
           into a module where you want to use our component
         </p>
 

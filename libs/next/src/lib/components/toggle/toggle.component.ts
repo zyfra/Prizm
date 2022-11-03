@@ -12,12 +12,12 @@ import {
 } from '@angular/core';
 import {NgControl} from '@angular/forms';
 
-import {PZM_TOGGLE_OPTIONS, PzmToggleOptions} from './toggle-options';
+import {PZM_TOGGLE_OPTIONS, PrizmToggleOptions} from './toggle-options';
 import {pzmDefaultProp} from "../../decorators";
-import {AbstractPzmControl} from "../../abstract/control";
-import {pzmIsNativeFocused, PzmSize, PzmSizeL, PzmSizeM} from '../../util';
-import {PzmNativeFocusableElement} from '../../types/focusable-element-accessor';
-import {PzmAppearance} from '../../types/appearance.types';
+import {AbstractPrizmControl} from "../../abstract/control";
+import {pzmIsNativeFocused, PrizmSize, PrizmSizeL, PrizmSizeM} from '../../util';
+import {PrizmNativeFocusableElement} from '../../types/focusable-element-accessor';
+import {PrizmAppearance} from '../../types/appearance.types';
 
 @Component({
     selector: 'pzm-toggle',
@@ -26,11 +26,11 @@ import {PzmAppearance} from '../../types/appearance.types';
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [],
 })
-export class PzmToggleComponent
-    extends AbstractPzmControl<boolean>
+export class PrizmToggleComponent
+    extends AbstractPrizmControl<boolean>
 {
     @ViewChild('focusableElement')
-    private readonly focusableElement?: ElementRef<PzmNativeFocusableElement>;
+    private readonly focusableElement?: ElementRef<PrizmNativeFocusableElement>;
 
     @Input()
     @pzmDefaultProp()
@@ -52,7 +52,7 @@ export class PzmToggleComponent
     @Input()
     @HostBinding('attr.data-size')
     @pzmDefaultProp()
-    size: PzmSizeL | PzmSizeM = this.options.size;
+    size: PrizmSizeL | PrizmSizeM = this.options.size;
 
     @HostBinding('attr.testId')
     readonly testId = 'pzm_toggle';
@@ -64,12 +64,12 @@ export class PzmToggleComponent
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
         @Optional()
         @Inject(PZM_TOGGLE_OPTIONS)
-        readonly options: PzmToggleOptions,
+        readonly options: PrizmToggleOptions,
     ) {
         super(control, changeDetectorRef);
     }
 
-    get nativeFocusableElement(): PzmNativeFocusableElement | null {
+    get nativeFocusableElement(): PrizmNativeFocusableElement | null {
         return this.focusableElement ? this.focusableElement.nativeElement : null;
     }
 
@@ -77,7 +77,7 @@ export class PzmToggleComponent
         return pzmIsNativeFocused(this.nativeFocusableElement);
     }
 
-    get appearance(): PzmAppearance {
+    get appearance(): PrizmAppearance {
         return (this.singleColor || this.checked)
             ? 'primary'
             : 'secondary';
@@ -92,7 +92,7 @@ export class PzmToggleComponent
         return this.value;
     }
 
-    get loaderSize(): PzmSize {
+    get loaderSize(): PrizmSize {
         return this.sizeM ? 'xs' : 's';
     }
 

@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { ITableProduct } from './examples/table-basic-example/table-basic-example.component';
-import { PzmSizeL, PzmSizeM, PzmSizeS, PzmSizeXS } from '@digital-plant/zui-components';
+import { PrizmSizeL, PrizmSizeM, PrizmSizeS, PrizmSizeXS } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-table-example',
@@ -49,8 +49,8 @@ export class TableExampleComponent {
     },
   ];
 
-  public size: PzmSizeL | PzmSizeM | PzmSizeXS | PzmSizeS = 'l';
-  public sizeVariants: (PzmSizeL | PzmSizeM | PzmSizeXS | PzmSizeS)[] = ['xs', 'l', 'm', 's'];
+  public size: PrizmSizeL | PrizmSizeM | PrizmSizeXS | PrizmSizeS = 'l';
+  public sizeVariants: (PrizmSizeL | PrizmSizeM | PrizmSizeXS | PrizmSizeS)[] = ['xs', 'l', 'm', 's'];
   public scrollable = false;
   public scrollHeight = null;
   public scrollHeightVariants: string[] = [null, '160px', '200px', '300px', '500px'];

@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
     }
   `]
 })
-export class PzmMultiSelectWithTemplateExampleComponent {
+export class PrizmMultiSelectWithTemplateExampleComponent {
   readonly items = [
     'One',
     'Two',

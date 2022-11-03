@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PzmDay, PzmDayRange } from '@digital-plant/zui-components';
+import { PrizmDay, PrizmDayRange } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-input-date-range-disabled-example',
@@ -12,13 +12,13 @@ import { PzmDay, PzmDayRange } from '@digital-plant/zui-components';
     }
   `]
 })
-export class PzmInputDateRangeDisabledExampleComponent implements OnInit {
+export class PrizmInputDateRangeDisabledExampleComponent implements OnInit {
   readonly value = new FormControl(
-    new PzmDayRange(new PzmDay(2018, 2, 10), new PzmDay(2018, 3, 20)),
+    new PrizmDayRange(new PrizmDay(2018, 2, 10), new PrizmDay(2018, 3, 20)),
   );
-  readonly min = new PzmDay(2000, 2, 20);
+  readonly min = new PrizmDay(2000, 2, 20);
 
-  readonly max = new PzmDay(2040, 2, 20);
+  readonly max = new PrizmDay(2040, 2, 20);
 
   public ngOnInit(): void {
     this.value.disable();

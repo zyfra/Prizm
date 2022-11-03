@@ -1,28 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PolymorphModule } from '../polymorph';
-import { PzmConfirmPopupDirective } from './confirm-popup.directive';
-import { PzmHintModule } from '../hint';
-import { PzmConfirmPopupContainerComponent } from './confirm-popup-container.component';
-import { PzmIconModule } from '../../components/icon';
-import { PzmScrollbarModule } from '../../components/scrollbar';
-import { PzmButtonModule } from '../../components/button';
-import { PzmFocusTrapModule } from '../focus-trap';
+import { PrizmConfirmPopupDirective } from './confirm-popup.directive';
+import { PrizmHintModule } from '../hint';
+import { PrizmConfirmPopupContainerComponent } from './confirm-popup-container.component';
+import { PrizmIconModule } from '../../components/icon';
+import { PrizmScrollbarModule } from '../../components/scrollbar';
+import { PrizmButtonModule } from '../../components/button';
+import { PrizmFocusTrapModule } from '../focus-trap';
 
 @NgModule({
   imports: [
     CommonModule,
     PolymorphModule,
-    PzmFocusTrapModule,
-    PzmHintModule,
-    PzmScrollbarModule,
-    PzmButtonModule,
-    PzmIconModule
+    PrizmFocusTrapModule,
+    PrizmHintModule,
+    PrizmScrollbarModule,
+    PrizmButtonModule,
+    PrizmIconModule
   ],
   declarations: [
-    PzmConfirmPopupDirective,
-    PzmConfirmPopupContainerComponent
+    PrizmConfirmPopupDirective,
+    PrizmConfirmPopupContainerComponent
   ],
-  exports: [PzmConfirmPopupDirective],
+  exports: [PrizmConfirmPopupDirective],
 })
-export class PzmConfirmPopupModule {}
+export class PrizmConfirmPopupModule {}

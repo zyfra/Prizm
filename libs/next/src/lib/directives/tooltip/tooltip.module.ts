@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PolymorphModule } from '../polymorph';
-import { PzmTooltipDirective } from './tooltip.directive';
-import { PzmHintModule } from '../hint';
-import { PzmTooltipContainerComponent } from './tooltip-container.component';
-import { PzmIconModule } from '../../components/icon';
-import { PzmScrollbarModule } from '../../components/scrollbar';
-import { PzmFocusTrapModule } from '../focus-trap';
+import { PrizmTooltipDirective } from './tooltip.directive';
+import { PrizmHintModule } from '../hint';
+import { PrizmTooltipContainerComponent } from './tooltip-container.component';
+import { PrizmIconModule } from '../../components/icon';
+import { PrizmScrollbarModule } from '../../components/scrollbar';
+import { PrizmFocusTrapModule } from '../focus-trap';
 
 @NgModule({
   imports: [
     CommonModule,
     PolymorphModule,
-    PzmFocusTrapModule,
-    PzmHintModule,
-    PzmScrollbarModule,
-    PzmIconModule
+    PrizmFocusTrapModule,
+    PrizmHintModule,
+    PrizmScrollbarModule,
+    PrizmIconModule
   ],
   declarations: [
-    PzmTooltipDirective,
-    PzmTooltipContainerComponent
+    PrizmTooltipDirective,
+    PrizmTooltipContainerComponent
   ],
-  exports: [PzmTooltipDirective],
+  exports: [PrizmTooltipDirective],
 })
-export class PzmTooltipModule {}
+export class PrizmTooltipModule {}

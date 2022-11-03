@@ -1,18 +1,18 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
-import { PzmDay } from '../../@core/date-time/day';
-import { PzmDayRange } from '../../@core/date-time/day-range';
+import { PrizmDay } from '../../@core/date-time/day';
+import { PrizmDayRange } from '../../@core/date-time/day-range';
 import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../@core/date-time/days.const';
-import { PzmMonth } from '../../@core/date-time/month';
-import { PzmYear } from '../../@core/date-time/year';
+import { PrizmMonth } from '../../@core/date-time/month';
+import { PrizmYear } from '../../@core/date-time/year';
 import { PZM_ALWAYS_FALSE_HANDLER } from '../../constants/always-false-handler';
 import { PZM_DEFAULT_MARKER_HANDLER } from '../../constants/default-marker-handler';
 import { pzmDefaultProp } from '../../decorators/default-prop';
-import { PzmBooleanHandler } from '../../types/handler';
-import { PzmMapper } from '../../types/mapper';
-import { PzmMarkerHandler } from '../../types/marker-handler';
-import { PzmWithOptionalMinMax } from '../../types/with-optional-min-max';
+import { PrizmBooleanHandler } from '../../types/handler';
+import { PrizmMapper } from '../../types/mapper';
+import { PrizmMarkerHandler } from '../../types/marker-handler';
+import { PrizmWithOptionalMinMax } from '../../types/with-optional-min-max';
 import { pzmNullableSame } from '../../util/common/nullable-same';
-import { PzmDayWithStatus } from '../../@core';
+import { PrizmDayWithStatus } from '../../@core';
 
 @Component({
     selector: `pzm-calendar`,
@@ -20,18 +20,18 @@ import { PzmDayWithStatus } from '../../@core';
     styleUrls: [`./calendar.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmCalendarComponent implements PzmWithOptionalMinMax<PzmDay> {
+export class PrizmCalendarComponent implements PrizmWithOptionalMinMax<PrizmDay> {
     @Input()
     @pzmDefaultProp()
-    month: PzmMonth = PzmMonth.currentLocal();
+    month: PrizmMonth = PrizmMonth.currentLocal();
 
     @Input()
     @pzmDefaultProp()
-    value: PzmDayRange | PzmDay | null = null;
+    value: PrizmDayRange | PrizmDay | null = null;
 
     @Input()
     @pzmDefaultProp()
-    disabledItemHandler: PzmBooleanHandler<PzmDay> = PZM_ALWAYS_FALSE_HANDLER;
+    disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PZM_ALWAYS_FALSE_HANDLER;
 
     @Input()
     @pzmDefaultProp()
@@ -39,7 +39,7 @@ export class PzmCalendarComponent implements PzmWithOptionalMinMax<PzmDay> {
 
     @Input()
     @pzmDefaultProp()
-    daysWithStatus: PzmDayWithStatus[] = [];
+    daysWithStatus: PrizmDayWithStatus[] = [];
 
     @Input()
     @pzmDefaultProp()
@@ -47,15 +47,15 @@ export class PzmCalendarComponent implements PzmWithOptionalMinMax<PzmDay> {
 
     @Input()
     @pzmDefaultProp()
-    minViewedMonth: PzmMonth = PZM_FIRST_DAY;
+    minViewedMonth: PrizmMonth = PZM_FIRST_DAY;
 
     @Input()
     @pzmDefaultProp()
-    maxViewedMonth: PzmMonth = PZM_LAST_DAY;
+    maxViewedMonth: PrizmMonth = PZM_LAST_DAY;
 
     @Input()
     @pzmDefaultProp()
-    hoveredItem: PzmDay | null = null;
+    hoveredItem: PrizmDay | null = null;
 
     @Input()
     @pzmDefaultProp()
@@ -63,74 +63,74 @@ export class PzmCalendarComponent implements PzmWithOptionalMinMax<PzmDay> {
 
     @Input()
     @pzmDefaultProp()
-    markerHandler: PzmMarkerHandler = PZM_DEFAULT_MARKER_HANDLER;
+    markerHandler: PrizmMarkerHandler = PZM_DEFAULT_MARKER_HANDLER;
 
     @Output()
-    readonly dayClick = new EventEmitter<PzmDay>();
+    readonly dayClick = new EventEmitter<PrizmDay>();
 
     @Output()
-    readonly monthChange = new EventEmitter<PzmMonth>();
+    readonly monthChange = new EventEmitter<PrizmMonth>();
 
     @Output()
-    readonly hoveredItemChange = new EventEmitter<PzmDay | null>();
+    readonly hoveredItemChange = new EventEmitter<PrizmDay | null>();
 
     @HostBinding('attr.testId')
     readonly testId = 'pzm_calendar';
 
-    year: PzmYear | null = null;
-    clickedMonth: PzmMonth | null = null;
+    year: PrizmYear | null = null;
+    clickedMonth: PrizmMonth | null = null;
 
-    readonly disabledItemHandlerMapper: PzmMapper<
-        PzmBooleanHandler<PzmDay>,
-        PzmBooleanHandler<PzmDay>
-    > = (disabledItemHandler, min: PzmDay, max: PzmDay) => (item: PzmDay): boolean =>
+    readonly disabledItemHandlerMapper: PrizmMapper<
+        PrizmBooleanHandler<PrizmDay>,
+        PrizmBooleanHandler<PrizmDay>
+    > = (disabledItemHandler, min: PrizmDay, max: PrizmDay) => (item: PrizmDay): boolean =>
         item.dayBefore(min) || item.dayAfter(max) || disabledItemHandler(item);
 
-    get computedMinViewedMonth(): PzmMonth {
+    get computedMinViewedMonth(): PrizmMonth {
         return this.minViewedMonth.monthSameOrAfter(this.min)
             ? this.minViewedMonth
             : this.min;
     }
 
-    get computedMaxViewedMonth(): PzmMonth {
+    get computedMaxViewedMonth(): PrizmMonth {
         return this.maxViewedMonth.monthSameOrBefore(this.max)
             ? this.maxViewedMonth
             : this.max;
     }
 
-    public onPaginationYearClick(year: PzmYear): void {
+    public onPaginationYearClick(year: PrizmYear): void {
         this.year = year;
         this.clickedMonth = null;
     }
 
-    public onPaginationMonthClick(month: PzmMonth): void {
+    public onPaginationMonthClick(month: PrizmMonth): void {
         this.clickedMonth = month;
         this.year = null;
     }
 
-    public onPickerYearClick({year}: PzmYear): void {
+    public onPickerYearClick({year}: PrizmYear): void {
         this.year = null;
-        this.updateViewedMonth(new PzmMonth(year, this.month.month));
+        this.updateViewedMonth(new PrizmMonth(year, this.month.month));
     }
 
-    public onPickerMonthClick({month}: PzmMonth): void {
+    public onPickerMonthClick({month}: PrizmMonth): void {
       this.clickedMonth = null;
-      this.updateViewedMonth(new PzmMonth(this.month.year, month));
+      this.updateViewedMonth(new PrizmMonth(this.month.year, month));
     }
 
-    public onPaginationValueChange(month: PzmMonth): void {
+    public onPaginationValueChange(month: PrizmMonth): void {
         this.updateViewedMonth(month);
     }
 
-    public onDayClick(day: PzmDay): void {
+    public onDayClick(day: PrizmDay): void {
         this.dayClick.emit(day);
     }
 
-    public onHoveredItemChange(day: PzmDay | null): void {
+    public onHoveredItemChange(day: PrizmDay | null): void {
         this.updateHoveredDay(day);
     }
 
-    private updateViewedMonth(month: PzmMonth): void {
+    private updateViewedMonth(month: PrizmMonth): void {
         if (this.month.monthSame(month)) {
             return;
         }
@@ -139,7 +139,7 @@ export class PzmCalendarComponent implements PzmWithOptionalMinMax<PzmDay> {
         this.monthChange.emit(month);
     }
 
-    private updateHoveredDay(day: PzmDay | null): void {
+    private updateHoveredDay(day: PrizmDay | null): void {
         if (pzmNullableSame(this.hoveredItem, day, (a, b) => a.daySame(b))) {
             return;
         }

@@ -11,6 +11,6 @@ import { FormControl } from '@angular/forms';
     }
   `]
 })
-export class PzmInputDateRelativeBaseExampleComponent {
+export class PrizmInputDateRelativeBaseExampleComponent {
   public readonly valueControl = new FormControl();
 }

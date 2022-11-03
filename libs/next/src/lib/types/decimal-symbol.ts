@@ -1,1 +1,1 @@
-export type PzmDecimalSymbol = '.' | ',';
+export type PrizmDecimalSymbol = '.' | ',';

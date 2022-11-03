@@ -1,55 +1,55 @@
 import { InjectionToken, ValueProvider } from '@angular/core';
-import { PzmOverlayOutsidePlacement } from '../../modules/overlay/models';
-import { PzmDialogButton } from '../../components/dialogs/dialog';
-import { PzmSizeL, PzmSizeM } from '../../util';
-import { PzmConfirmDialogResultDefaultType } from '../../components/dialogs/confirm-dialog';
-import { PzmHintContext, PzmHintOptions } from '../hint/hint-options';
+import { PrizmOverlayOutsidePlacement } from '../../modules/overlay/models';
+import { PrizmDialogButton } from '../../components/dialogs/dialog';
+import { PrizmSizeL, PrizmSizeM } from '../../util';
+import { PrizmConfirmDialogResultDefaultType } from '../../components/dialogs/confirm-dialog';
+import { PrizmHintContext, PrizmHintOptions } from '../hint/hint-options';
 
 
-export type PzmConfirmPopupButton = Omit<PzmDialogButton, 'action'> & Partial<Pick<PzmDialogButton, 'action'>>
+export type PrizmConfirmPopupButton = Omit<PrizmDialogButton, 'action'> & Partial<Pick<PrizmDialogButton, 'action'>>
 
-export type PzmConfirmPopupMode = 'error' | 'dark' | 'light' | null
+export type PrizmConfirmPopupMode = 'error' | 'dark' | 'light' | null
 
-export interface PzmConfirmPopupOptions extends PzmHintOptions {
+export interface PrizmConfirmPopupOptions extends PrizmHintOptions {
     readonly showDelay: number;
     readonly hideDelay: number;
-    readonly size: PzmSizeM | PzmSizeL;
-    confirmButton?: PzmConfirmPopupButton | string,
-    supportButton?: PzmConfirmPopupButton | string,
-    cancelButton?: PzmConfirmPopupButton | string,
-    readonly mode: PzmConfirmPopupMode;
+    readonly size: PrizmSizeM | PrizmSizeL;
+    confirmButton?: PrizmConfirmPopupButton | string,
+    supportButton?: PrizmConfirmPopupButton | string,
+    cancelButton?: PrizmConfirmPopupButton | string,
+    readonly mode: PrizmConfirmPopupMode;
     readonly autoReposition: boolean;
-    readonly direction: PzmOverlayOutsidePlacement;
+    readonly direction: PrizmOverlayOutsidePlacement;
 }
-export interface PzmConfirmPopupContext extends PzmHintContext {
-    readonly size: PzmSizeM | PzmSizeL;
-    readonly completeWith: (ctx: PzmConfirmDialogResultDefaultType | unknown) => void;
-    confirmButton?: PzmConfirmPopupButton | string,
-    supportButton?: PzmConfirmPopupButton | string,
-    cancelButton?: PzmConfirmPopupButton | string,
+export interface PrizmConfirmPopupContext extends PrizmHintContext {
+    readonly size: PrizmSizeM | PrizmSizeL;
+    readonly completeWith: (ctx: PrizmConfirmDialogResultDefaultType | unknown) => void;
+    confirmButton?: PrizmConfirmPopupButton | string,
+    supportButton?: PrizmConfirmPopupButton | string,
+    cancelButton?: PrizmConfirmPopupButton | string,
 }
 
 
 /** Default values for hint options */
-export const PZM_CONFIRM_POPUP_DEFAULT_OPTIONS: PzmConfirmPopupOptions = {
+export const PZM_CONFIRM_POPUP_DEFAULT_OPTIONS: PrizmConfirmPopupOptions = {
     showDelay: 100,
     size: 'm',
     hideDelay: 100,
     autoReposition: true,
     mode: null,
-    direction: PzmOverlayOutsidePlacement.RIGHT,
+    direction: PrizmOverlayOutsidePlacement.RIGHT,
 };
 
-export const PZM_CONFIRM_POPUP_OPTIONS = new InjectionToken<PzmConfirmPopupOptions>(
+export const PZM_CONFIRM_POPUP_OPTIONS = new InjectionToken<PrizmConfirmPopupOptions>(
     'Default parameters for tooltip directive',
     {
-        factory: (): PzmConfirmPopupOptions => PZM_CONFIRM_POPUP_DEFAULT_OPTIONS,
+        factory: (): PrizmConfirmPopupOptions => PZM_CONFIRM_POPUP_DEFAULT_OPTIONS,
     },
 );
 
 export const pzmConfirmPopupOptionsProvider: (
-    options: Partial<PzmConfirmPopupOptions>,
-) => ValueProvider = (options: Partial<PzmConfirmPopupOptions>) => ({
+    options: Partial<PrizmConfirmPopupOptions>,
+) => ValueProvider = (options: Partial<PrizmConfirmPopupOptions>) => ({
     provide: PZM_CONFIRM_POPUP_OPTIONS,
     useValue: {...PZM_CONFIRM_POPUP_DEFAULT_OPTIONS, ...options},
 });

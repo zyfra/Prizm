@@ -6,7 +6,7 @@ import { Directive, HostBinding, Input } from '@angular/core';
 @Directive({
     selector: '[pzmFocusable]',
 })
-export class PzmFocusableDirective {
+export class PrizmFocusableDirective {
     /**
      * Element can be focused with keyboard
      */

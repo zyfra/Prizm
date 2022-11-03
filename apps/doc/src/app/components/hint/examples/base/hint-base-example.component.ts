@@ -10,5 +10,5 @@ import { Component } from '@angular/core';
     }
   `]
 })
-export class PzmHintBaseExampleComponent {
+export class PrizmHintBaseExampleComponent {
 }

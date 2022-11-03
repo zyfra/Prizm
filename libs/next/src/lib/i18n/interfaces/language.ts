@@ -1,10 +1,10 @@
-import { PzmCountryIsoCode } from '../enums/country-iso-code';
-import { PzmLanguageName } from './language-names';
+import { PrizmCountryIsoCode } from '../enums/country-iso-code';
+import { PrizmLanguageName } from './language-names';
 
 // prettier-ignore
 type MONTHS_ARRAY = [string, string, string, string, string, string, string, string, string, string, string, string];
 
-export interface PzmLanguageCore {
+export interface PrizmLanguageCore {
     months: MONTHS_ARRAY;
     close: string;
     nothingFoundMessage: string;
@@ -18,10 +18,10 @@ export interface PzmLanguageCore {
      * starts with Mon (Monday)
      */
     shortWeekDays: [string, string, string, string, string, string, string];
-    countries: Record<PzmCountryIsoCode, string>;
+    countries: Record<PrizmCountryIsoCode, string>;
 }
 
-export interface PzmLanguageKit {
+export interface PrizmLanguageKit {
     cancel: string;
     done: string;
     more: string;
@@ -85,7 +85,7 @@ export interface PzmLanguageKit {
     };
 }
 
-export interface PzmLanguageEditor {
+export interface PrizmLanguageEditor {
     colorSelectorModeNames: [string, string];
     toolbarTools: {
         undo: string;
@@ -141,7 +141,7 @@ export interface PzmLanguageEditor {
     };
 }
 
-export type PzmLanguagePreview = {
+export type PrizmLanguagePreview = {
     previewTexts: {
         rotate: string;
     };
@@ -152,14 +152,14 @@ export type PzmLanguagePreview = {
     };
 };
 
-export interface PzmLanguageMeta {
-    name: PzmLanguageName;
+export interface PrizmLanguageMeta {
+    name: PrizmLanguageName;
 }
 
-export interface PzmLanguage
-    extends PzmLanguageCore,
-        PzmLanguageKit,
-        PzmLanguageEditor,
-        PzmLanguagePreview,
-        PzmLanguageMeta {}
+export interface PrizmLanguage
+    extends PrizmLanguageCore,
+        PrizmLanguageKit,
+        PrizmLanguageEditor,
+        PrizmLanguagePreview,
+        PrizmLanguageMeta {}
 

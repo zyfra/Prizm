@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { HeaderConfig, ToolbarConfig, PzmMenuItem } from '@digital-plant/zui-components';
+import { HeaderConfig, ToolbarConfig, PrizmMenuItem } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-nav-menu-example',
@@ -11,7 +11,7 @@ import { HeaderConfig, ToolbarConfig, PzmMenuItem } from '@digital-plant/zui-com
 export class NavMenuExampleComponent {
   public menuTitle = 'Наименование приложения';
   public emptyMessage = 'Пусто';
-  public navigationList: PzmMenuItem[] = [
+  public navigationList: PrizmMenuItem[] = [
     {
       label: 'А приложение 1',
       icon: 'settings',

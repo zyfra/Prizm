@@ -13,9 +13,9 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { PzmInputControl } from '../base/input-control.class';
-import { PzmInputStatusTextDirective } from '../input-status-text/input-status-text.directive';
-import { PzmInputPosition, PzmInputSize, PzmInputStatus } from '../models/pzm-input.models';
+import { PrizmInputControl } from '../base/input-control.class';
+import { PrizmInputStatusTextDirective } from '../input-status-text/input-status-text.directive';
+import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '../models/pzm-input.models';
 import { debounceTime } from 'rxjs/operators';
 import { PolymorphContent } from '../../../../directives/polymorph';
 
@@ -29,15 +29,15 @@ import { PolymorphContent } from '../../../../directives/polymorph';
     class: 'pzm-input-layout',
   },
 })
-export class PzmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, AfterContentInit {
+export class PrizmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, AfterContentInit {
   @Input() label: string;
 
-  @Input() size: PzmInputSize = 'l';
+  @Input() size: PrizmInputSize = 'l';
 
-  @Input() status: PzmInputStatus = 'default';
+  @Input() status: PrizmInputStatus = 'default';
 
   @Input() outer = false;
-  @Input() position: PzmInputPosition = 'left';
+  @Input() position: PrizmInputPosition = 'left';
   @Input() forceClear: boolean | null = null;
   @Output() clear = new EventEmitter<MouseEvent>();
 
@@ -47,8 +47,8 @@ export class PzmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, Af
       : this.control.hasClearButton && !this.control.disabled && !this.control.empty;
   }
 
-  @ContentChild(PzmInputControl, { static: true }) control: PzmInputControl<any>;
-  @ContentChild(PzmInputStatusTextDirective, { static: false }) inputStatusText: PzmInputStatusTextDirective;
+  @ContentChild(PrizmInputControl, { static: true }) control: PrizmInputControl<any>;
+  @ContentChild(PrizmInputStatusTextDirective, { static: false }) inputStatusText: PrizmInputStatusTextDirective;
 
   public statusIcon: string;
   public statusMessage: PolymorphContent | null;

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
-import { PzmFocusTrapDirective } from './focus-trap.directive';
+import { PrizmFocusTrapDirective } from './focus-trap.directive';
 
 @NgModule({
-    declarations: [PzmFocusTrapDirective],
-    exports: [PzmFocusTrapDirective],
+    declarations: [PrizmFocusTrapDirective],
+    exports: [PrizmFocusTrapDirective],
 })
-export class PzmFocusTrapModule {}
+export class PrizmFocusTrapModule {}

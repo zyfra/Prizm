@@ -1,13 +1,13 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PzmInputPasswordModule } from '@digital-plant/zui-components';
+import { PrizmInputPasswordModule } from '@digital-plant/zui-components';
 
 // ...
 
 @NgModule({
   imports: [
     // ...
-    PzmInputPasswordModule,
+    PrizmInputPasswordModule,
   ],
 })
 export class MyModule {}

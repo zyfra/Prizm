@@ -2,12 +2,12 @@ import { Inject, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { map, mapTo, startWith, switchMap, tap } from 'rxjs/operators';
 
-import { PzmTreeLoader } from './tree.interfaces';
+import { PrizmTreeLoader } from './tree.interfaces';
 import { PZM_TREE_LOADER, PZM_TREE_LOADING, PZM_TREE_START } from './tree.tokens';
 
 // @dynamic
 @Injectable()
-export class PzmTreeService<T> {
+export class PrizmTreeService<T> {
     private readonly map = new Map<T, readonly T[]>([[this.loading, []]]);
 
     private readonly load$ = new Subject<T>();
@@ -27,7 +27,7 @@ export class PzmTreeService<T> {
     constructor(
         @Inject(PZM_TREE_LOADING) private readonly loading: T,
         @Inject(PZM_TREE_START) private readonly start: T,
-        @Inject(PZM_TREE_LOADER) private readonly loader: PzmTreeLoader<T>,
+        @Inject(PZM_TREE_LOADER) private readonly loader: PrizmTreeLoader<T>,
     ) {}
 
     public getChildren(item: T): readonly T[] {

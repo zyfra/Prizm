@@ -1,10 +1,10 @@
 import {AnimationOptions} from "@angular/animations";
 
-export interface PzmAnimationOptions extends AnimationOptions {
+export interface PrizmAnimationOptions extends AnimationOptions {
   readonly value: string;
 }
 
-export const enum PzmDropdownAnimation {
+export const enum PrizmDropdownAnimation {
   FadeInBottom = 'fadeInBottom',
   FadeInTop = 'fadeInTop',
 }

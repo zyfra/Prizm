@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { PzmDropdownZoneDirective } from './event-zone.directive';
+import { PrizmDropdownZoneDirective } from './event-zone.directive';
 
 @NgModule({
-    declarations: [PzmDropdownZoneDirective],
-    exports: [PzmDropdownZoneDirective],
+    declarations: [PrizmDropdownZoneDirective],
+    exports: [PrizmDropdownZoneDirective],
 })
-export class PzmDropdownZoneModule {}
+export class PrizmDropdownZoneModule {}

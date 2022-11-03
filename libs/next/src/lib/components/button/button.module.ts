@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
-import { PzmButtonComponent } from './button.component';
+import { PrizmButtonComponent } from './button.component';
 import { CommonModule } from '@angular/common';
-import { PzmWrapperModule } from '../../directives/wrapper';
-import { PzmIconModule } from '../icon';
-import { PzmCallFuncModule } from '@digital-plant/zyfra-helpers';
-import { PzmSplitButtonComponent } from './split-button/split-button.component';
-import { PzmLoaderModule } from '../loader/loader.module';
+import { PrizmWrapperModule } from '../../directives/wrapper';
+import { PrizmIconModule } from '../icon';
+import { PrizmCallFuncModule } from '@digital-plant/zyfra-helpers';
+import { PrizmSplitButtonComponent } from './split-button/split-button.component';
+import { PrizmLoaderModule } from '../loader/loader.module';
 
 @NgModule({
-  declarations: [PzmButtonComponent, PzmSplitButtonComponent],
+  declarations: [PrizmButtonComponent, PrizmSplitButtonComponent],
   imports: [
     CommonModule,
-    PzmWrapperModule,
-    PzmIconModule,
-    PzmLoaderModule,
-    PzmCallFuncModule,
+    PrizmWrapperModule,
+    PrizmIconModule,
+    PrizmLoaderModule,
+    PrizmCallFuncModule,
   ],
-  exports: [PzmButtonComponent, PzmSplitButtonComponent],
+  exports: [PrizmButtonComponent, PrizmSplitButtonComponent],
 })
-export class PzmButtonModule {}
+export class PrizmButtonModule {}

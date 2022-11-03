@@ -1,11 +1,11 @@
 ```ts
 import {NgModule} from '@angular/core';
-import {PzmDialogModule} from "@digital-plant/zui-components";
+import {PrizmDialogModule} from "@digital-plant/zui-components";
 
 @NgModule({
   imports: [
     // ...
-    PzmDialogModule,
+    PrizmDialogModule,
   ],
 })
 export class MyModule {

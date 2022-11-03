@@ -1,14 +1,14 @@
-import { pzmDefaultCarouselControlsState, PzmCarouselContent } from './carousel-content.interface';
+import { pzmDefaultCarouselControlsState, PrizmCarouselContent } from './carousel-content.interface';
 
-export type PzmCarouselPzmCarouselYearMonthValue = { year: number; month: number };
+export type PrizmCarouselPrizmCarouselYearMonthValue = { year: number; month: number };
 
-export class PzmCarouselYearMonth implements PzmCarouselContent {
-  currentValue: PzmCarouselPzmCarouselYearMonthValue = undefined;
+export class PrizmCarouselYearMonth implements PrizmCarouselContent {
+  currentValue: PrizmCarouselPrizmCarouselYearMonthValue = undefined;
 
-  public min: PzmCarouselPzmCarouselYearMonthValue = { month: 1, year: Number.NEGATIVE_INFINITY };
-  public max: PzmCarouselPzmCarouselYearMonthValue = { month: 12, year: Number.POSITIVE_INFINITY };
+  public min: PrizmCarouselPrizmCarouselYearMonthValue = { month: 1, year: Number.NEGATIVE_INFINITY };
+  public max: PrizmCarouselPrizmCarouselYearMonthValue = { month: 12, year: Number.POSITIVE_INFINITY };
 
-  constructor(min?: PzmCarouselPzmCarouselYearMonthValue, max?: PzmCarouselPzmCarouselYearMonthValue) {
+  constructor(min?: PrizmCarouselPrizmCarouselYearMonthValue, max?: PrizmCarouselPrizmCarouselYearMonthValue) {
     if (min) {
       this.min = min;
     }
@@ -20,7 +20,7 @@ export class PzmCarouselYearMonth implements PzmCarouselContent {
 
   public controlsState = { ...pzmDefaultCarouselControlsState };
 
-  public setCurrentValue(element: PzmCarouselPzmCarouselYearMonthValue): void {
+  public setCurrentValue(element: PrizmCarouselPrizmCarouselYearMonthValue): void {
     this.currentValue = element;
     this.updateControlsState();
   }
@@ -103,8 +103,8 @@ export class PzmCarouselYearMonth implements PzmCarouselContent {
   }
 
   private compare(
-    value1: PzmCarouselPzmCarouselYearMonthValue,
-    value2: PzmCarouselPzmCarouselYearMonthValue
+    value1: PrizmCarouselPrizmCarouselYearMonthValue,
+    value2: PrizmCarouselPrizmCarouselYearMonthValue
   ): 'lt' | 'eq' | 'gt' {
     if (value1.year < value2.year) {
       return 'lt';

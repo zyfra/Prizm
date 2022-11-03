@@ -9,14 +9,14 @@ import {
 import { AccordionItemComponent } from './components/accordion-item/accordion-item.component';
 import { merge } from 'rxjs';
 import { mapTo, takeUntil } from 'rxjs/operators';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 
 @Component({
   selector: 'pzm-accordion',
   templateUrl: './accordion.component.html',
   styleUrls: ['./accordion.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PzmDestroyService],
+  providers: [PrizmDestroyService],
 })
 export class AccordionComponent implements AfterContentInit {
   @Input() public onlyOneExpanded = false;
@@ -25,7 +25,7 @@ export class AccordionComponent implements AfterContentInit {
   @HostBinding('attr.testId')
   readonly testId = 'pzm_accordion';
 
-  constructor(private readonly destroy$: PzmDestroyService) {}
+  constructor(private readonly destroy$: PrizmDestroyService) {}
 
   public ngAfterContentInit(): void {
     const accordionItemsToggleStreams = this.accordionItems.map((item, idx) => item.toggle$.pipe(mapTo(idx)));

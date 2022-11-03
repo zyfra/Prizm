@@ -8,7 +8,7 @@ import {
   Type,
   ViewEncapsulation,
 } from '@angular/core';
-import { PzmToastRef } from '../toast-ref';
+import { PrizmToastRef } from '../toast-ref';
 
 @Component({
   selector: 'pzm-toast-wrapper',
@@ -18,7 +18,7 @@ import { PzmToastRef } from '../toast-ref';
   encapsulation: ViewEncapsulation.None,
 })
 export class ToastWrapperComponent implements OnInit {
-  @Input() ref!: PzmToastRef;
+  @Input() ref!: PrizmToastRef;
 
   @HostBinding('attr.testId')
   readonly testId = 'pzm_toast_wrapper';
@@ -52,7 +52,7 @@ export class ToastWrapperComponent implements OnInit {
       {
         providers: [
           {
-            provide: PzmToastRef,
+            provide: PrizmToastRef,
             useValue: this.ref
           }
         ],

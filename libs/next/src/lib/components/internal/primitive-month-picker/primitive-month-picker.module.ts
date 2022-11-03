@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
-import { PzmPrimitiveMonthPickerComponent } from './primitive-month-picker.component';
-import { PzmLetModule } from '@digital-plant/zyfra-helpers';
-import { PzmRepeatTimesModule } from '../../../directives/repeat-times/repeat-times.module';
-import { PzmHoveredModule } from '../../../directives/hovered/hovered.module';
-import { PzmPressedModule } from '../../../directives/pressed/pressed.module';
-import { PzmScrollIntoViewModule } from '../../../directives/scroll-into-view/scroll-into-view.module';
-import { PzmMonthPipeModule } from '../../../pipes/month';
+import { PrizmPrimitiveMonthPickerComponent } from './primitive-month-picker.component';
+import { PrizmLetModule } from '@digital-plant/zyfra-helpers';
+import { PrizmRepeatTimesModule } from '../../../directives/repeat-times/repeat-times.module';
+import { PrizmHoveredModule } from '../../../directives/hovered/hovered.module';
+import { PrizmPressedModule } from '../../../directives/pressed/pressed.module';
+import { PrizmScrollIntoViewModule } from '../../../directives/scroll-into-view/scroll-into-view.module';
+import { PrizmMonthPipeModule } from '../../../pipes/month';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
     imports: [
-        PzmHoveredModule,
-        PzmPressedModule,
-        PzmRepeatTimesModule,
-        PzmLetModule,
+        PrizmHoveredModule,
+        PrizmPressedModule,
+        PrizmRepeatTimesModule,
+        PrizmLetModule,
         CommonModule,
-        PzmScrollIntoViewModule,
-        PzmMonthPipeModule
+        PrizmScrollIntoViewModule,
+        PrizmMonthPipeModule
     ],
-    declarations: [PzmPrimitiveMonthPickerComponent],
-    exports: [PzmPrimitiveMonthPickerComponent],
+    declarations: [PrizmPrimitiveMonthPickerComponent],
+    exports: [PrizmPrimitiveMonthPickerComponent],
 })
-export class PzmPrimitiveMonthPickerModule {}
+export class PrizmPrimitiveMonthPickerModule {}

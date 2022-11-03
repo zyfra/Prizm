@@ -1,10 +1,10 @@
 ```ts
 import {NgModule} from '@angular/core';
-import {PzmScrollbarModule} from "@digital-plant/zui-components";
+import {PrizmScrollbarModule} from "@digital-plant/zui-components";
 
 @NgModule({
   imports: [
-    PzmScrollbarModule,
+    PrizmScrollbarModule,
   ],
 })
 export class MyModule {}

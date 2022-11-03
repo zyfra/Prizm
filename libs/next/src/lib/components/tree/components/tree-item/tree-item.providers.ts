@@ -1,7 +1,7 @@
 import {forwardRef, Provider, SkipSelf} from '@angular/core';
 
 import {PZM_TREE_LEVEL, PZM_TREE_NODE} from '../../misc/tree.tokens';
-import {PzmTreeItemComponent} from './tree-item.component';
+import {PrizmTreeItemComponent} from './tree-item.component';
 
 export const PZM_TREE_ITEM_PROVIDERS: Provider[] = [
     {
@@ -11,7 +11,7 @@ export const PZM_TREE_ITEM_PROVIDERS: Provider[] = [
     },
     {
         provide: PZM_TREE_NODE,
-        useExisting: forwardRef(() => PzmTreeItemComponent),
+        useExisting: forwardRef(() => PrizmTreeItemComponent),
     },
 ];
 

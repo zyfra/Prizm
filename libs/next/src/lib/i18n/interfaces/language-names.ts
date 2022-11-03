@@ -1,4 +1,4 @@
-export type PzmLanguageName =
+export type PrizmLanguageName =
     | 'chinese'
     | 'dutch'
     | 'english'

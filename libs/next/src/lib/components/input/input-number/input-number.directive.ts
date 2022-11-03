@@ -1,11 +1,11 @@
 import { Directive, ElementRef, Host, HostBinding, HostListener, Input } from '@angular/core';
-import { PzmInputTextComponent } from '../input-text/input-text.component';
+import { PrizmInputTextComponent } from '../input-text/input-text.component';
 
 @Directive({
   selector: 'input[pzmInputNumber]',
   exportAs: 'pzmInputNumber',
 })
-export class PzmInputNumberDirective {
+export class PrizmInputNumberDirective {
   @Input() min: number | null = null;
   @Input() max: number | null = null;
   @Input() step = 1;
@@ -16,7 +16,7 @@ export class PzmInputNumberDirective {
 
   constructor(
     @Host() private readonly el: ElementRef<HTMLInputElement>,
-    @Host() private readonly pzmInputText: PzmInputTextComponent
+    @Host() private readonly pzmInputText: PrizmInputTextComponent
   ) {
     el.nativeElement.type = 'number';
   }

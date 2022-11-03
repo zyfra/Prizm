@@ -1,37 +1,37 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { PolymorphModule } from '../../../directives/polymorph/polymorph.module';
-import { PzmPreventDefaultModule } from '../../../directives/prevent-default/prevent-default.module';
-import { PzmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
-import { PzmCalendarModule } from '../../calendar/calendar.module';
-import { PzmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
-import { PzmLinkModule } from '../../link/link.module';
-import { PzmInputDateTimeComponent } from './input-date-time.component';
+import { PrizmPreventDefaultModule } from '../../../directives/prevent-default/prevent-default.module';
+import { PrizmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
+import { PrizmCalendarModule } from '../../calendar/calendar.module';
+import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
+import { PrizmLinkModule } from '../../link/link.module';
+import { PrizmInputDateTimeComponent } from './input-date-time.component';
 import { FormsModule } from '@angular/forms';
-import { PzmInputTextModule } from '../input-text/input-text.module';
-import { PzmIconModule } from '../../icon/icon.module';
-import { PzmMaskModule } from '../../../modules';
-import { PzmDataListModule } from '../../data-list';
-import { PzmLifecycleModule } from '../../../directives';
+import { PrizmInputTextModule } from '../input-text/input-text.module';
+import { PrizmIconModule } from '../../icon/icon.module';
+import { PrizmMaskModule } from '../../../modules';
+import { PrizmDataListModule } from '../../data-list';
+import { PrizmLifecycleModule } from '../../../directives';
 
 @NgModule({
   imports: [
     CommonModule,
-    PzmMaskModule,
-    PzmDataListModule,
+    PrizmMaskModule,
+    PrizmDataListModule,
     PolymorphModule,
-    PzmInputTextModule,
-    PzmIconModule,
+    PrizmInputTextModule,
+    PrizmIconModule,
     FormsModule,
-    PzmLifecycleModule,
-    PzmPreventDefaultModule,
-    PzmCalendarModule,
-    PzmLinkModule,
-    PzmDropdownHostModule,
-    PzmValueAccessorModule,
+    PrizmLifecycleModule,
+    PrizmPreventDefaultModule,
+    PrizmCalendarModule,
+    PrizmLinkModule,
+    PrizmDropdownHostModule,
+    PrizmValueAccessorModule,
   ],
-  declarations: [PzmInputDateTimeComponent],
-  exports: [PzmInputDateTimeComponent],
+  declarations: [PrizmInputDateTimeComponent],
+  exports: [PrizmInputDateTimeComponent],
 })
-export class PzmInputDateTimeModule {}
+export class PrizmInputDateTimeModule {}
 

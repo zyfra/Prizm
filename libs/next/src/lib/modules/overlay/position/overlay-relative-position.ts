@@ -1,24 +1,24 @@
-import {PzmOverlayOutsidePlacement, PzmOverlayPositionMeta} from '../models';
+import {PrizmOverlayOutsidePlacement, PrizmOverlayPositionMeta} from '../models';
 import {EventBus, setWidthHeight} from '../utils';
-import {PzmOverlayAbstractPosition} from './position';
+import {PrizmOverlayAbstractPosition} from './position';
 
-export interface PzmOverlayRelativePositionConfig {
+export interface PrizmOverlayRelativePositionConfig {
   element: HTMLElement;
-  placement?: PzmOverlayOutsidePlacement;
+  placement?: PrizmOverlayOutsidePlacement;
   // re-calculate position on scroll, resize
   autoReposition?: boolean;
   width?: string | number;
   height?: string | number;
 }
 
-export class PzmOverlayRelativePosition extends PzmOverlayAbstractPosition<PzmOverlayRelativePositionConfig> {
+export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<PrizmOverlayRelativePositionConfig> {
   obs: MutationObserver;
-  constructor(config: PzmOverlayRelativePositionConfig) {
+  constructor(config: PrizmOverlayRelativePositionConfig) {
     super();
     this.updateConfig({
       ...{
         element: null,
-        placement: PzmOverlayOutsidePlacement.TOP,
+        placement: PrizmOverlayOutsidePlacement.TOP,
         autoReposition: false,
         width: 'auto',
         height: 'auto'
@@ -32,7 +32,7 @@ export class PzmOverlayRelativePosition extends PzmOverlayAbstractPosition<PzmOv
     if (this.config.autoReposition) this.listenDrag(this.zid);
   }
 
-  public getPositions(targetEl: HTMLElement): Pick<PzmOverlayPositionMeta, any> {
+  public getPositions(targetEl: HTMLElement): Pick<PrizmOverlayPositionMeta, any> {
     const s = this.getCoords(this.config.element);
     const h = this.getCoords(targetEl);
     let { width: w, height: ht } = this.config;
@@ -48,11 +48,11 @@ export class PzmOverlayRelativePosition extends PzmOverlayAbstractPosition<PzmOv
     EventBus.send(this.zid, 'z_dynpos');
   }
 
-  private getCoords(elem: HTMLElement): PzmOverlayPositionMeta {
+  private getCoords(elem: HTMLElement): PrizmOverlayPositionMeta {
     return elem.getBoundingClientRect();
   }
 
-  private calc(placement: PzmOverlayOutsidePlacement, src: any, host: any): {left: number, top: number} {
+  private calc(placement: PrizmOverlayOutsidePlacement, src: any, host: any): {left: number, top: number} {
     const [main, sub] = placement.split('');
     const p = { left: 0, top: 0 };
     if ((main === 't' || main === 'b') && !sub) {
@@ -90,7 +90,7 @@ export class PzmOverlayRelativePosition extends PzmOverlayAbstractPosition<PzmOv
     return p;
   }
 
-  private calculatePos(pos: PzmOverlayOutsidePlacement, s: any, h: any, c = true): {pos: string, props: Record<string, unknown>} {
+  private calculatePos(pos: PrizmOverlayOutsidePlacement, s: any, h: any, c = true): {pos: string, props: Record<string, unknown>} {
     const props = this.calc(pos, s, h);
 
     if (c && this.config.autoReposition && this.isOverflowed({ ...props, width: h.width, height: h.height }, pos)) {
@@ -102,7 +102,7 @@ export class PzmOverlayRelativePosition extends PzmOverlayAbstractPosition<PzmOv
 
   private isOverflowed(
     props: { [x: string]: any },
-    placement: PzmOverlayOutsidePlacement
+    placement: PrizmOverlayOutsidePlacement
   ): boolean {
     const [main] = placement.split('');
     /* TODO later add re-position by x coordinates after is-overflowed */
@@ -116,7 +116,7 @@ export class PzmOverlayRelativePosition extends PzmOverlayAbstractPosition<PzmOv
     return props.bottom > innerHeight || props.top <= 0 || props.left <= 0 || props.right > innerWidth;
   }
 
-  private nextPosition(current: PzmOverlayOutsidePlacement): any {
+  private nextPosition(current: PrizmOverlayOutsidePlacement): any {
     const placements = ['t', 'b', 'l', 'r', 'tl', 'bl', 'tr', 'br', 'lt', 'rt', 'lb', 'rb'];
 
     const index = placements.indexOf(current);

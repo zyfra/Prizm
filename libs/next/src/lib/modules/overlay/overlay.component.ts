@@ -11,11 +11,11 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { Observable } from 'rxjs';
 import { startWith, takeUntil, tap } from 'rxjs/operators';
-import { PzmOverlayConfig, PzmOverlayContent, PzmOverlayContentType, PzmOverlayId } from './models';
-import { PzmOverlayAbstractPosition } from './position/position';
+import { PrizmOverlayConfig, PrizmOverlayContent, PrizmOverlayContentType, PrizmOverlayId } from './models';
+import { PrizmOverlayAbstractPosition } from './position/position';
 import { cssClass, EventBus, objToCss } from './utils';
 
 @Component({
@@ -23,18 +23,18 @@ import { cssClass, EventBus, objToCss } from './utils';
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PzmDestroyService],
+  providers: [PrizmDestroyService],
 })
-export class PzmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
+export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('compOutlet', { read: ViewContainerRef }) compOutlet: ViewContainerRef;
-  content: PzmOverlayContent = {
-    type: PzmOverlayContentType.STRING,
+  content: PrizmOverlayContent = {
+    type: PrizmOverlayContentType.STRING,
     data: '',
     props: {}
   };
-  config: PzmOverlayConfig;
-  position: PzmOverlayAbstractPosition;
-  zid: PzmOverlayId;
+  config: PrizmOverlayConfig;
+  position: PrizmOverlayAbstractPosition;
+  zid: PrizmOverlayId;
   el: HTMLElement | any;
   wrapperEl: HTMLElement | any;
   extra: string;
@@ -44,7 +44,7 @@ export class PzmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     public readonly inj: Injector,
     private readonly cd: ChangeDetectorRef,
-    private readonly destroy$: PzmDestroyService,
+    private readonly destroy$: PrizmDestroyService,
     private readonly compResolver: ComponentFactoryResolver,
     private readonly elRef: ElementRef
   ) {
@@ -67,7 +67,7 @@ export class PzmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.listenPos().subscribe();
-    if (this.content.type === PzmOverlayContentType.COMPONENT) {
+    if (this.content.type === PrizmOverlayContentType.COMPONENT) {
       this.compInstance = this.setComponent(this.content.props);
       EventBus.send(this.zid, 'z_compins', this.compInstance);
     }
@@ -83,7 +83,7 @@ export class PzmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public updateTextContent(data: string): void {
-    if (this.content.type === PzmOverlayContentType.STRING) {
+    if (this.content.type === PrizmOverlayContentType.STRING) {
       this.content.data = data;
       this.cd.detectChanges();
     }

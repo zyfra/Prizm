@@ -2,12 +2,12 @@ import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  PzmBaseDialogContext,
-  PzmDialogOptions,
-  PzmDialogService,
-  PzmDialogSize,
-  PzmOverlayInsidePlacement,
-  PzmOverscrollMode,
+  PrizmBaseDialogContext,
+  PrizmDialogOptions,
+  PrizmDialogService,
+  PrizmDialogSize,
+  PrizmOverlayInsidePlacement,
+  PrizmOverscrollMode,
   pzmPure,
 } from '@digital-plant/zui-components';
 import { generatePolymorphVariants } from '../../../util';
@@ -19,24 +19,24 @@ import { generatePolymorphVariants } from '../../../util';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DialogComponent {
-  public overscrollVariants: ReadonlyArray<PzmOverscrollMode> = [
+  public overscrollVariants: ReadonlyArray<PrizmOverscrollMode> = [
     'scroll',
     'all',
     'none',
   ];
-  public overscroll: PzmOverscrollMode = this.overscrollVariants[0];
-  public positionVariants: PzmOverlayInsidePlacement[] = Object.values(PzmOverlayInsidePlacement);
-  public position: PzmOverlayInsidePlacement = PzmOverlayInsidePlacement.CENTER;
+  public overscroll: PrizmOverscrollMode = this.overscrollVariants[0];
+  public positionVariants: PrizmOverlayInsidePlacement[] = Object.values(PrizmOverlayInsidePlacement);
+  public position: PrizmOverlayInsidePlacement = PrizmOverlayInsidePlacement.CENTER;
   public backdrop = false;
   public height = 'auto';
   public width = '500px';
   public closeWord = 'Продолжить';
-  public sizeVariants: PzmDialogSize[] = ['m', 'l'];
-  public size: PzmDialogSize = 'm';
+  public sizeVariants: PrizmDialogSize[] = ['m', 'l'];
+  public size: PrizmDialogSize = 'm';
   public closeable = true;
   public header = 'Static_title_h3 - 16 Medium';
   public content = 'Базовый текст для диалога';
-  public footer: PolymorphContent<PzmBaseDialogContext<any, PzmDialogOptions<any, any>>> = null;
+  public footer: PolymorphContent<PrizmBaseDialogContext<any, PrizmDialogOptions<any, any>>> = null;
 
   public readonly exampleModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
@@ -48,7 +48,7 @@ export class DialogComponent {
   };
 
   constructor(
-    @Inject(PzmDialogService) private readonly dialogService: PzmDialogService,
+    @Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService,
   ) {}
 
   @pzmPure

@@ -1,4 +1,4 @@
-export enum PzmCountryIsoCode {
+export enum PrizmCountryIsoCode {
     AD = `AD`,
     AE = `AE`,
     AF = `AF`,

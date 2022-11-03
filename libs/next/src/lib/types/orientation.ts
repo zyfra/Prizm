@@ -1,1 +1,1 @@
-export type PzmOrientation = 'vertical' | 'horizontal';
+export type PrizmOrientation = 'vertical' | 'horizontal';

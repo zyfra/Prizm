@@ -1,15 +1,15 @@
 import { InjectionToken, ValueProvider } from '@angular/core';
 import { PolymorphContent } from '../../../directives';
-import { PzmInputSize } from '../../input';
-import { PzmContextWithImplicit } from '../../../types';
+import { PrizmInputSize } from '../../input';
+import { PrizmContextWithImplicit } from '../../../types';
 import {
-  PzmMultiSelectItemWithChecked,
-  PzmMultiSelectIdentityMatcher,
-  PzmMultiSelectSearchMatcher,
-  PzmMultiSelectItemStringifyFunc,
+  PrizmMultiSelectItemWithChecked,
+  PrizmMultiSelectIdentityMatcher,
+  PrizmMultiSelectSearchMatcher,
+  PrizmMultiSelectItemStringifyFunc,
 } from './multi-select.model';
 
-export interface PzmMultiSelectOptions<T> {
+export interface PrizmMultiSelectOptions<T> {
     readonly items: T[];
     readonly chooseAllItem: T;
     readonly searchable: boolean;
@@ -17,21 +17,21 @@ export interface PzmMultiSelectOptions<T> {
     readonly isChipsDeletable:boolean;
     readonly label: string;
     readonly placeholder: string;
-    readonly size: PzmInputSize;
-    readonly stringify: PzmMultiSelectItemStringifyFunc<T>;
+    readonly size: PrizmInputSize;
+    readonly stringify: PrizmMultiSelectItemStringifyFunc<T>;
     readonly emptyContent: PolymorphContent;
-    readonly searchMatcher: PzmMultiSelectSearchMatcher<T>,
-    readonly identityMatcher: PzmMultiSelectIdentityMatcher<T>,
+    readonly searchMatcher: PrizmMultiSelectSearchMatcher<T>,
+    readonly identityMatcher: PrizmMultiSelectIdentityMatcher<T>,
     readonly minDropdownHeight: number;
     readonly outer: boolean;
     readonly maxDropdownHeight: number;
     readonly dropdownWidth: string;
-    readonly valueContent: PolymorphContent<PzmContextWithImplicit<PzmMultiSelectItemWithChecked<T>>>;
+    readonly valueContent: PolymorphContent<PrizmContextWithImplicit<PrizmMultiSelectItemWithChecked<T>>>;
 
 }
 
 /** Default values for dropdown-host options */
-export const PZM_MULTI_SELECT_DEFAULT_OPTIONS: PzmMultiSelectOptions<unknown> = {
+export const PZM_MULTI_SELECT_DEFAULT_OPTIONS: PrizmMultiSelectOptions<unknown> = {
   items: [],
   chooseAllItem: null,
   searchable: false,
@@ -45,7 +45,7 @@ export const PZM_MULTI_SELECT_DEFAULT_OPTIONS: PzmMultiSelectOptions<unknown> = 
   searchMatcher: (searchValue: string, item: unknown): boolean => {
     return item?.toString().toLowerCase().includes(searchValue.toLowerCase());
   },
-  stringify: (i: Omit<PzmMultiSelectItemWithChecked<unknown>, 'stringify'>, nullContent: string) => {
+  stringify: (i: Omit<PrizmMultiSelectItemWithChecked<unknown>, 'stringify'>, nullContent: string) => {
     if (i.obj == null && nullContent) return nullContent;
     return i.obj?.toString?.();
   },
@@ -58,16 +58,16 @@ export const PZM_MULTI_SELECT_DEFAULT_OPTIONS: PzmMultiSelectOptions<unknown> = 
   label: 'Выберите из списка',
 };
 
-export const PZM_MULTI_SELECT_OPTIONS = new InjectionToken<PzmMultiSelectOptions<unknown>>(
+export const PZM_MULTI_SELECT_OPTIONS = new InjectionToken<PrizmMultiSelectOptions<unknown>>(
     'Default parameters for select',
     {
-        factory: (): PzmMultiSelectOptions<unknown> => PZM_MULTI_SELECT_DEFAULT_OPTIONS,
+        factory: (): PrizmMultiSelectOptions<unknown> => PZM_MULTI_SELECT_DEFAULT_OPTIONS,
     },
 );
 
 export const pzmMultiSelectOptionsProvider: (
-    options: Partial<PzmMultiSelectOptions<unknown>>,
-) => ValueProvider = (options: Partial<PzmMultiSelectOptions<unknown>>) => ({
+    options: Partial<PrizmMultiSelectOptions<unknown>>,
+) => ValueProvider = (options: Partial<PrizmMultiSelectOptions<unknown>>) => ({
     provide: PZM_MULTI_SELECT_OPTIONS,
     useValue: {...PZM_MULTI_SELECT_DEFAULT_OPTIONS, ...options},
 });

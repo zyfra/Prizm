@@ -1,9 +1,9 @@
 import { InjectionToken } from '@angular/core';
-import { PzmDropdownControllerDirective } from './dropdown-controller.directive';
+import { PrizmDropdownControllerDirective } from './dropdown-controller.directive';
 
-export const PZM_DROPDOWN_CONTROLLER = new InjectionToken<PzmDropdownControllerDirective>(
+export const PZM_DROPDOWN_CONTROLLER = new InjectionToken<PrizmDropdownControllerDirective>(
     'Controls configuration of hints',
     {
-        factory: (): PzmDropdownControllerDirective => new PzmDropdownControllerDirective(),
+        factory: (): PrizmDropdownControllerDirective => new PrizmDropdownControllerDirective(),
     },
 );

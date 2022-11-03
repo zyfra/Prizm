@@ -5,7 +5,7 @@ import { FormControl } from '@angular/forms';
   selector: 'pzm-select-with-search-example',
   templateUrl: './select-with-search-example.component.html',
 })
-export class PzmSelectWithSearchExampleComponent {
+export class PrizmSelectWithSearchExampleComponent {
   value = true;
   readonly control = new FormControl();
   readonly items = [

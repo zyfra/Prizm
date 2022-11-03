@@ -1,13 +1,13 @@
 import { InjectionToken, Type, ValueProvider } from '@angular/core';
-import { PzmToastAppearance, PzmToastOptions, PzmToastPosition } from './types';
+import { PrizmToastAppearance, PrizmToastOptions, PrizmToastPosition } from './types';
 import { ToastComponent } from './toast/toast.component';
 
-export interface PzmToastDefaultOptions {
-    readonly position: PzmToastPosition,
+export interface PrizmToastDefaultOptions {
+    readonly position: PrizmToastPosition,
     readonly timer: number,
-    readonly data: PzmToastOptions['data'],
-    readonly title: PzmToastOptions['title'],
-    readonly appearance: PzmToastAppearance,
+    readonly data: PrizmToastOptions['data'],
+    readonly title: PrizmToastOptions['title'],
+    readonly appearance: PrizmToastAppearance,
     readonly templateSuccess: Type<unknown>,
     readonly templateDanger: Type<unknown>,
     readonly templateWarning: Type<unknown>,
@@ -16,8 +16,8 @@ export interface PzmToastDefaultOptions {
 }
 
 /** Default values for the toast options. */
-export const PZM_TOAST_DEFAULT_OPTIONS: PzmToastDefaultOptions = {
-    position: PzmToastPosition.TOP_RIGHT,
+export const PZM_TOAST_DEFAULT_OPTIONS: PrizmToastDefaultOptions = {
+    position: PrizmToastPosition.TOP_RIGHT,
     timer: 5000,
     title: '',
     appearance: 'info',
@@ -30,7 +30,7 @@ export const PZM_TOAST_DEFAULT_OPTIONS: PzmToastDefaultOptions = {
     templateInfo: ToastComponent,
 };
 
-export const PZM_TOAST_OPTIONS = new InjectionToken<PzmToastDefaultOptions>(
+export const PZM_TOAST_OPTIONS = new InjectionToken<PrizmToastDefaultOptions>(
     'Default parameters for toast component',
     {
         factory: (): typeof PZM_TOAST_DEFAULT_OPTIONS => PZM_TOAST_DEFAULT_OPTIONS,
@@ -38,8 +38,8 @@ export const PZM_TOAST_OPTIONS = new InjectionToken<PzmToastDefaultOptions>(
 );
 
 export const pzmToastOptionsProvider: (
-    options: Partial<PzmToastDefaultOptions>,
-) => ValueProvider = (options: Partial<PzmToastDefaultOptions>) => ({
+    options: Partial<PrizmToastDefaultOptions>,
+) => ValueProvider = (options: Partial<PrizmToastDefaultOptions>) => ({
     provide: PZM_TOAST_OPTIONS,
     useValue: {...PZM_TOAST_DEFAULT_OPTIONS, ...options},
 });

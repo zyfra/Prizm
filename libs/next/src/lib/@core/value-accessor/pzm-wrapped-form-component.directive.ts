@@ -1,9 +1,9 @@
 import { Directive, Injector, Optional, Self } from '@angular/core';
 import { FormControl, NgControl } from '@angular/forms';
-import { PzmAccessorImplClass } from './pzm-accessor-impl.class';
+import { PrizmAccessorImplClass } from './pzm-accessor-impl.class';
 
 @Directive()
-export abstract class PzmWrappedFormComponent extends PzmAccessorImplClass {
+export abstract class PrizmWrappedFormComponent extends PrizmAccessorImplClass {
   public readonly formControl: FormControl;
 
   constructor(public readonly injector: Injector, @Optional() @Self() public readonly ngControl: NgControl) {

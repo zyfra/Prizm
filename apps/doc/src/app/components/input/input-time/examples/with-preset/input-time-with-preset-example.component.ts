@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PzmTime } from '@digital-plant/zui-components';
+import { PrizmTime } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-input-time-with-preset-example',
@@ -12,9 +12,9 @@ import { PzmTime } from '@digital-plant/zui-components';
     }
   `]
 })
-export class PzmInputTimeWithPresetExampleComponent {
-  public readonly value = new FormControl(new PzmTime(12, 30, 25, 500));
+export class PrizmInputTimeWithPresetExampleComponent {
+  public readonly value = new FormControl(new PrizmTime(12, 30, 25, 500));
   public readonly items = new Array(24).fill(null).map(
-    (_, i) => new PzmTime(i, 0, 0, 0)
+    (_, i) => new PrizmTime(i, 0, 0, 0)
   );
 }

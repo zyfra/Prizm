@@ -1,4 +1,4 @@
-import { PzmYearLike } from '../../types/year-like';
+import { PrizmYearLike } from '../../types/year-like';
 import { pzmPadStart } from '../../util/format/pad-start';
 import { pzmInRange } from '../../util/math/in-range';
 import { pzmNormalizeToIntNumber } from '../../util/math/normalize-to-int-number';
@@ -9,9 +9,9 @@ import { PZM_DAYS_IN_LEAP_YEAR, PZM_DAYS_IN_NORMAL_YEAR, PZM_DAYS_IN_WEEK, PZM_M
  * Immutable year object
  * @nosideeffects
  */
-export class PzmYear implements PzmYearLike {
+export class PrizmYear implements PrizmYearLike {
     constructor(readonly year: number) {
-        console.assert(PzmYear.isValidYear(year));
+        console.assert(PrizmYear.isValidYear(year));
     }
 
     /**
@@ -25,7 +25,7 @@ export class PzmYear implements PzmYearLike {
      * Check if passed year is a leap year
      */
     public static isLeapYear(year: number): boolean {
-        console.assert(PzmYear.isValidYear(year));
+        console.assert(PrizmYear.isValidYear(year));
 
         return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
     }
@@ -34,7 +34,7 @@ export class PzmYear implements PzmYearLike {
      * Returns amount of leap years from year 0 to the passed one
      */
     public static getAbsoluteLeapYears(year: number): number {
-        console.assert(PzmYear.isValidYear(year));
+        console.assert(PrizmYear.isValidYear(year));
 
         return Math.ceil(year / 400) + (Math.ceil(year / 4) - Math.ceil(year / 100));
     }
@@ -49,7 +49,7 @@ export class PzmYear implements PzmYearLike {
      * @return offset in days
      */
     public static getYearStartDaysOffset(year: number, absoluteLeapYears: number): number {
-        console.assert(PzmYear.isValidYear(year));
+        console.assert(PrizmYear.isValidYear(year));
         console.assert(Number.isInteger(absoluteLeapYears));
         console.assert(year >= absoluteLeapYears);
         console.assert(absoluteLeapYears >= 0);
@@ -62,7 +62,7 @@ export class PzmYear implements PzmYearLike {
         );
     }
 
-    public static lengthBetween(from: PzmYear, to: PzmYear): number {
+    public static lengthBetween(from: PrizmYear, to: PrizmYear): number {
         return to.year - from.year;
     }
 
@@ -78,14 +78,14 @@ export class PzmYear implements PzmYearLike {
     }
 
     public get isLeapYear(): boolean {
-        return PzmYear.isLeapYear(this.year);
+        return PrizmYear.isLeapYear(this.year);
     }
 
     /**
      * Returns amount of leap years from year 0 to current
      */
     public get absoluteLeapYears(): number {
-        return PzmYear.getAbsoluteLeapYears(this.year);
+        return PrizmYear.getAbsoluteLeapYears(this.year);
     }
 
     /**
@@ -94,41 +94,41 @@ export class PzmYear implements PzmYearLike {
      * Returns day of week offset of the beginning of the current year
      */
     public get yearStartDaysOffset(): number {
-        return PzmYear.getYearStartDaysOffset(this.year, this.absoluteLeapYears);
+        return PrizmYear.getYearStartDaysOffset(this.year, this.absoluteLeapYears);
     }
 
     /**
      * Passed year is after current
      */
-    public yearBefore({year}: PzmYear): boolean {
+    public yearBefore({year}: PrizmYear): boolean {
         return this.year < year;
     }
 
     /**
      * Passed year is the same or after current
      */
-    public yearSameOrBefore({year}: PzmYear): boolean {
+    public yearSameOrBefore({year}: PrizmYear): boolean {
         return this.year <= year;
     }
 
     /**
      * Passed year is the same as current
      */
-    public yearSame({year}: PzmYear): boolean {
+    public yearSame({year}: PrizmYear): boolean {
         return this.year === year;
     }
 
     /**
      * Passed year is either the same of before the current
      */
-    public yearSameOrAfter({year}: PzmYear): boolean {
+    public yearSameOrAfter({year}: PrizmYear): boolean {
         return this.year >= year;
     }
 
     /**
      * Passed year is before current
      */
-    public yearAfter({year}: PzmYear): boolean {
+    public yearAfter({year}: PrizmYear): boolean {
         return this.year > year;
     }
 
@@ -136,7 +136,7 @@ export class PzmYear implements PzmYearLike {
     /**
      * Immutably offsets year
      */
-    public append({year = 0}: PzmYearLike, backwards: boolean = false): PzmYear {
+    public append({year = 0}: PrizmYearLike, backwards: boolean = false): PrizmYear {
         console.assert(Number.isInteger(year));
 
         if (backwards) {
@@ -145,9 +145,9 @@ export class PzmYear implements PzmYearLike {
 
         const resultYear = this.year + year;
 
-        console.assert(PzmYear.isValidYear(resultYear));
+        console.assert(PrizmYear.isValidYear(resultYear));
 
-        return new PzmYear(resultYear);
+        return new PrizmYear(resultYear);
     }
 
     public toString(): string {

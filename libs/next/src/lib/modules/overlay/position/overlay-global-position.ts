@@ -1,9 +1,9 @@
-import {PzmOverlayConfig, PzmOverlayInsidePlacement} from '../models';
+import {PrizmOverlayConfig, PrizmOverlayInsidePlacement} from '../models';
 import {setWidthHeight} from '../utils';
-import {PzmOverlayAbstractPosition} from './position';
+import {PrizmOverlayAbstractPosition} from './position';
 
-interface PzmOverlayGlobalPositionConfig {
-  placement?: PzmOverlayInsidePlacement;
+interface PrizmOverlayGlobalPositionConfig {
+  placement?: PrizmOverlayInsidePlacement;
   offset?: number;
   width?: string | number;
   height?: string | number;
@@ -17,12 +17,12 @@ interface OverlayOffsetPosition {
   right: number,
 }
 
-export class PzmOverlayGlobalPosition extends PzmOverlayAbstractPosition<PzmOverlayGlobalPositionConfig> {
+export class PrizmOverlayGlobalPosition extends PrizmOverlayAbstractPosition<PrizmOverlayGlobalPositionConfig> {
 
-  constructor(config: PzmOverlayGlobalPositionConfig) {
+  constructor(config: PrizmOverlayGlobalPositionConfig) {
     super();
     this.updateConfig({
-      ...{ placement: PzmOverlayInsidePlacement.CENTER, width: 100, height: 100, offset: 0 },
+      ...{ placement: PrizmOverlayInsidePlacement.CENTER, width: 100, height: 100, offset: 0 },
       ...config,
     });
   }
@@ -48,7 +48,7 @@ export class PzmOverlayGlobalPosition extends PzmOverlayAbstractPosition<PzmOver
     };
   }
 
-  private calc(placement: PzmOverlayInsidePlacement, src: any, host: any): Partial<OverlayOffsetPosition> {
+  private calc(placement: PrizmOverlayInsidePlacement, src: any, host: any): Partial<OverlayOffsetPosition> {
     const [main, sub] = placement.split('');
     const result: Partial<OverlayOffsetPosition> = {};
 

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PzmShadowType, PzmShadowTypeEnum } from '@digital-plant/zui-components';
+import { PrizmShadowType, PrizmShadowTypeEnum } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-card-example',
@@ -11,19 +11,19 @@ import { PzmShadowType, PzmShadowTypeEnum } from '@digital-plant/zui-components'
 export class CardComponent {
   content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum';
 
-  readonly shadowVariants: ReadonlyArray<PzmShadowType> = [
-    PzmShadowTypeEnum.miniBottom,
-    PzmShadowTypeEnum.miniTop,
-    PzmShadowTypeEnum.miniRight,
-    PzmShadowTypeEnum.miniLeft,
-    PzmShadowTypeEnum.bigTop,
-    PzmShadowTypeEnum.bigBottom,
-    PzmShadowTypeEnum.bigLeft,
-    PzmShadowTypeEnum.bigRight,
-    PzmShadowTypeEnum.bigRight,
+  readonly shadowVariants: ReadonlyArray<PrizmShadowType> = [
+    PrizmShadowTypeEnum.miniBottom,
+    PrizmShadowTypeEnum.miniTop,
+    PrizmShadowTypeEnum.miniRight,
+    PrizmShadowTypeEnum.miniLeft,
+    PrizmShadowTypeEnum.bigTop,
+    PrizmShadowTypeEnum.bigBottom,
+    PrizmShadowTypeEnum.bigLeft,
+    PrizmShadowTypeEnum.bigRight,
+    PrizmShadowTypeEnum.bigRight,
 
   ];
-  shadow: PzmShadowType = PzmShadowTypeEnum.miniBottom;
+  shadow: PrizmShadowType = PrizmShadowTypeEnum.miniBottom;
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
   );

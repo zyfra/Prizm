@@ -15,4 +15,4 @@ import { Component } from '@angular/core';
     }
   `]
 })
-export class PzmScrollbarVisibleExampleComponent {}
+export class PrizmScrollbarVisibleExampleComponent {}

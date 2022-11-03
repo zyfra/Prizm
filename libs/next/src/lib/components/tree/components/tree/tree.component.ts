@@ -10,10 +10,10 @@ import {
 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { distinctUntilChanged, map, startWith, tap } from 'rxjs/operators';
-import { PzmTreeChildrenDirective } from '../../directives/tree-children.directive';
+import { PrizmTreeChildrenDirective } from '../../directives/tree-children.directive';
 import { PZM_TREE_NODE } from '../../misc/tree.tokens';
-import { PzmTreeItemComponent } from '../tree-item/tree-item.component';
-import { PzmHandler } from '../../../../types';
+import { PrizmTreeItemComponent } from '../tree-item/tree-item.component';
+import { PrizmHandler } from '../../../../types';
 import { PolymorphContent } from '../../../../directives';
 
 @Component({
@@ -24,7 +24,7 @@ import { PolymorphContent } from '../../../../directives';
     providers: [
         {
             provide: PZM_TREE_NODE,
-            useExisting: PzmTreeComponent,
+            useExisting: PrizmTreeComponent,
         },
     ],
     // eslint-disable-next-line @angular-eslint/no-host-metadata-property
@@ -32,17 +32,17 @@ import { PolymorphContent } from '../../../../directives';
         role: 'tree',
     },
 })
-export class PzmTreeComponent<T> implements DoCheck {
+export class PrizmTreeComponent<T> implements DoCheck {
     private readonly check$ = new Subject<void>();
 
     @Input()
     value!: T;
 
-    @ViewChild(PzmTreeItemComponent)
-    readonly item?: PzmTreeItemComponent;
+    @ViewChild(PrizmTreeItemComponent)
+    readonly item?: PrizmTreeItemComponent;
 
-    @ViewChild(PzmTreeComponent)
-    readonly child?: PzmTreeComponent<T>;
+    @ViewChild(PrizmTreeComponent)
+    readonly child?: PrizmTreeComponent<T>;
 
     readonly children$ = this.check$.pipe(
         startWith(null),
@@ -55,8 +55,8 @@ export class PzmTreeComponent<T> implements DoCheck {
 
     constructor(
         @Optional()
-        @Inject(PzmTreeChildrenDirective)
-        readonly directive: PzmTreeChildrenDirective<T> | null,
+        @Inject(PrizmTreeChildrenDirective)
+        readonly directive: PrizmTreeChildrenDirective<T> | null,
     ) {}
 
     @Input()
@@ -68,7 +68,7 @@ export class PzmTreeComponent<T> implements DoCheck {
         this.child?.ngDoCheck();
     }
 
-    private get handler(): PzmHandler<T, readonly T[]> {
-        return this.directive?.childrenHandler ?? PzmTreeChildrenDirective.defaultHandler;
+    private get handler(): PrizmHandler<T, readonly T[]> {
+        return this.directive?.childrenHandler ?? PrizmTreeChildrenDirective.defaultHandler;
     }
 }

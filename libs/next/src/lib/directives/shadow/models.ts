@@ -1,4 +1,4 @@
-export enum PzmShadowTypeEnum {
+export enum PrizmShadowTypeEnum {
   miniBottom = 'mini-bottom',
   miniTop = 'mini-top',
   bigTop = 'big-top',
@@ -10,17 +10,17 @@ export enum PzmShadowTypeEnum {
   none = 'none',
 }
 
-export type PzmShadowType = `${PzmShadowTypeEnum.miniBottom}`
-  | `${PzmShadowTypeEnum.miniTop}`
-  | `${PzmShadowTypeEnum.miniRight}`
-  | `${PzmShadowTypeEnum.miniLeft}`
-  | `${PzmShadowTypeEnum.bigTop}`
-  | `${PzmShadowTypeEnum.bigBottom}`
-  | `${PzmShadowTypeEnum.bigLeft}`
-  | `${PzmShadowTypeEnum.none}`
-  | `${PzmShadowTypeEnum.bigRight}`;
+export type PrizmShadowType = `${PrizmShadowTypeEnum.miniBottom}`
+  | `${PrizmShadowTypeEnum.miniTop}`
+  | `${PrizmShadowTypeEnum.miniRight}`
+  | `${PrizmShadowTypeEnum.miniLeft}`
+  | `${PrizmShadowTypeEnum.bigTop}`
+  | `${PrizmShadowTypeEnum.bigBottom}`
+  | `${PrizmShadowTypeEnum.bigLeft}`
+  | `${PrizmShadowTypeEnum.none}`
+  | `${PrizmShadowTypeEnum.bigRight}`;
 
-export enum PzmShadowValue {
+export enum PrizmShadowValue {
   miniBottom = '0px 2px 4px var(--pzm-shadow)',
   bigTop = '0px -8px 32px var(--pzm-shadow)',
   miniTop = '0px -2px 4px var(--pzm-shadow)',

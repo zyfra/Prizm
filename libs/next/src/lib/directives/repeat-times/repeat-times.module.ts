@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { PzmRepeatTimesDirective } from './repeat-times.directive';
+import { PrizmRepeatTimesDirective } from './repeat-times.directive';
 
 @NgModule({
-    declarations: [PzmRepeatTimesDirective],
-    exports: [PzmRepeatTimesDirective],
+    declarations: [PrizmRepeatTimesDirective],
+    exports: [PrizmRepeatTimesDirective],
 })
-export class PzmRepeatTimesModule {}
+export class PrizmRepeatTimesModule {}

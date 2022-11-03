@@ -1,35 +1,35 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PzmInputDateComponent } from './input-date.component';
+import { PrizmInputDateComponent } from './input-date.component';
 import { PolymorphModule } from '../../../directives/polymorph/polymorph.module';
-import { PzmCalendarModule } from '../../calendar/calendar.module';
-import { PzmLinkModule } from '../../link/link.module';
-import { PzmDropdownHostModule } from '../../dropdowns/dropdown-host';
-import { PzmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
-import { PzmPreventDefaultModule } from '../../../directives/prevent-default/prevent-default.module';
-import { PzmLetModule } from '@digital-plant/zyfra-helpers';
-import { PzmInputTextModule } from '../input-text/input-text.module';
-import { PzmIconModule } from '../../icon/icon.module';
+import { PrizmCalendarModule } from '../../calendar/calendar.module';
+import { PrizmLinkModule } from '../../link/link.module';
+import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host';
+import { PrizmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
+import { PrizmPreventDefaultModule } from '../../../directives/prevent-default/prevent-default.module';
+import { PrizmLetModule } from '@digital-plant/zyfra-helpers';
+import { PrizmInputTextModule } from '../input-text/input-text.module';
+import { PrizmIconModule } from '../../icon/icon.module';
 import { FormsModule } from '@angular/forms';
-import { PzmMaskModule } from '../../../modules';
+import { PrizmMaskModule } from '../../../modules';
 
 @NgModule({
   imports: [
     CommonModule,
-    PzmMaskModule,
+    PrizmMaskModule,
     PolymorphModule,
-    PzmPreventDefaultModule,
-    PzmCalendarModule,
-    PzmInputTextModule,
-    PzmIconModule,
-    PzmLinkModule,
+    PrizmPreventDefaultModule,
+    PrizmCalendarModule,
+    PrizmInputTextModule,
+    PrizmIconModule,
+    PrizmLinkModule,
     FormsModule,
-    PzmDropdownHostModule,
-    PzmValueAccessorModule,
-    PzmLetModule,
+    PrizmDropdownHostModule,
+    PrizmValueAccessorModule,
+    PrizmLetModule,
   ],
-  declarations: [PzmInputDateComponent],
-  exports: [PzmInputDateComponent],
+  declarations: [PrizmInputDateComponent],
+  exports: [PrizmInputDateComponent],
 })
-export class PzmInputDateModule {}
+export class PrizmInputDateModule {}
 

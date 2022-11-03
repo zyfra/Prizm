@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 
-import {PzmDroppableDirective} from './droppable.directive';
+import {PrizmDroppableDirective} from './droppable.directive';
 
 @NgModule({
-    declarations: [PzmDroppableDirective],
-    exports: [PzmDroppableDirective],
+    declarations: [PrizmDroppableDirective],
+    exports: [PrizmDroppableDirective],
 })
-export class PzmDroppableModule {}
+export class PrizmDroppableModule {}

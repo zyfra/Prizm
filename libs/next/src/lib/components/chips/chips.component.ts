@@ -14,10 +14,10 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { pzmIsTextOverflow$ } from '../../util/dom/is-textoverflow';
-import { PzmOverlayOutsidePlacement } from '../../modules';
+import { PrizmOverlayOutsidePlacement } from '../../modules';
 import { BehaviorSubject, Observable, of, Subscription, timer } from 'rxjs';
 import { map, switchMap, takeUntil } from 'rxjs/operators';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 
 @Component({
   selector: 'pzm-chips',
@@ -27,13 +27,13 @@ import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => PzmChipsComponent),
+      useExisting: forwardRef(() => PrizmChipsComponent),
       multi: true,
     },
-    PzmDestroyService
+    PrizmDestroyService
   ],
 })
-export class PzmChipsComponent implements ControlValueAccessor, OnInit, OnDestroy, AfterViewInit {
+export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDestroy, AfterViewInit {
   @Input() @HostBinding('attr.data-size') public size: 's' | 'l' = 'l';
   @Input() set chips(data: string[]) {
     this.chipsList = data;
@@ -41,7 +41,7 @@ export class PzmChipsComponent implements ControlValueAccessor, OnInit, OnDestro
   @Input() public deletable = true;
   @Input() public singleLine = true;
   @Input() public hintCanShow = true;
-  @Input() public hintDirection: PzmOverlayOutsidePlacement = PzmOverlayOutsidePlacement.RIGHT;
+  @Input() public hintDirection: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
   @Input() set disabled(isDisabled: boolean) {
     this.accessorIsDisabled = isDisabled;
   }
@@ -62,7 +62,7 @@ export class PzmChipsComponent implements ControlValueAccessor, OnInit, OnDestro
     return Math.max(x, y) > 0
   }
 
-  constructor(private readonly cdRef: ChangeDetectorRef, private readonly destroy$: PzmDestroyService) {}
+  constructor(private readonly cdRef: ChangeDetectorRef, private readonly destroy$: PrizmDestroyService) {}
 
   readonly pzmIsTextOverflow$ = (elem: HTMLElement, hintCanShow: boolean, forceShowHint: boolean): Observable<boolean> => {
     return of(forceShowHint).pipe(

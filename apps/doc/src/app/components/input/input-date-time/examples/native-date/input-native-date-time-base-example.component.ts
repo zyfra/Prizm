@@ -15,7 +15,7 @@ import { pzmGetInputDateTimeNativeTransformer } from '@digital-plant/zui-compone
     }
   `]
 })
-export class PzmInputDateTimeNativeExampleComponent {
+export class PrizmInputDateTimeNativeExampleComponent {
   public readonly value = new FormControl(
     new Date(2020, 0, 1, 13, 30, 0, 0)
   );

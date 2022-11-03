@@ -21,8 +21,8 @@ import {
 import { Router } from '@angular/router';
 import { TreeNode } from 'primeng/api';
 import { Subject } from 'rxjs';
-import { PzmNavMenuGroupDirective } from '../../directives/nav-menu-group.directive';
-import { PzmTemplateDirective } from '../../directives/pzm-template.directive';
+import { PrizmNavMenuGroupDirective } from '../../directives/nav-menu-group.directive';
+import { PrizmTemplateDirective } from '../../directives/pzm-template.directive';
 import {
   DEFAULT_SETTINGS,
   HeaderConfig,
@@ -31,7 +31,7 @@ import {
   SettingsConfig,
   ToolbarConfig,
 } from '../../model/nav-menu-config';
-import { PzmMenuItem } from '../../model/pzm-menu-item.interface';
+import { PrizmMenuItem } from '../../model/pzm-menu-item.interface';
 import { convertToNode } from '../../utils/treeNode.functions';
 
 @Component({
@@ -41,10 +41,10 @@ import { convertToNode } from '../../utils/treeNode.functions';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class PzmNavMenuComponent implements AfterViewInit, AfterContentInit, OnDestroy {
+export class PrizmNavMenuComponent implements AfterViewInit, AfterContentInit, OnDestroy {
   @ViewChild('navMenu') menu: ElementRef;
-  @ContentChildren(PzmTemplateDirective) templates: QueryList<PzmTemplateDirective>;
-  @ContentChildren(PzmNavMenuGroupDirective) menuGroups: QueryList<PzmNavMenuGroupDirective>;
+  @ContentChildren(PrizmTemplateDirective) templates: QueryList<PrizmTemplateDirective>;
+  @ContentChildren(PrizmNavMenuGroupDirective) menuGroups: QueryList<PrizmNavMenuGroupDirective>;
   @Input() menuTitle: string;
   @Input() emptyMessage: string;
   @Input() searchPlaceholder = '';
@@ -68,7 +68,7 @@ export class PzmNavMenuComponent implements AfterViewInit, AfterContentInit, OnD
     this.headerConfiguration = { ...config, settings: false };
   }
 
-  @Input() set model(items: PzmMenuItem[]) {
+  @Input() set model(items: PrizmMenuItem[]) {
     this.nodes = (items || []).map(item => convertToNode(item));
   }
 
@@ -181,7 +181,7 @@ export class PzmNavMenuComponent implements AfterViewInit, AfterContentInit, OnD
   }
 
   public selectionChangeHandler(
-    selection: TreeNode<PzmMenuItem> | TreeNode<PzmMenuItem>[],
+    selection: TreeNode<PrizmMenuItem> | TreeNode<PrizmMenuItem>[],
     groupIndex?: number
   ): void {
     let selectionData;
@@ -213,7 +213,7 @@ export class PzmNavMenuComponent implements AfterViewInit, AfterContentInit, OnD
     return false;
   }
 
-  private isActive(item: PzmMenuItem): boolean {
+  private isActive(item: PrizmMenuItem): boolean {
     return (
       item.routerLink &&
       this.router.isActive(this.router.createUrlTree(item.routerLink), {

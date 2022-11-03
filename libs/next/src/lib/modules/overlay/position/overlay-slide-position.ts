@@ -1,18 +1,18 @@
-import {PzmOverlayPositionMeta, PzmOverlaySlidePlacement} from '../models';
-import {PzmOverlayAbstractPosition} from './position';
+import {PrizmOverlayPositionMeta, PrizmOverlaySlidePlacement} from '../models';
+import {PrizmOverlayAbstractPosition} from './position';
 
 interface SlidePlacementConfig {
-  placement?: PzmOverlaySlidePlacement;
+  placement?: PrizmOverlaySlidePlacement;
   width?: string;
 }
 
-export class PzmOverlaySlidePosition extends PzmOverlayAbstractPosition<SlidePlacementConfig> {
+export class PrizmOverlaySlidePosition extends PrizmOverlayAbstractPosition<SlidePlacementConfig> {
   constructor(config: SlidePlacementConfig) {
     super();
-    this.config = { ...{ placement: PzmOverlaySlidePlacement.LEFT, width: '30%' }, ...config };
+    this.config = { ...{ placement: PrizmOverlaySlidePlacement.LEFT, width: '30%' }, ...config };
   }
-  public getPositions(): PzmOverlayPositionMeta {
-    const props = this.config.placement === PzmOverlaySlidePlacement.LEFT ? { left: 0 } : { right: 0 };
+  public getPositions(): PrizmOverlayPositionMeta {
+    const props = this.config.placement === PrizmOverlaySlidePlacement.LEFT ? { left: 0 } : { right: 0 };
     return {
       ...props,
       top: 0,

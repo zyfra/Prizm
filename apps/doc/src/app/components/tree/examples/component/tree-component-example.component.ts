@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PZM_EMPTY_ARRAY, PolymorphComponent, PZM_TREE_CONTENT, PzmHandler } from '@digital-plant/zui-components';
+import { PZM_EMPTY_ARRAY, PolymorphComponent, PZM_TREE_CONTENT, PrizmHandler } from '@digital-plant/zui-components';
 
 import { FoldersComponent } from './folder.component';
 
@@ -47,7 +47,7 @@ export class TreeComponentExampleComponent {
     ],
   };
 
-  readonly handler: PzmHandler<TreeNode, readonly TreeNode[]> = item =>
+  readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item =>
     item.children || PZM_EMPTY_ARRAY;
 }
 

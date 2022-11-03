@@ -13,7 +13,7 @@ import { pzmIsNativeFocused } from '../../util';
 @Directive({
     selector: '[pzmFocusedChange]',
 })
-export class PzmFocusedDirective {
+export class PrizmFocusedDirective {
     @Output()
     readonly pzmFocusedChange: Observable<boolean>;
 

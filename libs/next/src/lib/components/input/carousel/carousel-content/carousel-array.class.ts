@@ -1,6 +1,6 @@
-import { pzmDefaultCarouselControlsState, PzmCarouselContent } from './carousel-content.interface';
+import { pzmDefaultCarouselControlsState, PrizmCarouselContent } from './carousel-content.interface';
 
-export class PzmCarouselArrayContent<T> implements PzmCarouselContent {
+export class PrizmCarouselArrayContent<T> implements PrizmCarouselContent {
   private currentIndex = -1;
   currentValue: T = undefined;
 

@@ -10,10 +10,10 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AbstractPzmInteractive } from '../../../abstract/interactive';
+import { AbstractPrizmInteractive } from '../../../abstract/interactive';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
 import { PZM_SPIN_TEXTS } from '../../../tokens/i18n';
-import { PzmAppearanceTypeGhost } from '../../../types/appearance.types';
+import { PrizmAppearanceTypeGhost } from '../../../types/appearance.types';
 import { pzmIsNativeFocused } from '../../../util/is-native-focused';
 
 // @dynamic
@@ -23,7 +23,7 @@ import { pzmIsNativeFocused } from '../../../util/is-native-focused';
     templateUrl: `./primitive-spin-button.template.html`,
     styleUrls: [`./primitive-spin-button.component.less`],
 })
-export class PzmPrimitiveSpinButtonComponent extends AbstractPzmInteractive {
+export class PrizmPrimitiveSpinButtonComponent extends AbstractPrizmInteractive {
     @ViewChild(`wrapper`)
     private readonly wrapper?: ElementRef<HTMLElement>;
 
@@ -33,7 +33,7 @@ export class PzmPrimitiveSpinButtonComponent extends AbstractPzmInteractive {
 
     @Input()
     @pzmDefaultProp()
-    mode: PzmAppearanceTypeGhost = 'ghost';
+    mode: PrizmAppearanceTypeGhost = 'ghost';
 
     @Input()
     @pzmDefaultProp()

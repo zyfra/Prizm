@@ -1,19 +1,19 @@
 import { from, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PzmLanguage, PzmLanguageLoader, PzmLanguageName } from '../interfaces';
+import { PrizmLanguage, PrizmLanguageLoader, PrizmLanguageName } from '../interfaces';
 
 export function pzmAsyncLoadLanguage(
-    language: PzmLanguageName | null,
-    loader: PzmLanguageLoader | null,
-    fallback: PzmLanguage,
-): Observable<PzmLanguage> {
+    language: PrizmLanguageName | null,
+    loader: PrizmLanguageLoader | null,
+    fallback: PrizmLanguage,
+): Observable<PrizmLanguage> {
     return language && loader ? pzmLoadLanguage(language, loader) : of(fallback);
 }
 
 export function pzmLoadLanguage(
-    language: PzmLanguageName,
-    loader: PzmLanguageLoader,
-): Observable<PzmLanguage> {
+    language: PrizmLanguageName,
+    loader: PrizmLanguageLoader,
+): Observable<PrizmLanguage> {
     return from(normalizeCommonJSImport(loader(language))).pipe(
         map((module: any) => module?.[`PZM_${language.toUpperCase()}_LANGUAGE`]),
     );

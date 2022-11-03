@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
-import { PzmIconModule } from '../../../icon/icon.module';
-import { PzmInputIconButtonComponent } from './input-icon-button.component';
+import { PrizmIconModule } from '../../../icon/icon.module';
+import { PrizmInputIconButtonComponent } from './input-icon-button.component';
 
 @NgModule({
-  imports: [PzmIconModule],
+  imports: [PrizmIconModule],
   declarations: [
-    PzmInputIconButtonComponent,
+    PrizmInputIconButtonComponent,
   ],
   exports: [
-    PzmInputIconButtonComponent,
+    PrizmInputIconButtonComponent,
   ],
 })
-export class PzmInputIconButtonModule {}
+export class PrizmInputIconButtonModule {}

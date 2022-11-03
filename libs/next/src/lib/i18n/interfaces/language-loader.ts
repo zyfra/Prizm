@@ -1,3 +1,3 @@
-import type { PzmLanguageName } from './language-names';
+import type { PrizmLanguageName } from './language-names';
 
-export type PzmLanguageLoader = (lang: PzmLanguageName) => Promise<unknown>;
+export type PrizmLanguageLoader = (lang: PrizmLanguageName) => Promise<unknown>;

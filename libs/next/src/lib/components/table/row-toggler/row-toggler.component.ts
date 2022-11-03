@@ -5,7 +5,7 @@ import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular
   templateUrl: './row-toggler.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmRowTogglerComponent {
+export class PrizmRowTogglerComponent {
   @Input() data: any;
   @Input() expanded: boolean;
 

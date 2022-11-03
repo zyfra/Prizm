@@ -1,3 +1,3 @@
-export interface PzmContextWithImplicit<T> {
+export interface PrizmContextWithImplicit<T> {
   $implicit: T;
 }

@@ -5,10 +5,10 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { TableBasicExampleComponent } from './examples/table-basic-example/table-basic-example.component';
 import {
-  PzmIconModule,
-  PzmInputTextModule,
-  PzmPaginatorModule,
-  PzmTableModule,
+  PrizmIconModule,
+  PrizmInputTextModule,
+  PrizmPaginatorModule,
+  PrizmTableModule,
 } from '@digital-plant/zui-components';
 import { TableModule } from 'primeng/table';
 import { FormsModule } from '@angular/forms';
@@ -31,13 +31,13 @@ import { TableStatusExampleComponent } from './examples/table-status-example/tab
   imports: [
     CommonModule,
     TuiAddonDocModule,
-    PzmTableModule,
+    PrizmTableModule,
     RouterModule.forChild(generateRoutes(TableExampleComponent)),
     TableModule,
     FormsModule,
-    PzmInputTextModule,
-    PzmIconModule,
-    PzmPaginatorModule,
+    PrizmInputTextModule,
+    PrizmIconModule,
+    PrizmPaginatorModule,
   ],
 })
 export class TableExampleModule {}

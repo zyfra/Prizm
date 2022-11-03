@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { FilterOperator, SelectItem } from 'primeng/api';
 import { Table } from 'primeng/table';
-import { PzmTableComponent } from '../pzm-table.component';
+import { PrizmTableComponent } from '../pzm-table.component';
 import { BaseTableTemplateDirective } from '../base-table/directives/base-table-template.directive';
 
 @Component({
@@ -19,12 +19,12 @@ import { BaseTableTemplateDirective } from '../base-table/directives/base-table-
   providers: [
     {
       provide: Table,
-      useFactory: (pzmTable: PzmTableComponent): Table => pzmTable.table,
-      deps: [PzmTableComponent],
+      useFactory: (pzmTable: PrizmTableComponent): Table => pzmTable.table,
+      deps: [PrizmTableComponent],
     },
   ],
 })
-export class PzmTableColumnFilterComponent implements AfterContentInit {
+export class PrizmTableColumnFilterComponent implements AfterContentInit {
   @ContentChildren(BaseTableTemplateDirective) templates: QueryList<BaseTableTemplateDirective>;
 
   headerTemplate: TemplateRef<any>;

@@ -1,1 +1,1 @@
-export type PzmDropdownWidthT = 'fixed' | 'min' | 'auto';
+export type PrizmDropdownWidthT = 'fixed' | 'min' | 'auto';

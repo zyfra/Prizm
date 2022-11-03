@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { PzmWrapperComponent } from './wrapper.component';
+import { PrizmWrapperComponent } from './wrapper.component';
 
 @NgModule({
-    declarations: [PzmWrapperComponent],
-    exports: [PzmWrapperComponent],
+    declarations: [PrizmWrapperComponent],
+    exports: [PrizmWrapperComponent],
 })
-export class PzmWrapperModule {}
+export class PrizmWrapperModule {}

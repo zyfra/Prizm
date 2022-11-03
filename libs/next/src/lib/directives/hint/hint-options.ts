@@ -1,19 +1,19 @@
 import { InjectionToken, ValueProvider } from '@angular/core';
-import { PzmOverlayOutsidePlacement } from '../../modules/overlay/models';
+import { PrizmOverlayOutsidePlacement } from '../../modules/overlay/models';
 
-export type PzmHintMode = 'error' | 'dark' | 'light' | null
-export interface PzmHintOptions {
+export type PrizmHintMode = 'error' | 'dark' | 'light' | null
+export interface PrizmHintOptions {
     readonly showDelay: number;
     readonly hideDelay: number;
-    readonly mode: PzmHintMode;
+    readonly mode: PrizmHintMode;
     readonly autoReposition: boolean;
-    readonly direction: PzmOverlayOutsidePlacement;
+    readonly direction: PrizmOverlayOutsidePlacement;
 }
 
-export interface PzmHintContext {
-  mode: PzmHintOptions['mode'],
+export interface PrizmHintContext {
+  mode: PrizmHintOptions['mode'],
   reposition: boolean,
-  direction: PzmHintOptions['direction'],
+  direction: PrizmHintOptions['direction'],
   id: string,
   showDelay: number,
   hideDelay: number,
@@ -21,24 +21,24 @@ export interface PzmHintContext {
 }
 
 /** Default values for hint options */
-export const PZM_HINT_DEFAULT_OPTIONS: PzmHintOptions = {
+export const PZM_HINT_DEFAULT_OPTIONS: PrizmHintOptions = {
     showDelay: 500,
     hideDelay: 200,
     autoReposition: true,
     mode: null,
-    direction: PzmOverlayOutsidePlacement.RIGHT,
+    direction: PrizmOverlayOutsidePlacement.RIGHT,
 };
 
-export const PZM_HINT_OPTIONS = new InjectionToken<PzmHintOptions>(
+export const PZM_HINT_OPTIONS = new InjectionToken<PrizmHintOptions>(
     'Default parameters for hint directive',
     {
-        factory: (): PzmHintOptions => PZM_HINT_DEFAULT_OPTIONS,
+        factory: (): PrizmHintOptions => PZM_HINT_DEFAULT_OPTIONS,
     },
 );
 
 export const pzmHintOptionsProvider: (
-    options: Partial<PzmHintOptions>,
-) => ValueProvider = (options: Partial<PzmHintOptions>) => ({
+    options: Partial<PrizmHintOptions>,
+) => ValueProvider = (options: Partial<PrizmHintOptions>) => ({
     provide: PZM_HINT_OPTIONS,
     useValue: {...PZM_HINT_DEFAULT_OPTIONS, ...options},
 });

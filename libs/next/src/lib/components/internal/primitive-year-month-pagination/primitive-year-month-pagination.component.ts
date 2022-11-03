@@ -1,22 +1,22 @@
 import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../../@core/date-time/days.const';
-import { PzmMonth } from '../../../@core/date-time/month';
-import { PzmYear } from '../../../@core/date-time/year';
+import { PrizmMonth } from '../../../@core/date-time/month';
+import { PrizmYear } from '../../../@core/date-time/year';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { PzmMonthLike } from '../../../types/month-like';
-import { PzmWithOptionalMinMax } from '../../../types/with-optional-min-max';
+import { PrizmMonthLike } from '../../../types/month-like';
+import { PrizmWithOptionalMinMax } from '../../../types/with-optional-min-max';
 
 @Component({
     selector: `pzm-primitive-year-month-pagination`,
     templateUrl: `./primitive-year-month-pagination.component.html`,
     styleUrls: [`./primitive-year-month-pagination.component.less`],
 })
-export class PzmPrimitiveYearMonthPaginationComponent
-    implements PzmWithOptionalMinMax<PzmMonth>
+export class PrizmPrimitiveYearMonthPaginationComponent
+    implements PrizmWithOptionalMinMax<PrizmMonth>
 {
     @Input()
     @pzmDefaultProp()
-    value = PzmMonth.currentLocal();
+    value = PrizmMonth.currentLocal();
 
     @Input()
     @pzmDefaultProp()
@@ -24,11 +24,11 @@ export class PzmPrimitiveYearMonthPaginationComponent
 
     @Input()
     @pzmDefaultProp()
-    min: PzmMonth = PZM_FIRST_DAY;
+    min: PrizmMonth = PZM_FIRST_DAY;
 
     @Input()
     @pzmDefaultProp()
-    max: PzmMonth = PZM_LAST_DAY;
+    max: PrizmMonth = PZM_LAST_DAY;
 
     @Input()
     @pzmDefaultProp()
@@ -39,13 +39,13 @@ export class PzmPrimitiveYearMonthPaginationComponent
     yearActive = false;
 
     @Output()
-    readonly valueChange = new EventEmitter<PzmMonth>();
+    readonly valueChange = new EventEmitter<PrizmMonth>();
 
     @Output()
-    readonly yearClick = new EventEmitter<PzmYear>();
+    readonly yearClick = new EventEmitter<PrizmYear>();
 
     @Output()
-    readonly monthClick = new EventEmitter<PzmMonth>();
+    readonly monthClick = new EventEmitter<PrizmMonth>();
 
     @HostBinding('attr.testId')
     readonly testId = 'pzm_primitive_year_month_pagination';
@@ -88,8 +88,8 @@ export class PzmPrimitiveYearMonthPaginationComponent
         this.appendValueWithLimit({month: 1});
     }
 
-    private appendValueWithLimit(date: PzmMonthLike): void {
-        const newMonth: PzmMonth = this.value.append(date);
+    private appendValueWithLimit(date: PrizmMonthLike): void {
+        const newMonth: PrizmMonth = this.value.append(date);
 
         if (this.min.monthSameOrAfter(newMonth)) {
             this.updateValue(this.min);
@@ -106,7 +106,7 @@ export class PzmPrimitiveYearMonthPaginationComponent
         this.updateValue(newMonth);
     }
 
-    private updateValue(value: PzmMonth): void {
+    private updateValue(value: PrizmMonth): void {
         if (this.value.monthSame(value)) {
             return;
         }

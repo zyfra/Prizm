@@ -30,7 +30,7 @@ import { pzmWatch } from '../../observables';
     '[attr.tabindex]': "disabled ? null : '0'",
   },
 })
-export class PzmCheckboxComponent implements ControlValueAccessor, OnDestroy, OnChanges, OnInit {
+export class PrizmCheckboxComponent implements ControlValueAccessor, OnDestroy, OnChanges, OnInit {
   @Input() @HostBinding('attr.data-size') public size: 's' | 'l' = 's';
 
   @Input() indeterminate = false;

@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input, OnChanges, ViewEncapsulation } from '@angular/core';
-import { PzmToastRef } from '../toast-ref';
+import { PrizmToastRef } from '../toast-ref';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PzmToastPosition } from '../types';
-import { PzmToastService } from '../toast.service';
+import { PrizmToastPosition } from '../types';
+import { PrizmToastService } from '../toast.service';
 
 @Component({
   selector: 'pzm-toast-container',
@@ -12,17 +12,17 @@ import { PzmToastService } from '../toast.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class PzmToastContainerComponent implements OnChanges {
+export class PrizmToastContainerComponent implements OnChanges {
   /* get from overlay service after add this component */
-  refs$: Observable<PzmToastRef[]>;
+  refs$: Observable<PrizmToastRef[]>;
 
   @Input() containerId?: string;
-  @Input() position?: PzmToastPosition;
+  @Input() position?: PrizmToastPosition;
 
   @HostBinding('attr.testId')
   readonly testId = 'pzm_toast_container';
 
-  constructor(private readonly pzmToastService: PzmToastService) {}
+  constructor(private readonly pzmToastService: PrizmToastService) {}
 
   ngOnChanges(): void {
     this.refs$ = (
@@ -32,7 +32,7 @@ export class PzmToastContainerComponent implements OnChanges {
     ) ?? of([])
   }
 
-  public trackByHash(_: number, item: PzmToastRef): string {
+  public trackByHash(_: number, item: PrizmToastRef): string {
     return item.hash;
   }
 }

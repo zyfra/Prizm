@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { PzmShadowDirective } from './shadow.directive';
+import { PrizmShadowDirective } from './shadow.directive';
 
 @NgModule({
-  exports: [PzmShadowDirective],
+  exports: [PrizmShadowDirective],
   imports: [],
-  declarations: [PzmShadowDirective],
+  declarations: [PrizmShadowDirective],
 })
-export class PzmShadowModule {}
+export class PrizmShadowModule {}

@@ -1,5 +1,5 @@
-import { PzmTimeLike } from '../../types/time-like';
-import { PzmTimeMode } from '../../types/time-mode';
+import { PrizmTimeLike } from '../../types/time-like';
+import { PrizmTimeMode } from '../../types/time-mode';
 import { pzmPadStart } from '../../util/format/pad-start';
 import { pzmInRange } from '../../util/math/in-range';
 
@@ -15,7 +15,7 @@ import {
 /**
  * Immutable time object with hours, minutes, seconds and ms
  */
-export class PzmTime implements PzmTimeLike {
+export class PrizmTime implements PrizmTimeLike {
     constructor(
         readonly hours: number,
         readonly minutes: number,
@@ -23,7 +23,7 @@ export class PzmTime implements PzmTimeLike {
         readonly ms: number = 0,
     ) {
         console.assert(
-            PzmTime.isValidTime(hours, minutes, seconds, ms),
+            PrizmTime.isValidTime(hours, minutes, seconds, ms),
             `Time must be real, but got:`,
             hours,
             minutes,
@@ -56,26 +56,26 @@ export class PzmTime implements PzmTimeLike {
     /**
      * Current UTC time.
      */
-    public static current(): PzmTime {
-        return PzmTime.fromAbsoluteMilliseconds(Date.now() % PZM_MILLISECONDS_IN_DAY);
+    public static current(): PrizmTime {
+        return PrizmTime.fromAbsoluteMilliseconds(Date.now() % PZM_MILLISECONDS_IN_DAY);
     }
 
     /**
      * Current time in local timezone
      */
-    public static currentLocal(): PzmTime {
+    public static currentLocal(): PrizmTime {
         const date = new Date();
 
-        return PzmTime.fromAbsoluteMilliseconds(
+        return PrizmTime.fromAbsoluteMilliseconds(
             (Date.now() - date.getTimezoneOffset() * PZM_MILLISECONDS_IN_MINUTE) %
                 PZM_MILLISECONDS_IN_DAY,
         );
     }
 
     /**
-     * Calculates PzmTime from milliseconds
+     * Calculates PrizmTime from milliseconds
      */
-    public static fromAbsoluteMilliseconds(milliseconds: number): PzmTime {
+    public static fromAbsoluteMilliseconds(milliseconds: number): PrizmTime {
         console.assert(Number.isInteger(milliseconds));
         console.assert(
             pzmInRange(milliseconds, 0, PZM_MILLISECONDS_IN_DAY),
@@ -95,27 +95,27 @@ export class PzmTime implements PzmTimeLike {
                 ((milliseconds % PZM_MILLISECONDS_IN_HOUR) % PZM_MILLISECONDS_IN_MINUTE) % 1000,
             ) || 0;
 
-        return new PzmTime(hours, minutes, seconds, ms);
+        return new PrizmTime(hours, minutes, seconds, ms);
     }
 
     /**
-     * Parses string into PzmTime object
+     * Parses string into PrizmTime object
      */
-    public static fromString(time: string): PzmTime {
+    public static fromString(time: string): PrizmTime {
         const hours = Number(time.slice(0, 2));
         const minutes = Number(time.slice(3, 5));
         const seconds = Number(time.slice(6, 8)) || 0;
         const ms = Number(time.slice(9, 12)) || 0;
 
-        return new PzmTime(hours, minutes, seconds, ms);
+        return new PrizmTime(hours, minutes, seconds, ms);
     }
 
     /**
-     * Converts Date object into PzmTime
+     * Converts Date object into PrizmTime
      * @param date
      */
-    public static fromLocalNativeDate(date: Date): PzmTime {
-        return new PzmTime(
+    public static fromLocalNativeDate(date: Date): PrizmTime {
+        return new PrizmTime(
             date.getHours(),
             date.getMinutes(),
             date.getSeconds(),
@@ -126,7 +126,7 @@ export class PzmTime implements PzmTimeLike {
     /**
      * Shifts time by hours and minutes
      */
-    public shift({hours = 0, minutes = 0, seconds = 0, ms = 0}: PzmTimeLike): PzmTime {
+    public shift({hours = 0, minutes = 0, seconds = 0, ms = 0}: PrizmTimeLike): PrizmTime {
         const newMs = (1000 + this.ms + (ms % 1000)) % 1000;
 
         const secondsInMs = ms < 0 ? Math.ceil(ms / 1000) : Math.floor(ms / 1000);
@@ -147,13 +147,13 @@ export class PzmTime implements PzmTimeLike {
         const hoursToAdd = hoursInMinutes + hours;
         const newHours = (24 + this.hours + (hoursToAdd % 24)) % 24;
 
-        return new PzmTime(newHours, newMinutes, newSeconds, newMs);
+        return new PrizmTime(newHours, newMinutes, newSeconds, newMs);
     }
 
     /**
-     * Converts PzmTime to string
+     * Converts PrizmTime to string
      */
-    public toString(mode?: PzmTimeMode): string {
+    public toString(mode?: PrizmTimeMode): string {
         const needAddMs = mode === `HH:MM:SS.MSS` || (!mode && this.ms > 0);
         const needAddSeconds =
             needAddMs || mode === `HH:MM:SS` || (!mode && this.seconds > 0);
@@ -179,7 +179,7 @@ export class PzmTime implements PzmTimeLike {
     }
 
     /**
-     * Converts PzmTime to milliseconds
+     * Converts PrizmTime to milliseconds
      */
     public toAbsoluteMilliseconds(): number {
         return (
@@ -194,7 +194,7 @@ export class PzmTime implements PzmTimeLike {
         return pzmPadStart(String(time), digits, `0`);
     }
 
-    public isSameTime(time: PzmTime): boolean {
+    public isSameTime(time: PrizmTime): boolean {
       return this.ms === time.ms &&
         this.seconds === time.seconds &&
         this.hours === time.hours &&

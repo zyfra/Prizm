@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { PzmAutoFocusDirective } from './autofocus.directive';
+import { PrizmAutoFocusDirective } from './autofocus.directive';
 
 @NgModule({
-    declarations: [PzmAutoFocusDirective],
-    exports: [PzmAutoFocusDirective],
+    declarations: [PrizmAutoFocusDirective],
+    exports: [PrizmAutoFocusDirective],
 })
-export class PzmAutoFocusModule {}
+export class PrizmAutoFocusModule {}

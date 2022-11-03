@@ -10,4 +10,4 @@ import { PZM_SCROLL_REF } from '../../tokens';
         },
     ],
 })
-export class PzmScrollRefDirective {}
+export class PrizmScrollRefDirective {}

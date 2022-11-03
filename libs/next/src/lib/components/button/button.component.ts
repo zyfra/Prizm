@@ -10,20 +10,20 @@ import {
   Input,
   TemplateRef,
 } from '@angular/core';
-import { PZM_BUTTON_OPTIONS, PzmButtonOptions, PzmContent } from './button-options';
-import { AbstractPzmInteractive } from '../../abstract/interactive';
+import { PZM_BUTTON_OPTIONS, PrizmButtonOptions, PrizmContent } from './button-options';
+import { AbstractPrizmInteractive } from '../../abstract/interactive';
 import { pzmIsNativeFocused } from '../../util/is-native-focused';
-import { PzmSize } from '../../util/size-bigger';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmSize } from '../../util/size-bigger';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { pzmPressedObservable } from '../../observables/pressed-observable';
-import { PzmAppearance, PzmAppearanceType } from '../../types/appearance.types';
+import { PrizmAppearance, PrizmAppearanceType } from '../../types/appearance.types';
 import { pzmWatch } from '../../observables/watch';
 import { pzmDefaultProp } from '../../decorators';
 import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../tokens';
-import { PzmFocusableElementAccessor } from '../../types';
-import { PzmFocusVisibleService } from '../../directives/focus-visible/focus-visible.service';
-import { PzmHoveredService } from '../../services';
+import { PrizmFocusableElementAccessor } from '../../types';
+import { PrizmFocusVisibleService } from '../../directives/focus-visible/focus-visible.service';
+import { PrizmHoveredService } from '../../services';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -32,38 +32,38 @@ import { PzmHoveredService } from '../../services';
   templateUrl: './button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
-    PzmDestroyService,
+    PrizmDestroyService,
     {
       provide: PZM_FOCUSABLE_ITEM_ACCESSOR,
-      useExisting: forwardRef(() => PzmButtonComponent),
+      useExisting: forwardRef(() => PrizmButtonComponent),
     },
-    PzmFocusVisibleService
+    PrizmFocusVisibleService
   ],
 })
-export class PzmButtonComponent extends AbstractPzmInteractive
-  implements PzmFocusableElementAccessor {
+export class PrizmButtonComponent extends AbstractPrizmInteractive
+  implements PrizmFocusableElementAccessor {
   @Input()
   @HostBinding('attr.data-size')
   @pzmDefaultProp()
-  size: PzmSize = this.options.size;
+  size: PrizmSize = this.options.size;
 
   /** can pass template or icon class */
   @Input()
-  icon: PzmContent;
+  icon: PrizmContent;
 
   /** can pass template or icon class */
   @Input()
-  iconRight: PzmContent;
+  iconRight: PrizmContent;
 
   @Input()
   @HostBinding('attr.data-appearance')
   @pzmDefaultProp()
-  appearance: PzmAppearance = this.options.appearance;
+  appearance: PrizmAppearance = this.options.appearance;
 
   @Input()
   @HostBinding('attr.data-appearance-type')
   @pzmDefaultProp()
-  appearanceType: PzmAppearanceType = this.options.appearanceType;
+  appearanceType: PrizmAppearanceType = this.options.appearanceType;
 
   @Input()
   @pzmDefaultProp()
@@ -98,12 +98,12 @@ export class PzmButtonComponent extends AbstractPzmInteractive
   }
 
   constructor(
-    @Inject(PZM_BUTTON_OPTIONS) private readonly options: PzmButtonOptions,
+    @Inject(PZM_BUTTON_OPTIONS) private readonly options: PrizmButtonOptions,
     private readonly elementRef: ElementRef,
-    private readonly focusVisible$: PzmFocusVisibleService,
-    private readonly hoveredService: PzmHoveredService,
+    private readonly focusVisible$: PrizmFocusVisibleService,
+    private readonly hoveredService: PrizmHoveredService,
     private readonly changeDetectorRef: ChangeDetectorRef,
-    private readonly destroy$: PzmDestroyService,
+    private readonly destroy$: PrizmDestroyService,
   ) {
     super();
 
@@ -134,11 +134,11 @@ export class PzmButtonComponent extends AbstractPzmInteractive
   get nativeFocusableElement(): HTMLElement | null {
     return this.nativeDisabled ? null : this.elementRef.nativeElement;
   }
-  public isTemplateRef(icon: PzmContent): icon is TemplateRef<unknown> {
+  public isTemplateRef(icon: PrizmContent): icon is TemplateRef<unknown> {
     return icon instanceof TemplateRef;
   }
 
-  get loaderSize(): PzmSize {
+  get loaderSize(): PrizmSize {
     return this.size === 'l' || this.size === 'xl' ? 'm' : 's';
   }
 }

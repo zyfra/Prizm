@@ -1,10 +1,10 @@
 import { AfterViewInit, Directive, ViewChild } from '@angular/core';
 import { DefaultValueAccessor } from '@angular/forms';
-import { PzmAccessorImplClass } from './pzm-accessor-impl.class';
+import { PrizmAccessorImplClass } from './pzm-accessor-impl.class';
 
 @Directive()
 export abstract class ValueAccessorFormComponent
-  extends PzmAccessorImplClass
+  extends PrizmAccessorImplClass
   implements AfterViewInit
 {
   @ViewChild(DefaultValueAccessor) private valueAccessor: DefaultValueAccessor;

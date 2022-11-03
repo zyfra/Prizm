@@ -1,10 +1,10 @@
-import { PzmDay } from '../date-time';
+import { PrizmDay } from '../date-time';
 
-export class PzmNamedDay {
+export class PrizmNamedDay {
     constructor(
-        readonly day: PzmDay,
+        readonly day: PrizmDay,
         private readonly name: string,
-        readonly displayDay: PzmDay = day,
+        readonly displayDay: PrizmDay = day,
     ) {}
 
     public toString(): string {

@@ -1,22 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PzmPreventDefaultModule } from '../../directives/prevent-default/prevent-default.module';
-import { PzmMapperPipeModule } from '../../pipes/mapper/mapper.module';
-import { PzmCalendarModule } from '../calendar/calendar.module';
-import { PzmCalendarRangeComponent } from './calendar-range.component';
-import { PzmPrimitiveCalendarRangeModule } from '../internal/primitive-calendar-range/primitive-calendar-range.module';
-import { PzmDataListModule } from '../data-list/data-list.module';
+import { PrizmPreventDefaultModule } from '../../directives/prevent-default/prevent-default.module';
+import { PrizmMapperPipeModule } from '../../pipes/mapper/mapper.module';
+import { PrizmCalendarModule } from '../calendar/calendar.module';
+import { PrizmCalendarRangeComponent } from './calendar-range.component';
+import { PrizmPrimitiveCalendarRangeModule } from '../internal/primitive-calendar-range/primitive-calendar-range.module';
+import { PrizmDataListModule } from '../data-list/data-list.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        PzmMapperPipeModule,
-        PzmPreventDefaultModule,
-        PzmCalendarModule,
-        PzmDataListModule,
-        PzmPrimitiveCalendarRangeModule,
+        PrizmMapperPipeModule,
+        PrizmPreventDefaultModule,
+        PrizmCalendarModule,
+        PrizmDataListModule,
+        PrizmPrimitiveCalendarRangeModule,
     ],
-    declarations: [PzmCalendarRangeComponent],
-    exports: [PzmCalendarRangeComponent],
+    declarations: [PrizmCalendarRangeComponent],
+    exports: [PrizmCalendarRangeComponent],
 })
-export class PzmCalendarRangeModule {}
+export class PrizmCalendarRangeModule {}

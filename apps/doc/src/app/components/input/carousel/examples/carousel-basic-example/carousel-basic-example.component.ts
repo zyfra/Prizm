@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PzmCarouselArrayContent } from '@digital-plant/zui-components';
+import { PrizmCarouselArrayContent } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-carousel-basic-example',
@@ -7,7 +7,7 @@ import { PzmCarouselArrayContent } from '@digital-plant/zui-components';
   styleUrls: ['./carousel-basic-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmCarouselBasicExampleComponent {
-  carouselContent = new PzmCarouselArrayContent([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], (item, el) => item === el);
+export class PrizmCarouselBasicExampleComponent {
+  carouselContent = new PrizmCarouselArrayContent([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], (item, el) => item === el);
 }
 

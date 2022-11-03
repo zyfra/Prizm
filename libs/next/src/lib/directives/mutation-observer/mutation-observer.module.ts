@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { PzmMutationObserveDirective } from './mutation-observer.directive';
+import { PrizmMutationObserveDirective } from './mutation-observer.directive';
 
 @NgModule({
-  declarations: [PzmMutationObserveDirective],
-  exports: [PzmMutationObserveDirective],
+  declarations: [PrizmMutationObserveDirective],
+  exports: [PrizmMutationObserveDirective],
 })
-export class PzmMutationObserveModule {}
+export class PrizmMutationObserveModule {}

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PZM_EMPTY_ARRAY, PzmHandler } from '@digital-plant/zui-components';
+import { PZM_EMPTY_ARRAY, PrizmHandler } from '@digital-plant/zui-components';
 
 export interface TreeNode {
   readonly text: string;
@@ -44,7 +44,7 @@ export class TreeTemplateExampleComponent {
     ],
   };
 
-  readonly handler: PzmHandler<TreeNode, readonly TreeNode[]> = item =>
+  readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item =>
     item.children || PZM_EMPTY_ARRAY;
 }
 

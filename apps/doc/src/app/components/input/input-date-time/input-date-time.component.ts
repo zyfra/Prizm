@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PzmDay, PzmInputSize, PzmTime, PzmTimeMode } from '@digital-plant/zui-components';
+import { PrizmDay, PrizmInputSize, PrizmTime, PrizmTimeMode } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -11,26 +11,26 @@ import { FormControl } from '@angular/forms';
 })
 export class InputDateTimeTimeComponent {
   public readonly valueControl = new FormControl([
-    new PzmDay(2017, 2, 15),
-    new PzmTime(12, 30, 25, 500)
+    new PrizmDay(2017, 2, 15),
+    new PrizmTime(12, 30, 25, 500)
   ]);
   public label = 'Абсолютное';
   public timeStrict = false;
   public placeholder = 'Выберите дату и время';
-  public sizeVariants: ReadonlyArray<PzmInputSize> = [
+  public sizeVariants: ReadonlyArray<PrizmInputSize> = [
     'l',
     'm',
     's'
   ]
-  public size: PzmInputSize = 'm';
+  public size: PrizmInputSize = 'm';
   public outer = false;
 
-  public timeModeVariants: ReadonlyArray<PzmTimeMode> = [
+  public timeModeVariants: ReadonlyArray<PrizmTimeMode> = [
     'HH:MM',
     'HH:MM:SS',
     'HH:MM:SS.MSS'
   ];
-  public timeMode: PzmTimeMode = `HH:MM`;
+  public timeMode: PrizmTimeMode = `HH:MM`;
 
   public readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'

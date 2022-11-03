@@ -1,24 +1,24 @@
-export interface PzmCarouselControlsState {
+export interface PrizmCarouselControlsState {
   leftCtrlDisabled: boolean;
   stepleftCtrlDisabled: boolean;
   stepRightCtrlDisabled: boolean;
   rightCtrlDisabled: boolean;
 }
 
-export const pzmDefaultCarouselControlsState: PzmCarouselControlsState = {
+export const pzmDefaultCarouselControlsState: PrizmCarouselControlsState = {
   leftCtrlDisabled: true,
   stepleftCtrlDisabled: true,
   stepRightCtrlDisabled: true,
   rightCtrlDisabled: true,
 };
 
-export interface PzmCarouselContent {
+export interface PrizmCarouselContent {
   currentValue: any;
   currentValueNotSet: boolean;
 
   setCurrentValue(value: any): void;
 
-  controlsState: PzmCarouselControlsState;
+  controlsState: PrizmCarouselControlsState;
 
   stepLeft(): void;
 

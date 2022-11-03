@@ -1,57 +1,57 @@
 import { Observer } from 'rxjs';
 import { PolymorphContent } from '../../../directives';
-import { PzmAppearance, PzmAppearanceType, PzmContextWithImplicit } from '../../../types';
+import { PrizmAppearance, PrizmAppearanceType, PrizmContextWithImplicit } from '../../../types';
 import { Type } from '@angular/core';
-import { PzmOverlayInsidePlacement } from '../../../modules/overlay';
-import { PzmSize, PzmSizeL, PzmSizeM } from '../../../util';
-import { PzmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
+import { PrizmOverlayInsidePlacement } from '../../../modules/overlay';
+import { PrizmSize, PrizmSizeL, PrizmSizeM } from '../../../util';
+import { PrizmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
 
-export type PzmBaseDialogContext<O, T = PzmDialogBaseOptions> =
-  & PzmContextWithImplicit<Observer<O>>
-  & PzmAriaDialogContext
+export type PrizmBaseDialogContext<O, T = PrizmDialogBaseOptions> =
+  & PrizmContextWithImplicit<Observer<O>>
+  & PrizmAriaDialogContext
   & T
   & {
     readonly completeWith: (value: O) => void;
   };
 
-export interface PzmAriaDialogContext {
+export interface PrizmAriaDialogContext {
   readonly component: Type<unknown>;
   readonly createdAt: number;
 }
 
-export type PzmDialog<T = unknown, O = unknown, DATA = unknown> = PzmBaseDialogContext<O, DATA> &
-  T & {content: PolymorphContent<PzmBaseDialogContext<O, DATA> & T>};
+export type PrizmDialog<T = unknown, O = unknown, DATA = unknown> = PrizmBaseDialogContext<O, DATA> &
+  T & {content: PolymorphContent<PrizmBaseDialogContext<O, DATA> & T>};
 
 
-export type PzmDialogSize = PzmSizeM | PzmSizeL;
+export type PrizmDialogSize = PrizmSizeM | PrizmSizeL;
 
-export interface PzmDialogBaseOptions {
+export interface PrizmDialogBaseOptions {
   readonly width?: string | number;
   readonly height?: string | number;
   readonly id?: string;
   readonly backdrop?: boolean;
-  readonly overscroll?: PzmOverscrollMode;
+  readonly overscroll?: PrizmOverscrollMode;
   readonly dismissible?: boolean;
-  readonly position: PzmOverlayInsidePlacement;
+  readonly position: PrizmOverlayInsidePlacement;
 }
 
-export interface PzmDialogOptions<O = unknown, DATA = unknown> extends PzmDialogBaseOptions{
-  readonly size: PzmDialogSize;
+export interface PrizmDialogOptions<O = unknown, DATA = unknown> extends PrizmDialogBaseOptions{
+  readonly size: PrizmDialogSize;
   readonly required: boolean;
   readonly closeWord?: string;
   readonly closeable: boolean;
-  readonly header: PolymorphContent<PzmBaseDialogContext<O, PzmDialogOptions<O, DATA>>>;
-  readonly footer?: PolymorphContent<PzmBaseDialogContext<O, PzmDialogOptions<O, DATA>>>;
+  readonly header: PolymorphContent<PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>>;
+  readonly footer?: PolymorphContent<PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>>;
   readonly footerStyle?: string;
-  readonly content?: PolymorphContent<PzmBaseDialogContext<O, PzmDialogOptions<O, DATA>>>;
+  readonly content?: PolymorphContent<PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>>;
   readonly data?: DATA;
 }
 
-export interface PzmDialogButton<O = unknown, T = PzmDialogBaseOptions> {
-  size?: PzmSize;
+export interface PrizmDialogButton<O = unknown, T = PrizmDialogBaseOptions> {
+  size?: PrizmSize;
   style?: string;
-  appearance?: PzmAppearance;
-  appearanceType?: PzmAppearanceType;
+  appearance?: PrizmAppearance;
+  appearanceType?: PrizmAppearanceType;
   text: string;
-  action: (context: PzmBaseDialogContext<O, T>) => void
+  action: (context: PrizmBaseDialogContext<O, T>) => void
 }

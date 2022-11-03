@@ -1,32 +1,32 @@
 import { InjectionToken, TemplateRef, ValueProvider } from '@angular/core';
-import { PzmSize } from '../../util/size-bigger';
-import { PzmAppearance, PzmAppearanceType } from '../../types/appearance.types';
+import { PrizmSize } from '../../util/size-bigger';
+import { PrizmAppearance, PrizmAppearanceType } from '../../types/appearance.types';
 
 
-export interface PzmButtonOptions {
-    readonly size: PzmSize;
-    readonly appearance: PzmAppearance;
-    readonly appearanceType: PzmAppearanceType;
+export interface PrizmButtonOptions {
+    readonly size: PrizmSize;
+    readonly appearance: PrizmAppearance;
+    readonly appearanceType: PrizmAppearanceType;
 }
 
-export const PZM_BUTTON_DEFAULT_OPTIONS: PzmButtonOptions = {
+export const PZM_BUTTON_DEFAULT_OPTIONS: PrizmButtonOptions = {
     size: 'l',
     appearance: 'primary',
     appearanceType: 'fill',
 };
 
-export const PZM_BUTTON_OPTIONS = new InjectionToken<PzmButtonOptions>(
+export const PZM_BUTTON_OPTIONS = new InjectionToken<PrizmButtonOptions>(
     'Default parameters for button component',
     {
-        factory: (): PzmButtonOptions  => PZM_BUTTON_DEFAULT_OPTIONS,
+        factory: (): PrizmButtonOptions  => PZM_BUTTON_DEFAULT_OPTIONS,
     },
 );
 
 export const pzmButtonOptionsProvider: (
-    options: Partial<PzmButtonOptions>,
-) => ValueProvider = (options: Partial<PzmButtonOptions>) => ({
+    options: Partial<PrizmButtonOptions>,
+) => ValueProvider = (options: Partial<PrizmButtonOptions>) => ({
     provide: PZM_BUTTON_OPTIONS,
     useValue: {...PZM_BUTTON_DEFAULT_OPTIONS, ...options},
 });
 
-export type PzmContent<T = unknown> = TemplateRef<T> | string
+export type PrizmContent<T = unknown> = TemplateRef<T> | string

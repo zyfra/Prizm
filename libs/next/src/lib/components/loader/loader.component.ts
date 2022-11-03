@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { pzmIsNativeFocusedIn } from '../../util/is-native-focused-in';
 import { pzmBlurNativeFocused } from '../../util/blur-native-focused';
-import { PzmSize, pzmSizeBigger } from '../../util/size-bigger';
+import { PrizmSize, pzmSizeBigger } from '../../util/size-bigger';
 
 @Component({
     selector: 'pzm-loader',
@@ -18,9 +18,9 @@ import { PzmSize, pzmSizeBigger } from '../../util/size-bigger';
     styleUrls: ['./loader.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmLoaderComponent {
+export class PrizmLoaderComponent {
     @Input()
-    size: PzmSize = 's';
+    size: PrizmSize = 's';
 
     @Input()
     inheritColor = false;

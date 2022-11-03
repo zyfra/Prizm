@@ -1,39 +1,39 @@
 import { PolymorphContent } from '../../../directives';
 import {
-  PzmBaseDialogContext,
-  PzmDialogBaseOptions,
-  PzmDialogButton,
-  PzmDialogSize,
+  PrizmBaseDialogContext,
+  PrizmDialogBaseOptions,
+  PrizmDialogButton,
+  PrizmDialogSize,
 } from '../dialog/dialog.models';
-import { PzmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
+import { PrizmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
 
-export type PzmConfirmDialogButton = Omit<PzmDialogButton, 'action'> & Partial<Pick<PzmDialogButton, 'action'>>
+export type PrizmConfirmDialogButton = Omit<PrizmDialogButton, 'action'> & Partial<Pick<PrizmDialogButton, 'action'>>
 
-export interface PzmConfirmDialogOptions<DATA = unknown> extends PzmDialogBaseOptions {
-  confirmButton?: PzmConfirmDialogButton | string,
-  supportButton?: PzmConfirmDialogButton | string,
-  cancelButton?: PzmConfirmDialogButton | string,
+export interface PrizmConfirmDialogOptions<DATA = unknown> extends PrizmDialogBaseOptions {
+  confirmButton?: PrizmConfirmDialogButton | string,
+  supportButton?: PrizmConfirmDialogButton | string,
+  cancelButton?: PrizmConfirmDialogButton | string,
   showByVertical?: boolean;
   data?: DATA;
-  size?: PzmDialogSize;
+  size?: PrizmDialogSize;
   title: PolymorphContent<
-    PzmBaseDialogContext<
-      PzmConfirmDialogResultDefaultType,
-      PzmConfirmDialogOptions<DATA>
+    PrizmBaseDialogContext<
+      PrizmConfirmDialogResultDefaultType,
+      PrizmConfirmDialogOptions<DATA>
       >
     >,
   description?: PolymorphContent<
-    PzmBaseDialogContext<
-      PzmConfirmDialogResultDefaultType,
-      PzmConfirmDialogOptions<DATA>
+    PrizmBaseDialogContext<
+      PrizmConfirmDialogResultDefaultType,
+      PrizmConfirmDialogOptions<DATA>
       >
     >,
-  overscrollMode?: PzmOverscrollMode
+  overscrollMode?: PrizmOverscrollMode
 }
 
-export enum PzmConfirmDialogResultDefaultType {
+export enum PrizmConfirmDialogResultDefaultType {
   confirmed = 'confirmed',
   support = 'support',
   cancel = 'cancel',
 }
-export type PzmConfirmDialogResult = PzmConfirmDialogResultDefaultType | any;
+export type PrizmConfirmDialogResult = PrizmConfirmDialogResultDefaultType | any;

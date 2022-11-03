@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { PzmCheckedDirective } from './checked.directive';
+import { PrizmCheckedDirective } from './checked.directive';
 
 @NgModule({
-    declarations: [PzmCheckedDirective],
-    exports: [PzmCheckedDirective],
+    declarations: [PrizmCheckedDirective],
+    exports: [PrizmCheckedDirective],
 })
-export class PzmCheckedModule {}
+export class PrizmCheckedModule {}

@@ -4,7 +4,7 @@ import { SwitcherExampleComponent } from './switcher-example.component';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { SwitcherBasicExampleComponent } from './examples/switcher-basic-example/switcher-basic-example.component';
-import { PzmSwitcherModule } from '@digital-plant/zui-components';
+import { PrizmSwitcherModule } from '@digital-plant/zui-components';
 import { SwitcherInnerLExampleComponent } from './examples/switcher-inner-l-example/switcher-inner-l-example.component';
 import { SwitcherInnerMExampleComponent } from './examples/switcher-inner-m-example/switcher-inner-m-example.component';
 import { SwitcherOuterMExampleComponent } from './examples/switcher-outer-m-example/switcher-outer-m-example.component';
@@ -29,7 +29,7 @@ import { SwitcherOnlyIconExampleComponent } from './examples/switcher-only-icon-
     CommonModule,
     TuiAddonDocModule,
     RouterModule.forChild(generateRoutes(SwitcherExampleComponent)),
-    PzmSwitcherModule,
+    PrizmSwitcherModule,
   ],
 })
 export class SwitcherExampleModule {}

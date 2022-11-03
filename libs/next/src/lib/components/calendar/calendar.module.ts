@@ -1,24 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PzmCalendarComponent } from './calendar.component';
-import { PzmPrimitiveYearMonthPaginationModule } from '../internal/primitive-year-month-pagination';
-import { PzmPrimitiveYearPickerModule } from '../internal/primitive-year-picker';
-import { PzmPrimitiveCalendarModule } from '../internal/primitive-calendar/primitive-calendar.module';
-import { PzmMapperPipeModule } from '../../pipes/mapper/mapper.module';
-import { PzmScrollbarModule } from '../scrollbar/scrollbar.module';
-import { PzmPrimitiveMonthPickerModule } from '../internal/primitive-month-picker';
+import { PrizmCalendarComponent } from './calendar.component';
+import { PrizmPrimitiveYearMonthPaginationModule } from '../internal/primitive-year-month-pagination';
+import { PrizmPrimitiveYearPickerModule } from '../internal/primitive-year-picker';
+import { PrizmPrimitiveCalendarModule } from '../internal/primitive-calendar/primitive-calendar.module';
+import { PrizmMapperPipeModule } from '../../pipes/mapper/mapper.module';
+import { PrizmScrollbarModule } from '../scrollbar/scrollbar.module';
+import { PrizmPrimitiveMonthPickerModule } from '../internal/primitive-month-picker';
 
 @NgModule({
     imports: [
         CommonModule,
-        PzmPrimitiveYearMonthPaginationModule,
-        PzmPrimitiveCalendarModule,
-        PzmPrimitiveYearPickerModule,
-        PzmPrimitiveMonthPickerModule,
-        PzmScrollbarModule,
-        PzmMapperPipeModule,
+        PrizmPrimitiveYearMonthPaginationModule,
+        PrizmPrimitiveCalendarModule,
+        PrizmPrimitiveYearPickerModule,
+        PrizmPrimitiveMonthPickerModule,
+        PrizmScrollbarModule,
+        PrizmMapperPipeModule,
     ],
-    declarations: [PzmCalendarComponent],
-    exports: [PzmCalendarComponent],
+    declarations: [PrizmCalendarComponent],
+    exports: [PrizmCalendarComponent],
 })
-export class PzmCalendarModule {}
+export class PrizmCalendarModule {}

@@ -1,9 +1,9 @@
-import { PzmBaseColor } from '../@core/enums/base-color';
-import { PzmSupportColor } from '../@core/enums/support-color';
+import { PrizmBaseColor } from '../@core/enums/base-color';
+import { PrizmSupportColor } from '../@core/enums/support-color';
 
-export type PzmColor =
-    | PzmBaseColor
-    | PzmSupportColor
+export type PrizmColor =
+    | PrizmBaseColor
+    | PrizmSupportColor
     | 'base-01'
     | 'base-02'
     | 'base-03'

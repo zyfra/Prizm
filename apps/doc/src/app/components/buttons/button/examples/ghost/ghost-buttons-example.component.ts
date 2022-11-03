@@ -21,4 +21,4 @@ import { Component } from '@angular/core';
   ],
   templateUrl: './ghost-buttons-example.component.html',
 })
-export class PzmGhostButtonsExampleComponent {}
+export class PrizmGhostButtonsExampleComponent {}

@@ -1,4 +1,4 @@
-export interface PzmTypedEventTarget<E> {
+export interface PrizmTypedEventTarget<E> {
     addEventListener(
         type: string,
         listener: ((evt: E) => void) | null,
@@ -14,6 +14,6 @@ export interface PzmTypedEventTarget<E> {
 /**
  * Wrapper around {@link Event} to add typings to target and currentTarget.
  */
-export type PzmEventWith<G extends Event, T extends PzmTypedEventTarget<G>> = G & {
+export type PrizmEventWith<G extends Event, T extends PrizmTypedEventTarget<G>> = G & {
     readonly currentTarget: T;
 };

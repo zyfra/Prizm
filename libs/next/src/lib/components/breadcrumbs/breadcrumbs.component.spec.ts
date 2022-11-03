@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BreadcrumbsComponent } from './breadcrumbs.component';
-import { PzmDropdownHostModule } from '../dropdowns/dropdown-host/dropdown-host.module';
-import { PzmIconModule } from '../icon/icon.module';
+import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host/dropdown-host.module';
+import { PrizmIconModule } from '../icon/icon.module';
 
 describe('BreadcrumbsComponent', () => {
   let component: BreadcrumbsComponent;
@@ -21,7 +21,7 @@ describe('BreadcrumbsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [BreadcrumbsComponent],
-      imports: [PzmDropdownHostModule, PzmIconModule],
+      imports: [PrizmDropdownHostModule, PrizmIconModule],
     }).compileComponents();
   });
 

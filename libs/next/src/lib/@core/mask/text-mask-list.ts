@@ -1,4 +1,4 @@
 /**
  * {@link https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#mask-array}
  */
-export type PzmTextMaskList = ReadonlyArray<string | RegExp>;
+export type PrizmTextMaskList = ReadonlyArray<string | RegExp>;

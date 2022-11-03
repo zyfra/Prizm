@@ -1,19 +1,19 @@
 import { InjectionToken } from '@angular/core';
-import { PzmControlValueTransformer } from '../types/control-value-transformer';
-import { PzmDay, PzmDayRange, PzmTime } from '../@core/date-time';
+import { PrizmControlValueTransformer } from '../types/control-value-transformer';
+import { PrizmDay, PrizmDayRange, PrizmTime } from '../@core/date-time';
 
 export const PZM_DATE_VALUE_TRANSFORMER = new InjectionToken<
-    PzmControlValueTransformer<PzmDay | null>
->(`Control value transformer of PzmDay to custom value format for InputDate* components`);
+    PrizmControlValueTransformer<PrizmDay | null>
+>(`Control value transformer of PrizmDay to custom value format for InputDate* components`);
 
 export const PZM_DATE_RANGE_VALUE_TRANSFORMER = new InjectionToken<
-    PzmControlValueTransformer<PzmDayRange | null>
+    PrizmControlValueTransformer<PrizmDayRange | null>
 >(`Control value transformer for InputDateRange component`);
 
 export const PZM_DATE_TIME_VALUE_TRANSFORMER = new InjectionToken<
-    PzmControlValueTransformer<[PzmDay | null, PzmTime | null]>
+    PrizmControlValueTransformer<[PrizmDay | null, PrizmTime | null]>
 >(`Control value transformer for InputDateTime component`);
 
 export const PZM_TIME_VALUE_TRANSFORMER = new InjectionToken<
-    PzmControlValueTransformer<[PzmDay | null, PzmTime | null]>
+    PrizmControlValueTransformer<[PrizmDay | null, PrizmTime | null]>
 >(`Control value transformer for InputTime component`);

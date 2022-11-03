@@ -1,1 +1,1 @@
-export type PzmBrightness = 'onLight' | 'onDark';
+export type PrizmBrightness = 'onLight' | 'onDark';

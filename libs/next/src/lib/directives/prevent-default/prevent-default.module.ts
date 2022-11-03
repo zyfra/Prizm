@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { PzmPreventDefaultDirective } from './prevent-default.directive';
+import { PrizmPreventDefaultDirective } from './prevent-default.directive';
 
 @NgModule({
-    declarations: [PzmPreventDefaultDirective],
-    exports: [PzmPreventDefaultDirective],
+    declarations: [PrizmPreventDefaultDirective],
+    exports: [PrizmPreventDefaultDirective],
 })
-export class PzmPreventDefaultModule {}
+export class PrizmPreventDefaultModule {}

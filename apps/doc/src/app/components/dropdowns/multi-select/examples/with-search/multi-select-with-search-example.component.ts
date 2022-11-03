@@ -5,7 +5,7 @@ import { FormControl } from '@angular/forms';
   selector: 'pzm-multi-select-with-search-example',
   templateUrl: './multi-select-with-search-example.component.html',
 })
-export class PzmMultiSelectWithSearchExampleComponent {
+export class PrizmMultiSelectWithSearchExampleComponent {
   value = true;
   readonly valueControl = new FormControl(['Андрей Сафанов']);
   readonly items = [

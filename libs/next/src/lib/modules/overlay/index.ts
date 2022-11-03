@@ -1,7 +1,7 @@
-export {PzmOverlayContentToken} from './token';
-export {PzmOverlayInsidePlacement, PzmOverlayOutsidePlacement, PzmOverlaySlidePlacement} from "./models";
-export {PzmOverlayFullscreenPosition, PzmOverlayGlobalPosition, PzmOverlayRelativePosition, PzmOverlaySlidePosition} from './position';
-export {PzmOverlayService} from './overlay.service';
-export {PzmOverlayControl} from './overlay-control';
-export {PzmOverlayModule} from './overlay.module';
+export {PrizmOverlayContentToken} from './token';
+export {PrizmOverlayInsidePlacement, PrizmOverlayOutsidePlacement, PrizmOverlaySlidePlacement} from "./models";
+export {PrizmOverlayFullscreenPosition, PrizmOverlayGlobalPosition, PrizmOverlayRelativePosition, PrizmOverlaySlidePosition} from './position';
+export {PrizmOverlayService} from './overlay.service';
+export {PrizmOverlayControl} from './overlay-control';
+export {PrizmOverlayModule} from './overlay.module';
 export * from './const';

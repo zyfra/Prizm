@@ -5,14 +5,14 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { ZoomControlExampleBasicComponent } from './examples/zoom-control-example-basic/zoom-control-example-basic.component';
 import {
-  PzmButtonModule,
-  PzmDataListModule,
-  PzmDropdownControllerModule,
-  PzmDropdownHostModule,
-  PzmIconModule,
-  PzmInputTextModule,
-  PzmPanelModule,
-  PzmSelectModule,
+  PrizmButtonModule,
+  PrizmDataListModule,
+  PrizmDropdownControllerModule,
+  PrizmDropdownHostModule,
+  PrizmIconModule,
+  PrizmInputTextModule,
+  PrizmPanelModule,
+  PrizmSelectModule,
 } from '@digital-plant/zui-components';
 
 @NgModule({
@@ -20,15 +20,15 @@ import {
   imports: [
     CommonModule,
     TuiAddonDocModule,
-    PzmIconModule,
+    PrizmIconModule,
     RouterModule.forChild(generateRoutes(ZoomControlExampleComponent)),
-    PzmPanelModule,
-    PzmInputTextModule,
-    PzmSelectModule,
-    PzmDropdownHostModule,
-    PzmDataListModule,
-    PzmButtonModule,
-    PzmDropdownControllerModule,
+    PrizmPanelModule,
+    PrizmInputTextModule,
+    PrizmSelectModule,
+    PrizmDropdownHostModule,
+    PrizmDataListModule,
+    PrizmButtonModule,
+    PrizmDropdownControllerModule,
   ],
 })
 export class ZoomControlExampleModule {}

@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
-  PzmMultiSelectIdentityMatcher,
-  PzmMultiSelectItemStringifyFunc,
-  PzmMultiSelectItemStringifyItem,
-  PzmMultiSelectSearchMatcher,
+  PrizmMultiSelectIdentityMatcher,
+  PrizmMultiSelectItemStringifyFunc,
+  PrizmMultiSelectItemStringifyItem,
+  PrizmMultiSelectSearchMatcher,
 } from '@digital-plant/zui-components';
 
-type PzmItem = {
+type PrizmItem = {
   id: number;
   name: string;
 }
@@ -21,21 +21,21 @@ type PzmItem = {
     }
   `]
 })
-export class PzmMultiSelectWithObjectExampleComponent {
-  readonly items: PzmItem[] = [
+export class PrizmMultiSelectWithObjectExampleComponent {
+  readonly items: PrizmItem[] = [
     {id: 1, name: 'Россия'},
     {id: 2, name: 'США'},
     {id: 3, name: 'ОАЭ'},
   ];
   readonly selectAllItem = {id: -1, name: 'Выбрать все'};
   readonly valueControl = new FormControl([{id: 3}]);
-  readonly searchMatcher: PzmMultiSelectSearchMatcher<PzmItem> = (search: string, item: PzmItem) => {
+  readonly searchMatcher: PrizmMultiSelectSearchMatcher<PrizmItem> = (search: string, item: PrizmItem) => {
     return item.name.toLowerCase().includes(search.toLowerCase());
   };
-  readonly identityMatcher: PzmMultiSelectIdentityMatcher<PzmItem> = (a: PzmItem, b: PzmItem) => {
+  readonly identityMatcher: PrizmMultiSelectIdentityMatcher<PrizmItem> = (a: PrizmItem, b: PrizmItem) => {
     return a.id === b.id;
   }
-  readonly stringify: PzmMultiSelectItemStringifyFunc<PzmItem> = (item: PzmMultiSelectItemStringifyItem<PzmItem>) => {
+  readonly stringify: PrizmMultiSelectItemStringifyFunc<PrizmItem> = (item: PrizmMultiSelectItemStringifyItem<PrizmItem>) => {
     return item.obj.name;
   }
 }

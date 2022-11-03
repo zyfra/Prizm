@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PzmInputSize, PzmInputStatus } from '@digital-plant/zui-components';
+import { PrizmInputSize, PrizmInputStatus } from '@digital-plant/zui-components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
@@ -14,9 +14,9 @@ export class TextareaExampleComponent {
 
   public outer: false;
 
-  public size: PzmInputSize = 'l';
-  public sizesOuter: PzmInputSize[] = ['l', 'm', 's'];
-  public sizesInner: PzmInputSize[] = ['l', 'm'];
+  public size: PrizmInputSize = 'l';
+  public sizesOuter: PrizmInputSize[] = ['l', 'm', 's'];
+  public sizesInner: PrizmInputSize[] = ['l', 'm'];
 
   public disabled = false;
 

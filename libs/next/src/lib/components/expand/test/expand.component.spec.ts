@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { PZM_EXPAND_LOADED } from '../expand.const';
-import { PzmExpandModule } from '../expand.module';
+import { PrizmExpandModule } from '../expand.module';
 import { CommonModule } from '@angular/common';
 
 const ANIMATION_DELAY = 900;
@@ -33,7 +33,7 @@ describe('expand', () => {
     beforeEach(
       () => {
         TestBed.configureTestingModule({
-          imports: [PzmExpandModule, CommonModule],
+          imports: [PrizmExpandModule, CommonModule],
           declarations: [TestComponent],
         });
       }

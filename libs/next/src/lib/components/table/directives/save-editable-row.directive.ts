@@ -4,4 +4,4 @@ import { SaveEditableRow } from 'primeng/table';
 @Directive({
   selector: '[pzmSaveEditableRow]',
 })
-export class PzmSaveEditableRowDirective extends SaveEditableRow {}
+export class PrizmSaveEditableRowDirective extends SaveEditableRow {}

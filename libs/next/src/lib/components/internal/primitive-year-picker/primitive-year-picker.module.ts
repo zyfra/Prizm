@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
-import { PzmPrimitiveYearPickerComponent } from './primitive-year-picker.component';
-import { PzmLetModule } from '@digital-plant/zyfra-helpers';
-import { PzmRepeatTimesModule } from '../../../directives/repeat-times/repeat-times.module';
-import { PzmHoveredModule } from '../../../directives/hovered/hovered.module';
-import { PzmPressedModule } from '../../../directives/pressed/pressed.module';
-import { PzmScrollIntoViewModule } from '../../../directives/scroll-into-view/scroll-into-view.module';
+import { PrizmPrimitiveYearPickerComponent } from './primitive-year-picker.component';
+import { PrizmLetModule } from '@digital-plant/zyfra-helpers';
+import { PrizmRepeatTimesModule } from '../../../directives/repeat-times/repeat-times.module';
+import { PrizmHoveredModule } from '../../../directives/hovered/hovered.module';
+import { PrizmPressedModule } from '../../../directives/pressed/pressed.module';
+import { PrizmScrollIntoViewModule } from '../../../directives/scroll-into-view/scroll-into-view.module';
 
 @NgModule({
     imports: [
-        PzmHoveredModule,
-        PzmPressedModule,
-        PzmRepeatTimesModule,
-        PzmLetModule,
-        PzmScrollIntoViewModule,
+        PrizmHoveredModule,
+        PrizmPressedModule,
+        PrizmRepeatTimesModule,
+        PrizmLetModule,
+        PrizmScrollIntoViewModule,
     ],
-    declarations: [PzmPrimitiveYearPickerComponent],
-    exports: [PzmPrimitiveYearPickerComponent],
+    declarations: [PrizmPrimitiveYearPickerComponent],
+    exports: [PrizmPrimitiveYearPickerComponent],
 })
-export class PzmPrimitiveYearPickerModule {}
+export class PrizmPrimitiveYearPickerModule {}

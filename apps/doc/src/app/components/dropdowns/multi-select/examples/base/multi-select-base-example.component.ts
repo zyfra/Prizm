@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
     }
   `]
 })
-export class PzmMultiSelectBaseExampleComponent implements OnInit {
+export class PrizmMultiSelectBaseExampleComponent implements OnInit {
   value = true;
   readonly valueControl = new FormControl([]);
   readonly items = [

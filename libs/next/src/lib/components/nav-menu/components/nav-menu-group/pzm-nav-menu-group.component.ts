@@ -19,7 +19,7 @@ import { filter, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { fromRubricatorNodes, getPath } from '../../utils/treeNode.functions';
 import { DEFAULT_TOOLBAR_CONFIG, SelectionType, ToolbarConfig, ViewMode } from '../../model/nav-menu-config';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -27,9 +27,9 @@ import { FormControl } from '@angular/forms';
   templateUrl: './pzm-nav-menu-group.component.html',
   styleUrls: ['./pzm-nav-menu-group.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PzmDestroyService],
+  providers: [PrizmDestroyService],
 })
-export class PzmNavMenuGroupComponent implements OnInit, OnDestroy {
+export class PrizmNavMenuGroupComponent implements OnInit, OnDestroy {
   @ViewChild(Tree) public tree: Tree;
   @ViewChild('folderIcons') public folderIcons: TemplateRef<unknown>;
   @Input() itemExtra: TemplateRef<unknown>;
@@ -124,7 +124,7 @@ export class PzmNavMenuGroupComponent implements OnInit, OnDestroy {
     private viewContainerRef: ViewContainerRef,
     private cdr: ChangeDetectorRef,
     private navMenuService: NavMenuService,
-    private readonly destroy$: PzmDestroyService
+    private readonly destroy$: PrizmDestroyService
   ) {}
 
   ngOnInit(): void {

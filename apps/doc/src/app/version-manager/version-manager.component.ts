@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { LOCATION } from '@ng-web-apis/common';
 
 import { SELECTED_VERSION_META, VERSION_MANAGER_PROVIDERS } from './version-manager.providers';
-import { PZM_VERSIONS_META, PzmVersionMeta } from './versions.constants';
+import { PZM_VERSIONS_META, PrizmVersionMeta } from './versions.constants';
 
 @Component({
   selector: 'pzm-version-manager',
@@ -16,12 +16,12 @@ export class VersionManagerComponent {
   readonly versions = PZM_VERSIONS_META;
 
   constructor(
-    @Inject(SELECTED_VERSION_META) readonly initialVersion: PzmVersionMeta | null,
+    @Inject(SELECTED_VERSION_META) readonly initialVersion: PrizmVersionMeta | null,
     @Inject(LOCATION) private readonly locationRef: Location,
     @Inject(Router) private readonly router: Router
   ) {}
 
-  public getVersionHref(version: PzmVersionMeta): string {
+  public getVersionHref(version: PrizmVersionMeta): string {
     if (version.baseHref) {
       return `${this.locationRef.origin}/${version.baseHref}${this.router.url}${this.locationRef.search}`;
     } else {

@@ -3,10 +3,10 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
   pzmPure,
-  PzmToastAppearance,
-  PzmToastOptions,
-  PzmToastPosition,
-  PzmToastService,
+  PrizmToastAppearance,
+  PrizmToastOptions,
+  PrizmToastPosition,
+  PrizmToastService,
 } from '@digital-plant/zui-components';
 
 @Component({
@@ -45,25 +45,25 @@ export class ToastComponent {
     HTML: import('!!raw-loader!./examples/toast-example/toast-example.component.html'),
   };
 
-  readonly appearanceVariants: ReadonlyArray<PzmToastAppearance> = [
+  readonly appearanceVariants: ReadonlyArray<PrizmToastAppearance> = [
     'info',
     'success',
     'warning',
     'danger',
   ];
-  appearance: PzmToastAppearance = this.appearanceVariants[0];
+  appearance: PrizmToastAppearance = this.appearanceVariants[0];
 
   readonly containerId = 'test-inline-container';
-  readonly positionVariants: ReadonlyArray<PzmToastOptions['position']> = [
-    PzmToastPosition.TOP_RIGHT,
-    PzmToastPosition.TOP_LEFT,
-    PzmToastPosition.TOP_MIDDLE,
-    PzmToastPosition.BOTTOM_RIGHT,
-    PzmToastPosition.BOTTOM_LEFT,
-    PzmToastPosition.BOTTOM_MIDDLE,
+  readonly positionVariants: ReadonlyArray<PrizmToastOptions['position']> = [
+    PrizmToastPosition.TOP_RIGHT,
+    PrizmToastPosition.TOP_LEFT,
+    PrizmToastPosition.TOP_MIDDLE,
+    PrizmToastPosition.BOTTOM_RIGHT,
+    PrizmToastPosition.BOTTOM_LEFT,
+    PrizmToastPosition.BOTTOM_MIDDLE,
     this.containerId
   ];
-  position: PzmToastOptions['position'] = this.positionVariants[0];
+  position: PrizmToastOptions['position'] = this.positionVariants[0];
   timer = 3000;
   isPlatform = false;
   id = '';
@@ -72,7 +72,7 @@ export class ToastComponent {
   content: PolymorphContent = 'Содержимое';
 
 
-  constructor(private readonly toastService: PzmToastService) {}
+  constructor(private readonly toastService: PrizmToastService) {}
 
   @pzmPure
   public getContentVariants(

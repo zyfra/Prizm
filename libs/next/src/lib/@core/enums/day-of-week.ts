@@ -1,4 +1,4 @@
-export const enum PzmDayOfWeek {
+export const enum PrizmDayOfWeek {
     Sunday,
     Monday,
     Tuesday,

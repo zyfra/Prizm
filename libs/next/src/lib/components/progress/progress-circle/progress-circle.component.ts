@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, In
 import { USER_AGENT, WINDOW } from '@ng-web-apis/common';
 import { pzmDefaultProp } from '../../../decorators/default-prop';
 import { PZM_CHROMIUM_EDGE_START_VERSION } from '../../../constants/chromium';
-import { PzmSizeS, PzmSizesXl } from '../../../util/size-bigger';
+import { PrizmSizeS, PrizmSizesXl } from '../../../util/size-bigger';
 import { pzmIsEdgeOlderThan } from '../../../util/browser/is-edge-older-than';
 
 @Component({
@@ -11,7 +11,7 @@ import { pzmIsEdgeOlderThan } from '../../../util/browser/is-edge-older-than';
     styleUrls: [`./progress-circle.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PzmProgressCircleComponent {
+export class PrizmProgressCircleComponent {
     @ViewChild(`progressCircle`, {static: true})
     private readonly progressCircle!: ElementRef<SVGCircleElement>;
 
@@ -36,7 +36,7 @@ export class PzmProgressCircleComponent {
     @Input()
     @HostBinding(`attr.data-size`)
     @pzmDefaultProp()
-    size: PzmSizeS | PzmSizesXl = `m`;
+    size: PrizmSizeS | PrizmSizesXl = `m`;
 
     @HostBinding(`style.--progress-percentage`)
     get progressPercentage(): number {

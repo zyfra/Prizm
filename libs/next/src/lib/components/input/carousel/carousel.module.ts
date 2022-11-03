@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 
-import { PzmInputCommonModule } from '../common/input-common.module';
-import { PzmCarouselAuxiliaryLeftComponent } from './carousel-auxiliary-left.component';
-import { PzmCarouselAuxiliaryRightComponent } from './carousel-auxiliary-right.component';
-import { PzmCarouselComponent } from './carousel.component';
+import { PrizmInputCommonModule } from '../common/input-common.module';
+import { PrizmCarouselAuxiliaryLeftComponent } from './carousel-auxiliary-left.component';
+import { PrizmCarouselAuxiliaryRightComponent } from './carousel-auxiliary-right.component';
+import { PrizmCarouselComponent } from './carousel.component';
 
 @NgModule({
-  imports: [PzmInputCommonModule],
-  declarations: [PzmCarouselComponent, PzmCarouselAuxiliaryLeftComponent, PzmCarouselAuxiliaryRightComponent],
+  imports: [PrizmInputCommonModule],
+  declarations: [PrizmCarouselComponent, PrizmCarouselAuxiliaryLeftComponent, PrizmCarouselAuxiliaryRightComponent],
   exports: [
-    PzmCarouselComponent,
-    PzmCarouselAuxiliaryLeftComponent,
-    PzmCarouselAuxiliaryRightComponent,
-    PzmInputCommonModule,
+    PrizmCarouselComponent,
+    PrizmCarouselAuxiliaryLeftComponent,
+    PrizmCarouselAuxiliaryRightComponent,
+    PrizmInputCommonModule,
   ],
 })
-export class PzmCarouselModule {}
+export class PrizmCarouselModule {}
 

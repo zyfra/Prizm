@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { PzmHoveredDirective } from './hovered.directive';
+import { PrizmHoveredDirective } from './hovered.directive';
 
 @NgModule({
-    declarations: [PzmHoveredDirective],
-    exports: [PzmHoveredDirective],
+    declarations: [PrizmHoveredDirective],
+    exports: [PrizmHoveredDirective],
 })
-export class PzmHoveredModule {}
+export class PrizmHoveredModule {}

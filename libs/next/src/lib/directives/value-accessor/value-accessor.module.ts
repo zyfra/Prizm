@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { PzmValueAccessorDirective } from './value-accessor.directive';
+import { PrizmValueAccessorDirective } from './value-accessor.directive';
 
 @NgModule({
-    declarations: [PzmValueAccessorDirective],
-    exports: [PzmValueAccessorDirective],
+    declarations: [PrizmValueAccessorDirective],
+    exports: [PrizmValueAccessorDirective],
 })
-export class PzmValueAccessorModule {}
+export class PrizmValueAccessorModule {}

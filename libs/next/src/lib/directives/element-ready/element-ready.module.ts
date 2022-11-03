@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
-import { PzmElementReadyDirective } from './element-ready.directive';
+import { PrizmElementReadyDirective } from './element-ready.directive';
 
 @NgModule({
-    declarations: [PzmElementReadyDirective],
-    exports: [PzmElementReadyDirective],
+    declarations: [PrizmElementReadyDirective],
+    exports: [PrizmElementReadyDirective],
 })
-export class PzmElementReadyModule {}
+export class PrizmElementReadyModule {}

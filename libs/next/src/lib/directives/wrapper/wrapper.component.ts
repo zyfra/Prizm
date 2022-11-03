@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input, OnInit } from '@angular/core';
-import { PzmThemeService } from '../../services';
-import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmThemeService } from '../../services';
+import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
 import { takeUntil } from 'rxjs/operators';
 
-export enum PzmInteractiveState {
+export enum PrizmInteractiveState {
   Disabled = "disabled",
   Readonly = "readonly",
   Pressed = "pressed",
@@ -16,10 +16,10 @@ export enum PzmInteractiveState {
   styleUrls: ['./wrapper.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
-    PzmDestroyService,
+    PrizmDestroyService,
   ]
 })
-export class PzmWrapperComponent implements OnInit {
+export class PrizmWrapperComponent implements OnInit {
   @Input()
   disabled = false;
 
@@ -56,24 +56,24 @@ export class PzmWrapperComponent implements OnInit {
   }
 
   @HostBinding('attr.data-state')
-  get interactiveState(): PzmInteractiveState | string | null {
+  get interactiveState(): PrizmInteractiveState | string | null {
     if (this.pseudoState) {
       return this.pseudoState;
     }
     if (this.disabled) {
-      return PzmInteractiveState.Disabled;
+      return PrizmInteractiveState.Disabled;
     }
 
     if (this.readOnly) {
-      return PzmInteractiveState.Readonly;
+      return PrizmInteractiveState.Readonly;
     }
 
     if (this.pressed) {
-      return PzmInteractiveState.Pressed;
+      return PrizmInteractiveState.Pressed;
     }
 
     if (this.hovered) {
-      return PzmInteractiveState.Hovered;
+      return PrizmInteractiveState.Hovered;
     }
 
     return null;
@@ -90,8 +90,8 @@ export class PzmWrapperComponent implements OnInit {
   }
 
   constructor(
-    public readonly themeService: PzmThemeService,
-    public readonly destroy$: PzmDestroyService,
+    public readonly themeService: PrizmThemeService,
+    public readonly destroy$: PrizmDestroyService,
     public readonly elRef: ElementRef,
   ) {}
 

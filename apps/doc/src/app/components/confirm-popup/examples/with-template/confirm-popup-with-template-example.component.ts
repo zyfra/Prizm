@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PzmOverlayOutsidePlacement } from '@digital-plant/zui-components';
+import { PrizmOverlayOutsidePlacement } from '@digital-plant/zui-components';
 
 @Component({
   selector: 'pzm-confirm-popup-with-template-example',
@@ -41,6 +41,6 @@ import { PzmOverlayOutsidePlacement } from '@digital-plant/zui-components';
     }
   `]
 })
-export class PzmConfirmPopupWithTemplateExampleComponent {
-  direction = PzmOverlayOutsidePlacement.RIGHT
+export class PrizmConfirmPopupWithTemplateExampleComponent {
+  direction = PrizmOverlayOutsidePlacement.RIGHT
 }

@@ -1,8 +1,8 @@
 import { Directive } from '@angular/core';
-import { AbstractPzmControl } from './control';
+import { AbstractPrizmControl } from './control';
 
 @Directive()
-export abstract class AbstractPzmNullableControl<T> extends AbstractPzmControl<T | null> {
+export abstract class AbstractPrizmNullableControl<T> extends AbstractPrizmControl<T | null> {
     protected getFallbackValue(): T | null {
         return null;
     }
