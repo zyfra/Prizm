@@ -10,7 +10,7 @@
 
 **Changes**
 
-- fix(components/hierarhical-menu): export utils and InjectionToken + hot fix [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/352)
+- fix(components/hierarhical-menu): export utils and InjectionToken + hot fix [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/352)
 
 > **Special thanks**
 >
@@ -25,7 +25,7 @@
 
 **Changes**
 
-- fix/(components/package): fix peerDependencies [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/353)
+- fix/(components/package): fix peerDependencies [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/353)
 
 > **Special thanks**
 >
@@ -34,15 +34,15 @@
 
 ---
 
-## [1.0.0-beta.10](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk) (18-10-2022)
+## [1.0.0-beta.10](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (18-10-2022)
 
 ### Features
-- feat(next/icon): add poi svg icons [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/333)
-- feat(next/multi-select): add single line chips multi-select [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/353)
-- feat(next/chips): add single line for chips [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/353)
+- feat(next/icon): add poi svg icons [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/333)
+- feat(next/multi-select): add single line chips multi-select [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/353)
+- feat(next/chips): add single line for chips [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/353)
 
 ### BUG FIXES
-- feat(next/chips): fix select border [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/353)
+- feat(next/chips): fix select border [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/353)
 
 
 ---
@@ -53,7 +53,7 @@
 
 **Changes**
 
-- feat(components/hierarchical-menu): hierarchical-tree-menu component [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/247)
+- feat(components/hierarchical-menu): hierarchical-tree-menu component [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/247)
 
 > **Special thanks**
 >
@@ -62,20 +62,20 @@
 
 ---
 
-## [1.0.0-beta.9](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk) (14-10-2022)
+## [1.0.0-beta.9](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (14-10-2022)
 
 ### Features
-- fix/(next/calendar): add day with status [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/346)
-- fix/(next/multi-select): add select-all button [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/346)
-- fix/(doc/input-layout): add forceClear option to doc [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/346)
+- fix/(next/calendar): add day with status [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
+- fix/(next/multi-select): add select-all button [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
+- fix/(doc/input-layout): add forceClear option to doc [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
 
 ### BUG FIXES
 
 - fix(next/checkbox): fix checkbox, input-search, input-chips
-  [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/348)
-- fix/(select): fix less output [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/milestones/29#tab-issues)
-- fix/(next/input-mask): Настройки NgxMaskModule. [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/341)
-- fix/(next/select): fix size error logging [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/346)
+  [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/348)
+- fix/(select): fix less output [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/milestones/29#tab-issues)
+- fix/(next/input-mask): Настройки NgxMaskModule. [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/341)
+- fix/(next/select): fix size error logging [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
 
 
 ---
@@ -86,10 +86,10 @@
 
 **Changes**
 
-- fix(components/dropdown-with-content): fix dropdown position [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/344)
-- fix(zyfra-base-table.directive): export interface LazyLoadEvent [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/340)
-- fix(components/dropdown): Fixed dropdown filter mini size [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/335)
-- fix(component/zyfra-input-switch):fix color zyfra-input-switch unselected [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/332)
+- fix(components/dropdown-with-content): fix dropdown position [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/344)
+- fix(zyfra-base-table.directive): export interface LazyLoadEvent [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/340)
+- fix(components/dropdown): Fixed dropdown filter mini size [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/335)
+- fix(component/zyfra-input-switch):fix color zyfra-input-switch unselected [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/332)
 
 > **Special thanks**
 >
@@ -106,22 +106,22 @@
 ### BUG FIXES
 
 - fix(components/nav-menu): Фикс бага с отображением иконок, фикс бага с границей.
-  [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/343)
-- fix/(doc): fix less output [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/342)
-- fix/(next/input-mask): Настройки NgxMaskModule. [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/341)
-- fix/(next/select): show initial value from control [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/346)
+  [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/343)
+- fix/(doc): fix less output [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
+- fix/(next/input-mask): Настройки NgxMaskModule. [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/341)
+- fix/(next/select): show initial value from control [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
 
 
 ### Features
 
-- feat/(next/carousel): PLATFORM01-17936 Пример с выбором месяца и года. [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/339)
-- feat/(tree): increase font-weigt [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/342)
-- feat/(doc): add webpack build [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/342)
-- feat/(next/widget): change header, body background color [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/342)
-- feat/(next/hint): add pzmHintCanShow [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/342)
-- feat/(next/): add themes mixins [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/342)
-- feat/(next/select): add isChipsDeletable, forceClear for multi-select [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/346)
-- feat/(next/multi-select): add forceClear for select [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/346)
+- feat/(next/carousel): PLATFORM01-17936 Пример с выбором месяца и года. [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/339)
+- feat/(tree): increase font-weigt [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
+- feat/(doc): add webpack build [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
+- feat/(next/widget): change header, body background color [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
+- feat/(next/hint): add pzmHintCanShow [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
+- feat/(next/): add themes mixins [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
+- feat/(next/select): add isChipsDeletable, forceClear for multi-select [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
+- feat/(next/multi-select): add forceClear for select [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
 
 
 
@@ -146,10 +146,10 @@
 
 ### @digital-plant/zui-components [1.0.0-beta.7]
 
-- fix/(next/\*): add testId [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/336)
-- fix/(components/textarea) Textarea fix [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/329)
-- feat(components/zoom-control) Добавлен паттерн zoom-control [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/328)
-- feat(components): shadow encapsulation for primeng wrappers [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/324)
+- fix/(next/\*): add testId [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/336)
+- fix/(components/textarea) Textarea fix [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/329)
+- feat(components/zoom-control) Добавлен паттерн zoom-control [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/328)
+- feat(components): shadow encapsulation for primeng wrappers [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/324)
 
 > **Special thanks**
 >
@@ -171,13 +171,13 @@
 
 ### @digital-plant/zui-components [1.0.0-beta.5]
 
-- fix(components/panel, components/tabs, components/side-menu): Косметические фиксы компонент [326](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/326)
-- feat(components/paginator) Компонента приведена в соответствие с дизайном [325](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/325)
-- docs (components/dropdown) dropdown hierarchy example [321](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/321)
-- feat/(next/dropdown): new close method, fix version in doc, and small fixes [327](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/327)
-- fix(components/icon): up poi-2 icon [323](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/323)
-- feat: new global variables [320](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/320)
-- feat(components): shadow encapsulation for primeng wrappers [324](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/324)
+- fix(components/panel, components/tabs, components/side-menu): Косметические фиксы компонент [326](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/326)
+- feat(components/paginator) Компонента приведена в соответствие с дизайном [325](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/325)
+- docs (components/dropdown) dropdown hierarchy example [321](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/321)
+- feat/(next/dropdown): new close method, fix version in doc, and small fixes [327](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/327)
+- fix(components/icon): up poi-2 icon [323](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/323)
+- feat: new global variables [320](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/320)
+- feat(components): shadow encapsulation for primeng wrappers [324](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/324)
 
 > **Special thanks**
 >
@@ -189,8 +189,8 @@
 
 ### @digital-plant/zui-components [1.0.0-beta.5]
 
-- feat: new global variables [320](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/320)
-- fix(components/icon): up poi-2 icon [323](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/323)
+- feat: new global variables [320](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/320)
+- fix(components/icon): up poi-2 icon [323](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/323)
 
 ---
 
@@ -200,7 +200,7 @@
 
 **Reverted**
 
-- fix/(components/styles): removed global variables [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/318)
+- fix/(components/styles): removed global variables [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/318)
 
 ---
 
@@ -210,7 +210,7 @@
 
 **Added**
 
-- feat/(next/tab): add closable ability for each tab [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/302)
+- feat/(next/tab): add closable ability for each tab [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/302)
 
 > **Special thanks**
 >
@@ -224,11 +224,11 @@
 
 **Added**
 
-- fix(components/datepicker-multi): Не блокируется выпадающее меню в ZyfraDatepickerMultiComponent [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/306)
-- fix(components/relative-datepicker): fixed validator pattern [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/250)
-- feat/(components/textarea,input): add readonly attribute to textarea and input components [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/313)
-- feat/(components/zyfra-input-switch): add small size [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/300)
-- fix/(components/styles): removed global variables [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/pzm-sdk/-/merge_requests/318)
+- fix(components/datepicker-multi): Не блокируется выпадающее меню в ZyfraDatepickerMultiComponent [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/306)
+- fix(components/relative-datepicker): fixed validator pattern [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/250)
+- feat/(components/textarea,input): add readonly attribute to textarea and input components [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/313)
+- feat/(components/zyfra-input-switch): add small size [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/300)
+- fix/(components/styles): removed global variables [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/318)
 
 > **Special thanks**
 >
@@ -244,7 +244,7 @@
 
 **Added**
 
-- feat/(helpers/destroy): add optional callback [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/279)
+- feat/(helpers/destroy): add optional callback [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/279)
 
 > **Special thanks**
 >
@@ -258,18 +258,18 @@
 
 **Added**
 
-- feat(components/select-button,toggle-button): Added reactive forms [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/206)
+- feat(components/select-button,toggle-button): Added reactive forms [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/206)
 
 **Fixes**
 
-- fix(components/dropdown): zyfra-dropdown-with-content fiexes background [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/238)
-- fix(components/dropdown): Fixed disabled dropdown style [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/242)
-- fix(components/icon-button): Fixed disabled icon style [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/245)
-- fix(components/dropdown): fix size of elements with property 'mini' [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/258)
-- fix(components/dropdown): fixes min sizes [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/233)
-- fix(component/calendar): fixes relative calendar input parser [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/204)
-- docs(components/calendar): fixes example [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/226)
-- fix(components/dropdown): fixes editable + mini [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/230)
+- fix(components/dropdown): zyfra-dropdown-with-content fiexes background [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/238)
+- fix(components/dropdown): Fixed disabled dropdown style [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/242)
+- fix(components/icon-button): Fixed disabled icon style [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/245)
+- fix(components/dropdown): fix size of elements with property 'mini' [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/258)
+- fix(components/dropdown): fixes min sizes [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/233)
+- fix(component/calendar): fixes relative calendar input parser [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/204)
+- docs(components/calendar): fixes example [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/226)
+- fix(components/dropdown): fixes editable + mini [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/230)
 
 > **Special thanks**
 >
@@ -285,19 +285,19 @@
 
 **Added**
 
-- feat(components/icon): Added export icon dictionary [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/219)
-- feat(components/multiselect): Added multiselect component [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/152)
-- feat(components/icons): Added 16[size] icons [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/144)
-- docs: Added more components to demo app [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/218)
-- docs: Fix typo in changelog [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/208)
+- feat(components/icon): Added export icon dictionary [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/219)
+- feat(components/multiselect): Added multiselect component [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/152)
+- feat(components/icons): Added 16[size] icons [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/144)
+- docs: Added more components to demo app [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/218)
+- docs: Fix typo in changelog [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/208)
 
 **Fixes**
 
-- fix(components/datepicker): Added all inputs on multi calendar [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/223)
-- fix(components): revert default box-sizing in all (primeng theme) [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/228)
-- fix(components/button): Fixes font weight icon in buttons [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/220)
-- fix(component/input): Fixes clear icon style [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/207)
-- fix(components/datepicker): Fixes set empty array on selectionMode='multiple' or 'range' [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/202)
+- fix(components/datepicker): Added all inputs on multi calendar [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/223)
+- fix(components): revert default box-sizing in all (primeng theme) [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/228)
+- fix(components/button): Fixes font weight icon in buttons [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/220)
+- fix(component/input): Fixes clear icon style [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/207)
+- fix(components/datepicker): Fixes set empty array on selectionMode='multiple' or 'range' [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/202)
 
 > **Special thanks**
 >
@@ -313,8 +313,8 @@
 
 **Fixes**
 
-- fix (component/input): Placeholder add default value empty string for placeholder [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/185)
-- fix (components): forwarding styles for component which use PrimeNg [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/179)
+- fix (component/input): Placeholder add default value empty string for placeholder [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/185)
+- fix (components): forwarding styles for component which use PrimeNg [MR](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/179)
 
 ## [v0.11.1] - 03-06-2022
 
@@ -471,7 +471,7 @@
 **BREAKING CHANGES**
 
 - PLATFORM01-10710: Reformat icons, rebuild new icons
-  [[Changes]](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/pzm-sdk/-/merge_requests/117#%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D0%B5%D1%82-%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%B8%D1%82%D1%8C-%D0%B2%D0%BD%D0%B8%D0%BC%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B0-%D1%80%D0%B5%D0%B2%D1%8C%D1%8E)
+  [[Changes]](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/zui-sdk/-/merge_requests/117#%D1%81%D0%BB%D0%B5%D0%B4%D1%83%D0%B5%D1%82-%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%B8%D1%82%D1%8C-%D0%B2%D0%BD%D0%B8%D0%BC%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B0-%D1%80%D0%B5%D0%B2%D1%8C%D1%8E)
   [[MR]](https://gitdp.zyfra.com/digital-plant/ui-platform/frontend/sdk/-/merge_requests/117)
 
 **Added**
