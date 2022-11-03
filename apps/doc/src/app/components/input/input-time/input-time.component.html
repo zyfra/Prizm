@@ -5,7 +5,7 @@
 >
   <ng-template pageTab>
     <p>
-      Use ZuiInputTimeComponent to view input-date.
+      Use PzmInputTimeComponent to view input-date.
     </p>
 
     <tui-doc-example
@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <zui-input-time-base-example></zui-input-time-base-example>
+      <pzm-input-time-base-example></pzm-input-time-base-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -21,7 +21,7 @@
       heading="With Seconds"
       [content]="exampleWithSeconds"
     >
-      <zui-input-time-with-seconds-example></zui-input-time-with-seconds-example>
+      <pzm-input-time-with-seconds-example></pzm-input-time-with-seconds-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -29,7 +29,7 @@
       heading="With Micro Seconds"
       [content]="exampleWithMicroSeconds"
     >
-      <zui-input-time-with-ms-example></zui-input-time-with-ms-example>
+      <pzm-input-time-with-ms-example></pzm-input-time-with-ms-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -37,7 +37,7 @@
       heading="With Preset"
       [content]="exampleWithPreset"
     >
-      <zui-input-time-with-preset-example></zui-input-time-with-preset-example>
+      <pzm-input-time-with-preset-example></pzm-input-time-with-preset-example>
     </tui-doc-example>
 
 
@@ -45,7 +45,7 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-input-time
+      <pzm-input-time
         [formControl]='valueControl'
         [label]='label'
         [placeholder]='placeholder'
@@ -53,7 +53,7 @@
         [mode]='timeMode'
         [strict]='strict'
         [size]='size'
-      ></zui-input-time>
+      ></pzm-input-time>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
@@ -82,7 +82,7 @@
 
       <ng-template
         documentationPropertyName="size"
-        documentationPropertyType="ZuiInputSize"
+        documentationPropertyType="PzmInputSize"
         [documentationPropertyValues]="sizeVariants"
         [(documentationPropertyValue)]="size"
       >
@@ -95,11 +95,13 @@
         [(documentationPropertyValue)]="strict"
       >
         Strict
+        <br>
+        (Correct time to nearest from items array)
       </ng-template>
 
       <ng-template
         documentationPropertyName="mode"
-        documentationPropertyType="ZuiTimeMode"
+        documentationPropertyType="PzmTimeMode"
         [documentationPropertyValues]="timeModeVariants"
         [(documentationPropertyValue)]="timeMode"
       >
@@ -108,21 +110,21 @@
 
       <ng-template
         documentationPropertyName="items"
-        documentationPropertyType="ZuiTime[]"
+        documentationPropertyType="PzmTime[]"
       >
         Items
       </ng-template>
 
       <ng-template
         documentationPropertyName="disabledItemHandler"
-        documentationPropertyType="ZuiBooleanHandler<ZuiTime>"
+        documentationPropertyType="PzmBooleanHandler<PzmTime>"
       >
         Disabled Item Handler
       </ng-template>
 
       <ng-template
         documentationPropertyName="itemSize"
-        documentationPropertyType="ZuiSizeS | ZuiSizeL | ZuiSizeM"
+        documentationPropertyType="PzmSizeS | PzmSizeL | PzmSizeM"
       >
         Items Size
       </ng-template>
@@ -142,7 +144,7 @@
       <li>
         <p>
           Import
-          <code>ZuiInputTimeModule</code>
+          <code>PzmInputTimeModule</code>
           into a module where you want to use our component
         </p>
 

@@ -1,0 +1,43 @@
+<pzm-dropdown-host
+  [content]="dropdown"
+  pzmDropdownHostWidth='auto'
+  [(isOpen)]="open"
+  #elem
+>
+  <button pzmButton type="button" (click)="open = !open">
+    Пример выбора периода
+  </button>
+
+  <ng-template #dropdown>
+    <pzm-data-list [style.--pzm-data-list-border]='0'>
+      <div class='header' header>
+        <pzm-icon iconClass='date-calendar-range'></pzm-icon>
+        <span>Выбор периода</span>
+      </div>
+      <div class="box">
+        <div class='list'>
+          <ng-container *ngFor="let item of data; let idx = index">
+            <div
+              class='list-item'
+              *pzmLet='item.range | pzmCallFunc : convertDate as dateArr'>
+              <pzm-radio-button
+                (click)="select(item)"
+                [value]="item.range"
+                [label]='(dateArr[0] | date : "short") + " - " + (dateArr[1] | date : "short")'
+              ></pzm-radio-button>
+              <div class='btns'>
+                <pzm-icon class='edit-icon' iconClass='editor-mode'></pzm-icon>
+                <pzm-icon (click)='remove(idx); elem.reCalculatePositions();' class='trash-icon' iconClass='delete'></pzm-icon>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class='footer' footer>
+        <button appearanceType='ghost' appearance='secondary' pzmButton (click)="open = false; cdRef.markForCheck()">Отменить</button>
+        <button pzmButton (click)="open = false; cdRef.markForCheck()">Сохранить</button>
+      </div>
+    </pzm-data-list>
+  </ng-template>
+
+</pzm-dropdown-host>

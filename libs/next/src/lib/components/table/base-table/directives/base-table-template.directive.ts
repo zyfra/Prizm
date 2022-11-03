@@ -29,10 +29,10 @@ export type TableTemplateType =
   | 'filter';
 
 @Directive({
-  selector: '[zuiTableTemplate]',
+  selector: '[pzmTableTemplate]',
 })
 export class BaseTableTemplateDirective {
-  @Input() zuiTableTemplate: TableTemplateType;
+  @Input() pzmTableTemplate: TableTemplateType;
 
   constructor(public templateRef: TemplateRef<unknown>) {}
 
@@ -41,6 +41,6 @@ export class BaseTableTemplateDirective {
   }
 
   public getType(): TableTemplateType {
-    return this.zuiTableTemplate;
+    return this.pzmTableTemplate;
   }
 }

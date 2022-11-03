@@ -1,20 +1,20 @@
 import { TestBed } from '@angular/core/testing';
-import { ZuiOverlayControl } from '../../../modules/overlay';
-import { ZuiConfirmDialogModule, ZuiConfirmDialogResultDefaultType, ZuiConfirmDialogService } from './index';
+import { PzmOverlayControl } from '../../../modules/overlay';
+import { PzmConfirmDialogModule, PzmConfirmDialogResultDefaultType, PzmConfirmDialogService } from './index';
 import { first, take } from 'rxjs/operators';
 
 
-xdescribe('ZuiConfirmDialog', () => {
-  let service: ZuiConfirmDialogService;
+xdescribe('PzmConfirmDialog', () => {
+  let service: PzmConfirmDialogService;
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ZuiConfirmDialogModule],
+      imports: [PzmConfirmDialogModule],
     });
-    service = TestBed.inject(ZuiConfirmDialogService);
+    service = TestBed.inject(PzmConfirmDialogService);
   });
 
   it('create and close', async () => {
-    let c: ZuiOverlayControl;
+    let c: PzmOverlayControl;
     const result = service.open('Hello', {}, ({control, dialog}) => {
       c = control;
       dialog.completeWith(true);
@@ -27,7 +27,7 @@ xdescribe('ZuiConfirmDialog', () => {
   });
 
   it('pass data and not close', async () => {
-    let c: ZuiOverlayControl;
+    let c: PzmOverlayControl;
     const result = service.open(null, {}, async ({control, dialog}) => {
       c = control;
       dialog.$implicit.next(true);
@@ -39,7 +39,7 @@ xdescribe('ZuiConfirmDialog', () => {
   });
 
   it('pass description and close', async () => {
-    let c: ZuiOverlayControl;
+    let c: PzmOverlayControl;
     const h = 'Our Description';
     const result = service.open('Hello', {
       description: h
@@ -55,11 +55,11 @@ xdescribe('ZuiConfirmDialog', () => {
   });
 
   it('pass confirmed and close', async () => {
-    let c: ZuiOverlayControl;
-    const content = ZuiConfirmDialogResultDefaultType.confirmed;
+    let c: PzmOverlayControl;
+    const content = PzmConfirmDialogResultDefaultType.confirmed;
     const result = service.open(content, {}, ({control, dialog}) => {
       c = control;
-      dialog.completeWith(ZuiConfirmDialogResultDefaultType.confirmed);
+      dialog.completeWith(PzmConfirmDialogResultDefaultType.confirmed);
     })
 
     const r = await result.pipe(take(1)).toPromise();

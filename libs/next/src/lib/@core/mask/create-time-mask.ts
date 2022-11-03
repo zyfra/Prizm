@@ -1,15 +1,15 @@
-import { ZUI_MAX_TIME_VALUES } from '../../constants/max-time-values';
-import { ZUI_DIGIT_REGEXP } from '../../constants/regexp';
-import { ZuiTimeFormatParts } from '../../types/time-format-parts';
-import { ZuiTimeMode } from '../../types/time-mode';
-import { ZuiTextMaskList } from './text-mask-list';
+import { PZM_MAX_TIME_VALUES } from '../../constants/max-time-values';
+import { PZM_DIGIT_REGEXP } from '../../constants/regexp';
+import { PzmTimeFormatParts } from '../../types/time-format-parts';
+import { PzmTimeMode } from '../../types/time-mode';
+import { PzmTextMaskList } from './text-mask-list';
 
-function zuiCreateTimePartMask(
+function pzmCreateTimePartMask(
     maxPartValue: number,
     prefix?: string,
 ): Array<string | RegExp> {
     const {length} = String(maxPartValue);
-    const regExp = new Array(length).fill(ZUI_DIGIT_REGEXP);
+    const regExp = new Array(length).fill(PZM_DIGIT_REGEXP);
 
     if (prefix) {
         regExp.unshift(prefix);
@@ -20,28 +20,28 @@ function zuiCreateTimePartMask(
 
 /**
  * @deprecated
- * use zuiCreateTimeNgxMask
+ * use pzmCreateTimeNgxMask
  * */
-export function zuiCreateTimeMask(
-    mode: ZuiTimeMode,
-    maxValues: Partial<Record<ZuiTimeFormatParts, number>> = {},
-): ZuiTextMaskList {
+export function pzmCreateTimeMask(
+    mode: PzmTimeMode,
+    maxValues: Partial<Record<PzmTimeFormatParts, number>> = {},
+): PzmTextMaskList {
     const {HH, MM, SS, MS} = {
-        ...ZUI_MAX_TIME_VALUES,
+        ...PZM_MAX_TIME_VALUES,
         ...maxValues,
     };
 
     return [
-        ...zuiCreateTimePartMask(HH),
-        ...zuiCreateTimePartMask(MM, `:`),
-        ...(mode.includes(`HH:MM:SS`) ? zuiCreateTimePartMask(SS, `:`) : []),
-        ...(mode === `HH:MM:SS.MSS` ? zuiCreateTimePartMask(MS, `.`) : []),
+        ...pzmCreateTimePartMask(HH),
+        ...pzmCreateTimePartMask(MM, `:`),
+        ...(mode.includes(`HH:MM:SS`) ? pzmCreateTimePartMask(SS, `:`) : []),
+        ...(mode === `HH:MM:SS.MSS` ? pzmCreateTimePartMask(MS, `.`) : []),
     ];
 }
 
-export function zuiCreateTimeNgxMask(
-    mode: ZuiTimeMode,
-    maxValues: Partial<Record<ZuiTimeFormatParts, number>> = {},
+export function pzmCreateTimeNgxMask(
+    mode: PzmTimeMode,
+    maxValues: Partial<Record<PzmTimeFormatParts, number>> = {},
 ): string {
     return `Hh:m0${(mode.includes(`HH:MM:SS`) ? `:s0` : ``)}${(mode === `HH:MM:SS.MSS` ? `.000` : ``)}`;
 

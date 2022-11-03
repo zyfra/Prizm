@@ -1,15 +1,15 @@
-<zui-dropdown-host
+<pzm-dropdown-host
   #dropdownHostRef
   [content]="dropdown"
   [(isOpen)]="open"
-  [zuiDropdownHostWidth]="dropdownWidth"
-  [zuiDropdownMinHeight]="minDropdownHeight"
-  [zuiDropdownMaxHeight]="maxDropdownHeight"
-  *zuiLet="{ selectedItems: selectedItems$ | async, filteredItems: filteredItems$ | async } as $"
+  [pzmDropdownHostWidth]="dropdownWidth"
+  [pzmDropdownMinHeight]="minDropdownHeight"
+  [pzmDropdownMaxHeight]="maxDropdownHeight"
+  *pzmLet="{ selectedItems: selectedItems$ | async, filteredItems: filteredItems$ | async } as $"
 >
-  <zui-input-layout
+  <pzm-input-layout
     [label]="label"
-    [forceShowClearButton]='(forceShowClearButton || forceShowClearButton === null) && $.selectedItems.length > 0'
+    [forceClear]='(forceClear || forceClear === null) && $.selectedItems.length > 0'
     (clear)="focusableElementRef.focus(); safeStopPropagation(focusableElementRef.value, $event)"
     (click)="safeOpenModal()"
     [outer]="outer"
@@ -17,7 +17,7 @@
     [ngSwitch]='outer'
   >
     <input
-      zuiInput
+      pzmInput
       [style.display]='outer ? "none" : ""'
       #focusableElementRef
       (onClear)="onClear()"
@@ -26,17 +26,17 @@
       [placeholder]="placeholder"
       [formControl]="requiredInputControl"
     />
-    <div class='in-body-chips-box' zui-input-in-body *ngSwitchCase='true'>
+    <div class='in-body-chips-box' pzm-input-in-body *ngSwitchCase='true'>
       <ng-container [ngTemplateOutlet]='chipsTemplate'></ng-container>
     </div>
 
-    <ng-container zui-input-bottom  *ngSwitchCase='false'>
+    <ng-container pzm-input-bottom  *ngSwitchCase='false'>
       <ng-container [ngTemplateOutlet]='chipsTemplate'></ng-container>
     </ng-container>
 
     <ng-template #chipsTemplate>
       <ng-container *ngIf='selectedItemsChips$ | async as chips'>
-        <zui-chips
+        <pzm-chips
           *ngIf='chips.length'
           #chipsComponent
           [class.inner]='!outer'
@@ -44,43 +44,49 @@
           [deletable]='isChipsDeletable'
           [chips]="chips"
           (removeChipEvent)="removeChip($event)"
-        ></zui-chips>
+        ></pzm-chips>
       </ng-container>
     </ng-template>
 
 
-    <zui-icon
+    <pzm-icon
       *ngIf="!disabled"
       (click)="focusableElementRef.focus()"
       [class.active]="focusableElementRef.focused"
+      [class.opened]="open"
       class="icon-dropdown"
-      zui-input-right
+      pzm-input-right
       iconClass="chevrons-dropdown"
-    ></zui-icon>
-  </zui-input-layout>
+    ></pzm-icon>
+  </pzm-input-layout>
 
   <ng-template #dropdown>
-    <zui-data-list class="block" [style.--zui-data-list-border]='0'>
+    <pzm-data-list class="block" [style.--pzm-data-list-border]='0'>
       <div class="list-search-item" *ngIf="searchable">
-        <zui-input-layout size="m" label="Поиск">
-          <input zuiInput zuiAutoFocus class="input-search" #input [formControl]="searchInputControl" />
-          <button zuiInputIconButton="sort-zoom-in" zui-input-right [interactive]="true"></button>
-        </zui-input-layout>
+        <pzm-input-layout size="m" label="Поиск">
+          <input pzmInput pzmAutoFocus class="input-search" #input [formControl]="searchInputControl" />
+          <button pzmInputIconButton="sort-zoom-in" pzm-input-right [interactive]="true"></button>
+        </pzm-input-layout>
       </div>
       <ng-container *ngIf="$.filteredItems?.length; else emptyTemplate">
         <div
           class="item"
           [class.selected]="item.checked"
-          *ngFor="let item of $.filteredItems"
-          (click)="select(item)"
+          [class.most-relevant]="searchable && searchInputControl.value && idx === 0"
+          *ngFor="let item of $.filteredItems; let idx = index"
+          #parent
         >
-          <zui-checkbox [checked]="item.checked" (changed)='select(item)'>
+          <pzm-checkbox
+            [checked]="item.checked"
+            [host]='parent'
+            [indeterminate]='!!item.indeterminate'
+            (changed)='select(item)'>
             <div class="text"
                   #elem
-                  *zuiLet="item | zuiCallFunc: stringify:$any(emptyContent) as text"
-                  [zuiHint]='text'
-                  [zuiHintDirection]='direction'
-                  [zuiHintCanShow]='elem | zuiCallFunc : zuiIsTextOverflow$ | async'
+                  *pzmLet="item | pzmCallFunc: stringify:$any(emptyContent) as text"
+                  [pzmHint]='text'
+                  [pzmHintDirection]='direction'
+                  [pzmHintCanShow]='elem | pzmCallFunc : pzmIsTextOverflow$ | async'
             >
               <ng-container
                 *polymorphOutlet="
@@ -89,7 +95,7 @@
                     $implicit: {
                       obj: item.obj,
                       checked: item.checked,
-                      stringify: item | zuiCallFunc: stringify
+                      stringify: item | pzmCallFunc: stringify
                     }
                   } as context
                 "
@@ -97,7 +103,7 @@
                 {{ text }}
               </ng-container>
             </div>
-          </zui-checkbox>
+          </pzm-checkbox>
         </div>
       </ng-container>
       <ng-template #emptyTemplate>
@@ -105,7 +111,7 @@
           <div class="empty-template">{{ emptyContent }}</div>
         </ng-container>
       </ng-template>
-    </zui-data-list>
+    </pzm-data-list>
   </ng-template>
-</zui-dropdown-host>
+</pzm-dropdown-host>
 

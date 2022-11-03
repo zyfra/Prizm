@@ -3,7 +3,7 @@
 :host {
     .clearbtn();
     .transition(color);
-    color: var(--zui-link);
+    color: var(--pzm-link);
     text-decoration: none;
     text-align: left;
     text-transform: inherit;
@@ -12,19 +12,19 @@
     outline: none;
 
     &:hover {
-        color: var(--zui-index-plan);
+        color: var(--pzm-index-plan);
     }
 
     &:disabled {
-        opacity: var(--zui-disabled-opacity);
+        opacity: var(--pzm-disabled-opacity);
         cursor: default;
     }
 
     &[data-host-mode='negative'] {
-        color: var(--zui-negative);
+        color: var(--pzm-negative);
 
         &:hover {
-            color: var(--zui-negative-hover);
+            color: var(--pzm-negative-hover);
         }
 
         &._pseudo .t-content {
@@ -33,10 +33,10 @@
     }
 
     &[data-host-mode='positive'] {
-        color: var(--zui-positive);
+        color: var(--pzm-positive);
 
         &:hover {
-            color: var(--zui-positive-hover);
+            color: var(--pzm-positive-hover);
         }
 
         &._pseudo .t-content {
@@ -47,15 +47,15 @@
 
 .t-content {
     :host._focus-visible & {
-        background: var(--zui-selection);
+        background: var(--pzm-selection);
     }
 
     :host[data-host-mode='positive']._focus-visible & {
-        background: var(--zui-success-bg);
+        background: var(--pzm-success-bg);
     }
 
     :host[data-host-mode='negative']._focus-visible & {
-        background: var(--zui-error-bg);
+        background: var(--pzm-error-bg);
     }
 
     :host._pseudo & {

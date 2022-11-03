@@ -1,29 +1,29 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ZuiDataListModule } from '../../data-list/data-list.module';
-import { ZuiValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
-import { ZuiInputTimeComponent } from './input-time.component';
-import { ZuiDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
-import { ZuiInputTextModule } from '../input-text/input-text.module';
+import { PzmDataListModule } from '../../data-list/data-list.module';
+import { PzmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
+import { PzmInputTimeComponent } from './input-time.component';
+import { PzmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
+import { PzmInputTextModule } from '../input-text/input-text.module';
 import { FormsModule } from '@angular/forms';
-import { ZuiButtonModule } from '../../button/button.module';
-import { ZuiDropdownControllerModule } from '../../../directives';
-import { ZuiMaskModule } from '../../../modules';
+import { PzmButtonModule } from '../../button/button.module';
+import { PzmDropdownControllerModule } from '../../../directives';
+import { PzmMaskModule } from '../../../modules';
 
 @NgModule({
   imports: [
     CommonModule,
-    ZuiMaskModule,
-    ZuiDataListModule,
-    ZuiDropdownControllerModule,
-    ZuiDropdownHostModule,
-    ZuiInputTextModule,
-    ZuiButtonModule,
+    PzmMaskModule,
+    PzmDataListModule,
+    PzmDropdownControllerModule,
+    PzmDropdownHostModule,
+    PzmInputTextModule,
+    PzmButtonModule,
     FormsModule,
-    ZuiValueAccessorModule,
+    PzmValueAccessorModule,
   ],
-  declarations: [ZuiInputTimeComponent],
-  exports: [ZuiInputTimeComponent],
+  declarations: [PzmInputTimeComponent],
+  exports: [PzmInputTimeComponent],
 })
-export class ZuiInputTimeModule {}
+export class PzmInputTimeModule {}
 

@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, HostBi
 import { TabType } from '../tabs.interface';
 
 @Component({
-  selector: 'zui-tab',
+  selector: 'pzm-tab',
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -20,7 +20,7 @@ export class TabComponent {
   @Output() public tabClick: EventEmitter<void> = new EventEmitter();
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_tab';
+  readonly testId = 'pzm_tab';
 
   public cancel(event: MouseEvent): void {
     event.stopPropagation();

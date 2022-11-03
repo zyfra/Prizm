@@ -1,21 +1,21 @@
 import { inject, InjectionToken } from '@angular/core';
 
-import { ZUI_RANGE_SEPARATOR_CHAR } from './date-time';
+import { PZM_RANGE_SEPARATOR_CHAR } from './date-time';
 
-export const ZUI_DATE_FILLER = new InjectionToken<string>(`date filler for Zyfra UI`, {
+export const PZM_DATE_FILLER = new InjectionToken<string>(`date filler for Zyfra UI`, {
     factory: (): string => `dd.mm.yyyy`,
 });
 
 /**
  * @deprecated dont use it
  */
-export const ZUI_DATE_RANGE_FILLER = new InjectionToken<string>(
+export const PZM_DATE_RANGE_FILLER = new InjectionToken<string>(
     `date range filler for Zyfra UI`,
     {
         factory: (): string => {
-            const dateFiller = inject(ZUI_DATE_FILLER);
+            const dateFiller = inject(PZM_DATE_FILLER);
 
-            return `${dateFiller}${ZUI_RANGE_SEPARATOR_CHAR}${dateFiller}`;
+            return `${dateFiller}${PZM_RANGE_SEPARATOR_CHAR}${dateFiller}`;
         },
     },
 );
@@ -23,14 +23,14 @@ export const ZUI_DATE_RANGE_FILLER = new InjectionToken<string>(
 /**
  * @internal 'dd.mm.yyyy'.length
  * Used in:
- * - {@link ZuiInputDateComponent}
- * - {@link ZuiInputDateRangeComponent}
- * - {@link ZuiInputDateTimeComponent}
+ * - {@link PzmInputDateComponent}
+ * - {@link PzmInputDateRangeComponent}
+ * - {@link PzmInputDateTimeComponent}
  */
-export const ZUI_DATE_FILLER_LENGTH = 10;
+export const PZM_DATE_FILLER_LENGTH = 10;
 /**
  * @internal
- * Used in {@link ZuiInputDateRangeComponent}
+ * Used in {@link PzmInputDateRangeComponent}
  */
-export const ZUI_DATE_RANGE_FILLER_LENGTH =
-    2 * ZUI_DATE_FILLER_LENGTH + ZUI_RANGE_SEPARATOR_CHAR.length;
+export const PZM_DATE_RANGE_FILLER_LENGTH =
+    2 * PZM_DATE_FILLER_LENGTH + PZM_RANGE_SEPARATOR_CHAR.length;

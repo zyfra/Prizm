@@ -1,13 +1,13 @@
 import {Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {
-  ZuiOverlayControl,
-  ZuiOverlayOutsidePlacement,
-  ZuiOverlayRelativePosition,
-  ZuiOverlayService
+  PzmOverlayControl,
+  PzmOverlayOutsidePlacement,
+  PzmOverlayRelativePosition,
+  PzmOverlayService
 } from "@digital-plant/zui-components";
 
 @Component({
-  selector: 'zui-overlay-relative',
+  selector: 'pzm-overlay-relative',
   templateUrl: './template.html',
   styles: [`
     .box {
@@ -19,17 +19,17 @@ import {
     }
   `]
 })
-export class ZuiOverlayExampleRelativeComponent implements OnInit {
+export class PzmOverlayExampleRelativeComponent implements OnInit {
   @ViewChild('elementRef', { read: ElementRef, static: true }) elementRef: ElementRef;
   @ViewChild('someTemplate', { read: TemplateRef, static: true }) templateRef: TemplateRef<unknown>;
 
-  private control: ZuiOverlayControl;
-  constructor(private readonly overlay: ZuiOverlayService) {}
+  private control: PzmOverlayControl;
+  constructor(private readonly overlay: PzmOverlayService) {}
 
   public ngOnInit(): void {
-    const position = new ZuiOverlayRelativePosition({
+    const position = new PzmOverlayRelativePosition({
       // Pass position placement
-      placement: ZuiOverlayOutsidePlacement.BOTTOM_LEFT,
+      placement: PzmOverlayOutsidePlacement.BOTTOM_LEFT,
       // Pass source element
       element: this.elementRef.nativeElement,
       // On scroll re calculate position

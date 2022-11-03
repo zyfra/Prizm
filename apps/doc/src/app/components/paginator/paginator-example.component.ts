@@ -4,7 +4,7 @@ import { IPaginatorOptions, PaginatorType } from '@digital-plant/zui-components'
 import { PAGINATOR_OPTIONS_VARIANTS } from './paginator-example.constants';
 
 @Component({
-  selector: 'zui-paginator-example',
+  selector: 'pzm-paginator-example',
   templateUrl: './paginator-example.component.html',
   styleUrls: ['./paginator-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

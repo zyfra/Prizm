@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ZuiCarouselArrayContent } from '@digital-plant/zui-components';
+import { PzmCarouselArrayContent } from '@digital-plant/zui-components';
 
 interface SomeEntity {
   id: number;
@@ -8,13 +8,13 @@ interface SomeEntity {
 }
 
 @Component({
-  selector: 'zui-carousel-array-of-objects-example',
+  selector: 'pzm-carousel-array-of-objects-example',
   templateUrl: './carousel-array-of-objects-example.component.html',
   styleUrls: ['./carousel-array-of-objects-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiCarouselArrayOfObjectsExampleComponent {
-  arrayWithObjects = new ZuiCarouselArrayContent<SomeEntity>(
+export class PzmCarouselArrayOfObjectsExampleComponent {
+  arrayWithObjects = new PzmCarouselArrayContent<SomeEntity>(
     [
       {
         id: 1,

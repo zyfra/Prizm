@@ -1,4 +1,4 @@
-export const enum ZuiDayOfWeek {
+export const enum PzmDayOfWeek {
     Sunday,
     Monday,
     Tuesday,

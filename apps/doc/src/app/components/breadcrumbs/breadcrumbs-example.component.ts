@@ -3,7 +3,7 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { IBreadcrumb } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-example-breadcrumbs',
+  selector: 'pzm-example-breadcrumbs',
   templateUrl: './breadcrumbs-example.component.html',
   styleUrls: ['./breadcrumbs-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

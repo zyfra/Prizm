@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'zui-scrollbar-visible-example',
+  selector: 'pzm-scrollbar-visible-example',
   templateUrl: './scrollbar-visible-example.component.html',
   styles: [`
     .box {
@@ -15,4 +15,4 @@ import { Component } from '@angular/core';
     }
   `]
 })
-export class ZuiScrollbarVisibleExampleComponent {}
+export class PzmScrollbarVisibleExampleComponent {}

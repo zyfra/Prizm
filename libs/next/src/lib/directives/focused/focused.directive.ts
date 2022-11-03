@@ -1,9 +1,9 @@
-import {Directive, ElementRef, Inject, NgZone, Output} from '@angular/core';
-import {merge, Observable} from 'rxjs';
-import {distinctUntilChanged, map, skip, startWith} from 'rxjs/operators';
-import {zuiZoneOptimized} from '../../observables/zone-free';
-import {zuiTypedFromEvent} from '../../observables/typed-from-event';
-import {zuiIsNativeFocused} from "../../util";
+import { Directive, ElementRef, Inject, NgZone, Output } from '@angular/core';
+import { merge, Observable } from 'rxjs';
+import { distinctUntilChanged, map, skip, startWith } from 'rxjs/operators';
+import { pzmZoneOptimized } from '../../observables/zone-free';
+import { pzmTypedFromEvent } from '../../observables/typed-from-event';
+import { pzmIsNativeFocused } from '../../util';
 
 /**
  * Directive to monitor focus/blur status, works with focusIn/focus-out
@@ -11,26 +11,26 @@ import {zuiIsNativeFocused} from "../../util";
  * other focus related directives that require bubbling
  */
 @Directive({
-    selector: '[zuiFocusedChange]',
+    selector: '[pzmFocusedChange]',
 })
-export class ZuiFocusedDirective {
+export class PzmFocusedDirective {
     @Output()
-    readonly zuiFocusedChange: Observable<boolean>;
+    readonly pzmFocusedChange: Observable<boolean>;
 
     constructor(
         @Inject(ElementRef)
         {nativeElement}: ElementRef<HTMLElement>,
         @Inject(NgZone) ngZone: NgZone,
     ) {
-        this.zuiFocusedChange = merge(
-            zuiTypedFromEvent(nativeElement, 'focusin'),
-            zuiTypedFromEvent(nativeElement, 'focusout'),
+        this.pzmFocusedChange = merge(
+            pzmTypedFromEvent(nativeElement, 'focusin'),
+            pzmTypedFromEvent(nativeElement, 'focusout'),
         ).pipe(
-            map(() => zuiIsNativeFocused(nativeElement)),
+            map(() => pzmIsNativeFocused(nativeElement)),
             startWith(false),
             distinctUntilChanged(),
             skip(1),
-            zuiZoneOptimized(ngZone),
+            pzmZoneOptimized(ngZone),
         );
     }
 }

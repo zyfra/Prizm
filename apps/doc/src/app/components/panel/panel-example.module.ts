@@ -5,12 +5,12 @@ import { PanelExampleBasicComponent } from './examples/panel-example-basic/panel
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import {
-  ZuiButtonModule,
-  ZuiIconModule,
-  ZuiPanelModule,
-  ZuiBreadcrumbsModule,
-  ZuiTabsModule,
-  ZuiToggleModule,
+  PzmButtonModule,
+  PzmIconModule,
+  PzmPanelModule,
+  PzmBreadcrumbsModule,
+  PzmTabsModule,
+  PzmToggleModule,
 } from '@digital-plant/zui-components';
 import { PanelExampleWithTabsComponent } from './examples/panel-example-with-tabs/panel-example-with-tabs.component';
 import { PanelExampleWithPagesComponent } from './examples/panel-example-with-pages/panel-example-with-pages.component';
@@ -35,13 +35,13 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     TuiAddonDocModule,
     RouterModule.forChild(generateRoutes(PanelExampleComponent)),
-    ZuiPanelModule,
-    ZuiButtonModule,
-    ZuiIconModule,
+    PzmPanelModule,
+    PzmButtonModule,
+    PzmIconModule,
     FormsModule,
-    ZuiToggleModule,
-    ZuiBreadcrumbsModule,
-    ZuiTabsModule,
+    PzmToggleModule,
+    PzmBreadcrumbsModule,
+    PzmTabsModule,
   ],
 })
 export class PanelExampleModule {}

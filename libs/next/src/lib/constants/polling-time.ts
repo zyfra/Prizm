@@ -1,1 +1,1 @@
-export const ZUI_POLLING_TIME = 1000/15;
+export const PZM_POLLING_TIME = 1000/15;

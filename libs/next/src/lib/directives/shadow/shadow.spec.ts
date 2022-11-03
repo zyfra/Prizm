@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { ZuiShadowModule } from './shadow.module';
-import { ZuiShadowValue, ZuiShadowType, ZuiShadowTypeEnum } from './models';
+import { PzmShadowModule } from './shadow.module';
+import { PzmShadowValue, PzmShadowType, PzmShadowTypeEnum } from './models';
 
 @Component({
-  template: `<div #element [zuiShadow]='value'></div>`,
+  template: `<div #element [pzmShadow]='value'></div>`,
 })
 class TestShadowComponent {
-  @Input() value: ZuiShadowType = ZuiShadowTypeEnum.miniLeft;
+  @Input() value: PzmShadowType = PzmShadowTypeEnum.miniLeft;
   @ViewChild('element') elementRef: ElementRef<HTMLDivElement>;
 }
 
@@ -17,7 +17,7 @@ describe('IndicatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ZuiShadowModule],
+      imports: [PzmShadowModule],
       declarations: [TestShadowComponent]
     }).compileComponents();
   });
@@ -33,56 +33,56 @@ describe('IndicatorComponent', () => {
   });
 
   it('set mini-left type shadow', () => {
-    component.value = ZuiShadowTypeEnum.miniLeft;
+    component.value = PzmShadowTypeEnum.miniLeft;
     fixture.detectChanges();
-    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(ZuiShadowValue.miniLeft);
+    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(PzmShadowValue.miniLeft);
   });
 
   it('set big-top type shadow', () => {
-    component.value = ZuiShadowTypeEnum.bigTop;
+    component.value = PzmShadowTypeEnum.bigTop;
     fixture.detectChanges();
-    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(ZuiShadowValue.bigTop);
+    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(PzmShadowValue.bigTop);
   });
 
   it('set mini-top type shadow', () => {
-    component.value = ZuiShadowTypeEnum.miniTop;
+    component.value = PzmShadowTypeEnum.miniTop;
     fixture.detectChanges();
-    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(ZuiShadowValue.miniTop);
+    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(PzmShadowValue.miniTop);
   });
 
   it('set big-right type shadow', () => {
-    component.value = ZuiShadowTypeEnum.bigRight;
+    component.value = PzmShadowTypeEnum.bigRight;
     fixture.detectChanges();
-    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(ZuiShadowValue.bigRight);
+    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(PzmShadowValue.bigRight);
   });
 
   it('set mini-right type shadow', () => {
-    component.value = ZuiShadowTypeEnum.miniRight;
+    component.value = PzmShadowTypeEnum.miniRight;
     fixture.detectChanges();
-    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(ZuiShadowValue.miniRight);
+    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(PzmShadowValue.miniRight);
   });
 
   it('set big-left type shadow', () => {
-    component.value = ZuiShadowTypeEnum.bigLeft;
+    component.value = PzmShadowTypeEnum.bigLeft;
     fixture.detectChanges();
-    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(ZuiShadowValue.bigLeft);
+    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(PzmShadowValue.bigLeft);
   });
 
   it('set mini-left type shadow', () => {
-    component.value = ZuiShadowTypeEnum.miniLeft;
+    component.value = PzmShadowTypeEnum.miniLeft;
     fixture.detectChanges();
-    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(ZuiShadowValue.miniLeft);
+    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(PzmShadowValue.miniLeft);
   });
 
   it('set big-bottom type shadow', () => {
-    component.value = ZuiShadowTypeEnum.bigBottom;
+    component.value = PzmShadowTypeEnum.bigBottom;
     fixture.detectChanges();
-    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(ZuiShadowValue.bigBottom);
+    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(PzmShadowValue.bigBottom);
   });
 
   it('set mini-bottom type shadow', () => {
-    component.value = ZuiShadowTypeEnum.miniBottom;
+    component.value = PzmShadowTypeEnum.miniBottom;
     fixture.detectChanges();
-    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(ZuiShadowValue.miniBottom);
+    expect(component.elementRef.nativeElement.style.boxShadow).toEqual(PzmShadowValue.miniBottom);
   });
 });

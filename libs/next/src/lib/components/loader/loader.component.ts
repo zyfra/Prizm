@@ -1,18 +1,26 @@
-import {DOCUMENT} from '@angular/common';
-import {ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, Input, TemplateRef,} from '@angular/core';
-import {zuiIsNativeFocusedIn} from "../../util/is-native-focused-in";
-import {zuiBlurNativeFocused} from "../../util/blur-native-focused";
-import {ZuiSize, zuiSizeBigger} from '../../util/size-bigger';
+import { DOCUMENT } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  HostBinding,
+  Inject,
+  Input,
+  TemplateRef,
+} from '@angular/core';
+import { pzmIsNativeFocusedIn } from '../../util/is-native-focused-in';
+import { pzmBlurNativeFocused } from '../../util/blur-native-focused';
+import { PzmSize, pzmSizeBigger } from '../../util/size-bigger';
 
 @Component({
-    selector: 'zui-loader',
+    selector: 'pzm-loader',
     templateUrl: './loader.component.html',
     styleUrls: ['./loader.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiLoaderComponent {
+export class PzmLoaderComponent {
     @Input()
-    size: ZuiSize = 's';
+    size: PzmSize = 's';
 
     @Input()
     inheritColor = false;
@@ -26,7 +34,7 @@ export class ZuiLoaderComponent {
     @Input()
     set showLoader(value: boolean) {
         if (value && this.focused) {
-            zuiBlurNativeFocused(this.documentRef);
+            pzmBlurNativeFocused(this.documentRef);
         }
 
         this.loading = value;
@@ -36,7 +44,7 @@ export class ZuiLoaderComponent {
     loading = true;
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_loader';
+    readonly testId = 'pzm_loader';
 
     constructor(
         @Inject(DOCUMENT) private readonly documentRef: Document,
@@ -52,10 +60,10 @@ export class ZuiLoaderComponent {
     }
 
     get isHorizontal(): boolean {
-        return !zuiSizeBigger(this.size);
+        return !pzmSizeBigger(this.size);
     }
 
     get focused(): boolean {
-        return zuiIsNativeFocusedIn(this.elementRef.nativeElement);
+        return pzmIsNativeFocusedIn(this.elementRef.nativeElement);
     }
 }

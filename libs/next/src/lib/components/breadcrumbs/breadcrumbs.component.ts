@@ -15,15 +15,15 @@ import {
 } from '@angular/core';
 import { IBreadcrumb } from './breadcrumb.interface';
 import { animationFrameScheduler, BehaviorSubject, merge, Subject } from 'rxjs';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { debounceTime, observeOn, takeUntil, tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'zui-breadcrumbs',
+  selector: 'pzm-breadcrumbs',
   templateUrl: './breadcrumbs.component.html',
   styleUrls: ['./breadcrumbs.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ZuiDestroyService],
+  providers: [PzmDestroyService],
 })
 export class BreadcrumbsComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() set breadcrumbs(data: IBreadcrumb[]) {
@@ -35,7 +35,7 @@ export class BreadcrumbsComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_breadcrumbs';
+  readonly testId = 'pzm_breadcrumbs';
 
   @Output() public breadcrumbChange: EventEmitter<IBreadcrumb> = new EventEmitter();
   @ViewChild('container', { static: true }) public containerRef: ElementRef;
@@ -57,7 +57,7 @@ export class BreadcrumbsComponent implements OnInit, OnDestroy, AfterViewInit {
   private resizeObserver: ResizeObserver;
   private mutationDetector$: Subject<void> = new Subject<void>();
 
-  constructor(private readonly cdRef: ChangeDetectorRef, private readonly destroy: ZuiDestroyService) {}
+  constructor(private readonly cdRef: ChangeDetectorRef, private readonly destroy: PzmDestroyService) {}
 
   public changeBreadcrumb(idx: number): void {
     this.breadcrumbs = this.breadcrumbs.filter((item, i) => i <= idx);

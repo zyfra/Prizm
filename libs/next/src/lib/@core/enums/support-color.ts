@@ -1,7 +1,7 @@
 /**
  * @deprecated
  */
-export const enum ZuiSupportColor {
+export const enum PzmSupportColor {
     Mustard = `support-01`,
     Texas = `support-02`,
     Tan = `support-03`,

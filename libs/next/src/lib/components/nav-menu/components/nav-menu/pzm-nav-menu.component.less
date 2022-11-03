@@ -1,0 +1,74 @@
+@import '~primeicons/primeicons.css';
+@import '../../../../../styles/icons-16/icons-16.less';
+:host {
+  .pzm-nav-menu {
+    background: var(--pzm-grey-g11-g3);
+  }
+
+  .header {
+    height: 40px;
+    padding-left: 16px;
+    padding-right: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--pzm-grey-g10-g4);
+    overflow: hidden;
+
+    .app-name {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+
+      color: var(--pzm-text-contrast);
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .right-side {
+      margin-left: 8px;
+
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    &__btn {
+      height: 16px;
+      width: 16px;
+
+      display: flex;
+      color: var(--pzm-border-icon);
+
+      cursor: pointer;
+      transition: 400ms;
+
+      &:hover {
+        color: var(--pzm-exeptions-g1-b1);
+      }
+    }
+  }
+
+  &::ng-deep {
+    .p-tree-container {
+      &::-webkit-scrollbar {
+        height: 8px;
+        width: 8px;
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--pzm-grey-g10-g4);
+        border-radius: 4px;
+      }
+    }
+  }
+}

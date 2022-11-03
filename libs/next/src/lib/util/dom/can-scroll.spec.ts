@@ -1,13 +1,13 @@
-import { zuiCanScroll } from './can-scroll';
+import { pzmCanScroll } from './can-scroll';
 
-describe('zuiCanScroll', () => {
+describe('pzmCanScroll', () => {
     it('works vertically', () => {
         const parent = document.createElement('div');
         const child = document.createElement('div');
 
         parent.appendChild(child);
 
-        expect(zuiCanScroll(child, parent, true, true)).toEqual(false);
+        expect(pzmCanScroll(child, parent, true, true)).toEqual(false);
     });
 
     it('works horizontally', () => {
@@ -16,6 +16,6 @@ describe('zuiCanScroll', () => {
 
         parent.appendChild(child);
 
-        expect(zuiCanScroll(child, parent, false, true)).toEqual(false);
+        expect(pzmCanScroll(child, parent, false, true)).toEqual(false);
     });
 });

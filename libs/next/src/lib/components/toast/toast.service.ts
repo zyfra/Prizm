@@ -1,18 +1,18 @@
 import {Inject, Injectable, OnDestroy} from "@angular/core";
 import {PolymorphContent} from "../../directives/polymorph";
-import {ZUI_TOAST_ID, ZuiToastOptions} from "./types";
-import {ZuiToastRef} from "./toast-ref";
+import {PZM_TOAST_ID, PzmToastOptions} from "./types";
+import {PzmToastRef} from "./toast-ref";
 import {generateToastId} from "./util";
-import {ZUI_TOAST_OPTIONS, ZuiToastDefaultOptions} from "./toast-options";
-import {ZuiToastExistException} from "../../exceptions/toast-exist.exception";
+import {PZM_TOAST_OPTIONS, PzmToastDefaultOptions} from "./toast-options";
+import {PzmToastExistException} from "../../exceptions/toast-exist.exception";
 import {Subject} from "rxjs";
 import {map, shareReplay} from "rxjs/operators";
-import {ZuiToastNotExistException} from "../../exceptions/toast-not-exist.exception";
+import {PzmToastNotExistException} from "../../exceptions/toast-not-exist.exception";
 
-export type ToastRefMap =  Map<ZUI_TOAST_ID, ZuiToastRef>;
+export type ToastRefMap =  Map<PZM_TOAST_ID, PzmToastRef>;
 
 @Injectable()
-export class ZuiToastService implements OnDestroy {
+export class PzmToastService implements OnDestroy {
   /* main storage for control by id */
   private readonly refs: ToastRefMap = new Map();
   private readonly changesSource$ = new Subject();
@@ -27,7 +27,7 @@ export class ZuiToastService implements OnDestroy {
   readonly destroy$ = new Subject<void>();
 
   constructor(
-    @Inject(ZUI_TOAST_OPTIONS) private readonly options: ZuiToastDefaultOptions
+    @Inject(PZM_TOAST_OPTIONS) private readonly options: PzmToastDefaultOptions
   ) {}
 
   get size(): number {
@@ -36,12 +36,12 @@ export class ZuiToastService implements OnDestroy {
 
   public create(
     content: PolymorphContent,
-    options: ZuiToastOptions = {}
-  ): ZuiToastRef {
+    options: PzmToastOptions = {}
+  ): PzmToastRef {
     const id = options.id || generateToastId();
-    if (this.refs.has(id)) throw new ZuiToastExistException(id);
+    if (this.refs.has(id)) throw new PzmToastExistException(id);
 
-    const ref = new ZuiToastRef(
+    const ref = new PzmToastRef(
       content,
       options.weight ?? 0,
       options.timer ?? this.options.timer,
@@ -66,18 +66,18 @@ export class ZuiToastService implements OnDestroy {
   }
 
   public updateContent(
-    id: ZUI_TOAST_ID,
+    id: PZM_TOAST_ID,
     content: PolymorphContent,
   ): void {
-    if (!this.refs.has(id)) throw new ZuiToastNotExistException(id);
+    if (!this.refs.has(id)) throw new PzmToastNotExistException(id);
     this.refs.get(id).updateContent(content);
   }
 
   public updateTitle(
-    id: ZUI_TOAST_ID,
-    title: ZuiToastOptions['title']
-  ): ZuiToastRef {
-    if (!this.refs.has(id)) throw new ZuiToastNotExistException(id);
+    id: PZM_TOAST_ID,
+    title: PzmToastOptions['title']
+  ): PzmToastRef {
+    if (!this.refs.has(id)) throw new PzmToastNotExistException(id);
     const ref = this.refs.get(id);
     ref.updateTitle(title);
 
@@ -85,9 +85,9 @@ export class ZuiToastService implements OnDestroy {
   }
 
   public delete(
-    id: ZUI_TOAST_ID,
+    id: PZM_TOAST_ID,
   ): void {
-    if (!this.refs.has(id)) throw new ZuiToastNotExistException(id);
+    if (!this.refs.has(id)) throw new PzmToastNotExistException(id);
     this.refs.get(id).destroy();
     this.refs.delete(id);
     this.detect();

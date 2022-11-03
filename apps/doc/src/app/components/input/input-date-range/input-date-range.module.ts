@@ -4,13 +4,13 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { InputDateRangeComponent } from './input-date-range.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ZuiInputDateRangeBaseExampleComponent } from './examples/base/input-date-range-base-example.component';
-import { PolymorphModule, ZuiInputDateRangeModule } from '@digital-plant/zui-components';
+import { PzmInputDateRangeBaseExampleComponent } from './examples/base/input-date-range-base-example.component';
+import { PolymorphModule, PzmInputDateRangeModule } from '@digital-plant/zui-components';
 import {
-  ZuiInputDateRangeDisabledExampleComponent,
+  PzmInputDateRangeDisabledExampleComponent,
 } from './examples/disabled/input-date-range-disabled-example.component';
 import {
-  ZuiInputNativeDateRangeBaseExampleComponent
+  PzmInputNativeDateRangeBaseExampleComponent
 } from './examples/native-date/input-native-date-range-base-example.component';
 
 
@@ -21,13 +21,13 @@ import {
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    ZuiInputDateRangeModule,
+    PzmInputDateRangeModule,
     RouterModule.forChild(generateRoutes(InputDateRangeComponent)),
   ],
   declarations: [
-    ZuiInputDateRangeBaseExampleComponent,
-    ZuiInputDateRangeDisabledExampleComponent,
-    ZuiInputNativeDateRangeBaseExampleComponent,
+    PzmInputDateRangeBaseExampleComponent,
+    PzmInputDateRangeDisabledExampleComponent,
+    PzmInputNativeDateRangeBaseExampleComponent,
     InputDateRangeComponent
   ],
   exports: [InputDateRangeComponent],

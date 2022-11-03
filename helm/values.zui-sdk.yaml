@@ -52,38 +52,38 @@ tolerations: []
 
 ## Main container image configuration
 image:
-# -- Image registry name (optional)
+  # -- Image registry name (optional)
   registry: registry.dp.zyfra.com
-# -- Image registry path (optional)
+  # -- Image registry path (optional)
   namespace: digital-plant
-# -- Image name
+  # -- Image name
   name: zui-sdk
-# -- Image tag
+  # -- Image tag
   tag: latest
-# -- Image pull secrets (optional)  
+  # -- Image pull secrets (optional)
   pullSecrets: #[]
     - name: zif-registry-pull-secret
-# -- Image pull policy
+  # -- Image pull policy
   pullPolicy:
 
 # -- Use specific service account for pod
 serviceAccountName:
 
-tls: 
-# -- Mount or not CA-bundle from ConfigMap
+tls:
+  # -- Mount or not CA-bundle from ConfigMap
   CABundleMount: false
 
-# -- Name of ConfigMap with global trusted CA-certificates (ex: ca-bundle)
+  # -- Name of ConfigMap with global trusted CA-certificates (ex: ca-bundle)
   CABundleConfigMap: infra-ca-bundle
 
-# -- ConfigMap key with CA-certificates list (optional)
+  # -- ConfigMap key with CA-certificates list (optional)
   CABundleMapKey: "ca-bundle.crt"
 
-# -- Mount type for global trusted certificates:
-# **ubuntu** (PEM file), **alpine** (PEM), **java** (JKS), **custom**
+  # -- Mount type for global trusted certificates:
+  # **ubuntu** (PEM file), **alpine** (PEM), **java** (JKS), **custom**
   CABundleMountType: ubuntu
 
-# -- Custom mount path for global trusted certificates (set type to "custom" and change this parameter )
+  # -- Custom mount path for global trusted certificates (set type to "custom" and change this parameter )
   CABundleMountPath: "/etc/ssl/certs/ca-certificates.crt"
 
 # -- Additional ConfigMap to mount as volumes
@@ -94,7 +94,7 @@ extraConfigmapMounts: #{}
     mountPath: /etc/nginx/conf.d
     readOnly: true
     configMap: nginx-default-conf
-#  guardian-volume: 
+#  guardian-volume:
 #    configMap: zif-startup-guardian-config
 #    defaultMode: 420
 
@@ -112,26 +112,26 @@ extraConfigMaps: {}
 #       server {
 #           listen      0.0.0.0:8080 default_server;
 #           listen      [::]:8080 default_server;
-#       
+#
 #           server_name           _ "";
 #           root                  /www;
 #       port_in_redirect off;
-#       
+#
 #           location ~ / {
 #             index              index.html;
 #             add_header         Cache-Control $control;
 #             expires            $expires;
 #             etag               on;
 #             if_modified_since  exact;
-# 
+#
 #             location ~* \.(js(on)?|css|png|jpe?g|gif|ico|svg|webp|woff2?|ttf|eot)$ {
 #                 try_files      $uri =404;
 #             }
 #             try_files          $uri $uri/ $uri.html /index.html =404;
 #           }
-# 
+#
 #           error_page 404 = /index.html;
-#       
+#
 #           location = /app_logs {
 #               access_log      /dev/stdout main_post;
 #               limit_except    POST {
@@ -139,7 +139,7 @@ extraConfigMaps: {}
 #               }
 #               proxy_pass      http://0.0.0.0:8080/app_logs_write;
 #           }
-#       
+#
 #           location = /app_logs_write {
 #               access_log      off;
 #               default_type    application/json;
@@ -148,7 +148,7 @@ extraConfigMaps: {}
 #               }
 #               return 200 '{\r\n"msg": "ok"\r\n}\r\n';
 #           }
-#       
+#
 #           location = /health {
 #               access_log   off;
 #               default_type application/json;
@@ -160,7 +160,7 @@ extraConfigMaps: {}
 #                   "description": "SDK",\r
 #                   "hash": "6902af98c2527d5fc3a2ac7e84695ea41c532c37"\r
 #               }\r\n';
-#       
+#
 #               allow       0.0.0.0/8;
 #               allow       10.0.0.0/8;
 #               allow       127.0.0.0/8;
@@ -174,17 +174,17 @@ extraConfigMaps: {}
 #               allow       2002:c0a8::/32;
 #               deny        all;
 #           }
-#       
+#
 #           location /info {
 #               access_log       off;
 #               alias            /usr/share/nginx/info;
 #               index            index.html;
 #           }
-#       
+#
 #           location = /status {
 #               stub_status;
 #               access_log  off;
-#       
+#
 #               allow       0.0.0.0/8;
 #               allow       10.0.0.0/8;
 #               allow       127.0.0.0/8;
@@ -198,7 +198,7 @@ extraConfigMaps: {}
 #               allow       2002:c0a8::/32;
 #               deny        all;
 #           }
-#       
+#
 #           location = /status_json {
 #               access_log  off;
 #               add_header Content-Type application/json;
@@ -208,7 +208,7 @@ extraConfigMaps: {}
 #                   "connections_writing": $connections_writing,\r
 #                   "connections_waiting": $connections_waiting\r
 #               }\r\n';
-#       
+#
 #               allow       0.0.0.0/8;
 #               allow       10.0.0.0/8;
 #               allow       127.0.0.0/8;
@@ -222,17 +222,17 @@ extraConfigMaps: {}
 #               allow       2002:c0a8::/32;
 #               deny        all;
 #           }
-#       
+#
 #           error_page 500 502 503 504 /50x.html;
 #           location = /50x.html {
 #               root   /usr/share/nginx/html;
 #           }
-#       
+#
 #           location ~ /\. {
 #               deny   all;
 #           }
 #       }
-# 
+#
 # -- Create additional binaryConfigMap
 # Format: { binaryConfigMapName: { name: "value", * }, * }
 extraBinaryConfigMaps: {}
@@ -247,7 +247,7 @@ extraVolumes: {}
 
 # -- Additional init-containers (insert **Container** objects "as is" from values file, you can use helm-templates here)
 # Format: *name:{ container }*
-initContainers: {}  
+initContainers: {}
 
 # -- Additional containers (insert **Container** objects "as is" from values file, you can use helm-templates here)
 # Format: *name:{ container }*
@@ -278,7 +278,7 @@ containerPorts: #[]
     container: 8080
     service: 80
     proto: TCP
-    
+
 # -- Liveness probe for service container (used "as is", you can use variable substitution)
 livenessProbe: {}
 #  failureThreshold: 3
@@ -332,60 +332,60 @@ globalStorageClass: yc-network-ssd
 ## Ingress/Route object configuration
 ingress:
 
-# -- Enable Route/Ingress creation
+  # -- Enable Route/Ingress creation
   enabled: true
 
-# -- Enable URL rewrite on Ingress ( ziiot.cluster.com/service-name/api/call => ziiot.cluster.com/api/call )
+  # -- Enable URL rewrite on Ingress ( ziiot.cluster.com/service-name/api/call => ziiot.cluster.com/api/call )
   urlRewrite: true
 
-# -- (string) Service name to redirect traffic
-# @default -- image name or custom service name (serviceName)
+  # -- (string) Service name to redirect traffic
+  # @default -- image name or custom service name (serviceName)
   service: ""
 
-# -- Service port name to redirect traffic
-# @default -- first container port name (containerPorts[0].name) or http
+  # -- Service port name to redirect traffic
+  # @default -- first container port name (containerPorts[0].name) or http
   port: "http"
 
-# -- Ingress/Route hostname (required for correct route/ingress work)
+  # -- Ingress/Route hostname (required for correct route/ingress work)
   host: "ziiot-dev-11.kube01.yc.ziiot.ru"
 
-# -- Publish path for service (https://hostname/path)
-# @default -- image name or custom service name (serviceName)
+  # -- Publish path for service (https://hostname/path)
+  # @default -- image name or custom service name (serviceName)
   path: "/zui-sdk"
 
-# -- Ingress class name (required, for Ingress objects only)  
+  # -- Ingress class name (required, for Ingress objects only)
   ingressClassName: nginx
 
-# -- Include CertManager ingress annotation with Issuer (optional, for Ingress objects only)
+  # -- Include CertManager ingress annotation with Issuer (optional, for Ingress objects only)
   certmanagerIssuer:
 
-# -- Include CertManager ingress annotation with Cluster Issuer (optional, for Ingress objects only)
+  # -- Include CertManager ingress annotation with Cluster Issuer (optional, for Ingress objects only)
   certmanagerClusterIssuer:
 
-# -- TLS parameters on Route/Ingress (tls enabled by default, set tls.enabled = false to disable)
+  # -- TLS parameters on Route/Ingress (tls enabled by default, set tls.enabled = false to disable)
   tls:
 
-# -- TLS enabled/disabled (default - enabled, termination 'edge')
+    # -- TLS enabled/disabled (default - enabled, termination 'edge')
     enabled: true
-  
-# -- TLS termination type: edge, reencrypt, passthrough (required)
+
+    # -- TLS termination type: edge, reencrypt, passthrough (required)
     termination: edge
 
-# -- HTTP -> HTTPS Redirect policy. Only for OpenShift/OKD (in kubernetes enabled by default).
-# Posible values: "Redirect", "Node"
+    # -- HTTP -> HTTPS Redirect policy. Only for OpenShift/OKD (in kubernetes enabled by default).
+    # Posible values: "Redirect", "Node"
     insecureEdgeTerminationPolicy: Redirect
 
-# -- Hostname for TLS certificate (optional, for Ingress objects only)
-# @default -- ingress.host
+    # -- Hostname for TLS certificate (optional, for Ingress objects only)
+    # @default -- ingress.host
     tlsHost: "ziiot-dev-11.kube01.yc.ziiot.ru"
-  
-# -- Secret with certificate (for Ingress objects only)
-    secret: "zif-tls-ingress-secret" 
 
-# -- Server timeout (in seconds)
+    # -- Secret with certificate (for Ingress objects only)
+    secret: "zif-tls-ingress-secret"
+
+  # -- Server timeout (in seconds)
   serverTimeout: 120
 
-# -- Additional annotration fot Route/Ingress object
+  # -- Additional annotration fot Route/Ingress object
   extraAnnotations: {}
 
 # -- Additional Ingress/Route objects configuration ()

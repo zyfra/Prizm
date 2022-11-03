@@ -2,41 +2,41 @@ import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  ZuiBaseDialogContext,
-  ZuiDialogOptions,
-  ZuiDialogService,
-  ZuiDialogSize,
-  ZuiOverlayInsidePlacement,
-  ZuiOverscrollMode,
-  zuiPure,
+  PzmBaseDialogContext,
+  PzmDialogOptions,
+  PzmDialogService,
+  PzmDialogSize,
+  PzmOverlayInsidePlacement,
+  PzmOverscrollMode,
+  pzmPure,
 } from '@digital-plant/zui-components';
 import { generatePolymorphVariants } from '../../../util';
 
 @Component({
-  selector: 'zui-tooltip-example',
+  selector: 'pzm-tooltip-example',
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DialogComponent {
-  public overscrollVariants: ReadonlyArray<ZuiOverscrollMode> = [
+  public overscrollVariants: ReadonlyArray<PzmOverscrollMode> = [
     'scroll',
     'all',
     'none',
   ];
-  public overscroll: ZuiOverscrollMode = this.overscrollVariants[0];
-  public positionVariants: ZuiOverlayInsidePlacement[] = Object.values(ZuiOverlayInsidePlacement);
-  public position: ZuiOverlayInsidePlacement = ZuiOverlayInsidePlacement.CENTER;
+  public overscroll: PzmOverscrollMode = this.overscrollVariants[0];
+  public positionVariants: PzmOverlayInsidePlacement[] = Object.values(PzmOverlayInsidePlacement);
+  public position: PzmOverlayInsidePlacement = PzmOverlayInsidePlacement.CENTER;
   public backdrop = false;
   public height = 'auto';
   public width = '500px';
   public closeWord = 'Продолжить';
-  public sizeVariants: ZuiDialogSize[] = ['m', 'l'];
-  public size: ZuiDialogSize = 'm';
+  public sizeVariants: PzmDialogSize[] = ['m', 'l'];
+  public size: PzmDialogSize = 'm';
   public closeable = true;
   public header = 'Static_title_h3 - 16 Medium';
   public content = 'Базовый текст для диалога';
-  public footer: PolymorphContent<ZuiBaseDialogContext<any, ZuiDialogOptions<any, any>>> = null;
+  public footer: PolymorphContent<PzmBaseDialogContext<any, PzmDialogOptions<any, any>>> = null;
 
   public readonly exampleModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
@@ -48,10 +48,10 @@ export class DialogComponent {
   };
 
   constructor(
-    @Inject(ZuiDialogService) private readonly dialogService: ZuiDialogService,
+    @Inject(PzmDialogService) private readonly dialogService: PzmDialogService,
   ) {}
 
-  @zuiPure
+  @pzmPure
   public generatePolymorphVariants(...content: PolymorphContent[]): any[] {
     return generatePolymorphVariants(...content)
   };

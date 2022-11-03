@@ -13,17 +13,17 @@ import {
 import { AbstractControl, ControlValueAccessor, FormControl, NgControl, NgModel } from '@angular/forms';
 import { merge, ReplaySubject, Subject } from 'rxjs';
 import { map, startWith, takeUntil, tap } from 'rxjs/operators';
-import { AbstractZuiInteractive } from './interactive';
-import { zuiDefaultProp } from '../decorators';
-import { ZuiControlValueTransformer } from '../types/control-value-transformer';
+import { AbstractPzmInteractive } from './interactive';
+import { pzmDefaultProp } from '../decorators';
+import { PzmControlValueTransformer } from '../types/control-value-transformer';
 import { EMPTY_FUNCTION } from '../constants/empty';
 
 /**
  * Basic ControlValueAccessor class to build form components upon
  */
 @Directive()
-export abstract class AbstractZuiControl<T>
-  extends AbstractZuiInteractive
+export abstract class AbstractPzmControl<T>
+  extends AbstractPzmInteractive
   implements OnDestroy, OnInit, OnChanges, ControlValueAccessor
 {
   private previousInternalValue?: T | null;
@@ -40,15 +40,15 @@ export abstract class AbstractZuiControl<T>
 
   @Input()
   @HostBinding('class._readonly')
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   readOnly = false;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   val: T;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   pseudoInvalid: boolean | null = null;
 
   @Output()
@@ -57,7 +57,7 @@ export abstract class AbstractZuiControl<T>
   protected constructor(
     private readonly ngControl: NgControl | null,
     protected readonly changeDetectorRef: ChangeDetectorRef,
-    protected readonly valueTransformer?: ZuiControlValueTransformer<T> | null,
+    protected readonly valueTransformer?: PzmControlValueTransformer<T> | null,
   ) {
     super();
 

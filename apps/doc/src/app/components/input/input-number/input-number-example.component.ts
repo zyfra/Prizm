@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ZuiInputPosition, ZuiInputSize, ZuiInputStatus } from '@digital-plant/zui-components';
+import { PzmInputPosition, PzmInputSize, PzmInputStatus } from '@digital-plant/zui-components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'zui-input-number-example',
+  selector: 'pzm-input-number-example',
   templateUrl: './input-number-example.component.html',
   styleUrls: ['./input-number-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -18,22 +18,22 @@ export class InputNumberExampleComponent {
   public label = 'Заголовок';
   public placeholder = '';
 
-  public inputPosition: ZuiInputPosition = 'left';
-  public inputPositions: ZuiInputPosition[] = ['left', 'center'];
+  public inputPosition: PzmInputPosition = 'left';
+  public inputPositions: PzmInputPosition[] = ['left', 'center'];
   public outer: false;
 
-  public size: ZuiInputSize = 'l';
-  public sizesOuter: ZuiInputSize[] = ['l', 'm', 's'];
-  public sizesInner: ZuiInputSize[] = ['l', 'm'];
+  public size: PzmInputSize = 'l';
+  public sizesOuter: PzmInputSize[] = ['l', 'm', 's'];
+  public sizesInner: PzmInputSize[] = ['l', 'm'];
 
   public disabled = false;
 
-  public status: ZuiInputStatus = 'default';
-  public statuses: ZuiInputStatus[] = ['default', 'success', 'warning', 'danger'];
+  public status: PzmInputStatus = 'default';
+  public statuses: PzmInputStatus[] = ['default', 'success', 'warning', 'danger'];
 
   public required = false;
 
-  public readonly zuiInputNumberBasic: TuiDocExample = {
+  public readonly pzmInputNumberBasic: TuiDocExample = {
     TypeScript: import(
       '!!raw-loader!./examples/input-number-basic-example/input-number-basic-example.component.ts'
     ),
@@ -42,7 +42,7 @@ export class InputNumberExampleComponent {
     ),
   };
 
-  public readonly zuiInputNumberCounter: TuiDocExample = {
+  public readonly pzmInputNumberCounter: TuiDocExample = {
     TypeScript: import(
       '!!raw-loader!./examples/input-number-counter-example/input-number-counter-example.component.ts'
     ),

@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ITableProduct } from '../table-basic-example/table-basic-example.component';
 
 @Component({
-  selector: 'zui-table-selectable-example',
+  selector: 'pzm-table-selectable-example',
   templateUrl: './table-selectable-example.component.html',
   styleUrls: ['./table-selectable-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,4 +1,4 @@
-import { ZuiMarkerHandler } from "../types/marker-handler";
-import { ZUI_EMPTY_ARRAY } from "./empty";
+import { PzmMarkerHandler } from "../types/marker-handler";
+import { PZM_EMPTY_ARRAY } from "./empty";
 
-export const ZUI_DEFAULT_MARKER_HANDLER: ZuiMarkerHandler = (): [] => ZUI_EMPTY_ARRAY;
+export const PZM_DEFAULT_MARKER_HANDLER: PzmMarkerHandler = (): [] => PZM_EMPTY_ARRAY;

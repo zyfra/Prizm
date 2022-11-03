@@ -1,8 +1,8 @@
 import { Injector, TemplateRef } from '@angular/core';
 
-export type ZuiDateButton = {
+export type PzmDateButton = {
   template: TemplateRef<unknown>;
 };
-export type ZuiDateButtonContext = {
+export type PzmDateButtonContext = {
   injector: Injector;
 };

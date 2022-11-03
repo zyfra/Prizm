@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'zui-hint-with-template-example',
+  selector: 'pzm-hint-with-template-example',
   templateUrl: './hint-with-template-example.component.html',
   styles: [`
     .box {
@@ -10,5 +10,5 @@ import { Component } from '@angular/core';
     }
   `]
 })
-export class ZuiHintWithTemplateExampleComponent {
+export class PzmHintWithTemplateExampleComponent {
 }

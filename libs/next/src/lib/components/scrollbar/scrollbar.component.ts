@@ -7,61 +7,61 @@ import {
   Inject,
   Input,
 } from '@angular/core';
-import { ZUI_IS_IOS, ZUI_SCROLL_REF } from '../../tokens';
+import { PZM_IS_IOS, PZM_SCROLL_REF } from '../../tokens';
 import { CSS, USER_AGENT } from '@ng-web-apis/common';
-import { zuiIsFirefox } from '../../util/browser';
-import { ZUI_SCROLL_INTO_VIEW, ZUI_SCROLLABLE } from '../../constants/events';
-import { zuiGetElementOffset } from '../../util/dom';
-import { ZuiHoveredService } from '../../services';
+import { pzmIsFirefox } from '../../util/browser';
+import { PZM_SCROLL_INTO_VIEW, PZM_SCROLLABLE } from '../../constants/events';
+import { pzmGetElementOffset } from '../../util/dom';
+import { PzmHoveredService } from '../../services';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { shareReplay, switchMap } from 'rxjs/operators';
-import { ZuiScrollbarVisibility } from './scrollbar.model';
+import { PzmScrollbarVisibility } from './scrollbar.model';
 
 export function scrollRefFactory(
  {
    browserScrollRef,
- }: ZuiScrollbarComponent
+ }: PzmScrollbarComponent
 ): ElementRef<HTMLElement> {
   return browserScrollRef;
 }
 
 
 @Component({
-    selector: 'zui-scrollbar',
+    selector: 'pzm-scrollbar',
     templateUrl: './scrollbar.component.html',
     styleUrls: ['./scrollbar.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
-          provide: ZUI_SCROLL_REF,
+          provide: PZM_SCROLL_REF,
           useFactory: scrollRefFactory,
-          deps: [ZuiScrollbarComponent],
+          deps: [PzmScrollbarComponent],
         },
     ],
 })
-export class ZuiScrollbarComponent {
+export class PzmScrollbarComponent {
     @Input()
-    set visibility(visibility: ZuiScrollbarVisibility) {
+    set visibility(visibility: PzmScrollbarVisibility) {
       this.visibility$.next(visibility)
     }
-    get visibility(): ZuiScrollbarVisibility {
+    get visibility(): PzmScrollbarVisibility {
       return this.visibility$.value;
     }
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_scrollbar';
+    readonly testId = 'pzm_scrollbar';
 
     private delegated = false;
 
     private readonly isLegacy: boolean =
       !this.cssRef.supports('position', 'sticky') ||
-      (zuiIsFirefox(this.userAgent) && !this.cssRef.supports('scrollbar-width', 'none'));
+      (pzmIsFirefox(this.userAgent) && !this.cssRef.supports('scrollbar-width', 'none'));
 
-    private readonly visibility$: BehaviorSubject<ZuiScrollbarVisibility> = new BehaviorSubject<ZuiScrollbarVisibility>('auto');
+    private readonly visibility$: BehaviorSubject<PzmScrollbarVisibility> = new BehaviorSubject<PzmScrollbarVisibility>('auto');
 
     public readonly showScrollbars$: Observable<boolean> = this.visibility$.pipe(
-      switchMap<ZuiScrollbarVisibility, Observable<boolean>>(
-        (visibility: ZuiScrollbarVisibility) => {
+      switchMap<PzmScrollbarVisibility, Observable<boolean>>(
+        (visibility: PzmScrollbarVisibility) => {
           const canShow = !this.isIos && (!this.isLegacy || this.delegated);
           if (!canShow) return of(false);
 
@@ -85,11 +85,11 @@ export class ZuiScrollbarComponent {
     readonly browserScrollRef = new ElementRef(this.elementRef.nativeElement);
 
     constructor(
-        private readonly hoveredService: ZuiHoveredService,
+        private readonly hoveredService: PzmHoveredService,
         @Inject(CSS) private readonly cssRef: any,
         private readonly elementRef: ElementRef,
         @Inject(USER_AGENT) private readonly userAgent: string,
-        @Inject(ZUI_IS_IOS) private readonly isIos: boolean,
+        @Inject(PZM_IS_IOS) private readonly isIos: boolean,
     ) {}
 
     @HostBinding('class._legacy')
@@ -97,20 +97,20 @@ export class ZuiScrollbarComponent {
         return this.isLegacy && this.visibility === 'visible' && !this.delegated;
     }
 
-    @HostListener(`${ZUI_SCROLLABLE}.stop`, ['$event.detail'])
+    @HostListener(`${PZM_SCROLLABLE}.stop`, ['$event.detail'])
     public onScrollable(element: HTMLElement): void {
         this.delegated = true;
         this.browserScrollRef.nativeElement = element;
     }
 
-    @HostListener(`${ZUI_SCROLL_INTO_VIEW}.stop`, ['$event.detail'])
+    @HostListener(`${PZM_SCROLL_INTO_VIEW}.stop`, ['$event.detail'])
     public scrollIntoView(detail: HTMLElement): void {
         if (this.delegated) {
             return;
         }
 
         const {nativeElement} = this.browserScrollRef;
-        const {offsetTop, offsetLeft} = zuiGetElementOffset(nativeElement, detail);
+        const {offsetTop, offsetLeft} = pzmGetElementOffset(nativeElement, detail);
 
         nativeElement.scrollTop =
             offsetTop + detail.offsetHeight / 2 - nativeElement.clientHeight / 2;

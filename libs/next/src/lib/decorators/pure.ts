@@ -7,10 +7,10 @@
  *
  * CAUTION: `this` is not available inside such functions/getters, they must be pure.
  */
-import {ZuiPureException} from "../exceptions";
+import {PzmPureException} from "../exceptions";
 
 
-export function zuiPure<T>(
+export function pzmPure<T>(
   // eslint-disable-next-line @typescript-eslint/ban-types
   _target: object,
   propertyKey: string,
@@ -30,7 +30,7 @@ export function zuiPure<T>(
   }
 
   if (typeof value !== 'function') {
-    throw new ZuiPureException();
+    throw new PzmPureException();
   }
 
   const original = value;

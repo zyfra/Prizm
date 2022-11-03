@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PolymorphContent, ZuiContextWithImplicit, ZuiSizeL, ZuiSizeM } from '@digital-plant/zui-components';
+import { PolymorphContent, PzmContextWithImplicit, PzmSizeL, PzmSizeM } from '@digital-plant/zui-components';
+import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-skeleton-example',
+  selector: 'pzm-skeleton-example',
   templateUrl: './skeleton.component.html',
   styleUrls: ['./skeleton.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -13,16 +14,17 @@ export class SkeletonComponent {
   isText = false;
   isRounded = false;
   isShort = false;
+  public readonly toggleControl = new FormControl();
 
-  readonly iconVariants: ReadonlyArray<PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>>> = [
+  readonly iconVariants: ReadonlyArray<PolymorphContent<PzmContextWithImplicit<PzmSizeL | PzmSizeM>>> = [
     '',
     'selection-checkbox-marked-circle',
     'selection-checkbox-marked-circle-chanel',
     'arrows-chevron-left',
     'arrows-chevron-right'
   ];
-  iconOn: PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>> = this.iconVariants[0];
-  iconOff: PolymorphContent<ZuiContextWithImplicit<ZuiSizeL | ZuiSizeM>> = this.iconVariants[0];
+  iconOn: PolymorphContent<PzmContextWithImplicit<PzmSizeL | PzmSizeM>> = this.iconVariants[0];
+  iconOff: PolymorphContent<PzmContextWithImplicit<PzmSizeL | PzmSizeM>> = this.iconVariants[0];
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
   );

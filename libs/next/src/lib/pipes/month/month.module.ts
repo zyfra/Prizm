@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 
-import {ZuiMonthPipe} from './month.pipe';
+import {PzmMonthPipe} from './month.pipe';
 
 @NgModule({
-    exports: [ZuiMonthPipe],
-    declarations: [ZuiMonthPipe],
+    exports: [PzmMonthPipe],
+    declarations: [PzmMonthPipe],
 })
-export class ZuiMonthPipeModule {}
+export class PzmMonthPipeModule {}

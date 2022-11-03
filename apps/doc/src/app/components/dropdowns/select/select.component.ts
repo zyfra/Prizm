@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PolymorphContent, ZuiInputSize, zuiPure, ZuiScrollbarVisibility } from '@digital-plant/zui-components';
+import { PolymorphContent, PzmInputSize, pzmPure, PzmScrollbarVisibility } from '@digital-plant/zui-components';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-select-example',
+  selector: 'pzm-select-example',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -14,24 +14,24 @@ export class SelectComponent {
   searchable = false;
   outer = false;
   label = 'Выберите участника';
-  get sizeVariants(): ReadonlyArray<ZuiInputSize> {
+  get sizeVariants(): ReadonlyArray<PzmInputSize> {
     return this.outer
       ? ['s', 'm', 'l']
       : ['m', 'l'];
   };
   size = this.sizeVariants[0];
-  forceShowClearButtonVariants: ReadonlyArray<boolean | null> = [
+  forceClearVariants: ReadonlyArray<boolean | null> = [
     null,
     false,
     true
   ];
-  forceShowClearButton = this.forceShowClearButtonVariants[0];
+  forceClear = this.forceClearVariants[0];
   emptyContent = 'Ничего не найдено';
   nullContent = 'Не выбрано';
   minDropdownHeight = 0;
   maxDropdownHeight = 342;
   placeholder = '';
-  visibility: ZuiScrollbarVisibility = 'auto';
+  visibility: PzmScrollbarVisibility = 'auto';
   readonly itemsVariants: ReadonlyArray<string[] | null> = [
     [
       'Андрей Сафанов Андрей Сафанов Андрей Сафанов Андрей Сафанов',
@@ -98,7 +98,7 @@ export class SelectComponent {
 
 
   public valueTemplate: PolymorphContent<any> = ''
-  @zuiPure
+  @pzmPure
   public getValueTemplate (...temps: PolymorphContent[]): PolymorphContent<any>[] {
     return [
       null,

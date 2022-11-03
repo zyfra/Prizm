@@ -1,3 +1,3 @@
-import type {ZuiLanguageName} from './language-names';
+import type { PzmLanguageName } from './language-names';
 
-export type ZuiLanguageLoader = (lang: ZuiLanguageName) => Promise<unknown>;
+export type PzmLanguageLoader = (lang: PzmLanguageName) => Promise<unknown>;

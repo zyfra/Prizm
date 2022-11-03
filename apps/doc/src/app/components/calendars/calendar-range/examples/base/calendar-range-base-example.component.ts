@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ZuiDay, ZuiDayRange } from '@digital-plant/zui-components';
+import { PzmDay, PzmDayRange } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-calendar-range-base-example',
+  selector: 'pzm-calendar-range-base-example',
   templateUrl: './calendar-range-base-example.component.html',
   styles: [`
     .box {
@@ -11,6 +11,6 @@ import { ZuiDay, ZuiDayRange } from '@digital-plant/zui-components';
     }
   `]
 })
-export class ZuiCalendarRangeBaseExampleComponent {
-  public value = new ZuiDayRange(new ZuiDay(2022, 1, 7), new ZuiDay(2022, 1, 14));
+export class PzmCalendarRangeBaseExampleComponent {
+  public value = new PzmDayRange(new PzmDay(2022, 1, 7), new PzmDay(2022, 1, 14));
 }

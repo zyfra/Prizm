@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'zui-input-search-example',
+  selector: 'pzm-input-search-example',
   templateUrl: './input-search-example.component.html',
   styleUrls: ['./input-search-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

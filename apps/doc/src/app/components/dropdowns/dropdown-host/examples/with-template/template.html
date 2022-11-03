@@ -1,22 +1,22 @@
-<zui-dropdown-host
+<pzm-dropdown-host
   [content]="dropdown"
-  zuiDropdownHostWidth='auto'
+  pzmDropdownHostWidth='auto'
   [(isOpen)]="open"
 >
-  <button zuiButton type="button" (click)="open = !open">
+  <button pzmButton type="button" (click)="open = !open">
     Button
   </button>
-</zui-dropdown-host>
+</pzm-dropdown-host>
 
 <ng-template #dropdown>
-  <zui-data-list>
+  <pzm-data-list>
     <ng-container header>Заголовок блока</ng-container>
       <div class="box">
-        <button zuiButton appearanceType="outline">Кнопка 1</button>
-        <button zuiButton appearanceType="outline">Кнопка 2</button>
+        <button pzmButton appearanceType="outline">Кнопка 1</button>
+        <button pzmButton appearanceType="outline">Кнопка 2</button>
       </div>
     <ng-container footer>
-      <button zuiButton (click)="open = false; cdRef.markForCheck()">Закрыть</button>
+      <button pzmButton (click)="open = false; cdRef.markForCheck()">Закрыть</button>
     </ng-container>
-  </zui-data-list>
+  </pzm-data-list>
 </ng-template>

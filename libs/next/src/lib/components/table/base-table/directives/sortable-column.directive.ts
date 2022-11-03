@@ -7,7 +7,7 @@ export function onSortColumnClick(event: MouseEvent): void {
     this.updateSortState();
 
     if (this.shouldReset()) {
-      this.zuiTable.resetSort();
+      this.pzmTable.resetSort();
     } else {
       this.emitSort({
         originalEvent: event,

@@ -1,0 +1,127 @@
+<tui-doc-page header="Button" package="NEXT" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="base" heading="With Icons" [content]="exampleIcons">
+      <pzm-icons-buttons-example></pzm-icons-buttons-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="base" heading="Filled buttons" [content]="exampleFilled">
+      <pzm-outline-buttons-example></pzm-outline-buttons-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="base" heading="Outline buttons" [content]="exampleOutline">
+      <pzm-filled-buttons-example></pzm-filled-buttons-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="base" heading="Ghost buttons" [content]="exampleGhost">
+      <pzm-ghost-buttons-example></pzm-ghost-buttons-example>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <button
+        pzmButton
+        [icon]="icon"
+        [iconRight]="iconRight"
+        [size]="size"
+        [appearanceType]="appearanceType"
+        [appearance]="appearance"
+        [disabled]="disabled"
+        [showLoader]="showLoader"
+      >
+        {{ content }}
+      </button>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="ng-content"
+        documentationPropertyType="string"
+        [(documentationPropertyValue)]="content"
+      >
+        NgContent
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="PzmSize"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="appearance"
+        documentationPropertyType="PzmAppearance"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="appearanceVariants"
+        [(documentationPropertyValue)]="appearance"
+      >
+        Appearance
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="appearanceType"
+        documentationPropertyType="PzmAppearanceType"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="appearanceTypeVariants"
+        [(documentationPropertyValue)]="appearanceType"
+      >
+        AppearanceType
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="icon"
+        documentationPropertyType="PzmContent"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="iconVariants"
+        [(documentationPropertyValue)]="icon"
+      >
+        Icon
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="iconRight"
+        documentationPropertyType="PzmContent"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="iconVariants"
+        [(documentationPropertyValue)]="iconRight"
+      >
+        Right Icon
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="showLoader"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="showLoader"
+      >
+        Show Loader
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PzmButtonModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

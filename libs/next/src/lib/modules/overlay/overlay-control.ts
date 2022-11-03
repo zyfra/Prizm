@@ -9,30 +9,30 @@ import {
 import {animationFrameScheduler, fromEvent, merge as mergeObs, Observable, Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map, observeOn, skipWhile, takeUntil, tap} from 'rxjs/operators';
 import {
-  ZuiOverlayConfig,
-  ZuiOverlayContent,
-  ZuiOverlayContentData,
-  ZuiOverlayContentProps,
-  ZuiOverlayEventName,
-  ZuiOverlayId
+  PzmOverlayConfig,
+  PzmOverlayContent,
+  PzmOverlayContentData,
+  PzmOverlayContentProps,
+  PzmOverlayEventName,
+  PzmOverlayId
 } from './models';
-import {ZuiOverlayAbstractPosition} from './position/position';
-import {ZuiOverlayComponent} from './overlay.component';
+import {PzmOverlayAbstractPosition} from './position/position';
+import {PzmOverlayComponent} from './overlay.component';
 import {BODY_ELEMENT, EventBus, getContent} from './utils';
 
-export class ZuiOverlayControl {
-  position: ZuiOverlayAbstractPosition;
-  readonly config: ZuiOverlayConfig;
-  content: ZuiOverlayContent;
-  zid: ZuiOverlayId;
-  comp: ZuiOverlayComponent;
+export class PzmOverlayControl {
+  position: PzmOverlayAbstractPosition;
+  readonly config: PzmOverlayConfig;
+  content: PzmOverlayContent;
+  zid: PzmOverlayId;
+  comp: PzmOverlayComponent;
   updateTextContent: Subject<string> = new Subject();
   hostView: ViewRef;
-  compRef: ComponentRef<ZuiOverlayComponent>;
+  compRef: ComponentRef<PzmOverlayComponent>;
 
   public viewEl: HTMLElement;
   isOpen = false;
-  private compFac: ComponentFactory<ZuiOverlayComponent>;
+  private compFac: ComponentFactory<PzmOverlayComponent>;
   private destroy$: Subject<1> = new Subject();
 
   constructor(
@@ -111,19 +111,19 @@ export class ZuiOverlayControl {
     );
   }
 
-  public changePosition(newPosition: ZuiOverlayAbstractPosition): void {
+  public changePosition(newPosition: PzmOverlayAbstractPosition): void {
     this.position = newPosition;
   }
 
-  public updatePosition(positionConfig: ZuiOverlayAbstractPosition): void {
+  public updatePosition(positionConfig: PzmOverlayAbstractPosition): void {
     this.position.updateConfig(positionConfig);
   }
 
-  public updateContent(content: ZuiOverlayContentData, props: ZuiOverlayContentProps = {}): void {
+  public updateContent(content: PzmOverlayContentData, props: PzmOverlayContentProps = {}): void {
     this.content = getContent(content, { ...this.content.props, ...props });
   }
 
-  public listen<T = any>(eventName: ZuiOverlayEventName): Observable<T> {
+  public listen<T = any>(eventName: PzmOverlayEventName): Observable<T> {
     return EventBus.listen(this.zid, eventName);
   }
 
@@ -138,7 +138,7 @@ export class ZuiOverlayControl {
 
   private attach(): void {
     /* create component */
-    this.compFac = this.compResolver.resolveComponentFactory(ZuiOverlayComponent);
+    this.compFac = this.compResolver.resolveComponentFactory(PzmOverlayComponent);
     this.compRef = this.compFac.create(this.injector);
     this.comp = this.compRef.instance;
 

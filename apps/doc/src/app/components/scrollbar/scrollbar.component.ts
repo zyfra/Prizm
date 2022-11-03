@@ -1,21 +1,21 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { ZuiScrollbarVisibility, ZuiSizeL, ZuiSizeM } from '@digital-plant/zui-components';
+import { PzmScrollbarVisibility, PzmSizeL, PzmSizeM } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-scrollbar-example',
+  selector: 'pzm-scrollbar-example',
   templateUrl: './scrollbar.component.html',
   styleUrls: ['./scrollbar.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScrollbarComponent {
 
-  public readonly visibilityVariants: ReadonlyArray<ZuiScrollbarVisibility> = [
+  public readonly visibilityVariants: ReadonlyArray<PzmScrollbarVisibility> = [
     'auto',
     'hidden',
     'visible'
   ];
-  public visibility: ZuiScrollbarVisibility = this.visibilityVariants[0];
+  public visibility: PzmScrollbarVisibility = this.visibilityVariants[0];
 
   public readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'

@@ -1,16 +1,16 @@
 import { Directive, HostBinding, Input } from '@angular/core';
-import { ZuiShadowType, ZuiShadowTypeEnum, ZuiShadowValue } from './models';
-import { zuiGetShadow } from './shadow.util';
+import { PzmShadowType, PzmShadowValue } from './models';
+import { pzmGetShadow } from './shadow.util';
 
 @Directive({
-  selector: '[zuiShadow]',
+  selector: '[pzmShadow]',
 })
-export class ZuiShadowDirective {
-  @Input('zuiShadow')
-  type: ZuiShadowType;
+export class PzmShadowDirective {
+  @Input('pzmShadow')
+  type: PzmShadowType;
 
   @HostBinding('style.box-shadow')
-  private get boxShadow(): ZuiShadowValue {
-    return zuiGetShadow(this.type)
+  private get boxShadow(): PzmShadowValue {
+    return pzmGetShadow(this.type)
   }
 }

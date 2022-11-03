@@ -1,0 +1,112 @@
+<div>
+  <p class='title'>Size XL</p>
+  <div class='block'>
+    <pzm-progress-circle
+      size="xl"
+      [max]="max"
+      [value]="(value$ | async) || 0"
+    ></pzm-progress-circle>
+  </div>
+</div>
+
+<br>
+<div>
+  <p class='title'>Size L</p>
+  <div class='block'>
+    <pzm-progress-circle
+      size="l"
+      [max]="max"
+      [trackColor]='"transparent"'
+      [value]="(value$ | async) || 0"
+    ></pzm-progress-circle>
+
+    <pzm-progress-circle
+      size="l"
+      [max]="max"
+      [value]="(value$ | async) || 0"
+    ></pzm-progress-circle>
+
+    <pzm-progress-circle
+      size="l"
+      [max]="max"
+      [trackColor]='"var(--pzm-index-warning)"'
+      [color]='"var(--pzm-index-plan)"'
+      [value]="(value$ | async) || 0"
+    ></pzm-progress-circle>
+  </div>
+</div>
+<br>
+
+<br>
+<div>
+  <p class='title'>Size S</p>
+  <div class='block'>
+    <pzm-progress-circle
+      size="s"
+      [max]="max"
+      [value]="(value$ | async) || 0"
+    ></pzm-progress-circle>
+    <pzm-progress-circle
+      size="s"
+      [max]="max"
+      color='var(--pzm-index-warning)'
+      trackColor='transparent'
+      [value]="(value$ | async) || 0"
+    ></pzm-progress-circle>
+  </div>
+</div>
+
+<br>
+<div>
+  <p class='title'>Size M</p>
+  <div class='block'>
+    <pzm-progress-circle
+      size="m"
+      [max]="max"
+      [value]="(value$ | async) || 0"
+    ></pzm-progress-circle>
+
+    <pzm-progress-circle
+      size="m"
+      color='var(--pzm-index-warning)'
+      [max]="max"
+      [value]="(value$ | async) || 0"
+    ></pzm-progress-circle>
+  </div>
+</div>
+
+<br>
+<div>
+  <p class='title'>With label</p>
+  <div class='block'>
+    <div>
+
+      <label
+        *ngIf="value$ | async as value"
+        pzmProgressLabel
+      >
+        <span class="percent">{{ value }}%</span>
+
+        <pzm-progress-circle
+          size="xl"
+          [max]="max"
+          [value]="value"
+        ></pzm-progress-circle>
+      </label>
+    </div>
+    <div>
+      <label
+        *ngIf="value$ | async as value"
+        pzmProgressLabel
+      >
+        <span class="percent">{{ value }}%</span>
+        <pzm-progress-circle
+          size="l"
+          [max]="max"
+          [trackColor]='"transparent"'
+          [value]="value"
+        ></pzm-progress-circle>
+      </label>
+    </div>
+  </div>
+</div>

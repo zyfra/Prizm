@@ -1,24 +1,24 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, TemplateRef, ViewChild } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PolymorphContent, ZuiOverlayOutsidePlacement } from '@digital-plant/zui-components';
+import { PolymorphContent, PzmOverlayOutsidePlacement } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-dropdown-host-example',
+  selector: 'pzm-dropdown-host-example',
   templateUrl: './dropdown-host.component.html',
   styleUrls: ['./dropdown-host.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropdownHostComponent {
   isOpen = false;
-  zuiDropdownHostWidth = 'auto';
+  pzmDropdownHostWidth = 'auto';
   content: PolymorphContent;
 
   autoReposition: boolean;
 
-  placementVariants: ReadonlyArray<ZuiOverlayOutsidePlacement> = [
-    ...Object.values(ZuiOverlayOutsidePlacement),
+  placementVariants: ReadonlyArray<PzmOverlayOutsidePlacement> = [
+    ...Object.values(PzmOverlayOutsidePlacement),
   ];
-  placement: ZuiOverlayOutsidePlacement;
+  placement: PzmOverlayOutsidePlacement;
   closeOnBackdropClick = false;
 
   @ViewChild('withHeaderAndFooter') withHeaderAndFooter: TemplateRef<unknown>;
@@ -37,6 +37,16 @@ export class DropdownHostComponent {
     TypeScript: import('!!raw-loader!./examples/select-panel-example/select-panel-example.component.ts'),
     HTML: import('!!raw-loader!./examples/select-panel-example/select-panel-example.component.html'),
     LESS: import('./examples/select-panel-example/select-panel-example.component.less?raw'),
+  };
+
+  readonly exampleDateRangeList: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/date-list/date-list.component'),
+    HTML: import('!!raw-loader!./examples/date-list/date-list.component.html'),
+  };
+
+  readonly exampleDateRangeListEdit: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/date-list-edit/date-list-edit.component'),
+    HTML: import('!!raw-loader!./examples/date-list-edit/date-list-edit.component.html'),
   };
 
   constructor(public readonly cdRef: ChangeDetectorRef) {}

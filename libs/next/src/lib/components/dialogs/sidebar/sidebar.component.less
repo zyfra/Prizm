@@ -3,15 +3,15 @@
 
 .content {
   .ellipsis();
-  padding: var(--zui-sidebar-padding, 32px 16px);
-  color: var(--zui-text-main);
+  padding: var(--pzm-sidebar-padding, 32px 16px);
+  color: var(--pzm-text-main);
   overflow: hidden;
   max-width: 100%;
 }
 
 .header {
-  border-bottom: 1px solid var(--zui-border-widget);
-  padding: var(--zui-sidebar-padding, 14px 16px);
+  border-bottom: 1px solid var(--pzm-border-widget);
+  padding: var(--pzm-sidebar-padding, 14px 16px);
   display: flex;
   justify-content: space-between;
   max-width: 100%;
@@ -19,10 +19,10 @@
 
   font-style: normal;
   font-weight: 600;
-  font-size: var(--zui-sidebar-font-size, 14px);
-  color: var(--zui-text-contrast);
+  font-size: var(--pzm-sidebar-font-size, 14px);
+  color: var(--pzm-text-contrast);
 
-  zui-scrollbar {
+  pzm-scrollbar {
     max-height: 150px;
     width: 100%;
   }
@@ -35,7 +35,7 @@
   }
 
   .icon {
-    color: var(--zui-border-icon);
+    color: var(--pzm-border-icon);
     font-weight: 300;
     cursor: pointer;
     margin-left: 16px;
@@ -44,18 +44,18 @@
 
 .description {
   .ellipsis();
-  font-weight: var(--zui-sidebar-description-font-weight, 400);
-  font-size: var(--zui-sidebar-description-font-size, 14px);
-  line-height: var(--zui-sidebar-description-line-height, 20px);
-  text-align: var(--zui-sidebar-description-align, center);
-  color: var(--zui-sidebar-description, var(--zui-text-subscript));
+  font-weight: var(--pzm-sidebar-description-font-weight, 400);
+  font-size: var(--pzm-sidebar-description-font-size, 14px);
+  line-height: var(--pzm-sidebar-description-line-height, 20px);
+  text-align: var(--pzm-sidebar-description-align, center);
+  color: var(--pzm-sidebar-description, var(--pzm-text-subscript));
 }
 
 :host {
   display: block;
-  background: var(--zui-sidebar-background, var(--zui-bg-body));
-  border: 1px solid var(--zui-border-widget);
-  border-radius: var(--zui-sidebar-border-radius, 2px);
+  background: var(--pzm-sidebar-background, var(--pzm-bg-body));
+  border: 1px solid var(--pzm-border-widget);
+  border-radius: var(--pzm-sidebar-border-radius, 2px);
   pointer-events: all;
   width: 100%;
 
@@ -87,8 +87,8 @@
 
 
 .footer {
-  border-top: 1px solid var(--zui-border-widget);
-  padding: var(--zui-sidebar-padding, 14px 16px);
+  border-top: 1px solid var(--pzm-border-widget);
+  padding: var(--pzm-sidebar-padding, 14px 16px);
   max-width: 100%;
   max-height: 200px;
   overflow: hidden;
@@ -102,7 +102,7 @@
 }
 
 .scrollbar {
-  max-height: var(--zui-sidebar-max-scrollbar-height, 60vh);
+  max-height: var(--pzm-sidebar-max-scrollbar-height, 60vh);
 }
 
 .box {
@@ -115,6 +115,6 @@
   height: 24px;
 }
 
-[zuiInputIconButton] {
+[pzmInputIconButton] {
   width: unset;
 }

@@ -1,34 +1,34 @@
 import {InjectionToken, ValueProvider} from '@angular/core';
-import {ZuiOverlayOutsidePlacement} from "../../modules/overlay/models";
+import {PzmOverlayOutsidePlacement} from "../../modules/overlay/models";
 
-export type ZuiTooltipMode = 'error' | 'dark' | 'light' | null
-export interface ZuiTooltipOptions {
+export type PzmTooltipMode = 'error' | 'dark' | 'light' | null
+export interface PzmTooltipOptions {
     readonly showDelay: number;
     readonly hideDelay: number;
-    readonly mode: ZuiTooltipMode;
+    readonly mode: PzmTooltipMode;
     readonly autoReposition: boolean;
-    readonly direction: ZuiOverlayOutsidePlacement;
+    readonly direction: PzmOverlayOutsidePlacement;
 }
 
 /** Default values for hint options */
-export const ZUI_TOOLTIP_DEFAULT_OPTIONS: ZuiTooltipOptions = {
+export const PZM_TOOLTIP_DEFAULT_OPTIONS: PzmTooltipOptions = {
     showDelay: 100,
     hideDelay: 100,
     autoReposition: true,
     mode: null,
-    direction: ZuiOverlayOutsidePlacement.RIGHT,
+    direction: PzmOverlayOutsidePlacement.RIGHT,
 };
 
-export const ZUI_TOOLTIP_OPTIONS = new InjectionToken<ZuiTooltipOptions>(
+export const PZM_TOOLTIP_OPTIONS = new InjectionToken<PzmTooltipOptions>(
     'Default parameters for tooltip directive',
     {
-        factory: (): ZuiTooltipOptions => ZUI_TOOLTIP_DEFAULT_OPTIONS,
+        factory: (): PzmTooltipOptions => PZM_TOOLTIP_DEFAULT_OPTIONS,
     },
 );
 
-export const zuiTooltipOptionsProvider: (
-    options: Partial<ZuiTooltipOptions>,
-) => ValueProvider = (options: Partial<ZuiTooltipOptions>) => ({
-    provide: ZUI_TOOLTIP_OPTIONS,
-    useValue: {...ZUI_TOOLTIP_DEFAULT_OPTIONS, ...options},
+export const pzmTooltipOptionsProvider: (
+    options: Partial<PzmTooltipOptions>,
+) => ValueProvider = (options: Partial<PzmTooltipOptions>) => ({
+    provide: PZM_TOOLTIP_OPTIONS,
+    useValue: {...PZM_TOOLTIP_DEFAULT_OPTIONS, ...options},
 });

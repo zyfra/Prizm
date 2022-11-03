@@ -1,13 +1,13 @@
-import { Directive, ElementRef, forwardRef } from '@angular/core';
-import { ZUI_ELEMENT_REF } from '../../tokens/element-ref';
+import { Directive, ElementRef } from '@angular/core';
+import { PZM_ELEMENT_REF } from '../../tokens/element-ref';
 
 @Directive({
-    selector: '[zuiScrollbarWrapper]',
+    selector: '[pzmScrollbarWrapper]',
     providers: [
         {
-          provide: ZUI_ELEMENT_REF,
+          provide: PZM_ELEMENT_REF,
           useExisting: ElementRef,
         },
     ],
 })
-export class ZuiScrollbarWrapperDirective {}
+export class PzmScrollbarWrapperDirective {}

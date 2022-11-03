@@ -1,13 +1,13 @@
 import { EMPTY_FUNCTION } from '../../../constants';
 import { PolymorphComponent } from '../../../directives/polymorph';
-import { ZuiTreeItemContentComponent } from '../components/tree-item-content/tree-item-content.component';
-import { ZuiTreeController } from './tree.interfaces';
+import { PzmTreeItemContentComponent } from '../components/tree-item-content/tree-item-content.component';
+import { PzmTreeController } from './tree.interfaces';
 
-export const ZUI_TREE_ITEM_CONTENT = new PolymorphComponent(
-    ZuiTreeItemContentComponent,
+export const PZM_TREE_ITEM_CONTENT = new PolymorphComponent(
+    PzmTreeItemContentComponent,
 );
 
-export const ZUI_DEFAULT_TREE_CONTROLLER: ZuiTreeController = {
+export const PZM_DEFAULT_TREE_CONTROLLER: PzmTreeController = {
     isExpanded: () => true,
     toggle: EMPTY_FUNCTION as () => void,
 };

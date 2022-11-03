@@ -1,11 +1,11 @@
 <tui-doc-page header="Input number" type="components">
   <ng-template pageTab>
-    <tui-doc-example id="number" heading="Input number basic example" [content]="zuiInputNumberBasic">
-      <zui-input-number-basic-example></zui-input-number-basic-example>
+    <tui-doc-example id="number" heading="Input number basic example" [content]="pzmInputNumberBasic">
+      <pzm-input-number-basic-example></pzm-input-number-basic-example>
     </tui-doc-example>
 
-    <tui-doc-example id="counter" heading="Input number counter example" [content]="zuiInputNumberCounter">
-      <zui-input-number-counter-example></zui-input-number-counter-example>
+    <tui-doc-example id="counter" heading="Input number counter example" [content]="pzmInputNumberCounter">
+      <pzm-input-number-counter-example></pzm-input-number-counter-example>
     </tui-doc-example>
   </ng-template>
 
@@ -14,7 +14,7 @@
       <div [ngStyle]="{ display: 'flex', gap: '2rem', 'align-items': 'flex-end' }">
         <div>
           <h4>Number</h4>
-          <zui-input-layout
+          <pzm-input-layout
             [label]="label"
             [size]="size"
             [outer]="outer"
@@ -22,7 +22,7 @@
             [position]="inputPosition"
           >
             <input
-              zuiInputNumber
+              pzmInputNumber
               [min]="min"
               [max]="max"
               [step]="step"
@@ -30,19 +30,19 @@
               [disabled]="disabled"
               [placeholder]="placeholder"
               [required]="required"
-              #inputNumber="zuiInputNumber"
+              #inputNumber="pzmInputNumber"
             />
-            <zui-input-number-auxiliary-controls
-              zui-input-right
+            <pzm-input-number-auxiliary-controls
+              pzm-input-right
               [inputNumber]="inputNumber"
-            ></zui-input-number-auxiliary-controls>
+            ></pzm-input-number-auxiliary-controls>
 
-            <ng-template zuiInputStatusText>Текст статуса</ng-template>
-          </zui-input-layout>
+            <ng-template pzmInputStatusText>Текст статуса</ng-template>
+          </pzm-input-layout>
         </div>
         <div>
           <h4>Counter</h4>
-          <zui-input-layout
+          <pzm-input-layout
             [label]="label"
             [size]="size"
             [status]="status"
@@ -50,15 +50,15 @@
             [position]="'center'"
           >
             <button
-              zuiInputIconButton="delete-minus"
-              zuiInputNumberAuxiliaryControl="decrement"
-              zui-input-left
+              pzmInputIconButton="delete-minus"
+              pzmInputNumberAuxiliaryControl="decrement"
+              pzm-input-left
               [inputNumber]="inputCounter"
               [interactive]="true"
             ></button>
 
             <input
-              zuiInputNumber
+              pzmInputNumber
               [min]="min"
               [max]="max"
               [step]="step"
@@ -66,19 +66,19 @@
               [disabled]="disabled"
               [placeholder]="placeholder"
               [required]="required"
-              #inputCounter="zuiInputNumber"
+              #inputCounter="pzmInputNumber"
             />
 
             <button
-              zuiInputIconButton="add-plus"
-              zuiInputNumberAuxiliaryControl="increment"
-              zui-input-right
+              pzmInputIconButton="add-plus"
+              pzmInputNumberAuxiliaryControl="increment"
+              pzm-input-right
               [inputNumber]="inputCounter"
               [interactive]="true"
             ></button>
 
-            <ng-template zuiInputStatusText>Текст статуса</ng-template>
-          </zui-input-layout>
+            <ng-template pzmInputStatusText>Текст статуса</ng-template>
+          </pzm-input-layout>
         </div>
       </div>
     </tui-doc-demo>
@@ -201,7 +201,7 @@
     <ol class="b-demo-steps">
       <li>
         <p>
-          Импортируйте <code>ZuiInputNumberModule</code>
+          Импортируйте <code>PzmInputNumberModule</code>
           в тот модуль, котором хотите использовать компонент
         </p>
 

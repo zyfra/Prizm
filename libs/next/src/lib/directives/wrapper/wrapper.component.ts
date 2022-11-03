@@ -1,17 +1,9 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  HostBinding,
-  Input,
-  OnInit,
-} from '@angular/core';
-import { ZuiThemeService } from '../../services';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-import { takeUntil, tap } from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input, OnInit } from '@angular/core';
+import { PzmThemeService } from '../../services';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { takeUntil } from 'rxjs/operators';
 
-export enum ZuiInteractiveState {
+export enum PzmInteractiveState {
   Disabled = "disabled",
   Readonly = "readonly",
   Pressed = "pressed",
@@ -19,15 +11,15 @@ export enum ZuiInteractiveState {
 }
 
 @Component({
-  selector: 'zui-wrapper',
+  selector: 'pzm-wrapper',
   template: '<ng-content></ng-content>',
   styleUrls: ['./wrapper.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
-    ZuiDestroyService,
+    PzmDestroyService,
   ]
 })
-export class ZuiWrapperComponent implements OnInit {
+export class PzmWrapperComponent implements OnInit {
   @Input()
   disabled = false;
 
@@ -64,24 +56,24 @@ export class ZuiWrapperComponent implements OnInit {
   }
 
   @HostBinding('attr.data-state')
-  get interactiveState(): ZuiInteractiveState | string | null {
+  get interactiveState(): PzmInteractiveState | string | null {
     if (this.pseudoState) {
       return this.pseudoState;
     }
     if (this.disabled) {
-      return ZuiInteractiveState.Disabled;
+      return PzmInteractiveState.Disabled;
     }
 
     if (this.readOnly) {
-      return ZuiInteractiveState.Readonly;
+      return PzmInteractiveState.Readonly;
     }
 
     if (this.pressed) {
-      return ZuiInteractiveState.Pressed;
+      return PzmInteractiveState.Pressed;
     }
 
     if (this.hovered) {
-      return ZuiInteractiveState.Hovered;
+      return PzmInteractiveState.Hovered;
     }
 
     return null;
@@ -98,8 +90,8 @@ export class ZuiWrapperComponent implements OnInit {
   }
 
   constructor(
-    public readonly themeService: ZuiThemeService,
-    public readonly destroy$: ZuiDestroyService,
+    public readonly themeService: PzmThemeService,
+    public readonly destroy$: PzmDestroyService,
     public readonly elRef: ElementRef,
   ) {}
 

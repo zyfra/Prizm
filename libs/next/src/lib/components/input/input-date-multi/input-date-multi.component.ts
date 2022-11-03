@@ -9,67 +9,55 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { zuiDefaultProp } from '../../../decorators/default-prop';
-import { ZuiInputSize } from '../common/models/zui-input.models';
-import { getProviderZuiDateLeftButtons, ZUI_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
+import { pzmDefaultProp } from '../../../decorators/default-prop';
+import { PzmInputSize } from '../common/models/pzm-input.models';
+import { getProviderPzmDateLeftButtons, PZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { BehaviorSubject } from 'rxjs';
-import { ZuiDateButton, ZuiDateButtonContext } from '../../../types/date-button';
+import { PzmDateButton, PzmDateButtonContext } from '../../../types/date-button';
 
-export type ZuiDateItemTemplate = {
+export type PzmDateItemTemplate = {
   name: string;
-} & ZuiDateButton;
+} & PzmDateButton;
 
 @Component({
-    selector: `zui-input-date-multi`,
+    selector: `pzm-input-date-multi`,
     templateUrl: `./input-date-multi.component.html`,
     styleUrls: [`./input-date-multi.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
-      getProviderZuiDateLeftButtons(),
+      getProviderPzmDateLeftButtons(),
     ]
 })
-export class ZuiInputDateMultiComponent implements OnInit {
+export class PzmInputDateMultiComponent implements OnInit {
     @ViewChild('buttonLeft', { static: true }) buttonLeftTemplate: TemplateRef<unknown>;
 
-    private readonly _items$ = new BehaviorSubject<ZuiDateItemTemplate[]>([]);
+    private readonly _items$ = new BehaviorSubject<PzmDateItemTemplate[]>([]);
     @Input()
-    @zuiDefaultProp()
-    set items(value: ZuiDateItemTemplate[]) {
+    @pzmDefaultProp()
+    set items(value: PzmDateItemTemplate[]) {
       this._items$.next(value);
     }
-    get items(): ZuiDateItemTemplate[] {
+    get items(): PzmDateItemTemplate[] {
       return this._items$.value;
     }
 
     @Input()
-    @zuiDefaultProp()
-    label = 'Выберите дату';
-
-    @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     currentIdx = 0;
 
-    @Input()
-    @zuiDefaultProp()
-    size: ZuiInputSize = 'm';
-
-    @Input()
-    @zuiDefaultProp()
-    outer = false;
-
     @HostBinding('attr.testId')
-    readonly testId = 'zui_input_date_multi';
+    readonly testId = 'pzm_input_date_multi';
 
     public open = false;
 
-    get context(): ZuiDateButtonContext {
+    get context(): PzmDateButtonContext {
       return {
         injector: this.injector
       }
     }
 
     constructor(
-      @Inject(ZUI_DATE_RIGHT_BUTTONS) public readonly leftButtons$: BehaviorSubject<ZuiDateButton[]>,
+      @Inject(PZM_DATE_RIGHT_BUTTONS) public readonly leftButtons$: BehaviorSubject<PzmDateButton[]>,
       private readonly cdRef: ChangeDetectorRef,
       private readonly injector: Injector,
     ) {

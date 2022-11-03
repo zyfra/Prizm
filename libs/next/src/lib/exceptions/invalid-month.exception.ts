@@ -1,4 +1,4 @@
-export class ZuiInvalidMonthException extends Error {
+export class PzmInvalidMonthException extends Error {
     constructor(month: number) {
         super(`Invalid month: ${month}`);
     }

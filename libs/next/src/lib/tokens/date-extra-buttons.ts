@@ -1,20 +1,20 @@
 import { InjectionToken, Provider } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { ZuiDateButton } from '../types/date-button';
+import { PzmDateButton } from '../types/date-button';
 
-export const ZUI_DATE_RIGHT_BUTTONS = new InjectionToken<
-  BehaviorSubject<ZuiDateButton[]>
+export const PZM_DATE_RIGHT_BUTTONS = new InjectionToken<
+  BehaviorSubject<PzmDateButton[]>
   >(`Stream that emits right buttons`, {
-    factory: (): BehaviorSubject<ZuiDateButton[]> => {
+    factory: (): BehaviorSubject<PzmDateButton[]> => {
       return new BehaviorSubject([])
     }
 });
 
-export function getProviderZuiDateLeftButtons(): Provider {
+export function getProviderPzmDateLeftButtons(): Provider {
   return {
-    provide: ZUI_DATE_RIGHT_BUTTONS,
-    useFactory: (): BehaviorSubject<ZuiDateButton[]> => {
-      return new BehaviorSubject<ZuiDateButton[]>([])
+    provide: PZM_DATE_RIGHT_BUTTONS,
+    useFactory: (): BehaviorSubject<PzmDateButton[]> => {
+      return new BehaviorSubject<PzmDateButton[]>([])
     }
   }
 }

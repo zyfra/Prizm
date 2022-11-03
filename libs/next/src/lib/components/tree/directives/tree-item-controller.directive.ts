@@ -1,32 +1,32 @@
 import { Directive, Input } from '@angular/core';
-import { zuiDefaultProp } from '../../../decorators';
+import { pzmDefaultProp } from '../../../decorators';
 
-import { ZuiTreeItemComponent } from '../components/tree-item/tree-item.component';
-import { ZuiTreeController } from '../misc/tree.interfaces';
-import { ZUI_TREE_CONTROLLER } from '../misc/tree.tokens';
+import { PzmTreeItemComponent } from '../components/tree-item/tree-item.component';
+import { PzmTreeController } from '../misc/tree.interfaces';
+import { PZM_TREE_CONTROLLER } from '../misc/tree.tokens';
 
 @Directive({
-    selector: '[zuiTreeController]:not([map])',
-    exportAs: 'zuiTreeController',
+    selector: '[pzmTreeController]:not([map])',
+    exportAs: 'pzmTreeController',
     providers: [
         {
-            provide: ZUI_TREE_CONTROLLER,
-            useExisting: ZuiTreeItemControllerDirective,
+            provide: PZM_TREE_CONTROLLER,
+            useExisting: PzmTreeItemControllerDirective,
         },
     ],
 })
-export class ZuiTreeItemControllerDirective implements ZuiTreeController {
-    private readonly map = new WeakMap<ZuiTreeItemComponent, boolean>();
+export class PzmTreeItemControllerDirective implements PzmTreeController {
+    private readonly map = new WeakMap<PzmTreeItemComponent, boolean>();
 
     @Input()
-    @zuiDefaultProp()
-    zuiTreeController = true;
+    @pzmDefaultProp()
+    pzmTreeController = true;
 
-    public isExpanded(item: ZuiTreeItemComponent): boolean {
-        return this.map.get(item) ?? this.zuiTreeController;
+    public isExpanded(item: PzmTreeItemComponent): boolean {
+        return this.map.get(item) ?? this.pzmTreeController;
     }
 
-    public toggle(item: ZuiTreeItemComponent): void {
+    public toggle(item: PzmTreeItemComponent): void {
         this.map.set(item, !this.isExpanded(item));
     }
 }

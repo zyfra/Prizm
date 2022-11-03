@@ -1,42 +1,42 @@
-import { AbstractZuiDialogService } from '../../../abstract/dialog.service';
+import { AbstractPzmDialogService } from '../../../abstract/dialog.service';
 import { Injectable } from '@angular/core';
-import { ZuiOverlayControl, ZuiOverlayGlobalPosition, ZuiOverlayInsidePlacement } from '../../../modules/overlay';
+import { PzmOverlayControl, PzmOverlayGlobalPosition, PzmOverlayInsidePlacement } from '../../../modules/overlay';
 import { Observable, Observer } from 'rxjs';
-import { ZuiSidebarComponent } from './sidebar.component';
-import { ZuiSidebarButton, ZuiSidebarOptions, ZuiSidebarResult, ZuiSidebarResultDefaultType } from './sidebar.models';
-import { ZuiBaseDialogContext } from '../dialog/dialog.models';
-import { ZuiAppearance, ZuiAppearanceType } from '../../../types';
-import { ZuiSize } from '../../../util';
+import { PzmSidebarComponent } from './sidebar.component';
+import { PzmSidebarButton, PzmSidebarOptions, PzmSidebarResult, PzmSidebarResultDefaultType } from './sidebar.models';
+import { PzmBaseDialogContext } from '../dialog/dialog.models';
+import { PzmAppearance, PzmAppearanceType } from '../../../types';
+import { PzmSize } from '../../../util';
 
 const DEFAULT_OPTIONS = {
-  position: ZuiOverlayInsidePlacement.CENTER,
+  position: PzmOverlayInsidePlacement.CENTER,
   dismissible: true,
   showByVertical: true,
   confirmButton: null,
   supportButton: null,
   cancelButton: null
-} as ZuiSidebarOptions<ZuiSidebarResult>;
+} as PzmSidebarOptions<PzmSidebarResult>;
 
 @Injectable({
   providedIn: 'root',
 })
-export class ZuiSidebarService<
-    T extends ZuiSidebarOptions<ZuiSidebarResult> = ZuiSidebarOptions<ZuiSidebarResult>
+export class PzmSidebarService<
+    T extends PzmSidebarOptions<PzmSidebarResult> = PzmSidebarOptions<PzmSidebarResult>
   >
-  extends AbstractZuiDialogService<T, ZuiSidebarResult> {
-  protected readonly component = ZuiSidebarComponent;
+  extends AbstractPzmDialogService<T, PzmSidebarResult> {
+  protected readonly component = PzmSidebarComponent;
   protected readonly defaultOptions = DEFAULT_OPTIONS as T;
 
   public override open(
     title: T['title'],
     options: Omit<Partial<T>, 'title'> ,
     cb?: (data: {
-      control: ZuiOverlayControl,
-      dialog: ZuiBaseDialogContext<ZuiSidebarResult, ZuiSidebarOptions>,
-      observer: Observer<ZuiSidebarResult>,
+      control: PzmOverlayControl,
+      dialog: PzmBaseDialogContext<PzmSidebarResult, PzmSidebarOptions>,
+      observer: Observer<PzmSidebarResult>,
       destroy$: Observable<void>,
     }) => void
-  ): Observable<ZuiSidebarResult> {
+  ): Observable<PzmSidebarResult> {
     options = {
       ...options,
       title,
@@ -46,7 +46,7 @@ export class ZuiSidebarService<
     };
 
     this.safeUpdateButtonsWithDefaultStyles(options as Partial<T>);
-    return super.open<ZuiSidebarResult, unknown>(
+    return super.open<PzmSidebarResult, unknown>(
       title,
       options as Partial<T>,
       cb,
@@ -54,11 +54,11 @@ export class ZuiSidebarService<
   }
 
   protected override getPosition(
-    dialog: ZuiBaseDialogContext<any, any>,
-  ): ZuiOverlayGlobalPosition {
-    return new ZuiOverlayGlobalPosition(
+    dialog: PzmBaseDialogContext<any, any>,
+  ): PzmOverlayGlobalPosition {
+    return new PzmOverlayGlobalPosition(
       {
-        placement: dialog.position ?? ZuiOverlayInsidePlacement.LEFT,
+        placement: dialog.position ?? PzmOverlayInsidePlacement.LEFT,
         width: (['t', 'b'].includes(dialog.position) && '100%') || dialog.width,
         height: (['l', 'r'].includes(dialog.position) && '100%') || dialog.height
       }
@@ -72,7 +72,7 @@ export class ZuiSidebarService<
       options,
       options.supportButton,
       'Продолжить',
-      ZuiSidebarResultDefaultType.confirmed,
+      PzmSidebarResultDefaultType.confirmed,
       'danger',
       'ghost'
     );
@@ -81,7 +81,7 @@ export class ZuiSidebarService<
       options,
       options.confirmButton,
       'Подтвердить',
-      ZuiSidebarResultDefaultType.confirmed,
+      PzmSidebarResultDefaultType.confirmed,
       'primary'
     );
 
@@ -89,7 +89,7 @@ export class ZuiSidebarService<
       options,
       options.cancelButton,
       'Отмена',
-      ZuiSidebarResultDefaultType.cancel,
+      PzmSidebarResultDefaultType.cancel,
       'secondary',
       'ghost'
     );
@@ -101,22 +101,22 @@ export class ZuiSidebarService<
 
   private generateButton(
     options: Partial<T>,
-    button: ZuiSidebarButton | string,
+    button: PzmSidebarButton | string,
     defaultText: string,
-    defaultComplete: ZuiSidebarResultDefaultType,
-    defaultAppearance?: ZuiAppearance,
-    defaultAppearanceType?: ZuiAppearanceType,
-  ): ZuiSidebarButton {
+    defaultComplete: PzmSidebarResultDefaultType,
+    defaultAppearance?: PzmAppearance,
+    defaultAppearanceType?: PzmAppearanceType,
+  ): PzmSidebarButton {
     const buttonText = (typeof button === 'string'
       ? button
       : button?.text
     ) ?? defaultText;
-    const btn = ((typeof button === 'string' ? {} : button) ?? {}) as Partial<ZuiSidebarButton>;
+    const btn = ((typeof button === 'string' ? {} : button) ?? {}) as Partial<PzmSidebarButton>;
 
     return  {
       ...btn,
       text: buttonText,
-      size: btn.size ?? options.size as ZuiSize,
+      size: btn.size ?? options.size as PzmSize,
       action: btn.action ?? ((c): void => c.completeWith(defaultComplete)),
       appearance: btn.appearance ?? defaultAppearance,
       appearanceType: btn.appearanceType ?? defaultAppearanceType

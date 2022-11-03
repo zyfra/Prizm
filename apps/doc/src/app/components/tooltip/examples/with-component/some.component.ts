@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'zui-tooltip-some-component',
+  selector: 'pzm-tooltip-some-component',
   template: `
     <div>Header</div>
     <div class="button-box">
-      <button zuiButton *ngFor="let item of items">{{ item }}</button>
+      <button pzmButton *ngFor="let item of items">{{ item }}</button>
     </div>
     <div>Footer</div>
   `,
@@ -23,6 +23,6 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class ZuiTooltipSomeComponent {
+export class PzmTooltipSomeComponent {
   readonly items = ['Edit', 'Download', 'Rename', 'Edit', 'Download', 'Rename', 'Delete'];
 }

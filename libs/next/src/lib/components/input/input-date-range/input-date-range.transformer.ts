@@ -1,14 +1,14 @@
 import { Provider } from '@angular/core';
-import { ZuiDayRange } from '../../../@core/date-time/day-range';
-import { ZUI_DATE_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
-import { ZuiControlValueTransformer } from '../../../types/control-value-transformer';
+import { PzmDayRange } from '../../../@core/date-time/day-range';
+import { PZM_DATE_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
+import { PzmControlValueTransformer } from '../../../types/control-value-transformer';
 
-type From = ZuiDayRange | null;
+type From = PzmDayRange | null;
 type To = [Date, Date] | null;
 
-export class ZuiInputDateRangeNativeTransformer implements ZuiControlValueTransformer<From, To> {
+export class PzmInputDateRangeNativeTransformer implements PzmControlValueTransformer<From, To> {
   public fromControlValue(controlValue: To): From {
-    return controlValue && ZuiDayRange.fromLocalNativeDate(
+    return controlValue && PzmDayRange.fromLocalNativeDate(
       controlValue[0],
       controlValue[1]
     );
@@ -19,9 +19,9 @@ export class ZuiInputDateRangeNativeTransformer implements ZuiControlValueTransf
   }
 }
 
-export function zuiGetInputDateRangeNativeTransformer(): Provider {
+export function pzmGetInputDateRangeNativeTransformer(): Provider {
   return  {
-    provide: ZUI_DATE_RANGE_VALUE_TRANSFORMER,
-    useClass: ZuiInputDateRangeNativeTransformer,
+    provide: PZM_DATE_RANGE_VALUE_TRANSFORMER,
+    useClass: PzmInputDateRangeNativeTransformer,
   };
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'zui-scrollbar-horizontal-example',
+  selector: 'pzm-scrollbar-horizontal-example',
   templateUrl: './scrollbar-horizontal-example.component.html',
   styles: [`
     .box {
@@ -15,4 +15,4 @@ import { Component } from '@angular/core';
     }
   `]
 })
-export class ZuiScrollbarHorizontalExampleComponent {}
+export class PzmScrollbarHorizontalExampleComponent {}

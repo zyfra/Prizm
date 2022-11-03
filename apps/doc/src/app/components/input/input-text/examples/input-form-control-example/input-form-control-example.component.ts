@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-input-form-control-example',
+  selector: 'pzm-input-form-control-example',
   templateUrl: './input-form-control-example.component.html',
   styleUrls: ['./input-form-control-example.component.less'],
 })

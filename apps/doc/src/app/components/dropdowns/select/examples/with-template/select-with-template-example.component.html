@@ -1,12 +1,12 @@
-<zui-select
+<pzm-select
   [items]='items'
   [valueTemplate]='valueTemplate'
   [formControl]='control'
-></zui-select>
+></pzm-select>
 
 <ng-template #valueTemplate let-value let-nullContent="nullContent">
   <div class='item' *ngIf='value; else empty'>
-    <zui-icon iconClass='account-done'></zui-icon>
+    <pzm-icon iconClass='account-done'></pzm-icon>
     <span>{{value}}</span>
   </div>
   <ng-template #empty>

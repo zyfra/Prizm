@@ -1,26 +1,26 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { ZuiShadowType, ZuiShadowTypeEnum } from '@digital-plant/zui-components';
+import { PzmShadowType, PzmShadowTypeEnum } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-toggle-example',
+  selector: 'pzm-toggle-example',
   templateUrl: './shadow.component.html',
   styleUrls: ['./shadow.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShadowComponent {
-  readonly valueVariants: ReadonlyArray<ZuiShadowType> = [
-    ZuiShadowTypeEnum.miniBottom,
-    ZuiShadowTypeEnum.miniTop,
-    ZuiShadowTypeEnum.miniRight,
-    ZuiShadowTypeEnum.miniLeft,
-    ZuiShadowTypeEnum.bigTop,
-    ZuiShadowTypeEnum.bigBottom,
-    ZuiShadowTypeEnum.bigLeft,
-    ZuiShadowTypeEnum.bigRight
+  readonly valueVariants: ReadonlyArray<PzmShadowType> = [
+    PzmShadowTypeEnum.miniBottom,
+    PzmShadowTypeEnum.miniTop,
+    PzmShadowTypeEnum.miniRight,
+    PzmShadowTypeEnum.miniLeft,
+    PzmShadowTypeEnum.bigTop,
+    PzmShadowTypeEnum.bigBottom,
+    PzmShadowTypeEnum.bigLeft,
+    PzmShadowTypeEnum.bigRight
 
   ];
-  value: ZuiShadowType = ZuiShadowTypeEnum.bigRight;
+  value: PzmShadowType = PzmShadowTypeEnum.bigRight;
 
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'

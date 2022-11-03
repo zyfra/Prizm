@@ -1,13 +1,13 @@
 import { Directive, ElementRef } from '@angular/core';
-import { ZUI_SCROLL_REF } from '../../tokens';
+import { PZM_SCROLL_REF } from '../../tokens';
 
 @Directive({
-    selector: '[zuiScrollRef]',
+    selector: '[pzmScrollRef]',
     providers: [
         {
-            provide: ZUI_SCROLL_REF,
+            provide: PZM_SCROLL_REF,
             useExisting: ElementRef,
         },
     ],
 })
-export class ZuiScrollRefDirective {}
+export class PzmScrollRefDirective {}

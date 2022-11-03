@@ -1,18 +1,18 @@
 import { Component, Input } from '@angular/core';
 
-import { ZuiCarouselComponent } from './carousel.component';
+import { PzmCarouselComponent } from './carousel.component';
 
 @Component({
-  selector: 'zui-carousel-auxiliary-left',
+  selector: 'pzm-carousel-auxiliary-left',
   template: `
     <button
-      zuiInputIconButton="chevrons-double-left"
+      pzmInputIconButton="chevrons-double-left"
       (click)="carousel.left()"
       *ngIf="!carousel.lightMode && !carousel.disabled"
       [interactive]="true"
     ></button>
     <button
-      zuiInputIconButton="chevrons-left"
+      pzmInputIconButton="chevrons-left"
       (click)="carousel.stepLeft()"
       *ngIf="!carousel.disabled"
       [interactive]="true"
@@ -27,7 +27,7 @@ import { ZuiCarouselComponent } from './carousel.component';
     `,
   ],
 })
-export class ZuiCarouselAuxiliaryLeftComponent {
-  @Input() carousel: ZuiCarouselComponent;
+export class PzmCarouselAuxiliaryLeftComponent {
+  @Input() carousel: PzmCarouselComponent;
 }
 

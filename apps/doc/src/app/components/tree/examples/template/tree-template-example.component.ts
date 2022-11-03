@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ZUI_EMPTY_ARRAY, ZuiHandler } from '@digital-plant/zui-components';
+import { PZM_EMPTY_ARRAY, PzmHandler } from '@digital-plant/zui-components';
 
 export interface TreeNode {
   readonly text: string;
@@ -8,7 +8,7 @@ export interface TreeNode {
 }
 
 @Component({
-  selector: 'zui-tree-template-example',
+  selector: 'pzm-tree-template-example',
   templateUrl: './tree-template-example.component.html',
   styles: [`
     .wrapper {
@@ -44,7 +44,7 @@ export class TreeTemplateExampleComponent {
     ],
   };
 
-  readonly handler: ZuiHandler<TreeNode, readonly TreeNode[]> = item =>
-    item.children || ZUI_EMPTY_ARRAY;
+  readonly handler: PzmHandler<TreeNode, readonly TreeNode[]> = item =>
+    item.children || PZM_EMPTY_ARRAY;
 }
 

@@ -1,41 +1,41 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ZuiTreeComponent } from './components/tree/tree.component';
-import { ZuiTreeItemComponent } from './components/tree-item/tree-item.component';
-import { ZuiTreeItemContentComponent } from './components/tree-item-content/tree-item-content.component';
-import { ZuiTreeChildrenDirective } from './directives/tree-children.directive';
-import { ZuiTreeControllerDirective } from './directives/tree-controller.directive';
-import { ZuiTreeItemControllerDirective } from './directives/tree-item-controller.directive';
-import { ZuiTreeNodeDirective } from './directives/tree-node.directive';
-import { ZuiExpandModule } from '../expand';
-import { ZuiLetModule } from '@digital-plant/zyfra-helpers';
-import { ZuiButtonModule } from '../button';
+import { PzmTreeComponent } from './components/tree/tree.component';
+import { PzmTreeItemComponent } from './components/tree-item/tree-item.component';
+import { PzmTreeItemContentComponent } from './components/tree-item-content/tree-item-content.component';
+import { PzmTreeChildrenDirective } from './directives/tree-children.directive';
+import { PzmTreeControllerDirective } from './directives/tree-controller.directive';
+import { PzmTreeItemControllerDirective } from './directives/tree-item-controller.directive';
+import { PzmTreeNodeDirective } from './directives/tree-node.directive';
+import { PzmExpandModule } from '../expand';
+import { PzmLetModule } from '@digital-plant/zyfra-helpers';
+import { PzmButtonModule } from '../button';
 import { PolymorphModule } from '../../directives';
 
 @NgModule({
     imports: [
         CommonModule,
         PolymorphModule,
-        ZuiExpandModule,
-        ZuiLetModule,
-        ZuiButtonModule,
+        PzmExpandModule,
+        PzmLetModule,
+        PzmButtonModule,
     ],
-    entryComponents: [ZuiTreeItemContentComponent],
+    entryComponents: [PzmTreeItemContentComponent],
     declarations: [
-        ZuiTreeComponent,
-        ZuiTreeItemComponent,
-        ZuiTreeItemContentComponent,
-        ZuiTreeChildrenDirective,
-        ZuiTreeItemControllerDirective,
-        ZuiTreeControllerDirective,
-        ZuiTreeNodeDirective,
+        PzmTreeComponent,
+        PzmTreeItemComponent,
+        PzmTreeItemContentComponent,
+        PzmTreeChildrenDirective,
+        PzmTreeItemControllerDirective,
+        PzmTreeControllerDirective,
+        PzmTreeNodeDirective,
     ],
     exports: [
-        ZuiTreeComponent,
-        ZuiTreeItemComponent,
-        ZuiTreeChildrenDirective,
-        ZuiTreeItemControllerDirective,
-        ZuiTreeControllerDirective,
+        PzmTreeComponent,
+        PzmTreeItemComponent,
+        PzmTreeChildrenDirective,
+        PzmTreeItemControllerDirective,
+        PzmTreeControllerDirective,
     ],
 })
-export class ZuiTreeModule {}
+export class PzmTreeModule {}

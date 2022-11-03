@@ -1,4 +1,4 @@
-<zui-wrapper
+<pzm-wrapper
   class="z-wrapper"
   [attr.data-appearance-type]="appearanceType"
   [appearance]="appearance"
@@ -9,20 +9,20 @@
   [focused]="computedFocusVisible">
   <span class="z-content" [style.visibility]='showLoader ? "hidden" : ""'>
     <ng-container *ngIf='icon' [ngTemplateOutlet]="showIconTemp" [ngTemplateOutletContext]="{icon: icon}"></ng-container>
-    <div class='text zui-font-btn-links-14'><ng-content></ng-content></div>
+    <div class='text pzm-font-btn-links-14'><ng-content></ng-content></div>
     <ng-container *ngIf='iconRight' [ngTemplateOutlet]="showIconTemp" [ngTemplateOutletContext]="{icon: iconRight}"></ng-container>
   </span>
-  <zui-loader
+  <pzm-loader
     *ngIf="showLoader"
     class="z-loader"
     [size]="loaderSize"
     [inheritColor]="true"
-  ></zui-loader>
-</zui-wrapper>
+  ></pzm-loader>
+</pzm-wrapper>
 
 <ng-template #showIconTemp let-icon="icon">
-  <ng-container [ngSwitch]="icon | zuiCallFunc : isTemplateRef">
+  <ng-container [ngSwitch]="icon | pzmCallFunc : isTemplateRef">
     <ng-container *ngSwitchCase="true" [ngTemplateOutlet]="$any(icon)"></ng-container>
-    <zui-icon *ngSwitchDefault [iconClass]="$any(icon)" [size]='16'></zui-icon>
+    <pzm-icon *ngSwitchDefault [iconClass]="$any(icon)" [size]='16'></pzm-icon>
   </ng-container>
 </ng-template>

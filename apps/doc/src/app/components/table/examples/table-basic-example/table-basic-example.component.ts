@@ -9,7 +9,7 @@ export interface ITableProduct {
 }
 
 @Component({
-  selector: 'zui-table-basic-example',
+  selector: 'pzm-table-basic-example',
   templateUrl: './table-basic-example.component.html',
   styleUrls: ['./table-basic-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,11 +1,11 @@
 import { InjectionToken, ValueProvider } from '@angular/core';
 
-export interface ZuiMutationObserveOptions {
+export interface PzmMutationObserveOptions {
   readonly config: MutationObserverInit;
 }
 
 /** Default values for hint options */
-export const ZUI_MUTATION_OBSERVER_DEFAULT_OPTIONS: ZuiMutationObserveOptions = {
+export const PZM_MUTATION_OBSERVER_DEFAULT_OPTIONS: PzmMutationObserveOptions = {
   config: {
     childList: true,
     attributes: true,
@@ -13,16 +13,16 @@ export const ZUI_MUTATION_OBSERVER_DEFAULT_OPTIONS: ZuiMutationObserveOptions = 
   },
 };
 
-export const ZUI_MUTATION_OBSERVER_OPTIONS = new InjectionToken<ZuiMutationObserveOptions>(
+export const PZM_MUTATION_OBSERVER_OPTIONS = new InjectionToken<PzmMutationObserveOptions>(
   'Default parameters for mutation observer directive',
   {
-    factory: (): ZuiMutationObserveOptions => ZUI_MUTATION_OBSERVER_DEFAULT_OPTIONS,
+    factory: (): PzmMutationObserveOptions => PZM_MUTATION_OBSERVER_DEFAULT_OPTIONS,
   }
 );
 
-export const zuiMutationObserverOptionsProvider: (
-  options: Partial<ZuiMutationObserveOptions>
-) => ValueProvider = (options: Partial<ZuiMutationObserveOptions>) => ({
-  provide: ZUI_MUTATION_OBSERVER_OPTIONS,
-  useValue: { ...ZUI_MUTATION_OBSERVER_DEFAULT_OPTIONS, ...options },
+export const pzmMutationObserverOptionsProvider: (
+  options: Partial<PzmMutationObserveOptions>
+) => ValueProvider = (options: Partial<PzmMutationObserveOptions>) => ({
+  provide: PZM_MUTATION_OBSERVER_OPTIONS,
+  useValue: { ...PZM_MUTATION_OBSERVER_DEFAULT_OPTIONS, ...options },
 });

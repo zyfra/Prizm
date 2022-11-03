@@ -5,7 +5,7 @@
  * original setter in this case.
  */
 
-export function zuiRequiredSetter<T extends Record<string, unknown>, K extends keyof T>(
+export function pzmRequiredSetter<T extends Record<string, unknown>, K extends keyof T>(
   assertion?: (a: unknown) => boolean,
   ...args: unknown[]
 ): MethodDecorator {

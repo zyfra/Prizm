@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { PolymorphComponent, ZuiOverlayOutsidePlacement } from '@digital-plant/zui-components';
-import { ZuiConfirmPopupSomeComponent } from './some.component';
+import { PolymorphComponent, PzmOverlayOutsidePlacement } from '@digital-plant/zui-components';
+import { PzmConfirmPopupSomeComponent } from './some.component';
 
 @Component({
-  selector: 'zui-confirm-popup-with-component-example',
+  selector: 'pzm-confirm-popup-with-component-example',
   templateUrl: './confirm-popup-with-component-example.component.html',
   styles: [`
     .box {
@@ -12,7 +12,7 @@ import { ZuiConfirmPopupSomeComponent } from './some.component';
     }
   `]
 })
-export class ZuiConfirmPopupWithComponentExampleComponent {
-  readonly component = new PolymorphComponent(ZuiConfirmPopupSomeComponent);
-  readonly direction = ZuiOverlayOutsidePlacement.TOP_RIGHT;
+export class PzmConfirmPopupWithComponentExampleComponent {
+  readonly component = new PolymorphComponent(PzmConfirmPopupSomeComponent);
+  readonly direction = PzmOverlayOutsidePlacement.TOP_RIGHT;
 }

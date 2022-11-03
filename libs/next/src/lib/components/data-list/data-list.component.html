@@ -2,13 +2,13 @@
   <ng-content select="[header]"></ng-content>
 </div>
 <div class="body">
-  <zui-scrollbar
+  <pzm-scrollbar
     [visibility]="scroll"
     [style.min-height]="minDropdownHeight"
     [style.max-height]="maxDropdownHeight"
   >
     <ng-content></ng-content>
-  </zui-scrollbar>
+  </pzm-scrollbar>
 </div>
 <div class="footer">
   <ng-content select="[footer]"></ng-content>

@@ -1,4 +1,4 @@
-<zui-select
+<pzm-select
   [items]='items'
   [valueTemplate]='valueTemplate'
   [formControl]='valueControl'
@@ -6,7 +6,7 @@
   [identityMatcher]='identityMatcher'
   [stringify]='stringify'
   [searchable]='true'
-></zui-select>
+></pzm-select>
 <br>
 <br>
 <div>
@@ -23,7 +23,7 @@
 
 <ng-template #valueTemplate let-value let-stringify='stringify'>
   <div class='item'>
-    <zui-icon iconClass='account-done'></zui-icon>
+    <pzm-icon iconClass='account-done'></pzm-icon>
     <span>{{stringify}}</span>
   </div>
 </ng-template>

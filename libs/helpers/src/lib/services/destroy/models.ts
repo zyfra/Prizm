@@ -1,1 +1,1 @@
-export type ZuiDestroyCallback = () => void
+export type PzmDestroyCallback = () => void

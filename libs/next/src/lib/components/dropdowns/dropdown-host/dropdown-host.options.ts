@@ -1,33 +1,33 @@
 import { InjectionToken, ValueProvider } from '@angular/core';
-import { ZuiOverlayOutsidePlacement } from '../../../modules/overlay';
-import { ZuiDropdownHostWidth } from './models';
+import { PzmOverlayOutsidePlacement } from '../../../modules/overlay';
+import { PzmDropdownHostWidth } from './models';
 
-export interface ZuiDropdownHostOptions {
-    readonly width: ZuiDropdownHostWidth;
+export interface PzmDropdownHostOptions {
+    readonly width: PzmDropdownHostWidth;
     readonly closeOnBackdrop: boolean;
     readonly autoReposition: boolean;
-    readonly placement: ZuiOverlayOutsidePlacement
+    readonly placement: PzmOverlayOutsidePlacement
 
 }
 
 /** Default values for dropdown-host options */
-export const ZUI_DROPDOWN_HOST_DEFAULT_OPTIONS: ZuiDropdownHostOptions = {
+export const PZM_DROPDOWN_HOST_DEFAULT_OPTIONS: PzmDropdownHostOptions = {
   closeOnBackdrop: true,
   width: null,
   autoReposition: true,
-  placement: ZuiOverlayOutsidePlacement.BOTTOM_LEFT
+  placement: PzmOverlayOutsidePlacement.BOTTOM_LEFT
 };
 
-export const ZUI_DROPDOWN_HOST_OPTIONS = new InjectionToken<ZuiDropdownHostOptions>(
+export const PZM_DROPDOWN_HOST_OPTIONS = new InjectionToken<PzmDropdownHostOptions>(
     'Default parameters for dropdown host',
     {
-        factory: (): ZuiDropdownHostOptions => ZUI_DROPDOWN_HOST_DEFAULT_OPTIONS,
+        factory: (): PzmDropdownHostOptions => PZM_DROPDOWN_HOST_DEFAULT_OPTIONS,
     },
 );
 
-export const zuiDropdownHostOptionsProvider: (
-    options: Partial<ZuiDropdownHostOptions>,
-) => ValueProvider = (options: Partial<ZuiDropdownHostOptions>) => ({
-    provide: ZUI_DROPDOWN_HOST_OPTIONS,
-    useValue: {...ZUI_DROPDOWN_HOST_DEFAULT_OPTIONS, ...options},
+export const pzmDropdownHostOptionsProvider: (
+    options: Partial<PzmDropdownHostOptions>,
+) => ValueProvider = (options: Partial<PzmDropdownHostOptions>) => ({
+    provide: PZM_DROPDOWN_HOST_OPTIONS,
+    useValue: {...PZM_DROPDOWN_HOST_DEFAULT_OPTIONS, ...options},
 });

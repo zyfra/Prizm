@@ -1,9 +1,9 @@
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 import { Component, HostListener, Input } from '@angular/core';
-import { ZuiInputControl } from '../input';
-import { ZuiInputTextComponent } from '../input/input-text/input-text.component';
+import { PzmInputControl } from '../input';
+import { PzmInputTextComponent } from '../input/input-text/input-text.component';
 
-interface IZuiChipsComponent {
+interface IPzmChipsComponent {
   addChips: (chipsName: string) => void;
   removeChips: (event: MouseEvent, idx: number) => void;
   chipClick: (chipsName: string) => void;
@@ -11,7 +11,7 @@ interface IZuiChipsComponent {
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'input[zuiInputChips]',
+  selector: 'input[pzmInputChips]',
   template: '',
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
@@ -24,10 +24,10 @@ interface IZuiChipsComponent {
     '[required]': 'required',
   },
   styleUrls: ['../input/input-text/input-text.component.less'],
-  providers: [{ provide: ZuiInputControl, useExisting: ZuiInputChipsComponent }, ZuiDestroyService],
+  providers: [{ provide: PzmInputControl, useExisting: PzmInputChipsComponent }, PzmDestroyService],
 })
-export class ZuiInputChipsComponent extends ZuiInputTextComponent {
-  @Input() chipsComponent: IZuiChipsComponent;
+export class PzmInputChipsComponent extends PzmInputTextComponent {
+  @Input() chipsComponent: IPzmChipsComponent;
 
   @HostListener('keydown.enter', ['$event'])
   public addChipsHandler(): void {

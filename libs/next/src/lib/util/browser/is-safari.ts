@@ -1,4 +1,4 @@
-export function zuiIsSafari(element: Element): boolean {
+export function pzmIsSafari(element: Element): boolean {
     const documentRef = element.ownerDocument;
     const windowRef = documentRef && documentRef.defaultView;
 

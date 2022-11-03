@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'zui-hint-some-component',
+  selector: 'pzm-hint-some-component',
   template: `
     <div>Header</div>
     <div class="button-box">
-      <button zuiButton *ngFor="let item of items">{{ item }}</button>
+      <button pzmButton *ngFor="let item of items">{{ item }}</button>
     </div>
     <div>Footer</div>
   `,
@@ -23,6 +23,6 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class ZuiHintSomeComponent {
+export class PzmHintSomeComponent {
   readonly items = ['Edit', 'Download', 'Rename', 'Edit', 'Download', 'Rename', 'Delete'];
 }

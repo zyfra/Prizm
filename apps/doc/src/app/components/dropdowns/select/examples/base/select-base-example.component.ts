@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'zui-select-base-example',
+  selector: 'pzm-select-base-example',
   templateUrl: './select-base-example.component.html',
   styles: [`
     .box {
@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
     }
   `]
 })
-export class ZuiSelectBaseExampleComponent {
+export class PzmSelectBaseExampleComponent {
   readonly items = [
     'One',
     'Two',

@@ -1,24 +1,24 @@
-import {ZuiOverlayOutsidePlacement, ZuiOverlayPositionMeta} from '../models';
+import {PzmOverlayOutsidePlacement, PzmOverlayPositionMeta} from '../models';
 import {EventBus, setWidthHeight} from '../utils';
-import {ZuiOverlayAbstractPosition} from './position';
+import {PzmOverlayAbstractPosition} from './position';
 
-export interface ZuiOverlayRelativePositionConfig {
+export interface PzmOverlayRelativePositionConfig {
   element: HTMLElement;
-  placement?: ZuiOverlayOutsidePlacement;
+  placement?: PzmOverlayOutsidePlacement;
   // re-calculate position on scroll, resize
   autoReposition?: boolean;
   width?: string | number;
   height?: string | number;
 }
 
-export class ZuiOverlayRelativePosition extends ZuiOverlayAbstractPosition<ZuiOverlayRelativePositionConfig> {
+export class PzmOverlayRelativePosition extends PzmOverlayAbstractPosition<PzmOverlayRelativePositionConfig> {
   obs: MutationObserver;
-  constructor(config: ZuiOverlayRelativePositionConfig) {
+  constructor(config: PzmOverlayRelativePositionConfig) {
     super();
     this.updateConfig({
       ...{
         element: null,
-        placement: ZuiOverlayOutsidePlacement.TOP,
+        placement: PzmOverlayOutsidePlacement.TOP,
         autoReposition: false,
         width: 'auto',
         height: 'auto'
@@ -32,7 +32,7 @@ export class ZuiOverlayRelativePosition extends ZuiOverlayAbstractPosition<ZuiOv
     if (this.config.autoReposition) this.listenDrag(this.zid);
   }
 
-  public getPositions(targetEl: HTMLElement): Pick<ZuiOverlayPositionMeta, any> {
+  public getPositions(targetEl: HTMLElement): Pick<PzmOverlayPositionMeta, any> {
     const s = this.getCoords(this.config.element);
     const h = this.getCoords(targetEl);
     let { width: w, height: ht } = this.config;
@@ -48,11 +48,11 @@ export class ZuiOverlayRelativePosition extends ZuiOverlayAbstractPosition<ZuiOv
     EventBus.send(this.zid, 'z_dynpos');
   }
 
-  private getCoords(elem: HTMLElement): ZuiOverlayPositionMeta {
+  private getCoords(elem: HTMLElement): PzmOverlayPositionMeta {
     return elem.getBoundingClientRect();
   }
 
-  private calc(placement: ZuiOverlayOutsidePlacement, src: any, host: any): {left: number, top: number} {
+  private calc(placement: PzmOverlayOutsidePlacement, src: any, host: any): {left: number, top: number} {
     const [main, sub] = placement.split('');
     const p = { left: 0, top: 0 };
     if ((main === 't' || main === 'b') && !sub) {
@@ -90,7 +90,7 @@ export class ZuiOverlayRelativePosition extends ZuiOverlayAbstractPosition<ZuiOv
     return p;
   }
 
-  private calculatePos(pos: ZuiOverlayOutsidePlacement, s: any, h: any, c = true): {pos: string, props: Record<string, unknown>} {
+  private calculatePos(pos: PzmOverlayOutsidePlacement, s: any, h: any, c = true): {pos: string, props: Record<string, unknown>} {
     const props = this.calc(pos, s, h);
 
     if (c && this.config.autoReposition && this.isOverflowed({ ...props, width: h.width, height: h.height }, pos)) {
@@ -102,7 +102,7 @@ export class ZuiOverlayRelativePosition extends ZuiOverlayAbstractPosition<ZuiOv
 
   private isOverflowed(
     props: { [x: string]: any },
-    placement: ZuiOverlayOutsidePlacement
+    placement: PzmOverlayOutsidePlacement
   ): boolean {
     const [main] = placement.split('');
     /* TODO later add re-position by x coordinates after is-overflowed */
@@ -116,7 +116,7 @@ export class ZuiOverlayRelativePosition extends ZuiOverlayAbstractPosition<ZuiOv
     return props.bottom > innerHeight || props.top <= 0 || props.left <= 0 || props.right > innerWidth;
   }
 
-  private nextPosition(current: ZuiOverlayOutsidePlacement): any {
+  private nextPosition(current: PzmOverlayOutsidePlacement): any {
     const placements = ['t', 'b', 'l', 'r', 'tl', 'bl', 'tr', 'br', 'lt', 'rt', 'lb', 'rb'];
 
     const index = placements.indexOf(current);

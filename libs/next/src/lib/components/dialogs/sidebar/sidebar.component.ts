@@ -1,34 +1,34 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Inject, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ZUI_ANIMATIONS_DURATION } from '../../../tokens';
-import { ZUI_DIALOG_CLOSE_STREAM, ZUI_DIALOG_PROVIDERS } from '../dialog/dialog-options';
-import { ZuiAnimationOptions, zuiFadeIn, zuiSlideInTop } from '../../../animations';
+import { PZM_ANIMATIONS_DURATION } from '../../../tokens';
+import { PZM_DIALOG_CLOSE_STREAM, PZM_DIALOG_PROVIDERS } from '../dialog/dialog-options';
+import { PzmAnimationOptions, pzmFadeIn, pzmSlideInTop } from '../../../animations';
 import { takeUntil } from 'rxjs/operators';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-import { ZuiBaseDialogContext, ZuiDialogSize } from '../dialog';
-import { ZuiSidebarOptions, ZuiSidebarResultDefaultType } from './sidebar.models';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmBaseDialogContext, PzmDialogSize } from '../dialog';
+import { PzmSidebarOptions, PzmSidebarResultDefaultType } from './sidebar.models';
 
 @Component({
-    selector: 'zui-sidebar',
+    selector: 'pzm-sidebar',
     templateUrl: './sidebar.component.html',
     styleUrls: ['./sidebar.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: ZUI_DIALOG_PROVIDERS,
-    animations: [zuiSlideInTop, zuiFadeIn],
+    providers: PZM_DIALOG_PROVIDERS,
+    animations: [pzmSlideInTop, pzmFadeIn],
 })
-export class ZuiSidebarComponent<DATA = unknown> {
+export class PzmSidebarComponent<DATA = unknown> {
     @Input()
-    public context!: ZuiBaseDialogContext<ZuiSidebarResultDefaultType, ZuiSidebarOptions<DATA>>;
+    public context!: PzmBaseDialogContext<PzmSidebarResultDefaultType, PzmSidebarOptions<DATA>>;
 
     @Input()
     public close!: () => void;
 
-    @HostBinding('attr.zui-size')
-    public get size(): ZuiDialogSize {
+    @HostBinding('attr.pzm-size')
+    public get size(): PzmDialogSize {
       return this.context.size
     };
 
-    @HostBinding('attr.zui-sidebar-id')
+    @HostBinding('attr.pzm-sidebar-id')
     public get id(): string {
       return this.context.id
     };
@@ -45,14 +45,14 @@ export class ZuiSidebarComponent<DATA = unknown> {
        : (this.context.height as any ?? '200px');
     };
 
-    @HostBinding('@zuiSlideInTop')
-    @HostBinding('@zuiFadeIn')
-    public get slideInTop(): ZuiAnimationOptions {
+    @HostBinding('@pzmSlideInTop')
+    @HostBinding('@pzmFadeIn')
+    public get slideInTop(): PzmAnimationOptions {
       return this.animation;
     }
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_sidebar';
+    readonly testId = 'pzm_sidebar';
 
     private readonly animation = {
         value: '',
@@ -63,9 +63,9 @@ export class ZuiSidebarComponent<DATA = unknown> {
     } as const;
 
     constructor(
-        @Inject(ZUI_ANIMATIONS_DURATION) private readonly duration: number,
-        @Inject(ZUI_DIALOG_CLOSE_STREAM) readonly close$: Observable<unknown>,
-        private readonly destroy$: ZuiDestroyService,
+        @Inject(PZM_ANIMATIONS_DURATION) private readonly duration: number,
+        @Inject(PZM_DIALOG_CLOSE_STREAM) readonly close$: Observable<unknown>,
+        private readonly destroy$: PzmDestroyService,
     ) {
         close$.pipe(takeUntil(this.destroy$)).subscribe(() => {
             this.close();

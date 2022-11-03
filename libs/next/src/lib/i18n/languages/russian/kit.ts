@@ -1,6 +1,6 @@
-import { ZuiLanguageKit } from '../../interfaces';
+import { PzmLanguageKit } from '../../interfaces';
 
-export const ZUI_RUSSIAN_LANGUAGE_KIT: ZuiLanguageKit = {
+export const PZM_RUSSIAN_LANGUAGE_KIT: PzmLanguageKit = {
     cancel: `Отменить`,
     done: `Готово`,
     more: `Еще`,

@@ -1,1 +1,1 @@
-export type ZuiOrientation = 'vertical' | 'horizontal';
+export type PzmOrientation = 'vertical' | 'horizontal';

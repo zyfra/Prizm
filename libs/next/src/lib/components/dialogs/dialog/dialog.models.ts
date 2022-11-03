@@ -1,57 +1,57 @@
 import { Observer } from 'rxjs';
 import { PolymorphContent } from '../../../directives';
-import { ZuiAppearance, ZuiAppearanceType, ZuiContextWithImplicit } from '../../../types';
+import { PzmAppearance, PzmAppearanceType, PzmContextWithImplicit } from '../../../types';
 import { Type } from '@angular/core';
-import { ZuiOverlayInsidePlacement } from '../../../modules/overlay';
-import { ZuiSize, ZuiSizeL, ZuiSizeM } from '../../../util';
-import { ZuiOverscrollMode } from '../../../directives/overscroll/overscroll.model';
+import { PzmOverlayInsidePlacement } from '../../../modules/overlay';
+import { PzmSize, PzmSizeL, PzmSizeM } from '../../../util';
+import { PzmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
 
-export type ZuiBaseDialogContext<O, T = ZuiDialogBaseOptions> =
-  & ZuiContextWithImplicit<Observer<O>>
-  & ZuiAriaDialogContext
+export type PzmBaseDialogContext<O, T = PzmDialogBaseOptions> =
+  & PzmContextWithImplicit<Observer<O>>
+  & PzmAriaDialogContext
   & T
   & {
     readonly completeWith: (value: O) => void;
   };
 
-export interface ZuiAriaDialogContext {
+export interface PzmAriaDialogContext {
   readonly component: Type<unknown>;
   readonly createdAt: number;
 }
 
-export type ZuiDialog<T = unknown, O = unknown, DATA = unknown> = ZuiBaseDialogContext<O, DATA> &
-  T & {content: PolymorphContent<ZuiBaseDialogContext<O, DATA> & T>};
+export type PzmDialog<T = unknown, O = unknown, DATA = unknown> = PzmBaseDialogContext<O, DATA> &
+  T & {content: PolymorphContent<PzmBaseDialogContext<O, DATA> & T>};
 
 
-export type ZuiDialogSize = ZuiSizeM | ZuiSizeL;
+export type PzmDialogSize = PzmSizeM | PzmSizeL;
 
-export interface ZuiDialogBaseOptions {
+export interface PzmDialogBaseOptions {
   readonly width?: string | number;
   readonly height?: string | number;
   readonly id?: string;
   readonly backdrop?: boolean;
-  readonly overscroll?: ZuiOverscrollMode;
+  readonly overscroll?: PzmOverscrollMode;
   readonly dismissible?: boolean;
-  readonly position: ZuiOverlayInsidePlacement;
+  readonly position: PzmOverlayInsidePlacement;
 }
 
-export interface ZuiDialogOptions<O = unknown, DATA = unknown> extends ZuiDialogBaseOptions{
-  readonly size: ZuiDialogSize;
+export interface PzmDialogOptions<O = unknown, DATA = unknown> extends PzmDialogBaseOptions{
+  readonly size: PzmDialogSize;
   readonly required: boolean;
   readonly closeWord?: string;
   readonly closeable: boolean;
-  readonly header: PolymorphContent<ZuiBaseDialogContext<O, ZuiDialogOptions<O, DATA>>>;
-  readonly footer?: PolymorphContent<ZuiBaseDialogContext<O, ZuiDialogOptions<O, DATA>>>;
+  readonly header: PolymorphContent<PzmBaseDialogContext<O, PzmDialogOptions<O, DATA>>>;
+  readonly footer?: PolymorphContent<PzmBaseDialogContext<O, PzmDialogOptions<O, DATA>>>;
   readonly footerStyle?: string;
-  readonly content?: PolymorphContent<ZuiBaseDialogContext<O, ZuiDialogOptions<O, DATA>>>;
+  readonly content?: PolymorphContent<PzmBaseDialogContext<O, PzmDialogOptions<O, DATA>>>;
   readonly data?: DATA;
 }
 
-export interface ZuiDialogButton<O = unknown, T = ZuiDialogBaseOptions> {
-  size?: ZuiSize;
+export interface PzmDialogButton<O = unknown, T = PzmDialogBaseOptions> {
+  size?: PzmSize;
   style?: string;
-  appearance?: ZuiAppearance;
-  appearanceType?: ZuiAppearanceType;
+  appearance?: PzmAppearance;
+  appearanceType?: PzmAppearanceType;
   text: string;
-  action: (context: ZuiBaseDialogContext<O, T>) => void
+  action: (context: PzmBaseDialogContext<O, T>) => void
 }

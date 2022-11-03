@@ -1,86 +1,86 @@
 import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, HostBinding, Inject, Input } from '@angular/core';
 import { merge } from 'rxjs';
 import { mapTo } from 'rxjs/operators';
-import { zuiDefaultProp } from '../../decorators/default-prop';
-import { ZuiFocusVisibleService } from '../../directives/focus-visible/focus-visible.service';
-import { ZUI_FOCUSABLE_ITEM_ACCESSOR } from '../../tokens/focusable-item-accessor';
-import { ZuiFocusableElementAccessor, ZuiNativeFocusableElement } from '../../types/focusable-element-accessor';
-import { zuiTypedFromEvent } from '../../observables';
-import { zuiIsNativeFocused } from '../../util/is-native-focused';
-import { ZuiHorizontalDirection } from '../../types/direction';
-import { ZuiThemeService } from '../../services/theme.service';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
+import { pzmDefaultProp } from '../../decorators/default-prop';
+import { PzmFocusVisibleService } from '../../directives/focus-visible/focus-visible.service';
+import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../tokens/focusable-item-accessor';
+import { PzmFocusableElementAccessor, PzmNativeFocusableElement } from '../../types/focusable-element-accessor';
+import { pzmTypedFromEvent } from '../../observables';
+import { pzmIsNativeFocused } from '../../util/is-native-focused';
+import { PzmHorizontalDirection } from '../../types/direction';
+import { PzmThemeService } from '../../services/theme.service';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
 
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
-    selector: `a[zuiLink], button[zuiLink]`,
+    selector: `a[pzmLink], button[pzmLink]`,
     templateUrl: `./link.component.html`,
     styleUrls: [`./link.component.less`],
     providers: [
         {
-            provide: ZUI_FOCUSABLE_ITEM_ACCESSOR,
-            useExisting: forwardRef(() => ZuiLinkComponent),
+            provide: PZM_FOCUSABLE_ITEM_ACCESSOR,
+            useExisting: forwardRef(() => PzmLinkComponent),
         },
-        ZuiFocusVisibleService,
-        ZuiDestroyService,
+        PzmFocusVisibleService,
+        PzmDestroyService,
     ],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    exportAs: `zuiLink`,
+    exportAs: `pzmLink`,
 })
-export class ZuiLinkComponent implements ZuiFocusableElementAccessor {
+export class PzmLinkComponent implements PzmFocusableElementAccessor {
     @Input()
     @HostBinding(`class._pseudo`)
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     pseudo = false;
 
     // TODO: 2.0 Remove `null`
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     icon: string | null = null;
 
     @Input()
-    @zuiDefaultProp()
-    iconAlign: ZuiHorizontalDirection = `right`;
+    @pzmDefaultProp()
+    iconAlign: PzmHorizontalDirection = `right`;
 
     @Input()
     @HostBinding(`class._icon-rotated`)
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     iconRotated = false;
 
     @Input()
     @HostBinding(`attr.data-host-mode`)
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     mode: 'positive' | 'negative' | null = null;
 
     @HostBinding(`class._focus-visible`)
     focusVisible = false;
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_link';
+    readonly testId = 'pzm_link';
 
     readonly focusedChange = merge(
-        zuiTypedFromEvent(this.elementRef.nativeElement, `focusin`).pipe(mapTo(true)),
-        zuiTypedFromEvent(this.elementRef.nativeElement, `focusout`).pipe(mapTo(false)),
+        pzmTypedFromEvent(this.elementRef.nativeElement, `focusin`).pipe(mapTo(true)),
+        pzmTypedFromEvent(this.elementRef.nativeElement, `focusout`).pipe(mapTo(false)),
     );
 
     constructor(
         @Inject(ElementRef)
-        private readonly elementRef: ElementRef<ZuiNativeFocusableElement>,
-        public readonly mode$: ZuiThemeService,
-        @Inject(ZuiFocusVisibleService)
-        focusVisible$: ZuiFocusVisibleService,
+        private readonly elementRef: ElementRef<PzmNativeFocusableElement>,
+        public readonly mode$: PzmThemeService,
+        @Inject(PzmFocusVisibleService)
+        focusVisible$: PzmFocusVisibleService,
     ) {
         focusVisible$.subscribe(visible => {
             this.focusVisible = visible;
         });
     }
 
-    get nativeFocusableElement(): ZuiNativeFocusableElement {
+    get nativeFocusableElement(): PzmNativeFocusableElement {
         return this.elementRef.nativeElement;
     }
 
     get focused(): boolean {
-        return zuiIsNativeFocused(this.nativeFocusableElement);
+        return pzmIsNativeFocused(this.nativeFocusableElement);
     }
 
     get hasIcon(): boolean {

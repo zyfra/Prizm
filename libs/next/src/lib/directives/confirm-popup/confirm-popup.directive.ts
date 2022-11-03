@@ -1,72 +1,72 @@
 /* eslint-disable @angular-eslint/no-input-rename */
 import { Directive, EventEmitter, forwardRef, HostListener, Input, Output } from '@angular/core';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-import { ZuiConfirmPopupContainerComponent } from './confirm-popup-container.component';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmConfirmPopupContainerComponent } from './confirm-popup-container.component';
 import {
-  ZUI_CONFIRM_POPUP_OPTIONS,
-  ZuiConfirmPopupButton,
-  ZuiConfirmPopupContext,
-  ZuiConfirmPopupOptions,
+  PZM_CONFIRM_POPUP_OPTIONS,
+  PzmConfirmPopupButton,
+  PzmConfirmPopupContext,
+  PzmConfirmPopupOptions,
 } from './confirm-popup-options';
-import { zuiDefaultProp, zuiRequiredSetter } from '../../decorators';
+import { pzmDefaultProp, pzmRequiredSetter } from '../../decorators';
 import { PolymorphContent } from '../polymorph';
-import { zuiGenerateId } from '../../util';
-import { ZuiConfirmDialogButton, ZuiConfirmDialogResultDefaultType } from '../../components/dialogs/confirm-dialog';
-import { ZuiAppearance, ZuiAppearanceType } from '../../types';
-import { ZUI_HINT_OPTIONS, ZuiHintOptions } from '../hint/hint-options';
-import { ZuiHintDirective } from '../hint/hint.directive';
+import { pzmGenerateId } from '../../util';
+import { PzmConfirmDialogButton, PzmConfirmDialogResultDefaultType } from '../../components/dialogs/confirm-dialog';
+import { PzmAppearance, PzmAppearanceType } from '../../types';
+import { PZM_HINT_OPTIONS, PzmHintOptions } from '../hint/hint-options';
+import { PzmHintDirective } from '../hint/hint.directive';
 
 @Directive({
-    selector: '[zuiConfirmPopup]:not(ng-container)',
+    selector: '[pzmConfirmPopup]:not(ng-container)',
     providers: [
-      ZuiDestroyService,
+      PzmDestroyService,
       {
-        provide: ZUI_HINT_OPTIONS,
-        useExisting: forwardRef(() => ZUI_CONFIRM_POPUP_OPTIONS)
+        provide: PZM_HINT_OPTIONS,
+        useExisting: forwardRef(() => PZM_CONFIRM_POPUP_OPTIONS)
       }
     ],
-    exportAs: 'zuiConfirmPopup'
+    exportAs: 'pzmConfirmPopup'
 })
-export class ZuiConfirmPopupDirective<T extends Record<string, unknown>> extends ZuiHintDirective<ZuiConfirmPopupOptions> {
-  @Input('zuiConfirmPopupMode')
-  @zuiDefaultProp()
-  override zuiHintMode: ZuiHintOptions['mode'] = this.options.mode;
+export class PzmConfirmPopupDirective<T extends Record<string, unknown>> extends PzmHintDirective<PzmConfirmPopupOptions> {
+  @Input('pzmConfirmPopupMode')
+  @pzmDefaultProp()
+  override pzmHintMode: PzmHintOptions['mode'] = this.options.mode;
 
-  @Input('zuiAutoReposition')
-  @zuiDefaultProp()
-  override zuiAutoReposition: ZuiHintOptions['autoReposition'] = this.options.autoReposition;
+  @Input('pzmAutoReposition')
+  @pzmDefaultProp()
+  override pzmAutoReposition: PzmHintOptions['autoReposition'] = this.options.autoReposition;
 
-  @Input('zuiConfirmPopupDirection')
-  @zuiDefaultProp()
-  override zuiHintDirection: ZuiHintOptions['direction'] = this.options.direction;
+  @Input('pzmConfirmPopupDirection')
+  @pzmDefaultProp()
+  override pzmHintDirection: PzmHintOptions['direction'] = this.options.direction;
 
-  @Input('zuiConfirmPopupId')
-  @zuiDefaultProp()
-  override zuiHintId: string = 'hintId_' + zuiGenerateId();
+  @Input('pzmConfirmPopupId')
+  @pzmDefaultProp()
+  override pzmHintId: string = 'hintId_' + pzmGenerateId();
 
-  @Input('zuiConfirmPopupShowDelay')
-  @zuiDefaultProp()
-  override zuiHintShowDelay: ZuiHintOptions['showDelay'] = this.options.showDelay;
+  @Input('pzmConfirmPopupShowDelay')
+  @pzmDefaultProp()
+  override pzmHintShowDelay: PzmHintOptions['showDelay'] = this.options.showDelay;
 
-  @Input('zuiConfirmPopupHideDelay')
-  @zuiDefaultProp()
-  override zuiHintHideDelay: ZuiHintOptions['hideDelay'] = this.options.hideDelay;
+  @Input('pzmConfirmPopupHideDelay')
+  @pzmDefaultProp()
+  override pzmHintHideDelay: PzmHintOptions['hideDelay'] = this.options.hideDelay;
 
   @Input()
-  @zuiDefaultProp()
+  @pzmDefaultProp()
   public size = this.options.size;
 
-  @Input('zuiConfirmPopupHost')
-  @zuiDefaultProp()
-  override zuiHintHost: HTMLElement | null = null;
+  @Input('pzmConfirmPopupHost')
+  @pzmDefaultProp()
+  override pzmHintHost: HTMLElement | null = null;
 
   @Output()
-  @zuiDefaultProp()
-  public completeWith = new EventEmitter<ZuiConfirmDialogResultDefaultType | unknown>();
+  @pzmDefaultProp()
+  public completeWith = new EventEmitter<PzmConfirmDialogResultDefaultType | unknown>();
 
-  @Input('zuiConfirmPopup')
-  @zuiRequiredSetter()
-  override set zuiHint(value: PolymorphContent | null) {
+  @Input('pzmConfirmPopup')
+  @pzmRequiredSetter()
+  override set pzmHint(value: PolymorphContent | null) {
     if (!value) {
       this.content = '';
       return;
@@ -76,57 +76,57 @@ export class ZuiConfirmPopupDirective<T extends Record<string, unknown>> extends
   }
 
   @Input()
-  @zuiDefaultProp()
-  zuiConfirmPopupTitle = '';
+  @pzmDefaultProp()
+  pzmConfirmPopupTitle = '';
 
-  @Input() confirmButton?: ZuiConfirmPopupButton | string;
-  @Input() supportButton?: ZuiConfirmPopupButton | string;
-  @Input() cancelButton?: ZuiConfirmPopupButton | string;
+  @Input() confirmButton?: PzmConfirmPopupButton | string;
+  @Input() supportButton?: PzmConfirmPopupButton | string;
+  @Input() cancelButton?: PzmConfirmPopupButton | string;
 
 
-  protected override readonly containerComponent = ZuiConfirmPopupContainerComponent;
+  protected override readonly containerComponent = PzmConfirmPopupContainerComponent;
   protected override readonly onHoverActive = false;
 
   @HostListener('document:click', ['$event.target']) public onClick(target: HTMLElement): void {
     this.show$.next(this.elementRef.nativeElement.contains(target));
   }
 
-  protected override getContext(): ZuiConfirmPopupContext {
+  protected override getContext(): PzmConfirmPopupContext {
     const context = {
       size: this.size,
-      mode: this.zuiHintMode,
-      reposition: this.zuiAutoReposition,
-      direction: this.zuiHintDirection,
-      completeWith: (value: ZuiConfirmPopupButton) => {
+      mode: this.pzmHintMode,
+      reposition: this.pzmAutoReposition,
+      direction: this.pzmHintDirection,
+      completeWith: (value: PzmConfirmPopupButton) => {
         this.completeWith.next(value);
       },
-      id: this.zuiHintId,
-      showDelay: this.zuiHintShowDelay,
-      hideDelay: this.zuiHintHideDelay,
-      title: this.zuiConfirmPopupTitle,
+      id: this.pzmHintId,
+      showDelay: this.pzmHintShowDelay,
+      hideDelay: this.pzmHintHideDelay,
+      title: this.pzmConfirmPopupTitle,
       host: this.host,
       confirmButton: this.confirmButton,
       supportButton: this.supportButton,
       cancelButton: this.cancelButton,
-    } as ZuiConfirmPopupContext;
+    } as PzmConfirmPopupContext;
     this.safeUpdateButtonsWithDefaultStyles(context);
     return context;
   }
 
 
   private generateButton(
-    options: ZuiConfirmPopupContext,
-    button: ZuiConfirmDialogButton | string,
+    options: PzmConfirmPopupContext,
+    button: PzmConfirmDialogButton | string,
     defaultText: string,
-    defaultComplete: ZuiConfirmDialogResultDefaultType,
-    defaultAppearance?: ZuiAppearance,
-    defaultAppearanceType?: ZuiAppearanceType,
-  ): ZuiConfirmDialogButton {
+    defaultComplete: PzmConfirmDialogResultDefaultType,
+    defaultAppearance?: PzmAppearance,
+    defaultAppearanceType?: PzmAppearanceType,
+  ): PzmConfirmDialogButton {
     const buttonText = (typeof button === 'string'
         ? button
         : button?.text
     ) ?? defaultText;
-    const btn = ((typeof button === 'string' ? {} : button) ?? {}) as Partial<ZuiConfirmDialogButton>;
+    const btn = ((typeof button === 'string' ? {} : button) ?? {}) as Partial<PzmConfirmDialogButton>;
 
     const result =  {
       ...btn,
@@ -145,13 +145,13 @@ export class ZuiConfirmPopupDirective<T extends Record<string, unknown>> extends
   }
 
   private safeUpdateButtonsWithDefaultStyles(
-    options: ZuiConfirmPopupContext
+    options: PzmConfirmPopupContext
   ): void {
     const supportButton = this.generateButton(
       options,
       options.supportButton,
       'Выйти без сохранения',
-      ZuiConfirmDialogResultDefaultType.support,
+      PzmConfirmDialogResultDefaultType.support,
       'danger',
       'outline'
     );
@@ -160,7 +160,7 @@ export class ZuiConfirmPopupDirective<T extends Record<string, unknown>> extends
       options,
       options.confirmButton,
       'Подтвердить',
-      ZuiConfirmDialogResultDefaultType.confirmed,
+      PzmConfirmDialogResultDefaultType.confirmed,
       'primary'
     );
 
@@ -168,7 +168,7 @@ export class ZuiConfirmPopupDirective<T extends Record<string, unknown>> extends
       options,
       options.cancelButton,
       'Отмена',
-      ZuiConfirmDialogResultDefaultType.cancel,
+      PzmConfirmDialogResultDefaultType.cancel,
       'secondary',
       'ghost'
     );

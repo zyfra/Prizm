@@ -1,22 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ZuiMonthPipeModule } from '../../../pipes/month';
-import { ZuiPrimitiveYearMonthPaginationComponent } from './primitive-year-month-pagination.component';
-import { ZuiPrimitiveSpinButtonModule } from '../primitive-spin-button';
-import { ZuiLinkModule } from '../../link/link.module';
-import { ZuiFocusableModule } from '../../../directives/focusable/focusable.module';
-import { ZuiIconModule } from '../../icon/icon.module';
+import { PzmMonthPipeModule } from '../../../pipes/month';
+import { PzmPrimitiveYearMonthPaginationComponent } from './primitive-year-month-pagination.component';
+import { PzmPrimitiveSpinButtonModule } from '../primitive-spin-button';
+import { PzmLinkModule } from '../../link/link.module';
+import { PzmFocusableModule } from '../../../directives/focusable/focusable.module';
+import { PzmIconModule } from '../../icon/icon.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        ZuiFocusableModule,
-        ZuiPrimitiveSpinButtonModule,
-        ZuiLinkModule,
-        ZuiIconModule,
-        ZuiMonthPipeModule,
+        PzmFocusableModule,
+        PzmPrimitiveSpinButtonModule,
+        PzmLinkModule,
+        PzmIconModule,
+        PzmMonthPipeModule,
     ],
-    declarations: [ZuiPrimitiveYearMonthPaginationComponent],
-    exports: [ZuiPrimitiveYearMonthPaginationComponent],
+    declarations: [PzmPrimitiveYearMonthPaginationComponent],
+    exports: [PzmPrimitiveYearMonthPaginationComponent],
 })
-export class ZuiPrimitiveYearMonthPaginationModule {}
+export class PzmPrimitiveYearMonthPaginationModule {}

@@ -1,0 +1,65 @@
+.box {
+  padding: 16px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 64px;
+
+    .btns {
+      display: flex;
+      gap: 24px;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  gap: 8px;
+  color: black;
+  align-items: center;
+
+  pzm-icon {
+    font-weight: 300;
+  }
+}
+
+.date-control {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  pzm-input-date-time ::ng-deep {
+    width: 100%;
+
+    pzm-input-layout {
+      width: 100%;
+    }
+  }
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.trash-icon {
+  color: var(--pzm-index-danger);
+}
+
+pzm-icon {
+  cursor: pointer;
+}
+
+.edit-icon {
+  color: var(--pzm-grey-g8-g6);
+  cursor: not-allowed;
+}

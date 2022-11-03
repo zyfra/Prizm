@@ -1,1 +1,1 @@
-export type ZuiDropdownWidthT = 'fixed' | 'min' | 'auto';
+export type PzmDropdownWidthT = 'fixed' | 'min' | 'auto';

@@ -1,8 +1,8 @@
-import {zuiIsNativeKeyboardFocusable} from './is-native-keyboard-focusable';
+import {pzmIsNativeKeyboardFocusable} from './is-native-keyboard-focusable';
 
-export function zuiIsNativeMouseFocusable(element: Element): boolean {
+export function pzmIsNativeMouseFocusable(element: Element): boolean {
     return (
         !element.hasAttribute('disabled') &&
-        (element.getAttribute('tabIndex') === '-1' || zuiIsNativeKeyboardFocusable(element))
+        (element.getAttribute('tabIndex') === '-1' || pzmIsNativeKeyboardFocusable(element))
     );
 }

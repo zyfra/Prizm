@@ -10,17 +10,17 @@ import {
 } from '@angular/core';
 
 @Directive({
-    selector: 'input[zuiChecked], input[zuiCheckedChange]',
+    selector: 'input[pzmChecked], input[pzmCheckedChange]',
 })
-export class ZuiCheckedDirective {
+export class PzmCheckedDirective {
     @Input()
-    set zuiChecked(checked: null | boolean) {
+    set pzmChecked(checked: null | boolean) {
         this.updateProperty('checked', checked || false);
         this.updateProperty('indeterminate', checked === null);
     }
 
     @Output()
-    readonly zuiCheckedChange = new EventEmitter<boolean>();
+    readonly pzmCheckedChange = new EventEmitter<boolean>();
 
     constructor(
         @Inject(ElementRef)
@@ -33,7 +33,7 @@ export class ZuiCheckedDirective {
     @HostListener('change', ['$event.target'])
     public onChange({checked}: HTMLInputElement): void {
         this.updateProperty('indeterminate', false);
-        this.zuiCheckedChange.emit(checked);
+        this.pzmCheckedChange.emit(checked);
     }
 
     private updateProperty(property: 'checked' | 'indeterminate', value: boolean): void {

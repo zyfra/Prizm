@@ -1,21 +1,21 @@
-import {NgModule} from '@angular/core';
-import {ZuiButtonComponent} from './button.component';
-import {CommonModule} from "@angular/common";
-import {ZuiWrapperModule} from "../../directives/wrapper";
-import {ZuiIconModule} from "../icon";
-import {ZuiCallFuncModule} from "@digital-plant/zyfra-helpers";
-import {ZuiSplitButtonComponent} from "./split-button/split-button.component";
-import {ZuiLoaderModule} from '../loader/loader.module';
+import { NgModule } from '@angular/core';
+import { PzmButtonComponent } from './button.component';
+import { CommonModule } from '@angular/common';
+import { PzmWrapperModule } from '../../directives/wrapper';
+import { PzmIconModule } from '../icon';
+import { PzmCallFuncModule } from '@digital-plant/zyfra-helpers';
+import { PzmSplitButtonComponent } from './split-button/split-button.component';
+import { PzmLoaderModule } from '../loader/loader.module';
 
 @NgModule({
-  declarations: [ZuiButtonComponent, ZuiSplitButtonComponent],
+  declarations: [PzmButtonComponent, PzmSplitButtonComponent],
   imports: [
     CommonModule,
-    ZuiWrapperModule,
-    ZuiIconModule,
-    ZuiLoaderModule,
-    ZuiCallFuncModule,
+    PzmWrapperModule,
+    PzmIconModule,
+    PzmLoaderModule,
+    PzmCallFuncModule,
   ],
-  exports: [ZuiButtonComponent, ZuiSplitButtonComponent],
+  exports: [PzmButtonComponent, PzmSplitButtonComponent],
 })
-export class ZuiButtonModule {}
+export class PzmButtonModule {}

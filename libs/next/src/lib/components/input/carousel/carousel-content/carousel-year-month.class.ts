@@ -1,14 +1,14 @@
-import { zuiDefaultCarouselControlsState, ZuiCarouselContent } from './carousel-content.interface';
+import { pzmDefaultCarouselControlsState, PzmCarouselContent } from './carousel-content.interface';
 
-export type ZuiCarouselZuiCarouselYearMonthValue = { year: number; month: number };
+export type PzmCarouselPzmCarouselYearMonthValue = { year: number; month: number };
 
-export class ZuiCarouselYearMonth implements ZuiCarouselContent {
-  currentValue: ZuiCarouselZuiCarouselYearMonthValue = undefined;
+export class PzmCarouselYearMonth implements PzmCarouselContent {
+  currentValue: PzmCarouselPzmCarouselYearMonthValue = undefined;
 
-  public min: ZuiCarouselZuiCarouselYearMonthValue = { month: 1, year: Number.NEGATIVE_INFINITY };
-  public max: ZuiCarouselZuiCarouselYearMonthValue = { month: 12, year: Number.POSITIVE_INFINITY };
+  public min: PzmCarouselPzmCarouselYearMonthValue = { month: 1, year: Number.NEGATIVE_INFINITY };
+  public max: PzmCarouselPzmCarouselYearMonthValue = { month: 12, year: Number.POSITIVE_INFINITY };
 
-  constructor(min?: ZuiCarouselZuiCarouselYearMonthValue, max?: ZuiCarouselZuiCarouselYearMonthValue) {
+  constructor(min?: PzmCarouselPzmCarouselYearMonthValue, max?: PzmCarouselPzmCarouselYearMonthValue) {
     if (min) {
       this.min = min;
     }
@@ -18,9 +18,9 @@ export class ZuiCarouselYearMonth implements ZuiCarouselContent {
     }
   }
 
-  public controlsState = { ...zuiDefaultCarouselControlsState };
+  public controlsState = { ...pzmDefaultCarouselControlsState };
 
-  public setCurrentValue(element: ZuiCarouselZuiCarouselYearMonthValue): void {
+  public setCurrentValue(element: PzmCarouselPzmCarouselYearMonthValue): void {
     this.currentValue = element;
     this.updateControlsState();
   }
@@ -103,8 +103,8 @@ export class ZuiCarouselYearMonth implements ZuiCarouselContent {
   }
 
   private compare(
-    value1: ZuiCarouselZuiCarouselYearMonthValue,
-    value2: ZuiCarouselZuiCarouselYearMonthValue
+    value1: PzmCarouselPzmCarouselYearMonthValue,
+    value2: PzmCarouselPzmCarouselYearMonthValue
   ): 'lt' | 'eq' | 'gt' {
     if (value1.year < value2.year) {
       return 'lt';

@@ -7,12 +7,12 @@ interface SomeData {
 }
 
 @Component({
-  selector: 'zui-checkbox-group-example',
+  selector: 'pzm-checkbox-group-example',
   templateUrl: './checkbox-group-example.component.html',
   styleUrls: ['./checkbox-group-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiCheckboxGroupExampleComponent {
+export class PzmCheckboxGroupExampleComponent {
   data: Array<SomeData> = [
     { label: 'Родительский элемент 1', checked: false },
     { label: 'Родительский элемент 2', checked: false },

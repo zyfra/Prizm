@@ -1,9 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { HeaderConfig, ToolbarConfig, ZuiMenuItem } from '@digital-plant/zui-components';
+import { HeaderConfig, ToolbarConfig, PzmMenuItem } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-nav-menu-example',
+  selector: 'pzm-nav-menu-example',
   templateUrl: './nav-menu-example.component.html',
   styleUrls: ['./nav-menu-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -11,7 +11,7 @@ import { HeaderConfig, ToolbarConfig, ZuiMenuItem } from '@digital-plant/zui-com
 export class NavMenuExampleComponent {
   public menuTitle = 'Наименование приложения';
   public emptyMessage = 'Пусто';
-  public navigationList: ZuiMenuItem[] = [
+  public navigationList: PzmMenuItem[] = [
     {
       label: 'А приложение 1',
       icon: 'settings',

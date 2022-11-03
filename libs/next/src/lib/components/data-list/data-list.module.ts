@@ -1,18 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ZuiDataListComponent } from './data-list.component';
+import { PzmDataListComponent } from './data-list.component';
 import { PolymorphModule } from '../../directives';
-import { ZuiIconModule } from '../icon';
-import { ZuiScrollbarModule } from '../scrollbar';
+import { PzmIconModule } from '../icon';
+import { PzmScrollbarModule } from '../scrollbar';
 
 @NgModule({
   imports: [
     CommonModule,
     PolymorphModule,
-    ZuiIconModule,
-    ZuiScrollbarModule
+    PzmIconModule,
+    PzmScrollbarModule
   ],
-    declarations: [ZuiDataListComponent],
-    exports: [ZuiDataListComponent],
+    declarations: [PzmDataListComponent],
+    exports: [PzmDataListComponent],
 })
-export class ZuiDataListModule {}
+export class PzmDataListModule {}

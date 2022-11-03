@@ -1,34 +1,34 @@
 <tui-doc-page header="Tabs" package="Equinox" type="components">
   <ng-template pageTab>
     <tui-doc-example id="base" heading="Base" [content]="tabsExampleBasic">
-      <zui-tabs-example-basic></zui-tabs-example-basic>
+      <pzm-tabs-example-basic></pzm-tabs-example-basic>
     </tui-doc-example>
 
     <tui-doc-example id="line" heading="Lined tabs" [content]="tabsLinedExample">
-      <zui-tabs-example-lined></zui-tabs-example-lined>
+      <pzm-tabs-example-lined></pzm-tabs-example-lined>
     </tui-doc-example>
 
     <tui-doc-example id="contained" heading="Contained tabs" [content]="tabsContainedExample">
-      <zui-tabs-example-contained></zui-tabs-example-contained>
+      <pzm-tabs-example-contained></pzm-tabs-example-contained>
     </tui-doc-example>
 
     <tui-doc-example id="icon" heading="Icon tabs" [content]="tabsIconExample">
-      <zui-tabs-example-icon></zui-tabs-example-icon>
+      <pzm-tabs-example-icon></pzm-tabs-example-icon>
     </tui-doc-example>
 
     <tui-doc-example id="counter" heading="Tabs with counter" [content]="tabsWithCounterExample">
-      <zui-tabs-example-counter></zui-tabs-example-counter>
+      <pzm-tabs-example-counter></pzm-tabs-example-counter>
     </tui-doc-example>
 
     <tui-doc-example id="closable" heading="Closable tabs" [content]="tabsClosableExample">
-      <zui-tabs-example-closable></zui-tabs-example-closable>
+      <pzm-tabs-example-closable></pzm-tabs-example-closable>
     </tui-doc-example>
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
       <div class="container container__{{ size }}">
-        <zui-tab
+        <pzm-tab
           [title]="title"
           [icon]="icon"
           [closable]="closable"
@@ -37,7 +37,7 @@
           [count]="count"
           [isActive]="isActive"
           (tabClick)="isActive = !isActive"
-        ></zui-tab>
+        ></pzm-tab>
       </div>
     </tui-doc-demo>
     <tui-doc-documentation>
@@ -130,7 +130,7 @@
     <ol class="b-demo-steps">
       <li>
         <p>
-          Импортируйте <code>ZuiTabsModule</code>
+          Импортируйте <code>PzmTabsModule</code>
           в модуль в котором хотите использовать компоненту
         </p>
 

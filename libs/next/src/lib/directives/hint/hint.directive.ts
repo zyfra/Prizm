@@ -10,66 +10,66 @@ import {
   Renderer2,
   Type,
 } from '@angular/core';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-import { zuiDefaultProp, zuiRequiredSetter } from '../../decorators';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { pzmDefaultProp, pzmRequiredSetter } from '../../decorators';
 import { PolymorphContent } from '../index';
-import { ZUI_HINT_OPTIONS, ZuiHintContext, ZuiHintOptions } from './hint-options';
-import { ZuiOverlayControl, ZuiOverlayRelativePosition, ZuiOverlayService } from '../../modules/overlay';
+import { PZM_HINT_OPTIONS, PzmHintContext, PzmHintOptions } from './hint-options';
+import { PzmOverlayControl, PzmOverlayRelativePosition, PzmOverlayService } from '../../modules/overlay';
 import { combineLatest, Observable, of, Subject } from 'rxjs';
-import { ZuiHoveredService } from '../../services';
+import { PzmHoveredService } from '../../services';
 import { delay, map, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { ZuiHintContainerComponent } from './hint-container.component';
-import { ZuiHintService } from './hint.service';
-import { zuiGenerateId } from '../../util';
+import { PzmHintContainerComponent } from './hint-container.component';
+import { PzmHintService } from './hint.service';
+import { pzmGenerateId } from '../../util';
 
 export const HINT_HOVERED_CLASS = '_hint_hovered';
 
 @Directive({
-    selector: '[zuiHint]:not(ng-container)',
+    selector: '[pzmHint]:not(ng-container)',
     providers: [
-      ZuiDestroyService,
+      PzmDestroyService,
     ],
-    exportAs: 'zuiHint'
+    exportAs: 'pzmHint'
 })
-export class ZuiHintDirective<
-  OPTIONS extends ZuiHintOptions = ZuiHintOptions,
-  CONTEXT extends ZuiHintContext = ZuiHintContext
+export class PzmHintDirective<
+  OPTIONS extends PzmHintOptions = PzmHintOptions,
+  CONTEXT extends PzmHintContext = PzmHintContext
   > implements OnChanges, OnInit, OnDestroy {
     @Input()
-    @zuiDefaultProp()
-    zuiHintMode: ZuiHintOptions['mode'] = this.options.mode;
+    @pzmDefaultProp()
+    pzmHintMode: PzmHintOptions['mode'] = this.options.mode;
 
     @Input()
-    @zuiDefaultProp()
-    zuiAutoReposition: ZuiHintOptions['autoReposition'] = this.options.autoReposition;
+    @pzmDefaultProp()
+    pzmAutoReposition: PzmHintOptions['autoReposition'] = this.options.autoReposition;
 
     @Input()
-    @zuiDefaultProp()
-    zuiHintDirection: ZuiHintOptions['direction'] = this.options.direction;
+    @pzmDefaultProp()
+    pzmHintDirection: PzmHintOptions['direction'] = this.options.direction;
 
     @Input()
-    @zuiDefaultProp()
-    zuiHintId: string = 'hintId_' + zuiGenerateId();
+    @pzmDefaultProp()
+    pzmHintId: string = 'hintId_' + pzmGenerateId();
 
     @Input()
-    @zuiDefaultProp()
-    zuiHintShowDelay: ZuiHintOptions['showDelay'] = this.options.showDelay;
+    @pzmDefaultProp()
+    pzmHintShowDelay: PzmHintOptions['showDelay'] = this.options.showDelay;
 
     @Input()
-    @zuiDefaultProp()
-    zuiHintHideDelay: ZuiHintOptions['hideDelay'] = this.options.hideDelay;
+    @pzmDefaultProp()
+    pzmHintHideDelay: PzmHintOptions['hideDelay'] = this.options.hideDelay;
 
     @Input()
-    @zuiDefaultProp()
-    zuiHintHost: HTMLElement | null = null;
+    @pzmDefaultProp()
+    pzmHintHost: HTMLElement | null = null;
 
     @Input()
-    @zuiDefaultProp()
-    zuiHintCanShow = true;
+    @pzmDefaultProp()
+    pzmHintCanShow = true;
 
     @Input()
-    @zuiRequiredSetter()
-    set zuiHint(value: PolymorphContent | null) {
+    @pzmRequiredSetter()
+    set pzmHint(value: PolymorphContent | null) {
       if (!value) {
         this.content = '';
         return;
@@ -79,32 +79,32 @@ export class ZuiHintDirective<
     }
 
     @Output()
-    readonly zuiHoveredChange: Observable<boolean>;
+    readonly pzmHoveredChange: Observable<boolean>;
 
     protected readonly onHoverActive: boolean = true;
 
     content: PolymorphContent;
-    overlay: ZuiOverlayControl;
-    protected readonly containerComponent: Type<unknown> = ZuiHintContainerComponent;
+    overlay: PzmOverlayControl;
+    protected readonly containerComponent: Type<unknown> = PzmHintContainerComponent;
     protected readonly show$ = new Subject<boolean>();
     protected readonly destroyListeners$ = new Subject<boolean>();
 
     constructor(
-      private readonly zuiOverlayService: ZuiOverlayService,
+      private readonly pzmOverlayService: PzmOverlayService,
       @Inject(Renderer2) private readonly renderer: Renderer2,
       @Inject(ElementRef) protected readonly elementRef: ElementRef<HTMLElement>,
-      @Inject(ZuiDestroyService) private readonly destroy$: ZuiDestroyService,
-      @Inject(ZUI_HINT_OPTIONS) protected readonly options: OPTIONS,
-      @Inject(ZuiHoveredService) private readonly hoveredService: ZuiHoveredService,
-      @Inject(ZuiHintService) private readonly hintService: ZuiHintService,
+      @Inject(PzmDestroyService) private readonly destroy$: PzmDestroyService,
+      @Inject(PZM_HINT_OPTIONS) protected readonly options: OPTIONS,
+      @Inject(PzmHoveredService) private readonly hoveredService: PzmHoveredService,
+      @Inject(PzmHintService) private readonly hintService: PzmHintService,
     ) {}
 
     get id(): string | null {
-      return this.zuiHintId ?? null;
+      return this.pzmHintId ?? null;
     }
 
     get host(): HTMLElement {
-      return this.zuiHintHost ?? this.elementRef.nativeElement;
+      return this.pzmHintHost ?? this.elementRef.nativeElement;
     }
 
     public ngOnChanges(): void {
@@ -128,7 +128,7 @@ export class ZuiHintDirective<
     }
 
     protected open(): void {
-      if (!this.zuiHintCanShow) return;
+      if (!this.pzmHintCanShow) return;
       this.renderer.addClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
       this.overlay.open();
     }
@@ -141,7 +141,7 @@ export class ZuiHintDirective<
     private initVisibleController(): void {
       this.show$.pipe(
         switchMap(show => {
-          const delayTime = show ? this.zuiHintShowDelay : this.zuiHintHideDelay;
+          const delayTime = show ? this.pzmHintShowDelay : this.pzmHintHideDelay;
           return of(show).pipe(delay(delayTime));
         }),
         tap(show => this.toggle(show)),
@@ -154,20 +154,20 @@ export class ZuiHintDirective<
       this.show$.next(false);
       this.overlay?.close();
 
-      const position = new ZuiOverlayRelativePosition({
-        placement: this.zuiHintDirection,
-        autoReposition: this.zuiAutoReposition,
+      const position = new PzmOverlayRelativePosition({
+        placement: this.pzmHintDirection,
+        autoReposition: this.pzmAutoReposition,
         element: this.host
       });
-      this.overlay = this.zuiOverlayService
+      this.overlay = this.pzmOverlayService
         .position(position)
         .config({
           backdrop: false,
         })
         .content(this.containerComponent, {
           content: () => this.content,
-          mode: () => this.zuiHintMode,
-          id: this.zuiHintId,
+          mode: () => this.pzmHintMode,
+          id: this.pzmHintId,
           context: this.getContext(),
         })
         .create();
@@ -189,12 +189,12 @@ export class ZuiHintDirective<
 
     protected getContext(): CONTEXT {
       return {
-        mode: this.zuiHintMode,
-        reposition: this.zuiAutoReposition,
-        direction: this.zuiHintDirection,
-        id: this.zuiHintId,
-        showDelay: this.zuiHintShowDelay,
-        hideDelay: this.zuiHintHideDelay,
+        mode: this.pzmHintMode,
+        reposition: this.pzmAutoReposition,
+        direction: this.pzmHintDirection,
+        id: this.pzmHintId,
+        showDelay: this.pzmHintShowDelay,
+        hideDelay: this.pzmHintHideDelay,
         host: this.host,
       } as CONTEXT
     }

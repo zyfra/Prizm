@@ -1,54 +1,54 @@
 import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
-import { ZUI_FIRST_DAY, ZUI_LAST_DAY } from '../../../@core/date-time/days.const';
-import { ZuiMonth } from '../../../@core/date-time/month';
-import { ZuiYear } from '../../../@core/date-time/year';
-import { zuiDefaultProp } from '../../../decorators/default-prop';
-import { ZuiMonthLike } from '../../../types/month-like';
-import { ZuiWithOptionalMinMax } from '../../../types/with-optional-min-max';
+import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../../@core/date-time/days.const';
+import { PzmMonth } from '../../../@core/date-time/month';
+import { PzmYear } from '../../../@core/date-time/year';
+import { pzmDefaultProp } from '../../../decorators/default-prop';
+import { PzmMonthLike } from '../../../types/month-like';
+import { PzmWithOptionalMinMax } from '../../../types/with-optional-min-max';
 
 @Component({
-    selector: `zui-primitive-year-month-pagination`,
+    selector: `pzm-primitive-year-month-pagination`,
     templateUrl: `./primitive-year-month-pagination.component.html`,
     styleUrls: [`./primitive-year-month-pagination.component.less`],
 })
-export class ZuiPrimitiveYearMonthPaginationComponent
-    implements ZuiWithOptionalMinMax<ZuiMonth>
+export class PzmPrimitiveYearMonthPaginationComponent
+    implements PzmWithOptionalMinMax<PzmMonth>
 {
     @Input()
-    @zuiDefaultProp()
-    value = ZuiMonth.currentLocal();
+    @pzmDefaultProp()
+    value = PzmMonth.currentLocal();
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     hideButtons = false;
 
     @Input()
-    @zuiDefaultProp()
-    min: ZuiMonth = ZUI_FIRST_DAY;
+    @pzmDefaultProp()
+    min: PzmMonth = PZM_FIRST_DAY;
 
     @Input()
-    @zuiDefaultProp()
-    max: ZuiMonth = ZUI_LAST_DAY;
+    @pzmDefaultProp()
+    max: PzmMonth = PZM_LAST_DAY;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     monthActive = false;
 
     @Input()
-    @zuiDefaultProp()
+    @pzmDefaultProp()
     yearActive = false;
 
     @Output()
-    readonly valueChange = new EventEmitter<ZuiMonth>();
+    readonly valueChange = new EventEmitter<PzmMonth>();
 
     @Output()
-    readonly yearClick = new EventEmitter<ZuiYear>();
+    readonly yearClick = new EventEmitter<PzmYear>();
 
     @Output()
-    readonly monthClick = new EventEmitter<ZuiMonth>();
+    readonly monthClick = new EventEmitter<PzmMonth>();
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_primitive_year_month_pagination';
+    readonly testId = 'pzm_primitive_year_month_pagination';
 
     public get prevMonthDisabled(): boolean {
         return this.value.monthSameOrBefore?.(this.min);
@@ -88,8 +88,8 @@ export class ZuiPrimitiveYearMonthPaginationComponent
         this.appendValueWithLimit({month: 1});
     }
 
-    private appendValueWithLimit(date: ZuiMonthLike): void {
-        const newMonth: ZuiMonth = this.value.append(date);
+    private appendValueWithLimit(date: PzmMonthLike): void {
+        const newMonth: PzmMonth = this.value.append(date);
 
         if (this.min.monthSameOrAfter(newMonth)) {
             this.updateValue(this.min);
@@ -106,7 +106,7 @@ export class ZuiPrimitiveYearMonthPaginationComponent
         this.updateValue(newMonth);
     }
 
-    private updateValue(value: ZuiMonth): void {
+    private updateValue(value: PzmMonth): void {
         if (this.value.monthSame(value)) {
             return;
         }

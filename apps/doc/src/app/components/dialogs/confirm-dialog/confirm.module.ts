@@ -4,14 +4,14 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
-  ZuiButtonModule,
-  ZuiConfirmDialogModule,
-  ZuiRadioButtonModule, ZuiSelectModule,
+  PzmButtonModule,
+  PzmConfirmDialogModule,
+  PzmRadioButtonModule, PzmSelectModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmComponent } from './confirm.component';
-import { ZuiDialogServiceExampleComponent } from './examples/base/base.component';
-import { ZuiDialogHorizontalExampleComponent } from './examples/horizontal/horizontal.component';
+import { PzmDialogServiceExampleComponent } from './examples/base/base.component';
+import { PzmDialogHorizontalExampleComponent } from './examples/horizontal/horizontal.component';
 
 @NgModule({
   imports: [
@@ -20,15 +20,15 @@ import { ZuiDialogHorizontalExampleComponent } from './examples/horizontal/horiz
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    ZuiSelectModule,
-    ZuiButtonModule,
-    ZuiConfirmDialogModule,
-    ZuiRadioButtonModule,
+    PzmSelectModule,
+    PzmButtonModule,
+    PzmConfirmDialogModule,
+    PzmRadioButtonModule,
     RouterModule.forChild(generateRoutes(ConfirmComponent)),
   ],
   declarations: [
-    ZuiDialogServiceExampleComponent,
-    ZuiDialogHorizontalExampleComponent,
+    PzmDialogServiceExampleComponent,
+    PzmDialogHorizontalExampleComponent,
     ConfirmComponent
   ],
   exports: [ConfirmComponent],

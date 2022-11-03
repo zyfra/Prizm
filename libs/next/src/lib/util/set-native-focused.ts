@@ -1,4 +1,4 @@
-export function zuiSetNativeFocused(
+export function pzmSetNativeFocused(
     element: HTMLOrSVGElement,
     focused: boolean = true,
     preventScroll: boolean = false,

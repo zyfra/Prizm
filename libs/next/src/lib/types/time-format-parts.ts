@@ -1,1 +1,1 @@
-export type ZuiTimeFormatParts = 'HH' | 'MM' | 'SS' | 'MS';
+export type PzmTimeFormatParts = 'HH' | 'MM' | 'SS' | 'MS';

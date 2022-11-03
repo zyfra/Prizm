@@ -2,19 +2,19 @@
   <h2>Как работать с масками можно посмотреть в документации ngx-mask</h2>
   <ng-template pageTab>
     <tui-doc-example heading="Basic example" [content]="zyfraInputMaskBasicExample">
-      <zui-input-mask-basic-example></zui-input-mask-basic-example>
+      <pzm-input-mask-basic-example></pzm-input-mask-basic-example>
     </tui-doc-example>
 
     <tui-doc-example heading="Phone example" [content]="zyfraInputPhoneExample">
-      <zui-input-phone-example></zui-input-phone-example>
+      <pzm-input-phone-example></pzm-input-phone-example>
     </tui-doc-example>
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <zui-input-layout [label]="label" [size]="size" [status]="status" [outer]="outer">
+      <pzm-input-layout [label]="label" [size]="size" [status]="status" [outer]="outer">
         <input
-          zuiInput
+          pzmInput
           [mask]="mask"
           [showMaskTyped]="true && input.focused"
           #input
@@ -22,8 +22,8 @@
           [disabled]="disabled"
           [required]="required"
         />
-        <ng-template zuiInputStatusText>Текст статуса</ng-template>
-      </zui-input-layout>
+        <ng-template pzmInputStatusText>Текст статуса</ng-template>
+      </pzm-input-layout>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
@@ -97,7 +97,7 @@
     <ol class="b-demo-steps">
       <li>
         <p>
-          Импортируйте <code>ZuiInputMaskModule</code>
+          Импортируйте <code>PzmInputMaskModule</code>
           в тот модуль, котором хотите использовать компонент
         </p>
 

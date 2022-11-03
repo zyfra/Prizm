@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
-import { ZuiInputCommonModule } from '../common/input-common.module';
-import { ZuiInputTextModule } from '../input-text/input-text.module';
-import { ZuiInputPasswordDefaultControlComponent } from './input-password-auxiliary-control.component';
-import { ZuiInputPasswordDirective } from './input-password.directive';
+import { PzmInputCommonModule } from '../common/input-common.module';
+import { PzmInputTextModule } from '../input-text/input-text.module';
+import { PzmInputPasswordDefaultControlComponent } from './input-password-auxiliary-control.component';
+import { PzmInputPasswordDirective } from './input-password.directive';
 
 @NgModule({
-  imports: [ZuiInputCommonModule, ZuiInputTextModule],
-  declarations: [ZuiInputPasswordDirective, ZuiInputPasswordDefaultControlComponent],
+  imports: [PzmInputCommonModule, PzmInputTextModule],
+  declarations: [PzmInputPasswordDirective, PzmInputPasswordDefaultControlComponent],
   exports: [
-    ZuiInputCommonModule,
-    ZuiInputTextModule,
-    ZuiInputPasswordDirective,
-    ZuiInputPasswordDefaultControlComponent,
+    PzmInputCommonModule,
+    PzmInputTextModule,
+    PzmInputPasswordDirective,
+    PzmInputPasswordDefaultControlComponent,
   ],
 })
-export class ZuiInputPasswordModule {}
+export class PzmInputPasswordModule {}
 

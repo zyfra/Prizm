@@ -1,28 +1,28 @@
 import { Directive, HostBinding, Input } from '@angular/core';
-import { zuiDefaultProp } from '../../decorators';
+import { pzmDefaultProp } from '../../decorators';
 
 @Directive({
-    selector: '[zuiSkeleton], [zuiSkeletonText], [zuiSkeletonRounded], [zuiSkeletonShort]',
+    selector: '[pzmSkeleton], [pzmSkeletonText], [pzmSkeletonRounded], [pzmSkeletonShort]',
 })
-export class ZuiSkeletonDirective {
-  @Input('zuiSkeletonText')
-  @HostBinding('class.zui-skeleton_text')
-  @zuiDefaultProp()
+export class PzmSkeletonDirective {
+  @Input('pzmSkeletonText')
+  @HostBinding('class.pzm-skeleton_text')
+  @pzmDefaultProp()
   isText = false;
 
-  @Input('zuiSkeletonRounded')
-  @HostBinding('class.zui-skeleton_rounded')
-  @zuiDefaultProp()
+  @Input('pzmSkeletonRounded')
+  @HostBinding('class.pzm-skeleton_rounded')
+  @pzmDefaultProp()
   isRounded = false;
 
-  @Input('zuiSkeletonShort')
-  @HostBinding('class.zui-skeleton_short')
-  @zuiDefaultProp()
+  @Input('pzmSkeletonShort')
+  @HostBinding('class.pzm-skeleton_short')
+  @pzmDefaultProp()
   isShort = false;
 
 
-  @Input('zuiSkeleton')
-  @HostBinding('class.zui-skeleton')
-  @zuiDefaultProp()
+  @Input('pzmSkeleton')
+  @HostBinding('class.pzm-skeleton')
+  @pzmDefaultProp()
   active = true;
 }

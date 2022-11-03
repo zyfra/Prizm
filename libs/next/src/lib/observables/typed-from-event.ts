@@ -1,36 +1,36 @@
 import {fromEvent, Observable} from 'rxjs';
-import {ZuiEventWith, ZuiTypedEventTarget} from '../types';
+import {PzmEventWith, PzmTypedEventTarget} from '../types';
 
-export function zuiTypedFromEvent<E extends keyof WindowEventMap>(
+export function pzmTypedFromEvent<E extends keyof WindowEventMap>(
     target: Window,
     event: E,
     options?: AddEventListenerOptions,
-): Observable<ZuiEventWith<WindowEventMap[E], typeof target>>;
-export function zuiTypedFromEvent<E extends keyof DocumentEventMap>(
+): Observable<PzmEventWith<WindowEventMap[E], typeof target>>;
+export function pzmTypedFromEvent<E extends keyof DocumentEventMap>(
     target: Document,
     event: E,
     options?: AddEventListenerOptions,
-): Observable<ZuiEventWith<DocumentEventMap[E], typeof target>>;
-export function zuiTypedFromEvent<T extends Element, E extends keyof HTMLElementEventMap>(
+): Observable<PzmEventWith<DocumentEventMap[E], typeof target>>;
+export function pzmTypedFromEvent<T extends Element, E extends keyof HTMLElementEventMap>(
     target: T,
     event: E,
     options?: AddEventListenerOptions,
-): Observable<ZuiEventWith<HTMLElementEventMap[E], typeof target>>;
-export function zuiTypedFromEvent<
+): Observable<PzmEventWith<HTMLElementEventMap[E], typeof target>>;
+export function pzmTypedFromEvent<
     E extends Event,
-    T extends ZuiTypedEventTarget<ZuiEventWith<E, T>>,
+    T extends PzmTypedEventTarget<PzmEventWith<E, T>>,
 >(
     target: T,
     event: string,
     options?: AddEventListenerOptions,
-): Observable<ZuiEventWith<E, T>>;
-export function zuiTypedFromEvent<E extends Event>(
-    target: ZuiTypedEventTarget<E>,
+): Observable<PzmEventWith<E, T>>;
+export function pzmTypedFromEvent<E extends Event>(
+    target: PzmTypedEventTarget<E>,
     event: string,
     options?: AddEventListenerOptions,
 ): Observable<E>;
-export function zuiTypedFromEvent<E extends Event>(
-    target: ZuiTypedEventTarget<E>,
+export function pzmTypedFromEvent<E extends Event>(
+    target: PzmTypedEventTarget<E>,
     event: string,
     options: AddEventListenerOptions = {},
 ): Observable<E> {

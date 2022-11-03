@@ -1,4 +1,4 @@
-export type ZuiLanguageName =
+export type PzmLanguageName =
     | 'chinese'
     | 'dutch'
     | 'english'

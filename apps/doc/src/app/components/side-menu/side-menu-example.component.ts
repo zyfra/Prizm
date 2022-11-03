@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'zui-side-menu-example',
+  selector: 'pzm-side-menu-example',
   templateUrl: './side-menu-example.component.html',
   styleUrls: ['./side-menu-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,6 +1,6 @@
-import { ZuiStringHandler } from '../types/handler';
+import { PzmStringHandler } from '../types/handler';
 
 /**
  * Default method to turn arbitrary object into string
  */
-export const ZUI_DEFAULT_STRINGIFY: ZuiStringHandler<unknown> = (item: unknown) => String(item);
+export const PZM_DEFAULT_STRINGIFY: PzmStringHandler<unknown> = (item: unknown) => String(item);

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ZuiTime } from '@digital-plant/zui-components';
+import { PzmTime } from '@digital-plant/zui-components';
 
 @Component({
-  selector: 'zui-input-time-base-example',
+  selector: 'pzm-input-time-base-example',
   templateUrl: './input-time-base-example.component.html',
   styles: [`
     .box {
@@ -12,6 +12,6 @@ import { ZuiTime } from '@digital-plant/zui-components';
     }
   `]
 })
-export class ZuiInputTimeBaseExampleComponent {
-  public readonly value = new FormControl(new ZuiTime(12, 30));
+export class PzmInputTimeBaseExampleComponent {
+  public readonly value = new FormControl(new PzmTime(12, 30));
 }

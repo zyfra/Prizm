@@ -1,55 +1,55 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
-import { ZuiMonthRange } from '../../../@core/date-time/month-range';
-import { zuiDefaultProp } from '../../../decorators/default-prop';
-import { ZUI_FIRST_DAY, ZUI_LAST_DAY, ZuiDayRange, ZuiMonth } from '../../../@core/date-time';
-import { ZuiBooleanHandler } from '../../../types/handler';
-import { ZUI_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
-import { zuiInRange } from '../../../util/math/in-range';
-import { ZuiInteractiveState } from '../../../directives';
-import { ZuiRangeState } from '../../../@core/enums/range-state';
-import { zuiPure } from '../../../decorators/pure';
+import { PzmMonthRange } from '../../../@core/date-time/month-range';
+import { pzmDefaultProp } from '../../../decorators/default-prop';
+import { PZM_FIRST_DAY, PZM_LAST_DAY, PzmDay, PzmDayRange, PzmMonth } from '../../../@core/date-time';
+import { PzmBooleanHandler } from '../../../types/handler';
+import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
+import { pzmInRange } from '../../../util/math/in-range';
+import { PzmInteractiveState } from '../../../directives';
+import { PzmRangeState } from '../../../@core/enums/range-state';
+import { pzmPure } from '../../../decorators/pure';
 
 const ITEMS_IN_ROW = 3;
 const ROWS = 4;
 
 @Component({
-    selector: `zui-primitive-month-picker`,
+    selector: `pzm-primitive-month-picker`,
     templateUrl: `./primitive-month-picker.component.html`,
     styleUrls: [`./primitive-month-picker.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ZuiPrimitiveMonthPickerComponent {
+export class PzmPrimitiveMonthPickerComponent {
     private hoveredItem: number | null = null;
     private pressedItem: number | null = null;
-    private readonly currentMonth = ZuiMonth.currentLocal().month;
+    private readonly currentMonth = PzmMonth.currentLocal().month;
 
     public readonly ITEMS_IN_ROW = ITEMS_IN_ROW;
     @Input()
-    @zuiDefaultProp()
-    value: ZuiMonthRange | ZuiMonth | ZuiDayRange | null = null;
+    @pzmDefaultProp()
+    value: PzmMonthRange | PzmMonth | PzmDayRange | null = null;
 
     @Input()
-    @zuiDefaultProp()
-    currentYear: number = ZuiMonth.currentLocal().year;
+    @pzmDefaultProp()
+    currentYear: number = PzmMonth.currentLocal().year;
 
     @Input()
-    @zuiDefaultProp()
-    initialItem: ZuiMonth = ZuiMonth.currentLocal();
+    @pzmDefaultProp()
+    initialItem: PzmMonth = PzmMonth.currentLocal();
 
     @Input()
-    @zuiDefaultProp()
-    min: ZuiMonth = ZUI_FIRST_DAY;
+    @pzmDefaultProp()
+    min: PzmMonth = PZM_FIRST_DAY;
 
     @Input()
-    @zuiDefaultProp()
-    max: ZuiMonth = ZUI_LAST_DAY;
+    @pzmDefaultProp()
+    max: PzmMonth = PZM_LAST_DAY;
 
     @Input()
-    @zuiDefaultProp()
-    disabledItemHandler: ZuiBooleanHandler<number> = ZUI_ALWAYS_FALSE_HANDLER;
+    @pzmDefaultProp()
+    disabledItemHandler: PzmBooleanHandler<number> = PZM_ALWAYS_FALSE_HANDLER;
 
     @Output()
-    readonly monthClick = new EventEmitter<ZuiMonth>();
+    readonly monthClick = new EventEmitter<PzmMonth>();
 
     @HostBinding(`class._single`)
     get isSingle(): boolean {
@@ -59,57 +59,64 @@ export class ZuiPrimitiveMonthPickerComponent {
     }
 
     @HostBinding('attr.testId')
-    readonly testId = 'zui_primitive_month_picker';
+    readonly testId = 'pzm_primitive_month_picker';
 
     get rows(): number {
         return ROWS;
     }
 
-    public isRange(item: ZuiMonthRange | ZuiMonth): item is ZuiMonthRange {
-        return item instanceof ZuiMonthRange;
+    public isRange(item: PzmMonthRange | PzmMonth): item is PzmMonthRange {
+        return item instanceof PzmMonthRange;
     }
 
     public scrollItemIntoView(item: number): boolean {
         return this.initialItem.month === item;
     }
 
-    @zuiPure
-    public getItem(rowIndex: number, colIndex: number): ZuiMonth {
+    @pzmPure
+    public getItem(rowIndex: number, colIndex: number): PzmMonth {
       const month = (colIndex) + (rowIndex * ITEMS_IN_ROW);
 
-      return new ZuiMonth(this.currentYear, month);
+      return new PzmMonth(this.currentYear, month);
     }
 
-    public getItemState(item: number): ZuiInteractiveState | null {
+    public getItemState(item: number): PzmInteractiveState | null {
         const {disabledItemHandler, max, pressedItem, hoveredItem} = this;
 
       if (
             (max.month < item && max.year <= this.currentYear) ||
-            (disabledItemHandler !== ZUI_ALWAYS_FALSE_HANDLER && disabledItemHandler(item))
+            (disabledItemHandler !== PZM_ALWAYS_FALSE_HANDLER && disabledItemHandler(item))
         ) {
-            return ZuiInteractiveState.Disabled;
+            return PzmInteractiveState.Disabled;
         }
 
         if (pressedItem === item) {
-            return ZuiInteractiveState.Pressed;
+            return PzmInteractiveState.Pressed;
         }
 
         if (hoveredItem === item) {
-            return ZuiInteractiveState.Hovered;
+            return PzmInteractiveState.Hovered;
         }
 
         return null;
     }
 
-    public getItemRange(item: number): ZuiRangeState | null {
+    public getItemRange(item: number): PzmRangeState | null {
         const {value, hoveredItem} = this;
 
         if (value === null) {
             return null;
         }
 
-        if (value instanceof ZuiMonth) {
-            return value.month === item && value.year === this.currentYear ? ZuiRangeState.Single : null;
+        if (value instanceof PzmMonth) {
+            return value.month === item && value.year === this.currentYear ? PzmRangeState.Single : null;
+        }
+
+        if (
+           this.value instanceof PzmDayRange &&
+          this.value.isMonthInRange(new PzmMonth(this.currentYear, item))
+        )  {
+          return PzmRangeState.Single;
         }
 
         if (
@@ -120,13 +127,13 @@ export class ZuiPrimitiveMonthPickerComponent {
                 value.from.monthSame(value.to)) ||
             (hoveredItem !== null &&
                 hoveredItem === item &&
-                hoveredItem < value.from.month &&
+                hoveredItem === value.from.month &&
                 value.from.monthSame(value.to))
         ) {
-            return ZuiRangeState.Single;
+            return PzmRangeState.Single;
 
             // TODO finish it after add support intervals
-            // return ZuiRangeState.Start;
+            // return PzmRangeState.Start;
         }
 
         // TODO finish it after add support intervals
@@ -141,14 +148,14 @@ export class ZuiPrimitiveMonthPickerComponent {
         //         hoveredItem > value.from.month &&
         //         value.from.monthSame(value.to))
         // ) {
-        //   return ZuiRangeState.Single;
+        //   return PzmRangeState.Single;
         //
         //
-        //   // return ZuiRangeState.End;
+        //   // return PzmRangeState.End;
         // }
 
-        return value.from.monthSame(value.to) && value.from.month === item
-            ? ZuiRangeState.Single
+        return value.from.monthSame(value.to) && value.from.month === item && value.from.year === this.currentYear
+            ? PzmRangeState.Single
             : null;
     }
 
@@ -182,7 +189,7 @@ export class ZuiPrimitiveMonthPickerComponent {
             return false;
         }
 
-        return zuiInRange(
+        return pzmInRange(
             item,
             Math.min(value.from.month, hoveredItem),
             Math.max(value.from.month, hoveredItem),
@@ -201,7 +208,7 @@ export class ZuiPrimitiveMonthPickerComponent {
         // TODO delete after update dropdown-host (need activeZone optionan, for dynamic change elements)
         $event.stopImmediatePropagation();
 
-        this.monthClick.emit(new ZuiMonth(this.currentYear, item));
+        this.monthClick.emit(new PzmMonth(this.currentYear, item));
     }
 
     private updateHoveredItem(hovered: boolean, item: number): void {

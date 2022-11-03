@@ -18,20 +18,35 @@ export const pages: TuiDocPages = [
   {
     section: `Components`,
     title: 'Skeleton',
-    keywords: 'skeleton, zuiSkeleton, скелетор',
+    keywords: 'skeleton, pzmSkeleton, скелетор',
     route: '/components/skeleton',
   },
   {
     section: `Components`,
     title: 'Tree',
-    keywords: 'дерево, zui-tree, tree',
+    keywords: 'дерево, pzm-tree, tree',
     route: '/components/tree',
   },
   {
     section: `Components`,
-    title: 'Button',
-    keywords: 'кнопка, zui-button, иконка',
-    route: '/components/button',
+    title: 'Buttons',
+    subPages: [
+      {
+        title: 'Button',
+        keywords: 'button, кнопка',
+        route: '/components/button',
+      },
+      {
+        title: 'Split Button',
+        keywords: 'split-button, split, раздельная, кнопка, button',
+        route: '/components/split-button',
+      },
+      {
+        title: 'Icon Button',
+        keywords: 'icon, icon-button, button, кнопка',
+        route: '/components/icon-button',
+      },
+    ]
   },
   {
     section: `Components`,
@@ -39,17 +54,17 @@ export const pages: TuiDocPages = [
     subPages: [
       {
         title: 'DropdownHost',
-        keywords: 'dropdown, zui-dropdown-host, overlay',
+        keywords: 'dropdown, pzm-dropdown-host, overlay',
         route: '/components/dropdowns/dropdown-host',
       },
       {
         title: 'Select',
-        keywords: 'select, zui-select, overlay',
+        keywords: 'select, pzm-select, overlay',
         route: '/components/dropdowns/select',
       },
       {
         title: 'MultiSelect',
-        keywords: 'multi-select, zui-multi-select, overlay',
+        keywords: 'multi-select, pzm-multi-select, overlay',
         route: '/components/dropdowns/multi-select',
       },
     ],
@@ -57,19 +72,19 @@ export const pages: TuiDocPages = [
   {
     section: `Components`,
     title: 'Shadow',
-    keywords: 'shadow, zui-shadow, тень',
+    keywords: 'shadow, pzm-shadow, тень',
     route: '/components/shadow',
   },
   {
     section: `Components`,
     title: 'Card',
-    keywords: 'card, zui-card, карточка',
+    keywords: 'card, pzm-card, карточка',
     route: '/components/card',
   },
   {
     section: `Components`,
     title: 'Widget',
-    keywords: 'widget, zui-widget, виджет',
+    keywords: 'widget, pzm-widget, виджет',
     route: '/components/widget',
   },
   {
@@ -245,6 +260,27 @@ export const pages: TuiDocPages = [
     title: 'Toggle',
     keywords: 'toggle, тоггл, переключатель, switcher',
     route: '/components/toggle',
+  },
+  {
+    section: `Components`,
+    title: 'Progress',
+    subPages: [
+      {
+        title: 'Progress Line',
+        keywords: 'progress-line, прогресс, линия, line, bar',
+        route: '/components/progress-line-bar',
+      },
+      {
+        title: 'Progress Circle',
+        keywords: 'progress-circle, прогресс, круг, circle, bar',
+        route: '/components/progress-circle-bar',
+      },
+      {
+        title: 'Progress Segmented',
+        keywords: 'progress-segmented, прогресс, сегментация, segmented, bar',
+        route: '/components/progress-line-segmented'
+      }
+    ]
   },
   {
     section: `Components`,

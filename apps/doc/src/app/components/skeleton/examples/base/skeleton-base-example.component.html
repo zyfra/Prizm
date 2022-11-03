@@ -1,50 +1,52 @@
 
 <div class='header'>
-  <zui-toggle [formControl]='activeControl'></zui-toggle>
+  <pzm-toggle [formControl]='activeControl'></pzm-toggle>
   Active
 </div>
 
 <div class='body'>
   <div>
-    <zui-input-layout
-      [zuiSkeleton]='activeControl.value'
+    <pzm-input-layout
+      [pzmSkeleton]='activeControl.value'
       label="Заголовок">
-      <input zuiInput />
-    </zui-input-layout>
+      <input pzmInput />
+    </pzm-input-layout>
   </div>
 
   <div>
-    <zui-input-layout
+    <pzm-input-layout
       [outer]='true'
-      [zuiSkeleton]='activeControl.value'
+      [pzmSkeleton]='activeControl.value'
       label="Заголовок">
-      <input zuiInput />
-    </zui-input-layout>
+      <input pzmInput />
+    </pzm-input-layout>
   </div>
 
   <div>
-    <zui-select
+    <pzm-select
+      [formControl]='selectControl'
       [items]='items'
-      [zuiSkeleton]='activeControl.value'
-    ></zui-select>
+      [pzmSkeleton]='activeControl.value'
+    ></pzm-select>
   </div>
 
   <div>
-    <zui-toggle
-      [zuiSkeletonRounded]='true'
-      [zuiSkeleton]='activeControl.value'
-    ></zui-toggle>
+    <pzm-toggle
+      [formControl]='toggleControl'
+      [pzmSkeletonRounded]='true'
+      [pzmSkeleton]='activeControl.value'
+    ></pzm-toggle>
     <span
       style='margin-left: 6px'
-      [zuiSkeleton]='activeControl.value'
-      [zuiSkeletonText]='true'
+      [pzmSkeleton]='activeControl.value'
+      [pzmSkeletonText]='true'
     >Toggle</span>
   </div>
 
   <div>
-    <zui-card
-      [zuiSkeleton]='activeControl.value'>
+    <pzm-card
+      [pzmSkeleton]='activeControl.value'>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </zui-card>
+    </pzm-card>
   </div>
 </div>

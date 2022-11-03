@@ -1,13 +1,13 @@
 import {Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {
-  ZuiOverlayControl,
-  ZuiOverlayOutsidePlacement,
-  ZuiOverlayService, ZuiOverlaySlidePlacement,
-  ZuiOverlaySlidePosition
+  PzmOverlayControl,
+  PzmOverlayOutsidePlacement,
+  PzmOverlayService, PzmOverlaySlidePlacement,
+  PzmOverlaySlidePosition
 } from "@digital-plant/zui-components";
 
 @Component({
-  selector: 'zui-overlay-slide-example',
+  selector: 'pzm-overlay-slide-example',
   templateUrl: './template.html',
   styles: [`
     .box {
@@ -20,17 +20,17 @@ import {
     }
   `]
 })
-export class ZuiOverlayExampleSlideComponent implements OnInit {
+export class PzmOverlayExampleSlideComponent implements OnInit {
   @ViewChild('elementRef', { read: ElementRef, static: true }) elementRef: ElementRef;
   @ViewChild('someTemplate', { read: TemplateRef, static: true }) templateRef: TemplateRef<unknown>;
 
-  private control: ZuiOverlayControl;
-  constructor(private readonly overlay: ZuiOverlayService) {}
+  private control: PzmOverlayControl;
+  constructor(private readonly overlay: PzmOverlayService) {}
 
   public ngOnInit(): void {
-    const position = new ZuiOverlaySlidePosition({
+    const position = new PzmOverlaySlidePosition({
       // Pass position placement
-      placement: ZuiOverlaySlidePlacement.LEFT,
+      placement: PzmOverlaySlidePlacement.LEFT,
     });
 
     this.control = this.overlay

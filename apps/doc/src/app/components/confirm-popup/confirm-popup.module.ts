@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
-import { PolymorphModule, ZuiButtonModule, ZuiConfirmPopupModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PzmButtonModule, PzmConfirmPopupModule } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmPopupComponent } from './confirm-popup.component';
-import { ZuiConfirmPopupBaseExampleComponent } from './examples/base/confirm-popup-base-example.component';
-import { ZuiConfirmPopupSomeComponent } from './examples/with-component/some.component';
+import { PzmConfirmPopupBaseExampleComponent } from './examples/base/confirm-popup-base-example.component';
+import { PzmConfirmPopupSomeComponent } from './examples/with-component/some.component';
 import {
-  ZuiConfirmPopupWithTemplateExampleComponent,
+  PzmConfirmPopupWithTemplateExampleComponent,
 } from './examples/with-template/confirm-popup-with-template-example.component';
 import {
-  ZuiConfirmPopupWithComponentExampleComponent,
+  PzmConfirmPopupWithComponentExampleComponent,
 } from './examples/with-component/confirm-popup-with-component-example.component';
 
 
@@ -22,15 +22,15 @@ import {
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    ZuiConfirmPopupModule,
-    ZuiButtonModule,
+    PzmConfirmPopupModule,
+    PzmButtonModule,
     RouterModule.forChild(generateRoutes(ConfirmPopupComponent)),
   ],
   declarations: [
-    ZuiConfirmPopupWithTemplateExampleComponent,
-    ZuiConfirmPopupWithComponentExampleComponent,
-    ZuiConfirmPopupSomeComponent,
-    ZuiConfirmPopupBaseExampleComponent,
+    PzmConfirmPopupWithTemplateExampleComponent,
+    PzmConfirmPopupWithComponentExampleComponent,
+    PzmConfirmPopupSomeComponent,
+    PzmConfirmPopupBaseExampleComponent,
     ConfirmPopupComponent
   ],
   exports: [ConfirmPopupComponent],

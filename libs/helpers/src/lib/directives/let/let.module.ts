@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
-import {ZuiLetDirective} from './let.directive';
+import {PzmLetDirective} from './let.directive';
 
 @NgModule({
-    declarations: [ZuiLetDirective],
-    exports: [ZuiLetDirective],
+    declarations: [PzmLetDirective],
+    exports: [PzmLetDirective],
 })
-export class ZuiLetModule {}
+export class PzmLetModule {}

@@ -1,57 +1,57 @@
 /* eslint-disable @angular-eslint/no-input-rename */
 import { Directive, forwardRef, HostListener, Input } from '@angular/core';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-import { ZuiTooltipContainerComponent } from './tooltip-container.component';
-import { ZUI_TOOLTIP_OPTIONS } from './tooltip-options';
-import { zuiDefaultProp, zuiRequiredSetter } from '../../decorators';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PzmTooltipContainerComponent } from './tooltip-container.component';
+import { PZM_TOOLTIP_OPTIONS } from './tooltip-options';
+import { pzmDefaultProp, pzmRequiredSetter } from '../../decorators';
 import { PolymorphContent } from '../polymorph';
-import { zuiGenerateId } from '../../util';
-import { ZuiHintOptions, ZUI_HINT_OPTIONS } from '../hint/hint-options';
-import { ZuiHintDirective } from '../hint/hint.directive';
+import { pzmGenerateId } from '../../util';
+import { PZM_HINT_OPTIONS, PzmHintOptions } from '../hint/hint-options';
+import { PzmHintDirective } from '../hint/hint.directive';
 
 @Directive({
-    selector: '[zuiTooltip]:not(ng-container)',
+    selector: '[pzmTooltip]:not(ng-container)',
     providers: [
-      ZuiDestroyService,
+      PzmDestroyService,
       {
-        provide: ZUI_HINT_OPTIONS,
-        useExisting: forwardRef(() => ZUI_TOOLTIP_OPTIONS)
+        provide: PZM_HINT_OPTIONS,
+        useExisting: forwardRef(() => PZM_TOOLTIP_OPTIONS)
       }
     ],
-    exportAs: 'zuiTooltip'
+    exportAs: 'pzmTooltip'
 })
-export class ZuiTooltipDirective extends ZuiHintDirective {
-  @Input('zuiTooltipMode')
-  @zuiDefaultProp()
-  override zuiHintMode: ZuiHintOptions['mode'] = this.options.mode;
+export class PzmTooltipDirective extends PzmHintDirective {
+  @Input('pzmTooltipMode')
+  @pzmDefaultProp()
+  override pzmHintMode: PzmHintOptions['mode'] = this.options.mode;
 
-  @Input('zuiAutoReposition')
-  @zuiDefaultProp()
-  override zuiAutoReposition: ZuiHintOptions['autoReposition'] = this.options.autoReposition;
+  @Input('pzmAutoReposition')
+  @pzmDefaultProp()
+  override pzmAutoReposition: PzmHintOptions['autoReposition'] = this.options.autoReposition;
 
-  @Input('zuiTooltipDirection')
-  @zuiDefaultProp()
-  override zuiHintDirection: ZuiHintOptions['direction'] = this.options.direction;
+  @Input('pzmTooltipDirection')
+  @pzmDefaultProp()
+  override pzmHintDirection: PzmHintOptions['direction'] = this.options.direction;
 
-  @Input('zuiTooltipId')
-  @zuiDefaultProp()
-  override zuiHintId: string = 'hintId_' + zuiGenerateId();
+  @Input('pzmTooltipId')
+  @pzmDefaultProp()
+  override pzmHintId: string = 'hintId_' + pzmGenerateId();
 
-  @Input('zuiTooltipShowDelay')
-  @zuiDefaultProp()
-  override zuiHintShowDelay: ZuiHintOptions['showDelay'] = this.options.showDelay;
+  @Input('pzmTooltipShowDelay')
+  @pzmDefaultProp()
+  override pzmHintShowDelay: PzmHintOptions['showDelay'] = this.options.showDelay;
 
-  @Input('zuiTooltipHideDelay')
-  @zuiDefaultProp()
-  override zuiHintHideDelay: ZuiHintOptions['hideDelay'] = this.options.hideDelay;
+  @Input('pzmTooltipHideDelay')
+  @pzmDefaultProp()
+  override pzmHintHideDelay: PzmHintOptions['hideDelay'] = this.options.hideDelay;
 
-  @Input('zuiTooltipHost')
-  @zuiDefaultProp()
-  override zuiHintHost: HTMLElement | null = null;
+  @Input('pzmTooltipHost')
+  @pzmDefaultProp()
+  override pzmHintHost: HTMLElement | null = null;
 
-  @Input('zuiTooltip')
-  @zuiRequiredSetter()
-  override set zuiHint(value: PolymorphContent | null) {
+  @Input('pzmTooltip')
+  @pzmRequiredSetter()
+  override set pzmHint(value: PolymorphContent | null) {
     if (!value) {
       this.content = '';
       return;
@@ -59,7 +59,7 @@ export class ZuiTooltipDirective extends ZuiHintDirective {
 
     this.content = value;
   }
-  protected override readonly containerComponent = ZuiTooltipContainerComponent;
+  protected override readonly containerComponent = PzmTooltipContainerComponent;
   protected override readonly onHoverActive = false;
 
   @HostListener('document:click', ['$event.target']) public onClick(target: HTMLElement): void {

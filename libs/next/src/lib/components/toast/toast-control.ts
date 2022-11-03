@@ -1,33 +1,33 @@
 import { Observable, Subject } from 'rxjs';
-import { ZuiToastOptions, ZuiToastPosition } from './types';
+import { PzmToastOptions, PzmToastPosition } from './types';
 import { finalize, map, shareReplay, takeUntil, tap } from 'rxjs/operators';
-import { ZuiToastRef } from './toast-ref';
-import { ZuiToastContainerComponent } from './toast-container/toast-container.component';
+import { PzmToastRef } from './toast-ref';
+import { PzmToastContainerComponent } from './toast-container/toast-container.component';
 import { Injectable, Injector } from '@angular/core';
 import {
-  ZuiOverlayControl,
-  ZuiOverlayGlobalPosition,
-  ZuiOverlayInsidePlacement,
-  ZuiOverlayService,
+  PzmOverlayControl,
+  PzmOverlayGlobalPosition,
+  PzmOverlayInsidePlacement,
+  PzmOverlayService,
 } from '../../modules/overlay';
-import { ZuiToastService } from './toast.service';
+import { PzmToastService } from './toast.service';
 
 @Injectable()
-export class ZuiToastControl {
+export class PzmToastControl {
   readonly destroy$ = new Subject<void>()
   constructor(
-    private readonly overlayService: ZuiOverlayService,
-    private readonly toastService: ZuiToastService,
+    private readonly overlayService: PzmOverlayService,
+    private readonly toastService: PzmToastService,
     private readonly injector: Injector,
   ) {}
 
   private create(
-    changesForThisPosition$:  Observable<ZuiToastRef[]>,
-    position: ZuiToastOptions['position']
-  ): ZuiOverlayControl | void {
+    changesForThisPosition$:  Observable<PzmToastRef[]>,
+    position: PzmToastOptions['position']
+  ): PzmOverlayControl | void {
     const placement = this.getOverlayPosition(position);
     if (!placement) return;
-    const overlayPosition = new ZuiOverlayGlobalPosition({
+    const overlayPosition = new PzmOverlayGlobalPosition({
       placement,
       width: 'auto',
       height: 'auto',
@@ -35,7 +35,7 @@ export class ZuiToastControl {
 
     const control = this.overlayService
       .position(overlayPosition)
-      .content(ZuiToastContainerComponent, {
+      .content(PzmToastContainerComponent, {
         refs$: changesForThisPosition$,
         position: position
       })
@@ -45,26 +45,26 @@ export class ZuiToastControl {
   }
 
   private getOverlayPosition(
-    position: ZuiToastOptions['position']
-  ): ZuiOverlayInsidePlacement | void {
+    position: PzmToastOptions['position']
+  ): PzmOverlayInsidePlacement | void {
     switch (position) {
-      case ZuiToastPosition.BOTTOM_LEFT:
-        return ZuiOverlayInsidePlacement.BOTTOM_LEFT;
-      case ZuiToastPosition.BOTTOM_RIGHT:
-        return ZuiOverlayInsidePlacement.BOTTOM_RIGHT;
-      case ZuiToastPosition.BOTTOM_MIDDLE:
-        return ZuiOverlayInsidePlacement.BOTTOM;
-      case ZuiToastPosition.TOP_LEFT:
-        return ZuiOverlayInsidePlacement.TOP_LEFT;
-      case ZuiToastPosition.TOP_RIGHT:
-        return ZuiOverlayInsidePlacement.TOP_RIGHT;
-      case ZuiToastPosition.TOP_MIDDLE:
-        return ZuiOverlayInsidePlacement.TOP;
+      case PzmToastPosition.BOTTOM_LEFT:
+        return PzmOverlayInsidePlacement.BOTTOM_LEFT;
+      case PzmToastPosition.BOTTOM_RIGHT:
+        return PzmOverlayInsidePlacement.BOTTOM_RIGHT;
+      case PzmToastPosition.BOTTOM_MIDDLE:
+        return PzmOverlayInsidePlacement.BOTTOM;
+      case PzmToastPosition.TOP_LEFT:
+        return PzmOverlayInsidePlacement.TOP_LEFT;
+      case PzmToastPosition.TOP_RIGHT:
+        return PzmOverlayInsidePlacement.TOP_RIGHT;
+      case PzmToastPosition.TOP_MIDDLE:
+        return PzmOverlayInsidePlacement.TOP;
     }
   }
 
   public init(
-    position: ZuiToastOptions['position']
+    position: PzmToastOptions['position']
   ): void {
     const changesForThisPosition$ = this.toastService.changes$.pipe(
         map(items => items.filter(item => item.position === position && item.show)),
@@ -85,16 +85,16 @@ export class ZuiToastControl {
     ).subscribe()
   }
 
-  private destroy(control: ZuiOverlayControl): void {
+  private destroy(control: PzmOverlayControl): void {
     this.close(control);
     control = null;
   }
 
-  private close(control: ZuiOverlayControl): void {
+  private close(control: PzmOverlayControl): void {
     control?.close();
   }
 
-  private open(control: ZuiOverlayControl): void {
+  private open(control: PzmOverlayControl): void {
     control?.open();
   }
 }

@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'zui-accordion-example',
+  selector: 'pzm-accordion-example',
   templateUrl: './accordion-example.component.html',
   styleUrls: ['./accordion-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

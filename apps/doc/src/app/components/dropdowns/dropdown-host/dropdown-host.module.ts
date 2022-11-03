@@ -4,16 +4,23 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
-  ZuiButtonModule,
-  ZuiCheckboxModule,
-  ZuiDataListModule,
-  ZuiDropdownHostModule,
-  ZuiInputTextModule,
+  PzmButtonModule,
+  PzmCheckboxModule,
+  PzmDataListModule,
+  PzmDropdownHostModule,
+  PzmDropdownZoneModule,
+  PzmIconModule,
+  PzmInputDateTimeModule,
+  PzmInputTextModule,
+  PzmRadioButtonModule,
 } from '@digital-plant/zui-components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownHostComponent } from './dropdown-host.component';
-import { ZuiDropdownHostExampleWithTemplateComponent } from './examples/with-template/template';
-import { ZuiSelectPanelExampleComponent } from './examples/select-panel-example/select-panel-example.component';
+import { PzmDropdownHostExampleWithTemplateComponent } from './examples/with-template/template';
+import { PzmSelectPanelExampleComponent } from './examples/select-panel-example/select-panel-example.component';
+import { PzmDropdownHostDateListExampleComponent } from './examples/date-list/date-list.component';
+import { PzmDropdownHostDateListEditExampleComponent } from './examples/date-list-edit/date-list-edit.component';
+import { PzmCallFuncModule, PzmLetModule } from '@digital-plant/zyfra-helpers';
 
 @NgModule({
   imports: [
@@ -22,18 +29,26 @@ import { ZuiSelectPanelExampleComponent } from './examples/select-panel-example/
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    ZuiDataListModule,
-    ZuiButtonModule,
-    ZuiDropdownHostModule,
+    PzmDataListModule,
+    PzmDropdownZoneModule,
+    PzmButtonModule,
+    PzmDropdownHostModule,
     RouterModule.forChild(generateRoutes(DropdownHostComponent)),
-    ZuiCheckboxModule,
-    ZuiInputTextModule,
+    PzmCheckboxModule,
+    PzmInputDateTimeModule,
+    PzmInputTextModule,
+    PzmIconModule,
+    PzmRadioButtonModule,
+    PzmCallFuncModule,
+    PzmLetModule,
     FormsModule,
   ],
   declarations: [
-    ZuiDropdownHostExampleWithTemplateComponent,
+    PzmDropdownHostExampleWithTemplateComponent,
+    PzmDropdownHostDateListEditExampleComponent,
+    PzmDropdownHostDateListExampleComponent,
     DropdownHostComponent,
-    ZuiSelectPanelExampleComponent,
+    PzmSelectPanelExampleComponent,
   ],
   exports: [DropdownHostComponent],
 })

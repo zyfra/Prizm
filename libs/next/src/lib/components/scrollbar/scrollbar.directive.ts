@@ -3,30 +3,30 @@ import { Directive, ElementRef, Inject, Input, NgZone, Optional, Renderer2 } fro
 import { ANIMATION_FRAME, WINDOW } from '@ng-web-apis/common';
 import { fromEvent, merge, Observable } from 'rxjs';
 import { map, switchMap, takeUntil, throttleTime } from 'rxjs/operators';
-import { ZuiDestroyService } from '@digital-plant/zyfra-helpers';
-import { ZUI_ELEMENT_REF, ZUI_SCROLL_REF } from '../../tokens';
-import { zuiPreventDefault, zuiStopPropagation, zuiTypedFromEvent, zuiZoneFree } from '../../observables';
-import { ZuiOrientation } from '../../types';
+import { PzmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PZM_ELEMENT_REF, PZM_SCROLL_REF } from '../../tokens';
+import { pzmPreventDefault, pzmStopPropagation, pzmTypedFromEvent, pzmZoneFree } from '../../observables';
+import { PzmOrientation } from '../../types';
 
 const MIN_WIDTH = 24;
 const POLLING_TIME = 1000 / 15;
 
 @Directive({
-    selector: '[zuiScrollbar]',
-    providers: [ZuiDestroyService],
+    selector: '[pzmScrollbar]',
+    providers: [PzmDestroyService],
 })
-export class ZuiScrollbarDirective {
+export class PzmScrollbarDirective {
     @Input()
-    public zuiScrollbar: ZuiOrientation = 'vertical';
+    public pzmScrollbar: PzmOrientation = 'vertical';
 
     constructor(
         @Inject(NgZone) ngZone: NgZone,
         @Inject(Renderer2) renderer: Renderer2,
-        @Inject(ZuiDestroyService) destroy$: Observable<void>,
+        @Inject(PzmDestroyService) destroy$: Observable<void>,
         @Inject(ANIMATION_FRAME) animationFrame$: Observable<number>,
-        @Inject(ZUI_ELEMENT_REF) private readonly wrapper: ElementRef<HTMLElement>,
+        @Inject(PZM_ELEMENT_REF) private readonly wrapper: ElementRef<HTMLElement>,
         @Optional()
-        @Inject(ZUI_SCROLL_REF)
+        @Inject(PZM_SCROLL_REF)
         private readonly container: ElementRef<HTMLElement> | null,
         @Inject(DOCUMENT) private readonly documentRef: Document,
         @Inject(WINDOW) private readonly windowRef: Window,
@@ -34,19 +34,19 @@ export class ZuiScrollbarDirective {
         @Inject(ViewportScroller) private readonly viewportScroller: ViewportScroller,
     ) {
         const {nativeElement} = this.elementRef;
-        const mousedown$ = zuiTypedFromEvent(nativeElement, 'mousedown');
-        const mousemove$ = zuiTypedFromEvent(this.documentRef, 'mousemove');
-        const mouseup$ = zuiTypedFromEvent(this.documentRef, 'mouseup');
-        const mousedownWrapper$ = zuiTypedFromEvent(wrapper.nativeElement, 'mousedown');
+        const mousedown$ = pzmTypedFromEvent(nativeElement, 'mousedown');
+        const mousemove$ = pzmTypedFromEvent(this.documentRef, 'mousemove');
+        const mouseup$ = pzmTypedFromEvent(this.documentRef, 'mouseup');
+        const mousedownWrapper$ = pzmTypedFromEvent(wrapper.nativeElement, 'mousedown');
 
         merge(
             mousedownWrapper$.pipe(
-                zuiPreventDefault(),
+                pzmPreventDefault(),
                 map(event => this.getScrolled(event, 0.5, 0.5)),
             ),
             mousedown$.pipe(
-                zuiPreventDefault(),
-                zuiStopPropagation(),
+                pzmPreventDefault(),
+                pzmStopPropagation(),
                 switchMap(event => {
                     const rect = nativeElement.getBoundingClientRect();
                     const vertical = getOffsetVertical(event, rect);
@@ -59,21 +59,21 @@ export class ZuiScrollbarDirective {
                 }),
             ),
         ).pipe(
-          zuiZoneFree(ngZone),
+          pzmZoneFree(ngZone),
           takeUntil(destroy$)
         ).subscribe(([scrollTop, scrollLeft]) => {
             const [x, y] = this.viewportScroller.getScrollPosition();
 
             if (!this.container) {
                 this.viewportScroller.scrollToPosition([
-                    this.zuiScrollbar === 'vertical' ? x : scrollLeft,
-                    this.zuiScrollbar === 'vertical' ? scrollTop : y,
+                    this.pzmScrollbar === 'vertical' ? x : scrollLeft,
+                    this.pzmScrollbar === 'vertical' ? scrollTop : y,
                 ]);
 
                 return;
             }
 
-            if (this.zuiScrollbar === 'vertical') {
+            if (this.pzmScrollbar === 'vertical') {
                 renderer.setProperty(
                     this.container.nativeElement,
                     'scrollTop',
@@ -95,10 +95,10 @@ export class ZuiScrollbarDirective {
           ),
           animationFrame$.pipe(throttleTime(POLLING_TIME)),
         ).pipe(
-          zuiZoneFree(ngZone),
+          pzmZoneFree(ngZone),
           takeUntil(destroy$)
         ).subscribe(() => {
-            if (this.zuiScrollbar === 'vertical') {
+            if (this.pzmScrollbar === 'vertical') {
                 renderer.setStyle(nativeElement, 'top', `${this.thumb * 100}%`);
                 renderer.setStyle(nativeElement, 'height', `${this.view * 100}%`);
             } else {
@@ -118,7 +118,7 @@ export class ZuiScrollbarDirective {
             clientWidth,
         } = this.computedContainer;
 
-        return this.zuiScrollbar === 'vertical'
+        return this.pzmScrollbar === 'vertical'
             ? scrollTop / (scrollHeight - clientHeight)
             : scrollLeft / (scrollWidth - clientWidth);
     }
@@ -129,14 +129,14 @@ export class ZuiScrollbarDirective {
 
         if (
             ((clientHeight * clientHeight) / scrollHeight > MIN_WIDTH &&
-                this.zuiScrollbar === 'vertical') ||
+                this.pzmScrollbar === 'vertical') ||
             ((clientWidth * clientWidth) / scrollWidth > MIN_WIDTH &&
-                this.zuiScrollbar === 'horizontal')
+                this.pzmScrollbar === 'horizontal')
         ) {
             return 0;
         }
 
-        return this.zuiScrollbar === 'vertical'
+        return this.pzmScrollbar === 'vertical'
             ? MIN_WIDTH / clientHeight
             : MIN_WIDTH / clientWidth;
     }
@@ -151,7 +151,7 @@ export class ZuiScrollbarDirective {
         const {clientHeight, scrollHeight, clientWidth, scrollWidth} =
             this.computedContainer;
 
-        return this.zuiScrollbar === 'vertical'
+        return this.pzmScrollbar === 'vertical'
             ? Math.ceil((clientHeight / scrollHeight) * 100) / 100
             : Math.ceil((clientWidth / scrollWidth) * 100) / 100;
     }

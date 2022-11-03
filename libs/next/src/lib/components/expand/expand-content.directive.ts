@@ -1,6 +1,6 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-    selector: '[zuiExpandContent]',
+    selector: '[pzmExpandContent]',
 })
-export class ZuiExpandContentDirective {}
+export class PzmExpandContentDirective {}

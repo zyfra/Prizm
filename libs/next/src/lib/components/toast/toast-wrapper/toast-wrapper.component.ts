@@ -8,23 +8,23 @@ import {
   Type,
   ViewEncapsulation,
 } from '@angular/core';
-import { ZuiToastRef } from '../toast-ref';
+import { PzmToastRef } from '../toast-ref';
 
 @Component({
-  selector: 'zui-toast-wrapper',
+  selector: 'pzm-toast-wrapper',
   templateUrl: './toast-wrapper.component.html',
   styleUrls: ['./toast-wrapper.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class ToastWrapperComponent implements OnInit {
-  @Input() ref!: ZuiToastRef;
+  @Input() ref!: PzmToastRef;
 
   @HostBinding('attr.testId')
-  readonly testId = 'zui_toast_wrapper';
+  readonly testId = 'pzm_toast_wrapper';
 
   @HostBinding('attr.id') get getRefId (): string {
-    return 'zui-toast-id' + this.ref.id;
+    return 'pzm-toast-id' + this.ref.id;
   }
 
   get component(): Type<unknown> {
@@ -52,7 +52,7 @@ export class ToastWrapperComponent implements OnInit {
       {
         providers: [
           {
-            provide: ZuiToastRef,
+            provide: PzmToastRef,
             useValue: this.ref
           }
         ],

@@ -1,22 +1,22 @@
-<zui-dropdown-host
+<pzm-dropdown-host
   #dropdownHostRef
   [content]="dropdown"
   [(isOpen)]="open"
-  [zuiDropdownHostWidth]='dropdownWidth'
-  [zuiDropdownMinHeight]='minDropdownHeight'
-  [zuiDropdownMaxHeight]='maxDropdownHeight'
-  *zuiLet='filteredItems$ | async as items'
+  [pzmDropdownHostWidth]='dropdownWidth'
+  [pzmDropdownMinHeight]='minDropdownHeight'
+  [pzmDropdownMaxHeight]='maxDropdownHeight'
+  *pzmLet='filteredItems$ | async as items'
 >
-  <zui-input-layout
+  <pzm-input-layout
     [label]="label"
-    [forceShowClearButton]='forceShowClearButton'
+    [forceClear]='forceClear'
     (click)='safeOpenModal()'
     (clear)='safeStopPropagation(focusableElementRef.value, $event);'
     [outer]='outer'
     [size]="size">
     <input
       class='input-search'
-      zuiInput
+      pzmInput
       #focusableElementRef
       (onClear)='onClear()'
       [placeholder]="placeholder"
@@ -24,27 +24,31 @@
       [readonly]='!searchable || this.disabled'
       [formControl]="requiredInputControl"
     />
-    <zui-icon *ngIf='!disabled'
+    <pzm-icon *ngIf='!disabled'
               (click)='focusableElementRef.focus()'
+              [class.opened]="open"
               [class.active]='focusableElementRef.focused'
-              class='icon-dropdown' zui-input-right iconClass='chevrons-dropdown'></zui-icon>
-  </zui-input-layout>
+              class='icon-dropdown' pzm-input-right iconClass='chevrons-dropdown'></pzm-icon>
+  </pzm-input-layout>
 
   <ng-template #dropdown>
-    <zui-data-list class='block' [style.--zui-data-list-border]='0'>
+    <pzm-data-list class='block' [style.--pzm-data-list-border]='0'>
       <ng-container *ngIf='items?.length; else emptyTemplate'>
-        <div class='item' [class.selected]='item && value && (item | zuiCallFunc : identityMatcher : value)'
+        <div class='item'
+             [class.most-relevant]="searchable && focusableElementRef.value && ((!items[0] && idx === 1) || idx === 0)"
+             [class.selected]='item && value && (item | pzmCallFunc : identityMatcher : value)'
              #hostHint
-             *ngFor='let item of filteredItems$ | async'
-             (click)='select(item)'>
+             *ngFor='let item of filteredItems$ | async; let idx = index'
+             (click)='select(item)'
+        >
           <ng-container *ngIf='item; else nullContentTemplate'>
             <span class='text'
                   #elem
-                  *zuiLet='item | zuiCallFunc : stringify : $any(nullContent) as text'
-                  [zuiHint]='text'
-                  [zuiHintHost]='hostHint'
-                  [zuiHintDirection]='direction'
-                  [zuiHintCanShow]='elem | zuiCallFunc : zuiIsTextOverflow$ | async'
+                  *pzmLet='item | pzmCallFunc : stringify : $any(nullContent) as text'
+                  [pzmHint]='text'
+                  [pzmHintHost]='hostHint'
+                  [pzmHintDirection]='direction'
+                  [pzmHintCanShow]='elem | pzmCallFunc : pzmIsTextOverflow$ | async'
             >
               <ng-container *polymorphOutlet="
                 valueTemplate as content;
@@ -65,7 +69,6 @@
               </ng-container>
             </ng-container>
           </ng-template>
-
         </div>
       </ng-container>
       <ng-template #emptyTemplate>
@@ -76,6 +79,6 @@
           </ng-container>
         </div>
       </ng-template>
-    </zui-data-list>
+    </pzm-data-list>
   </ng-template>
-</zui-dropdown-host>
+</pzm-dropdown-host>

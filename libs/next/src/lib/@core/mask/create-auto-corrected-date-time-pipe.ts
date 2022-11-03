@@ -1,30 +1,30 @@
-import { ZuiTimeMode } from '../../types/time-mode';
-import { ZUI_DATE_FILLER_LENGTH } from '../date-time/date-fillers';
-import { ZuiAutoCorrectedDatePipeConfigs, zuiNormalizeDateValue } from './create-auto-corrected-date-pipe';
-import { zuiCreateAutoCorrectedTimePipe } from './create-auto-corrected-time-pipe';
-import { ZuiTextMaskPipeHandler } from './text-mask-pipe-handler';
-import { ZuiTextMaskOptions } from './text-mask-options';
-import { ZuiTextMaskConfig } from './text-mask-config';
-import { ZUI_DATE_TIME_SEPARATOR } from '../../constants/date-time-separator';
-import { ZuiTextMaskPipeResult } from './text-mask-pipe-result';
+import { PzmTimeMode } from '../../types/time-mode';
+import { PZM_DATE_FILLER_LENGTH } from '../date-time/date-fillers';
+import { PzmAutoCorrectedDatePipeConfigs, pzmNormalizeDateValue } from './create-auto-corrected-date-pipe';
+import { pzmCreateAutoCorrectedTimePipe } from './create-auto-corrected-time-pipe';
+import { PzmTextMaskPipeHandler } from './text-mask-pipe-handler';
+import { PzmTextMaskOptions } from './text-mask-options';
+import { PzmTextMaskConfig } from './text-mask-config';
+import { PZM_DATE_TIME_SEPARATOR } from '../../constants/date-time-separator';
+import { PzmTextMaskPipeResult } from './text-mask-pipe-result';
 
-interface ZuiAutoCorrectedDateTimePipeConfigs extends ZuiAutoCorrectedDatePipeConfigs {
-    timeMode: ZuiTimeMode;
+interface PzmAutoCorrectedDateTimePipeConfigs extends PzmAutoCorrectedDatePipeConfigs {
+    timeMode: PzmTimeMode;
 }
 
-export function zuiCreateAutoCorrectedDateTimePipe(
-    configs: ZuiAutoCorrectedDateTimePipeConfigs,
-): ZuiTextMaskPipeHandler {
-    const timePipe = zuiCreateAutoCorrectedTimePipe(configs.timeMode);
+export function pzmCreateAutoCorrectedDateTimePipe(
+    configs: PzmAutoCorrectedDateTimePipeConfigs,
+): PzmTextMaskPipeHandler {
+    const timePipe = pzmCreateAutoCorrectedTimePipe(configs.timeMode);
 
-    return (value: string): string | ZuiTextMaskPipeResult | false => {
-        if (value.length < ZUI_DATE_FILLER_LENGTH) {
+    return (value: string): string | PzmTextMaskPipeResult | false => {
+        if (value.length < PZM_DATE_FILLER_LENGTH) {
             return {value};
         }
 
-        const [date, time] = value.split(ZUI_DATE_TIME_SEPARATOR);
+        const [date, time] = value.split(PZM_DATE_TIME_SEPARATOR);
 
-        const formattedDate = zuiNormalizeDateValue(date, configs);
+        const formattedDate = pzmNormalizeDateValue(date, configs);
 
         if (!time) {
             return {value: formattedDate};
@@ -32,7 +32,7 @@ export function zuiCreateAutoCorrectedDateTimePipe(
 
         const pipedTime = timePipe(
             time,
-            {} as unknown as ZuiTextMaskOptions & ZuiTextMaskConfig,
+            {} as unknown as PzmTextMaskOptions & PzmTextMaskConfig,
         );
 
         if (!pipedTime || typeof pipedTime === `string`) {
@@ -40,7 +40,7 @@ export function zuiCreateAutoCorrectedDateTimePipe(
         }
 
         return {
-            value: `${formattedDate}${ZUI_DATE_TIME_SEPARATOR}${pipedTime.value}`,
+            value: `${formattedDate}${PZM_DATE_TIME_SEPARATOR}${pipedTime.value}`,
             indexesOfPipedChars: pipedTime.indexesOfPipedChars
                 ? pipedTime.indexesOfPipedChars.map((i: number) => i + date.length + 2)
                 : undefined,

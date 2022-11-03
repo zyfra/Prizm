@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ZuiChipsComponent, ZuiInputTextComponent } from '@digital-plant/zui-components';
+import { PzmChipsComponent, PzmInputTextComponent } from '@digital-plant/zui-components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'zui-input-chips-example',
+  selector: 'pzm-input-chips-example',
   templateUrl: './input-chips-example.component.html',
   styleUrls: ['./input-chips-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -15,10 +15,10 @@ export class InputChipsExampleComponent {
   public disabled = false;
   public singleLine = false;
 
-  @ViewChild(ZuiInputTextComponent, { static: false }) input: ZuiInputTextComponent;
-  @ViewChild(ZuiChipsComponent, { static: false }) chipsComponent: ZuiChipsComponent;
+  @ViewChild(PzmInputTextComponent, { static: false }) input: PzmInputTextComponent;
+  @ViewChild(PzmChipsComponent, { static: false }) chipsComponent: PzmChipsComponent;
 
-  public readonly zuiInputChipsExample: TuiDocExample = {
+  public readonly pzmInputChipsExample: TuiDocExample = {
     TypeScript: import(
       '!!raw-loader!./examples/input-chips-basic-example/input-chips-basic-example.component.ts'
     ),
@@ -30,7 +30,7 @@ export class InputChipsExampleComponent {
     ),
   };
 
-  public readonly zuiInputChipsOuterExample: TuiDocExample = {
+  public readonly pzmInputChipsOuterExample: TuiDocExample = {
     TypeScript: import(
       '!!raw-loader!./examples/input-chips-outer-example/input-chips-outer-example.component.ts'
     ),
