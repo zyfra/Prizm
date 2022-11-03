@@ -2,7 +2,7 @@
 
 Provides Zyfra UI components for your application.
 
-See storybook: https://pzm-sdk.apps.okd01.ziiot.ru/storybook/index.html
+See storybook: https://zui-sdk.apps.okd01.ziiot.ru/storybook/index.html
 
 ## Install
 

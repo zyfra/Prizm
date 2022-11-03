@@ -4,7 +4,7 @@ import {
   HierarchicalMenuNode,
   HierarchicalMenuType,
 } from '../../zyfra-hierarchical-menu.interface';
-import ZyfraHierarchicalMenuUtils from '../utils/zyfra-hierarchical-menu-utils';
+import { ZyfraHierarchicalMenuUtils } from '../utils/zyfra-hierarchical-menu-utils';
 
 export class CollapsedHierarchicalMenuBuilder implements HierarchicalMenuBuilder {
   tree: HierarchicalMenuNode;
