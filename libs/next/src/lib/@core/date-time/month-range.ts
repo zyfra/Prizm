@@ -30,13 +30,13 @@ export class PzmMonthRange {
 
     public isMonthInRange(
       month: PzmMonth
-    ) {
+    ): boolean {
       return month.monthSameOrAfter(this.from) && month.monthSameOrBefore(this.to)
     }
 
     public isYearInRange(
       month: PzmYear
-    ) {
+    ): boolean {
       return month.yearSameOrAfter(this.from) && month.yearSameOrBefore(this.to)
     }
 

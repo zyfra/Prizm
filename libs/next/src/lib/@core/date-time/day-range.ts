@@ -99,7 +99,7 @@ export class PzmDayRange extends PzmMonthRange {
 
     public isDayInRange(
       day: PzmDay
-    ) {
+    ): boolean {
       return day.daySameOrAfter(this.from) && day.daySameOrBefore(this.to)
     }
 

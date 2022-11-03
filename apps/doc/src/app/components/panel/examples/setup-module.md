@@ -1,6 +1,6 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PzmPanelModule } from '@digital-plant/pzm-components';
+import { PzmPanelModule } from '@digital-plant/zui-components';
 
 // ...
 

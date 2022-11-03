@@ -178,8 +178,8 @@
           },
           "configurations": {
             "production": {
-              "deployUrl": "/zui-sdk-new/doc/",
-              "baseHref": "/zui-sdk-new/doc/",
+              "deployUrl": "/pzm-sdk-new/doc/",
+              "baseHref": "/pzm-sdk-new/doc/",
               "budgets": [
                 {
                   "type": "initial",

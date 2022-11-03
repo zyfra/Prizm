@@ -1,6 +1,6 @@
 ```ts
 import {NgModule} from '@angular/core';
-import {PzmCalendarModule} from "@digital-plant/pzm-components";
+import {PzmCalendarModule} from "@digital-plant/zui-components";
 
 // ...
 

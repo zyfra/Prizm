@@ -343,7 +343,7 @@ export class PzmInputDateTimeComponent
         newValue: [PzmDay | null, PzmTime | null],
     ): boolean {
         return (
-            pzmNullableSame(oldValue[0], newValue[0], (a, b) => a.daySame(b)) &&
+            pzmNullableSame(oldValue[0], newValue[0], (a, b) => a?.daySame(b)) &&
             pzmNullableSame(oldValue[1], newValue[1], (a, b) => String(a) === String(b))
         );
     }
@@ -424,6 +424,6 @@ export class PzmInputDateTimeComponent
     }
 
     public openTimeDropdown(): void {
-      this.openTimeTemplate = true;
+      this.openTimeTemplate = !this.openTimeTemplate;
     }
 }

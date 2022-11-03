@@ -22,7 +22,7 @@ export class ConfirmPopupComponent {
 
   public pzmConfirmPopupDirection: PzmConfirmPopupOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
 
-  public pzmConfirmPopupId: string = 'confirm-id';
+  public pzmConfirmPopupId = 'confirm-id';
 
   public pzmConfirmPopupShowDelay: number = PZM_CONFIRM_POPUP_DEFAULT_OPTIONS.showDelay;
 

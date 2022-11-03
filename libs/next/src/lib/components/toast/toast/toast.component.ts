@@ -3,7 +3,7 @@ import { PolymorphContent } from '../../../directives/polymorph';
 import { PzmToastRef } from '../toast-ref';
 
 @Component({
-  selector: 'pzmi-toast-single',
+  selector: 'pzm-toast-single',
   templateUrl: './toast.component.html',
   styleUrls: ['./toast.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

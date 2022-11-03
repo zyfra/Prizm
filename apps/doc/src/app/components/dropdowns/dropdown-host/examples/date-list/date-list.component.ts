@@ -1,7 +1,7 @@
-import {ChangeDetectorRef, Component} from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { PzmDay, PzmTime } from '@digital-plant/zui-components';
-import { formatRelative, addDays, addHours, addMonths } from 'date-fns';
+import { addDays, addHours, addMonths } from 'date-fns';
 
 type DateItem = {
   title: string,
@@ -64,7 +64,7 @@ type DateItem = {
     }
   `]
 })
-export class PzmDropdownHostDateListExampleComponent {
+export class PzmDropdownHostDateListExampleComponent implements OnInit{
   open = false;
   data: DateItem[] = [
     {
@@ -216,5 +216,9 @@ export class PzmDropdownHostDateListExampleComponent {
 
     this.startControl.setValue(item.range[0]);
     this.endControl.setValue(item.range[1]);
+  }
+
+  ngOnInit(): void {
+    this.select(null);
   }
 }

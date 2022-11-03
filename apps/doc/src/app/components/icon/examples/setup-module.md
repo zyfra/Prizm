@@ -1,6 +1,6 @@
 ```ts
 import {NgModule} from '@angular/core';
-import {PzmIconModule} from "@digital-plant/pzm-components";
+import {PzmIconModule} from "@digital-plant/zui-components";
 // ...
 
 @NgModule({
