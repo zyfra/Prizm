@@ -2,6 +2,7 @@
   [content]="dropdown"
   pzmDropdownHostWidth='auto'
   [(isOpen)]="open"
+  (isOpenChange)='$event && select(null)'
 >
   <button pzmButton type="button" (click)="open = !open">
     Пример выбора периода
