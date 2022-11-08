@@ -1,0 +1,191 @@
+<tui-doc-page header="Stepper" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="base" heading="Base" [content]="basicExample">
+      <pzm-stepper-basic-example></pzm-stepper-basic-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="vertical" heading="Vertical" [content]="verticalExample">
+      <pzm-stepper-vertical-example></pzm-stepper-vertical-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="async" heading="Async" [content]="asyncExample">
+      <pzm-stepper-async-example></pzm-stepper-async-example>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <pzm-stepper
+        [currentStep]="currentStep"
+        [title]="title"
+        [vertical]="vertical"
+        [stepsSize]="stepperSize"
+        (selectStep)="this.currentStep = $event"
+      >
+        <ng-template [pzmStepperStep]="1" [title]="'Step 1'" [disabled]="false">
+          <div>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi deserunt ratione eius consequatur
+            earum laborum quod, reprehenderit nam totam excepturi magnam ex quae assumenda autem, amet nostrum
+            repellendus itaque, praesentium nisi reiciendis! Nostrum praesentium provident dolorem blanditiis
+            vitae mollitia nobis dicta? At recusandae autem ab ut repellendus repudiandae possimus, corporis
+            quaerat ullam dolores libero quas in dicta laudantium quos, explicabo maxime nostrum architecto
+            fuga, neque provident vitae? Odit, necessitatibus. Veritatis voluptatem aperiam perspiciatis
+            nesciunt ab reiciendis, voluptatum atque nobis dolor ullam optio soluta dignissimos pariatur rem
+            est totam quam officia. Dolorum nihil harum quo nulla. Blanditiis dicta earum, vero illo
+            voluptatibus animi commodi voluptate rem ullam, pariatur consectetur quo deleniti tempora labore
+            magnam obcaecati molestias harum dolore molestiae unde itaque! Laborum odit maxime rerum
+            aspernatur reprehenderit expedita laudantium itaque nesciunt eum iste perspiciatis hic ipsum
+            architecto magnam dignissimos odio, quas ipsam eaque suscipit modi voluptatibus officiis possimus.
+            Reiciendis unde tenetur maiores veritatis voluptates molestias ad nihil provident quod id illo
+            facilis
+          </div>
+        </ng-template>
+        <ng-template [pzmStepperStep]="2" [title]="'Step 2'" [disabled]="false">
+          <div>
+            laborum aut, quasi eligendi nihil quo laboriosam beatae repellat perferendis velit, vel accusamus
+            delectus. Odio, repellendus dignissimos unde consequuntur commodi facere laborum, ipsa, optio
+            incidunt sunt doloribus? Architecto, voluptatum, adipisci, autem dolore nam eveniet minima veniam
+            tenetur nemo iusto vel tempore exercitationem amet. Rem in, suscipit eveniet recusandae asperiores
+            nesciunt consectetur ipsam minima. Iure tempora dolores distinctio inventore quas, dicta vitae
+            expedita sapiente provident perferendis sunt aliquam voluptates voluptatibus est. Obcaecati illo
+            iure minus nam facere voluptas est consequatur deleniti amet magni fugiat, sit quas asperiores,
+            voluptate, mollitia inventore commodi libero et doloremque quisquam quam. Expedita, architecto!
+            Nesciunt neque voluptate iusto dicta id error cupiditate ab, corrupti fugit inventore non
+            assumenda voluptatum deleniti autem quidem quia suscipit ipsum maxime incidunt eum fugiat, placeat
+            est animi. Laboriosam cumque dolor quis esse, enim inventore soluta. Nisi natus tempora quis odio
+            atque non explicabo ad, provident voluptas quas esse sed dolore aliquam nulla autem libero
+            similique magnam et quia iusto minima voluptates consequatur ullam. Incidunt aliquid voluptate
+            itaque ipsam! Iusto nobis alias cum inventore sequi maiores. Facilis quae asperiores, accusamus
+            tempore dolorum laboriosam quis dolor ex voluptas. Tempora doloremque nulla, eveniet, ipsam beatae
+            tempore cumque omnis dolorem odio harum quisquam pariatur, rem laborum molestias consequatur?
+            Facilis eaque sed et ad nihil tempore rerum vel ipsa accusantium aliquam aliquid tempora atque
+            obcaecati cumque nulla quos voluptate, dolores cupiditate!
+          </div>
+        </ng-template>
+        <ng-template [pzmStepperStep]="3" [title]="'Step 3'" [disabled]="false">
+          <div>
+            laudantium, officiis officia eos suscipit reprehenderit vel repellendus ducimus voluptatum
+            voluptatibus quas provident minima. Delectus accusantium explicabo dicta voluptatum repudiandae
+            officia nesciunt molestias sapiente perferendis culpa quis quisquam nam commodi ipsum possimus
+            consequuntur labore amet libero ducimus, earum molestiae illo porro atque natus. Quibusdam, ex
+            harum dignissimos sed doloremque vel veniam quaerat obcaecati. Qui ratione, praesentium ullam
+            deserunt iste quae reiciendis deleniti laudantium voluptatum omnis nostrum voluptates? Debitis vel
+            commodi praesentium vitae et sapiente consequatur culpa. Nam dignissimos dolor vitae recusandae
+            mollitia incidunt, laudantium quae soluta velit ad! Quod voluptate ea sint molestias error nisi
+            praesentium. Vero, tempora! Tempore est ad quas voluptate eaque sint ipsum ipsam perferendis
+            accusantium laborum consectetur debitis, maiores possimus dignissimos quaerat fugiat aspernatur
+            minima aperiam quisquam sit perspiciatis incidunt. At, exercitationem recusandae atque laborum
+            nobis quas dolorum? Id quaerat corrupti vel sint expedita harum deleniti possimus deserunt nihil,
+            aut est recusandae dolor illum aliquam eos cupiditate dolore totam, labore ipsa officiis veniam
+            earum laudantium. Dicta officia iure beatae, vitae, dolore impedit perspiciatis vel, dolorum
+            eligendi aliquam laboriosam? Expedita ratione sequi repellendus consectetur eaque fugiat quo
+            deleniti laboriosam. Quibusdam quas, ducimus suscipit debitis cum nostrum earum hic dignissimos
+            dolores natus dicta cumque culpa et neque sit labore molestiae eveniet corrupti, minima, pariatur
+            facere. Pariatur labore qui aspernatur reiciendis, doloremque tenetur minus? Ex dolorum atque
+            labore cum consequatur architecto ipsa totam. Fuga ducimus
+          </div>
+        </ng-template>
+
+        <div
+          class="footer"
+          pzmStepperFooter
+          [ngStyle]="{ display: 'flex', 'justify-content': 'flex-end', gap: '10px' }"
+        >
+          <button
+            pzmButton
+            appearanceType="outline"
+            appearance="primary"
+            size="l"
+            (click)="currentStep = currentStep - 1"
+            [disabled]="currentStep === 1"
+          >
+            Предыдущий шаг
+          </button>
+          <button
+            pzmButton
+            appearanceType="outline"
+            appearance="primary"
+            size="l"
+            (click)="currentStep = currentStep + 1"
+            [disabled]="currentStep === 3"
+          >
+            Следующий шаг
+          </button>
+        </div>
+      </pzm-stepper>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="title"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="title"
+      >
+        Title
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="vertical"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="vertical"
+      >
+        Vertical
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="currentStep"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="[1, 2, 3]"
+        [(documentationPropertyValue)]="currentStep"
+      >
+        Current step
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="stepperSize"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="['auto', '200px', '30%']"
+        [(documentationPropertyValue)]="stepperSize"
+      >
+        Stepper Size
+        <br />
+        <small>Actual for vertical</small>
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="selectStep"
+        documentationPropertyType="number"
+        documentationPropertyMode="output"
+      >
+        Select step
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="update"
+        documentationPropertyType="void"
+        documentationPropertyMode="output"
+      >
+        Update
+        <br />
+        <small> Run sttepper change detector </small>
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmStepperModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>
+
