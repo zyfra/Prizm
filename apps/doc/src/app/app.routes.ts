@@ -77,21 +77,25 @@ export const ROUTES = [
   },
   {
     path: 'components/progress-line-bar',
-    loadChildren: async (): Promise<unknown> => (await import('./components/progress/line-bar/progress-line-bar.module')).ProgressLineBarModule,
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/progress/line-bar/progress-line-bar.module')).ProgressLineBarModule,
     data: {
       title: 'Progress Line',
     },
   },
   {
     path: 'components/progress-circle-bar',
-    loadChildren: async (): Promise<unknown> => (await import('./components/progress/circle-bar/progress-circle-bar.module')).ProgressCircleBarModule,
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/progress/circle-bar/progress-circle-bar.module')).ProgressCircleBarModule,
     data: {
       title: 'Progress Circle',
     },
   },
   {
     path: 'components/progress-line-segmented',
-    loadChildren: async (): Promise<unknown> => (await import('./components/progress/line-segmented/progress-line-segmented.module')).ProgressLineSegmentedModule,
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/progress/line-segmented/progress-line-segmented.module'))
+        .ProgressLineSegmentedModule,
     data: {
       title: 'Progress Segmented',
     },
@@ -462,6 +466,14 @@ export const ROUTES = [
       title: 'Zoom Control',
     },
   },
+  {
+    path: 'components/stepper',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/stepper/stepper-example.module')).PrizmStepperExampleModule,
+    data: {
+      title: 'Stepper',
+    },
+  },
   { path: '**', redirectTo: 'getting-started' },
 ];
 
@@ -475,3 +487,4 @@ export const ROUTES = [
   exports: [RouterModule],
 })
 export class AppRoutes {}
+
