@@ -8,5 +8,5 @@ include:
 
 
 .Build js image:
-  script:
+  before_script:
     - env
