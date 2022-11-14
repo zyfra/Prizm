@@ -8,31 +8,5 @@ include:
 
 
 .Build js image:
-  image: 
-    name: $KANIKO_IMAGE
-    entrypoint: [""]
-  tags:
-    - k8s
-  stage: build
-  before_script:
-    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"},\"$OLD_CI_REGISTRY\":{\"username\":\"$OLD_CI_REGISTRY_USER\",\"password\":\"$OLD_CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json 
-    - cat  /kaniko/.docker/config.json
-    - cat /kaniko/kaniko-build
   script:
-    - cat ${NPMRC_CONFIG} > .npmrc
-    - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc   
-    - sh /kaniko/kaniko-build
-    - export REGISTRY_DOMAIN=${OLD_CI_REGISTRY}
-    - sh /kaniko/kaniko-build
-  rules:
-    - *rule_skip_ci
-    - *rule_skip_mr
-    - *rule_if_main_merge_tag
-#    - npm config set strict-ssl false
-#    - if: |
-#        $LANGUAGE =~ /\b(typescript|javascript|node\.js)\b/i || (
-#          $LANGUAGE == null &&
-#          $CI_PROJECT_REPOSITORY_LANGUAGES =~ /^(typescript|javascript)\b/i
-#        )
-#      exists:
-#        - "{[Dd]ockerfile,[Dd]ockerfile\\.*,**/[Dd]ockerfile,**/[Dd]ockerfile\\.*}"
+    - env
