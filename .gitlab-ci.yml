@@ -1,3 +1,6 @@
+variables:
+  KANIKO_IMAGE: "docker.idp.yc.ziiot.ru/devops/kaniko-tools:1.0.0"
+
 include:
     -   project: digital-plant/ziiot/ui-platform/frontend/pipelines   
         ref: main      
