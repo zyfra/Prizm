@@ -7,7 +7,7 @@ include:
 variables:
   RUN_TESTS: 'false'
   SKIP_SONARQUBE_JOB: "true"
-  NPM_BUILD_LOGLEVEL: error
+  NPM_BUILD_LOGLEVEL: warn
   NPM_FETCH_RETRIES: 4
   # ARTIFACTS_CACHE_DOMAIN: docker.idp.yc.ziiot.ru
   # NPM_REGISTRY_URL: https://$ARTIFACTS_CACHE_DOMAIN/repository/npm-proxy/
