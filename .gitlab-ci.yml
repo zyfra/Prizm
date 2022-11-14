@@ -7,7 +7,7 @@ include:
 variables:
   RUN_TESTS: 'false'
   SKIP_SONARQUBE_JOB: "true"
-  NPM_BUILD_LOGLEVEL: warn
+  NPM_BUILD_LOGLEVEL: "debug"
   NPM_FETCH_RETRIES: 4
   # ARTIFACTS_CACHE_DOMAIN: docker.idp.yc.ziiot.ru
   # NPM_REGISTRY_URL: https://$ARTIFACTS_CACHE_DOMAIN/repository/npm-proxy/
@@ -72,7 +72,7 @@ Build library:
     - *npm_config_set_build
     - cat ~/.npmrc
     - npm --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable --userconfig ~/.npmrc install
-    - npm --color=false --loglevel="$NPM_BUILD_LOGLEVEL"--no-progress --parseable run "$CUSTOM_NPM_RUN_ARGUMENTS"
+    - npm --color=false --loglevel="$NPM_BUILD_LOGLEVEL" --no-progress --parseable run "$CUSTOM_NPM_RUN_ARGUMENTS"
   rules:
     - *rule_skip_ci
     - *rule_skip_mr
@@ -92,9 +92,9 @@ Build js image:
   before_script:
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"},\"$OLD_CI_REGISTRY\":{\"username\":\"$OLD_CI_REGISTRY_USER\",\"password\":\"$OLD_CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json 
   script:
-    - echo $NPMRC_CONFIG
     - cat ${NPMRC_CONFIG} > .npmrc
-    - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc   
+    - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
+    - cat .npmrc
     - sh /kaniko/kaniko-build
     - export REGISTRY_DOMAIN=${OLD_CI_REGISTRY}
     - sh /kaniko/kaniko-build
