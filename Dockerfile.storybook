@@ -1,8 +1,8 @@
 # Define base images and tags
 # ---------------------------
 ARG DOCKERFILE_BUILD_IMAGE="node"
-ARG DOCKERFILE_BUILD_TAG="14.18.3"
-ARG DOCKERFILE_BASE_IMAGE="registry.dp.zyfra.com/digital-plant/zui-ci-basedockerimage"
+ARG DOCKERFILE_BUILD_TAG="14-alpine"
+ARG DOCKERFILE_BASE_IMAGE="docker.idp.yc.ziiot.ru/digital-plant/zui-ci-basedockerimage"
 ARG DOCKERFILE_BASE_TAG="2.2.2"
 
 # Build container
@@ -10,41 +10,29 @@ ARG DOCKERFILE_BASE_TAG="2.2.2"
 FROM $DOCKERFILE_BUILD_IMAGE:$DOCKERFILE_BUILD_TAG AS builder
 
 # Build arguments
-ARG NPM_GITLAB_REGISTRY_HOST="${CI_SERVER_HOST:-gitdp.zyfra.com}"
-ARG NPM_SDK_DEPLOY_URL="/"
-ARG NPM_GITLAB_REGISTRY_TOKEN
 ARG NPM_BUILD_ENVIRONMENT="storybook"
 ARG NPM_BUILD_NEXT="next"
 ARG NPM_BUILD_LOGLEVEL="warn"
 ARG CYPRESS_INSTALL_BINARY="0"
 
 WORKDIR /project
-# Set separate cache layers, npm config
-RUN set -euo && \
-    npm config set \
-        @gitlab:registry \
-        "https://$NPM_GITLAB_REGISTRY_HOST/api/v4/packages/npm/" && \
-    npm config set \
-        "//$NPM_GITLAB_REGISTRY_HOST/api/v4/packages/npm/:_authToken" \
-        "$NPM_GITLAB_REGISTRY_TOKEN" \
-# Set separate cache layers, build from sources
-COPY ./ /project/
+
+COPY .npmrc /project/
+
 # Set separate cache layers, install pakages
 COPY package*.json /project/
-
-RUN npm --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
-        install
+RUN set -eu && \
+    npm --userconfig /project/.npmrc --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
+        install --fetch-retries=4
+    # --only=production
 # Set separate cache layers, build from sources
 COPY ./ /project/
-RUN npm --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
-    run --verbose build:"$NPM_BUILD_ENVIRONMENT" && \
-    chgrp -R 0 /project && \
-    chmod -R g+rw /project
+RUN set -eu && \
+    npm --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
+        run build:"$NPM_BUILD_ENVIRONMENT"
 
-#RUN npm --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
-#    run --verbose build:"$NPM_BUILD_NEXT" -- --deployUrl $NPM_SDK_DEPLOY_URL --baseHref $NPM_SDK_DEPLOY_URL && \
-#    chgrp -R 0 /project && \
-#    chmod -R g+rw /project
+RUN chgrp -R 0 /project && \
+    chmod -R g+rw /project
 
 # Make application container
 # --------------------------
