@@ -3,7 +3,7 @@
 ARG DOCKERFILE_BUILD_IMAGE="node"
 ARG DOCKERFILE_BUILD_TAG="14-alpine"
 ARG DOCKERFILE_BASE_IMAGE="docker.idp.yc.ziiot.ru/digital-plant/zui-ci-basedockerimage"
-ARG DOCKERFILE_BASE_TAG="2.0.0"
+ARG DOCKERFILE_BASE_TAG="2.2.2"
 
 # Build container
 # ---------------
