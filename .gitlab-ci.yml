@@ -1,9 +1,3 @@
-include:
-  - project: devops/gitlab-ci-templates
-    ref: latest
-    file: Settings/variables.yml
-
-
 variables:
   RUN_TESTS: 'false'
   SKIP_SONARQUBE_JOB: "true"
@@ -19,115 +13,9 @@ variables:
   KANIKO_IMAGE: docker.idp.yc.ziiot.ru/devops/kaniko-tools:1.0.0
   # ZUI_BUILD_IMAGE_NAME: node
   # ZUI_BUILD_IMAGE_TAG: 14-alpine
-  
-
-stages:
-  - build
-  - publish
 
 
-.rules:
-  - &rule_skip_ci
-    if: >-
-      $CI_COMMIT_MESSAGE =~ /skip-ci/
-    when: never
-  - &rule_skip_mr
-    if: >-
-      $CI_COMMIT_BRANCH != null &&
-      $CI_PIPELINE_SOURCE == 'push' &&
-      $CI_OPEN_MERGE_REQUESTS != null
-    when: never
-  - &rule_if_main_merge_tag
-    if: >-
-      $CI_COMMIT_BRANCH != null ||
-      $CI_PIPELINE_SOURCE == "merge_request_event" ||
-      $CI_COMMIT_TAG != null
-
-    #  $CI_COMMIT_BRANCH != null ||
-    #  $CI_PIPELINE_SOURCE == "merge_request_event" ||
-    #  $CI_COMMIT_TAG == /^v?(\d+\.)?(\d+\.)?(\*|\d+)(-([A-z]+)?(\d+)?)?$/
-
-
-.npm_config_set:
-  script:
-    - &npm_config_set_build |
-      cat ${NPMRC_CONFIG} > .npmrc
-      echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
-      cp .npmrc ~/
-      
-    - &npm_config_set_publish |
-      cat ${NPMRC_CONFIG} > .npmrc
-      echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
-      cp .npmrc ~/
-      
-
-
-
-Build library:
-  stage: build
-  image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
-  tags:
-    - k8s
-  script:  
-    - *npm_config_set_build
-    - cat ~/.npmrc
-    - npm --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable --userconfig ~/.npmrc install
-    - npm --color=false --loglevel="$NPM_BUILD_LOGLEVEL" --no-progress --parseable run "$CUSTOM_NPM_RUN_ARGUMENTS"
-  rules:
-    - *rule_skip_ci
-    - *rule_skip_mr
-    - *rule_if_main_merge_tag
-  artifacts:
-    expire_in: 1 day
-    paths:
-      - dist/
-
-Build js image:
-  image: 
-    name: $KANIKO_IMAGE
-    entrypoint: [""]
-  tags:
-    - k8s
-  stage: build
-  before_script:
-    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"},\"$OLD_CI_REGISTRY\":{\"username\":\"$OLD_CI_REGISTRY_USER\",\"password\":\"$OLD_CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json 
-  script:
-    - cat ${NPMRC_CONFIG} > .npmrc
-    - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
-    - cat .npmrc
-    - sh /kaniko/kaniko-build
-    - export REGISTRY_DOMAIN=${OLD_CI_REGISTRY}
-    - sh /kaniko/kaniko-build
-  rules:
-    - *rule_skip_ci
-    - *rule_skip_mr
-    - *rule_if_main_merge_tag
-#    - npm config set strict-ssl false
-#    - if: |
-#        $LANGUAGE =~ /\b(typescript|javascript|node\.js)\b/i || (
-#          $LANGUAGE == null &&
-#          $CI_PROJECT_REPOSITORY_LANGUAGES =~ /^(typescript|javascript)\b/i
-#        )
-#      exists:
-#        - "{[Dd]ockerfile,[Dd]ockerfile\\.*,**/[Dd]ockerfile,**/[Dd]ockerfile\\.*}"
-
-
-Publish package:
-  stage: publish
-  image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
-  tags:
-    - k8s
-  script:
-    - *npm_config_set_publish
-    - cat ~/.npmrc
-    - npm --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable --userconfig ~/.npmrc install
-    - cd dist/libs
-    - ls -la
-    - |
-      for i in `(ls -l | awk '{ print $9 }')`; do
-        npm publish $i || continue
-      done
-  rules:
-    - *rule_skip_ci
-    - *rule_skip_mr
-    - *rule_if_main_merge_tag
+include:
+  - project: digital-plant/ziiot/ui-platform/frontend/pipelines   
+    ref: main      
+    file: /common.yml
