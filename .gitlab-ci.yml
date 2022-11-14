@@ -2,9 +2,12 @@ variables:
   KANIKO_IMAGE: "docker.idp.yc.ziiot.ru/devops/kaniko-tools:1.0.0"
 
 include:
-    -   project: digital-plant/ziiot/ui-platform/frontend/pipelines   
-        ref: main      
-        file: /common.yml
+    -  project: digital-plant/ziiot/ui-platform/frontend/pipelines   
+       ref: main      
+       file: /common.yml
+    -  project: devops/gitlab-ci-templates
+       ref: latest
+       file: Settings/variables.yml
 
 
 .Build js image:
