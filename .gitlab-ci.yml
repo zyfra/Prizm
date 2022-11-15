@@ -67,11 +67,11 @@ Build js image:
         )
       exists:
         - "{[Dd]ockerfile,[Dd]ockerfile\\.*,**/[Dd]ockerfile,**/[Dd]ockerfile\\.*}"
- artifacts:
-   expire_in: 1 day
-   paths:
-     - /root/.npm/_logs/
-
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - /root/.npm/_logs/
+ 
 Build library:
   stage: build
   # // include after k8s stable work
