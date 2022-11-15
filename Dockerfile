@@ -24,8 +24,6 @@ COPY .npmrc /project/
 # Set separate cache layers, install pakages
 COPY package*.json /project/
 
-RUN npm cache clean --force
-
 RUN set -eu && \
     npm --userconfig /project/.npmrc --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
         install --fetch-retries=4
