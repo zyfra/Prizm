@@ -4,7 +4,7 @@ include:
     file: Settings/variables.yml
 
 variables:
-  ZUI_BUILD_IMAGE_TAG: 14-alpine
+  ZUI_BUILD_IMAGE_TAG: "14"
   LANGUAGE: "typescript"
   GIT_SUBMODULE_STRATEGY: recursive
   CUSTOM_NPM_RUN_ARGUMENTS: 'build:npi'
