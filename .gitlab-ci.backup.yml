@@ -1,0 +1,21 @@
+variables:
+  RUN_TESTS: 'false'
+  SKIP_SONARQUBE_JOB: "true"
+  NPM_BUILD_LOGLEVEL: "debug"
+  NPM_FETCH_RETRIES: 4
+  # ARTIFACTS_CACHE_DOMAIN: docker.idp.yc.ziiot.ru
+  # NPM_REGISTRY_URL: https://$ARTIFACTS_CACHE_DOMAIN/repository/npm-proxy/
+  CUSTOM_NPM_RUN_ARGUMENTS: build:prod
+  # ZUI_BASE_IMAGE_NAME: docker.idp.yc.ziiot.ru/digital-plant/zui-ci-basedockerimage
+  ZUI_BASE_IMAGE_TAG: 2.2.2
+  # REGISTRY_DOMAIN: docker.idp.yc.ziiot.ru
+  # BUILD_CACHE_DOMAIN: docker.idp.yc.ziiot.ru
+  KANIKO_IMAGE: docker.idp.yc.ziiot.ru/devops/kaniko-tools:1.8.1
+  # ZUI_BUILD_IMAGE_NAME: node
+  # ZUI_BUILD_IMAGE_TAG: 14-alpine
+
+
+include:
+  - project: digital-plant/ziiot/ui-platform/frontend/pipelines   
+    ref: main      
+    file: /common.yml
