@@ -4,6 +4,7 @@ include:
     file: Settings/variables.yml
 
 variables:
+  ZUI_BUILD_IMAGE_NAME: node
   ZUI_BUILD_IMAGE_TAG: "14"
   LANGUAGE: "typescript"
   GIT_SUBMODULE_STRATEGY: recursive
