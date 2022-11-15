@@ -7,10 +7,10 @@ variables:
   # NPM_REGISTRY_URL: https://$ARTIFACTS_CACHE_DOMAIN/repository/npm-proxy/
   CUSTOM_NPM_RUN_ARGUMENTS: build:prod
   # ZUI_BASE_IMAGE_NAME: docker.idp.yc.ziiot.ru/digital-plant/zui-ci-basedockerimage
-  # ZUI_BASE_IMAGE_TAG: 2.2.2
+  ZUI_BASE_IMAGE_TAG: 2.2.2
   # REGISTRY_DOMAIN: docker.idp.yc.ziiot.ru
   # BUILD_CACHE_DOMAIN: docker.idp.yc.ziiot.ru
-  KANIKO_IMAGE: docker.idp.yc.ziiot.ru/devops/kaniko-tools:1.0.0
+  KANIKO_IMAGE: docker.idp.yc.ziiot.ru/devops/kaniko-tools:1.8.1
   # ZUI_BUILD_IMAGE_NAME: node
   # ZUI_BUILD_IMAGE_TAG: 14-alpine
 
