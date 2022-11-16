@@ -17,7 +17,7 @@ variables:
   ZIF_TOOLS_RUNNER_IMAGE: 'quay-mirror.idp.yc.ziiot.ru/infra/zif-tools-runner'
   ZIF_TOOLS_RUNNER_TAG: '1.13.0'
   DEPLOY_NAMESPACE: ziiot-dev-11
-  KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID} --destination $OLD_CI_REGISTRY/digital-plant/$DOCKER_IMAGE_NAME:$2"
+  KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/"
 
 stages:
   - build
@@ -43,8 +43,6 @@ Build js image:
     - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
     - cat .npmrc
     - sh /kaniko/kaniko-build
-    # - export REGISTRY_DOMAIN=${OLD_CI_REGISTRY}
-    # - sh /kaniko/kaniko-build
   image:
     name: "$KANIKO_IMAGE"
     entrypoint: [""]
@@ -72,49 +70,7 @@ Build js image:
   artifacts:
     expire_in: 1 day
     paths:
-      - /root/.npm/_logs/
-
-# Build js image old registry:
-#   stage: build
-#   tags:
-#     - docker
-#   before_script:
-#     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"},\"$OLD_CI_REGISTRY\":{\"username\":\"$OLD_CI_REGISTRY_USER\",\"password\":\"$OLD_CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-#   script:
-#     - cat ${NPMRC_CONFIG} > .npmrc
-#     - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
-#     - cat .npmrc
-#     - export REGISTRY_DOMAIN=${OLD_CI_REGISTRY}
-#     - export CI_PROJECT_NAMESPACE="digital-plant"
-#     - sh /kaniko/kaniko-build
-#   image:
-#     name: "$KANIKO_IMAGE"
-#     entrypoint: [""]
-#   rules:
-#     - if: "$SKIP_KANIKO_BUILD =~ /^(true|yes|on|1)$/i"
-#       when: never
-#     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-#       variables:
-#         KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/"
-#     - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
-#       variables:
-#         KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/"
-#     - if: >-
-#         $CI_COMMIT_BRANCH != null &&
-#         $CI_PIPELINE_SOURCE == 'push' &&
-#         $CI_OPEN_MERGE_REQUESTS != null
-#       when: never
-#     - if: |-
-#         $LANGUAGE =~ /\b(typescript|javascript|node\.js)\b/i || (
-#           $LANGUAGE == null &&
-#           $CI_PROJECT_REPOSITORY_LANGUAGES =~ /^(typescript|javascript)\b/i
-#         )
-#       exists:
-#         - "{[Dd]ockerfile,[Dd]ockerfile\\.*,**/[Dd]ockerfile,**/[Dd]ockerfile\\.*}"
-#   artifacts:
-#     expire_in: 1 day
-#     paths:
-#       - /root/.npm/_logs/      
+      - /root/.npm/_logs/   
 
 Build library:
   stage: build
@@ -151,7 +107,7 @@ Release package:
     - npm publish --userconfig ~/.npmrc --verbose  next
     - npm publish --userconfig ~/.npmrc --verbose  translate
   when: manual
-  # only: ["main", "next"]
+  only: ["main", "next"]
   extends: [".tags_k8s", ".except_skip_ci"]
 
 Deploy:
@@ -159,16 +115,16 @@ Deploy:
   image:
     name: $ZIF_TOOLS_RUNNER_IMAGE:$ZIF_TOOLS_RUNNER_TAG
     entrypoint: [""]
-  # rules:
-  #   - if: >-
-  #       $CI_COMMIT_BRANCH != null &&
-  #       $CI_PIPELINE_SOURCE == 'push' &&
-  #       $CI_OPEN_MERGE_REQUESTS != null
-  #     when: never
-  #   - if: >-
-  #       $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH ||
-  #       $CI_COMMIT_TAG != null ||
-  #       $CI_OPEN_MERGE_REQUESTS != null
+  rules:
+    - if: >-
+        $CI_COMMIT_BRANCH != null &&
+        $CI_PIPELINE_SOURCE == 'push' &&
+        $CI_OPEN_MERGE_REQUESTS != null
+      when: never
+    - if: >-
+        $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH ||
+        $CI_COMMIT_TAG != null ||
+        $CI_OPEN_MERGE_REQUESTS != null
   script:
     - mkdir -p $HOME/.kube  
     - cat /builds/public-group/zui-sdk.tmp/KUBE_CONFIG | sed s/KUBE01_DEV07_TOKEN/$KUBE01_DEV07_TOKEN/g > ~/.kube/config
@@ -202,7 +158,8 @@ Deploy:
       if [ "$DEPLOY_VERSION" = "latest" ]; then
         helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
         -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
-        --set image.registry=quay-mirror.idp.yc.ziiot.ru
+        --set image.pullSecrets=[zif-docker-pull-secret] \
+        --set image.registry=docker.idp.yc.ziiot.ru \
         --set image.tag=$DEPLOY_VERSION \
         --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
         --set ingress.path=/ \
@@ -211,7 +168,8 @@ Deploy:
       else
         helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
         -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
-        --set image.registry=quay-mirror.idp.yc.ziiot.ru
+        --set image.pullSecrets=[zif-docker-pull-secret] \
+        --set image.registry=docker.idp.yc.ziiot.ru \
         --set image.tag=$DEPLOY_VERSION \
         --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
         --set ingress.path=/$CI_PROJECT_NAME/$DEPLOY_VERSION \
