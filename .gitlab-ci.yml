@@ -87,10 +87,10 @@ Build library:
     - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
     - cp .npmrc ~/
     - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run all
-#  artifacts:
-#    expire_in: 1 day
-#    paths:
-#      - dist/
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - dist/
   extends: [".tags_k8s", ".except_skip_ci"]
 
 Release package:
