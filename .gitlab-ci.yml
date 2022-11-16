@@ -160,7 +160,7 @@ Deploy:
       if [ "$DEPLOY_VERSION" = "latest" ]; then
         helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
         -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
-        --set image.registry=docker.idp.yc.ziiot.ru
+        --set image.registry=quay-mirror.idp.yc.ziiot.ru
         --set image.tag=$DEPLOY_VERSION \
         --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
         --set ingress.path=/ \
@@ -169,7 +169,7 @@ Deploy:
       else
         helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
         -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
-        --set image.registry=docker.idp.yc.ziiot.ru
+        --set image.registry=quay-mirror.idp.yc.ziiot.ru
         --set image.tag=$DEPLOY_VERSION \
         --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
         --set ingress.path=/$CI_PROJECT_NAME/$DEPLOY_VERSION \
