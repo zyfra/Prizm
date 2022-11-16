@@ -24,13 +24,13 @@ stages:
 #   - release
   - deploy
 
-# .tags_k8s:
-#   tags: ["k8s"]
+.tags_k8s:
+  tags: ["k8s"]
 
-# .except_skip_ci:
-#   except:
-#     variables:
-#       - $CI_COMMIT_MESSAGE =~ /skip-ci/
+.except_skip_ci:
+  except:
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /skip-ci/
 
 # Build js image:
 #   stage: build
