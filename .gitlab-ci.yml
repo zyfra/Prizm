@@ -4,7 +4,7 @@ include:
     file: Settings/variables.yml
 
 variables:
-  # ZUI_BUILD_IMAGE_NAME: node
+  ZUI_BUILD_IMAGE_NAME: node
   ZUI_BUILD_IMAGE_TAG: 14-alpine
   LANGUAGE: "typescript"
   GIT_SUBMODULE_STRATEGY: recursive
@@ -19,7 +19,7 @@ variables:
   DEPLOY_NAMESPACE: ziiot-dev-11
   KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/"
 
-# stages:
+stages:
 #   - build
 #   - release
   - deploy
@@ -131,8 +131,7 @@ Deploy:
 ## TO-DO добавить аутентификацию по токену в куб и спрятать его    
     - cat /builds/public-group/zui-sdk.tmp/KUBE_CONFIG | sed s/KUBE01_DEV07_TOKEN/$KUBE01_DEV07_TOKEN/g > ~/.kube/config
     - cat ~/.kube/config
-
-##   
+ 
     - export HELM_EXPERIMENTAL_OCI=1
     - helm registry login $REGISTRY_DOMAIN -u $QUAY_REGISTRY_LOGIN -p $QUAY_REGISTRY_PASSWORD
     - helm chart pull $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
