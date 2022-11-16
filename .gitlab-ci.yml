@@ -115,16 +115,16 @@ Deploy:
   image:
     name: $ZIF_TOOLS_RUNNER_IMAGE:$ZIF_TOOLS_RUNNER_TAG
     entrypoint: [""]
-  rules:
-    - if: >-
-        $CI_COMMIT_BRANCH != null &&
-        $CI_PIPELINE_SOURCE == 'push' &&
-        $CI_OPEN_MERGE_REQUESTS != null
-      when: never
-    - if: >-
-        $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH ||
-        $CI_COMMIT_TAG != null ||
-        $CI_OPEN_MERGE_REQUESTS != null
+  # rules:
+  #   - if: >-
+  #       $CI_COMMIT_BRANCH != null &&
+  #       $CI_PIPELINE_SOURCE == 'push' &&
+  #       $CI_OPEN_MERGE_REQUESTS != null
+  #     when: never
+  #   - if: >-
+  #       $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH ||
+  #       $CI_COMMIT_TAG != null ||
+  #       $CI_OPEN_MERGE_REQUESTS != null
   script:
     - mkdir -p $HOME/.kube  
     - cat /builds/public-group/zui-sdk.tmp/KUBE_CONFIG | sed s/KUBE01_DEV07_TOKEN/$KUBE01_DEV07_TOKEN/g > ~/.kube/config
