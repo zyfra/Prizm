@@ -20,8 +20,8 @@ variables:
   KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/"
 
 stages:
-#   - build
-#   - release
+  - build
+  - release
   - deploy
 
 .tags_k8s:
