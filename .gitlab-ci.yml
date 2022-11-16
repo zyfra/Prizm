@@ -4,8 +4,8 @@ include:
     file: Settings/variables.yml
 
 variables:
-  ZUI_BUILD_IMAGE_NAME: docker.idp.yc.ziiot.ru
-  ZUI_BUILD_IMAGE_TAG: node:14-alpine
+  ZUI_BUILD_IMAGE_NAME: node
+  ZUI_BUILD_IMAGE_TAG: 14-alpine
   LANGUAGE: "typescript"
   GIT_SUBMODULE_STRATEGY: recursive
   CUSTOM_NPM_RUN_ARGUMENTS: 'build:npi'
