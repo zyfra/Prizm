@@ -133,7 +133,7 @@ Deploy:
     - cat ~/.kube/config
  
     - export HELM_EXPERIMENTAL_OCI=1
-    - helm registry login $REGISTRY_DOMAIN -u $QUAY_REGISTRY_LOGIN -p $QUAY_REGISTRY_PASSWORD
+    - helm registry login registry.dp.zyfra.com -u $QUAY_REGISTRY_LOGIN -p $QUAY_REGISTRY_PASSWORD
     - helm chart pull $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
     - helm chart export $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
     - |
