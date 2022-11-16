@@ -160,6 +160,7 @@ Deploy:
         -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
         --set image.registry=docker.idp.yc.ziiot.ru \
         --set image.tag=$DEPLOY_VERSION \
+        --set image.namespace=public-group \
         --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
         --set ingress.path=/ \
         --set ingress.urlRewrite=false \
