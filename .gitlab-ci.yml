@@ -11,166 +11,170 @@ variables:
   CUSTOM_NPM_RUN_ARGUMENTS: 'build:npi'
   RUN_TESTS: 'false'
   SKIP_FRONTEND_IMAGE_TEST: 'true'
-  GITLAB_REGISTRY_AUTH_TOKEN: "//gitdp.zyfra.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}"
   ENABLE_APP_REGISTRATION: 'false'
   ZIF_GENERIC_SERVICE_CHART: 'registry.dp.zyfra.com/charts/zif-generic-service'
   ZIF_GENERIC_SERVICE_TAG: '1.11.0'
-  ZIF_TOOLS_RUNNER_IMAGE: 'registry.dp.zyfra.com/infra/zif-tools-runner'
+  ZIF_TOOLS_RUNNER_IMAGE: 'quay-mirror.idp.yc.ziiot.ru/infra/zif-tools-runner'
   ZIF_TOOLS_RUNNER_TAG: '1.13.0'
   DEPLOY_NAMESPACE: ziiot-dev-11
   KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/"
 
-stages:
-  - build
-  - release
+# stages:
+#   - build
+#   - release
   - deploy
 
-.tags_k8s:
-  tags: ["k8s"]
+# .tags_k8s:
+#   tags: ["k8s"]
 
-.except_skip_ci:
-  except:
-    variables:
-      - $CI_COMMIT_MESSAGE =~ /skip-ci/
+# .except_skip_ci:
+#   except:
+#     variables:
+#       - $CI_COMMIT_MESSAGE =~ /skip-ci/
 
-Build js image:
-  stage: build
-  tags:
-    - docker
-  before_script:
-    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"},\"$OLD_CI_REGISTRY\":{\"username\":\"$OLD_CI_REGISTRY_USER\",\"password\":\"$OLD_CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-  script:
-    - cat ${NPMRC_CONFIG} > .npmrc
-    - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
-    - cat .npmrc
-    - sh /kaniko/kaniko-build
-  image:
-    name: "$KANIKO_IMAGE"
-    entrypoint: [""]
-  rules:
-    - if: "$SKIP_KANIKO_BUILD =~ /^(true|yes|on|1)$/i"
-      when: never
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-      variables:
-        KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/"
-    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
-      variables:
-        KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/"
-    - if: >-
-        $CI_COMMIT_BRANCH != null &&
-        $CI_PIPELINE_SOURCE == 'push' &&
-        $CI_OPEN_MERGE_REQUESTS != null
-      when: never
-    - if: |-
-        $LANGUAGE =~ /\b(typescript|javascript|node\.js)\b/i || (
-          $LANGUAGE == null &&
-          $CI_PROJECT_REPOSITORY_LANGUAGES =~ /^(typescript|javascript)\b/i
-        )
-      exists:
-        - "{[Dd]ockerfile,[Dd]ockerfile\\.*,**/[Dd]ockerfile,**/[Dd]ockerfile\\.*}"
-  artifacts:
-    expire_in: 1 day
-    paths:
-      - /root/.npm/_logs/
-
-Build library:
-  stage: build
-  # // include after k8s stable work
-  # cache:
-  #   paths:
-  #     - node_modules
-  #     - /cache/Cypress
-  #     - node_modules/.cache/nx
-  image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
-  script:
-    - cat ${NPMRC_CONFIG} > .npmrc
-    - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
-    - cp .npmrc ~/
-    - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run all
-  artifacts:
-    expire_in: 1 day
-    paths:
-      - dist/
-  extends: [".tags_k8s", ".except_skip_ci"]
-
-Release package:
-  stage: release
-  image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
-  script:
-    - cat ${NPMRC_CONFIG_PUSH} > .npmrc
-    - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
-    - cp .npmrc ~/
-    - cd dist/libs
-    #- for i in `(ls -l | awk '{ print $9 }')`; do npm publish ./$i; done
-    - npm publish --userconfig ~/.npmrc --verbose  components
-    - npm publish --userconfig ~/.npmrc --verbose  schematics
-    - npm publish --userconfig ~/.npmrc --verbose  helpers
-    - npm publish --userconfig ~/.npmrc --verbose  next
-    - npm publish --userconfig ~/.npmrc --verbose  translate
-  when: manual
-  # only: ["main", "next"]
-  extends: [".tags_k8s", ".except_skip_ci"]
-
-# Deploy:
-#   stage: deploy
+# Build js image:
+#   stage: build
+#   tags:
+#     - docker
+#   before_script:
+#     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"},\"$OLD_CI_REGISTRY\":{\"username\":\"$OLD_CI_REGISTRY_USER\",\"password\":\"$OLD_CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+#   script:
+#     - cat ${NPMRC_CONFIG} > .npmrc
+#     - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
+#     - cat .npmrc
+#     - sh /kaniko/kaniko-build
 #   image:
-#     name: $ZIF_TOOLS_RUNNER_IMAGE:$ZIF_TOOLS_RUNNER_TAG
+#     name: "$KANIKO_IMAGE"
 #     entrypoint: [""]
 #   rules:
+#     - if: "$SKIP_KANIKO_BUILD =~ /^(true|yes|on|1)$/i"
+#       when: never
+#     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+#       variables:
+#         KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/"
+#     - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
+#       variables:
+#         KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/"
 #     - if: >-
 #         $CI_COMMIT_BRANCH != null &&
 #         $CI_PIPELINE_SOURCE == 'push' &&
 #         $CI_OPEN_MERGE_REQUESTS != null
 #       when: never
-#     - if: >-
-#         $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH ||
-#         $CI_COMMIT_TAG != null ||
-#         $CI_OPEN_MERGE_REQUESTS != null
+#     - if: |-
+#         $LANGUAGE =~ /\b(typescript|javascript|node\.js)\b/i || (
+#           $LANGUAGE == null &&
+#           $CI_PROJECT_REPOSITORY_LANGUAGES =~ /^(typescript|javascript)\b/i
+#         )
+#       exists:
+#         - "{[Dd]ockerfile,[Dd]ockerfile\\.*,**/[Dd]ockerfile,**/[Dd]ockerfile\\.*}"
+#   artifacts:
+#     expire_in: 1 day
+#     paths:
+#       - /root/.npm/_logs/
+
+# Build library:
+#   stage: build
+#   # // include after k8s stable work
+#   # cache:
+#   #   paths:
+#   #     - node_modules
+#   #     - /cache/Cypress
+#   #     - node_modules/.cache/nx
+#   image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
 #   script:
-#     - mkdir -p $HOME/.kube
-#     - cat $KUBECONFIG > $HOME/.kube/config
-#     - export HELM_EXPERIMENTAL_OCI=1
-#     - helm registry login $REGISTRY_DOMAIN -u $QUAY_REGISTRY_LOGIN -p $QUAY_REGISTRY_PASSWORD
-#     - helm chart pull $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
-#     - helm chart export $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
-#     - |
-#       # transform branch/commit name to image tag and ingress path
-#       if [ "$CI_COMMIT_REF_NAME" = $CI_DEFAULT_BRANCH ]; then
-#         DEPLOY_RELEASE="latest"
-#         DEPLOY_VERSION="latest"
-#       elif [ -n "$CI_COMMIT_TAG" ]; then
-#         DEPLOY_NOSLASH=$(echo "$CI_COMMIT_TAG" | tr -s / - )
-#         DEPLOY_SANITIZED="${DEPLOY_NOSLASH//[^a-zA-Z0-9\-\.]/}"
-#         DEPLOY_RELEASE="${DEPLOY_SANITIZED//\./}"
-#         DEPLOY_VERSION="$DEPLOY_SANITIZED"
-#       else
-#         DEPLOY_RELEASE="mr-$CI_MERGE_REQUEST_IID"
-#         DEPLOY_VERSION="MR-$CI_MERGE_REQUEST_IID"
-#       fi
+#     - cat ${NPMRC_CONFIG} > .npmrc
+#     - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
+#     - cp .npmrc ~/
+#     - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run all
+#   artifacts:
+#     expire_in: 1 day
+#     paths:
+#       - dist/
+#   extends: [".tags_k8s", ".except_skip_ci"]
 
-#       echo "DEPLOY_RELEASE - ${DEPLOY_RELEASE}"
-#       echo "DEPLOY_VERSION - ${DEPLOY_VERSION}"
+# Release package:
+#   stage: release
+#   image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
+#   script:
+#     - cat ${NPMRC_CONFIG_PUSH} > .npmrc
+#     - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
+#     - cp .npmrc ~/
+#     - cd dist/libs
+#     #- for i in `(ls -l | awk '{ print $9 }')`; do npm publish ./$i; done
+#     - npm publish --userconfig ~/.npmrc --verbose  components
+#     - npm publish --userconfig ~/.npmrc --verbose  schematics
+#     - npm publish --userconfig ~/.npmrc --verbose  helpers
+#     - npm publish --userconfig ~/.npmrc --verbose  next
+#     - npm publish --userconfig ~/.npmrc --verbose  translate
+#   when: manual
+#   # only: ["main", "next"]
+#   extends: [".tags_k8s", ".except_skip_ci"]
+
+Deploy:
+  stage: deploy
+  image:
+    name: $ZIF_TOOLS_RUNNER_IMAGE:$ZIF_TOOLS_RUNNER_TAG
+    entrypoint: [""]
+  rules:
+    - if: >-
+        $CI_COMMIT_BRANCH != null &&
+        $CI_PIPELINE_SOURCE == 'push' &&
+        $CI_OPEN_MERGE_REQUESTS != null
+      when: never
+    - if: >-
+        $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH ||
+        $CI_COMMIT_TAG != null ||
+        $CI_OPEN_MERGE_REQUESTS != null
+  script:
+    - mkdir -p $HOME/.kube
+
+## TO-DO добавить аутентификацию по токену в куб и спрятать его    
+    - cat /builds/public-group/zui-sdk.tmp/KUBE_CONFIG | sed s/KUBE01_DEV07_TOKEN/$KUBE01_DEV07_TOKEN/g > ~/.kube/config
+    - cat ~/.kube/config
+
+##   
+    - export HELM_EXPERIMENTAL_OCI=1
+    - helm registry login $REGISTRY_DOMAIN -u $QUAY_REGISTRY_LOGIN -p $QUAY_REGISTRY_PASSWORD
+    - helm chart pull $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
+    - helm chart export $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
+    - |
+      # transform branch/commit name to image tag and ingress path
+      if [ "$CI_COMMIT_REF_NAME" = $CI_DEFAULT_BRANCH ]; then
+        DEPLOY_RELEASE="latest"
+        DEPLOY_VERSION="latest"
+      elif [ -n "$CI_COMMIT_TAG" ]; then
+        DEPLOY_NOSLASH=$(echo "$CI_COMMIT_TAG" | tr -s / - )
+        DEPLOY_SANITIZED="${DEPLOY_NOSLASH//[^a-zA-Z0-9\-\.]/}"
+        DEPLOY_RELEASE="${DEPLOY_SANITIZED//\./}"
+        DEPLOY_VERSION="$DEPLOY_SANITIZED"
+      else
+        DEPLOY_RELEASE="mr-$CI_MERGE_REQUEST_IID"
+        DEPLOY_VERSION="MR-$CI_MERGE_REQUEST_IID"
+      fi
+
+      echo "DEPLOY_RELEASE - ${DEPLOY_RELEASE}"
+      echo "DEPLOY_VERSION - ${DEPLOY_VERSION}"
 
 
-#       # if latest - ingress path: / pathType: Prefix
-#       # else      - ingress path: /$CI_PROJECT_NAME/$DEPLOY_VERSION pathType: Exact
-#       if [ "$DEPLOY_VERSION" = "latest" ]; then
-#         helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
-#         -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
-#         --set image.tag=$DEPLOY_VERSION \
-#         --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
-#         --set ingress.path=/ \
-#         --set ingress.urlRewrite=false \
-#         --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
-#       else
-#         helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
-#         -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
-#         --set image.tag=$DEPLOY_VERSION \
-#         --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
-#         --set ingress.path=/$CI_PROJECT_NAME/$DEPLOY_VERSION \
-#         --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
-#       fi
-#   needs:
-#     - Build js image
-#   extends: [".tags_k8s"]
+      # if latest - ingress path: / pathType: Prefix
+      # else      - ingress path: /$CI_PROJECT_NAME/$DEPLOY_VERSION pathType: Exact
+      if [ "$DEPLOY_VERSION" = "latest" ]; then
+        helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
+        -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
+        --set image.tag=$DEPLOY_VERSION \
+        --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
+        --set ingress.path=/ \
+        --set ingress.urlRewrite=false \
+        --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
+      else
+        helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
+        -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
+        --set image.tag=$DEPLOY_VERSION \
+        --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
+        --set ingress.path=/$CI_PROJECT_NAME/$DEPLOY_VERSION \
+        --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
+      fi
+  needs:
+    - Build js image
+  extends: [".tags_k8s"]
 
