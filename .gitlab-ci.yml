@@ -156,22 +156,22 @@ Deploy:
       # if latest - ingress path: / pathType: Prefix
       # else      - ingress path: /$CI_PROJECT_NAME/$DEPLOY_VERSION pathType: Exact
       if [ "$DEPLOY_VERSION" = "latest" ]; then
-        helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
+        helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-test123 \
         -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
         --set image.pullSecrets=[zif-docker-pull-secret] \
         --set image.registry=docker.idp.yc.ziiot.ru \
         --set image.tag=$DEPLOY_VERSION \
-        --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
+        --set serviceName=$CI_PROJECT_NAME-test123 \
         --set ingress.path=/ \
         --set ingress.urlRewrite=false \
         --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
       else
-        helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
+        helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-test123 \
         -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
         --set image.pullSecrets[0]=zif-docker-pull-secret \
         --set image.registry=docker.idp.yc.ziiot.ru \
         --set image.tag=$DEPLOY_VERSION \
-        --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
+        --set serviceName=$CI_PROJECT_NAME-test123 \
         --set ingress.path=/$CI_PROJECT_NAME/$DEPLOY_VERSION \
         --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
       fi
