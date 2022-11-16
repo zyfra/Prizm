@@ -173,7 +173,7 @@ Deploy:
         --set ingress.path=/$CI_PROJECT_NAME/$DEPLOY_VERSION \
         --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
       fi
-  needs:
-    - Build js image
+  # needs:
+  #   - Build js image
   extends: [".tags_k8s"]
 
