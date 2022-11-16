@@ -20,8 +20,8 @@ variables:
   KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/"
 
 stages:
-  # - build
-  # - release
+  - build
+  - release
   - deploy
 
 .tags_k8s:
@@ -32,99 +32,99 @@ stages:
     variables:
       - $CI_COMMIT_MESSAGE =~ /skip-ci/
 
-# Build js image:
-#   stage: build
-#   tags:
-#     - docker
-#   before_script:
-#     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"},\"$OLD_CI_REGISTRY\":{\"username\":\"$OLD_CI_REGISTRY_USER\",\"password\":\"$OLD_CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-#   script:
-#     - cat ${NPMRC_CONFIG} > .npmrc
-#     - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
-#     - cat .npmrc
-#     - sh /kaniko/kaniko-build
-#   image:
-#     name: "$KANIKO_IMAGE"
-#     entrypoint: [""]
-#   rules:
-#     - if: "$SKIP_KANIKO_BUILD =~ /^(true|yes|on|1)$/i"
-#       when: never
-#     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-#       variables:
-#         KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/"
-#     - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
-#       variables:
-#         KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/"
-#     - if: >-
-#         $CI_COMMIT_BRANCH != null &&
-#         $CI_PIPELINE_SOURCE == 'push' &&
-#         $CI_OPEN_MERGE_REQUESTS != null
-#       when: never
-#     - if: |-
-#         $LANGUAGE =~ /\b(typescript|javascript|node\.js)\b/i || (
-#           $LANGUAGE == null &&
-#           $CI_PROJECT_REPOSITORY_LANGUAGES =~ /^(typescript|javascript)\b/i
-#         )
-#       exists:
-#         - "{[Dd]ockerfile,[Dd]ockerfile\\.*,**/[Dd]ockerfile,**/[Dd]ockerfile\\.*}"
-#   artifacts:
-#     expire_in: 1 day
-#     paths:
-#       - /root/.npm/_logs/   
+Build js image:
+  stage: build
+  tags:
+    - docker
+  before_script:
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"},\"$OLD_CI_REGISTRY\":{\"username\":\"$OLD_CI_REGISTRY_USER\",\"password\":\"$OLD_CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+  script:
+    - cat ${NPMRC_CONFIG} > .npmrc
+    - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
+    - cat .npmrc
+    - sh /kaniko/kaniko-build
+  image:
+    name: "$KANIKO_IMAGE"
+    entrypoint: [""]
+  rules:
+    - if: "$SKIP_KANIKO_BUILD =~ /^(true|yes|on|1)$/i"
+      when: never
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      variables:
+        KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/"
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
+      variables:
+        KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/"
+    - if: >-
+        $CI_COMMIT_BRANCH != null &&
+        $CI_PIPELINE_SOURCE == 'push' &&
+        $CI_OPEN_MERGE_REQUESTS != null
+      when: never
+    - if: |-
+        $LANGUAGE =~ /\b(typescript|javascript|node\.js)\b/i || (
+          $LANGUAGE == null &&
+          $CI_PROJECT_REPOSITORY_LANGUAGES =~ /^(typescript|javascript)\b/i
+        )
+      exists:
+        - "{[Dd]ockerfile,[Dd]ockerfile\\.*,**/[Dd]ockerfile,**/[Dd]ockerfile\\.*}"
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - /root/.npm/_logs/   
 
-# Build library:
-#   stage: build
-#   # // include after k8s stable work
-#   # cache:
-#   #   paths:
-#   #     - node_modules
-#   #     - /cache/Cypress
-#   #     - node_modules/.cache/nx
-#   image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
-#   script:
-#     - cat ${NPMRC_CONFIG} > .npmrc
-#     - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
-#     - cp .npmrc ~/
-#     - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run all
-#   artifacts:
-#     expire_in: 1 day
-#     paths:
-#       - dist/
-#   extends: [".tags_k8s", ".except_skip_ci"]
+Build library:
+  stage: build
+  # // include after k8s stable work
+  # cache:
+  #   paths:
+  #     - node_modules
+  #     - /cache/Cypress
+  #     - node_modules/.cache/nx
+  image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
+  script:
+    - cat ${NPMRC_CONFIG} > .npmrc
+    - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
+    - cp .npmrc ~/
+    - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run all
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - dist/
+  extends: [".tags_k8s", ".except_skip_ci"]
 
-# Release package:
-#   stage: release
-#   image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
-#   script:
-#     - cat ${NPMRC_CONFIG_PUSH} > .npmrc
-#     - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
-#     - cp .npmrc ~/
-#     - cd dist/libs
-#     #- for i in `(ls -l | awk '{ print $9 }')`; do npm publish ./$i; done
-#     - npm publish --userconfig ~/.npmrc --verbose  components
-#     - npm publish --userconfig ~/.npmrc --verbose  schematics
-#     - npm publish --userconfig ~/.npmrc --verbose  helpers
-#     - npm publish --userconfig ~/.npmrc --verbose  next
-#     - npm publish --userconfig ~/.npmrc --verbose  translate
-#   when: manual
-#   only: ["main", "next"]
-#   extends: [".tags_k8s", ".except_skip_ci"]
+Release package:
+  stage: release
+  image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
+  script:
+    - cat ${NPMRC_CONFIG_PUSH} > .npmrc
+    - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
+    - cp .npmrc ~/
+    - cd dist/libs
+    #- for i in `(ls -l | awk '{ print $9 }')`; do npm publish ./$i; done
+    - npm publish --userconfig ~/.npmrc --verbose  components
+    - npm publish --userconfig ~/.npmrc --verbose  schematics
+    - npm publish --userconfig ~/.npmrc --verbose  helpers
+    - npm publish --userconfig ~/.npmrc --verbose  next
+    - npm publish --userconfig ~/.npmrc --verbose  translate
+  when: manual
+  only: ["main", "next"]
+  extends: [".tags_k8s", ".except_skip_ci"]
 
 Deploy:
   stage: deploy
   image:
     name: $ZIF_TOOLS_RUNNER_IMAGE:$ZIF_TOOLS_RUNNER_TAG
     entrypoint: [""]
-  # rules:
-  #   - if: >-
-  #       $CI_COMMIT_BRANCH != null &&
-  #       $CI_PIPELINE_SOURCE == 'push' &&
-  #       $CI_OPEN_MERGE_REQUESTS != null
-  #     when: never
-  #   - if: >-
-  #       $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH ||
-  #       $CI_COMMIT_TAG != null ||
-  #       $CI_OPEN_MERGE_REQUESTS != null
+  rules:
+    - if: >-
+        $CI_COMMIT_BRANCH != null &&
+        $CI_PIPELINE_SOURCE == 'push' &&
+        $CI_OPEN_MERGE_REQUESTS != null
+      when: never
+    - if: >-
+        $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH ||
+        $CI_COMMIT_TAG != null ||
+        $CI_OPEN_MERGE_REQUESTS != null
   script:
     - mkdir -p $HOME/.kube  
     - cat /builds/public-group/zui-sdk.tmp/KUBE_CONFIG | sed s/KUBE01_DEV07_TOKEN/$KUBE01_DEV07_TOKEN/g > ~/.kube/config
@@ -173,7 +173,6 @@ Deploy:
         --set ingress.path=/$CI_PROJECT_NAME/$DEPLOY_VERSION \
         --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
       fi
-  # needs:
-  #   - Build js image
+  needs:
+    - Build js image
   extends: [".tags_k8s"]
-
