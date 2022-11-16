@@ -43,6 +43,8 @@ Build js image:
     - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
     - cat .npmrc
     - sh /kaniko/kaniko-build
+    - export REGISTRY_DOMAIN=${OLD_CI_REGISTRY}
+    - sh /kaniko/kaniko-build
   image:
     name: "$KANIKO_IMAGE"
     entrypoint: [""]
