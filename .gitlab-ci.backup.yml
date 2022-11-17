@@ -1,21 +1,66 @@
-variables:
-  RUN_TESTS: 'false'
-  SKIP_SONARQUBE_JOB: "true"
-  NPM_BUILD_LOGLEVEL: "debug"
-  NPM_FETCH_RETRIES: 4
-  # ARTIFACTS_CACHE_DOMAIN: docker.idp.yc.ziiot.ru
-  # NPM_REGISTRY_URL: https://$ARTIFACTS_CACHE_DOMAIN/repository/npm-proxy/
-  CUSTOM_NPM_RUN_ARGUMENTS: build:prod
-  # ZUI_BASE_IMAGE_NAME: docker.idp.yc.ziiot.ru/digital-plant/zui-ci-basedockerimage
-  ZUI_BASE_IMAGE_TAG: 2.2.2
-  # REGISTRY_DOMAIN: docker.idp.yc.ziiot.ru
-  # BUILD_CACHE_DOMAIN: docker.idp.yc.ziiot.ru
-  KANIKO_IMAGE: docker.idp.yc.ziiot.ru/devops/kaniko-tools:1.8.1
-  # ZUI_BUILD_IMAGE_NAME: node
-  # ZUI_BUILD_IMAGE_TAG: 14-alpine
+Deploy:
+  stage: deploy
+  image:
+    name: $ZIF_TOOLS_RUNNER_IMAGE:$ZIF_TOOLS_RUNNER_TAG
+    entrypoint: [""]
+  rules:
+    - if: >-
+        $CI_COMMIT_BRANCH != null &&
+        $CI_PIPELINE_SOURCE == 'push' &&
+        $CI_OPEN_MERGE_REQUESTS != null
+      when: never
+    - if: >-
+        $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH ||
+        $CI_COMMIT_TAG != null ||
+        $CI_OPEN_MERGE_REQUESTS != null
+  script:
+    - mkdir -p $HOME/.kube  
+    - cat /builds/public-group/zui-sdk.tmp/KUBE_CONFIG | sed s/KUBE01_DEV07_TOKEN/$KUBE01_DEV07_TOKEN/g > ~/.kube/config
+    - cat ~/.kube/config
+ 
+    - export HELM_EXPERIMENTAL_OCI=1
+    - helm registry login registry.dp.zyfra.com -u $QUAY_REGISTRY_LOGIN -p $QUAY_REGISTRY_PASSWORD
+    - helm chart pull $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
+    - helm chart export $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
+    - |
+      # transform branch/commit name to image tag and ingress path
+      if [ "$CI_COMMIT_REF_NAME" = $CI_DEFAULT_BRANCH ]; then
+        DEPLOY_RELEASE="latest"
+        DEPLOY_VERSION="latest"
+      elif [ -n "$CI_COMMIT_TAG" ]; then
+        DEPLOY_NOSLASH=$(echo "$CI_COMMIT_TAG" | tr -s / - )
+        DEPLOY_SANITIZED="${DEPLOY_NOSLASH//[^a-zA-Z0-9\-\.]/}"
+        DEPLOY_RELEASE="${DEPLOY_SANITIZED//\./}"
+        DEPLOY_VERSION="$DEPLOY_SANITIZED"
+      else
+        DEPLOY_RELEASE="mr-$CI_MERGE_REQUEST_IID"
+        DEPLOY_VERSION="MR-$CI_MERGE_REQUEST_IID"
+      fi
+
+      echo "DEPLOY_RELEASE - ${DEPLOY_RELEASE}"
+      echo "DEPLOY_VERSION - ${DEPLOY_VERSION}"
 
 
-include:
-  - project: digital-plant/ziiot/ui-platform/frontend/pipelines   
-    ref: main      
-    file: /common.yml
+      # if latest - ingress path: / pathType: Prefix
+      # else      - ingress path: /$CI_PROJECT_NAME/$DEPLOY_VERSION pathType: Exact
+      if [ "$DEPLOY_VERSION" = "latest" ]; then
+        helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
+        -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
+        --set image.registry=quay-mirror.idp.yc.ziiot.ru
+        --set image.tag=$DEPLOY_VERSION \
+        --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
+        --set ingress.path=/ \
+        --set ingress.urlRewrite=false \
+        --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
+      else
+        helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
+        -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
+        --set image.registry=quay-mirror.idp.yc.ziiot.ru
+        --set image.tag=$DEPLOY_VERSION \
+        --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
+        --set ingress.path=/$CI_PROJECT_NAME/$DEPLOY_VERSION \
+        --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
+      fi
+  needs:
+    - Build js image
+  extends: [".tags_k8s"]
