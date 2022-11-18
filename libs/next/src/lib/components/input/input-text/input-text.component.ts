@@ -15,13 +15,13 @@ import {
   Self,
 } from '@angular/core';
 import { NgControl, Validators } from '@angular/forms';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'input[pzmInput], textarea[pzmInput], input[pzmInputNumber], input[pzmInputPassword]',
+  selector: 'input[prizmInput], textarea[prizmInput], input[prizmInputNumber], input[prizmInputPassword]',
   template: '',
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
@@ -64,7 +64,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   }
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_input_text';
+  readonly testId = 'prizm_input_text';
 
   private _required: boolean | undefined;
 
@@ -122,7 +122,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   constructor(
     @Optional() @Self() public readonly ngControl: NgControl,
     public readonly elementRef: ElementRef<HTMLInputElement | HTMLTextAreaElement>,
-    private readonly pzmDestroyService: PrizmDestroyService,
+    private readonly prizmDestroyService: PrizmDestroyService,
     private readonly cdr: ChangeDetectorRef
   ) {
     super();
@@ -178,7 +178,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
           this.updateErrorState();
           this.cdr.markForCheck();
         }),
-        takeUntil(this.pzmDestroyService)
+        takeUntil(this.prizmDestroyService)
       )
       .subscribe();
 
@@ -189,7 +189,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
           this.updateErrorState();
           this.stateChanges.next();
         }),
-        takeUntil(this.pzmDestroyService)
+        takeUntil(this.prizmDestroyService)
       )
       .subscribe();
   }

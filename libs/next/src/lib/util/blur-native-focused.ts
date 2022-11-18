@@ -1,13 +1,13 @@
-import {pzmGetNativeFocused} from './get-native-focused';
-import {pzmSetNativeFocused} from './set-native-focused';
+import {prizmGetNativeFocused} from './get-native-focused';
+import {prizmSetNativeFocused} from './set-native-focused';
 
 /**
  * Finds and blurs current active element, including shadow DOM
  */
-export function pzmBlurNativeFocused(documentRef: Document): void {
-    const activeElement = pzmGetNativeFocused(documentRef);
+export function prizmBlurNativeFocused(documentRef: Document): void {
+    const activeElement = prizmGetNativeFocused(documentRef);
 
     if (activeElement instanceof HTMLElement) {
-        pzmSetNativeFocused(activeElement, false);
+        prizmSetNativeFocused(activeElement, false);
     }
 }

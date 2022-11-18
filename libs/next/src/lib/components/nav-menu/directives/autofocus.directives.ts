@@ -1,10 +1,10 @@
 import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 
 @Directive({
-  selector: '[pzmAutofocus]',
+  selector: '[prizmAutofocus]',
 })
 export class PrizmAutofocusDirective implements OnInit {
-  @Input() set pzmAutofocus(condition: boolean) {
+  @Input() set prizmAutofocus(condition: boolean) {
     this.focus = condition !== false;
   }
 

@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { PrizmMonth } from '../../../@core/date-time/month';
 import { PrizmMonthRange } from '../../../@core/date-time/month-range';
-import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { PZM_FIRST_DAY, PZM_LAST_DAY, PrizmDayRange, PrizmYear } from '../../../@core/date-time';
+import { prizmDefaultProp } from '@prizm-ui/core';
+import { PRIZM_FIRST_DAY, PRIZM_LAST_DAY, PrizmDayRange, PrizmYear } from '../../../@core/date-time';
 import { PrizmBooleanHandler } from '../../../types/handler';
-import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
-import { pzmInRange } from '../../../util/math/in-range';
+import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
+import { prizmInRange } from '../../../util/math/in-range';
 import { PrizmInteractiveState } from '../../../directives';
 import { PrizmRangeState } from '../../../@core/enums/range-state';
 
@@ -13,7 +13,7 @@ const LIMIT = 100;
 const ITEMS_IN_ROW = 3;
 
 @Component({
-    selector: `pzm-primitive-year-picker`,
+    selector: `prizm-primitive-year-picker`,
     templateUrl: `./primitive-year-picker.component.html`,
     styleUrls: [`./primitive-year-picker.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -24,24 +24,24 @@ export class PrizmPrimitiveYearPickerComponent {
     private readonly currentYear = PrizmMonth.currentLocal().year;
     public readonly ITEMS_IN_ROW = ITEMS_IN_ROW;
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     value: PrizmMonthRange | PrizmYear | PrizmDayRange | null = null;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     initialItem: PrizmYear = PrizmMonth.currentLocal();
 
     @Input()
-    @pzmDefaultProp()
-    min: PrizmYear = PZM_FIRST_DAY;
+    @prizmDefaultProp()
+    min: PrizmYear = PRIZM_FIRST_DAY;
 
     @Input()
-    @pzmDefaultProp()
-    max: PrizmYear = PZM_LAST_DAY;
+    @prizmDefaultProp()
+    max: PrizmYear = PRIZM_LAST_DAY;
 
     @Input()
-    @pzmDefaultProp()
-    disabledItemHandler: PrizmBooleanHandler<number> = PZM_ALWAYS_FALSE_HANDLER;
+    @prizmDefaultProp()
+    disabledItemHandler: PrizmBooleanHandler<number> = PRIZM_ALWAYS_FALSE_HANDLER;
 
     @Output()
     readonly yearClick = new EventEmitter<PrizmYear>();
@@ -54,7 +54,7 @@ export class PrizmPrimitiveYearPickerComponent {
     }
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_primitive_year_picker';
+    readonly testId = 'prizm_primitive_year_picker';
 
     get rows(): number {
         return Math.ceil((this.calculatedMax - this.calculatedMin) / ITEMS_IN_ROW);
@@ -89,7 +89,7 @@ export class PrizmPrimitiveYearPickerComponent {
 
         if (
             max.year < item ||
-            (disabledItemHandler !== PZM_ALWAYS_FALSE_HANDLER && disabledItemHandler(item))
+            (disabledItemHandler !== PRIZM_ALWAYS_FALSE_HANDLER && disabledItemHandler(item))
         ) {
             return PrizmInteractiveState.Disabled;
         }
@@ -191,7 +191,7 @@ export class PrizmPrimitiveYearPickerComponent {
             return false;
         }
 
-        return pzmInRange(
+        return prizmInRange(
             item,
             Math.min(value.from.year, hoveredItem),
             Math.max(value.from.year, hoveredItem),

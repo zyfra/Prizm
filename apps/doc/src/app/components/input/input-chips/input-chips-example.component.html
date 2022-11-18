@@ -1,26 +1,26 @@
 <tui-doc-page header="Input Chips" package="Equinox" type="components">
   <ng-template pageTab>
-    <tui-doc-example id="chips" heading="Chips example" [content]="pzmInputChipsExample">
-      <pzm-input-chips-basic-example></pzm-input-chips-basic-example>
+    <tui-doc-example id="chips" heading="Chips example" [content]="prizmInputChipsExample">
+      <prizm-input-chips-basic-example></prizm-input-chips-basic-example>
     </tui-doc-example>
 
-    <tui-doc-example id="chips-outer" heading="Chips outer example" [content]="pzmInputChipsOuterExample">
-      <pzm-input-chips-outer-example></pzm-input-chips-outer-example>
+    <tui-doc-example id="chips-outer" heading="Chips outer example" [content]="prizmInputChipsOuterExample">
+      <prizm-input-chips-outer-example></prizm-input-chips-outer-example>
     </tui-doc-example>
   </ng-template>
   <ng-template pageTab>
     <tui-doc-demo>
-      <pzm-input-layout label="Заголовок" size="l" status="default">
-        <input pzmInput placeholder="Введите название" (enter)="onEnter($event)" [disabled]="disabled" />
-        <pzm-chips
+      <prizm-input-layout label="Заголовок" size="l" status="default">
+        <input prizmInput placeholder="Введите название" (enter)="onEnter($event)" [disabled]="disabled" />
+        <prizm-chips
           [class.single-line]='singleLine'
           [singleLine]="singleLine"
           [chips]="chips"
           [deletable]="deletable"
           [disabled]="disabled"
-          pzm-input-bottom>
-        </pzm-chips>
-      </pzm-input-layout>
+          prizm-input-bottom>
+        </prizm-chips>
+      </prizm-input-layout>
     </tui-doc-demo>
 
     <tui-doc-documentation>

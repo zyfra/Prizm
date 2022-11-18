@@ -5,14 +5,14 @@ import {
   PrizmMultiSelectItemStringifyFunc,
   PrizmMultiSelectItemStringifyItem,
   PrizmMultiSelectSearchMatcher,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
 
 type PrizmItem = {
   id: number;
   name: string;
 }
 @Component({
-  selector: 'pzm-multi-select-with-object-example',
+  selector: 'prizm-multi-select-with-object-example',
   templateUrl: './multi-select-with-object-example.component.html',
   styles: [`
     .item {

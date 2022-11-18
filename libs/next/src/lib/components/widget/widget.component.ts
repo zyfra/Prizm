@@ -3,7 +3,7 @@ import { PolymorphContent } from '../../directives';
 import { PrizmShadowType } from '../../directives/shadow';
 
 @Component({
-    selector: 'pzm-widget',
+    selector: 'prizm-widget',
     templateUrl: './widget.component.html',
     styleUrls: ['./widget.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -17,5 +17,5 @@ export class PrizmWidgetComponent {
   readonly shadow: PrizmShadowType = 'none';
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_widget';
+  readonly testId = 'prizm_widget';
 }

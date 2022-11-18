@@ -1,7 +1,7 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
 
 @Component({
-  selector: 'pzm-dropdown-host-example-with-template',
+  selector: 'prizm-dropdown-host-example-with-template',
   templateUrl: './template.html',
   styles: [`
     .box {
@@ -11,7 +11,7 @@ import {ChangeDetectorRef, Component} from '@angular/core';
       padding: 16px;
     }
 
-    [pzmButton] {
+    [prizmButton] {
       width: 100%;
     }
   `]

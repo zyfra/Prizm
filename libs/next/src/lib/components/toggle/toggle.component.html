@@ -1,4 +1,4 @@
-<pzm-wrapper
+<prizm-wrapper
     [attr.checked]="value"
     [appearance]="appearance"
     pseudoState='toggle'
@@ -9,23 +9,23 @@
     [pressed]="computedPressed"
     [invalid]="computedInvalid"
 >
-    <pzm-loader
+    <prizm-loader
       *ngIf="showLoader"
       class="z-loader"
       [size]="loaderSize"
       [inheritColor]="true"
       [showLoader]="showLoader"
-    ></pzm-loader>
+    ></prizm-loader>
     <div class="toggle">
         <span class="icon-wrapper">
           <ng-container *polymorphOutlet="(iconOn) as content; context: {$implicit: size}">
-            <pzm-icon size='16' class="icon" *ngIf="content" [iconClass]="$any(content)"></pzm-icon>
+            <prizm-icon size='16' class="icon" *ngIf="content" [iconClass]="$any(content)"></prizm-icon>
           </ng-container>
         </span>
         <div class="circle"></div>
         <span class="icon-wrapper">
             <ng-container *polymorphOutlet="(iconOff) as content; context: {$implicit: size}">
-              <pzm-icon size='16' class="icon" *ngIf="content" [iconClass]="$any(content)"></pzm-icon>
+              <prizm-icon size='16' class="icon" *ngIf="content" [iconClass]="$any(content)"></prizm-icon>
             </ng-container>
         </span>
     </div>
@@ -36,12 +36,12 @@
         class="checkbox"
         [attr.aria-checked]="value"
         [disabled]="disabled"
-        [pzmChecked]="checked"
-        [pzmFocusable]="focusable"
-        (pzmCheckedChange)="onChecked($event)"
-        (pzmFocusedChange)="onFocused($event)"
-        (pzmHoveredChange)="onHovered($event)"
-        (pzmPressedChange)="onPressed($event)"
-        (pzmFocusVisibleChange)="onFocusVisible($event)"
+        [prizmChecked]="checked"
+        [prizmFocusable]="focusable"
+        (prizmCheckedChange)="onChecked($event)"
+        (prizmFocusedChange)="onFocused($event)"
+        (prizmHoveredChange)="onHovered($event)"
+        (prizmPressedChange)="onPressed($event)"
+        (prizmFocusVisibleChange)="onFocusVisible($event)"
     />
-</pzm-wrapper>
+</prizm-wrapper>

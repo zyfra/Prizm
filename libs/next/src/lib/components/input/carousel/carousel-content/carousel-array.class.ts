@@ -1,10 +1,10 @@
-import { pzmDefaultCarouselControlsState, PrizmCarouselContent } from './carousel-content.interface';
+import { prizmDefaultCarouselControlsState, PrizmCarouselContent } from './carousel-content.interface';
 
 export class PrizmCarouselArrayContent<T> implements PrizmCarouselContent {
   private currentIndex = -1;
   currentValue: T = undefined;
 
-  public controlsState = { ...pzmDefaultCarouselControlsState };
+  public controlsState = { ...prizmDefaultCarouselControlsState };
 
   constructor(public set: Array<T>, private searchFn: (arrayItem: T, findEl: T) => boolean) {}
 

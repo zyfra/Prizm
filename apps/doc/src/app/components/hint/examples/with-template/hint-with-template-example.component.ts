@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pzm-hint-with-template-example',
+  selector: 'prizm-hint-with-template-example',
   templateUrl: './hint-with-template-example.component.html',
   styles: [`
     .box {

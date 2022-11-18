@@ -9,10 +9,10 @@ import {
 import { AccordionItemComponent } from './components/accordion-item/accordion-item.component';
 import { merge } from 'rxjs';
 import { mapTo, takeUntil } from 'rxjs/operators';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 @Component({
-  selector: 'pzm-accordion',
+  selector: 'prizm-accordion',
   templateUrl: './accordion.component.html',
   styleUrls: ['./accordion.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -23,7 +23,7 @@ export class AccordionComponent implements AfterContentInit {
   @ContentChildren(AccordionItemComponent) accordionItems: QueryList<AccordionItemComponent>;
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_accordion';
+  readonly testId = 'prizm_accordion';
 
   constructor(private readonly destroy$: PrizmDestroyService) {}
 

@@ -4,7 +4,7 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { IconComponent } from './icon.component';
 import { PrizmIconBaseExampleComponent } from './examples/base/icon-base-example.component';
-import { PrizmIconModule } from '@digital-plant/zui-components';
+import { PrizmIconModule } from '@prizm-ui/components';
 
 @NgModule({
   imports: [

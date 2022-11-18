@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pzm-hint-some-component',
+  selector: 'prizm-hint-some-component',
   template: `
     <div>Header</div>
     <div class="button-box">
-      <button pzmButton *ngFor="let item of items">{{ item }}</button>
+      <button prizmButton *ngFor="let item of items">{{ item }}</button>
     </div>
     <div>Footer</div>
   `,

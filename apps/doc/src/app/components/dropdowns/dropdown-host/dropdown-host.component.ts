@@ -1,16 +1,16 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, TemplateRef, ViewChild } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PolymorphContent, PrizmOverlayOutsidePlacement } from '@digital-plant/zui-components';
+import { PolymorphContent, PrizmOverlayOutsidePlacement } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-dropdown-host-example',
+  selector: 'prizm-dropdown-host-example',
   templateUrl: './dropdown-host.component.html',
   styleUrls: ['./dropdown-host.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropdownHostComponent {
   isOpen = false;
-  pzmDropdownHostWidth = 'auto';
+  prizmDropdownHostWidth = 'auto';
   content: PolymorphContent;
 
   autoReposition: boolean;

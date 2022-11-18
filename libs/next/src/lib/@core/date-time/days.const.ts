@@ -1,6 +1,6 @@
-import { PZM_MAX_MONTH, PZM_MAX_YEAR, PZM_MIN_DAY, PZM_MIN_MONTH, PZM_MIN_YEAR } from './date-time';
+import { PRIZM_MAX_MONTH, PRIZM_MAX_YEAR, PRIZM_MIN_DAY, PRIZM_MIN_MONTH, PRIZM_MIN_YEAR } from './date-time';
 import { PrizmDay } from './day';
 
-export const PZM_FIRST_DAY = new PrizmDay(PZM_MIN_YEAR, PZM_MIN_MONTH, PZM_MIN_DAY);
+export const PRIZM_FIRST_DAY = new PrizmDay(PRIZM_MIN_YEAR, PRIZM_MIN_MONTH, PRIZM_MIN_DAY);
 
-export const PZM_LAST_DAY = new PrizmDay(PZM_MAX_YEAR, PZM_MAX_MONTH, 31);
+export const PRIZM_LAST_DAY = new PrizmDay(PRIZM_MAX_YEAR, PRIZM_MAX_MONTH, 31);

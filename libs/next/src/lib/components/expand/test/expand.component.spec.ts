@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { PZM_EXPAND_LOADED } from '../expand.const';
+import { PRIZM_EXPAND_LOADED } from '../expand.const';
 import { PrizmExpandModule } from '../expand.module';
 import { CommonModule } from '@angular/common';
 
@@ -9,13 +9,13 @@ const ANIMATION_DELAY = 900;
 describe('expand', () => {
     @Component({
         template: `
-            <pzm-expand
+            <prizm-expand
                 [expanded]="expanded"
             >
-                <ng-template pzmExpandContent>
+                <ng-template prizmExpandContent>
                     <div #content>content</div>
                 </ng-template>
-            </pzm-expand>
+            </prizm-expand>
         `,
     })
     class TestComponent {
@@ -116,8 +116,8 @@ describe('expand', () => {
             fixture.detectChanges();
         });
 
-        it('after the PZM_EXPAND_LOADED event, the loader is hidden', fakeAsync(() => {
-            const event = new CustomEvent(PZM_EXPAND_LOADED, {bubbles: true});
+        it('after the PRIZM_EXPAND_LOADED event, the loader is hidden', fakeAsync(() => {
+            const event = new CustomEvent(PRIZM_EXPAND_LOADED, {bubbles: true});
 
             testComponent.content.nativeElement.dispatchEvent(event);
             fixture.detectChanges();

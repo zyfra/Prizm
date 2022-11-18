@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PrizmAppearance, PrizmAppearanceType, PrizmContent, PrizmSize } from '@digital-plant/zui-components';
+import { PrizmAppearance, PrizmAppearanceType, PrizmContent, PrizmSize } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-split-button-example',
+  selector: 'prizm-split-button-example',
   templateUrl: './split-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [`

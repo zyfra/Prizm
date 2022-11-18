@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pzm-filled-buttons-example',
+  selector: 'prizm-filled-buttons-example',
   templateUrl: './filled-buttons-example.component.html',
   styles: [
     `

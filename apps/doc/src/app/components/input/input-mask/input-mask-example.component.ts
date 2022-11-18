@@ -1,9 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PrizmInputSize, PrizmInputStatus } from '@digital-plant/zui-components';
+import { PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'pzm-input-mask-example',
+  selector: 'prizm-input-mask-example',
   templateUrl: './input-mask-example.component.html',
   styleUrls: ['./input-mask-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

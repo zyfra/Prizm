@@ -1,9 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { ISwitcher, SwitcherSize, SwitcherType } from '@digital-plant/zui-components';
+import { ISwitcher, SwitcherSize, SwitcherType } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-switcher-example',
+  selector: 'prizm-switcher-example',
   templateUrl: './switcher-example.component.html',
   styleUrls: ['./switcher-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

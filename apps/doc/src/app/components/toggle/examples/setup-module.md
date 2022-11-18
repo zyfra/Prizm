@@ -1,6 +1,6 @@
 ```ts
 import {NgModule} from '@angular/core';
-import {PrizmToggleModule} from "@digital-plant/zui-components";
+import {PrizmToggleModule} from "@prizm-ui/components";
 
 // ...
 

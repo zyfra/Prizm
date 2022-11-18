@@ -1,19 +1,18 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { PrizmMonthRange } from '../../../@core/date-time/month-range';
-import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { PZM_FIRST_DAY, PZM_LAST_DAY, PrizmDay, PrizmDayRange, PrizmMonth } from '../../../@core/date-time';
+import { PRIZM_FIRST_DAY, PRIZM_LAST_DAY, PrizmDay, PrizmDayRange, PrizmMonth } from '../../../@core/date-time';
 import { PrizmBooleanHandler } from '../../../types/handler';
-import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
-import { pzmInRange } from '../../../util/math/in-range';
+import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
+import { prizmInRange } from '../../../util/math/in-range';
 import { PrizmInteractiveState } from '../../../directives';
 import { PrizmRangeState } from '../../../@core/enums/range-state';
-import { pzmPure } from '../../../decorators/pure';
+import { prizmPure, prizmDefaultProp } from '@prizm-ui/core';
 
 const ITEMS_IN_ROW = 3;
 const ROWS = 4;
 
 @Component({
-    selector: `pzm-primitive-month-picker`,
+    selector: `prizm-primitive-month-picker`,
     templateUrl: `./primitive-month-picker.component.html`,
     styleUrls: [`./primitive-month-picker.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -25,28 +24,28 @@ export class PrizmPrimitiveMonthPickerComponent {
 
     public readonly ITEMS_IN_ROW = ITEMS_IN_ROW;
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     value: PrizmMonthRange | PrizmMonth | PrizmDayRange | null = null;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     currentYear: number = PrizmMonth.currentLocal().year;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     initialItem: PrizmMonth = PrizmMonth.currentLocal();
 
     @Input()
-    @pzmDefaultProp()
-    min: PrizmMonth = PZM_FIRST_DAY;
+    @prizmDefaultProp()
+    min: PrizmMonth = PRIZM_FIRST_DAY;
 
     @Input()
-    @pzmDefaultProp()
-    max: PrizmMonth = PZM_LAST_DAY;
+    @prizmDefaultProp()
+    max: PrizmMonth = PRIZM_LAST_DAY;
 
     @Input()
-    @pzmDefaultProp()
-    disabledItemHandler: PrizmBooleanHandler<number> = PZM_ALWAYS_FALSE_HANDLER;
+    @prizmDefaultProp()
+    disabledItemHandler: PrizmBooleanHandler<number> = PRIZM_ALWAYS_FALSE_HANDLER;
 
     @Output()
     readonly monthClick = new EventEmitter<PrizmMonth>();
@@ -59,7 +58,7 @@ export class PrizmPrimitiveMonthPickerComponent {
     }
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_primitive_month_picker';
+    readonly testId = 'prizm_primitive_month_picker';
 
     get rows(): number {
         return ROWS;
@@ -73,7 +72,7 @@ export class PrizmPrimitiveMonthPickerComponent {
         return this.initialItem.month === item;
     }
 
-    @pzmPure
+    @prizmPure
     public getItem(rowIndex: number, colIndex: number): PrizmMonth {
       const month = (colIndex) + (rowIndex * ITEMS_IN_ROW);
 
@@ -85,7 +84,7 @@ export class PrizmPrimitiveMonthPickerComponent {
 
       if (
             (max.month < item && max.year <= this.currentYear) ||
-            (disabledItemHandler !== PZM_ALWAYS_FALSE_HANDLER && disabledItemHandler(item))
+            (disabledItemHandler !== PRIZM_ALWAYS_FALSE_HANDLER && disabledItemHandler(item))
         ) {
             return PrizmInteractiveState.Disabled;
         }
@@ -189,7 +188,7 @@ export class PrizmPrimitiveMonthPickerComponent {
             return false;
         }
 
-        return pzmInRange(
+        return prizmInRange(
             item,
             Math.min(value.from.month, hoveredItem),
             Math.max(value.from.month, hoveredItem),

@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PrizmCarouselYearMonth, PrizmCarouselPrizmCarouselYearMonthValue } from '@digital-plant/zui-components';
+import { PrizmCarouselYearMonth, PrizmCarouselPrizmCarouselYearMonthValue } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-carousel-year-month-example',
+  selector: 'prizm-carousel-year-month-example',
   templateUrl: './carousel-year-month-example.component.html',
   styleUrls: ['./carousel-year-month-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

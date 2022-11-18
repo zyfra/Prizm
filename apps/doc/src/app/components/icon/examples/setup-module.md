@@ -1,6 +1,6 @@
 ```ts
 import {NgModule} from '@angular/core';
-import {PrizmIconModule} from "@digital-plant/zui-components";
+import {PrizmIconModule} from "@prizm-ui/components";
 // ...
 
 @NgModule({

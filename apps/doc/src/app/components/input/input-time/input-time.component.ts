@@ -7,11 +7,11 @@ import {
   PrizmSizeL,
   PrizmSizeM,
   PrizmTime, PrizmTimeMode,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'pzm-input-date-example',
+  selector: 'prizm-input-date-example',
   templateUrl: './input-time.component.html',
   styleUrls: ['./input-time.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

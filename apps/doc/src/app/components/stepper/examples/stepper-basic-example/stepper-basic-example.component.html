@@ -1,25 +1,25 @@
-<pzm-stepper
+<prizm-stepper
   [currentStep]="currentStep"
   [title]="'Stepper basic example'"
   (selectStep)="this.currentStep = $event"
 >
   <ng-template
-    [pzmStepperStep]="1"
+    [prizmStepperStep]="1"
     [title]="steps[1].title"
     [status]="steps[1].status"
     [disabled]="steps[1].disabled"
   >
     <div>
-      <pzm-select
+      <prizm-select
         [items]="statusItems"
         [(ngModel)]="steps[1].status"
         [label]="'Состояние'"
         [forceClear]="false"
       >
-      </pzm-select>
+      </prizm-select>
 
       <div class="next-step-disabled-container">
-        <pzm-checkbox [(ngModel)]="steps[2].disabled">Шаг 2 disabled</pzm-checkbox>
+        <prizm-checkbox [(ngModel)]="steps[2].disabled">Шаг 2 disabled</prizm-checkbox>
       </div>
     </div>
     <br />
@@ -40,21 +40,21 @@
     </div>
   </ng-template>
   <ng-template
-    [pzmStepperStep]="2"
+    [prizmStepperStep]="2"
     [title]="steps[2].title"
     [status]="steps[2].status"
     [disabled]="steps[2].disabled"
   >
     <div>
-      <pzm-select
+      <prizm-select
         [items]="statusItems"
         [(ngModel)]="steps[2].status"
         [label]="'Состояние'"
         [forceClear]="false"
       >
-      </pzm-select>
+      </prizm-select>
       <div class="next-step-disabled-container">
-        <pzm-checkbox [(ngModel)]="steps[3].disabled">Шаг 3 disabled</pzm-checkbox>
+        <prizm-checkbox [(ngModel)]="steps[3].disabled">Шаг 3 disabled</prizm-checkbox>
       </div>
     </div>
     <br />
@@ -79,22 +79,22 @@
     </div>
   </ng-template>
   <ng-template
-    [pzmStepperStep]="3"
+    [prizmStepperStep]="3"
     [title]="steps[3].title"
     [status]="steps[3].status"
     [disabled]="steps[3].disabled"
   >
     <div>
-      <pzm-select
+      <prizm-select
         [items]="statusItems"
         [(ngModel)]="steps[3].status"
         [label]="'Состояние'"
         [forceClear]="false"
       >
-      </pzm-select>
+      </prizm-select>
 
       <div class="next-step-disabled-container">
-        <pzm-checkbox [(ngModel)]="steps[4].disabled">Шаг 4 disabled</pzm-checkbox>
+        <prizm-checkbox [(ngModel)]="steps[4].disabled">Шаг 4 disabled</prizm-checkbox>
       </div>
     </div>
     <br />
@@ -120,21 +120,21 @@
     </div>
   </ng-template>
   <ng-template
-    [pzmStepperStep]="4"
+    [prizmStepperStep]="4"
     [title]="steps[4].title"
     [status]="steps[4].status"
     [disabled]="steps[4].disabled"
   >
     <div>
-      <pzm-select
+      <prizm-select
         [items]="statusItems"
         [(ngModel)]="steps[4].status"
         [label]="'Состояние'"
         [forceClear]="false"
       >
-      </pzm-select>
+      </prizm-select>
       <div class="next-step-disabled-container">
-        <pzm-checkbox [(ngModel)]="steps[5].disabled">Шаг 5 disabled</pzm-checkbox>
+        <prizm-checkbox [(ngModel)]="steps[5].disabled">Шаг 5 disabled</prizm-checkbox>
       </div>
     </div>
     <br />
@@ -163,19 +163,19 @@
   </ng-template>
 
   <ng-template
-    [pzmStepperStep]="5"
+    [prizmStepperStep]="5"
     [title]="steps[5].title"
     [status]="steps[5].status"
     [disabled]="steps[5].disabled"
   >
     <div>
-      <pzm-select
+      <prizm-select
         [items]="statusItems"
         [(ngModel)]="steps[5].status"
         [label]="'Состояние'"
         [forceClear]="false"
       >
-      </pzm-select>
+      </prizm-select>
     </div>
     <br />
     <div>
@@ -193,9 +193,9 @@
     </div>
   </ng-template>
 
-  <div class="footer" pzmStepperFooter>
+  <div class="footer" prizmStepperFooter>
     <button
-      pzmButton
+      prizmButton
       appearanceType="outline"
       appearance="primary"
       size="l"
@@ -205,7 +205,7 @@
       Предыдущий шаг
     </button>
     <button
-      pzmButton
+      prizmButton
       appearanceType="outline"
       appearance="primary"
       size="l"
@@ -216,9 +216,9 @@
       Следующий шаг
     </button>
 
-    <button pzmButton appearanceType="outline" appearance="success" size="l" *ngIf="currentStep === 5">
+    <button prizmButton appearanceType="outline" appearance="success" size="l" *ngIf="currentStep === 5">
       Завершить
     </button>
   </div>
-</pzm-stepper>
+</prizm-stepper>
 

@@ -6,7 +6,7 @@ interface IGridItem {
 }
 
 @Component({
-  selector: 'pzm-grid-example-basic',
+  selector: 'prizm-grid-example-basic',
   templateUrl: './grid-example-basic.component.html',
   styleUrls: ['./grid-example-basic.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

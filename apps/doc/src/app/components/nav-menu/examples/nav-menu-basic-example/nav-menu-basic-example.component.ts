@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PrizmMenuItem } from '@digital-plant/zui-components';
+import { PrizmMenuItem } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-nav-menu-basic-example',
+  selector: 'prizm-nav-menu-basic-example',
   templateUrl: './nav-menu-basic-example.component.html',
   styleUrls: ['./nav-menu-basic-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

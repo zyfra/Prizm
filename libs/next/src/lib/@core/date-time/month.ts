@@ -1,10 +1,10 @@
 import { PrizmMonthLike } from '../../types/month-like';
-import { pzmPadStart } from '../../util/format/pad-start';
-import { pzmInRange } from '../../util/math/in-range';
-import { pzmNormalizeToIntNumber } from '../../util/math/normalize-to-int-number';
+import { prizmPadStart } from '../../util/format/pad-start';
+import { prizmInRange } from '../../util/math/in-range';
+import { prizmNormalizeToIntNumber } from '../../util/math/normalize-to-int-number';
 import { PrizmMonthNumber } from '../enums/month-number';
 
-import { PZM_DAYS_IN_WEEK, PZM_MAX_MONTH, PZM_MIN_MONTH, PZM_MONTHS_IN_YEAR } from './date-time';
+import { PRIZM_DAYS_IN_WEEK, PRIZM_MAX_MONTH, PRIZM_MIN_MONTH, PRIZM_MONTHS_IN_YEAR } from './date-time';
 import { PrizmYear } from './year';
 
 /**
@@ -76,18 +76,18 @@ export class PrizmMonth extends PrizmYear implements PrizmMonthLike {
      * Normalizes number by clamping it between min and max month
      */
     protected static normalizeMonthPart(month: number): number {
-        return pzmNormalizeToIntNumber(month, PZM_MIN_MONTH, PZM_MAX_MONTH);
+        return prizmNormalizeToIntNumber(month, PRIZM_MIN_MONTH, PRIZM_MAX_MONTH);
     }
 
     /**
      * Tests month for validity
      */
     private static isValidMonthPart(month: number): boolean {
-        return Number.isInteger(month) && pzmInRange(month, PZM_MIN_MONTH, PZM_MAX_MONTH + 1);
+        return Number.isInteger(month) && prizmInRange(month, PRIZM_MIN_MONTH, PRIZM_MAX_MONTH + 1);
     }
 
     get formattedMonthPart(): string {
-        return pzmPadStart(String(this.month + 1), 2, `0`);
+        return prizmPadStart(String(this.month + 1), 2, `0`);
     }
 
     /**
@@ -104,7 +104,7 @@ export class PrizmMonth extends PrizmYear implements PrizmMonthLike {
      * Calculates number of weeks in a month (counting non-full weeks)
      */
     get weeksRowsCount(): number {
-        return Math.ceil((this.monthStartDaysOffset + this.daysCount) / PZM_DAYS_IN_WEEK);
+        return Math.ceil((this.monthStartDaysOffset + this.daysCount) / PRIZM_DAYS_IN_WEEK);
     }
 
     /**
@@ -126,7 +126,7 @@ export class PrizmMonth extends PrizmYear implements PrizmMonthLike {
             result += PrizmMonth.getMonthDaysCount(currentMonth, this.isLeapYear);
         }
 
-        return result % PZM_DAYS_IN_WEEK;
+        return result % PRIZM_DAYS_IN_WEEK;
     }
 
     /**
@@ -190,11 +190,11 @@ export class PrizmMonth extends PrizmYear implements PrizmMonthLike {
             month *= -1;
         }
 
-        const totalMonths = (this.year + year) * PZM_MONTHS_IN_YEAR + this.month + month;
+        const totalMonths = (this.year + year) * PRIZM_MONTHS_IN_YEAR + this.month + month;
 
         return new PrizmMonth(
-            Math.floor(totalMonths / PZM_MONTHS_IN_YEAR),
-            totalMonths % PZM_MONTHS_IN_YEAR,
+            Math.floor(totalMonths / PRIZM_MONTHS_IN_YEAR),
+            totalMonths % PRIZM_MONTHS_IN_YEAR,
         );
     }
 

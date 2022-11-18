@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 
 @Component({
-  selector: 'pzm-select-panel-example',
+  selector: 'prizm-select-panel-example',
   templateUrl: './select-panel-example.component.html',
   styleUrls: ['./select-panel-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

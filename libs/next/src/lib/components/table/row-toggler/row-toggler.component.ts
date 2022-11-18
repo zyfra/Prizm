@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 
 @Component({
-  selector: 'pzm-row-toggler',
+  selector: 'prizm-row-toggler',
   templateUrl: './row-toggler.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -10,5 +10,5 @@ export class PrizmRowTogglerComponent {
   @Input() expanded: boolean;
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_row_toggler';
+  readonly testId = 'prizm_row_toggler';
 }

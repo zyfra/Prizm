@@ -7,7 +7,7 @@ import { PrizmLinkModule } from '../../link/link.module';
 import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host';
 import { PrizmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
 import { PrizmPreventDefaultModule } from '../../../directives/prevent-default/prevent-default.module';
-import { PrizmLetModule } from '@digital-plant/zyfra-helpers';
+import { PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmInputTextModule } from '../input-text/input-text.module';
 import { PrizmIconModule } from '../../icon/icon.module';
 import { FormsModule } from '@angular/forms';

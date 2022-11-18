@@ -29,7 +29,7 @@ export type PrizmSelectStringify<T> = (i:T, nullContent?: string) => string;
 export type PrizmSelectValueContext<T> = PrizmContextWithImplicit<T> & {stringify: string};
 
 /** Default values for dropdown-host options */
-export const PZM_SELECT_DEFAULT_OPTIONS: PrizmSelectOptions<unknown> = {
+export const PRIZM_SELECT_DEFAULT_OPTIONS: PrizmSelectOptions<unknown> = {
   items: [],
   searchable: false,
   outer: false,
@@ -55,16 +55,16 @@ export const PZM_SELECT_DEFAULT_OPTIONS: PrizmSelectOptions<unknown> = {
   label: 'Выберите из списка',
 };
 
-export const PZM_SELECT_OPTIONS = new InjectionToken<PrizmSelectOptions<unknown>>(
+export const PRIZM_SELECT_OPTIONS = new InjectionToken<PrizmSelectOptions<unknown>>(
     'Default parameters for select',
     {
-        factory: (): PrizmSelectOptions<unknown> => PZM_SELECT_DEFAULT_OPTIONS,
+        factory: (): PrizmSelectOptions<unknown> => PRIZM_SELECT_DEFAULT_OPTIONS,
     },
 );
 
-export const pzmSelectOptionsProvider: (
+export const prizmSelectOptionsProvider: (
     options: Partial<PrizmSelectOptions<unknown>>,
 ) => ValueProvider = (options: Partial<PrizmSelectOptions<unknown>>) => ({
-    provide: PZM_SELECT_OPTIONS,
-    useValue: {...PZM_SELECT_DEFAULT_OPTIONS, ...options},
+    provide: PRIZM_SELECT_OPTIONS,
+    useValue: {...PRIZM_SELECT_DEFAULT_OPTIONS, ...options},
 });

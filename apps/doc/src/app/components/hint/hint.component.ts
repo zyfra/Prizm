@@ -2,39 +2,39 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
 import {
   PolymorphContent,
-  PZM_HINT_DEFAULT_OPTIONS,
+  PRIZM_HINT_DEFAULT_OPTIONS,
   PrizmHintOptions,
   PrizmOverlayOutsidePlacement
-} from "@digital-plant/zui-components";
+} from "@prizm-ui/components";
 
 @Component({
-  selector: 'pzm-hint-example',
+  selector: 'prizm-hint-example',
   templateUrl: './hint.component.html',
   styleUrls: ['./hint.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HintComponent {
-  public pzmAutoReposition = false;
-  public pzmHintCanShow = true;
+  public prizmAutoReposition = false;
+  public prizmHintCanShow = true;
   public content = "Тестовое содержимое";
 
-  public readonly pzmHintDirectionVariants: ReadonlyArray<PrizmHintOptions['direction']> = Object.values(PrizmOverlayOutsidePlacement);
+  public readonly prizmHintDirectionVariants: ReadonlyArray<PrizmHintOptions['direction']> = Object.values(PrizmOverlayOutsidePlacement);
 
-  public pzmHintDirection: PrizmHintOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
+  public prizmHintDirection: PrizmHintOptions['direction'] = PRIZM_HINT_DEFAULT_OPTIONS.direction;
 
-  public pzmHintId = 'hint-id';
+  public prizmHintId = 'hint-id';
 
-  public pzmHintShowDelay: number = PZM_HINT_DEFAULT_OPTIONS.showDelay;
+  public prizmHintShowDelay: number = PRIZM_HINT_DEFAULT_OPTIONS.showDelay;
 
-  public pzmHintHideDelay: number = PZM_HINT_DEFAULT_OPTIONS.hideDelay;
+  public prizmHintHideDelay: number = PRIZM_HINT_DEFAULT_OPTIONS.hideDelay;
 
-  public pzmHintHost: HTMLElement = null;
+  public prizmHintHost: HTMLElement = null;
 
-  public readonly pzmHintVariants = [
+  public readonly prizmHintVariants = [
     'Новый хинт'
   ];
 
-  public pzmHint: PolymorphContent =  this.pzmHintVariants[0];
+  public prizmHint: PolymorphContent =  this.prizmHintVariants[0];
 
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'

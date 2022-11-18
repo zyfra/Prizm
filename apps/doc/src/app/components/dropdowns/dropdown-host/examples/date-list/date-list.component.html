@@ -1,43 +1,43 @@
-<pzm-dropdown-host
+<prizm-dropdown-host
   [content]="dropdown"
-  pzmDropdownHostWidth='auto'
+  prizmDropdownHostWidth='auto'
   [(isOpen)]="open"
   (isOpenChange)='$event && select(null)'
 >
-  <button pzmButton type="button" (click)="open = !open">
+  <button prizmButton type="button" (click)="open = !open">
     Пример выбора периода
   </button>
-</pzm-dropdown-host>
+</prizm-dropdown-host>
 
 <ng-template #dropdown let-zone='zone'>
-  <pzm-data-list [style.--pzm-data-list-border]='0'>
+  <prizm-data-list [style.--prizm-data-list-border]='0'>
     <div class='header' header>
-        <pzm-icon iconClass='date-calendar-range'></pzm-icon>
+        <prizm-icon iconClass='date-calendar-range'></prizm-icon>
         <span>Выбор периода</span>
     </div>
     <div class="box">
       <div class='list'>
-        <pzm-radio-button
+        <prizm-radio-button
           *ngFor="let item of data"
           (click)="select(item)"
           [label]="item.title"
           [value]="item.range"
-        ></pzm-radio-button>
-        <pzm-radio-button
+        ></prizm-radio-button>
+        <prizm-radio-button
           (click)="select(null)"
           [label]="'Произвольный диапазон'"
           [value]="null"
-        ></pzm-radio-button>
+        ></prizm-radio-button>
       </div>
 
       <div class='date-control'>
-        <pzm-input-date-time [pzmEventZoneParent]='zone' label='Начало' [formControl]='startControl'></pzm-input-date-time>
-        <pzm-input-date-time [pzmEventZoneParent]='zone' label='Конец' [formControl]='endControl'></pzm-input-date-time>
+        <prizm-input-date-time [prizmEventZoneParent]='zone' label='Начало' [formControl]='startControl'></prizm-input-date-time>
+        <prizm-input-date-time [prizmEventZoneParent]='zone' label='Конец' [formControl]='endControl'></prizm-input-date-time>
       </div>
     </div>
     <div class='footer' footer>
-      <button appearanceType='ghost' appearance='secondary' pzmButton (click)="open = false; cdRef.markForCheck()">Отменить</button>
-      <button pzmButton (click)="open = false; cdRef.markForCheck()">Выбрать</button>
+      <button appearanceType='ghost' appearance='secondary' prizmButton (click)="open = false; cdRef.markForCheck()">Отменить</button>
+      <button prizmButton (click)="open = false; cdRef.markForCheck()">Выбрать</button>
     </div>
-  </pzm-data-list>
+  </prizm-data-list>
 </ng-template>

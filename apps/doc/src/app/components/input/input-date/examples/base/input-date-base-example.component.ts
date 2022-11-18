@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PrizmDay } from '@digital-plant/zui-components';
+import { PrizmDay } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-input-date-base-example',
+  selector: 'prizm-input-date-base-example',
   templateUrl: './input-date-base-example.component.html',
   styles: [`
     .box {

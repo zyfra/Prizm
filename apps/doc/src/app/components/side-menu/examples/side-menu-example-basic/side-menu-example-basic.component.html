@@ -1,11 +1,11 @@
 <div class="container">
-  <pzm-panel header="Заголовок">
+  <prizm-panel header="Заголовок">
     <div class="toggle-container" instruments>
       <div class="toggle" [class.toggle_active]="isSideMenuOpened" (click)="toggleSideMenu()">
-        <pzm-icon class="toggle__icon" [size]="16" iconClass="editor-panel-right"></pzm-icon>
+        <prizm-icon class="toggle__icon" [size]="16" iconClass="editor-panel-right"></prizm-icon>
       </div>
     </div>
-  </pzm-panel>
+  </prizm-panel>
   <div class="content" [class.content_column]="sideMenuType === 'col'">
     <div class="content__inner">
       <ul class="elements-list">
@@ -22,29 +22,29 @@
 
     <div class="side-menu" *ngIf="isSideMenuOpened">
       <div class="header">
-        <pzm-panel header="Side Menu">
+        <prizm-panel header="Side Menu">
           <div class="instruments" instruments>
             <div class="instruments__group">
-              <pzm-icon
+              <prizm-icon
                 [size]="16"
                 class="instruments__icon"
                 iconClass="editor-down-1"
                 (click)="changeSideMenuType()"
-              ></pzm-icon>
+              ></prizm-icon>
             </div>
 
             <div class="instruments__group">
-              <pzm-icon [size]="16" class="instruments__icon" iconClass="cansel-delete-content"></pzm-icon>
-              <pzm-icon [size]="16" class="instruments__icon" iconClass="tools-content-save"></pzm-icon>
+              <prizm-icon [size]="16" class="instruments__icon" iconClass="cansel-delete-content"></prizm-icon>
+              <prizm-icon [size]="16" class="instruments__icon" iconClass="tools-content-save"></prizm-icon>
             </div>
           </div>
-        </pzm-panel>
+        </prizm-panel>
       </div>
       <div class="side-menu__content" [class.side-menu__content_empty]="selectedElementIdx === -1">
         <div class="input" *ngIf="selectedElementIdx > -1">
-          <pzm-input-layout [style.width.%]="100" [label]="'Заголовок ' + (selectedElementIdx + 1)">
-            <input pzmInput value="Контент" />
-          </pzm-input-layout>
+          <prizm-input-layout [style.width.%]="100" [label]="'Заголовок ' + (selectedElementIdx + 1)">
+            <input prizmInput value="Контент" />
+          </prizm-input-layout>
         </div>
         <div class="empty-message" *ngIf="selectedElementIdx === -1">
           <span class="empty-message__main">Нет данных для отображения</span>

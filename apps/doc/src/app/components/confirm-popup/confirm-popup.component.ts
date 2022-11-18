@@ -2,39 +2,39 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  PZM_CONFIRM_POPUP_DEFAULT_OPTIONS,
-  PZM_HINT_DEFAULT_OPTIONS,
+  PRIZM_CONFIRM_POPUP_DEFAULT_OPTIONS,
+  PRIZM_HINT_DEFAULT_OPTIONS,
   PrizmConfirmPopupOptions,
   PrizmOverlayOutsidePlacement,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-confirm-popup-example',
+  selector: 'prizm-confirm-popup-example',
   templateUrl: './confirm-popup.component.html',
   styleUrls: ['./confirm-popup.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConfirmPopupComponent {
   public content = 'Тестовое содержимое';
-  public pzmAutoReposition = false;
+  public prizmAutoReposition = false;
 
-  public readonly pzmConfirmPopupDirectionVariants: ReadonlyArray<PrizmConfirmPopupOptions['direction']> = Object.values(PrizmOverlayOutsidePlacement);
+  public readonly prizmConfirmPopupDirectionVariants: ReadonlyArray<PrizmConfirmPopupOptions['direction']> = Object.values(PrizmOverlayOutsidePlacement);
 
-  public pzmConfirmPopupDirection: PrizmConfirmPopupOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
+  public prizmConfirmPopupDirection: PrizmConfirmPopupOptions['direction'] = PRIZM_HINT_DEFAULT_OPTIONS.direction;
 
-  public pzmConfirmPopupId = 'confirm-id';
+  public prizmConfirmPopupId = 'confirm-id';
 
-  public pzmConfirmPopupShowDelay: number = PZM_CONFIRM_POPUP_DEFAULT_OPTIONS.showDelay;
+  public prizmConfirmPopupShowDelay: number = PRIZM_CONFIRM_POPUP_DEFAULT_OPTIONS.showDelay;
 
-  public pzmConfirmPopupHideDelay: number = PZM_CONFIRM_POPUP_DEFAULT_OPTIONS.hideDelay;
+  public prizmConfirmPopupHideDelay: number = PRIZM_CONFIRM_POPUP_DEFAULT_OPTIONS.hideDelay;
 
-  public pzmConfirmPopupHost: HTMLElement = null;
+  public prizmConfirmPopupHost: HTMLElement = null;
 
-  public readonly pzmConfirmPopupVariants = [
+  public readonly prizmConfirmPopupVariants = [
     'ConfirmPopup'
   ];
 
-  public pzmConfirmPopup: PolymorphContent =  this.pzmConfirmPopupVariants[0];
+  public prizmConfirmPopup: PolymorphContent =  this.prizmConfirmPopupVariants[0];
 
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'

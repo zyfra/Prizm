@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PrizmSelectIdentityMatcher, PrizmSelectSearchMatcher, PrizmSelectStringify } from '@digital-plant/zui-components';
+import { PrizmSelectIdentityMatcher, PrizmSelectSearchMatcher, PrizmSelectStringify } from '@prizm-ui/components';
 import { tap } from 'rxjs/operators';
 
 type PrizmItem = {
@@ -8,7 +8,7 @@ type PrizmItem = {
   name: string;
 }
 @Component({
-  selector: 'pzm-select-with-object-example',
+  selector: 'prizm-select-with-object-example',
   templateUrl: './select-with-object-example.component.html',
   styles: [`
     .item {

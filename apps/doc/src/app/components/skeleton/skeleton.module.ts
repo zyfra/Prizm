@@ -10,7 +10,7 @@ import {
   PrizmSelectModule,
   PrizmSkeletonModule,
   PrizmToggleModule,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmSkeletonBaseExampleComponent } from './examples/base/skeleton-base-example.component';
 

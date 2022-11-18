@@ -1,9 +1,9 @@
 import { Injectable, NgZone } from '@angular/core';
 import { merge, Observable } from 'rxjs';
 import { filter, mapTo, switchMap, tap } from 'rxjs/operators';
-import { pzmTypedFromEvent, pzmZoneFree } from '../../observables';
+import { prizmTypedFromEvent, prizmZoneFree } from '../../observables';
 import { PrizmEventWith } from '../../types';
-import { pzmCanScroll, pzmGetScrollParent } from '../../util/dom';
+import { prizmCanScroll, prizmGetScrollParent } from '../../util/dom';
 import { PrizmOverscrollMode } from './overscroll.model';
 
 @Injectable({
@@ -19,10 +19,10 @@ export class PrizmOverscrollService {
       nativeElement: HTMLElement,
     ): Observable<void> {
       return merge(
-          pzmTypedFromEvent(nativeElement, 'wheel', {passive: false})
+          prizmTypedFromEvent(nativeElement, 'wheel', {passive: false})
           .pipe(
             filter(() => this.isEnabled(mode)),
-            pzmZoneFree(this.ngZone),
+            prizmZoneFree(this.ngZone),
             tap(
               event => {
                 this.processEvent(
@@ -34,7 +34,7 @@ export class PrizmOverscrollService {
               }
             )
           ),
-          pzmTypedFromEvent(nativeElement, 'touchstart', {passive: true})
+          prizmTypedFromEvent(nativeElement, 'touchstart', {passive: true})
             .pipe(
               switchMap(({touches}: {touches: TouchList}) => {
                 let {clientX, clientY} = touches[0];
@@ -42,7 +42,7 @@ export class PrizmOverscrollService {
                 let deltaY = 0;
                 let vertical: boolean;
 
-                return pzmTypedFromEvent(nativeElement, 'touchmove', {
+                return prizmTypedFromEvent(nativeElement, 'touchmove', {
                   passive: false,
                 }).pipe(
                   filter(() => this.isEnabled(mode)),
@@ -68,7 +68,7 @@ export class PrizmOverscrollService {
                   }),
                 );
               }),
-              pzmZoneFree(this.ngZone),
+              prizmZoneFree(this.ngZone),
           )
       ).pipe(
         mapTo(void 0)
@@ -98,8 +98,8 @@ export class PrizmOverscrollService {
       // This is all what's needed in Chrome/Firefox thanks to CSS overscroll-behavior
       if (
         mode === 'all' &&
-        ((vertical && !currentTarget.contains(pzmGetScrollParent(target))) ||
-          (!vertical && !currentTarget.contains(pzmGetScrollParent(target, false))))
+        ((vertical && !currentTarget.contains(prizmGetScrollParent(target))) ||
+          (!vertical && !currentTarget.contains(prizmGetScrollParent(target, false))))
       ) {
         event.preventDefault();
 
@@ -109,8 +109,8 @@ export class PrizmOverscrollService {
       // This is Safari/IE/Edge fallback
       if (
         vertical &&
-        ((negative && !pzmCanScroll(target, currentTarget, true, false)) ||
-          (!negative && !pzmCanScroll(target, currentTarget, true, true)))
+        ((negative && !prizmCanScroll(target, currentTarget, true, false)) ||
+          (!negative && !prizmCanScroll(target, currentTarget, true, true)))
       ) {
         event.preventDefault();
 
@@ -119,8 +119,8 @@ export class PrizmOverscrollService {
 
       if (
         !vertical &&
-        ((negative && !pzmCanScroll(target, currentTarget, false, false)) ||
-          (!negative && !pzmCanScroll(target, currentTarget, false, true)))
+        ((negative && !prizmCanScroll(target, currentTarget, false, false)) ||
+          (!negative && !prizmCanScroll(target, currentTarget, false, true)))
       ) {
         event.preventDefault();
       }

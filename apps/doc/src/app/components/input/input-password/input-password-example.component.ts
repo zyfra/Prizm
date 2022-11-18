@@ -1,9 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PrizmInputSize, PrizmInputStatus } from '@digital-plant/zui-components';
+import { PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'pzm-input-password-example',
+  selector: 'prizm-input-password-example',
   templateUrl: './input-password-example.component.html',
   styleUrls: ['./input-password-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

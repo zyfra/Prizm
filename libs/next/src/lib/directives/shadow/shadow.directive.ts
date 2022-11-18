@@ -1,16 +1,16 @@
 import { Directive, HostBinding, Input } from '@angular/core';
 import { PrizmShadowType, PrizmShadowValue } from './models';
-import { pzmGetShadow } from './shadow.util';
+import { prizmGetShadow } from './shadow.util';
 
 @Directive({
-  selector: '[pzmShadow]',
+  selector: '[prizmShadow]',
 })
 export class PrizmShadowDirective {
-  @Input('pzmShadow')
+  @Input('prizmShadow')
   type: PrizmShadowType;
 
   @HostBinding('style.box-shadow')
   private get boxShadow(): PrizmShadowValue {
-    return pzmGetShadow(this.type)
+    return prizmGetShadow(this.type)
   }
 }

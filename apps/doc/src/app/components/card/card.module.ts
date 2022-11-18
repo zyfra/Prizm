@@ -4,7 +4,7 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { CardComponent } from './card.component';
 import { PrizmCardBaseExampleComponent } from './examples/base/card-base-example.component';
-import { PrizmCardModule } from '@digital-plant/zui-components';
+import { PrizmCardModule } from '@prizm-ui/components';
 
 @NgModule({
   imports: [

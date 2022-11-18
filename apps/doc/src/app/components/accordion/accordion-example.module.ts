@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AccordionExampleComponent } from './accordion-example.component';
-import { PrizmAccordionModule, PrizmCheckboxModule } from '@digital-plant/zui-components';
+import { PrizmAccordionModule, PrizmCheckboxModule } from '@prizm-ui/components';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { AccordionBasicExampleComponent } from './examples/accordion-basic-example/accordion-basic-example.component';

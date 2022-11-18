@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
-import { PrizmOverlayInsidePlacement, PrizmSidebarService } from '@digital-plant/zui-components';
+import { PrizmOverlayInsidePlacement, PrizmSidebarService } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-sidebar-top-bottom-example',
+  selector: 'prizm-sidebar-top-bottom-example',
   templateUrl: './top-bottom.component.html',
   styles: [`
     .box {

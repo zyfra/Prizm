@@ -1,13 +1,13 @@
-import { pzmCanScroll } from './can-scroll';
+import { prizmCanScroll } from './can-scroll';
 
-describe('pzmCanScroll', () => {
+describe('prizmCanScroll', () => {
     it('works vertically', () => {
         const parent = document.createElement('div');
         const child = document.createElement('div');
 
         parent.appendChild(child);
 
-        expect(pzmCanScroll(child, parent, true, true)).toEqual(false);
+        expect(prizmCanScroll(child, parent, true, true)).toEqual(false);
     });
 
     it('works horizontally', () => {
@@ -16,6 +16,6 @@ describe('pzmCanScroll', () => {
 
         parent.appendChild(child);
 
-        expect(pzmCanScroll(child, parent, false, true)).toEqual(false);
+        expect(prizmCanScroll(child, parent, false, true)).toEqual(false);
     });
 });

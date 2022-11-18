@@ -5,7 +5,7 @@ export interface PrizmMutationObserveOptions {
 }
 
 /** Default values for hint options */
-export const PZM_MUTATION_OBSERVER_DEFAULT_OPTIONS: PrizmMutationObserveOptions = {
+export const PRIZM_MUTATION_OBSERVER_DEFAULT_OPTIONS: PrizmMutationObserveOptions = {
   config: {
     childList: true,
     attributes: true,
@@ -13,16 +13,16 @@ export const PZM_MUTATION_OBSERVER_DEFAULT_OPTIONS: PrizmMutationObserveOptions 
   },
 };
 
-export const PZM_MUTATION_OBSERVER_OPTIONS = new InjectionToken<PrizmMutationObserveOptions>(
+export const PRIZM_MUTATION_OBSERVER_OPTIONS = new InjectionToken<PrizmMutationObserveOptions>(
   'Default parameters for mutation observer directive',
   {
-    factory: (): PrizmMutationObserveOptions => PZM_MUTATION_OBSERVER_DEFAULT_OPTIONS,
+    factory: (): PrizmMutationObserveOptions => PRIZM_MUTATION_OBSERVER_DEFAULT_OPTIONS,
   }
 );
 
-export const pzmMutationObserverOptionsProvider: (
+export const prizmMutationObserverOptionsProvider: (
   options: Partial<PrizmMutationObserveOptions>
 ) => ValueProvider = (options: Partial<PrizmMutationObserveOptions>) => ({
-  provide: PZM_MUTATION_OBSERVER_OPTIONS,
-  useValue: { ...PZM_MUTATION_OBSERVER_DEFAULT_OPTIONS, ...options },
+  provide: PRIZM_MUTATION_OBSERVER_OPTIONS,
+  useValue: { ...PRIZM_MUTATION_OBSERVER_DEFAULT_OPTIONS, ...options },
 });

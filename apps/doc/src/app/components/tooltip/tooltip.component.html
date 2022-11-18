@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <pzm-tooltip-base-example></pzm-tooltip-base-example>
+      <prizm-tooltip-base-example></prizm-tooltip-base-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -21,7 +21,7 @@
       heading="With Template"
       [content]="exampleWithTemplate"
     >
-      <pzm-tooltip-with-template-example></pzm-tooltip-with-template-example>
+      <prizm-tooltip-with-template-example></prizm-tooltip-with-template-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -29,7 +29,7 @@
       heading="With Component"
       [content]="exampleWithComponent"
     >
-      <pzm-tooltip-with-component-example></pzm-tooltip-with-component-example>
+      <prizm-tooltip-with-component-example></prizm-tooltip-with-component-example>
     </tui-doc-example>
 
   </ng-template>
@@ -37,14 +37,14 @@
   <ng-template pageTab>
     <tui-doc-demo>
       <button
-        pzmButton
-        [pzmTooltip]="content"
-        [pzmAutoReposition]="pzmAutoReposition"
-        [pzmTooltipDirection]="pzmTooltipDirection"
-        [pzmTooltipId]="pzmTooltipId"
-        [pzmTooltipShowDelay]="pzmTooltipShowDelay"
-        [pzmTooltipHideDelay]="pzmTooltipHideDelay"
-        [pzmTooltipHost]="pzmTooltipHost"
+        prizmButton
+        [prizmTooltip]="content"
+        [prizmAutoReposition]="prizmAutoReposition"
+        [prizmTooltipDirection]="prizmTooltipDirection"
+        [prizmTooltipId]="prizmTooltipId"
+        [prizmTooltipShowDelay]="prizmTooltipShowDelay"
+        [prizmTooltipHideDelay]="prizmTooltipHideDelay"
+        [prizmTooltipHost]="prizmTooltipHost"
       >
         Button
       </button>
@@ -52,7 +52,7 @@
     <tui-doc-documentation>
 
       <ng-template
-        documentationPropertyName="pzmTooltip"
+        documentationPropertyName="prizmTooltip"
         documentationPropertyType="string"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="content"
@@ -61,53 +61,53 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="pzmAutoReposition"
+        documentationPropertyName="prizmAutoReposition"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pzmAutoReposition"
+        [(documentationPropertyValue)]="prizmAutoReposition"
       >
         Auto Reposition
       </ng-template>
 
       <ng-template
-        documentationPropertyName="pzmTooltipDirection"
+        documentationPropertyName="prizmTooltipDirection"
         documentationPropertyType="PrizmOverlayOutsidePlacement"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="pzmTooltipDirectionVariants"
-        [(documentationPropertyValue)]="pzmTooltipDirection"
+        [documentationPropertyValues]="prizmTooltipDirectionVariants"
+        [(documentationPropertyValue)]="prizmTooltipDirection"
       >
         Tooltip Direction
       </ng-template>
 
       <ng-template
-        documentationPropertyName="pzmTooltipId"
+        documentationPropertyName="prizmTooltipId"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pzmTooltipId"
+        [(documentationPropertyValue)]="prizmTooltipId"
       >
         Tooltip Id
       </ng-template>
 
       <ng-template
-        documentationPropertyName="pzmTooltipShowDelay"
+        documentationPropertyName="prizmTooltipShowDelay"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pzmTooltipShowDelay"
+        [(documentationPropertyValue)]="prizmTooltipShowDelay"
       >
         Show Delay
       </ng-template>
 
       <ng-template
-        documentationPropertyName="pzmTooltipHideDelay"
+        documentationPropertyName="prizmTooltipHideDelay"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pzmTooltipHideDelay"
+        [(documentationPropertyValue)]="prizmTooltipHideDelay"
       >
         Hide Delay
       </ng-template>
 
       <ng-template
-        documentationPropertyName="pzmTooltipHost"
+        documentationPropertyName="prizmTooltipHost"
         documentationPropertyType="HtmlElement"
         documentationPropertyMode="input"
       >

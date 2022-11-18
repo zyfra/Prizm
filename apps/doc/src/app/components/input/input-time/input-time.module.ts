@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { InputTimeTimeComponent } from './input-time.component';
-import { PolymorphModule, PrizmInputTimeModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PrizmInputTimeModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputTimeBaseExampleComponent } from './examples/base/input-time-base-example.component';
 import {

@@ -10,17 +10,17 @@ import {
 } from '@angular/core';
 
 @Directive({
-    selector: 'input[pzmChecked], input[pzmCheckedChange]',
+    selector: 'input[prizmChecked], input[prizmCheckedChange]',
 })
 export class PrizmCheckedDirective {
     @Input()
-    set pzmChecked(checked: null | boolean) {
+    set prizmChecked(checked: null | boolean) {
         this.updateProperty('checked', checked || false);
         this.updateProperty('indeterminate', checked === null);
     }
 
     @Output()
-    readonly pzmCheckedChange = new EventEmitter<boolean>();
+    readonly prizmCheckedChange = new EventEmitter<boolean>();
 
     constructor(
         @Inject(ElementRef)
@@ -33,7 +33,7 @@ export class PrizmCheckedDirective {
     @HostListener('change', ['$event.target'])
     public onChange({checked}: HTMLInputElement): void {
         this.updateProperty('indeterminate', false);
-        this.pzmCheckedChange.emit(checked);
+        this.prizmCheckedChange.emit(checked);
     }
 
     private updateProperty(property: 'checked' | 'indeterminate', value: boolean): void {

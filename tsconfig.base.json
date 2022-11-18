@@ -18,9 +18,12 @@
     "strictPropertyInitialization": false,
     "baseUrl": ".",
     "paths": {
-      "@digital-plant/zui-components": ["libs/next/src/index.ts"],
+      "@prizm-ui/charts": ["libs/prizm/charts/src/index.ts"],
+      "@prizm-ui/core": ["libs/prizm/core/src/index.ts"],
+      "@digital-plant/prizm-theme": ["libs/prizm/theme/src/index.ts"],
+      "@prizm-ui/components": ["libs/next/src/index.ts"],
       "@digital-plant/zyfra-components": ["libs/components/src/index.ts"],
-      "@digital-plant/zyfra-helpers": ["libs/helpers/src/index.ts"],
+      "@prizm-ui/helpers": ["libs/helpers/src/index.ts"],
       "@digital-plant/zyfra-translate": ["libs/translate/src/index.ts"],
       "@digital-plant/zyfra-ui": ["libs/schematics/src/index.ts"]
     }

@@ -1,29 +1,29 @@
-<div class='box' pzmFocusTrap>
-  <div *ngIf="context.header" class='header pzm-font-title-h4'>
-    <pzm-scrollbar visibility='hidden'
+<div class='box' prizmFocusTrap>
+  <div *ngIf="context.header" class='header prizm-font-title-h4'>
+    <prizm-scrollbar visibility='hidden'
        *polymorphOutlet="context.header as data; context: context">
       <div class='title'>
         {{data}}
       </div>
-    </pzm-scrollbar>
+    </prizm-scrollbar>
     <button
       *ngIf="context.closeable"
       [size]='16'
-      pzmInputIconButton="cancel-close"
+      prizmInputIconButton="cancel-close"
       (click)='close()'
       [interactive]="true"
     ></button>
   </div>
 
-  <div class="content pzm-font-main-body-14">
-    <pzm-scrollbar class='scrollbar'>
+  <div class="content prizm-font-main-body-14">
+    <prizm-scrollbar class='scrollbar'>
       <div *polymorphOutlet="context.content as text; context: context">
         {{ text }}
       </div>
-    </pzm-scrollbar>
+    </prizm-scrollbar>
   </div>
 
-  <div class="footer pzm-font-btn-links-14">
+  <div class="footer prizm-font-btn-links-14">
     <ng-container>
       <div class='horizontal'>
         <div class='left'>
@@ -51,7 +51,7 @@
         [style]='button.style'
         [appearance]='button.appearance'
         [appearanceType]='button.appearanceType'
-        pzmButton
+        prizmButton
         [size]="button.size"
         (click)="button.action(context)"
       >{{button.text}}</button>

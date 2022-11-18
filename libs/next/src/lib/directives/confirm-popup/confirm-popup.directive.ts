@@ -1,72 +1,72 @@
 /* eslint-disable @angular-eslint/no-input-rename */
 import { Directive, EventEmitter, forwardRef, HostListener, Input, Output } from '@angular/core';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmConfirmPopupContainerComponent } from './confirm-popup-container.component';
 import {
-  PZM_CONFIRM_POPUP_OPTIONS,
+  PRIZM_CONFIRM_POPUP_OPTIONS,
   PrizmConfirmPopupButton,
   PrizmConfirmPopupContext,
   PrizmConfirmPopupOptions,
 } from './confirm-popup-options';
-import { pzmDefaultProp, pzmRequiredSetter } from '../../decorators';
+import { prizmDefaultProp, prizmRequiredSetter } from '@prizm-ui/core';
 import { PolymorphContent } from '../polymorph';
-import { pzmGenerateId } from '../../util';
+import { prizmGenerateId } from '../../util';
 import { PrizmConfirmDialogButton, PrizmConfirmDialogResultDefaultType } from '../../components/dialogs/confirm-dialog';
 import { PrizmAppearance, PrizmAppearanceType } from '../../types';
-import { PZM_HINT_OPTIONS, PrizmHintOptions } from '../hint/hint-options';
+import { PRIZM_HINT_OPTIONS, PrizmHintOptions } from '../hint/hint-options';
 import { PrizmHintDirective } from '../hint/hint.directive';
 
 @Directive({
-    selector: '[pzmConfirmPopup]:not(ng-container)',
+    selector: '[prizmConfirmPopup]:not(ng-container)',
     providers: [
       PrizmDestroyService,
       {
-        provide: PZM_HINT_OPTIONS,
-        useExisting: forwardRef(() => PZM_CONFIRM_POPUP_OPTIONS)
+        provide: PRIZM_HINT_OPTIONS,
+        useExisting: forwardRef(() => PRIZM_CONFIRM_POPUP_OPTIONS)
       }
     ],
-    exportAs: 'pzmConfirmPopup'
+    exportAs: 'prizmConfirmPopup'
 })
 export class PrizmConfirmPopupDirective<T extends Record<string, unknown>> extends PrizmHintDirective<PrizmConfirmPopupOptions> {
-  @Input('pzmConfirmPopupMode')
-  @pzmDefaultProp()
-  override pzmHintMode: PrizmHintOptions['mode'] = this.options.mode;
+  @Input('prizmConfirmPopupMode')
+  @prizmDefaultProp()
+  override prizmHintMode: PrizmHintOptions['mode'] = this.options.mode;
 
-  @Input('pzmAutoReposition')
-  @pzmDefaultProp()
-  override pzmAutoReposition: PrizmHintOptions['autoReposition'] = this.options.autoReposition;
+  @Input('prizmAutoReposition')
+  @prizmDefaultProp()
+  override prizmAutoReposition: PrizmHintOptions['autoReposition'] = this.options.autoReposition;
 
-  @Input('pzmConfirmPopupDirection')
-  @pzmDefaultProp()
-  override pzmHintDirection: PrizmHintOptions['direction'] = this.options.direction;
+  @Input('prizmConfirmPopupDirection')
+  @prizmDefaultProp()
+  override prizmHintDirection: PrizmHintOptions['direction'] = this.options.direction;
 
-  @Input('pzmConfirmPopupId')
-  @pzmDefaultProp()
-  override pzmHintId: string = 'hintId_' + pzmGenerateId();
+  @Input('prizmConfirmPopupId')
+  @prizmDefaultProp()
+  override prizmHintId: string = 'hintId_' + prizmGenerateId();
 
-  @Input('pzmConfirmPopupShowDelay')
-  @pzmDefaultProp()
-  override pzmHintShowDelay: PrizmHintOptions['showDelay'] = this.options.showDelay;
+  @Input('prizmConfirmPopupShowDelay')
+  @prizmDefaultProp()
+  override prizmHintShowDelay: PrizmHintOptions['showDelay'] = this.options.showDelay;
 
-  @Input('pzmConfirmPopupHideDelay')
-  @pzmDefaultProp()
-  override pzmHintHideDelay: PrizmHintOptions['hideDelay'] = this.options.hideDelay;
+  @Input('prizmConfirmPopupHideDelay')
+  @prizmDefaultProp()
+  override prizmHintHideDelay: PrizmHintOptions['hideDelay'] = this.options.hideDelay;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   public size = this.options.size;
 
-  @Input('pzmConfirmPopupHost')
-  @pzmDefaultProp()
-  override pzmHintHost: HTMLElement | null = null;
+  @Input('prizmConfirmPopupHost')
+  @prizmDefaultProp()
+  override prizmHintHost: HTMLElement | null = null;
 
   @Output()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   public completeWith = new EventEmitter<PrizmConfirmDialogResultDefaultType | unknown>();
 
-  @Input('pzmConfirmPopup')
-  @pzmRequiredSetter()
-  override set pzmHint(value: PolymorphContent | null) {
+  @Input('prizmConfirmPopup')
+  @prizmRequiredSetter()
+  override set prizmHint(value: PolymorphContent | null) {
     if (!value) {
       this.content = '';
       return;
@@ -76,8 +76,8 @@ export class PrizmConfirmPopupDirective<T extends Record<string, unknown>> exten
   }
 
   @Input()
-  @pzmDefaultProp()
-  pzmConfirmPopupTitle = '';
+  @prizmDefaultProp()
+  prizmConfirmPopupTitle = '';
 
   @Input() confirmButton?: PrizmConfirmPopupButton | string;
   @Input() supportButton?: PrizmConfirmPopupButton | string;
@@ -94,16 +94,16 @@ export class PrizmConfirmPopupDirective<T extends Record<string, unknown>> exten
   protected override getContext(): PrizmConfirmPopupContext {
     const context = {
       size: this.size,
-      mode: this.pzmHintMode,
-      reposition: this.pzmAutoReposition,
-      direction: this.pzmHintDirection,
+      mode: this.prizmHintMode,
+      reposition: this.prizmAutoReposition,
+      direction: this.prizmHintDirection,
       completeWith: (value: PrizmConfirmPopupButton) => {
         this.completeWith.next(value);
       },
-      id: this.pzmHintId,
-      showDelay: this.pzmHintShowDelay,
-      hideDelay: this.pzmHintHideDelay,
-      title: this.pzmConfirmPopupTitle,
+      id: this.prizmHintId,
+      showDelay: this.prizmHintShowDelay,
+      hideDelay: this.prizmHintHideDelay,
+      title: this.prizmConfirmPopupTitle,
       host: this.host,
       confirmButton: this.confirmButton,
       supportButton: this.supportButton,

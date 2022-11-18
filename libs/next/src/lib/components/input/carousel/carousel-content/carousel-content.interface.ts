@@ -5,7 +5,7 @@ export interface PrizmCarouselControlsState {
   rightCtrlDisabled: boolean;
 }
 
-export const pzmDefaultCarouselControlsState: PrizmCarouselControlsState = {
+export const prizmDefaultCarouselControlsState: PrizmCarouselControlsState = {
   leftCtrlDisabled: true,
   stepleftCtrlDisabled: true,
   stepRightCtrlDisabled: true,

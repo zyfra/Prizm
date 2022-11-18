@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pzm-scrollbar-horizontal-example',
+  selector: 'prizm-scrollbar-horizontal-example',
   templateUrl: './scrollbar-horizontal-example.component.html',
   styles: [`
     .box {

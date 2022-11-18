@@ -1,16 +1,16 @@
-<pzm-tree-item
-    *pzmLet="children$ | async as children"
+<prizm-tree-item
+    *prizmLet="children$ | async as children"
     #view
-    [pzmTreeNode]="value"
+    [prizmTreeNode]="value"
 >
   <ng-container *ngIf="$any(value) !== children">
     <div
       *polymorphOutlet="content as val; context: {$implicit: value, node: view}"
     >{{val}}</div>
   </ng-container>
-  <pzm-tree
+  <prizm-tree
       *ngFor="let child of children"
       [value]="child"
       [content]="content"
-  ></pzm-tree>
-</pzm-tree-item>
+  ></prizm-tree>
+</prizm-tree-item>

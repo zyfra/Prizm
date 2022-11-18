@@ -31,7 +31,7 @@ export interface PrizmMultiSelectOptions<T> {
 }
 
 /** Default values for dropdown-host options */
-export const PZM_MULTI_SELECT_DEFAULT_OPTIONS: PrizmMultiSelectOptions<unknown> = {
+export const PRIZM_MULTI_SELECT_DEFAULT_OPTIONS: PrizmMultiSelectOptions<unknown> = {
   items: [],
   chooseAllItem: null,
   searchable: false,
@@ -58,16 +58,16 @@ export const PZM_MULTI_SELECT_DEFAULT_OPTIONS: PrizmMultiSelectOptions<unknown> 
   label: 'Выберите из списка',
 };
 
-export const PZM_MULTI_SELECT_OPTIONS = new InjectionToken<PrizmMultiSelectOptions<unknown>>(
+export const PRIZM_MULTI_SELECT_OPTIONS = new InjectionToken<PrizmMultiSelectOptions<unknown>>(
     'Default parameters for select',
     {
-        factory: (): PrizmMultiSelectOptions<unknown> => PZM_MULTI_SELECT_DEFAULT_OPTIONS,
+        factory: (): PrizmMultiSelectOptions<unknown> => PRIZM_MULTI_SELECT_DEFAULT_OPTIONS,
     },
 );
 
-export const pzmMultiSelectOptionsProvider: (
+export const prizmMultiSelectOptionsProvider: (
     options: Partial<PrizmMultiSelectOptions<unknown>>,
 ) => ValueProvider = (options: Partial<PrizmMultiSelectOptions<unknown>>) => ({
-    provide: PZM_MULTI_SELECT_OPTIONS,
-    useValue: {...PZM_MULTI_SELECT_DEFAULT_OPTIONS, ...options},
+    provide: PRIZM_MULTI_SELECT_OPTIONS,
+    useValue: {...PRIZM_MULTI_SELECT_DEFAULT_OPTIONS, ...options},
 });

@@ -1,15 +1,15 @@
 import { PrizmTimeLike } from '../../types/time-like';
 import { PrizmTimeMode } from '../../types/time-mode';
-import { pzmPadStart } from '../../util/format/pad-start';
-import { pzmInRange } from '../../util/math/in-range';
+import { prizmPadStart } from '../../util/format/pad-start';
+import { prizmInRange } from '../../util/math/in-range';
 
 import {
-  PZM_HOURS_IN_DAY,
-  PZM_MILLISECONDS_IN_DAY,
-  PZM_MILLISECONDS_IN_HOUR,
-  PZM_MILLISECONDS_IN_MINUTE,
-  PZM_MINUTES_IN_HOUR,
-  PZM_SECONDS_IN_MINUTE,
+  PRIZM_HOURS_IN_DAY,
+  PRIZM_MILLISECONDS_IN_DAY,
+  PRIZM_MILLISECONDS_IN_HOUR,
+  PRIZM_MILLISECONDS_IN_MINUTE,
+  PRIZM_MINUTES_IN_HOUR,
+  PRIZM_SECONDS_IN_MINUTE,
 } from './date-time';
 
 /**
@@ -43,13 +43,13 @@ export class PrizmTime implements PrizmTimeLike {
     ): boolean {
         return (
             Number.isInteger(hours) &&
-            pzmInRange(hours, 0, PZM_HOURS_IN_DAY) &&
+            prizmInRange(hours, 0, PRIZM_HOURS_IN_DAY) &&
             Number.isInteger(minutes) &&
-            pzmInRange(minutes, 0, PZM_MINUTES_IN_HOUR) &&
+            prizmInRange(minutes, 0, PRIZM_MINUTES_IN_HOUR) &&
             Number.isInteger(seconds) &&
-            pzmInRange(seconds, 0, PZM_SECONDS_IN_MINUTE) &&
+            prizmInRange(seconds, 0, PRIZM_SECONDS_IN_MINUTE) &&
             Number.isInteger(ms) &&
-            pzmInRange(ms, 0, 1000)
+            prizmInRange(ms, 0, 1000)
         );
     }
 
@@ -57,7 +57,7 @@ export class PrizmTime implements PrizmTimeLike {
      * Current UTC time.
      */
     public static current(): PrizmTime {
-        return PrizmTime.fromAbsoluteMilliseconds(Date.now() % PZM_MILLISECONDS_IN_DAY);
+        return PrizmTime.fromAbsoluteMilliseconds(Date.now() % PRIZM_MILLISECONDS_IN_DAY);
     }
 
     /**
@@ -67,8 +67,8 @@ export class PrizmTime implements PrizmTimeLike {
         const date = new Date();
 
         return PrizmTime.fromAbsoluteMilliseconds(
-            (Date.now() - date.getTimezoneOffset() * PZM_MILLISECONDS_IN_MINUTE) %
-                PZM_MILLISECONDS_IN_DAY,
+            (Date.now() - date.getTimezoneOffset() * PRIZM_MILLISECONDS_IN_MINUTE) %
+                PRIZM_MILLISECONDS_IN_DAY,
         );
     }
 
@@ -78,21 +78,21 @@ export class PrizmTime implements PrizmTimeLike {
     public static fromAbsoluteMilliseconds(milliseconds: number): PrizmTime {
         console.assert(Number.isInteger(milliseconds));
         console.assert(
-            pzmInRange(milliseconds, 0, PZM_MILLISECONDS_IN_DAY),
-            `Milliseconds must be below ${PZM_MILLISECONDS_IN_DAY} (milliseconds in a day).`,
+            prizmInRange(milliseconds, 0, PRIZM_MILLISECONDS_IN_DAY),
+            `Milliseconds must be below ${PRIZM_MILLISECONDS_IN_DAY} (milliseconds in a day).`,
         );
 
-        const hours = Math.floor(milliseconds / PZM_MILLISECONDS_IN_HOUR);
+        const hours = Math.floor(milliseconds / PRIZM_MILLISECONDS_IN_HOUR);
         const minutes = Math.floor(
-            (milliseconds % PZM_MILLISECONDS_IN_HOUR) / PZM_MILLISECONDS_IN_MINUTE,
+            (milliseconds % PRIZM_MILLISECONDS_IN_HOUR) / PRIZM_MILLISECONDS_IN_MINUTE,
         );
         const seconds =
             Math.floor(
-                ((milliseconds % PZM_MILLISECONDS_IN_HOUR) % PZM_MILLISECONDS_IN_MINUTE) / 1000,
+                ((milliseconds % PRIZM_MILLISECONDS_IN_HOUR) % PRIZM_MILLISECONDS_IN_MINUTE) / 1000,
             ) || 0;
         const ms =
             Math.floor(
-                ((milliseconds % PZM_MILLISECONDS_IN_HOUR) % PZM_MILLISECONDS_IN_MINUTE) % 1000,
+                ((milliseconds % PRIZM_MILLISECONDS_IN_HOUR) % PRIZM_MILLISECONDS_IN_MINUTE) % 1000,
             ) || 0;
 
         return new PrizmTime(hours, minutes, seconds, ms);
@@ -183,15 +183,15 @@ export class PrizmTime implements PrizmTimeLike {
      */
     public toAbsoluteMilliseconds(): number {
         return (
-            this.hours * PZM_MILLISECONDS_IN_HOUR +
-            this.minutes * PZM_MILLISECONDS_IN_MINUTE +
+            this.hours * PRIZM_MILLISECONDS_IN_HOUR +
+            this.minutes * PRIZM_MILLISECONDS_IN_MINUTE +
             this.seconds * 1000 +
             this.ms
         );
     }
 
     private formatTime(time: number, digits: number = 2): string {
-        return pzmPadStart(String(time), digits, `0`);
+        return prizmPadStart(String(time), digits, `0`);
     }
 
     public isSameTime(time: PrizmTime): boolean {

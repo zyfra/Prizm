@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PZM_EMPTY_ARRAY, PolymorphComponent, PZM_TREE_CONTENT, PrizmHandler } from '@digital-plant/zui-components';
+import { PRIZM_EMPTY_ARRAY, PolymorphComponent, PRIZM_TREE_CONTENT, PrizmHandler } from '@prizm-ui/components';
 
 import { FoldersComponent } from './folder.component';
 
@@ -8,16 +8,16 @@ interface TreeNode {
   readonly children?: readonly TreeNode[];
 }
 @Component({
-  selector: 'pzm-tree-component-example',
+  selector: 'prizm-tree-component-example',
   templateUrl: './tree-component-example.component.html',
   styles: [`
-    pzm-tree {
+    prizm-tree {
       overflow: hidden;
     }
   `],
   providers: [
     {
-      provide: PZM_TREE_CONTENT,
+      provide: PRIZM_TREE_CONTENT,
       useValue: new PolymorphComponent(FoldersComponent),
     },
   ]
@@ -48,6 +48,6 @@ export class TreeComponentExampleComponent {
   };
 
   readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item =>
-    item.children || PZM_EMPTY_ARRAY;
+    item.children || PRIZM_EMPTY_ARRAY;
 }
 

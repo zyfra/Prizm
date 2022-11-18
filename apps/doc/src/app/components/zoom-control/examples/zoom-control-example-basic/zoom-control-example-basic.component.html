@@ -1,8 +1,8 @@
 <div class="container">
-  <pzm-panel header="Заголовок">
+  <prizm-panel header="Заголовок">
     <div class="zoom-control" instruments>
       <button
-        pzmIconButton
+        prizmIconButton
         appearanceType="ghost"
         icon="sort-zoom-out"
         appearance="secondary"
@@ -11,14 +11,14 @@
         [disabled]="scaleIdx === scalesList.length - 1"
         (click)="scaleDecrease()"
       ></button>
-      <pzm-dropdown-host [content]="dropdown" pzmDropdownHostWidth="100%" [(isOpen)]="openDropdown">
+      <prizm-dropdown-host [content]="dropdown" prizmDropdownHostWidth="100%" [(isOpen)]="openDropdown">
         <button class="zoom-control__select" (click)="openDropdown = !openDropdown">
           {{ currentScale | number: '.0-1' }}%
-          <pzm-icon iconClass="chevrons-dropdown" class="zoom-control__select-icon"></pzm-icon>
+          <prizm-icon iconClass="chevrons-dropdown" class="zoom-control__select-icon"></prizm-icon>
         </button>
-      </pzm-dropdown-host>
+      </prizm-dropdown-host>
       <button
-        pzmIconButton
+        prizmIconButton
         appearanceType="ghost"
         icon="sort-maximize"
         appearance="secondary"
@@ -28,7 +28,7 @@
         [disabled]="scaleIdx === 0"
       ></button>
     </div>
-  </pzm-panel>
+  </prizm-panel>
   <div class="content" #content>
     <div
       [ngStyle]="{
@@ -41,7 +41,7 @@
 </div>
 
 <ng-template #dropdown>
-  <pzm-data-list class="settings">
+  <prizm-data-list class="settings">
     <div class="settings-group">
       <div
         class="settings-group__item"
@@ -54,12 +54,12 @@
 
     <div class="settings-group">
       <div class="settings-group__item" (click)="scaleIncrease()">
-        <pzm-icon iconClass="sort-zoom-out" class="icon"></pzm-icon>
+        <prizm-icon iconClass="sort-zoom-out" class="icon"></prizm-icon>
         Увеличить
         <span class="key"> F </span>
       </div>
       <div class="settings-group__item" (click)="scaleDecrease()">
-        <pzm-icon iconClass="sort-maximize" class="icon"></pzm-icon>
+        <prizm-icon iconClass="sort-maximize" class="icon"></prizm-icon>
         Уменьшить
         <span class="key"> F </span>
       </div>
@@ -67,12 +67,12 @@
 
     <div class="settings-group">
       <div class="settings-group__item" (click)="setScale(100)">
-        <pzm-icon iconClass="arrows-expand-all" class="icon"></pzm-icon>
+        <prizm-icon iconClass="arrows-expand-all" class="icon"></prizm-icon>
         Полный размер
         <span class="key"> F </span>
       </div>
       <div class="settings-group__item">
-        <pzm-icon iconClass="editor-border-outer" class="icon"></pzm-icon>
+        <prizm-icon iconClass="editor-border-outer" class="icon"></prizm-icon>
         Вписать
         <span class="key"> F </span>
       </div>
@@ -80,15 +80,15 @@
 
     <div class="settings-group">
       <div class="settings-group__item" (click)="setScale((400 / 250) * 100)">
-        <pzm-icon iconClass="arrows-arrow-expand-vertical" class="icon"></pzm-icon>
+        <prizm-icon iconClass="arrows-arrow-expand-vertical" class="icon"></prizm-icon>
         По высоте
         <span class="key"> F </span>
       </div>
       <div class="settings-group__item" (click)="setScale((contentWidth / 250) * 100)">
-        <pzm-icon iconClass="arrows-arrow-expand-horizontal" class="icon"></pzm-icon>
+        <prizm-icon iconClass="arrows-arrow-expand-horizontal" class="icon"></prizm-icon>
         По ширине
         <span class="key"> F </span>
       </div>
     </div>
-  </pzm-data-list>
+  </prizm-data-list>
 </ng-template>

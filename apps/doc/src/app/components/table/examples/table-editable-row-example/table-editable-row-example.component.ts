@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ITableProduct } from '../table-basic-example/table-basic-example.component';
 
 @Component({
-  selector: 'pzm-table-editable-row-example',
+  selector: 'prizm-table-editable-row-example',
   templateUrl: './table-editable-row-example.component.html',
   styleUrls: ['./table-editable-row-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { PrizmStepperStatus } from '@digital-plant/zui-components';
+import { PrizmStepperStatus } from '@prizm-ui/components';
 
 type StepsMap = { [key: number]: { title: string; status: PrizmStepperStatus; disabled: boolean } };
 
 @Component({
-  selector: 'pzm-stepper-async-example',
+  selector: 'prizm-stepper-async-example',
   templateUrl: './stepper-async-example.component.html',
   styleUrls: ['./stepper-async-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

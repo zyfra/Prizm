@@ -5,14 +5,14 @@ import {
   PrizmBaseDialogContext, PrizmDialogSize,
   PrizmOverlayInsidePlacement,
   PrizmOverscrollMode,
-  pzmPure,
   PrizmSidebarOptions,
   PrizmSidebarService,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
 import { generatePolymorphVariants } from '../../../util';
+import { prizmPure } from '@prizm-ui/core';
 
 @Component({
-  selector: 'pzm-tooltip-example',
+  selector: 'prizm-tooltip-example',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -55,7 +55,7 @@ export class SidebarComponent {
     @Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService,
   ) {}
 
-  @pzmPure
+  @prizmPure
   public generatePolymorphVariants(...content: PolymorphContent[]): any[] {
     return generatePolymorphVariants(...content)
   };

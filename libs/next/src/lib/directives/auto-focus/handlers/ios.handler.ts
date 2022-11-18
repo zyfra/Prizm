@@ -1,8 +1,8 @@
 import { Directive, ElementRef, Inject, NgZone, Optional, Renderer2, Self } from '@angular/core';
 import { WINDOW } from '@ng-web-apis/common';
-import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
+import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
 import { PrizmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
-import { pzmPx } from '../../../util/format/px';
+import { prizmPx } from '../../../util/format/px';
 import { AbstractPrizmAutofocusHandler } from './abstract.handler';
 
 @Directive()
@@ -10,14 +10,14 @@ export class PrizmIosAutofocusHandler extends AbstractPrizmAutofocusHandler {
     constructor(
         @Optional()
         @Self()
-        @Inject(PZM_FOCUSABLE_ITEM_ACCESSOR)
-        pzmFocusableComponent: PrizmFocusableElementAccessor | null,
+        @Inject(PRIZM_FOCUSABLE_ITEM_ACCESSOR)
+        prizmFocusableComponent: PrizmFocusableElementAccessor | null,
         @Inject(ElementRef) elementRef: ElementRef<HTMLElement>,
         @Inject(Renderer2) private readonly renderer: Renderer2,
         @Inject(NgZone) private readonly ngZone: NgZone,
         @Inject(WINDOW) private readonly windowRef: Window,
     ) {
-        super(pzmFocusableComponent, elementRef);
+        super(prizmFocusableComponent, elementRef);
         this.patchCssStyles();
     }
 
@@ -73,16 +73,16 @@ export class PrizmIosAutofocusHandler extends AbstractPrizmAutofocusHandler {
         const fakeInput: HTMLInputElement = this.renderer.createElement(`input`);
         const rect: DOMRect = this.element.getBoundingClientRect();
 
-        fakeInput.style.height = pzmPx(rect.height);
-        fakeInput.style.width = pzmPx(rect.width / 2);
+        fakeInput.style.height = prizmPx(rect.height);
+        fakeInput.style.width = prizmPx(rect.width / 2);
         fakeInput.style.position = `fixed`;
         fakeInput.style.opacity = `0`;
-        fakeInput.style.fontSize = pzmPx(16); // disable possible auto zoom
+        fakeInput.style.fontSize = prizmPx(16); // disable possible auto zoom
         fakeInput.readOnly = true; // prevent keyboard for fake input
 
         // @note: emulate position cursor before focus to real textfield element
-        fakeInput.style.top = pzmPx(rect.top);
-        fakeInput.style.left = pzmPx(rect.left);
+        fakeInput.style.top = prizmPx(rect.top);
+        fakeInput.style.left = prizmPx(rect.left);
 
         return fakeInput;
     }
@@ -92,7 +92,7 @@ export class PrizmIosAutofocusHandler extends AbstractPrizmAutofocusHandler {
             parseFloat(
                 this.windowRef
                     .getComputedStyle(this.element)
-                    .getPropertyValue(`--pzm-duration`),
+                    .getPropertyValue(`--prizm-duration`),
             ) || 0
         );
     }
@@ -105,7 +105,7 @@ export class PrizmIosAutofocusHandler extends AbstractPrizmAutofocusHandler {
      * and then that dialog will be shaking
      */
     private insideDialog(): boolean {
-        return !!this.element.closest(`pzm-dialog`);
+        return !!this.element.closest(`prizm-dialog`);
     }
 
     /**

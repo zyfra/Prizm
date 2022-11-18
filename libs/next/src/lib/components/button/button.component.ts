@@ -10,31 +10,31 @@ import {
   Input,
   TemplateRef,
 } from '@angular/core';
-import { PZM_BUTTON_OPTIONS, PrizmButtonOptions, PrizmContent } from './button-options';
+import { PRIZM_BUTTON_OPTIONS, PrizmButtonOptions, PrizmContent } from './button-options';
 import { AbstractPrizmInteractive } from '../../abstract/interactive';
-import { pzmIsNativeFocused } from '../../util/is-native-focused';
+import { prizmIsNativeFocused } from '../../util/is-native-focused';
 import { PrizmSize } from '../../util/size-bigger';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
-import { pzmPressedObservable } from '../../observables/pressed-observable';
+import { prizmPressedObservable } from '../../observables/pressed-observable';
 import { PrizmAppearance, PrizmAppearanceType } from '../../types/appearance.types';
-import { pzmWatch } from '../../observables/watch';
-import { pzmDefaultProp } from '../../decorators';
-import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../tokens';
+import { prizmWatch } from '../../observables/watch';
+import { prizmDefaultProp } from '@prizm-ui/core';
+import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../tokens';
 import { PrizmFocusableElementAccessor } from '../../types';
 import { PrizmFocusVisibleService } from '../../directives/focus-visible/focus-visible.service';
 import { PrizmHoveredService } from '../../services';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'button[pzmButton], button[pzmIconButton], a[pzmButton], a[pzmIconButton]',
+  selector: 'button[prizmButton], button[prizmIconButton], a[prizmButton], a[prizmIconButton]',
   styleUrls: ['./button.component.less'],
   templateUrl: './button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     PrizmDestroyService,
     {
-      provide: PZM_FOCUSABLE_ITEM_ACCESSOR,
+      provide: PRIZM_FOCUSABLE_ITEM_ACCESSOR,
       useExisting: forwardRef(() => PrizmButtonComponent),
     },
     PrizmFocusVisibleService
@@ -44,7 +44,7 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive
   implements PrizmFocusableElementAccessor {
   @Input()
   @HostBinding('attr.data-size')
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   size: PrizmSize = this.options.size;
 
   /** can pass template or icon class */
@@ -57,21 +57,21 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive
 
   @Input()
   @HostBinding('attr.data-appearance')
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   appearance: PrizmAppearance = this.options.appearance;
 
   @Input()
   @HostBinding('attr.data-appearance-type')
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   appearanceType: PrizmAppearanceType = this.options.appearanceType;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   disabled = false;
 
   @Input()
   @HostBinding('class._loading')
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   showLoader = false;
 
   @HostBinding('attr.disabled')
@@ -85,7 +85,7 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive
   }
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_button';
+  readonly testId = 'prizm_button';
 
   @HostListener('focusin', ['true'])
   @HostListener('focusout', ['false'])
@@ -94,11 +94,11 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive
   }
 
   get focused(): boolean {
-    return !this.showLoader && pzmIsNativeFocused(this.elementRef.nativeElement);
+    return !this.showLoader && prizmIsNativeFocused(this.elementRef.nativeElement);
   }
 
   constructor(
-    @Inject(PZM_BUTTON_OPTIONS) private readonly options: PrizmButtonOptions,
+    @Inject(PRIZM_BUTTON_OPTIONS) private readonly options: PrizmButtonOptions,
     private readonly elementRef: ElementRef,
     private readonly focusVisible$: PrizmFocusVisibleService,
     private readonly hoveredService: PrizmHoveredService,
@@ -119,14 +119,14 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive
       this.updateFocusVisible(focusVisible);
     });
 
-    pzmPressedObservable(elementRef.nativeElement, {
+    prizmPressedObservable(elementRef.nativeElement, {
       onlyTrusted: true,
     })
       .pipe(
         tap(pressed => {
           this.updatePressed(pressed);
         }),
-        pzmWatch(changeDetectorRef),
+        prizmWatch(changeDetectorRef),
         takeUntil(destroy$),
       ).subscribe();
   }

@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 
-import { PrizmCarouselModule } from '@digital-plant/zui-components';
+import { PrizmCarouselModule } from '@prizm-ui/components';
 import { PrizmCarouselExampleComponent } from './carousel-example.component';
 import { PrizmCarouselBasicExampleComponent } from './examples/carousel-basic-example/carousel-basic-example.component';
 import { PrizmCarouselLightExampleComponent } from './examples/carousel-light-example/carousel-light-example.component';

@@ -1,8 +1,8 @@
 import { Optional, Provider } from '@angular/core';
 import { PrizmDropdownControllerDirective } from '../directives/dropdown-controller/dropdown-controller.directive';
-import { PZM_DROPDOWN_CONTROLLER } from '../directives/dropdown-controller/dropdown-controller.token';
+import { PRIZM_DROPDOWN_CONTROLLER } from '../directives/dropdown-controller/dropdown-controller.token';
 
-export function pzmFixedDropdownControllerFactory(
+export function prizmFixedDropdownControllerFactory(
     directive: PrizmDropdownControllerDirective | null,
 ): PrizmDropdownControllerDirective {
     directive = directive || new PrizmDropdownControllerDirective();
@@ -11,15 +11,15 @@ export function pzmFixedDropdownControllerFactory(
     return directive;
 }
 
-export const PZM_FIXED_DROPDOWN_CONTROLLER_PROVIDER: Provider = [
+export const PRIZM_FIXED_DROPDOWN_CONTROLLER_PROVIDER: Provider = [
     {
-        provide: PZM_DROPDOWN_CONTROLLER,
+        provide: PRIZM_DROPDOWN_CONTROLLER,
         deps: [[new Optional(), PrizmDropdownControllerDirective]],
-        useFactory: pzmFixedDropdownControllerFactory,
+        useFactory: prizmFixedDropdownControllerFactory,
     },
 ];
 
-export function pzmLeftAlignedDropdownControllerFactory(
+export function prizmLeftAlignedDropdownControllerFactory(
     directive: PrizmDropdownControllerDirective | null,
 ): PrizmDropdownControllerDirective {
     directive = directive || new PrizmDropdownControllerDirective();
@@ -28,10 +28,10 @@ export function pzmLeftAlignedDropdownControllerFactory(
     return directive;
 }
 
-export const PZM_LEFT_ALIGNED_DROPDOWN_CONTROLLER_PROVIDER: Provider = [
+export const PRIZM_LEFT_ALIGNED_DROPDOWN_CONTROLLER_PROVIDER: Provider = [
     {
-        provide: PZM_DROPDOWN_CONTROLLER,
+        provide: PRIZM_DROPDOWN_CONTROLLER,
         deps: [[new Optional(), PrizmDropdownControllerDirective]],
-        useFactory: pzmLeftAlignedDropdownControllerFactory,
+        useFactory: prizmLeftAlignedDropdownControllerFactory,
     },
 ];

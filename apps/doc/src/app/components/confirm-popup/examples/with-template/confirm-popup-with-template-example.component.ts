@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { PrizmOverlayOutsidePlacement } from '@digital-plant/zui-components';
+import { PrizmOverlayOutsidePlacement } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-confirm-popup-with-template-example',
+  selector: 'prizm-confirm-popup-with-template-example',
   templateUrl: './confirm-popup-with-template-example.component.html',
   styles: [`
     .box {

@@ -1,6 +1,6 @@
 import { PrizmCountryIsoCode } from '../../enums/country-iso-code';
 
-export const PZM_RUSSIAN_LANGUAGE_COUNTRIES: Record<PrizmCountryIsoCode, string> = {
+export const PRIZM_RUSSIAN_LANGUAGE_COUNTRIES: Record<PrizmCountryIsoCode, string> = {
     [PrizmCountryIsoCode.AD]: `Андорра`,
     [PrizmCountryIsoCode.AE]: `Объединенные Арабские Эмираты`,
     [PrizmCountryIsoCode.AF]: `Афганистан`,

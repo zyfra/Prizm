@@ -3,16 +3,16 @@ import { PrizmInputLayoutComponent } from '../common/input-layout/input-layout.c
 import { PrizmInputNumberDirective } from './input-number.directive';
 
 @Component({
-  selector: 'pzm-input-number-auxiliary-controls',
+  selector: 'prizm-input-number-auxiliary-controls',
   template: `<div class="container">
     <button
-      pzmInputIconButton="chevrons-up"
+      prizmInputIconButton="chevrons-up"
       (click)="increment()"
       [size]="size"
       [interactive]="true"
     ></button>
     <button
-      pzmInputIconButton="chevrons-down"
+      prizmInputIconButton="chevrons-down"
       (click)="decrement()"
       [size]="size"
       [interactive]="true"
@@ -25,11 +25,11 @@ import { PrizmInputNumberDirective } from './input-number.directive';
         flex-direction: column;
       }
 
-      :host-context(.pzm-input-form-outer[data-size='m']) {
+      :host-context(.prizm-input-form-outer[data-size='m']) {
         font-size: 15px;
       }
 
-      :host-context(.pzm-input-form-outer[data-size='s']) {
+      :host-context(.prizm-input-form-outer[data-size='s']) {
         font-size: 11px;
       }
     `,

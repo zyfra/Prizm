@@ -3,13 +3,13 @@ import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
   PrizmContextWithImplicit, PrizmInputSize,
-  pzmPure,
   PrizmScrollbarVisibility,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
 import { FormControl } from '@angular/forms';
+import { prizmPure } from '@prizm-ui/core';
 
 @Component({
-  selector: 'pzm-multi-select-example',
+  selector: 'prizm-multi-select-example',
   templateUrl: './multi-select.component.html',
   styleUrls: ['./multi-select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -98,7 +98,7 @@ export class MultiSelectComponent {
 
 
   public valueTemplate: PolymorphContent<PrizmContextWithImplicit<any>> = ''
-  @pzmPure
+  @prizmPure
   public getValueTemplate (...temps: PolymorphContent[]): PolymorphContent<any>[] {
     return [
       null,

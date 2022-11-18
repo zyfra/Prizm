@@ -18,23 +18,23 @@
     flex-direction: column;
 
     cursor: pointer;
-    border-top: 1px solid var(--pzm-grey-g12-g2);
+    border-top: 1px solid var(--prizm-grey-g12-g2);
 
     &_focused:not(.accordion_disabled),
     &:hover:not(.accordion_disabled) {
       border-radius: 2px;
 
-      border-top: 1px solid var(--pzm-bg-header);
+      border-top: 1px solid var(--prizm-bg-header);
 
       position: relative;
     }
 
     &:hover:not(.accordion_disabled) {
-      box-shadow: 0 0 0 1px var(--pzm-index-plan);
+      box-shadow: 0 0 0 1px var(--prizm-index-plan);
     }
 
     &_focused:not(.accordion_disabled) {
-      box-shadow: 0 0 0 2px var(--pzm-lite-b130-20);
+      box-shadow: 0 0 0 2px var(--prizm-lite-b130-20);
     }
 
     &__header {
@@ -44,7 +44,7 @@
       display: flex;
       align-items: center;
 
-      background: var(--pzm-bg-header);
+      background: var(--prizm-bg-header);
 
       outline: none;
       overflow: hidden;
@@ -56,7 +56,7 @@
         font-size: 14px;
         line-height: 20px;
 
-        color: var(--pzm-text-contrast);
+        color: var(--prizm-text-contrast);
 
         overflow: hidden;
         white-space: nowrap;
@@ -73,7 +73,7 @@
       align-items: center;
 
       border-radius: 2px;
-      color: var(--pzm-border-icon);
+      color: var(--prizm-border-icon);
 
       transition: 400ms;
 
@@ -85,9 +85,9 @@
       }
 
       &:hover {
-        background: var(--pzm-grey-g12-g2);
+        background: var(--prizm-grey-g12-g2);
 
-        color: var(--pzm-index-plan);
+        color: var(--prizm-index-plan);
       }
     }
 
@@ -100,15 +100,15 @@
       opacity: 0;
 
       overflow: hidden;
-      background: var(--pzm-bg-body);
+      background: var(--prizm-bg-body);
 
       transition: 400ms;
     }
 
     &_expanded {
       .accordion__button {
-        background: var(--pzm-lite-b130-20);
-        color: var(--pzm-index-plan);
+        background: var(--prizm-lite-b130-20);
+        color: var(--prizm-index-plan);
 
         transform: rotate(180deg);
       }
@@ -128,7 +128,7 @@
 
       .accordion__header .title,
       .accordion__button {
-        color: var(--pzm-grey-g10-g4);
+        color: var(--prizm-grey-g10-g4);
         pointer-events: none;
       }
     }

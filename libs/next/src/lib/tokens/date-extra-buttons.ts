@@ -2,7 +2,7 @@ import { InjectionToken, Provider } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { PrizmDateButton } from '../types/date-button';
 
-export const PZM_DATE_RIGHT_BUTTONS = new InjectionToken<
+export const PRIZM_DATE_RIGHT_BUTTONS = new InjectionToken<
   BehaviorSubject<PrizmDateButton[]>
   >(`Stream that emits right buttons`, {
     factory: (): BehaviorSubject<PrizmDateButton[]> => {
@@ -12,7 +12,7 @@ export const PZM_DATE_RIGHT_BUTTONS = new InjectionToken<
 
 export function getProviderPrizmDateLeftButtons(): Provider {
   return {
-    provide: PZM_DATE_RIGHT_BUTTONS,
+    provide: PRIZM_DATE_RIGHT_BUTTONS,
     useFactory: (): BehaviorSubject<PrizmDateButton[]> => {
       return new BehaviorSubject<PrizmDateButton[]>([])
     }

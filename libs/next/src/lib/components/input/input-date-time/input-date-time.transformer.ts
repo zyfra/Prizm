@@ -1,7 +1,7 @@
 import { Provider } from '@angular/core';
 import { PrizmDay } from '../../../@core/date-time/day';
 import { PrizmTime } from '../../../@core/date-time/time';
-import { PZM_DATE_TIME_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
+import { PRIZM_DATE_TIME_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 
 type From = [PrizmDay | null, PrizmTime | null] | null;
@@ -34,9 +34,9 @@ export class PrizmInputDateTimeNativeTransformer implements PrizmControlValueTra
   }
 }
 
-export function pzmGetInputDateTimeNativeTransformer(): Provider {
+export function prizmGetInputDateTimeNativeTransformer(): Provider {
   return  {
-    provide: PZM_DATE_TIME_VALUE_TRANSFORMER,
+    provide: PRIZM_DATE_TIME_VALUE_TRANSFORMER,
     useClass: PrizmInputDateTimeNativeTransformer,
   };
 }

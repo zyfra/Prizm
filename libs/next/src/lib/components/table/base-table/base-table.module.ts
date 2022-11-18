@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BaseTableTemplateDirective } from './directives/base-table-template.directive';
-import { PrizmRowBaseDirective } from './directives/pzm-row-base.directive';
-import { PrizmBaseTableComponent } from './pzm-base-table.directive';
+import { PrizmRowBaseDirective } from './directives/prizm-row-base.directive';
+import { PrizmBaseTableComponent } from './prizm-base-table.directive';
 
 @NgModule({
   declarations: [BaseTableTemplateDirective, PrizmRowBaseDirective, PrizmBaseTableComponent],

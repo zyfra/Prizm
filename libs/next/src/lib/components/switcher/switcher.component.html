@@ -1,5 +1,5 @@
 <div class="container">
-  <pzm-switcher-item
+  <prizm-switcher-item
     *ngFor="let switcher of switchers; let i = index"
     [attr.first-child]="i === 0"
     [attr.last-child]="i === switchers.length - 1"
@@ -9,5 +9,5 @@
     [size]="size"
     class="switcher-item"
     (click)="selectSwitcher(i)"
-  ></pzm-switcher-item>
+  ></prizm-switcher-item>
 </div>

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'pzm-multi-select-with-template-example',
+  selector: 'prizm-multi-select-with-template-example',
   templateUrl: './multi-select-with-template-example.component.html',
   styles: [`
     .item {

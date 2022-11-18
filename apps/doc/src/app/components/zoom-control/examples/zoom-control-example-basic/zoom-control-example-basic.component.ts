@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'pzm-zoom-control-example-basic',
+  selector: 'prizm-zoom-control-example-basic',
   templateUrl: './zoom-control-example-basic.component.html',
   styleUrls: ['./zoom-control-example-basic.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

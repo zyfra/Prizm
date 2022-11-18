@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { IconDefs, PrizmAppearance, PrizmAppearanceType, PrizmContent, PrizmSize } from '@digital-plant/zui-components';
+import { IconDefs, PrizmAppearance, PrizmAppearanceType, PrizmContent, PrizmSize } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-icon-button-example',
+  selector: 'prizm-icon-button-example',
   templateUrl: './icon-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [

@@ -15,11 +15,11 @@ import {
 } from '@angular/core';
 import { IBreadcrumb } from './breadcrumb.interface';
 import { animationFrameScheduler, BehaviorSubject, merge, Subject } from 'rxjs';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { debounceTime, observeOn, takeUntil, tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'pzm-breadcrumbs',
+  selector: 'prizm-breadcrumbs',
   templateUrl: './breadcrumbs.component.html',
   styleUrls: ['./breadcrumbs.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -35,7 +35,7 @@ export class BreadcrumbsComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_breadcrumbs';
+  readonly testId = 'prizm_breadcrumbs';
 
   @Output() public breadcrumbChange: EventEmitter<IBreadcrumb> = new EventEmitter();
   @ViewChild('container', { static: true }) public containerRef: ElementRef;

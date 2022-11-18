@@ -1,9 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { IconDefs, TabSize, TabType } from '@digital-plant/zui-components';
+import { IconDefs, TabSize, TabType } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-tabs-example',
+  selector: 'prizm-tabs-example',
   templateUrl: './tabs-example.component.html',
   styleUrls: ['./tabs-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

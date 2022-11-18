@@ -1,3 +1,3 @@
-export function pzmIsFirefox(userAgent: string): boolean {
+export function prizmIsFirefox(userAgent: string): boolean {
     return userAgent.toLowerCase().includes('firefox');
 }

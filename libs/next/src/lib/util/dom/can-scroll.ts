@@ -1,4 +1,4 @@
-export function pzmCanScroll(
+export function prizmCanScroll(
     element: Element,
     rootElement: Element,
     vertical: boolean,

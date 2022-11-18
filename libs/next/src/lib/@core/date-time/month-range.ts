@@ -1,4 +1,4 @@
-import { PZM_RANGE_SEPARATOR_CHAR } from './date-time';
+import { PRIZM_RANGE_SEPARATOR_CHAR } from './date-time';
 import { PrizmMonth } from './month';
 import { PrizmDay } from './day';
 import { PrizmYear } from './year';
@@ -25,7 +25,7 @@ export class PrizmMonthRange {
      * @deprecated
      */
     public get formattedMonthRange(): string {
-        return `${this.from.formattedMonth}${PZM_RANGE_SEPARATOR_CHAR}${this.to.formattedMonth}`;
+        return `${this.from.formattedMonth}${PRIZM_RANGE_SEPARATOR_CHAR}${this.to.formattedMonth}`;
     }
 
     public isMonthInRange(
@@ -45,6 +45,6 @@ export class PrizmMonthRange {
     }
 
     public toString(): string {
-        return `${this.from}${PZM_RANGE_SEPARATOR_CHAR}${this.to}`;
+        return `${this.from}${PRIZM_RANGE_SEPARATOR_CHAR}${this.to}`;
     }
 }

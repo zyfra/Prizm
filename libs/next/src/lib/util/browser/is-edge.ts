@@ -1,3 +1,3 @@
-export function pzmIsEdge(userAgent: string): boolean {
+export function prizmIsEdge(userAgent: string): boolean {
     return userAgent.toLowerCase().includes('edge');
 }

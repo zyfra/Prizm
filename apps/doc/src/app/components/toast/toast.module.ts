@@ -8,8 +8,8 @@ import {
   PrizmButtonModule,
   PrizmRadioButtonModule,
   PrizmToastModule,
-  pzmToastOptionsProvider,
-} from '@digital-plant/zui-components';
+  prizmToastOptionsProvider,
+} from '@prizm-ui/components';
 import { PrizmToastWarningExampleComponent } from './examples/message-warning-example/message-warning-example.component';
 import { PrizmToastSuccessExampleComponent } from './examples/message-success-example/message-success-example.component';
 import { PrizmToastDangerExampleComponent } from './examples/message-danger-example/message-success-example.component';
@@ -36,7 +36,7 @@ import { PrizmToastExampleComponent } from './examples/toast-example/toast-examp
     ToastComponent,
   ],
   providers: [
-    pzmToastOptionsProvider({
+    prizmToastOptionsProvider({
       timer: 1000
     })
   ],

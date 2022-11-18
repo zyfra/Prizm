@@ -1,4 +1,4 @@
-import { IPaginatorOptions } from '@digital-plant/zui-components';
+import { IPaginatorOptions } from '@prizm-ui/components';
 
 export const PAGINATOR_OPTIONS_VARIANTS: IPaginatorOptions[] = [
   {},

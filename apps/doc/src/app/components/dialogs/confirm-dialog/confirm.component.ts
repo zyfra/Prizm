@@ -9,12 +9,12 @@ import {
   PrizmDialogSize,
   PrizmOverlayInsidePlacement,
   PrizmOverscrollMode,
-  pzmPure,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
+import { prizmPure } from '@prizm-ui/core';
 import { generatePolymorphVariants } from '../../../util';
 
 @Component({
-  selector: 'pzm-tooltip-example',
+  selector: 'prizm-tooltip-example',
   templateUrl: './confirm.component.html',
   styleUrls: ['./confirm.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -70,7 +70,7 @@ export class ConfirmComponent {
     @Inject(PrizmConfirmDialogService) private readonly dialogConfirmService: PrizmConfirmDialogService,
   ) {}
 
-  @pzmPure
+  @prizmPure
   public generatePolymorphVariants(...content: PolymorphContent[]): any[] {
     return generatePolymorphVariants(...content)
   };

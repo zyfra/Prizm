@@ -21,7 +21,7 @@ export interface PrizmHintContext {
 }
 
 /** Default values for hint options */
-export const PZM_HINT_DEFAULT_OPTIONS: PrizmHintOptions = {
+export const PRIZM_HINT_DEFAULT_OPTIONS: PrizmHintOptions = {
     showDelay: 500,
     hideDelay: 200,
     autoReposition: true,
@@ -29,16 +29,16 @@ export const PZM_HINT_DEFAULT_OPTIONS: PrizmHintOptions = {
     direction: PrizmOverlayOutsidePlacement.RIGHT,
 };
 
-export const PZM_HINT_OPTIONS = new InjectionToken<PrizmHintOptions>(
+export const PRIZM_HINT_OPTIONS = new InjectionToken<PrizmHintOptions>(
     'Default parameters for hint directive',
     {
-        factory: (): PrizmHintOptions => PZM_HINT_DEFAULT_OPTIONS,
+        factory: (): PrizmHintOptions => PRIZM_HINT_DEFAULT_OPTIONS,
     },
 );
 
-export const pzmHintOptionsProvider: (
+export const prizmHintOptionsProvider: (
     options: Partial<PrizmHintOptions>,
 ) => ValueProvider = (options: Partial<PrizmHintOptions>) => ({
-    provide: PZM_HINT_OPTIONS,
-    useValue: {...PZM_HINT_DEFAULT_OPTIONS, ...options},
+    provide: PRIZM_HINT_OPTIONS,
+    useValue: {...PRIZM_HINT_DEFAULT_OPTIONS, ...options},
 });

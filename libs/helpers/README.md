@@ -1,4 +1,4 @@
-# @digital-plant/zyfra-helpers
+# @prizm-ui/helpers
 This project add base helpers for work. 
 
 Main docs: read comments in codes and readMe files

@@ -1,11 +1,11 @@
 import { Directive, HostBinding, Input } from '@angular/core';
-import { TRowStatus } from '../pzm-table.types';
+import { TRowStatus } from '../prizm-table.types';
 
 @Directive({
-  selector: '[pzmCellStatus]',
+  selector: '[prizmCellStatus]',
 })
 export class PrizmCellStatusDirective {
-  @Input('pzmCellStatus')
+  @Input('prizmCellStatus')
   @HostBinding('attr.cell-status')
   status: TRowStatus = 'default';
 }

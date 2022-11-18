@@ -7,7 +7,7 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { InputMaskExampleComponent } from './input-mask-example.component';
 import { InputMaskBasicExampleComponent } from './examples/input-mask-basic-example/input-mask-basic-example.component';
 import { InputPhoneExampleComponent } from './examples/input-phone-example/input-phone-example.component';
-import { PrizmInputTextModule, PrizmMaskModule } from '@digital-plant/zui-components';
+import { PrizmInputTextModule, PrizmMaskModule } from '@prizm-ui/components';
 
 @NgModule({
   imports: [

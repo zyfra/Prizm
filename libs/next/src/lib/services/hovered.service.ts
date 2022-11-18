@@ -9,9 +9,9 @@ import {
     switchMap,
     take,
 } from 'rxjs/operators';
-import { pzmZoneOptimized } from '../observables/zone-free';
-import { pzmTypedFromEvent } from '../observables/typed-from-event';
-import {pzmGetActualTarget} from "../util/dom/get-actual-target";
+import { prizmZoneOptimized } from '../observables/zone-free';
+import { prizmTypedFromEvent } from '../observables/typed-from-event';
+import {prizmGetActualTarget} from "../util/dom/get-actual-target";
 
 @Injectable({
     providedIn: 'root',
@@ -24,8 +24,8 @@ export class PrizmHoveredService {
         @Inject(NgZone) private readonly ngZone: NgZone,
     ) {
         this.documentEvents$ = merge(
-            pzmTypedFromEvent(documentRef, 'mousemove'),
-            pzmTypedFromEvent(documentRef, 'touchstart', {capture: true}),
+            prizmTypedFromEvent(documentRef, 'mousemove'),
+            prizmTypedFromEvent(documentRef, 'touchstart', {capture: true}),
         );
     }
 
@@ -34,15 +34,15 @@ export class PrizmHoveredService {
         options: AddEventListenerOptions = {passive: true},
     ): Observable<boolean> {
         return merge(
-            pzmTypedFromEvent(target, 'mouseenter', options),
-            pzmTypedFromEvent(target, 'touchstart', options),
+            prizmTypedFromEvent(target, 'mouseenter', options),
+            prizmTypedFromEvent(target, 'touchstart', options),
         ).pipe(
             switchMap(() =>
                 merge(
-                    pzmTypedFromEvent(target, 'mouseleave', options),
+                    prizmTypedFromEvent(target, 'mouseleave', options),
                     this.documentEvents$.pipe(
-                        filter(event => !target.contains(pzmGetActualTarget(event))),
-                        pzmZoneOptimized(this.ngZone),
+                        filter(event => !target.contains(prizmGetActualTarget(event))),
+                        prizmZoneOptimized(this.ngZone),
                         take(1),
                     ),
                 ).pipe(mapTo(false), startWith(true)),

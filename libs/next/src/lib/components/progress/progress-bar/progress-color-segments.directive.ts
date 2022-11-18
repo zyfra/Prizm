@@ -2,11 +2,11 @@ import { Directive, ElementRef, Inject, Input } from '@angular/core';
 import { USER_AGENT } from '@ng-web-apis/common';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmResizeService } from '../../../services/resize.service';
-import { pzmIsEdgeOlderThan } from '../../../util/browser/is-edge-older-than';
-import { PZM_CHROMIUM_EDGE_START_VERSION } from '../../../constants/chromium';
-import { pzmPure } from '../../../decorators/pure';
+import { prizmIsEdgeOlderThan } from '../../../util/browser/is-edge-older-than';
+import { PRIZM_CHROMIUM_EDGE_START_VERSION } from '../../../constants/chromium';
+import { prizmPure } from '@prizm-ui/core';
 
 function calculateColorSegments(colors: string[], progressWidth: number): string {
     const segmentWidth = Math.ceil(progressWidth / colors.length);
@@ -20,32 +20,32 @@ function calculateColorSegments(colors: string[], progressWidth: number): string
 }
 
 @Directive({
-    selector: `progress[pzmProgressBar][pzmProgressColorSegments]`,
+    selector: `progress[prizmProgressBar][prizmProgressColorSegments]`,
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
     host: {
-        '[$.style.--pzm-progress-color]': `calcSegments$`,
-        '($.style.--pzm-progress-color)': `0`,
+        '[$.style.--prizm-progress-color]': `calcSegments$`,
+        '($.style.--prizm-progress-color)': `0`,
     },
     providers: [PrizmDestroyService, PrizmResizeService],
 })
 export class PrizmProgressColorSegmentsDirective {
     // TODO: drop support of legacy Edge (EdgeHTML) in v4.x
-    private readonly isOldBrowsers = pzmIsEdgeOlderThan(
-        PZM_CHROMIUM_EDGE_START_VERSION,
+    private readonly isOldBrowsers = prizmIsEdgeOlderThan(
+        PRIZM_CHROMIUM_EDGE_START_VERSION,
         this.userAgent,
     );
 
     @Input()
-    pzmProgressColorSegments: string[] = [];
+    prizmProgressColorSegments: string[] = [];
 
-    @pzmPure
+    @prizmPure
     get calcSegments$(): Observable<string> {
         return this.resize$.pipe(
             map(() =>
                 this.isOldBrowsers
-                    ? this.pzmProgressColorSegments[0]
+                    ? this.prizmProgressColorSegments[0]
                     : calculateColorSegments(
-                          this.pzmProgressColorSegments,
+                          this.prizmProgressColorSegments,
                           this.elementRef.nativeElement.offsetWidth,
                       ),
             )

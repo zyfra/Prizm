@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { PrizmMapper } from '../../types/mapper';
 
-@Pipe({name: `pzmMapper`})
+@Pipe({name: `prizmMapper`})
 export class PrizmMapperPipe implements PipeTransform {
     /**
      * Maps object to an arbitrary result through a mapper function

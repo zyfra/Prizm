@@ -4,10 +4,10 @@ import {
   PrizmOverlayGlobalPosition,
   PrizmOverlayInsidePlacement,
   PrizmOverlayService
-} from "@digital-plant/zui-components";
+} from "@prizm-ui/components";
 
 @Component({
-  selector: 'pzm-overlay-fullscreen-example',
+  selector: 'prizm-overlay-fullscreen-example',
   templateUrl: './template.html',
   styles: [`
     .box {

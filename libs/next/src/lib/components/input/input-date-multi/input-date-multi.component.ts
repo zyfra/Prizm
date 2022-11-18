@@ -9,9 +9,9 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { PrizmInputSize } from '../common/models/pzm-input.models';
-import { getProviderPrizmDateLeftButtons, PZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
+import { prizmDefaultProp } from '@prizm-ui/core';
+import { PrizmInputSize } from '../common/models/prizm-input.models';
+import { getProviderPrizmDateLeftButtons, PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { BehaviorSubject } from 'rxjs';
 import { PrizmDateButton, PrizmDateButtonContext } from '../../../types/date-button';
 
@@ -20,7 +20,7 @@ export type PrizmDateItemTemplate = {
 } & PrizmDateButton;
 
 @Component({
-    selector: `pzm-input-date-multi`,
+    selector: `prizm-input-date-multi`,
     templateUrl: `./input-date-multi.component.html`,
     styleUrls: [`./input-date-multi.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -33,7 +33,7 @@ export class PrizmInputDateMultiComponent implements OnInit {
 
     private readonly _items$ = new BehaviorSubject<PrizmDateItemTemplate[]>([]);
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     set items(value: PrizmDateItemTemplate[]) {
       this._items$.next(value);
     }
@@ -42,11 +42,11 @@ export class PrizmInputDateMultiComponent implements OnInit {
     }
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     currentIdx = 0;
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_input_date_multi';
+    readonly testId = 'prizm_input_date_multi';
 
     public open = false;
 
@@ -57,7 +57,7 @@ export class PrizmInputDateMultiComponent implements OnInit {
     }
 
     constructor(
-      @Inject(PZM_DATE_RIGHT_BUTTONS) public readonly leftButtons$: BehaviorSubject<PrizmDateButton[]>,
+      @Inject(PRIZM_DATE_RIGHT_BUTTONS) public readonly leftButtons$: BehaviorSubject<PrizmDateButton[]>,
       private readonly cdRef: ChangeDetectorRef,
       private readonly injector: Injector,
     ) {

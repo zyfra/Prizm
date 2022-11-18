@@ -15,7 +15,7 @@
 
 @space: 0.25rem;
 
-@keyframes pzmLoaderDashOffset {
+@keyframes prizmLoaderDashOffset {
     0% {
         stroke-dashoffset: -66;
     }
@@ -29,7 +29,7 @@
     }
 }
 
-@keyframes pzmLoaderRotate {
+@keyframes prizmLoaderRotate {
     0% {
         transform: rotate(0deg);
     }
@@ -79,9 +79,9 @@
     min-width: 100%;
     flex-shrink: 0;
     align-self: center;
-    color: var(--pzm-text-main);
-    stroke: var(--pzm-exeptions-g1-b1);
-    animation: pzmFadeIn var(--pzm-duration);
+    color: var(--prizm-text-main);
+    stroke: var(--prizm-exeptions-g1-b1);
+    animation: prizmFadeIn var(--prizm-duration);
 
     &&_horizontal {
         flex-direction: row;
@@ -92,32 +92,32 @@
         stroke: currentColor;
     }
 
-    &[data-pzm-element-size='xm'] {
+    &[data-prizm-element-size='xm'] {
         font-size: @size-xm;
         stroke-width: @width-xm;
     }
 
-    &[data-pzm-element-size='s'] {
+    &[data-prizm-element-size='s'] {
         font-size: @size-s;
         stroke-width: @width-s;
     }
 
-    &[data-pzm-element-size='xs'] {
+    &[data-prizm-element-size='xs'] {
         font-size: @size-xs;
         stroke-width: @width-xs;
     }
 
-    &[data-pzm-element-size='m'] {
+    &[data-prizm-element-size='m'] {
         font-size: @size-m;
         stroke-width: @width-m;
     }
 
-    &[data-pzm-element-size='l'] {
+    &[data-prizm-element-size='l'] {
         font-size: @size-l;
         stroke-width: @width-l;
     }
 
-    &[data-pzm-element-size='xl'] {
+    &[data-prizm-element-size='xl'] {
         font-size: @size-xl;
         stroke-width: @width-xl;
     }
@@ -149,12 +149,12 @@
     border-radius: 100%;
     overflow: hidden;
     transform: scale(1, -1);
-    animation: pzmLoaderRotate 3s linear infinite;
+    animation: prizmLoaderRotate 3s linear infinite;
 }
 
 .z-circle {
     fill: none;
     stroke: inherit;
     stroke-width: inherit;
-    animation: pzmLoaderDashOffset 3s linear infinite;
+    animation: prizmLoaderDashOffset 3s linear infinite;
 }

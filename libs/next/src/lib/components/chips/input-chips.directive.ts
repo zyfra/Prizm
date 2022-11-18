@@ -1,4 +1,4 @@
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { Component, HostListener, Input } from '@angular/core';
 import { PrizmInputControl } from '../input';
 import { PrizmInputTextComponent } from '../input/input-text/input-text.component';
@@ -11,7 +11,7 @@ interface IPrizmChipsComponent {
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'input[pzmInputChips]',
+  selector: 'input[prizmInputChips]',
   template: '',
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {

@@ -1,20 +1,20 @@
 <div
-    *pzmRepeatTimes="let rowIndex of rows"
-    automation-id="pzm-primitive-year-picker__row"
+    *prizmRepeatTimes="let rowIndex of rows"
+    automation-id="prizm-primitive-year-picker__row"
     class="z-row"
 >
-    <ng-container *pzmRepeatTimes="let colIndex of ITEMS_IN_ROW">
+    <ng-container *prizmRepeatTimes="let colIndex of ITEMS_IN_ROW">
         <div
-            *pzmLet="getItem(rowIndex, colIndex) as item"
-            automation-id="pzm-primitive-year-picker__cell"
+            *prizmLet="getItem(rowIndex, colIndex) as item"
+            automation-id="prizm-primitive-year-picker__cell"
             class="z-cell"
             [class.z-cell_today]="itemIsToday(item)"
             [class.z-cell_interval]="itemIsInterval(item)"
             [attr.data-range]="getItemRange(item)"
             [attr.data-state]="getItemState(item)"
-            [pzmScrollIntoView]="scrollItemIntoView(item)"
-            (pzmHoveredChange)="onItemHovered($event, item)"
-            (pzmPressedChange)="onItemPressed($event, item)"
+            [prizmScrollIntoView]="scrollItemIntoView(item)"
+            (prizmHoveredChange)="onItemHovered($event, item)"
+            (prizmPressedChange)="onItemPressed($event, item)"
             (click)="onItemClick($event, item)"
         >
             <div class="z-item">{{ item }}</div>

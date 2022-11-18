@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Directive, Injector, Input, OnInit } from '@angular/core';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil } from 'rxjs/operators';
 import { PrizmInputControl } from './input-control.class';
 import { PrizmInputValidationTexts } from '../services/input-invalid-subtext.service';

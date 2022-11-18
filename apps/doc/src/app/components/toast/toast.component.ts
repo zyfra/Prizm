@@ -2,15 +2,15 @@ import { ChangeDetectionStrategy, Component, TemplateRef } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  pzmPure,
   PrizmToastAppearance,
   PrizmToastOptions,
   PrizmToastPosition,
   PrizmToastService,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
+import { prizmPure } from '@prizm-ui/core';
 
 @Component({
-  selector: 'pzm-example-example',
+  selector: 'prizm-example-example',
   templateUrl: './toast.component.html',
   styleUrls: ['./toast.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -74,7 +74,7 @@ export class ToastComponent {
 
   constructor(private readonly toastService: PrizmToastService) {}
 
-  @pzmPure
+  @prizmPure
   public getContentVariants(
     template: TemplateRef<Record<string, unknown>>,
   ): readonly PolymorphContent[] {

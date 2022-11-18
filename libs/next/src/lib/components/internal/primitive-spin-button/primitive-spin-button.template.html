@@ -1,20 +1,20 @@
 <div
     *ngIf="spinTexts$ | async as texts"
     #wrapper
-    pzmPreventDefault="mousedown"
+    prizmPreventDefault="mousedown"
     class="z-wrapper"
-    [pzmFocusable]="computedFocusable"
-    (pzmFocusedChange)="onFocused($event)"
-    (pzmFocusVisibleChange)="onFocusVisible($event)"
+    [prizmFocusable]="computedFocusable"
+    (prizmFocusedChange)="onFocused($event)"
+    (prizmFocusVisibleChange)="onFocusVisible($event)"
     (keydown.arrowLeft)="onLeftClick()"
     (keydown.arrowRight)="onRightClick()"
 >
     <button
-        pzmIconButton
+        prizmIconButton
         type="button"
         size="xs"
         [appearanceType]='mode'
-        automation-id="pzm-primitive-spin-button__left"
+        automation-id="prizm-primitive-spin-button__left"
         icon="arrows-chevron-left"
         class="z-arrow"
         appearance='secondary'
@@ -27,11 +27,11 @@
         <ng-content></ng-content>
     </span>
     <button
-        pzmIconButton
+        prizmIconButton
         type="button"
         size="xs"
         appearance='secondary'
-        automation-id="pzm-primitive-spin-button__right"
+        automation-id="prizm-primitive-spin-button__right"
         icon="arrows-chevron-right"
         class="z-arrow"
         [appearanceType]='mode'

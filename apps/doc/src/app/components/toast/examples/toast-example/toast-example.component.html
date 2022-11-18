@@ -1,27 +1,27 @@
 <div class="box">
   <button
-    pzmButton
+    prizmButton
     appearance='success'
     (click)="showSuccessToastWithContentTemplate(contentTemplate)">
     Success Toast
   </button>
 
   <button
-    pzmButton
+    prizmButton
     appearance='warning'
     (click)="showWarningToastWithContentTemplate(contentTemplate)">
     Warning Toast
   </button>
 
   <button
-    pzmButton
+    prizmButton
     appearance='danger'
     (click)="showDangerToastWithContentTemplate(contentTemplate)">
     Danger Toast
   </button>
 
   <button
-    pzmButton
+    prizmButton
     appearance='primary'
     (click)="showInfoToastWithContentTemplate(contentTemplate)">
     Info Toast
@@ -38,7 +38,7 @@
     </div>
     <div class="footer">
       <button
-        pzmButton
+        prizmButton
         [appearance]='buttonAppearance'
         (click)="close()">
         Закрыть
@@ -51,12 +51,12 @@
 <hr>
 <p>Position</p>
 <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-  <pzm-radio-button
+  <prizm-radio-button
     *ngFor="let item of data"
     [formControl]="formControl"
     [label]="item.label"
     [name]="'success'"
     [value]="item.val"
-  ></pzm-radio-button>
+  ></prizm-radio-button>
 </div>
 

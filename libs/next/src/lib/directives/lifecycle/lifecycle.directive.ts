@@ -13,21 +13,21 @@ import { ReplaySubject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 @Directive({
-    selector: '[pzmLifecycle], [pzmAfterViewInit], [pzmAfterContentInit], [pzmOnInit], [pzmOnDestroy]',
-    exportAs: 'pzmLifecycle'
+    selector: '[prizmLifecycle], [prizmAfterViewInit], [prizmAfterContentInit], [prizmOnInit], [prizmOnDestroy]',
+    exportAs: 'prizmLifecycle'
 })
 export class PrizmLifecycleDirective implements AfterViewInit, OnInit, OnDestroy, AfterContentInit {
     @Output()
-    readonly pzmAfterViewInit = new EventEmitter<ElementRef>();
+    readonly prizmAfterViewInit = new EventEmitter<ElementRef>();
 
     @Output()
-    readonly pzmOnInit = new EventEmitter<ElementRef>();
+    readonly prizmOnInit = new EventEmitter<ElementRef>();
 
     @Output()
-    readonly pzmAfterContentInit = new EventEmitter<ElementRef>();
+    readonly prizmAfterContentInit = new EventEmitter<ElementRef>();
 
     @Output()
-    readonly pzmOnDestroy = new EventEmitter<ElementRef>();
+    readonly prizmOnDestroy = new EventEmitter<ElementRef>();
 
     private readonly afterViewInitSource$ = new ReplaySubject(1);
     readonly afterViewInit$ = this.afterViewInitSource$.pipe(
@@ -40,19 +40,19 @@ export class PrizmLifecycleDirective implements AfterViewInit, OnInit, OnDestroy
     ) {}
 
     ngAfterViewInit(): void {
-      this.pzmAfterViewInit.next(this.element);
+      this.prizmAfterViewInit.next(this.element);
       this.afterViewInitSource$.next(this.element);
     }
 
     ngAfterContentInit(): void {
-      this.pzmAfterContentInit.next(this.element);
+      this.prizmAfterContentInit.next(this.element);
     }
 
     ngOnDestroy(): void {
-      this.pzmOnDestroy.next(this.element);
+      this.prizmOnDestroy.next(this.element);
     }
 
     ngOnInit(): void {
-      this.pzmOnInit.next(this.element);
+      this.prizmOnInit.next(this.element);
     }
 }

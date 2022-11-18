@@ -11,16 +11,16 @@ import {
   take,
   withLatestFrom,
 } from 'rxjs/operators';
-import { pzmIsAlive } from './is-alive';
+import { prizmIsAlive } from './is-alive';
 import { PrizmOwnerDocumentException } from '../exceptions';
-import { pzmIsNativeFocused } from '../util';
-import { pzmTypedFromEvent } from './typed-from-event';
+import { prizmIsNativeFocused } from '../util';
+import { prizmTypedFromEvent } from './typed-from-event';
 
 let documentMouseUpIsAlive$: Observable<boolean>;
 let documentMouseDownIsAlive$: Observable<boolean>;
 
-export function pzmFocusVisibleObservable(element: Element): Observable<boolean> {
-    const elementBlur$ = pzmTypedFromEvent(element, 'blur');
+export function prizmFocusVisibleObservable(element: Element): Observable<boolean> {
+    const elementBlur$ = prizmTypedFromEvent(element, 'blur');
     const {ownerDocument} = element;
 
     if (!ownerDocument) {
@@ -28,17 +28,17 @@ export function pzmFocusVisibleObservable(element: Element): Observable<boolean>
     }
 
     if (!documentMouseDownIsAlive$ || !documentMouseUpIsAlive$) {
-        documentMouseUpIsAlive$ = pzmTypedFromEvent(ownerDocument, 'mouseup', {
+        documentMouseUpIsAlive$ = prizmTypedFromEvent(ownerDocument, 'mouseup', {
             capture: true,
         }).pipe(
-            pzmIsAlive(),
+            prizmIsAlive(),
             startWith(false),
             shareReplay({bufferSize: 1, refCount: true}),
         );
-        documentMouseDownIsAlive$ = pzmTypedFromEvent(ownerDocument, 'mousedown', {
+        documentMouseDownIsAlive$ = prizmTypedFromEvent(ownerDocument, 'mousedown', {
             capture: true,
         }).pipe(
-            pzmIsAlive(),
+            prizmIsAlive(),
             startWith(false),
             shareReplay({bufferSize: 1, refCount: true}),
         );
@@ -47,10 +47,10 @@ export function pzmFocusVisibleObservable(element: Element): Observable<boolean>
     return merge(
         // focus events excluding ones that came right after mouse action
         concat(
-            pzmTypedFromEvent(element, 'focus').pipe(take(1)),
+            prizmTypedFromEvent(element, 'focus').pipe(take(1)),
             // filtering out blur events when element remains focused so that we ignore browser tab focus loss
             elementBlur$.pipe(
-                filter(() => !pzmIsNativeFocused(element)),
+                filter(() => !prizmIsNativeFocused(element)),
                 take(1),
                 ignoreElements(),
             ),

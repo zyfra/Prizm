@@ -23,7 +23,7 @@ const SIZES: ReadonlyArray<PrizmSize> = [
  * @param size size that we need to compare
  * @param biggerThanSize size to compare with, 's' by default
  */
-export function pzmSizeBigger(
+export function prizmSizeBigger(
     size: PrizmSize,
     biggerThanSize: PrizmSize = SIZES[0],
 ): boolean {

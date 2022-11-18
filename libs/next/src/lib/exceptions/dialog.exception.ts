@@ -1,5 +1,5 @@
 export class PrizmDialogRequiredException extends Error {
   constructor() {
-    super('Required pzmDialog was dismissed');
+    super('Required prizmDialog was dismissed');
   }
 }

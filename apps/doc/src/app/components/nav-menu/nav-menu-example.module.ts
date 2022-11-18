@@ -4,7 +4,7 @@ import { NavMenuExampleComponent } from './nav-menu-example.component';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { NavMenuBasicExampleComponent } from './examples/nav-menu-basic-example/nav-menu-basic-example.component';
-import { PrizmNavMenuModule } from '@digital-plant/zui-components';
+import { PrizmNavMenuModule } from '@prizm-ui/components';
 import { NavMenuAdvancedExampleComponent } from './examples/nav-menu-advanced-example/nav-menu-advanced-example.component';
 
 @NgModule({

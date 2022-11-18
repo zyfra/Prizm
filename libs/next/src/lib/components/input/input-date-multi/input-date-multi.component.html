@@ -1,8 +1,8 @@
-<pzm-dropdown-host
+<prizm-dropdown-host
     class="z-hosted"
     [(isOpen)]="open"
     [content]="dropdown"
-    pzmDropdownHostWidth='100%'
+    prizmDropdownHostWidth='100%'
     [closeByEsc]='true'
 >
   <ng-container *ngFor='let item of items; let idx = index'>
@@ -10,10 +10,10 @@
       <ng-container *ngTemplateOutlet="item.template as data; context: context"></ng-container>
     </ng-container>
   </ng-container>
-</pzm-dropdown-host>
+</prizm-dropdown-host>
 
 <ng-template #dropdown>
-  <pzm-data-list class='block'>
+  <prizm-data-list class='block'>
     <ng-container *ngIf='items?.length;'>
       <div class='item' [class.selected]='idx === currentIdx'
            *ngFor='let item of items; let idx = index'
@@ -23,13 +23,13 @@
           </span>
       </div>
     </ng-container>
-  </pzm-data-list>
+  </prizm-data-list>
 </ng-template>
 
 <ng-template #buttonLeft>
   <button
-    (pzmAfterViewInit)='setListener($event.nativeElement)'
-    pzmInputIconButton="chevrons-dropdown-small"
+    (prizmAfterViewInit)='setListener($event.nativeElement)'
+    prizmInputIconButton="chevrons-dropdown-small"
     [interactive]="true"
   ></button>
 </ng-template>

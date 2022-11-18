@@ -1,17 +1,17 @@
 import type { Provider } from '@angular/core';
 import { PrizmLanguageLoader } from '../interfaces';
-import { PZM_LANGUAGE_LOADER } from '../tokens';
-import { PZM_LANGUAGE } from '../tools';
+import { PRIZM_LANGUAGE_LOADER } from '../tokens';
+import { PRIZM_LANGUAGE } from '../tools';
 import { PrizmLanguageSwitcher } from './language-switcher.service';
 
-export function pzmLanguageSwitcher(loader: PrizmLanguageLoader): Provider[] {
+export function prizmLanguageSwitcher(loader: PrizmLanguageLoader): Provider[] {
     return [
         {
-            provide: PZM_LANGUAGE_LOADER,
+            provide: PRIZM_LANGUAGE_LOADER,
             useFactory: (): PrizmLanguageLoader => loader,
         },
         {
-            provide: PZM_LANGUAGE,
+            provide: PRIZM_LANGUAGE,
             useExisting: PrizmLanguageSwitcher,
         },
     ];

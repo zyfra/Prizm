@@ -1,6 +1,6 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-    selector: '[pzmExpandContent]',
+    selector: '[prizmExpandContent]',
 })
 export class PrizmExpandContentDirective {}

@@ -1,9 +1,9 @@
 import {Component, TemplateRef} from '@angular/core';
-import {PrizmToastService, PrizmToastAppearance, PrizmToastPosition} from "@digital-plant/zui-components";
+import {PrizmToastService, PrizmToastAppearance, PrizmToastPosition} from "@prizm-ui/components";
 import {FormControl} from "@angular/forms";
 
 @Component({
-  selector: 'pzm-toast-example',
+  selector: 'prizm-toast-example',
   templateUrl: './toast-example.component.html',
   styles: [`
     .box{

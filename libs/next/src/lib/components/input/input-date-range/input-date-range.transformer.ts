@@ -1,6 +1,6 @@
 import { Provider } from '@angular/core';
 import { PrizmDayRange } from '../../../@core/date-time/day-range';
-import { PZM_DATE_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
+import { PRIZM_DATE_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 
 type From = PrizmDayRange | null;
@@ -19,9 +19,9 @@ export class PrizmInputDateRangeNativeTransformer implements PrizmControlValueTr
   }
 }
 
-export function pzmGetInputDateRangeNativeTransformer(): Provider {
+export function prizmGetInputDateRangeNativeTransformer(): Provider {
   return  {
-    provide: PZM_DATE_RANGE_VALUE_TRANSFORMER,
+    provide: PRIZM_DATE_RANGE_VALUE_TRANSFORMER,
     useClass: PrizmInputDateRangeNativeTransformer,
   };
 }

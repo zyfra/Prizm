@@ -11,7 +11,7 @@ import {
 import { PrizmToastRef } from '../toast-ref';
 
 @Component({
-  selector: 'pzm-toast-wrapper',
+  selector: 'prizm-toast-wrapper',
   templateUrl: './toast-wrapper.component.html',
   styleUrls: ['./toast-wrapper.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,10 +21,10 @@ export class ToastWrapperComponent implements OnInit {
   @Input() ref!: PrizmToastRef;
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_toast_wrapper';
+  readonly testId = 'prizm_toast_wrapper';
 
   @HostBinding('attr.id') get getRefId (): string {
-    return 'pzm-toast-id' + this.ref.id;
+    return 'prizm-toast-id' + this.ref.id;
   }
 
   get component(): Type<unknown> {

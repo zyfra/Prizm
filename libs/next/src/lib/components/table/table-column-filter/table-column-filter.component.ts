@@ -9,17 +9,17 @@ import {
 } from '@angular/core';
 import { FilterOperator, SelectItem } from 'primeng/api';
 import { Table } from 'primeng/table';
-import { PrizmTableComponent } from '../pzm-table.component';
+import { PrizmTableComponent } from '../prizm-table.component';
 import { BaseTableTemplateDirective } from '../base-table/directives/base-table-template.directive';
 
 @Component({
-  selector: 'pzm-table-column-filter',
+  selector: 'prizm-table-column-filter',
   templateUrl: './table-column-filter.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: Table,
-      useFactory: (pzmTable: PrizmTableComponent): Table => pzmTable.table,
+      useFactory: (prizmTable: PrizmTableComponent): Table => prizmTable.table,
       deps: [PrizmTableComponent],
     },
   ],
@@ -57,7 +57,7 @@ export class PrizmTableColumnFilterComponent implements AfterContentInit {
   @Input() useGrouping = true;
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_table_column_filter';
+  readonly testId = 'prizm_table_column_filter';
 
   ngAfterContentInit(): void {
     this.templates.forEach(item => {

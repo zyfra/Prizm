@@ -12,11 +12,11 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { pzmDefaultProp, pzmRequiredSetter } from '../../decorators';
-import { pzmIsCurrentTarget } from '../../util/dom';
+import { prizmDefaultProp, prizmRequiredSetter } from '@prizm-ui/core';
+import { prizmIsCurrentTarget } from '../../util/dom';
 
 import { PrizmExpandContentDirective } from './expand-content.directive';
-import { PZM_EXPAND_LOADED } from './expand.const';
+import { PRIZM_EXPAND_LOADED } from './expand.const';
 
 enum State {
     Idle,
@@ -28,7 +28,7 @@ enum State {
 const LOADER_HEIGHT = 48;
 
 @Component({
-    selector: 'pzm-expand',
+    selector: 'prizm-expand',
     templateUrl: './expand.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['./expand.component.less'],
@@ -40,11 +40,11 @@ export class PrizmExpandComponent {
     private state = State.Idle;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     isLoading = false;
 
     @Input()
-    @pzmRequiredSetter()
+    @prizmRequiredSetter()
     set expanded(expanded: boolean | null) {
         if (this.expanded_ === null) {
             this.expanded_ = expanded;
@@ -71,12 +71,12 @@ export class PrizmExpandComponent {
     private expanded_: boolean | null = null;
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_expand';
+    readonly testId = 'prizm_expand';
 
     @HostListener('transitionend', ['$event'])
     public onTransitionEnd(event: TransitionEvent): void {
       if (
-        pzmIsCurrentTarget(event) &&
+        prizmIsCurrentTarget(event) &&
         event.propertyName === 'opacity' &&
         this.state === State.Animated
       ) {
@@ -84,7 +84,7 @@ export class PrizmExpandComponent {
       }
     }
 
-    @HostListener(PZM_EXPAND_LOADED, ['$event'])
+    @HostListener(PRIZM_EXPAND_LOADED, ['$event'])
     public onExpandLoaded(event: Event): void {
       event.stopPropagation();
 

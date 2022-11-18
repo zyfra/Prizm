@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { ScrollbarComponent } from './scrollbar.component';
-import { PrizmScrollbarModule } from '@digital-plant/zui-components';
+import { PrizmScrollbarModule } from '@prizm-ui/components';
 import { PrizmScrollbarBaseExampleComponent } from './examples/base/scrollbar-base-example.component';
 import { PrizmScrollbarHorizontalExampleComponent } from './examples/horizontal/scrollbar-horizontal-example.component';
 import { PrizmScrollbarHiddenExampleComponent } from './examples/hidden/scrollbar-hidden-example.component';

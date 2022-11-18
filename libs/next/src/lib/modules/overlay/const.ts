@@ -1,1 +1,1 @@
-export const PZM_OVERLAY_BACKDROP_NO_POINTERS = 'no-pointers';
+export const PRIZM_OVERLAY_BACKDROP_NO_POINTERS = 'no-pointers';

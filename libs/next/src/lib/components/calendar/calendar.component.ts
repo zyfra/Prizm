@@ -1,69 +1,69 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { PrizmDay } from '../../@core/date-time/day';
 import { PrizmDayRange } from '../../@core/date-time/day-range';
-import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../@core/date-time/days.const';
+import { PRIZM_FIRST_DAY, PRIZM_LAST_DAY } from '../../@core/date-time/days.const';
 import { PrizmMonth } from '../../@core/date-time/month';
 import { PrizmYear } from '../../@core/date-time/year';
-import { PZM_ALWAYS_FALSE_HANDLER } from '../../constants/always-false-handler';
-import { PZM_DEFAULT_MARKER_HANDLER } from '../../constants/default-marker-handler';
-import { pzmDefaultProp } from '../../decorators/default-prop';
+import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../constants/always-false-handler';
+import { PRIZM_DEFAULT_MARKER_HANDLER } from '../../constants/default-marker-handler';
+import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmBooleanHandler } from '../../types/handler';
 import { PrizmMapper } from '../../types/mapper';
 import { PrizmMarkerHandler } from '../../types/marker-handler';
 import { PrizmWithOptionalMinMax } from '../../types/with-optional-min-max';
-import { pzmNullableSame } from '../../util/common/nullable-same';
+import { prizmNullableSame } from '../../util/common/nullable-same';
 import { PrizmDayWithStatus } from '../../@core';
 
 @Component({
-    selector: `pzm-calendar`,
+    selector: `prizm-calendar`,
     templateUrl: `./calendar.component.html`,
     styleUrls: [`./calendar.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmCalendarComponent implements PrizmWithOptionalMinMax<PrizmDay> {
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     month: PrizmMonth = PrizmMonth.currentLocal();
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     value: PrizmDayRange | PrizmDay | null = null;
 
     @Input()
-    @pzmDefaultProp()
-    disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PZM_ALWAYS_FALSE_HANDLER;
+    @prizmDefaultProp()
+    disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PRIZM_ALWAYS_FALSE_HANDLER;
 
     @Input()
-    @pzmDefaultProp()
-    min = PZM_FIRST_DAY;
+    @prizmDefaultProp()
+    min = PRIZM_FIRST_DAY;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     daysWithStatus: PrizmDayWithStatus[] = [];
 
     @Input()
-    @pzmDefaultProp()
-    max = PZM_LAST_DAY;
+    @prizmDefaultProp()
+    max = PRIZM_LAST_DAY;
 
     @Input()
-    @pzmDefaultProp()
-    minViewedMonth: PrizmMonth = PZM_FIRST_DAY;
+    @prizmDefaultProp()
+    minViewedMonth: PrizmMonth = PRIZM_FIRST_DAY;
 
     @Input()
-    @pzmDefaultProp()
-    maxViewedMonth: PrizmMonth = PZM_LAST_DAY;
+    @prizmDefaultProp()
+    maxViewedMonth: PrizmMonth = PRIZM_LAST_DAY;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     hoveredItem: PrizmDay | null = null;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     showAdjacent = true;
 
     @Input()
-    @pzmDefaultProp()
-    markerHandler: PrizmMarkerHandler = PZM_DEFAULT_MARKER_HANDLER;
+    @prizmDefaultProp()
+    markerHandler: PrizmMarkerHandler = PRIZM_DEFAULT_MARKER_HANDLER;
 
     @Output()
     readonly dayClick = new EventEmitter<PrizmDay>();
@@ -75,7 +75,7 @@ export class PrizmCalendarComponent implements PrizmWithOptionalMinMax<PrizmDay>
     readonly hoveredItemChange = new EventEmitter<PrizmDay | null>();
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_calendar';
+    readonly testId = 'prizm_calendar';
 
     year: PrizmYear | null = null;
     clickedMonth: PrizmMonth | null = null;
@@ -140,7 +140,7 @@ export class PrizmCalendarComponent implements PrizmWithOptionalMinMax<PrizmDay>
     }
 
     private updateHoveredDay(day: PrizmDay | null): void {
-        if (pzmNullableSame(this.hoveredItem, day, (a, b) => a.daySame(b))) {
+        if (prizmNullableSame(this.hoveredItem, day, (a, b) => a.daySame(b))) {
             return;
         }
 

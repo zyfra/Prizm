@@ -1,7 +1,7 @@
 /**
  * {@link https://unicode-table.com/en/00A0/ Non-breaking space}.
  */
-export const PZM_CHAR_NO_BREAK_SPACE = `\u00A0`;
+export const PRIZM_CHAR_NO_BREAK_SPACE = `\u00A0`;
 
 /**
  * {@link https://unicode-table.com/en/2013/ EN dash}
@@ -10,7 +10,7 @@ export const PZM_CHAR_NO_BREAK_SPACE = `\u00A0`;
  * ___
  * Don't confuse with {@link CHAR_EM_DASH} or {@link CHAR_HYPHEN}!
  */
-export const PZM_CHAR_EN_DASH = `\u2013`;
+export const PRIZM_CHAR_EN_DASH = `\u2013`;
 
 /**
  * {@link https://unicode-table.com/en/2014/ EM dash}
@@ -19,17 +19,17 @@ export const PZM_CHAR_EN_DASH = `\u2013`;
  * ___
  * Don't confuse with {@link CHAR_EN_DASH} or {@link CHAR_HYPHEN}!
  */
-export const PZM_CHAR_EM_DASH = `\u2014`;
+export const PRIZM_CHAR_EM_DASH = `\u2014`;
 
 /**
  * {@link https://unicode-table.com/en/00AB/ Left-Pointing Double Angle Quotation Mark}
  */
-export const PZM_CHAR_LAQUO = `\u00AB`;
+export const PRIZM_CHAR_LAQUO = `\u00AB`;
 
 /**
  * {@link https://unicode-table.com/en/00BB/ Right-Pointing Double Angle Quotation Mark}
  */
-export const PZM_CHAR_RAQUO = `\u00BB`;
+export const PRIZM_CHAR_RAQUO = `\u00BB`;
 
 /**
  * {@link https://unicode-table.com/en/002D/ Hyphen (minus sign)}
@@ -38,7 +38,7 @@ export const PZM_CHAR_RAQUO = `\u00BB`;
  * ___
  * Don't confuse with {@link CHAR_EN_DASH} or {@link CHAR_EM_DASH}!
  */
-export const PZM_CHAR_HYPHEN = `\u002D`;
+export const PRIZM_CHAR_HYPHEN = `\u002D`;
 
 /**
  * {@link https://unicode-table.com/en/2212/ Minus}
@@ -46,29 +46,29 @@ export const PZM_CHAR_HYPHEN = `\u002D`;
  * ---
  * Can be used as `&minus;`. Don't confuse with {@link CHAR_HYPHEN}
  */
-export const PZM_CHAR_MINUS = `\u2212`;
+export const PRIZM_CHAR_MINUS = `\u2212`;
 
 /**
  * {@link https://unicode-table.com/en/002B/ Plus}
  */
-export const PZM_CHAR_PLUS = `\u002B`;
+export const PRIZM_CHAR_PLUS = `\u002B`;
 
 /**
  * {@link https://unicode-table.com/en/2022/ Bullet}.
  */
-export const PZM_CHAR_BULLET = `\u2022`;
+export const PRIZM_CHAR_BULLET = `\u2022`;
 
 /**
  * {@link https://unicode-table.com/en/2026/ Suspension points}.
  */
-export const PZM_CHAR_ELLIPSIS = `\u2026`;
+export const PRIZM_CHAR_ELLIPSIS = `\u2026`;
 
 /**
  * {@link https://unicode-table.com/en/00A4/ Suspension points}.
  */
-export const PZM_CHAR_CURRENCY_SIGN = `\u00A4`;
+export const PRIZM_CHAR_CURRENCY_SIGN = `\u00A4`;
 
 /**
  * {@link https://unicode-table.com/en/200b/ Suspension points}.
  */
-export const PZM_CHAR_ZERO_WIDTH_SPACE = `\u200B`;
+export const PRIZM_CHAR_ZERO_WIDTH_SPACE = `\u200B`;

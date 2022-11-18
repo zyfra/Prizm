@@ -1,57 +1,57 @@
 /* eslint-disable @angular-eslint/no-input-rename */
 import { Directive, forwardRef, HostListener, Input } from '@angular/core';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmTooltipContainerComponent } from './tooltip-container.component';
-import { PZM_TOOLTIP_OPTIONS } from './tooltip-options';
-import { pzmDefaultProp, pzmRequiredSetter } from '../../decorators';
+import { PRIZM_TOOLTIP_OPTIONS } from './tooltip-options';
+import { prizmDefaultProp, prizmRequiredSetter } from '@prizm-ui/core';
 import { PolymorphContent } from '../polymorph';
-import { pzmGenerateId } from '../../util';
-import { PZM_HINT_OPTIONS, PrizmHintOptions } from '../hint/hint-options';
+import { prizmGenerateId } from '../../util';
+import { PRIZM_HINT_OPTIONS, PrizmHintOptions } from '../hint/hint-options';
 import { PrizmHintDirective } from '../hint/hint.directive';
 
 @Directive({
-    selector: '[pzmTooltip]:not(ng-container)',
+    selector: '[prizmTooltip]:not(ng-container)',
     providers: [
       PrizmDestroyService,
       {
-        provide: PZM_HINT_OPTIONS,
-        useExisting: forwardRef(() => PZM_TOOLTIP_OPTIONS)
+        provide: PRIZM_HINT_OPTIONS,
+        useExisting: forwardRef(() => PRIZM_TOOLTIP_OPTIONS)
       }
     ],
-    exportAs: 'pzmTooltip'
+    exportAs: 'prizmTooltip'
 })
 export class PrizmTooltipDirective extends PrizmHintDirective {
-  @Input('pzmTooltipMode')
-  @pzmDefaultProp()
-  override pzmHintMode: PrizmHintOptions['mode'] = this.options.mode;
+  @Input('prizmTooltipMode')
+  @prizmDefaultProp()
+  override prizmHintMode: PrizmHintOptions['mode'] = this.options.mode;
 
-  @Input('pzmAutoReposition')
-  @pzmDefaultProp()
-  override pzmAutoReposition: PrizmHintOptions['autoReposition'] = this.options.autoReposition;
+  @Input('prizmAutoReposition')
+  @prizmDefaultProp()
+  override prizmAutoReposition: PrizmHintOptions['autoReposition'] = this.options.autoReposition;
 
-  @Input('pzmTooltipDirection')
-  @pzmDefaultProp()
-  override pzmHintDirection: PrizmHintOptions['direction'] = this.options.direction;
+  @Input('prizmTooltipDirection')
+  @prizmDefaultProp()
+  override prizmHintDirection: PrizmHintOptions['direction'] = this.options.direction;
 
-  @Input('pzmTooltipId')
-  @pzmDefaultProp()
-  override pzmHintId: string = 'hintId_' + pzmGenerateId();
+  @Input('prizmTooltipId')
+  @prizmDefaultProp()
+  override prizmHintId: string = 'hintId_' + prizmGenerateId();
 
-  @Input('pzmTooltipShowDelay')
-  @pzmDefaultProp()
-  override pzmHintShowDelay: PrizmHintOptions['showDelay'] = this.options.showDelay;
+  @Input('prizmTooltipShowDelay')
+  @prizmDefaultProp()
+  override prizmHintShowDelay: PrizmHintOptions['showDelay'] = this.options.showDelay;
 
-  @Input('pzmTooltipHideDelay')
-  @pzmDefaultProp()
-  override pzmHintHideDelay: PrizmHintOptions['hideDelay'] = this.options.hideDelay;
+  @Input('prizmTooltipHideDelay')
+  @prizmDefaultProp()
+  override prizmHintHideDelay: PrizmHintOptions['hideDelay'] = this.options.hideDelay;
 
-  @Input('pzmTooltipHost')
-  @pzmDefaultProp()
-  override pzmHintHost: HTMLElement | null = null;
+  @Input('prizmTooltipHost')
+  @prizmDefaultProp()
+  override prizmHintHost: HTMLElement | null = null;
 
-  @Input('pzmTooltip')
-  @pzmRequiredSetter()
-  override set pzmHint(value: PolymorphContent | null) {
+  @Input('prizmTooltip')
+  @prizmRequiredSetter()
+  override set prizmHint(value: PolymorphContent | null) {
     if (!value) {
       this.content = '';
       return;

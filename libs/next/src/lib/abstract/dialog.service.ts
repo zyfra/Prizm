@@ -3,7 +3,7 @@ import { noop, Observable, Observer, Subject } from 'rxjs';
 import { PrizmBaseDialogContext, PrizmDialogBaseOptions } from '../components/dialogs/dialog/dialog.models';
 import { PolymorphContent, PrizmOverscrollService } from '../directives';
 import {
-  PZM_OVERLAY_BACKDROP_NO_POINTERS,
+  PRIZM_OVERLAY_BACKDROP_NO_POINTERS,
   PrizmOverlayControl,
   PrizmOverlayGlobalPosition,
   PrizmOverlayInsidePlacement,
@@ -11,7 +11,7 @@ import {
 } from '../modules/overlay';
 import { takeUntil } from 'rxjs/operators';
 import { PrizmOverscrollMode } from '../directives/overscroll/overscroll.model';
-import { pzmGenerateId } from '../util';
+import { prizmGenerateId } from '../util';
 import { PrizmOverlayConfig } from '../modules/overlay/models';
 
 
@@ -55,7 +55,7 @@ export abstract class AbstractPrizmDialogService<T extends PrizmDialogBaseOption
         completeWith,
         $implicit: observer,
         createdAt: Date.now(),
-        id: options.id ?? this.defaultOptions.id ?? pzmGenerateId(),
+        id: options.id ?? this.defaultOptions.id ?? prizmGenerateId(),
       };
 
       const control = this.overlayService
@@ -94,7 +94,7 @@ export abstract class AbstractPrizmDialogService<T extends PrizmDialogBaseOption
       backdrop: dialog.backdrop ?? true,
       containerClass: dialog.containerClass ?? '',
       backdropClass: [
-        dialog.backdrop && PZM_OVERLAY_BACKDROP_NO_POINTERS,
+        dialog.backdrop && PRIZM_OVERLAY_BACKDROP_NO_POINTERS,
         dialog.backdropClass
       ].filter(Boolean).join(' '),
       wrapperClass: dialog.wrapperClass,

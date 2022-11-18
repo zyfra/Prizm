@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { PrizmChipsComponent, PrizmInputTextComponent } from '@digital-plant/zui-components';
+import { PrizmChipsComponent, PrizmInputTextComponent } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'pzm-input-chips-example',
+  selector: 'prizm-input-chips-example',
   templateUrl: './input-chips-example.component.html',
   styleUrls: ['./input-chips-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -18,7 +18,7 @@ export class InputChipsExampleComponent {
   @ViewChild(PrizmInputTextComponent, { static: false }) input: PrizmInputTextComponent;
   @ViewChild(PrizmChipsComponent, { static: false }) chipsComponent: PrizmChipsComponent;
 
-  public readonly pzmInputChipsExample: TuiDocExample = {
+  public readonly prizmInputChipsExample: TuiDocExample = {
     TypeScript: import(
       '!!raw-loader!./examples/input-chips-basic-example/input-chips-basic-example.component.ts'
     ),
@@ -30,7 +30,7 @@ export class InputChipsExampleComponent {
     ),
   };
 
-  public readonly pzmInputChipsOuterExample: TuiDocExample = {
+  public readonly prizmInputChipsOuterExample: TuiDocExample = {
     TypeScript: import(
       '!!raw-loader!./examples/input-chips-outer-example/input-chips-outer-example.component.ts'
     ),

@@ -3,16 +3,16 @@ import { Observable } from 'rxjs';
 import { PrizmHoveredService } from '../../services/hovered.service';
 
 @Directive({
-    selector: '[pzmHoveredChange]',
+    selector: '[prizmHoveredChange]',
 })
 export class PrizmHoveredDirective {
     @Output()
-    readonly pzmHoveredChange: Observable<boolean>;
+    readonly prizmHoveredChange: Observable<boolean>;
 
     constructor(
         @Inject(ElementRef) {nativeElement}: ElementRef<Element>,
         @Inject(PrizmHoveredService) hoveredService: PrizmHoveredService,
     ) {
-        this.pzmHoveredChange = hoveredService.createHovered$(nativeElement);
+        this.prizmHoveredChange = hoveredService.createHovered$(nativeElement);
     }
 }

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input, OnInit } from '@angular/core';
 import { PrizmThemeService } from '../../services';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil } from 'rxjs/operators';
 
 export enum PrizmInteractiveState {
@@ -11,7 +11,7 @@ export enum PrizmInteractiveState {
 }
 
 @Component({
-  selector: 'pzm-wrapper',
+  selector: 'prizm-wrapper',
   template: '<ng-content></ng-content>',
   styleUrls: ['./wrapper.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

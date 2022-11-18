@@ -378,6 +378,123 @@
       },
       "tags": []
     },
+    "prizm-charts": {
+      "projectType": "library",
+      "root": "libs/prizm/charts",
+      "sourceRoot": "libs/prizm/charts/src",
+      "prefix": "zyfra",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/prizm/charts"],
+          "options": {
+            "project": "libs/prizm/charts/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/prizm/charts/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/prizm/charts/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/prizm/charts"],
+          "options": {
+            "jestConfig": "libs/prizm/charts/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/prizm/charts/src/**/*.ts", "libs/prizm/charts/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
+    "prizm-core": {
+      "projectType": "library",
+      "root": "libs/prizm/core",
+      "sourceRoot": "libs/prizm/core/src",
+      "prefix": "zyfra",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/prizm/core"],
+          "options": {
+            "project": "libs/prizm/core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/prizm/core/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/prizm/core/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/prizm/core"],
+          "options": {
+            "jestConfig": "libs/prizm/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/prizm/core/src/**/*.ts", "libs/prizm/core/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
+    "prizm-theme": {
+      "projectType": "library",
+      "root": "libs/prizm/theme",
+      "sourceRoot": "libs/prizm/theme/src",
+      "prefix": "zyfra",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/prizm/theme"],
+          "options": {
+            "project": "libs/prizm/theme/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/prizm/theme/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/prizm/theme/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/prizm/theme"],
+          "options": {
+            "jestConfig": "libs/prizm/theme/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/prizm/theme/src/**/*.ts", "libs/prizm/theme/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
     "schematics": {
       "projectType": "library",
       "root": "libs/schematics",

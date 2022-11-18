@@ -1,19 +1,19 @@
-<pzm-dropdown-host
+<prizm-dropdown-host
     class="z-hosted"
     [canOpen]="canOpen"
     [content]="dropdown"
     [closeByEsc]='true'
     [isOpen]="open && canOpen"
     (isOpenChange)="onOpenChange($event)"
-    pzmDropdownHostWidth='auto'
+    prizmDropdownHostWidth='auto'
 >
-  <pzm-input-layout
+  <prizm-input-layout
     [label]="label"
     [outer]='outer'
     [size]="size">
     <input
       class='input-search'
-      pzmInput
+      prizmInput
       #focusableElementRef
       [mask]="computedMask"
       [showMaskTyped]='focusableElementRef.focused'
@@ -25,15 +25,15 @@
       (ngModelChange)='onValueChange($event || "")'
     />
 
-    <ng-container pzm-input-right>
+    <ng-container prizm-input-right>
       <button
-        pzmInputIconButton="date-calendar-range"
+        prizmInputIconButton="date-calendar-range"
         [interactive]="true"
         (click)='focusableElementRef.focus()'></button>
     </ng-container>
-  </pzm-input-layout>
+  </prizm-input-layout>
   <ng-template #dropdown>
-      <pzm-calendar-range
+      <prizm-calendar-range
           [defaultViewedMonth]="defaultViewedMonth"
           [disabledItemHandler]="disabledItemHandler"
           [items]="items"
@@ -44,6 +44,6 @@
           [maxLength]="maxLength"
           [value]="value"
           (valueChange)="onRangeChange($event)"
-      ></pzm-calendar-range>
+      ></prizm-calendar-range>
   </ng-template>
-</pzm-dropdown-host>
+</prizm-dropdown-host>

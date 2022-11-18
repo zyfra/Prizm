@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'pzm-multi-select-base-example',
+  selector: 'prizm-multi-select-base-example',
   templateUrl: './multi-select-base-example.component.html',
   styles: [`
     .box {

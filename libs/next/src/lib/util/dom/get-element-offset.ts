@@ -1,4 +1,4 @@
-export function pzmGetElementOffset(
+export function prizmGetElementOffset(
     host: Element,
     element: HTMLElement,
 ): {offsetTop: number; offsetLeft: number} {

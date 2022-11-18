@@ -7,7 +7,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { fromEvent, merge } from 'rxjs';
 import { switchMap, take, takeUntil, tap } from 'rxjs/operators';
 
@@ -15,9 +15,9 @@ import { PrizmInputLayoutComponent } from '../common/input-layout/input-layout.c
 import { PrizmInputPasswordDirective } from './input-password.directive';
 
 @Component({
-  selector: 'pzm-input-password-auxiliary-control',
+  selector: 'prizm-input-password-auxiliary-control',
   template: ` <button
-    [pzmInputIconButton]="icon"
+    [prizmInputIconButton]="icon"
     class="btn"
     #btn
     [interactive]="true"
@@ -29,11 +29,11 @@ import { PrizmInputPasswordDirective } from './input-password.directive';
         display: block;
       }
 
-      :host-context(.pzm-input-form-outer[data-size='m']) {
+      :host-context(.prizm-input-form-outer[data-size='m']) {
         font-size: 15px;
       }
 
-      :host-context(.pzm-input-form-outer[data-size='s']) {
+      :host-context(.prizm-input-form-outer[data-size='s']) {
         font-size: 11px;
       }
 

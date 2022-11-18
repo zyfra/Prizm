@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'pzm-checkbox-form-example',
+  selector: 'prizm-checkbox-form-example',
   templateUrl: './checkbox-form-example.component.html',
   styleUrls: ['./checkbox-form-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

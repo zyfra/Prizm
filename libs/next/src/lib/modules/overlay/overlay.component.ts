@@ -11,7 +11,7 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { Observable } from 'rxjs';
 import { startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmOverlayConfig, PrizmOverlayContent, PrizmOverlayContentType, PrizmOverlayId } from './models';
@@ -19,7 +19,7 @@ import { PrizmOverlayAbstractPosition } from './position/position';
 import { cssClass, EventBus, objToCss } from './utils';
 
 @Component({
-  selector: 'pzm-overlay',
+  selector: 'prizm-overlay',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

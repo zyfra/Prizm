@@ -6,7 +6,7 @@ import { PrizmToastPosition } from '../types';
 import { PrizmToastService } from '../toast.service';
 
 @Component({
-  selector: 'pzm-toast-container',
+  selector: 'prizm-toast-container',
   templateUrl: './toast-container.component.html',
   styleUrls: ['./toast-container.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -20,13 +20,13 @@ export class PrizmToastContainerComponent implements OnChanges {
   @Input() position?: PrizmToastPosition;
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_toast_container';
+  readonly testId = 'prizm_toast_container';
 
-  constructor(private readonly pzmToastService: PrizmToastService) {}
+  constructor(private readonly prizmToastService: PrizmToastService) {}
 
   ngOnChanges(): void {
     this.refs$ = (
-      this.containerId ? this.pzmToastService.changes$.pipe(
+      this.containerId ? this.prizmToastService.changes$.pipe(
         map(refs => refs.filter(ref => ref.position === this.containerId)),
       ) : this.refs$
     ) ?? of([])

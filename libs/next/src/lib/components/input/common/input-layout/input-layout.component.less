@@ -2,23 +2,23 @@
   display: block;
   position: relative;
 
-  .pzm-input-form-status-button,
-  .pzm-input-button-default {
+  .prizm-input-form-status-button,
+  .prizm-input-button-default {
     flex-shrink: 0;
     height: 100%;
   }
 
-  .pzm-input-button-default {
+  .prizm-input-button-default {
     display: none;
   }
 
   &:hover {
-    .pzm-input-button-default {
+    .prizm-input-button-default {
       display: block;
     }
 
     .label-container-textarea.label-container-outer {
-      .pzm-input-label-clear-btn {
+      .prizm-input-label-clear-btn {
         display: block;
       }
     }
@@ -28,7 +28,7 @@
 .label-container {
   display: flex;
 
-  .pzm-input-label-clear-btn {
+  .prizm-input-label-clear-btn {
     display: none;
     position: relative;
     bottom: 2px;
@@ -37,17 +37,17 @@
   }
 
   &-focused.label-container-textarea.label-container-outer {
-    .pzm-input-label-clear-btn {
+    .prizm-input-label-clear-btn {
       display: block;
     }
   }
 }
 
-.pzm-input-label {
+.prizm-input-label {
   display: block;
   font-weight: 600;
   font-size: 12px;
-  color: var(--pzm-text-subscript);
+  color: var(--prizm-text-subscript);
   padding-left: 16px;
   line-height: 16px;
   margin-bottom: 4px;
@@ -57,7 +57,7 @@
 
 
   &-required {
-    color: var(--pzm-index-danger);
+    color: var(--prizm-index-danger);
   }
 
   &-inner {
@@ -72,20 +72,20 @@
     &[data-size='l'] {
       top: 5px;
 
-      &.pzm-input-label-empty {
+      &.prizm-input-label-empty {
         top: 13px;
       }
-      &.pzm-input-label-focused {
+      &.prizm-input-label-focused {
         top: 5px;
       }
     }
 
     &[data-size='m'] {
       top: 1px;
-      &.pzm-input-label-empty {
+      &.prizm-input-label-empty {
         top: 9px;
       }
-      &.pzm-input-label-focused {
+      &.prizm-input-label-focused {
         top: 1px;
       }
     }
@@ -97,21 +97,21 @@
     }
   }
 
-  @label: pzm-input-label;
+  @label: prizm-input-label;
 
   &-textarea {
     &.@{label}-inner {
-      background-color: var(--pzm-bg-dashboard-forms);
+      background-color: var(--prizm-bg-dashboard-forms);
       width: 100%;
       &[data-size='l'] {
         top: 0;
         padding-top: 5px;
 
-        &.pzm-input-label-empty {
+        &.prizm-input-label-empty {
           top: 0;
           padding-top: 13px;
         }
-        &.pzm-input-label-focused {
+        &.prizm-input-label-focused {
           top: 0;
           padding-top: 5px;
         }
@@ -121,11 +121,11 @@
         top: 0;
         padding-top: 1px;
 
-        &.pzm-input-label-empty {
+        &.prizm-input-label-empty {
           top: 0;
           padding-top: 9px;
         }
-        &.pzm-input-label-focused {
+        &.prizm-input-label-focused {
           top: 0;
           padding-top: 1px;
         }
@@ -136,9 +136,9 @@
   }
 }
 
-.pzm-input-form {
-  background-color: var(--pzm-bg-dashboard-forms);
-  border: 1px solid var(--pzm-border-forms);
+.prizm-input-form {
+  background-color: var(--prizm-bg-dashboard-forms);
+  border: 1px solid var(--prizm-border-forms);
   border-radius: 2px;
   display: flex;
   flex-direction: column;
@@ -147,7 +147,7 @@
 
   width: 100%;
 
-  .pzm-input-form-inner-container {
+  .prizm-input-form-inner-container {
     flex: 1;
 
     display: flex;
@@ -156,7 +156,7 @@
   }
 
   &:hover {
-    border-color: var(--pzm-index-plan);
+    border-color: var(--prizm-index-plan);
   }
 
   &__first {
@@ -172,60 +172,60 @@
 
   &-status {
     &-success {
-      border-color: var(--pzm-index-good);
+      border-color: var(--prizm-index-good);
       &:hover {
-        border-color: var(--pzm-index-good);
+        border-color: var(--prizm-index-good);
       }
 
-      .pzm-input-form-status-button {
-        color: var(--pzm-index-good);
+      .prizm-input-form-status-button {
+        color: var(--prizm-index-good);
       }
     }
 
     &-warning {
-      border-color: var(--pzm-index-warning);
+      border-color: var(--prizm-index-warning);
       &:hover {
-        border-color: var(--pzm-index-warning);
+        border-color: var(--prizm-index-warning);
       }
 
-      .pzm-input-form-status-button {
-        color: var(--pzm-index-warning);
+      .prizm-input-form-status-button {
+        color: var(--prizm-index-warning);
       }
     }
 
     &-danger {
-      border-color: var(--pzm-index-danger);
+      border-color: var(--prizm-index-danger);
       &:hover {
-        border-color: var(--pzm-index-danger);
+        border-color: var(--prizm-index-danger);
       }
 
-      .pzm-input-form-status-button {
-        color: var(--pzm-index-danger);
+      .prizm-input-form-status-button {
+        color: var(--prizm-index-danger);
       }
     }
   }
 
   &-invalid {
-    &.pzm-input-form-touched {
-      border-color: var(--pzm-index-danger);
+    &.prizm-input-form-touched {
+      border-color: var(--prizm-index-danger);
     }
 
-    .pzm-input-form-status-button {
-      color: var(--pzm-index-danger);
+    .prizm-input-form-status-button {
+      color: var(--prizm-index-danger);
     }
   }
 
   // rewrite all if focused
   &-focused,
   &:focus-within {
-    border-color: var(--pzm-index-plan);
-    box-shadow: 0 0 0 2px var(--pzm-lite-b130-20);
+    border-color: var(--prizm-index-plan);
+    box-shadow: 0 0 0 2px var(--prizm-lite-b130-20);
 
     &:hover {
-      border-color: var(--pzm-index-plan);
+      border-color: var(--prizm-index-plan);
     }
 
-    .pzm-input-button-default {
+    .prizm-input-button-default {
       display: block;
     }
   }
@@ -268,15 +268,15 @@
   }
 
   &-center {
-    .pzm-input-form-inner-container {
-      .pzm-input-form-status-button,
-      .pzm-input-button-default {
+    .prizm-input-form-inner-container {
+      .prizm-input-form-status-button,
+      .prizm-input-button-default {
         position: absolute;
         z-index: 100;
-        background-color: var(--pzm-bg-dashboard-forms);
+        background-color: var(--prizm-bg-dashboard-forms);
       }
 
-      .pzm-input-button-default {
+      .prizm-input-button-default {
         right: 32px;
 
         &.alone {
@@ -284,18 +284,18 @@
         }
       }
 
-      .pzm-input-form-status-button {
+      .prizm-input-form-status-button {
         right: 0;
       }
     }
   }
 
-  @form: pzm-input-form;
+  @form: prizm-input-form;
 
   &-textarea {
     height: 100%;
 
-    .pzm-input-button-default {
+    .prizm-input-button-default {
       height: auto;
 
     }
@@ -317,19 +317,19 @@
     }
 
     &.@{form}-inner{
-      .pzm-input-button-default {
+      .prizm-input-button-default {
         position: absolute;
         right: 0;
       }
       &[data-size='m'] {
-        .pzm-input-button-default {
+        .prizm-input-button-default {
           padding-top: 1px;
 
         }
       }
 
       &[data-size='l'] {
-        .pzm-input-button-default {
+        .prizm-input-button-default {
           padding-top: 5px;
         }
       }
@@ -337,25 +337,25 @@
 
     &.@{form}-outer{
 
-      .pzm-input-button-default {
+      .prizm-input-button-default {
         display: none;
       }
 
 
       &[data-size='l'] {
-        .pzm-input-button-default {
+        .prizm-input-button-default {
           padding-top: 11px;
         }
       }
 
       &[data-size='m'] {
-        .pzm-input-button-default {
+        .prizm-input-button-default {
           padding-top: 7px;
         }
       }
 
       &[data-size='s'] {
-        .pzm-input-button-default {
+        .prizm-input-button-default {
           padding-top: 4px;
         }
       }
@@ -363,22 +363,22 @@
   }
 }
 
-.pzm-input-form-subtext {
+.prizm-input-form-subtext {
   padding-left: 16px;
   font-size: 10px;
   font-weight: 500;
   line-height: 22px;
 
   &-success {
-    color: var(--pzm-index-good);
+    color: var(--prizm-index-good);
   }
 
   &-warning {
-    color: var(--pzm-index-warning);
+    color: var(--prizm-index-warning);
   }
 
   &-danger {
-    color: var(--pzm-index-danger);
+    color: var(--prizm-index-danger);
   }
 }
 

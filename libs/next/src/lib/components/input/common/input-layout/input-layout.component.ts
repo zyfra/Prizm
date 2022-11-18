@@ -15,18 +15,18 @@ import {
 import { Subscription } from 'rxjs';
 import { PrizmInputControl } from '../base/input-control.class';
 import { PrizmInputStatusTextDirective } from '../input-status-text/input-status-text.directive';
-import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '../models/pzm-input.models';
+import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '../models/prizm-input.models';
 import { debounceTime } from 'rxjs/operators';
 import { PolymorphContent } from '../../../../directives/polymorph';
 
 @Component({
-  selector: 'pzm-input-layout',
+  selector: 'prizm-input-layout',
   templateUrl: './input-layout.component.html',
   styleUrls: ['./input-layout.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
-    class: 'pzm-input-layout',
+    class: 'prizm-input-layout',
   },
 })
 export class PrizmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, AfterContentInit {

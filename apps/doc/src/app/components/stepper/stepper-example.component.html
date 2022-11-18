@@ -1,28 +1,28 @@
 <tui-doc-page header="Stepper" type="components">
   <ng-template pageTab>
     <tui-doc-example id="base" heading="Base" [content]="basicExample">
-      <pzm-stepper-basic-example></pzm-stepper-basic-example>
+      <prizm-stepper-basic-example></prizm-stepper-basic-example>
     </tui-doc-example>
 
     <tui-doc-example id="vertical" heading="Vertical" [content]="verticalExample">
-      <pzm-stepper-vertical-example></pzm-stepper-vertical-example>
+      <prizm-stepper-vertical-example></prizm-stepper-vertical-example>
     </tui-doc-example>
 
     <tui-doc-example id="async" heading="Async" [content]="asyncExample">
-      <pzm-stepper-async-example></pzm-stepper-async-example>
+      <prizm-stepper-async-example></prizm-stepper-async-example>
     </tui-doc-example>
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <pzm-stepper
+      <prizm-stepper
         [currentStep]="currentStep"
         [title]="title"
         [vertical]="vertical"
         [stepsSize]="stepperSize"
         (selectStep)="this.currentStep = $event"
       >
-        <ng-template [pzmStepperStep]="1" [title]="'Step 1'" [disabled]="false">
+        <ng-template [prizmStepperStep]="1" [title]="'Step 1'" [disabled]="false">
           <div>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi deserunt ratione eius consequatur
             earum laborum quod, reprehenderit nam totam excepturi magnam ex quae assumenda autem, amet nostrum
@@ -40,7 +40,7 @@
             facilis
           </div>
         </ng-template>
-        <ng-template [pzmStepperStep]="2" [title]="'Step 2'" [disabled]="false">
+        <ng-template [prizmStepperStep]="2" [title]="'Step 2'" [disabled]="false">
           <div>
             laborum aut, quasi eligendi nihil quo laboriosam beatae repellat perferendis velit, vel accusamus
             delectus. Odio, repellendus dignissimos unde consequuntur commodi facere laborum, ipsa, optio
@@ -62,7 +62,7 @@
             obcaecati cumque nulla quos voluptate, dolores cupiditate!
           </div>
         </ng-template>
-        <ng-template [pzmStepperStep]="3" [title]="'Step 3'" [disabled]="false">
+        <ng-template [prizmStepperStep]="3" [title]="'Step 3'" [disabled]="false">
           <div>
             laudantium, officiis officia eos suscipit reprehenderit vel repellendus ducimus voluptatum
             voluptatibus quas provident minima. Delectus accusantium explicabo dicta voluptatum repudiandae
@@ -88,11 +88,11 @@
 
         <div
           class="footer"
-          pzmStepperFooter
+          prizmStepperFooter
           [ngStyle]="{ display: 'flex', 'justify-content': 'flex-end', gap: '10px' }"
         >
           <button
-            pzmButton
+            prizmButton
             appearanceType="outline"
             appearance="primary"
             size="l"
@@ -102,7 +102,7 @@
             Предыдущий шаг
           </button>
           <button
-            pzmButton
+            prizmButton
             appearanceType="outline"
             appearance="primary"
             size="l"
@@ -112,7 +112,7 @@
             Следующий шаг
           </button>
         </div>
-      </pzm-stepper>
+      </prizm-stepper>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template

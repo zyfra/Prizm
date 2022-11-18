@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <pzm-input-date-multi-base-example></pzm-input-date-multi-base-example>
+      <prizm-input-date-multi-base-example></prizm-input-date-multi-base-example>
     </tui-doc-example>
 
     <tui-doc-example
@@ -21,7 +21,7 @@
       heading="Four"
       [content]="exampleFour"
     >
-      <pzm-input-date-multi-four-example></pzm-input-date-multi-four-example>
+      <prizm-input-date-multi-four-example></prizm-input-date-multi-four-example>
     </tui-doc-example>
 
 
@@ -29,10 +29,10 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <pzm-input-date-multi
+      <prizm-input-date-multi
         [currentIdx]='currentIdx'
         [items]="items">
-      </pzm-input-date-multi>
+      </prizm-input-date-multi>
     </tui-doc-demo>
     <tui-doc-documentation>
 
@@ -72,8 +72,8 @@
 </tui-doc-page>
 
 <ng-template #dateTime let-injector="injector">
-  <pzm-input-date-time [formControl]='timeControl' [extraButtonInjector]='injector'></pzm-input-date-time>
+  <prizm-input-date-time [formControl]='timeControl' [extraButtonInjector]='injector'></prizm-input-date-time>
 </ng-template>
 <ng-template #dateRelativeTime let-injector="injector">
-  <pzm-input-date-relative [formControl]='relativeControl' [extraButtonInjector]='injector'></pzm-input-date-relative>
+  <prizm-input-date-relative [formControl]='relativeControl' [extraButtonInjector]='injector'></prizm-input-date-relative>
 </ng-template>

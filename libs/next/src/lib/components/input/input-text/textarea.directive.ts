@@ -8,12 +8,12 @@ import {
   HostListener,
   Input,
 } from '@angular/core';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { fromEvent } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 
 @Directive({
-  selector: 'textarea[pzmInput]',
+  selector: 'textarea[prizmInput]',
 })
 export class PrizmTextareaDirective implements AfterViewInit {
   @Input() @HostBinding('style.height.px') height: number | null = null;

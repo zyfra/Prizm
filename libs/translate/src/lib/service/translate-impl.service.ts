@@ -77,7 +77,7 @@ export class TranslateImplService implements TranslateService {
       throw new Error(`Parameter "key" required`);
     }
     let result: Observable<string>;
-    // check if we are loading a pzm translation to use
+    // check if we are loading a prizm translation to use
     if (this.loadingTranslations) {
       result = this.loadingTranslations.pipe(
         map(_ => this.getParsedResult(this.translation(key), key, interpolateParams))

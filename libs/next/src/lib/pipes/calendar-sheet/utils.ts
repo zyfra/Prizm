@@ -1,11 +1,11 @@
 
 // TODO: 2.0 Remove export in ivy compilation
 
-import { PZM_DAYS_IN_WEEK } from '../../@core/date-time/date-time';
+import { PRIZM_DAYS_IN_WEEK } from '../../@core/date-time/date-time';
 import { PrizmDay } from '../../@core/date-time/day';
 import { PrizmMonth } from '../../@core/date-time/month';
 import { PrizmDayOfWeek } from '../../@core/enums/day-of-week';
-import { pzmInRange } from '../../util/math/in-range';
+import { prizmInRange } from '../../util/math/in-range';
 
 /**
  * Computes day of week offset of the beginning of the month
@@ -18,7 +18,7 @@ export const getMonthStartDaysOffset = (
 
     return startMonthOffsetFromSunday >= firstDayOfWeek
         ? startMonthOffsetFromSunday - firstDayOfWeek
-        : PZM_DAYS_IN_WEEK - (firstDayOfWeek - startMonthOffsetFromSunday);
+        : PRIZM_DAYS_IN_WEEK - (firstDayOfWeek - startMonthOffsetFromSunday);
 };
 
 /*
@@ -54,12 +54,12 @@ export const getDayFromMonthRowCol = ({
     firstDayOfWeek: PrizmDayOfWeek;
 }): PrizmDay => {
     console.assert(Number.isInteger(rowIndex));
-    console.assert(pzmInRange(rowIndex, 0, 6));
+    console.assert(prizmInRange(rowIndex, 0, 6));
     console.assert(Number.isInteger(colIndex));
-    console.assert(pzmInRange(colIndex, 0, PZM_DAYS_IN_WEEK));
+    console.assert(prizmInRange(colIndex, 0, PRIZM_DAYS_IN_WEEK));
 
     let day =
-        rowIndex * PZM_DAYS_IN_WEEK +
+        rowIndex * PRIZM_DAYS_IN_WEEK +
         colIndex -
         getMonthStartDaysOffset(month, firstDayOfWeek) +
         1;

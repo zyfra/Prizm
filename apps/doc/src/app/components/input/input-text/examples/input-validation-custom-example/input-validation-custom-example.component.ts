@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { PrizmInputValidationTexts } from '@digital-plant/zui-components';
+import { PrizmInputValidationTexts } from '@prizm-ui/components';
 import { InputValidationCustomTextsService } from './input-validation-custom-texts.service';
 
 @Component({
-  selector: 'pzm-input-validation-custom-example',
+  selector: 'prizm-input-validation-custom-example',
   templateUrl: './input-validation-custom-example.component.html',
   styleUrls: ['./input-validation-custom-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

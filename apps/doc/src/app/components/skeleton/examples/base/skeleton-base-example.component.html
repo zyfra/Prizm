@@ -1,52 +1,52 @@
 
 <div class='header'>
-  <pzm-toggle [formControl]='activeControl'></pzm-toggle>
+  <prizm-toggle [formControl]='activeControl'></prizm-toggle>
   Active
 </div>
 
 <div class='body'>
   <div>
-    <pzm-input-layout
-      [pzmSkeleton]='activeControl.value'
+    <prizm-input-layout
+      [prizmSkeleton]='activeControl.value'
       label="Заголовок">
-      <input pzmInput />
-    </pzm-input-layout>
+      <input prizmInput />
+    </prizm-input-layout>
   </div>
 
   <div>
-    <pzm-input-layout
+    <prizm-input-layout
       [outer]='true'
-      [pzmSkeleton]='activeControl.value'
+      [prizmSkeleton]='activeControl.value'
       label="Заголовок">
-      <input pzmInput />
-    </pzm-input-layout>
+      <input prizmInput />
+    </prizm-input-layout>
   </div>
 
   <div>
-    <pzm-select
+    <prizm-select
       [formControl]='selectControl'
       [items]='items'
-      [pzmSkeleton]='activeControl.value'
-    ></pzm-select>
+      [prizmSkeleton]='activeControl.value'
+    ></prizm-select>
   </div>
 
   <div>
-    <pzm-toggle
+    <prizm-toggle
       [formControl]='toggleControl'
-      [pzmSkeletonRounded]='true'
-      [pzmSkeleton]='activeControl.value'
-    ></pzm-toggle>
+      [prizmSkeletonRounded]='true'
+      [prizmSkeleton]='activeControl.value'
+    ></prizm-toggle>
     <span
       style='margin-left: 6px'
-      [pzmSkeleton]='activeControl.value'
-      [pzmSkeletonText]='true'
+      [prizmSkeleton]='activeControl.value'
+      [prizmSkeletonText]='true'
     >Toggle</span>
   </div>
 
   <div>
-    <pzm-card
-      [pzmSkeleton]='activeControl.value'>
+    <prizm-card
+      [prizmSkeleton]='activeControl.value'>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </pzm-card>
+    </prizm-card>
   </div>
 </div>

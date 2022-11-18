@@ -4,7 +4,7 @@ import { switchMap } from 'rxjs/operators';
 import { rawLoad } from '@taiga-ui/addon-doc';
 
 @Component({
-    selector: `pzm-changelog`,
+    selector: `prizm-changelog`,
     templateUrl: `changelog.component.html`,
     styleUrls: [`./changelog.component.less`],
     encapsulation: ViewEncapsulation.None,

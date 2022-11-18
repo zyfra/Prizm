@@ -1,4 +1,4 @@
-import { PolymorphContent } from '@digital-plant/zui-components';
+import { PolymorphContent } from '@prizm-ui/components';
 
 export function generatePolymorphVariants (
   ...content: PolymorphContent[]

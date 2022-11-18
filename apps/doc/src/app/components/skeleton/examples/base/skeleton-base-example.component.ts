@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'pzm-skeleton-base-example',
+  selector: 'prizm-skeleton-base-example',
   templateUrl: './skeleton-base-example.component.html',
   styles: [`
     .header {
       margin: 8px 0;
       padding: 8px 0;
-      border-bottom: 1px solid var(--pzm-border-widget);
+      border-bottom: 1px solid var(--prizm-border-widget);
     }
 
     .body {

@@ -1,9 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PrizmInputSize, PrizmInputStatus } from '@digital-plant/zui-components';
+import { PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'pzm-textarea-example',
+  selector: 'prizm-textarea-example',
   templateUrl: './textarea-example.component.html',
   styleUrls: ['./textarea-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

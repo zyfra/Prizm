@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { FormControl } from '@angular/forms';
-import { PrizmDateItemTemplate, PrizmDay, PrizmTime } from '@digital-plant/zui-components';
+import { PrizmDateItemTemplate, PrizmDay, PrizmTime } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-input-date-multi-example',
+  selector: 'prizm-input-date-multi-example',
   templateUrl: './input-date-multi.component.html',
   styleUrls: ['./input-date-multi.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

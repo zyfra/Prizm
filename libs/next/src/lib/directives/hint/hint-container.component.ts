@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, HostListener, Inject, Input, OnInit, Renderer2 } from '@angular/core';
-import { pzmDefaultProp } from '../../decorators';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { prizmDefaultProp } from '@prizm-ui/core';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmHoveredService } from '../../services';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmHintService } from './hint.service';
@@ -10,14 +10,14 @@ import { PolymorphContent } from '../polymorph/types/content';
 import { PrizmHintOptions } from './hint-options';
 
 @Component({
-  selector: 'pzm-hint-container',
+  selector: 'prizm-hint-container',
   template: `
-    <div class='pzm-font-main-body-12'>
-      <pzm-scrollbar visibility='hidden'>
+    <div class='prizm-font-main-body-12'>
+      <prizm-scrollbar visibility='hidden'>
         <ng-container *polymorphOutlet="content() as data; context: context">
           {{data}}
         </ng-container>
-      </pzm-scrollbar>
+      </prizm-scrollbar>
     </div>
   `,
   styleUrls: ['./hint-container.component.less'],
@@ -35,7 +35,7 @@ export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown>
   mode: () => PrizmHintOptions['mode'];
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   context: CONTEXT = {} as CONTEXT;
 
   @HostListener('attr.mode') get getMode(): PrizmHintOptions['mode'] {
@@ -46,7 +46,7 @@ export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown>
     protected readonly destroy$: PrizmDestroyService,
     protected readonly el: ElementRef,
     protected readonly renderer2: Renderer2,
-    protected readonly pzmOverlayControl: PrizmOverlayControl,
+    protected readonly prizmOverlayControl: PrizmOverlayControl,
     @Inject(PrizmHintService) private readonly hintService: PrizmHintService,
     @Inject(PrizmHoveredService) private readonly hoveredService: PrizmHoveredService
   ) {}
@@ -59,13 +59,13 @@ export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown>
   public ngAfterViewInit(): void {
     // re-calc positions after fist get container sizes
     timer(10, animationFrameScheduler).pipe(
-      tap(() => this.pzmOverlayControl.position.calculate()),
+      tap(() => this.prizmOverlayControl.position.calculate()),
       takeUntil(this.destroy$)
     ).subscribe();
   }
 
   private initPositionListener(): void {
-    this.pzmOverlayControl.position.pos$.pipe(
+    this.prizmOverlayControl.position.pos$.pipe(
       tap((data) => {
         if(!data.extra) return;
         this.renderer2.setAttribute(this.el.nativeElement, 'position', data.extra);

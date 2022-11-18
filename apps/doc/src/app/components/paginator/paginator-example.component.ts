@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { IPaginatorOptions, PaginatorType } from '@digital-plant/zui-components';
+import { IPaginatorOptions, PaginatorType } from '@prizm-ui/components';
 import { PAGINATOR_OPTIONS_VARIANTS } from './paginator-example.constants';
 
 @Component({
-  selector: 'pzm-paginator-example',
+  selector: 'prizm-paginator-example',
   templateUrl: './paginator-example.component.html',
   styleUrls: ['./paginator-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

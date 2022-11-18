@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular
 import { ISwitcher, SwitcherSize, SwitcherType } from './../../switcher.interface';
 
 @Component({
-  selector: 'pzm-switcher-item',
+  selector: 'prizm-switcher-item',
   templateUrl: './switcher-item.component.html',
   styleUrls: ['./switcher-item.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -15,5 +15,5 @@ export class SwitcherItemComponent {
   @Input() public isActive = false;
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_switcher_item';
+  readonly testId = 'prizm_switcher_item';
 }

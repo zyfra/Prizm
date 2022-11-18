@@ -1,6 +1,6 @@
 ```ts
 import {NgModule} from '@angular/core';
-import {PrizmInputDateTimeModule} from "@digital-plant/zui-components";
+import {PrizmInputDateTimeModule} from "@prizm-ui/components";
 
 // ...
 

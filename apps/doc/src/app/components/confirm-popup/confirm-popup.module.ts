@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
-import { PolymorphModule, PrizmButtonModule, PrizmConfirmPopupModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PrizmButtonModule, PrizmConfirmPopupModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmPopupComponent } from './confirm-popup.component';
 import { PrizmConfirmPopupBaseExampleComponent } from './examples/base/confirm-popup-base-example.component';

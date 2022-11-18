@@ -6,7 +6,7 @@
  * @param minResultLength
  * @param padString string to pad with
  */
-export function pzmPadStart(
+export function prizmPadStart(
     sourceString: string,
     minResultLength: number,
     padString: string = ` `,

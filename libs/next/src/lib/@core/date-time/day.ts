@@ -3,13 +3,13 @@ import { PrizmInvalidMonthException } from '../../exceptions/invalid-month.excep
 import { PrizmInvalidYearException } from '../../exceptions/invalid-year.exception';
 import { PrizmDateMode } from '../../types/date-mode';
 import { PrizmDayLike } from '../../types/day-like';
-import { pzmPadStart } from '../../util/format/pad-start';
-import { pzmInRange, pzmNormalizeToIntNumber } from '../../util/math';
+import { prizmPadStart } from '../../util/format/pad-start';
+import { prizmInRange, prizmNormalizeToIntNumber } from '../../util/math';
 import { PrizmDayOfWeek } from '../enums/day-of-week';
 import { PrizmMonthNumber } from '../enums/month-number';
 
-import { PZM_DATE_FILLER_LENGTH } from './date-fillers';
-import { PZM_DAYS_IN_WEEK, PZM_MIN_DAY, PZM_MONTHS_IN_YEAR } from './date-time';
+import { PRIZM_DATE_FILLER_LENGTH } from './date-fillers';
+import { PRIZM_DAYS_IN_WEEK, PRIZM_MIN_DAY, PRIZM_MONTHS_IN_YEAR } from './date-time';
 import { PrizmMonth } from './month';
 import { PrizmYear } from './year';
 
@@ -58,9 +58,9 @@ export class PrizmDay extends PrizmMonth {
         return (
             PrizmMonth.isValidMonth(year, month) &&
             Number.isInteger(day) &&
-            pzmInRange(
+            prizmInRange(
                 day,
-                PZM_MIN_DAY,
+                PRIZM_MIN_DAY,
                 PrizmMonth.getMonthDaysCount(month, PrizmYear.isLeapYear(year)) + 1,
             )
         );
@@ -78,11 +78,11 @@ export class PrizmDay extends PrizmMonth {
      */
     public static getDayFromMonthRowCol(month: PrizmMonth, row: number, col: number): PrizmDay {
         console.assert(Number.isInteger(row));
-        console.assert(pzmInRange(row, 0, 6));
+        console.assert(prizmInRange(row, 0, 6));
         console.assert(Number.isInteger(col));
-        console.assert(pzmInRange(col, 0, PZM_DAYS_IN_WEEK));
+        console.assert(prizmInRange(col, 0, PRIZM_DAYS_IN_WEEK));
 
-        let day = row * PZM_DAYS_IN_WEEK + col - month.monthStartDaysOffset + 1;
+        let day = row * PRIZM_DAYS_IN_WEEK + col - month.monthStartDaysOffset + 1;
 
         if (day > month.daysCount) {
             day = day - month.daysCount;
@@ -153,7 +153,7 @@ export class PrizmDay extends PrizmMonth {
         dateMode: PrizmDateMode = `DMY`,
     ): {day: number; month: number; year: number} {
         console.assert(
-            date.length === PZM_DATE_FILLER_LENGTH,
+            date.length === PRIZM_DATE_FILLER_LENGTH,
             `[parseRawDateString]: wrong date string length`,
         );
 
@@ -215,9 +215,9 @@ export class PrizmDay extends PrizmMonth {
 
         if (
             !Number.isInteger(day) ||
-            !pzmInRange(
+            !prizmInRange(
                 day,
-                PZM_MIN_DAY,
+                PRIZM_MIN_DAY,
                 PrizmMonth.getMonthDaysCount(month, PrizmYear.isLeapYear(year)) + 1,
             )
         ) {
@@ -235,11 +235,11 @@ export class PrizmDay extends PrizmMonth {
             PrizmYear.isLeapYear(year),
         );
 
-        return pzmNormalizeToIntNumber(day, 1, monthDaysCount);
+        return prizmNormalizeToIntNumber(day, 1, monthDaysCount);
     }
 
     get formattedDayPart(): string {
-        return pzmPadStart(String(this.day), 2, `0`);
+        return prizmPadStart(String(this.day), 2, `0`);
     }
 
     /**
@@ -358,9 +358,9 @@ export class PrizmDay extends PrizmMonth {
             day *= -1;
         }
 
-        const totalMonths = (this.year + year) * PZM_MONTHS_IN_YEAR + this.month + month;
-        let years = Math.floor(totalMonths / PZM_MONTHS_IN_YEAR);
-        let months = totalMonths % PZM_MONTHS_IN_YEAR;
+        const totalMonths = (this.year + year) * PRIZM_MONTHS_IN_YEAR + this.month + month;
+        let years = Math.floor(totalMonths / PRIZM_MONTHS_IN_YEAR);
+        let months = totalMonths % PRIZM_MONTHS_IN_YEAR;
 
         let days =
             Math.min(
@@ -379,7 +379,7 @@ export class PrizmDay extends PrizmMonth {
             }
         }
 
-        while (days < PZM_MIN_DAY) {
+        while (days < PRIZM_MIN_DAY) {
             if (months === PrizmMonthNumber.January) {
                 years--;
                 months = PrizmMonthNumber.December;

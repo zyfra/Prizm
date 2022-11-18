@@ -8,12 +8,12 @@ import {
   PrizmDialogSize,
   PrizmOverlayInsidePlacement,
   PrizmOverscrollMode,
-  pzmPure,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
 import { generatePolymorphVariants } from '../../../util';
+import { prizmPure } from '@prizm-ui/core';
 
 @Component({
-  selector: 'pzm-tooltip-example',
+  selector: 'prizm-tooltip-example',
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -51,7 +51,7 @@ export class DialogComponent {
     @Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService,
   ) {}
 
-  @pzmPure
+  @prizmPure
   public generatePolymorphVariants(...content: PolymorphContent[]): any[] {
     return generatePolymorphVariants(...content)
   };

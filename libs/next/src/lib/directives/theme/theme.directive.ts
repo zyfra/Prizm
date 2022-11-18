@@ -1,16 +1,16 @@
 import { Directive, ElementRef, EventEmitter, Inject, OnInit, Output, Renderer2 } from '@angular/core';
 import { PrizmThemeService } from '../../services/theme.service';
 import { PrizmTheme } from '../../types/theme';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 
 @Directive({
-    selector: '[pzmTheme]',
+    selector: '[prizmTheme]',
     providers: [PrizmDestroyService]
 })
 export class PrizmThemeDirective implements OnInit {
     @Output()
-    public readonly pzmTheme = new EventEmitter<PrizmTheme>();
+    public readonly prizmTheme = new EventEmitter<PrizmTheme>();
 
     constructor(
         @Inject(ElementRef)
@@ -23,7 +23,7 @@ export class PrizmThemeDirective implements OnInit {
     public ngOnInit(): void {
       this.themeService.theme$.pipe(
         tap((theme) => this.renderer2.setAttribute(this.element.nativeElement, this.themeService.attThemeKey, theme)),
-        tap((theme) => this.pzmTheme.next(theme)),
+        tap((theme) => this.prizmTheme.next(theme)),
         takeUntil(this.destroy$)
       ).subscribe()
     }

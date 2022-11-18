@@ -1,4 +1,4 @@
-<pzm-multi-select
+<prizm-multi-select
   [items]='items'
   [selectAllItem]='selectAllItem'
   [valueTemplate]='valueTemplate'
@@ -7,11 +7,11 @@
   [identityMatcher]='identityMatcher'
   [stringify]='stringify'
   [searchable]='true'
-></pzm-multi-select>
+></prizm-multi-select>
 
 <ng-template #valueTemplate let-value>
   <div class='item' *ngIf='value.obj.id !== -1; else allTemplate'>
-    <pzm-icon iconClass='account-done'></pzm-icon>
+    <prizm-icon iconClass='account-done'></prizm-icon>
     <span>{{value.stringify}}</span>
   </div>
   <ng-template #allTemplate>

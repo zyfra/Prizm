@@ -11,7 +11,7 @@ import {
   PrizmBreadcrumbsModule,
   PrizmTabsModule,
   PrizmToggleModule,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
 import { PanelExampleWithTabsComponent } from './examples/panel-example-with-tabs/panel-example-with-tabs.component';
 import { PanelExampleWithPagesComponent } from './examples/panel-example-with-pages/panel-example-with-pages.component';
 import { PanelExampleWithBreadcrumbsComponent } from './examples/panel-example-with-breadcrumbs/panel-example-with-breadcrumbs.component';

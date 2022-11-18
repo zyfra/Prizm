@@ -1,14 +1,14 @@
 const MAX_PRECISION = 292;
 
-export function pzmRound(value: number, precision: number = 0): number {
+export function prizmRound(value: number, precision: number = 0): number {
     return calculate(value, precision, Math.round);
 }
 
-export function pzmCeil(value: number, precision: number = 0): number {
+export function prizmCeil(value: number, precision: number = 0): number {
     return calculate(value, precision, Math.ceil);
 }
 
-export function pzmFloor(value: number, precision: number = 0): number {
+export function prizmFloor(value: number, precision: number = 0): number {
     return calculate(value, precision, Math.floor);
 }
 

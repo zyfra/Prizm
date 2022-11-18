@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ITab } from '@digital-plant/zui-components';
+import { ITab } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-panel-with-tabs',
+  selector: 'prizm-panel-with-tabs',
   templateUrl: './panel-example-with-tabs.component.html',
   styleUrls: ['./panel-example-with-tabs.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

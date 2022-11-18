@@ -11,36 +11,36 @@ import {
   Self,
   ViewChild,
 } from '@angular/core';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { FormControl, NgControl } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
-import { PZM_SELECT_OPTIONS, PrizmSelectOptions, PrizmSelectValueContext } from './select.options';
+import { PRIZM_SELECT_OPTIONS, PrizmSelectOptions, PrizmSelectValueContext } from './select.options';
 import { PrizmFocusableElementAccessor, PrizmNativeFocusableElement } from '../../../types';
 import { PrizmInputSize } from '../../input';
 import { AbstractPrizmControl } from '../../../abstract/control';
-import { pzmIsNativeFocused, pzmIsTextOverflow$ } from '../../../util';
+import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { BehaviorSubject, concat, timer } from 'rxjs';
 import { PrizmSelectIdentityMatcher, PrizmSelectSearchMatcher } from './select.model';
-import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens';
-import { pzmDefaultProp } from '../../../decorators';
+import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens';
+import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmDropdownHostComponent } from '../dropdown-host';
 import { PrizmOverlayOutsidePlacement } from '../../../modules';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({
-  selector: 'pzm-select',
+  selector: 'prizm-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     PrizmDestroyService,
     {
-      provide: PZM_FOCUSABLE_ITEM_ACCESSOR,
+      provide: PRIZM_FOCUSABLE_ITEM_ACCESSOR,
       useExisting: forwardRef(() => PrizmSelectComponent),
     },
   ],
-  exportAs: 'pzmDropdownSelect'
+  exportAs: 'prizmDropdownSelect'
 })
 export class PrizmSelectComponent<T>
 extends AbstractPrizmControl<T>
@@ -60,50 +60,50 @@ implements PrizmFocusableElementAccessor
   }
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   searchable = this.options.searchable;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   forceClear = this.options.forceClear;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   label = this.options.label;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   minDropdownHeight = this.options.minDropdownHeight;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   maxDropdownHeight = this.options.maxDropdownHeight;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   placeholder = this.options.placeholder;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   dropdownWidth = this.options.dropdownWidth;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   size: PrizmInputSize = this.options.size;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   searchMatcher: PrizmSelectSearchMatcher<T> = this.options.searchMatcher;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   emptyContent: PolymorphContent = this.options.emptyContent;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   nullContent: PolymorphContent = this.options.nullContent;
 
-  readonly pzmIsTextOverflow$ = pzmIsTextOverflow$;
+  readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
 
   private readonly stop$ = new BehaviorSubject(false);
 
@@ -111,23 +111,23 @@ implements PrizmFocusableElementAccessor
    * need only clear function
    * */
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   stringify: (i:T, content?: string) => string = this.options.stringify;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   identityMatcher: PrizmSelectIdentityMatcher<T> = this.options.identityMatcher;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   valueTemplate: PolymorphContent<PrizmSelectValueContext<T>> = this.options.valueContent;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   outer: boolean = this.options.outer;
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_select';
+  readonly testId = 'prizm_select';
 
   public open = false;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
@@ -170,7 +170,7 @@ implements PrizmFocusableElementAccessor
 
 
   constructor(
-    @Inject(PZM_SELECT_OPTIONS) private readonly options: PrizmSelectOptions<T>,
+    @Inject(PRIZM_SELECT_OPTIONS) private readonly options: PrizmSelectOptions<T>,
     @Optional()
     @Self()
     @Inject(NgControl) control: NgControl | null,
@@ -224,7 +224,7 @@ implements PrizmFocusableElementAccessor
   }
 
   get focused(): boolean {
-    return pzmIsNativeFocused(this.nativeFocusableElement);
+    return prizmIsNativeFocused(this.nativeFocusableElement);
   }
 
   public onClear(): void {
@@ -248,7 +248,7 @@ implements PrizmFocusableElementAccessor
       !this.open &&
       this.interactive &&
       inputElement &&
-      pzmIsNativeFocused(inputElement)
+      prizmIsNativeFocused(inputElement)
     )
     this.open = open;
     this.changeDetectorRef.markForCheck();

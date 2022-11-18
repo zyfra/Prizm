@@ -13,7 +13,7 @@ import {
   SkipSelf,
 } from '@angular/core';
 import { PrizmEventZoneService } from './event-zone.service';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 
 /**
@@ -21,20 +21,20 @@ import { takeUntil, tap } from 'rxjs/operators';
  * injector support for ng-template
  * */
 @Directive({
-    selector: `[pzmEventZone]:not(ng-container), [pzmEventZoneChange]:not(ng-container), [pzmEventZoneParent]:not(ng-container)`,
-    exportAs: `pzmEventZone`,
+    selector: `[prizmEventZone]:not(ng-container), [prizmEventZoneChange]:not(ng-container), [prizmEventZoneParent]:not(ng-container)`,
+    exportAs: `prizmEventZone`,
     providers: [
       PrizmEventZoneService,
       PrizmDestroyService
     ]
 })
 export class PrizmDropdownZoneDirective implements OnInit, OnChanges {
-  @Output() pzmEventZoneEvent = new EventEmitter<number>();
-  @Input() pzmEventZoneParent?: PrizmDropdownZoneDirective;
-  @Input() pzmEventZoneHost?: HTMLElement;
+  @Output() prizmEventZoneEvent = new EventEmitter<number>();
+  @Input() prizmEventZoneParent?: PrizmDropdownZoneDirective;
+  @Input() prizmEventZoneHost?: HTMLElement;
 
   get host(): HTMLElement {
-    return this.pzmEventZoneHost ?? this.elementRef.nativeElement;
+    return this.prizmEventZoneHost ?? this.elementRef.nativeElement;
   }
 
   constructor(
@@ -46,14 +46,14 @@ export class PrizmDropdownZoneDirective implements OnInit, OnChanges {
   ) {}
 
   public ngOnInit(): void {
-    this.dz.init(this.host, 'click', this.pzmEventZoneParent?.dz ?? this.parentDropdownZoneService);
+    this.dz.init(this.host, 'click', this.prizmEventZoneParent?.dz ?? this.parentDropdownZoneService);
     this.dz.event$.pipe(
-      tap((time) => this.pzmEventZoneEvent.next(time)),
+      tap((time) => this.prizmEventZoneEvent.next(time)),
       takeUntil(this.destroy$)
     ).subscribe()
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.pzmEventZoneElement) this.dz.init(this.host, 'click', this.pzmEventZoneParent?.dz);
+    if (changes.prizmEventZoneElement) this.dz.init(this.host, 'click', this.prizmEventZoneParent?.dz);
   }
 }

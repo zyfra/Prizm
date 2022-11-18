@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { TreeNode } from './examples/template/tree-template-example.component';
-import { PZM_EMPTY_ARRAY, PrizmHandler } from '@digital-plant/zui-components';
+import { PRIZM_EMPTY_ARRAY, PrizmHandler } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-tree-example',
+  selector: 'prizm-tree-example',
   templateUrl: './tree.component.html',
   styleUrls: ['./tree.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -46,6 +46,6 @@ export class TreeComponent {
     folderLess: import('./examples/component/folder.component.less?raw')
   };
   readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item =>
-    item.children || PZM_EMPTY_ARRAY;
+    item.children || PRIZM_EMPTY_ARRAY;
 
 }

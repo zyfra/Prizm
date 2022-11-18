@@ -12,7 +12,7 @@ import { BaseTableTemplateDirective } from '../base-table/directives/base-table-
 
 // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
 @Component({
-  selector: 'pzm-cell-editor',
+  selector: 'prizm-cell-editor',
   templateUrl: './cell-editor.component.html',
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -23,7 +23,7 @@ export class PrizmCellEditorComponent implements AfterContentInit {
   @Output() valueChange = new EventEmitter<string>();
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_cell_editor';
+  readonly testId = 'prizm_cell_editor';
 
   inputTemplate: TemplateRef<unknown>;
   outputTemplate: TemplateRef<unknown>;

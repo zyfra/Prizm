@@ -1,6 +1,6 @@
 import { TreeNode } from 'primeng/api';
-import { PrizmMenuItem } from '../model/pzm-menu-item.interface';
-import { pzmGenerateId } from '../../../util';
+import { PrizmMenuItem } from '../model/prizm-menu-item.interface';
+import { prizmGenerateId } from '../../../util';
 
 export const flatNodes = (nodes: TreeNode[]): TreeNode[] => {
   return [].concat(...nodes.map(node => (node.children ? flatNodes(node.children) : [node])));
@@ -11,7 +11,7 @@ export const convertToNode = (item: PrizmMenuItem, parent?: TreeNode): TreeNode 
   const node: TreeNode = {
     label: item.label,
     data: item,
-    key: pzmGenerateId(),
+    key: prizmGenerateId(),
     parent,
   };
   if (item.items) {

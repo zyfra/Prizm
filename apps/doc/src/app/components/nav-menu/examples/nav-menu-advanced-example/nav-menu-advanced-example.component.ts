@@ -1,9 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { HeaderConfig, ToolbarConfig, PrizmMenuItem } from '@digital-plant/zui-components';
+import { HeaderConfig, ToolbarConfig, PrizmMenuItem } from '@prizm-ui/components';
 import { PrimeIcons } from 'primeng/api';
 
 @Component({
-  selector: 'pzm-nav-menu-advanced-example',
+  selector: 'prizm-nav-menu-advanced-example',
   templateUrl: './nav-menu-advanced-example.component.html',
   styleUrls: ['./nav-menu-advanced-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

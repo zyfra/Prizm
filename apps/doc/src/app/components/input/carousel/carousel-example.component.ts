@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PrizmCarouselArrayContent, PrizmInputSize, PrizmInputStatus } from '@digital-plant/zui-components';
+import { PrizmCarouselArrayContent, PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'pzm-carousel-example',
+  selector: 'prizm-carousel-example',
   templateUrl: './carousel-example.component.html',
   styleUrls: ['./carousel-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

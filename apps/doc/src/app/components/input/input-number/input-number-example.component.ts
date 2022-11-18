@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '@digital-plant/zui-components';
+import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'pzm-input-number-example',
+  selector: 'prizm-input-number-example',
   templateUrl: './input-number-example.component.html',
   styleUrls: ['./input-number-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -33,7 +33,7 @@ export class InputNumberExampleComponent {
 
   public required = false;
 
-  public readonly pzmInputNumberBasic: TuiDocExample = {
+  public readonly prizmInputNumberBasic: TuiDocExample = {
     TypeScript: import(
       '!!raw-loader!./examples/input-number-basic-example/input-number-basic-example.component.ts'
     ),
@@ -42,7 +42,7 @@ export class InputNumberExampleComponent {
     ),
   };
 
-  public readonly pzmInputNumberCounter: TuiDocExample = {
+  public readonly prizmInputNumberCounter: TuiDocExample = {
     TypeScript: import(
       '!!raw-loader!./examples/input-number-counter-example/input-number-counter-example.component.ts'
     ),

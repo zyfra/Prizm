@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PolymorphContent, PrizmContextWithImplicit, PrizmSizeL, PrizmSizeM } from '@digital-plant/zui-components';
+import { PolymorphContent, PrizmContextWithImplicit, PrizmSizeL, PrizmSizeM } from '@prizm-ui/components';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'pzm-skeleton-example',
+  selector: 'prizm-skeleton-example',
   templateUrl: './skeleton.component.html',
   styleUrls: ['./skeleton.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

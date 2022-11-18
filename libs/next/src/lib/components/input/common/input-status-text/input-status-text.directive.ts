@@ -1,11 +1,11 @@
 import { Directive, Injector, TemplateRef } from '@angular/core';
 import { Subject } from 'rxjs';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { DefaultInputInvalidTextClass } from '../base/input-invalid-text-base-class.directive';
 import { PolymorphContent } from '../../../../directives/polymorph';
 
 @Directive({
-  selector: '[pzmInputStatusText]',
+  selector: '[prizmInputStatusText]',
   providers: [PrizmDestroyService],
 })
 export class PrizmInputStatusTextDirective extends DefaultInputInvalidTextClass {

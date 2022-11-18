@@ -4,7 +4,7 @@ export interface PrizmVersionMeta {
   baseHref?: string;
 }
 
-export const PZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
+export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
   {
     label: 'NEXT (1.0.0-beta.10)',
     baseHref: '',

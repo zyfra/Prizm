@@ -4,7 +4,7 @@
 ### Пример с компонентом
 ```typescript
   import {ChangeDetectionStrategy, Component, ElementRef} from '@angular/core';
-  import {PrizmDestroyService} from '@digital-plant/zyfra-helpers';
+  import {PrizmDestroyService} from '@prizm-ui/helpers';
   import {takeUntil} from 'rxjs/operators';
   
   @Component({

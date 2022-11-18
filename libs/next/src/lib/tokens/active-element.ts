@@ -15,23 +15,23 @@ import {
   takeUntil,
   withLatestFrom,
 } from 'rxjs/operators';
-import { pzmTypedFromEvent } from '../observables/typed-from-event';
-import { pzmGetActualTarget } from '../util/dom/get-actual-target';
-import { pzmGetDocumentOrShadowRoot } from '../util/dom/pzm-get-document-or-shadow-root';
+import { prizmTypedFromEvent } from '../observables/typed-from-event';
+import { prizmGetActualTarget } from '../util/dom/get-actual-target';
+import { prizmGetDocumentOrShadowRoot } from '../util/dom/prizm-get-document-or-shadow-root';
 
 
-export const PZM_ACTIVE_ELEMENT = new InjectionToken<Observable<EventTarget | null>>(
+export const PRIZM_ACTIVE_ELEMENT = new InjectionToken<Observable<EventTarget | null>>(
     `Active element on the document for ActiveZone`,
     {
         factory: (): Observable<any> => {
-            const removedElement$ = inject(PZM_REMOVED_ELEMENT);
+            const removedElement$ = inject(PRIZM_REMOVED_ELEMENT);
             const windowRef = inject(WINDOW);
             const documentRef = inject(DOCUMENT);
-            const focusout$ = pzmTypedFromEvent(windowRef, `focusout`);
-            const focusin$ = pzmTypedFromEvent(windowRef, `focusin`);
-            const blur$ = pzmTypedFromEvent(windowRef, `blur`);
-            const mousedown$ = pzmTypedFromEvent(windowRef, `mousedown`);
-            const mouseup$ = pzmTypedFromEvent(windowRef, `mouseup`);
+            const focusout$ = prizmTypedFromEvent(windowRef, `focusout`);
+            const focusin$ = prizmTypedFromEvent(windowRef, `focusin`);
+            const blur$ = prizmTypedFromEvent(windowRef, `blur`);
+            const mousedown$ = prizmTypedFromEvent(windowRef, `mousedown`);
+            const mouseup$ = prizmTypedFromEvent(windowRef, `mouseup`);
 
             return merge(
                 focusout$.pipe(
@@ -39,7 +39,7 @@ export const PZM_ACTIVE_ELEMENT = new InjectionToken<Observable<EventTarget | nu
                     repeatWhen(() => mouseup$),
                     withLatestFrom(removedElement$),
                     filter(([event, removedElement]) =>
-                        isValidFocusout(pzmGetActualTarget(event), removedElement as Element),
+                        isValidFocusout(prizmGetActualTarget(event), removedElement as Element),
                     ),
                     map(([{relatedTarget}]) => relatedTarget),
                 ),
@@ -49,8 +49,8 @@ export const PZM_ACTIVE_ELEMENT = new InjectionToken<Observable<EventTarget | nu
                 ),
                 focusin$.pipe(
                     switchMap(event => {
-                        const target = pzmGetActualTarget(event);
-                        const root = pzmGetDocumentOrShadowRoot(target) as Document;
+                        const target = prizmGetActualTarget(event);
+                        const root = prizmGetDocumentOrShadowRoot(target) as Document;
 
                         return root === documentRef
                             ? of(target)
@@ -61,10 +61,10 @@ export const PZM_ACTIVE_ELEMENT = new InjectionToken<Observable<EventTarget | nu
                     switchMap(event =>
                         !documentRef.activeElement ||
                         documentRef.activeElement === documentRef.body
-                            ? of(pzmGetActualTarget(event))
+                            ? of(prizmGetActualTarget(event))
                             : focusout$.pipe(
                                   take(1),
-                                  mapTo(pzmGetActualTarget(event)),
+                                  mapTo(prizmGetActualTarget(event)),
                                   takeUntil(timer(0)),
                               ),
                     ),
@@ -78,7 +78,7 @@ export const PZM_ACTIVE_ELEMENT = new InjectionToken<Observable<EventTarget | nu
 function isValidFocusout(target: any, removedElement: Element | null = null): boolean {
     return (
         // Not due to switching tabs/going to DevTools
-        pzmGetDocumentOrShadowRoot(target).activeElement !== target &&
+        prizmGetDocumentOrShadowRoot(target).activeElement !== target &&
         // Not due to button/input becoming disabled
         !target.disabled &&
         // Not due to element being removed from DOM
@@ -88,8 +88,8 @@ function isValidFocusout(target: any, removedElement: Element | null = null): bo
 
 function shadowRootActiveElement(root: Document): Observable<EventTarget | null> {
     return merge(
-        pzmTypedFromEvent(root, `focusin`).pipe(map(({target}) => target)),
-        pzmTypedFromEvent(root, `focusout`).pipe(
+        prizmTypedFromEvent(root, `focusin`).pipe(map(({target}) => target)),
+        prizmTypedFromEvent(root, `focusout`).pipe(
             filter(
                 ({target, relatedTarget}) => !!relatedTarget && isValidFocusout(target),
             ),
@@ -97,7 +97,7 @@ function shadowRootActiveElement(root: Document): Observable<EventTarget | null>
         ),
     );
 }
-function PZM_REMOVED_ELEMENT(PZM_REMOVED_ELEMENT: any): never {
+function PRIZM_REMOVED_ELEMENT(PRIZM_REMOVED_ELEMENT: any): never {
     throw new Error('Function not implemented.');
 }
 

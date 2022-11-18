@@ -2,20 +2,20 @@ import { Directive, EventEmitter, Input, Output } from '@angular/core';
 
 import { PrizmTreeItemComponent } from '../components/tree-item/tree-item.component';
 import { PrizmTreeAccessor, PrizmTreeController } from '../misc/tree.interfaces';
-import { PZM_TREE_ACCESSOR, PZM_TREE_CONTROLLER } from '../misc/tree.tokens';
-import { pzmDefaultProp } from '../../../decorators';
-import { pzmIsPresent } from '../../../util';
+import { PRIZM_TREE_ACCESSOR, PRIZM_TREE_CONTROLLER } from '../misc/tree.tokens';
+import { prizmDefaultProp } from '@prizm-ui/core';
+import { prizmIsPresent } from '../../../util';
 
 @Directive({
-    selector: '[pzmTreeController][map]',
-    exportAs: 'pzmTreeController',
+    selector: '[prizmTreeController][map]',
+    exportAs: 'prizmTreeController',
     providers: [
         {
-            provide: PZM_TREE_ACCESSOR,
+            provide: PRIZM_TREE_ACCESSOR,
             useExisting: PrizmTreeControllerDirective,
         },
         {
-            provide: PZM_TREE_CONTROLLER,
+            provide: PRIZM_TREE_CONTROLLER,
             useExisting: PrizmTreeControllerDirective,
         },
     ],
@@ -24,11 +24,11 @@ export class PrizmTreeControllerDirective<T>
     implements PrizmTreeController, PrizmTreeAccessor<T>
 {
     @Input()
-    @pzmDefaultProp()
-    pzmTreeController = true;
+    @prizmDefaultProp()
+    prizmTreeController = true;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     map: Map<T, boolean> = new Map();
 
     @Output()
@@ -47,14 +47,14 @@ export class PrizmTreeControllerDirective<T>
     public isExpanded(item: PrizmTreeItemComponent): boolean {
         const value = this.items.get(item);
 
-        return (value && this.map.get(value)) ?? this.pzmTreeController;
+        return (value && this.map.get(value)) ?? this.prizmTreeController;
     }
 
     public toggle(item: PrizmTreeItemComponent): void {
         const value = this.items.get(item);
         const expanded = this.isExpanded(item);
 
-        if (!pzmIsPresent(value)) {
+        if (!prizmIsPresent(value)) {
             return;
         }
 

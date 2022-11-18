@@ -1,4 +1,4 @@
-export function pzmSetNativeFocused(
+export function prizmSetNativeFocused(
     element: HTMLOrSVGElement,
     focused: boolean = true,
     preventScroll: boolean = false,

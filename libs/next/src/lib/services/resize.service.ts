@@ -3,10 +3,10 @@ import { ANIMATION_FRAME } from '@ng-web-apis/common';
 import { RESIZE_OBSERVER_SUPPORT, RESIZE_OPTION_BOX, ResizeObserverService } from '@ng-web-apis/resize-observer';
 import { Observable } from 'rxjs';
 import { catchError, debounceTime, distinctUntilChanged, map, mapTo, takeUntil, throttleTime } from 'rxjs/operators';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
-import { pzmZoneFree } from '../observables/zone-free';
-import { PZM_EMPTY_ARRAY } from '../constants/empty';
-import { PZM_POLLING_TIME } from '../constants/polling-time';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { prizmZoneFree } from '../observables/zone-free';
+import { PRIZM_EMPTY_ARRAY } from '../constants/empty';
+import { PRIZM_POLLING_TIME } from '../constants/polling-time';
 
 @Injectable()
 export class PrizmResizeService extends ResizeObserverService {
@@ -23,17 +23,17 @@ export class PrizmResizeService extends ResizeObserverService {
         return this.pipe(
             catchError(() =>
                 animationFrame$.pipe(
-                    throttleTime(PZM_POLLING_TIME),
+                    throttleTime(PRIZM_POLLING_TIME),
                     map(
                         () =>
                             `${elementRef.nativeElement.clientWidth} ${elementRef.nativeElement.clientHeight}`,
                     ),
                     distinctUntilChanged(),
-                    mapTo(PZM_EMPTY_ARRAY),
+                    mapTo(PRIZM_EMPTY_ARRAY),
                 ),
             ),
             debounceTime(0),
-            pzmZoneFree(ngZone),
+            prizmZoneFree(ngZone),
             takeUntil(destroy$),
         );
     }

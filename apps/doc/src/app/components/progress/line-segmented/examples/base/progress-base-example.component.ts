@@ -3,7 +3,7 @@ import { timer } from 'rxjs';
 import { map, startWith, takeWhile } from 'rxjs/operators';
 
 @Component({
-  selector: 'pzm-progress-base-example',
+  selector: 'prizm-progress-base-example',
   templateUrl: './progress-base-example.component.html',
   styles: [`
     .box {
@@ -11,7 +11,7 @@ import { map, startWith, takeWhile } from 'rxjs/operators';
       gap: 1rem;
     }
 
-    [pzmProgressLabel] {
+    [prizmProgressLabel] {
       width: 100%;
     }
 
@@ -34,7 +34,7 @@ export class PrizmProgressBaseExampleComponent {
       startWith(2),
   );
   readonly colors = [
-    `var(--pzm-index-warning)`,
+    `var(--prizm-index-warning)`,
     `lightskyblue`,
     `#3682db`,
     `red`,

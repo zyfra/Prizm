@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PrizmCarouselArrayContent } from '@digital-plant/zui-components';
+import { PrizmCarouselArrayContent } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-carousel-basic-example',
+  selector: 'prizm-carousel-basic-example',
   templateUrl: './carousel-basic-example.component.html',
   styleUrls: ['./carousel-basic-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PrizmDay, PrizmDayRange } from '@digital-plant/zui-components';
+import { PrizmDay, PrizmDayRange } from '@prizm-ui/components';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'pzm-calendar-range-example',
+  selector: 'prizm-calendar-range-example',
   templateUrl: './calendar-range.component.html',
   styleUrls: ['./calendar-range.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -1,11 +1,11 @@
-import { pzmSvgNodeFilter } from '../constants/svg-node-filter';
-import { pzmIsNativeKeyboardFocusable } from './is-native-keyboard-focusable';
-import { pzmIsNativeMouseFocusable } from './is-native-mouse-focusable';
+import { prizmSvgNodeFilter } from '../constants/svg-node-filter';
+import { prizmIsNativeKeyboardFocusable } from './is-native-keyboard-focusable';
+import { prizmIsNativeMouseFocusable } from './is-native-mouse-focusable';
 
 /**
  * Finds the closest element that can be focused with a keyboard or mouse
  */
-export function pzmGetClosestFocusable(
+export function prizmGetClosestFocusable(
     initial: HTMLElement,
     prev: boolean = false,
     root: Node,
@@ -15,12 +15,12 @@ export function pzmGetClosestFocusable(
         return null;
     }
 
-    const check = keyboard ? pzmIsNativeKeyboardFocusable : pzmIsNativeMouseFocusable;
+    const check = keyboard ? prizmIsNativeKeyboardFocusable : prizmIsNativeMouseFocusable;
 
     const treeWalker = root.ownerDocument.createTreeWalker(
         root,
         NodeFilter.SHOW_ELEMENT,
-        pzmSvgNodeFilter,
+        prizmSvgNodeFilter,
         false,
     );
 

@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { IBreadcrumb } from '@digital-plant/zui-components';
+import { IBreadcrumb } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-breadcrumbs-basic',
+  selector: 'prizm-breadcrumbs-basic',
   templateUrl: './breadcrumbs-example-basic.component.html',
   styleUrls: ['./breadcrumbs-example-basic.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

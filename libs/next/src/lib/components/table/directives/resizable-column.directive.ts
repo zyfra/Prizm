@@ -2,6 +2,6 @@ import { Directive } from '@angular/core';
 import { ResizableColumn } from 'primeng/table';
 
 @Directive({
-  selector: '[pzmResizableColumn]',
+  selector: '[prizmResizableColumn]',
 })
 export class PrizmResizableColumnDirective extends ResizableColumn {}

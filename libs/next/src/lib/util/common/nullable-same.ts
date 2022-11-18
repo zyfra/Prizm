@@ -8,7 +8,7 @@ import { PrizmIdentityMatcher } from '../../types/matcher';
  * @param handler called if both elements are not null
  * @return true if either both are null or they pass identity handler
  */
-export function pzmNullableSame<T>(
+export function prizmNullableSame<T>(
     a: T | null,
     b: T | null,
     handler: PrizmIdentityMatcher<T>,

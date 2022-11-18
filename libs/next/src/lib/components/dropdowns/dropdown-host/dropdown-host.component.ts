@@ -25,19 +25,19 @@ import {
 } from '../../../modules/overlay';
 import { PolymorphContent, PrizmDropdownZoneDirective } from '../../../directives';
 import { debounceTime, delay, filter, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { BehaviorSubject, combineLatest, Observable, Subject, timer } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
-import { pzmDefaultProp } from '../../../decorators';
-import { PZM_DROPDOWN_HOST_OPTIONS, PrizmDropdownHostOptions } from './dropdown-host.options';
+import { prizmDefaultProp } from '@prizm-ui/core';
+import { PRIZM_DROPDOWN_HOST_OPTIONS, PrizmDropdownHostOptions } from './dropdown-host.options';
 import { PrizmDropdownHostWidth } from './models';
-import { pzmGenerateId } from '../../../util';
+import { prizmGenerateId } from '../../../util';
 import { PrizmEventZoneService } from '../../../directives/event-zone/event-zone.service';
 
-const PZM_DROPDOWN_TIME_DIFFERENCE = 1000/60;
+const PRIZM_DROPDOWN_TIME_DIFFERENCE = 1000/60;
 
 @Component({
-  selector: 'pzm-dropdown-host',
+  selector: 'prizm-dropdown-host',
   templateUrl: './dropdown-host.component.html',
   styleUrls: ['./dropdown-host.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -45,41 +45,41 @@ const PZM_DROPDOWN_TIME_DIFFERENCE = 1000/60;
     PrizmDestroyService,
     // PrizmDropdownZoneService
   ],
-  exportAs: 'pzm-dropdown-host'
+  exportAs: 'prizm-dropdown-host'
 })
 export class PrizmDropdownHostComponent implements AfterViewInit {
   @Input() content: PolymorphContent<{zone: PrizmDropdownZoneDirective}>;
 
   @Input()
-  @pzmDefaultProp()
-  pzmDropdownHostId: string = 'dropdownHostId_' + pzmGenerateId();
+  @prizmDefaultProp()
+  prizmDropdownHostId: string = 'dropdownHostId_' + prizmGenerateId();
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   parentZone?: PrizmDropdownZoneDirective | null = null;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   delay = 0;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   canOpen = true;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   closeByEsc = false;
 
   @Input()
-  @pzmDefaultProp()
-  pzmDropdownHostWidth?: PrizmDropdownHostWidth = this.options.width;
+  @prizmDefaultProp()
+  prizmDropdownHostWidth?: PrizmDropdownHostWidth = this.options.width;
 
   @Input()
-  @pzmDefaultProp()
-  pzmDropdownHostCloseOnBackdropClick = this.options.closeOnBackdrop;
+  @prizmDefaultProp()
+  prizmDropdownHostCloseOnBackdropClick = this.options.closeOnBackdrop;
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_dropdown_host';
+  readonly testId = 'prizm_dropdown_host';
 
   private readonly documentClick$ = new Subject<number>();
   private readonly containerClick$ = new Subject<number>();
@@ -118,14 +118,14 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
   );
 
   private position: PrizmOverlayRelativePosition;
-  readonly wrapper_class = 'pzm-overlay-dropdown-host no-overflow';
+  readonly wrapper_class = 'prizm-overlay-dropdown-host no-overflow';
 
   @ViewChild('contentBlockRef') contentBlockRef: ElementRef;
 
   constructor(
-    private readonly pzmOverlayService: PrizmOverlayService,
+    private readonly prizmOverlayService: PrizmOverlayService,
     @Inject(DOCUMENT) private readonly document: Document,
-    @Inject(PZM_DROPDOWN_HOST_OPTIONS) private readonly options: PrizmDropdownHostOptions,
+    @Inject(PRIZM_DROPDOWN_HOST_OPTIONS) private readonly options: PrizmDropdownHostOptions,
     public readonly el: ElementRef<HTMLElement>,
     private readonly cdRef: ChangeDetectorRef,
     public readonly injector: Injector,
@@ -150,7 +150,7 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
 
   public updateWidth(): void {
     this.position.updateConfig({
-      width: this.pzmDropdownHostWidth ??  this.el.nativeElement.offsetWidth
+      width: this.prizmDropdownHostWidth ??  this.el.nativeElement.offsetWidth
     })
   }
 
@@ -166,9 +166,9 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
         debounceTime(0),
         map(([document, container]: [number, number]) => document - container),
         filter(
-          (diff: number) => diff > PZM_DROPDOWN_TIME_DIFFERENCE &&
+          (diff: number) => diff > PRIZM_DROPDOWN_TIME_DIFFERENCE &&
             this.overlay?.isOpen &&
-            this.pzmDropdownHostCloseOnBackdropClick
+            this.prizmDropdownHostCloseOnBackdropClick
         ),
         tap(() => this.close()),
         takeUntil( this.overlay.listen('z_close')),
@@ -205,7 +205,7 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
       autoReposition: this.autoReposition,
       element: this.el.nativeElement,
     });
-    this.overlay = this.pzmOverlayService
+    this.overlay = this.prizmOverlayService
       .position(this.position)
       .config({wrapperClass: this.wrapper_class})
       .content(this.temp)

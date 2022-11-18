@@ -1,9 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { IndicatorStatus, IndicatorType } from '@digital-plant/zui-components';
+import { IndicatorStatus, IndicatorType } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-example-indicators',
+  selector: 'prizm-example-indicators',
   templateUrl: './indicators-example.component.html',
   styleUrls: ['./indicators-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -6,7 +6,7 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 
 import { TextareaBasicExampleComponent } from './examples/textarea-basic-example/textarea-basic-example.component';
 import { TextareaExampleComponent } from './textarea-example.component';
-import { PrizmInputTextModule } from '@digital-plant/zui-components';
+import { PrizmInputTextModule } from '@prizm-ui/components';
 import { TextareAautosizeExampleComponent } from './examples/textarea-autosize-example/textarea-autosize-example.component';
 
 @NgModule({

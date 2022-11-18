@@ -31,7 +31,7 @@ export interface PrizmConfirmPopupContext extends PrizmHintContext {
 
 
 /** Default values for hint options */
-export const PZM_CONFIRM_POPUP_DEFAULT_OPTIONS: PrizmConfirmPopupOptions = {
+export const PRIZM_CONFIRM_POPUP_DEFAULT_OPTIONS: PrizmConfirmPopupOptions = {
     showDelay: 100,
     size: 'm',
     hideDelay: 100,
@@ -40,16 +40,16 @@ export const PZM_CONFIRM_POPUP_DEFAULT_OPTIONS: PrizmConfirmPopupOptions = {
     direction: PrizmOverlayOutsidePlacement.RIGHT,
 };
 
-export const PZM_CONFIRM_POPUP_OPTIONS = new InjectionToken<PrizmConfirmPopupOptions>(
+export const PRIZM_CONFIRM_POPUP_OPTIONS = new InjectionToken<PrizmConfirmPopupOptions>(
     'Default parameters for tooltip directive',
     {
-        factory: (): PrizmConfirmPopupOptions => PZM_CONFIRM_POPUP_DEFAULT_OPTIONS,
+        factory: (): PrizmConfirmPopupOptions => PRIZM_CONFIRM_POPUP_DEFAULT_OPTIONS,
     },
 );
 
-export const pzmConfirmPopupOptionsProvider: (
+export const prizmConfirmPopupOptionsProvider: (
     options: Partial<PrizmConfirmPopupOptions>,
 ) => ValueProvider = (options: Partial<PrizmConfirmPopupOptions>) => ({
-    provide: PZM_CONFIRM_POPUP_OPTIONS,
-    useValue: {...PZM_CONFIRM_POPUP_DEFAULT_OPTIONS, ...options},
+    provide: PRIZM_CONFIRM_POPUP_OPTIONS,
+    useValue: {...PRIZM_CONFIRM_POPUP_DEFAULT_OPTIONS, ...options},
 });

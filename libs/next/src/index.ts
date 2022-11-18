@@ -10,6 +10,5 @@ export * from './lib/util';
 export * from './lib/animations';
 export * from './lib/pipes';
 export * from './lib/providers';
-export * from './lib/decorators';
 export * from './lib/observables';
 export * from './lib/exceptions';

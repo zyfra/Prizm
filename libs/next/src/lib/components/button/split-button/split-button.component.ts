@@ -9,12 +9,12 @@ import {
   ViewChild,
 } from '@angular/core';
 import { PrizmContent } from '../button-options';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmSize } from '../../../util';
 import { PrizmAppearance, PrizmAppearanceType } from '../../../types';
 
 @Component({
-  selector: 'pzm-split-button',
+  selector: 'prizm-split-button',
   styleUrls: ['./split-button.component.less'],
   templateUrl: './split-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -50,7 +50,7 @@ export class PrizmSplitButtonComponent {
   clickButton = new EventEmitter<void>();
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_split_button';
+  readonly testId = 'prizm_split_button';
 
   @ViewChild('buttonRef', {static: true, read: ElementRef}) buttonEl: ElementRef;
   @ViewChild('iconButtonRef', {static: true, read: ElementRef}) iconButtonEl: ElementRef;

@@ -1,28 +1,28 @@
 import { Directive, HostBinding, Input } from '@angular/core';
-import { pzmDefaultProp } from '../../decorators';
+import { prizmDefaultProp } from '@prizm-ui/core';
 
 @Directive({
-    selector: '[pzmSkeleton], [pzmSkeletonText], [pzmSkeletonRounded], [pzmSkeletonShort]',
+    selector: '[prizmSkeleton], [prizmSkeletonText], [prizmSkeletonRounded], [prizmSkeletonShort]',
 })
 export class PrizmSkeletonDirective {
-  @Input('pzmSkeletonText')
-  @HostBinding('class.pzm-skeleton_text')
-  @pzmDefaultProp()
+  @Input('prizmSkeletonText')
+  @HostBinding('class.prizm-skeleton_text')
+  @prizmDefaultProp()
   isText = false;
 
-  @Input('pzmSkeletonRounded')
-  @HostBinding('class.pzm-skeleton_rounded')
-  @pzmDefaultProp()
+  @Input('prizmSkeletonRounded')
+  @HostBinding('class.prizm-skeleton_rounded')
+  @prizmDefaultProp()
   isRounded = false;
 
-  @Input('pzmSkeletonShort')
-  @HostBinding('class.pzm-skeleton_short')
-  @pzmDefaultProp()
+  @Input('prizmSkeletonShort')
+  @HostBinding('class.prizm-skeleton_short')
+  @prizmDefaultProp()
   isShort = false;
 
 
-  @Input('pzmSkeleton')
-  @HostBinding('class.pzm-skeleton')
-  @pzmDefaultProp()
+  @Input('prizmSkeleton')
+  @HostBinding('class.prizm-skeleton')
+  @prizmDefaultProp()
   active = true;
 }

@@ -4,10 +4,10 @@ import {
   PrizmOverlayOutsidePlacement,
   PrizmOverlayService, PrizmOverlaySlidePlacement,
   PrizmOverlaySlidePosition
-} from "@digital-plant/zui-components";
+} from "@prizm-ui/components";
 
 @Component({
-  selector: 'pzm-overlay-slide-example',
+  selector: 'prizm-overlay-slide-example',
   templateUrl: './template.html',
   styles: [`
     .box {

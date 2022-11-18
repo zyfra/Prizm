@@ -2,8 +2,8 @@ import { Directive, ElementRef, Host, HostBinding, HostListener, Input } from '@
 import { PrizmInputTextComponent } from '../input-text/input-text.component';
 
 @Directive({
-  selector: 'input[pzmInputNumber]',
-  exportAs: 'pzmInputNumber',
+  selector: 'input[prizmInputNumber]',
+  exportAs: 'prizmInputNumber',
 })
 export class PrizmInputNumberDirective {
   @Input() min: number | null = null;
@@ -12,28 +12,28 @@ export class PrizmInputNumberDirective {
   @Input() value!: number;
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_input_number';
+  readonly testId = 'prizm_input_number';
 
   constructor(
     @Host() private readonly el: ElementRef<HTMLInputElement>,
-    @Host() private readonly pzmInputText: PrizmInputTextComponent
+    @Host() private readonly prizmInputText: PrizmInputTextComponent
   ) {
     el.nativeElement.type = 'number';
   }
 
   public increment(): void {
-    if (this.pzmInputText.disabled) return;
+    if (this.prizmInputText.disabled) return;
 
     if (this.max === null || this.hostValue < this.max) {
       const devider = this.hostValue % this.step;
       this.hostValue = Math.min(this.max ?? Number.POSITIVE_INFINITY, this.hostValue + this.step - devider);
     }
 
-    this.pzmInputText.markControl({ touched: true, dirty: true });
+    this.prizmInputText.markControl({ touched: true, dirty: true });
   }
 
   public decrement(): void {
-    if (this.pzmInputText.disabled) return;
+    if (this.prizmInputText.disabled) return;
 
     if (this.min === null || this.hostValue > this.min) {
       const devider = this.hostValue % this.step;
@@ -43,7 +43,7 @@ export class PrizmInputNumberDirective {
       );
     }
 
-    this.pzmInputText.markControl({ touched: true, dirty: true });
+    this.prizmInputText.markControl({ touched: true, dirty: true });
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
@@ -59,11 +59,11 @@ export class PrizmInputNumberDirective {
   }
 
   private get hostValue(): number {
-    return +this.pzmInputText.value;
+    return +this.prizmInputText.value;
   }
 
   private set hostValue(value: number) {
-    this.pzmInputText.value = value;
+    this.prizmInputText.value = value;
   }
 }
 

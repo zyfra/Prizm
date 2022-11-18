@@ -13,7 +13,7 @@ import {
   PrizmInputTextModule,
   PrizmPanelModule,
   PrizmSelectModule,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
 
 @NgModule({
   declarations: [ZoomControlExampleComponent, ZoomControlExampleBasicComponent],

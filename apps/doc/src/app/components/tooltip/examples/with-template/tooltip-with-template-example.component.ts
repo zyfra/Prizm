@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { PrizmOverlayOutsidePlacement } from '@digital-plant/zui-components';
+import { PrizmOverlayOutsidePlacement } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-tooltip-with-template-example',
+  selector: 'prizm-tooltip-with-template-example',
   templateUrl: './tooltip-with-template-example.component.html',
   styles: [`
     .box {

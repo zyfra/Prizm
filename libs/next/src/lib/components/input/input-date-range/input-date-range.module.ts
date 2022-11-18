@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PrizmLetModule } from '@digital-plant/zyfra-helpers';
+import { PrizmLetModule } from '@prizm-ui/helpers';
 import { PolymorphModule } from '../../../directives/polymorph/polymorph.module';
 import { PrizmInputDateRangeComponent } from './input-date-range.component';
 import { PrizmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';

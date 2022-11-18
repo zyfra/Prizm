@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'pzm-input-number-counter-example',
+  selector: 'prizm-input-number-counter-example',
   templateUrl: './input-number-counter-example.component.html',
   styleUrls: ['./input-number-counter-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

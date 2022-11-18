@@ -13,14 +13,14 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <pzm-select-base-example></pzm-select-base-example>
+      <prizm-select-base-example></prizm-select-base-example>
     </tui-doc-example>
 
     <tui-doc-example
       heading="With Search"
       [content]="exampleWithSearch"
     >
-      <pzm-select-with-search-example></pzm-select-with-search-example>
+      <prizm-select-with-search-example></prizm-select-with-search-example>
     </tui-doc-example>
 
 
@@ -28,7 +28,7 @@
       heading="With Template"
       [content]="exampleWithTemplate"
     >
-      <pzm-select-with-template-example></pzm-select-with-template-example>
+      <prizm-select-with-template-example></prizm-select-with-template-example>
     </tui-doc-example>
 
 
@@ -36,13 +36,13 @@
       heading="With Object"
       [content]="exampleWithObject"
     >
-      <pzm-select-with-object-example></pzm-select-with-object-example>
+      <prizm-select-with-object-example></prizm-select-with-object-example>
     </tui-doc-example>
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <pzm-select
+      <prizm-select
         [formControl]='control'
         [nullContent]='nullContent'
         [items]='items'
@@ -58,7 +58,7 @@
         [valueTemplate]='valueTemplate'
         [searchMatcher]='searchMatcher'
         [identityMatcher]='identityMatcher'
-      ></pzm-select>
+      ></prizm-select>
 
     </tui-doc-demo>
     <tui-doc-documentation>
@@ -140,7 +140,7 @@
 
       <ng-template #valueTemp let-value let-nullContent="nullContent">
         <div class='item' *ngIf='value; else empty'>
-          <pzm-icon iconClass='account-done'></pzm-icon>
+          <prizm-icon iconClass='account-done'></prizm-icon>
           <span>{{value}}</span>
         </div>
         <ng-template #empty>

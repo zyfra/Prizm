@@ -1,14 +1,14 @@
 import { Component, HostListener } from '@angular/core';
-import { PrizmTreeItemContentComponent } from '@digital-plant/zui-components';
+import { PrizmTreeItemContentComponent } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-folders',
+  selector: 'prizm-folders',
   template: `
-        <pzm-icon
+        <prizm-icon
             class="tui-space_right-2"
             [iconClass]="icon"
             size='16'
-        ></pzm-icon>
+        ></prizm-icon>
         <ng-container [ngTemplateOutlet]="context.template"></ng-container>
     `,
   styleUrls: ['folder.component.less'],

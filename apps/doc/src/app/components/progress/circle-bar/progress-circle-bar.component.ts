@@ -7,10 +7,10 @@ import {
   PrizmSizeM,
   PrizmSizeS,
   PrizmSizesXl,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-progress-example',
+  selector: 'prizm-progress-example',
   templateUrl: './progress-circle-bar.component.html',
   styleUrls: ['./progress-circle-bar.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -32,10 +32,10 @@ export class ProgressCircleBarComponent {
   readonly colorVariants: ReadonlyArray<string | null> = [
     null,
     'transparent',
-    'var(--pzm-index-danger)',
-    'var(--pzm-index-warning)',
-    'var(--pzm-index-plan)',
-    'var(--pzm-index-good)',
+    'var(--prizm-index-danger)',
+    'var(--prizm-index-warning)',
+    'var(--prizm-index-plan)',
+    'var(--prizm-index-good)',
     'lightblue',
   ];
   color: string | null = this.colorVariants[0];
@@ -43,8 +43,8 @@ export class ProgressCircleBarComponent {
   readonly trackColorVariants: ReadonlyArray<string | null> = [
     null,
     'transparent',
-    'var(--pzm-index-danger)',
-    'var(--pzm-index-warning)',
+    'var(--prizm-index-danger)',
+    'var(--prizm-index-warning)',
     'lightblue',
     'gray',
     'green'

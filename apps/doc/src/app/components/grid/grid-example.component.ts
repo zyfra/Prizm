@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'pzm-grid-example',
+  selector: 'prizm-grid-example',
   templateUrl: './grid-example.component.html',
   styleUrls: ['./grid-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
