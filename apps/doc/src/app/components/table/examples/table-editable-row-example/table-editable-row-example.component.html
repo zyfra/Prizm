@@ -1,100 +1,88 @@
-<prizm-table [value]="products" dataKey="id" editMode="row">
-  <ng-template prizmTableTemplate="header">
-    <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Quantity</th>
-      <th [style.width.rem]="6"></th>
-    </tr>
-  </ng-template>
-  <ng-template prizmTableTemplate="body" let-product let-editing="editing" let-ri="rowIndex">
-    <tr [prizmEditableRow]="product">
-      <td>
-        <prizm-cell-editor>
-          <ng-template prizmTableTemplate="input">
-            <prizm-input-layout class="input-layout" [outer]="true" size="s">
-              <input [(ngModel)]="product.code" prizmInput />
-            </prizm-input-layout>
-          </ng-template>
-          <ng-template prizmTableTemplate="output">
-            {{ product.code }}
-          </ng-template>
-        </prizm-cell-editor>
-      </td>
-      <td>
-        <prizm-cell-editor>
-          <ng-template prizmTableTemplate="input">
-            <prizm-input-layout class="input-layout" [outer]="true" size="s">
-              <input [(ngModel)]="product.name" prizmInput />
-            </prizm-input-layout>
-          </ng-template>
-          <ng-template prizmTableTemplate="output">
-            <span>{{ product.name }}</span>
-          </ng-template>
-        </prizm-cell-editor>
-      </td>
-      <td>
-        <prizm-cell-editor>
-          <ng-template prizmTableTemplate="input">
-            <prizm-input-layout class="input-layout" [outer]="true" size="s">
-              <input [(ngModel)]="product.category" prizmInput />
-            </prizm-input-layout>
-          </ng-template>
-          <ng-template prizmTableTemplate="output">
-            {{ product.category }}
-          </ng-template>
-        </prizm-cell-editor>
-      </td>
-      <td>
-        <prizm-cell-editor>
-          <ng-template prizmTableTemplate="input">
-            <prizm-input-layout class="input-layout" [outer]="true" size="s">
-              <input [(ngModel)]="product.count" prizmInput />
-            </prizm-input-layout>
-          </ng-template>
-          <ng-template prizmTableTemplate="output">
-            {{ product.count }}
-          </ng-template>
-        </prizm-cell-editor>
-      </td>
-      <td>
-        <div class="edit-buttons-container">
-          <prizm-icon
-            size="16"
-            *ngIf="!editing"
-            prizmInitEditableRow
-            class="edit-buttons"
-            iconClass="editor-mode"
-            (click)="onRowEditInit(product)"
-          ></prizm-icon>
-          <prizm-icon
-            size="16"
-            *ngIf="editing"
-            prizmSaveEditableRow
-            class="edit-buttons"
-            iconClass="selection-choice"
-            (click)="onRowEditSave(product)"
-          ></prizm-icon>
-          <prizm-icon
-            size="16"
-            *ngIf="editing"
-            prizmCancelEditableRow
-            class="edit-buttons"
-            iconClass="cancel-close"
-            (click)="onRowEditCancel(product, ri)"
-          ></prizm-icon>
-          <prizm-icon
-            size="16"
-            *ngIf="!editing"
-            prizmCancelEditableRow
-            class="edit-buttons"
-            iconClass="delete"
-            (click)="onRowDelete(product, ri)"
-          ></prizm-icon>
-        </div>
-      </td>
-    </tr>
-  </ng-template>
-</prizm-table>
+<prizm-scrollbar class="scrollable" visibility="hidden">
+  <table prizmTable class="table" [columns]="columns" tableBorderStyle="horizontal">
+    <thead>
+      <tr prizmThGroup>
+        <th prizmTh *prizmHead="'code'" [resizable]="true" [sorter]="null">Код</th>
+        <th prizmTh *prizmHead="'name'" [resizable]="true">Наименование</th>
+        <th prizmTh *prizmHead="'category'" [resizable]="true">Категория</th>
+        <th prizmTh *prizmHead="'count'" [resizable]="true">Количество</th>
+        <th prizmTh *prizmHead="'actions'" class="head__actions" [sorter]="null"></th>
+      </tr>
+    </thead>
 
+    <tbody prizmTbody [data]="products">
+      <tr
+        *prizmRow="let item of products; let i = index"
+        prizmTr
+        [active]="selectedItemsCodes.includes(item.code)"
+        (click)="selectRow($event, item.code, currentEditableRow === item)"
+        class="row"
+        [class.row_edit]="currentEditableRow === item"
+      >
+        <td prizmTd *prizmCell="'actions'">
+          <div class="edit-buttons-container" (click)="$event.stopPropagation()">
+            <prizm-icon
+              size="16"
+              class="edit-buttons"
+              iconClass="editor-mode"
+              *ngIf="currentEditableRow !== item"
+              (click)="onRowEditInit(item)"
+            ></prizm-icon>
+
+            <prizm-icon
+              size="16"
+              class="edit-buttons"
+              *ngIf="currentEditableRow === item"
+              iconClass="selection-choice"
+              (click)="onRowEditSave()"
+            ></prizm-icon>
+
+            <prizm-icon
+              size="16"
+              class="edit-buttons"
+              *ngIf="currentEditableRow === item"
+              iconClass="cancel-close"
+              (click)="onRowEditCancel(item)"
+            ></prizm-icon>
+
+            <prizm-icon
+              size="16"
+              class="edit-buttons"
+              iconClass="delete"
+              (click)="onRowDelete(item)"
+            ></prizm-icon>
+          </div>
+        </td>
+        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber: '0.0-0' }}</td>
+        <td *prizmCell="'name'" prizmTd class="row__editable">
+          <input
+            prizmInput
+            [disabled]="currentEditableRow !== item"
+            [value]="item.name"
+            (click)="$event.stopPropagation()"
+            (blur)="changeItemName($event, 'name')"
+          />
+        </td>
+        <td *prizmCell="'category'" prizmTd class="row__editable">
+          <input
+            prizmInput
+            [disabled]="currentEditableRow !== item"
+            [value]="item.category"
+            (click)="$event.stopPropagation()"
+            (blur)="changeItemName($event, 'category')"
+          />
+        </td>
+        <td *prizmCell="'count'" prizmTd class="row__editable">
+          <input
+            prizmInput
+            class="format__number"
+            [disabled]="currentEditableRow !== item"
+            [value]="$any(item.count)"
+            (click)="$event.stopPropagation()"
+            (blur)="changeItemName($event, 'count')"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</prizm-scrollbar>

@@ -1,0 +1,31 @@
+<prizm-scrollbar class="scrollable" visibility="hidden">
+  <table prizmTable class="table" [columns]="columns">
+    <thead>
+      <tr prizmThGroup>
+        <th rowspan="2" prizmTh *prizmHead="'code'" [resizable]="true">Код</th>
+        <th prizmTh *prizmHead="'name'" [resizable]="true">Наименование</th>
+        <th rowspan="2" prizmTh *prizmHead="'category'">Категория</th>
+        <th rowspan="2" prizmTh *prizmHead="'count'">Количество</th>
+      </tr>
+      <tr prizmThGroup>
+        <th prizmTh class="extra-border search-cell" [resizable]="true">
+          <input prizmInput placeholder="Поиск" (enter)="search($event, 'name')" #input />
+          <button
+            prizmInputIconButton="sort-zoom-in"
+            (click)="search(input.value, 'name')"
+            [interactive]="true"
+          ></button>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody prizmTbody [data]="searchAllowedProducts">
+      <tr *prizmRow="let item of searchAllowedProducts; let i = index" class="row" prizmTr>
+        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber: '0.0-0' }}</td>
+        <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
+        <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
+        <td class="format__number" *prizmCell="'count'" prizmTd>{{ item.count | spaceNumber: '0.0-0' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</prizm-scrollbar>

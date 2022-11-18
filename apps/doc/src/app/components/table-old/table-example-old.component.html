@@ -1,0 +1,146 @@
+<tui-doc-page header="Table" package="UI" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="base" heading="Base" [content]="exampleBasicTable">
+      <prizm-table-basic-example></prizm-table-basic-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="status" heading="Cell status" [content]="exampleStatusTable">
+      <prizm-table-status-example></prizm-table-status-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="selectable" heading="Selectable" [content]="exampleSelectableTable">
+      <prizm-table-selectable-example></prizm-table-selectable-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="group" heading="Group" [content]="exampleGroupTable">
+      <prizm-table-group-example></prizm-table-group-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="editableRow" heading="Editable row" [content]="exampleEditableRowTable">
+      <prizm-table-editable-row-example></prizm-table-editable-row-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="editableCol" heading="Editable col" [content]="exampleEditableColTable">
+      <prizm-table-editable-col-example></prizm-table-editable-col-example>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <prizm-table
+        [value]="value"
+        [responsiveLayout]="responsiveLayout"
+        [size]="size"
+        [scrollable]="scrollable"
+        [scrollHeight]="scrollHeight"
+      >
+        <ng-template prizmTableTemplate="header">
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th prizmSortableColumn="count">Count <prizm-sort-icon field="count"></prizm-sort-icon></th>
+          </tr>
+        </ng-template>
+        <ng-template prizmTableTemplate="body" let-product>
+          <tr>
+            <td>{{ product.code }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.count }}</td>
+          </tr>
+        </ng-template>
+      </prizm-table>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="value"
+        documentationPropertyType="any[]"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="value"
+      >
+        Table values
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="responsiveLayout"
+        documentationPropertyType="stack | scroll"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="layoutVariants"
+        [(documentationPropertyValue)]="responsiveLayout"
+      >
+        Responsive layout
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmSizeL | PrizmSizeM |  PrizmSizeXS | PrizmSizeS"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="scrollable"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="scrollable"
+      >
+        Scrollable [work with scrollHeight]
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="scrollHeight"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="scrollHeightVariants"
+        [(documentationPropertyValue)]="scrollHeight"
+      >
+        Scroll height
+      </ng-template>
+
+      <ng-template documentationPropertyName="onRowSelect" documentationPropertyMode="output">
+        Row select event
+      </ng-template>
+
+      <ng-template documentationPropertyName="onRowUnselect" documentationPropertyMode="output">
+        Row unselect event
+      </ng-template>
+
+      <ng-template documentationPropertyName="onSort" documentationPropertyMode="output">
+        Row sort event
+      </ng-template>
+
+      <ng-template documentationPropertyName="onEditInit" documentationPropertyMode="output">
+        Edit initialization
+      </ng-template>
+
+      <ng-template documentationPropertyName="onEditComplete" documentationPropertyMode="output">
+        Edit complete
+      </ng-template>
+
+      <ng-template documentationPropertyName="onEditCancel" documentationPropertyMode="output">
+        Edit cancel
+      </ng-template>
+
+      <ng-template documentationPropertyName="selectionChange" documentationPropertyMode="output">
+        Row selection change event
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>ZuiTableModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

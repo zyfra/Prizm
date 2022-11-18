@@ -1,0 +1,14 @@
+<button *ngIf="sorter && table; else content" type="button" class="sorter">
+  <ng-container [ngTemplateOutlet]="content"></ng-container>
+  {{ table.change$ | async }}
+  <prizm-icon
+    class="sorter__icon"
+    [class.sorter__icon_active]="isCurrent"
+    [iconClass]="icon"
+    (click)="table.updateSorter(sorter)"
+  ></prizm-icon>
+</button>
+<ng-template #content>
+  <div class="cell"><ng-content></ng-content></div>
+</ng-template>
+<div *ngIf="resizable" class="resize-bar" (prizmResized)="onResized($event)"></div>

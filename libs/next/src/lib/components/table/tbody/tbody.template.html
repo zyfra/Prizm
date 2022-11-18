@@ -1,0 +1,25 @@
+<ng-content></ng-content>
+<tr *ngIf="heading">
+  <th class="heading" [colSpan]="table.columns.length">
+    <div class="heading__container">
+      <prizm-icon
+        (click)="onClick()"
+        class="heading__icon"
+        [class.heading__icon_expanded]="open"
+        iconClass="arrows-chevron-right"
+      ></prizm-icon>
+      <span class="heading__content">
+        <ng-container *polymorphOutlet="heading as text">{{ text }}</ng-container>
+      </span>
+    </div>
+  </th>
+</tr>
+<ng-container *ngIf="open && row">
+  <ng-container
+    *ngFor="let item of sorted; let index = index"
+    [ngTemplateOutlet]="row.template"
+    [ngTemplateOutletContext]="item | prizmMapper: toContext:index"
+  ></ng-container>
+</ng-container>
+
+<ng-content select="[footer]"></ng-content>

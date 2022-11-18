@@ -1,62 +1,44 @@
-<prizm-table [value]="products" editMode="cell" dataKey="id" responsiveLayout="scroll">
-  <ng-template prizmTableTemplate="header">
-    <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Count</th>
-    </tr>
-  </ng-template>
-  <ng-template prizmTableTemplate="body" let-product>
-    <tr>
-      <td prizmEditableColumn>
-        <prizm-cell-editor>
-          <ng-template prizmTableTemplate="input">
-            <prizm-input-layout class="input-layout" [outer]="true" size="s">
-              <input [(ngModel)]="product.code" prizmInput />
-            </prizm-input-layout>
-          </ng-template>
-          <ng-template prizmTableTemplate="output">
-            {{ product.code }}
-          </ng-template>
-        </prizm-cell-editor>
-      </td>
-      <td prizmEditableColumn>
-        <prizm-cell-editor>
-          <ng-template prizmTableTemplate="input">
-            <prizm-input-layout class="input-layout" [outer]="true" size="s">
-              <input [(ngModel)]="product.name" prizmInput />
-            </prizm-input-layout>
-          </ng-template>
-          <ng-template prizmTableTemplate="output">
-            <span>{{ product.name }}</span>
-          </ng-template>
-        </prizm-cell-editor>
-      </td>
-      <td prizmEditableColumn>
-        <prizm-cell-editor>
-          <ng-template prizmTableTemplate="input">
-            <prizm-input-layout class="input-layout" [outer]="true" size="s">
-              <input [(ngModel)]="product.category" prizmInput />
-            </prizm-input-layout>
-          </ng-template>
-          <ng-template prizmTableTemplate="output">
-            {{ product.category }}
-          </ng-template>
-        </prizm-cell-editor>
-      </td>
-      <td prizmEditableColumn>
-        <prizm-cell-editor>
-          <ng-template prizmTableTemplate="input">
-            <prizm-input-layout class="input-layout" [outer]="true" size="s">
-              <input [(ngModel)]="product.count" prizmInput />
-            </prizm-input-layout>
-          </ng-template>
-          <ng-template prizmTableTemplate="output">
-            {{ product.count }}
-          </ng-template>
-        </prizm-cell-editor>
-      </td>
-    </tr>
-  </ng-template>
-</prizm-table>
+<prizm-scrollbar class="scrollable" visibility="hidden">
+  <table prizmTable class="table" [columns]="columns">
+    <thead>
+      <tr prizmThGroup>
+        <th prizmTh [resizable]="true">Код</th>
+        <th prizmTh *prizmHead="'name'" [resizable]="true">Наименование</th>
+        <th prizmTh *prizmHead="'category'" [resizable]="true">Категория</th>
+        <th prizmTh *prizmHead="'count'" [resizable]="true">Количество</th>
+      </tr>
+    </thead>
+
+    <tbody prizmTbody [data]="products">
+      <tr
+        *prizmRow="let item of products; let i = index"
+        prizmTr
+        (click)="
+          selectRow(
+            $event,
+            item.code,
+            currentEditableProduct?.product === item && currentEditableProduct?.key === 'name'
+          )
+        "
+        [active]="selectedItemsCodes.includes(item.code)"
+        class="row"
+      >
+        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber: '0.0-0' }}</td>
+        <td *prizmCell="'name'" prizmTd class="row_editable">
+          <input
+            prizmInput
+            [value]="item.name"
+            [readOnly]="!(currentEditableProduct?.product === item && currentEditableProduct?.key === 'name')"
+            [class.edit-cell]="
+              currentEditableProduct?.product === item && currentEditableProduct?.key === 'name'
+            "
+            (dblclick)="setEditableItem($event, item, 'name')"
+            (blur)="changeItemName($event, 'name', item)"
+          />
+        </td>
+        <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
+        <td class="format__number" *prizmCell="'count'" prizmTd>{{ item.count | spaceNumber: '0.0-0' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</prizm-scrollbar>

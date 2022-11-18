@@ -1,3 +1,33 @@
-.input-layout {
-  width: 10rem;
+:host {
+  table {
+    width: 100%;
+  }
+
+  .scrollable {
+    max-height: 300px;
+  }
+
+  .format {
+    &__number {
+      text-align: right;
+    }
+  }
+
+  .row {
+    &_editable {
+      padding: 0;
+
+      &:hover,
+      .edit-cell:focus {
+        box-shadow: 0 0 0 1px var(--prizm-index-plan) inset;
+
+        position: relative;
+        z-index: 10;
+      }
+    }
+
+    input {
+      padding: 0 8px;
+    }
+  }
 }

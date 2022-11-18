@@ -1,0 +1,18 @@
+<prizm-table [value]="products" editMode="cell" responsiveLayout="scroll">
+  <ng-template prizmTableTemplate="header">
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Count</th>
+    </tr>
+  </ng-template>
+  <ng-template prizmTableTemplate="body" let-product let-rowIndex="rowIndex">
+    <tr>
+      <td [prizmCellStatus]="rowIndex === 1 ? 'danger' : 'default'">{{ product.code }}</td>
+      <td [prizmCellStatus]="rowIndex === 2 ? 'success' : 'default'">{{ product.name }}</td>
+      <td [prizmCellStatus]="rowIndex === 3 ? 'warning' : 'default'">{{ product.category }}</td>
+      <td [prizmCellStatus]="rowIndex === 4 ? 'danger' : 'success'">{{ product.count }}</td>
+    </tr>
+  </ng-template>
+</prizm-table>

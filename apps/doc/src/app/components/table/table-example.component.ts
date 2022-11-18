@@ -62,6 +62,17 @@ export class TableExampleComponent {
     HTML: import('!!raw-loader!./examples/table-basic-example/table-basic-example.component.html'),
     LESS: import('./examples/table-basic-example/table-basic-example.component.less?raw'),
   };
+
+  public exampleBorderStyleTable: TuiDocExample = {
+    TypeScript: import(
+      '!!raw-loader!./examples/table-border-style-example/table-border-style-example.component'
+    ),
+    HTML: import(
+      '!!raw-loader!./examples/table-border-style-example/table-border-style-example.component.html'
+    ),
+    LESS: import('./examples/table-border-style-example/table-border-style-example.component.less?raw'),
+  };
+
   public readonly exampleEditableColTable: TuiDocExample = {
     TypeScript: import(
       '!!raw-loader!./examples/table-editable-col-example/table-editable-col-example.component'
@@ -69,10 +80,9 @@ export class TableExampleComponent {
     HTML: import(
       '!!raw-loader!./examples/table-editable-col-example/table-editable-col-example.component.html'
     ),
-    LESS: import(
-      './examples/table-editable-col-example/table-editable-col-example.component.less?raw'
-    ),
+    LESS: import('./examples/table-editable-col-example/table-editable-col-example.component.less?raw'),
   };
+
   public readonly exampleEditableRowTable: TuiDocExample = {
     TypeScript: import(
       '!!raw-loader!./examples/table-editable-row-example/table-editable-row-example.component'
@@ -80,15 +90,15 @@ export class TableExampleComponent {
     HTML: import(
       '!!raw-loader!./examples/table-editable-row-example/table-editable-row-example.component.html'
     ),
-    LESS: import(
-      './examples/table-editable-row-example/table-editable-row-example.component.less?raw'
-    ),
+    LESS: import('./examples/table-editable-row-example/table-editable-row-example.component.less?raw'),
   };
-  public readonly exampleGroupTable: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/table-group-example/table-group-example.component'),
-    HTML: import('!!raw-loader!./examples/table-group-example/table-group-example.component.html'),
-    LESS: import('./examples/table-group-example/table-group-example.component.less?raw'),
+
+  public exampleRowGroupTable: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/table-row-group-example/table-row-group-example.component'),
+    HTML: import('!!raw-loader!./examples/table-row-group-example/table-row-group-example.component.html'),
+    LESS: import('./examples/table-row-group-example/table-row-group-example.component.less?raw'),
   };
+
   public readonly exampleSelectableTable: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/table-selectable-example/table-selectable-example.component'),
     HTML: import('!!raw-loader!./examples/table-selectable-example/table-selectable-example.component.html'),
@@ -99,6 +109,18 @@ export class TableExampleComponent {
     TypeScript: import('!!raw-loader!./examples/table-status-example/table-status-example.component'),
     HTML: import('!!raw-loader!./examples/table-status-example/table-status-example.component.html'),
     LESS: import('./examples/table-status-example/table-status-example.component.less?raw'),
+  };
+
+  public exampleFilterTable: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/table-filter-example/table-filter-example.component'),
+    HTML: import('!!raw-loader!./examples/table-filter-example/table-filter-example.component.html'),
+    LESS: import('./examples/table-filter-example/table-filter-example.component.less?raw'),
+  };
+
+  public exampleSearchTable: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/table-search-example/table-search-example.component'),
+    HTML: import('!!raw-loader!./examples/table-search-example/table-search-example.component.html'),
+    LESS: import('./examples/table-search-example/table-search-example.component.less?raw'),
   };
 
   public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
