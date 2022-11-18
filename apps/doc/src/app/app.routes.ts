@@ -77,21 +77,25 @@ export const ROUTES = [
   },
   {
     path: 'components/progress-line-bar',
-    loadChildren: async (): Promise<unknown> => (await import('./components/progress/line-bar/progress-line-bar.module')).ProgressLineBarModule,
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/progress/line-bar/progress-line-bar.module')).ProgressLineBarModule,
     data: {
       title: 'Progress Line',
     },
   },
   {
     path: 'components/progress-circle-bar',
-    loadChildren: async (): Promise<unknown> => (await import('./components/progress/circle-bar/progress-circle-bar.module')).ProgressCircleBarModule,
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/progress/circle-bar/progress-circle-bar.module')).ProgressCircleBarModule,
     data: {
       title: 'Progress Circle',
     },
   },
   {
     path: 'components/progress-line-segmented',
-    loadChildren: async (): Promise<unknown> => (await import('./components/progress/line-segmented/progress-line-segmented.module')).ProgressLineSegmentedModule,
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/progress/line-segmented/progress-line-segmented.module'))
+        .ProgressLineSegmentedModule,
     data: {
       title: 'Progress Segmented',
     },
@@ -391,6 +395,14 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/table-old',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/table-old/table-example-old.module')).TableExampleOldModule,
+    data: {
+      title: 'Table',
+    },
+  },
+  {
     path: 'components/accordion',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/accordion/accordion-example.module')).AccordionExampleModule,
@@ -409,24 +421,21 @@ export const ROUTES = [
   // CHARTS
   {
     path: 'charts/line',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./charts/line/line.module')).LineModule,
+    loadChildren: async (): Promise<unknown> => (await import('./charts/line/line.module')).LineModule,
     data: {
       title: 'Line',
     },
   },
   {
     path: 'charts/area',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./charts/area/area.module')).AreaModule,
+    loadChildren: async (): Promise<unknown> => (await import('./charts/area/area.module')).AreaModule,
     data: {
       title: 'Area',
     },
   },
   {
     path: 'charts/stack',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./charts/stack/stack.module')).StackModule,
+    loadChildren: async (): Promise<unknown> => (await import('./charts/stack/stack.module')).StackModule,
     data: {
       title: 'Columnt Stack',
     },
@@ -441,24 +450,21 @@ export const ROUTES = [
   },
   {
     path: 'charts/bar',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./charts/bar/bar.module')).BarModule,
+    loadChildren: async (): Promise<unknown> => (await import('./charts/bar/bar.module')).BarModule,
     data: {
       title: 'Bar',
     },
   },
   {
     path: 'charts/pie',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./charts/pie/pie.module')).PieModule,
+    loadChildren: async (): Promise<unknown> => (await import('./charts/pie/pie.module')).PieModule,
     data: {
       title: 'Pie',
     },
   },
   {
     path: 'charts/radar',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./charts/radar/radar.module')).RadarModule,
+    loadChildren: async (): Promise<unknown> => (await import('./charts/radar/radar.module')).RadarModule,
     data: {
       title: 'Radar',
     },
@@ -481,8 +487,7 @@ export const ROUTES = [
   },
   {
     path: 'charts/gauge',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./charts/gauge/gauge.module')).GaugeModule,
+    loadChildren: async (): Promise<unknown> => (await import('./charts/gauge/gauge.module')).GaugeModule,
     data: {
       title: 'Gauge',
     },

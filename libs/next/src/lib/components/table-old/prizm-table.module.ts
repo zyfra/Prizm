@@ -81,4 +81,4 @@ import { PrizmCellStatusDirective } from './directives/row-status.directive';
     PrizmCellStatusDirective,
   ],
 })
-export class PrizmTableModule {}
+export class ZuiTableModule {}

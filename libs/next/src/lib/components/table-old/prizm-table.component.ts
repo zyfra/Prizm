@@ -3,14 +3,15 @@ import {
   ChangeDetectionStrategy,
   Component,
   ContentChildren,
-  EventEmitter, HostBinding,
+  EventEmitter,
+  HostBinding,
   Input,
   OnChanges,
   Output,
   QueryList,
   TemplateRef,
   ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 import { FilterService } from 'primeng/api';
 import { Table, TableService } from 'primeng/table';

@@ -1,0 +1,49 @@
+:host {
+  table {
+    width: 100%;
+  }
+
+  .scrollable {
+    max-height: 300px;
+  }
+
+  .filter {
+    margin-left: auto;
+
+    &__category {
+      height: 24px;
+      width: 24px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #777b92;
+
+      cursor: pointer;
+
+      &_active,
+      &:hover {
+        color: #337eff;
+      }
+    }
+  }
+
+  .format {
+    &__number {
+      text-align: right;
+    }
+  }
+}
+
+.filter-container {
+  padding: 16px;
+
+  display: flex;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}

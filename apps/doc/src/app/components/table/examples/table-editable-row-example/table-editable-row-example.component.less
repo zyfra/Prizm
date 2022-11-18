@@ -1,22 +1,66 @@
-.edit-buttons-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+:host {
+  table {
+    width: 100%;
+  }
 
-  .edit-buttons {
-    display: flex;
-
-    color: var(--prizm-border-icon);
-
-    cursor: pointer;
-
-    &:hover {
-      color: var(--prizm-index-plan);
+  .format {
+    &__number {
+      text-align: right;
     }
   }
-}
 
-.input-layout {
-  width: 10rem;
+  .edit-buttons-container {
+    height: 100%;
+    width: 100%;
+    padding: 0 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    .edit-buttons {
+      height: 16px;
+      width: 16px;
+
+      display: flex;
+
+      &:hover {
+        color: #337eff;
+      }
+    }
+  }
+
+  .row {
+    &__editable {
+      padding: 0;
+
+      input {
+        padding: 8px;
+
+        &:disabled {
+          cursor: unset;
+        }
+      }
+    }
+
+    &_edit {
+      td {
+        border: 1px solid var(--prizm-index-plan);
+
+        position: relative;
+        z-index: 10;
+
+        &:not(:first-child) {
+          border-left: none;
+        }
+      }
+    }
+  }
+
+  .head {
+    &__actions {
+      width: 100px;
+    }
+  }
 }

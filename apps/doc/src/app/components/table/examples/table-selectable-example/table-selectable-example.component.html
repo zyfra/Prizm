@@ -1,86 +1,118 @@
-<div class="container">
-  <div class="table">
-    <div class="table__description">Single selection</div>
-    <div class="table__content">
-      <prizm-table
-        [value]="products"
-        selectionMode="single"
-        [(selection)]="selectedProduct1"
-        dataKey="code"
-        [scrollable]="true"
-        scrollHeight="200px"
-        (selectionChange)="selectedRowWasChanged()"
-      >
-        <ng-template prizmTableTemplate="header">
-          <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Count</th>
-          </tr>
-        </ng-template>
-        <ng-template prizmTableTemplate="body" let-product>
-          <tr [prizmSelectableRow]="product">
-            <td>{{ product.code }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.category }}</td>
-            <td>{{ product.count }}</td>
-          </tr>
-        </ng-template>
-      </prizm-table>
-    </div>
-  </div>
+<h2>Single selection</h2>
 
-  <div class="table">
-    <div class="table__description">Multiple selection with meta key</div>
-    <div class="table__content">
-      <prizm-table
-        [value]="products"
-        selectionMode="multiple"
-        [(selection)]="selectedProducts1"
-        [metaKeySelection]="true"
-      >
-        <ng-template prizmTableTemplate="header">
-          <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Count</th>
-          </tr>
-        </ng-template>
-        <ng-template prizmTableTemplate="body" let-product let-rowIndex="rowIndex">
-          <tr [pSelectableRow]="product" [pSelectableRowIndex]="rowIndex">
-            <td>{{ product.code }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.category }}</td>
-            <td>{{ product.count }}</td>
-          </tr>
-        </ng-template>
-      </prizm-table>
-    </div>
-  </div>
+<prizm-scrollbar class="scrollable" visibility="hidden">
+  <table prizmTable class="table" [columns]="columns">
+    <thead>
+      <tr prizmThGroup>
+        <th prizmTh [resizable]="true">Код</th>
+        <th prizmTh *prizmHead="'name'">Наименование</th>
+        <th prizmTh *prizmHead="'category'">Категория</th>
+        <th prizmTh *prizmHead="'count'">Количество</th>
+      </tr>
+    </thead>
 
-  <div class="table">
-    <div class="table__description">Multiple selection</div>
-    <div class="table__content">
-      <prizm-table [value]="products" selectionMode="multiple" [(selection)]="selectedProducts2">
-        <ng-template prizmTableTemplate="header">
-          <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Count</th>
-          </tr>
-        </ng-template>
-        <ng-template prizmTableTemplate="body" let-product let-rowIndex="rowIndex">
-          <tr [pSelectableRow]="product" [pSelectableRowIndex]="rowIndex">
-            <td>{{ product.code }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.category }}</td>
-            <td>{{ product.count }}</td>
-          </tr>
-        </ng-template>
-      </prizm-table>
-    </div>
-  </div>
-</div>
+    <tbody prizmTbody [data]="products1">
+      <tr
+        *prizmRow="let item of products1; let i = index"
+        (click)="singleSelection(item.code)"
+        [active]="singleSelectedItemCode === item.code"
+        class="row"
+        prizmTr
+      >
+        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber: '0.0-0' }}</td>
+        <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
+        <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
+        <td class="format__number" *prizmCell="'count'" prizmTd>{{ item.count | spaceNumber: '0.0-0' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</prizm-scrollbar>
+
+<h2>Multiple selection without meta key</h2>
+
+<prizm-scrollbar class="scrollable" visibility="hidden">
+  <table prizmTable class="table" [columns]="multipleSelectionColumns">
+    <thead>
+      <tr prizmThGroup>
+        <th prizmTh *prizmHead="'checkbox'" class="checkbox-header" [sorter]="null">
+          <prizm-checkbox
+            [checked]="selectedItemsCodes.length === products2.length"
+            [indeterminate]="selectedItemsCodes.length !== products2.length && selectedItemsCodes.length > 0"
+            (changed)="onMultiSelectionCheckbox($event)"
+            class="checkbox"
+          ></prizm-checkbox>
+        </th>
+        <th prizmTh [resizable]="true" *prizmHead="'code'">Код</th>
+        <th prizmTh *prizmHead="'name'" [resizable]="true">Наименование</th>
+        <th prizmTh *prizmHead="'category'" [resizable]="true">Категория</th>
+        <th prizmTh *prizmHead="'count'" [resizable]="true">Количество</th>
+      </tr>
+    </thead>
+
+    <tbody prizmTbody [data]="products2">
+      <tr
+        *prizmRow="let item of products2; let i = index"
+        (click)="multiSelection($event, item.code)"
+        [active]="item.code === selectedItemsCodes[selectedItemsCodes.length - 1]"
+        prizmTr
+      >
+        <td *prizmCell="'checkbox'" prizmTd>
+          <prizm-checkbox
+            [checked]="selectedItemsCodes.includes(item.code)"
+            class="checkbox"
+          ></prizm-checkbox>
+        </td>
+        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber: '0.0-0' }}</td>
+        <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
+        <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
+        <td class="format__number" *prizmCell="'count'" prizmTd>{{ item.count | spaceNumber: '0.0-0' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</prizm-scrollbar>
+
+<h2>Multiple selection with meta key</h2>
+
+<prizm-scrollbar class="scrollable" visibility="hidden">
+  <table prizmTable class="table" [columns]="multipleSelectionColumns">
+    <thead>
+      <tr prizmThGroup>
+        <th prizmTh *prizmHead="'checkbox'" class="checkbox-header" [sorter]="null">
+          <prizm-checkbox
+            [checked]="selectedMetaItemsCodes.length === products2.length"
+            [indeterminate]="
+              selectedMetaItemsCodes.length !== products2.length && selectedMetaItemsCodes.length > 0
+            "
+            (changed)="onMultiSelectionMetaCheckbox($event)"
+            class="checkbox"
+          ></prizm-checkbox>
+        </th>
+        <th prizmTh [resizable]="true" *prizmHead="'code'">Код</th>
+        <th prizmTh *prizmHead="'name'" [resizable]="true">Наименование</th>
+        <th prizmTh *prizmHead="'category'" [resizable]="true">Категория</th>
+        <th prizmTh *prizmHead="'count'" [resizable]="true">Количество</th>
+      </tr>
+    </thead>
+
+    <tbody prizmTbody [data]="products2">
+      <tr
+        *prizmRow="let item of products2; let i = index"
+        (click)="multiSelectionMeta($event, item.code)"
+        [active]="item.code === selectedMetaItemsCodes[selectedMetaItemsCodes.length - 1]"
+        prizmTr
+      >
+        <td *prizmCell="'checkbox'" prizmTd>
+          <prizm-checkbox
+            [checked]="selectedMetaItemsCodes.includes(item.code)"
+            (changed)="multiSelectMetaItem(item.code)"
+            class="checkbox"
+          ></prizm-checkbox>
+        </td>
+        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber: '0.0-0' }}</td>
+        <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
+        <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
+        <td class="format__number" *prizmCell="'count'" prizmTd>{{ item.count | spaceNumber: '0.0-0' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</prizm-scrollbar>

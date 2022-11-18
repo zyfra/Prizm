@@ -46,7 +46,7 @@ export const pages: TuiDocPages = [
         keywords: 'icon, icon-button, button, кнопка',
         route: '/components/icon-button',
       },
-    ]
+    ],
   },
   {
     section: `Components`,
@@ -278,9 +278,9 @@ export const pages: TuiDocPages = [
       {
         title: 'Progress Segmented',
         keywords: 'progress-segmented, прогресс, сегментация, segmented, bar',
-        route: '/components/progress-line-segmented'
-      }
-    ]
+        route: '/components/progress-line-segmented',
+      },
+    ],
   },
   {
     section: `Components`,
@@ -293,6 +293,12 @@ export const pages: TuiDocPages = [
     title: 'Table',
     keywords: 'table, таблица',
     route: '/components/table',
+  },
+  {
+    section: `Components`,
+    title: 'Table old',
+    keywords: 'table, таблица',
+    route: '/components/table-old',
   },
   {
     section: `Components`,

@@ -1,13 +1,5 @@
-import { SortEvent } from 'primeng/api/sortevent';
-import { FilterMetadata } from 'primeng/api';
+export type PrizmComparator<T> = (a: T, b: T) => number;
 
-export type TableSortEvent = SortEvent;
-export type Filters = Record<string, FilterMetadata | FilterMetadata[]>;
-export type RowSelectionEvent = {
-  originalEvent: Event;
-  data: unknown;
-  type: 'row' | 'radiobutton' | 'checkbox';
-  index: number;
-};
+export type PrizmTableCellStatus = 'default' | 'success' | 'warning' | 'danger';
 
-export type TRowStatus = 'default' | 'success' | 'warning' | 'danger';
+export type PrizmTableBorderStyle = 'grid' | 'horizontal' | 'vertical';

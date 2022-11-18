@@ -31,7 +31,7 @@ export class TabsComponent implements OnInit, OnDestroy {
   @Input() public selectedTabNumber = 0;
 
   @Output() public cancelClick: EventEmitter<void> = new EventEmitter<void>();
-  @Output() public tabClick: EventEmitter<void> = new EventEmitter();
+  @Output() public tabClick: EventEmitter<number> = new EventEmitter<number>();
   @ViewChild('tabsContainer', { static: true }) public tabsContainer: ElementRef;
   @ViewChildren('prizmTab', { read: ElementRef }) public tabElements: QueryList<ElementRef>;
 
@@ -50,6 +50,7 @@ export class TabsComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
 
   constructor(private readonly cdRef: ChangeDetectorRef) {}
+
   public ngOnInit(): void {
     this.mutationObserver = new MutationObserver(() => this.mutationDetector$.next());
     this.resizeObserver = new ResizeObserver(() => this.mutationDetector$.next());
@@ -82,7 +83,7 @@ export class TabsComponent implements OnInit, OnDestroy {
 
   public tabClickHandler(idx: number): void {
     this.selectedTabNumber = idx;
-    this.tabClick.emit();
+    this.tabClick.emit(this.selectedTabNumber);
     this.focusTabByIdx(idx);
   }
 

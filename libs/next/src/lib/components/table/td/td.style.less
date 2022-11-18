@@ -1,0 +1,73 @@
+@height-xs: 16px;
+@height-s: 24px;
+@height-m: 32px;
+@height-l: 40px;
+
+:host {
+  padding: 0 8px;
+
+  border: 1px solid var(--prizm-border-widget);
+  border-top: none;
+
+  &:not(:first-child) {
+    border-left: none;
+  }
+
+  &:first-child {
+    position: relative;
+
+    &:before {
+      content: '';
+      height: 100%;
+      width: 4px;
+
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &[status='success'] {
+    background: var(--prizm-lite-gr130-20);
+  }
+
+  &[status='warning'] {
+    background: var(--prizm-lite-y130-20);
+  }
+
+  &[status='danger'] {
+    background: var(--prizm-lite-r130-20);
+  }
+}
+
+:host-context([active='true']) {
+  &:first-child:before {
+    background: var(--prizm-index-plan);
+  }
+  background: var(--prizm-lite-b130-20);
+}
+
+:host-context([border-style='vertical']) {
+  border-bottom: none;
+}
+
+:host-context([border-style='horizontal']) {
+  border-right: none;
+  border-left: none;
+}
+
+:host-context([data-size='s']) {
+  height: @height-s;
+}
+
+:host-context([data-size='xs']) {
+  height: @height-xs;
+}
+
+:host-context([data-size='m']) {
+  height: @height-m;
+}
+
+:host-context([data-size='l']) {
+  height: @height-l;
+}

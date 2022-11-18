@@ -1,18 +1,47 @@
-<prizm-table [value]="products" editMode="cell" responsiveLayout="scroll">
-  <ng-template prizmTableTemplate="header">
-    <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Count</th>
+<table prizmTable class="table" [columns]="columns">
+  <thead>
+    <tr prizmThGroup>
+      <th prizmTh>Код</th>
+      <th prizmTh *prizmHead="'name'">Наименование</th>
+      <th prizmTh *prizmHead="'category'">Категория</th>
+      <th prizmTh *prizmHead="'count'">Количество</th>
     </tr>
-  </ng-template>
-  <ng-template prizmTableTemplate="body" let-product let-rowIndex="rowIndex">
-    <tr>
-      <td [prizmCellStatus]="rowIndex === 1 ? 'danger' : 'default'">{{ product.code }}</td>
-      <td [prizmCellStatus]="rowIndex === 2 ? 'success' : 'default'">{{ product.name }}</td>
-      <td [prizmCellStatus]="rowIndex === 3 ? 'warning' : 'default'">{{ product.category }}</td>
-      <td [prizmCellStatus]="rowIndex === 4 ? 'danger' : 'success'">{{ product.count }}</td>
+  </thead>
+
+  <tbody prizmTbody [data]="products">
+    <tr
+      *prizmRow="let item of products; let i = index"
+      class="row"
+      prizmTr
+      [status]="item.status"
+      (click)="multiSelection($event, item.code)"
+      [active]="selectedItemsCodes.includes(item.code)"
+    >
+      <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber: '0.0-0' }}</td>
+      <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
+      <td *prizmCell="'category'" prizmTd [status]="i === 8 ? 'danger' : 'default'">{{ item.category }}</td>
+      <td class="format__number" *prizmCell="'count'" prizmTd>{{ item.count | spaceNumber: '0.0-0' }}</td>
     </tr>
-  </ng-template>
-</prizm-table>
+    <ng-container footer>
+      <tr class="summary format__number">
+        <td prizmTd colspan="3">Всего</td>
+        <td prizmTd>{{ 60000 | spaceNumber: '0.0-0' }}</td>
+      </tr>
+
+      <tr class="pagination">
+        <td prizmTd colspan="4">
+          <prizm-paginator
+            [totalRecords]="160"
+            [pageLinkSize]="4"
+            [rows]="10"
+            [initialValue]="6"
+            [paginatorOptions]="{ noRowsSelectorLabel: true }"
+            [rowsCountOptions]="[10, 20, 60]"
+            leftButtonLabel="Назад"
+            rightButtonLabel="Вперед"
+          ></prizm-paginator>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
