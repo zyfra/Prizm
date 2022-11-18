@@ -156,6 +156,8 @@ Deploy:
       # if latest - ingress path: / pathType: Prefix
       # else      - ingress path: /$CI_PROJECT_NAME/$DEPLOY_VERSION pathType: Exact
       if [ "$DEPLOY_VERSION" = "latest" ]; then
+        echo "CI_PROJECT_NAME is $CI_PROJECT_NAME"
+        echo "DEPLOY_RELEASE is $DEPLOY_RELEASE"
         helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
         -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
         --set image.registry=docker.idp.yc.ziiot.ru \
@@ -166,6 +168,8 @@ Deploy:
         --set ingress.urlRewrite=false \
         --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
       else
+        echo "CI_PROJECT_NAME is $CI_PROJECT_NAME"
+        echo "DEPLOY_RELEASE is $DEPLOY_RELEASE"      
         helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE \
         -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service \
         --set image.registry=docker.idp.yc.ziiot.ru \
