@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'button[pzmInputIconButton]',
+  selector: 'button[prizmInputIconButton]',
   templateUrl: './input-icon-button.component.html',
   styleUrls: ['./input-icon-button.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,11 +14,11 @@ import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular
 })
 export class PrizmInputIconButtonComponent {
   @Input() size = 16;
-  @Input() pzmInputIconButton: string;
+  @Input() prizmInputIconButton: string;
   @Input() interactive = false;
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_input_icon_button';
+  readonly testId = 'prizm_input_icon_button';
 
   get tabindex(): number {
     return this.interactive ? 0 : -1;

@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PrizmSizeM, PrizmSizeS } from '@digital-plant/zui-components';
+import { PrizmSizeM, PrizmSizeS } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-progress-example',
+  selector: 'prizm-progress-example',
   templateUrl: './progress-line-segmented.component.html',
   styleUrls: ['./progress-line-segmented.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -23,16 +23,16 @@ export class ProgressLineSegmentedComponent {
     [],
     'transparent',
     [
-      'var(--pzm-index-danger)',
-      'var(--pzm-index-warning)',
+      'var(--prizm-index-danger)',
+      'var(--prizm-index-warning)',
       'lightblue',
     ],
     [
       'black',
       'gray',
     ],
-    'var(--pzm-index-danger)',
-    'var(--pzm-index-warning)',
+    'var(--prizm-index-danger)',
+    'var(--prizm-index-warning)',
     'lightblue',
     'green'
   ];

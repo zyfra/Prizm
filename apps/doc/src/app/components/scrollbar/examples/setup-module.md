@@ -1,6 +1,6 @@
 ```ts
 import {NgModule} from '@angular/core';
-import {PrizmScrollbarModule} from "@digital-plant/zui-components";
+import {PrizmScrollbarModule} from "@prizm-ui/components";
 
 @NgModule({
   imports: [

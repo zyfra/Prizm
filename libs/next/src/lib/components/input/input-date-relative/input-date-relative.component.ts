@@ -14,9 +14,9 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgControl, Validators } from '@angular/forms';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { pzmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
-import { PrizmInputSize } from '../common/models/pzm-input.models';
+import { prizmDefaultProp } from '@prizm-ui/core';
+import { prizmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
+import { PrizmInputSize } from '../common/models/prizm-input.models';
 import {
   getDefaultRelativeDateMenuItems,
   IdByGroup,
@@ -27,15 +27,15 @@ import {
   RelativeDateTimeId,
 } from './input-date-relative.models';
 import { ParseTextInput, RenderText, UpdateActiveItem } from './input-date-relative.utils';
-import { pzmIsNativeFocused } from '../../../util';
-import { PZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
+import { prizmIsNativeFocused } from '../../../util';
+import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
 const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?';
 
 @Component({
-  selector: 'pzm-input-date-relative',
+  selector: 'prizm-input-date-relative',
   templateUrl: './input-date-relative.component.html',
   styleUrls: ['./input-date-relative.component.less'],
   providers: [
@@ -52,39 +52,39 @@ export class PrizmInputDateRelativeComponent implements AfterViewInit, OnInit, C
   public readonly focusableElement?: ElementRef<HTMLInputElement>;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   public label = 'Относительное';
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   public placeholder = 'Выберите относительное время';
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   public disabled: boolean;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   public showClear: boolean;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   public canOpen = true;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   public outer = false;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   public size: PrizmInputSize = 'm';
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   extraButtonInjector: Injector = this.injector;
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_input_date_relative';
+  readonly testId = 'prizm_input_date_relative';
 
   public isOpen = false;
 
@@ -111,7 +111,7 @@ export class PrizmInputDateRelativeComponent implements AfterViewInit, OnInit, C
   ) {}
 
   public ngOnInit(): void {
-    this.rightButtons$ = this.extraButtonInjector.get(PZM_DATE_RIGHT_BUTTONS);
+    this.rightButtons$ = this.extraButtonInjector.get(PRIZM_DATE_RIGHT_BUTTONS);
   }
 
   public ngAfterViewInit(): void {
@@ -190,7 +190,7 @@ export class PrizmInputDateRelativeComponent implements AfterViewInit, OnInit, C
   }
 
   public get focused(): boolean {
-    return pzmIsNativeFocusedIn(this.focusableElement.nativeElement);
+    return prizmIsNativeFocusedIn(this.focusableElement.nativeElement);
   }
 
   /**
@@ -231,7 +231,7 @@ export class PrizmInputDateRelativeComponent implements AfterViewInit, OnInit, C
       !this.isOpen &&
       !this.disabled &&
       inputElement &&
-      pzmIsNativeFocused(inputElement)
+      prizmIsNativeFocused(inputElement)
     ) {
       this.isOpen = true;
       this.cdr.markForCheck();

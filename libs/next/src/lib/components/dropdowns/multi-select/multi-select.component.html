@@ -1,13 +1,13 @@
-<pzm-dropdown-host
+<prizm-dropdown-host
   #dropdownHostRef
   [content]="dropdown"
   [(isOpen)]="open"
-  [pzmDropdownHostWidth]="dropdownWidth"
-  [pzmDropdownMinHeight]="minDropdownHeight"
-  [pzmDropdownMaxHeight]="maxDropdownHeight"
-  *pzmLet="{ selectedItems: selectedItems$ | async, filteredItems: filteredItems$ | async } as $"
+  [prizmDropdownHostWidth]="dropdownWidth"
+  [prizmDropdownMinHeight]="minDropdownHeight"
+  [prizmDropdownMaxHeight]="maxDropdownHeight"
+  *prizmLet="{ selectedItems: selectedItems$ | async, filteredItems: filteredItems$ | async } as $"
 >
-  <pzm-input-layout
+  <prizm-input-layout
     [label]="label"
     [forceClear]='(forceClear || forceClear === null) && $.selectedItems.length > 0'
     (clear)="focusableElementRef.focus(); safeStopPropagation(focusableElementRef.value, $event)"
@@ -17,7 +17,7 @@
     [ngSwitch]='outer'
   >
     <input
-      pzmInput
+      prizmInput
       [style.display]='outer ? "none" : ""'
       #focusableElementRef
       (onClear)="onClear()"
@@ -26,17 +26,17 @@
       [placeholder]="placeholder"
       [formControl]="requiredInputControl"
     />
-    <div class='in-body-chips-box' pzm-input-in-body *ngSwitchCase='true'>
+    <div class='in-body-chips-box' prizm-input-in-body *ngSwitchCase='true'>
       <ng-container [ngTemplateOutlet]='chipsTemplate'></ng-container>
     </div>
 
-    <ng-container pzm-input-bottom  *ngSwitchCase='false'>
+    <ng-container prizm-input-bottom  *ngSwitchCase='false'>
       <ng-container [ngTemplateOutlet]='chipsTemplate'></ng-container>
     </ng-container>
 
     <ng-template #chipsTemplate>
       <ng-container *ngIf='selectedItemsChips$ | async as chips'>
-        <pzm-chips
+        <prizm-chips
           *ngIf='chips.length'
           #chipsComponent
           [class.inner]='!outer'
@@ -44,29 +44,29 @@
           [deletable]='isChipsDeletable'
           [chips]="chips"
           (removeChipEvent)="removeChip($event)"
-        ></pzm-chips>
+        ></prizm-chips>
       </ng-container>
     </ng-template>
 
 
-    <pzm-icon
+    <prizm-icon
       *ngIf="!disabled"
       (click)="focusableElementRef.focus()"
       [class.active]="focusableElementRef.focused"
       [class.opened]="open"
       class="icon-dropdown"
-      pzm-input-right
+      prizm-input-right
       iconClass="chevrons-dropdown"
-    ></pzm-icon>
-  </pzm-input-layout>
+    ></prizm-icon>
+  </prizm-input-layout>
 
   <ng-template #dropdown>
-    <pzm-data-list class="block" [style.--pzm-data-list-border]='0'>
+    <prizm-data-list class="block" [style.--prizm-data-list-border]='0'>
       <div class="list-search-item" *ngIf="searchable">
-        <pzm-input-layout size="m" label="Поиск">
-          <input pzmInput pzmAutoFocus class="input-search" #input [formControl]="searchInputControl" />
-          <button pzmInputIconButton="sort-zoom-in" pzm-input-right [interactive]="true"></button>
-        </pzm-input-layout>
+        <prizm-input-layout size="m" label="Поиск">
+          <input prizmInput prizmAutoFocus class="input-search" #input [formControl]="searchInputControl" />
+          <button prizmInputIconButton="sort-zoom-in" prizm-input-right [interactive]="true"></button>
+        </prizm-input-layout>
       </div>
       <ng-container *ngIf="$.filteredItems?.length; else emptyTemplate">
         <div
@@ -76,17 +76,17 @@
           *ngFor="let item of $.filteredItems; let idx = index"
           #parent
         >
-          <pzm-checkbox
+          <prizm-checkbox
             [checked]="item.checked"
             [host]='parent'
             [indeterminate]='!!item.indeterminate'
             (changed)='select(item)'>
             <div class="text"
                   #elem
-                  *pzmLet="item | pzmCallFunc: stringify:$any(emptyContent) as text"
-                  [pzmHint]='text'
-                  [pzmHintDirection]='direction'
-                  [pzmHintCanShow]='elem | pzmCallFunc : pzmIsTextOverflow$ | async'
+                  *prizmLet="item | prizmCallFunc: stringify:$any(emptyContent) as text"
+                  [prizmHint]='text'
+                  [prizmHintDirection]='direction'
+                  [prizmHintCanShow]='elem | prizmCallFunc : prizmIsTextOverflow$ | async'
             >
               <ng-container
                 *polymorphOutlet="
@@ -95,7 +95,7 @@
                     $implicit: {
                       obj: item.obj,
                       checked: item.checked,
-                      stringify: item | pzmCallFunc: stringify
+                      stringify: item | prizmCallFunc: stringify
                     }
                   } as context
                 "
@@ -103,7 +103,7 @@
                 {{ text }}
               </ng-container>
             </div>
-          </pzm-checkbox>
+          </prizm-checkbox>
         </div>
       </ng-container>
       <ng-template #emptyTemplate>
@@ -111,7 +111,7 @@
           <div class="empty-template">{{ emptyContent }}</div>
         </ng-container>
       </ng-template>
-    </pzm-data-list>
+    </prizm-data-list>
   </ng-template>
-</pzm-dropdown-host>
+</prizm-dropdown-host>
 

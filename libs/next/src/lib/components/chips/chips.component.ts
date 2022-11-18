@@ -13,14 +13,14 @@ import {
   Output,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { pzmIsTextOverflow$ } from '../../util/dom/is-textoverflow';
+import { prizmIsTextOverflow$ } from '../../util/dom/is-textoverflow';
 import { PrizmOverlayOutsidePlacement } from '../../modules';
 import { BehaviorSubject, Observable, of, Subscription, timer } from 'rxjs';
 import { map, switchMap, takeUntil } from 'rxjs/operators';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 @Component({
-  selector: 'pzm-chips',
+  selector: 'prizm-chips',
   templateUrl: './chips.component.html',
   styleUrls: ['./chips.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -51,7 +51,7 @@ export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDest
   @Output() public clickChipEvent: EventEmitter<string> = new EventEmitter();
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_chips';
+  readonly testId = 'prizm_chips';
   public accessorIsDisabled = false;
   public readonly overflowedChipsList$ = new BehaviorSubject<Set<number>>(new Set());
 
@@ -64,7 +64,7 @@ export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDest
 
   constructor(private readonly cdRef: ChangeDetectorRef, private readonly destroy$: PrizmDestroyService) {}
 
-  readonly pzmIsTextOverflow$ = (elem: HTMLElement, hintCanShow: boolean, forceShowHint: boolean): Observable<boolean> => {
+  readonly prizmIsTextOverflow$ = (elem: HTMLElement, hintCanShow: boolean, forceShowHint: boolean): Observable<boolean> => {
     return of(forceShowHint).pipe(
       switchMap(
         val => {
@@ -76,7 +76,7 @@ export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDest
             return of(false);
           }
 
-          return pzmIsTextOverflow$(elem);
+          return prizmIsTextOverflow$(elem);
         }
       )
     )

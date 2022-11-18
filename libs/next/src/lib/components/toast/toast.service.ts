@@ -1,15 +1,15 @@
 import {Inject, Injectable, OnDestroy} from "@angular/core";
 import {PolymorphContent} from "../../directives/polymorph";
-import {PZM_TOAST_ID, PrizmToastOptions} from "./types";
+import {PRIZM_TOAST_ID, PrizmToastOptions} from "./types";
 import {PrizmToastRef} from "./toast-ref";
 import {generateToastId} from "./util";
-import {PZM_TOAST_OPTIONS, PrizmToastDefaultOptions} from "./toast-options";
+import {PRIZM_TOAST_OPTIONS, PrizmToastDefaultOptions} from "./toast-options";
 import {PrizmToastExistException} from "../../exceptions/toast-exist.exception";
 import {Subject} from "rxjs";
 import {map, shareReplay} from "rxjs/operators";
 import {PrizmToastNotExistException} from "../../exceptions/toast-not-exist.exception";
 
-export type ToastRefMap =  Map<PZM_TOAST_ID, PrizmToastRef>;
+export type ToastRefMap =  Map<PRIZM_TOAST_ID, PrizmToastRef>;
 
 @Injectable()
 export class PrizmToastService implements OnDestroy {
@@ -27,7 +27,7 @@ export class PrizmToastService implements OnDestroy {
   readonly destroy$ = new Subject<void>();
 
   constructor(
-    @Inject(PZM_TOAST_OPTIONS) private readonly options: PrizmToastDefaultOptions
+    @Inject(PRIZM_TOAST_OPTIONS) private readonly options: PrizmToastDefaultOptions
   ) {}
 
   get size(): number {
@@ -66,7 +66,7 @@ export class PrizmToastService implements OnDestroy {
   }
 
   public updateContent(
-    id: PZM_TOAST_ID,
+    id: PRIZM_TOAST_ID,
     content: PolymorphContent,
   ): void {
     if (!this.refs.has(id)) throw new PrizmToastNotExistException(id);
@@ -74,7 +74,7 @@ export class PrizmToastService implements OnDestroy {
   }
 
   public updateTitle(
-    id: PZM_TOAST_ID,
+    id: PRIZM_TOAST_ID,
     title: PrizmToastOptions['title']
   ): PrizmToastRef {
     if (!this.refs.has(id)) throw new PrizmToastNotExistException(id);
@@ -85,7 +85,7 @@ export class PrizmToastService implements OnDestroy {
   }
 
   public delete(
-    id: PZM_TOAST_ID,
+    id: PRIZM_TOAST_ID,
   ): void {
     if (!this.refs.has(id)) throw new PrizmToastNotExistException(id);
     this.refs.get(id).destroy();

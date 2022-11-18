@@ -14,7 +14,7 @@ import { ZyfraSplitterTemplateDirective } from './zyfra-splitter.directives';
 import { ZyfraSplitterTemplatesService } from './zyfra-splitter-templates.service';
 import { delay, takeUntil, tap } from 'rxjs/operators';
 import { SplitterExtended } from './p-splitter/splitter';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 type onResizeEvent = { originalEvent: MouseEvent; sizes: [number, number] };
 
@@ -102,7 +102,7 @@ export class ZyfraSplitterComponent implements AfterContentInit {
 
   constructor(
     private readonly zyfraSplitterService: ZyfraSplitterTemplatesService,
-    private readonly pzmDestroyService: PrizmDestroyService,
+    private readonly prizmDestroyService: PrizmDestroyService,
     private readonly cdRef: ChangeDetectorRef) {}
 
   ngAfterContentInit(): void {
@@ -113,7 +113,7 @@ export class ZyfraSplitterComponent implements AfterContentInit {
       }),
       delay(0),
       tap(() => this.splitter.updateTemplates()),
-      takeUntil(this.pzmDestroyService),
+      takeUntil(this.prizmDestroyService),
     ).subscribe();
   }
 

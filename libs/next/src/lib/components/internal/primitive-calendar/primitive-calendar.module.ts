@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PrizmCallFuncModule, PrizmLetModule } from '@digital-plant/zyfra-helpers';
+import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmHoveredModule } from '../../../directives/hovered/hovered.module';
 import { PrizmPressedModule } from '../../../directives/pressed/pressed.module';
 import { PrizmRepeatTimesModule } from '../../../directives/repeat-times/repeat-times.module';

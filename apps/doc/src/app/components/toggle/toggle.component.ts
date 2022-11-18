@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PolymorphContent, PrizmContextWithImplicit, PrizmSizeL, PrizmSizeM } from '@digital-plant/zui-components';
+import { PolymorphContent, PrizmContextWithImplicit, PrizmSizeL, PrizmSizeM } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-toggle-example',
+  selector: 'prizm-toggle-example',
   templateUrl: './toggle.component.html',
   styleUrls: ['./toggle.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

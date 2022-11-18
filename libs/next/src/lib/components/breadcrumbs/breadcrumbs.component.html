@@ -1,53 +1,53 @@
 <div class="container" #container>
   <ng-container>
     <div class="breadcrumbs" *ngFor="let breadcrumb of breadcrumbsToShow$ | async; let i = index" #breadcrumb>
-      <pzm-icon
+      <prizm-icon
         class="breadcrumbs__chevron"
         iconClass="chevrons-right"
         [size]="16"
         *ngIf="i !== 0"
-      ></pzm-icon>
+      ></prizm-icon>
 
       <button
         class="breadcrumb"
         (click)="changeBreadcrumb(i)"
         [class.breadcrumb_active]="i === activeBreadcrumbIdx"
       >
-        <pzm-icon
+        <prizm-icon
           class="breadcrumb__icon"
           [size]="16"
           [iconClass]="breadcrumb.icon"
           *ngIf="!!breadcrumb.icon"
-        ></pzm-icon>
+        ></prizm-icon>
         <span class="breadcrumb__name">{{ breadcrumb?.name }}</span>
       </button>
 
-      <pzm-dropdown-host
+      <prizm-dropdown-host
         *ngIf="i === 0 && this.isContainerOverflowed"
         class="breadcrumbs__dots"
         [content]="dropdown"
         [(isOpen)]="isDropdownOpened"
-        pzmDropdownHostWidth="auto"
+        prizmDropdownHostWidth="auto"
       >
         <div class="dropdown-inner">
-          <pzm-icon class="breadcrumbs__chevron" iconClass="chevrons-right" [size]="16"></pzm-icon>
+          <prizm-icon class="breadcrumbs__chevron" iconClass="chevrons-right" [size]="16"></prizm-icon>
           <button (click)="isDropdownOpened = !isDropdownOpened">...</button>
         </div>
-      </pzm-dropdown-host>
+      </prizm-dropdown-host>
     </div>
   </ng-container>
 </div>
 
 <div class="container container__fake" #breadcrumbsFake>
   <div class="breadcrumbs" *ngFor="let breadcrumb of breadcrumbs$ | async; let i = index" #breadcrumbsFake>
-    <pzm-icon class="breadcrumbs__chevron" iconClass="chevrons-right" [size]="16" *ngIf="i !== 0"></pzm-icon>
+    <prizm-icon class="breadcrumbs__chevron" iconClass="chevrons-right" [size]="16" *ngIf="i !== 0"></prizm-icon>
     <button class="breadcrumb">
-      <pzm-icon
+      <prizm-icon
         class="breadcrumb__icon"
         [size]="16"
         [iconClass]="breadcrumb.icon"
         *ngIf="!!breadcrumb.icon"
-      ></pzm-icon>
+      ></prizm-icon>
       <span class="breadcrumb__name">{{ breadcrumb?.name }}</span>
     </button>
   </div>
@@ -57,12 +57,12 @@
   <div class="dropdown-content" *ngIf="breadcrumbsInMenu$ | async as breadcrumbsInMenu">
     <ng-container *ngFor="let breadcrumb of breadcrumbsInMenu; let i = index">
       <button class="dropdown-breadcrumb" (click)="changeBreadcrumb(i + 1)">
-        <pzm-icon
+        <prizm-icon
           class="dropdown-breadcrumb__icon"
           [size]="16"
           [iconClass]="breadcrumb.icon"
           *ngIf="!!breadcrumb.icon"
-        ></pzm-icon>
+        ></prizm-icon>
         <span class="dropdown-breadcrumb__name">{{ breadcrumb?.name }}</span>
       </button>
     </ng-container>

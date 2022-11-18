@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { InputDateRangeComponent } from './input-date-range.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputDateRangeBaseExampleComponent } from './examples/base/input-date-range-base-example.component';
-import { PolymorphModule, PrizmInputDateRangeModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PrizmInputDateRangeModule } from '@prizm-ui/components';
 import {
   PrizmInputDateRangeDisabledExampleComponent,
 } from './examples/disabled/input-date-range-disabled-example.component';

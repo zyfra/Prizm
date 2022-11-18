@@ -1,7 +1,7 @@
 <div class='box'>
-  <div class='year-month pzm-font-input-text-14px'>
+  <div class='year-month prizm-font-input-text-14px'>
     <div *ngIf="oneMonth; else buttonMonth">
-      {{ value | pzmMonth | async }}
+      {{ value | prizmMonth | async }}
     </div>
 
     <div *ngIf="oneYear; else button">
@@ -9,7 +9,7 @@
     </div>
   </div>
   <div>
-    <pzm-primitive-spin-button
+    <prizm-primitive-spin-button
       *ngIf="!hideButtons"
       [focusable]="false"
       [leftDisabled]="prevMonthDisabled"
@@ -17,7 +17,7 @@
       (leftClick)="onPrevMonthClick()"
       (rightClick)="onNextMonthClick()"
     >
-    </pzm-primitive-spin-button>
+    </prizm-primitive-spin-button>
   </div>
 </div>
 
@@ -26,16 +26,16 @@
 <ng-template #button>
   <div class='year-box' (click)="onYearClick($event)">
     <button
-      [attr.testId]="'pzm-primitive-year-month-pagination__year-button'"
+      [attr.testId]="'prizm-primitive-year-month-pagination__year-button'"
       type="button"
-      pzmLink
-      [pzmFocusable]="false"
+      prizmLink
+      [prizmFocusable]="false"
       [class.active]='yearActive'
     >
       {{ value.formattedYear }}
     </button>
     <span>
-      <pzm-icon iconClass='chevrons-dropdown-small'></pzm-icon>
+      <prizm-icon iconClass='chevrons-dropdown-small'></prizm-icon>
     </span>
   </div>
 </ng-template>
@@ -44,16 +44,16 @@
 <ng-template #buttonMonth>
   <div class='month-box' (click)="onMonthClick($event)">
     <button
-      [attr.testId]="'pzm-primitive-year-month-pagination__year-button'"
+      [attr.testId]="'prizm-primitive-year-month-pagination__year-button'"
       type="button"
-      pzmLink
+      prizmLink
       [class.active]='monthActive'
-      [pzmFocusable]="false"
+      [prizmFocusable]="false"
     >
-      {{ value | pzmMonth | async }}
+      {{ value | prizmMonth | async }}
     </button>
     <span>
-      <pzm-icon iconClass='chevrons-dropdown-small'></pzm-icon>
+      <prizm-icon iconClass='chevrons-dropdown-small'></prizm-icon>
     </span>
   </div>
 </ng-template>

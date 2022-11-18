@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PolymorphContent, PrizmInputSize, pzmPure, PrizmScrollbarVisibility } from '@digital-plant/zui-components';
+import { PolymorphContent, PrizmInputSize, PrizmScrollbarVisibility } from '@prizm-ui/components';
 import { FormControl } from '@angular/forms';
+import { prizmPure } from '@prizm-ui/core';
 
 @Component({
-  selector: 'pzm-select-example',
+  selector: 'prizm-select-example',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -98,7 +99,7 @@ export class SelectComponent {
 
 
   public valueTemplate: PolymorphContent<any> = ''
-  @pzmPure
+  @prizmPure
   public getValueTemplate (...temps: PolymorphContent[]): PolymorphContent<any>[] {
     return [
       null,

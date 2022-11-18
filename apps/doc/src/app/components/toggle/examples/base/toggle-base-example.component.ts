@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'pzm-toggle-base-example',
+  selector: 'prizm-toggle-base-example',
   templateUrl: './toggle-base-example.component.html',
   styles: [`
     .box {

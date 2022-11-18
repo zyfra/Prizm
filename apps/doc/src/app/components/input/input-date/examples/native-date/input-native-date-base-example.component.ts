@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { pzmGetInputDateNativeTransformer } from '@digital-plant/zui-components';
+import { prizmGetInputDateNativeTransformer } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-input-native-date-base-example',
+  selector: 'prizm-input-native-date-base-example',
   templateUrl: './input-native-date-base-example.component.html',
   styles: [`
     .box {
@@ -12,7 +12,7 @@ import { pzmGetInputDateNativeTransformer } from '@digital-plant/zui-components'
     }
   `],
   providers: [
-    pzmGetInputDateNativeTransformer()
+    prizmGetInputDateNativeTransformer()
   ]
 })
 export class PrizmInputNativeDateBaseExampleComponent {

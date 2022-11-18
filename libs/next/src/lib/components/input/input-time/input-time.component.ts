@@ -16,37 +16,37 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PrizmTime } from '../../../@core/date-time/time';
 import { AbstractPrizmNullableControl } from '../../../abstract/nullable-control';
-import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
-import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { PZM_FIXED_DROPDOWN_CONTROLLER_PROVIDER } from '../../../providers/specific-dropdown-controllers';
-import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
+import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
+import { prizmDefaultProp } from '@prizm-ui/core';
+import { PRIZM_FIXED_DROPDOWN_CONTROLLER_PROVIDER } from '../../../providers/specific-dropdown-controllers';
+import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
 import { PrizmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
 import { PrizmBooleanHandler } from '../../../types/handler';
-import { PZM_INPUT_TIME_OPTIONS, PrizmInputTimeOptions } from './input-time-options';
-import { PZM_TIME_TEXTS } from '../../../tokens/i18n';
+import { PRIZM_INPUT_TIME_OPTIONS, PrizmInputTimeOptions } from './input-time-options';
+import { PRIZM_TIME_TEXTS } from '../../../tokens/i18n';
 import { PrizmTimeMode } from '../../../types/time-mode';
-import { pzmPure } from '../../../decorators/pure';
-import { pzmCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
-import { PZM_STRICT_MATCHER } from '../../../constants/matcher';
+import { prizmPure } from '@prizm-ui/core';
+import { prizmCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
+import { PRIZM_STRICT_MATCHER } from '../../../constants/matcher';
 import { PrizmTimeLike } from '../../../types/time-like';
-import { pzmSetNativeFocused } from '../../../util/set-native-focused';
-import { PrizmInputSize } from '../common/models/pzm-input.models';
-import { pzmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
-import { PZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
+import { prizmSetNativeFocused } from '../../../util/set-native-focused';
+import { PrizmInputSize } from '../common/models/prizm-input.models';
+import { prizmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
+import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
-import { pzmIsNativeFocused } from '../../../util';
+import { prizmIsNativeFocused } from '../../../util';
 
 @Component({
-    selector: `pzm-input-time`,
+    selector: `prizm-input-time`,
     templateUrl: `./input-time.component.html`,
     styleUrls: [`./input-time.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
-            provide: PZM_FOCUSABLE_ITEM_ACCESSOR,
+            provide: PRIZM_FOCUSABLE_ITEM_ACCESSOR,
             useExisting: forwardRef(() => PrizmInputTimeComponent),
         },
-        PZM_FIXED_DROPDOWN_CONTROLLER_PROVIDER,
+        PRIZM_FIXED_DROPDOWN_CONTROLLER_PROVIDER,
     ],
 })
 export class PrizmInputTimeComponent
@@ -57,49 +57,49 @@ export class PrizmInputTimeComponent
     public readonly focusableElement?: ElementRef<HTMLInputElement>;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     placeholder = '';
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     label = 'Выберите время';
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     size: PrizmInputSize = 'm';
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     outer = false;
 
     @Input()
-    @pzmDefaultProp()
-    disabledItemHandler: PrizmBooleanHandler<PrizmTime> = PZM_ALWAYS_FALSE_HANDLER;
+    @prizmDefaultProp()
+    disabledItemHandler: PrizmBooleanHandler<PrizmTime> = PRIZM_ALWAYS_FALSE_HANDLER;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     items: readonly PrizmTime[] = new Array(24).fill(null).map(
       (_, i) => new PrizmTime(i, 0, 0, 0)
     );
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     itemSize: PrizmInputTimeOptions['itemSize'] = this.options.itemSize;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     strict = false;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     mode: PrizmInputTimeOptions['mode'] = this.options.mode;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     extraButtonInjector: Injector = this.injector;
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_input_time';
+    readonly testId = 'prizm_input_time';
 
     public open = false;
     public rightButtons$: BehaviorSubject<PrizmDateButton[]>
@@ -111,10 +111,10 @@ export class PrizmInputTimeComponent
         control: NgControl | null,
         private readonly cdr: ChangeDetectorRef,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
-        @Inject(PZM_TIME_TEXTS)
+        @Inject(PRIZM_TIME_TEXTS)
         private readonly timeTexts$: Observable<Record<PrizmTimeMode, string>>,
         private readonly injector: Injector,
-        @Inject(PZM_INPUT_TIME_OPTIONS)
+        @Inject(PRIZM_INPUT_TIME_OPTIONS)
         private readonly options: PrizmInputTimeOptions,
     ) {
         super(control, changeDetectorRef);
@@ -122,7 +122,7 @@ export class PrizmInputTimeComponent
 
     public override ngOnInit(): void {
       super.ngOnInit();
-      this.rightButtons$ = this.extraButtonInjector.get(PZM_DATE_RIGHT_BUTTONS);
+      this.rightButtons$ = this.extraButtonInjector.get(PRIZM_DATE_RIGHT_BUTTONS);
     }
 
     get filtered(): readonly PrizmTime[] {
@@ -165,7 +165,7 @@ export class PrizmInputTimeComponent
     }
 
     public get focused(): boolean {
-      return this.focusableElement?.nativeElement ? pzmIsNativeFocusedIn(this.focusableElement.nativeElement) : false;
+      return this.focusableElement?.nativeElement ? prizmIsNativeFocusedIn(this.focusableElement.nativeElement) : false;
     }
 
     // eslint-disable-next-line @typescript-eslint/adjacent-overload-signatures
@@ -177,7 +177,7 @@ export class PrizmInputTimeComponent
         this.nativeFocusableElement.value = value;
     }
 
-    @pzmPure
+    @prizmPure
     public getFiller$(mode: PrizmTimeMode): Observable<string> {
         return this.timeTexts$.pipe(map(texts => texts[mode]));
     }
@@ -264,16 +264,16 @@ export class PrizmInputTimeComponent
         this.nativeValue = value ? this.computedValue : ``;
     }
 
-    @pzmPure
+    @prizmPure
     private calculateMask(mode: PrizmTimeMode): string {
-        return pzmCreateTimeNgxMask(mode, this.options.maxValues);
+        return prizmCreateTimeNgxMask(mode, this.options.maxValues);
     }
 
     get stringValue(): string {
       return this.value?.toString() ?? '';
     }
 
-    @pzmPure
+    @prizmPure
     private filter(
         items: readonly PrizmTime[],
         mode: PrizmTimeMode,
@@ -292,7 +292,7 @@ export class PrizmInputTimeComponent
     }
 
     private getMatch(value: string): PrizmTime | undefined {
-        return this.items.find(item => PZM_STRICT_MATCHER(item, value));
+        return this.items.find(item => PRIZM_STRICT_MATCHER(item, value));
     }
 
     private close(): void {
@@ -345,7 +345,7 @@ export class PrizmInputTimeComponent
 
     private focusInput(preventScroll: boolean = false): void {
         if (this.nativeFocusableElement) {
-            pzmSetNativeFocused(this.nativeFocusableElement, true, preventScroll);
+            prizmSetNativeFocused(this.nativeFocusableElement, true, preventScroll);
             this.close();
         }
     }
@@ -356,7 +356,7 @@ export class PrizmInputTimeComponent
         !this.open &&
         !this.disabled &&
         inputElement &&
-        pzmIsNativeFocused(inputElement)
+        prizmIsNativeFocused(inputElement)
       ) {
         this.open = true;
         this.cdr.markForCheck();

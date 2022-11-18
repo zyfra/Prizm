@@ -6,13 +6,13 @@
   height: 100%;
   line-height: 16px;
   font-size: 14px;
-  color: var(--pzm-text-contrast);
+  color: var(--prizm-text-contrast);
   display: block;
   text-overflow: ellipsis;
 }
 
 // In inner context
-:host-context(.pzm-input-form-inner) {
+:host-context(.prizm-input-form-inner) {
   padding: 22px 8px 4px 8px;
 
   :host::placeholder {
@@ -25,31 +25,31 @@
   }
 }
 
-:host-context(.pzm-input-form-center) {
+:host-context(.prizm-input-form-center) {
   text-align: center;
 }
 
-:host-context(.pzm-input-form-inner[data-size='l']) {
+:host-context(.prizm-input-form-inner[data-size='l']) {
   padding: 22px 8px 4px 8px;
 }
-:host-context(.pzm-input-form-inner[data-size='m']) {
+:host-context(.prizm-input-form-inner[data-size='m']) {
   padding: 16px 8px 2px 8px;
 }
 
 // In outer context
-:host-context(.pzm-input-form-outer) {
+:host-context(.prizm-input-form-outer) {
   padding: 7px 8px;
 }
 
 // need for optimization output selector in less
-:host-context(.pzm-input-form-outer[data-size='l']) {
+:host-context(.prizm-input-form-outer[data-size='l']) {
   padding: 11px 8px;
 }
 
-:host-context(.pzm-input-form-outer[data-size='m']) {
+:host-context(.prizm-input-form-outer[data-size='m']) {
   padding: 7px 8px;
 }
-:host-context(.pzm-input-form-outer[data-size='s']) {
+:host-context(.prizm-input-form-outer[data-size='s']) {
   font-size: 12px;
   padding: 4px 8px;
 }
@@ -91,9 +91,9 @@
 
   &:hover {
     &::-webkit-scrollbar-thumb {
-      border-radius: var(--pzm-scrollbar-thumb-border-radius, 8px);
-      background-color: var(--pzm-scrollbar-thumb-color, var(--grey-g10-g4, #bfc6d7));
-      opacity: var(--pzm-scrollbar-thumb-opacity, 0.4);
+      border-radius: var(--prizm-scrollbar-thumb-border-radius, 8px);
+      background-color: var(--prizm-scrollbar-thumb-color, var(--grey-g10-g4, #bfc6d7));
+      opacity: var(--prizm-scrollbar-thumb-opacity, 0.4);
       height: 20%;
       background-clip: content-box;
       transition: opacity 0.3s;

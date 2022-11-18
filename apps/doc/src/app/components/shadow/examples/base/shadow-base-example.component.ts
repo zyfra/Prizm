@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { PrizmShadowTypeEnum } from '@digital-plant/zui-components';
+import { PrizmShadowTypeEnum } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-shadow-base-example',
+  selector: 'prizm-shadow-base-example',
   templateUrl: './shadow-base-example.component.html',
   styles: [`
     .box {
@@ -14,7 +14,7 @@ import { PrizmShadowTypeEnum } from '@digital-plant/zui-components';
     .shadow-container {
       width: 200px;
       height: 200px;
-      background: var(--pzm-bg-body);
+      background: var(--prizm-bg-body);
       border-radius: .5rem;
       display: flex;
       flex-flow: column;
@@ -22,13 +22,13 @@ import { PrizmShadowTypeEnum } from '@digital-plant/zui-components';
       padding: 16px;
 
       .title {
-        color: var(--pzm-text-main);
+        color: var(--prizm-text-main);
         font-size: 14px;
         font-weight: 800;
       }
 
       .description {
-        color: var(--pzm-text-subscript);
+        color: var(--prizm-text-subscript);
         font-size: 12px;
       }
     }

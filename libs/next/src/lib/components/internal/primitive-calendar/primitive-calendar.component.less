@@ -11,10 +11,10 @@
 
 
 .z-item {
-  color: var(--pzm-text-main);
+  color: var(--prizm-text-main);
 
   &.z-item_unavailable {
-    color: var(--pzm-grey-g10-g4);
+    color: var(--prizm-grey-g10-g4);
   }
 }
 
@@ -26,8 +26,8 @@
     }
 
     &_weekday {
-        font: var(--pzm-font-text-s);
-        color: var(--pzm-text-subscript);
+        font: var(--prizm-font-text-s);
+        color: var(--prizm-text-subscript);
         pointer-events: none;
         text-transform: capitalize;
     }
@@ -39,11 +39,11 @@
 }
 
 .z-cell_weekend {
-    color: var(--pzm-negative);
+    color: var(--prizm-negative);
 }
 
 .z-item_unavailable {
-    opacity: var(--pzm-disabled-opacity);
+    opacity: var(--prizm-disabled-opacity);
 }
 
 .z-dots {
@@ -69,21 +69,21 @@
   bottom: 4px;
   transform: translateX(50%);
   border-radius: 2px;
-  background-color: var(--pzm-status-day-color);
+  background-color: var(--prizm-status-day-color);
 
-  &[data-pzm-status="index"] {
-    background-color: var(--pzm-calendar-day-status-default, var(--pzm-index-plan));
+  &[data-prizm-status="index"] {
+    background-color: var(--prizm-calendar-day-status-default, var(--prizm-index-plan));
   }
 
-  &[data-pzm-status="warning"] {
-    background-color: var(--pzm-calendar-day-status-warning, var(--pzm-index-warning));
+  &[data-prizm-status="warning"] {
+    background-color: var(--prizm-calendar-day-status-warning, var(--prizm-index-warning));
   }
 
-  &[data-pzm-status="danger"] {
-    background-color: var(--pzm-calendar-day-status-danger, var(--pzm-index-danger));
+  &[data-prizm-status="danger"] {
+    background-color: var(--prizm-calendar-day-status-danger, var(--prizm-index-danger));
   }
 
-  &[data-pzm-status="success"] {
-    background-color: var(--pzm-calendar-day-status-success, var(--pzm-index-good));
+  &[data-prizm-status="success"] {
+    background-color: var(--prizm-calendar-day-status-success, var(--prizm-index-good));
   }
 }

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PrizmTime } from '@digital-plant/zui-components';
+import { PrizmTime } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-input-time-with-preset-example',
+  selector: 'prizm-input-time-with-preset-example',
   templateUrl: './input-time-with-preset-example.component.html',
   styles: [`
     .box {

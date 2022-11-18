@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PrizmDateTime, PrizmDay, PrizmTime } from '@digital-plant/zui-components';
+import { PrizmDateTime, PrizmDay, PrizmTime } from '@prizm-ui/components';
 import { formatRelative, addDays, addHours, addMonths } from 'date-fns';
 
 type DateItem = {
@@ -18,7 +18,7 @@ type DateItem = {
 };
 
 @Component({
-  selector: 'pzm-dropdown-host-date-list-edit-example',
+  selector: 'prizm-dropdown-host-date-list-edit-example',
   templateUrl: './date-list-edit.component.html',
   styleUrls: [
    './date-list-edit.component.less'

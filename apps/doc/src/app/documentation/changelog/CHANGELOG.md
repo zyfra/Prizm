@@ -46,7 +46,7 @@ All notable changes to this project will be documented in this file. See
 - feat/(tree): increase font-weigt [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
 - feat/(doc): add webpack build [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
 - feat/(next/widget): change header, body background color [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
-- feat/(next/hint): add pzmHintCanShow [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
+- feat/(next/hint): add prizmHintCanShow [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
 - feat/(next/): add themes mixins [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/342)
 - feat/(next/select): add isChipsDeletable, forceClear for multi-select [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)
 - feat/(next/multi-select): add forceClear for select [MR](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk/-/merge_requests/346)

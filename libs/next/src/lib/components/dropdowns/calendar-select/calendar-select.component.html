@@ -1,14 +1,14 @@
 <div class='block'
      (click)='clickOnContainer($event)'
-     (pzmMutationObserver)='updateWidth()' [pzmMutationObserverHost]='el.nativeElement'>
+     (prizmMutationObserver)='updateWidth()' [prizmMutationObserverHost]='el.nativeElement'>
   <ng-content></ng-content>
 </div>
 <ng-template #temp>
-  <div class="pzm-dropdown-host-modal"
-       pzmShadow='big-left'
+  <div class="prizm-dropdown-host-modal"
+       prizmShadow='big-left'
        (click)='clickOnContainer($event)'
-       (pzmAfterViewInit)='reCalculatePositions()'
-       [id]="pzmDropdownHostId"
+       (prizmAfterViewInit)='reCalculatePositions()'
+       [id]="prizmDropdownHostId"
        [attr.position]="position$ | async">
     <ng-container *polymorphOutlet="content"></ng-container>
   </div>

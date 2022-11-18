@@ -2,25 +2,25 @@ import { Directive, EmbeddedViewRef, Input, OnDestroy, TemplateRef, ViewContaine
 
 interface LetContext<T> {
   $implicit: T | null;
-  pzmLet: T | null;
+  prizmLet: T | null;
 }
 
 /**
  * Это директива позволяет повторно использовать вычисленное значение в нескольких местах в шаблоне,
  * чтобы избежать пересчета геттеров или множества асинхронных каналов.
  *
- * @button <ng-container *pzmLet="{items: items$ | async, center: center} as $"> {{$.items?.count}} {{$.center}}</ng-container>
- * @button <ng-container *pzmLet="queryParams.isMap$ | async as isMap">{{isMap}}</ng-container>
+ * @button <ng-container *prizmLet="{items: items$ | async, center: center} as $"> {{$.items?.count}} {{$.center}}</ng-container>
+ * @button <ng-container *prizmLet="queryParams.isMap$ | async as isMap">{{isMap}}</ng-container>
  */
-@Directive({ selector: '[pzmLet]' })
+@Directive({ selector: '[prizmLet]' })
 export class PrizmLetDirective<T> implements OnDestroy {
   constructor(private templateRef: TemplateRef<LetContext<T>>, private viewContainer: ViewContainerRef) {}
 
-  @Input('pzmLet') set init(newContext: T) {
+  @Input('prizmLet') set init(newContext: T) {
     this.updateContext(newContext);
   }
 
-  private readonly context: LetContext<T> = { $implicit: null, pzmLet: null };
+  private readonly context: LetContext<T> = { $implicit: null, prizmLet: null };
 
   private viewRef: EmbeddedViewRef<LetContext<T>> | null = this.viewContainer.createEmbeddedView(
     this.templateRef,
@@ -36,7 +36,7 @@ export class PrizmLetDirective<T> implements OnDestroy {
   }
 
   private updateContext(newContext: T): void {
-    this.context.$implicit = this.context.pzmLet = newContext;
+    this.context.$implicit = this.context.prizmLet = newContext;
     if (this.viewRef) {
       this.viewRef.markForCheck();
     }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pzm-ghost-buttons-example',
+  selector: 'prizm-ghost-buttons-example',
   styles: [
     `
       .box {

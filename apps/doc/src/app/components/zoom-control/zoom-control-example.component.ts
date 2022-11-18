@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TuiDocExample } from '@taiga-ui/addon-doc';
 
 @Component({
-  selector: 'pzm-zoom-control-example',
+  selector: 'prizm-zoom-control-example',
   templateUrl: './zoom-control-example.component.html',
   styleUrls: ['./zoom-control-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -11,19 +11,19 @@ import {
 import { Subject } from 'rxjs';
 import { distinctUntilChanged, map, startWith, tap } from 'rxjs/operators';
 import { PrizmTreeChildrenDirective } from '../../directives/tree-children.directive';
-import { PZM_TREE_NODE } from '../../misc/tree.tokens';
+import { PRIZM_TREE_NODE } from '../../misc/tree.tokens';
 import { PrizmTreeItemComponent } from '../tree-item/tree-item.component';
 import { PrizmHandler } from '../../../../types';
 import { PolymorphContent } from '../../../../directives';
 
 @Component({
-    selector: 'pzm-tree[value]',
+    selector: 'prizm-tree[value]',
     templateUrl: './tree.component.html',
     styleUrls: ['./tree.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
-            provide: PZM_TREE_NODE,
+            provide: PRIZM_TREE_NODE,
             useExisting: PrizmTreeComponent,
         },
     ],
@@ -51,7 +51,7 @@ export class PrizmTreeComponent<T> implements DoCheck {
     );
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_tree';
+    readonly testId = 'prizm_tree';
 
     constructor(
         @Optional()

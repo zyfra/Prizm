@@ -7,7 +7,7 @@ import {
   PrizmButtonModule,
   PrizmRadioButtonModule,
   PrizmSidebarModule,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar.component';
 import { PrizmSidebarServiceExampleComponent } from './examples/base/base.component';

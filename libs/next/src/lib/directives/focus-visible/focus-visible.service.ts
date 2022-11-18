@@ -1,9 +1,9 @@
 import { ChangeDetectorRef, ElementRef, Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
-import { pzmWatch } from '../../observables/watch';
-import { pzmFocusVisibleObservable } from '../../observables/focus-visible-observable';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { prizmWatch } from '../../observables/watch';
+import { prizmFocusVisibleObservable } from '../../observables/focus-visible-observable';
 
 /**
  * Service to imitate :focus-visible
@@ -21,8 +21,8 @@ export class PrizmFocusVisibleService extends Observable<boolean> {
     ) {
         super(subscriber => this.focusVisible$.subscribe(subscriber));
 
-        this.focusVisible$ = pzmFocusVisibleObservable(nativeElement).pipe(
-            pzmWatch(changeDetectorRef),
+        this.focusVisible$ = prizmFocusVisibleObservable(nativeElement).pipe(
+            prizmWatch(changeDetectorRef),
             takeUntil(destroy$),
         );
     }

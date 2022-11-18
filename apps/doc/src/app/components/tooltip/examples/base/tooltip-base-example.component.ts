@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pzm-tooltip-base-example',
+  selector: 'prizm-tooltip-base-example',
   templateUrl: './tooltip-base-example.component.html',
   styles: [`
     .box {

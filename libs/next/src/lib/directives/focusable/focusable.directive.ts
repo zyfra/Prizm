@@ -4,13 +4,13 @@ import { Directive, HostBinding, Input } from '@angular/core';
  * Abstraction over `tabindex`
  */
 @Directive({
-    selector: '[pzmFocusable]',
+    selector: '[prizmFocusable]',
 })
 export class PrizmFocusableDirective {
     /**
      * Element can be focused with keyboard
      */
-    @Input('pzmFocusable')
+    @Input('prizmFocusable')
     focusable = true;
 
     @HostBinding('tabIndex')

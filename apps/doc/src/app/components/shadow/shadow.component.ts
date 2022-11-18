@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PrizmShadowType, PrizmShadowTypeEnum } from '@digital-plant/zui-components';
+import { PrizmShadowType, PrizmShadowTypeEnum } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-toggle-example',
+  selector: 'prizm-toggle-example',
   templateUrl: './shadow.component.html',
   styleUrls: ['./shadow.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

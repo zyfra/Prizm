@@ -1,30 +1,30 @@
 <tui-doc-page header="Carousel" type="components">
   <ng-template pageTab>
     <tui-doc-example heading="Basic example" [content]="zyfraCarouselBasicExample">
-      <pzm-carousel-basic-example></pzm-carousel-basic-example>
+      <prizm-carousel-basic-example></prizm-carousel-basic-example>
     </tui-doc-example>
 
     <tui-doc-example heading="Carousel light example" [content]="zyfraCarouselLightExample">
-      <pzm-carousel-light-example></pzm-carousel-light-example>
+      <prizm-carousel-light-example></prizm-carousel-light-example>
     </tui-doc-example>
 
     <tui-doc-example
       heading="Carousel array of objects example"
       [content]="zyfraCarouselArrayofObjectsExample"
     >
-      <pzm-carousel-array-of-objects-example></pzm-carousel-array-of-objects-example>
+      <prizm-carousel-array-of-objects-example></prizm-carousel-array-of-objects-example>
     </tui-doc-example>
 
     <tui-doc-example heading="Carousel select month example" [content]="zyfraCarouselYearMonthExample">
-      <pzm-carousel-year-month-example></pzm-carousel-year-month-example>
+      <prizm-carousel-year-month-example></prizm-carousel-year-month-example>
     </tui-doc-example>
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <pzm-input-layout [label]="label" [size]="size" [status]="status" [outer]="outer" [position]="'center'">
-        <pzm-carousel-auxiliary-left pzm-input-left [carousel]="carousel"></pzm-carousel-auxiliary-left>
-        <pzm-carousel
+      <prizm-input-layout [label]="label" [size]="size" [status]="status" [outer]="outer" [position]="'center'">
+        <prizm-carousel-auxiliary-left prizm-input-left [carousel]="carousel"></prizm-carousel-auxiliary-left>
+        <prizm-carousel
           #carousel
           [disabled]="disabled"
           [required]="required"
@@ -33,10 +33,10 @@
           [value]="value"
         >
           {{ carouselContent.currentValue }}
-        </pzm-carousel>
-        <pzm-carousel-auxiliary-right pzm-input-right [carousel]="carousel"></pzm-carousel-auxiliary-right>
-        <ng-template pzmInputStatusText>Текст статуса</ng-template>
-      </pzm-input-layout>
+        </prizm-carousel>
+        <prizm-carousel-auxiliary-right prizm-input-right [carousel]="carousel"></prizm-carousel-auxiliary-right>
+        <ng-template prizmInputStatusText>Текст статуса</ng-template>
+      </prizm-input-layout>
     </tui-doc-demo>
 
     <tui-doc-documentation>

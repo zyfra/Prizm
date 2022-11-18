@@ -1,7 +1,7 @@
 ### Библиотека
 
 - [ ] `@digital-plant/zyfra-components`
-- [ ] `@digital-plant/zui-components`
+- [ ] `@prizm-ui/components`
 - [ ] `@digital-plant/zyfra-ui`
 - [ ] `@digital-plant/zyfra-translate`
 

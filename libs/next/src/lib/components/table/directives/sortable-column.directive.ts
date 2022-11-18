@@ -1,18 +1,18 @@
 import { Directive, Input } from '@angular/core';
 import { SortableColumn } from 'primeng/table';
 import { onSortColumnClick } from '../base-table';
-import { PrizmTableComponent } from '../pzm-table.component';
+import { PrizmTableComponent } from '../prizm-table.component';
 
 @Directive({
-  selector: '[pzmSortableColumn]',
+  selector: '[prizmSortableColumn]',
 })
 export class PrizmSortableColumnDirective extends SortableColumn {
   /* eslint-disable @angular-eslint/no-input-rename */
-  @Input('pzmSortableColumn') override field: string;
-  @Input('pzmSortableColumnDisabled') override pSortableColumnDisabled: boolean;
+  @Input('prizmSortableColumn') override field: string;
+  @Input('prizmSortableColumnDisabled') override pSortableColumnDisabled: boolean;
 
-  constructor(private pzmTable: PrizmTableComponent) {
-    super(pzmTable.table);
+  constructor(private prizmTable: PrizmTableComponent) {
+    super(prizmTable.table);
   }
 
   public override onClick(event: MouseEvent): void {
@@ -25,9 +25,9 @@ export class PrizmSortableColumnDirective extends SortableColumn {
 
   private shouldReset(): boolean {
     return (
-      this.pzmTable.sortMode !== 'multiple' &&
-      ((this.pzmTable.defaultSortOrder === 1 && this.sortOrder === 'descending') ||
-        (this.pzmTable.defaultSortOrder === -1 && this.sortOrder === 'ascending'))
+      this.prizmTable.sortMode !== 'multiple' &&
+      ((this.prizmTable.defaultSortOrder === 1 && this.sortOrder === 'descending') ||
+        (this.prizmTable.defaultSortOrder === -1 && this.sortOrder === 'ascending'))
     );
   }
 

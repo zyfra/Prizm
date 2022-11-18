@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { SplitButtonComponent } from './split-button.component';
-import { PrizmButtonModule } from '@digital-plant/zui-components';
+import { PrizmButtonModule } from '@prizm-ui/components';
 import { PrizmSplitButtonsExampleComponent } from './examples/split/split-buttons-example.component';
 
 @NgModule({

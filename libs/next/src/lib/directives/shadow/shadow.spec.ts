@@ -4,7 +4,7 @@ import { PrizmShadowModule } from './shadow.module';
 import { PrizmShadowValue, PrizmShadowType, PrizmShadowTypeEnum } from './models';
 
 @Component({
-  template: `<div #element [pzmShadow]='value'></div>`,
+  template: `<div #element [prizmShadow]='value'></div>`,
 })
 class TestShadowComponent {
   @Input() value: PrizmShadowType = PrizmShadowTypeEnum.miniLeft;

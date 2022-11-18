@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { PolymorphComponent, PrizmOverlayOutsidePlacement } from '@digital-plant/zui-components';
+import { PolymorphComponent, PrizmOverlayOutsidePlacement } from '@prizm-ui/components';
 import { PrizmHintSomeComponent } from './some.component';
 
 @Component({
-  selector: 'pzm-hint-with-component-example',
+  selector: 'prizm-hint-with-component-example',
   templateUrl: './hint-with-component-example.component.html',
   styles: [`
     .box {

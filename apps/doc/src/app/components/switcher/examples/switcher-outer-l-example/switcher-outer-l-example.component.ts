@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ISwitcher } from '@digital-plant/zui-components';
+import { ISwitcher } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-switcher-outer-l-example',
+  selector: 'prizm-switcher-outer-l-example',
   templateUrl: './switcher-outer-l-example.component.html',
   styleUrls: ['./switcher-outer-l-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

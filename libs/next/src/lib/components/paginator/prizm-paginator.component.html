@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="content">
+    <span
+      class="rows rows__count"
+      *ngIf="!paginatorOptions?.noRowsSelector && !paginatorOptions?.noRowsSelectorLabel"
+      >Строк на странице
+    </span>
+    <div class="rows-selector" *ngIf="!paginatorOptions?.noRowsSelector">
+      <prizm-select
+        size="s"
+        [forceClear]='false'
+        [label]="null"
+        [outer]="true"
+        [nullContent]="null"
+        [(ngModel)]="rows"
+        [items]="this.rowsCountOptions?.length > 0 ? this.rowsCountOptions : [rows]"
+      ></prizm-select>
+    </div>
+  </div>
+
+  <div class="content">
+    <span class="rows rows__show" *ngIf="!paginatorOptions?.noInfo">
+      Показано строк: {{ (currentPage - 1) * rows + 1 }}-{{
+        currentPage * rows > totalRecords ? totalRecords : currentPage * rows
+      }}
+      из {{ realTotalRecord }}
+    </span>
+    <div
+      class="paginator paginator__finite"
+      *ngIf="paginatorType === 'finite' && paginationGenerator as pagingData"
+    >
+      <button class="control control_left" [disabled]="currentPage === 1" (click)="decrease()">
+        <prizm-icon size="16" iconClass="arrows-chevron-left"></prizm-icon>
+        <span *ngIf="!!leftButtonLabel">{{ leftButtonLabel }}</span>
+      </button>
+
+      <ng-container *ngIf="!paginatorOptions?.noPages">
+        <ng-container *ngIf="pagingData.left">
+          <button class="page" type="button" (click)="changePage(pagingData.left)">
+            {{ pagingData.left }}
+          </button>
+          <div class="dots" *ngIf="pagingData.left + 1 !== pagingData.mid[0]">...</div>
+        </ng-container>
+
+        <button
+          class="page"
+          type="button"
+          *ngFor="let page of pagingData.mid"
+          [class.page_selected]="page === currentPage"
+          (click)="changePage(page)"
+        >
+          {{ page }}
+        </button>
+
+        <ng-container *ngIf="pagingData.right">
+          <div class="dots" *ngIf="pagingData.right - 1 !== pagingData.mid[pagingData.mid.length - 1]">
+            ...
+          </div>
+          <button class="page" type="button" (click)="changePage(pagingData.right)">
+            {{ pagingData.right }}
+          </button>
+        </ng-container>
+      </ng-container>
+
+      <button
+        class="control control_right"
+        [disabled]="currentPage === pagesCount ?? currentPage === 0"
+        (click)="increase()"
+      >
+        <span *ngIf="!!rightButtonLabel">{{ rightButtonLabel }}</span>
+        <prizm-icon size="16" iconClass="arrows-chevron-right"></prizm-icon>
+      </button>
+    </div>
+
+    <div class="paginator paginator__infinite" *ngIf="paginatorType === 'infinite'">
+      <button class="show-more" (click)="increase()">Показать еще</button>
+    </div>
+  </div>
+</div>

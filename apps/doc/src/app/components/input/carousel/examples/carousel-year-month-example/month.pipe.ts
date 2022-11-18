@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({ name: 'pzmMonthExample' })
+@Pipe({ name: 'prizmMonthExample' })
 export class PrizmMonthExamplePipe implements PipeTransform {
   private defaultMonthNames = [
     'январь',

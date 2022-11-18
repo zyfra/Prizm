@@ -14,7 +14,7 @@ export interface PrizmToggleOptions {
 }
 
 /** Default values for the toggle options. */
-export const PZM_TOGGLE_DEFAULT_OPTIONS: PrizmToggleOptions = {
+export const PRIZM_TOGGLE_DEFAULT_OPTIONS: PrizmToggleOptions = {
     icons: {
         toggleOff: '',
         toggleOn: '',
@@ -24,16 +24,16 @@ export const PZM_TOGGLE_DEFAULT_OPTIONS: PrizmToggleOptions = {
     size: 'm',
 };
 
-export const PZM_TOGGLE_OPTIONS = new InjectionToken<PrizmToggleOptions>(
+export const PRIZM_TOGGLE_OPTIONS = new InjectionToken<PrizmToggleOptions>(
     'Default parameters for toggle component',
     {
-        factory: (): typeof PZM_TOGGLE_DEFAULT_OPTIONS => PZM_TOGGLE_DEFAULT_OPTIONS,
+        factory: (): typeof PRIZM_TOGGLE_DEFAULT_OPTIONS => PRIZM_TOGGLE_DEFAULT_OPTIONS,
     },
 );
 
-export const pzmToggleOptionsProvider: (
+export const prizmToggleOptionsProvider: (
     options: Partial<PrizmToggleOptions>,
 ) => ValueProvider = (options: Partial<PrizmToggleOptions>) => ({
-    provide: PZM_TOGGLE_OPTIONS,
-    useValue: {...PZM_TOGGLE_DEFAULT_OPTIONS, ...options},
+    provide: PRIZM_TOGGLE_OPTIONS,
+    useValue: {...PRIZM_TOGGLE_DEFAULT_OPTIONS, ...options},
 });

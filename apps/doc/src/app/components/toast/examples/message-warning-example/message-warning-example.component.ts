@@ -1,9 +1,9 @@
 import {Component, TemplateRef} from '@angular/core';
-import {PrizmToastService, PrizmToastAppearance, PrizmToastPosition} from "@digital-plant/zui-components";
+import {PrizmToastService, PrizmToastAppearance, PrizmToastPosition} from "@prizm-ui/components";
 import {FormControl} from "@angular/forms";
 
 @Component({
-  selector: 'pzm-message-warning-example',
+  selector: 'prizm-message-warning-example',
   templateUrl: './message-warning-example.component.html',
   styles: [`
     .box{

@@ -1,66 +1,66 @@
 import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, HostBinding, Inject, Input } from '@angular/core';
 import { merge } from 'rxjs';
 import { mapTo } from 'rxjs/operators';
-import { pzmDefaultProp } from '../../decorators/default-prop';
+import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmFocusVisibleService } from '../../directives/focus-visible/focus-visible.service';
-import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../tokens/focusable-item-accessor';
+import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../tokens/focusable-item-accessor';
 import { PrizmFocusableElementAccessor, PrizmNativeFocusableElement } from '../../types/focusable-element-accessor';
-import { pzmTypedFromEvent } from '../../observables';
-import { pzmIsNativeFocused } from '../../util/is-native-focused';
+import { prizmTypedFromEvent } from '../../observables';
+import { prizmIsNativeFocused } from '../../util/is-native-focused';
 import { PrizmHorizontalDirection } from '../../types/direction';
 import { PrizmThemeService } from '../../services/theme.service';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
-    selector: `a[pzmLink], button[pzmLink]`,
+    selector: `a[prizmLink], button[prizmLink]`,
     templateUrl: `./link.component.html`,
     styleUrls: [`./link.component.less`],
     providers: [
         {
-            provide: PZM_FOCUSABLE_ITEM_ACCESSOR,
+            provide: PRIZM_FOCUSABLE_ITEM_ACCESSOR,
             useExisting: forwardRef(() => PrizmLinkComponent),
         },
         PrizmFocusVisibleService,
         PrizmDestroyService,
     ],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    exportAs: `pzmLink`,
+    exportAs: `prizmLink`,
 })
 export class PrizmLinkComponent implements PrizmFocusableElementAccessor {
     @Input()
     @HostBinding(`class._pseudo`)
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     pseudo = false;
 
     // TODO: 2.0 Remove `null`
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     icon: string | null = null;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     iconAlign: PrizmHorizontalDirection = `right`;
 
     @Input()
     @HostBinding(`class._icon-rotated`)
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     iconRotated = false;
 
     @Input()
     @HostBinding(`attr.data-host-mode`)
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     mode: 'positive' | 'negative' | null = null;
 
     @HostBinding(`class._focus-visible`)
     focusVisible = false;
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_link';
+    readonly testId = 'prizm_link';
 
     readonly focusedChange = merge(
-        pzmTypedFromEvent(this.elementRef.nativeElement, `focusin`).pipe(mapTo(true)),
-        pzmTypedFromEvent(this.elementRef.nativeElement, `focusout`).pipe(mapTo(false)),
+        prizmTypedFromEvent(this.elementRef.nativeElement, `focusin`).pipe(mapTo(true)),
+        prizmTypedFromEvent(this.elementRef.nativeElement, `focusout`).pipe(mapTo(false)),
     );
 
     constructor(
@@ -80,7 +80,7 @@ export class PrizmLinkComponent implements PrizmFocusableElementAccessor {
     }
 
     get focused(): boolean {
-        return pzmIsNativeFocused(this.nativeFocusableElement);
+        return prizmIsNativeFocused(this.nativeFocusableElement);
     }
 
     get hasIcon(): boolean {

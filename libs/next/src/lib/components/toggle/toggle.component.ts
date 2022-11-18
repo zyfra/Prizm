@@ -12,15 +12,15 @@ import {
 } from '@angular/core';
 import {NgControl} from '@angular/forms';
 
-import {PZM_TOGGLE_OPTIONS, PrizmToggleOptions} from './toggle-options';
-import {pzmDefaultProp} from "../../decorators";
+import {PRIZM_TOGGLE_OPTIONS, PrizmToggleOptions} from './toggle-options';
+import {prizmDefaultProp} from "@prizm-ui/core";
 import {AbstractPrizmControl} from "../../abstract/control";
-import {pzmIsNativeFocused, PrizmSize, PrizmSizeL, PrizmSizeM} from '../../util';
+import {prizmIsNativeFocused, PrizmSize, PrizmSizeL, PrizmSizeM} from '../../util';
 import {PrizmNativeFocusableElement} from '../../types/focusable-element-accessor';
 import {PrizmAppearance} from '../../types/appearance.types';
 
 @Component({
-    selector: 'pzm-toggle',
+    selector: 'prizm-toggle',
     templateUrl: './toggle.component.html',
     styleUrls: ['./toggle.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -33,29 +33,29 @@ export class PrizmToggleComponent
     private readonly focusableElement?: ElementRef<PrizmNativeFocusableElement>;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     singleColor = this.options.singleColor;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     iconOn = this.options.icons.toggleOn;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     iconOff = this.options.icons.toggleOff;
 
     @Input()
     @HostBinding('class._loading')
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     showLoader = false;
 
     @Input()
     @HostBinding('attr.data-size')
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     size: PrizmSizeL | PrizmSizeM = this.options.size;
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_toggle';
+    readonly testId = 'prizm_toggle';
 
     constructor(
         @Optional()
@@ -63,7 +63,7 @@ export class PrizmToggleComponent
         @Inject(NgControl) control: NgControl | null,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
         @Optional()
-        @Inject(PZM_TOGGLE_OPTIONS)
+        @Inject(PRIZM_TOGGLE_OPTIONS)
         readonly options: PrizmToggleOptions,
     ) {
         super(control, changeDetectorRef);
@@ -74,7 +74,7 @@ export class PrizmToggleComponent
     }
 
     get focused(): boolean {
-        return pzmIsNativeFocused(this.nativeFocusableElement);
+        return prizmIsNativeFocused(this.nativeFocusableElement);
     }
 
     get appearance(): PrizmAppearance {

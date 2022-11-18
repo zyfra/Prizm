@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pzm-widget-base-example',
+  selector: 'prizm-widget-base-example',
   templateUrl: './widget-base-example.component.html',
   styles: [`
-    pzm-widget {
+    prizm-widget {
       padding: 16px;
-      color: var(--pzm-text-main);
+      color: var(--prizm-text-main);
       font-style: normal;
       font-weight: 400;
       font-size: 14px;

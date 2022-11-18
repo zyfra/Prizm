@@ -8,12 +8,12 @@ import {
   Input,
   TemplateRef,
 } from '@angular/core';
-import { pzmIsNativeFocusedIn } from '../../util/is-native-focused-in';
-import { pzmBlurNativeFocused } from '../../util/blur-native-focused';
-import { PrizmSize, pzmSizeBigger } from '../../util/size-bigger';
+import { prizmIsNativeFocusedIn } from '../../util/is-native-focused-in';
+import { prizmBlurNativeFocused } from '../../util/blur-native-focused';
+import { PrizmSize, prizmSizeBigger } from '../../util/size-bigger';
 
 @Component({
-    selector: 'pzm-loader',
+    selector: 'prizm-loader',
     templateUrl: './loader.component.html',
     styleUrls: ['./loader.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -34,7 +34,7 @@ export class PrizmLoaderComponent {
     @Input()
     set showLoader(value: boolean) {
         if (value && this.focused) {
-            pzmBlurNativeFocused(this.documentRef);
+            prizmBlurNativeFocused(this.documentRef);
         }
 
         this.loading = value;
@@ -44,7 +44,7 @@ export class PrizmLoaderComponent {
     loading = true;
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_loader';
+    readonly testId = 'prizm_loader';
 
     constructor(
         @Inject(DOCUMENT) private readonly documentRef: Document,
@@ -60,10 +60,10 @@ export class PrizmLoaderComponent {
     }
 
     get isHorizontal(): boolean {
-        return !pzmSizeBigger(this.size);
+        return !prizmSizeBigger(this.size);
     }
 
     get focused(): boolean {
-        return pzmIsNativeFocusedIn(this.elementRef.nativeElement);
+        return prizmIsNativeFocusedIn(this.elementRef.nativeElement);
     }
 }

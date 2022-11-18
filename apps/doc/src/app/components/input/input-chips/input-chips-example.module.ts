@@ -6,7 +6,7 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 
 import { InputChipsExampleBaseComponent } from './examples/input-chips-basic-example/input-chips-basic-example.component';
 import { InputChipsExampleComponent } from './input-chips-example.component';
-import { PrizmChipsModule, PrizmInputTextModule } from '@digital-plant/zui-components';
+import { PrizmChipsModule, PrizmInputTextModule } from '@prizm-ui/components';
 import { InputChipsOuterExampleComponent } from './examples/input-chips-outer-example/input-chips-outer-example.component';
 
 @NgModule({

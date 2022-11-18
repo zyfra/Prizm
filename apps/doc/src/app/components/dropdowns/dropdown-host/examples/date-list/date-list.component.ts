@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PrizmDay, PrizmTime } from '@digital-plant/zui-components';
+import { PrizmDay, PrizmTime } from '@prizm-ui/components';
 import { addDays, addHours, addMonths } from 'date-fns';
 
 type DateItem = {
@@ -18,7 +18,7 @@ type DateItem = {
 };
 
 @Component({
-  selector: 'pzm-dropdown-host-date-list-example',
+  selector: 'prizm-dropdown-host-date-list-example',
   templateUrl: './date-list.component.html',
   styles: [`
     .box {
@@ -37,7 +37,7 @@ type DateItem = {
       color: black;
       align-items: center;
 
-      pzm-icon {
+      prizm-icon {
         font-weight: 300;
       }
     }
@@ -48,10 +48,10 @@ type DateItem = {
       flex-direction: column;
       gap: 16px;
 
-      pzm-input-date-time ::ng-deep {
+      prizm-input-date-time ::ng-deep {
         width: 100%;
 
-        pzm-input-layout {
+        prizm-input-layout {
           width: 100%;
         }
       }

@@ -7,7 +7,7 @@ import {
   PrizmButtonModule,
   PrizmDialogModule,
   PrizmRadioButtonModule,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogComponent } from './dialog.component';
 import { PrizmDialogServiceExampleComponent } from './examples/base/base.component';

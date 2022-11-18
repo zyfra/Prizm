@@ -13,7 +13,7 @@ import { expandAnimation } from '../../accordion.animation';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'pzm-accordion-item',
+  selector: 'prizm-accordion-item',
   templateUrl: './accordion-item.component.html',
   styleUrls: ['./accordion-item.component.less'],
   animations: [expandAnimation],
@@ -25,7 +25,7 @@ export class AccordionItemComponent implements OnDestroy {
   @Input() disabled = false;
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_accordion_item';
+  readonly testId = 'prizm_accordion_item';
 
   @ContentChild(AccordionContentDirective, { read: TemplateRef })
   public readonly accordionContent: TemplateRef<AccordionContentDirective>;

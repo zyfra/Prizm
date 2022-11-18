@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { MultiSelectComponent } from './multi-select.component';
-import { PolymorphModule, PrizmIconModule, PrizmMultiSelectModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PrizmIconModule, PrizmMultiSelectModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   PrizmMultiSelectWithTemplateExampleComponent,

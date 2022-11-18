@@ -29,10 +29,10 @@ export type TableTemplateType =
   | 'filter';
 
 @Directive({
-  selector: '[pzmTableTemplate]',
+  selector: '[prizmTableTemplate]',
 })
 export class BaseTableTemplateDirective {
-  @Input() pzmTableTemplate: TableTemplateType;
+  @Input() prizmTableTemplate: TableTemplateType;
 
   constructor(public templateRef: TemplateRef<unknown>) {}
 
@@ -41,6 +41,6 @@ export class BaseTableTemplateDirective {
   }
 
   public getType(): TableTemplateType {
-    return this.pzmTableTemplate;
+    return this.prizmTableTemplate;
   }
 }

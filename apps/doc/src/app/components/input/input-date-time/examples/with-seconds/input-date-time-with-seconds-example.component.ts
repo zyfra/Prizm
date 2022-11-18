@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PrizmDay, PrizmTime } from '@digital-plant/zui-components';
+import { PrizmDay, PrizmTime } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-input-date-time-with-seconds-example',
+  selector: 'prizm-input-date-time-with-seconds-example',
   templateUrl: './input-date-time-with-seconds-example.component.html',
   styles: [`
     .box {

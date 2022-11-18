@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular
 import { IndicatorStatus, IndicatorType } from './indicator.models';
 
 @Component({
-  selector: 'pzm-indicator',
+  selector: 'prizm-indicator',
   templateUrl: './indicator.component.html',
   styleUrls: ['./indicator.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -12,7 +12,7 @@ export class IndicatorComponent {
   @Input() public status: IndicatorStatus = 'info';
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_indicator';
+  readonly testId = 'prizm_indicator';
 
   public readonly iconMap = {
     info: 'alerts-information-variant',

@@ -1,58 +1,58 @@
-<pzm-dropdown-host [content]="dropdown" pzmDropdownHostWidth="auto" [(isOpen)]="showPanel">
-  <button pzmButton type="button" (click)="show()">Button</button>
-</pzm-dropdown-host>
+<prizm-dropdown-host [content]="dropdown" prizmDropdownHostWidth="auto" [(isOpen)]="showPanel">
+  <button prizmButton type="button" (click)="show()">Button</button>
+</prizm-dropdown-host>
 
 <ng-template #dropdown>
-  <pzm-data-list class="data-list" [defaultStyle]="false">
+  <prizm-data-list class="data-list" [defaultStyle]="false">
     <ng-container header>
       <div class="header">
-        <pzm-checkbox
+        <prizm-checkbox
           class="header__checkbox"
           (changed)="onChange($event)"
           [checked]="allChecked"
           [indeterminate]="someChecked"
         >
           <span class="header__label"> Заголовок блока </span>
-        </pzm-checkbox>
+        </prizm-checkbox>
       </div>
     </ng-container>
 
     <div class="content">
       <div class="filter">
-        <pzm-input-layout class="filter__input-layout" [label]="'Фильтр'" [size]="'m'">
+        <prizm-input-layout class="filter__input-layout" [label]="'Фильтр'" [size]="'m'">
           <input
-            pzmInput
+            prizmInput
             #input
             [placeholder]="'Введите значение'"
             (input)="filter(input.value)"
             (onClear)="filter('')"
           />
           <button
-            pzmInputIconButton="sort-zoom-in"
-            pzm-input-right
+            prizmInputIconButton="sort-zoom-in"
+            prizm-input-right
             [interactive]="true"
             (click)="filter(input.value)"
           ></button>
-        </pzm-input-layout>
+        </prizm-input-layout>
       </div>
 
       <ul class="options">
         <li *ngFor="let option of filteredData" class="options__item option">
-          <pzm-checkbox class="option__checkbox" [(ngModel)]="option.checked">
+          <prizm-checkbox class="option__checkbox" [(ngModel)]="option.checked">
             <div class="option__label">
               <span class="option__title">{{ option.label.title }}</span>
               <span class="option__subtitle">{{ option.label.subtitle }}</span>
             </div>
-          </pzm-checkbox>
+          </prizm-checkbox>
         </li>
       </ul>
     </div>
 
     <ng-container footer>
       <div class="footer">
-        <button pzmButton (click)="hide()" class="footer__btn">Применить запрос</button>
+        <button prizmButton (click)="hide()" class="footer__btn">Применить запрос</button>
       </div>
     </ng-container>
-  </pzm-data-list>
+  </prizm-data-list>
 </ng-template>
 

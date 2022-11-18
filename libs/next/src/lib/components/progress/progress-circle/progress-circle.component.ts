@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, Input, ViewChild } from '@angular/core';
 import { USER_AGENT, WINDOW } from '@ng-web-apis/common';
-import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { PZM_CHROMIUM_EDGE_START_VERSION } from '../../../constants/chromium';
+import { prizmDefaultProp } from '@prizm-ui/core';
+import { PRIZM_CHROMIUM_EDGE_START_VERSION } from '../../../constants/chromium';
 import { PrizmSizeS, PrizmSizesXl } from '../../../util/size-bigger';
-import { pzmIsEdgeOlderThan } from '../../../util/browser/is-edge-older-than';
+import { prizmIsEdgeOlderThan } from '../../../util/browser/is-edge-older-than';
 
 @Component({
-    selector: `pzm-progress-circle`,
+    selector: `prizm-progress-circle`,
     templateUrl: `./progress-circle.component.html`,
     styleUrls: [`./progress-circle.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -16,26 +16,26 @@ export class PrizmProgressCircleComponent {
     private readonly progressCircle!: ElementRef<SVGCircleElement>;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     value = 0;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     max = 1;
 
     @Input()
-    @HostBinding(`style.--pzm-progress-color`)
-    @pzmDefaultProp()
+    @HostBinding(`style.--prizm-progress-color`)
+    @prizmDefaultProp()
     color: string | null = null;
 
     @Input()
-    @HostBinding(`style.--pzm-progress-circle-track-color`)
-    @pzmDefaultProp()
+    @HostBinding(`style.--prizm-progress-circle-track-color`)
+    @prizmDefaultProp()
     trackColor: string | null = null;
 
     @Input()
     @HostBinding(`attr.data-size`)
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     size: PrizmSizeS | PrizmSizesXl = `m`;
 
     @HostBinding(`style.--progress-percentage`)
@@ -45,7 +45,7 @@ export class PrizmProgressCircleComponent {
 
     // TODO: drop support of legacy Edge (EdgeHTML) in v4.x
     get oldEdgeRadiusFallback(): number | null {
-        if (!pzmIsEdgeOlderThan(PZM_CHROMIUM_EDGE_START_VERSION, this.userAgent)) {
+        if (!prizmIsEdgeOlderThan(PRIZM_CHROMIUM_EDGE_START_VERSION, this.userAgent)) {
             return null;
         }
 

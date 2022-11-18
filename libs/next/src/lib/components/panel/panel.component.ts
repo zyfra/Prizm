@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'pzm-panel',
+  selector: 'prizm-panel',
   templateUrl: './panel.component.html',
   styleUrls: ['./panel.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -23,7 +23,7 @@ export class PanelComponent {
   @ViewChild('headerElement', { static: true }) public headerRef: ElementRef;
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_panel';
+  readonly testId = 'prizm_panel';
 
   public back(): void {
     this.backClick.emit();

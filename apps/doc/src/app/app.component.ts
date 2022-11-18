@@ -1,10 +1,10 @@
 import { AfterViewInit, Component, HostBinding, Inject, ViewChild } from '@angular/core';
-import { PrizmThemeService } from '@digital-plant/zui-components';
+import { PrizmThemeService } from '@prizm-ui/components';
 import { map } from 'rxjs/operators';
 import { LOCAL_STORAGE } from '@ng-web-apis/common';
 import { TuiBrightness } from '@taiga-ui/core';
 @Component({
-  selector: 'pzm-doc-root',
+  selector: 'prizm-doc-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less'],
 })

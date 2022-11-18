@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'pzm-select-with-search-example',
+  selector: 'prizm-select-with-search-example',
   templateUrl: './select-with-search-example.component.html',
 })
 export class PrizmSelectWithSearchExampleComponent {

@@ -1,11 +1,11 @@
 <tui-doc-page header="Input number" type="components">
   <ng-template pageTab>
-    <tui-doc-example id="number" heading="Input number basic example" [content]="pzmInputNumberBasic">
-      <pzm-input-number-basic-example></pzm-input-number-basic-example>
+    <tui-doc-example id="number" heading="Input number basic example" [content]="prizmInputNumberBasic">
+      <prizm-input-number-basic-example></prizm-input-number-basic-example>
     </tui-doc-example>
 
-    <tui-doc-example id="counter" heading="Input number counter example" [content]="pzmInputNumberCounter">
-      <pzm-input-number-counter-example></pzm-input-number-counter-example>
+    <tui-doc-example id="counter" heading="Input number counter example" [content]="prizmInputNumberCounter">
+      <prizm-input-number-counter-example></prizm-input-number-counter-example>
     </tui-doc-example>
   </ng-template>
 
@@ -14,7 +14,7 @@
       <div [ngStyle]="{ display: 'flex', gap: '2rem', 'align-items': 'flex-end' }">
         <div>
           <h4>Number</h4>
-          <pzm-input-layout
+          <prizm-input-layout
             [label]="label"
             [size]="size"
             [outer]="outer"
@@ -22,7 +22,7 @@
             [position]="inputPosition"
           >
             <input
-              pzmInputNumber
+              prizmInputNumber
               [min]="min"
               [max]="max"
               [step]="step"
@@ -30,19 +30,19 @@
               [disabled]="disabled"
               [placeholder]="placeholder"
               [required]="required"
-              #inputNumber="pzmInputNumber"
+              #inputNumber="prizmInputNumber"
             />
-            <pzm-input-number-auxiliary-controls
-              pzm-input-right
+            <prizm-input-number-auxiliary-controls
+              prizm-input-right
               [inputNumber]="inputNumber"
-            ></pzm-input-number-auxiliary-controls>
+            ></prizm-input-number-auxiliary-controls>
 
-            <ng-template pzmInputStatusText>Текст статуса</ng-template>
-          </pzm-input-layout>
+            <ng-template prizmInputStatusText>Текст статуса</ng-template>
+          </prizm-input-layout>
         </div>
         <div>
           <h4>Counter</h4>
-          <pzm-input-layout
+          <prizm-input-layout
             [label]="label"
             [size]="size"
             [status]="status"
@@ -50,15 +50,15 @@
             [position]="'center'"
           >
             <button
-              pzmInputIconButton="delete-minus"
-              pzmInputNumberAuxiliaryControl="decrement"
-              pzm-input-left
+              prizmInputIconButton="delete-minus"
+              prizmInputNumberAuxiliaryControl="decrement"
+              prizm-input-left
               [inputNumber]="inputCounter"
               [interactive]="true"
             ></button>
 
             <input
-              pzmInputNumber
+              prizmInputNumber
               [min]="min"
               [max]="max"
               [step]="step"
@@ -66,19 +66,19 @@
               [disabled]="disabled"
               [placeholder]="placeholder"
               [required]="required"
-              #inputCounter="pzmInputNumber"
+              #inputCounter="prizmInputNumber"
             />
 
             <button
-              pzmInputIconButton="add-plus"
-              pzmInputNumberAuxiliaryControl="increment"
-              pzm-input-right
+              prizmInputIconButton="add-plus"
+              prizmInputNumberAuxiliaryControl="increment"
+              prizm-input-right
               [inputNumber]="inputCounter"
               [interactive]="true"
             ></button>
 
-            <ng-template pzmInputStatusText>Текст статуса</ng-template>
-          </pzm-input-layout>
+            <ng-template prizmInputStatusText>Текст статуса</ng-template>
+          </prizm-input-layout>
         </div>
       </div>
     </tui-doc-demo>

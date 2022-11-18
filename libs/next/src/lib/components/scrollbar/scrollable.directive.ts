@@ -1,8 +1,8 @@
 import { Directive, ElementRef, Inject, OnInit } from '@angular/core';
-import { PZM_SCROLLABLE } from '../../constants/events';
+import { PRIZM_SCROLLABLE } from '../../constants/events';
 
 @Directive({
-    selector: '[pzmScrollable]',
+    selector: '[prizmScrollable]',
 })
 export class PrizmScrollableDirective implements OnInit {
     constructor(
@@ -11,7 +11,7 @@ export class PrizmScrollableDirective implements OnInit {
 
     ngOnInit(): void {
         this.elementRef.nativeElement.dispatchEvent(
-            new CustomEvent(PZM_SCROLLABLE, {
+            new CustomEvent(PRIZM_SCROLLABLE, {
                 bubbles: true,
                 detail: this.elementRef.nativeElement,
             }),

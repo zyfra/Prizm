@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PrizmDay } from '@digital-plant/zui-components';
+import { PrizmDay } from '@prizm-ui/components';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'pzm-calendar-example',
+  selector: 'prizm-calendar-example',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

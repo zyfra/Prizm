@@ -1,4 +1,4 @@
-<pzm-wrapper
+<prizm-wrapper
   class="z-wrapper"
   [attr.data-appearance-type]="appearanceType"
   [appearance]="appearance"
@@ -9,20 +9,20 @@
   [focused]="computedFocusVisible">
   <span class="z-content" [style.visibility]='showLoader ? "hidden" : ""'>
     <ng-container *ngIf='icon' [ngTemplateOutlet]="showIconTemp" [ngTemplateOutletContext]="{icon: icon}"></ng-container>
-    <div class='text pzm-font-btn-links-14'><ng-content></ng-content></div>
+    <div class='text prizm-font-btn-links-14'><ng-content></ng-content></div>
     <ng-container *ngIf='iconRight' [ngTemplateOutlet]="showIconTemp" [ngTemplateOutletContext]="{icon: iconRight}"></ng-container>
   </span>
-  <pzm-loader
+  <prizm-loader
     *ngIf="showLoader"
     class="z-loader"
     [size]="loaderSize"
     [inheritColor]="true"
-  ></pzm-loader>
-</pzm-wrapper>
+  ></prizm-loader>
+</prizm-wrapper>
 
 <ng-template #showIconTemp let-icon="icon">
-  <ng-container [ngSwitch]="icon | pzmCallFunc : isTemplateRef">
+  <ng-container [ngSwitch]="icon | prizmCallFunc : isTemplateRef">
     <ng-container *ngSwitchCase="true" [ngTemplateOutlet]="$any(icon)"></ng-container>
-    <pzm-icon *ngSwitchDefault [iconClass]="$any(icon)" [size]='16'></pzm-icon>
+    <prizm-icon *ngSwitchDefault [iconClass]="$any(icon)" [size]='16'></prizm-icon>
   </ng-container>
 </ng-template>

@@ -1,7 +1,7 @@
 /**
  * Finds the nearest parent with scroll in it
  */
-export function pzmGetScrollParent(
+export function prizmGetScrollParent(
     element: Element | null,
     vertical: boolean = true,
 ): Element | null {
@@ -17,5 +17,5 @@ export function pzmGetScrollParent(
         return element;
     }
 
-    return pzmGetScrollParent(element.parentElement, vertical);
+    return prizmGetScrollParent(element.parentElement, vertical);
 }

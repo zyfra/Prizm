@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '@digital-plant/zui-components';
+import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { default as d } from './examples/input-phone-example/input-phone-example.component.less?raw';
 
 @Component({
-  selector: 'pzm-input',
+  selector: 'prizm-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

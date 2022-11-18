@@ -1,11 +1,11 @@
 <div>
   <p>Size M</p>
-  <div class='progress-block pzm-font-input-text-helper'>
+  <div class='progress-block prizm-font-input-text-helper'>
     <progress
-      pzmProgressBar
+      prizmProgressBar
       max="100"
       size='m'
-      color='var(--pzm-index-plan)'
+      color='var(--prizm-index-plan)'
       class="progress"
       [value]="value$ | async"
     ></progress>
@@ -19,7 +19,7 @@
   <div class='progress-block'>
     <span>{{value$ | async}}%</span>
     <progress
-      pzmProgressBar
+      prizmProgressBar
       max="100"
       size='s'
       color='green'
@@ -32,8 +32,8 @@
   <p>Segments</p>
   <div>
     <progress
-      pzmProgressBar
-      [pzmProgressColorSegments]="colors"
+      prizmProgressBar
+      [prizmProgressColorSegments]="colors"
       max="100"
       size='m'
       color='green'
@@ -49,14 +49,14 @@
   <div>
     <label
       *ngIf="value$ | async as value"
-      pzmProgressLabel
+      prizmProgressLabel
       class="label-wrapper"
     >
       {{ value }}%
       <progress
-        pzmProgressBar
+        prizmProgressBar
         max="100"
-        color='var(--pzm-index-warning)'
+        color='var(--prizm-index-warning)'
         size='m'
         [value]="value"
       ></progress>
@@ -69,11 +69,11 @@
   <p>Stacked progress bars</p>
   <div>
     <label
-      pzmProgressLabel
+      prizmProgressLabel
       class="label-wrapper"
     >
       <progress
-        pzmProgressBar
+        prizmProgressBar
         max="4"
         size="m"
         class="progress"
@@ -81,7 +81,7 @@
       ></progress>
 
       <progress
-        pzmProgressBar
+        prizmProgressBar
         max="4"
         size="m"
         class="progress"
@@ -96,16 +96,16 @@
   <p>Indeterminate</p>
   <div>
     <progress
-      pzmProgressBar
-      color='var(--pzm-index-plan)'
+      prizmProgressBar
+      color='var(--prizm-index-plan)'
       class="progress"
       size='s'
     ></progress>
     <br>
     <br>
     <progress
-      pzmProgressBar
-      color='var(--pzm-index-danger)'
+      prizmProgressBar
+      color='var(--prizm-index-danger)'
       size='m'
       class="progress"
     ></progress>

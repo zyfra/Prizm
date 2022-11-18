@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pzm-tree-array-example',
+  selector: 'prizm-tree-array-example',
   templateUrl: './tree-array-example.component.html',
 })
 export class TreeArrayExampleComponent {

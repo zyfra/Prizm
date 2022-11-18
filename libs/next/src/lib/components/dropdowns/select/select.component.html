@@ -1,13 +1,13 @@
-<pzm-dropdown-host
+<prizm-dropdown-host
   #dropdownHostRef
   [content]="dropdown"
   [(isOpen)]="open"
-  [pzmDropdownHostWidth]='dropdownWidth'
-  [pzmDropdownMinHeight]='minDropdownHeight'
-  [pzmDropdownMaxHeight]='maxDropdownHeight'
-  *pzmLet='filteredItems$ | async as items'
+  [prizmDropdownHostWidth]='dropdownWidth'
+  [prizmDropdownMinHeight]='minDropdownHeight'
+  [prizmDropdownMaxHeight]='maxDropdownHeight'
+  *prizmLet='filteredItems$ | async as items'
 >
-  <pzm-input-layout
+  <prizm-input-layout
     [label]="label"
     [forceClear]='forceClear'
     (click)='safeOpenModal()'
@@ -16,7 +16,7 @@
     [size]="size">
     <input
       class='input-search'
-      pzmInput
+      prizmInput
       #focusableElementRef
       (onClear)='onClear()'
       [placeholder]="placeholder"
@@ -24,19 +24,19 @@
       [readonly]='!searchable || this.disabled'
       [formControl]="requiredInputControl"
     />
-    <pzm-icon *ngIf='!disabled'
+    <prizm-icon *ngIf='!disabled'
               (click)='focusableElementRef.focus()'
               [class.opened]="open"
               [class.active]='focusableElementRef.focused'
-              class='icon-dropdown' pzm-input-right iconClass='chevrons-dropdown'></pzm-icon>
-  </pzm-input-layout>
+              class='icon-dropdown' prizm-input-right iconClass='chevrons-dropdown'></prizm-icon>
+  </prizm-input-layout>
 
   <ng-template #dropdown>
-    <pzm-data-list class='block' [style.--pzm-data-list-border]='0'>
+    <prizm-data-list class='block' [style.--prizm-data-list-border]='0'>
       <ng-container *ngIf='items?.length; else emptyTemplate'>
         <div class='item'
              [class.most-relevant]="searchable && focusableElementRef.value && ((!items[0] && idx === 1) || idx === 0)"
-             [class.selected]='item && value && (item | pzmCallFunc : identityMatcher : value)'
+             [class.selected]='item && value && (item | prizmCallFunc : identityMatcher : value)'
              #hostHint
              *ngFor='let item of filteredItems$ | async; let idx = index'
              (click)='select(item)'
@@ -44,11 +44,11 @@
           <ng-container *ngIf='item; else nullContentTemplate'>
             <span class='text'
                   #elem
-                  *pzmLet='item | pzmCallFunc : stringify : $any(nullContent) as text'
-                  [pzmHint]='text'
-                  [pzmHintHost]='hostHint'
-                  [pzmHintDirection]='direction'
-                  [pzmHintCanShow]='elem | pzmCallFunc : pzmIsTextOverflow$ | async'
+                  *prizmLet='item | prizmCallFunc : stringify : $any(nullContent) as text'
+                  [prizmHint]='text'
+                  [prizmHintHost]='hostHint'
+                  [prizmHintDirection]='direction'
+                  [prizmHintCanShow]='elem | prizmCallFunc : prizmIsTextOverflow$ | async'
             >
               <ng-container *polymorphOutlet="
                 valueTemplate as content;
@@ -79,6 +79,6 @@
           </ng-container>
         </div>
       </ng-template>
-    </pzm-data-list>
+    </prizm-data-list>
   </ng-template>
-</pzm-dropdown-host>
+</prizm-dropdown-host>

@@ -1,21 +1,21 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Inject, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PZM_ANIMATIONS_DURATION } from '../../../tokens';
-import { PZM_DIALOG_CLOSE_STREAM, PZM_DIALOG_PROVIDERS } from './dialog-options';
-import { PrizmAnimationOptions, pzmFadeIn, pzmSlideInTop } from '../../../animations';
-import { pzmPure } from '../../../decorators';
+import { PRIZM_ANIMATIONS_DURATION } from '../../../tokens';
+import { PRIZM_DIALOG_CLOSE_STREAM, PRIZM_DIALOG_PROVIDERS } from './dialog-options';
+import { PrizmAnimationOptions, prizmFadeIn, prizmSlideInTop } from '../../../animations';
+import { prizmPure } from '@prizm-ui/core';
 import { takeUntil } from 'rxjs/operators';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmBaseDialogContext, PrizmDialogButton, PrizmDialogOptions, PrizmDialogSize } from './dialog.models';
 import { PolymorphContent } from '../../../directives';
 
 @Component({
-    selector: 'pzm-dialog',
+    selector: 'prizm-dialog',
     templateUrl: './dialog.component.html',
     styleUrls: ['./dialog.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: PZM_DIALOG_PROVIDERS,
-    animations: [pzmSlideInTop, pzmFadeIn],
+    providers: PRIZM_DIALOG_PROVIDERS,
+    animations: [prizmSlideInTop, prizmFadeIn],
 })
 export class PrizmDialogComponent<O = unknown, DATA = unknown> {
     @Input()
@@ -24,31 +24,31 @@ export class PrizmDialogComponent<O = unknown, DATA = unknown> {
     @Input()
     public close!: () => void;
 
-    @HostBinding('attr.pzm-size')
+    @HostBinding('attr.prizm-size')
     public get size(): PrizmDialogSize {
       return this.context.size
     };
 
-    @HostBinding('attr.pzm-dialog-id')
+    @HostBinding('attr.prizm-dialog-id')
     public get id(): string {
       return this.context.id
     };
 
-    @HostBinding('@pzmSlideInTop')
-    @HostBinding('@pzmFadeIn')
+    @HostBinding('@prizmSlideInTop')
+    @HostBinding('@prizmFadeIn')
     public get slideInTop(): PrizmAnimationOptions {
       return this.animation;
     }
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_dialog';
+    readonly testId = 'prizm_dialog';
 
-    @pzmPure
+    @prizmPure
     public get isFooterArray(): boolean {
       return Boolean(this.footer && Array.isArray(this.footer) && this.footer.length);
     }
 
-    @pzmPure
+    @prizmPure
     public get footer(): PolymorphContent<PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>> | (PrizmDialogButton<O, PrizmDialogOptions<O, DATA>>[]) {
       return this.context.footer ?? [
         {
@@ -70,8 +70,8 @@ export class PrizmDialogComponent<O = unknown, DATA = unknown> {
     } as const;
 
     constructor(
-        @Inject(PZM_ANIMATIONS_DURATION) private readonly duration: number,
-        @Inject(PZM_DIALOG_CLOSE_STREAM) readonly close$: Observable<unknown>,
+        @Inject(PRIZM_ANIMATIONS_DURATION) private readonly duration: number,
+        @Inject(PRIZM_DIALOG_CLOSE_STREAM) readonly close$: Observable<unknown>,
         private readonly destroy$: PrizmDestroyService
     ) {
         close$.pipe(takeUntil(this.destroy$)).subscribe(() => {

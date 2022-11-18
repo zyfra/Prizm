@@ -1,8 +1,8 @@
 import {Component, Inject} from '@angular/core';
-import { PrizmDialogService, PrizmOverlayInsidePlacement } from '@digital-plant/zui-components';
+import { PrizmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-dialog-service-example',
+  selector: 'prizm-dialog-service-example',
   templateUrl: './base.component.html',
   styles: [`
     .box {

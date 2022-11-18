@@ -2,7 +2,7 @@ import { Directive, HostListener } from '@angular/core';
 import { EditableColumn } from 'primeng/table';
 
 @Directive({
-  selector: '[pzmEditableColumn]',
+  selector: '[prizmEditableColumn]',
   providers: [{ provide: EditableColumn, useClass: PrizmEditableColumnDirective }],
 })
 export class PrizmEditableColumnDirective extends EditableColumn {

@@ -9,17 +9,17 @@ import {
   Optional,
   Output,
 } from '@angular/core';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { Observable } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmDay } from '../../../@core/date-time/day';
 import { PrizmDayRange } from '../../../@core/date-time/day-range';
-import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../../@core/date-time/days.const';
+import { PRIZM_FIRST_DAY, PRIZM_LAST_DAY } from '../../../@core/date-time/days.const';
 import { PrizmMonth } from '../../../@core/date-time/month';
-import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
-import { PZM_DEFAULT_MARKER_HANDLER } from '../../../constants/default-marker-handler';
-import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { PZM_CALENDAR_DATA_STREAM } from '../../../tokens/calendar-data-stream';
+import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
+import { PRIZM_DEFAULT_MARKER_HANDLER } from '../../../constants/default-marker-handler';
+import { prizmDefaultProp } from '@prizm-ui/core';
+import { PRIZM_CALENDAR_DATA_STREAM } from '../../../tokens/calendar-data-stream';
 import { PrizmBooleanHandler } from '../../../types/handler';
 import { PrizmMapper } from '../../../types/mapper';
 import { PrizmMarkerHandler } from '../../../types/marker-handler';
@@ -28,7 +28,7 @@ import { PrizmMarkerHandler } from '../../../types/marker-handler';
  * @internal
  */
 @Component({
-    selector: `pzm-primitive-calendar-range`,
+    selector: `prizm-primitive-calendar-range`,
     templateUrl: `./primitive-calendar-range.component.html`,
     styleUrls: [`./primitive-calendar-range.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -36,38 +36,38 @@ import { PrizmMarkerHandler } from '../../../types/marker-handler';
 })
 export class PrizmPrimitiveCalendarRangeComponent implements OnInit {
     @Input()
-    @pzmDefaultProp()
-    disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PZM_ALWAYS_FALSE_HANDLER;
+    @prizmDefaultProp()
+    disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PRIZM_ALWAYS_FALSE_HANDLER;
 
     @Input()
-    @pzmDefaultProp()
-    markerHandler: PrizmMarkerHandler = PZM_DEFAULT_MARKER_HANDLER;
+    @prizmDefaultProp()
+    markerHandler: PrizmMarkerHandler = PRIZM_DEFAULT_MARKER_HANDLER;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     defaultViewedMonthFirst = PrizmMonth.currentLocal();
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     defaultViewedMonthSecond = PrizmMonth.currentLocal().append({month: 1});
 
     @Input()
-    @pzmDefaultProp()
-    min = PZM_FIRST_DAY;
+    @prizmDefaultProp()
+    min = PRIZM_FIRST_DAY;
 
     @Input()
-    @pzmDefaultProp()
-    max = PZM_LAST_DAY;
+    @prizmDefaultProp()
+    max = PRIZM_LAST_DAY;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     value: PrizmDayRange | null = null;
 
     @Output()
     readonly dayClick = new EventEmitter<PrizmDay>();
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_primitive_calendar_range';
+    readonly testId = 'prizm_primitive_calendar_range';
 
     hoveredItem: PrizmDay | null = null;
 
@@ -75,7 +75,7 @@ export class PrizmPrimitiveCalendarRangeComponent implements OnInit {
     userViewedMonthSecond: PrizmMonth = this.defaultViewedMonthSecond;
 
     constructor(
-        @Inject(PZM_CALENDAR_DATA_STREAM)
+        @Inject(PRIZM_CALENDAR_DATA_STREAM)
         @Optional()
         valueChanges: Observable<PrizmDayRange | null> | null,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,

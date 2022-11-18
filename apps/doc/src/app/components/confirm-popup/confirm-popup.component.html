@@ -13,7 +13,7 @@
       heading="Base"
       [content]="exampleBase"
     >
-      <pzm-confirm-popup-base-example></pzm-confirm-popup-base-example>
+      <prizm-confirm-popup-base-example></prizm-confirm-popup-base-example>
     </tui-doc-example>
 
 <!--    TODO LATER ACTIVE after finished FOR DEV -->
@@ -22,7 +22,7 @@
 <!--      heading="With Template"-->
 <!--      [content]="exampleWithTemplate"-->
 <!--    >-->
-<!--      <pzm-confirm-popup-with-template-example></pzm-confirm-popup-with-template-example>-->
+<!--      <prizm-confirm-popup-with-template-example></prizm-confirm-popup-with-template-example>-->
 <!--    </tui-doc-example>-->
 
 <!--    TODO LATER ACTIVE after finished FOR DEV -->
@@ -31,7 +31,7 @@
 <!--      heading="With Component"-->
 <!--      [content]="exampleWithComponent"-->
 <!--    >-->
-<!--      <pzm-confirm-popup-with-component-example></pzm-confirm-popup-with-component-example>-->
+<!--      <prizm-confirm-popup-with-component-example></prizm-confirm-popup-with-component-example>-->
 <!--    </tui-doc-example>-->
 
   </ng-template>
@@ -39,14 +39,14 @@
   <ng-template pageTab>
     <tui-doc-demo>
       <button
-        pzmButton
-        [pzmConfirmPopup]="content"
-        [pzmAutoReposition]="pzmAutoReposition"
-        [pzmConfirmPopupDirection]="pzmConfirmPopupDirection"
-        [pzmConfirmPopupId]="pzmConfirmPopupId"
-        [pzmConfirmPopupShowDelay]="pzmConfirmPopupShowDelay"
-        [pzmConfirmPopupHideDelay]="pzmConfirmPopupHideDelay"
-        [pzmConfirmPopupHost]="pzmConfirmPopupHost"
+        prizmButton
+        [prizmConfirmPopup]="content"
+        [prizmAutoReposition]="prizmAutoReposition"
+        [prizmConfirmPopupDirection]="prizmConfirmPopupDirection"
+        [prizmConfirmPopupId]="prizmConfirmPopupId"
+        [prizmConfirmPopupShowDelay]="prizmConfirmPopupShowDelay"
+        [prizmConfirmPopupHideDelay]="prizmConfirmPopupHideDelay"
+        [prizmConfirmPopupHost]="prizmConfirmPopupHost"
       >
         Button
       </button>
@@ -54,7 +54,7 @@
     <tui-doc-documentation>
 
       <ng-template
-        documentationPropertyName="pzmConfirmPopup"
+        documentationPropertyName="prizmConfirmPopup"
         documentationPropertyType="string"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="content"
@@ -63,53 +63,53 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="pzmAutoReposition"
+        documentationPropertyName="prizmAutoReposition"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pzmAutoReposition"
+        [(documentationPropertyValue)]="prizmAutoReposition"
       >
         Auto Reposition
       </ng-template>
 
       <ng-template
-        documentationPropertyName="pzmConfirmPopupDirection"
+        documentationPropertyName="prizmConfirmPopupDirection"
         documentationPropertyType="PrizmOverlayOutsidePlacement"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="pzmConfirmPopupDirectionVariants"
-        [(documentationPropertyValue)]="pzmConfirmPopupDirection"
+        [documentationPropertyValues]="prizmConfirmPopupDirectionVariants"
+        [(documentationPropertyValue)]="prizmConfirmPopupDirection"
       >
         ConfirmPopup Direction
       </ng-template>
 
       <ng-template
-        documentationPropertyName="pzmConfirmPopupId"
+        documentationPropertyName="prizmConfirmPopupId"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pzmConfirmPopupId"
+        [(documentationPropertyValue)]="prizmConfirmPopupId"
       >
         ConfirmPopup Id
       </ng-template>
 
       <ng-template
-        documentationPropertyName="pzmConfirmPopupShowDelay"
+        documentationPropertyName="prizmConfirmPopupShowDelay"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pzmConfirmPopupShowDelay"
+        [(documentationPropertyValue)]="prizmConfirmPopupShowDelay"
       >
         Show Delay
       </ng-template>
 
       <ng-template
-        documentationPropertyName="pzmConfirmPopupHideDelay"
+        documentationPropertyName="prizmConfirmPopupHideDelay"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pzmConfirmPopupHideDelay"
+        [(documentationPropertyValue)]="prizmConfirmPopupHideDelay"
       >
         Hide Delay
       </ng-template>
 
       <ng-template
-        documentationPropertyName="pzmConfirmPopupHost"
+        documentationPropertyName="prizmConfirmPopupHost"
         documentationPropertyType="HtmlElement"
         documentationPropertyMode="input"
       >

@@ -1,5 +1,5 @@
-<pzm-table [value]="products" dataKey="id" editMode="row">
-  <ng-template pzmTableTemplate="header">
+<prizm-table [value]="products" dataKey="id" editMode="row">
+  <ng-template prizmTableTemplate="header">
     <tr>
       <th>Code</th>
       <th>Name</th>
@@ -8,93 +8,93 @@
       <th [style.width.rem]="6"></th>
     </tr>
   </ng-template>
-  <ng-template pzmTableTemplate="body" let-product let-editing="editing" let-ri="rowIndex">
-    <tr [pzmEditableRow]="product">
+  <ng-template prizmTableTemplate="body" let-product let-editing="editing" let-ri="rowIndex">
+    <tr [prizmEditableRow]="product">
       <td>
-        <pzm-cell-editor>
-          <ng-template pzmTableTemplate="input">
-            <pzm-input-layout class="input-layout" [outer]="true" size="s">
-              <input [(ngModel)]="product.code" pzmInput />
-            </pzm-input-layout>
+        <prizm-cell-editor>
+          <ng-template prizmTableTemplate="input">
+            <prizm-input-layout class="input-layout" [outer]="true" size="s">
+              <input [(ngModel)]="product.code" prizmInput />
+            </prizm-input-layout>
           </ng-template>
-          <ng-template pzmTableTemplate="output">
+          <ng-template prizmTableTemplate="output">
             {{ product.code }}
           </ng-template>
-        </pzm-cell-editor>
+        </prizm-cell-editor>
       </td>
       <td>
-        <pzm-cell-editor>
-          <ng-template pzmTableTemplate="input">
-            <pzm-input-layout class="input-layout" [outer]="true" size="s">
-              <input [(ngModel)]="product.name" pzmInput />
-            </pzm-input-layout>
+        <prizm-cell-editor>
+          <ng-template prizmTableTemplate="input">
+            <prizm-input-layout class="input-layout" [outer]="true" size="s">
+              <input [(ngModel)]="product.name" prizmInput />
+            </prizm-input-layout>
           </ng-template>
-          <ng-template pzmTableTemplate="output">
+          <ng-template prizmTableTemplate="output">
             <span>{{ product.name }}</span>
           </ng-template>
-        </pzm-cell-editor>
+        </prizm-cell-editor>
       </td>
       <td>
-        <pzm-cell-editor>
-          <ng-template pzmTableTemplate="input">
-            <pzm-input-layout class="input-layout" [outer]="true" size="s">
-              <input [(ngModel)]="product.category" pzmInput />
-            </pzm-input-layout>
+        <prizm-cell-editor>
+          <ng-template prizmTableTemplate="input">
+            <prizm-input-layout class="input-layout" [outer]="true" size="s">
+              <input [(ngModel)]="product.category" prizmInput />
+            </prizm-input-layout>
           </ng-template>
-          <ng-template pzmTableTemplate="output">
+          <ng-template prizmTableTemplate="output">
             {{ product.category }}
           </ng-template>
-        </pzm-cell-editor>
+        </prizm-cell-editor>
       </td>
       <td>
-        <pzm-cell-editor>
-          <ng-template pzmTableTemplate="input">
-            <pzm-input-layout class="input-layout" [outer]="true" size="s">
-              <input [(ngModel)]="product.count" pzmInput />
-            </pzm-input-layout>
+        <prizm-cell-editor>
+          <ng-template prizmTableTemplate="input">
+            <prizm-input-layout class="input-layout" [outer]="true" size="s">
+              <input [(ngModel)]="product.count" prizmInput />
+            </prizm-input-layout>
           </ng-template>
-          <ng-template pzmTableTemplate="output">
+          <ng-template prizmTableTemplate="output">
             {{ product.count }}
           </ng-template>
-        </pzm-cell-editor>
+        </prizm-cell-editor>
       </td>
       <td>
         <div class="edit-buttons-container">
-          <pzm-icon
+          <prizm-icon
             size="16"
             *ngIf="!editing"
-            pzmInitEditableRow
+            prizmInitEditableRow
             class="edit-buttons"
             iconClass="editor-mode"
             (click)="onRowEditInit(product)"
-          ></pzm-icon>
-          <pzm-icon
+          ></prizm-icon>
+          <prizm-icon
             size="16"
             *ngIf="editing"
-            pzmSaveEditableRow
+            prizmSaveEditableRow
             class="edit-buttons"
             iconClass="selection-choice"
             (click)="onRowEditSave(product)"
-          ></pzm-icon>
-          <pzm-icon
+          ></prizm-icon>
+          <prizm-icon
             size="16"
             *ngIf="editing"
-            pzmCancelEditableRow
+            prizmCancelEditableRow
             class="edit-buttons"
             iconClass="cancel-close"
             (click)="onRowEditCancel(product, ri)"
-          ></pzm-icon>
-          <pzm-icon
+          ></prizm-icon>
+          <prizm-icon
             size="16"
             *ngIf="!editing"
-            pzmCancelEditableRow
+            prizmCancelEditableRow
             class="edit-buttons"
             iconClass="delete"
             (click)="onRowDelete(product, ri)"
-          ></pzm-icon>
+          ></prizm-icon>
         </div>
       </td>
     </tr>
   </ng-template>
-</pzm-table>
+</prizm-table>
 

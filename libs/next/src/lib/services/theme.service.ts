@@ -13,7 +13,7 @@ export class PrizmThemeService {
     get theme(): PrizmTheme {
       return this.themeSource$.value
     }
-    public readonly attThemeKey = 'data-pzm-theme';
+    public readonly attThemeKey = 'data-prizm-theme';
 
     constructor(
       @Inject(DOCUMENT) private document: Document,

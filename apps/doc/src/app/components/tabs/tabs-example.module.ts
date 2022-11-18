@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TabsExampleComponent } from './tabs-example.component';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
-import { PrizmTabsModule } from '@digital-plant/zui-components';
+import { PrizmTabsModule } from '@prizm-ui/components';
 import { TabsExampleBasicComponent } from './examples/tabs-example-basic/tabs-example-basic.component';
 import { TabsExampleLinedComponent } from './examples/tabs-example-lined/tabs-example-lined.component';
 import { TabsExampleContainedComponent } from './examples/tabs-example-contained/tabs-example-contained.component';

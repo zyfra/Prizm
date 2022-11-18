@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { PrizmChipsComponent } from './chips.component';
-import { PrizmCallFuncModule, PrizmLetModule } from '@digital-plant/zyfra-helpers';
+import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmElementReadyModule, PrizmHintModule, PrizmLifecycleModule } from '../../directives';
 
 @NgModule({

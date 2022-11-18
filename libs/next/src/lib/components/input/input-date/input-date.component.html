@@ -1,19 +1,19 @@
-<pzm-dropdown-host
+<prizm-dropdown-host
     class="z-hosted"
     [canOpen]="canOpen"
     [isOpen]="open && canOpen"
     [content]="dropdown"
-    pzmDropdownHostWidth='auto'
+    prizmDropdownHostWidth='auto'
     [closeByEsc]='true'
     (isOpenChange)="onOpenChange($event)"
 >
-  <pzm-input-layout
+  <prizm-input-layout
     [label]="label"
     [outer]='outer'
     [size]="size">
     <input
       class='input-search'
-      pzmInput
+      prizmInput
       #focusableElementRef
       [mask]="computedMask"
       [showMaskTyped]='focusableElementRef.focused'
@@ -24,20 +24,20 @@
       [ngModel]="stringValue"
       (ngModelChange)='onValueChange($event || "")'
     />
-    <ng-container pzm-input-right>
+    <ng-container prizm-input-right>
       <button
-        pzmInputIconButton="date-calendar-blank"
+        prizmInputIconButton="date-calendar-blank"
         [interactive]="true"
         (click)='focusableElementRef.focus()'></button>
       <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>
       </ng-container>
     </ng-container>
-  </pzm-input-layout>
+  </prizm-input-layout>
 
   <ng-template #dropdown>
-      <pzm-calendar
-          pzmPreventDefault="mousedown"
-          automation-id="pzm-input-date__calendar"
+      <prizm-calendar
+          prizmPreventDefault="mousedown"
+          automation-id="prizm-input-date__calendar"
           [min]="min"
           [max]="max"
           [markerHandler]="markerHandler"
@@ -46,14 +46,14 @@
           [value]="value"
           (dayClick)="onDayClick($event)"
           (monthChange)="onMonthChange($event)"
-      ></pzm-calendar>
+      ></prizm-calendar>
       <div
           *ngIf="items.length === 1"
-          pzmPreventDefault="mousedown"
+          prizmPreventDefault="mousedown"
           class="z-button"
       >
           <button
-              pzmLink
+              prizmLink
               type="button"
               (click)="onDayClick(items[0].day)"
           >
@@ -61,4 +61,4 @@
           </button>
       </div>
   </ng-template>
-</pzm-dropdown-host>
+</prizm-dropdown-host>

@@ -1,5 +1,5 @@
-<pzm-card [shadow]="shadow">
-  <div class='header pzm-font-title-h4'>
+<prizm-card [shadow]="shadow">
+  <div class='header prizm-font-title-h4'>
     <ng-container *polymorphOutlet="header">
       <div class='title'>
         <ng-container *polymorphOutlet="title">
@@ -9,13 +9,13 @@
       <div class='icons' [class.divider]='icons?.length > 1'>
         <ng-container *polymorphOutlet="icons">
           <ng-container *ngFor="let icon of $any(icons)">
-            <pzm-icon (click)='iconClick.emit(icon)' [iconClass]="icon" size='16'></pzm-icon>
+            <prizm-icon (click)='iconClick.emit(icon)' [iconClass]="icon" size='16'></prizm-icon>
           </ng-container>
         </ng-container>
       </div>
     </ng-container>
   </div>
-  <div class='body pzm-font-main-body-14'>
+  <div class='body prizm-font-main-body-14'>
     <ng-content></ng-content>
   </div>
-</pzm-card>
+</prizm-card>

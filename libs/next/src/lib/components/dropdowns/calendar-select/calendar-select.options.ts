@@ -11,23 +11,23 @@ export interface PrizmDropdownHostOptions {
 }
 
 /** Default values for dropdown-host options */
-export const PZM_DROPDOWN_HOST_DEFAULT_OPTIONS: PrizmDropdownHostOptions = {
+export const PRIZM_DROPDOWN_HOST_DEFAULT_OPTIONS: PrizmDropdownHostOptions = {
   closeOnBackdrop: true,
   width: null,
   autoReposition: true,
   placement: PrizmOverlayOutsidePlacement.BOTTOM_LEFT
 };
 
-export const PZM_DROPDOWN_HOST_OPTIONS = new InjectionToken<PrizmDropdownHostOptions>(
+export const PRIZM_DROPDOWN_HOST_OPTIONS = new InjectionToken<PrizmDropdownHostOptions>(
     'Default parameters for dropdown host',
     {
-        factory: (): PrizmDropdownHostOptions => PZM_DROPDOWN_HOST_DEFAULT_OPTIONS,
+        factory: (): PrizmDropdownHostOptions => PRIZM_DROPDOWN_HOST_DEFAULT_OPTIONS,
     },
 );
 
-export const pzmDropdownHostOptionsProvider: (
+export const prizmDropdownHostOptionsProvider: (
     options: Partial<PrizmDropdownHostOptions>,
 ) => ValueProvider = (options: Partial<PrizmDropdownHostOptions>) => ({
-    provide: PZM_DROPDOWN_HOST_OPTIONS,
-    useValue: {...PZM_DROPDOWN_HOST_DEFAULT_OPTIONS, ...options},
+    provide: PRIZM_DROPDOWN_HOST_OPTIONS,
+    useValue: {...PRIZM_DROPDOWN_HOST_DEFAULT_OPTIONS, ...options},
 });

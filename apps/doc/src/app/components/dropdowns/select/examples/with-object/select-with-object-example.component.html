@@ -1,4 +1,4 @@
-<pzm-select
+<prizm-select
   [items]='items'
   [valueTemplate]='valueTemplate'
   [formControl]='valueControl'
@@ -6,7 +6,7 @@
   [identityMatcher]='identityMatcher'
   [stringify]='stringify'
   [searchable]='true'
-></pzm-select>
+></prizm-select>
 <br>
 <br>
 <div>
@@ -23,7 +23,7 @@
 
 <ng-template #valueTemplate let-value let-stringify='stringify'>
   <div class='item'>
-    <pzm-icon iconClass='account-done'></pzm-icon>
+    <prizm-icon iconClass='account-done'></prizm-icon>
     <span>{{stringify}}</span>
   </div>
 </ng-template>

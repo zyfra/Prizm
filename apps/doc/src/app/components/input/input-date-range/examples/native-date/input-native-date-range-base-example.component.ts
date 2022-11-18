@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PrizmDay, pzmGetInputDateRangeNativeTransformer } from '@digital-plant/zui-components';
+import { PrizmDay, prizmGetInputDateRangeNativeTransformer } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-input-date-range-native-example',
+  selector: 'prizm-input-date-range-native-example',
   templateUrl: './input-native-date-range-base-example.component.html',
   providers: [
-    pzmGetInputDateRangeNativeTransformer()
+    prizmGetInputDateRangeNativeTransformer()
   ],
   styles: [`
     .box {

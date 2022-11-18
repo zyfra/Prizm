@@ -13,14 +13,14 @@ import {
   PrizmInputDateTimeModule,
   PrizmInputTextModule,
   PrizmRadioButtonModule,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownHostComponent } from './dropdown-host.component';
 import { PrizmDropdownHostExampleWithTemplateComponent } from './examples/with-template/template';
 import { PrizmSelectPanelExampleComponent } from './examples/select-panel-example/select-panel-example.component';
 import { PrizmDropdownHostDateListExampleComponent } from './examples/date-list/date-list.component';
 import { PrizmDropdownHostDateListEditExampleComponent } from './examples/date-list-edit/date-list-edit.component';
-import { PrizmCallFuncModule, PrizmLetModule } from '@digital-plant/zyfra-helpers';
+import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
 
 @NgModule({
   imports: [

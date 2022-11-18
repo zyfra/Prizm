@@ -3,16 +3,16 @@ import { Component, Input } from '@angular/core';
 import { PrizmCarouselComponent } from './carousel.component';
 
 @Component({
-  selector: 'pzm-carousel-auxiliary-left',
+  selector: 'prizm-carousel-auxiliary-left',
   template: `
     <button
-      pzmInputIconButton="chevrons-double-left"
+      prizmInputIconButton="chevrons-double-left"
       (click)="carousel.left()"
       *ngIf="!carousel.lightMode && !carousel.disabled"
       [interactive]="true"
     ></button>
     <button
-      pzmInputIconButton="chevrons-left"
+      prizmInputIconButton="chevrons-left"
       (click)="carousel.stepLeft()"
       *ngIf="!carousel.disabled"
       [interactive]="true"

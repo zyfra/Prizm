@@ -1,15 +1,15 @@
 import { ElementRef, InjectionToken, Provider } from '@angular/core';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { merge, Observable, Subject } from 'rxjs';
 import { WINDOW } from '@ng-web-apis/common';
 import { DOCUMENT } from '@angular/common';
-import { pzmTypedFromEvent } from '../../../observables';
-import { pzmContainsOrAfter, pzmIsCurrentTarget } from '../../../util/dom';
+import { prizmTypedFromEvent } from '../../../observables';
+import { prizmContainsOrAfter, prizmIsCurrentTarget } from '../../../util/dom';
 import { filter, switchMapTo, take, takeUntil } from 'rxjs/operators';
 import { PrizmOverlayContentToken } from '../../../modules/overlay';
 import { PrizmOverlayContent } from '../../../modules/overlay/models';
 
-export const PZM_DIALOGS_CLOSE = new InjectionToken<Observable<void>>(
+export const PRIZM_DIALOGS_CLOSE = new InjectionToken<Observable<void>>(
     'Default close event',
     {
         factory: (): Observable<void> => new Subject<void>().asObservable(),
@@ -18,26 +18,26 @@ export const PZM_DIALOGS_CLOSE = new InjectionToken<Observable<void>>(
 
 const SCROLLBAR_PLACEHOLDER = 17;
 
-export const PZM_DIALOG_CLOSE_STREAM = new InjectionToken<Observable<unknown>>(
+export const PRIZM_DIALOG_CLOSE_STREAM = new InjectionToken<Observable<unknown>>(
   'Dialogs closing stream',
 );
-export const PZM_DIALOG_PROVIDERS: Provider[] = [
+export const PRIZM_DIALOG_PROVIDERS: Provider[] = [
   PrizmDestroyService,
   {
-    provide: PZM_DIALOG_CLOSE_STREAM,
+    provide: PRIZM_DIALOG_CLOSE_STREAM,
     deps: [
       DOCUMENT,
       WINDOW,
       ElementRef,
-      PZM_DIALOGS_CLOSE,
+      PRIZM_DIALOGS_CLOSE,
       PrizmDestroyService,
       PrizmOverlayContentToken
     ],
-    useFactory: pzmDialogCloseStreamFactory,
+    useFactory: prizmDialogCloseStreamFactory,
   },
 ];
 
-export function pzmDialogCloseStreamFactory(
+export function prizmDialogCloseStreamFactory(
   documentRef: Document,
   windowRef: Window,
   {nativeElement}: ElementRef<HTMLElement>,
@@ -49,32 +49,32 @@ export function pzmDialogCloseStreamFactory(
   return dismissible
     ? merge(
       /* on click esc */
-      pzmTypedFromEvent(documentRef, 'keydown').pipe(
+      prizmTypedFromEvent(documentRef, 'keydown').pipe(
         filter(
           ({key, target}) =>
             key === 'Escape' &&
             target instanceof Element &&
-            (!pzmContainsOrAfter(nativeElement, target) ||
+            (!prizmContainsOrAfter(nativeElement, target) ||
               nativeElement.contains(target)),
         ),
       ),
       /* on backdrop click*/
-      pzmTypedFromEvent(nativeElement, 'click').pipe(filter(pzmIsCurrentTarget)),
+      prizmTypedFromEvent(nativeElement, 'click').pipe(filter(prizmIsCurrentTarget)),
       /* on outdoor mouse events */
-      pzmTypedFromEvent(documentRef, 'mousedown').pipe(
+      prizmTypedFromEvent(documentRef, 'mousedown').pipe(
         filter(
           ({target, clientX}) =>
             target instanceof Element &&
             windowRef.innerWidth - clientX > SCROLLBAR_PLACEHOLDER &&
-            !pzmContainsOrAfter(nativeElement, target),
+            !prizmContainsOrAfter(nativeElement, target),
         ),
         switchMapTo(
-          pzmTypedFromEvent(documentRef, 'mouseup').pipe(
+          prizmTypedFromEvent(documentRef, 'mouseup').pipe(
             take(1),
             filter(
               ({target}) =>
                 target instanceof Element &&
-                !pzmContainsOrAfter(nativeElement, target),
+                !prizmContainsOrAfter(nativeElement, target),
             ),
           ),
         ),

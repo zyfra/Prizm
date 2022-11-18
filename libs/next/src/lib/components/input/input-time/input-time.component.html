@@ -1,4 +1,4 @@
-<pzm-dropdown-host
+<prizm-dropdown-host
     class="z-wrapper"
     [canOpen]="interactive && !!filtered.length"
     [content]="dropdownContent"
@@ -6,14 +6,14 @@
     (isOpenChange)="onOpen($event)"
     [closeByEsc]='true'
 >
-    <pzm-input-layout
+    <prizm-input-layout
       [label]="label"
       [outer]='outer'
       (click)='safeOpenModal()'
       [size]="size">
       <input
         class='input-search'
-        pzmInput
+        prizmInput
         #focusableElementRef
         [mask]="textMaskOptions"
         [showMaskTyped]='focusableElementRef.focused'
@@ -26,20 +26,20 @@
         (keydown.arrowUp)="onArrowUp($event)"
         (keydown.arrowDown)="onArrowDown($event)"
       />
-      <ng-container pzm-input-right>
+      <ng-container prizm-input-right>
         <button
-          pzmInputIconButton="date-clock"
+          prizmInputIconButton="date-clock"
           (click)='focusableElementRef.focus()'
           [interactive]="true"
         ></button>
         <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>
         </ng-container>
       </ng-container>
-    </pzm-input-layout>
-</pzm-dropdown-host>
+    </prizm-input-layout>
+</prizm-dropdown-host>
 
 <ng-template #dropdownContent>
-    <pzm-data-list class='block' [style.--pzm-data-list-border]='0'>
+    <prizm-data-list class='block' [style.--prizm-data-list-border]='0'>
       <ng-container *ngIf='items?.length;'>
         <div class='item'
              *ngFor='let item of filtered; let idx = index'
@@ -49,5 +49,5 @@
             </span>
         </div>
       </ng-container>
-    </pzm-data-list>
+    </prizm-data-list>
 </ng-template>

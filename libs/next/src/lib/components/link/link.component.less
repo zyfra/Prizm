@@ -3,7 +3,7 @@
 :host {
     .clearbtn();
     .transition(color);
-    color: var(--pzm-link);
+    color: var(--prizm-link);
     text-decoration: none;
     text-align: left;
     text-transform: inherit;
@@ -12,19 +12,19 @@
     outline: none;
 
     &:hover {
-        color: var(--pzm-index-plan);
+        color: var(--prizm-index-plan);
     }
 
     &:disabled {
-        opacity: var(--pzm-disabled-opacity);
+        opacity: var(--prizm-disabled-opacity);
         cursor: default;
     }
 
     &[data-host-mode='negative'] {
-        color: var(--pzm-negative);
+        color: var(--prizm-negative);
 
         &:hover {
-            color: var(--pzm-negative-hover);
+            color: var(--prizm-negative-hover);
         }
 
         &._pseudo .t-content {
@@ -33,10 +33,10 @@
     }
 
     &[data-host-mode='positive'] {
-        color: var(--pzm-positive);
+        color: var(--prizm-positive);
 
         &:hover {
-            color: var(--pzm-positive-hover);
+            color: var(--prizm-positive-hover);
         }
 
         &._pseudo .t-content {
@@ -47,15 +47,15 @@
 
 .t-content {
     :host._focus-visible & {
-        background: var(--pzm-selection);
+        background: var(--prizm-selection);
     }
 
     :host[data-host-mode='positive']._focus-visible & {
-        background: var(--pzm-success-bg);
+        background: var(--prizm-success-bg);
     }
 
     :host[data-host-mode='negative']._focus-visible & {
-        background: var(--pzm-error-bg);
+        background: var(--prizm-error-bg);
     }
 
     :host._pseudo & {

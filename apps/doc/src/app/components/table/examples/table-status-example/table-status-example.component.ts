@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ITableProduct } from '../table-basic-example/table-basic-example.component';
 
 @Component({
-  selector: 'pzm-table-status-example',
+  selector: 'prizm-table-status-example',
   templateUrl: './table-status-example.component.html',
   styleUrls: ['./table-status-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

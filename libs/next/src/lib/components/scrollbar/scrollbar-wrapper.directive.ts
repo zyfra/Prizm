@@ -1,11 +1,11 @@
 import { Directive, ElementRef } from '@angular/core';
-import { PZM_ELEMENT_REF } from '../../tokens/element-ref';
+import { PRIZM_ELEMENT_REF } from '../../tokens/element-ref';
 
 @Directive({
-    selector: '[pzmScrollbarWrapper]',
+    selector: '[prizmScrollbarWrapper]',
     providers: [
         {
-          provide: PZM_ELEMENT_REF,
+          provide: PRIZM_ELEMENT_REF,
           useExisting: ElementRef,
         },
     ],

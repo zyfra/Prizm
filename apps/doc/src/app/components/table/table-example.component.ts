@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { ITableProduct } from './examples/table-basic-example/table-basic-example.component';
-import { PrizmSizeL, PrizmSizeM, PrizmSizeS, PrizmSizeXS } from '@digital-plant/zui-components';
+import { PrizmSizeL, PrizmSizeM, PrizmSizeS, PrizmSizeXS } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-table-example',
+  selector: 'prizm-table-example',
   templateUrl: './table-example.component.html',
   styleUrls: ['./table-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

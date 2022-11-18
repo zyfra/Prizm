@@ -3,17 +3,17 @@ import { Router } from '@angular/router';
 import { LOCATION } from '@ng-web-apis/common';
 
 import { SELECTED_VERSION_META, VERSION_MANAGER_PROVIDERS } from './version-manager.providers';
-import { PZM_VERSIONS_META, PrizmVersionMeta } from './versions.constants';
+import { PRIZM_VERSIONS_META, PrizmVersionMeta } from './versions.constants';
 
 @Component({
-  selector: 'pzm-version-manager',
+  selector: 'prizm-version-manager',
   templateUrl: './version-manager.component.html',
   styleUrls: ['./version-manager.component.less'],
   providers: VERSION_MANAGER_PROVIDERS,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VersionManagerComponent {
-  readonly versions = PZM_VERSIONS_META;
+  readonly versions = PRIZM_VERSIONS_META;
 
   constructor(
     @Inject(SELECTED_VERSION_META) readonly initialVersion: PrizmVersionMeta | null,

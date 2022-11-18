@@ -14,7 +14,7 @@ import { AbstractControl, ControlValueAccessor, FormControl, NgControl, NgModel 
 import { merge, ReplaySubject, Subject } from 'rxjs';
 import { map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { AbstractPrizmInteractive } from './interactive';
-import { pzmDefaultProp } from '../decorators';
+import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmControlValueTransformer } from '../types/control-value-transformer';
 import { EMPTY_FUNCTION } from '../constants/empty';
 
@@ -40,15 +40,15 @@ export abstract class AbstractPrizmControl<T>
 
   @Input()
   @HostBinding('class._readonly')
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   readOnly = false;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   val: T;
 
   @Input()
-  @pzmDefaultProp()
+  @prizmDefaultProp()
   pseudoInvalid: boolean | null = null;
 
   @Output()

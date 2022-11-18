@@ -1,6 +1,6 @@
-import { PZM_TOAST_ID } from './types';
-import { pzmGenerateId } from '../../util';
+import { PRIZM_TOAST_ID } from './types';
+import { prizmGenerateId } from '../../util';
 
-export function generateToastId(): PZM_TOAST_ID {
-  return `pzm-toast-id__${pzmGenerateId()}`
+export function generateToastId(): PRIZM_TOAST_ID {
+  return `prizm-toast-id__${prizmGenerateId()}`
 }

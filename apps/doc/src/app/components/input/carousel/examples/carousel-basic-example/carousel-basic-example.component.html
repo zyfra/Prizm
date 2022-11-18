@@ -1,9 +1,9 @@
-<pzm-input-layout [label]="'Карусель'" [size]="'l'" [outer]="true" [position]="'center'">
-  <pzm-carousel-auxiliary-left pzm-input-left [carousel]="carousel"></pzm-carousel-auxiliary-left>
-  <pzm-carousel #carousel [required]="true" [carouselContent]="carouselContent" [value]="5">
+<prizm-input-layout [label]="'Карусель'" [size]="'l'" [outer]="true" [position]="'center'">
+  <prizm-carousel-auxiliary-left prizm-input-left [carousel]="carousel"></prizm-carousel-auxiliary-left>
+  <prizm-carousel #carousel [required]="true" [carouselContent]="carouselContent" [value]="5">
     {{ carouselContent.currentValue }}
-  </pzm-carousel>
-  <pzm-carousel-auxiliary-right pzm-input-right [carousel]="carousel"></pzm-carousel-auxiliary-right>
-  <ng-template pzmInputStatusText>Текст статуса</ng-template>
-</pzm-input-layout>
+  </prizm-carousel>
+  <prizm-carousel-auxiliary-right prizm-input-right [carousel]="carousel"></prizm-carousel-auxiliary-right>
+  <ng-template prizmInputStatusText>Текст статуса</ng-template>
+</prizm-input-layout>
 

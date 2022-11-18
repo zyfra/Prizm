@@ -1,12 +1,12 @@
-<pzm-select
+<prizm-select
   [items]='items'
   [valueTemplate]='valueTemplate'
   [formControl]='control'
-></pzm-select>
+></prizm-select>
 
 <ng-template #valueTemplate let-value let-nullContent="nullContent">
   <div class='item' *ngIf='value; else empty'>
-    <pzm-icon iconClass='account-done'></pzm-icon>
+    <prizm-icon iconClass='account-done'></prizm-icon>
     <span>{{value}}</span>
   </div>
   <ng-template #empty>

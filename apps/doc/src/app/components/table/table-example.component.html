@@ -1,48 +1,48 @@
 <tui-doc-page header="Table" package="UI" type="components">
   <ng-template pageTab>
     <tui-doc-example id="base" heading="Base" [content]="exampleBasicTable">
-      <pzm-table-basic-example></pzm-table-basic-example>
+      <prizm-table-basic-example></prizm-table-basic-example>
     </tui-doc-example>
 
     <tui-doc-example id="status" heading="Cell status" [content]="exampleStatusTable">
-      <pzm-table-status-example></pzm-table-status-example>
+      <prizm-table-status-example></prizm-table-status-example>
     </tui-doc-example>
 
     <tui-doc-example id="selectable" heading="Selectable" [content]="exampleSelectableTable">
-      <pzm-table-selectable-example></pzm-table-selectable-example>
+      <prizm-table-selectable-example></prizm-table-selectable-example>
     </tui-doc-example>
 
     <tui-doc-example id="group" heading="Group" [content]="exampleGroupTable">
-      <pzm-table-group-example></pzm-table-group-example>
+      <prizm-table-group-example></prizm-table-group-example>
     </tui-doc-example>
 
     <tui-doc-example id="editableRow" heading="Editable row" [content]="exampleEditableRowTable">
-      <pzm-table-editable-row-example></pzm-table-editable-row-example>
+      <prizm-table-editable-row-example></prizm-table-editable-row-example>
     </tui-doc-example>
 
     <tui-doc-example id="editableCol" heading="Editable col" [content]="exampleEditableColTable">
-      <pzm-table-editable-col-example></pzm-table-editable-col-example>
+      <prizm-table-editable-col-example></prizm-table-editable-col-example>
     </tui-doc-example>
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <pzm-table
+      <prizm-table
         [value]="value"
         [responsiveLayout]="responsiveLayout"
         [size]="size"
         [scrollable]="scrollable"
         [scrollHeight]="scrollHeight"
       >
-        <ng-template pzmTableTemplate="header">
+        <ng-template prizmTableTemplate="header">
           <tr>
             <th>Code</th>
             <th>Name</th>
             <th>Category</th>
-            <th pzmSortableColumn="count">Count <pzm-sort-icon field="count"></pzm-sort-icon></th>
+            <th prizmSortableColumn="count">Count <prizm-sort-icon field="count"></prizm-sort-icon></th>
           </tr>
         </ng-template>
-        <ng-template pzmTableTemplate="body" let-product>
+        <ng-template prizmTableTemplate="body" let-product>
           <tr>
             <td>{{ product.code }}</td>
             <td>{{ product.name }}</td>
@@ -50,7 +50,7 @@
             <td>{{ product.count }}</td>
           </tr>
         </ng-template>
-      </pzm-table>
+      </prizm-table>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template

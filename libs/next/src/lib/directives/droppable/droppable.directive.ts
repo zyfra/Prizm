@@ -9,46 +9,46 @@ import {
     switchMap,
     takeUntil,
 } from 'rxjs/operators';
-import {filterNotNullish, PrizmDestroyService} from "@digital-plant/zyfra-helpers";
-import {pzmTypedFromEvent} from '../../observables/typed-from-event';
-import {pzmPreventDefault} from '../../observables/prevent-default';
+import {filterNotNullish, PrizmDestroyService} from "@prizm-ui/helpers";
+import {prizmTypedFromEvent} from '../../observables/typed-from-event';
+import {prizmPreventDefault} from '../../observables/prevent-default';
 
 @Directive({
-    selector: '[pzmDroppableDropped], [pzmDroppableDragOverChange]',
+    selector: '[prizmDroppableDropped], [prizmDroppableDragOverChange]',
     providers: [PrizmDestroyService],
 })
 export class PrizmDroppableDirective {
     @Output()
-    readonly pzmDroppableDropped: Observable<DataTransfer>;
+    readonly prizmDroppableDropped: Observable<DataTransfer>;
 
     @Output()
-    readonly pzmDroppableDragOverChange: Observable<DataTransfer | null>;
+    readonly prizmDroppableDragOverChange: Observable<DataTransfer | null>;
 
     constructor(
         @Inject(ElementRef) {nativeElement}: ElementRef<HTMLElement>,
         @Inject(PrizmDestroyService) destroy$: Observable<void>,
     ) {
-        this.pzmDroppableDropped = pzmTypedFromEvent(nativeElement, 'drop').pipe(
-            pzmPreventDefault(),
+        this.prizmDroppableDropped = prizmTypedFromEvent(nativeElement, 'drop').pipe(
+            prizmPreventDefault(),
             map(event => event.dataTransfer),
             filterNotNullish()
         );
 
-        this.pzmDroppableDragOverChange = pzmTypedFromEvent(nativeElement, 'dragenter').pipe(
+        this.prizmDroppableDragOverChange = prizmTypedFromEvent(nativeElement, 'dragenter').pipe(
             switchMap(({target, dataTransfer}) =>
                 merge(
-                    pzmTypedFromEvent(nativeElement, 'dragleave').pipe(
+                    prizmTypedFromEvent(nativeElement, 'dragleave').pipe(
                         filter(event => event.target === target),
                     ),
-                    pzmTypedFromEvent(nativeElement, 'drop'),
+                    prizmTypedFromEvent(nativeElement, 'drop'),
                 ).pipe(mapTo(null), startWith(dataTransfer)),
             ),
             distinctUntilChanged((a, b) => (!!a && !!b) || (!a && !b)),
         );
 
         // Required by Drag and Drop API to stop redirecting
-        pzmTypedFromEvent(nativeElement, 'dragover')
-            .pipe(pzmPreventDefault(), takeUntil(destroy$))
+        prizmTypedFromEvent(nativeElement, 'dragover')
+            .pipe(prizmPreventDefault(), takeUntil(destroy$))
             .subscribe();
     }
 }

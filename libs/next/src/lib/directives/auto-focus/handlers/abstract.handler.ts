@@ -5,13 +5,13 @@ import { PrizmAutofocusHandler } from '../autofocus.options';
 @Directive()
 export abstract class AbstractPrizmAutofocusHandler implements PrizmAutofocusHandler {
     protected constructor(
-        protected readonly pzmFocusableComponent: PrizmFocusableElementAccessor | null,
+        protected readonly prizmFocusableComponent: PrizmFocusableElementAccessor | null,
         protected readonly elementRef: ElementRef<HTMLElement>,
     ) {}
 
     protected get element(): PrizmNativeFocusableElement {
         return (
-            this.pzmFocusableComponent?.nativeFocusableElement ||
+            this.prizmFocusableComponent?.nativeFocusableElement ||
             this.elementRef.nativeElement
         );
     }

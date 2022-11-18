@@ -1,6 +1,6 @@
 import { PrizmShadowType, PrizmShadowTypeEnum, PrizmShadowValue } from './models';
 
-export function pzmGetShadow(type: PrizmShadowType): PrizmShadowValue {
+export function prizmGetShadow(type: PrizmShadowType): PrizmShadowValue {
   switch (type) {
     case PrizmShadowTypeEnum.miniBottom:
       return PrizmShadowValue.miniBottom

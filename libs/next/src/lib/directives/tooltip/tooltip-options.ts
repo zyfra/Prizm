@@ -11,7 +11,7 @@ export interface PrizmTooltipOptions {
 }
 
 /** Default values for hint options */
-export const PZM_TOOLTIP_DEFAULT_OPTIONS: PrizmTooltipOptions = {
+export const PRIZM_TOOLTIP_DEFAULT_OPTIONS: PrizmTooltipOptions = {
     showDelay: 100,
     hideDelay: 100,
     autoReposition: true,
@@ -19,16 +19,16 @@ export const PZM_TOOLTIP_DEFAULT_OPTIONS: PrizmTooltipOptions = {
     direction: PrizmOverlayOutsidePlacement.RIGHT,
 };
 
-export const PZM_TOOLTIP_OPTIONS = new InjectionToken<PrizmTooltipOptions>(
+export const PRIZM_TOOLTIP_OPTIONS = new InjectionToken<PrizmTooltipOptions>(
     'Default parameters for tooltip directive',
     {
-        factory: (): PrizmTooltipOptions => PZM_TOOLTIP_DEFAULT_OPTIONS,
+        factory: (): PrizmTooltipOptions => PRIZM_TOOLTIP_DEFAULT_OPTIONS,
     },
 );
 
-export const pzmTooltipOptionsProvider: (
+export const prizmTooltipOptionsProvider: (
     options: Partial<PrizmTooltipOptions>,
 ) => ValueProvider = (options: Partial<PrizmTooltipOptions>) => ({
-    provide: PZM_TOOLTIP_OPTIONS,
-    useValue: {...PZM_TOOLTIP_DEFAULT_OPTIONS, ...options},
+    provide: PRIZM_TOOLTIP_OPTIONS,
+    useValue: {...PRIZM_TOOLTIP_DEFAULT_OPTIONS, ...options},
 });

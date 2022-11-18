@@ -10,7 +10,7 @@ import {
   PrizmInputDateRelativeModule,
   PrizmInputDateTimeModule,
   PrizmInputTimeModule,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputDateMultiBaseExampleComponent } from './examples/base/input-date-multi-base-example.component';
 import { PrizmInputDateMultiFourExampleComponent } from './examples/four/input-date-multi-four-example.component';

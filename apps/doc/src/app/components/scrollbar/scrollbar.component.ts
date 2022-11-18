@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PrizmScrollbarVisibility, PrizmSizeL, PrizmSizeM } from '@digital-plant/zui-components';
+import { PrizmScrollbarVisibility, PrizmSizeL, PrizmSizeM } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-scrollbar-example',
+  selector: 'prizm-scrollbar-example',
   templateUrl: './scrollbar.component.html',
   styleUrls: ['./scrollbar.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -1,28 +1,28 @@
-<pzm-input-layout label="Заголовок" size="l" status="default" [position]="'center'">
+<prizm-input-layout label="Заголовок" size="l" status="default" [position]="'center'">
   <button
-    pzmInputIconButton="delete-minus"
-    pzmInputNumberAuxiliaryControl="decrement"
-    pzm-input-left
+    prizmInputIconButton="delete-minus"
+    prizmInputNumberAuxiliaryControl="decrement"
+    prizm-input-left
     [inputNumber]="inputNumber"
     [interactive]="true"
   ></button>
 
   <input
-    pzmInputNumber
+    prizmInputNumber
     placeholder="Введите название"
     [min]="0"
     [max]="10"
     [value]="2"
     [step]="2"
-    #inputNumber="pzmInputNumber"
+    #inputNumber="prizmInputNumber"
   />
 
   <button
-    pzmInputIconButton="add-plus"
-    pzmInputNumberAuxiliaryControl="increment"
+    prizmInputIconButton="add-plus"
+    prizmInputNumberAuxiliaryControl="increment"
     [inputNumber]="inputNumber"
-    pzm-input-right
+    prizm-input-right
     [interactive]="true"
   ></button>
-</pzm-input-layout>
+</prizm-input-layout>
 

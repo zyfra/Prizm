@@ -3,7 +3,7 @@ import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
 import {TZyfraButtonIconPosision} from "@digital-plant/zyfra-components";
 
 @Component({
-  selector: 'pzm-overlay-example',
+  selector: 'prizm-overlay-example',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

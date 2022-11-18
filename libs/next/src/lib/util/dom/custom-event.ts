@@ -1,5 +1,5 @@
 /** @deprecated only needed for IE, remove in 2.0 */
-export function pzmCustomEvent<T = null>(
+export function prizmCustomEvent<T = null>(
     name: string,
     {bubbles = false, cancelable = false, detail = null}: CustomEventInit<T | null> = {},
     documentRef: Document,

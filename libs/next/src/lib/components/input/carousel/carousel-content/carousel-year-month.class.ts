@@ -1,4 +1,4 @@
-import { pzmDefaultCarouselControlsState, PrizmCarouselContent } from './carousel-content.interface';
+import { prizmDefaultCarouselControlsState, PrizmCarouselContent } from './carousel-content.interface';
 
 export type PrizmCarouselPrizmCarouselYearMonthValue = { year: number; month: number };
 
@@ -18,7 +18,7 @@ export class PrizmCarouselYearMonth implements PrizmCarouselContent {
     }
   }
 
-  public controlsState = { ...pzmDefaultCarouselControlsState };
+  public controlsState = { ...prizmDefaultCarouselControlsState };
 
   public setCurrentValue(element: PrizmCarouselPrizmCarouselYearMonthValue): void {
     this.currentValue = element;

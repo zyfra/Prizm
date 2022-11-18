@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
-import { pzmGetShadow, PrizmShadowType } from '../../directives/shadow';
+import { prizmGetShadow, PrizmShadowType } from '../../directives/shadow';
 import { PrizmShadowValue } from '../../directives/shadow/models';
 
 @Component({
-    selector: 'pzm-card',
+    selector: 'prizm-card',
     templateUrl: './card.component.html',
     styleUrls: ['./card.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,9 +14,9 @@ export class PrizmCardComponent {
 
   @HostBinding('style.box-shadow')
   private get boxShadow(): PrizmShadowValue {
-    return pzmGetShadow(this.shadow)
+    return prizmGetShadow(this.shadow)
   }
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_card';
+  readonly testId = 'prizm_card';
 }

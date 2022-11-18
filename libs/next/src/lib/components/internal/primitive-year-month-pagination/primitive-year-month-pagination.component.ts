@@ -1,13 +1,13 @@
 import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
-import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../../@core/date-time/days.const';
+import { PRIZM_FIRST_DAY, PRIZM_LAST_DAY } from '../../../@core/date-time/days.const';
 import { PrizmMonth } from '../../../@core/date-time/month';
 import { PrizmYear } from '../../../@core/date-time/year';
-import { pzmDefaultProp } from '../../../decorators/default-prop';
+import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmMonthLike } from '../../../types/month-like';
 import { PrizmWithOptionalMinMax } from '../../../types/with-optional-min-max';
 
 @Component({
-    selector: `pzm-primitive-year-month-pagination`,
+    selector: `prizm-primitive-year-month-pagination`,
     templateUrl: `./primitive-year-month-pagination.component.html`,
     styleUrls: [`./primitive-year-month-pagination.component.less`],
 })
@@ -15,27 +15,27 @@ export class PrizmPrimitiveYearMonthPaginationComponent
     implements PrizmWithOptionalMinMax<PrizmMonth>
 {
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     value = PrizmMonth.currentLocal();
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     hideButtons = false;
 
     @Input()
-    @pzmDefaultProp()
-    min: PrizmMonth = PZM_FIRST_DAY;
+    @prizmDefaultProp()
+    min: PrizmMonth = PRIZM_FIRST_DAY;
 
     @Input()
-    @pzmDefaultProp()
-    max: PrizmMonth = PZM_LAST_DAY;
+    @prizmDefaultProp()
+    max: PrizmMonth = PRIZM_LAST_DAY;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     monthActive = false;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     yearActive = false;
 
     @Output()
@@ -48,7 +48,7 @@ export class PrizmPrimitiveYearMonthPaginationComponent
     readonly monthClick = new EventEmitter<PrizmMonth>();
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_primitive_year_month_pagination';
+    readonly testId = 'prizm_primitive_year_month_pagination';
 
     public get prevMonthDisabled(): boolean {
         return this.value.monthSameOrBefore?.(this.min);

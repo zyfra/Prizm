@@ -1,11 +1,11 @@
 import { Directive, ElementRef } from '@angular/core';
-import { PZM_SCROLL_REF } from '../../tokens';
+import { PRIZM_SCROLL_REF } from '../../tokens';
 
 @Directive({
-    selector: '[pzmScrollRef]',
+    selector: '[prizmScrollRef]',
     providers: [
         {
-            provide: PZM_SCROLL_REF,
+            provide: PRIZM_SCROLL_REF,
             useExisting: ElementRef,
         },
     ],

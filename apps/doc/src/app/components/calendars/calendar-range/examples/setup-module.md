@@ -1,6 +1,6 @@
 ```ts
 import {NgModule} from '@angular/core';
-import {PrizmCalendarRangeModule} from "@digital-plant/zui-components";
+import {PrizmCalendarRangeModule} from "@prizm-ui/components";
 
 // ...
 

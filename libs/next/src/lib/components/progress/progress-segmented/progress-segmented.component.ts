@@ -1,23 +1,23 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
-import { pzmDefaultProp } from '../../../decorators';
-import { pzmIsString } from '../../../util/common/is-string';
+import { prizmDefaultProp } from '@prizm-ui/core';
+import { prizmIsString } from '../../../util/common/is-string';
 
 @Component({
-    selector: `pzm-progress-segmented`,
+    selector: `prizm-progress-segmented`,
     templateUrl: `./progress-segmented.component.html`,
     styleUrls: [`./progress-segmented.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmProgressSegmentedComponent {
     @Input()
-    @pzmDefaultProp(
+    @prizmDefaultProp(
         (value: number) => Number.isInteger(value) && value >= 0,
         `Must be non-negative integer between 0 and max`,
     )
     value = 0;
 
     @Input()
-    @pzmDefaultProp(
+    @prizmDefaultProp(
         (value: number) => Number.isInteger(value) && value > 0,
         `Must be positive integer`,
     )
@@ -28,11 +28,11 @@ export class PrizmProgressSegmentedComponent {
     size: "s" | "m" = `m`;
 
     @Input()
-    @pzmDefaultProp()
-    colors: string | readonly string[] = `var(--pzm-primary)`;
+    @prizmDefaultProp()
+    colors: string | readonly string[] = `var(--prizm-primary)`;
 
     public getActiveColor(index: number = 0): string | null {
-        return pzmIsString(this.colors)
+        return prizmIsString(this.colors)
             ? this.colors
             : this.colors[index] || this.colors[this.colors.length - 1];
     }

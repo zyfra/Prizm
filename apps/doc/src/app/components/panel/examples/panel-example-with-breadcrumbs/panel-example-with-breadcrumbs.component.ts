@@ -1,12 +1,12 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { IBreadcrumb } from '@digital-plant/zui-components';
+import { IBreadcrumb } from '@prizm-ui/components';
 
 interface ITranslator extends IBreadcrumb {
   prop: string;
 }
 
 @Component({
-  selector: 'pzm-panel-with-breadcrumbs',
+  selector: 'prizm-panel-with-breadcrumbs',
   templateUrl: './panel-example-with-breadcrumbs.component.html',
   styleUrls: ['./panel-example-with-breadcrumbs.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

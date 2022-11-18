@@ -1,20 +1,20 @@
 import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PZM_ANIMATIONS_DURATION } from '../../../tokens';
-import { PZM_DIALOG_CLOSE_STREAM, PZM_DIALOG_PROVIDERS } from '../dialog/dialog-options';
-import { PrizmAnimationOptions, pzmFadeIn, pzmSlideInTop } from '../../../animations';
+import { PRIZM_ANIMATIONS_DURATION } from '../../../tokens';
+import { PRIZM_DIALOG_CLOSE_STREAM, PRIZM_DIALOG_PROVIDERS } from '../dialog/dialog-options';
+import { PrizmAnimationOptions, prizmFadeIn, prizmSlideInTop } from '../../../animations';
 import { takeUntil } from 'rxjs/operators';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmBaseDialogContext, PrizmDialogSize } from '../dialog';
 import { PrizmConfirmDialogOptions, PrizmConfirmDialogResultDefaultType } from './confirm-dialog.models';
 
 @Component({
-    selector: 'pzm-confirm-dialog',
+    selector: 'prizm-confirm-dialog',
     templateUrl: './confirm-dialog.component.html',
     styleUrls: ['./confirm-dialog.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: PZM_DIALOG_PROVIDERS,
-    animations: [pzmSlideInTop, pzmFadeIn],
+    providers: PRIZM_DIALOG_PROVIDERS,
+    animations: [prizmSlideInTop, prizmFadeIn],
 })
 export class PrizmDialogConfirmComponent<DATA = unknown> {
     @Input()
@@ -23,24 +23,24 @@ export class PrizmDialogConfirmComponent<DATA = unknown> {
     @Input()
     public close!: () => void;
 
-    @HostBinding('attr.pzm-size')
+    @HostBinding('attr.prizm-size')
     public get size(): PrizmDialogSize {
       return this.context.size
     };
 
-    @HostBinding('attr.pzm-dialog-id')
+    @HostBinding('attr.prizm-dialog-id')
     public get id(): string {
       return this.context.id
     };
 
-    @HostBinding('@pzmSlideInTop')
-    @HostBinding('@pzmFadeIn')
+    @HostBinding('@prizmSlideInTop')
+    @HostBinding('@prizmFadeIn')
     public get slideInTop(): PrizmAnimationOptions {
       return this.animation;
     }
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_confirm_dialog';
+    readonly testId = 'prizm_confirm_dialog';
 
     private readonly animation = {
         value: '',
@@ -51,8 +51,8 @@ export class PrizmDialogConfirmComponent<DATA = unknown> {
     } as const;
 
     constructor(
-        @Inject(PZM_ANIMATIONS_DURATION) private readonly duration: number,
-        @Inject(PZM_DIALOG_CLOSE_STREAM) readonly close$: Observable<unknown>,
+        @Inject(PRIZM_ANIMATIONS_DURATION) private readonly duration: number,
+        @Inject(PRIZM_DIALOG_CLOSE_STREAM) readonly close$: Observable<unknown>,
         private readonly destroy$: PrizmDestroyService,
         private readonly elRef: ElementRef,
     ) {

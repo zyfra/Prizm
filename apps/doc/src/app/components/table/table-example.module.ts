@@ -9,7 +9,7 @@ import {
   PrizmInputTextModule,
   PrizmPaginatorModule,
   PrizmTableModule,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
 import { TableModule } from 'primeng/table';
 import { FormsModule } from '@angular/forms';
 import { TableSelectableExampleComponent } from './examples/table-selectable-example/table-selectable-example.component';

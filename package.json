@@ -41,6 +41,7 @@
     "@angular/platform-browser": "^12.2.0",
     "@angular/platform-browser-dynamic": "^12.2.0",
     "@angular/router": "^12.2.0",
+    "@antv/g2plot": "^2.4.22",
     "@compodoc/compodoc": "^1.1.15",
     "@ng-web-apis/common": "^1.13.0",
     "@nrwl/angular": "13.1.2",

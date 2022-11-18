@@ -3,87 +3,87 @@
     <p>Use PrizmDropdownHostComponent to view dropdown.</p>
 
     <tui-doc-example id="base" heading="With Template" [content]="exampleWithTemplate">
-      <pzm-dropdown-host-example-with-template></pzm-dropdown-host-example-with-template>
+      <prizm-dropdown-host-example-with-template></prizm-dropdown-host-example-with-template>
     </tui-doc-example>
 
     <tui-doc-example id="select-panel" heading="Select panel" [content]="exampleWithSelectPanel">
-      <pzm-select-panel-example></pzm-select-panel-example>
+      <prizm-select-panel-example></prizm-select-panel-example>
     </tui-doc-example>
 
     <tui-doc-example id="select-panel" heading="Date Range Template (Nested Dropdown)" [content]="exampleDateRangeList">
-      <pzm-dropdown-host-date-list-example></pzm-dropdown-host-date-list-example>
+      <prizm-dropdown-host-date-list-example></prizm-dropdown-host-date-list-example>
     </tui-doc-example>
 
     <tui-doc-example id="select-panel" heading="Date Range 2 Template" [content]="exampleDateRangeListEdit">
-      <pzm-dropdown-host-date-list-edit-example></pzm-dropdown-host-date-list-edit-example>
+      <prizm-dropdown-host-date-list-edit-example></prizm-dropdown-host-date-list-edit-example>
     </tui-doc-example>
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <pzm-dropdown-host
+      <prizm-dropdown-host
         [content]="withHeaderAndFooter"
         [(isOpen)]="isOpen"
         [autoReposition]="autoReposition"
-        [pzmDropdownHostWidth]="pzmDropdownHostWidth"
+        [prizmDropdownHostWidth]="prizmDropdownHostWidth"
         [placement]="placement"
-        [pzmDropdownHostCloseOnBackdropClick]="closeOnBackdropClick"
+        [prizmDropdownHostCloseOnBackdropClick]="closeOnBackdropClick"
       >
-        <button pzmButton type="button" (click)="isOpen = !isOpen">Button</button>
-      </pzm-dropdown-host>
+        <button prizmButton type="button" (click)="isOpen = !isOpen">Button</button>
+      </prizm-dropdown-host>
 
       <ng-template #withHeaderAndFooter>
         <div>
-          <pzm-data-list>
+          <prizm-data-list>
             <ng-container header>Заголовок блока</ng-container>
             <div class="box">
-              <button pzmButton appearanceType="outline">Кнопка 1</button>
-              <button pzmButton appearanceType="outline">Кнопка 2</button>
+              <button prizmButton appearanceType="outline">Кнопка 1</button>
+              <button prizmButton appearanceType="outline">Кнопка 2</button>
             </div>
             <ng-container footer>
-              <button pzmButton (click)="isOpen = false; cdRef.markForCheck()">Закрыть</button>
+              <button prizmButton (click)="isOpen = false; cdRef.markForCheck()">Закрыть</button>
             </ng-container>
-          </pzm-data-list>
+          </prizm-data-list>
         </div>
       </ng-template>
 
       <ng-template #withHeader>
-        <pzm-data-list>
+        <prizm-data-list>
           <div class="box">
-            <button pzmButton appearanceType="outline">Кнопка 1</button>
-            <button pzmButton appearanceType="outline">Кнопка 2</button>
+            <button prizmButton appearanceType="outline">Кнопка 1</button>
+            <button prizmButton appearanceType="outline">Кнопка 2</button>
           </div>
           <ng-container footer>
-            <button pzmButton (click)="isOpen = false; cdRef.markForCheck()">Закрыть</button>
+            <button prizmButton (click)="isOpen = false; cdRef.markForCheck()">Закрыть</button>
           </ng-container>
-        </pzm-data-list>
+        </prizm-data-list>
       </ng-template>
 
       <ng-template #withFooter>
-        <pzm-data-list>
+        <prizm-data-list>
           <ng-container header>Заголовок блока</ng-container>
           <div class="box">
-            <button pzmButton appearanceType="outline">Кнопка 1</button>
-            <button pzmButton appearanceType="outline">Кнопка 2</button>
+            <button prizmButton appearanceType="outline">Кнопка 1</button>
+            <button prizmButton appearanceType="outline">Кнопка 2</button>
           </div>
-        </pzm-data-list>
+        </prizm-data-list>
       </ng-template>
 
       <ng-template #onlyContent>
-        <pzm-data-list>
+        <prizm-data-list>
           <div class="box">
-            <button pzmButton appearanceType="outline">Кнопка 1</button>
-            <button pzmButton appearanceType="outline">Кнопка 2</button>
+            <button prizmButton appearanceType="outline">Кнопка 1</button>
+            <button prizmButton appearanceType="outline">Кнопка 2</button>
           </div>
-        </pzm-data-list>
+        </prizm-data-list>
       </ng-template>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
-        documentationPropertyName="pzmDropdownHostWidth"
+        documentationPropertyName="prizmDropdownHostWidth"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pzmDropdownHostWidth"
+        [(documentationPropertyValue)]="prizmDropdownHostWidth"
       >
         Host Witdh
       </ng-template>

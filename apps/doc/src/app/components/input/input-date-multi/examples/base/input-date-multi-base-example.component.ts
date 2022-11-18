@@ -1,16 +1,16 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PrizmDateItemTemplate, PrizmDay, PrizmTime } from '@digital-plant/zui-components';
+import { PrizmDateItemTemplate, PrizmDay, PrizmTime } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-input-date-multi-base-example',
+  selector: 'prizm-input-date-multi-base-example',
   templateUrl: './input-date-multi-base-example.component.html',
   styles: [`
     .box {
       display: flex;
       gap: 1rem;
     }
-    pzm-input-date-multi {
+    prizm-input-date-multi {
       width: 20rem;
     }
   `]

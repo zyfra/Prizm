@@ -1,15 +1,15 @@
-import { PZM_DIGIT_REGEXP } from '../../constants';
+import { PRIZM_DIGIT_REGEXP } from '../../constants';
 import { PrizmDateMode } from '../../types/date-mode';
 import { PrizmTextMaskList } from './text-mask-list';
 
-const TWO_DIGITS = new Array(2).fill(PZM_DIGIT_REGEXP);
-const FOUR_DIGITS = new Array(4).fill(PZM_DIGIT_REGEXP);
+const TWO_DIGITS = new Array(2).fill(PRIZM_DIGIT_REGEXP);
+const FOUR_DIGITS = new Array(4).fill(PRIZM_DIGIT_REGEXP);
 
 /**
  * @deprecated
- * use pzmCreateDateNgxMask
+ * use prizmCreateDateNgxMask
  * */
-export function pzmCreateDateMask(mode: PrizmDateMode, separator: string): PrizmTextMaskList {
+export function prizmCreateDateMask(mode: PrizmDateMode, separator: string): PrizmTextMaskList {
     console.assert(separator.length === 1, `Separator should consist of only 1 symbol`);
 
     switch (mode) {
@@ -22,7 +22,7 @@ export function pzmCreateDateMask(mode: PrizmDateMode, separator: string): Prizm
     }
 }
 
-export function pzmCreateDateNgxMask(mode: PrizmDateMode, separator: string): any {
+export function prizmCreateDateNgxMask(mode: PrizmDateMode, separator: string): any {
     console.assert(separator.length === 1, `Separator should consist of only 1 symbol`);
 
     switch (mode) {

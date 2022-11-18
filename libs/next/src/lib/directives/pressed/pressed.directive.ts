@@ -1,19 +1,19 @@
 import { Directive, ElementRef, Inject, Output } from '@angular/core';
-import { pzmPressedObservable } from '../../observables/pressed-observable';
-import { PZM_TAKE_ONLY_TRUSTED_EVENTS } from '../../tokens/take-only-trusted-events';
+import { prizmPressedObservable } from '../../observables/pressed-observable';
+import { PRIZM_TAKE_ONLY_TRUSTED_EVENTS } from '../../tokens/take-only-trusted-events';
 
 @Directive({
-    selector: '[pzmPressedChange]',
+    selector: '[prizmPressedChange]',
 })
 export class PrizmPressedDirective {
     @Output()
-    readonly pzmPressedChange = pzmPressedObservable(this.elementRef.nativeElement, {
+    readonly prizmPressedChange = prizmPressedObservable(this.elementRef.nativeElement, {
         onlyTrusted: this.takeOnlyTrustedEvents,
     });
 
     constructor(
         @Inject(ElementRef) private readonly elementRef: ElementRef<Element>,
-        @Inject(PZM_TAKE_ONLY_TRUSTED_EVENTS)
+        @Inject(PRIZM_TAKE_ONLY_TRUSTED_EVENTS)
         private readonly takeOnlyTrustedEvents: boolean,
     ) {}
 }

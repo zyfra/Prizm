@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pzm-split-buttons-example',
+  selector: 'prizm-split-buttons-example',
   styles: [
     `
       .box {

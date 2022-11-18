@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { PolymorphComponent, PrizmOverlayOutsidePlacement } from '@digital-plant/zui-components';
+import { PolymorphComponent, PrizmOverlayOutsidePlacement } from '@prizm-ui/components';
 import { PrizmConfirmPopupSomeComponent } from './some.component';
 
 @Component({
-  selector: 'pzm-confirm-popup-with-component-example',
+  selector: 'prizm-confirm-popup-with-component-example',
   templateUrl: './confirm-popup-with-component-example.component.html',
   styles: [`
     .box {

@@ -11,14 +11,14 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AbstractPrizmInteractive } from '../../../abstract/interactive';
-import { pzmDefaultProp } from '../../../decorators/default-prop';
-import { PZM_SPIN_TEXTS } from '../../../tokens/i18n';
+import { prizmDefaultProp } from '@prizm-ui/core';
+import { PRIZM_SPIN_TEXTS } from '../../../tokens/i18n';
 import { PrizmAppearanceTypeGhost } from '../../../types/appearance.types';
-import { pzmIsNativeFocused } from '../../../util/is-native-focused';
+import { prizmIsNativeFocused } from '../../../util/is-native-focused';
 
 // @dynamic
 @Component({
-    selector: `pzm-primitive-spin-button`,
+    selector: `prizm-primitive-spin-button`,
     changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: `./primitive-spin-button.template.html`,
     styleUrls: [`./primitive-spin-button.component.less`],
@@ -28,19 +28,19 @@ export class PrizmPrimitiveSpinButtonComponent extends AbstractPrizmInteractive 
     private readonly wrapper?: ElementRef<HTMLElement>;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     disabled = false;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     mode: PrizmAppearanceTypeGhost = 'ghost';
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     leftDisabled = false;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     rightDisabled = false;
 
     @Output()
@@ -50,16 +50,16 @@ export class PrizmPrimitiveSpinButtonComponent extends AbstractPrizmInteractive 
     readonly rightClick = new EventEmitter<void>();
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_primitive_spin_button';
+    readonly testId = 'prizm_primitive_spin_button';
 
     constructor(
-        @Inject(PZM_SPIN_TEXTS) readonly spinTexts$: Observable<[string, string]>,
+        @Inject(PRIZM_SPIN_TEXTS) readonly spinTexts$: Observable<[string, string]>,
     ) {
         super();
     }
 
     public get focused(): boolean {
-        return !!this.wrapper && pzmIsNativeFocused(this.wrapper.nativeElement);
+        return !!this.wrapper && prizmIsNativeFocused(this.wrapper.nativeElement);
     }
 
     public get leftComputedDisabled(): boolean {

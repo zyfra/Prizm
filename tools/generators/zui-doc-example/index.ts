@@ -6,7 +6,7 @@ import { chain } from '@angular-devkit/schematics';
 export default async function (tree: Tree, schema: PrizmDocExampleGeneratorSchema) {
   const moduleName = schema.name
   const normalizedClassName= names(moduleName).className;
-  const normalizedExampleSelectorName= names(`pzm-doc-${moduleName}-base-example`).fileName;
+  const normalizedExampleSelectorName= names(`prizm-doc-${moduleName}-base-example`).fileName;
   const normalizedExampleClassName = names(`${moduleName}BaseExample`).className;
   const variables = {
     title: capitalizeFirstLetter(schema.title ?? schema.name),

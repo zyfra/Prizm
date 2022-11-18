@@ -3,7 +3,7 @@ import { timer } from 'rxjs';
 import { map, startWith, takeWhile } from 'rxjs/operators';
 
 @Component({
-  selector: 'pzm-progress-circle-example',
+  selector: 'prizm-progress-circle-example',
   templateUrl: './progress-circle-example.component.html',
   styles: [`
     .box {
@@ -32,7 +32,7 @@ export class PrizmProgressCircleExampleComponent {
       startWith(30),
   );
   readonly colors = [
-    `var(--pzm-index-warning)`,
+    `var(--prizm-index-warning)`,
     `lightskyblue`,
     `#3682db`,
     `red`,

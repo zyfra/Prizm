@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { CheckboxBasicExampleComponent } from './examples/checkbox-basic-example/checkbox-basic-example.component';
 import { CheckboxExampleComponent } from './checkbox-example.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PrizmCheckboxModule } from '@digital-plant/zui-components';
+import { PrizmCheckboxModule } from '@prizm-ui/components';
 import { CheckboxFormExampleComponent } from './examples/checkbox-form-example/checkbox-form-example.component';
 import { PrizmCheckboxGroupExampleComponent } from './examples/checkbox-group-example/checkbox-group-example.component';
 

@@ -1,7 +1,7 @@
 import { PrizmDateMode } from '../../types/date-mode';
-import { pzmCreateDateNgxMask } from './create-date-mask';
+import { prizmCreateDateNgxMask } from './create-date-mask';
 
-export function pzmCreateDateRangeMask(
+export function prizmCreateDateRangeMask(
     dateMode: PrizmDateMode,
     dateSeparator: string,
 ): string {
@@ -10,7 +10,7 @@ export function pzmCreateDateRangeMask(
         `Separator should consist of only 1 symbol`,
     );
 
-    const dateMask = pzmCreateDateNgxMask(dateMode, dateSeparator);
+    const dateMask = prizmCreateDateNgxMask(dateMode, dateSeparator);
 
     return `${dateMask} - ${dateMask}`
 }

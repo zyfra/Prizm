@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pzm-icons-buttons-example',
+  selector: 'prizm-icons-buttons-example',
   styles: [
     `
       .box {
@@ -21,4 +21,4 @@ import { Component } from '@angular/core';
   ],
   templateUrl: './icons-buttons-example.component.html',
 })
-export class pzmIconsButtonsExampleComponent {}
+export class prizmIconsButtonsExampleComponent {}

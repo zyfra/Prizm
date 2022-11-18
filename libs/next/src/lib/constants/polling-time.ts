@@ -1,1 +1,1 @@
-export const PZM_POLLING_TIME = 1000/15;
+export const PRIZM_POLLING_TIME = 1000/15;

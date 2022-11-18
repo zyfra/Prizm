@@ -1,28 +1,28 @@
-<pzm-calendar
+<prizm-calendar
     [min]="min"
     [max]="max"
     [month]="userViewedMonthFirst"
     [markerHandler]="markerHandler"
-    [maxViewedMonth]="cappedUserViewedMonthSecond | pzmMapper: monthOffset:-1"
+    [maxViewedMonth]="cappedUserViewedMonthSecond | prizmMapper: monthOffset:-1"
     [value]="value"
     [disabledItemHandler]="disabledItemHandler"
     [showAdjacent]="false"
     [(hoveredItem)]="hoveredItem"
     (dayClick)="onDayClick($event)"
     (monthChange)="onSectionFirstViewedMonth($event)"
-></pzm-calendar>
+></prizm-calendar>
 
-<pzm-calendar
+<prizm-calendar
     class="z-border"
     [min]="min"
     [max]="max"
     [month]="userViewedMonthSecond"
     [markerHandler]="markerHandler"
-    [minViewedMonth]="cappedUserViewedMonthFirst | pzmMapper: monthOffset:1"
+    [minViewedMonth]="cappedUserViewedMonthFirst | prizmMapper: monthOffset:1"
     [value]="value"
     [disabledItemHandler]="disabledItemHandler"
     [showAdjacent]="false"
     [(hoveredItem)]="hoveredItem"
     (dayClick)="onDayClick($event)"
     (monthChange)="onSectionSecondViewedMonth($event)"
-></pzm-calendar>
+></prizm-calendar>

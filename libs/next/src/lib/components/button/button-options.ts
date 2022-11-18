@@ -9,24 +9,24 @@ export interface PrizmButtonOptions {
     readonly appearanceType: PrizmAppearanceType;
 }
 
-export const PZM_BUTTON_DEFAULT_OPTIONS: PrizmButtonOptions = {
+export const PRIZM_BUTTON_DEFAULT_OPTIONS: PrizmButtonOptions = {
     size: 'l',
     appearance: 'primary',
     appearanceType: 'fill',
 };
 
-export const PZM_BUTTON_OPTIONS = new InjectionToken<PrizmButtonOptions>(
+export const PRIZM_BUTTON_OPTIONS = new InjectionToken<PrizmButtonOptions>(
     'Default parameters for button component',
     {
-        factory: (): PrizmButtonOptions  => PZM_BUTTON_DEFAULT_OPTIONS,
+        factory: (): PrizmButtonOptions  => PRIZM_BUTTON_DEFAULT_OPTIONS,
     },
 );
 
-export const pzmButtonOptionsProvider: (
+export const prizmButtonOptionsProvider: (
     options: Partial<PrizmButtonOptions>,
 ) => ValueProvider = (options: Partial<PrizmButtonOptions>) => ({
-    provide: PZM_BUTTON_OPTIONS,
-    useValue: {...PZM_BUTTON_DEFAULT_OPTIONS, ...options},
+    provide: PRIZM_BUTTON_OPTIONS,
+    useValue: {...PRIZM_BUTTON_DEFAULT_OPTIONS, ...options},
 });
 
 export type PrizmContent<T = unknown> = TemplateRef<T> | string

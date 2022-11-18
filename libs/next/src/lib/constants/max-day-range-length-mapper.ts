@@ -2,7 +2,7 @@ import { PrizmDay, PrizmDayRange } from '../@core/date-time';
 import { PrizmDayLike } from '../types/day-like';
 import { PrizmMapper } from '../types/mapper';
 
-export const PZM_MAX_DAY_RANGE_LENGTH_MAPPER: PrizmMapper<PrizmDay, PrizmDay> = (
+export const PRIZM_MAX_DAY_RANGE_LENGTH_MAPPER: PrizmMapper<PrizmDay, PrizmDay> = (
     min,
     value: PrizmDayRange,
     maxLength: PrizmDayLike | null,

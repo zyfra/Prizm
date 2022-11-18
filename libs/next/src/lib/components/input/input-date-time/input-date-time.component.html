@@ -1,22 +1,22 @@
-<pzm-dropdown-host
-    [style.--pzm-dropdown-host-width]='"100%"'
+<prizm-dropdown-host
+    [style.--prizm-dropdown-host-width]='"100%"'
     class="z-hosted"
-    #pzmDropdownHostComponent
+    #prizmDropdownHostComponent
     [canOpen]="interactive"
     [content]="openTimeTemplate ? dropdownTimeTemplate : dropdownDateTemplate"
-    [pzmDropdownHostWidth]='openTimeTemplate ? "100%" : "auto"'
+    [prizmDropdownHostWidth]='openTimeTemplate ? "100%" : "auto"'
     [isOpen]="interactive && (openTimeTemplate || open)"
     [closeByEsc]='true'
     (isOpenChange)="onOpenChange($event)"
 >
-    <pzm-input-layout
+    <prizm-input-layout
       [label]="label"
       [outer]='outer'
       [size]="size">
-      <ng-template pzmInputStatusText>Ошибка! Неправильный формат</ng-template>
+      <ng-template prizmInputStatusText>Ошибка! Неправильный формат</ng-template>
       <input
         class='input-search'
-        pzmInput
+        prizmInput
         #focusableElementRef
         [mask]="textMaskOptions"
         [showMaskTyped]='focusableElementRef.focused'
@@ -27,26 +27,26 @@
         [ngModel]="computedValue"
         (ngModelChange)='onValueChange($event || "")'
       />
-      <ng-container pzm-input-right>
+      <ng-container prizm-input-right>
         <button
-          pzmInputIconButton="date-calendar-blank"
+          prizmInputIconButton="date-calendar-blank"
           [interactive]="true"
           (click)='focusableElementRef.focus()'></button>
         <button
-          pzmInputIconButton="date-clock"
+          prizmInputIconButton="date-clock"
           (click)='openTimeDropdown();'
           [interactive]="true"
         ></button>
         <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>
         </ng-container>
       </ng-container>
-    </pzm-input-layout>
-</pzm-dropdown-host>
+    </prizm-input-layout>
+</prizm-dropdown-host>
 
 <ng-template #dropdownDateTemplate>
-  <pzm-calendar
-    pzmPreventDefault="mousedown"
-    automation-id="pzm-input-date-time__calendar"
+  <prizm-calendar
+    prizmPreventDefault="mousedown"
+    automation-id="prizm-input-date-time__calendar"
     [min]="calendarMinDay"
     [max]="calendarMaxDay"
     [disabledItemHandler]="disabledItemHandler"
@@ -54,15 +54,15 @@
     [value]="calendarValue"
     (dayClick)="onDayClick($event)"
     (monthChange)="onMonthChange($event)"
-  ></pzm-calendar>
+  ></prizm-calendar>
 </ng-template>
 
 <ng-template #dropdownTimeTemplate>
-  <pzm-data-list
-    pzmLifecycle
-    (pzmAfterViewInit)='pzmDropdownHostComponent.reCalculatePositions()'
-    (pzmOnDestroy)='openTimeTemplate = false'
-    *ngIf='timeItems.length;' class='block' [style.--pzm-data-list-border]='0'>
+  <prizm-data-list
+    prizmLifecycle
+    (prizmAfterViewInit)='prizmDropdownHostComponent.reCalculatePositions()'
+    (prizmOnDestroy)='openTimeTemplate = false'
+    *ngIf='timeItems.length;' class='block' [style.--prizm-data-list-border]='0'>
     <ng-container>
       <div class='time-item'
            *ngFor='let item of timeItems; let idx = index'
@@ -72,5 +72,5 @@
             </span>
       </div>
     </ng-container>
-  </pzm-data-list>
+  </prizm-data-list>
 </ng-template>

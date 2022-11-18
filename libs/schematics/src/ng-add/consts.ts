@@ -14,7 +14,7 @@ export const MAIN_PACKAGES: ReadonlyArray<Package> = [
     version: '0.13.9',
   },
   {
-    name: '@digital-plant/zyfra-helpers',
+    name: '@prizm-ui/helpers',
     version: '1.0.0-beta.10',
   },
 ];

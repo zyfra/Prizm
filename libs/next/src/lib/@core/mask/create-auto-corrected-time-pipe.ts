@@ -1,17 +1,17 @@
-import { PZM_MAX_TIME_VALUES } from '../../constants/max-time-values';
+import { PRIZM_MAX_TIME_VALUES } from '../../constants/max-time-values';
 import { PrizmTimeFormatParts } from '../../types/time-format-parts';
 import { PrizmTimeMode } from '../../types/time-mode';
 import { PrizmTextMaskPipeHandler } from './text-mask-pipe-handler';
 import { PrizmTextMaskPipeResult } from './text-mask-pipe-result';
 
 
-export function pzmCreateAutoCorrectedTimePipe(
+export function prizmCreateAutoCorrectedTimePipe(
     timeMode: PrizmTimeMode = `HH:MM`,
     maxValues: Partial<Record<PrizmTimeFormatParts, number>> = {},
 ): PrizmTextMaskPipeHandler {
     const timeFormatArray = [`HH`, `MM`, `SS`, `MS`] as const;
     const safeValues = {
-        ...PZM_MAX_TIME_VALUES,
+        ...PRIZM_MAX_TIME_VALUES,
         ...maxValues,
     };
 

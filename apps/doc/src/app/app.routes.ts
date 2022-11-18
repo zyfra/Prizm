@@ -77,25 +77,21 @@ export const ROUTES = [
   },
   {
     path: 'components/progress-line-bar',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/progress/line-bar/progress-line-bar.module')).ProgressLineBarModule,
+    loadChildren: async (): Promise<unknown> => (await import('./components/progress/line-bar/progress-line-bar.module')).ProgressLineBarModule,
     data: {
       title: 'Progress Line',
     },
   },
   {
     path: 'components/progress-circle-bar',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/progress/circle-bar/progress-circle-bar.module')).ProgressCircleBarModule,
+    loadChildren: async (): Promise<unknown> => (await import('./components/progress/circle-bar/progress-circle-bar.module')).ProgressCircleBarModule,
     data: {
       title: 'Progress Circle',
     },
   },
   {
     path: 'components/progress-line-segmented',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/progress/line-segmented/progress-line-segmented.module'))
-        .ProgressLineSegmentedModule,
+    loadChildren: async (): Promise<unknown> => (await import('./components/progress/line-segmented/progress-line-segmented.module')).ProgressLineSegmentedModule,
     data: {
       title: 'Progress Segmented',
     },
@@ -410,6 +406,111 @@ export const ROUTES = [
       title: 'Overlay',
     },
   },
+  // CHARTS
+  {
+    path: 'charts/line',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./charts/line/line.module')).LineModule,
+    data: {
+      title: 'Line',
+    },
+  },
+  {
+    path: 'charts/area',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./charts/area/area.module')).AreaModule,
+    data: {
+      title: 'Area',
+    },
+  },
+  {
+    path: 'charts/stack',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./charts/stack/stack.module')).StackModule,
+    data: {
+      title: 'Columnt Stack',
+    },
+  },
+  {
+    path: 'charts/column-group',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./charts/column-group/column-group.module')).ColumnGroupModule,
+    data: {
+      title: 'Column Group',
+    },
+  },
+  {
+    path: 'charts/bar',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./charts/bar/bar.module')).BarModule,
+    data: {
+      title: 'Bar',
+    },
+  },
+  {
+    path: 'charts/pie',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./charts/pie/pie.module')).PieModule,
+    data: {
+      title: 'Pie',
+    },
+  },
+  {
+    path: 'charts/radar',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./charts/radar/radar.module')).RadarModule,
+    data: {
+      title: 'Radar',
+    },
+  },
+  {
+    path: 'charts/scatter',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./charts/scatter/scatter.module')).ScatterModule,
+    data: {
+      title: 'Scatter',
+    },
+  },
+  {
+    path: 'charts/treemap',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./charts/treemap/treemap.module')).TreemapModule,
+    data: {
+      title: 'Treemap',
+    },
+  },
+  {
+    path: 'charts/gauge',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./charts/gauge/gauge.module')).GaugeModule,
+    data: {
+      title: 'Gauge',
+    },
+  },
+  {
+    path: 'charts/radio-bar',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./charts/radio-bar/radio-bar.module')).RadioBarModule,
+    data: {
+      title: 'Radio Bar',
+    },
+  },
+  {
+    path: 'charts/waterfall',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./charts/waterfall/waterfall.module')).WaterfallModule,
+    data: {
+      title: 'Waterfall',
+    },
+  },
+  {
+    path: 'charts/group-bar',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./charts/group-bar/group-bar.module')).GroupBarModule,
+    data: {
+      title: 'Group Bar',
+    },
+  },
   {
     path: 'components/side-menu',
     loadChildren: async (): Promise<unknown> =>
@@ -466,14 +567,6 @@ export const ROUTES = [
       title: 'Zoom Control',
     },
   },
-  {
-    path: 'components/stepper',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/stepper/stepper-example.module')).PrizmStepperExampleModule,
-    data: {
-      title: 'Stepper',
-    },
-  },
   { path: '**', redirectTo: 'getting-started' },
 ];
 
@@ -487,4 +580,3 @@ export const ROUTES = [
   exports: [RouterModule],
 })
 export class AppRoutes {}
-

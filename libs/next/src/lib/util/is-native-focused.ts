@@ -1,4 +1,4 @@
-import {pzmGetNativeFocused} from './get-native-focused';
+import {prizmGetNativeFocused} from './get-native-focused';
 
 /**
  * Checks if element is focused.
@@ -8,8 +8,8 @@ import {pzmGetNativeFocused} from './get-native-focused';
  * @param node or null (as a common return value of DOM nodes walking)
  * @return true if focused
  */
-export function pzmIsNativeFocused(node: Node | null): boolean {
+export function prizmIsNativeFocused(node: Node | null): boolean {
     return (
-        !!node && !!node.ownerDocument && pzmGetNativeFocused(node.ownerDocument) === node
+        !!node && !!node.ownerDocument && prizmGetNativeFocused(node.ownerDocument) === node
     );
 }

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { PrizmDay, PrizmDayRange } from '@digital-plant/zui-components';
+import { PrizmDay, PrizmDayRange } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-calendar-range-base-example',
+  selector: 'prizm-calendar-range-base-example',
   templateUrl: './calendar-range-base-example.component.html',
   styles: [`
     .box {

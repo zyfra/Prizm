@@ -3,7 +3,7 @@
  *
  * @return element or null
  */
-export function pzmGetNativeFocused(documentRef: Document): Element | null {
+export function prizmGetNativeFocused(documentRef: Document): Element | null {
     if (!documentRef.activeElement || !documentRef.activeElement.shadowRoot) {
         return documentRef.activeElement;
     }

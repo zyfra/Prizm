@@ -18,13 +18,13 @@ export const pages: TuiDocPages = [
   {
     section: `Components`,
     title: 'Skeleton',
-    keywords: 'skeleton, pzmSkeleton, скелетор',
+    keywords: 'skeleton, prizmSkeleton, скелетор',
     route: '/components/skeleton',
   },
   {
     section: `Components`,
     title: 'Tree',
-    keywords: 'дерево, pzm-tree, tree',
+    keywords: 'дерево, prizm-tree, tree',
     route: '/components/tree',
   },
   {
@@ -54,17 +54,17 @@ export const pages: TuiDocPages = [
     subPages: [
       {
         title: 'DropdownHost',
-        keywords: 'dropdown, pzm-dropdown-host, overlay',
+        keywords: 'dropdown, prizm-dropdown-host, overlay',
         route: '/components/dropdowns/dropdown-host',
       },
       {
         title: 'Select',
-        keywords: 'select, pzm-select, overlay',
+        keywords: 'select, prizm-select, overlay',
         route: '/components/dropdowns/select',
       },
       {
         title: 'MultiSelect',
-        keywords: 'multi-select, pzm-multi-select, overlay',
+        keywords: 'multi-select, prizm-multi-select, overlay',
         route: '/components/dropdowns/multi-select',
       },
     ],
@@ -72,19 +72,19 @@ export const pages: TuiDocPages = [
   {
     section: `Components`,
     title: 'Shadow',
-    keywords: 'shadow, pzm-shadow, тень',
+    keywords: 'shadow, prizm-shadow, тень',
     route: '/components/shadow',
   },
   {
     section: `Components`,
     title: 'Card',
-    keywords: 'card, pzm-card, карточка',
+    keywords: 'card, prizm-card, карточка',
     route: '/components/card',
   },
   {
     section: `Components`,
     title: 'Widget',
-    keywords: 'widget, pzm-widget, виджет',
+    keywords: 'widget, prizm-widget, виджет',
     route: '/components/widget',
   },
   {
@@ -348,12 +348,6 @@ export const pages: TuiDocPages = [
     keywords: 'zoom, zoom control, зум',
     route: '/components/zoom-control',
   },
-  {
-    section: `Components`,
-    title: 'Stepper',
-    keywords: 'stepper',
-    route: '/components/stepper',
-  },
   // Tools
   {
     section: `Tools`,
@@ -361,17 +355,96 @@ export const pages: TuiDocPages = [
     keywords: 'overlay, оверлей, modal, модальное',
     route: '/tools/overlay',
   },
+  // TODO active after finish charts
+  // Charts
+  // {
+  //   section: `Charts`,
+  //   title: 'Line',
+  //   keywords: 'charts, line, графики',
+  //   route: '/charts/line',
+  // },
+  // {
+  //   section: `Charts`,
+  //   title: 'Area',
+  //   keywords: 'charts, area, графики',
+  //   route: '/charts/area',
+  // },
+  // {
+  //   section: `Charts`,
+  //   title: 'Stack',
+  //   keywords: 'charts, stack, графики',
+  //   route: '/charts/stack',
+  // },
+  // {
+  //   section: `Charts`,
+  //   title: 'Bar',
+  //   keywords: 'charts, bar, графики',
+  //   route: '/charts/bar',
+  // },
+  // {
+  //   section: `Charts`,
+  //   title: 'Gauge',
+  //   keywords: 'charts, gauge, графики',
+  //   route: '/charts/gauge',
+  // },
+  // {
+  //   section: `Charts`,
+  //   title: 'Scatter',
+  //   keywords: 'charts, scatter, графики',
+  //   route: '/charts/scatter',
+  // },
+  // {
+  //   section: `Charts`,
+  //   title: 'Treemap',
+  //   keywords: 'charts, treemap, графики',
+  //   route: '/charts/treemap',
+  // },
+  // {
+  //   section: `Charts`,
+  //   title: 'Radar',
+  //   keywords: 'charts, radar, графики',
+  //   route: '/charts/radar',
+  // },
+  // {
+  //   section: `Charts`,
+  //   title: 'Pie',
+  //   keywords: 'charts, pie, графики',
+  //   route: '/charts/pie',
+  // },
+  // {
+  //   section: `Charts`,
+  //   title: 'Radio Bar',
+  //   keywords: 'charts, radio-bar, графики',
+  //   route: '/charts/radio-bar',
+  // },
+  // {
+  //   section: `Charts`,
+  //   title: 'Waterfall',
+  //   keywords: 'charts, waterfall, графики',
+  //   route: '/charts/waterfall',
+  // },
+  // {
+  //   section: `Charts`,
+  //   title: 'Group Bar',
+  //   keywords: 'charts, group-bar, графики',
+  //   route: '/charts/group-bar',
+  // },
+  // {
+  //   section: `Charts`,
+  //   title: 'Column Group',
+  //   keywords: 'charts, column-group, графики',
+  //   route: '/charts/column-group',
+  // },
   // Helpers
-  {
-    section: `Helpers`,
-    title: `Helpers`,
-    subPages: [],
-  },
+  // {
+  //   section: `Helpers`,
+  //   title: `Helpers`,
+  //   subPages: [],
+  // },
   // State
-  {
-    section: `State`,
-    title: `State`,
-    subPages: [],
-  },
+  // {
+  //   section: `State`,
+  //   title: `State`,
+  //   subPages: [],
+  // },
 ];
-

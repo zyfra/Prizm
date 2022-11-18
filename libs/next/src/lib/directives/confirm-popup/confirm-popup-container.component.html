@@ -1,17 +1,17 @@
-<div pzmFocusTrap class='box pzm-font-main-body-14'>
+<div prizmFocusTrap class='box prizm-font-main-body-14'>
   <div class="content">
-    <div *ngIf='context.title' class='title pzm-font-dynamic-title-h4'>
+    <div *ngIf='context.title' class='title prizm-font-dynamic-title-h4'>
       <ng-container *polymorphOutlet="context.title as data; context: context">
         {{data}}
       </ng-container>
     </div>
-    <div class='description pzm-font-main-body-14'>
-<!--      <pzm-scrollbar class='scrollbar' visibility='hidden'>-->
+    <div class='description prizm-font-main-body-14'>
+<!--      <prizm-scrollbar class='scrollbar' visibility='hidden'>-->
         <ng-container *polymorphOutlet="content() as data; context: context">
           {{data}}
         </ng-container>
 
-        <div class="footer pzm-font-btn-links-14">
+        <div class="footer prizm-font-btn-links-14">
           <ng-container >
             <div class='vertical'>
               <div class='top'>
@@ -38,14 +38,14 @@
               [style]='button.style'
               [appearance]='button.appearance'
               [appearanceType]='button.appearanceType ?? "fill"'
-              pzmButton
+              prizmButton
               [size]="button.size"
               (click)="button.action(context)"
             >{{button.text}}</button>
           </ng-template>
         </div>
 
-<!--      </pzm-scrollbar>-->
+<!--      </prizm-scrollbar>-->
     </div>
 
   </div>

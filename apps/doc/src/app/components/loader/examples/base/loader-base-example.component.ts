@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'pzm-loader-base-example',
+  selector: 'prizm-loader-base-example',
   templateUrl: './loader-base-example.component.html',
   styles: [
     `
@@ -19,7 +19,7 @@ import {Component} from '@angular/core';
           flex-wrap: wrap;
         }
 
-        pzm-icon {
+        prizm-icon {
           cursor: pointer;
         }
       }

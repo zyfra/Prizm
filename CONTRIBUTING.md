@@ -68,7 +68,7 @@ import-module.md - всегда про setup компонента
 #### Naming
 
 Модули, компоненты, директивы, pipe и все что выступает в public через `import {...} from "@digital-plant/,,,"`
-Должны иметь префикс - `pzm (zyfra-ui)`
+Должны иметь префикс - `prizm (zyfra-ui)`
 
 Пример:
 `PrizmInputModule`
@@ -105,7 +105,7 @@ providers: [PrizmDestroyService],
 
 **Переменные (css)**
 
---pzm-<name>
+--prizm-<name>
 name - название переменной
 
 **Exceptions**
@@ -121,7 +121,7 @@ name - название переменной
 ```
 export class PrizmPureException extends Error {
 constructor() {
-super('pzmPure can only be used with functions or getters');
+super('prizmPure can only be used with functions or getters');
 }
 }
 

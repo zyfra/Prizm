@@ -9,30 +9,29 @@ import {
   Optional,
   Output,
 } from '@angular/core';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { Observable } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmDayRangePeriod } from '../../@core/classes/day-range-period';
 import { PrizmDay } from '../../@core/date-time/day';
 import { PrizmDayRange } from '../../@core/date-time/day-range';
-import { PZM_FIRST_DAY, PZM_LAST_DAY } from '../../@core/date-time/days.const';
+import { PRIZM_FIRST_DAY, PRIZM_LAST_DAY } from '../../@core/date-time/days.const';
 import { PrizmMonth } from '../../@core/date-time/month';
-import { PZM_ALWAYS_FALSE_HANDLER } from '../../constants/always-false-handler';
-import { PZM_DEFAULT_MARKER_HANDLER } from '../../constants/default-marker-handler';
-import { PZM_MAX_DAY_RANGE_LENGTH_MAPPER } from '../../constants/max-day-range-length-mapper';
-import { pzmDefaultProp } from '../../decorators/default-prop';
-import { pzmPure } from '../../decorators/pure';
-import { PZM_CALENDAR_DATA_STREAM } from '../../tokens/calendar-data-stream';
+import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../constants/always-false-handler';
+import { PRIZM_DEFAULT_MARKER_HANDLER } from '../../constants/default-marker-handler';
+import { PRIZM_MAX_DAY_RANGE_LENGTH_MAPPER } from '../../constants/max-day-range-length-mapper';
+import { prizmDefaultProp, prizmPure } from '@prizm-ui/core';
+import { PRIZM_CALENDAR_DATA_STREAM } from '../../tokens/calendar-data-stream';
 import { PrizmDayLike } from '../../types/day-like';
 import { PrizmBooleanHandler } from '../../types/handler';
 import { PrizmMapper } from '../../types/mapper';
 import { PrizmMarkerHandler } from '../../types/marker-handler';
 import { PrizmWithOptionalMinMax } from '../../types/with-optional-min-max';
-import { pzmNullableSame } from '../../util/common/nullable-same';
-import { PZM_OTHER_DATE_TEXT } from '../../tokens/i18n';
+import { prizmNullableSame } from '../../util/common/nullable-same';
+import { PRIZM_OTHER_DATE_TEXT } from '../../tokens/i18n';
 
 @Component({
-    selector: `pzm-calendar-range`,
+    selector: `prizm-calendar-range`,
     templateUrl: `./calendar-range.component.html`,
     styleUrls: [`./calendar-range.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -40,39 +39,39 @@ import { PZM_OTHER_DATE_TEXT } from '../../tokens/i18n';
 })
 export class PrizmCalendarRangeComponent implements PrizmWithOptionalMinMax<PrizmDay> {
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     defaultViewedMonth: PrizmMonth = PrizmMonth.currentLocal();
 
     @Input()
-    @pzmDefaultProp()
-    disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PZM_ALWAYS_FALSE_HANDLER;
+    @prizmDefaultProp()
+    disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PRIZM_ALWAYS_FALSE_HANDLER;
 
     @Input()
-    @pzmDefaultProp()
-    markerHandler: PrizmMarkerHandler = PZM_DEFAULT_MARKER_HANDLER;
+    @prizmDefaultProp()
+    markerHandler: PrizmMarkerHandler = PRIZM_DEFAULT_MARKER_HANDLER;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     items: readonly PrizmDayRangePeriod[] = [];
 
     @Input()
-    @pzmDefaultProp()
-    min: PrizmDay = PZM_FIRST_DAY;
+    @prizmDefaultProp()
+    min: PrizmDay = PRIZM_FIRST_DAY;
 
     @Input()
-    @pzmDefaultProp()
-    max: PrizmDay = PZM_LAST_DAY;
+    @prizmDefaultProp()
+    max: PrizmDay = PRIZM_LAST_DAY;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     minLength: PrizmDayLike | null = null;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     maxLength: PrizmDayLike | null = null;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     value: PrizmDayRange | null = null;
 
     @Output()
@@ -83,18 +82,18 @@ export class PrizmCalendarRangeComponent implements PrizmWithOptionalMinMax<Priz
     readonly rangeChange = new EventEmitter<PrizmDayRange | null>();
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_calendar_range';
+    readonly testId = 'prizm_calendar_range';
 
 
-    readonly maxLengthMapper: PrizmMapper<PrizmDay, PrizmDay> = PZM_MAX_DAY_RANGE_LENGTH_MAPPER;
+    readonly maxLengthMapper: PrizmMapper<PrizmDay, PrizmDay> = PRIZM_MAX_DAY_RANGE_LENGTH_MAPPER;
 
     constructor(
-        @Inject(PZM_CALENDAR_DATA_STREAM)
+        @Inject(PRIZM_CALENDAR_DATA_STREAM)
         @Optional()
         valueChanges: Observable<PrizmDayRange | null> | null,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
         @Inject(PrizmDestroyService) destroy$: PrizmDestroyService,
-        @Inject(PZM_OTHER_DATE_TEXT) readonly otherDateText$: Observable<string>,
+        @Inject(PRIZM_OTHER_DATE_TEXT) readonly otherDateText$: Observable<string>,
     ) {
         if (!valueChanges) {
             return;
@@ -187,7 +186,7 @@ export class PrizmCalendarRangeComponent implements PrizmWithOptionalMinMax<Priz
     private get activePeriod(): PrizmDayRangePeriod | null {
         return (
             this.items.find(item =>
-                pzmNullableSame<PrizmDayRange>(
+                prizmNullableSame<PrizmDayRange>(
                     this.value,
                     item.range,
                     (a, b) =>
@@ -198,7 +197,7 @@ export class PrizmCalendarRangeComponent implements PrizmWithOptionalMinMax<Priz
         );
     }
 
-    @pzmPure
+    @prizmPure
     private calculateDisabledItemHandler(
         disabledItemHandler: PrizmBooleanHandler<PrizmDay>,
         value: PrizmDayRange | null,

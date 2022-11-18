@@ -1,2 +1,2 @@
-export * from './pzm-radio-button.module';
-export * from './pzm-radio-button.component';
+export * from './prizm-radio-button.module';
+export * from './prizm-radio-button.component';

@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'pzm-panel-with-back',
+  selector: 'prizm-panel-with-back',
   templateUrl: './panel-example-with-back.component.html',
   styleUrls: ['./panel-example-with-back.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

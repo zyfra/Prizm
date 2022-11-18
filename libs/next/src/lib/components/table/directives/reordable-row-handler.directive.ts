@@ -2,8 +2,8 @@ import { Directive, Input } from '@angular/core';
 import { ReorderableRowHandle } from 'primeng/table';
 
 @Directive({
-  selector: '[pzmReordableRowHandler]',
+  selector: '[prizmReordableRowHandler]',
 })
 export class PrizmReordableRowHandlerDirective extends ReorderableRowHandle {
-  @Input('pzmReordableRowHandler') override index: number;
+  @Input('prizmReordableRowHandler') override index: number;
 }

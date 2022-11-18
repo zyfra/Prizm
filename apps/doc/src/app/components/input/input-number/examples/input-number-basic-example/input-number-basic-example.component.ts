@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'pzm-input-number-basic-example',
+  selector: 'prizm-input-number-basic-example',
   templateUrl: './input-number-basic-example.component.html',
   styleUrls: ['./input-number-basic-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

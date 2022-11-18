@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { FormControl } from '@angular/forms';
-import { PrizmInputSize } from '@digital-plant/zui-components';
+import { PrizmInputSize } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-input-date-example',
+  selector: 'prizm-input-date-example',
   templateUrl: './input-date-relative.component.html',
   styleUrls: ['./input-date-relative.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush

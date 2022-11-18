@@ -1,6 +1,6 @@
 import { PrizmHandler } from "../types/handler";
 import { PrizmIdentityMatcher } from "../types/matcher";
-import { PZM_DEFAULT_STRINGIFY } from "./stringify";
+import { PRIZM_DEFAULT_STRINGIFY } from "./stringify";
 
 /**
  * Default handler for matching stringified version of an item and a search query
@@ -8,10 +8,10 @@ import { PZM_DEFAULT_STRINGIFY } from "./stringify";
  * @param search search query
  * @param stringify handler to turn item into a string
  */
-export const PZM_DEFAULT_MATCHER = <T>(
+export const PRIZM_DEFAULT_MATCHER = <T>(
     item: T,
     search: string,
-    stringify: PrizmHandler<T, string> = PZM_DEFAULT_STRINGIFY,
+    stringify: PrizmHandler<T, string> = PRIZM_DEFAULT_STRINGIFY,
 ): boolean => stringify(item).toLowerCase().includes(search.toLowerCase());
 
 /**
@@ -20,10 +20,10 @@ export const PZM_DEFAULT_MATCHER = <T>(
  * @param search search query
  * @param stringify handler to turn item into a string
  */
-export const PZM_STRICT_MATCHER = <T>(
+export const PRIZM_STRICT_MATCHER = <T>(
     item: T,
     search: string,
-    stringify: PrizmHandler<T, string> = PZM_DEFAULT_STRINGIFY,
+    stringify: PrizmHandler<T, string> = PRIZM_DEFAULT_STRINGIFY,
 ): boolean => stringify(item).toLowerCase() === search.toLowerCase();
 
 /**
@@ -33,7 +33,7 @@ export const PZM_STRICT_MATCHER = <T>(
  * @param item1 first element
  * @param item2 second element
  */
-export const PZM_DEFAULT_IDENTITY_MATCHER: PrizmIdentityMatcher<unknown> = (item1, item2) =>
+export const PRIZM_DEFAULT_IDENTITY_MATCHER: PrizmIdentityMatcher<unknown> = (item1, item2) =>
     item1 === item2 || bothEmpty(item1, item2);
 
 function bothEmpty(item1: unknown, item2: unknown): boolean {

@@ -10,15 +10,15 @@ describe('doc', () => {
   });
 
   const ids = {
-    showByIdBtn: '.show-toast-by-id[pzmButton]',
-    closeByIdBtn: '.close-toast-by-id[pzmButton]',
-    toastId: '#pzm-toast-idour-id-1',
-    topMiddleRadio: 'pzm-radio-button.toast-position-button-tm',
-    topLeftRadio: 'pzm-radio-button.toast-position-button-tl',
-    topRightRadio: 'pzm-radio-button.toast-position-button-tr',
-    bottomMiddleRadio: 'pzm-radio-button.toast-position-button-bm',
-    bottomLeftRadio: 'pzm-radio-button.toast-position-button-bl',
-    bottomRightRadio: 'pzm-radio-button.toast-position-button-br',
+    showByIdBtn: '.show-toast-by-id[prizmButton]',
+    closeByIdBtn: '.close-toast-by-id[prizmButton]',
+    toastId: '#prizm-toast-idour-id-1',
+    topMiddleRadio: 'prizm-radio-button.toast-position-button-tm',
+    topLeftRadio: 'prizm-radio-button.toast-position-button-tl',
+    topRightRadio: 'prizm-radio-button.toast-position-button-tr',
+    bottomMiddleRadio: 'prizm-radio-button.toast-position-button-bm',
+    bottomLeftRadio: 'prizm-radio-button.toast-position-button-bl',
+    bottomRightRadio: 'prizm-radio-button.toast-position-button-br',
   }
 
   describe('show/hide toast', { defaultCommandTimeout: 500 }, async () => {

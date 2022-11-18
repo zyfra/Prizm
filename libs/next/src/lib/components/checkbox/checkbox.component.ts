@@ -17,16 +17,16 @@ import {
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { fromEvent, merge, Subject } from 'rxjs';
 import { filter, takeUntil, tap } from 'rxjs/operators';
-import { pzmWatch } from '../../observables';
+import { prizmWatch } from '../../observables';
 
 @Component({
-  selector: 'pzm-checkbox',
+  selector: 'prizm-checkbox',
   templateUrl: 'checkbox.component.html',
   styleUrls: ['checkbox.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
-    class: 'pzm-checkbox',
+    class: 'prizm-checkbox',
     '[attr.tabindex]': "disabled ? null : '0'",
   },
 })
@@ -35,8 +35,8 @@ export class PrizmCheckboxComponent implements ControlValueAccessor, OnDestroy, 
 
   @Input() indeterminate = false;
   @Input() host: HTMLElement | null = null;
-  @Input() @HostBinding('class.pzm-checkbox--disabled') disabled = false;
-  @Input() @HostBinding('class.pzm-checkbox--required') required = false;
+  @Input() @HostBinding('class.prizm-checkbox--disabled') disabled = false;
+  @Input() @HostBinding('class.prizm-checkbox--required') required = false;
 
   private _checked = false;
   get checked(): boolean {
@@ -50,7 +50,7 @@ export class PrizmCheckboxComponent implements ControlValueAccessor, OnDestroy, 
   @Output() changed = new EventEmitter<boolean>();
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_checkbox';
+  readonly testId = 'prizm_checkbox';
 
   changeFn: (value: boolean) => void;
   touchedFn: () => void;
@@ -111,7 +111,7 @@ export class PrizmCheckboxComponent implements ControlValueAccessor, OnDestroy, 
       )
     ).pipe(
       tap((event) => this.onClick(event)),
-      pzmWatch(this.cdr),
+      prizmWatch(this.cdr),
       takeUntil(this.destroyElement$)
     ).subscribe();
   }

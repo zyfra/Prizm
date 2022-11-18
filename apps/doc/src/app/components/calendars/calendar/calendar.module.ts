@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { CalendarComponent } from './calendar.component';
-import { PolymorphModule, PrizmCalendarModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PrizmCalendarModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmCalendarBaseExampleComponent } from './examples/base/calendar-base-example.component';
 

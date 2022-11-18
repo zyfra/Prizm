@@ -1,13 +1,13 @@
 import { Directive, Input } from '@angular/core';
-import { pzmDefaultProp } from '../../../decorators';
+import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmHandler } from '../../../types';
 
 @Directive({
-    selector: 'pzm-tree[childrenHandler]',
+    selector: 'prizm-tree[childrenHandler]',
 })
 export class PrizmTreeChildrenDirective<T> {
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     childrenHandler: PrizmHandler<T, readonly T[]> =
         PrizmTreeChildrenDirective.defaultHandler;
 

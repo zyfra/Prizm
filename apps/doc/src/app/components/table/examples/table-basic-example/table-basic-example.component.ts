@@ -9,7 +9,7 @@ export interface ITableProduct {
 }
 
 @Component({
-  selector: 'pzm-table-basic-example',
+  selector: 'prizm-table-basic-example',
   templateUrl: './table-basic-example.component.html',
   styleUrls: ['./table-basic-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

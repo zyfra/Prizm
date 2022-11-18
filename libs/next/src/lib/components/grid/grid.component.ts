@@ -12,7 +12,7 @@ import {
 import { GridItemComponent } from './components/grid-item/grid-item.component';
 
 @Component({
-  selector: 'pzm-grid',
+  selector: 'prizm-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,7 +26,7 @@ export class GridComponent implements AfterContentInit {
   @ContentChildren(GridItemComponent) public gridItemsData: QueryList<GridItemComponent>;
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_grid';
+  readonly testId = 'prizm_grid';
 
   public ngAfterContentInit(): void {
     const containerElement = this.container.nativeElement;

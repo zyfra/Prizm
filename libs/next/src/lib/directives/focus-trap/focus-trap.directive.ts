@@ -9,15 +9,15 @@ import {
   OnDestroy,
   Renderer2,
 } from '@angular/core';
-import { pzmBlurNativeFocused, pzmGetNativeFocused, pzmSetNativeFocused } from '../../util';
-import { pzmContainsOrAfter } from '../../util/dom';
-import { pzmGetClosestFocusable } from '../../util/get-closest-keyboard-focusable';
+import { prizmBlurNativeFocused, prizmGetNativeFocused, prizmSetNativeFocused } from '../../util';
+import { prizmContainsOrAfter } from '../../util/dom';
+import { prizmGetClosestFocusable } from '../../util/get-closest-keyboard-focusable';
 
 @Directive({
-    selector: '[pzmFocusTrap]',
+    selector: '[prizmFocusTrap]',
 })
 export class PrizmFocusTrapDirective implements OnDestroy {
-    private readonly activeElement = pzmGetNativeFocused(this.documentRef);
+    private readonly activeElement = prizmGetNativeFocused(this.documentRef);
 
     @HostBinding('tabIndex') public tabIndex = 0;
 
@@ -35,7 +35,7 @@ export class PrizmFocusTrapDirective implements OnDestroy {
          */
         // eslint-disable-next-line @typescript-eslint/no-floating-promises
         Promise.resolve().then(() => {
-            pzmSetNativeFocused(this.elementRef.nativeElement);
+            prizmSetNativeFocused(this.elementRef.nativeElement);
         });
     }
 
@@ -46,24 +46,24 @@ export class PrizmFocusTrapDirective implements OnDestroy {
 
     @HostListener('window:focusin.silent', ['$event.target'])
     public onFocusIn(node: Node): void {
-        if (pzmContainsOrAfter(this.elementRef.nativeElement, node)) {
+        if (prizmContainsOrAfter(this.elementRef.nativeElement, node)) {
           this.cdRef.markForCheck();
             return;
         }
 
-        const focusable = pzmGetClosestFocusable(
+        const focusable = prizmGetClosestFocusable(
             this.elementRef.nativeElement,
             false,
             this.elementRef.nativeElement,
         );
 
         if (focusable) {
-            pzmSetNativeFocused(focusable);
+            prizmSetNativeFocused(focusable);
         }
     }
 
     ngOnDestroy(): void {
-        pzmBlurNativeFocused(this.documentRef);
+        prizmBlurNativeFocused(this.documentRef);
 
         /**
          * HostListeners are triggered even after ngOnDestroy
@@ -74,7 +74,7 @@ export class PrizmFocusTrapDirective implements OnDestroy {
         // eslint-disable-next-line
         Promise.resolve().then(() => {
             if (this.activeElement instanceof HTMLElement) {
-                pzmSetNativeFocused(this.activeElement);
+                prizmSetNativeFocused(this.activeElement);
             }
         });
     }

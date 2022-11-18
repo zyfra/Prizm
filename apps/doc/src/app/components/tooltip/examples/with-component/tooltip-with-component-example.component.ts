@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { PolymorphComponent, PrizmOverlayOutsidePlacement } from '@digital-plant/zui-components';
+import { PolymorphComponent, PrizmOverlayOutsidePlacement } from '@prizm-ui/components';
 import { PrizmTooltipSomeComponent } from './some.component';
 
 @Component({
-  selector: 'pzm-tooltip-with-component-example',
+  selector: 'prizm-tooltip-with-component-example',
   templateUrl: './tooltip-with-component-example.component.html',
   styles: [`
     .box {

@@ -5,5 +5,5 @@
     "entryFile": "src/index.ts"
   },
   "assets": ["./src/styles/", "assets", "./src/lib/**/*.less"],
-  "allowedNonPeerDependencies": ["@angular/cdk", "primeicons", "primeng", "@digital-plant/zyfra-helpers"]
+  "allowedNonPeerDependencies": ["@angular/cdk", "primeicons", "primeng", "@prizm-ui/helpers"]
 }

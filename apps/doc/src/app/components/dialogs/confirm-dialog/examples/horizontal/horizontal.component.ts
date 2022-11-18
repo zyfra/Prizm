@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { PrizmConfirmDialogService, PrizmOverlayInsidePlacement } from '@digital-plant/zui-components';
+import { PrizmConfirmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/components';
 import { takeUntil } from 'rxjs/operators';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 @Component({
-  selector: 'pzm-dialog-horizontal-example',
+  selector: 'prizm-dialog-horizontal-example',
   templateUrl: './horizontal.component.html',
   styles: [`
     .box {

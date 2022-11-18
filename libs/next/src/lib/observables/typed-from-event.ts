@@ -1,22 +1,22 @@
 import {fromEvent, Observable} from 'rxjs';
 import {PrizmEventWith, PrizmTypedEventTarget} from '../types';
 
-export function pzmTypedFromEvent<E extends keyof WindowEventMap>(
+export function prizmTypedFromEvent<E extends keyof WindowEventMap>(
     target: Window,
     event: E,
     options?: AddEventListenerOptions,
 ): Observable<PrizmEventWith<WindowEventMap[E], typeof target>>;
-export function pzmTypedFromEvent<E extends keyof DocumentEventMap>(
+export function prizmTypedFromEvent<E extends keyof DocumentEventMap>(
     target: Document,
     event: E,
     options?: AddEventListenerOptions,
 ): Observable<PrizmEventWith<DocumentEventMap[E], typeof target>>;
-export function pzmTypedFromEvent<T extends Element, E extends keyof HTMLElementEventMap>(
+export function prizmTypedFromEvent<T extends Element, E extends keyof HTMLElementEventMap>(
     target: T,
     event: E,
     options?: AddEventListenerOptions,
 ): Observable<PrizmEventWith<HTMLElementEventMap[E], typeof target>>;
-export function pzmTypedFromEvent<
+export function prizmTypedFromEvent<
     E extends Event,
     T extends PrizmTypedEventTarget<PrizmEventWith<E, T>>,
 >(
@@ -24,12 +24,12 @@ export function pzmTypedFromEvent<
     event: string,
     options?: AddEventListenerOptions,
 ): Observable<PrizmEventWith<E, T>>;
-export function pzmTypedFromEvent<E extends Event>(
+export function prizmTypedFromEvent<E extends Event>(
     target: PrizmTypedEventTarget<E>,
     event: string,
     options?: AddEventListenerOptions,
 ): Observable<E>;
-export function pzmTypedFromEvent<E extends Event>(
+export function prizmTypedFromEvent<E extends Event>(
     target: PrizmTypedEventTarget<E>,
     event: string,
     options: AddEventListenerOptions = {},

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { ToggleComponent } from './toggle.component';
-import { PolymorphModule, PrizmToggleModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PrizmToggleModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmToggleBaseExampleComponent } from './examples/base/toggle-base-example.component';
 

@@ -10,13 +10,13 @@ import {
   Self,
 } from '@angular/core';
 import { NgControl, Validators, ControlValueAccessor } from '@angular/forms';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmCarouselContent } from './carousel-content/carousel-content.interface';
 
 @Component({
-  selector: 'pzm-carousel',
+  selector: 'prizm-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -24,7 +24,7 @@ import { PrizmCarouselContent } from './carousel-content/carousel-content.interf
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
     '[class.ng-filled]': '!empty',
-    class: 'pzm-carousel',
+    class: 'prizm-carousel',
     '[attr.tabindex]': "disabled ? null : '0'",
   },
 })
@@ -46,7 +46,7 @@ export class PrizmCarouselComponent extends PrizmInputControl<any> implements Co
   }
 
   @HostBinding('attr.testId')
-  readonly testId = 'pzm_carousel';
+  readonly testId = 'prizm_carousel';
 
   private _disabled = false;
 

@@ -1,9 +1,9 @@
-<pzm-tree
-  [pzmTreeController]="true"
+<prizm-tree
+  [prizmTreeController]="true"
   [value]="data"
   [content]="content"
   [childrenHandler]="handler"
-></pzm-tree>
+></prizm-tree>
 
 <ng-template
   #content
@@ -13,11 +13,11 @@
   <div
     class="wrapper"
   >
-    <pzm-icon
+    <prizm-icon
       *ngIf="value.icon"
       size='16'
       [iconClass]="value.icon"
-    ></pzm-icon>
+    ></prizm-icon>
     {{ value.text }}
   </div>
 </ng-template>

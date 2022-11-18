@@ -1,11 +1,11 @@
 import { Directive, ElementRef, Inject, Input, OnInit, Output } from '@angular/core';
 import { interval, ReplaySubject } from 'rxjs';
 import { filter, take, takeUntil, tap } from 'rxjs/operators';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 @Directive({
-    selector: '[pzmElementReady]',
-    exportAs: 'pzmElementReady',
+    selector: '[prizmElementReady]',
+    exportAs: 'prizmElementReady',
     providers: [PrizmDestroyService]
 })
 export class PrizmElementReadyDirective implements OnInit {

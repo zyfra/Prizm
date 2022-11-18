@@ -16,19 +16,19 @@ import {
 import { NgControl } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PZM_INPUT_DATE_PROVIDERS } from './input-date.providers';
-import { pzmDefaultProp } from '../../../decorators/default-prop';
+import { PRIZM_INPUT_DATE_PROVIDERS } from './input-date.providers';
+import { prizmDefaultProp } from '@prizm-ui/core';
 import {
-  PZM_DATE_FILLER_LENGTH,
-  PZM_DATE_FORMAT,
-  PZM_DATE_SEPARATOR,
-  PZM_FIRST_DAY,
-  PZM_LAST_DAY,
-  pzmChangeDateSeparator,
+  PRIZM_DATE_FILLER_LENGTH,
+  PRIZM_DATE_FORMAT,
+  PRIZM_DATE_SEPARATOR,
+  PRIZM_FIRST_DAY,
+  PRIZM_LAST_DAY,
+  prizmChangeDateSeparator,
   PrizmDay,
   PrizmMonth,
 } from '../../../@core/date-time';
-import { PZM_IS_MOBILE } from '../../../tokens/is-mobile';
+import { PRIZM_IS_MOBILE } from '../../../tokens/is-mobile';
 import {
   PrizmBooleanHandler,
   PrizmContextWithImplicit,
@@ -36,30 +36,30 @@ import {
   PrizmDateMode,
   PrizmFocusableElementAccessor,
 } from '../../../types';
-import { pzmNullableSame } from '../../../util/common/nullable-same';
+import { prizmNullableSame } from '../../../util/common/nullable-same';
 import { PrizmWithOptionalMinMax } from '../../../types/with-optional-min-max';
 import { PrizmMarkerHandler } from '../../../types/marker-handler';
 import { PrizmDialogService } from '../../dialogs/dialog';
-import { PZM_DEFAULT_MARKER_HANDLER } from '../../../constants/default-marker-handler';
+import { PRIZM_DEFAULT_MARKER_HANDLER } from '../../../constants/default-marker-handler';
 import { PrizmNamedDay } from '../../../@core/classes/named-day';
-import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
-import { pzmCreateDateNgxMask } from '../../../@core/mask/create-date-mask';
+import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
+import { prizmCreateDateNgxMask } from '../../../@core/mask/create-date-mask';
 import { AbstractPrizmNullableControl } from '../../../abstract/nullable-control';
-import { PZM_MOBILE_CALENDAR } from '../../../tokens/mobile-calendar';
-import { PZM_DATE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
-import { PZM_DATE_TEXTS } from '../../../tokens/i18n';
-import { PrizmInputSize } from '../common/models/pzm-input.models';
-import { pzmIsNativeFocusedIn } from '../../../util';
-import { PZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
+import { PRIZM_MOBILE_CALENDAR } from '../../../tokens/mobile-calendar';
+import { PRIZM_DATE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
+import { PRIZM_DATE_TEXTS } from '../../../tokens/i18n';
+import { PrizmInputSize } from '../common/models/prizm-input.models';
+import { prizmIsNativeFocusedIn } from '../../../util';
+import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 
 
 @Component({
-    selector: `pzm-input-date`,
+    selector: `prizm-input-date`,
     templateUrl: `./input-date.component.html`,
     styleUrls: [`./input-date.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: PZM_INPUT_DATE_PROVIDERS,
+    providers: PRIZM_INPUT_DATE_PROVIDERS,
 })
 export class PrizmInputDateComponent
     extends AbstractPrizmNullableControl<PrizmDay>
@@ -70,54 +70,54 @@ export class PrizmInputDateComponent
 
     private month: PrizmMonth | null = null;
 
-    public mask = pzmCreateDateNgxMask(this.dateFormat, this.dateSeparator)
+    public mask = prizmCreateDateNgxMask(this.dateFormat, this.dateSeparator)
 
     @Input()
-    @pzmDefaultProp()
-    min = PZM_FIRST_DAY;
+    @prizmDefaultProp()
+    min = PRIZM_FIRST_DAY;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     placeholder = '';
 
     @Input()
-    @pzmDefaultProp()
-    max = PZM_LAST_DAY;
+    @prizmDefaultProp()
+    max = PRIZM_LAST_DAY;
 
     @Input()
-    @pzmDefaultProp()
-    disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PZM_ALWAYS_FALSE_HANDLER;
+    @prizmDefaultProp()
+    disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PRIZM_ALWAYS_FALSE_HANDLER;
 
     @Input()
-    @pzmDefaultProp()
-    markerHandler: PrizmMarkerHandler = PZM_DEFAULT_MARKER_HANDLER;
+    @prizmDefaultProp()
+    markerHandler: PrizmMarkerHandler = PRIZM_DEFAULT_MARKER_HANDLER;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     items: readonly PrizmNamedDay[] = [];
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     defaultActiveYearMonth = PrizmMonth.currentLocal();
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     label = 'Выберите дату';
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     size: PrizmInputSize = 'm';
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     outer = false;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     extraButtonInjector: Injector = this.injector;
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_input_date';
+    readonly testId = 'prizm_input_date';
 
     public open = false;
 
@@ -125,7 +125,7 @@ export class PrizmInputDateComponent
 
     readonly filler$: Observable<string> = this.dateTexts$.pipe(
         map(dateTexts =>
-            pzmChangeDateSeparator(dateTexts[this.dateFormat], this.dateSeparator),
+            prizmChangeDateSeparator(dateTexts[this.dateFormat], this.dateSeparator),
         ),
     );
     public rightButtons$: BehaviorSubject<PrizmDateButton[]>
@@ -145,17 +145,17 @@ export class PrizmInputDateComponent
         control: NgControl | null,
         @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
         @Inject(Injector) private readonly injector: Injector,
-        @Inject(PZM_IS_MOBILE) private readonly isMobile: boolean,
+        @Inject(PRIZM_IS_MOBILE) private readonly isMobile: boolean,
         @Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService,
         @Optional()
-        @Inject(PZM_MOBILE_CALENDAR)
+        @Inject(PRIZM_MOBILE_CALENDAR)
         private readonly mobileCalendar: Type<any> | null,
-        @Inject(PZM_DATE_FORMAT) readonly dateFormat: PrizmDateMode,
-        @Inject(PZM_DATE_SEPARATOR) readonly dateSeparator: string,
-        @Inject(PZM_DATE_TEXTS)
+        @Inject(PRIZM_DATE_FORMAT) readonly dateFormat: PrizmDateMode,
+        @Inject(PRIZM_DATE_SEPARATOR) readonly dateSeparator: string,
+        @Inject(PRIZM_DATE_TEXTS)
         readonly dateTexts$: Observable<Record<PrizmDateMode, string>>,
         @Optional()
-        @Inject(PZM_DATE_VALUE_TRANSFORMER)
+        @Inject(PRIZM_DATE_VALUE_TRANSFORMER)
         override readonly valueTransformer: PrizmControlValueTransformer<PrizmDay | null> | null,
     ) {
         super(control, changeDetectorRef, valueTransformer);
@@ -163,7 +163,7 @@ export class PrizmInputDateComponent
 
     public override ngOnInit(): void {
       super.ngOnInit();
-      this.rightButtons$ = this.extraButtonInjector.get(PZM_DATE_RIGHT_BUTTONS);
+      this.rightButtons$ = this.extraButtonInjector.get(PRIZM_DATE_RIGHT_BUTTONS);
     }
 
     get computedMobile(): boolean {
@@ -199,13 +199,13 @@ export class PrizmInputDateComponent
         //     this.onOpenChange(true);
         // }
 
-        if (!value || (value.length !== PZM_DATE_FILLER_LENGTH)) {
+        if (!value || (value.length !== PRIZM_DATE_FILLER_LENGTH)) {
           if (!value) this.updateValue(null);
           return;
         }
 
         this.updateValue(
-            value.length !== PZM_DATE_FILLER_LENGTH
+            value.length !== PRIZM_DATE_FILLER_LENGTH
                 ? null
                 : PrizmDay.normalizeParse(value, this.dateFormat),
         );
@@ -246,13 +246,13 @@ export class PrizmInputDateComponent
     }
 
     public get focused(): boolean {
-      return this.focusableElement?.nativeElement ? pzmIsNativeFocusedIn(this.focusableElement.nativeElement) : false;
+      return this.focusableElement?.nativeElement ? prizmIsNativeFocusedIn(this.focusableElement.nativeElement) : false;
     }
 
     protected override valueIdenticalComparator(
         oldValue: PrizmDay | null,
         newValue: PrizmDay | null,
     ): boolean {
-        return pzmNullableSame(oldValue, newValue, (a, b) => a.daySame(b));
+        return prizmNullableSame(oldValue, newValue, (a, b) => a.daySame(b));
     }
 }

@@ -1,9 +1,9 @@
 import { PrizmLanguage } from '../../interfaces/language';
-import { PZM_RUSSIAN_LANGUAGE_CORE } from './core';
-import { PZM_RUSSIAN_LANGUAGE_KIT } from './kit';
+import { PRIZM_RUSSIAN_LANGUAGE_CORE } from './core';
+import { PRIZM_RUSSIAN_LANGUAGE_KIT } from './kit';
 
-export const PZM_RUSSIAN_LANGUAGE = {
+export const PRIZM_RUSSIAN_LANGUAGE = {
     name: `russian`,
-    ...PZM_RUSSIAN_LANGUAGE_CORE,
-    ...PZM_RUSSIAN_LANGUAGE_KIT
+    ...PRIZM_RUSSIAN_LANGUAGE_CORE,
+    ...PRIZM_RUSSIAN_LANGUAGE_KIT
 } as PrizmLanguage;

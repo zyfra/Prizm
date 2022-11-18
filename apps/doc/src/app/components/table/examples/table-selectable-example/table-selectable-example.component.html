@@ -2,7 +2,7 @@
   <div class="table">
     <div class="table__description">Single selection</div>
     <div class="table__content">
-      <pzm-table
+      <prizm-table
         [value]="products"
         selectionMode="single"
         [(selection)]="selectedProduct1"
@@ -11,7 +11,7 @@
         scrollHeight="200px"
         (selectionChange)="selectedRowWasChanged()"
       >
-        <ng-template pzmTableTemplate="header">
+        <ng-template prizmTableTemplate="header">
           <tr>
             <th>Code</th>
             <th>Name</th>
@@ -19,28 +19,28 @@
             <th>Count</th>
           </tr>
         </ng-template>
-        <ng-template pzmTableTemplate="body" let-product>
-          <tr [pzmSelectableRow]="product">
+        <ng-template prizmTableTemplate="body" let-product>
+          <tr [prizmSelectableRow]="product">
             <td>{{ product.code }}</td>
             <td>{{ product.name }}</td>
             <td>{{ product.category }}</td>
             <td>{{ product.count }}</td>
           </tr>
         </ng-template>
-      </pzm-table>
+      </prizm-table>
     </div>
   </div>
 
   <div class="table">
     <div class="table__description">Multiple selection with meta key</div>
     <div class="table__content">
-      <pzm-table
+      <prizm-table
         [value]="products"
         selectionMode="multiple"
         [(selection)]="selectedProducts1"
         [metaKeySelection]="true"
       >
-        <ng-template pzmTableTemplate="header">
+        <ng-template prizmTableTemplate="header">
           <tr>
             <th>Code</th>
             <th>Name</th>
@@ -48,7 +48,7 @@
             <th>Count</th>
           </tr>
         </ng-template>
-        <ng-template pzmTableTemplate="body" let-product let-rowIndex="rowIndex">
+        <ng-template prizmTableTemplate="body" let-product let-rowIndex="rowIndex">
           <tr [pSelectableRow]="product" [pSelectableRowIndex]="rowIndex">
             <td>{{ product.code }}</td>
             <td>{{ product.name }}</td>
@@ -56,15 +56,15 @@
             <td>{{ product.count }}</td>
           </tr>
         </ng-template>
-      </pzm-table>
+      </prizm-table>
     </div>
   </div>
 
   <div class="table">
     <div class="table__description">Multiple selection</div>
     <div class="table__content">
-      <pzm-table [value]="products" selectionMode="multiple" [(selection)]="selectedProducts2">
-        <ng-template pzmTableTemplate="header">
+      <prizm-table [value]="products" selectionMode="multiple" [(selection)]="selectedProducts2">
+        <ng-template prizmTableTemplate="header">
           <tr>
             <th>Code</th>
             <th>Name</th>
@@ -72,7 +72,7 @@
             <th>Count</th>
           </tr>
         </ng-template>
-        <ng-template pzmTableTemplate="body" let-product let-rowIndex="rowIndex">
+        <ng-template prizmTableTemplate="body" let-product let-rowIndex="rowIndex">
           <tr [pSelectableRow]="product" [pSelectableRowIndex]="rowIndex">
             <td>{{ product.code }}</td>
             <td>{{ product.name }}</td>
@@ -80,7 +80,7 @@
             <td>{{ product.count }}</td>
           </tr>
         </ng-template>
-      </pzm-table>
+      </prizm-table>
     </div>
   </div>
 </div>

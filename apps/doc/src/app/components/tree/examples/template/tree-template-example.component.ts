@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PZM_EMPTY_ARRAY, PrizmHandler } from '@digital-plant/zui-components';
+import { PRIZM_EMPTY_ARRAY, PrizmHandler } from '@prizm-ui/components';
 
 export interface TreeNode {
   readonly text: string;
@@ -8,7 +8,7 @@ export interface TreeNode {
 }
 
 @Component({
-  selector: 'pzm-tree-template-example',
+  selector: 'prizm-tree-template-example',
   templateUrl: './tree-template-example.component.html',
   styles: [`
     .wrapper {
@@ -45,6 +45,6 @@ export class TreeTemplateExampleComponent {
   };
 
   readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item =>
-    item.children || PZM_EMPTY_ARRAY;
+    item.children || PRIZM_EMPTY_ARRAY;
 }
 

@@ -7,7 +7,7 @@ interface SomeData {
 }
 
 @Component({
-  selector: 'pzm-checkbox-group-example',
+  selector: 'prizm-checkbox-group-example',
   templateUrl: './checkbox-group-example.component.html',
   styleUrls: ['./checkbox-group-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

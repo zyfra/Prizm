@@ -13,7 +13,7 @@ import {
 import { PrizmOverlayGlobalPosition } from './position';
 import { PrizmOverlayAbstractPosition } from './position/position';
 import { EventBus, getContent } from './utils';
-import { pzmGenerateId } from '../../util';
+import { prizmGenerateId } from '../../util';
 import { PrizmOverlayControl } from './overlay-control';
 import { PrizmOverlayContentToken } from './token';
 
@@ -53,7 +53,7 @@ export class PrizmOverlayService {
     key?: string,
     parentInjector?: Injector
   } = {}): PrizmOverlayControl {
-    this.zid = this.inputs.zid = key ?? pzmGenerateId();
+    this.zid = this.inputs.zid = key ?? prizmGenerateId();
 
     const injector = Injector.create({
         providers: [
@@ -71,7 +71,7 @@ export class PrizmOverlayService {
 
     const tc = injector.get(PrizmOverlayControl);
     if (PrizmOverlayService.controls[this.zid]) {
-      this.zid = pzmGenerateId();
+      this.zid = prizmGenerateId();
     }
     this.inputs.position.init(this.zid);
     PrizmOverlayService.controls[this.zid] = Object.assign(tc, this.inputs);

@@ -1,9 +1,9 @@
 import { PrizmYearLike } from '../../types/year-like';
-import { pzmPadStart } from '../../util/format/pad-start';
-import { pzmInRange } from '../../util/math/in-range';
-import { pzmNormalizeToIntNumber } from '../../util/math/normalize-to-int-number';
+import { prizmPadStart } from '../../util/format/pad-start';
+import { prizmInRange } from '../../util/math/in-range';
+import { prizmNormalizeToIntNumber } from '../../util/math/normalize-to-int-number';
 
-import { PZM_DAYS_IN_LEAP_YEAR, PZM_DAYS_IN_NORMAL_YEAR, PZM_DAYS_IN_WEEK, PZM_MAX_YEAR, PZM_MIN_YEAR } from './date-time';
+import { PRIZM_DAYS_IN_LEAP_YEAR, PRIZM_DAYS_IN_NORMAL_YEAR, PRIZM_DAYS_IN_WEEK, PRIZM_MAX_YEAR, PRIZM_MIN_YEAR } from './date-time';
 
 /**
  * Immutable year object
@@ -18,7 +18,7 @@ export class PrizmYear implements PrizmYearLike {
      * Checks year for validity
      */
     public static isValidYear(year: number): boolean {
-        return Number.isInteger(year) && pzmInRange(year, PZM_MIN_YEAR, PZM_MAX_YEAR + 1);
+        return Number.isInteger(year) && prizmInRange(year, PRIZM_MIN_YEAR, PRIZM_MAX_YEAR + 1);
     }
 
     /**
@@ -55,10 +55,10 @@ export class PrizmYear implements PrizmYearLike {
         console.assert(absoluteLeapYears >= 0);
 
         return (
-            (absoluteLeapYears * PZM_DAYS_IN_LEAP_YEAR +
-                (year - absoluteLeapYears) * PZM_DAYS_IN_NORMAL_YEAR +
+            (absoluteLeapYears * PRIZM_DAYS_IN_LEAP_YEAR +
+                (year - absoluteLeapYears) * PRIZM_DAYS_IN_NORMAL_YEAR +
                 5) %
-            PZM_DAYS_IN_WEEK
+            PRIZM_DAYS_IN_WEEK
         );
     }
 
@@ -70,11 +70,11 @@ export class PrizmYear implements PrizmYearLike {
      * Normalizes year by clamping it between min and max years
      */
     protected static normalizeYearPart(year: number): number {
-        return pzmNormalizeToIntNumber(year, PZM_MIN_YEAR, PZM_MAX_YEAR);
+        return prizmNormalizeToIntNumber(year, PRIZM_MIN_YEAR, PRIZM_MAX_YEAR);
     }
 
     public get formattedYear(): string {
-        return pzmPadStart(String(this.year), 4, `0`);
+        return prizmPadStart(String(this.year), 4, `0`);
     }
 
     public get isLeapYear(): boolean {

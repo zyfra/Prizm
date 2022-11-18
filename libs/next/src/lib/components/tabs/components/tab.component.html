@@ -1,10 +1,10 @@
 <button class="page" [class.page_active]="isActive" [disabled]="disabled" (click)="tabChoose()">
   <div class="page__icon" *ngIf="!!icon">
-    <pzm-icon [size]="16" [iconClass]="icon" class="icon icon__mark"></pzm-icon>
+    <prizm-icon [size]="16" [iconClass]="icon" class="icon icon__mark"></prizm-icon>
   </div>
   <span class="page__title" *ngIf="title">{{ title }}</span>
   <div class="page__counter" *ngIf="!!count">{{ count }}</div>
   <div class="page__cancel" *ngIf="closable && !disabled">
-    <pzm-icon iconClass="cancel-close" [size]="16" class="icon" (click)="cancel($event)"></pzm-icon>
+    <prizm-icon iconClass="cancel-close" [size]="16" class="icon" (click)="cancel($event)"></prizm-icon>
   </div>
 </button>

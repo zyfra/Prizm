@@ -7,23 +7,23 @@
     [class.label-container-focused]="control.focused"
   >
     <label
-      class="pzm-input-label
-    pzm-input-label-{{ outer ? 'outer' : 'inner' }}
-    pzm-input-label-{{ outer ? 'outer' : 'inner' }}-{{ position }}
-    {{ control.nativeElementType ? 'pzm-input-label-' + control.nativeElementType : '' }}
+      class="prizm-input-label
+    prizm-input-label-{{ outer ? 'outer' : 'inner' }}
+    prizm-input-label-{{ outer ? 'outer' : 'inner' }}-{{ position }}
+    {{ control.nativeElementType ? 'prizm-input-label-' + control.nativeElementType : '' }}
 "
       [attr.data-size]="size"
-      [class.pzm-input-label-focused]="control.focused"
-      [class.pzm-input-label-empty]="control.empty"
+      [class.prizm-input-label-focused]="control.focused"
+      [class.prizm-input-label-empty]="control.empty"
     >
       {{ label }}
-      <span *ngIf="control.required" class="pzm-input-label-required">*</span>
+      <span *ngIf="control.required" class="prizm-input-label-required">*</span>
     </label>
     <button
       *ngIf="showClearButton"
-      pzmInputIconButton="cansel-delete-content"
+      prizmInputIconButton="cansel-delete-content"
       (click)="onClearClick($event)"
-      class="pzm-input-label-clear-btn"
+      class="prizm-input-label-clear-btn"
       [interactive]="true"
     ></button>
   </div>
@@ -32,54 +32,54 @@
 <ng-container *ngIf="!outer; else labelTemplate"></ng-container>
 
 <div
-  class="pzm-input-form
-  pzm-input-form-status-{{ status }}
-  pzm-input-form-{{ outer ? 'outer' : 'inner' }}
-  pzm-input-form-{{ position }}
-  pzm-input-form-{{ outer ? 'outer' : 'inner' }}-{{ position }}
-  {{ control.nativeElementType ? 'pzm-input-form-' + control.nativeElementType : '' }}
+  class="prizm-input-form
+  prizm-input-form-status-{{ status }}
+  prizm-input-form-{{ outer ? 'outer' : 'inner' }}
+  prizm-input-form-{{ position }}
+  prizm-input-form-{{ outer ? 'outer' : 'inner' }}-{{ position }}
+  {{ control.nativeElementType ? 'prizm-input-form-' + control.nativeElementType : '' }}
 "
   [attr.data-size]="size"
   [ngClass]="{
-    'pzm-input-form-focused': control.focused,
-    'pzm-input-form-empty': control.empty,
-    'pzm-input-form-disabled': control.disabled,
-    'pzm-input-form-touched': control.touched,
-    'pzm-input-form-invalid': control.invalid
+    'prizm-input-form-focused': control.focused,
+    'prizm-input-form-empty': control.empty,
+    'prizm-input-form-disabled': control.disabled,
+    'prizm-input-form-touched': control.touched,
+    'prizm-input-form-invalid': control.invalid
   }"
 >
-  <div class="pzm-input-form__first">
-    <ng-content select="[pzm-input-left]" *ngIf="!control.disabled"></ng-content>
+  <div class="prizm-input-form__first">
+    <ng-content select="[prizm-input-left]" *ngIf="!control.disabled"></ng-content>
 
-    <div class="pzm-input-form-inner-container">
-      <div class="pzm-input-form-body">
+    <div class="prizm-input-form-inner-container">
+      <div class="prizm-input-form-body">
         <ng-container *ngIf="outer; else labelTemplate"></ng-container>
 
         <ng-content></ng-content>
-        <ng-content select='[pzm-input-in-body]'></ng-content>
+        <ng-content select='[prizm-input-in-body]'></ng-content>
       </div>
 
       <button
         *ngIf="showClearButton"
-        pzmInputIconButton="cansel-delete-content"
+        prizmInputIconButton="cansel-delete-content"
         (click)="onClearClick($event)"
-        class="pzm-input-button-default {{ showStatusButton ? '' : 'alone' }}"
+        class="prizm-input-button-default {{ showStatusButton ? '' : 'alone' }}"
         [interactive]="true"
       ></button>
       <button
         *ngIf="showStatusButton"
-        [pzmInputIconButton]="statusIcon"
-        [pzmHint]="statusMessage"
-        class="pzm-input-form-status-button"
+        [prizmInputIconButton]="statusIcon"
+        [prizmHint]="statusMessage"
+        class="prizm-input-form-status-button"
         [interactive]="true"
       ></button>
     </div>
 
-    <ng-content select="[pzm-input-right]" *ngIf="!control.disabled"></ng-content>
+    <ng-content select="[prizm-input-right]" *ngIf="!control.disabled"></ng-content>
   </div>
-  <ng-content select="[pzm-input-bottom]"></ng-content>
+  <ng-content select="[prizm-input-bottom]"></ng-content>
 </div>
 
-<div class="pzm-input-form-subtext pzm-input-form-subtext-{{ status }}">
-  <ng-content select="[pzm-input-subtext]"></ng-content>
+<div class="prizm-input-form-subtext prizm-input-form-subtext-{{ status }}">
+  <ng-content select="[prizm-input-subtext]"></ng-content>
 </div>

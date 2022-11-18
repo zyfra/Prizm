@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'pzm-multi-select-with-search-example',
+  selector: 'prizm-multi-select-with-search-example',
   templateUrl: './multi-select-with-search-example.component.html',
 })
 export class PrizmMultiSelectWithSearchExampleComponent {

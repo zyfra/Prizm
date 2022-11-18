@@ -2,38 +2,38 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import {
   PolymorphContent,
-  PZM_HINT_DEFAULT_OPTIONS, PZM_TOOLTIP_DEFAULT_OPTIONS,
+  PRIZM_HINT_DEFAULT_OPTIONS, PRIZM_TOOLTIP_DEFAULT_OPTIONS,
   PrizmOverlayOutsidePlacement,
   PrizmTooltipOptions,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-tooltip-example',
+  selector: 'prizm-tooltip-example',
   templateUrl: './tooltip.component.html',
   styleUrls: ['./tooltip.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TooltipComponent {
   public content = 'Тестовое содержимое';
-  public pzmAutoReposition = false;
+  public prizmAutoReposition = false;
 
-  public readonly pzmTooltipDirectionVariants: ReadonlyArray<PrizmTooltipOptions['direction']> = Object.values(PrizmOverlayOutsidePlacement);
+  public readonly prizmTooltipDirectionVariants: ReadonlyArray<PrizmTooltipOptions['direction']> = Object.values(PrizmOverlayOutsidePlacement);
 
-  public pzmTooltipDirection: PrizmTooltipOptions['direction'] = PZM_HINT_DEFAULT_OPTIONS.direction;
+  public prizmTooltipDirection: PrizmTooltipOptions['direction'] = PRIZM_HINT_DEFAULT_OPTIONS.direction;
 
-  public pzmTooltipId = 'tooltip-id';
+  public prizmTooltipId = 'tooltip-id';
 
-  public pzmTooltipShowDelay: number = PZM_TOOLTIP_DEFAULT_OPTIONS.showDelay;
+  public prizmTooltipShowDelay: number = PRIZM_TOOLTIP_DEFAULT_OPTIONS.showDelay;
 
-  public pzmTooltipHideDelay: number = PZM_TOOLTIP_DEFAULT_OPTIONS.hideDelay;
+  public prizmTooltipHideDelay: number = PRIZM_TOOLTIP_DEFAULT_OPTIONS.hideDelay;
 
-  public pzmTooltipHost: HTMLElement | null = null
+  public prizmTooltipHost: HTMLElement | null = null
 
-  public readonly pzmTooltipVariants = [
+  public readonly prizmTooltipVariants = [
     'Tooltip'
   ];
 
-  public pzmTooltip: PolymorphContent =  this.pzmTooltipVariants[0];
+  public prizmTooltip: PolymorphContent =  this.prizmTooltipVariants[0];
 
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'

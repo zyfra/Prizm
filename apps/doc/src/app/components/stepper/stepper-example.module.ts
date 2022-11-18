@@ -9,7 +9,7 @@ import {
   PrizmCheckboxModule,
   PrizmSelectModule,
   PrizmStepperModule,
-} from '@digital-plant/zui-components';
+} from '@prizm-ui/components';
 import { PrizmStepperExampleComponent } from './stepper-example.component';
 import { PrizmStepperVerticalExampleComponent } from './examples/stepper-vertical-example/stepper-vertical-example.component';
 import { PrizmStepperAsyncExampleComponent } from './examples/stepper-async-example/stepper-async-example.component';

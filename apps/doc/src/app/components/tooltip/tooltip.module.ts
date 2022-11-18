@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
-import { PolymorphModule, PrizmButtonModule, PrizmTooltipModule } from '@digital-plant/zui-components';
+import { PolymorphModule, PrizmButtonModule, PrizmTooltipModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TooltipComponent } from './tooltip.component';
 import {

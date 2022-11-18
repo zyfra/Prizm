@@ -1,6 +1,6 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PrizmTableModule } from './pzm-checkbox.module';
+import { PrizmTableModule } from './prizm-checkbox.module';
 
 // ...
 

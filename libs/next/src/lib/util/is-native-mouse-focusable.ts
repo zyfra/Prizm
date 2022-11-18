@@ -1,8 +1,8 @@
-import {pzmIsNativeKeyboardFocusable} from './is-native-keyboard-focusable';
+import {prizmIsNativeKeyboardFocusable} from './is-native-keyboard-focusable';
 
-export function pzmIsNativeMouseFocusable(element: Element): boolean {
+export function prizmIsNativeMouseFocusable(element: Element): boolean {
     return (
         !element.hasAttribute('disabled') &&
-        (element.getAttribute('tabIndex') === '-1' || pzmIsNativeKeyboardFocusable(element))
+        (element.getAttribute('tabIndex') === '-1' || prizmIsNativeKeyboardFocusable(element))
     );
 }

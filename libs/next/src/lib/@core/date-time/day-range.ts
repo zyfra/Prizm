@@ -1,6 +1,6 @@
 import { PrizmDateMode } from '../../types/date-mode';
-import { PZM_DATE_FILLER_LENGTH, PZM_DATE_RANGE_FILLER_LENGTH } from './date-fillers';
-import { PZM_RANGE_SEPARATOR_CHAR } from './date-time';
+import { PRIZM_DATE_FILLER_LENGTH, PRIZM_DATE_RANGE_FILLER_LENGTH } from './date-fillers';
+import { PRIZM_RANGE_SEPARATOR_CHAR } from './date-time';
 import { PrizmDay } from './day';
 import { PrizmMonthRange } from './month-range';
 
@@ -8,7 +8,7 @@ import { PrizmMonthRange } from './month-range';
  * Temporary type guard to satisfy ts-overloading of normalizeParse method
  * @deprecated
  */
-export const pzmIsDateMode = (dateMode: string): dateMode is PrizmDateMode =>
+export const prizmIsDateMode = (dateMode: string): dateMode is PrizmDateMode =>
     [`DMY`, `YMD`, `MDY`].includes(dateMode);
 
 /**
@@ -62,21 +62,21 @@ export class PrizmDayRange extends PrizmMonthRange {
         rangeString: string,
         dateMode: string | PrizmDateMode = `DMY`,
     ): PrizmDayRange {
-        const dateFormat = pzmIsDateMode(dateMode) ? dateMode : `DMY`;
+        const dateFormat = prizmIsDateMode(dateMode) ? dateMode : `DMY`;
 
         const leftDay = PrizmDay.normalizeParse(
-            rangeString.slice(0, PZM_DATE_FILLER_LENGTH),
+            rangeString.slice(0, PRIZM_DATE_FILLER_LENGTH),
             dateFormat,
         );
 
-        if (rangeString.length < PZM_DATE_RANGE_FILLER_LENGTH) {
+        if (rangeString.length < PRIZM_DATE_RANGE_FILLER_LENGTH) {
             return new PrizmDayRange(leftDay, leftDay);
         }
 
         return PrizmDayRange.sort(
             leftDay,
             PrizmDay.normalizeParse(
-                rangeString.slice(PZM_DATE_FILLER_LENGTH + PZM_RANGE_SEPARATOR_CHAR.length),
+                rangeString.slice(PRIZM_DATE_FILLER_LENGTH + PRIZM_RANGE_SEPARATOR_CHAR.length),
                 dateFormat,
             ),
         );
@@ -94,7 +94,7 @@ export class PrizmDayRange extends PrizmMonthRange {
         const from = this.from.getFormattedDay(`DMY`, `.`);
         const to = this.to.getFormattedDay(`DMY`, `.`);
 
-        return `${from}${PZM_RANGE_SEPARATOR_CHAR}${to}`;
+        return `${from}${PRIZM_RANGE_SEPARATOR_CHAR}${to}`;
     }
 
     public isDayInRange(
@@ -131,7 +131,7 @@ export class PrizmDayRange extends PrizmMonthRange {
         const from = this.from.getFormattedDay(dateFormat, dateSeparator);
         const to = this.to.getFormattedDay(dateFormat, dateSeparator);
 
-        return `${from}${PZM_RANGE_SEPARATOR_CHAR}${to}`;
+        return `${from}${PRIZM_RANGE_SEPARATOR_CHAR}${to}`;
     }
 
     public toLocalNativeDate(): [Date, Date] {
@@ -145,6 +145,6 @@ export class PrizmDayRange extends PrizmMonthRange {
         const from = this.from.getFormattedDay(dateFormat, dateSeparator);
         const to = this.to.getFormattedDay(dateFormat, dateSeparator);
 
-        return `${from}${PZM_RANGE_SEPARATOR_CHAR}${to}`;
+        return `${from}${PRIZM_RANGE_SEPARATOR_CHAR}${to}`;
     }
 }

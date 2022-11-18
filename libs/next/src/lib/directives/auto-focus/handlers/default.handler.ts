@@ -2,8 +2,8 @@ import { Directive, ElementRef, Inject, Optional, Self } from '@angular/core';
 import { ANIMATION_FRAME } from '@ng-web-apis/common';
 import { Observable, race, timer } from 'rxjs';
 import { map, skipWhile, take, throttleTime } from 'rxjs/operators';
-import { PZM_POLLING_TIME } from '../../../constants/polling-time';
-import { PZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
+import { PRIZM_POLLING_TIME } from '../../../constants/polling-time';
+import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
 import { PrizmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
 import { AbstractPrizmAutofocusHandler } from './abstract.handler';
 
@@ -15,12 +15,12 @@ export class PrizmDefaultAutofocusHandler extends AbstractPrizmAutofocusHandler 
     constructor(
         @Optional()
         @Self()
-        @Inject(PZM_FOCUSABLE_ITEM_ACCESSOR)
-        pzmFocusableComponent: PrizmFocusableElementAccessor | null,
+        @Inject(PRIZM_FOCUSABLE_ITEM_ACCESSOR)
+        prizmFocusableComponent: PrizmFocusableElementAccessor | null,
         @Inject(ElementRef) elementRef: ElementRef<HTMLElement>,
         @Inject(ANIMATION_FRAME) private readonly animationFrame$: Observable<number>,
     ) {
-        super(pzmFocusableComponent, elementRef);
+        super(prizmFocusableComponent, elementRef);
     }
 
     public setFocus(): void {
@@ -28,7 +28,7 @@ export class PrizmDefaultAutofocusHandler extends AbstractPrizmAutofocusHandler 
             race(
                 timer(TIMEOUT),
                 this.animationFrame$.pipe(
-                    throttleTime(PZM_POLLING_TIME),
+                    throttleTime(PRIZM_POLLING_TIME),
                     map(() => this.element.closest(NG_ANIMATION_SELECTOR)),
                     skipWhile(Boolean),
                     take(1),

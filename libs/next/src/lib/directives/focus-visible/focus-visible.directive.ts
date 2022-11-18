@@ -1,5 +1,5 @@
 import { Directive, Inject } from '@angular/core';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { Observable } from 'rxjs';
 import { PrizmFocusVisibleService } from './focus-visible.service';
 
@@ -9,14 +9,14 @@ import { PrizmFocusVisibleService } from './focus-visible.service';
  * in browsers that do not support it
  */
 @Directive({
-    selector: '[pzmFocusVisibleChange]',
+    selector: '[prizmFocusVisibleChange]',
     // eslint-disable-next-line @angular-eslint/no-outputs-metadata-property
-    outputs: ['pzmFocusVisibleChange'],
+    outputs: ['prizmFocusVisibleChange'],
     providers: [PrizmDestroyService, PrizmFocusVisibleService],
 })
 export class PrizmFocusVisibleDirective {
     constructor(
         @Inject(PrizmFocusVisibleService)
-        readonly pzmFocusVisibleChange: Observable<boolean>,
+        readonly prizmFocusVisibleChange: Observable<boolean>,
     ) {}
 }

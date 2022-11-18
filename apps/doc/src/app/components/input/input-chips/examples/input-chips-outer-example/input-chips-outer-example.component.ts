@@ -1,9 +1,9 @@
 import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PrizmChipsComponent } from '@digital-plant/zui-components';
+import { PrizmChipsComponent } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-input-chips-outer-example',
+  selector: 'prizm-input-chips-outer-example',
   templateUrl: './input-chips-outer-example.component.html',
   styleUrls: ['./input-chips-outer-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

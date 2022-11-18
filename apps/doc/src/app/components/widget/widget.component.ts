@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, TemplateRef } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PolymorphContent, pzmPure } from '@digital-plant/zui-components';
+import { PolymorphContent } from '@prizm-ui/components';
+import { prizmPure } from '@prizm-ui/core';
 
 @Component({
-  selector: 'pzm-widget-example',
+  selector: 'prizm-widget-example',
   templateUrl: './widget.component.html',
   styleUrls: ['./widget.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -34,14 +35,14 @@ export class WidgetComponent {
     HTML: import('!!raw-loader!./examples/with-buttons/widget-with-buttons-example.component.html'),
   };
 
-  @pzmPure
+  @prizmPure
   public getIconVariants(...templates: TemplateRef<unknown>[]): ReadonlyArray<PolymorphContent> {
     return [
       ...templates,
       ...this.iconVariants
     ]
   }
-  @pzmPure
+  @prizmPure
   public getHeaderVariants(...templates: TemplateRef<unknown>[]): ReadonlyArray<PolymorphContent> {
     return [
       null,

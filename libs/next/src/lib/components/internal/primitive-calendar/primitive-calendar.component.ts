@@ -5,18 +5,18 @@ import { PrizmDayRange } from '../../../@core/date-time/day-range';
 import { PrizmDayWithStatus } from '../../../@core/date-time/day-with-status';
 import { PrizmMonth } from '../../../@core/date-time/month';
 import { PrizmRangeState } from '../../../@core/enums';
-import { PZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
-import { PZM_DEFAULT_MARKER_HANDLER } from '../../../constants/default-marker-handler';
-import { pzmDefaultProp } from '../../../decorators/default-prop';
+import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
+import { PRIZM_DEFAULT_MARKER_HANDLER } from '../../../constants/default-marker-handler';
+import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmInteractiveState } from '../../../directives/wrapper';
-import { PZM_ORDERED_SHORT_WEEK_DAYS, PZM_WEEK_DAYS_NAMES } from '../../../tokens/ordered-short-week-days';
+import { PRIZM_ORDERED_SHORT_WEEK_DAYS, PRIZM_WEEK_DAYS_NAMES } from '../../../tokens/ordered-short-week-days';
 import { PrizmColor } from '../../../types/color';
 import { PrizmBooleanHandler } from '../../../types/handler';
 import { PrizmMarkerHandler } from '../../../types/marker-handler';
-import { pzmNullableSame } from '../../../util/common/nullable-same';
+import { prizmNullableSame } from '../../../util/common/nullable-same';
 
 @Component({
-    selector: `pzm-primitive-calendar`,
+    selector: `prizm-primitive-calendar`,
     templateUrl: `./primitive-calendar.component.html`,
     styleUrls: [`./primitive-calendar.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,31 +26,31 @@ export class PrizmPrimitiveCalendarComponent {
     private readonly today = PrizmDay.currentLocal();
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     month: PrizmMonth = PrizmMonth.currentLocal();
 
     @Input()
-    @pzmDefaultProp()
-    disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PZM_ALWAYS_FALSE_HANDLER;
+    @prizmDefaultProp()
+    disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PRIZM_ALWAYS_FALSE_HANDLER;
 
     @Input()
-    @pzmDefaultProp()
-    markerHandler: PrizmMarkerHandler = PZM_DEFAULT_MARKER_HANDLER;
+    @prizmDefaultProp()
+    markerHandler: PrizmMarkerHandler = PRIZM_DEFAULT_MARKER_HANDLER;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     value: PrizmDayRange | PrizmDay | null = null;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     daysWithStatus: PrizmDayWithStatus[] = [];
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     hoveredItem: PrizmDay | null = null;
 
     @Input()
-    @pzmDefaultProp()
+    @prizmDefaultProp()
     showAdjacent = true;
 
     @Output()
@@ -60,11 +60,11 @@ export class PrizmPrimitiveCalendarComponent {
     readonly dayClick = new EventEmitter<PrizmDay>();
 
     @HostBinding('attr.testId')
-    readonly testId = 'pzm_primitive_calendar';
+    readonly testId = 'prizm_primitive_calendar';
 
     constructor(
-        @Inject(PZM_ORDERED_SHORT_WEEK_DAYS)
-        readonly weekDays$: Observable<PZM_WEEK_DAYS_NAMES>,
+        @Inject(PRIZM_ORDERED_SHORT_WEEK_DAYS)
+        readonly weekDays$: Observable<PRIZM_WEEK_DAYS_NAMES>,
     ) {}
 
     @HostBinding(`class._single`)
@@ -188,7 +188,7 @@ export class PrizmPrimitiveCalendarComponent {
     }
 
     private updateHoveredItem(day: PrizmDay | null): void {
-        if (pzmNullableSame(this.hoveredItem, day, (a, b) => a.daySame(b))) {
+        if (prizmNullableSame(this.hoveredItem, day, (a, b) => a.daySame(b))) {
             return;
         }
 

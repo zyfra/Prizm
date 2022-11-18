@@ -1,5 +1,5 @@
 import { Directive, ElementRef, HostBinding, Input, OnInit } from '@angular/core';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmOverscrollMode } from './overscroll.model';
 import { PrizmOverscrollService } from './overscroll.service';
 import { takeUntil } from 'rxjs/operators';
@@ -8,11 +8,11 @@ import { takeUntil } from 'rxjs/operators';
  * Directive to isolate scrolling, i.e. prevent body scroll behind modal dialog
  */
 @Directive({
-    selector: '[pzmOverscroll]',
+    selector: '[prizmOverscroll]',
     providers: [PrizmDestroyService],
 })
 export class PrizmOverscrollDirective implements OnInit {
-  @Input('pzmOverscroll')
+  @Input('prizmOverscroll')
   public mode: PrizmOverscrollMode | '' = 'scroll';
 
   public get enabled(): boolean {

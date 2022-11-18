@@ -1,5 +1,5 @@
-<pzm-table [value]="products" editMode="cell" responsiveLayout="scroll">
-  <ng-template pzmTableTemplate="header">
+<prizm-table [value]="products" editMode="cell" responsiveLayout="scroll">
+  <ng-template prizmTableTemplate="header">
     <tr>
       <th rowspan="2">Product</th>
       <th rowspan="2">Name</th>
@@ -10,7 +10,7 @@
       <th>Count</th>
     </tr>
   </ng-template>
-  <ng-template pzmTableTemplate="body" let-product>
+  <ng-template prizmTableTemplate="body" let-product>
     <tr>
       <td>{{ product.code }}</td>
       <td>{{ product.name }}</td>
@@ -18,16 +18,16 @@
       <td>{{ product.count }}</td>
     </tr>
   </ng-template>
-  <ng-template pzmTableTemplate="summary">
+  <ng-template prizmTableTemplate="summary">
     <div class="paginator">
-      <pzm-paginator
+      <prizm-paginator
         [totalRecords]="160"
         [pageLinkSize]="5"
         [rows]="10"
         [initialValue]="6"
         leftButtonLabel="Назад"
         rightButtonLabel="Вперед"
-      ></pzm-paginator>
+      ></prizm-paginator>
     </div>
   </ng-template>
-</pzm-table>
+</prizm-table>

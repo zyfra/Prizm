@@ -1,9 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { IBreadcrumb } from '@digital-plant/zui-components';
+import { IBreadcrumb } from '@prizm-ui/components';
 
 @Component({
-  selector: 'pzm-example-breadcrumbs',
+  selector: 'prizm-example-breadcrumbs',
   templateUrl: './breadcrumbs-example.component.html',
   styleUrls: ['./breadcrumbs-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

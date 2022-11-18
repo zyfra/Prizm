@@ -1,6 +1,6 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PrizmToastModule, pzmToastOptionsProvider } from '@digital-plant/zui-components';
+import { PrizmToastModule, prizmToastOptionsProvider } from '@prizm-ui/components';
 
 @NgModule({
   imports: [
@@ -9,7 +9,7 @@ import { PrizmToastModule, pzmToastOptionsProvider } from '@digital-plant/zui-co
   ],
   providers: [
     /* optional - we can override default options */
-    pzmToastOptionsProvider({
+    prizmToastOptionsProvider({
       timer: 1000
     })
   ]

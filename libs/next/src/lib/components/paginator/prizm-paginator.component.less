@@ -1,0 +1,155 @@
+:host {
+  height: 40px;
+  display: flex;
+
+  button {
+    outline: none;
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+  }
+
+  .container {
+    height: 100%;
+    width: 100%;
+    padding: 16px;
+
+    background: var(--prizm-bg-body);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    overflow: hidden;
+
+    .content {
+      display: flex;
+      align-items: center;
+    }
+
+    span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .rows {
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 16px;
+
+      &__count {
+        margin-right: 12px;
+
+        color: var(--prizm-text-subscript);
+      }
+
+      &__show {
+        margin-right: 32px;
+        color: var(--prizm-grey-g10-g4);
+      }
+    }
+
+    .rows-selector {
+      margin-right: 12px;
+      width: 100px;
+      min-width: 100px;
+    }
+
+    .paginator {
+      display: flex;
+
+      .page {
+        height: 32px;
+        min-width: 40px;
+        margin: 0 4px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        border-radius: 2px;
+
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 600;
+        color: var(--prizm-grey-g7-g7);
+
+        &:hover {
+          background: var(--prizm-grey-g12-g2);
+          color: var(--prizm-exeptions-g1-b1);
+
+          transition: 300ms;
+        }
+
+        &:focus,
+        &_selected {
+          background: var(--prizm-lite-b130-20);
+          color: var(--prizm-exeptions-g1-b1);
+
+          transition: 300ms;
+        }
+      }
+
+      .dots {
+        height: 32px;
+        width: 32px;
+
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+
+        color: var(--prizm-grey-g7-g7);
+      }
+
+      .control {
+        height: 32px;
+        padding: 0 8px;
+
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+
+        color: var(--prizm-grey-g8-g6);
+
+        &_left {
+          margin-right: 14px;
+        }
+
+        &_right {
+          margin-left: 14px;
+        }
+
+        &:not([disabled]):hover,
+        &:not([disabled]):focus {
+          color: var(--prizm-exeptions-g1-b1);
+          transition: 300ms;
+        }
+
+        &:disabled {
+          color: var(--prizm-grey-g10-g4);
+
+          cursor: not-allowed;
+        }
+      }
+
+      .show-more {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+
+        color: var(--prizm-index-plan);
+
+        text-decoration: underline var(--prizm-index-plan);
+
+        cursor: pointer;
+      }
+    }
+  }
+}

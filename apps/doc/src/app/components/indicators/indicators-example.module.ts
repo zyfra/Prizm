@@ -5,7 +5,7 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { IndicatorsBasicExampleComponent } from './examples/indicators-basic-example/indicators-basic-example.component';
 import { IndicatorsWithIconExampleComponent } from './examples/indicators-with-icon-example/indicators-with-icon-example.component';
-import { PrizmIndicatorModule } from '@digital-plant/zui-components';
+import { PrizmIndicatorModule } from '@prizm-ui/components';
 
 @NgModule({
   declarations: [

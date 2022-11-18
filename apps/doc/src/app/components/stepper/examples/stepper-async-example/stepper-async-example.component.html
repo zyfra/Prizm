@@ -1,10 +1,10 @@
-<pzm-stepper
+<prizm-stepper
   [currentStep]="currentStep"
   [title]="'Stepper basic example'"
   (selectStep)="onSelectStep($event)"
 >
   <ng-template
-    [pzmStepperStep]="1"
+    [prizmStepperStep]="1"
     [title]="steps[1].title"
     [status]="steps[1].status"
     [disabled]="steps[1].disabled"
@@ -14,7 +14,7 @@
   </ng-template>
 
   <ng-template
-    [pzmStepperStep]="2"
+    [prizmStepperStep]="2"
     [title]="steps[2].title"
     [status]="steps[2].status"
     [disabled]="steps[2].disabled"
@@ -24,7 +24,7 @@
   </ng-template>
 
   <ng-template
-    [pzmStepperStep]="3"
+    [prizmStepperStep]="3"
     [title]="steps[3].title"
     [status]="steps[3].status"
     [disabled]="steps[3].disabled"
@@ -33,9 +33,9 @@
     <div>Status: {{ steps[3].status }}</div>
   </ng-template>
 
-  <div class="footer" pzmStepperFooter>
+  <div class="footer" prizmStepperFooter>
     <button
-      pzmButton
+      prizmButton
       appearanceType="outline"
       appearance="primary"
       size="l"
@@ -45,7 +45,7 @@
       Предыдущий шаг
     </button>
     <button
-      pzmButton
+      prizmButton
       appearanceType="outline"
       appearance="primary"
       size="l"
@@ -56,9 +56,9 @@
       Следующий шаг
     </button>
 
-    <button pzmButton appearanceType="outline" appearance="success" size="l" *ngIf="currentStep === 5">
+    <button prizmButton appearanceType="outline" appearance="success" size="l" *ngIf="currentStep === 5">
       Завершить
     </button>
   </div>
-</pzm-stepper>
+</prizm-stepper>
 

@@ -4,12 +4,12 @@ import { PrizmToastDefaultOptions } from './toast-options';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PolymorphContent } from '../../directives/polymorph';
 import { PrizmToastService } from './toast.service';
-import { pzmGenerateId } from '../../util';
+import { prizmGenerateId } from '../../util';
 
 export class PrizmToastRef {
   private show$ = new ReplaySubject<boolean>(1);
   private destroy$ = new Subject<void>();
-  private hash_ = pzmGenerateId();
+  private hash_ = prizmGenerateId();
   get hash(): string {
     return this.hash_;
   };
@@ -74,7 +74,7 @@ export class PrizmToastRef {
   }
 
   private detect(): void {
-    this.hash_ = pzmGenerateId();
+    this.hash_ = prizmGenerateId();
     this.toastService.detect();
   }
 }

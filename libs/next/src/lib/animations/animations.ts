@@ -10,7 +10,7 @@ export interface PrizmDurationOptions {
   params: {duration: number};
 }
 
-export const pzmFadeIn = trigger('pzmFadeIn', [
+export const prizmFadeIn = trigger('prizmFadeIn', [
   transition(
     ':enter',
     [style({opacity: 0}), animate(TRANSITION, style({opacity: 1}))],
@@ -24,7 +24,7 @@ export const pzmFadeIn = trigger('pzmFadeIn', [
 ]);
 
 
-export const pzmHeightCollapse = trigger('pzmHeightCollapse', [
+export const prizmHeightCollapse = trigger('prizmHeightCollapse', [
   transition(
     ':enter',
     [style({height: 0}), animate(TRANSITION, style({height: '*'}))],
@@ -37,7 +37,7 @@ export const pzmHeightCollapse = trigger('pzmHeightCollapse', [
   ),
 ]);
 
-export const pzmHeightCollapseList = trigger('pzmHeightCollapseList', [
+export const prizmHeightCollapseList = trigger('prizmHeightCollapseList', [
   transition(
     '* => *',
     [
@@ -66,7 +66,7 @@ export const pzmHeightCollapseList = trigger('pzmHeightCollapseList', [
   ),
 ]);
 
-export const pzmWidthCollapse = trigger('pzmWidthCollapse', [
+export const prizmWidthCollapse = trigger('prizmWidthCollapse', [
   transition(
     ':enter',
     [style({width: 0}), animate(TRANSITION, style({width: '*'}))],
@@ -79,7 +79,7 @@ export const pzmWidthCollapse = trigger('pzmWidthCollapse', [
   ),
 ]);
 
-export const pzmWidthCollapseList = trigger('pzmWidthCollapseList', [
+export const prizmWidthCollapseList = trigger('prizmWidthCollapseList', [
   transition(
     '* => *',
     [
@@ -108,7 +108,7 @@ export const pzmWidthCollapseList = trigger('pzmWidthCollapseList', [
   ),
 ]);
 
-export const pzmFadeInList = trigger('pzmFadeInList', [
+export const prizmFadeInList = trigger('prizmFadeInList', [
   transition(
     '* => *',
     [
@@ -137,7 +137,7 @@ export const pzmFadeInList = trigger('pzmFadeInList', [
   ),
 ]);
 
-export const pzmFadeInTop = trigger('pzmFadeInTop', [
+export const prizmFadeInTop = trigger('prizmFadeInTop', [
   transition(
     ':enter',
     [
@@ -156,7 +156,7 @@ export const pzmFadeInTop = trigger('pzmFadeInTop', [
   ),
 ]);
 
-export const pzmFadeInBottom = trigger('pzmFadeInBottom', [
+export const prizmFadeInBottom = trigger('prizmFadeInBottom', [
   transition(
     ':enter',
     [
@@ -175,7 +175,7 @@ export const pzmFadeInBottom = trigger('pzmFadeInBottom', [
   ),
 ]);
 
-export const pzmDropdownAnimation = trigger('pzmDropdownAnimation', [
+export const prizmDropdownAnimation = trigger('prizmDropdownAnimation', [
   transition(
     `* => ${PrizmDropdownAnimation.FadeInTop}`,
     [
@@ -210,7 +210,7 @@ export const pzmDropdownAnimation = trigger('pzmDropdownAnimation', [
   ),
 ]);
 
-export const pzmScaleIn = trigger('pzmScaleIn', [
+export const prizmScaleIn = trigger('prizmScaleIn', [
   transition(
     ':enter',
     [
@@ -229,7 +229,7 @@ export const pzmScaleIn = trigger('pzmScaleIn', [
   ),
 ]);
 
-export const pzmScaleInList = trigger('pzmScaleInList', [
+export const prizmScaleInList = trigger('prizmScaleInList', [
   transition(
     '* => *',
     [
@@ -258,7 +258,7 @@ export const pzmScaleInList = trigger('pzmScaleInList', [
   ),
 ]);
 
-export const pzmSlideIn = trigger('pzmSlideIn', [
+export const prizmSlideIn = trigger('prizmSlideIn', [
   transition(
     `* => left`,
     [
@@ -293,7 +293,7 @@ export const pzmSlideIn = trigger('pzmSlideIn', [
   ),
 ]);
 
-export const pzmSlideInLeft = trigger('pzmSlideInLeft', [
+export const prizmSlideInLeft = trigger('prizmSlideInLeft', [
   transition(
     ':enter',
     [
@@ -312,7 +312,7 @@ export const pzmSlideInLeft = trigger('pzmSlideInLeft', [
   ),
 ]);
 
-export const pzmSlideInLeftList = trigger('pzmSlideInLeftList', [
+export const prizmSlideInLeftList = trigger('prizmSlideInLeftList', [
   transition(
     '* => *',
     [
@@ -341,7 +341,7 @@ export const pzmSlideInLeftList = trigger('pzmSlideInLeftList', [
   ),
 ]);
 
-export const pzmSlideInRight = trigger('pzmSlideInRight', [
+export const prizmSlideInRight = trigger('prizmSlideInRight', [
   transition(
     ':enter',
     [
@@ -360,7 +360,7 @@ export const pzmSlideInRight = trigger('pzmSlideInRight', [
   ),
 ]);
 
-export const pzmSlideInRightList = trigger('pzmSlideInRightList', [
+export const prizmSlideInRightList = trigger('prizmSlideInRightList', [
   transition(
     '* => *',
     [
@@ -389,7 +389,7 @@ export const pzmSlideInRightList = trigger('pzmSlideInRightList', [
   ),
 ]);
 
-export const pzmSlideInTop = trigger('pzmSlideInTop', [
+export const prizmSlideInTop = trigger('prizmSlideInTop', [
   transition(
     ':enter',
     [
@@ -408,7 +408,7 @@ export const pzmSlideInTop = trigger('pzmSlideInTop', [
   ),
 ]);
 
-export const pzmSlideInTopList = trigger('pzmSlideInTopList', [
+export const prizmSlideInTopList = trigger('prizmSlideInTopList', [
   transition(
     '* => *',
     [
@@ -437,7 +437,7 @@ export const pzmSlideInTopList = trigger('pzmSlideInTopList', [
   ),
 ]);
 
-export const pzmSlideInBottom = trigger('pzmSlideInBottom', [
+export const prizmSlideInBottom = trigger('prizmSlideInBottom', [
   transition(
     ':enter',
     [
@@ -456,7 +456,7 @@ export const pzmSlideInBottom = trigger('pzmSlideInBottom', [
   ),
 ]);
 
-export const pzmSlideInBottomList = trigger('pzmSlideInBottomList', [
+export const prizmSlideInBottomList = trigger('prizmSlideInBottomList', [
   transition(
     '* => *',
     [

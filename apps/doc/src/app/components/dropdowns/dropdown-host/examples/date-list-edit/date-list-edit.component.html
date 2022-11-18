@@ -1,17 +1,17 @@
-<pzm-dropdown-host
+<prizm-dropdown-host
   [content]="dropdown"
-  pzmDropdownHostWidth='auto'
+  prizmDropdownHostWidth='auto'
   [(isOpen)]="open"
   #elem
 >
-  <button pzmButton type="button" (click)="open = !open">
+  <button prizmButton type="button" (click)="open = !open">
     Пример выбора периода
   </button>
 
   <ng-template #dropdown>
-    <pzm-data-list [style.--pzm-data-list-border]='0'>
+    <prizm-data-list [style.--prizm-data-list-border]='0'>
       <div class='header' header>
-        <pzm-icon iconClass='date-calendar-range'></pzm-icon>
+        <prizm-icon iconClass='date-calendar-range'></prizm-icon>
         <span>Выбор периода</span>
       </div>
       <div class="box">
@@ -19,25 +19,25 @@
           <ng-container *ngFor="let item of data; let idx = index">
             <div
               class='list-item'
-              *pzmLet='item.range | pzmCallFunc : convertDate as dateArr'>
-              <pzm-radio-button
+              *prizmLet='item.range | prizmCallFunc : convertDate as dateArr'>
+              <prizm-radio-button
                 (click)="select(item)"
                 [value]="item.range"
                 [label]='(dateArr[0] | date : "short") + " - " + (dateArr[1] | date : "short")'
-              ></pzm-radio-button>
+              ></prizm-radio-button>
               <div class='btns'>
-                <pzm-icon class='edit-icon' iconClass='editor-mode'></pzm-icon>
-                <pzm-icon (click)='remove(idx); elem.reCalculatePositions();' class='trash-icon' iconClass='delete'></pzm-icon>
+                <prizm-icon class='edit-icon' iconClass='editor-mode'></prizm-icon>
+                <prizm-icon (click)='remove(idx); elem.reCalculatePositions();' class='trash-icon' iconClass='delete'></prizm-icon>
               </div>
             </div>
           </ng-container>
         </div>
       </div>
       <div class='footer' footer>
-        <button appearanceType='ghost' appearance='secondary' pzmButton (click)="open = false; cdRef.markForCheck()">Отменить</button>
-        <button pzmButton (click)="open = false; cdRef.markForCheck()">Сохранить</button>
+        <button appearanceType='ghost' appearance='secondary' prizmButton (click)="open = false; cdRef.markForCheck()">Отменить</button>
+        <button prizmButton (click)="open = false; cdRef.markForCheck()">Сохранить</button>
       </div>
-    </pzm-data-list>
+    </prizm-data-list>
   </ng-template>
 
-</pzm-dropdown-host>
+</prizm-dropdown-host>

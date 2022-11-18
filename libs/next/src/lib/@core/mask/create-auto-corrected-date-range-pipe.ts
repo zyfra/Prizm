@@ -1,7 +1,7 @@
 import { PrizmDateMode } from '../../types/date-mode';
 import { PrizmWithOptionalMinMaxWithValue } from '../../types/with-optional-min-max';
-import { PZM_DATE_FILLER_LENGTH, PZM_DATE_RANGE_FILLER_LENGTH } from '../date-time/date-fillers';
-import { PZM_RANGE_SEPARATOR_CHAR } from '../date-time/date-time';
+import { PRIZM_DATE_FILLER_LENGTH, PRIZM_DATE_RANGE_FILLER_LENGTH } from '../date-time/date-fillers';
+import { PRIZM_RANGE_SEPARATOR_CHAR } from '../date-time/date-time';
 import { PrizmDay } from '../date-time/day';
 import { PrizmDayRange } from '../date-time/day-range';
 import { PrizmTextMaskPipeHandler } from './text-mask-pipe-handler';
@@ -14,7 +14,7 @@ interface PrizmAutoCorrectedDatePipeConfigs
 
 function parseWithLimit(value: string, config: PrizmAutoCorrectedDatePipeConfigs): PrizmDay {
     return PrizmDay.normalizeParse(
-        value.slice(0, PZM_DATE_FILLER_LENGTH),
+        value.slice(0, PRIZM_DATE_FILLER_LENGTH),
         config.dateFormat,
     ).dayLimit(config.min, config.max);
 }
@@ -23,21 +23,21 @@ function processRawValue(value: string, config: PrizmAutoCorrectedDatePipeConfig
     const {dateFormat, dateSeparator} = config;
 
     switch (value.length) {
-        case PZM_DATE_FILLER_LENGTH:
+        case PRIZM_DATE_FILLER_LENGTH:
             return parseWithLimit(value, config).toString(dateFormat, dateSeparator);
-        case PZM_DATE_FILLER_LENGTH + PZM_RANGE_SEPARATOR_CHAR.length:
+        case PRIZM_DATE_FILLER_LENGTH + PRIZM_RANGE_SEPARATOR_CHAR.length:
             return (
                 parseWithLimit(value, config).toString(dateFormat, dateSeparator) +
-                PZM_RANGE_SEPARATOR_CHAR
+                PRIZM_RANGE_SEPARATOR_CHAR
             );
-        case PZM_DATE_RANGE_FILLER_LENGTH:
+        case PRIZM_DATE_RANGE_FILLER_LENGTH:
             return config.value &&
                 config.value.toString(dateFormat, dateSeparator) === value
                 ? value
                 : PrizmDayRange.sort(
-                      parseWithLimit(value.slice(0, PZM_DATE_FILLER_LENGTH), config),
+                      parseWithLimit(value.slice(0, PRIZM_DATE_FILLER_LENGTH), config),
                       parseWithLimit(
-                          value.slice(PZM_DATE_FILLER_LENGTH + PZM_RANGE_SEPARATOR_CHAR.length),
+                          value.slice(PRIZM_DATE_FILLER_LENGTH + PRIZM_RANGE_SEPARATOR_CHAR.length),
                           config,
                       ),
                   ).toString(dateFormat, dateSeparator);
@@ -60,7 +60,7 @@ function processRawValue(value: string, config: PrizmAutoCorrectedDatePipeConfig
  * @param config with min and max date
  * @return mask pipe handler that handles `min` and `max`
  */
-export function pzmCreateAutoCorrectedDateRangePipe(
+export function prizmCreateAutoCorrectedDateRangePipe(
     config: PrizmAutoCorrectedDatePipeConfigs,
 ): PrizmTextMaskPipeHandler {
     return (value: any): any => ({value: processRawValue(value, config)});

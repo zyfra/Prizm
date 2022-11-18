@@ -1,17 +1,17 @@
-<pzm-input-layout label="Заголовок" size="l" status="default">
+<prizm-input-layout label="Заголовок" size="l" status="default">
   <input
-    pzmInputNumber
+    prizmInputNumber
     placeholder="Введите название"
     #inputText
     [value]="2"
     [step]="2"
     [formControl]="requiredInputControl"
-    #inputNumber="pzmInputNumber"
+    #inputNumber="prizmInputNumber"
   />
-  <ng-template pzmInputStatusText [control]="inputText"></ng-template>
-  <pzm-input-number-auxiliary-controls
-    pzm-input-right
+  <ng-template prizmInputStatusText [control]="inputText"></ng-template>
+  <prizm-input-number-auxiliary-controls
+    prizm-input-right
     [inputNumber]="inputNumber"
-  ></pzm-input-number-auxiliary-controls>
-</pzm-input-layout>
+  ></prizm-input-number-auxiliary-controls>
+</prizm-input-layout>
 

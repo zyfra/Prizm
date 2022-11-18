@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PrizmInputValidationTexts } from '@digital-plant/zui-components';
+import { PrizmInputValidationTexts } from '@prizm-ui/components';
 
 @Injectable()
 export class InputValidationCustomTextsService extends PrizmInputValidationTexts {

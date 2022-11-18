@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PrizmPrimitiveMonthPickerComponent } from './primitive-month-picker.component';
-import { PrizmLetModule } from '@digital-plant/zyfra-helpers';
+import { PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmRepeatTimesModule } from '../../../directives/repeat-times/repeat-times.module';
 import { PrizmHoveredModule } from '../../../directives/hovered/hovered.module';
 import { PrizmPressedModule } from '../../../directives/pressed/pressed.module';

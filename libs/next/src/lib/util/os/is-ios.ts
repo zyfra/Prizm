@@ -1,6 +1,6 @@
 const IOS_REG_EXP = /ipad|iphone|ipod/;
 
-export function pzmIsIos(navigator: Navigator): boolean {
+export function prizmIsIos(navigator: Navigator): boolean {
     const userAgentValue = navigator.userAgent.toLowerCase();
 
     return (

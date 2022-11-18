@@ -4,7 +4,7 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { WidgetComponent } from './widget.component';
 import { PrizmWidgetBaseExampleComponent } from './examples/base/widget-base-example.component';
-import { PrizmWidgetModule } from '@digital-plant/zui-components';
+import { PrizmWidgetModule } from '@prizm-ui/components';
 import { PrizmWidgetWithButtonsExampleComponent } from './examples/with-buttons/widget-with-buttons-example.component';
 
 @NgModule({

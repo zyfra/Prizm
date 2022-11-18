@@ -1,23 +1,23 @@
 import { DOCUMENT } from '@angular/common';
 import { Directive, ElementRef, Inject, Input } from '@angular/core';
-import { PrizmDestroyService } from '@digital-plant/zyfra-helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { Observable, timer } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { PZM_SCROLL_INTO_VIEW } from '../../constants/events';
-import { pzmRequiredSetter } from '../../decorators/required-setter';
-import { pzmCustomEvent } from '../../util/dom/custom-event';
+import { PRIZM_SCROLL_INTO_VIEW } from '../../constants/events';
+import { prizmRequiredSetter } from '@prizm-ui/core';
+import { prizmCustomEvent } from '../../util/dom/custom-event';
 
 /**
- * Directive scrolls element into view inside pzm-scrollbar
+ * Directive scrolls element into view inside prizm-scrollbar
  */
 @Directive({
-    selector: `[pzmScrollIntoView]`,
+    selector: `[prizmScrollIntoView]`,
     providers: [PrizmDestroyService],
 })
 export class PrizmScrollIntoViewDirective {
     @Input()
-    @pzmRequiredSetter()
-    set pzmScrollIntoView(scroll: boolean) {
+    @prizmRequiredSetter()
+    set prizmScrollIntoView(scroll: boolean) {
         if (!scroll) {
             return;
         }
@@ -28,8 +28,8 @@ export class PrizmScrollIntoViewDirective {
             .pipe(takeUntil(this.destroy$))
             .subscribe(() => {
                 this.elementRef.nativeElement.dispatchEvent(
-                    pzmCustomEvent<Element>(
-                        PZM_SCROLL_INTO_VIEW,
+                    prizmCustomEvent<Element>(
+                        PRIZM_SCROLL_INTO_VIEW,
                         {
                             bubbles: true,
                             detail: this.elementRef.nativeElement,

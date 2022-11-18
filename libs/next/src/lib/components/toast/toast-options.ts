@@ -16,7 +16,7 @@ export interface PrizmToastDefaultOptions {
 }
 
 /** Default values for the toast options. */
-export const PZM_TOAST_DEFAULT_OPTIONS: PrizmToastDefaultOptions = {
+export const PRIZM_TOAST_DEFAULT_OPTIONS: PrizmToastDefaultOptions = {
     position: PrizmToastPosition.TOP_RIGHT,
     timer: 5000,
     title: '',
@@ -30,16 +30,16 @@ export const PZM_TOAST_DEFAULT_OPTIONS: PrizmToastDefaultOptions = {
     templateInfo: ToastComponent,
 };
 
-export const PZM_TOAST_OPTIONS = new InjectionToken<PrizmToastDefaultOptions>(
+export const PRIZM_TOAST_OPTIONS = new InjectionToken<PrizmToastDefaultOptions>(
     'Default parameters for toast component',
     {
-        factory: (): typeof PZM_TOAST_DEFAULT_OPTIONS => PZM_TOAST_DEFAULT_OPTIONS,
+        factory: (): typeof PRIZM_TOAST_DEFAULT_OPTIONS => PRIZM_TOAST_DEFAULT_OPTIONS,
     },
 );
 
-export const pzmToastOptionsProvider: (
+export const prizmToastOptionsProvider: (
     options: Partial<PrizmToastDefaultOptions>,
 ) => ValueProvider = (options: Partial<PrizmToastDefaultOptions>) => ({
-    provide: PZM_TOAST_OPTIONS,
-    useValue: {...PZM_TOAST_DEFAULT_OPTIONS, ...options},
+    provide: PRIZM_TOAST_OPTIONS,
+    useValue: {...PRIZM_TOAST_DEFAULT_OPTIONS, ...options},
 });
