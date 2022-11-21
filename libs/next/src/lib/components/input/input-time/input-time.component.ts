@@ -3,7 +3,8 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  forwardRef, HostBinding,
+  forwardRef,
+  HostBinding,
   Inject,
   Injector,
   Input,
@@ -17,7 +18,7 @@ import { map } from 'rxjs/operators';
 import { PrizmTime } from '../../../@core/date-time/time';
 import { AbstractPrizmNullableControl } from '../../../abstract/nullable-control';
 import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
-import { prizmDefaultProp } from '@prizm-ui/core';
+import { prizmDefaultProp, prizmPure } from '@prizm-ui/core';
 import { PRIZM_FIXED_DROPDOWN_CONTROLLER_PROVIDER } from '../../../providers/specific-dropdown-controllers';
 import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
 import { PrizmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
@@ -25,7 +26,6 @@ import { PrizmBooleanHandler } from '../../../types/handler';
 import { PRIZM_INPUT_TIME_OPTIONS, PrizmInputTimeOptions } from './input-time-options';
 import { PRIZM_TIME_TEXTS } from '../../../tokens/i18n';
 import { PrizmTimeMode } from '../../../types/time-mode';
-import { prizmPure } from '@prizm-ui/core';
 import { prizmCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
 import { PRIZM_STRICT_MATCHER } from '../../../constants/matcher';
 import { PrizmTimeLike } from '../../../types/time-like';
