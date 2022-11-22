@@ -354,6 +354,12 @@ export const pages: TuiDocPages = [
     keywords: 'zoom, zoom control, зум',
     route: '/components/zoom-control',
   },
+  {
+    section: `Components`,
+    title: 'Stepper',
+    keywords: 'stepper',
+    route: '/components/stepper',
+  },
   // Tools
   {
     section: `Tools`,
