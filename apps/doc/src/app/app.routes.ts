@@ -572,6 +572,14 @@ export const ROUTES = [
       title: 'Zoom Control',
     },
   },
+  {
+    path: 'components/stepper',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/stepper/stepper-example.module')).PrizmStepperExampleModule,
+    data: {
+      title: 'Stepper',
+    },
+  },
   { path: '**', redirectTo: 'getting-started' },
 ];
 
