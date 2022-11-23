@@ -15,7 +15,7 @@ export const MAIN_PACKAGES: ReadonlyArray<Package> = [
   },
   {
     name: '@prizm-ui/helpers',
-    version: '1.0.0-beta.10',
+    version: '1.0.0-beta.11',
   },
 ];
 
