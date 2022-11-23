@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/components",
-  "version": "1.0.0-beta.10",
+  "version": "1.0.0-beta.11",
   "peerDependencies": {
     "@angular/common": "^12.2.0",
     "@angular/core": "^12.2.0",
@@ -9,7 +9,7 @@
     "@ng-web-apis/common": "^1.13.0",
     "primeicons": "^4.1.0",
     "primeng": "^12.2.1",
-    "@prizm-ui/helpers": "^1.0.0-beta.10"
+    "@prizm-ui/helpers": "^1.0.0-beta.11"
   },
   "dependencies": {
     "tslib": "^2.3.0"
