@@ -2,7 +2,21 @@
   "name": "@digital-plant/sdk",
   "version": "0.13.9",
   "license": "MIT",
+  "svg-to-ts": {
+    "srcFiles": [
+      "./libs/prizm/icons/src/lib/icons/**/*.svg"
+    ],
+    "outputDirectory": "./libs/prizm/icons/src/lib/icons",
+    "interfaceName": "PrizmIconSvg",
+    "typeName": "PrizmIconSvgKeys",
+    "prefix": "prizmIconSvg",
+    "optimizeForLazyLoading": true,
+    "modelFileName": "prizm-icon-svg.model",
+    "additionalModelFile": "./libs/prizm/icons/src/lib",
+    "compileSources": false
+  },
   "scripts": {
+    "generate-icons": "./node_modules/svg-to-ts",
     "docs": "nx run components:doc",
     "ng": "nx",
     "cypress:open": "cypress open",
@@ -32,6 +46,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-extensions/svg-icons-builder": "^3.0.0",
     "@angular/animations": "^12.2.0",
     "@angular/cdk": "^12.2.0",
     "@angular/common": "^12.2.0",
@@ -53,9 +68,11 @@
     "@taiga-ui/icons": "^2.46.0",
     "@taiga-ui/kit": "^2.46.0",
     "@tinkoff/ng-dompurify": "^3.0.0",
+    "@yarnpkg/parsers": "~3.0.0-rc.27",
     "clipboard": "^2.0.11",
     "date-fns": "^2.26.0",
     "dompurify": "^2.3.8",
+    "fantasticon": "^2.0.0",
     "highlight.js": "^11.5.1",
     "highlightjs-line-numbers.js": "^2.8.0",
     "ngx-markdown": "^13.1.0",
@@ -63,11 +80,10 @@
     "primeicons": "^4.1.0",
     "primeng": "^12.2.1",
     "rxjs": "~6.6.0",
+    "tar-stream": "~2.2.0",
     "tslib": "^2.0.0",
     "uuid": "^8.3.2",
-    "zone.js": "~0.11.4",
-    "tar-stream": "~2.2.0",
-    "@yarnpkg/parsers": "~3.0.0-rc.27"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^12.1.3",
@@ -102,6 +118,7 @@
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "~4.33.0",
     "@typescript-eslint/parser": "~4.33.0",
+    "@yarnpkg/parsers": "~3.0.0-rc.27",
     "cypress": "^8.7.0",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.1.0",
@@ -119,9 +136,9 @@
     "postcss-url": "^10.1.1",
     "prettier": "^2.3.1",
     "raw-loader": "^4.0.2",
-    "ts-jest": "27.0.5",
-    "typescript": "~4.3.5",
+    "svg-to-ts": "^8.9.0",
     "tar-stream": "~2.2.0",
-    "@yarnpkg/parsers": "~3.0.0-rc.27"
+    "ts-jest": "27.0.5",
+    "typescript": "~4.3.5"
   }
 }
