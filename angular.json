@@ -456,6 +456,45 @@
       },
       "tags": []
     },
+    "prizm-icons": {
+      "projectType": "library",
+      "root": "libs/prizm/icons",
+      "sourceRoot": "libs/prizm/icons/src",
+      "prefix": "zyfra",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/prizm/icons"],
+          "options": {
+            "project": "libs/prizm/icons/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/prizm/icons/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/prizm/icons/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/prizm/icons"],
+          "options": {
+            "jestConfig": "libs/prizm/icons/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/prizm/icons/src/**/*.ts", "libs/prizm/icons/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
     "prizm-theme": {
       "projectType": "library",
       "root": "libs/prizm/theme",

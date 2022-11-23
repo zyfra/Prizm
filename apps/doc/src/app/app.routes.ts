@@ -171,8 +171,15 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/old-icon',
+    loadChildren: async (): Promise<unknown> => (await import('./components/icons/old/icon.module')).IconModule,
+    data: {
+      title: 'Old Icon',
+    },
+  },
+  {
     path: 'components/icon',
-    loadChildren: async (): Promise<unknown> => (await import('./components/icon/icon.module')).IconModule,
+    loadChildren: async (): Promise<unknown> => (await import('./components/icons/svg/icon.module')).IconModule,
     data: {
       title: 'Icon',
     },
