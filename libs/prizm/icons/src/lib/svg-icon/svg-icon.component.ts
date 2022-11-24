@@ -7,6 +7,15 @@ import { prizmDefaultProp } from '@prizm-ui/core';
   selector: 'prizm-icons-svg',
   template: `
         <ng-content></ng-content>
+[ICON]
+        <div class="prizm-icons-charts-diagrams_bar-basic"></div>
+        <br>
+        <br>
+        [[SVG]]
+
+        <svg>
+          <use xlink:href="#prizm-icons-charts-diagrams_bar-basic"></use>
+        </svg>
     `,
   styleUrls: [
     './svg-icon.component.less'

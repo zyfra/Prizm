@@ -16,7 +16,7 @@
     "compileSources": false
   },
   "scripts": {
-    "generate-icons": "./node_modules/svg-to-ts",
+    "generate-icons": "svg-to-ts",
     "docs": "nx run components:doc",
     "ng": "nx",
     "cypress:open": "cypress open",

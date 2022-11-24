@@ -1,6 +1,4 @@
-import { PrizmIconSvg } from './icons/build/prizm-icon-svg.model';
-
-export type PrizmIcon = PrizmIconSvg | {
+export type PrizmIcon = {
   name: string;
   data: string;
 }

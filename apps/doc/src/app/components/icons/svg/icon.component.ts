@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { IconDefs } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PrizmIconsRegistryService, prizmIconSvgUser } from '@prizm-ui/icons';
+import { PrizmIconsRegistryService } from '@prizm-ui/icons';
 
 @Component({
   selector: 'prizm-icon-example',
@@ -43,7 +43,7 @@ export class IconComponent {
       // 'users_minus',
       // 'users_plus',
       // 'users'
-      prizmIconSvgUser
+      // prizmIconSvgUser
     ])
 
   }

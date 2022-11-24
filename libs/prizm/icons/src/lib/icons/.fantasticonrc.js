@@ -1,9 +1,11 @@
 module.exports = {
+  name: 'prizm-icons',
+  prefix: 'prizm-icons',
   inputDir: './svg', // (required)
-  outputDir: './build2', // (required)
-  fontTypes: ['ttf', 'woff', 'woff2', 'svg'],
+  outputDir: '../../styles/icons-24/font', // (required)
+  fontTypes: ['ttf', 'woff', 'eot', 'woff2'],
   assetTypes: ['ts', 'css', 'json', 'html'],
-  fontsUrl: '/static/fonts',
+  fontsUrl: '.',
   formatOptions: {
     // Pass options directly to `svgicons2svgfont`
     // woff: {
@@ -20,8 +22,8 @@ module.exports = {
       // render the types with `'` instead of `"` (default is `"`)
       singleQuotes: true,
       // customise names used for the generated types and constants
-      enumName: 'MyIconType',
-      constantName: 'MY_CODEPOINTS'
+      enumName: 'PrizmIconsType',
+      constantName: 'PRIZM_ICONS_CODEPOINTS'
       // literalIdName: 'IconId',
       // literalKeyName: 'IconKey'
     }
@@ -42,10 +44,13 @@ module.exports = {
   // },
   // Customize generated icon IDs (unavailable with `.json` config file)
   getIconId: ({
-                basename, // `string` - Example: 'foo';
-                relativeDirPath, // `string` - Example: 'sub/dir/foo.svg'
-                absoluteFilePath, // `string` - Example: '/var/icons/sub/dir/foo.svg'
-                relativeFilePath, // `string` - Example: 'foo.svg'
-                index // `number` - Example: `0`
-              }) => [index, basename].join('_') // '0_foo'
+    basename, // `string` - Example: 'foo';
+    relativeDirPath, // `string` - Example: 'sub/dir/foo.svg'
+    absoluteFilePath, // `string` - Example: '/var/icons/sub/dir/foo.svg'
+    relativeFilePath, // `string` - Example: 'foo.svg'
+    index // `number` - Example: `0`
+  }) => {
+    const parent_dir = relativeDirPath.split('/').pop();
+    return [parent_dir, basename].join('_').replace(/[ ]+/g, '_');
+  } // '0_foo'
 };
