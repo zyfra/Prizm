@@ -153,6 +153,11 @@
                 "glob": "**/*",
                 "input": "libs/components/src/styles/fonts",
                 "output": "assets/ui-platform/components/fonts"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/prizm/icons/src/styles/icons",
+                "output": "assets/prizm-icons/fonts"
               }
             ],
             "styles": [
@@ -164,7 +169,8 @@
               "libs/next/src/styles/icons/icons.less",
               "libs/next/src/styles/icons-16/icons-16.less",
               "node_modules/prismjs/themes/prism-okaidia.css",
-              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
+              "libs/prizm/icons/src/styles/style.less"
             ],
             "scripts": [
               "node_modules/marked/lib/marked.js",

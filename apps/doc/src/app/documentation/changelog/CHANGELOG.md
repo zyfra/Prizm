@@ -15,7 +15,6 @@ All notable changes to this project will be documented in this file. See
 - packages names to @prizm-ui/* [MR]([MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/375)
 - change git repo [MR]([MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/375)
 
-
 ## [1.0.0-beta.10](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (18-10-2022)
 
 ### Features
