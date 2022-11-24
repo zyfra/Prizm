@@ -5,7 +5,7 @@
 Run command in your Angular project:
 
 ```
-ng add @digital-plant/zyfra-ui
+ng add @pizm-ui/install
 ```
 
 ## Contributing
@@ -16,7 +16,7 @@ Install globally `npm i -g nx`
 
 Start develop, serve dev `npm run start`
 
-### Add component to @digital-plant/zyfra-components
+### Add component to @prizm-ui/components
 
 For example button component
 
@@ -31,15 +31,15 @@ For example button component
 
 styles.less:
 ```less
-@import "../lib/button/zyfra-button.component.less";
+@import "../lib/button/button.component.less";
 
 ```
 
-And remove from Component declaration `zyfra-button.component`
+And remove from Component declaration `button.component`
 
 ```ts
 @Component({
-  selector: 'zyfra-button',
+  selector: 'prizm-button',
   templateUrl: './button.component.html',
   // styleUrls: ['./button.component.less'], remove this
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -56,14 +56,7 @@ export * from './lib/button';
 
 ### Commands
 
-- Components: 
-  - Rebuild component docs `nx run components:doc`
-  - Build prod `nx run components:build`
-  - Schematic build `nx run schematics:build`
-- Icons:
-  - Rebuild icons `nx run components:build-icons`
-- Translate
-  - Build `nx affected:build --files=libs/translate/src/index.ts`
+See nx commands
 
 
 ---------
@@ -90,7 +83,4 @@ Path's for update lib info:
 #### Other info
 
 > For more info [Readme nx guide](README_NX.md)
-
-
-For specific styles on storybook, use `./storybook/preview-head.html`
 
