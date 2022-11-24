@@ -1,4 +1,3 @@
-import { ZyfraUiRootModule } from '@digital-plant/zyfra-components';
 import { NgModule, SecurityContext } from '@angular/core';
 import { TuiAddonDocModule, TuiDocMainModule } from '@taiga-ui/addon-doc';
 import { AppComponent } from './app.component';
@@ -31,7 +30,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     TuiSelectModule,
     TuiStringifyContentPipeModule,
     TuiStringifyPipeModule,
-    ZyfraUiRootModule,
     TuiToggleModule,
     TuiModeModule,
     TuiLinkModule,

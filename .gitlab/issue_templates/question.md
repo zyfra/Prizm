@@ -1,8 +1,9 @@
 ### Библиотека
 
-- [ ] `@digital-plant/zyfra-components`
-- [ ] `@digital-plant/zyfra-ui`
-- [ ] `@digital-plant/zyfra-translate`
+- [ ] `@prizm-ui/components`
+- [ ] `@prizm-ui/isntall`
+- [ ] `@prizm-ui/icons`
+- [ ] `@prizm-ui/theme`
 
 ### Компонент
 
@@ -18,7 +19,7 @@ v16.13.0
 
 Dependencies:
 
-`@digital-plant/zyfra-components 0.1.1`
+`@prizm-ui/components 0.1.1`
 
 Операционная ситема:
 

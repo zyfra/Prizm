@@ -42,6 +42,5 @@ RUN chgrp -R 0 /project && \
 FROM $DOCKERFILE_BASE_IMAGE:$DOCKERFILE_BASE_TAG
 
 
-#COPY --from=builder --chown=101:0 /project/dist/storybook/components /www/storybook
 COPY --from=builder --chown=101:0 /project/dist/apps/doc /www
 COPY ./.env /.env

@@ -1,8 +1,9 @@
 ### Библиотека
 
-- [ ] `@digital-plant/zyfra-components`
-- [ ] `@digital-plant/zyfra-ui`
-- [ ] `@digital-plant/zyfra-translate`
+- [ ] `@prizm-ui/components`
+- [ ] `@prizm-ui/isntall`
+- [ ] `@prizm-ui/icons`
+- [ ] `@prizm-ui/theme`
 
 ### Компонент
 
@@ -27,15 +28,15 @@ v16.13.0
 Dependencies:
 
 ```
-➜ npm ls @digital-plant/zyfra-components
+➜ npm ls @prizm-ui/zyfra-components
 
-@digital-plant/zyfra-components 0.1.1
+@prizm-ui/zyfra-components 0.1.1
 ```
 
 ```
 ➜ npm ls @angular/core
 
-@digital-plant/sdk@0.0.2 /Users/rustamz/dev/zyfra/sdk
+@prizm-ui/components@0.0.2 
 ├─┬ @angular/animations@12.2.12
 │ └── @angular/core@12.2.12 deduped
 ├─┬ @angular/cdk@12.2.13
@@ -79,5 +80,5 @@ _Есть проблема следующего характера:_
 
 _Шаги воспроизведения_:
 
-1. Зайти по адресу [storybook](https://zui-sdk.apps.okd01.ziiot.ru/storybook/index.html)
+1. Зайти по адресу [prizm](https://prizm.zyfra.com)
 2. ...
