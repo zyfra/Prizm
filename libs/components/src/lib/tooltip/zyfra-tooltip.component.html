@@ -1,6 +1,0 @@
-<ng-template [ngIf]="hasTemplateRef" [ngIfElse]="string">
-  <ng-container *ngTemplateOutlet="$any(options.content); context: { $implicit: options.context }"> </ng-container>
-</ng-template>
-<ng-template #string>
-  {{ $any(options.content) | charLimit: 220 }}
-</ng-template>
