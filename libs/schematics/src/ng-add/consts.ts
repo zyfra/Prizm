@@ -10,8 +10,8 @@ interface ImportingModule {
 
 export const MAIN_PACKAGES: ReadonlyArray<Package> = [
   {
-    name: '@digital-plant/zyfra-components',
-    version: '0.13.9',
+    name: '@prizm-ui/components',
+    version: '1.0.0-beta.11',
   },
   {
     name: '@prizm-ui/helpers',
@@ -20,13 +20,13 @@ export const MAIN_PACKAGES: ReadonlyArray<Package> = [
 ];
 
 export const INSTALL_PACKAGE: Readonly<Package> = {
-  name: '@digital-plant/zyfra-ui',
-  version: '0.13.9',
+  name: '@prizm-ui/install',
+  version: '1.0.0-beta.11',
 };
 
 export const MAIN_MODULES: ReadonlyArray<ImportingModule> = [
   {
-    name: 'ZyfraUiRootModule',
-    packageName: '@digital-plant/zyfra-components',
+    name: 'PrizmUiRootModule',
+    packageName: '@prizm-ui/components',
   },
 ];

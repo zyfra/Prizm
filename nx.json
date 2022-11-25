@@ -1,5 +1,5 @@
 {
-  "npmScope": "zyfra",
+  "npmScope": "prizm",
   "affected": {
     "defaultBase": "master"
   },
@@ -18,15 +18,8 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
-        "runtimeCacheInputs": [
-          "node -v"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "runtimeCacheInputs": ["node -v"]
       }
     }
   },
@@ -54,6 +47,5 @@
       "style": "less",
       "changeDetection": "OnPush"
     }
-  },
-  "defaultProject": "sdk"
+  }
 }

@@ -1,4 +1,4 @@
-# @digital-plant/zyfra-ui
+# @prizm-ui/install
 
 This package contains schematics for install and update SDK components.
 
@@ -6,10 +6,10 @@ This package contains schematics for install and update SDK components.
 
 ### Default install
 
-By default, you can install `@digital-plant/zyfra-components` with Angular CLI command:
+By default, you can install `@prizm-ui/components` with Angular CLI command:
 
 ```
-ng add  @digital-plant/zyfra-ui
+ng add  @prizm-ui/install
 ```
 
 ### Manual install packages
@@ -17,7 +17,7 @@ ng add  @digital-plant/zyfra-ui
 1. **Install components:**
 
 ```
-npm i @digital-plant/zyfra-components
+npm i @prizm-ui/components
 ```
 
 2. **Install global styles:**
@@ -32,11 +32,8 @@ angular.json:
           "options": {
             "styles": [
               "src/styles.css",
-              "node_modules/primeng/resources/themes/luna-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/@digital-plant/zyfra-components/src/styles/theme/default.less",
-              "node_modules/@digital-plant/zyfra-components/src/styles/styles.less",
+              "node_modules/@prizm-ui/components/src/styles/theme/default.less",
+              "node_modules/@prizm-ui/components/src/styles/styles.less",
             ]
           }
         }
@@ -49,7 +46,7 @@ You can also use component LESS styles with import:
 
 my-awesome-button.component.less
 ```
-@import '~@digital-plant/zyfra-components/src/lib/button/zyfra-button.component.less';
+@import '~@prizm-ui/components/src/lib/button/button.component.less';
 ```
 
 3. **Install icons styles (if you need):**
@@ -64,7 +61,7 @@ angular.json:
           "options": {
             "styles": [
               ...your styles,
-              "node_modules/@digital-plant/zyfra-components/src/styles/icons/icons.less"
+              "node_modules/@prizm-ui/components/src/styles/icons/icons.less"
             ]
           }
         }
@@ -81,7 +78,7 @@ angular.json
 "assets": [
     {
         "glob": "**/*",
-        "input": "node_modules/@digital-plant/zyfra-components/src/styles/fonts",
+        "input": "node_modules/@prizm-ui/components/src/styles/fonts",
         "output": "assets/ui-platform/components/fonts"
     }
 ],
