@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
-import {TZyfraButtonIconPosision} from "@digital-plant/zyfra-components";
 
 @Component({
   selector: 'prizm-overlay-example',
@@ -24,13 +23,13 @@ export class OverlayComponent {
 
   icon: string;
 
-  readonly iconPosVariants: ReadonlyArray<TZyfraButtonIconPosision> = [
+  readonly iconPosVariants: ReadonlyArray<unknown> = [
     'left',
     'right',
     'top',
     'bottom'
   ];
-  iconPos: TZyfraButtonIconPosision = this.iconPosVariants[0];
+  iconPos: unknown = this.iconPosVariants[0];
   disabled = false;
   badge: string;
   style: string;
