@@ -16,22 +16,23 @@
       Icon set.
     </h1>
 
-<!--    <div *ngFor="let def of defs">-->
-<!--      <h4 class='title'>{{ def.dir }}</h4>-->
+    <div *ngFor="let def of defs">
+      <h4 class='title'>{{ def.dir }}</h4>
 
-<!--      <div class="icons">-->
-<!--        <div *ngFor="let name of def.data" class="icon-def">-->
+      <div class="icons">
+        <div *ngFor="let name of def.data" class="icon-def">
+          <i prizmIcon [name]='name'  [size]='"24px"'></i>
 <!--          <prizm-icons-svgs-svg [iconClass]="name" [size]='24' class="icon"></prizm-icons-svgs-svg>-->
-<!--          <div class="name">{{ name }}</div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
+          <div class="name" [title]='name'>{{ name }}</div>
+        </div>
+      </div>
+    </div>
 
   </ng-template>
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <prizm-icons-svg [name]='"user"'></prizm-icons-svg>
+      <prizm-icon-svg [name]='"user"'></prizm-icon-svg>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template

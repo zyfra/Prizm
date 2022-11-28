@@ -51,6 +51,9 @@ module.exports = {
     index // `number` - Example: `0`
   }) => {
     const parent_dir = relativeDirPath.split('/').pop();
-    return [parent_dir, basename].join('_').replace(/[ ]+/g, '_');
+    return [parent_dir, basename].join('_').replace(/[ ]+/g, '_').replace(
+      /_-_/g,
+      '_'
+    ).toLowerCase();
   } // '0_foo'
 };

@@ -1,0 +1,31 @@
+<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_14655_23510)">
+<mask id="mask0_14655_23510" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="12">
+<rect width="16" height="12" fill="white"/>
+</mask>
+<g mask="url(#mask0_14655_23510)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V12H16V0H0Z" fill="#C51918"/>
+<mask id="mask1_14655_23510" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="12">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V12H16V0H0Z" fill="white"/>
+</mask>
+<g mask="url(#mask1_14655_23510)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V7H8V0H0Z" fill="#2E42A5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1.78282 3.88601L1.2528 4.20598L1.37369 3.58158L0.932312 3.11428L1.52997 3.08902L1.78282 2.50598L2.03568 3.08902H2.63231L2.19195 3.58158L2.32452 4.20598L1.78282 3.88601Z" fill="#FEFFFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.78282 3.88601L5.2528 4.20598L5.37369 3.58158L4.93231 3.11428L5.52997 3.08902L5.78282 2.50598L6.03568 3.08902H6.63231L6.19195 3.58158L6.32452 4.20598L5.78282 3.88601Z" fill="#FEFFFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.73279 2.06897L3.23394 2.37013L3.34773 1.78246L2.93231 1.34265L3.49481 1.31886L3.73279 0.770126L3.97077 1.31886H4.53231L4.11785 1.78246L4.24263 2.37013L3.73279 2.06897Z" fill="#FEFFFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4.27313 4.21263L3.96135 4.40085L4.03246 4.03356L3.77283 3.75867L4.12439 3.74381L4.27313 3.40085L4.42186 3.74381H4.77283L4.51379 4.03356L4.59178 4.40085L4.27313 4.21263Z" fill="#FEFFFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.70438 6.41414L2.95611 6.86587L3.12679 5.98436L2.50366 5.32464L3.34741 5.28897L3.70438 4.46587L4.06135 5.28897H4.90366L4.28197 5.98436L4.46914 6.86587L3.70438 6.41414Z" fill="#FEFFFF"/>
+</g>
+</g>
+<rect width="16" height="12" fill="url(#paint0_linear_14655_23510)" style="mix-blend-mode:overlay"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_14655_23510" x1="8" y1="0" x2="8" y2="12" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0.7"/>
+<stop offset="1" stop-opacity="0.3"/>
+</linearGradient>
+<clipPath id="clip0_14655_23510">
+<rect width="16" height="12" rx="1" fill="white"/>
+</clipPath>
+</defs>
+</svg>
