@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See
 
+
+## [1.0.0-beta.12](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (28-11-2022)
+
+### Features
+- fix(prizm/core) add core to publish [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/355)
+
+
+
 ## [1.0.0-beta.11](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (21-11-2022)
 
 ### Features
