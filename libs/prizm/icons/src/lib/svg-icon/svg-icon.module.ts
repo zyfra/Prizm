@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { PrizmIconsSvgComponent } from './svg-icon.component';
+import { PrizmIconSvgComponent } from './svg-icon.component';
 
 @NgModule({
   declarations: [
-    PrizmIconsSvgComponent
+    PrizmIconSvgComponent
   ],
   exports: [
-    PrizmIconsSvgComponent
+    PrizmIconSvgComponent
   ]
 })
-export class PrizmIconsSvgModule { }
+export class PrizmIconSvgModule { }

@@ -4,7 +4,7 @@ import { PrizmIconsRegistryService } from '../prizm-icons-registry.service';
 import { prizmDefaultProp } from '@prizm-ui/core';
 
 @Component({
-  selector: 'prizm-icons-svg',
+  selector: 'prizm-icon-svg',
   template: `
         <ng-content></ng-content>
 [ICON]
@@ -22,7 +22,7 @@ import { prizmDefaultProp } from '@prizm-ui/core';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PrizmIconsSvgComponent {
+export class PrizmIconSvgComponent {
   private svgIcon: SVGElement;
 
   @Input()
