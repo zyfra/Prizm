@@ -1,22 +1,18 @@
 import {
-  AfterContentInit,
   ChangeDetectionStrategy,
   Component,
   ContentChildren,
   forwardRef,
   HostBinding,
-  HostListener,
   Inject,
   Input,
   QueryList,
-  TemplateRef,
 } from '@angular/core';
-import { EMPTY_QUERY } from '@taiga-ui/cdk';
-import { map, startWith, take, takeUntil } from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 
 import { PrizmCellDirective } from '../directives/cell.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
-import { TUI_TABLE_PROVIDER } from '../providers/table.provider';
+import { PRIZM_TABLE_PROVIDER } from '../providers/table.provider';
 import { PrizmTbodyComponent } from '../tbody/tbody.component';
 import { PrizmTableCellStatus } from '../prizm-table.types';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
@@ -27,14 +23,14 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
   templateUrl: `./tr.template.html`,
   styleUrls: [`./tr.style.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [TUI_TABLE_PROVIDER],
+  providers: [PRIZM_TABLE_PROVIDER],
 })
 export class PrizmTrComponent<T extends Partial<Record<keyof T, any>>> {
   @Input() index: number;
   @Input() @HostBinding('attr.status') public status: PrizmTableCellStatus = 'default';
 
   @ContentChildren(forwardRef(() => PrizmCellDirective))
-  private readonly cells: QueryList<PrizmCellDirective> = EMPTY_QUERY;
+  private readonly cells: QueryList<PrizmCellDirective> = new QueryList<PrizmCellDirective>();
 
   readonly cells$ = this.cells.changes.pipe(
     startWith(null),

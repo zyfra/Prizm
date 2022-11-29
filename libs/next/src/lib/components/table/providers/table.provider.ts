@@ -6,13 +6,13 @@ import { Observable, MonoTypeOperatorFunction } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 import { AbstractPrizmController } from '../abstract/controller';
 
-function tuiWatch<T>(changeDetectorRef: ChangeDetectorRef): MonoTypeOperatorFunction<T> {
+function prizmWatch<T>(changeDetectorRef: ChangeDetectorRef): MonoTypeOperatorFunction<T> {
   return tap(() => {
     changeDetectorRef.markForCheck();
   });
 }
 
-export const TUI_TABLE_PROVIDER: Provider[] = [
+export const PRIZM_TABLE_PROVIDER: Provider[] = [
   PrizmDestroyService,
   PrizmTableSortPipe,
   {
@@ -23,7 +23,7 @@ export const TUI_TABLE_PROVIDER: Provider[] = [
       changeDetectorRef: ChangeDetectorRef,
       destroy$: Observable<void>
     ): AbstractPrizmController => {
-      controller.change$.pipe(tuiWatch(changeDetectorRef), takeUntil(destroy$)).subscribe();
+      controller.change$.pipe(prizmWatch(changeDetectorRef), takeUntil(destroy$)).subscribe();
 
       return controller;
     },

@@ -1,20 +1,22 @@
 import { ContentChildren, Directive, Inject, Input, Output, QueryList } from '@angular/core';
-import { EMPTY_QUERY, tuiDefaultProp } from '@taiga-ui/cdk';
 import { filter, map } from 'rxjs/operators';
 
 import { PrizmSortableDirective } from './sortable.directive';
 import { PrizmTableDirective } from './table.directive';
 import { PrizmComparator } from '../prizm-table.types';
+import { prizmDefaultProp } from '@prizm-ui/core';
 
 @Directive({
   selector: `table[prizmTable][prizmSortBy]`,
 })
 export class PrizmSortByDirective<T extends Partial<Record<keyof T, any>>> {
   @ContentChildren(PrizmSortableDirective, { descendants: true })
-  private readonly sortables: QueryList<PrizmSortableDirective<T>> = EMPTY_QUERY;
+  private readonly sortables: QueryList<PrizmSortableDirective<T>> = new QueryList<
+    PrizmSortableDirective<T>
+  >();
 
   @Input()
-  @tuiDefaultProp()
+  @prizmDefaultProp()
   prizmSortBy: keyof T | string | null = null;
 
   @Output()
