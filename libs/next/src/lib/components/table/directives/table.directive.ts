@@ -9,17 +9,17 @@ import {
   Output,
 } from '@angular/core';
 import { IntersectionObserverService } from '@ng-web-apis/intersection-observer';
-import { tuiDefaultProp } from '@taiga-ui/cdk';
 
-import { TUI_TABLE_PROVIDERS } from '../providers/table.providers';
+import { PRIZM_TABLE_PROVIDERS } from '../providers/table.providers';
 import { PrizmSizeL, PrizmSizeM, PrizmSizeS, PrizmSizeXS } from '../../../util';
 import { PrizmComparator, PrizmTableBorderStyle } from '../prizm-table.types';
 import { AbstractPrizmController } from '../abstract/controller';
 import { Observable } from 'rxjs';
+import { prizmDefaultProp } from '@prizm-ui/core';
 
 @Directive({
   selector: `table[prizmTable]`,
-  providers: TUI_TABLE_PROVIDERS,
+  providers: PRIZM_TABLE_PROVIDERS,
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
     style: `border-collapse: separate;`,
@@ -30,21 +30,21 @@ export class PrizmTableDirective<T extends Partial<Record<keyof T, any>>>
   implements AfterViewInit
 {
   @Input()
-  @tuiDefaultProp()
+  @prizmDefaultProp()
   columns: ReadonlyArray<keyof T | string> = [];
 
   @Input()
   @HostBinding(`attr.data-size`)
-  @tuiDefaultProp()
+  @prizmDefaultProp()
   size: PrizmSizeXS | PrizmSizeS | PrizmSizeL | PrizmSizeM = `l`;
 
   @Input()
   @HostBinding(`attr.border-style`)
-  @tuiDefaultProp()
+  @prizmDefaultProp()
   tableBorderStyle: PrizmTableBorderStyle = 'grid';
 
   @Input()
-  @tuiDefaultProp()
+  @prizmDefaultProp()
   direction: -1 | 1 = 1;
 
   @Output()
@@ -62,7 +62,7 @@ export class PrizmTableDirective<T extends Partial<Record<keyof T, any>>>
   }
 
   @Input()
-  @tuiDefaultProp()
+  @prizmDefaultProp()
   sorter: PrizmComparator<T> = () => 0;
 
   public updateSorter(sorter: PrizmComparator<T> | null): void {

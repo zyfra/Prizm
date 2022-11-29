@@ -1,5 +1,4 @@
 import {
-  AfterContentInit,
   ChangeDetectionStrategy,
   Component,
   ContentChild,
@@ -11,16 +10,14 @@ import {
   Output,
   QueryList,
 } from '@angular/core';
-import { EMPTY_QUERY, tuiDefaultProp } from '@taiga-ui/cdk';
 
 import { PrizmRowDirective } from '../directives/row.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
 import { PrizmTableSortPipe } from '../pipes/table-sort.pipe';
-import { TUI_TABLE_PROVIDER } from '../providers/table.provider';
+import { PRIZM_TABLE_PROVIDER } from '../providers/table.provider';
 import { PrizmTrComponent } from '../tr/tr.component';
 import { PolymorphContent } from '../../../directives';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { skip } from 'rxjs/operators';
+import { prizmDefaultProp } from '@prizm-ui/core';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -28,19 +25,19 @@ import { skip } from 'rxjs/operators';
   templateUrl: `./tbody.template.html`,
   styleUrls: [`./tbody.style.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: TUI_TABLE_PROVIDER,
+  providers: PRIZM_TABLE_PROVIDER,
 })
 export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> {
   @Input()
-  @tuiDefaultProp()
+  @prizmDefaultProp()
   data: readonly T[] = [];
 
   @Input()
-  @tuiDefaultProp()
+  @prizmDefaultProp()
   heading: PolymorphContent = ``;
 
   @Input()
-  @tuiDefaultProp()
+  @prizmDefaultProp()
   open = true;
 
   @Output()
@@ -50,7 +47,7 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> {
   readonly row?: PrizmRowDirective<T>;
 
   @ContentChildren(forwardRef(() => PrizmTrComponent))
-  readonly rows: QueryList<PrizmTrComponent<T>> = EMPTY_QUERY;
+  readonly rows: QueryList<PrizmTrComponent<T>> = new QueryList<PrizmTrComponent<T>>();
 
   constructor(
     @Inject(PrizmTableSortPipe) private readonly pipe: PrizmTableSortPipe<T>,
