@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See
 
+## [1.0.0-beta.13](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (28-11-2022)
+
+### Features
+- feat(prizm/core) update doc [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/387)
+
+
+
+## [1.0.0-beta.12](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (28-11-2022)
+
+### BUG FIXES
+- fix(prizm/core) add core to publish [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/386)
+
+
+
+## [1.0.0-beta.11](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (21-11-2022)
+
+### Features
+- feat(prizm/stepper) IDPPRIZM-152 Stepper [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/355)
+- feat(prizm/table) Добавлен компонент таблиц [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/376)
+- feat(prizm/charts) Charts stage 1 [MR]([MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/375)
+
+### BREAKING CHANGES
+- feat/(next/*): rename selectors, prefix for all project ( pzm, zui to prizm ) 1 [MR]([MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/375)
+- feat/(next/*): rename selectors, prefix for all project ( pzm, zui to prizm ) 2 [MR]([MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/358)
+- packages names to @prizm-ui/* [MR]([MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/375)
+- change git repo [MR]([MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/375)
+
+
 ## [1.0.0-beta.10](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (18-10-2022)
 
 ### Features

@@ -67,7 +67,7 @@ import-module.md - всегда про setup компонента
 
 #### Naming
 
-Модули, компоненты, директивы, pipe и все что выступает в public через `import {...} from "@digital-plant/,,,"`
+Модули, компоненты, директивы, pipe и все что выступает в public через `import {...} from "@prizm-ui/,,,"`
 Должны иметь префикс - `prizm (zyfra-ui)`
 
 Пример:

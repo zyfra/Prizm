@@ -1,8 +1,9 @@
 ### Библиотека
 
-- [ ] `@digital-plant/zyfra-components`
-- [ ] `@digital-plant/zyfra-ui`
-- [ ] `@digital-plant/zyfra-translate`
+- [ ] `@prizm-ui/components`
+- [ ] `@prizm-ui/isntall`
+- [ ] `@prizm-ui/icons`
+- [ ] `@prizm-ui/theme`
 
 ### Компонент
 

@@ -1,132 +1,11 @@
 {
   "version": 1,
   "projects": {
-    "components": {
-      "projectType": "library",
-      "root": "libs/components",
-      "sourceRoot": "libs/components/src",
-      "prefix": "zyfra",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "outputs": ["dist/libs/components"],
-          "options": {
-            "project": "libs/components/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/components/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/components/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/components"],
-          "options": {
-            "jestConfig": "libs/components/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/components/src/**/*.ts", "libs/components/src/**/*.html"]
-          }
-        },
-        "storybook": {
-          "builder": "@nrwl/storybook:storybook",
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "port": 4400,
-            "config": {
-              "configFolder": "libs/components/.storybook"
-            }
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        },
-        "build-storybook": {
-          "builder": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "uiFramework": "@storybook/angular",
-            "outputPath": "dist/storybook/components",
-            "config": {
-              "configFolder": "libs/components/.storybook"
-            }
-          },
-          "configurations": {
-            "ci": {
-              "quiet": true
-            }
-          }
-        },
-        "doc": {
-          "builder": "./tools/executors/compodoc:compodoc",
-          "options": {
-            "tsConfigPath": "./libs/components/tsconfig.json",
-            "distPath": "./libs/components"
-          }
-        },
-        "build-icons": {
-          "builder": "./tools/executors/icon-font-builder:build"
-        },
-        "build-icons-16": {
-          "builder": "./tools/executors/icon-font-builder:build",
-          "options": {
-            "fontFileName": "ZyfraIcons16",
-            "fontName": "Zyfra Icons 16",
-            "iconClassName": ".zyfra-icon-16",
-            "inputPath": "./libs/components/assets/icons-16",
-            "outputPath": "./libs/components/src/styles/icons-16",
-            "outputStyleFile": "icons-16.less",
-            "outputDefinitionsTs": "./libs/components/src/lib/icon/story/icon-16-definitions.ts",
-            "outputDefinitionsVar": "Icon16Defs"
-          }
-        }
-      },
-      "tags": []
-    },
-    "components-e2e": {
-      "root": "apps/components-e2e",
-      "sourceRoot": "apps/components-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/components-e2e/cypress.json",
-            "devServerTarget": "components:storybook"
-          },
-          "configurations": {
-            "ci": {
-              "devServerTarget": "components:storybook:ci"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["apps/components-e2e/**/*.{js,ts}"]
-          }
-        }
-      },
-      "tags": [],
-      "implicitDependencies": ["components"]
-    },
     "doc": {
       "projectType": "application",
       "root": "apps/doc",
       "sourceRoot": "apps/doc/src",
-      "prefix": "zyfra",
+      "prefix": "prizm",
       "architect": {
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
@@ -151,7 +30,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "libs/components/src/styles/fonts",
+                "input": "libs/next/src/styles/fonts",
                 "output": "assets/ui-platform/components/fonts"
               }
             ],
@@ -178,8 +57,8 @@
           },
           "configurations": {
             "production": {
-              "deployUrl": "/zui-sdk-new/doc/",
-              "baseHref": "/zui-sdk-new/doc/",
+              "deployUrl": "/",
+              "baseHref": "/",
               "budgets": [
                 {
                   "type": "initial",
@@ -355,10 +234,10 @@
             "fontFileName": "ZuiIcons",
             "fontName": "Zui Icons",
             "iconClassName": ".zui-icon",
-            "inputPath": "./libs/components/assets/icons",
+            "inputPath": "./libs/next/assets/icons",
             "outputPath": "./libs/next/src/styles/icons",
             "outputStyleFile": "icons.less",
-            "outputDefinitionsTs": "./libs/next/src/lib/components/icon/icon-definitions.ts",
+            "outputDefinitionsTs": "./libs/next/src/lib/next/icon/icon-definitions.ts",
             "outputDefinitionsVar": "IconDefs"
           }
         },
@@ -368,10 +247,10 @@
             "fontFileName": "ZuiIcons16",
             "fontName": "Zui Icons 16",
             "iconClassName": ".zui-icon-16",
-            "inputPath": "./libs/components/assets/icons-16",
+            "inputPath": "./libs/next/assets/icons-16",
             "outputPath": "./libs/next/src/styles/icons-16",
             "outputStyleFile": "icons-16.less",
-            "outputDefinitionsTs": "./libs/next/src/lib/components/icon/icon-16-definitions.ts",
+            "outputDefinitionsTs": "./libs/next/src/lib/next/icon/icon-16-definitions.ts",
             "outputDefinitionsVar": "Icon16Defs"
           }
         }
@@ -382,7 +261,7 @@
       "projectType": "library",
       "root": "libs/prizm/charts",
       "sourceRoot": "libs/prizm/charts/src",
-      "prefix": "zyfra",
+      "prefix": "prizm",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -421,7 +300,7 @@
       "projectType": "library",
       "root": "libs/prizm/core",
       "sourceRoot": "libs/prizm/core/src",
-      "prefix": "zyfra",
+      "prefix": "prizm",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -460,7 +339,7 @@
       "projectType": "library",
       "root": "libs/prizm/theme",
       "sourceRoot": "libs/prizm/theme/src",
-      "prefix": "zyfra",
+      "prefix": "prizm",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
@@ -499,7 +378,7 @@
       "projectType": "library",
       "root": "libs/schematics",
       "sourceRoot": "libs/schematics/src",
-      "prefix": "zyfra",
+      "prefix": "prizm",
       "architect": {
         "prebuild": {
           "builder": "@nrwl/angular:package",
@@ -553,177 +432,6 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/schematics/src/**/*.ts", "libs/schematics/src/**/*.html"]
-          }
-        }
-      },
-      "tags": []
-    },
-    "sdk": {
-      "projectType": "application",
-      "root": "apps/sdk",
-      "sourceRoot": "apps/sdk/src",
-      "prefix": "zyfra",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/apps/sdk",
-            "index": "apps/sdk/src/index.html",
-            "main": "apps/sdk/src/main.ts",
-            "polyfills": "apps/sdk/src/polyfills.ts",
-            "tsConfig": "apps/sdk/tsconfig.app.json",
-            "inlineStyleLanguage": "less",
-            "assets": ["apps/sdk/src/favicon.ico", "apps/sdk/src/assets"],
-            "extractCss": true,
-            "styles": [
-              "apps/sdk/src/styles.less",
-              "node_modules/primeng/resources/themes/luna-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/@angular/cdk/overlay-prebuilt.css",
-              {
-                "input": "libs/components/src/styles/theme/default.less",
-                "bundleName": "default",
-                "inject": false
-              },
-              "libs/components/src/styles/styles.less",
-              "libs/components/src/styles/icons/icons.less",
-              "libs/components/src/styles/icons-16/icons-16.less"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "1mb",
-                  "maximumError": "2mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "apps/sdk/src/environments/environment.ts",
-                  "with": "apps/sdk/src/environments/environment.prod.ts"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "sdk:build:production"
-            },
-            "development": {
-              "browserTarget": "sdk:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "sdk:build"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/sdk/src/**/*.ts", "apps/sdk/src/**/*.html"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/sdk"],
-          "options": {
-            "jestConfig": "apps/sdk/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "sdk-e2e": {
-      "root": "apps/sdk-e2e",
-      "sourceRoot": "apps/sdk-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/sdk-e2e/cypress.json",
-            "devServerTarget": "sdk:serve:development",
-            "tsConfig": "apps/sdk-e2e/tsconfig.json"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "sdk:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["apps/sdk-e2e/**/*.{js,ts}"]
-          }
-        }
-      },
-      "tags": [],
-      "implicitDependencies": ["sdk"]
-    },
-    "translate": {
-      "projectType": "library",
-      "root": "libs/translate",
-      "sourceRoot": "libs/translate/src",
-      "prefix": "zyfra",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "outputs": ["dist/libs/translate"],
-          "options": {
-            "project": "libs/translate/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/translate/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/translate/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/translate"],
-          "options": {
-            "jestConfig": "libs/translate/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/translate/src/**/*.ts", "libs/translate/src/**/*.html"]
           }
         }
       },
