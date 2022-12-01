@@ -1,7 +1,11 @@
 @import './font';
 @import './dropdown-host';
 @import './theme/default';
+@import './theme/default-v2';
 @import './theme/dark';
+@import './theme/variables';
+@import './theme/variables-v2';
+@import './theme/dark-v2';
 @import './skeleton/skeleton';
 @import "./typography/typography";
 @import "./animations";
@@ -9,11 +13,14 @@
 
 :root {
   .prizmThemeVariables();
+  .prizmThemeVariablesV2();
   .prizmDefaultTheme();
+  .prizmDefaultThemeV2();
 }
 
 [data-prizm-theme="dark"] {
   .prizmDarkTheme();
+  .prizmDarkThemeV2();
 }
 
 * {
