@@ -1,6 +1,6 @@
 import { Directive, Inject, Input, TemplateRef } from '@angular/core';
-import { tuiDefaultProp } from '@taiga-ui/cdk';
 import { PrizmContextWithImplicit } from '../../../types';
+import { prizmDefaultProp } from '@prizm-ui/core';
 
 interface PrizmRowContext<T> extends PrizmContextWithImplicit<T> {
   readonly index: number;
@@ -11,7 +11,7 @@ interface PrizmRowContext<T> extends PrizmContextWithImplicit<T> {
 })
 export class PrizmRowDirective<T extends Partial<Record<keyof T, any>>> {
   @Input()
-  @tuiDefaultProp()
+  @prizmDefaultProp()
   prizmRowOf: readonly T[] = [];
 
   constructor(@Inject(TemplateRef) readonly template: TemplateRef<PrizmRowContext<T>>) {}
