@@ -15,6 +15,7 @@ import { PrizmComparator } from '../prizm-table.types';
 import { prizmDefaultSort } from '../prizm-table.const';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PRIZM_ELEMENT_REF } from '../../../tokens';
+import { PrizmTableSortKeyException } from '../../../exceptions';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -59,7 +60,7 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
 
   get key(): keyof T {
     if (!this.head) {
-      throw new Error();
+      throw new PrizmTableSortKeyException();
     }
 
     return this.head.prizmHead;
