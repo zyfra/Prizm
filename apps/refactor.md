@@ -81,7 +81,7 @@
 
 - Добавить либу для:
 - DestroyService
-- вынести все(?) ищ libs/next/src/lib/decorators
+- вынести все(?) ищ libs/components/src/lib/decorators
 
 ## Next
 
@@ -114,4 +114,4 @@
 ### polymorpheus
 
 - посмотреть naming
-- libs/next/src/lib/directives/polymorpheus/classes/component.ts -> polymorpheus-component.class.ts
+- libs/components/src/lib/directives/polymorpheus/classes/component.ts -> polymorpheus-component.class.ts
