@@ -1,7 +1,7 @@
 import { InjectionToken } from '@angular/core';
 
 export const PRIZM_DATE_SEPARATOR = new InjectionToken<string>(
-    `Date separator for Zyfra UI components`,
+    `Date separator for Prizm UI components`,
     {
         factory: (): string => `.`,
     },
