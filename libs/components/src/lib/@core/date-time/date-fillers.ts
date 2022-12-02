@@ -2,7 +2,7 @@ import { inject, InjectionToken } from '@angular/core';
 
 import { PRIZM_RANGE_SEPARATOR_CHAR } from './date-time';
 
-export const PRIZM_DATE_FILLER = new InjectionToken<string>(`date filler for Zyfra UI`, {
+export const PRIZM_DATE_FILLER = new InjectionToken<string>(`date filler for Prizm UI`, {
     factory: (): string => `dd.mm.yyyy`,
 });
 
@@ -10,7 +10,7 @@ export const PRIZM_DATE_FILLER = new InjectionToken<string>(`date filler for Zyf
  * @deprecated dont use it
  */
 export const PRIZM_DATE_RANGE_FILLER = new InjectionToken<string>(
-    `date range filler for Zyfra UI`,
+    `date range filler for Prizm UI`,
     {
         factory: (): string => {
             const dateFiller = inject(PRIZM_DATE_FILLER);
