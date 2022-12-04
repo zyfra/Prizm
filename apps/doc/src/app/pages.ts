@@ -1,18 +1,31 @@
 import { TuiDocPages } from '@taiga-ui/addon-doc';
+import { TuiDocPage, TuiDocPageGroup } from '@taiga-ui/addon-doc/interfaces/page';
 
-export const pages: TuiDocPages = [
+type OrderedPage = { order?: number };
+export type TuiOrderedDocPage = ReadonlyArray<(TuiDocPage & OrderedPage) | (TuiDocPageGroup & OrderedPage)>;
+
+export const pages: TuiOrderedDocPage = [
   // Documentation
+  {
+    section: `Documentation`,
+    title: `About`,
+    keywords: 'about, intro, how to, guide, main, главная, начало, инструкция',
+    route: 'about',
+    order: 1,
+  },
   {
     section: `Documentation`,
     title: `Getting started`,
     keywords: 'intro, how to, guide, main, главная, начало, инструкция',
     route: 'getting-started',
+    order: 2,
   },
   {
     section: `Documentation`,
     title: 'Changelog',
     keywords: 'ченджлог, changelog',
     route: 'changelog',
+    order: 3,
   },
   // Components
   {

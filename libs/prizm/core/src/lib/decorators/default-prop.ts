@@ -69,7 +69,7 @@ export function prizmDefaultProp<T extends any, K extends keyof T>(
 function errorGetDefault(key: string | symbol, component: string): string {
   return `Default value for ${String(
     key,
-  )} was not provided in ${component}, error in Zyfra UI Angular Kit`;
+  )} was not provided in ${component}, error in Przim UI Angular Kit`;
 }
 
 function errorSetDefault(key: string | symbol, component: string): string {
@@ -81,5 +81,5 @@ function errorSetDefault(key: string | symbol, component: string): string {
 function errorSetDefaultInitial(key: string | symbol, component: string): string {
   return `Undefined was passed as default value for ${String(
     key,
-  )} to ${component}, error in Zyfra UI Angular Kit`;
+  )} to ${component}, error in Prizm UI Angular Kit`;
 }
