@@ -101,10 +101,10 @@ Release package:
     - cp .npmrc ~/
     - cd dist/libs
     #- for i in `(ls -l | awk '{ print $9 }')`; do npm publish ./$i; done
-    - npm publish --userconfig ~/.npmrc --verbose  schematics
     - npm publish --userconfig ~/.npmrc --verbose  helpers
     - npm publish --userconfig ~/.npmrc --verbose  components
     - npm publish --userconfig ~/.npmrc --verbose  prizm/core
+    - npm publish --userconfig ~/.npmrc --verbose  schematics
   when: manual
   only: ["main", "components"]
   extends: [".tags_k8s", ".except_skip_ci"]
