@@ -5,6 +5,8 @@
 Run command in your Angular project:
 
 ```
+npm i @prizm-ui/core
+
 npm i @prizm-ui/components
 
 npm i @prizm-ui/helpers
