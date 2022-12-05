@@ -97,7 +97,7 @@ Release package:
   image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
   script:
     - cat ${NPMRC_CONFIG_PUSH} > .npmrc
-    - echo "_auth=$NPM_AUTH_PUBLISH_TOKEN" >> .npmrc
+    - echo "_authToken=$NPM_AUTH_PUBLISH_TOKEN" >> .npmrc
     - cp .npmrc ~/
     - cd dist/libs
     #- for i in `(ls -l | awk '{ print $9 }')`; do npm publish ./$i; done
