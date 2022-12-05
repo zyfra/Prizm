@@ -1,12 +1,12 @@
 import { Directive, Inject, Input, TemplateRef } from '@angular/core';
-import { tuiDefaultProp } from '@taiga-ui/cdk';
+import { prizmDefaultProp } from '@prizm-ui/core';
 
 @Directive({
   selector: `[prizmCell]`,
 })
 export class PrizmCellDirective {
   @Input()
-  @tuiDefaultProp()
+  @prizmDefaultProp()
   prizmCell = ``;
 
   constructor(@Inject(TemplateRef) readonly template: TemplateRef<Record<string, unknown>>) {}

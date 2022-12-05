@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/helpers",
-  "version": "1.0.0-beta.13",
+  "version": "1.0.0-beta.14",
   "description": "Library to make it easy to create Angular applications. Contains Injectables Service, RxJS utilities, directives, and standard pipes.",
   "peerDependencies": {
     "@angular/common": "^12.2.0",
