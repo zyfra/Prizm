@@ -18,6 +18,7 @@ variables:
   ZIF_TOOLS_RUNNER_TAG: '1.13.0'
   DEPLOY_NAMESPACE: ziiot-dev-11
   KANIKO_EXECUTOR_ARGUMENTS: "--build-arg NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/"
+  NPMRC_CONFIG_PUSH: "@prizm-ui:registry=https://nexus.idp.yc.ziiot.ru/repository/npm-proxy/\nalways-auth=true"
 
 stages:
   - build
@@ -98,6 +99,7 @@ Release package:
   script:
     - cat ${NPMRC_CONFIG_PUSH} > .npmrc
     - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
+    - cat .npmrc
     - cp .npmrc ~/
     - cd dist/libs
     #- for i in `(ls -l | awk '{ print $9 }')`; do npm publish ./$i; done
