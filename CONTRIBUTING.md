@@ -114,7 +114,7 @@ name - название переменной
 
 Расположение
 
-`libs/next/src/lib/exceptions`
+`libs/components/src/lib/exceptions`
 
 Пример:
 

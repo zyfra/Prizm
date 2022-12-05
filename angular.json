@@ -30,7 +30,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "libs/next/src/styles/fonts",
+                "input": "libs/components/src/styles/fonts",
                 "output": "assets/ui-platform/components/fonts"
               },
               {
@@ -44,9 +44,9 @@
               "node_modules/@taiga-ui/core/styles/taiga-ui-global.less",
               "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
               "node_modules/primeicons/primeicons.css",
-              "libs/next/src/styles/styles.less",
-              "libs/next/src/styles/icons/icons.less",
-              "libs/next/src/styles/icons-16/icons-16.less",
+              "libs/components/src/styles/styles.less",
+              "libs/components/src/styles/icons/icons.less",
+              "libs/components/src/styles/icons-16/icons-16.less",
               "node_modules/prismjs/themes/prism-okaidia.css",
               "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
               "libs/prizm/icons/src/styles/style.less"
@@ -198,40 +198,40 @@
       },
       "tags": []
     },
-    "next": {
+    "components": {
       "projectType": "library",
-      "root": "libs/next",
-      "sourceRoot": "libs/next/src",
+      "root": "libs/components",
+      "sourceRoot": "libs/components/src",
       "prefix": "zui",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": ["dist/libs/next"],
+          "outputs": ["dist/libs/components"],
           "options": {
-            "project": "libs/next/ng-package.json"
+            "project": "libs/components/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "libs/next/tsconfig.lib.prod.json"
+              "tsConfig": "libs/components/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "libs/next/tsconfig.lib.json"
+              "tsConfig": "libs/components/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/next"],
+          "outputs": ["coverage/libs/components"],
           "options": {
-            "jestConfig": "libs/next/jest.config.js",
+            "jestConfig": "libs/components/jest.config.js",
             "passWithNoTests": true
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/next/src/**/*.ts", "libs/next/src/**/*.html"]
+            "lintFilePatterns": ["libs/components/src/**/*.ts", "libs/components/src/**/*.html"]
           }
         },
         "build-icons": {
@@ -240,10 +240,10 @@
             "fontFileName": "ZuiIcons",
             "fontName": "Zui Icons",
             "iconClassName": ".zui-icon",
-            "inputPath": "./libs/next/assets/icons",
-            "outputPath": "./libs/next/src/styles/icons",
+            "inputPath": "./libs/components/assets/icons",
+            "outputPath": "./libs/components/src/styles/icons",
             "outputStyleFile": "icons.less",
-            "outputDefinitionsTs": "./libs/next/src/lib/next/icon/icon-definitions.ts",
+            "outputDefinitionsTs": "./libs/components/src/lib/components/icon/icon-definitions.ts",
             "outputDefinitionsVar": "IconDefs"
           }
         },
@@ -253,10 +253,10 @@
             "fontFileName": "ZuiIcons16",
             "fontName": "Zui Icons 16",
             "iconClassName": ".zui-icon-16",
-            "inputPath": "./libs/next/assets/icons-16",
-            "outputPath": "./libs/next/src/styles/icons-16",
+            "inputPath": "./libs/components/assets/icons-16",
+            "outputPath": "./libs/components/src/styles/icons-16",
             "outputStyleFile": "icons-16.less",
-            "outputDefinitionsTs": "./libs/next/src/lib/next/icon/icon-16-definitions.ts",
+            "outputDefinitionsTs": "./libs/components/src/lib/components/icon/icon-16-definitions.ts",
             "outputDefinitionsVar": "Icon16Defs"
           }
         }

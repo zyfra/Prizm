@@ -1,31 +1,32 @@
-import {LocationStrategy, PathLocationStrategy} from '@angular/common';
-import {inject} from '@angular/core';
-import {Title} from '@angular/platform-browser';
-import {WINDOW} from '@ng-web-apis/common';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { inject } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { WINDOW } from '@ng-web-apis/common';
 import {
   TUI_DOC_DEFAULT_TABS,
   TUI_DOC_LOGO,
   TUI_DOC_PAGES,
   TUI_DOC_SOURCE_CODE,
-  TUI_DOC_TITLE, TuiDocPages,
+  TUI_DOC_TITLE,
+  TuiDocPages,
   TuiDocSourceCodePathOptions,
 } from '@taiga-ui/addon-doc';
-import {isInsideIframe, TUI_DIALOG_CLOSES_ON_BACK, TUI_IS_CYPRESS, TUI_TAKE_ONLY_TRUSTED_EVENTS,} from '@taiga-ui/cdk';
-import {TUI_ANIMATIONS_DURATION, TUI_SANITIZER} from '@taiga-ui/core';
-import {HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
-import {Observable, of} from 'rxjs';
-import {NgDompurifySanitizer} from '@tinkoff/ng-dompurify';
-import {pages} from './pages';
-import {LOGO_CONTENT} from "./logo/logo.component";
+import {
+  isInsideIframe,
+  TUI_DIALOG_CLOSES_ON_BACK,
+  TUI_IS_CYPRESS,
+  TUI_TAKE_ONLY_TRUSTED_EVENTS,
+} from '@taiga-ui/cdk';
+import { TUI_ANIMATIONS_DURATION, TUI_SANITIZER } from '@taiga-ui/core';
+import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import { Observable, of } from 'rxjs';
+import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
+import { pages, TuiOrderedDocPage } from './pages';
+import { LOGO_CONTENT } from './logo/logo.component';
 import { TuiDocPage, TuiDocPageGroup } from '@taiga-ui/addon-doc/interfaces/page';
 
-export const DEFAULT_TABS = [
-  `Description and examples`,
-  `API`,
-  `Setup`,
-  `How to use`,
-];
-const TITLE_PREFIX = 'Zyfra UI: ';
+export const DEFAULT_TABS = [`Description and examples`, `API`, `Setup`, `How to use`];
+const TITLE_PREFIX = 'Prizm UI: ';
 
 export const HIGHLIGHT_OPTIONS_VALUE = {
   coreLibraryLoader: async (): Promise<unknown> => import('highlight.js/lib/core'),
@@ -106,15 +107,15 @@ export const APP_PROVIDERS = [
   },
 ];
 
-function sortDocPages(pages: ReadonlyArray<TuiDocPage | TuiDocPageGroup>): (TuiDocPage | TuiDocPageGroup)[] {
-  return [...pages].sort((a, b) => {
-    return a.title.localeCompare(b.title);
-  }).map(
-    (page: TuiDocPage | TuiDocPageGroup) => {
+function sortDocPages(pages: TuiOrderedDocPage): (TuiDocPage | TuiDocPageGroup)[] {
+  return [...pages]
+    .sort((a, b) => {
+      return a.order && b.order ? a.order - b.order : a.title.localeCompare(b.title);
+    })
+    .map((page: TuiDocPage | TuiDocPageGroup) => {
       return {
         ...page,
-        ...('subPages' in page ? {subPages: sortDocPages(page.subPages)} : {}),
+        ...('subPages' in page ? { subPages: sortDocPages(page.subPages) } : {}),
       } as TuiDocPage | TuiDocPageGroup;
-    }
-  );
+    });
 }
