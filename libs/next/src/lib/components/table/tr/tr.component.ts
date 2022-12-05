@@ -6,7 +6,7 @@ import {
   HostBinding,
   Inject,
   Input,
-  QueryList,
+  QueryList, ViewEncapsulation,
 } from '@angular/core';
 import { map, startWith } from 'rxjs/operators';
 
@@ -23,6 +23,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
   templateUrl: `./tr.template.html`,
   styleUrls: [`./tr.style.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
   providers: [PRIZM_TABLE_PROVIDER],
 })
 export class PrizmTrComponent<T extends Partial<Record<keyof T, any>>> {
