@@ -17,6 +17,8 @@ ng add  @prizm-ui/install
 1. **Install components:**
 
 ```
+npm i @prizm-ui/core
+npm i @prizm-ui/helpers
 npm i @prizm-ui/components
 ```
 

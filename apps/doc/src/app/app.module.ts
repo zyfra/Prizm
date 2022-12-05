@@ -13,6 +13,7 @@ import { APP_PROVIDERS } from './app.providers';
 import { LogoModule } from './logo/logo.module';
 import { VersionManagerModule } from './version-manager/version-manager.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AboutComponent } from './documentation/about/about.component';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -43,6 +44,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     GettingStartedComponent,
+    AboutComponent,
   ],
   providers: [
     ...APP_PROVIDERS
