@@ -27,24 +27,29 @@
     }
   }
 
-  &[status='success'] {
-    background: var(--prizm-lite-gr130-20);
-  }
+  background: inherit;
+  color: inherit;
 
-  &[status='warning'] {
-    background: var(--prizm-lite-y130-20);
-  }
-
-  &[status='danger'] {
-    background: var(--prizm-lite-r130-20);
-  }
+  //&[status='success'] {
+  //  background: var(--prizm-v2-table-background-success);
+  //  color: var(--prizm-v2-table-text-success);
+  //}
+  //
+  //&[status='warning'] {
+  //  background: var(--prizm-lite-y130-20);
+  //}
+  //
+  //&[status='danger'] {
+  //  background: var(--prizm-lite-r130-20);
+  //}
 }
 
 :host-context([active='true']) {
   &:first-child:before {
     background: var(--prizm-index-plan);
   }
-  background: var(--prizm-lite-b130-20);
+  color: var(--prizm-v2-table-text-selected);
+  background: var(--prizm-v2-table-background-selected);;
 }
 
 :host-context([border-style='vertical']) {
