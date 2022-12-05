@@ -1,24 +1,25 @@
 import { DOCUMENT } from '@angular/common';
 import { Directive, ElementRef, Inject, Output } from '@angular/core';
 
-import { TUI_ELEMENT_REF } from '@taiga-ui/core';
 import { distinctUntilChanged, map, switchMap, takeUntil } from 'rxjs/operators';
-import { tuiPreventDefault, tuiTypedFromEvent } from '../observables/typed-from-event';
+import { prizmTypedFromEvent } from '../observables/typed-from-event';
+import { PRIZM_ELEMENT_REF } from '../../../tokens';
+import { prizmPreventDefault } from '../../../observables';
 
 @Directive({
   selector: `[prizmResized]`,
 })
 export class PrizmResizedDirective {
   @Output()
-  readonly prizmResized = tuiTypedFromEvent(this.elementRef.nativeElement, `mousedown`).pipe(
-    tuiPreventDefault(),
+  readonly prizmResized = prizmTypedFromEvent(this.elementRef.nativeElement, `mousedown`).pipe(
+    prizmPreventDefault(),
     switchMap(() => {
       const { width, right } = this.parentRef.nativeElement.getBoundingClientRect();
 
-      return tuiTypedFromEvent(this.documentRef, `mousemove`).pipe(
+      return prizmTypedFromEvent(this.documentRef, `mousemove`).pipe(
         distinctUntilChanged(),
         map(({ clientX }) => width + clientX - right),
-        takeUntil(tuiTypedFromEvent(this.documentRef, `mouseup`))
+        takeUntil(prizmTypedFromEvent(this.documentRef, `mouseup`))
       );
     })
   );
@@ -27,7 +28,7 @@ export class PrizmResizedDirective {
     @Inject(DOCUMENT) private readonly documentRef: Document,
     @Inject(ElementRef)
     private readonly elementRef: ElementRef<HTMLElement>,
-    @Inject(TUI_ELEMENT_REF)
+    @Inject(PRIZM_ELEMENT_REF)
     private readonly parentRef: ElementRef<HTMLTableHeaderCellElement>
   ) {}
 }

@@ -1,19 +1,41 @@
-:host {
+[prizmTbody] tr[prizmTr] {
   cursor: pointer;
 
+  background: var(--prizm-v2-table-background-default);
+  color: var(--prizm-v2-table-text-default);
+
+  &:nth-child(odd) {
+    background: var(--prizm-v2-table-zebra);
+  }
+
   &:hover {
-    background: var(--prizm-lite-g730-20);
+    background: var(--prizm-v2-table-background-default-hover);
   }
 
   &[status='success'] {
-    background: var(--prizm-lite-gr130-20);
+    background: var(--prizm-v2-table-background-success);
+    color: var(--prizm-v2-table-text-success);
+
+    &:hover {
+      background: var(--prizm-v2-table-background-success-hover);
+    }
   }
 
   &[status='warning'] {
-    background: var(--prizm-lite-y130-20);
+    background: var(--prizm-v2-table-background-warning);
+    color: var(--prizm-v2-table-text-warning);
+
+    &:hover {
+      background: var(--prizm-v2-table-background-warning-hover);
+    }
   }
 
   &[status='danger'] {
-    background: var(--prizm-lite-r130-20);
+    background: var(--prizm-v2-table-background-danger);
+    color: var(--prizm-v2-table-text-danger);
+
+    &:hover {
+      background: var(--prizm-v2-table-background-danger-hover);
+    }
   }
 }
