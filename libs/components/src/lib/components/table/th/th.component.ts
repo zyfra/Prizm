@@ -8,13 +8,14 @@ import {
   Input,
   Optional,
 } from '@angular/core';
-import { tuiDefaultProp, TuiTableSortKeyException } from '@taiga-ui/cdk';
-import { TUI_ELEMENT_REF } from '@taiga-ui/core';
 
 import { PrizmHeadDirective } from '../directives/head.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
 import { PrizmComparator } from '../prizm-table.types';
 import { prizmDefaultSort } from '../prizm-table.const';
+import { prizmDefaultProp } from '@prizm-ui/core';
+import { PRIZM_ELEMENT_REF } from '../../../tokens';
+import { PrizmTableSortKeyException } from '../../../exceptions';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -24,25 +25,25 @@ import { prizmDefaultSort } from '../prizm-table.const';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
-      provide: TUI_ELEMENT_REF,
+      provide: PRIZM_ELEMENT_REF,
       useExisting: ElementRef,
     },
   ],
 })
 export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
   @Input()
-  @tuiDefaultProp()
+  @prizmDefaultProp()
   sorter: PrizmComparator<T> | null = this.head
     ? (a, b): number => prizmDefaultSort(a[this.key], b[this.key])
     : null;
 
   @Input()
-  @tuiDefaultProp()
+  @prizmDefaultProp()
   resizable = false;
 
   @Input()
   @HostBinding(`class._sticky`)
-  @tuiDefaultProp()
+  @prizmDefaultProp()
   sticky = false;
 
   @HostBinding(`style.width.px`)
@@ -59,7 +60,7 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
 
   get key(): keyof T {
     if (!this.head) {
-      throw new TuiTableSortKeyException();
+      throw new PrizmTableSortKeyException();
     }
 
     return this.head.prizmHead;

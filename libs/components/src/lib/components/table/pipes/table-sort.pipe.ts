@@ -1,8 +1,8 @@
 import { Inject, Pipe, PipeTransform } from '@angular/core';
-import { tuiPure } from '@taiga-ui/cdk';
 
 import { PrizmTableDirective } from '../directives/table.directive';
 import { PrizmComparator } from '../prizm-table.types';
+import { prizmPure } from '@prizm-ui/core';
 
 @Pipe({
   name: `prizmTableSort`,
@@ -15,7 +15,7 @@ export class PrizmTableSortPipe<T extends Partial<Record<keyof T, any>>> impleme
     return this.sort(data, this.table.sorter, this.table.direction);
   }
 
-  @tuiPure
+  @prizmPure
   private sort(data: readonly T[], sorter: PrizmComparator<T>, direction: -1 | 1): readonly T[] {
     return [...data].sort((a, b) => direction * sorter(a, b));
   }

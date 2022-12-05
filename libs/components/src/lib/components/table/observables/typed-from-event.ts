@@ -1,43 +1,38 @@
-import { TuiEventWith, TuiTypedEventTarget } from '@taiga-ui/cdk/types';
-import { fromEvent, MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { fromEvent, Observable } from 'rxjs';
+import { PrizmEventWith, PrizmTypedEventTarget } from '../../../types';
 
-export function tuiPreventDefault<T extends Event>(): MonoTypeOperatorFunction<T> {
-  return tap(event => event.preventDefault());
-}
-
-export function tuiTypedFromEvent<E extends keyof WindowEventMap>(
+export function prizmTypedFromEvent<E extends keyof WindowEventMap>(
   target: Window,
   event: E,
   options?: AddEventListenerOptions
-): Observable<TuiEventWith<WindowEventMap[E], typeof target>>;
+): Observable<PrizmEventWith<WindowEventMap[E], typeof target>>;
 
-export function tuiTypedFromEvent<E extends keyof DocumentEventMap>(
+export function prizmTypedFromEvent<E extends keyof DocumentEventMap>(
   target: Document,
   event: E,
   options?: AddEventListenerOptions
-): Observable<TuiEventWith<DocumentEventMap[E], typeof target>>;
+): Observable<PrizmEventWith<DocumentEventMap[E], typeof target>>;
 
-export function tuiTypedFromEvent<T extends Element, E extends keyof HTMLElementEventMap>(
+export function prizmTypedFromEvent<T extends Element, E extends keyof HTMLElementEventMap>(
   target: T,
   event: E,
   options?: AddEventListenerOptions
-): Observable<TuiEventWith<HTMLElementEventMap[E], typeof target>>;
+): Observable<PrizmEventWith<HTMLElementEventMap[E], typeof target>>;
 
-export function tuiTypedFromEvent<E extends Event, T extends TuiTypedEventTarget<TuiEventWith<E, T>>>(
+export function prizmTypedFromEvent<E extends Event, T extends PrizmTypedEventTarget<PrizmEventWith<E, T>>>(
   target: T,
   event: string,
   options?: AddEventListenerOptions
-): Observable<TuiEventWith<E, T>>;
+): Observable<PrizmEventWith<E, T>>;
 
-export function tuiTypedFromEvent<E extends Event>(
-  target: TuiTypedEventTarget<E>,
+export function prizmTypedFromEvent<E extends Event>(
+  target: PrizmTypedEventTarget<E>,
   event: string,
   options?: AddEventListenerOptions
 ): Observable<E>;
 
-export function tuiTypedFromEvent<E extends Event>(
-  target: TuiTypedEventTarget<E>,
+export function prizmTypedFromEvent<E extends Event>(
+  target: PrizmTypedEventTarget<E>,
   event: string,
   options: AddEventListenerOptions = {}
 ): Observable<E> {
