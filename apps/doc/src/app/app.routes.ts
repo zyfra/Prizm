@@ -1,9 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AboutComponent } from './documentation/about/about.component';
 import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
 
 export const ROUTES = [
   // DOC
+  {
+    path: 'about',
+    component: AboutComponent,
+    data: {
+      title: 'About',
+    },
+  },
   {
     path: 'getting-started',
     component: GettingStartedComponent,
@@ -580,7 +588,7 @@ export const ROUTES = [
       title: 'Stepper',
     },
   },
-  { path: '**', redirectTo: 'getting-started' },
+  { path: '**', redirectTo: 'about' },
 ];
 
 @NgModule({

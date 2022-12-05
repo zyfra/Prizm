@@ -103,10 +103,10 @@ Release package:
     #- for i in `(ls -l | awk '{ print $9 }')`; do npm publish ./$i; done
     - npm publish --userconfig ~/.npmrc --verbose  schematics
     - npm publish --userconfig ~/.npmrc --verbose  helpers
-    - npm publish --userconfig ~/.npmrc --verbose  next
+    - npm publish --userconfig ~/.npmrc --verbose  components
     - npm publish --userconfig ~/.npmrc --verbose  prizm/core
   when: manual
-  only: ["main", "next"]
+  only: ["main", "components"]
   extends: [".tags_k8s", ".except_skip_ci"]
 
 Deploy:
