@@ -1,11 +1,13 @@
-# @digital-plant/zyfra-components
+# @prizm-ui/components
 
 ## Setup components library
 
 Run command in your Angular project:
 
 ```
-ng add @pizm-ui/install
+npm i @prizm-ui/components
+
+npm i @prizm-ui/helpers
 ```
 
 ## Contributing
@@ -23,8 +25,8 @@ For example button component
 1. Generate the module, component and add story
 
 ```
-   > nx generate @nrwl/angular:module zyfra-message --project=components
-   > nx generate @nrwl/angular:component zyfra-message --project=components
+   > nx generate @nrwl/angular:module prizm-message --project=components
+   > nx generate @nrwl/angular:component prizm-message --project=components
    > nx generate @nrwl/angular:stories components (opt "false" as an answer)
 ```
 2. Add styles for component (by default ViewEncapsulation.None) to root styles (`libs/components/src/styles.less`)

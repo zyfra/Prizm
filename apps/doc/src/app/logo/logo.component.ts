@@ -8,4 +8,4 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 })
 export class LogoComponent {}
 
-export const LOGO_CONTENT = 'assets/images/logo.png';
+export const LOGO_CONTENT = 'assets/images/logo.svg';
