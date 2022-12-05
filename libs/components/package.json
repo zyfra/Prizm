@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/components",
-  "version": "1.0.0-beta.14",
+  "version": "1.0.0-beta.15",
   "description": "Prizm UI system design components library http://prizm.zyfra.com",
   "peerDependencies": {
     "@angular/common": "^12.2.0",
@@ -8,10 +8,12 @@
     "@angular/cdk": "^12.2.0",
     "ngx-mask": "<=12.9.9",
     "@ng-web-apis/common": "^1.13.0",
+    "@ng-web-apis/resize-observer": "^1.0.3",
+    "@ng-web-apis/intersection-observer": "^2.1.0",
     "primeicons": "^4.1.0",
     "primeng": "^12.2.1",
-    "@prizm-ui/helpers": "^1.0.0-beta.14",
-    "@prizm-ui/core": "^1.0.0-beta.14"
+    "@prizm-ui/helpers": "^1.0.0-beta.15",
+    "@prizm-ui/core": "^1.0.0-beta.15"
   },
   "dependencies": {
     "tslib": "^2.3.0"
