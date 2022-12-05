@@ -21,6 +21,7 @@
       "@prizm-ui/charts": ["libs/prizm/charts/src/index.ts"],
       "@prizm-ui/components": ["libs/components/src/index.ts"],
       "@prizm-ui/core": ["libs/prizm/core/src/index.ts"],
+      "@prizm-ui/flag-icons": ["libs/flag-icons/src/index.ts"],
       "@prizm-ui/helpers": ["libs/helpers/src/index.ts"],
       "@prizm-ui/icons": ["libs/prizm/icons/src/index.ts"]
     }
