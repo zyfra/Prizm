@@ -98,6 +98,7 @@ Release package:
   script:
     - cat ${NPMRC_CONFIG_PUSH} > .npmrc
     - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
+    - cat .npmrc
     - cp .npmrc ~/
     - cd dist/libs
     #- for i in `(ls -l | awk '{ print $9 }')`; do npm publish ./$i; done
