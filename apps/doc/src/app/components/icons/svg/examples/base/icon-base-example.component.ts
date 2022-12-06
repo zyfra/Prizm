@@ -6,10 +6,12 @@ import { Component } from '@angular/core';
   styles: [
     `
       .icons-24 {
-        font-size: 24px;;
+        font-size: 24px;
+        color: var(--prizm-index-plan);
       }
       .icons-16 {
-        font-size: 16px;;
+        font-size: 16px;
+        color: var(--prizm-index-plan);
       }
     `
   ]
