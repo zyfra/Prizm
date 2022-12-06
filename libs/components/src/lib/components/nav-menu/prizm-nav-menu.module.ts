@@ -20,7 +20,7 @@ import { PrizmNavMenuGroupComponent } from './components/nav-menu-group/prizm-na
 import { PrizmTemplateDirective } from './directives/prizm-template.directive';
 import { AccordionModule } from 'primeng/accordion';
 import { PrizmInputTextModule } from '../input';
-import { PrizmIconModule } from '../icon';
+import { PrizmIconSvgModule } from '../icon';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,7 @@ import { PrizmIconModule } from '../icon';
     TooltipModule,
     AccordionModule,
     PrizmInputTextModule,
-    PrizmIconModule,
+    PrizmIconSvgModule,
     ReactiveFormsModule,
   ],
   providers: [NavMenuService],

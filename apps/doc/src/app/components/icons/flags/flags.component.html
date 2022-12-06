@@ -30,7 +30,7 @@
     <div>
       <div class="icons">
         <div [title]='flag' *ngFor="let flag of nameVariants" class="icon-def">
-          <prizm-icon-flags [size]='30' [name]='flag'></prizm-icon-flags>
+          <prizm-flag-icons [size]='30' [name]='flag'></prizm-flag-icons>
         </div>
       </div>
     </div>
@@ -39,7 +39,7 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <prizm-icon-flags [size]='size' [name]='name'></prizm-icon-flags>
+      <prizm-flag-icons [size]='size' [name]='name'></prizm-flag-icons>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
@@ -68,7 +68,7 @@
       <li>
         <p >
           Import
-          <code>PrizmIconModule</code>
+          <code>PrizmIconSvgModule</code>
           into a module where you want to use our component
         </p>
 

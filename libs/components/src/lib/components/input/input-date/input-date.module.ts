@@ -9,7 +9,7 @@ import { PrizmValueAccessorModule } from '../../../directives/value-accessor/val
 import { PrizmPreventDefaultModule } from '../../../directives/prevent-default/prevent-default.module';
 import { PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmInputTextModule } from '../input-text/input-text.module';
-import { PrizmIconModule } from '../../icon/icon.module';
+import { PrizmIconSvgModule } from '../../icon/icon.module';
 import { FormsModule } from '@angular/forms';
 import { PrizmMaskModule } from '../../../modules';
 
@@ -21,7 +21,7 @@ import { PrizmMaskModule } from '../../../modules';
     PrizmPreventDefaultModule,
     PrizmCalendarModule,
     PrizmInputTextModule,
-    PrizmIconModule,
+    PrizmIconSvgModule,
     PrizmLinkModule,
     FormsModule,
     PrizmDropdownHostModule,

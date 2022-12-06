@@ -193,7 +193,7 @@ export const ROUTES = [
     },
   },
   {
-    path: 'components/icon-flags',
+    path: 'components/flag-icons',
     loadChildren: async (): Promise<unknown> => (await import('./components/icons/flags/flags.module')).FlagsModule,
     data: {
       title: 'Icon Flags',

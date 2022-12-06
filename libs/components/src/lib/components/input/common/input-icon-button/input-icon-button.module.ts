@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { PrizmIconModule } from '../../../icon/icon.module';
+import { PrizmIconSvgModule } from '../../../icon/icon.module';
 import { PrizmInputIconButtonComponent } from './input-icon-button.component';
 
 @NgModule({
-  imports: [PrizmIconModule],
+  imports: [PrizmIconSvgModule],
   declarations: [
     PrizmInputIconButtonComponent,
   ],

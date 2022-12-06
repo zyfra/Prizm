@@ -100,7 +100,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "libs/prizm/icons/src/styles/icons",
+                "input": "libs/icons/base/src/styles/icons",
                 "output": "assets/prizm-icons/fonts"
               }
             ],
@@ -110,12 +110,12 @@
               "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
               "node_modules/primeicons/primeicons.css",
               "libs/components/src/styles/styles.less",
-              "libs/flag-icons/src/styles/styles.less",
+              "libs/icons/flags/src/styles/styles.less",
               "libs/components/src/styles/icons/icons.less",
               "libs/components/src/styles/icons-16/icons-16.less",
               "node_modules/prismjs/themes/prism-okaidia.css",
               "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
-              "libs/prizm/icons/src/styles/styles.less"
+              "libs/icons/base/src/styles/styles.less"
             ],
             "scripts": [
               "node_modules/marked/lib/marked.js",
@@ -225,45 +225,6 @@
       "tags": [],
       "implicitDependencies": ["doc"]
     },
-    "flag-icons": {
-      "projectType": "library",
-      "root": "libs/flag-icons",
-      "sourceRoot": "libs/flag-icons/src",
-      "prefix": "prizm",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "outputs": ["dist/libs/flag-icons"],
-          "options": {
-            "project": "libs/flag-icons/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/flag-icons/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/flag-icons/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/flag-icons"],
-          "options": {
-            "jestConfig": "libs/flag-icons/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/flag-icons/src/**/*.ts", "libs/flag-icons/src/**/*.html"]
-          }
-        }
-      },
-      "tags": []
-    },
     "helpers": {
       "projectType": "library",
       "root": "libs/helpers",
@@ -298,6 +259,84 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/helpers/src/**/*.ts", "libs/helpers/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
+    "icons": {
+      "projectType": "library",
+      "root": "libs/icons/base",
+      "sourceRoot": "libs/icons/base/src",
+      "prefix": "zyfra",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/icons/base"],
+          "options": {
+            "project": "libs/icons/base/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/icons/base/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/icons/base/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/icons/base"],
+          "options": {
+            "jestConfig": "libs/icons/base/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/icons/base/src/**/*.ts", "libs/icons/base/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
+    "flag-icons": {
+      "projectType": "library",
+      "root": "libs/icons/flags",
+      "sourceRoot": "libs/icons/flags/src",
+      "prefix": "prizm",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/icons/flags"],
+          "options": {
+            "project": "libs/icons/flags/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/icons/flags/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/icons/flags/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/icons/flags"],
+          "options": {
+            "jestConfig": "libs/icons/flags/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/icons/flags/src/**/*.ts", "libs/icons/flags/src/**/*.html"]
           }
         }
       },
@@ -376,45 +415,6 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/prizm/core/src/**/*.ts", "libs/prizm/core/src/**/*.html"]
-          }
-        }
-      },
-      "tags": []
-    },
-    "prizm-icons": {
-      "projectType": "library",
-      "root": "libs/prizm/icons",
-      "sourceRoot": "libs/prizm/icons/src",
-      "prefix": "zyfra",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "outputs": ["dist/libs/prizm/icons"],
-          "options": {
-            "project": "libs/prizm/icons/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/prizm/icons/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/prizm/icons/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/prizm/icons"],
-          "options": {
-            "jestConfig": "libs/prizm/icons/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/prizm/icons/src/**/*.ts", "libs/prizm/icons/src/**/*.html"]
           }
         }
       },

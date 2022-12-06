@@ -4,15 +4,15 @@
   "license": "MIT",
   "svg-to-ts": {
     "srcFiles": [
-      "./libs/prizm/icons/src/lib/icons/**/*.svg"
+      "./libs/icons/base/src/lib/icons/**/*.svg"
     ],
-    "outputDirectory": "./libs/prizm/icons/src/lib/icons",
-    "interfaceName": "PrizmIconSvg",
-    "typeName": "PrizmIconSvgKeys",
+    "outputDirectory": "./libs/icons/base/src/lib/icons",
+    "interfaceName": "PrizmIconSvgSvg",
+    "typeName": "PrizmIconSvgSvgKeys",
     "prefix": "prizmIconSvg",
     "optimizeForLazyLoading": true,
     "modelFileName": "prizm-icon-svg.model",
-    "additionalModelFile": "./libs/prizm/icons/src/lib",
+    "additionalModelFile": "./libs/icons/base/src/lib",
     "compileSources": false
   },
   "scripts": {

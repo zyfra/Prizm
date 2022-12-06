@@ -16,12 +16,12 @@ import { PrizmThGroupComponent } from './th-group/th-group.component';
 import { PrizmTrComponent } from './tr/tr.component';
 import { PrizmMapperPipeModule } from '../../pipes';
 import { PolymorphModule } from '../../directives';
-import { PrizmIconModule } from '../icon';
+import { PrizmIconSvgModule } from '../icon';
 import { SearchableContentComponent } from './components/searchable-content/searchable-content.component';
 import { SpaceNumberPipe } from './pipes/space-number.pipe';
 
 @NgModule({
-  imports: [CommonModule, PrizmMapperPipeModule, PolymorphModule, PrizmIconModule],
+  imports: [CommonModule, PrizmMapperPipeModule, PolymorphModule, PrizmIconSvgModule],
   declarations: [
     PrizmTableDirective,
     PrizmTbodyComponent,

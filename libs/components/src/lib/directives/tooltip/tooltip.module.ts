@@ -4,7 +4,7 @@ import { PolymorphModule } from '../polymorph';
 import { PrizmTooltipDirective } from './tooltip.directive';
 import { PrizmHintModule } from '../hint';
 import { PrizmTooltipContainerComponent } from './tooltip-container.component';
-import { PrizmIconModule } from '../../components/icon';
+import { PrizmIconSvgModule } from '../../components/icon';
 import { PrizmScrollbarModule } from '../../components/scrollbar';
 import { PrizmFocusTrapModule } from '../focus-trap';
 
@@ -15,7 +15,7 @@ import { PrizmFocusTrapModule } from '../focus-trap';
     PrizmFocusTrapModule,
     PrizmHintModule,
     PrizmScrollbarModule,
-    PrizmIconModule
+    PrizmIconSvgModule
   ],
   declarations: [
     PrizmTooltipDirective,

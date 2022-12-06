@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BreadcrumbsComponent } from './breadcrumbs.component';
-import { PrizmIconModule } from '../icon';
+import { PrizmIconSvgModule } from '../icon';
 import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host';
 
 @NgModule({
   declarations: [BreadcrumbsComponent],
-  imports: [CommonModule, PrizmIconModule, PrizmDropdownHostModule],
+  imports: [CommonModule, PrizmIconSvgModule, PrizmDropdownHostModule],
   exports: [BreadcrumbsComponent],
 })
 export class PrizmBreadcrumbsModule {}

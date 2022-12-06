@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 import { PolymorphModule, PrizmThemeModule } from '../../directives';
 import { PrizmCardModule } from '../card';
 import { PrizmWidgetComponent } from './widget.component';
-import { PrizmIconModule } from '../icon';
+import { PrizmIconSvgModule } from '../icon';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmCardModule,
-    PrizmIconModule,
+    PrizmIconSvgModule,
     PrizmThemeModule,
     PolymorphModule,
   ],

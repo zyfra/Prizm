@@ -12,7 +12,7 @@ import { PrizmChipsModule } from '../../chips';
 import { PrizmInputTextModule } from '../../input/input-text/input-text.module';
 import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmHintModule } from '../../../directives/hint';
-import { PrizmIconModule } from '../../icon';
+import { PrizmIconSvgModule } from '../../icon';
 
 @NgModule({
     imports: [
@@ -25,7 +25,7 @@ import { PrizmIconModule } from '../../icon';
       CommonModule,
       PrizmLetModule,
       PrizmHintModule,
-      PrizmIconModule,
+      PrizmIconSvgModule,
       PrizmCallFuncModule,
       PrizmScrollbarModule,
       PrizmDropdownControllerModule,
