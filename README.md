@@ -10,6 +10,10 @@ npm i @prizm-ui/core
 npm i @prizm-ui/components
 
 npm i @prizm-ui/helpers
+
+npm i @prizm-ui/icons
+
+npm i @prizm-ui/flag-icons
 ```
 
 ## Contributing

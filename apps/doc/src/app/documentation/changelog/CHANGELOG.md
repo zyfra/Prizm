@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See
 
+## [1.0.0-beta.16](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (6-12-2022)
+
+### Features
+- feat/(icons): add new library with svg and fonts icons [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/395)
+- feat/(flag-icons): add new library with flags svg icons [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/395)
+- feat/(component/splitter: add new component splitter [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/381)
+
+### BUG FIXES
+- fix/(components/table): sort [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/396)
+- fix/(docs): fixes install info [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/396)
+
 ## [1.0.0-beta.15](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (5-12-2022)
 
 ### BUG FIXES
