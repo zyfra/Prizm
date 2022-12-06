@@ -1,0 +1,112 @@
+<tui-doc-page header="Splitter" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="base" heading="Base" [content]="basic">
+      <prizm-splitter-basic-example></prizm-splitter-basic-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="vertical" heading="Vertical" [content]="vertical">
+      <prizm-splitter-vertical-example></prizm-splitter-vertical-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="mested" heading="Nested" [content]="nested">
+      <prizm-splitter-nested-example></prizm-splitter-nested-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="limit" heading="Limit size" [content]="limitSize">
+      <prizm-splitter-limit-size-example></prizm-splitter-limit-size-example>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <prizm-splitter
+        [ngStyle]="{ height: '400px' }"
+        [areasSize]="areasSize"
+        [minAreasSize]="minAreasSize"
+        [orientation]="orientation"
+      >
+        <prizm-splitter-area>
+          <div class="area area--1">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
+            provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
+            nulla recusandae impedit beatae. Nemo doloremque inventore harum, pariatur dignissimos molestias
+            id? Sint quisquam hic officiis commodi pariatur quod iure recusandae molestias, corporis nam in
+            voluptates excepturi omnis saepe suscipit nihil at quos officia fuga rem quaerat ratione nesciunt
+            qui! Corporis quisquam esse eligendi at nam voluptatibus, enim molestias omnis? Sunt voluptatibus
+            laborum quia id consequuntur, in delectus repellat impedit suscipit saepe facilis facere libero
+            rem voluptatem neque officiis, nihil dolorum quisquam aperiam blanditiis.
+          </div>
+        </prizm-splitter-area>
+        <prizm-splitter-area>
+          <div class="area area--2">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
+            provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
+            nulla recusandae impedit beatae. Nemo doloremque inventore harum, pariatur dignissimos molestias
+            id? Sint quisquam hic officiis commodi pariatur quod iure recusandae molestias, corporis nam in
+            voluptates excepturi omnis saepe suscipit nihil at quos officia fuga rem quaerat ratione nesciunt
+            qui! Corporis quisquam esse eligendi at nam voluptatibus, enim molestias omnis? Sunt voluptatibus
+            laborum quia id consequuntur, in delectus repellat impedit suscipit saepe facilis facere libero
+            rem voluptatem neque officiis, nihil dolorum quisquam aperiam blanditiis.
+          </div>
+        </prizm-splitter-area>
+        <prizm-splitter-area>
+          <div class="area area--3">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
+            provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
+            nulla recusandae impedit beatae. Nemo doloremque inventore harum, pariatur dignissimos molestias
+            id? Sint quisquam hic officiis commodi pariatur quod iure recusandae molestias, corporis nam in
+            voluptates excepturi omnis saepe suscipit nihil at quos officia fuga rem quaerat ratione nesciunt
+            qui! Corporis quisquam esse eligendi at nam voluptatibus, enim molestias omnis? Sunt voluptatibus
+            laborum quia id consequuntur, in delectus repellat impedit suscipit saepe facilis facere libero
+            rem voluptatem neque officiis, nihil dolorum quisquam aperiam blanditiis.
+          </div>
+        </prizm-splitter-area>
+      </prizm-splitter>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="areaSizes"
+        documentationPropertyType="Array"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="areasSize"
+        [documentationPropertyValues]="sizesVariants"
+      >
+        Areas size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="areaSizes"
+        documentationPropertyType="Array"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="minAreasSize"
+        [documentationPropertyValues]="minAreasSizeVariants"
+      >
+        Areas min size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="orientation"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="orientation"
+        [documentationPropertyValues]="orientationVariants"
+      >
+        Orientation
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmSplitterModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>
+
