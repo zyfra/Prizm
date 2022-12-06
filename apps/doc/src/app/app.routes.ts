@@ -588,6 +588,14 @@ export const ROUTES = [
       title: 'Stepper',
     },
   },
+  {
+    path: 'components/splitter',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/splitter/splitter-example.module')).PrizmSpliiterExampleModule,
+    data: {
+      title: 'Splitter',
+    },
+  },
   { path: '**', redirectTo: 'about' },
 ];
 
@@ -601,3 +609,4 @@ export const ROUTES = [
   exports: [RouterModule],
 })
 export class AppRoutes {}
+
