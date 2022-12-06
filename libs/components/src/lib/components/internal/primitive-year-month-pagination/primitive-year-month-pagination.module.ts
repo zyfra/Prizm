@@ -5,7 +5,7 @@ import { PrizmPrimitiveYearMonthPaginationComponent } from './primitive-year-mon
 import { PrizmPrimitiveSpinButtonModule } from '../primitive-spin-button';
 import { PrizmLinkModule } from '../../link/link.module';
 import { PrizmFocusableModule } from '../../../directives/focusable/focusable.module';
-import { PrizmIconSvgModule } from '../../icon/icon.module';
+import { PrizmIconModule } from '../../icon/icon.module';
 
 @NgModule({
     imports: [
@@ -13,7 +13,7 @@ import { PrizmIconSvgModule } from '../../icon/icon.module';
         PrizmFocusableModule,
         PrizmPrimitiveSpinButtonModule,
         PrizmLinkModule,
-        PrizmIconSvgModule,
+        PrizmIconModule,
         PrizmMonthPipeModule,
     ],
     declarations: [PrizmPrimitiveYearMonthPaginationComponent],

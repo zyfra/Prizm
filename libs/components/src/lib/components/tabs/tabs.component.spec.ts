@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TabsComponent } from './tabs.component';
 import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host/dropdown-host.module';
-import { PrizmIconSvgModule } from '../icon/icon.module';
+import { PrizmIconModule } from '../icon/icon.module';
 
 xdescribe('TabsComponent', () => {
   let component: TabsComponent;
@@ -37,7 +37,7 @@ xdescribe('TabsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [TabsComponent],
-      imports: [PrizmDropdownHostModule, PrizmIconSvgModule]
+      imports: [PrizmDropdownHostModule, PrizmIconModule]
     }).compileComponents();
   });
 

@@ -9,7 +9,7 @@ import { PrizmLinkModule } from '../../link/link.module';
 import { PrizmInputDateTimeComponent } from './input-date-time.component';
 import { FormsModule } from '@angular/forms';
 import { PrizmInputTextModule } from '../input-text/input-text.module';
-import { PrizmIconSvgModule } from '../../icon/icon.module';
+import { PrizmIconModule } from '../../icon/icon.module';
 import { PrizmMaskModule } from '../../../modules';
 import { PrizmDataListModule } from '../../data-list';
 import { PrizmLifecycleModule } from '../../../directives';
@@ -21,7 +21,7 @@ import { PrizmLifecycleModule } from '../../../directives';
     PrizmDataListModule,
     PolymorphModule,
     PrizmInputTextModule,
-    PrizmIconSvgModule,
+    PrizmIconModule,
     FormsModule,
     PrizmLifecycleModule,
     PrizmPreventDefaultModule,

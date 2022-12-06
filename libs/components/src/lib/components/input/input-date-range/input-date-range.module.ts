@@ -7,7 +7,7 @@ import { PrizmValueAccessorModule } from '../../../directives/value-accessor/val
 import { PrizmCalendarRangeModule } from '../../calendar-range/calendar-range.module';
 import { FormsModule } from '@angular/forms';
 import { PrizmInputTextModule } from '../input-text/input-text.module';
-import { PrizmIconSvgModule } from '../../icon/icon.module';
+import { PrizmIconModule } from '../../icon/icon.module';
 import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
 import { PrizmMaskModule } from '../../../modules';
 
@@ -18,7 +18,7 @@ import { PrizmMaskModule } from '../../../modules';
     PrizmLetModule,
     PolymorphModule,
     PrizmInputTextModule,
-    PrizmIconSvgModule,
+    PrizmIconModule,
     PrizmDropdownHostModule,
     PrizmCalendarRangeModule,
     PrizmValueAccessorModule,
