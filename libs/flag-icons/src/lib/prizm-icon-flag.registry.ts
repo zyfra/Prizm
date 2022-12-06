@@ -4,7 +4,7 @@ import { PrizmIconFlag } from './icons/my-icons';
 @Injectable({
   providedIn: 'root'
 })
-export class PrizmIconFlagIconsRegistry {
+export class PrizmIconFlagsRegistry {
   private registry = new Map<string, string>();
 
   public registerIcons(icons: PrizmIconFlag[]): void {

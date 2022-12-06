@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, Input, Optional } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { PrizmIconFlagIconsRegistry } from './prizm-icon-flag.registry';
+import { PrizmIconFlagsRegistry } from './prizm-icon-flag.registry';
 import { prizmPx } from '@prizm-ui/core';
 
 @Component({
@@ -19,7 +19,7 @@ export class PrizmIconFlagsComponent {
     if (this.svgIcon) {
       this.element.nativeElement.removeChild(this.svgIcon);
     }
-    const svgData = this.dinosaurIconRegistry.getIcon(iconName);
+    const svgData = this.iconRegistry.getIcon(iconName);
     if (!svgData) return;
     this.svgIcon = this.svgElementFromString(svgData);
     this.element.nativeElement.appendChild(this.svgIcon);
@@ -36,7 +36,7 @@ export class PrizmIconFlagsComponent {
     : size;
   }
 
-  constructor(private element: ElementRef, private dinosaurIconRegistry: PrizmIconFlagIconsRegistry,
+  constructor(private element: ElementRef, private iconRegistry: PrizmIconFlagsRegistry,
               @Optional() @Inject(DOCUMENT) private document: any) {
   }
 

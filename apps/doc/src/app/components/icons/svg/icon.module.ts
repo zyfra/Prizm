@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { IconComponent } from './icon.component';
 import { PrizmIconBaseExampleComponent } from './examples/base/icon-base-example.component';
 import { PrizmIconsModule } from '@prizm-ui/icons';
+import { PrizmIconSvgExampleComponent } from './examples/svg/icon-svg-example.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { PrizmIconsModule } from '@prizm-ui/icons';
   ],
   declarations: [
     PrizmIconBaseExampleComponent,
+    PrizmIconSvgExampleComponent,
     IconComponent
   ],
   exports: [IconComponent],
