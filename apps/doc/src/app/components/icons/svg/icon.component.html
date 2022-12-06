@@ -4,7 +4,8 @@
   type="components"
 >
   Иконки можно использовать как шрифты, так и как svg (примеры использования ниже).
-  Такжи с помощью нашего registry вы можете добавить свои svg иконки (пример в файле с svg).
+  Также с помощью нашего registry вы можете добавить свои svg иконки (пример в файле с svg).
+  Также каждую иконку можно подключить как отдельно так и весь набор SVG иконок.
 
   <ng-template pageTab>
     <tui-doc-example
@@ -32,7 +33,7 @@
 
       <div class="icons">
         <div *ngFor="let name of def.data" class="icon-def">
-          <prizm-icons-svg [size]='16' [name]='name'></prizm-icons-svg>
+          <prizm-icons-svg [size]='24' [name]='name'></prizm-icons-svg>
           <div class="name" [title]='name'>{{ name }}</div>
         </div>
       </div>
