@@ -11,7 +11,6 @@ const FONT_ASSET = {
 };
 
 const INSTALL_STYLES = [
-  'node_modules/@prizm-ui/components/src/styles/theme/default.less',
   'node_modules/@prizm-ui/components/src/styles/styles.less',
 ];
 
