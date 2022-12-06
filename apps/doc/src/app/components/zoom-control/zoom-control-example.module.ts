@@ -9,7 +9,7 @@ import {
   PrizmDataListModule,
   PrizmDropdownControllerModule,
   PrizmDropdownHostModule,
-  PrizmIconSvgModule,
+  PrizmIconModule,
   PrizmInputTextModule,
   PrizmPanelModule,
   PrizmSelectModule,
@@ -20,7 +20,7 @@ import {
   imports: [
     CommonModule,
     TuiAddonDocModule,
-    PrizmIconSvgModule,
+    PrizmIconModule,
     RouterModule.forChild(generateRoutes(ZoomControlExampleComponent)),
     PrizmPanelModule,
     PrizmInputTextModule,

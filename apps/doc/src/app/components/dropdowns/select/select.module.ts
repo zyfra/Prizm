@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { SelectComponent } from './select.component';
-import { PolymorphModule, PrizmIconSvgModule, PrizmSelectModule } from '@prizm-ui/components';
+import { PolymorphModule, PrizmIconModule, PrizmSelectModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   PrizmSelectWithTemplateExampleComponent,
@@ -22,7 +22,7 @@ import { PrizmSelectWithObjectExampleComponent } from './examples/with-object/se
     PolymorphModule,
     PrizmLetModule,
     PrizmSelectModule,
-    PrizmIconSvgModule,
+    PrizmIconModule,
     RouterModule.forChild(generateRoutes(SelectComponent)),
   ],
   declarations: [

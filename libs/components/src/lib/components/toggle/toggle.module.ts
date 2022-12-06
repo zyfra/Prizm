@@ -12,7 +12,7 @@ import {
 } from "../../directives";
 import {PrizmFocusVisibleModule} from "../../directives/focus-visible";
 import {PrizmHoveredModule} from '../../directives/hovered';
-import {PrizmIconSvgModule} from "../icon";
+import {PrizmIconModule} from "../icon";
 
 @NgModule({
   imports: [
@@ -26,7 +26,7 @@ import {PrizmIconSvgModule} from "../icon";
     PrizmWrapperModule,
     PrizmLoaderModule,
     PolymorphModule,
-    PrizmIconSvgModule
+    PrizmIconModule
   ],
     declarations: [PrizmToggleComponent],
     exports: [PrizmToggleComponent],

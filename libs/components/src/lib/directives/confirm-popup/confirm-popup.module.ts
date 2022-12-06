@@ -4,7 +4,7 @@ import { PolymorphModule } from '../polymorph';
 import { PrizmConfirmPopupDirective } from './confirm-popup.directive';
 import { PrizmHintModule } from '../hint';
 import { PrizmConfirmPopupContainerComponent } from './confirm-popup-container.component';
-import { PrizmIconSvgModule } from '../../components/icon';
+import { PrizmIconModule } from '../../components/icon';
 import { PrizmScrollbarModule } from '../../components/scrollbar';
 import { PrizmButtonModule } from '../../components/button';
 import { PrizmFocusTrapModule } from '../focus-trap';
@@ -17,7 +17,7 @@ import { PrizmFocusTrapModule } from '../focus-trap';
     PrizmHintModule,
     PrizmScrollbarModule,
     PrizmButtonModule,
-    PrizmIconSvgModule
+    PrizmIconModule
   ],
   declarations: [
     PrizmConfirmPopupDirective,

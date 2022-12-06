@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PrizmIconSvgModule } from '../icon';
+import { PrizmIconModule } from '../icon';
 import { TabComponent } from './components/tab.component';
 import { TabsComponent } from './tabs.component';
 import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host';
@@ -12,7 +12,7 @@ import { PrizmDataListModule } from '../data-list';
   declarations: [TabsComponent, TabComponent],
   imports: [
     CommonModule,
-    PrizmIconSvgModule,
+    PrizmIconModule,
     PrizmDropdownHostModule,
     PrizmButtonModule,
     PrizmDropdownControllerModule,

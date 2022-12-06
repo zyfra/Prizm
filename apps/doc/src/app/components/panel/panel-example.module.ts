@@ -6,7 +6,7 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import {
   PrizmButtonModule,
-  PrizmIconSvgModule,
+  PrizmIconModule,
   PrizmPanelModule,
   PrizmBreadcrumbsModule,
   PrizmTabsModule,
@@ -37,7 +37,7 @@ import { FormsModule } from '@angular/forms';
     RouterModule.forChild(generateRoutes(PanelExampleComponent)),
     PrizmPanelModule,
     PrizmButtonModule,
-    PrizmIconSvgModule,
+    PrizmIconModule,
     FormsModule,
     PrizmToggleModule,
     PrizmBreadcrumbsModule,
