@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PRIZM_ICONS_SVG_SET, PrizmIconSvgEnum, PrizmIconSvgsRegistry, PrizmIconType } from '@prizm/icons';
+import { PRIZM_ICONS_SVG_SET, PrizmIconSvgEnum, PrizmIconsSvgRegistry, PrizmIconType } from '@prizm/icons';
 
 @Component({
   selector: 'prizm-icon-example',
@@ -25,8 +25,8 @@ export class IconComponent implements OnInit {
   public documentsFoldersIcons = this.iconsSet.filter(i => i.startsWith('documents_folders'));
   public logisticsTransportationIcons = this.iconsSet.filter(i => i.startsWith('logistics_transportation'));
   public MapLocationIcons = this.iconsSet.filter(i => i.startsWith('map_location'));
-  public multimediaDevicesIcons = this.iconsSet.filter(i => i.startsWith('multimedia-devices'));
-  public notificationsAlertsIcons = this.iconsSet.filter(i => i.startsWith('notifications-alerts'));
+  public multimediaDevicesIcons = this.iconsSet.filter(i => i.startsWith('multimedia_devices'));
+  public notificationsAlertsIcons = this.iconsSet.filter(i => i.startsWith('notifications_alerts'));
   public otherIcons = this.iconsSet.filter(i => i.startsWith('other'));
   public powerEnergyIcons = this.iconsSet.filter(i => i.startsWith('power_energy'));
   public productionIndustryIcons = this.iconsSet.filter(i => i.startsWith('production_industry'));
@@ -112,7 +112,7 @@ export class IconComponent implements OnInit {
     HTML: import('!!raw-loader!./examples/svg/icon-svg-example.component.html'),
   };
 
-  constructor(private readonly iconRegistry: PrizmIconSvgsRegistry) {}
+  constructor(private readonly iconRegistry: PrizmIconsSvgRegistry) {}
 
   ngOnInit() {
     this.iconRegistry.registerIcons([...PRIZM_ICONS_SVG_SET]);

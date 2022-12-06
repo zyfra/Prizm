@@ -1,13 +1,13 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PrizmIconSvgsModule } from '@prizm-ui/flag-icons';
+import { PrizmIconsSvgModule } from '@prizm-ui/flag-icons';
 
 // ...
 
 @NgModule({
   imports: [
     // ...
-    PrizmIconSvgsModule,
+    PrizmIconsSvgModule,
   ],
 })
 export class MyModule {

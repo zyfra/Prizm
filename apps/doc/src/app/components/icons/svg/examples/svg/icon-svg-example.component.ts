@@ -5,7 +5,7 @@ import {
   PrizmIconSvgEnum,
   prizmIconSvgProductionIndustrySnakeCup,
   prizmIconSvgSettingsToolsBan,
-  PrizmIconSvgsRegistry,
+  PrizmIconsSvgRegistry,
 } from '@prizm/icons';
 
 @Component({
@@ -14,7 +14,7 @@ import {
 })
 export class PrizmIconSvgSvgExampleComponent {
   readonly PrizmIconSvgEnum = PrizmIconSvgEnum;
-  constructor(private readonly iconRegistry: PrizmIconSvgsRegistry) {
+  constructor(private readonly iconRegistry: PrizmIconsSvgRegistry) {
     /** Также можете добавить свою иконку */
     this.iconRegistry.registerIcons([
       prizmIconSvgSettingsToolsBan,

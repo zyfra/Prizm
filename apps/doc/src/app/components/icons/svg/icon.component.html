@@ -32,8 +32,7 @@
 
       <div class="icons">
         <div *ngFor="let name of def.data" class="icon-def">
-          <prizm-icons [size]='16' [name]='name'></prizm-icons>
-<!--          <i class='prizm-icons prizm-icons-{{name}}'></i>-->
+          <prizm-icons-svg [size]='16' [name]='name'></prizm-icons-svg>
           <div class="name" [title]='name'>{{ name }}</div>
         </div>
       </div>
@@ -43,7 +42,7 @@
 
   <ng-template pageTab>
     <tui-doc-demo>
-      <prizm-icons [name]='name' [size]='size'></prizm-icons>
+      <prizm-icons-svg [name]='name' [size]='size'></prizm-icons-svg>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
@@ -73,7 +72,7 @@
       <li>
         <p >
           Import
-          <code>PrizmIconSvgsModule</code>
+          <code>PrizmIconsSvgModule</code>
           into a module where you want to use our component
         </p>
 
