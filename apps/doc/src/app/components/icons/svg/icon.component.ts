@@ -114,7 +114,7 @@ export class IconComponent implements OnInit {
 
   constructor(private readonly iconRegistry: PrizmIconsSvgRegistry) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.iconRegistry.registerIcons([...PRIZM_ICONS_SVG_SET]);
   }
 }

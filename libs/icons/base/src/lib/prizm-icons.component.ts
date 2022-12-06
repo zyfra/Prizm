@@ -39,7 +39,7 @@ export class PrizmIconsSvgComponent {
   }
 
   @HostBinding('style.width')
-  _size: string = '16px';
+  _size = '16px';
 
   @Input()
   set size(size: string | number) {
@@ -49,7 +49,7 @@ export class PrizmIconsSvgComponent {
   constructor(
     private element: ElementRef,
     private iconRegistry: PrizmIconsSvgRegistry,
-    @Optional() @Inject(DOCUMENT) private document: any
+    @Optional() @Inject(DOCUMENT) private document: Document
   ) {}
 
   private svgElementFromString(svgContent: string): SVGElement {
