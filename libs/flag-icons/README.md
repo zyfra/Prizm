@@ -1,7 +1,32 @@
-# flag-icons
+# Flag icons
+Библиотека иконок с флагами.
+Генерируется двух форматах
+- шрифты (В ПРОЦЕССЕ)
+- svg файлы (завершено)
 
-This library was generated with [Nx](https://nx.dev).
+## TODO
+[ ] исправить файлы флагов, что бы могли генерировать шрифты
 
-## Running unit tests
+## Важно
+#### Неправилльные названия
+Дизайнеры передают только файлы флагов в формате svg с полным навазние типа "AD - Andorra.svg"
+Мы предварительно должны их очистить оставив только абривиатуру, что бы названия файла было типа "AD.svg"
+Только после этого проверить запуск
 
-Run `nx test flag-icons` to execute the unit tests.
+
+## Как сгенерить svg иконки 
+1. Открыть папку конфига (./configs)
+2. Проверить наличие файла ".svg-to-tsrc.js"
+3. Запустить комманду "svg-to-ts-constants"
+
+
+## Как сгенерить шрифты иконки (В ПРОЦЕССЕ)
+1. Открыть папку конфига (./configs)
+2. Проверить наличие файла ".fantsticiconrc.js"
+3. Запустить комманду "fantasticon"
+
+
+## Что используем
+- Для файлов svg: [svg-to-ts-constants](https://www.npmjs.com/package/svg-to-ts)
+- Для шрифтов: [fantasticon](https://github.com/tancredi/fantasticon)
+- Figma plugin для экспорта [Advanced-SVG-Export](https://www.figma.com/community/plugin/782713260363070260/Advanced-SVG-Export) 

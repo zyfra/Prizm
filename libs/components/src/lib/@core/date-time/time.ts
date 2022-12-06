@@ -1,6 +1,6 @@
 import { PrizmTimeLike } from '../../types/time-like';
 import { PrizmTimeMode } from '../../types/time-mode';
-import { prizmPadStart } from '../../util/format/pad-start';
+import { prizmPadStart } from '../../../../../prizm/core/src/lib/utils/format/pad-start';
 import { prizmInRange } from '../../util/math/in-range';
 
 import {

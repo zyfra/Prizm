@@ -1,0 +1,33 @@
+<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_14655_23375)">
+<mask id="mask0_14655_23375" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="12">
+<rect width="16" height="12" fill="white"/>
+</mask>
+<g mask="url(#mask0_14655_23375)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V12H16V0H0Z" fill="#F7FCFF"/>
+<mask id="mask1_14655_23375" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="12">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V12H16V0H0Z" fill="white"/>
+</mask>
+<g mask="url(#mask1_14655_23375)">
+<rect y="2" width="16" height="1" fill="#2E42A5"/>
+<rect y="4" width="16" height="1" fill="#2E42A5"/>
+<rect y="6" width="16" height="1" fill="#2E42A5"/>
+<rect y="8" width="16" height="1" fill="#2E42A5"/>
+<rect y="10" width="16" height="1" fill="#2E42A5"/>
+<rect width="8" height="7" fill="#F7FCFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4.61374 5.51858C4.61374 5.51858 4.1028 6.57794 3.65372 6.79513C3.84756 6.30925 3.91891 5.31788 3.91891 5.31788C3.91891 5.31788 2.75295 5.78015 2.34371 5.6959C2.8358 5.35203 3.51884 4.71512 3.51884 4.71512C3.51884 4.71512 2.00973 4.22175 2.04675 4.01178C2.72799 4.13398 3.66485 4.00077 3.66485 4.00077C3.66485 4.00077 2.60615 2.73115 2.71352 2.63674C2.87489 2.79359 4.14367 3.45635 4.14367 3.45635C4.14367 3.45635 4.23572 2.32675 4.50877 1.9459C4.54153 2.21474 4.92478 3.43192 4.92478 3.43192C4.92478 3.43192 5.69522 2.66103 6.12284 2.66103C5.93501 2.89392 5.49026 3.91689 5.49026 3.91689C5.49026 3.91689 6.59866 3.89944 7.02003 4.1069C6.50958 4.1795 5.6153 4.62846 5.6153 4.62846C5.6153 4.62846 6.78003 5.51197 6.67384 5.6959C6.04849 5.38999 5.32552 5.28754 5.32552 5.28754C5.32552 5.28754 5.52536 6.51707 5.36382 6.79513C5.20628 6.38583 4.61374 5.51858 4.61374 5.51858Z" fill="#FFD018" stroke="#F19900" stroke-opacity="0.98" stroke-width="0.25"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4.54675 4.9459C4.8229 4.9459 5.04675 4.72204 5.04675 4.4459C5.04675 4.16976 4.8229 3.9459 4.54675 3.9459C4.27061 3.9459 4.04675 4.16976 4.04675 4.4459C4.04675 4.72204 4.27061 4.9459 4.54675 4.9459Z" fill="#FFD018" stroke="#F19900" stroke-opacity="0.98" stroke-width="0.25"/>
+</g>
+</g>
+<rect width="16" height="12" fill="url(#paint0_linear_14655_23375)" style="mix-blend-mode:overlay"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_14655_23375" x1="8" y1="0" x2="8" y2="12" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0.7"/>
+<stop offset="1" stop-opacity="0.3"/>
+</linearGradient>
+<clipPath id="clip0_14655_23375">
+<rect width="16" height="12" rx="1" fill="white"/>
+</clipPath>
+</defs>
+</svg>

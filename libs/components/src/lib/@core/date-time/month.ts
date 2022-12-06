@@ -1,5 +1,5 @@
 import { PrizmMonthLike } from '../../types/month-like';
-import { prizmPadStart } from '../../util/format/pad-start';
+import { prizmPadStart } from '../../../../../prizm/core/src/lib/utils/format/pad-start';
 import { prizmInRange } from '../../util/math/in-range';
 import { prizmNormalizeToIntNumber } from '../../util/math/normalize-to-int-number';
 import { PrizmMonthNumber } from '../enums/month-number';

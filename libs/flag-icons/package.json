@@ -1,5 +1,5 @@
 {
-  "name": "@prizm-ui/flag-icons",
+  "name": "@prizm-ui/icon-flags",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^12.2.0",
