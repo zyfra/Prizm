@@ -5,7 +5,7 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { TableBasicExampleComponent } from './examples/table-basic-example/table-basic-example.component';
 import {
-  PrizmIconModule,
+  PrizmIconSvgModule,
   PrizmInputTextModule,
   PrizmPaginatorModule,
   ZuiTableModule,
@@ -36,7 +36,7 @@ import { TableStatusExampleComponent } from './examples/table-status-example/tab
     TableModule,
     FormsModule,
     PrizmInputTextModule,
-    PrizmIconModule,
+    PrizmIconSvgModule,
     PrizmPaginatorModule,
   ],
 })

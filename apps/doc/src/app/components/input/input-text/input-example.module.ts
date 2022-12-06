@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { PrizmInputTextModule, PrizmButtonModule, PrizmIconModule } from '@prizm-ui/components';
+import { PrizmInputTextModule, PrizmButtonModule, PrizmIconSvgModule } from '@prizm-ui/components';
 import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { InputIconButtonsExampleComponent } from './examples/input-icon-buttons-example/input-icon-buttons-example.component';
 import { InputComponent } from './input.component';
@@ -21,7 +21,7 @@ import { InputSearchExampleComponent } from './examples/input-search-example/inp
   imports: [
     TuiAddonDocModule,
     RouterModule.forChild(generateRoutes(InputComponent)),
-    PrizmIconModule,
+    PrizmIconSvgModule,
     PrizmInputTextModule,
     PrizmButtonModule,
     ReactiveFormsModule,

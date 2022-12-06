@@ -1,14 +1,14 @@
 ## Использование svg
 ```ts
 import { NgModule } from '@angular/core';
-import { PrizmIconsModule } from '@prizm-ui/icons';
+import { PrizmIconSvgsModule } from '@prizm-ui/icons';
 
 // ...
 
 @NgModule({
   imports: [
     // ...
-    PrizmIconsModule,
+    PrizmIconSvgsModule,
   ],
 })
 export class MyModule {
@@ -21,6 +21,6 @@ export class MyModule {
 ```
  "styles": [
   ...
-  "libs/prizm/icons/src/styles/styles.less"
+  "libs/icons/base/src/styles/styles.less"
 ],
 ```

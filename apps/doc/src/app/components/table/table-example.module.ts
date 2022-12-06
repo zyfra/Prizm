@@ -7,7 +7,7 @@ import { TableBasicExampleComponent } from './examples/table-basic-example/table
 import {
   PrizmCheckboxModule,
   PrizmDropdownHostModule,
-  PrizmIconModule,
+  PrizmIconSvgModule,
   PrizmInputTextModule,
   PrizmPaginatorModule,
   PrizmPanelModule,
@@ -47,7 +47,7 @@ import { TableBorderStyleExampleComponent } from './examples/table-border-style-
     FormsModule,
     ReactiveFormsModule,
     PrizmInputTextModule,
-    PrizmIconModule,
+    PrizmIconSvgModule,
     PrizmPaginatorModule,
     PrizmPanelModule,
     PrizmScrollbarModule,

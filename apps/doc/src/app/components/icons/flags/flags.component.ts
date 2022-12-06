@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PRIZM_ICON_FLAGS_SET, PrizmIconFlagEnum, PrizmIconFlagsRegistry } from '@prizm-ui/icon-flags';
+import { PRIZM_ICON_FLAGS_SVG_SET, PrizmIconSvgFlagSvgEnum, PrizmFlagIconsRegistry } from '@prizm/flag-icons';
 
 @Component({
   selector: 'prizm-icon-example',
@@ -9,17 +9,11 @@ import { PRIZM_ICON_FLAGS_SET, PrizmIconFlagEnum, PrizmIconFlagsRegistry } from 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FlagsComponent {
-  readonly nameVariants = Object.values(PrizmIconFlagEnum);
+  readonly nameVariants = Object.values(PrizmIconSvgFlagSvgEnum);
   public name = this.nameVariants[0];
 
-  readonly sizeVariants = [
-    '32px',
-    24,
-    16
-  ]
+  readonly sizeVariants = ['32px', 24, 16];
   public size = this.sizeVariants[0];
-
-
 
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
@@ -32,15 +26,9 @@ export class FlagsComponent {
     HTML: import('!!raw-loader!./examples/font/icon-font-example.component.html'),
   };
 
-  constructor(
-    private readonly iconFlagsRegistry: PrizmIconFlagsRegistry,
-  ) {
-  }
-
+  constructor(private readonly iconFlagsRegistry: PrizmFlagIconsRegistry) {}
 
   ngOnInit() {
-    this.iconFlagsRegistry.registerIcons([
-      ...PRIZM_ICON_FLAGS_SET
-    ]);
+    this.iconFlagsRegistry.registerIcons([...PRIZM_ICON_FLAGS_SVG_SET]);
   }
 }

@@ -244,7 +244,7 @@ export const pages: TuiOrderedDocPage = [
       {
         title: 'Icon Flags',
         keywords: 'иконка, флаги. flags',
-        route: '/components/icon-flags',
+        route: '/components/flag-icons',
       },
       {
         title: 'Icon',

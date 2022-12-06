@@ -105,7 +105,8 @@ Release package:
     - npm publish --access public --userconfig ~/.npmrc --verbose  components
     - npm publish --access public --userconfig ~/.npmrc --verbose  prizm/core
     - npm publish --access public --userconfig ~/.npmrc --verbose  schematics
-    - npm publish --userconfig ~/.npmrc --verbose  prizm/icons
+    - npm publish --access public --userconfig ~/.npmrc --verbose  icons/base
+    - npm publish --access public --userconfig ~/.npmrc --verbose  icons/flags
   when: manual
   only: ["main", "components"]
   extends: [".tags_k8s", ".except_skip_ci"]

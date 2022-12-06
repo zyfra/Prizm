@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
-import { prizmIconFlagAs, PrizmIconFlagEnum, PrizmIconFlagsRegistry, prizmIconFlagRu } from '@prizm-ui/icon-flags';
+import {
+  prizmIconFlagSvgAs,
+  PrizmIconSvgFlagSvgEnum,
+  PrizmFlagIconsRegistry,
+  prizmIconFlagSvgRu,
+} from '@prizm/flag-icons';
 
 @Component({
   selector: 'prizm-icon-base-example',
   templateUrl: './icon-base-example.component.html',
 })
-export class PrizmIconBaseExampleComponent {
-  readonly PrizmIconFlagEnum = PrizmIconFlagEnum;
-  constructor(
-    private readonly iconFlagsRegistry: PrizmIconFlagsRegistry,
-  ) {
-    this.iconFlagsRegistry.registerIcons([
-      prizmIconFlagAs,
-      prizmIconFlagRu,
-    ]);
+export class PrizmIconSvgBaseExampleComponent {
+  readonly PrizmIconSvgFlagSvgEnum = PrizmIconSvgFlagSvgEnum;
+  constructor(private readonly iconFlagsRegistry: PrizmFlagIconsRegistry) {
+    this.iconFlagsRegistry.registerIcons([prizmIconFlagSvgAs, prizmIconFlagSvgRu]);
   }
 }

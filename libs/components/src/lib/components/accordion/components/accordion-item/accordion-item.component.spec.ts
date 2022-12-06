@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AccordionItemComponent } from './accordion-item.component';
-import { PrizmIconModule } from '../../../icon/icon.module';
+import { PrizmIconSvgModule } from '../../../icon/icon.module';
 
 describe('AccordionItemComponent', () => {
   let component: AccordionItemComponent;
@@ -10,7 +10,7 @@ describe('AccordionItemComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AccordionItemComponent],
-      imports: [PrizmIconModule],
+      imports: [PrizmIconSvgModule],
     }).compileComponents();
   });
 

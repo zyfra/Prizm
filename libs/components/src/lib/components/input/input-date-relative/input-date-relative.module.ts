@@ -3,7 +3,7 @@ import { PrizmInputDateRelativeComponent } from './input-date-relative.component
 import { CommonModule } from '@angular/common';
 import { PolymorphModule } from '../../../directives/polymorph/polymorph.module';
 import { PrizmInputTextModule } from '../input-text/input-text.module';
-import { PrizmIconModule } from '../../icon/icon.module';
+import { PrizmIconSvgModule } from '../../icon/icon.module';
 import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -15,7 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     PolymorphModule,
     PrizmInputTextModule,
-    PrizmIconModule,
+    PrizmIconSvgModule,
     ReactiveFormsModule,
     PrizmDropdownHostModule,
   ],
