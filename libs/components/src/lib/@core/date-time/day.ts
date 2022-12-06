@@ -3,15 +3,14 @@ import { PrizmInvalidMonthException } from '../../exceptions/invalid-month.excep
 import { PrizmInvalidYearException } from '../../exceptions/invalid-year.exception';
 import { PrizmDateMode } from '../../types/date-mode';
 import { PrizmDayLike } from '../../types/day-like';
-import { prizmPadStart } from '../../../../../prizm/core/src/lib/utils/format/pad-start';
 import { prizmInRange, prizmNormalizeToIntNumber } from '../../util/math';
 import { PrizmDayOfWeek } from '../enums/day-of-week';
 import { PrizmMonthNumber } from '../enums/month-number';
-
 import { PRIZM_DATE_FILLER_LENGTH } from './date-fillers';
 import { PRIZM_DAYS_IN_WEEK, PRIZM_MIN_DAY, PRIZM_MONTHS_IN_YEAR } from './date-time';
 import { PrizmMonth } from './month';
 import { PrizmYear } from './year';
+import { prizmPadStart } from '@prizm-ui/core';
 
 
 // TODO: Localized formatting
