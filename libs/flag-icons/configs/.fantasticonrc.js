@@ -2,7 +2,7 @@ module.exports = {
   name: 'prizm-icon-flags',
   prefix: 'prizm-icon-flags',
   inputDir: '../assets/flags', // (required)
-  outputDir: '../styles/font', // (required)
+  outputDir: '../src/styles/font', // (required)
   fontTypes: ['ttf', 'woff', 'eot', 'woff2'],
   assetTypes: ['ts', 'css', 'json', 'html'],
   fontsUrl: '.',
@@ -50,8 +50,7 @@ module.exports = {
     relativeFilePath, // `string` - Example: 'foo.svg'
     index // `number` - Example: `0`
   }) => {
-    const fileName = `m_${index}`;
-    console.log('basename', index, fileName)
+    const fileName = basename.toLowerCase();
     return fileName;
-  } // '0_foo'
+  }
 };

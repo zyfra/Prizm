@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { FlagsComponent } from './flags.component';
 import { PrizmIconBaseExampleComponent } from './examples/base/icon-base-example.component';
 import { PrizmIconFlagsModule } from '@prizm-ui/icon-flags';
+import { PrizmIconFontExampleComponent } from './examples/font/icon-font-example.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { PrizmIconFlagsModule } from '@prizm-ui/icon-flags';
     RouterModule.forChild(generateRoutes(FlagsComponent)),
   ],
   declarations: [
+    PrizmIconFontExampleComponent,
     PrizmIconBaseExampleComponent,
     FlagsComponent
   ],
