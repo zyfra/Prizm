@@ -17,4 +17,5 @@ export * from './th/th.component';
 export * from './th-group/th-group.component';
 export * from './tr/tr.component';
 export * from './prizm-table.types';
+export * from './prizm-table.const';
 export * from './components/searchable-content/searchable-content.component';

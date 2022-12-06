@@ -12,7 +12,7 @@ import {
 import { PrizmHeadDirective } from '../directives/head.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
 import { PrizmComparator } from '../prizm-table.types';
-import { prizmDefaultSort } from '../prizm-table.const';
+import { prizmTableDefaultSort } from '../prizm-table.const';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PRIZM_ELEMENT_REF } from '../../../tokens';
 import { PrizmTableSortKeyException } from '../../../exceptions';
@@ -33,9 +33,7 @@ import { PrizmTableSortKeyException } from '../../../exceptions';
 export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
   @Input()
   @prizmDefaultProp()
-  sorter: PrizmComparator<T> | null = this.head
-    ? (a, b): number => prizmDefaultSort(a[this.key], b[this.key])
-    : null;
+  sorter: PrizmComparator<T> | null = null;
 
   @Input()
   @prizmDefaultProp()

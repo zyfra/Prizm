@@ -29,6 +29,25 @@
 
   background: inherit;
   color: inherit;
+
+  &[status='success'] {
+    background: var(--prizm-v2-table-background-success);
+    color: var(--prizm-v2-table-text-success);
+  }
+  &[status='default'] {
+    background: var(--prizm-v2-table-background-default);
+    color: var(--prizm-v2-table-text-default);
+  }
+
+  &[status='warning'] {
+    background: var(--prizm-v2-table-background-warning);
+    color: var(--prizm-v2-table-text-warning);
+  }
+
+  &[status='danger'] {
+    background: var(--prizm-v2-table-background-danger);
+    color: var(--prizm-v2-table-text-danger);
+  }
 }
 
 :host-context([active='true']) {
