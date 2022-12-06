@@ -28,7 +28,7 @@ export class FlagsComponent {
 
   constructor(private readonly iconFlagsRegistry: PrizmFlagIconsRegistry) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.iconFlagsRegistry.registerIcons([...PRIZM_ICON_FLAGS_SVG_SET]);
   }
 }
