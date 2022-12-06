@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See
 
+## [1.0.0-beta.16](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (6-12-2022)
+
+### Features
+- feat/(icons): Added new library with svg and fonts icons [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/395)
+- feat/(flag-icons): Added new library with flags svg icons [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/395)
+- feat/(component/splitter: Added new component splitter [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/381)
+- feat/(components/input): Added the ability to display error parameters in PrizmInputValidationTexts [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/398)
+
+### BUG FIXES
+- fix/(components/table): sort [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/395)
+- fix/(docs): fixes install info [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/397)
+
 ## [1.0.0-beta.15](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (5-12-2022)
 
 ### BUG FIXES
@@ -42,7 +54,6 @@ All notable changes to this project will be documented in this file. See
 - feat/(next/*): rename selectors, prefix for all project ( pzm, zui to prizm ) 2 [MR]([MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/358)
 - packages names to @prizm-ui/* [MR]([MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/375)
 - change git repo [MR]([MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/375)
-
 
 ## [1.0.0-beta.10](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (18-10-2022)
 

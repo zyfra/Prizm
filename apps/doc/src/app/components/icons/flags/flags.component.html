@@ -1,0 +1,82 @@
+<tui-doc-page
+  header="Icon Flags"
+  package="NEXT"
+  type="components"
+>
+
+
+  <ng-template pageTab>
+<!--    TODO подчинить файлы для генерации иконок -->
+<!--    <tui-doc-example-->
+<!--      id="base"-->
+<!--      heading="Font"-->
+<!--      [content]="exampleFont"-->
+<!--    >-->
+<!--      <prizm-icon-font-example></prizm-icon-font-example>-->
+<!--    </tui-doc-example>-->
+
+    <tui-doc-example
+      id="base"
+      heading="Svg"
+      [content]="exampleSvg"
+    >
+      <prizm-icon-base-example></prizm-icon-base-example>
+    </tui-doc-example>
+
+    <h1>
+      Icon Flags Set
+    </h1>
+
+    <div>
+      <div class="icons">
+        <div [title]='flag' *ngFor="let flag of nameVariants" class="icon-def">
+          <prizm-flag-icons [size]='30' [name]='flag'></prizm-flag-icons>
+        </div>
+      </div>
+    </div>
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <prizm-flag-icons [size]='size' [name]='name'></prizm-flag-icons>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="name"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="nameVariants"
+        [(documentationPropertyValue)]="name"
+      >
+        Name
+      </ng-template>
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="number | string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p >
+          Import
+          <code>PrizmIconSvgModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

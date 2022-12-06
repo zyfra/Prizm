@@ -1,0 +1,87 @@
+<tui-doc-page
+  header="Icon"
+  package="NEXT"
+  type="components"
+>
+  Иконки можно использовать как шрифты, так и как svg (примеры использования ниже).
+  Также с помощью нашего registry вы можете добавить свои svg иконки (пример в файле с svg).
+  Также каждую иконку можно подключить как отдельно так и весь набор SVG иконок.
+
+  <ng-template pageTab>
+    <tui-doc-example
+      id="base"
+      heading="Font"
+      [content]="exampleFont"
+    >
+      <prizm-icon-base-example></prizm-icon-base-example>
+    </tui-doc-example>
+
+    <tui-doc-example
+      id="base"
+      heading="Svg"
+      [content]="exampleSvg"
+    >
+      <prizm-icon-svg-example></prizm-icon-svg-example>
+    </tui-doc-example>
+
+    <h1>
+      Icon set.
+    </h1>
+
+    <div *ngFor="let def of defs">
+      <h4 class='title'>{{ def.dir }}</h4>
+
+      <div class="icons">
+        <div *ngFor="let name of def.data" class="icon-def">
+          <prizm-icons-svg [size]='24' [name]='name'></prizm-icons-svg>
+          <div class="name" [title]='name'>{{ name }}</div>
+        </div>
+      </div>
+    </div>
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <prizm-icons-svg [name]='name' [size]='size'></prizm-icons-svg>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="name"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="nameVariants"
+        [(documentationPropertyValue)]="name"
+      >
+        Icon
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="string | number"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p >
+          Import
+          <code>PrizmIconsSvgModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <tui-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>

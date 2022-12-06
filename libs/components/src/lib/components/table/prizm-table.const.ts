@@ -1,4 +1,4 @@
-export function prizmDefaultSort<T>(x: T, y: T): number {
+export function prizmTableDefaultSort<T>(x: T, y: T): number {
   const a = x instanceof Date ? Number(x) : x;
   const b = y instanceof Date ? Number(y) : y;
 

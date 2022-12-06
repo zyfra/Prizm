@@ -1,8 +1,6 @@
 import { PrizmTimeLike } from '../../types/time-like';
 import { PrizmTimeMode } from '../../types/time-mode';
-import { prizmPadStart } from '../../util/format/pad-start';
 import { prizmInRange } from '../../util/math/in-range';
-
 import {
   PRIZM_HOURS_IN_DAY,
   PRIZM_MILLISECONDS_IN_DAY,
@@ -11,6 +9,7 @@ import {
   PRIZM_MINUTES_IN_HOUR,
   PRIZM_SECONDS_IN_MINUTE,
 } from './date-time';
+import { prizmPadStart } from '@prizm-ui/core';
 
 /**
  * Immutable time object with hours, minutes, seconds and ms
