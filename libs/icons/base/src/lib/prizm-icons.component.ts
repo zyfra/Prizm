@@ -8,11 +8,11 @@ import {
   Optional,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { PrizmIconSvgsRegistry } from './prizm-icons.registry';
+import { PrizmIconsSvgRegistry } from './prizm-icons.registry';
 import { prizmPx } from '@prizm-ui/core';
 
 @Component({
-  selector: 'prizm-icons',
+  selector: 'prizm-icons-svg',
   template: ` <ng-content></ng-content> `,
   styles: [
     `
@@ -24,7 +24,7 @@ import { prizmPx } from '@prizm-ui/core';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmIconSvgsComponent {
+export class PrizmIconsSvgComponent {
   private svgIcon: SVGElement;
 
   @Input()
@@ -48,7 +48,7 @@ export class PrizmIconSvgsComponent {
 
   constructor(
     private element: ElementRef,
-    private iconRegistry: PrizmIconSvgsRegistry,
+    private iconRegistry: PrizmIconsSvgRegistry,
     @Optional() @Inject(DOCUMENT) private document: any
   ) {}
 

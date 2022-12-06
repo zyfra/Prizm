@@ -4,7 +4,7 @@ import { PrizmIconSvg } from './svg/my-icons';
 @Injectable({
   providedIn: 'root',
 })
-export class PrizmIconSvgsRegistry {
+export class PrizmIconsSvgRegistry {
   private registry = new Map<string, string>();
 
   public registerIcons(icons: PrizmIconSvg[]): void {
