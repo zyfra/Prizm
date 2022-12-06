@@ -2641,7 +2641,7 @@ export interface PrizmIconFlag {
 export type PrizmIconFlagNameSubset<
   T extends Readonly<PrizmIconFlag[]>
 > = T[number]['name'];
-export const completeIconSet = [
+export const PRIZM_ICON_FLAGS_SET = [
   prizmIconFlagAd,
   prizmIconFlagAe,
   prizmIconFlagAf,

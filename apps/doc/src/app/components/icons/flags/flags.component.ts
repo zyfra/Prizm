@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { PrizmIconsRegistryService, PrizmIconsType } from '@prizm-ui/icons';
 import {
-  completeIconSet,
+  PRIZM_ICON_FLAGS_SET,
   prizmIconFlagAs,
   PrizmIconFlagEnum,
   PrizmIconFlagIconsRegistry,
@@ -30,9 +30,13 @@ export class FlagsComponent {
 
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
-  readonly exampleBase: TuiDocExample = {
+  readonly exampleSvg: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/icon-base-example.component.ts'),
     HTML: import('!!raw-loader!./examples/base/icon-base-example.component.html'),
+  };
+  readonly exampleFont: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/font/icon-font-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/font/icon-font-example.component.html'),
   };
 
   constructor(
@@ -43,7 +47,7 @@ export class FlagsComponent {
 
   ngOnInit() {
     this.iconFlagsRegistry.registerIcons([
-      ...completeIconSet
+      ...PRIZM_ICON_FLAGS_SET
     ]);
   }
 }
