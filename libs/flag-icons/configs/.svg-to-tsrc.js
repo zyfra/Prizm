@@ -1,6 +1,6 @@
 const svgToTsConfig = {
   "srcFiles": [
-    '../input/svg/**/*.svg'
+    '../assets/fonts/**/*.svg'
   ],
   "outputDirectory": '../src/lib/icons',
   "interfaceName": "PrizmIconFlag",
