@@ -1,0 +1,14 @@
+<div class="container" #container>
+  <ng-container *ngFor="let area of areas; index as index; last as last">
+    <prizm-splitter-gutter
+      *ngIf="!last"
+      [areaBeforeIndex]="index"
+      [areaAfterIndex]="index + 1"
+      [order]="index + 2"
+      [size]="gutterSize"
+      [ngClass]="{ horizontal: isHorizontal, vertical: !isHorizontal }"
+    ></prizm-splitter-gutter>
+  </ng-container>
+  <ng-content></ng-content>
+</div>
+
