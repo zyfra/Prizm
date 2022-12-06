@@ -18,7 +18,6 @@ export * from './dialogs/dialog';
 export * from './dialogs/confirm-dialog';
 export * from './dialogs/sidebar';
 export * from './scrollbar';
-export * from './scrollbar';
 export * from './tree';
 export * from './card';
 export * from './widget';
@@ -34,3 +33,5 @@ export * from './dropdowns/multi-select';
 export * from './toggle';
 export * from './checkbox';
 export * from './stepper';
+export * from './splitter';
+
