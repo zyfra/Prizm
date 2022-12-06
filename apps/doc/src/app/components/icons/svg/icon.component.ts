@@ -1,7 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { IconDefs } from '@prizm-ui/components';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PrizmIconsRegistryService, PrizmIconsType } from '@prizm-ui/icons';
+import { PRIZM_ICONS_SET, PrizmIconEnum, PrizmIconsRegistry, PrizmIconsType } from '@prizm-ui/icons';
 
 @Component({
   selector: 'prizm-icon-example',
@@ -9,35 +8,40 @@ import { PrizmIconsRegistryService, PrizmIconsType } from '@prizm-ui/icons';
   styleUrls: ['./icon.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class IconComponent {
-  readonly iconVariants = IconDefs.reduce((a, c) => a.concat(c.data), []);
-  public icon = this.iconVariants[0];
+export class IconComponent implements OnInit {
+  readonly nameVariants = Object.values(PrizmIconEnum);
+  public name = this.nameVariants[0];
 
-  readonly iconSizes = [24, 16];
-  public iconSize = 24;
+  readonly sizeVariants = [
+    '32px',
+    24,
+    16
+  ]
+  public size = this.sizeVariants[0];
 
-  private readonly iconsSetObject = PrizmIconsType
+  // private readonly iconsSetObject = Object.values(PrizmIconsType)
+  private readonly iconsSetObject = Object.values(PrizmIconEnum)
   private readonly iconsSet = Object.values(this.iconsSetObject);
   public editorDecoratorIcons = this.iconsSet.filter(
-    i => i.startsWith('editor-decor')
+    i => i.startsWith('editor_decor')
   );
   public chartsDiagramsIcons = this.iconsSet.filter(
-    i => i.startsWith('charts-diagrams')
+    i => i.startsWith('charts_diagrams')
   );
   public dataNetworkIcons = this.iconsSet.filter(
-    i => i.startsWith('data-network')
+    i => i.startsWith('data_network')
   );
   public dataTimeIcons = this.iconsSet.filter(
-    i => i.startsWith('date-time')
+    i => i.startsWith('date_time')
   );
   public documentsFoldersIcons = this.iconsSet.filter(
-    i => i.startsWith('documents-folders')
+    i => i.startsWith('documents_folders')
   );
   public logisticsTransportationIcons = this.iconsSet.filter(
-    i => i.startsWith('logistics-transportation')
+    i => i.startsWith('logistics_transportation')
   );
   public MapLocationIcons = this.iconsSet.filter(
-    i => i.startsWith('map-location')
+    i => i.startsWith('map_location')
   );
   public multimediaDevicesIcons = this.iconsSet.filter(
     i => i.startsWith('multimedia-devices')
@@ -49,19 +53,19 @@ export class IconComponent {
     i => i.startsWith('other')
   );
   public powerEnergyIcons = this.iconsSet.filter(
-    i => i.startsWith('power-energy')
+    i => i.startsWith('power_energy')
   );
   public productionIndustryIcons = this.iconsSet.filter(
-    i => i.startsWith('production-industry')
+    i => i.startsWith('production_industry')
   );
   public settingsToolsIcons = this.iconsSet.filter(
-    i => i.startsWith('settings-tools')
+    i => i.startsWith('settings_tools')
   );
   public shapeGeometryIcons = this.iconsSet.filter(
-    i => i.startsWith('shape-geometry')
+    i => i.startsWith('shape_geometry')
   );
   public userAccountIcons = this.iconsSet.filter(
-    i => i.startsWith('user-account')
+    i => i.startsWith('user_account')
   );
 
 
@@ -134,34 +138,23 @@ export class IconComponent {
 
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
-  readonly exampleBase: TuiDocExample = {
+  readonly exampleFont: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/icon-base-example.component.ts'),
     HTML: import('!!raw-loader!./examples/base/icon-base-example.component.html'),
   };
+  readonly exampleSvg: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/svg/icon-svg-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/svg/icon-svg-example.component.html'),
+  };
 
   constructor(
-    private prizmIconsRegistryService: PrizmIconsRegistryService,
-  ) {
-  }
+    private readonly iconRegistry: PrizmIconsRegistry,
+  ) {}
 
 
   ngOnInit() {
-    console.log('#mz icon iconsSet', {
-      iconsSet: this.iconsSet
-    });
-    this.prizmIconsRegistryService.registerIcons([
-      // 'user_worker',
-      // 'user',
-      // 'users',
-      // 'users_arrow_right',
-      // 'users_gear',
-      // 'users_key',
-      // 'users_location',
-      // 'users_minus',
-      // 'users_plus',
-      // 'users'
-      // prizmIconSvgUser
-    ])
-
+    this.iconRegistry.registerIcons([
+      ...PRIZM_ICONS_SET
+    ]);
   }
 }

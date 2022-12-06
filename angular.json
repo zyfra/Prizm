@@ -115,7 +115,7 @@
               "libs/components/src/styles/icons-16/icons-16.less",
               "node_modules/prismjs/themes/prism-okaidia.css",
               "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
-              "libs/prizm/icons/src/styles/style.less"
+              "libs/prizm/icons/src/styles/styles.less"
             ],
             "scripts": [
               "node_modules/marked/lib/marked.js",
