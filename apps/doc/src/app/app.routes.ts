@@ -193,6 +193,13 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/icon-flags',
+    loadChildren: async (): Promise<unknown> => (await import('./components/icons/flags/flags.module')).FlagsModule,
+    data: {
+      title: 'Icon Flags',
+    },
+  },
+  {
     path: 'components/scrollbar',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/scrollbar/scrollbar.module')).ScrollbarModule,

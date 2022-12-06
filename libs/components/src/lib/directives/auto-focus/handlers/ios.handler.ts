@@ -2,8 +2,8 @@ import { Directive, ElementRef, Inject, NgZone, Optional, Renderer2, Self } from
 import { WINDOW } from '@ng-web-apis/common';
 import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
 import { PrizmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
-import { prizmPx } from '../../../util/format/px';
 import { AbstractPrizmAutofocusHandler } from './abstract.handler';
+import { prizmPx } from '@prizm-ui/core';
 
 @Directive()
 export class PrizmIosAutofocusHandler extends AbstractPrizmAutofocusHandler {
