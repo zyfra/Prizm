@@ -268,7 +268,7 @@
       "projectType": "library",
       "root": "libs/icons/base",
       "sourceRoot": "libs/icons/base/src",
-      "prefix": "zyfra",
+      "prefix": "prizm",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
