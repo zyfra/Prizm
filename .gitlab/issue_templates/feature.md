@@ -1,7 +1,7 @@
 ### Библиотека
 
 - [ ] `@prizm-ui/components`
-- [ ] `@prizm-ui/isntall`
+- [ ] `@prizm-ui/install`
 - [ ] `@prizm-ui/icons`
 - [ ] `@prizm-ui/theme`
 
