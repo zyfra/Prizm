@@ -1,11 +1,11 @@
 import { PrizmMonthLike } from '../../types/month-like';
-import { prizmPadStart } from '../../util/format/pad-start';
 import { prizmInRange } from '../../util/math/in-range';
 import { prizmNormalizeToIntNumber } from '../../util/math/normalize-to-int-number';
 import { PrizmMonthNumber } from '../enums/month-number';
 
 import { PRIZM_DAYS_IN_WEEK, PRIZM_MAX_MONTH, PRIZM_MIN_MONTH, PRIZM_MONTHS_IN_YEAR } from './date-time';
 import { PrizmYear } from './year';
+import { prizmPadStart } from '@prizm-ui/core';
 
 /**
  * Immutable object consisting of year and month

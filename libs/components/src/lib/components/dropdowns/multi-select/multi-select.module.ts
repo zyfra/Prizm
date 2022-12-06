@@ -12,8 +12,8 @@ import { PrizmChipsModule } from '../../chips';
 import { PrizmInputTextModule } from '../../input/input-text/input-text.module';
 import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmHintModule } from '../../../directives/hint';
-import { PrizmIconModule } from '../../icon';
 import { PrizmCheckboxModule } from '../../checkbox';
+import { PrizmIconModule } from '../../icon';
 
 @NgModule({
     imports: [

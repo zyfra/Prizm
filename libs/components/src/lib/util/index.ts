@@ -9,7 +9,6 @@ export * from './set-native-focused';
 export * from './size-bigger';
 export * from './base';
 export * from './browser';
-export * from './format';
 export * from './common';
 export * from './math';
 export * from './dom';

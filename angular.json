@@ -1,6 +1,71 @@
 {
   "version": 1,
   "projects": {
+    "components": {
+      "projectType": "library",
+      "root": "libs/components",
+      "sourceRoot": "libs/components/src",
+      "prefix": "zui",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/components"],
+          "options": {
+            "project": "libs/components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/components"],
+          "options": {
+            "jestConfig": "libs/components/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/components/src/**/*.ts", "libs/components/src/**/*.html"]
+          }
+        },
+        "build-icons": {
+          "builder": "./tools/executors/icon-font-builder:build",
+          "options": {
+            "fontFileName": "ZuiIcons",
+            "fontName": "Zui Icons",
+            "iconClassName": ".zui-icon",
+            "inputPath": "./libs/components/assets/icons",
+            "outputPath": "./libs/components/src/styles/icons",
+            "outputStyleFile": "icons.less",
+            "outputDefinitionsTs": "./libs/components/src/lib/components/icon/icon-definitions.ts",
+            "outputDefinitionsVar": "IconDefs"
+          }
+        },
+        "build-icons-16": {
+          "builder": "./tools/executors/icon-font-builder:build",
+          "options": {
+            "fontFileName": "ZuiIcons16",
+            "fontName": "Zui Icons 16",
+            "iconClassName": ".zui-icon-16",
+            "inputPath": "./libs/components/assets/icons-16",
+            "outputPath": "./libs/components/src/styles/icons-16",
+            "outputStyleFile": "icons-16.less",
+            "outputDefinitionsTs": "./libs/components/src/lib/components/icon/icon-16-definitions.ts",
+            "outputDefinitionsVar": "Icon16Defs"
+          }
+        }
+      },
+      "tags": []
+    },
     "doc": {
       "projectType": "application",
       "root": "apps/doc",
@@ -32,6 +97,11 @@
                 "glob": "**/*",
                 "input": "libs/components/src/styles/fonts",
                 "output": "assets/ui-platform/components/fonts"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/icons/base/src/styles/icons",
+                "output": "assets/prizm-icons/fonts"
               }
             ],
             "styles": [
@@ -40,10 +110,12 @@
               "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
               "node_modules/primeicons/primeicons.css",
               "libs/components/src/styles/styles.less",
+              "libs/icons/flags/src/styles/styles.less",
               "libs/components/src/styles/icons/icons.less",
               "libs/components/src/styles/icons-16/icons-16.less",
               "node_modules/prismjs/themes/prism-okaidia.css",
-              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
+              "libs/icons/base/src/styles/styles.less"
             ],
             "scripts": [
               "node_modules/marked/lib/marked.js",
@@ -192,66 +264,79 @@
       },
       "tags": []
     },
-    "components": {
+    "icons": {
       "projectType": "library",
-      "root": "libs/components",
-      "sourceRoot": "libs/components/src",
-      "prefix": "zui",
+      "root": "libs/icons/base",
+      "sourceRoot": "libs/icons/base/src",
+      "prefix": "prizm",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": ["dist/libs/components"],
+          "outputs": ["dist/libs/icons/base"],
           "options": {
-            "project": "libs/components/ng-package.json"
+            "project": "libs/icons/base/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "libs/components/tsconfig.lib.prod.json"
+              "tsConfig": "libs/icons/base/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "libs/components/tsconfig.lib.json"
+              "tsConfig": "libs/icons/base/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/components"],
+          "outputs": ["coverage/libs/icons/base"],
           "options": {
-            "jestConfig": "libs/components/jest.config.js",
+            "jestConfig": "libs/icons/base/jest.config.js",
             "passWithNoTests": true
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/components/src/**/*.ts", "libs/components/src/**/*.html"]
+            "lintFilePatterns": ["libs/icons/base/src/**/*.ts", "libs/icons/base/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
+    "flag-icons": {
+      "projectType": "library",
+      "root": "libs/icons/flags",
+      "sourceRoot": "libs/icons/flags/src",
+      "prefix": "prizm",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/icons/flags"],
+          "options": {
+            "project": "libs/icons/flags/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/icons/flags/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/icons/flags/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/icons/flags"],
+          "options": {
+            "jestConfig": "libs/icons/flags/jest.config.js",
+            "passWithNoTests": true
           }
         },
-        "build-icons": {
-          "builder": "./tools/executors/icon-font-builder:build",
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "fontFileName": "ZuiIcons",
-            "fontName": "Zui Icons",
-            "iconClassName": ".zui-icon",
-            "inputPath": "./libs/components/assets/icons",
-            "outputPath": "./libs/components/src/styles/icons",
-            "outputStyleFile": "icons.less",
-            "outputDefinitionsTs": "./libs/components/src/lib/components/icon/icon-definitions.ts",
-            "outputDefinitionsVar": "IconDefs"
-          }
-        },
-        "build-icons-16": {
-          "builder": "./tools/executors/icon-font-builder:build",
-          "options": {
-            "fontFileName": "ZuiIcons16",
-            "fontName": "Zui Icons 16",
-            "iconClassName": ".zui-icon-16",
-            "inputPath": "./libs/components/assets/icons-16",
-            "outputPath": "./libs/components/src/styles/icons-16",
-            "outputStyleFile": "icons-16.less",
-            "outputDefinitionsTs": "./libs/components/src/lib/components/icon/icon-16-definitions.ts",
-            "outputDefinitionsVar": "Icon16Defs"
+            "lintFilePatterns": ["libs/icons/flags/src/**/*.ts", "libs/icons/flags/src/**/*.html"]
           }
         }
       },

@@ -1,7 +1,5 @@
 # prizm-core
+Тут хранится общие утилитарные вещи, которые могут быть использованы в любом проекте.
 
-This library was generated with [Nx](https://nx.dev).
-
-## Running unit tests
-
-Run `nx test prizm-core` to execute the unit tests.
+## TODO
+[ ] Перевести все общие утилитарные вещи из components сюда

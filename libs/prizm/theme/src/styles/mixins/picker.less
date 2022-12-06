@@ -1,0 +1,182 @@
+.picker(@itemSize) {
+    :host {
+        display: block;
+        font: var(--tui-font-text-m);
+    }
+
+    .z-row {
+        .createStackingContext();
+        display: flex;
+        justify-content: space-between;
+        height: 2.25rem;
+    }
+
+    .z-item {
+        position: relative;
+        flex: 1;
+        line-height: 2rem;
+        border-radius: 2px;
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            border-radius: 2px;
+        }
+    }
+
+    .z-cell {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: @itemSize;
+        text-align: center;
+        outline: none;
+        cursor: pointer;
+        background-clip: content-box;
+        box-sizing: border-box;
+        border: 2px solid transparent;
+
+        &_today {
+          border-radius: 2px;
+
+          .z-item {
+            border: 1px solid var(--prizm-index-plan);
+            color: var(--prizm-exeptions-g1-b1);
+          }
+        }
+
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            border-radius: 2px;
+        }
+
+        &_interval {
+            &:before {
+                background: var(--prizm-lite-b130-20);
+
+                :host._single & {
+                    background-color: var(--prizm-lite-b130-20);
+                }
+            }
+
+            &:not(:last-child):before {
+                right: -@itemSize;
+            }
+
+            &:last-child:first-child:before {
+                right: 0;
+            }
+
+            &:first-child > .z-item {
+                border-top-left-radius: 2px;
+                border-bottom-left-radius: 2px;
+            }
+
+            &:last-child > .z-item {
+                border-top-right-radius: 2px;
+                border-bottom-right-radius: 2px;
+            }
+
+            & > .z-item {
+                border-radius: 0;
+                color: var(--prizm-index-plan)
+            }
+        }
+
+        &[data-range] {
+            &:after {
+                background-color: var(--tui-primary-text);
+            }
+
+            & > .z-item {
+                color: var(--prizm-grey-g13-g1);
+
+                &:before,
+                &:after {
+                    background-color: var(--prizm-index-plan);
+                }
+            }
+
+            &[data-state='hovered'] > .z-item {
+              background-color: var(--prizm-index-plan);
+              color: var(--prizm-exceptions-white);
+            }
+
+
+          &[data-state='hovered'] > .z-item:before,
+            &[data-state='hovered'] > .z-item:after {
+                background-color: var(--prizm-grey-g12-g2);
+                color: var(--prizm-index-plan);
+            }
+
+            &[data-state='pressed'] > .z-item:before,
+            &[data-state='pressed'] > .z-item:after {
+                //background-color: var(--tui-primary-active);
+                background-color: var(--prizm-index-plan);
+            }
+        }
+
+        // TODO uncomment if we want to add arrows for start day
+        //&[data-range='end'] > .z-item {
+        //    &:before {
+        //        left: 0.25rem;
+        //    }
+        //
+        //    &:after {
+        //        left: -2rem;
+        //        right: 100%;
+        //        transform: translateX(1.4375rem) scaleY(0.6) scaleX(0.4) rotate(45deg);
+        //    }
+        //}
+
+        // TODO uncomment if we want to add arrows for end day
+        //&[data-range='start'] > .z-item {
+        //    &:before {
+        //        right: 0.25rem;
+        //    }
+        //
+        //    &:after {
+        //        left: 100%;
+        //        right: -2rem;
+        //        transform: translateX(-1.4375rem) scaleY(0.6) scaleX(0.4) rotate(45deg);
+        //    }
+        //}
+
+        &[data-state='disabled'] {
+            pointer-events: none;
+            cursor: not-allowed;
+
+            & > .z-item {
+                opacity: 0.36;
+            }
+        }
+
+
+        &[data-state='hovered']:not([data-range]) > .z-item {
+            background-color: var(--prizm-g2-g11);
+            color: var(--prizm-exeptions-g1-b1)
+        }
+
+        &[data-state='pressed']:hover:not([data-range]) > .z-item {
+            background-color: var(--prizm-index-plan);
+            border-radius: 2px;
+            color: var(--prizm-grey-g13-g1);
+        }
+    }
+}
+
+

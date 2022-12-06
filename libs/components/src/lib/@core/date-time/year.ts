@@ -1,9 +1,9 @@
 import { PrizmYearLike } from '../../types/year-like';
-import { prizmPadStart } from '../../util/format/pad-start';
 import { prizmInRange } from '../../util/math/in-range';
 import { prizmNormalizeToIntNumber } from '../../util/math/normalize-to-int-number';
 
 import { PRIZM_DAYS_IN_LEAP_YEAR, PRIZM_DAYS_IN_NORMAL_YEAR, PRIZM_DAYS_IN_WEEK, PRIZM_MAX_YEAR, PRIZM_MIN_YEAR } from './date-time';
+import { prizmPadStart } from '@prizm-ui/core';
 
 /**
  * Immutable year object
