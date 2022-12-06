@@ -34,7 +34,6 @@ angular.json:
           "options": {
             "styles": [
               "src/styles.css",
-              "node_modules/@prizm-ui/components/src/styles/theme/default.less",
               "node_modules/@prizm-ui/components/src/styles/styles.less",
             ]
           }
