@@ -1,0 +1,139 @@
+<tui-doc-page header="File upload" type="components">
+  <ng-template pageTab>
+    <tui-doc-example id="base" heading="Base" [content]="basic">
+      <prizm-file-upload-basic-example></prizm-file-upload-basic-example>
+    </tui-doc-example>
+
+    <tui-doc-example id="auto-upload" heading="Auto upload" [content]="basic">
+      <prizm-file-auto-upload-example></prizm-file-auto-upload-example>
+    </tui-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <tui-doc-demo>
+      <prizm-file-upload
+        [multiple]="true"
+        (filesChange)="onFilesChange($event)"
+        (filesValidationErrors)="onfilesValidationErrors($event)"
+        (filesCountError)="onFilesCountError($event)"
+        (retry)="retry($event)"
+        [accept]="accept"
+        [progress]="progress$$ | async"
+        [maxFilesCount]="maxFilesCount"
+        [maxFileSize]="maxFileSize"
+        [disabled]="disabled"
+      >
+        Максимум три изображения размером не более 1МБ
+      </prizm-file-upload>
+
+      <br />
+
+      <button
+        (click)="send()"
+        [disabled]="files.length === 0 || disabled"
+        prizmButton
+        appearance="primary"
+        size="m"
+        class="submit"
+      >
+        Отправить
+      </button>
+    </tui-doc-demo>
+    <tui-doc-documentation>
+      <ng-template
+        documentationPropertyName="accept"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="accept"
+        [documentationPropertyValues]="acceptVariants"
+      >
+        Accept
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="maxFileSize"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="maxFileSize"
+      >
+        Max file size (bytes)
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="maxFilesCount"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="maxFilesCount"
+      >
+        Max files count
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="progress"
+        documentationPropertyType="PrizmFilesProgress"
+        documentationPropertyMode="input"
+      >
+        Progress
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="beforeFilesChange"
+        documentationPropertyType="Event"
+        documentationPropertyMode="output"
+        documentationPropertyType="void"
+      >
+        Before files change
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="filesChange"
+        documentationPropertyType="Event"
+        documentationPropertyMode="output"
+        documentationPropertyType="File[]"
+      >
+        Files change
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="filesValidationErrors"
+        documentationPropertyType="Event"
+        documentationPropertyMode="output"
+        documentationPropertyType="Map<filename, PrizmFileValidationErrors>"
+      >
+        FilesValidationErrors
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="filesCountError"
+        documentationPropertyType="Event"
+        documentationPropertyMode="output"
+        documentationPropertyType="Array<filenames>"
+      >
+        Files count error
+      </ng-template>
+    </tui-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmFileUploadModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</tui-doc-page>
+

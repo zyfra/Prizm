@@ -34,4 +34,5 @@ export * from './toggle';
 export * from './checkbox';
 export * from './stepper';
 export * from './splitter';
+export * from './file-upload';
 
