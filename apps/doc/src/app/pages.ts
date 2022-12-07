@@ -251,7 +251,7 @@ export const pages: TuiOrderedDocPage = [
         keywords: 'иконка, icon',
         route: '/components/icon',
       },
-    ]
+    ],
   },
   {
     section: `Components`,
@@ -388,12 +388,17 @@ export const pages: TuiOrderedDocPage = [
     keywords: 'stepper',
     route: '/components/stepper',
   },
-
   {
     section: `Components`,
     title: 'Splitter',
     keywords: 'splitter',
     route: '/components/splitter',
+  },
+  {
+    section: `Components`,
+    title: 'File upload',
+    keywords: 'file upload',
+    route: '/components/file-upload',
   },
   // Tools
   {
@@ -495,3 +500,4 @@ export const pages: TuiOrderedDocPage = [
   //   subPages: [],
   // },
 ];
+
