@@ -1,0 +1,202 @@
+<div class='blocks'>
+  <div class='block row'
+       *prizmLet='type.every as currentType'
+       [class.selected]='typeControl.value === currentType'>
+    <div class='radio'>
+      <prizm-radio-button
+        [formControl]="typeControl"
+        [label]='null'
+        [value]="currentType"
+        [name]="'type'"
+      ></prizm-radio-button>
+    </div>
+    <div class='content'>
+      Каждый месяц
+    </div>
+  </div>
+
+  <div class='block row'
+       *prizmLet='type.afterDayOfWeek as currentType'
+       [class.selected]='typeControl.value === currentType'>
+    <div class='radio'>
+      <prizm-radio-button
+        [formControl]="typeControl"
+        [label]='null'
+        [value]="currentType"
+        [name]="'type'"
+      ></prizm-radio-button>
+    </div>
+    <div class='content'>
+      Каждый
+      <prizm-cron-carousel
+        [content]='afterDayOfWeekListDays'
+        [value]='afterDayOfWeekListDaysValue'
+        (valueChange)='afterDayOfWeekListDaysValue = $event; updateAfterDayOfWeek()'
+      ></prizm-cron-carousel>
+      день, начиная с
+      <prizm-cron-carousel
+        [content]='afterDayOfWeekListDayOfWeeks'
+        [value]='afterDayOfWeekListDayOfWeeksValue'
+        (valueChange)='afterDayOfWeekListDayOfWeeksValue = $event; updateAfterDayOfWeek()'
+      ></prizm-cron-carousel>
+      числу месяца
+    </div>
+  </div>
+
+  <div class='block row'
+       *prizmLet='type.afterDayOfMonth as currentType'
+       [class.selected]='typeControl.value === currentType'>
+    <div class='radio'>
+      <prizm-radio-button
+        [formControl]="typeControl"
+        [label]='null'
+        [value]="currentType"
+        [name]="'type'"
+      ></prizm-radio-button>
+    </div>
+    <div class='content'>
+      Каждый
+      <prizm-cron-carousel
+        [content]='afterDayOfMonthListRepeatDays'
+        [value]='afterDayOfMonthListRepeatDaysValue'
+        (valueChange)='afterDayOfMonthListRepeatDaysValue = $event; updateAfterDayOfMonth()'
+      ></prizm-cron-carousel>
+      день, начиная с
+      <prizm-cron-carousel
+        [content]='afterDayOfMonthListDays'
+        [value]='afterDayOfMonthListDaysValue'
+        (valueChange)='afterDayOfMonthListDaysValue = $event; updateAfterDayOfMonth()'
+      ></prizm-cron-carousel>
+      дня месяца
+    </div>
+  </div>
+
+  <div class='block'
+       *prizmLet='type.specifiedDayOfWeek as currentType'
+       [class.selected]='typeControl.value === currentType'>
+    <div class='radio'>
+      <prizm-radio-button
+        [formControl]="typeControl"
+        [label]='null'
+        [value]="currentType"
+        [name]="'type'"
+      ></prizm-radio-button>
+    </div>
+    <div class='content column'>
+      <span>По определённым дням недели (выбор одного или нескольких)</span>
+      <prizm-cron-schedule
+        [items]='dayOfWeekItems'
+        [selected]='selectedDayOfWeek'
+        (selectedChange)='selectedDayOfWeek = $event; updateSelectedDayOfWeek()'
+      ></prizm-cron-schedule>
+    </div>
+  </div>
+
+  <div class='block'
+       *prizmLet='type.specifiedDayOfMonth as currentType'
+       [class.selected]='typeControl.value === currentType'>
+    <div class='radio'>
+      <prizm-radio-button
+        [formControl]="typeControl"
+        [label]='null'
+        [value]="currentType"
+        [name]="'type'"
+      ></prizm-radio-button>
+    </div>
+    <div class='content column'>
+      <span>По определённым дням месяца (выбор одного или нескольких)</span>
+      <prizm-cron-schedule
+        [items]='dayOfMonthItems'
+        [selected]='selectedDayOfMonth'
+        (selectedChange)='selectedDayOfMonth = $event; updateSelectedDayOfMonth()'
+      ></prizm-cron-schedule>
+    </div>
+  </div>
+
+  <div class='block row'
+       *prizmLet='type.lastDayOfMonth as currentType'
+       [class.selected]='typeControl.value === currentType'>
+    <div class='radio'>
+      <prizm-radio-button
+        [formControl]="typeControl"
+        [label]='null'
+        [value]="currentType"
+        [name]="'type'"
+      ></prizm-radio-button>
+    </div>
+    <div class='content'>
+      Последний день месяца
+    </div>
+  </div>
+
+  <div class='block row'
+       *prizmLet='type.lastChosenDayOfWeek as currentType'
+       [class.selected]='currentType'>
+    <div class='radio'>
+      <prizm-radio-button
+        [formControl]="typeControl"
+        [label]='null'
+        [value]="currentType"
+        [name]="'type'"
+      ></prizm-radio-button>
+    </div>
+    <div class='content'>
+      Последний
+      <prizm-cron-carousel
+        [content]='afterDayOfWeekListDayOfWeeks'
+        [value]='afterDayOfWeekListDayOfWeeksValue'
+        (valueChange)='afterDayOfWeekListDayOfWeeksValue = $event; updateAfterDayOfWeek()'
+      ></prizm-cron-carousel>
+      месяца
+    </div>
+  </div>
+
+  <div class='block row'
+       *prizmLet='type.onTheChosenDayOfWeek as currentType'
+       [class.selected]='typeControl.value === currentType'>
+    <div class='radio'>
+      <prizm-radio-button
+        [formControl]="typeControl"
+        [label]='null'
+        [value]="currentType"
+        [name]="'type'"
+      ></prizm-radio-button>
+    </div>
+    <div class='content'>
+      С
+      <prizm-cron-carousel
+        [content]='afterDayOfWeekListDays'
+        [value]='afterDayOfWeekListDaysValue'
+        (valueChange)='afterDayOfWeekListDaysValue = $event; updateAfterDayOfWeek()'
+      ></prizm-cron-carousel>
+      <prizm-cron-carousel
+        [content]='afterDayOfWeekListDayOfWeeks'
+        [value]='afterDayOfWeekListDayOfWeeksValue'
+        (valueChange)='afterDayOfWeekListDayOfWeeksValue = $event; updateAfterDayOfWeek()'
+      ></prizm-cron-carousel>
+      месяца
+    </div>
+  </div>
+
+  <div class='block row'
+       *prizmLet='type.nearestWeekDayToTheChosenDayOfMonth as currentType'
+       [class.selected]='typeControl.value === currentType'>
+    <div class='radio'>
+      <prizm-radio-button
+        [formControl]="typeControl"
+        [label]='null'
+        [value]="currentType"
+        [name]="'type'"
+      ></prizm-radio-button>
+    </div>
+    <div class='content'>
+      Ближайший будний день (Понедельник - Пятница) к
+      <prizm-cron-carousel
+        [content]='nearestDayOfMonth'
+        [value]='nearestDayOfMonthValue'
+        (valueChange)='nearestDayOfMonthValue = $event; updateNearestDayOfMonth()'
+      ></prizm-cron-carousel>
+      числу месяца
+    </div>
+  </div>
+</div>

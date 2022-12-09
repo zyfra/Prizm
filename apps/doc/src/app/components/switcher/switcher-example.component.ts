@@ -28,6 +28,7 @@ export class SwitcherExampleComponent {
   public type: SwitcherType = 'inner';
   public typeVariants: SwitcherType[] = ['inner', 'outer'];
   public selectedSwitcherIdx = 0;
+  public fullWidth = false;
 
   public readonly exampleBasicSwitcher: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/switcher-basic-example/switcher-basic-example.component'),

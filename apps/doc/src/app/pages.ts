@@ -395,6 +395,12 @@ export const pages: TuiOrderedDocPage = [
     keywords: 'splitter',
     route: '/components/splitter',
   },
+  {
+    section: `Components`,
+    title: 'Cron',
+    keywords: 'Cron',
+    route: '/components/cron',
+  },
   // Tools
   {
     section: `Tools`,

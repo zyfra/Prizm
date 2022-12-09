@@ -610,6 +610,14 @@ export const ROUTES = [
       title: 'Splitter',
     },
   },
+  {
+    path: 'components/cron',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/cron/cron.module')).CronModule,
+    data: {
+      title: 'Cron',
+    },
+  },
   { path: '**', redirectTo: 'about' },
 ];
 
