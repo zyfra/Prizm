@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/components",
-  "version": "1.0.0-beta.17",
+  "version": "1.0.0-beta.18",
   "description": "Prizm UI system design components library http://prizm.zyfra.com",
   "license": "MIT",
   "peerDependencies": {
@@ -13,8 +13,8 @@
     "@ng-web-apis/intersection-observer": "^2.1.0",
     "primeicons": "^4.1.0",
     "primeng": "^12.2.1",
-    "@prizm-ui/helpers": "^1.0.0-beta.17",
-    "@prizm-ui/core": "^1.0.0-beta.17"
+    "@prizm-ui/helpers": "^1.0.0-beta.18",
+    "@prizm-ui/core": "^1.0.0-beta.18"
   },
   "dependencies": {
     "tslib": "^2.3.0"
