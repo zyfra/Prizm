@@ -4,7 +4,7 @@ import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { FlagsComponent } from './flags.component';
 import { PrizmIconSvgBaseExampleComponent } from './examples/base/icon-base-example.component';
-import { PrizmFlagIconsModule } from '@prizm/flag-icons';
+import { PrizmFlagIconsModule } from '@prizm-ui/flag-icons';
 import { PrizmIconSvgFontExampleComponent } from './examples/font/icon-font-example.component';
 
 @NgModule({
