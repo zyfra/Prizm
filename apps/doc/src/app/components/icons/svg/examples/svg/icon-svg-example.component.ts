@@ -6,7 +6,7 @@ import {
   prizmIconSvgProductionIndustrySnakeCup,
   prizmIconSvgSettingsToolsBan,
   PrizmIconsSvgRegistry,
-} from '@prizm/icons';
+} from '@prizm-ui/icons';
 
 @Component({
   selector: 'prizm-icon-svg-example',

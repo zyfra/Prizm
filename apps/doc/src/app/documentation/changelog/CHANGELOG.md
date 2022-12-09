@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See
 
+## [1.0.0-beta.17](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (9-12-2022)
+
+### BUG FIXES
+- fix(icons/base): Fix publish error in base icon set [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/400)
+- fix(icons/flags): Fix publish error in flag icon set [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/400)
+
 ## [1.0.0-beta.16](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (6-12-2022)
 
 ### Features
