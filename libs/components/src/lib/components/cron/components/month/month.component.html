@@ -1,0 +1,92 @@
+<div class='blocks'>
+  <div class='every value-block block'
+       *prizmLet='type.every as currentType'
+       [class.selected]='typeControl.value === currentType'>
+    <div class='radio'>
+      <prizm-radio-button
+        [formControl]="typeControl"
+        [label]='null'
+        [value]="currentType"
+        [name]="'type'"
+      ></prizm-radio-button>
+    </div>
+    <div class='content row'>
+      Каждый месяц
+    </div>
+  </div>
+
+  <div class='block row'
+       *prizmLet='type.after as currentType'
+       [class.selected]='typeControl.value === currentType'>
+    <div class='radio'>
+      <prizm-radio-button
+        [formControl]="typeControl"
+        [label]='null'
+        [value]="currentType"
+        [name]="'type'"
+      ></prizm-radio-button>
+    </div>
+    <div class='content row'>
+      <span>Каждый</span>
+      <prizm-cron-carousel
+        [content]='periodRepeat'
+        [value]='afterRepeatValue'
+        (valueChange)='afterRepeatValue = $event; updateAfter()'
+      ></prizm-cron-carousel>
+      <span>месяц, начиная с</span>
+      <prizm-cron-carousel
+        [content]='periodAfter'
+        [value]='afterRepeatStart'
+        (valueChange)='afterRepeatStart = $event; updateAfter()'
+      ></prizm-cron-carousel>
+    </div>
+  </div>
+
+  <div class='block'
+       *prizmLet='type.specified as currentType'
+       [class.selected]='typeControl.value === currentType'>
+    <div class='radio'>
+      <prizm-radio-button
+        [formControl]="typeControl"
+        [label]='null'
+        [value]="currentType"
+        [name]="'type'"
+      ></prizm-radio-button>
+    </div>
+    <div class='content column'>
+      <span>Выбранный час (выбор одного или нескольких)</span>
+      <prizm-cron-schedule
+        [items]='items'
+        [selected]='selected'
+        (selectedChange)='selected = $event; updateSelected()'
+      ></prizm-cron-schedule>
+    </div>
+  </div>
+
+  <div class='block row'
+       *prizmLet='type.between as currentType'
+       [class.selected]='typeControl.value === currentType'>
+    <div class='radio'>
+      <prizm-radio-button
+        [formControl]="typeControl"
+        [label]='null'
+        [value]="currentType"
+        [name]="'type'"
+      ></prizm-radio-button>
+    </div>
+    <div class='content'>
+      <span>Каждый месяц с</span>
+      <prizm-cron-carousel
+        [content]='periodStart'
+        [value]='betweenStart'
+        (valueChange)='betweenStart = $event; updateBetween()'
+      ></prizm-cron-carousel>
+      <span>до</span>
+      <prizm-cron-carousel
+        [content]='periodEnd'
+        [value]='betweenEnd'
+        (valueChange)='betweenEnd = $event; updateBetween()'
+      ></prizm-cron-carousel>
+    </div>
+  </div>
+</div>

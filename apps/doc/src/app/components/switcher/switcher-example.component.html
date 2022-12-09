@@ -38,6 +38,7 @@
       <prizm-switcher
         [switchers]="switchers"
         [type]="type"
+        [fullWidth]="fullWidth"
         [selectedSwitcherIdx]="selectedSwitcherIdx"
         [size]="size"
       ></prizm-switcher>
@@ -58,6 +59,15 @@
         [(documentationPropertyValue)]="selectedSwitcherIdx"
       >
         Selected switcher index
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="fullWidth"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="fullWidth"
+      >
+        Full width
       </ng-template>
 
       <ng-template

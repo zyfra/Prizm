@@ -1,5 +1,6 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, HostBinding } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { ISwitcher, SwitcherSize, SwitcherType } from './switcher.interface';
+import { prizmDefaultProp } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-switcher',
@@ -8,19 +9,35 @@ import { ISwitcher, SwitcherSize, SwitcherType } from './switcher.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwitcherComponent {
-  @Input() public size: SwitcherSize = 'l';
-  @Input() public type: SwitcherType = 'inner';
-  @Input() public switchers: ISwitcher[] = [];
-  @Input() public selectedSwitcherIdx = 0;
+  @Input()
+  @prizmDefaultProp()
+  public size: SwitcherSize = 'l';
 
-  @Output() public switcherSelection: EventEmitter<number> = new EventEmitter();
+  @Input()
+  @prizmDefaultProp()
+  public type: SwitcherType = 'inner';
+
+  @Input()
+  @prizmDefaultProp()
+  public switchers: ISwitcher[] = [];
+
+  @Input()
+  @prizmDefaultProp()
+  public selectedSwitcherIdx = 0;
+
+  @Input()
+  @HostBinding('class.full-width')
+  @prizmDefaultProp()
+  public fullWidth = false;
+
+  @Output() public selectedSwitcherIdxChange: EventEmitter<number> = new EventEmitter();
 
   @HostBinding('attr.testId')
   readonly testId = 'prizm_switcher';
 
   public selectSwitcher(idx: number): void {
     if (this.selectedSwitcherIdx !== idx) {
-      this.switcherSelection.emit(idx);
+      this.selectedSwitcherIdxChange.emit(idx);
       this.selectedSwitcherIdx = idx;
     }
   }
