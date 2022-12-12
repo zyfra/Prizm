@@ -4,7 +4,7 @@ import {
   PrizmIconSvgFlagSvgEnum,
   PrizmFlagIconsRegistry,
   prizmIconFlagSvgRu,
-} from '@prizm/flag-icons';
+} from '@prizm-ui/flag-icons';
 
 @Component({
   selector: 'prizm-icon-base-example',
