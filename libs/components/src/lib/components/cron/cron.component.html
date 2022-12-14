@@ -45,12 +45,14 @@
   </div>
 
   <div class='sub-pages' [ngSwitch]='selectedSwitcherIdx'>
-    <!-- TODO #mz to structual directive -->
-    <prizm-cron-second [hidden]='selectedSwitcherIdx !== 0'></prizm-cron-second>
-    <prizm-cron-minute [hidden]='selectedSwitcherIdx !== 1'></prizm-cron-minute>
-    <prizm-cron-hour [hidden]='selectedSwitcherIdx !== 2'></prizm-cron-hour>
-    <prizm-cron-day [hidden]='selectedSwitcherIdx !== 3' ></prizm-cron-day>
-    <prizm-cron-month [hidden]='selectedSwitcherIdx !== 4'></prizm-cron-month>
-    <prizm-cron-year [hidden]='selectedSwitcherIdx !== 5'></prizm-cron-year>
+    <prizm-scrollbar>
+      <!-- TODO #mz to structual directive -->
+      <prizm-cron-second *ngSwitchCase='0'></prizm-cron-second>
+      <prizm-cron-minute [hidden]='selectedSwitcherIdx !== 1'></prizm-cron-minute>
+      <prizm-cron-hour [hidden]='selectedSwitcherIdx !== 2'></prizm-cron-hour>
+      <prizm-cron-day [hidden]='selectedSwitcherIdx !== 3' ></prizm-cron-day>
+      <prizm-cron-month [hidden]='selectedSwitcherIdx !== 4'></prizm-cron-month>
+      <prizm-cron-year [hidden]='selectedSwitcherIdx !== 5'></prizm-cron-year>
+    </prizm-scrollbar>
   </div>
 </div>

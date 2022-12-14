@@ -15,7 +15,11 @@ import { PrizmCronScheduleComponent } from './components/schedule/schedule.compo
 import { PrizmCronCarouselComponent } from './components/carousel/carousel.component';
 import { PrizmCronMinuteComponent } from './components/minute/minute.component';
 import { PrizmCronSecondComponent } from './components/second/second.component';
-import { PrizmLetModule } from '@prizm-ui/helpers';
+import { PrizmCallFuncModule, PrizmLetModule, PrizmPluckPipeModule } from '@prizm-ui/helpers';
+import { PolymorphModule } from '../../directives';
+import { PrizmCronMonthPipe } from './pipes/cron-month.pipe';
+import { PrizmCronWeekPipe } from './pipes/cron-week.pipe';
+import { PrizmScrollbarModule } from '../scrollbar';
 
 @NgModule({
   declarations: [
@@ -28,19 +32,25 @@ import { PrizmLetModule } from '@prizm-ui/helpers';
     PrizmCronMonthComponent,
     PrizmCronMinuteComponent,
     PrizmCronSecondComponent,
+    PrizmCronMonthPipe,
+    PrizmCronWeekPipe,
   ],
   imports: [
     CommonModule,
+    PolymorphModule,
+    PrizmCallFuncModule,
     PrizmButtonModule,
     PrizmCarouselModule,
     PrizmInputTextModule,
     PrizmRadioButtonModule,
     PrizmSwitcherModule,
     PrizmToggleModule,
+    PrizmPluckPipeModule,
     ReactiveFormsModule,
     FormsModule,
     PrizmInputDateTimeModule,
     PrizmLetModule,
+    PrizmScrollbarModule,
   ],
   exports: [PrizmCronComponent],
 })

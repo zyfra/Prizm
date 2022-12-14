@@ -1,5 +1,15 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ContentChild,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  TemplateRef,
+} from '@angular/core';
 import { PrizmCronUiListItem } from '../../model';
+import { PolymorphContent } from '../../../../directives/polymorph';
 
 @Component({
   selector: 'prizm-cron-schedule',
@@ -7,7 +17,7 @@ import { PrizmCronUiListItem } from '../../model';
   templateUrl: './schedule.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmCronScheduleComponent {
+export class PrizmCronScheduleComponent implements OnInit {
   @Input()
   public items: PrizmCronUiListItem[] = [];
 
@@ -16,6 +26,8 @@ export class PrizmCronScheduleComponent {
 
   @Output()
   public selectedChange = new EventEmitter<string[]>();
+
+  @ContentChild('content', {read: TemplateRef}) template: PolymorphContent<{item: PrizmCronUiListItem, idx: number}>;
 
   public isSelected(item: PrizmCronUiListItem): boolean {
     return this.selected.indexOf(item.key) !== -1;
@@ -28,7 +40,20 @@ export class PrizmCronScheduleComponent {
     } else {
       this.selected.push(item.key);
     }
+    this.emit();
+  }
 
-    this.selectedChange.emit(this.selected);
+  public emit(): void {
+    this.selectedChange.emit(
+      this.selected = (
+        this.selected.length
+          ? this.selected
+          : [this.items[0].key]
+      )
+    );
+  }
+
+  ngOnInit(): void {
+    this.emit();
   }
 }

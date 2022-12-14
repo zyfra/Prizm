@@ -1,26 +1,20 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
-  convertDayOfWeekToNumber,
   getArrWithStringNumbers,
+  getArrWithWeekNumber,
   getCarousel,
-  getCarouselWithDayOfWeek,
+  getCarouselWeek,
   prizmConvertDayToType,
 } from '../../util';
 import { distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
 import { PrizmCronUiService } from '../../cron-ui.service';
-import { PrizmCronUiListService } from '../../cron-ui-list.service';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { combineLatest } from 'rxjs';
-import { PrizmCronUiDayType, PrizmCronUiHourType, PrizmCronUiListItem } from '../../model';
+import { PrizmCronUiDayType, PrizmCronUiListItem } from '../../model';
 import { PrizmCronService } from '../../../../services/cron';
-import {
-  PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS,
-  PRIZM_CRON_UI_WEEK,
-  PRIZM_CRON_UI_WEEK_KEYS_OBJ,
-  PRIZM_CRON_UI_WEEK_OBJ,
-  PRIZM_CRON_UI_WEEK_SHORT_OBJ,
-} from '../../const';
+import { PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS } from '../../const';
+
 @Component({
   selector: 'prizm-cron-day',
   styleUrls: [
@@ -39,28 +33,35 @@ export class PrizmCronDayComponent implements OnInit {
 
   public readonly nearestDayOfMonth = getCarousel(31, 1);
 
+  public lastChosenDayOfMonthValue = '1'
+
   public readonly afterDayOfWeekListDays = getCarousel(7, 1);
-  public afterDayOfWeekListDaysValue = '1';
-  public readonly afterDayOfWeekListDayOfWeeks = getCarouselWithDayOfWeek();
-  public afterDayOfWeekListDayOfWeeksValue = PRIZM_CRON_UI_WEEK[1];
+  public afterDayOfWeekListDaysValue = this.afterDayOfWeekListDays.first;
+  public readonly carouselWeek = getCarouselWeek();
+  public readonly afterNumberOfWeekList = getCarousel(5, 1);
+
+  public onNumberOfWeekListValue = this.afterNumberOfWeekList.first;
+
+  public afterDayOfWeekListDayOfWeeksValue = this.carouselWeek.first;
+  public lastChosenDayOfWeekValue2 = this.carouselWeek.first;
+  public lastChosenDayOfWeekValue = this.carouselWeek.first;
 
 
   public readonly afterDayOfMonthListRepeatDays = getCarousel(31, 1);
-  public afterDayOfMonthListRepeatDaysValue = '1';
+  public afterDayOfMonthListRepeatDaysValue = this.afterDayOfMonthListRepeatDays.first;
   public readonly afterDayOfMonthListDays = getCarousel(31, 1);
-  public afterDayOfMonthListDaysValue = '1';
+  public afterDayOfMonthListDaysValue = this.afterDayOfMonthListDays.first;
 
 
-  public readonly dayOfWeekItems: PrizmCronUiListItem[] = Object.keys(PRIZM_CRON_UI_WEEK_SHORT_OBJ).map(
+  public readonly dayOfWeekItems: PrizmCronUiListItem[] = getArrWithWeekNumber()
+    .map(
     (i) => ({
-      key: PRIZM_CRON_UI_WEEK_SHORT_OBJ[i as keyof typeof PRIZM_CRON_UI_WEEK_SHORT_OBJ],
+      key: PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS[parseInt(i, 10) - 1],
       value: i,
     })
   )
 
   public selectedDayOfWeek: string[] = [];
-
-
 
 
   public readonly dayOfMonthItems: PrizmCronUiListItem[] = getArrWithStringNumbers(31, 1).map(
@@ -73,24 +74,6 @@ export class PrizmCronDayComponent implements OnInit {
   public selectedDayOfMonth: string[] = [];
 
   public nearestDayOfMonthValue = '1';
-  // public readonly startDayOfWeekForAfterDayOfWeek = getCarouselWithDayOfWeek();
-  // public readonly startDayForAfterDayOfWeekValue = '1';
-  // public readonly startDayOfWeekForAfterDayOfWeekValue = 'Понедельник';
-  //
-  // public readonly startDayForAfterDay = getCarousel(30, 1);
-  // public readonly startDay2ForAfterDay = getCarousel(30, 1);
-  // public readonly startDayForAfterDayValue = '1';
-  // public readonly startDay2ForAfterDayValue = '1';
-  //
-  //
-  // public readonly periodRepeatValue = '1';
-  // public readonly periodAfterValue = '1';
-  //
-  // public readonly periodStart = getCarouselTimeWithZero();
-  // public readonly periodStartValue = '01:00';
-  //
-  // public readonly periodEnd = getCarouselTimeWithZero();
-  // public readonly periodEndValue = '01:00';
 
   public readonly items = getArrWithStringNumbers(24);
 
@@ -98,7 +81,6 @@ export class PrizmCronDayComponent implements OnInit {
   constructor(
     public readonly cron: PrizmCronService,
     public readonly cronUi: PrizmCronUiService,
-    public readonly list: PrizmCronUiListService,
     public readonly destroy$: PrizmDestroyService,
   ) {}
 
@@ -121,9 +103,6 @@ export class PrizmCronDayComponent implements OnInit {
       distinctUntilChanged(),
       tap(
         (value: PrizmCronUiDayType) => {
-          console.log('#mz day typeControl', {
-            value
-          })
           switch (value) {
             case PrizmCronUiDayType.nearestWeekDayToTheChosenDayOfMonth:
               this.updateNearestDayOfMonth();
@@ -136,6 +115,24 @@ export class PrizmCronDayComponent implements OnInit {
             break;
             case PrizmCronUiDayType.afterDayOfWeek:
               this.updateAfterDayOfWeek();
+            break;
+            case PrizmCronUiDayType.lastDayOfMonth:
+              this.cron.updateWith({
+                dayOfMonth: 'L',
+                dayOfWeek: '?'
+              });
+            break;
+            case PrizmCronUiDayType.lastWeekDayOfMonth:
+              this.cron.updateWith({
+                dayOfMonth: 'LW',
+                dayOfWeek: '?'
+              });
+            break;
+            case PrizmCronUiDayType.lastChosenDaysOfMonth:
+              this.updateLastChosenDayOfMonth();
+            break;
+            case PrizmCronUiDayType.lastChosenDayOfWeek:
+              this.updateLastChosenDayOfWeek();
             break;
             case PrizmCronUiDayType.afterDayOfMonth:
               this.updateAfterDayOfMonth();
@@ -164,14 +161,33 @@ export class PrizmCronDayComponent implements OnInit {
 
   public updateAfterDayOfWeek(): void {
     const afterDayOfWeekListDaysValue = this.afterDayOfWeekListDaysValue;
-    const afterDayOfWeekListDayOfWeeksValue = convertDayOfWeekToNumber(
-      this.afterDayOfWeekListDayOfWeeksValue as keyof typeof PRIZM_CRON_UI_WEEK_OBJ
-    );
+    const afterDayOfWeekListDayOfWeeksValue = this.afterDayOfWeekListDayOfWeeksValue;
     if (!afterDayOfWeekListDayOfWeeksValue) return;
     this.cron.updateWith(
       {
         dayOfMonth: `?`,
         dayOfWeek: `${afterDayOfWeekListDayOfWeeksValue}/${afterDayOfWeekListDaysValue}`
+      }
+    )
+  }
+
+  public updateLastChosenDayOfMonth(): void {
+    const lastChosenDayOfMonthValue = this.lastChosenDayOfMonthValue;
+    this.cron.updateWith(
+      {
+        dayOfWeek: `?`,
+        dayOfMonth: `L-${lastChosenDayOfMonthValue}`
+      }
+    )
+  }
+
+  public updateLastChosenDayOfWeek(): void {
+    const onNumberOfWeekListValue = this.onNumberOfWeekListValue;
+    const lastChosenDayOfWeekValue2 = this.lastChosenDayOfWeekValue2;
+    this.cron.updateWith(
+      {
+        dayOfMonth: `?`,
+        dayOfWeek: `${lastChosenDayOfWeekValue2}#${onNumberOfWeekListValue}`
       }
     )
   }
@@ -189,12 +205,7 @@ export class PrizmCronDayComponent implements OnInit {
     this.cron.updateWith(
       {
         dayOfMonth: `?`,
-        dayOfWeek: [...new Set([
-          PRIZM_CRON_UI_WEEK_SHORT_OBJ['Пн'],
-          ...this.selectedDayOfWeek
-        ])].map(
-          i => PRIZM_CRON_UI_WEEK_KEYS_OBJ[i as keyof typeof PRIZM_CRON_UI_WEEK_KEYS_OBJ]
-        ).join(',')
+        dayOfWeek: this.selectedDayOfWeek.join(',')
       }
     )
   }

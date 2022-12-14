@@ -1,5 +1,5 @@
 <div class='blocks'>
-  <div class='block row'
+  <label  class='block row'
        *prizmLet='type.every as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -11,11 +11,11 @@
       ></prizm-radio-button>
     </div>
     <div class='content'>
-      Каждый месяц
+      Каждый день
     </div>
-  </div>
+  </label>
 
-  <div class='block row'
+  <label  class='block row'
        *prizmLet='type.afterDayOfWeek as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -35,15 +35,18 @@
       ></prizm-cron-carousel>
       день, начиная с
       <prizm-cron-carousel
-        [content]='afterDayOfWeekListDayOfWeeks'
+        [content]='carouselWeek'
         [value]='afterDayOfWeekListDayOfWeeksValue'
         (valueChange)='afterDayOfWeekListDayOfWeeksValue = $event; updateAfterDayOfWeek()'
-      ></prizm-cron-carousel>
-      числу месяца
+      >
+        <ng-template #content let-value="content">
+          {{value | prizmCronWeek}}
+        </ng-template>
+      </prizm-cron-carousel>
     </div>
-  </div>
+  </label>
 
-  <div class='block row'
+  <label  class='block row'
        *prizmLet='type.afterDayOfMonth as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -67,11 +70,11 @@
         [value]='afterDayOfMonthListDaysValue'
         (valueChange)='afterDayOfMonthListDaysValue = $event; updateAfterDayOfMonth()'
       ></prizm-cron-carousel>
-      дня месяца
+      числа месяца
     </div>
-  </div>
+  </label>
 
-  <div class='block'
+  <label  class='block'
        *prizmLet='type.specifiedDayOfWeek as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -88,11 +91,15 @@
         [items]='dayOfWeekItems'
         [selected]='selectedDayOfWeek'
         (selectedChange)='selectedDayOfWeek = $event; updateSelectedDayOfWeek()'
-      ></prizm-cron-schedule>
+      >
+        <ng-template #content let-item='item'>
+          {{item.value | prizmCronWeek : 'E'}}
+        </ng-template>
+      </prizm-cron-schedule>
     </div>
-  </div>
+  </label>
 
-  <div class='block'
+  <label  class='block'
        *prizmLet='type.specifiedDayOfMonth as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -111,9 +118,9 @@
         (selectedChange)='selectedDayOfMonth = $event; updateSelectedDayOfMonth()'
       ></prizm-cron-schedule>
     </div>
-  </div>
+  </label>
 
-  <div class='block row'
+  <label  class='block row'
        *prizmLet='type.lastDayOfMonth as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -127,9 +134,25 @@
     <div class='content'>
       Последний день месяца
     </div>
-  </div>
+  </label>
 
-  <div class='block row'
+  <label  class='block row'
+       *prizmLet='type.lastWeekDayOfMonth as currentType'
+       [class.selected]='typeControl.value === currentType'>
+    <div class='radio'>
+      <prizm-radio-button
+        [formControl]="typeControl"
+        [label]='null'
+        [value]="currentType"
+        [name]="'type'"
+      ></prizm-radio-button>
+    </div>
+    <div class='content'>
+      Последний рабочий день месяца
+    </div>
+  </label>
+
+  <label  class='block row'
        *prizmLet='type.lastChosenDayOfWeek as currentType'
        [class.selected]='currentType'>
     <div class='radio'>
@@ -141,19 +164,23 @@
       ></prizm-radio-button>
     </div>
     <div class='content'>
-      Последний
+      В последний
       <prizm-cron-carousel
-        [content]='afterDayOfWeekListDayOfWeeks'
-        [value]='afterDayOfWeekListDayOfWeeksValue'
-        (valueChange)='afterDayOfWeekListDayOfWeeksValue = $event; updateAfterDayOfWeek()'
-      ></prizm-cron-carousel>
+        [content]='carouselWeek'
+        [value]='lastChosenDayOfWeekValue'
+        (valueChange)='lastChosenDayOfWeekValue = $event; updateLastChosenDayOfWeek()'
+      >
+        <ng-template #content let-value="content">
+          {{value | prizmCronWeek}}
+        </ng-template>
+      </prizm-cron-carousel>
       месяца
     </div>
-  </div>
+  </label>
 
-  <div class='block row'
-       *prizmLet='type.onTheChosenDayOfWeek as currentType'
-       [class.selected]='typeControl.value === currentType'>
+  <label  class='block row'
+       *prizmLet='type.lastChosenDaysOfMonth as currentType'
+       [class.selected]='currentType'>
     <div class='radio'>
       <prizm-radio-button
         [formControl]="typeControl"
@@ -163,22 +190,17 @@
       ></prizm-radio-button>
     </div>
     <div class='content'>
-      С
+      В последний(-ие)
       <prizm-cron-carousel
-        [content]='afterDayOfWeekListDays'
-        [value]='afterDayOfWeekListDaysValue'
-        (valueChange)='afterDayOfWeekListDaysValue = $event; updateAfterDayOfWeek()'
+        [content]='nearestDayOfMonth'
+        [value]='lastChosenDayOfMonthValue'
+        (valueChange)='lastChosenDayOfMonthValue = $event; updateLastChosenDayOfMonth()'
       ></prizm-cron-carousel>
-      <prizm-cron-carousel
-        [content]='afterDayOfWeekListDayOfWeeks'
-        [value]='afterDayOfWeekListDayOfWeeksValue'
-        (valueChange)='afterDayOfWeekListDayOfWeeksValue = $event; updateAfterDayOfWeek()'
-      ></prizm-cron-carousel>
-      месяца
+      дней(-я, -нь) до конца месяца
     </div>
-  </div>
+  </label>
 
-  <div class='block row'
+  <label  class='block row'
        *prizmLet='type.nearestWeekDayToTheChosenDayOfMonth as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -198,5 +220,38 @@
       ></prizm-cron-carousel>
       числу месяца
     </div>
-  </div>
+  </label>
+
+
+
+  <label  class='block row'
+          *prizmLet='type.onTheChosenDayOfWeek as currentType'
+          [class.selected]='typeControl.value === currentType'>
+    <div class='radio'>
+      <prizm-radio-button
+        [formControl]="typeControl"
+        [label]='null'
+        [value]="currentType"
+        [name]="'type'"
+      ></prizm-radio-button>
+    </div>
+    <div class='content'>
+      В
+      <prizm-cron-carousel
+        [content]='afterNumberOfWeekList'
+        [value]='onNumberOfWeekListValue'
+        (valueChange)='onNumberOfWeekListValue = $event; updateLastChosenDayOfWeek()'
+      ></prizm-cron-carousel>
+      <prizm-cron-carousel
+        [content]='carouselWeek'
+        [value]='lastChosenDayOfWeekValue2'
+        (valueChange)='lastChosenDayOfWeekValue2 = $event; updateLastChosenDayOfWeek()'
+      >
+        <ng-template #content let-value="content">
+          {{value | prizmCronWeek}}
+        </ng-template>
+      </prizm-cron-carousel>
+      месяца
+    </div>
+  </label>
 </div>

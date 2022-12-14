@@ -7,7 +7,7 @@ import {
   Output,
   TemplateRef,
 } from '@angular/core';
-import { PrizmCarouselContent } from '@prizm-ui/components';
+import { PolymorphContent, PrizmCarouselContent } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-cron-carousel',
@@ -23,7 +23,7 @@ export class PrizmCronCarouselComponent {
   public value: string;
 
   @ContentChild('content', {read: TemplateRef})
-  public template: TemplateRef<undefined>;
+  public template: PolymorphContent<{content: number}>;
 
   @Output()
   public valueChange = new EventEmitter<string>();

@@ -1,4 +1,4 @@
-import { NgModule, SecurityContext } from '@angular/core';
+import { LOCALE_ID, NgModule, SecurityContext } from '@angular/core';
 import { TuiAddonDocModule, TuiDocMainModule } from '@taiga-ui/addon-doc';
 import { AppComponent } from './app.component';
 import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
@@ -14,7 +14,12 @@ import { LogoModule } from './logo/logo.module';
 import { VersionManagerModule } from './version-manager/version-manager.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './documentation/about/about.component';
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
 
+registerLocaleData(
+  localeRu
+);
 @NgModule({
   bootstrap: [AppComponent],
   imports: [
@@ -47,6 +52,7 @@ import { AboutComponent } from './documentation/about/about.component';
     AboutComponent,
   ],
   providers: [
+    { provide: LOCALE_ID, useValue: "ru-RU" },
     ...APP_PROVIDERS
   ],
 })

@@ -3,20 +3,16 @@ import {
   PrizmCronUiDayType,
   PrizmCronUiHourType,
   PrizmCronUiMinuteType,
-  PrizmCronUiMonthType,
+  PrizmCronUiMonthType, PrizmCronUiSecondType,
   PrizmCronUiYearType,
 } from './model';
-import {
-  PRIZM_CRON_UI_MONTH_CRON_KEYS,
-  PRIZM_CRON_UI_MONTH_SHORT_OBJ,
-  PRIZM_CRON_UI_WEEK_LIST,
-  PRIZM_CRON_UI_WEEK_OBJ,
-} from './const';
+import { PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS } from './const';
+import { prizmGetNumberWithZero } from '@prizm-ui/core';
 
 export function getArrWithStringNumbers(length: number, start = 1, withZero = false): string[] {
   return Array.from({ length }, (_, i) => {
     const sum = i + start;
-    const result = withZero ? getWithZero(sum) : sum;
+    const result = withZero ? prizmGetNumberWithZero(sum) : sum;
     return result + '';
   });
 }
@@ -25,7 +21,7 @@ export function getCarouselWithZero(length: number): PrizmCarouselArrayContent<s
   return new PrizmCarouselArrayContent(
     Array.from(
       { length },
-      (_, i) => getWithZero(i )
+      (_, i) => prizmGetNumberWithZero(i )
     ),
     (item, el) => item === el
   );
@@ -36,41 +32,21 @@ export function getCarousel(length: number, start = 1): PrizmCarouselArrayConten
     (item, el) => item === el
   );
 }
+export function getArrWithWeekNumber(): string[] {
+  return ['2', '3', '4', '5', '6', '7', '1'];
+}
 
-export function getCarouselWithDayOfWeek(): PrizmCarouselArrayContent<string> {
+export function getCarouselWeek(): PrizmCarouselArrayContent<string> {
   return new PrizmCarouselArrayContent(
-    [
-      PRIZM_CRON_UI_WEEK_LIST[1],
-      PRIZM_CRON_UI_WEEK_LIST[2],
-      PRIZM_CRON_UI_WEEK_LIST[3],
-      PRIZM_CRON_UI_WEEK_LIST[4],
-      PRIZM_CRON_UI_WEEK_LIST[5],
-      PRIZM_CRON_UI_WEEK_LIST[6],
-      PRIZM_CRON_UI_WEEK_LIST[0],
-    ],
+    getArrWithWeekNumber(),
     (item, el) => item === el
   );
 }
 
 export function getCarouselWithMonth(): PrizmCarouselArrayContent<string> {
-  return new PrizmCarouselArrayContent(
-    Object.values(PRIZM_CRON_UI_MONTH_SHORT_OBJ) as string[],
-    (item, el) => item === el
-  );
+  return getCarousel(12, 1);
 }
 
-export function convertDayOfWeekToNumber(
-  dayOfWeek: keyof typeof PRIZM_CRON_UI_WEEK_OBJ
-): number {
-  return PRIZM_CRON_UI_WEEK_OBJ[dayOfWeek];
-}
-
-export function getWithZero(n: number): string {
-  if (n < 10) {
-    return `0${n}`;
-  }
-  return n + '';
-}
 
 
 export function prizmConvertHourToType(
@@ -85,6 +61,21 @@ export function prizmConvertHourToType(
     }
 
     return PrizmCronUiHourType.specified;
+}
+
+
+export function prizmConvertSecondToType(
+  hour: string
+): PrizmCronUiSecondType {
+    if (hour === '*') {
+      return PrizmCronUiSecondType.every
+    } else if (hour.includes('/')) {
+      return PrizmCronUiSecondType.after
+    } else if (hour.includes('-')) {
+      return PrizmCronUiSecondType.between
+    }
+
+    return PrizmCronUiSecondType.specified;
 }
 
 
@@ -117,13 +108,13 @@ export function prizmConvertYearToType(
 }
 
 export function prizmConvertMonthToType(
-  hour: string
+  month: string
 ): PrizmCronUiMonthType {
-    if (hour === '*') {
+    if (month === '*') {
       return PrizmCronUiMonthType.every
-    } else if (hour.includes('/')) {
+    } else if (month.includes('/')) {
       return PrizmCronUiMonthType.after
-    } else if (hour.includes('-')) {
+    } else if (month.includes('-')) {
       return PrizmCronUiMonthType.between
     }
 
@@ -134,6 +125,10 @@ export function prizmConvertDayToType(
   day: string,
   dayOfWeek: string
 ): PrizmCronUiDayType {
+  console.log('#mz prizmConvertDayToType [input]', {
+    day,
+    dayOfWeek
+  });
   if (day === '?') {
     if (dayOfWeek === '*')
       return PrizmCronUiDayType.every
@@ -144,13 +139,15 @@ export function prizmConvertDayToType(
     else if (dayOfWeek.includes('#'))
       return PrizmCronUiDayType.onTheChosenDayOfWeek
     else if (
-      PRIZM_CRON_UI_MONTH_CRON_KEYS.find((
+      PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS.find((
         a => dayOfWeek.includes(a)
       ))
     )
     return PrizmCronUiDayType.specifiedDayOfWeek
   } else if (day.includes('/')) {
     return PrizmCronUiDayType.afterDayOfMonth
+  } else if (day.startsWith('L-')) {
+    return PrizmCronUiDayType.lastChosenDaysOfMonth
   } else if (day === 'L') {
     return PrizmCronUiDayType.lastDayOfMonth
   } else if (day === 'LW') {

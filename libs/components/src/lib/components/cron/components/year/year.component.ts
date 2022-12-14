@@ -1,17 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import {
-  getArrWithStringNumbers,
-  getCarousel,
-  getCarouselWithMonth,
-  getCarouselWithZero,
-  prizmConvertYearToType,
-} from '../../util';
+import { getArrWithStringNumbers, getCarousel, getCarouselWithZero, prizmConvertYearToType } from '../../util';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
 import { PrizmCronUiListItem, PrizmCronUiYearType } from '../../model';
 import { PrizmCronUiService } from '../../cron-ui.service';
-import { PrizmCronUiListService } from '../../cron-ui-list.service';
 import { PrizmCronService } from '../../../../services/cron';
 
 
@@ -55,7 +48,6 @@ export class PrizmCronYearComponent implements OnInit {
   constructor(
     public readonly cron: PrizmCronService,
     public readonly cronUi: PrizmCronUiService,
-    public readonly list: PrizmCronUiListService,
     public readonly destroy$: PrizmDestroyService,
   ) {}
 

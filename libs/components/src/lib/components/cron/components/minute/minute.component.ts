@@ -5,7 +5,6 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
 import { PrizmCronUiListItem, PrizmCronUiMinuteType } from '../../model';
 import { PrizmCronUiService } from '../../cron-ui.service';
-import { PrizmCronUiListService } from '../../cron-ui-list.service';
 import { PrizmCronService } from '../../../../services/cron';
 
 
@@ -47,7 +46,6 @@ export class PrizmCronMinuteComponent implements OnInit {
   constructor(
     public readonly cron: PrizmCronService,
     public readonly cronUi: PrizmCronUiService,
-    public readonly list: PrizmCronUiListService,
     public readonly destroy$: PrizmDestroyService,
   ) {}
 
