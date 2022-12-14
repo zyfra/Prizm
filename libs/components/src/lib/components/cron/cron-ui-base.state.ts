@@ -1,7 +1,7 @@
 import { getArrWithStringNumbers, getCarousel } from './util';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { distinctUntilChanged, filter, first, map, take, takeUntil, tap } from 'rxjs/operators';
+import { distinctUntilChanged, filter, first, map, takeUntil, tap } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import { PrizmCronUiBaseType, PrizmCronUiState, PrizmCronUiStateList } from './model';
 import { PrizmCronService } from '../../services/cron';
@@ -30,6 +30,7 @@ export abstract class PrizmCronUiBaseState<
   readonly abstract cron: PrizmCronService;
   readonly abstract destroy$: PrizmDestroyService;
 
+
   constructor(
     public readonly current$: Observable<string>,
     public readonly initialType: TYPE,
@@ -55,7 +56,7 @@ export abstract class PrizmCronUiBaseState<
     },
     private readonly everyChosenTimesAfterChosen = {
       list: {
-        on: getCarousel(60, 0),
+        on: getCarousel(60, 1),
         after: getCarousel(60, 0),
       },
       value: {
@@ -63,7 +64,9 @@ export abstract class PrizmCronUiBaseState<
         after: '0'
       }
     }
-  ) {}
+  ) {
+    this.initialType = initialType;
+  }
 
   public readonly typeControl = new FormControl();
 
@@ -72,21 +75,14 @@ export abstract class PrizmCronUiBaseState<
   );
 
   public init(): void {
-    console.log('#mz init cron');
     this.initLocalStateChanger();
     this.initLocalTypeChanger();
   }
 
   private initLocalStateChanger(): void {
-    console.log('#mz initLocalStateChanger cron', 1, this.cron.value);
     /* add change when base changes */
     this.current$.pipe(
       distinctUntilChanged(),
-      tap(
-        (value) => {
-          console.log('#mz initLocalStateChanger cron', 2, value, this.cron.value);
-        }
-      ),
       tap(
         (value) => this.updateLocalState(
           value,
@@ -238,6 +234,12 @@ export abstract class PrizmCronUiBaseState<
       }
         break;
     }
+  }
+
+  public destroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+    this.destroy$.unsubscribe();
   }
 }
 

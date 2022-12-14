@@ -17,7 +17,7 @@ import { PolymorphContent } from '../../../../directives/polymorph';
   templateUrl: './schedule.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmCronScheduleComponent implements OnInit {
+export class PrizmCronScheduleComponent {
   @Input()
   public items: PrizmCronUiListItem[] = [];
 
@@ -51,9 +51,5 @@ export class PrizmCronScheduleComponent implements OnInit {
           : [this.items[0].key]
       )
     );
-  }
-
-  ngOnInit(): void {
-    this.emit();
   }
 }
