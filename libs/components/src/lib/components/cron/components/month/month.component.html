@@ -46,7 +46,7 @@
         (valueChange)='cronUiState.updateOn({after: $event})'
       >
         <ng-template #content let-value="content">
-          {{value | prizmCronMonth }}
+          {{(value ?? 1) - 1 | prizmCronMonth }}
         </ng-template>
       </prizm-cron-carousel>
     </div>
@@ -92,7 +92,7 @@
         (valueChange)='cronUiState.updateBetween({start: $event})'
       >
         <ng-template #content let-value="content">
-          {{value | prizmCronMonth }}
+          {{(value ?? 1) - 1 | prizmCronMonth }}
         </ng-template>
       </prizm-cron-carousel>
       <span>до</span>
@@ -102,7 +102,7 @@
         (valueChange)='cronUiState.updateBetween({end: $event})'
       >
         <ng-template #content let-value="content">
-          {{value | prizmCronMonth }}
+          {{(value ?? 1) - 1 | prizmCronMonth }}
         </ng-template>
       </prizm-cron-carousel>
     </div>
