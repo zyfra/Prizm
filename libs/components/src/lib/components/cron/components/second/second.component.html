@@ -1,10 +1,11 @@
 <div class='blocks'>
   <label class='every value-block block'
-       *prizmLet='type.every as currentType'
-       [class.selected]='typeControl.value === currentType'>
+       (click)='cronUiState.setEvery()'
+       *prizmLet='cronUiState.TYPES.every as currentType'
+       [class.selected]='cronUiState.typeControl.value === currentType'>
     <div class='radio'>
       <prizm-radio-button
-        [formControl]="typeControl"
+        [formControl]="cronUiState.typeControl"
         [label]='null'
         [value]="currentType"
         [name]="'type'"
@@ -16,11 +17,11 @@
   </label>
 
   <label  class='block row'
-       *prizmLet='type.after as currentType'
-       [class.selected]='typeControl.value === currentType'>
+       *prizmLet='cronUiState.TYPES.after as currentType'
+       [class.selected]='cronUiState.typeControl.value === currentType'>
     <div class='radio'>
       <prizm-radio-button
-        [formControl]="typeControl"
+        [formControl]="cronUiState.typeControl"
         [label]='null'
         [value]="currentType"
         [name]="'type'"
@@ -29,9 +30,9 @@
     <div class='content row'>
       <span>Каждая</span>
       <prizm-cron-carousel
-        [content]='periodRepeat'
-        [value]='afterRepeatValue'
-        (valueChange)='afterRepeatValue = $event; updateAfter()'
+        [content]='cronUiState.list | prizmPluck : ["everyChosenTimesAfterChosen", "on"]'
+        [value]='cronUiState.state$ | async | prizmPluck : ["everyChosenTimesAfterChosen", "on"]'
+        (valueChange)='cronUiState.updateOn({on: $event})'
       >
         <ng-template #content let-value="content">
           {{value}}
@@ -40,19 +41,19 @@
       <span>секунда, начиная с</span>
 
       <prizm-cron-carousel
-        [content]='periodAfter'
-        [value]='afterRepeatStart'
-        (valueChange)='afterRepeatStart = $event; updateAfter()'
+        [content]='cronUiState.list | prizmPluck : ["everyChosenTimesAfterChosen", "after"]'
+        [value]='cronUiState.state$ | async | prizmPluck : ["everyChosenTimesAfterChosen", "after"]'
+        (valueChange)='cronUiState.updateOn({after: $event})'
       ></prizm-cron-carousel>
     </div>
   </label>
 
   <label  class='block'
-       *prizmLet='type.specified as currentType'
-       [class.selected]='typeControl.value === currentType'>
+       *prizmLet='cronUiState.TYPES.specified as currentType'
+       [class.selected]='cronUiState.typeControl.value === currentType'>
     <div class='radio'>
       <prizm-radio-button
-        [formControl]="typeControl"
+        [formControl]="cronUiState.typeControl"
         [label]='null'
         [value]="currentType"
         [name]="'type'"
@@ -61,19 +62,19 @@
     <div class='content column'>
       <span>Выбранная секунда (выбор одного или нескольких)</span>
       <prizm-cron-schedule
-        [items]='items'
-        [selected]='selected$ | async'
-        (selectedChange)='updateSelected($event)'
+        [items]='cronUiState.list.specified'
+        [selected]='cronUiState.state$ | async | prizmPluck : ["specified"]'
+        (selectedChange)='cronUiState.updateSpecified($event)'
       ></prizm-cron-schedule>
     </div>
   </label>
 
   <label  class='block row'
-       *prizmLet='type.between as currentType'
-       [class.selected]='typeControl.value === currentType'>
+       *prizmLet='cronUiState.TYPES.between as currentType'
+       [class.selected]='cronUiState.typeControl.value === currentType'>
     <div class='radio'>
       <prizm-radio-button
-        [formControl]="typeControl"
+        [formControl]="cronUiState.typeControl"
         [label]='null'
         [value]="currentType"
         [name]="'type'"
@@ -83,16 +84,16 @@
       <span>Каждая секунда с</span>
       <prizm-cron-carousel
         #start
-        [content]='periodStart'
-        [value]='$any(between$ | async | prizmPluck : "1")'
-        (valueChange)='updateBetween($event, end.value)'
+        [content]='cronUiState.list.between.start'
+        [value]='cronUiState.state$ | async | prizmPluck : ["between", "start"]'
+        (valueChange)='cronUiState.updateBetween({start: $event})'
       ></prizm-cron-carousel>
       <span>до</span>
       <prizm-cron-carousel
         #end
-        [content]='periodEnd'
-        [value]='$any(between$ | async | prizmPluck : "0")'
-        (valueChange)='updateBetween(start.value, $event)'
+        [content]='cronUiState.list.between.end'
+        [value]='cronUiState.state$ | async | prizmPluck : ["between", "end"]'
+        (valueChange)='cronUiState.updateBetween({end: $event})'
       ></prizm-cron-carousel>
     </div>
   </label>

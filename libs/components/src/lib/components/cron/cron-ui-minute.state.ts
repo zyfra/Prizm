@@ -6,13 +6,13 @@ import { PrizmCronUiBaseState } from './cron-ui-base.state';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 @Injectable()
-export class PrizmCronUiSecondState extends PrizmCronUiBaseState {
+export class PrizmCronUiMinuteState extends PrizmCronUiBaseState {
   constructor(
     public readonly cron: PrizmCronService,
     public readonly destroy$: PrizmDestroyService
   ) {
     super(
-      cron.second$,
+      cron.minute$,
       PrizmCronUiBaseType.every,
       PrizmCronUiBaseType
     );
@@ -20,7 +20,7 @@ export class PrizmCronUiSecondState extends PrizmCronUiBaseState {
 
   public updateMainState(value: string): void {
     this.cron.updateWith({
-      second: value
+      minute: value
     });
   }
 }

@@ -1,0 +1,55 @@
+import { Injectable } from '@angular/core';
+import { PrizmCronUiBaseType } from './model';
+import { getArrWithStringNumbers, getCarousel } from './util';
+import { PrizmCronService } from '@prizm-ui/components';
+import { PrizmCronUiBaseState } from './cron-ui-base.state';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
+
+@Injectable()
+export class PrizmCronUiHourState extends PrizmCronUiBaseState {
+  constructor(
+    public readonly cron: PrizmCronService,
+    public readonly destroy$: PrizmDestroyService
+  ) {
+    super(
+      cron.hour$,
+      PrizmCronUiBaseType.every,
+      PrizmCronUiBaseType,
+      {
+        value: {
+          start: '0',
+          end: '1',
+        },
+        list: {
+          start: getCarousel(24, 0),
+          end: getCarousel(24, 0),
+        }
+      },
+      {
+        value: ['0'],
+        list: getArrWithStringNumbers(24, 0, false).map(
+          (i, idx) => ({
+            key: i,
+            value: idx + 1 + '',
+          })
+        )
+      },
+      {
+        list: {
+          on: getCarousel(24, 0),
+          after: getCarousel(24, 0),
+        },
+        value: {
+          on: '1',
+          after: '0'
+        }
+      }
+    );
+  }
+
+  public updateMainState(value: string): void {
+    this.cron.updateWith({
+      hour: value
+    });
+  }
+}

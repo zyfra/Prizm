@@ -8,11 +8,15 @@ import { prizmCronConvertToObject } from './util';
 export class PrizmCronService {
   private readonly value$$ = new BehaviorSubject<PrizmCronValueObject>(prizmCronConvertToObject('0 0 * ? * * *'));
   public readonly value$ = this.value$$.asObservable();
+  get value (): PrizmCronValueObject {
+    return this.value$$.value
+  }
+  get valueAsString (): string {
+    return this.convertToCronString(this.value);
+  }
   public readonly valueAsString$ = this.value$.pipe(
     map(
-      (v) => {
-        return `${v.second} ${v.minute} ${v.hour} ${v.dayOfMonth} ${v.month} ${v.dayOfWeek} ${v.year}`
-      }
+      (v) => this.convertToCronString(v)
     ),
     shareReplay(1)
   );
@@ -56,5 +60,10 @@ export class PrizmCronService {
      ...this.value$$.value,
      ...obj,
    });
+  }
+  private convertToCronString(
+    v: PrizmCronValueObject
+  ): string {
+    return `${v.second} ${v.minute} ${v.hour} ${v.dayOfMonth} ${v.month} ${v.dayOfWeek} ${v.year}`
   }
 }
