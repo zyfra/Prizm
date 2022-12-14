@@ -4,7 +4,6 @@ import { getArrWithStringNumbers, getCarousel, getCarouselWithZero, prizmConvert
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
 import { PrizmCronUiListItem, PrizmCronUiYearType } from '../../model';
-import { PrizmCronUiService } from '../../cron-ui.service';
 import { PrizmCronService } from '../../../../services/cron';
 
 
@@ -12,7 +11,7 @@ import { PrizmCronService } from '../../../../services/cron';
   selector: 'prizm-cron-year',
   styleUrls: [
     './year.component.less',
-    '../../cron-sub-element.component.less'
+    '../../cron-element.component.less'
   ],
   templateUrl: './year.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -47,7 +46,6 @@ export class PrizmCronYearComponent implements OnInit {
 
   constructor(
     public readonly cron: PrizmCronService,
-    public readonly cronUi: PrizmCronUiService,
     public readonly destroy$: PrizmDestroyService,
   ) {}
 

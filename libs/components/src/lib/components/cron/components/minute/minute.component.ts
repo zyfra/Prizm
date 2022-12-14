@@ -6,7 +6,7 @@ import { PrizmCronUiMinuteState } from '../../cron-ui-minute.state';
   selector: 'prizm-cron-minute',
   styleUrls: [
     './minute.component.less',
-    '../../cron-sub-element.component.less'
+    '../../cron-element.component.less'
   ],
   templateUrl: './minute.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

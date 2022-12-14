@@ -8,7 +8,6 @@ import {
   prizmConvertDayToType,
 } from '../../util';
 import { distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
-import { PrizmCronUiService } from '../../cron-ui.service';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { combineLatest } from 'rxjs';
 import { PrizmCronUiDayType, PrizmCronUiListItem } from '../../model';
@@ -19,7 +18,7 @@ import { PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS } from '../../const';
   selector: 'prizm-cron-day',
   styleUrls: [
     './day.component.less',
-    '../../cron-sub-element.component.less'
+    '../../cron-element.component.less'
   ],
   templateUrl: './day.component.html',
   providers: [
@@ -80,7 +79,6 @@ export class PrizmCronDayComponent implements OnInit {
 
   constructor(
     public readonly cron: PrizmCronService,
-    public readonly cronUi: PrizmCronUiService,
     public readonly destroy$: PrizmDestroyService,
   ) {}
 

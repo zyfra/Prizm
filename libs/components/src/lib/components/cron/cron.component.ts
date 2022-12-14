@@ -3,11 +3,11 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { ISwitcher } from '../switcher';
 import { FormControl } from '@angular/forms';
 import { PrizmCronService } from '../../services';
-import { PrizmCronUiService } from './cron-ui.service';
-import { take, tap } from 'rxjs/operators';
+import { first, takeUntil, tap } from 'rxjs/operators';
 import { PrizmCronUiSecondState } from './cron-ui-second.state';
 import { PrizmCronUiMinuteState } from './cron-ui-minute.state';
 import { PrizmCronUiHourState } from './cron-ui-hour.state';
+import { PrizmCronUiMonthState } from './cron-ui-month.state';
 
 @Component({
   selector: 'prizm-cron',
@@ -19,9 +19,9 @@ import { PrizmCronUiHourState } from './cron-ui-hour.state';
     PrizmDestroyService,
     PrizmCronService,
     PrizmCronUiSecondState,
+    PrizmCronUiMonthState,
     PrizmCronUiHourState,
-    PrizmCronUiMinuteState,
-    PrizmCronUiService,
+    PrizmCronUiMinuteState
   ],
 })
 export class PrizmCronComponent implements OnInit {
@@ -57,8 +57,10 @@ export class PrizmCronComponent implements OnInit {
 
   constructor(
     private readonly cron: PrizmCronService,
+    private readonly destroy$: PrizmDestroyService,
     private readonly cronUiSecondState: PrizmCronUiSecondState,
     private readonly cronUiHourState: PrizmCronUiHourState,
+    private readonly cronUiMonthState: PrizmCronUiMonthState,
     private readonly cronUiMinuteState: PrizmCronUiMinuteState,
   ) {
   }
@@ -66,6 +68,7 @@ export class PrizmCronComponent implements OnInit {
   public ngOnInit(): void {
     this.cronUiSecondState.init();
     this.cronUiHourState.init();
+    this.cronUiMonthState.init();
     this.cronUiMinuteState.init();
   }
 
@@ -74,7 +77,8 @@ export class PrizmCronComponent implements OnInit {
       tap(
         (val) => this.valueChange.emit(val)
       ),
-      take(1)
+      first(),
+      takeUntil(this.destroy$)
     ).subscribe()
   }
 }
