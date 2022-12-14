@@ -4,7 +4,7 @@ import { getCarousel } from './util';
 import { PrizmCronService } from '@prizm-ui/components';
 import { PrizmCronUiBaseState } from './cron-ui-base.state';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { PRIZM_CRON_UI_MONTH_CRON_KEYS, PRIZM_CRON_UI_MONTH_SHORT_OBJ } from './const';
+import { PRIZM_CRON_UI_MONTH_CRON_KEYS } from './const';
 
 @Injectable()
 export class PrizmCronUiMonthState extends PrizmCronUiBaseState {
@@ -27,11 +27,11 @@ export class PrizmCronUiMonthState extends PrizmCronUiBaseState {
         }
       },
       {
-        value: ['0'],
-        list: Object.values(PRIZM_CRON_UI_MONTH_SHORT_OBJ).map(
+        value: [],
+        list: Object.values(PRIZM_CRON_UI_MONTH_CRON_KEYS).map(
           (value, idx) => ({
             key: PRIZM_CRON_UI_MONTH_CRON_KEYS[idx],
-            value,
+            value: idx.toString(),
           })
         )
       },
