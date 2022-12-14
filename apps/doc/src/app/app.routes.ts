@@ -35,6 +35,22 @@ export const ROUTES = [
       title: 'Changelog',
     },
   },
+  {
+    path: 'contributing',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./documentation/contributing/contributing.module')).ContributingModule,
+    data: {
+      title: 'Contributing',
+    },
+  },
+  {
+    path: 'codestyle',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./documentation/codestyle/codestyle.module')).CodestyleModule,
+    data: {
+      title: 'CodeStyle',
+    },
+  },
   // COMPONENTS
   {
     path: 'components/dropdowns/dropdown-host',
