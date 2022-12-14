@@ -36,7 +36,7 @@ export class PrizmCronUiHourState extends PrizmCronUiBaseState {
       },
       {
         list: {
-          on: getCarousel(24, 0),
+          on: getCarousel(24, 1),
           after: getCarousel(24, 0),
         },
         value: {

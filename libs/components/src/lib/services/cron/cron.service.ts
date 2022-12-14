@@ -52,8 +52,6 @@ export class PrizmCronService {
   public updateWith(ojb: Partial<PrizmCronValueObject>): void
   public updateWith(ojb: string): void
   public updateWith(value: Partial<PrizmCronValueObject> | string): void {
-    // eslint-disable-next-line no-restricted-syntax
-    console.trace('#mz updateWith', value);
     const obj = (value && typeof value === 'object')
       ? value
       : prizmCronConvertToObject(value as string);
