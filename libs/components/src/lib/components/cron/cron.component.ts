@@ -8,6 +8,7 @@ import { PrizmCronUiSecondState } from './cron-ui-second.state';
 import { PrizmCronUiMinuteState } from './cron-ui-minute.state';
 import { PrizmCronUiHourState } from './cron-ui-hour.state';
 import { PrizmCronUiMonthState } from './cron-ui-month.state';
+import { PrizmCronUiYearState } from './cron-ui-year.state';
 
 @Component({
   selector: 'prizm-cron',
@@ -21,6 +22,7 @@ import { PrizmCronUiMonthState } from './cron-ui-month.state';
     PrizmCronUiSecondState,
     PrizmCronUiMonthState,
     PrizmCronUiHourState,
+    PrizmCronUiYearState,
     PrizmCronUiMinuteState
   ],
 })
@@ -60,6 +62,7 @@ export class PrizmCronComponent implements OnInit {
     private readonly destroy$: PrizmDestroyService,
     private readonly cronUiSecondState: PrizmCronUiSecondState,
     private readonly cronUiHourState: PrizmCronUiHourState,
+    private readonly cronUiYearState: PrizmCronUiYearState,
     private readonly cronUiMonthState: PrizmCronUiMonthState,
     private readonly cronUiMinuteState: PrizmCronUiMinuteState,
   ) {
@@ -69,6 +72,7 @@ export class PrizmCronComponent implements OnInit {
     this.cronUiSecondState.init();
     this.cronUiHourState.init();
     this.cronUiMonthState.init();
+    this.cronUiYearState.init();
     this.cronUiMinuteState.init();
   }
 

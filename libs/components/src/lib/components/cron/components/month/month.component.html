@@ -69,7 +69,11 @@
         [items]='cronUiState.list.specified'
         [selected]='cronUiState.state$ | async | prizmPluck : ["specified"]'
         (selectedChange)='cronUiState.updateSpecified($event)'
-      ></prizm-cron-schedule>
+      >
+        <ng-template #content let-item='item'>
+          {{item.value | prizmCronMonth : 1 : 'MMM'}}
+        </ng-template>
+      </prizm-cron-schedule>
     </div>
   </label>
 
