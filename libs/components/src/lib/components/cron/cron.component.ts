@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { ISwitcher } from '../switcher';
 import { FormControl } from '@angular/forms';
@@ -6,6 +6,8 @@ import { PrizmCronService } from '../../services';
 import { PrizmCronUiService } from './cron-ui.service';
 import { take, tap } from 'rxjs/operators';
 import { PrizmCronUiSecondState } from './cron-ui-second.state';
+import { PrizmCronUiMinuteState } from './cron-ui-minute.state';
+import { PrizmCronUiHourState } from './cron-ui-hour.state';
 
 @Component({
   selector: 'prizm-cron',
@@ -17,10 +19,12 @@ import { PrizmCronUiSecondState } from './cron-ui-second.state';
     PrizmDestroyService,
     PrizmCronService,
     PrizmCronUiSecondState,
+    PrizmCronUiHourState,
+    PrizmCronUiMinuteState,
     PrizmCronUiService,
   ],
 })
-export class PrizmCronComponent {
+export class PrizmCronComponent implements OnInit {
   public readonly switchers: ISwitcher[] = [
     {
       title: 'Секунды',
@@ -52,11 +56,20 @@ export class PrizmCronComponent {
   public selectedSwitcherIdx = 0;
 
   constructor(
-    private readonly cron: PrizmCronService
+    private readonly cron: PrizmCronService,
+    private readonly cronUiSecondState: PrizmCronUiSecondState,
+    private readonly cronUiHourState: PrizmCronUiHourState,
+    private readonly cronUiMinuteState: PrizmCronUiMinuteState,
   ) {
   }
 
-  public submit() {
+  public ngOnInit(): void {
+    this.cronUiSecondState.init();
+    this.cronUiHourState.init();
+    this.cronUiMinuteState.init();
+  }
+
+  public submit(): void {
     this.cron.valueAsString$.pipe(
       tap(
         (val) => this.valueChange.emit(val)
