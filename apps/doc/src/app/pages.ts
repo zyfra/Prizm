@@ -27,6 +27,20 @@ export const pages: TuiOrderedDocPage = [
     route: 'changelog',
     order: 3,
   },
+  {
+    section: `Documentation`,
+    title: 'Contributing',
+    keywords: 'contributing',
+    route: 'contributing',
+    order: 4,
+  },
+  {
+    section: `Documentation`,
+    title: 'CodeStyle',
+    keywords: 'code, codestyle',
+    route: 'codestyle',
+    order: 4,
+  },
   // Components
   {
     section: `Components`,
@@ -251,7 +265,7 @@ export const pages: TuiOrderedDocPage = [
         keywords: 'иконка, icon',
         route: '/components/icon',
       },
-    ]
+    ],
   },
   {
     section: `Components`,
