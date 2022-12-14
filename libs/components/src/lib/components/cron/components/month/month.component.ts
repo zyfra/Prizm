@@ -1,11 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { getCarouselWithMonth, getCarouselWithZero, prizmConvertMonthToType } from '../../util';
+import { getCarousel, getCarouselWithMonth, getCarouselWithZero, prizmConvertMonthToType } from '../../util';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
 import { PrizmCronUiListItem, PrizmCronUiMonthType } from '../../model';
 import { PrizmCronUiService } from '../../cron-ui.service';
-import { PrizmCronUiListService } from '../../cron-ui-list.service';
 import { PrizmCronService } from '../../../../services/cron';
 import { PRIZM_CRON_UI_MONTH_CRON_KEYS, PRIZM_CRON_UI_MONTH_SHORT_OBJ } from '../../const';
 
@@ -25,16 +24,16 @@ import { PRIZM_CRON_UI_MONTH_CRON_KEYS, PRIZM_CRON_UI_MONTH_SHORT_OBJ } from '..
 export class PrizmCronMonthComponent implements OnInit {
   public readonly typeControl = new FormControl(PrizmCronUiMonthType.every);
   public readonly type = PrizmCronUiMonthType;
-  public readonly periodRepeat = getCarouselWithZero(12);
+  public readonly periodRepeat = getCarouselWithMonth();
   public readonly periodAfter = getCarouselWithMonth();
-  public afterRepeatValue = '01';
-  public afterRepeatStart = 'Январь';
+  public afterRepeatValue = this.periodRepeat.first;
+  public afterRepeatStart = this.periodAfter.first;
 
   public readonly periodStart = getCarouselWithMonth();
-  public betweenStart = 'Январь';
+  public betweenStart = this.periodStart.first;
 
   public readonly periodEnd = getCarouselWithMonth();
-  public betweenEnd = 'Январь';
+  public betweenEnd = this.periodEnd.first;
 
   public selected: string[] = [
     PRIZM_CRON_UI_MONTH_CRON_KEYS[0]
@@ -50,7 +49,6 @@ export class PrizmCronMonthComponent implements OnInit {
   constructor(
     public readonly cron: PrizmCronService,
     public readonly cronUi: PrizmCronUiService,
-    public readonly list: PrizmCronUiListService,
     public readonly destroy$: PrizmDestroyService,
   ) {}
 

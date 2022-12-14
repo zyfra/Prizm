@@ -5,6 +5,7 @@ import { FormControl } from '@angular/forms';
 import { PrizmCronService } from '../../services';
 import { PrizmCronUiService } from './cron-ui.service';
 import { take, tap } from 'rxjs/operators';
+import { PrizmCronUiSecondState } from './cron-ui-second.state';
 
 @Component({
   selector: 'prizm-cron',
@@ -15,6 +16,7 @@ import { take, tap } from 'rxjs/operators';
   providers: [
     PrizmDestroyService,
     PrizmCronService,
+    PrizmCronUiSecondState,
     PrizmCronUiService,
   ],
 })

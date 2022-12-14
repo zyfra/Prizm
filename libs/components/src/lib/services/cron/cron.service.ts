@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { distinctUntilChanged, map, shareReplay } from 'rxjs/operators';
 import { PrizmCronValueObject } from './model';
 import { prizmCronConvertToObject } from './util';
 
@@ -17,25 +17,32 @@ export class PrizmCronService {
     shareReplay(1)
   );
   public readonly second$ = this.value$.pipe(
-    map(value => value.second)
+    map(value => value.second),
+    distinctUntilChanged()
   );
   public readonly dayOfWeek$ = this.value$.pipe(
-    map(value => value.dayOfWeek)
+    map(value => value.dayOfWeek),
+    distinctUntilChanged()
   );
   public readonly minute$ = this.value$.pipe(
-    map(value => value.minute)
+    map(value => value.minute),
+    distinctUntilChanged(),
   );
   public readonly hour$ = this.value$.pipe(
-    map(value => value.hour)
+    map(value => value.hour),
+    distinctUntilChanged()
   );
   public readonly dayOfMonth$ = this.value$.pipe(
-    map(value => value.dayOfMonth)
+    map(value => value.dayOfMonth),
+    distinctUntilChanged()
   );
   public readonly month$ = this.value$.pipe(
-    map(value => value.month)
+    map(value => value.month),
+    distinctUntilChanged()
   );
   public readonly year$ = this.value$.pipe(
-    map(value => value.year)
+    map(value => value.year),
+    distinctUntilChanged()
   );
 
   public updateWith(ojb: Partial<PrizmCronValueObject>): void
@@ -45,15 +52,6 @@ export class PrizmCronService {
       ? value
       : prizmCronConvertToObject(value as string);
 
-    console.log('#mz updateWith', {
-      newValue: {
-        ...this.value$$.value,
-        ...obj,
-      },
-      obj,
-      value,
-      old: this.value$$.value
-    });
    this.value$$.next({
      ...this.value$$.value,
      ...obj,

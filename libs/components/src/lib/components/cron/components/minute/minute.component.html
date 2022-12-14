@@ -1,5 +1,5 @@
 <div class='blocks'>
-  <div class='every value-block block'
+  <label  class='every value-block block'
        *prizmLet='type.every as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -13,9 +13,9 @@
     <div class='content row'>
       Каждая минута
     </div>
-  </div>
+  </label>
 
-  <div class='block row'
+  <label  class='block row'
        *prizmLet='type.every as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -41,9 +41,9 @@
         (valueChange)='afterRepeatStart = $event; updateAfter()'
       ></prizm-cron-carousel>
     </div>
-  </div>
+  </label>
 
-  <div class='block'
+  <label  class='block'
        *prizmLet='type.specified as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -62,9 +62,9 @@
         (selectedChange)='selected = $event; updateSelected()'
       ></prizm-cron-schedule>
     </div>
-  </div>
+  </label>
 
-  <div class='block row'
+  <label  class='block row'
        *prizmLet='type.between as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -89,5 +89,5 @@
         (valueChange)='betweenEnd = $event; updateBetween()'
       ></prizm-cron-carousel>
     </div>
-  </div>
+  </label>
 </div>

@@ -1,5 +1,5 @@
 <div class='blocks'>
-  <div class='every value-block block'
+  <label  class='every value-block block'
        *prizmLet='type.every as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -13,9 +13,9 @@
     <div class='content row'>
       Каждый месяц
     </div>
-  </div>
+  </label>
 
-  <div class='block row'
+  <label  class='block row'
        *prizmLet='type.after as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -38,11 +38,15 @@
         [content]='periodAfter'
         [value]='afterRepeatStart'
         (valueChange)='afterRepeatStart = $event; updateAfter()'
-      ></prizm-cron-carousel>
+      >
+        <ng-template #content let-value="content">
+          {{value | prizmCronMonth}}
+        </ng-template>
+      </prizm-cron-carousel>
     </div>
-  </div>
+  </label>
 
-  <div class='block'
+  <label  class='block'
        *prizmLet='type.specified as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -61,9 +65,9 @@
         (selectedChange)='selected = $event; updateSelected()'
       ></prizm-cron-schedule>
     </div>
-  </div>
+  </label>
 
-  <div class='block row'
+  <label  class='block row'
        *prizmLet='type.between as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -80,13 +84,21 @@
         [content]='periodStart'
         [value]='betweenStart'
         (valueChange)='betweenStart = $event; updateBetween()'
-      ></prizm-cron-carousel>
+      >
+        <ng-template #content let-value="content">
+          {{value | prizmCronMonth }}
+        </ng-template>
+      </prizm-cron-carousel>
       <span>до</span>
       <prizm-cron-carousel
         [content]='periodEnd'
         [value]='betweenEnd'
         (valueChange)='betweenEnd = $event; updateBetween()'
-      ></prizm-cron-carousel>
+      >
+        <ng-template #content let-value="content">
+          {{value | prizmCronMonth}}
+        </ng-template>
+      </prizm-cron-carousel>
     </div>
-  </div>
+  </label>
 </div>

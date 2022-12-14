@@ -13,16 +13,11 @@
     [lightMode]="true"
     [ngSwitch]='!!template'
   >
-    <div>{{ content.currentValue }}</div>
-<!--    TODO #mz fix caroucel -->
-<!--    <ng-container-->
-<!--      [ngTemplateOutlet]='template'-->
-<!--      [ngTemplateOutletContext]='{$implicit: content.currentValue}'-->
-<!--    >-->
-<!--    </ng-container>-->
-<!--    <ng-container *ngSwitchDefault>-->
-<!--      {{ content.currentValue }}-->
-<!--    </ng-container>-->
+    <ng-container
+      *polymorphOutlet="template as value; context: {content: content.currentValue}"
+    >
+      <div>{{content.currentValue}}</div>
+    </ng-container>
   </prizm-carousel>
   <prizm-carousel-auxiliary-right prizm-input-right [carousel]="carousel"></prizm-carousel-auxiliary-right>
 </prizm-input-layout>

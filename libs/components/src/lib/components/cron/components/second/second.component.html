@@ -1,5 +1,5 @@
 <div class='blocks'>
-  <div class='every value-block block'
+  <label class='every value-block block'
        *prizmLet='type.every as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -13,9 +13,9 @@
     <div class='content row'>
       Каждая секунда
     </div>
-  </div>
+  </label>
 
-  <div class='block row'
+  <label  class='block row'
        *prizmLet='type.after as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -32,7 +32,11 @@
         [content]='periodRepeat'
         [value]='afterRepeatValue'
         (valueChange)='afterRepeatValue = $event; updateAfter()'
-      ></prizm-cron-carousel>
+      >
+        <ng-template #content let-value="content">
+          {{value}}
+        </ng-template>
+      </prizm-cron-carousel>
       <span>секунда, начиная с</span>
 
       <prizm-cron-carousel
@@ -41,9 +45,9 @@
         (valueChange)='afterRepeatStart = $event; updateAfter()'
       ></prizm-cron-carousel>
     </div>
-  </div>
+  </label>
 
-  <div class='block'
+  <label  class='block'
        *prizmLet='type.specified as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -58,13 +62,13 @@
       <span>Выбранная секунда (выбор одного или нескольких)</span>
       <prizm-cron-schedule
         [items]='items'
-        [selected]='selected'
-        (selectedChange)='selected = $event; updateSelected()'
+        [selected]='selected$ | async'
+        (selectedChange)='updateSelected($event)'
       ></prizm-cron-schedule>
     </div>
-  </div>
+  </label>
 
-  <div class='block row'
+  <label  class='block row'
        *prizmLet='type.between as currentType'
        [class.selected]='typeControl.value === currentType'>
     <div class='radio'>
@@ -78,16 +82,18 @@
     <div class='content'>
       <span>Каждая секунда с</span>
       <prizm-cron-carousel
+        #start
         [content]='periodStart'
-        [value]='betweenStart'
-        (valueChange)='betweenStart = $event; updateBetween()'
+        [value]='$any(between$ | async | prizmPluck : "1")'
+        (valueChange)='updateBetween($event, end.value)'
       ></prizm-cron-carousel>
       <span>до</span>
       <prizm-cron-carousel
+        #end
         [content]='periodEnd'
-        [value]='betweenEnd'
-        (valueChange)='betweenEnd = $event; updateBetween()'
+        [value]='$any(between$ | async | prizmPluck : "0")'
+        (valueChange)='updateBetween(start.value, $event)'
       ></prizm-cron-carousel>
     </div>
-  </div>
+  </label>
 </div>
