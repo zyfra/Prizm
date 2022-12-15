@@ -196,21 +196,24 @@ export const ROUTES = [
   },
   {
     path: 'components/old-icon',
-    loadChildren: async (): Promise<unknown> => (await import('./components/icons/old/icon.module')).IconModule,
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/icons/old/icon.module')).IconModule,
     data: {
       title: 'Old Icon',
     },
   },
   {
     path: 'components/icon',
-    loadChildren: async (): Promise<unknown> => (await import('./components/icons/svg/icon.module')).IconModule,
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/icons/svg/icon.module')).IconModule,
     data: {
       title: 'Icon',
     },
   },
   {
     path: 'components/flag-icons',
-    loadChildren: async (): Promise<unknown> => (await import('./components/icons/flags/flags.module')).FlagsModule,
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/icons/flags/flags.module')).FlagsModule,
     data: {
       title: 'Icon Flags',
     },
@@ -624,6 +627,14 @@ export const ROUTES = [
       (await import('./components/splitter/splitter-example.module')).PrizmSpliiterExampleModule,
     data: {
       title: 'Splitter',
+    },
+  },
+  {
+    path: 'components/slider',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/slider/slider.module')).PrizmSliderExampleModule,
+    data: {
+      title: 'Slider',
     },
   },
   { path: '**', redirectTo: 'about' },
