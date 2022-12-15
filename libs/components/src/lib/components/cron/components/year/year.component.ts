@@ -16,4 +16,16 @@ export class PrizmCronYearComponent{
     public readonly cronUiState: PrizmCronUiYearState
   ) {
   }
+
+  public join(str: string[]): string {
+    return str.join(', ');
+  }
+
+
+  public saveSpecified(str:string): void {
+    return this.cronUiState.updateSpecified(
+      str.replace(/[ ]+/g,'').split(',')
+    )
+  }
+
 }

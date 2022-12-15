@@ -60,7 +60,7 @@
       ></prizm-radio-button>
     </div>
     <div class='content column'>
-      <span>Выбранная час (выбор одного или нескольких)</span>
+      <span>Выбранный час (выбор одного или нескольких)</span>
       <prizm-cron-schedule
         [items]='cronUiState.list.specified'
         [selected]='cronUiState.state$ | async | prizmPluck : ["specified"]'

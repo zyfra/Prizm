@@ -1,18 +1,5 @@
-import { PrizmCarouselArrayContent } from '@prizm-ui/components';
+import { PrizmCarouselArrayContent } from '../input';
 
-export enum PrizmCronUiHourType {
-  every,
-  after,
-  specified,
-  between,
-}
-
-export enum PrizmCronUiSecondType {
-  every,
-  after,
-  specified,
-  between,
-}
 export enum PrizmCronUiBaseType {
   every,
   after,
@@ -20,26 +7,8 @@ export enum PrizmCronUiBaseType {
   between,
 }
 
-export enum PrizmCronUiMinuteType {
-  every,
-  after,
-  specified,
-  between,
-}
+export type PrizmCronTabItem = 'second' |'minute' |'hour' |'day' |'month' |'year';
 
-export enum PrizmCronUiYearType {
-  every,
-  after,
-  specified,
-  between,
-}
-
-export enum PrizmCronUiMonthType {
-  every,
-  after,
-  specified,
-  between,
-}
 
 export enum PrizmCronUiDayType {
   every,

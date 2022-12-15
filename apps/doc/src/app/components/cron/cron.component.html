@@ -16,92 +16,51 @@
       <prizm-cron-base-example></prizm-cron-base-example>
     </tui-doc-example>
 
+    <tui-doc-example
+      id="specified-tabs"
+      heading="Specified Tabs"
+      [content]="exampleSpecifiedTabs"
+    >
+      <prizm-cron-specified-tabs-example></prizm-cron-specified-tabs-example>
+    </tui-doc-example>
+
 
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
-<!--      <prizm-cron-->
-<!--        [showLoader]="showLoader"-->
-<!--        [singleColor]="singleColor"-->
-<!--        [iconOn]="iconOn"-->
-<!--        [size]="size"-->
-<!--        [iconOff]="iconOff"-->
-<!--        [disabled]="disabled"-->
-<!--        [(ngModel)]="value"-->
-<!--        [ngModelOptions]="{standalone: true}"-->
-<!--      ></prizm-cron>-->
+    <tui-doc-demo class='remove-sticky'>
+      <prizm-cron
+          [tabs]='tabs'
+          [value]='value'
+          [(selected)]='selected'>
+      </prizm-cron>
     </tui-doc-demo>
     <tui-doc-documentation>
       <ng-template
+        documentationPropertyName="tabs"
+        documentationPropertyType="PrizmCronTabItem"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="tabsVariants"
+        [(documentationPropertyValue)]="tabs"
+      >
+        Tabs
+      </ng-template>
+      <ng-template
+        documentationPropertyName="selected"
+        documentationPropertyType="PrizmCronTabItem"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="tabs"
+        [(documentationPropertyValue)]="selected"
+      >
+        Selected
+      </ng-template>
+      <ng-template
         documentationPropertyName="value"
-        documentationPropertyType="boolean"
+        documentationPropertyType="string"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="value"
       >
         Value
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="disabled"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
-      >
-        Disabled
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="showLoader"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="showLoader"
-      >
-        Show Loader
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="singleColor"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="singleColor"
-      >
-        Single Color
-      </ng-template>
-
-
-
-      <ng-template
-        documentationPropertyName="size"
-        documentationPropertyType="PrizmSizeL | PrizmSizeM"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="size"
-        [documentationPropertyValues]="sizeVariants"
-      >
-        Size
-      </ng-template>
-
-
-
-      <ng-template
-        documentationPropertyName="iconOn"
-        documentationPropertyType="PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>>"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="iconOn"
-        [documentationPropertyValues]="iconVariants"
-      >
-        Icon On
-      </ng-template>
-
-
-      <ng-template
-        documentationPropertyName="iconOff"
-        documentationPropertyType="PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>>"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="iconOff"
-        [documentationPropertyValues]="iconVariants"
-      >
-        Icon Off
       </ng-template>
 
     </tui-doc-documentation>

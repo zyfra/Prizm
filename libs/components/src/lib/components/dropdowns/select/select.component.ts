@@ -25,7 +25,7 @@ import { PrizmSelectIdentityMatcher, PrizmSelectSearchMatcher } from './select.m
 import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmDropdownHostComponent } from '../dropdown-host';
-import { PrizmOverlayOutsidePlacement } from '../../../modules';
+import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({

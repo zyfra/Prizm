@@ -1,14 +1,16 @@
 <div class="container">
-  <prizm-switcher-item
-    *ngFor="let switcher of switchers; let i = index"
-    [attr.first-child]="i === 0"
-    [attr.last-child]="i === switchers.length - 1"
-    [data]="switcher"
-    [isActive]="selectedSwitcherIdx === i"
-    [type]="type"
-    [size]="size"
-    [fullWidth]="fullWidth"
-    class="switcher-item"
-    (click)="selectSwitcher(i)"
-  ></prizm-switcher-item>
+  <ng-container *ngFor="let switcher of switchers; let i = index">
+    <prizm-switcher-item
+      *ngIf='!switcher.hide'
+      [attr.first-child]="i === 0"
+      [attr.last-child]="i === switchers.length - 1"
+      [data]="switcher"
+      [isActive]="selectedSwitcherIdx === i"
+      [type]="type"
+      [size]="size"
+      [fullWidth]="fullWidth"
+      class="switcher-item"
+      (click)="selectSwitcher(switcher, i)"
+    ></prizm-switcher-item>
+  </ng-container>
 </div>

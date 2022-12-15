@@ -60,7 +60,22 @@
       ></prizm-radio-button>
     </div>
     <div class='content column'>
-      <span>Выбранная год (выбор одного или нескольких)</span>
+      <span>Выбранный год (выбор одного или нескольких)</span>
+      <div>
+        <prizm-input-layout
+          size='m'
+          class='year-input'
+          [outer]='true'
+          [border]='false'
+          *prizmLet='cronUiState.state$ | async | prizmPluck : ["specified"] | prizmCallFunc : join as joinedStr'
+          [label]='null'
+          [forceClear]='false'>
+          <input prizmInput
+                 [ngModel]='joinedStr'
+                 (ngModelChange)='saveSpecified($event)'
+          />
+        </prizm-input-layout>
+      </div>
       <prizm-cron-schedule
         [items]='cronUiState.list.specified'
         [selected]='cronUiState.state$ | async | prizmPluck : ["specified"]'

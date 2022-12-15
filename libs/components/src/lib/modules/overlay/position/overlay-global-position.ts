@@ -1,6 +1,6 @@
-import {PrizmOverlayConfig, PrizmOverlayInsidePlacement} from '../models';
-import {setWidthHeight} from '../utils';
-import {PrizmOverlayAbstractPosition} from './position';
+import { PrizmOverlayInsidePlacement } from '../models';
+import { setWidthHeight } from '../utils';
+import { PrizmOverlayAbstractPosition } from './position';
 
 interface PrizmOverlayGlobalPositionConfig {
   placement?: PrizmOverlayInsidePlacement;

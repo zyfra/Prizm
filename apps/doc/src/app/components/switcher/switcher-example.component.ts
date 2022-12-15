@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { ISwitcher, SwitcherSize, SwitcherType } from '@prizm-ui/components';
+import { PrizmSwitcherItem, PrizmSwitcherSize, PrizmSwitcherType } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-switcher-example',
@@ -9,7 +9,7 @@ import { ISwitcher, SwitcherSize, SwitcherType } from '@prizm-ui/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwitcherExampleComponent {
-  public readonly switchers: ISwitcher[] = [
+  public readonly switchers: PrizmSwitcherItem[] = [
     {
       title: 'Таблицы',
       icon: 'editor-table',
@@ -23,10 +23,10 @@ export class SwitcherExampleComponent {
       icon: 'view-dashboard',
     },
   ];
-  public size: SwitcherSize = 'l';
-  public sizeVariants: SwitcherSize[] = ['l', 'm', 's'];
-  public type: SwitcherType = 'inner';
-  public typeVariants: SwitcherType[] = ['inner', 'outer'];
+  public size: PrizmSwitcherSize = 'l';
+  public sizeVariants: PrizmSwitcherSize[] = ['l', 'm', 's'];
+  public type: PrizmSwitcherType = 'inner';
+  public typeVariants: PrizmSwitcherType[] = ['inner', 'outer'];
   public selectedSwitcherIdx = 0;
   public fullWidth = false;
 
