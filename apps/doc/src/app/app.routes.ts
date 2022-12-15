@@ -6,11 +6,22 @@ import { GettingStartedComponent } from './documentation/getting-started/getting
 export const ROUTES = [
   // DOC
   {
-    path: 'about',
-    component: AboutComponent,
-    data: {
-      title: 'About',
-    },
+    path: 'about-prizm',
+    children: [
+      {
+        path: 'license',
+        component: AboutComponent,
+        data: {
+          title: 'Лицензия',
+        },
+      }
+    ]
+  },
+  // DOC
+  {
+    path: 'about-prizm',
+    component: GettingStartedComponent,
+
   },
   {
     path: 'getting-started',

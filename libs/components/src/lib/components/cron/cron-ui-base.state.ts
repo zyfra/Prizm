@@ -47,10 +47,10 @@ export abstract class PrizmCronUiBaseState<
     },
     private readonly specified = {
       value: ['0'],
-      list: getArrWithStringNumbers(60, 0, false).map(
+      list: getArrWithStringNumbers(60, 1, false).map(
         (i, idx) => ({
-          key: i,
-          value: idx + 1 + '',
+          key: idx.toString(),
+          value: idx.toString(),
         })
       )
     },

@@ -66,7 +66,6 @@
           size='m'
           class='year-input'
           [outer]='true'
-          [border]='false'
           *prizmLet='cronUiState.state$ | async | prizmPluck : ["specified"] | prizmCallFunc : join as joinedStr'
           [label]='null'
           [forceClear]='false'>

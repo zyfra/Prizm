@@ -30,7 +30,7 @@ export class PrizmCronUiHourState extends PrizmCronUiBaseState {
         list: getArrWithStringNumbers(24, 0, false).map(
           (i, idx) => ({
             key: i,
-            value: idx + 1 + '',
+            value: i,
           })
         )
       },

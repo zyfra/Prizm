@@ -6,6 +6,14 @@ export type TuiOrderedDocPage = ReadonlyArray<(TuiDocPage & OrderedPage) | (TuiD
 export const pages: TuiOrderedDocPage = [
   // Documentation
   {
+    section: `Все о Prizm`,
+    title: `Лицензия`,
+    keywords: 'лицензия, licence',
+    route: 'about-prizm/license',
+    order: 1,
+  },
+  // Documentation
+  {
     section: `Documentation`,
     title: `About`,
     keywords: 'about, intro, how to, guide, main, главная, начало, инструкция',
