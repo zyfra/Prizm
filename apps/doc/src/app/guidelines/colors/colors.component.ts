@@ -1,12 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'prizm-license',
-  templateUrl: './license.component.html',
-  styleUrls: ['./license.component.less'],
+  selector: 'prizm-colors',
+  templateUrl: './colors.component.html',
+  styleUrls: ['./colors.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LicenseComponent implements OnInit {
+export class ColorsComponent implements OnInit {
 
   constructor() { }
 

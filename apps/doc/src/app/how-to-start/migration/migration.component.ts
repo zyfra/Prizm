@@ -1,12 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'prizm-license',
-  templateUrl: './license.component.html',
-  styleUrls: ['./license.component.less'],
+  selector: 'prizm-migration',
+  templateUrl: './migration.component.html',
+  styleUrls: ['./migration.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LicenseComponent implements OnInit {
+export class MigrationComponent implements OnInit {
 
   constructor() { }
 
