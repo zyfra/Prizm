@@ -38,13 +38,14 @@
     <tui-doc-documentation>
       <ng-template
         documentationPropertyName="tabs"
-        documentationPropertyType="PrizmCronTabItem"
+        documentationPropertyType="PrizmCronTabItem[]"
         documentationPropertyMode="input"
         [documentationPropertyValues]="tabsVariants"
         [(documentationPropertyValue)]="tabs"
       >
         Tabs
       </ng-template>
+
       <ng-template
         documentationPropertyName="selected"
         documentationPropertyType="PrizmCronTabItem"
@@ -52,8 +53,9 @@
         [documentationPropertyValues]="tabs"
         [(documentationPropertyValue)]="selected"
       >
-        Selected
+        Selected Tab
       </ng-template>
+
       <ng-template
         documentationPropertyName="value"
         documentationPropertyType="string"
