@@ -409,6 +409,13 @@ export const pages: TuiOrderedDocPage = [
     keywords: 'splitter',
     route: '/components/splitter',
   },
+
+  {
+    section: `Components`,
+    title: 'Slider',
+    keywords: 'slider',
+    route: '/components/slider',
+  },
   // Tools
   {
     section: `Tools`,
@@ -509,3 +516,4 @@ export const pages: TuiOrderedDocPage = [
   //   subPages: [],
   // },
 ];
+
