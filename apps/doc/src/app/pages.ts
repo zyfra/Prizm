@@ -1,4 +1,3 @@
-import { TuiDocPages } from '@taiga-ui/addon-doc';
 import { TuiDocPage, TuiDocPageGroup } from '@taiga-ui/addon-doc/interfaces/page';
 
 type OrderedPage = { order?: number };
@@ -26,6 +25,20 @@ export const pages: TuiOrderedDocPage = [
     keywords: 'ченджлог, changelog',
     route: 'changelog',
     order: 3,
+  },
+  {
+    section: `Documentation`,
+    title: 'Contributing',
+    keywords: 'contributing',
+    route: 'contributing',
+    order: 4,
+  },
+  {
+    section: `Documentation`,
+    title: 'CodeStyle',
+    keywords: 'code, codestyle',
+    route: 'codestyle',
+    order: 4,
   },
   // Components
   {
@@ -251,7 +264,7 @@ export const pages: TuiOrderedDocPage = [
         keywords: 'иконка, icon',
         route: '/components/icon',
       },
-    ]
+    ],
   },
   {
     section: `Components`,
@@ -394,6 +407,12 @@ export const pages: TuiOrderedDocPage = [
     title: 'Splitter',
     keywords: 'splitter',
     route: '/components/splitter',
+  },
+  {
+    section: `Components`,
+    title: 'Slider',
+    keywords: 'slider',
+    route: '/components/slider',
   },
   {
     section: `Components`,
