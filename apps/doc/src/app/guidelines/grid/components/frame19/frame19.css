@@ -1,0 +1,485 @@
+:host { 
+    display: contents; 
+  }
+  .frame19-frame19 {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 56px;
+    position: relative;
+    align-self: stretch;
+    box-shadow: 0px 8px 32px 0px rgba(191, 198, 215, 0.5) ;
+    align-items: flex-start;
+    border-color: rgba(191, 198, 215, 1);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    flex-direction: column;
+    background-color: var(--dl-color-bg-body);
+  }
+  .frame19-text {
+    font-size: 26px;
+    font-weight: 800;
+    color: rgba(51, 125, 254, 1);
+    height: auto;
+    align-self: auto;
+    text-align: left;
+    line-height: 32px;
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+  .frame19-text02 {
+    color: var(--dl-color-text-main);
+    height: auto;
+    font-size: 18px;
+    align-self: stretch;
+    font-style: Regular;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 30px;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 40px;
+    text-decoration: none;
+  }
+  .frame19-frame23476769 {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    border-color: transparent;
+  }
+  .frame19-frame23476768 {
+    width: 154px;
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-right: 56px;
+    flex-direction: column;
+  }
+  .frame19-text04 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #50546B;
+    height: auto;
+    align-self: auto;
+    text-align: left;
+    line-height: 32px;
+    margin-right: 0;
+    margin-bottom: 24px;
+  }
+  .frame19-text06 {
+    color: var(--dl-color-text-subscript);
+    height: auto;
+    font-size: 18px;
+    align-self: auto;
+    font-style: Regular;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .frame19-frame23476767 {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    border-color: transparent;
+    margin-right: 56px;
+    flex-direction: column;
+  }
+  .frame19-text08 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #50546B;
+    height: auto;
+    align-self: auto;
+    text-align: left;
+    line-height: 32px;
+    margin-right: 0;
+    margin-bottom: 24px;
+  }
+  .frame19-frame23476692 {
+    width: 154px;
+    height: 154px;
+    background-image: url("./../../../../../assets/images/window/guidelines/grid/Shadow_1.png");
+    background-size: cover;
+    display: flex;
+    padding: 2px;
+    position: relative;
+    box-shadow: 5px 15px 15px 0px rgba(0, 0, 0, 0.12999999523162842) ;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: rgba(218, 218, 218, 1);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 4px;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .frame19-frame23578 {
+    display: flex;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 0px;
+    background-color: var(--dl-color-index-lock);
+  }
+  .frame19-frame23584 {
+    width: 142px;
+    height: 7.999993801116943px;
+    display: flex;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    background-color: var(--dl-color-index-lock);
+  }
+  .frame19-frame23476766 {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    border-color: transparent;
+    margin-right: 56px;
+    flex-direction: column;
+  }
+  .frame19-frame22654 {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    border-color: transparent;
+    margin-bottom: 24px;
+  }
+  .frame19-text10 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #50546B;
+    height: auto;
+    align-self: auto;
+    text-align: left;
+    line-height: 32px;
+    margin-right: 6px;
+    margin-bottom: 0;
+  }
+  .frame19-frame23476703 {
+    display: flex;
+    padding-top: 4px;
+    position: relative;
+    align-items: flex-start;
+    border-color: transparent;
+    border-radius: 4px;
+    background-color: var(--dl-color-index-good);
+  }
+  .frame19-text12 {
+    background-color: #49AB4D;
+    padding: 4px;
+    border-radius: 4px;
+    margin-top: 4px;
+    color: var(--dl-color-bg-body);
+    height: auto;
+    align-self: auto;
+    text-align: left;
+    line-height: 16px;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+
+  .frame19-text12 span{
+    color: #fff;
+  }
+  .frame19-frame23476694 {
+    width: 154px;
+    height: 154px;
+    background-image: url("./../../../../../assets/images/window/guidelines/grid/Shadow_2.png");
+    background-size: cover;
+    display: flex;
+    padding: 2px;
+    position: relative;
+    box-shadow: 5px 15px 15px 0px rgba(0, 0, 0, 0.12999999523162842) ;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: rgba(218, 218, 218, 1);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 4px;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .frame19-frame23579 {
+    display: flex;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 0px;
+    background-color: var(--dl-color-index-lock);
+  }
+  .frame19-frame23585 {
+    width: 134px;
+    height: 15.999988555908203px;
+    display: flex;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    background-color: var(--dl-color-index-lock);
+  }
+  .frame19-frame23476765 {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    border-color: transparent;
+    margin-right: 56px;
+    flex-direction: column;
+  }
+  .frame19-text14 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #50546B;
+    height: auto;
+    align-self: auto;
+    text-align: left;
+    line-height: 32px;
+    margin-right: 0;
+    margin-bottom: 24px;
+  }
+  .frame19-frame23476696 {
+    width: 154px;
+    height: 154px;
+    background-image: url("./../../../../../assets/images/window/guidelines/grid/Shadow_3.png");
+    background-size: cover;
+    display: flex;
+    padding: 2px;
+    position: relative;
+    box-shadow: 5px 15px 15px 0px rgba(0, 0, 0, 0.12999999523162842) ;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: rgba(218, 218, 218, 1);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 4px;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .frame19-frame23580 {
+    display: flex;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 0px;
+    background-color: var(--dl-color-index-lock);
+  }
+  .frame19-frame23586 {
+    height: 24px;
+    display: flex;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    flex-grow: 1;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    background-color: var(--dl-color-index-lock);
+  }
+  .frame19-frame23476762 {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    border-color: transparent;
+    margin-right: 56px;
+    flex-direction: column;
+  }
+  .frame19-text16 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #50546B;
+    height: auto;
+    align-self: auto;
+    text-align: left;
+    line-height: 32px;
+    margin-right: 0;
+    margin-bottom: 24px;
+  }
+  .frame19-frame23476698 {
+    width: 154px;
+    height: 154px;
+    background-image: url("./../../../../../assets/images/window/guidelines/grid/Shadow_4.png");
+    background-size: cover;
+    display: flex;
+    padding: 2px;
+    position: relative;
+    box-shadow: 5px 15px 15px 0px rgba(0, 0, 0, 0.12999999523162842) ;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: rgba(218, 218, 218, 1);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 4px;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .frame19-frame23581 {
+    display: flex;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 0px;
+    background-color: var(--dl-color-index-lock);
+  }
+  .frame19-frame23587 {
+    height: 32px;
+    display: flex;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    flex-grow: 1;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    background-color: var(--dl-color-index-lock);
+  }
+  .frame19-frame23476763 {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    border-color: transparent;
+    margin-right: 56px;
+    flex-direction: column;
+  }
+  .frame19-text18 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #50546B;
+    height: auto;
+    align-self: auto;
+    text-align: left;
+    line-height: 32px;
+    margin-right: 0;
+    margin-bottom: 24px;
+  }
+  .frame19-frame23476700 {
+    width: 154px;
+    height: 154px;
+    background-image: url("./../../../../../assets/images/window/guidelines/grid/Shadow_5.png");
+    background-size: cover;
+    display: flex;
+    padding: 2px;
+    position: relative;
+    box-shadow: 5px 15px 15px 0px rgba(0, 0, 0, 0.12999999523162842) ;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: rgba(218, 218, 218, 1);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 4px;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .frame19-frame23582 {
+    display: flex;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 0px;
+    background-color: var(--dl-color-index-lock);
+  }
+  .frame19-frame23588 {
+    height: 40px;
+    display: flex;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    flex-grow: 1;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    background-color: var(--dl-color-index-lock);
+  }
+  .frame19-frame23476764 {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    border-color: transparent;
+    flex-direction: column;
+  }
+  .frame19-text20 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #50546B;
+    height: auto;
+    align-self: auto;
+    text-align: left;
+    line-height: 32px;
+    margin-right: 0;
+    margin-bottom: 24px;
+  }
+  .frame19-frame23476702 {
+    width: 154px;
+    height: 154px;
+    background-image: url("./../../../../../assets/images/window/guidelines/grid/Shadow_6.png");
+    background-size: cover;
+    display: flex;
+    padding: 2px;
+    position: relative;
+    box-shadow: 5px 15px 15px 0px rgba(0, 0, 0, 0.12999999523162842) ;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: rgba(218, 218, 218, 1);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 4px;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .frame19-frame23583 {
+    display: flex;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 0px;
+    background-color: var(--dl-color-index-lock);
+  }
+  .frame19-frame23589 {
+    height: 48px;
+    display: flex;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    flex-grow: 1;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    background-color: var(--dl-color-index-lock);
+  }

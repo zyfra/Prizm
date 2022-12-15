@@ -4,13 +4,71 @@ type OrderedPage = { order?: number };
 export type TuiOrderedDocPage = ReadonlyArray<(TuiDocPage & OrderedPage) | (TuiDocPageGroup & OrderedPage)>;
 
 export const pages: TuiOrderedDocPage = [
-  // Documentation
+  //Window
   {
-    section: `Все о Prizm`,
-    title: `Лицензия`,
+    section: `All about Prizm`,
+    title: `About Design System`,
+    keywords: 'дизайн-система, дизайн, система, design system, design, system',
+    route: 'about-prizm/design-system',
+    order: 1,
+  },
+  {
+    section: `All about Prizm`,
+    title: `Licence`,
     keywords: 'лицензия, licence',
     route: 'about-prizm/license',
-    order: 1,
+    order: 2,
+  },
+  {
+    section: `All about Prizm`,
+    title: `Updates`,
+    keywords: 'обновления, updates',
+    route: 'about-prizm/updates',
+    order: 3,
+  },
+  //Guidelines
+  {
+    section: `Guidelines`,
+    title: `Typography`,
+    keywords: 'типографика, typography',
+    route: 'guidelines/typography',
+    order: 4,
+  },
+  {
+    section: `Guidelines`,
+    title: `Colors`,
+    keywords: 'цвета, colors',
+    route: 'guidelines/colors',
+    order: 5,
+  },
+  {
+    section: `Guidelines`,
+    title: `Grid`,
+    keywords: 'сетка, grid',
+    route: 'guidelines/grid',
+    order: 6,
+  },
+  //How to start
+  {
+    section: `How to start`,
+    title: `For Designers`,
+    keywords: 'дизайнеры, designers',
+    route: 'how-to-start/for-designers',
+    order: 7,
+  },
+  {
+    section: `How to start`,
+    title: `For Developers`,
+    keywords: 'разработчики, developers',
+    route: 'how-to-start/for-developers',
+    order: 8,
+  },
+  {
+    section: `How to start`,
+    title: `Migration`,
+    keywords: 'Миграция, migration',
+    route: 'how-to-start/migration',
+    order: 9,
   },
   // Documentation
   {
@@ -18,35 +76,35 @@ export const pages: TuiOrderedDocPage = [
     title: `About`,
     keywords: 'about, intro, how to, guide, main, главная, начало, инструкция',
     route: 'about',
-    order: 1,
+    order: 10,
   },
   {
     section: `Documentation`,
     title: `Getting started`,
     keywords: 'intro, how to, guide, main, главная, начало, инструкция',
     route: 'getting-started',
-    order: 2,
+    order: 11,
   },
   {
     section: `Documentation`,
     title: 'Changelog',
     keywords: 'ченджлог, changelog',
     route: 'changelog',
-    order: 3,
+    order: 12,
   },
   {
     section: `Documentation`,
     title: 'Contributing',
     keywords: 'contributing',
     route: 'contributing',
-    order: 4,
+    order: 13,
   },
   {
     section: `Documentation`,
     title: 'CodeStyle',
     keywords: 'code, codestyle',
     route: 'codestyle',
-    order: 4,
+    order: 14,
   },
   // Components
   {

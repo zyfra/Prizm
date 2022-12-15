@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LicenseComponent } from './license.component';
+import { ColorsComponent } from './colors.component';
 
-describe('LicenseComponent', () => {
-  let component: LicenseComponent;
-  let fixture: ComponentFixture<LicenseComponent>;
+describe('ColorsComponent', () => {
+  let component: ColorsComponent;
+  let fixture: ComponentFixture<ColorsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LicenseComponent ]
+      declarations: [ ColorsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LicenseComponent);
+    fixture = TestBed.createComponent(ColorsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
