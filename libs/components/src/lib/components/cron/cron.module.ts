@@ -16,7 +16,7 @@ import { PrizmCronCarouselComponent } from './components/carousel/carousel.compo
 import { PrizmCronMinuteComponent } from './components/minute/minute.component';
 import { PrizmCronSecondComponent } from './components/second/second.component';
 import { PrizmCallFuncModule, PrizmLetModule, PrizmPluckPipeModule } from '@prizm-ui/helpers';
-import { PolymorphModule } from '../../directives';
+import { PolymorphModule, PrizmHintModule } from '../../directives';
 import { PrizmCronMonthPipe } from './pipes/cron-month.pipe';
 import { PrizmCronWeekPipe } from './pipes/cron-week.pipe';
 import { PrizmScrollbarModule } from '../scrollbar';
@@ -51,6 +51,7 @@ import { PrizmScrollbarModule } from '../scrollbar';
     PrizmInputDateTimeModule,
     PrizmLetModule,
     PrizmScrollbarModule,
+    PrizmHintModule,
   ],
   exports: [PrizmCronComponent],
 })

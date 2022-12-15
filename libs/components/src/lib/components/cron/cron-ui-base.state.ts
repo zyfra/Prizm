@@ -151,10 +151,6 @@ export abstract class PrizmCronUiBaseState<
   ): void {
     start = start ?? this.state$.value.between.start;
     end = end ?? this.state$.value.between.end;
-    console.log('#mz updateBetween', {
-      start,
-      end
-    });
     this.updateMainIfChanged( `${start}-${end}`);
   }
 

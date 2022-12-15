@@ -3,18 +3,43 @@
     <span class='prizm-font-title-h4'>
       Cron
     </span>
-    <button
-      size='xm'
-      (click)='submit()'
-      prizmButton>
-      Применить
-    </button>
+    <div class='submit-block'>
+      <prizm-input-layout
+        size='m'
+        [border]='false'
+        *prizmLet='valueAsString$ | async as valueStr'
+        [label]='null'
+        [outer]='true'
+        [forceClear]='false'>
+
+        <input prizmInput
+               #elem
+               prizmHintDirection='b'
+               [prizmHint]='valueStr'
+               [prizmHintCanShow]='prizmIsTextOverflow(elem.elementRef.nativeElement)'
+               [ngModel]='valueStr'/>
+
+        <ng-container prizm-input-right>
+          <button
+            class='copy-icon'
+            (click)='copy()'
+            [interactive]="true"
+            prizmInputIconButton="editor-copy">
+          </button>
+        </ng-container>
+      </prizm-input-layout>
+      <button
+        prizmButton
+        size='m'
+        (click)='submit()'>Применить</button>
+    </div>
   </div>
 
   <div class='inner-block border-bottom'>
     <prizm-switcher
       [fullWidth]='true'
-      [(selectedSwitcherIdx)]='selectedSwitcherIdx'
+      [selectedSwitcherIdx]='selectedSwitcherIdx'
+      (selectedSwitcherIdxChange)='indexChanged($event)'
       [switchers]="switchers">
     </prizm-switcher>
   </div>
@@ -29,6 +54,7 @@
 
       <prizm-input-date-time
         label='Конец работы'
+        [disabled]='indefinitely'
         [formControl]='endDateControl'>
       </prizm-input-date-time>
     </div>
@@ -36,8 +62,7 @@
       <div class='indefinitely-toggle'>
         <prizm-toggle
           size="m"
-          [(ngModel)]="indefinitely"
-          [ngModelOptions]="{standalone: true}">
+          [formControl]="indefinitelyControl">
         </prizm-toggle>
         Бессрочно
       </div>
@@ -46,7 +71,6 @@
 
   <div class='sub-pages' [ngSwitch]='selectedSwitcherIdx'>
     <prizm-scrollbar>
-      <!-- TODO #mz to structual directive -->
       <prizm-cron-second *ngSwitchCase='0'></prizm-cron-second>
       <prizm-cron-minute *ngSwitchCase='1'></prizm-cron-minute>
       <prizm-cron-hour *ngSwitchCase='2'></prizm-cron-hour>

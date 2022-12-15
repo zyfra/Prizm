@@ -48,7 +48,7 @@ export class PrizmCronUiYearState extends PrizmCronUiBaseState {
           ),
         },
         value: {
-          on: '2',
+          on: '1',
           after: new Date().getFullYear().toString()
         }
       }

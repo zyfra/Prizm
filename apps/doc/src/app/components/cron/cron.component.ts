@@ -1,6 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { PolymorphContent, PrizmContextWithImplicit, PrizmSizeL, PrizmSizeM } from '@prizm-ui/components';
+import {
+  PolymorphContent,
+  PrizmContextWithImplicit,
+  PrizmCronTabItem,
+  PrizmSizeL,
+  PrizmSizeM,
+} from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-cron-example',
@@ -9,27 +15,44 @@ import { PolymorphContent, PrizmContextWithImplicit, PrizmSizeL, PrizmSizeM } fr
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CronComponent {
-  value = true;
-  disabled = false;
-  showLoader = false;
 
-  singleColor = false;
-
-  readonly sizeVariants: ReadonlyArray<PrizmSizeL | PrizmSizeM> = [
-    'm',
-    'l'
+  public selected: PrizmCronTabItem = 'month';
+  tabs: PrizmCronTabItem[] = [
+    'hour',
+    'day',
+    'month',
+    'year',
+  ]
+  readonly allTabs: PrizmCronTabItem[] = [
+    'second',
+    'minute',
+    'hour',
+    'day',
+    'month',
+    'year',
   ];
-  size: PrizmSizeL | PrizmSizeM = this.sizeVariants[0];
-
-  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>>> = [
-    '',
-    'selection-checkbox-marked-circle',
-    'selection-checkbox-marked-circle-chanel',
-    'arrows-chevron-left',
-    'arrows-chevron-right'
+  public value: string;
+  readonly tabsVariants: ReadonlyArray<PrizmCronTabItem[]> = [
+    [
+      'second',
+      'minute',
+      'hour',
+      'day',
+      'month',
+      'year',
+    ],
+    [
+      'hour',
+      'day',
+      'month',
+      'year',
+    ],
+    [
+      'day',
+      'month',
+      'year',
+    ]
   ];
-  iconOn: PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>> = this.iconVariants[0];
-  iconOff: PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>> = this.iconVariants[0];
   readonly setupModule: RawLoaderContent = import(
     '!!raw-loader!./examples/setup-module.md'
   );
@@ -37,5 +60,10 @@ export class CronComponent {
   readonly exampleBase: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/cron-base-example.component.ts'),
     HTML: import('!!raw-loader!./examples/base/cron-base-example.component.html'),
+  };
+
+  readonly exampleSpecifiedTabs: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/specified-tabs/cron-specified-tabs-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/specified-tabs/cron-specified-tabs-example.component.html'),
   };
 }

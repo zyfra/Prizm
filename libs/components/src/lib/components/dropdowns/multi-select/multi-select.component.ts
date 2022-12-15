@@ -30,7 +30,7 @@ import {
   PrizmMultiSelectItemWithChecked,
   PrizmMultiSelectSearchMatcher,
 } from './multi-select.model';
-import { PrizmOverlayOutsidePlacement } from '../../../modules';
+import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({

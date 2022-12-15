@@ -1,10 +1,6 @@
-import { InjectionToken, StaticProvider, TemplateRef, ValueProvider } from '@angular/core';
+import { InjectionToken, ValueProvider } from '@angular/core';
 import { PrizmSize } from '../../util/size-bigger';
 import { PrizmAppearance, PrizmAppearanceType } from '../../types/appearance.types';
-import { PrizmCronUiTypeDetectorToken } from './token';
-import { PrizmCronService } from '../../services';
-import { map } from 'rxjs/operators';
-import { PrizmCronUiHourType } from './model';
 
 
 export interface PrizmCronOptions {

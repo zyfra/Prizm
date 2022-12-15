@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
-import { ISwitcher, SwitcherSize, SwitcherType } from './switcher.interface';
+import { PrizmSwitcherItem, PrizmSwitcherSize, PrizmSwitcherType } from './switcher.interface';
 import { prizmDefaultProp } from '@prizm-ui/core';
 
 @Component({
@@ -11,15 +11,15 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 export class SwitcherComponent {
   @Input()
   @prizmDefaultProp()
-  public size: SwitcherSize = 'l';
+  public size: PrizmSwitcherSize = 'l';
 
   @Input()
   @prizmDefaultProp()
-  public type: SwitcherType = 'inner';
+  public type: PrizmSwitcherType = 'inner';
 
   @Input()
   @prizmDefaultProp()
-  public switchers: ISwitcher[] = [];
+  public switchers: PrizmSwitcherItem[] = [];
 
   @Input()
   @prizmDefaultProp()
@@ -35,10 +35,7 @@ export class SwitcherComponent {
   @HostBinding('attr.testId')
   readonly testId = 'prizm_switcher';
 
-  public selectSwitcher(idx: number): void {
-    if (this.selectedSwitcherIdx !== idx) {
-      this.selectedSwitcherIdxChange.emit(idx);
-      this.selectedSwitcherIdx = idx;
-    }
+  public selectSwitcher(item: PrizmSwitcherItem, idx: number): void {
+      this.selectedSwitcherIdxChange.emit(this.selectedSwitcherIdx = idx);
   }
 }

@@ -1,5 +1,5 @@
-import {InjectionToken, ValueProvider} from '@angular/core';
-import {PrizmOverlayOutsidePlacement} from "../../modules/overlay/models";
+import { InjectionToken, ValueProvider } from '@angular/core';
+import { PrizmOverlayOutsidePlacement } from '../../modules/overlay/models';
 
 export type PrizmTooltipMode = 'error' | 'dark' | 'light' | null
 export interface PrizmTooltipOptions {
