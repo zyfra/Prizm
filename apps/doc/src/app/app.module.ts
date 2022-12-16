@@ -16,7 +16,12 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './documentation/about/about.component';
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
+import { DesignSystemComponent } from './about-prizm/design-system/design-system.component';
+import { ForDesignersComponent } from './how-to-start/for-designers/for-designers.component';
+import { ForDevelopersComponent } from './how-to-start/for-developers/for-developers.component';
+import { MigrationComponent } from './how-to-start/migration/migration.component';
 import { PrizmThemeService, PrizmToggleModule } from '@prizm-ui/components';
+
 
 registerLocaleData(
   localeRu
@@ -52,6 +57,10 @@ registerLocaleData(
     AppComponent,
     GettingStartedComponent,
     AboutComponent,
+    DesignSystemComponent,
+    ForDesignersComponent,
+    ForDevelopersComponent,
+    MigrationComponent,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "ru-RU" },

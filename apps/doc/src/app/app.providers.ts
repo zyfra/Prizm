@@ -8,8 +8,8 @@ import {
   PRIZM_DOC_PAGES,
   PRIZM_DOC_SOURCE_CODE,
   PRIZM_DOC_TITLE,
-  TuiDocPage,
-  TuiDocPageGroup,
+  PrizmDocPage,
+  PrizmDocPageGroup,
   TuiDocPages,
   PrizmDocSourceCodePathOptions,
 } from '@prizm/taiga-ui/addon-doc';
@@ -23,7 +23,7 @@ import { TUI_ANIMATIONS_DURATION, TUI_SANITIZER } from '@taiga-ui/core';
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { Observable, of } from 'rxjs';
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
-import { pages, TuiOrderedDocPage } from './pages';
+import { pages, PrizmOrderedDocPage } from './pages';
 import { LOGO_CONTENT } from './logo/logo.component';
 
 export const DEFAULT_TABS = [`Examples`, `Live demo`, `Setup`, `How to use`];
@@ -108,15 +108,15 @@ export const APP_PROVIDERS = [
   },
 ];
 
-function sortDocPages(pages: TuiOrderedDocPage): (TuiDocPage | TuiDocPageGroup)[] {
+function sortDocPages(pages: PrizmOrderedDocPage): (PrizmDocPage | PrizmDocPageGroup)[] {
   return [...pages]
     .sort((a, b) => {
       return a.order && b.order ? a.order - b.order : a.title.localeCompare(b.title);
     })
-    .map((page: TuiDocPage | TuiDocPageGroup) => {
+    .map((page: PrizmDocPage | PrizmDocPageGroup) => {
       return {
         ...page,
         ...('subPages' in page ? { subPages: sortDocPages(page.subPages) } : {}),
-      } as TuiDocPage | TuiDocPageGroup;
+      } as PrizmDocPage | PrizmDocPageGroup;
     });
 }

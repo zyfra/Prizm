@@ -1,0 +1,84 @@
+:host { 
+    display: contents; 
+  }
+  .license-license {
+    width: 100%;
+    height: 1270px;
+    display: flex;
+    position: relative;
+    align-self: stretch;
+    box-shadow: 0px 8px 32px 0px rgba(191, 198, 215, 0.5) ;
+    align-items: flex-start;
+    border-color: rgba(191, 198, 215, 1);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    background-color: var(--dl-color-bg-body);
+  }
+  .license-text {
+    top: 56px;
+    left: 56px;
+    font-size: 20px;
+    font-weight: 600;
+    color:#20222B;
+    height: auto;
+    position: absolute;
+    align-self: auto;
+    text-align: center;
+    line-height: 24px;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .license-text02 {
+    top: 100px;
+    left: 56px;
+    color: var(--dl-color-text-main);
+    width: 1056px;
+    height: auto;
+    position: absolute;
+    font-size: 18px;
+    align-self: stretch;
+    font-style: Regular;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 30px;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .license-text17 {
+    top: 600px;
+    left: 56px;
+    font-size: 20px;
+    font-weight: 600;
+    color:#20222B;
+    height: auto;
+    position: absolute;
+    align-self: auto;
+    text-align: center;
+    line-height: 24px;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .license-text19 {
+    top: 644px;
+    left: 56px;
+    color: var(--dl-color-text-main);
+    width: 1056px;
+    height: auto;
+    position: absolute;
+    font-size: 18px;
+    align-self: stretch;
+    font-style: Regular;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 30px;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  

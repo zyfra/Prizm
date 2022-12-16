@@ -1,3 +1,3 @@
-import {TuiDocPage, TuiDocPageGroup} from '../interfaces/page';
+import {PrizmDocPage, PrizmDocPageGroup} from '../interfaces/page';
 
-export type TuiDocPages = ReadonlyArray<TuiDocPage | TuiDocPageGroup>;
+export type TuiDocPages = ReadonlyArray<PrizmDocPage | PrizmDocPageGroup>;

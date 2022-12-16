@@ -34,7 +34,9 @@
 >
   <ng-container *ngIf="files | prizmDocExampleGetTabs: defaultTab as tabs">
     <div class='tabs' *ngIf="files | prizmDocExampleGetTabs: defaultTab as tabs">
-      <prizm-switcher [switchers]="tabs | tuiMapper : tabsMap"></prizm-switcher>
+      <prizm-switcher
+        [(selectedSwitcherIdx)]='activeItemIndex'
+        [switchers]="tabs | tuiMapper : tabsMap"></prizm-switcher>
     </div>
     <div class='t-example'>
 

@@ -1,18 +1,122 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AboutComponent } from './documentation/about/about.component';
+import { DesignSystemComponent } from './about-prizm/design-system/design-system.component';
 import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
+import { ForDesignersComponent } from './how-to-start/for-designers/for-designers.component';
+import { ForDevelopersComponent } from './how-to-start/for-developers/for-developers.component';
+import { MigrationComponent } from './how-to-start/migration/migration.component';
+import { ChangelogComponent } from './about-prizm/changelog/changelog.component';
+
 
 export const ROUTES = [
-  // DOC
+  //About-Prizm
+  {
+    path: 'about-prizm',
+    children: [
+      {
+        path: 'design-system',
+        component: DesignSystemComponent,
+        data: {
+          title: 'About Design System',
+        },
+      }
+    ]
+  },
   {
     path: 'about-prizm',
     children: [
       {
         path: 'license',
-        component: AboutComponent,
+        loadChildren: () => import('./about-prizm/license/license.module').then(m => m.LicenseModule),
         data: {
-          title: 'Лицензия',
+          title: 'License',
+        },
+      }
+    ]
+  },
+  {
+    path: 'about-prizm',
+    children: [
+      {
+        path: 'changelog',
+        loadChildren: async (): Promise<unknown> =>
+          (await import('./about-prizm/changelog/changelog.module')).ChangelogModule,
+        data: {
+          title: 'Changelog',
+        },
+      }
+    ]
+  },
+  //Guidelines
+  {
+    path: 'guidelines',
+    children: [
+      {
+        path: 'typography',
+        loadChildren: () => import('./guidelines/typography/typography.module').then(m => m.TypographyModule),
+        data: {
+          title: 'Typography',
+        },
+      }
+    ]
+  },
+  {
+    path: 'guidelines',
+    children: [
+      {
+        path: 'colors',
+        loadChildren: () => import('./guidelines/colors/colors.module').then(m => m.ColorsModule),
+        data: {
+          title: 'Colors',
+        },
+      }
+    ]
+  },
+  {
+    path: 'guidelines',
+    children: [
+      {
+        path: 'grid',
+        loadChildren: () => import('./guidelines/grid/grid.module').then(m => m.GridModule),
+        data: {
+          title: 'Grid',
+        },
+      }
+    ]
+  },
+  //How to start
+  {
+    path: 'how-to-start',
+    children: [
+      {
+        path: 'for-developers',
+        component: GettingStartedComponent,
+        data: {
+          title: 'For developers',
+        },
+      },
+    ]
+  },
+  {
+    path: 'how-to-start',
+    children: [
+      {
+        path: 'for-developers',
+        component: ForDevelopersComponent,
+        data: {
+          title: 'For-developers',
+        },
+      }
+    ]
+  },
+  {
+    path: 'how-to-start',
+    children: [
+      {
+        path: 'migration',
+        component: MigrationComponent,
+        data: {
+          title: 'Migration',
         },
       }
     ]
@@ -24,26 +128,11 @@ export const ROUTES = [
 
   },
   {
-    path: 'getting-started',
-    component: GettingStartedComponent,
-    data: {
-      title: 'Getting started',
-    },
-  },
-  {
     path: 'generate-example',
     loadChildren: async (): Promise<unknown> =>
       (await import('./documentation/generate-example/generate-example.module')).GenerateExampleModule,
     data: {
       title: 'Generate example',
-    },
-  },
-  {
-    path: 'changelog',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./documentation/changelog/changelog.module')).ChangelogModule,
-    data: {
-      title: 'Changelog',
     },
   },
   {
