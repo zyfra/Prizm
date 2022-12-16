@@ -12,7 +12,7 @@ import {
   PrizmDocPageGroup,
   TuiDocPages,
   PrizmDocSourceCodePathOptions,
-} from '@prizm/taiga-ui/addon-doc';
+} from '@prizm/doc-base';
 import {
   tuiIsInsideIframe,
   TUI_DIALOG_CLOSES_ON_BACK,

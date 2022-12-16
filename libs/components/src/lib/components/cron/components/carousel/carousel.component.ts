@@ -7,7 +7,8 @@ import {
   Output,
   TemplateRef,
 } from '@angular/core';
-import { PolymorphContent, PrizmCarouselContent } from '@prizm-ui/components';
+import { PolymorphContent } from '../../../../directives/polymorph';
+import { PrizmCarouselContent } from '../../../input/carousel';
 
 @Component({
   selector: 'prizm-cron-carousel',

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { GenerateExampleComponent } from './generate-example.component';
 
@@ -10,9 +10,7 @@ import { GenerateExampleComponent } from './generate-example.component';
     PrizmAddonDocModule,
     RouterModule.forChild(prizmDocGenerateRoutes(GenerateExampleComponent)),
   ],
-  declarations: [
-    GenerateExampleComponent
-  ],
+  declarations: [GenerateExampleComponent],
   exports: [GenerateExampleComponent],
 })
 export class GenerateExampleModule {}

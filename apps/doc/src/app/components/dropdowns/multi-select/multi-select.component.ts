@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import {
   PolymorphContent,
-  PrizmContextWithImplicit, PrizmInputSize,
+  PrizmContextWithImplicit,
+  PrizmInputSize,
   PrizmScrollbarVisibility,
 } from '@prizm-ui/components';
 import { FormControl } from '@angular/forms';
@@ -12,7 +13,7 @@ import { prizmPure } from '@prizm-ui/core';
   selector: 'prizm-multi-select-example',
   templateUrl: './multi-select.component.html',
   styleUrls: ['./multi-select.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MultiSelectComponent {
   readonly control = new FormControl();
@@ -21,17 +22,11 @@ export class MultiSelectComponent {
   label = 'Выберите участника';
   emptyContent = 'Ничего не найдено';
   isChipsDeletable = true;
-  forceClearVariants: ReadonlyArray<boolean | null> = [
-    null,
-    false,
-    true
-  ];
+  forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
   forceClear = this.forceClearVariants[0];
   get sizeVariants(): ReadonlyArray<PrizmInputSize> {
-    return this.outer
-      ? ['s', 'm', 'l']
-      : ['m', 'l'];
-  };
+    return this.outer ? ['s', 'm', 'l'] : ['m', 'l'];
+  }
   size = this.sizeVariants[0];
   minDropdownHeight = 0;
   dropdownWidth = '100%';
@@ -39,11 +34,7 @@ export class MultiSelectComponent {
   placeholder = '';
   visibility: PrizmScrollbarVisibility = 'auto';
   readonly itemsVariants: ReadonlyArray<string[] | null> = [
-    [
-      'One',
-      'Two',
-      'Three',
-    ],
+    ['One', 'Two', 'Three'],
     [
       'Андрей Сафанов',
       'Сергей Марков',
@@ -56,25 +47,20 @@ export class MultiSelectComponent {
       'Филип Уваров',
     ],
     [],
-    null
+    null,
   ];
   readonly valueControl = new FormControl();
   public items = this.itemsVariants[1];
 
-
   set disabled(state: boolean) {
-    if (state)
-      this.control.disable();
-    else
-      this.control.enable()
+    if (state) this.control.disable();
+    else this.control.enable();
   }
   get disabled(): boolean {
     return this.control.disabled;
   }
 
-  readonly setupModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/setup-module.md'
-    );
+  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   readonly exampleBase: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/multi-select-base-example.component.ts'),
@@ -82,7 +68,9 @@ export class MultiSelectComponent {
   };
 
   readonly exampleWithTemplate: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-template/multi-select-with-template-example.component.ts'),
+    TypeScript: import(
+      '!!raw-loader!./examples/with-template/multi-select-with-template-example.component.ts'
+    ),
     HTML: import('!!raw-loader!./examples/with-template/multi-select-with-template-example.component.html'),
   };
 
@@ -96,14 +84,10 @@ export class MultiSelectComponent {
     HTML: import('!!raw-loader!./examples/with-search/multi-select-with-search-example.component.html'),
   };
 
-
-  public valueTemplate: PolymorphContent<PrizmContextWithImplicit<any>> = ''
+  public valueTemplate: PolymorphContent<PrizmContextWithImplicit<any>> = '';
   @prizmPure
-  public getValueTemplate (...temps: PolymorphContent[]): PolymorphContent<any>[] {
-    return [
-      null,
-      ...temps
-    ]
+  public getValueTemplate(...temps: PolymorphContent[]): PolymorphContent<any>[] {
+    return [null, ...temps];
   }
 
   public get val(): string {
@@ -112,7 +96,7 @@ export class MultiSelectComponent {
 
   public searchMatcher = (searchValue: string, item: unknown): boolean => {
     return item?.toString().toLowerCase().includes(searchValue.toLowerCase());
-  }
+  };
 
   public identityMatcher = (a: unknown, b: unknown): boolean => {
     return a === b;
@@ -123,7 +107,6 @@ export class MultiSelectComponent {
   };
 
   public setValue(val: string[]): void {
-    this.control.setValue(val)
+    this.control.setValue(val);
   }
-
 }

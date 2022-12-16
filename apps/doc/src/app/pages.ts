@@ -1,7 +1,9 @@
-import { PrizmDocPage, PrizmDocPageGroup } from '@prizm/taiga-ui/addon-doc';
+import { PrizmDocPage, PrizmDocPageGroup } from '@prizm/doc-base';
 
 type OrderedPage = { order?: number };
-export type PrizmOrderedDocPage = ReadonlyArray<(PrizmDocPage & OrderedPage) | (PrizmDocPageGroup & OrderedPage)>;
+export type PrizmOrderedDocPage = ReadonlyArray<
+  (PrizmDocPage & OrderedPage) | (PrizmDocPageGroup & OrderedPage)
+>;
 
 export const pages: PrizmOrderedDocPage = [
   //Window

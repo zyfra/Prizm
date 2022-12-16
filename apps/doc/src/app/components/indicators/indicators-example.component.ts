@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import { IndicatorStatus, IndicatorType } from '@prizm-ui/components';
 
 @Component({
@@ -15,9 +15,7 @@ export class IndicatorsExampleComponent {
   public readonly statusVariants: IndicatorStatus[] = ['info', 'secondary', 'success', 'warning', 'danger'];
 
   public readonly indicatorBasicExample: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/indicators-basic-example/indicators-basic-example.component'
-    ),
+    TypeScript: import('!!raw-loader!./examples/indicators-basic-example/indicators-basic-example.component'),
     HTML: import('!!raw-loader!./examples/indicators-basic-example/indicators-basic-example.component.html'),
     LESS: import('./examples/indicators-basic-example/indicators-basic-example.component.less?raw'),
   };
@@ -29,9 +27,7 @@ export class IndicatorsExampleComponent {
     HTML: import(
       '!!raw-loader!./examples/indicators-with-icon-example/indicators-with-icon-example.component.html'
     ),
-    LESS: import(
-      './examples/indicators-with-icon-example/indicators-with-icon-example.component.less?raw'
-    ),
+    LESS: import('./examples/indicators-with-icon-example/indicators-with-icon-example.component.less?raw'),
   };
 
   public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');

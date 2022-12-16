@@ -6,11 +6,4 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./grid.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GridComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class GridComponent {}

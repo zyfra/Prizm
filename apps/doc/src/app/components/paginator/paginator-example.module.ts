@@ -9,7 +9,7 @@ import {
   PrizmDocDocumentationModule,
   PrizmDocExampleModule,
   PrizmDocPageModule,
-} from '@prizm/taiga-ui/addon-doc';
+} from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { PrizmPaginatorModule } from '@prizm-ui/components';
 import { PaginatorWithLabelsExampleComponent } from './examples/paginator-with-labels-example/paginator-with-labels-example.component';

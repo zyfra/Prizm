@@ -1,6 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
-import { IconDefs, PrizmAppearance, PrizmAppearanceType, PrizmContent, PrizmSize } from '@prizm-ui/components';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
+import {
+  IconDefs,
+  PrizmAppearance,
+  PrizmAppearanceType,
+  PrizmContent,
+  PrizmSize,
+} from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-icon-button-example',
@@ -16,19 +22,21 @@ import { IconDefs, PrizmAppearance, PrizmAppearanceType, PrizmContent, PrizmSize
         }
 
         .content {
-
           display: flex;
           gap: 1rem;
         }
       }
-    `
-  ]
+    `,
+  ],
 })
 export class IconButtonComponent {
   sizeVariants: ReadonlyArray<PrizmSize> = ['s', 'm', 'xm', 'l', 'xl'];
   size: PrizmSize = this.sizeVariants[0];
 
-  iconVariants: ReadonlyArray<PrizmContent> = ['account-card-details', ...IconDefs.reduce((a, c) => a.concat(c.data), [])];
+  iconVariants: ReadonlyArray<PrizmContent> = [
+    'account-card-details',
+    ...IconDefs.reduce((a, c) => a.concat(c.data), []),
+  ];
   icon: PrizmContent = this.iconVariants[0];
   iconRight: PrizmContent = this.iconVariants[0];
   appearanceVariants: ReadonlyArray<PrizmAppearance> = [

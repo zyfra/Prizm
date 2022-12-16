@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SwitcherExampleComponent } from './switcher-example.component';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { SwitcherBasicExampleComponent } from './examples/switcher-basic-example/switcher-basic-example.component';
 import { PrizmSwitcherModule } from '@prizm-ui/components';

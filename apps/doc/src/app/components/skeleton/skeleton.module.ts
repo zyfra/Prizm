@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { SkeletonComponent } from './skeleton.component';
 import {
   PolymorphModule,
-  PrizmButtonModule, PrizmCardModule,
+  PrizmButtonModule,
+  PrizmCardModule,
   PrizmInputTextModule,
   PrizmSelectModule,
   PrizmSkeletonModule,
@@ -13,7 +14,6 @@ import {
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmSkeletonBaseExampleComponent } from './examples/base/skeleton-base-example.component';
-
 
 @NgModule({
   imports: [
@@ -30,10 +30,7 @@ import { PrizmSkeletonBaseExampleComponent } from './examples/base/skeleton-base
     PrizmSkeletonModule,
     RouterModule.forChild(prizmDocGenerateRoutes(SkeletonComponent)),
   ],
-  declarations: [
-    PrizmSkeletonBaseExampleComponent,
-    SkeletonComponent
-  ],
+  declarations: [PrizmSkeletonBaseExampleComponent, SkeletonComponent],
   exports: [SkeletonComponent],
 })
 export class SkeletonModule {}

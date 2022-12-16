@@ -1,18 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { InputDateTimeTimeComponent } from './input-date-time.component';
 import { PolymorphModule, PrizmInputDateTimeModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputDateTimeBaseExampleComponent } from './examples/base/input-date-time-base-example.component';
-import {
-  PrizmInputDateTimeWithSecondsExampleComponent,
-} from './examples/with-seconds/input-date-time-with-seconds-example.component';
-import {
-  PrizmInputDateTimeNativeExampleComponent,
-} from './examples/native-date/input-native-date-time-base-example.component';
-
+import { PrizmInputDateTimeWithSecondsExampleComponent } from './examples/with-seconds/input-date-time-with-seconds-example.component';
+import { PrizmInputDateTimeNativeExampleComponent } from './examples/native-date/input-native-date-time-base-example.component';
 
 @NgModule({
   imports: [
@@ -28,7 +23,7 @@ import {
     PrizmInputDateTimeBaseExampleComponent,
     PrizmInputDateTimeWithSecondsExampleComponent,
     PrizmInputDateTimeNativeExampleComponent,
-    InputDateTimeTimeComponent
+    InputDateTimeTimeComponent,
   ],
   exports: [InputDateTimeTimeComponent],
 })

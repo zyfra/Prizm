@@ -1,12 +1,22 @@
 import { LOCALE_ID, NgModule, SecurityContext } from '@angular/core';
-import { PrizmAddonDocModule, PrizmDocMainModule } from '@prizm/taiga-ui/addon-doc';
+import { PrizmAddonDocModule, PrizmDocMainModule } from '@prizm/doc-base';
 import { AppComponent } from './app.component';
 import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutes } from './app.routes';
-import { TuiDataListModule, TuiLinkModule, TuiModeModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
-import { TuiSelectModule, TuiStringifyContentPipeModule, TuiStringifyPipeModule, TuiToggleModule } from '@taiga-ui/kit';
+import {
+  TuiDataListModule,
+  TuiLinkModule,
+  TuiModeModule,
+  TuiTextfieldControllerModule,
+} from '@taiga-ui/core';
+import {
+  TuiSelectModule,
+  TuiStringifyContentPipeModule,
+  TuiStringifyPipeModule,
+  TuiToggleModule,
+} from '@taiga-ui/kit';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MarkdownModule } from 'ngx-markdown';
 import { APP_PROVIDERS } from './app.providers';
@@ -22,10 +32,7 @@ import { ForDevelopersComponent } from './how-to-start/for-developers/for-develo
 import { MigrationComponent } from './how-to-start/migration/migration.component';
 import { PrizmThemeService, PrizmToggleModule } from '@prizm-ui/components';
 
-
-registerLocaleData(
-  localeRu
-);
+registerLocaleData(localeRu);
 @NgModule({
   bootstrap: [AppComponent],
   imports: [
@@ -52,7 +59,7 @@ registerLocaleData(
       loader: HttpClient,
       sanitize: SecurityContext.NONE,
     }),
-],
+  ],
   declarations: [
     AppComponent,
     GettingStartedComponent,
@@ -62,15 +69,10 @@ registerLocaleData(
     ForDevelopersComponent,
     MigrationComponent,
   ],
-  providers: [
-    { provide: LOCALE_ID, useValue: "ru-RU" },
-    ...APP_PROVIDERS
-  ],
+  providers: [{ provide: LOCALE_ID, useValue: 'ru-RU' }, ...APP_PROVIDERS],
 })
 export class AppModule {
-  constructor(
-    private readonly themeSwitcher: PrizmThemeService,
-  ) {
+  constructor(private readonly themeSwitcher: PrizmThemeService) {
     this.themeSwitcher.rootElement = null;
   }
 }

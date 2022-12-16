@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
@@ -24,10 +24,7 @@ import { PrizmDialogServiceExampleComponent } from './examples/base/base.compone
     PrizmRadioButtonModule,
     RouterModule.forChild(prizmDocGenerateRoutes(DialogComponent)),
   ],
-  declarations: [
-    PrizmDialogServiceExampleComponent,
-    DialogComponent
-  ],
+  declarations: [PrizmDialogServiceExampleComponent, DialogComponent],
   exports: [DialogComponent],
 })
 export class DialogModule {}

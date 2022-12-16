@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { DesignSystemComponent } from './about-prizm/design-system/design-system.component';
 import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
-import { ForDesignersComponent } from './how-to-start/for-designers/for-designers.component';
 import { ForDevelopersComponent } from './how-to-start/for-developers/for-developers.component';
 import { MigrationComponent } from './how-to-start/migration/migration.component';
-import { ChangelogComponent } from './about-prizm/changelog/changelog.component';
 
 
 export const ROUTES = [
@@ -27,7 +25,7 @@ export const ROUTES = [
     children: [
       {
         path: 'license',
-        loadChildren: () => import('./about-prizm/license/license.module').then(m => m.LicenseModule),
+        loadChildren: async (): Promise<unknown> => import('./about-prizm/license/license.module').then(m => m.LicenseModule),
         data: {
           title: 'License',
         },
@@ -53,7 +51,7 @@ export const ROUTES = [
     children: [
       {
         path: 'typography',
-        loadChildren: () => import('./guidelines/typography/typography.module').then(m => m.TypographyModule),
+        loadChildren: async (): Promise<unknown> => import('./guidelines/typography/typography.module').then(m => m.TypographyModule),
         data: {
           title: 'Typography',
         },
@@ -65,7 +63,7 @@ export const ROUTES = [
     children: [
       {
         path: 'colors',
-        loadChildren: () => import('./guidelines/colors/colors.module').then(m => m.ColorsModule),
+        loadChildren: async (): Promise<unknown> => import('./guidelines/colors/colors.module').then(m => m.ColorsModule),
         data: {
           title: 'Colors',
         },
@@ -77,7 +75,7 @@ export const ROUTES = [
     children: [
       {
         path: 'grid',
-        loadChildren: () => import('./guidelines/grid/grid.module').then(m => m.GridModule),
+        loadChildren: async (): Promise<unknown> => import('./guidelines/grid/grid.module').then(m => m.GridModule),
         data: {
           title: 'Grid',
         },

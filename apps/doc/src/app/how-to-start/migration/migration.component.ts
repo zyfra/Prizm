@@ -6,11 +6,4 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./migration.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MigrationComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class MigrationComponent {}

@@ -1,6 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
-import { IconDefs, PrizmAppearance, PrizmAppearanceType, PrizmContent, PrizmSize } from '@prizm-ui/components';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
+import {
+  IconDefs,
+  PrizmAppearance,
+  PrizmAppearanceType,
+  PrizmContent,
+  PrizmSize,
+} from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-button-example',

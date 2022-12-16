@@ -1,6 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
-import { IconDefs, PrizmAppearance, PrizmAppearanceType, PrizmContent, PrizmSize } from '@prizm-ui/components';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
+import {
+  IconDefs,
+  PrizmAppearance,
+  PrizmAppearanceType,
+  PrizmContent,
+  PrizmSize,
+} from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-button-example',
@@ -17,5 +23,4 @@ export class LineComponent {
     TypeScript: import('!!raw-loader!./examples/base/prizm-charts-line-example.component.ts'),
     HTML: import('!!raw-loader!./examples/base/prizm-charts-line-example.component.html'),
   };
-
 }

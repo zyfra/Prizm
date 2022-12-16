@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import { FormControl } from '@angular/forms';
 import { PrizmDateItemTemplate, PrizmDay, PrizmTime } from '@prizm-ui/components';
 
@@ -7,7 +7,7 @@ import { PrizmDateItemTemplate, PrizmDay, PrizmTime } from '@prizm-ui/components
   selector: 'prizm-input-date-multi-example',
   templateUrl: './input-date-multi.component.html',
   styleUrls: ['./input-date-multi.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputDateMultiRelativeComponent implements OnInit {
   public readonly valueControl = new FormControl();
@@ -15,9 +15,7 @@ export class InputDateMultiRelativeComponent implements OnInit {
   @ViewChild('dateTime', { static: true }) dateTime: TemplateRef<unknown>;
 
   public currentIdx = 0;
-  readonly setupModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/setup-module.md'
-    );
+  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   readonly exampleBase: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/input-date-multi-base-example.component.ts'),
@@ -37,12 +35,12 @@ export class InputDateMultiRelativeComponent implements OnInit {
     this.items = [
       {
         template: this.dateTime,
-        name: 'Абсолютное время'
+        name: 'Абсолютное время',
       },
       {
         template: this.dateRelativeTime,
-        name: 'Относительное время'
+        name: 'Относительное время',
       },
-    ]
+    ];
   }
 }

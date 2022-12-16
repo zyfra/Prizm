@@ -1,19 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { PolymorphModule, PrizmButtonModule, PrizmConfirmPopupModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmPopupComponent } from './confirm-popup.component';
 import { PrizmConfirmPopupBaseExampleComponent } from './examples/base/confirm-popup-base-example.component';
 import { PrizmConfirmPopupSomeComponent } from './examples/with-component/some.component';
-import {
-  PrizmConfirmPopupWithTemplateExampleComponent,
-} from './examples/with-template/confirm-popup-with-template-example.component';
-import {
-  PrizmConfirmPopupWithComponentExampleComponent,
-} from './examples/with-component/confirm-popup-with-component-example.component';
-
+import { PrizmConfirmPopupWithTemplateExampleComponent } from './examples/with-template/confirm-popup-with-template-example.component';
+import { PrizmConfirmPopupWithComponentExampleComponent } from './examples/with-component/confirm-popup-with-component-example.component';
 
 @NgModule({
   imports: [
@@ -31,7 +26,7 @@ import {
     PrizmConfirmPopupWithComponentExampleComponent,
     PrizmConfirmPopupSomeComponent,
     PrizmConfirmPopupBaseExampleComponent,
-    ConfirmPopupComponent
+    ConfirmPopupComponent,
   ],
   exports: [ConfirmPopupComponent],
 })

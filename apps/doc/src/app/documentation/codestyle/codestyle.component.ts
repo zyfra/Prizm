@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { prizmRawLoad } from '@prizm/taiga-ui/addon-doc';
+import { prizmRawLoad } from '@prizm/doc-base';
 
 @Component({
   selector: `prizm-codestyle`,

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { PrizmCronUiBaseType } from './model';
 import { getCarousel } from './util';
-import { PrizmCronService } from '@prizm-ui/components';
 import { PrizmCronUiBaseState } from './cron-ui-base.state';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PRIZM_CRON_UI_MONTH_CRON_KEYS } from './const';
+import { PrizmCronService } from '../../services/cron';
 
 @Injectable()
 export class PrizmCronUiMonthState extends PrizmCronUiBaseState {

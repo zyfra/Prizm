@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { CronComponent } from './cron.component';
 import { PolymorphModule, PrizmCronModule, PrizmMutationObserveModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmCronBaseExampleComponent } from './examples/base/cron-base-example.component';
-import {
-  PrizmCronSpecifiedTabsExampleComponent,
-} from './examples/specified-tabs/cron-specified-tabs-example.component';
-
+import { PrizmCronSpecifiedTabsExampleComponent } from './examples/specified-tabs/cron-specified-tabs-example.component';
 
 @NgModule({
   imports: [
@@ -22,11 +19,7 @@ import {
     PrizmCronModule,
     RouterModule.forChild(prizmDocGenerateRoutes(CronComponent)),
   ],
-  declarations: [
-    PrizmCronBaseExampleComponent,
-    PrizmCronSpecifiedTabsExampleComponent,
-    CronComponent
-  ],
+  declarations: [PrizmCronBaseExampleComponent, PrizmCronSpecifiedTabsExampleComponent, CronComponent],
   exports: [CronComponent],
 })
 export class CronModule {}

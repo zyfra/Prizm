@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
-import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 
 @Component({
   selector: 'prizm-input-mask-example',
@@ -42,4 +42,3 @@ export class InputMaskExampleComponent {
 
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 }
-

@@ -1,19 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { InputTimeTimeComponent } from './input-time.component';
 import { PolymorphModule, PrizmInputTimeModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputTimeBaseExampleComponent } from './examples/base/input-time-base-example.component';
-import {
-  PrizmInputTimeWithSecondsExampleComponent,
-} from './examples/with-seconds/input-time-with-seconds-example.component';
-import {
-  PrizmInputTimeWithPresetExampleComponent,
-} from './examples/with-preset/input-time-with-preset-example.component';
+import { PrizmInputTimeWithSecondsExampleComponent } from './examples/with-seconds/input-time-with-seconds-example.component';
+import { PrizmInputTimeWithPresetExampleComponent } from './examples/with-preset/input-time-with-preset-example.component';
 import { PrizmInputTimeWithMsExampleComponent } from './examples/with-ms/input-time-with-ms-example.component';
-
 
 @NgModule({
   imports: [
@@ -30,7 +25,7 @@ import { PrizmInputTimeWithMsExampleComponent } from './examples/with-ms/input-t
     PrizmInputTimeWithSecondsExampleComponent,
     PrizmInputTimeWithPresetExampleComponent,
     PrizmInputTimeWithMsExampleComponent,
-    InputTimeTimeComponent
+    InputTimeTimeComponent,
   ],
   exports: [InputTimeTimeComponent],
 })

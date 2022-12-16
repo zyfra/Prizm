@@ -6,11 +6,4 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./typography.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TypographyComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class TypographyComponent {}
