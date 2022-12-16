@@ -1,12 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
-import {
-  PolymorphContent,
-  PrizmContextWithImplicit,
-  PrizmCronTabItem,
-  PrizmSizeL,
-  PrizmSizeM,
-} from '@prizm-ui/components';
+import { PrizmCronTabItem } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-cron-example',
