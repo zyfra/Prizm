@@ -1,55 +1,55 @@
-<tui-doc-page
+<prizm-doc-page
   header="Scrollbar"
   package="components"
   type="components"
 >
+  <div class='page-description' description>
+    Our scrollbar component is a simple wrapper around the native browser scrollbar.
+  </div>
   <ng-template pageTab>
-    <p>
-      Use PrizmScrollbarComponent to view scrollbar.
-    </p>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="Base"
       [content]="exampleBase"
     >
       <prizm-scrollbar-base-example></prizm-scrollbar-base-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="horizontal"
       heading="Horizontal"
       [content]="exampleHorizontal"
     >
       <prizm-scrollbar-horizontal-example></prizm-scrollbar-horizontal-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="hidden"
       heading="Hidden"
       [content]="exampleHidden"
     >
       <prizm-scrollbar-hidden-example></prizm-scrollbar-hidden-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="visible"
       heading="Visible"
       [content]="exampleVisible"
     >
       <prizm-scrollbar-visible-example></prizm-scrollbar-visible-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="all"
       heading="all"
       [content]="exampleAll"
     >
       <prizm-scrollbar-all-example></prizm-scrollbar-all-example>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-scrollbar class="box" [visibility]='visibility'>
         <div class="content">
           <p>
@@ -100,8 +100,8 @@
           </p>
         </div>
       </prizm-scrollbar>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
 
       <ng-template
         documentationPropertyName="visibility"
@@ -112,7 +112,7 @@
       >
         Size
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -124,11 +124,11 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code
+        <prizm-doc-code
           filename="myComponent.module.ts"
           [code]="setupModule"
-        ></tui-doc-code>
+        ></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

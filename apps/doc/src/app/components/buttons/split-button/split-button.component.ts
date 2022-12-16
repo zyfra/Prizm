@@ -1,26 +1,27 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import { PrizmAppearance, PrizmAppearanceType, PrizmContent, PrizmSize } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-split-button-example',
   templateUrl: './split-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styles: [`
-    .box {
-      margin-bottom: 2rem;
+  styles: [
+    `
+      .box {
+        margin-bottom: 2rem;
 
-      .title {
-        margin-bottom: 0.5rem;
+        .title {
+          margin-bottom: 0.5rem;
+        }
+
+        .content {
+          display: flex;
+          gap: 1rem;
+        }
       }
-
-      .content {
-
-        display: flex;
-        gap: 1rem;
-      }
-    }
-  `]
+    `,
+  ],
 })
 export class SplitButtonComponent {
   sizeVariants: ReadonlyArray<PrizmSize> = ['s', 'm', 'xm', 'l', 'xl'];
@@ -45,7 +46,6 @@ export class SplitButtonComponent {
   showLoader = false;
 
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
-
 
   readonly exampleSplit: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/split/split-buttons-example.component.ts'),

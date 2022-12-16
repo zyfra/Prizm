@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import { HeaderConfig, ToolbarConfig, PrizmMenuItem } from '@prizm-ui/components';
 
 @Component({
@@ -97,9 +97,7 @@ export class NavMenuExampleComponent {
     HTML: import(
       '!!raw-loader!./examples/nav-menu-advanced-example/nav-menu-advanced-example.component.html'
     ),
-    LESS: import(
-      './examples/nav-menu-advanced-example/nav-menu-advanced-example.component.less?raw'
-    ),
+    LESS: import('./examples/nav-menu-advanced-example/nav-menu-advanced-example.component.less?raw'),
   };
 
   public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');

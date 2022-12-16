@@ -1,20 +1,23 @@
-<tui-doc-page header="Stepper" type="components">
+<prizm-doc-page header="Stepper" type="components">
+  <div class='page-description' description>
+    Our stepper component is a simple way to display progress through a sequence of logical and numbered steps. It may also be used for navigation.
+  </div>
   <ng-template pageTab>
-    <tui-doc-example id="base" heading="Base" [content]="basicExample">
+    <prizm-doc-example id="base" heading="Base" [content]="basicExample">
       <prizm-stepper-basic-example></prizm-stepper-basic-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="vertical" heading="Vertical" [content]="verticalExample">
+    <prizm-doc-example id="vertical" heading="Vertical" [content]="verticalExample">
       <prizm-stepper-vertical-example></prizm-stepper-vertical-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="async" heading="Async" [content]="asyncExample">
+    <prizm-doc-example id="async" heading="Async" [content]="asyncExample">
       <prizm-stepper-async-example></prizm-stepper-async-example>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-stepper
         [currentStep]="currentStep"
         [title]="title"
@@ -113,8 +116,8 @@
           </button>
         </div>
       </prizm-stepper>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="title"
         documentationPropertyType="string"
@@ -172,7 +175,7 @@
         <br />
         <small> Run sttepper change detector </small>
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -183,9 +186,9 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>
 

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm/doc-base';
 import { MarkdownModule } from 'ngx-markdown';
 import { ContributingComponent } from './contributing.component';
 
@@ -9,8 +9,8 @@ import { ContributingComponent } from './contributing.component';
     imports: [
         CommonModule,
         MarkdownModule,
-        TuiAddonDocModule,
-        RouterModule.forChild(generateRoutes(ContributingComponent)),
+        PrizmAddonDocModule,
+        RouterModule.forChild(prizmDocGenerateRoutes(ContributingComponent)),
     ],
     declarations: [ContributingComponent],
     exports: [ContributingComponent],

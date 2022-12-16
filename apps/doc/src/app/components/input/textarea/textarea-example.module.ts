@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 
 import { TextareaBasicExampleComponent } from './examples/textarea-basic-example/textarea-basic-example.component';
 import { TextareaExampleComponent } from './textarea-example.component';
@@ -12,8 +12,8 @@ import { TextareAautosizeExampleComponent } from './examples/textarea-autosize-e
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
-    RouterModule.forChild(generateRoutes(TextareaExampleComponent)),
+    PrizmAddonDocModule,
+    RouterModule.forChild(prizmDocGenerateRoutes(TextareaExampleComponent)),
     ReactiveFormsModule,
     FormsModule,
     PrizmInputTextModule,
@@ -22,4 +22,3 @@ import { TextareAautosizeExampleComponent } from './examples/textarea-autosize-e
   exports: [TextareaExampleComponent],
 })
 export class TextareaExampleModule {}
-

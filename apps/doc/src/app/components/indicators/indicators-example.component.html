@@ -1,19 +1,22 @@
-<tui-doc-page header="Indicators" package="components" type="components">
+<prizm-doc-page header="Indicators" package="components" type="components">
+  <div class='page-description' description>
+    Our indicators component is a set of visual indicators that can be used to show the status of an object or process.
+  </div>
   <ng-template pageTab>
-    <tui-doc-example id="base" heading="Base" [content]="indicatorBasicExample">
+    <prizm-doc-example id="base" heading="Base" [content]="indicatorBasicExample">
       <prizm-indicators-base></prizm-indicators-base>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="withIcon" heading="With Icon" [content]="indicatorIconExample">
+    <prizm-doc-example id="withIcon" heading="With Icon" [content]="indicatorIconExample">
       <prizm-indicators-icons></prizm-indicators-icons>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-indicator [status]="status" [type]="type"></prizm-indicator>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="type"
         documentationPropertyType="IndicatorType"
@@ -33,7 +36,7 @@
       >
         Indicator status
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -44,8 +47,8 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

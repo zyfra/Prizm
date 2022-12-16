@@ -1,0 +1,105 @@
+:host {
+  display: contents;
+}
+.license-license {
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: 48px 56px;
+  position: relative;
+  align-self: stretch;
+  box-shadow: 0px 8px 32px 0px rgba(191, 198, 215, 0.5);
+  align-items: flex-start;
+  border-color: rgba(191, 198, 215, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
+  flex-direction: column;
+  background-color: var(--dl-color-bg-body);
+}
+.license-the-m-i-t-license-m-i-t {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  border-color: transparent;
+  margin-bottom: 48px;
+  flex-direction: column;
+}
+.license-text {
+  font-size: 24px;
+  font-weight: 600;
+  color: #20222b;
+  height: auto;
+  align-self: auto;
+  text-align: center;
+  line-height: 24px;
+  margin-right: 0;
+  margin-bottom: 16px;
+}
+.license-text02 {
+  color: rgba(32, 34, 43, 1);
+  width: 1056px;
+  height: auto;
+  font-size: 18px;
+  align-self: auto;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 30px;
+  font-stretch: normal;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+.license-text03 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #20222b;
+}
+.license-frame-m-i-t {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  border-color: transparent;
+  flex-direction: column;
+}
+.license-text23 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #20222b;
+  height: auto;
+  align-self: auto;
+  text-align: center;
+  line-height: 24px;
+  margin-right: 0;
+  margin-bottom: 16px;
+}
+.license-text25 {
+  color: rgba(32, 34, 43, 1);
+  width: 1056px;
+  height: auto;
+  font-size: 18px;
+  align-self: auto;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 30px;
+  font-stretch: normal;
+  margin-right: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+.license-text26 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #20222b;
+}
+
+.license-text-span01,
+.license-text-span02 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #20222b;
+}

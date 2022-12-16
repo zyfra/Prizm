@@ -1,9 +1,12 @@
-export interface ISwitcher {
+export interface PrizmSwitcherItem<ID extends PrizmSwitcherId = PrizmSwitcherId> {
   title?: string | number;
   icon?: string;
   disabled?: boolean;
+  hide?: boolean;
+  id?: ID;
 }
 
-export type SwitcherSize = 'm' | 's' | 'l';
+export type PrizmSwitcherSize = 'm' | 's' | 'l';
 
-export type SwitcherType = 'inner' | 'outer';
+export type PrizmSwitcherType = 'inner' | 'outer';
+export type PrizmSwitcherId = number | string;

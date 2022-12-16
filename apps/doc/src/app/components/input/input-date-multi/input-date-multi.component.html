@@ -1,4 +1,4 @@
-<tui-doc-page
+<prizm-doc-page
   header="InputDateMulti"
   package="components"
   type="components"
@@ -8,33 +8,33 @@
       Use PrizmInputDateMultiComponent to view input-date.
     </p>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="Base"
       [content]="exampleBase"
     >
       <prizm-input-date-multi-base-example></prizm-input-date-multi-base-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="Four"
       [content]="exampleFour"
     >
       <prizm-input-date-multi-four-example></prizm-input-date-multi-four-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
 
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-input-date-multi
         [currentIdx]='currentIdx'
         [items]="items">
       </prizm-input-date-multi>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
 
       <ng-template
         documentationPropertyName="items"
@@ -50,7 +50,7 @@
       >
         Selected item idx
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -62,14 +62,14 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code
+        <prizm-doc-code
           filename="myComponent.module.ts"
           [code]="setupModule"
-        ></tui-doc-code>
+        ></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>
 
 <ng-template #dateTime let-injector="injector">
   <prizm-input-date-time [formControl]='timeControl' [extraButtonInjector]='injector'></prizm-input-date-time>

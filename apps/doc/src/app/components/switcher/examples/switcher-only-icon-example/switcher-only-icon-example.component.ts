@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ISwitcher } from '@prizm-ui/components';
+import { PrizmSwitcherItem } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-switcher-only-icon-example',
@@ -8,7 +8,7 @@ import { ISwitcher } from '@prizm-ui/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwitcherOnlyIconExampleComponent {
-  public readonly switchers: ISwitcher[] = [
+  public readonly switchers: PrizmSwitcherItem[] = [
     {
       icon: 'editor-table',
     },

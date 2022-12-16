@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from './button.component';
 import { PrizmOutlineButtonsExampleComponent } from './examples/outline/outline-buttons-example.component';
@@ -12,16 +12,16 @@ import { prizmIconsButtonsExampleComponent } from './examples/icons/icons-button
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     PrizmButtonModule,
-    RouterModule.forChild(generateRoutes(ButtonComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(ButtonComponent)),
   ],
   declarations: [
     PrizmFilledButtonsExampleComponent,
     PrizmOutlineButtonsExampleComponent,
     prizmIconsButtonsExampleComponent,
     PrizmGhostButtonsExampleComponent,
-    ButtonComponent
+    ButtonComponent,
   ],
   exports: [ButtonComponent],
 })

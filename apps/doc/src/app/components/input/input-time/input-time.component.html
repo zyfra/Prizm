@@ -1,4 +1,4 @@
-<tui-doc-page
+<prizm-doc-page
   header="InputTime"
   package="components"
   type="components"
@@ -8,43 +8,43 @@
       Use PrizmInputTimeComponent to view input-date.
     </p>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="Base"
       [content]="exampleBase"
     >
       <prizm-input-time-base-example></prizm-input-time-base-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="With Seconds"
       [content]="exampleWithSeconds"
     >
       <prizm-input-time-with-seconds-example></prizm-input-time-with-seconds-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="With Micro Seconds"
       [content]="exampleWithMicroSeconds"
     >
       <prizm-input-time-with-ms-example></prizm-input-time-with-ms-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="With Preset"
       [content]="exampleWithPreset"
     >
       <prizm-input-time-with-preset-example></prizm-input-time-with-preset-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
 
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-input-time
         [formControl]='valueControl'
         [label]='label'
@@ -54,8 +54,8 @@
         [strict]='strict'
         [size]='size'
       ></prizm-input-time>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="label"
         documentationPropertyType="string"
@@ -136,7 +136,7 @@
         Injector for nested buttons
         (use in multi datepicker and similar case)
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -148,11 +148,11 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code
+        <prizm-doc-code
           filename="myComponent.module.ts"
           [code]="setupModule"
-        ></tui-doc-code>
+        ></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

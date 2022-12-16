@@ -10,19 +10,11 @@ import {
   Inject,
   Injector,
   Input,
-  OnInit,
-  Optional,
   Output,
-  SkipSelf,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import {
-  PrizmOverlayControl,
-  PrizmOverlayOutsidePlacement,
-  PrizmOverlayRelativePosition,
-  PrizmOverlayService,
-} from '../../../modules/overlay';
+import { PrizmOverlayControl, PrizmOverlayRelativePosition, PrizmOverlayService } from '../../../modules/overlay';
 import { PolymorphContent, PrizmDropdownZoneDirective } from '../../../directives';
 import { debounceTime, delay, filter, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
@@ -32,7 +24,7 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 import { PRIZM_DROPDOWN_HOST_OPTIONS, PrizmDropdownHostOptions } from './dropdown-host.options';
 import { PrizmDropdownHostWidth } from './models';
 import { prizmGenerateId } from '../../../util';
-import { PrizmEventZoneService } from '../../../directives/event-zone/event-zone.service';
+import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
 
 const PRIZM_DROPDOWN_TIME_DIFFERENCE = 1000/60;
 

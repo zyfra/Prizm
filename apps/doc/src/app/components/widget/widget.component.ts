@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, TemplateRef } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import { PolymorphContent } from '@prizm-ui/components';
 import { prizmPure } from '@prizm-ui/core';
 
@@ -7,23 +7,21 @@ import { prizmPure } from '@prizm-ui/core';
   selector: 'prizm-widget-example',
   templateUrl: './widget.component.html',
   styleUrls: ['./widget.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WidgetComponent {
-  public  header = 'Содержимое виджета';
-  public  title = 'Заголовок виджета';
-  public  icons: string[] = [];
-  public  iconVariants: ReadonlyArray<PolymorphContent> = [
+  public header = 'Содержимое виджета';
+  public title = 'Заголовок виджета';
+  public icons: string[] = [];
+  public iconVariants: ReadonlyArray<PolymorphContent> = [
     ['account-circle', 'account-circle', 'account-key'],
     '',
     null,
-    ['account-key']
+    ['account-key'],
   ];
-  public  content = 'Содержимое виджета';
+  public content = 'Содержимое виджета';
 
-  public readonly setupModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/setup-module.md'
-  );
+  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   public readonly exampleBase: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/widget-base-example.component.ts'),
@@ -37,16 +35,10 @@ export class WidgetComponent {
 
   @prizmPure
   public getIconVariants(...templates: TemplateRef<unknown>[]): ReadonlyArray<PolymorphContent> {
-    return [
-      ...templates,
-      ...this.iconVariants
-    ]
+    return [...templates, ...this.iconVariants];
   }
   @prizmPure
   public getHeaderVariants(...templates: TemplateRef<unknown>[]): ReadonlyArray<PolymorphContent> {
-    return [
-      null,
-      ...templates,
-    ]
+    return [null, ...templates];
   }
 }

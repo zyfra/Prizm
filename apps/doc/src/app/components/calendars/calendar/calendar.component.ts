@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import { PrizmDay } from '@prizm-ui/components';
 import { FormControl } from '@angular/forms';
 
@@ -7,15 +7,13 @@ import { FormControl } from '@angular/forms';
   selector: 'prizm-calendar-example',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarComponent {
   public day = new PrizmDay(2017, 0, 15);
   public showAdjacent = true;
   public readonly control = new FormControl(new PrizmDay(2017, 0, 15));
-  readonly setupModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/setup-module.md'
-  );
+  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   readonly exampleBase: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/calendar-base-example.component.ts'),

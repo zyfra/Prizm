@@ -1,4 +1,4 @@
-<tui-doc-page
+<prizm-doc-page
   header="InputDate"
   package="components"
   type="components"
@@ -8,28 +8,28 @@
       Use PrizmInputDateComponent to view input-date.
     </p>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="Base"
       [content]="exampleBase"
     >
       <prizm-input-date-base-example></prizm-input-date-base-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
 
-    <tui-doc-example
+    <prizm-doc-example
       id="native-date"
       heading="Native Date"
       [content]="exampleNative"
     >
       <prizm-input-native-date-base-example></prizm-input-native-date-base-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
 
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-input-date
         [formControl]='control'
         [label]='label'
@@ -37,8 +37,8 @@
         [outer]='outer'
         [size]='size'
       ></prizm-input-date>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="label"
         documentationPropertyType="string"
@@ -121,7 +121,7 @@
       >
         Default Active Year Month
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -133,11 +133,11 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code
+        <prizm-doc-code
           filename="myComponent.module.ts"
           [code]="setupModule"
-        ></tui-doc-code>
+        ></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

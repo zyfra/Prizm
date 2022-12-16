@@ -1,29 +1,32 @@
-<tui-doc-page
+<prizm-doc-page
   header="CalendarRange"
   package="components"
   type="components"
 >
+  <div class='page-description' description>
+    Our callendar range component is a simple component that allows you to select a range of dates.
+  </div>
   <ng-template pageTab>
     <p>
       Use PrizmCalendarRangeComponent to view calendar-range.
     </p>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="Base"
       [content]="exampleBase"
     >
       <prizm-calendar-range-base-example></prizm-calendar-range-base-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
 
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-calendar-range [(value)]='value'></prizm-calendar-range>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="defaultViewedMonth"
         documentationPropertyType="PrizmMonth"
@@ -93,7 +96,7 @@
       >
         Value Change
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -105,11 +108,11 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code
+        <prizm-doc-code
           filename="myComponent.module.ts"
           [code]="setupModule"
-        ></tui-doc-code>
+        ></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

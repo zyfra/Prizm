@@ -1,20 +1,24 @@
-<tui-doc-page header="Radio Button" package="components" type="components">
+<prizm-doc-page header="Radio Button" package="components" type="components">
+
+  <div class='page-description' description>
+    Our radio component is a simple wrapper around the native HTML radio input element. It is used to select a single option from a set of options.
+  </div>
   <ng-template pageTab>
-    <tui-doc-example id="base" heading="Base" [content]="exampleBasicRadio">
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBasicRadio">
       <prizm-radio-button-basic-example></prizm-radio-button-basic-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="big" heading="Big Size" [content]="exampleBasicRadio">
+    <prizm-doc-example id="big" heading="Big Size" [content]="exampleBasicRadio">
       <prizm-radio-button-basic-example size="l"></prizm-radio-button-basic-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="small" heading="Small Size" [content]="exampleBasicRadio">
+    <prizm-doc-example id="small" heading="Small Size" [content]="exampleBasicRadio">
       <prizm-radio-button-basic-example size="s"></prizm-radio-button-basic-example>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-radio-button
         [value]="value"
         [label]="label"
@@ -22,8 +26,8 @@
         [size]="size"
         [name]="name"
       ></prizm-radio-button>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="label"
         documentationPropertyType="string"
@@ -109,19 +113,19 @@
       >
         Change
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
     <ol class="b-demo-steps">
       <li>
         <p>
-          Импортируйте <code>PrizmRadioButtonModule</code>
+          Импортируйте <code>PrizmLabelModule</code>
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

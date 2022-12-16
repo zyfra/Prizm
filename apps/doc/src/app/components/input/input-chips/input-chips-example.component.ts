@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { PrizmChipsComponent, PrizmInputTextComponent } from '@prizm-ui/components';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 
 @Component({
   selector: 'prizm-input-chips-example',
@@ -25,9 +25,7 @@ export class InputChipsExampleComponent {
     HTML: import(
       '!!raw-loader!./examples/input-chips-basic-example/input-chips-basic-example.component.html'
     ),
-    LESS: import(
-      './examples/input-chips-basic-example/input-chips-basic-example.component.less?raw'
-    ),
+    LESS: import('./examples/input-chips-basic-example/input-chips-basic-example.component.less?raw'),
   };
 
   public readonly prizmInputChipsOuterExample: TuiDocExample = {
@@ -37,9 +35,7 @@ export class InputChipsExampleComponent {
     HTML: import(
       '!!raw-loader!./examples/input-chips-outer-example/input-chips-outer-example.component.html'
     ),
-    LESS: import(
-      './examples/input-chips-outer-example/input-chips-outer-example.component.less?raw'
-    ),
+    LESS: import('./examples/input-chips-outer-example/input-chips-outer-example.component.less?raw'),
   };
 
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
@@ -51,4 +47,3 @@ export class InputChipsExampleComponent {
     this.input.value = '';
   }
 }
-

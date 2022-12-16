@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IndicatorsExampleComponent } from './indicators-example.component';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { IndicatorsBasicExampleComponent } from './examples/indicators-basic-example/indicators-basic-example.component';
 import { IndicatorsWithIconExampleComponent } from './examples/indicators-with-icon-example/indicators-with-icon-example.component';
@@ -15,9 +15,9 @@ import { PrizmIndicatorModule } from '@prizm-ui/components';
   ],
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     PrizmIndicatorModule,
-    RouterModule.forChild(generateRoutes(IndicatorsExampleComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(IndicatorsExampleComponent)),
   ],
 })
 export class IndicatorsExampleModule {}

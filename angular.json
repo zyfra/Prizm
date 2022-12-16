@@ -1,6 +1,45 @@
 {
   "version": 1,
   "projects": {
+    "charts-base": {
+      "projectType": "library",
+      "root": "libs/charts/base",
+      "sourceRoot": "libs/charts/base/src",
+      "prefix": "prizm",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/charts/base"],
+          "options": {
+            "project": "libs/charts/base/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/charts/base/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/charts/base/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/charts/base"],
+          "options": {
+            "jestConfig": "libs/charts/base/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/charts/base/src/**/*.ts", "libs/charts/base/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
     "components": {
       "projectType": "library",
       "root": "libs/components",
@@ -106,8 +145,8 @@
             ],
             "styles": [
               "apps/doc/src/styles.less",
-              "node_modules/@taiga-ui/core/styles/taiga-ui-global.less",
               "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
+              "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
               "node_modules/primeicons/primeicons.css",
               "libs/components/src/styles/styles.less",
               "libs/icons/flags/src/styles/styles.less",
@@ -140,7 +179,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "10kb",
-                  "maximumError": "100kb"
+                  "maximumError": "200kb"
                 }
               ],
               "fileReplacements": [
@@ -197,6 +236,29 @@
       },
       "tags": []
     },
+    "doc-base": {
+      "projectType": "library",
+      "root": "libs/doc/base",
+      "sourceRoot": "libs/doc/base/src",
+      "prefix": "prizm",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/doc/base"],
+          "options": {
+            "jestConfig": "libs/doc/base/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/doc/base/src/**/*.ts", "libs/doc/base/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
     "doc-e2e": {
       "root": "apps/doc-e2e",
       "sourceRoot": "apps/doc-e2e/src",
@@ -224,6 +286,45 @@
       },
       "tags": [],
       "implicitDependencies": ["doc"]
+    },
+    "flag-icons": {
+      "projectType": "library",
+      "root": "libs/icons/flags",
+      "sourceRoot": "libs/icons/flags/src",
+      "prefix": "prizm",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/icons/flags"],
+          "options": {
+            "project": "libs/icons/flags/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/icons/flags/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/icons/flags/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/icons/flags"],
+          "options": {
+            "jestConfig": "libs/icons/flags/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/icons/flags/src/**/*.ts", "libs/icons/flags/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
     },
     "helpers": {
       "projectType": "library",
@@ -298,84 +399,6 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/icons/base/src/**/*.ts", "libs/icons/base/src/**/*.html"]
-          }
-        }
-      },
-      "tags": []
-    },
-    "flag-icons": {
-      "projectType": "library",
-      "root": "libs/icons/flags",
-      "sourceRoot": "libs/icons/flags/src",
-      "prefix": "prizm",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "outputs": ["dist/libs/icons/flags"],
-          "options": {
-            "project": "libs/icons/flags/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/icons/flags/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/icons/flags/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/icons/flags"],
-          "options": {
-            "jestConfig": "libs/icons/flags/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/icons/flags/src/**/*.ts", "libs/icons/flags/src/**/*.html"]
-          }
-        }
-      },
-      "tags": []
-    },
-    "prizm-charts": {
-      "projectType": "library",
-      "root": "libs/prizm/charts",
-      "sourceRoot": "libs/prizm/charts/src",
-      "prefix": "prizm",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "outputs": ["dist/libs/prizm/charts"],
-          "options": {
-            "project": "libs/prizm/charts/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/prizm/charts/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/prizm/charts/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/prizm/charts"],
-          "options": {
-            "jestConfig": "libs/prizm/charts/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/prizm/charts/src/**/*.ts", "libs/prizm/charts/src/**/*.html"]
           }
         }
       },

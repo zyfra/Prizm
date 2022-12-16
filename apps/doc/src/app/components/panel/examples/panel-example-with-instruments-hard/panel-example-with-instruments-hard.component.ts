@@ -8,11 +8,11 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 })
 export class PanelExampleWithInstrumentsHardComponent {
   public tabs: string[] = ['Первый', 'Второй', 'Третий', 'Четвертый', 'Пятый'];
-  public selectedTabNumber = 0;
+  public activeTabIndex = 0;
 
   public toggleValue = true;
 
-  public tabClick(idx: number): void {
-    this.selectedTabNumber = idx;
+  public activeTabIndexChange(idx: number): void {
+    this.activeTabIndex = idx;
   }
 }

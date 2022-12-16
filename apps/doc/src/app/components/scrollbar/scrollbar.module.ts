@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { ScrollbarComponent } from './scrollbar.component';
 import { PrizmScrollbarModule } from '@prizm-ui/components';
@@ -13,9 +13,9 @@ import { PrizmScrollbarAllExampleComponent } from './examples/all/scrollbar-all-
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     PrizmScrollbarModule,
-    RouterModule.forChild(generateRoutes(ScrollbarComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(ScrollbarComponent)),
   ],
   declarations: [
     PrizmScrollbarBaseExampleComponent,
@@ -23,7 +23,7 @@ import { PrizmScrollbarAllExampleComponent } from './examples/all/scrollbar-all-
     PrizmScrollbarHiddenExampleComponent,
     PrizmScrollbarVisibleExampleComponent,
     PrizmScrollbarAllExampleComponent,
-    ScrollbarComponent
+    ScrollbarComponent,
   ],
   exports: [ScrollbarComponent],
 })
