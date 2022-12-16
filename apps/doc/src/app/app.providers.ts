@@ -25,6 +25,7 @@ import { Observable, of } from 'rxjs';
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
 import { pages, PrizmOrderedDocPage } from './pages';
 import { LOGO_CONTENT } from './logo/logo.component';
+import { SectionNameEnum } from './model';
 
 export const DEFAULT_TABS = [`Examples`, `Live demo`, `Setup`, `How to use`];
 const TITLE_PREFIX = 'Prizm UI: ';
@@ -53,18 +54,19 @@ export const APP_PROVIDERS = [
     provide: PRIZM_DOC_SOURCE_CODE,
     useValue: (context: PrizmDocSourceCodePathOptions): null | string => {
       const link = 'https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk';
-
-      if (!context.package) {
-        return null;
-      }
-
-      if (context.type) {
-        return `${link}/${context.package.toLowerCase()}/${context.type.toLowerCase()}/${(
-          context.header[0].toLowerCase() + context.header.slice(1)
-        ).replace(/[A-Z]/g, m => `-${m.toLowerCase()}`)}`;
-      }
-
-      return `${link}/${context.path}`;
+      // TODO add right path to every component
+      return link;
+      // if (!context.package) {
+      //   return null;
+      // }
+      //
+      // if (context.type) {
+      //   return `${link}/${context.package.toLowerCase()}/${context.type.toLowerCase()}/${(
+      //     context.header[0].toLowerCase() + context.header.slice(1)
+      //   ).replace(/[A-Z]/g, m => `-${m.toLowerCase()}`)}`;
+      // }
+      //
+      // return `${link}/${context.path}`;
     },
   },
   {
@@ -109,9 +111,33 @@ export const APP_PROVIDERS = [
 ];
 
 function sortDocPages(pages: PrizmOrderedDocPage): (PrizmDocPage | PrizmDocPageGroup)[] {
+  const ordering = {
+    [SectionNameEnum.allAboutPrizm]: 0,
+    [SectionNameEnum.guidelines]: 1,
+    [SectionNameEnum.howToStart]: 2,
+    [SectionNameEnum.components]: 3,
+    [SectionNameEnum.charts]: 4,
+    [SectionNameEnum.tools]: 5
+  };
+
+  const orderingLength = Object.keys(ordering).length;
+
   return [...pages]
     .sort((a, b) => {
-      return a.order && b.order ? a.order - b.order : a.title.localeCompare(b.title);
+      const sectionWeightA = (orderingLength - ordering[a.section]);
+      const sectionWeightB = (orderingLength - ordering[b.section]);
+      const localOrderA = a.order || 0;
+      const localOrderB = b.order || 0;
+
+      if (sectionWeightA !== sectionWeightB) {
+        return sectionWeightB - sectionWeightA;
+      }
+
+      if (localOrderA !== localOrderB) {
+        return localOrderA - localOrderB;
+      }
+
+      return a.title.localeCompare(b.title);
     })
     .map((page: PrizmDocPage | PrizmDocPageGroup) => {
       return {

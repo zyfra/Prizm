@@ -21,6 +21,11 @@ prizm-input-layout, prizm-input-date-range, prizm-input-date, prizm-input-date-t
   width: 20rem;
 }
 
+body {
+  --prizm-input-layout-width: 20rem;
+}
+
+
 tui-data-list.is-full .t-empty {
   display: none;
 }
@@ -90,6 +95,10 @@ prizm-doc-page header.t-header {
 
 li {
   list-style: none;
+}
+
+prizm-doc-page {
+  min-height: 100vh;
 }
 
 .t-content prizm-doc-example:first-child {
