@@ -1,24 +1,27 @@
-<tui-doc-page header="Slider" type="components">
+<prizm-doc-page header="Slider" type="components">
+  <div class='page-description' description>
+    Our slider component is a simple way to add a slider to your page. It can be used to select a value from a range of values.
+  </div>
   <ng-template pageTab>
-    <tui-doc-example id="base" heading="Base" [content]="basicExample">
+    <prizm-doc-example id="base" heading="Base" [content]="basicExample">
       <prizm-slider-basic-example></prizm-slider-basic-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="step" heading="Step" [content]="stepExample">
+    <prizm-doc-example id="step" heading="Step" [content]="stepExample">
       <prizm-slider-step-example></prizm-slider-step-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="vertical" heading="Vertical" [content]="verticalExample">
+    <prizm-doc-example id="vertical" heading="Vertical" [content]="verticalExample">
       <prizm-slider-vertical-example></prizm-slider-vertical-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="range" heading="Range" [content]="rangeExample">
+    <prizm-doc-example id="range" heading="Range" [content]="rangeExample">
       <prizm-slider-range-example></prizm-slider-range-example>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-slider
         [formControl]="fc"
         [min]="min"
@@ -32,9 +35,9 @@
         [ngStyle]="{ 'min-height': minHeight + 'px' }"
       >
       </prizm-slider>
-    </tui-doc-demo>
+    </prizm-doc-demo>
 
-    <tui-doc-documentation>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="min"
         documentationPropertyType="number"
@@ -120,7 +123,7 @@
       >
         Disabled
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -131,9 +134,9 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>
 

@@ -1,41 +1,44 @@
-<tui-doc-page
+<prizm-doc-page
   header="Hint"
   package="components"
   type="components"
 >
+  <div class='page-description' description>
+    Our hint component is used to provide additional information to the user.
+  </div>
   <ng-template pageTab>
     <p>
       Use PrizmHintDirective to control hint.
     </p>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="Base"
       [content]="exampleBasic"
     >
       <prizm-hint-base-example></prizm-hint-base-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="With Template"
       [content]="exampleWithTemplate"
     >
       <prizm-hint-with-template-example></prizm-hint-with-template-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="With Component"
       [content]="exampleWithComponent"
     >
       <prizm-hint-with-component-example></prizm-hint-with-component-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <button
         prizmButton
         [prizmHint]="content"
@@ -49,8 +52,8 @@
       >
         Button
       </button>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="prizmHint"
         documentationPropertyType="string"
@@ -122,7 +125,7 @@
       >
         Host
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -134,11 +137,11 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code
+        <prizm-doc-code
           filename="myComponent.module.ts"
           [code]="setupModule"
-        ></tui-doc-code>
+        ></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

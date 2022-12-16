@@ -1,13 +1,16 @@
-<tui-doc-page header="Icon Button" package="components" type="components">
+<prizm-doc-page header="Icon Button" package="components" type="components">
+  <div class='page-description' description>
+    Our icon button component is a button that contains an icon. It is used to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.
+  </div>
   <ng-template pageTab>
 
-    <tui-doc-example id="base" heading="Icons" [content]="exampleIcons">
+    <prizm-doc-example id="base" heading="Icons" [content]="exampleIcons">
       <prizm-icons-buttons-example></prizm-icons-buttons-example>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <div class="box">
         <div class="content">
           <button
@@ -21,8 +24,8 @@
           ></button>
         </div>
       </div>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="size"
         documentationPropertyType="PrizmSize"
@@ -80,7 +83,7 @@
       >
         Show Loader
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -92,8 +95,8 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

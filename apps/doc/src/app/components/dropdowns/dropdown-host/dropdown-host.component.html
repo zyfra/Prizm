@@ -1,26 +1,31 @@
-<tui-doc-page header="DropdownHost" package="components" type="components">
+<prizm-doc-page header="DropdownHost" package="components" type="components">
+
+  <div class='page-description' description>
+    Our dropdown host component is a wrapper for the dropdown component.
+    It is used to provide a dropdown with a trigger element.
+  </div>
   <ng-template pageTab>
     <p>Use PrizmDropdownHostComponent to view dropdown.</p>
 
-    <tui-doc-example id="base" heading="With Template" [content]="exampleWithTemplate">
+    <prizm-doc-example id="base" heading="With Template" [content]="exampleWithTemplate">
       <prizm-dropdown-host-example-with-template></prizm-dropdown-host-example-with-template>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="select-panel" heading="Select panel" [content]="exampleWithSelectPanel">
+    <prizm-doc-example id="select-panel" heading="Select panel" [content]="exampleWithSelectPanel">
       <prizm-select-panel-example></prizm-select-panel-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="select-panel" heading="Date Range Template (Nested Dropdown)" [content]="exampleDateRangeList">
+    <prizm-doc-example id="select-panel" heading="Date Range Template (Nested Dropdown)" [content]="exampleDateRangeList">
       <prizm-dropdown-host-date-list-example></prizm-dropdown-host-date-list-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="select-panel" heading="Date Range 2 Template" [content]="exampleDateRangeListEdit">
+    <prizm-doc-example id="select-panel" heading="Date Range 2 Template" [content]="exampleDateRangeListEdit">
       <prizm-dropdown-host-date-list-edit-example></prizm-dropdown-host-date-list-edit-example>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-dropdown-host
         [content]="withHeaderAndFooter"
         [(isOpen)]="isOpen"
@@ -77,8 +82,8 @@
           </div>
         </prizm-data-list>
       </ng-template>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="prizmDropdownHostWidth"
         documentationPropertyType="string"
@@ -133,7 +138,7 @@
       >
         Content
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -145,9 +150,9 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code filename="myComponent.module.ts" [code]="exampleModule"></tui-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="exampleModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>
 

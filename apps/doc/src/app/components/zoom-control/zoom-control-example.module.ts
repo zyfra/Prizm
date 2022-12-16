@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ZoomControlExampleComponent } from './zoom-control-example.component';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { ZoomControlExampleBasicComponent } from './examples/zoom-control-example-basic/zoom-control-example-basic.component';
 import {
@@ -19,9 +19,9 @@ import {
   declarations: [ZoomControlExampleComponent, ZoomControlExampleBasicComponent],
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     PrizmIconModule,
-    RouterModule.forChild(generateRoutes(ZoomControlExampleComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(ZoomControlExampleComponent)),
     PrizmPanelModule,
     PrizmInputTextModule,
     PrizmSelectModule,

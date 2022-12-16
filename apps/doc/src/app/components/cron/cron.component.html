@@ -1,41 +1,41 @@
-<tui-doc-page
+<prizm-doc-page
   header="Cron"
   package="components"
   type="components"
 >
-  <ng-template pageTab>
-    <p>
-      Use PrizmCronComponent to view cron.
-    </p>
+  <div class='page-description' description>
+    Our cron panel allows you to schedule tasks to run at specific times.
+  </div>
 
-    <tui-doc-example
+  <ng-template pageTab>
+    <prizm-doc-example
       id="base"
       heading="Base"
       [content]="exampleBase"
     >
       <prizm-cron-base-example></prizm-cron-base-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="specified-tabs"
       heading="Specified Tabs"
       [content]="exampleSpecifiedTabs"
     >
       <prizm-cron-specified-tabs-example></prizm-cron-specified-tabs-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
 
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo class='remove-sticky'>
+    <prizm-doc-demo class='remove-sticky'>
       <prizm-cron
           [tabs]='tabs'
           [value]='value'
           [(selected)]='selected'>
       </prizm-cron>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="tabs"
         documentationPropertyType="PrizmCronTabItem[]"
@@ -65,7 +65,7 @@
         Value
       </ng-template>
 
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -77,11 +77,11 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code
+        <prizm-doc-code
           filename="myComponent.module.ts"
           [code]="setupModule"
-        ></tui-doc-code>
+        ></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

@@ -11,6 +11,7 @@ import { PrizmCronUiMonthState } from './cron-ui-month.state';
 import { PrizmCronUiYearState } from './cron-ui-year.state';
 import { prizmIsTextOverflow } from '../../util';
 import { PrizmCronTabItem } from './model';
+import { PrizmCronUiDayState } from './cron-ui-day.state';
 
 @Component({
   selector: 'prizm-cron',
@@ -24,6 +25,7 @@ import { PrizmCronTabItem } from './model';
     PrizmCronUiSecondState,
     PrizmCronUiMonthState,
     PrizmCronUiHourState,
+    PrizmCronUiDayState,
     PrizmCronUiYearState,
     PrizmCronUiMinuteState
   ],
@@ -102,12 +104,14 @@ export class PrizmCronComponent implements OnInit {
     private readonly cronUiYearState: PrizmCronUiYearState,
     private readonly cronUiMonthState: PrizmCronUiMonthState,
     private readonly cronUiMinuteState: PrizmCronUiMinuteState,
+    private readonly cronUiDayState: PrizmCronUiDayState,
   ) {
   }
 
   public ngOnInit(): void {
     this.cronUiSecondState.init();
     this.cronUiHourState.init();
+    this.cronUiDayState.init();
     this.cronUiMonthState.init();
     this.cronUiYearState.init();
     this.cronUiMinuteState.init();

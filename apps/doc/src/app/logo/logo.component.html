@@ -1,9 +1,11 @@
-<a
-    tuiLink
-    routerLink="/getting-started"
-    class="t-logo-link"
->
-    <span class="t-logo-name">
-        Prizm UI
-    </span>>
-</a>
+<div class='logo-block x-margin'>
+  <img src='/assets/logos/logo-dark.svg'>
+  <prizm-toggle
+    [ngModel]="isNight$ | async"
+    (ngModelChange)="onMode($event)">
+
+  </prizm-toggle>
+</div>
+<div class='sub-text x-margin prizm-font-input-text-14px'>
+  Индустриальная дизайн-система
+</div>

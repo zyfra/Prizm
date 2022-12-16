@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { PolymorphModule, PrizmButtonModule, PrizmTooltipModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -18,13 +18,13 @@ import { PrizmTooltipSomeComponent } from './examples/with-component/some.compon
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
     PrizmTooltipModule,
     PrizmButtonModule,
-    RouterModule.forChild(generateRoutes(TooltipComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(TooltipComponent)),
   ],
   declarations: [
     PrizmTooltipWithTemplateExampleComponent,

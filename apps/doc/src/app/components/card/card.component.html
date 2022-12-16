@@ -1,32 +1,35 @@
-<tui-doc-page
+<prizm-doc-page
   header="Card"
   package="components"
   type="components"
 >
+  <div class='page-description' description>
+    Our card component for displaying content in a card-like format.
+  </div>
   <ng-template pageTab>
     <p>
       Use PrizmCardComponent to view card.
     </p>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="Base"
       [content]="exampleBase"
     >
       <prizm-card-base-example></prizm-card-base-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
 
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-card [shadow]='shadow'>
         {{content}}
       </prizm-card>
 
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="ngContent"
         documentationPropertyType="string"
@@ -47,7 +50,7 @@
       </ng-template>
 
 
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -59,11 +62,11 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code
+        <prizm-doc-code
           filename="myComponent.module.ts"
           [code]="setupModule"
-        ></tui-doc-code>
+        ></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

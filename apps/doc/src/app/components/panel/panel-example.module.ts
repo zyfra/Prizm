@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PanelExampleComponent } from './panel-example.component';
 import { PanelExampleBasicComponent } from './examples/panel-example-basic/panel-example-basic.component';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import {
   PrizmButtonModule,
@@ -33,8 +33,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    TuiAddonDocModule,
-    RouterModule.forChild(generateRoutes(PanelExampleComponent)),
+    PrizmAddonDocModule,
+    RouterModule.forChild(prizmDocGenerateRoutes(PanelExampleComponent)),
     PrizmPanelModule,
     PrizmButtonModule,
     PrizmIconModule,

@@ -1,41 +1,44 @@
-<tui-doc-page
+<prizm-doc-page
   header="Tooltip"
   package="components"
   type="components"
 >
+  <div class='page-description' description>
+    Our tooltip component is a simple tooltip that can be used to display information for help;
+  </div>
   <ng-template pageTab>
     <p>
       Use PrizmTooltipDirective to control tooltip.
     </p>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="Base"
       [content]="exampleBase"
     >
       <prizm-tooltip-base-example></prizm-tooltip-base-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="With Template"
       [content]="exampleWithTemplate"
     >
       <prizm-tooltip-with-template-example></prizm-tooltip-with-template-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="With Component"
       [content]="exampleWithComponent"
     >
       <prizm-tooltip-with-component-example></prizm-tooltip-with-component-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <button
         prizmButton
         [prizmTooltip]="content"
@@ -48,8 +51,8 @@
       >
         Button
       </button>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
 
       <ng-template
         documentationPropertyName="prizmTooltip"
@@ -113,7 +116,7 @@
       >
         Host
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -125,11 +128,11 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code
+        <prizm-doc-code
           filename="myComponent.module.ts"
           [code]="setupModule"
-        ></tui-doc-code>
+        ></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { PolymorphModule, PrizmButtonModule, PrizmHintModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,13 +13,13 @@ import { PrizmHintSomeComponent } from './examples/with-component/some.component
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
     PrizmHintModule,
     PrizmButtonModule,
-    RouterModule.forChild(generateRoutes(HintComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(HintComponent)),
   ],
   declarations: [
     PrizmHintWithTemplateExampleComponent,

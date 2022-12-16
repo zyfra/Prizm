@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 
 import { InputNumberBasicExampleComponent } from './examples/input-number-basic-example/input-number-basic-example.component';
 import { InputNumberExampleComponent } from './input-number-example.component';
@@ -12,8 +12,8 @@ import { InputNumberCounterExampleComponent } from './examples/input-number-coun
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
-    RouterModule.forChild(generateRoutes(InputNumberExampleComponent)),
+    PrizmAddonDocModule,
+    RouterModule.forChild(prizmDocGenerateRoutes(InputNumberExampleComponent)),
     ReactiveFormsModule,
     FormsModule,
     PrizmInputNumberModule,

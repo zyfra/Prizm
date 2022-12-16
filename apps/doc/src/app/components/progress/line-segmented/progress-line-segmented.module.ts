@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { ProgressLineSegmentedComponent } from './progress-line-segmented.component';
 import { PolymorphModule, PrizmProgressModule } from '@prizm-ui/components';
@@ -11,12 +11,12 @@ import { PrizmProgressBaseExampleComponent } from './examples/base/progress-base
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
     PrizmProgressModule,
-    RouterModule.forChild(generateRoutes(ProgressLineSegmentedComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(ProgressLineSegmentedComponent)),
   ],
   declarations: [
     PrizmProgressBaseExampleComponent,

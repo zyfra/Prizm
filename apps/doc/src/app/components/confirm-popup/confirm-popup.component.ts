@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
 import {
   PolymorphContent,
   PRIZM_CONFIRM_POPUP_DEFAULT_OPTIONS,

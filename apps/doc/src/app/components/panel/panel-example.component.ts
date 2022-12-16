@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
 
 @Component({
   selector: 'prizm-example-panel',

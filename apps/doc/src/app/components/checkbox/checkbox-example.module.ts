@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { CheckboxBasicExampleComponent } from './examples/checkbox-basic-example/checkbox-basic-example.component';
 import { CheckboxExampleComponent } from './checkbox-example.component';
@@ -12,9 +12,9 @@ import { PrizmCheckboxGroupExampleComponent } from './examples/checkbox-group-ex
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     PrizmCheckboxModule,
-    RouterModule.forChild(generateRoutes(CheckboxExampleComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(CheckboxExampleComponent)),
     FormsModule,
     ReactiveFormsModule,
   ],

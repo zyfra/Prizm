@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,8 +15,8 @@ import { PrizmSliderModule } from '@prizm-ui/components';
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
-    RouterModule.forChild(generateRoutes(PrizmSliderExampleComponent)),
+    PrizmAddonDocModule,
+    RouterModule.forChild(prizmDocGenerateRoutes(PrizmSliderExampleComponent)),
     FormsModule,
     ReactiveFormsModule,
     PrizmSliderModule,

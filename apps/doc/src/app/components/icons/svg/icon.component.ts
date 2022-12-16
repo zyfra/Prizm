@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
 import { PRIZM_ICONS_SVG_SET, PrizmIconSvgEnum, PrizmIconsSvgRegistry, PrizmIconType } from '@prizm-ui/icons';
 
 @Component({

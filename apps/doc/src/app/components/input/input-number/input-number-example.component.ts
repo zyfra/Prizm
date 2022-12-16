@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
 
 @Component({
   selector: 'prizm-input-number-example',

@@ -1,26 +1,29 @@
-<tui-doc-page
+<prizm-doc-page
   header="Progress Line"
   package="components"
   type="components"
 >
+  <div class='page-description' description>
+    Our progress line bar component is a simple way to show the progress of a task or process. It is a horizontal bar that is filled with a color to indicate the progress of a task. The progress bar can be used to show the progress of a task or process.
+  </div>
   <ng-template pageTab>
     <p>
       Use PrizmProgressBarComponent to view line progress.
     </p>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="Base"
       [content]="exampleBase"
     >
       <prizm-progress-base-example></prizm-progress-base-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
 
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <progress
         prizmProgressBar
         [size]="size"
@@ -29,8 +32,8 @@
         [color]="color"
         [value]="value"
       ></progress>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
 
       <ng-template
         documentationPropertyName="color"
@@ -81,7 +84,7 @@
       </ng-template>
 
 
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -93,11 +96,11 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code
+        <prizm-doc-code
           filename="myComponent.module.ts"
           [code]="setupModule"
-        ></tui-doc-code>
+        ></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>
