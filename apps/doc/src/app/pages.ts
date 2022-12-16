@@ -12,7 +12,7 @@ export const pages: PrizmOrderedDocPage = [
     section: SectionNameEnum.allAboutPrizm,
     title: `About Design System`,
     keywords: 'дизайн-система, дизайн, система, design system, design, system',
-    link: 'http://doc.prizm.zyfra.com/',
+    link: 'http://prizm.zyfra.com/',
     target: '_blank',
     order: 1,
   },
