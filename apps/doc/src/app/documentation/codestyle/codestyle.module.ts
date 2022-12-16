@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 import { MarkdownModule } from 'ngx-markdown';
 import { CodestyleComponent } from './codestyle.component';
 
@@ -9,8 +9,8 @@ import { CodestyleComponent } from './codestyle.component';
     imports: [
         CommonModule,
         MarkdownModule,
-        TuiAddonDocModule,
-        RouterModule.forChild(generateRoutes(CodestyleComponent)),
+        PrizmAddonDocModule,
+        RouterModule.forChild(prizmDocGenerateRoutes(CodestyleComponent)),
     ],
     declarations: [CodestyleComponent],
     exports: [CodestyleComponent],

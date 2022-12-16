@@ -1,25 +1,28 @@
-<tui-doc-page header="Checkbox" package="components" type="components">
+<prizm-doc-page header="Checkbox" package="components" type="components">
+  <div class='page-description' description>
+    Our checkbox component is a simple way to allow users to select one or more options from a list.
+  </div>
   <ng-template pageTab>
-    <tui-doc-example id="base" heading="Base" [content]="exampleBasicCheckbox">
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBasicCheckbox">
       <prizm-checkbox-basic-example></prizm-checkbox-basic-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="group" heading="Group" [content]="checkboxGroup">
+    <prizm-doc-example id="group" heading="Group" [content]="checkboxGroup">
       <prizm-checkbox-group-example></prizm-checkbox-group-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="form" heading="With Reactive Forms" [content]="exampleReactiveFormCheckbox">
+    <prizm-doc-example id="form" heading="With Reactive Forms" [content]="exampleReactiveFormCheckbox">
       <prizm-checkbox-form-example></prizm-checkbox-form-example>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-checkbox [checked]="checked" [disabled]="disabled" [size]="size" [indeterminate]="indeterminate">
         {{ label }}
       </prizm-checkbox>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="label"
         documentationPropertyType="string"
@@ -85,7 +88,7 @@
       >
         Changed
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -96,9 +99,9 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>
 

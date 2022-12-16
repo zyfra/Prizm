@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { PaginatorExampleComponent } from './paginator-example.component';
 import { PaginatorBasicExampleComponent } from './examples/paginator-basic-example/paginator-basic-example.component';
 import {
-  generateRoutes,
-  TuiDocCodeModule,
-  TuiDocDemoModule,
-  TuiDocDocumentationModule,
-  TuiDocExampleModule,
-  TuiDocPageModule,
-} from '@taiga-ui/addon-doc';
+  prizmDocGenerateRoutes,
+  PrizmDocCodeModule,
+  PrizmDocDemoModule,
+  PrizmDocDocumentationModule,
+  PrizmDocExampleModule,
+  PrizmDocPageModule,
+} from '@prizm/taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { PrizmPaginatorModule } from '@prizm-ui/components';
 import { PaginatorWithLabelsExampleComponent } from './examples/paginator-with-labels-example/paginator-with-labels-example.component';
@@ -24,12 +24,12 @@ import { PaginatorInfiniteExampleComponent } from './examples/paginator-infinite
   ],
   imports: [
     CommonModule,
-    TuiDocDocumentationModule,
-    TuiDocDemoModule,
-    TuiDocPageModule,
-    TuiDocExampleModule,
-    TuiDocCodeModule,
-    RouterModule.forChild(generateRoutes(PaginatorExampleComponent)),
+    PrizmDocDocumentationModule,
+    PrizmDocDemoModule,
+    PrizmDocPageModule,
+    PrizmDocExampleModule,
+    PrizmDocCodeModule,
+    RouterModule.forChild(prizmDocGenerateRoutes(PaginatorExampleComponent)),
     PrizmPaginatorModule,
   ],
 })

@@ -1,6 +1,6 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {generateRoutes, TuiAddonDocModule} from "@taiga-ui/addon-doc";
+import {prizmDocGenerateRoutes, PrizmAddonDocModule} from "@prizm/taiga-ui/addon-doc";
 import {RouterModule} from "@angular/router";
 import {OverlayComponent} from "./overlay.component";
 import {PrizmOverlayExampleWithViewComponent} from "./examples/with-component/template";
@@ -14,10 +14,10 @@ import {PrizmOverlaySomeComponent} from "./examples/with-component/some-componen
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     PrizmButtonModule,
     PrizmOverlayModule,
-    RouterModule.forChild(generateRoutes(OverlayComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(OverlayComponent)),
   ],
   declarations: [
     PrizmOverlayExampleSlideComponent,

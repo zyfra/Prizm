@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { rawLoad } from '@taiga-ui/addon-doc';
+import { prizmRawLoad } from '@prizm/taiga-ui/addon-doc';
 
 @Component({
     selector: `prizm-changelog`,
@@ -12,6 +12,6 @@ import { rawLoad } from '@taiga-ui/addon-doc';
 })
 export class ChangelogComponent {
     readonly changelog = of(import(`!!raw-loader!./CHANGELOG.md`)).pipe(
-        switchMap(rawLoad),
+        switchMap(prizmRawLoad),
     );
 }

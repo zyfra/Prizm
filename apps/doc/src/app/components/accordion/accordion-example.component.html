@@ -1,28 +1,31 @@
-<tui-doc-page header="Accordion" package="components" type="components">
+<prizm-doc-page header="Accordion" package="components" type="components">
+  <div class='page-description' description>
+    Our accordion component for displaying content in a collapsible and expandable format.
+  </div>
   <ng-template pageTab>
-    <tui-doc-example id="base" heading="Base" [content]="exampleBasicAccordion">
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBasicAccordion">
       <prizm-accordion-basic-example></prizm-accordion-basic-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="instruments"
       heading="With instruments and disabled item"
       [content]="exampleWithInstrumentsAccordion"
     >
       <prizm-accordion-with-instruments-example></prizm-accordion-with-instruments-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="single" heading="Only one expanded item" [content]="exampleOneExpandedAccordion">
+    <prizm-doc-example id="single" heading="Only one expanded item" [content]="exampleOneExpandedAccordion">
       <prizm-accordion-single-expand-example></prizm-accordion-single-expand-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="multiple" heading="Multiple expanded" [content]="exampleMultipleExpandedAccordion">
+    <prizm-doc-example id="multiple" heading="Multiple expanded" [content]="exampleMultipleExpandedAccordion">
       <prizm-accordion-multiple-expand-example></prizm-accordion-multiple-expand-example>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-accordion [onlyOneExpanded]="onlyOneExpanded">
         <prizm-accordion-item [disabled]="disabled" title="Title number 2">
           <ng-template prizmAccordionTools>
@@ -59,8 +62,8 @@
           </ng-template>
         </prizm-accordion-item>
       </prizm-accordion>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="onlyOneExpanded"
         documentationPropertyType="boolean"
@@ -78,7 +81,7 @@
       >
         Disabled
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -89,8 +92,8 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

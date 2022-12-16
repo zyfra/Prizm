@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SwitcherExampleComponent } from './switcher-example.component';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { SwitcherBasicExampleComponent } from './examples/switcher-basic-example/switcher-basic-example.component';
 import { PrizmSwitcherModule } from '@prizm-ui/components';
@@ -27,8 +27,8 @@ import { SwitcherOnlyIconExampleComponent } from './examples/switcher-only-icon-
   ],
   imports: [
     CommonModule,
-    TuiAddonDocModule,
-    RouterModule.forChild(generateRoutes(SwitcherExampleComponent)),
+    PrizmAddonDocModule,
+    RouterModule.forChild(prizmDocGenerateRoutes(SwitcherExampleComponent)),
     PrizmSwitcherModule,
   ],
 })

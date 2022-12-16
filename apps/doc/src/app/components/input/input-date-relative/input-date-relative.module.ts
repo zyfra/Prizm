@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { InputDateRelativeRelativeComponent } from './input-date-relative.component';
 import { PolymorphModule, PrizmInputDateRelativeModule } from '@prizm-ui/components';
@@ -11,12 +11,12 @@ import { PrizmInputDateRelativeBaseExampleComponent } from './examples/base/inpu
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
     PrizmInputDateRelativeModule,
-    RouterModule.forChild(generateRoutes(InputDateRelativeRelativeComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(InputDateRelativeRelativeComponent)),
   ],
   declarations: [
     PrizmInputDateRelativeBaseExampleComponent,

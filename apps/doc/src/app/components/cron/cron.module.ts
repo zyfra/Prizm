@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { CronComponent } from './cron.component';
 import { PolymorphModule, PrizmCronModule, PrizmMutationObserveModule } from '@prizm-ui/components';
@@ -14,13 +14,13 @@ import {
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     PrizmMutationObserveModule,
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
     PrizmCronModule,
-    RouterModule.forChild(generateRoutes(CronComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(CronComponent)),
   ],
   declarations: [
     PrizmCronBaseExampleComponent,

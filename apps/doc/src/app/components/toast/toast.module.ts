@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { ToastComponent } from './toast.component';
 import { PrizmToastInfoExampleComponent } from './examples/message-info-example/message-success-example.component';
@@ -19,13 +19,13 @@ import { PrizmToastExampleComponent } from './examples/toast-example/toast-examp
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     PrizmButtonModule,
     PrizmRadioButtonModule,
     FormsModule,
     ReactiveFormsModule,
     PrizmToastModule,
-    RouterModule.forChild(generateRoutes(ToastComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(ToastComponent)),
   ],
   declarations: [
     PrizmToastInfoExampleComponent,

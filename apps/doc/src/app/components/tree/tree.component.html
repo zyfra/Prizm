@@ -1,50 +1,54 @@
-<tui-doc-page
+<prizm-doc-page
   header="Tree"
   package="components"
   type="components"
 >
+
+  <div class='page-description' description>
+    Our tree component is a simple, flexible, and accessible tree view.
+  </div>
   <ng-template pageTab>
     <p>
       Use PrizmTreeComponent to view tree.
     </p>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="Base"
       [content]="exampleBase"
     >
       <prizm-tree-base-example></prizm-tree-base-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="array"
       heading="Array"
       [content]="exampleArray"
     >
       <prizm-tree-array-example></prizm-tree-array-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="template"
       heading="Template"
       [content]="exampleTemplate"
     >
       <prizm-tree-template-example></prizm-tree-template-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="component"
       heading="Component"
       [content]="exampleComponent"
     >
       <prizm-tree-component-example></prizm-tree-component-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
 
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-documentation>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="prizmTreeController"
         documentationPropertyType="boolean"
@@ -75,7 +79,7 @@
       >
         Content
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -87,11 +91,11 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code
+        <prizm-doc-code
           filename="myComponent.module.ts"
           [code]="setupModule"
-        ></tui-doc-code>
+        ></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { CalendarComponent } from './calendar.component';
 import { PolymorphModule, PrizmCalendarModule } from '@prizm-ui/components';
@@ -11,12 +11,12 @@ import { PrizmCalendarBaseExampleComponent } from './examples/base/calendar-base
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
     PrizmCalendarModule,
-    RouterModule.forChild(generateRoutes(CalendarComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(CalendarComponent)),
   ],
   declarations: [
     PrizmCalendarBaseExampleComponent,

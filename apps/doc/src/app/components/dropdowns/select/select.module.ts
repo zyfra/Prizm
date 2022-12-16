@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { SelectComponent } from './select.component';
 import { PolymorphModule, PrizmIconModule, PrizmSelectModule } from '@prizm-ui/components';
@@ -16,14 +16,14 @@ import { PrizmSelectWithObjectExampleComponent } from './examples/with-object/se
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
     PrizmLetModule,
     PrizmSelectModule,
     PrizmIconModule,
-    RouterModule.forChild(generateRoutes(SelectComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(SelectComponent)),
   ],
   declarations: [
     PrizmSelectBaseExampleComponent,

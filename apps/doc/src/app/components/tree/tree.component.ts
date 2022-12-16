@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
 import { TreeNode } from './examples/template/tree-template-example.component';
 import { PRIZM_EMPTY_ARRAY, PrizmHandler } from '@prizm-ui/components';
 

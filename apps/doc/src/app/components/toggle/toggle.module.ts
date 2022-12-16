@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { ToggleComponent } from './toggle.component';
 import { PolymorphModule, PrizmToggleModule } from '@prizm-ui/components';
@@ -11,12 +11,12 @@ import { PrizmToggleBaseExampleComponent } from './examples/base/toggle-base-exa
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
     PrizmToggleModule,
-    RouterModule.forChild(generateRoutes(ToggleComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(ToggleComponent)),
   ],
   declarations: [
     PrizmToggleBaseExampleComponent,

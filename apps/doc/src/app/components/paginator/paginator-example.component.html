@@ -1,20 +1,24 @@
-<tui-doc-page header="Paginator" package="components" type="components">
+<prizm-doc-page header="Paginator" package="components" type="components">
+
+  <div class='page-description' description>
+    Our pagination component is a simple way to split up content into multiple pages. It is a great way to reduce the amount of content on a single page and make it easier to navigate.
+  </div>
   <ng-template pageTab>
-    <tui-doc-example id="base" heading="Base" [content]="exampleBasicPaginator">
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBasicPaginator">
       <prizm-paginator-basic-example></prizm-paginator-basic-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="withLabels" heading="With Labels" [content]="exampleLabelsPaginator">
+    <prizm-doc-example id="withLabels" heading="With Labels" [content]="exampleLabelsPaginator">
       <prizm-paginator-with-labels-example></prizm-paginator-with-labels-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="inf" heading="Infinite" [content]="exampleInfinitePaginator">
+    <prizm-doc-example id="inf" heading="Infinite" [content]="exampleInfinitePaginator">
       <prizm-paginator-infinite-example></prizm-paginator-infinite-example>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-paginator
         [totalRecords]="totalRecords"
         [initialValue]="initialValue"
@@ -26,8 +30,8 @@
         [paginatorOptions]="paginatorOptions"
         [rowsCountOptions]="rowsCountOptions"
       ></prizm-paginator>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="paginatorType"
         documentationPropertyType="IPaginatorType"
@@ -118,7 +122,7 @@
       >
         Change Page
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -129,8 +133,8 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

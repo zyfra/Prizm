@@ -1,4 +1,4 @@
-import { TuiDocPage, TuiDocPageGroup } from '@taiga-ui/addon-doc/interfaces/page';
+import { TuiDocPage, TuiDocPageGroup } from '@prizm/taiga-ui/addon-doc';
 
 type OrderedPage = { order?: number };
 export type TuiOrderedDocPage = ReadonlyArray<(TuiDocPage & OrderedPage) | (TuiDocPageGroup & OrderedPage)>;

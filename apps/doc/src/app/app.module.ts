@@ -1,5 +1,5 @@
 import { LOCALE_ID, NgModule, SecurityContext } from '@angular/core';
-import { TuiAddonDocModule, TuiDocMainModule } from '@taiga-ui/addon-doc';
+import { PrizmAddonDocModule, PrizmDocMainModule } from '@prizm/taiga-ui/addon-doc';
 import { AppComponent } from './app.component';
 import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,12 +10,13 @@ import { TuiSelectModule, TuiStringifyContentPipeModule, TuiStringifyPipeModule,
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MarkdownModule } from 'ngx-markdown';
 import { APP_PROVIDERS } from './app.providers';
-import { LogoModule } from './logo/logo.module';
+import { PrizmDocLogoModule } from './logo/logo.module';
 import { VersionManagerModule } from './version-manager/version-manager.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './documentation/about/about.component';
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
+import { PrizmThemeService, PrizmToggleModule } from '@prizm-ui/components';
 
 registerLocaleData(
   localeRu
@@ -27,9 +28,9 @@ registerLocaleData(
     BrowserModule,
     AppRoutes,
     TuiTextfieldControllerModule,
-    LogoModule,
-    TuiDocMainModule,
-    TuiAddonDocModule,
+    PrizmDocLogoModule,
+    PrizmDocMainModule,
+    PrizmAddonDocModule,
     TuiDataListModule,
     FormsModule,
     ReactiveFormsModule,
@@ -37,6 +38,7 @@ registerLocaleData(
     TuiStringifyContentPipeModule,
     TuiStringifyPipeModule,
     TuiToggleModule,
+    PrizmToggleModule,
     TuiModeModule,
     TuiLinkModule,
     VersionManagerModule,
@@ -56,4 +58,10 @@ registerLocaleData(
     ...APP_PROVIDERS
   ],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(
+    private readonly themeSwitcher: PrizmThemeService,
+  ) {
+    this.themeSwitcher.rootElement = null;
+  }
+}

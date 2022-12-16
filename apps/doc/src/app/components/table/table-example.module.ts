@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableExampleComponent } from './table-example.component';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { TableBasicExampleComponent } from './examples/table-basic-example/table-basic-example.component';
 import {
@@ -40,9 +40,9 @@ import { TableBorderStyleExampleComponent } from './examples/table-border-style-
   ],
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     PrizmTableModule,
-    RouterModule.forChild(generateRoutes(TableExampleComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(TableExampleComponent)),
     TableModule,
     FormsModule,
     ReactiveFormsModule,

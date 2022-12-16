@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { SplitButtonComponent } from './split-button.component';
 import { PrizmButtonModule } from '@prizm-ui/components';
@@ -9,9 +9,9 @@ import { PrizmSplitButtonsExampleComponent } from './examples/split/split-button
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     PrizmButtonModule,
-    RouterModule.forChild(generateRoutes(SplitButtonComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(SplitButtonComponent)),
   ],
   declarations: [
     PrizmSplitButtonsExampleComponent,
