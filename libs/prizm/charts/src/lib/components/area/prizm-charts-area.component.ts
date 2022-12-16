@@ -397,7 +397,7 @@ export class PrizmChartsAreaComponent<T extends Record<string, unknown>> impleme
         position: ['2014-01', 1750],
         top: true,
         text: {
-          content: '因政策调整导致销量下滑',
+          content: 'Снижение продаж',
           style: {
             fontSize: 13,
           }

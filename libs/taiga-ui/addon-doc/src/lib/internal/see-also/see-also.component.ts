@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, Inject, Input} from '@angular/core';
 
-import {TuiDocPage, TuiDocPageGroup} from '../../interfaces/page';
+import {PrizmDocPage, PrizmDocPageGroup} from '../../interfaces/page';
 import {TUI_DOC_SEE_ALSO_TEXT} from '../../tokens/i18n';
 import {PRIZM_DOC_PAGES} from '../../tokens/pages';
 
@@ -17,7 +17,7 @@ export class PrizmDocSeeAlsoComponent {
     constructor(
         @Inject(TUI_DOC_SEE_ALSO_TEXT) readonly text: string,
         @Inject(PRIZM_DOC_PAGES)
-        private readonly pages: ReadonlyArray<TuiDocPageGroup | TuiDocPage>,
+        private readonly pages: ReadonlyArray<PrizmDocPageGroup | PrizmDocPage>,
     ) {}
 
     getRouterLink(pageTitle: string): string {
@@ -25,7 +25,7 @@ export class PrizmDocSeeAlsoComponent {
             const page = this.pages
                 .map(page => (`subPages` in page ? page.subPages : [page]))
                 .reduce((pages, subPages) => [...pages, ...subPages], [])
-                .find((page: TuiDocPage) => page.title === pageTitle);
+                .find((page: PrizmDocPage) => page.title === pageTitle);
 
             if (page?.route) {
                 return page.route;

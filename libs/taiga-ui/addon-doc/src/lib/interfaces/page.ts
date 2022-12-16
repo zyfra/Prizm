@@ -3,13 +3,15 @@ export interface TuiDocPageBase {
     readonly title: string;
 }
 
-export interface TuiDocPage extends TuiDocPageBase {
-    readonly route: string;
+export interface PrizmDocPage extends TuiDocPageBase {
+    readonly route?: string;
     readonly keywords?: string;
+    readonly target?: string;
+    readonly link?: string;
 }
 
-export interface TuiDocPageGroup extends TuiDocPageBase {
-    readonly subPages: readonly TuiDocPage[];
+export interface PrizmDocPageGroup extends TuiDocPageBase {
+    readonly subPages: readonly PrizmDocPage[];
 }
 
 export type RawLoaderContent = Promise<{default: string}> | string;

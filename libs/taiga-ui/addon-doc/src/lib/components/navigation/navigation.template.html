@@ -71,17 +71,32 @@
             let-item="item"
             let-index="index"
         >
+          <ng-container *ngIf="!item.subPages; else subPages"
+            [ngSwitch]='!!item.link'>
             <a
-                *ngIf="!item.subPages; else subPages"
-                tuiLink
-                routerLinkActive="t-sublink_active"
-                class="t-sublink"
-                [routerLink]="item.route"
-                [prizmScrollIntoViewLink]="isActive(item.route)"
-                (click)="closeMenu()"
+              *ngSwitchCase='true'
+              tuiLink
+              routerLinkActive="t-sublink_active"
+              class="t-sublink"
+              [target]='item.target'
+              [href]='item.link'
+              (click)="closeMenu()"
             >
-                {{ item.title }}
+              {{ item.title }}
             </a>
+            <a
+              *ngSwitchDefault
+              tuiLink
+              routerLinkActive="t-sublink_active"
+              class="t-sublink"
+              [routerLink]="item.route"
+              [prizmScrollIntoViewLink]="isActive(item.route)"
+              (click)="closeMenu()"
+            >
+              {{ item.title }}
+            </a>
+          </ng-container>
+
             <ng-template #subPages>
                 <div
                     routerLinkActive

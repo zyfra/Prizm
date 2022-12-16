@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm/taiga-ui/addon-doc';
 import { MarkdownModule } from 'ngx-markdown';
 import { ContributingComponent } from './contributing.component';
 

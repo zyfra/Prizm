@@ -9,7 +9,7 @@ import { TuiBrightness, TuiModeDirective } from '@taiga-ui/core';
 import { TuiInputComponent } from '@taiga-ui/kit';
 import { Observable } from 'rxjs';
 import { filter, map, startWith, take, takeUntil } from 'rxjs/operators';
-import { TuiDocPage } from '../../interfaces/page';
+import { PrizmDocPage } from '../../interfaces/page';
 import { TUI_DOC_SEARCH_TEXT } from '../../tokens/i18n';
 import { PRIZM_DOC_PAGE_LOADED } from '../../tokens/page-loaded';
 import { PRIZM_DOC_SCROLL_BEHAVIOR } from '../../tokens/scroll-behavior';
@@ -108,9 +108,9 @@ export class TuiDocNavigationComponent {
 
     @tuiPure
     private filterItems(
-        items: ReadonlyArray<readonly TuiDocPage[]>,
+        items: ReadonlyArray<readonly PrizmDocPage[]>,
         search: string,
-    ): ReadonlyArray<readonly TuiDocPage[]> {
+    ): ReadonlyArray<readonly PrizmDocPage[]> {
         return items.map(section =>
             tuiUniqBy(
                 section.filter(({title, keywords = ``}) => {
@@ -134,11 +134,11 @@ export class TuiDocNavigationComponent {
     @tuiPure
     private flattenSubPages(
         items: readonly TuiDocPages[],
-    ): ReadonlyArray<readonly TuiDocPage[]> {
-        return items.reduce<ReadonlyArray<readonly TuiDocPage[]>>(
+    ): ReadonlyArray<readonly PrizmDocPage[]> {
+        return items.reduce<ReadonlyArray<readonly PrizmDocPage[]>>(
             (array, item) => [
                 ...array,
-                item.reduce<readonly TuiDocPage[]>(
+                item.reduce<readonly PrizmDocPage[]>(
                     (pages, page) =>
                         `subPages` in page
                             ? [...pages, ...page.subPages]
