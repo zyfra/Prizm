@@ -18,13 +18,13 @@
     "strictPropertyInitialization": false,
     "baseUrl": ".",
     "paths": {
-      "@prizm-ui/charts": ["libs/prizm/charts/src/index.ts"],
       "@prizm-ui/components": ["libs/components/src/index.ts"],
       "@prizm-ui/core": ["libs/prizm/core/src/index.ts"],
       "@prizm-ui/flag-icons": ["libs/icons/flags/src/index.ts"],
       "@prizm-ui/helpers": ["libs/helpers/src/index.ts"],
       "@prizm-ui/icons": ["libs/icons/base/src/index.ts"],
-      "@prizm/taiga-ui/addon-doc": ["libs/taiga-ui/addon-doc/src/index.ts"]
+      "@prizm-ui/charts": ["libs/charts/base/src/index.ts"],
+      "@prizm/doc-base": ["libs/doc/base/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

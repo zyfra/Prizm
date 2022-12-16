@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import {
   PolymorphContent,
   PrizmContextWithImplicit,
@@ -12,50 +12,19 @@ import {
   selector: 'prizm-cron-example',
   templateUrl: './cron.component.html',
   styleUrls: ['./cron.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CronComponent {
-
   public selected: PrizmCronTabItem = 'month';
-  tabs: PrizmCronTabItem[] = [
-    'hour',
-    'day',
-    'month',
-    'year',
-  ]
-  readonly allTabs: PrizmCronTabItem[] = [
-    'second',
-    'minute',
-    'hour',
-    'day',
-    'month',
-    'year',
-  ];
+  tabs: PrizmCronTabItem[] = ['hour', 'day', 'month', 'year'];
+  readonly allTabs: PrizmCronTabItem[] = ['second', 'minute', 'hour', 'day', 'month', 'year'];
   public value: string;
   readonly tabsVariants: ReadonlyArray<PrizmCronTabItem[]> = [
-    [
-      'second',
-      'minute',
-      'hour',
-      'day',
-      'month',
-      'year',
-    ],
-    [
-      'hour',
-      'day',
-      'month',
-      'year',
-    ],
-    [
-      'day',
-      'month',
-      'year',
-    ]
+    ['second', 'minute', 'hour', 'day', 'month', 'year'],
+    ['hour', 'day', 'month', 'year'],
+    ['day', 'month', 'year'],
   ];
-  readonly setupModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/setup-module.md'
-  );
+  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   readonly exampleBase: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/cron-base-example.component.ts'),

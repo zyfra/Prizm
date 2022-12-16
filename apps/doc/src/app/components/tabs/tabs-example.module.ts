@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TabsExampleComponent } from './tabs-example.component';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { PrizmTabsModule } from '@prizm-ui/components';
 import { TabsExampleBasicComponent } from './examples/tabs-example-basic/tabs-example-basic.component';

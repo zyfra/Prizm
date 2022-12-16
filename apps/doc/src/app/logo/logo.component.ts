@@ -30,10 +30,6 @@ export class LogoComponent {
     /* update taiga doc theme */
     // this.docEl.onMode(isNight);
   }
-
-  public ngAfterViewInit(): void {
-    // this.onMode(this.docEl.night);
-  }
 }
 
 export const LOGO_CONTENT = 'assets/images/logo.svg';

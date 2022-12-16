@@ -1,39 +1,32 @@
-import { CommonModule } from "@angular/common";
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
-import { Frame18 } from "./components/frame18/frame18";
-import { Frame19 } from "./components/frame19/frame19";
-import { Frame20 } from "./components/frame20/frame20";
-import { Frame21 } from "./components/frame21/frame21";
-import { Frame4 } from "./components/frame4/frame4";
-import { GridComponent } from "./grid.component";
-import { PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
-
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { Frame18Component } from './components/frame18/frame18.component';
+import { Frame19Component } from './components/frame19/frame19.component';
+import { Frame20Component } from './components/frame20/frame20.component';
+import { Frame21Component } from './components/frame21/frame21.component';
+import { Frame4Component } from './components/frame4/frame4.component';
+import { GridComponent } from './grid.component';
+import { PrizmAddonDocModule } from '@prizm/doc-base';
 
 const routes: Routes = [
   {
     path: '',
-    component: GridComponent
-  }
+    component: GridComponent,
+  },
 ];
 
 @NgModule({
   bootstrap: [],
-  imports: [
-    CommonModule,
-    PrizmAddonDocModule,
-    RouterModule.forChild(routes)
-],
+  imports: [CommonModule, PrizmAddonDocModule, RouterModule.forChild(routes)],
   declarations: [
     GridComponent,
-    Frame18,
-    Frame19,
-    Frame20,
-    Frame21,
-    Frame4,
+    Frame18Component,
+    Frame19Component,
+    Frame20Component,
+    Frame21Component,
+    Frame4Component,
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class GridModule {
-
-}
+export class GridModule {}

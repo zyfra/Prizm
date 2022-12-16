@@ -1,6 +1,45 @@
 {
   "version": 1,
   "projects": {
+    "charts-base": {
+      "projectType": "library",
+      "root": "libs/charts/base",
+      "sourceRoot": "libs/charts/base/src",
+      "prefix": "prizm",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/charts/base"],
+          "options": {
+            "project": "libs/charts/base/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/charts/base/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/charts/base/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/charts/base"],
+          "options": {
+            "jestConfig": "libs/charts/base/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/charts/base/src/**/*.ts", "libs/charts/base/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
     "components": {
       "projectType": "library",
       "root": "libs/components",
@@ -140,7 +179,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "10kb",
-                  "maximumError": "100kb"
+                  "maximumError": "200kb"
                 }
               ],
               "fileReplacements": [
@@ -192,6 +231,29 @@
           "options": {
             "jestConfig": "apps/doc/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "doc-base": {
+      "projectType": "library",
+      "root": "libs/doc/base",
+      "sourceRoot": "libs/doc/base/src",
+      "prefix": "prizm",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/doc/base"],
+          "options": {
+            "jestConfig": "libs/doc/base/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/doc/base/src/**/*.ts", "libs/doc/base/src/**/*.html"]
           }
         }
       },
@@ -342,45 +404,6 @@
       },
       "tags": []
     },
-    "prizm-charts": {
-      "projectType": "library",
-      "root": "libs/prizm/charts",
-      "sourceRoot": "libs/prizm/charts/src",
-      "prefix": "prizm",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "outputs": ["dist/libs/prizm/charts"],
-          "options": {
-            "project": "libs/prizm/charts/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/prizm/charts/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/prizm/charts/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/prizm/charts"],
-          "options": {
-            "jestConfig": "libs/prizm/charts/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/prizm/charts/src/**/*.ts", "libs/prizm/charts/src/**/*.html"]
-          }
-        }
-      },
-      "tags": []
-    },
     "prizm-core": {
       "projectType": "library",
       "root": "libs/prizm/core",
@@ -517,32 +540,6 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/schematics/src/**/*.ts", "libs/schematics/src/**/*.html"]
-          }
-        }
-      },
-      "tags": []
-    },
-    "taiga-ui-addon-doc": {
-      "projectType": "library",
-      "root": "libs/taiga-ui/addon-doc",
-      "sourceRoot": "libs/taiga-ui/addon-doc/src",
-      "prefix": "prizm",
-      "architect": {
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/taiga-ui/addon-doc"],
-          "options": {
-            "jestConfig": "libs/taiga-ui/addon-doc/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/taiga-ui/addon-doc/src/**/*.ts",
-              "libs/taiga-ui/addon-doc/src/**/*.html"
-            ]
           }
         }
       },

@@ -1,33 +1,22 @@
-import { CommonModule } from "@angular/common";
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
-import { Frame4 } from "./components/frame4/frame4";
-import { Frame9 } from "./components/frame9/frame9";
-import { TypographyComponent } from "./typography.component";
-import { PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
-
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { Frame4Component } from './components/frame4/frame4.component';
+import { Frame9Component } from './components/frame9/frame9.component';
+import { TypographyComponent } from './typography.component';
+import { PrizmAddonDocModule } from '@prizm/doc-base';
 
 const routes: Routes = [
   {
     path: '',
-    component: TypographyComponent
-  }
+    component: TypographyComponent,
+  },
 ];
 
 @NgModule({
   bootstrap: [],
-  imports: [
-    CommonModule,
-    PrizmAddonDocModule,
-    RouterModule.forChild(routes)
-],
-  declarations: [
-    TypographyComponent,
-    Frame4,
-    Frame9,
-  ],
-  exports: [RouterModule]
+  imports: [CommonModule, PrizmAddonDocModule, RouterModule.forChild(routes)],
+  declarations: [TypographyComponent, Frame4Component, Frame9Component],
+  exports: [RouterModule],
 })
-export class TypographyModule {
-
-}
+export class TypographyModule {}

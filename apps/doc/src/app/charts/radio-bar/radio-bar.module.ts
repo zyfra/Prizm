@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { RadioBarComponent } from './radio-bar.component';
 import { PrizmChartsRadioBarExampleComponent } from './examples/base/prizm-charts-radio-bar-example.component';
@@ -13,10 +13,7 @@ import { PrizmChartsRadioBarModule } from '@prizm-ui/charts';
     PrizmChartsRadioBarModule,
     RouterModule.forChild(prizmDocGenerateRoutes(RadioBarComponent)),
   ],
-  declarations: [
-    PrizmChartsRadioBarExampleComponent,
-    RadioBarComponent
-  ],
+  declarations: [PrizmChartsRadioBarExampleComponent, RadioBarComponent],
   exports: [RadioBarComponent],
 })
 export class RadioBarModule {}

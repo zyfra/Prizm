@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { TuiDocExample } from '@prizm/taiga-ui/addon-doc';
+import { TuiDocExample } from '@prizm/doc-base';
 
 @Component({
   selector: 'prizm-side-menu-example',

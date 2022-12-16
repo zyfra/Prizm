@@ -6,11 +6,4 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./for-designers.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ForDesignersComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class ForDesignersComponent {}

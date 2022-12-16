@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, TemplateRef, ViewChild } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import { PolymorphContent, PrizmOverlayOutsidePlacement } from '@prizm-ui/components';
 
 @Component({
@@ -51,4 +51,3 @@ export class DropdownHostComponent {
 
   constructor(public readonly cdRef: ChangeDetectorRef) {}
 }
-

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import { TreeNode } from './examples/template/tree-template-example.component';
 import { PRIZM_EMPTY_ARRAY, PrizmHandler } from '@prizm-ui/components';
 
@@ -7,10 +7,10 @@ import { PRIZM_EMPTY_ARRAY, PrizmHandler } from '@prizm-ui/components';
   selector: 'prizm-tree-example',
   templateUrl: './tree.component.html',
   styleUrls: ['./tree.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TreeComponent {
-  public readonly data:  (string | (string | string[])[])[] = [
+  public readonly data: (string | (string | string[])[])[] = [
     'Top level 1',
     ['Second level item', ['Third level 1', 'Third level 2', 'Third level 3']],
     'Top level 2',
@@ -20,9 +20,7 @@ export class TreeComponent {
 
   public treeController = true;
 
-  public readonly setupModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/setup-module.md'
-    );
+  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   public readonly exampleBase: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/tree-base-example.component.ts'),
@@ -43,9 +41,7 @@ export class TreeComponent {
     TypeScript: import('!!raw-loader!./examples/component/tree-component-example.component.ts'),
     HTML: import('!!raw-loader!./examples/component/tree-component-example.component.html'),
     folder: import('!!raw-loader!./examples/component/folder.component.ts'),
-    folderLess: import('./examples/component/folder.component.less?raw')
+    folderLess: import('./examples/component/folder.component.less?raw'),
   };
-  readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item =>
-    item.children || PRIZM_EMPTY_ARRAY;
-
+  readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item => item.children || PRIZM_EMPTY_ARRAY;
 }

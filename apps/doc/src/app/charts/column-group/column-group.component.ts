@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import { PrizmSize } from '@prizm-ui/components';
 
 @Component({
@@ -17,5 +17,4 @@ export class ColumnGroupComponent {
     TypeScript: import('!!raw-loader!./examples/base/prizm-charts-column-group-example.component.ts'),
     HTML: import('!!raw-loader!./examples/base/prizm-charts-column-group-example.component.html'),
   };
-
 }

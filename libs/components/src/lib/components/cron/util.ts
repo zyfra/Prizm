@@ -1,7 +1,7 @@
-import { PrizmCarouselArrayContent } from '@prizm-ui/components';
 import { PrizmCronUiDayType } from './model';
 import { PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS } from './const';
 import { prizmGetNumberWithZero } from '@prizm-ui/core';
+import { PrizmCarouselArrayContent } from '../input/carousel';
 
 export function getArrWithStringNumbers(length: number, start = 1, withZero = false): string[] {
   return Array.from({ length }, (_, i) => {

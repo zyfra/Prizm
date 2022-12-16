@@ -1,22 +1,18 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import { PrizmSizeM, PrizmSizeS } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-progress-example',
   templateUrl: './progress-line-bar.component.html',
   styleUrls: ['./progress-line-bar.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProgressLineBarComponent {
-
   public max = 100;
   public value = 50;
 
-  readonly sizeVariants: ReadonlyArray<PrizmSizeS | PrizmSizeM> = [
-    's',
-    'm',
-  ];
+  readonly sizeVariants: ReadonlyArray<PrizmSizeS | PrizmSizeM> = ['s', 'm'];
   size: PrizmSizeS | PrizmSizeM = this.sizeVariants[1];
 
   readonly colorVariants: ReadonlyArray<string | null> = [
@@ -30,7 +26,6 @@ export class ProgressLineBarComponent {
   ];
   color: string | null = this.colorVariants[0];
 
-
   readonly trackColorVariants: ReadonlyArray<string | null> = [
     null,
     'transparent',
@@ -38,13 +33,11 @@ export class ProgressLineBarComponent {
     'var(--prizm-index-warning)',
     'lightblue',
     'gray',
-    'green'
+    'green',
   ];
   trackColor: string | null = this.trackColorVariants[0];
 
-  readonly setupModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/setup-module.md'
-  );
+  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   readonly exampleBase: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/progress-base-example.component.ts'),

@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import {
   PolymorphContent,
-  PRIZM_HINT_DEFAULT_OPTIONS, PRIZM_TOOLTIP_DEFAULT_OPTIONS,
+  PRIZM_HINT_DEFAULT_OPTIONS,
+  PRIZM_TOOLTIP_DEFAULT_OPTIONS,
   PrizmOverlayOutsidePlacement,
   PrizmTooltipOptions,
 } from '@prizm-ui/components';
@@ -11,13 +12,14 @@ import {
   selector: 'prizm-tooltip-example',
   templateUrl: './tooltip.component.html',
   styleUrls: ['./tooltip.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TooltipComponent {
   public content = 'Тестовое содержимое';
   public prizmAutoReposition = false;
 
-  public readonly prizmTooltipDirectionVariants: ReadonlyArray<PrizmTooltipOptions['direction']> = Object.values(PrizmOverlayOutsidePlacement);
+  public readonly prizmTooltipDirectionVariants: ReadonlyArray<PrizmTooltipOptions['direction']> =
+    Object.values(PrizmOverlayOutsidePlacement);
 
   public prizmTooltipDirection: PrizmTooltipOptions['direction'] = PRIZM_HINT_DEFAULT_OPTIONS.direction;
 
@@ -27,17 +29,13 @@ export class TooltipComponent {
 
   public prizmTooltipHideDelay: number = PRIZM_TOOLTIP_DEFAULT_OPTIONS.hideDelay;
 
-  public prizmTooltipHost: HTMLElement | null = null
+  public prizmTooltipHost: HTMLElement | null = null;
 
-  public readonly prizmTooltipVariants = [
-    'Tooltip'
-  ];
+  public readonly prizmTooltipVariants = ['Tooltip'];
 
-  public prizmTooltip: PolymorphContent =  this.prizmTooltipVariants[0];
+  public prizmTooltip: PolymorphContent = this.prizmTooltipVariants[0];
 
-  readonly setupModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/setup-module.md'
-  );
+  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   readonly exampleBase: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/tooltip-base-example.component.ts'),

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { PrizmCronUiBaseType, PrizmCronUiDayType } from './model';
-import { getArrWithStringNumbers, getCarousel, PrizmCronService } from '@prizm-ui/components';
+import { PrizmCronUiDayType } from './model';
 import { PrizmCronUiBaseState } from './cron-ui-base.state';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmCronService } from '../../services/cron';
+import { getArrWithStringNumbers, getCarousel } from './util';
 
 @Injectable()
 export class PrizmCronUiDayState extends PrizmCronUiBaseState<

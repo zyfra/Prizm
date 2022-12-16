@@ -1,6 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/taiga-ui/addon-doc';
-import { PRIZM_ICON_FLAGS_SVG_SET, PrizmIconSvgFlagSvgEnum, PrizmFlagIconsRegistry } from '@prizm-ui/flag-icons';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
+import {
+  PRIZM_ICON_FLAGS_SVG_SET,
+  PrizmIconSvgFlagSvgEnum,
+  PrizmFlagIconsRegistry,
+} from '@prizm-ui/flag-icons';
 
 @Component({
   selector: 'prizm-icon-example',

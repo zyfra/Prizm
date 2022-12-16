@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { License2 } from "./components/license2/license2";
+import { License2Component } from "./components/license2/license2.component";
 import { LicenseComponent } from "./license.component";
 
 
@@ -20,10 +20,10 @@ const routes: Routes = [
 ],
   declarations: [
     LicenseComponent,
-    License2,
+    License2Component,
   ],
   exports: [RouterModule]
 })
 export class LicenseModule {
-  
+
 }
