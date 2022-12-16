@@ -1,6 +1,8 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { Frame4 } from "./components/frame4/frame4";
+import { Frame9 } from "./components/frame9/frame9";
 import { TypographyComponent } from "./typography.component";
 
 
@@ -18,7 +20,9 @@ const routes: Routes = [
     RouterModule.forChild(routes)
 ],
   declarations: [
-
+    TypographyComponent,
+    Frame4,
+    Frame9,
   ],
   exports: [RouterModule]
 })
