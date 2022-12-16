@@ -31,7 +31,7 @@ export const ROUTES = [
     children: [
       {
         path: 'license',
-        component: LicenseComponent,
+        loadChildren: () => import('./about-prizm/license/license.module').then(m => m.LicenseModule),
         data: {
           title: 'License',
         },

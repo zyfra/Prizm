@@ -57,7 +57,6 @@ registerLocaleData(
     AppComponent,
     GettingStartedComponent,
     AboutComponent,
-    LicenseComponent,
     UpdatesComponent,
     DesignSystemComponent,
     ForDesignersComponent,
