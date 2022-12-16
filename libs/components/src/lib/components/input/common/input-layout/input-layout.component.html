@@ -32,6 +32,7 @@
 <ng-container *ngIf="!outer; else labelTemplate"></ng-container>
 
 <div
+  [class.hide-border]="!border"
   class="prizm-input-form
   prizm-input-form-status-{{ status }}
   prizm-input-form-{{ outer ? 'outer' : 'inner' }}

@@ -1,0 +1,87 @@
+<prizm-doc-page
+  header="Cron"
+  package="components"
+  type="components"
+>
+  <div class='page-description' description>
+    Our cron panel allows you to schedule tasks to run at specific times.
+  </div>
+
+  <ng-template pageTab>
+    <prizm-doc-example
+      id="base"
+      heading="Base"
+      [content]="exampleBase"
+    >
+      <prizm-cron-base-example></prizm-cron-base-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example
+      id="specified-tabs"
+      heading="Specified Tabs"
+      [content]="exampleSpecifiedTabs"
+    >
+      <prizm-cron-specified-tabs-example></prizm-cron-specified-tabs-example>
+    </prizm-doc-example>
+
+
+  </ng-template>
+
+  <ng-template pageTab>
+    <prizm-doc-demo class='remove-sticky'>
+      <prizm-cron
+          [tabs]='tabs'
+          [value]='value'
+          [(selected)]='selected'>
+      </prizm-cron>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        documentationPropertyName="tabs"
+        documentationPropertyType="PrizmCronTabItem[]"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="tabsVariants"
+        [(documentationPropertyValue)]="tabs"
+      >
+        Tabs
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="selected"
+        documentationPropertyType="PrizmCronTabItem"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="tabs"
+        [(documentationPropertyValue)]="selected"
+      >
+        Selected Tab
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="value"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="value"
+      >
+        Value
+      </ng-template>
+
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmCronModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code
+          filename="myComponent.module.ts"
+          [code]="setupModule"
+        ></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

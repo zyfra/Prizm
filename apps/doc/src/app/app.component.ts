@@ -10,21 +10,23 @@ import { TuiBrightness } from '@taiga-ui/core';
 })
 export class AppComponent implements AfterViewInit {
   public title = 'doc';
+  public element: HTMLElement;
   @ViewChild('docRef') docEl: {night: boolean, onMode: (isNight: boolean) => void};
 
   readonly isNight$ = this.themeSwitcher.theme$.pipe(
-    map(i => i === 'dark')
+    map(i => i.theme === 'dark')
   )
 
   @HostBinding('attr.data-mode')
   get mode(): TuiBrightness | null {
-    return this.themeSwitcher.theme === 'dark' ? 'onDark' : null;
+    return this.themeSwitcher.theme() === 'dark' ? 'onDark' : null;
   }
 
   constructor(
     private readonly themeSwitcher: PrizmThemeService,
     @Inject(LOCAL_STORAGE) private readonly storage: Storage,
   ) {
+    this.themeSwitcher.rootElement = null;
   }
 
   public ngAfterViewInit(): void {
@@ -33,8 +35,15 @@ export class AppComponent implements AfterViewInit {
 
 
   public onMode(isNight: boolean): void {
-    this.themeSwitcher.update(isNight ? 'dark' : 'light');
+    this.themeSwitcher.update(
+      isNight ? 'dark' : 'light',
+      this.element
+    );
     /* update taiga doc theme */
     this.docEl.onMode(isNight);
+  }
+
+  public contentReady(el: HTMLElement): void {
+    this.themeSwitcher.rootElement = el;
   }
 }

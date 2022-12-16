@@ -1,29 +1,28 @@
-<tui-doc-page
+<prizm-doc-page
   header="Theme"
   package="components"
   type="components"
 >
+  <div class='page-description' description>
+    Our theme components are used to style the application.
+  </div>
   <ng-template pageTab>
-    <p>
-      Use PrizmThemeDirective to control theme.
-    </p>
-
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="Base"
       [content]="exampleBase"
     >
       <prizm-theme-base-example></prizm-theme-base-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
 
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
 <!--      <prizm-theme-base-example></prizm-theme-base-example>-->
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="ngContent"
         documentationPropertyType="string"
@@ -44,7 +43,7 @@
       </ng-template>
 
 
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -56,11 +55,11 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code
+        <prizm-doc-code
           filename="myComponent.module.ts"
           [code]="setupModule"
-        ></tui-doc-code>
+        ></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

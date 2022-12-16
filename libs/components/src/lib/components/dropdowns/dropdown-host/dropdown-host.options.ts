@@ -1,6 +1,6 @@
 import { InjectionToken, ValueProvider } from '@angular/core';
-import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
 import { PrizmDropdownHostWidth } from './models';
+import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
 
 export interface PrizmDropdownHostOptions {
     readonly width: PrizmDropdownHostWidth;

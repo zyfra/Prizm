@@ -31,7 +31,7 @@ export class PanelExampleWithTabsComponent {
     // do something
   }
 
-  public tabClick(): void {
+  public activeTabIndexChange(): void {
     // do something
   }
 }

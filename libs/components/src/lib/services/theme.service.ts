@@ -1,44 +1,64 @@
-import { ElementRef, Inject, Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { debounce, debounceTime, tap } from 'rxjs/operators';
+import { Inject, Injectable, OnDestroy } from '@angular/core';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { PrizmTheme } from '../types/theme';
 import { DOCUMENT } from '@angular/common';
 
 @Injectable({
-    providedIn: 'platform',
+    providedIn: 'root',
 })
-export class PrizmThemeService {
-    private readonly themeSource$ = new BehaviorSubject<PrizmTheme>('light');
+export class PrizmThemeService implements OnDestroy {
+    public rootElement: HTMLElement;
+    private readonly themeSource$ = new BehaviorSubject<{
+      theme: PrizmTheme,
+      el?: HTMLElement
+    }>({
+      theme: 'light',
+    });
     readonly theme$ = this.themeSource$.asObservable();
-    get theme(): PrizmTheme {
-      return this.themeSource$.value
-    }
     public readonly attThemeKey = 'data-prizm-theme';
+    public readonly subscription = new Subscription();
 
     constructor(
       @Inject(DOCUMENT) private document: Document,
     ) {
-      this.theme$.pipe(
-        tap(theme => this.setToHtml(theme))
-      ).subscribe();
+      this.subscription.add(
+        this.theme$.pipe(
+          tap(theme => this.setToHtml(theme.theme, theme.el))
+        ).subscribe()
+      );
+    }
+
+    public theme(el?: HTMLElement): PrizmTheme {
+      return (el ?? this.rootElement)?.getAttribute(
+        this.attThemeKey,
+      )
     }
 
     public updateElementOnChange(el: HTMLElement): Observable<PrizmTheme> {
       return this.theme$.pipe(
         tap(
-          (theme) => this.setToHtml(theme, el)
-        )
+          (theme) => this.setToHtml(theme.theme, el)
+        ),
+        map(i => i.theme)
       )
     }
 
-    private setToHtml(theme: PrizmTheme, el: HTMLElement = this.document.body.parentElement): void {
-      el.setAttribute(
+    private setToHtml(theme: PrizmTheme, el?: HTMLElement): void {
+      (el ?? this.rootElement)?.setAttribute(
         this.attThemeKey,
         theme
-      )
+      );
     }
 
-    public update(theme: PrizmTheme): void {
-      this.themeSource$.next(theme);
+    public update(theme: PrizmTheme, el?: HTMLElement): void {
+      this.themeSource$.next({
+        theme,
+        el,
+      });
     }
+
+  ngOnDestroy(): void {
+      this.subscription.unsubscribe();
+  }
 }

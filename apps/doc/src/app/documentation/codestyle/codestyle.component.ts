@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { rawLoad } from '@taiga-ui/addon-doc';
+import { prizmRawLoad } from '@prizm/doc-base';
 
 @Component({
   selector: `prizm-codestyle`,
@@ -11,5 +11,5 @@ import { rawLoad } from '@taiga-ui/addon-doc';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CodestyleComponent {
-  readonly text = of(import(`!!raw-loader!../../../../../../CODESTYLE.md`)).pipe(switchMap(rawLoad));
+  readonly text = of(import(`!!raw-loader!../../../../../../CODESTYLE.md`)).pipe(switchMap(prizmRawLoad));
 }

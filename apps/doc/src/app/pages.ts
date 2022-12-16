@@ -1,45 +1,99 @@
-import { TuiDocPages } from '@taiga-ui/addon-doc';
-import { TuiDocPage, TuiDocPageGroup } from '@taiga-ui/addon-doc/interfaces/page';
+import { PrizmDocPage, PrizmDocPageGroup } from '@prizm/doc-base';
 
 type OrderedPage = { order?: number };
-export type TuiOrderedDocPage = ReadonlyArray<(TuiDocPage & OrderedPage) | (TuiDocPageGroup & OrderedPage)>;
+export type PrizmOrderedDocPage = ReadonlyArray<
+  (PrizmDocPage & OrderedPage) | (PrizmDocPageGroup & OrderedPage)
+>;
 
-export const pages: TuiOrderedDocPage = [
+export const pages: PrizmOrderedDocPage = [
+  //Window
+  {
+    section: `All about Prizm`,
+    title: `About Design System`,
+    keywords: 'дизайн-система, дизайн, система, design system, design, system',
+    route: 'about-prizm/design-system',
+    order: 1,
+  },
+  {
+    section: `All about Prizm`,
+    title: `Licence`,
+    keywords: 'лицензия, licence',
+    route: 'about-prizm/license',
+    order: 2,
+  },
+  {
+    section: `All about Prizm`,
+    title: 'Changelog',
+    keywords: 'ченджлог, changelog',
+    route: 'about-prizm/changelog',
+    order: 3,
+  },
+  //Guidelines
+  {
+    section: `Guidelines`,
+    title: `Typography`,
+    keywords: 'типографика, typography',
+    route: 'guidelines/typography',
+    order: 4,
+  },
+  {
+    section: `Guidelines`,
+    title: `Colors`,
+    keywords: 'цвета, colors',
+    route: 'guidelines/colors',
+    order: 5,
+  },
+  {
+    section: `Guidelines`,
+    title: `Grid`,
+    keywords: 'сетка, grid',
+    route: 'guidelines/grid',
+    order: 6,
+  },
+  //How to start
+  {
+    section: `How to start`,
+    title: `For Designers`,
+    keywords: 'дизайнеры, designers',
+    target: '_blank',
+    link: 'https://www.figma.com/@64ad37ee_26cc_4',
+    order: 7,
+  },
+  {
+    section: `How to start`,
+    title: `For Developers`,
+    keywords: 'intro, how to, guide, main, главная, начало, инструкция',
+    route: 'how-to-start/for-developers',
+    order: 8,
+  },
+  {
+    section: `How to start`,
+    title: `Migration`,
+    keywords: 'Миграция, migration',
+    route: 'how-to-start/migration',
+    order: 9,
+  },
   // Documentation
   {
     section: `Documentation`,
     title: `About`,
     keywords: 'about, intro, how to, guide, main, главная, начало, инструкция',
     route: 'about',
-    order: 1,
-  },
-  {
-    section: `Documentation`,
-    title: `Getting started`,
-    keywords: 'intro, how to, guide, main, главная, начало, инструкция',
-    route: 'getting-started',
-    order: 2,
-  },
-  {
-    section: `Documentation`,
-    title: 'Changelog',
-    keywords: 'ченджлог, changelog',
-    route: 'changelog',
-    order: 3,
+    order: 10,
   },
   {
     section: `Documentation`,
     title: 'Contributing',
     keywords: 'contributing',
     route: 'contributing',
-    order: 4,
+    order: 13,
   },
   {
     section: `Documentation`,
     title: 'CodeStyle',
     keywords: 'code, codestyle',
     route: 'codestyle',
-    order: 4,
+    order: 14,
   },
   // Components
   {
@@ -409,12 +463,17 @@ export const pages: TuiOrderedDocPage = [
     keywords: 'splitter',
     route: '/components/splitter',
   },
-
   {
     section: `Components`,
     title: 'Slider',
     keywords: 'slider',
     route: '/components/slider',
+  },
+  {
+    section: `Components`,
+    title: 'Cron',
+    keywords: 'Cron',
+    route: '/components/cron',
   },
   // Tools
   {
@@ -425,84 +484,84 @@ export const pages: TuiOrderedDocPage = [
   },
   // TODO active after finish charts
   // Charts
-  // {
-  //   section: `Charts`,
-  //   title: 'Line',
-  //   keywords: 'charts, line, графики',
-  //   route: '/charts/line',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Area',
-  //   keywords: 'charts, area, графики',
-  //   route: '/charts/area',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Stack',
-  //   keywords: 'charts, stack, графики',
-  //   route: '/charts/stack',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Bar',
-  //   keywords: 'charts, bar, графики',
-  //   route: '/charts/bar',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Gauge',
-  //   keywords: 'charts, gauge, графики',
-  //   route: '/charts/gauge',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Scatter',
-  //   keywords: 'charts, scatter, графики',
-  //   route: '/charts/scatter',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Treemap',
-  //   keywords: 'charts, treemap, графики',
-  //   route: '/charts/treemap',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Radar',
-  //   keywords: 'charts, radar, графики',
-  //   route: '/charts/radar',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Pie',
-  //   keywords: 'charts, pie, графики',
-  //   route: '/charts/pie',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Radio Bar',
-  //   keywords: 'charts, radio-bar, графики',
-  //   route: '/charts/radio-bar',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Waterfall',
-  //   keywords: 'charts, waterfall, графики',
-  //   route: '/charts/waterfall',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Group Bar',
-  //   keywords: 'charts, group-bar, графики',
-  //   route: '/charts/group-bar',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Column Group',
-  //   keywords: 'charts, column-group, графики',
-  //   route: '/charts/column-group',
-  // },
+  {
+    section: `Charts`,
+    title: 'Line',
+    keywords: 'charts, line, графики',
+    route: '/charts/line',
+  },
+  {
+    section: `Charts`,
+    title: 'Area',
+    keywords: 'charts, area, графики',
+    route: '/charts/area',
+  },
+  {
+    section: `Charts`,
+    title: 'Stack',
+    keywords: 'charts, stack, графики',
+    route: '/charts/stack',
+  },
+  {
+    section: `Charts`,
+    title: 'Bar',
+    keywords: 'charts, bar, графики',
+    route: '/charts/bar',
+  },
+  {
+    section: `Charts`,
+    title: 'Gauge',
+    keywords: 'charts, gauge, графики',
+    route: '/charts/gauge',
+  },
+  {
+    section: `Charts`,
+    title: 'Scatter',
+    keywords: 'charts, scatter, графики',
+    route: '/charts/scatter',
+  },
+  {
+    section: `Charts`,
+    title: 'Treemap',
+    keywords: 'charts, treemap, графики',
+    route: '/charts/treemap',
+  },
+  {
+    section: `Charts`,
+    title: 'Radar',
+    keywords: 'charts, radar, графики',
+    route: '/charts/radar',
+  },
+  {
+    section: `Charts`,
+    title: 'Pie',
+    keywords: 'charts, pie, графики',
+    route: '/charts/pie',
+  },
+  {
+    section: `Charts`,
+    title: 'Radio Bar',
+    keywords: 'charts, radio-bar, графики',
+    route: '/charts/radio-bar',
+  },
+  {
+    section: `Charts`,
+    title: 'Waterfall',
+    keywords: 'charts, waterfall, графики',
+    route: '/charts/waterfall',
+  },
+  {
+    section: `Charts`,
+    title: 'Group Bar',
+    keywords: 'charts, group-bar, графики',
+    route: '/charts/group-bar',
+  },
+  {
+    section: `Charts`,
+    title: 'Column Group',
+    keywords: 'charts, column-group, графики',
+    route: '/charts/column-group',
+  },
   // Helpers
   // {
   //   section: `Helpers`,
@@ -516,4 +575,3 @@ export const pages: TuiOrderedDocPage = [
   //   subPages: [],
   // },
 ];
-

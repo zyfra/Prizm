@@ -1,24 +1,27 @@
-<tui-doc-page header="Splitter" type="components">
+<prizm-doc-page header="Splitter" type="components">
+  <div class='page-description' description>
+    Our splitter component is a simple way to split content into two columns. It is a great way to display content side by side.
+  </div>
   <ng-template pageTab>
-    <tui-doc-example id="base" heading="Base" [content]="basic">
+    <prizm-doc-example id="base" heading="Base" [content]="basic">
       <prizm-splitter-basic-example></prizm-splitter-basic-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="vertical" heading="Vertical" [content]="vertical">
+    <prizm-doc-example id="vertical" heading="Vertical" [content]="vertical">
       <prizm-splitter-vertical-example></prizm-splitter-vertical-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="mested" heading="Nested" [content]="nested">
+    <prizm-doc-example id="mested" heading="Nested" [content]="nested">
       <prizm-splitter-nested-example></prizm-splitter-nested-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="limit" heading="Limit size" [content]="limitSize">
+    <prizm-doc-example id="limit" heading="Limit size" [content]="limitSize">
       <prizm-splitter-limit-size-example></prizm-splitter-limit-size-example>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-splitter
         [ngStyle]="{ height: '400px' }"
         [areasSize]="areasSize"
@@ -62,8 +65,8 @@
           </div>
         </prizm-splitter-area>
       </prizm-splitter>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="areaSizes"
         documentationPropertyType="Array"
@@ -93,7 +96,7 @@
       >
         Orientation
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -104,9 +107,9 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>
 

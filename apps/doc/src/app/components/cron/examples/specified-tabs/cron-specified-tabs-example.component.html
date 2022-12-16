@@ -1,0 +1,12 @@
+<h3>
+  Current Value:
+  <b>{{item.valueChange | async}}</b>
+</h3>
+<h3>
+  Selected Tab:
+  <b>{{selected}}</b>
+</h3>
+<hr>
+<br>
+<br>
+<prizm-cron #item [tabs]='tabs' [(selected)]='selected'></prizm-cron>

@@ -1,23 +1,129 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AboutComponent } from './documentation/about/about.component';
+import { DesignSystemComponent } from './about-prizm/design-system/design-system.component';
 import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
+import { ForDevelopersComponent } from './how-to-start/for-developers/for-developers.component';
+import { MigrationComponent } from './how-to-start/migration/migration.component';
+
 
 export const ROUTES = [
-  // DOC
+  //About-Prizm
   {
-    path: 'about',
-    component: AboutComponent,
-    data: {
-      title: 'About',
-    },
+    path: 'about-prizm',
+    children: [
+      {
+        path: 'design-system',
+        component: DesignSystemComponent,
+        data: {
+          title: 'About Design System',
+        },
+      }
+    ]
   },
   {
-    path: 'getting-started',
+    path: 'about-prizm',
+    children: [
+      {
+        path: 'license',
+        loadChildren: async (): Promise<unknown> => import('./about-prizm/license/license.module').then(m => m.LicenseModule),
+        data: {
+          title: 'License',
+        },
+      }
+    ]
+  },
+  {
+    path: 'about-prizm',
+    children: [
+      {
+        path: 'changelog',
+        loadChildren: async (): Promise<unknown> =>
+          (await import('./about-prizm/changelog/changelog.module')).ChangelogModule,
+        data: {
+          title: 'Changelog',
+        },
+      }
+    ]
+  },
+  //Guidelines
+  {
+    path: 'guidelines',
+    children: [
+      {
+        path: 'typography',
+        loadChildren: async (): Promise<unknown> => import('./guidelines/typography/typography.module').then(m => m.TypographyModule),
+        data: {
+          title: 'Typography',
+        },
+      }
+    ]
+  },
+  {
+    path: 'guidelines',
+    children: [
+      {
+        path: 'colors',
+        loadChildren: async (): Promise<unknown> => import('./guidelines/colors/colors.module').then(m => m.ColorsModule),
+        data: {
+          title: 'Colors',
+        },
+      }
+    ]
+  },
+  {
+    path: 'guidelines',
+    children: [
+      {
+        path: 'grid',
+        loadChildren: async (): Promise<unknown> => import('./guidelines/grid/grid.module').then(m => m.GridModule),
+        data: {
+          title: 'Grid',
+        },
+      }
+    ]
+  },
+  //How to start
+  {
+    path: 'how-to-start',
+    children: [
+      {
+        path: 'for-developers',
+        component: GettingStartedComponent,
+        data: {
+          title: 'For developers',
+        },
+      },
+    ]
+  },
+  {
+    path: 'how-to-start',
+    children: [
+      {
+        path: 'for-developers',
+        component: ForDevelopersComponent,
+        data: {
+          title: 'For-developers',
+        },
+      }
+    ]
+  },
+  {
+    path: 'how-to-start',
+    children: [
+      {
+        path: 'migration',
+        component: MigrationComponent,
+        data: {
+          title: 'Migration',
+        },
+      }
+    ]
+  },
+  // DOC
+  {
+    path: 'about-prizm',
     component: GettingStartedComponent,
-    data: {
-      title: 'Getting started',
-    },
+
   },
   {
     path: 'generate-example',
@@ -25,14 +131,6 @@ export const ROUTES = [
       (await import('./documentation/generate-example/generate-example.module')).GenerateExampleModule,
     data: {
       title: 'Generate example',
-    },
-  },
-  {
-    path: 'changelog',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./documentation/changelog/changelog.module')).ChangelogModule,
-    data: {
-      title: 'Changelog',
     },
   },
   {
@@ -635,6 +733,14 @@ export const ROUTES = [
       (await import('./components/slider/slider.module')).PrizmSliderExampleModule,
     data: {
       title: 'Slider',
+    },
+  },
+  {
+    path: 'components/cron',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/cron/cron.module')).CronModule,
+    data: {
+      title: 'Cron',
     },
   },
   { path: '**', redirectTo: 'about' },

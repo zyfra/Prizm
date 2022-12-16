@@ -1,64 +1,63 @@
-<tui-doc-page
+<prizm-doc-page
   header="Toast"
   package="components"
   type="components"
 >
+  <div class='page-description' description>
+    Our toast component is a simple way to display a message to the user.
+  </div>
   <ng-template pageTab>
-    <p>
-      Use Toast to show tosts and inline messages.
-    </p>
-
-    <tui-doc-example
+    <prizm-doc-example
       heading="Info Message"
       id="info-toast"
       [content]="exampleMessageInfo"
     >
       <prizm-message-info-example></prizm-message-info-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       heading="Warning Message"
       id="warning-toast"
       [content]="exampleMessageWarning"
     >
       <prizm-message-warning-example></prizm-message-warning-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="success-toast"
       heading="Success Message"
       [content]="exampleMessageSuccess"
     >
       <prizm-message-success-example></prizm-message-success-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="danger-toast"
       heading="Danger Message"
       [content]="exampleMessageDanger"
     >
       <prizm-message-danger-example></prizm-message-danger-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="toast-platform"
       heading="Platform Toast"
       [content]="exampleToast"
     >
       <prizm-toast-example></prizm-toast-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <button prizmButton (click)="showToast()">Показать тост</button>
       <div>
         <p>Container inline</p>
         <prizm-toast-container [containerId]="containerId"></prizm-toast-container>
       </div>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="timer"
         documentationPropertyType="number"
@@ -130,7 +129,7 @@
       <ng-template #template>
         <a href="">Ссылка</a>
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -142,11 +141,11 @@
           into a module where you want to use our toasts
         </p>
 
-        <tui-doc-code
+        <prizm-doc-code
           filename="myComponent.module.ts"
           [code]="setupModule"
-        ></tui-doc-code>
+        ></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

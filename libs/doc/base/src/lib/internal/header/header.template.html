@@ -1,0 +1,15 @@
+<button
+  tuiIconButton
+  icon="tuiIconMenuLarge"
+  appearance="icon"
+  class="t-menu"
+  [title]="menu"
+  (click)="onClick()"
+  (tuiActiveZoneChange)="onActiveZone($event)"
+>
+  <prizm-doc-navigation *tuiSidebar="!!(open$ | async)" class="t-navigation"></prizm-doc-navigation>
+</button>
+<div class="t-logo">
+  <img *polymorpheusOutlet="logo as src" alt="Logo" class="t-img" [src]="src" />
+</div>
+<ng-content></ng-content>

@@ -3,16 +3,18 @@ import { inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { WINDOW } from '@ng-web-apis/common';
 import {
-  TUI_DOC_DEFAULT_TABS,
-  TUI_DOC_LOGO,
-  TUI_DOC_PAGES,
-  TUI_DOC_SOURCE_CODE,
-  TUI_DOC_TITLE,
+  PRIZM_DOC_DEFAULT_TABS,
+  PRIZM_DOC_LOGO,
+  PRIZM_DOC_PAGES,
+  PRIZM_DOC_SOURCE_CODE,
+  PRIZM_DOC_TITLE,
+  PrizmDocPage,
+  PrizmDocPageGroup,
   TuiDocPages,
-  TuiDocSourceCodePathOptions,
-} from '@taiga-ui/addon-doc';
+  PrizmDocSourceCodePathOptions,
+} from '@prizm/doc-base';
 import {
-  isInsideIframe,
+  tuiIsInsideIframe,
   TUI_DIALOG_CLOSES_ON_BACK,
   TUI_IS_CYPRESS,
   TUI_TAKE_ONLY_TRUSTED_EVENTS,
@@ -21,11 +23,10 @@ import { TUI_ANIMATIONS_DURATION, TUI_SANITIZER } from '@taiga-ui/core';
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { Observable, of } from 'rxjs';
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
-import { pages, TuiOrderedDocPage } from './pages';
+import { pages, PrizmOrderedDocPage } from './pages';
 import { LOGO_CONTENT } from './logo/logo.component';
-import { TuiDocPage, TuiDocPageGroup } from '@taiga-ui/addon-doc/interfaces/page';
 
-export const DEFAULT_TABS = [`Description and examples`, `API`, `Setup`, `How to use`];
+export const DEFAULT_TABS = [`Examples`, `Live demo`, `Setup`, `How to use`];
 const TITLE_PREFIX = 'Prizm UI: ';
 
 export const HIGHLIGHT_OPTIONS_VALUE = {
@@ -49,8 +50,8 @@ export const APP_PROVIDERS = [
     useClass: NgDompurifySanitizer,
   },
   {
-    provide: TUI_DOC_SOURCE_CODE,
-    useValue: (context: TuiDocSourceCodePathOptions): null | string => {
+    provide: PRIZM_DOC_SOURCE_CODE,
+    useValue: (context: PrizmDocSourceCodePathOptions): null | string => {
       const link = 'https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk';
 
       if (!context.package) {
@@ -71,26 +72,26 @@ export const APP_PROVIDERS = [
     useClass: PathLocationStrategy,
   },
   {
-    provide: TUI_DOC_TITLE,
+    provide: PRIZM_DOC_TITLE,
     useValue: TITLE_PREFIX,
   },
   {
-    provide: TUI_DOC_PAGES,
+    provide: PRIZM_DOC_PAGES,
     useFactory: (): TuiDocPages => {
       return sortDocPages(pages);
     },
   },
 
   {
-    provide: TUI_DOC_TITLE,
+    provide: PRIZM_DOC_TITLE,
     useValue: TITLE_PREFIX,
   },
   {
-    provide: TUI_DOC_DEFAULT_TABS,
+    provide: PRIZM_DOC_DEFAULT_TABS,
     useValue: DEFAULT_TABS,
   },
   {
-    provide: TUI_DOC_LOGO,
+    provide: PRIZM_DOC_LOGO,
     useValue: LOGO_CONTENT,
   },
   {
@@ -103,19 +104,19 @@ export const APP_PROVIDERS = [
   },
   {
     provide: TUI_DIALOG_CLOSES_ON_BACK,
-    useFactory: (): Observable<unknown> => of(!isInsideIframe(inject(WINDOW))), // for cypress tests
+    useFactory: (): Observable<unknown> => of(!tuiIsInsideIframe(inject(WINDOW))), // for cypress tests
   },
 ];
 
-function sortDocPages(pages: TuiOrderedDocPage): (TuiDocPage | TuiDocPageGroup)[] {
+function sortDocPages(pages: PrizmOrderedDocPage): (PrizmDocPage | PrizmDocPageGroup)[] {
   return [...pages]
     .sort((a, b) => {
       return a.order && b.order ? a.order - b.order : a.title.localeCompare(b.title);
     })
-    .map((page: TuiDocPage | TuiDocPageGroup) => {
+    .map((page: PrizmDocPage | PrizmDocPageGroup) => {
       return {
         ...page,
         ...('subPages' in page ? { subPages: sortDocPages(page.subPages) } : {}),
-      } as TuiDocPage | TuiDocPageGroup;
+      } as PrizmDocPage | PrizmDocPageGroup;
     });
 }

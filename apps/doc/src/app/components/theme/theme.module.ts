@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { ThemeComponent } from './theme.component';
 import { PrizmThemeBaseExampleComponent } from './examples/base/theme-base-example.component';
@@ -9,14 +9,11 @@ import { PrizmThemeModule } from '@prizm-ui/components';
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     PrizmThemeModule,
-    RouterModule.forChild(generateRoutes(ThemeComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(ThemeComponent)),
   ],
-  declarations: [
-    PrizmThemeBaseExampleComponent,
-    ThemeComponent,
-  ],
+  declarations: [PrizmThemeBaseExampleComponent, ThemeComponent],
   exports: [ThemeComponent],
 })
 export class ThemeModule {}

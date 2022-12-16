@@ -1,7 +1,7 @@
 <div class="container">
   <prizm-panel>
     <div class="tabs" header>
-      <prizm-tabs [tabs]="tabs" (tabClick)="tabClick()" (cancelClick)="tabCancelClick()"></prizm-tabs>
+      <prizm-tabs [tabs]="tabs" (activeTabIndexChange)="activeTabIndexChange()" (cancelClick)="tabCancelClick()"></prizm-tabs>
     </div>
   </prizm-panel>
   <div class="content">

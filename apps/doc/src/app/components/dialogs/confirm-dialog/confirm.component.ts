@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import {
   PolymorphContent,
   PrizmBaseDialogContext,
@@ -17,14 +17,10 @@ import { generatePolymorphVariants } from '../../../util';
   selector: 'prizm-tooltip-example',
   templateUrl: './confirm.component.html',
   styleUrls: ['./confirm.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConfirmComponent {
-  public overscrollVariants: ReadonlyArray<PrizmOverscrollMode> = [
-    'scroll',
-    'all',
-    'none',
-  ];
+  public overscrollVariants: ReadonlyArray<PrizmOverscrollMode> = ['scroll', 'all', 'none'];
   public overscroll: PrizmOverscrollMode = this.overscrollVariants[0];
   public positionVariants: PrizmOverlayInsidePlacement[] = Object.values(PrizmOverlayInsidePlacement);
   public position: PrizmOverlayInsidePlacement = PrizmOverlayInsidePlacement.CENTER;
@@ -37,23 +33,21 @@ export class ConfirmComponent {
   public readonly defaultTitle = 'Вы уверены, что хотите перейти на следующий этап?';
   public readonly defaultDescription = `Дальнейшее редактирование этого раздела
 будет недоступно`;
-  public title: PolymorphContent<PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType,PrizmConfirmDialogOptions>> = this.defaultTitle;
-  public description: PolymorphContent<PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType,PrizmConfirmDialogOptions>> = this.defaultDescription;
+  public title: PolymorphContent<
+    PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogOptions>
+  > = this.defaultTitle;
+  public description: PolymorphContent<
+    PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogOptions>
+  > = this.defaultDescription;
 
-  public confirmButton = 'Перейти на следующий этап'
-  public cancelButton = 'Вернуться к текущему этапу'
-  public supportButton: string | null = null
+  public confirmButton = 'Перейти на следующий этап';
+  public cancelButton = 'Вернуться к текущему этапу';
+  public supportButton: string | null = null;
   public showByVertical = true;
 
-  readonly items = [
-    'One',
-    'Two',
-    'Three',
-  ]
+  readonly items = ['One', 'Two', 'Three'];
 
-  public readonly setupModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/setup-module.md'
-    );
+  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   public readonly exampleBase: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/base.component.ts'),
@@ -65,35 +59,30 @@ export class ConfirmComponent {
     HTML: import('!!raw-loader!./examples/base/base.component.html'),
   };
 
-
   constructor(
-    @Inject(PrizmConfirmDialogService) private readonly dialogConfirmService: PrizmConfirmDialogService,
+    @Inject(PrizmConfirmDialogService) private readonly dialogConfirmService: PrizmConfirmDialogService
   ) {}
 
   @prizmPure
   public generatePolymorphVariants(...content: PolymorphContent[]): any[] {
-    return generatePolymorphVariants(...content)
-  };
+    return generatePolymorphVariants(...content);
+  }
 
   public show(): void {
     this.dialogConfirmService
-      .open(
-        this.title,
-        {
-          backdrop: this.backdrop,
-          description: this.description,
-          confirmButton: this.confirmButton,
-          cancelButton: this.cancelButton,
-          supportButton: this.supportButton,
-          showByVertical: this.showByVertical,
-          height: this.height,
-          overscroll: this.overscroll,
-          width: this.width,
-          position: this.position,
-          size: this.size
-        }
-      ).subscribe(
-        (result) => console.log('result from dialog', {result})
-      );
+      .open(this.title, {
+        backdrop: this.backdrop,
+        description: this.description,
+        confirmButton: this.confirmButton,
+        cancelButton: this.cancelButton,
+        supportButton: this.supportButton,
+        showByVertical: this.showByVertical,
+        height: this.height,
+        overscroll: this.overscroll,
+        width: this.width,
+        position: this.position,
+        size: this.size,
+      })
+      .subscribe(result => console.log('result from dialog', { result }));
   }
 }

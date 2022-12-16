@@ -1,5 +1,8 @@
-<tui-doc-main #docRef>
-  <ng-container ngProjectAs="tuiDocHeader">
+<prizm-doc-main #docRef (contentReady)='contentReady($event)'>
+  <ng-container prizmPreNavigationHeader>
+    <prizm-doc-logo></prizm-doc-logo>
+  </ng-container>
+  <ng-container ngProjectAs="prizmDocHeader">
     <label class="prizm-night-mode">
       Night mode
       <tui-toggle
@@ -27,4 +30,4 @@
     ngProjectAs="tuiDocNavigation"
     class="app-version"
   ></prizm-version-manager>
-</tui-doc-main>
+</prizm-doc-main>
