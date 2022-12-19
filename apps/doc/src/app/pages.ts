@@ -1,47 +1,117 @@
-import { TuiDocPages } from '@taiga-ui/addon-doc';
-import { TuiDocPage, TuiDocPageGroup } from '@taiga-ui/addon-doc/interfaces/page';
+import { PrizmDocPage, PrizmDocPageGroup } from '@prizm/doc-base';
+import { SectionNameEnum } from './model';
 
 type OrderedPage = { order?: number };
-export type TuiOrderedDocPage = ReadonlyArray<(TuiDocPage & OrderedPage) | (TuiDocPageGroup & OrderedPage)>;
+export type PrizmOrderedDocPage = ReadonlyArray<
+  (PrizmDocPage & OrderedPage) | (PrizmDocPageGroup & OrderedPage)
+>;
 
-export const pages: TuiOrderedDocPage = [
-  // Documentation
+export const pages: PrizmOrderedDocPage = [
+  //Window
   {
-    section: `Documentation`,
-    title: `About`,
-    keywords: 'about, intro, how to, guide, main, главная, начало, инструкция',
-    route: 'about',
+    section: SectionNameEnum.allAboutPrizm,
+    title: `About Design System`,
+    keywords: 'дизайн-система, дизайн, система, design system, design, system',
+    link: 'http://prizm.zyfra.com/',
+    target: '_blank',
     order: 1,
   },
   {
-    section: `Documentation`,
-    title: `Getting started`,
-    keywords: 'intro, how to, guide, main, главная, начало, инструкция',
-    route: 'getting-started',
+    section: SectionNameEnum.allAboutPrizm,
+    title: `Licence`,
+    keywords: 'лицензия, licence',
+    route: 'about-prizm/license',
     order: 2,
   },
   {
-    section: `Documentation`,
+    section: SectionNameEnum.allAboutPrizm,
     title: 'Changelog',
     keywords: 'ченджлог, changelog',
-    route: 'changelog',
+    route: 'about-prizm/changelog',
     order: 3,
+  },
+  //Guidelines
+  {
+    section: SectionNameEnum.guidelines,
+    title: `Typography`,
+    keywords: 'типографика, typography',
+    route: 'guidelines/typography',
+    order: 4,
+  },
+  {
+    section: SectionNameEnum.guidelines,
+    title: `Colors`,
+    keywords: 'цвета, colors',
+    route: 'guidelines/colors',
+    order: 5,
+  },
+  {
+    section: SectionNameEnum.guidelines,
+    title: `Grid`,
+    keywords: 'сетка, grid',
+    route: 'guidelines/grid',
+    order: 6,
+  },
+  //How to start
+  {
+    section: SectionNameEnum.howToStart,
+    title: `For Designers`,
+    keywords: 'дизайнеры, designers',
+    target: '_blank',
+    link: 'https://www.figma.com/@64ad37ee_26cc_4',
+    order: 7,
+  },
+  {
+    section: SectionNameEnum.howToStart,
+    title: `For Developers`,
+    keywords: 'intro, how to, guide, main, главная, начало, инструкция',
+    route: 'how-to-start/for-developers',
+    order: 8,
+  },
+  {
+    section: SectionNameEnum.howToStart,
+    title: `Migration`,
+    keywords: 'Миграция, migration',
+    route: 'how-to-start/migration',
+    order: 9,
+  },
+  // Documentation
+  // {
+  //   section: SectionNameEnum.allAboutPrizm,
+  //   title: `About`,
+  //   keywords: 'about, intro, how to, guide, main, главная, начало, инструкция',
+  //   route: 'about',
+  //   order: 10,
+  // },
+  {
+    section: SectionNameEnum.allAboutPrizm,
+    title: 'Contributing',
+    keywords: 'contributing',
+    route: 'contributing',
+    order: 13,
+  },
+  {
+    section: SectionNameEnum.allAboutPrizm,
+    title: 'CodeStyle',
+    keywords: 'code, codestyle',
+    route: 'codestyle',
+    order: 14,
   },
   // Components
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Skeleton',
     keywords: 'skeleton, prizmSkeleton, скелетор',
     route: '/components/skeleton',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Tree',
     keywords: 'дерево, prizm-tree, tree',
     route: '/components/tree',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Buttons',
     subPages: [
       {
@@ -62,7 +132,7 @@ export const pages: TuiOrderedDocPage = [
     ],
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Dropdowns',
     subPages: [
       {
@@ -83,25 +153,25 @@ export const pages: TuiOrderedDocPage = [
     ],
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Shadow',
     keywords: 'shadow, prizm-shadow, тень',
     route: '/components/shadow',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Card',
     keywords: 'card, prizm-card, карточка',
     route: '/components/card',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Widget',
     keywords: 'widget, prizm-widget, виджет',
     route: '/components/widget',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Calendars',
     subPages: [
       {
@@ -117,7 +187,7 @@ export const pages: TuiOrderedDocPage = [
     ],
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Inputs',
     subPages: [
       {
@@ -188,19 +258,19 @@ export const pages: TuiOrderedDocPage = [
     ],
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Hint',
     keywords: 'hint, хинт',
     route: '/components/hint',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Toast',
     keywords: 'toast, тост',
     route: '/components/toast',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Dialogs',
     subPages: [
       {
@@ -221,19 +291,19 @@ export const pages: TuiOrderedDocPage = [
     ],
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Tooltip',
     keywords: 'tooltip, тултип',
     route: '/components/tooltip',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Confirm Popup',
     keywords: 'confirm, popup, confirm-popup, попап, конферм, конферм-попап',
     route: '/components/confirm-popup',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Icons',
     subPages: [
       {
@@ -254,43 +324,43 @@ export const pages: TuiOrderedDocPage = [
     ],
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Loader',
     keywords: 'loader, spinner, лоадер, спиннер, загрузка',
     route: '/components/loader',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Indicators',
     keywords: 'indicator, индикатор, danger, warning, success',
     route: '/components/indicators',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Checkbox',
     keywords: 'кнопка, чекбокс',
     route: '/components/checkbox',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Paginator',
     keywords: 'paginator, paging, пагинатор, пэйджинг',
     route: '/components/paginator',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Scrollbar',
     keywords: 'scrollbar, скролбар, скрол, scroll',
     route: '/components/scrollbar',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Toggle',
     keywords: 'toggle, тоггл, переключатель, switcher',
     route: '/components/toggle',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Progress',
     subPages: [
       {
@@ -311,182 +381,197 @@ export const pages: TuiOrderedDocPage = [
     ],
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Radio Button',
     keywords: 'radio, button, кнопка, радио',
     route: '/components/radio-button',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Table',
     keywords: 'table, таблица',
     route: '/components/table',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Table old',
     keywords: 'table, таблица',
     route: '/components/table-old',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Panel',
     keywords: 'panel, панель, header, хэдер',
     route: '/components/panel',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Tabs',
     keywords: 'tabs, табы, nav, навигация',
     route: '/components/tabs',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Breadcrumbs',
     keywords: 'breadcrumbs, хлебные крошки, таб, nav, навигация',
     route: '/components/breadcrumbs',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Accordion',
     keywords: 'accordion, аккордеон',
     route: '/components/accordion',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Side-menu',
     keywords: 'side-menu, side, menu, меню, боковое меню',
     route: '/components/side-menu',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Navigation menu',
     keywords: 'nav-menu, nav, menu, меню, навигация',
     route: '/components/nav-menu',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Switcher',
     keywords: 'switcher, select-button, переключатель',
     route: '/components/switcher',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Grids',
     keywords: 'grids, сетка, сетки',
     route: '/components/grids',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Zoom control',
     keywords: 'zoom, zoom control, зум',
     route: '/components/zoom-control',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Stepper',
     keywords: 'stepper',
     route: '/components/stepper',
   },
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
     title: 'Splitter',
     keywords: 'splitter',
     route: '/components/splitter',
   },
+
   {
-    section: `Components`,
+    section: SectionNameEnum.components,
+    title: 'Slider',
+    keywords: 'slider',
+    route: '/components/slider',
+  },
+  {
+    section: SectionNameEnum.components,
+    title: 'Cron',
+    keywords: 'Cron',
+    route: '/components/cron',
+  },
+
+  {
+    section: SectionNameEnum.components,
     title: 'File upload',
     keywords: 'file upload',
     route: '/components/file-upload',
   },
+
   // Tools
   {
-    section: `Tools`,
+    section: SectionNameEnum.tools,
     title: 'Overlay',
     keywords: 'overlay, оверлей, modal, модальное',
     route: '/tools/overlay',
   },
   // TODO active after finish charts
   // Charts
-  // {
-  //   section: `Charts`,
-  //   title: 'Line',
-  //   keywords: 'charts, line, графики',
-  //   route: '/charts/line',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Area',
-  //   keywords: 'charts, area, графики',
-  //   route: '/charts/area',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Stack',
-  //   keywords: 'charts, stack, графики',
-  //   route: '/charts/stack',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Bar',
-  //   keywords: 'charts, bar, графики',
-  //   route: '/charts/bar',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Gauge',
-  //   keywords: 'charts, gauge, графики',
-  //   route: '/charts/gauge',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Scatter',
-  //   keywords: 'charts, scatter, графики',
-  //   route: '/charts/scatter',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Treemap',
-  //   keywords: 'charts, treemap, графики',
-  //   route: '/charts/treemap',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Radar',
-  //   keywords: 'charts, radar, графики',
-  //   route: '/charts/radar',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Pie',
-  //   keywords: 'charts, pie, графики',
-  //   route: '/charts/pie',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Radio Bar',
-  //   keywords: 'charts, radio-bar, графики',
-  //   route: '/charts/radio-bar',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Waterfall',
-  //   keywords: 'charts, waterfall, графики',
-  //   route: '/charts/waterfall',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Group Bar',
-  //   keywords: 'charts, group-bar, графики',
-  //   route: '/charts/group-bar',
-  // },
-  // {
-  //   section: `Charts`,
-  //   title: 'Column Group',
-  //   keywords: 'charts, column-group, графики',
-  //   route: '/charts/column-group',
-  // },
+  {
+    section: SectionNameEnum.charts,
+    title: 'Line',
+    keywords: 'charts, line, графики',
+    route: '/charts/line',
+  },
+  {
+    section: SectionNameEnum.charts,
+    title: 'Area',
+    keywords: 'charts, area, графики',
+    route: '/charts/area',
+  },
+  {
+    section: SectionNameEnum.charts,
+    title: 'Stack',
+    keywords: 'charts, stack, графики',
+    route: '/charts/stack',
+  },
+  {
+    section: SectionNameEnum.charts,
+    title: 'Bar',
+    keywords: 'charts, bar, графики',
+    route: '/charts/bar',
+  },
+  {
+    section: SectionNameEnum.charts,
+    title: 'Gauge',
+    keywords: 'charts, gauge, графики',
+    route: '/charts/gauge',
+  },
+  {
+    section: SectionNameEnum.charts,
+    title: 'Scatter',
+    keywords: 'charts, scatter, графики',
+    route: '/charts/scatter',
+  },
+  {
+    section: SectionNameEnum.charts,
+    title: 'Treemap',
+    keywords: 'charts, treemap, графики',
+    route: '/charts/treemap',
+  },
+  {
+    section: SectionNameEnum.charts,
+    title: 'Radar',
+    keywords: 'charts, radar, графики',
+    route: '/charts/radar',
+  },
+  {
+    section: SectionNameEnum.charts,
+    title: 'Pie',
+    keywords: 'charts, pie, графики',
+    route: '/charts/pie',
+  },
+  {
+    section: SectionNameEnum.charts,
+    title: 'Radio Bar',
+    keywords: 'charts, radio-bar, графики',
+    route: '/charts/radio-bar',
+  },
+  {
+    section: SectionNameEnum.charts,
+    title: 'Waterfall',
+    keywords: 'charts, waterfall, графики',
+    route: '/charts/waterfall',
+  },
+  {
+    section: SectionNameEnum.charts,
+    title: 'Group Bar',
+    keywords: 'charts, group-bar, графики',
+    route: '/charts/group-bar',
+  },
+  {
+    section: SectionNameEnum.charts,
+    title: 'Column Group',
+    keywords: 'charts, column-group, графики',
+    route: '/charts/column-group',
+  },
   // Helpers
   // {
   //   section: `Helpers`,

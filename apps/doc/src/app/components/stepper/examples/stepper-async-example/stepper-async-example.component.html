@@ -51,12 +51,12 @@
       size="l"
       (click)="toNextStep()"
       [disabled]="toNextStepDisabled"
-      *ngIf="currentStep !== 5"
+      *ngIf="currentStep !== 3"
     >
       Следующий шаг
     </button>
 
-    <button prizmButton appearanceType="outline" appearance="success" size="l" *ngIf="currentStep === 5">
+    <button prizmButton appearanceType="outline" appearance="success" size="l" *ngIf="currentStep === 3">
       Завершить
     </button>
   </div>

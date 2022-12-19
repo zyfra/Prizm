@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 
 import { InputMaskExampleComponent } from './input-mask-example.component';
 import { InputMaskBasicExampleComponent } from './examples/input-mask-basic-example/input-mask-basic-example.component';
@@ -12,8 +12,8 @@ import { PrizmInputTextModule, PrizmMaskModule } from '@prizm-ui/components';
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
-    RouterModule.forChild(generateRoutes(InputMaskExampleComponent)),
+    PrizmAddonDocModule,
+    RouterModule.forChild(prizmDocGenerateRoutes(InputMaskExampleComponent)),
     ReactiveFormsModule,
     FormsModule,
     PrizmInputTextModule,
@@ -23,4 +23,3 @@ import { PrizmInputTextModule, PrizmMaskModule } from '@prizm-ui/components';
   exports: [InputMaskExampleComponent],
 })
 export class InputMaskExampleModule {}
-

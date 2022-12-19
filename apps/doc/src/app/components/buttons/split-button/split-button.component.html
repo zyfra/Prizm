@@ -1,12 +1,15 @@
-<tui-doc-page header="Split Button" package="components" type="components">
+<prizm-doc-page header="Split Button" package="components" type="components">
+  <div class='page-description' description>
+    Our split button component is a button with a dropdown menu. It is used to provide a list of actions that can be performed on a particular item.
+  </div>
   <ng-template pageTab>
-    <tui-doc-example id="base" heading="Split Button" [content]="exampleSplit">
+    <prizm-doc-example id="base" heading="Split Button" [content]="exampleSplit">
       <prizm-split-buttons-example></prizm-split-buttons-example>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <div class="box">
         <div class="content">
           <prizm-split-button
@@ -21,8 +24,8 @@
           </prizm-split-button>
         </div>
       </div>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="ng-content"
         documentationPropertyType="string"
@@ -88,7 +91,7 @@
       >
         Show Loader
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -100,8 +103,8 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

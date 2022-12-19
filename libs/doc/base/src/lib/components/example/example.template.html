@@ -1,0 +1,68 @@
+<h3 *ngIf="heading" class="t-title">
+  <span *polymorpheusOutlet="heading | prizmDocExampleCapitalize as text" [textContent]="text"></span>
+  <button
+    *ngIf="id"
+    tuiIconButton
+    type="button"
+    size="xs"
+    icon="tuiIconLinkLarge"
+    appearance="icon"
+    class="t-link-icon"
+    [title]="copy$ | async"
+    (click)="copyExampleLink()"
+  ></button>
+</h3>
+
+<h4 *ngIf="description" class="t-description">
+  <ng-container *polymorpheusOutlet="description | prizmDocExampleCapitalize as text">
+    {{ text }}
+  </ng-container>
+</h4>
+
+<ng-container *ngIf="processor$ | async as files" class="t-example">
+  <ng-container *ngIf="files | prizmDocExampleGetTabs: defaultTab as tabs">
+    <div class="tabs" *ngIf="files | prizmDocExampleGetTabs: defaultTab as tabs">
+      <prizm-switcher
+        [(selectedSwitcherIdx)]="activeItemIndex"
+        [switchers]="tabs | tuiMapper : tabsMap"
+      ></prizm-switcher>
+    </div>
+    <div class="t-example">
+      <div
+        *ngFor="let tab of tabs; let index = index"
+        class="t-content"
+        [class.t-content_animated]="!isCypress"
+        [class.t-content_visible]="activeItemIndex === index"
+      >
+        <ng-container
+          *ngIf="index === defaultTabIndex; else anotherTab"
+          [ngTemplateOutlet]="preview"
+        ></ng-container>
+        <ng-template #anotherTab>
+          <ng-container
+            [ngTemplateOutlet]="codeSection"
+            [ngTemplateOutletContext]="{$implicit: files[tabs[activeItemIndex]] || ''}"
+          ></ng-container>
+        </ng-template>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
+
+<ng-template #preview>
+  <div automation-id="prizm-doc-example" class="t-demo">
+    <ng-content></ng-content>
+  </div>
+</ng-template>
+
+<ng-template #codeSection let-code>
+  <section class="t-code-actions">
+    <ng-container *ngFor="let action of codeActions">
+      <ng-container *polymorpheusOutlet="action as text; context: {$implicit: code}">
+        {{ text }}
+      </ng-container>
+    </ng-container>
+    <prizm-doc-copy [cdkCopyToClipboard]="code"></prizm-doc-copy>
+  </section>
+  <prizm-doc-code [code]="code"></prizm-doc-code>
+</ng-template>

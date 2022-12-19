@@ -1,19 +1,85 @@
-# Contributing to SDK
+# Contributing
 
-## Добавление нового компонента
+---
 
-// TODO
+## Issue
 
-## Исправление ошибок
+**Любое обращение начинается с создания issue**
 
-// TODO
+#### Увидели проблему
 
-## Code Style Guide
+1. Найти похожий issue или создать новый issue
 
-Данный документ наследует общий codestyle для разработки - [CodeStyle. Best Practices](https://jira.zyfra.com/wiki/pages/viewpage.action?pageId=113012002).
-и вносит дополнения.
+#### Хочу исправить проблему
 
-### Структура проекта docs:
+1. Найти или создать issue
+2. Получить апрув от участников команды на выполнение
+3. Прислать MR
+
+#### Как получить доступ в gitlab
+
+Для получения доступа напишите на почту "denis.biktanov@idp.zyfra.com" с заголовком письма "PrizmUI - получение доступа"
+
+#### Создание issue
+
+(?) Посмотрите требования к заголовкам MR, Issue
+
+1. Зайти в https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/issues/new
+2. Добавить заголовок.
+3. Выбрать шаблон из предложенного
+4. Оформить и отправить на рассмотрение
+
+## Требования к заголовку MR, Issue
+
+Заголовок сообщения коммитов и MR должны состоять из:
+
+```
+<type>(<scope>/(component?)): <short summary>
+```
+
+#### type
+
+Тип коммита
+
+Должен быть одним из:
+
+- **build**: Изменения в способе сборки, например nx,
+- **ci**: Изменения в pipeline .gitlab-ci.yml
+- **docs**: Документация
+- **feat**: Новая фича
+- **fix**: Фикс бага
+- **perf**: Изменения в первормансе
+- **refactor**: Изменения которые не исправляют баги и не добавляют новую фичу, а лишь изменяют качество кодовой базы.
+- **test**: Добавление теста
+
+#### scope
+
+Окружение npm либа или же приложение
+
+Должен быть одним из:
+
+- core
+- components - КБ
+- charts
+- helpers - либа хелперов
+- schematics - либа схематиков, установщиков
+- executors - тулы для самой работы sdk
+- generators - схематики для самой sdk
+- doc - приложение витрины компонентов
+
+##### component
+
+Часть непосредственно самого scope.
+
+Для components может быть:
+
+`button`, `calendar`, `input` и т.д.
+
+## Стиль написания кода
+
+Данный документ наследует общий codestyle для разработки - [CodeStyle](/codestyle).
+
+## Структура проекта docs:
 
 Проект для ведения документации.
 
@@ -63,12 +129,10 @@ import-module.md - всегда про setup компонента
 
 <component>-<custom>-example - дополнительный пример
 
-### Структура проекта next:
-
 #### Naming
 
 Модули, компоненты, директивы, pipe и все что выступает в public через `import {...} from "@prizm-ui/,,,"`
-Должны иметь префикс - `prizm (zyfra-ui)`
+Должны иметь префикс - `prizm`
 
 Пример:
 `PrizmInputModule`
@@ -118,17 +182,17 @@ name - название переменной
 
 Пример:
 
-```
+```ts
 export class PrizmPureException extends Error {
-constructor() {
-super('prizmPure can only be used with functions or getters');
-}
+  constructor() {
+    super('prizmPure can only be used with functions or getters');
+  }
 }
 
 // use
 
 if (typeof value !== 'function') {
-throw new PrizmPureException();
+  throw new PrizmPureException();
 }
 ```
 

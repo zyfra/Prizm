@@ -1,24 +1,26 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import {
   PolymorphContent,
   PRIZM_HINT_DEFAULT_OPTIONS,
   PrizmHintOptions,
-  PrizmOverlayOutsidePlacement
-} from "@prizm-ui/components";
+  PrizmOverlayOutsidePlacement,
+} from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-hint-example',
   templateUrl: './hint.component.html',
   styleUrls: ['./hint.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HintComponent {
   public prizmAutoReposition = false;
   public prizmHintCanShow = true;
-  public content = "Тестовое содержимое";
+  public content = 'Тестовое содержимое';
 
-  public readonly prizmHintDirectionVariants: ReadonlyArray<PrizmHintOptions['direction']> = Object.values(PrizmOverlayOutsidePlacement);
+  public readonly prizmHintDirectionVariants: ReadonlyArray<PrizmHintOptions['direction']> = Object.values(
+    PrizmOverlayOutsidePlacement
+  );
 
   public prizmHintDirection: PrizmHintOptions['direction'] = PRIZM_HINT_DEFAULT_OPTIONS.direction;
 
@@ -30,15 +32,11 @@ export class HintComponent {
 
   public prizmHintHost: HTMLElement = null;
 
-  public readonly prizmHintVariants = [
-    'Новый хинт'
-  ];
+  public readonly prizmHintVariants = ['Новый хинт'];
 
-  public prizmHint: PolymorphContent =  this.prizmHintVariants[0];
+  public prizmHint: PolymorphContent = this.prizmHintVariants[0];
 
-  readonly setupModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/setup-module.md'
-  );
+  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   readonly exampleBasic: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/hint-base-example.component.ts'),

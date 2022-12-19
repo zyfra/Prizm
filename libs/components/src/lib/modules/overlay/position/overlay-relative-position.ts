@@ -1,6 +1,6 @@
-import {PrizmOverlayOutsidePlacement, PrizmOverlayPositionMeta} from '../models';
-import {EventBus, setWidthHeight} from '../utils';
-import {PrizmOverlayAbstractPosition} from './position';
+import { PrizmOverlayOutsidePlacement, PrizmOverlayPositionMeta } from '../models';
+import { EventBus, setWidthHeight } from '../utils';
+import { PrizmOverlayAbstractPosition } from './position';
 
 export interface PrizmOverlayRelativePositionConfig {
   element: HTMLElement;

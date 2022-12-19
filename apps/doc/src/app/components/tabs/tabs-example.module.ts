@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TabsExampleComponent } from './tabs-example.component';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { PrizmTabsModule } from '@prizm-ui/components';
 import { TabsExampleBasicComponent } from './examples/tabs-example-basic/tabs-example-basic.component';
@@ -23,8 +23,8 @@ import { TabsExampleClosableComponent } from './examples/tabs-example-closable/t
   ],
   imports: [
     CommonModule,
-    TuiAddonDocModule,
-    RouterModule.forChild(generateRoutes(TabsExampleComponent)),
+    PrizmAddonDocModule,
+    RouterModule.forChild(prizmDocGenerateRoutes(TabsExampleComponent)),
     PrizmTabsModule,
   ],
 })

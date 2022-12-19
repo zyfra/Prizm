@@ -1,0 +1,26 @@
+.block {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+
+  .item {
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    border-radius: 2px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    padding: 0 4px;
+
+    &.item.selected {
+      background-color: var(--prizm-index-plan);
+      color: var(--prizm-exceptions-white);
+    }
+
+    &:hover {
+      background-color: var(--prizm-g2-g11);
+      color: var(--prizm-index-plan);
+    }
+  }
+}

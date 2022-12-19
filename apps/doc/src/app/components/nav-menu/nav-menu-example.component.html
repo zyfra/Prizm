@@ -1,16 +1,20 @@
-<tui-doc-page header="Navigation menu" package="UI" type="components">
-  <ng-template pageTab>
-    <tui-doc-example id="base" heading="Basic" [content]="exampleBasicNavMenu">
-      <prizm-nav-menu-basic-example></prizm-nav-menu-basic-example>
-    </tui-doc-example>
+<prizm-doc-page header="Navigation menu" package="UI" type="components">
 
-    <tui-doc-example id="advanced" heading="Advanced" [content]="exampleAdvancedNavMenu">
+  <div class='page-description' description>
+    Our navigation menu is a simple, responsive, and accessible menu that can be used in a variety of ways. It can be used as a primary navigation menu, a secondary navigation menu, or a footer navigation menu.
+  </div>
+  <ng-template pageTab>
+    <prizm-doc-example id="base" heading="Basic" [content]="exampleBasicNavMenu">
+      <prizm-nav-menu-basic-example></prizm-nav-menu-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="advanced" heading="Advanced" [content]="exampleAdvancedNavMenu">
       <prizm-nav-menu-advanced-example></prizm-nav-menu-advanced-example>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-nav-menu
         [model]="navigationList"
         [menuTitle]="menuTitle"
@@ -18,8 +22,8 @@
         [toolbarConfig]="toolbarConfig"
         [headerConfig]="headerConfig"
       ></prizm-nav-menu>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="model"
         documentationPropertyType="PrizmMenuItem[]"
@@ -93,7 +97,7 @@
       >
         Collapse node event
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -104,8 +108,8 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

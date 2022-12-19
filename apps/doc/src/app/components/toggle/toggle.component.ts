@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import { PolymorphContent, PrizmContextWithImplicit, PrizmSizeL, PrizmSizeM } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-toggle-example',
   templateUrl: './toggle.component.html',
   styleUrls: ['./toggle.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToggleComponent {
   value = true;
@@ -15,24 +15,20 @@ export class ToggleComponent {
 
   singleColor = false;
 
-  readonly sizeVariants: ReadonlyArray<PrizmSizeL | PrizmSizeM> = [
-    'm',
-    'l'
-  ];
+  readonly sizeVariants: ReadonlyArray<PrizmSizeL | PrizmSizeM> = ['m', 'l'];
   size: PrizmSizeL | PrizmSizeM = this.sizeVariants[0];
 
-  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>>> = [
-    '',
-    'selection-checkbox-marked-circle',
-    'selection-checkbox-marked-circle-chanel',
-    'arrows-chevron-left',
-    'arrows-chevron-right'
-  ];
+  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>>> =
+    [
+      '',
+      'selection-checkbox-marked-circle',
+      'selection-checkbox-marked-circle-chanel',
+      'arrows-chevron-left',
+      'arrows-chevron-right',
+    ];
   iconOn: PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>> = this.iconVariants[0];
   iconOff: PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>> = this.iconVariants[0];
-  readonly setupModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/setup-module.md'
-  );
+  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   readonly exampleBase: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/toggle-base-example.component.ts'),

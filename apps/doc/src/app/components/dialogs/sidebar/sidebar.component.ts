@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import {
   PolymorphContent,
-  PrizmBaseDialogContext, PrizmDialogSize,
+  PrizmBaseDialogContext,
+  PrizmDialogSize,
   PrizmOverlayInsidePlacement,
   PrizmOverscrollMode,
   PrizmSidebarOptions,
@@ -15,16 +16,12 @@ import { prizmPure } from '@prizm-ui/core';
   selector: 'prizm-tooltip-example',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarComponent {
-  public overscrollVariants: ReadonlyArray<PrizmOverscrollMode> = [
-    'scroll',
-    'all',
-    'none',
-  ];
+  public overscrollVariants: ReadonlyArray<PrizmOverscrollMode> = ['scroll', 'all', 'none'];
   public overscroll: PrizmOverscrollMode = this.overscrollVariants[0];
-  public positionVariants: any = ['t', 'b' , 'l', 'r'];
+  public positionVariants: any = ['t', 'b', 'l', 'r'];
   public position: PrizmOverlayInsidePlacement = PrizmOverlayInsidePlacement.LEFT;
   public backdrop = false;
   public height = 'auto';
@@ -37,9 +34,7 @@ export class SidebarComponent {
   public content = 'Базовый текст для диалога';
   public footer: PolymorphContent<PrizmBaseDialogContext<PrizmSidebarOptions<any>>> = null;
 
-  public readonly exampleModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/setup-module.md'
-    );
+  public readonly exampleModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   public readonly exampleBasic: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/base.component.ts'),
@@ -51,14 +46,12 @@ export class SidebarComponent {
     HTML: import('!!raw-loader!./examples/top-bottom/top-bottom.component.html'),
   };
 
-  constructor(
-    @Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService,
-  ) {}
+  constructor(@Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService) {}
 
   @prizmPure
   public generatePolymorphVariants(...content: PolymorphContent[]): any[] {
-    return generatePolymorphVariants(...content)
-  };
+    return generatePolymorphVariants(...content);
+  }
 
   public show(): void {
     this.sidebarService
@@ -71,10 +64,8 @@ export class SidebarComponent {
         overscroll: this.overscroll,
         position: this.position,
         closeWord: this.closeWord,
-        size: this.size
+        size: this.size,
       })
-      .subscribe(
-        (result) => console.log('result from sidebar', {result})
-      );
+      .subscribe(result => console.log('result from sidebar', { result }));
   }
 }

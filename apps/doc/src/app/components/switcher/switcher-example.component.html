@@ -1,48 +1,52 @@
-<tui-doc-page header="Switcher" package="components" type="components">
+<prizm-doc-page header="Switcher" package="components" type="components">
+  <div class='page-description' description>
+    Our switcher component is a simple toggle that can be used to turn something on or off.
+  </div>
   <ng-template pageTab>
-    <tui-doc-example id="base" heading="Basic" [content]="exampleBasicSwitcher">
+    <prizm-doc-example id="base" heading="Basic" [content]="exampleBasicSwitcher">
       <prizm-switcher-basic-example></prizm-switcher-basic-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="innerL" heading="Type inner, size L" [content]="exampleInnerLSwitcher">
+    <prizm-doc-example id="innerL" heading="Type inner, size L" [content]="exampleInnerLSwitcher">
       <prizm-switcher-inner-l-example></prizm-switcher-inner-l-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="innerM" heading="Type inner, size M" [content]="exampleInnerMSwitcher">
+    <prizm-doc-example id="innerM" heading="Type inner, size M" [content]="exampleInnerMSwitcher">
       <prizm-switcher-inner-m-example></prizm-switcher-inner-m-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="outerL" heading="Type outer, size L" [content]="exampleOuterLSwitcher">
+    <prizm-doc-example id="outerL" heading="Type outer, size L" [content]="exampleOuterLSwitcher">
       <prizm-switcher-outer-l-example></prizm-switcher-outer-l-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="outerM" heading="Type outer, size M" [content]="exampleOuterMSwitcher">
+    <prizm-doc-example id="outerM" heading="Type outer, size M" [content]="exampleOuterMSwitcher">
       <prizm-switcher-outer-m-example></prizm-switcher-outer-m-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="outerS" heading="Type outer, size S" [content]="exampleOuterSSwitcher">
+    <prizm-doc-example id="outerS" heading="Type outer, size S" [content]="exampleOuterSSwitcher">
       <prizm-switcher-outer-s-example></prizm-switcher-outer-s-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="withIcon" heading="Switcher with icon" [content]="exampleWithIconSwitcher">
+    <prizm-doc-example id="withIcon" heading="Switcher with icon" [content]="exampleWithIconSwitcher">
       <prizm-switcher-with-icon-example></prizm-switcher-with-icon-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="onlyIcon" heading="Only icon switcher" [content]="exampleOnlyIconSwitcher">
+    <prizm-doc-example id="onlyIcon" heading="Only icon switcher" [content]="exampleOnlyIconSwitcher">
       <prizm-switcher-only-icon-example></prizm-switcher-only-icon-example>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-switcher
         [switchers]="switchers"
         [type]="type"
+        [fullWidth]="fullWidth"
         [selectedSwitcherIdx]="selectedSwitcherIdx"
         [size]="size"
       ></prizm-switcher>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="label"
         documentationPropertyType="ISwitcher[]"
@@ -58,6 +62,15 @@
         [(documentationPropertyValue)]="selectedSwitcherIdx"
       >
         Selected switcher index
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="fullWidth"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="fullWidth"
+      >
+        Full width
       </ng-template>
 
       <ng-template
@@ -87,7 +100,7 @@
       >
         Selected switcher event emitter
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -98,8 +111,8 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

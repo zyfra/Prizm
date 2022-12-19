@@ -12,14 +12,16 @@ export interface PrizmOverlayPositionMeta {
   extra?: string;
 }
 
-enum b {
+enum prizmOverlayBaseType {
   TOP = 't',
   LEFT = 'l',
   RIGHT = 'r',
   BOTTOM = 'b',
 }
 
-enum p {
+type PrizmOverlayBaseType = 't' | 'l' | 'r' | 'b';
+
+enum prizmOverlayYSide {
   TOP = 't',
   LEFT = 'l',
   RIGHT = 'r',
@@ -30,31 +32,39 @@ enum p {
   BOTTOM_RIGHT = 'br'
 }
 
-enum o {
+type PrizmOverlayYSideType = 't' | 'l' | 'r' | 'b' | 'tl' | 'tr' | 'bl' | 'br';
+
+enum prizmOverlayLeftSide {
   LEFT_TOP = 'lt',
   RIGHT_TOP = 'rt',
   LEFT_BOTTOM = 'lb',
   RIGHT_BOTTOM = 'rb'
 }
 
-enum i {
+export type PrizmOverlayLeftSideType = 'lt' | 'rt' | 'lb' | 'rb';
+
+enum prizmOverlayInnerSide {
   CENTER = 'c'
 }
+
+export type PrizmOverlayInnerSideType = 'c';
+
 export const PrizmOverlayOutsidePlacement = {
-  ...p,
-  ...o
+  ...prizmOverlayYSide,
+  ...prizmOverlayLeftSide
 };
+export type PrizmOverlayOutsidePlacement = PrizmOverlayYSideType | PrizmOverlayLeftSideType;
 
 export const PrizmOverlayBasePlacement = {
-  ...b
+  ...prizmOverlayBaseType
 };
+export type PrizmOverlayBasePlacement = PrizmOverlayBaseType;
+
 export const PrizmOverlayInsidePlacement = {
-  ...p,
-  ...i
+  ...prizmOverlayYSide,
+  ...prizmOverlayInnerSide
 };
-export type PrizmOverlayOutsidePlacement = p | o;
-export type PrizmOverlayInsidePlacement = p | i;
-export type PrizmOverlayBasePlacement = b;
+export type PrizmOverlayInsidePlacement = PrizmOverlayYSideType | PrizmOverlayInnerSideType;
 
 export enum PrizmOverlaySlidePlacement {
   LEFT = 'l',

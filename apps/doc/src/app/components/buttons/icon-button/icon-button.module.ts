@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { IconButtonComponent } from './icon-button.component';
 import { PrizmButtonModule } from '@prizm-ui/components';
@@ -9,14 +9,11 @@ import { prizmIconsButtonsExampleComponent } from './examples/icons/icons-button
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     PrizmButtonModule,
-    RouterModule.forChild(generateRoutes(IconButtonComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(IconButtonComponent)),
   ],
-  declarations: [
-    prizmIconsButtonsExampleComponent,
-    IconButtonComponent
-  ],
+  declarations: [prizmIconsButtonsExampleComponent, IconButtonComponent],
   exports: [IconButtonComponent],
 })
 export class IconButtonModule {}

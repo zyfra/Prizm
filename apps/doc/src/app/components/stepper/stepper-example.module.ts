@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmStepperBasicExampleComponent } from './examples/stepper-basic-example/stepper-basic-example.component';
@@ -17,9 +17,9 @@ import { PrizmStepperAsyncExampleComponent } from './examples/stepper-async-exam
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     PrizmStepperModule,
-    RouterModule.forChild(generateRoutes(PrizmStepperExampleComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(PrizmStepperExampleComponent)),
     FormsModule,
     ReactiveFormsModule,
     PrizmButtonModule,
@@ -35,4 +35,3 @@ import { PrizmStepperAsyncExampleComponent } from './examples/stepper-async-exam
   exports: [PrizmStepperExampleComponent],
 })
 export class PrizmStepperExampleModule {}
-

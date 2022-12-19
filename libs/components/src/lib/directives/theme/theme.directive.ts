@@ -22,8 +22,14 @@ export class PrizmThemeDirective implements OnInit {
 
     public ngOnInit(): void {
       this.themeService.theme$.pipe(
-        tap((theme) => this.renderer2.setAttribute(this.element.nativeElement, this.themeService.attThemeKey, theme)),
-        tap((theme) => this.prizmTheme.next(theme)),
+        tap((theme) => {
+          this.renderer2.setAttribute(
+            this.element.nativeElement,
+            this.themeService.attThemeKey,
+            theme.theme
+          );
+        }),
+        tap((theme) => this.prizmTheme.next(theme.theme)),
         takeUntil(this.destroy$)
       ).subscribe()
     }

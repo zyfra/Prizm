@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 
 @Component({
   selector: 'prizm-input-password-example',
@@ -36,4 +36,3 @@ export class InputPasswordExampleComponent {
 
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 }
-

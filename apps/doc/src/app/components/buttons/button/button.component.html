@@ -1,24 +1,27 @@
-<tui-doc-page header="Button" package="components" type="components">
+<prizm-doc-page header="Button" package="components" type="components">
+  <div class='page-description' description>
+    Our button component is a simple button that can be used to trigger an action.
+  </div>
   <ng-template pageTab>
-    <tui-doc-example id="base" heading="With Icons" [content]="exampleIcons">
+    <prizm-doc-example id="base" heading="With Icons" [content]="exampleIcons">
       <prizm-icons-buttons-example></prizm-icons-buttons-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="base" heading="Filled buttons" [content]="exampleFilled">
-      <prizm-outline-buttons-example></prizm-outline-buttons-example>
-    </tui-doc-example>
-
-    <tui-doc-example id="base" heading="Outline buttons" [content]="exampleOutline">
+    <prizm-doc-example id="base" heading="Filled buttons" [content]="exampleFilled">
       <prizm-filled-buttons-example></prizm-filled-buttons-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="base" heading="Ghost buttons" [content]="exampleGhost">
+    <prizm-doc-example id="base" heading="Outline buttons" [content]="exampleOutline">
+      <prizm-outline-buttons-example></prizm-outline-buttons-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="base" heading="Ghost buttons" [content]="exampleGhost">
       <prizm-ghost-buttons-example></prizm-ghost-buttons-example>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <button
         prizmButton
         [icon]="icon"
@@ -31,8 +34,8 @@
       >
         {{ content }}
       </button>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="ng-content"
         documentationPropertyType="string"
@@ -108,7 +111,7 @@
       >
         Show Loader
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -120,8 +123,8 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

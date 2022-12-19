@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import {
   PolymorphContent,
   PRIZM_CONFIRM_POPUP_DEFAULT_OPTIONS,
@@ -12,15 +12,17 @@ import {
   selector: 'prizm-confirm-popup-example',
   templateUrl: './confirm-popup.component.html',
   styleUrls: ['./confirm-popup.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConfirmPopupComponent {
   public content = 'Тестовое содержимое';
   public prizmAutoReposition = false;
 
-  public readonly prizmConfirmPopupDirectionVariants: ReadonlyArray<PrizmConfirmPopupOptions['direction']> = Object.values(PrizmOverlayOutsidePlacement);
+  public readonly prizmConfirmPopupDirectionVariants: ReadonlyArray<PrizmConfirmPopupOptions['direction']> =
+    Object.values(PrizmOverlayOutsidePlacement);
 
-  public prizmConfirmPopupDirection: PrizmConfirmPopupOptions['direction'] = PRIZM_HINT_DEFAULT_OPTIONS.direction;
+  public prizmConfirmPopupDirection: PrizmConfirmPopupOptions['direction'] =
+    PRIZM_HINT_DEFAULT_OPTIONS.direction;
 
   public prizmConfirmPopupId = 'confirm-id';
 
@@ -30,15 +32,11 @@ export class ConfirmPopupComponent {
 
   public prizmConfirmPopupHost: HTMLElement = null;
 
-  public readonly prizmConfirmPopupVariants = [
-    'ConfirmPopup'
-  ];
+  public readonly prizmConfirmPopupVariants = ['ConfirmPopup'];
 
-  public prizmConfirmPopup: PolymorphContent =  this.prizmConfirmPopupVariants[0];
+  public prizmConfirmPopup: PolymorphContent = this.prizmConfirmPopupVariants[0];
 
-  readonly setupModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/setup-module.md'
-  );
+  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   readonly exampleBase: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/confirm-popup-base-example.component.ts'),
@@ -46,12 +44,18 @@ export class ConfirmPopupComponent {
   };
 
   readonly exampleWithTemplate: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-template/confirm-popup-with-template-example.component.ts'),
+    TypeScript: import(
+      '!!raw-loader!./examples/with-template/confirm-popup-with-template-example.component.ts'
+    ),
     HTML: import('!!raw-loader!./examples/with-template/confirm-popup-with-template-example.component.html'),
   };
 
   readonly exampleWithComponent: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-component/confirm-popup-with-component-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/with-component/confirm-popup-with-component-example.component.html'),
+    TypeScript: import(
+      '!!raw-loader!./examples/with-component/confirm-popup-with-component-example.component.ts'
+    ),
+    HTML: import(
+      '!!raw-loader!./examples/with-component/confirm-popup-with-component-example.component.html'
+    ),
   };
 }

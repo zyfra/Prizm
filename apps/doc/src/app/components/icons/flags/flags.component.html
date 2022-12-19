@@ -1,27 +1,32 @@
-<tui-doc-page
+<prizm-doc-page
   header="Icon Flags"
   package="NEXT"
   type="components"
 >
 
+  <div class='page-description' description>
+    Our flags icon set is a collection of 83 flags from around the world.
+    Each flag is available as font and icon.
+    The flags are available in 3 formats: FONT and SVG.
+  </div>
 
   <ng-template pageTab>
 <!--    TODO подчинить файлы для генерации иконок -->
-<!--    <tui-doc-example-->
+<!--    <prizm-doc-example-->
 <!--      id="base"-->
 <!--      heading="Font"-->
 <!--      [content]="exampleFont"-->
 <!--    >-->
 <!--      <prizm-icon-font-example></prizm-icon-font-example>-->
-<!--    </tui-doc-example>-->
+<!--    </prizm-doc-example>-->
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="Svg"
       [content]="exampleSvg"
     >
       <prizm-icon-base-example></prizm-icon-base-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
     <h1>
       Icon Flags Set
@@ -38,10 +43,10 @@
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-flag-icons [size]='size' [name]='name'></prizm-flag-icons>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="name"
         documentationPropertyType="string"
@@ -60,7 +65,7 @@
       >
         Size
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -72,11 +77,11 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code
+        <prizm-doc-code
           filename="myComponent.module.ts"
           [code]="setupModule"
-        ></tui-doc-code>
+        ></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

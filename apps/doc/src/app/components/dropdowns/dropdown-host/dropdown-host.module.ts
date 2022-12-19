@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
@@ -25,7 +25,7 @@ import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
@@ -33,7 +33,7 @@ import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
     PrizmDropdownZoneModule,
     PrizmButtonModule,
     PrizmDropdownHostModule,
-    RouterModule.forChild(generateRoutes(DropdownHostComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(DropdownHostComponent)),
     PrizmCheckboxModule,
     PrizmInputDateTimeModule,
     PrizmInputTextModule,

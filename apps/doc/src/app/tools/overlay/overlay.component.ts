@@ -1,42 +1,30 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {RawLoaderContent, TuiDocExample} from "@taiga-ui/addon-doc";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 
 @Component({
   selector: 'prizm-overlay-example',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OverlayComponent {
   // List inputs
   styleClass: string;
   label = 'Button Name';
 
-
   // list
-  readonly typeVariants: ReadonlyArray<'button' | 'submit' | 'reset'> = [
-    'submit',
-    'reset',
-    'button',
-  ];
+  readonly typeVariants: ReadonlyArray<'button' | 'submit' | 'reset'> = ['submit', 'reset', 'button'];
   type = this.typeVariants[0];
 
   icon: string;
 
-  readonly iconPosVariants: ReadonlyArray<unknown> = [
-    'left',
-    'right',
-    'top',
-    'bottom'
-  ];
+  readonly iconPosVariants: ReadonlyArray<unknown> = ['left', 'right', 'top', 'bottom'];
   iconPos: unknown = this.iconPosVariants[0];
   disabled = false;
   badge: string;
   style: string;
 
-  readonly exampleModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/import-module.md'
-    );
+  readonly exampleModule: RawLoaderContent = import('!!raw-loader!./examples/import-module.md');
 
   readonly globalExample: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/global/template'),

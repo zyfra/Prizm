@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { ShadowComponent } from './shadow.component';
 import { PrizmShadowBaseExampleComponent } from './examples/base/shadow-base-example.component';
@@ -10,16 +10,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     FormsModule,
     ReactiveFormsModule,
     PrizmShadowModule,
-    RouterModule.forChild(generateRoutes(ShadowComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(ShadowComponent)),
   ],
-  declarations: [
-    PrizmShadowBaseExampleComponent,
-    ShadowComponent
-  ],
+  declarations: [PrizmShadowBaseExampleComponent, ShadowComponent],
   exports: [ShadowComponent],
 })
 export class ShadowModule {}

@@ -1,34 +1,34 @@
-<tui-doc-page
+<prizm-doc-page
   header="Widget"
   package="components"
   type="components"
 >
+  <div class='page-description' description>
+    Our widget component can use a variety of different types of content. It can be used to display a single image, a video, or a slideshow of images. It can also be used to display a single piece of text, or a slideshow of text.
+  </div>
   <ng-template pageTab>
-    <p>
-      Use PrizmWidgetComponent to view widget.
-    </p>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="Base"
       [content]="exampleBase"
     >
       <prizm-widget-base-example></prizm-widget-base-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="With Buttons"
       [content]="exampleWithButtons"
     >
       <prizm-widget-with-buttons-example></prizm-widget-with-buttons-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
 
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-widget
         [header]='header'
         [title]='title'
@@ -36,8 +36,8 @@
         {{content}}
       </prizm-widget>
 
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
 
       <ng-template
         documentationPropertyName="content"
@@ -94,7 +94,7 @@
       >
         Click on icon
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -106,11 +106,11 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code
+        <prizm-doc-code
           filename="myComponent.module.ts"
           [code]="setupModule"
-        ></tui-doc-code>
+        ></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

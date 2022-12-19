@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 
 @Component({
   selector: 'prizm-example-panel',
@@ -43,9 +43,7 @@ export class PanelExampleComponent {
   };
 
   public readonly panelWithPagesExample: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/panel-example-with-pages/panel-example-with-pages.component'
-    ),
+    TypeScript: import('!!raw-loader!./examples/panel-example-with-pages/panel-example-with-pages.component'),
     HTML: import('!!raw-loader!./examples/panel-example-with-pages/panel-example-with-pages.component.html'),
     LESS: import('./examples/panel-example-with-pages/panel-example-with-pages.component.less?raw'),
   };
