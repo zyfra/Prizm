@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { PrizmButtonModule, PrizmFileUploadModule, PrizmToastModule } from '@prizm-ui/components';
 import { PrizmFileUploadExampleComponent } from './file-upload-example.component';
@@ -12,10 +12,10 @@ import { PrizmFileAutoUploadExampleComponent } from './examples/auto-upload/auto
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     PrizmFileUploadModule,
     PrizmToastModule,
-    RouterModule.forChild(generateRoutes(PrizmFileUploadExampleComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(PrizmFileUploadExampleComponent)),
     HttpClientModule,
     PrizmButtonModule,
   ],
