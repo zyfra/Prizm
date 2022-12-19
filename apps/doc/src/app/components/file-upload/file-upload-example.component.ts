@@ -23,6 +23,8 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
 
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
+  userContent = 'текст пользователя';
+
   accept = 'image/*';
   acceptVariants: Array<string> = ['image/*', '.pdf', '.doc, .docx'];
 

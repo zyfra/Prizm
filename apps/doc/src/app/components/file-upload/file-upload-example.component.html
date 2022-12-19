@@ -23,7 +23,7 @@
         [maxFileSize]="maxFileSize"
         [disabled]="disabled"
       >
-        Максимум три изображения размером не более 1МБ
+        {{ userContent }}
       </prizm-file-upload>
 
       <br />
@@ -66,6 +66,15 @@
         [(documentationPropertyValue)]="maxFilesCount"
       >
         Max files count
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="ng-content"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="userContent"
+      >
+        User content
       </ng-template>
 
       <ng-template
