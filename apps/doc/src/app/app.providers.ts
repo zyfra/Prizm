@@ -3,16 +3,18 @@ import { inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { WINDOW } from '@ng-web-apis/common';
 import {
-  TUI_DOC_DEFAULT_TABS,
-  TUI_DOC_LOGO,
-  TUI_DOC_PAGES,
-  TUI_DOC_SOURCE_CODE,
-  TUI_DOC_TITLE,
+  PRIZM_DOC_DEFAULT_TABS,
+  PRIZM_DOC_LOGO,
+  PRIZM_DOC_PAGES,
+  PRIZM_DOC_SOURCE_CODE,
+  PRIZM_DOC_TITLE,
+  PrizmDocPage,
+  PrizmDocPageGroup,
   TuiDocPages,
-  TuiDocSourceCodePathOptions,
-} from '@taiga-ui/addon-doc';
+  PrizmDocSourceCodePathOptions,
+} from '@prizm/doc-base';
 import {
-  isInsideIframe,
+  tuiIsInsideIframe,
   TUI_DIALOG_CLOSES_ON_BACK,
   TUI_IS_CYPRESS,
   TUI_TAKE_ONLY_TRUSTED_EVENTS,
@@ -21,11 +23,11 @@ import { TUI_ANIMATIONS_DURATION, TUI_SANITIZER } from '@taiga-ui/core';
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { Observable, of } from 'rxjs';
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
-import { pages, TuiOrderedDocPage } from './pages';
+import { pages, PrizmOrderedDocPage } from './pages';
 import { LOGO_CONTENT } from './logo/logo.component';
-import { TuiDocPage, TuiDocPageGroup } from '@taiga-ui/addon-doc/interfaces/page';
+import { SectionNameEnum } from './model';
 
-export const DEFAULT_TABS = [`Description and examples`, `API`, `Setup`, `How to use`];
+export const DEFAULT_TABS = [`Examples`, `Live demo`, `Setup`, `How to use`];
 const TITLE_PREFIX = 'Prizm UI: ';
 
 export const HIGHLIGHT_OPTIONS_VALUE = {
@@ -49,21 +51,22 @@ export const APP_PROVIDERS = [
     useClass: NgDompurifySanitizer,
   },
   {
-    provide: TUI_DOC_SOURCE_CODE,
-    useValue: (context: TuiDocSourceCodePathOptions): null | string => {
+    provide: PRIZM_DOC_SOURCE_CODE,
+    useValue: (context: PrizmDocSourceCodePathOptions): null | string => {
       const link = 'https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk';
-
-      if (!context.package) {
-        return null;
-      }
-
-      if (context.type) {
-        return `${link}/${context.package.toLowerCase()}/${context.type.toLowerCase()}/${(
-          context.header[0].toLowerCase() + context.header.slice(1)
-        ).replace(/[A-Z]/g, m => `-${m.toLowerCase()}`)}`;
-      }
-
-      return `${link}/${context.path}`;
+      // TODO add right path to every component
+      return link;
+      // if (!context.package) {
+      //   return null;
+      // }
+      //
+      // if (context.type) {
+      //   return `${link}/${context.package.toLowerCase()}/${context.type.toLowerCase()}/${(
+      //     context.header[0].toLowerCase() + context.header.slice(1)
+      //   ).replace(/[A-Z]/g, m => `-${m.toLowerCase()}`)}`;
+      // }
+      //
+      // return `${link}/${context.path}`;
     },
   },
   {
@@ -71,26 +74,26 @@ export const APP_PROVIDERS = [
     useClass: PathLocationStrategy,
   },
   {
-    provide: TUI_DOC_TITLE,
+    provide: PRIZM_DOC_TITLE,
     useValue: TITLE_PREFIX,
   },
   {
-    provide: TUI_DOC_PAGES,
+    provide: PRIZM_DOC_PAGES,
     useFactory: (): TuiDocPages => {
       return sortDocPages(pages);
     },
   },
 
   {
-    provide: TUI_DOC_TITLE,
+    provide: PRIZM_DOC_TITLE,
     useValue: TITLE_PREFIX,
   },
   {
-    provide: TUI_DOC_DEFAULT_TABS,
+    provide: PRIZM_DOC_DEFAULT_TABS,
     useValue: DEFAULT_TABS,
   },
   {
-    provide: TUI_DOC_LOGO,
+    provide: PRIZM_DOC_LOGO,
     useValue: LOGO_CONTENT,
   },
   {
@@ -103,19 +106,43 @@ export const APP_PROVIDERS = [
   },
   {
     provide: TUI_DIALOG_CLOSES_ON_BACK,
-    useFactory: (): Observable<unknown> => of(!isInsideIframe(inject(WINDOW))), // for cypress tests
+    useFactory: (): Observable<unknown> => of(!tuiIsInsideIframe(inject(WINDOW))), // for cypress tests
   },
 ];
 
-function sortDocPages(pages: TuiOrderedDocPage): (TuiDocPage | TuiDocPageGroup)[] {
+function sortDocPages(pages: PrizmOrderedDocPage): (PrizmDocPage | PrizmDocPageGroup)[] {
+  const ordering = {
+    [SectionNameEnum.allAboutPrizm]: 0,
+    [SectionNameEnum.guidelines]: 1,
+    [SectionNameEnum.howToStart]: 2,
+    [SectionNameEnum.components]: 3,
+    [SectionNameEnum.charts]: 4,
+    [SectionNameEnum.tools]: 5
+  };
+
+  const orderingLength = Object.keys(ordering).length;
+
   return [...pages]
     .sort((a, b) => {
-      return a.order && b.order ? a.order - b.order : a.title.localeCompare(b.title);
+      const sectionWeightA = (orderingLength - ordering[a.section]);
+      const sectionWeightB = (orderingLength - ordering[b.section]);
+      const localOrderA = a.order || 0;
+      const localOrderB = b.order || 0;
+
+      if (sectionWeightA !== sectionWeightB) {
+        return sectionWeightB - sectionWeightA;
+      }
+
+      if (localOrderA !== localOrderB) {
+        return localOrderA - localOrderB;
+      }
+
+      return a.title.localeCompare(b.title);
     })
-    .map((page: TuiDocPage | TuiDocPageGroup) => {
+    .map((page: PrizmDocPage | PrizmDocPageGroup) => {
       return {
         ...page,
         ...('subPages' in page ? { subPages: sortDocPages(page.subPages) } : {}),
-      } as TuiDocPage | TuiDocPageGroup;
+      } as PrizmDocPage | PrizmDocPageGroup;
     });
 }

@@ -6,7 +6,18 @@ export class PrizmCarouselArrayContent<T> implements PrizmCarouselContent {
 
   public controlsState = { ...prizmDefaultCarouselControlsState };
 
-  constructor(public set: Array<T>, private searchFn: (arrayItem: T, findEl: T) => boolean) {}
+  constructor(
+    public set: Array<T>,
+    private searchFn: (arrayItem: T, findEl: T) => boolean = (item, el): boolean => item === el
+  ) {}
+
+  get first(): T {
+    return this.set[0]
+  };
+
+  get last(): T {
+    return this.set[this.set.length - 1];
+  };
 
   public setCurrentValue(element: T): void {
     this.currentIndex = this.set.findIndex(item => this.searchFn(item, element));

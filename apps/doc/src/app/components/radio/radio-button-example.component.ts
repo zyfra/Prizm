@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 
 type TRadioButtonSize = 'm' | 'l' | 's';
 
@@ -24,9 +24,7 @@ export class ExamplesRadioButtonComponent {
     HTML: import(
       '!!raw-loader!./examples/radio-button-basic-example/radio-button-basic-example.component.html'
     ),
-    LESS: import(
-      './examples/radio-button-basic-example/radio-button-basic-example.component.less?raw'
-    ),
+    LESS: import('./examples/radio-button-basic-example/radio-button-basic-example.component.less?raw'),
   };
 
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');

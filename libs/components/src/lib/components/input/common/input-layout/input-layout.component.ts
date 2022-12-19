@@ -37,6 +37,8 @@ export class PrizmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, 
   @Input() status: PrizmInputStatus = 'default';
 
   @Input() outer = false;
+
+  @Input() border = true;
   @Input() position: PrizmInputPosition = 'left';
   @Input() forceClear: boolean | null = null;
   @Output() clear = new EventEmitter<MouseEvent>();

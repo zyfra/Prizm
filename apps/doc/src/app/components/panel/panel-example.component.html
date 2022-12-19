@@ -1,4 +1,7 @@
-<tui-doc-page header="Panel" package="components" type="components">
+<prizm-doc-page header="Panel" package="components" type="components">
+  <div class='page-description' description>
+    Our panel component is a container that can be used to group content.
+  </div>
   <ng-template pageTab>
     <p>Чтобы вставить контент слева от заголовка используйте аттрибут <b>buttons</b></p>
     <p>Чтобы вставить контент справа от заголовков используйте аттрибут <b>header</b></p>
@@ -6,52 +9,52 @@
       Чтобы вставить различные инструменты, прибитые к правому краю, используйте аттрибут <b>instruments</b>
     </p>
 
-    <tui-doc-example id="base" heading="Base" [content]="panelBasicExample">
+    <prizm-doc-example id="base" heading="Base" [content]="panelBasicExample">
       <prizm-panel-example-basic></prizm-panel-example-basic>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="withBack" heading="Panel with back button" [content]="panelWithBackExample">
+    <prizm-doc-example id="withBack" heading="Panel with back button" [content]="panelWithBackExample">
       <prizm-panel-with-back></prizm-panel-with-back>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="withTabs" heading="Panel with tabs" [content]="panelWithTabsExample">
+    <prizm-doc-example id="withTabs" heading="Panel with tabs" [content]="panelWithTabsExample">
       <prizm-panel-with-tabs></prizm-panel-with-tabs>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="withPages" heading="Panel with pages" [content]="panelWithPagesExample">
+    <prizm-doc-example id="withPages" heading="Panel with pages" [content]="panelWithPagesExample">
       <prizm-panel-with-pages></prizm-panel-with-pages>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="withBreadcrumbs"
       heading="Panel with breadcrumbs"
       [content]="panelWithBreadcrumbsExample"
     >
       <prizm-panel-with-breadcrumbs></prizm-panel-with-breadcrumbs>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="withInstruments1"
       heading="Panel with instruments 1"
       [content]="panelWithInstrumentsSimpleExample"
     >
       <prizm-panel-with-instruments-simple></prizm-panel-with-instruments-simple>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="withInstruments2"
       heading="Panel with instruments 2"
       [content]="panelWithInstrumentsHardExample"
     >
       <prizm-panel-with-instruments-hard></prizm-panel-with-instruments-hard>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-panel [withBackButton]="withBackButton" [header]="header" [subheader]="subheader"></prizm-panel>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="withBackButton"
         documentationPropertyType="boolean"
@@ -82,7 +85,7 @@
       <ng-template documentationPropertyName="backClick" documentationPropertyMode="output">
         Back button click event
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -93,8 +96,8 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

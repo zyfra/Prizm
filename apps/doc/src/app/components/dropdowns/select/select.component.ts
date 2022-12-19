@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import { PolymorphContent, PrizmInputSize, PrizmScrollbarVisibility } from '@prizm-ui/components';
 import { FormControl } from '@angular/forms';
 import { prizmPure } from '@prizm-ui/core';
@@ -8,7 +8,7 @@ import { prizmPure } from '@prizm-ui/core';
   selector: 'prizm-select-example',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectComponent {
   readonly control = new FormControl();
@@ -16,16 +16,10 @@ export class SelectComponent {
   outer = false;
   label = 'Выберите участника';
   get sizeVariants(): ReadonlyArray<PrizmInputSize> {
-    return this.outer
-      ? ['s', 'm', 'l']
-      : ['m', 'l'];
-  };
+    return this.outer ? ['s', 'm', 'l'] : ['m', 'l'];
+  }
   size = this.sizeVariants[0];
-  forceClearVariants: ReadonlyArray<boolean | null> = [
-    null,
-    false,
-    true
-  ];
+  forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
   forceClear = this.forceClearVariants[0];
   emptyContent = 'Ничего не найдено';
   nullContent = 'Не выбрано';
@@ -49,20 +43,14 @@ export class SelectComponent {
       'Рустам Гусев 2',
       'Филип Уваров 2',
     ],
-    null
+    null,
   ];
-  readonly valVariants: ReadonlyArray<string | null> =  [
-    ...this.itemsVariants[0],
-    null
-  ];
+  readonly valVariants: ReadonlyArray<string | null> = [...this.itemsVariants[0], null];
   public items: string[] | null = this.itemsVariants[0];
 
-
   public set disabled(state: boolean) {
-    if (state)
-      this.control.disable();
-    else
-      this.control.enable()
+    if (state) this.control.disable();
+    else this.control.enable();
   }
   public get disabled(): boolean {
     return this.control.disabled;
@@ -72,9 +60,7 @@ export class SelectComponent {
     return this.control.value;
   }
 
-  readonly setupModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/setup-module.md'
-    );
+  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   readonly exampleBase: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/base/select-base-example.component.ts'),
@@ -86,7 +72,6 @@ export class SelectComponent {
     HTML: import('!!raw-loader!./examples/with-template/select-with-template-example.component.html'),
   };
 
-
   readonly exampleWithObject: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/with-object/select-with-object-example.component.ts'),
     HTML: import('!!raw-loader!./examples/with-object/select-with-object-example.component.html'),
@@ -97,19 +82,15 @@ export class SelectComponent {
     HTML: import('!!raw-loader!./examples/with-search/select-with-search-example.component.html'),
   };
 
-
-  public valueTemplate: PolymorphContent<any> = ''
+  public valueTemplate: PolymorphContent<any> = '';
   @prizmPure
-  public getValueTemplate (...temps: PolymorphContent[]): PolymorphContent<any>[] {
-    return [
-      null,
-      ...temps
-    ]
+  public getValueTemplate(...temps: PolymorphContent[]): PolymorphContent<any>[] {
+    return [null, ...temps];
   }
 
   public searchMatcher = (searchValue: string, item: unknown): boolean => {
     return item?.toString().toLowerCase().includes(searchValue.toLowerCase());
-  }
+  };
 
   public identityMatcher = (a: unknown, b: unknown): boolean => {
     return a === b;
@@ -120,7 +101,6 @@ export class SelectComponent {
   // };
 
   public setValue(val: string): void {
-    this.control.setValue(val)
+    this.control.setValue(val);
   }
-
 }

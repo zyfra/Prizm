@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { TreeComponent } from './tree.component';
 import { PrizmIconModule, PrizmTreeModule } from '@prizm-ui/components';
@@ -10,14 +10,13 @@ import { TreeTemplateExampleComponent } from './examples/template/tree-template-
 import { FoldersComponent } from './examples/component/folder.component';
 import { TreeComponentExampleComponent } from './examples/component/tree-component-example.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     PrizmTreeModule,
     PrizmIconModule,
-    RouterModule.forChild(generateRoutes(TreeComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(TreeComponent)),
   ],
   declarations: [
     TreeBaseExampleComponent,
@@ -25,7 +24,7 @@ import { TreeComponentExampleComponent } from './examples/component/tree-compone
     TreeTemplateExampleComponent,
     TreeComponentExampleComponent,
     FoldersComponent,
-    TreeComponent
+    TreeComponent,
   ],
   exports: [TreeComponent],
 })

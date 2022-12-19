@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
@@ -16,19 +16,19 @@ import { PrizmSidebarTopBottomExampleComponent } from './examples/top-bottom/top
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
     PrizmButtonModule,
     PrizmSidebarModule,
     PrizmRadioButtonModule,
-    RouterModule.forChild(generateRoutes(SidebarComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(SidebarComponent)),
   ],
   declarations: [
     PrizmSidebarServiceExampleComponent,
     PrizmSidebarTopBottomExampleComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   exports: [SidebarComponent],
 })

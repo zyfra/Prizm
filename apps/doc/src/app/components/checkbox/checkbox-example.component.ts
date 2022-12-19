@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 
 type TCheckboxSize = 'l' | 's';
 
@@ -35,4 +35,3 @@ export class CheckboxExampleComponent {
 
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 }
-

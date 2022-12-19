@@ -1,8 +1,11 @@
-<tui-doc-page header="Grids" package="components" type="components">
+<prizm-doc-page header="Grids" package="components" type="components">
+  <div class='page-description' description>
+    Our grid component is a powerful tool for laying out content. It is based on the 12-column grid system, and is fully responsive. It is built with flexbox and is available in a fixed-width and fluid-width container.
+  </div>
   <ng-template pageTab>
-    <tui-doc-example id="base" heading="Base" [content]="gridBasicExample">
+    <prizm-doc-example id="base" heading="Base" [content]="gridBasicExample">
       <prizm-grid-example-basic></prizm-grid-example-basic>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab="Setup">
@@ -13,8 +16,8 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

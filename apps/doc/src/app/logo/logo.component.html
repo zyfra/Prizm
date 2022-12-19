@@ -1,9 +1,20 @@
-<a
-    tuiLink
-    routerLink="/getting-started"
-    class="t-logo-link"
->
-    <span class="t-logo-name">
-        Prizm UI
-    </span>>
-</a>
+<div class='logo-block x-margin'>
+  <a href='http://prizm.zyfra.com/' target='_blank'>
+    <img src='/assets/logos/logo-dark.svg'>
+  </a>
+  <prizm-toggle
+    iconOn='social-sun'
+    [ngModel]="isNight$ | async"
+    (ngModelChange)="onMode($event)">
+  </prizm-toggle>
+</div>
+<div class='sub-text x-margin prizm-font-input-text-14px'>
+  <span>
+    Индустриальная дизайн-система
+  </span>
+  <a class='icon'
+     target='_blank'
+     href='https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk'>
+    <prizm-icons-svg [size]='24' [name]='gitlabSvgName'></prizm-icons-svg>
+  </a>
+</div>

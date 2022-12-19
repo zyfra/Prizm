@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { PrizmInputTextModule, PrizmButtonModule, PrizmIconModule } from '@prizm-ui/components';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { InputIconButtonsExampleComponent } from './examples/input-icon-buttons-example/input-icon-buttons-example.component';
 import { InputComponent } from './input.component';
 import { InputLabelPositionExampleComponent } from './examples/input-label-position-example/input-label-position-example.component';
@@ -19,8 +19,8 @@ import { InputSearchExampleComponent } from './examples/input-search-example/inp
 
 @NgModule({
   imports: [
-    TuiAddonDocModule,
-    RouterModule.forChild(generateRoutes(InputComponent)),
+    PrizmAddonDocModule,
+    RouterModule.forChild(prizmDocGenerateRoutes(InputComponent)),
     PrizmIconModule,
     PrizmInputTextModule,
     PrizmButtonModule,
@@ -44,4 +44,3 @@ import { InputSearchExampleComponent } from './examples/input-search-example/inp
   exports: [InputComponent],
 })
 export class InputExampleModule {}
-

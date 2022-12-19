@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes } from '@taiga-ui/addon-doc';
+import { tuiGenerateRoutes } from '@taiga-ui/addon-doc';
 import { RouterModule } from '@angular/router';
 import { <%= normalizedComponentClassName %> } from './<%= normalizedComponentFileName %>';
 
@@ -8,7 +8,7 @@ import { <%= normalizedComponentClassName %> } from './<%= normalizedComponentFi
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(generateRoutes(<%= normalizedComponentClassName %>)),
+    RouterModule.forChild(tuiGenerateRoutes(<%= normalizedComponentClassName %>)),
   ],
   declarations: [
     <%= normalizedComponentClassName %>

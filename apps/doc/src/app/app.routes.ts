@@ -1,24 +1,104 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AboutComponent } from './documentation/about/about.component';
+import { DesignSystemComponent } from './about-prizm/design-system/design-system.component';
 import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
+import { ForDevelopersComponent } from './how-to-start/for-developers/for-developers.component';
+import { MigrationComponent } from './how-to-start/migration/migration.component';
 
 export const ROUTES = [
+  {
+    path: 'about-prizm',
+    children: [
+      {
+        path: 'license',
+        loadChildren: async (): Promise<unknown> =>
+          import('./about-prizm/license/license.module').then(m => m.LicenseModule),
+        data: {
+          title: 'License',
+        },
+      },
+      {
+        path: 'changelog',
+        loadChildren: async (): Promise<unknown> =>
+          (await import('./about-prizm/changelog/changelog.module')).ChangelogModule,
+        data: {
+          title: 'Changelog',
+        },
+      },
+      {
+        path: 'design-system',
+        component: DesignSystemComponent,
+        data: {
+          title: 'About Design System',
+        },
+      },
+    ],
+  },
+  //Guidelines
+  {
+    path: 'guidelines',
+    children: [
+      {
+        path: 'typography',
+        loadChildren: async (): Promise<unknown> =>
+          import('./guidelines/typography/typography.module').then(m => m.TypographyModule),
+        data: {
+          title: 'Typography',
+        },
+      },
+    ],
+  },
+  {
+    path: 'guidelines',
+    children: [
+      {
+        path: 'colors',
+        loadChildren: async (): Promise<unknown> =>
+          import('./guidelines/colors/colors.module').then(m => m.ColorsModule),
+        data: {
+          title: 'Colors',
+        },
+      },
+    ],
+  },
+  {
+    path: 'guidelines',
+    children: [
+      {
+        path: 'grid',
+        loadChildren: async (): Promise<unknown> =>
+          import('./guidelines/grid/grid.module').then(m => m.GridModule),
+        data: {
+          title: 'Grid',
+        },
+      },
+    ],
+  },
+  //How to start
+  {
+    path: 'how-to-start',
+    children: [
+      {
+        path: 'for-developers',
+        component: GettingStartedComponent,
+        data: {
+          title: 'For developers',
+        },
+      },
+      {
+        path: 'migration',
+        component: MigrationComponent,
+        data: {
+          title: 'Migration',
+        },
+      },
+      {
+        path: '**',
+        redirectTo: 'for-developers',
+      },
+    ],
+  },
   // DOC
-  {
-    path: 'about',
-    component: AboutComponent,
-    data: {
-      title: 'About',
-    },
-  },
-  {
-    path: 'getting-started',
-    component: GettingStartedComponent,
-    data: {
-      title: 'Getting started',
-    },
-  },
   {
     path: 'generate-example',
     loadChildren: async (): Promise<unknown> =>
@@ -28,11 +108,19 @@ export const ROUTES = [
     },
   },
   {
-    path: 'changelog',
+    path: 'contributing',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./documentation/changelog/changelog.module')).ChangelogModule,
+      (await import('./documentation/contributing/contributing.module')).ContributingModule,
     data: {
-      title: 'Changelog',
+      title: 'Contributing',
+    },
+  },
+  {
+    path: 'codestyle',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./documentation/codestyle/codestyle.module')).CodestyleModule,
+    data: {
+      title: 'CodeStyle',
     },
   },
   // COMPONENTS
@@ -614,6 +702,21 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/slider',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/slider/slider.module')).PrizmSliderExampleModule,
+    data: {
+      title: 'Slider',
+    },
+  },
+  {
+    path: 'components/cron',
+    loadChildren: async (): Promise<unknown> => (await import('./components/cron/cron.module')).CronModule,
+    data: {
+      title: 'Cron',
+    },
+  },
+  {
     path: 'components/file-upload',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/file-upload/file-upload-example.module')).PrizmFileUploadExampleModule,
@@ -621,8 +724,7 @@ export const ROUTES = [
       title: 'File upload',
     },
   },
-
-  { path: '**', redirectTo: 'about' },
+  { path: '**', redirectTo: 'how-to-start/' },
 ];
 
 @NgModule({

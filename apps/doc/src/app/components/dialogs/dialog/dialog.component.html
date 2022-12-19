@@ -1,31 +1,34 @@
-<tui-doc-page
+<prizm-doc-page
   header="Dialog"
   package="components"
   type="components"
 >
+  <div class='page-description' description>
+    Our dialog component is a modal window that can be used to display information or ask for user input.
+  </div>
   <ng-template pageTab>
     <p>
       Use PrizmDialogService to control dialog.
     </p>
 
-    <tui-doc-example
+    <prizm-doc-example
       id="base"
       heading="Base"
       [content]="exampleBasic"
     >
       <prizm-dialog-service-example></prizm-dialog-service-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <button type="button"
         (click)="show()"
         prizmButton>
         Show Dialog
       </button>
-    </tui-doc-demo>
+    </prizm-doc-demo>
 
     <ng-template #headerTemp>
       Header из <a href='#'>шаблона</a>
@@ -40,7 +43,7 @@
       Footer из <i (click)='observer.next(1)'>шаблона</i>
     </ng-template>
 
-    <tui-doc-documentation>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="position"
         documentationPropertyType="PrizmOverlayInsidePlacement"
@@ -127,7 +130,7 @@
         Footer template or button array (PrizmDialogButton)
         If pass empty string '', footer will not be showed
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -139,11 +142,11 @@
           into a module where you want to use our component
         </p>
 
-        <tui-doc-code
+        <prizm-doc-code
           filename="myComponent.module.ts"
           [code]="exampleModule"
-        ></tui-doc-code>
+        ></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

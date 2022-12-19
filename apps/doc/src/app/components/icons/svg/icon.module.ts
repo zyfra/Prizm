@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { IconComponent } from './icon.component';
 import { PrizmIconSvgBaseExampleComponent } from './examples/base/icon-base-example.component';
-import { PrizmIconsSvgModule } from '@prizm/icons';
+import { PrizmIconsSvgModule } from '@prizm-ui/icons';
 import { PrizmIconSvgSvgExampleComponent } from './examples/svg/icon-svg-example.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     PrizmIconsSvgModule,
-    RouterModule.forChild(generateRoutes(IconComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(IconComponent)),
   ],
   declarations: [PrizmIconSvgBaseExampleComponent, PrizmIconSvgSvgExampleComponent, IconComponent],
   exports: [IconComponent],

@@ -1,19 +1,22 @@
-<tui-doc-page header="Breadcrumbs" package="components" type="components">
+<prizm-doc-page header="Breadcrumbs" package="components" type="components">
+  <div class='page-description' description>
+    Our breadcrumb component is a simple way to show the user their current location in the site hierarchy.
+  </div>
   <ng-template pageTab>
-    <tui-doc-example id="basic" heading="Base" [content]="breadcrumbsBasicExample">
+    <prizm-doc-example id="basic" heading="Base" [content]="breadcrumbsBasicExample">
       <prizm-breadcrumbs-basic></prizm-breadcrumbs-basic>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="icon" heading="With Icon" [content]="breadcrumbsWithIconExample">
+    <prizm-doc-example id="icon" heading="With Icon" [content]="breadcrumbsWithIconExample">
       <prizm-breadcrumbs-example-with-icon></prizm-breadcrumbs-example-with-icon>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-breadcrumbs [breadcrumbs]="breadcrumbs"></prizm-breadcrumbs>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="breadcrumbs"
         documentationPropertyType="IBreadcrumb[]"
@@ -26,7 +29,7 @@
       <ng-template documentationPropertyName="breadcrumbChange" documentationPropertyMode="output">
         Breadcrumb was changed
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -37,8 +40,8 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <tui-doc-code filename="myComponent.module.ts" [code]="setupModule"></tui-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { generateRoutes, TuiAddonDocModule } from '@taiga-ui/addon-doc';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
 import { RouterModule } from '@angular/router';
 import { WidgetComponent } from './widget.component';
 import { PrizmWidgetBaseExampleComponent } from './examples/base/widget-base-example.component';
@@ -10,9 +10,9 @@ import { PrizmWidgetWithButtonsExampleComponent } from './examples/with-buttons/
 @NgModule({
   imports: [
     CommonModule,
-    TuiAddonDocModule,
+    PrizmAddonDocModule,
     PrizmWidgetModule,
-    RouterModule.forChild(generateRoutes(WidgetComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(WidgetComponent)),
   ],
   declarations: [
     PrizmWidgetBaseExampleComponent,

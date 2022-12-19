@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
+import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import {
   PolymorphContent,
   PrizmContextWithImplicit,
@@ -13,20 +13,13 @@ import {
   selector: 'prizm-progress-example',
   templateUrl: './progress-circle-bar.component.html',
   styleUrls: ['./progress-circle-bar.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProgressCircleBarComponent {
-
-
   public max = 100;
   public value = 50;
 
-  readonly sizeVariants: ReadonlyArray<PrizmSizeS | PrizmSizesXl> = [
-    's',
-    'm',
-    'l',
-    'xl'
-  ];
+  readonly sizeVariants: ReadonlyArray<PrizmSizeS | PrizmSizesXl> = ['s', 'm', 'l', 'xl'];
   size: PrizmSizeS | PrizmSizesXl = this.sizeVariants[2];
 
   readonly colorVariants: ReadonlyArray<string | null> = [
@@ -47,14 +40,11 @@ export class ProgressCircleBarComponent {
     'var(--prizm-index-warning)',
     'lightblue',
     'gray',
-    'green'
+    'green',
   ];
   trackColor: string | null = this.trackColorVariants[0];
 
-
-  readonly setupModule: RawLoaderContent = import(
-    '!!raw-loader!./examples/setup-module.md'
-  );
+  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   readonly exampleCircle: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/circle/progress-circle-example.component.ts'),
