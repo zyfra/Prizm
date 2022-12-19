@@ -1,16 +1,16 @@
-<tui-doc-page header="File upload" type="components">
+<prizm-doc-page header="File upload" type="components">
   <ng-template pageTab>
-    <tui-doc-example id="base" heading="Base" [content]="basic">
+    <prizm-doc-example id="base" heading="Base" [content]="basic">
       <prizm-file-upload-basic-example></prizm-file-upload-basic-example>
-    </tui-doc-example>
+    </prizm-doc-example>
 
-    <tui-doc-example id="auto-upload" heading="Auto upload" [content]="basic">
+    <prizm-doc-example id="auto-upload" heading="Auto upload" [content]="basic">
       <prizm-file-auto-upload-example></prizm-file-auto-upload-example>
-    </tui-doc-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template pageTab>
-    <tui-doc-demo>
+    <prizm-doc-demo>
       <prizm-file-upload
         [multiple]="true"
         (filesChange)="onFilesChange($event)"
@@ -38,8 +38,8 @@
       >
         Отправить
       </button>
-    </tui-doc-demo>
-    <tui-doc-documentation>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="accept"
         documentationPropertyType="string"
@@ -120,7 +120,7 @@
       >
         Files count error
       </ng-template>
-    </tui-doc-documentation>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template pageTab>
@@ -131,9 +131,9 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <tui-doc-code filename="MyComponent.module.ts" [code]="setupModule"></tui-doc-code>
+        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
-</tui-doc-page>
+</prizm-doc-page>
 
