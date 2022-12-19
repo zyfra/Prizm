@@ -8,17 +8,17 @@
 
 .dropzone {
   padding: 32px;
-  border: 1px dashed var(--prizm-palette-g4);
+  border: 1px dashed var(--prizm-border-forms);
   border-radius: 2px;
 
-  background-color: var(--prizm-palette-g2);
+  background-color: var(--prizm-g2-g11);
 
   display: flex;
   flex-direction: column;
   align-items: center;
   &.active {
-    background-color: var(--prizm-palette-b1-20);
-    order: 1px dashed var(--prizm-palette-b1);
+    background-color: var(--prizm-focus-border);
+    border: 1px dashed var(--prizm-index-plan);
   }
 
   &__title {
@@ -26,14 +26,14 @@
     font-size: 16px;
     line-height: 20px;
     margin-bottom: 8px;
-    color: var(--prizm-palette-g12);
+    color: var(--prizm-text-contrast);
   }
 
   &__description {
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: var(--prizm-palette-g9);
+    color: var(--prizm-border-forms);
   }
 
   &__user-content {
@@ -41,7 +41,7 @@
     font-size: 12px;
     line-height: 16px;
     margin-top: 8px;
-    color: var(--prizm-palette-g7);
+    color: var(--prizm-text-subscript);
 
     &:empty {
       display: none;
@@ -74,7 +74,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--prizm-grey-g12-g2);
+    background-color: var(--prizm-disabled-outline);
   }
 
   &__icon {
@@ -102,18 +102,18 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 20px;
-    color: #000;
+    color: var(--prizm-text-contrast);
   }
   &__size {
     font-size: 10px;
     line-height: 12px;
-    color: var(--prizm-palette-g4);
+    color: var(--prizm-border-forms);
   }
 
   &__stage {
     font-size: 10px;
     line-height: 12px;
-    color: var(--prizm-palette-g4);
+    color: var(--prizm-border-forms);
     grid-column-start: 4;
     grid-column-end: 5;
   }
