@@ -28,7 +28,7 @@
       <button
         prizmInputIconButton="date-calendar-blank"
         [interactive]="true"
-        (click)='focusableElementRef.focus()'></button>
+        (click)='onOpenChange(!open)'></button>
       <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>
       </ng-container>
     </ng-container>
