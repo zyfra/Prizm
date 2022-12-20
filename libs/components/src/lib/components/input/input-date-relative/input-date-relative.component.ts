@@ -61,7 +61,15 @@ export class PrizmInputDateRelativeComponent implements AfterViewInit, OnInit, C
 
   @Input()
   @prizmDefaultProp()
-  public disabled: boolean;
+  public set disabled(value: boolean) {
+    if (value)
+      this.value.disable()
+    else
+      this.value.enable();
+  };
+  public get disabled(): boolean {
+    return this.value.disabled;
+  }
 
   @Input()
   @prizmDefaultProp()

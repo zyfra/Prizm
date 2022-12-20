@@ -106,8 +106,10 @@ export class PrizmCalendarRangeComponent implements PrizmWithOptionalMinMax<Priz
             });
     }
 
-    readonly monthShiftMapper: PrizmMapper<PrizmMonth, PrizmMonth> = item =>
-        item.append({month: 1});
+    readonly getEndRangeMonthOrShift: PrizmMapper<PrizmMonth, PrizmMonth> = item => {
+      if (!this.value || !this.value.to) return item.append({month: 1});
+      return this.value.to
+    }
 
     readonly mapper: PrizmMapper<
         readonly PrizmDayRangePeriod[],

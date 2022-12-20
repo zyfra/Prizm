@@ -12,5 +12,6 @@ import { PrizmDay, PrizmDayRange } from '@prizm-ui/components';
   `]
 })
 export class PrizmCalendarRangeBaseExampleComponent {
-  public value = new PrizmDayRange(new PrizmDay(2022, 1, 7), new PrizmDay(2022, 1, 14));
+  public value = new PrizmDayRange(
+    new PrizmDay(2022, 1, 7), new PrizmDay(2022, 2, 14));
 }

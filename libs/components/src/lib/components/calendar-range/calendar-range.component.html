@@ -7,7 +7,7 @@
     [min]="min | prizmMapper: maxLengthMapper:value:maxLength:true"
     [max]="max | prizmMapper: maxLengthMapper:value:maxLength:false"
     [defaultViewedMonthFirst]="computedMonth"
-    [defaultViewedMonthSecond]="computedMonth | prizmMapper: monthShiftMapper"
+    [defaultViewedMonthSecond]="computedMonth | prizmMapper: getEndRangeMonthOrShift"
     [disabledItemHandler]="calculatedDisabledItemHandler"
     [value]="value"
     (dayClick)="onDayClick($event)"
