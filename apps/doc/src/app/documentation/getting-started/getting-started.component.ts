@@ -13,8 +13,8 @@ export class GettingStartedComponent {
      {
        "glob": "**/*",
        "input": "node_modules/@prizm-ui/components/src/styles/fonts",
-       "output": "assets/ui-platform/components/fonts"
-     }
+       "output": "assets/prizm-ui/fonts"
+     },
    ],
   "styles": [
     // ...

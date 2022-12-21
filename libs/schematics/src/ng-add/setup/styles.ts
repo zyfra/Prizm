@@ -7,7 +7,7 @@ import { Schema } from '../schema';
 const FONT_ASSET = {
   glob: '**/*',
   input: 'node_modules/@prizm-ui/components/src/styles/fonts',
-  output: 'assets/ui-platform/components/fonts', // TODO test this in real app
+  output: 'assets/prizm-ui/fonts', // TODO test this in real app
 };
 
 const INSTALL_STYLES = [
