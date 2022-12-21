@@ -477,6 +477,12 @@ export const pages: PrizmOrderedDocPage = [
     keywords: 'Cron',
     route: '/components/cron',
   },
+  {
+    section: SectionNameEnum.components,
+    title: 'Error page',
+    keywords: 'error-page',
+    route: '/components/error-page',
+  },
   // Tools
   {
     section: SectionNameEnum.tools,
@@ -577,3 +583,4 @@ export const pages: PrizmOrderedDocPage = [
   //   subPages: [],
   // },
 ];
+
