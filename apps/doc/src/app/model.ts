@@ -4,5 +4,5 @@ export enum SectionNameEnum {
   howToStart = 'Как начать',
   components = 'Компоненты',
   charts = 'Графики',
-  tools = 'Tools',
+  tools = 'Инструменты',
 }

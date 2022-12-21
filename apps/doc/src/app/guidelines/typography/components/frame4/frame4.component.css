@@ -2,7 +2,7 @@
     display: contents; 
   }
   .frame4-frame4 {
-    width: 100%;
+    min-width: 1150px;
     height: auto;
     display: flex;
     padding: 56px;
