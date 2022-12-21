@@ -1,0 +1,46 @@
+:host {
+  font-family: Inter;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--prizm-bg-dashboard-forms);
+  background-image: url('../../../../assets/error-page/bg.png');
+  background-repeat: no-repeat;
+  background-size: 130%;
+  background-position: 50% 50%;
+}
+
+.code {
+  font-weight: 900;
+  font-size: 64px;
+
+  color: var(--prizm-text-contrast);
+  margin-bottom: 24px;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--prizm-text-main);
+}
+
+.user-content {
+  max-width: 30%;
+  text-align: center;
+
+  margin: 16px auto 0;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--prizm-text-main);
+  &:empty {
+    display: none;
+  }
+}
+

@@ -1,0 +1,60 @@
+<prizm-doc-page header="Error page" package="components" type="components">
+  <ng-template pageTab>
+    <prizm-doc-example id="base" heading="Base" [content]="error404">
+      <prizm-error-page-base-example></prizm-error-page-base-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <prizm-doc-demo>
+      <div [ngStyle]="{ display: 'block', height: '50vh' }">
+        <prizm-error-page [code]="code" [title]="title">
+          {{ userContent }}
+        </prizm-error-page>
+      </div>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        documentationPropertyName="code"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="code"
+      >
+        Code
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="title"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="title"
+      >
+        Title
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="ngContent"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="userContent"
+      >
+        Content
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmErrorPageModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>
+

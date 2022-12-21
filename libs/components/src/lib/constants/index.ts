@@ -10,3 +10,4 @@ export * from './matcher';
 export * from './stringify';
 export * from './polling-time';
 export * from './date-time-separator';
+export * from './assets-folder';
