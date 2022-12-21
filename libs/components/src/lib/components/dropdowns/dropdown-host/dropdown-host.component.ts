@@ -73,6 +73,8 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
   @HostBinding('attr.testId')
   readonly testId = 'prizm_dropdown_host';
 
+  readonly itemForListener = new Set<HTMLElement>();
+
   private readonly documentClick$ = new Subject<number>();
   private readonly containerClick$ = new Subject<number>();
 
@@ -132,6 +134,7 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
   }
 
   @HostListener('window:click', ['$event']) public onDocumentClick(event: MouseEvent): void {
+    if ([...this.itemForListener].find(el => el.contains(event.target as HTMLElement))) return;
     this.documentClick$.next(Date.now());
   }
 
@@ -155,7 +158,7 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
           startWith(Date.now())
         ),
       ]).pipe(
-        debounceTime(0),
+        debounceTime(150),
         map(([document, container]: [number, number]) => document - container),
         filter(
           (diff: number) => diff > PRIZM_DROPDOWN_TIME_DIFFERENCE &&
@@ -226,5 +229,14 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
       }),
       takeUntil(this.destroy$)
     ).subscribe();
+  }
+
+  public addListenerItems(el: HTMLElement): void {
+    this.itemForListener.add(el);
+
+  }
+
+  public removeListenerItems(el: HTMLElement): void {
+    this.itemForListener.delete(el);
   }
 }

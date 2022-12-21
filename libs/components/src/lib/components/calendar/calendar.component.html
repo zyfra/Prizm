@@ -61,6 +61,13 @@
       [hoveredItem]="hoveredItem"
       (hoveredItemChange)="onHoveredItemChange($event)"
       (dayClick)="onDayClick($event)"
-    ></prizm-primitive-calendar>
+    >
+      <ng-container footer>
+        <ng-content select='[footer]'></ng-content>
+      </ng-container>
+      <ng-container header>
+        <ng-content select='[header]'></ng-content>
+      </ng-container>
+    </prizm-primitive-calendar>
   </ng-template>
 </div>

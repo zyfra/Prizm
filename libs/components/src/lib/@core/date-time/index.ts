@@ -10,3 +10,4 @@ export * from './month';
 export * from './month-range';
 export * from './time';
 export * from './year';
+export * from './day-time-range';

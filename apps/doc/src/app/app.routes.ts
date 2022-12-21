@@ -320,6 +320,14 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/input-date-time-range',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/input/input-date-time-range/input-date-time-range.module')).InputDateTimeRangeModule,
+    data: {
+      title: 'Input Date Time Range',
+    },
+  },
+  {
     path: 'components/input-date-time',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/input/input-date-time/input-date-time.module')).InputDateTimeTimeModule,
