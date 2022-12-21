@@ -2,7 +2,7 @@
     display: contents; 
   }
   .frame18-frame18 {
-    width: 100%;
+    min-width: 1960px;
     height: auto;
     display: flex;
     padding: 56px;
@@ -60,7 +60,7 @@
   .frame18-text04 {
     color: var(--dl-color-text-main);
     height: auto;
-    font-size: 18px;
+    font-size: 16px;
     align-self: stretch;
     font-style: Regular;
     text-align: left;
@@ -94,7 +94,7 @@
   .frame18-text13 {
     color: var(--dl-color-text-main);
     height: auto;
-    font-size: 18px;
+    font-size: 16px;
     align-self: stretch;
     font-style: Regular;
     text-align: left;
