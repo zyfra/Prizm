@@ -7,19 +7,6 @@ import { MigrationComponent } from './how-to-start/migration/migration.component
 
 
 export const ROUTES = [
-  //About-Prizm
-  {
-    path: 'about-prizm',
-    children: [
-      {
-        path: 'design-system',
-        component: DesignSystemComponent,
-        data: {
-          title: 'About Design System',
-        },
-      }
-    ]
-  },
   {
     path: 'about-prizm',
     children: [
@@ -29,18 +16,20 @@ export const ROUTES = [
         data: {
           title: 'License',
         },
-      }
-    ]
-  },
-  {
-    path: 'about-prizm',
-    children: [
+      },
       {
         path: 'changelog',
         loadChildren: async (): Promise<unknown> =>
           (await import('./about-prizm/changelog/changelog.module')).ChangelogModule,
         data: {
           title: 'Changelog',
+        },
+      },
+      {
+        path: 'design-system',
+        component: DesignSystemComponent,
+        data: {
+          title: 'About Design System',
         },
       }
     ]
@@ -93,38 +82,20 @@ export const ROUTES = [
           title: 'For developers',
         },
       },
-    ]
-  },
-  {
-    path: 'how-to-start',
-    children: [
-      {
-        path: 'for-developers',
-        component: ForDevelopersComponent,
-        data: {
-          title: 'For-developers',
-        },
-      }
-    ]
-  },
-  {
-    path: 'how-to-start',
-    children: [
       {
         path: 'migration',
         component: MigrationComponent,
         data: {
           title: 'Migration',
         },
+      },
+      {
+        path: '**',
+        redirectTo: 'for-developers',
       }
     ]
   },
   // DOC
-  {
-    path: 'about-prizm',
-    component: GettingStartedComponent,
-
-  },
   {
     path: 'generate-example',
     loadChildren: async (): Promise<unknown> =>
@@ -743,7 +714,7 @@ export const ROUTES = [
       title: 'Cron',
     },
   },
-  { path: '**', redirectTo: 'about' },
+  { path: '**', redirectTo: 'how-to-start/' },
 ];
 
 @NgModule({

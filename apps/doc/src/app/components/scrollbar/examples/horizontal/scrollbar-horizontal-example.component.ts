@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
     .box {
       width: 16rem;
       height: 16rem;
+      border: 1px solid gray;
     }
 
     .line {
