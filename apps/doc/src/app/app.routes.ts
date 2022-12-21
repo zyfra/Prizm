@@ -5,14 +5,14 @@ import { GettingStartedComponent } from './documentation/getting-started/getting
 import { ForDevelopersComponent } from './how-to-start/for-developers/for-developers.component';
 import { MigrationComponent } from './how-to-start/migration/migration.component';
 
-
 export const ROUTES = [
   {
     path: 'about-prizm',
     children: [
       {
         path: 'license',
-        loadChildren: async (): Promise<unknown> => import('./about-prizm/license/license.module').then(m => m.LicenseModule),
+        loadChildren: async (): Promise<unknown> =>
+          import('./about-prizm/license/license.module').then(m => m.LicenseModule),
         data: {
           title: 'License',
         },
@@ -31,8 +31,8 @@ export const ROUTES = [
         data: {
           title: 'About Design System',
         },
-      }
-    ]
+      },
+    ],
   },
   //Guidelines
   {
@@ -40,36 +40,39 @@ export const ROUTES = [
     children: [
       {
         path: 'typography',
-        loadChildren: async (): Promise<unknown> => import('./guidelines/typography/typography.module').then(m => m.TypographyModule),
+        loadChildren: async (): Promise<unknown> =>
+          import('./guidelines/typography/typography.module').then(m => m.TypographyModule),
         data: {
           title: 'Typography',
         },
-      }
-    ]
+      },
+    ],
   },
   {
     path: 'guidelines',
     children: [
       {
         path: 'colors',
-        loadChildren: async (): Promise<unknown> => import('./guidelines/colors/colors.module').then(m => m.ColorsModule),
+        loadChildren: async (): Promise<unknown> =>
+          import('./guidelines/colors/colors.module').then(m => m.ColorsModule),
         data: {
           title: 'Colors',
         },
-      }
-    ]
+      },
+    ],
   },
   {
     path: 'guidelines',
     children: [
       {
         path: 'grid',
-        loadChildren: async (): Promise<unknown> => import('./guidelines/grid/grid.module').then(m => m.GridModule),
+        loadChildren: async (): Promise<unknown> =>
+          import('./guidelines/grid/grid.module').then(m => m.GridModule),
         data: {
           title: 'Grid',
         },
-      }
-    ]
+      },
+    ],
   },
   //How to start
   {
@@ -92,8 +95,8 @@ export const ROUTES = [
       {
         path: '**',
         redirectTo: 'for-developers',
-      }
-    ]
+      },
+    ],
   },
   // DOC
   {
@@ -716,10 +719,17 @@ export const ROUTES = [
   },
   {
     path: 'components/cron',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/cron/cron.module')).CronModule,
+    loadChildren: async (): Promise<unknown> => (await import('./components/cron/cron.module')).CronModule,
     data: {
       title: 'Cron',
+    },
+  },
+  {
+    path: 'components/error-page',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/error-page/error-page.module')).PrizmErrorPageExampleModule,
+    data: {
+      title: 'Error page',
     },
   },
   { path: '**', redirectTo: 'how-to-start/' },
