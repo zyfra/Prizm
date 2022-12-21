@@ -7,11 +7,10 @@ import { PrizmControlValueTransformer } from '../../../types/control-value-trans
 import { AbstractPrizmControl } from '../../../abstract/control';
 import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
 import { PRIZM_CALENDAR_DATA_STREAM } from '../../../tokens/calendar-data-stream';
-import { PRIZM_DATE_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
+import { PRIZM_DATE_TIME_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { PRIZM_LEFT_ALIGNED_DROPDOWN_CONTROLLER_PROVIDER } from '../../../providers/specific-dropdown-controllers';
 import { prizmReplayControlValueChangesFactory } from '../../../util/common/replay-control-value-changes-factory';
 
-// TODO: 2.0 remove in ivy compilation
 export const RANGE_TIME_STREAM_FACTORY = <T extends PrizmDayRange>(
     control: NgControl | null,
     valueTransformer: PrizmControlValueTransformer<T>,
@@ -31,7 +30,7 @@ export const PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS = [
         provide: PRIZM_CALENDAR_DATA_STREAM,
         deps: [
             [new Optional(), new Self(), NgControl],
-            [new Optional(), forwardRef(() => PRIZM_DATE_RANGE_VALUE_TRANSFORMER)],
+            [new Optional(), forwardRef(() => PRIZM_DATE_TIME_RANGE_VALUE_TRANSFORMER)],
         ],
         useFactory: RANGE_TIME_STREAM_FACTORY,
     },

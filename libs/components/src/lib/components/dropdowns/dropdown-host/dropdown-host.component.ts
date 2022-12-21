@@ -35,7 +35,6 @@ const PRIZM_DROPDOWN_TIME_DIFFERENCE = 1000/60;
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     PrizmDestroyService,
-    // PrizmDropdownZoneService
   ],
   exportAs: 'prizm-dropdown-host'
 })

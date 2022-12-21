@@ -5,12 +5,14 @@ import { PolymorphModule } from '../../../directives/polymorph/polymorph.module'
 import { PrizmInputDateTimeRangeComponent } from './input-date-range-time.component';
 import { PrizmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
 import { PrizmCalendarRangeModule } from '../../calendar-range/calendar-range.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputTextModule } from '../input-text/input-text.module';
 import { PrizmIconModule } from '../../icon/icon.module';
 import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
 import { PrizmMaskModule } from '../../../modules';
 import { PrizmInputTimeModule } from '../input-time';
+import { PrizmInputDateRangeModule } from '../input-date-range';
+import { PrizmDropdownZoneModule } from '../../../directives';
 
 @NgModule({
   imports: [
@@ -20,14 +22,21 @@ import { PrizmInputTimeModule } from '../input-time';
     PolymorphModule,
     PrizmInputTextModule,
     PrizmIconModule,
+    PrizmInputDateRangeModule,
     PrizmInputTimeModule,
     PrizmDropdownHostModule,
     PrizmCalendarRangeModule,
     PrizmValueAccessorModule,
     FormsModule,
+    PrizmDropdownZoneModule,
+    ReactiveFormsModule,
   ],
-  declarations: [PrizmInputDateTimeRangeComponent],
-  exports: [PrizmInputDateTimeRangeComponent],
+  declarations: [
+    PrizmInputDateTimeRangeComponent
+  ],
+  exports: [
+    PrizmInputDateTimeRangeComponent
+  ],
 })
 export class PrizmInputDateTimeRangeModule {}
 

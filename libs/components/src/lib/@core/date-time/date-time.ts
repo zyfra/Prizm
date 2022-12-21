@@ -46,7 +46,7 @@ export class PrizmDateTime {
 
   constructor(
     public day: PrizmDay,
-    public time: PrizmTime
+    public time: PrizmTime = new PrizmTime(0, 0)
   ) {}
 
   public toLocalNativeDate(): Date {
