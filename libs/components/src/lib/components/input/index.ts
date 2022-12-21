@@ -30,4 +30,5 @@ export * from './input-date-time';
 export * from './input-date-multi';
 export * from './input-time';
 export * from './common/input-icon-button';
+export * from './input-date-time-range';
 

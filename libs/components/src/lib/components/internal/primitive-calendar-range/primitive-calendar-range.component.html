@@ -10,7 +10,12 @@
     [(hoveredItem)]="hoveredItem"
     (dayClick)="onDayClick($event)"
     (monthChange)="onSectionFirstViewedMonth($event)"
-></prizm-calendar>
+>
+  <ng-container footer>
+    <ng-content select='[footerFrom]'></ng-content></ng-container>
+  <ng-container header>
+    <ng-content select='[headerFrom]'></ng-content></ng-container>
+</prizm-calendar>
 
 <prizm-calendar
     class="z-border"
@@ -25,4 +30,11 @@
     [(hoveredItem)]="hoveredItem"
     (dayClick)="onDayClick($event)"
     (monthChange)="onSectionSecondViewedMonth($event)"
-></prizm-calendar>
+>
+  <ng-container footer>
+    <ng-content select='[footerTo]'></ng-content>
+  </ng-container>
+  <ng-container header>
+    <ng-content select='[headerTo]'></ng-content>
+  </ng-container>
+</prizm-calendar>

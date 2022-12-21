@@ -45,6 +45,12 @@
           [value]="value"
           (valueChange)="onRangeChange($event)"
       >
+        <ng-container footerFrom>
+          <prizm-input-time [formControl]='value'></prizm-input-time>
+        </ng-container>
+        <ng-container footerTo>
+          <prizm-input-time [formControl]='value'></prizm-input-time>
+        </ng-container>
       </prizm-calendar-range>
   </ng-template>
 </prizm-dropdown-host>
