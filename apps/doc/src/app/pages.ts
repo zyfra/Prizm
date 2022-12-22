@@ -64,7 +64,7 @@ export const pages: PrizmOrderedDocPage = [
   {
     section: SectionNameEnum.howToStart,
     title: `Разработчикам`,
-    keywords: 'intro, how to, guide, main, главная, начало, инструкция',
+    keywords: 'intro, how, to, start, guide, getting started, main, главная, начало, как, начать, инструкция',
     route: 'how-to-start/for-developers',
     order: 8,
   },
@@ -489,6 +489,12 @@ export const pages: PrizmOrderedDocPage = [
     keywords: 'error-page',
     route: '/components/error-page',
   },
+  {
+    section: SectionNameEnum.components,
+    title: 'File upload',
+    keywords: 'file upload',
+    route: '/components/file-upload',
+  },
   // Tools
   {
     section: SectionNameEnum.tools,
@@ -589,4 +595,3 @@ export const pages: PrizmOrderedDocPage = [
   //   subPages: [],
   // },
 ];
-

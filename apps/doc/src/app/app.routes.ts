@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { DesignSystemComponent } from './about-prizm/design-system/design-system.component';
 import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
-import { ForDevelopersComponent } from './how-to-start/for-developers/for-developers.component';
 import { MigrationComponent } from './how-to-start/migration/migration.component';
+
 
 export const ROUTES = [
   {
@@ -719,7 +719,8 @@ export const ROUTES = [
   },
   {
     path: 'components/cron',
-    loadChildren: async (): Promise<unknown> => (await import('./components/cron/cron.module')).CronModule,
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/cron/cron.module')).CronModule,
     data: {
       title: 'Cron',
     },
@@ -730,6 +731,14 @@ export const ROUTES = [
       (await import('./components/error-page/error-page.module')).PrizmErrorPageExampleModule,
     data: {
       title: 'Error page',
+    },
+  },
+  {
+    path: 'components/file-upload',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/file-upload/file-upload-example.module')).PrizmFileUploadExampleModule,
+    data: {
+      title: 'File upload',
     },
   },
   { path: '**', redirectTo: 'how-to-start/' },

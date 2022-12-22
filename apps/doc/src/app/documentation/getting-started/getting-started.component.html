@@ -9,20 +9,46 @@
 
 <prizm-doc-code code="ng add  @prizm-ui/install"></prizm-doc-code>
 
-<br>
-
 <h3 class="tui-space_top-0">
   Manual install:
 </h3>
 
 <prizm-doc-code code="npm i @prizm-ui/components"></prizm-doc-code>
-<br>
 <prizm-doc-code code="npm i @prizm-ui/core"></prizm-doc-code>
-<br>
 <prizm-doc-code code="npm i @prizm-ui/helpers"></prizm-doc-code>
-<p class="tui-space_top-2">
-  Add our styles to angular config:
-</p>
-<prizm-doc-code [code]="updateAngularStylesCode"></prizm-doc-code>
-<p class="tui-space_top-3">
-</p>
+
+
+<prizm-accordion>
+  <prizm-accordion-item [isExpanded]='true' title='How setup global styles from @prizm-ui/styles ?'>
+    <ng-template prizmAccordionContent>
+      <p class="tui-space_top-2">
+        Add our styles to angular config:
+      </p>
+      <prizm-doc-code [code]="updateAngularStylesCode"></prizm-doc-code>
+      <br>
+      <p class="tui-space_top-3">
+        Or you can add to your root styles.less
+      </p>
+      <prizm-doc-code [code]="updateAngularStylesFileCode"></prizm-doc-code>
+    </ng-template>
+  </prizm-accordion-item>
+</prizm-accordion>
+
+
+<prizm-accordion>
+  <prizm-accordion-item [isExpanded]='true' title='How can you use our icons?'>
+    <ng-template prizmAccordionContent>
+      <p class="tui-space_top-2">
+        To use our icons as svg, please install our library
+      </p>
+      <prizm-doc-code code="npm i @prizm-ui/icons"></prizm-doc-code>
+      <p class="tui-space_top-3">
+        But if you want to use fonts not only as svg, and also as font,
+        please add to your angular config
+      </p>
+      <prizm-doc-code [code]="joinSvgFonts"></prizm-doc-code>
+      or you can only import to your root styles.less
+      <prizm-doc-code [code]="joinSvgFontsForImport"></prizm-doc-code>
+    </ng-template>
+  </prizm-accordion-item>
+</prizm-accordion>
