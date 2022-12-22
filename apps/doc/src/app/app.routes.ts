@@ -646,6 +646,14 @@ export const ROUTES = [
     },
   },
   {
+    path: 'components/navigation',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/navigation/navigation-example.module')).NavigationExampleModule,
+    data: {
+      title: 'Navigation',
+    },
+  },
+  {
     path: 'components/switcher',
     loadChildren: async (): Promise<unknown> =>
       (await import('./components/switcher/switcher-example.module')).SwitcherExampleModule,
