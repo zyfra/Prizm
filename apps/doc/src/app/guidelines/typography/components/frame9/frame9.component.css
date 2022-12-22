@@ -2,7 +2,7 @@
     display: contents; 
   }
   .frame9-frame9 {
-    width: 100%;
+    min-width: 1150px;
     height: auto;
     display: flex;
     padding: 56px;
