@@ -9,7 +9,7 @@
       <div class='icons' [class.divider]='icons?.length > 1'>
         <ng-container *polymorphOutlet="icons">
           <ng-container *ngFor="let icon of $any(icons)">
-            <prizm-icon (click)='iconClick.emit(icon)' [iconClass]="icon" size='16'></prizm-icon>
+            <prizm-icon class='icon' (click)='iconClick.emit(icon)' [iconClass]="icon" size='16'></prizm-icon>
           </ng-container>
         </ng-container>
       </div>

@@ -7,6 +7,19 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GettingStartedComponent {
+  public readonly joinSvgFonts = `# Использование шрифтов
+ # Добавить в конфиг файл ангуляра для использования шрифтов
+ "styles": [
+    ...
+    "@prizm-ui/icons/base/src/styles/styles.less"
+  ],";
+  `;
+  public readonly joinSvgFontsForImport = `@import "~@prizm-ui/icons/base/src/styles/styles.less";
+  `;
+  public readonly updateAngularStylesFileCode = `@import "~@prizm-ui/components/src/styles/styles.less";
+@import "~@prizm-ui/components/src/styles/icons/icons.less";
+@import "~@prizm-ui/components/src/styles/icons-16/icons-16.less";
+  `;
   public readonly updateAngularStylesCode = `
   "assets": [
     // ....

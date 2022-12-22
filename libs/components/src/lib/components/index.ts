@@ -39,4 +39,5 @@ export * from './splitter';
 export * from './slider';
 export * from './cron';
 export * from './error-page';
+export * from './file-upload';
 
