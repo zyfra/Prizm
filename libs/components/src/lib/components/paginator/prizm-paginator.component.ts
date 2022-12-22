@@ -88,7 +88,7 @@ export class PrizmPaginatorComponent {
       return (
         this.totalRecords >= 0 &&
         this.rows <= this.totalRecords &&
-        this.pageLinkSize <= this.rows &&
+        // this.pageLinkSize <= this.rows &&
         this.currentPage <= this.totalRecords
       );
     }
