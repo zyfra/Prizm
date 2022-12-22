@@ -10,7 +10,7 @@ export const pages: PrizmOrderedDocPage = [
   //Window
   {
     section: SectionNameEnum.allAboutPrizm,
-    title: `About Design System`,
+    title: `О дизайн-системе`,
     keywords: 'дизайн-система, дизайн, система, design system, design, system',
     link: 'http://prizm.zyfra.com/',
     target: '_blank',
@@ -18,7 +18,7 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.allAboutPrizm,
-    title: `Licence`,
+    title: `Лицензия`,
     keywords: 'лицензия, licence',
     route: 'about-prizm/license',
     order: 2,
@@ -33,21 +33,21 @@ export const pages: PrizmOrderedDocPage = [
   //Guidelines
   {
     section: SectionNameEnum.guidelines,
-    title: `Typography`,
+    title: `Типографика`,
     keywords: 'типографика, typography',
     route: 'guidelines/typography',
     order: 4,
   },
   {
     section: SectionNameEnum.guidelines,
-    title: `Colors`,
+    title: `Цвета`,
     keywords: 'цвета, colors',
     route: 'guidelines/colors',
     order: 5,
   },
   {
     section: SectionNameEnum.guidelines,
-    title: `Grid`,
+    title: `Сетки`,
     keywords: 'сетка, grid',
     route: 'guidelines/grid',
     order: 6,
@@ -55,7 +55,7 @@ export const pages: PrizmOrderedDocPage = [
   //How to start
   {
     section: SectionNameEnum.howToStart,
-    title: `For Designers`,
+    title: `Дизайнерам`,
     keywords: 'дизайнеры, designers',
     target: '_blank',
     link: 'https://www.figma.com/@64ad37ee_26cc_4',
@@ -63,14 +63,14 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.howToStart,
-    title: `For Developers`,
+    title: `Разработчикам`,
     keywords: 'intro, how to, guide, main, главная, начало, инструкция',
     route: 'how-to-start/for-developers',
     order: 8,
   },
   {
     section: SectionNameEnum.howToStart,
-    title: `Migration`,
+    title: `Миграция`,
     keywords: 'Миграция, migration',
     route: 'how-to-start/migration',
     order: 9,
@@ -458,13 +458,13 @@ export const pages: PrizmOrderedDocPage = [
     keywords: 'stepper',
     route: '/components/stepper',
   },
+
   {
     section: SectionNameEnum.components,
     title: 'Splitter',
     keywords: 'splitter',
     route: '/components/splitter',
   },
-
   {
     section: SectionNameEnum.components,
     title: 'Slider',
@@ -477,14 +477,18 @@ export const pages: PrizmOrderedDocPage = [
     keywords: 'Cron',
     route: '/components/cron',
   },
-
+  {
+    section: SectionNameEnum.components,
+    title: 'Error page',
+    keywords: 'error-page',
+    route: '/components/error-page',
+  },
   {
     section: SectionNameEnum.components,
     title: 'File upload',
     keywords: 'file upload',
     route: '/components/file-upload',
   },
-
   // Tools
   {
     section: SectionNameEnum.tools,
@@ -585,4 +589,3 @@ export const pages: PrizmOrderedDocPage = [
   //   subPages: [],
   // },
 ];
-
