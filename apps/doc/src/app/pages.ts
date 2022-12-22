@@ -64,7 +64,7 @@ export const pages: PrizmOrderedDocPage = [
   {
     section: SectionNameEnum.howToStart,
     title: `Разработчикам`,
-    keywords: 'intro, how to, guide, main, главная, начало, инструкция',
+    keywords: 'intro, how, to, start, guide, getting started, main, главная, начало, как, начать, инструкция',
     route: 'how-to-start/for-developers',
     order: 8,
   },
