@@ -1,0 +1,25 @@
+@import '../../../../styles/ui-local';
+
+:host {
+    display: block;
+    border-radius: var(--prizm-radius-m);
+    text-align: left;
+
+    &._disabled {
+        pointer-events: none;
+    }
+}
+
+.z-hosted {
+    display: block;
+    border-radius: inherit;
+}
+
+.z-textfield {
+    border-radius: inherit;
+    text-align: inherit;
+}
+
+.z-icon {
+    pointer-events: auto;
+}

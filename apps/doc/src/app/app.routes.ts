@@ -46,11 +46,6 @@ export const ROUTES = [
           title: 'Typography',
         },
       },
-    ],
-  },
-  {
-    path: 'guidelines',
-    children: [
       {
         path: 'colors',
         loadChildren: async (): Promise<unknown> =>
@@ -59,11 +54,6 @@ export const ROUTES = [
           title: 'Colors',
         },
       },
-    ],
-  },
-  {
-    path: 'guidelines',
-    children: [
       {
         path: 'grid',
         loadChildren: async (): Promise<unknown> =>
