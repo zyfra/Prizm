@@ -22,6 +22,6 @@ export class MyModule {
  # Добавить в конфиг файл ангуляра для использования шрифтов
  "styles": [
     ...
-    "libs/icons/base/src/styles/styles.less"
+    "@prizm-ui/icons/base/src/styles/styles.less"
   ],
 ```

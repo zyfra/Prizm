@@ -53,6 +53,6 @@ import { PrizmScrollbarModule } from '../scrollbar';
     PrizmScrollbarModule,
     PrizmHintModule,
   ],
-  exports: [PrizmCronComponent],
+  exports: [PrizmCronComponent, PrizmCronMonthPipe, PrizmCronWeekPipe],
 })
 export class PrizmCronModule {}
