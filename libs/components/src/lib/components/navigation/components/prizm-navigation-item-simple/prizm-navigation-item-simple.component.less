@@ -1,0 +1,83 @@
+:host {
+  cursor: pointer;
+
+  .nav {
+    height: 40px;
+    padding: 0 8px 0 32px;
+
+    display: flex;
+    align-items: center;
+
+    background: var(--prizm-grey-g12-g2);
+
+    border-bottom: 1px solid var(--prizm-grey-g10-g4);
+
+    &__title {
+      margin-right: 8px;
+
+      font-size: 14px;
+      line-height: 16px;
+
+      color: var(--prizm-text-contrast);
+
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &__status {
+      height: 100%;
+      width: 32px;
+      margin-left: auto;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--prizm-border-icon);
+
+      .indicator {
+        min-height: 1rem;
+        min-width: 1rem;
+        max-width: 3rem;
+
+        padding: 0 4px;
+
+        border-radius: 1.25rem;
+
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 600;
+        color: var(--prizm-exceptions-white);
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &_info {
+          background: var(--prizm-index-plan);
+        }
+
+        &_secondary {
+          background: var(--prizm-border-forms);
+        }
+
+        &_success {
+          background: var(--prizm-index-good);
+        }
+
+        &_warning {
+          background: var(--prizm-index-warning);
+        }
+
+        &_danger {
+          background: var(--prizm-index-danger);
+        }
+      }
+    }
+
+    &_active {
+      background: var(--prizm-index-lock);
+    }
+  }
+}

@@ -1,0 +1,117 @@
+:host {
+  button {
+    border: none;
+    outline: none;
+    background: transparent;
+
+    cursor: pointer;
+  }
+
+  .container {
+    .nav {
+      height: 40px;
+      padding: 0 8px;
+
+      display: flex;
+      align-items: center;
+
+      background: var(--prizm-grey-g11-g3);
+
+      border-bottom: 1px solid var(--prizm-grey-g10-g4);
+
+      cursor: pointer;
+
+      &__title {
+        margin-right: 8px;
+
+        font-size: 14px;
+        line-height: 16px;
+
+        color: var(--prizm-text-contrast);
+
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      &__icon {
+        height: 16px;
+        width: 16px;
+        margin: 0 8px;
+
+        display: inline-flex;
+        align-items: center;
+
+        color: var(--prizm-border-icon);
+      }
+
+      &__chevron {
+        height: 100%;
+        width: 32px;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        color: var(--prizm-border-icon);
+
+        .icon {
+          transition: 0.3s;
+        }
+
+        &_expanded {
+          .icon {
+            transform: rotate(90deg);
+          }
+        }
+      }
+
+      &__status {
+        height: 100%;
+        width: 32px;
+        margin-left: auto;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        color: var(--prizm-border-icon);
+
+        .indicator {
+          height: 8px;
+          width: 8px;
+
+          border-radius: 50%;
+
+          &_info {
+            background: var(--prizm-index-plan);
+          }
+
+          &_secondary {
+            background: var(--prizm-border-forms);
+          }
+
+          &_success {
+            background: var(--prizm-index-good);
+          }
+
+          &_warning {
+            background: var(--prizm-index-warning);
+          }
+
+          &_danger {
+            background: var(--prizm-index-danger);
+          }
+        }
+      }
+
+      &_active {
+        background: var(--prizm-index-lock);
+      }
+    }
+
+    .expandable {
+      overflow: hidden;
+    }
+  }
+}
