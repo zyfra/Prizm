@@ -1,0 +1,135 @@
+<prizm-doc-page header="Navigation" package="Equinox" type="components">
+  <ng-template pageTab>
+    <prizm-doc-example id="base" heading="Basic" [content]="exampleNavigationBasic">
+      <prizm-navigation-basic-example></prizm-navigation-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example
+      id="underContent"
+      heading="Navigation under content"
+      [content]="exampleNavigationBasic"
+    >
+      <prizm-navigation-basic-example [isNavigationAbsolute]="true"></prizm-navigation-basic-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template pageTab>
+    <h2>PrizmNavigationComponent</h2>
+    <prizm-doc-documentation>
+      <ng-template
+        documentationPropertyName="data"
+        documentationPropertyType="INavigationTree[]"
+        documentationPropertyMode="input"
+      >
+        Структура навигации
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="activeElement"
+        documentationPropertyType="INavigationTree"
+        documentationPropertyMode="input"
+      >
+        Текущий выбранный элемент навигации
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="activeItemChange"
+        documentationPropertyType="EventEmitter<INavigationTree>"
+        documentationPropertyMode="output"
+      >
+        Изменение активного элемента
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <h2>PrizmHeaderModuleBtnComponent</h2>
+
+    <prizm-doc-demo>
+      <prizm-header-module-btn
+        [icon]="$any(icon)"
+        [alertsCount]="alertsCount"
+        [title]="title"
+        [status]="status"
+      ></prizm-header-module-btn>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        documentationPropertyName="icon"
+        documentationPropertyType="PrizmContent"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="iconVariants"
+        [(documentationPropertyValue)]="icon"
+      >
+        Иконка
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="alertsCount"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="alertsCount"
+      >
+        Количество уведомлений
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="title"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="title"
+      >
+        Название на кнопке
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="status"
+        documentationPropertyType="IndicatorStatus"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="statusVariants"
+        [(documentationPropertyValue)]="status"
+      >
+        Статус уведомлений
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <h2>PrizmHeaderDropdownComponent</h2>
+    <prizm-doc-documentation>
+      <ng-template
+        documentationPropertyName="data"
+        documentationPropertyType="IScreen[]"
+        documentationPropertyMode="input"
+      >
+        Содержимое выпадающего меню
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="currentScreenIdx"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Индекс текущего активного элемента
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="screenIdxChange"
+        documentationPropertyType="EventEmitter<number>"
+        documentationPropertyMode="output"
+      >
+        Изменение текущего активного элемента
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template pageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmNavigationModule для навигации и PrizmHeaderModule для Header</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>
+

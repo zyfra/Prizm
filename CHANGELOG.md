@@ -1,6 +1,14 @@
 # Changelog
 
 Все изменения в этом файле отражают изменения в коде во всем монорепозитории.
+---
+## [1.0.0-beta.14](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (5-12-2022)
+
+### Features
+- feat(components/table): Разные оформления таблиц [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/383)
+- feat(components/navigation): Навигация / платформа [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/388)
+- feat(components/theme): Новые цвета [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/388)
+
 
 ---
 

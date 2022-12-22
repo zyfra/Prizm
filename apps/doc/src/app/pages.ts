@@ -436,6 +436,12 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.components,
+    title: 'Navigation',
+    keywords: 'nav-menu, navigation, nav, menu, меню, навигация',
+    route: '/components/navigation',
+  },
+  {
+    section: SectionNameEnum.components,
     title: 'Switcher',
     keywords: 'switcher, select-button, переключатель',
     route: '/components/switcher',
