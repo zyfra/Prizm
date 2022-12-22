@@ -1,0 +1,67 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+
+  .icon {
+    display: flex;
+    position: relative;
+
+    .indicator {
+      min-height: 1rem;
+      min-width: 1rem;
+      max-width: 3rem;
+
+      padding: 0 4px;
+
+      border-radius: 1.25rem;
+
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 600;
+      color: var(--prizm-exceptions-white);
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(30%, -30%);
+
+      &_info {
+        background: var(--prizm-index-plan);
+      }
+
+      &_secondary {
+        background: var(--prizm-border-forms);
+      }
+
+      &_success {
+        background: var(--prizm-index-good);
+      }
+
+      &_warning {
+        background: var(--prizm-index-warning);
+      }
+
+      &_danger {
+        background: var(--prizm-index-danger);
+      }
+    }
+  }
+
+  .title {
+    margin-left: 30px;
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+
+    color: var(--prizm-text-subscript);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

@@ -134,11 +134,6 @@
               },
               {
                 "glob": "**/*",
-                "input": "libs/components/src/styles/fonts",
-                "output": "assets/ui-platform/components/fonts"
-              },
-              {
-                "glob": "**/*",
                 "input": "libs/icons/base/src/styles/icons",
                 "output": "assets/prizm-icons/fonts"
               }

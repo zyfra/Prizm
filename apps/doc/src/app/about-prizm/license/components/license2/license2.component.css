@@ -28,7 +28,7 @@
 .license-text {
   font-size: 24px;
   font-weight: 600;
-  color: #20222b;
+  color: var(--prizm-text-contrast);
   height: auto;
   align-self: auto;
   text-align: center;
@@ -55,7 +55,7 @@
 .license-text03 {
   font-size: 18px;
   font-weight: 700;
-  color: #20222b;
+  color: var(--prizm-text-contrast);
 }
 .license-frame-m-i-t {
   display: flex;
@@ -67,7 +67,7 @@
 .license-text23 {
   font-size: 24px;
   font-weight: 600;
-  color: #20222b;
+  color: var(--prizm-text-contrast);
   height: auto;
   align-self: auto;
   text-align: center;
@@ -94,12 +94,12 @@
 .license-text26 {
   font-size: 18px;
   font-weight: 700;
-  color: #20222b;
+  color: var(--prizm-text-contrast);
 }
 
 .license-text-span01,
 .license-text-span02 {
   font-size: 18px;
   font-weight: 400;
-  color: #20222b;
+  color: var(--prizm-text-contrast);
 }
