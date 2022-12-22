@@ -75,13 +75,15 @@
       border-radius: 2px;
       color: var(--prizm-border-icon);
 
-      transition: 400ms;
+      transition: 200ms;
 
       &-icon {
         height: 16px;
         width: 16px;
 
         display: flex;
+
+        transition: 400ms;
       }
 
       &:hover {
@@ -110,7 +112,9 @@
         background: var(--prizm-lite-b130-20);
         color: var(--prizm-index-plan);
 
-        transform: rotate(180deg);
+        &-icon {
+          transform: rotate(180deg);
+        }
       }
 
       &:focus {

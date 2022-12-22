@@ -24,6 +24,8 @@ export * from './widget';
 export * from './panel';
 export * from './progress';
 export * from './nav-menu';
+export * from './navigation';
+export * from './header';
 export * from './tabs';
 export * from './breadcrumbs';
 export * from './indicator';
@@ -37,4 +39,5 @@ export * from './splitter';
 export * from './slider';
 export * from './cron';
 export * from './file-upload';
+export * from './error-page';
 
