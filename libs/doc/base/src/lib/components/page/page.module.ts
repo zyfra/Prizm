@@ -5,8 +5,8 @@ import { TuiTabsModule, TuiTagModule } from '@taiga-ui/kit';
 
 import { PrizmDocSeeAlsoModule } from '../../internal/see-also/see-also.module';
 import { TuiDocSourceCodeModule } from '../../internal/source-code/source-code.module';
-import { TuiDocPageComponent } from './page.component';
-import { TuiDocPageTabConnectorDirective } from './page-tab.directive';
+import { PrizmDocPageComponent } from './page.component';
+import { PrizmDocPageTabConnectorDirective } from './page-tab.directive';
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import { TuiDocPageTabConnectorDirective } from './page-tab.directive';
     TuiTagModule,
     TuiDocSourceCodeModule,
   ],
-  declarations: [TuiDocPageComponent, TuiDocPageTabConnectorDirective],
-  exports: [TuiDocPageComponent, TuiDocPageTabConnectorDirective],
+  declarations: [PrizmDocPageComponent, PrizmDocPageTabConnectorDirective],
+  exports: [PrizmDocPageComponent, PrizmDocPageTabConnectorDirective],
 })
 export class PrizmDocPageModule {}

@@ -3,12 +3,12 @@ import { tuiDefaultProp } from '@taiga-ui/cdk';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: `[pageTab]`,
+  selector: `[prizmDocPageTab]`,
 })
-export class TuiDocPageTabConnectorDirective {
+export class PrizmDocPageTabConnectorDirective {
   @Input()
   @tuiDefaultProp()
-  pageTab?: string | '';
+  prizmDocPageTab?: string | '';
 
   constructor(@Inject(TemplateRef) readonly template: TemplateRef<Record<string, unknown>>) {}
 }
