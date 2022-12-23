@@ -23,6 +23,12 @@
             [appearance]="appearance"
             [disabled]="disabled"
             [showLoader]="showLoader"
+            [iconRight]="iconRight"
+            [pseudoHovered]="pseudoHovered"
+            [pseudoPressed]="pseudoPressed"
+            [pseudoFocused]="pseudoFocused"
+            [focusable]="focusable"
+            [pseudoState]="pseudoState"
           ></button>
         </div>
       </div>
@@ -96,7 +102,7 @@
       </ng-template>
       <ng-template
         documentationPropertyName="pseudoHovered"
-        documentationPropertyType="boolean"
+        documentationPropertyType="boolean | null"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="pseudoHovered"
       >
@@ -104,7 +110,7 @@
       </ng-template>
       <ng-template
         documentationPropertyName="pseudoPressed"
-        documentationPropertyType="boolean"
+        documentationPropertyType="boolean | null"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="pseudoPressed"
       >
@@ -112,7 +118,7 @@
       </ng-template>
       <ng-template
         documentationPropertyName="pseudoFocused"
-        documentationPropertyType="boolean"
+        documentationPropertyType="boolean | null"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="pseudoFocused"
       >
@@ -128,7 +134,7 @@
       </ng-template>
       <ng-template
         documentationPropertyName="pseudoState"
-        documentationPropertyType="boolean"
+        documentationPropertyType="string"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="pseudoState"
       >
