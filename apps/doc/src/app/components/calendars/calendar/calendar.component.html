@@ -1,95 +1,94 @@
-<prizm-doc-page
-  header="Calendar"
-  package="components"
-  type="components"
->
-  <div class='page-description' description>
+<prizm-doc-page header="Calendar" package="components" type="components">
+  <div class="page-description" description>
     Our calendar component is a simple, lightweight calendar that can be used to select a date.
   </div>
   <ng-template prizmDocPageTab>
-    <p>
-      Use PrizmCalendarComponent to view calendar.
-    </p>
+    <p>Use PrizmCalendarComponent to view calendar.</p>
 
-    <prizm-doc-example
-      id="base"
-      heading="Base"
-      [content]="exampleBase"
-    >
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
       <prizm-calendar-base-example></prizm-calendar-base-example>
     </prizm-doc-example>
-
-
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-calendar
-        [value]='day'
-        (dayClick)='onDayClick($event)'
-        [showAdjacent]='showAdjacent'
+        #element
+        [prizmDocHostElement]="element"
+        [value]="day"
+        (dayClick)="onDayClick($event)"
+        [showAdjacent]="showAdjacent"
       ></prizm-calendar>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="daysWithStatus"
         documentationPropertyType="PrizmDayWithStatus"
+        documentationPropertyMode="input"
       >
         Days With Status
       </ng-template>
 
-
       <ng-template
         documentationPropertyName="month"
         documentationPropertyType="PrizmMonth"
+        documentationPropertyMode="input"
       >
         Month
       </ng-template>
       <ng-template
         documentationPropertyName="value"
         documentationPropertyType="PrizmDayRange | PrizmDay | null"
+        documentationPropertyMode="input"
       >
         Value
       </ng-template>
       <ng-template
         documentationPropertyName="disabledItemHandler"
         documentationPropertyType="PrizmBooleanHandler<PrizmDay>"
+        documentationPropertyMode="input"
       >
         Disabled Item Handler
       </ng-template>
       <ng-template
         documentationPropertyName="min"
         documentationPropertyType="PrizmDay"
+        documentationPropertyMode="input"
       >
         Min Day
       </ng-template>
       <ng-template
         documentationPropertyName="max"
         documentationPropertyType="PrizmDay"
+        documentationPropertyMode="input"
       >
         Max Day
       </ng-template>
       <ng-template
         documentationPropertyName="minViewedMonth"
         documentationPropertyType="PrizmMonth"
+        documentationPropertyMode="input"
       >
         Min Viewed Month
       </ng-template>
       <ng-template
         documentationPropertyName="maxViewedMonth"
         documentationPropertyType="PrizmMonth"
+        documentationPropertyMode="input"
       >
         Max Viewed Month
       </ng-template>
       <ng-template
         documentationPropertyName="hoveredItem"
         documentationPropertyType="PrizmDay | null"
+        documentationPropertyMode="input"
       >
         Hovered Item
       </ng-template>
       <ng-template
         documentationPropertyName="showAdjacent"
         documentationPropertyType="boolean"
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="showAdjacent"
       >
         Show Adjacent
@@ -97,6 +96,7 @@
       <ng-template
         documentationPropertyName="markerHandler"
         documentationPropertyType="PrizmMarkerHandler"
+        documentationPropertyMode="input"
       >
         Marker Handler
       </ng-template>
@@ -134,10 +134,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
