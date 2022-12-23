@@ -1,7 +1,7 @@
-import { ElementRef, EventEmitter, Injectable, OnDestroy } from '@angular/core';
+import { ComponentFactoryResolver, ElementRef, EventEmitter, Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, fromEvent, Subject, Subscription } from 'rxjs';
 import { PrizmDocumentationPropertyType, PrizmPageInfo } from '../../types/pages';
-import { take, takeUntil, tap } from 'rxjs/operators';
+import { debounce, debounceTime, take, takeUntil, tap } from 'rxjs/operators';
 import { PrizmPageService } from '../page/page.service';
 import { PrizmDocHostElementListenerService } from './host-element-listener.service';
 import { prizmCapitalizeFirstLetter } from '@prizm-ui/core';
@@ -16,14 +16,24 @@ export type PrizmDocHosSet = {
 export class PrizmDocHostElementService implements OnDestroy {
   private readonly hostElement$$ = new BehaviorSubject<ElementRef | null>(null);
   private readonly subscription = new Subscription();
+
+  public outputs: {propName: string, templateName: string}[] = [];
+  public inputs: {propName: string, templateName: string}[] = [];
+  public componentSelector: string;
+
+  public readonly checker$$ = new Subject<void>();
+
   private readonly destroyListener$ = new Subject<void>();
   // public readonly inputOutputMap = new Map<string, PrizmDocHosSet>();
   public readonly outputMap = new Map<string, PrizmDocHosSet>();
+  public readonly inputMap = new Map<string, PrizmDocHosSet>();
   public safeReInit(): void {
     this.destroyListener$.next();
     this.hostElement$$.pipe(
         takeUntil(this.destroyListener$),
         tap((el: ElementRef<any>) => {
+          this.updateComponentInfo(el);
+          this.checker$$.next();
           const allEventKeys = Object.keys(el.nativeElement).filter(
             (key) => el.nativeElement[key] instanceof EventEmitter
           );
@@ -42,6 +52,30 @@ export class PrizmDocHostElementService implements OnDestroy {
           )
         })
     ).subscribe()
+  }
+
+  private updateComponentInfo(el: ElementRef): void {
+    const metaComponentData = this.componentFactoryResolver.resolveComponentFactory(el.nativeElement.constructor);
+    this.outputs = metaComponentData.outputs;
+    this.inputs = metaComponentData.inputs;
+    this.componentSelector = metaComponentData.selector;
+  }
+
+  private emitInfoAboutCheckResult(): void {
+    this.emitInfo();
+  }
+
+  private initChecker(): void {
+    this.subscription.add(
+      this.checker$$.pipe(
+        debounceTime(500),
+        tap(
+          () => {
+            this.emitInfoAboutCheckResult();
+          }
+        )
+      ).subscribe()
+    )
   }
 
   private addOutputListener(
@@ -82,14 +116,28 @@ export class PrizmDocHostElementService implements OnDestroy {
     );
   }
 
+  public emitInfo(): void {
+    const allOutputs = this.outputs.map(i => i.propName);
+    const allInputs = this.inputs.map(i => i.propName);
+    this.prizmDocHostElementListenerService.emitInfo({
+      selector: this.componentSelector,
+      allOutputs,
+      allInputs,
+      notListenerInputs: allInputs.filter(i => !this.inputMap.has(i)),
+      notListenerOutputs: allOutputs.filter(i => !this.outputMap.has(i)),
+    });
+  }
+
   public setHostElement(hostElement: ElementRef): void {
     this.hostElement$$.next(new ElementRef<any>(hostElement));
   }
 
   constructor(
     private readonly prizmPageService: PrizmPageService,
+    private readonly componentFactoryResolver: ComponentFactoryResolver,
     private readonly prizmDocHostElementListenerService: PrizmDocHostElementListenerService,
   ) {
+    this.initChecker();
   }
 
   public destroy(): void {
@@ -111,7 +159,21 @@ export class PrizmDocHostElementService implements OnDestroy {
   ): void {
     switch (propertyMode) {
       case 'input-output':
-        event = `${event}Change`;
+        const emitEventKey = `${event}Change`;
+        this.outputMap.set(
+          emitEventKey,
+          {
+          key: emitEventKey,
+          type: propertyType,
+        });
+        this.inputMap.set(
+          event,
+          {
+            key: event,
+            type: propertyType,
+          });
+      break;
+      case 'output':
         this.outputMap.set(
           event,
           {
@@ -119,8 +181,8 @@ export class PrizmDocHostElementService implements OnDestroy {
           type: propertyType,
         });
       break;
-      case 'output':
-        this.outputMap.set(
+      case 'input':
+        this.inputMap.set(
           event,
           {
           key: event,
