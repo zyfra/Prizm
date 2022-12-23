@@ -49,15 +49,29 @@
     </ng-template>
 
 
-    <prizm-icon
-      *ngIf="!disabled"
-      (click)="focusableElementRef.focus()"
-      [class.active]="focusableElementRef.focused"
-      [class.opened]="open"
-      class="icon-dropdown"
-      prizm-input-right
-      iconClass="chevrons-dropdown"
-    ></prizm-icon>
+    <ng-container prizm-input-right>
+      <ng-container
+        *polymorphOutlet="(icon || defaultIcon) as iconName; context: {opened: open, disabled: disabled}"
+      >
+        <prizm-icon *ngIf='!disabled'
+                    (click)='focusableElementRef.focus()'
+                    [class.opened]="open"
+                    [class.active]='focusableElementRef.focused'
+                    [class.icon-dropdown]='iconName === defaultIcon'
+                    [iconClass]='$any(iconName)'>
+        </prizm-icon>
+      </ng-container>
+    </ng-container>
+
+<!--    <prizm-icon-->
+<!--      *ngIf="!disabled"-->
+<!--      (click)="focusableElementRef.focus()"-->
+<!--      [class.active]="focusableElementRef.focused"-->
+<!--      [class.opened]="open"-->
+<!--      class="icon-dropdown"-->
+<!--      prizm-input-right-->
+<!--      iconClass="chevrons-dropdown"-->
+<!--    ></prizm-icon>-->
   </prizm-input-layout>
 
   <ng-template #dropdown>

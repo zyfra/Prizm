@@ -13,10 +13,10 @@ import { ActivatedRoute, Params, UrlSerializer } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
 
 import { prizmCoerceValue } from '../../utils/coerce-value';
+import { PrizmDocumentationPropertyType } from '../../types/pages';
+import { PrizmDocHostElementService } from '../host';
 
 const SERIALIZED_SUFFIX = `$`;
-
-export type DocumentationPropertyType = 'input' | 'output' | 'input-output' | null;
 
 // @bad TODO: refactor output and value sync
 @Directive({
@@ -24,12 +24,12 @@ export type DocumentationPropertyType = 'input' | 'output' | 'input-output' | nu
   selector: `ng-template[documentationPropertyName]`,
   exportAs: `documentationProperty`,
 })
-export class TuiDocDocumentationPropertyConnectorDirective<T> implements OnInit, OnChanges {
+export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnInit, OnChanges {
   @Input()
   documentationPropertyName = ``;
 
   @Input()
-  documentationPropertyMode: DocumentationPropertyType = null;
+  documentationPropertyMode: PrizmDocumentationPropertyType = null;
 
   @Input()
   documentationPropertyType = ``;
@@ -54,7 +54,8 @@ export class TuiDocDocumentationPropertyConnectorDirective<T> implements OnInit,
     @Inject(TemplateRef) readonly template: TemplateRef<Record<string, unknown>>,
     @Inject(Location) private readonly locationRef: Location,
     @Inject(ActivatedRoute) private readonly activatedRoute: ActivatedRoute,
-    @Inject(UrlSerializer) private readonly urlSerializer: UrlSerializer
+    @Inject(UrlSerializer) private readonly urlSerializer: UrlSerializer,
+    public readonly hostElementService: PrizmDocHostElementService
   ) {}
 
   ngOnInit(): void {
@@ -84,6 +85,11 @@ export class TuiDocDocumentationPropertyConnectorDirective<T> implements OnInit,
 
   ngOnChanges(): void {
     this.changed$.next();
+    this.hostElementService.addListener(
+      this.documentationPropertyMode,
+      this.documentationPropertyType,
+      this.documentationPropertyName
+    )
   }
 
   public onValueChange(value: T): void {

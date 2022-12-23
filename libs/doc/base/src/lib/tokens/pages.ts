@@ -1,10 +1,10 @@
 import { InjectionToken } from '@angular/core';
 
-import { TuiDocPages } from '../types/pages';
+import { PrizmDocPages } from '../types/pages';
 
-export const PRIZM_DOC_PAGES: InjectionToken<TuiDocPages> = new InjectionToken<TuiDocPages>(
+export const PRIZM_DOC_PAGES: InjectionToken<PrizmDocPages> = new InjectionToken<PrizmDocPages>(
   `[PRIZM_DOC_PAGES]: Documentation pages`,
   {
-    factory: (): TuiDocPages => [],
+    factory: (): PrizmDocPages => [],
   }
 );

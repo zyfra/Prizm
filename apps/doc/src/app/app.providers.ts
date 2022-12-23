@@ -10,7 +10,7 @@ import {
   PRIZM_DOC_TITLE,
   PrizmDocPage,
   PrizmDocPageGroup,
-  TuiDocPages,
+  PrizmDocPages,
   PrizmDocSourceCodePathOptions,
 } from '@prizm/doc-base';
 import {
@@ -79,7 +79,7 @@ export const APP_PROVIDERS = [
   },
   {
     provide: PRIZM_DOC_PAGES,
-    useFactory: (): TuiDocPages => {
+    useFactory: (): PrizmDocPages => {
       return sortDocPages(pages);
     },
   },

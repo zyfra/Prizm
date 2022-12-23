@@ -6,7 +6,7 @@
   <div class='page-description' description>
     Our multi-select component is a simple wrapper around the native HTML select element. It is styled to match the rest of the Prizm components and provides a simple API for adding and removing options.
   </div>
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab>
 
     <prizm-doc-example
       id="base"
@@ -43,7 +43,7 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab>
     <prizm-doc-demo>
       <prizm-multi-select
         [formControl]='control'
@@ -52,6 +52,7 @@
         [items]='items'
         [size]='size'
         [outer]='outer'
+        [icon]='icon'
         [searchable]='searchable'
         [emptyContent]='emptyContent'
         [minDropdownHeight]='minDropdownHeight'
@@ -66,6 +67,16 @@
     </prizm-doc-demo>
 
     <prizm-doc-documentation>
+
+      <ng-template
+        documentationPropertyName="icon"
+        documentationPropertyType="PolymorphContent<PrizmSelectIconContext>"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="icon"
+        [documentationPropertyValues]="iconVariants"
+      >
+        Icon
+      </ng-template>
 
       <ng-template
         documentationPropertyName="selectAllItem"
@@ -244,7 +255,7 @@
     </prizm-doc-documentation>
   </ng-template>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab>
     <ol class="b-demo-steps">
       <li>
         <p>

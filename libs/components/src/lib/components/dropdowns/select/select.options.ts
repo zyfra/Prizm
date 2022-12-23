@@ -4,13 +4,17 @@ import { PrizmInputSize } from '../../input';
 import { PrizmContextWithImplicit } from '../../../types';
 import { PrizmSelectIdentityMatcher, PrizmSelectSearchMatcher } from './select.model';
 
+export type PrizmSelectIconContext = {opened: boolean, disabled: boolean};
 export interface PrizmSelectOptions<T> {
     readonly items: unknown[];
     readonly searchable: boolean;
     readonly forceClear: boolean | null;
+    readonly icon: PolymorphContent<PrizmSelectIconContext>;
+
     readonly label: string;
     readonly placeholder: string;
     readonly size: PrizmInputSize;
+    readonly search: string | null;
     readonly stringify: PrizmSelectStringify<T>;
     readonly emptyContent: PolymorphContent;
     readonly nullContent: PolymorphContent;
@@ -33,6 +37,8 @@ export const PRIZM_SELECT_DEFAULT_OPTIONS: PrizmSelectOptions<unknown> = {
   items: [],
   searchable: false,
   outer: false,
+  search: null,
+  icon: 'chevrons-dropdown',
   forceClear: null,
   dropdownWidth: '100%',
   minDropdownHeight: 0,

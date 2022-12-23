@@ -22,8 +22,8 @@ import {
 } from '@taiga-ui/kit';
 
 import { PrizmInputOpacityModule } from '../../internal/input-opacity/input-opacity.module';
-import { TuiDocDocumentationComponent } from './documentation.component';
-import { TuiDocDocumentationPropertyConnectorDirective } from './documentation-property-connector.directive';
+import { PrizmDocDocumentationComponent } from './documentation.component';
+import { PrizmDocDocumentationPropertyConnectorDirective } from './documentation-property-connector.directive';
 
 @NgModule({
   imports: [
@@ -46,7 +46,7 @@ import { TuiDocDocumentationPropertyConnectorDirective } from './documentation-p
     TuiDataListWrapperModule,
     TuiNotificationModule,
   ],
-  declarations: [TuiDocDocumentationComponent, TuiDocDocumentationPropertyConnectorDirective],
-  exports: [TuiDocDocumentationComponent, TuiDocDocumentationPropertyConnectorDirective],
+  declarations: [PrizmDocDocumentationComponent, PrizmDocDocumentationPropertyConnectorDirective],
+  exports: [PrizmDocDocumentationComponent, PrizmDocDocumentationPropertyConnectorDirective],
 })
 export class PrizmDocDocumentationModule {}

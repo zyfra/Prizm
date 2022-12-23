@@ -4,7 +4,7 @@ import {
   PolymorphContent,
   PrizmContextWithImplicit,
   PrizmInputSize,
-  PrizmScrollbarVisibility,
+  PrizmScrollbarVisibility, PrizmSelectIconContext,
 } from '@prizm-ui/components';
 import { FormControl } from '@angular/forms';
 import { prizmPure } from '@prizm-ui/core';
@@ -16,6 +16,13 @@ import { prizmPure } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MultiSelectComponent {
+
+  public icon: PolymorphContent<PrizmSelectIconContext> = null;
+
+  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [
+    null,
+    'sort-zoom-in'
+  ];
   readonly control = new FormControl();
   searchable = false;
   outer = false;
