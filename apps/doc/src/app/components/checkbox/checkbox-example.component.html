@@ -1,5 +1,5 @@
 <prizm-doc-page header="Checkbox" package="components" type="components">
-  <div class='page-description' description>
+  <div class="page-description" description>
     Our checkbox component is a simple way to allow users to select one or more options from a list.
   </div>
   <ng-template prizmDocPageTab>
@@ -16,9 +16,17 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-checkbox [checked]="checked" [disabled]="disabled" [size]="size" [indeterminate]="indeterminate">
+      <prizm-checkbox
+        #element
+        [prizmDocHostElement]="element"
+        [checked]="checked"
+        [disabled]="disabled"
+        [size]="size"
+        [indeterminate]="indeterminate"
+        [required]="required"
+      >
         {{ label }}
       </prizm-checkbox>
     </prizm-doc-demo>
@@ -44,9 +52,10 @@
       <ng-template
         documentationPropertyName="host"
         documentationPropertyType="HtmlElement | null"
+        documentationPropertyMode="input"
       >
         Host (default current element)
-        <br>
+        <br />
         Which element to listen for click, keyboard events
       </ng-template>
 
@@ -82,8 +91,17 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="changedEvent"
-        documentationPropertyType="Event"
+        documentationPropertyName="required"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="required"
+      >
+        Required
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="changed"
+        documentationPropertyType="boolean"
         documentationPropertyMode="output"
       >
         Changed
@@ -104,4 +122,3 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
-
