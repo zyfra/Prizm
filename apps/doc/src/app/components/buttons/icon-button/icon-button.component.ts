@@ -35,7 +35,7 @@ export class IconButtonComponent {
   public pseudoHovered = false;
   public pseudoPressed = false;
   public pseudoFocused = false;
-  public pseudoState = false;
+  public pseudoState = '';
   public focusable = false;
 
   public focusedChange = false;

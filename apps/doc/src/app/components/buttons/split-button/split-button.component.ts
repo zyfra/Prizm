@@ -27,8 +27,8 @@ export class SplitButtonComponent {
   sizeVariants: ReadonlyArray<PrizmSize> = ['s', 'm', 'xm', 'l', 'xl'];
   size: PrizmSize = this.sizeVariants[0];
 
-  public clickIcon = false;
-  public clickButton = false;
+  public clickIcon: void;
+  public clickButton: void;
 
   iconVariants: ReadonlyArray<PrizmContent> = ['chevrons-dropdown', ''];
   icon: PrizmContent = this.iconVariants[0];
