@@ -5,7 +5,7 @@ import { LOCAL_STORAGE } from '@ng-web-apis/common';
 import { TuiBrightness } from '@taiga-ui/core';
 import {
   PrizmDocHostElementListenerService
-} from '../../../../libs/doc/base/src/lib/components/host/host-element-listener.service';
+} from '@prizm/doc-base';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 @Component({
   selector: 'prizm-doc-root',
