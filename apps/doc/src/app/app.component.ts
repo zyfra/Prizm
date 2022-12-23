@@ -58,6 +58,24 @@ export class AppComponent implements AfterViewInit {
         )
       })
     ).subscribe();
+
+    this.prizmDocHostElementListenerService.checkInfo$.pipe(
+      takeUntil(this.destroy$),
+      tap((event) => {
+        if (!event.notListenerInputs?.length && !event.notListenerOutputs?.length) return;
+        this.toastService.create(
+          `
+            Inputs: ${event.notListenerInputs.join(', ')}\n
+            Outputs: ${event.notListenerOutputs.join(', ')}\n
+          `,
+          {
+            appearance: 'warning',
+            timer: 0,
+            title: `Component: ${event.selector} has not api for inputs or outputs`
+          }
+        )
+      })
+    ).subscribe();
   }
 
 

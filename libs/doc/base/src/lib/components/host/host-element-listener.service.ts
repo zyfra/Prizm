@@ -1,6 +1,11 @@
 import { ElementRef, Injectable, OnDestroy } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
-import { PrizmDocumentationPropertyType, PrizmPageComponentEvent, PrizmPageInfo } from '../../types/pages';
+import {
+  PrizmDocumentationPropertyType,
+  PrizmPageComponentEvent,
+  PrizmPageComponentInfoEvent,
+  PrizmPageInfo,
+} from '../../types/pages';
 import { take, takeUntil, tap } from 'rxjs/operators';
 
 @Injectable({
@@ -8,8 +13,11 @@ import { take, takeUntil, tap } from 'rxjs/operators';
 })
 export class PrizmDocHostElementListenerService {
   private readonly event$$ = new Subject<PrizmPageComponentEvent>();
+  private readonly checkInfo$$ = new Subject<PrizmPageComponentInfoEvent>();
 
   public readonly event$ = this.event$$.asObservable();
+  public readonly checkInfo$ = this.checkInfo$$.asObservable();
+
 
   public emit(
     // type: PrizmDocumentationPropertyType,
@@ -26,5 +34,13 @@ export class PrizmDocHostElementListenerService {
       event,
       type
     });
+  }
+
+  public emitInfo(
+    data: PrizmPageComponentInfoEvent
+  ): void {
+    this.checkInfo$$.next(
+      data
+    );
   }
 }
