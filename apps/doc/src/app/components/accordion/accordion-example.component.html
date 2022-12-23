@@ -1,5 +1,5 @@
 <prizm-doc-page header="Accordion" package="components" type="components">
-  <div class='page-description' description>
+  <div class="page-description" description>
     Our accordion component for displaying content in a collapsible and expandable format.
   </div>
   <ng-template prizmDocPageTab>
@@ -24,9 +24,9 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-accordion [onlyOneExpanded]="onlyOneExpanded">
+      <prizm-accordion #element [prizmDocHostElement]="element" [onlyOneExpanded]="onlyOneExpanded">
         <prizm-accordion-item [disabled]="disabled" title="Title number 2">
           <ng-template prizmAccordionTools>
             <prizm-checkbox [disabled]="disabled" label="Checkbox label is here"></prizm-checkbox>
