@@ -50,15 +50,38 @@
           Tabs
         </ng-template>
 
+        <ng-template
+          documentationPropertyName="selected"
+          documentationPropertyType="PrizmCronTabItem"
+          documentationPropertyMode="input-output"
+          [documentationPropertyValues]="tabs"
+          [(documentationPropertyValue)]="selected"
+        >
+          Selected Tab
+        </ng-template>
+
+
+
+<!--                <ng-template-->
+<!--                  documentationPropertyName="selected"-->
+<!--                  documentationPropertyType="PrizmCronTabItem"-->
+<!--                  documentationPropertyMode="input"-->
+<!--                  [documentationPropertyValues]="tabs"-->
+<!--                  [(documentationPropertyValue)]="selected"-->
+<!--                >-->
+<!--                  Selected Tab-->
+<!--                </ng-template>-->
+
+
+
 <!--        <ng-template-->
-<!--          documentationPropertyName="selected"-->
+<!--          documentationPropertyName="selectedChange"-->
 <!--          documentationPropertyType="PrizmCronTabItem"-->
-<!--          documentationPropertyMode="input-output"-->
-<!--          [documentationPropertyValues]="tabs"-->
-<!--          [(documentationPropertyValue)]="selected"-->
+<!--          documentationPropertyMode="output"-->
 <!--        >-->
-<!--          Selected Tab-->
+<!--          Selected Tab Change-->
 <!--        </ng-template>-->
+
 
         <ng-template
           documentationPropertyName="period"
