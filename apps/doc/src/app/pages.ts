@@ -58,7 +58,7 @@ export const pages: PrizmOrderedDocPage = [
     title: `Дизайнерам`,
     keywords: 'дизайнеры, designers',
     target: '_blank',
-    link: 'https://www.figma.com/@64ad37ee_26cc_4',
+    link: 'https://www.figma.com/community/file/1156311020501452261',
     order: 7,
   },
   {
