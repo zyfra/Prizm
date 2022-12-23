@@ -6,6 +6,7 @@ import {
   Input,
   OnChanges,
   OnInit,
+  Optional,
   Output,
   TemplateRef,
 } from '@angular/core';
@@ -55,6 +56,8 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
     @Inject(Location) private readonly locationRef: Location,
     @Inject(ActivatedRoute) private readonly activatedRoute: ActivatedRoute,
     @Inject(UrlSerializer) private readonly urlSerializer: UrlSerializer,
+
+    @Optional()
     public readonly hostElementService: PrizmDocHostElementService
   ) {}
 
@@ -85,7 +88,7 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
 
   ngOnChanges(): void {
     this.changed$.next();
-    this.hostElementService.addListener(
+    this.hostElementService?.addListener(
       this.documentationPropertyMode,
       this.documentationPropertyType,
       this.documentationPropertyName
