@@ -32,6 +32,16 @@ import {
 export class IconButtonComponent {
   sizeVariants: ReadonlyArray<PrizmSize> = ['s', 'm', 'xm', 'l', 'xl'];
   size: PrizmSize = this.sizeVariants[0];
+  public pseudoHovered = false;
+  public pseudoPressed = false;
+  public pseudoFocused = false;
+  public pseudoState = false;
+  public focusable = false;
+
+  public focusedChange = false;
+  public pressedChange = false;
+  public hoveredChange = false;
+  public focusVisibleChange = false;
 
   iconVariants: ReadonlyArray<PrizmContent> = [
     'account-card-details',
