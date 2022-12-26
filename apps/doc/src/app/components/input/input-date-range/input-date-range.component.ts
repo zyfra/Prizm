@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
-import { PrizmInputSize } from '@prizm-ui/components';
+import { PrizmDayRange, PrizmInputSize, PrizmTime } from '@prizm-ui/components';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -10,6 +10,19 @@ import { FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputDateRangeComponent {
+  public readOnly = false;
+  val: PrizmDayRange;
+  public pseudoInvalid = false;
+  public pseudoHovered = false;
+  public pseudoPressed = false;
+  public pseudoFocused = false;
+  public focusable = true;
+  public pseudoState = '';
+  public focusedChange = false;
+  public pressedChange = false;
+  public hoveredChange = false;
+  public focusVisibleChange = false;
+
   public label = 'Период';
   public dateControl = new FormControl();
   public placeholder = 'Выберите период';
