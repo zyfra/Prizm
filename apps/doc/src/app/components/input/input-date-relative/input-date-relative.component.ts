@@ -10,6 +10,7 @@ import { PrizmInputSize } from '@prizm-ui/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputDateRelativeRelativeComponent {
+  public canOpen = true;
   public readonly valueControl = new FormControl();
   public label = 'Относительное';
   public placeholder = 'Выберите дату';
