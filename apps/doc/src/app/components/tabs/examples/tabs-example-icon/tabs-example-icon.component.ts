@@ -17,6 +17,7 @@ export class TabsExampleIconComponent {
     },
     {
       icon: 'view-menu-arrow-down',
+      disabled: true,
     },
     {
       icon: 'view-menu-arrow-up',
@@ -31,3 +32,4 @@ export class TabsExampleIconComponent {
     // do something
   }
 }
+
