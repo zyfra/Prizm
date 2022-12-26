@@ -1,47 +1,38 @@
-<prizm-doc-page
-  header="ConfirmPopup"
-  package="components"
-  type="components"
->
-  <div class='page-description' description>
+<prizm-doc-page header="ConfirmPopup" package="components" type="components">
+  <div class="page-description" description>
     Our confirm popup component is a simple popup that can be used to confirm
   </div>
   <ng-template prizmDocPageTab>
-    <p>
-      Use PrizmConfirmPopupDirective to control tooltip.
-    </p>
+    <p>Use PrizmConfirmPopupDirective to control tooltip.</p>
 
-    <prizm-doc-example
-      id="base"
-      heading="Base"
-      [content]="exampleBase"
-    >
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
       <prizm-confirm-popup-base-example></prizm-confirm-popup-base-example>
     </prizm-doc-example>
 
-<!--    TODO LATER ACTIVE after finished FOR DEV -->
-<!--    <prizm-doc-example-->
-<!--      id="base"-->
-<!--      heading="With Template"-->
-<!--      [content]="exampleWithTemplate"-->
-<!--    >-->
-<!--      <prizm-confirm-popup-with-template-example></prizm-confirm-popup-with-template-example>-->
-<!--    </prizm-doc-example>-->
+    <!--    TODO LATER ACTIVE after finished FOR DEV -->
+    <!--    <prizm-doc-example-->
+    <!--      id="base"-->
+    <!--      heading="With Template"-->
+    <!--      [content]="exampleWithTemplate"-->
+    <!--    >-->
+    <!--      <prizm-confirm-popup-with-template-example></prizm-confirm-popup-with-template-example>-->
+    <!--    </prizm-doc-example>-->
 
-<!--    TODO LATER ACTIVE after finished FOR DEV -->
-<!--    <prizm-doc-example-->
-<!--      id="base"-->
-<!--      heading="With Component"-->
-<!--      [content]="exampleWithComponent"-->
-<!--    >-->
-<!--      <prizm-confirm-popup-with-component-example></prizm-confirm-popup-with-component-example>-->
-<!--    </prizm-doc-example>-->
-
+    <!--    TODO LATER ACTIVE after finished FOR DEV -->
+    <!--    <prizm-doc-example-->
+    <!--      id="base"-->
+    <!--      heading="With Component"-->
+    <!--      [content]="exampleWithComponent"-->
+    <!--    >-->
+    <!--      <prizm-confirm-popup-with-component-example></prizm-confirm-popup-with-component-example>-->
+    <!--    </prizm-doc-example>-->
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <button
+        #element
+        [prizmDocHostElement]="element"
         prizmButton
         [prizmConfirmPopup]="content"
         [prizmAutoReposition]="prizmAutoReposition"
@@ -50,12 +41,20 @@
         [prizmConfirmPopupShowDelay]="prizmConfirmPopupShowDelay"
         [prizmConfirmPopupHideDelay]="prizmConfirmPopupHideDelay"
         [prizmConfirmPopupHost]="prizmConfirmPopupHost"
+        [size]="size"
+        [icon]="icon"
+        [iconRight]="iconRight"
+        [appearanceType]="appearanceType"
+        [appearance]="appearance"
+        [disabled]="disabled"
+        [showLoader]="showLoader"
+        [focusable]="focusable"
+        [pseudoState]="pseudoState"
       >
         Button
       </button>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-
       <ng-template
         documentationPropertyName="prizmConfirmPopup"
         documentationPropertyType="string"
@@ -118,6 +117,145 @@
       >
         Host
       </ng-template>
+
+      <ng-template
+        documentationPropertyName="appearance"
+        documentationPropertyType="PrizmAppearance"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="appearanceVariants"
+        [(documentationPropertyValue)]="appearance"
+      >
+        Appearance
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="appearanceType"
+        documentationPropertyType="PrizmAppearanceType"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="appearanceTypeVariants"
+        [(documentationPropertyValue)]="appearanceType"
+      >
+        AppearanceType
+      </ng-template>
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmDialogSize"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+      <ng-template
+        documentationPropertyName="icon"
+        documentationPropertyType="PrizmContent"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="iconVariants"
+        [(documentationPropertyValue)]="icon"
+      >
+        Icon
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="iconRight"
+        documentationPropertyType="PrizmContent"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="iconVariants"
+        [(documentationPropertyValue)]="iconRight"
+      >
+        Right Icon
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="showLoader"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="showLoader"
+      >
+        Show Loader
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="pseudoHovered"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="pseudoHovered"
+      >
+        Pseudo Hovered
+      </ng-template>
+      <ng-template
+        documentationPropertyName="pseudoPressed"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="pseudoPressed"
+      >
+        Pseudo Pressed
+      </ng-template>
+      <ng-template
+        documentationPropertyName="pseudoFocused"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="pseudoFocused"
+      >
+        Pseudo Focused
+      </ng-template>
+      <ng-template
+        documentationPropertyName="focusable"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="focusable"
+      >
+        Focusable
+      </ng-template>
+      <ng-template
+        documentationPropertyName="pseudoState"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="pseudoState"
+      >
+        Pseudo State
+      </ng-template>
+      <ng-template
+        documentationPropertyName="focusedChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+        [(documentationPropertyValue)]="focusedChange"
+      >
+        Focused Change
+      </ng-template>
+      <ng-template
+        documentationPropertyName="pressedChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+        [(documentationPropertyValue)]="pressedChange"
+      >
+        Pressed Change
+      </ng-template>
+      <ng-template
+        documentationPropertyName="hoveredChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+        [(documentationPropertyValue)]="hoveredChange"
+      >
+        Hovered Change
+      </ng-template>
+      <ng-template
+        documentationPropertyName="focusVisibleChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+        [(documentationPropertyValue)]="focusVisibleChange"
+      >
+        Focus Visible Change
+      </ng-template>
     </prizm-doc-documentation>
   </ng-template>
 
@@ -130,10 +268,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

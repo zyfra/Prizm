@@ -8,6 +8,10 @@ import {
   PrizmDialogSize,
   PrizmOverlayInsidePlacement,
   PrizmOverscrollMode,
+  PrizmAppearance,
+  PrizmAppearanceType,
+  PrizmContent,
+  IconDefs,
 } from '@prizm-ui/components';
 import { generatePolymorphVariants } from '../../../util';
 import { prizmPure } from '@prizm-ui/core';
@@ -19,6 +23,34 @@ import { prizmPure } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogComponent {
+  public pseudoHovered = false;
+  public pseudoPressed = false;
+  public pseudoFocused = false;
+  public pseudoState = '';
+  public focusable = false;
+
+  public focusedChange = false;
+  public pressedChange = false;
+  public hoveredChange = false;
+  public focusVisibleChange = false;
+
+  iconVariants: ReadonlyArray<PrizmContent> = ['', ...IconDefs.reduce((a, c) => a.concat(c.data), [])];
+  icon: PrizmContent = this.iconVariants[0];
+  iconRight: PrizmContent = this.iconVariants[0];
+  appearanceVariants: ReadonlyArray<PrizmAppearance> = [
+    'primary',
+    'secondary',
+    'success',
+    'warning',
+    'danger',
+  ];
+  appearance: PrizmAppearance = this.appearanceVariants[0];
+
+  appearanceTypeVariants: ReadonlyArray<PrizmAppearanceType> = ['fill', 'outline', 'ghost'];
+  appearanceType: PrizmAppearanceType = this.appearanceTypeVariants[0];
+  disabled = false;
+  showLoader = false;
+
   public overscrollVariants: ReadonlyArray<PrizmOverscrollMode> = ['scroll', 'all', 'none'];
   public overscroll: PrizmOverscrollMode = this.overscrollVariants[0];
   public positionVariants: PrizmOverlayInsidePlacement[] = Object.values(PrizmOverlayInsidePlacement);
