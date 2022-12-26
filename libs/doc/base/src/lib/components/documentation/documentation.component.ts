@@ -18,12 +18,13 @@ import {
   tuiRgbToHex,
   tuiWatch,
 } from '@taiga-ui/cdk';
-import { merge } from 'rxjs';
+import { BehaviorSubject, merge } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import { PRIZM_DOC_DOCUMENTATION_TEXTS } from '../../tokens/i18n';
 import { prizmInspectAny } from '../../utils/inspect';
 import { PrizmDocDocumentationPropertyConnectorDirective } from './documentation-property-connector.directive';
+import { PRIZM_HOST_COMPONENT_INFO_TOKEN, PrizmHostComponentInfo } from './token';
 
 // @bad TODO subscribe propertiesConnectors changes
 // @bad TODO refactor to make more flexible
@@ -32,6 +33,14 @@ import { PrizmDocDocumentationPropertyConnectorDirective } from './documentation
   templateUrl: `./documentation.template.html`,
   styleUrls: [`./documentation.style.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: PRIZM_HOST_COMPONENT_INFO_TOKEN,
+      useFactory: (): PrizmHostComponentInfo => new BehaviorSubject({
+        key: 'index'
+      })
+    }
+  ],
   animations: [
     trigger(`emitEvent`, [transition(`:increment`, [style({ opacity: 1 }), animate(`500ms ease-in`)])]),
   ],
@@ -39,6 +48,15 @@ import { PrizmDocDocumentationPropertyConnectorDirective } from './documentation
 export class PrizmDocDocumentationComponent implements AfterContentInit {
   @Input()
   heading = ``;
+
+  @Input()
+  public set hostComponentKey(key: string) {
+    this.prizmHostComponentInfo.next({key})
+  }
+
+  public get hostComponentKey(): string {
+    return this.prizmHostComponentInfo.value?.key;
+  }
 
   @Input()
   showValues = true;
@@ -52,6 +70,7 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   activeItemIndex = 0;
 
   constructor(
+    @Inject(PRIZM_HOST_COMPONENT_INFO_TOKEN) private readonly prizmHostComponentInfo: PrizmHostComponentInfo,
     @Inject(ChangeDetectorRef) private readonly changeDetectorRef: ChangeDetectorRef,
     @Inject(PRIZM_DOC_DOCUMENTATION_TEXTS)
     readonly texts: [string, string, string, string, string]

@@ -16,6 +16,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { prizmCoerceValue } from '../../utils/coerce-value';
 import { PrizmDocumentationPropertyType } from '../../types/pages';
 import { PrizmDocHostElementService } from '../host';
+import { PRIZM_HOST_COMPONENT_INFO_TOKEN, PrizmHostComponentInfo } from './token';
 
 const SERIALIZED_SUFFIX = `$`;
 
@@ -56,6 +57,7 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
     @Inject(Location) private readonly locationRef: Location,
     @Inject(ActivatedRoute) private readonly activatedRoute: ActivatedRoute,
     @Inject(UrlSerializer) private readonly urlSerializer: UrlSerializer,
+    @Inject(PRIZM_HOST_COMPONENT_INFO_TOKEN) private readonly prizmHostComponentInfo: PrizmHostComponentInfo,
 
     @Optional()
     public readonly hostElementService: PrizmDocHostElementService
@@ -89,6 +91,7 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
   ngOnChanges(): void {
     this.changed$.next();
     this.hostElementService?.addListener(
+      this.prizmHostComponentInfo.value?.key,
       this.documentationPropertyMode,
       this.documentationPropertyType,
       this.documentationPropertyName

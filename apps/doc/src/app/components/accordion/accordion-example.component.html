@@ -26,8 +26,16 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-accordion #element [prizmDocHostElement]="element" [onlyOneExpanded]="onlyOneExpanded">
-        <prizm-accordion-item [disabled]="disabled" title="Title number 2">
+      <prizm-accordion
+        #element
+        key='PrizmAccordionComponent'
+        [prizmDocHostElement]="element"
+        [onlyOneExpanded]="onlyOneExpanded">
+        <prizm-accordion-item
+          #elementAccordionItem
+          key='PrizmAccordionItemComponent'
+          [prizmDocHostElement]="elementAccordionItem"
+          [disabled]="disabled" title="Title number 2">
           <ng-template prizmAccordionTools>
             <prizm-checkbox [disabled]="disabled" label="Checkbox label is here"></prizm-checkbox>
           </ng-template>
@@ -63,7 +71,11 @@
         </prizm-accordion-item>
       </prizm-accordion>
     </prizm-doc-demo>
-    <prizm-doc-documentation>
+
+    <prizm-doc-documentation
+      heading='PrizmAccordionComponent'
+      hostComponentKey='PrizmAccordionComponent'
+    >
       <ng-template
         documentationPropertyName="onlyOneExpanded"
         documentationPropertyType="boolean"
@@ -78,6 +90,32 @@
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation
+      hostComponentKey='PrizmAccordionItemComponent'
+      heading='PrizmAccordionItemComponent'>
+      <ng-template
+        documentationPropertyName="isExpanded"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Is Expanded
+      </ng-template>
+      <ng-template
+        documentationPropertyName="title"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Title
+      </ng-template>
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
       >
         Disabled
       </ng-template>

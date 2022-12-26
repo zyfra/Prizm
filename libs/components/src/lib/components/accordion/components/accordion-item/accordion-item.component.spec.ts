@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AccordionItemComponent } from './accordion-item.component';
+import { PrizmAccordionItemComponent } from './accordion-item.component';
 import { PrizmIconModule } from '../../../icon/icon.module';
 
 describe('AccordionItemComponent', () => {
-  let component: AccordionItemComponent;
-  let fixture: ComponentFixture<AccordionItemComponent>;
+  let component: PrizmAccordionItemComponent;
+  let fixture: ComponentFixture<PrizmAccordionItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AccordionItemComponent],
+      declarations: [PrizmAccordionItemComponent],
       imports: [PrizmIconModule],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AccordionItemComponent);
+    fixture = TestBed.createComponent(PrizmAccordionItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
