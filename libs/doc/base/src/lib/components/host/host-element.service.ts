@@ -196,7 +196,7 @@ export class PrizmDocHostElementService implements OnDestroy {
           }
         );
         currentInputMap.set(
-          emitEventKey,
+          event,
           {
             key: event,
             type: propertyType,
