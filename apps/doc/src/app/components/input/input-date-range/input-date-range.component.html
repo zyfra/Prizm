@@ -1,54 +1,41 @@
-<prizm-doc-page
-  header="InputDateRange"
-  package="components"
-  type="components"
->
+<prizm-doc-page header="InputDateRange" package="components" type="components">
   <ng-template prizmDocPageTab>
-    <p>
-      Use PrizmInputDateComponent to view input-date.
-    </p>
+    <p>Use PrizmInputDateComponent to view input-date.</p>
 
-    <prizm-doc-example
-      id="base"
-      heading="Base"
-      [content]="exampleBase"
-    >
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
       <prizm-input-date-range-base-example></prizm-input-date-range-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example
-      id="base"
-      heading="Disabled"
-      [content]="exampleDisabled"
-    >
+    <prizm-doc-example id="base" heading="Disabled" [content]="exampleDisabled">
       <prizm-input-date-range-disabled-example></prizm-input-date-range-disabled-example>
     </prizm-doc-example>
 
-    <prizm-doc-example
-      id="native-date"
-      heading="Native Date"
-      [content]="exampleNativeDate"
-    >
+    <prizm-doc-example id="native-date" heading="Native Date" [content]="exampleNativeDate">
       <prizm-input-date-range-native-example></prizm-input-date-range-native-example>
     </prizm-doc-example>
-
-
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-input-date-range
-        [label]='label'
-        [formControl]='dateControl'
-        [placeholder]='placeholder'
-        [outer]='outer'
-        [size]='size'
+        #element
+        [prizmDocHostElement]="element"
+        [label]="label"
+        [formControl]="dateControl"
+        [placeholder]="placeholder"
+        [outer]="outer"
+        [size]="size"
+        [(val)]="val"
+        [readOnly]="readOnly"
+        [focusable]="focusable"
+        [pseudoState]="pseudoState"
       ></prizm-input-date-range>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="label"
         documentationPropertyType="string"
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="label"
       >
         Label
@@ -57,6 +44,7 @@
       <ng-template
         documentationPropertyName="placeholder"
         documentationPropertyType="string"
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="placeholder"
       >
         Placeholder
@@ -65,6 +53,7 @@
       <ng-template
         documentationPropertyName="outer"
         documentationPropertyType="boolean"
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="outer"
       >
         Outer
@@ -73,6 +62,7 @@
       <ng-template
         documentationPropertyName="size"
         documentationPropertyType="PrizmInputSize"
+        documentationPropertyMode="input"
         [documentationPropertyValues]="sizeVariants"
         [(documentationPropertyValue)]="size"
       >
@@ -82,6 +72,7 @@
       <ng-template
         documentationPropertyName="disabledItemHandler"
         documentationPropertyType="PrizmBooleanHandler<PrizmDay>"
+        documentationPropertyMode="input"
       >
         Disabled Item Handler
       </ng-template>
@@ -89,14 +80,15 @@
       <ng-template
         documentationPropertyName="markerHandler"
         documentationPropertyType="PrizmMarkerHandler"
+        documentationPropertyMode="input"
       >
         Marker Handler
       </ng-template>
 
-
       <ng-template
         documentationPropertyName="items"
         documentationPropertyType="PrizmDayRangePeriod[]"
+        documentationPropertyMode="input"
       >
         Items
       </ng-template>
@@ -104,6 +96,7 @@
       <ng-template
         documentationPropertyName="min"
         documentationPropertyType="PrizmDay"
+        documentationPropertyMode="input"
       >
         Min Date
       </ng-template>
@@ -111,6 +104,7 @@
       <ng-template
         documentationPropertyName="max"
         documentationPropertyType="PrizmDay"
+        documentationPropertyMode="input"
       >
         Max Date
       </ng-template>
@@ -118,6 +112,7 @@
       <ng-template
         documentationPropertyName="minLength"
         documentationPropertyType="PrizmDayLike | null"
+        documentationPropertyMode="input"
       >
         Min Length
       </ng-template>
@@ -125,10 +120,126 @@
       <ng-template
         documentationPropertyName="maxLength"
         documentationPropertyType="PrizmDayLike | null"
+        documentationPropertyMode="input"
       >
         Max Length
       </ng-template>
 
+      <ng-template
+        documentationPropertyName="defaultViewedMonth"
+        documentationPropertyType="PrizmMonth"
+        documentationPropertyMode="input"
+      >
+        Default Viewed Month
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="readOnly"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="readOnly"
+      >
+        Read Only
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="val"
+        documentationPropertyType="[PrizmDay, PrizmTime]"
+        documentationPropertyMode="input-output"
+        [(documentationPropertyValue)]="val"
+      >
+        Val
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="pseudoInvalid"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="pseudoInvalid"
+      >
+        Pseudo Invalid
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="pseudoHovered"
+        documentationPropertyType=" boolean | null"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="pseudoHovered"
+      >
+        Pseudo Hovered
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="pseudoPressed"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="pseudoPressed"
+      >
+        Pseudo Pressed
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="pseudoFocused"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="pseudoFocused"
+      >
+        Pseudo Focused
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="focusable"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="focusable"
+      >
+        Focusable
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="pseudoState"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="pseudoState"
+      >
+        Pseudo State
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="focusedChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+        [(documentationPropertyValue)]="focusedChange"
+      >
+        Focused Change
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="pressedChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+        [(documentationPropertyValue)]="pressedChange"
+      >
+        Pressed Change
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="hoveredChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+        [(documentationPropertyValue)]="hoveredChange"
+      >
+        Hovered Change
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="focusVisibleChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+        [(documentationPropertyValue)]="focusVisibleChange"
+      >
+        Focus Visible Change
+      </ng-template>
     </prizm-doc-documentation>
   </ng-template>
 
@@ -141,10 +252,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
