@@ -9,10 +9,12 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-file-upload
-        [multiple]="true"
+        #element
+        [prizmDocHostElement]="element"
+        [multiple]="multiple"
         (filesChange)="onFilesChange($event)"
         (filesValidationErrors)="onfilesValidationErrors($event)"
         (filesCountError)="onFilesCountError($event)"
@@ -95,6 +97,24 @@
       </ng-template>
 
       <ng-template
+        documentationPropertyName="multiple"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="multiple"
+      >
+        Multiple
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="retry"
+        documentationPropertyType="File"
+        documentationPropertyMode="output"
+        documentationPropertyType="retry"
+      >
+        Retry
+      </ng-template>
+
+      <ng-template
         documentationPropertyName="beforeFilesChange"
         documentationPropertyType="Event"
         documentationPropertyMode="output"
@@ -145,4 +165,3 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
-
