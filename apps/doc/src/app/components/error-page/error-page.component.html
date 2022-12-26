@@ -5,10 +5,10 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <div [ngStyle]="{ display: 'block', height: '50vh' }">
-        <prizm-error-page [code]="code" [title]="title">
+        <prizm-error-page #element [prizmDocHostElement]="element" [code]="code" [title]="title">
           {{ userContent }}
         </prizm-error-page>
       </div>
@@ -57,4 +57,3 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
-
