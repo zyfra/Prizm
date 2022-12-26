@@ -10,6 +10,19 @@ import { FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputDateTimeTimeComponent {
+  public readOnly = false;
+  val: [PrizmDay, PrizmTime];
+  public pseudoInvalid = false;
+  public pseudoHovered = false;
+  public pseudoPressed = false;
+  public pseudoFocused = false;
+  public focusable = true;
+  public pseudoState = '';
+  public focusedChange = false;
+  public pressedChange = false;
+  public hoveredChange = false;
+  public focusVisibleChange = false;
+
   public readonly valueControl = new FormControl([new PrizmDay(2017, 2, 15), new PrizmTime(12, 30, 25, 500)]);
   public label = 'Абсолютное';
   public timeStrict = false;
