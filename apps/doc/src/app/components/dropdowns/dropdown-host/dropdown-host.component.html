@@ -1,8 +1,7 @@
 <prizm-doc-page header="DropdownHost" package="components" type="components">
-
-  <div class='page-description' description>
-    Our dropdown host component is a wrapper for the dropdown component.
-    It is used to provide a dropdown with a trigger element.
+  <div class="page-description" description>
+    Our dropdown host component is a wrapper for the dropdown component. It is used to provide a dropdown with
+    a trigger element.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="With Template" [content]="exampleWithTemplate">
@@ -13,7 +12,11 @@
       <prizm-select-panel-example></prizm-select-panel-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="select-panel" heading="Date Range Template (Nested Dropdown)" [content]="exampleDateRangeList">
+    <prizm-doc-example
+      id="select-panel"
+      heading="Date Range Template (Nested Dropdown)"
+      [content]="exampleDateRangeList"
+    >
       <prizm-dropdown-host-date-list-example></prizm-dropdown-host-date-list-example>
     </prizm-doc-example>
 
@@ -22,15 +25,23 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-dropdown-host
+        #element
+        [prizmDocHostElement]="element"
         [content]="withHeaderAndFooter"
         [(isOpen)]="isOpen"
         [autoReposition]="autoReposition"
         [prizmDropdownHostWidth]="prizmDropdownHostWidth"
         [placement]="placement"
         [prizmDropdownHostCloseOnBackdropClick]="closeOnBackdropClick"
+        [prizmDropdownHostId]="prizmDropdownHostId"
+        [parentZone]="parentZone"
+        [delay]="delay"
+        [canOpen]="canOpen"
+        [closeByEsc]="closeByEsc"
+        [prizmDropdownHostCloseOnBackdropClick]="prizmDropdownHostCloseOnBackdropClick"
       >
         <button prizmButton type="button" (click)="isOpen = !isOpen">Button</button>
       </prizm-dropdown-host>
@@ -136,6 +147,62 @@
       >
         Content
       </ng-template>
+      <ng-template
+        documentationPropertyName="prizmDropdownHostId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="prizmDropdownHostId"
+      >
+        Prizm Dropdown HostId
+      </ng-template>
+      <ng-template
+        documentationPropertyName="parentZone"
+        documentationPropertyType="PrizmDropdownZoneDirective | null"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="parentZone"
+      >
+        Parent Zone
+      </ng-template>
+      <ng-template
+        documentationPropertyName="delay"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="delay"
+      >
+        Delay
+      </ng-template>
+      <ng-template
+        documentationPropertyName="canOpen"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="canOpen"
+      >
+        Can Open
+      </ng-template>
+      <ng-template
+        documentationPropertyName="closeByEsc"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="closeByEsc"
+      >
+        Close By Esc
+      </ng-template>
+      <ng-template
+        documentationPropertyName="prizmDropdownHostCloseOnBackdropClick"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="prizmDropdownHostCloseOnBackdropClick"
+      >
+        Prizm Dropdown Host Close On Backdrop Click
+      </ng-template>
+      <ng-template
+        documentationPropertyName="isOpenChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+        [(documentationPropertyValue)]="isOpenChange"
+      >
+        Is Open Change
+      </ng-template>
     </prizm-doc-documentation>
   </ng-template>
 
@@ -153,4 +220,3 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
-
