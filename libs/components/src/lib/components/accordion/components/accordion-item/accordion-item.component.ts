@@ -19,7 +19,7 @@ import { Subject } from 'rxjs';
   animations: [expandAnimation],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AccordionItemComponent implements OnDestroy {
+export class PrizmAccordionItemComponent implements OnDestroy {
   @Input() public title: string = null;
   @Input() isExpanded = false;
   @Input() disabled = false;
