@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, TemplateRef, ViewChild } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
-import { PolymorphContent, PrizmOverlayOutsidePlacement } from '@prizm-ui/components';
+import { PolymorphContent, prizmGenerateId, PrizmOverlayOutsidePlacement } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-dropdown-host-example',
@@ -9,6 +9,13 @@ import { PolymorphContent, PrizmOverlayOutsidePlacement } from '@prizm-ui/compon
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropdownHostComponent {
+  public prizmDropdownHostId = 'dropdownHostId_' + prizmGenerateId();
+  public parentZone = null;
+  public delay = 0;
+  public canOpen = true;
+  public closeByEsc = true;
+  public prizmDropdownHostCloseOnBackdropClick = true;
+  public isOpenChange = false;
   isOpen = false;
   prizmDropdownHostWidth = 'auto';
   content: PolymorphContent;
