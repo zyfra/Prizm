@@ -13,8 +13,8 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
-    <h2>PrizmNavigationComponent</h2>
+  <ng-template prizmDocPageTab prizmDocHost>
+    <!-- <h2>PrizmNavigationComponent</h2>
     <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="data"
@@ -39,12 +39,14 @@
       >
         Изменение активного элемента
       </ng-template>
-    </prizm-doc-documentation>
+    </prizm-doc-documentation> -->
 
     <h2>PrizmHeaderModuleBtnComponent</h2>
 
     <prizm-doc-demo>
       <prizm-header-module-btn
+        #element
+        [prizmDocHostElement]="element"
         [icon]="$any(icon)"
         [alertsCount]="alertsCount"
         [title]="title"
@@ -91,7 +93,7 @@
       </ng-template>
     </prizm-doc-documentation>
 
-    <h2>PrizmHeaderDropdownComponent</h2>
+    <!-- <h2>PrizmHeaderDropdownComponent</h2>
     <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="data"
@@ -116,7 +118,7 @@
       >
         Изменение текущего активного элемента
       </ng-template>
-    </prizm-doc-documentation>
+    </prizm-doc-documentation> -->
   </ng-template>
 
   <ng-template prizmDocPageTab>
@@ -132,4 +134,3 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
-
