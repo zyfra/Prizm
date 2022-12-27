@@ -1,3 +1,6 @@
+<div class='header'>
+  <ng-content select='[header]'></ng-content>
+</div>
 <div class="z-row z-row_weekday prizm-font-main-body-12">
     <div
         *ngFor="let day of weekDays$ | async"
@@ -54,4 +57,7 @@
             </ng-container>
         </ng-container>
     </div>
+</div>
+<div class='footer'>
+  <ng-content select='[footer]'></ng-content>
 </div>

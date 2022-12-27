@@ -1,8 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmCronUiSecondState } from '../../cron-ui-second.state';
-
-
 @Component({
   selector: 'prizm-cron-second',
   styleUrls: [

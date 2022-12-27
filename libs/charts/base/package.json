@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/charts",
-  "version": "1.0.0-beta.18",
+  "version": "1.0.0-beta.19",
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^12.2.0",

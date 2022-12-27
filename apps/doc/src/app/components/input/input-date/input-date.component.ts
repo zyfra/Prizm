@@ -42,4 +42,9 @@ export class InputDateComponent {
     TypeScript: import('!!raw-loader!./examples/native-date/input-native-date-base-example.component.ts'),
     HTML: import('!!raw-loader!./examples/native-date/input-native-date-base-example.component.html'),
   };
+
+  readonly exampleDouble: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/range-separate/input-date-range-separate-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/range-separate/input-date-range-separate-example.component.html'),
+  };
 }

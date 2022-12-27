@@ -1,6 +1,7 @@
 import {
   ChangeDetectorRef,
   Component,
+  ContentChild,
   ElementRef, HostBinding,
   HostListener,
   Inject,
@@ -8,6 +9,7 @@ import {
   Input,
   Optional,
   Self,
+  TemplateRef,
   Type,
   ViewChild,
 } from '@angular/core';
@@ -60,6 +62,13 @@ export class PrizmInputDateRangeComponent
 {
     @ViewChild('focusableElementRef', {read: ElementRef})
     public readonly focusableElement?: ElementRef<HTMLInputElement>;
+
+    @ContentChild('footerFrom', {read: TemplateRef})
+    public readonly footerFromTemplate?: TemplateRef<HTMLInputElement>;
+
+
+    @ContentChild('footerTo', {read: TemplateRef})
+    public readonly footerToTemplate?: TemplateRef<HTMLInputElement>;
 
     @Input()
     @prizmDefaultProp()

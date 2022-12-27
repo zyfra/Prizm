@@ -23,6 +23,7 @@
   display: flex;
   gap: 8px;
   color: black;
+  white-space: nowrap;
   align-items: center;
 
   prizm-icon {
@@ -61,5 +62,21 @@ prizm-icon {
 
 .edit-icon {
   color: var(--prizm-grey-g8-g6);
-  cursor: not-allowed;
+}
+
+.edit-block {
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-content {
+  width: 320px;
+  max-width: 320px;
+}
+
+.add-block {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
 }

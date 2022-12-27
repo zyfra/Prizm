@@ -3,17 +3,15 @@ import { FormControl } from '@angular/forms';
 import { PrizmDateTime, PrizmDay, PrizmTime } from '@prizm-ui/components';
 import { formatRelative, addDays, addHours, addMonths } from 'date-fns';
 
+type DateRangeItem = [
+  PrizmDay,
+  PrizmTime
+];
+
 type DateItem = {
-  title: string,
   range: [
-    [
-        PrizmDay,
-        PrizmTime
-    ],
-    [
-      PrizmDay,
-      PrizmTime
-    ],
+    DateRangeItem,
+    DateRangeItem,
   ],
 };
 
@@ -26,9 +24,10 @@ type DateItem = {
 })
 export class PrizmDropdownHostDateListEditExampleComponent {
   open = false;
+  selection: DateItem;
+  addItem: DateItem;
   data: DateItem[] = [
     {
-      title: 'Последний час',
       range: [
         [
           PrizmDay.fromLocalNativeDate(new Date()),
@@ -41,7 +40,6 @@ export class PrizmDropdownHostDateListEditExampleComponent {
       ],
     },
     {
-      title: 'Последние сутки',
       range: [
         [
           PrizmDay.fromLocalNativeDate(addDays(new Date(), -1)),
@@ -54,7 +52,6 @@ export class PrizmDropdownHostDateListEditExampleComponent {
       ],
     },
     {
-      title: 'Последние 2 часа',
       range: [
         [
           PrizmDay.fromLocalNativeDate(new Date()),
@@ -67,7 +64,6 @@ export class PrizmDropdownHostDateListEditExampleComponent {
       ],
     },
     {
-      title: 'Последние 4 часа',
       range: [
         [
           PrizmDay.fromLocalNativeDate(new Date()),
@@ -80,7 +76,6 @@ export class PrizmDropdownHostDateListEditExampleComponent {
       ],
     },
     {
-      title: 'Последние 8 часов',
       range: [
         [
           PrizmDay.fromLocalNativeDate(new Date()),
@@ -93,7 +88,6 @@ export class PrizmDropdownHostDateListEditExampleComponent {
       ],
     },
     {
-      title: 'Последние 12 часов',
       range: [
         [
           PrizmDay.fromLocalNativeDate(new Date()),
@@ -127,19 +121,67 @@ export class PrizmDropdownHostDateListEditExampleComponent {
   }
 
   public convertDate([start, end]: DateItem['range']): [Date, Date] {
+    if (!start?.[0] || !end?.[0]) return null;
     return [
       new PrizmDateTime(
         start[0],
-        start[1]
+        start[1] ?? new PrizmTime(0, 0)
       ).toLocalNativeDate(),
       new PrizmDateTime(
         end[0],
-        end[1]
+        end[1] ?? new PrizmTime(0, 0)
       ).toLocalNativeDate()
     ]
   }
 
   public remove(idx: number): void {
-    this.data.splice(idx, 1);
+    const [removedItem] = this.data.splice(idx, 1);
+    if (this.selection === removedItem) {
+      this.selection = null;
+    }
+  }
+  public removeNew(): void {
+    this.selection = this.addItem = null;
+  }
+
+  public editCurrent(
+    item: DateItem,
+    idx: number
+  ): void {
+    if (this.selection === item) {
+      this.data[idx].range = this.selection.range;
+      this.selection = null;
+      return;
+    }
+    this.selection = item;
+  }
+
+  public editNew(
+    item: DateItem
+  ): void {
+    if (this.selection === item) {
+      this.data.push(this.selection);
+      this.selection = this.addItem = null;
+      return;
+    }
+    this.selection = item;
+  }
+
+  public changeDate(
+    from: DateRangeItem,
+    to: DateRangeItem
+  ): void {
+    this.selection.range = [from, to];
+  }
+
+  public add(): void {
+    this.addItem = {
+      range: [null, null]
+    };
+    this.selection = this.addItem;
+  }
+
+  public trackBy(i:number): number {
+    return i;
   }
 }

@@ -32,8 +32,10 @@
         (click)='focusableElementRef.focus()'></button>
     </ng-container>
   </prizm-input-layout>
-  <ng-template #dropdown>
+  <ng-template #dropdown let-zone="zone">
       <prizm-calendar-range
+          [style.--prizm-input-layout-width]="'100%'"
+          [style.--prizm-dropdown-host-width]="'100%'"
           [defaultViewedMonth]="defaultViewedMonth"
           [disabledItemHandler]="disabledItemHandler"
           [items]="items"
@@ -44,6 +46,19 @@
           [maxLength]="maxLength"
           [value]="value"
           (valueChange)="onRangeChange($event)"
-      ></prizm-calendar-range>
+      >
+        <ng-container footerFrom>
+          <ng-template
+            [ngTemplateOutlet]="footerToTemplate"
+            [ngTemplateOutletContext]="{ zone: zone }">
+          ></ng-template>
+        </ng-container>
+        <ng-container footerTo>
+          <ng-template
+            [ngTemplateOutlet]="footerFromTemplate"
+            [ngTemplateOutletContext]="{ zone: zone }">
+            ></ng-template>
+        </ng-container>
+      </prizm-calendar-range>
   </ng-template>
 </prizm-dropdown-host>

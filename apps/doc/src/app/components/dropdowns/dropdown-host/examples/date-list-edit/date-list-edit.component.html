@@ -8,28 +8,46 @@
     Пример выбора периода
   </button>
 
-  <ng-template #dropdown>
+  <ng-template #dropdown let-zone="zone">
     <prizm-data-list [style.--prizm-data-list-border]='0'>
       <div class='header' header>
+
         <prizm-icon iconClass='date-calendar-range'></prizm-icon>
         <span>Выбор периода</span>
+        <div class='add-block'>
+          <button prizmIconButton
+                  appearanceType="ghost"
+                  (click)='add()'
+                  [icon]="'add-plus'"
+                  size="m">
+          </button>
+        </div>
       </div>
       <div class="box">
         <div class='list'>
-          <ng-container *ngFor="let item of data; let idx = index">
-            <div
-              class='list-item'
-              *prizmLet='item.range | prizmCallFunc : convertDate as dateArr'>
-              <prizm-radio-button
-                (click)="select(item)"
-                [value]="item.range"
-                [label]='(dateArr[0] | date : "short") + " - " + (dateArr[1] | date : "short")'
-              ></prizm-radio-button>
-              <div class='btns'>
-                <prizm-icon class='edit-icon' iconClass='editor-mode'></prizm-icon>
-                <prizm-icon (click)='remove(idx); elem.reCalculatePositions();' class='trash-icon' iconClass='delete'></prizm-icon>
-              </div>
-            </div>
+          <ng-container *ngIf='addItem && addItem === selection'>
+            <ng-container
+              [ngTemplateOutlet]='itemTemplate'
+              [ngTemplateOutletContext]='{
+                item: addItem,
+                elem: elem,
+                zone: zone,
+                idx: 0,
+                isNew: true
+              }'
+            ></ng-container>
+          </ng-container>
+          <ng-container *ngFor="let item of data; let idx = index; trackBy: trackBy">
+            <ng-container
+              [ngTemplateOutlet]='itemTemplate'
+              [ngTemplateOutletContext]='{
+                item: item,
+                elem: elem,
+                zone: zone,
+                idx: idx,
+                isNew: false
+              }'
+            ></ng-container>
           </ng-container>
         </div>
       </div>
@@ -41,3 +59,46 @@
   </ng-template>
 
 </prizm-dropdown-host>
+
+
+<ng-template
+  #itemTemplate
+  let-item='item'
+  let-elem='elem'
+  let-zone='zone'
+  let-idx='idx'
+  let-isNew='isNew'
+>
+  <div
+    class='list-item'
+    *prizmLet='item.range | prizmCallFunc : convertDate as dateArr'>
+    <div class='item-content' [ngSwitch]='item === selection'>
+      <div class='edit-block' *ngSwitchCase='true'>
+        <prizm-input-date-time
+          #from
+          [prizmEventZoneParent]='zone'
+          [ngModel]="selection.range[0]"
+          (ngModelChange)="changeDate($event, to.value)"
+          [label]='"От"'
+        ></prizm-input-date-time>
+        <prizm-input-date-time
+          #to
+          [ngModel]="selection.range[1]"
+          [prizmEventZoneParent]='zone'
+          (ngModelChange)="changeDate(from.value, $event)"
+          [label]='"До"'
+        ></prizm-input-date-time>
+      </div>
+      <prizm-radio-button
+        *ngSwitchDefault
+        (click)="select(item)"
+        [value]="item.range"
+        [label]='(dateArr[0] | date : "short") + " - " + (dateArr[1] | date : "short")'
+      ></prizm-radio-button>
+    </div>
+    <div class='btns'>
+      <prizm-icon class='edit-icon' (click)='isNew ? editNew(item) : editCurrent(item, idx)' iconClass='editor-mode'></prizm-icon>
+      <prizm-icon (click)='isNew ? removeNew() : remove(idx); elem.reCalculatePositions();' class='trash-icon' iconClass='delete'></prizm-icon>
+    </div>
+  </div>
+</ng-template>

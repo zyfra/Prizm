@@ -7,6 +7,9 @@ import { PolymorphModule, PrizmInputDateModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputDateBaseExampleComponent } from './examples/base/input-date-base-example.component';
 import { PrizmInputNativeDateBaseExampleComponent } from './examples/native-date/input-native-date-base-example.component';
+import {
+  PrizmInputDateSeparateExampleComponent
+} from './examples/range-separate/input-date-range-separate-example.component';
 
 @NgModule({
   imports: [
@@ -20,6 +23,7 @@ import { PrizmInputNativeDateBaseExampleComponent } from './examples/native-date
   ],
   declarations: [
     PrizmInputDateBaseExampleComponent,
+    PrizmInputDateSeparateExampleComponent,
     PrizmInputNativeDateBaseExampleComponent,
     InputDateComponent,
   ],

@@ -9,4 +9,6 @@ export * from './days.const';
 export * from './month';
 export * from './month-range';
 export * from './time';
+export * from './time-range';
 export * from './year';
+export * from './day-time-range';
