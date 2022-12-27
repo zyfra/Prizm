@@ -13,12 +13,16 @@ import { prizmPx } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-flag-icons',
-  template: ` <ng-content></ng-content> `,
+  template: `<ng-content></ng-content>`,
   styles: [
     `
       :host {
         display: inline-flex;
         height: auto;
+      }
+
+      :host ::ng-deep > svg {
+        width: 100%;
       }
     `,
   ],
