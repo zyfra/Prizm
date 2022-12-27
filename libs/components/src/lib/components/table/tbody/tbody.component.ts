@@ -59,9 +59,30 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> {
     return this.pipe.transform(this.data);
   }
 
-  readonly toContext = ($implicit: T, index: number): { $implicit: T; index: number } => ({
+  readonly toContext = (
+    $implicit: T,
+    index: number,
+    first: boolean,
+    last: boolean,
+    odd: boolean,
+    even: boolean,
+    count: number
+  ): {
+    $implicit: T;
+    index: number;
+    first: boolean;
+    last: boolean;
+    odd: boolean;
+    even: boolean;
+    count: number;
+  } => ({
     $implicit,
     index,
+    first,
+    last,
+    even,
+    odd,
+    count,
   });
 
   public onClick(): void {
@@ -69,3 +90,4 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> {
     this.openChange.emit(this.open);
   }
 }
+

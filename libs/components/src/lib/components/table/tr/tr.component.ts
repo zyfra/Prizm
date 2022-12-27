@@ -6,7 +6,8 @@ import {
   HostBinding,
   Inject,
   Input,
-  QueryList, ViewEncapsulation,
+  QueryList,
+  ViewEncapsulation,
 } from '@angular/core';
 import { map, startWith } from 'rxjs/operators';
 
@@ -27,7 +28,6 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
   providers: [PRIZM_TABLE_PROVIDER],
 })
 export class PrizmTrComponent<T extends Partial<Record<keyof T, any>>> {
-  @Input() index: number;
   @Input() @HostBinding('attr.status') public status: PrizmTableCellStatus = 'default';
 
   @ContentChildren(forwardRef(() => PrizmCellDirective))
@@ -64,3 +64,4 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, any>>> {
     @Inject(PrizmDestroyService) readonly destroy$: PrizmDestroyService
   ) {}
 }
+

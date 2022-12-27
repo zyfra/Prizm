@@ -1,5 +1,5 @@
 <prizm-doc-page header="Table" package="UI" type="components">
-  <div class='page-description' description>
+  <div class="page-description" description>
     Our table component is a powerful tool for displaying data in a tabular format.
   </div>
   <ng-template pageTab>
@@ -17,6 +17,14 @@
 
     <prizm-doc-example id="selectable" heading="Selectable" [content]="exampleSelectableTable">
       <prizm-table-selectable-example></prizm-table-selectable-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example
+      id="multi-meta-select"
+      heading="Multi select with meta"
+      [content]="exampleSelectableMetaTable"
+    >
+      <prizm-table-selectable-meta-example></prizm-table-selectable-meta-example>
     </prizm-doc-example>
 
     <prizm-doc-example id="rowGroup" heading="Table row group" [content]="exampleRowGroupTable">
@@ -61,3 +69,4 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
+

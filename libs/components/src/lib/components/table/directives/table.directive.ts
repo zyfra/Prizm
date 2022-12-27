@@ -22,7 +22,7 @@ import { prizmDefaultProp } from '@prizm-ui/core';
   providers: PRIZM_TABLE_PROVIDERS,
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
-    style: `border-collapse: separate;`,
+    style: `border-collapse: separate; border-spacing: 0`,
   },
 })
 export class PrizmTableDirective<T extends Partial<Record<keyof T, any>>>
@@ -87,3 +87,4 @@ export class PrizmTableDirective<T extends Partial<Record<keyof T, any>>>
     this.changeDetectorRef.detectChanges();
   }
 }
+
