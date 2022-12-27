@@ -24,6 +24,7 @@ import { TableStatusExampleComponent } from './examples/table-status-example/tab
 import { TableRowGroupExampleComponent } from './examples/table-row-group-example/table-row-group-example.component';
 import { TableSearchExampleComponent } from './examples/table-search-example/table-search-example.component';
 import { TableBorderStyleExampleComponent } from './examples/table-border-style-example/table-border-style-example.component';
+import { TableSelectableMetaExampleComponent } from './examples/table-selectable-meta/table-selectable-meta-example.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { TableBorderStyleExampleComponent } from './examples/table-border-style-
     TableRowGroupExampleComponent,
     TableSearchExampleComponent,
     TableBorderStyleExampleComponent,
+    TableSelectableMetaExampleComponent,
   ],
   imports: [
     CommonModule,
