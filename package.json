@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/sdk",
-  "version": "1.0.0-beta.18",
+  "version": "1.0.0-beta.19",
   "license": "MIT",
   "scripts": {
     "docs": "nx run components:doc",
