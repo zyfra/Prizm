@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { PrizmSize } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 
 @Component({
@@ -8,9 +9,10 @@ import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoaderComponent {
-  showLoader = true;
-  inheritColor = false;
-  overlay = true;
+  public showLoader = true;
+  public inheritColor = false;
+  public overlay = true;
+  public size: PrizmSize = 's';
 
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
