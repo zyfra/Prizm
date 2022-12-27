@@ -12,7 +12,7 @@ export class PrizmDateTimeRange  {
       )
     ) {}
 
-    public copy() {
+    public copy(): PrizmDateTimeRange {
       return new PrizmDateTimeRange(
         this.dayRange,
         this.timeRange,
