@@ -1,37 +1,26 @@
-<prizm-doc-page
-  header="Icon"
-  package="components"
-  type="components"
->
-  <ng-template pageTab>
-    <prizm-doc-example
-      id="base"
-      heading="Base"
-      [content]="exampleBase"
-    >
+<prizm-doc-page header="Icon" package="components" type="components">
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
       <prizm-icon-base-example></prizm-icon-base-example>
     </prizm-doc-example>
 
-    <h1>
-      Icon set.
-    </h1>
+    <h1>Icon set.</h1>
 
     <div *ngFor="let def of defs">
-      <h4 class='title'>{{ def.dir }}</h4>
+      <h4 class="title">{{ def.dir }}</h4>
 
       <div class="icons">
         <div *ngFor="let name of def.data" class="icon-def">
-          <prizm-icon [iconClass]="name" [size]='24' class="icon"></prizm-icon>
+          <prizm-icon [iconClass]="name" [size]="24" class="icon"></prizm-icon>
           <div class="name">{{ name }}</div>
         </div>
       </div>
     </div>
-
   </ng-template>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-icon [iconClass]="icon" [size]='iconSize'></prizm-icon>
+      <prizm-icon #element [prizmDocHostElement]="element" [iconClass]="icon" [size]="iconSize"></prizm-icon>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
@@ -55,19 +44,16 @@
     </prizm-doc-documentation>
   </ng-template>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab>
     <ol class="b-demo-steps">
       <li>
-        <p >
+        <p>
           Import
           <code>PrizmIconSvgModule</code>
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

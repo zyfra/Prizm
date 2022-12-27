@@ -1,12 +1,17 @@
 import { AfterViewInit, Component, HostBinding, Inject, ViewChild } from '@angular/core';
-import { PrizmThemeService } from '@prizm-ui/components';
-import { map } from 'rxjs/operators';
+import { PrizmThemeService, PrizmToastService } from '@prizm-ui/components';
+import { map, takeUntil, tap } from 'rxjs/operators';
 import { LOCAL_STORAGE } from '@ng-web-apis/common';
 import { TuiBrightness } from '@taiga-ui/core';
+import {
+  PrizmDocHostElementListenerService
+} from '@prizm/doc-base';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 @Component({
   selector: 'prizm-doc-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less'],
+  providers: [PrizmDestroyService]
 })
 export class AppComponent implements AfterViewInit {
   public title = 'doc';
@@ -24,13 +29,53 @@ export class AppComponent implements AfterViewInit {
 
   constructor(
     private readonly themeSwitcher: PrizmThemeService,
+    private readonly prizmDocHostElementListenerService: PrizmDocHostElementListenerService,
     @Inject(LOCAL_STORAGE) private readonly storage: Storage,
+    private readonly destroy$: PrizmDestroyService,
+    private readonly toastService: PrizmToastService
   ) {
     this.themeSwitcher.rootElement = null;
   }
 
   public ngAfterViewInit(): void {
     this.onMode(this.docEl.night);
+
+    this.prizmDocHostElementListenerService.event$.pipe(
+      takeUntil(this.destroy$),
+      tap((event) => {
+        this.toastService.create(
+          `
+            ${event.hasNotListener ? 'Please add event listener to api' : ''}
+            Event: ${event.event}\n,
+            Type: ${event.type}\n,
+            Data: ${JSON.stringify(event.data)}
+          `,
+          {
+            appearance: event.hasNotListener ? 'warning' : 'success',
+            timer: 5000,
+            title: `Component: ${event.page.header}`
+          }
+        )
+      })
+    ).subscribe();
+
+    this.prizmDocHostElementListenerService.checkInfo$.pipe(
+      takeUntil(this.destroy$),
+      tap((event) => {
+        if (!event.notListenerInputs?.length && !event.notListenerOutputs?.length) return;
+        this.toastService.create(
+          `
+            Inputs: ${event.notListenerInputs.join(', ')}\n
+            Outputs: ${event.notListenerOutputs.join(', ')}\n
+          `,
+          {
+            appearance: 'warning',
+            timer: 0,
+            title: `Component: ${event.selector} has not api for inputs or outputs`
+          }
+        )
+      })
+    ).subscribe();
   }
 
 

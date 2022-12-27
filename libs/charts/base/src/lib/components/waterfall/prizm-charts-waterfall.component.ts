@@ -41,7 +41,7 @@ export class PrizmChartsWaterfallComponent<T extends Record<string, unknown>> im
         },
         money: {
           alias: 'доходы и расходы',
-          formatter: v => `${v} Р`,
+          formatter: (v: string): string => `${v} Р`,
         },
       },
       label: {

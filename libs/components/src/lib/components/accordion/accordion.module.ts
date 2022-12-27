@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AccordionComponent } from './accordion.component';
+import { PrizmAccordionComponent } from './accordion.component';
 import { PrizmIconModule } from '../icon';
 import { AccordionContentDirective } from './directives/accordion-content.directive';
 import { AccordionToolsDirective } from './directives/accordion-tools.directive';
-import { AccordionItemComponent } from './components/accordion-item/accordion-item.component';
+import { PrizmAccordionItemComponent } from './components/accordion-item/accordion-item.component';
 
 @NgModule({
   declarations: [
-    AccordionComponent,
+    PrizmAccordionComponent,
     AccordionContentDirective,
     AccordionToolsDirective,
-    AccordionItemComponent,
+    PrizmAccordionItemComponent,
   ],
   imports: [CommonModule, PrizmIconModule],
-  exports: [AccordionComponent, AccordionContentDirective, AccordionToolsDirective, AccordionItemComponent],
+  exports: [PrizmAccordionComponent, AccordionContentDirective, AccordionToolsDirective, PrizmAccordionItemComponent],
 })
 export class PrizmAccordionModule {}

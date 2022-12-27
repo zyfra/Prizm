@@ -2,12 +2,12 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ElementRef,
+  ElementRef, EventEmitter,
   forwardRef,
   HostBinding,
   Inject,
   Input,
-  Optional,
+  Optional, Output,
   Self,
   ViewChild,
 } from '@angular/core';
@@ -69,6 +69,10 @@ implements PrizmFocusableElementAccessor
 
   @Input()
   @prizmDefaultProp()
+  icon = this.options.icon;
+
+  @Input()
+  @prizmDefaultProp()
   label = this.options.label;
 
   @Input()
@@ -90,6 +94,10 @@ implements PrizmFocusableElementAccessor
   @Input()
   @prizmDefaultProp()
   size: PrizmInputSize = this.options.size;
+
+  @Input()
+  @prizmDefaultProp()
+  search: string  | null = this.options.search;
 
   @Input()
   @prizmDefaultProp()
@@ -129,12 +137,19 @@ implements PrizmFocusableElementAccessor
   @HostBinding('attr.testId')
   readonly testId = 'prizm_select';
 
+  @Output()
+  public readonly searchChange = new EventEmitter<string | null>();
+
   public open = false;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
   public readonly items$ = new BehaviorSubject([]);
   public readonly requiredInputControl = new FormControl();
+  public readonly defaultIcon = 'chevrons-dropdown';
 
   readonly filteredItems$ = this.requiredInputControl.valueChanges.pipe(
+    tap(
+      (value) => this.searchChange.emit(value)
+    ),
     startWith(''),
     switchMap((value) => {
       return this.items$.pipe(

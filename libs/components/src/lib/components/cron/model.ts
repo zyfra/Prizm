@@ -1,4 +1,5 @@
 import { PrizmCarouselArrayContent } from '../input';
+import { PrizmDay, PrizmTime } from '../../@core';
 
 export enum PrizmCronUiBaseType {
   every,
@@ -9,6 +10,11 @@ export enum PrizmCronUiBaseType {
 
 export type PrizmCronTabItem = 'second' |'minute' |'hour' |'day' |'month' |'year';
 
+export type PrizmCronPeriod = {
+  start: [PrizmDay | null, PrizmTime | null] | null;
+  end: [PrizmDay | null, PrizmTime | null] | null;
+  indefinitely: boolean;
+}
 
 export enum PrizmCronUiDayType {
   every,

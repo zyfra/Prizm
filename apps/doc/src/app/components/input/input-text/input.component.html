@@ -1,5 +1,5 @@
 <prizm-doc-page header="Input" package="KIT" type="components">
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Basic example" [content]="zyfraInputBasicExample">
       <prizm-input-basic-example></prizm-input-basic-example>
     </prizm-doc-example>
@@ -155,21 +155,31 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-input-layout
+        #element
+        key="PrizmInputLayoutComponent"
+        [prizmDocHostElement]="element"
         [label]="label"
         [outer]="outer"
         [status]="status"
         [position]="inputPosition"
         [forceClear]="forceClear"
         [size]="size"
+        [border]="border"
       >
-        <input prizmInput />
+        <input
+          prizmInput
+          #PrizmInputTextComponent
+          key="PrizmInputTextComponent"
+          [prizmDocHostElement]="PrizmInputTextComponent"
+          [disabled]="disabled"
+          [required]="required"
+        />
       </prizm-input-layout>
     </prizm-doc-demo>
-    <prizm-doc-documentation>
-
+    <prizm-doc-documentation heading="PrizmInputLayoutComponent" hostComponentKey="PrizmInputLayoutComponent">
       <ng-template
         documentationPropertyName="forceClear"
         documentationPropertyType="boolean | null"
@@ -227,10 +237,77 @@
       >
         Status
       </ng-template>
+
+      <ng-template
+        documentationPropertyName="border"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="border"
+      >
+        Border
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="clear"
+        documentationPropertyType="MouseEvent"
+        documentationPropertyMode="output"
+      >
+        Clear
+      </ng-template>
+    </prizm-doc-documentation>
+    <prizm-doc-documentation heading="PrizmInputTextComponent" hostComponentKey="PrizmInputTextComponent">
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="required"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Required
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="value"
+        documentationPropertyType="any"
+        documentationPropertyMode="input"
+      >
+        value
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="enter"
+        documentationPropertyType="any"
+        documentationPropertyMode="output"
+      >
+        Enter
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="onClear"
+        documentationPropertyType="void"
+        documentationPropertyMode="output"
+      >
+        On Clear
+      </ng-template>
+      <ng-template
+        documentationPropertyName="valueChanged"
+        documentationPropertyType="any"
+        documentationPropertyMode="output"
+      >
+        Value Changed
+      </ng-template>
     </prizm-doc-documentation>
   </ng-template>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab>
     <ol class="b-demo-steps">
       <li>
         <p>
@@ -244,4 +321,3 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
-

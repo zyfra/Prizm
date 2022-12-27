@@ -41,7 +41,7 @@ export class PrizmChartsGaugeComponent<T extends Record<string, unknown>> implem
       },
       axis: {
         label: {
-          formatter(v) {
+          formatter(v): number {
             return Number(v) * 100;
           },
         },
@@ -51,7 +51,7 @@ export class PrizmChartsGaugeComponent<T extends Record<string, unknown>> implem
       },
       statistic: {
         content: {
-          formatter: ({ percent }) => `Rate: ${(percent * 100).toFixed(0)}%`,
+          formatter: ({ percent }): string => `Rate: ${(percent * 100).toFixed(0)}%`,
           style: {
             color: 'white',
             fontSize: '24px',

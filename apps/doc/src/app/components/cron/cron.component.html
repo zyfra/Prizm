@@ -7,7 +7,7 @@
     Our cron panel allows you to schedule tasks to run at specific times.
   </div>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab>
     <prizm-doc-example
       id="base"
       heading="Base"
@@ -27,48 +27,95 @@
 
   </ng-template>
 
-  <ng-template pageTab>
-    <prizm-doc-demo class='remove-sticky'>
-      <prizm-cron
+  <ng-template prizmDocPageTab prizmDocHost>
+      <prizm-doc-demo class='remove-sticky'>
+        <prizm-cron
+          #element
+          [prizmDocHostElement]='element'
           [tabs]='tabs'
-          [value]='value'
+          [disabled]='disabled'
+          [(period)]='period'
+          [(value)]='value'
           [(selected)]='selected'>
-      </prizm-cron>
-    </prizm-doc-demo>
-    <prizm-doc-documentation>
-      <ng-template
-        documentationPropertyName="tabs"
-        documentationPropertyType="PrizmCronTabItem[]"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="tabsVariants"
-        [(documentationPropertyValue)]="tabs"
-      >
-        Tabs
-      </ng-template>
+        </prizm-cron>
+      </prizm-doc-demo>
+      <prizm-doc-documentation>
+        <ng-template
+          documentationPropertyName="tabs"
+          documentationPropertyType="PrizmCronTabItem[]"
+          documentationPropertyMode="input"
+          [documentationPropertyValues]="tabsVariants"
+          [(documentationPropertyValue)]="tabs"
+        >
+          Tabs
+        </ng-template>
 
-      <ng-template
-        documentationPropertyName="selected"
-        documentationPropertyType="PrizmCronTabItem"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="tabs"
-        [(documentationPropertyValue)]="selected"
-      >
-        Selected Tab
-      </ng-template>
+        <ng-template
+          documentationPropertyName="selected"
+          documentationPropertyType="PrizmCronTabItem"
+          documentationPropertyMode="input-output"
+          [documentationPropertyValues]="tabs"
+          [(documentationPropertyValue)]="selected"
+        >
+          Selected Tab
+        </ng-template>
 
-      <ng-template
-        documentationPropertyName="value"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="value"
-      >
-        Value
-      </ng-template>
 
-    </prizm-doc-documentation>
+
+<!--                <ng-template-->
+<!--                  documentationPropertyName="selected"-->
+<!--                  documentationPropertyType="PrizmCronTabItem"-->
+<!--                  documentationPropertyMode="input"-->
+<!--                  [documentationPropertyValues]="tabs"-->
+<!--                  [(documentationPropertyValue)]="selected"-->
+<!--                >-->
+<!--                  Selected Tab-->
+<!--                </ng-template>-->
+
+
+
+<!--        <ng-template-->
+<!--          documentationPropertyName="selectedChange"-->
+<!--          documentationPropertyType="PrizmCronTabItem"-->
+<!--          documentationPropertyMode="output"-->
+<!--        >-->
+<!--          Selected Tab Change-->
+<!--        </ng-template>-->
+
+
+        <ng-template
+          documentationPropertyName="period"
+          documentationPropertyType="PrizmCronPeriod"
+          documentationPropertyMode="input-output"
+          [documentationPropertyValues]="periodVariants"
+          [(documentationPropertyValue)]="period"
+        >
+          Period
+        </ng-template>
+
+        <ng-template
+          documentationPropertyName="disabled"
+          documentationPropertyType="boolean"
+          documentationPropertyMode="input"
+          [(documentationPropertyValue)]="disabled"
+        >
+          Disabled
+        </ng-template>
+
+        <ng-template
+          documentationPropertyName="value"
+          documentationPropertyType="string"
+          documentationPropertyMode="input-output"
+          [(documentationPropertyValue)]="value"
+        >
+          Value
+        </ng-template>
+
+      </prizm-doc-documentation>
+<!--    </ng-container>-->
   </ng-template>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab>
     <ol class="b-demo-steps">
       <li>
         <p>

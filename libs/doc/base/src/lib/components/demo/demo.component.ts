@@ -17,12 +17,13 @@ import {
 } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { UrlSerializer } from '@angular/router';
-import { TUI_IS_MOBILE, TuiDestroyService, tuiPx } from '@taiga-ui/cdk';
+import { TUI_IS_MOBILE, tuiPx } from '@taiga-ui/cdk';
 import { TuiBrightness, TuiModeDirective } from '@taiga-ui/core';
 import { Subject } from 'rxjs';
 import { startWith, takeUntil } from 'rxjs/operators';
 
 import { PRIZM_DOC_DEMO_TEXTS } from '../../tokens/i18n';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 const MIN_COMPONENT_WIDTH = 104;
 
@@ -32,7 +33,7 @@ const MIN_COMPONENT_WIDTH = 104;
   styleUrls: [`./demo.style.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
-    TuiDestroyService,
+    PrizmDestroyService,
     {
       provide: TuiModeDirective,
       useExisting: forwardRef(() => TuiDocDemoComponent),
@@ -71,7 +72,7 @@ export class TuiDocDemoComponent implements OnInit, AfterViewInit {
 
   constructor(
     @Inject(TUI_IS_MOBILE) readonly isMobile: boolean,
-    @Inject(TuiDestroyService) private readonly destroy$: TuiDestroyService,
+    @Inject(PrizmDestroyService) private readonly destroy$: PrizmDestroyService,
     @Inject(Renderer2) private readonly renderer: Renderer2,
     @Inject(PLATFORM_ID) platformId: Record<string, unknown>,
     @Inject(Location) locationRef: Location,

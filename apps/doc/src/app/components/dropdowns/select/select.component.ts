@@ -1,6 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
-import { PolymorphContent, PrizmInputSize, PrizmScrollbarVisibility } from '@prizm-ui/components';
+import {
+  PolymorphContent,
+  PrizmInputSize,
+  PrizmScrollbarVisibility,
+  PrizmSelectIconContext,
+} from '@prizm-ui/components';
 import { FormControl } from '@angular/forms';
 import { prizmPure } from '@prizm-ui/core';
 
@@ -82,7 +87,20 @@ export class SelectComponent {
     HTML: import('!!raw-loader!./examples/with-search/select-with-search-example.component.html'),
   };
 
+  readonly exampleWithBackendSearch: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/with-backend-search/select-with-backend-search-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/with-backend-search/select-with-backend-search-example.component.html'),
+  };
+
   public valueTemplate: PolymorphContent<any> = '';
+
+  public icon: PolymorphContent<PrizmSelectIconContext> = null;
+
+  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [
+    null,
+    'sort-zoom-in'
+  ];
+
   @prizmPure
   public getValueTemplate(...temps: PolymorphContent[]): PolymorphContent<any>[] {
     return [null, ...temps];

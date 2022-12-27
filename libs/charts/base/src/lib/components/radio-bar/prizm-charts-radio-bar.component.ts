@@ -39,7 +39,7 @@ export class PrizmChartsRadioBarComponent<T extends Record<string, unknown>> imp
       radius: 0.8,
       innerRadius: 0.2,
       tooltip: {
-        formatter: datum => {
+        formatter: (datum): any => {
           return { name: 'star', value: datum.star };
         },
       },
