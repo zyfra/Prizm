@@ -32,7 +32,7 @@ import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
-const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?';
+const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?';
 
 @Component({
   selector: 'prizm-input-date-relative',

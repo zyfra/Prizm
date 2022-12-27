@@ -9,6 +9,8 @@ export type PrizmPageComponentInfoEvent = {
   allOutputs: string[],
   allInputs: string[],
   notListenerInputs: string[],
+  unnecessaryInputs: string[],
+  unnecessaryOutputs: string[],
   notListenerOutputs: string[],
 }
 export type PrizmPageComponentEvent = {

@@ -140,10 +140,23 @@ export class PrizmDocHostElementService implements OnDestroy {
   private emitInfoSingle(key: string): void {
     const allOutputs = this.outputs.get(key).map(i => i.propName);
     const allInputs = this.inputs.get(key).map(i => i.propName);
+    const allListenerInputs = [...this.inputMap.get(key).values()].map(
+      i => i.key
+    );
+    const allListenerOutputs = [...this.outputMap.get(key).values()].map(
+      i => i.key
+    );
+
     this.prizmDocHostElementListenerService.emitInfo({
       selector: this.componentInfo.get(key).selector,
       allOutputs,
       allInputs,
+      unnecessaryInputs: allListenerInputs.filter(
+        i => !allInputs.includes(i)
+      ),
+      unnecessaryOutputs: allListenerOutputs.filter(
+        i => !allOutputs.includes(i)
+      ),
       notListenerInputs: allInputs.filter(i => !this.inputMap.get(key)?.has(i)),
       notListenerOutputs: allOutputs.filter(i => !this.outputMap.get(key)?.has(i)),
     });
