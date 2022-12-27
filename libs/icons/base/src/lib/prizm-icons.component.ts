@@ -20,6 +20,10 @@ import { prizmPx } from '@prizm-ui/core';
         display: inline-flex;
         height: auto;
       }
+
+      :host ::ng-deep > svg {
+        width: 100%;
+      }
     `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
