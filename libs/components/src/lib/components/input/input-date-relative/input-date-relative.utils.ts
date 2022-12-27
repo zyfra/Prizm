@@ -50,7 +50,7 @@ export function RenderText(model: RelativeDateModel): string {
 
   result += renderTimeMap.get(model.time) || '';
   result += direction || '';
-  result += model.number || '';
+  result += model.number || '1';
   result += period || '';
 
   return result;

@@ -62,12 +62,23 @@ export class AppComponent implements AfterViewInit {
     this.prizmDocHostElementListenerService.checkInfo$.pipe(
       takeUntil(this.destroy$),
       tap((event) => {
-        if (!event.notListenerInputs?.length && !event.notListenerOutputs?.length) return;
+        if (
+          !event.notListenerInputs?.length
+          && !event.notListenerOutputs?.length
+          && !event.unnecessaryInputs?.length
+          && !event.unnecessaryOutputs?.length
+        ) return;
         this.toastService.create(
-          `
-            Inputs: ${event.notListenerInputs.join(', ')}\n
-            Outputs: ${event.notListenerOutputs.join(', ')}\n
-          `,
+          [
+            event.notListenerInputs?.length
+            && `Inputs: ${event.notListenerInputs.join(', ')}`,
+            event.notListenerOutputs?.length
+            && `Outputs: ${event.notListenerOutputs.join(', ')}`,
+            event.unnecessaryInputs?.length
+            && `UnnecessaryInputs: ${event.unnecessaryInputs.join(', ')}`,
+            event.unnecessaryOutputs?.length
+            && `UnnecessaryOutputs: ${event.unnecessaryOutputs.join(', ')}`
+          ].filter(Boolean).join('\n'),
           {
             appearance: 'warning',
             timer: 0,

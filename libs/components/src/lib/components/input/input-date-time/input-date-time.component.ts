@@ -341,7 +341,7 @@ export class PrizmInputDateTimeComponent
         oldValue: [PrizmDay | null, PrizmTime | null],
         newValue: [PrizmDay | null, PrizmTime | null],
     ): boolean {
-        return (
+        return newValue && oldValue && (
             prizmNullableSame(oldValue[0], newValue[0], (a, b) => a?.daySame(b)) &&
             prizmNullableSame(oldValue[1], newValue[1], (a, b) => String(a) === String(b))
         );
