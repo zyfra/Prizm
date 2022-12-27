@@ -10,6 +10,9 @@ import { default as d } from './examples/input-phone-example/input-phone-example
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent {
+  public border = false;
+  public disabled = false;
+  public required = false;
   public label = 'Заголовок';
 
   public inputPosition: PrizmInputPosition = 'left';
