@@ -1,0 +1,12 @@
+<div class="nav" [class.nav_active]="isActive$ | async" (click)="navClick()">
+  <span class="nav__title" [style.marginLeft.px]="deep > 0 ? (deep - 1) * 24 : 0">{{ menuItem.title }}</span>
+  <div class="nav__status">
+    <div
+      *ngIf="menuItem?.indicatorValue && menuItem?.indicatorStatus"
+      class="indicator indicator_{{ menuItem.indicatorStatus }}"
+      [prizmHint]="menuItem.indicatorValue"
+    >
+      {{ menuItem.indicatorValue }}
+    </div>
+  </div>
+</div>

@@ -22,12 +22,12 @@
     <ng-container *ngFor="let tab of tabConnectors; first as first; index as index">
       <ng-container *ngIf="first; else dynamicTab">
         <a *tuiItem tuiTab routerLink="./" routerLinkActive [routerLinkActiveOptions]="{exact: true}">
-          {{ tab.pageTab || defaultTabs[index] }}
+          {{ tab.prizmDocPageTab || defaultTabs[index] }}
         </a>
       </ng-container>
       <ng-template #dynamicTab>
-        <a *tuiItem tuiTab routerLinkActive [routerLink]="getRouterLink(tab.pageTab || defaultTabs[index])">
-          {{ tab.pageTab || defaultTabs[index] }}
+        <a *tuiItem tuiTab routerLinkActive [routerLink]="getRouterLink(tab.prizmDocPageTab || defaultTabs[index])">
+          {{ tab.prizmDocPageTab || defaultTabs[index] }}
         </a>
       </ng-template>
     </ng-container>

@@ -28,11 +28,6 @@ export class TableSelectableExampleComponent {
     }
   }
 
-  public multiSelectionMeta(e: MouseEvent, clickedProductCode: string): void {
-    if (!e.shiftKey) return;
-    this.multiSelectMetaItem(clickedProductCode);
-  }
-
   public multiSelectMetaItem(clickedItemCode: string): void {
     if (this.selectedMetaItemsCodes.includes(clickedItemCode)) {
       this.selectedMetaItemsCodes = this.selectedMetaItemsCodes.filter(code => code !== clickedItemCode);
@@ -57,3 +52,4 @@ export class TableSelectableExampleComponent {
     this.selectedItemsCodes = this.products2.filter(() => val).map(item => item.code);
   }
 }
+

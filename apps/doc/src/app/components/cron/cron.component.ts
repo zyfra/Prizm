@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
-import { PrizmCronTabItem } from '@prizm-ui/components';
+import { PrizmCronPeriod, PrizmCronTabItem } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-cron-example',
@@ -9,6 +9,14 @@ import { PrizmCronTabItem } from '@prizm-ui/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CronComponent {
+  public periodVariants: ReadonlyArray<PrizmCronPeriod> = [
+  ]
+  public period: PrizmCronPeriod = {
+    start: null,
+    indefinitely: true,
+    end: null,
+  }
+  public disabled = false;
   public selected: PrizmCronTabItem = 'month';
   tabs: PrizmCronTabItem[] = ['hour', 'day', 'month', 'year'];
   readonly allTabs: PrizmCronTabItem[] = ['second', 'minute', 'hour', 'day', 'month', 'year'];

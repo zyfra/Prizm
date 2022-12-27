@@ -21,7 +21,6 @@ import {
   TuiRadioBlockModule,
   TuiSelectModule,
 } from '@taiga-ui/kit';
-
 import { TuiDocDemoComponent } from './demo.component';
 
 @NgModule({
@@ -46,7 +45,11 @@ import { TuiDocDemoComponent } from './demo.component';
     TuiTextfieldControllerModule,
     TuiHintModule,
   ],
-  declarations: [TuiDocDemoComponent],
-  exports: [TuiDocDemoComponent],
+  declarations: [
+    TuiDocDemoComponent,
+  ],
+  exports: [
+    TuiDocDemoComponent,
+  ],
 })
 export class PrizmDocDemoModule {}

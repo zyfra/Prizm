@@ -6,7 +6,7 @@
   <div class='page-description' description>
     Our select component is a wrapper around the native select element.
   </div>
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab>
     <prizm-doc-example
       id="base"
       heading="Base"
@@ -20,6 +20,13 @@
       [content]="exampleWithSearch"
     >
       <prizm-select-with-search-example></prizm-select-with-search-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example
+      heading="With Backend Search"
+      [content]="exampleWithBackendSearch"
+    >
+      <prizm-select-with-backend-search-example></prizm-select-with-backend-search-example>
     </prizm-doc-example>
 
 
@@ -39,7 +46,7 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab>
     <prizm-doc-demo>
       <prizm-select
         [formControl]='control'
@@ -48,6 +55,7 @@
         [outer]='outer'
         [forceClear]='forceClear'
         [size]='size'
+        [icon]='icon'
         [searchable]='searchable'
         [emptyContent]='emptyContent'
         [minDropdownHeight]='minDropdownHeight'
@@ -61,6 +69,25 @@
 
     </prizm-doc-demo>
     <prizm-doc-documentation>
+
+      <ng-template
+        documentationPropertyName="icon"
+        documentationPropertyType="PolymorphContent<PrizmSelectIconContext>"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="icon"
+        [documentationPropertyValues]="iconVariants"
+      >
+        Icon
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="search"
+        documentationPropertyType="string | null"
+        documentationPropertyMode="input-output"
+      >
+        Search Value
+      </ng-template>
+
       <ng-template
         documentationPropertyName="identityMatcher"
         documentationPropertyType="PrizmSelectIdentityMatcher"
@@ -237,7 +264,7 @@
     </prizm-doc-documentation>
   </ng-template>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab>
     <ol class="b-demo-steps">
       <li>
         <p>

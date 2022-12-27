@@ -105,6 +105,16 @@ export class TableExampleComponent {
     LESS: import('./examples/table-selectable-example/table-selectable-example.component.less?raw'),
   };
 
+  public readonly exampleSelectableMetaTable: TuiDocExample = {
+    TypeScript: import(
+      '!!raw-loader!./examples/table-selectable-meta/table-selectable-meta-example.component'
+    ),
+    HTML: import(
+      '!!raw-loader!./examples/table-selectable-meta/table-selectable-meta-example.component.html'
+    ),
+    LESS: import('./examples/table-selectable-meta/table-selectable-meta-example.component.less?raw'),
+  };
+
   public readonly exampleStatusTable: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/table-status-example/table-status-example.component'),
     HTML: import('!!raw-loader!./examples/table-status-example/table-status-example.component.html'),

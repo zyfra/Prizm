@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
+import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 
 @Component({
@@ -24,6 +24,12 @@ export class TextareaExampleComponent {
   width = '20rem';
 
   public required = false;
+  public border = false;
+  public status: PrizmInputStatus = 'default';
+  public inputPosition: PrizmInputPosition = 'left';
+  public inputPositions: PrizmInputPosition[] = ['left', 'center'];
+  public forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
+  public forceClear = this.forceClearVariants[0];
 
   public readonly zyfraTextareaBasicExample: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/textarea-basic-example/textarea-basic-example.component.ts'),

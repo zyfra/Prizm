@@ -5,11 +5,11 @@ import { PRIZM_CHART_DARK_THEME } from './dark.const';
 
 const { registerTheme } = G2;
 
-export function prizmChartsSetDefaultThemes() {
+export function prizmChartsSetDefaultThemes(): void {
   prizmChartsSetTheme(PrizmChartDefaultTheme.dark, PRIZM_CHART_DARK_THEME);
   prizmChartsSetTheme(PrizmChartDefaultTheme.default, PRIZM_CHART_LIGHT_THEME);
 }
 
-export function prizmChartsSetTheme(key: PrizmChartTheme, value: PrizmChartThemeObject) {
+export function prizmChartsSetTheme(key: PrizmChartTheme, value: PrizmChartThemeObject): void {
   registerTheme(key, value);
 }

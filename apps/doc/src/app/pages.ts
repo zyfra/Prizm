@@ -58,13 +58,13 @@ export const pages: PrizmOrderedDocPage = [
     title: `Дизайнерам`,
     keywords: 'дизайнеры, designers',
     target: '_blank',
-    link: 'https://www.figma.com/@64ad37ee_26cc_4',
+    link: 'https://www.figma.com/community/file/1156311020501452261',
     order: 7,
   },
   {
     section: SectionNameEnum.howToStart,
     title: `Разработчикам`,
-    keywords: 'intro, how to, guide, main, главная, начало, инструкция',
+    keywords: 'intro, how, to, start, guide, getting started, main, главная, начало, как, начать, инструкция',
     route: 'how-to-start/for-developers',
     order: 8,
   },
@@ -441,6 +441,12 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.components,
+    title: 'Navigation',
+    keywords: 'nav-menu, navigation, nav, menu, меню, навигация',
+    route: '/components/navigation',
+  },
+  {
+    section: SectionNameEnum.components,
     title: 'Switcher',
     keywords: 'switcher, select-button, переключатель',
     route: '/components/switcher',
@@ -487,6 +493,12 @@ export const pages: PrizmOrderedDocPage = [
     title: 'Error page',
     keywords: 'error-page',
     route: '/components/error-page',
+  },
+  {
+    section: SectionNameEnum.components,
+    title: 'File upload',
+    keywords: 'file upload',
+    route: '/components/file-upload',
   },
   // Tools
   {
@@ -588,4 +600,3 @@ export const pages: PrizmOrderedDocPage = [
   //   subPages: [],
   // },
 ];
-

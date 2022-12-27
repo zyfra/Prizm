@@ -8,7 +8,7 @@ import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 })
 export class PrizmErrorPageExampleComponent {
   code = 403;
-  title = 'Досуп ограничен';
+  title = 'Доступ ограничен';
   userContent = 'Обратитесь к системному администратору или владельцу продукта для получения доступа';
 
   setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');

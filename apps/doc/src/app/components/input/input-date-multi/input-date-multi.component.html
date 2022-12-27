@@ -1,44 +1,31 @@
-<prizm-doc-page
-  header="InputDateMulti"
-  package="components"
-  type="components"
->
-  <ng-template pageTab>
-    <p>
-      Use PrizmInputDateMultiComponent to view input-date.
-    </p>
+<prizm-doc-page header="InputDateMulti" package="components" type="components">
+  <ng-template prizmDocPageTab>
+    <p>Use PrizmInputDateMultiComponent to view input-date.</p>
 
-    <prizm-doc-example
-      id="base"
-      heading="Base"
-      [content]="exampleBase"
-    >
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
       <prizm-input-date-multi-base-example></prizm-input-date-multi-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example
-      id="base"
-      heading="Four"
-      [content]="exampleFour"
-    >
+    <prizm-doc-example id="base" heading="Four" [content]="exampleFour">
       <prizm-input-date-multi-four-example></prizm-input-date-multi-four-example>
     </prizm-doc-example>
-
-
   </ng-template>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-input-date-multi
-        [currentIdx]='currentIdx'
-        [items]="items">
+        #element
+        [prizmDocHostElement]="element"
+        [currentIdx]="currentIdx"
+        [items]="items"
+      >
       </prizm-input-date-multi>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-
       <ng-template
         documentationPropertyName="items"
         documentationPropertyType="PrizmDateItemTemplate[]"
+        documentationPropertyMode="input"
       >
         Items
       </ng-template>
@@ -46,6 +33,7 @@
       <ng-template
         documentationPropertyName="currentIdx"
         documentationPropertyType="number"
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="currentIdx"
       >
         Selected item idx
@@ -53,7 +41,7 @@
     </prizm-doc-documentation>
   </ng-template>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab>
     <ol class="b-demo-steps">
       <li>
         <p>
@@ -62,18 +50,18 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
 </prizm-doc-page>
 
 <ng-template #dateTime let-injector="injector">
-  <prizm-input-date-time [formControl]='timeControl' [extraButtonInjector]='injector'></prizm-input-date-time>
+  <prizm-input-date-time [formControl]="timeControl" [extraButtonInjector]="injector"></prizm-input-date-time>
 </ng-template>
 <ng-template #dateRelativeTime let-injector="injector">
-  <prizm-input-date-relative [formControl]='relativeControl' [extraButtonInjector]='injector'></prizm-input-date-relative>
+  <prizm-input-date-relative
+    [formControl]="relativeControl"
+    [extraButtonInjector]="injector"
+  ></prizm-input-date-relative>
 </ng-template>
