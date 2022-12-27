@@ -9,7 +9,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/file-upload): new file upload component [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/407)
 - feat(components/navigation): new navigation component
 - feat(doc): new doc design [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/402/edit)
-- feat(components/cron): new cron component [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/401)
+- feat(components/cron): new cron component [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/415)
 
 ### BUG FIXES
 
@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file.
 - fix(doc):  link to figma in menu [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/412)
 - fix(doc): sections and pages; colors in license and colors; fix size in typography and grid (https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/410/edit)
 - fix(components/slider): cnob active color [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/406)
+- fix(components/*): small fixes [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/415)
 
 ## [1.0.0-beta.18](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (9-12-2022)
 

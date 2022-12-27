@@ -1,7 +1,6 @@
 import { InjectionToken } from '@angular/core';
 import { PrizmControlValueTransformer } from '../types/control-value-transformer';
 import { PrizmDateTimeRange, PrizmDay, PrizmDayRange, PrizmTime } from '../@core/date-time';
-import { PrizmInputDateTimeRangeComponent } from '../components';
 
 export const PRIZM_DATE_VALUE_TRANSFORMER = new InjectionToken<
     PrizmControlValueTransformer<PrizmDay | null>
