@@ -3,7 +3,7 @@ import { PrizmCronDefaultObjectValue, PrizmCronValueObject } from './model';
 export function prizmCronConvertToObject(
   value: string
 ): PrizmCronValueObject {
-  const arr = value.split(' ');
+  const arr = value?.split(' ') ?? [];
   return {
     second: arr[0] ?? PrizmCronDefaultObjectValue.second,
     minute: arr[1] ?? PrizmCronDefaultObjectValue.minute,

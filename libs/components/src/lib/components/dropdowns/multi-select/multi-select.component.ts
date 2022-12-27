@@ -64,6 +64,12 @@ implements PrizmFocusableElementAccessor
     return this.items$.value;
   }
 
+
+
+  @Input()
+  @prizmDefaultProp()
+  icon = this.options.icon;
+
   @Input()
   @prizmDefaultProp()
   selectAllItem: T | null = this.options.chooseAllItem;
@@ -133,6 +139,7 @@ implements PrizmFocusableElementAccessor
   readonly testId = 'prizm_multi_select';
 
 
+  public readonly defaultIcon = 'chevrons-dropdown';
   readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
 

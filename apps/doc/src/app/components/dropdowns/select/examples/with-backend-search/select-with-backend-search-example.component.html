@@ -1,0 +1,8 @@
+<prizm-select
+  icon='sort-zoom-in'
+  [items]='items$ | async'
+  [searchable]='true'
+  [searchMatcher]='searchMatcher'
+  (searchChange)='search($event)'
+  [formControl]='control'
+></prizm-select>

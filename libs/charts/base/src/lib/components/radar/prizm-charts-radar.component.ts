@@ -40,7 +40,7 @@ export class PrizmChartsRadarComponent<T extends Record<string, unknown>> implem
           alias: 'star',
           min: 0,
           nice: true,
-          formatter: v => Number(v).toFixed(2),
+          formatter: (v): string => Number(v).toFixed(2),
         },
       },
       xAxis: {

@@ -1,50 +1,42 @@
-<prizm-doc-page
-  header="Icon Flags"
-  package="NEXT"
-  type="components"
->
-
-  <div class='page-description' description>
-    Our flags icon set is a collection of 83 flags from around the world.
-    Each flag is available as font and icon.
-    The flags are available in 3 formats: FONT and SVG.
+<prizm-doc-page header="Icon Flags" package="NEXT" type="components">
+  <div class="page-description" description>
+    Our flags icon set is a collection of 83 flags from around the world. Each flag is available as font and
+    icon. The flags are available in 3 formats: FONT and SVG.
   </div>
 
-  <ng-template pageTab>
-<!--    TODO подчинить файлы для генерации иконок -->
-<!--    <prizm-doc-example-->
-<!--      id="base"-->
-<!--      heading="Font"-->
-<!--      [content]="exampleFont"-->
-<!--    >-->
-<!--      <prizm-icon-font-example></prizm-icon-font-example>-->
-<!--    </prizm-doc-example>-->
+  <ng-template prizmDocPageTab>
+    <!--    TODO подчинить файлы для генерации иконок -->
+    <!--    <prizm-doc-example-->
+    <!--      id="base"-->
+    <!--      heading="Font"-->
+    <!--      [content]="exampleFont"-->
+    <!--    >-->
+    <!--      <prizm-icon-font-example></prizm-icon-font-example>-->
+    <!--    </prizm-doc-example>-->
 
-    <prizm-doc-example
-      id="base"
-      heading="Svg"
-      [content]="exampleSvg"
-    >
+    <prizm-doc-example id="base" heading="Svg" [content]="exampleSvg">
       <prizm-icon-base-example></prizm-icon-base-example>
     </prizm-doc-example>
 
-    <h1>
-      Icon Flags Set
-    </h1>
+    <h1>Icon Flags Set</h1>
 
     <div>
       <div class="icons">
-        <div [title]='flag' *ngFor="let flag of nameVariants" class="icon-def">
-          <prizm-flag-icons [size]='30' [name]='flag'></prizm-flag-icons>
+        <div [title]="flag" *ngFor="let flag of nameVariants" class="icon-def">
+          <prizm-flag-icons [size]="30" [name]="flag"></prizm-flag-icons>
         </div>
       </div>
     </div>
-
   </ng-template>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-flag-icons [size]='size' [name]='name'></prizm-flag-icons>
+      <prizm-flag-icons
+        #element
+        [prizmDocHostElement]="element"
+        [size]="size"
+        [name]="name"
+      ></prizm-flag-icons>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
@@ -68,19 +60,16 @@
     </prizm-doc-documentation>
   </ng-template>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab>
     <ol class="b-demo-steps">
       <li>
-        <p >
+        <p>
           Import
           <code>PrizmIconSvgModule</code>
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

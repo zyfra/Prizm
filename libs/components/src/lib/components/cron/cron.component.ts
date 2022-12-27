@@ -10,8 +10,9 @@ import { PrizmCronUiHourState } from './cron-ui-hour.state';
 import { PrizmCronUiMonthState } from './cron-ui-month.state';
 import { PrizmCronUiYearState } from './cron-ui-year.state';
 import { prizmIsTextOverflow } from '../../util';
-import { PrizmCronTabItem } from './model';
+import { PrizmCronPeriod, PrizmCronTabItem } from './model';
 import { PrizmCronUiDayState } from './cron-ui-day.state';
+import { prizmDefaultProp } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-cron',
@@ -31,13 +32,35 @@ import { PrizmCronUiDayState } from './cron-ui-day.state';
   ],
 })
 export class PrizmCronComponent implements OnInit {
-  @Input() set value(value: string) {
+  @Input() public set value(value: string) {
     this.cron.updateWith(value);
   };
-  get value(): string {
+  public get value(): string {
     return this.cron.valueAsString;
   }
+
+  @Input()
+  @prizmDefaultProp()
+  disabled = false;
+
+  @Input()
+  @prizmDefaultProp()
+  public set period (period: PrizmCronPeriod) {
+    this.indefinitelyControl.setValue(period.indefinitely);
+    this.startDateControl.setValue(period.start);
+    this.endDateControl.setValue(period.start);
+    this.endDateStateCorrector();
+  }
+  public get period(): PrizmCronPeriod {
+    return {
+      indefinitely: this.indefinitelyControl.value,
+      start: this.startDateControl.value,
+      end: this.indefinitelyControl.value ? null : this.endDateControl.value,
+    }
+  }
+
   @Output() valueChange = new EventEmitter<string>();
+  @Output() periodChange = new EventEmitter<PrizmCronPeriod>();
   @Output() selectedChange = new EventEmitter<PrizmCronTabItem>();
 
   @Input()
@@ -118,24 +141,33 @@ export class PrizmCronComponent implements OnInit {
     this.initEndDateStateChanger();
   }
 
+  private endDateStateCorrector(): void {
+    if (this.indefinitelyControl.value)
+      this.endDateControl.disable()
+    else
+      this.endDateControl.enable()
+  }
+
   private initEndDateStateChanger(): void {
     this.indefinitelyControl.valueChanges.pipe(
       tap(
-        (value) => {
-          if (value)
-            this.endDateControl.disable()
-          else
-            this.endDateControl.enable()
-        }
+        () => this.endDateStateCorrector()
       ),
       takeUntil(this.destroy$)
     ).subscribe();
   }
 
+  private emitPeriod(): void {
+    this.periodChange.emit(this.period);
+  }
+
   public submit(): void {
     this.cron.valueAsString$.pipe(
       tap(
-        (val) => this.valueChange.emit(val)
+        (val) => {
+          this.valueChange.emit(val);
+          this.emitPeriod();
+        }
       ),
       first(),
       takeUntil(this.destroy$)

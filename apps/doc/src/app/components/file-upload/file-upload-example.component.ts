@@ -30,6 +30,7 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
 
   maxFileSize = 1e6;
   maxFilesCount = 3;
+  public multiple = true;
 
   progress$$ = new BehaviorSubject<PrizmFilesProgress>({});
   files: Array<File> = [];
@@ -168,4 +169,3 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
     this.progress$$.complete();
   }
 }
-

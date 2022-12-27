@@ -4,14 +4,15 @@ import {
   Component,
   ContentChildren,
   Inject,
-  Input,
-  QueryList,
+  Input, OnChanges,
+  QueryList, SimpleChanges,
 } from '@angular/core';
 import { EMPTY_QUERY } from '@taiga-ui/cdk';
 
 import { PRIZM_DOC_DEFAULT_TABS } from '../../tokens/default-tabs';
 import { PAGE_PROVIDERS, PAGE_SEE_ALSO } from './page.providers';
-import { TuiDocPageTabConnectorDirective } from './page-tab.directive';
+import { PrizmDocPageTabConnectorDirective } from './page-tab.directive';
+import { PrizmPageService } from './page.service';
 
 @Component({
   selector: `prizm-doc-page`,
@@ -20,7 +21,7 @@ import { TuiDocPageTabConnectorDirective } from './page-tab.directive';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: PAGE_PROVIDERS,
 })
-export class TuiDocPageComponent {
+export class PrizmDocPageComponent implements OnChanges {
   @Input()
   header = ``;
 
@@ -33,15 +34,16 @@ export class TuiDocPageComponent {
   @Input()
   path = ``;
 
-  @ContentChildren(TuiDocPageTabConnectorDirective)
-  readonly tabConnectors: QueryList<TuiDocPageTabConnectorDirective> = EMPTY_QUERY;
+  @ContentChildren(PrizmDocPageTabConnectorDirective)
+  readonly tabConnectors: QueryList<PrizmDocPageTabConnectorDirective> = EMPTY_QUERY;
 
   activeItemIndex = NaN;
 
   constructor(
     @Attribute(`deprecated`) readonly deprecated: string | null,
     @Inject(PRIZM_DOC_DEFAULT_TABS) readonly defaultTabs: readonly string[],
-    @Inject(PAGE_SEE_ALSO) readonly seeAlso: readonly string[]
+    @Inject(PAGE_SEE_ALSO) readonly seeAlso: readonly string[],
+    private readonly pageService: PrizmPageService
   ) {}
 
   get showSeeAlso(): boolean {
@@ -50,5 +52,13 @@ export class TuiDocPageComponent {
 
   public getRouterLink(tab: string = ``): string {
     return `./${tab.replace(/ /g, `_`)}`;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.pageService.setInfo({
+      header: this.header,
+      package: this.package,
+      type: this.type,
+    })
   }
 }

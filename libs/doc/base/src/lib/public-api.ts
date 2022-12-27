@@ -25,7 +25,9 @@ export * from './components/navigation/navigation.component';
 export * from './components/navigation/navigation.module';
 export * from './components/page/page.component';
 export * from './components/page/page.module';
+export * from './components/page/page.service';
 export * from './components/page/page-tab.directive';
+export * from './components/host';
 
 /* Directives */
 export * from './directives/scroll-into-view/scroll-into-view.directive';

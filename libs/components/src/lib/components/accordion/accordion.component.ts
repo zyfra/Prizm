@@ -6,7 +6,7 @@ import {
   AfterContentInit,
   Input, HostBinding,
 } from '@angular/core';
-import { AccordionItemComponent } from './components/accordion-item/accordion-item.component';
+import { PrizmAccordionItemComponent } from './components/accordion-item/accordion-item.component';
 import { merge } from 'rxjs';
 import { mapTo, takeUntil } from 'rxjs/operators';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
@@ -18,9 +18,9 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
 })
-export class AccordionComponent implements AfterContentInit {
+export class PrizmAccordionComponent implements AfterContentInit {
   @Input() public onlyOneExpanded = false;
-  @ContentChildren(AccordionItemComponent) accordionItems: QueryList<AccordionItemComponent>;
+  @ContentChildren(PrizmAccordionItemComponent) accordionItems: QueryList<PrizmAccordionItemComponent>;
 
   @HostBinding('attr.testId')
   readonly testId = 'prizm_accordion';
