@@ -13,5 +13,6 @@ import { PrizmTime } from '@prizm-ui/components';
   `]
 })
 export class PrizmInputTimeBaseExampleComponent {
-  public readonly value = new FormControl(new PrizmTime(12, 30));
+  public readonly time = new PrizmTime(12, 30);
+  public readonly value = new FormControl(this.time);
 }

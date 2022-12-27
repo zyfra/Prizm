@@ -29,7 +29,7 @@
       <ng-container prizm-input-right>
         <button
           prizmInputIconButton="date-clock"
-          (click)='focusableElementRef.focus()'
+          (click)='onOpen(!open)'
           [interactive]="true"
         ></button>
         <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>

@@ -7,11 +7,24 @@
     [min]="min | prizmMapper: maxLengthMapper:value:maxLength:true"
     [max]="max | prizmMapper: maxLengthMapper:value:maxLength:false"
     [defaultViewedMonthFirst]="computedMonth"
-    [defaultViewedMonthSecond]="computedMonth | prizmMapper: monthShiftMapper"
+    [defaultViewedMonthSecond]="computedMonth | prizmMapper: getEndRangeMonthOrShift"
     [disabledItemHandler]="calculatedDisabledItemHandler"
     [value]="value"
     (dayClick)="onDayClick($event)"
-  ></prizm-primitive-calendar-range>
+  >
+    <ng-container footerFrom>
+      <ng-content select="[footerFrom]"></ng-content>
+    </ng-container>
+    <ng-container headerFrom>
+      <ng-content select="[headerFrom]"></ng-content>
+    </ng-container>
+    <ng-container footerTo>
+      <ng-content select="[footerTo]"></ng-content>
+    </ng-container>
+    <ng-container headerTo>
+      <ng-content select="[headerTo]"></ng-content>
+    </ng-container>
+  </prizm-primitive-calendar-range>
 </ng-container>
 <ng-template #presets>
     <div class="z-wrapper">
@@ -25,7 +38,8 @@
             [month]="computedMonth"
             [disabledItemHandler]="calculatedDisabledItemHandler"
             (dayClick)="onDayClick($event)"
-        ></prizm-calendar>
+        >
+        </prizm-calendar>
         <prizm-data-list
             role="menu"
             automation-id="prizm-calendar-range__menu"

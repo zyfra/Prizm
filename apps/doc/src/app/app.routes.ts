@@ -46,11 +46,6 @@ export const ROUTES = [
           title: 'Typography',
         },
       },
-    ],
-  },
-  {
-    path: 'guidelines',
-    children: [
       {
         path: 'colors',
         loadChildren: async (): Promise<unknown> =>
@@ -59,11 +54,6 @@ export const ROUTES = [
           title: 'Colors',
         },
       },
-    ],
-  },
-  {
-    path: 'guidelines',
-    children: [
       {
         path: 'grid',
         loadChildren: async (): Promise<unknown> =>
@@ -320,6 +310,14 @@ export const ROUTES = [
       (await import('./components/input/input-date/input-date.module')).InputDateModule,
     data: {
       title: 'Input Date',
+    },
+  },
+  {
+    path: 'components/input-date-time-range',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./components/input/input-date-time-range/input-date-time-range.module')).InputDateTimeRangeModule,
+    data: {
+      title: 'Input Date Time Range',
     },
   },
   {

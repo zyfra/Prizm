@@ -10,7 +10,8 @@
          prizmShadow='big-left'
          #zone="prizmEventZone"
          (prizmEventZoneEvent)='clickOnContainer()'
-         (prizmAfterViewInit)='reCalculatePositions()'
+         (prizmAfterViewInit)='addListenerItems($event.nativeElement); reCalculatePositions()'
+         (prizmOnDestroy)='removeListenerItems($event.nativeElement)'
          [id]="prizmDropdownHostId"
          [attr.position]="position$ | async">
       <ng-container *polymorphOutlet="content; context: {zone: zone}"></ng-container>
