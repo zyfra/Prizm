@@ -37,9 +37,10 @@ import { PrizmToastExampleComponent } from './examples/toast-example/toast-examp
   ],
   providers: [
     prizmToastOptionsProvider({
-      timer: 1000
-    })
+      timer: 1000,
+    }),
   ],
   exports: [ToastComponent],
 })
 export class ToastModule {}
+

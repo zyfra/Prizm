@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="nav" [class.nav_active]="isActive$ | async" (click)="navClick()">
+    <div class="nav__icon" [style.marginLeft.px]="deep > 0 ? 8 + 16 * deep : 0">
+      <prizm-icon [iconClass]="menuItem?.icon || 'files-folder'"></prizm-icon>
+    </div>
+    <span class="nav__title">{{ menuItem.title }}</span>
+
+    <div class="nav__status">
+      <div
+        class="indicator {{
+          menuItem?.indicatorStatus && !isExpanded ? 'indicator_' + menuItem.indicatorStatus : ''
+        }}"
+      ></div>
+    </div>
+
+    <button class="nav__chevron" [class.nav__chevron_expanded]="isExpanded" (click)="toggle($event)">
+      <prizm-icon class="icon" iconClass="arrows-chevron-right"></prizm-icon>
+    </button>
+  </div>
+
+  <div class="expandable" [@expand]="isExpanded ? 'expanded' : 'init'">
+    <!-- <prizm-navigation-item
+      *ngFor="let item of menuItem.children"
+      [data]="item"
+      [deep]="deep + 1"
+    ></prizm-navigation-item> -->
+
+    <ng-container *ngFor="let item of menuItem.children">
+      <prizm-navigation-item-simple
+        [data]="item"
+        [deep]="deep + 1"
+        *ngIf="!item?.children"
+      ></prizm-navigation-item-simple>
+
+      <prizm-navigation-item-expandable
+        [data]="item"
+        [deep]="deep + 1"
+        *ngIf="item?.children?.length > 0"
+      ></prizm-navigation-item-expandable>
+    </ng-container>
+  </div>
+</div>
+

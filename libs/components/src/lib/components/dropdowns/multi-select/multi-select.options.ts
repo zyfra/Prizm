@@ -9,9 +9,12 @@ import {
   PrizmMultiSelectItemStringifyFunc,
 } from './multi-select.model';
 
+export type PrizmMultiSelectIconContext = {opened: boolean, disabled: boolean};
+
 export interface PrizmMultiSelectOptions<T> {
     readonly items: T[];
     readonly chooseAllItem: T;
+    readonly icon: PolymorphContent<PrizmMultiSelectIconContext>;
     readonly searchable: boolean;
     readonly forceClear: null | boolean;
     readonly isChipsDeletable:boolean;
@@ -34,6 +37,7 @@ export interface PrizmMultiSelectOptions<T> {
 export const PRIZM_MULTI_SELECT_DEFAULT_OPTIONS: PrizmMultiSelectOptions<unknown> = {
   items: [],
   chooseAllItem: null,
+  icon: null,
   searchable: false,
   forceClear: null,
   isChipsDeletable: true,

@@ -1,51 +1,36 @@
-<prizm-doc-page
-  header="Icon"
-  package="NEXT"
-  type="components"
->
-  <div class='page-description' description>
-    Icons can be used as fonts and as svg (examples of usage below).
-    Also with the help of our registry you can add your svg icons (example in the file with svg).
-    Also each icon can be connected separately or the whole set of SVG icons.
+<prizm-doc-page header="Icon" package="NEXT" type="components">
+  <div class="page-description" description>
+    Icons can be used as fonts and as svg (examples of usage below). Also with the help of our registry you
+    can add your svg icons (example in the file with svg). Also each icon can be connected separately or the
+    whole set of SVG icons.
   </div>
 
-  <ng-template pageTab>
-    <prizm-doc-example
-      id="base"
-      heading="Font"
-      [content]="exampleFont"
-    >
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" heading="Font" [content]="exampleFont">
       <prizm-icon-base-example></prizm-icon-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example
-      id="base"
-      heading="Svg"
-      [content]="exampleSvg"
-    >
+    <prizm-doc-example id="base" heading="Svg" [content]="exampleSvg">
       <prizm-icon-svg-example></prizm-icon-svg-example>
     </prizm-doc-example>
 
-    <h1>
-      Icon set.
-    </h1>
+    <h1>Icon set.</h1>
 
     <div *ngFor="let def of defs">
-      <h4 class='title'>{{ def.dir }}</h4>
+      <h4 class="title">{{ def.dir }}</h4>
 
       <div class="icons">
         <div *ngFor="let name of def.data" class="icon-def">
-          <prizm-icons-svg [size]='24' [name]='name'></prizm-icons-svg>
-          <div class="name" [title]='name'>{{ name }}</div>
+          <prizm-icons-svg [size]="24" [name]="name"></prizm-icons-svg>
+          <div class="name" [title]="name">{{ name }}</div>
         </div>
       </div>
     </div>
-
   </ng-template>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-icons-svg [name]='name' [size]='size'></prizm-icons-svg>
+      <prizm-icons-svg #element [prizmDocHostElement]="element" [name]="name" [size]="size"></prizm-icons-svg>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
@@ -70,19 +55,16 @@
     </prizm-doc-documentation>
   </ng-template>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab>
     <ol class="b-demo-steps">
       <li>
-        <p >
+        <p>
           Import
           <code>PrizmIconsSvgModule</code>
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

@@ -18,12 +18,13 @@ import {
   tuiRgbToHex,
   tuiWatch,
 } from '@taiga-ui/cdk';
-import { merge } from 'rxjs';
+import { BehaviorSubject, merge } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import { PRIZM_DOC_DOCUMENTATION_TEXTS } from '../../tokens/i18n';
 import { prizmInspectAny } from '../../utils/inspect';
-import { TuiDocDocumentationPropertyConnectorDirective } from './documentation-property-connector.directive';
+import { PrizmDocDocumentationPropertyConnectorDirective } from './documentation-property-connector.directive';
+import { PRIZM_HOST_COMPONENT_INFO_TOKEN, PrizmHostComponentInfo } from './token';
 
 // @bad TODO subscribe propertiesConnectors changes
 // @bad TODO refactor to make more flexible
@@ -32,13 +33,30 @@ import { TuiDocDocumentationPropertyConnectorDirective } from './documentation-p
   templateUrl: `./documentation.template.html`,
   styleUrls: [`./documentation.style.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: PRIZM_HOST_COMPONENT_INFO_TOKEN,
+      useFactory: (): PrizmHostComponentInfo => new BehaviorSubject({
+        key: 'index'
+      })
+    }
+  ],
   animations: [
     trigger(`emitEvent`, [transition(`:increment`, [style({ opacity: 1 }), animate(`500ms ease-in`)])]),
   ],
 })
-export class TuiDocDocumentationComponent implements AfterContentInit {
+export class PrizmDocDocumentationComponent implements AfterContentInit {
   @Input()
   heading = ``;
+
+  @Input()
+  public set hostComponentKey(key: string) {
+    this.prizmHostComponentInfo.next({key})
+  }
+
+  public get hostComponentKey(): string {
+    return this.prizmHostComponentInfo.value?.key;
+  }
 
   @Input()
   showValues = true;
@@ -46,12 +64,13 @@ export class TuiDocDocumentationComponent implements AfterContentInit {
   @Input()
   isAPI = false;
 
-  @ContentChildren(TuiDocDocumentationPropertyConnectorDirective)
-  propertiesConnectors: QueryList<TuiDocDocumentationPropertyConnectorDirective<any>> = EMPTY_QUERY;
+  @ContentChildren(PrizmDocDocumentationPropertyConnectorDirective)
+  propertiesConnectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>> = EMPTY_QUERY;
 
   activeItemIndex = 0;
 
   constructor(
+    @Inject(PRIZM_HOST_COMPONENT_INFO_TOKEN) private readonly prizmHostComponentInfo: PrizmHostComponentInfo,
     @Inject(ChangeDetectorRef) private readonly changeDetectorRef: ChangeDetectorRef,
     @Inject(PRIZM_DOC_DOCUMENTATION_TEXTS)
     readonly texts: [string, string, string, string, string]
@@ -114,7 +133,7 @@ export class TuiDocDocumentationComponent implements AfterContentInit {
   }
 
   public onColorChange(
-    connector: TuiDocDocumentationPropertyConnectorDirective<string>,
+    connector: PrizmDocDocumentationPropertyConnectorDirective<string>,
     color: string
   ): void {
     const opacity = this.getOpacity(connector.documentationPropertyValue || ``);
@@ -132,7 +151,7 @@ export class TuiDocDocumentationComponent implements AfterContentInit {
   }
 
   public onOpacityChange(
-    connector: TuiDocDocumentationPropertyConnectorDirective<string>,
+    connector: PrizmDocDocumentationPropertyConnectorDirective<string>,
     opacity: number
   ): void {
     const hex = this.getColor(connector.documentationPropertyValue || ``);

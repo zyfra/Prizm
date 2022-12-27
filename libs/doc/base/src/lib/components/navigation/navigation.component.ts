@@ -20,7 +20,7 @@ import { PrizmDocPage } from '../../interfaces/page';
 import { PRIZM_DOC_SEARCH_TEXT } from '../../tokens/i18n';
 import { PRIZM_DOC_PAGE_LOADED } from '../../tokens/page-loaded';
 import { PRIZM_DOC_SCROLL_BEHAVIOR } from '../../tokens/scroll-behavior';
-import { TuiDocPages } from '../../types/pages';
+import { PrizmDocPages } from '../../types/pages';
 import { tuiTransliterateKeyboardLayout } from '../../utils/transliterate-keyboard-layout';
 import {
   NAVIGATION_ITEMS,
@@ -72,7 +72,7 @@ export class TuiDocNavigationComponent {
     readonly sidebar: unknown,
     @Inject(NAVIGATION_LABELS) readonly labels: string[],
     @Inject(NAVIGATION_ITEMS)
-    readonly items: readonly TuiDocPages[],
+    readonly items: readonly PrizmDocPages[],
     @Inject(PRIZM_DOC_SEARCH_TEXT) readonly searchText: string,
     @Inject(Router) private readonly router: Router,
     @Inject(ActivatedRoute) private readonly activatedRoute: ActivatedRoute,
@@ -96,7 +96,7 @@ export class TuiDocNavigationComponent {
     return (this.search.value?.length ?? 0) > 2;
   }
 
-  get itemsWithoutSections(): TuiDocPages {
+  get itemsWithoutSections(): PrizmDocPages {
     return this.items[this.items.length - 1];
   }
 
@@ -145,7 +145,7 @@ export class TuiDocNavigationComponent {
   }
 
   @tuiPure
-  private flattenSubPages(items: readonly TuiDocPages[]): ReadonlyArray<readonly PrizmDocPage[]> {
+  private flattenSubPages(items: readonly PrizmDocPages[]): ReadonlyArray<readonly PrizmDocPage[]> {
     return items.reduce<ReadonlyArray<readonly PrizmDocPage[]>>(
       (array, item) => [
         ...array,

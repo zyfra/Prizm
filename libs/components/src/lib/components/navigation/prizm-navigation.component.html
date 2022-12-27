@@ -1,0 +1,14 @@
+<ng-container *ngFor="let item of menuItems">
+  <prizm-navigation-item-simple
+    [data]="item"
+    [deep]="1"
+    *ngIf="!item?.children"
+  ></prizm-navigation-item-simple>
+
+  <prizm-navigation-item-expandable
+    [data]="item"
+    [deep]="1"
+    *ngIf="item?.children?.length > 0"
+  ></prizm-navigation-item-expandable>
+</ng-container>
+

@@ -30,7 +30,7 @@ import { DesignSystemComponent } from './about-prizm/design-system/design-system
 import { ForDesignersComponent } from './how-to-start/for-designers/for-designers.component';
 import { ForDevelopersComponent } from './how-to-start/for-developers/for-developers.component';
 import { MigrationComponent } from './how-to-start/migration/migration.component';
-import { PrizmThemeService, PrizmToggleModule } from '@prizm-ui/components';
+import { PrizmAccordionModule, PrizmThemeService, PrizmToastModule, PrizmToggleModule } from '@prizm-ui/components';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -54,7 +54,9 @@ registerLocaleData(localeRu);
     TuiModeModule,
     TuiLinkModule,
     VersionManagerModule,
+    PrizmToastModule,
     HttpClientModule,
+    PrizmAccordionModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
       sanitize: SecurityContext.NONE,

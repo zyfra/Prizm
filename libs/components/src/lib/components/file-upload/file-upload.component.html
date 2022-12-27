@@ -1,0 +1,86 @@
+<input
+  type="file"
+  [multiple]="multiple"
+  [accept]="accept"
+  class="hidden"
+  #inputFile
+  (change)="onFileInputChange($event)"
+/>
+
+<div class="dropzone" #dropzone (drop)="onDrop($event)">
+  <div class="dropzone__title">Загрузка файлов</div>
+  <div class="dropzone__description">Выберите файл или перетащите его в эту область</div>
+  <div class="dropzone__user-content">
+    <ng-content></ng-content>
+  </div>
+
+  <button
+    prizmButton
+    appearanceType="outline"
+    appearance="secondary"
+    size="m"
+    (click)="inputFile.click()"
+    class="dropzone__file-select"
+    [disabled]="disabled"
+  >
+    Выбрать
+  </button>
+</div>
+
+<div class="files" *ngIf="filesMap.size > 0">
+  <div class="file files__item" *ngFor="let item of filesMap | keyvalue; trackBy: filesTrackBy">
+    <div class="file__preview">
+      <img
+        *ngIf="item.value.url; else iconTpl"
+        [src]="item.value.url | prizmSanitizer: 'bypassSecurityTrustResourceUrl'"
+        class="file__image"
+      />
+
+      <ng-template #iconTpl>
+        <prizm-icon [size]="24" iconClass="files-file" class="file__icon"></prizm-icon>
+      </ng-template>
+    </div>
+
+    <div class="file__info">
+      <span class="file__name">{{ item.key }}</span>
+      <span class="file__size">{{ getFileSize(item.value.file.size) }}</span>
+    </div>
+
+    <div class="file__stage">{{ getStage(item.key).name }}</div>
+
+    <button
+      [disabled]="disabled"
+      prizmIconButton
+      appearanceType="ghost"
+      [icon]="'arrows-refresh'"
+      appearance="secondary"
+      size="s"
+      class="file__retry-btn"
+      (click)="retryUpload(item.key)"
+      *ngIf="item.value.error && options.showRetryButtons"
+    ></button>
+
+    <button
+      [disabled]="disabled"
+      prizmIconButton
+      appearanceType="ghost"
+      [icon]="'delete'"
+      appearance="secondary"
+      size="s"
+      class="file__delete-btn"
+      (click)="removeFile(item.key)"
+    ></button>
+
+    <div class="file__progress progress">
+      <progress
+        prizmProgressBar
+        max="100"
+        size="s"
+        class="progress__bar {{ getStage(item.key).cssClass }}"
+        [value]="item.value.progress"
+      ></progress>
+      <span class="progress__value">{{ item.value.progress }}%</span>
+    </div>
+  </div>
+</div>
+

@@ -5,6 +5,7 @@ import {
   PrizmContextWithImplicit,
   PrizmInputSize,
   PrizmScrollbarVisibility,
+  PrizmSelectIconContext,
 } from '@prizm-ui/components';
 import { FormControl } from '@angular/forms';
 import { prizmPure } from '@prizm-ui/core';
@@ -16,6 +17,22 @@ import { prizmPure } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MultiSelectComponent {
+  public readOnly = false;
+  val1: any[];
+  public pseudoInvalid = false;
+  public pseudoHovered = false;
+  public pseudoPressed = false;
+  public pseudoFocused = false;
+  public focusable = true;
+  public pseudoState = '';
+  public focusedChange = false;
+  public pressedChange = false;
+  public hoveredChange = false;
+  public focusVisibleChange = false;
+
+  public icon: PolymorphContent<PrizmSelectIconContext> = null;
+
+  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [null, 'sort-zoom-in'];
   readonly control = new FormControl();
   searchable = false;
   outer = false;

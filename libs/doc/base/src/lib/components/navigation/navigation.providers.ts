@@ -6,14 +6,14 @@ import { filter, map, mergeMap, takeUntil } from 'rxjs/operators';
 
 import { PRIZM_DOC_PAGES } from '../../tokens/pages';
 import { PRIZM_DOC_TITLE } from '../../tokens/title';
-import { TuiDocPages } from '../../types/pages';
+import { PrizmDocPages } from '../../types/pages';
 
 export const NAVIGATION_TITLE = new InjectionToken<Observable<string>>(`[NAVIGATION_TITLE]: Page title`);
 export const NAVIGATION_LABELS = new InjectionToken<readonly string[]>(
   `[NAVIGATION_LABELS]: Navigation sections labels for search`
 );
-export const NAVIGATION_ITEMS: InjectionToken<readonly TuiDocPages[]> = new InjectionToken<
-  readonly TuiDocPages[]
+export const NAVIGATION_ITEMS: InjectionToken<readonly PrizmDocPages[]> = new InjectionToken<
+  readonly PrizmDocPages[]
 >(`[NAVIGATION_ITEMS]: Navigation pages`);
 
 export const NAVIGATION_PROVIDERS: Provider[] = [
@@ -45,7 +45,7 @@ export const NAVIGATION_PROVIDERS: Provider[] = [
   {
     provide: NAVIGATION_ITEMS,
     deps: [PRIZM_DOC_PAGES],
-    useFactory: (pages: TuiDocPages): readonly TuiDocPages[] => {
+    useFactory: (pages: PrizmDocPages): readonly PrizmDocPages[] => {
       const labels = labelsProviderFactory(pages);
 
       return [
@@ -56,7 +56,7 @@ export const NAVIGATION_PROVIDERS: Provider[] = [
   },
 ];
 
-function labelsProviderFactory(pages: TuiDocPages): readonly string[] {
+function labelsProviderFactory(pages: PrizmDocPages): readonly string[] {
   return pages
     .map(({ section }) => section)
     .filter(tuiIsPresent)

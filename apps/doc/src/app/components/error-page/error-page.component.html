@@ -1,14 +1,14 @@
 <prizm-doc-page header="Error page" package="components" type="components">
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="error404">
       <prizm-error-page-base-example></prizm-error-page-base-example>
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <div [ngStyle]="{ display: 'block', height: '50vh' }">
-        <prizm-error-page [code]="code" [title]="title">
+        <prizm-error-page #element [prizmDocHostElement]="element" [code]="code" [title]="title">
           {{ userContent }}
         </prizm-error-page>
       </div>
@@ -43,7 +43,7 @@
     </prizm-doc-documentation>
   </ng-template>
 
-  <ng-template pageTab>
+  <ng-template prizmDocPageTab>
     <ol class="b-demo-steps">
       <li>
         <p>
@@ -57,4 +57,3 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
-
