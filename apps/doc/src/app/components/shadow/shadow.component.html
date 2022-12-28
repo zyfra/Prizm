@@ -1,40 +1,34 @@
-<prizm-doc-page
-  header="Shadow"
-  package="components"
-  type="components"
->
-  <div class='page-description' description>
+<prizm-doc-page header="Shadow" package="components" type="components">
+  <div class="page-description" description>
     Our shadow component can use to show a shadow around a component.
   </div>
   <ng-template prizmDocPageTab>
-
-    <prizm-doc-example
-      id="base"
-      heading="Base"
-      [content]="exampleBase"
-    >
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
       <prizm-shadow-base-example></prizm-shadow-base-example>
     </prizm-doc-example>
-
-
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <div class='shadow-container prizm-font-dynamic-title-h4' [prizmShadow]='value'>
-        {{value}}
+      <div
+        class="shadow-container prizm-font-dynamic-title-h4"
+        #element
+        [prizmDocHostElement]="element"
+        [prizmShadow]="value"
+      >
+        {{ value }}
       </div>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-        <ng-template
-          documentationPropertyName="prizmShadow"
-          documentationPropertyType="PrizmShadowType"
-          documentationPropertyMode="input"
-          [(documentationPropertyValue)]="value"
-          [documentationPropertyValues]="valueVariants"
-        >
-          Shadow type
-        </ng-template>
+      <ng-template
+        documentationPropertyName="prizmShadow"
+        documentationPropertyType="PrizmShadowType"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="value"
+        [documentationPropertyValues]="valueVariants"
+      >
+        Shadow type
+      </ng-template>
     </prizm-doc-documentation>
   </ng-template>
 
@@ -47,10 +41,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
