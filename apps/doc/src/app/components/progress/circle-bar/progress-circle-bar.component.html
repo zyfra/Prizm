@@ -1,26 +1,19 @@
-<prizm-doc-page
-  header="Progress Circle"
-  package="components"
-  type="components"
->
-  <div class='page-description' description>
-    Our progress component is a circular progress indicator that can be used to show the progress of an operation.
+<prizm-doc-page header="Progress Circle" package="components" type="components">
+  <div class="page-description" description>
+    Our progress component is a circular progress indicator that can be used to show the progress of an
+    operation.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example
-      id="base"
-      heading="Circle"
-      [content]="exampleCircle"
-    >
+    <prizm-doc-example id="base" heading="Circle" [content]="exampleCircle">
       <prizm-progress-circle-example></prizm-progress-circle-example>
     </prizm-doc-example>
-
-
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-progress-circle
+        #element
+        [prizmDocHostElement]="element"
         [size]="size"
         [max]="max"
         [color]="color"
@@ -76,7 +69,6 @@
       >
         Size
       </ng-template>
-
     </prizm-doc-documentation>
   </ng-template>
 
@@ -89,10 +81,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
