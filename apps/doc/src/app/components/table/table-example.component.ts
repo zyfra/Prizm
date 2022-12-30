@@ -1,7 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 import { ITableProduct } from './examples/table-basic-example/table-basic-example.component';
-import { PrizmSizeL, PrizmSizeM, PrizmSizeS, PrizmSizeXS } from '@prizm-ui/components';
+import { PrizmSizeL, PrizmSizeM, PrizmSizeS, PrizmSizeXS, PrizmTableBorderStyle } from '@prizm-ui/components';
+import { TABLE_EXAMPLE_DATA_1 } from './table-example.const';
 
 @Component({
   selector: 'prizm-table-example',
@@ -10,44 +11,17 @@ import { PrizmSizeL, PrizmSizeM, PrizmSizeS, PrizmSizeXS } from '@prizm-ui/compo
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableExampleComponent {
-  public value: ITableProduct[] = [
-    {
-      code: '123',
-      name: 'Name 1',
-      category: 'Premium',
-      count: 3000,
-    },
-    {
-      code: '456',
-      name: 'Name 2',
-      category: 'Active',
-      count: 123,
-    },
-    {
-      code: '789',
-      name: 'Name 3',
-      category: 'Sport',
-      count: 56000,
-    },
-    {
-      code: '012',
-      name: 'Name 4',
-      category: 'Sport+',
-      count: 539,
-    },
-    {
-      code: '1234',
-      name: 'Name 5',
-      category: 'Premium',
-      count: 23,
-    },
-    {
-      code: '12345',
-      name: 'Name 6',
-      category: 'Premium',
-      count: 99,
-    },
+  public products: ITableProduct[] = TABLE_EXAMPLE_DATA_1;
+
+  public columns: string[] = ['code', 'name', 'category', 'count'];
+  public columnsVarians: string[][] = [
+    ['code', 'name'],
+    ['name', 'category'],
+    ['code', 'name', 'category', 'count'],
   ];
+
+  borderStyle: PrizmTableBorderStyle = 'grid';
+  borderStyleVariants: Array<PrizmTableBorderStyle> = ['grid', 'horizontal', 'vertical'];
 
   public size: PrizmSizeL | PrizmSizeM | PrizmSizeXS | PrizmSizeS = 'l';
   public sizeVariants: (PrizmSizeL | PrizmSizeM | PrizmSizeXS | PrizmSizeS)[] = ['xs', 'l', 'm', 's'];
