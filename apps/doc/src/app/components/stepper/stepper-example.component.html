@@ -1,6 +1,7 @@
 <prizm-doc-page header="Stepper" type="components">
-  <div class='page-description' description>
-    Our stepper component is a simple way to display progress through a sequence of logical and numbered steps. It may also be used for navigation.
+  <div class="page-description" description>
+    Our stepper component is a simple way to display progress through a sequence of logical and numbered
+    steps. It may also be used for navigation.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="basicExample">
@@ -16,9 +17,11 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-stepper
+        #element
+        [prizmDocHostElement]="element"
         [currentStep]="currentStep"
         [title]="title"
         [vertical]="vertical"
@@ -147,7 +150,7 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="stepperSize"
+        documentationPropertyName="stepsSize"
         documentationPropertyType="string"
         documentationPropertyMode="input"
         [documentationPropertyValues]="['auto', '200px', '30%']"
@@ -166,7 +169,7 @@
         Select step
       </ng-template>
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="update"
         documentationPropertyType="void"
         documentationPropertyMode="output"
@@ -174,7 +177,7 @@
         Update
         <br />
         <small> Run sttepper change detector </small>
-      </ng-template>
+      </ng-template> -->
     </prizm-doc-documentation>
   </ng-template>
 
@@ -191,4 +194,3 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
-

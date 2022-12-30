@@ -8,17 +8,20 @@
       <prizm-input-chips-outer-example></prizm-input-chips-outer-example>
     </prizm-doc-example>
   </ng-template>
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-input-layout label="Заголовок" size="l" status="default">
         <input prizmInput placeholder="Введите название" (enter)="onEnter($event)" [disabled]="disabled" />
         <prizm-chips
-          [class.single-line]='singleLine'
+          #element
+          [prizmDocHostElement]="element"
+          [class.single-line]="singleLine"
           [singleLine]="singleLine"
           [chips]="chips"
           [deletable]="deletable"
           [disabled]="disabled"
-          prizm-input-bottom>
+          prizm-input-bottom
+        >
         </prizm-chips>
       </prizm-input-layout>
     </prizm-doc-demo>
@@ -49,6 +52,64 @@
       >
         Deletable
       </ng-template>
+      <!--  -->
+      <ng-template
+        documentationPropertyName="chips"
+        documentationPropertyType="string[]"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="chips"
+      >
+        Chips
+      </ng-template>
+      <!--  -->
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmInputSize"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+      <!--  -->
+      <ng-template
+        documentationPropertyName="hintCanShow"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="hintCanShow"
+      >
+        Hint Can Show
+      </ng-template>
+      <!--  -->
+      <ng-template
+        documentationPropertyName="hintDirection"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="hintDirection"
+      >
+        Hint Direction
+      </ng-template>
+      <!--  -->
+      <ng-template
+        documentationPropertyName="addChipEvent"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Add Chip Event
+      </ng-template>
+      <ng-template
+        documentationPropertyName="removeChipEvent"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Remove Chip Event
+      </ng-template>
+      <ng-template
+        documentationPropertyName="clickChipEvent"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Click Chip Event
+      </ng-template>
     </prizm-doc-documentation>
   </ng-template>
   <ng-template prizmDocPageTab>
@@ -64,4 +125,3 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
-

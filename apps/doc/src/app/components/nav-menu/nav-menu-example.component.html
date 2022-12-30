@@ -1,7 +1,7 @@
 <prizm-doc-page header="Navigation menu" package="UI" type="components">
-
-  <div class='page-description' description>
-    Our navigation menu is a simple, responsive, and accessible menu that can be used in a variety of ways. It can be used as a primary navigation menu, a secondary navigation menu, or a footer navigation menu.
+  <div class="page-description" description>
+    Our navigation menu is a simple, responsive, and accessible menu that can be used in a variety of ways. It
+    can be used as a primary navigation menu, a secondary navigation menu, or a footer navigation menu.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Basic" [content]="exampleBasicNavMenu">
@@ -13,14 +13,17 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-nav-menu
+        #element
+        [prizmDocHostElement]="element"
         [model]="navigationList"
         [menuTitle]="menuTitle"
         [emptyMessage]="emptyMessage"
         [toolbarConfig]="toolbarConfig"
         [headerConfig]="headerConfig"
+        [searchPlaceholder]="searchPlaceholder"
       ></prizm-nav-menu>
     </prizm-doc-demo>
     <prizm-doc-documentation>
@@ -64,6 +67,38 @@
         documentationPropertyMode="input"
       >
         Toolbar content config
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="searchPlaceholder"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="searchPlaceholder"
+      >
+        Search Placeholder
+      </ng-template>
+      <ng-template
+        documentationPropertyName="settingsConfig"
+        documentationPropertyType="SettingsConfig"
+        documentationPropertyMode="input"
+      >
+        Settings Config
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="nodes"
+        documentationPropertyType="TreeNode[]"
+        documentationPropertyMode="input"
+      >
+        Nodes
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="homeClick"
+        documentationPropertyType="void"
+        documentationPropertyMode="output"
+      >
+        homeClick
       </ng-template>
 
       <ng-template
