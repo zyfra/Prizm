@@ -16,6 +16,20 @@ import { prizmPure } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectComponent {
+  public readOnly = false;
+  val1: any;
+  public pseudoInvalid = false;
+  public pseudoHovered = false;
+  public pseudoPressed = false;
+  public pseudoFocused = false;
+  public focusable = true;
+  public pseudoState = '';
+  public focusedChange = false;
+  public pressedChange = false;
+  public hoveredChange = false;
+  public focusVisibleChange = false;
+  public dropdownWidth = '200px';
+
   readonly control = new FormControl();
   searchable = false;
   outer = false;
@@ -88,18 +102,19 @@ export class SelectComponent {
   };
 
   readonly exampleWithBackendSearch: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-backend-search/select-with-backend-search-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/with-backend-search/select-with-backend-search-example.component.html'),
+    TypeScript: import(
+      '!!raw-loader!./examples/with-backend-search/select-with-backend-search-example.component.ts'
+    ),
+    HTML: import(
+      '!!raw-loader!./examples/with-backend-search/select-with-backend-search-example.component.html'
+    ),
   };
 
   public valueTemplate: PolymorphContent<any> = '';
 
   public icon: PolymorphContent<PrizmSelectIconContext> = null;
 
-  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [
-    null,
-    'sort-zoom-in'
-  ];
+  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [null, 'sort-zoom-in'];
 
   @prizmPure
   public getValueTemplate(...temps: PolymorphContent[]): PolymorphContent<any>[] {
