@@ -1,6 +1,56 @@
 import { PrizmChartThemeObject } from './types';
 
 export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
+  prizm: {
+    components: {
+      bar: {
+        color: ['#AD52BC', '#00BCD4', '#337EFF'],
+        xAxis: {
+          grid: {
+            line: {
+              style: {
+                stroke: '#A1A5B7'
+              }
+            }
+          }
+        }
+      },
+      area: {
+        xAxis: {
+          minTickInterval: 10,
+          grid: {
+            line:{
+              style: {
+                stroke: '#A1A5B7'
+              }
+            }
+          },
+          line: {
+            style: {
+              stroke: '#A1A5B7'
+            }
+          },
+          range: [0, 1],
+        },
+        yAxis: {
+          minTickInterval: 10,
+          grid: {
+            line:{
+              style: {
+                stroke: '#A1A5B7'
+              }
+            }
+          },
+          line: {
+            style: {
+              stroke: '#A1A5B7'
+            }
+          },
+          range: [0, 1],
+        },
+      }
+    }
+  },
   background: '#ffffff',
   subColor: 'rgba(214, 219, 231, 1)',
   semanticRed: 'rgba(241, 65, 65, 1)',
@@ -95,7 +145,7 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           line: {
             type: 'line',
             style: {
-              stroke: 'rgba(191, 198, 215, 1)',
+              stroke: '#A1A5B7',
               lineWidth: 1,
               lineDash: null,
             },

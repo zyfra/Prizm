@@ -1,6 +1,63 @@
 import { PrizmChartThemeObject } from './types';
 
 export const PRIZM_CHART_DARK_THEME: PrizmChartThemeObject = {
+
+  prizm: {
+    components: {
+      bar: {
+        xAxis: {
+          minTickInterval: 10,
+          grid: {
+            line:{
+              style: {
+                stroke: '#50546B'
+              }
+            }
+          },
+          line: {
+            style: {
+              stroke: '#50546b'
+            }
+          },
+          range: [0, 1],
+        },
+      },
+      area: {
+        xAxis: {
+          minTickInterval: 10,
+          grid: {
+            line:{
+              style: {
+                stroke: '#50546B'
+              }
+            }
+          },
+          line: {
+            style: {
+              stroke: '#50546b'
+            }
+          },
+          range: [0, 1],
+        },
+        yAxis: {
+          minTickInterval: 10,
+          grid: {
+            line:{
+              style: {
+                stroke: '#50546B'
+              }
+            }
+          },
+          line: {
+            style: {
+              stroke: '#50546b'
+            }
+          },
+          range: [0, 1],
+        },
+      }
+    }
+  },
   background: 'rgba(32, 34, 43, 1)',
   subColor: 'rgba(48, 51, 64, 1)',
   semanticRed: 'rgba(241, 65, 65, 1)',
@@ -95,7 +152,7 @@ export const PRIZM_CHART_DARK_THEME: PrizmChartThemeObject = {
           line: {
             type: 'line',
             style: {
-              stroke: 'rgba(80, 84, 107, 1)',
+              stroke: '#50546B',
               lineWidth: 1,
               lineDash: null,
             },

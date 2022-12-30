@@ -8,17 +8,30 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
+      <prizm-charts-pie
+        #element
+        [prizmDocHostElement]='element'>
+      </prizm-charts-pie>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-<!--      <ng-template-->
-<!--        documentationPropertyName="ng-content"-->
-<!--        documentationPropertyType="string"-->
-<!--        [(documentationPropertyValue)]="content"-->
-<!--      >-->
-<!--        NgContent-->
-<!--      </ng-template>-->
+      <ng-template
+        documentationPropertyName="width"
+        documentationPropertyType="number"
+        [(documentationPropertyValue)]="width"
+      >
+        Width
+      </ng-template>
+
+
+      <ng-template
+        documentationPropertyName="height"
+        documentationPropertyType="number"
+        [(documentationPropertyValue)]="height"
+      >
+        Height
+      </ng-template>
 
 <!--      <ng-template-->
 <!--        documentationPropertyName="size"-->

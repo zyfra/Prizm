@@ -12,4 +12,36 @@ import { Component } from '@angular/core';
     `
   ],
 })
-export class PrizmChartsPieExampleComponent {}
+export class PrizmChartsPieExampleComponent {
+
+  data: any = [
+    [
+      "Понедельник",
+      50
+    ],
+    [
+      "Вторник",
+      200
+    ],
+    [
+      "Среда",
+      150
+    ],
+    [
+      "Четверг",
+      100
+    ],
+    [
+      "Пятница",
+      150
+    ],
+    [
+      "Суббота",
+      200
+    ],
+    [
+      "Воскресенье",
+      200
+    ],
+  ];
+}
