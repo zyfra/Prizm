@@ -4,6 +4,7 @@ import { PolymorphModule, PrizmThemeModule } from '../../directives';
 import { PrizmCardModule } from '../card';
 import { PrizmWidgetComponent } from './widget.component';
 import { PrizmIconModule } from '../icon';
+import { PrizmButtonModule } from '../button';
 
 @NgModule({
   imports: [
@@ -12,8 +13,10 @@ import { PrizmIconModule } from '../icon';
     PrizmIconModule,
     PrizmThemeModule,
     PolymorphModule,
+    PrizmButtonModule,
   ],
   declarations: [PrizmWidgetComponent],
   exports: [PrizmWidgetComponent],
 })
 export class PrizmWidgetModule {}
+
