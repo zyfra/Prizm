@@ -1,5 +1,5 @@
 <prizm-doc-page header="Tabs" package="components" type="components">
-  <div class='page-description' description>
+  <div class="page-description" description>
     Our tabs component is a simple way to organize content on a page.
   </div>
   <ng-template prizmDocPageTab>
@@ -28,10 +28,12 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <div class="container container__{{ size }}">
         <prizm-tab
+          #element
+          [prizmDocHostElement]="element"
           [title]="title"
           [icon]="icon"
           [closable]="closable"
@@ -44,7 +46,7 @@
       </div>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="size"
         documentationPropertyType="TabSize"
         documentationPropertyMode="input"
@@ -52,7 +54,7 @@
         [documentationPropertyValues]="sizeVariants"
       >
         Tab title
-      </ng-template>
+      </ng-template> -->
 
       <ng-template
         documentationPropertyName="type"
