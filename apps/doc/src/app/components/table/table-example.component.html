@@ -48,12 +48,75 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      We will add table api demo here soon
-      <!-- TODO #p4 add api -->
+      <prizm-scrollbar class="scrollable">
+        <table
+          prizmTable
+          class="table"
+          [columns]="columns"
+          [size]="size"
+          [tableBorderStyle]="borderStyle"
+          #element="prizmTable"
+        >
+          <thead>
+            <tr prizmThGroup>
+              <th prizmTh>Код</th>
+              <th prizmTh>Наименование</th>
+              <th prizmTh>Категория</th>
+              <th prizmTh>Количество</th>
+            </tr>
+          </thead>
+
+          <tbody prizmTbody [data]="products">
+            <ng-container *prizmRow="let item of products; let i = index">
+              <tr prizmTr>
+                <td *prizmCell="'code'" class="format__number" prizmTd>
+                  {{ item.code | spaceNumber: '0.0-0' }}
+                </td>
+                <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
+                <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
+                <td *prizmCell="'count'" class="format__number" prizmTd>
+                  {{ item.count | spaceNumber: '0.0-0' }}
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </prizm-scrollbar>
     </prizm-doc-demo>
-    <prizm-doc-documentation> </prizm-doc-documentation>
+    <prizm-doc-documentation>
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="sizeVariants"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="tableBorderStyle"
+        documentationPropertyType="PrizmTableBorderStyle"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="borderStyleVariants"
+        [(documentationPropertyValue)]="borderStyle"
+      >
+        Border style
+      </ng-template>
+
+      <ng-template
+        *ngIf="false"
+        documentationPropertyName="columns"
+        documentationPropertyType="string[]"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="columnsVarians"
+        [(documentationPropertyValue)]="columns"
+      >
+        Columns
+      </ng-template>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template prizmDocPageTab>
