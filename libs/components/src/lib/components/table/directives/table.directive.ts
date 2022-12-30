@@ -24,6 +24,7 @@ import { prizmDefaultProp } from '@prizm-ui/core';
   host: {
     style: `border-collapse: separate; border-spacing: 0`,
   },
+  exportAs: 'prizmTable',
 })
 export class PrizmTableDirective<T extends Partial<Record<keyof T, any>>>
   extends AbstractPrizmController
