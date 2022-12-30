@@ -28,14 +28,17 @@
     <prizm-doc-demo>
       <prizm-accordion
         #element
-        key='PrizmAccordionComponent'
+        key="PrizmAccordionComponent"
         [prizmDocHostElement]="element"
-        [onlyOneExpanded]="onlyOneExpanded">
+        [onlyOneExpanded]="onlyOneExpanded"
+      >
         <prizm-accordion-item
           #elementAccordionItem
-          key='PrizmAccordionItemComponent'
+          key="PrizmAccordionItemComponent"
           [prizmDocHostElement]="elementAccordionItem"
-          [disabled]="disabled" title="Title number 2">
+          [disabled]="disabled"
+          title="Title number 2"
+        >
           <ng-template prizmAccordionTools>
             <prizm-checkbox [disabled]="disabled" label="Checkbox label is here"></prizm-checkbox>
           </ng-template>
@@ -72,10 +75,7 @@
       </prizm-accordion>
     </prizm-doc-demo>
 
-    <prizm-doc-documentation
-      heading='PrizmAccordionComponent'
-      hostComponentKey='PrizmAccordionComponent'
-    >
+    <prizm-doc-documentation heading="PrizmAccordionComponent" hostComponentKey="PrizmAccordionComponent">
       <ng-template
         documentationPropertyName="onlyOneExpanded"
         documentationPropertyType="boolean"
@@ -85,20 +85,21 @@
         Only one accordion can be expanded
       </ng-template>
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="disabled"
       >
         Disabled
-      </ng-template>
+      </ng-template> -->
     </prizm-doc-documentation>
 
     <prizm-doc-documentation
-      [showValues]='false'
-      hostComponentKey='PrizmAccordionItemComponent'
-      heading='PrizmAccordionItemComponent'>
+      [showValues]="false"
+      hostComponentKey="PrizmAccordionItemComponent"
+      heading="PrizmAccordionItemComponent"
+    >
       <ng-template
         documentationPropertyName="isExpanded"
         documentationPropertyType="boolean"
