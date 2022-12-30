@@ -5,7 +5,42 @@ export const PRIZM_CHART_DARK_THEME: PrizmChartThemeObject = {
   prizm: {
     components: {
       bar: {
+        color: ['#AD52BC', '#00BCD4', '#337EFF'],
         xAxis: {
+          minTickInterval: 10,
+          grid: {
+            line:{
+              style: {
+                stroke: '#50546B'
+              }
+            }
+          },
+          line: {
+            style: {
+              stroke: '#50546b'
+            }
+          },
+          range: [0, 1],
+        },
+      },
+      scatter: {
+        xAxis: {
+          minTickInterval: 10,
+          grid: {
+            line:{
+              style: {
+                stroke: '#50546B'
+              }
+            }
+          },
+          line: {
+            style: {
+              stroke: '#50546b'
+            }
+          },
+          range: [0, 1],
+        },
+        yAxis: {
           minTickInterval: 10,
           grid: {
             line:{

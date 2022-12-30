@@ -5,13 +5,13 @@ import { PrizmChartTheme } from '../theme/types';
 @Component({template: ''})
 export abstract class PrizmChartsAbstractComponent<ORIGIN extends Record<string, any>, OPTIONS extends Record<string, any>> implements OnDestroy {
   @HostBinding('style.width.px')
-  @Input() set width(value: number) {
+  @Input() set width(value: number | null) {
     if (value == this.width) return;
     this.updateOptions({
       width: value
     });
   }
-  get width(): number {
+  get width(): number | null {
     return this.options.width;
   }
 

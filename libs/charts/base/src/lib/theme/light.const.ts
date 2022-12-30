@@ -48,7 +48,41 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           },
           range: [0, 1],
         },
-      }
+      },
+      scatter: {
+        xAxis: {
+          minTickInterval: 10,
+          grid: {
+            line:{
+              style: {
+                stroke: '#A1A5B7'
+              }
+            }
+          },
+          line: {
+            style: {
+              stroke: '#A1A5B7'
+            }
+          },
+          range: [0, 1],
+        },
+        yAxis: {
+          minTickInterval: 10,
+          grid: {
+            line:{
+              style: {
+                stroke: '#A1A5B7'
+              }
+            }
+          },
+          line: {
+            style: {
+              stroke: '#A1A5B7'
+            }
+          },
+          range: [0, 1],
+        },
+      },
     }
   },
   background: '#ffffff',
