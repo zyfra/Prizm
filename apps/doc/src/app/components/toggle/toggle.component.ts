@@ -1,6 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
-import { PolymorphContent, PrizmContextWithImplicit, PrizmSizeL, PrizmSizeM } from '@prizm-ui/components';
+import {
+  PolymorphContent,
+  PrizmContextWithImplicit,
+  PrizmDay,
+  PrizmSizeL,
+  PrizmSizeM,
+} from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-toggle-example',
@@ -9,6 +15,20 @@ import { PolymorphContent, PrizmContextWithImplicit, PrizmSizeL, PrizmSizeM } fr
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToggleComponent {
+  public readOnly = false;
+  val: boolean;
+  public pseudoInvalid = false;
+  public pseudoHovered = false;
+  public pseudoPressed = false;
+  public pseudoFocused = false;
+  public pseudoState = '';
+  public focusable = false;
+
+  public focusedChange = false;
+  public pressedChange = false;
+  public hoveredChange = false;
+  public focusVisibleChange = false;
+
   value = true;
   disabled = false;
   showLoader = false;
