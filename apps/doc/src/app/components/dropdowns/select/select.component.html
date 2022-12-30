@@ -1,47 +1,25 @@
-<prizm-doc-page
-  header="Select"
-  package="components"
-  type="components"
->
-  <div class='page-description' description>
+<prizm-doc-page header="Select" package="components" type="components">
+  <div class="page-description" description>
     Our select component is a wrapper around the native select element.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example
-      id="base"
-      heading="Base"
-      [content]="exampleBase"
-    >
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
       <prizm-select-base-example></prizm-select-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example
-      heading="With Search"
-      [content]="exampleWithSearch"
-    >
+    <prizm-doc-example heading="With Search" [content]="exampleWithSearch">
       <prizm-select-with-search-example></prizm-select-with-search-example>
     </prizm-doc-example>
 
-    <prizm-doc-example
-      heading="With Backend Search"
-      [content]="exampleWithBackendSearch"
-    >
+    <prizm-doc-example heading="With Backend Search" [content]="exampleWithBackendSearch">
       <prizm-select-with-backend-search-example></prizm-select-with-backend-search-example>
     </prizm-doc-example>
 
-
-    <prizm-doc-example
-      heading="With Template"
-      [content]="exampleWithTemplate"
-    >
+    <prizm-doc-example heading="With Template" [content]="exampleWithTemplate">
       <prizm-select-with-template-example></prizm-select-with-template-example>
     </prizm-doc-example>
 
-
-    <prizm-doc-example
-      heading="With Object"
-      [content]="exampleWithObject"
-    >
+    <prizm-doc-example heading="With Object" [content]="exampleWithObject">
       <prizm-select-with-object-example></prizm-select-with-object-example>
     </prizm-doc-example>
   </ng-template>
@@ -49,27 +27,34 @@
   <ng-template prizmDocPageTab>
     <prizm-doc-demo>
       <prizm-select
-        [formControl]='control'
-        [nullContent]='nullContent'
-        [items]='items'
-        [outer]='outer'
-        [forceClear]='forceClear'
-        [size]='size'
-        [icon]='icon'
-        [searchable]='searchable'
-        [emptyContent]='emptyContent'
-        [minDropdownHeight]='minDropdownHeight'
-        [maxDropdownHeight]='maxDropdownHeight'
-        [label]='label'
-        [placeholder]='placeholder'
-        [valueTemplate]='valueTemplate'
-        [searchMatcher]='searchMatcher'
-        [identityMatcher]='identityMatcher'
+        [formControl]="control"
+        [nullContent]="nullContent"
+        [items]="items"
+        [outer]="outer"
+        [forceClear]="forceClear"
+        [size]="size"
+        [icon]="icon"
+        [searchable]="searchable"
+        [emptyContent]="emptyContent"
+        [minDropdownHeight]="minDropdownHeight"
+        [maxDropdownHeight]="maxDropdownHeight"
+        [label]="label"
+        [placeholder]="placeholder"
+        [valueTemplate]="valueTemplate"
+        [searchMatcher]="searchMatcher"
+        [identityMatcher]="identityMatcher"
+        [dropdownWidth]="dropdownWidth"
+        [(val)]="val1"
+        [readOnly]="readOnly"
+        [focusable]="focusable"
+        [pseudoState]="pseudoState"
+        [pseudoInvalid]="pseudoInvalid"
+        [pseudoHovered]="pseudoHovered"
+        [pseudoPressed]="pseudoPressed"
+        [pseudoFocused]="pseudoFocused"
       ></prizm-select>
-
     </prizm-doc-demo>
     <prizm-doc-documentation>
-
       <ng-template
         documentationPropertyName="icon"
         documentationPropertyType="PolymorphContent<PrizmSelectIconContext>"
@@ -109,8 +94,7 @@
         documentationPropertyType="PrizmSelectSearchMatcher"
         documentationPropertyMode="input"
       >
-        Search matcher
-        (use for custom search)
+        Search matcher (use for custom search)
       </ng-template>
 
       <ng-template
@@ -165,15 +149,14 @@
       </ng-template>
 
       <ng-template #valueTemp let-value let-nullContent="nullContent">
-        <div class='item' *ngIf='value; else empty'>
-          <prizm-icon iconClass='account-done'></prizm-icon>
-          <span>{{value}}</span>
+        <div class="item" *ngIf="value; else empty">
+          <prizm-icon iconClass="account-done"></prizm-icon>
+          <span>{{ value }}</span>
         </div>
         <ng-template #empty>
-          {{nullContent}}
+          {{ nullContent }}
         </ng-template>
       </ng-template>
-
 
       <ng-template
         documentationPropertyName="searchable"
@@ -199,10 +182,8 @@
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="disabled"
       >
-        Disabled
-        (Use formControl to disable)
+        Disabled (Use formControl to disable)
       </ng-template>
-
 
       <ng-template
         documentationPropertyName="label"
@@ -231,7 +212,6 @@
         Max Dropdown Height
       </ng-template>
 
-
       <ng-template
         documentationPropertyName="placeholder"
         documentationPropertyType="string"
@@ -240,7 +220,6 @@
       >
         Placeholder
       </ng-template>
-
 
       <ng-template
         documentationPropertyName="nullContent"
@@ -251,7 +230,6 @@
         Null Content
       </ng-template>
 
-
       <ng-template
         documentationPropertyName="emptyContent"
         documentationPropertyType="string"
@@ -261,6 +239,121 @@
         Empty Content
       </ng-template>
 
+      <ng-template
+        documentationPropertyName="dropdownWidth"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="dropdownWidth"
+      >
+        dropdown Width
+      </ng-template>
+      <ng-template
+        documentationPropertyName="readOnly"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="readOnly"
+      >
+        Read Only
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="val"
+        documentationPropertyType="any[]"
+        documentationPropertyMode="input-output"
+        [(documentationPropertyValue)]="val1"
+      >
+        Val
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="pseudoInvalid"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="pseudoInvalid"
+      >
+        Pseudo Invalid
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="pseudoHovered"
+        documentationPropertyType=" boolean | null"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="pseudoHovered"
+      >
+        Pseudo Hovered
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="pseudoPressed"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="pseudoPressed"
+      >
+        Pseudo Pressed
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="pseudoFocused"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="pseudoFocused"
+      >
+        Pseudo Focused
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="focusable"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="focusable"
+      >
+        Focusable
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="pseudoState"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="pseudoState"
+      >
+        Pseudo State
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="focusedChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+        [(documentationPropertyValue)]="focusedChange"
+      >
+        Focused Change
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="pressedChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+        [(documentationPropertyValue)]="pressedChange"
+      >
+        Pressed Change
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="hoveredChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+        [(documentationPropertyValue)]="hoveredChange"
+      >
+        Hovered Change
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="focusVisibleChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+        [(documentationPropertyValue)]="focusVisibleChange"
+      >
+        Focus Visible Change
+      </ng-template>
     </prizm-doc-documentation>
   </ng-template>
 
@@ -273,10 +366,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

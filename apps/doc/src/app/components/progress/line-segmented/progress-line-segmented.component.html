@@ -1,26 +1,18 @@
-<prizm-doc-page
-  header="Progress Segmented Line"
-  package="components"
-  type="components"
->
-  <div class='page-description' description>
+<prizm-doc-page header="Progress Segmented Line" package="components" type="components">
+  <div class="page-description" description>
     Our line segments are used to show progress through a series of steps.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example
-      id="base"
-      heading="Base"
-      [content]="exampleBase"
-    >
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
       <prizm-progress-base-example></prizm-progress-base-example>
     </prizm-doc-example>
-
-
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-progress-segmented
+        #element
+        [prizmDocHostElement]="element"
         [size]="size"
         [max]="max"
         [colors]="colors"
@@ -65,7 +57,6 @@
       >
         Size
       </ng-template>
-
     </prizm-doc-documentation>
   </ng-template>
 
@@ -78,10 +69,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

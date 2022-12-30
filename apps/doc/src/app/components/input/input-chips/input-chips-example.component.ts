@@ -1,6 +1,12 @@
 import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { PrizmChipsComponent, PrizmInputTextComponent } from '@prizm-ui/components';
+import {
+  PrizmChipsComponent,
+  PrizmInputPosition,
+  PrizmInputSize,
+  PrizmInputStatus,
+  PrizmInputTextComponent,
+} from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 
 @Component({
@@ -10,6 +16,24 @@ import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputChipsExampleComponent {
+  public hintCanShow = true;
+  public hintDirection = false;
+  public label = 'Заголовок';
+
+  public inputPosition: PrizmInputPosition = 'left';
+  public inputPositions: PrizmInputPosition[] = ['left', 'center'];
+  public outer: false;
+
+  public size: PrizmInputSize = 'l';
+  public sizesOuter: PrizmInputSize[] = ['l', 'm', 's'];
+  public sizesInner: PrizmInputSize[] = ['l', 'm'];
+
+  public status: PrizmInputStatus = 'default';
+  public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];
+
+  public forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
+  public forceClear = this.forceClearVariants[0];
+
   public chips: string[] = ['Чипс 1', 'Чипс 2', 'Чипс 3'];
   public deletable = true;
   public disabled = false;
