@@ -1,413 +1,74 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Chart } from '@antv/g2';
+import { Component, ElementRef, Injector, Input, ViewChild } from '@angular/core';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { prizmChartsSetDefaultThemes, PrizmChartTheme } from '../../theme';
+import { Area } from '@antv/g2plot';
+import { PrizmChartsAreaItem, PrizmChartsAriaOptions, PrizmChartsAreaOrigin } from './model';
+import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
+import { prizmChartsGetDataObjectFromArr } from '../../theme';
 
 @Component({
   selector: 'prizm-charts-area',
   templateUrl: './prizm-charts-area.component.html',
   styleUrls: ['./prizm-charts-area.component.less'],
 })
-export class PrizmChartsAreaComponent<T extends Record<string, unknown>> implements OnInit {
+export class PrizmChartsAreaComponent
+<T extends Record<string, unknown>>
+extends PrizmChartsAbstractComponent<PrizmChartsAreaOrigin, PrizmChartsAriaOptions> {
+  get origin(): Area {
+      throw this.origin_;
+  }
   @Input()
+  set data(value: [string | number, number][]) {
+    this.updateOptions({
+      data: prizmChartsGetDataObjectFromArr(this._data = value)
+    })
+  }
+  get data(): PrizmChartsAreaItem[] {
+    return this._data;
+  }
+
   @prizmDefaultProp()
-  data: unknown[] = [
-    {
-      Data: '2010-01',
-      sales: 1998,
-    },
-    {
-      Data: '2010-02',
-      sales: 1850,
-    },
-    {
-      Data: '2010-03',
-      sales: 1720,
-    },
-    {
-      Data: '2010-04',
-      sales: 1818,
-    },
-    {
-      Data: '2010-05',
-      sales: 1920,
-    },
-    {
-      Data: '2010-06',
-      sales: 1802,
-    },
-    {
-      Data: '2010-07',
-      sales: 1945,
-    },
-    {
-      Data: '2010-08',
-      sales: 1856,
-    },
-    {
-      Data: '2010-09',
-      sales: 2107,
-    },
-    {
-      Data: '2010-10',
-      sales: 2140,
-    },
-    {
-      Data: '2010-11',
-      sales: 2311,
-    },
-    {
-      Data: '2010-12',
-      sales: 1972,
-    },
-    {
-      Data: '2011-01',
-      sales: 1760,
-    },
-    {
-      Data: '2011-02',
-      sales: 1824,
-    },
-    {
-      Data: '2011-03',
-      sales: 1801,
-    },
-    {
-      Data: '2011-04',
-      sales: 2001,
-    },
-    {
-      Data: '2011-05',
-      sales: 1640,
-    },
-    {
-      Data: '2011-06',
-      sales: 1502,
-    },
-    {
-      Data: '2011-07',
-      sales: 1621,
-    },
-    {
-      Data: '2011-08',
-      sales: 1480,
-    },
-    {
-      Data: '2011-09',
-      sales: 1549,
-    },
-    {
-      Data: '2011-10',
-      sales: 1390,
-    },
-    {
-      Data: '2011-11',
-      sales: 1325,
-    },
-    {
-      Data: '2011-12',
-      sales: 1250,
-    },
-    {
-      Data: '2012-01',
-      sales: 1394,
-    },
-    {
-      Data: '2012-02',
-      sales: 1406,
-    },
-    {
-      Data: '2012-03',
-      sales: 1578,
-    },
-    {
-      Data: '2012-04',
-      sales: 1465,
-    },
-    {
-      Data: '2012-05',
-      sales: 1689,
-    },
-    {
-      Data: '2012-06',
-      sales: 1755,
-    },
-    {
-      Data: '2012-07',
-      sales: 1495,
-    },
-    {
-      Data: '2012-08',
-      sales: 1508,
-    },
-    {
-      Data: '2012-09',
-      sales: 1433,
-    },
-    {
-      Data: '2012-10',
-      sales: 1344,
-    },
-    {
-      Data: '2012-11',
-      sales: 1201,
-    },
-    {
-      Data: '2012-12',
-      sales: 1065,
-    },
-    {
-      Data: '2013-01',
-      sales: 1255,
-    },
-    {
-      Data: '2013-02',
-      sales: 1429,
-    },
-    {
-      Data: '2013-03',
-      sales: 1398,
-    },
-    {
-      Data: '2013-04',
-      sales: 1678,
-    },
-    {
-      Data: '2013-05',
-      sales: 1524,
-    },
-    {
-      Data: '2013-06',
-      sales: 1688,
-    },
-    {
-      Data: '2013-07',
-      sales: 1500,
-    },
-    {
-      Data: '2013-08',
-      sales: 1670,
-    },
-    {
-      Data: '2013-09',
-      sales: 1734,
-    },
-    {
-      Data: '2013-10',
-      sales: 1699,
-    },
-    {
-      Data: '2013-11',
-      sales: 1508,
-    },
-    {
-      Data: '2013-12',
-      sales: 1680,
-    },
-    {
-      Data: '2014-01',
-      sales: 1750,
-    },
-    {
-      Data: '2014-02',
-      sales: 1602,
-    },
-    {
-      Data: '2014-03',
-      sales: 1834,
-    },
-    {
-      Data: '2014-04',
-      sales: 1722,
-    },
-    {
-      Data: '2014-05',
-      sales: 1430,
-    },
-    {
-      Data: '2014-06',
-      sales: 1280,
-    },
-    {
-      Data: '2014-07',
-      sales: 1367,
-    },
-    {
-      Data: '2014-08',
-      sales: 1155,
-    },
-    {
-      Data: '2014-09',
-      sales: 1289,
-    },
-    {
-      Data: '2014-10',
-      sales: 1104,
-    },
-    {
-      Data: '2014-11',
-      sales: 1246,
-    },
-    {
-      Data: '2014-12',
-      sales: 1098,
-    },
-    {
-      Data: '2015-01',
-      sales: 1189,
-    },
-    {
-      Data: '2015-02',
-      sales: 1276,
-    },
-    {
-      Data: '2015-03',
-      sales: 1033,
-    },
-    {
-      Data: '2015-04',
-      sales: 956,
-    },
-    {
-      Data: '2015-05',
-      sales: 845,
-    },
-    {
-      Data: '2015-06',
-      sales: 1089,
-    },
-    {
-      Data: '2015-07',
-      sales: 944,
-    },
-    {
-      Data: '2015-08',
-      sales: 1043,
-    },
-    {
-      Data: '2015-09',
-      sales: 893,
-    },
-    {
-      Data: '2015-10',
-      sales: 840,
-    },
-    {
-      Data: '2015-11',
-      sales: 934,
-    },
-    {
-      Data: '2015-12',
-      sales: 810,
-    },
-    {
-      Data: '2016-01',
-      sales: 782,
-    },
-    {
-      Data: '2016-02',
-      sales: 1089,
-    },
-    {
-      Data: '2016-03',
-      sales: 745,
-    },
-    {
-      Data: '2016-04',
-      sales: 680,
-    },
-    {
-      Data: '2016-05',
-      sales: 802,
-    },
-    {
-      Data: '2016-06',
-      sales: 697,
-    },
-    {
-      Data: '2016-07',
-      sales: 583,
-    },
-    {
-      Data: '2016-08',
-      sales: 456,
-    },
-    {
-      Data: '2016-09',
-      sales: 524,
-    },
-    {
-      Data: '2016-10',
-      sales: 398,
-    },
-    {
-      Data: '2016-11',
-      sales: 278,
-    },
-    {
-      Data: '2016-12',
-      sales: 195,
-    },
-    {
-      Data: '2017-01',
-      sales: 145,
-    },
-    {
-      Data: '2017-02',
-      sales: 207,
-    },
-  ];
+  private _data: PrizmChartsAreaItem[] = [];
+
+  @Input() set autoFit(value: boolean) {
+    this.updateOptions({autoFit: value});
+  }
 
   @Input()
-  @prizmDefaultProp()
-  theme: null | PrizmChartTheme = null;
+  public set xField (value: string) {
+    this.updateOptions({xField: value});
+  };
+  public get xField(): string {
+    return this.options.xField;
+  }
 
-  @ViewChild('container', { static: true, read: ElementRef }) container: ElementRef<HTMLElement>;
+  @Input()
+  public set yField (value: string) {
+    this.updateOptions({yField: value});
+  };
+  public get yField(): string {
+    return this.options.yField;
+  }
 
-  ngOnInit(): void {
-    prizmChartsSetDefaultThemes();
-    const chart = new Chart({
-      container: this.container.nativeElement,
-      autoFit: true,
-      height: 300,
-      width: 500,
-    });
-    chart.data(this.data);
-    chart.scale('Data', {
-      range: [0, 1],
-      tickCount: 10,
-      type: 'timeCat',
-    });
-    chart.scale('sales', {
-      nice: true,
-    });
-    chart.axis('sales', {
-      label: {
-        formatter: text => {
-          return text.replace(/(\d)(?=(?:\d{3})+$)/g, '$1,');
-        },
-      },
-    });
-    chart.tooltip({
-      showCrosshairs: true,
-    });
+  get autoFit(): boolean {
+    return this.options?.autoFit ?? false;
+  }
+  public readonly name = 'area';
+  private origin_: PrizmChartsAreaOrigin;
+  constructor(
+    private readonly elRef: ElementRef<HTMLElement>,
+    private readonly injector: Injector,
+  ) {
+    super(injector);
+    this.init();
+  }
 
-    chart.annotation().dataMarker({
-      position: ['2014-01', 1750],
-      top: true,
-      text: {
-        content: 'Снижение продаж',
-        style: {
-          fontSize: 13,
-        },
-      },
-      line: {
-        length: 30,
-      },
+  private init(): void {
+    this.origin_ = new Area(this.elRef.nativeElement, {
+      data: [],
+      xField: 'x',
+      yField: 'y',
+      theme: 'light',
     });
-
-    chart.line().position('Data*sales');
-    chart.area().position('Data*sales');
-    chart.render();
+    this.render();
   }
 }

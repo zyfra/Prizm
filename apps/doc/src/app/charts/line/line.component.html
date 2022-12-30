@@ -5,100 +5,77 @@
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="exampleOutline">
       <prizm-charts-line-example></prizm-charts-line-example>
+
+    </prizm-doc-example>
+
+    <prizm-doc-example id="base" heading="Smooth Line" [content]="exampleOutline">
+      <prizm-charts-line-smooth-example></prizm-charts-line-smooth-example>
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-<!--      <button-->
-<!--        prizmLine-->
-<!--        [icon]="icon"-->
-<!--        [iconRight]="iconRight"-->
-<!--        [size]="size"-->
-<!--        [appearanceType]="appearanceType"-->
-<!--        [appearance]="appearance"-->
-<!--        [disabled]="disabled"-->
-<!--        [showLoader]="showLoader"-->
-<!--      >-->
-<!--        {{ content }}-->
-<!--      </button>-->
+      <prizm-charts-line
+        #element
+        [prizmDocHostElement]='element'
+        [width]='width'
+        [data]='data'
+        [theme]='prizmTheme.value$ | async'
+        [height]='height'
+      ></prizm-charts-line>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-<!--      <ng-template-->
-<!--        documentationPropertyName="ng-content"-->
-<!--        documentationPropertyType="string"-->
-<!--        [(documentationPropertyValue)]="content"-->
-<!--      >-->
-<!--        NgContent-->
-<!--      </ng-template>-->
 
-<!--      <ng-template-->
-<!--        documentationPropertyName="size"-->
-<!--        documentationPropertyType="PrizmSize"-->
-<!--        documentationPropertyMode="input"-->
-<!--        [documentationPropertyValues]="sizeVariants"-->
-<!--        [(documentationPropertyValue)]="size"-->
-<!--      >-->
-<!--        Size-->
-<!--      </ng-template>-->
+      <ng-template
+        documentationPropertyName="width"
+        documentationPropertyType="number"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="width"
+      >
+        Width
+      </ng-template>
 
-<!--      <ng-template-->
-<!--        documentationPropertyName="appearance"-->
-<!--        documentationPropertyType="PrizmAppearance"-->
-<!--        documentationPropertyMode="input"-->
-<!--        [documentationPropertyValues]="appearanceVariants"-->
-<!--        [(documentationPropertyValue)]="appearance"-->
-<!--      >-->
-<!--        Appearance-->
-<!--      </ng-template>-->
+      <ng-template
+        documentationPropertyName="data"
+        documentationPropertyMode='input'
+        documentationPropertyType="PrizmChartsLineItem[]"
+      >
+        Data
+      </ng-template>
 
-<!--      <ng-template-->
-<!--        documentationPropertyName="appearanceType"-->
-<!--        documentationPropertyType="PrizmAppearanceType"-->
-<!--        documentationPropertyMode="input"-->
-<!--        [documentationPropertyValues]="appearanceTypeVariants"-->
-<!--        [(documentationPropertyValue)]="appearanceType"-->
-<!--      >-->
-<!--        AppearanceType-->
-<!--      </ng-template>-->
+      <ng-template
+        documentationPropertyName="autoFit"
+        documentationPropertyMode='input'
+        documentationPropertyType="boolean"
+      >
+        Auto Fit
+      </ng-template>
 
-<!--      <ng-template-->
-<!--        documentationPropertyName="icon"-->
-<!--        documentationPropertyType="PrizmContent"-->
-<!--        documentationPropertyMode="input"-->
-<!--        [documentationPropertyValues]="iconVariants"-->
-<!--        [(documentationPropertyValue)]="icon"-->
-<!--      >-->
-<!--        Icon-->
-<!--      </ng-template>-->
 
-<!--      <ng-template-->
-<!--        documentationPropertyName="iconRight"-->
-<!--        documentationPropertyType="PrizmContent"-->
-<!--        documentationPropertyMode="input"-->
-<!--        [documentationPropertyValues]="iconVariants"-->
-<!--        [(documentationPropertyValue)]="iconRight"-->
-<!--      >-->
-<!--        Right Icon-->
-<!--      </ng-template>-->
+      <ng-template
+        documentationPropertyName="theme"
+        documentationPropertyMode='input'
+        documentationPropertyType="PrizmChartTheme"
+      >
+        Theme
+      </ng-template>
 
-<!--      <ng-template-->
-<!--        documentationPropertyName="disabled"-->
-<!--        documentationPropertyType="boolean"-->
-<!--        documentationPropertyMode="input"-->
-<!--        [(documentationPropertyValue)]="disabled"-->
-<!--      >-->
-<!--        Disabled-->
-<!--      </ng-template>-->
+      <ng-template
+        documentationPropertyName="options"
+        documentationPropertyMode='input'
+        documentationPropertyType="PrizmChartsAriaOptions"
+      >
+        Options
+      </ng-template>
 
-<!--      <ng-template-->
-<!--        documentationPropertyName="showLoader"-->
-<!--        documentationPropertyType="boolean"-->
-<!--        documentationPropertyMode="input"-->
-<!--        [(documentationPropertyValue)]="showLoader"-->
-<!--      >-->
-<!--        Show Loader-->
-<!--      </ng-template>-->
+      <ng-template
+        documentationPropertyName="height"
+        documentationPropertyType="number"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="height"
+      >
+        Height
+      </ng-template>
     </prizm-doc-documentation>
   </ng-template>
 

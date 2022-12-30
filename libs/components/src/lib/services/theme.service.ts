@@ -16,6 +16,7 @@ export class PrizmThemeService implements OnDestroy {
       theme: 'light',
     });
     readonly theme$ = this.themeSource$.asObservable();
+    readonly value$ = this.theme$.pipe(map(i => i.theme));
     public readonly attThemeKey = 'data-prizm-theme';
     public readonly subscription = new Subscription();
 
@@ -51,7 +52,10 @@ export class PrizmThemeService implements OnDestroy {
       );
     }
 
-    public update(theme: PrizmTheme, el?: HTMLElement): void {
+    public update(
+      theme: PrizmTheme,
+      el: HTMLElement = this.rootElement ?? this.document.querySelector('body')
+    ): void {
       this.themeSource$.next({
         theme,
         el,
