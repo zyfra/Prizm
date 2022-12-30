@@ -1,52 +1,40 @@
-<prizm-doc-page
-  header="Widget"
-  package="components"
-  type="components"
->
-  <div class='page-description' description>
-    Our widget component can use a variety of different types of content. It can be used to display a single image, a video, or a slideshow of images. It can also be used to display a single piece of text, or a slideshow of text.
+<prizm-doc-page header="Widget" package="components" type="components">
+  <div class="page-description" description>
+    Our widget component can use a variety of different types of content. It can be used to display a single
+    image, a video, or a slideshow of images. It can also be used to display a single piece of text, or a
+    slideshow of text.
   </div>
   <ng-template prizmDocPageTab>
-
-    <prizm-doc-example
-      id="base"
-      heading="Base"
-      [content]="exampleBase"
-    >
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
       <prizm-widget-base-example></prizm-widget-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example
-      id="base"
-      heading="With Buttons"
-      [content]="exampleWithButtons"
-    >
+    <prizm-doc-example id="base" heading="With Buttons" [content]="exampleWithButtons">
       <prizm-widget-with-buttons-example></prizm-widget-with-buttons-example>
     </prizm-doc-example>
-
-
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-widget
-        [header]='header'
-        [title]='title'
-        [icons]='icons'>
-        {{content}}
+        #element
+        [prizmDocHostElement]="element"
+        [header]="header"
+        [title]="title"
+        [icons]="icons"
+      >
+        {{ content }}
       </prizm-widget>
-
     </prizm-doc-demo>
     <prizm-doc-documentation>
-
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="content"
         documentationPropertyType="string"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="content"
       >
         NgContent
-      </ng-template>
+      </ng-template> -->
 
       <ng-template
         documentationPropertyName="header"
@@ -55,13 +43,10 @@
         [(documentationPropertyValue)]="header"
         [documentationPropertyValues]="$any(getHeaderVariants(headerTemplate))"
       >
-        Header
-        ( if passed header, title and icons will be not showed )
+        Header ( if passed header, title and icons will be not showed )
       </ng-template>
 
-      <ng-template #headerTemplate>
-        Отдельный шаблон для реализации своего хедера
-      </ng-template>
+      <ng-template #headerTemplate> Отдельный шаблон для реализации своего хедера </ng-template>
 
       <ng-template
         documentationPropertyName="title"
@@ -72,9 +57,7 @@
         Title
       </ng-template>
 
-      <ng-template #iconTemplate>
-        Какой то шаблон
-      </ng-template>
+      <ng-template #iconTemplate> Какой то шаблон </ng-template>
 
       <ng-template
         documentationPropertyName="icons"
@@ -85,7 +68,6 @@
       >
         Icons
       </ng-template>
-
 
       <ng-template
         documentationPropertyName="iconClick"
@@ -106,10 +88,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
