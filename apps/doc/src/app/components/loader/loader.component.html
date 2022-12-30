@@ -1,36 +1,30 @@
-<prizm-doc-page
-  header="Loader"
-  package="components"
-  type="components"
->
-  <div class='page-description' description>
+<prizm-doc-page header="Loader" package="components" type="components">
+  <div class="page-description" description>
     Our loader component can use a variety of different loaders to display a loading state.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example
-      id="base"
-      heading="Set"
-      [content]="exampleBase"
-    >
+    <prizm-doc-example id="base" heading="Set" [content]="exampleBase">
       <prizm-loader-base-example></prizm-loader-base-example>
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <div style="position: relative; color: black;">
-        <prizm-loader [showLoader]="showLoader"
-                    [inheritColor]="inheritColor"
-                    [overlay]="overlay">
-          Lorem Ipsum is simply dummy text of the printing and
-          typesetting industry. Lorem Ipsum has been the industry's
-          standard dummy text ever since the 1500s, when an unknown
-          printer took a galley of type and scrambled it to make a
-          type specimen book. It has survived not only five centuries,
-          but also the leap into electronic typesetting.
+      <div style="position: relative; color: black">
+        <prizm-loader
+          #element
+          [prizmDocHostElement]="element"
+          [showLoader]="showLoader"
+          [inheritColor]="inheritColor"
+          [overlay]="overlay"
+          [inheritColor]="inheritColor"
+        >
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+          industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+          and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+          leap into electronic typesetting.
         </prizm-loader>
       </div>
-
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
@@ -58,22 +52,37 @@
       >
         Text Content
       </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmSize"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="inheritColor"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="inheritColor"
+      >
+        Inherit Color
+      </ng-template>
     </prizm-doc-documentation>
   </ng-template>
 
   <ng-template prizmDocPageTab>
     <ol class="b-demo-steps">
       <li>
-        <p >
+        <p>
           Import
           <code>PrizmLoaderModule</code>
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

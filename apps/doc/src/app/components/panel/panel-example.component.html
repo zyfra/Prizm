@@ -1,5 +1,5 @@
 <prizm-doc-page header="Panel" package="components" type="components">
-  <div class='page-description' description>
+  <div class="page-description" description>
     Our panel component is a container that can be used to group content.
   </div>
   <ng-template prizmDocPageTab>
@@ -50,9 +50,15 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-panel [withBackButton]="withBackButton" [header]="header" [subheader]="subheader"></prizm-panel>
+      <prizm-panel
+        #element
+        [prizmDocHostElement]="element"
+        [withBackButton]="withBackButton"
+        [header]="header"
+        [subheader]="subheader"
+      ></prizm-panel>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template

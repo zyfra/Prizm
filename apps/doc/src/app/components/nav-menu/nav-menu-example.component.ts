@@ -9,6 +9,7 @@ import { HeaderConfig, ToolbarConfig, PrizmMenuItem } from '@prizm-ui/components
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavMenuExampleComponent {
+  public searchPlaceholder = '';
   public menuTitle = 'Наименование приложения';
   public emptyMessage = 'Пусто';
   public navigationList: PrizmMenuItem[] = [

@@ -1,83 +1,69 @@
-<prizm-doc-page
-  header="Toast"
-  package="components"
-  type="components"
->
-  <div class='page-description' description>
+<prizm-doc-page header="Toast" package="components" type="components">
+  <div class="page-description" description>
     Our toast component is a simple way to display a message to the user.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example
-      heading="Info Message"
-      id="info-toast"
-      [content]="exampleMessageInfo"
-    >
+    <prizm-doc-example heading="Info Message" id="info-toast" [content]="exampleMessageInfo">
       <prizm-message-info-example></prizm-message-info-example>
     </prizm-doc-example>
 
-    <prizm-doc-example
-      heading="Warning Message"
-      id="warning-toast"
-      [content]="exampleMessageWarning"
-    >
+    <prizm-doc-example heading="Warning Message" id="warning-toast" [content]="exampleMessageWarning">
       <prizm-message-warning-example></prizm-message-warning-example>
     </prizm-doc-example>
 
-    <prizm-doc-example
-      id="success-toast"
-      heading="Success Message"
-      [content]="exampleMessageSuccess"
-    >
+    <prizm-doc-example id="success-toast" heading="Success Message" [content]="exampleMessageSuccess">
       <prizm-message-success-example></prizm-message-success-example>
     </prizm-doc-example>
 
-    <prizm-doc-example
-      id="danger-toast"
-      heading="Danger Message"
-      [content]="exampleMessageDanger"
-    >
+    <prizm-doc-example id="danger-toast" heading="Danger Message" [content]="exampleMessageDanger">
       <prizm-message-danger-example></prizm-message-danger-example>
     </prizm-doc-example>
 
-    <prizm-doc-example
-      id="toast-platform"
-      heading="Platform Toast"
-      [content]="exampleToast"
-    >
+    <prizm-doc-example id="toast-platform" heading="Platform Toast" [content]="exampleToast">
       <prizm-toast-example></prizm-toast-example>
     </prizm-doc-example>
-
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <button prizmButton (click)="showToast()">Показать тост</button>
       <div>
         <p>Container inline</p>
-        <prizm-toast-container [containerId]="containerId"></prizm-toast-container>
+        <prizm-toast-container
+          #element
+          [prizmDocHostElement]="element"
+          [containerId]="containerId"
+        ></prizm-toast-container>
       </div>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        documentationPropertyName="containerId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Container Id
+      </ng-template>
+
+      <!-- <ng-template
         documentationPropertyName="timer"
         documentationPropertyType="number"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="timer"
       >
-        Timer expire
-        (0 - it will be never auto closed)
-      </ng-template>
+        Timer expire (0 - it will be never auto closed)
+      </ng-template> -->
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="id"
         documentationPropertyType="string"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="id"
       >
         Id for toast (can show only one with same id)
-      </ng-template>
+      </ng-template> -->
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="appearance"
         documentationPropertyType="PrizmToastAppearance"
         documentationPropertyMode="input"
@@ -85,7 +71,7 @@
         [(documentationPropertyValue)]="appearance"
       >
         Appearance toast
-      </ng-template>
+      </ng-template> -->
 
       <ng-template
         documentationPropertyName="position"
@@ -97,7 +83,7 @@
         Position place
       </ng-template>
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="title"
         documentationPropertyType="PolymorphContent<PrizmToastRef>"
         documentationPropertyMode="input"
@@ -105,9 +91,9 @@
         [(documentationPropertyValue)]="title"
       >
         Title
-      </ng-template>
+      </ng-template> -->
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="content"
         documentationPropertyType="PolymorphContent<PrizmToastRef>"
         documentationPropertyMode="input"
@@ -115,16 +101,16 @@
         [(documentationPropertyValue)]="content"
       >
         Content
-      </ng-template>
+      </ng-template> -->
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="isPlatform"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="isPlatform"
       >
         isPlatform
-      </ng-template>
+      </ng-template> -->
 
       <ng-template #template>
         <a href="">Ссылка</a>
@@ -135,16 +121,13 @@
   <ng-template prizmDocPageTab>
     <ol class="b-demo-steps">
       <li>
-        <p >
+        <p>
           Import
           <code>PrizmToastModule</code>
           into a module where you want to use our toasts
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
