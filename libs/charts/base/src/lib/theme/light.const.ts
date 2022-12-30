@@ -427,7 +427,7 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
       crosshairs: {
         line: {
           style: {
-            stroke: 'rgba(19, 21, 28, 1)',
+            stroke: '#1A1C24',
             lineWidth: 1,
           },
         },
@@ -447,16 +447,16 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           position: 'absolute',
           visibility: 'hidden',
           zIndex: 8,
+          boxShadow: '0px -2px 4px var(--prizm-shadow)',
           transition:
             'left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s',
-          backgroundColor: 'rgb(255, 255, 255)',
+          backgroundColor: 'var(--prizm-grey-g3-g11)',
+          color: 'var(--prizm-grey-g12-g2)',
+          overflow: 'hidden',
+          fontFamily: 'Inter',
           opacity: 0.95,
-          boxShadow: '0px 0px 10px #aeaeae',
-          borderRadius: 2,
-          color: 'rgba(48, 51, 64, 1)',
+          borderRadius: '2px',
           fontSize: 14,
-          fontFamily:
-            '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
           lineHeight: '12px',
           padding: '0 12px 0 12px',
         },

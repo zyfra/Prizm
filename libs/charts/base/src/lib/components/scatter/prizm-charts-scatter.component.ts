@@ -19,7 +19,6 @@ export class PrizmChartsScatterComponent<T extends Record<string, unknown>>
 
   origin_: PrizmChartsScatterOrigin;
 
-
   @Input() set autoFit(value: boolean) {
     this.updateOptions({autoFit: value});
   }
@@ -73,64 +72,21 @@ export class PrizmChartsScatterComponent<T extends Record<string, unknown>>
       xField: 'x',
       yField: 'y',
       shape: 'circle',
-
-      // xAxis: {
-      //   minTickInterval: 10,
-      //   grid: {
-      //     line:{
-      //       style: {
-      //         stroke: 'red'
-      //       }
-      //     }
-      //   },
-      //   line: {
-      //     style: {
-      //       stroke: 'red'
-      //     }
-      //   },
-      //   range: [0, 1],
-      // },
-      // yAxis: {
-      //   minTickInterval: 10,
-      //   grid: {
-      //     line:{
-      //       style: {
-      //         stroke: 'green'
-      //       }
-      //     }
-      //   },
-      //   line: {
-      //     style: {
-      //       stroke: 'green'
-      //     }
-      //   },
-      //   range: [0, 1],
-      // },
-      // colorField: 'Genre',
-      // size: 4,
-      // yAxis: {
-      //   nice: true,
-      //   line: {
-      //     style: {
-      //       stroke: '#aaa',
-      //     },
-      //   },
-      // },
-      // xAxis: {
-      //   min: -100,
-      //   grid: {
-      //     line: {
-      //       style: {
-      //         stroke: '#eee',
-      //       },
-      //     },
-      //   },
-      //   line: {
-      //     style: {
-      //       stroke: '#aaa',
-      //     },
-      //   },
-      // },
+      // tooltip: {
+        // domStyles: {
+        //   'g2-tooltip': {
+        //     background: 'rgba(0, 0, 0, 0.65)',
+        //   }
+        // },
+        // crosshairs: {
+        //   textBackground: {
+        //     style: {
+        //        fill: 'red',
+        //         stroke: 'green'
+        //     }
+        //   }
+        // }
+      // }
     });
 
     this.render();
