@@ -1,21 +1,29 @@
 <prizm-card [shadow]="shadow">
-  <div class='header prizm-font-title-h4'>
+  <div class="header prizm-font-title-h4">
     <ng-container *polymorphOutlet="header">
-      <div class='title'>
+      <div class="title">
         <ng-container *polymorphOutlet="title">
-          {{title}}
+          {{ title }}
         </ng-container>
       </div>
-      <div class='icons' [class.divider]='icons?.length > 1'>
+      <div class="icons" [class.divider]="icons?.length > 1">
         <ng-container *polymorphOutlet="icons">
           <ng-container *ngFor="let icon of $any(icons)">
-            <prizm-icon class='icon' (click)='iconClick.emit(icon)' [iconClass]="icon" size='16'></prizm-icon>
+            <button
+              prizmIconButton
+              appearanceType="ghost"
+              [icon]="icon"
+              appearance="secondary"
+              size="s"
+              (click)="iconClick.emit(icon)"
+            ></button>
           </ng-container>
         </ng-container>
       </div>
     </ng-container>
   </div>
-  <div class='body prizm-font-main-body-14'>
+  <div class="body prizm-font-main-body-14">
     <ng-content></ng-content>
   </div>
 </prizm-card>
+
