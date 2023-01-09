@@ -10,6 +10,8 @@ import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
 export class AccordionExampleComponent {
   public disabled = false;
   public onlyOneExpanded = false;
+  public title = 'Title number 2';
+  public isExpanded = false;
 
   public readonly exampleBasicAccordion: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/accordion-basic-example/accordion-basic-example.component'),
