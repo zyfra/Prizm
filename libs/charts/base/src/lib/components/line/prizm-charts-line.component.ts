@@ -27,17 +27,31 @@ export class PrizmChartsLineComponent<T = unknown>
   }
 
   @Input()
+  public set xField (value: string) {
+    this.updateOptions({xField: value});
+  };
+  public get xField(): string {
+    return this.options.xField;
+  }
+
+  @Input()
+  public set yField (value: string) {
+    this.updateOptions({yField: value});
+  };
+  public get yField(): string {
+    return this.options.yField;
+  }
+
+
+  @Input()
   set data(value: PrizmChartsLineItem[]) {
     this.updateOptions({
-      data: prizmChartsGetDataObjectFromArr(this._data = value)
+      data: value
     })
   }
   get data(): PrizmChartsLineItem[] {
-    return this._data;
+    return this.origin?.options?.data ?? [];
   }
-
-  @prizmDefaultProp()
-  private _data: PrizmChartsAreaItem[] = [];
 
   public readonly name = 'line';
 
@@ -52,10 +66,8 @@ export class PrizmChartsLineComponent<T = unknown>
 
   public init(): void {
     prizmChartsSetDefaultThemes();
-    const data = this._data;
-
     this.origin_ = new Line(this.elRef.nativeElement, {
-      data,
+      data: [],
       padding: 'auto',
       xField: 'x',
       yField: 'y',

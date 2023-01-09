@@ -20,11 +20,40 @@
         [prizmDocHostElement]='element'
         [width]='width'
         [data]='data'
+        [xField]='xField'
+        [yField]='yField'
         [theme]='prizmTheme.value$ | async'
         [height]='height'
       ></prizm-charts-line>
     </prizm-doc-demo>
     <prizm-doc-documentation>
+
+      <ng-template
+        documentationPropertyName="width"
+        documentationPropertyType="number"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="width"
+      >
+        Width
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="xField"
+        documentationPropertyType="string"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="xField"
+      >
+        X Field Name
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="yField"
+        documentationPropertyType="string"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="yField"
+      >
+        Y Field Name
+      </ng-template>
 
       <ng-template
         documentationPropertyName="width"

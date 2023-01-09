@@ -13,21 +13,15 @@ import { prizmChartsGetDataObjectFromArr } from '../../theme';
 export class PrizmChartsAreaComponent
 <T extends Record<string, unknown>>
 extends PrizmChartsAbstractComponent<PrizmChartsAreaOrigin, PrizmChartsAriaOptions> {
-  get origin(): Area {
-      throw this.origin_;
-  }
   @Input()
-  set data(value: [string | number, number][]) {
+  set data(value: PrizmChartsAreaItem[]) {
     this.updateOptions({
-      data: prizmChartsGetDataObjectFromArr(this._data = value)
+      data: value
     })
   }
   get data(): PrizmChartsAreaItem[] {
-    return this._data;
+    return this.origin?.options?.data;
   }
-
-  @prizmDefaultProp()
-  private _data: PrizmChartsAreaItem[] = [];
 
   @Input() set autoFit(value: boolean) {
     this.updateOptions({autoFit: value});
@@ -51,8 +45,11 @@ extends PrizmChartsAbstractComponent<PrizmChartsAreaOrigin, PrizmChartsAriaOptio
   public get yField(): string {
     return this.options.yField;
   }
-
-
+  get origin(): Area {
+    return  this.origin_;
+  }
+  @prizmDefaultProp()
+  private _data: PrizmChartsAreaItem[] = [];
   public readonly name = 'area';
   private origin_: PrizmChartsAreaOrigin;
   constructor(
