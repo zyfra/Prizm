@@ -32,6 +32,9 @@ extends PrizmChartsAbstractComponent<PrizmChartsAreaOrigin, PrizmChartsAriaOptio
   @Input() set autoFit(value: boolean) {
     this.updateOptions({autoFit: value});
   }
+  public get autoFit(): boolean {
+    return this.options?.autoFit ?? false;
+  }
 
   @Input()
   public set xField (value: string) {
@@ -49,9 +52,7 @@ extends PrizmChartsAbstractComponent<PrizmChartsAreaOrigin, PrizmChartsAriaOptio
     return this.options.yField;
   }
 
-  get autoFit(): boolean {
-    return this.options?.autoFit ?? false;
-  }
+
   public readonly name = 'area';
   private origin_: PrizmChartsAreaOrigin;
   constructor(

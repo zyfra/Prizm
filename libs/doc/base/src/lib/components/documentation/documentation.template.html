@@ -2,12 +2,24 @@
 <ng-content></ng-content>
 <table class="t-table">
   <tr class="t-row t-row_header">
-    <th class="t-th t-cell t-cell_prop">{{ texts[2] }}</th>
+    <th class="t-th t-cell t-cell_prop t-name" [ngSwitch]='success'>
+      <span *ngSwitchCase='true'
+            prizmHint='We have found all necessarily inputs and outputs.'
+            class='indicator'>
+        <prizm-indicator type="icon" status="success"></prizm-indicator>
+      </span>
+      <span
+        prizmHint='We have not found all necessarily inputs and outputs. Please add this!'
+        *ngSwitchDefault class='indicator'>
+        <prizm-indicator type="icon" status="danger"></prizm-indicator>
+      </span>
+      {{ texts[2] }}
+    </th>
     <th class="t-th">{{ type }}</th>
     <th *ngIf="showValues && !isAPI" class="t-th t-cell t-cell_value">{{ texts[3] }}</th>
   </tr>
   <tr
-    *ngFor="let propertyConnector of propertiesConnectors"
+    *ngFor="let propertyConnector of propertiesConnectors; let idx = index"
     class="t-row"
     [class.t-deprecated]="propertyConnector.documentationPropertyDeprecated"
   >
