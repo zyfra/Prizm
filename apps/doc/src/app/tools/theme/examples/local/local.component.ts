@@ -28,7 +28,6 @@ export class PrizmThemeLocalExampleComponent {
   }
 
   public toggle(): void {
-    console.log('#mz theme - toggle', this.el);
     this.theme.update(
       this.theme.value === 'light' ? 'dark' : 'light',
       this.el.nativeElement
