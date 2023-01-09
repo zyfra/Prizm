@@ -1,6 +1,5 @@
 import { Directive, ElementRef, EventEmitter, Inject, OnInit, Output, Renderer2 } from '@angular/core';
-import { PrizmThemeService } from '../../services/theme.service';
-import { PrizmTheme } from '../../types/theme';
+import { PrizmThemeService, PrizmTheme } from '@prizm-ui/theme';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 
@@ -21,7 +20,7 @@ export class PrizmThemeDirective implements OnInit {
     ) {}
 
     public ngOnInit(): void {
-      this.themeService.theme$.pipe(
+      this.themeService.change$.pipe(
         tap((theme) => {
           this.renderer2.setAttribute(
             this.element.nativeElement,

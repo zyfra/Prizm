@@ -1,12 +1,14 @@
 import { AfterViewInit, Component, HostBinding, Inject, ViewChild } from '@angular/core';
-import { PrizmThemeService, PrizmToastService } from '@prizm-ui/components';
+import { PrizmToastService } from '@prizm-ui/components';
+import { PrizmThemeService } from '@prizm-ui/theme';
 import { map, takeUntil, tap } from 'rxjs/operators';
 import { LOCAL_STORAGE } from '@ng-web-apis/common';
 import { TuiBrightness } from '@taiga-ui/core';
 import {
   PrizmDocHostElementListenerService
-} from '@prizm/doc-base';
+} from '@prizm-ui/doc';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
+
 @Component({
   selector: 'prizm-doc-root',
   templateUrl: './app.component.html',
@@ -18,13 +20,13 @@ export class AppComponent implements AfterViewInit {
   public element: HTMLElement;
   @ViewChild('docRef') docEl: {night: boolean, onMode: (isNight: boolean) => void};
 
-  readonly isNight$ = this.themeSwitcher.theme$.pipe(
+  readonly isNight$ = this.themeSwitcher.change$.pipe(
     map(i => i.theme === 'dark')
   )
 
   @HostBinding('attr.data-mode')
   get mode(): TuiBrightness | null {
-    return this.themeSwitcher.theme() === 'dark' ? 'onDark' : null;
+    return this.themeSwitcher.getByElement() === 'dark' ? 'onDark' : null;
   }
 
   constructor(

@@ -18,19 +18,20 @@ import {
   tuiRgbToHex,
   tuiWatch,
 } from '@taiga-ui/cdk';
-import { BehaviorSubject, merge } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, merge } from 'rxjs';
+import { filter, map, switchMap } from 'rxjs/operators';
 
 import { PRIZM_DOC_DOCUMENTATION_TEXTS } from '../../tokens/i18n';
 import { prizmInspectAny } from '../../utils/inspect';
 import { PrizmDocDocumentationPropertyConnectorDirective } from './documentation-property-connector.directive';
 import { PRIZM_HOST_COMPONENT_INFO_TOKEN, PrizmHostComponentInfo } from './token';
+import { PrizmDocHostElementListenerService } from '../host';
 
 // @bad TODO subscribe propertiesConnectors changes
 // @bad TODO refactor to make more flexible
 @Component({
   selector: `prizm-doc-documentation`,
-  templateUrl: `./documentation.template.html`,
+  templateUrl: `./documentation.component.html`,
   styleUrls: [`./documentation.style.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
@@ -39,7 +40,7 @@ import { PRIZM_HOST_COMPONENT_INFO_TOKEN, PrizmHostComponentInfo } from './token
       useFactory: (): PrizmHostComponentInfo => new BehaviorSubject({
         key: 'index'
       })
-    }
+    },
   ],
   animations: [
     trigger(`emitEvent`, [transition(`:increment`, [style({ opacity: 1 }), animate(`500ms ease-in`)])]),
@@ -49,8 +50,23 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   @Input()
   heading = ``;
 
-  @Input()
-  success: boolean | null = null;
+  success$ =   combineLatest([
+    this.prizmHostComponentInfo,
+    this.prizmDocHostElementListenerService
+      .checkInfo$
+  ]).pipe(
+    filter(
+      ([key, event]) => event.key === key.key
+    ),
+    map(([, event]) => {
+      return event.unnecessaryOutputs.length === 0
+        && event.unnecessaryInputs.length === 0
+        && event.notListenerInputs.length === 0
+        && event.notListenerOutputs.length === 0;
+
+    }),
+  )
+
 
   @Input()
   public set hostComponentKey(key: string) {
@@ -73,6 +89,7 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   activeItemIndex = 0;
 
   constructor(
+    private readonly prizmDocHostElementListenerService: PrizmDocHostElementListenerService,
     @Inject(PRIZM_HOST_COMPONENT_INFO_TOKEN) private readonly prizmHostComponentInfo: PrizmHostComponentInfo,
     @Inject(ChangeDetectorRef) private readonly changeDetectorRef: ChangeDetectorRef,
     @Inject(PRIZM_DOC_DOCUMENTATION_TEXTS)

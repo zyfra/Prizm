@@ -1,4 +1,4 @@
-import { PrizmTheme } from '@prizm-ui/components';
+import { PrizmTheme } from '@prizm-ui/theme';
 
 export enum PrizmChartDefaultTheme {
   default = 'light',

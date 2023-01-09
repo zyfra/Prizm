@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
+import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { IPaginatorOptions, PaginatorType } from '@prizm-ui/components';
 import { PAGINATOR_OPTIONS_VARIANTS } from './paginator-example.constants';
 

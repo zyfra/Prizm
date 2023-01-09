@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { PrizmThemeService } from '@prizm-ui/components';
+import { PrizmThemeService } from '@prizm-ui/theme';
 import { LOCAL_STORAGE } from '@ng-web-apis/common';
 import { PrizmIconsSvgRegistry, PrizmIconSvgEnum, prizmIconSvgOtherGitLab } from '@prizm-ui/icons';
 
@@ -11,7 +11,7 @@ import { PrizmIconsSvgRegistry, PrizmIconSvgEnum, prizmIconSvgOtherGitLab } from
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LogoComponent {
-  readonly isNight$ = this.themeSwitcher.theme$.pipe(
+  readonly isNight$ = this.themeSwitcher.change$.pipe(
     map(i => i.theme === 'dark')
   )
 

@@ -20,8 +20,8 @@ export class PrizmDocHostElementListenerService {
 
 
   public emit(
-    // type: PrizmDocumentationPropertyType,
     hasNotListener: boolean,
+    listenerElementKey: string,
     data: unknown,
     event: string,
     type: string,
@@ -30,6 +30,7 @@ export class PrizmDocHostElementListenerService {
     this.event$$.next({
       page,
       data,
+      key: listenerElementKey,
       hasNotListener,
       event,
       type

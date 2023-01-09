@@ -36,6 +36,6 @@ export class SwitcherComponent {
   readonly testId = 'prizm_switcher';
 
   public selectSwitcher(item: PrizmSwitcherItem, idx: number): void {
-      this.selectedSwitcherIdxChange.emit(this.selectedSwitcherIdx = idx);
+    this.selectedSwitcherIdxChange.emit((this.selectedSwitcherIdx = idx));
   }
 }

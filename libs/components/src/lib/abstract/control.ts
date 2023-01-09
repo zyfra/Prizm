@@ -52,12 +52,12 @@ export abstract class AbstractPrizmControl<T>
   pseudoInvalid: boolean | null = null;
 
   @Output()
-  readonly valChange = new EventEmitter<T>()
+  readonly valChange = new EventEmitter<T>();
 
   protected constructor(
     private readonly ngControl: NgControl | null,
     protected readonly changeDetectorRef: ChangeDetectorRef,
-    protected readonly valueTransformer?: PrizmControlValueTransformer<T> | null,
+    protected readonly valueTransformer?: PrizmControlValueTransformer<T> | null
   ) {
     super();
 
@@ -65,7 +65,7 @@ export abstract class AbstractPrizmControl<T>
       console.assert(
         false,
         `NgControl not injected in ${this.constructor.name}!\n`,
-        'Use [(ngModel)] or [formControl] or formControlName for correct work.',
+        'Use [(ngModel)] or [formControl] or formControlName for correct work.'
       );
       this.ngControl = new FormControl() as unknown as NgControl;
     } else {
@@ -78,12 +78,7 @@ export abstract class AbstractPrizmControl<T>
   @HostBinding('class._invalid')
   get computedInvalid(): boolean {
     return (
-      this.interactive &&
-      (
-        (this.pseudoInvalid != null)
-        ? this.pseudoInvalid
-        : this.touched && this.invalid
-      )
+      this.interactive && (this.pseudoInvalid != null ? this.pseudoInvalid : this.touched && this.invalid)
     );
   }
 
@@ -96,19 +91,19 @@ export abstract class AbstractPrizmControl<T>
   }
 
   get invalid(): boolean {
-    return this.safeNgControlData<boolean>(({invalid}) => invalid, false);
+    return this.safeNgControlData<boolean>(({ invalid }) => invalid, false);
   }
 
   get valid(): boolean {
-    return this.safeNgControlData<boolean>(({valid}) => valid, false);
+    return this.safeNgControlData<boolean>(({ valid }) => valid, false);
   }
 
   get touched(): boolean {
-    return this.safeNgControlData<boolean>(({touched}) => touched, false);
+    return this.safeNgControlData<boolean>(({ touched }) => touched, false);
   }
 
   get disabled(): boolean {
-    return this.safeNgControlData<boolean>(({disabled}) => disabled, false);
+    return this.safeNgControlData<boolean>(({ disabled }) => disabled, false);
   }
 
   get interactive(): boolean {
@@ -116,10 +111,7 @@ export abstract class AbstractPrizmControl<T>
   }
 
   get control(): AbstractControl | null {
-    return this.safeNgControlData<AbstractControl | null>(
-      ({control}) => control,
-      null,
-    );
+    return this.safeNgControlData<AbstractControl | null>(({ control }) => control, null);
   }
 
   get computedName(): string | null {
@@ -131,7 +123,7 @@ export abstract class AbstractPrizmControl<T>
   }
 
   private get rawValue(): T | undefined {
-    const {ngControl} = this;
+    const { ngControl } = this;
 
     if (ngControl === null) {
       return undefined;
@@ -155,11 +147,13 @@ export abstract class AbstractPrizmControl<T>
       .pipe(takeUntil(this.destroy$))
       .subscribe(() => this.refreshLocalValue(this.safeCurrentValue));
 
-    this.control?.valueChanges.pipe(
-      map(() => this.control?.value),
-      tap(items => this.valChange.next(items)),
-      takeUntil(this.destroy$)
-    ).subscribe();
+    this.control?.valueChanges
+      .pipe(
+        map(() => this.control?.value),
+        tap(items => this.valChange.next(items)),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -225,7 +219,7 @@ export abstract class AbstractPrizmControl<T>
 
   private safeNgControlData<T>(
     extractor: (ngControl: NgControl) => T | null | undefined,
-    defaultFieldValue: T,
+    defaultFieldValue: T
   ): T {
     return (this.ngControl && extractor(this.ngControl)) ?? defaultFieldValue;
   }
@@ -246,14 +240,10 @@ export abstract class AbstractPrizmControl<T>
   }
 
   private fromControlValue(controlValue: unknown): T {
-    return this.valueTransformer
-      ? this.valueTransformer.fromControlValue(controlValue)
-      : (controlValue as T);
+    return this.valueTransformer ? this.valueTransformer.fromControlValue(controlValue) : (controlValue as T);
   }
 
   private toControlValue(componentValue: T): unknown {
-    return this.valueTransformer
-      ? this.valueTransformer.toControlValue(componentValue)
-      : componentValue;
+    return this.valueTransformer ? this.valueTransformer.toControlValue(componentValue) : componentValue;
   }
 }

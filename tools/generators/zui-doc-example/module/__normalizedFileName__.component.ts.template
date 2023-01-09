@@ -13,7 +13,7 @@ export class  <%= normalizedComponentClassName %> {
   );
 
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/base.component.ts'),
+    TypeScript: import('!!raw-loader!./examples/base/local.component.ts'),
     LESS: import('./examples/base/base.component.less?raw'),
     HTML: import('!!raw-loader!./examples/base/base.component.html'),
   };

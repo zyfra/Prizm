@@ -12,7 +12,7 @@ import {
   PrizmDocPageGroup,
   PrizmDocPages,
   PrizmDocSourceCodePathOptions,
-} from '@prizm/doc-base';
+} from '@prizm-ui/doc';
 import {
   tuiIsInsideIframe,
   TUI_DIALOG_CLOSES_ON_BACK,

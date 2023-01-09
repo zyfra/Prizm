@@ -7,18 +7,10 @@ import { prizmCapitalizeFirstLetter } from '@prizm-ui/core';
 })
 export class PrizmCronMonthPipe implements PipeTransform {
   readonly datePipe = new DatePipe(this.locale);
-  constructor(
-    @Inject(LOCALE_ID) private locale: string
-  ) {
-  }
-  public transform(month: number,  day = 1, format = 'LLLL'): string {
+  constructor(@Inject(LOCALE_ID) private locale: string) {}
+  public transform(month: number, day = 1, format = 'LLLL'): string {
     const date = new Date();
-    date.setMonth(month ?? 1, day)
-    return prizmCapitalizeFirstLetter(
-      this.datePipe.transform(
-        date,
-        format
-      )
-    )
+    date.setMonth(month ?? 1, day);
+    return prizmCapitalizeFirstLetter(this.datePipe.transform(date, format));
   }
 }

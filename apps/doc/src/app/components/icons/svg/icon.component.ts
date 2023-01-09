@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
+import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { PRIZM_ICONS_SVG_SET, PrizmIconSvgEnum, PrizmIconsSvgRegistry, PrizmIconType } from '@prizm-ui/icons';
 
 @Component({
