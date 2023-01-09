@@ -122,7 +122,7 @@ export class SelectComponent {
   }
 
   public searchMatcher = (searchValue: string, item: unknown): boolean => {
-    return item?.toString().toLowerCase().includes(searchValue.toLowerCase());
+    return item?.toString()?.toLowerCase().includes(searchValue.toLowerCase());
   };
 
   public identityMatcher = (a: unknown, b: unknown): boolean => {

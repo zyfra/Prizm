@@ -50,6 +50,9 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   heading = ``;
 
   @Input()
+  success = false;
+
+  @Input()
   public set hostComponentKey(key: string) {
     this.prizmHostComponentInfo.next({key})
   }
