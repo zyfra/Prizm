@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (09-01-2022)
+
+### Features
+- doc(update): update doc, small fixes [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/417)
+- docs (components/table): update table api page [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/418)
+- docs (components/table): update widget api page [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/419)
+- feat(charts): update doc pages and api for components [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/420)
+- feat(doc): new detect error [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/420)
+
+### BUG FIXES
+- fix(components/date): data relative component [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/416)
+
+
 ## [1.0.0-beta.19](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (27-12-2022)
 
 ### Features
