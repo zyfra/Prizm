@@ -14,6 +14,8 @@
         #element
         [prizmDocHostElement]='element'
         [data]='data'
+        [xField]='xField'
+        [yField]='yField'
         [theme]='prizmTheme.value$ | async'
         [height]='height'
         [width]='width'
@@ -27,6 +29,24 @@
         [(documentationPropertyValue)]="width"
       >
         Width
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="xField"
+        documentationPropertyType="string"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="xField"
+      >
+        X Field Name
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="yField"
+        documentationPropertyType="string"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="yField"
+      >
+        Y Field Name
       </ng-template>
 
       <ng-template
