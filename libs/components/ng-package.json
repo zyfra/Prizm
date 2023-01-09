@@ -5,5 +5,12 @@
     "entryFile": "src/index.ts"
   },
   "assets": ["./src/styles/", "assets", "./src/lib/**/*.less"],
-  "allowedNonPeerDependencies": ["@angular/cdk", "primeicons", "primeng", "@prizm-ui/helpers"]
+  "allowedNonPeerDependencies": [
+    "@angular/cdk",
+    "primeicons",
+    "primeng",
+    "@prizm-ui/helpers",
+    "@prizm-ui/theme",
+    "@prizm-ui/core"
+  ]
 }

@@ -10,15 +10,15 @@ import { PRIZM_HINT_OPTIONS, PrizmHintOptions } from '../hint/hint-options';
 import { PrizmHintDirective } from '../hint/hint.directive';
 
 @Directive({
-    selector: '[prizmTooltip]:not(ng-container)',
-    providers: [
-      PrizmDestroyService,
-      {
-        provide: PRIZM_HINT_OPTIONS,
-        useExisting: forwardRef(() => PRIZM_TOOLTIP_OPTIONS)
-      }
-    ],
-    exportAs: 'prizmTooltip'
+  selector: '[prizmTooltip]:not(ng-container)',
+  providers: [
+    PrizmDestroyService,
+    {
+      provide: PRIZM_HINT_OPTIONS,
+      useExisting: forwardRef(() => PRIZM_TOOLTIP_OPTIONS),
+    },
+  ],
+  exportAs: 'prizmTooltip',
 })
 export class PrizmTooltipDirective extends PrizmHintDirective {
   @Input('prizmTooltipMode')

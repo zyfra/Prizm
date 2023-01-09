@@ -11,23 +11,28 @@ import {
 import { prizmDefaultProp, prizmRequiredSetter } from '@prizm-ui/core';
 import { PolymorphContent } from '../polymorph';
 import { prizmGenerateId } from '../../util';
-import { PrizmConfirmDialogButton, PrizmConfirmDialogResultDefaultType } from '../../components/dialogs/confirm-dialog';
+import {
+  PrizmConfirmDialogButton,
+  PrizmConfirmDialogResultDefaultType,
+} from '../../components/dialogs/confirm-dialog';
 import { PrizmAppearance, PrizmAppearanceType } from '../../types';
 import { PRIZM_HINT_OPTIONS, PrizmHintOptions } from '../hint/hint-options';
 import { PrizmHintDirective } from '../hint/hint.directive';
 
 @Directive({
-    selector: '[prizmConfirmPopup]:not(ng-container)',
-    providers: [
-      PrizmDestroyService,
-      {
-        provide: PRIZM_HINT_OPTIONS,
-        useExisting: forwardRef(() => PRIZM_CONFIRM_POPUP_OPTIONS)
-      }
-    ],
-    exportAs: 'prizmConfirmPopup'
+  selector: '[prizmConfirmPopup]:not(ng-container)',
+  providers: [
+    PrizmDestroyService,
+    {
+      provide: PRIZM_HINT_OPTIONS,
+      useExisting: forwardRef(() => PRIZM_CONFIRM_POPUP_OPTIONS),
+    },
+  ],
+  exportAs: 'prizmConfirmPopup',
 })
-export class PrizmConfirmPopupDirective<T extends Record<string, unknown>> extends PrizmHintDirective<PrizmConfirmPopupOptions> {
+export class PrizmConfirmPopupDirective<
+  T extends Record<string, unknown>
+> extends PrizmHintDirective<PrizmConfirmPopupOptions> {
   @Input('prizmConfirmPopupMode')
   @prizmDefaultProp()
   override prizmHintMode: PrizmHintOptions['mode'] = this.options.mode;
@@ -83,7 +88,6 @@ export class PrizmConfirmPopupDirective<T extends Record<string, unknown>> exten
   @Input() supportButton?: PrizmConfirmPopupButton | string;
   @Input() cancelButton?: PrizmConfirmPopupButton | string;
 
-
   protected override readonly containerComponent = PrizmConfirmPopupContainerComponent;
   protected override readonly onHoverActive = false;
 
@@ -113,22 +117,18 @@ export class PrizmConfirmPopupDirective<T extends Record<string, unknown>> exten
     return context;
   }
 
-
   private generateButton(
     options: PrizmConfirmPopupContext,
     button: PrizmConfirmDialogButton | string,
     defaultText: string,
     defaultComplete: PrizmConfirmDialogResultDefaultType,
     defaultAppearance?: PrizmAppearance,
-    defaultAppearanceType?: PrizmAppearanceType,
+    defaultAppearanceType?: PrizmAppearanceType
   ): PrizmConfirmDialogButton {
-    const buttonText = (typeof button === 'string'
-        ? button
-        : button?.text
-    ) ?? defaultText;
+    const buttonText = (typeof button === 'string' ? button : button?.text) ?? defaultText;
     const btn = ((typeof button === 'string' ? {} : button) ?? {}) as Partial<PrizmConfirmDialogButton>;
 
-    const result =  {
+    const result = {
       ...btn,
       text: buttonText,
       size: btn.size ?? options.size,
@@ -138,15 +138,13 @@ export class PrizmConfirmPopupDirective<T extends Record<string, unknown>> exten
         options.completeWith(defaultComplete);
       },
       appearance: btn.appearance ?? defaultAppearance,
-      appearanceType: btn.appearanceType ?? defaultAppearanceType
+      appearanceType: btn.appearanceType ?? defaultAppearanceType,
     };
 
     return result;
   }
 
-  private safeUpdateButtonsWithDefaultStyles(
-    options: PrizmConfirmPopupContext
-  ): void {
+  private safeUpdateButtonsWithDefaultStyles(options: PrizmConfirmPopupContext): void {
     const supportButton = this.generateButton(
       options,
       options.supportButton,

@@ -1,5 +1,8 @@
 import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
 
+/**
+ * @deprecated
+ * */
 @Component({
   selector: 'prizm-icon',
   templateUrl: './icon.component.html',

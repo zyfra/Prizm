@@ -1,6 +1,6 @@
-<h3 class="tui-space_top-0">
+<h1 class="tui-space_top-0">
   Default install:
-</h3>
+</h1>
 
 <p class="tui-space_top-0">
   You can easily install Prizm UI using Angular CLI by running the following
@@ -9,14 +9,47 @@
 
 <prizm-doc-code code="ng add  @prizm-ui/install"></prizm-doc-code>
 
-<h3 class="tui-space_top-0">
+<h1 class="tui-space_top-0">
   Manual install:
-</h3>
+</h1>
+<div>
+  <h3 class="tui-space_top-0">
+    <span class='required'>Required</span>
+    > Install theme and core:
+  </h3>
 
-<prizm-doc-code code="npm i @prizm-ui/components"></prizm-doc-code>
-<prizm-doc-code code="npm i @prizm-ui/core"></prizm-doc-code>
-<prizm-doc-code code="npm i @prizm-ui/helpers"></prizm-doc-code>
+  <prizm-doc-code code="npm i @prizm-ui/core"></prizm-doc-code>
+  <prizm-doc-code code="npm i @prizm-ui/theme"></prizm-doc-code>
+</div>
 
+<div>
+  <h3 class="tui-space_top-0">
+    <span class='optional'>Optional</span>
+     > Install helpers:
+  </h3>
+
+  <prizm-doc-code code="npm i @prizm-ui/helpers"></prizm-doc-code>
+</div>
+
+
+<div>
+  <h3 class="tui-space_top-0">
+    <span class='optional'>Optional</span>
+    > Install components:
+  </h3>
+
+  <prizm-doc-code code="npm i @prizm-ui/components"></prizm-doc-code>
+</div>
+
+
+<div>
+  <h3 class="tui-space_top-0">
+    <span class='optional'>Optional</span>
+    > Install charts library:
+  </h3>
+
+  <prizm-doc-code code="npm i @prizm-ui/charts"></prizm-doc-code>
+</div>
 
 <prizm-accordion>
   <prizm-accordion-item [isExpanded]='true' title='How setup global styles from @prizm-ui/styles ?'>

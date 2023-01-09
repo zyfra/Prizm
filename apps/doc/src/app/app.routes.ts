@@ -529,6 +529,14 @@ export const ROUTES = [
       title: 'Overlay',
     },
   },
+  {
+    path: 'tools/theme',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./tools/theme/theme.module')).ThemeModule,
+    data: {
+      title: 'Theme',
+    },
+  },
   // CHARTS
   {
     path: 'charts/line',

@@ -7,7 +7,7 @@ import {
   PrizmInputStatus,
   PrizmInputTextComponent,
 } from '@prizm-ui/components';
-import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
+import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 
 @Component({
   selector: 'prizm-input-chips-example',

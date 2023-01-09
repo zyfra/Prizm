@@ -88,4 +88,3 @@ export class PrizmTableDirective<T extends Partial<Record<keyof T, any>>>
     this.changeDetectorRef.detectChanges();
   }
 }
-

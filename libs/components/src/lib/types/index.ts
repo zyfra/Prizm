@@ -8,7 +8,6 @@ export * from "./with-optional-min-max";
 export * from "./dropdown-width";
 export * from "./color";
 export * from "./orientation";
-export * from "./theme";
 export * from "./mapper";
 export * from "./matcher";
 export * from "./marker-handler";

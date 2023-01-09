@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Frame4Component } from './components/frame4/frame4.component';
 import { Frame9Component } from './components/frame9/frame9.component';
 import { TypographyComponent } from './typography.component';
-import { PrizmAddonDocModule } from '@prizm/doc-base';
+import { PrizmAddonDocModule } from '@prizm-ui/doc';
 
 const routes: Routes = [
   {

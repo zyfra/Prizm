@@ -1,5 +1,5 @@
 /**
- * Public API Surface of @prizm/doc-base
+ * Public API Surface of @prizm-ui/doc
  */
 
 /* Components */

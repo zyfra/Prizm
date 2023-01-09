@@ -1,4 +1,13 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Inject, Input, OnInit, Renderer2 } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostListener,
+  Inject,
+  Input,
+  OnInit,
+  Renderer2,
+} from '@angular/core';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmHoveredService } from '../../services';
@@ -12,18 +21,20 @@ import { PrizmHintOptions } from './hint-options';
 @Component({
   selector: 'prizm-hint-container',
   template: `
-    <div class='prizm-font-main-body-12'>
-      <prizm-scrollbar visibility='hidden'>
+    <div class="prizm-font-main-body-12">
+      <prizm-scrollbar visibility="hidden">
         <ng-container *polymorphOutlet="content() as data; context: context">
-          {{data}}
+          {{ data }}
         </ng-container>
       </prizm-scrollbar>
     </div>
   `,
   styleUrls: ['./hint-container.component.less'],
-  providers: [PrizmDestroyService]
+  providers: [PrizmDestroyService],
 })
-export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown> = Record<string, unknown>> implements OnInit, AfterViewInit {
+export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown> = Record<string, unknown>>
+  implements OnInit, AfterViewInit
+{
   @Input()
   @HostListener('attr.id')
   id: string;
@@ -39,8 +50,8 @@ export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown>
   context: CONTEXT = {} as CONTEXT;
 
   @HostListener('attr.mode') get getMode(): PrizmHintOptions['mode'] {
-    return this.mode()
-  };
+    return this.mode();
+  }
 
   constructor(
     protected readonly destroy$: PrizmDestroyService,
@@ -58,26 +69,33 @@ export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown>
 
   public ngAfterViewInit(): void {
     // re-calc positions after fist get container sizes
-    timer(10, animationFrameScheduler).pipe(
-      tap(() => this.prizmOverlayControl.position.calculate()),
-      takeUntil(this.destroy$)
-    ).subscribe();
+    timer(10, animationFrameScheduler)
+      .pipe(
+        tap(() => this.prizmOverlayControl.position.calculate()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   private initPositionListener(): void {
-    this.prizmOverlayControl.position.pos$.pipe(
-      tap((data) => {
-        if(!data.extra) return;
-        this.renderer2.setAttribute(this.el.nativeElement, 'position', data.extra);
-      }),
-      takeUntil(this.destroy$)
-    ).subscribe();
+    this.prizmOverlayControl.position.pos$
+      .pipe(
+        tap(data => {
+          if (!data.extra) return;
+          this.renderer2.setAttribute(this.el.nativeElement, 'position', data.extra);
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   private initHoverListener(): void {
-    this.hoveredService.createHovered$(this.el.nativeElement).pipe(
-      tap(state => this.hintService.emit(this.id, state)),
-      takeUntil(this.destroy$)
-    ).subscribe()
+    this.hoveredService
+      .createHovered$(this.el.nativeElement)
+      .pipe(
+        tap(state => this.hintService.emit(this.id, state)),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 }

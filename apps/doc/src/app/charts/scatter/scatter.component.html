@@ -19,7 +19,7 @@
         [height]='height'
         [yField]='yField'
         [colorField]='colorField'
-        [theme]='prizmTheme.value$ | async'
+        [theme]='prizmTheme.changesTheme$ | async'
         [options]='{size: 5, shape: "circle", appendPadding: 30}'
       ></prizm-charts-scatter>
 

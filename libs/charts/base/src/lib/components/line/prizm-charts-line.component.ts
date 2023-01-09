@@ -11,8 +11,10 @@ import { PrizmChartsLineItem, PrizmChartsLineOptions, PrizmChartsLineOrigin } fr
   templateUrl: './prizm-charts-line.component.html',
   styleUrls: ['./prizm-charts-line.component.less'],
 })
-export class PrizmChartsLineComponent<T = unknown>
-  extends PrizmChartsAbstractComponent<PrizmChartsLineOrigin, PrizmChartsLineOptions> {
+export class PrizmChartsLineComponent<T = unknown> extends PrizmChartsAbstractComponent<
+  PrizmChartsLineOrigin,
+  PrizmChartsLineOptions
+> {
   get origin(): PrizmChartsLineOrigin {
     return this.origin_;
   }
@@ -20,34 +22,33 @@ export class PrizmChartsLineComponent<T = unknown>
   private origin_: PrizmChartsLineOrigin;
 
   @Input() set autoFit(value: boolean) {
-    this.updateOptions({autoFit: value});
+    this.updateOptions({ autoFit: value });
   }
   get autoFit(): boolean {
     return this.options.autoFit ?? false;
   }
 
   @Input()
-  public set xField (value: string) {
-    this.updateOptions({xField: value});
-  };
+  public set xField(value: string) {
+    this.updateOptions({ xField: value });
+  }
   public get xField(): string {
     return this.options.xField;
   }
 
   @Input()
-  public set yField (value: string) {
-    this.updateOptions({yField: value});
-  };
+  public set yField(value: string) {
+    this.updateOptions({ yField: value });
+  }
   public get yField(): string {
     return this.options.yField;
   }
 
-
   @Input()
   set data(value: PrizmChartsLineItem[]) {
     this.updateOptions({
-      data: value
-    })
+      data: value,
+    });
   }
   get data(): PrizmChartsLineItem[] {
     return this.origin?.options?.data ?? [];
@@ -55,10 +56,7 @@ export class PrizmChartsLineComponent<T = unknown>
 
   public readonly name = 'line';
 
-  constructor(
-    private readonly elRef: ElementRef<HTMLElement>,
-    private readonly injector: Injector,
-  ) {
+  constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);
     this.prizmChartThemeService.initIfNecessary();
     this.init();
@@ -72,8 +70,8 @@ export class PrizmChartsLineComponent<T = unknown>
       xField: 'x',
       yField: 'y',
       // xAxis: {
-        // type: 'timeCat',
-        // tickCount: 5,
+      // type: 'timeCat',
+      // tickCount: 5,
       // },
     });
 

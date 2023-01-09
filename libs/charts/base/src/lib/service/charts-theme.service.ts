@@ -28,7 +28,6 @@ export class PrizmChartsThemeService {
     const component = prizmThemeOptions.components?.[componentKey] ?? {};
     return merge(
       {},
-      // component,
       allOptions,
       newOptions,
       component

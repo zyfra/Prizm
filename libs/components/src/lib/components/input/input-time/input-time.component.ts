@@ -37,330 +37,312 @@ import { PrizmDateButton } from '../../../types/date-button';
 import { prizmIsNativeFocused } from '../../../util';
 
 @Component({
-    selector: `prizm-input-time`,
-    templateUrl: `./input-time.component.html`,
-    styleUrls: [`./input-time.component.less`],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [
-        {
-            provide: PRIZM_FOCUSABLE_ITEM_ACCESSOR,
-            useExisting: forwardRef(() => PrizmInputTimeComponent),
-        },
-        PRIZM_FIXED_DROPDOWN_CONTROLLER_PROVIDER,
-    ],
+  selector: `prizm-input-time`,
+  templateUrl: `./input-time.component.html`,
+  styleUrls: [`./input-time.component.less`],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: PRIZM_FOCUSABLE_ITEM_ACCESSOR,
+      useExisting: forwardRef(() => PrizmInputTimeComponent),
+    },
+    PRIZM_FIXED_DROPDOWN_CONTROLLER_PROVIDER,
+  ],
 })
 export class PrizmInputTimeComponent
-    extends AbstractPrizmNullableControl<PrizmTime>
-    implements PrizmFocusableElementAccessor
+  extends AbstractPrizmNullableControl<PrizmTime>
+  implements PrizmFocusableElementAccessor
 {
-    @ViewChild('focusableElementRef', {read: ElementRef})
-    public readonly focusableElement?: ElementRef<HTMLInputElement>;
+  @ViewChild('focusableElementRef', { read: ElementRef })
+  public readonly focusableElement?: ElementRef<HTMLInputElement>;
 
-    @Input()
-    @prizmDefaultProp()
-    placeholder = '';
+  @Input()
+  @prizmDefaultProp()
+  placeholder = '';
 
-    @Input()
-    @prizmDefaultProp()
-    label = 'Выберите время';
+  @Input()
+  @prizmDefaultProp()
+  label = 'Выберите время';
 
-    @Input()
-    @prizmDefaultProp()
-    size: PrizmInputSize = 'm';
+  @Input()
+  @prizmDefaultProp()
+  size: PrizmInputSize = 'm';
 
-    @Input()
-    @prizmDefaultProp()
-    outer = false;
+  @Input()
+  @prizmDefaultProp()
+  outer = false;
 
-    @Input()
-    @prizmDefaultProp()
-    disabledItemHandler: PrizmBooleanHandler<PrizmTime> = PRIZM_ALWAYS_FALSE_HANDLER;
+  @Input()
+  @prizmDefaultProp()
+  disabledItemHandler: PrizmBooleanHandler<PrizmTime> = PRIZM_ALWAYS_FALSE_HANDLER;
 
-    @Input()
-    @prizmDefaultProp()
-    items: readonly PrizmTime[] = new Array(24).fill(null).map(
-      (_, i) => new PrizmTime(i, 0, 0, 0)
-    );
+  @Input()
+  @prizmDefaultProp()
+  items: readonly PrizmTime[] = new Array(24).fill(null).map((_, i) => new PrizmTime(i, 0, 0, 0));
 
-    @Input()
-    @prizmDefaultProp()
-    itemSize: PrizmInputTimeOptions['itemSize'] = this.options.itemSize;
+  @Input()
+  @prizmDefaultProp()
+  itemSize: PrizmInputTimeOptions['itemSize'] = this.options.itemSize;
 
-    @Input()
-    @prizmDefaultProp()
-    strict = false;
+  @Input()
+  @prizmDefaultProp()
+  strict = false;
 
-    @Input()
-    @prizmDefaultProp()
-    mode: PrizmInputTimeOptions['mode'] = this.options.mode;
+  @Input()
+  @prizmDefaultProp()
+  mode: PrizmInputTimeOptions['mode'] = this.options.mode;
 
-    @Input()
-    @prizmDefaultProp()
-    extraButtonInjector: Injector = this.injector;
+  @Input()
+  @prizmDefaultProp()
+  extraButtonInjector: Injector = this.injector;
 
-    @HostBinding('attr.testId')
-    readonly testId = 'prizm_input_time';
+  @HostBinding('attr.testId')
+  readonly testId = 'prizm_input_time';
 
-    public open = false;
-    public rightButtons$: BehaviorSubject<PrizmDateButton[]>
+  public open = false;
+  public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
 
-    constructor(
-        @Optional()
-        @Self()
-        @Inject(NgControl)
-        control: NgControl | null,
-        private readonly cdr: ChangeDetectorRef,
-        @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
-        @Inject(PRIZM_TIME_TEXTS)
-        private readonly timeTexts$: Observable<Record<PrizmTimeMode, string>>,
-        private readonly injector: Injector,
-        @Inject(PRIZM_INPUT_TIME_OPTIONS)
-        private readonly options: PrizmInputTimeOptions,
-    ) {
-        super(control, changeDetectorRef);
+  constructor(
+    @Optional()
+    @Self()
+    @Inject(NgControl)
+    control: NgControl | null,
+    private readonly cdr: ChangeDetectorRef,
+    @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
+    @Inject(PRIZM_TIME_TEXTS)
+    private readonly timeTexts$: Observable<Record<PrizmTimeMode, string>>,
+    private readonly injector: Injector,
+    @Inject(PRIZM_INPUT_TIME_OPTIONS)
+    private readonly options: PrizmInputTimeOptions
+  ) {
+    super(control, changeDetectorRef);
+  }
+
+  public override ngOnInit(): void {
+    super.ngOnInit();
+    this.rightButtons$ = this.extraButtonInjector.get(PRIZM_DATE_RIGHT_BUTTONS);
+  }
+
+  get filtered(): readonly PrizmTime[] {
+    return this.filter(this.items, this.mode, this.computedSearch);
+  }
+
+  get textMaskOptions(): string {
+    return this.calculateMask(this.mode);
+  }
+
+  get computedValue(): string {
+    return this.value ? this.value.toString(this.mode) : this.nativeValue;
+  }
+
+  get computedSearch(): string {
+    return this.computedValue.length !== this.mode.length ? this.computedValue : ``;
+  }
+
+  get innerPseudoFocused(): boolean | null {
+    if (this.pseudoFocused === false) {
+      return false;
     }
 
-    public override ngOnInit(): void {
-      super.ngOnInit();
-      this.rightButtons$ = this.extraButtonInjector.get(PRIZM_DATE_RIGHT_BUTTONS);
+    if (this.open || this.computedFocused) {
+      return true;
     }
 
-    get filtered(): readonly PrizmTime[] {
-        return this.filter(this.items, this.mode, this.computedSearch);
+    return null;
+  }
+
+  get nativeValue(): string {
+    return this.nativeFocusableElement ? this.nativeFocusableElement.value : ``;
+  }
+
+  public get nativeFocusableElement(): HTMLInputElement | null {
+    return this.focusableElement ? (this.focusableElement.nativeElement as HTMLInputElement) : null;
+  }
+
+  public get focused(): boolean {
+    return this.focusableElement?.nativeElement
+      ? prizmIsNativeFocusedIn(this.focusableElement.nativeElement)
+      : false;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/adjacent-overload-signatures
+  set nativeValue(value: string) {
+    if (!this.nativeFocusableElement) {
+      return;
     }
 
-    get textMaskOptions(): string {
-        return this.calculateMask(
-            this.mode,
-        )
+    this.nativeFocusableElement.value = value;
+  }
+
+  @prizmPure
+  public getFiller$(mode: PrizmTimeMode): Observable<string> {
+    return this.timeTexts$.pipe(map(texts => texts[mode]));
+  }
+
+  public onValueChange(value: string): void {
+    this.open = !!this.items.length;
+
+    if (this.control) {
+      this.control.updateValueAndValidity({ emitEvent: false });
     }
 
-    get computedValue(): string {
-        return this.value ? this.value.toString(this.mode) : this.nativeValue;
+    const match = this.getMatch(value);
+
+    if (match !== undefined) {
+      this.updateValue(match);
+
+      return;
     }
 
-    get computedSearch(): string {
-        return this.computedValue.length !== this.mode.length ? this.computedValue : ``;
+    if (!value || value.length !== this.mode.length) {
+      if (!value) this.updateValue(null);
+      return;
     }
 
-    get innerPseudoFocused(): boolean | null {
-        if (this.pseudoFocused === false) {
-            return false;
-        }
+    const time = PrizmTime.fromString(value);
 
-        if (this.open || this.computedFocused) {
-            return true;
-        }
+    this.updateValue(this.strict ? this.findNearestTimeFromItems(time) : time);
+  }
 
-        return null;
+  public onFocused(focused: boolean): void {
+    this.updateFocused(focused);
+
+    if (focused || this.value !== null || this.nativeValue === `` || this.mode === `HH:MM`) {
+      return;
     }
 
-    get nativeValue(): string {
-        return this.nativeFocusableElement ? this.nativeFocusableElement.value : ``;
-    }
+    const parsedTime = PrizmTime.fromString(this.nativeValue);
 
+    this.updateValue(parsedTime);
 
-    public get nativeFocusableElement(): HTMLInputElement | null {
-      return this.focusableElement ? this.focusableElement.nativeElement as HTMLInputElement : null;
-    }
-
-    public get focused(): boolean {
-      return this.focusableElement?.nativeElement ? prizmIsNativeFocusedIn(this.focusableElement.nativeElement) : false;
-    }
-
-    // eslint-disable-next-line @typescript-eslint/adjacent-overload-signatures
-    set nativeValue(value: string) {
-        if (!this.nativeFocusableElement) {
-            return;
-        }
-
-        this.nativeFocusableElement.value = value;
-    }
-
-    @prizmPure
-    public getFiller$(mode: PrizmTimeMode): Observable<string> {
-        return this.timeTexts$.pipe(map(texts => texts[mode]));
-    }
-
-    public onValueChange(value: string): void {
-        this.open = !!this.items.length;
-
-        if (this.control) {
-            this.control.updateValueAndValidity({emitEvent: false});
-        }
-
-        const match = this.getMatch(value);
-
-        if (match !== undefined) {
-            this.updateValue(match);
-
-            return;
-        }
-
-        if (!value || value.length !== this.mode.length) {
-            if (!value) this.updateValue(null);
-            return;
-        }
-
-        const time = PrizmTime.fromString(value);
-
-        this.updateValue(this.strict ? this.findNearestTimeFromItems(time) : time);
-    }
-
-    public onFocused(focused: boolean): void {
-        this.updateFocused(focused);
-
-        if (
-            focused ||
-            this.value !== null ||
-            this.nativeValue === `` ||
-            this.mode === `HH:MM`
-        ) {
-            return;
-        }
-
-        const parsedTime = PrizmTime.fromString(this.nativeValue);
-
-        this.updateValue(parsedTime);
-
-        setTimeout(() => {
-            if (this.nativeValue.endsWith(`.`) || this.nativeValue.endsWith(`:`)) {
-                this.nativeValue = this.nativeValue.slice(0, -1);
-            }
-        });
-    }
-
-    public onHovered(hovered: boolean): void {
-        this.updateHovered(hovered);
-    }
-
-    public onArrowUp(event: Event): void {
-        if (this.items.length) {
-            return;
-        }
-
-        this.processArrow(event, 1);
-    }
-
-    public onArrowDown(event: Event): void {
-        if (this.items.length) {
-            return;
-        }
-
-        this.processArrow(event, -1);
-    }
-
-    public onMenuClick(item: PrizmTime): void {
-        this.open = false;
-        this.updateValue(item);
-    }
-
-    public onOpen(open: boolean): void {
-        this.open = open;
-    }
-
-    public override writeValue(value: PrizmTime | null): void {
-        super.writeValue(value);
-        this.nativeValue = value ? this.computedValue : ``;
-    }
-
-    @prizmPure
-    private calculateMask(mode: PrizmTimeMode): string {
-        return prizmCreateTimeNgxMask(mode, this.options.maxValues);
-    }
-
-    get stringValue(): string {
-      return this.value?.toString() ?? '';
-    }
-
-    @prizmPure
-    private filter(
-        items: readonly PrizmTime[],
-        mode: PrizmTimeMode,
-        search: string,
-    ): readonly PrizmTime[] {
-        return items.filter(item => item.toString(mode).includes(search));
-    }
-
-    private findNearestTimeFromItems(value: PrizmTime): PrizmTime | null {
-        return this.items.reduce((previous, current) =>
-            Math.abs(current.toAbsoluteMilliseconds() - value.toAbsoluteMilliseconds()) <
-            Math.abs(previous.toAbsoluteMilliseconds() - value.toAbsoluteMilliseconds())
-                ? current
-                : previous,
-        );
-    }
-
-    private getMatch(value: string): PrizmTime | undefined {
-        return this.items.find(item => PRIZM_STRICT_MATCHER(item, value));
-    }
-
-    private close(): void {
-        this.open = false;
-    }
-
-    private processArrow(event: Event, shift: -1 | 1): void {
-        const {target} = event;
-
-        // TODO: iframe warning
-        if (this.readOnly || !(target instanceof HTMLInputElement)) {
-            return;
-        }
-
-        const selectionStart = target.selectionStart || 0;
-
-        this.shiftTime(this.calculateShift(selectionStart, shift));
-
-        target.setSelectionRange(selectionStart, selectionStart);
-        event.preventDefault();
-    }
-
-    private calculateShift(selectionStart: number, shift: number): PrizmTimeLike {
-        if (selectionStart <= 2) {
-            return {hours: shift};
-        }
-
-        if (selectionStart <= 5) {
-            return {minutes: shift};
-        }
-
-        if (selectionStart <= 8) {
-            return {seconds: shift};
-        }
-
-        return {ms: shift};
-    }
-
-    private shiftTime(shift: PrizmTimeLike): void {
-        if (this.value === null) {
-            return;
-        }
-
-        const increasedTime: PrizmTime = this.value.shift(shift);
-
-        // Manual update so we can set caret position properly
-        this.nativeValue = increasedTime.toString(this.mode);
-        this.updateValue(increasedTime);
-    }
-
-    private focusInput(preventScroll: boolean = false): void {
-        if (this.nativeFocusableElement) {
-            prizmSetNativeFocused(this.nativeFocusableElement, true, preventScroll);
-            this.close();
-        }
-    }
-
-    public safeOpenModal(): void {
-      const inputElement = this.focusableElement.nativeElement;
-      if (
-        !this.open &&
-        !this.disabled &&
-        inputElement &&
-        prizmIsNativeFocused(inputElement)
-      ) {
-        this.open = true;
-        this.cdr.markForCheck();
+    setTimeout(() => {
+      if (this.nativeValue.endsWith(`.`) || this.nativeValue.endsWith(`:`)) {
+        this.nativeValue = this.nativeValue.slice(0, -1);
       }
-    }
-}
+    });
+  }
 
+  public onHovered(hovered: boolean): void {
+    this.updateHovered(hovered);
+  }
+
+  public onArrowUp(event: Event): void {
+    if (this.items.length) {
+      return;
+    }
+
+    this.processArrow(event, 1);
+  }
+
+  public onArrowDown(event: Event): void {
+    if (this.items.length) {
+      return;
+    }
+
+    this.processArrow(event, -1);
+  }
+
+  public onMenuClick(item: PrizmTime): void {
+    this.open = false;
+    this.updateValue(item);
+  }
+
+  public onOpen(open: boolean): void {
+    this.open = open;
+  }
+
+  public override writeValue(value: PrizmTime | null): void {
+    super.writeValue(value);
+    this.nativeValue = value ? this.computedValue : ``;
+  }
+
+  @prizmPure
+  private calculateMask(mode: PrizmTimeMode): string {
+    return prizmCreateTimeNgxMask(mode, this.options.maxValues);
+  }
+
+  get stringValue(): string {
+    return this.value?.toString() ?? '';
+  }
+
+  @prizmPure
+  private filter(items: readonly PrizmTime[], mode: PrizmTimeMode, search: string): readonly PrizmTime[] {
+    return items.filter(item => item.toString(mode).includes(search));
+  }
+
+  private findNearestTimeFromItems(value: PrizmTime): PrizmTime | null {
+    return this.items.reduce((previous, current) =>
+      Math.abs(current.toAbsoluteMilliseconds() - value.toAbsoluteMilliseconds()) <
+      Math.abs(previous.toAbsoluteMilliseconds() - value.toAbsoluteMilliseconds())
+        ? current
+        : previous
+    );
+  }
+
+  private getMatch(value: string): PrizmTime | undefined {
+    return this.items.find(item => PRIZM_STRICT_MATCHER(item, value));
+  }
+
+  private close(): void {
+    this.open = false;
+  }
+
+  private processArrow(event: Event, shift: -1 | 1): void {
+    const { target } = event;
+
+    // TODO: iframe warning
+    if (this.readOnly || !(target instanceof HTMLInputElement)) {
+      return;
+    }
+
+    const selectionStart = target.selectionStart || 0;
+
+    this.shiftTime(this.calculateShift(selectionStart, shift));
+
+    target.setSelectionRange(selectionStart, selectionStart);
+    event.preventDefault();
+  }
+
+  private calculateShift(selectionStart: number, shift: number): PrizmTimeLike {
+    if (selectionStart <= 2) {
+      return { hours: shift };
+    }
+
+    if (selectionStart <= 5) {
+      return { minutes: shift };
+    }
+
+    if (selectionStart <= 8) {
+      return { seconds: shift };
+    }
+
+    return { ms: shift };
+  }
+
+  private shiftTime(shift: PrizmTimeLike): void {
+    if (this.value === null) {
+      return;
+    }
+
+    const increasedTime: PrizmTime = this.value.shift(shift);
+
+    // Manual update so we can set caret position properly
+    this.nativeValue = increasedTime.toString(this.mode);
+    this.updateValue(increasedTime);
+  }
+
+  private focusInput(preventScroll: boolean = false): void {
+    if (this.nativeFocusableElement) {
+      prizmSetNativeFocused(this.nativeFocusableElement, true, preventScroll);
+      this.close();
+    }
+  }
+
+  public safeOpenModal(): void {
+    const inputElement = this.focusableElement.nativeElement;
+    if (!this.open && !this.disabled && inputElement && prizmIsNativeFocused(inputElement)) {
+      this.open = true;
+      this.cdr.markForCheck();
+    }
+  }
+}

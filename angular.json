@@ -105,6 +105,45 @@
       },
       "tags": []
     },
+    "core": {
+      "projectType": "library",
+      "root": "libs/core",
+      "sourceRoot": "libs/core/src",
+      "prefix": "prizm",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/core"],
+          "options": {
+            "project": "libs/core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/core/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/core/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core"],
+          "options": {
+            "jestConfig": "libs/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/core/src/**/*.ts", "libs/core/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
     "doc": {
       "projectType": "application",
       "root": "apps/doc",
@@ -144,6 +183,7 @@
               "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
               "node_modules/primeicons/primeicons.css",
               "libs/components/src/styles/styles.less",
+              "libs/theme/src/styles/styles.less",
               "libs/icons/flags/src/styles/styles.less",
               "libs/components/src/styles/icons/icons.less",
               "libs/components/src/styles/icons-16/icons-16.less",
@@ -399,84 +439,6 @@
       },
       "tags": []
     },
-    "prizm-core": {
-      "projectType": "library",
-      "root": "libs/prizm/core",
-      "sourceRoot": "libs/prizm/core/src",
-      "prefix": "prizm",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "outputs": ["dist/libs/prizm/core"],
-          "options": {
-            "project": "libs/prizm/core/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/prizm/core/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/prizm/core/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/prizm/core"],
-          "options": {
-            "jestConfig": "libs/prizm/core/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/prizm/core/src/**/*.ts", "libs/prizm/core/src/**/*.html"]
-          }
-        }
-      },
-      "tags": []
-    },
-    "prizm-theme": {
-      "projectType": "library",
-      "root": "libs/prizm/theme",
-      "sourceRoot": "libs/prizm/theme/src",
-      "prefix": "prizm",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:package",
-          "outputs": ["dist/libs/prizm/theme"],
-          "options": {
-            "project": "libs/prizm/theme/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/prizm/theme/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/prizm/theme/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/prizm/theme"],
-          "options": {
-            "jestConfig": "libs/prizm/theme/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/prizm/theme/src/**/*.ts", "libs/prizm/theme/src/**/*.html"]
-          }
-        }
-      },
-      "tags": []
-    },
     "schematics": {
       "projectType": "library",
       "root": "libs/schematics",
@@ -535,6 +497,45 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/schematics/src/**/*.ts", "libs/schematics/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
+    "theme": {
+      "projectType": "library",
+      "root": "libs/theme",
+      "sourceRoot": "libs/theme/src",
+      "prefix": "prizm",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/theme"],
+          "options": {
+            "project": "libs/theme/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/theme/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/theme/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/theme"],
+          "options": {
+            "jestConfig": "libs/theme/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/theme/src/**/*.ts", "libs/theme/src/**/*.html"]
           }
         }
       },

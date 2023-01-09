@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
-import { PrizmSize, PrizmThemeService } from '@prizm-ui/components';
+import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
+import { PrizmThemeService } from '@prizm-ui/theme';
 
 @Component({
   selector: 'prizm-button-example',

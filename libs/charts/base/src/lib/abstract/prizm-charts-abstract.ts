@@ -2,13 +2,18 @@ import { Component, HostBinding, Injector, Input, OnDestroy } from '@angular/cor
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmChartsThemeService } from '../service/charts-theme.service';
 import { PrizmChartTheme } from '../theme/types';
-@Component({template: ''})
-export abstract class PrizmChartsAbstractComponent<ORIGIN extends Record<string, any>, OPTIONS extends Record<string, any>> implements OnDestroy {
+@Component({ template: '' })
+export abstract class PrizmChartsAbstractComponent<
+  ORIGIN extends Record<string, any>,
+  OPTIONS extends Record<string, any>
+> implements OnDestroy
+{
   @HostBinding('style.width.px')
-  @Input() set width(value: number | null) {
+  @Input()
+  set width(value: number | null) {
     if (value == this.width) return;
     this.updateOptions({
-      width: value
+      width: value,
     });
   }
   get width(): number | null {
@@ -16,21 +21,22 @@ export abstract class PrizmChartsAbstractComponent<ORIGIN extends Record<string,
   }
 
   @HostBinding('style.height.px')
-  @Input() set height(value: number) {
+  @Input()
+  set height(value: number) {
     if (value == this.height) return;
     this.updateOptions({
-      height: value
+      height: value,
     });
   }
   get height(): number {
     return this.options.height;
   }
 
-  public readonly abstract name: string;
+  public abstract readonly name: string;
 
   @Input()
   set options(value: Partial<OPTIONS>) {
-    this.updateOptions(value)
+    this.updateOptions(value);
   }
   get options(): Partial<OPTIONS> {
     return this.origin?.options as Partial<OPTIONS>;
@@ -44,17 +50,15 @@ export abstract class PrizmChartsAbstractComponent<ORIGIN extends Record<string,
       value,
       this.name,
       {
-        theme: value
+        theme: value,
       },
       this.options as unknown as Record<string, unknown>
     );
     this.updateOptions(options);
-  };
+  }
   readonly prizmChartThemeService: PrizmChartsThemeService;
   abstract get origin(): ORIGIN;
-  constructor(
-    injector: Injector,
-  ) {
+  constructor(injector: Injector) {
     this.prizmChartThemeService = injector.get(PrizmChartsThemeService);
     this.prizmChartThemeService.initIfNecessary();
   }

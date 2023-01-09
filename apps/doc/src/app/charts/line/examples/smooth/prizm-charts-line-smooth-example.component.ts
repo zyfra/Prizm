@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PrizmThemeService } from '@prizm-ui/components';
+import { PrizmThemeService } from '@prizm-ui/theme';
 import { PrizmChartsLineItem } from '@prizm-ui/charts';
 
 @Component({

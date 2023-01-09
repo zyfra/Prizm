@@ -6,10 +6,8 @@ import { PRIZM_MUTATION_OBSERVER_OPTIONS, PrizmMutationObserveOptions } from './
 
 @Directive({
   selector: '[prizmMutationObserver]',
-  providers: [
-    PrizmDestroyService,
-  ],
-  exportAs: 'prizmMutationObserverEl'
+  providers: [PrizmDestroyService],
+  exportAs: 'prizmMutationObserverEl',
 })
 export class PrizmMutationObserveDirective implements OnInit {
   @Input()
@@ -28,7 +26,7 @@ export class PrizmMutationObserveDirective implements OnInit {
   constructor(
     @Inject(ElementRef) private readonly el: ElementRef<HTMLElement>,
     @Inject(PrizmDestroyService) private readonly destroy$: PrizmDestroyService,
-    @Inject(PRIZM_MUTATION_OBSERVER_OPTIONS) protected readonly options: PrizmMutationObserveOptions,
+    @Inject(PRIZM_MUTATION_OBSERVER_OPTIONS) protected readonly options: PrizmMutationObserveOptions
   ) {
     this.observer = new MutationObserver((records: MutationRecord[]) => {
       this.prizmMutationObserver.emit(records);
@@ -46,6 +44,6 @@ export class PrizmMutationObserveDirective implements OnInit {
     );
     this.destroy$.addCallback(() => {
       this.observer.disconnect();
-    })
+    });
   }
 }

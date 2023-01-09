@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PanelExampleComponent } from './panel-example.component';
 import { PanelExampleBasicComponent } from './examples/panel-example-basic/panel-example-basic.component';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import {
   PrizmButtonModule,

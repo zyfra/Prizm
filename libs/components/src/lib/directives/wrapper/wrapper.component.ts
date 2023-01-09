@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input, OnInit } from '@angular/core';
-import { PrizmThemeService } from '../../services';
+import { PrizmThemeService } from '@prizm-ui/theme';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil } from 'rxjs/operators';
 

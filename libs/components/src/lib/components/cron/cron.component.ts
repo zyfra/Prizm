@@ -28,13 +28,13 @@ import { prizmDefaultProp } from '@prizm-ui/core';
     PrizmCronUiHourState,
     PrizmCronUiDayState,
     PrizmCronUiYearState,
-    PrizmCronUiMinuteState
+    PrizmCronUiMinuteState,
   ],
 })
 export class PrizmCronComponent implements OnInit {
   @Input() public set value(value: string) {
     this.cron.updateWith(value);
-  };
+  }
   public get value(): string {
     return this.cron.valueAsString;
   }
@@ -45,7 +45,7 @@ export class PrizmCronComponent implements OnInit {
 
   @Input()
   @prizmDefaultProp()
-  public set period (period: PrizmCronPeriod) {
+  public set period(period: PrizmCronPeriod) {
     this.indefinitelyControl.setValue(period.indefinitely);
     this.startDateControl.setValue(period.start);
     this.endDateControl.setValue(period.start);
@@ -56,7 +56,7 @@ export class PrizmCronComponent implements OnInit {
       indefinitely: this.indefinitelyControl.value,
       start: this.startDateControl.value,
       end: this.indefinitelyControl.value ? null : this.endDateControl.value,
-    }
+    };
   }
 
   @Output() valueChange = new EventEmitter<string>();
@@ -65,48 +65,44 @@ export class PrizmCronComponent implements OnInit {
 
   @Input()
   set selected(selected: PrizmCronTabItem) {
-    this.selectedSwitcherIdx = this.switchers.findIndex(
-      i => i.id === selected
-    )
-  };
+    this.selectedSwitcherIdx = this.switchers.findIndex(i => i.id === selected);
+  }
 
   @Input() set tabs(tabs: PrizmCronTabItem[]) {
-    this.switchers = this.switchers.map(
-      i => {
-        i.hide = !tabs.includes(i.id);
-        return i;
-      }
-    );
+    this.switchers = this.switchers.map(i => {
+      i.hide = !tabs.includes(i.id);
+      return i;
+    });
 
     if (tabs.length && !tabs.includes(this.selected)) {
-      this.selectedChange.emit(this.selected = tabs[0]);
+      this.selectedChange.emit((this.selected = tabs[0]));
     }
-  };
+  }
 
   public switchers: PrizmSwitcherItem<PrizmCronTabItem>[] = [
     {
       title: 'Секунды',
-      id: 'second'
+      id: 'second',
     },
     {
       title: 'Минуты',
-      id: 'minute'
+      id: 'minute',
     },
     {
       title: 'Часы',
-      id: 'hour'
+      id: 'hour',
     },
     {
       title: 'Дни',
-      id: 'day'
+      id: 'day',
     },
     {
       title: 'Месяцы',
-      id: 'month'
+      id: 'month',
     },
     {
       title: 'Годы',
-      id: 'year'
+      id: 'year',
     },
   ];
 
@@ -127,9 +123,8 @@ export class PrizmCronComponent implements OnInit {
     private readonly cronUiYearState: PrizmCronUiYearState,
     private readonly cronUiMonthState: PrizmCronUiMonthState,
     private readonly cronUiMinuteState: PrizmCronUiMinuteState,
-    private readonly cronUiDayState: PrizmCronUiDayState,
-  ) {
-  }
+    private readonly cronUiDayState: PrizmCronUiDayState
+  ) {}
 
   public ngOnInit(): void {
     this.cronUiSecondState.init();
@@ -142,19 +137,17 @@ export class PrizmCronComponent implements OnInit {
   }
 
   private endDateStateCorrector(): void {
-    if (this.indefinitelyControl.value)
-      this.endDateControl.disable()
-    else
-      this.endDateControl.enable()
+    if (this.indefinitelyControl.value) this.endDateControl.disable();
+    else this.endDateControl.enable();
   }
 
   private initEndDateStateChanger(): void {
-    this.indefinitelyControl.valueChanges.pipe(
-      tap(
-        () => this.endDateStateCorrector()
-      ),
-      takeUntil(this.destroy$)
-    ).subscribe();
+    this.indefinitelyControl.valueChanges
+      .pipe(
+        tap(() => this.endDateStateCorrector()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   private emitPeriod(): void {
@@ -162,31 +155,25 @@ export class PrizmCronComponent implements OnInit {
   }
 
   public submit(): void {
-    this.cron.valueAsString$.pipe(
-      tap(
-        (val) => {
+    this.cron.valueAsString$
+      .pipe(
+        tap(val => {
           this.valueChange.emit(val);
           this.emitPeriod();
-        }
-      ),
-      first(),
-      takeUntil(this.destroy$)
-    ).subscribe()
+        }),
+        first(),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   public copy(): void {
     // TODO safe with injection
-    navigator.clipboard.writeText(
-      this.cron.valueAsString
-    )
+    navigator.clipboard.writeText(this.cron.valueAsString);
   }
 
   public indexChanged(index: number): void {
-    const selected = this.switchers.find(
-      (_, i) => i === index
-    );
-    this.selectedChange.emit(
-      this.selected = selected.id
-    );
+    const selected = this.switchers.find((_, i) => i === index);
+    this.selectedChange.emit((this.selected = selected.id));
   }
 }
