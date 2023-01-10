@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmCronUiMinuteState } from '../../cron-ui-minute.state';
+import { PrizmCronUiDayState } from '../../cron-ui-day.state';
 
 @Component({
   selector: 'prizm-cron-day',
@@ -211,7 +212,7 @@ export class PrizmCronDayComponent {
   // }
 
   constructor(
-    public readonly cronUiState: PrizmCronUiMinuteState
+    public readonly cronUiState: PrizmCronUiDayState
   ) {
   }
 
