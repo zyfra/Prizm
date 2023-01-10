@@ -18,6 +18,9 @@ export type PrizmCronPeriod = {
 
 export enum PrizmCronUiDayType {
   every,
+  between,
+  after,
+  specified,
   afterDayOfWeek,
   afterDayOfMonth,
   specifiedDayOfMonth,

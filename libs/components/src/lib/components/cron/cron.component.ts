@@ -3,7 +3,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmSwitcherItem } from '../switcher';
 import { FormControl } from '@angular/forms';
 import { PrizmCronService } from '../../services';
-import { first, takeUntil, tap } from 'rxjs/operators';
+import { filter, first, takeUntil, tap } from 'rxjs/operators';
 import { PrizmCronUiSecondState } from './cron-ui-second.state';
 import { PrizmCronUiMinuteState } from './cron-ui-minute.state';
 import { PrizmCronUiHourState } from './cron-ui-hour.state';
@@ -42,6 +42,14 @@ export class PrizmCronComponent implements OnInit {
   @Input()
   @prizmDefaultProp()
   disabled = false;
+
+  @Input()
+  @prizmDefaultProp()
+  autoSubmit = false;
+
+  @Input()
+  @prizmDefaultProp()
+  hidePeriod = false;
 
   @Input()
   @prizmDefaultProp()
@@ -127,6 +135,7 @@ export class PrizmCronComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
+    this.initAutoSubmiter();
     this.cronUiSecondState.init();
     this.cronUiHourState.init();
     this.cronUiDayState.init();
@@ -151,15 +160,32 @@ export class PrizmCronComponent implements OnInit {
   }
 
   private emitPeriod(): void {
+    if (this.hidePeriod) return;
     this.periodChange.emit(this.period);
+  }
+
+  private initAutoSubmiter(): void {
+    this.cron.valueAsString$
+      .pipe(
+        filter(() => this.autoSubmit),
+        tap(val => {
+          this.emit(val);
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
+  }
+
+  private emit(cronValue: string): void {
+    this.valueChange.emit(cronValue);
+    this.emitPeriod();
   }
 
   public submit(): void {
     this.cron.valueAsString$
       .pipe(
         tap(val => {
-          this.valueChange.emit(val);
-          this.emitPeriod();
+          this.emit(val);
         }),
         first(),
         takeUntil(this.destroy$)
