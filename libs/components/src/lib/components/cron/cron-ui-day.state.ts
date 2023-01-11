@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PrizmCronUiBaseType, PrizmCronUiDayType, PrizmCronUiListItem } from './model';
+import { PrizmCronUiDayType, PrizmCronUiListItem } from './model';
 import { PrizmCronUiBaseState } from './cron-ui-base.state';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmCronService } from '../../services/cron';
@@ -11,8 +11,8 @@ import {
   prizmConvertDayToType,
 } from './util';
 import { combineLatest } from 'rxjs';
-import { distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
-import { PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS } from '@prizm-ui/components';
+import { filter, map, takeUntil, tap } from 'rxjs/operators';
+import { PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS } from './const';
 
 @Injectable()
 export class PrizmCronUiDayState extends PrizmCronUiBaseState<
