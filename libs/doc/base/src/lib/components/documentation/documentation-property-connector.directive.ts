@@ -75,6 +75,8 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
         return `(${this.documentationPropertyName})`;
       case `input-output`:
         return `[(${this.documentationPropertyName})]`;
+      case `css-var`:
+        return `--${this.documentationPropertyName}`;
       default:
         return this.documentationPropertyName;
     }

@@ -33,6 +33,7 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 })
 export class PrizmCronComponent implements OnInit {
   @Input() public set value(value: string) {
+    if (!value) return;
     this.cron.updateWith(value);
   }
   public get value(): string {

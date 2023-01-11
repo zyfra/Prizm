@@ -41,23 +41,10 @@ export class PrizmCronDayComponent {
   // public afterDayOfMonthListDaysValue = this.afterDayOfMonthListDays.first;
   //
   //
-  // public readonly dayOfWeekItems: PrizmCronUiListItem[] = getArrWithWeekNumber()
-  //   .map(
-  //   (i) => ({
-  //     key: PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS[parseInt(i, 10) - 1],
-  //     value: i,
-  //   })
-  // )
   //
   // public selectedDayOfWeek: string[] = [];
   //
   //
-  // public readonly dayOfMonthItems: PrizmCronUiListItem[] = getArrWithStringNumbers(31, 1).map(
-  //   (key, index) => ({
-  //     key: key,
-  //     value: key,
-  //   })
-  // )
   //
   // public selectedDayOfMonth: string[] = [];
   //

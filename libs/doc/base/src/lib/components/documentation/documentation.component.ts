@@ -204,4 +204,15 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   public inspectAny(data: unknown): string {
     return prizmInspectAny(data, 2);
   }
+
+
+  public sortConnectors(
+    connectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>>
+  ): PrizmDocDocumentationPropertyConnectorDirective<any>[] {
+    return connectors.toArray().sort(
+      (a, b) => {
+        return a.documentationPropertyMode.localeCompare(b.documentationPropertyMode)
+      }
+    )
+  }
 }
