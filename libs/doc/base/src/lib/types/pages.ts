@@ -6,6 +6,7 @@ export type PrizmDocumentationPropertyType = 'input' | 'output' | 'input-output'
 export type PrizmPageInfo = {header: string, package: string, type: string};
 export type PrizmPageComponentInfoEvent = {
   selector: string,
+  key: string,
   allOutputs: string[],
   allInputs: string[],
   notListenerInputs: string[],
@@ -14,8 +15,8 @@ export type PrizmPageComponentInfoEvent = {
   notListenerOutputs: string[],
 }
 export type PrizmPageComponentEvent = {
-  // type: PrizmDocumentationPropertyType,
   event: string,
+  key: string,
   data: unknown,
   hasNotListener: boolean,
 

@@ -37,11 +37,10 @@ import { PrizmHoveredService } from '../../services';
       provide: PRIZM_FOCUSABLE_ITEM_ACCESSOR,
       useExisting: forwardRef(() => PrizmButtonComponent),
     },
-    PrizmFocusVisibleService
+    PrizmFocusVisibleService,
   ],
 })
-export class PrizmButtonComponent extends AbstractPrizmInteractive
-  implements PrizmFocusableElementAccessor {
+export class PrizmButtonComponent extends AbstractPrizmInteractive implements PrizmFocusableElementAccessor {
   @Input()
   @HostBinding('attr.data-size')
   @prizmDefaultProp()
@@ -103,19 +102,20 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive
     private readonly focusVisible$: PrizmFocusVisibleService,
     private readonly hoveredService: PrizmHoveredService,
     private readonly changeDetectorRef: ChangeDetectorRef,
-    private readonly destroy$: PrizmDestroyService,
+    private readonly destroy$: PrizmDestroyService
   ) {
     super();
 
-    this.hoveredService.createHovered$(this.elementRef.nativeElement).pipe(
-      tap(hovered => this.updateHovered(hovered)),
-      tap(() => this.changeDetectorRef.markForCheck()),
-      takeUntil(this.destroy$),
-    ).subscribe();
+    this.hoveredService
+      .createHovered$(this.elementRef.nativeElement)
+      .pipe(
+        tap(hovered => this.updateHovered(hovered)),
+        tap(() => this.changeDetectorRef.markForCheck()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
 
-    focusVisible$.pipe(
-      takeUntil(destroy$),
-    ).subscribe(focusVisible => {
+    focusVisible$.pipe(takeUntil(destroy$)).subscribe(focusVisible => {
       this.updateFocusVisible(focusVisible);
     });
 
@@ -127,8 +127,9 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive
           this.updatePressed(pressed);
         }),
         prizmWatch(changeDetectorRef),
-        takeUntil(destroy$),
-      ).subscribe();
+        takeUntil(destroy$)
+      )
+      .subscribe();
   }
 
   get nativeFocusableElement(): HTMLElement | null {

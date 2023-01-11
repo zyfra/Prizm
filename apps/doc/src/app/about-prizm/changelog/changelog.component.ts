@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { prizmRawLoad } from '@prizm/doc-base';
+import { prizmRawLoad } from '@prizm-ui/doc';
 
 @Component({
   selector: `prizm-changelog`,

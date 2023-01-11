@@ -2,7 +2,8 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChild,
-  ElementRef, HostBinding,
+  ElementRef,
+  HostBinding,
   HostListener,
   Inject,
   Injector,
@@ -45,298 +46,290 @@ import { PRIZM_DATE_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
 import { PrizmInputSize } from '../common/models/prizm-input.models';
-import { PRIZM_DATE_FILLER_LENGTH, PRIZM_DATE_RANGE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
+import {
+  PRIZM_DATE_FILLER_LENGTH,
+  PRIZM_DATE_RANGE_FILLER_LENGTH,
+} from '../../../@core/date-time/date-fillers';
 import { PRIZM_RANGE_SEPARATOR_CHAR } from '../../../@core/date-time/date-time';
 import { prizmSetNativeFocused } from '../../../util/set-native-focused';
 import { prizmIsNativeFocusedIn } from '../../../util';
 
 @Component({
-    selector: `prizm-input-date-range`,
-    templateUrl: `./input-date-range.component.html`,
-    styleUrls: [`./input-date-range.component.less`],
-    providers: PRIZM_INPUT_DATE_RANGE_PROVIDERS,
+  selector: `prizm-input-date-range`,
+  templateUrl: `./input-date-range.component.html`,
+  styleUrls: [`./input-date-range.component.less`],
+  providers: PRIZM_INPUT_DATE_RANGE_PROVIDERS,
 })
 export class PrizmInputDateRangeComponent
-    extends AbstractPrizmNullableControl<PrizmDayRange>
-    implements PrizmWithOptionalMinMax<PrizmDay>, PrizmFocusableElementAccessor
+  extends AbstractPrizmNullableControl<PrizmDayRange>
+  implements PrizmWithOptionalMinMax<PrizmDay>, PrizmFocusableElementAccessor
 {
-    @ViewChild('focusableElementRef', {read: ElementRef})
-    public readonly focusableElement?: ElementRef<HTMLInputElement>;
+  @ViewChild('focusableElementRef', { read: ElementRef })
+  public readonly focusableElement?: ElementRef<HTMLInputElement>;
 
-    @ContentChild('footerFrom', {read: TemplateRef})
-    public readonly footerFromTemplate?: TemplateRef<HTMLInputElement>;
+  @ContentChild('footerFrom', { read: TemplateRef })
+  public readonly footerFromTemplate?: TemplateRef<HTMLInputElement>;
 
+  @ContentChild('footerTo', { read: TemplateRef })
+  public readonly footerToTemplate?: TemplateRef<HTMLInputElement>;
 
-    @ContentChild('footerTo', {read: TemplateRef})
-    public readonly footerToTemplate?: TemplateRef<HTMLInputElement>;
+  @Input()
+  @prizmDefaultProp()
+  disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PRIZM_ALWAYS_FALSE_HANDLER;
 
-    @Input()
-    @prizmDefaultProp()
-    disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PRIZM_ALWAYS_FALSE_HANDLER;
+  @Input()
+  @prizmDefaultProp()
+  markerHandler: PrizmMarkerHandler = PRIZM_DEFAULT_MARKER_HANDLER;
 
-    @Input()
-    @prizmDefaultProp()
-    markerHandler: PrizmMarkerHandler = PRIZM_DEFAULT_MARKER_HANDLER;
+  @Input()
+  @prizmDefaultProp()
+  defaultViewedMonth = PrizmMonth.currentLocal();
 
-    @Input()
-    @prizmDefaultProp()
-    defaultViewedMonth = PrizmMonth.currentLocal();
+  @Input()
+  @prizmDefaultProp()
+  items: readonly PrizmDayRangePeriod[] = [];
 
-    @Input()
-    @prizmDefaultProp()
-    items: readonly PrizmDayRangePeriod[] = [];
+  @Input()
+  @prizmDefaultProp()
+  placeholder = '';
 
-    @Input()
-    @prizmDefaultProp()
-    placeholder = '';
+  @Input()
+  @prizmDefaultProp()
+  min = PRIZM_FIRST_DAY;
 
-    @Input()
-    @prizmDefaultProp()
-    min = PRIZM_FIRST_DAY;
+  @Input()
+  @prizmDefaultProp()
+  max = PRIZM_LAST_DAY;
 
-    @Input()
-    @prizmDefaultProp()
-    max = PRIZM_LAST_DAY;
+  @Input()
+  @prizmDefaultProp()
+  minLength: PrizmDayLike | null = null;
 
-    @Input()
-    @prizmDefaultProp()
-    minLength: PrizmDayLike | null = null;
+  @Input()
+  @prizmDefaultProp()
+  maxLength: PrizmDayLike | null = null;
 
-    @Input()
-    @prizmDefaultProp()
-    maxLength: PrizmDayLike | null = null;
+  @HostBinding('attr.testId')
+  readonly testId = 'prizm_input_date_range';
 
-    @HostBinding('attr.testId')
-    readonly testId = 'prizm_input_date_range';
+  open = false;
 
-    open = false;
+  readonly maxLengthMapper: PrizmMapper<PrizmDay, PrizmDay> = PRIZM_MAX_DAY_RANGE_LENGTH_MAPPER;
+  readonly dateFiller$ = this.dateTexts$.pipe(
+    map(dateTexts => prizmChangeDateSeparator(dateTexts[this.dateFormat], this.dateSeparator))
+  );
 
-    readonly maxLengthMapper: PrizmMapper<PrizmDay, PrizmDay> = PRIZM_MAX_DAY_RANGE_LENGTH_MAPPER;
-    readonly dateFiller$ = this.dateTexts$.pipe(
-        map(dateTexts =>
-            prizmChangeDateSeparator(dateTexts[this.dateFormat], this.dateSeparator),
-        ),
-    );
+  @Input()
+  @prizmDefaultProp()
+  label = 'Выберите дату';
 
-    @Input()
-    @prizmDefaultProp()
-    label = 'Выберите дату';
+  @Input()
+  @prizmDefaultProp()
+  size: PrizmInputSize = 'm';
 
-    @Input()
-    @prizmDefaultProp()
-    size: PrizmInputSize = 'm';
+  @Input()
+  @prizmDefaultProp()
+  outer = false;
 
-    @Input()
-    @prizmDefaultProp()
-    outer = false;
+  constructor(
+    @Optional()
+    @Self()
+    @Inject(NgControl)
+    control: NgControl | null,
+    @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
+    @Inject(Injector) private readonly injector: Injector,
+    @Inject(PRIZM_IS_MOBILE) private readonly isMobile: boolean,
+    @Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService,
+    @Optional()
+    @Inject(PRIZM_MOBILE_CALENDAR)
+    private readonly mobileCalendar: Type<any> | null,
+    @Inject(PRIZM_DATE_FORMAT) readonly dateFormat: PrizmDateMode,
+    @Inject(PRIZM_DATE_SEPARATOR) readonly dateSeparator: string,
+    @Inject(PRIZM_DATE_TEXTS)
+    readonly dateTexts$: Observable<Record<PrizmDateMode, string>>,
+    @Optional()
+    @Inject(PRIZM_DATE_RANGE_VALUE_TRANSFORMER)
+    override readonly valueTransformer: PrizmControlValueTransformer<PrizmDayRange | null> | null
+  ) {
+    super(control, changeDetectorRef, valueTransformer);
+  }
 
-    constructor(
-        @Optional()
-        @Self()
-        @Inject(NgControl)
-        control: NgControl | null,
-        @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
-        @Inject(Injector) private readonly injector: Injector,
-        @Inject(PRIZM_IS_MOBILE) private readonly isMobile: boolean,
-        @Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService,
-        @Optional()
-        @Inject(PRIZM_MOBILE_CALENDAR)
-        private readonly mobileCalendar: Type<any> | null,
-        @Inject(PRIZM_DATE_FORMAT) readonly dateFormat: PrizmDateMode,
-        @Inject(PRIZM_DATE_SEPARATOR) readonly dateSeparator: string,
-        @Inject(PRIZM_DATE_TEXTS)
-        readonly dateTexts$: Observable<Record<PrizmDateMode, string>>,
-        @Optional()
-        @Inject(PRIZM_DATE_RANGE_VALUE_TRANSFORMER)
-        override readonly valueTransformer: PrizmControlValueTransformer<PrizmDayRange | null> | null,
-    ) {
-        super(control, changeDetectorRef, valueTransformer);
-    }
+  public get nativeFocusableElement(): HTMLInputElement | null {
+    return this.focusableElement ? (this.focusableElement.nativeElement as HTMLInputElement) : null;
+  }
 
-    public get nativeFocusableElement(): HTMLInputElement | null {
-        return this.focusableElement ? this.focusableElement.nativeElement as HTMLInputElement : null;
-    }
+  public get focused(): boolean {
+    return this.focusableElement?.nativeElement
+      ? prizmIsNativeFocusedIn(this.focusableElement.nativeElement)
+      : false;
+  }
 
-    public get focused(): boolean {
-      return this.focusableElement?.nativeElement ? prizmIsNativeFocusedIn(this.focusableElement.nativeElement) : false;
-    }
+  public get computedMobile(): boolean {
+    return this.isMobile && !!this.mobileCalendar;
+  }
 
-    public get computedMobile(): boolean {
-        return this.isMobile && !!this.mobileCalendar;
-    }
+  public get canOpen(): boolean {
+    return this.interactive && !this.computedMobile;
+  }
 
-    public get canOpen(): boolean {
-        return this.interactive && !this.computedMobile;
-    }
+  get computedMask(): string {
+    return prizmCreateDateRangeMask(this.dateFormat, this.dateSeparator);
+  }
 
-    get computedMask(): string {
-        return prizmCreateDateRangeMask(this.dateFormat, this.dateSeparator);
-    }
-
-    get stringValue(): string {
-      return this.value?.toString() ?? '';
-    }
-
+  get stringValue(): string {
+    return this.value?.toString() ?? '';
+  }
 
   get activePeriod(): PrizmDayRangePeriod | null {
-        return (
-            this.items.find(item =>
-                prizmNullableSame(
-                    this.value,
-                    item.range,
-                    (a, b) =>
-                        a.from.daySame(b.from.dayLimit(this.min, this.max)) &&
-                        a.to.daySame(b.to.dayLimit(this.min, this.max)),
-                ),
-            ) || null
-        );
+    return (
+      this.items.find(item =>
+        prizmNullableSame(
+          this.value,
+          item.range,
+          (a, b) =>
+            a.from.daySame(b.from.dayLimit(this.min, this.max)) &&
+            a.to.daySame(b.to.dayLimit(this.min, this.max))
+        )
+      ) || null
+    );
+  }
+
+  get computedValue(): string {
+    const { value, nativeValue, activePeriod } = this;
+
+    if (activePeriod) {
+      return String(activePeriod);
     }
 
-    get computedValue(): string {
-        const {value, nativeValue, activePeriod} = this;
+    return value ? value.getFormattedDayRange(this.dateFormat, this.dateSeparator) : nativeValue;
+  }
 
-        if (activePeriod) {
-            return String(activePeriod);
-        }
-
-        return value
-            ? value.getFormattedDayRange(this.dateFormat, this.dateSeparator)
-            : nativeValue;
+  get innerPseudoFocused(): boolean | null {
+    if (this.pseudoFocused === false) {
+      return false;
     }
 
-    get innerPseudoFocused(): boolean | null {
-        if (this.pseudoFocused === false) {
-            return false;
-        }
-
-        if (this.open || this.computedFocused) {
-            return true;
-        }
-
-        return null;
+    if (this.open || this.computedFocused) {
+      return true;
     }
 
-    get nativeValue(): string {
-        return this.nativeFocusableElement ? this.nativeFocusableElement.value : ``;
+    return null;
+  }
+
+  get nativeValue(): string {
+    return this.nativeFocusableElement ? this.nativeFocusableElement.value : ``;
+  }
+
+  set nativeValue(value: string) {
+    if (!this.nativeFocusableElement) {
+      return;
     }
 
-    set nativeValue(value: string) {
-        if (!this.nativeFocusableElement) {
-            return;
-        }
+    this.nativeFocusableElement.value = value;
+  }
 
-        this.nativeFocusableElement.value = value;
+  @HostListener(`click`)
+  public onClick(): void {
+    if (!this.isMobile) {
+      this.toggle();
+    }
+  }
+
+  public onOpenChange(open: boolean): void {
+    this.open = open;
+  }
+
+  public onValueChange(value: string): void {
+    if (this.control) {
+      this.control.updateValueAndValidity({ emitEvent: false });
     }
 
-    @HostListener(`click`)
-    public onClick(): void {
-        if (!this.isMobile) {
-            this.toggle();
-        }
+    if (value == null) {
+      this.onOpenChange(true);
     }
 
-    public onOpenChange(open: boolean): void {
-        this.open = open;
+    if (!value || value.length !== PRIZM_DATE_RANGE_FILLER_LENGTH) {
+      if (!value) this.updateValue(null);
+      return;
     }
 
-    public onValueChange(value: string): void {
-        if (this.control) {
-            this.control.updateValueAndValidity({emitEvent: false});
-        }
+    const parsedValue = PrizmDayRange.normalizeParse(value, this.dateFormat);
 
-        if (value == null) {
-            this.onOpenChange(true);
-        }
+    this.updateValue(!this.minLength && !this.maxLength ? parsedValue : this.clampValue(parsedValue));
+  }
 
-        if (!value || (value.length !== PRIZM_DATE_RANGE_FILLER_LENGTH)) {
-          if (!value) this.updateValue(null);
-          return;
-        }
+  public onRangeChange(range: PrizmDayRange | null): void {
+    this.toggle();
+    this.focusInput();
 
-        const parsedValue = PrizmDayRange.normalizeParse(value, this.dateFormat);
-
-        this.updateValue(
-            !this.minLength && !this.maxLength
-                ? parsedValue
-                : this.clampValue(parsedValue),
-        );
+    if (!range) {
+      this.nativeValue = ``;
     }
 
-    public onRangeChange(range: PrizmDayRange | null): void {
-        this.toggle();
-        this.focusInput();
+    if (!prizmNullableSame<PrizmDayRange>(this.value, range, (a, b) => a.daySame(b))) {
+      this.updateValue(range);
+    }
+  }
 
-        if (!range) {
-            this.nativeValue = ``;
-        }
+  public onItemSelect(item: string | PrizmDayRangePeriod): void {
+    this.toggle();
+    this.focusInput();
 
-        if (!prizmNullableSame<PrizmDayRange>(this.value, range, (a, b) => a.daySame(b))) {
-            this.updateValue(range);
-        }
+    if (typeof item !== `string`) {
+      this.updateValue(item.range.dayLimit(this.min, this.max));
+
+      return;
     }
 
-    public onItemSelect(item: string | PrizmDayRangePeriod): void {
-        this.toggle();
-        this.focusInput();
-
-        if (typeof item !== `string`) {
-            this.updateValue(item.range.dayLimit(this.min, this.max));
-
-            return;
-        }
-
-        if (this.activePeriod !== null) {
-            this.updateValue(null);
-            this.nativeValue = ``;
-        }
+    if (this.activePeriod !== null) {
+      this.updateValue(null);
+      this.nativeValue = ``;
     }
+  }
 
-    public onHovered(hovered: boolean): void {
-        this.updateHovered(hovered);
+  public onHovered(hovered: boolean): void {
+    this.updateHovered(hovered);
+  }
+
+  public onPressed(pressed: boolean): void {
+    this.updatePressed(pressed);
+  }
+
+  public override writeValue(value: PrizmDayRange | null): void {
+    super.writeValue(value);
+    this.nativeValue = value ? this.computedValue : ``;
+  }
+
+  private get itemSelected(): boolean {
+    return this.items.findIndex(item => String(item) === this.nativeValue) !== -1;
+  }
+
+  private toggle(): void {
+    this.open = !this.open;
+  }
+
+  private focusInput(preventScroll: boolean = false): void {
+    if (this.nativeFocusableElement) {
+      prizmSetNativeFocused(this.nativeFocusableElement, true, preventScroll);
     }
+  }
 
-    public onPressed(pressed: boolean): void {
-        this.updatePressed(pressed);
-    }
+  private clampValue(value: PrizmDayRange): PrizmDayRange {
+    const clampedBottom =
+      this.minLength && value.from.append(this.minLength).dayAfter(value.to)
+        ? new PrizmDayRange(value.from, value.from.append(this.minLength).append({ day: -1 }))
+        : value;
 
-    public override writeValue(value: PrizmDayRange | null): void {
-        super.writeValue(value);
-        this.nativeValue = value ? this.computedValue : ``;
-    }
+    const availableMax = this.maxLength
+      ? clampedBottom.from.append(this.maxLength).append({ day: -1 })
+      : this.max;
 
-    private get itemSelected(): boolean {
-        return this.items.findIndex(item => String(item) === this.nativeValue) !== -1;
-    }
+    return clampedBottom.to.dayAfter(availableMax)
+      ? new PrizmDayRange(clampedBottom.from, availableMax)
+      : clampedBottom;
+  }
 
-    private toggle(): void {
-        this.open = !this.open;
-    }
-
-    private focusInput(preventScroll: boolean = false): void {
-        if (this.nativeFocusableElement) {
-            prizmSetNativeFocused(this.nativeFocusableElement, true, preventScroll);
-        }
-    }
-
-    private clampValue(value: PrizmDayRange): PrizmDayRange {
-        const clampedBottom =
-            this.minLength && value.from.append(this.minLength).dayAfter(value.to)
-                ? new PrizmDayRange(
-                      value.from,
-                      value.from.append(this.minLength).append({day: -1}),
-                  )
-                : value;
-
-        const availableMax = this.maxLength
-            ? clampedBottom.from.append(this.maxLength).append({day: -1})
-            : this.max;
-
-        return clampedBottom.to.dayAfter(availableMax)
-            ? new PrizmDayRange(clampedBottom.from, availableMax)
-            : clampedBottom;
-    }
-
-    private getDateRangeFiller(dateFiller: string): string {
-        return `${dateFiller}${PRIZM_RANGE_SEPARATOR_CHAR}${dateFiller}`;
-    }
+  private getDateRangeFiller(dateFiller: string): string {
+    return `${dateFiller}${PRIZM_RANGE_SEPARATOR_CHAR}${dateFiller}`;
+  }
 }

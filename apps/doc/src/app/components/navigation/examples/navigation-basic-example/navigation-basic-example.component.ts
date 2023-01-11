@@ -1,7 +1,8 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { INavigationTree, PrizmThemeService } from '@prizm-ui/components';
+import { INavigationTree } from '@prizm-ui/components';
 import { NAVIGATION_EXAMPLE } from '../../navigation-example.const';
 import { map } from 'rxjs/operators';
+import { PrizmThemeService } from '@prizm-ui/theme';
 
 @Component({
   selector: 'prizm-navigation-basic-example',
@@ -17,7 +18,7 @@ export class NavigationBasicExampleComponent {
   public openNavigation = true;
   public currentNavElementIdx = 0;
 
-  public readonly logoPath$ = this.themeSwitcher.theme$.pipe(
+  public readonly logoPath$ = this.themeSwitcher.change$.pipe(
     map(theme => `assets/example/logo-${theme}.png`)
   );
 

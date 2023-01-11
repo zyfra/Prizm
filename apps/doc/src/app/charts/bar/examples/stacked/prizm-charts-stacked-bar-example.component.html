@@ -1,0 +1,8 @@
+<prizm-charts-bar
+  [data]="data"
+  xField='value'
+  yField='year'
+  seriesField='type'
+  [options]='{  isStack: true}'
+  [theme]='prizmTheme.changesTheme$ | async'
+></prizm-charts-bar>

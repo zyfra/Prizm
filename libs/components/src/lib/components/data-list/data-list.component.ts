@@ -1,7 +1,8 @@
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  Component, HostBinding,
+  Component,
+  HostBinding,
   Inject,
   Input,
   OnInit,
@@ -72,4 +73,3 @@ export class PrizmDataListComponent implements OnInit {
       .subscribe();
   }
 }
-

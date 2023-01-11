@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AccordionExampleComponent } from './accordion-example.component';
 import { PrizmAccordionModule, PrizmCheckboxModule } from '@prizm-ui/components';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { AccordionBasicExampleComponent } from './examples/accordion-basic-example/accordion-basic-example.component';
 import { AccordionSingleExpandExampleComponent } from './examples/accordion-single-expand-example/accordion-single-expand-example.component';

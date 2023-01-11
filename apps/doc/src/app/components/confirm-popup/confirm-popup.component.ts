@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
+import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PolymorphContent,
   PRIZM_CONFIRM_POPUP_DEFAULT_OPTIONS,

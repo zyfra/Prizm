@@ -6,7 +6,8 @@ import {
   Injector,
   Input,
   Optional,
-  Self, Type,
+  Self,
+  Type,
   ViewChild,
 } from '@angular/core';
 import { PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS } from './input-date-range-time.providers';
@@ -39,18 +40,16 @@ import { PrizmControlValueTransformer, PrizmDateMode, PrizmTimeMode } from '../.
 import { Observable } from 'rxjs';
 
 @Component({
-    selector: `prizm-input-date-time-range`,
-    templateUrl: `./input-date-range-time.component.html`,
-    styleUrls: [`./input-date-range-time.component.less`],
-    providers: PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS,
+  selector: `prizm-input-date-time-range`,
+  templateUrl: `./input-date-range-time.component.html`,
+  styleUrls: [`./input-date-range-time.component.less`],
+  providers: PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS,
 })
 export class PrizmInputDateTimeRangeComponent
-    extends AbstractPrizmNullableControl<PrizmDateTimeRange>
-    implements
-      PrizmWithOptionalMinMax<PrizmDateTime>,
-      PrizmFocusableElementAccessor
+  extends AbstractPrizmNullableControl<PrizmDateTimeRange>
+  implements PrizmWithOptionalMinMax<PrizmDateTime>, PrizmFocusableElementAccessor
 {
-  @ViewChild('focusableElementRef', {read: ElementRef})
+  @ViewChild('focusableElementRef', { read: ElementRef })
   public readonly focusableElement?: ElementRef<HTMLInputElement>;
 
   @Input()
@@ -94,17 +93,19 @@ export class PrizmInputDateTimeRangeComponent
   maxLength: PrizmDayLike | null = null;
 
   public get nativeFocusableElement(): HTMLInputElement | null {
-    return this.focusableElement ? this.focusableElement.nativeElement as HTMLInputElement : null;
+    return this.focusableElement ? (this.focusableElement.nativeElement as HTMLInputElement) : null;
   }
 
   public get focused(): boolean {
-    return this.focusableElement?.nativeElement ? prizmIsNativeFocusedIn(this.focusableElement.nativeElement) : false;
+    return this.focusableElement?.nativeElement
+      ? prizmIsNativeFocusedIn(this.focusableElement.nativeElement)
+      : false;
   }
   constructor(
     @Optional()
     @Self()
     @Inject(NgControl)
-      control: NgControl | null,
+    control: NgControl | null,
     @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
     @Inject(Injector) private readonly injector: Injector,
     @Inject(PRIZM_IS_MOBILE) private readonly isMobile: boolean,
@@ -118,15 +119,12 @@ export class PrizmInputDateTimeRangeComponent
     readonly dateTexts$: Observable<Record<PrizmDateMode, string>>,
     @Optional()
     @Inject(PRIZM_DATE_RANGE_VALUE_TRANSFORMER)
-    override readonly valueTransformer: PrizmControlValueTransformer<PrizmDateTimeRange | null> | null,
+    override readonly valueTransformer: PrizmControlValueTransformer<PrizmDateTimeRange | null> | null
   ) {
     super(control, changeDetectorRef, valueTransformer);
   }
 
-  public updateTime(
-    isToDate: boolean,
-    value: PrizmTime
-  ): void {
+  public updateTime(isToDate: boolean, value: PrizmTime): void {
     const dateTimeRange = this.value ?? this.getDefaultValue();
 
     if (isToDate) {
@@ -135,24 +133,20 @@ export class PrizmInputDateTimeRangeComponent
       dateTimeRange.timeRange.from = value;
     }
 
-    return this.updateValue(
-      this.value?.copy()
-    );
+    return this.updateValue(this.value?.copy());
   }
 
   private getDefaultValue(): PrizmDateTimeRange {
     return new PrizmDateTimeRange(
       new PrizmDayRange(
         PrizmDay.fromLocalNativeDate(new Date()),
-        PrizmDay.fromLocalNativeDate(new Date()).append({month: 2}),
-      ),
-    )
+        PrizmDay.fromLocalNativeDate(new Date()).append({ month: 2 })
+      )
+    );
   }
 
   public updateDayRange($event: PrizmDayRange): void {
     this.value?.updateDayRange($event);
-    this.updateValue(
-      this.value?.copy()
-    );
+    this.updateValue(this.value?.copy());
   }
 }

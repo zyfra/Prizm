@@ -22,6 +22,7 @@ import {
   TuiSelectModule,
 } from '@taiga-ui/kit';
 import { TuiDocDemoComponent } from './demo.component';
+import { PrizmIndicatorModule } from '@prizm-ui/components';
 
 @NgModule({
   imports: [

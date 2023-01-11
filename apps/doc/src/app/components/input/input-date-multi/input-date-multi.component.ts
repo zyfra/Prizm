@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
+import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { FormControl } from '@angular/forms';
 import { PrizmDateItemTemplate, PrizmDay, PrizmTime } from '@prizm-ui/components';
 

@@ -1,5 +1,5 @@
 import { LOCALE_ID, NgModule, SecurityContext } from '@angular/core';
-import { PrizmAddonDocModule, PrizmDocMainModule } from '@prizm/doc-base';
+import { PrizmAddonDocModule, PrizmDocMainModule } from '@prizm-ui/doc';
 import { AppComponent } from './app.component';
 import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,7 +30,8 @@ import { DesignSystemComponent } from './about-prizm/design-system/design-system
 import { ForDesignersComponent } from './how-to-start/for-designers/for-designers.component';
 import { ForDevelopersComponent } from './how-to-start/for-developers/for-developers.component';
 import { MigrationComponent } from './how-to-start/migration/migration.component';
-import { PrizmAccordionModule, PrizmThemeService, PrizmToastModule, PrizmToggleModule } from '@prizm-ui/components';
+import { PrizmAccordionModule, PrizmToastModule, PrizmToggleModule } from '@prizm-ui/components';
+import { PrizmThemeService } from '@prizm-ui/theme';
 
 registerLocaleData(localeRu);
 @NgModule({

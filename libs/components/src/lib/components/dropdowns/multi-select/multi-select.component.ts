@@ -15,7 +15,11 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { FormControl, NgControl } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
 import { PRIZM_MULTI_SELECT_OPTIONS, PrizmMultiSelectOptions } from './multi-select.options';
-import { PrizmContextWithImplicit, PrizmFocusableElementAccessor, PrizmNativeFocusableElement } from '../../../types';
+import {
+  PrizmContextWithImplicit,
+  PrizmFocusableElementAccessor,
+  PrizmNativeFocusableElement,
+} from '../../../types';
 import { PrizmInputSize } from '../../input';
 import { AbstractPrizmControl } from '../../../abstract/control';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
@@ -45,26 +49,24 @@ import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
       useExisting: forwardRef(() => PrizmMultiSelectComponent),
     },
   ],
-  exportAs: 'prizmDropdownSelect'
+  exportAs: 'prizmDropdownSelect',
 })
 export class PrizmMultiSelectComponent<T>
-extends AbstractPrizmControl<T[]>
-implements PrizmFocusableElementAccessor
+  extends AbstractPrizmControl<T[]>
+  implements PrizmFocusableElementAccessor
 {
-  @ViewChild('focusableElementRef', {read: ElementRef})
+  @ViewChild('focusableElementRef', { read: ElementRef })
   public readonly focusableElement?: ElementRef<HTMLElement>;
 
   @ViewChild('dropdownHostRef')
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;
 
-  @Input() set items(data:T[]) {
+  @Input() set items(data: T[]) {
     this.items$.next(data ?? []);
   }
   get items(): T[] {
     return this.items$.value;
   }
-
-
 
   @Input()
   @prizmDefaultProp()
@@ -108,7 +110,7 @@ implements PrizmFocusableElementAccessor
 
   @Input()
   @prizmDefaultProp()
-  size: PrizmInputSize =  this.options.size;
+  size: PrizmInputSize = this.options.size;
 
   @Input()
   @prizmDefaultProp()
@@ -129,7 +131,8 @@ implements PrizmFocusableElementAccessor
 
   @Input()
   @prizmDefaultProp()
-  valueTemplate: PolymorphContent<PrizmContextWithImplicit<PrizmMultiSelectItemWithChecked<T>>> = this.options.valueContent;
+  valueTemplate: PolymorphContent<PrizmContextWithImplicit<PrizmMultiSelectItemWithChecked<T>>> =
+    this.options.valueContent;
 
   @Input()
   @prizmDefaultProp()
@@ -137,7 +140,6 @@ implements PrizmFocusableElementAccessor
 
   @HostBinding('attr.testId')
   readonly testId = 'prizm_multi_select';
-
 
   public readonly defaultIcon = 'chevrons-dropdown';
   readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
@@ -149,72 +151,62 @@ implements PrizmFocusableElementAccessor
   public readonly searchInputControl = new FormControl();
   public readonly chipsControl = new FormControl([] as string[]);
 
-
   readonly filteredItems$: Observable<PrizmMultiSelectItemWithChecked<T>[]> = this.controlReady$.pipe(
-    switchMap(() => combineLatest([
-      this.searchInputControl.valueChanges.pipe(startWith('')),
-      this.valChange.pipe(startWith(this.value)),
-    ])),
+    switchMap(() =>
+      combineLatest([
+        this.searchInputControl.valueChanges.pipe(startWith('')),
+        this.valChange.pipe(startWith(this.value)),
+      ])
+    ),
     switchMap(([searchValue, selectedItems]: [string, T[]]) => {
       return this.items$.pipe(
-        map((items) => {
-            if (!this.searchable || !searchValue?.toString().replace(/[ ]+/g, '')) return items;
-            searchValue = this.searchValue = searchValue.toString().trim();
-            return items?.filter(
-              (item) => this.searchMatcher(searchValue, item),
-            ) ?? [];
-          }
-        ),
+        map(items => {
+          if (!this.searchable || !searchValue?.toString().replace(/[ ]+/g, '')) return items;
+          searchValue = this.searchValue = searchValue.toString().trim();
+          return items?.filter(item => this.searchMatcher(searchValue, item)) ?? [];
+        }),
         map((items: T[]) => {
-            const selectItems = items.map(
-            (item: T) => {
-              return {
-                checked: !!selectedItems?.find(
-                  (selected) => this.identityMatcher(selected, item)
-                ),
-                obj: item
-              } as PrizmMultiSelectItemWithChecked<T>
-            }
-          );
+          const selectItems = items.map((item: T) => {
+            return {
+              checked: !!selectedItems?.find(selected => this.identityMatcher(selected, item)),
+              obj: item,
+            } as PrizmMultiSelectItemWithChecked<T>;
+          });
           const selectedCount = this.value?.length;
           const allItem = this.items$.value?.length;
           const currentlySearching = this.searchInputControl.value;
           const addSelectAllItem = this.selectAllItem && !currentlySearching;
 
           return [
-            ...(addSelectAllItem ? [this.selectAllItem] : []).map(
-              item => ({
-                checked: allItem === selectedCount,
-                indeterminate: selectedCount && allItem !== this.value.length,
-                obj: item
-              })
-            ) as PrizmMultiSelectItemWithChecked<T>[],
-            ...selectItems
+            ...((addSelectAllItem ? [this.selectAllItem] : []).map(item => ({
+              checked: allItem === selectedCount,
+              indeterminate: selectedCount && allItem !== this.value.length,
+              obj: item,
+            })) as PrizmMultiSelectItemWithChecked<T>[]),
+            ...selectItems,
           ];
         }),
-        tap((items) => {
+        tap(items => {
           this.filteredItems = items;
-          this.dropdownHostElement?.reCalculatePositions(1000/60);
+          this.dropdownHostElement?.reCalculatePositions(1000 / 60);
         }),
-        debounceTime(0),
-      )
-    }),
+        debounceTime(0)
+      );
+    })
   );
 
-  readonly selectedItems$: Observable<T[]> =
-    this.valChange.pipe(delay(0),startWith(this.value)).pipe(
+  readonly selectedItems$: Observable<T[]> = this.valChange.pipe(delay(0), startWith(this.value)).pipe(
     switchMap(() => {
       const selectedItems = this.value;
       return this.items$.pipe(
-        map((items) => {
-            return items?.filter(
-              (item) => (selectedItems ?? []).find(
-                (selectedItem) => this.identityMatcher(selectedItem, item)
-              ),
-            ) ?? [];
-          }
-        ),
-      )
+        map(items => {
+          return (
+            items?.filter(item =>
+              (selectedItems ?? []).find(selectedItem => this.identityMatcher(selectedItem, item))
+            ) ?? []
+          );
+        })
+      );
     }),
     shareReplay(1)
   );
@@ -223,34 +215,33 @@ implements PrizmFocusableElementAccessor
   readonly selectedItemsChips$: Observable<string[]> = this.selectedItems$.pipe(
     map((selectedItems: T[]) => {
       this.chipsSet.clear();
-      const result = selectedItems?.map(
-        i => {
+      const result =
+        selectedItems?.map(i => {
           const str = this.stringify({
             checked: true,
-            obj: i
+            obj: i,
           });
 
           this.chipsSet.set(str, i);
           return str;
-        }
-      ) ?? [];
+        }) ?? [];
 
       return result;
     }),
-    shareReplay(1),
+    shareReplay(1)
   );
 
   public filteredItems: PrizmMultiSelectItemWithChecked<T>[] = [];
   private searchValue: string;
 
-
   constructor(
     @Inject(PRIZM_MULTI_SELECT_OPTIONS) private readonly options: PrizmMultiSelectOptions<T>,
     @Optional()
     @Self()
-    @Inject(NgControl) control: NgControl | null,
+    @Inject(NgControl)
+    control: NgControl | null,
     public readonly cdRef: ChangeDetectorRef,
-    @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
+    @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef
   ) {
     super(control, changeDetectorRef);
   }
@@ -258,23 +249,25 @@ implements PrizmFocusableElementAccessor
   override ngOnInit(): void {
     super.ngOnInit();
     this.initControlStatusChangerIfExist();
-    this.selectedItems$.pipe(
-      tap(items => this.chipsControl.setValue(items, {emitEvent: true})),
-      tap(() => this.cdRef.markForCheck()),
-      takeUntil(this.destroy$)
-    ).subscribe();
+    this.selectedItems$
+      .pipe(
+        tap(items => this.chipsControl.setValue(items, { emitEvent: true })),
+        tap(() => this.cdRef.markForCheck()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   private initControlStatusChangerIfExist(): void {
-    this.control?.statusChanges.pipe(
-      tap((value) => {
-        if (value === 'DISABLED')
-          this.requiredInputControl.disable();
-        else if (!this.requiredInputControl.enabled)
-          this.requiredInputControl.enable();
-      }),
-      takeUntil(this.destroy$),
-    ).subscribe();
+    this.control?.statusChanges
+      .pipe(
+        tap(value => {
+          if (value === 'DISABLED') this.requiredInputControl.disable();
+          else if (!this.requiredInputControl.enabled) this.requiredInputControl.enable();
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   get nativeFocusableElement(): PrizmNativeFocusableElement | null {
@@ -293,33 +286,18 @@ implements PrizmFocusableElementAccessor
     return [];
   }
 
-  private isSelectAllItem(
-    item: PrizmMultiSelectItemWithChecked<T>
-  ): boolean {
-    return Boolean(
-      this.selectAllItem &&
-      this.identityMatcher(
-        this.selectAllItem,
-        item.obj
-      )
-    )
+  private isSelectAllItem(item: PrizmMultiSelectItemWithChecked<T>): boolean {
+    return Boolean(this.selectAllItem && this.identityMatcher(this.selectAllItem, item.obj));
   }
 
   public select(item: PrizmMultiSelectItemWithChecked<T>): void {
     const newItemState = !item.checked;
     let values: T[];
-    if (
-      this.isSelectAllItem(item)
-    ) {
-      values = newItemState
-        ? [...this.items]
-        : [];
+    if (this.isSelectAllItem(item)) {
+      values = newItemState ? [...this.items] : [];
     } else {
       values = newItemState
-        ? [
-          ...(this.value ?? []),
-          item.obj
-        ]
+        ? [...(this.value ?? []), item.obj]
         : this.value.filter(i => !this.identityMatcher(i, item.obj));
     }
 
@@ -329,12 +307,8 @@ implements PrizmFocusableElementAccessor
 
   public safeOpenModal(): void {
     const inputElement = this.focusableElement.nativeElement;
-    this.open =  (
-      !this.open &&
-      this.interactive &&
-      inputElement &&
-      (this.outer || prizmIsNativeFocused(inputElement))
-    )
+    this.open =
+      !this.open && this.interactive && inputElement && (this.outer || prizmIsNativeFocused(inputElement));
     this.changeDetectorRef.markForCheck();
   }
 
@@ -350,6 +324,6 @@ implements PrizmFocusableElementAccessor
     this.select({
       checked: true,
       obj: item,
-    } as PrizmMultiSelectItemWithChecked<T>)
+    } as PrizmMultiSelectItemWithChecked<T>);
   }
 }

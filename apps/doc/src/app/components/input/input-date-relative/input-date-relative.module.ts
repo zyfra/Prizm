@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { InputDateRelativeRelativeComponent } from './input-date-relative.component';
 import { PolymorphModule, PrizmInputDateRelativeModule } from '@prizm-ui/components';

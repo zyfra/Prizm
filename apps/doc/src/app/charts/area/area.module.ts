@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { AreaComponent } from './area.component';
 import { PrizmChartsAreaExampleComponent } from './examples/base/prizm-charts-area-example.component';
-import { PrizmChartsAreaModule, PrizmChartsLineModule } from '@prizm-ui/charts';
+import { PrizmChartsAreaModule } from '@prizm-ui/charts';
 
 @NgModule({
   imports: [

@@ -1,1 +1,6 @@
-<prizm-charts-bar></prizm-charts-bar>
+<prizm-charts-bar
+  [data]="data"
+  xField='sales'
+  yField='type'
+  [theme]='prizmTheme.changesTheme$ | async'
+></prizm-charts-bar>

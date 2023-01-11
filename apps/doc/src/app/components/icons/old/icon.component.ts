@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { IconDefs } from '@prizm-ui/components';
-import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
+import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 
 @Component({
   selector: 'prizm-icon-example',

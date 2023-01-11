@@ -90,4 +90,3 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> {
     this.openChange.emit(this.open);
   }
 }
-

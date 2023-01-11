@@ -11,11 +11,13 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 export class SwitcherItemComponent {
   @Input()
   @prizmDefaultProp()
-  @HostBinding('attr.data-size') public size: PrizmSwitcherSize = 'l';
+  @HostBinding('attr.data-size')
+  public size: PrizmSwitcherSize = 'l';
 
   @Input()
   @prizmDefaultProp()
-  @HostBinding('attr.switcher-type') public type: PrizmSwitcherType = 'inner';
+  @HostBinding('attr.switcher-type')
+  public type: PrizmSwitcherType = 'inner';
 
   @Input()
   public data: PrizmSwitcherItem = null;

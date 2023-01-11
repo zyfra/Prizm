@@ -1,4 +1,4 @@
-import { PrizmDocPage, PrizmDocPageGroup } from '@prizm/doc-base';
+import { PrizmDocPage, PrizmDocPageGroup } from '@prizm-ui/doc';
 import { SectionNameEnum } from './model';
 
 type OrderedPage = { order?: number };
@@ -506,6 +506,12 @@ export const pages: PrizmOrderedDocPage = [
     title: 'Overlay',
     keywords: 'overlay, оверлей, modal, модальное',
     route: '/tools/overlay',
+  },
+  {
+    section: SectionNameEnum.tools,
+    title: 'Theme',
+    keywords: 'theme, тема, цвета, типография, colors, typography',
+    route: '/tools/theme',
   },
   // TODO active after finish charts
   // Charts

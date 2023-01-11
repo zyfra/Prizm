@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
-import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
+import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 
 @Component({
   selector: 'prizm-textarea-example',

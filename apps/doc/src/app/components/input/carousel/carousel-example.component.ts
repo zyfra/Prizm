@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { PrizmCarouselArrayContent, PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
-import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
+import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 
 @Component({
   selector: 'prizm-carousel-example',
