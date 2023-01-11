@@ -29,7 +29,7 @@ export class PrizmThemeLocalExampleComponent {
 
   public toggle(): void {
     this.theme.update(
-      this.theme.value === 'light' ? 'dark' : 'light',
+      this.theme.getByElement(this.el.nativeElement) === 'light' ? 'dark' : 'light',
       this.el.nativeElement
     );
   }
