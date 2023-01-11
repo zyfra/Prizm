@@ -260,7 +260,7 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<
     {start, end}: {
       start?: string,
       end?: string,
-    }
+    } = {}
   ): void {
     start = start ?? this.state$.value.between.start;
     end = end ?? this.state$.value.between.end;
