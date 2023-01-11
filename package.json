@@ -57,7 +57,6 @@
     "@tinkoff/ng-dompurify": "^3.0.0",
     "@tinkoff/ng-polymorpheus": "^4.0.10",
     "@yarnpkg/parsers": "~3.0.0-rc.27",
-    "caniuse-lite": "^1.0.30001442",
     "clipboard": "^2.0.11",
     "date-fns": "^2.26.0",
     "dompurify": "^2.3.8",

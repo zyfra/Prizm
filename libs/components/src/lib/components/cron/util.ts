@@ -23,7 +23,8 @@ export function getCarouselWeek(): PrizmCarouselArrayContent<string> {
 }
 
 export function prizmConvertDayToType(day: string, dayOfWeek: string): PrizmCronUiDayType {
-  if (day === '?') {
+  if (day === '*') return PrizmCronUiDayType.every;
+  else if (day === '?') {
     if (dayOfWeek === '*') return PrizmCronUiDayType.every;
     if (dayOfWeek.includes('/')) return PrizmCronUiDayType.afterDayOfWeek;
     else if (dayOfWeek.endsWith('L')) return PrizmCronUiDayType.lastChosenDayOfWeek;
@@ -38,6 +39,8 @@ export function prizmConvertDayToType(day: string, dayOfWeek: string): PrizmCron
     return PrizmCronUiDayType.lastDayOfMonth;
   } else if (day === 'LW') {
     return PrizmCronUiDayType.lastWeekDayOfMonth;
+  }  else if (day.includes('-')) {
+    return PrizmCronUiDayType.between;
   } else if (day.endsWith('W')) {
     return PrizmCronUiDayType.nearestWeekDayToTheChosenDayOfMonth;
   }

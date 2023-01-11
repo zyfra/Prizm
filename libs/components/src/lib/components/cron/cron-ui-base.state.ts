@@ -30,7 +30,6 @@ export abstract class PrizmCronUiBaseState<
   readonly abstract cron: PrizmCronService;
   readonly abstract destroy$: PrizmDestroyService;
 
-
   constructor(
     public readonly current$: Observable<string>,
     public readonly initialType: TYPE,
