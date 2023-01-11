@@ -3,13 +3,14 @@
 @import 'table';
 @import 'variables';
 
-:root {
+:root,
+*[data-prizm-theme="light"] {
   .prizmThemeVariablesV2();
   .prizmDefaultThemeV2();
   .prizmDefaultTableThemeV2();
 }
 
-[data-prizm-theme="dark"] {
+*[data-prizm-theme="dark"] {
   .prizmDarkThemeV2();
   .prizmDefaultTableThemeV2();
   .prizmDarkTableThemeV2();
