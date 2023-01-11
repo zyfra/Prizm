@@ -2,18 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.0.0](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (09-01-2022)
+## [1.0.0-beta.20](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (11-01-2022)
 
 ### Features
-- doc(update): update doc, small fixes [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/417)
+- doc(update): update doc for many components and small fixes [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/417)
 - docs (components/table): update table api page [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/418)
 - docs (components/table): update widget api page [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/419)
 - feat(charts): update doc pages and api for components [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/420)
-- feat(doc): new detect error [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/420)
+- feat(doc): new error detector in api page [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/420)
+- feat(doc): sorting params in api page [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/420)
+- feat(components/cron): adaptive width [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(components/cron): new autoSubmit param [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(components/cron): new hidePeriod param [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(components/panel): add css variable for change radius  [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(doc/getting-started): update page [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(theme/switcher): change only in local zone [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
 
 ### BUG FIXES
-- fix(components/date): data relative component [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/416)
+- fix(components/date): data relative component [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/215)
+- fix(components/cron): day count and bug with submit logic [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- fix(components/date): display in dark mode [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- fix(theme/switcher): error in global change [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
 
+### BREAKING CHANGES
+- feat(theme): themes removed from the package @prizm-ui/components to @prizm-ui/theme library (PLEASE UPDATE as in doc documentation) [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
 
 ## [1.0.0-beta.19](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (27-12-2022)
 
