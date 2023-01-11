@@ -26,7 +26,7 @@ import { prizmInspectAny } from '../../utils/inspect';
 import { PrizmDocDocumentationPropertyConnectorDirective } from './documentation-property-connector.directive';
 import { PRIZM_HOST_COMPONENT_INFO_TOKEN, PrizmHostComponentInfo } from './token';
 import { PrizmDocHostElementListenerService } from '../host';
-
+import * as _ from 'lodash';
 // @bad TODO subscribe propertiesConnectors changes
 // @bad TODO refactor to make more flexible
 @Component({
@@ -203,5 +203,15 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
 
   public inspectAny(data: unknown): string {
     return prizmInspectAny(data, 2);
+  }
+
+
+  public sortConnectors(
+    connectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>>
+  ): PrizmDocDocumentationPropertyConnectorDirective<any>[] {
+    return _.orderBy(
+      connectors.toArray(),
+      ['documentationPropertyMode', 'documentationPropertyName', 'documentationPropertyType'],
+    )
   }
 }

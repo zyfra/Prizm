@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { distinctUntilChanged, map, shareReplay } from 'rxjs/operators';
+import { distinctUntilChanged, map, shareReplay, tap } from 'rxjs/operators';
 import { PrizmCronValueObject } from './model';
 import { prizmCronConvertToObject } from './util';
 
@@ -55,7 +55,6 @@ export class PrizmCronService {
     const obj = (value && typeof value === 'object')
       ? value
       : prizmCronConvertToObject(value as string);
-
    this.value$$.next({
      ...this.value$$.value,
      ...obj,

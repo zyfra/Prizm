@@ -19,7 +19,7 @@
     <th *ngIf="showValues && !isAPI" class="t-th t-cell t-cell_value">{{ texts[3] }}</th>
   </tr>
   <tr
-    *ngFor="let propertyConnector of propertiesConnectors; let idx = index"
+    *ngFor="let propertyConnector of propertiesConnectors | prizmMapper : sortConnectors; let idx = index"
     class="t-row"
     [class.t-deprecated]="propertyConnector.documentationPropertyDeprecated"
   >

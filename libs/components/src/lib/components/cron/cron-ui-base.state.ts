@@ -30,7 +30,6 @@ export abstract class PrizmCronUiBaseState<
   readonly abstract cron: PrizmCronService;
   readonly abstract destroy$: PrizmDestroyService;
 
-
   constructor(
     public readonly current$: Observable<string>,
     public readonly initialType: TYPE,
@@ -147,7 +146,7 @@ export abstract class PrizmCronUiBaseState<
     {start, end}: {
       start?: string,
       end?: string,
-    }
+    } = {}
   ): void {
     start = start ?? this.state$.value.between.start;
     end = end ?? this.state$.value.between.end;
@@ -161,7 +160,7 @@ export abstract class PrizmCronUiBaseState<
     options: {
       on?: string,
       after?: string,
-    }
+    } = {}
   ): void {
     let {on, after} = options;
     on = on ?? this.state$.value.everyChosenTimesAfterChosen.on;
@@ -173,7 +172,7 @@ export abstract class PrizmCronUiBaseState<
    * update on
    * */
   public updateSpecified(
-    specified: string[]
+    specified?: string[]
   ): void {
     this.updateMainIfChanged(`${specified.join(',') ?? 0}`);
   }

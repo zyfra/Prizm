@@ -8,7 +8,14 @@ import { DOCUMENT } from '@angular/common';
     providedIn: 'root',
 })
 export class PrizmThemeService implements OnDestroy {
-    public rootElement: HTMLElement;
+    private rootElement_: HTMLElement;
+    public set rootElement(el: HTMLElement) {
+      this.rootElement_ = el;
+    }
+    public get rootElement(): HTMLElement {
+      return this.rootElement_ ?? this.document.querySelector('body');
+    }
+
     private readonly changeSource$ = new BehaviorSubject<{
       theme: PrizmTheme,
       el?: HTMLElement
@@ -57,7 +64,7 @@ export class PrizmThemeService implements OnDestroy {
 
     public update(
       theme: PrizmTheme,
-      el: HTMLElement = this.rootElement ?? this.document.querySelector('body')
+      el: HTMLElement = this.rootElement
     ): void {
       this.changeSource$.next({
         theme,
