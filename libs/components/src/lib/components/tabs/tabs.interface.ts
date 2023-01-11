@@ -1,4 +1,7 @@
-export interface ITab {
+/**
+ * @deprecated
+ * */
+export interface PrizmTabItem {
   title?: string | number;
   icon?: string;
   count?: number;
@@ -6,5 +9,6 @@ export interface ITab {
   closable?: boolean;
 }
 
-export type TabType = 'line' | 'contained';
-export type TabSize = 's' | 'adaptive';
+export type PrizmTabType = 'line' | 'contained';
+
+export type PrizmTabSize = 's' | 'adaptive';

@@ -1,23 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrizmIconModule } from '../icon';
-import { TabComponent } from './components/tab.component';
-import { TabsComponent } from './tabs.component';
+import { PrizmTabComponent } from './components/tab.component';
+import { PrizmTabsComponent } from './tabs.component';
 import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host';
 import { PrizmButtonModule } from '../button';
-import { PrizmDropdownControllerModule } from '../../directives';
+import { PolymorphModule, PrizmDropdownControllerModule } from '../../directives';
 import { PrizmDataListModule } from '../data-list';
 
 @NgModule({
-  declarations: [TabsComponent, TabComponent],
+  declarations: [PrizmTabsComponent, PrizmTabComponent],
   imports: [
     CommonModule,
     PrizmIconModule,
+    PolymorphModule,
     PrizmDropdownHostModule,
     PrizmButtonModule,
     PrizmDropdownControllerModule,
     PrizmDataListModule,
   ],
-  exports: [TabsComponent, TabComponent],
+  exports: [PrizmTabsComponent, PrizmTabComponent],
 })
 export class PrizmTabsModule {}
