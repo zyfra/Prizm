@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ITab } from '@prizm-ui/components';
+import { PrizmTabItem } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-tabs-example-contained',
@@ -8,7 +8,7 @@ import { ITab } from '@prizm-ui/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsExampleContainedComponent {
-  public tabs: ITab[] = [
+  public tabs: PrizmTabItem[] = [
     {
       title: 'Вкладка 1',
     },
@@ -26,8 +26,9 @@ export class TabsExampleContainedComponent {
     },
   ];
 
-  public tabCancelClick(): void {
-    // do something
+  public removeTab(tab: PrizmTabItem): void {
+    if (this.tabs.length < 2) return;
+    this.tabs = this.tabs.filter((item) => item !== tab);
   }
 
   public tabClick(): void {

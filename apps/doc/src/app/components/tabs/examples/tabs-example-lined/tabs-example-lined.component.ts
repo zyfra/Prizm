@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ITab } from '@prizm-ui/components';
+import { PrizmTabItem } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-tabs-example-lined',
@@ -8,7 +8,7 @@ import { ITab } from '@prizm-ui/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsExampleLinedComponent {
-  public tabs: ITab[] = [
+  public tabs: PrizmTabItem[] = [
     {
       title: 'Вкладка 1',
     },

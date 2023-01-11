@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ITab } from '@prizm-ui/components';
+import { PrizmTabItem } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-tabs-example-icon',
@@ -8,7 +8,7 @@ import { ITab } from '@prizm-ui/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsExampleIconComponent {
-  public tabs: ITab[] = [
+  public tabs: PrizmTabItem[] = [
     {
       icon: 'view-menu-arrow-right',
     },

@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { IconDefs, TabSize, TabType } from '@prizm-ui/components';
+import { IconDefs, PrizmTabSize, PrizmTabType } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-tabs-example',
@@ -9,17 +9,18 @@ import { IconDefs, TabSize, TabType } from '@prizm-ui/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsExampleComponent {
-  public type: TabType = 'line';
-  public typeVariants: TabType[] = ['line', 'contained'];
-  public size: TabSize = 'adaptive';
-  public sizeVariants: TabSize[] = ['s', 'adaptive'];
+  public type: PrizmTabType = 'line';
+  public activeTabIndex = 0;
+  public typeVariants: PrizmTabType[] = ['line', 'contained'];
+  public size: PrizmTabSize = 'adaptive';
+  public sizeVariants: PrizmTabSize[] = ['s', 'adaptive'];
   public title = 'Title';
   iconVariants: string[] = ['', ...IconDefs.reduce((a, c) => a.concat(c.data), [])];
   icon: string = this.iconVariants[0];
+  closeIcon: string | null = null;
   public closable = false;
   public disabled = false;
   public count = 0;
-  public isActive = false;
 
   public readonly tabsExampleBasic: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/tabs-example-basic/tabs-example-basic.component'),

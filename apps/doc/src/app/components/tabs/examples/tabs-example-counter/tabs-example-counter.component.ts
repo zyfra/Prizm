@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ITab } from '@prizm-ui/components';
+import { PrizmTabItem } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-tabs-example-counter',
@@ -8,7 +8,7 @@ import { ITab } from '@prizm-ui/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsExampleCounterComponent {
-  public tabs: ITab[] = [
+  public tabs: PrizmTabItem[] = [
     {
       title: 'Вкладка 1',
       count: 10,
@@ -20,6 +20,7 @@ export class TabsExampleCounterComponent {
     {
       title: 'Вкладка 3',
       count: 3999,
+      closable: true,
     },
     {
       title: 'Вкладка 4',
@@ -28,11 +29,13 @@ export class TabsExampleCounterComponent {
     {
       title: 'Вкладка 5',
       count: 432,
+      closable: true,
     },
   ];
 
-  public tabCancelClick(): void {
-    // do something
+  public removeTab(tab: PrizmTabItem): void {
+    if (this.tabs.length < 2) return;
+    this.tabs = this.tabs.filter((item) => item !== tab);
   }
 
   public tabClick(): void {
