@@ -86,6 +86,11 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
 
   activeItemIndex = 0;
 
+  public getType(connector: PrizmDocDocumentationPropertyConnectorDirective<any>): string {
+    if (connector.documentationPropertyMode === 'ng-content')
+      return 'HtmlNode';
+    return connector.documentationPropertyType;
+  }
   constructor(
     private readonly prizmDocHostElementListenerService: PrizmDocHostElementListenerService,
     @Inject(PRIZM_HOST_COMPONENT_INFO_TOKEN) private readonly prizmHostComponentInfo: PrizmHostComponentInfo,

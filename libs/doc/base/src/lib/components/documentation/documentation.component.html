@@ -34,10 +34,10 @@
       <ng-container [ngTemplateOutlet]="propertyConnector.template"></ng-container>
     </td>
     <td class="t-cell">
-      <span class="type">
-        {{ propertyConnector.documentationPropertyType }}
+      <span class="type" *prizmLet='getType(propertyConnector) as type'>
+        {{ type }}
         <tui-tooltip
-          *ngIf="showContentTooltip(propertyConnector.documentationPropertyType)"
+          *ngIf="showContentTooltip(type)"
           [describeId]="propertyConnector.attrName"
           [content]="content"
         >
@@ -95,6 +95,7 @@
               (valueChange)="propertyConnector.onValueChange($event)"
             ></tui-primitive-textfield>
 
+
             <div *ngSwitchCase="'color'" tuiGroup>
               <tui-primitive-textfield
                 tuiTextfieldSize="m"
@@ -137,6 +138,18 @@
               >
                 Default content
               </tui-primitive-textfield>
+            </ng-container>
+
+            <ng-container *ngSwitchDefault>
+              <tui-primitive-textfield
+                *ngIf="propertyConnector.documentationPropertyMode === 'ng-content'"
+                tuiTextfieldSize="m"
+                [nativeId]="propertyConnector.attrName"
+                [tuiTextfieldLabelOutside]="true"
+                [tuiTextfieldCleaner]="true"
+                [value]="propertyConnector.documentationPropertyValue || ''"
+                (valueChange)="propertyConnector.onValueChange($event)"
+              ></tui-primitive-textfield>
             </ng-container>
           </ng-container>
         </ng-template>
