@@ -3,7 +3,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmSwitcherItem } from '../switcher';
 import { FormControl } from '@angular/forms';
 import { PrizmCronService } from '../../services';
-import { filter, first, takeUntil, tap } from 'rxjs/operators';
+import { distinctUntilChanged, filter, first, skip, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmCronUiSecondState } from './cron-ui-second.state';
 import { PrizmCronUiMinuteState } from './cron-ui-minute.state';
 import { PrizmCronUiHourState } from './cron-ui-hour.state';
@@ -13,6 +13,7 @@ import { prizmIsTextOverflow } from '../../util';
 import { PrizmCronPeriod, PrizmCronTabItem } from './model';
 import { PrizmCronUiDayState } from './cron-ui-day.state';
 import { prizmDefaultProp } from '@prizm-ui/core';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'prizm-cron',
@@ -55,10 +56,14 @@ export class PrizmCronComponent implements OnInit {
   @Input()
   @prizmDefaultProp()
   public set period(period: PrizmCronPeriod) {
-    this.indefinitelyControl.setValue(period.indefinitely);
-    this.startDateControl.setValue(period.start);
-    this.endDateControl.setValue(period.start);
-    this.endDateStateCorrector();
+    if (this.indefinitelyControl.value !== period.indefinitely)
+      this.indefinitelyControl.setValue(period.indefinitely);
+
+    if (this.startDateControl.value !== period.start)
+      this.startDateControl.setValue(period.start);
+
+    if (this.endDateControl.value !== period.end)
+      this.endDateControl.setValue(period.end);
   }
   public get period(): PrizmCronPeriod {
     return {
@@ -168,16 +173,40 @@ export class PrizmCronComponent implements OnInit {
   private initAutoSubmiter(): void {
     this.cron.valueAsString$
       .pipe(
-        filter(() => this.autoSubmit),
+        filter(() => this.autoSubmit && !this.disabled),
+        distinctUntilChanged(),
         tap(val => {
-          this.emit(val);
+          this.valueChange.emit(val);
         }),
         takeUntil(this.destroy$)
       )
       .subscribe();
+
+    combineLatest([
+      this.startDateControl.valueChanges.pipe(
+        startWith(this.startDateControl.value),
+        distinctUntilChanged()
+      ),
+      this.endDateControl.valueChanges.pipe(
+        startWith(this.endDateControl.value),
+        distinctUntilChanged()
+      ),
+      this.indefinitelyControl.valueChanges.pipe(
+        startWith(this.indefinitelyControl.value),
+        distinctUntilChanged()
+      ),
+    ]).pipe(
+      skip(1),
+      filter(() => this.autoSubmit && !this.disabled),
+      tap((controls) => {
+        this.emitPeriod()
+      }),
+      takeUntil(this.destroy$),
+    ).subscribe()
   }
 
   private emit(cronValue: string): void {
+    if (this.disabled) return;
     this.valueChange.emit(cronValue);
     this.emitPeriod();
   }

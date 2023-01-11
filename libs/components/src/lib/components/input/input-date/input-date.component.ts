@@ -219,7 +219,6 @@ export class PrizmInputDateComponent
   }
 
   public onOpenChange(open: boolean): void {
-    console.log('#mz onOpenChange', open);
     this.open = open;
   }
 
