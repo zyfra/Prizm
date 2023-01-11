@@ -99,7 +99,9 @@ export class PrizmDocHostElementService implements OnDestroy {
     hasNotListener = false
   ): void {
     if (!el.nativeElement?.[eventRealKey]) {
-      console.error('Prizm component already exists', {
+      console.error(`Prizm component output <${eventRealKey}> does not exists`, {
+        name: eventRealKey,
+        el: el.nativeElement
       });
       return;
     }

@@ -66,8 +66,6 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
 
     }),
   )
-
-
   @Input()
   public set hostComponentKey(key: string) {
     this.prizmHostComponentInfo.next({key})

@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ITab } from '@prizm-ui/components';
+import { PrizmTabItem } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-panel-with-tabs',
@@ -8,7 +8,7 @@ import { ITab } from '@prizm-ui/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PanelExampleWithTabsComponent {
-  public tabs: ITab[] = [
+  public tabs: PrizmTabItem[] = [
     {
       title: 'Вкладка 1',
       icon: 'charts-donut',
