@@ -24,7 +24,7 @@ import {
 import { PrizmInputOpacityModule } from '../../internal/input-opacity/input-opacity.module';
 import { PrizmDocDocumentationComponent } from './documentation.component';
 import { PrizmDocDocumentationPropertyConnectorDirective } from './documentation-property-connector.directive';
-import { PrizmHintModule, PrizmIndicatorModule } from '@prizm-ui/components';
+import { PrizmHintModule, PrizmIndicatorModule, PrizmMapperPipeModule } from '@prizm-ui/components';
 
 @NgModule({
   imports: [
@@ -44,6 +44,7 @@ import { PrizmHintModule, PrizmIndicatorModule } from '@prizm-ui/components';
     TuiTextfieldControllerModule,
     PrizmIndicatorModule,
     PrizmHintModule,
+    PrizmMapperPipeModule,
     TuiDropdownModule,
     TuiDataListModule,
     TuiDataListWrapperModule,

@@ -1,7 +1,7 @@
 import { PrizmDocPage, PrizmDocPageGroup } from '../interfaces/page';
 
 export type PrizmDocPages = ReadonlyArray<PrizmDocPage | PrizmDocPageGroup>;
-export type PrizmDocumentationPropertyType = 'input' | 'output' | 'input-output' | null;
+export type PrizmDocumentationPropertyType = 'input' | 'output' | 'input-output' | 'css-var' | null;
 
 export type PrizmPageInfo = {header: string, package: string, type: string};
 export type PrizmPageComponentInfoEvent = {

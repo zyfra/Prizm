@@ -23,6 +23,13 @@
     >
       <prizm-cron-specified-tabs-example></prizm-cron-specified-tabs-example>
     </prizm-doc-example>
+    <prizm-doc-example
+      id="fullwidth"
+      heading="Full Width (css variables)"
+      [content]="exampleFullwidthCron"
+    >
+      <prizm-cron-fullwidth-example></prizm-cron-fullwidth-example>
+    </prizm-doc-example>
 
 
   </ng-template>
@@ -31,9 +38,13 @@
       <prizm-doc-demo class='remove-sticky'>
         <prizm-cron
           #element
+          [style.--prizm-cron-min-height]="minHeight"
+          [style.--prizm-cron-width]="width"
           [prizmDocHostElement]='element'
           [tabs]='tabs'
           [disabled]='disabled'
+          [hidePeriod]='hidePeriod'
+          [autoSubmit]='autoSubmit'
           [(period)]='period'
           [(value)]='value'
           [(selected)]='selected'>
@@ -51,6 +62,42 @@
         </ng-template>
 
         <ng-template
+          documentationPropertyName="autoSubmit"
+          documentationPropertyType="boolean"
+          documentationPropertyMode="input"
+          [(documentationPropertyValue)]="autoSubmit"
+        >
+          Auto Submit
+        </ng-template>
+
+        <ng-template
+          documentationPropertyName="prizm-cron-min-height"
+          documentationPropertyType="string"
+          documentationPropertyMode="css-var"
+          [(documentationPropertyValue)]="minHeight"
+        >
+          Min height (Default 952px)
+        </ng-template>
+
+        <ng-template
+          documentationPropertyName="prizm-cron-width"
+          documentationPropertyType="string"
+          documentationPropertyMode="css-var"
+          [(documentationPropertyValue)]="width"
+        >
+          Width (Default 642px)
+        </ng-template>
+
+        <ng-template
+          documentationPropertyName="hidePeriod"
+          documentationPropertyType="boolean"
+          documentationPropertyMode="input"
+          [(documentationPropertyValue)]="hidePeriod"
+        >
+          Hide Period Block
+        </ng-template>
+
+        <ng-template
           documentationPropertyName="selected"
           documentationPropertyType="PrizmCronTabItem"
           documentationPropertyMode="input-output"
@@ -59,29 +106,6 @@
         >
           Selected Tab
         </ng-template>
-
-
-
-<!--                <ng-template-->
-<!--                  documentationPropertyName="selected"-->
-<!--                  documentationPropertyType="PrizmCronTabItem"-->
-<!--                  documentationPropertyMode="input"-->
-<!--                  [documentationPropertyValues]="tabs"-->
-<!--                  [(documentationPropertyValue)]="selected"-->
-<!--                >-->
-<!--                  Selected Tab-->
-<!--                </ng-template>-->
-
-
-
-<!--        <ng-template-->
-<!--          documentationPropertyName="selectedChange"-->
-<!--          documentationPropertyType="PrizmCronTabItem"-->
-<!--          documentationPropertyMode="output"-->
-<!--        >-->
-<!--          Selected Tab Change-->
-<!--        </ng-template>-->
-
 
         <ng-template
           documentationPropertyName="period"
@@ -112,7 +136,6 @@
         </ng-template>
 
       </prizm-doc-documentation>
-<!--    </ng-container>-->
   </ng-template>
 
   <ng-template prizmDocPageTab>

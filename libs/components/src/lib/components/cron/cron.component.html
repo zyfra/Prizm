@@ -30,6 +30,7 @@
         </ng-container>
       </prizm-input-layout>
       <button
+        *ngIf='!autoSubmit'
         prizmButton
         size='m'
         [disabled]='disabled'
@@ -46,7 +47,8 @@
     </prizm-switcher>
   </div>
 
-  <div class='inner-block date-period border-bottom'>
+  <div class='inner-block date-period border-bottom'
+       *ngIf='!hidePeriod'>
     <div class='date-block'>
 
       <prizm-input-date-time

@@ -7,6 +7,7 @@ import { PolymorphModule, PrizmCronModule, PrizmMutationObserveModule } from '@p
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmCronBaseExampleComponent } from './examples/base/cron-base-example.component';
 import { PrizmCronSpecifiedTabsExampleComponent } from './examples/specified-tabs/cron-specified-tabs-example.component';
+import { PrizmCronFullwidthExampleComponent } from './examples/fullwidth/cron-fullwidth-example.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,12 @@ import { PrizmCronSpecifiedTabsExampleComponent } from './examples/specified-tab
     PrizmCronModule,
     RouterModule.forChild(prizmDocGenerateRoutes(CronComponent)),
   ],
-  declarations: [PrizmCronBaseExampleComponent, PrizmCronSpecifiedTabsExampleComponent, CronComponent],
+  declarations: [
+    PrizmCronBaseExampleComponent,
+    PrizmCronSpecifiedTabsExampleComponent,
+    PrizmCronFullwidthExampleComponent,
+    CronComponent
+  ],
   exports: [CronComponent],
 })
 export class CronModule {}
