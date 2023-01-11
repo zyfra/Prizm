@@ -1,9 +1,7 @@
 import { Component, ElementRef, Injector, Input } from '@angular/core';
 import { Line } from '@antv/g2plot';
-import { prizmDefaultProp } from '@prizm-ui/core';
-import { prizmChartsGetDataObjectFromArr, prizmChartsSetDefaultThemes } from '../../theme/util';
+import { prizmChartsSetDefaultThemes } from '../../theme/util';
 import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
-import { PrizmChartsAreaItem } from '../area';
 import { PrizmChartsLineItem, PrizmChartsLineOptions, PrizmChartsLineOrigin } from './model';
 
 @Component({
