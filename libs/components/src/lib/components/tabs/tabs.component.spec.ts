@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TabsComponent } from './tabs.component';
+import { PrizmTabsComponent } from './tabs.component';
 import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host/dropdown-host.module';
 import { PrizmIconModule } from '../icon/icon.module';
 
 xdescribe('TabsComponent', () => {
-  let component: TabsComponent;
-  let fixture: ComponentFixture<TabsComponent>;
+  let component: PrizmTabsComponent;
+  let fixture: ComponentFixture<PrizmTabsComponent>;
 
   class ResizeObserver {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -36,13 +36,13 @@ xdescribe('TabsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TabsComponent],
+      declarations: [PrizmTabsComponent],
       imports: [PrizmDropdownHostModule, PrizmIconModule]
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TabsComponent);
+    fixture = TestBed.createComponent(PrizmTabsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
