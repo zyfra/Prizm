@@ -48,14 +48,14 @@ export class PrizmDocHostElementService implements OnDestroy {
   }
 
   private updateComponentInfo(
-    key: string,
+    listenerElementKey: string,
     el: ElementRef
   ): void {
-    const currentOutputMap = this.outputMap.get(key) || new Map();
+    const currentOutputMap = this.outputMap.get(listenerElementKey) || new Map();
     const metaComponentData = this.componentFactoryResolver.resolveComponentFactory(el.nativeElement.constructor);
-    this.outputs.set(key, metaComponentData.outputs);
-    this.inputs.set(key, metaComponentData.inputs);
-    this.componentInfo.set(key, {
+    this.outputs.set(listenerElementKey, metaComponentData.outputs);
+    this.inputs.set(listenerElementKey, metaComponentData.inputs);
+    this.componentInfo.set(listenerElementKey, {
       selector: metaComponentData.selector,
       type: metaComponentData.componentType,
       name: metaComponentData.componentType.name,
@@ -68,12 +68,12 @@ export class PrizmDocHostElementService implements OnDestroy {
     );
     currentOutputMap.forEach(
       ({key, type}) => {
-        this.addOutputListener(el, type, key);
+        this.addOutputListener(listenerElementKey, el, type, key);
       }
     )
     notSpecifiedKeys.forEach(
       (key) => {
-        this.addOutputListener(el, 'unknown', key, true);
+        this.addOutputListener(listenerElementKey, el, 'unknown', key, true);
       }
     )
   }
@@ -92,6 +92,7 @@ export class PrizmDocHostElementService implements OnDestroy {
   }
 
   private addOutputListener(
+    listenerElementKey: string,
     el: ElementRef<any>,
     type: string,
     eventRealKey: string,
@@ -107,7 +108,7 @@ export class PrizmDocHostElementService implements OnDestroy {
       takeUntil(this.destroyListener$),
       tap(
         (data) => {
-          this.emit(data, type, eventRealKey, hasNotListener);
+          this.emit(listenerElementKey, data, type, eventRealKey, hasNotListener);
         }
       )
     )
@@ -123,6 +124,7 @@ export class PrizmDocHostElementService implements OnDestroy {
   }
 
   private emit(
+    listenerElementKey: string,
     data: unknown,
     type: string,
     event: string,
@@ -130,6 +132,7 @@ export class PrizmDocHostElementService implements OnDestroy {
   ): void {
     this.prizmDocHostElementListenerService.emit(
       hasNotListener,
+      listenerElementKey,
       data,
       event,
       type,
@@ -140,14 +143,20 @@ export class PrizmDocHostElementService implements OnDestroy {
   private emitInfoSingle(key: string): void {
     const allOutputs = this.outputs.get(key).map(i => i.propName);
     const allInputs = this.inputs.get(key).map(i => i.propName);
-    const allListenerInputs = [...this.inputMap.get(key).values()].map(
+    const allListenerInputs = this.inputMap.get(key)?.values()
+    ? [...this.inputMap.get(key).values()].map(
       i => i.key
-    );
-    const allListenerOutputs = [...this.outputMap.get(key).values()].map(
-      i => i.key
-    );
+    )
+    : [];
+    const allListenerOutputs =
+      this.outputMap.get(key)?.values()
+      ? [...this.outputMap.get(key)?.values()].map(
+        i => i.key
+      )
+      : [];
 
     this.prizmDocHostElementListenerService.emitInfo({
+      key,
       selector: this.componentInfo.get(key).selector,
       allOutputs,
       allInputs,

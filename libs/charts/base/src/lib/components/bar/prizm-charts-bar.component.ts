@@ -1,42 +1,77 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Injector, Input } from '@angular/core';
 import { Bar } from '@antv/g2plot';
-import { prizmDefaultProp } from '@prizm-ui/core';
-import { prizmChartsSetDefaultThemes, PrizmChartTheme } from '../../theme';
+import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
+import { PrizmChartsBarItem, PrizmChartsBarOptions, PrizmChartsBarOrigin } from './model';
 
 @Component({
   selector: 'prizm-charts-bar',
   templateUrl: './prizm-charts-bar.component.html',
   styleUrls: ['./prizm-charts-bar.component.less'],
 })
-export class PrizmChartsBarComponent<T extends Record<string, unknown>> implements OnInit {
-  @Input()
-  @prizmDefaultProp()
-  data: unknown[] = [
-    { year: '1951', value: 38 },
-    { year: '1952', value: 52 },
-    { year: '1956', value: 61 },
-    { year: '1957', value: 145 },
-    { year: '1958', value: 48 },
-  ];
+export class PrizmChartsBarComponent<T extends Record<string, unknown>>
+  extends PrizmChartsAbstractComponent<PrizmChartsBarOrigin, PrizmChartsBarOptions>
+{
+  public readonly name = 'bar';
 
   @Input()
-  @prizmDefaultProp()
-  theme: null | PrizmChartTheme = null;
+  set data(value: PrizmChartsBarItem[]) {
+    this.updateOptions({
+      data: value
+    })
+  }
+  get data(): PrizmChartsBarItem[] {
+    return this.options?.data ?? [] as PrizmChartsBarItem[];
+  }
 
-  @ViewChild('container', { static: true, read: ElementRef }) container: ElementRef<HTMLElement>;
+  @Input()
+  public set xField (value: string) {
+    this.updateOptions({xField: value});
+  };
+  public get xField(): string {
+    return this.options?.xField;
+  }
 
-  ngOnInit(): void {
-    prizmChartsSetDefaultThemes();
-    const bar = new Bar(this.container.nativeElement, {
-      data: this.data,
-      xField: 'value',
-      yField: 'year',
-      seriesField: 'year',
-      legend: {
-        position: 'top-left',
-      },
+  @Input() set autoFit(value: boolean) {
+    this.updateOptions({autoFit: value});
+  }
+
+  @Input()
+  public set yField (value: string) {
+    this.updateOptions({yField: value});
+  };
+  public get yField(): string {
+    return this.options?.yField;
+  }
+
+  @Input()
+  public set seriesField (value: string) {
+    this.updateOptions({seriesField: value});
+  };
+  public get seriesField(): string {
+    return this.options.seriesField;
+  }
+
+  private origin_: Bar;
+
+  constructor(
+    private readonly elRef: ElementRef<HTMLElement>,
+    private readonly injector: Injector,
+  ) {
+    super(injector);
+    this.prizmChartThemeService.initIfNecessary();
+    this.init();
+  }
+  public init(): void {
+    this.origin_ = new Bar(this.elRef.nativeElement, {
+      data: this.data ?? [],
+      xField: this.xField ?? 'x',
+      yField: this.yField ?? 'y',
     });
 
-    bar.render();
+    this.origin.render();
+  }
+
+  get origin(): Bar {
+    return this.origin_;
   }
 }

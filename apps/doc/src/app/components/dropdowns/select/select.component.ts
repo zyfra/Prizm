@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
+import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PolymorphContent,
   PrizmInputSize,
@@ -122,7 +122,7 @@ export class SelectComponent {
   }
 
   public searchMatcher = (searchValue: string, item: unknown): boolean => {
-    return item?.toString().toLowerCase().includes(searchValue.toLowerCase());
+    return item?.toString()?.toLowerCase().includes(searchValue.toLowerCase());
   };
 
   public identityMatcher = (a: unknown, b: unknown): boolean => {

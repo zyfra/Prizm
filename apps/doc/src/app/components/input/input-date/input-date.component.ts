@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm/doc-base';
+import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { PrizmDay, PrizmInputSize, PrizmTime } from '@prizm-ui/components';
 import { FormControl } from '@angular/forms';
 

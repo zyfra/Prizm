@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ZoomControlExampleComponent } from './zoom-control-example.component';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { ZoomControlExampleBasicComponent } from './examples/zoom-control-example-basic/zoom-control-example-basic.component';
 import {

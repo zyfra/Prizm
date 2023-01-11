@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm/doc-base';
+import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 
 import { InputChipsExampleBaseComponent } from './examples/input-chips-basic-example/input-chips-basic-example.component';
 import { InputChipsExampleComponent } from './input-chips-example.component';

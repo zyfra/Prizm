@@ -2,7 +2,7 @@ import { Directive, HostBinding, Input } from '@angular/core';
 import { prizmDefaultProp } from '@prizm-ui/core';
 
 @Directive({
-    selector: '[prizmSkeleton], [prizmSkeletonText], [prizmSkeletonRounded], [prizmSkeletonShort]',
+  selector: '[prizmSkeleton], [prizmSkeletonText], [prizmSkeletonRounded], [prizmSkeletonShort]',
 })
 export class PrizmSkeletonDirective {
   @Input('prizmSkeletonText')
@@ -19,7 +19,6 @@ export class PrizmSkeletonDirective {
   @HostBinding('class.prizm-skeleton_short')
   @prizmDefaultProp()
   isShort = false;
-
 
   @Input('prizmSkeleton')
   @HostBinding('class.prizm-skeleton')

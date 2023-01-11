@@ -5,7 +5,7 @@ import {
   ContentChild,
   TemplateRef,
   OnDestroy,
-  ChangeDetectorRef, HostBinding,
+  ChangeDetectorRef, HostBinding, EventEmitter, Output,
 } from '@angular/core';
 import { AccordionContentDirective } from '../../directives/accordion-content.directive';
 import { AccordionToolsDirective } from '../../directives/accordion-tools.directive';
@@ -22,6 +22,7 @@ import { Subject } from 'rxjs';
 export class PrizmAccordionItemComponent implements OnDestroy {
   @Input() public title: string = null;
   @Input() isExpanded = false;
+  @Output() isExpandedChange = new EventEmitter<boolean>();
   @Input() disabled = false;
 
   @HostBinding('attr.testId')
@@ -41,12 +42,14 @@ export class PrizmAccordionItemComponent implements OnDestroy {
   public toggle(): void {
     if (this.disabled) return;
     this.isExpanded = !this.isExpanded;
+    this.isExpandedChange.emit(this.isExpanded);
     this.toggle$.next()
   }
 
   public close(): void {
     if (this.disabled) return;
     this.isExpanded = false;
+    this.isExpandedChange.emit(this.isExpanded);
     this.cdRef.markForCheck()
   }
 

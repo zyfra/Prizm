@@ -76,7 +76,10 @@
       </prizm-accordion>
     </prizm-doc-demo>
 
-    <prizm-doc-documentation heading="PrizmAccordionComponent" hostComponentKey="PrizmAccordionComponent">
+    <prizm-doc-documentation
+      heading="PrizmAccordionComponent"
+      hostComponentKey="PrizmAccordionComponent"
+    >
       <ng-template
         documentationPropertyName="onlyOneExpanded"
         documentationPropertyType="boolean"
@@ -86,14 +89,6 @@
         Only one accordion can be expanded
       </ng-template>
 
-      <!-- <ng-template
-        documentationPropertyName="disabled"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
-      >
-        Disabled
-      </ng-template> -->
     </prizm-doc-documentation>
 
     <prizm-doc-documentation
@@ -104,8 +99,7 @@
       <ng-template
         documentationPropertyName="isExpanded"
         documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="isExpanded"
+        documentationPropertyMode="input-output"
       >
         Is Expanded
       </ng-template>

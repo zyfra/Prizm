@@ -3,7 +3,7 @@
     [canOpen]="canOpen"
     [isOpen]="open && canOpen"
     [content]="dropdown"
-    prizmDropdownHostWidth='auto'
+    prizmDropdownHostWidth='100%'
     [closeByEsc]='true'
     (isOpenChange)="onOpenChange($event)"
 >
@@ -28,12 +28,12 @@
       <button
         prizmInputIconButton="date-calendar-blank"
         [interactive]="true"
-        (click)='onOpenChange(!open)'></button>
+        (click)='null && onOpenChange(!open)'></button>
       <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>
       </ng-container>
     </ng-container>
   </prizm-input-layout>
-
+gtgt
   <ng-template #dropdown>
       <prizm-calendar
           prizmPreventDefault="mousedown"

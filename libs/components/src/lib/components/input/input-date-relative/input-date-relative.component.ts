@@ -4,7 +4,8 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  forwardRef, HostBinding,
+  forwardRef,
+  HostBinding,
   Inject,
   Injector,
   Input,
@@ -47,8 +48,10 @@ const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?((\\+|\\-)(\\d+
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmInputDateRelativeComponent implements AfterViewInit, OnInit, ControlValueAccessor, OnDestroy {
-  @ViewChild('focusableElementRef', {read: ElementRef})
+export class PrizmInputDateRelativeComponent
+  implements AfterViewInit, OnInit, ControlValueAccessor, OnDestroy
+{
+  @ViewChild('focusableElementRef', { read: ElementRef })
   public readonly focusableElement?: ElementRef<HTMLInputElement>;
 
   @Input()
@@ -62,11 +65,9 @@ export class PrizmInputDateRelativeComponent implements AfterViewInit, OnInit, C
   @Input()
   @prizmDefaultProp()
   public set disabled(value: boolean) {
-    if (value)
-      this.value.disable()
-    else
-      this.value.enable();
-  };
+    if (value) this.value.disable();
+    else this.value.enable();
+  }
   public get disabled(): boolean {
     return this.value.disabled;
   }
@@ -113,10 +114,7 @@ export class PrizmInputDateRelativeComponent implements AfterViewInit, OnInit, C
 
   public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
 
-  constructor(
-    public readonly injector: Injector,
-    private readonly cdr: ChangeDetectorRef
-  ) {}
+  constructor(public readonly injector: Injector, private readonly cdr: ChangeDetectorRef) {}
 
   public ngOnInit(): void {
     this.rightButtons$ = this.extraButtonInjector.get(PRIZM_DATE_RIGHT_BUTTONS);
@@ -194,7 +192,7 @@ export class PrizmInputDateRelativeComponent implements AfterViewInit, OnInit, C
   }
 
   public get nativeFocusableElement(): HTMLInputElement | null {
-    return this.focusableElement ? this.focusableElement.nativeElement as HTMLInputElement : null;
+    return this.focusableElement ? (this.focusableElement.nativeElement as HTMLInputElement) : null;
   }
 
   public get focused(): boolean {
@@ -235,12 +233,7 @@ export class PrizmInputDateRelativeComponent implements AfterViewInit, OnInit, C
 
   public safeOpenModal(): void {
     const inputElement = this.focusableElement.nativeElement;
-    if (
-      !this.isOpen &&
-      !this.disabled &&
-      inputElement &&
-      prizmIsNativeFocused(inputElement)
-    ) {
+    if (!this.isOpen && !this.disabled && inputElement && prizmIsNativeFocused(inputElement)) {
       this.isOpen = true;
       this.cdr.markForCheck();
     }

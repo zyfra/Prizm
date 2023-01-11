@@ -33,4 +33,3 @@ export class PrizmRowDirective<T extends Partial<Record<keyof T, any>>> {
 
   constructor(@Inject(TemplateRef) readonly template: TemplateRef<PrizmRowContext<T>>) {}
 }
-

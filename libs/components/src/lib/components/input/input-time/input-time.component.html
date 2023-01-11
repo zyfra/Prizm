@@ -2,6 +2,7 @@
     class="z-wrapper"
     [canOpen]="interactive && !!filtered.length"
     [content]="dropdownContent"
+    [prizmDropdownHostWidth]='"100%"'
     [isOpen]="interactive && open && !!filtered.length"
     (isOpenChange)="onOpen($event)"
     [closeByEsc]='true'

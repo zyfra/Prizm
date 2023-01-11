@@ -2,12 +2,14 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ElementRef, EventEmitter,
+  ElementRef,
+  EventEmitter,
   forwardRef,
   HostBinding,
   Inject,
   Input,
-  Optional, Output,
+  Optional,
+  Output,
   Self,
   ViewChild,
 } from '@angular/core';
@@ -19,7 +21,15 @@ import { PrizmFocusableElementAccessor, PrizmNativeFocusableElement } from '../.
 import { PrizmInputSize } from '../../input';
 import { AbstractPrizmControl } from '../../../abstract/control';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
-import { debounceTime, distinctUntilChanged, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  map,
+  startWith,
+  switchMap,
+  takeUntil,
+  tap,
+} from 'rxjs/operators';
 import { BehaviorSubject, concat, timer } from 'rxjs';
 import { PrizmSelectIdentityMatcher, PrizmSelectSearchMatcher } from './select.model';
 import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens';
@@ -40,19 +50,19 @@ import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
       useExisting: forwardRef(() => PrizmSelectComponent),
     },
   ],
-  exportAs: 'prizmDropdownSelect'
+  exportAs: 'prizmDropdownSelect',
 })
 export class PrizmSelectComponent<T>
-extends AbstractPrizmControl<T>
-implements PrizmFocusableElementAccessor
+  extends AbstractPrizmControl<T>
+  implements PrizmFocusableElementAccessor
 {
-  @ViewChild('focusableElementRef', {read: ElementRef})
+  @ViewChild('focusableElementRef', { read: ElementRef })
   public readonly focusableElement?: ElementRef<HTMLElement>;
 
   @ViewChild('dropdownHostRef')
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;
 
-  @Input() set items(data:T[]) {
+  @Input() set items(data: T[]) {
     this.items$.next(data);
   }
   get items(): T[] {
@@ -97,7 +107,7 @@ implements PrizmFocusableElementAccessor
 
   @Input()
   @prizmDefaultProp()
-  search: string  | null = this.options.search;
+  search: string | null = this.options.search;
 
   @Input()
   @prizmDefaultProp()
@@ -120,7 +130,7 @@ implements PrizmFocusableElementAccessor
    * */
   @Input()
   @prizmDefaultProp()
-  stringify: (i:T, content?: string) => string = this.options.stringify;
+  stringify: (i: T, content?: string) => string = this.options.stringify;
 
   @Input()
   @prizmDefaultProp()
@@ -147,49 +157,41 @@ implements PrizmFocusableElementAccessor
   public readonly defaultIcon = 'chevrons-dropdown';
 
   readonly filteredItems$ = this.requiredInputControl.valueChanges.pipe(
-    tap(
-      (value) => this.searchChange.emit(value)
-    ),
+    tap(value => this.searchChange.emit(value)),
     startWith(''),
-    switchMap((value) => {
+    switchMap(value => {
       return this.items$.pipe(
-        map((items) => {
-            if (!this.searchable || !value?.toString().replace(/[ ]+/g, '')) return items;
-            const searchValue = this.searchValue = value.toString().trim();
-            return items?.filter(
-              (item) => this.searchMatcher(searchValue, item),
-            ) ?? [];
-          }
-        ),
-        map((items) => {
+        map(items => {
+          if (!this.searchable || !value?.toString().replace(/[ ]+/g, '')) return items;
+          const searchValue = (this.searchValue = value.toString().trim());
+          return items?.filter(item => this.searchMatcher(searchValue, item)) ?? [];
+        }),
+        map(items => {
           if (this.nullContent && items?.length && items[0] !== null) {
-            items = [
-              null,
-              ...items,
-            ]
+            items = [null, ...items];
           }
           return items;
         }),
-        tap((items) => {
+        tap(items => {
           this.filteredItems = items;
-          this.dropdownHostElement?.reCalculatePositions(1000/60);
+          this.dropdownHostElement?.reCalculatePositions(1000 / 60);
         }),
-        debounceTime(0),
+        debounceTime(0)
         // tap(() => this.safeOpenModal())
-      )
-    }),
+      );
+    })
   );
 
   public filteredItems: T[] = [];
   private searchValue: string;
 
-
   constructor(
     @Inject(PRIZM_SELECT_OPTIONS) private readonly options: PrizmSelectOptions<T>,
     @Optional()
     @Self()
-    @Inject(NgControl) control: NgControl | null,
-    @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
+    @Inject(NgControl)
+    control: NgControl | null,
+    @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef
   ) {
     super(control, changeDetectorRef);
   }
@@ -204,34 +206,31 @@ implements PrizmFocusableElementAccessor
   }
 
   private initControlStatusChangerIfExist(): void {
-    this.control?.statusChanges.pipe(
-      tap((value) => {
-        if (value === 'DISABLED')
-          this.requiredInputControl.disable();
-        else if (!this.requiredInputControl.enabled)
-          this.requiredInputControl.enable();
-      }),
-      takeUntil(this.destroy$),
-    ).subscribe();
+    this.control?.statusChanges
+      .pipe(
+        tap(value => {
+          if (value === 'DISABLED') this.requiredInputControl.disable();
+          else if (!this.requiredInputControl.enabled) this.requiredInputControl.enable();
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   private initControlValueChangerIfExist(): void {
-    concat(
-      timer(0).pipe(map(() => this.control?.value)),
-      this.control?.valueChanges,
-    ).pipe(
-      distinctUntilChanged(),
-      tap((value) => {
-        if (value) {
-          value = this.items$.value?.find(
-            i => value && i && this.identityMatcher(value, i),
-          );
-        }
-        this.select(value);
-        this.updateValue(value);
-      }),
-      takeUntil(this.destroy$),
-    ).subscribe();
+    concat(timer(0).pipe(map(() => this.control?.value)), this.control?.valueChanges)
+      .pipe(
+        distinctUntilChanged(),
+        tap(value => {
+          if (value) {
+            value = this.items$.value?.find(i => value && i && this.identityMatcher(value, i));
+          }
+          this.select(value);
+          this.updateValue(value);
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   get nativeFocusableElement(): PrizmNativeFocusableElement | null {
@@ -259,12 +258,7 @@ implements PrizmFocusableElementAccessor
   public safeOpenModal(): void {
     const inputElement = this.focusableElement.nativeElement;
     // if (this.stop$.value) return
-    const open = (
-      !this.open &&
-      this.interactive &&
-      inputElement &&
-      prizmIsNativeFocused(inputElement)
-    )
+    const open = !this.open && this.interactive && inputElement && prizmIsNativeFocused(inputElement);
     this.open = open;
     this.changeDetectorRef.markForCheck();
   }

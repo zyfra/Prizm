@@ -31,191 +31,177 @@ import { prizmNullableSame } from '../../util/common/nullable-same';
 import { PRIZM_OTHER_DATE_TEXT } from '../../tokens/i18n';
 
 @Component({
-    selector: `prizm-calendar-range`,
-    templateUrl: `./calendar-range.component.html`,
-    styleUrls: [`./calendar-range.component.less`],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [PrizmDestroyService],
+  selector: `prizm-calendar-range`,
+  templateUrl: `./calendar-range.component.html`,
+  styleUrls: [`./calendar-range.component.less`],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [PrizmDestroyService],
 })
 export class PrizmCalendarRangeComponent implements PrizmWithOptionalMinMax<PrizmDay> {
-    @Input()
-    @prizmDefaultProp()
-    defaultViewedMonth: PrizmMonth = PrizmMonth.currentLocal();
+  @Input()
+  @prizmDefaultProp()
+  defaultViewedMonth: PrizmMonth = PrizmMonth.currentLocal();
 
-    @Input()
-    @prizmDefaultProp()
-    disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PRIZM_ALWAYS_FALSE_HANDLER;
+  @Input()
+  @prizmDefaultProp()
+  disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PRIZM_ALWAYS_FALSE_HANDLER;
 
-    @Input()
-    @prizmDefaultProp()
-    markerHandler: PrizmMarkerHandler = PRIZM_DEFAULT_MARKER_HANDLER;
+  @Input()
+  @prizmDefaultProp()
+  markerHandler: PrizmMarkerHandler = PRIZM_DEFAULT_MARKER_HANDLER;
 
-    @Input()
-    @prizmDefaultProp()
-    items: readonly PrizmDayRangePeriod[] = [];
+  @Input()
+  @prizmDefaultProp()
+  items: readonly PrizmDayRangePeriod[] = [];
 
-    @Input()
-    @prizmDefaultProp()
-    min: PrizmDay = PRIZM_FIRST_DAY;
+  @Input()
+  @prizmDefaultProp()
+  min: PrizmDay = PRIZM_FIRST_DAY;
 
-    @Input()
-    @prizmDefaultProp()
-    max: PrizmDay = PRIZM_LAST_DAY;
+  @Input()
+  @prizmDefaultProp()
+  max: PrizmDay = PRIZM_LAST_DAY;
 
-    @Input()
-    @prizmDefaultProp()
-    minLength: PrizmDayLike | null = null;
+  @Input()
+  @prizmDefaultProp()
+  minLength: PrizmDayLike | null = null;
 
-    @Input()
-    @prizmDefaultProp()
-    maxLength: PrizmDayLike | null = null;
+  @Input()
+  @prizmDefaultProp()
+  maxLength: PrizmDayLike | null = null;
 
-    @Input()
-    @prizmDefaultProp()
-    value: PrizmDayRange | null = null;
+  @Input()
+  @prizmDefaultProp()
+  value: PrizmDayRange | null = null;
 
-    @Output()
-    readonly valueChange = new EventEmitter<PrizmDayRange | null>();
+  @Output()
+  readonly valueChange = new EventEmitter<PrizmDayRange | null>();
 
-    /** @deprecated TODO: 2.0 remove */
-    @Output()
-    readonly rangeChange = new EventEmitter<PrizmDayRange | null>();
+  /** @deprecated TODO: 2.0 remove */
+  @Output()
+  readonly rangeChange = new EventEmitter<PrizmDayRange | null>();
 
-    @HostBinding('attr.testId')
-    readonly testId = 'prizm_calendar_range';
+  @HostBinding('attr.testId')
+  readonly testId = 'prizm_calendar_range';
 
+  readonly maxLengthMapper: PrizmMapper<PrizmDay, PrizmDay> = PRIZM_MAX_DAY_RANGE_LENGTH_MAPPER;
 
-    readonly maxLengthMapper: PrizmMapper<PrizmDay, PrizmDay> = PRIZM_MAX_DAY_RANGE_LENGTH_MAPPER;
-
-    constructor(
-        @Inject(PRIZM_CALENDAR_DATA_STREAM)
-        @Optional()
-        valueChanges: Observable<PrizmDayRange | null> | null,
-        @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
-        @Inject(PrizmDestroyService) destroy$: PrizmDestroyService,
-        @Inject(PRIZM_OTHER_DATE_TEXT) readonly otherDateText$: Observable<string>,
-    ) {
-        if (!valueChanges) {
-            return;
-        }
-
-        valueChanges
-            .pipe(tap(() => changeDetectorRef.markForCheck()), takeUntil(destroy$))
-            .subscribe(value => {
-                this.value = value;
-            });
+  constructor(
+    @Inject(PRIZM_CALENDAR_DATA_STREAM)
+    @Optional()
+    valueChanges: Observable<PrizmDayRange | null> | null,
+    @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
+    @Inject(PrizmDestroyService) destroy$: PrizmDestroyService,
+    @Inject(PRIZM_OTHER_DATE_TEXT) readonly otherDateText$: Observable<string>
+  ) {
+    if (!valueChanges) {
+      return;
     }
 
-    readonly getEndRangeMonthOrShift: PrizmMapper<PrizmMonth, PrizmMonth> = item => {
-      if (!this.value || !this.value.to) return item.append({month: 1});
-      return this.value.to
-    }
+    valueChanges
+      .pipe(
+        tap(() => changeDetectorRef.markForCheck()),
+        takeUntil(destroy$)
+      )
+      .subscribe(value => {
+        this.value = value;
+      });
+  }
 
-    readonly mapper: PrizmMapper<
-        readonly PrizmDayRangePeriod[],
-        ReadonlyArray<PrizmDayRangePeriod | string>
-    > = (
-        items,
-        min: PrizmDay,
-        max: PrizmDay | null,
-        minLength: PrizmDayLike | null,
-        otherDateText: string,
-    ) => [
-        ...items.filter(
-            item =>
-                (minLength === null ||
-                    item.range.from.append(minLength).daySameOrBefore(item.range.to)) &&
-                item.range.to.daySameOrAfter(min) &&
-                (max === null || item.range.from.daySameOrBefore(max)),
-        ),
-        otherDateText,
+  readonly getEndRangeMonthOrShift: PrizmMapper<PrizmMonth, PrizmMonth> = item => {
+    if (!this.value || !this.value.to) return item.append({ month: 1 });
+    return this.value.to;
+  };
+
+  readonly mapper: PrizmMapper<readonly PrizmDayRangePeriod[], ReadonlyArray<PrizmDayRangePeriod | string>> =
+    (items, min: PrizmDay, max: PrizmDay | null, minLength: PrizmDayLike | null, otherDateText: string) => [
+      ...items.filter(
+        item =>
+          (minLength === null || item.range.from.append(minLength).daySameOrBefore(item.range.to)) &&
+          item.range.to.daySameOrAfter(min) &&
+          (max === null || item.range.from.daySameOrBefore(max))
+      ),
+      otherDateText,
     ];
 
-    get calculatedDisabledItemHandler(): PrizmBooleanHandler<PrizmDay> {
-        return this.calculateDisabledItemHandler(
-            this.disabledItemHandler,
-            this.value,
-            this.minLength,
-        );
+  get calculatedDisabledItemHandler(): PrizmBooleanHandler<PrizmDay> {
+    return this.calculateDisabledItemHandler(this.disabledItemHandler, this.value, this.minLength);
+  }
+
+  public get computedMonth(): PrizmMonth {
+    return this.value ? this.value.to : this.defaultViewedMonth;
+  }
+
+  public isItemActive(item: string | PrizmDayRangePeriod): boolean {
+    const { activePeriod } = this;
+
+    return (typeof item === `string` && activePeriod === null) || activePeriod === item;
+  }
+
+  public onRangeChange(dayRange: PrizmDayRange): void {
+    this.updateValue(dayRange);
+  }
+
+  public onDayClick(day: PrizmDay): void {
+    const { value } = this;
+
+    if (value === null || !value.isSingleDay) {
+      this.value = new PrizmDayRange(day, day);
+
+      return;
     }
 
-   public get computedMonth(): PrizmMonth {
-        return this.value ? this.value.to : this.defaultViewedMonth;
+    this.updateValue(PrizmDayRange.sort(value.from, day));
+  }
+
+  public onItemSelect(item: string | PrizmDayRangePeriod): void {
+    if (typeof item !== `string`) {
+      this.updateValue(item.range.dayLimit(this.min, this.max));
+
+      return;
     }
 
-    public isItemActive(item: string | PrizmDayRangePeriod): boolean {
-        const {activePeriod} = this;
-
-        return (
-            (typeof item === `string` && activePeriod === null) || activePeriod === item
-        );
+    if (this.activePeriod !== null) {
+      this.updateValue(null);
     }
+  }
 
-    public onRangeChange(dayRange: PrizmDayRange): void {
-        this.updateValue(dayRange);
-    }
+  public updateValue(value: PrizmDayRange | null): void {
+    this.value = value;
+    this.valueChange.emit(value);
+    this.rangeChange.emit(value);
+  }
 
-    public onDayClick(day: PrizmDay): void {
-        const {value} = this;
+  private get activePeriod(): PrizmDayRangePeriod | null {
+    return (
+      this.items.find(item =>
+        prizmNullableSame<PrizmDayRange>(
+          this.value,
+          item.range,
+          (a, b) =>
+            a.from.daySame(b.from.dayLimit(this.min, this.max)) &&
+            a.to.daySame(b.to.dayLimit(this.min, this.max))
+        )
+      ) || null
+    );
+  }
 
-        if (value === null || !value.isSingleDay) {
-            this.value = new PrizmDayRange(day, day);
+  @prizmPure
+  private calculateDisabledItemHandler(
+    disabledItemHandler: PrizmBooleanHandler<PrizmDay>,
+    value: PrizmDayRange | null,
+    minLength: PrizmDayLike | null
+  ): PrizmBooleanHandler<PrizmDay> {
+    return (item: PrizmDay): boolean => {
+      if (!value || !value.isSingleDay || !minLength) {
+        return disabledItemHandler(item);
+      }
 
-            return;
-        }
+      const disabledBefore = value.from.append(minLength, true).append({ day: 1 });
+      const disabledAfter = value.from.append(minLength).append({ day: -1 });
+      const inDisabledRange = disabledBefore.dayBefore(item) && disabledAfter.dayAfter(item);
 
-        this.updateValue(PrizmDayRange.sort(value.from, day));
-    }
-
-    public onItemSelect(item: string | PrizmDayRangePeriod): void {
-        if (typeof item !== `string`) {
-            this.updateValue(item.range.dayLimit(this.min, this.max));
-
-            return;
-        }
-
-        if (this.activePeriod !== null) {
-            this.updateValue(null);
-        }
-    }
-
-    public updateValue(value: PrizmDayRange | null): void {
-        this.value = value;
-        this.valueChange.emit(value);
-        this.rangeChange.emit(value);
-    }
-
-    private get activePeriod(): PrizmDayRangePeriod | null {
-        return (
-            this.items.find(item =>
-                prizmNullableSame<PrizmDayRange>(
-                    this.value,
-                    item.range,
-                    (a, b) =>
-                        a.from.daySame(b.from.dayLimit(this.min, this.max)) &&
-                        a.to.daySame(b.to.dayLimit(this.min, this.max)),
-                ),
-            ) || null
-        );
-    }
-
-    @prizmPure
-    private calculateDisabledItemHandler(
-        disabledItemHandler: PrizmBooleanHandler<PrizmDay>,
-        value: PrizmDayRange | null,
-        minLength: PrizmDayLike | null,
-    ): PrizmBooleanHandler<PrizmDay> {
-        return (item: PrizmDay): boolean => {
-            if (!value || !value.isSingleDay || !minLength) {
-                return disabledItemHandler(item);
-            }
-
-            const disabledBefore = value.from.append(minLength, true).append({day: 1});
-            const disabledAfter = value.from.append(minLength).append({day: -1});
-            const inDisabledRange =
-                disabledBefore.dayBefore(item) && disabledAfter.dayAfter(item);
-
-            return inDisabledRange || disabledItemHandler(item);
-        };
-    }
+      return inDisabledRange || disabledItemHandler(item);
+    };
+  }
 }
