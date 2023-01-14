@@ -1,26 +1,20 @@
-<prizm-doc-page
-  header="Progress Line"
-  package="components"
-  type="components"
->
-  <div class='page-description' description>
-    Our progress line bar component is a simple way to show the progress of a task or process. It is a horizontal bar that is filled with a color to indicate the progress of a task. The progress bar can be used to show the progress of a task or process.
+<prizm-doc-page header="Progress Line" package="components" type="components">
+  <div class="page-description" description>
+    Our progress line bar component is a simple way to show the progress of a task or process. It is a
+    horizontal bar that is filled with a color to indicate the progress of a task. The progress bar can be
+    used to show the progress of a task or process.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example
-      id="base"
-      heading="Base"
-      [content]="exampleBase"
-    >
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
       <prizm-progress-base-example></prizm-progress-base-example>
     </prizm-doc-example>
-
-
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <progress
+        #element
+        [prizmDocHostElement]="element"
         prizmProgressBar
         [size]="size"
         [trackColor]="trackColor"
@@ -30,7 +24,6 @@
       ></progress>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-
       <ng-template
         documentationPropertyName="color"
         documentationPropertyType="string | null"
@@ -51,23 +44,23 @@
         Track Color
       </ng-template>
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="value"
         documentationPropertyType="number"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="value"
       >
         Value
-      </ng-template>
+      </ng-template> -->
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="max"
         documentationPropertyType="number"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="max"
       >
         Max
-      </ng-template>
+      </ng-template> -->
 
       <ng-template
         documentationPropertyName="size"
@@ -78,8 +71,6 @@
       >
         Size
       </ng-template>
-
-
     </prizm-doc-documentation>
   </ng-template>
 
@@ -92,10 +83,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
