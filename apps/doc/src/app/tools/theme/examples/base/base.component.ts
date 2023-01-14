@@ -22,7 +22,7 @@ export class PrizmThemeBaseExampleComponent {
 
   public toggle(): void {
     this.theme.update(
-      this.theme.value === 'light' ? 'dark' : 'light'
+      this.theme.getByElement(this.theme.rootElement) === 'light' ? 'dark' : 'light'
     );
   }
 }

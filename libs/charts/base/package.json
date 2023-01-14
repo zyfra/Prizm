@@ -1,11 +1,11 @@
 {
   "name": "@prizm-ui/charts",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.20",
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^12.2.0",
     "@angular/core": "^12.2.0",
-    "@prizm-ui/theme": "^1.0.0"
+    "@prizm-ui/theme": "^1.0.0-beta.20"
   },
   "dependencies": {
     "tslib": "^2.3.0"

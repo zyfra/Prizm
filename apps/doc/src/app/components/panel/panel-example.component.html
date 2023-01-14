@@ -54,6 +54,7 @@
     <prizm-doc-demo>
       <prizm-panel
         #element
+        [style.--prizm-panel-border-radius]='radius'
         [prizmDocHostElement]="element"
         [withBackButton]="withBackButton"
         [header]="header"
@@ -68,6 +69,14 @@
         [(documentationPropertyValue)]="withBackButton"
       >
         Is panel with back button
+      </ng-template>
+      <ng-template
+        documentationPropertyName="prizm-panel-border-radius"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+        [(documentationPropertyValue)]="radius"
+      >
+        Panel Border Radius (Default none)
       </ng-template>
 
       <ng-template
