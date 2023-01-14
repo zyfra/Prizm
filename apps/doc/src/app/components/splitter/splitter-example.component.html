@@ -1,6 +1,7 @@
 <prizm-doc-page header="Splitter" type="components">
-  <div class='page-description' description>
-    Our splitter component is a simple way to split content into two columns. It is a great way to display content side by side.
+  <div class="page-description" description>
+    Our splitter component is a simple way to split content into two columns. It is a great way to display
+    content side by side.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="basic">
@@ -20,9 +21,11 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-splitter
+        #element
+        [prizmDocHostElement]="element"
         [ngStyle]="{ height: '400px' }"
         [areasSize]="areasSize"
         [minAreasSize]="minAreasSize"
@@ -67,18 +70,26 @@
       </prizm-splitter>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-      <ng-template
-        documentationPropertyName="areaSizes"
+      <!-- <ng-template
+        documentationPropertyName="areasSizes"
         documentationPropertyType="Array"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="areasSize"
         [documentationPropertyValues]="sizesVariants"
       >
         Areas size
+      </ng-template> -->
+      <ng-template
+        documentationPropertyName="areasSize"
+        documentationPropertyType="Array"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="areasSize"
+      >
+        Areas size
       </ng-template>
 
       <ng-template
-        documentationPropertyName="areaSizes"
+        documentationPropertyName="minAreasSize"
         documentationPropertyType="Array"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="minAreasSize"
@@ -112,4 +123,3 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
-
