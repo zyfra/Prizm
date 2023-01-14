@@ -25,6 +25,10 @@ type DateItem = {
       padding: 16px;
     }
 
+    .header {
+      color: var(--prizm-text-contrast);
+    }
+
     .list {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -34,7 +38,6 @@ type DateItem = {
     .header {
       display: flex;
       gap: 8px;
-      color: black;
       align-items: center;
 
       prizm-icon {

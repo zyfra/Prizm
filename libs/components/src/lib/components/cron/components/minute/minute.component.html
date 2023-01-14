@@ -1,12 +1,12 @@
 <div class='blocks'>
   <label class='every value-block block'
-         (click)='cronUiState.setEvery()'
          *prizmLet='cronUiState.TYPES.every as currentType'
          [class.selected]='cronUiState.typeControl.value === currentType'>
     <div class='radio'>
       <prizm-radio-button
         [formControl]="cronUiState.typeControl"
         [label]='null'
+        (changeEvent)='cronUiState.setEvery()'
         [value]="currentType"
         [name]="'type'"
       ></prizm-radio-button>
@@ -22,6 +22,7 @@
     <div class='radio'>
       <prizm-radio-button
         [formControl]="cronUiState.typeControl"
+        (changeEvent)='cronUiState.updateOn()'
         [label]='null'
         [value]="currentType"
         [name]="'type'"
@@ -54,6 +55,7 @@
     <div class='radio'>
       <prizm-radio-button
         [formControl]="cronUiState.typeControl"
+        (changeEvent)='schedule.emit()'
         [label]='null'
         [value]="currentType"
         [name]="'type'"
@@ -62,6 +64,7 @@
     <div class='content column'>
       <span>Выбранная минута (выбор одного или нескольких)</span>
       <prizm-cron-schedule
+        #schedule
         [items]='cronUiState.list.specified'
         [selected]='cronUiState.state$ | async | prizmPluck : ["specified"]'
         (selectedChange)='cronUiState.updateSpecified($event)'
@@ -76,6 +79,7 @@
       <prizm-radio-button
         [formControl]="cronUiState.typeControl"
         [label]='null'
+        (changeEvent)='cronUiState.updateBetween()'
         [value]="currentType"
         [name]="'type'"
       ></prizm-radio-button>

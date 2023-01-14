@@ -27,5 +27,4 @@ export class PrizmCronYearComponent{
       str.replace(/[ ]+/g,'').split(',')
     )
   }
-
 }

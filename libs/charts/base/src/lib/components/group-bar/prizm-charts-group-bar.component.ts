@@ -1,5 +1,4 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { prizmChartsSetDefaultThemes, PrizmChartTheme } from '../../theme';
 import { Bar } from '@antv/g2plot';
