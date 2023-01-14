@@ -1,7 +1,5 @@
 <prizm-doc-page header="Input Mask" type="components">
-  <p>
-    We recommend using "ngx-mask" library. It works fine with our inputs.
-  </p>
+  <p>We recommend using "ngx-mask" library. It works fine with our inputs.</p>
 
   <ng-template prizmDocPageTab>
     <prizm-doc-example heading="Basic example" [content]="zyfraInputMaskBasicExample">
@@ -13,10 +11,12 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-input-layout [label]="label" [size]="size" [status]="status" [outer]="outer">
         <input
+          #element
+          [prizmDocHostElement]="element"
           prizmInput
           [mask]="mask"
           [showMaskTyped]="true && input.focused"
@@ -24,30 +24,40 @@
           [(ngModel)]="value"
           [disabled]="disabled"
           [required]="required"
+          [value]="value"
         />
         <ng-template prizmInputStatusText>Текст статуса</ng-template>
       </prizm-input-layout>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        documentationPropertyName="value"
+        documentationPropertyType="any"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="value"
+      >
+        Value
+      </ng-template>
+
+      <!-- <ng-template
         documentationPropertyName="Mask"
         documentationPropertyType="string"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="mask"
       >
         Mask
-      </ng-template>
+      </ng-template> -->
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="label"
         documentationPropertyType="string"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="label"
       >
         Label
-      </ng-template>
+      </ng-template> -->
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="status"
         documentationPropertyType="string"
         documentationPropertyMode="input"
@@ -55,7 +65,7 @@
         [(documentationPropertyValue)]="status"
       >
         Status
-      </ng-template>
+      </ng-template> -->
 
       <ng-template
         documentationPropertyName="required"
@@ -75,16 +85,16 @@
         Disabled
       </ng-template>
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="outer"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="outer"
       >
         Outer
-      </ng-template>
+      </ng-template> -->
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="size"
         documentationPropertyType="string"
         documentationPropertyMode="input"
@@ -92,6 +102,30 @@
         [(documentationPropertyValue)]="size"
       >
         Size
+      </ng-template> -->
+
+      <ng-template
+        documentationPropertyName="enter"
+        documentationPropertyType="any"
+        documentationPropertyMode="output"
+      >
+        Enter
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="onClear"
+        documentationPropertyType="void"
+        documentationPropertyMode="output"
+      >
+        On Clear
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="valueChanged"
+        documentationPropertyType="any"
+        documentationPropertyMode="output"
+      >
+        Value Changed
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>
@@ -109,4 +143,3 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
-
