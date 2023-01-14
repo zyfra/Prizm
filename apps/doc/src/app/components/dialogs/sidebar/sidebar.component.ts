@@ -1,8 +1,12 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
+  IconDefs,
   PolymorphContent,
+  PrizmAppearance,
+  PrizmAppearanceType,
   PrizmBaseDialogContext,
+  PrizmContent,
   PrizmDialogSize,
   PrizmOverlayInsidePlacement,
   PrizmOverscrollMode,
@@ -19,6 +23,34 @@ import { prizmPure } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarComponent {
+  public pseudoHovered = false;
+  public pseudoPressed = false;
+  public pseudoFocused = false;
+  public pseudoState = '';
+  public focusable = false;
+
+  public focusedChange = false;
+  public pressedChange = false;
+  public hoveredChange = false;
+  public focusVisibleChange = false;
+
+  iconVariants: ReadonlyArray<PrizmContent> = ['', ...IconDefs.reduce((a, c) => a.concat(c.data), [])];
+  icon: PrizmContent = this.iconVariants[0];
+  iconRight: PrizmContent = this.iconVariants[0];
+  appearanceVariants: ReadonlyArray<PrizmAppearance> = [
+    'primary',
+    'secondary',
+    'success',
+    'warning',
+    'danger',
+  ];
+  appearance: PrizmAppearance = this.appearanceVariants[0];
+
+  appearanceTypeVariants: ReadonlyArray<PrizmAppearanceType> = ['fill', 'outline', 'ghost'];
+  appearanceType: PrizmAppearanceType = this.appearanceTypeVariants[0];
+  disabled = false;
+  showLoader = false;
+
   public overscrollVariants: ReadonlyArray<PrizmOverscrollMode> = ['scroll', 'all', 'none'];
   public overscroll: PrizmOverscrollMode = this.overscrollVariants[0];
   public positionVariants: any = ['t', 'b', 'l', 'r'];
