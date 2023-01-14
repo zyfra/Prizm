@@ -1,58 +1,39 @@
-<prizm-doc-page
-  header="Tree"
-  package="components"
-  type="components"
->
-
-  <div class='page-description' description>
+<prizm-doc-page header="Tree" package="components" type="components">
+  <div class="page-description" description>
     Our tree component is a simple, flexible, and accessible tree view.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example
-      id="base"
-      heading="Base"
-      [content]="exampleBase"
-    >
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
       <prizm-tree-base-example></prizm-tree-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example
-      id="array"
-      heading="Array"
-      [content]="exampleArray"
-    >
+    <prizm-doc-example id="array" heading="Array" [content]="exampleArray">
       <prizm-tree-array-example></prizm-tree-array-example>
     </prizm-doc-example>
 
-    <prizm-doc-example
-      id="template"
-      heading="Template"
-      [content]="exampleTemplate"
-    >
+    <prizm-doc-example id="template" heading="Template" [content]="exampleTemplate">
       <prizm-tree-template-example></prizm-tree-template-example>
     </prizm-doc-example>
 
-    <prizm-doc-example
-      id="component"
-      heading="Component"
-      [content]="exampleComponent"
-    >
+    <prizm-doc-example id="component" heading="Component" [content]="exampleComponent">
       <prizm-tree-component-example></prizm-tree-component-example>
     </prizm-doc-example>
-
-
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-tree #element [prizmDocHostElement]="element" [value]="data"></prizm-tree>
+    </prizm-doc-demo>
     <prizm-doc-documentation>
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="prizmTreeController"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="treeController"
       >
         Tree Controller
-      </ng-template>
+      </ng-template> -->
+
       <ng-template
         documentationPropertyName="value"
         documentationPropertyType="DeepArray"
@@ -61,13 +42,15 @@
       >
         Tree Controller
       </ng-template>
-      <ng-template
+
+      <!-- <ng-template
         documentationPropertyName="childrenHandler"
         documentationPropertyType="PrizmHandler<TreeNode, readonly TreeNode[]> "
         documentationPropertyMode="input"
       >
         Handler
-      </ng-template>
+      </ng-template> -->
+
       <ng-template
         documentationPropertyName="content"
         documentationPropertyType="PolymorhContent"
@@ -87,10 +70,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>
