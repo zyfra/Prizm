@@ -24,9 +24,11 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-select
+        #element
+        [prizmDocHostElement]="element"
         [formControl]="control"
         [nullContent]="nullContent"
         [items]="items"
@@ -117,7 +119,7 @@
         Show clear button
       </ng-template>
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="value"
         documentationPropertyType="unknown"
         documentationPropertyMode="input"
@@ -126,7 +128,7 @@
         [documentationPropertyValues]="valVariants"
       >
         Value (use FormControl)
-      </ng-template>
+      </ng-template> -->
 
       <ng-template
         documentationPropertyName="valueTemplate"
@@ -176,14 +178,14 @@
         Outer
       </ng-template>
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="disabled"
       >
         Disabled (Use formControl to disable)
-      </ng-template>
+      </ng-template> -->
 
       <ng-template
         documentationPropertyName="label"
