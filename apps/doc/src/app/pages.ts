@@ -589,7 +589,7 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.charts,
-    title: 'Column Group',
+    title: 'Column',
     keywords: 'charts, column-group, графики',
     route: '/charts/column-group',
   },

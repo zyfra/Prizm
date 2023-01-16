@@ -1,18 +1,124 @@
-<prizm-doc-page header="ColumnGroup" package="components" type="components">
+<prizm-doc-page header="Column" package="components" type="components">
   <div class='page-description' description>
     Column charts are useful for showing data changes over a period of time or for illustrating comparisons among items. In column charts, categories are typically organized along the horizontal axis and values along the vertical axis.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleOutline">
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
+      <prizm-charts-column-base-example></prizm-charts-column-base-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="base" heading="Group" [content]="exampleColumnGroup">
       <prizm-charts-column-group-example></prizm-charts-column-group-example>
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
+      <prizm-charts-column
+        #element
+        [prizmDocHostElement]="element"
+        [data]='data'
+        [width]='width'
+        [theme]='prizmTheme.changesTheme$ | async'
+        [height]='height'
+        [options]='options'
+        [xField]='xField'
+        [groupField]='groupField'
+        [seriesField]='seriesField'
+        [yField]='yField'
+      >
+      </prizm-charts-column>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-<!--      <ng-template-->
+
+
+      <ng-template
+        documentationPropertyName="theme"
+        documentationPropertyMode='input'
+        documentationPropertyType="PrizmChartTheme"
+      >
+        Theme
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="width"
+        documentationPropertyType="number"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="width"
+      >
+        Width
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="options"
+        documentationPropertyMode='input'
+        documentationPropertyType="PrizmChartsColumnOptions"
+      >
+        Options
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="data"
+        documentationPropertyMode='input'
+        documentationPropertyType="PrizmChartsColumnItem[]"
+      >
+        Data
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyMode='input'
+        documentationPropertyType=" PrizmChartsColumnOptions[label]"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="xField"
+        documentationPropertyType="string"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="xField"
+      >
+        X Field Name
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="yField"
+        documentationPropertyType="string"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="yField"
+      >
+        Y Field Name
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="height"
+        documentationPropertyType="number"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="height"
+      >
+        Height
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="seriesField"
+        documentationPropertyType="string"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="seriesField"
+      >
+        Series Field
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="groupField"
+        documentationPropertyType="string"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="groupField"
+      >
+        Group Field
+      </ng-template>
+
+      <!--      <ng-template-->
 <!--        documentationPropertyName="ng-content"-->
 <!--        documentationPropertyType="string"-->
 <!--        [(documentationPropertyValue)]="content"-->

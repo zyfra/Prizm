@@ -562,9 +562,9 @@ export const ROUTES = [
   {
     path: 'charts/column-group',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./charts/column-group/column-group.module')).ColumnGroupModule,
+      (await import('./charts/column/column.module')).ColumnModule,
     data: {
-      title: 'Column Group',
+      title: 'Column',
     },
   },
   {
