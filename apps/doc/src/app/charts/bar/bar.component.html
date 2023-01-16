@@ -9,6 +9,9 @@
     <prizm-doc-example id="stacked" heading="Stacked" [content]="exampleOutline">
       <prizm-charts-stacked-bar-example></prizm-charts-stacked-bar-example>
     </prizm-doc-example>
+    <prizm-doc-example id="group" heading="Group" [content]="exampleGroup">
+      <prizm-charts-bar-group-example></prizm-charts-bar-group-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -44,6 +47,14 @@
         [(documentationPropertyValue)]="xField"
       >
         X Field Name
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyMode='input'
+        documentationPropertyType=" PrizmChartsBarOptions[label]"
+      >
+        Label
       </ng-template>
 
       <ng-template

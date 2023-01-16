@@ -1,4 +1,5 @@
 import { Directive, EmbeddedViewRef, Input, OnDestroy, TemplateRef, ViewContainerRef } from '@angular/core';
+import { PrizmLetContextService } from './let-context.service';
 
 interface LetContext<T> {
   $implicit: T | null;
@@ -12,10 +13,18 @@ interface LetContext<T> {
  * @button <ng-container *prizmLet="{items: items$ | async, center: center} as $"> {{$.items?.count}} {{$.center}}</ng-container>
  * @button <ng-container *prizmLet="queryParams.isMap$ | async as isMap">{{isMap}}</ng-container>
  */
-@Directive({ selector: '[prizmLet]' })
+@Directive({
+  selector: '[prizmLet]',
+  providers: [
+    PrizmLetContextService
+  ],
+})
 export class PrizmLetDirective<T> implements OnDestroy {
-  constructor(private templateRef: TemplateRef<LetContext<T>>, private viewContainer: ViewContainerRef) {}
-
+  constructor(
+    private templateRef: TemplateRef<LetContext<T>>,
+    private viewContainer: ViewContainerRef,
+    private contextService: PrizmLetContextService<T>,
+  ) {}
   @Input('prizmLet') set init(newContext: T) {
     this.updateContext(newContext);
   }
@@ -27,7 +36,7 @@ export class PrizmLetDirective<T> implements OnDestroy {
     this.context
   );
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.viewContainer.clear();
     if (this.viewRef) {
       this.viewRef.destroy();
@@ -37,6 +46,7 @@ export class PrizmLetDirective<T> implements OnDestroy {
 
   private updateContext(newContext: T): void {
     this.context.$implicit = this.context.prizmLet = newContext;
+    this.contextService.setContext(newContext);
     if (this.viewRef) {
       this.viewRef.markForCheck();
     }

@@ -31,30 +31,74 @@
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <div class="container container__{{ size }}">
-        <prizm-tab
-          #element
-          [prizmDocHostElement]="element"
-          [title]="title"
-          [icon]="icon"
-          [closable]="closable"
-          [type]="type"
-          [disabled]="disabled"
-          [count]="count"
-          [isActive]="isActive"
-          (tabClick)="isActive = !isActive"
-        ></prizm-tab>
+        <prizm-tabs
+          #elementTabs
+          key="PrizmTabsComponent"
+          [prizmDocHostElement]="elementTabs"
+          [size]='size'
+          [activeTabIndex]='activeTabIndex'
+        >
+          <prizm-tab
+            #elementTab
+            [prizmDocHostElement]="elementTab"
+            key="PrizmTabComponent"
+            [icon]="icon"
+            [content]="content"
+            [closable]="closable"
+            [type]="type"
+            [disabled]="disabled"
+            [count]="count"
+          >
+          </prizm-tab>
+          <prizm-tab
+            [icon]="icon"
+            [closable]="closable"
+            [type]="type"
+            [closeIcon]="closeIcon"
+            [disabled]="disabled"
+            [count]="count"
+          >
+            Tab 2
+          </prizm-tab>
+        </prizm-tabs>
       </div>
     </prizm-doc-demo>
-    <prizm-doc-documentation>
-      <!-- <ng-template
+    <prizm-doc-documentation
+      heading='PrizmTabsComponent'
+      hostComponentKey='PrizmTabsComponent'>
+
+      <ng-template
         documentationPropertyName="size"
-        documentationPropertyType="TabSize"
+        documentationPropertyType="PrizmTabSize"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="size"
         [documentationPropertyValues]="sizeVariants"
       >
-        Tab title
-      </ng-template> -->
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="activeTabIndex"
+        documentationPropertyType="number"
+        documentationPropertyMode="input-output"
+        [(documentationPropertyValue)]="activeTabIndex"
+      >
+        Active Tab Index
+      </ng-template>
+
+    </prizm-doc-documentation>
+    <prizm-doc-documentation
+      heading='PrizmTabComponent'
+      hostComponentKey='PrizmTabComponent'>
+
+      <ng-template
+        documentationPropertyName="content"
+        documentationPropertyMode="input"
+        documentationPropertyType="PolymorhContent"
+        [(documentationPropertyValue)]="content"
+      >
+        PolymorhContent
+      </ng-template>
 
       <ng-template
         documentationPropertyName="type"
@@ -62,15 +106,6 @@
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="type"
         [documentationPropertyValues]="typeVariants"
-      >
-        Tab title
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="title"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="title"
       >
         Tab title
       </ng-template>
@@ -94,15 +129,6 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="isActive"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="isActive"
-      >
-        Is tab active
-      </ng-template>
-
-      <ng-template
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
@@ -113,7 +139,7 @@
 
       <ng-template
         documentationPropertyName="icon"
-        documentationPropertyType="string"
+        documentationPropertyType="PolymorhContent"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="icon"
         [documentationPropertyValues]="iconVariants"
@@ -121,16 +147,21 @@
         Tab icon
       </ng-template>
 
-      <ng-template documentationPropertyName="cancelClick" documentationPropertyMode="output">
-        Cancel button click event
+      <ng-template
+        documentationPropertyName="closeIcon"
+        documentationPropertyType="PolymorhContent"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="closeIcon"
+      >
+        Close Icon
       </ng-template>
 
       <ng-template
-        documentationPropertyName="tabClick"
-        documentationPropertyType="number"
+        documentationPropertyName="closeTab"
+        documentationPropertyType="void"
         documentationPropertyMode="output"
       >
-        Tab click (emit selected tab index)
+        Close Icon
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>

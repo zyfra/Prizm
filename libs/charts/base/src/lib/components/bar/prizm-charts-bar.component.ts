@@ -50,6 +50,13 @@ export class PrizmChartsBarComponent<T extends Record<string, unknown>>
   public get seriesField(): string {
     return this.options.seriesField;
   }
+  @Input()
+  public set label (value: PrizmChartsBarOptions['label']) {
+    this.updateOptions({label: value});
+  };
+  public get label(): PrizmChartsBarOptions['label'] {
+    return this.options.label;
+  }
 
   private origin_: Bar;
 

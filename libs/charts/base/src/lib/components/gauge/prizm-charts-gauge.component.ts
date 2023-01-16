@@ -1,65 +1,43 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Injector, Input } from '@angular/core';
+import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
+import { PrizmChartsGaugeOptions, PrizmChartsGaugeOrigin } from './model';
 import { Gauge } from '@antv/g2plot';
-import { prizmDefaultProp } from '@prizm-ui/core';
-import { prizmChartsSetDefaultThemes, PrizmChartTheme } from '../../theme';
 
 @Component({
   selector: 'prizm-charts-gauge',
   templateUrl: './prizm-charts-gauge.component.html',
   styleUrls: ['./prizm-charts-gauge.component.less'],
 })
-export class PrizmChartsGaugeComponent<T extends Record<string, unknown>> implements OnInit {
+export class PrizmChartsGaugeComponent
+<T extends Record<string, unknown>> extends PrizmChartsAbstractComponent<
+  PrizmChartsGaugeOrigin,
+  PrizmChartsGaugeOptions
+> {
+  private origin_: PrizmChartsGaugeOrigin
+  get origin(): PrizmChartsGaugeOrigin {
+    return this.origin_;
+  }
+  public readonly name = 'gauge';
   @Input()
-  @prizmDefaultProp()
-  data: unknown[] = [];
-
-  @Input()
-  @prizmDefaultProp()
-  theme: null | PrizmChartTheme = null;
-
-  @ViewChild('container', { static: true, read: ElementRef }) container: ElementRef<HTMLElement>;
-
-  ngOnInit(): void {
-    prizmChartsSetDefaultThemes();
-
-    const gauge = new Gauge(this.container.nativeElement, {
-      percent: 0.75,
-      range: {
-        color: '#30BF78',
-      },
-      indicator: {
-        pointer: {
-          style: {
-            stroke: '#D0D0D0',
-          },
-        },
-        pin: {
-          style: {
-            stroke: '#D0D0D0',
-          },
-        },
-      },
-      axis: {
-        label: {
-          formatter(v): number {
-            return Number(v) * 100;
-          },
-        },
-        subTickLine: {
-          count: 3,
-        },
-      },
-      statistic: {
-        content: {
-          formatter: ({ percent }): string => `Rate: ${(percent * 100).toFixed(0)}%`,
-          style: {
-            color: 'white',
-            fontSize: '24px',
-          },
-        },
-      },
+  set percent(value: number) {
+    this.updateOptions({
+      percent: value,
     });
+  }
+  get percent(): number {
+    return this.origin?.options.percent;
+  }
 
-    gauge.render();
+  constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
+    super(injector);
+    this.init();
+  }
+
+  private init(): void {
+    this.origin_ = new Gauge(this.elRef.nativeElement, {
+      percent: 0,
+      theme: 'light',
+    });
+    this.render();
   }
 }

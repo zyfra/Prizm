@@ -1,3 +1,9 @@
 <div class="container">
-  <prizm-tabs type="line" [tabs]="tabs" (tabClick)="tabClick()" (cancelClick)="tabCancelClick()"></prizm-tabs>
+  <prizm-tabs>
+    <prizm-tab *ngFor='let item of tabs'
+               [disabled]="item.disabled"
+               [content]="item.title"
+               [type]="'line'">
+    </prizm-tab>
+  </prizm-tabs>
 </div>

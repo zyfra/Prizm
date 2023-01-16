@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PrizmThemeService } from '@prizm-ui/theme';
 
 @Component({
   selector: 'prizm-charts-treemap-example',
@@ -38,4 +39,9 @@ export class PrizmChartsTreemapExampleComponent {
       { name: 'категория 20', value: 16 },
     ],
   };
+  public colorField = 'name';
+  constructor(
+    public readonly prizmTheme: PrizmThemeService,
+  ) {
+  }
 }

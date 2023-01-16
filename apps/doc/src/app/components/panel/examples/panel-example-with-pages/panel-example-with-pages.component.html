@@ -2,12 +2,17 @@
   <prizm-panel>
     <div class="pages" header>
       <prizm-tabs
-        type="contained"
-        [closable]="true"
-        [tabs]="pages"
         (activeTabIndexChange)="activeTabIndexChange()"
-        (cancelClick)="tabCancelClick()"
-      ></prizm-tabs>
+      >
+        <prizm-tab *ngFor='let item of pages'
+                   [disabled]="item.disabled"
+                   [closable]="true"
+                   [icon]="item.icon"
+                   [content]="item.title"
+                   (closeTab)="tabCancelClick()"
+                   [type]="'contained'">
+        </prizm-tab>
+      </prizm-tabs>
     </div>
   </prizm-panel>
   <div class="content">

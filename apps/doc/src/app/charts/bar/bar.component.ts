@@ -54,6 +54,10 @@ export class BarComponent {
     TypeScript: import('!!raw-loader!./examples/stacked/prizm-charts-stacked-bar-example.component.ts'),
     HTML: import('!!raw-loader!./examples/stacked/prizm-charts-stacked-bar-example.component.html'),
   };
+  readonly exampleGroup: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/group/prizm-charts-group-bar-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/group/prizm-charts-group-bar-example.component.html'),
+  };
   height = 300;
   width: number = null;
 

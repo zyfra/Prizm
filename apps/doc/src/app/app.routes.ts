@@ -553,18 +553,11 @@ export const ROUTES = [
     },
   },
   {
-    path: 'charts/stack',
-    loadChildren: async (): Promise<unknown> => (await import('./charts/stack/stack.module')).StackModule,
-    data: {
-      title: 'Columnt Stack',
-    },
-  },
-  {
     path: 'charts/column-group',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./charts/column-group/column-group.module')).ColumnGroupModule,
+      (await import('./charts/column/column.module')).ColumnModule,
     data: {
-      title: 'Column Group',
+      title: 'Column',
     },
   },
   {
@@ -612,11 +605,11 @@ export const ROUTES = [
     },
   },
   {
-    path: 'charts/radio-bar',
+    path: 'charts/radial-bar',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./charts/radio-bar/radio-bar.module')).RadioBarModule,
+      (await import('./charts/radial-bar/radial-bar.module')).RadialBarModule,
     data: {
-      title: 'Radio Bar',
+      title: 'Radial Bar',
     },
   },
   {
@@ -625,14 +618,6 @@ export const ROUTES = [
       (await import('./charts/waterfall/waterfall.module')).WaterfallModule,
     data: {
       title: 'Waterfall',
-    },
-  },
-  {
-    path: 'charts/group-bar',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./charts/group-bar/group-bar.module')).GroupBarModule,
-    data: {
-      title: 'Group Bar',
     },
   },
   {
