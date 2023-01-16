@@ -26,6 +26,10 @@ export class TabsExampleComponent {
     TypeScript: import('!!raw-loader!./examples/tabs-example-basic/tabs-example-basic.component'),
     HTML: import('!!raw-loader!./examples/tabs-example-basic/tabs-example-basic.component.html'),
   };
+  public readonly tabsExampleWithMenu: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/tabs-example-with-menu/tabs-example-with-menu.component'),
+    HTML: import('!!raw-loader!./examples/tabs-example-with-menu/tabs-example-with-menu.component.html'),
+  };
 
   public readonly tabsLinedExample: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/tabs-example-lined/tabs-example-lined.component'),

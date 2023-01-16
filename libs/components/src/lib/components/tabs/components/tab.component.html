@@ -11,7 +11,11 @@
       </prizm-icon>
     </ng-container>
   </div>
-  <span class="page__title"><ng-content></ng-content></span>
+  <span class="page__title" *ngIf='content'>
+    <ng-container *polymorphOutlet="content">
+      {{content}}
+    </ng-container>
+  </span>
   <div class="page__counter" *ngIf="!!count">{{ count }}</div>
   <div class="page__cancel"
        (click)='onClose($event)'

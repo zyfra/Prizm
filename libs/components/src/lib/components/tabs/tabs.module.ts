@@ -7,18 +7,25 @@ import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host';
 import { PrizmButtonModule } from '../button';
 import { PolymorphModule, PrizmDropdownControllerModule } from '../../directives';
 import { PrizmDataListModule } from '../data-list';
+import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
+import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
 
 @NgModule({
-  declarations: [PrizmTabsComponent, PrizmTabComponent],
+  declarations: [
+    PrizmTabsComponent,
+    PrizmTabComponent,
+    PrizmTabMenuItemDirective
+  ],
   imports: [
     CommonModule,
     PrizmIconModule,
     PolymorphModule,
     PrizmDropdownHostModule,
+    PrizmCallFuncModule,
     PrizmButtonModule,
     PrizmDropdownControllerModule,
     PrizmDataListModule,
   ],
-  exports: [PrizmTabsComponent, PrizmTabComponent],
+  exports: [PrizmTabsComponent, PrizmTabComponent, PrizmTabMenuItemDirective],
 })
 export class PrizmTabsModule {}

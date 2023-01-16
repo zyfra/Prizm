@@ -26,6 +26,10 @@ export class PrizmTabsService implements OnDestroy {
   public getIndexOfTab(tab: PrizmTabComponent): number {
     return Array.from(this.tabs).findIndex((t) => t === tab);
   }
+  public getTabByIdx(idx: number): PrizmTabComponent {
+    return Array.from(this.tabs)[idx]
+  }
+
   public addTab(tab: PrizmTabComponent): void {
     console.log('#mz addTab', {tab, list: Array.from(this.tabs)});
     this.tabs.add(tab);

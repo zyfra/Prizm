@@ -139,3 +139,24 @@
 
   background: var(--prizm-bg-body);
 }
+
+// TODO remove after update angular (create logic on di) >14
+.prizm-tab-menu-container::ng-deep prizm-tab {
+  &{
+    .page {
+      height: 40px;
+      background: transparent;
+      border: none;
+
+      &:hover:not(:disabled),
+      &:focus:not(:disabled),
+      &_active:not(:disabled) {
+        background: var(--prizm-lite-b130-20);
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+}

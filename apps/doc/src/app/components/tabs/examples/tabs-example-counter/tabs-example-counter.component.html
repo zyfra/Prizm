@@ -10,10 +10,10 @@
     <prizm-tab *ngFor='let item of tabs'
                [count]='item.count'
                (closeTab)='removeTab(item)'
+               [content]='item.title'
                [closable]='item.closable'
                [disabled]='item.disabled'
     >
-      {{item.title}}
     </prizm-tab>
   </prizm-tabs>
 </div>

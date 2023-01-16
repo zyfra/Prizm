@@ -10,6 +10,7 @@ import { TabsExampleContainedComponent } from './examples/tabs-example-contained
 import { TabsExampleIconComponent } from './examples/tabs-example-icon/tabs-example-icon.component';
 import { TabsExampleCounterComponent } from './examples/tabs-example-counter/tabs-example-counter.component';
 import { TabsExampleClosableComponent } from './examples/tabs-example-closable/tabs-example-closable.component';
+import { TabsExampleWithMenuComponent } from './examples/tabs-example-with-menu/tabs-example-with-menu.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { TabsExampleClosableComponent } from './examples/tabs-example-closable/t
     TabsExampleContainedComponent,
     TabsExampleIconComponent,
     TabsExampleCounterComponent,
+    TabsExampleWithMenuComponent,
     TabsExampleClosableComponent,
   ],
   imports: [

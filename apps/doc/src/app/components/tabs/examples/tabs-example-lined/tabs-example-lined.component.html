@@ -2,8 +2,8 @@
   <prizm-tabs>
     <prizm-tab *ngFor='let item of tabs'
                [disabled]="item.disabled"
+               [title]="item.title"
                [type]="'line'">
-      {{item.title}}
     </prizm-tab>
   </prizm-tabs>
 </div>
