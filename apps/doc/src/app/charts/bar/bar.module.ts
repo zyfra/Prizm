@@ -6,6 +6,7 @@ import { BarComponent } from './bar.component';
 import { PrizmChartsBarExampleComponent } from './examples/base/prizm-charts-bar-example.component';
 import { PrizmChartsBarModule } from '@prizm-ui/charts';
 import { PrizmChartsStackedBarExampleComponent } from './examples/stacked/prizm-charts-stacked-bar-example.component';
+import { PrizmChartsBarGroupExampleComponent } from './examples/group/prizm-charts-group-bar-example.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { PrizmChartsStackedBarExampleComponent } from './examples/stacked/prizm-
   declarations: [
     PrizmChartsBarExampleComponent,
     PrizmChartsStackedBarExampleComponent,
+    PrizmChartsBarGroupExampleComponent,
     BarComponent
   ],
   exports: [BarComponent],

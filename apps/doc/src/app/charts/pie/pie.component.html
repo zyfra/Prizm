@@ -12,7 +12,16 @@
     <prizm-doc-demo>
       <prizm-charts-pie
         #element
-        [prizmDocHostElement]='element'>
+        [prizmDocHostElement]='element'
+        [data]='data'
+        [height]='height'
+        [width]='width'
+        [options]='options'
+        [colorField]='colorField'
+        [angleField]='angleField'
+        [interactions]='interactions'
+        [label]='label'
+        [theme]='prizmTheme.changesTheme$ | async'>
       </prizm-charts-pie>
     </prizm-doc-demo>
     <prizm-doc-documentation>
@@ -24,7 +33,6 @@
         Width
       </ng-template>
 
-
       <ng-template
         documentationPropertyName="height"
         documentationPropertyType="number"
@@ -33,73 +41,81 @@
         Height
       </ng-template>
 
-<!--      <ng-template-->
-<!--        documentationPropertyName="size"-->
-<!--        documentationPropertyType="PrizmSize"-->
-<!--        documentationPropertyMode="input"-->
-<!--        [documentationPropertyValues]="sizeVariants"-->
-<!--        [(documentationPropertyValue)]="size"-->
-<!--      >-->
-<!--        Size-->
-<!--      </ng-template>-->
+      <ng-template
+        documentationPropertyName="angleField"
+        documentationPropertyType="string"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="angleField"
+      >
+        Angle Field Name
+      </ng-template>
+      <ng-template
+        documentationPropertyName="theme"
+        documentationPropertyMode='input'
+        documentationPropertyType="PrizmChartTheme"
+      >
+        Theme
+      </ng-template>
 
-<!--      <ng-template-->
-<!--        documentationPropertyName="appearance"-->
-<!--        documentationPropertyType="PrizmAppearance"-->
-<!--        documentationPropertyMode="input"-->
-<!--        [documentationPropertyValues]="appearanceVariants"-->
-<!--        [(documentationPropertyValue)]="appearance"-->
-<!--      >-->
-<!--        Appearance-->
-<!--      </ng-template>-->
+      <ng-template
+        documentationPropertyName="width"
+        documentationPropertyType="number"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="width"
+      >
+        Width
+      </ng-template>
 
-<!--      <ng-template-->
-<!--        documentationPropertyName="appearanceType"-->
-<!--        documentationPropertyType="PrizmAppearanceType"-->
-<!--        documentationPropertyMode="input"-->
-<!--        [documentationPropertyValues]="appearanceTypeVariants"-->
-<!--        [(documentationPropertyValue)]="appearanceType"-->
-<!--      >-->
-<!--        AppearanceType-->
-<!--      </ng-template>-->
+      <ng-template
+        documentationPropertyName="height"
+        documentationPropertyType="number"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="height"
+      >
+        Height
+      </ng-template>
 
-<!--      <ng-template-->
-<!--        documentationPropertyName="icon"-->
-<!--        documentationPropertyType="PrizmContent"-->
-<!--        documentationPropertyMode="input"-->
-<!--        [documentationPropertyValues]="iconVariants"-->
-<!--        [(documentationPropertyValue)]="icon"-->
-<!--      >-->
-<!--        Icon-->
-<!--      </ng-template>-->
+      <ng-template
+        documentationPropertyName="colorField"
+        documentationPropertyType="string"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="colorField"
+      >
+        Color Field Name
+      </ng-template>
 
-<!--      <ng-template-->
-<!--        documentationPropertyName="iconRight"-->
-<!--        documentationPropertyType="PrizmContent"-->
-<!--        documentationPropertyMode="input"-->
-<!--        [documentationPropertyValues]="iconVariants"-->
-<!--        [(documentationPropertyValue)]="iconRight"-->
-<!--      >-->
-<!--        Right Icon-->
-<!--      </ng-template>-->
+      <ng-template
+        documentationPropertyName="interactions"
+        documentationPropertyType="PrizmChartsPieOptions['interactions']"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="interactions"
+      >
+        Interactions
+      </ng-template>
+      <ng-template
+        documentationPropertyName="options"
+        documentationPropertyMode='input'
+        documentationPropertyType="PrizmChartsPieOptions"
+      >
+        Options
+      </ng-template>
 
-<!--      <ng-template-->
-<!--        documentationPropertyName="disabled"-->
-<!--        documentationPropertyType="boolean"-->
-<!--        documentationPropertyMode="input"-->
-<!--        [(documentationPropertyValue)]="disabled"-->
-<!--      >-->
-<!--        Disabled-->
-<!--      </ng-template>-->
+      <ng-template
+        documentationPropertyName="data"
+        documentationPropertyMode='input'
+        documentationPropertyType="PrizmChartsPieItem[]"
+      >
+        Data
+      </ng-template>
 
-<!--      <ng-template-->
-<!--        documentationPropertyName="showLoader"-->
-<!--        documentationPropertyType="boolean"-->
-<!--        documentationPropertyMode="input"-->
-<!--        [(documentationPropertyValue)]="showLoader"-->
-<!--      >-->
-<!--        Show Loader-->
-<!--      </ng-template>-->
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyType="PrizmChartsPieOptions['label']"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="label"
+      >
+        Label
+      </ng-template>
     </prizm-doc-documentation>
   </ng-template>
 
@@ -108,7 +124,7 @@
       <li>
         <p>
           Import
-          <code>PrizmLineModule</code>
+          <code>PrizmChartsPieModule</code>
           into a module where you want to use our component
         </p>
 

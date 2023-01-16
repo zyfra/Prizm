@@ -529,12 +529,6 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.charts,
-    title: 'Stack',
-    keywords: 'charts, stack, графики',
-    route: '/charts/stack',
-  },
-  {
-    section: SectionNameEnum.charts,
     title: 'Bar',
     keywords: 'charts, bar, графики',
     route: '/charts/bar',
@@ -580,12 +574,6 @@ export const pages: PrizmOrderedDocPage = [
     title: 'Waterfall',
     keywords: 'charts, waterfall, графики',
     route: '/charts/waterfall',
-  },
-  {
-    section: SectionNameEnum.charts,
-    title: 'Group Bar',
-    keywords: 'charts, group-bar, графики',
-    route: '/charts/group-bar',
   },
   {
     section: SectionNameEnum.charts,
