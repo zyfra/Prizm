@@ -23,7 +23,7 @@ const SERIALIZED_SUFFIX = `$`;
 // @bad TODO: refactor output and value sync
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: `ng-template[documentationPropertyName]`,
+  selector: `ng-template[documentationPropertyName], ng-template[documentationPropertyMode]`,
   exportAs: `documentationProperty`,
 })
 export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnInit, OnChanges {
@@ -77,6 +77,8 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
         return `[(${this.documentationPropertyName})]`;
       case `css-var`:
         return `--${this.documentationPropertyName}`;
+      case `ng-content`:
+        return `<ng-content${this.documentationPropertyName ? ` select="${this.documentationPropertyName}"` : '' }>`;
       default:
         return this.documentationPropertyName;
     }

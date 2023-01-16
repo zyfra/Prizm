@@ -21,19 +21,7 @@
   </div>
 
   <div class="tabs" #tabsContainer>
-    <prizm-tab
-      #prizmTab
-      *ngFor="let tab of tabs; let i = index"
-      [type]="type"
-      [icon]="tab.icon"
-      [title]="tab.title"
-      [count]="tab.count"
-      [closable]="closable || tab.closable"
-      [disabled]="tab.disabled"
-      [isActive]="selectedTabNumber === i"
-      (tabClick)="tabClickHandler(i)"
-      (cancelClick)="tabCancelClick(i)"
-    ></prizm-tab>
+    <ng-content></ng-content>
   </div>
 
   <div class="control" [class.control_active]="isRightBtnActive">
@@ -41,6 +29,7 @@
       class="dropdown-host"
       prizmDropdownHostWidth="auto"
       [content]="dropdown"
+      #tabsDropdown
       [(isOpen)]="openRight"
     >
       <prizm-icon
@@ -58,20 +47,25 @@
 
   <ng-template #dropdown>
     <prizm-data-list>
-      <div class="tabs-column">
-        <prizm-tab
-          *ngFor="let tab of tabs; let i = index"
-          [type]="type"
-          [icon]="tab.icon"
-          [title]="tab.title"
-          [count]="tab.count"
-          [closable]="closable || tab.closable"
-          [disabled]="tab.disabled"
-          [isActive]="selectedTabNumber === i"
-          (tabClick)="tabClickHandler(i)"
-          (cancelClick)="tabCancelClick(i)"
-          [attr.dropdown-tab]="true"
-        ></prizm-tab>
+      <div class="tabs-column prizm-tab-menu-container">
+        <ng-container
+          *ngFor="let tabElement of tabElements; let i = index"
+        >
+          <ng-container
+            *ngIf="tabElement.nativeElement | prizmCallFunc : getTab as tab">
+            <prizm-tab
+              *prizmLet='{inMenuIdx: i}'
+              [type]="tab.type"
+              [content]="tab.content"
+              [icon]="tab.icon"
+              (closeTab)="reCalculatePositions()"
+              [closable]="tab.closable"
+              [disabled]="tab.disabled"
+              [attr.dropdown-tab]="true"
+            >
+            </prizm-tab>
+          </ng-container>
+        </ng-container>
       </div>
     </prizm-data-list>
   </ng-template>

@@ -1,61 +1,57 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Injector, Input } from '@angular/core';
+import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
+import { PrizmChartsWaterfallItem, PrizmChartsWaterfallOptions, PrizmChartsWaterfallOrigin } from './model';
 import { Waterfall } from '@antv/g2plot';
-import { prizmDefaultProp } from '@prizm-ui/core';
-import { prizmChartsSetDefaultThemes, PrizmChartTheme } from '../../theme';
 
 @Component({
   selector: 'prizm-charts-waterfall',
   templateUrl: './prizm-charts-waterfall.component.html',
   styleUrls: ['./prizm-charts-waterfall.component.less'],
 })
-export class PrizmChartsWaterfallComponent<T extends Record<string, unknown>> implements OnInit {
-  @Input()
-  @prizmDefaultProp()
-  data: unknown[] = [
-    { type: 'повседневные нужды', money: 120 },
-    { type: 'расходы на питание', money: 900 },
-    { type: 'транспорт', money: 200 },
-    { type: 'счет за коммунальные услуги', money: 300 },
-    { type: 'арендовать', money: 1200 },
-    { type: 'торговый центр', money: 1000 },
-    { type: 'доход', money: -2000 },
-  ];
+export class PrizmChartsWaterfallComponent
+<T extends Record<string, unknown>>
+  extends PrizmChartsAbstractComponent<PrizmChartsWaterfallOrigin, PrizmChartsWaterfallOptions>{
+  readonly name = 'waterfall';
+  private origin_: PrizmChartsWaterfallOrigin;
 
   @Input()
-  @prizmDefaultProp()
-  theme: null | PrizmChartTheme = null;
-
-  @ViewChild('container', { static: true, read: ElementRef }) container: ElementRef<HTMLElement>;
-
-  ngOnInit(): void {
-    prizmChartsSetDefaultThemes();
-
-    const waterfallPlot = new Waterfall(this.container.nativeElement, {
-      data: this.data,
-      xField: 'type',
-      yField: 'money',
-      appendPadding: [15, 0, 0, 0],
-      meta: {
-        type: {
-          alias: 'категория',
-        },
-        money: {
-          alias: 'доходы и расходы',
-          formatter: (v: string): string => `${v} Р`,
-        },
-      },
-      label: {
-        style: { fontSize: 10, fill: 'rgba(0,0,0,0.65)' },
-        layout: [{ type: 'interval-adjust-position' }],
-      },
-      total: {
-        label: 'суммарные расходы',
-        style: {
-          fill: '#96a6a6',
-        },
-      },
-    });
-
-    waterfallPlot.render();
+  set data(data: PrizmChartsWaterfallItem[]) {
+    this.updateOptions({data});
   }
+  get data(): PrizmChartsWaterfallItem[] {
+    return this.options?.data ?? [];
+  }
+
+  @Input()
+  public set xField (value: string) {
+    this.updateOptions({xField: value});
+  };
+  public get xField(): string {
+    return this.options?.xField;
+  }
+
+  @Input()
+  public set yField (value: string) {
+    this.updateOptions({yField: value});
+  };
+  public get yField(): string {
+    return this.options?.yField;
+  }
+  get origin(): PrizmChartsWaterfallOrigin {
+    return this.origin_;
+  }
+  constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
+    super(injector);
+    this.init();
+  }
+  private init(): void {
+    this.origin_ = new Waterfall(this.elRef.nativeElement, {
+      data: [],
+      xField: '',
+      yField: '',
+      theme: 'light',
+    });
+    this.render();
+  }
+
 }

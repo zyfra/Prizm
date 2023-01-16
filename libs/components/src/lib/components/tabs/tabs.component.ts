@@ -1,39 +1,56 @@
 import {
-  Component,
   ChangeDetectionStrategy,
-  Input,
-  Output,
-  EventEmitter,
-  ViewChild,
-  ElementRef,
-  OnDestroy,
-  ViewChildren,
-  QueryList,
   ChangeDetectorRef,
-  OnInit,
+  Component,
+  ContentChildren,
+  ElementRef,
+  EventEmitter,
   HostBinding,
+  Input,
+  OnDestroy,
+  OnInit,
+  Optional,
+  Output,
+  QueryList,
+  TemplateRef,
+  ViewChild,
 } from '@angular/core';
-import { ITab, TabSize, TabType } from './tabs.interface';
+import { PrizmTabSize } from './tabs.interface';
 import { animationFrameScheduler, Subject, Subscription } from 'rxjs';
-import { debounceTime, observeOn } from 'rxjs/operators';
+import { debounceTime, observeOn, takeUntil, tap } from 'rxjs/operators';
+import { PrizmTabsService } from './tabs.service';
+import { PrizmTabComponent } from './components/tab.component';
+import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
+import { PrizmDropdownHostComponent } from '../dropdowns/dropdown-host';
+import { PrizmDestroyService, PrizmLetContextService } from '@prizm-ui/helpers';
+import { PrizmTabMenuContext } from './tabs.model';
+
+declare const ng: any;
 
 @Component({
   selector: 'prizm-tabs',
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    PrizmTabsService,
+    PrizmDestroyService
+  ]
 })
-export class TabsComponent implements OnInit, OnDestroy {
-  @Input() @HostBinding('attr.data-size') public size: TabSize = 'adaptive';
-  @Input() public type: TabType = 'line';
-  @Input() public tabs: ITab[] = [];
-  @Input() public closable = false;
-  @Input() public selectedTabNumber = 0;
-
-  @Output() public cancelClick: EventEmitter<void> = new EventEmitter<void>();
-  @Output() public tabClick: EventEmitter<number> = new EventEmitter<number>();
+export class PrizmTabsComponent implements OnInit, OnDestroy {
+  @Input() @HostBinding('attr.data-size') public size: PrizmTabSize = 'adaptive';
+  @Input() public set activeTabIndex(idx: number) {
+    if (idx === this.tabsService.activeTabIdx$$.value) return;
+    this.tabsService.activeTabIdx$$.next(idx);
+  }
+  get activeTabIndex(): number {
+    return this.tabsService.activeTabIdx$$.value;
+  }
+  @Output() public activeTabIndexChange: EventEmitter<number> = new EventEmitter<number>();
   @ViewChild('tabsContainer', { static: true }) public tabsContainer: ElementRef;
-  @ViewChildren('prizmTab', { read: ElementRef }) public tabElements: QueryList<ElementRef>;
+  @ViewChild('tabsDropdown', { static: true }) public tabsDropdown: PrizmDropdownHostComponent;
+  @ContentChildren(PrizmTabComponent, { read: ElementRef, descendants: true }) public tabElements: QueryList<ElementRef>;
+  @ContentChildren(PrizmTabMenuItemDirective, { read: TemplateRef, descendants: true }) public menuElements: QueryList<TemplateRef<PrizmTabComponent>>;
 
   @HostBinding('attr.testId')
   readonly testId = 'prizm_tabs';
@@ -49,7 +66,11 @@ export class TabsComponent implements OnInit, OnDestroy {
   private mutationDetector$: Subject<void> = new Subject<void>();
   private subscription: Subscription = new Subscription();
 
-  constructor(private readonly cdRef: ChangeDetectorRef) {}
+  constructor(
+    private readonly cdRef: ChangeDetectorRef,
+    private readonly destroy$: PrizmDestroyService,
+    private readonly tabsService: PrizmTabsService,
+  ) {}
 
   public ngOnInit(): void {
     this.mutationObserver = new MutationObserver(() => this.mutationDetector$.next());
@@ -60,10 +81,20 @@ export class TabsComponent implements OnInit, OnDestroy {
       childList: true,
     });
     this.resizeObserver.observe(this.tabsContainer.nativeElement);
+    this.initTabClickListener();
 
-    this.subscription = this.mutationDetector$
+    this.subscription.add(this.mutationDetector$
       .pipe(debounceTime(200), observeOn(animationFrameScheduler))
-      .subscribe(() => this.overflowChecker());
+      .subscribe(() => this.overflowChecker()));
+  }
+
+  private initTabClickListener(): void {
+    this.tabsService.activeTabIdx$$.pipe(
+      tap((idx) => {
+        this.tabClickHandler(idx)
+      }),
+      takeUntil(this.destroy$)
+    ).subscribe();
   }
 
   public ngOnDestroy(): void {
@@ -73,24 +104,16 @@ export class TabsComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  public tabCancelClick(idx: number): void {
-    if (this.tabs.length < 2) return;
-    this.tabs = this.tabs.filter((item, i) => i !== idx);
-    this.selectedTabNumber =
-      this.selectedTabNumber === idx ? this.getNextSelectedTab(idx) : this.selectedTabNumber;
-    this.cancelClick.emit();
-  }
-
   public tabClickHandler(idx: number): void {
-    this.selectedTabNumber = idx;
-    this.tabClick.emit(this.selectedTabNumber);
+    this.activeTabIndex = idx;
+    this.activeTabIndexChange.emit(this.activeTabIndex);
     this.focusTabByIdx(idx);
   }
 
   public increase(): void {
     const tabsContainerElement: HTMLElement = this.tabsContainer.nativeElement;
     const scrollLeft =
-      tabsContainerElement.scrollLeft + (1.5 * tabsContainerElement.offsetWidth) / this.tabs.length;
+      tabsContainerElement.scrollLeft + (1.5 * tabsContainerElement.offsetWidth) / this.tabsService.tabs.size;
     this.calculateControlsState(scrollLeft);
     tabsContainerElement.scrollLeft = scrollLeft;
   }
@@ -98,17 +121,9 @@ export class TabsComponent implements OnInit, OnDestroy {
   public decrease(): void {
     const tabsContainerElement: HTMLElement = this.tabsContainer.nativeElement;
     const scrollLeft =
-      tabsContainerElement.scrollLeft - (1.5 * tabsContainerElement.offsetWidth) / this.tabs.length;
+      tabsContainerElement.scrollLeft - (1.5 * tabsContainerElement.offsetWidth) / this.tabsService.tabs.size;
     this.calculateControlsState(scrollLeft);
     tabsContainerElement.scrollLeft = scrollLeft;
-  }
-
-  private getNextSelectedTab(prevIdx: number): number {
-    if (prevIdx === 0) {
-      return 0;
-    } else {
-      return prevIdx - 1;
-    }
   }
 
   private calculateControlsState(scrollLeft: number): void {
@@ -120,6 +135,7 @@ export class TabsComponent implements OnInit, OnDestroy {
   }
 
   private overflowChecker(): void {
+    if (!this.tabElements?.length) return;
     let tabsWidth = 0;
     const tabContainerElement = this.tabsContainer.nativeElement;
     this.tabElements.forEach(item => {
@@ -144,11 +160,20 @@ export class TabsComponent implements OnInit, OnDestroy {
   }
 
   private focusTabByIdx(idx: number): void {
+    if (!this.tabElements?.length) return;
     const selectedTabElement = this.tabElements.find((item, index) => index === idx).nativeElement;
     this.tabsContainer.nativeElement.scrollLeft =
       selectedTabElement.offsetLeft -
       this.tabsContainer.nativeElement.offsetWidth / 2 +
       selectedTabElement.offsetWidth / 2;
     this.mutationDetector$.next();
+  }
+
+  public getTab(el: HTMLElement): PrizmTabComponent {
+    return ng.getComponent(el);
+  }
+
+  public reCalculatePositions(): void {
+    this.tabsDropdown.reCalculatePositions();
   }
 }

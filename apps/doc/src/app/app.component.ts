@@ -55,7 +55,7 @@ export class AppComponent implements AfterViewInit {
           {
             appearance: event.hasNotListener ? 'warning' : 'success',
             timer: 5000,
-            title: `Component: ${event.page.header}`
+            title: `Element: ${event.key} Selector:${event.page.header}`
           }
         )
       })
@@ -84,7 +84,7 @@ export class AppComponent implements AfterViewInit {
           {
             appearance: 'warning',
             timer: 0,
-            title: `Component: ${event.selector} has not api for inputs or outputs`
+            title: `Element: ${event.key} Selector:${event.selector} has not api for inputs or outputs`
           }
         )
       })

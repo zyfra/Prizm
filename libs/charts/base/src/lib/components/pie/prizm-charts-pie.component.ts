@@ -1,51 +1,76 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Injector, Input } from '@angular/core';
 import { Pie } from '@antv/g2plot';
-import { prizmDefaultProp } from '@prizm-ui/core';
-import { prizmChartsSetDefaultThemes, PrizmChartTheme } from '../../theme';
+import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
+import { PrizmChartsPieItem, PrizmChartsPieOptions, PrizmChartsPieOrigin } from './model';
+
 @Component({
   selector: 'prizm-charts-pie',
   templateUrl: './prizm-charts-pie.component.html',
   styleUrls: ['./prizm-charts-pie.component.less'],
 })
-export class PrizmChartsPieComponent<T extends Record<string, unknown>> implements OnInit {
-  @Input()
-  @prizmDefaultProp()
-  data: unknown[] = [
-    { type: 'категория один', value: 27 },
-    { type: 'вторая категория', value: 25 },
-    { type: 'категория три', value: 18 },
-    { type: 'четвертая категория', value: 15 },
-    { type: 'пятая категория', value: 10 },
-    { type: 'другое', value: 5 },
-  ];
+export class PrizmChartsPieComponent <T extends Record<string, unknown>> extends PrizmChartsAbstractComponent<
+  PrizmChartsPieOrigin,
+  PrizmChartsPieOptions
+> {
+  private origin_: Pie;
+  get origin(): Pie {
+      return this.origin_;
+  }
+  public readonly name = 'pie';
 
   @Input()
-  @prizmDefaultProp()
-  theme: null | PrizmChartTheme = null;
-
-  @ViewChild('container', { static: true, read: ElementRef }) container: ElementRef<HTMLElement>;
-
-  ngOnInit(): void {
-    prizmChartsSetDefaultThemes();
-
-    const piePlot = new Pie(this.container.nativeElement, {
-      appendPadding: 10,
-      data: this.data,
-      angleField: 'value',
-      colorField: 'type',
-      radius: 0.9,
-      label: {
-        type: 'inner',
-        offset: '-30%',
-        content: ({ percent }): any => `${(percent * 100).toFixed(0)}%`,
-        style: {
-          fontSize: 14,
-          textAlign: 'center',
-        },
-      },
-      interactions: [{ type: 'element-active' }],
+  set data(value: PrizmChartsPieItem[]) {
+    this.updateOptions({
+      data: value,
     });
+  }
+  get data(): PrizmChartsPieItem[] {
+    return this.origin?.options?.data;
+  }
+  @Input()
+  public set angleField (value: string) {
+    this.updateOptions({angleField: value});
+  };
+  public get groupField(): string {
+    return this.options?.angleField;
+  }
 
-    piePlot.render();
+  @Input()
+  public set colorField (value: string) {
+    this.updateOptions({colorField: value});
+  };
+  public get colorField(): string {
+    return this.options?.colorField;
+  }
+
+  @Input()
+  public set interactions (value: PrizmChartsPieOptions['interactions']) {
+    this.updateOptions({interactions: value});
+  };
+  public get interactions(): PrizmChartsPieOptions['interactions'] {
+    return this.options?.interactions;
+  }
+
+  @Input()
+  public set label (value: PrizmChartsPieOptions['label']) {
+    this.updateOptions({label: value});
+  };
+  public get label(): PrizmChartsPieOptions['label'] {
+    return this.options?.label;
+  }
+
+  constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
+    super(injector);
+    this.init();
+  }
+
+  private init(): void {
+    this.origin_ = new Pie(this.elRef.nativeElement, {
+      data: [],
+      angleField: '',
+      colorField: '',
+      theme: 'light',
+    });
+    this.render();
   }
 }

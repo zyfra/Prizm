@@ -27,6 +27,7 @@ import { PrizmDocDocumentationPropertyConnectorDirective } from './documentation
 import { PRIZM_HOST_COMPONENT_INFO_TOKEN, PrizmHostComponentInfo } from './token';
 import { PrizmDocHostElementListenerService } from '../host';
 import * as _ from 'lodash';
+import { PrizmDocumentationPropertyType } from '../../types/pages';
 // @bad TODO subscribe propertiesConnectors changes
 // @bad TODO refactor to make more flexible
 @Component({
@@ -66,8 +67,6 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
 
     }),
   )
-
-
   @Input()
   public set hostComponentKey(key: string) {
     this.prizmHostComponentInfo.next({key})
@@ -88,6 +87,11 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
 
   activeItemIndex = 0;
 
+  public getType(connector: PrizmDocDocumentationPropertyConnectorDirective<any>): string {
+    if (connector.documentationPropertyMode === 'ng-content')
+      return 'HtmlNode';
+    return connector.documentationPropertyType;
+  }
   constructor(
     private readonly prizmDocHostElementListenerService: PrizmDocHostElementListenerService,
     @Inject(PRIZM_HOST_COMPONENT_INFO_TOKEN) private readonly prizmHostComponentInfo: PrizmHostComponentInfo,
@@ -209,9 +213,28 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   public sortConnectors(
     connectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>>
   ): PrizmDocDocumentationPropertyConnectorDirective<any>[] {
+    const sortOrder: PrizmDocumentationPropertyType[] = [
+      'ng-content',
+      'css-var',
+      'input',
+      'input-output',
+      'output',
+    ];
+
     return _.orderBy(
       connectors.toArray(),
-      ['documentationPropertyMode', 'documentationPropertyName', 'documentationPropertyType'],
+      [
+        (a: PrizmDocDocumentationPropertyConnectorDirective<any>): number => {
+          const place = sortOrder.indexOf(a.documentationPropertyMode);
+          if (place === -1) {
+            return 999;
+          }
+          return place;
+        },
+        'documentationPropertyMode',
+        'documentationPropertyName',
+        'documentationPropertyType']
+      ,
     )
   }
 }

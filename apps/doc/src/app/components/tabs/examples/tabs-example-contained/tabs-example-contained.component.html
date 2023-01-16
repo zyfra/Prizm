@@ -1,8 +1,16 @@
 <div class="container">
   <prizm-tabs
     type="contained"
-    [tabs]="tabs"
-    (tabClick)="tabClick()"
-    (cancelClick)="tabCancelClick()"
-  ></prizm-tabs>
+    (activeTabIndexChange)="tabClick()"
+  >
+    <prizm-tab *ngFor='let item of tabs'
+               [closable]='true'
+               [disabled]='item.disabled'
+               [content]='item.title'
+               (closeTab)='removeTab(item)'
+               [type]="'contained'">
+    </prizm-tab>
+  </prizm-tabs>
 </div>
+
+

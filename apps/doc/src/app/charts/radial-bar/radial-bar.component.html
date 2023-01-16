@@ -1,0 +1,111 @@
+<prizm-doc-page header="RadioBar" package="components" type="components">
+  <div class='page-description' description>
+    Ridial Bar is a component that allows you to select a single value from a set of options.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" heading="Base" [content]="exampleOutline">
+      <prizm-charts-radio-bar-example></prizm-charts-radio-bar-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-charts-radial-bar
+        #element
+        [prizmDocHostElement]="element"
+        [data]="data"
+        [xField]="xField"
+        [theme]='prizmTheme.changesTheme$ | async'
+        [height]="height"
+        [width]="width"
+        [yField]="yField"
+        [options]="options"
+      ></prizm-charts-radial-bar>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        documentationPropertyName="xField"
+        documentationPropertyType="string"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="xField"
+      >
+        X Field Name
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="theme"
+        documentationPropertyMode='input'
+        documentationPropertyType="PrizmChartTheme"
+      >
+        Theme
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="width"
+        documentationPropertyType="number"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="width"
+      >
+        Width
+      </ng-template>
+
+
+      <ng-template
+        documentationPropertyName="height"
+        documentationPropertyType="number"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="height"
+      >
+        Height
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="options"
+        documentationPropertyMode='input'
+        documentationPropertyType="PrizmChartsRadialBarOptions"
+      >
+        Options
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyMode='input'
+        documentationPropertyType="PrizmChartsRadialBarOptions['label']"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="data"
+        documentationPropertyMode='input'
+        documentationPropertyType="PrizmChartsRadialBarItem[]"
+      >
+        Data
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="yField"
+        documentationPropertyType="string"
+        documentationPropertyMode='input'
+        [(documentationPropertyValue)]="yField"
+      >
+        Y Field Name
+      </ng-template>
+
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmChartsRadialBarModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

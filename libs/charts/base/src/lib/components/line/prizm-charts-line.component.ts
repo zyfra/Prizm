@@ -67,10 +67,6 @@ export class PrizmChartsLineComponent<T = unknown> extends PrizmChartsAbstractCo
       padding: 'auto',
       xField: 'x',
       yField: 'y',
-      // xAxis: {
-      // type: 'timeCat',
-      // tickCount: 5,
-      // },
     });
 
     this.render();

@@ -1,4 +1,4 @@
-import { ComponentFactoryResolver, ElementRef, EventEmitter, Injectable, OnDestroy } from '@angular/core';
+import { ComponentFactoryResolver, ElementRef, Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Subject, Subscription } from 'rxjs';
 import { PrizmDocumentationPropertyType } from '../../types/pages';
 import { debounceTime, takeUntil, tap } from 'rxjs/operators';
@@ -99,7 +99,9 @@ export class PrizmDocHostElementService implements OnDestroy {
     hasNotListener = false
   ): void {
     if (!el.nativeElement?.[eventRealKey]) {
-      console.error('Prizm component already exists', {
+      console.error(`Prizm component output <${eventRealKey}> does not exists`, {
+        name: eventRealKey,
+        el: el.nativeElement
       });
       return;
     }
