@@ -3,7 +3,6 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 import { Area } from '@antv/g2plot';
 import { PrizmChartsAreaItem, PrizmChartsAreaOrigin, PrizmChartsAriaOptions } from './model';
 import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
-
 @Component({
   selector: 'prizm-charts-area',
   templateUrl: './prizm-charts-area.component.html',
