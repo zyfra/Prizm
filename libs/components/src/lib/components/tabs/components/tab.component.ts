@@ -6,13 +6,15 @@ import {
   HostListener,
   Input,
   OnDestroy,
-  OnInit,
+  OnInit, Optional,
   Output,
 } from '@angular/core';
 import { PrizmTabType } from '../tabs.interface';
 import { PrizmTabsService } from '../tabs.service';
 import { PolymorphContent } from '../../../directives';
 import { Observable } from 'rxjs';
+import { PrizmLetContextService } from '@prizm-ui/helpers';
+import { PrizmTabMenuContext } from '../tabs.model';
 
 @Component({
   selector: 'prizm-tab',
@@ -28,7 +30,9 @@ export class PrizmTabComponent implements OnInit, OnDestroy {
   @Input() count = 0;
   @Input() closable: boolean;
   @Input() disabled = false;
-  @Input() idx: number = null;
+  public get idx(): number | null {
+    return this.inMenuContextService?.context?.inMenuIdx;
+  }
   @Output() public closeTab = new EventEmitter<void>();
 
   @HostBinding('attr.testId')
@@ -42,6 +46,8 @@ export class PrizmTabComponent implements OnInit, OnDestroy {
   }
 
   constructor(
+    @Optional()
+    private readonly inMenuContextService: PrizmLetContextService<PrizmTabMenuContext>,
     public readonly tabsService: PrizmTabsService,
     public readonly el: ElementRef<HTMLElement>,
   ) {

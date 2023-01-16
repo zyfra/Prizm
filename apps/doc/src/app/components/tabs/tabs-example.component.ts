@@ -14,7 +14,7 @@ export class TabsExampleComponent {
   public typeVariants: PrizmTabType[] = ['line', 'contained'];
   public size: PrizmTabSize = 'adaptive';
   public sizeVariants: PrizmTabSize[] = ['s', 'adaptive'];
-  public title = 'Title';
+  public content = 'Tab Content';
   iconVariants: string[] = ['', ...IconDefs.reduce((a, c) => a.concat(c.data), [])];
   icon: string = this.iconVariants[0];
   closeIcon: string | null = null;
@@ -26,11 +26,6 @@ export class TabsExampleComponent {
     TypeScript: import('!!raw-loader!./examples/tabs-example-basic/tabs-example-basic.component'),
     HTML: import('!!raw-loader!./examples/tabs-example-basic/tabs-example-basic.component.html'),
   };
-  public readonly tabsExampleWithMenu: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/tabs-example-with-menu/tabs-example-with-menu.component'),
-    HTML: import('!!raw-loader!./examples/tabs-example-with-menu/tabs-example-with-menu.component.html'),
-  };
-
   public readonly tabsLinedExample: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/tabs-example-lined/tabs-example-lined.component'),
     HTML: import('!!raw-loader!./examples/tabs-example-lined/tabs-example-lined.component.html'),

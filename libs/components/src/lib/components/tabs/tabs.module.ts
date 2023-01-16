@@ -22,6 +22,7 @@ import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
     PolymorphModule,
     PrizmDropdownHostModule,
     PrizmCallFuncModule,
+    PrizmLetModule,
     PrizmButtonModule,
     PrizmDropdownControllerModule,
     PrizmDataListModule,

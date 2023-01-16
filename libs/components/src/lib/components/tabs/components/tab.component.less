@@ -197,6 +197,24 @@
       }
     }
   }
+
+  &[dropdown-tab='true'] {
+    .page {
+      height: 40px;
+      background: transparent;
+      border: none;
+
+      &:hover:not(:disabled),
+      &:focus:not(:disabled),
+      &_active:not(:disabled) {
+        background: var(--prizm-lite-b130-20);
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
 }
 
 .page__title {
