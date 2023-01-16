@@ -27,6 +27,6 @@ import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
     PrizmDropdownControllerModule,
     PrizmDataListModule,
   ],
-  exports: [PrizmTabsComponent, PrizmTabComponent, PrizmTabMenuItemDirective],
+  exports: [PrizmTabsComponent, PrizmTabComponent],
 })
 export class PrizmTabsModule {}

@@ -1,6 +1,5 @@
 import { Directive, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
-import { PrizmTabComponent } from '@prizm-ui/components';
-
+import { PrizmTabComponent } from './components/tab.component';
 @Directive({
   selector: '[prizmTabMenuItem]',
 })
