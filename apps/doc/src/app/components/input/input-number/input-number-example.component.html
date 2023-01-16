@@ -4,12 +4,16 @@
       <prizm-input-number-basic-example></prizm-input-number-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="counter" heading="Input number counter example" [content]="prizmInputNumberCounter">
+    <prizm-doc-example
+      id="counter"
+      heading="Input number counter example"
+      [content]="prizmInputNumberCounter"
+    >
       <prizm-input-number-counter-example></prizm-input-number-counter-example>
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <div [ngStyle]="{ display: 'flex', gap: '2rem', 'align-items': 'flex-end' }">
         <div>
@@ -22,6 +26,9 @@
             [position]="inputPosition"
           >
             <input
+              #prizmInputNumber
+              key="PrizmInputNumberDirective"
+              [prizmDocHostElement]="prizmInputNumber"
               prizmInputNumber
               [min]="min"
               [max]="max"
@@ -33,6 +40,9 @@
               #inputNumber="prizmInputNumber"
             />
             <prizm-input-number-auxiliary-controls
+              #PrizmInputNumberDefaultControlsComponent
+              key="PrizmInputNumberDefaultControlsComponent"
+              [prizmDocHostElement]="PrizmInputNumberDefaultControlsComponent"
               prizm-input-right
               [inputNumber]="inputNumber"
             ></prizm-input-number-auxiliary-controls>
@@ -82,8 +92,8 @@
         </div>
       </div>
     </prizm-doc-demo>
-    <prizm-doc-documentation>
-      <ng-template
+    <prizm-doc-documentation heading="PrizmInputNumberDirective" hostComponentKey="PrizmInputNumberDirective">
+      <!-- <ng-template
         documentationPropertyName="status"
         documentationPropertyType="string"
         documentationPropertyMode="input"
@@ -91,26 +101,27 @@
         [(documentationPropertyValue)]="value"
       >
         Value
-      </ng-template>
-      <ng-template
+      </ng-template> -->
+
+      <!-- <ng-template
         documentationPropertyName="min"
         documentationPropertyType="number"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="min"
       >
         Min
-      </ng-template>
+      </ng-template> -->
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="max"
         documentationPropertyType="number"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="max"
       >
         Max
-      </ng-template>
+      </ng-template> -->
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="step"
         documentationPropertyType="number"
         documentationPropertyMode="input"
@@ -118,25 +129,25 @@
         [(documentationPropertyValue)]="step"
       >
         Step
-      </ng-template>
+      </ng-template> -->
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="label"
         documentationPropertyType="string"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="label"
       >
         Label
-      </ng-template>
+      </ng-template> -->
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="placeholder"
         documentationPropertyType="string"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="placeholder"
       >
         Placeholder
-      </ng-template>
+      </ng-template> -->
 
       <ng-template
         documentationPropertyName="required"
@@ -156,7 +167,7 @@
         Disabled
       </ng-template>
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="status"
         documentationPropertyType="string"
         documentationPropertyMode="input"
@@ -164,18 +175,18 @@
         [(documentationPropertyValue)]="status"
       >
         Status
-      </ng-template>
+      </ng-template> -->
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="outer"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="outer"
       >
         Outer
-      </ng-template>
+      </ng-template> -->
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="position"
         documentationPropertyType="string"
         documentationPropertyMode="input"
@@ -183,9 +194,9 @@
         [(documentationPropertyValue)]="inputPosition"
       >
         Input position
-      </ng-template>
+      </ng-template> -->
 
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="size"
         documentationPropertyType="string"
         documentationPropertyMode="input"
@@ -193,6 +204,51 @@
         [(documentationPropertyValue)]="size"
       >
         Size
+      </ng-template> -->
+
+      <ng-template
+        documentationPropertyName="value"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Value
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="enter"
+        documentationPropertyType="any"
+        documentationPropertyMode="output"
+      >
+        Enter
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="onClear"
+        documentationPropertyType="void"
+        documentationPropertyMode="output"
+      >
+        On Clear
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="valueChanged"
+        documentationPropertyType="any"
+        documentationPropertyMode="output"
+      >
+        Value Changed
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation
+      heading="PrizmInputNumberDefaultControlsComponent"
+      hostComponentKey="PrizmInputNumberDefaultControlsComponent"
+    >
+      <ng-template
+        documentationPropertyName="inputNumber"
+        documentationPropertyType="PrizmInputNumberDirective"
+        documentationPropertyMode="input"
+      >
+        inputNumber
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>
@@ -210,4 +266,3 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
-

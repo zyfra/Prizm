@@ -5,6 +5,11 @@ import {
   PRIZM_HINT_DEFAULT_OPTIONS,
   PrizmHintOptions,
   PrizmOverlayOutsidePlacement,
+  PrizmContent,
+  IconDefs,
+  PrizmAppearance,
+  PrizmAppearanceType,
+  PrizmDialogSize,
 } from '@prizm-ui/components';
 
 @Component({
@@ -14,6 +19,36 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HintComponent {
+  public pseudoHovered = false;
+  public pseudoPressed = false;
+  public pseudoFocused = false;
+  public pseudoState = '';
+  public focusable = false;
+
+  public focusedChange = false;
+  public pressedChange = false;
+  public hoveredChange = false;
+  public focusVisibleChange = false;
+
+  iconVariants: ReadonlyArray<PrizmContent> = ['', ...IconDefs.reduce((a, c) => a.concat(c.data), [])];
+  icon: PrizmContent = this.iconVariants[0];
+  iconRight: PrizmContent = this.iconVariants[0];
+  appearanceVariants: ReadonlyArray<PrizmAppearance> = [
+    'primary',
+    'secondary',
+    'success',
+    'warning',
+    'danger',
+  ];
+  appearance: PrizmAppearance = this.appearanceVariants[0];
+
+  appearanceTypeVariants: ReadonlyArray<PrizmAppearanceType> = ['fill', 'outline', 'ghost'];
+  appearanceType: PrizmAppearanceType = this.appearanceTypeVariants[0];
+  disabled = false;
+  showLoader = false;
+  public sizeVariants: PrizmDialogSize[] = ['m', 'l'];
+  public size: PrizmDialogSize = 'm';
+
   public prizmAutoReposition = false;
   public prizmHintCanShow = true;
   public content = 'Тестовое содержимое';
