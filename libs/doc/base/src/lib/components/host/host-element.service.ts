@@ -1,4 +1,4 @@
-import { ComponentFactoryResolver, ElementRef, EventEmitter, Injectable, OnDestroy } from '@angular/core';
+import { ComponentFactoryResolver, ElementRef, Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Subject, Subscription } from 'rxjs';
 import { PrizmDocumentationPropertyType } from '../../types/pages';
 import { debounceTime, takeUntil, tap } from 'rxjs/operators';

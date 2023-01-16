@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
-import { PrizmDocHostElementService } from '@prizm-ui/doc';
+import { PrizmDocHostElementService } from './host-element.service';
 
 @Directive({
   selector: '[prizmDocHostElement]',
