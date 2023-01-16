@@ -6,6 +6,7 @@ import { ColumnComponent } from './column.component';
 import { PrizmChartsColumnExampleComponent } from './examples/base/prizm-charts-column-example.component';
 import { PrizmChartsColumnModule } from '@prizm-ui/charts';
 import { PrizmChartsColumnGroupExampleComponent } from './examples/group/prizm-charts-column-group-example.component';
+import { PrizmChartsColumnStackExampleComponent } from './examples/stack/prizm-charts-column-stack-example.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { PrizmChartsColumnGroupExampleComponent } from './examples/group/prizm-c
   ],
   declarations: [
     PrizmChartsColumnExampleComponent,
+    PrizmChartsColumnStackExampleComponent,
     PrizmChartsColumnGroupExampleComponent,
     ColumnComponent
   ],

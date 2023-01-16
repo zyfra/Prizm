@@ -1,6 +1,5 @@
 export * from './line';
 export * from './area';
-export * from './column-stack';
 export * from './column';
 export * from './bar';
 export * from './pie';
@@ -8,6 +7,5 @@ export * from './scatter';
 export * from './treemap';
 export * from './radar';
 export * from './gauge';
-export * from './radio-bar';
-export * from './group-bar';
+export * from './radial-bar';
 export * from './waterfall';

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PrizmThemeService } from '@prizm-ui/theme';
+import { PrizmChartsColumnItem } from '@prizm-ui/charts';
 
 @Component({
   selector: 'prizm-charts-column-group-example',
@@ -14,7 +15,7 @@ import { PrizmThemeService } from '@prizm-ui/theme';
   ],
 })
 export class PrizmChartsColumnGroupExampleComponent {
-  public data = [
+  public data: PrizmChartsColumnItem[] = [
     {
       product_type: 'Офисные принадлежности',
       sex: 'мужчина',

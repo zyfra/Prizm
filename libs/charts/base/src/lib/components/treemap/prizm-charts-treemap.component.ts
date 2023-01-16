@@ -17,9 +17,17 @@ extends PrizmChartsAbstractComponent<PrizmChartsTreemapOrigin, PrizmChartsTreema
   get data(): PrizmChartsTreemapData {
     return this.options?.data ?? {};
   }
-
   readonly name = 'treemap';
   private origin_: PrizmChartsTreemapOrigin;
+
+  @Input()
+  public set colorField (value: string) {
+    this.updateOptions({colorField: value});
+  };
+  public get colorField(): string {
+    return this.options?.colorField;
+
+  }
 
   constructor(
     private readonly elRef: ElementRef<HTMLElement>,
@@ -30,11 +38,10 @@ extends PrizmChartsAbstractComponent<PrizmChartsTreemapOrigin, PrizmChartsTreema
     this.init();
   }
 
-
   private init(): void {
     this.origin_ = new Treemap(this.elRef.nativeElement, {
       data: this.data,
-      colorField: 'name',
+      colorField: '',
     });
 
     this.render();

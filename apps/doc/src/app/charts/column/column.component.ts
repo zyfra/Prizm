@@ -141,6 +141,10 @@ export class ColumnComponent {
     TypeScript: import('!!raw-loader!./examples/group/prizm-charts-column-group-example.component.ts'),
     HTML: import('!!raw-loader!./examples/group/prizm-charts-column-group-example.component.html'),
   };
+  readonly exampleColumnStack: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/stack/prizm-charts-column-stack-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/stack/prizm-charts-column-stack-example.component.html'),
+  };
 
   constructor(
     public readonly prizmTheme: PrizmThemeService,

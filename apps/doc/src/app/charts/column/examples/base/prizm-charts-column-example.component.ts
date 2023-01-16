@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PrizmChartsColumnOptions } from '../../../../../../../../libs/charts/base/src/lib/components/column/model';
+import { PrizmChartsColumnOptions } from '@prizm-ui/charts';
 import { PrizmThemeService } from '@prizm-ui/theme';
 
 @Component({
