@@ -11,6 +11,7 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 export class InputPasswordExampleComponent {
   public label = 'Заголовок';
   public placeholder = '';
+  public value = '';
 
   public outer: false;
 

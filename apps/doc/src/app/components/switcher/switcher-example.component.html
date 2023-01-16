@@ -1,5 +1,5 @@
 <prizm-doc-page header="Switcher" package="components" type="components">
-  <div class='page-description' description>
+  <div class="page-description" description>
     Our switcher component is a simple toggle that can be used to turn something on or off.
   </div>
   <ng-template prizmDocPageTab>
@@ -36,9 +36,11 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-switcher
+        #element
+        [prizmDocHostElement]="element"
         [switchers]="switchers"
         [type]="type"
         [fullWidth]="fullWidth"
@@ -47,14 +49,21 @@
       ></prizm-switcher>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-      <ng-template
+      <!-- <ng-template
         documentationPropertyName="label"
         documentationPropertyType="ISwitcher[]"
         documentationPropertyMode="input"
       >
         Switcher list
-      </ng-template>
+      </ng-template> -->
 
+      <ng-template
+        documentationPropertyName="switchers"
+        documentationPropertyType="PrizmSwitcherItem[]"
+        documentationPropertyMode="input"
+      >
+        Switchers
+      </ng-template>
       <ng-template
         documentationPropertyName="selectedSwitcherIdx"
         documentationPropertyType="number"
@@ -94,12 +103,19 @@
       </ng-template>
 
       <ng-template
+        documentationPropertyName="selectedSwitcherIdxChange"
+        documentationPropertyType="number"
+        documentationPropertyMode="output"
+      >
+        Selected Switcher Idx Change
+      </ng-template>
+      <!-- <ng-template
         documentationPropertyName="switcherSelection"
         documentationPropertyType="number"
         documentationPropertyMode="output"
       >
         Selected switcher event emitter
-      </ng-template>
+      </ng-template> -->
     </prizm-doc-documentation>
   </ng-template>
 
