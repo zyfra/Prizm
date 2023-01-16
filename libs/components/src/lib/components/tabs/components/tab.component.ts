@@ -15,7 +15,6 @@ import { PolymorphContent } from '../../../directives';
 import { Observable } from 'rxjs';
 import { PrizmLetContextService } from '@prizm-ui/helpers';
 import { PrizmTabMenuContext } from '../tabs.model';
-
 @Component({
   selector: 'prizm-tab',
   templateUrl: './tab.component.html',
@@ -60,7 +59,7 @@ export class PrizmTabComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.tabsService.removeTab(
+    if (this.tab === this) this.tabsService.removeTab(
       this.tab
     );
   }

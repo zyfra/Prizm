@@ -1,14 +1,18 @@
 <div class="container">
   <prizm-panel>
     <div class="pages" header>
-      <!--      TODO #mz new tabs-->
-<!--      <prizm-tabs-->
-<!--        type="contained"-->
-<!--        [closable]="true"-->
-<!--        [tabs]="pages"-->
-<!--        (activeTabIndexChange)="activeTabIndexChange()"-->
-<!--        (closeClick)="tabCancelClick()"-->
-<!--      ></prizm-tabs>-->
+      <prizm-tabs
+        (activeTabIndexChange)="activeTabIndexChange()"
+      >
+        <prizm-tab *ngFor='let item of pages'
+                   [disabled]="item.disabled"
+                   [closable]="true"
+                   [icon]="item.icon"
+                   [content]="item.title"
+                   (closeTab)="tabCancelClick()"
+                   [type]="'contained'">
+        </prizm-tab>
+      </prizm-tabs>
     </div>
   </prizm-panel>
   <div class="content">

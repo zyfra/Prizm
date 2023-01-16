@@ -1,8 +1,14 @@
 <div class="container">
   <prizm-panel>
     <div class="tabs" header>
-<!--      TODO #mz new tabs-->
-<!--      <prizm-tabs [tabs]="tabs" (activeTabIndexChange)="activeTabIndexChange()" (closeClick)="tabCancelClick()"></prizm-tabs>-->
+      <prizm-tabs (activeTabIndexChange)="activeTabIndexChange()" (closeClick)="tabCancelClick()">
+        <prizm-tab *ngFor='let item of tabs'
+           [disabled]="item.disabled"
+           [icon]="item.icon"
+           [content]="item.title"
+           [type]="'line'">
+        </prizm-tab>
+      </prizm-tabs>
     </div>
   </prizm-panel>
   <div class="content">

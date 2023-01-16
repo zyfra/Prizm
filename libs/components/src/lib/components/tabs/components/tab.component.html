@@ -1,6 +1,7 @@
 <button class="page"
   [class.page_active]="isActiveTab$ | async"
   [disabled]="disabled"
+  [title]="tabsService.activeTabIdx$$ | async"
 >
   <div class="page__icon" *ngIf='icon'>
     <ng-container *polymorphOutlet="icon">

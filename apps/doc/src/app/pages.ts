@@ -565,9 +565,9 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.charts,
-    title: 'Radio Bar',
-    keywords: 'charts, radio-bar, графики',
-    route: '/charts/radio-bar',
+    title: 'Radial Bar',
+    keywords: 'charts, radial-bar, графики',
+    route: '/charts/radial-bar',
   },
   {
     section: SectionNameEnum.charts,
