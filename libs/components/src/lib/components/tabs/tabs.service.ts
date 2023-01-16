@@ -31,7 +31,6 @@ export class PrizmTabsService implements OnDestroy {
   }
 
   public addTab(tab: PrizmTabComponent): void {
-    console.log('#mz addTab', {tab, list: Array.from(this.tabs)});
     this.tabs.add(tab);
     this.changes$$.next(this.tabs);
 

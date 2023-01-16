@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -10,6 +9,7 @@ import {
   Input,
   OnDestroy,
   OnInit,
+  Optional,
   Output,
   QueryList,
   TemplateRef,
@@ -17,11 +17,13 @@ import {
 } from '@angular/core';
 import { PrizmTabSize } from './tabs.interface';
 import { animationFrameScheduler, Subject, Subscription } from 'rxjs';
-import { debounceTime, observeOn } from 'rxjs/operators';
+import { debounceTime, observeOn, takeUntil, tap } from 'rxjs/operators';
 import { PrizmTabsService } from './tabs.service';
 import { PrizmTabComponent } from './components/tab.component';
 import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
 import { PrizmDropdownHostComponent } from '../dropdowns/dropdown-host';
+import { PrizmDestroyService, PrizmLetContextService } from '@prizm-ui/helpers';
+import { PrizmTabMenuContext } from './tabs.model';
 
 declare const ng: any;
 
@@ -32,11 +34,13 @@ declare const ng: any;
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     PrizmTabsService,
+    PrizmDestroyService
   ]
 })
 export class PrizmTabsComponent implements OnInit, OnDestroy {
   @Input() @HostBinding('attr.data-size') public size: PrizmTabSize = 'adaptive';
   @Input() public set activeTabIndex(idx: number) {
+    if (idx === this.tabsService.activeTabIdx$$.value) return;
     this.tabsService.activeTabIdx$$.next(idx);
   }
   get activeTabIndex(): number {
@@ -64,6 +68,7 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly cdRef: ChangeDetectorRef,
+    private readonly destroy$: PrizmDestroyService,
     private readonly tabsService: PrizmTabsService,
   ) {}
 
@@ -76,10 +81,20 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
       childList: true,
     });
     this.resizeObserver.observe(this.tabsContainer.nativeElement);
+    this.initTabClickListener();
 
     this.subscription.add(this.mutationDetector$
       .pipe(debounceTime(200), observeOn(animationFrameScheduler))
       .subscribe(() => this.overflowChecker()));
+  }
+
+  private initTabClickListener(): void {
+    this.tabsService.activeTabIdx$$.pipe(
+      tap((idx) => {
+        this.tabClickHandler(idx)
+      }),
+      takeUntil(this.destroy$)
+    ).subscribe();
   }
 
   public ngOnDestroy(): void {
@@ -120,6 +135,7 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
   }
 
   private overflowChecker(): void {
+    if (!this.tabElements?.length) return;
     let tabsWidth = 0;
     const tabContainerElement = this.tabsContainer.nativeElement;
     this.tabElements.forEach(item => {
@@ -139,12 +155,12 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
       this.openLeft = false;
       this.openRight = false;
     }
-    const {isLeftBtnActive, isRightBtnActive} = this;
 
     this.cdRef.markForCheck();
   }
 
   private focusTabByIdx(idx: number): void {
+    if (!this.tabElements?.length) return;
     const selectedTabElement = this.tabElements.find((item, index) => index === idx).nativeElement;
     this.tabsContainer.nativeElement.scrollLeft =
       selectedTabElement.offsetLeft -

@@ -7,10 +7,6 @@
       <prizm-tabs-example-basic></prizm-tabs-example-basic>
     </prizm-doc-example>
 
-    <prizm-doc-example id="with-menu" heading="With Menu" [content]="tabsExampleWithMenu">
-      <prizm-tabs-example-with-menu></prizm-tabs-example-with-menu>
-    </prizm-doc-example>
-
     <prizm-doc-example id="line" heading="Lined tabs" [content]="tabsLinedExample">
       <prizm-tabs-example-lined></prizm-tabs-example-lined>
     </prizm-doc-example>
@@ -47,12 +43,12 @@
             [prizmDocHostElement]="elementTab"
             key="PrizmTabComponent"
             [icon]="icon"
+            [content]="content"
             [closable]="closable"
             [type]="type"
             [disabled]="disabled"
             [count]="count"
           >
-            {{title}}
           </prizm-tab>
           <prizm-tab
             [icon]="icon"
@@ -94,13 +90,13 @@
       <prizm-doc-documentation
       heading='PrizmTabComponent'
       hostComponentKey='PrizmTabComponent'>
-
       <ng-template
-        documentationPropertyName=""
-        documentationPropertyMode="ng-content"
-        [(documentationPropertyValue)]="title"
+        documentationPropertyName="content"
+        documentationPropertyMode="input"
+        documentationPropertyType="PolymorhContent"
+        [(documentationPropertyValue)]="content"
       >
-        Tab Content
+        PolymorhContent
       </ng-template>
       <ng-template
         documentationPropertyName="type"
