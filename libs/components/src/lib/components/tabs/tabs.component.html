@@ -39,6 +39,7 @@
       class="dropdown-host"
       prizmDropdownHostWidth="auto"
       [content]="dropdown"
+      #tabsDropdown
       [(isOpen)]="openRight"
     >
       <prizm-icon
@@ -56,20 +57,23 @@
 
   <ng-template #dropdown>
     <prizm-data-list>
-      <div class="tabs-column">
-<!--        <prizm-tab-->
-<!--          *ngFor="let tab of tabs; let i = index"-->
-<!--          [type]="type"-->
-<!--          [icon]="tab.icon"-->
-<!--          [title]="tab.title"-->
-<!--          [count]="tab.count"-->
-<!--          [closable]="closable || tab.closable"-->
-<!--          [disabled]="tab.disabled"-->
-<!--          [isActive]="activeTabIndex === i"-->
-<!--          (tabClick)="tabClickHandler(i)"-->
-<!--          (cancelClick)="tabCancelClick(i)"-->
-<!--          [attr.dropdown-tab]="true"-->
-<!--        ></prizm-tab>-->
+      <div class="tabs-column prizm-tab-menu-container">
+        <ng-container
+          *ngFor="let tabElement of tabElements; let i = index"
+        >
+          <prizm-tab
+            *ngIf="tabElement.nativeElement | prizmCallFunc : getTab as tab"
+            [type]="tab.type"
+            [content]="tab.content"
+            [icon]="tab.icon"
+            [idx]="i"
+            (closeTab)="reCalculatePositions()"
+            [closable]="tab.closable"
+            [disabled]="tab.disabled"
+            [attr.dropdown-tab]="true"
+          >
+          </prizm-tab>
+        </ng-container>
       </div>
     </prizm-data-list>
   </ng-template>

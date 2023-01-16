@@ -1,8 +1,8 @@
 <div class="container">
   <prizm-tabs>
-    <prizm-tab *ngFor='let item of tabs'
+    <prizm-tab  *ngFor='let item of tabs'
+                [content]='item.title'
                [type]="'line'">
-      {{item.title}}
     </prizm-tab>
   </prizm-tabs>
 </div>

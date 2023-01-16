@@ -1,7 +1,9 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  ContentChildren,
   ElementRef,
   EventEmitter,
   HostBinding,
@@ -10,13 +12,18 @@ import {
   OnInit,
   Output,
   QueryList,
+  TemplateRef,
   ViewChild,
-  ViewChildren,
 } from '@angular/core';
-import { PrizmTabSize, PrizmTabType } from './tabs.interface';
+import { PrizmTabSize } from './tabs.interface';
 import { animationFrameScheduler, Subject, Subscription } from 'rxjs';
 import { debounceTime, observeOn } from 'rxjs/operators';
 import { PrizmTabsService } from './tabs.service';
+import { PrizmTabComponent } from './components/tab.component';
+import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
+import { PrizmDropdownHostComponent } from '../dropdowns/dropdown-host';
+
+declare const ng: any;
 
 @Component({
   selector: 'prizm-tabs',
@@ -37,7 +44,9 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
   }
   @Output() public activeTabIndexChange: EventEmitter<number> = new EventEmitter<number>();
   @ViewChild('tabsContainer', { static: true }) public tabsContainer: ElementRef;
-  @ViewChildren('prizmTab', { read: ElementRef }) public tabElements: QueryList<ElementRef>;
+  @ViewChild('tabsDropdown', { static: true }) public tabsDropdown: PrizmDropdownHostComponent;
+  @ContentChildren(PrizmTabComponent, { read: ElementRef, descendants: true }) public tabElements: QueryList<ElementRef>;
+  @ContentChildren(PrizmTabMenuItemDirective, { read: TemplateRef, descendants: true }) public menuElements: QueryList<TemplateRef<PrizmTabComponent>>;
 
   @HostBinding('attr.testId')
   readonly testId = 'prizm_tabs';
@@ -130,6 +139,7 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
       this.openLeft = false;
       this.openRight = false;
     }
+    const {isLeftBtnActive, isRightBtnActive} = this;
 
     this.cdRef.markForCheck();
   }
@@ -141,5 +151,13 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
       this.tabsContainer.nativeElement.offsetWidth / 2 +
       selectedTabElement.offsetWidth / 2;
     this.mutationDetector$.next();
+  }
+
+  public getTab(el: HTMLElement): PrizmTabComponent {
+    return ng.getComponent(el);
+  }
+
+  public reCalculatePositions(): void {
+    this.tabsDropdown.reCalculatePositions();
   }
 }

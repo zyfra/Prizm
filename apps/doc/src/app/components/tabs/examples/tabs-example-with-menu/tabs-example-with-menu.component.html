@@ -1,0 +1,11 @@
+<div class="container">
+  <prizm-tabs>
+    <ng-container *ngFor='let item of tabs'>
+      <prizm-tab *prizmTabMenuItem
+                 [disabled]="item.disabled"
+                 [content]="item.title"
+                 [type]="'line'">
+      </prizm-tab>
+    </ng-container>
+  </prizm-tabs>
+</div>
