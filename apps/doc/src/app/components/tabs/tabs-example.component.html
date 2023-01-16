@@ -87,9 +87,10 @@
       </ng-template>
 
     </prizm-doc-documentation>
-      <prizm-doc-documentation
+    <prizm-doc-documentation
       heading='PrizmTabComponent'
       hostComponentKey='PrizmTabComponent'>
+
       <ng-template
         documentationPropertyName="content"
         documentationPropertyMode="input"
@@ -98,6 +99,7 @@
       >
         PolymorhContent
       </ng-template>
+
       <ng-template
         documentationPropertyName="type"
         documentationPropertyType="TabType"
@@ -137,21 +139,23 @@
 
       <ng-template
         documentationPropertyName="icon"
-        documentationPropertyType="string"
+        documentationPropertyType="PolymorhContent"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="icon"
         [documentationPropertyValues]="iconVariants"
       >
         Tab icon
       </ng-template>
+
       <ng-template
         documentationPropertyName="closeIcon"
-        documentationPropertyType="string"
+        documentationPropertyType="PolymorhContent"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="closeIcon"
       >
         Close Icon
       </ng-template>
+
       <ng-template
         documentationPropertyName="closeTab"
         documentationPropertyType="void"

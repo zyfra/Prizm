@@ -41,7 +41,6 @@ export abstract class PrizmChartsAbstractComponent<
   get options(): Partial<OPTIONS> {
     return this.origin?.options as Partial<OPTIONS>;
   }
-
   @Input()
   @prizmDefaultProp()
   set theme(value: PrizmChartTheme) {

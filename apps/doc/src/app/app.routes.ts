@@ -605,11 +605,11 @@ export const ROUTES = [
     },
   },
   {
-    path: 'charts/radio-bar',
+    path: 'charts/radial-bar',
     loadChildren: async (): Promise<unknown> =>
       (await import('./charts/radial-bar/radial-bar.module')).RadialBarModule,
     data: {
-      title: 'Radio Bar',
+      title: 'Radial Bar',
     },
   },
   {

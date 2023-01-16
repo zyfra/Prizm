@@ -18,6 +18,17 @@ All notable changes to this project will be documented in this file.
 - feat(doc/getting-started): update page [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
 - feat(theme/switcher): change only in local zone [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
 - feat(helpers/let): add context service [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(charts/area): add component area [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(charts/bar): add component bar [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(charts/gauge): add component gauge [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(charts/gauge): add component gauge [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(charts/column): add component column [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(charts/line): add component line [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(charts/pie): add component pie [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(charts/radar): add component radar [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(charts/radial-bar): add component radio bar [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(charts/scatter): add component scatter [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(charts/treemap): add component treemap [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
 
 ### BUG FIXES
 - fix(components/date): data relative component [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/215)
