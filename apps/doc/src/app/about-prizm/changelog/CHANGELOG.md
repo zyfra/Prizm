@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/panel): add css variable for change radius  [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
 - feat(doc/getting-started): update page [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
 - feat(theme/switcher): change only in local zone [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(helpers/let): add context service [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
 
 ### BUG FIXES
 - fix(components/date): data relative component [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/215)
@@ -26,6 +27,7 @@ All notable changes to this project will be documented in this file.
 
 ### BREAKING CHANGES
 - feat(theme): themes removed from the package @prizm-ui/components to @prizm-ui/theme library (PLEASE UPDATE as in doc documentation) [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(components/tabs): change api (PLEASE UPDATE as in doc documentation) [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
 
 ## [1.0.0-beta.19](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (27-12-2022)
 
