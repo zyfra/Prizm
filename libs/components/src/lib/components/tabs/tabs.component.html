@@ -52,7 +52,7 @@
           *ngFor="let tabElement of tabElements; let i = index"
         >
           <ng-container
-            *ngIf="tabElement.nativeElement | prizmCallFunc : getTab as tab">
+            *ngIf="tabElement as tab">
             <prizm-tab
               *prizmLet='{inMenuIdx: i}'
               [type]="tab.type"
