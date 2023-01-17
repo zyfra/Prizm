@@ -1,11 +1,5 @@
-<ng-content></ng-content>
+<ng-content selector="th[prizmTh]"></ng-content>
 <ng-container *ngIf="heads$ | async as headings">
-  <ng-container
-    *ngFor="let key of table.columns"
-    [ngTemplateOutlet]="headings[key.toString()]?.template || plain"
-  >
-    <ng-template #plain>
-      <th *ngIf="!th && !heads.length" prizmTh>{{ key.toString() }}</th>
-    </ng-template>
+  <ng-container *ngFor="let entry of headings | keyvalue" [ngTemplateOutlet]=" entry.value.template">
   </ng-container>
 </ng-container>

@@ -1,5 +1,7 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ContentChild,
   ContentChildren,
@@ -18,6 +20,9 @@ import { PRIZM_TABLE_PROVIDER } from '../providers/table.provider';
 import { PrizmTrComponent } from '../tr/tr.component';
 import { PolymorphContent } from '../../../directives';
 import { prizmDefaultProp } from '@prizm-ui/core';
+import { filter, map, startWith, takeUntil } from 'rxjs/operators';
+import { PrizmCellDirective } from '../directives/cell.directive';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -27,7 +32,7 @@ import { prizmDefaultProp } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: PRIZM_TABLE_PROVIDER,
 })
-export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> {
+export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> implements AfterViewInit {
   @Input()
   @prizmDefaultProp()
   data: readonly T[] = [];
@@ -49,10 +54,14 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> {
   @ContentChildren(forwardRef(() => PrizmTrComponent))
   readonly rows: QueryList<PrizmTrComponent<T>> = new QueryList<PrizmTrComponent<T>>();
 
+  public columnsCount = 0;
+
   constructor(
     @Inject(PrizmTableSortPipe) private readonly pipe: PrizmTableSortPipe<T>,
     @Inject(forwardRef(() => PrizmTableDirective))
-    readonly table: PrizmTableDirective<T>
+    readonly table: PrizmTableDirective<T>,
+    private readonly destroy$: PrizmDestroyService,
+    private changeDetectoreRef: ChangeDetectorRef
   ) {}
 
   get sorted(): readonly T[] {
@@ -84,6 +93,22 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> {
     odd,
     count,
   });
+
+  ngAfterViewInit(): void {
+    this.rows.changes
+      .pipe(
+        startWith(this.rows),
+        map(({ first }: QueryList<PrizmTrComponent<T>>) => first),
+        filter((first: PrizmTrComponent<T>) => !!first),
+        map(({ cells }: PrizmTrComponent<T>) => cells),
+        map(({ length }: QueryList<PrizmCellDirective>) => length),
+        takeUntil(this.destroy$)
+      )
+      .subscribe((columnsCount: number) => {
+        this.columnsCount = columnsCount;
+        this.changeDetectoreRef.detectChanges();
+      });
+  }
 
   public onClick(): void {
     this.open = !this.open;

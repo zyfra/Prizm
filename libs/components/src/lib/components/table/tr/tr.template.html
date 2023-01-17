@@ -1,7 +1,5 @@
-<ng-container *ngIf="cells$ | async as items">
-  <ng-container *ngFor="let key of table.columns" [ngTemplateOutlet]="items[key]?.template || plain">
-    <ng-template #plain>
-      <td *ngIf="item$ | async as item" prizmTd>{{ item[key] }}</td>
-    </ng-template>
+<ng-content selector="td[prizmTd]"></ng-content>
+<ng-container *ngIf="cells$ | async as cells">
+  <ng-container *ngFor="let cell of cells | keyvalue" [ngTemplateOutlet]="cell.value.template">
   </ng-container>
 </ng-container>

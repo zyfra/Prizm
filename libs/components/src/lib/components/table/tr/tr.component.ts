@@ -31,7 +31,7 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, any>>> {
   @Input() @HostBinding('attr.status') public status: PrizmTableCellStatus = 'default';
 
   @ContentChildren(forwardRef(() => PrizmCellDirective))
-  private readonly cells: QueryList<PrizmCellDirective> = new QueryList<PrizmCellDirective>();
+  readonly cells: QueryList<PrizmCellDirective> = new QueryList<PrizmCellDirective>();
 
   readonly cells$ = this.cells.changes.pipe(
     startWith(null),
@@ -64,4 +64,3 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, any>>> {
     @Inject(PrizmDestroyService) readonly destroy$: PrizmDestroyService
   ) {}
 }
-
