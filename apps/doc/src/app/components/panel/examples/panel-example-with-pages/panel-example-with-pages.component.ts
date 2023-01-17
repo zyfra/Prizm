@@ -27,8 +27,10 @@ export class PanelExampleWithPagesComponent {
     },
   ];
 
-  public tabCancelClick(): void {
-    // do something
+  public tabCancelClick(tab: PrizmTabItem): void {
+    if (this.pages.length < 2) return;
+    this.pages = this.pages.filter((item) => item !== tab);
+
   }
 
   public activeTabIndexChange(): void {
