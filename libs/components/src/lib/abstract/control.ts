@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, FormControl, NgControl, NgModel } from '@angular/forms';
 import { merge, ReplaySubject, Subject } from 'rxjs';
-import { map, startWith, takeUntil, tap } from 'rxjs/operators';
+import { filter, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { AbstractPrizmInteractive } from './interactive';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmControlValueTransformer } from '../types/control-value-transformer';
@@ -43,6 +43,10 @@ export abstract class AbstractPrizmControl<T>
   @prizmDefaultProp()
   readOnly = false;
 
+  /**
+   * @deprecated
+   * later work only with form control value
+   * */
   @Input()
   @prizmDefaultProp()
   val: T;
@@ -51,6 +55,10 @@ export abstract class AbstractPrizmControl<T>
   @prizmDefaultProp()
   pseudoInvalid: boolean | null = null;
 
+  /**
+   * @deprecated
+   * later work only with form control value
+   * */
   @Output()
   readonly valChange = new EventEmitter<T>();
 
@@ -150,10 +158,34 @@ export abstract class AbstractPrizmControl<T>
     this.control?.valueChanges
       .pipe(
         map(() => this.control?.value),
-        tap(items => this.valChange.next(items)),
+        filter(
+          (currentValue) => {
+            return this.valueChanged(
+              this.val,
+              currentValue
+            )
+          }
+        ),
+        tap(items => this.updateInputValue(items)),
         takeUntil(this.destroy$)
       )
       .subscribe();
+  }
+
+  /**
+   * @deprecated
+   * later work only with form control value
+   * */
+  private updateInputValue(value: T): void {
+    if (!this.valueChanged(this.val, value)) return;
+    this.valChange.next(this.val = value)
+  }
+
+  protected valueChanged(
+    previousValue: T | null,
+    currentValue: T | null,
+  ): boolean {
+    return previousValue !== currentValue;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -231,6 +263,7 @@ export abstract class AbstractPrizmControl<T>
 
   private controlSetValue(value: T): void {
     this.onChange(value);
+    this.updateInputValue(value);
     this.checkControlUpdate();
   }
 

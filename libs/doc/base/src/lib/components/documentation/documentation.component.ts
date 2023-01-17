@@ -8,6 +8,7 @@ import {
   Inject,
   Input,
   QueryList,
+  ViewChildren,
 } from '@angular/core';
 import {
   EMPTY_QUERY,
@@ -28,6 +29,7 @@ import { PRIZM_HOST_COMPONENT_INFO_TOKEN, PrizmHostComponentInfo } from './token
 import { PrizmDocHostElementListenerService } from '../host';
 import * as _ from 'lodash';
 import { PrizmDocumentationPropertyType } from '../../types/pages';
+import { FormControl } from '@angular/forms';
 // @bad TODO subscribe propertiesConnectors changes
 // @bad TODO refactor to make more flexible
 @Component({
@@ -50,6 +52,8 @@ import { PrizmDocumentationPropertyType } from '../../types/pages';
 export class PrizmDocDocumentationComponent implements AfterContentInit {
   @Input()
   heading = ``;
+
+  @Input() control?: FormControl;
 
   success$ =   combineLatest([
     this.prizmHostComponentInfo,
@@ -84,6 +88,9 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
 
   @ContentChildren(PrizmDocDocumentationPropertyConnectorDirective)
   propertiesConnectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>> = EMPTY_QUERY;
+
+  @ViewChildren(PrizmDocDocumentationPropertyConnectorDirective)
+  propertiesInnerConnectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>> = EMPTY_QUERY;
 
   activeItemIndex = 0;
 
@@ -210,19 +217,27 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   }
 
 
-  public sortConnectors(
-    connectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>>
-  ): PrizmDocDocumentationPropertyConnectorDirective<any>[] {
+  public sortConnectors = (
+    connectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>>,
+    propertiesInnerConnectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>>
+  ): PrizmDocDocumentationPropertyConnectorDirective<any>[] => {
     const sortOrder: PrizmDocumentationPropertyType[] = [
       'ng-content',
       'css-var',
+      'form-control',
       'input',
       'input-output',
       'output',
     ];
+    const allConnectors = [
+      ...connectors.toArray()
+    ];
+    if (this.control && propertiesInnerConnectors?.length) {
+      allConnectors.push(...propertiesInnerConnectors.toArray());
+    }
 
     return _.orderBy(
-      connectors.toArray(),
+      allConnectors,
       [
         (a: PrizmDocDocumentationPropertyConnectorDirective<any>): number => {
           const place = sortOrder.indexOf(a.documentationPropertyMode);
@@ -236,5 +251,24 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
         'documentationPropertyType']
       ,
     )
+  }
+
+  public getDisabledFromControl(control: FormControl): boolean {
+    if (!control) return false;
+    return control.disabled;
+  }
+
+  public updateStateOfControl(control: FormControl, newState: boolean): void {
+    if(!newState)
+      control.enable()
+    else
+      control.disable()
+  }
+  public getValueFromControl(control: FormControl): any {
+    return control?.value
+  }
+
+  public updateValueOfControl(control: FormControl, newValue: any): void {
+    control.setValue(newValue);
   }
 }

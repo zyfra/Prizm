@@ -5,6 +5,7 @@
   "description": "Library to make it easy to create Angular applications. Contains Injectables Service, RxJS utilities, directives, and standard pipes.",
   "peerDependencies": {
     "@angular/common": "^12.2.0",
+    "@angular/forms": "^12.2.0",
     "@angular/core": "^12.2.0"
   },
   "dependencies": {

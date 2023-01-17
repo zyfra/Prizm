@@ -77,6 +77,8 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
         return `[(${this.documentationPropertyName})]`;
       case `css-var`:
         return `--${this.documentationPropertyName}`;
+      case `form-control`:
+        return `FormControl.${this.documentationPropertyName}`;
       case `ng-content`:
         return `<ng-content${this.documentationPropertyName ? ` select="${this.documentationPropertyName}"` : '' }>`;
       default:

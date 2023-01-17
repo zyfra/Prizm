@@ -19,7 +19,7 @@
     <th *ngIf="showValues && !isAPI" class="t-th t-cell t-cell_value">{{ texts[3] }}</th>
   </tr>
   <tr
-    *ngFor="let propertyConnector of propertiesConnectors | prizmMapper : sortConnectors; let idx = index"
+    *ngFor="let propertyConnector of propertiesConnectors | prizmMapper : sortConnectors : propertiesInnerConnectors; let idx = index"
     class="t-row"
     [class.t-deprecated]="propertyConnector.documentationPropertyDeprecated"
   >
@@ -163,3 +163,23 @@
     </td>
   </tr>
 </table>
+
+<ng-template
+  documentationPropertyName="disabled"
+  documentationPropertyType="boolean"
+  documentationPropertyMode="form-control"
+  [documentationPropertyValue]='getDisabledFromControl(control)'
+  (documentationPropertyValueChange)="updateStateOfControl(control, $event)"
+>
+  Disabled
+</ng-template>
+
+<ng-template
+  documentationPropertyName="value"
+  documentationPropertyType="string"
+  documentationPropertyMode="form-control"
+  [documentationPropertyValue]='getValueFromControl(control)'
+  (documentationPropertyValueChange)="updateValueOfControl(control, $event)"
+>
+  Value
+</ng-template>
