@@ -65,6 +65,21 @@ export class PrizmFormControlHelpers {
     control.setValue(newValue, options);
   }
 
+  public static setDisabled(
+    control: FormControl,
+    disabled: boolean,
+    options?: {
+      onlySelf?: boolean;
+      emitEvent?: boolean;
+    }
+  ): void {
+    if (disabled === control.disabled) return;
+    if(!disabled)
+      control.enable(options)
+    else
+      control.disable(options)
+  }
+
   public static syncValues<
     ORIGIN_VALUE = any,
     OTHER_VALUE = any

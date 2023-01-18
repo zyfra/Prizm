@@ -91,8 +91,8 @@ export class ConfirmComponent {
   };
 
   public readonly exampleHorizontal: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/base.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/base.component.html'),
+    TypeScript: import('!!raw-loader!./examples/horizontal/horizontal.component.ts'),
+    HTML: import('!!raw-loader!./examples/horizontal/horizontal.component.html'),
   };
 
   constructor(

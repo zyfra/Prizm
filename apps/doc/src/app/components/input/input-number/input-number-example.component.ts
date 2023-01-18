@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 
@@ -11,6 +11,7 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 })
 export class InputNumberExampleComponent {
   value = 1;
+  public requiredInputControl = new FormControl('', Validators.required);
   public min = 0;
   public max = 10;
   public step = 2;

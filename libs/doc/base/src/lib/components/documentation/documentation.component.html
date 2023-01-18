@@ -164,22 +164,24 @@
   </tr>
 </table>
 
-<ng-template
-  documentationPropertyName="disabled"
-  documentationPropertyType="boolean"
-  documentationPropertyMode="form-control"
-  [documentationPropertyValue]='getDisabledFromControl(control)'
-  (documentationPropertyValueChange)="updateStateOfControl(control, $event)"
->
-  Disabled
-</ng-template>
+<ng-container *ngIf='control'>
+  <ng-template
+    documentationPropertyName="disabled"
+    documentationPropertyType="boolean"
+    documentationPropertyMode="form-control"
+    [documentationPropertyValue]='control | prizmCallFunc : getDisabledFromControl$ | async'
+    (documentationPropertyValueChange)="updateStateOfControl(control, $any($event))"
+  >
+    Disabled
+  </ng-template>
 
-<ng-template
-  documentationPropertyName="value"
-  documentationPropertyType="string"
-  documentationPropertyMode="form-control"
-  [documentationPropertyValue]='getValueFromControl(control)'
-  (documentationPropertyValueChange)="updateValueOfControl(control, $event)"
->
-  Value
-</ng-template>
+  <ng-template
+    documentationPropertyName="value"
+    documentationPropertyType="string"
+    documentationPropertyMode="form-control"
+    [documentationPropertyValue]='control | prizmCallFunc : getValueFromControl$ | async'
+    (documentationPropertyValueChange)="updateValueOfControl(control, $any($event))"
+  >
+    Value
+  </ng-template>
+</ng-container>

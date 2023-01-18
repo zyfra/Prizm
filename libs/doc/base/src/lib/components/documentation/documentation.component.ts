@@ -19,7 +19,7 @@ import {
   tuiRgbToHex,
   tuiWatch,
 } from '@taiga-ui/cdk';
-import { BehaviorSubject, combineLatest, merge } from 'rxjs';
+import { BehaviorSubject, combineLatest, merge, Observable } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
 
 import { PRIZM_DOC_DOCUMENTATION_TEXTS } from '../../tokens/i18n';
@@ -30,6 +30,7 @@ import { PrizmDocHostElementListenerService } from '../host';
 import * as _ from 'lodash';
 import { PrizmDocumentationPropertyType } from '../../types/pages';
 import { FormControl } from '@angular/forms';
+import { PrizmFormControlHelpers } from '@prizm-ui/helpers';
 // @bad TODO subscribe propertiesConnectors changes
 // @bad TODO refactor to make more flexible
 @Component({
@@ -253,22 +254,18 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
     )
   }
 
-  public getDisabledFromControl(control: FormControl): boolean {
-    if (!control) return false;
-    return control.disabled;
+  public getDisabledFromControl$(control: FormControl): Observable<boolean> {
+    return PrizmFormControlHelpers.getDisabled$(control);
   }
 
   public updateStateOfControl(control: FormControl, newState: boolean): void {
-    if(!newState)
-      control.enable()
-    else
-      control.disable()
+    PrizmFormControlHelpers.setDisabled(control, newState);
   }
-  public getValueFromControl(control: FormControl): any {
-    return control?.value
+  public getValueFromControl$(control: FormControl): Observable<any> {
+    return PrizmFormControlHelpers.getValue$(control)
   }
 
   public updateValueOfControl(control: FormControl, newValue: any): void {
-    control.setValue(newValue);
+    PrizmFormControlHelpers.setValue(control, newValue);
   }
 }

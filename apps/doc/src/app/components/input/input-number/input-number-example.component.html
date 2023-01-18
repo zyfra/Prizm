@@ -30,6 +30,7 @@
               key="PrizmInputNumberDirective"
               [prizmDocHostElement]="prizmInputNumber"
               prizmInputNumber
+              [formControl]="requiredInputControl"
               [min]="min"
               [max]="max"
               [step]="step"
@@ -92,67 +93,15 @@
         </div>
       </div>
     </prizm-doc-demo>
-    <prizm-doc-documentation heading="PrizmInputNumberDirective" hostComponentKey="PrizmInputNumberDirective">
-      <!-- <ng-template
-        documentationPropertyName="status"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="[1, 6, null]"
-        [(documentationPropertyValue)]="value"
-      >
-        Value
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="min"
-        documentationPropertyType="number"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="min"
-      >
-        Min
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="max"
-        documentationPropertyType="number"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="max"
-      >
-        Max
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="step"
-        documentationPropertyType="number"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="[2, 4]"
-        [(documentationPropertyValue)]="step"
-      >
-        Step
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="label"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="label"
-      >
-        Label
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="placeholder"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="placeholder"
-      >
-        Placeholder
-      </ng-template> -->
-
+    <prizm-doc-documentation
+      [control]='requiredInputControl'
+      heading="PrizmInputNumberDirective"
+      hostComponentKey="PrizmInputNumberDirective">
       <ng-template
         documentationPropertyName="required"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
+        [documentationPropertyDeprecated]="true"
         [(documentationPropertyValue)]="required"
       >
         Required
@@ -162,49 +111,11 @@
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
+        [documentationPropertyDeprecated]="true"
         [(documentationPropertyValue)]="disabled"
       >
         Disabled
       </ng-template>
-
-      <!-- <ng-template
-        documentationPropertyName="status"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="statuses"
-        [(documentationPropertyValue)]="status"
-      >
-        Status
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="outer"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="outer"
-      >
-        Outer
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="position"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="inputPositions"
-        [(documentationPropertyValue)]="inputPosition"
-      >
-        Input position
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="size"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="outer ? sizesOuter : sizesInner"
-        [(documentationPropertyValue)]="size"
-      >
-        Size
-      </ng-template> -->
 
       <ng-template
         documentationPropertyName="value"

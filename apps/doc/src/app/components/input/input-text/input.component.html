@@ -169,6 +169,7 @@
         <input
           prizmInput
           #element
+          [formControl]="control"
           [prizmDocHostElement]="element"
           [disabled]="disabled"
           [required]="required"
@@ -176,12 +177,13 @@
       </prizm-input-layout>
     </prizm-doc-demo>
 
-    <prizm-doc-documentation>
+    <prizm-doc-documentation [control]='control'>
       <ng-template
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="disabled"
+        [documentationPropertyDeprecated]="true"
       >
         Disabled
       </ng-template>
@@ -191,6 +193,7 @@
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="disabled"
+        [documentationPropertyDeprecated]="true"
       >
         Required
       </ng-template>
@@ -199,6 +202,7 @@
         documentationPropertyName="value"
         documentationPropertyType="any"
         documentationPropertyMode="input"
+        [documentationPropertyDeprecated]="true"
       >
         value
       </ng-template>
