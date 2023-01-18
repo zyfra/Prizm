@@ -25,20 +25,14 @@
         [disabled]="disabled"
         [size]="size"
         [indeterminate]="indeterminate"
-        [required]="required"
       >
         {{ label }}
       </prizm-checkbox>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-      <!-- <ng-template
-        documentationPropertyName="label"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="label"
-      >
-        Label
-      </ng-template> -->
+      <ng-template documentationPropertyMode="ng-content" [(documentationPropertyValue)]="label">
+        ng-content
+      </ng-template>
 
       <ng-template
         documentationPropertyName="checked"
@@ -70,7 +64,6 @@
         <p>При изменении checked indeterminate устанавливается в false</p>
       </ng-template>
 
-      indeterminate
       <ng-template
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
@@ -88,15 +81,6 @@
         [(documentationPropertyValue)]="size"
       >
         Size
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="required"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="required"
-      >
-        Required
       </ng-template>
 
       <ng-template
@@ -122,3 +106,4 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
+
