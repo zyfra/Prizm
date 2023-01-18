@@ -1,4 +1,4 @@
-<prizm-splitter [ngStyle]="{ height: '400px' }" [orientation]="'vertical'">
+<prizm-splitter [ngStyle]="{ height: '300px' }" (areasSizeChange)="areasSizeChange($event)">
   <prizm-splitter-area [size]="25">
     <div class="area area--1">
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
@@ -48,4 +48,16 @@
     </div>
   </prizm-splitter-area>
 </prizm-splitter>
+
+<div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; align-items: flex-start">
+  <button (click)="setAreasSize([50, null, null, 50])" prizmButton appearance="secondary" size="xl">
+    setAreasSize([50, null, null, 50])
+  </button>
+  <button (click)="setAreasSize([20, 30, 30, 20])" prizmButton appearance="secondary" size="xl">
+    setAreasSize([20, 30, 30, 20])
+  </button>
+  <button (click)="setAreasSize([100, null, null, null])" prizmButton appearance="secondary" size="xl">
+    setAreasSize([100, null, null, null])
+  </button>
+</div>
 

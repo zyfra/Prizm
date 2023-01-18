@@ -30,6 +30,9 @@ export class PrizmSplitterGutterComponent implements AfterViewInit {
     position: { left: number; top: number };
   }>();
 
+  @Output() gutterPointerDown = new EventEmitter<void>();
+  @Output() gutterPointerUp = new EventEmitter<void>();
+
   @ViewChild('slider', { static: true }) slider: ElementRef<HTMLDivElement>;
 
   positionRelativeToContainer = 0;
@@ -41,6 +44,7 @@ export class PrizmSplitterGutterComponent implements AfterViewInit {
     fromEvent<PointerEvent>(sliderEl, 'pointerdown')
       .pipe(
         switchMap(event => {
+          this.gutterPointerDown.next();
           sliderEl.setPointerCapture(event.pointerId);
 
           const bcr = this.getBoundingClientRect();
@@ -56,7 +60,9 @@ export class PrizmSplitterGutterComponent implements AfterViewInit {
 
               this.gutterMove.next({ gutter: this, position: { left, top } });
             }),
-            takeUntil(fromEvent<PointerEvent>(document, 'pointerup'))
+            takeUntil(
+              fromEvent<PointerEvent>(document, 'pointerup').pipe(tap(() => this.gutterPointerUp.next()))
+            )
           );
         })
       )
