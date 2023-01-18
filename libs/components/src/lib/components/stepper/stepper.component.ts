@@ -56,7 +56,7 @@ export class PrizmStepperComponent implements AfterContentInit {
     );
 
     this.steps$ = merge(steps$, stepsInnerStateChanged$.pipe(switchMap(() => steps$))).pipe(
-      map(ql => ql.toArray().sort(item => item.index))
+      map(ql => ql.toArray().sort((prev, curr) => prev.index - curr.index))
     );
   }
 
