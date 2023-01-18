@@ -36,7 +36,6 @@ export class PrizmCheckboxComponent implements ControlValueAccessor, OnDestroy, 
   @Input() indeterminate = false;
   @Input() host: HTMLElement | null = null;
   @Input() @HostBinding('class.prizm-checkbox--disabled') disabled = false;
-  @Input() @HostBinding('class.prizm-checkbox--required') required = false;
 
   private _checked = false;
   get checked(): boolean {
@@ -56,10 +55,11 @@ export class PrizmCheckboxComponent implements ControlValueAccessor, OnDestroy, 
   touchedFn: () => void;
   private readonly destroyElement$ = new Subject<void>();
 
-
   constructor(
     private readonly el: ElementRef,
-    @Optional() @Self() private ngControl: NgControl, private cdr: ChangeDetectorRef) {
+    @Optional() @Self() private ngControl: NgControl,
+    private cdr: ChangeDetectorRef
+  ) {
     if (this.ngControl) {
       this.ngControl.valueAccessor = this;
     }
@@ -98,22 +98,13 @@ export class PrizmCheckboxComponent implements ControlValueAccessor, OnDestroy, 
   private initListener(): void {
     this.destroyElement$.next();
     const el = this.host ?? this.el.nativeElement;
-    merge(
-      fromEvent(
-        el,
-        'click',
-      ),
-      fromEvent<KeyboardEvent>(
-        el,
-        'keydown',
-      ).pipe(
-        filter((i) => i.key === ' ')
+    merge(fromEvent(el, 'click'), fromEvent<KeyboardEvent>(el, 'keydown').pipe(filter(i => i.key === ' ')))
+      .pipe(
+        tap(event => this.onClick(event)),
+        prizmWatch(this.cdr),
+        takeUntil(this.destroyElement$)
       )
-    ).pipe(
-      tap((event) => this.onClick(event)),
-      prizmWatch(this.cdr),
-      takeUntil(this.destroyElement$)
-    ).subscribe();
+      .subscribe();
   }
 
   private setValue(value: boolean): void {
