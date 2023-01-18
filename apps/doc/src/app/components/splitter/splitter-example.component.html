@@ -19,19 +19,21 @@
     <prizm-doc-example id="limit" heading="Limit size" [content]="limitSize">
       <prizm-splitter-limit-size-example></prizm-splitter-limit-size-example>
     </prizm-doc-example>
+
+    <prizm-doc-example id="size-setting" heading="Size setting" [content]="sizeSetting">
+      <prizm-splitter-size-setting-example></prizm-splitter-size-setting-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-splitter
         #element
-        [prizmDocHostElement]="element"
         [ngStyle]="{ height: '400px' }"
-        [areasSize]="areasSize"
-        [minAreasSize]="minAreasSize"
         [orientation]="orientation"
+        [prizmDocHostElement]="element"
       >
-        <prizm-splitter-area>
+        <prizm-splitter-area [size]="30">
           <div class="area area--1">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
             provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
@@ -43,7 +45,7 @@
             rem voluptatem neque officiis, nihil dolorum quisquam aperiam blanditiis.
           </div>
         </prizm-splitter-area>
-        <prizm-splitter-area>
+        <prizm-splitter-area [size]="40">
           <div class="area area--2">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
             provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
@@ -55,7 +57,7 @@
             rem voluptatem neque officiis, nihil dolorum quisquam aperiam blanditiis.
           </div>
         </prizm-splitter-area>
-        <prizm-splitter-area>
+        <prizm-splitter-area [size]="30">
           <div class="area area--3">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
             provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
@@ -70,34 +72,6 @@
       </prizm-splitter>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-      <!-- <ng-template
-        documentationPropertyName="areasSizes"
-        documentationPropertyType="Array"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="areasSize"
-        [documentationPropertyValues]="sizesVariants"
-      >
-        Areas size
-      </ng-template> -->
-      <ng-template
-        documentationPropertyName="areasSize"
-        documentationPropertyType="Array"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="areasSize"
-      >
-        Areas size
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="minAreasSize"
-        documentationPropertyType="Array"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="minAreasSize"
-        [documentationPropertyValues]="minAreasSizeVariants"
-      >
-        Areas min size
-      </ng-template>
-
       <ng-template
         documentationPropertyName="orientation"
         documentationPropertyType="string"
@@ -106,6 +80,28 @@
         [documentationPropertyValues]="orientationVariants"
       >
         Orientation
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="areasSizeChange"
+        documentationPropertyType="Array<number>"
+        documentationPropertyMode="output"
+      >
+        AreasSizeChange
+      </ng-template>
+      <ng-template
+        documentationPropertyName="areasSplitStart"
+        documentationPropertyType="Array<number>"
+        documentationPropertyMode="output"
+      >
+        AreasSplitStart
+      </ng-template>
+      <ng-template
+        documentationPropertyName="areasSplitEnd"
+        documentationPropertyType="Array<number>"
+        documentationPropertyMode="output"
+      >
+        AreasSplitEnd
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>
@@ -123,3 +119,4 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
+

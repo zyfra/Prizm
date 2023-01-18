@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 @Component({
@@ -19,7 +19,14 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmSplitterAreaComponent {
-  @HostBinding('style.flex-basis.%') size: number;
+  @HostBinding('style.flex-basis.%') currentSize: number | null = null;
   @HostBinding('style.order') order = 0;
+
+  @Input() size = 0;
+  @Input() minSize = 0;
+
+  @HostBinding('style.display') get display(): 'none' | 'block' {
+    return this.size === null ? 'none' : 'block';
+  }
 }
 
