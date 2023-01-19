@@ -35,12 +35,7 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, any>>> {
 
   readonly cells$ = this.cells.changes.pipe(
     startWith(null),
-    map(() =>
-      this.cells.reduce(
-        (record, item) => ({ ...record, [item.prizmCell]: item }),
-        {} as Record<keyof T | string, PrizmCellDirective>
-      )
-    )
+    map(() => this.cells.toArray())
   );
 
   readonly item$ = this.body.rows.changes.pipe(
