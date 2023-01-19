@@ -9,24 +9,8 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmSplitterExampleComponent {
-  public sizesVariants: Array<Array<number>> = [
-    [20, 40, 40],
-    [30, 40, 30],
-    [20, 60, 20],
-  ];
-
-  public areasSize: Array<number> = [30, 40, 30];
-
   public orientationVariants: Array<PrizmSplitterOrientation> = ['horizontal', 'vertical'];
   public orientation: PrizmSplitterOrientation = 'horizontal';
-
-  public minAreasSizeVariants: Array<Array<number>> = [
-    [0, 0, 0],
-    [10, 40, 20],
-    [20, 40, 20],
-  ];
-
-  public minAreasSize: Array<number> = [0, 0, 0];
 
   readonly basic: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/basic/basic.component'),
@@ -46,6 +30,11 @@ export class PrizmSplitterExampleComponent {
   readonly limitSize: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/limit-size/limit-size.component'),
     HTML: import('!!raw-loader!./examples/limit-size/limit-size.component.html'),
+  };
+
+  readonly sizeSetting: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/size-setting/size-setting.component'),
+    HTML: import('!!raw-loader!./examples/size-setting/size-setting.component.html'),
   };
 
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');

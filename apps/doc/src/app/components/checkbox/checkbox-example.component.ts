@@ -10,7 +10,6 @@ type TCheckboxSize = 'l' | 's';
 })
 export class CheckboxExampleComponent {
   public checked = false;
-  public required = false;
   public label = 'Свойство 1';
   public disabled = false;
   public indeterminate = false;
