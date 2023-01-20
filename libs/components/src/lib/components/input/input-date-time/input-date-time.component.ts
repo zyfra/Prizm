@@ -417,4 +417,10 @@ export class PrizmInputDateTimeComponent
   public openTimeDropdown(): void {
     this.openTimeTemplate = !this.openTimeTemplate;
   }
+
+  public openDateDropdown(): void {
+    this.openTimeTemplate = null;
+    this.focusableElement?.nativeElement.focus()
+    // this.openTimeTemplate = !this.openTimeTemplate;
+  }
 }
