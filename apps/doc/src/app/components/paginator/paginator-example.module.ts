@@ -8,7 +8,7 @@ import {
   PrizmDocDemoModule,
   PrizmDocDocumentationModule,
   PrizmDocExampleModule,
-  PrizmDocPageModule,
+  PrizmDocPageModule, PrizmAddonDocModule,
 } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { PrizmPaginatorModule } from '@prizm-ui/components';
@@ -26,6 +26,7 @@ import { PaginatorInfiniteExampleComponent } from './examples/paginator-infinite
     CommonModule,
     PrizmDocDocumentationModule,
     PrizmDocDemoModule,
+    PrizmAddonDocModule,
     PrizmDocPageModule,
     PrizmDocExampleModule,
     PrizmDocCodeModule,

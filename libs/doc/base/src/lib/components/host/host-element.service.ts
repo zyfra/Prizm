@@ -106,6 +106,7 @@ export class PrizmDocHostElementService implements OnDestroy {
       return;
     }
 
+    console.log('#mz eventRealKey', {eventRealKey});
     el.nativeElement?.[eventRealKey]?.pipe(
       takeUntil(this.destroyListener$),
       tap(

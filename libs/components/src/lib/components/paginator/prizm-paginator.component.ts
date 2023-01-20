@@ -23,7 +23,7 @@ export class PrizmPaginatorComponent {
   // Сколько данных в одном пакете
   @Input() public rows: number | null = null;
 
-  @Input() public set initialValue(val: number) {
+  @Input() public set page(val: number) {
     this.currentPage = val;
   }
 
@@ -39,7 +39,7 @@ export class PrizmPaginatorComponent {
 
   @Input() public rowsCountOptions: number[] = [];
 
-  @Output() public tabChange: EventEmitter<IPaginatorOutput> = new EventEmitter<IPaginatorOutput>();
+  @Output() public pageChange: EventEmitter<IPaginatorOutput> = new EventEmitter<IPaginatorOutput>();
 
   @HostBinding('attr.testId')
   readonly testId = 'prizm_paginator';
@@ -96,6 +96,7 @@ export class PrizmPaginatorComponent {
   }
 
   public changePage(page: number): void {
+    console.log('#mz changePage', {page, currentPage: this.currentPage});
     if (this.currentPage !== page) {
       this.currentPage = page;
       this.emitChangedValues();
@@ -115,7 +116,7 @@ export class PrizmPaginatorComponent {
   }
 
   private emitChangedValues(): void {
-    this.tabChange.emit({
+    this.pageChange.emit({
       page: this.currentPage - 1,
       first: (this.currentPage - 1) * this.rows,
       rows: this.rows,
