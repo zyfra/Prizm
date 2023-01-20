@@ -43,6 +43,7 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
   get activeTabIndex(): number {
     return this.tabsService.activeTabIdx$$.value;
   }
+  @Input() canShowMenu = true;
   @Output() public activeTabIndexChange: EventEmitter<number> = new EventEmitter<number>();
   @ViewChild('tabsContainer', { static: true }) public tabsContainer: ElementRef;
   @ViewChild('tabsDropdown', { static: true }) public tabsDropdown: PrizmDropdownHostComponent;

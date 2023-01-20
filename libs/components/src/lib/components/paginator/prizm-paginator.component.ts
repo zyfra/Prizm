@@ -96,7 +96,6 @@ export class PrizmPaginatorComponent {
   }
 
   public changePage(page: number): void {
-    console.log('#mz changePage', {page, currentPage: this.currentPage});
     if (this.currentPage !== page) {
       this.currentPage = page;
       this.emitChangedValues();
