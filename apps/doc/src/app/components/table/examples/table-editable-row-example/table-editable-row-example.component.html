@@ -19,6 +19,35 @@
         class="row"
         [class.row_edit]="currentEditableRow === item"
       >
+        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
+        <td *prizmCell="'name'" prizmTd class="row__editable">
+          <input
+            prizmInput
+            [disabled]="currentEditableRow !== item"
+            [value]="item.name"
+            (click)="$event.stopPropagation()"
+            (blur)="changeItemName($event, 'name')"
+          />
+        </td>
+        <td *prizmCell="'category'" prizmTd class="row__editable">
+          <input
+            prizmInput
+            [disabled]="currentEditableRow !== item"
+            [value]="item.category"
+            (click)="$event.stopPropagation()"
+            (blur)="changeItemName($event, 'category')"
+          />
+        </td>
+        <td *prizmCell="'count'" prizmTd class="row__editable">
+          <input
+            prizmInput
+            class="format__number"
+            [disabled]="currentEditableRow !== item"
+            [value]="$any(item.count)"
+            (click)="$event.stopPropagation()"
+            (blur)="changeItemName($event, 'count')"
+          />
+        </td>
         <td prizmTd *prizmCell="'actions'">
           <div class="edit-buttons-container" (click)="$event.stopPropagation()">
             <prizm-icon
@@ -52,35 +81,6 @@
               (click)="onRowDelete(item)"
             ></prizm-icon>
           </div>
-        </td>
-        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber: '0.0-0' }}</td>
-        <td *prizmCell="'name'" prizmTd class="row__editable">
-          <input
-            prizmInput
-            [disabled]="currentEditableRow !== item"
-            [value]="item.name"
-            (click)="$event.stopPropagation()"
-            (blur)="changeItemName($event, 'name')"
-          />
-        </td>
-        <td *prizmCell="'category'" prizmTd class="row__editable">
-          <input
-            prizmInput
-            [disabled]="currentEditableRow !== item"
-            [value]="item.category"
-            (click)="$event.stopPropagation()"
-            (blur)="changeItemName($event, 'category')"
-          />
-        </td>
-        <td *prizmCell="'count'" prizmTd class="row__editable">
-          <input
-            prizmInput
-            class="format__number"
-            [disabled]="currentEditableRow !== item"
-            [value]="$any(item.count)"
-            (click)="$event.stopPropagation()"
-            (blur)="changeItemName($event, 'count')"
-          />
         </td>
       </tr>
     </tbody>
