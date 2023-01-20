@@ -94,9 +94,10 @@
       </div>
     </prizm-doc-demo>
     <prizm-doc-documentation
-      [control]='requiredInputControl'
+      [control]="requiredInputControl"
       heading="PrizmInputNumberDirective"
-      hostComponentKey="PrizmInputNumberDirective">
+      hostComponentKey="PrizmInputNumberDirective"
+    >
       <ng-template
         documentationPropertyName="required"
         documentationPropertyType="boolean"
@@ -162,6 +163,27 @@
         inputNumber
       </ng-template>
     </prizm-doc-documentation>
+
+    <prizm-doc-documentation
+      heading="prizmInputNumberAuxiliaryControl"
+      hostComponentKey="prizmInputNumberAuxiliaryControl"
+    >
+      <ng-template
+        documentationPropertyName="inputNumber"
+        documentationPropertyType="PrizmInputNumberDirective"
+        documentationPropertyMode="input"
+      >
+        inputNumber
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="prizmInputNumberAuxiliaryControl"
+        documentationPropertyType="'increment' | 'decrement'"
+        documentationPropertyMode="input"
+      >
+        prizmInputNumberAuxiliaryControl
+      </ng-template>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template prizmDocPageTab>
@@ -177,3 +199,4 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
+

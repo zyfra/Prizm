@@ -29,7 +29,13 @@
         [outer]="outer"
         [position]="'center'"
       >
-        <prizm-carousel-auxiliary-left prizm-input-left [carousel]="carousel"></prizm-carousel-auxiliary-left>
+        <prizm-carousel-auxiliary-left
+          #PrizmCarouselAuxiliaryLeftComponent
+          key="PrizmCarouselAuxiliaryLeftComponent"
+          [prizmDocHostElement]="PrizmCarouselAuxiliaryLeftComponent"
+          prizm-input-left
+          [carousel]="carousel"
+        ></prizm-carousel-auxiliary-left>
         <prizm-carousel
           #carousel
           key="PrizmCarouselComponent"
@@ -54,7 +60,11 @@
       </prizm-input-layout>
     </prizm-doc-demo>
 
-    <prizm-doc-documentation [control]='control' heading="PrizmCarouselComponent" hostComponentKey="PrizmCarouselComponent">
+    <prizm-doc-documentation
+      [control]="control"
+      heading="PrizmCarouselComponent"
+      hostComponentKey="PrizmCarouselComponent"
+    >
       <ng-template
         documentationPropertyName="value"
         documentationPropertyType="string"
@@ -106,6 +116,19 @@
     </prizm-doc-documentation>
 
     <prizm-doc-documentation
+      heading="PrizmCarouselAuxiliaryLeftComponent"
+      hostComponentKey="PrizmCarouselAuxiliaryLeftComponent"
+    >
+      <ng-template
+        documentationPropertyName="carousel"
+        documentationPropertyType="PrizmCarouselComponent"
+        documentationPropertyMode="input"
+      >
+        Carousel
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation
       heading="PrizmCarouselAuxiliaryRightComponent"
       hostComponentKey="PrizmCarouselAuxiliaryRightComponent"
     >
@@ -132,3 +155,4 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
+
