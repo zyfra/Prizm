@@ -1,5 +1,5 @@
 <div class="container" #container>
-  <ng-container *ngFor="let area of areas; index as index; last as last">
+  <ng-container *ngFor="let area of visibleAreas; index as index; last as last">
     <prizm-splitter-gutter
       *ngIf="!last"
       [areaBeforeIndex]="index"

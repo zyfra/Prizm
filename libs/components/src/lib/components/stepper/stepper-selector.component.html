@@ -3,7 +3,7 @@
     <li>
       <button
         (click)="clickOnStep(step.index)"
-        class="step step--{{ step.status }}"
+        class="step step--{{ step.status }} step--{{ index }}"
         [ngClass]="{
           'step--current': currentStep === step.index,
           'step--disabled': step.disabled,

@@ -1,5 +1,5 @@
-<prizm-splitter [ngStyle]="{ height: '300px' }" [areasSize]="[50, 50]">
-  <prizm-splitter-area>
+<prizm-splitter [ngStyle]="{ height: '300px' }">
+  <prizm-splitter-area [size]="50">
     <div class="area area--1">
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
       provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel nulla
@@ -11,20 +11,15 @@
       officiis, nihil dolorum quisquam aperiam blanditiis.
     </div>
   </prizm-splitter-area>
-  <prizm-splitter-area>
-    <prizm-splitter
-      [style]="{ height: '100%' }"
-      [orientation]="'vertical'"
-      [areasSize]="[50, 50]"
-      class="nested"
-    >
-      <prizm-splitter-area>
+  <prizm-splitter-area [size]="50">
+    <prizm-splitter [style]="{ height: '100%' }" [orientation]="'vertical'" class="nested">
+      <prizm-splitter-area [size]="50">
         <div class="area area--2">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
           provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
         </div>
       </prizm-splitter-area>
-      <prizm-splitter-area>
+      <prizm-splitter-area [size]="50">
         <div class="area area--3">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
           provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
