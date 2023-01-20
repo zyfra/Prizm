@@ -31,6 +31,7 @@ import { ParseTextInput, RenderText, UpdateActiveItem } from './input-date-relat
 import { prizmIsNativeFocused } from '../../../util';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
+import { PrizmFormControlHelpers } from '@prizm-ui/helpers';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
 const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?';
@@ -64,6 +65,9 @@ export class PrizmInputDateRelativeComponent
 
   @Input()
   @prizmDefaultProp()
+  /**
+   * @deprecated
+   * */
   public set disabled(value: boolean) {
     if (value) this.value.disable();
     else this.value.enable();
@@ -121,7 +125,7 @@ export class PrizmInputDateRelativeComponent
   }
 
   public ngAfterViewInit(): void {
-    const control = this.injector.get(NgControl);
+    const control = this.injector.get(NgControl) as unknown as FormControl;
     this.value.addValidators(control.validator);
 
     this.subscriptions.add(
@@ -131,6 +135,23 @@ export class PrizmInputDateRelativeComponent
         this.onChangeFn(this.value.value);
       })
     );
+
+    this.subscriptions.add(
+      PrizmFormControlHelpers.syncValues(
+        control,
+        v => v,
+        v => v,
+        this.value
+      ).subscribe()
+    )
+
+    this.subscriptions.add(
+      PrizmFormControlHelpers.syncStates(
+        control,
+        true,
+        this.value
+      ).subscribe()
+    )
   }
 
   public ngOnDestroy(): void {
