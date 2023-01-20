@@ -1,9 +1,17 @@
 import { PrizmChipsComponent } from './chips.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('InputChipsControlComponent', () => {
   let component: PrizmChipsComponent;
   let fixture: ComponentFixture<PrizmChipsComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [PrizmChipsComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PrizmChipsComponent);
@@ -41,4 +49,3 @@ describe('InputChipsControlComponent', () => {
     expect(component.chipsList.find(item => item === chipName)).toBeFalsy();
   });
 });
-

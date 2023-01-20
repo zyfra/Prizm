@@ -4,7 +4,7 @@ import { PrizmTabsComponent } from './tabs.component';
 import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host/dropdown-host.module';
 import { PrizmIconModule } from '../icon/icon.module';
 
-xdescribe('TabsComponent', () => {
+describe('TabsComponent', () => {
   let component: PrizmTabsComponent;
   let fixture: ComponentFixture<PrizmTabsComponent>;
 
@@ -37,7 +37,7 @@ xdescribe('TabsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [PrizmTabsComponent],
-      imports: [PrizmDropdownHostModule, PrizmIconModule]
+      imports: [PrizmDropdownHostModule, PrizmIconModule],
     }).compileComponents();
   });
 
