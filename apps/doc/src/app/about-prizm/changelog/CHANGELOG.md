@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.21](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (23-01-2022)
+
+### Features
+- fix(doc/paginotor) remove not working params in api page 
+- feat(doc/paginotor) add new params
+feat(components/tabs): add show menu control
+- feat(components/dialog/sidebar): Добавить иконки в кнопки сайдбара
+- feat(components/tabs): Add canShowMenu input
+- feat(components/table): Simplify usage in a minimal amount
+
+### BUG FIXES
+- fix(components/date-relative): fix change disabled via FormControl
+- fix(component/date): open time picker when open date picker
+- fix(doc/tabs): second tab content in api page
+- fix(doc/confirm-dialog): PrizmConfirmDialog, horizontal view: пример кода не верный
+- fix(components/table): fix tests
+- fix(components/splitter): resize events. bug fix with classes
+- fix(components/stepper): fix a bug with the order of steps
+
+### BREAKING CHANGES
+- ref(components/paginator): change initialValue > page
+- ref(components/paginator): change tabChange > pageChange
+- ref(components/checkbox): remove required
+
 ## [1.0.0-beta.20](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (11-01-2022)
 
 ### Features
