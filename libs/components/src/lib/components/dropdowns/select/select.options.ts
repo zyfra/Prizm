@@ -46,7 +46,7 @@ export const PRIZM_SELECT_DEFAULT_OPTIONS: PrizmSelectOptions<unknown> = {
   emptyContent: "Ничего не найдено",
   nullContent: "Не выбрано",
   searchMatcher: (searchValue: string, item: unknown): boolean => {
-    return item?.toString().toLowerCase().includes(searchValue.toLowerCase());
+    return item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
   },
   stringify: (i: unknown, nullContent: string) => {
     if (i == null && nullContent) return nullContent;

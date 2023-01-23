@@ -1,11 +1,13 @@
 <prizm-input-date-range
     #focusableElementRef
     [disabledItemHandler]='disabledItemHandler'
+    [label]='label'
     [markerHandler]='markerHandler'
     [defaultViewedMonth]='defaultViewedMonth'
     [items]='items'
-    [ngModel]='value?.dayRange'
-    (ngModelChange)='updateDayRange($event)'
+    [size]='size'
+    [outer]='outer'
+    [formControl]='dateControl'
     [placeholder]='placeholder'
     [min]='min?.day'
     [max]='max?.day'
@@ -13,9 +15,11 @@
   <ng-template #footerTo let-zone="zone">
     <prizm-input-time
       [prizmEventZoneParent]='zone'
+      [size]='size'
       [style.--prizm-dropdown-host-width]='"100%"'
-      [ngModel]='value?.timeRange?.from'
-      (ngModelChange)='updateTime(false, $event)'
+      [formControl]='timeControlFrom'
+      [strict]='timeStrict'
+      [items]='timeItems'
       [mode]='timeMode'>
     </prizm-input-time>
   </ng-template>
@@ -23,8 +27,8 @@
     <prizm-input-time
       [prizmEventZoneParent]='zone'
       [style.--prizm-dropdown-host-width]='"100%"'
-      [ngModel]='value?.timeRange?.to'
-      (ngModelChange)='updateTime(true, $event)'
+      [formControl]='timeControlTo'
+      [items]='timeItems'
       [mode]='timeMode'>
     </prizm-input-time>
   </ng-template>

@@ -20,7 +20,13 @@ import { PrizmCarouselContent } from './carousel-content/carousel-content.interf
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: PrizmInputControl, useExisting: PrizmCarouselComponent }, PrizmDestroyService],
+  providers: [
+    {
+      provide: PrizmInputControl,
+      useExisting: PrizmCarouselComponent
+    },
+    PrizmDestroyService
+  ],
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
     '[class.ng-filled]': '!empty',

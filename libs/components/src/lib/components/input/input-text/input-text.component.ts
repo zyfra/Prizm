@@ -33,6 +33,7 @@ import { PrizmInputControl } from '../common/base/input-control.class';
 })
 export class PrizmInputTextComponent extends PrizmInputControl<string> implements DoCheck, OnInit, OnDestroy {
   /**
+   * @deprecated
    * Disabled input
    */
   @Input()
@@ -51,6 +52,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   private _disabled = false;
 
   /**
+   * @deprecated
    * Required input
    */
   @Input()
@@ -77,6 +79,9 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
     return this.ngControl?.value || this._inputValue.value;
   }
 
+  /**
+   * @deprecated
+   * */
   @Input()
   set value(value: any) {
     if (this.ngControl && this.ngControl.value !== value) {

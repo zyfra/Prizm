@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { default as d } from './examples/input-phone-example/input-phone-example.component.less?raw';
@@ -12,6 +13,7 @@ import { default as d } from './examples/input-phone-example/input-phone-example
 export class InputComponent {
   public border = false;
   public disabled = false;
+  public control = new FormControl();
   public required = false;
   public label = 'Заголовок';
 

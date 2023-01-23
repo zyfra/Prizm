@@ -8,7 +8,7 @@
       prizmDropdownHostWidth="auto"
       [content]="dropdown"
       [(isOpen)]="openLeft"
-      *ngIf="!isRightBtnActive"
+      *ngIf="canShowMenu && !isRightBtnActive"
     >
       <prizm-icon
         class="control__settings"
@@ -24,7 +24,7 @@
     <ng-content></ng-content>
   </div>
 
-  <div class="control" [class.control_active]="isRightBtnActive">
+  <div class="control" *ngIf='canShowMenu' [class.control_active]="isRightBtnActive">
     <prizm-dropdown-host
       class="dropdown-host"
       prizmDropdownHostWidth="auto"
@@ -52,7 +52,7 @@
           *ngFor="let tabElement of tabElements; let i = index"
         >
           <ng-container
-            *ngIf="tabElement.nativeElement | prizmCallFunc : getTab as tab">
+            *ngIf="tabElement as tab">
             <prizm-tab
               *prizmLet='{inMenuIdx: i}'
               [type]="tab.type"

@@ -20,6 +20,7 @@ export class TabsExampleComponent {
   closeIcon: string | null = null;
   public closable = false;
   public disabled = false;
+  public canShowMenu = true;
   public count = 0;
 
   public readonly tabsExampleBasic: TuiDocExample = {
