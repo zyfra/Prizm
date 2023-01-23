@@ -5,11 +5,11 @@ All notable changes to this project will be documented in this file.
 ## [1.0.0-beta.21](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (23-01-2022)
 
 ### Features
-- fix(doc/paginotor) remove not working params in api page 
-- feat(doc/paginotor) add new params
+- fix(doc/paginator) remove not working params in api page 
+- feat(doc/paginator) add new params
 feat(components/tabs): add show menu control
-- feat(components/dialog/sidebar): Добавить иконки в кнопки сайдбара
-- feat(components/tabs): Add canShowMenu input
+- feat(components/dialog/sidebar): add icons to sidebar buttons
+- feat(components/tabs): add canShowMenu input
 - feat(components/table): Simplify usage in a minimal amount
 
 ### BUG FIXES
@@ -61,7 +61,7 @@ feat(components/tabs): add show menu control
 - fix(theme/switcher): error in global change [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
 
 ### BREAKING CHANGES
-- feat(theme): themes removed from the package @prizm-ui/components to @prizm-ui/theme library (PLEASE UPDATE as in doc documentation) [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(theme): themes moved from the package @prizm-ui/components to @prizm-ui/theme library (PLEASE UPDATE as in doc documentation) [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
 - feat(components/tabs): change api (PLEASE UPDATE as in doc documentation) [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
 
 ## [1.0.0-beta.19](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (27-12-2022)
