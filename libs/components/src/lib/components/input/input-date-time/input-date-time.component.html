@@ -7,7 +7,7 @@
     [prizmDropdownHostWidth]='openTimeTemplate ? "100%" : "auto"'
     [isOpen]="interactive && (openTimeTemplate || open)"
     [closeByEsc]='true'
-    (isOpenChange)="onOpenChange($event)"
+    (isOpenChange)="onOpenChange($event); $event && prizmDropdownHostComponent.reCalculatePositions()"
 >
     <prizm-input-layout
       [label]="label"
@@ -31,7 +31,7 @@
         <button
           prizmInputIconButton="date-calendar-blank"
           [interactive]="true"
-          (click)='focusableElementRef.focus()'></button>
+          (click)='openDateDropdown()'></button>
         <button
           prizmInputIconButton="date-clock"
           (click)='openTimeDropdown();'

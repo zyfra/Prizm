@@ -31,16 +31,11 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, any>>> {
   @Input() @HostBinding('attr.status') public status: PrizmTableCellStatus = 'default';
 
   @ContentChildren(forwardRef(() => PrizmCellDirective))
-  private readonly cells: QueryList<PrizmCellDirective> = new QueryList<PrizmCellDirective>();
+  readonly cells: QueryList<PrizmCellDirective> = new QueryList<PrizmCellDirective>();
 
   readonly cells$ = this.cells.changes.pipe(
     startWith(null),
-    map(() =>
-      this.cells.reduce(
-        (record, item) => ({ ...record, [item.prizmCell]: item }),
-        {} as Record<keyof T | string, PrizmCellDirective>
-      )
-    )
+    map(() => this.cells.toArray())
   );
 
   readonly item$ = this.body.rows.changes.pipe(
@@ -64,4 +59,3 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, any>>> {
     @Inject(PrizmDestroyService) readonly destroy$: PrizmDestroyService
   ) {}
 }
-

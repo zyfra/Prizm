@@ -7,8 +7,9 @@ import {
 } from '../dialog/dialog.models';
 import { PrizmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
 import { PrizmOverlayInsidePlacement } from '../../../modules/overlay';
+import {PrizmContent} from "../../button";
 
-export type PrizmSidebarButton = Omit<PrizmDialogButton, 'action'> & Partial<Pick<PrizmDialogButton, 'action'>>
+export type PrizmSidebarButton = Omit<PrizmDialogButton, 'action'> & Partial<Pick<PrizmDialogButton, 'action'>> & {icon?: PrizmContent}
 
 export interface PrizmSidebarOptions<DATA = unknown> extends PrizmDialogBaseOptions {
   confirmButton?: PrizmSidebarButton | string,

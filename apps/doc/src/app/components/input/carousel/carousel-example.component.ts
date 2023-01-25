@@ -19,6 +19,7 @@ export class PrizmCarouselExampleComponent {
   public sizesOuter: PrizmInputSize[] = ['l', 'm', 's'];
   public sizesInner: PrizmInputSize[] = ['l', 'm'];
   public disabled = false;
+  public control = new FormControl();
   public status: PrizmInputStatus = 'default';
   public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];
   public required = false;

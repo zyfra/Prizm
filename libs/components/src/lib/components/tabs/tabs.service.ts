@@ -39,6 +39,7 @@ export class PrizmTabsService implements OnDestroy {
   public removeTab(tab: PrizmTabComponent): void {
     this.tabs.delete(tab);
     const currentTabIdx = this.getIndexOfTab(tab);
+    if(currentTabIdx === -1) return;
     this.correctActiveTabIdx(currentTabIdx);
     this.changes$$.next(this.tabs);
   }
@@ -48,7 +49,7 @@ export class PrizmTabsService implements OnDestroy {
     let newIdx = idx - 1;
     if (isActiveTab) newIdx++;
     if (!this.tabs.size) newIdx = 0;
-    if (isActiveTab) this.activeTabIdx$$.next(newIdx)
+    if (isActiveTab && this.activeTabIdx$$.value !== newIdx) this.activeTabIdx$$.next(newIdx)
   }
 
   public selectTab(tab: PrizmTabComponent): void {

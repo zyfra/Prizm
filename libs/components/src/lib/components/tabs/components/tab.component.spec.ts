@@ -1,14 +1,29 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { PrizmTabsService } from '../tabs.service';
 
 import { PrizmTabComponent } from './tab.component';
 
-xdescribe('PagesComponent', () => {
+describe('PagesComponent', () => {
   let component: PrizmTabComponent;
   let fixture: ComponentFixture<PrizmTabComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [PrizmTabComponent],
+      providers: [
+        {
+          provide: PrizmTabsService,
+          useValue: {
+            getTabByIdx: jest.fn(),
+            addTab: jest.fn(),
+            removeTab: jest.fn(),
+            isActiveTab: jest.fn(),
+            selectTab: jest.fn(),
+          },
+        },
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });
 
@@ -20,24 +35,5 @@ xdescribe('PagesComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should emit when current page was canceled', () => {
-    let result = false;
-
-    component.cancelClick.subscribe(() => (result = true));
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    component.cancel({ stopPropagation: (): void => {} } as MouseEvent);
-
-    expect(result).toBeTruthy();
-  });
-
-  it('should emit when new page was chosen', () => {
-    let result = false;
-
-    component.tabClick.subscribe(() => (result = true));
-    component.tabChoose();
-
-    expect(result).toBeTruthy();
   });
 });

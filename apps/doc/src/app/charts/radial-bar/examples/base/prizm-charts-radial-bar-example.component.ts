@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {
   PrizmChartsRadialBarItem,
   PrizmChartsRadialBarOptions,
-} from '../../../../../../../../libs/charts/base/src/lib/components/radial-bar/model';
+} from '@prizm-ui/charts';
 import { PrizmThemeService } from '@prizm-ui/theme';
 
 @Component({

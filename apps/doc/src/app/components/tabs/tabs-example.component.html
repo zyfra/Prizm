@@ -36,6 +36,7 @@
           key="PrizmTabsComponent"
           [prizmDocHostElement]="elementTabs"
           [size]='size'
+          [canShowMenu]='canShowMenu'
           [activeTabIndex]='activeTabIndex'
         >
           <prizm-tab
@@ -54,11 +55,11 @@
             [icon]="icon"
             [closable]="closable"
             [type]="type"
+            content='Tab 2'
             [closeIcon]="closeIcon"
             [disabled]="disabled"
             [count]="count"
           >
-            Tab 2
           </prizm-tab>
         </prizm-tabs>
       </div>
@@ -75,6 +76,15 @@
         [documentationPropertyValues]="sizeVariants"
       >
         Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="canShowMenu"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="canShowMenu"
+      >
+        Can Show Menu
       </ng-template>
 
       <ng-template

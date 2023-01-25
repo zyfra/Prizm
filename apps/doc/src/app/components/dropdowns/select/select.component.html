@@ -56,7 +56,7 @@
         [pseudoFocused]="pseudoFocused"
       ></prizm-select>
     </prizm-doc-demo>
-    <prizm-doc-documentation>
+    <prizm-doc-documentation [control]='control'>
       <ng-template
         documentationPropertyName="icon"
         documentationPropertyType="PolymorphContent<PrizmSelectIconContext>"
@@ -119,17 +119,6 @@
         Show clear button
       </ng-template>
 
-      <!-- <ng-template
-        documentationPropertyName="value"
-        documentationPropertyType="unknown"
-        documentationPropertyMode="input"
-        [documentationPropertyValue]="val"
-        (documentationPropertyValueChange)="setValue($event)"
-        [documentationPropertyValues]="valVariants"
-      >
-        Value (use FormControl)
-      </ng-template> -->
-
       <ng-template
         documentationPropertyName="valueTemplate"
         documentationPropertyType="PolymorphContent"
@@ -177,15 +166,6 @@
       >
         Outer
       </ng-template>
-
-      <!-- <ng-template
-        documentationPropertyName="disabled"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
-      >
-        Disabled (Use formControl to disable)
-      </ng-template> -->
 
       <ng-template
         documentationPropertyName="label"

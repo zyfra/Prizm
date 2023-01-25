@@ -1,6 +1,6 @@
 <ng-content></ng-content>
 <tr *ngIf="heading">
-  <th class="heading" [colSpan]="table.columns.length">
+  <th class="heading" [colSpan]="columnsCount">
     <div class="heading__container">
       <prizm-icon
         (click)="onClick()"
@@ -23,4 +23,3 @@
 </ng-container>
 
 <ng-content select="[footer]"></ng-content>
-

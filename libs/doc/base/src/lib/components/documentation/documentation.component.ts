@@ -8,6 +8,7 @@ import {
   Inject,
   Input,
   QueryList,
+  ViewChildren,
 } from '@angular/core';
 import {
   EMPTY_QUERY,
@@ -18,7 +19,7 @@ import {
   tuiRgbToHex,
   tuiWatch,
 } from '@taiga-ui/cdk';
-import { BehaviorSubject, combineLatest, merge } from 'rxjs';
+import { BehaviorSubject, combineLatest, merge, Observable } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
 
 import { PRIZM_DOC_DOCUMENTATION_TEXTS } from '../../tokens/i18n';
@@ -28,6 +29,8 @@ import { PRIZM_HOST_COMPONENT_INFO_TOKEN, PrizmHostComponentInfo } from './token
 import { PrizmDocHostElementListenerService } from '../host';
 import * as _ from 'lodash';
 import { PrizmDocumentationPropertyType } from '../../types/pages';
+import { FormControl } from '@angular/forms';
+import { PrizmFormControlHelpers } from '@prizm-ui/helpers';
 // @bad TODO subscribe propertiesConnectors changes
 // @bad TODO refactor to make more flexible
 @Component({
@@ -50,6 +53,8 @@ import { PrizmDocumentationPropertyType } from '../../types/pages';
 export class PrizmDocDocumentationComponent implements AfterContentInit {
   @Input()
   heading = ``;
+
+  @Input() control?: FormControl;
 
   success$ =   combineLatest([
     this.prizmHostComponentInfo,
@@ -84,6 +89,9 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
 
   @ContentChildren(PrizmDocDocumentationPropertyConnectorDirective)
   propertiesConnectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>> = EMPTY_QUERY;
+
+  @ViewChildren(PrizmDocDocumentationPropertyConnectorDirective)
+  propertiesInnerConnectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>> = EMPTY_QUERY;
 
   activeItemIndex = 0;
 
@@ -210,19 +218,27 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   }
 
 
-  public sortConnectors(
-    connectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>>
-  ): PrizmDocDocumentationPropertyConnectorDirective<any>[] {
+  public sortConnectors = (
+    connectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>>,
+    propertiesInnerConnectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>>
+  ): PrizmDocDocumentationPropertyConnectorDirective<any>[] => {
     const sortOrder: PrizmDocumentationPropertyType[] = [
       'ng-content',
       'css-var',
+      'form-control',
       'input',
       'input-output',
       'output',
     ];
+    const allConnectors = [
+      ...connectors.toArray()
+    ];
+    if (this.control && propertiesInnerConnectors?.length) {
+      allConnectors.push(...propertiesInnerConnectors.toArray());
+    }
 
     return _.orderBy(
-      connectors.toArray(),
+      allConnectors,
       [
         (a: PrizmDocDocumentationPropertyConnectorDirective<any>): number => {
           const place = sortOrder.indexOf(a.documentationPropertyMode);
@@ -236,5 +252,20 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
         'documentationPropertyType']
       ,
     )
+  }
+
+  public getDisabledFromControl$(control: FormControl): Observable<boolean> {
+    return PrizmFormControlHelpers.getDisabled$(control);
+  }
+
+  public updateStateOfControl(control: FormControl, newState: boolean): void {
+    PrizmFormControlHelpers.setDisabled(control, newState);
+  }
+  public getValueFromControl$(control: FormControl): Observable<any> {
+    return PrizmFormControlHelpers.getValue$(control)
+  }
+
+  public updateValueOfControl(control: FormControl, newValue: any): void {
+    PrizmFormControlHelpers.setValue(control, newValue);
   }
 }

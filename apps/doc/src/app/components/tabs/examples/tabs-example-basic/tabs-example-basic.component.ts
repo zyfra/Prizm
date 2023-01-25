@@ -8,6 +8,7 @@ import { PrizmTabItem } from '@prizm-ui/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsExampleBasicComponent {
+  public activeTabIndex = 0;
   public tabs: PrizmTabItem[] = [
     {
       title: 'Вкладка 1',

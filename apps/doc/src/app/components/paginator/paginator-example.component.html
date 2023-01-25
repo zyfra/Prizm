@@ -17,11 +17,13 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-paginator
+        #element
+        [prizmDocHostElement]='element'
         [totalRecords]="totalRecords"
-        [initialValue]="initialValue"
+        [page]="initialValue"
         [rows]="rows"
         [pageLinkSize]="pageLinkSize"
         [leftButtonLabel]="leftButtonLabel"
@@ -70,12 +72,12 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="initialValue"
+        documentationPropertyName="page"
         documentationPropertyType="number"
-        documentationPropertyMode="input"
+        documentationPropertyMode="input-output"
         [(documentationPropertyValue)]="initialValue"
       >
-        Initial Value
+        Page
       </ng-template>
 
       <ng-template
@@ -113,14 +115,6 @@
         [(documentationPropertyValue)]="rightButtonLabel"
       >
         Right button label
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="changePage"
-        documentationPropertyType="IPaginatorOutput"
-        documentationPropertyMode="output"
-      >
-        Change Page
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>

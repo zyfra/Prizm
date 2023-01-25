@@ -47,7 +47,7 @@ export const PRIZM_MULTI_SELECT_DEFAULT_OPTIONS: PrizmMultiSelectOptions<unknown
   maxDropdownHeight: 342,
   emptyContent: "Ничего не найдено",
   searchMatcher: (searchValue: string, item: unknown): boolean => {
-    return item?.toString().toLowerCase().includes(searchValue.toLowerCase());
+    return item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
   },
   stringify: (i: Omit<PrizmMultiSelectItemWithChecked<unknown>, 'stringify'>, nullContent: string) => {
     if (i.obj == null && nullContent) return nullContent;

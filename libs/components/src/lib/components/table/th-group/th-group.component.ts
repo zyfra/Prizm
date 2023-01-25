@@ -9,7 +9,7 @@ import {
   QueryList,
 } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { map, startWith, tap } from 'rxjs/operators';
 
 import { PrizmHeadDirective } from '../directives/head.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
@@ -30,7 +30,7 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>> impl
   @ContentChildren(forwardRef(() => PrizmHeadDirective))
   readonly heads: QueryList<PrizmHeadDirective<T>> = new QueryList<PrizmHeadDirective<T>>();
 
-  heads$: Observable<Record<any, PrizmHeadDirective<T>>> | null = null;
+  heads$: Observable<PrizmHeadDirective<T>[]> | null = null;
 
   constructor(
     @Inject(forwardRef(() => PrizmTableDirective))
@@ -40,12 +40,7 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>> impl
   ngAfterContentInit(): void {
     this.heads$ = this.heads.changes.pipe(
       startWith(null),
-      map(() =>
-        this.heads.reduce(
-          (record, item) => ({ ...record, [item.prizmHead]: item }),
-          {} as Record<keyof T, PrizmHeadDirective<T>>
-        )
-      )
+      map(() => this.heads.toArray())
     );
   }
 }

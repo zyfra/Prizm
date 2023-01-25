@@ -29,12 +29,19 @@
         [outer]="outer"
         [position]="'center'"
       >
-        <prizm-carousel-auxiliary-left prizm-input-left [carousel]="carousel"></prizm-carousel-auxiliary-left>
+        <prizm-carousel-auxiliary-left
+          #PrizmCarouselAuxiliaryLeftComponent
+          key="PrizmCarouselAuxiliaryLeftComponent"
+          [prizmDocHostElement]="PrizmCarouselAuxiliaryLeftComponent"
+          prizm-input-left
+          [carousel]="carousel"
+        ></prizm-carousel-auxiliary-left>
         <prizm-carousel
           #carousel
           key="PrizmCarouselComponent"
           [prizmDocHostElement]="carousel"
           [disabled]="disabled"
+          [formControl]="control"
           [required]="required"
           [carouselContent]="carouselContent"
           [lightMode]="lightMode"
@@ -53,40 +60,27 @@
       </prizm-input-layout>
     </prizm-doc-demo>
 
-    <prizm-doc-documentation heading="PrizmCarouselComponent" hostComponentKey="PrizmCarouselComponent">
+    <prizm-doc-documentation
+      [control]="control"
+      heading="PrizmCarouselComponent"
+      hostComponentKey="PrizmCarouselComponent"
+    >
       <ng-template
         documentationPropertyName="value"
         documentationPropertyType="string"
         documentationPropertyMode="input"
         [documentationPropertyValues]="[1, 5, 10]"
+        [documentationPropertyDeprecated]="true"
         [(documentationPropertyValue)]="value"
       >
         Value
       </ng-template>
 
-      <!-- <ng-template
-        documentationPropertyName="label"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="label"
-      >
-        Label
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="status"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="statuses"
-        [(documentationPropertyValue)]="status"
-      >
-        Status
-      </ng-template> -->
-
       <ng-template
         documentationPropertyName="required"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
+        [documentationPropertyDeprecated]="true"
         [(documentationPropertyValue)]="required"
       >
         Required
@@ -97,28 +91,10 @@
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="disabled"
+        [documentationPropertyDeprecated]="true"
       >
         Disabled
       </ng-template>
-
-      <!-- <ng-template
-        documentationPropertyName="outer"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="outer"
-      >
-        Outer
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="size"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="outer ? sizesOuter : sizesInner"
-        [(documentationPropertyValue)]="size"
-      >
-        Size
-      </ng-template> -->
 
       <ng-template
         documentationPropertyName="lightMode"
@@ -136,6 +112,19 @@
         [(documentationPropertyValue)]="carouselContent"
       >
         Carousel Content
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation
+      heading="PrizmCarouselAuxiliaryLeftComponent"
+      hostComponentKey="PrizmCarouselAuxiliaryLeftComponent"
+    >
+      <ng-template
+        documentationPropertyName="carousel"
+        documentationPropertyType="PrizmCarouselComponent"
+        documentationPropertyMode="input"
+      >
+        Carousel
       </ng-template>
     </prizm-doc-documentation>
 
@@ -166,3 +155,4 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
+

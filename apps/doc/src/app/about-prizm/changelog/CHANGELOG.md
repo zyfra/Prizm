@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.21](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (23-01-2022)
+
+### Features
+- fix(doc/paginator) remove not working params in api page 
+- feat(doc/paginator) add new params
+feat(components/tabs): add show menu control
+- feat(components/dialog/sidebar): add icons to sidebar buttons
+- feat(components/tabs): add canShowMenu input
+- feat(components/table): Simplify usage in a minimal amount
+
+### BUG FIXES
+- fix(components/date-relative): fix change disabled via FormControl
+- fix(component/date): open time picker when open date picker
+- fix(doc/tabs): second tab content in api page
+- fix(doc/confirm-dialog): PrizmConfirmDialog, horizontal view: пример кода не верный
+- fix(components/table): fix tests
+- fix(components/splitter): resize events. bug fix with classes
+- fix(components/stepper): fix a bug with the order of steps
+
+### BREAKING CHANGES
+- ref(components/paginator): change initialValue > page
+- ref(components/paginator): change tabChange > pageChange
+- ref(components/checkbox): remove required
+
 ## [1.0.0-beta.20](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (11-01-2022)
 
 ### Features
@@ -37,7 +61,7 @@ All notable changes to this project will be documented in this file.
 - fix(theme/switcher): error in global change [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
 
 ### BREAKING CHANGES
-- feat(theme): themes removed from the package @prizm-ui/components to @prizm-ui/theme library (PLEASE UPDATE as in doc documentation) [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
+- feat(theme): themes moved from the package @prizm-ui/components to @prizm-ui/theme library (PLEASE UPDATE as in doc documentation) [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
 - feat(components/tabs): change api (PLEASE UPDATE as in doc documentation) [MR](https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/merge_requests/423)
 
 ## [1.0.0-beta.19](https://gitdp.zyfra.com/digital-plant/ziiot/ui-platform/frontend/zui-sdk) (27-12-2022)
