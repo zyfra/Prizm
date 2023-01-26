@@ -1,9 +1,9 @@
-import {Component, Inject} from '@angular/core';
+import { Component, Inject, TemplateRef, ViewChild } from '@angular/core';
 import { PrizmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/components';
 
 @Component({
-  selector: 'prizm-dialog-service-example',
-  templateUrl: './base.component.html',
+  selector: 'prizm-dialog-service-with-buttons-example',
+  templateUrl: './with-buttons.component.html',
   styles: [`
     .box {
       display: flex;
@@ -11,7 +11,8 @@ import { PrizmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/compo
     }
   `]
 })
-export class PrizmDialogServiceExampleComponent {
+export class PrizmDialogServiceWithButtonsExampleComponent {
+  @ViewChild('footerTemp', {read: TemplateRef}) footerTemp: TemplateRef<any>;
   public positionVariants: PrizmOverlayInsidePlacement[] = Object.values(PrizmOverlayInsidePlacement);
   public position: PrizmOverlayInsidePlacement = this.positionVariants[1];
   public backdrop = false;
@@ -26,6 +27,7 @@ export class PrizmDialogServiceExampleComponent {
         closeable: true,
         header: 'Header',
         width: 500,
+        footer: this.footerTemp,
         closeWord: 'Продолжить',
         position: this.position,
         backdrop: this.backdrop,
