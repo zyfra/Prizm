@@ -57,7 +57,7 @@ npm i @prizm-ui/charts
 
 Add our styles to angular config:
 
-```json
+```ts
 "assets": [
 // ....
 {
@@ -79,7 +79,7 @@ Add our styles to angular config:
 
 Or you can add to your root styles.less
 
-```css
+```ts
 // (Required) Add for use our theme
 @import '~@prizm-ui/theme/src/styles/styles.less';
 // (Optional) Add only for use our components library
@@ -100,7 +100,7 @@ npm i @prizm-ui/icons
 
 But if you want to use fonts not only as svg, and also as font, please add to your angular config
 
-```json
+```ts
 "styles": [
 ...
 "@prizm-ui/icons/base/src/styles/styles.less"
@@ -109,6 +109,6 @@ But if you want to use fonts not only as svg, and also as font, please add to yo
 
 or you can only import to your root styles.less
 
-```css
+```ts
 @import '~@prizm-ui/icons/base/src/styles/styles.less';
 ```
