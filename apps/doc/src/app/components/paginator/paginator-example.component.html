@@ -19,15 +19,27 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
+      <div [ngSwitch]='!!content'>
+       <ng-container *ngSwitchCase='true'>
+         <ul>
+         </ul>
+       </ng-container>
+       <ng-container *ngSwitchDefault>
+         Пусто
+       </ng-container>
+       <ng-container></ng-container>
+      </div>
       <prizm-paginator
         #element
         [prizmDocHostElement]='element'
         [totalRecords]="totalRecords"
-        [page]="initialValue"
+        [(page)]="initialValue"
         [rows]="rows"
+        (paginatorChange)='content = $event'
         [pageLinkSize]="pageLinkSize"
         [leftButtonLabel]="leftButtonLabel"
         [rightButtonLabel]="rightButtonLabel"
+        [showMoreDisabled]="showMoreDisabled"
         [paginatorType]="paginatorType"
         [paginatorOptions]="paginatorOptions"
         [rowsCountOptions]="rowsCountOptions"
@@ -81,13 +93,30 @@
       </ng-template>
 
       <ng-template
+        documentationPropertyName="showMoreDisabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="showMoreDisabled"
+      >
+        Show More Button Disabled on infinite mode
+      </ng-template>
+
+      <ng-template
         documentationPropertyName="rows"
         documentationPropertyType="number"
-        documentationPropertyMode="input"
+        documentationPropertyMode="input-output"
         [(documentationPropertyValue)]="rows"
         (documentationPropertyValueChange)="changeRowValue()"
       >
         Rows
+      </ng-template>
+      <ng-template
+        documentationPropertyName="paginatorChange"
+        documentationPropertyType="number"
+        documentationPropertyMode="output"
+
+      >
+        Fire on rows or page changed
       </ng-template>
 
       <ng-template

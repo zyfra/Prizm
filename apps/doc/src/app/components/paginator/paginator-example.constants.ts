@@ -1,6 +1,6 @@
-import { IPaginatorOptions } from '@prizm-ui/components';
+import { PrizmPaginatorOptions } from '@prizm-ui/components';
 
-export const PAGINATOR_OPTIONS_VARIANTS: IPaginatorOptions[] = [
+export const PAGINATOR_OPTIONS_VARIANTS: PrizmPaginatorOptions[] = [
   {},
   {
     noRowsSelectorLabel: true,
