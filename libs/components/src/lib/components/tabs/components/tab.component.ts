@@ -55,6 +55,7 @@ export class PrizmTabComponent implements OnInit, OnDestroy {
 
   @HostListener('click')
   public onClick(): void {
+    if (this.disabled) return;
     this.selectTab();
   }
 
