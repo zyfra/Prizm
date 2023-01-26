@@ -53,7 +53,7 @@ export const APP_PROVIDERS = [
   {
     provide: PRIZM_DOC_SOURCE_CODE,
     useValue: (context: PrizmDocSourceCodePathOptions): null | string => {
-      const link = 'https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk';
+      const link = 'https://github.com/zyfra/Prizm';
       // TODO add right path to every component
       return link;
       // if (!context.package) {
