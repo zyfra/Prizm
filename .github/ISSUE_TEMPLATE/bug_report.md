@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: "[BUG]"
+title: "[BUG] prizm/components - Краткое описание проблемы"
 labels: ''
 assignees: ''
 
@@ -9,6 +9,9 @@ assignees: ''
 
 ### Библиотека
 
+_Выберите нужное отметив галочку [x]_
+
+- [ ] `@prizm-ui/core`
 - [ ] `@prizm-ui/components`
 - [ ] `@prizm-ui/install`
 - [ ] `@prizm-ui/icons`
