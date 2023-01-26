@@ -7,8 +7,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GettingStartedComponent {
-  public readonly joinSvgFonts = `# Использование шрифтов
- # Добавить в конфиг файл ангуляра для использования шрифтов
+  public readonly joinSvgFonts = `
  "styles": [
     ...
     "@prizm-ui/icons/base/src/styles/styles.less"
