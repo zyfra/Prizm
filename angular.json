@@ -9,9 +9,7 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/charts/base"
-          ],
+          "outputs": ["dist/libs/charts/base"],
           "options": {
             "project": "libs/charts/base/ng-package.json"
           },
@@ -27,9 +25,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/charts/base"
-          ],
+          "outputs": ["coverage/libs/charts/base"],
           "options": {
             "jestConfig": "libs/charts/base/jest.config.js",
             "passWithNoTests": true
@@ -38,10 +34,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/charts/base/src/**/*.ts",
-              "libs/charts/base/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/charts/base/src/**/*.ts", "libs/charts/base/src/**/*.html"]
           }
         }
       },
@@ -55,9 +48,7 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/components"
-          ],
+          "outputs": ["dist/libs/components"],
           "options": {
             "project": "libs/components/ng-package.json"
           },
@@ -73,9 +64,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/components"
-          ],
+          "outputs": ["coverage/libs/components"],
           "options": {
             "jestConfig": "libs/components/jest.config.js",
             "passWithNoTests": true
@@ -84,10 +73,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/components/src/**/*.ts",
-              "libs/components/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/components/src/**/*.ts", "libs/components/src/**/*.html"]
           }
         },
         "build-icons": {
@@ -127,9 +113,7 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/core"
-          ],
+          "outputs": ["dist/libs/core"],
           "options": {
             "project": "libs/core/ng-package.json"
           },
@@ -145,9 +129,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/core"
-          ],
+          "outputs": ["coverage/libs/core"],
           "options": {
             "jestConfig": "libs/core/jest.config.js",
             "passWithNoTests": true
@@ -156,10 +138,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/core/src/**/*.ts",
-              "libs/core/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/core/src/**/*.ts", "libs/core/src/**/*.html"]
           }
         }
       },
@@ -173,9 +152,7 @@
       "architect": {
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "customWebpackConfig": {
               "path": "apps/doc/webpack.config.ts"
@@ -280,17 +257,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/doc/src/**/*.ts",
-              "apps/doc/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/doc/src/**/*.ts", "apps/doc/src/**/*.html"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/doc"
-          ],
+          "outputs": ["coverage/apps/doc"],
           "options": {
             "jestConfig": "apps/doc/jest.config.js",
             "passWithNoTests": true
@@ -307,9 +279,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/doc/base"
-          ],
+          "outputs": ["coverage/libs/doc/base"],
           "options": {
             "jestConfig": "libs/doc/base/jest.config.js",
             "passWithNoTests": true
@@ -318,10 +288,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/doc/base/src/**/*.ts",
-              "libs/doc/base/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/doc/base/src/**/*.ts", "libs/doc/base/src/**/*.html"]
           }
         }
       },
@@ -346,20 +313,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/doc-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/doc-e2e/**/*.{js,ts}"]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": [
-        "doc"
-      ]
+      "implicitDependencies": ["doc"]
     },
     "flag-icons": {
       "projectType": "library",
@@ -369,9 +330,7 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/icons/flags"
-          ],
+          "outputs": ["dist/libs/icons/flags"],
           "options": {
             "project": "libs/icons/flags/ng-package.json"
           },
@@ -387,9 +346,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/icons/flags"
-          ],
+          "outputs": ["coverage/libs/icons/flags"],
           "options": {
             "jestConfig": "libs/icons/flags/jest.config.js",
             "passWithNoTests": true
@@ -398,10 +355,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/icons/flags/src/**/*.ts",
-              "libs/icons/flags/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/icons/flags/src/**/*.ts", "libs/icons/flags/src/**/*.html"]
           }
         }
       },
@@ -415,9 +369,7 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/helpers"
-          ],
+          "outputs": ["dist/libs/helpers"],
           "options": {
             "project": "libs/helpers/ng-package.json"
           },
@@ -433,9 +385,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/helpers"
-          ],
+          "outputs": ["coverage/libs/helpers"],
           "options": {
             "jestConfig": "libs/helpers/jest.config.js",
             "passWithNoTests": true
@@ -444,10 +394,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/helpers/src/**/*.ts",
-              "libs/helpers/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/helpers/src/**/*.ts", "libs/helpers/src/**/*.html"]
           }
         }
       },
@@ -461,9 +408,7 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/icons/base"
-          ],
+          "outputs": ["dist/libs/icons/base"],
           "options": {
             "project": "libs/icons/base/ng-package.json"
           },
@@ -479,9 +424,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/icons/base"
-          ],
+          "outputs": ["coverage/libs/icons/base"],
           "options": {
             "jestConfig": "libs/icons/base/jest.config.js",
             "passWithNoTests": true
@@ -490,10 +433,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/icons/base/src/**/*.ts",
-              "libs/icons/base/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/icons/base/src/**/*.ts", "libs/icons/base/src/**/*.html"]
           }
         }
       },
@@ -507,9 +447,7 @@
       "architect": {
         "prebuild": {
           "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/schematics"
-          ],
+          "outputs": ["dist/libs/schematics"],
           "options": {
             "project": "libs/schematics/ng-package.json"
           },
@@ -527,10 +465,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "parallel": false,
-            "commands": [
-              "nx prebuild schematics",
-              "nx postbuild schematics"
-            ]
+            "commands": ["nx prebuild schematics", "nx postbuild schematics"]
           },
           "dependsOn": [
             {
@@ -552,9 +487,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/schematics"
-          ],
+          "outputs": ["coverage/libs/schematics"],
           "options": {
             "jestConfig": "libs/schematics/jest.config.js",
             "passWithNoTests": true
@@ -563,10 +496,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/schematics/src/**/*.ts",
-              "libs/schematics/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/schematics/src/**/*.ts", "libs/schematics/src/**/*.html"]
           }
         }
       },
@@ -580,9 +510,7 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/theme"
-          ],
+          "outputs": ["dist/libs/theme"],
           "options": {
             "project": "libs/theme/ng-package.json"
           },
@@ -598,9 +526,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/theme"
-          ],
+          "outputs": ["coverage/libs/theme"],
           "options": {
             "jestConfig": "libs/theme/jest.config.js",
             "passWithNoTests": true
@@ -609,10 +535,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/theme/src/**/*.ts",
-              "libs/theme/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/theme/src/**/*.ts", "libs/theme/src/**/*.html"]
           }
         }
       },
