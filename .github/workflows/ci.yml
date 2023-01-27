@@ -18,10 +18,10 @@ jobs:
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
 
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-          cache: 'npm'
+#      - uses: actions/setup-node@v2
+#        with:
+#          node-version: '16'
+#          cache: 'npm'
 
       - run: npm ci
       #      - run: npx nx workspace-lint
