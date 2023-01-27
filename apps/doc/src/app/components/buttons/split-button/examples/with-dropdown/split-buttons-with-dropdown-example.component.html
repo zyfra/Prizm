@@ -3,12 +3,12 @@
     [content]="dropdown"
     prizmDropdownHostWidth='100%'
     [(isOpen)]="open"
-    (click)='open = !open'
   >
     <prizm-split-button
       appearanceType="fill"
       [icon]="'chevrons-dropdown'"
       appearance="primary"
+      (clickIcon)='open = !open'
       size="m">
       With Dropdown Button
     </prizm-split-button>

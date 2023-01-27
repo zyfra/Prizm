@@ -30,18 +30,19 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <p> EXAMPLE 1</p>
-      <div>
-        <prizm-tree
-          #element
-          key="PrizmTreeComponent"
-          [prizmDocHostElement]='element'
-          [value]="data">
-        </prizm-tree>
+      <div [hidden]='true'>
+        <p> EXAMPLE 1</p>
+        <div>
+          <prizm-tree
+            #element
+            key="PrizmTreeComponent"
+            [prizmDocHostElement]='element'
+            [value]="data">
+          </prizm-tree>
+        </div>
+        <br>
+        <br>
       </div>
-      <br>
-      <br>
-      <p> EXAMPLE 2</p>
       <div>
         <ng-container
           [prizmTreeController]="prizmTreeController"

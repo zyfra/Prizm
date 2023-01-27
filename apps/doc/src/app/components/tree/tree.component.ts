@@ -55,7 +55,7 @@ export class TreeComponent {
     TypeScript: import('!!raw-loader!./examples/component/tree-component-example.component.ts'),
     HTML: import('!!raw-loader!./examples/component/tree-component-example.component.html'),
     folder: import('!!raw-loader!./examples/component/folder.component.ts'),
-    folderLess: import('./examples/component/folder.component.less?raw'),
+    "folder.less": import('./examples/component/folder.component.less?raw'),
   };
   readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item => item.children || PRIZM_EMPTY_ARRAY;
 }
