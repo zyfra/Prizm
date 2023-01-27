@@ -22,7 +22,7 @@ jobs:
       - run: npm ci
       - run: npx nx clear-cache
       - run: npx nx workspace-lint
-      - run: npx nx format:check
+      - run: npx nx format:check --verbose
       - run: npx nx affected --target=lint --parallel=3
       - run: npx nx affected --target=test --parallel=3 --configuration=ci
       - run: npx nx affected --target=build --parallel=3
