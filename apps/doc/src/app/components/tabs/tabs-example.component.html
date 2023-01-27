@@ -40,6 +40,7 @@
           [activeTabIndex]='activeTabIndex'
         >
           <prizm-tab
+            *ngIf='!removed'
             #elementTab
             [prizmDocHostElement]="elementTab"
             key="PrizmTabComponent"
@@ -47,6 +48,7 @@
             [content]="content"
             [closable]="closable"
             [type]="type"
+            (closeTab)="removeTab()"
             [disabled]="disabled"
             [count]="count"
           >

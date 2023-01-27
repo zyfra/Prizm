@@ -15,6 +15,14 @@
       <prizm-tree-template-example></prizm-tree-template-example>
     </prizm-doc-example>
 
+    <prizm-doc-example id="template-checkbox" heading="Template With Checkbox" [content]="exampleTemplateCheckbox">
+      <prizm-tree-template-checkbox-example></prizm-tree-template-checkbox-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="template-lazy" heading="Lazy Load" [content]="exampleTemplateCheckbox">
+      <prizm-tree-template-lazy-example></prizm-tree-template-lazy-example>
+    </prizm-doc-example>
+
     <prizm-doc-example id="component" heading="Component" [content]="exampleComponent">
       <prizm-tree-component-example></prizm-tree-component-example>
     </prizm-doc-example>
@@ -22,17 +30,83 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-tree #element [prizmDocHostElement]="element" [value]="data"></prizm-tree>
+      <p> EXAMPLE 1</p>
+      <div>
+        <prizm-tree
+          #element
+          key="PrizmTreeComponent"
+          [prizmDocHostElement]='element'
+          [value]="data">
+        </prizm-tree>
+      </div>
+      <br>
+      <br>
+      <p> EXAMPLE 2</p>
+      <div>
+        <ng-container
+          [prizmTreeController]="prizmTreeController"
+          #treeControllerElement='prizmTreeController'
+
+        >
+          <prizm-tree-item
+            #element='prizmTreeItem'
+          >
+            Fruits
+            <prizm-tree-item>
+              Apples
+              <prizm-tree-item>Granny Smith</prizm-tree-item>
+              <prizm-tree-item>Red Delicious</prizm-tree-item>
+            </prizm-tree-item>
+            <prizm-tree-item>Oranges</prizm-tree-item>
+          </prizm-tree-item>
+          <prizm-tree-item>
+            Animals
+            <prizm-tree-item>Cats</prizm-tree-item>
+            <prizm-tree-item>Dogs</prizm-tree-item>
+          </prizm-tree-item>
+        </ng-container>
+
+      </div>
+      <!--      <prizm-tree #element [prizmDocHostElement]="element" [value]="data"></prizm-tree>-->
     </prizm-doc-demo>
-    <prizm-doc-documentation>
-      <!-- <ng-template
+
+    <prizm-doc-documentation
+      heading="PrizmTreeItemControllerDirective"
+      hostComponentKey="PrizmTreeItemControllerDirective"
+    >
+      <ng-template
         documentationPropertyName="prizmTreeController"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="treeController"
+        [(documentationPropertyValue)]="prizmTreeController"
       >
-        Tree Controller
-      </ng-template> -->
+        Expand All
+      </ng-template>
+
+    </prizm-doc-documentation>
+    <prizm-doc-documentation
+      heading="PrizmTreeItemComponent"
+      hostComponentKey="PrizmTreeItemComponent"
+    >
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation
+      heading="PrizmTreeChildrenDirective"
+      hostComponentKey="PrizmTreeChildrenDirective"
+    >
+      <ng-template
+        documentationPropertyName="childrenHandler"
+        documentationPropertyType="PrizmHandler<T, readonly T[]>"
+        documentationPropertyMode="input"
+      >
+        Children Handler
+      </ng-template>
+
+    </prizm-doc-documentation>
+    <prizm-doc-documentation
+      heading="PrizmTreeComponent"
+      hostComponentKey="PrizmTreeComponent"
+    >
 
       <ng-template
         documentationPropertyName="value"
@@ -43,13 +117,6 @@
         Tree Controller
       </ng-template>
 
-      <!-- <ng-template
-        documentationPropertyName="childrenHandler"
-        documentationPropertyType="PrizmHandler<TreeNode, readonly TreeNode[]> "
-        documentationPropertyMode="input"
-      >
-        Handler
-      </ng-template> -->
 
       <ng-template
         documentationPropertyName="content"
