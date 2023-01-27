@@ -12,7 +12,7 @@ import { PAGINATOR_OPTIONS_VARIANTS } from './paginator-example.constants';
 export class PaginatorExampleComponent {
   public totalRecords = 1100;
   public pageLinkSize = 5;
-  public rows = 16;
+  public rows = 10;
   public initialValue = 10;
   public showMoreDisabled = false;
   public content: PrizmPaginatorOutput | null = null;
@@ -23,7 +23,7 @@ export class PaginatorExampleComponent {
   public paginatorOptionsVariants: PrizmPaginatorOptions[] = PAGINATOR_OPTIONS_VARIANTS;
   public paginatorOptions: PrizmPaginatorOptions = this.paginatorOptionsVariants[0];
   public rowsCountOptionsBase: number[] = [10, 15, 20, 25, 30, 35, 40];
-  public rowsCountOptions = [this.rows, ...this.rowsCountOptionsBase];
+  public rowsCountOptions = [...this.rowsCountOptionsBase];
 
   public readonly exampleBasicPaginator: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/paginator-basic-example/paginator-basic-example.component'),

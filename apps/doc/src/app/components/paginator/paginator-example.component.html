@@ -19,13 +19,10 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <div [ngSwitch]='!!content'>
-       <ng-container *ngSwitchCase='true'>
-         <ul>
-         </ul>
-       </ng-container>
-       <ng-container *ngSwitchDefault>
-         Пусто
+      <div>
+       <ng-container>
+         Любое содержимое
+         <pre *ngIf='content'>{{content | json}}</pre>
        </ng-container>
        <ng-container></ng-container>
       </div>
