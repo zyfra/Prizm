@@ -23,9 +23,9 @@ jobs:
       #          node-version: '16'
       #          cache: 'npm'
 
-      - run: npx nx-cloud start-ci-run
-
       - run: npm ci
+      #     - run: npx nx-cloud start-ci-run
+
       #      - run: npx nx workspace-lint
       - run: npx nx format:check --base=origin/main
       - run: npx nx affected --target=test --base=origin/main
