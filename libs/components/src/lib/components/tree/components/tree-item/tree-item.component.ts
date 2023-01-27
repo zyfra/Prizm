@@ -27,6 +27,7 @@ import { EMPTY_QUERY } from '../../../../constants';
     host: {
         role: 'treeitem',
     },
+    exportAs: 'prizmTreeItem'
 })
 export class PrizmTreeItemComponent implements DoCheck {
     @ContentChildren(PRIZM_TREE_NODE as any)

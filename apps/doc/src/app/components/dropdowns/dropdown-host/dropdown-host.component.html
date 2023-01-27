@@ -13,15 +13,19 @@
     </prizm-doc-example>
 
     <prizm-doc-example
-      id="select-panel"
+      id="nested"
       heading="Date Range Template (Nested Dropdown)"
       [content]="exampleDateRangeList"
     >
       <prizm-dropdown-host-date-list-example></prizm-dropdown-host-date-list-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="select-panel" heading="Date Range 2 Template" [content]="exampleDateRangeListEdit">
+    <prizm-doc-example id="range" heading="Date Range 2 Template" [content]="exampleDateRangeListEdit">
       <prizm-dropdown-host-date-list-edit-example></prizm-dropdown-host-date-list-edit-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="custom-context" heading="Custom Context" [content]="exampleCustomContext">
+      <prizm-dropdown-host-example-with-custom-context></prizm-dropdown-host-example-with-custom-context>
     </prizm-doc-example>
   </ng-template>
 
@@ -99,6 +103,13 @@
       >
         Host Witdh
       </ng-template>
+      <ng-template
+        documentationPropertyName="prizmDropdownCustomContext"
+        documentationPropertyType="PrizmDropdownHostCustomContext"
+        documentationPropertyMode="input"
+      >
+        Custom Context (passed to template)
+      </ng-template>
 
       <ng-template
         documentationPropertyName="isOpen"
@@ -108,15 +119,6 @@
       >
         Is Open
       </ng-template>
-
-      <!-- <ng-template
-        documentationPropertyName="closeOnBackdropClick"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="closeOnBackdropClick"
-      >
-        Close On Backdrop Click
-      </ng-template> -->
 
       <ng-template
         documentationPropertyName="autoReposition"
@@ -139,7 +141,7 @@
 
       <ng-template
         documentationPropertyName="content"
-        documentationPropertyType="PolymorphContent"
+        documentationPropertyType="PolymorphContent<PrizmDropdownHostContext>"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="content"
       >

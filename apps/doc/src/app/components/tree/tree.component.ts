@@ -10,6 +10,7 @@ import { PRIZM_EMPTY_ARRAY, PrizmHandler } from '@prizm-ui/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TreeComponent {
+  public prizmTreeController = true;
   public readonly data: (string | (string | string[])[])[] = [
     'Top level 1',
     ['Second level item', ['Third level 1', 'Third level 2', 'Third level 3']],
@@ -37,11 +38,24 @@ export class TreeComponent {
     HTML: import('!!raw-loader!./examples/template/tree-template-example.component.html'),
   };
 
+  public readonly exampleTemplateCheckbox: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/template-checkbox/tree-template-example.component.ts'),
+    HTML: import('!!raw-loader!./examples/template-checkbox/tree-template-example.component.html'),
+    Module: import('!!raw-loader!./examples/template-checkbox/tree-template-example.module'),
+  };
+  public readonly exampleLazy: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/lazy/tree-template-lazy-example.component'),
+    HTML: import('!!raw-loader!./examples/lazy/tree-template-lazy-example.component.html'),
+    Module: import('!!raw-loader!./examples/lazy/tree-template-lazy-example.module'),
+    Service: import('!!raw-loader!./examples/lazy/tree-template-lazy-example.service'),
+    Model: import('!!raw-loader!./examples/lazy/tree-template-lazy.model'),
+  };
+
   public readonly exampleComponent: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/component/tree-component-example.component.ts'),
     HTML: import('!!raw-loader!./examples/component/tree-component-example.component.html'),
-    folder: import('!!raw-loader!./examples/component/folder.component.ts'),
-    folderLess: import('./examples/component/folder.component.less?raw'),
+    "folder.ts": import('!!raw-loader!./examples/component/folder.component.ts'),
+    "folder.less": import('./examples/component/folder.component.less?raw'),
   };
   readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item => item.children || PRIZM_EMPTY_ARRAY;
 }

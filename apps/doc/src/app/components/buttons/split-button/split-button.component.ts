@@ -54,4 +54,10 @@ export class SplitButtonComponent {
     TypeScript: import('!!raw-loader!./examples/split/split-buttons-example.component.ts'),
     HTML: import('!!raw-loader!./examples/split/split-buttons-example.component.html'),
   };
+
+  readonly exampleWithDropdown: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/with-dropdown/split-buttons-with-dropdown-example.component'),
+    HTML: import('!!raw-loader!./examples/with-dropdown/split-buttons-with-dropdown-example.component.html'),
+    Module: import('!!raw-loader!./examples/with-dropdown/split-buttons-with-dropdown-example.module'),
+  };
 }

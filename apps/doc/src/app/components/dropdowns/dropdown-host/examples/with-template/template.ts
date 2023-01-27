@@ -17,7 +17,7 @@ import {ChangeDetectorRef, Component} from '@angular/core';
   `]
 })
 export class PrizmDropdownHostExampleWithTemplateComponent {
-  open = false;
+  open: boolean = false;
 
   constructor(public readonly cdRef: ChangeDetectorRef) {}
 }

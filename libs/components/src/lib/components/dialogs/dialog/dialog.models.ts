@@ -5,6 +5,7 @@ import { Type } from '@angular/core';
 import { PrizmOverlayInsidePlacement } from '../../../modules/overlay';
 import { PrizmSize, PrizmSizeL, PrizmSizeM } from '../../../util';
 import { PrizmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
+import { PrizmContent } from '../../button';
 
 export type PrizmBaseDialogContext<O, T = PrizmDialogBaseOptions> =
   & PrizmContextWithImplicit<Observer<O>>
@@ -53,5 +54,10 @@ export interface PrizmDialogButton<O = unknown, T = PrizmDialogBaseOptions> {
   appearance?: PrizmAppearance;
   appearanceType?: PrizmAppearanceType;
   text: string;
+  icon?: PrizmContent;
+  iconRight?: PrizmContent;
+  showLoader?: boolean;
+
+  disabled?: boolean;
   action: (context: PrizmBaseDialogContext<O, T>) => void
 }

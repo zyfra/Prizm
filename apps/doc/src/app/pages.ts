@@ -509,6 +509,12 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.tools,
+    title: 'Polymorph',
+    keywords: 'polymorh, полиморф, template, шаблон',
+    route: '/tools/polymorph',
+  },
+  {
+    section: SectionNameEnum.tools,
     title: 'Theme',
     keywords: 'theme, тема, цвета, типография, colors, typography',
     route: '/tools/theme',

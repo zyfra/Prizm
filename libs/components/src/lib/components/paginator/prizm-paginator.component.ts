@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import {
-  IPaginatorData,
-  IPaginatorOptions,
-  IPaginatorOutput,
-  PaginatorType,
+  PrizmPaginatorData,
+  PrizmPaginatorOptions,
+  PrizmPaginatorOutput,
+  PrizmPaginatorType,
 } from './interfaces/prizm-paginator.interface';
 
 @Component({
@@ -13,12 +13,13 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmPaginatorComponent {
-  @Input() public paginatorType: PaginatorType = 'finite';
+  @Input() public paginatorType: PrizmPaginatorType = 'finite';
   // Суммарное количество данных
   @Input() public totalRecords: number | null = null;
 
   // Сколько номеров видно на экране
   @Input() public pageLinkSize: number | null = null;
+  @Input() public showMoreDisabled = false;
 
   // Сколько данных в одном пакете
   @Input() public rows: number | null = null;
@@ -27,7 +28,7 @@ export class PrizmPaginatorComponent {
     this.currentPage = val;
   }
 
-  @Input() paginatorOptions: IPaginatorOptions = {
+  @Input() paginatorOptions: PrizmPaginatorOptions = {
     noRowsSelector: false,
     noRowsSelectorLabel: false,
     noInfo: false,
@@ -38,8 +39,9 @@ export class PrizmPaginatorComponent {
   @Input() public rightButtonLabel = '';
 
   @Input() public rowsCountOptions: number[] = [];
-
-  @Output() public pageChange: EventEmitter<IPaginatorOutput> = new EventEmitter<IPaginatorOutput>();
+  @Output() public paginatorChange: EventEmitter<PrizmPaginatorOutput> = new EventEmitter<PrizmPaginatorOutput>();
+  @Output() public pageChange: EventEmitter<number> = new EventEmitter<number>();
+  @Output() public rowsChange: EventEmitter<number | null> = new EventEmitter<number | null>();
 
   @HostBinding('attr.testId')
   readonly testId = 'prizm_paginator';
@@ -48,10 +50,13 @@ export class PrizmPaginatorComponent {
   // Количесвто пакетов = Суммарное количество данных / Сколько данных в одном пакете
   public pagesCount = 0;
 
-  public get paginationGenerator(): IPaginatorData | null {
+  public paginationGenerator(
+    rows: number,
+    currentPage: number,
+  ): PrizmPaginatorData | null {
     if (this.isDataValid) {
-      this.pagesCount = Math.ceil(this.totalRecords / this.rows);
-      this.currentPage = this.currentPage > this.pagesCount ? this.pagesCount : this.currentPage;
+      this.pagesCount = Math.ceil(this.totalRecords / rows);
+      this.currentPage = currentPage > this.pagesCount ? this.pagesCount : currentPage;
       const allNumbers = new Array(this.pagesCount).fill(0).map((page, i) => i + 1);
 
       let mid: number[];
@@ -98,28 +103,48 @@ export class PrizmPaginatorComponent {
   public changePage(page: number): void {
     if (this.currentPage !== page) {
       this.currentPage = page;
-      this.emitChangedValues();
+      this.emitPageChange();
     }
   }
 
   public increase(): void {
     this.currentPage++;
-    this.emitChangedValues();
+    this.emitPageChange();
   }
 
   public decrease(): void {
     if (this.currentPage > 0) {
       this.currentPage--;
-      this.emitChangedValues();
+      this.emitPageChange();
+
     }
   }
 
-  private emitChangedValues(): void {
-    this.pageChange.emit({
-      page: this.currentPage - 1,
-      first: (this.currentPage - 1) * this.rows,
+  private emitPageChange(): void {
+    const page = this.currentPage;
+    if(this.page === page) return;
+    this.pageChange.emit(page);
+    this.emitPaginatorChanges();
+  }
+
+  private emitPaginatorChanges(): void {
+    this.paginatorChange.emit({
+      page: this.currentPage,
+      first: (this.currentPage - 1) * this.rows + 1,
       rows: this.rows,
-      tabCount: this.pagesCount,
+      pagesCount: this.paginatorType === 'infinite' ? null : this.pagesCount,
     });
+  }
+
+
+  public changeRows(rows: null | number) {
+    if (this.rows === rows) return;
+    this.rows = rows
+    this.paginationGenerator(
+      rows,
+      this.currentPage
+    );
+    this.rowsChange.emit(this.rows);
+    this.emitPaginatorChanges();
   }
 }

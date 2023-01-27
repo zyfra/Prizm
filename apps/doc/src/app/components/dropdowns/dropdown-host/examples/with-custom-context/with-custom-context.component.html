@@ -1,0 +1,23 @@
+<prizm-dropdown-host
+  [content]="dropdown"
+  prizmDropdownHostWidth='auto'
+  [prizmDropdownCustomContext]='customData'
+  [(isOpen)]="open"
+>
+  <button prizmButton type="button" (click)="open = !open">
+    Button
+  </button>
+</prizm-dropdown-host>
+
+<ng-template #dropdown let-custom='custom'>
+  <prizm-data-list>
+    <ng-container header>Заголовок блока {{custom.customValue}}</ng-container>
+
+    <div class="box">
+      {{custom.content}}
+    </div>
+    <ng-container footer>
+      <button prizmButton (click)="open = false; cdRef.markForCheck()">Закрыть</button>
+    </ng-container>
+  </prizm-data-list>
+</ng-template>

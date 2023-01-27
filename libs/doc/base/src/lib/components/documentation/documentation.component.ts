@@ -210,7 +210,7 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   }
 
   public showContentTooltip(type: string): boolean {
-    return type.includes(`PolymorpheusContent`);
+    return type.includes(`PolymorphContent`);
   }
 
   public inspectAny(data: unknown): string {

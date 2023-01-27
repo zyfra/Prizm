@@ -47,13 +47,18 @@ export class DropdownHostComponent {
   };
 
   readonly exampleDateRangeList: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/date-list/date-list.component'),
-    HTML: import('!!raw-loader!./examples/date-list/date-list.component.html'),
+    TypeScript: import('!!raw-loader!./examples/date-list-with-nested/date-list.component'),
+    HTML: import('!!raw-loader!./examples/date-list-with-nested/date-list.component.html'),
   };
 
   readonly exampleDateRangeListEdit: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/date-list-edit/date-list-edit.component'),
     HTML: import('!!raw-loader!./examples/date-list-edit/date-list-edit.component.html'),
+  };
+
+  readonly exampleCustomContext: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/with-custom-context/with-custom-context.component'),
+    HTML: import('!!raw-loader!./examples/with-custom-context/with-custom-context.component.html'),
   };
 
   constructor(public readonly cdRef: ChangeDetectorRef) {}

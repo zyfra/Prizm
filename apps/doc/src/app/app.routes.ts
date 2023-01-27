@@ -537,6 +537,14 @@ export const ROUTES = [
       title: 'Theme',
     },
   },
+  {
+    path: 'tools/polymorph',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./tools/polymorph/polymorph.module')).ExamplePolymorphModule,
+    data: {
+      title: 'Polymorph',
+    },
+  },
   // CHARTS
   {
     path: 'charts/line',
