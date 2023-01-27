@@ -13,47 +13,15 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-      #      - run: git fetch --no-tags --prune --depth=1 origin main
 
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
 
-      #      - uses: actions/setup-node@v2
-      #        with:
-      #          node-version: '16'
-      #          cache: 'npm'
-
       - run: npm ci
       #     - run: npx nx-cloud start-ci-run
-
-      #      - run: npx nx workspace-lint
+      - run: npx nx workspace-lint
       - run: npx nx format:check --base=origin/main
       - run: npx nx clear-cache
-      - run: npx nx affected --target=test --base=origin/main
-      - run: npx nx affected --target=lint --base=origin/main
-      - run: npx nx affected --target=build --base=origin/main --prod
-#      - uses: actions/checkout@v3
-#        with:
-#          fetch-depth: 0
-#      - uses: actions/checkout@v2
-#        with:
-#          fetch-depth: 0
-#      - name: Use Node.js ${{ matrix.node-version }}
-#        uses: actions/setup-node@v1
-#        with:
-#          node-version: ${{ matrix.node-version }}
-#      - run: git fetch origin
-#      - run: |
-#          echo "BASE: ${{ env.NX_BASE }}"
-#          echo "HEAD: ${{ env.NX_HEAD }}"
-#      #      - uses: nrwl/nx-set-shas@v3
-#      - run: |
-#          echo "BASE: ${{ env.NX_BASE }}"
-#          echo "HEAD: ${{ env.NX_HEAD }}"
-#      - run: npm ci
-#      - run: npx nx workspace-lint
-#      - run: npx nx format:check --base=main --head=HEAD
-#      - run: npx nx affected --target=lint --parallel=3
-#      - run: npx nx affected --target=test --parallel=3 --configuration=ci
-#      - run: npx nx affected --target=build --parallel=3
-#      - run: npx nx affected --target=build --parallel=3
+      - run: npx nx affected --target=test --base=origin/main --parallel=3
+      - run: npx nx affected --target=lint --base=origin/main --parallel=3
+      - run: npx nx affected --target=build --base=origin/main --prod --parallel=3
