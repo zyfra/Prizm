@@ -21,6 +21,7 @@ jobs:
       #          echo "BASE: ${{ env.NX_BASE }}"
       #          echo "HEAD: ${{ env.NX_HEAD }}"
       - run: npm ci
+      - run: npx nx clear-cache
       - run: npx nx workspace-lint
       #      - run: npx nx format:check
       - run: npx nx run-many --target=lint --all --parallel=3
