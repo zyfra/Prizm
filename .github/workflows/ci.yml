@@ -15,7 +15,7 @@ jobs:
       - run: |
           echo "BASE: ${{ env.NX_BASE }}"
           echo "HEAD: ${{ env.NX_HEAD }}"
-#      - uses: nrwl/nx-set-shas@v3
+      #      - uses: nrwl/nx-set-shas@v3
       - run: |
           echo "BASE: ${{ env.NX_BASE }}"
           echo "HEAD: ${{ env.NX_HEAD }}"
