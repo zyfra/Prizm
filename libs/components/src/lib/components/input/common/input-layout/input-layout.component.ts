@@ -4,12 +4,14 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChild,
-  ElementRef, EventEmitter,
+  ElementRef,
+  EventEmitter,
   Injector,
   Input,
   OnChanges,
   OnDestroy,
-  OnInit, Output,
+  OnInit,
+  Output,
   SimpleChanges,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -50,7 +52,8 @@ export class PrizmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, 
   }
 
   @ContentChild(PrizmInputControl, { static: true }) control: PrizmInputControl<any>;
-  @ContentChild(PrizmInputStatusTextDirective, { static: false }) inputStatusText: PrizmInputStatusTextDirective;
+  @ContentChild(PrizmInputStatusTextDirective, { static: false })
+  inputStatusText: PrizmInputStatusTextDirective;
 
   public statusIcon: string;
   public statusMessage: PolymorphContent | null;
@@ -74,12 +77,12 @@ export class PrizmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, 
     this.actualaizeStatus();
 
     this.inputStatusText &&
-    this.subscriptions.add(
-      this.inputStatusText.changed.subscribe(() => {
-        this.statusMessage = this.inputStatusText.getStatusMessage();
-        this.cdr.detectChanges();
-      })
-    );
+      this.subscriptions.add(
+        this.inputStatusText.changed.subscribe(() => {
+          this.statusMessage = this.inputStatusText.getStatusMessage();
+          this.cdr.detectChanges();
+        })
+      );
   }
 
   ngOnChanges(changes: SimpleChanges): void {

@@ -16,4 +16,3 @@ export class PrizmCarouselYearMonthExampleComponent {
     this.currentValue = { year: currentDate.getFullYear(), month: currentDate.getMonth() + 1 };
   }
 }
-

@@ -15,7 +15,11 @@
       <prizm-tree-template-example></prizm-tree-template-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="template-checkbox" heading="Template With Checkbox" [content]="exampleTemplateCheckbox">
+    <prizm-doc-example
+      id="template-checkbox"
+      heading="Template With Checkbox"
+      [content]="exampleTemplateCheckbox"
+    >
       <prizm-tree-template-checkbox-example></prizm-tree-template-checkbox-example>
     </prizm-doc-example>
 
@@ -30,28 +34,21 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <div [hidden]='true'>
-        <p> EXAMPLE 1</p>
+      <div [hidden]="true">
+        <p>EXAMPLE 1</p>
         <div>
-          <prizm-tree
-            #element
-            key="PrizmTreeComponent"
-            [prizmDocHostElement]='element'
-            [value]="data">
+          <prizm-tree #element key="PrizmTreeComponent" [prizmDocHostElement]="element" [value]="data">
           </prizm-tree>
         </div>
-        <br>
-        <br>
+        <br />
+        <br />
       </div>
       <div>
         <ng-container
           [prizmTreeController]="prizmTreeController"
-          #treeControllerElement='prizmTreeController'
-
+          #treeControllerElement="prizmTreeController"
         >
-          <prizm-tree-item
-            #element='prizmTreeItem'
-          >
+          <prizm-tree-item #element="prizmTreeItem">
             Fruits
             <prizm-tree-item>
               Apples
@@ -66,7 +63,6 @@
             <prizm-tree-item>Dogs</prizm-tree-item>
           </prizm-tree-item>
         </ng-container>
-
       </div>
       <!--      <prizm-tree #element [prizmDocHostElement]="element" [value]="data"></prizm-tree>-->
     </prizm-doc-demo>
@@ -83,12 +79,8 @@
       >
         Expand All
       </ng-template>
-
     </prizm-doc-documentation>
-    <prizm-doc-documentation
-      heading="PrizmTreeItemComponent"
-      hostComponentKey="PrizmTreeItemComponent"
-    >
+    <prizm-doc-documentation heading="PrizmTreeItemComponent" hostComponentKey="PrizmTreeItemComponent">
     </prizm-doc-documentation>
 
     <prizm-doc-documentation
@@ -102,13 +94,8 @@
       >
         Children Handler
       </ng-template>
-
     </prizm-doc-documentation>
-    <prizm-doc-documentation
-      heading="PrizmTreeComponent"
-      hostComponentKey="PrizmTreeComponent"
-    >
-
+    <prizm-doc-documentation heading="PrizmTreeComponent" hostComponentKey="PrizmTreeComponent">
       <ng-template
         documentationPropertyName="value"
         documentationPropertyType="DeepArray"
@@ -117,7 +104,6 @@
       >
         Tree Controller
       </ng-template>
-
 
       <ng-template
         documentationPropertyName="content"

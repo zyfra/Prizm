@@ -1,7 +1,7 @@
 <div class="container">
   <ng-container *ngFor="let switcher of switchers; let i = index">
     <prizm-switcher-item
-      *ngIf='!switcher.hide'
+      *ngIf="!switcher.hide"
       [attr.first-child]="i === 0"
       [attr.last-child]="i === switchers.length - 1"
       [data]="switcher"

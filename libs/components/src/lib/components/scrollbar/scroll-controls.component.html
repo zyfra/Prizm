@@ -1,28 +1,20 @@
 <ng-container *prizmLet="refresh$ | async as bars">
-    <div
-        *ngIf="bars[0]"
-        prizmScrollbarWrapper
-        class="bar bar_vertical"
-        [@prizmFadeIn]="animation"
-        [class.bar_has-horizontal]="bars[1]"
-    >
-        <div
-            prizmScrollbar="vertical"
-            class="thumb"
-            prizmTheme
-        ></div>
-    </div>
-    <div
-        *ngIf="bars[1]"
-        prizmScrollbarWrapper
-        class="bar bar_horizontal"
-        [@prizmFadeIn]="animation"
-        [class.bar_has-vertical]="bars[0]"
-    >
-        <div
-            prizmScrollbar="horizontal"
-            class="thumb"
-            prizmTheme
-        ></div>
-    </div>
+  <div
+    *ngIf="bars[0]"
+    prizmScrollbarWrapper
+    class="bar bar_vertical"
+    [@prizmFadeIn]="animation"
+    [class.bar_has-horizontal]="bars[1]"
+  >
+    <div prizmScrollbar="vertical" class="thumb" prizmTheme></div>
+  </div>
+  <div
+    *ngIf="bars[1]"
+    prizmScrollbarWrapper
+    class="bar bar_horizontal"
+    [@prizmFadeIn]="animation"
+    [class.bar_has-vertical]="bars[0]"
+  >
+    <div prizmScrollbar="horizontal" class="thumb" prizmTheme></div>
+  </div>
 </ng-container>

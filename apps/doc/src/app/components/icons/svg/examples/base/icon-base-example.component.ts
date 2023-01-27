@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
         font-size: 16px;
         color: var(--prizm-index-plan);
       }
-    `
-  ]
+    `,
+  ],
 })
 export class PrizmIconSvgBaseExampleComponent {}

@@ -4,11 +4,7 @@ import { PrizmButtonModule, PrizmConfirmDialogModule } from '@prizm-ui/component
 import { PrizmDialogFullExampleComponent } from './full.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    PrizmButtonModule,
-    PrizmConfirmDialogModule
-  ],
+  imports: [CommonModule, PrizmButtonModule, PrizmConfirmDialogModule],
   declarations: [PrizmDialogFullExampleComponent],
   exports: [PrizmDialogFullExampleComponent],
 })

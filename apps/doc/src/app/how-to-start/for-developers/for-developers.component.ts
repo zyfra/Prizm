@@ -4,8 +4,6 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   selector: 'prizm-for-developers',
   templateUrl: './for-developers.component.html',
   styleUrls: ['./for-developers.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ForDevelopersComponent {
-
-}
+export class ForDevelopersComponent {}

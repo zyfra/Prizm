@@ -1,12 +1,8 @@
-<progress
-    class="z-hidden-progress"
-    [value]="value"
-    [max]="max"
-></progress>
+<progress class="z-hidden-progress" [value]="value" [max]="max"></progress>
 
 <span
-    *prizmRepeatTimes="let index of max"
-    aria-hidden="true"
-    class="z-segment"
-    [style.background]="index < value ? getActiveColor(index) : null"
+  *prizmRepeatTimes="let index of max"
+  aria-hidden="true"
+  class="z-segment"
+  [style.background]="index < value ? getActiveColor(index) : null"
 ></span>

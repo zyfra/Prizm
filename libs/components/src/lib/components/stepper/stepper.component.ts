@@ -64,4 +64,3 @@ export class PrizmStepperComponent implements AfterContentInit {
     this.selectStep.next(step);
   }
 }
-

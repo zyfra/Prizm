@@ -1,6 +1,7 @@
 <prizm-doc-page header="Waterfall" package="components" type="components">
-  <div class='page-description' description>
-    A waterfall chart is a form of data visualization that helps in understanding the cumulative effect of sequentially introduced positive or negative values.
+  <div class="page-description" description>
+    A waterfall chart is a form of data visualization that helps in understanding the cumulative effect of
+    sequentially introduced positive or negative values.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="exampleOutline">
@@ -13,19 +14,18 @@
       <prizm-charts-waterfall
         #element
         [prizmDocHostElement]="element"
-        [data]='data'
-        [options]='options'
-        [xField]='xField'
-        [yField]='yField'
-        [theme]='prizmTheme.changesTheme$ | async'
+        [data]="data"
+        [options]="options"
+        [xField]="xField"
+        [yField]="yField"
+        [theme]="prizmTheme.changesTheme$ | async"
       ></prizm-charts-waterfall>
-
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="xField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="xField"
       >
         X Field Name
@@ -33,7 +33,7 @@
 
       <ng-template
         documentationPropertyName="options"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsWaterfallOptions"
       >
         Options
@@ -42,7 +42,7 @@
       <ng-template
         documentationPropertyName="yField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="xField"
       >
         Y Field Name
@@ -50,7 +50,7 @@
 
       <ng-template
         documentationPropertyName="data"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsWaterfallItem[]"
       >
         Data
@@ -58,7 +58,7 @@
 
       <ng-template
         documentationPropertyName="theme"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartTheme"
       >
         Theme
@@ -67,22 +67,20 @@
       <ng-template
         documentationPropertyName="width"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="width"
       >
         Width
       </ng-template>
 
-
       <ng-template
         documentationPropertyName="height"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="height"
       >
         Height
       </ng-template>
-
     </prizm-doc-documentation>
   </ng-template>
 

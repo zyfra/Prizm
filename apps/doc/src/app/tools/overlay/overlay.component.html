@@ -1,71 +1,41 @@
-<prizm-doc-page
-  header="Overlay"
-  package="components"
-  type="components"
->
-  <div class='page-description' description>
+<prizm-doc-page header="Overlay" package="components" type="components">
+  <div class="page-description" description>
     User overlay service for controlling the display of content in the modal windows.
   </div>
 
   <ng-template prizmDocPageTab>
-    <prizm-doc-example
-      id="global"
-      heading="Global Position"
-      [content]="globalExample"
-    >
+    <prizm-doc-example id="global" heading="Global Position" [content]="globalExample">
       <prizm-overlay-global-example></prizm-overlay-global-example>
     </prizm-doc-example>
 
-
-    <prizm-doc-example
-      id="relative"
-      heading="Relative Position"
-      [content]="relativeExample"
-    >
+    <prizm-doc-example id="relative" heading="Relative Position" [content]="relativeExample">
       <prizm-overlay-relative></prizm-overlay-relative>
     </prizm-doc-example>
 
-
-    <prizm-doc-example
-      id="fullscreen"
-      heading="Fullscreen Position"
-      [content]="fullscreenExample"
-    >
+    <prizm-doc-example id="fullscreen" heading="Fullscreen Position" [content]="fullscreenExample">
       <prizm-overlay-fullscreen-example></prizm-overlay-fullscreen-example>
     </prizm-doc-example>
 
-
-    <prizm-doc-example
-      id="slide"
-      heading="Slide Position"
-      [content]="slideExample"
-    >
+    <prizm-doc-example id="slide" heading="Slide Position" [content]="slideExample">
       <prizm-overlay-slide-example></prizm-overlay-slide-example>
     </prizm-doc-example>
 
-    <prizm-doc-example
-      id="component"
-      heading="Component pass"
-      [content]="withComponentExample"
-    >
+    <prizm-doc-example id="component" heading="Component pass" [content]="withComponentExample">
       <prizm-overlay-component-example></prizm-overlay-component-example>
     </prizm-doc-example>
-
   </ng-template>
 
-  <ng-template prizmDocPageTab="Setup">>
+  <ng-template prizmDocPageTab="Setup"
+    >>
     <ol class="b-demo-steps">
       <li>
-        <p >
+        <p>
           Import
           <code>PrizmOverlayModule</code>
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="exampleModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="exampleModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

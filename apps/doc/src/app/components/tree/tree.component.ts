@@ -54,8 +54,8 @@ export class TreeComponent {
   public readonly exampleComponent: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/component/tree-component-example.component.ts'),
     HTML: import('!!raw-loader!./examples/component/tree-component-example.component.html'),
-    "folder.ts": import('!!raw-loader!./examples/component/folder.component.ts'),
-    "folder.less": import('./examples/component/folder.component.less?raw'),
+    'folder.ts': import('!!raw-loader!./examples/component/folder.component.ts'),
+    'folder.less': import('./examples/component/folder.component.less?raw'),
   };
   readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item => item.children || PRIZM_EMPTY_ARRAY;
 }

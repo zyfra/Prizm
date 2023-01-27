@@ -14,11 +14,7 @@ import { PrizmWidgetWithButtonsExampleComponent } from './examples/with-buttons/
     PrizmWidgetModule,
     RouterModule.forChild(prizmDocGenerateRoutes(WidgetComponent)),
   ],
-  declarations: [
-    PrizmWidgetBaseExampleComponent,
-    PrizmWidgetWithButtonsExampleComponent,
-    WidgetComponent,
-  ],
+  declarations: [PrizmWidgetBaseExampleComponent, PrizmWidgetWithButtonsExampleComponent, WidgetComponent],
   exports: [WidgetComponent],
 })
 export class WidgetModule {}

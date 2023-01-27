@@ -21,7 +21,7 @@ interface TreeNode {
     PrizmTreeService,
     {
       provide: PRIZM_TREE_START,
-      useValue: {text: 'Topmost'},
+      useValue: { text: 'Topmost' },
     },
     {
       provide: PRIZM_TREE_LOADER,
@@ -34,14 +34,12 @@ export class TreeTemplateLazyExampleComponent {
 
   constructor(
     @Inject(PRIZM_TREE_LOADING) readonly loading: unknown,
-    @Inject(PrizmTreeService) readonly service: PrizmTreeService<Item>,
+    @Inject(PrizmTreeService) readonly service: PrizmTreeService<Item>
   ) {}
 
-  public childrenHandler: PrizmHandler<Item, readonly Item[]> = item =>
-    this.service.getChildren(item);
+  public childrenHandler: PrizmHandler<Item, readonly Item[]> = item => this.service.getChildren(item);
 
   public onToggled(item: Item): void {
     this.service.loadChildren(item);
   }
 }
-

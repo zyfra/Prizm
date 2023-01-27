@@ -29,10 +29,7 @@ import { PrizmDestroyService, PrizmLetContextService } from '@prizm-ui/helpers';
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    PrizmTabsService,
-    PrizmDestroyService
-  ]
+  providers: [PrizmTabsService, PrizmDestroyService],
 })
 export class PrizmTabsComponent implements OnInit, OnDestroy {
   @Input() @HostBinding('attr.data-size') public size: PrizmTabSize = 'adaptive';
@@ -47,8 +44,9 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
   @Output() public activeTabIndexChange: EventEmitter<number> = new EventEmitter<number>();
   @ViewChild('tabsContainer', { static: true }) public tabsContainer: ElementRef;
   @ViewChild('tabsDropdown', { static: true }) public tabsDropdown: PrizmDropdownHostComponent;
-  @ContentChildren(PrizmTabComponent, {descendants: true }) public tabElements: QueryList<PrizmTabComponent>;
-  @ContentChildren(PrizmTabMenuItemDirective, { read: TemplateRef, descendants: true }) public menuElements: QueryList<TemplateRef<PrizmTabComponent>>;
+  @ContentChildren(PrizmTabComponent, { descendants: true }) public tabElements: QueryList<PrizmTabComponent>;
+  @ContentChildren(PrizmTabMenuItemDirective, { read: TemplateRef, descendants: true })
+  public menuElements: QueryList<TemplateRef<PrizmTabComponent>>;
 
   @HostBinding('attr.testId')
   readonly testId = 'prizm_tabs';
@@ -67,7 +65,7 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
   constructor(
     private readonly cdRef: ChangeDetectorRef,
     private readonly destroy$: PrizmDestroyService,
-    private readonly tabsService: PrizmTabsService,
+    private readonly tabsService: PrizmTabsService
   ) {}
 
   public ngOnInit(): void {
@@ -81,18 +79,22 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
     this.resizeObserver.observe(this.tabsContainer.nativeElement);
     this.initTabClickListener();
 
-    this.subscription.add(this.mutationDetector$
-      .pipe(debounceTime(200), observeOn(animationFrameScheduler))
-      .subscribe(() => this.overflowChecker()));
+    this.subscription.add(
+      this.mutationDetector$
+        .pipe(debounceTime(200), observeOn(animationFrameScheduler))
+        .subscribe(() => this.overflowChecker())
+    );
   }
 
   private initTabClickListener(): void {
-    this.tabsService.activeTabIdx$$.pipe(
-      tap((idx) => {
-        this.tabClickHandler(idx)
-      }),
-      takeUntil(this.destroy$)
-    ).subscribe();
+    this.tabsService.activeTabIdx$$
+      .pipe(
+        tap(idx => {
+          this.tabClickHandler(idx);
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   public ngOnDestroy(): void {

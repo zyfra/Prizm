@@ -10,6 +10,5 @@ import { PrizmIconsSvgModule } from '@prizm-ui/flag-icons';
     PrizmIconsSvgModule,
   ],
 })
-export class MyModule {
-}
+export class MyModule {}
 ```

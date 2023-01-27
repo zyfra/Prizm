@@ -6,13 +6,13 @@ import { MarkdownModule } from 'ngx-markdown';
 import { ChangelogComponent } from './changelog.component';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        MarkdownModule,
-        PrizmAddonDocModule,
-        RouterModule.forChild(prizmDocGenerateRoutes(ChangelogComponent)),
-    ],
-    declarations: [ChangelogComponent],
-    exports: [ChangelogComponent],
+  imports: [
+    CommonModule,
+    MarkdownModule,
+    PrizmAddonDocModule,
+    RouterModule.forChild(prizmDocGenerateRoutes(ChangelogComponent)),
+  ],
+  declarations: [ChangelogComponent],
+  exports: [ChangelogComponent],
 })
 export class ChangelogModule {}

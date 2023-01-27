@@ -1,6 +1,6 @@
 ```ts
-import {NgModule} from '@angular/core';
-import {PrizmInputTimeModule} from "@prizm-ui/components";
+import { NgModule } from '@angular/core';
+import { PrizmInputTimeModule } from '@prizm-ui/components';
 
 // ...
 

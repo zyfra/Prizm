@@ -9,10 +9,12 @@ type To = Date | null;
 
 export class PrizmInputDateTimeNativeTransformer implements PrizmControlValueTransformer<From, To> {
   public fromControlValue(controlValue: To): From {
-    return controlValue && [
-       PrizmDay.fromLocalNativeDate(controlValue),
-       PrizmTime.fromLocalNativeDate(controlValue)
-    ];
+    return (
+      controlValue && [
+        PrizmDay.fromLocalNativeDate(controlValue),
+        PrizmTime.fromLocalNativeDate(controlValue),
+      ]
+    );
   }
 
   public toControlValue(componentValue: From): To {
@@ -22,12 +24,7 @@ export class PrizmInputDateTimeNativeTransformer implements PrizmControlValueTra
 
     const time = componentValue[1];
     if (time) {
-      date.setHours(
-        time.hours,
-        time.minutes,
-        time.seconds,
-        time.ms
-      )
+      date.setHours(time.hours, time.minutes, time.seconds, time.ms);
     }
 
     return date;
@@ -35,7 +32,7 @@ export class PrizmInputDateTimeNativeTransformer implements PrizmControlValueTra
 }
 
 export function prizmGetInputDateTimeNativeTransformer(): Provider {
-  return  {
+  return {
     provide: PRIZM_DATE_TIME_VALUE_TRANSFORMER,
     useClass: PrizmInputDateTimeNativeTransformer,
   };

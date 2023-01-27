@@ -19,9 +19,7 @@ import { FormsModule } from '@angular/forms';
     PrizmMapperPipeModule,
     PrizmIconModule,
   ],
-  declarations: [
-    TreeTemplateLazyExampleComponent
-  ],
+  declarations: [TreeTemplateLazyExampleComponent],
   exports: [TreeTemplateLazyExampleComponent],
 })
 export class TreeTemplateLazyExampleModule {}

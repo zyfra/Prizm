@@ -8,38 +8,38 @@ import { PRIZM_TREE_LOADER, PRIZM_TREE_LOADING, PRIZM_TREE_START } from './tree.
 // @dynamic
 @Injectable()
 export class PrizmTreeService<T> {
-    private readonly map = new Map<T, readonly T[]>([[this.loading, []]]);
+  private readonly map = new Map<T, readonly T[]>([[this.loading, []]]);
 
-    private readonly load$ = new Subject<T>();
+  private readonly load$ = new Subject<T>();
 
-    public readonly data$ = this.load$.pipe(
-        switchMap(item =>
-            this.loader.loadChildren(item).pipe(
-                tap(children => this.map.set(item, children)),
-                map(children => children.filter(item => !this.loader.hasChildren(item))),
-                tap(children => children.forEach(child => this.map.set(child, []))),
-            ),
-        ),
-        startWith(null),
-        mapTo(this.start),
-    );
+  public readonly data$ = this.load$.pipe(
+    switchMap(item =>
+      this.loader.loadChildren(item).pipe(
+        tap(children => this.map.set(item, children)),
+        map(children => children.filter(item => !this.loader.hasChildren(item))),
+        tap(children => children.forEach(child => this.map.set(child, [])))
+      )
+    ),
+    startWith(null),
+    mapTo(this.start)
+  );
 
-    constructor(
-        @Inject(PRIZM_TREE_LOADING) private readonly loading: T,
-        @Inject(PRIZM_TREE_START) private readonly start: T,
-        @Inject(PRIZM_TREE_LOADER) private readonly loader: PrizmTreeLoader<T>,
-    ) {}
+  constructor(
+    @Inject(PRIZM_TREE_LOADING) private readonly loading: T,
+    @Inject(PRIZM_TREE_START) private readonly start: T,
+    @Inject(PRIZM_TREE_LOADER) private readonly loader: PrizmTreeLoader<T>
+  ) {}
 
-    public getChildren(item: T): readonly T[] {
-        return this.map.get(item) ?? [this.loading];
+  public getChildren(item: T): readonly T[] {
+    return this.map.get(item) ?? [this.loading];
+  }
+
+  public loadChildren(item: T): void {
+    if (this.map.get(item)) {
+      return;
     }
 
-    public loadChildren(item: T): void {
-        if (this.map.get(item)) {
-            return;
-        }
-
-        this.map.set(item, [this.loading]);
-        this.load$.next(item);
-    }
+    this.map.set(item, [this.loading]);
+    this.load$.next(item);
+  }
 }

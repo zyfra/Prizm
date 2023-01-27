@@ -14,7 +14,7 @@
         <input prizmInput placeholder="Введите название" (enter)="onEnter($event)" [disabled]="disabled" />
         <prizm-chips
           #element
-          [formControl]='control'
+          [formControl]="control"
           [prizmDocHostElement]="element"
           [class.single-line]="singleLine"
           [singleLine]="singleLine"
@@ -27,7 +27,7 @@
       </prizm-input-layout>
     </prizm-doc-demo>
 
-    <prizm-doc-documentation [control]='control'>
+    <prizm-doc-documentation [control]="control">
       <ng-template
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"

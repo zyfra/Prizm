@@ -1,5 +1,5 @@
 <prizm-doc-page header="RadioBar" package="components" type="components">
-  <div class='page-description' description>
+  <div class="page-description" description>
     Ridial Bar is a component that allows you to select a single value from a set of options.
   </div>
   <ng-template prizmDocPageTab>
@@ -15,7 +15,7 @@
         [prizmDocHostElement]="element"
         [data]="data"
         [xField]="xField"
-        [theme]='prizmTheme.changesTheme$ | async'
+        [theme]="prizmTheme.changesTheme$ | async"
         [height]="height"
         [width]="width"
         [yField]="yField"
@@ -26,7 +26,7 @@
       <ng-template
         documentationPropertyName="xField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="xField"
       >
         X Field Name
@@ -34,7 +34,7 @@
 
       <ng-template
         documentationPropertyName="theme"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartTheme"
       >
         Theme
@@ -43,17 +43,16 @@
       <ng-template
         documentationPropertyName="width"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="width"
       >
         Width
       </ng-template>
 
-
       <ng-template
         documentationPropertyName="height"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="height"
       >
         Height
@@ -61,7 +60,7 @@
 
       <ng-template
         documentationPropertyName="options"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsRadialBarOptions"
       >
         Options
@@ -69,7 +68,7 @@
 
       <ng-template
         documentationPropertyName="label"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsRadialBarOptions['label']"
       >
         Label
@@ -77,7 +76,7 @@
 
       <ng-template
         documentationPropertyName="data"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsRadialBarItem[]"
       >
         Data
@@ -86,12 +85,11 @@
       <ng-template
         documentationPropertyName="yField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="yField"
       >
         Y Field Name
       </ng-template>
-
     </prizm-doc-documentation>
   </ng-template>
 

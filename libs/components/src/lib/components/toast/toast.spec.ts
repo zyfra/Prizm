@@ -1,39 +1,34 @@
-import {TestBed} from "@angular/core/testing";
-import {PrizmToastContainerComponent, PrizmToastModule, PrizmToastRef, PrizmToastService} from "./index";
-import {ToastWrapperComponent} from "./toast-wrapper/toast-wrapper.component";
-import {ToastComponent} from "./toast/toast.component";
-import {PrizmToastExistException} from "../../exceptions/toast-exist.exception";
-import {PrizmToastNotExistException} from "../../exceptions/toast-not-exist.exception";
-import {PrizmToastControl} from "./toast-control";
-import {By} from "@angular/platform-browser";
+import { TestBed } from '@angular/core/testing';
+import { PrizmToastContainerComponent, PrizmToastModule, PrizmToastRef, PrizmToastService } from './index';
+import { ToastWrapperComponent } from './toast-wrapper/toast-wrapper.component';
+import { ToastComponent } from './toast/toast.component';
+import { PrizmToastExistException } from '../../exceptions/toast-exist.exception';
+import { PrizmToastNotExistException } from '../../exceptions/toast-not-exist.exception';
+import { PrizmToastControl } from './toast-control';
+import { By } from '@angular/platform-browser';
 
 xdescribe('doc', () => {
   let toastService: PrizmToastService;
   const ID = 'test-id';
 
   function createToast(): PrizmToastRef {
-    return toastService.create(
-      'Hello',
-      {
-        id: ID,
-        appearance: "info",
-        timer: 1000
-      }
-    )
+    return toastService.create('Hello', {
+      id: ID,
+      appearance: 'info',
+      timer: 1000,
+    });
   }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        PrizmToastModule
-      ],
+      imports: [PrizmToastModule],
     }).compileComponents();
     toastService = TestBed.inject(PrizmToastService);
   });
 
   it('should create PrizmToastContainerComponent', () => {
     const fixture = TestBed.createComponent(PrizmToastContainerComponent);
-    fixture.nativeElement.d
+    fixture.nativeElement.d;
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
@@ -49,7 +44,7 @@ xdescribe('doc', () => {
     jest.spyOn(control, 'open');
     expect(createToast()).toBeInstanceOf(PrizmToastRef);
     expect(control.open).toHaveBeenCalled();
-    console.log('doc')
+    console.log('doc');
   });
 
   it('should delete toast by id', () => {
@@ -57,7 +52,7 @@ xdescribe('doc', () => {
     jest.spyOn(control, 'close');
     expect(createToast()).toBeInstanceOf(PrizmToastRef);
     expect(toastService.delete(ID)).toBeFalsy();
-    expect(control.close).toHaveBeenCalled()
+    expect(control.close).toHaveBeenCalled();
   });
 
   it('should delete all toast', () => {
@@ -65,7 +60,7 @@ xdescribe('doc', () => {
     jest.spyOn(control, 'close');
     expect(createToast()).toBeInstanceOf(PrizmToastRef);
     expect(toastService.deleteAll()).toBeFalsy();
-    expect(control.close).toHaveBeenCalled()
+    expect(control.close).toHaveBeenCalled();
   });
 
   it('should get error on recreate attempt', () => {

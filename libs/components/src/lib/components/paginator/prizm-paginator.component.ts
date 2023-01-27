@@ -39,7 +39,8 @@ export class PrizmPaginatorComponent {
   @Input() public rightButtonLabel = '';
 
   @Input() public rowsCountOptions: number[] = [];
-  @Output() public paginatorChange: EventEmitter<PrizmPaginatorOutput> = new EventEmitter<PrizmPaginatorOutput>();
+  @Output() public paginatorChange: EventEmitter<PrizmPaginatorOutput> =
+    new EventEmitter<PrizmPaginatorOutput>();
   @Output() public pageChange: EventEmitter<number> = new EventEmitter<number>();
   @Output() public rowsChange: EventEmitter<number | null> = new EventEmitter<number | null>();
 
@@ -50,10 +51,7 @@ export class PrizmPaginatorComponent {
   // Количесвто пакетов = Суммарное количество данных / Сколько данных в одном пакете
   public pagesCount = 0;
 
-  public paginationGenerator(
-    rows: number,
-    currentPage: number,
-  ): PrizmPaginatorData | null {
+  public paginationGenerator(rows: number, currentPage: number): PrizmPaginatorData | null {
     if (this.isDataValid) {
       this.pagesCount = Math.ceil(this.totalRecords / rows);
       this.currentPage = currentPage > this.pagesCount ? this.pagesCount : currentPage;
@@ -116,13 +114,12 @@ export class PrizmPaginatorComponent {
     if (this.currentPage > 0) {
       this.currentPage--;
       this.emitPageChange();
-
     }
   }
 
   private emitPageChange(): void {
     const page = this.currentPage;
-    if(this.page === page) return;
+    if (this.page === page) return;
     this.pageChange.emit(page);
     this.emitPaginatorChanges();
   }
@@ -136,14 +133,10 @@ export class PrizmPaginatorComponent {
     });
   }
 
-
   public changeRows(rows: null | number) {
     if (this.rows === rows) return;
-    this.rows = rows
-    this.paginationGenerator(
-      rows,
-      this.currentPage
-    );
+    this.rows = rows;
+    this.paginationGenerator(rows, this.currentPage);
     this.rowsChange.emit(this.rows);
     this.emitPaginatorChanges();
   }

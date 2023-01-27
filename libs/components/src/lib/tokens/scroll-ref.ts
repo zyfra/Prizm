@@ -1,5 +1,3 @@
-import {ElementRef, InjectionToken} from '@angular/core';
+import { ElementRef, InjectionToken } from '@angular/core';
 
-export const PRIZM_SCROLL_REF = new InjectionToken<ElementRef<HTMLElement>>(
-    'Scrollable container',
-);
+export const PRIZM_SCROLL_REF = new InjectionToken<ElementRef<HTMLElement>>('Scrollable container');

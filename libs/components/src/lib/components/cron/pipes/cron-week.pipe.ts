@@ -7,22 +7,10 @@ import { prizmCapitalizeFirstLetter } from '@prizm-ui/core';
 })
 export class PrizmCronWeekPipe implements PipeTransform {
   readonly datePipe = new DatePipe(this.locale);
-  constructor(
-    @Inject(LOCALE_ID) private locale: string
-  ) {
-  }
+  constructor(@Inject(LOCALE_ID) private locale: string) {}
   public transform(day = 2, format = 'EEEE'): string {
-    const date = new Date(
-      1990,
-      0,
-      day - 1,
-    );
+    const date = new Date(1990, 0, day - 1);
 
-    return prizmCapitalizeFirstLetter(
-      this.datePipe.transform(
-        date,
-        format
-      )
-    )
+    return prizmCapitalizeFirstLetter(this.datePipe.transform(date, format));
   }
 }

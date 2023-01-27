@@ -1,63 +1,59 @@
-<div class='header'>
-  <ng-content select='[header]'></ng-content>
+<div class="header">
+  <ng-content select="[header]"></ng-content>
 </div>
 <div class="z-row z-row_weekday prizm-font-main-body-12">
-    <div
-        *ngFor="let day of weekDays$ | async"
-        class="z-cell"
-        [innerText]="day | prizmCallFunc : capitalizeFirstLetter"
-    ></div>
+  <div
+    *ngFor="let day of weekDays$ | async"
+    class="z-cell"
+    [innerText]="day | prizmCallFunc : capitalizeFirstLetter"
+  ></div>
 </div>
-<div *prizmLet="month | prizmCalendarSheet: true as sheet">
-    <div
-        *prizmRepeatTimes="let rowIndex of sheet.length"
-        automation-id="prizm-primitive-calendar__row"
-        class="z-row"
-    >
-        <ng-container *prizmRepeatTimes="let colIndex of sheet[rowIndex].length">
-            <ng-container *prizmLet="sheet[rowIndex][colIndex] as item">
-                <div
-                    *ngIf="!itemIsUnavailable(item) || showAdjacent"
-                    automation-id="prizm-primitive-calendar__cell"
-                    class="z-cell"
-                    [class.z-cell_weekend]="item.isWeekend"
-                    [class.z-cell_today]="itemIsToday(item)"
-                    [class.z-cell_interval]="itemIsInterval(item)"
-                    [attr.data-range]="getItemRange(item)"
-                    [attr.data-state]="getItemState(item)"
-                    (prizmHoveredChange)="onItemHovered($event && item)"
-                    (prizmPressedChange)="onItemPressed($event && item)"
-                    (click)="onItemClick(item)"
-                >
-                    <div
-                        automation-id="prizm-primitive-calendar__item"
-                        class="z-item prizm-font-btn-links-14"
-                        [class.z-item_unavailable]="itemIsUnavailable(item)"
-                    >
-                        {{ item.day }}
-                        <div *ngIf='item | prizmCallFunc : getDayStatus : daysWithStatus as dayStatus'
-                             class='z-status'
-                             [style.--prizm-status-day-color]='dayStatus'
-                             [attr.data-prizm-status]='dayStatus'>
-                        </div>
-                        <div
-                            *ngIf="item | prizmMapper: toMarkers:itemIsToday(item):!!getItemRange(item) as markers"
-                            class="z-dots"
-                        >
-                            <div
-                                class="z-dot"
-                            ></div>
-                            <div
-                                *ngIf="markers.length > 1"
-                                class="z-dot"
-                            ></div>
-                        </div>
-                    </div>
-                </div>
-            </ng-container>
-        </ng-container>
-    </div>
+<div *prizmLet="month | prizmCalendarSheet : true as sheet">
+  <div
+    *prizmRepeatTimes="let rowIndex of sheet.length"
+    automation-id="prizm-primitive-calendar__row"
+    class="z-row"
+  >
+    <ng-container *prizmRepeatTimes="let colIndex of sheet[rowIndex].length">
+      <ng-container *prizmLet="sheet[rowIndex][colIndex] as item">
+        <div
+          *ngIf="!itemIsUnavailable(item) || showAdjacent"
+          automation-id="prizm-primitive-calendar__cell"
+          class="z-cell"
+          [class.z-cell_weekend]="item.isWeekend"
+          [class.z-cell_today]="itemIsToday(item)"
+          [class.z-cell_interval]="itemIsInterval(item)"
+          [attr.data-range]="getItemRange(item)"
+          [attr.data-state]="getItemState(item)"
+          (prizmHoveredChange)="onItemHovered($event && item)"
+          (prizmPressedChange)="onItemPressed($event && item)"
+          (click)="onItemClick(item)"
+        >
+          <div
+            automation-id="prizm-primitive-calendar__item"
+            class="z-item prizm-font-btn-links-14"
+            [class.z-item_unavailable]="itemIsUnavailable(item)"
+          >
+            {{ item.day }}
+            <div
+              *ngIf="item | prizmCallFunc : getDayStatus : daysWithStatus as dayStatus"
+              class="z-status"
+              [style.--prizm-status-day-color]="dayStatus"
+              [attr.data-prizm-status]="dayStatus"
+            ></div>
+            <div
+              *ngIf="item | prizmMapper : toMarkers : itemIsToday(item) : !!getItemRange(item) as markers"
+              class="z-dots"
+            >
+              <div class="z-dot"></div>
+              <div *ngIf="markers.length > 1" class="z-dot"></div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
 </div>
-<div class='footer'>
-  <ng-content select='[footer]'></ng-content>
+<div class="footer">
+  <ng-content select="[footer]"></ng-content>
 </div>

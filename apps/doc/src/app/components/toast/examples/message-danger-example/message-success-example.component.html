@@ -10,9 +10,7 @@
   <ng-template #contentTemplate let-close="close">
     <div>В toast-сообщении старайтесь уместить текст в 2 строки.</div>
 
-    <div class="date">
-      16.05.2022 10:00
-    </div>
+    <div class="date">16.05.2022 10:00</div>
     <div class="link">
       <a href="#">Ссылка</a>
     </div>
@@ -30,10 +28,10 @@
   </ng-template>
 </div>
 
-<br>
-<hr>
+<br />
+<hr />
 <p>Position</p>
-<div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+<div style="display: flex; gap: 1rem; flex-wrap: wrap">
   <prizm-radio-button
     *ngFor="let item of data"
     [formControl]="formControl"
@@ -42,4 +40,3 @@
     [value]="item.val"
   ></prizm-radio-button>
 </div>
-

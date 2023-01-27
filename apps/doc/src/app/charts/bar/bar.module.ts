@@ -19,7 +19,7 @@ import { PrizmChartsBarGroupExampleComponent } from './examples/group/prizm-char
     PrizmChartsBarExampleComponent,
     PrizmChartsStackedBarExampleComponent,
     PrizmChartsBarGroupExampleComponent,
-    BarComponent
+    BarComponent,
   ],
   exports: [BarComponent],
 })

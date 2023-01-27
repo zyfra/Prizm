@@ -1,9 +1,3 @@
-<ng-container
-  *polymorphOutlet="template; context: context"
->
-</ng-container>
+<ng-container *polymorphOutlet="template; context: context"> </ng-container>
 
-<ng-template #template let-a='a'>
-  FROM TEMPLATE {{a}}
-</ng-template>
-
+<ng-template #template let-a="a"> FROM TEMPLATE {{ a }} </ng-template>

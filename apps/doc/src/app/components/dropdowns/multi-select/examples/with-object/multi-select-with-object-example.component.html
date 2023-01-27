@@ -1,20 +1,18 @@
 <prizm-multi-select
-  [items]='items'
-  [selectAllItem]='selectAllItem'
-  [valueTemplate]='valueTemplate'
-  [formControl]='valueControl'
-  [searchMatcher]='searchMatcher'
-  [identityMatcher]='identityMatcher'
-  [stringify]='stringify'
-  [searchable]='true'
+  [items]="items"
+  [selectAllItem]="selectAllItem"
+  [valueTemplate]="valueTemplate"
+  [formControl]="valueControl"
+  [searchMatcher]="searchMatcher"
+  [identityMatcher]="identityMatcher"
+  [stringify]="stringify"
+  [searchable]="true"
 ></prizm-multi-select>
 
 <ng-template #valueTemplate let-value>
-  <div class='item' *ngIf='value.obj.id !== -1; else allTemplate'>
-    <prizm-icon iconClass='account-done'></prizm-icon>
-    <span>{{value.stringify}}</span>
+  <div class="item" *ngIf="value.obj.id !== -1; else allTemplate">
+    <prizm-icon iconClass="account-done"></prizm-icon>
+    <span>{{ value.stringify }}</span>
   </div>
-  <ng-template #allTemplate>
-    Выбрать все
-  </ng-template>
+  <ng-template #allTemplate> Выбрать все </ng-template>
 </ng-template>

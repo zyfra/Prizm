@@ -9,9 +9,8 @@ import { PrizmHeaderModule } from './prizm-header.module';
   imports: [
     // ...
     PrizmNavigationModule,
-    PrizmHeaderModule
+    PrizmHeaderModule,
   ],
 })
-export class MyModule {
-}
+export class MyModule {}
 ```

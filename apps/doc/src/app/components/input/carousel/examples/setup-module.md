@@ -12,4 +12,3 @@ import { PrizmCarouselModule } from '@prizm-ui/components';
 })
 export class MyModule {}
 ```
-

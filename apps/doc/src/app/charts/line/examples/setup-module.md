@@ -8,6 +8,5 @@ import { PrizmChartsLineModule } from '@prizm-ui/charts';
     PrizmLineModule,
   ],
 })
-export class MyModule {
-}
+export class MyModule {}
 ```

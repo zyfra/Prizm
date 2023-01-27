@@ -15,9 +15,9 @@ export interface RelativeDateMenuItem<T = unknown> {
   label: string;
 }
 
-export type RelativeDateTimeId = typeof DefaultRelativeMenuItems.time[number]['id'];
-export type RelativeDateDirectionId = typeof DefaultRelativeMenuItems.direction[number]['id'];
-export type RelativeDatePeriodId = typeof DefaultRelativeMenuItems.period[number]['id'];
+export type RelativeDateTimeId = (typeof DefaultRelativeMenuItems.time)[number]['id'];
+export type RelativeDateDirectionId = (typeof DefaultRelativeMenuItems.direction)[number]['id'];
+export type RelativeDatePeriodId = (typeof DefaultRelativeMenuItems.period)[number]['id'];
 
 export function getDefaultRelativeDateMenuItems(): RelativeDateMenuItems {
   return DefaultRelativeMenuItems as any;

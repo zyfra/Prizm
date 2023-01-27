@@ -1,5 +1,5 @@
-import {PrizmOverlayConfig} from './models';
-import {noop} from "rxjs";
+import { PrizmOverlayConfig } from './models';
+import { noop } from 'rxjs';
 
 export const PrizmOverlayDefaultConfig: PrizmOverlayConfig = {
   containerClass: 'z-overlay',
@@ -11,5 +11,5 @@ export const PrizmOverlayDefaultConfig: PrizmOverlayConfig = {
   listenWindowEvents: true,
   closeOnEsc: false,
   windowResizeCallback: noop,
-  docClickCallback: noop
+  docClickCallback: noop,
 };

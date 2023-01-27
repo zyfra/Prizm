@@ -6,15 +6,9 @@
   [childrenHandler]="handler"
 ></prizm-tree>
 
-<ng-template
-  #content
-  let-item
->
+<ng-template #content let-item>
   <div>
-    <prizm-checkbox
-      [ngModel]="item | prizmMapper : getValue : map"
-      (ngModelChange)="onChecked(item, $event)"
-    >
+    <prizm-checkbox [ngModel]="item | prizmMapper : getValue : map" (ngModelChange)="onChecked(item, $event)">
       <span>{{ item.text }}</span>
     </prizm-checkbox>
   </div>

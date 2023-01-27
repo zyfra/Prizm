@@ -62,4 +62,3 @@ export class PrizmSliderCnobComponent {
 
   constructor(private el: ElementRef<HTMLElement>) {}
 }
-

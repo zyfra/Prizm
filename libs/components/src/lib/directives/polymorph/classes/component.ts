@@ -1,5 +1,5 @@
-import {Injector, Type} from '@angular/core';
-import {POLYMORPH_CONTEXT} from '../tokens/context';
+import { Injector, Type } from '@angular/core';
+import { POLYMORPH_CONTEXT } from '../tokens/context';
 
 /**
  * Wrapper class for a component that will be used as content for {@link PolymorphOutletDirective}
@@ -9,20 +9,17 @@ import {POLYMORPH_CONTEXT} from '../tokens/context';
  */
 // eslint-disable-next-line @typescript-eslint/ban-types
 export class PolymorphComponent<T extends object, C extends object> {
-    constructor(
-        readonly component: Type<T>,
-        private readonly injector: Injector | null = null,
-    ) {}
+  constructor(readonly component: Type<T>, private readonly injector: Injector | null = null) {}
 
-    public createInjector(injector: Injector, context: C): Injector {
-        return Injector.create({
-            parent: this.injector || injector,
-            providers: [
-                {
-                    provide: POLYMORPH_CONTEXT,
-                    useValue: context,
-                },
-            ],
-        });
-    }
+  public createInjector(injector: Injector, context: C): Injector {
+    return Injector.create({
+      parent: this.injector || injector,
+      providers: [
+        {
+          provide: POLYMORPH_CONTEXT,
+          useValue: context,
+        },
+      ],
+    });
+  }
 }

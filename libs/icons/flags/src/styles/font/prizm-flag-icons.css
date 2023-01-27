@@ -1,808 +1,809 @@
 @font-face {
-    font-family: "prizm-flag-icons";
-    src: url("./prizm-flag-icons.ttf?4241c85dbe1bb36be80365747697a8f8") format("truetype"),
-url("./prizm-flag-icons.woff?4241c85dbe1bb36be80365747697a8f8") format("woff"),
-url("./prizm-flag-icons.eot?4241c85dbe1bb36be80365747697a8f8#iefix") format("embedded-opentype"),
-url("./prizm-flag-icons.woff2?4241c85dbe1bb36be80365747697a8f8") format("woff2");
+  font-family: 'prizm-flag-icons';
+  src: url('./prizm-flag-icons.ttf?4241c85dbe1bb36be80365747697a8f8') format('truetype'),
+    url('./prizm-flag-icons.woff?4241c85dbe1bb36be80365747697a8f8') format('woff'),
+    url('./prizm-flag-icons.eot?4241c85dbe1bb36be80365747697a8f8#iefix') format('embedded-opentype'),
+    url('./prizm-flag-icons.woff2?4241c85dbe1bb36be80365747697a8f8') format('woff2');
 }
 
-i[class^="prizm-flag-icons-"]:before, i[class*=" prizm-flag-icons-"]:before {
-    font-family: prizm-flag-icons !important;
-    font-style: normal;
-    font-weight: normal !important;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+i[class^='prizm-flag-icons-']:before,
+i[class*=' prizm-flag-icons-']:before {
+  font-family: prizm-flag-icons !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .prizm-flag-icons-ad:before {
-    content: "\f101";
+  content: '\f101';
 }
 .prizm-flag-icons-ae:before {
-    content: "\f102";
+  content: '\f102';
 }
 .prizm-flag-icons-af:before {
-    content: "\f103";
+  content: '\f103';
 }
 .prizm-flag-icons-african:before {
-    content: "\f104";
+  content: '\f104';
 }
 .prizm-flag-icons-ag:before {
-    content: "\f105";
+  content: '\f105';
 }
 .prizm-flag-icons-ai:before {
-    content: "\f106";
+  content: '\f106';
 }
 .prizm-flag-icons-al:before {
-    content: "\f107";
+  content: '\f107';
 }
 .prizm-flag-icons-am:before {
-    content: "\f108";
+  content: '\f108';
 }
 .prizm-flag-icons-ams:before {
-    content: "\f109";
+  content: '\f109';
 }
 .prizm-flag-icons-ao:before {
-    content: "\f10a";
+  content: '\f10a';
 }
 .prizm-flag-icons-aq:before {
-    content: "\f10b";
+  content: '\f10b';
 }
 .prizm-flag-icons-ar:before {
-    content: "\f10c";
+  content: '\f10c';
 }
 .prizm-flag-icons-as:before {
-    content: "\f10d";
+  content: '\f10d';
 }
 .prizm-flag-icons-at:before {
-    content: "\f10e";
+  content: '\f10e';
 }
 .prizm-flag-icons-au:before {
-    content: "\f10f";
+  content: '\f10f';
 }
 .prizm-flag-icons-aw:before {
-    content: "\f110";
+  content: '\f110';
 }
 .prizm-flag-icons-ax:before {
-    content: "\f111";
+  content: '\f111';
 }
 .prizm-flag-icons-az:before {
-    content: "\f112";
+  content: '\f112';
 }
 .prizm-flag-icons-ba:before {
-    content: "\f113";
+  content: '\f113';
 }
 .prizm-flag-icons-bb:before {
-    content: "\f114";
+  content: '\f114';
 }
 .prizm-flag-icons-bd:before {
-    content: "\f115";
+  content: '\f115';
 }
 .prizm-flag-icons-be:before {
-    content: "\f116";
+  content: '\f116';
 }
 .prizm-flag-icons-bf:before {
-    content: "\f117";
+  content: '\f117';
 }
 .prizm-flag-icons-bg:before {
-    content: "\f118";
+  content: '\f118';
 }
 .prizm-flag-icons-bh:before {
-    content: "\f119";
+  content: '\f119';
 }
 .prizm-flag-icons-bi:before {
-    content: "\f11a";
+  content: '\f11a';
 }
 .prizm-flag-icons-bj:before {
-    content: "\f11b";
+  content: '\f11b';
 }
 .prizm-flag-icons-bl:before {
-    content: "\f11c";
+  content: '\f11c';
 }
 .prizm-flag-icons-bm:before {
-    content: "\f11d";
+  content: '\f11d';
 }
 .prizm-flag-icons-bn:before {
-    content: "\f11e";
+  content: '\f11e';
 }
 .prizm-flag-icons-bo:before {
-    content: "\f11f";
+  content: '\f11f';
 }
 .prizm-flag-icons-bq-bo:before {
-    content: "\f120";
+  content: '\f120';
 }
 .prizm-flag-icons-bq-sa:before {
-    content: "\f121";
+  content: '\f121';
 }
 .prizm-flag-icons-bq-se:before {
-    content: "\f122";
+  content: '\f122';
 }
 .prizm-flag-icons-br:before {
-    content: "\f123";
+  content: '\f123';
 }
 .prizm-flag-icons-bs:before {
-    content: "\f124";
+  content: '\f124';
 }
 .prizm-flag-icons-bt:before {
-    content: "\f125";
+  content: '\f125';
 }
 .prizm-flag-icons-bv:before {
-    content: "\f126";
+  content: '\f126';
 }
 .prizm-flag-icons-bw:before {
-    content: "\f127";
+  content: '\f127';
 }
 .prizm-flag-icons-by:before {
-    content: "\f128";
+  content: '\f128';
 }
 .prizm-flag-icons-bz:before {
-    content: "\f129";
+  content: '\f129';
 }
 .prizm-flag-icons-ca:before {
-    content: "\f12a";
+  content: '\f12a';
 }
 .prizm-flag-icons-cc:before {
-    content: "\f12b";
+  content: '\f12b';
 }
 .prizm-flag-icons-cd:before {
-    content: "\f12c";
+  content: '\f12c';
 }
 .prizm-flag-icons-cf:before {
-    content: "\f12d";
+  content: '\f12d';
 }
 .prizm-flag-icons-cg:before {
-    content: "\f12e";
+  content: '\f12e';
 }
 .prizm-flag-icons-ch:before {
-    content: "\f12f";
+  content: '\f12f';
 }
 .prizm-flag-icons-ci:before {
-    content: "\f130";
+  content: '\f130';
 }
 .prizm-flag-icons-ck:before {
-    content: "\f131";
+  content: '\f131';
 }
 .prizm-flag-icons-cl:before {
-    content: "\f132";
+  content: '\f132';
 }
 .prizm-flag-icons-cm:before {
-    content: "\f133";
+  content: '\f133';
 }
 .prizm-flag-icons-cn:before {
-    content: "\f134";
+  content: '\f134';
 }
 .prizm-flag-icons-co:before {
-    content: "\f135";
+  content: '\f135';
 }
 .prizm-flag-icons-cr:before {
-    content: "\f136";
+  content: '\f136';
 }
 .prizm-flag-icons-cu:before {
-    content: "\f137";
+  content: '\f137';
 }
 .prizm-flag-icons-cv:before {
-    content: "\f138";
+  content: '\f138';
 }
 .prizm-flag-icons-cw:before {
-    content: "\f139";
+  content: '\f139';
 }
 .prizm-flag-icons-cx:before {
-    content: "\f13a";
+  content: '\f13a';
 }
 .prizm-flag-icons-cy:before {
-    content: "\f13b";
+  content: '\f13b';
 }
 .prizm-flag-icons-cz:before {
-    content: "\f13c";
+  content: '\f13c';
 }
 .prizm-flag-icons-de:before {
-    content: "\f13d";
+  content: '\f13d';
 }
 .prizm-flag-icons-dj:before {
-    content: "\f13e";
+  content: '\f13e';
 }
 .prizm-flag-icons-dk:before {
-    content: "\f13f";
+  content: '\f13f';
 }
 .prizm-flag-icons-dm:before {
-    content: "\f140";
+  content: '\f140';
 }
 .prizm-flag-icons-do:before {
-    content: "\f141";
+  content: '\f141';
 }
 .prizm-flag-icons-dz:before {
-    content: "\f142";
+  content: '\f142';
 }
 .prizm-flag-icons-ec:before {
-    content: "\f143";
+  content: '\f143';
 }
 .prizm-flag-icons-ee:before {
-    content: "\f144";
+  content: '\f144';
 }
 .prizm-flag-icons-eg:before {
-    content: "\f145";
+  content: '\f145';
 }
 .prizm-flag-icons-eh:before {
-    content: "\f146";
+  content: '\f146';
 }
 .prizm-flag-icons-er:before {
-    content: "\f147";
+  content: '\f147';
 }
 .prizm-flag-icons-es:before {
-    content: "\f148";
+  content: '\f148';
 }
 .prizm-flag-icons-et:before {
-    content: "\f149";
+  content: '\f149';
 }
 .prizm-flag-icons-europe:before {
-    content: "\f14a";
+  content: '\f14a';
 }
 .prizm-flag-icons-fi:before {
-    content: "\f14b";
+  content: '\f14b';
 }
 .prizm-flag-icons-fj:before {
-    content: "\f14c";
+  content: '\f14c';
 }
 .prizm-flag-icons-fk:before {
-    content: "\f14d";
+  content: '\f14d';
 }
 .prizm-flag-icons-fm:before {
-    content: "\f14e";
+  content: '\f14e';
 }
 .prizm-flag-icons-fo:before {
-    content: "\f14f";
+  content: '\f14f';
 }
 .prizm-flag-icons-fr:before {
-    content: "\f150";
+  content: '\f150';
 }
 .prizm-flag-icons-ga:before {
-    content: "\f151";
+  content: '\f151';
 }
 .prizm-flag-icons-gb-eng:before {
-    content: "\f152";
+  content: '\f152';
 }
 .prizm-flag-icons-gb-nir:before {
-    content: "\f153";
+  content: '\f153';
 }
 .prizm-flag-icons-gb-sct:before {
-    content: "\f154";
+  content: '\f154';
 }
 .prizm-flag-icons-gb-ukm:before {
-    content: "\f155";
+  content: '\f155';
 }
 .prizm-flag-icons-gb-wls:before {
-    content: "\f156";
+  content: '\f156';
 }
 .prizm-flag-icons-gd:before {
-    content: "\f157";
+  content: '\f157';
 }
 .prizm-flag-icons-ge:before {
-    content: "\f158";
+  content: '\f158';
 }
 .prizm-flag-icons-gf:before {
-    content: "\f159";
+  content: '\f159';
 }
 .prizm-flag-icons-gg:before {
-    content: "\f15a";
+  content: '\f15a';
 }
 .prizm-flag-icons-gh:before {
-    content: "\f15b";
+  content: '\f15b';
 }
 .prizm-flag-icons-gi:before {
-    content: "\f15c";
+  content: '\f15c';
 }
 .prizm-flag-icons-gl:before {
-    content: "\f15d";
+  content: '\f15d';
 }
 .prizm-flag-icons-gm:before {
-    content: "\f15e";
+  content: '\f15e';
 }
 .prizm-flag-icons-gn:before {
-    content: "\f15f";
+  content: '\f15f';
 }
 .prizm-flag-icons-gp:before {
-    content: "\f160";
+  content: '\f160';
 }
 .prizm-flag-icons-gq:before {
-    content: "\f161";
+  content: '\f161';
 }
 .prizm-flag-icons-gr:before {
-    content: "\f162";
+  content: '\f162';
 }
 .prizm-flag-icons-gs:before {
-    content: "\f163";
+  content: '\f163';
 }
 .prizm-flag-icons-gt:before {
-    content: "\f164";
+  content: '\f164';
 }
 .prizm-flag-icons-gu:before {
-    content: "\f165";
+  content: '\f165';
 }
 .prizm-flag-icons-gw:before {
-    content: "\f166";
+  content: '\f166';
 }
 .prizm-flag-icons-gy:before {
-    content: "\f167";
+  content: '\f167';
 }
 .prizm-flag-icons-hk:before {
-    content: "\f168";
+  content: '\f168';
 }
 .prizm-flag-icons-hm:before {
-    content: "\f169";
+  content: '\f169';
 }
 .prizm-flag-icons-hn:before {
-    content: "\f16a";
+  content: '\f16a';
 }
 .prizm-flag-icons-hr:before {
-    content: "\f16b";
+  content: '\f16b';
 }
 .prizm-flag-icons-ht:before {
-    content: "\f16c";
+  content: '\f16c';
 }
 .prizm-flag-icons-hu:before {
-    content: "\f16d";
+  content: '\f16d';
 }
 .prizm-flag-icons-id:before {
-    content: "\f16e";
+  content: '\f16e';
 }
 .prizm-flag-icons-ie:before {
-    content: "\f16f";
+  content: '\f16f';
 }
 .prizm-flag-icons-il:before {
-    content: "\f170";
+  content: '\f170';
 }
 .prizm-flag-icons-im:before {
-    content: "\f171";
+  content: '\f171';
 }
 .prizm-flag-icons-in:before {
-    content: "\f172";
+  content: '\f172';
 }
 .prizm-flag-icons-io:before {
-    content: "\f173";
+  content: '\f173';
 }
 .prizm-flag-icons-iq:before {
-    content: "\f174";
+  content: '\f174';
 }
 .prizm-flag-icons-ir:before {
-    content: "\f175";
+  content: '\f175';
 }
 .prizm-flag-icons-is:before {
-    content: "\f176";
+  content: '\f176';
 }
 .prizm-flag-icons-it:before {
-    content: "\f177";
+  content: '\f177';
 }
 .prizm-flag-icons-je:before {
-    content: "\f178";
+  content: '\f178';
 }
 .prizm-flag-icons-jm:before {
-    content: "\f179";
+  content: '\f179';
 }
 .prizm-flag-icons-jo:before {
-    content: "\f17a";
+  content: '\f17a';
 }
 .prizm-flag-icons-jp:before {
-    content: "\f17b";
+  content: '\f17b';
 }
 .prizm-flag-icons-kg:before {
-    content: "\f17c";
+  content: '\f17c';
 }
 .prizm-flag-icons-kh:before {
-    content: "\f17d";
+  content: '\f17d';
 }
 .prizm-flag-icons-ki:before {
-    content: "\f17e";
+  content: '\f17e';
 }
 .prizm-flag-icons-km:before {
-    content: "\f17f";
+  content: '\f17f';
 }
 .prizm-flag-icons-kn-sk:before {
-    content: "\f180";
+  content: '\f180';
 }
 .prizm-flag-icons-kn:before {
-    content: "\f181";
+  content: '\f181';
 }
 .prizm-flag-icons-kp:before {
-    content: "\f182";
+  content: '\f182';
 }
 .prizm-flag-icons-kr:before {
-    content: "\f183";
+  content: '\f183';
 }
 .prizm-flag-icons-kw:before {
-    content: "\f184";
+  content: '\f184';
 }
 .prizm-flag-icons-ky:before {
-    content: "\f185";
+  content: '\f185';
 }
 .prizm-flag-icons-kz:before {
-    content: "\f186";
+  content: '\f186';
 }
 .prizm-flag-icons-la:before {
-    content: "\f187";
+  content: '\f187';
 }
 .prizm-flag-icons-lb:before {
-    content: "\f188";
+  content: '\f188';
 }
 .prizm-flag-icons-lc:before {
-    content: "\f189";
+  content: '\f189';
 }
 .prizm-flag-icons-li:before {
-    content: "\f18a";
+  content: '\f18a';
 }
 .prizm-flag-icons-lk:before {
-    content: "\f18b";
+  content: '\f18b';
 }
 .prizm-flag-icons-lr:before {
-    content: "\f18c";
+  content: '\f18c';
 }
 .prizm-flag-icons-ls:before {
-    content: "\f18d";
+  content: '\f18d';
 }
 .prizm-flag-icons-lt:before {
-    content: "\f18e";
+  content: '\f18e';
 }
 .prizm-flag-icons-lu:before {
-    content: "\f18f";
+  content: '\f18f';
 }
 .prizm-flag-icons-lv:before {
-    content: "\f190";
+  content: '\f190';
 }
 .prizm-flag-icons-ly:before {
-    content: "\f191";
+  content: '\f191';
 }
 .prizm-flag-icons-ma:before {
-    content: "\f192";
+  content: '\f192';
 }
 .prizm-flag-icons-mc:before {
-    content: "\f193";
+  content: '\f193';
 }
 .prizm-flag-icons-md:before {
-    content: "\f194";
+  content: '\f194';
 }
 .prizm-flag-icons-me:before {
-    content: "\f195";
+  content: '\f195';
 }
 .prizm-flag-icons-mf:before {
-    content: "\f196";
+  content: '\f196';
 }
 .prizm-flag-icons-mg:before {
-    content: "\f197";
+  content: '\f197';
 }
 .prizm-flag-icons-mh:before {
-    content: "\f198";
+  content: '\f198';
 }
 .prizm-flag-icons-mk:before {
-    content: "\f199";
+  content: '\f199';
 }
 .prizm-flag-icons-ml:before {
-    content: "\f19a";
+  content: '\f19a';
 }
 .prizm-flag-icons-mm:before {
-    content: "\f19b";
+  content: '\f19b';
 }
 .prizm-flag-icons-mn:before {
-    content: "\f19c";
+  content: '\f19c';
 }
 .prizm-flag-icons-mo:before {
-    content: "\f19d";
+  content: '\f19d';
 }
 .prizm-flag-icons-mp:before {
-    content: "\f19e";
+  content: '\f19e';
 }
 .prizm-flag-icons-mq-unf:before {
-    content: "\f19f";
+  content: '\f19f';
 }
 .prizm-flag-icons-mq:before {
-    content: "\f1a0";
+  content: '\f1a0';
 }
 .prizm-flag-icons-mr:before {
-    content: "\f1a1";
+  content: '\f1a1';
 }
 .prizm-flag-icons-ms:before {
-    content: "\f1a2";
+  content: '\f1a2';
 }
 .prizm-flag-icons-mt:before {
-    content: "\f1a3";
+  content: '\f1a3';
 }
 .prizm-flag-icons-mu:before {
-    content: "\f1a4";
+  content: '\f1a4';
 }
 .prizm-flag-icons-mv:before {
-    content: "\f1a5";
+  content: '\f1a5';
 }
 .prizm-flag-icons-mw:before {
-    content: "\f1a6";
+  content: '\f1a6';
 }
 .prizm-flag-icons-mx:before {
-    content: "\f1a7";
+  content: '\f1a7';
 }
 .prizm-flag-icons-my:before {
-    content: "\f1a8";
+  content: '\f1a8';
 }
 .prizm-flag-icons-mz:before {
-    content: "\f1a9";
+  content: '\f1a9';
 }
 .prizm-flag-icons-na:before {
-    content: "\f1aa";
+  content: '\f1aa';
 }
 .prizm-flag-icons-nc:before {
-    content: "\f1ab";
+  content: '\f1ab';
 }
 .prizm-flag-icons-ne:before {
-    content: "\f1ac";
+  content: '\f1ac';
 }
 .prizm-flag-icons-nf:before {
-    content: "\f1ad";
+  content: '\f1ad';
 }
 .prizm-flag-icons-ng:before {
-    content: "\f1ae";
+  content: '\f1ae';
 }
 .prizm-flag-icons-ni:before {
-    content: "\f1af";
+  content: '\f1af';
 }
 .prizm-flag-icons-nl:before {
-    content: "\f1b0";
+  content: '\f1b0';
 }
 .prizm-flag-icons-no:before {
-    content: "\f1b1";
+  content: '\f1b1';
 }
 .prizm-flag-icons-np:before {
-    content: "\f1b2";
+  content: '\f1b2';
 }
 .prizm-flag-icons-nr:before {
-    content: "\f1b3";
+  content: '\f1b3';
 }
 .prizm-flag-icons-nu:before {
-    content: "\f1b4";
+  content: '\f1b4';
 }
 .prizm-flag-icons-nz:before {
-    content: "\f1b5";
+  content: '\f1b5';
 }
 .prizm-flag-icons-om:before {
-    content: "\f1b6";
+  content: '\f1b6';
 }
 .prizm-flag-icons-pa:before {
-    content: "\f1b7";
+  content: '\f1b7';
 }
 .prizm-flag-icons-pe:before {
-    content: "\f1b8";
+  content: '\f1b8';
 }
 .prizm-flag-icons-pf:before {
-    content: "\f1b9";
+  content: '\f1b9';
 }
 .prizm-flag-icons-pg:before {
-    content: "\f1ba";
+  content: '\f1ba';
 }
 .prizm-flag-icons-ph:before {
-    content: "\f1bb";
+  content: '\f1bb';
 }
 .prizm-flag-icons-pk:before {
-    content: "\f1bc";
+  content: '\f1bc';
 }
 .prizm-flag-icons-pl:before {
-    content: "\f1bd";
+  content: '\f1bd';
 }
 .prizm-flag-icons-pm-unf:before {
-    content: "\f1be";
+  content: '\f1be';
 }
 .prizm-flag-icons-pm:before {
-    content: "\f1bf";
+  content: '\f1bf';
 }
 .prizm-flag-icons-pn:before {
-    content: "\f1c0";
+  content: '\f1c0';
 }
 .prizm-flag-icons-pr:before {
-    content: "\f1c1";
+  content: '\f1c1';
 }
 .prizm-flag-icons-ps:before {
-    content: "\f1c2";
+  content: '\f1c2';
 }
 .prizm-flag-icons-pt:before {
-    content: "\f1c3";
+  content: '\f1c3';
 }
 .prizm-flag-icons-pw:before {
-    content: "\f1c4";
+  content: '\f1c4';
 }
 .prizm-flag-icons-py:before {
-    content: "\f1c5";
+  content: '\f1c5';
 }
 .prizm-flag-icons-qa:before {
-    content: "\f1c6";
+  content: '\f1c6';
 }
 .prizm-flag-icons-rainbow:before {
-    content: "\f1c7";
+  content: '\f1c7';
 }
 .prizm-flag-icons-re:before {
-    content: "\f1c8";
+  content: '\f1c8';
 }
 .prizm-flag-icons-ro:before {
-    content: "\f1c9";
+  content: '\f1c9';
 }
 .prizm-flag-icons-rs:before {
-    content: "\f1ca";
+  content: '\f1ca';
 }
 .prizm-flag-icons-ru:before {
-    content: "\f1cb";
+  content: '\f1cb';
 }
 .prizm-flag-icons-rw:before {
-    content: "\f1cc";
+  content: '\f1cc';
 }
 .prizm-flag-icons-sa:before {
-    content: "\f1cd";
+  content: '\f1cd';
 }
 .prizm-flag-icons-sb:before {
-    content: "\f1ce";
+  content: '\f1ce';
 }
 .prizm-flag-icons-sc:before {
-    content: "\f1cf";
+  content: '\f1cf';
 }
 .prizm-flag-icons-sd:before {
-    content: "\f1d0";
+  content: '\f1d0';
 }
 .prizm-flag-icons-se:before {
-    content: "\f1d1";
+  content: '\f1d1';
 }
 .prizm-flag-icons-sg:before {
-    content: "\f1d2";
+  content: '\f1d2';
 }
 .prizm-flag-icons-sh:before {
-    content: "\f1d3";
+  content: '\f1d3';
 }
 .prizm-flag-icons-si:before {
-    content: "\f1d4";
+  content: '\f1d4';
 }
 .prizm-flag-icons-sj:before {
-    content: "\f1d5";
+  content: '\f1d5';
 }
 .prizm-flag-icons-sk:before {
-    content: "\f1d6";
+  content: '\f1d6';
 }
 .prizm-flag-icons-sl:before {
-    content: "\f1d7";
+  content: '\f1d7';
 }
 .prizm-flag-icons-sm:before {
-    content: "\f1d8";
+  content: '\f1d8';
 }
 .prizm-flag-icons-sn:before {
-    content: "\f1d9";
+  content: '\f1d9';
 }
 .prizm-flag-icons-so:before {
-    content: "\f1da";
+  content: '\f1da';
 }
 .prizm-flag-icons-sr:before {
-    content: "\f1db";
+  content: '\f1db';
 }
 .prizm-flag-icons-ss:before {
-    content: "\f1dc";
+  content: '\f1dc';
 }
 .prizm-flag-icons-st:before {
-    content: "\f1dd";
+  content: '\f1dd';
 }
 .prizm-flag-icons-sv:before {
-    content: "\f1de";
+  content: '\f1de';
 }
 .prizm-flag-icons-sx:before {
-    content: "\f1df";
+  content: '\f1df';
 }
 .prizm-flag-icons-sy:before {
-    content: "\f1e0";
+  content: '\f1e0';
 }
 .prizm-flag-icons-sz:before {
-    content: "\f1e1";
+  content: '\f1e1';
 }
 .prizm-flag-icons-tc:before {
-    content: "\f1e2";
+  content: '\f1e2';
 }
 .prizm-flag-icons-td:before {
-    content: "\f1e3";
+  content: '\f1e3';
 }
 .prizm-flag-icons-tf:before {
-    content: "\f1e4";
+  content: '\f1e4';
 }
 .prizm-flag-icons-tg:before {
-    content: "\f1e5";
+  content: '\f1e5';
 }
 .prizm-flag-icons-th:before {
-    content: "\f1e6";
+  content: '\f1e6';
 }
 .prizm-flag-icons-tj:before {
-    content: "\f1e7";
+  content: '\f1e7';
 }
 .prizm-flag-icons-tk:before {
-    content: "\f1e8";
+  content: '\f1e8';
 }
 .prizm-flag-icons-tl:before {
-    content: "\f1e9";
+  content: '\f1e9';
 }
 .prizm-flag-icons-tm:before {
-    content: "\f1ea";
+  content: '\f1ea';
 }
 .prizm-flag-icons-tn:before {
-    content: "\f1eb";
+  content: '\f1eb';
 }
 .prizm-flag-icons-to:before {
-    content: "\f1ec";
+  content: '\f1ec';
 }
 .prizm-flag-icons-tr:before {
-    content: "\f1ed";
+  content: '\f1ed';
 }
 .prizm-flag-icons-tt:before {
-    content: "\f1ee";
+  content: '\f1ee';
 }
 .prizm-flag-icons-tv:before {
-    content: "\f1ef";
+  content: '\f1ef';
 }
 .prizm-flag-icons-tw:before {
-    content: "\f1f0";
+  content: '\f1f0';
 }
 .prizm-flag-icons-tz:before {
-    content: "\f1f1";
+  content: '\f1f1';
 }
 .prizm-flag-icons-ua:before {
-    content: "\f1f2";
+  content: '\f1f2';
 }
 .prizm-flag-icons-ug:before {
-    content: "\f1f3";
+  content: '\f1f3';
 }
 .prizm-flag-icons-um:before {
-    content: "\f1f4";
+  content: '\f1f4';
 }
 .prizm-flag-icons-union:before {
-    content: "\f1f5";
+  content: '\f1f5';
 }
 .prizm-flag-icons-us:before {
-    content: "\f1f6";
+  content: '\f1f6';
 }
 .prizm-flag-icons-uy:before {
-    content: "\f1f7";
+  content: '\f1f7';
 }
 .prizm-flag-icons-uz:before {
-    content: "\f1f8";
+  content: '\f1f8';
 }
 .prizm-flag-icons-va:before {
-    content: "\f1f9";
+  content: '\f1f9';
 }
 .prizm-flag-icons-vc:before {
-    content: "\f1fa";
+  content: '\f1fa';
 }
 .prizm-flag-icons-ve:before {
-    content: "\f1fb";
+  content: '\f1fb';
 }
 .prizm-flag-icons-vg:before {
-    content: "\f1fc";
+  content: '\f1fc';
 }
 .prizm-flag-icons-vi:before {
-    content: "\f1fd";
+  content: '\f1fd';
 }
 .prizm-flag-icons-vn:before {
-    content: "\f1fe";
+  content: '\f1fe';
 }
 .prizm-flag-icons-vu:before {
-    content: "\f1ff";
+  content: '\f1ff';
 }
 .prizm-flag-icons-wf:before {
-    content: "\f200";
+  content: '\f200';
 }
 .prizm-flag-icons-ws:before {
-    content: "\f201";
+  content: '\f201';
 }
 .prizm-flag-icons-xk:before {
-    content: "\f202";
+  content: '\f202';
 }
 .prizm-flag-icons-ye:before {
-    content: "\f203";
+  content: '\f203';
 }
 .prizm-flag-icons-yt-unf:before {
-    content: "\f204";
+  content: '\f204';
 }
 .prizm-flag-icons-za:before {
-    content: "\f205";
+  content: '\f205';
 }
 .prizm-flag-icons-zm:before {
-    content: "\f206";
+  content: '\f206';
 }
 .prizm-flag-icons-zw:before {
-    content: "\f207";
+  content: '\f207';
 }

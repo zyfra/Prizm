@@ -8,6 +8,5 @@ import { PrizmChartsGaugeModule } from '@prizm-ui/charts';
     PrizmChartsGaugeModule,
   ],
 })
-export class MyModule {
-}
+export class MyModule {}
 ```

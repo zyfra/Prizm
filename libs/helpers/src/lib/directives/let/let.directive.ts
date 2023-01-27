@@ -15,15 +15,13 @@ interface LetContext<T> {
  */
 @Directive({
   selector: '[prizmLet]',
-  providers: [
-    PrizmLetContextService
-  ],
+  providers: [PrizmLetContextService],
 })
 export class PrizmLetDirective<T> implements OnDestroy {
   constructor(
     private templateRef: TemplateRef<LetContext<T>>,
     private viewContainer: ViewContainerRef,
-    private contextService: PrizmLetContextService<T>,
+    private contextService: PrizmLetContextService<T>
   ) {}
   @Input('prizmLet') set init(newContext: T) {
     this.updateContext(newContext);

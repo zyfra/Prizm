@@ -26,4 +26,3 @@ import { PrizmMaskModule } from '../../../modules';
   exports: [PrizmInputTimeComponent],
 })
 export class PrizmInputTimeModule {}
-

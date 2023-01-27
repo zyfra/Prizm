@@ -13,12 +13,11 @@ import { Component } from '@angular/core';
         }
 
         .content {
-
           display: flex;
           gap: 1rem;
         }
       }
-    `
+    `,
   ],
 })
 export class PrizmFilledButtonsExampleComponent {}

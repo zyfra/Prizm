@@ -13,7 +13,7 @@
       ></button>
       <prizm-dropdown-host [content]="dropdown" prizmDropdownHostWidth="100%" [(isOpen)]="openDropdown">
         <button class="zoom-control__select" (click)="openDropdown = !openDropdown">
-          {{ currentScale | number: '.0-1' }}%
+          {{ currentScale | number : '.0-1' }}%
           <prizm-icon iconClass="chevrons-dropdown" class="zoom-control__select-icon"></prizm-icon>
         </button>
       </prizm-dropdown-host>

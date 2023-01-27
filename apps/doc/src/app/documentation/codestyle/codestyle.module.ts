@@ -6,13 +6,13 @@ import { MarkdownModule } from 'ngx-markdown';
 import { CodestyleComponent } from './codestyle.component';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        MarkdownModule,
-        PrizmAddonDocModule,
-        RouterModule.forChild(prizmDocGenerateRoutes(CodestyleComponent)),
-    ],
-    declarations: [CodestyleComponent],
-    exports: [CodestyleComponent],
+  imports: [
+    CommonModule,
+    MarkdownModule,
+    PrizmAddonDocModule,
+    RouterModule.forChild(prizmDocGenerateRoutes(CodestyleComponent)),
+  ],
+  declarations: [CodestyleComponent],
+  exports: [CodestyleComponent],
 })
 export class CodestyleModule {}

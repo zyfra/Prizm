@@ -129,4 +129,3 @@ export class PrizmCheckboxComponent implements ControlValueAccessor, OnDestroy, 
     this.disabled = isDisabled;
   }
 }
-

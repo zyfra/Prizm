@@ -1,15 +1,12 @@
-<prizm-select
-  [formControl]='control'
-  [items]='items'
-></prizm-select>
-<br>
-<br>
+<prizm-select [formControl]="control" [items]="items"></prizm-select>
+<br />
+<br />
 <div>
-  <button (click)='setDefaultValue()'>Set default value: <b>{{items[0]}}</b></button>
+  <button (click)="setDefaultValue()">
+    Set default value: <b>{{ items[0] }}</b>
+  </button>
 </div>
 
-<br>
-<br>
-<div>
-  Current value: {{control.value}}
-</div>
+<br />
+<br />
+<div>Current value: {{ control.value }}</div>

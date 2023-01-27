@@ -1,27 +1,27 @@
 :host {
-    display: block;
-    transition-property: opacity, height, visibility;
-    transition-duration: var(--prizm-duration, 300ms);
-    opacity: 0;
+  display: block;
+  transition-property: opacity, height, visibility;
+  transition-duration: var(--prizm-duration, 300ms);
+  opacity: 0;
 
-    &._overflow {
-        overflow: hidden;
-    }
+  &._overflow {
+    overflow: hidden;
+  }
 
-    &._expanded {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
+  &._expanded {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 
-    &._loading {
-        opacity: 0.99;
-    }
+  &._loading {
+    opacity: 0.99;
+  }
 }
 
 .wrapper {
-    &:before,
-    &:after {
-        content: '';
-        display: table;
-    }
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
 }

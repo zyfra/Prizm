@@ -4,15 +4,8 @@ import { PrizmButtonModule, PrizmDataListModule, PrizmDropdownHostModule } from 
 import { PrizmSplitButtonsWithDropdownExampleComponent } from './split-buttons-with-dropdown-example.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    PrizmButtonModule,
-    PrizmDropdownHostModule,
-    PrizmDataListModule,
-  ],
-  declarations: [
-    PrizmSplitButtonsWithDropdownExampleComponent
-  ],
+  imports: [CommonModule, PrizmButtonModule, PrizmDropdownHostModule, PrizmDataListModule],
+  declarations: [PrizmSplitButtonsWithDropdownExampleComponent],
   exports: [PrizmSplitButtonsWithDropdownExampleComponent],
 })
 export class SplitButtonsWithDropdownExampleModule {}

@@ -12,12 +12,11 @@ import { Component } from '@angular/core';
         }
 
         .content {
-
           display: flex;
           gap: 1rem;
         }
       }
-    `
+    `,
   ],
   templateUrl: './icons-buttons-example.component.html',
 })

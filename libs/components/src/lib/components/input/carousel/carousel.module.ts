@@ -7,7 +7,11 @@ import { PrizmCarouselComponent } from './carousel.component';
 
 @NgModule({
   imports: [PrizmInputCommonModule],
-  declarations: [PrizmCarouselComponent, PrizmCarouselAuxiliaryLeftComponent, PrizmCarouselAuxiliaryRightComponent],
+  declarations: [
+    PrizmCarouselComponent,
+    PrizmCarouselAuxiliaryLeftComponent,
+    PrizmCarouselAuxiliaryRightComponent,
+  ],
   exports: [
     PrizmCarouselComponent,
     PrizmCarouselAuxiliaryLeftComponent,
@@ -16,4 +20,3 @@ import { PrizmCarouselComponent } from './carousel.component';
   ],
 })
 export class PrizmCarouselModule {}
-

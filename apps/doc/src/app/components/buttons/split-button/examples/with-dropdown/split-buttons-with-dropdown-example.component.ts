@@ -18,20 +18,16 @@ import { ChangeDetectorRef, Component } from '@angular/core';
         }
 
         .content {
-
           display: flex;
           gap: 1rem;
         }
       }
-    `
+    `,
   ],
   templateUrl: './split-buttons-with-dropdown-example.component.html',
 })
 export class PrizmSplitButtonsWithDropdownExampleComponent {
   public open = false;
 
-  constructor(
-    public readonly cdRef: ChangeDetectorRef
-  ) {
-  }
+  constructor(public readonly cdRef: ChangeDetectorRef) {}
 }

@@ -1,19 +1,16 @@
 <ng-template #template><ng-content></ng-content></ng-template>
-<div class='z-dynamic-content prizm-font-main-body-12'>
-  <ng-container
-    *polymorphOutlet="content; context: {$implicit: this, template: template}"
-  >
-  </ng-container>
+<div class="z-dynamic-content prizm-font-main-body-12">
+  <ng-container *polymorphOutlet="content; context: { $implicit: this, template: template }"> </ng-container>
 </div>
 <prizm-expand
-    *ngIf="isExpandable"
-    role="group"
-    class="z-children prizm-font-main-body-12"
-    [expanded]="expanded$ | async"
+  *ngIf="isExpandable"
+  role="group"
+  class="z-children prizm-font-main-body-12"
+  [expanded]="expanded$ | async"
 >
-    <div>
-        <ng-content select="prizm-tree-item"></ng-content>
-        <ng-content select="prizm-tree"></ng-content>
-    </div>
+  <div>
+    <ng-content select="prizm-tree-item"></ng-content>
+    <ng-content select="prizm-tree"></ng-content>
+  </div>
 </prizm-expand>
 <ng-container *ngIf="attached$ | async"></ng-container>

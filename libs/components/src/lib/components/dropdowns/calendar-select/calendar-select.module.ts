@@ -6,15 +6,15 @@ import { CommonModule } from '@angular/common';
 import { PrizmShadowModule } from '../../../directives/shadow';
 
 @NgModule({
-    imports: [
-      CommonModule,
-      PrizmOverlayModule,
-      PrizmLifecycleModule,
-      PrizmShadowModule,
-      PolymorphModule,
-      PrizmMutationObserveModule,
-    ],
-    declarations: [PrizmDropdownHostComponent],
-    exports: [PrizmDropdownHostComponent],
+  imports: [
+    CommonModule,
+    PrizmOverlayModule,
+    PrizmLifecycleModule,
+    PrizmShadowModule,
+    PolymorphModule,
+    PrizmMutationObserveModule,
+  ],
+  declarations: [PrizmDropdownHostComponent],
+  exports: [PrizmDropdownHostComponent],
 })
 export class PrizmDropdownHostModule {}

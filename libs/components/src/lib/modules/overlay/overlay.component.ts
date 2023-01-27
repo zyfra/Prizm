@@ -30,7 +30,7 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   content: PrizmOverlayContent = {
     type: PrizmOverlayContentType.STRING,
     data: '',
-    props: {}
+    props: {},
   };
   config: PrizmOverlayConfig;
   position: PrizmOverlayAbstractPosition;
@@ -54,9 +54,11 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   public ngOnInit(): void {
     this.el = this.elRef.nativeElement;
     this.wrapperEl = this.el.querySelector('.z-overlay-wrapper');
-    let cls = ['z-container',
-      ...(this.config.containerClass || 'z-overlay').split(' ')
-    , this.position.getClassName()];
+    let cls = [
+      'z-container',
+      ...(this.config.containerClass || 'z-overlay').split(' '),
+      this.position.getClassName(),
+    ];
     if (this.config.closeOnDocClick) {
       cls = cls.concat(['no-pointers']);
     }

@@ -6,7 +6,8 @@ import {
   PrizmDay,
   PrizmDayRange,
   PrizmInputSize,
-  PrizmTime, PrizmTimeMode,
+  PrizmTime,
+  PrizmTimeMode,
 } from '@prizm-ui/components';
 import { FormControl } from '@angular/forms';
 
@@ -19,21 +20,10 @@ import { FormControl } from '@angular/forms';
 export class InputDateTimeRangeComponent {
   public label = 'Период';
   readonly value = new FormControl(
-    new PrizmDateTimeRange(
-      new PrizmDayRange(
-        new PrizmDay(2018, 2, 10),
-        new PrizmDay(2018, 2, 10)
-      ),
-    ),
+    new PrizmDateTimeRange(new PrizmDayRange(new PrizmDay(2018, 2, 10), new PrizmDay(2018, 2, 10)))
   );
-  readonly min = new PrizmDateTime(
-    new PrizmDay(2000, 2, 20),
-    new PrizmTime(0, 0)
-  );
-  readonly max = new PrizmDateTime(
-    new PrizmDay(2040, 2, 20),
-    new PrizmTime(0, 0)
-  );
+  readonly min = new PrizmDateTime(new PrizmDay(2000, 2, 20), new PrizmTime(0, 0));
+  readonly max = new PrizmDateTime(new PrizmDay(2040, 2, 20), new PrizmTime(0, 0));
   public placeholder = 'Выберите период';
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];
   public size: PrizmInputSize = 'm';
@@ -62,7 +52,9 @@ export class InputDateTimeRangeComponent {
   };
 
   readonly exampleDisabled: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/disabled/input-date-time-range-disabled-example.component.ts'),
+    TypeScript: import(
+      '!!raw-loader!./examples/disabled/input-date-time-range-disabled-example.component.ts'
+    ),
     HTML: import('!!raw-loader!./examples/disabled/input-date-time-range-disabled-example.component.html'),
   };
 
@@ -70,6 +62,8 @@ export class InputDateTimeRangeComponent {
     TypeScript: import(
       '!!raw-loader!./examples/native-date/input-native-date-time-range-base-example.component.ts'
     ),
-    HTML: import('!!raw-loader!./examples/native-date/input-native-date-time-range-base-example.component.html'),
+    HTML: import(
+      '!!raw-loader!./examples/native-date/input-native-date-time-range-base-example.component.html'
+    ),
   };
 }

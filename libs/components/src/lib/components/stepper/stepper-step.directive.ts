@@ -18,4 +18,3 @@ export class PrizmStepperStepDirective implements OnChanges {
     this.stateChanged.next(this.index);
   }
 }
-

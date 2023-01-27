@@ -3,11 +3,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'prizm-polymorph-function-example',
   templateUrl: './function.component.html',
-  styles: []
+  styles: [],
 })
 export class PrizmPolymorphFunctionExampleComponent {
-  public context = {a: 1};
+  public context = { a: 1 };
   public value = (context: Record<string, unknown>) => {
     return `FROM FUNCTION ${context?.a}`;
-  }
+  };
 }

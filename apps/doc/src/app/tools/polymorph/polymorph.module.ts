@@ -23,9 +23,7 @@ import { PrizmPolymorphComponentModule } from './examples/component/component.mo
     PrizmPolymorphTemplateModule,
     RouterModule.forChild(prizmDocGenerateRoutes(PolymorphComponent)),
   ],
-  declarations: [
-    PolymorphComponent,
-  ],
+  declarations: [PolymorphComponent],
   exports: [PolymorphComponent],
 })
 export class ExamplePolymorphModule {}

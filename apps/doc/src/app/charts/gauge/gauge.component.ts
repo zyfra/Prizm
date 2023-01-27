@@ -36,7 +36,7 @@ export class GaugeComponent {
         count: 3,
       },
     },
-  }
+  };
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   readonly exampleOutline: TuiDocExample = {
@@ -47,8 +47,5 @@ export class GaugeComponent {
   public percent = 0.55;
   public height = 300;
   public width: number | null = null;
-  constructor(
-    public readonly prizmTheme: PrizmThemeService,
-  ) {
-  }
+  constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

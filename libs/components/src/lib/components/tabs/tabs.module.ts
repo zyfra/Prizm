@@ -11,11 +11,7 @@ import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
 import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
 
 @NgModule({
-  declarations: [
-    PrizmTabsComponent,
-    PrizmTabComponent,
-    PrizmTabMenuItemDirective
-  ],
+  declarations: [PrizmTabsComponent, PrizmTabComponent, PrizmTabMenuItemDirective],
   imports: [
     CommonModule,
     PrizmIconModule,

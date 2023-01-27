@@ -19,9 +19,7 @@ import { PrizmDropdownHostExampleWithTemplateComponent } from './examples/with-t
 import { PrizmSelectPanelExampleComponent } from './examples/select-panel-example/select-panel-example.component';
 import { PrizmDropdownHostDateListEditExampleComponent } from './examples/date-list-edit/date-list-edit.component';
 import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
-import {
-  PrizmDropdownHostExampleWithCustomContextComponent
-} from './examples/with-custom-context/with-custom-context.component';
+import { PrizmDropdownHostExampleWithCustomContextComponent } from './examples/with-custom-context/with-custom-context.component';
 import { PrizmDropdownHostDateListExampleComponent } from './examples/date-list-with-nested/date-list.component';
 
 @NgModule({
@@ -55,4 +53,3 @@ import { PrizmDropdownHostDateListExampleComponent } from './examples/date-list-
   exports: [DropdownHostComponent],
 })
 export class DropdownHostModule {}
-

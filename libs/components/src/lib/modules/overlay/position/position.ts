@@ -1,6 +1,6 @@
-import {ReplaySubject} from "rxjs";
-import {PrizmOverlayPositionMeta} from "../models";
-import {EventBus} from "../utils";
+import { ReplaySubject } from 'rxjs';
+import { PrizmOverlayPositionMeta } from '../models';
+import { EventBus } from '../utils';
 
 export abstract class PrizmOverlayAbstractPosition<T extends Record<string, any> = Record<string, any>> {
   protected config: T = {} as T;
@@ -14,7 +14,7 @@ export abstract class PrizmOverlayAbstractPosition<T extends Record<string, any>
   }
 
   public calculate(): void {
-    if (this.zid) EventBus.send(this.zid, 'z_dynpos')
+    if (this.zid) EventBus.send(this.zid, 'z_dynpos');
   }
 
   abstract getPositions(host: HTMLElement): Record<string, any>;
@@ -28,9 +28,7 @@ export abstract class PrizmOverlayAbstractPosition<T extends Record<string, any>
     this.configSource$.next(this.config);
   }
 
-  public savePosition(
-    position: PrizmOverlayPositionMeta
-  ): void {
+  public savePosition(position: PrizmOverlayPositionMeta): void {
     this.positionSource$.next(position);
   }
 

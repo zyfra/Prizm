@@ -72,12 +72,12 @@
             <ng-container *prizmRow="let item of products; let i = index">
               <tr prizmTr>
                 <td *prizmCell="'code'" class="format__number" prizmTd>
-                  {{ item.code | spaceNumber: '0.0-0' }}
+                  {{ item.code | spaceNumber : '0.0-0' }}
                 </td>
                 <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
                 <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
                 <td *prizmCell="'count'" class="format__number" prizmTd>
-                  {{ item.count | spaceNumber: '0.0-0' }}
+                  {{ item.count | spaceNumber : '0.0-0' }}
                 </td>
               </tr>
             </ng-container>
@@ -132,4 +132,3 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
-

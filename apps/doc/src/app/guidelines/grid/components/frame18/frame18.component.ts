@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'prizm-frame18',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core'
   styleUrls: ['frame18.component.css'],
 })
 export class Frame18Component {
-  rawush8 = ' '
+  rawush8 = ' ';
 }

@@ -7,12 +7,8 @@ import { PrizmScrollbarDirective } from './scrollbar.directive';
 import { PrizmThemeModule } from '../../directives/theme';
 
 @NgModule({
-    imports: [CommonModule, PrizmLetModule, PrizmThemeModule],
-    declarations: [
-        PrizmScrollbarDirective,
-        PrizmScrollbarWrapperDirective,
-        PrizmScrollControlsComponent,
-    ],
-    exports: [PrizmScrollControlsComponent],
+  imports: [CommonModule, PrizmLetModule, PrizmThemeModule],
+  declarations: [PrizmScrollbarDirective, PrizmScrollbarWrapperDirective, PrizmScrollControlsComponent],
+  exports: [PrizmScrollControlsComponent],
 })
 export class PrizmScrollControlsModule {}

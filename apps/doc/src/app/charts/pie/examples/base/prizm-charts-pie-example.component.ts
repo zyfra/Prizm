@@ -11,7 +11,7 @@ import { PrizmThemeService } from '@prizm-ui/theme';
         width: 100%;
         height: 300px;
       }
-    `
+    `,
   ],
 })
 export class PrizmChartsPieExampleComponent {
@@ -39,12 +39,7 @@ export class PrizmChartsPieExampleComponent {
   options: Partial<PrizmChartsPieOptions> = {
     appendPadding: 10,
     radius: 0.9,
+  };
 
-  }
-
-  constructor(
-    public readonly prizmTheme: PrizmThemeService,
-  ) {
-  }
-
+  constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

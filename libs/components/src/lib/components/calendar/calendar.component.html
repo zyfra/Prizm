@@ -1,4 +1,4 @@
-<div class='calendar-host'>
+<div class="calendar-host">
   <ng-container *ngIf="year || clickedMonth; else calendar">
     <prizm-primitive-year-month-pagination
       automation-id="prizm-calendar__pagination"
@@ -7,16 +7,13 @@
       [max]="computedMaxViewedMonth"
       [value]="month"
       [hideButtons]="true"
-      [monthActive]='!!clickedMonth'
-      [yearActive]='!!year'
+      [monthActive]="!!clickedMonth"
+      [yearActive]="!!year"
       (valueChange)="onPaginationValueChange($event)"
       (yearClick)="onPaginationYearClick($event)"
       (monthClick)="onPaginationMonthClick($event)"
     ></prizm-primitive-year-month-pagination>
-    <prizm-scrollbar
-      automation-id="prizm-calendar__scrollbar"
-      class="z-scrollbar"
-    >
+    <prizm-scrollbar automation-id="prizm-calendar__scrollbar" class="z-scrollbar">
       <prizm-primitive-year-picker
         *ngIf="year; else monthPickerTemplate"
         automation-id="prizm-calendar__year"
@@ -33,7 +30,7 @@
           [max]="max"
           [initialItem]="clickedMonth"
           [value]="value"
-          [currentYear]='month.year'
+          [currentYear]="month.year"
           (monthClick)="onPickerMonthClick($event)"
         ></prizm-primitive-month-picker>
       </ng-template>
@@ -56,17 +53,17 @@
       [value]="value"
       [month]="month"
       [daysWithStatus]="daysWithStatus"
-      [disabledItemHandler]="disabledItemHandler | prizmMapper: disabledItemHandlerMapper:min:max"
+      [disabledItemHandler]="disabledItemHandler | prizmMapper : disabledItemHandlerMapper : min : max"
       [markerHandler]="markerHandler"
       [hoveredItem]="hoveredItem"
       (hoveredItemChange)="onHoveredItemChange($event)"
       (dayClick)="onDayClick($event)"
     >
       <ng-container footer>
-        <ng-content select='[footer]'></ng-content>
+        <ng-content select="[footer]"></ng-content>
       </ng-container>
       <ng-container header>
-        <ng-content select='[header]'></ng-content>
+        <ng-content select="[header]"></ng-content>
       </ng-container>
     </prizm-primitive-calendar>
   </ng-template>

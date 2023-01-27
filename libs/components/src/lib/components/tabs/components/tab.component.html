@@ -1,33 +1,23 @@
-<button class="page"
+<button
+  class="page"
   [class.page_active]="isActiveTab$ | async"
   [disabled]="disabled"
   [title]="tabsService.activeTabIdx$$ | async"
 >
-  <div class="page__icon" *ngIf='icon'>
+  <div class="page__icon" *ngIf="icon">
     <ng-container *polymorphOutlet="icon">
-      <prizm-icon
-        [size]="16"
-        [iconClass]="$any(icon)"
-        class="icon icon__mark">
-      </prizm-icon>
+      <prizm-icon [size]="16" [iconClass]="$any(icon)" class="icon icon__mark"> </prizm-icon>
     </ng-container>
   </div>
-  <span class="page__title" *ngIf='content'>
+  <span class="page__title" *ngIf="content">
     <ng-container *polymorphOutlet="content">
-      {{content}}
+      {{ content }}
     </ng-container>
   </span>
   <div class="page__counter" *ngIf="!!count">{{ count }}</div>
-  <div class="page__cancel"
-       (click)='onClose($event)'
-       *ngIf="closable && !disabled">
+  <div class="page__cancel" (click)="onClose($event)" *ngIf="closable && !disabled">
     <ng-container *polymorphOutlet="closeIcon">
-      <prizm-icon
-        [iconClass]="$any(closeIcon)"
-        [size]="16"
-        class="icon"
-      >
-      </prizm-icon>
+      <prizm-icon [iconClass]="$any(closeIcon)" [size]="16" class="icon"> </prizm-icon>
     </ng-container>
   </div>
 </button>

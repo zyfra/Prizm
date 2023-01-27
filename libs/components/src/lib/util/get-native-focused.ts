@@ -4,15 +4,15 @@
  * @return element or null
  */
 export function prizmGetNativeFocused(documentRef: Document): Element | null {
-    if (!documentRef.activeElement || !documentRef.activeElement.shadowRoot) {
-        return documentRef.activeElement;
-    }
+  if (!documentRef.activeElement || !documentRef.activeElement.shadowRoot) {
+    return documentRef.activeElement;
+  }
 
-    let element = documentRef.activeElement.shadowRoot.activeElement;
+  let element = documentRef.activeElement.shadowRoot.activeElement;
 
-    while (element && element.shadowRoot) {
-        element = element.shadowRoot.activeElement;
-    }
+  while (element && element.shadowRoot) {
+    element = element.shadowRoot.activeElement;
+  }
 
-    return element;
+  return element;
 }

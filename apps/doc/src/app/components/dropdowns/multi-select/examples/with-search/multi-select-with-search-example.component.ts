@@ -18,5 +18,5 @@ export class PrizmMultiSelectWithSearchExampleComponent {
     'Костя Щербаков',
     'Рустам Гусев',
     'Филип Уваров',
-  ]
+  ];
 }

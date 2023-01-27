@@ -14,4 +14,3 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     link: 'https://ziiot-dev-07.kube01.yc.ziiot.ru/zui-sdk/storybook/',
   },
 ];
-

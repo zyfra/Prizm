@@ -1,5 +1,5 @@
-<div class='box'>
-  <div class='year-month prizm-font-input-text-14px'>
+<div class="box">
+  <div class="year-month prizm-font-input-text-14px">
     <div *ngIf="oneMonth; else buttonMonth">
       {{ value | prizmMonth | async }}
     </div>
@@ -21,39 +21,36 @@
   </div>
 </div>
 
-
-
 <ng-template #button>
-  <div class='year-box' (click)="onYearClick($event)">
+  <div class="year-box" (click)="onYearClick($event)">
     <button
       [attr.testId]="'prizm-primitive-year-month-pagination__year-button'"
       type="button"
       prizmLink
       [prizmFocusable]="false"
-      [class.active]='yearActive'
+      [class.active]="yearActive"
     >
       {{ value.formattedYear }}
     </button>
     <span>
-      <prizm-icon iconClass='chevrons-dropdown-small'></prizm-icon>
+      <prizm-icon iconClass="chevrons-dropdown-small"></prizm-icon>
     </span>
   </div>
 </ng-template>
 
-
 <ng-template #buttonMonth>
-  <div class='month-box' (click)="onMonthClick($event)">
+  <div class="month-box" (click)="onMonthClick($event)">
     <button
       [attr.testId]="'prizm-primitive-year-month-pagination__year-button'"
       type="button"
       prizmLink
-      [class.active]='monthActive'
+      [class.active]="monthActive"
       [prizmFocusable]="false"
     >
       {{ value | prizmMonth | async }}
     </button>
     <span>
-      <prizm-icon iconClass='chevrons-dropdown-small'></prizm-icon>
+      <prizm-icon iconClass="chevrons-dropdown-small"></prizm-icon>
     </span>
   </div>
 </ng-template>

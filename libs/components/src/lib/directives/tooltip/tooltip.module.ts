@@ -15,12 +15,9 @@ import { PrizmFocusTrapModule } from '../focus-trap';
     PrizmFocusTrapModule,
     PrizmHintModule,
     PrizmScrollbarModule,
-    PrizmIconModule
+    PrizmIconModule,
   ],
-  declarations: [
-    PrizmTooltipDirective,
-    PrizmTooltipContainerComponent
-  ],
+  declarations: [PrizmTooltipDirective, PrizmTooltipContainerComponent],
   exports: [PrizmTooltipDirective],
 })
 export class PrizmTooltipModule {}

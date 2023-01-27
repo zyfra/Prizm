@@ -9,42 +9,42 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           grid: {
             line: {
               style: {
-                stroke: '#A1A5B7'
-              }
-            }
-          }
-        }
+                stroke: '#A1A5B7',
+              },
+            },
+          },
+        },
       },
       area: {
         xAxis: {
           minTickInterval: 10,
           grid: {
-            line:{
+            line: {
               style: {
-                stroke: '#A1A5B7'
-              }
-            }
+                stroke: '#A1A5B7',
+              },
+            },
           },
           line: {
             style: {
-              stroke: '#A1A5B7'
-            }
+              stroke: '#A1A5B7',
+            },
           },
           range: [0, 1],
         },
         yAxis: {
           minTickInterval: 10,
           grid: {
-            line:{
+            line: {
               style: {
-                stroke: '#A1A5B7'
-              }
-            }
+                stroke: '#A1A5B7',
+              },
+            },
           },
           line: {
             style: {
-              stroke: '#A1A5B7'
-            }
+              stroke: '#A1A5B7',
+            },
           },
           range: [0, 1],
         },
@@ -53,37 +53,37 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
         xAxis: {
           minTickInterval: 10,
           grid: {
-            line:{
+            line: {
               style: {
-                stroke: '#A1A5B7'
-              }
-            }
+                stroke: '#A1A5B7',
+              },
+            },
           },
           line: {
             style: {
-              stroke: '#A1A5B7'
-            }
+              stroke: '#A1A5B7',
+            },
           },
           range: [0, 1],
         },
         yAxis: {
           minTickInterval: 10,
           grid: {
-            line:{
+            line: {
               style: {
-                stroke: '#A1A5B7'
-              }
-            }
+                stroke: '#A1A5B7',
+              },
+            },
           },
           line: {
             style: {
-              stroke: '#A1A5B7'
-            }
+              stroke: '#A1A5B7',
+            },
           },
           range: [0, 1],
         },
       },
-    }
+    },
   },
   background: '#ffffff',
   subColor: 'rgba(214, 219, 231, 1)',

@@ -2,15 +2,19 @@
 <ng-content></ng-content>
 <table class="t-table">
   <tr class="t-row t-row_header">
-    <th class="t-th t-cell t-cell_prop t-name" [ngSwitch]='success$ | async'>
-      <span *ngSwitchCase='true'
-            prizmHint='We have found all necessarily inputs and outputs.'
-            class='indicator'>
+    <th class="t-th t-cell t-cell_prop t-name" [ngSwitch]="success$ | async">
+      <span
+        *ngSwitchCase="true"
+        prizmHint="We have found all necessarily inputs and outputs."
+        class="indicator"
+      >
         <prizm-indicator type="icon" status="success"></prizm-indicator>
       </span>
       <span
-        prizmHint='We have not found all necessarily inputs and outputs. Please add this!'
-        *ngSwitchCase='false' class='indicator'>
+        prizmHint="We have not found all necessarily inputs and outputs. Please add this!"
+        *ngSwitchCase="false"
+        class="indicator"
+      >
         <prizm-indicator type="icon" status="danger"></prizm-indicator>
       </span>
       {{ texts[2] }}
@@ -19,7 +23,11 @@
     <th *ngIf="showValues && !isAPI" class="t-th t-cell t-cell_value">{{ texts[3] }}</th>
   </tr>
   <tr
-    *ngFor="let propertyConnector of propertiesConnectors | prizmMapper : sortConnectors : propertiesInnerConnectors; let idx = index"
+    *ngFor="
+      let propertyConnector of propertiesConnectors
+        | prizmMapper : sortConnectors : propertiesInnerConnectors;
+      let idx = index
+    "
     class="t-row"
     [class.t-deprecated]="propertyConnector.documentationPropertyDeprecated"
   >
@@ -34,7 +42,7 @@
       <ng-container [ngTemplateOutlet]="propertyConnector.template"></ng-container>
     </td>
     <td class="t-cell">
-      <span class="type" *prizmLet='getType(propertyConnector) as type'>
+      <span class="type" *prizmLet="getType(propertyConnector) as type">
         {{ type }}
         <tui-tooltip
           *ngIf="showContentTooltip(type)"
@@ -94,7 +102,6 @@
               [value]="propertyConnector.documentationPropertyValue || ''"
               (valueChange)="propertyConnector.onValueChange($event)"
             ></tui-primitive-textfield>
-
 
             <div *ngSwitchCase="'color'" tuiGroup>
               <tui-primitive-textfield
@@ -164,12 +171,12 @@
   </tr>
 </table>
 
-<ng-container *ngIf='control'>
+<ng-container *ngIf="control">
   <ng-template
     documentationPropertyName="disabled"
     documentationPropertyType="boolean"
     documentationPropertyMode="form-control"
-    [documentationPropertyValue]='control | prizmCallFunc : getDisabledFromControl$ | async'
+    [documentationPropertyValue]="control | prizmCallFunc : getDisabledFromControl$ | async"
     (documentationPropertyValueChange)="updateStateOfControl(control, $any($event))"
   >
     Disabled
@@ -179,7 +186,7 @@
     documentationPropertyName="value"
     documentationPropertyType="string"
     documentationPropertyMode="form-control"
-    [documentationPropertyValue]='control | prizmCallFunc : getValueFromControl$ | async'
+    [documentationPropertyValue]="control | prizmCallFunc : getValueFromControl$ | async"
     (documentationPropertyValueChange)="updateValueOfControl(control, $any($event))"
   >
     Value

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -18,5 +18,5 @@ export class PrizmSelectWithSearchExampleComponent {
     'Костя Щербаков',
     'Рустам Гусев',
     'Филип Уваров',
-  ]
+  ];
 }

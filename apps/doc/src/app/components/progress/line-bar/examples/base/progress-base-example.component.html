@@ -1,28 +1,28 @@
 <div>
   <p>Size M</p>
-  <div class='progress-block prizm-font-input-text-helper'>
+  <div class="progress-block prizm-font-input-text-helper">
     <progress
       prizmProgressBar
       max="100"
-      size='m'
-      color='var(--prizm-index-plan)'
+      size="m"
+      color="var(--prizm-index-plan)"
       class="progress"
       [value]="value$ | async"
     ></progress>
-    <span>{{value$ | async}}%</span>
+    <span>{{ value$ | async }}%</span>
   </div>
 </div>
-<br>
+<br />
 
 <div>
   <p>Size S</p>
-  <div class='progress-block'>
-    <span>{{value$ | async}}%</span>
+  <div class="progress-block">
+    <span>{{ value$ | async }}%</span>
     <progress
       prizmProgressBar
       max="100"
-      size='s'
-      color='green'
+      size="s"
+      color="green"
       class="progress"
       [value]="value$ | async"
     ></progress>
@@ -35,81 +35,47 @@
       prizmProgressBar
       [prizmProgressColorSegments]="colors"
       max="100"
-      size='m'
-      color='green'
+      size="m"
+      color="green"
       class="progress"
       [value]="value$ | async"
     ></progress>
   </div>
 </div>
 
-
 <div>
   <p>Label</p>
   <div>
-    <label
-      *ngIf="value$ | async as value"
-      prizmProgressLabel
-      class="label-wrapper"
-    >
+    <label *ngIf="value$ | async as value" prizmProgressLabel class="label-wrapper">
       {{ value }}%
       <progress
         prizmProgressBar
         max="100"
-        color='var(--prizm-index-warning)'
-        size='m'
+        color="var(--prizm-index-warning)"
+        size="m"
         [value]="value"
       ></progress>
     </label>
   </div>
 </div>
 
-
 <div>
   <p>Stacked progress bars</p>
   <div>
-    <label
-      prizmProgressLabel
-      class="label-wrapper"
-    >
-      <progress
-        prizmProgressBar
-        max="4"
-        size="m"
-        class="progress"
-        [value]="3"
-      ></progress>
+    <label prizmProgressLabel class="label-wrapper">
+      <progress prizmProgressBar max="4" size="m" class="progress" [value]="3"></progress>
 
-      <progress
-        prizmProgressBar
-        max="4"
-        size="m"
-        class="progress"
-        [value]="1"
-      ></progress>
+      <progress prizmProgressBar max="4" size="m" class="progress" [value]="1"></progress>
     </label>
   </div>
 </div>
 
-
 <div>
   <p>Indeterminate</p>
   <div>
-    <progress
-      prizmProgressBar
-      color='var(--prizm-index-plan)'
-      class="progress"
-      size='s'
-    ></progress>
-    <br>
-    <br>
-    <progress
-      prizmProgressBar
-      color='var(--prizm-index-danger)'
-      size='m'
-      class="progress"
-    ></progress>
+    <progress prizmProgressBar color="var(--prizm-index-plan)" class="progress" size="s"></progress>
+    <br />
+    <br />
+    <progress prizmProgressBar color="var(--prizm-index-danger)" size="m" class="progress"></progress>
   </div>
 </div>
-
-

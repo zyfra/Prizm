@@ -25,26 +25,25 @@
   border-radius: var(--prizm-confirm-dialog-border-radius, 2px);
   margin: var(--prizm-confirm-dialog-margin, 10px);
   pointer-events: all;
-
 }
 
 *:focus-visible {
   outline: none;
 }
 
-
 .horizontal {
   display: flex;
   justify-content: space-between;
   gap: 32px;
-
 }
 
-.left, .right, .top, .bottom {
+.left,
+.right,
+.top,
+.bottom {
   display: flex;
   gap: 8px;
 }
-
 
 .vertical {
   [prizmButton] {
@@ -52,7 +51,8 @@
     text-align: center;
   }
 
-  .top, .bottom {
+  .top,
+  .bottom {
     flex-flow: column;
   }
 
@@ -60,7 +60,6 @@
     margin-top: 16px;
   }
 }
-
 
 .content {
   display: flex;

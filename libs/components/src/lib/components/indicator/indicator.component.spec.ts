@@ -10,7 +10,7 @@ describe('IndicatorComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [IndicatorComponent],
-      imports: [CommonModule]
+      imports: [CommonModule],
     }).compileComponents();
   });
 

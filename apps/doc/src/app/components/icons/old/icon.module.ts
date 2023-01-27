@@ -13,10 +13,7 @@ import { PrizmIconModule } from '@prizm-ui/components';
     PrizmIconModule,
     RouterModule.forChild(prizmDocGenerateRoutes(IconComponent)),
   ],
-  declarations: [
-    PrizmIconSvgBaseExampleComponent,
-    IconComponent
-  ],
+  declarations: [PrizmIconSvgBaseExampleComponent, IconComponent],
   exports: [IconComponent],
 })
 export class IconModule {}

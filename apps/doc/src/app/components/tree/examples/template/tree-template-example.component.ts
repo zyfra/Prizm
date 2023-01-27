@@ -10,13 +10,15 @@ export interface TreeNode {
 @Component({
   selector: 'prizm-tree-template-example',
   templateUrl: './tree-template-example.component.html',
-  styles: [`
-    .wrapper {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-  `]
+  styles: [
+    `
+      .wrapper {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+    `,
+  ],
 })
 export class TreeTemplateExampleComponent {
   readonly data: TreeNode = {
@@ -29,22 +31,20 @@ export class TreeTemplateExampleComponent {
           {
             text: 'Another item',
             children: [
-              {text: 'Next level 1', icon: 'social-star-half'},
-              {text: 'Next level 2', icon: 'social-star-half'},
-              {text: 'Next level 3'},
+              { text: 'Next level 1', icon: 'social-star-half' },
+              { text: 'Next level 2', icon: 'social-star-half' },
+              { text: 'Next level 3' },
             ],
           },
         ],
       },
-      {text: 'Top level 2'},
+      { text: 'Top level 2' },
       {
         text: 'Top level 3',
-        children: [{text: 'Test 1'}, {text: 'Test 2', icon: 'add-alarm'}],
+        children: [{ text: 'Test 1' }, { text: 'Test 2', icon: 'add-alarm' }],
       },
     ],
   };
 
-  readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item =>
-    item.children || PRIZM_EMPTY_ARRAY;
+  readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item => item.children || PRIZM_EMPTY_ARRAY;
 }
-

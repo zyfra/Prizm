@@ -1,4 +1,3 @@
-
 :host {
   position: relative;
   display: block;
@@ -10,7 +9,7 @@
   cursor: pointer;
   color: white;
 
-  &[data-state="disabled"] {
+  &[data-state='disabled'] {
     cursor: not-allowed;
   }
 
@@ -31,7 +30,8 @@
       background: transparent;
       color: var(--prizm-primary);
 
-      &[data-state="hovered"], &._focused_deleted {
+      &[data-state='hovered'],
+      &._focused_deleted {
         background: var(--prizm-primary-ghost-hover);
         color: var(--prizm-primary);
       }
@@ -42,7 +42,8 @@
       }
     }
 
-    &[data-state="hovered"], &._focused_deleted {
+    &[data-state='hovered'],
+    &._focused_deleted {
       background: var(--prizm-primary-hover);
       color: var(--prizm-exceptions-white);
     }
@@ -66,12 +67,12 @@
       }
     }
 
-
     &[data-appearance-type='ghost'] {
       background: transparent;
       color: var(--prizm-secondary);
 
-      &[data-state="hovered"], &._focused_deleted {
+      &[data-state='hovered'],
+      &._focused_deleted {
         background: var(--prizm-secondary-ghost-hover);
         color: var(--prizm-secondary);
       }
@@ -82,7 +83,8 @@
       }
     }
 
-    &[data-state="hovered"], &._focused_deleted {
+    &[data-state='hovered'],
+    &._focused_deleted {
       background: var(--prizm-secondary-hover);
       color: white;
     }
@@ -112,7 +114,8 @@
       background: transparent;
       color: var(--base);
 
-      &[data-state="hovered"], &._focused_deleted {
+      &[data-state='hovered'],
+      &._focused_deleted {
         background: var(--prizm-warning-ghost-hover);
         color: var(--base);
       }
@@ -123,8 +126,9 @@
       }
     }
 
-    &[data-state="hovered"], &._focused_deleted {
-      background: #E67B0F;
+    &[data-state='hovered'],
+    &._focused_deleted {
+      background: #e67b0f;
       color: white;
     }
 
@@ -141,7 +145,8 @@
       background: transparent;
       color: var(--prizm-index-danger);
 
-      &[data-state="hovered"], &._focused_deleted {
+      &[data-state='hovered'],
+      &._focused_deleted {
         background: var(--prizm-danger-ghost-hover);
         color: var(--prizm-index-danger);
       }
@@ -162,7 +167,8 @@
       }
     }
 
-    &[data-state="hovered"], &._focused_deleted {
+    &[data-state='hovered'],
+    &._focused_deleted {
       background: var(--prizm-palette-r2);
       color: var(--prizm-exceptions-white);
     }
@@ -176,13 +182,12 @@
   &[data-appearance='success'] {
     background: var(--prizm-index-good);
 
-
     &[data-appearance-type='ghost'] {
       background: transparent;
       color: var(--prizm-index-good);
 
-
-      &[data-state="hovered"], &._focused_deleted {
+      &[data-state='hovered'],
+      &._focused_deleted {
         background: var(--prizm-success-ghost-hover); //
         color: var(--prizm-index-good);
       }
@@ -194,22 +199,22 @@
     }
 
     &[data-appearance-type='outline'] {
-      border: 1px solid #49AB4D;
+      border: 1px solid #49ab4d;
       background: transparent;
-      color: #49AB4D;
+      color: #49ab4d;
     }
 
-    &[data-state="hovered"], &._focused_deleted {
-      background: #118F3F;
+    &[data-state='hovered'],
+    &._focused_deleted {
+      background: #118f3f;
       color: white;
     }
 
     &[data-state='pressed'] {
-      background: #0C7733;
+      background: #0c7733;
       color: white;
     }
   }
-
 
   &[data-state='disabled'][data-state='disabled'] {
     &[data-appearance-type='ghost'] {

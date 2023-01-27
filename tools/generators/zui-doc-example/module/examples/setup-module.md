@@ -1,6 +1,6 @@
 ```ts
-import {NgModule} from '@angular/core';
-import {PrizmButtonModule} from "...";
+import { NgModule } from '@angular/core';
+import { PrizmButtonModule } from '...';
 // ...
 
 @NgModule({

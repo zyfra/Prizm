@@ -2,11 +2,13 @@
   <prizm-panel>
     <div class="tabs" header>
       <prizm-tabs (activeTabIndexChange)="activeTabIndexChange()" (closeClick)="tabCancelClick()">
-        <prizm-tab *ngFor='let item of tabs'
-           [disabled]="item.disabled"
-           [icon]="item.icon"
-           [content]="item.title"
-           [type]="'line'">
+        <prizm-tab
+          *ngFor="let item of tabs"
+          [disabled]="item.disabled"
+          [icon]="item.icon"
+          [content]="item.title"
+          [type]="'line'"
+        >
         </prizm-tab>
       </prizm-tabs>
     </div>

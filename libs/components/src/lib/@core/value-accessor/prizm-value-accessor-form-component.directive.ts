@@ -3,10 +3,7 @@ import { DefaultValueAccessor } from '@angular/forms';
 import { PrizmAccessorImplClass } from './prizm-accessor-impl.class';
 
 @Directive()
-export abstract class ValueAccessorFormComponent
-  extends PrizmAccessorImplClass
-  implements AfterViewInit
-{
+export abstract class ValueAccessorFormComponent extends PrizmAccessorImplClass implements AfterViewInit {
   @ViewChild(DefaultValueAccessor) private valueAccessor: DefaultValueAccessor;
 
   public ngAfterViewInit(): void {

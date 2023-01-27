@@ -19,4 +19,3 @@ import { PrizmHintModule } from '../../directives';
   providers: [ActiveNavigationItemService],
 })
 export class PrizmNavigationModule {}
-

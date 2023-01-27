@@ -4,6 +4,6 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   selector: 'prizm-migration',
   templateUrl: './migration.component.html',
   styleUrls: ['./migration.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MigrationComponent {}

@@ -1,1 +1,1 @@
-export {PrizmDestroyService} from './destroy.service'
+export { PrizmDestroyService } from './destroy.service';

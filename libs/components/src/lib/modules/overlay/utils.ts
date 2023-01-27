@@ -1,16 +1,19 @@
-import {TemplateRef} from '@angular/core';
-import {Observable, Subject} from 'rxjs';
-import {filter, map} from 'rxjs/operators';
+import { TemplateRef } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import {
   PrizmOverlayContent,
   PrizmOverlayContentData,
   PrizmOverlayContentProps,
   PrizmOverlayContentType,
   PrizmOverlayEvent,
-  PrizmOverlayEventName
+  PrizmOverlayEventName,
 } from './models';
 
-export function getContent(data: PrizmOverlayContentData, props: PrizmOverlayContentProps = {}): PrizmOverlayContent {
+export function getContent(
+  data: PrizmOverlayContentData,
+  props: PrizmOverlayContentProps = {}
+): PrizmOverlayContent {
   let type: PrizmOverlayContentType = PrizmOverlayContentType.COMPONENT;
 
   if (typeof data === 'string' && props['hasHTML']) type = PrizmOverlayContentType.HTML;

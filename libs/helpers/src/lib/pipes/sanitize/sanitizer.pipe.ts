@@ -14,4 +14,3 @@ export class PrizmSanitizerPipe implements PipeTransform {
     return this.sanitizer[method](value);
   }
 }
-

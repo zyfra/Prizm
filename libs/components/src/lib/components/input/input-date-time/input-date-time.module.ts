@@ -34,4 +34,3 @@ import { PrizmLifecycleModule } from '../../../directives';
   exports: [PrizmInputDateTimeComponent],
 })
 export class PrizmInputDateTimeModule {}
-

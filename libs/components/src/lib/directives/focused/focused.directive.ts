@@ -11,26 +11,26 @@ import { prizmIsNativeFocused } from '../../util';
  * other focus related directives that require bubbling
  */
 @Directive({
-    selector: '[prizmFocusedChange]',
+  selector: '[prizmFocusedChange]',
 })
 export class PrizmFocusedDirective {
-    @Output()
-    readonly prizmFocusedChange: Observable<boolean>;
+  @Output()
+  readonly prizmFocusedChange: Observable<boolean>;
 
-    constructor(
-        @Inject(ElementRef)
-        {nativeElement}: ElementRef<HTMLElement>,
-        @Inject(NgZone) ngZone: NgZone,
-    ) {
-        this.prizmFocusedChange = merge(
-            prizmTypedFromEvent(nativeElement, 'focusin'),
-            prizmTypedFromEvent(nativeElement, 'focusout'),
-        ).pipe(
-            map(() => prizmIsNativeFocused(nativeElement)),
-            startWith(false),
-            distinctUntilChanged(),
-            skip(1),
-            prizmZoneOptimized(ngZone),
-        );
-    }
+  constructor(
+    @Inject(ElementRef)
+    { nativeElement }: ElementRef<HTMLElement>,
+    @Inject(NgZone) ngZone: NgZone
+  ) {
+    this.prizmFocusedChange = merge(
+      prizmTypedFromEvent(nativeElement, 'focusin'),
+      prizmTypedFromEvent(nativeElement, 'focusout')
+    ).pipe(
+      map(() => prizmIsNativeFocused(nativeElement)),
+      startWith(false),
+      distinctUntilChanged(),
+      skip(1),
+      prizmZoneOptimized(ngZone)
+    );
+  }
 }

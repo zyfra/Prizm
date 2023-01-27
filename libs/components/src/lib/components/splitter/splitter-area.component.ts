@@ -29,4 +29,3 @@ export class PrizmSplitterAreaComponent {
     return this.size === null ? 'none' : 'block';
   }
 }
-

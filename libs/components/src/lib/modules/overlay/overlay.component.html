@@ -1,14 +1,14 @@
 <div class="z-backdrop" *ngIf="config.backdrop" [ngClass]="config.backdropClass"></div>
-<div class="z-overlay-wrapper"
-     prizmTheme
-     [ngClass]="config.wrapperClass" [class]="extra" #wrapperEl>
+<div class="z-overlay-wrapper" prizmTheme [ngClass]="config.wrapperClass" [class]="extra" #wrapperEl>
   <ng-container [ngSwitch]="content.type">
     <ng-container *ngSwitchCase="'s'">
       <div [class]="content.props.class">{{ content.data }}</div>
     </ng-container>
     <ng-container *ngSwitchCase="'h'"> <div [innerHTML]="content.data"></div> </ng-container>
     <ng-container *ngSwitchCase="'t'">
-      <ng-container *ngTemplateOutlet="$any(content.data); context: { $implicit: content.props }"></ng-container>
+      <ng-container
+        *ngTemplateOutlet="$any(content.data); context: { $implicit: content.props }"
+      ></ng-container>
     </ng-container>
     <ng-container *ngSwitchCase="'c'"> <ng-template #compOutlet></ng-template> </ng-container>
   </ng-container>

@@ -11,7 +11,7 @@ import { PrizmThemeService } from '@prizm-ui/theme';
         width: 100%;
         height: 300px;
       }
-    `
+    `,
   ],
 })
 export class PrizmChartsRadarExampleComponent {
@@ -50,10 +50,7 @@ export class PrizmChartsRadarExampleComponent {
       size: 2,
     },
     area: {},
-  }
+  };
 
-  constructor(
-    public readonly prizmTheme: PrizmThemeService,
-  ) {
-  }
+  constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

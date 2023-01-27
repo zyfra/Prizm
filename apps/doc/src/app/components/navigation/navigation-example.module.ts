@@ -26,4 +26,3 @@ import { NavigationBasicExampleComponent } from './examples/navigation-basic-exa
   ],
 })
 export class NavigationExampleModule {}
-

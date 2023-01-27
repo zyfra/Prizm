@@ -11,14 +11,13 @@ interface PrizmOverlayGlobalPositionConfig {
 }
 
 interface OverlayOffsetPosition {
-  top: number,
-  bottom: number,
-  left: number,
-  right: number,
+  top: number;
+  bottom: number;
+  left: number;
+  right: number;
 }
 
 export class PrizmOverlayGlobalPosition extends PrizmOverlayAbstractPosition<PrizmOverlayGlobalPositionConfig> {
-
   constructor(config: PrizmOverlayGlobalPositionConfig) {
     super();
     this.updateConfig({
@@ -31,7 +30,7 @@ export class PrizmOverlayGlobalPosition extends PrizmOverlayAbstractPosition<Pri
     const host = hostEl.getBoundingClientRect() as any;
     const src = {
       width: window['innerWidth'],
-      height: window['innerHeight']
+      height: window['innerHeight'],
     };
     let { width: w, height: h } = this.config;
 
@@ -44,7 +43,7 @@ export class PrizmOverlayGlobalPosition extends PrizmOverlayAbstractPosition<Pri
       width: w,
       height: h,
       position: 'fixed',
-      extra: this.config.placement
+      extra: this.config.placement,
     };
   }
 

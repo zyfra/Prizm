@@ -10,6 +10,5 @@ import { PrizmCheckboxModule } from '@prizm-ui/components';
     PrizmCheckboxModuleModule,
   ],
 })
-export class MyModule {
-}
+export class MyModule {}
 ```

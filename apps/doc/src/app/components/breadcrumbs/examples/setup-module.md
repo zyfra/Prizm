@@ -9,6 +9,5 @@ import { PrizmBreadcrumbsModule } from '@prizm-ui/components';
     PrizmBreadcrumbsModule,
   ],
 })
-export class MyModule {
-}
+export class MyModule {}
 ```

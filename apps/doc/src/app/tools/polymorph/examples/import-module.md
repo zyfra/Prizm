@@ -10,6 +10,5 @@ import { PolymorphModule } from '@prizm-ui/components';
     PolymorphModule,
   ],
 })
-export class MyModule {
-}
+export class MyModule {}
 ```

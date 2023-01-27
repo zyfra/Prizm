@@ -21,9 +21,9 @@ export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<P
         placement: PrizmOverlayOutsidePlacement.TOP,
         autoReposition: false,
         width: 'auto',
-        height: 'auto'
+        height: 'auto',
       },
-      ...config
+      ...config,
     });
   }
 
@@ -52,7 +52,7 @@ export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<P
     return elem.getBoundingClientRect();
   }
 
-  private calc(placement: PrizmOverlayOutsidePlacement, src: any, host: any): {left: number, top: number} {
+  private calc(placement: PrizmOverlayOutsidePlacement, src: any, host: any): { left: number; top: number } {
     const [main, sub] = placement.split('');
     const p = { left: 0, top: 0 };
     if ((main === 't' || main === 'b') && !sub) {
@@ -90,20 +90,26 @@ export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<P
     return p;
   }
 
-  private calculatePos(pos: PrizmOverlayOutsidePlacement, s: any, h: any, c = true): {pos: string, props: Record<string, unknown>} {
+  private calculatePos(
+    pos: PrizmOverlayOutsidePlacement,
+    s: any,
+    h: any,
+    c = true
+  ): { pos: string; props: Record<string, unknown> } {
     const props = this.calc(pos, s, h);
 
-    if (c && this.config.autoReposition && this.isOverflowed({ ...props, width: h.width, height: h.height }, pos)) {
+    if (
+      c &&
+      this.config.autoReposition &&
+      this.isOverflowed({ ...props, width: h.width, height: h.height }, pos)
+    ) {
       return this.calculatePos(this.nextPosition(pos), s, h, false);
     }
 
     return { pos, props };
   }
 
-  private isOverflowed(
-    props: { [x: string]: any },
-    placement: PrizmOverlayOutsidePlacement
-  ): boolean {
+  private isOverflowed(props: { [x: string]: any }, placement: PrizmOverlayOutsidePlacement): boolean {
     const [main] = placement.split('');
     /* TODO later add re-position by x coordinates after is-overflowed */
     if (main !== 't' && main !== 'b') {
@@ -139,7 +145,7 @@ export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<P
     });
 
     this.obs.observe(this.config.element, {
-      attributeFilter: ['style']
+      attributeFilter: ['style'],
     });
   }
 }

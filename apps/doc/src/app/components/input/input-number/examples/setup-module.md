@@ -12,4 +12,3 @@ import { PrizmInputNumberModule } from '@prizm-ui/components';
 })
 export class MyModule {}
 ```
-

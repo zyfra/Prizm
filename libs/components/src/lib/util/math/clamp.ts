@@ -6,10 +6,10 @@
  * @param max upper limit
  */
 export function prizmClamp(value: number, min: number, max: number): number {
-    console.assert(!isNaN(value));
-    console.assert(!isNaN(min));
-    console.assert(!isNaN(max));
-    console.assert(max >= min);
+  console.assert(!isNaN(value));
+  console.assert(!isNaN(min));
+  console.assert(!isNaN(max));
+  console.assert(max >= min);
 
-    return Math.min(max, Math.max(min, value));
+  return Math.min(max, Math.max(min, value));
 }

@@ -12,4 +12,3 @@ import { PrizmSliderModule } from '@digital-plant/zui-components';
 })
 export class MyModule {}
 ```
-

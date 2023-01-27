@@ -13,4 +13,3 @@ export class PrizmStepperSelectorItemDirective {
     this.host.nativeElement.focus();
   }
 }
-

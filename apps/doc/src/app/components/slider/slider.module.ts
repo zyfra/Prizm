@@ -31,4 +31,3 @@ import { PrizmSliderModule } from '@prizm-ui/components';
   exports: [PrizmSliderExampleComponent],
 })
 export class PrizmSliderExampleModule {}
-

@@ -14,9 +14,7 @@ import { PrizmIndicatorModule } from '../indicator';
 import { PrizmInputCommonModule } from '../input';
 
 @NgModule({
-  exports: [
-    PrizmToastContainerComponent
-  ],
+  exports: [PrizmToastContainerComponent],
   imports: [
     CommonModule,
     PrizmOverlayModule,
@@ -25,17 +23,10 @@ import { PrizmInputCommonModule } from '../input';
     PolymorphModule,
     PrizmButtonModule,
     PrizmThemeModule,
-    PrizmFocusTrapModule
+    PrizmFocusTrapModule,
   ],
-  declarations: [
-    PrizmToastContainerComponent,
-    ToastWrapperComponent,
-    ToastComponent,
-  ],
-  providers: [
-    PrizmToastControl,
-    PrizmToastService,
-  ]
+  declarations: [PrizmToastContainerComponent, ToastWrapperComponent, ToastComponent],
+  providers: [PrizmToastControl, PrizmToastService],
 })
 export class PrizmToastModule {
   constructor(private readonly toastControl: PrizmToastControl) {

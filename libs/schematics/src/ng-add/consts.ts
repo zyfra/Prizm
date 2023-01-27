@@ -34,4 +34,3 @@ export const MAIN_MODULES: ReadonlyArray<ImportingModule> = [
     packageName: '@prizm-ui/components',
   },
 ];
-

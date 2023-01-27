@@ -14,4 +14,3 @@ export class PrizmInputStatusSubtextComponent extends DefaultInputInvalidTextCla
     super(injector);
   }
 }
-

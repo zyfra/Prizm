@@ -17,7 +17,7 @@ export class PrizmInputDateNativeTransformer implements PrizmControlValueTransfo
 }
 
 export function prizmGetInputDateNativeTransformer(): Provider {
-  return  {
+  return {
     provide: PRIZM_DATE_VALUE_TRANSFORMER,
     useClass: PrizmInputDateNativeTransformer,
   };

@@ -28,4 +28,3 @@ export class PrizmInputStatusTextDirective extends DefaultInputInvalidTextClass 
     return this.invalidText || this.templateRef;
   }
 }
-

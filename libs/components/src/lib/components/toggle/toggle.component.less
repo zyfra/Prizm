@@ -10,7 +10,6 @@
 @toggle-interval-l: 20px;
 @radius: 16px;
 
-
 :host {
   --prizm-secondary: var(--prizm-border-forms);
   --prizm-disabled: var(--prizm-grey-g11-g3);
@@ -23,112 +22,110 @@ prizm-wrapper {
   overflow: hidden;
   border-radius: @radius;
 
-  &[checked=true] {
+  &[checked='true'] {
     --prizm-disabled: var(--prizm-disabled-active);
   }
 }
 
 :host {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    border-radius: @radius;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: @radius;
 
+  &:hover:not(._disabled) {
+    outline: 1px solid var(--prizm-primary-hover);
+  }
 
-    &:hover:not(._disabled) {
-      outline: 1px solid var(--prizm-primary-hover);
+  &:focus-within:not(._disabled) {
+    box-shadow: 0 0 0 2px var(--prizm-lite-b130-20);
+    transition: 0.3s;
+  }
+
+  &._disabled {
+    &._checked prizm-wrapper {
+      background-color: var(--prizm-disabled-active);
     }
 
-    &:focus-within:not(._disabled) {
-      box-shadow: 0 0 0 2px var(--prizm-lite-b130-20);
-      transition: 0.3s;
+    prizm-wrapper {
+      background-color: var(--prizm-disabled);
+      cursor: not-allowed;
     }
+  }
 
-    &._disabled  {
+  &[data-size='m'] {
+    width: @width-m;
+    height: @height-m;
+  }
 
-      &._checked prizm-wrapper {
-        background-color: var(--prizm-disabled-active);
-      }
-
-      prizm-wrapper {
-        background-color: var(--prizm-disabled);
-        cursor: not-allowed;
-      }
-    }
-
-    &[data-size='m'] {
-        width: @width-m;
-        height: @height-m;
-    }
-
-    &[data-size='l'] {
-        width: @width-l;
-        height: @height-l;
-    }
+  &[data-size='l'] {
+    width: @width-l;
+    height: @height-l;
+  }
 }
 
 .checkbox {
-    .clearinput();
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    cursor: pointer;
+  .clearinput();
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
 
-    :host._disabled & {
-        pointer-events: inherit;
-        cursor: inherit;
-    }
+  :host._disabled & {
+    pointer-events: inherit;
+    cursor: inherit;
+  }
 }
 
 .toggle {
-    .transition(transform);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .transition(transform);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    :host[data-size='m'] & {
-        width: @toggle-width-m;
-        height: @height-m;
-        transform: translateX(-@toggle-interval-m);
-    }
+  :host[data-size='m'] & {
+    width: @toggle-width-m;
+    height: @height-m;
+    transform: translateX(-@toggle-interval-m);
+  }
 
-    :host[data-size='l'] & {
-        width: @toggle-width-l;
-        height: @height-l;
-        transform: translateX(-@toggle-interval-l);
-    }
+  :host[data-size='l'] & {
+    width: @toggle-width-l;
+    height: @height-l;
+    transform: translateX(-@toggle-interval-l);
+  }
 
-    :host._checked & {
-        transform: translateX(0);
-    }
+  :host._checked & {
+    transform: translateX(0);
+  }
 }
 
 .circle {
-    margin: 2px 0;
-    flex-shrink: 0;
-    border-radius: 100%;
+  margin: 2px 0;
+  flex-shrink: 0;
+  border-radius: 100%;
+  background-color: var(--prizm-exceptions-white);
+
+  :host._disabled &_light {
+    opacity: 0.24;
+  }
+
+  :host[data-size='m'] & {
+    width: 12px;
+    height: 12px;
+  }
+
+  :host[data-size='l'] & {
+    width: 16px;
+    height: 16px;
+  }
+
+  :host._disabled & {
     background-color: var(--prizm-exceptions-white);
-
-    :host._disabled &_light {
-        opacity: 0.24;
-    }
-
-    :host[data-size='m'] & {
-        width: 12px;
-        height: 12px;
-    }
-
-    :host[data-size='l'] & {
-        width: 16px;
-        height: 16px;
-    }
-
-    :host._disabled & {
-        background-color: var(--prizm-exceptions-white);
-    }
+  }
 }
 
 .z-loader {
@@ -169,12 +166,12 @@ prizm-wrapper {
 }
 
 .icon {
-    opacity: 0.8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    :host:hover & {
-        opacity: 1;
-    }
+  :host:hover & {
+    opacity: 1;
+  }
 }

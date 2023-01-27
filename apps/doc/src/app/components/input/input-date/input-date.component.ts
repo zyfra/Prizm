@@ -44,7 +44,9 @@ export class InputDateComponent {
   };
 
   readonly exampleDouble: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/range-separate/input-date-range-separate-example.component.ts'),
+    TypeScript: import(
+      '!!raw-loader!./examples/range-separate/input-date-range-separate-example.component.ts'
+    ),
     HTML: import('!!raw-loader!./examples/range-separate/input-date-range-separate-example.component.html'),
   };
 }

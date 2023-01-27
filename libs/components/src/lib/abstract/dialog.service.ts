@@ -7,23 +7,25 @@ import {
   PrizmOverlayControl,
   PrizmOverlayGlobalPosition,
   PrizmOverlayInsidePlacement,
-  PrizmOverlayService, PrizmOverlaySlidePosition,
+  PrizmOverlayService,
+  PrizmOverlaySlidePosition,
 } from '../modules/overlay';
 import { takeUntil } from 'rxjs/operators';
 import { PrizmOverscrollMode } from '../directives/overscroll/overscroll.model';
 import { prizmGenerateId } from '../util';
 import { PrizmOverlayConfig } from '../modules/overlay/models';
 
-
 @Injectable()
-export abstract class AbstractPrizmDialogService<T extends PrizmDialogBaseOptions, O = unknown, DATA = unknown> {
+export abstract class AbstractPrizmDialogService<
+  T extends PrizmDialogBaseOptions,
+  O = unknown,
+  DATA = unknown
+> {
   protected abstract readonly component: Type<unknown>;
   protected abstract readonly defaultOptions: T;
   protected readonly overlayService: PrizmOverlayService;
-  protected readonly overscrollService: PrizmOverscrollService
-  protected constructor(
-    injector: Injector
-  ) {
+  protected readonly overscrollService: PrizmOverscrollService;
+  protected constructor(injector: Injector) {
     this.overlayService = injector.get(PrizmOverlayService);
     this.overscrollService = injector.get(PrizmOverscrollService);
   }
@@ -32,24 +34,24 @@ export abstract class AbstractPrizmDialogService<T extends PrizmDialogBaseOption
     content: PolymorphContent<PrizmBaseDialogContext<O>> | unknown,
     options: Partial<T>,
     cb: (data: {
-      control: PrizmOverlayControl,
-      dialog: PrizmBaseDialogContext<any, any>,
-      observer: Observer<O>,
-      destroy$: Observable<void>,
-    }) => void = noop,
+      control: PrizmOverlayControl;
+      dialog: PrizmBaseDialogContext<any, any>;
+      observer: Observer<O>;
+      destroy$: Observable<void>;
+    }) => void = noop
   ): Observable<O> {
-    const destroy$ = new Subject<void>()
+    const destroy$ = new Subject<void>();
     return new Observable(observer => {
       const completeWith = (result: O): void => {
         observer.next(result);
         observer.complete();
       };
 
-      options = options ?? {}
+      options = options ?? {};
 
       const dialog = {
         ...this.defaultOptions,
-        ...(options),
+        ...options,
         content,
         component: this.component,
         completeWith,
@@ -62,55 +64,45 @@ export abstract class AbstractPrizmDialogService<T extends PrizmDialogBaseOption
         .position(this.getPosition(dialog))
         .config(this.getConfig(dialog))
         .content(dialog.component, {
-          context: dialog
+          context: dialog,
         })
         .create();
 
       control.open();
 
-      this.setOverscrollMode(
-        options.overscroll ?? 'scroll',
-        control,
-        destroy$
-      );
+      this.setOverscrollMode(options.overscroll ?? 'scroll', control, destroy$);
 
       if (typeof cb === 'function') {
-        cb({control, dialog, observer, destroy$: destroy$.asObservable()});
+        cb({ control, dialog, observer, destroy$: destroy$.asObservable() });
       }
-
 
       return (): void => {
         control.close();
         destroy$.next();
         destroy$.complete();
       };
-    })
+    });
   }
 
-  protected getConfig(
-    dialog: PrizmBaseDialogContext<any, any>,
-  ): Partial<PrizmOverlayConfig> {
+  protected getConfig(dialog: PrizmBaseDialogContext<any, any>): Partial<PrizmOverlayConfig> {
     return {
       backdrop: dialog.backdrop ?? true,
       containerClass: dialog.containerClass ?? '',
-      backdropClass: [
-        dialog.backdrop && PRIZM_OVERLAY_BACKDROP_NO_POINTERS,
-        dialog.backdropClass
-      ].filter(Boolean).join(' '),
+      backdropClass: [dialog.backdrop && PRIZM_OVERLAY_BACKDROP_NO_POINTERS, dialog.backdropClass]
+        .filter(Boolean)
+        .join(' '),
       wrapperClass: dialog.wrapperClass,
-    }
+    };
   }
 
   protected getPosition(
-    dialog: PrizmBaseDialogContext<any, any>,
+    dialog: PrizmBaseDialogContext<any, any>
   ): PrizmOverlayGlobalPosition | PrizmOverlaySlidePosition | PrizmOverlayGlobalPosition {
-    return new PrizmOverlayGlobalPosition(
-      {
-        placement: dialog.position ?? PrizmOverlayInsidePlacement.CENTER,
-        width: dialog.width ?? 'auto',
-        height: dialog.height ?? 'auto'
-      }
-    );
+    return new PrizmOverlayGlobalPosition({
+      placement: dialog.position ?? PrizmOverlayInsidePlacement.CENTER,
+      width: dialog.width ?? 'auto',
+      height: dialog.height ?? 'auto',
+    });
   }
 
   private setOverscrollMode(
@@ -119,11 +111,6 @@ export abstract class AbstractPrizmDialogService<T extends PrizmDialogBaseOption
     destroy$: Observable<void>
   ): void {
     control.viewEl.style.pointerEvents = 'unset';
-    this.overscrollService.run(
-      mode,
-      control.viewEl,
-    ).pipe(
-      takeUntil(destroy$)
-    ).subscribe();
+    this.overscrollService.run(mode, control.viewEl).pipe(takeUntil(destroy$)).subscribe();
   }
 }

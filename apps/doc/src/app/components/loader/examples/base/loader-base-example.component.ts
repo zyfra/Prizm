@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'prizm-loader-base-example',
@@ -23,8 +23,7 @@ import {Component} from '@angular/core';
           cursor: pointer;
         }
       }
-    `
+    `,
   ],
 })
-export class PrizmLoaderBaseExampleComponent {
-}
+export class PrizmLoaderBaseExampleComponent {}

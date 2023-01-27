@@ -8,9 +8,8 @@ xdescribe('PrizmWidgetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PrizmWidgetComponent]
-    })
-    .compileComponents();
+      declarations: [PrizmWidgetComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

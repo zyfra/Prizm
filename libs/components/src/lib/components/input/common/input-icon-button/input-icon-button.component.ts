@@ -24,4 +24,3 @@ export class PrizmInputIconButtonComponent {
     return this.interactive ? 0 : -1;
   }
 }
-

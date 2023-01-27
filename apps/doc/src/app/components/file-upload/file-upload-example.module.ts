@@ -27,4 +27,3 @@ import { PrizmFileAutoUploadExampleComponent } from './examples/auto-upload/auto
   providers: [fakeFileUploadProvider],
 })
 export class PrizmFileUploadExampleModule {}
-

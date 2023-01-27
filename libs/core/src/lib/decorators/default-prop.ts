@@ -73,7 +73,5 @@ function errorSetDefault(key: string | symbol, component: string): string {
 }
 
 function errorSetDefaultInitial(key: string | symbol, component: string): string {
-  return `Undefined was passed as default value for ${String(
-    key
-  )} to ${component}, error in Prizm`;
+  return `Undefined was passed as default value for ${String(key)} to ${component}, error in Prizm`;
 }

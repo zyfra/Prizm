@@ -1,7 +1,6 @@
 import { InjectionToken } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-
 export type PrizmHostComponentInfo = BehaviorSubject<{
   key: string;
 } | null>;

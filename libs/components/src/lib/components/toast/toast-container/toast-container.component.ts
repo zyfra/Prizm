@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Input, OnChanges, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostBinding,
+  Input,
+  OnChanges,
+  ViewEncapsulation,
+} from '@angular/core';
 import { PrizmToastRef } from '../toast-ref';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -25,15 +32,15 @@ export class PrizmToastContainerComponent implements OnChanges {
   constructor(private readonly prizmToastService: PrizmToastService) {}
 
   ngOnChanges(): void {
-    this.refs$ = (
-      this.containerId ? this.prizmToastService.changes$.pipe(
-        map(refs => refs.filter(ref => ref.position === this.containerId)),
-      ) : this.refs$
-    ) ?? of([])
+    this.refs$ =
+      (this.containerId
+        ? this.prizmToastService.changes$.pipe(
+            map(refs => refs.filter(ref => ref.position === this.containerId))
+          )
+        : this.refs$) ?? of([]);
   }
 
   public trackByHash(_: number, item: PrizmToastRef): string {
     return item.hash;
   }
 }
-

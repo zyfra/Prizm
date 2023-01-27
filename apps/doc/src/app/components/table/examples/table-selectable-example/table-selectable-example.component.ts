@@ -52,4 +52,3 @@ export class TableSelectableExampleComponent {
     this.selectedItemsCodes = this.products2.filter(() => val).map(item => item.code);
   }
 }
-

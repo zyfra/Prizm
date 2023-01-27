@@ -1,13 +1,12 @@
-<ng-container
-  *ngIf="!items.length; else presets">
+<ng-container *ngIf="!items.length; else presets">
   <prizm-primitive-calendar-range
     automation-id="prizm-calendar-range__calendars"
     prizmPreventDefault="mousedown"
     [markerHandler]="markerHandler"
-    [min]="min | prizmMapper: maxLengthMapper:value:maxLength:true"
-    [max]="max | prizmMapper: maxLengthMapper:value:maxLength:false"
+    [min]="min | prizmMapper : maxLengthMapper : value : maxLength : true"
+    [max]="max | prizmMapper : maxLengthMapper : value : maxLength : false"
     [defaultViewedMonthFirst]="computedMonth"
-    [defaultViewedMonthSecond]="computedMonth | prizmMapper: getEndRangeMonthOrShift"
+    [defaultViewedMonthSecond]="computedMonth | prizmMapper : getEndRangeMonthOrShift"
     [disabledItemHandler]="calculatedDisabledItemHandler"
     [value]="value"
     (dayClick)="onDayClick($event)"
@@ -27,37 +26,33 @@
   </prizm-primitive-calendar-range>
 </ng-container>
 <ng-template #presets>
-    <div class="z-wrapper">
-        <prizm-calendar
-            automation-id="prizm-calendar-range__calendar"
-            prizmPreventDefault="mousedown"
-            [value]="value"
-            [markerHandler]="markerHandler"
-            [min]="min | prizmMapper: maxLengthMapper:value:maxLength:true"
-            [max]="max | prizmMapper: maxLengthMapper:value:maxLength:false"
-            [month]="computedMonth"
-            [disabledItemHandler]="calculatedDisabledItemHandler"
-            (dayClick)="onDayClick($event)"
-        >
-        </prizm-calendar>
-        <prizm-data-list
-            role="menu"
-            automation-id="prizm-calendar-range__menu"
-            class="z-menu"
-        >
-            <button
-                *ngFor="let item of items | prizmMapper: mapper:min:max:minLength:(otherDateText$ | async)"
-                prizmOption
-                prizmPreventDefault="mousedown"
-                role="menuitemradio"
-                automation-id="prizm-calendar-range__menu__item"
-                [attr.aria-checked]="isItemActive(item)"
-                (keydown.enter.prevent)="onItemSelect(item)"
-                (keydown.space.prevent)="onItemSelect(item)"
-                (click)="onItemSelect(item)"
-            >
-                {{ item }}
-            </button>
-        </prizm-data-list>
-    </div>
+  <div class="z-wrapper">
+    <prizm-calendar
+      automation-id="prizm-calendar-range__calendar"
+      prizmPreventDefault="mousedown"
+      [value]="value"
+      [markerHandler]="markerHandler"
+      [min]="min | prizmMapper : maxLengthMapper : value : maxLength : true"
+      [max]="max | prizmMapper : maxLengthMapper : value : maxLength : false"
+      [month]="computedMonth"
+      [disabledItemHandler]="calculatedDisabledItemHandler"
+      (dayClick)="onDayClick($event)"
+    >
+    </prizm-calendar>
+    <prizm-data-list role="menu" automation-id="prizm-calendar-range__menu" class="z-menu">
+      <button
+        *ngFor="let item of items | prizmMapper : mapper : min : max : minLength : (otherDateText$ | async)"
+        prizmOption
+        prizmPreventDefault="mousedown"
+        role="menuitemradio"
+        automation-id="prizm-calendar-range__menu__item"
+        [attr.aria-checked]="isItemActive(item)"
+        (keydown.enter.prevent)="onItemSelect(item)"
+        (keydown.space.prevent)="onItemSelect(item)"
+        (click)="onItemSelect(item)"
+      >
+        {{ item }}
+      </button>
+    </prizm-data-list>
+  </div>
 </ng-template>

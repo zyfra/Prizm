@@ -9,16 +9,16 @@
 >
   <prizm-input-layout
     [label]="label"
-    [forceClear]='(forceClear || forceClear === null) && $.selectedItems.length > 0'
+    [forceClear]="(forceClear || forceClear === null) && $.selectedItems.length > 0"
     (clear)="focusableElementRef.focus(); safeStopPropagation(focusableElementRef.value, $event)"
     (click)="safeOpenModal()"
     [outer]="outer"
     [size]="size"
-    [ngSwitch]='outer'
+    [ngSwitch]="outer"
   >
     <input
       prizmInput
-      [style.display]='outer ? "none" : ""'
+      [style.display]="outer ? 'none' : ''"
       #focusableElementRef
       (onClear)="onClear()"
       [disabled]="disabled"
@@ -26,56 +26,57 @@
       [placeholder]="placeholder"
       [formControl]="requiredInputControl"
     />
-    <div class='in-body-chips-box' prizm-input-in-body *ngSwitchCase='true'>
-      <ng-container [ngTemplateOutlet]='chipsTemplate'></ng-container>
+    <div class="in-body-chips-box" prizm-input-in-body *ngSwitchCase="true">
+      <ng-container [ngTemplateOutlet]="chipsTemplate"></ng-container>
     </div>
 
-    <ng-container prizm-input-bottom  *ngSwitchCase='false'>
-      <ng-container [ngTemplateOutlet]='chipsTemplate'></ng-container>
+    <ng-container prizm-input-bottom *ngSwitchCase="false">
+      <ng-container [ngTemplateOutlet]="chipsTemplate"></ng-container>
     </ng-container>
 
     <ng-template #chipsTemplate>
-      <ng-container *ngIf='selectedItemsChips$ | async as chips'>
+      <ng-container *ngIf="selectedItemsChips$ | async as chips">
         <prizm-chips
-          *ngIf='chips.length'
+          *ngIf="chips.length"
           #chipsComponent
-          [class.inner]='!outer'
-          [singleLine]='true'
-          [deletable]='isChipsDeletable'
+          [class.inner]="!outer"
+          [singleLine]="true"
+          [deletable]="isChipsDeletable"
           [chips]="chips"
           (removeChipEvent)="removeChip($event)"
         ></prizm-chips>
       </ng-container>
     </ng-template>
 
-
     <ng-container prizm-input-right>
       <ng-container
-        *polymorphOutlet="(icon || defaultIcon) as iconName; context: {opened: open, disabled: disabled}"
+        *polymorphOutlet="icon || defaultIcon as iconName; context: { opened: open, disabled: disabled }"
       >
-        <prizm-icon *ngIf='!disabled'
-                    (click)='focusableElementRef.focus()'
-                    [class.opened]="open"
-                    [class.active]='focusableElementRef.focused'
-                    [class.icon-dropdown]='iconName === defaultIcon'
-                    [iconClass]='$any(iconName)'>
+        <prizm-icon
+          *ngIf="!disabled"
+          (click)="focusableElementRef.focus()"
+          [class.opened]="open"
+          [class.active]="focusableElementRef.focused"
+          [class.icon-dropdown]="iconName === defaultIcon"
+          [iconClass]="$any(iconName)"
+        >
         </prizm-icon>
       </ng-container>
     </ng-container>
 
-<!--    <prizm-icon-->
-<!--      *ngIf="!disabled"-->
-<!--      (click)="focusableElementRef.focus()"-->
-<!--      [class.active]="focusableElementRef.focused"-->
-<!--      [class.opened]="open"-->
-<!--      class="icon-dropdown"-->
-<!--      prizm-input-right-->
-<!--      iconClass="chevrons-dropdown"-->
-<!--    ></prizm-icon>-->
+    <!--    <prizm-icon-->
+    <!--      *ngIf="!disabled"-->
+    <!--      (click)="focusableElementRef.focus()"-->
+    <!--      [class.active]="focusableElementRef.focused"-->
+    <!--      [class.opened]="open"-->
+    <!--      class="icon-dropdown"-->
+    <!--      prizm-input-right-->
+    <!--      iconClass="chevrons-dropdown"-->
+    <!--    ></prizm-icon>-->
   </prizm-input-layout>
 
   <ng-template #dropdown>
-    <prizm-data-list class="block" [style.--prizm-data-list-border]='0'>
+    <prizm-data-list class="block" [style.--prizm-data-list-border]="0">
       <div class="list-search-item" *ngIf="searchable">
         <prizm-input-layout size="m" label="Поиск">
           <input prizmInput prizmAutoFocus class="input-search" #input [formControl]="searchInputControl" />
@@ -92,15 +93,17 @@
         >
           <prizm-checkbox
             [checked]="item.checked"
-            [host]='parent'
-            [indeterminate]='!!item.indeterminate'
-            (changed)='select(item)'>
-            <div class="text"
-                  #elem
-                  *prizmLet="item | prizmCallFunc: stringify:$any(emptyContent) as text"
-                  [prizmHint]='text'
-                  [prizmHintDirection]='direction'
-                  [prizmHintCanShow]='elem | prizmCallFunc : prizmIsTextOverflow$ | async'
+            [host]="parent"
+            [indeterminate]="!!item.indeterminate"
+            (changed)="select(item)"
+          >
+            <div
+              class="text"
+              #elem
+              *prizmLet="item | prizmCallFunc : stringify : $any(emptyContent) as text"
+              [prizmHint]="text"
+              [prizmHintDirection]="direction"
+              [prizmHintCanShow]="elem | prizmCallFunc : prizmIsTextOverflow$ | async"
             >
               <ng-container
                 *polymorphOutlet="
@@ -109,7 +112,7 @@
                     $implicit: {
                       obj: item.obj,
                       checked: item.checked,
-                      stringify: item | prizmCallFunc: stringify
+                      stringify: item | prizmCallFunc : stringify
                     }
                   } as context
                 "
@@ -128,4 +131,3 @@
     </prizm-data-list>
   </ng-template>
 </prizm-dropdown-host>
-

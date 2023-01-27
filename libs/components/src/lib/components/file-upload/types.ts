@@ -9,4 +9,3 @@ export type PrizmFilesProgress = {
     error?: boolean;
   };
 };
-

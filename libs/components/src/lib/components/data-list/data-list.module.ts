@@ -6,13 +6,8 @@ import { PrizmIconModule } from '../icon';
 import { PrizmScrollbarModule } from '../scrollbar';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    PolymorphModule,
-    PrizmIconModule,
-    PrizmScrollbarModule
-  ],
-    declarations: [PrizmDataListComponent],
-    exports: [PrizmDataListComponent],
+  imports: [CommonModule, PolymorphModule, PrizmIconModule, PrizmScrollbarModule],
+  declarations: [PrizmDataListComponent],
+  exports: [PrizmDataListComponent],
 })
 export class PrizmDataListModule {}

@@ -19,4 +19,3 @@ import { PrizmButtonModule } from '../button';
   exports: [PrizmWidgetComponent],
 })
 export class PrizmWidgetModule {}
-

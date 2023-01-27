@@ -12,4 +12,3 @@ import { PrizmInputTextModule } from '@prizm-ui/components';
 })
 export class MyModule {}
 ```
-

@@ -27,27 +27,19 @@ export class PrizmFormControlHelpers {
     const all = [origin, ...others];
     return concat(
       of(origin.disabled),
-      bidirectional
-        ? merge(
-          ...all.map(
-            (control) => this.getDisabled$(control)
-          )
-        )
-        : this.getDisabled$(origin)
+      bidirectional ? merge(...all.map(control => this.getDisabled$(control))) : this.getDisabled$(origin)
     ).pipe(
-      tap(
-        (disabled) => {
-          (bidirectional ? all : others).forEach((control) => {
-            if (disabled === control.disabled) return;
-            if (disabled) {
-              control.disable();
-            } else {
-              control.enable();
-            }
-          });
-        }
-      )
-    )
+      tap(disabled => {
+        (bidirectional ? all : others).forEach(control => {
+          if (disabled === control.disabled) return;
+          if (disabled) {
+            control.disable();
+          } else {
+            control.enable();
+          }
+        });
+      })
+    );
   }
 
   public static setValue<T = any>(
@@ -74,16 +66,11 @@ export class PrizmFormControlHelpers {
     }
   ): void {
     if (disabled === control.disabled) return;
-    if(!disabled)
-      control.enable(options)
-    else
-      control.disable(options)
+    if (!disabled) control.enable(options);
+    else control.disable(options);
   }
 
-  public static syncValues<
-    ORIGIN_VALUE = any,
-    OTHER_VALUE = any
-  >(
+  public static syncValues<ORIGIN_VALUE = any, OTHER_VALUE = any>(
     origin: FormControl,
     fromOrigin: (valueFromOrigin: ORIGIN_VALUE) => OTHER_VALUE,
     fromOthers: (valueFromOther: OTHER_VALUE) => ORIGIN_VALUE,
@@ -94,20 +81,16 @@ export class PrizmFormControlHelpers {
         filter(() => Boolean(fromOrigin)),
         tap((valueFromOrigin: ORIGIN_VALUE) => {
           const value = fromOrigin(valueFromOrigin);
-          others.forEach((control) => this.setValue(control, value));
+          others.forEach(control => this.setValue(control, value));
         })
       ),
-      merge(...others.map(
-        (control) => this.getValue$(control)
-      )).pipe(
+      merge(...others.map(control => this.getValue$(control))).pipe(
         filter(() => Boolean(fromOthers)),
         tap((valueFromOther: OTHER_VALUE) => {
           const value = fromOthers(valueFromOther);
-          this.setValue(origin, value)
+          this.setValue(origin, value);
         })
       )
-    ).pipe(
-      map(() => this.getValue(origin))
-    )
+    ).pipe(map(() => this.getValue(origin)));
   }
 }

@@ -1,26 +1,29 @@
 <prizm-dropdown-host
-    class="z-hosted"
-    [(isOpen)]="open"
-    [content]="dropdown"
-    prizmDropdownHostWidth='100%'
-    [closeByEsc]='true'
+  class="z-hosted"
+  [(isOpen)]="open"
+  [content]="dropdown"
+  prizmDropdownHostWidth="100%"
+  [closeByEsc]="true"
 >
-  <ng-container *ngFor='let item of items; let idx = index'>
-    <ng-container *ngIf='idx === currentIdx'>
+  <ng-container *ngFor="let item of items; let idx = index">
+    <ng-container *ngIf="idx === currentIdx">
       <ng-container *ngTemplateOutlet="item.template as data; context: context"></ng-container>
     </ng-container>
   </ng-container>
 </prizm-dropdown-host>
 
 <ng-template #dropdown>
-  <prizm-data-list class='block'>
-    <ng-container *ngIf='items?.length;'>
-      <div class='item' [class.selected]='idx === currentIdx'
-           *ngFor='let item of items; let idx = index'
-           (click)='select(idx)'>
-          <span class='text'>
-            {{item.name}}
-          </span>
+  <prizm-data-list class="block">
+    <ng-container *ngIf="items?.length">
+      <div
+        class="item"
+        [class.selected]="idx === currentIdx"
+        *ngFor="let item of items; let idx = index"
+        (click)="select(idx)"
+      >
+        <span class="text">
+          {{ item.name }}
+        </span>
       </div>
     </ng-container>
   </prizm-data-list>
@@ -28,7 +31,7 @@
 
 <ng-template #buttonLeft>
   <button
-    (prizmAfterViewInit)='setListener($event.nativeElement)'
+    (prizmAfterViewInit)="setListener($event.nativeElement)"
     prizmInputIconButton="chevrons-dropdown-small"
     [interactive]="true"
   ></button>

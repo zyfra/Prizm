@@ -18,7 +18,6 @@ export class PrizmEventZoneService implements OnDestroy {
     return this.el_;
   }
 
-
   get rootService(): PrizmEventZoneService {
     if (this.parent) return this.parent.rootService;
     if (this.parentDropdownZoneService) return this.parentDropdownZoneService.rootService;
@@ -27,9 +26,7 @@ export class PrizmEventZoneService implements OnDestroy {
 
   private readonly destroyListener$ = new Subject<void>();
 
-  constructor(
-    @Optional() @SkipSelf() private readonly parentDropdownZoneService: PrizmEventZoneService,
-  ) {}
+  constructor(@Optional() @SkipSelf() private readonly parentDropdownZoneService: PrizmEventZoneService) {}
 
   public init(el: HTMLElement, eventType: string, parent?: PrizmEventZoneService): void {
     this.el_ = el;
@@ -37,17 +34,19 @@ export class PrizmEventZoneService implements OnDestroy {
     this.destroyListener$.next();
 
     fromEvent(el, eventType, {
-      capture: true
-    }).pipe(
-      tap(() => this.emit()),
-      takeUntil(this.destroyListener$)
-    ).subscribe();
+      capture: true,
+    })
+      .pipe(
+        tap(() => this.emit()),
+        takeUntil(this.destroyListener$)
+      )
+      .subscribe();
   }
 
   private emit(): void {
     const time = Date.now();
     if (this.parent) this.parent.emit();
-    this.eventSource$.next(time)
+    this.eventSource$.next(time);
   }
 
   ngOnDestroy(): void {

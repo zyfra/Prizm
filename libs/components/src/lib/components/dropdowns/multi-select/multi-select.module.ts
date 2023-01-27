@@ -16,26 +16,26 @@ import { PrizmCheckboxModule } from '../../checkbox';
 import { PrizmIconModule } from '../../icon';
 
 @NgModule({
-    imports: [
-      PrizmOverlayModule,
-      PolymorphModule,
-      PrizmInputTextModule,
-      PrizmChipsModule,
-      FormsModule,
-      ReactiveFormsModule,
-      CommonModule,
-      PrizmLetModule,
-      PrizmHintModule,
-      PrizmIconModule,
-      PrizmCallFuncModule,
-      PrizmAutoFocusModule,
-      PrizmScrollbarModule,
-      PrizmDropdownControllerModule,
-      PrizmDataListModule,
-      PrizmCheckboxModule,
-      PrizmDropdownHostModule
-    ],
-    declarations: [PrizmMultiSelectComponent],
-    exports: [PrizmMultiSelectComponent],
+  imports: [
+    PrizmOverlayModule,
+    PolymorphModule,
+    PrizmInputTextModule,
+    PrizmChipsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    PrizmLetModule,
+    PrizmHintModule,
+    PrizmIconModule,
+    PrizmCallFuncModule,
+    PrizmAutoFocusModule,
+    PrizmScrollbarModule,
+    PrizmDropdownControllerModule,
+    PrizmDataListModule,
+    PrizmCheckboxModule,
+    PrizmDropdownHostModule,
+  ],
+  declarations: [PrizmMultiSelectComponent],
+  exports: [PrizmMultiSelectComponent],
 })
 export class PrizmMultiSelectModule {}

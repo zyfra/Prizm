@@ -7,21 +7,19 @@ import { PrizmDestroyCallback } from './models';
  */
 @Injectable()
 export class PrizmDestroyService extends ReplaySubject<void> implements OnDestroy {
-    private readonly cb = new Set<PrizmDestroyCallback>();
-    constructor() {
-      super(1);
-    }
+  private readonly cb = new Set<PrizmDestroyCallback>();
+  constructor() {
+    super(1);
+  }
 
-    ngOnDestroy(): void {
-      this.next();
-      this.complete();
-      this.cb.forEach(
-        (cb: PrizmDestroyCallback) => cb()
-      );
-      this.cb.clear();
-    }
+  ngOnDestroy(): void {
+    this.next();
+    this.complete();
+    this.cb.forEach((cb: PrizmDestroyCallback) => cb());
+    this.cb.clear();
+  }
 
-    public addCallback(cb: () => void): void {
-      this.cb.add(cb);
-    }
+  public addCallback(cb: () => void): void {
+    this.cb.add(cb);
+  }
 }

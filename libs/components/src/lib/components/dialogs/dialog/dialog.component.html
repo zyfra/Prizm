@@ -1,50 +1,43 @@
 <div prizmFocusTrap>
-  <div *ngIf="context.header" class='header prizm-font-title-h4'>
-    <div
-      class='title'
-      *polymorphOutlet="context.header as data; context: context">
-      {{data}}
+  <div *ngIf="context.header" class="header prizm-font-title-h4">
+    <div class="title" *polymorphOutlet="context.header as data; context: context">
+      {{ data }}
     </div>
     <button
       *ngIf="context.closeable"
-      [size]='16'
+      [size]="16"
       prizmInputIconButton="cancel-close"
-      (click)='close()'
+      (click)="close()"
       [interactive]="true"
     ></button>
-
   </div>
 
   <div class="content prizm-font-main-body-14">
-    <prizm-scrollbar class='scrollbar'>
+    <prizm-scrollbar class="scrollbar">
       <div *polymorphOutlet="context.content as text; context: context">
         {{ text }}
       </div>
     </prizm-scrollbar>
   </div>
 
-  <div
-    class="footer"
-    [style]='context.footerStyle'
-    *ngIf="footer"
-  >
-    <ng-container
-      *polymorphOutlet="$any(footer) as data; context: context">
-      <div class="buttons" *ngIf='isFooterArray; else temp'>
+  <div class="footer" [style]="context.footerStyle" *ngIf="footer">
+    <ng-container *polymorphOutlet="$any(footer) as data; context: context">
+      <div class="buttons" *ngIf="isFooterArray; else temp">
         <button
-          *ngFor='let footerButton of data'
-          [style]='footerButton.style'
-          [appearance]='footerButton.appearance'
-          [appearanceType]='footerButton.appearanceType'
+          *ngFor="let footerButton of data"
+          [style]="footerButton.style"
+          [appearance]="footerButton.appearance"
+          [appearanceType]="footerButton.appearanceType"
           prizmButton
           [size]="context.size"
           (click)="footerButton.action(context)"
-        >{{footerButton.text}}</button>
+        >
+          {{ footerButton.text }}
+        </button>
       </div>
       <ng-template #temp>
-        {{data}}
+        {{ data }}
       </ng-template>
     </ng-container>
   </div>
-
 </div>

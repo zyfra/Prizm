@@ -12,4 +12,3 @@ export class PrizmInputNumberAuxiliaryControlDirective {
     this.inputNumber[this.type]();
   }
 }
-

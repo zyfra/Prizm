@@ -5,21 +5,16 @@ import { prizmGetInputDateTimeRangeNativeTransformer } from '@prizm-ui/component
 @Component({
   selector: 'prizm-input-date-time-range-native-example',
   templateUrl: './input-native-date-time-range-base-example.component.html',
-  providers: [
-    prizmGetInputDateTimeRangeNativeTransformer()
+  providers: [prizmGetInputDateTimeRangeNativeTransformer()],
+  styles: [
+    `
+      .box {
+        display: flex;
+        gap: 1rem;
+      }
+    `,
   ],
-  styles: [`
-    .box {
-      display: flex;
-      gap: 1rem;
-    }
-  `]
 })
 export class PrizmInputNativeDateRangeBaseExampleComponent {
-  readonly value = new FormControl(
-    [
-      new Date(2018, 2, 10),
-      new Date(2018, 3, 20),
-    ]
-  );
+  readonly value = new FormControl([new Date(2018, 2, 10), new Date(2018, 3, 20)]);
 }

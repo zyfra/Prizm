@@ -1,20 +1,25 @@
-<div class='block'
-     (click)='clickOnContainer()'
-     (prizmMutationObserver)='updateWidth()'
-     [prizmMutationObserverHost]='el.nativeElement'
+<div
+  class="block"
+  (click)="clickOnContainer()"
+  (prizmMutationObserver)="updateWidth()"
+  [prizmMutationObserverHost]="el.nativeElement"
 >
   <ng-content></ng-content>
   <ng-template #temp>
-    <div class="prizm-dropdown-host-modal"
-         prizmEventZone
-         prizmShadow='big-left'
-         #zone="prizmEventZone"
-         (prizmEventZoneEvent)='clickOnContainer()'
-         (prizmAfterViewInit)='addListenerItems($event.nativeElement); reCalculatePositions()'
-         (prizmOnDestroy)='removeListenerItems($event.nativeElement)'
-         [id]="prizmDropdownHostId"
-         [attr.position]="position$ | async">
-      <ng-container *polymorphOutlet="content; context: {zone: zone, custom: prizmDropdownCustomContext}"></ng-container>
+    <div
+      class="prizm-dropdown-host-modal"
+      prizmEventZone
+      prizmShadow="big-left"
+      #zone="prizmEventZone"
+      (prizmEventZoneEvent)="clickOnContainer()"
+      (prizmAfterViewInit)="addListenerItems($event.nativeElement); reCalculatePositions()"
+      (prizmOnDestroy)="removeListenerItems($event.nativeElement)"
+      [id]="prizmDropdownHostId"
+      [attr.position]="position$ | async"
+    >
+      <ng-container
+        *polymorphOutlet="content; context: { zone: zone, custom: prizmDropdownCustomContext }"
+      ></ng-container>
     </div>
   </ng-template>
 </div>

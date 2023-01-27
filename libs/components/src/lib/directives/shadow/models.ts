@@ -10,7 +10,8 @@ export enum PrizmShadowTypeEnum {
   none = 'none',
 }
 
-export type PrizmShadowType = `${PrizmShadowTypeEnum.miniBottom}`
+export type PrizmShadowType =
+  | `${PrizmShadowTypeEnum.miniBottom}`
   | `${PrizmShadowTypeEnum.miniTop}`
   | `${PrizmShadowTypeEnum.miniRight}`
   | `${PrizmShadowTypeEnum.miniLeft}`
@@ -29,7 +30,5 @@ export enum PrizmShadowValue {
   bigRight = '8px 0px 32px var(--prizm-shadow)',
   miniLeft = '-2px 0px 4px var(--prizm-shadow)',
   bigLeft = '-8px 0px 32px var(--prizm-shadow)',
-  none = ''
+  none = '',
 }
-
-

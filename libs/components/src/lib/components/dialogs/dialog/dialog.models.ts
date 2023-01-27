@@ -7,11 +7,9 @@ import { PrizmSize, PrizmSizeL, PrizmSizeM } from '../../../util';
 import { PrizmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
 import { PrizmContent } from '../../button';
 
-export type PrizmBaseDialogContext<O, T = PrizmDialogBaseOptions> =
-  & PrizmContextWithImplicit<Observer<O>>
-  & PrizmAriaDialogContext
-  & T
-  & {
+export type PrizmBaseDialogContext<O, T = PrizmDialogBaseOptions> = PrizmContextWithImplicit<Observer<O>> &
+  PrizmAriaDialogContext &
+  T & {
     readonly completeWith: (value: O) => void;
   };
 
@@ -21,8 +19,7 @@ export interface PrizmAriaDialogContext {
 }
 
 export type PrizmDialog<T = unknown, O = unknown, DATA = unknown> = PrizmBaseDialogContext<O, DATA> &
-  T & {content: PolymorphContent<PrizmBaseDialogContext<O, DATA> & T>};
-
+  T & { content: PolymorphContent<PrizmBaseDialogContext<O, DATA> & T> };
 
 export type PrizmDialogSize = PrizmSizeM | PrizmSizeL;
 
@@ -36,7 +33,7 @@ export interface PrizmDialogBaseOptions {
   readonly position: PrizmOverlayInsidePlacement;
 }
 
-export interface PrizmDialogOptions<O = unknown, DATA = unknown> extends PrizmDialogBaseOptions{
+export interface PrizmDialogOptions<O = unknown, DATA = unknown> extends PrizmDialogBaseOptions {
   readonly size: PrizmDialogSize;
   readonly required: boolean;
   readonly closeWord?: string;
@@ -59,5 +56,5 @@ export interface PrizmDialogButton<O = unknown, T = PrizmDialogBaseOptions> {
   showLoader?: boolean;
 
   disabled?: boolean;
-  action: (context: PrizmBaseDialogContext<O, T>) => void
+  action: (context: PrizmBaseDialogContext<O, T>) => void;
 }

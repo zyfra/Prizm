@@ -5,9 +5,7 @@ import { RouterModule } from '@angular/router';
 import { SplitButtonComponent } from './split-button.component';
 import { PrizmButtonModule } from '@prizm-ui/components';
 import { PrizmSplitButtonsExampleComponent } from './examples/split/split-buttons-example.component';
-import {
-  SplitButtonsWithDropdownExampleModule,
-} from './examples/with-dropdown/split-buttons-with-dropdown-example.module';
+import { SplitButtonsWithDropdownExampleModule } from './examples/with-dropdown/split-buttons-with-dropdown-example.module';
 
 @NgModule({
   imports: [

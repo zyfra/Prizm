@@ -43,4 +43,3 @@ import { PrizmToastExampleComponent } from './examples/toast-example/toast-examp
   exports: [ToastComponent],
 })
 export class ToastModule {}
-

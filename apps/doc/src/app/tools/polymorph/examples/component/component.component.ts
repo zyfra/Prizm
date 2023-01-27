@@ -5,9 +5,9 @@ import { PolymorphComponent } from '@prizm-ui/components';
 @Component({
   selector: 'prizm-polymorph-component-example',
   templateUrl: './component.component.html',
-  styles: []
+  styles: [],
 })
 export class PrizmPolymorphComponentExampleComponent {
   public component = new PolymorphComponent(PrizmPolymorphSubComponentExampleComponent);
-  public context = {a: 1};
+  public context = { a: 1 };
 }

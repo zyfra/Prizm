@@ -13,29 +13,23 @@ import { PrizmButtonModule } from '../button';
 import { PolymorphModule } from '../../directives';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        PolymorphModule,
-        PrizmExpandModule,
-        PrizmLetModule,
-        PrizmButtonModule,
-    ],
-    entryComponents: [PrizmTreeItemContentComponent],
-    declarations: [
-        PrizmTreeComponent,
-        PrizmTreeItemComponent,
-        PrizmTreeItemContentComponent,
-        PrizmTreeChildrenDirective,
-        PrizmTreeItemControllerDirective,
-        PrizmTreeControllerDirective,
-        PrizmTreeNodeDirective,
-    ],
-    exports: [
-        PrizmTreeComponent,
-        PrizmTreeItemComponent,
-        PrizmTreeChildrenDirective,
-        PrizmTreeItemControllerDirective,
-        PrizmTreeControllerDirective,
-    ],
+  imports: [CommonModule, PolymorphModule, PrizmExpandModule, PrizmLetModule, PrizmButtonModule],
+  entryComponents: [PrizmTreeItemContentComponent],
+  declarations: [
+    PrizmTreeComponent,
+    PrizmTreeItemComponent,
+    PrizmTreeItemContentComponent,
+    PrizmTreeChildrenDirective,
+    PrizmTreeItemControllerDirective,
+    PrizmTreeControllerDirective,
+    PrizmTreeNodeDirective,
+  ],
+  exports: [
+    PrizmTreeComponent,
+    PrizmTreeItemComponent,
+    PrizmTreeChildrenDirective,
+    PrizmTreeItemControllerDirective,
+    PrizmTreeControllerDirective,
+  ],
 })
 export class PrizmTreeModule {}

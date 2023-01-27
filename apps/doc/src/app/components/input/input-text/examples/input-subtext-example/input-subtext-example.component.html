@@ -4,10 +4,9 @@
   <div prizm-input-subtext>Подтекст</div>
 </prizm-input-layout>
 
-
 <h4>Warning with subtext info</h4>
 <prizm-input-layout label="Заголовок" size="l" status="warning">
   <input prizmInput value="Введенный текст" placeholder="Введите текст" />
   <ng-template #statusText prizmInputStatusText>Warning text</ng-template>
-  <div prizm-input-subtext *ngTemplateOutlet='statusText'></div>
+  <div prizm-input-subtext *ngTemplateOutlet="statusText"></div>
 </prizm-input-layout>

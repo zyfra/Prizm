@@ -6,10 +6,10 @@
  * @param toExclude upper exclusive limit
  */
 export function prizmInRange(value: number, fromInclude: number, toExclude: number): boolean {
-    console.assert(!isNaN(value));
-    console.assert(!isNaN(fromInclude));
-    console.assert(!isNaN(toExclude));
-    console.assert(fromInclude < toExclude);
+  console.assert(!isNaN(value));
+  console.assert(!isNaN(fromInclude));
+  console.assert(!isNaN(toExclude));
+  console.assert(fromInclude < toExclude);
 
-    return value >= fromInclude && value < toExclude;
+  return value >= fromInclude && value < toExclude;
 }

@@ -9,6 +9,5 @@ import { PrizmTableModule } from '@prizm-ui/components';
     PrizmTableModule,
   ],
 })
-export class MyModule {
-}
+export class MyModule {}
 ```

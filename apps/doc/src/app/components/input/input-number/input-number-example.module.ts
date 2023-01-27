@@ -26,4 +26,3 @@ import { InputNumberCounterExampleComponent } from './examples/input-number-coun
   exports: [InputNumberExampleComponent],
 })
 export class InputNumberExampleModule {}
-

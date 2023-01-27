@@ -12,4 +12,3 @@ import { PrizmSplitterComponent } from './splitter.component';
   exports: [PrizmSplitterComponent, PrizmSplitterAreaComponent],
 })
 export class PrizmSplitterModule {}
-

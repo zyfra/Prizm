@@ -3,10 +3,9 @@
   <div class="box prizm-font-main-body-14">
     <div>
       simple
-      <prizm-toggle
-        size="m"
-        [(ngModel)]="value"
-        [ngModelOptions]="{standalone: true}">Ng Model</prizm-toggle>
+      <prizm-toggle size="m" [(ngModel)]="value" [ngModelOptions]="{ standalone: true }"
+        >Ng Model</prizm-toggle
+      >
     </div>
     <div>
       disabled
@@ -14,15 +13,15 @@
         size="m"
         [disabled]="true"
         [(ngModel)]="valueDisabled"
-        [ngModelOptions]="{standalone: true}">Ng Model</prizm-toggle>
+        [ngModelOptions]="{ standalone: true }"
+        >Ng Model</prizm-toggle
+      >
     </div>
     <div>
       with loader
-      <prizm-toggle
-        size="m"
-        [showLoader]="true"
-        [(ngModel)]="value"
-        [ngModelOptions]="{standalone: true}">Ng Model</prizm-toggle>
+      <prizm-toggle size="m" [showLoader]="true" [(ngModel)]="value" [ngModelOptions]="{ standalone: true }"
+        >Ng Model</prizm-toggle
+      >
     </div>
     <div>
       with icon
@@ -31,7 +30,9 @@
         iconOn="selection-checkbox-marked-circle"
         iconOff="selection-checkbox-marked-circle-chanel"
         [(ngModel)]="value"
-        [ngModelOptions]="{standalone: true}">Ng Model</prizm-toggle>
+        [ngModelOptions]="{ standalone: true }"
+        >Ng Model</prizm-toggle
+      >
     </div>
   </div>
 </div>
@@ -41,22 +42,15 @@
   <div class="box prizm-font-main-body-14">
     <div>
       simple
-      <prizm-toggle
-        size="l"
-        [formControl]="value2"></prizm-toggle>
+      <prizm-toggle size="l" [formControl]="value2"></prizm-toggle>
     </div>
     <div>
       disabled
-      <prizm-toggle
-        size="l"
-        [formControl]="value2Disabled"></prizm-toggle>
+      <prizm-toggle size="l" [formControl]="value2Disabled"></prizm-toggle>
     </div>
     <div>
       with loader
-      <prizm-toggle
-        size="l"
-        [showLoader]="true"
-        [formControl]="value2"></prizm-toggle>
+      <prizm-toggle size="l" [showLoader]="true" [formControl]="value2"></prizm-toggle>
     </div>
     <div>
       with icon
@@ -64,7 +58,8 @@
         size="l"
         iconOn="arrows-chevron-left"
         iconOff="arrows-chevron-right"
-        [formControl]="value2"></prizm-toggle>
+        [formControl]="value2"
+      ></prizm-toggle>
     </div>
   </div>
 </div>

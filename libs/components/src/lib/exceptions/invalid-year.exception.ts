@@ -1,5 +1,5 @@
 export class PrizmInvalidYearException extends Error {
-    constructor(year: number) {
-        super(`Invalid year: ${year}`);
-    }
+  constructor(year: number) {
+    super(`Invalid year: ${year}`);
+  }
 }

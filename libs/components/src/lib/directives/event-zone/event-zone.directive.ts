@@ -21,12 +21,9 @@ import { takeUntil, tap } from 'rxjs/operators';
  * injector support for ng-template
  * */
 @Directive({
-    selector: `[prizmEventZone]:not(ng-container), [prizmEventZoneChange]:not(ng-container), [prizmEventZoneParent]:not(ng-container)`,
-    exportAs: `prizmEventZone`,
-    providers: [
-      PrizmEventZoneService,
-      PrizmDestroyService
-    ]
+  selector: `[prizmEventZone]:not(ng-container), [prizmEventZoneChange]:not(ng-container), [prizmEventZoneParent]:not(ng-container)`,
+  exportAs: `prizmEventZone`,
+  providers: [PrizmEventZoneService, PrizmDestroyService],
 })
 export class PrizmDropdownZoneDirective implements OnInit, OnChanges {
   @Output() prizmEventZoneEvent = new EventEmitter<number>();
@@ -42,15 +39,17 @@ export class PrizmDropdownZoneDirective implements OnInit, OnChanges {
     @Optional() @SkipSelf() public readonly parentDropdownZoneService: PrizmEventZoneService,
     private readonly destroy$: PrizmDestroyService,
     private readonly elementRef: ElementRef,
-    public readonly injector: Injector,
+    public readonly injector: Injector
   ) {}
 
   public ngOnInit(): void {
     this.dz.init(this.host, 'click', this.prizmEventZoneParent?.dz ?? this.parentDropdownZoneService);
-    this.dz.event$.pipe(
-      tap((time) => this.prizmEventZoneEvent.next(time)),
-      takeUntil(this.destroy$)
-    ).subscribe()
+    this.dz.event$
+      .pipe(
+        tap(time => this.prizmEventZoneEvent.next(time)),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   ngOnChanges(changes: SimpleChanges): void {

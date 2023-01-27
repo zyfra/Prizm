@@ -1,5 +1,5 @@
 export const enum PrizmRangeState {
-    Start = `start`,
-    End = `end`,
-    Single = `single`,
+  Start = `start`,
+  End = `end`,
+  Single = `single`,
 }

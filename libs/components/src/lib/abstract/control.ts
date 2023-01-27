@@ -158,14 +158,9 @@ export abstract class AbstractPrizmControl<T>
     this.control?.valueChanges
       .pipe(
         map(() => this.control?.value),
-        filter(
-          (currentValue) => {
-            return this.valueChanged(
-              this.val,
-              currentValue
-            )
-          }
-        ),
+        filter(currentValue => {
+          return this.valueChanged(this.val, currentValue);
+        }),
         tap(items => this.updateInputValue(items)),
         takeUntil(this.destroy$)
       )
@@ -178,13 +173,10 @@ export abstract class AbstractPrizmControl<T>
    * */
   private updateInputValue(value: T): void {
     if (!this.valueChanged(this.val, value)) return;
-    this.valChange.next(this.val = value)
+    this.valChange.next((this.val = value));
   }
 
-  protected valueChanged(
-    previousValue: T | null,
-    currentValue: T | null,
-  ): boolean {
+  protected valueChanged(previousValue: T | null, currentValue: T | null): boolean {
     return previousValue !== currentValue;
   }
 

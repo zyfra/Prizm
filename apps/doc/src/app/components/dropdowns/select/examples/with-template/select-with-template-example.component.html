@@ -1,15 +1,11 @@
-<prizm-select
-  [items]='items'
-  [valueTemplate]='valueTemplate'
-  [formControl]='control'
-></prizm-select>
+<prizm-select [items]="items" [valueTemplate]="valueTemplate" [formControl]="control"></prizm-select>
 
 <ng-template #valueTemplate let-value let-nullContent="nullContent">
-  <div class='item' *ngIf='value; else empty'>
-    <prizm-icon iconClass='account-done'></prizm-icon>
-    <span>{{value}}</span>
+  <div class="item" *ngIf="value; else empty">
+    <prizm-icon iconClass="account-done"></prizm-icon>
+    <span>{{ value }}</span>
   </div>
   <ng-template #empty>
-    {{nullContent}}
+    {{ nullContent }}
   </ng-template>
 </ng-template>

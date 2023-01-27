@@ -46,10 +46,7 @@ import { PrizmDestroyService, PrizmFormControlHelpers } from '@prizm-ui/helpers'
   selector: `prizm-input-date-time-range`,
   templateUrl: `./input-date-range-time.component.html`,
   styleUrls: [`./input-date-range-time.component.less`],
-  providers: [
-    ...PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS,
-    PrizmDestroyService
-  ],
+  providers: [...PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS, PrizmDestroyService],
 })
 export class PrizmInputDateTimeRangeComponent
   extends AbstractPrizmNullableControl<PrizmDateTimeRange>
@@ -66,7 +63,6 @@ export class PrizmInputDateTimeRangeComponent
   @prizmDefaultProp()
   markerHandler: PrizmMarkerHandler = PRIZM_DEFAULT_MARKER_HANDLER;
 
-
   @Input()
   @prizmDefaultProp()
   label = 'Выберите дату и время';
@@ -82,7 +78,6 @@ export class PrizmInputDateTimeRangeComponent
   @Input()
   @prizmDefaultProp()
   timeItems: readonly PrizmTime[] = new Array(24).fill(null).map((_, i) => new PrizmTime(i, 0, 0, 0));
-
 
   @Input()
   @prizmDefaultProp()
@@ -159,7 +154,7 @@ export class PrizmInputDateTimeRangeComponent
 
   protected override valueChanged(
     previousValue: PrizmDateTimeRange | null,
-    currentValue: PrizmDateTimeRange | null,
+    currentValue: PrizmDateTimeRange | null
   ): boolean {
     return previousValue?.toString() !== currentValue?.toString();
   }
@@ -178,19 +173,14 @@ export class PrizmInputDateTimeRangeComponent
       false,
       this.timeControlFrom,
       this.timeControlTo,
-      this.dateControl,
-    ).pipe(
-      takeUntil(this.destroyed$),
-    ).subscribe();
+      this.dateControl
+    )
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe();
   }
 
-  private syncValuesBetweenControls(
-    origin: FormControl
-  ): void {
-    PrizmFormControlHelpers.syncValues<
-      PrizmDateTimeRange,
-      PrizmDayRange
-    >(
+  private syncValuesBetweenControls(origin: FormControl): void {
+    PrizmFormControlHelpers.syncValues<PrizmDateTimeRange, PrizmDayRange>(
       origin,
       (value: PrizmDateTimeRange) => value?.dayRange,
       ($event: PrizmDayRange) => {
@@ -199,14 +189,11 @@ export class PrizmInputDateTimeRangeComponent
         return this.value?.copy();
       },
       this.dateControl
-    ).pipe(
-      takeUntil(this.destroyed$),
-    ).subscribe();
+    )
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe();
 
-    PrizmFormControlHelpers.syncValues<
-      PrizmDateTimeRange,
-      PrizmTime
-    >(
+    PrizmFormControlHelpers.syncValues<PrizmDateTimeRange, PrizmTime>(
       origin,
       (value: PrizmDateTimeRange) => value?.timeRange?.from,
       ($event: PrizmTime) => {
@@ -215,14 +202,11 @@ export class PrizmInputDateTimeRangeComponent
         return this.value?.copy();
       },
       this.timeControlFrom
-    ).pipe(
-      takeUntil(this.destroyed$),
-    ).subscribe();
+    )
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe();
 
-    PrizmFormControlHelpers.syncValues<
-      PrizmDateTimeRange,
-      PrizmTime
-    >(
+    PrizmFormControlHelpers.syncValues<PrizmDateTimeRange, PrizmTime>(
       origin,
       (value: PrizmDateTimeRange) => value?.timeRange?.to,
       ($event: PrizmTime) => {
@@ -231,9 +215,9 @@ export class PrizmInputDateTimeRangeComponent
         return this.value?.copy();
       },
       this.timeControlTo
-    ).pipe(
-      takeUntil(this.destroyed$),
-    ).subscribe();
+    )
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe();
   }
 
   private getDefaultValue(): PrizmDateTimeRange {
@@ -244,5 +228,4 @@ export class PrizmInputDateTimeRangeComponent
       )
     );
   }
-
 }

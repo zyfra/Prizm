@@ -1,4 +1,4 @@
-import { PRIZM_CHAR_EN_DASH, PRIZM_CHAR_NO_BREAK_SPACE } from "../../constants/unicode-chars";
+import { PRIZM_CHAR_EN_DASH, PRIZM_CHAR_NO_BREAK_SPACE } from '../../constants/unicode-chars';
 import { PrizmTime } from './time';
 import { PrizmDay } from './day';
 
@@ -38,16 +38,10 @@ export const PRIZM_MILLISECONDS_IN_DAY = PRIZM_MILLISECONDS_IN_HOUR * PRIZM_HOUR
 
 export class PrizmDateTime {
   public static fromLocalNativeDate(date: Date): PrizmDateTime {
-    return new PrizmDateTime(
-      PrizmDay.fromLocalNativeDate(date),
-      PrizmTime.fromLocalNativeDate(date),
-    );
+    return new PrizmDateTime(PrizmDay.fromLocalNativeDate(date), PrizmTime.fromLocalNativeDate(date));
   }
 
-  constructor(
-    public day: PrizmDay,
-    public time: PrizmTime = new PrizmTime(0, 0)
-  ) {}
+  constructor(public day: PrizmDay, public time: PrizmTime = new PrizmTime(0, 0)) {}
 
   public toLocalNativeDate(): Date {
     return new Date(

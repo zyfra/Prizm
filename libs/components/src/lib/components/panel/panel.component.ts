@@ -5,7 +5,8 @@ import {
   Output,
   EventEmitter,
   ViewChild,
-  ElementRef, HostBinding,
+  ElementRef,
+  HostBinding,
 } from '@angular/core';
 
 @Component({

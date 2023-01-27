@@ -14,11 +14,10 @@ export class ToastComponent {
 
   // TODO remove record to context type
   get context(): Record<string, any> {
-    return this.toastRef as Record<string, any>
+    return this.toastRef as Record<string, any>;
   }
   get temp(): PolymorphContent {
-    return this.toastRef.content
+    return this.toastRef.content;
   }
-  constructor(public readonly toastRef: PrizmToastRef) {
-  }
+  constructor(public readonly toastRef: PrizmToastRef) {}
 }

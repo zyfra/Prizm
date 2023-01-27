@@ -11,19 +11,19 @@
 
     <tbody prizmTbody heading="Группа 1" [data]="products1">
       <tr *prizmRow="let item of products1; let i = index" class="row" prizmTr [status]="item.status">
-        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber: '0.0-0' }}</td>
+        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
         <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
         <td *prizmCell="'category'" prizmTd [status]="i === 8 ? 'danger' : 'default'">{{ item.category }}</td>
-        <td class="format__number" *prizmCell="'count'" prizmTd>{{ item.count | spaceNumber: '0.0-0' }}</td>
+        <td class="format__number" *prizmCell="'count'" prizmTd>{{ item.count | spaceNumber : '0.0-0' }}</td>
       </tr>
     </tbody>
 
     <tbody prizmTbody heading="Группа 2" [data]="products2">
       <tr *prizmRow="let item of products2; let i = index" class="row" prizmTr [status]="item.status">
-        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber: '0.0-0' }}</td>
+        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
         <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
         <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
-        <td class="format__number" *prizmCell="'count'" prizmTd>{{ item.count | spaceNumber: '0.0-0' }}</td>
+        <td class="format__number" *prizmCell="'count'" prizmTd>{{ item.count | spaceNumber : '0.0-0' }}</td>
       </tr>
     </tbody>
   </table>

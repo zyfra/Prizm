@@ -35,12 +35,12 @@
           #elementTabs
           key="PrizmTabsComponent"
           [prizmDocHostElement]="elementTabs"
-          [size]='size'
-          [canShowMenu]='canShowMenu'
-          [activeTabIndex]='activeTabIndex'
+          [size]="size"
+          [canShowMenu]="canShowMenu"
+          [activeTabIndex]="activeTabIndex"
         >
           <prizm-tab
-            *ngIf='!removed'
+            *ngIf="!removed"
             #elementTab
             [prizmDocHostElement]="elementTab"
             key="PrizmTabComponent"
@@ -57,7 +57,7 @@
             [icon]="icon"
             [closable]="closable"
             [type]="type"
-            content='Tab 2'
+            content="Tab 2"
             [closeIcon]="closeIcon"
             [disabled]="disabled"
             [count]="count"
@@ -66,10 +66,7 @@
         </prizm-tabs>
       </div>
     </prizm-doc-demo>
-    <prizm-doc-documentation
-      heading='PrizmTabsComponent'
-      hostComponentKey='PrizmTabsComponent'>
-
+    <prizm-doc-documentation heading="PrizmTabsComponent" hostComponentKey="PrizmTabsComponent">
       <ng-template
         documentationPropertyName="size"
         documentationPropertyType="PrizmTabSize"
@@ -97,12 +94,8 @@
       >
         Active Tab Index
       </ng-template>
-
     </prizm-doc-documentation>
-    <prizm-doc-documentation
-      heading='PrizmTabComponent'
-      hostComponentKey='PrizmTabComponent'>
-
+    <prizm-doc-documentation heading="PrizmTabComponent" hostComponentKey="PrizmTabComponent">
       <ng-template
         documentationPropertyName="content"
         documentationPropertyMode="input"

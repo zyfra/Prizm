@@ -29,7 +29,7 @@ enum prizmOverlayYSide {
   TOP_LEFT = 'tl',
   TOP_RIGHT = 'tr',
   BOTTOM_LEFT = 'bl',
-  BOTTOM_RIGHT = 'br'
+  BOTTOM_RIGHT = 'br',
 }
 
 type PrizmOverlayYSideType = 't' | 'l' | 'r' | 'b' | 'tl' | 'tr' | 'bl' | 'br';
@@ -38,37 +38,37 @@ enum prizmOverlayLeftSide {
   LEFT_TOP = 'lt',
   RIGHT_TOP = 'rt',
   LEFT_BOTTOM = 'lb',
-  RIGHT_BOTTOM = 'rb'
+  RIGHT_BOTTOM = 'rb',
 }
 
 export type PrizmOverlayLeftSideType = 'lt' | 'rt' | 'lb' | 'rb';
 
 enum prizmOverlayInnerSide {
-  CENTER = 'c'
+  CENTER = 'c',
 }
 
 export type PrizmOverlayInnerSideType = 'c';
 
 export const PrizmOverlayOutsidePlacement = {
   ...prizmOverlayYSide,
-  ...prizmOverlayLeftSide
+  ...prizmOverlayLeftSide,
 };
 export type PrizmOverlayOutsidePlacement = PrizmOverlayYSideType | PrizmOverlayLeftSideType;
 
 export const PrizmOverlayBasePlacement = {
-  ...prizmOverlayBaseType
+  ...prizmOverlayBaseType,
 };
 export type PrizmOverlayBasePlacement = PrizmOverlayBaseType;
 
 export const PrizmOverlayInsidePlacement = {
   ...prizmOverlayYSide,
-  ...prizmOverlayInnerSide
+  ...prizmOverlayInnerSide,
 };
 export type PrizmOverlayInsidePlacement = PrizmOverlayYSideType | PrizmOverlayInnerSideType;
 
 export enum PrizmOverlaySlidePlacement {
   LEFT = 'l',
-  RIGHT = 'r'
+  RIGHT = 'r',
 }
 
 export interface PrizmOverlayContainerSize {
@@ -95,7 +95,13 @@ export interface PrizmOverlayComponentType<T> {
 
 export type PrizmOverlayId = string;
 
-export type PrizmOverlayEventName = 'z_open' | 'z_close' | 'z_dynpos' | 'z_detach' | 'z_posupdate' | 'z_compins';
+export type PrizmOverlayEventName =
+  | 'z_open'
+  | 'z_close'
+  | 'z_dynpos'
+  | 'z_detach'
+  | 'z_posupdate'
+  | 'z_compins';
 
 export interface PrizmOverlayEvent {
   from: PrizmOverlayId;
@@ -107,7 +113,7 @@ export const enum PrizmOverlayContentType {
   STRING = 's',
   HTML = 'h',
   TEMPLATE = 't',
-  COMPONENT = 'c'
+  COMPONENT = 'c',
 }
 export type PrizmOverlayContentData = string | TemplateRef<any> | PrizmOverlayComponentType<any>;
 export type PrizmOverlayContentProps = { [x: string]: any } | any;

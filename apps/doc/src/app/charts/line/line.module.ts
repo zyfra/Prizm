@@ -14,11 +14,7 @@ import { PrizmChartsLinesSmoothExampleComponent } from './examples/smooth/prizm-
     PrizmChartsLineModule,
     RouterModule.forChild(prizmDocGenerateRoutes(LineComponent)),
   ],
-  declarations: [
-    PrizmChartsLinesExampleComponent,
-    PrizmChartsLinesSmoothExampleComponent,
-    LineComponent
-  ],
+  declarations: [PrizmChartsLinesExampleComponent, PrizmChartsLinesSmoothExampleComponent, LineComponent],
   exports: [LineComponent],
 })
 export class LineModule {}

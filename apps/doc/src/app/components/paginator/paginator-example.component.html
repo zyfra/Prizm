@@ -1,7 +1,7 @@
 <prizm-doc-page header="Paginator" package="components" type="components">
-
-  <div class='page-description' description>
-    Our pagination component is a simple way to split up content into multiple pages. It is a great way to reduce the amount of content on a single page and make it easier to navigate.
+  <div class="page-description" description>
+    Our pagination component is a simple way to split up content into multiple pages. It is a great way to
+    reduce the amount of content on a single page and make it easier to navigate.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="exampleBasicPaginator">
@@ -20,19 +20,19 @@
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <div>
-       <ng-container>
-         Любое содержимое
-         <pre *ngIf='content'>{{content | json}}</pre>
-       </ng-container>
-       <ng-container></ng-container>
+        <ng-container>
+          Любое содержимое
+          <pre *ngIf="content">{{ content | json }}</pre>
+        </ng-container>
+        <ng-container></ng-container>
       </div>
       <prizm-paginator
         #element
-        [prizmDocHostElement]='element'
+        [prizmDocHostElement]="element"
         [totalRecords]="totalRecords"
         [(page)]="initialValue"
         [rows]="rows"
-        (paginatorChange)='content = $event'
+        (paginatorChange)="content = $event"
         [pageLinkSize]="pageLinkSize"
         [leftButtonLabel]="leftButtonLabel"
         [rightButtonLabel]="rightButtonLabel"
@@ -111,7 +111,6 @@
         documentationPropertyName="paginatorChange"
         documentationPropertyType="number"
         documentationPropertyMode="output"
-
       >
         Fire on rows or page changed
       </ng-template>

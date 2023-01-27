@@ -11,11 +11,10 @@ import { PrizmChartsColumnItem, PrizmChartsColumnOptions } from '@prizm-ui/chart
         width: 100%;
         height: 300px;
       }
-    `
+    `,
   ],
 })
 export class PrizmChartsColumnStackExampleComponent {
-
   data: PrizmChartsColumnItem[] = [
     {
       year: '1991',
@@ -124,8 +123,5 @@ export class PrizmChartsColumnStackExampleComponent {
   xField = 'year';
   yField = 'value';
   seriesField = 'type';
-  constructor(
-    public readonly prizmTheme: PrizmThemeService,
-  ) {
-  }
+  constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

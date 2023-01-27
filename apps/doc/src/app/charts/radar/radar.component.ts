@@ -47,7 +47,7 @@ export class RadarComponent {
       size: 2,
     },
     area: {},
-  }
+  };
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   readonly exampleOutline: TuiDocExample = {
@@ -55,8 +55,5 @@ export class RadarComponent {
     HTML: import('!!raw-loader!./examples/base/prizm-charts-radar-example.component.html'),
   };
 
-  constructor(
-    public readonly prizmTheme: PrizmThemeService,
-  ) {
-  }
+  constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

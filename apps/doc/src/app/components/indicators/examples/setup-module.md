@@ -6,7 +6,7 @@ import { PrizmIndicator } from '@prizm-ui/components';
 @NgModule({
   imports: [
     // ...
-    PrizmIndicator
+    PrizmIndicator,
   ],
 })
 export class MyModule {}

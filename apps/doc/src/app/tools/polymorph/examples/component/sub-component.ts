@@ -2,8 +2,8 @@ import { Component, Inject } from '@angular/core';
 import { POLYMORPH_CONTEXT } from '@prizm-ui/components';
 
 @Component({
-  template: `FROM COMPONENT {{context.a}}`,
-  styles: []
+  template: `FROM COMPONENT {{ context.a }}`,
+  styles: [],
 })
 export class PrizmPolymorphSubComponentExampleComponent {
   constructor(

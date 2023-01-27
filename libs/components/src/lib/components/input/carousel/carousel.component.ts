@@ -23,9 +23,9 @@ import { PrizmCarouselContent } from './carousel-content/carousel-content.interf
   providers: [
     {
       provide: PrizmInputControl,
-      useExisting: PrizmCarouselComponent
+      useExisting: PrizmCarouselComponent,
     },
-    PrizmDestroyService
+    PrizmDestroyService,
   ],
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
@@ -225,4 +225,3 @@ export class PrizmCarouselComponent extends PrizmInputControl<any> implements Co
     console.log('clear');
   }
 }
-

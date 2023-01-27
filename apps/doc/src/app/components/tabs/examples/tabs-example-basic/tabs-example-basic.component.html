@@ -1,12 +1,7 @@
 <div class="container">
-  <prizm-tabs [(activeTabIndex)]='activeTabIndex'>
-    <prizm-tab  *ngFor='let item of tabs'
-                [content]='item.title'
-               [type]="'line'">
-    </prizm-tab>
+  <prizm-tabs [(activeTabIndex)]="activeTabIndex">
+    <prizm-tab *ngFor="let item of tabs" [content]="item.title" [type]="'line'"> </prizm-tab>
   </prizm-tabs>
 </div>
 
-<ng-container>
-    Открытый таб #{{activeTabIndex + 1}}
-</ng-container>
+<ng-container> Открытый таб #{{ activeTabIndex + 1 }} </ng-container>

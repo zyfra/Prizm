@@ -1,4 +1,4 @@
-import {AnimationOptions} from "@angular/animations";
+import { AnimationOptions } from '@angular/animations';
 
 export interface PrizmAnimationOptions extends AnimationOptions {
   readonly value: string;

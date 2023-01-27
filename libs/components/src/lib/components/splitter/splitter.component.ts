@@ -270,4 +270,3 @@ export class PrizmSplitterComponent implements AfterViewInit, AfterContentInit {
     return index === to;
   }
 }
-

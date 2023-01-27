@@ -14,7 +14,7 @@ import { PrizmCallFuncModule } from '@prizm-ui/helpers';
     PrizmIconModule,
     PrizmSelectModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   exports: [PrizmPaginatorComponent],
 })

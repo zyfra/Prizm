@@ -6,13 +6,13 @@ import { MarkdownModule } from 'ngx-markdown';
 import { ContributingComponent } from './contributing.component';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        MarkdownModule,
-        PrizmAddonDocModule,
-        RouterModule.forChild(prizmDocGenerateRoutes(ContributingComponent)),
-    ],
-    declarations: [ContributingComponent],
-    exports: [ContributingComponent],
+  imports: [
+    CommonModule,
+    MarkdownModule,
+    PrizmAddonDocModule,
+    RouterModule.forChild(prizmDocGenerateRoutes(ContributingComponent)),
+  ],
+  declarations: [ContributingComponent],
+  exports: [ContributingComponent],
 })
 export class ContributingModule {}

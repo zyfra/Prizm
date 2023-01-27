@@ -12,4 +12,3 @@ import { PrizmFileUploadModule } from '@prizm-ui/components';
 })
 export class MyModule {}
 ```
-

@@ -4,8 +4,10 @@ import {
   Component,
   ContentChildren,
   Inject,
-  Input, OnChanges,
-  QueryList, SimpleChanges,
+  Input,
+  OnChanges,
+  QueryList,
+  SimpleChanges,
 } from '@angular/core';
 import { EMPTY_QUERY } from '@taiga-ui/cdk';
 
@@ -59,6 +61,6 @@ export class PrizmDocPageComponent implements OnChanges {
       header: this.header,
       package: this.package,
       type: this.type,
-    })
+    });
   }
 }

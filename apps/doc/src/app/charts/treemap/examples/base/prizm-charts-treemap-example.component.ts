@@ -10,11 +10,11 @@ import { PrizmThemeService } from '@prizm-ui/theme';
         width: 100%;
         height: 300px;
       }
-    `
+    `,
   ],
 })
 export class PrizmChartsTreemapExampleComponent {
-  public data =  {
+  public data = {
     name: 'root',
     children: [
       { name: 'Категория 1', value: 560 },
@@ -40,8 +40,5 @@ export class PrizmChartsTreemapExampleComponent {
     ],
   };
   public colorField = 'name';
-  constructor(
-    public readonly prizmTheme: PrizmThemeService,
-  ) {
-  }
+  constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

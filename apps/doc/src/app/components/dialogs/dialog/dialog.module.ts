@@ -28,7 +28,7 @@ import { PrizmDialogServiceWithButtonsExampleComponent } from './examples/with-b
   declarations: [
     PrizmDialogServiceExampleComponent,
     PrizmDialogServiceWithButtonsExampleComponent,
-    DialogComponent
+    DialogComponent,
   ],
   exports: [DialogComponent],
 })

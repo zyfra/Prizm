@@ -1,1 +1,1 @@
-export type PrizmDestroyCallback = () => void
+export type PrizmDestroyCallback = () => void;

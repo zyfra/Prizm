@@ -6,18 +6,18 @@
 @height: @paginationSize + @verticalSpace + @calendarSize;
 
 :host {
-    display: block;
-    height: calc(@height + var(--prizm-calendar-footer-height, 0));
-    width: @calendarSize;
-    padding: 16px;
-    box-sizing: content-box;
+  display: block;
+  height: calc(@height + var(--prizm-calendar-footer-height, 0));
+  width: @calendarSize;
+  padding: 16px;
+  box-sizing: content-box;
 }
 
 .z-scrollbar {
-    height: @paginationSize + @verticalSpace + @calendarSize - 2rem;
-    width: @calendarSize + @horizontalSpace;
+  height: @paginationSize + @verticalSpace + @calendarSize - 2rem;
+  width: @calendarSize + @horizontalSpace;
 }
 
 .z-pagination {
-    margin-bottom: @verticalSpace;
+  margin-bottom: @verticalSpace;
 }

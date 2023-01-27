@@ -4,7 +4,8 @@ import {
   ContentChildren,
   QueryList,
   AfterContentInit,
-  Input, HostBinding,
+  Input,
+  HostBinding,
 } from '@angular/core';
 import { PrizmAccordionItemComponent } from './components/accordion-item/accordion-item.component';
 import { merge } from 'rxjs';
@@ -36,7 +37,7 @@ export class PrizmAccordionComponent implements AfterContentInit {
         if (accordionItems[toggledAccordionIdx].isExpanded && this.onlyOneExpanded) {
           accordionItems.forEach((accordionItem, accordionIdx) => {
             if (accordionIdx !== toggledAccordionIdx) {
-              accordionItem.close()
+              accordionItem.close();
             }
           });
         }

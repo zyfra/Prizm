@@ -8,10 +8,7 @@ type To = [Date, Date] | null;
 
 export class PrizmInputDateTimeRangeNativeTransformer implements PrizmControlValueTransformer<From, To> {
   public fromControlValue(controlValue: To): From {
-    return controlValue && PrizmDayRange.fromLocalNativeDate(
-      controlValue[0],
-      controlValue[1]
-    );
+    return controlValue && PrizmDayRange.fromLocalNativeDate(controlValue[0], controlValue[1]);
   }
 
   public toControlValue(componentValue: From): To {
@@ -20,7 +17,7 @@ export class PrizmInputDateTimeRangeNativeTransformer implements PrizmControlVal
 }
 
 export function prizmGetInputDateTimeRangeNativeTransformer(): Provider {
-  return  {
+  return {
     provide: PRIZM_DATE_RANGE_VALUE_TRANSFORMER,
     useClass: PrizmInputDateTimeRangeNativeTransformer,
   };

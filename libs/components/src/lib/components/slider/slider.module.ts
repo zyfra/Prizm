@@ -9,4 +9,3 @@ import { PrizmSliderComponent } from './slider.component';
   exports: [PrizmSliderComponent, PrizmSliderCnobComponent],
 })
 export class PrizmSliderModule {}
-

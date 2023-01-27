@@ -10,43 +10,40 @@ import { PrizmThemeService } from '@prizm-ui/theme';
         width: 100%;
         height: 300px;
       }
-    `
+    `,
   ],
 })
 export class PrizmChartsLinesExampleComponent {
-  data =[
+  data = [
     {
-      "x": "Понедельник",
-      "y": 50
+      x: 'Понедельник',
+      y: 50,
     },
     {
-      "x": "Вторник",
-      "y": 200
+      x: 'Вторник',
+      y: 200,
     },
     {
-      "x": "Среда",
-      "y": 150
+      x: 'Среда',
+      y: 150,
     },
     {
-      "x": "Четверг",
-      "y": 100
+      x: 'Четверг',
+      y: 100,
     },
     {
-      "x": "Пятница",
-      "y": 150
+      x: 'Пятница',
+      y: 150,
     },
     {
-      "x": "Суббота",
-      "y": 200
+      x: 'Суббота',
+      y: 200,
     },
     {
-      "x": "Воскресенье",
-      "y": 200
-    }
+      x: 'Воскресенье',
+      y: 200,
+    },
   ];
 
-  constructor(
-    public readonly prizmTheme: PrizmThemeService,
-  ) {
-  }
+  constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

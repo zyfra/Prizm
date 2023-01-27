@@ -48,7 +48,6 @@ export class PaginatorExampleComponent {
     ),
   };
 
-
   public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 
   public changeRowValue(): void {

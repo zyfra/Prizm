@@ -12,30 +12,30 @@ const NG_ANIMATION_SELECTOR = `.ng-animating`;
 
 @Directive()
 export class PrizmDefaultAutofocusHandler extends AbstractPrizmAutofocusHandler {
-    constructor(
-        @Optional()
-        @Self()
-        @Inject(PRIZM_FOCUSABLE_ITEM_ACCESSOR)
-        prizmFocusableComponent: PrizmFocusableElementAccessor | null,
-        @Inject(ElementRef) elementRef: ElementRef<HTMLElement>,
-        @Inject(ANIMATION_FRAME) private readonly animationFrame$: Observable<number>,
-    ) {
-        super(prizmFocusableComponent, elementRef);
-    }
+  constructor(
+    @Optional()
+    @Self()
+    @Inject(PRIZM_FOCUSABLE_ITEM_ACCESSOR)
+    prizmFocusableComponent: PrizmFocusableElementAccessor | null,
+    @Inject(ElementRef) elementRef: ElementRef<HTMLElement>,
+    @Inject(ANIMATION_FRAME) private readonly animationFrame$: Observable<number>
+  ) {
+    super(prizmFocusableComponent, elementRef);
+  }
 
-    public setFocus(): void {
-        if (this.isTextFieldElement) {
-            race(
-                timer(TIMEOUT),
-                this.animationFrame$.pipe(
-                    throttleTime(PRIZM_POLLING_TIME),
-                    map(() => this.element.closest(NG_ANIMATION_SELECTOR)),
-                    skipWhile(Boolean),
-                    take(1),
-                ),
-            ).subscribe(() => this.element.focus());
-        } else {
-            this.element.focus();
-        }
+  public setFocus(): void {
+    if (this.isTextFieldElement) {
+      race(
+        timer(TIMEOUT),
+        this.animationFrame$.pipe(
+          throttleTime(PRIZM_POLLING_TIME),
+          map(() => this.element.closest(NG_ANIMATION_SELECTOR)),
+          skipWhile(Boolean),
+          take(1)
+        )
+      ).subscribe(() => this.element.focus());
+    } else {
+      this.element.focus();
     }
+  }
 }

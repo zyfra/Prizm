@@ -13,13 +13,9 @@ import { PrizmScrollbarModule } from '../../scrollbar';
     PrizmOverlayModule,
     PrizmButtonModule,
     PrizmFocusTrapModule,
-    PrizmScrollbarModule
+    PrizmScrollbarModule,
   ],
-  declarations: [
-    PrizmDialogConfirmComponent
-  ],
-  exports: [
-    PrizmDialogConfirmComponent
-  ],
+  declarations: [PrizmDialogConfirmComponent],
+  exports: [PrizmDialogConfirmComponent],
 })
 export class PrizmConfirmDialogModule {}

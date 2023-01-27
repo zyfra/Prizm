@@ -1,6 +1,7 @@
 # NX Development docs
 
-------
+---
+
 ### Generate an application
 
 Run `ng g @nrwl/angular:app my-app` to generate an application.
@@ -52,4 +53,3 @@ Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 ### Further help
 
 Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-

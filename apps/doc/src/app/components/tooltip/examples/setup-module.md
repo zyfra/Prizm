@@ -1,6 +1,6 @@
 ```ts
-import {NgModule} from '@angular/core';
-import {PrizmTooltipModule} from "@prizm-ui/components";
+import { NgModule } from '@angular/core';
+import { PrizmTooltipModule } from '@prizm-ui/components';
 
 // ...
 
@@ -10,6 +10,5 @@ import {PrizmTooltipModule} from "@prizm-ui/components";
     PrizmTooltipModule,
   ],
 })
-export class MyModule {
-}
+export class MyModule {}
 ```

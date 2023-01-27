@@ -8,12 +8,10 @@ import { Gauge } from '@antv/g2plot';
   templateUrl: './prizm-charts-gauge.component.html',
   styleUrls: ['./prizm-charts-gauge.component.less'],
 })
-export class PrizmChartsGaugeComponent
-<T extends Record<string, unknown>> extends PrizmChartsAbstractComponent<
-  PrizmChartsGaugeOrigin,
-  PrizmChartsGaugeOptions
-> {
-  private origin_: PrizmChartsGaugeOrigin
+export class PrizmChartsGaugeComponent<
+  T extends Record<string, unknown>
+> extends PrizmChartsAbstractComponent<PrizmChartsGaugeOrigin, PrizmChartsGaugeOptions> {
+  private origin_: PrizmChartsGaugeOrigin;
   get origin(): PrizmChartsGaugeOrigin {
     return this.origin_;
   }

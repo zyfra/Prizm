@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'prizm-polymorph-base-example',
   templateUrl: './base.component.html',
-  styles: []
+  styles: [],
 })
 export class PrizmPolymorphBaseExampleComponent {
-  public value = 'СТРОКА'
+  public value = 'СТРОКА';
 }

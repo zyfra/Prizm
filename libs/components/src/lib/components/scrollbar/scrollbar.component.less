@@ -1,21 +1,21 @@
 @import '../../../styles/ui-local';
 
 :host {
-    .createStackingContext();
-    position: relative;
-    display: flex;
-    overflow: auto;
+  .createStackingContext();
+  position: relative;
+  display: flex;
+  overflow: auto;
 
-    &:not(._legacy) {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        &::-webkit-scrollbar,
-        &::-webkit-scrollbar-thumb {
-            background: transparent;
-            width: 0;
-            height: 0;
-        }
+  &:not(._legacy) {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar,
+    &::-webkit-scrollbar-thumb {
+      background: transparent;
+      width: 0;
+      height: 0;
     }
+  }
 
   //noinspection ALL
   &._legacy {
@@ -25,9 +25,9 @@
 }
 
 .content {
-    .createStackingContext();
-    flex: 1;
-    flex-basis: auto;
-    width: 100%;
-    height: max-content;
+  .createStackingContext();
+  flex: 1;
+  flex-basis: auto;
+  width: 100%;
+  height: max-content;
 }

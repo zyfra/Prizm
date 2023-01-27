@@ -21,4 +21,3 @@ import { PrizmInputNumberDirective } from './input-number.directive';
   ],
 })
 export class PrizmInputNumberModule {}
-

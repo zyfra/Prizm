@@ -62,4 +62,3 @@ export class PrizmInputPasswordDefaultControlComponent {
     this.inputPassword.toggle();
   }
 }
-

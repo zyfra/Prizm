@@ -1,4 +1,4 @@
-# Prizm core 
+# Prizm core
 
 ![prizm workflow](https://github.com/zyfra/Prizm/actions/workflows/ci.yml/badge.svg)
 

@@ -10,6 +10,5 @@ import { PrizmGridModule } from '@prizm-ui/components';
     PrizmGridModuleModule,
   ],
 })
-export class MyModule {
-}
+export class MyModule {}
 ```

@@ -23,4 +23,3 @@ export const prizmFileUploadDefaultOptions: PrizmFileUploadOptions = {
 export const PRIZM_FILEUPLOAD_OPTIONS = new InjectionToken<Partial<PrizmFileUploadOptions>>(
   'Prizm file upload options'
 );
-

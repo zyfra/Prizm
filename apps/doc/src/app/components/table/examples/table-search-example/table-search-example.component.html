@@ -2,10 +2,10 @@
   <table prizmTable class="table" [columns]="columns">
     <thead>
       <tr prizmThGroup>
-        <th rowspan="2" prizmTh [sorter]='sorter' *prizmHead="'code'" [resizable]="true">Код</th>
+        <th rowspan="2" prizmTh [sorter]="sorter" *prizmHead="'code'" [resizable]="true">Код</th>
         <th prizmTh *prizmHead="'name'" [resizable]="true">Наименование</th>
-        <th rowspan="2" prizmTh [sorter]='sorter' *prizmHead="'category'">Категория</th>
-        <th rowspan="2" prizmTh [sorter]='sorter' *prizmHead="'count'">Количество</th>
+        <th rowspan="2" prizmTh [sorter]="sorter" *prizmHead="'category'">Категория</th>
+        <th rowspan="2" prizmTh [sorter]="sorter" *prizmHead="'count'">Количество</th>
       </tr>
       <tr prizmThGroup>
         <th prizmTh class="extra-border search-cell" [resizable]="true">
@@ -21,10 +21,10 @@
 
     <tbody prizmTbody [data]="searchAllowedProducts">
       <tr *prizmRow="let item of searchAllowedProducts; let i = index" class="row" prizmTr>
-        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber: '0.0-0' }}</td>
+        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
         <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
         <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
-        <td class="format__number" *prizmCell="'count'" prizmTd>{{ item.count | spaceNumber: '0.0-0' }}</td>
+        <td class="format__number" *prizmCell="'count'" prizmTd>{{ item.count | spaceNumber : '0.0-0' }}</td>
       </tr>
     </tbody>
   </table>

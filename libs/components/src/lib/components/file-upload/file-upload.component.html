@@ -32,7 +32,7 @@
     <div class="file__preview">
       <img
         *ngIf="item.value.url; else iconTpl"
-        [src]="item.value.url | prizmSanitizer: 'bypassSecurityTrustResourceUrl'"
+        [src]="item.value.url | prizmSanitizer : 'bypassSecurityTrustResourceUrl'"
         class="file__image"
       />
 
@@ -83,4 +83,3 @@
     </div>
   </div>
 </div>
-

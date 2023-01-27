@@ -1,15 +1,12 @@
 <div class="box">
-  <prizm-dropdown-host
-    [content]="dropdown"
-    prizmDropdownHostWidth='100%'
-    [(isOpen)]="open"
-  >
+  <prizm-dropdown-host [content]="dropdown" prizmDropdownHostWidth="100%" [(isOpen)]="open">
     <prizm-split-button
       appearanceType="fill"
       [icon]="'chevrons-dropdown'"
       appearance="primary"
-      (clickIcon)='open = !open'
-      size="m">
+      (clickIcon)="open = !open"
+      size="m"
+    >
       With Dropdown Button
     </prizm-split-button>
   </prizm-dropdown-host>
@@ -18,12 +15,9 @@
 <ng-template #dropdown>
   <prizm-data-list>
     <ng-container header>Заголовок блока</ng-container>
-    <div class="val">
-      CONTENT
-    </div>
+    <div class="val">CONTENT</div>
     <ng-container footer>
       <button prizmButton (click)="open = false; cdRef.markForCheck()">Закрыть</button>
     </ng-container>
   </prizm-data-list>
 </ng-template>
-

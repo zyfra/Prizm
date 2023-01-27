@@ -3,17 +3,17 @@ import { prizmPressedObservable } from '../../observables/pressed-observable';
 import { PRIZM_TAKE_ONLY_TRUSTED_EVENTS } from '../../tokens/take-only-trusted-events';
 
 @Directive({
-    selector: '[prizmPressedChange]',
+  selector: '[prizmPressedChange]',
 })
 export class PrizmPressedDirective {
-    @Output()
-    readonly prizmPressedChange = prizmPressedObservable(this.elementRef.nativeElement, {
-        onlyTrusted: this.takeOnlyTrustedEvents,
-    });
+  @Output()
+  readonly prizmPressedChange = prizmPressedObservable(this.elementRef.nativeElement, {
+    onlyTrusted: this.takeOnlyTrustedEvents,
+  });
 
-    constructor(
-        @Inject(ElementRef) private readonly elementRef: ElementRef<Element>,
-        @Inject(PRIZM_TAKE_ONLY_TRUSTED_EVENTS)
-        private readonly takeOnlyTrustedEvents: boolean,
-    ) {}
+  constructor(
+    @Inject(ElementRef) private readonly elementRef: ElementRef<Element>,
+    @Inject(PRIZM_TAKE_ONLY_TRUSTED_EVENTS)
+    private readonly takeOnlyTrustedEvents: boolean
+  ) {}
 }

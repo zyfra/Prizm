@@ -1,6 +1,8 @@
 <prizm-doc-page header="Radar" package="components" type="components">
-  <div class='page-description' description>
-    Radar charts are a useful way to display multivariate observations with an arbitrary number of variables. Each star represents a single observation. Typically, radar charts are generated in a multi-plot format with many stars on each page and each star representing one observation.
+  <div class="page-description" description>
+    Radar charts are a useful way to display multivariate observations with an arbitrary number of variables.
+    Each star represents a single observation. Typically, radar charts are generated in a multi-plot format
+    with many stars on each page and each star representing one observation.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="exampleOutline">
@@ -13,19 +15,19 @@
       <prizm-charts-radar
         #element
         [prizmDocHostElement]="element"
-        [data]='data'
-        [xField]='xField'
-        [height]='height'
-        [width]='width'
-        [theme]='prizmTheme.changesTheme$ | async'
-        [yField]='yField'
-        [options]='options'
+        [data]="data"
+        [xField]="xField"
+        [height]="height"
+        [width]="width"
+        [theme]="prizmTheme.changesTheme$ | async"
+        [yField]="yField"
+        [options]="options"
       ></prizm-charts-radar>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="theme"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartTheme"
       >
         Theme
@@ -34,7 +36,7 @@
       <ng-template
         documentationPropertyName="width"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="width"
       >
         Width
@@ -43,7 +45,7 @@
       <ng-template
         documentationPropertyName="height"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="height"
       >
         Height
@@ -51,7 +53,7 @@
 
       <ng-template
         documentationPropertyName="options"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsRadarOptions"
       >
         Options
@@ -60,7 +62,7 @@
       <ng-template
         documentationPropertyName="xField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="xField"
       >
         X Field Name
@@ -69,16 +71,15 @@
       <ng-template
         documentationPropertyName="yField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="yField"
       >
         Y Field Name
       </ng-template>
 
-
       <ng-template
         documentationPropertyName="label"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType=" PrizmChartsRadarOptions[label]"
       >
         Label
@@ -86,7 +87,7 @@
 
       <ng-template
         documentationPropertyName="data"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsRadarItem[]"
       >
         Data

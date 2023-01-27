@@ -62,8 +62,5 @@ export class BarComponent {
   width: number = null;
 
   seriesField: string = null;
-  constructor(
-    public readonly prizmTheme: PrizmThemeService,
-  ) {
-  }
+  constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

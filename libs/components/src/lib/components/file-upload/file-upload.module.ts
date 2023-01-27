@@ -14,4 +14,3 @@ import { PrizmFileUploadComponent } from './file-upload.component';
   exports: [PrizmFileUploadComponent],
 })
 export class PrizmFileUploadModule {}
-

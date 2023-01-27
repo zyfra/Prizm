@@ -5,11 +5,11 @@ import { PrizmMonth } from '../../@core/date-time/month';
 import { PRIZM_MONTHS } from '../../tokens/i18n';
 
 // @dynamic
-@Pipe({name: `prizmMonth`})
+@Pipe({ name: `prizmMonth` })
 export class PrizmMonthPipe implements PipeTransform {
-    constructor(@Inject(PRIZM_MONTHS) private readonly months$: Observable<string[]>) {}
+  constructor(@Inject(PRIZM_MONTHS) private readonly months$: Observable<string[]>) {}
 
-    public transform({month}: PrizmMonth): Observable<string> {
-        return this.months$.pipe(map(months => months[month]));
-    }
+  public transform({ month }: PrizmMonth): Observable<string> {
+    return this.months$.pipe(map(months => months[month]));
+  }
 }

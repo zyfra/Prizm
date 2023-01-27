@@ -5,15 +5,17 @@ import { PrizmDateItemTemplate, PrizmDay, PrizmTime } from '@prizm-ui/components
 @Component({
   selector: 'prizm-input-date-multi-base-example',
   templateUrl: './input-date-multi-base-example.component.html',
-  styles: [`
-    .box {
-      display: flex;
-      gap: 1rem;
-    }
-    prizm-input-date-multi {
-      width: 20rem;
-    }
-  `]
+  styles: [
+    `
+      .box {
+        display: flex;
+        gap: 1rem;
+      }
+      prizm-input-date-multi {
+        width: 20rem;
+      }
+    `,
+  ],
 })
 export class PrizmInputDateMultiBaseExampleComponent implements OnInit {
   @ViewChild('dateTime', { static: true }) dateTime: TemplateRef<unknown>;
@@ -26,12 +28,12 @@ export class PrizmInputDateMultiBaseExampleComponent implements OnInit {
     this.items = [
       {
         template: this.dateTime,
-        name: 'Абсолютное время'
+        name: 'Абсолютное время',
       },
       {
         template: this.dateRelativeTime,
-        name: 'Относительное время'
+        name: 'Относительное время',
       },
-    ]
+    ];
   }
 }

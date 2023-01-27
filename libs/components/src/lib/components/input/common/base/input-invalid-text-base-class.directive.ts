@@ -59,4 +59,3 @@ export class DefaultInputInvalidTextClass extends InputInvalidTextBaseClass impl
     this.invalidText = text;
   }
 }
-

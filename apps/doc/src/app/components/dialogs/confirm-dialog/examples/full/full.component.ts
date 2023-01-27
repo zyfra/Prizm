@@ -6,15 +6,15 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 @Component({
   selector: 'prizm-dialog-full-example',
   templateUrl: './full.component.html',
-  styles: [`
-    .box {
-      display: flex;
-      gap: 1rem;
-    }
-  `],
-  providers: [
-    PrizmDestroyService
-  ]
+  styles: [
+    `
+      .box {
+        display: flex;
+        gap: 1rem;
+      }
+    `,
+  ],
+  providers: [PrizmDestroyService],
 })
 export class PrizmDialogFullExampleComponent {
   public positionVariants: PrizmOverlayInsidePlacement[] = Object.values(PrizmOverlayInsidePlacement);
@@ -23,7 +23,7 @@ export class PrizmDialogFullExampleComponent {
 
   constructor(
     private readonly confirmDialogService: PrizmConfirmDialogService,
-    private readonly destroy$: PrizmDestroyService,
+    private readonly destroy$: PrizmDestroyService
   ) {}
 
   public show(): void {
@@ -37,33 +37,33 @@ export class PrizmDialogFullExampleComponent {
           confirmButton: {
             text: 'ПОДТВЕДИТЬ',
             appearance: 'success',
-            action: (context) => {
-              console.log('CLICK ON CONFIRM BUTTON')
+            action: context => {
+              console.log('CLICK ON CONFIRM BUTTON');
               context.completeWith('SUCCESS');
-            }
+            },
           },
           cancelButton: {
             text: 'ОТМЕНИТЬ',
             disabled: true,
             appearance: 'danger',
-            action: (context) => {
-              console.log('CLICK ON CANCEL BUTTON')
+            action: context => {
+              console.log('CLICK ON CANCEL BUTTON');
               context.completeWith('FALSE');
-            }
+            },
           },
           supportButton: {
             text: 'Продолжить',
             appearance: 'secondary',
             appearanceType: 'ghost',
-            action: (context) => {
-              console.log('CLICK ON SUPPORT BUTTON')
+            action: context => {
+              console.log('CLICK ON SUPPORT BUTTON');
               context.completeWith('CONTINUE');
-            }
+            },
           },
-          size: 'm'
+          size: 'm',
         }
-      ).pipe(
-        takeUntil(this.destroy$)
-    ).subscribe();
+      )
+      .pipe(takeUntil(this.destroy$))
+      .subscribe();
   }
 }

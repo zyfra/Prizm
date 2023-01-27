@@ -2,7 +2,7 @@
  * {@link https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#pipe}
  */
 export interface PrizmTextMaskPipeResult {
-    value: string;
+  value: string;
 
-    indexesOfPipedChars?: readonly number[];
+  indexesOfPipedChars?: readonly number[];
 }

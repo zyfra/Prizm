@@ -20,24 +20,19 @@ export class TreeTemplateExampleComponent {
         children: [
           {
             text: 'Another item',
-            children: [
-              {text: 'Next level 1'},
-              {text: 'Next level 2'},
-              {text: 'Next level 3'},
-            ],
+            children: [{ text: 'Next level 1' }, { text: 'Next level 2' }, { text: 'Next level 3' }],
           },
         ],
       },
-      {text: 'Top level 2'},
+      { text: 'Top level 2' },
       {
         text: 'Top level 3',
-        children: [{text: 'Test 1'}, {text: 'Test 2'}],
+        children: [{ text: 'Test 1' }, { text: 'Test 2' }],
       },
     ],
   };
 
-  readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item =>
-    item.children || PRIZM_EMPTY_ARRAY;
+  readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item => item.children || PRIZM_EMPTY_ARRAY;
 
   readonly getValue = (item: TreeNode, map: Map<TreeNode, boolean>): boolean | null => {
     const flat = flatten(item);
@@ -60,8 +55,5 @@ export class TreeTemplateExampleComponent {
 }
 
 function flatten(item: TreeNode): readonly TreeNode[] {
-  return item.children
-    ? item.children.map(flatten).reduce((arr, item) => [...arr, ...item], [])
-    : [item];
+  return item.children ? item.children.map(flatten).reduce((arr, item) => [...arr, ...item], []) : [item];
 }
-
