@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class PrizmPolymorphFunctionExampleComponent {
   public context = { a: 1 };
-  public value = (context: Record<string, unknown>) => {
+  public value = (context: Record<string, unknown>): string => {
     return `FROM FUNCTION ${context?.a}`;
   };
 }

@@ -133,7 +133,7 @@ export class PrizmPaginatorComponent {
     });
   }
 
-  public changeRows(rows: null | number) {
+  public changeRows(rows: null | number): void {
     if (this.rows === rows) return;
     this.rows = rows;
     this.paginationGenerator(rows, this.currentPage);
