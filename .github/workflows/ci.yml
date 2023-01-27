@@ -10,7 +10,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: git fetch --no-tags --prune --depth=1 origin main
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+#      - run: git fetch --no-tags --prune --depth=1 origin main
+
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'npm'
+
       - run: npm ci
       #      - run: npx nx workspace-lint
       - run: npx nx format:check --base=origin/main
