@@ -6,17 +6,11 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "typeRoots": ["node_modules/@types"],
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": [
-      "es2017",
-      "dom",
-      "ES2021.String"
-    ],
+    "lib": ["es2017", "dom", "ES2021.String"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "strictNullChecks": false,
@@ -24,34 +18,15 @@
     "strictPropertyInitialization": false,
     "baseUrl": ".",
     "paths": {
-      "@prizm-ui/charts": [
-        "libs/charts/base/src/index.ts"
-      ],
-      "@prizm-ui/components": [
-        "libs/components/src/index.ts"
-      ],
-      "@prizm-ui/core": [
-        "libs/core/src/index.ts"
-      ],
-      "@prizm-ui/doc": [
-        "libs/doc/base/src/index.ts"
-      ],
-      "@prizm-ui/flag-icons": [
-        "libs/icons/flags/src/index.ts"
-      ],
-      "@prizm-ui/helpers": [
-        "libs/helpers/src/index.ts"
-      ],
-      "@prizm-ui/icons": [
-        "libs/icons/base/src/index.ts"
-      ],
-      "@prizm-ui/theme": [
-        "libs/theme/src/index.ts"
-      ]
+      "@prizm-ui/charts": ["libs/charts/base/src/index.ts"],
+      "@prizm-ui/components": ["libs/components/src/index.ts"],
+      "@prizm-ui/core": ["libs/core/src/index.ts"],
+      "@prizm-ui/doc": ["libs/doc/base/src/index.ts"],
+      "@prizm-ui/flag-icons": ["libs/icons/flags/src/index.ts"],
+      "@prizm-ui/helpers": ["libs/helpers/src/index.ts"],
+      "@prizm-ui/icons": ["libs/icons/base/src/index.ts"],
+      "@prizm-ui/theme": ["libs/theme/src/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }
