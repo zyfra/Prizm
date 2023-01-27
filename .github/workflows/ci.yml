@@ -16,11 +16,12 @@ jobs:
           echo "BASE: ${{ env.NX_BASE }}"
           echo "HEAD: ${{ env.NX_HEAD }}"
       - uses: nrwl/nx-set-shas@v3
-      - run: export name=BRANCH_NAME::$(echo ${GITHUB_HEAD_REF})
+#      - run: export name=BRANCH_NAME::$(echo ${GITHUB_HEAD_REF})
 #      - run: export name=BRANCH_NAME::$(echo ${GITHUB_HEAD_REF})
       - run: echo 'The branch name is' $BRANCH_NAME
       - run: |
           echo "BASE: ${{ env.NX_BASE }}"
+          echo "BASE: ${{ env.GITHUB_HEAD_REF }}"
           echo "HEAD: ${{ env.NX_HEAD }}"
       - run: npm ci
       - run: npx nx clear-cache
