@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: git fetch --no-tags --prune --depth=1 origin main
       - run: npm ci
-#      - run: npx nx workspace-lint
+      #      - run: npx nx workspace-lint
       - run: npx nx format:check --base=origin/main
       - run: npx nx affected --target=test --base=origin/main
       - run: npx nx affected --target=lint --base=origin/main
