@@ -8,7 +8,6 @@ import {
   PrizmCheckboxModule,
   PrizmDataListModule,
   PrizmDropdownHostModule,
-  PrizmDropdownZoneModule,
   PrizmIconModule,
   PrizmInputDateTimeModule,
   PrizmInputTextModule,
@@ -18,12 +17,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownHostComponent } from './dropdown-host.component';
 import { PrizmDropdownHostExampleWithTemplateComponent } from './examples/with-template/template';
 import { PrizmSelectPanelExampleComponent } from './examples/select-panel-example/select-panel-example.component';
-import { PrizmDropdownHostDateListExampleComponent } from './examples/date-list/date-list.component';
 import { PrizmDropdownHostDateListEditExampleComponent } from './examples/date-list-edit/date-list-edit.component';
 import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
 import {
   PrizmDropdownHostExampleWithCustomContextComponent
 } from './examples/with-custom-context/with-custom-context.component';
+import { PrizmDropdownHostDateListExampleComponent } from './examples/date-list-with-nested/date-list.component';
 
 @NgModule({
   imports: [
@@ -33,7 +32,6 @@ import {
     ReactiveFormsModule,
     PolymorphModule,
     PrizmDataListModule,
-    PrizmDropdownZoneModule,
     PrizmButtonModule,
     PrizmDropdownHostModule,
     RouterModule.forChild(prizmDocGenerateRoutes(DropdownHostComponent)),

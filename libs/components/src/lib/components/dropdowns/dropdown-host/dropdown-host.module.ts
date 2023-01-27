@@ -21,6 +21,6 @@ import { PrizmShadowModule } from '../../../directives/shadow';
       PrizmMutationObserveModule,
     ],
     declarations: [PrizmDropdownHostComponent],
-    exports: [PrizmDropdownHostComponent],
+    exports: [PrizmDropdownHostComponent, PrizmDropdownZoneModule],
 })
 export class PrizmDropdownHostModule {}

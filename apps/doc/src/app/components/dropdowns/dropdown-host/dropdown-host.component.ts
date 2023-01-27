@@ -47,8 +47,8 @@ export class DropdownHostComponent {
   };
 
   readonly exampleDateRangeList: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/date-list/date-list.component'),
-    HTML: import('!!raw-loader!./examples/date-list/date-list.component.html'),
+    TypeScript: import('!!raw-loader!./examples/date-list-with-nested/date-list.component'),
+    HTML: import('!!raw-loader!./examples/date-list-with-nested/date-list.component.html'),
   };
 
   readonly exampleDateRangeListEdit: TuiDocExample = {
