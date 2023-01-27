@@ -92,7 +92,12 @@ export class PolymorphOutletDirective<C extends object> implements OnChanges, Do
         }
     }
 
-    private getContext(): unknown {;
+    private getContext(): unknown {
+      console.log('#mz getContext', {
+        isTemplate: isTemplate(this.content),
+        context: this.context,
+        content: this.content,
+      });
         return isTemplate(this.content)
             ? this.context
             : new PrimitiveContext(

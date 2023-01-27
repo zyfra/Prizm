@@ -78,11 +78,6 @@ angular.json:
 angular.json
 ```
 "assets": [
-    {
-        "glob": "**/*",
-        "input": "node_modules/@prizm-ui/components/src/styles/fonts",
-        "output": "assets/prizm-ui/components"
-    }
 ],
 ```
 

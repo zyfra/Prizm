@@ -94,6 +94,11 @@ export class ConfirmComponent {
     TypeScript: import('!!raw-loader!./examples/horizontal/horizontal.component.ts'),
     HTML: import('!!raw-loader!./examples/horizontal/horizontal.component.html'),
   };
+  public readonly exampleFull: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/full/full.component.ts'),
+    HTML: import('!!raw-loader!./examples/full/full.component.html'),
+    MODULE: import('!!raw-loader!./examples/full/full.module'),
+  };
 
   constructor(
     @Inject(PrizmConfirmDialogService) private readonly dialogConfirmService: PrizmConfirmDialogService

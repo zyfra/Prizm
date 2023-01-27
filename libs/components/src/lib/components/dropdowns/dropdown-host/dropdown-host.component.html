@@ -14,7 +14,7 @@
          (prizmOnDestroy)='removeListenerItems($event.nativeElement)'
          [id]="prizmDropdownHostId"
          [attr.position]="position$ | async">
-      <ng-container *polymorphOutlet="content; context: {zone: zone}"></ng-container>
+      <ng-container *polymorphOutlet="content; context: {zone: zone, custom: prizmDropdownCustomContext}"></ng-container>
     </div>
   </ng-template>
 </div>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmComponent } from './confirm.component';
 import { PrizmDialogServiceExampleComponent } from './examples/base/base.component';
 import { PrizmDialogHorizontalExampleComponent } from './examples/horizontal/horizontal.component';
+import { FullExampleModule } from './examples/full/full.module';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { PrizmDialogHorizontalExampleComponent } from './examples/horizontal/hor
     ReactiveFormsModule,
     PolymorphModule,
     PrizmSelectModule,
+    FullExampleModule,
     PrizmButtonModule,
     PrizmConfirmDialogModule,
     PrizmRadioButtonModule,

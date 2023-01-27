@@ -56,5 +56,10 @@ export class DropdownHostComponent {
     HTML: import('!!raw-loader!./examples/date-list-edit/date-list-edit.component.html'),
   };
 
+  readonly exampleCustomContext: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/with-custom-context/with-custom-context.component'),
+    HTML: import('!!raw-loader!./examples/with-custom-context/with-custom-context.component.html'),
+  };
+
   constructor(public readonly cdRef: ChangeDetectorRef) {}
 }

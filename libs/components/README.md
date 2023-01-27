@@ -60,11 +60,6 @@ Add our styles to angular config:
 ```ts
 "assets": [
 // ....
-{
-"glob": "**/*",
-"input": "node_modules/@prizm-ui/components/src/styles/fonts",
-"output": "assets/prizm-ui/fonts"
-},
 ],
 "styles": [
 // (Required) Add for use our theme
