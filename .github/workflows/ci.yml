@@ -20,6 +20,7 @@ jobs:
       - run: npm ci
       - run: npx nx workspace-lint
       - run: npx nx format:check --base=origin/main
+      - run: npx nx clear-cache
       - run: npx nx affected --target=test --base=origin/main --parallel --max-parallel=3
       - run: npx nx affected --target=lint --base=origin/main --parallel --max-parallel=3
       - run: npx nx affected --target=build --base=origin/main --prod --parallel --max-parallel=3
