@@ -2,7 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.0.0-beta.21](https://github.com/zyfra/Prizm) (23-01-2022)
+## [1.0.0-beta.22](https://github.com/zyfra/Prizm) (27-01-2023)
+
+### Features
+- feat(component/paginator) add new output paginatorChange
+- feat(component/paginator): add showMoreDisabled input
+- feat(doc/polymorph): add documentation with examples
+- feat(doc/split-button): add example with dropdown
+
+### BUG FIXES
+- fix(component/paginator) fix pageChange output logic
+- fix(component/paginator): corrected multiple output trigger
+- fix(components/tag): fix tag select on disabled
+
+## [1.0.0-beta.21](https://github.com/zyfra/Prizm) (23-01-2023)
 
 ### Features
 - fix(doc/paginator) remove not working params in api page 
