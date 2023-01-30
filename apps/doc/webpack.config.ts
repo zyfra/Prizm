@@ -43,15 +43,13 @@ export default (ngConfigs: Configuration): Configuration => {
   const ngRules = [...(ngConfigs.module?.rules || [])].map(rule => {
     if (
       typeof rule === `object` &&
-      DONT_MUTATE_RAW_FILE_CONTENTS.some(
-        pattern => rule.test instanceof RegExp && rule.test?.test(pattern),
-      )
+      DONT_MUTATE_RAW_FILE_CONTENTS.some(pattern => rule.test instanceof RegExp && rule.test?.test(pattern))
     ) {
-      return {...rule, resourceQuery: {not: [RAW_TS_QUERY]}};
+      return { ...rule, resourceQuery: { not: [RAW_TS_QUERY] } };
     }
 
     return rule;
   });
 
-  return merge({...ngConfigs, module: {...ngConfigs.module, rules: ngRules}}, config);
+  return merge({ ...ngConfigs, module: { ...ngConfigs.module, rules: ngRules } }, config);
 };

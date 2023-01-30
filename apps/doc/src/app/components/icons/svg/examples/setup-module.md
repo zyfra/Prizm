@@ -1,4 +1,3 @@
-
 ```ts
 // Использование svg
 import { NgModule } from '@angular/core';
@@ -12,10 +11,8 @@ import { PrizmIconsSvgModule } from '@prizm-ui/icons';
     PrizmIconsSvgModule,
   ],
 })
-export class MyModule {
-}
+export class MyModule {}
 ```
-
 
 ```bash
  # Использование шрифтов

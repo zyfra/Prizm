@@ -9,17 +9,17 @@ import { PrizmMapperPipeModule } from '../../../pipes/mapper';
 import { PrizmCalendarSheetPipeModule } from '../../../pipes/calendar-sheet';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        PrizmLetModule,
-        PrizmMapperPipeModule,
-        PrizmRepeatTimesModule,
-        PrizmCallFuncModule,
-        PrizmHoveredModule,
-        PrizmPressedModule,
-        PrizmCalendarSheetPipeModule,
-    ],
-    declarations: [PrizmPrimitiveCalendarComponent],
-    exports: [PrizmPrimitiveCalendarComponent],
+  imports: [
+    CommonModule,
+    PrizmLetModule,
+    PrizmMapperPipeModule,
+    PrizmRepeatTimesModule,
+    PrizmCallFuncModule,
+    PrizmHoveredModule,
+    PrizmPressedModule,
+    PrizmCalendarSheetPipeModule,
+  ],
+  declarations: [PrizmPrimitiveCalendarComponent],
+  exports: [PrizmPrimitiveCalendarComponent],
 })
 export class PrizmPrimitiveCalendarModule {}

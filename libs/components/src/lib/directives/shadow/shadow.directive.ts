@@ -11,6 +11,6 @@ export class PrizmShadowDirective {
 
   @HostBinding('style.box-shadow')
   private get boxShadow(): PrizmShadowValue {
-    return prizmGetShadow(this.type)
+    return prizmGetShadow(this.type);
   }
 }

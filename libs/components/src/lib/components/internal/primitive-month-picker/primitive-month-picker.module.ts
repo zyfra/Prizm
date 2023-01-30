@@ -9,16 +9,16 @@ import { PrizmMonthPipeModule } from '../../../pipes/month';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-    imports: [
-        PrizmHoveredModule,
-        PrizmPressedModule,
-        PrizmRepeatTimesModule,
-        PrizmLetModule,
-        CommonModule,
-        PrizmScrollIntoViewModule,
-        PrizmMonthPipeModule
-    ],
-    declarations: [PrizmPrimitiveMonthPickerComponent],
-    exports: [PrizmPrimitiveMonthPickerComponent],
+  imports: [
+    PrizmHoveredModule,
+    PrizmPressedModule,
+    PrizmRepeatTimesModule,
+    PrizmLetModule,
+    CommonModule,
+    PrizmScrollIntoViewModule,
+    PrizmMonthPipeModule,
+  ],
+  declarations: [PrizmPrimitiveMonthPickerComponent],
+  exports: [PrizmPrimitiveMonthPickerComponent],
 })
 export class PrizmPrimitiveMonthPickerModule {}

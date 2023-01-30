@@ -28,8 +28,8 @@ export class RadialBarComponent {
     { name: 'F2', star: 7346 },
     { name: 'G2', star: 10178 },
   ];
-  public xField ="name"
-  public yField ="star"
+  public xField = 'name';
+  public yField = 'star';
 
   public options: Partial<PrizmChartsRadialBarOptions> = {
     radius: 0.8,
@@ -40,8 +40,5 @@ export class RadialBarComponent {
       },
     },
   };
-  constructor(
-    public readonly prizmTheme: PrizmThemeService,
-  ) {
-  }
+  constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

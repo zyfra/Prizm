@@ -1,5 +1,5 @@
-import {PrizmOverlayPositionMeta, PrizmOverlaySlidePlacement} from '../models';
-import {PrizmOverlayAbstractPosition} from './position';
+import { PrizmOverlayPositionMeta, PrizmOverlaySlidePlacement } from '../models';
+import { PrizmOverlayAbstractPosition } from './position';
 
 interface SlidePlacementConfig {
   placement?: PrizmOverlaySlidePlacement;
@@ -19,7 +19,7 @@ export class PrizmOverlaySlidePosition extends PrizmOverlayAbstractPosition<Slid
       width: this.config.width,
       height: '100%',
       position: 'fixed',
-      extra: this.config.placement
+      extra: this.config.placement,
     };
   }
 }

@@ -15,11 +15,7 @@ import { PrizmThemeLocalExampleComponent } from './examples/local/local.componen
     PrizmWidgetModule,
     RouterModule.forChild(prizmDocGenerateRoutes(ThemeComponent)),
   ],
-  declarations: [
-    PrizmThemeBaseExampleComponent,
-    PrizmThemeLocalExampleComponent,
-    ThemeComponent,
-  ],
+  declarations: [PrizmThemeBaseExampleComponent, PrizmThemeLocalExampleComponent, ThemeComponent],
   exports: [ThemeComponent],
 })
 export class ThemeModule {}

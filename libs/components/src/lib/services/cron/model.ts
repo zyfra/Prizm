@@ -9,11 +9,11 @@ export enum PrizmCronDefaultObjectValue {
 }
 
 export interface PrizmCronValueObject {
-  second: string,
-  minute: string,
-  hour: string,
-  month: string,
-  dayOfWeek: string,
-  dayOfMonth: string,
-  year: string,
+  second: string;
+  minute: string;
+  hour: string;
+  month: string;
+  dayOfWeek: string;
+  dayOfMonth: string;
+  year: string;
 }

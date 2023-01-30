@@ -10,4 +10,3 @@ export class PrizmErrorPageComponent {
   @Input() code!: number;
   @Input() title!: string;
 }
-

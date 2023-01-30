@@ -7,17 +7,17 @@
  * @return an integer between min and max inclusive
  */
 export function prizmNormalizeToIntNumber(value: number, min: number, max: number): number {
-    console.assert(Number.isInteger(min));
-    console.assert(Number.isInteger(max));
-    console.assert(min <= max);
+  console.assert(Number.isInteger(min));
+  console.assert(Number.isInteger(max));
+  console.assert(min <= max);
 
-    if (isNaN(value) || value <= min) {
-        return min;
-    }
+  if (isNaN(value) || value <= min) {
+    return min;
+  }
 
-    if (value >= max) {
-        return max;
-    }
+  if (value >= max) {
+    return max;
+  }
 
-    return Math.round(value);
+  return Math.round(value);
 }

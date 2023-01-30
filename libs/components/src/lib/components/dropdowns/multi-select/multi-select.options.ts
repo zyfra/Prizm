@@ -9,28 +9,27 @@ import {
   PrizmMultiSelectItemStringifyFunc,
 } from './multi-select.model';
 
-export type PrizmMultiSelectIconContext = {opened: boolean, disabled: boolean};
+export type PrizmMultiSelectIconContext = { opened: boolean; disabled: boolean };
 
 export interface PrizmMultiSelectOptions<T> {
-    readonly items: T[];
-    readonly chooseAllItem: T;
-    readonly icon: PolymorphContent<PrizmMultiSelectIconContext>;
-    readonly searchable: boolean;
-    readonly forceClear: null | boolean;
-    readonly isChipsDeletable:boolean;
-    readonly label: string;
-    readonly placeholder: string;
-    readonly size: PrizmInputSize;
-    readonly stringify: PrizmMultiSelectItemStringifyFunc<T>;
-    readonly emptyContent: PolymorphContent;
-    readonly searchMatcher: PrizmMultiSelectSearchMatcher<T>,
-    readonly identityMatcher: PrizmMultiSelectIdentityMatcher<T>,
-    readonly minDropdownHeight: number;
-    readonly outer: boolean;
-    readonly maxDropdownHeight: number;
-    readonly dropdownWidth: string;
-    readonly valueContent: PolymorphContent<PrizmContextWithImplicit<PrizmMultiSelectItemWithChecked<T>>>;
-
+  readonly items: T[];
+  readonly chooseAllItem: T;
+  readonly icon: PolymorphContent<PrizmMultiSelectIconContext>;
+  readonly searchable: boolean;
+  readonly forceClear: null | boolean;
+  readonly isChipsDeletable: boolean;
+  readonly label: string;
+  readonly placeholder: string;
+  readonly size: PrizmInputSize;
+  readonly stringify: PrizmMultiSelectItemStringifyFunc<T>;
+  readonly emptyContent: PolymorphContent;
+  readonly searchMatcher: PrizmMultiSelectSearchMatcher<T>;
+  readonly identityMatcher: PrizmMultiSelectIdentityMatcher<T>;
+  readonly minDropdownHeight: number;
+  readonly outer: boolean;
+  readonly maxDropdownHeight: number;
+  readonly dropdownWidth: string;
+  readonly valueContent: PolymorphContent<PrizmContextWithImplicit<PrizmMultiSelectItemWithChecked<T>>>;
 }
 
 /** Default values for dropdown-host options */
@@ -45,7 +44,7 @@ export const PRIZM_MULTI_SELECT_DEFAULT_OPTIONS: PrizmMultiSelectOptions<unknown
   dropdownWidth: '100%',
   minDropdownHeight: 0,
   maxDropdownHeight: 342,
-  emptyContent: "Ничего не найдено",
+  emptyContent: 'Ничего не найдено',
   searchMatcher: (searchValue: string, item: unknown): boolean => {
     return item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
   },
@@ -63,15 +62,15 @@ export const PRIZM_MULTI_SELECT_DEFAULT_OPTIONS: PrizmMultiSelectOptions<unknown
 };
 
 export const PRIZM_MULTI_SELECT_OPTIONS = new InjectionToken<PrizmMultiSelectOptions<unknown>>(
-    'Default parameters for select',
-    {
-        factory: (): PrizmMultiSelectOptions<unknown> => PRIZM_MULTI_SELECT_DEFAULT_OPTIONS,
-    },
+  'Default parameters for select',
+  {
+    factory: (): PrizmMultiSelectOptions<unknown> => PRIZM_MULTI_SELECT_DEFAULT_OPTIONS,
+  }
 );
 
 export const prizmMultiSelectOptionsProvider: (
-    options: Partial<PrizmMultiSelectOptions<unknown>>,
+  options: Partial<PrizmMultiSelectOptions<unknown>>
 ) => ValueProvider = (options: Partial<PrizmMultiSelectOptions<unknown>>) => ({
-    provide: PRIZM_MULTI_SELECT_OPTIONS,
-    useValue: {...PRIZM_MULTI_SELECT_DEFAULT_OPTIONS, ...options},
+  provide: PRIZM_MULTI_SELECT_OPTIONS,
+  useValue: { ...PRIZM_MULTI_SELECT_DEFAULT_OPTIONS, ...options },
 });

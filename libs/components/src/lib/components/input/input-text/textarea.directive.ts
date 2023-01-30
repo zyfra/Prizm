@@ -67,4 +67,3 @@ export class PrizmTextareaDirective implements AfterViewInit {
     this.elementRef.nativeElement.parentElement.appendChild(this.clone);
   }
 }
-

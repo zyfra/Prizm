@@ -4,6 +4,6 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   selector: 'prizm-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GridComponent {}

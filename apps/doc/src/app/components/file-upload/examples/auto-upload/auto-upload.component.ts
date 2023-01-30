@@ -150,4 +150,3 @@ export class PrizmFileAutoUploadExampleComponent implements OnDestroy {
     this.progress$$.complete();
   }
 }
-

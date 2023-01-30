@@ -1,5 +1,5 @@
-import {PrizmOverlayConfig, PrizmOverlayPositionMeta} from '../models';
-import {PrizmOverlayAbstractPosition} from './position';
+import { PrizmOverlayConfig, PrizmOverlayPositionMeta } from '../models';
+import { PrizmOverlayAbstractPosition } from './position';
 
 export class PrizmOverlayFullscreenPosition extends PrizmOverlayAbstractPosition {
   public getPositions(): PrizmOverlayPositionMeta {

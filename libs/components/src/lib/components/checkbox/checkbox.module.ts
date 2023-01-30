@@ -10,4 +10,3 @@ import { PrizmCheckboxComponent } from './checkbox.component';
   exports: [PrizmCheckboxComponent],
 })
 export class PrizmCheckboxModule {}
-

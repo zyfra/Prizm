@@ -7,10 +7,7 @@ import { PrizmCronService } from '../../services/cron';
 
 @Injectable()
 export class PrizmCronUiHourState extends PrizmCronUiBaseState {
-  constructor(
-    public readonly cron: PrizmCronService,
-    public readonly destroy$: PrizmDestroyService
-  ) {
+  constructor(public readonly cron: PrizmCronService, public readonly destroy$: PrizmDestroyService) {
     super(
       cron.hour$,
       PrizmCronUiBaseType.every,
@@ -23,16 +20,14 @@ export class PrizmCronUiHourState extends PrizmCronUiBaseState {
         list: {
           start: getCarousel(24, 0),
           end: getCarousel(24, 0),
-        }
+        },
       },
       {
         value: ['0'],
-        list: getArrWithStringNumbers(24, 0, false).map(
-          (i, idx) => ({
-            key: i,
-            value: i,
-          })
-        )
+        list: getArrWithStringNumbers(24, 0, false).map((i, idx) => ({
+          key: i,
+          value: i,
+        })),
       },
       {
         list: {
@@ -41,15 +36,15 @@ export class PrizmCronUiHourState extends PrizmCronUiBaseState {
         },
         value: {
           on: '1',
-          after: '0'
-        }
+          after: '0',
+        },
       }
     );
   }
 
   public updateMainState(value: string): void {
     this.cron.updateWith({
-      hour: value
+      hour: value,
     });
   }
 }

@@ -12,18 +12,18 @@ import { prizmFocusVisibleObservable } from '../../observables/focus-visible-obs
  */
 @Injectable()
 export class PrizmFocusVisibleService extends Observable<boolean> {
-    private readonly focusVisible$: Observable<boolean>;
+  private readonly focusVisible$: Observable<boolean>;
 
-    constructor(
-        @Inject(ElementRef) {nativeElement}: ElementRef<Element>,
-        @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
-        @Inject(PrizmDestroyService) destroy$: Observable<void>,
-    ) {
-        super(subscriber => this.focusVisible$.subscribe(subscriber));
+  constructor(
+    @Inject(ElementRef) { nativeElement }: ElementRef<Element>,
+    @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
+    @Inject(PrizmDestroyService) destroy$: Observable<void>
+  ) {
+    super(subscriber => this.focusVisible$.subscribe(subscriber));
 
-        this.focusVisible$ = prizmFocusVisibleObservable(nativeElement).pipe(
-            prizmWatch(changeDetectorRef),
-            takeUntil(destroy$),
-        );
-    }
+    this.focusVisible$ = prizmFocusVisibleObservable(nativeElement).pipe(
+      prizmWatch(changeDetectorRef),
+      takeUntil(destroy$)
+    );
+  }
 }

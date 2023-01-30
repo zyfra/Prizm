@@ -14,4 +14,3 @@ export class CheckboxFormExampleComponent {
     control3: new FormControl(false),
   });
 }
-

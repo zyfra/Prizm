@@ -9,13 +9,7 @@ import { PrizmLoaderModule } from '../loader/loader.module';
 
 @NgModule({
   declarations: [PrizmButtonComponent, PrizmSplitButtonComponent],
-  imports: [
-    CommonModule,
-    PrizmWrapperModule,
-    PrizmIconModule,
-    PrizmLoaderModule,
-    PrizmCallFuncModule,
-  ],
+  imports: [CommonModule, PrizmWrapperModule, PrizmIconModule, PrizmLoaderModule, PrizmCallFuncModule],
   exports: [PrizmButtonComponent, PrizmSplitButtonComponent],
 })
 export class PrizmButtonModule {}

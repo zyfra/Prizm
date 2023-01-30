@@ -52,8 +52,8 @@ export class PrizmSplitButtonComponent {
   @HostBinding('attr.testId')
   readonly testId = 'prizm_split_button';
 
-  @ViewChild('buttonRef', {static: true, read: ElementRef}) buttonEl: ElementRef;
-  @ViewChild('iconButtonRef', {static: true, read: ElementRef}) iconButtonEl: ElementRef;
+  @ViewChild('buttonRef', { static: true, read: ElementRef }) buttonEl: ElementRef;
+  @ViewChild('iconButtonRef', { static: true, read: ElementRef }) iconButtonEl: ElementRef;
 
   public updateZIndex(el: ElementRef, focused: boolean): void {
     el.nativeElement.style.zIndex = focused ? '1' : '';

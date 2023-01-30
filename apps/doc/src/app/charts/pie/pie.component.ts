@@ -34,9 +34,7 @@ export class PieComponent {
   options: Partial<PrizmChartsPieOptions> = {
     appendPadding: 10,
     radius: 0.9,
-
-  }
-
+  };
 
   width = 400;
   height = 300;
@@ -49,8 +47,5 @@ export class PieComponent {
     TypeScript: import('!!raw-loader!./examples/base/prizm-charts-pie-example.component.ts'),
     HTML: import('!!raw-loader!./examples/base/prizm-charts-pie-example.component.html'),
   };
-  constructor(
-    public readonly prizmTheme: PrizmThemeService,
-  ) {
-  }
+  constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

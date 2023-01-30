@@ -4,12 +4,14 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'prizm-toggle-base-example',
   templateUrl: './toggle-base-example.component.html',
-  styles: [`
-    .box {
-      display: flex;
-      gap: 1rem;
-    }
-  `]
+  styles: [
+    `
+      .box {
+        display: flex;
+        gap: 1rem;
+      }
+    `,
+  ],
 })
 export class PrizmToggleBaseExampleComponent implements OnInit {
   public value = true;

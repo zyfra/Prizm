@@ -12,14 +12,9 @@ import { PrizmElementReadyModule, PrizmHintModule, PrizmLifecycleModule } from '
     PrizmLifecycleModule,
     PrizmElementReadyModule,
     PrizmLetModule,
-    PrizmHintModule
+    PrizmHintModule,
   ],
-  declarations: [
-    PrizmChipsComponent
-  ],
-  exports: [
-    PrizmChipsComponent
-  ],
+  declarations: [PrizmChipsComponent],
+  exports: [PrizmChipsComponent],
 })
 export class PrizmChipsModule {}
-

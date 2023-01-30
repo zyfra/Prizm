@@ -33,4 +33,3 @@ import { Component } from '@angular/core';
   ],
 })
 export class PrizmErrorPageBaseComponent {}
-

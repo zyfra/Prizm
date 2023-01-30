@@ -23,19 +23,19 @@ export class ToastWrapperComponent implements OnInit {
   @HostBinding('attr.testId')
   readonly testId = 'prizm_toast_wrapper';
 
-  @HostBinding('attr.id') get getRefId (): string {
+  @HostBinding('attr.id') get getRefId(): string {
     return 'prizm-toast-id' + this.ref.id;
   }
 
   get component(): Type<unknown> {
     switch (this.ref.appearance) {
-      case "danger":
+      case 'danger':
         return this.ref.options.templateDanger;
-      case "success":
+      case 'success':
         return this.ref.options.templateSuccess;
-      case "info":
+      case 'info':
         return this.ref.options.templateInfo;
-      case "warning":
+      case 'warning':
         return this.ref.options.templateWarning;
     }
   }
@@ -48,16 +48,14 @@ export class ToastWrapperComponent implements OnInit {
   }
 
   private createInjectorForChild(): void {
-    this.tempInjector = Injector.create(
-      {
-        providers: [
-          {
-            provide: PrizmToastRef,
-            useValue: this.ref
-          }
-        ],
-        parent: this.injector
-      }
-    )
+    this.tempInjector = Injector.create({
+      providers: [
+        {
+          provide: PrizmToastRef,
+          useValue: this.ref,
+        },
+      ],
+      parent: this.injector,
+    });
   }
 }

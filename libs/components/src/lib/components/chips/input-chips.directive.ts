@@ -36,4 +36,3 @@ export class PrizmInputChipsComponent extends PrizmInputTextComponent {
     this.value = '';
   }
 }
-

@@ -1,4 +1,4 @@
-export * from "./uuid";
+export * from './uuid';
 export * from './blur-native-focused';
 export * from './get-native-focused';
 export * from './is-native-focused';

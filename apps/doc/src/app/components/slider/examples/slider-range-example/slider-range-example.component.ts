@@ -11,4 +11,3 @@ export class PrizmSliderRangeExampleComponent {
   small = new FormControl([20, 40]);
   big = new FormControl([700, 900]);
 }
-

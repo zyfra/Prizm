@@ -1,17 +1,20 @@
-<prizm-input-date-multi
-  [items]="items">
-</prizm-input-date-multi>
+<prizm-input-date-multi [items]="items"> </prizm-input-date-multi>
 
 <ng-template #dateTime let-injector="injector">
-  <prizm-input-date-time [formControl]='dateTimeControl' [extraButtonInjector]='injector'></prizm-input-date-time>
+  <prizm-input-date-time
+    [formControl]="dateTimeControl"
+    [extraButtonInjector]="injector"
+  ></prizm-input-date-time>
 </ng-template>
 <ng-template #dateRelativeTime let-injector="injector">
-  <prizm-input-date-relative [formControl]='relativeControl' [extraButtonInjector]='injector'></prizm-input-date-relative>
+  <prizm-input-date-relative
+    [formControl]="relativeControl"
+    [extraButtonInjector]="injector"
+  ></prizm-input-date-relative>
 </ng-template>
 <ng-template #time let-injector="injector">
-  <prizm-input-time [formControl]='timeControl' [extraButtonInjector]='injector'></prizm-input-time>
+  <prizm-input-time [formControl]="timeControl" [extraButtonInjector]="injector"></prizm-input-time>
 </ng-template>
 <ng-template #date let-injector="injector">
-  <prizm-input-date [formControl]='dateControl' [extraButtonInjector]='injector'></prizm-input-date>
+  <prizm-input-date [formControl]="dateControl" [extraButtonInjector]="injector"></prizm-input-date>
 </ng-template>
-

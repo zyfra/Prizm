@@ -6,21 +6,20 @@ declare module 'highlight*';
 declare const module: NodeModule;
 
 interface NodeModule {
-    id: string;
+  id: string;
 }
 
 declare module '!!file-loader!*' {
-    const result: string;
+  const result: string;
 
-    export = result;
+  export = result;
 }
 
 declare module '*.html' {
-    const result: string;
+  const result: string;
 
-    export = result;
+  export = result;
 }
-
 
 interface NodeModule {
   id: string;

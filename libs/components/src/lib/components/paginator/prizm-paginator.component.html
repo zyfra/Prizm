@@ -8,11 +8,12 @@
     <div class="rows-selector" *ngIf="!paginatorOptions?.noRowsSelector">
       <prizm-select
         size="s"
-        [forceClear]='false'
+        [forceClear]="false"
         [label]="null"
         [outer]="true"
         [nullContent]="null"
-        [(ngModel)]="rows"
+        (ngModelChange)="changeRows($event)"
+        [ngModel]="rows"
         [items]="this.rowsCountOptions?.length > 0 ? this.rowsCountOptions : [rows]"
       ></prizm-select>
     </div>
@@ -23,11 +24,13 @@
       Показано строк: {{ (currentPage - 1) * rows + 1 }}-{{
         currentPage * rows > totalRecords ? totalRecords : currentPage * rows
       }}
-      из {{ realTotalRecord }}
+      <ng-container> из {{ realTotalRecord }} </ng-container>
     </span>
     <div
       class="paginator paginator__finite"
-      *ngIf="paginatorType === 'finite' && paginationGenerator as pagingData"
+      *ngIf="
+        paginatorType === 'finite' && (rows | prizmCallFunc : paginationGenerator : currentPage) as pagingData
+      "
     >
       <button class="control control_left" [disabled]="currentPage === 1" (click)="decrease()">
         <prizm-icon size="16" iconClass="arrows-chevron-left"></prizm-icon>
@@ -73,7 +76,7 @@
     </div>
 
     <div class="paginator paginator__infinite" *ngIf="paginatorType === 'infinite'">
-      <button class="show-more" (click)="increase()">Показать еще</button>
+      <button class="show-more" [disabled]="showMoreDisabled" (click)="increase()">Показать еще</button>
     </div>
   </div>
 </div>

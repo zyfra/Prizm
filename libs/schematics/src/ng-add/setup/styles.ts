@@ -10,9 +10,7 @@ const FONT_ASSET = {
   output: 'assets/prizm-ui/fonts', // TODO test this in real app
 };
 
-const INSTALL_STYLES = [
-  'node_modules/@prizm-ui/components/src/styles/styles.less',
-];
+const INSTALL_STYLES = ['node_modules/@prizm-ui/components/src/styles/styles.less'];
 
 const ICON_STYLES = ['node_modules/@prizm-ui/components/src/styles/icons/icons.less'];
 export function addStyles(options: Schema): Rule {

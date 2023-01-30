@@ -26,7 +26,7 @@ import { BehaviorSubject, combineLatest, Observable, Subject, timer } from 'rxjs
 import { DOCUMENT } from '@angular/common';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PRIZM_DROPDOWN_HOST_OPTIONS, PrizmDropdownHostOptions } from './dropdown-host.options';
-import { PrizmDropdownHostWidth } from './models';
+import { PrizmDropdownHostContext, PrizmDropdownHostCustomContext, PrizmDropdownHostWidth } from './models';
 import { prizmGenerateId } from '../../../util';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
 
@@ -41,11 +41,15 @@ const PRIZM_DROPDOWN_TIME_DIFFERENCE = 1000 / 60;
   exportAs: 'prizm-dropdown-host',
 })
 export class PrizmDropdownHostComponent implements AfterViewInit {
-  @Input() content: PolymorphContent<{ zone: PrizmDropdownZoneDirective }>;
+  @Input() content: PolymorphContent<PrizmDropdownHostContext>;
 
   @Input()
   @prizmDefaultProp()
   prizmDropdownHostId: string = 'dropdownHostId_' + prizmGenerateId();
+
+  @Input()
+  @prizmDefaultProp()
+  prizmDropdownCustomContext: PrizmDropdownHostCustomContext = {};
 
   @Input()
   @prizmDefaultProp()

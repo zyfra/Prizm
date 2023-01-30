@@ -7,29 +7,22 @@ import {
 } from '../dialog/dialog.models';
 import { PrizmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
 import { PrizmOverlayInsidePlacement } from '../../../modules/overlay';
-import {PrizmContent} from "../../button";
+import { PrizmContent } from '../../button';
 
-export type PrizmSidebarButton = Omit<PrizmDialogButton, 'action'> & Partial<Pick<PrizmDialogButton, 'action'>> & {icon?: PrizmContent}
+export type PrizmSidebarButton = Omit<PrizmDialogButton, 'action'> &
+  Partial<Pick<PrizmDialogButton, 'action'>> & { icon?: PrizmContent };
 
 export interface PrizmSidebarOptions<DATA = unknown> extends PrizmDialogBaseOptions {
-  confirmButton?: PrizmSidebarButton | string,
-  supportButton?: PrizmSidebarButton | string,
-  cancelButton?: PrizmSidebarButton | string,
+  confirmButton?: PrizmSidebarButton | string;
+  supportButton?: PrizmSidebarButton | string;
+  cancelButton?: PrizmSidebarButton | string;
   showByVertical?: boolean;
   data?: DATA;
   size?: PrizmDialogSize;
-  title: PolymorphContent<
-    PrizmBaseDialogContext<
-      PrizmSidebarResultDefaultType,
-      PrizmSidebarOptions<DATA>
-      >
-    >,
+  title: PolymorphContent<PrizmBaseDialogContext<PrizmSidebarResultDefaultType, PrizmSidebarOptions<DATA>>>;
   description?: PolymorphContent<
-    PrizmBaseDialogContext<
-      PrizmSidebarResultDefaultType,
-      PrizmSidebarOptions<DATA>
-      >
-    >,
+    PrizmBaseDialogContext<PrizmSidebarResultDefaultType, PrizmSidebarOptions<DATA>>
+  >;
   overscrollMode?: PrizmOverscrollMode;
 
   closeWord: string;

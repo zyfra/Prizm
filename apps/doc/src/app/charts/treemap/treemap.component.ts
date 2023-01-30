@@ -9,7 +9,7 @@ import { PrizmThemeService } from '@prizm-ui/theme';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TreemapComponent {
-  public data =  {
+  public data = {
     name: 'root',
     children: [
       { name: 'Категория 1', value: 560 },
@@ -33,7 +33,7 @@ export class TreemapComponent {
       { name: 'категория 19', value: 28 },
       { name: 'категория 20', value: 16 },
     ],
-  }
+  };
   public colorField = 'name';
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
   public width: number = null;
@@ -43,8 +43,5 @@ export class TreemapComponent {
     HTML: import('!!raw-loader!./examples/base/prizm-charts-treemap-example.component.html'),
   };
 
-  constructor(
-    public readonly prizmTheme: PrizmThemeService,
-  ) {
-  }
+  constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

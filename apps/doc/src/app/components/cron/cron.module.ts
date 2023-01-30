@@ -24,7 +24,7 @@ import { PrizmCronFullwidthExampleComponent } from './examples/fullwidth/cron-fu
     PrizmCronBaseExampleComponent,
     PrizmCronSpecifiedTabsExampleComponent,
     PrizmCronFullwidthExampleComponent,
-    CronComponent
+    CronComponent,
   ],
   exports: [CronComponent],
 })

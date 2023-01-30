@@ -10,6 +10,5 @@ import { PrizmSwitcherModule } from '@prizm-ui/components';
     PrizmSwitcherModule,
   ],
 })
-export class MyModule {
-}
+export class MyModule {}
 ```

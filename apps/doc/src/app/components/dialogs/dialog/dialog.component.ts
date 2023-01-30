@@ -73,6 +73,11 @@ export class DialogComponent {
     HTML: import('!!raw-loader!./examples/base/base.component.html'),
   };
 
+  public readonly exampleWithButtons: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/with-buttons/with-buttons.component.ts'),
+    HTML: import('!!raw-loader!./examples/with-buttons/with-buttons.component.html'),
+  };
+
   constructor(@Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService) {}
 
   @prizmPure

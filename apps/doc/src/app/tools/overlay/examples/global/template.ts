@@ -1,23 +1,25 @@
-import {Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import {
   PrizmOverlayControl,
   PrizmOverlayGlobalPosition,
   PrizmOverlayInsidePlacement,
-  PrizmOverlayService
-} from "@prizm-ui/components";
+  PrizmOverlayService,
+} from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-overlay-global-example',
   templateUrl: './template.html',
-  styles: [`
-    .box {
-      background: darkseagreen;
-      padding: 8px;
-      display: inline-block;
-      color: white;
-      margin-left: 8px;
-    }
-  `]
+  styles: [
+    `
+      .box {
+        background: darkseagreen;
+        padding: 8px;
+        display: inline-block;
+        color: white;
+        margin-left: 8px;
+      }
+    `,
+  ],
 })
 export class PrizmOverlayExampleGlobalComponent implements OnInit {
   @ViewChild('elementRef', { read: ElementRef, static: true }) elementRef: ElementRef;
@@ -31,7 +33,7 @@ export class PrizmOverlayExampleGlobalComponent implements OnInit {
       // Pass position placement
       placement: PrizmOverlayInsidePlacement.BOTTOM_LEFT,
       // Pass source element
-      element: this.elementRef.nativeElement
+      element: this.elementRef.nativeElement,
     });
 
     this.control = this.overlay
@@ -39,7 +41,6 @@ export class PrizmOverlayExampleGlobalComponent implements OnInit {
       // PASS TEMPLATE
       .content(this.templateRef)
       .create();
-
   }
 
   public open(): void {

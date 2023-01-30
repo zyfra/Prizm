@@ -1,56 +1,37 @@
 <div class="box">
-  <button
-    prizmButton
-    appearance='success'
-    (click)="showSuccessToastWithContentTemplate(contentTemplate)">
+  <button prizmButton appearance="success" (click)="showSuccessToastWithContentTemplate(contentTemplate)">
     Success Toast
   </button>
 
-  <button
-    prizmButton
-    appearance='warning'
-    (click)="showWarningToastWithContentTemplate(contentTemplate)">
+  <button prizmButton appearance="warning" (click)="showWarningToastWithContentTemplate(contentTemplate)">
     Warning Toast
   </button>
 
-  <button
-    prizmButton
-    appearance='danger'
-    (click)="showDangerToastWithContentTemplate(contentTemplate)">
+  <button prizmButton appearance="danger" (click)="showDangerToastWithContentTemplate(contentTemplate)">
     Danger Toast
   </button>
 
-  <button
-    prizmButton
-    appearance='primary'
-    (click)="showInfoToastWithContentTemplate(contentTemplate)">
+  <button prizmButton appearance="primary" (click)="showInfoToastWithContentTemplate(contentTemplate)">
     Info Toast
   </button>
 
   <ng-template #contentTemplate let-close="close" let-buttonAppearance="buttonAppearance">
     <div>В toast-сообщении старайтесь уместить текст в 2 строки.</div>
 
-    <div class="date">
-      16.05.2022 10:00
-    </div>
+    <div class="date">16.05.2022 10:00</div>
     <div class="link">
       <a href="#">Ссылка</a>
     </div>
     <div class="footer">
-      <button
-        prizmButton
-        [appearance]='buttonAppearance'
-        (click)="close()">
-        Закрыть
-      </button>
+      <button prizmButton [appearance]="buttonAppearance" (click)="close()">Закрыть</button>
     </div>
   </ng-template>
 </div>
 
-<br>
-<hr>
+<br />
+<hr />
 <p>Position</p>
-<div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+<div style="display: flex; gap: 1rem; flex-wrap: wrap">
   <prizm-radio-button
     *ngFor="let item of data"
     [formControl]="formControl"
@@ -59,4 +40,3 @@
     [value]="item.val"
   ></prizm-radio-button>
 </div>
-

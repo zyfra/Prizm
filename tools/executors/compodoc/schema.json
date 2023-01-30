@@ -8,8 +8,8 @@
       "description": "Path to tsconfig"
     },
     "distPath": {
-        "type": "string",
-        "description": "Path to dist folder"
-      }
+      "type": "string",
+      "description": "Path to dist folder"
+    }
   }
 }

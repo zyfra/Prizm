@@ -46,11 +46,7 @@ import { PrizmIndicatorModule } from '@prizm-ui/components';
     TuiTextfieldControllerModule,
     TuiHintModule,
   ],
-  declarations: [
-    TuiDocDemoComponent,
-  ],
-  exports: [
-    TuiDocDemoComponent,
-  ],
+  declarations: [TuiDocDemoComponent],
+  exports: [TuiDocDemoComponent],
 })
 export class PrizmDocDemoModule {}

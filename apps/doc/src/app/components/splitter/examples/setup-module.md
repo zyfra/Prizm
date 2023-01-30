@@ -12,4 +12,3 @@ import { PrizmSplitterModule } from '@prizm-ui/components';
 })
 export class MyModule {}
 ```
-

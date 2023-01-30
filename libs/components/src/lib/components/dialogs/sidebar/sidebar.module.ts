@@ -15,13 +15,9 @@ import { PrizmInputIconButtonModule } from '../../input/common/input-icon-button
     PrizmInputIconButtonModule,
     PrizmButtonModule,
     PrizmFocusTrapModule,
-    PrizmScrollbarModule
+    PrizmScrollbarModule,
   ],
-  declarations: [
-    PrizmSidebarComponent
-  ],
-  exports: [
-    PrizmSidebarComponent
-  ],
+  declarations: [PrizmSidebarComponent],
+  exports: [PrizmSidebarComponent],
 })
 export class PrizmSidebarModule {}

@@ -6,4 +6,3 @@ import { PrizmSanitizerPipe } from './sanitizer.pipe';
   exports: [PrizmSanitizerPipe],
 })
 export class PrizmSanitizerPipeModule {}
-

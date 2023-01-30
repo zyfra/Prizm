@@ -4,5 +4,4 @@ import { Component } from '@angular/core';
   selector: 'prizm-icon-font-example',
   templateUrl: './icon-font-example.component.html',
 })
-export class PrizmIconSvgFontExampleComponent {
-}
+export class PrizmIconSvgFontExampleComponent {}

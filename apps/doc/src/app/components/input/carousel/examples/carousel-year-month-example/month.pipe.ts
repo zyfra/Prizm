@@ -20,4 +20,3 @@ export class PrizmMonthExamplePipe implements PipeTransform {
     return this.defaultMonthNames[value - 1];
   }
 }
-

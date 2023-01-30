@@ -4,7 +4,6 @@ import { DesignSystemComponent } from './about-prizm/design-system/design-system
 import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
 import { MigrationComponent } from './how-to-start/migration/migration.component';
 
-
 export const ROUTES = [
   {
     path: 'about-prizm',
@@ -315,7 +314,8 @@ export const ROUTES = [
   {
     path: 'components/input-date-time-range',
     loadChildren: async (): Promise<unknown> =>
-      (await import('./components/input/input-date-time-range/input-date-time-range.module')).InputDateTimeRangeModule,
+      (await import('./components/input/input-date-time-range/input-date-time-range.module'))
+        .InputDateTimeRangeModule,
     data: {
       title: 'Input Date Time Range',
     },
@@ -531,10 +531,17 @@ export const ROUTES = [
   },
   {
     path: 'tools/theme',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./tools/theme/theme.module')).ThemeModule,
+    loadChildren: async (): Promise<unknown> => (await import('./tools/theme/theme.module')).ThemeModule,
     data: {
       title: 'Theme',
+    },
+  },
+  {
+    path: 'tools/polymorph',
+    loadChildren: async (): Promise<unknown> =>
+      (await import('./tools/polymorph/polymorph.module')).ExamplePolymorphModule,
+    data: {
+      title: 'Polymorph',
     },
   },
   // CHARTS
@@ -554,8 +561,7 @@ export const ROUTES = [
   },
   {
     path: 'charts/column-group',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./charts/column/column.module')).ColumnModule,
+    loadChildren: async (): Promise<unknown> => (await import('./charts/column/column.module')).ColumnModule,
     data: {
       title: 'Column',
     },
@@ -710,8 +716,7 @@ export const ROUTES = [
   },
   {
     path: 'components/cron',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/cron/cron.module')).CronModule,
+    loadChildren: async (): Promise<unknown> => (await import('./components/cron/cron.module')).CronModule,
     data: {
       title: 'Cron',
     },
@@ -745,4 +750,3 @@ export const ROUTES = [
   exports: [RouterModule],
 })
 export class AppRoutes {}
-

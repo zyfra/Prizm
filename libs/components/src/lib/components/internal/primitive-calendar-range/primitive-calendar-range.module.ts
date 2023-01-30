@@ -9,8 +9,8 @@ import { CommonModule } from '@angular/common';
  * @internal
  */
 @NgModule({
-    imports: [PrizmMapperPipeModule, CommonModule, PrizmScrollbarModule, PrizmCalendarModule],
-    declarations: [PrizmPrimitiveCalendarRangeComponent],
-    exports: [PrizmPrimitiveCalendarRangeComponent],
+  imports: [PrizmMapperPipeModule, CommonModule, PrizmScrollbarModule, PrizmCalendarModule],
+  declarations: [PrizmPrimitiveCalendarRangeComponent],
+  exports: [PrizmPrimitiveCalendarRangeComponent],
 })
 export class PrizmPrimitiveCalendarRangeModule {}

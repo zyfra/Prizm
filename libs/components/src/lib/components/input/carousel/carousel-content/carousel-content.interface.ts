@@ -28,4 +28,3 @@ export interface PrizmCarouselContent {
 
   right(): void;
 }
-

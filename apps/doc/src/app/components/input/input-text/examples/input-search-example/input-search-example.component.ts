@@ -11,4 +11,3 @@ export class InputSearchExampleComponent {
     console.log('search', value);
   }
 }
-

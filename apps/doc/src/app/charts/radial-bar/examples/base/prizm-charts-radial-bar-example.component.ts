@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  PrizmChartsRadialBarItem,
-  PrizmChartsRadialBarOptions,
-} from '@prizm-ui/charts';
+import { PrizmChartsRadialBarItem, PrizmChartsRadialBarOptions } from '@prizm-ui/charts';
 import { PrizmThemeService } from '@prizm-ui/theme';
 
 @Component({
@@ -14,7 +11,7 @@ import { PrizmThemeService } from '@prizm-ui/theme';
         width: 100%;
         height: 300px;
       }
-    `
+    `,
   ],
 })
 export class PrizmChartsRadialBarExampleComponent {
@@ -39,8 +36,5 @@ export class PrizmChartsRadialBarExampleComponent {
     },
   };
 
-  constructor(
-    public readonly prizmTheme: PrizmThemeService,
-  ) {
-  }
+  constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

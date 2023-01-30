@@ -4,6 +4,4 @@ import { Component, OnInit } from '@angular/core';
   selector: 'prizm-tree-base-example',
   templateUrl: './tree-base-example.component.html',
 })
-export class TreeBaseExampleComponent {
-}
-
+export class TreeBaseExampleComponent {}

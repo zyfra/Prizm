@@ -14,15 +14,15 @@ import { PrizmToastService } from './toast.service';
 
 @Injectable()
 export class PrizmToastControl {
-  readonly destroy$ = new Subject<void>()
+  readonly destroy$ = new Subject<void>();
   constructor(
     private readonly overlayService: PrizmOverlayService,
     private readonly toastService: PrizmToastService,
-    private readonly injector: Injector,
+    private readonly injector: Injector
   ) {}
 
   private create(
-    changesForThisPosition$:  Observable<PrizmToastRef[]>,
+    changesForThisPosition$: Observable<PrizmToastRef[]>,
     position: PrizmToastOptions['position']
   ): PrizmOverlayControl | void {
     const placement = this.getOverlayPosition(position);
@@ -37,16 +37,14 @@ export class PrizmToastControl {
       .position(overlayPosition)
       .content(PrizmToastContainerComponent, {
         refs$: changesForThisPosition$,
-        position: position
+        position: position,
       })
-      .create({parentInjector: this.injector});
+      .create({ parentInjector: this.injector });
 
     return control;
   }
 
-  private getOverlayPosition(
-    position: PrizmToastOptions['position']
-  ): PrizmOverlayInsidePlacement | void {
+  private getOverlayPosition(position: PrizmToastOptions['position']): PrizmOverlayInsidePlacement | void {
     switch (position) {
       case PrizmToastPosition.BOTTOM_LEFT:
         return PrizmOverlayInsidePlacement.BOTTOM_LEFT;
@@ -63,26 +61,24 @@ export class PrizmToastControl {
     }
   }
 
-  public init(
-    position: PrizmToastOptions['position']
-  ): void {
+  public init(position: PrizmToastOptions['position']): void {
     const changesForThisPosition$ = this.toastService.changes$.pipe(
-        map(items => items.filter(item => item.position === position && item.show)),
-        shareReplay(1),
+      map(items => items.filter(item => item.position === position && item.show)),
+      shareReplay(1)
     );
     const control = this.create(changesForThisPosition$, position);
     if (!control) return;
 
-    changesForThisPosition$.pipe(
-      tap(
-        (refs) => {
+    changesForThisPosition$
+      .pipe(
+        tap(refs => {
           if (!refs.length) return this.close(control);
           this.open(control);
-        }
-      ),
-      finalize(() => this.destroy(control)),
-      takeUntil(this.destroy$)
-    ).subscribe()
+        }),
+        finalize(() => this.destroy(control)),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   private destroy(control: PrizmOverlayControl): void {

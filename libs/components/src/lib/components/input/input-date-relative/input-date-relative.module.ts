@@ -8,9 +8,7 @@ import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    PrizmInputDateRelativeComponent
-  ],
+  declarations: [PrizmInputDateRelativeComponent],
   imports: [
     CommonModule,
     PolymorphModule,
@@ -19,8 +17,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     PrizmDropdownHostModule,
   ],
-  exports: [
-    PrizmInputDateRelativeComponent
-  ],
+  exports: [PrizmInputDateRelativeComponent],
 })
 export class PrizmInputDateRelativeModule {}

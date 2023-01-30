@@ -1,46 +1,47 @@
-import {Component, TemplateRef} from '@angular/core';
-import {PrizmToastService, PrizmToastAppearance, PrizmToastPosition} from "@prizm-ui/components";
-import {FormControl} from "@angular/forms";
+import { Component, TemplateRef } from '@angular/core';
+import { PrizmToastService, PrizmToastAppearance, PrizmToastPosition } from '@prizm-ui/components';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-toast-example',
   templateUrl: './toast-example.component.html',
-  styles: [`
-    .box{
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    a {
-      color: #337EFF;
-      text-decoration: underline;
-    }
-
-    .footer {
-      margin-top: 8px;
-    }
-
-    .date {
-      color: #A1A5B7;
-      margin: 8px 0;
-    }
-
-    .header-title {
-      width: 400px;
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-
-      .title {
-        font-weight: inherit;
-        font-size: inherit;
+  styles: [
+    `
+      .box {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
       }
-    }
-  `]
+
+      a {
+        color: #337eff;
+        text-decoration: underline;
+      }
+
+      .footer {
+        margin-top: 8px;
+      }
+
+      .date {
+        color: #a1a5b7;
+        margin: 8px 0;
+      }
+
+      .header-title {
+        width: 400px;
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+
+        .title {
+          font-weight: inherit;
+          font-size: inherit;
+        }
+      }
+    `,
+  ],
 })
 export class PrizmToastExampleComponent {
-
   readonly data = [
     {
       val: PrizmToastPosition.TOP_MIDDLE,
@@ -68,58 +69,45 @@ export class PrizmToastExampleComponent {
     },
   ];
   readonly formControl = new FormControl(PrizmToastPosition.TOP_RIGHT);
-  constructor(private readonly toastService: PrizmToastService) {
-  }
+  constructor(private readonly toastService: PrizmToastService) {}
 
   public showSuccessToastWithContentTemplate(contentTemplate: TemplateRef<unknown>): void {
-    this.toastService.create(
-      contentTemplate,
-      {
-        appearance: 'success',
-        position: this.formControl.value,
-        timer: 5000,
-        isPlatform: true,
-        title: 'Большой заголовок очень очень очень очень'
-      }
-    );
+    this.toastService.create(contentTemplate, {
+      appearance: 'success',
+      position: this.formControl.value,
+      timer: 5000,
+      isPlatform: true,
+      title: 'Большой заголовок очень очень очень очень',
+    });
   }
 
   public showWarningToastWithContentTemplate(contentTemplate: TemplateRef<unknown>): void {
-    this.toastService.create(
-      contentTemplate,
-      {
-        appearance: 'warning',
-        position: this.formControl.value,
-        timer: 5000,
-        isPlatform: true,
-        title: 'Большой заголовок очень очень очень очень'
-      }
-    );
+    this.toastService.create(contentTemplate, {
+      appearance: 'warning',
+      position: this.formControl.value,
+      timer: 5000,
+      isPlatform: true,
+      title: 'Большой заголовок очень очень очень очень',
+    });
   }
 
   public showDangerToastWithContentTemplate(contentTemplate: TemplateRef<unknown>): void {
-    this.toastService.create(
-      contentTemplate,
-      {
-        appearance: 'danger',
-        position: this.formControl.value,
-        timer: 5000,
-        isPlatform: true,
-        title: 'Большой заголовок очень очень очень очень'
-      }
-    );
+    this.toastService.create(contentTemplate, {
+      appearance: 'danger',
+      position: this.formControl.value,
+      timer: 5000,
+      isPlatform: true,
+      title: 'Большой заголовок очень очень очень очень',
+    });
   }
 
   public showInfoToastWithContentTemplate(contentTemplate: TemplateRef<unknown>): void {
-    this.toastService.create(
-      contentTemplate,
-      {
-        appearance: 'info',
-        position: this.formControl.value,
-        timer: 5000,
-        isPlatform: true,
-        title: 'Большой заголовок очень очень очень очень'
-      }
-    );
+    this.toastService.create(contentTemplate, {
+      appearance: 'info',
+      position: this.formControl.value,
+      timer: 5000,
+      isPlatform: true,
+      title: 'Большой заголовок очень очень очень очень',
+    });
   }
 }

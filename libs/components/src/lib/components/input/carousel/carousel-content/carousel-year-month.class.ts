@@ -8,7 +8,10 @@ export class PrizmCarouselYearMonth implements PrizmCarouselContent {
   public min: PrizmCarouselPrizmCarouselYearMonthValue = { month: 1, year: Number.NEGATIVE_INFINITY };
   public max: PrizmCarouselPrizmCarouselYearMonthValue = { month: 12, year: Number.POSITIVE_INFINITY };
 
-  constructor(min?: PrizmCarouselPrizmCarouselYearMonthValue, max?: PrizmCarouselPrizmCarouselYearMonthValue) {
+  constructor(
+    min?: PrizmCarouselPrizmCarouselYearMonthValue,
+    max?: PrizmCarouselPrizmCarouselYearMonthValue
+  ) {
     if (min) {
       this.min = min;
     }
@@ -128,4 +131,3 @@ export class PrizmCarouselYearMonth implements PrizmCarouselContent {
     return 'eq';
   }
 }
-

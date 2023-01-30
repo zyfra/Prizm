@@ -22,12 +22,15 @@ export class PrizmCronScheduleComponent {
   public items: PrizmCronUiListItem[] = [];
 
   @Input()
-  public selected: string[] =[];
+  public selected: string[] = [];
 
   @Output()
   public selectedChange = new EventEmitter<string[]>();
 
-  @ContentChild('content', {read: TemplateRef}) template: PolymorphContent<{item: PrizmCronUiListItem, idx: number}>;
+  @ContentChild('content', { read: TemplateRef }) template: PolymorphContent<{
+    item: PrizmCronUiListItem;
+    idx: number;
+  }>;
 
   public isSelected(item: PrizmCronUiListItem): boolean {
     return this.selected.indexOf(item.key) !== -1;
@@ -44,12 +47,6 @@ export class PrizmCronScheduleComponent {
   }
 
   public emit(): void {
-    this.selectedChange.emit(
-      this.selected = (
-        this.selected.length
-          ? this.selected
-          : [this.items[0].key]
-      )
-    );
+    this.selectedChange.emit((this.selected = this.selected.length ? this.selected : [this.items[0].key]));
   }
 }

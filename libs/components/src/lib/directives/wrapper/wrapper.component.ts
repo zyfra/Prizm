@@ -4,10 +4,10 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil } from 'rxjs/operators';
 
 export enum PrizmInteractiveState {
-  Disabled = "disabled",
-  Readonly = "readonly",
-  Pressed = "pressed",
-  Hovered = "hovered",
+  Disabled = 'disabled',
+  Readonly = 'readonly',
+  Pressed = 'pressed',
+  Hovered = 'hovered',
 }
 
 @Component({
@@ -15,9 +15,7 @@ export enum PrizmInteractiveState {
   template: '<ng-content></ng-content>',
   styleUrls: ['./wrapper.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    PrizmDestroyService,
-  ]
+  providers: [PrizmDestroyService],
 })
 export class PrizmWrapperComponent implements OnInit {
   @Input()
@@ -92,14 +90,13 @@ export class PrizmWrapperComponent implements OnInit {
   constructor(
     public readonly themeService: PrizmThemeService,
     public readonly destroy$: PrizmDestroyService,
-    public readonly elRef: ElementRef,
+    public readonly elRef: ElementRef
   ) {}
 
   public ngOnInit(): void {
-    this.themeService.updateElementOnChange(
-      this.elRef.nativeElement
-    ).pipe(
-      takeUntil(this.destroy$)
-    ).subscribe();
+    this.themeService
+      .updateElementOnChange(this.elRef.nativeElement)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe();
   }
 }

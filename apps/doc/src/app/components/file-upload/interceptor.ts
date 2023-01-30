@@ -52,4 +52,3 @@ export const fakeFileUploadProvider = {
   useClass: PrizmFakeFileUploadInterceptor,
   multi: true,
 };
-

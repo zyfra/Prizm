@@ -5,26 +5,26 @@
 .picker(@itemSize);
 
 :host {
-    width: @itemSize * 4;
+  width: @itemSize * 4;
 }
 
 .z-row {
-    margin: 16px 0;
-    gap: 4px;
+  margin: 16px 0;
+  gap: 4px;
 
-    &:first-child {
-        margin-top: 0;
-    }
+  &:first-child {
+    margin-top: 0;
+  }
 
-    &:last-child {
-        margin-bottom: 0;
-    }
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .z-cell {
   flex-grow: 1;
   width: 100%;
-  &[data-state="pressed"] .z-item {
+  &[data-state='pressed'] .z-item {
     background-color: var(--prizm-index-plan);
   }
 }

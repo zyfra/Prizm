@@ -74,4 +74,3 @@ export class PrizmSplitterGutterComponent implements AfterViewInit {
     return this.el.nativeElement.getBoundingClientRect();
   }
 }
-

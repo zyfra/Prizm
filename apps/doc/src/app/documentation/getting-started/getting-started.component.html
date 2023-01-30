@@ -1,20 +1,15 @@
-<h1 class="tui-space_top-0">
-  Default install:
-</h1>
+<h1 class="tui-space_top-0">Default install:</h1>
 
 <p class="tui-space_top-0">
-  You can easily install Prizm UI using Angular CLI by running the following
-  command:
+  You can easily install Prizm UI using Angular CLI by running the following command:
 </p>
 
 <prizm-doc-code code="ng add  @prizm-ui/install"></prizm-doc-code>
 
-<h1 class="tui-space_top-0">
-  Manual install:
-</h1>
+<h1 class="tui-space_top-0">Manual install:</h1>
 <div>
   <h3 class="tui-space_top-0">
-    <span class='required'>Required</span>
+    <span class="required">Required</span>
     > Install theme and core:
   </h3>
 
@@ -24,27 +19,25 @@
 
 <div>
   <h3 class="tui-space_top-0">
-    <span class='optional'>Optional</span>
-     > Install helpers:
+    <span class="optional">Optional</span>
+    > Install helpers:
   </h3>
 
   <prizm-doc-code code="npm i @prizm-ui/helpers"></prizm-doc-code>
 </div>
 
-
 <div>
   <h3 class="tui-space_top-0">
-    <span class='optional'>Optional</span>
+    <span class="optional">Optional</span>
     > Install components:
   </h3>
 
   <prizm-doc-code code="npm i @prizm-ui/components"></prizm-doc-code>
 </div>
 
-
 <div>
   <h3 class="tui-space_top-0">
-    <span class='optional'>Optional</span>
+    <span class="optional">Optional</span>
     > Install charts library:
   </h3>
 
@@ -52,32 +45,24 @@
 </div>
 
 <prizm-accordion>
-  <prizm-accordion-item [isExpanded]='true' title='How setup global styles from @prizm-ui/styles ?'>
+  <prizm-accordion-item [isExpanded]="true" title="How setup global styles from @prizm-ui/styles ?">
     <ng-template prizmAccordionContent>
-      <p class="tui-space_top-2">
-        Add our styles to angular config:
-      </p>
+      <p class="tui-space_top-2">Add our styles to angular config:</p>
       <prizm-doc-code [code]="updateAngularStylesCode"></prizm-doc-code>
-      <br>
-      <p class="tui-space_top-3">
-        Or you can add to your root styles.less
-      </p>
+      <br />
+      <p class="tui-space_top-3">Or you can add to your root styles.less</p>
       <prizm-doc-code [code]="updateAngularStylesFileCode"></prizm-doc-code>
     </ng-template>
   </prizm-accordion-item>
 </prizm-accordion>
 
-
 <prizm-accordion>
-  <prizm-accordion-item [isExpanded]='true' title='How can you use our icons?'>
+  <prizm-accordion-item [isExpanded]="true" title="How can you use our icons?">
     <ng-template prizmAccordionContent>
-      <p class="tui-space_top-2">
-        To use our icons as svg, please install our library
-      </p>
+      <p class="tui-space_top-2">To use our icons as svg, please install our library</p>
       <prizm-doc-code code="npm i @prizm-ui/icons"></prizm-doc-code>
       <p class="tui-space_top-3">
-        But if you want to use fonts not only as svg, and also as font,
-        please add to your angular config
+        But if you want to use fonts not only as svg, and also as font, please add to your angular config
       </p>
       <prizm-doc-code [code]="joinSvgFonts"></prizm-doc-code>
       or you can only import to your root styles.less

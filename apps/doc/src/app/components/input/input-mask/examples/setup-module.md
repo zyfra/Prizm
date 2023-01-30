@@ -13,4 +13,3 @@ import { PrizmInputTextModule, PrizmMaskModule } from '@prizm-ui/components';
 })
 export class MyModule {}
 ```
-

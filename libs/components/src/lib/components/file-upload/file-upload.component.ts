@@ -285,4 +285,3 @@ export class PrizmFileUploadComponent implements AfterViewInit, OnDestroy {
     return fileType.indexOf('*') !== -1;
   }
 }
-

@@ -1,6 +1,6 @@
 ```ts
-import {NgModule} from '@angular/core';
-import {PrizmSidebarModule} from "@prizm-ui/components";
+import { NgModule } from '@angular/core';
+import { PrizmSidebarModule } from '@prizm-ui/components';
 
 @NgModule({
   imports: [
@@ -8,6 +8,5 @@ import {PrizmSidebarModule} from "@prizm-ui/components";
     PrizmSidebarModule,
   ],
 })
-export class MyModule {
-}
+export class MyModule {}
 ```

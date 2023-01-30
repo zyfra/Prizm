@@ -3,8 +3,6 @@ import { PrizmDocHostElementService } from './host-element.service';
 
 @Directive({
   selector: `[prizmDocHost]`,
-  providers: [
-    PrizmDocHostElementService
-  ],
+  providers: [PrizmDocHostElementService],
 })
 export class PrizmDocHostDirective {}

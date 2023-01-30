@@ -8,6 +8,5 @@ import { PrizmChartsRadialBarModule } from '@prizm-ui/charts';
     PrizmChartsRadialBarModule,
   ],
 })
-export class MyModule {
-}
+export class MyModule {}
 ```

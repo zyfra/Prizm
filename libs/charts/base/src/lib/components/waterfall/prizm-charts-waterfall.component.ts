@@ -8,32 +8,32 @@ import { Waterfall } from '@antv/g2plot';
   templateUrl: './prizm-charts-waterfall.component.html',
   styleUrls: ['./prizm-charts-waterfall.component.less'],
 })
-export class PrizmChartsWaterfallComponent
-<T extends Record<string, unknown>>
-  extends PrizmChartsAbstractComponent<PrizmChartsWaterfallOrigin, PrizmChartsWaterfallOptions>{
+export class PrizmChartsWaterfallComponent<
+  T extends Record<string, unknown>
+> extends PrizmChartsAbstractComponent<PrizmChartsWaterfallOrigin, PrizmChartsWaterfallOptions> {
   readonly name = 'waterfall';
   private origin_: PrizmChartsWaterfallOrigin;
 
   @Input()
   set data(data: PrizmChartsWaterfallItem[]) {
-    this.updateOptions({data});
+    this.updateOptions({ data });
   }
   get data(): PrizmChartsWaterfallItem[] {
     return this.options?.data ?? [];
   }
 
   @Input()
-  public set xField (value: string) {
-    this.updateOptions({xField: value});
-  };
+  public set xField(value: string) {
+    this.updateOptions({ xField: value });
+  }
   public get xField(): string {
     return this.options?.xField;
   }
 
   @Input()
-  public set yField (value: string) {
-    this.updateOptions({yField: value});
-  };
+  public set yField(value: string) {
+    this.updateOptions({ yField: value });
+  }
   public get yField(): string {
     return this.options?.yField;
   }
@@ -53,5 +53,4 @@ export class PrizmChartsWaterfallComponent
     });
     this.render();
   }
-
 }

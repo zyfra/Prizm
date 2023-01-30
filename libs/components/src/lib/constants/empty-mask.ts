@@ -1,7 +1,7 @@
-import { PrizmTextMaskOptions } from "../@core/mask/text-mask-options";
+import { PrizmTextMaskOptions } from '../@core/mask/text-mask-options';
 
 export const PRIZM_EMPTY_MASK: PrizmTextMaskOptions = {
-    mask(): false {
-        return false;
-    },
+  mask(): false {
+    return false;
+  },
 };

@@ -21,7 +21,7 @@ export function ngAdd(options: Schema): Rule {
 function addDependencies(tree: Tree, options: Schema): void {
   const packages = MAIN_PACKAGES;
 
-  packages.forEach((pack) => {
+  packages.forEach(pack => {
     addPackageJsonDependency(tree, {
       name: pack.name,
       version: pack.version,

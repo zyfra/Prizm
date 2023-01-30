@@ -4,7 +4,7 @@ import { PrizmShadowModule } from './shadow.module';
 import { PrizmShadowValue, PrizmShadowType, PrizmShadowTypeEnum } from './models';
 
 @Component({
-  template: `<div #element [prizmShadow]='value'></div>`,
+  template: `<div #element [prizmShadow]="value"></div>`,
 })
 class TestShadowComponent {
   @Input() value: PrizmShadowType = PrizmShadowTypeEnum.miniLeft;
@@ -18,7 +18,7 @@ describe('IndicatorComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [PrizmShadowModule],
-      declarations: [TestShadowComponent]
+      declarations: [TestShadowComponent],
     }).compileComponents();
   });
 

@@ -4,12 +4,14 @@ import { PrizmDay, PrizmDayWithStatus } from '@prizm-ui/components';
 @Component({
   selector: 'prizm-calendar-base-example',
   templateUrl: './calendar-base-example.component.html',
-  styles: [`
-    .box {
-      display: flex;
-      gap: 1rem;
-    }
-  `]
+  styles: [
+    `
+      .box {
+        display: flex;
+        gap: 1rem;
+      }
+    `,
+  ],
 })
 export class PrizmCalendarBaseExampleComponent {
   public day = new PrizmDay(2017, 0, 15);

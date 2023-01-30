@@ -1,6 +1,5 @@
 import { Observable } from 'rxjs';
-export interface PrizmNativeFocusableElement extends Element, HTMLOrSVGElement {
-}
+export interface PrizmNativeFocusableElement extends Element, HTMLOrSVGElement {}
 /**
  * Public interface for any focusable component or directive
  */

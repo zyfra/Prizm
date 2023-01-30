@@ -10,10 +10,7 @@ import { PrizmCarouselArrayContent } from '../input/carousel';
 export class PrizmCronUiYearState extends PrizmCronUiBaseState {
   readonly currentYear = new Date().getFullYear();
 
-  constructor(
-    public readonly cron: PrizmCronService,
-    public readonly destroy$: PrizmDestroyService
-  ) {
+  constructor(public readonly cron: PrizmCronService, public readonly destroy$: PrizmDestroyService) {
     super(
       cron.year$,
       PrizmCronUiBaseType.every,
@@ -24,53 +21,41 @@ export class PrizmCronUiYearState extends PrizmCronUiBaseState {
           end: new Date().getFullYear().toString(),
         },
         list: {
-          start: new PrizmCarouselArrayContent(
-            getYears()
-          ),
-          end: new PrizmCarouselArrayContent(
-            getYears()
-          )
-        }
+          start: new PrizmCarouselArrayContent(getYears()),
+          end: new PrizmCarouselArrayContent(getYears()),
+        },
       },
       {
         value: [],
-        list: getYears().map(
-          (value) => ({
-            key: value,
-            value: value,
-          })
-        )
+        list: getYears().map(value => ({
+          key: value,
+          value: value,
+        })),
       },
       {
         list: {
           on: getCarousel(83, 1),
-          after: new PrizmCarouselArrayContent(
-            getYears()
-          ),
+          after: new PrizmCarouselArrayContent(getYears()),
         },
         value: {
           on: '1',
-          after: new Date().getFullYear().toString()
-        }
+          after: new Date().getFullYear().toString(),
+        },
       }
     );
   }
 
   public updateMainState(value: string): void {
     this.cron.updateWith({
-      year: value
+      year: value,
     });
   }
 
   private getYears(): string[] {
-    return Array.from({length: 50}).map(
-      (_, idx) => idx + this.currentYear + ''
-    )
+    return Array.from({ length: 50 }).map((_, idx) => idx + this.currentYear + '');
   }
 }
 
-function getYears(length = 50, from =  new Date().getFullYear()): string[] {
-  return Array.from({length: 50}).map(
-    (_, idx) => idx + from + ''
-  )
+function getYears(length = 50, from = new Date().getFullYear()): string[] {
+  return Array.from({ length: 50 }).map((_, idx) => idx + from + '');
 }

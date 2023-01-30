@@ -6,18 +6,18 @@ import { prizmCronConvertToObject } from './util';
 
 @Injectable()
 export class PrizmCronService {
-  private readonly value$$ = new BehaviorSubject<PrizmCronValueObject>(prizmCronConvertToObject('0 0 * ? * * *'));
+  private readonly value$$ = new BehaviorSubject<PrizmCronValueObject>(
+    prizmCronConvertToObject('0 0 * ? * * *')
+  );
   public readonly value$ = this.value$$.asObservable();
-  get value (): PrizmCronValueObject {
-    return this.value$$.value
+  get value(): PrizmCronValueObject {
+    return this.value$$.value;
   }
-  get valueAsString (): string {
+  get valueAsString(): string {
     return this.convertToCronString(this.value);
   }
   public readonly valueAsString$ = this.value$.pipe(
-    map(
-      (v) => this.convertToCronString(v)
-    ),
+    map(v => this.convertToCronString(v)),
     shareReplay(1)
   );
   public readonly second$ = this.value$.pipe(
@@ -30,7 +30,7 @@ export class PrizmCronService {
   );
   public readonly minute$ = this.value$.pipe(
     map(value => value.minute),
-    distinctUntilChanged(),
+    distinctUntilChanged()
   );
   public readonly hour$ = this.value$.pipe(
     map(value => value.hour),
@@ -49,20 +49,16 @@ export class PrizmCronService {
     distinctUntilChanged()
   );
 
-  public updateWith(ojb: Partial<PrizmCronValueObject>): void
-  public updateWith(ojb: string): void
+  public updateWith(ojb: Partial<PrizmCronValueObject>): void;
+  public updateWith(ojb: string): void;
   public updateWith(value: Partial<PrizmCronValueObject> | string): void {
-    const obj = (value && typeof value === 'object')
-      ? value
-      : prizmCronConvertToObject(value as string);
-   this.value$$.next({
-     ...this.value$$.value,
-     ...obj,
-   });
+    const obj = value && typeof value === 'object' ? value : prizmCronConvertToObject(value as string);
+    this.value$$.next({
+      ...this.value$$.value,
+      ...obj,
+    });
   }
-  private convertToCronString(
-    v: PrizmCronValueObject
-  ): string {
-    return `${v.second} ${v.minute} ${v.hour} ${v.dayOfMonth} ${v.month} ${v.dayOfWeek} ${v.year}`
+  private convertToCronString(v: PrizmCronValueObject): string {
+    return `${v.second} ${v.minute} ${v.hour} ${v.dayOfMonth} ${v.month} ${v.dayOfWeek} ${v.year}`;
   }
 }

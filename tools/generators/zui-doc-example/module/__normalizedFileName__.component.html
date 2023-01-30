@@ -1,64 +1,49 @@
-<prizm-doc-page
-  header="<%= title %>"
-  package="DEMO"
-  type="components"
->
+<prizm-doc-page header="<%= title %>" package="DEMO" type="components">
   <ng-template prizmDocPageTab>
-    <p>
-      Use <%= normalizedModuleName %> module.
-    </p>
+    <p>Use <%= normalizedModuleName %> module.</p>
 
-    <prizm-doc-example
-      id="base"
-      heading="Basic"
-      [content]="exampleBase"
-    >
+    <prizm-doc-example id="base" heading="Basic" [content]="exampleBase">
       <prizm-component-example-2></prizm-component-example-2>
     </prizm-doc-example>
-
   </ng-template>
 
   <ng-template prizmDocPageTab>
     <prizm-doc-demo>
-        <!-- TODO add you component here -->
+      <!-- TODO add you component here -->
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <!-- TODO create you controls -->
-<!--      <ng-template-->
-<!--        documentationPropertyName="label"-->
-<!--        documentationPropertyType="string"-->
-<!--        documentationPropertyMode="input"-->
-<!--        [(documentationPropertyValue)]="label"-->
-<!--      >-->
-<!--        Label-->
-<!--      </ng-template>-->
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="label"-->
+      <!--        documentationPropertyType="string"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [(documentationPropertyValue)]="label"-->
+      <!--      >-->
+      <!--        Label-->
+      <!--      </ng-template>-->
 
-<!--      <ng-template-->
-<!--        documentationPropertyName="type"-->
-<!--        documentationPropertyType="button | submit | reset"-->
-<!--        documentationPropertyMode="input"-->
-<!--        [documentationPropertyValues]="typeVariants"-->
-<!--        [(documentationPropertyValue)]="type"-->
-<!--      >-->
-<!--        Type-->
-<!--      </ng-template>-->
-
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="type"-->
+      <!--        documentationPropertyType="button | submit | reset"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [documentationPropertyValues]="typeVariants"-->
+      <!--        [(documentationPropertyValue)]="type"-->
+      <!--      >-->
+      <!--        Type-->
+      <!--      </ng-template>-->
     </prizm-doc-documentation>
   </ng-template>
 
   <ng-template prizmDocPageTab>
     <ol class="b-demo-steps">
       <li>
-        <p >
+        <p>
           Import
           <code><%= normalizedModuleName %></code>
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

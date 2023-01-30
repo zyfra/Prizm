@@ -40,7 +40,12 @@
 
 <div class="container container__fake" #breadcrumbsFake>
   <div class="breadcrumbs" *ngFor="let breadcrumb of breadcrumbs$ | async; let i = index" #breadcrumbsFake>
-    <prizm-icon class="breadcrumbs__chevron" iconClass="chevrons-right" [size]="16" *ngIf="i !== 0"></prizm-icon>
+    <prizm-icon
+      class="breadcrumbs__chevron"
+      iconClass="chevrons-right"
+      [size]="16"
+      *ngIf="i !== 0"
+    ></prizm-icon>
     <button class="breadcrumb">
       <prizm-icon
         class="breadcrumb__icon"

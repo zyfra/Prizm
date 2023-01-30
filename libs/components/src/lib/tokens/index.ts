@@ -17,4 +17,3 @@ export * from './mobile-calendar';
 export * from './value-accessor';
 export * from './ordered-short-week-days';
 export * from './i18n';
-

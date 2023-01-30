@@ -18,4 +18,3 @@ export class PrizmSplitterSizeSettingExampleComponent {
     console.log(sizes);
   }
 }
-

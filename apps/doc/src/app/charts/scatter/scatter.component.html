@@ -1,6 +1,8 @@
 <prizm-doc-page header="Scatter" package="components" type="components">
-  <div class='page-description' description>
-    Scatter charts are based on basic line charts with the x axis changed to a linear axis. To use a scatter chart, data must be passed as objects containing X and Y properties. The example below creates a scatter chart with 4 points.
+  <div class="page-description" description>
+    Scatter charts are based on basic line charts with the x axis changed to a linear axis. To use a scatter
+    chart, data must be passed as objects containing X and Y properties. The example below creates a scatter
+    chart with 4 points.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="exampleOutline">
@@ -12,24 +14,23 @@
     <prizm-doc-demo>
       <prizm-charts-scatter
         #element
-        [prizmDocHostElement]='element'
-        [data]='data'
-        [xField]='xField'
-        [width]='width'
-        [height]='height'
-        [yField]='yField'
-        [colorField]='colorField'
-        [theme]='prizmTheme.changesTheme$ | async'
-        [options]='{size: 5, shape: "circle", appendPadding: 30}'
+        [prizmDocHostElement]="element"
+        [data]="data"
+        [xField]="xField"
+        [width]="width"
+        [height]="height"
+        [yField]="yField"
+        [colorField]="colorField"
+        [theme]="prizmTheme.changesTheme$ | async"
+        [options]="{ size: 5, shape: 'circle', appendPadding: 30 }"
       ></prizm-charts-scatter>
-
     </prizm-doc-demo>
 
     <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="width"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="width"
       >
         Width
@@ -38,7 +39,7 @@
       <ng-template
         documentationPropertyName="xField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="xField"
       >
         X Field Name
@@ -47,7 +48,7 @@
       <ng-template
         documentationPropertyName="yField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="yField"
       >
         Y Field Name
@@ -56,7 +57,7 @@
       <ng-template
         documentationPropertyName="colorField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="colorField"
       >
         Color Field Name
@@ -64,7 +65,7 @@
 
       <ng-template
         documentationPropertyName="data"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsAreaItem[]"
       >
         Data
@@ -72,16 +73,15 @@
 
       <ng-template
         documentationPropertyName="autoFit"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="boolean"
       >
         Auto Fit
       </ng-template>
 
-
       <ng-template
         documentationPropertyName="theme"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartTheme"
       >
         Theme
@@ -89,7 +89,7 @@
 
       <ng-template
         documentationPropertyName="options"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsScatterOptions"
       >
         Options
@@ -98,7 +98,7 @@
       <ng-template
         documentationPropertyName="height"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="height"
       >
         Height

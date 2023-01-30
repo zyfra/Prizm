@@ -19,7 +19,7 @@ import { PrizmChartsColumnStackExampleComponent } from './examples/stack/prizm-c
     PrizmChartsColumnExampleComponent,
     PrizmChartsColumnStackExampleComponent,
     PrizmChartsColumnGroupExampleComponent,
-    ColumnComponent
+    ColumnComponent,
   ],
   exports: [ColumnComponent],
 })

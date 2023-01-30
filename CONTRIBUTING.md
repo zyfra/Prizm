@@ -24,7 +24,7 @@
 
 (?) Посмотрите требования к заголовкам MR, Issue
 
-1. Зайти в https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk/-/issues/new
+1. Зайти в https://github.com/zyfra/Prizm/issues
 2. Добавить заголовок.
 3. Выбрать шаблон из предложенного
 4. Оформить и отправить на рассмотрение

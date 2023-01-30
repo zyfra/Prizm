@@ -30,4 +30,3 @@ import { PrizmSplitterSizeSettingExampleComponent } from './examples/size-settin
   exports: [PrizmSplitterExampleComponent],
 })
 export class PrizmSpliiterExampleModule {}
-

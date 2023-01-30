@@ -8,62 +8,60 @@ import { PrizmChartsBarItem, PrizmChartsBarOptions, PrizmChartsBarOrigin } from 
   templateUrl: './prizm-charts-bar.component.html',
   styleUrls: ['./prizm-charts-bar.component.less'],
 })
-export class PrizmChartsBarComponent<T extends Record<string, unknown>>
-  extends PrizmChartsAbstractComponent<PrizmChartsBarOrigin, PrizmChartsBarOptions>
-{
+export class PrizmChartsBarComponent<T extends Record<string, unknown>> extends PrizmChartsAbstractComponent<
+  PrizmChartsBarOrigin,
+  PrizmChartsBarOptions
+> {
   public readonly name = 'bar';
 
   @Input()
   set data(value: PrizmChartsBarItem[]) {
     this.updateOptions({
-      data: value
-    })
+      data: value,
+    });
   }
   get data(): PrizmChartsBarItem[] {
-    return this.options?.data ?? [] as PrizmChartsBarItem[];
+    return this.options?.data ?? ([] as PrizmChartsBarItem[]);
   }
 
   @Input()
-  public set xField (value: string) {
-    this.updateOptions({xField: value});
-  };
+  public set xField(value: string) {
+    this.updateOptions({ xField: value });
+  }
   public get xField(): string {
     return this.options?.xField;
   }
 
   @Input() set autoFit(value: boolean) {
-    this.updateOptions({autoFit: value});
+    this.updateOptions({ autoFit: value });
   }
 
   @Input()
-  public set yField (value: string) {
-    this.updateOptions({yField: value});
-  };
+  public set yField(value: string) {
+    this.updateOptions({ yField: value });
+  }
   public get yField(): string {
     return this.options?.yField;
   }
 
   @Input()
-  public set seriesField (value: string) {
-    this.updateOptions({seriesField: value});
-  };
+  public set seriesField(value: string) {
+    this.updateOptions({ seriesField: value });
+  }
   public get seriesField(): string {
     return this.options.seriesField;
   }
   @Input()
-  public set label (value: PrizmChartsBarOptions['label']) {
-    this.updateOptions({label: value});
-  };
+  public set label(value: PrizmChartsBarOptions['label']) {
+    this.updateOptions({ label: value });
+  }
   public get label(): PrizmChartsBarOptions['label'] {
     return this.options.label;
   }
 
   private origin_: Bar;
 
-  constructor(
-    private readonly elRef: ElementRef<HTMLElement>,
-    private readonly injector: Injector,
-  ) {
+  constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);
     this.prizmChartThemeService.initIfNecessary();
     this.init();

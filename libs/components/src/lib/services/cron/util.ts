@@ -1,8 +1,6 @@
 import { PrizmCronDefaultObjectValue, PrizmCronValueObject } from './model';
 
-export function prizmCronConvertToObject(
-  value: string
-): PrizmCronValueObject {
+export function prizmCronConvertToObject(value: string): PrizmCronValueObject {
   const arr = value?.split(' ') ?? [];
   return {
     second: arr[0] ?? PrizmCronDefaultObjectValue.second,
@@ -12,5 +10,5 @@ export function prizmCronConvertToObject(
     month: arr[4] ?? PrizmCronDefaultObjectValue.month,
     dayOfWeek: arr[5] ?? PrizmCronDefaultObjectValue.dayOfWeek,
     year: arr[6] ?? PrizmCronDefaultObjectValue.year,
-  }
+  };
 }

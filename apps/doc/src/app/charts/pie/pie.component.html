@@ -1,6 +1,8 @@
 <prizm-doc-page header="Pie" package="components" type="components">
-  <div class='page-description' description>
-    A pie chart helps organize and show data as a percentage of a whole. True to the name, this kind of visualization uses a circle to represent the whole, and slices of that circle, or “pie”, to represent the specific categories that compose the whole.
+  <div class="page-description" description>
+    A pie chart helps organize and show data as a percentage of a whole. True to the name, this kind of
+    visualization uses a circle to represent the whole, and slices of that circle, or “pie”, to represent the
+    specific categories that compose the whole.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="exampleOutline">
@@ -12,16 +14,17 @@
     <prizm-doc-demo>
       <prizm-charts-pie
         #element
-        [prizmDocHostElement]='element'
-        [data]='data'
-        [height]='height'
-        [width]='width'
-        [options]='options'
-        [colorField]='colorField'
-        [angleField]='angleField'
-        [interactions]='interactions'
-        [label]='label'
-        [theme]='prizmTheme.changesTheme$ | async'>
+        [prizmDocHostElement]="element"
+        [data]="data"
+        [height]="height"
+        [width]="width"
+        [options]="options"
+        [colorField]="colorField"
+        [angleField]="angleField"
+        [interactions]="interactions"
+        [label]="label"
+        [theme]="prizmTheme.changesTheme$ | async"
+      >
       </prizm-charts-pie>
     </prizm-doc-demo>
     <prizm-doc-documentation>
@@ -44,14 +47,14 @@
       <ng-template
         documentationPropertyName="angleField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="angleField"
       >
         Angle Field Name
       </ng-template>
       <ng-template
         documentationPropertyName="theme"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartTheme"
       >
         Theme
@@ -60,7 +63,7 @@
       <ng-template
         documentationPropertyName="width"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="width"
       >
         Width
@@ -69,7 +72,7 @@
       <ng-template
         documentationPropertyName="height"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="height"
       >
         Height
@@ -78,7 +81,7 @@
       <ng-template
         documentationPropertyName="colorField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="colorField"
       >
         Color Field Name
@@ -87,14 +90,14 @@
       <ng-template
         documentationPropertyName="interactions"
         documentationPropertyType="PrizmChartsPieOptions['interactions']"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="interactions"
       >
         Interactions
       </ng-template>
       <ng-template
         documentationPropertyName="options"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsPieOptions"
       >
         Options
@@ -102,7 +105,7 @@
 
       <ng-template
         documentationPropertyName="data"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsPieItem[]"
       >
         Data
@@ -111,7 +114,7 @@
       <ng-template
         documentationPropertyName="label"
         documentationPropertyType="PrizmChartsPieOptions['label']"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="label"
       >
         Label

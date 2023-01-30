@@ -6,8 +6,8 @@ import { PrizmExpandContentDirective } from './expand-content.directive';
 import { PrizmLoaderModule } from '../loader';
 
 @NgModule({
-    imports: [CommonModule, PrizmLoaderModule],
-    declarations: [PrizmExpandComponent, PrizmExpandContentDirective],
-    exports: [PrizmExpandComponent, PrizmExpandContentDirective],
+  imports: [CommonModule, PrizmLoaderModule],
+  declarations: [PrizmExpandComponent, PrizmExpandContentDirective],
+  exports: [PrizmExpandComponent, PrizmExpandContentDirective],
 })
 export class PrizmExpandModule {}

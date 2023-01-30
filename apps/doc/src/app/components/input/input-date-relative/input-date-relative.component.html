@@ -22,7 +22,7 @@
         [canOpen]="canOpen"
       ></prizm-input-date-relative>
     </prizm-doc-demo>
-    <prizm-doc-documentation [control]='valueControl'>
+    <prizm-doc-documentation [control]="valueControl">
       <ng-template
         documentationPropertyName="label"
         documentationPropertyType="string"
@@ -55,7 +55,7 @@
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="disabled"
-        [documentationPropertyDeprecated]='true'
+        [documentationPropertyDeprecated]="true"
       >
         Disabled
       </ng-template>

@@ -1,6 +1,7 @@
 <prizm-doc-page header="Treemap" package="components" type="components">
-  <div class='page-description' description>
-    A treemap chart provides a hierarchical view of your data and makes it easy to spot patterns, such as which items are a store's best sellers.
+  <div class="page-description" description>
+    A treemap chart provides a hierarchical view of your data and makes it easy to spot patterns, such as
+    which items are a store's best sellers.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="exampleOutline">
@@ -12,27 +13,26 @@
     <prizm-doc-demo>
       <prizm-charts-treemap
         #element
-        [prizmDocHostElement]='element'
-        [data]='data'
-        [width]='width'
-        [height]='height'
-        [colorField]='colorField'
-        [theme]='prizmTheme.changesTheme$ | async'
+        [prizmDocHostElement]="element"
+        [data]="data"
+        [width]="width"
+        [height]="height"
+        [colorField]="colorField"
+        [theme]="prizmTheme.changesTheme$ | async"
       ></prizm-charts-treemap>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="theme"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartTheme"
       >
         Theme
       </ng-template>
 
-
       <ng-template
         documentationPropertyName="options"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsTreemapOptions"
       >
         Options
@@ -41,7 +41,7 @@
       <ng-template
         documentationPropertyName="width"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="width"
       >
         Width
@@ -50,7 +50,7 @@
       <ng-template
         documentationPropertyName="height"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="height"
       >
         Height
@@ -59,7 +59,7 @@
       <ng-template
         documentationPropertyName="colorField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="colorField"
       >
         Color Field Name
@@ -68,12 +68,11 @@
       <ng-template
         documentationPropertyName="data"
         documentationPropertyType="PrizmChartsTreemapData"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="data"
       >
         Data
       </ng-template>
-
     </prizm-doc-documentation>
   </ng-template>
 

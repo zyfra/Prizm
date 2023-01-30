@@ -11,15 +11,15 @@ import { PrizmButtonModule } from '../../button/button.module';
 import { PrizmPrimitiveSpinButtonComponent } from './primitive-spin-button.component';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        PrizmFocusVisibleModule,
-        PrizmFocusedModule,
-        PrizmFocusableModule,
-        PrizmPreventDefaultModule,
-        PrizmButtonModule,
-    ],
-    declarations: [PrizmPrimitiveSpinButtonComponent],
-    exports: [PrizmPrimitiveSpinButtonComponent],
+  imports: [
+    CommonModule,
+    PrizmFocusVisibleModule,
+    PrizmFocusedModule,
+    PrizmFocusableModule,
+    PrizmPreventDefaultModule,
+    PrizmButtonModule,
+  ],
+  declarations: [PrizmPrimitiveSpinButtonComponent],
+  exports: [PrizmPrimitiveSpinButtonComponent],
 })
 export class PrizmPrimitiveSpinButtonModule {}

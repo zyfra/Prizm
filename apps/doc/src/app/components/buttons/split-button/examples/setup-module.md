@@ -10,6 +10,5 @@ import { PrizmButtonModule } from '@prizm-ui/components';
     PrizmButtonModule,
   ],
 })
-export class MyModule {
-}
+export class MyModule {}
 ```

@@ -11,7 +11,7 @@ import { PrizmChartsBarItem, PrizmChartsBarOptions } from '@prizm-ui/charts';
         width: 100%;
         height: 300px;
       }
-    `
+    `,
   ],
 })
 export class PrizmChartsBarGroupExampleComponent {
@@ -75,9 +75,7 @@ export class PrizmChartsBarGroupExampleComponent {
       { type: 'interval-hide-overlap' },
       { type: 'adjust-color' },
     ],
-  }
+  };
 
-  constructor(
-    public readonly prizmTheme: PrizmThemeService,
-  ) {}
+  constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

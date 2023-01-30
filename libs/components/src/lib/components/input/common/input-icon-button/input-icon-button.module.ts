@@ -4,11 +4,7 @@ import { PrizmInputIconButtonComponent } from './input-icon-button.component';
 
 @NgModule({
   imports: [PrizmIconModule],
-  declarations: [
-    PrizmInputIconButtonComponent,
-  ],
-  exports: [
-    PrizmInputIconButtonComponent,
-  ],
+  declarations: [PrizmInputIconButtonComponent],
+  exports: [PrizmInputIconButtonComponent],
 })
 export class PrizmInputIconButtonModule {}

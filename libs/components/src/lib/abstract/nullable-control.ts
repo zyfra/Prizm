@@ -3,7 +3,7 @@ import { AbstractPrizmControl } from './control';
 
 @Directive()
 export abstract class AbstractPrizmNullableControl<T> extends AbstractPrizmControl<T | null> {
-    protected getFallbackValue(): T | null {
-        return null;
-    }
+  protected getFallbackValue(): T | null {
+    return null;
+  }
 }

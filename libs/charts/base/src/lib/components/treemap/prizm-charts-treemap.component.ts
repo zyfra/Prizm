@@ -8,11 +8,12 @@ import { PrizmChartsTreemapData, PrizmChartsTreemapOptions, PrizmChartsTreemapOr
   templateUrl: './prizm-charts-treemap.component.html',
   styleUrls: ['./prizm-charts-treemap.component.less'],
 })
-export class PrizmChartsTreemapComponent<T extends Record<string, unknown>>
-extends PrizmChartsAbstractComponent<PrizmChartsTreemapOrigin, PrizmChartsTreemapOptions>{
+export class PrizmChartsTreemapComponent<
+  T extends Record<string, unknown>
+> extends PrizmChartsAbstractComponent<PrizmChartsTreemapOrigin, PrizmChartsTreemapOptions> {
   @Input()
-  set data(data:PrizmChartsTreemapData) {
-    this.updateOptions({data});
+  set data(data: PrizmChartsTreemapData) {
+    this.updateOptions({ data });
   }
   get data(): PrizmChartsTreemapData {
     return this.options?.data ?? {};
@@ -21,18 +22,14 @@ extends PrizmChartsAbstractComponent<PrizmChartsTreemapOrigin, PrizmChartsTreema
   private origin_: PrizmChartsTreemapOrigin;
 
   @Input()
-  public set colorField (value: string) {
-    this.updateOptions({colorField: value});
-  };
+  public set colorField(value: string) {
+    this.updateOptions({ colorField: value });
+  }
   public get colorField(): string {
     return this.options?.colorField;
-
   }
 
-  constructor(
-    private readonly elRef: ElementRef<HTMLElement>,
-    private readonly injector: Injector,
-  ) {
+  constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);
     this.prizmChartThemeService.initIfNecessary();
     this.init();

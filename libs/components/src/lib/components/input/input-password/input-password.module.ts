@@ -15,4 +15,3 @@ import { PrizmInputPasswordDirective } from './input-password.directive';
   ],
 })
 export class PrizmInputPasswordModule {}
-

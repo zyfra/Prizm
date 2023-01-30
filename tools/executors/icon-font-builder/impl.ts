@@ -52,14 +52,14 @@ export default async function builderExecutor(options: IconFontExecutorOptions, 
 
       definition.data.push(iconName);
 
-      if(staticCodepoints[iconName]) {
+      if (staticCodepoints[iconName]) {
         icons.push({
           icon: iconName,
           ligatures: [`${iconName}-icon`],
           codepoints: [staticCodepoints[iconName].content],
         });
       } else {
-        console.warn('No codepoint for ' + iconName)
+        console.warn('No codepoint for ' + iconName);
         icons.push({
           icon: iconName,
           ligatures: [`${iconName}-icon`],

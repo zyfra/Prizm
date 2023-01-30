@@ -143,15 +143,9 @@ export class PrizmInputDateRelativeComponent
         v => v,
         this.value
       ).subscribe()
-    )
+    );
 
-    this.subscriptions.add(
-      PrizmFormControlHelpers.syncStates(
-        control,
-        true,
-        this.value
-      ).subscribe()
-    )
+    this.subscriptions.add(PrizmFormControlHelpers.syncStates(control, true, this.value).subscribe());
   }
 
   public ngOnDestroy(): void {

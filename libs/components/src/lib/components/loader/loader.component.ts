@@ -13,57 +13,57 @@ import { prizmBlurNativeFocused } from '../../util/blur-native-focused';
 import { PrizmSize, prizmSizeBigger } from '../../util/size-bigger';
 
 @Component({
-    selector: 'prizm-loader',
-    templateUrl: './loader.component.html',
-    styleUrls: ['./loader.component.less'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'prizm-loader',
+  templateUrl: './loader.component.html',
+  styleUrls: ['./loader.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmLoaderComponent {
-    @Input()
-    size: PrizmSize = 's';
+  @Input()
+  size: PrizmSize = 's';
 
-    @Input()
-    inheritColor = false;
+  @Input()
+  inheritColor = false;
 
-    @Input()
-    overlay = false;
+  @Input()
+  overlay = false;
 
-    @Input()
-    textContent: TemplateRef<unknown> | null = null;
+  @Input()
+  textContent: TemplateRef<unknown> | null = null;
 
-    @Input()
-    set showLoader(value: boolean) {
-        if (value && this.focused) {
-            prizmBlurNativeFocused(this.documentRef);
-        }
-
-        this.loading = value;
+  @Input()
+  set showLoader(value: boolean) {
+    if (value && this.focused) {
+      prizmBlurNativeFocused(this.documentRef);
     }
 
-    @HostBinding('class._loading')
-    loading = true;
+    this.loading = value;
+  }
 
-    @HostBinding('attr.testId')
-    readonly testId = 'prizm_loader';
+  @HostBinding('class._loading')
+  loading = true;
 
-    constructor(
-        @Inject(DOCUMENT) private readonly documentRef: Document,
-        @Inject(ElementRef) private readonly elementRef: ElementRef<HTMLElement>,
-    ) {}
+  @HostBinding('attr.testId')
+  readonly testId = 'prizm_loader';
 
-    get hasOverlay(): boolean {
-        return this.overlay && this.loading;
-    }
+  constructor(
+    @Inject(DOCUMENT) private readonly documentRef: Document,
+    @Inject(ElementRef) private readonly elementRef: ElementRef<HTMLElement>
+  ) {}
 
-    get hasText(): boolean {
-        return !!this.textContent;
-    }
+  get hasOverlay(): boolean {
+    return this.overlay && this.loading;
+  }
 
-    get isHorizontal(): boolean {
-        return !prizmSizeBigger(this.size);
-    }
+  get hasText(): boolean {
+    return !!this.textContent;
+  }
 
-    get focused(): boolean {
-        return prizmIsNativeFocusedIn(this.elementRef.nativeElement);
-    }
+  get isHorizontal(): boolean {
+    return !prizmSizeBigger(this.size);
+  }
+
+  get focused(): boolean {
+    return prizmIsNativeFocusedIn(this.elementRef.nativeElement);
+  }
 }

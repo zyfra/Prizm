@@ -11,7 +11,7 @@ import { PrizmThemeService } from '@prizm-ui/theme';
         width: 100%;
         height: 300px;
       }
-    `
+    `,
   ],
 })
 export class PrizmChartsColumnExampleComponent {
@@ -75,8 +75,5 @@ export class PrizmChartsColumnExampleComponent {
     },
   };
 
-  constructor(
-    public readonly prizmTheme: PrizmThemeService,
-  ) {
-  }
+  constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

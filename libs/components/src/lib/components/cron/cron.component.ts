@@ -59,11 +59,9 @@ export class PrizmCronComponent implements OnInit {
     if (this.indefinitelyControl.value !== period.indefinitely)
       this.indefinitelyControl.setValue(period.indefinitely);
 
-    if (this.startDateControl.value !== period.start)
-      this.startDateControl.setValue(period.start);
+    if (this.startDateControl.value !== period.start) this.startDateControl.setValue(period.start);
 
-    if (this.endDateControl.value !== period.end)
-      this.endDateControl.setValue(period.end);
+    if (this.endDateControl.value !== period.end) this.endDateControl.setValue(period.end);
   }
   public get period(): PrizmCronPeriod {
     return {
@@ -183,26 +181,22 @@ export class PrizmCronComponent implements OnInit {
       .subscribe();
 
     combineLatest([
-      this.startDateControl.valueChanges.pipe(
-        startWith(this.startDateControl.value),
-        distinctUntilChanged()
-      ),
-      this.endDateControl.valueChanges.pipe(
-        startWith(this.endDateControl.value),
-        distinctUntilChanged()
-      ),
+      this.startDateControl.valueChanges.pipe(startWith(this.startDateControl.value), distinctUntilChanged()),
+      this.endDateControl.valueChanges.pipe(startWith(this.endDateControl.value), distinctUntilChanged()),
       this.indefinitelyControl.valueChanges.pipe(
         startWith(this.indefinitelyControl.value),
         distinctUntilChanged()
       ),
-    ]).pipe(
-      skip(1),
-      filter(() => this.autoSubmit && !this.disabled),
-      tap((controls) => {
-        this.emitPeriod()
-      }),
-      takeUntil(this.destroy$),
-    ).subscribe()
+    ])
+      .pipe(
+        skip(1),
+        filter(() => this.autoSubmit && !this.disabled),
+        tap(controls => {
+          this.emitPeriod();
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   private emit(cronValue: string): void {

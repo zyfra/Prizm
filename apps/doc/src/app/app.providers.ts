@@ -53,7 +53,7 @@ export const APP_PROVIDERS = [
   {
     provide: PRIZM_DOC_SOURCE_CODE,
     useValue: (context: PrizmDocSourceCodePathOptions): null | string => {
-      const link = 'https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk';
+      const link = 'https://github.com/zyfra/Prizm';
       // TODO add right path to every component
       return link;
       // if (!context.package) {
@@ -117,15 +117,15 @@ function sortDocPages(pages: PrizmOrderedDocPage): (PrizmDocPage | PrizmDocPageG
     [SectionNameEnum.howToStart]: 2,
     [SectionNameEnum.components]: 3,
     [SectionNameEnum.charts]: 4,
-    [SectionNameEnum.tools]: 5
+    [SectionNameEnum.tools]: 5,
   };
 
   const orderingLength = Object.keys(ordering).length;
 
   return [...pages]
     .sort((a, b) => {
-      const sectionWeightA = (orderingLength - ordering[a.section]);
-      const sectionWeightB = (orderingLength - ordering[b.section]);
+      const sectionWeightA = orderingLength - ordering[a.section];
+      const sectionWeightB = orderingLength - ordering[b.section];
       const localOrderA = a.order || 0;
       const localOrderB = b.order || 0;
 

@@ -14,7 +14,6 @@ import {
   PrizmScrollbarModule,
   PrizmTableModule,
 } from '@prizm-ui/components';
-import { TableModule } from 'primeng/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableSelectableExampleComponent } from './examples/table-selectable-example/table-selectable-example.component';
 import { TableEditableColExampleComponent } from './examples/table-editable-col-example/table-editable-col-example.component';
@@ -45,7 +44,6 @@ import { TableSelectableMetaExampleComponent } from './examples/table-selectable
     PrizmAddonDocModule,
     PrizmTableModule,
     RouterModule.forChild(prizmDocGenerateRoutes(TableExampleComponent)),
-    TableModule,
     FormsModule,
     ReactiveFormsModule,
     PrizmInputTextModule,

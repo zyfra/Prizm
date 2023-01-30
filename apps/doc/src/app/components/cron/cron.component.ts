@@ -9,13 +9,12 @@ import { PrizmCronPeriod, PrizmCronTabItem } from '@prizm-ui/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CronComponent {
-  public periodVariants: ReadonlyArray<PrizmCronPeriod> = [
-  ]
+  public periodVariants: ReadonlyArray<PrizmCronPeriod> = [];
   public period: PrizmCronPeriod = {
     start: null,
     indefinitely: true,
     end: null,
-  }
+  };
   public disabled = false;
   public minHeight: string | null = null;
   public width: string | null = null;

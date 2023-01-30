@@ -5,10 +5,8 @@
 .picker(@itemSize);
 
 :host {
-    width: @itemSize * 7;
+  width: @itemSize * 7;
 }
-
-
 
 .z-item {
   color: var(--prizm-text-main);
@@ -19,48 +17,47 @@
 }
 
 .z-row {
-    justify-content: flex-start;
+  justify-content: flex-start;
 
-    &:first-child {
-        justify-content: flex-end;
-    }
+  &:first-child {
+    justify-content: flex-end;
+  }
 
-    &_weekday {
-        font: var(--prizm-font-text-s);
-        color: var(--prizm-text-subscript);
-        pointer-events: none;
-        text-transform: capitalize;
-    }
+  &_weekday {
+    font: var(--prizm-font-text-s);
+    color: var(--prizm-text-subscript);
+    pointer-events: none;
+    text-transform: capitalize;
+  }
 }
 
 .z-item {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .z-cell_weekend {
-    color: var(--prizm-negative);
+  color: var(--prizm-negative);
 }
 
 .z-item_unavailable {
-    opacity: var(--prizm-disabled-opacity);
+  opacity: var(--prizm-disabled-opacity);
 }
 
 .z-dots {
-    display: flex;
-    justify-content: center;
-    margin-top: -0.5rem;
-    padding-bottom: 0.25rem;
+  display: flex;
+  justify-content: center;
+  margin-top: -0.5rem;
+  padding-bottom: 0.25rem;
 }
 
 .z-dot {
-    display: inline-block;
-    width: 0.25rem;
-    height: 0.25rem;
-    border-radius: 100%;
-    margin: 0 0.0625rem;
+  display: inline-block;
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 100%;
+  margin: 0 0.0625rem;
 }
-
 
 .z-status {
   position: absolute;
@@ -71,19 +68,19 @@
   border-radius: 2px;
   background-color: var(--prizm-status-day-color);
 
-  &[data-prizm-status="index"] {
+  &[data-prizm-status='index'] {
     background-color: var(--prizm-calendar-day-status-default, var(--prizm-index-plan));
   }
 
-  &[data-prizm-status="warning"] {
+  &[data-prizm-status='warning'] {
     background-color: var(--prizm-calendar-day-status-warning, var(--prizm-index-warning));
   }
 
-  &[data-prizm-status="danger"] {
+  &[data-prizm-status='danger'] {
     background-color: var(--prizm-calendar-day-status-danger, var(--prizm-index-danger));
   }
 
-  &[data-prizm-status="success"] {
+  &[data-prizm-status='success'] {
     background-color: var(--prizm-calendar-day-status-success, var(--prizm-index-good));
   }
 }

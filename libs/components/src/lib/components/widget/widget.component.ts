@@ -3,11 +3,11 @@ import { PolymorphContent } from '../../directives';
 import { PrizmShadowType } from '../../directives/shadow';
 
 @Component({
-    selector: 'prizm-widget',
-    templateUrl: './widget.component.html',
-    styleUrls: ['./widget.component.less'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [],
+  selector: 'prizm-widget',
+  templateUrl: './widget.component.html',
+  styleUrls: ['./widget.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [],
 })
 export class PrizmWidgetComponent {
   @Input() public header: PolymorphContent = '';

@@ -1,6 +1,7 @@
 <prizm-doc-page header="Gauge" package="components" type="components">
-  <div class='page-description' description>
-    Gauge charts are useful for comparing values between a small number of variables either by using multiple needles on the same gauge or by using multiple gauges.
+  <div class="page-description" description>
+    Gauge charts are useful for comparing values between a small number of variables either by using multiple
+    needles on the same gauge or by using multiple gauges.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="exampleOutline">
@@ -12,19 +13,19 @@
     <prizm-doc-demo>
       <prizm-charts-gauge
         #element
-        [prizmDocHostElement]='element'
-        [percent]='percent'
-        [width]='width'
-        [height]='height'
+        [prizmDocHostElement]="element"
+        [percent]="percent"
+        [width]="width"
+        [height]="height"
         [options]="options"
-        [theme]='prizmTheme.changesTheme$ | async'
+        [theme]="prizmTheme.changesTheme$ | async"
       ></prizm-charts-gauge>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="width"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="width"
       >
         Width
@@ -32,7 +33,7 @@
 
       <ng-template
         documentationPropertyName="options"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsGaugeOptions"
       >
         Options
@@ -40,7 +41,7 @@
 
       <ng-template
         documentationPropertyName="theme"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartTheme"
       >
         Theme
@@ -49,7 +50,7 @@
       <ng-template
         documentationPropertyName="percent"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="percent"
       >
         Percent
@@ -58,7 +59,7 @@
       <ng-template
         documentationPropertyName="height"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="height"
       >
         Height

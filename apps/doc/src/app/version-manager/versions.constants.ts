@@ -6,7 +6,7 @@ export interface PrizmVersionMeta {
 
 export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
   {
-    label: '1.0.0-beta.21',
+    label: '1.0.0-beta.22',
     baseHref: '',
   },
   {
@@ -14,4 +14,3 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     link: 'https://ziiot-dev-07.kube01.yc.ziiot.ru/zui-sdk/storybook/',
   },
 ];
-

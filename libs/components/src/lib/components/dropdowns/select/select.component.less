@@ -1,7 +1,7 @@
 :host {
-    position: relative;
-    z-index: 0;
-    display: inline-block;
+  position: relative;
+  z-index: 0;
+  display: inline-block;
 }
 
 .item {
@@ -11,8 +11,8 @@
   background: var(--prizm-select-item-background, var(--prizm-bg-body));
   cursor: pointer;
   font-weight: var(--prizm-select-item-font-weight, 400);
-  font-size: var(--prizm-select-item-font-size,14px);
-  color: var(--prizm-select-item-text, var(--prizm-text-contrast, #20222B));
+  font-size: var(--prizm-select-item-font-size, 14px);
+  color: var(--prizm-select-item-text, var(--prizm-text-contrast, #20222b));
 
   &:empty {
     display: none;
@@ -25,7 +25,8 @@
     white-space: nowrap;
   }
 
-  &.selected, &.most-relevant {
+  &.selected,
+  &.most-relevant {
     background: var(--prizm-select-item-selected-background, var(--prizm-bg-dashboard-forms));
   }
 
@@ -38,7 +39,7 @@
   background: var(--prizm-select-background, var(--prizm-bg-body));
   border-radius: 2px;
   border: none;
-  padding:  var(--prizm-select-padding, 8px 0);
+  padding: var(--prizm-select-padding, 8px 0);
 }
 
 .input-chips[readonly] {
@@ -49,17 +50,17 @@
   padding: var(--prizm-select-item-padding, 8px 16px);
   background: var(--prizm-select-item-background, var(--prizm-bg-body));
   font-weight: var(--prizm-select-item-font-weight, 400);
-  font-size: var(--prizm-select-item-font-size,14px);
-  color: var(--prizm-select-empty-text, var(--prizm-text-subscript, #20222B));
+  font-size: var(--prizm-select-item-font-size, 14px);
+  color: var(--prizm-select-empty-text, var(--prizm-text-subscript, #20222b));
 }
 
 .icon-dropdown {
-  color: #777B92;
+  color: #777b92;
   cursor: pointer;
   transition-property: transform;
   transition-property: all;
-  transition-property: color,transform;
-  transition-duration: var(--tui-duration, .3s);
+  transition-property: color, transform;
+  transition-duration: var(--tui-duration, 0.3s);
   transition-timing-function: ease-in-out;
 
   &.opened {
@@ -67,7 +68,7 @@
   }
 
   &.active {
-    color: #337EFF;
+    color: #337eff;
   }
 }
 

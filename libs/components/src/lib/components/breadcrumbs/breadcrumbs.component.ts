@@ -11,7 +11,8 @@ import {
   QueryList,
   ChangeDetectorRef,
   OnInit,
-  AfterViewInit, HostBinding,
+  AfterViewInit,
+  HostBinding,
 } from '@angular/core';
 import { IBreadcrumb } from './breadcrumb.interface';
 import { animationFrameScheduler, BehaviorSubject, merge, Subject } from 'rxjs';

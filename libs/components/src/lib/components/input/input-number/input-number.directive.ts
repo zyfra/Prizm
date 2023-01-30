@@ -66,4 +66,3 @@ export class PrizmInputNumberDirective {
     this.prizmInputText.value = value;
   }
 }
-

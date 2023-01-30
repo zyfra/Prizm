@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { IconDefs, PrizmTabSize, PrizmTabType } from '@prizm-ui/components';
 
@@ -11,6 +11,7 @@ import { IconDefs, PrizmTabSize, PrizmTabType } from '@prizm-ui/components';
 export class TabsExampleComponent {
   public type: PrizmTabType = 'line';
   public activeTabIndex = 0;
+  public removed = false;
   public typeVariants: PrizmTabType[] = ['line', 'contained'];
   public size: PrizmTabSize = 'adaptive';
   public sizeVariants: PrizmTabSize[] = ['s', 'adaptive'];
@@ -53,4 +54,7 @@ export class TabsExampleComponent {
   };
 
   public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  public removeTab(): void {
+    this.removed = true;
+  }
 }

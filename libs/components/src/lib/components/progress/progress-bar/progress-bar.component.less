@@ -1,6 +1,5 @@
 @import '../../../../styles/ui-local';
 
-
 .clearProgress() {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -45,7 +44,7 @@
 }
 
 :host {
-  @track-color:  var(--prizm-progress-track-color, var(--prizm-grey-g11-g3));
+  @track-color: var(--prizm-progress-track-color, var(--prizm-grey-g11-g3));
   @progress-color: var(--prizm-progress-color, currentColor);
 
   .clearProgress();
@@ -80,7 +79,12 @@
     .progressValue({
       background: transparent;
     });
-    background-image: linear-gradient(to right, @track-color 0 45%, @progress-color 45% 55%, @track-color 55% 100%);
+    background-image: linear-gradient(
+      to right,
+      @track-color 0 45%,
+      @progress-color 45% 55%,
+      @track-color 55% 100%
+    );
     background-size: 225%;
     background-position: right;
     animation: prizmIndeterminateAnimation 3s infinite ease-in-out;
@@ -93,6 +97,3 @@
     background-color: transparent;
   });
 }
-
-
-

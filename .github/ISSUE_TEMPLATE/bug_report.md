@@ -1,10 +1,9 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: "[BUG] prizm/components - Краткое описание проблемы"
+title: '[BUG] prizm/components - Краткое описание проблемы'
 labels: ''
 assignees: ''
-
 ---
 
 ### Библиотека
@@ -32,6 +31,7 @@ _Название компонента или группы компоненто�
 `Google Chrome Версия 96.0.4664.110 (Официальная сборка), (x86_64)`
 
 NodeJS:
+
 ```
 ➜ node --version
 v16.13.0
@@ -48,7 +48,7 @@ Dependencies:
 ```
 ➜ npm ls @angular/core
 
-@prizm-ui/components@0.0.2 
+@prizm-ui/components@0.0.2
 ├─┬ @angular/animations@12.2.12
 │ └── @angular/core@12.2.12 deduped
 ├─┬ @angular/cdk@12.2.13
