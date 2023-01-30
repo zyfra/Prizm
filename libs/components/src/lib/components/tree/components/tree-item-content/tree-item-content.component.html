@@ -1,15 +1,12 @@
 <button
-    *ngIf="isExpandable"
-    prizmIconButton
-    class="z-button"
-    appearance='secondary'
-    appearanceType='ghost'
-    size='xs'
-    icon='chevrons-right'
-    [class.t-button_expanded]="isExpanded"
-    (click)="onClick()"
+  *ngIf="isExpandable"
+  prizmIconButton
+  class="z-button"
+  appearance="secondary"
+  appearanceType="ghost"
+  size="xs"
+  [icon]="(context.$implicit.expanded$ | async) ? 'chevrons-down' : 'chevrons-right'"
+  [class.t-button_expanded]="isExpanded"
+  (click)="onClick()"
 ></button>
 <ng-container [ngTemplateOutlet]="context.template"></ng-container>
-
-<!--size="s"-->
-<!--icon="prizmIconChevronRight"-->

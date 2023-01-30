@@ -12,4 +12,3 @@ const maskConfig: Partial<IConfig> = {
   exports: [NgxMaskModule],
 })
 export class PrizmMaskModule {}
-

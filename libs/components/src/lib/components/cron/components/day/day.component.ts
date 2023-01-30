@@ -5,14 +5,9 @@ import { PrizmCronUiDayState } from '../../cron-ui-day.state';
 
 @Component({
   selector: 'prizm-cron-day',
-  styleUrls: [
-    './day.component.less',
-    '../../cron-element.component.less'
-  ],
+  styleUrls: ['./day.component.less', '../../cron-element.component.less'],
   templateUrl: './day.component.html',
-  providers: [
-    PrizmDestroyService
-  ],
+  providers: [PrizmDestroyService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmCronDayComponent {
@@ -198,9 +193,5 @@ export class PrizmCronDayComponent {
   //   )
   // }
 
-  constructor(
-    public readonly cronUiState: PrizmCronUiDayState
-  ) {
-  }
-
+  constructor(public readonly cronUiState: PrizmCronUiDayState) {}
 }

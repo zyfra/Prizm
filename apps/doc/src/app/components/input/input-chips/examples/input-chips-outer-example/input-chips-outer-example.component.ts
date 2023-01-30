@@ -21,4 +21,3 @@ export class InputChipsOuterExampleComponent {
     this.requiredInputControl.patchValue('');
   }
 }
-

@@ -20,52 +20,40 @@ let documentMouseUpIsAlive$: Observable<boolean>;
 let documentMouseDownIsAlive$: Observable<boolean>;
 
 export function prizmFocusVisibleObservable(element: Element): Observable<boolean> {
-    const elementBlur$ = prizmTypedFromEvent(element, 'blur');
-    const {ownerDocument} = element;
+  const elementBlur$ = prizmTypedFromEvent(element, 'blur');
+  const { ownerDocument } = element;
 
-    if (!ownerDocument) {
-        throw new PrizmOwnerDocumentException();
-    }
+  if (!ownerDocument) {
+    throw new PrizmOwnerDocumentException();
+  }
 
-    if (!documentMouseDownIsAlive$ || !documentMouseUpIsAlive$) {
-        documentMouseUpIsAlive$ = prizmTypedFromEvent(ownerDocument, 'mouseup', {
-            capture: true,
-        }).pipe(
-            prizmIsAlive(),
-            startWith(false),
-            shareReplay({bufferSize: 1, refCount: true}),
-        );
-        documentMouseDownIsAlive$ = prizmTypedFromEvent(ownerDocument, 'mousedown', {
-            capture: true,
-        }).pipe(
-            prizmIsAlive(),
-            startWith(false),
-            shareReplay({bufferSize: 1, refCount: true}),
-        );
-    }
+  if (!documentMouseDownIsAlive$ || !documentMouseUpIsAlive$) {
+    documentMouseUpIsAlive$ = prizmTypedFromEvent(ownerDocument, 'mouseup', {
+      capture: true,
+    }).pipe(prizmIsAlive(), startWith(false), shareReplay({ bufferSize: 1, refCount: true }));
+    documentMouseDownIsAlive$ = prizmTypedFromEvent(ownerDocument, 'mousedown', {
+      capture: true,
+    }).pipe(prizmIsAlive(), startWith(false), shareReplay({ bufferSize: 1, refCount: true }));
+  }
 
-    return merge(
-        // focus events excluding ones that came right after mouse action
-        concat(
-            prizmTypedFromEvent(element, 'focus').pipe(take(1)),
-            // filtering out blur events when element remains focused so that we ignore browser tab focus loss
-            elementBlur$.pipe(
-                filter(() => !prizmIsNativeFocused(element)),
-                take(1),
-                ignoreElements(),
-            ),
-        ).pipe(
-            repeat(),
-            withLatestFrom(
-                documentMouseDownIsAlive$,
-                documentMouseUpIsAlive$,
-                (_event, elementActual, documentActual) =>
-                    elementActual || documentActual,
-            ),
-            filter(isUserFocus => !isUserFocus),
-        ),
+  return merge(
+    // focus events excluding ones that came right after mouse action
+    concat(
+      prizmTypedFromEvent(element, 'focus').pipe(take(1)),
+      // filtering out blur events when element remains focused so that we ignore browser tab focus loss
+      elementBlur$.pipe(
+        filter(() => !prizmIsNativeFocused(element)),
+        take(1),
+        ignoreElements()
+      )
     ).pipe(
-        switchMapTo(elementBlur$.pipe(mapTo(false), take(1), startWith(true))),
-        distinctUntilChanged(),
-    );
+      repeat(),
+      withLatestFrom(
+        documentMouseDownIsAlive$,
+        documentMouseUpIsAlive$,
+        (_event, elementActual, documentActual) => elementActual || documentActual
+      ),
+      filter(isUserFocus => !isUserFocus)
+    )
+  ).pipe(switchMapTo(elementBlur$.pipe(mapTo(false), take(1), startWith(true))), distinctUntilChanged());
 }

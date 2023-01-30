@@ -9,16 +9,16 @@ import { PrizmScrollbarModule } from '../scrollbar/scrollbar.module';
 import { PrizmPrimitiveMonthPickerModule } from '../internal/primitive-month-picker';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        PrizmPrimitiveYearMonthPaginationModule,
-        PrizmPrimitiveCalendarModule,
-        PrizmPrimitiveYearPickerModule,
-        PrizmPrimitiveMonthPickerModule,
-        PrizmScrollbarModule,
-        PrizmMapperPipeModule,
-    ],
-    declarations: [PrizmCalendarComponent],
-    exports: [PrizmCalendarComponent],
+  imports: [
+    CommonModule,
+    PrizmPrimitiveYearMonthPaginationModule,
+    PrizmPrimitiveCalendarModule,
+    PrizmPrimitiveYearPickerModule,
+    PrizmPrimitiveMonthPickerModule,
+    PrizmScrollbarModule,
+    PrizmMapperPipeModule,
+  ],
+  declarations: [PrizmCalendarComponent],
+  exports: [PrizmCalendarComponent],
 })
 export class PrizmCalendarModule {}

@@ -39,7 +39,7 @@ import { convertToNode } from '../../utils/treeNode.functions';
   templateUrl: './prizm-nav-menu.component.html',
   styleUrls: ['./prizm-nav-menu.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.ShadowDom
+  encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class PrizmNavMenuComponent implements AfterViewInit, AfterContentInit, OnDestroy {
   @ViewChild('navMenu') menu: ElementRef;

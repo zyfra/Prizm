@@ -5,7 +5,7 @@ export type PrizmAppearancePrimary = 'primary';
 export type PrizmAppearanceSecondary = 'secondary';
 export type PrizmAppearanceSuccess = 'success';
 export type PrizmAppearance =
-  PrizmAppearancePrimary
+  | PrizmAppearancePrimary
   | PrizmAppearanceSecondary
   | PrizmAppearanceSuccess
   | PrizmAppearanceWarning
@@ -15,4 +15,7 @@ export type PrizmAppearance =
 export type PrizmAppearanceTypeFill = 'fill';
 export type PrizmAppearanceTypeOutline = 'outline';
 export type PrizmAppearanceTypeGhost = 'ghost';
-export type PrizmAppearanceType = PrizmAppearanceTypeFill | PrizmAppearanceTypeOutline | PrizmAppearanceTypeGhost;
+export type PrizmAppearanceType =
+  | PrizmAppearanceTypeFill
+  | PrizmAppearanceTypeOutline
+  | PrizmAppearanceTypeGhost;

@@ -18,14 +18,11 @@ export function prizmChartsSetTheme(key: PrizmChartTheme, value: PrizmChartTheme
 }
 
 export function prizmChartsGetDataObjectFromArr(data: any[]): Record<string, unknown>[] {
-  return data.reduce(
-    (acc, [x, y]) => {
-      acc.push({
-        x,
-        y
-      });
-      return acc;
-    },
-    []
-  )
+  return data.reduce((acc, [x, y]) => {
+    acc.push({
+      x,
+      y,
+    });
+    return acc;
+  }, []);
 }

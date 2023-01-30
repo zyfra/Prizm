@@ -1,4 +1,4 @@
-import {prizmGetNativeFocused} from './get-native-focused';
+import { prizmGetNativeFocused } from './get-native-focused';
 
 /**
  * Checks if element is focused.
@@ -9,7 +9,5 @@ import {prizmGetNativeFocused} from './get-native-focused';
  * @return true if focused
  */
 export function prizmIsNativeFocused(node: Node | null): boolean {
-    return (
-        !!node && !!node.ownerDocument && prizmGetNativeFocused(node.ownerDocument) === node
-    );
+  return !!node && !!node.ownerDocument && prizmGetNativeFocused(node.ownerDocument) === node;
 }

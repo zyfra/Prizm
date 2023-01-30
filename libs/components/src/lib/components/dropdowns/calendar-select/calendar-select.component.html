@@ -1,15 +1,20 @@
-<div class='block'
-     (click)='clickOnContainer($event)'
-     (prizmMutationObserver)='updateWidth()' [prizmMutationObserverHost]='el.nativeElement'>
+<div
+  class="block"
+  (click)="clickOnContainer($event)"
+  (prizmMutationObserver)="updateWidth()"
+  [prizmMutationObserverHost]="el.nativeElement"
+>
   <ng-content></ng-content>
 </div>
 <ng-template #temp>
-  <div class="prizm-dropdown-host-modal"
-       prizmShadow='big-left'
-       (click)='clickOnContainer($event)'
-       (prizmAfterViewInit)='reCalculatePositions()'
-       [id]="prizmDropdownHostId"
-       [attr.position]="position$ | async">
+  <div
+    class="prizm-dropdown-host-modal"
+    prizmShadow="big-left"
+    (click)="clickOnContainer($event)"
+    (prizmAfterViewInit)="reCalculatePositions()"
+    [id]="prizmDropdownHostId"
+    [attr.position]="position$ | async"
+  >
     <ng-container *polymorphOutlet="content"></ng-container>
   </div>
 </ng-template>

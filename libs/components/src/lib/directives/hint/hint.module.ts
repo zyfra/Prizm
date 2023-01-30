@@ -6,11 +6,7 @@ import { PolymorphModule } from '../polymorph';
 import { PrizmScrollbarModule } from '../../components/scrollbar';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    PrizmScrollbarModule,
-    PolymorphModule
-  ],
+  imports: [CommonModule, PrizmScrollbarModule, PolymorphModule],
   declarations: [PrizmHintDirective, PrizmHintContainerComponent],
   exports: [PrizmHintDirective],
 })

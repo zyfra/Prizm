@@ -1,21 +1,25 @@
-<div class="prizm-toast-info-container {{toastRef.appearance}}"
-     prizmTheme
-     [class.is-platform]="toastRef.isPlatform">
+<div
+  class="prizm-toast-info-container {{ toastRef.appearance }}"
+  prizmTheme
+  [class.is-platform]="toastRef.isPlatform"
+>
   <div class="icon-block">
     <prizm-indicator type="icon" [status]="toastRef.appearance"></prizm-indicator>
   </div>
   <div class="content-box">
-    <span class="title prizm-font-dynamic-title-h4" *ngIf='toastRef.title'>
-      <ng-container *polymorphOutlet="toastRef.title as content; context: context">{{content}}</ng-container>
+    <span class="title prizm-font-dynamic-title-h4" *ngIf="toastRef.title">
+      <ng-container *polymorphOutlet="toastRef.title as content; context: context">{{
+        content
+      }}</ng-container>
     </span>
     <div class="content prizm-font-main-body-14">
-      <ng-container *polymorphOutlet="temp as content; context: context">{{content}}</ng-container>
+      <ng-container *polymorphOutlet="temp as content; context: context">{{ content }}</ng-container>
     </div>
   </div>
 
   <div class="control">
     <button
-      [size]='16'
+      [size]="16"
       prizmInputIconButton="cancel-close"
       (click)="toastRef.close()"
       [interactive]="true"

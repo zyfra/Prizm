@@ -1,3 +1,3 @@
-export * from './hovered.service'
-export * from './cron'
-export * from './resize.service'
+export * from './hovered.service';
+export * from './cron';
+export * from './resize.service';

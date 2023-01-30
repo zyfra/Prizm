@@ -1,38 +1,26 @@
-<prizm-doc-page
-  header="InputDateTimeRange"
-  package="components"
-  type="components"
->
+<prizm-doc-page header="InputDateTimeRange" package="components" type="components">
   <ng-template prizmDocPageTab>
-    <p>
-      Use PrizmInputDateTimeRangeComponent to view input-date.
-    </p>
+    <p>Use PrizmInputDateTimeRangeComponent to view input-date.</p>
 
-    <prizm-doc-example
-      id="base"
-      heading="Base"
-      [content]="exampleBase"
-    >
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
       <prizm-input-date-time-range-base-example></prizm-input-date-time-range-base-example>
     </prizm-doc-example>
 
-<!--    <prizm-doc-example-->
-<!--      id="base"-->
-<!--      heading="Disabled"-->
-<!--      [content]="exampleDisabled"-->
-<!--    >-->
-<!--      <prizm-input-date-time-range-disabled-example></prizm-input-date-time-range-disabled-example>-->
-<!--    </prizm-doc-example>-->
+    <!--    <prizm-doc-example-->
+    <!--      id="base"-->
+    <!--      heading="Disabled"-->
+    <!--      [content]="exampleDisabled"-->
+    <!--    >-->
+    <!--      <prizm-input-date-time-range-disabled-example></prizm-input-date-time-range-disabled-example>-->
+    <!--    </prizm-doc-example>-->
 
-<!--    <prizm-doc-example-->
-<!--      id="native-date"-->
-<!--      heading="Native Date"-->
-<!--      [content]="exampleNativeDate"-->
-<!--    >-->
-<!--      <prizm-input-date-time-range-native-example></prizm-input-date-time-range-native-example>-->
-<!--    </prizm-doc-example>-->
-
-
+    <!--    <prizm-doc-example-->
+    <!--      id="native-date"-->
+    <!--      heading="Native Date"-->
+    <!--      [content]="exampleNativeDate"-->
+    <!--    >-->
+    <!--      <prizm-input-date-time-range-native-example></prizm-input-date-time-range-native-example>-->
+    <!--    </prizm-doc-example>-->
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -40,13 +28,13 @@
       <prizm-input-date-time-range
         #element
         [prizmDocHostElement]="element"
-        [formControl]='value'
-        [min]='min'
-        [max]='max'
+        [formControl]="value"
+        [min]="min"
+        [max]="max"
       ></prizm-input-date-time-range>
     </prizm-doc-demo>
 
-    <prizm-doc-documentation [control]='value'>
+    <prizm-doc-documentation [control]="value">
       <ng-template
         documentationPropertyName="label"
         documentationPropertyType="string"
@@ -195,14 +183,14 @@
         Read Only
       </ng-template>
 
-<!--      <ng-template-->
-<!--        documentationPropertyName="val"-->
-<!--        documentationPropertyType="[PrizmDay, PrizmTime]"-->
-<!--        documentationPropertyMode="input-output"-->
-<!--        [(documentationPropertyValue)]="val"-->
-<!--      >-->
-<!--        Val-->
-<!--      </ng-template>-->
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="val"-->
+      <!--        documentationPropertyType="[PrizmDay, PrizmTime]"-->
+      <!--        documentationPropertyMode="input-output"-->
+      <!--        [(documentationPropertyValue)]="val"-->
+      <!--      >-->
+      <!--        Val-->
+      <!--      </ng-template>-->
 
       <ng-template
         documentationPropertyName="pseudoInvalid"
@@ -293,7 +281,6 @@
       >
         Focus Visible Change
       </ng-template>
-
     </prizm-doc-documentation>
   </ng-template>
 
@@ -306,10 +293,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code
-          filename="myComponent.module.ts"
-          [code]="setupModule"
-        ></prizm-doc-code>
+        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

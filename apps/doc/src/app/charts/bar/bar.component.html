@@ -1,6 +1,8 @@
 <prizm-doc-page header="Bar" package="components" type="components">
-  <div class='page-description' description>
-    Bar graphs are good for plotting data that spans many years (or days, weeks . . .), has really big changes from year to year (or day to day . . .), or they can be used for comparing different items in a related category (for example: comparing something between different states).
+  <div class="page-description" description>
+    Bar graphs are good for plotting data that spans many years (or days, weeks . . .), has really big changes
+    from year to year (or day to day . . .), or they can be used for comparing different items in a related
+    category (for example: comparing something between different states).
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="exampleOutline">
@@ -18,23 +20,22 @@
     <prizm-doc-demo>
       <prizm-charts-bar
         #element
-        [prizmDocHostElement]='element'
+        [prizmDocHostElement]="element"
         [data]="data"
-        [height]='height'
-        [width]='width'
-        [xField]='xField'
-        [yField]='yField'
-        [seriesField]='seriesField'
-        [theme]='prizmTheme.changesTheme$ | async'
+        [height]="height"
+        [width]="width"
+        [xField]="xField"
+        [yField]="yField"
+        [seriesField]="seriesField"
+        [theme]="prizmTheme.changesTheme$ | async"
       ></prizm-charts-bar>
-
     </prizm-doc-demo>
 
     <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="width"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="width"
       >
         Width
@@ -43,7 +44,7 @@
       <ng-template
         documentationPropertyName="xField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="xField"
       >
         X Field Name
@@ -51,7 +52,7 @@
 
       <ng-template
         documentationPropertyName="label"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType=" PrizmChartsBarOptions[label]"
       >
         Label
@@ -60,7 +61,7 @@
       <ng-template
         documentationPropertyName="yField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="yField"
       >
         Y Field Name
@@ -69,7 +70,7 @@
       <ng-template
         documentationPropertyName="seriesField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="seriesField"
       >
         Series Field Name
@@ -77,7 +78,7 @@
 
       <ng-template
         documentationPropertyName="data"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsAreaItem[]"
       >
         Data
@@ -85,16 +86,15 @@
 
       <ng-template
         documentationPropertyName="autoFit"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="boolean"
       >
         Auto Fit
       </ng-template>
 
-
       <ng-template
         documentationPropertyName="theme"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartTheme"
       >
         Theme
@@ -102,7 +102,7 @@
 
       <ng-template
         documentationPropertyName="options"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsAriaOptions"
       >
         Options
@@ -111,7 +111,7 @@
       <ng-template
         documentationPropertyName="height"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="height"
       >
         Height

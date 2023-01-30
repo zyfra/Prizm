@@ -1,25 +1,28 @@
-import {Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import {
-  PrizmOverlayControl, PrizmOverlayFullscreenPosition,
+  PrizmOverlayControl,
+  PrizmOverlayFullscreenPosition,
   PrizmOverlayGlobalPosition,
   PrizmOverlayInsidePlacement,
-  PrizmOverlayService
-} from "@prizm-ui/components";
-import {PrizmOverlaySomeComponent} from "./some-component";
+  PrizmOverlayService,
+} from '@prizm-ui/components';
+import { PrizmOverlaySomeComponent } from './some-component';
 
 @Component({
   selector: 'prizm-overlay-component-example',
   templateUrl: './template.html',
-  styles: [`
-    .box {
-      width: 100%;
-      height: 100%;
-      background: darkseagreen;
-      padding: 8px;
-      display: inline-block;
-      color: white;
-    }
-  `]
+  styles: [
+    `
+      .box {
+        width: 100%;
+        height: 100%;
+        background: darkseagreen;
+        padding: 8px;
+        display: inline-block;
+        color: white;
+      }
+    `,
+  ],
 })
 export class PrizmOverlayExampleWithViewComponent implements OnInit {
   @ViewChild('elementRef', { read: ElementRef, static: true }) elementRef: ElementRef;
@@ -34,18 +37,17 @@ export class PrizmOverlayExampleWithViewComponent implements OnInit {
       width: '100%',
       height: 'auto',
       // Pass source element
-      element: this.elementRef.nativeElement
+      element: this.elementRef.nativeElement,
     });
 
     this.control = this.overlay
       .position(position)
       .config({
-        closeOnDocClick: true
+        closeOnDocClick: true,
       })
       // PASS COMPONENT
       .content(PrizmOverlaySomeComponent)
       .create();
-
   }
 
   public open(): void {

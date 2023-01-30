@@ -9,4 +9,3 @@ import { PrizmTextareaDirective } from './textarea.directive';
   exports: [PrizmInputCommonModule, PrizmInputTextComponent, PrizmTextareaDirective],
 })
 export class PrizmInputTextModule {}
-

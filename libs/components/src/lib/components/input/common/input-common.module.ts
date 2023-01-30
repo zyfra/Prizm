@@ -9,11 +9,7 @@ import { PrizmInputIconButtonModule } from './input-icon-button/input-icon-butto
 
 @NgModule({
   imports: [CommonModule, PrizmIconModule, PrizmHintModule, PrizmInputIconButtonModule],
-  declarations: [
-    PrizmInputLayoutComponent,
-    PrizmInputStatusSubtextComponent,
-    PrizmInputStatusTextDirective,
-  ],
+  declarations: [PrizmInputLayoutComponent, PrizmInputStatusSubtextComponent, PrizmInputStatusTextDirective],
   exports: [
     CommonModule,
     PrizmInputLayoutComponent,
@@ -23,4 +19,3 @@ import { PrizmInputIconButtonModule } from './input-icon-button/input-icon-butto
   ],
 })
 export class PrizmInputCommonModule {}
-

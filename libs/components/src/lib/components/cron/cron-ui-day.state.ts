@@ -15,11 +15,8 @@ import { filter, map, takeUntil, tap } from 'rxjs/operators';
 import { PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS } from './const';
 
 @Injectable()
-export class PrizmCronUiDayState extends PrizmCronUiBaseState<
-  typeof PrizmCronUiDayType,
-  PrizmCronUiDayType
-> {
-  public lastChosenDayOfMonthValue = '1'
+export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUiDayType, PrizmCronUiDayType> {
+  public lastChosenDayOfMonthValue = '1';
   public selectedDayOfWeek: string[] = [];
   public readonly afterNumberOfWeekList = getCarousel(5, 1);
   public onNumberOfWeekListValue = this.afterNumberOfWeekList.first;
@@ -28,14 +25,11 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<
       key: key,
       value: key,
     })
-  )
-  public readonly dayOfWeekItems: PrizmCronUiListItem[] = getArrWithWeekNumber()
-    .map(
-    (i) => ({
-      key: PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS[parseInt(i, 10) - 1],
-      value: i,
-    })
-  )
+  );
+  public readonly dayOfWeekItems: PrizmCronUiListItem[] = getArrWithWeekNumber().map(i => ({
+    key: PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS[parseInt(i, 10) - 1],
+    value: i,
+  }));
 
   public readonly carouselWeek = getCarouselWeek();
   public lastChosenDayOfWeekValue2 = this.carouselWeek.first;
@@ -50,10 +44,7 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<
   public readonly afterDayOfMonthListRepeatDays = getCarousel(31, 1);
   public afterDayOfMonthListRepeatDaysValue = this.afterDayOfMonthListRepeatDays.first;
   public nearestDayOfMonthValue = '1';
-  constructor(
-    public readonly cron: PrizmCronService,
-    public readonly destroy$: PrizmDestroyService
-  ) {
+  constructor(public readonly cron: PrizmCronService, public readonly destroy$: PrizmDestroyService) {
     super(
       cron.minute$,
       PrizmCronUiDayType.every,
@@ -66,16 +57,14 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<
         list: {
           start: getCarousel(31, 0),
           end: getCarousel(31, 0),
-        }
+        },
       },
       {
         value: ['0'],
-        list: getArrWithStringNumbers(31, 0, false).map(
-          (i, idx) => ({
-            key: i,
-            value: i,
-          })
-        )
+        list: getArrWithStringNumbers(31, 0, false).map((i, idx) => ({
+          key: i,
+          value: i,
+        })),
       },
       {
         list: {
@@ -84,8 +73,8 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<
         },
         value: {
           on: '1',
-          after: '0'
-        }
+          after: '0',
+        },
       }
     );
   }
@@ -93,31 +82,28 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<
   public setLastDayOfMonth(): void {
     this.cron.updateWith({
       dayOfMonth: 'L',
-      dayOfWeek: '?'
+      dayOfWeek: '?',
     });
   }
 
   public setLastWeekDayOfMonth(): void {
     this.cron.updateWith({
       dayOfMonth: 'LW',
-      dayOfWeek: '?'
+      dayOfWeek: '?',
     });
   }
 
   public override init(): void {
-    combineLatest(
-      [
-        this.cron.dayOfMonth$,
-        this.cron.dayOfWeek$,
-      ]
-    ).pipe(
-      map(([day, dayOfWeek]) => prizmConvertDayToType(day, dayOfWeek)),
-      filter(i => i != this.typeControl.value),
-      tap((type) => {
-        this.typeControl.setValue(type);
-      }),
-      takeUntil(this.destroy$)
-    ).subscribe();
+    combineLatest([this.cron.dayOfMonth$, this.cron.dayOfWeek$])
+      .pipe(
+        map(([day, dayOfWeek]) => prizmConvertDayToType(day, dayOfWeek)),
+        filter(i => i != this.typeControl.value),
+        tap(type => {
+          this.typeControl.setValue(type);
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
 
     // this.typeControl.valueChanges.pipe(
     //   distinctUntilChanged(),
@@ -172,155 +158,133 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<
 
   public updateLastChosenDayOfMonth(): void {
     const lastChosenDayOfMonthValue = this.lastChosenDayOfMonthValue;
-    this.cron.updateWith(
-      {
-        dayOfWeek: `?`,
-        dayOfMonth: `L-${lastChosenDayOfMonthValue}`
-      }
-    )
+    this.cron.updateWith({
+      dayOfWeek: `?`,
+      dayOfMonth: `L-${lastChosenDayOfMonthValue}`,
+    });
   }
   public updateLastChosenDayOfWeek(): void {
     // const onNumberOfWeekListValue = this.onNumberOfWeekListValue;
     // const lastChosenDayOfWeekValue2 = this.lastChosenDayOfWeekValue2;
     const lastChosenDayOfWeekValue = this.lastChosenDayOfWeekValue;
-    this.cron.updateWith(
-      {
-        dayOfMonth: `?`,
-        dayOfWeek: `${lastChosenDayOfWeekValue}L`
-        // dayOfWeek: `${lastChosenDayOfWeekValue2}#${onNumberOfWeekListValue}`
-      }
-    )
+    this.cron.updateWith({
+      dayOfMonth: `?`,
+      dayOfWeek: `${lastChosenDayOfWeekValue}L`,
+      // dayOfWeek: `${lastChosenDayOfWeekValue2}#${onNumberOfWeekListValue}`
+    });
   }
 
   public updateLastChosenDayOfChosenWeek(): void {
     const onNumberOfWeekListValue = this.onNumberOfWeekListValue;
     const lastChosenDayOfWeekValue2 = this.lastChosenDayOfWeekValue2;
-    this.cron.updateWith(
-      {
-        dayOfMonth: `?`,
-        dayOfWeek: `${lastChosenDayOfWeekValue2}#${onNumberOfWeekListValue}`
-      }
-    )
+    this.cron.updateWith({
+      dayOfMonth: `?`,
+      dayOfWeek: `${lastChosenDayOfWeekValue2}#${onNumberOfWeekListValue}`,
+    });
   }
 
   public updateAfterDayOfWeek(): void {
     const afterDayOfWeekListDaysValue = this.afterDayOfWeekListDaysValue;
     const afterDayOfWeekListDayOfWeeksValue = this.afterDayOfWeekListDayOfWeeksValue;
     if (!afterDayOfWeekListDayOfWeeksValue) return;
-    this.cron.updateWith(
-      {
-        dayOfMonth: `?`,
-        dayOfWeek: `${afterDayOfWeekListDayOfWeeksValue}/${afterDayOfWeekListDaysValue}`
-      }
-    )
+    this.cron.updateWith({
+      dayOfMonth: `?`,
+      dayOfWeek: `${afterDayOfWeekListDayOfWeeksValue}/${afterDayOfWeekListDaysValue}`,
+    });
   }
   public updateSelectedDayOfWeek(): void {
-    this.cron.updateWith(
-      {
-        dayOfMonth: `?`,
-        dayOfWeek: this.selectedDayOfWeek.join(',')
-      }
-    )
+    this.cron.updateWith({
+      dayOfMonth: `?`,
+      dayOfWeek: this.selectedDayOfWeek.join(','),
+    });
   }
 
   public updateSelectedDayOfMonth(): void {
-    this.cron.updateWith(
-      {
-        dayOfWeek: `?`,
-        dayOfMonth: [
-          ...new Set([
-            '1',
-            ...this.selectedDayOfMonth
-          ])
-        ].join(',')
-      }
-    )
+    this.cron.updateWith({
+      dayOfWeek: `?`,
+      dayOfMonth: [...new Set(['1', ...this.selectedDayOfMonth])].join(','),
+    });
   }
-
 
   public updateAfterDayOfMonth(): void {
-    this.cron.updateWith(
-      {
-        dayOfWeek: `?`,
-        dayOfMonth: `${this.afterDayOfMonthListDaysValue}/${this.afterDayOfMonthListRepeatDaysValue}`
-      }
-    )
+    this.cron.updateWith({
+      dayOfWeek: `?`,
+      dayOfMonth: `${this.afterDayOfMonthListDaysValue}/${this.afterDayOfMonthListRepeatDaysValue}`,
+    });
   }
-
 
   public updateNearestDayOfMonth(): void {
-    this.cron.updateWith(
-      {
-        dayOfMonth: `${this.nearestDayOfMonthValue}W`,
-        dayOfWeek: '?'
-      }
-    )
+    this.cron.updateWith({
+      dayOfMonth: `${this.nearestDayOfMonthValue}W`,
+      dayOfWeek: '?',
+    });
   }
-  public override updateBetween(
-    {start, end}: {
-      start?: string,
-      end?: string,
-    } = {}
-  ): void {
+  public override updateBetween({
+    start,
+    end,
+  }: {
+    start?: string;
+    end?: string;
+  } = {}): void {
     start = start ?? this.state$.value.between.start;
     end = end ?? this.state$.value.between.end;
     this.state$.value.between.start = start;
     this.state$.value.between.end = end;
     this.cron.updateWith({
-      dayOfMonth: `${start}-${end}`
+      dayOfMonth: `${start}-${end}`,
     });
   }
 
   public override updateLocalState(value: string, type: PrizmCronUiDayType): void {
     switch (type) {
-      case this.TYPES.between: {
-        const arr = value.split('-');
-        const start = arr[0] ?? '0';
-        const end = arr[1] ?? '0';
+      case this.TYPES.between:
+        {
+          const arr = value.split('-');
+          const start = arr[0] ?? '0';
+          const end = arr[1] ?? '0';
 
-        this.updatePartial(
-          {
+          this.updatePartial({
             type: PrizmCronUiDayType.between,
             between: {
               start: start,
               end: end,
-            }
-          }
-        )
-      }
-      break;
+            },
+          });
+        }
+        break;
       case this.TYPES.every:
         this.updatePartial({
           type: PrizmCronUiDayType.every,
-        })
-      break;
+        });
+        break;
       case this.TYPES.specified:
         this.updatePartial({
           type: PrizmCronUiDayType.specified,
-          specified: value.split(',')
+          specified: value.split(','),
         });
         break;
 
-      case this.TYPES.after: {
-        const arr = value.split('/');
-        const on = arr[1] ?? '0';
-        const after = arr[0] ?? '0';
+      case this.TYPES.after:
+        {
+          const arr = value.split('/');
+          const on = arr[1] ?? '0';
+          const after = arr[0] ?? '0';
 
-        this.updatePartial({
-          type: PrizmCronUiDayType.after,
-          everyChosenTimesAfterChosen: {
-            on: on,
-            after: after
-          }
-        });
-      }
+          this.updatePartial({
+            type: PrizmCronUiDayType.after,
+            everyChosenTimesAfterChosen: {
+              on: on,
+              after: after,
+            },
+          });
+        }
         break;
     }
   }
 
   public updateMainState(value: string): void {
     this.cron.updateWith({
-      dayOfMonth: value
+      dayOfMonth: value,
     });
   }
 }

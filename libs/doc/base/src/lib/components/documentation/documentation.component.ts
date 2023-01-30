@@ -41,9 +41,10 @@ import { PrizmFormControlHelpers } from '@prizm-ui/helpers';
   providers: [
     {
       provide: PRIZM_HOST_COMPONENT_INFO_TOKEN,
-      useFactory: (): PrizmHostComponentInfo => new BehaviorSubject({
-        key: 'index'
-      })
+      useFactory: (): PrizmHostComponentInfo =>
+        new BehaviorSubject({
+          key: 'index',
+        }),
     },
   ],
   animations: [
@@ -56,25 +57,23 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
 
   @Input() control?: FormControl;
 
-  success$ =   combineLatest([
+  success$ = combineLatest([
     this.prizmHostComponentInfo,
-    this.prizmDocHostElementListenerService
-      .checkInfo$
+    this.prizmDocHostElementListenerService.checkInfo$,
   ]).pipe(
-    filter(
-      ([key, event]) => event.key === key.key
-    ),
+    filter(([key, event]) => event.key === key.key),
     map(([, event]) => {
-      return event.unnecessaryOutputs.length === 0
-        && event.unnecessaryInputs.length === 0
-        && event.notListenerInputs.length === 0
-        && event.notListenerOutputs.length === 0;
-
-    }),
-  )
+      return (
+        event.unnecessaryOutputs.length === 0 &&
+        event.unnecessaryInputs.length === 0 &&
+        event.notListenerInputs.length === 0 &&
+        event.notListenerOutputs.length === 0
+      );
+    })
+  );
   @Input()
   public set hostComponentKey(key: string) {
-    this.prizmHostComponentInfo.next({key})
+    this.prizmHostComponentInfo.next({ key });
   }
 
   public get hostComponentKey(): string {
@@ -96,8 +95,7 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   activeItemIndex = 0;
 
   public getType(connector: PrizmDocDocumentationPropertyConnectorDirective<any>): string {
-    if (connector.documentationPropertyMode === 'ng-content')
-      return 'HtmlNode';
+    if (connector.documentationPropertyMode === 'ng-content') return 'HtmlNode';
     return connector.documentationPropertyType;
   }
   constructor(
@@ -210,13 +208,12 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   }
 
   public showContentTooltip(type: string): boolean {
-    return type.includes(`PolymorpheusContent`);
+    return type.includes(`PolymorphContent`);
   }
 
   public inspectAny(data: unknown): string {
     return prizmInspectAny(data, 2);
   }
-
 
   public sortConnectors = (
     connectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>>,
@@ -230,29 +227,24 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
       'input-output',
       'output',
     ];
-    const allConnectors = [
-      ...connectors.toArray()
-    ];
+    const allConnectors = [...connectors.toArray()];
     if (this.control && propertiesInnerConnectors?.length) {
       allConnectors.push(...propertiesInnerConnectors.toArray());
     }
 
-    return _.orderBy(
-      allConnectors,
-      [
-        (a: PrizmDocDocumentationPropertyConnectorDirective<any>): number => {
-          const place = sortOrder.indexOf(a.documentationPropertyMode);
-          if (place === -1) {
-            return 999;
-          }
-          return place;
-        },
-        'documentationPropertyMode',
-        'documentationPropertyName',
-        'documentationPropertyType']
-      ,
-    )
-  }
+    return _.orderBy(allConnectors, [
+      (a: PrizmDocDocumentationPropertyConnectorDirective<any>): number => {
+        const place = sortOrder.indexOf(a.documentationPropertyMode);
+        if (place === -1) {
+          return 999;
+        }
+        return place;
+      },
+      'documentationPropertyMode',
+      'documentationPropertyName',
+      'documentationPropertyType',
+    ]);
+  };
 
   public getDisabledFromControl$(control: FormControl): Observable<boolean> {
     return PrizmFormControlHelpers.getDisabled$(control);
@@ -262,7 +254,7 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
     PrizmFormControlHelpers.setDisabled(control, newState);
   }
   public getValueFromControl$(control: FormControl): Observable<any> {
-    return PrizmFormControlHelpers.getValue$(control)
+    return PrizmFormControlHelpers.getValue$(control);
   }
 
   public updateValueOfControl(control: FormControl, newValue: any): void {

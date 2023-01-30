@@ -96,4 +96,3 @@ export class TableSelectableMetaExampleComponent {
     this.selected.delete(product);
   }
 }
-

@@ -3,47 +3,38 @@
   [canOpen]="canOpen"
   [content]="dropdown"
   [isOpen]="isOpen && canOpen"
-  [closeByEsc]='true'
+  [closeByEsc]="true"
   (isOpenChange)="onOpenChange($event)"
-  prizmDropdownHostWidth='auto'
+  prizmDropdownHostWidth="auto"
 >
-  <prizm-input-layout
-    [label]="label"
-    [outer]='outer'
-    (click)='safeOpenModal()'
-    [size]="size">
+  <prizm-input-layout [label]="label" [outer]="outer" (click)="safeOpenModal()" [size]="size">
     <input
-      class='input-search'
+      class="input-search"
       prizmInput
-      [formControl]='value'
-      (onClear)='onClear()'
-      [placeholder]='placeholder'
+      [formControl]="value"
+      (onClear)="onClear()"
+      [placeholder]="placeholder"
       #focusableElementRef
     />
     <ng-container prizm-input-right>
       <button
         prizmInputIconButton="date-update"
         [interactive]="true"
-        (click)='focusableElementRef.focus()'
+        (click)="focusableElementRef.focus()"
       ></button>
-      <ng-container *ngFor='let button of rightButtons$ | async' [ngTemplateOutlet]='button.template'>
+      <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
       </ng-container>
     </ng-container>
   </prizm-input-layout>
 </prizm-dropdown-host>
 
-
 <ng-template #dropdown>
   <ul role="listbox" class="prizm-datepicker-relative-menu">
     <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: timeItems }"></ng-container>
     <li class="relative-menu-item-divider"></li>
-    <ng-container
-      *ngTemplateOutlet="menuItemsTemplate; context: { items: directionItems }"
-    ></ng-container>
+    <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: directionItems }"></ng-container>
     <li class="relative-menu-item-divider"></li>
-    <ng-container
-      *ngTemplateOutlet="menuItemsTemplate; context: { items: periodItems }"
-    ></ng-container>
+    <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: periodItems }"></ng-container>
 
     <ng-template #menuItemsTemplate let-items="items">
       <li

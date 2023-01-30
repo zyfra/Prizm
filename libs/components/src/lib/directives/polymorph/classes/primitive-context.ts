@@ -1,7 +1,7 @@
 export class PrimitiveContext {
-    constructor(public $implicit: unknown) {}
+  constructor(public $implicit: unknown) {}
 
-    get polymorphOutlet(): unknown {
-        return this.$implicit;
-    }
+  get polymorphOutlet(): unknown {
+    return this.$implicit;
+  }
 }

@@ -13,4 +13,3 @@ export class TreeArrayExampleComponent {
     ['Second 1', 'Second 2'],
   ];
 }
-

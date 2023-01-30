@@ -7,13 +7,13 @@ import { PrizmValueChangesException } from '../exceptions/value-changes.exceptio
  * Turns AbstractControl/Abstract-control-directive valueChanges into ReplaySubject(1)
  */
 export function prizmReplayedValueChangesFrom<T>(
-    control: AbstractControl | AbstractControlDirective,
+  control: AbstractControl | AbstractControlDirective
 ): Observable<T> {
-    return new Observable(subscriber => {
-        if (!control.valueChanges) {
-            throw new PrizmValueChangesException();
-        }
+  return new Observable(subscriber => {
+    if (!control.valueChanges) {
+      throw new PrizmValueChangesException();
+    }
 
-        control.valueChanges.pipe(startWith(control.value)).subscribe(subscriber);
-    });
+    control.valueChanges.pipe(startWith(control.value)).subscribe(subscriber);
+  });
 }

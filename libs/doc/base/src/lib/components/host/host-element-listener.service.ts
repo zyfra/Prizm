@@ -9,7 +9,7 @@ import {
 import { take, takeUntil, tap } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PrizmDocHostElementListenerService {
   private readonly event$$ = new Subject<PrizmPageComponentEvent>();
@@ -17,7 +17,6 @@ export class PrizmDocHostElementListenerService {
 
   public readonly event$ = this.event$$.asObservable();
   public readonly checkInfo$ = this.checkInfo$$.asObservable();
-
 
   public emit(
     hasNotListener: boolean,
@@ -33,15 +32,11 @@ export class PrizmDocHostElementListenerService {
       key: listenerElementKey,
       hasNotListener,
       event,
-      type
+      type,
     });
   }
 
-  public emitInfo(
-    data: PrizmPageComponentInfoEvent
-  ): void {
-    this.checkInfo$$.next(
-      data
-    );
+  public emitInfo(data: PrizmPageComponentInfoEvent): void {
+    this.checkInfo$$.next(data);
   }
 }

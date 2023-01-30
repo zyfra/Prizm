@@ -22,4 +22,3 @@ import { InputChipsOuterExampleComponent } from './examples/input-chips-outer-ex
   exports: [InputChipsExampleComponent],
 })
 export class InputChipsExampleModule {}
-

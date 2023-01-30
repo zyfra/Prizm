@@ -1,24 +1,27 @@
-import {Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import {
-  PrizmOverlayControl, PrizmOverlayFullscreenPosition,
+  PrizmOverlayControl,
+  PrizmOverlayFullscreenPosition,
   PrizmOverlayGlobalPosition,
   PrizmOverlayInsidePlacement,
-  PrizmOverlayService
-} from "@prizm-ui/components";
+  PrizmOverlayService,
+} from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-overlay-fullscreen-example',
   templateUrl: './template.html',
-  styles: [`
-    .box {
-      width: 100%;
-      height: 100%;
-      background: darkseagreen;
-      padding: 8px;
-      display: inline-block;
-      color: white;
-    }
-  `]
+  styles: [
+    `
+      .box {
+        width: 100%;
+        height: 100%;
+        background: darkseagreen;
+        padding: 8px;
+        display: inline-block;
+        color: white;
+      }
+    `,
+  ],
 })
 export class PrizmOverlayExampleFullscreenComponent implements OnInit {
   @ViewChild('elementRef', { read: ElementRef, static: true }) elementRef: ElementRef;
@@ -33,7 +36,6 @@ export class PrizmOverlayExampleFullscreenComponent implements OnInit {
       // PASS TEMPLATE
       .content(this.templateRef)
       .create();
-
   }
 
   public open(): void {

@@ -9,14 +9,12 @@
   <button prizmButton class="show-toast-by-id" (click)="showWithId()">(*) Показ по id</button>
   <button prizmButton (click)="updateContentWithId()">(*) Обновить содержимое по id</button>
   <button prizmButton (click)="updateTitleWithId(headerTemplate)">(*) Обновить title по id</button>
-  <button prizmButton  class="close-toast-by-id" (click)="closeWithId()">(*) Закрыть по id</button>
-  <button prizmButton  class="close-all-toast" (click)="closeAll()">(*) Закрыть все</button>
+  <button prizmButton class="close-toast-by-id" (click)="closeWithId()">(*) Закрыть по id</button>
+  <button prizmButton class="close-all-toast" (click)="closeAll()">(*) Закрыть все</button>
   <ng-template #contentTemplate let-close="close">
     <div>В toast-сообщении старайтесь уместить текст в 2 строки.</div>
 
-    <div class="date">
-      16.05.2022 10:00
-    </div>
+    <div class="date">16.05.2022 10:00</div>
     <div class="link">
       <a href="#">Ссылка</a>
     </div>
@@ -34,19 +32,18 @@
   </ng-template>
 </div>
 
-
-<br>
-<hr>
+<br />
+<hr />
 <div class="inline-container">
   <p>Inline Container</p>
   <prizm-toast-container [containerId]="containerId"></prizm-toast-container>
 </div>
-<br>
-<hr>
+<br />
+<hr />
 <p>Position</p>
-<div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+<div style="display: flex; gap: 1rem; flex-wrap: wrap">
   <prizm-radio-button
-    class="toast-position-button-{{item.val}}"
+    class="toast-position-button-{{ item.val }}"
     *ngFor="let item of data"
     [formControl]="formControl"
     [label]="item.label"

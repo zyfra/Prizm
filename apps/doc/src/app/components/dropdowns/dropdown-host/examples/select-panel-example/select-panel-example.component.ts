@@ -49,4 +49,3 @@ export class PrizmSelectPanelExampleComponent {
     this.filteredData = [...this.data];
   }
 }
-

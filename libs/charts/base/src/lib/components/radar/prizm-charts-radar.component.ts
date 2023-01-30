@@ -8,10 +8,9 @@ import { PrizmChartsRadarItem, PrizmChartsRadarOptions, PrizmChartsRadarOrigin }
   templateUrl: './prizm-charts-radar.component.html',
   styleUrls: ['./prizm-charts-radar.component.less'],
 })
-export class PrizmChartsRadarComponent<T extends Record<string, unknown>> extends PrizmChartsAbstractComponent<
-  PrizmChartsRadarOrigin,
-  PrizmChartsRadarOptions
-> {
+export class PrizmChartsRadarComponent<
+  T extends Record<string, unknown>
+> extends PrizmChartsAbstractComponent<PrizmChartsRadarOrigin, PrizmChartsRadarOptions> {
   private origin_: PrizmChartsRadarOrigin;
   get origin(): PrizmChartsRadarOrigin {
     return this.origin_;
@@ -29,25 +28,25 @@ export class PrizmChartsRadarComponent<T extends Record<string, unknown>> extend
   }
 
   @Input()
-  public set label (value: PrizmChartsRadarOptions['label']) {
-    this.updateOptions({label: value});
-  };
+  public set label(value: PrizmChartsRadarOptions['label']) {
+    this.updateOptions({ label: value });
+  }
   public get label(): PrizmChartsRadarOptions['label'] {
     return this.options?.label;
   }
 
   @Input()
-  public set xField (value: string) {
-    this.updateOptions({xField: value});
-  };
+  public set xField(value: string) {
+    this.updateOptions({ xField: value });
+  }
   public get xField(): string {
     return this.options?.xField;
   }
 
   @Input()
-  public set yField (value: string) {
-    this.updateOptions({yField: value});
-  };
+  public set yField(value: string) {
+    this.updateOptions({ yField: value });
+  }
   public get yField(): string {
     return this.options?.yField;
   }
@@ -56,8 +55,6 @@ export class PrizmChartsRadarComponent<T extends Record<string, unknown>> extend
     super(injector);
     this.init();
   }
-
-
 
   // ngOnInit(): void {
   //   prizmChartsSetDefaultThemes();

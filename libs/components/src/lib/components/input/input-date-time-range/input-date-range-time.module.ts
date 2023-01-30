@@ -31,12 +31,7 @@ import { PrizmDropdownZoneModule } from '../../../directives';
     PrizmDropdownZoneModule,
     ReactiveFormsModule,
   ],
-  declarations: [
-    PrizmInputDateTimeRangeComponent
-  ],
-  exports: [
-    PrizmInputDateTimeRangeComponent
-  ],
+  declarations: [PrizmInputDateTimeRangeComponent],
+  exports: [PrizmInputDateTimeRangeComponent],
 })
 export class PrizmInputDateTimeRangeModule {}
-

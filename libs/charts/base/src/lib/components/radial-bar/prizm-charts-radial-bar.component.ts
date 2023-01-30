@@ -8,10 +8,9 @@ import { PrizmChartsRadialBarItem, PrizmChartsRadialBarOptions, PrizmChartsRadia
   templateUrl: './prizm-charts-radial-bar.component.html',
   styleUrls: ['./prizm-charts-radial-bar.component.less'],
 })
-export class PrizmChartsRadialBarComponent<T extends Record<string, unknown>> extends PrizmChartsAbstractComponent<
-  PrizmChartsRadialBarOrigin,
-  PrizmChartsRadialBarOptions
-> {
+export class PrizmChartsRadialBarComponent<
+  T extends Record<string, unknown>
+> extends PrizmChartsAbstractComponent<PrizmChartsRadialBarOrigin, PrizmChartsRadialBarOptions> {
   private origin_: PrizmChartsRadialBarOrigin;
   get origin(): PrizmChartsRadialBarOrigin {
     return this.origin_;
@@ -28,25 +27,25 @@ export class PrizmChartsRadialBarComponent<T extends Record<string, unknown>> ex
   }
 
   @Input()
-  public set label (value: PrizmChartsRadialBarOptions['label']) {
-    this.updateOptions({label: value});
-  };
+  public set label(value: PrizmChartsRadialBarOptions['label']) {
+    this.updateOptions({ label: value });
+  }
   public get label(): PrizmChartsRadialBarOptions['label'] {
     return this.options?.label;
   }
 
   @Input()
-  public set xField (value: string) {
-    this.updateOptions({xField: value});
-  };
+  public set xField(value: string) {
+    this.updateOptions({ xField: value });
+  }
   public get xField(): string {
     return this.options?.xField;
   }
 
   @Input()
-  public set yField (value: string) {
-    this.updateOptions({yField: value});
-  };
+  public set yField(value: string) {
+    this.updateOptions({ yField: value });
+  }
   public get yField(): string {
     return this.options?.yField;
   }

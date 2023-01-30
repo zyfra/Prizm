@@ -34,4 +34,3 @@ export abstract class PrizmInputControl<T> {
   abstract hasClearButton: boolean;
   public abstract clear(): void;
 }
-

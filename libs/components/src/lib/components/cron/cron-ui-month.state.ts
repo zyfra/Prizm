@@ -8,10 +8,7 @@ import { PrizmCronService } from '../../services/cron';
 
 @Injectable()
 export class PrizmCronUiMonthState extends PrizmCronUiBaseState {
-  constructor(
-    public readonly cron: PrizmCronService,
-    public readonly destroy$: PrizmDestroyService
-  ) {
+  constructor(public readonly cron: PrizmCronService, public readonly destroy$: PrizmDestroyService) {
     super(
       cron.month$,
       PrizmCronUiBaseType.every,
@@ -23,17 +20,15 @@ export class PrizmCronUiMonthState extends PrizmCronUiBaseState {
         },
         list: {
           start: getCarousel(12, 1),
-          end: getCarousel(12, 1)
-        }
+          end: getCarousel(12, 1),
+        },
       },
       {
         value: [],
-        list: Object.values(PRIZM_CRON_UI_MONTH_CRON_KEYS).map(
-          (value, idx) => ({
-            key: PRIZM_CRON_UI_MONTH_CRON_KEYS[idx],
-            value: idx.toString(),
-          })
-        )
+        list: Object.values(PRIZM_CRON_UI_MONTH_CRON_KEYS).map((value, idx) => ({
+          key: PRIZM_CRON_UI_MONTH_CRON_KEYS[idx],
+          value: idx.toString(),
+        })),
       },
       {
         list: {
@@ -42,15 +37,15 @@ export class PrizmCronUiMonthState extends PrizmCronUiBaseState {
         },
         value: {
           on: '2',
-          after: '1'
-        }
+          after: '1',
+        },
       }
     );
   }
 
   public updateMainState(value: string): void {
     this.cron.updateWith({
-      month: value
+      month: value,
     });
   }
 }

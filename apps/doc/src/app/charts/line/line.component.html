@@ -1,11 +1,11 @@
 <prizm-doc-page header="Line" package="components" type="components">
-  <div class='page-description' description>
-    Generally, line graphs or line charts are used to track variations over time, which may be long-term or short-term. We can also use line graphs to compare changes over the same period for more than one group.
+  <div class="page-description" description>
+    Generally, line graphs or line charts are used to track variations over time, which may be long-term or
+    short-term. We can also use line graphs to compare changes over the same period for more than one group.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="exampleOutline">
       <prizm-charts-line-example></prizm-charts-line-example>
-
     </prizm-doc-example>
 
     <prizm-doc-example id="base" heading="Smooth Line" [content]="exampleOutline">
@@ -17,21 +17,20 @@
     <prizm-doc-demo>
       <prizm-charts-line
         #element
-        [prizmDocHostElement]='element'
-        [width]='width'
-        [data]='data'
-        [xField]='xField'
-        [yField]='yField'
-        [theme]='prizmTheme.changesTheme$ | async'
-        [height]='height'
+        [prizmDocHostElement]="element"
+        [width]="width"
+        [data]="data"
+        [xField]="xField"
+        [yField]="yField"
+        [theme]="prizmTheme.changesTheme$ | async"
+        [height]="height"
       ></prizm-charts-line>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-
       <ng-template
         documentationPropertyName="width"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="width"
       >
         Width
@@ -40,7 +39,7 @@
       <ng-template
         documentationPropertyName="xField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="xField"
       >
         X Field Name
@@ -49,7 +48,7 @@
       <ng-template
         documentationPropertyName="yField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="yField"
       >
         Y Field Name
@@ -58,7 +57,7 @@
       <ng-template
         documentationPropertyName="width"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="width"
       >
         Width
@@ -66,7 +65,7 @@
 
       <ng-template
         documentationPropertyName="data"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsLineItem[]"
       >
         Data
@@ -74,16 +73,15 @@
 
       <ng-template
         documentationPropertyName="autoFit"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="boolean"
       >
         Auto Fit
       </ng-template>
 
-
       <ng-template
         documentationPropertyName="theme"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartTheme"
       >
         Theme
@@ -91,7 +89,7 @@
 
       <ng-template
         documentationPropertyName="options"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsAriaOptions"
       >
         Options
@@ -100,7 +98,7 @@
       <ng-template
         documentationPropertyName="height"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="height"
       >
         Height

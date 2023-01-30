@@ -10,4 +10,3 @@ import { FormControl, Validators } from '@angular/forms';
 export class InputNumberCounterExampleComponent {
   public requiredInputControl = new FormControl('', Validators.required);
 }
-

@@ -6,8 +6,13 @@ import { PrizmThemeService } from '@prizm-ui/theme';
   selector: 'prizm-theme-base-example',
   templateUrl: './base.component.html',
   styles: [
-    `.block {display: flex; gap: 1rem}`
-  ]
+    `
+      .block {
+        display: flex;
+        gap: 1rem;
+      }
+    `,
+  ],
 })
 export class PrizmThemeBaseExampleComponent {
   constructor(public readonly theme: PrizmThemeService) {}
@@ -21,8 +26,6 @@ export class PrizmThemeBaseExampleComponent {
   }
 
   public toggle(): void {
-    this.theme.update(
-      this.theme.getByElement(this.theme.rootElement) === 'light' ? 'dark' : 'light'
-    );
+    this.theme.update(this.theme.getByElement(this.theme.rootElement) === 'light' ? 'dark' : 'light');
   }
 }

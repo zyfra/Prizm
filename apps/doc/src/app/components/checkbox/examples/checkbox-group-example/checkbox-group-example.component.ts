@@ -47,4 +47,3 @@ export class PrizmCheckboxGroupExampleComponent {
     return group.every(checkbox => checkbox.checked);
   }
 }
-

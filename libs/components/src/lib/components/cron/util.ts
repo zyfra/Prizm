@@ -39,7 +39,7 @@ export function prizmConvertDayToType(day: string, dayOfWeek: string): PrizmCron
     return PrizmCronUiDayType.lastDayOfMonth;
   } else if (day === 'LW') {
     return PrizmCronUiDayType.lastWeekDayOfMonth;
-  }  else if (day.includes('-')) {
+  } else if (day.includes('-')) {
     return PrizmCronUiDayType.between;
   } else if (day.endsWith('W')) {
     return PrizmCronUiDayType.nearestWeekDayToTheChosenDayOfMonth;

@@ -8,16 +8,16 @@ import { PolymorphModule, PrizmLifecycleModule } from '../../../directives';
 import { PrizmDataListModule } from '../../data-list';
 
 @NgModule({
-    imports: [
-      CommonModule,
-      PrizmInputTextModule,
-      PrizmLifecycleModule,
-      ReactiveFormsModule,
-      PrizmDataListModule,
-      PolymorphModule,
-      PrizmDropdownHostModule
-    ],
-    declarations: [PrizmInputDateMultiComponent],
-    exports: [PrizmInputDateMultiComponent],
+  imports: [
+    CommonModule,
+    PrizmInputTextModule,
+    PrizmLifecycleModule,
+    ReactiveFormsModule,
+    PrizmDataListModule,
+    PolymorphModule,
+    PrizmDropdownHostModule,
+  ],
+  declarations: [PrizmInputDateMultiComponent],
+  exports: [PrizmInputDateMultiComponent],
 })
 export class PrizmInputDateMultiModule {}

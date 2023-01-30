@@ -17,4 +17,3 @@ import { PrizmStepperSelectorComponent } from './stepper-selector.component';
   ],
 })
 export class PrizmStepperModule {}
-

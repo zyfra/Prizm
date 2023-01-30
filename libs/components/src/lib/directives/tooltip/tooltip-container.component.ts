@@ -7,9 +7,9 @@ import { PrizmHintContainerComponent } from '../hint/hint-container.component';
   selector: 'prizm-tooltip-container',
   template: `
     <div class="box prizm-font-main-body-14" prizmFocusTrap>
-      <prizm-scrollbar visibility='hidden'>
+      <prizm-scrollbar visibility="hidden">
         <ng-container *polymorphOutlet="content() as data; context: context">
-          {{data}}
+          {{ data }}
         </ng-container>
       </prizm-scrollbar>
 
@@ -29,12 +29,10 @@ import { PrizmHintContainerComponent } from '../hint/hint-container.component';
     </div>
   `,
   styleUrls: ['./tooltip-container.component.less'],
-  providers: [PrizmDestroyService]
+  providers: [PrizmDestroyService],
 })
 export class PrizmTooltipContainerComponent extends PrizmHintContainerComponent implements OnInit {
-  position$ = this.prizmOverlayControl.position.pos$.pipe(
-    map(({extra}) => extra)
-  );
+  position$ = this.prizmOverlayControl.position.pos$.pipe(map(({ extra }) => extra));
 
   override ngOnInit(): void {
     super.ngOnInit();

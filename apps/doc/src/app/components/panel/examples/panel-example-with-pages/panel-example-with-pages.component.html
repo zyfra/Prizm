@@ -1,16 +1,16 @@
 <div class="container">
   <prizm-panel>
     <div class="pages" header>
-      <prizm-tabs
-        (activeTabIndexChange)="activeTabIndexChange()"
-      >
-        <prizm-tab *ngFor='let item of pages'
-                   [disabled]="item.disabled"
-                   [closable]="true"
-                   [icon]="item.icon"
-                   [content]="item.title"
-                   (closeTab)="tabCancelClick(item)"
-                   [type]="'contained'">
+      <prizm-tabs (activeTabIndexChange)="activeTabIndexChange()">
+        <prizm-tab
+          *ngFor="let item of pages"
+          [disabled]="item.disabled"
+          [closable]="true"
+          [icon]="item.icon"
+          [content]="item.title"
+          (closeTab)="tabCancelClick(item)"
+          [type]="'contained'"
+        >
         </prizm-tab>
       </prizm-tabs>
     </div>

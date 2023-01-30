@@ -1,21 +1,21 @@
 @import '../../../../../styles/ui-local';
 
 :host {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    :host-context(prizm-tree-item._expandable):not(._expandable) {
-        padding-left: 28px;
-    }
+  :host-context(prizm-tree-item._expandable):not(._expandable) {
+    padding-left: 28px;
+  }
 }
 
 .z-button {
-    .transition(transform);
-    margin-right: 12px;
-    --prizm-secondary: var(--prizm-text-main);
-    font-weight: 600;
+  .transition(transform);
+  margin-right: 12px;
+  --prizm-secondary: var(--prizm-text-main);
+  font-weight: 600;
 
-    &_expanded {
-        transform: rotate(90deg);
-    }
+  &_expanded {
+    transform: rotate(90deg);
+  }
 }

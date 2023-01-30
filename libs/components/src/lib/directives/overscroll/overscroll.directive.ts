@@ -8,8 +8,8 @@ import { takeUntil } from 'rxjs/operators';
  * Directive to isolate scrolling, i.e. prevent body scroll behind modal dialog
  */
 @Directive({
-    selector: '[prizmOverscroll]',
-    providers: [PrizmDestroyService],
+  selector: '[prizmOverscroll]',
+  providers: [PrizmDestroyService],
 })
 export class PrizmOverscrollDirective implements OnInit {
   @Input('prizmOverscroll')
@@ -25,17 +25,15 @@ export class PrizmOverscrollDirective implements OnInit {
   }
 
   constructor(
-      private readonly elRef: ElementRef<HTMLElement>,
-      private readonly overscrollService: PrizmOverscrollService,
-      private readonly destroy$: PrizmDestroyService,
+    private readonly elRef: ElementRef<HTMLElement>,
+    private readonly overscrollService: PrizmOverscrollService,
+    private readonly destroy$: PrizmDestroyService
   ) {}
 
   public ngOnInit(): void {
-    this.overscrollService.run(
-      this.mode,
-      this.elRef.nativeElement
-    ).pipe(
-      takeUntil(this.destroy$)
-    ).subscribe();
+    this.overscrollService
+      .run(this.mode, this.elRef.nativeElement)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe();
   }
 }

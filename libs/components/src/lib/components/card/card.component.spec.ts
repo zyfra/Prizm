@@ -9,10 +9,9 @@ describe('PrizmCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ CommonModule ],
-      declarations: [ PrizmCardComponent ],
-    })
-    .compileComponents();
+      imports: [CommonModule],
+      declarations: [PrizmCardComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

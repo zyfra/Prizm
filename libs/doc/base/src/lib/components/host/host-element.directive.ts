@@ -14,9 +14,6 @@ export class PrizmDocHostElementDirective implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.hostElementService.setHostElement(
-      this.key,
-      this.prizmDocHostElement
-    );
+    this.hostElementService.setHostElement(this.key, this.prizmDocHostElement);
   }
 }

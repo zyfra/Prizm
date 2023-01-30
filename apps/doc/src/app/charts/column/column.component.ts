@@ -123,10 +123,10 @@ export class ColumnComponent {
     },
   ];
   public width: number | null = 600;
-  public xField ='product_type';
-  public yField ='order_amt';
-  public groupField ='sex';
-  public seriesField ='product_sub_type';
+  public xField = 'product_type';
+  public yField = 'order_amt';
+  public groupField = 'sex';
+  public seriesField = 'product_sub_type';
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
   public height = 300;
   public options = {
@@ -146,8 +146,5 @@ export class ColumnComponent {
     HTML: import('!!raw-loader!./examples/stack/prizm-charts-column-stack-example.component.html'),
   };
 
-  constructor(
-    public readonly prizmTheme: PrizmThemeService,
-  ) {
-  }
+  constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

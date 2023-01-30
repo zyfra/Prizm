@@ -10,18 +10,18 @@ import { prizmZoneFree } from '../../observables/zone-free';
  * else on event and do not want to trigger change detection
  */
 @Directive({
-    selector: `[prizmPreventDefault]`,
-    providers: [PrizmDestroyService],
+  selector: `[prizmPreventDefault]`,
+  providers: [PrizmDestroyService],
 })
 export class PrizmPreventDefaultDirective {
-    constructor(
-        @Inject(ElementRef) {nativeElement}: ElementRef<HTMLElement>,
-        @Inject(NgZone) ngZone: NgZone,
-        @Inject(PrizmDestroyService) destroy$: Observable<void>,
-        @Attribute(`prizmPreventDefault`) eventName: string,
-    ) {
-        fromEvent(nativeElement, eventName, {passive: false})
-            .pipe(prizmZoneFree(ngZone), prizmPreventDefault(), takeUntil(destroy$))
-            .subscribe();
-    }
+  constructor(
+    @Inject(ElementRef) { nativeElement }: ElementRef<HTMLElement>,
+    @Inject(NgZone) ngZone: NgZone,
+    @Inject(PrizmDestroyService) destroy$: Observable<void>,
+    @Attribute(`prizmPreventDefault`) eventName: string
+  ) {
+    fromEvent(nativeElement, eventName, { passive: false })
+      .pipe(prizmZoneFree(ngZone), prizmPreventDefault(), takeUntil(destroy$))
+      .subscribe();
+  }
 }

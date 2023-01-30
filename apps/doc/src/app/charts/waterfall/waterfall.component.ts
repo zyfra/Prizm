@@ -53,8 +53,5 @@ export class WaterfallComponent {
     HTML: import('!!raw-loader!./examples/base/prizm-charts-waterfall-example.component.html'),
   };
 
-  constructor(
-    public readonly prizmTheme: PrizmThemeService,
-  ) {
-  }
+  constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

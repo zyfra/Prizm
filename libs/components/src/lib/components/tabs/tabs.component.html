@@ -24,7 +24,7 @@
     <ng-content></ng-content>
   </div>
 
-  <div class="control" *ngIf='canShowMenu' [class.control_active]="isRightBtnActive">
+  <div class="control" *ngIf="canShowMenu" [class.control_active]="isRightBtnActive">
     <prizm-dropdown-host
       class="dropdown-host"
       prizmDropdownHostWidth="auto"
@@ -48,13 +48,10 @@
   <ng-template #dropdown>
     <prizm-data-list>
       <div class="tabs-column prizm-tab-menu-container">
-        <ng-container
-          *ngFor="let tabElement of tabElements; let i = index"
-        >
-          <ng-container
-            *ngIf="tabElement as tab">
+        <ng-container *ngFor="let tabElement of tabElements; let i = index">
+          <ng-container *ngIf="tabElement as tab">
             <prizm-tab
-              *prizmLet='{inMenuIdx: i}'
+              *prizmLet="{ inMenuIdx: i }"
               [type]="tab.type"
               [content]="tab.content"
               [icon]="tab.icon"

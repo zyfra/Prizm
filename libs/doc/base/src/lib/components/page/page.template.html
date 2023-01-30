@@ -26,7 +26,12 @@
         </a>
       </ng-container>
       <ng-template #dynamicTab>
-        <a *tuiItem tuiTab routerLinkActive [routerLink]="getRouterLink(tab.prizmDocPageTab || defaultTabs[index])">
+        <a
+          *tuiItem
+          tuiTab
+          routerLinkActive
+          [routerLink]="getRouterLink(tab.prizmDocPageTab || defaultTabs[index])"
+        >
           {{ tab.prizmDocPageTab || defaultTabs[index] }}
         </a>
       </ng-template>

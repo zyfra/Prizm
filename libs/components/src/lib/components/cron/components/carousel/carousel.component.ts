@@ -23,8 +23,8 @@ export class PrizmCronCarouselComponent {
   @Input()
   public value: string;
 
-  @ContentChild('content', {read: TemplateRef})
-  public template: PolymorphContent<{content: number}>;
+  @ContentChild('content', { read: TemplateRef })
+  public template: PolymorphContent<{ content: number }>;
 
   @Output()
   public valueChange = new EventEmitter<string>();

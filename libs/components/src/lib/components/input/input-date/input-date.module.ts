@@ -32,4 +32,3 @@ import { PrizmMaskModule } from '../../../modules';
   exports: [PrizmInputDateComponent],
 })
 export class PrizmInputDateModule {}
-

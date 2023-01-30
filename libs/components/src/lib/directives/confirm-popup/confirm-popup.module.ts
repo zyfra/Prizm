@@ -17,12 +17,9 @@ import { PrizmFocusTrapModule } from '../focus-trap';
     PrizmHintModule,
     PrizmScrollbarModule,
     PrizmButtonModule,
-    PrizmIconModule
+    PrizmIconModule,
   ],
-  declarations: [
-    PrizmConfirmPopupDirective,
-    PrizmConfirmPopupContainerComponent
-  ],
+  declarations: [PrizmConfirmPopupDirective, PrizmConfirmPopupContainerComponent],
   exports: [PrizmConfirmPopupDirective],
 })
 export class PrizmConfirmPopupModule {}

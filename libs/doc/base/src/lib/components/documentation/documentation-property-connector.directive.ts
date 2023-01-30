@@ -80,7 +80,9 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
       case `form-control`:
         return `FormControl.${this.documentationPropertyName}`;
       case `ng-content`:
-        return `<ng-content${this.documentationPropertyName ? ` select="${this.documentationPropertyName}"` : '' }>`;
+        return `<ng-content${
+          this.documentationPropertyName ? ` select="${this.documentationPropertyName}"` : ''
+        }>`;
       default:
         return this.documentationPropertyName;
     }
@@ -101,7 +103,7 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
       this.documentationPropertyMode,
       this.documentationPropertyType,
       this.documentationPropertyName
-    )
+    );
   }
 
   public onValueChange(value: T): void {

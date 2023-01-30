@@ -1,6 +1,6 @@
 /**
  * TODO #mz ADD I18N support
-* */
+ * */
 export const PRIZM_CRON_UI_MONTH_CRON_KEYS = [
   'JAN',
   'FEB',
@@ -13,7 +13,7 @@ export const PRIZM_CRON_UI_MONTH_CRON_KEYS = [
   'SEP',
   'OCT',
   'NOV',
-  'DEC'
+  'DEC',
 ] as const;
 
 export const PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS = [
@@ -23,5 +23,5 @@ export const PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS = [
   'WED',
   'THU',
   'FRI',
-  'SAT'
+  'SAT',
 ] as const;

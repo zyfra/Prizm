@@ -35,7 +35,7 @@ export class TabsExampleCounterComponent {
 
   public removeTab(tab: PrizmTabItem): void {
     if (this.tabs.length < 2) return;
-    this.tabs = this.tabs.filter((item) => item !== tab);
+    this.tabs = this.tabs.filter(item => item !== tab);
   }
 
   public tabClick(): void {

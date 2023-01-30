@@ -12,4 +12,3 @@ import { PrizmErrorPageModule } from '@prizm-ui/components';
 })
 export class MyModule {}
 ```
-

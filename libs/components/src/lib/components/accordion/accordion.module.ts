@@ -14,6 +14,11 @@ import { PrizmAccordionItemComponent } from './components/accordion-item/accordi
     PrizmAccordionItemComponent,
   ],
   imports: [CommonModule, PrizmIconModule],
-  exports: [PrizmAccordionComponent, AccordionContentDirective, AccordionToolsDirective, PrizmAccordionItemComponent],
+  exports: [
+    PrizmAccordionComponent,
+    AccordionContentDirective,
+    AccordionToolsDirective,
+    PrizmAccordionItemComponent,
+  ],
 })
 export class PrizmAccordionModule {}

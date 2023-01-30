@@ -1,24 +1,27 @@
-import {Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import {
   PrizmOverlayControl,
   PrizmOverlayOutsidePlacement,
-  PrizmOverlayService, PrizmOverlaySlidePlacement,
-  PrizmOverlaySlidePosition
-} from "@prizm-ui/components";
+  PrizmOverlayService,
+  PrizmOverlaySlidePlacement,
+  PrizmOverlaySlidePosition,
+} from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-overlay-slide-example',
   templateUrl: './template.html',
-  styles: [`
-    .box {
-      background: darkseagreen;
-      padding: 8px;
-      display: inline-block;
-      color: white;
-      height: 100%;
-      width: 300px;
-    }
-  `]
+  styles: [
+    `
+      .box {
+        background: darkseagreen;
+        padding: 8px;
+        display: inline-block;
+        color: white;
+        height: 100%;
+        width: 300px;
+      }
+    `,
+  ],
 })
 export class PrizmOverlayExampleSlideComponent implements OnInit {
   @ViewChild('elementRef', { read: ElementRef, static: true }) elementRef: ElementRef;
@@ -36,12 +39,11 @@ export class PrizmOverlayExampleSlideComponent implements OnInit {
     this.control = this.overlay
       .position(position)
       .config({
-        closeOnDocClick: true
+        closeOnDocClick: true,
       })
       // PASS TEMPLATE
       .content(this.templateRef)
       .create();
-
   }
 
   public open(): void {

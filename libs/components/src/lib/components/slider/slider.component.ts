@@ -326,4 +326,3 @@ export class PrizmSliderComponent implements ControlValueAccessor, AfterViewInit
     this.setPositionFromValue();
   }
 }
-

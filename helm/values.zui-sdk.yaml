@@ -1,13 +1,13 @@
 # -- Name of application
 # @default -- name of the image
-serviceName: "zui-sdk"
+serviceName: 'zui-sdk'
 
 # -- Deploy as StatefulSet: true/false
 statefulSetDeployment: false
 
 # -- Kube version override (for Ingress API choose)
 # @default -- helm auto-detect
-kubeVersion: ""
+kubeVersion: ''
 
 # Pod-level secrutity context
 podSecurityContext: {}
@@ -77,14 +77,14 @@ tls:
   CABundleConfigMap: infra-ca-bundle
 
   # -- ConfigMap key with CA-certificates list (optional)
-  CABundleMapKey: "ca-bundle.crt"
+  CABundleMapKey: 'ca-bundle.crt'
 
   # -- Mount type for global trusted certificates:
   # **ubuntu** (PEM file), **alpine** (PEM), **java** (JKS), **custom**
   CABundleMountType: ubuntu
 
   # -- Custom mount path for global trusted certificates (set type to "custom" and change this parameter )
-  CABundleMountPath: "/etc/ssl/certs/ca-certificates.crt"
+  CABundleMountPath: '/etc/ssl/certs/ca-certificates.crt'
 
 # -- Additional ConfigMap to mount as volumes
 # Format: *name: { mountPath: /data, subPath: "", readOnly: false, configMap: map-name, defaultMode: 256 }* or
@@ -331,7 +331,6 @@ globalStorageClass: yc-network-ssd
 
 ## Ingress/Route object configuration
 ingress:
-
   # -- Enable Route/Ingress creation
   enabled: true
 
@@ -340,18 +339,18 @@ ingress:
 
   # -- (string) Service name to redirect traffic
   # @default -- image name or custom service name (serviceName)
-  service: ""
+  service: ''
 
   # -- Service port name to redirect traffic
   # @default -- first container port name (containerPorts[0].name) or http
-  port: "http"
+  port: 'http'
 
   # -- Ingress/Route hostname (required for correct route/ingress work)
-  host: "ziiot-dev-11.kube01.yc.ziiot.ru"
+  host: 'ziiot-dev-11.kube01.yc.ziiot.ru'
 
   # -- Publish path for service (https://hostname/path)
   # @default -- image name or custom service name (serviceName)
-  path: "/zui-sdk"
+  path: '/zui-sdk'
 
   # -- Ingress class name (required, for Ingress objects only)
   ingressClassName: nginx
@@ -364,7 +363,6 @@ ingress:
 
   # -- TLS parameters on Route/Ingress (tls enabled by default, set tls.enabled = false to disable)
   tls:
-
     # -- TLS enabled/disabled (default - enabled, termination 'edge')
     enabled: true
 
@@ -377,10 +375,10 @@ ingress:
 
     # -- Hostname for TLS certificate (optional, for Ingress objects only)
     # @default -- ingress.host
-    tlsHost: "ziiot-dev-11.kube01.yc.ziiot.ru"
+    tlsHost: 'ziiot-dev-11.kube01.yc.ziiot.ru'
 
     # -- Secret with certificate (for Ingress objects only)
-    secret: "zif-tls-ingress-secret"
+    secret: 'zif-tls-ingress-secret'
 
   # -- Server timeout (in seconds)
   serverTimeout: 120

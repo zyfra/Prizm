@@ -32,4 +32,3 @@ import { PrizmMonthExamplePipe } from './examples/carousel-year-month-example/mo
   exports: [PrizmCarouselExampleComponent],
 })
 export class CarouselExampleModule {}
-

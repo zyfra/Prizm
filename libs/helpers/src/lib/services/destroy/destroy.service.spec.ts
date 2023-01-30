@@ -6,7 +6,7 @@ import { PrizmDestroyService } from './destroy.service';
 describe('Service: Destroy', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PrizmDestroyService]
+      providers: [PrizmDestroyService],
     });
   });
 

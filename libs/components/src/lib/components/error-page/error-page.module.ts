@@ -10,4 +10,3 @@ import { PrizmErrorPageComponent } from './error-page.component';
   exports: [PrizmErrorPageComponent],
 })
 export class PrizmErrorPageModule {}
-

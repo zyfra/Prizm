@@ -6,8 +6,11 @@ import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [CommonModule, PrizmAddonDocModule,
-    RouterModule.forChild(prizmDocGenerateRoutes(ColorsComponent))],
+  imports: [
+    CommonModule,
+    PrizmAddonDocModule,
+    RouterModule.forChild(prizmDocGenerateRoutes(ColorsComponent)),
+  ],
   declarations: [ColorsComponent, Frame25826Component],
 })
 export class ColorsModule {}

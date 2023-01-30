@@ -1,11 +1,9 @@
 ```ts
-import {NgModule} from '@angular/core';
-import {PrizmScrollbarModule} from "@prizm-ui/components";
+import { NgModule } from '@angular/core';
+import { PrizmScrollbarModule } from '@prizm-ui/components';
 
 @NgModule({
-  imports: [
-    PrizmScrollbarModule,
-  ],
+  imports: [PrizmScrollbarModule],
 })
 export class MyModule {}
 ```

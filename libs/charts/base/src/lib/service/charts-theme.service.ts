@@ -3,16 +3,16 @@ import { PRIZM_CHART_THEMES, prizmChartsSetDefaultThemes } from '../theme/util';
 import { merge } from 'lodash';
 import { PrizmChartTheme } from '../theme/types';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PrizmChartsThemeService {
   private initiatedTheme = false;
 
   public initIfNecessary(): void {
-   if (this.initiatedTheme) {
-     return;
-   }
-   this.initiatedTheme = true;
+    if (this.initiatedTheme) {
+      return;
+    }
+    this.initiatedTheme = true;
     prizmChartsSetDefaultThemes();
   }
 
@@ -26,11 +26,6 @@ export class PrizmChartsThemeService {
     // TODO add typings for theme
     const prizmThemeOptions = (PRIZM_CHART_THEMES[themeKey]?.prizm ?? {}) as Record<string, any>;
     const component = prizmThemeOptions.components?.[componentKey] ?? {};
-    return merge(
-      {},
-      allOptions,
-      newOptions,
-      component
-    );
+    return merge({}, allOptions, newOptions, component);
   }
 }

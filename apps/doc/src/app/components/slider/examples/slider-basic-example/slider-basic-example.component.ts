@@ -11,4 +11,3 @@ export class PrizmSliderBasicExampleComponent {
   small = new FormControl(60);
   big = new FormControl(500);
 }
-

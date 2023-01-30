@@ -1,23 +1,25 @@
-import {Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import {
   PrizmOverlayControl,
   PrizmOverlayOutsidePlacement,
   PrizmOverlayRelativePosition,
-  PrizmOverlayService
-} from "@prizm-ui/components";
+  PrizmOverlayService,
+} from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-overlay-relative',
   templateUrl: './template.html',
-  styles: [`
-    .box {
-      background: darkseagreen;
-      padding: 8px;
-      display: inline-block;
-      color: white;
-      margin-top: 3px;
-    }
-  `]
+  styles: [
+    `
+      .box {
+        background: darkseagreen;
+        padding: 8px;
+        display: inline-block;
+        color: white;
+        margin-top: 3px;
+      }
+    `,
+  ],
 })
 export class PrizmOverlayExampleRelativeComponent implements OnInit {
   @ViewChild('elementRef', { read: ElementRef, static: true }) elementRef: ElementRef;
@@ -33,7 +35,7 @@ export class PrizmOverlayExampleRelativeComponent implements OnInit {
       // Pass source element
       element: this.elementRef.nativeElement,
       // On scroll re calculate position
-      autoReposition: true
+      autoReposition: true,
     });
 
     this.control = this.overlay
@@ -41,7 +43,6 @@ export class PrizmOverlayExampleRelativeComponent implements OnInit {
       // PASS TEMPLATE
       .content(this.templateRef)
       .create();
-
   }
 
   public open(): void {

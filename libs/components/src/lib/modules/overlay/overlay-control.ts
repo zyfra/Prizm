@@ -4,21 +4,30 @@ import {
   ComponentFactoryResolver,
   ComponentRef,
   Injector,
-  ViewRef
+  ViewRef,
 } from '@angular/core';
-import {animationFrameScheduler, fromEvent, merge as mergeObs, Observable, Subject} from 'rxjs';
-import {debounceTime, distinctUntilChanged, filter, map, observeOn, skipWhile, takeUntil, tap} from 'rxjs/operators';
+import { animationFrameScheduler, fromEvent, merge as mergeObs, Observable, Subject } from 'rxjs';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  map,
+  observeOn,
+  skipWhile,
+  takeUntil,
+  tap,
+} from 'rxjs/operators';
 import {
   PrizmOverlayConfig,
   PrizmOverlayContent,
   PrizmOverlayContentData,
   PrizmOverlayContentProps,
   PrizmOverlayEventName,
-  PrizmOverlayId
+  PrizmOverlayId,
 } from './models';
-import {PrizmOverlayAbstractPosition} from './position/position';
-import {PrizmOverlayComponent} from './overlay.component';
-import {BODY_ELEMENT, EventBus, getContent} from './utils';
+import { PrizmOverlayAbstractPosition } from './position/position';
+import { PrizmOverlayComponent } from './overlay.component';
+import { BODY_ELEMENT, EventBus, getContent } from './utils';
 
 export class PrizmOverlayControl {
   position: PrizmOverlayAbstractPosition;
@@ -75,7 +84,11 @@ export class PrizmOverlayControl {
     return fromEvent<KeyboardEvent>(BODY_ELEMENT, 'keydown').pipe(
       takeUntil(this.destroy$),
       skipWhile(() => !this.config.closeOnEsc),
-      filter((e: KeyboardEvent) => (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) && (e.target as HTMLElement).nodeName === 'BODY'),
+      filter(
+        (e: KeyboardEvent) =>
+          (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) &&
+          (e.target as HTMLElement).nodeName === 'BODY'
+      ),
       tap(e => e.preventDefault()),
       map(e => e.target),
       tap(() => this.close())

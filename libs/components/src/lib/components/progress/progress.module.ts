@@ -8,20 +8,20 @@ import { PrizmProgressLabelComponent } from './progress-label/progress-label.com
 import { PrizmProgressSegmentedComponent } from './progress-segmented/progress-segmented.component';
 
 @NgModule({
-    imports: [CommonModule, PrizmRepeatTimesModule],
-    declarations: [
-        PrizmProgressBarComponent,
-        PrizmProgressColorSegmentsDirective,
-        PrizmProgressCircleComponent,
-        PrizmProgressLabelComponent,
-        PrizmProgressSegmentedComponent,
-    ],
-    exports: [
-        PrizmProgressBarComponent,
-        PrizmProgressCircleComponent,
-        PrizmProgressColorSegmentsDirective,
-        PrizmProgressLabelComponent,
-        PrizmProgressSegmentedComponent,
-    ],
+  imports: [CommonModule, PrizmRepeatTimesModule],
+  declarations: [
+    PrizmProgressBarComponent,
+    PrizmProgressColorSegmentsDirective,
+    PrizmProgressCircleComponent,
+    PrizmProgressLabelComponent,
+    PrizmProgressSegmentedComponent,
+  ],
+  exports: [
+    PrizmProgressBarComponent,
+    PrizmProgressCircleComponent,
+    PrizmProgressColorSegmentsDirective,
+    PrizmProgressLabelComponent,
+    PrizmProgressSegmentedComponent,
+  ],
 })
 export class PrizmProgressModule {}

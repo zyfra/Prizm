@@ -12,12 +12,12 @@ export class PrizmCarouselArrayContent<T> implements PrizmCarouselContent {
   ) {}
 
   get first(): T {
-    return this.set[0]
-  };
+    return this.set[0];
+  }
 
   get last(): T {
     return this.set[this.set.length - 1];
-  };
+  }
 
   public setCurrentValue(element: T): void {
     this.currentIndex = this.set.findIndex(item => this.searchFn(item, element));
@@ -85,4 +85,3 @@ export class PrizmCarouselArrayContent<T> implements PrizmCarouselContent {
     this.controlsState.rightCtrlDisabled = false;
   }
 }
-

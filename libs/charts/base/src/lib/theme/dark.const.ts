@@ -8,16 +8,16 @@ export const PRIZM_CHART_DARK_THEME: PrizmChartThemeObject = {
         xAxis: {
           minTickInterval: 10,
           grid: {
-            line:{
+            line: {
               style: {
-                stroke: '#50546B'
-              }
-            }
+                stroke: '#50546B',
+              },
+            },
           },
           line: {
             style: {
-              stroke: '#50546b'
-            }
+              stroke: '#50546b',
+            },
           },
           range: [0, 1],
         },
@@ -26,32 +26,32 @@ export const PRIZM_CHART_DARK_THEME: PrizmChartThemeObject = {
         xAxis: {
           minTickInterval: 10,
           grid: {
-            line:{
+            line: {
               style: {
-                stroke: '#50546B'
-              }
-            }
+                stroke: '#50546B',
+              },
+            },
           },
           line: {
             style: {
-              stroke: '#50546b'
-            }
+              stroke: '#50546b',
+            },
           },
           range: [0, 1],
         },
         yAxis: {
           minTickInterval: 10,
           grid: {
-            line:{
+            line: {
               style: {
-                stroke: '#50546B'
-              }
-            }
+                stroke: '#50546B',
+              },
+            },
           },
           line: {
             style: {
-              stroke: '#50546b'
-            }
+              stroke: '#50546b',
+            },
           },
           range: [0, 1],
         },
@@ -60,37 +60,37 @@ export const PRIZM_CHART_DARK_THEME: PrizmChartThemeObject = {
         xAxis: {
           minTickInterval: 10,
           grid: {
-            line:{
+            line: {
               style: {
-                stroke: '#50546B'
-              }
-            }
+                stroke: '#50546B',
+              },
+            },
           },
           line: {
             style: {
-              stroke: '#50546b'
-            }
+              stroke: '#50546b',
+            },
           },
           range: [0, 1],
         },
         yAxis: {
           minTickInterval: 10,
           grid: {
-            line:{
+            line: {
               style: {
-                stroke: '#50546B'
-              }
-            }
+                stroke: '#50546B',
+              },
+            },
           },
           line: {
             style: {
-              stroke: '#50546b'
-            }
+              stroke: '#50546b',
+            },
           },
           range: [0, 1],
         },
-      }
-    }
+      },
+    },
   },
   background: 'rgba(32, 34, 43, 1)',
   subColor: 'rgba(48, 51, 64, 1)',

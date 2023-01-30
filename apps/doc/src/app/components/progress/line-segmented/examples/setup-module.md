@@ -10,6 +10,5 @@ import { PrizmProgressModule } from '@prizm-ui/components';
     PrizmProgressModule,
   ],
 })
-export class MyModule {
-}
+export class MyModule {}
 ```

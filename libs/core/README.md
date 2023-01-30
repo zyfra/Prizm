@@ -1,4 +1,4 @@
-# Prizm core 
+# Prizm core
 
 ![prizm workflow](https://github.com/zyfra/Prizm/actions/workflows/ci.yml/badge.svg)
 
@@ -60,11 +60,6 @@ Add our styles to angular config:
 ```json
 "assets": [
 // ....
-{
-"glob": "**/*",
-"input": "node_modules/@prizm-ui/components/src/styles/fonts",
-"output": "assets/prizm-ui/fonts"
-},
 ],
 "styles": [
 // (Required) Add for use our theme

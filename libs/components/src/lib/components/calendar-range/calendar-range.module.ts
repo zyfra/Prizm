@@ -8,15 +8,15 @@ import { PrizmPrimitiveCalendarRangeModule } from '../internal/primitive-calenda
 import { PrizmDataListModule } from '../data-list/data-list.module';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        PrizmMapperPipeModule,
-        PrizmPreventDefaultModule,
-        PrizmCalendarModule,
-        PrizmDataListModule,
-        PrizmPrimitiveCalendarRangeModule,
-    ],
-    declarations: [PrizmCalendarRangeComponent],
-    exports: [PrizmCalendarRangeComponent],
+  imports: [
+    CommonModule,
+    PrizmMapperPipeModule,
+    PrizmPreventDefaultModule,
+    PrizmCalendarModule,
+    PrizmDataListModule,
+    PrizmPrimitiveCalendarRangeModule,
+  ],
+  declarations: [PrizmCalendarRangeComponent],
+  exports: [PrizmCalendarRangeComponent],
 })
 export class PrizmCalendarRangeModule {}

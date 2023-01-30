@@ -8,15 +8,15 @@ import { PrizmFocusableModule } from '../../../directives/focusable/focusable.mo
 import { PrizmIconModule } from '../../icon/icon.module';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        PrizmFocusableModule,
-        PrizmPrimitiveSpinButtonModule,
-        PrizmLinkModule,
-        PrizmIconModule,
-        PrizmMonthPipeModule,
-    ],
-    declarations: [PrizmPrimitiveYearMonthPaginationComponent],
-    exports: [PrizmPrimitiveYearMonthPaginationComponent],
+  imports: [
+    CommonModule,
+    PrizmFocusableModule,
+    PrizmPrimitiveSpinButtonModule,
+    PrizmLinkModule,
+    PrizmIconModule,
+    PrizmMonthPipeModule,
+  ],
+  declarations: [PrizmPrimitiveYearMonthPaginationComponent],
+  exports: [PrizmPrimitiveYearMonthPaginationComponent],
 })
 export class PrizmPrimitiveYearMonthPaginationModule {}

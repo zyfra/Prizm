@@ -8,7 +8,6 @@ import { AccordionBasicExampleComponent } from './examples/accordion-basic-examp
 import { AccordionSingleExpandExampleComponent } from './examples/accordion-single-expand-example/accordion-single-expand-example.component';
 import { AccordionMultipleExpandExampleComponent } from './examples/accordion-multiple-expand-example/accordion-multiple-expand-example.component';
 import { AccordionWithInstrumentsExampleComponent } from './examples/accordion-with-instruments-example/accordion-with-instruments-example.component';
-
 @NgModule({
   declarations: [
     AccordionExampleComponent,

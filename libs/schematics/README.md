@@ -25,6 +25,7 @@ npm i @prizm-ui/components
 2. **Install global styles:**
 
 angular.json:
+
 ```
 {
   "projects": {
@@ -44,9 +45,11 @@ angular.json:
   }
 }
 ```
+
 You can also use component LESS styles with import:
 
 my-awesome-button.component.less
+
 ```
 @import '~@prizm-ui/components/src/lib/button/button.component.less';
 ```
@@ -54,6 +57,7 @@ my-awesome-button.component.less
 3. **Install icons styles (if you need):**
 
 angular.json:
+
 ```
 {
   "projects": {
@@ -76,16 +80,11 @@ angular.json:
 4. **Install fonts, icons assets:**
 
 angular.json
+
 ```
 "assets": [
-    {
-        "glob": "**/*",
-        "input": "node_modules/@prizm-ui/components/src/styles/fonts",
-        "output": "assets/prizm-ui/components"
-    }
 ],
 ```
-
 
 ## Contributing
 

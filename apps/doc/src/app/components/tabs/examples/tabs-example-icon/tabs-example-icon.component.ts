@@ -32,4 +32,3 @@ export class TabsExampleIconComponent {
     // do something
   }
 }
-

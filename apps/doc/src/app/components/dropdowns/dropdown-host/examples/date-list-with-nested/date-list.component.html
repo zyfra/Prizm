@@ -1,0 +1,56 @@
+<prizm-dropdown-host
+  [content]="dropdown"
+  prizmDropdownHostWidth="auto"
+  [(isOpen)]="open"
+  (isOpenChange)="$event && select(null)"
+>
+  <button prizmButton type="button" (click)="open = !open">Пример выбора периода</button>
+</prizm-dropdown-host>
+
+<ng-template #dropdown let-zone="zone">
+  <prizm-data-list [style.--prizm-data-list-border]="0">
+    <div class="header" header>
+      <prizm-icon iconClass="date-calendar-range"></prizm-icon>
+      <span class="title">Выбор периода</span>
+    </div>
+    <div class="box">
+      <div class="list">
+        <prizm-radio-button
+          *ngFor="let item of data"
+          (click)="select(item)"
+          [label]="item.title"
+          [value]="item.range"
+        ></prizm-radio-button>
+        <prizm-radio-button
+          (click)="select(null)"
+          [label]="'Произвольный диапазон'"
+          [value]="null"
+        ></prizm-radio-button>
+      </div>
+
+      <div class="date-control">
+        <prizm-input-date-time
+          [prizmEventZoneParent]="zone"
+          label="Начало"
+          [formControl]="startControl"
+        ></prizm-input-date-time>
+        <prizm-input-date-time
+          [prizmEventZoneParent]="zone"
+          label="Конец"
+          [formControl]="endControl"
+        ></prizm-input-date-time>
+      </div>
+    </div>
+    <div class="footer" footer>
+      <button
+        appearanceType="ghost"
+        appearance="secondary"
+        prizmButton
+        (click)="open = false; cdRef.markForCheck()"
+      >
+        Отменить
+      </button>
+      <button prizmButton (click)="open = false; cdRef.markForCheck()">Выбрать</button>
+    </div>
+  </prizm-data-list>
+</ng-template>

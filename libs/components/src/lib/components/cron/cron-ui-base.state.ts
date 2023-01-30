@@ -10,25 +10,25 @@ export abstract class PrizmCronUiBaseState<
   ENUM extends Record<string, unknown> = typeof PrizmCronUiBaseType,
   TYPE = PrizmCronUiBaseType,
   STATE extends PrizmCronUiState<TYPE> = PrizmCronUiState<TYPE>,
-  LIST extends PrizmCronUiStateList = PrizmCronUiStateList,
+  LIST extends PrizmCronUiStateList = PrizmCronUiStateList
 > {
   readonly list: LIST = {
     everyChosenTimesAfterChosen: this.everyChosenTimesAfterChosen.list,
     specified: this.specified.list,
-    between: this.between.list
+    between: this.between.list,
   } as LIST;
 
   readonly defaultState: STATE = {
     type: this.initialType,
     everyChosenTimesAfterChosen: this.everyChosenTimesAfterChosen.value,
     specified: this.specified.value,
-    between: this.between.value
+    between: this.between.value,
   } as STATE;
 
-  readonly state$ = new BehaviorSubject<STATE>(this.defaultState)
+  readonly state$ = new BehaviorSubject<STATE>(this.defaultState);
 
-  readonly abstract cron: PrizmCronService;
-  readonly abstract destroy$: PrizmDestroyService;
+  abstract readonly cron: PrizmCronService;
+  abstract readonly destroy$: PrizmDestroyService;
 
   constructor(
     public readonly current$: Observable<string>,
@@ -42,16 +42,14 @@ export abstract class PrizmCronUiBaseState<
       list: {
         start: getCarousel(60, 0),
         end: getCarousel(60, 0),
-      }
+      },
     },
     private readonly specified = {
       value: ['0'],
-      list: getArrWithStringNumbers(60, 1, false).map(
-        (i, idx) => ({
-          key: idx.toString(),
-          value: idx.toString(),
-        })
-      )
+      list: getArrWithStringNumbers(60, 1, false).map((i, idx) => ({
+        key: idx.toString(),
+        value: idx.toString(),
+      })),
     },
     private readonly everyChosenTimesAfterChosen = {
       list: {
@@ -60,8 +58,8 @@ export abstract class PrizmCronUiBaseState<
       },
       value: {
         on: '1',
-        after: '0'
-      }
+        after: '0',
+      },
     }
   ) {
     this.initialType = initialType;
@@ -69,9 +67,7 @@ export abstract class PrizmCronUiBaseState<
 
   public readonly typeControl = new FormControl();
 
-  public readonly type$ = this.current$.pipe(
-    map(i => this.getTypeByValue(i))
-  );
+  public readonly type$ = this.current$.pipe(map(i => this.getTypeByValue(i)));
 
   public init(): void {
     this.initLocalStateChanger();
@@ -80,26 +76,25 @@ export abstract class PrizmCronUiBaseState<
 
   private initLocalStateChanger(): void {
     /* add change when base changes */
-    this.current$.pipe(
-      distinctUntilChanged(),
-      tap(
-        (value) => this.updateLocalState(
-          value,
-          this.getTypeByValue(value)
-        )
-      ),
-      takeUntil(this.destroy$)
-    ).subscribe();
+    this.current$
+      .pipe(
+        distinctUntilChanged(),
+        tap(value => this.updateLocalState(value, this.getTypeByValue(value))),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   private initLocalTypeChanger(): void {
-    this.type$.pipe(
-      filter(i => i != this.typeControl.value),
-      tap((type) => {
-        this.typeControl.setValue(type);
-      }),
-      takeUntil(this.destroy$)
-    ).subscribe();
+    this.type$
+      .pipe(
+        filter(i => i != this.typeControl.value),
+        tap(type => {
+          this.typeControl.setValue(type);
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   abstract updateMainState(value: string): void;
@@ -108,9 +103,9 @@ export abstract class PrizmCronUiBaseState<
     if (value === '*') {
       return PrizmCronUiBaseType.every;
     } else if (value.includes('/')) {
-      return PrizmCronUiBaseType.after
+      return PrizmCronUiBaseType.after;
     } else if (value.includes('-')) {
-      return PrizmCronUiBaseType.between
+      return PrizmCronUiBaseType.between;
     }
 
     return PrizmCronUiBaseType.specified;
@@ -119,38 +114,39 @@ export abstract class PrizmCronUiBaseState<
     return this.getTypeByValueByDefault(hour) as unknown as TYPE;
   }
 
-  public updatePartial(
-    state: Partial<STATE>
-  ): void {
+  public updatePartial(state: Partial<STATE>): void {
     this.state$.next({
       ...this.state$.value,
-      ...state
+      ...state,
     });
   }
 
   public updateMainIfChanged(newState: string): void {
-    this.current$.pipe(
-      tap((old) => {
-        if (old !== newState) {
-          this.updateMainState(newState);
-        }
-      }),
-      first()
-    ).subscribe();
+    this.current$
+      .pipe(
+        tap(old => {
+          if (old !== newState) {
+            this.updateMainState(newState);
+          }
+        }),
+        first()
+      )
+      .subscribe();
   }
 
   /**
    * update between
    * */
-  public updateBetween(
-    {start, end}: {
-      start?: string,
-      end?: string,
-    } = {}
-  ): void {
+  public updateBetween({
+    start,
+    end,
+  }: {
+    start?: string;
+    end?: string;
+  } = {}): void {
     start = start ?? this.state$.value.between.start;
     end = end ?? this.state$.value.between.end;
-    this.updateMainIfChanged( `${start}-${end}`);
+    this.updateMainIfChanged(`${start}-${end}`);
   }
 
   /**
@@ -158,11 +154,11 @@ export abstract class PrizmCronUiBaseState<
    * */
   public updateOn(
     options: {
-      on?: string,
-      after?: string,
+      on?: string;
+      after?: string;
     } = {}
   ): void {
-    let {on, after} = options;
+    let { on, after } = options;
     on = on ?? this.state$.value.everyChosenTimesAfterChosen.on;
     after = after ?? this.state$.value.everyChosenTimesAfterChosen.after;
     this.updateMainIfChanged(`${after}/${on}`);
@@ -171,9 +167,7 @@ export abstract class PrizmCronUiBaseState<
   /**
    * update on
    * */
-  public updateSpecified(
-    specified?: string[]
-  ): void {
+  public updateSpecified(specified?: string[]): void {
     this.updateMainIfChanged(`${specified.join(',') ?? 0}`);
   }
 
@@ -184,53 +178,52 @@ export abstract class PrizmCronUiBaseState<
     this.updateMainIfChanged('*');
   }
 
-
   /**
    * TODO fix type casting
    * */
   public updateLocalState(value: string, type: TYPE): void {
     switch (type) {
-      case this.TYPES.between: {
-        const arr = value.split('-');
-        const start = arr[0] ?? '0';
-        const end = arr[1] ?? '0';
+      case this.TYPES.between:
+        {
+          const arr = value.split('-');
+          const start = arr[0] ?? '0';
+          const end = arr[1] ?? '0';
 
-        this.updatePartial(
-          {
+          this.updatePartial({
             type: PrizmCronUiBaseType.between,
             between: {
               start: start,
               end: end,
-            }
-          } as unknown as Partial<STATE>
-        )
-      }
+            },
+          } as unknown as Partial<STATE>);
+        }
         break;
       case this.TYPES.every:
         this.updatePartial({
           type: PrizmCronUiBaseType.every,
-        } as unknown as Partial<STATE>)
+        } as unknown as Partial<STATE>);
         break;
       case this.TYPES.specified:
         this.updatePartial({
           type: PrizmCronUiBaseType.specified,
-          specified: value.split(',')
+          specified: value.split(','),
         } as unknown as Partial<STATE>);
         break;
 
-      case this.TYPES.after: {
-        const arr = value.split('/');
-        const on = arr[1] ?? '0';
-        const after = arr[0] ?? '0';
+      case this.TYPES.after:
+        {
+          const arr = value.split('/');
+          const on = arr[1] ?? '0';
+          const after = arr[0] ?? '0';
 
-        this.updatePartial({
-          type: PrizmCronUiBaseType.after,
-          everyChosenTimesAfterChosen: {
-            on: on,
-            after: after
-          }
-        } as unknown as Partial<STATE>);
-      }
+          this.updatePartial({
+            type: PrizmCronUiBaseType.after,
+            everyChosenTimesAfterChosen: {
+              on: on,
+              after: after,
+            },
+          } as unknown as Partial<STATE>);
+        }
         break;
     }
   }
@@ -241,4 +234,3 @@ export abstract class PrizmCronUiBaseState<
     this.destroy$.unsubscribe();
   }
 }
-

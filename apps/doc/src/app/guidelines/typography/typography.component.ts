@@ -4,6 +4,6 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   selector: 'prizm-typography',
   templateUrl: './typography.component.html',
   styleUrls: ['./typography.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TypographyComponent {}

@@ -1,4 +1,4 @@
-<prizm-doc-main #docRef (contentReady)='contentReady($event)'>
+<prizm-doc-main #docRef (contentReady)="contentReady($event)">
   <ng-container prizmPreNavigationHeader>
     <prizm-doc-logo></prizm-doc-logo>
   </ng-container>
@@ -11,23 +11,10 @@
         (ngModelChange)="onMode($event)"
       ></tui-toggle>
     </label>
-    <a
-      tuiLink
-      tuiMode="onLight"
-      href="https://gitlab.idp.yc.ziiot.ru/public-group/zui-sdk"
-      target="_blank"
-      class="app-link"
-    >
-      <img
-        src="assets/images/git.svg"
-        alt=""
-        class="app-github"
-      />
+    <a tuiLink tuiMode="onLight" href="https://github.com/zyfra/Prizm" target="_blank" class="app-link">
+      <img src="assets/images/git.svg" alt="" class="app-github" />
     </a>
   </ng-container>
 
-  <prizm-version-manager
-    ngProjectAs="tuiDocNavigation"
-    class="app-version"
-  ></prizm-version-manager>
+  <prizm-version-manager ngProjectAs="tuiDocNavigation" class="app-version"></prizm-version-manager>
 </prizm-doc-main>

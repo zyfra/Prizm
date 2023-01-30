@@ -10,4 +10,3 @@ import { FormControl } from '@angular/forms';
 export class PrizmSliderVerticalExampleComponent {
   fc = new FormControl(60);
 }
-

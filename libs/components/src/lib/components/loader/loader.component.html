@@ -1,39 +1,24 @@
 <fieldset
-    class="z-content"
-    [class.z-content_has-overlay]="hasOverlay"
-    [class.z-content_loading]="loading"
-    [disabled]="loading"
+  class="z-content"
+  [class.z-content_has-overlay]="hasOverlay"
+  [class.z-content_loading]="loading"
+  [disabled]="loading"
 >
-    <ng-content></ng-content>
+  <ng-content></ng-content>
 </fieldset>
 
 <div
-    *ngIf="loading"
-    class="z-loader"
-    [class.z-loader_horizontal]="isHorizontal"
-    [class.z-loader_inherit-color]="inheritColor"
-    [attr.data-prizm-element-size]="size"
+  *ngIf="loading"
+  class="z-loader"
+  [class.z-loader_horizontal]="isHorizontal"
+  [class.z-loader_inherit-color]="inheritColor"
+  [attr.data-prizm-element-size]="size"
 >
-    <svg
-        focusable="false"
-        viewBox="0 0 100 100"
-        xmlns="http://www.w3.org/2000/svg"
-        class="z-icon"
-    >
-        <circle
-            cx="50"
-            cy="50"
-            r="50"
-            stroke-dasharray="314"
-            class="z-circle"
-        ></circle>
-    </svg>
+  <svg focusable="false" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="z-icon">
+    <circle cx="50" cy="50" r="50" stroke-dasharray="314" class="z-circle"></circle>
+  </svg>
 
-    <div
-        *ngIf="hasText"
-        class="z-text"
-        [class.z-text_horizontal]="isHorizontal"
-    >
-      <ng-container [ngTemplateOutlet]="textContent"></ng-container>
-    </div>
+  <div *ngIf="hasText" class="z-text" [class.z-text_horizontal]="isHorizontal">
+    <ng-container [ngTemplateOutlet]="textContent"></ng-container>
+  </div>
 </div>

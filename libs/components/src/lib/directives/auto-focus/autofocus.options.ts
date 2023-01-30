@@ -8,49 +8,37 @@ import { PrizmDefaultAutofocusHandler } from './handlers/default.handler';
 import { PrizmIosAutofocusHandler } from './handlers/ios.handler';
 
 export interface PrizmAutofocusHandler {
-    setFocus(): void;
+  setFocus(): void;
 }
 
-export const PRIZM_AUTOFOCUS_HANDLER = new InjectionToken<PrizmAutofocusHandler>(
-    `Autofocusing handler`,
-);
+export const PRIZM_AUTOFOCUS_HANDLER = new InjectionToken<PrizmAutofocusHandler>(`Autofocusing handler`);
 
 export function prizmAutofocusHandlerFactory(
-    prizmFocusableComponent: PrizmFocusableElementAccessor | null,
-    elementRef: ElementRef<HTMLElement>,
-    animationFrame$: Observable<number>,
-    renderer: Renderer2,
-    ngZone: NgZone,
-    windowRef: Window,
-    isIos: boolean,
+  prizmFocusableComponent: PrizmFocusableElementAccessor | null,
+  elementRef: ElementRef<HTMLElement>,
+  animationFrame$: Observable<number>,
+  renderer: Renderer2,
+  ngZone: NgZone,
+  windowRef: Window,
+  isIos: boolean
 ): PrizmAutofocusHandler {
-    return isIos
-        ? new PrizmIosAutofocusHandler(
-              prizmFocusableComponent,
-              elementRef,
-              renderer,
-              ngZone,
-              windowRef,
-          )
-        : new PrizmDefaultAutofocusHandler(
-              prizmFocusableComponent,
-              elementRef,
-              animationFrame$,
-          );
+  return isIos
+    ? new PrizmIosAutofocusHandler(prizmFocusableComponent, elementRef, renderer, ngZone, windowRef)
+    : new PrizmDefaultAutofocusHandler(prizmFocusableComponent, elementRef, animationFrame$);
 }
 
 export const PRIZM_AUTOFOCUS_PROVIDERS = [
-    {
-        provide: PRIZM_AUTOFOCUS_HANDLER,
-        useFactory: prizmAutofocusHandlerFactory,
-        deps: [
-            [new Optional(), new Self(), PRIZM_FOCUSABLE_ITEM_ACCESSOR],
-            ElementRef,
-            ANIMATION_FRAME,
-            Renderer2,
-            NgZone,
-            WINDOW,
-            PRIZM_IS_IOS,
-        ],
-    },
+  {
+    provide: PRIZM_AUTOFOCUS_HANDLER,
+    useFactory: prizmAutofocusHandlerFactory,
+    deps: [
+      [new Optional(), new Self(), PRIZM_FOCUSABLE_ITEM_ACCESSOR],
+      ElementRef,
+      ANIMATION_FRAME,
+      Renderer2,
+      NgZone,
+      WINDOW,
+      PRIZM_IS_IOS,
+    ],
+  },
 ];

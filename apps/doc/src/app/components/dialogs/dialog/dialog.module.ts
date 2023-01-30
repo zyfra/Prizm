@@ -11,6 +11,7 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogComponent } from './dialog.component';
 import { PrizmDialogServiceExampleComponent } from './examples/base/base.component';
+import { PrizmDialogServiceWithButtonsExampleComponent } from './examples/with-buttons/with-buttons.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,11 @@ import { PrizmDialogServiceExampleComponent } from './examples/base/base.compone
     PrizmRadioButtonModule,
     RouterModule.forChild(prizmDocGenerateRoutes(DialogComponent)),
   ],
-  declarations: [PrizmDialogServiceExampleComponent, DialogComponent],
+  declarations: [
+    PrizmDialogServiceExampleComponent,
+    PrizmDialogServiceWithButtonsExampleComponent,
+    DialogComponent,
+  ],
   exports: [DialogComponent],
 })
 export class DialogModule {}

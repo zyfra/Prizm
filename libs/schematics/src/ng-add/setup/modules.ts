@@ -37,45 +37,43 @@ function addModules(mainModule: ClassDeclaration, options: Schema, context: Sche
 
   const mainModulePath = mainModule.getSourceFile().getFilePath();
 
-  modules.forEach((module) => {
+  modules.forEach(module => {
     addImportToNgModule(mainModule, module.name, { unique: true });
     addUniqueImport(mainModulePath, module.name, module.packageName);
   });
 
-  context.logger.info(`${modules.map((module) => module.name)} was added to ${mainModulePath}`);
+  context.logger.info(`${modules.map(module => module.name)} was added to ${mainModulePath}`);
 }
 
 /**
  * Add unique import by path
  */
 function addUniqueImport(filePath: string, namedImport: string, packageName: string): void {
-    const existingNamedImport = getImports(filePath, {
-        namedImports: namedImport,
-        moduleSpecifier: packageName,
-    });
+  const existingNamedImport = getImports(filePath, {
+    namedImports: namedImport,
+    moduleSpecifier: packageName,
+  });
 
-    if (existingNamedImport.length) {
-        return;
-    }
+  if (existingNamedImport.length) {
+    return;
+  }
 
-    const existingDeclaration = getImports(filePath, {
-        moduleSpecifier: packageName,
-    });
+  const existingDeclaration = getImports(filePath, {
+    moduleSpecifier: packageName,
+  });
 
-    if (existingDeclaration.length) {
-        const modules = existingDeclaration[0]
-            .getNamedImports()
-            .map(namedImport => namedImport.getText());
+  if (existingDeclaration.length) {
+    const modules = existingDeclaration[0].getNamedImports().map(namedImport => namedImport.getText());
 
-        editImports(existingDeclaration, () => ({
-            namedImports: [...modules, namedImport],
-        }));
+    editImports(existingDeclaration, () => ({
+      namedImports: [...modules, namedImport],
+    }));
 
-        return;
-    }
+    return;
+  }
 
-    addImports(filePath, {
-        moduleSpecifier: packageName,
-        namedImports: [namedImport],
-    });
+  addImports(filePath, {
+    moduleSpecifier: packageName,
+    namedImports: [namedImport],
+  });
 }

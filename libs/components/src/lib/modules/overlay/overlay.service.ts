@@ -18,7 +18,7 @@ import { PrizmOverlayControl } from './overlay-control';
 import { PrizmOverlayContentToken } from './token';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PrizmOverlayService {
   static controls: { [key: string]: PrizmOverlayControl } = {};
@@ -27,7 +27,7 @@ export class PrizmOverlayService {
     position: null,
     config: PrizmOverlayDefaultConfig,
     content: { type: PrizmOverlayContentType.STRING, data: '', props: {} },
-    zid: null
+    zid: null,
   };
 
   constructor(private injector: Injector) {
@@ -49,24 +49,27 @@ export class PrizmOverlayService {
     return this;
   }
 
-  public create({key, parentInjector}: {
-    key?: string,
-    parentInjector?: Injector
+  public create({
+    key,
+    parentInjector,
+  }: {
+    key?: string;
+    parentInjector?: Injector;
   } = {}): PrizmOverlayControl {
     this.zid = this.inputs.zid = key ?? prizmGenerateId();
 
     const injector = Injector.create({
-        providers: [
-          {
-            provide: PrizmOverlayContentToken,
-            useFactory: (): PrizmOverlayContent => this.inputs.content
-          },
-          {
-            provide: PrizmOverlayControl,
-            deps: [ApplicationRef, ComponentFactoryResolver, Injector]
-          }
-        ],
-        parent: parentInjector ?? this.injector
+      providers: [
+        {
+          provide: PrizmOverlayContentToken,
+          useFactory: (): PrizmOverlayContent => this.inputs.content,
+        },
+        {
+          provide: PrizmOverlayControl,
+          deps: [ApplicationRef, ComponentFactoryResolver, Injector],
+        },
+      ],
+      parent: parentInjector ?? this.injector,
     });
 
     const tc = injector.get(PrizmOverlayControl);

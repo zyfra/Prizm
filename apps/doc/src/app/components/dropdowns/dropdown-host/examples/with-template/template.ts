@@ -1,23 +1,24 @@
-import {ChangeDetectorRef, Component} from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 
 @Component({
   selector: 'prizm-dropdown-host-example-with-template',
   templateUrl: './template.html',
-  styles: [`
-    .box {
-      display: flex;
-      flex-flow: column;
-      gap: 8px;
-      padding: 16px;
-    }
+  styles: [
+    `
+      .box {
+        display: flex;
+        flex-flow: column;
+        gap: 8px;
+        padding: 16px;
+      }
 
-    [prizmButton] {
-      width: 100%;
-    }
-  `]
+      [prizmButton] {
+        width: 100%;
+      }
+    `,
+  ],
 })
 export class PrizmDropdownHostExampleWithTemplateComponent {
   open = false;
-
   constructor(public readonly cdRef: ChangeDetectorRef) {}
 }

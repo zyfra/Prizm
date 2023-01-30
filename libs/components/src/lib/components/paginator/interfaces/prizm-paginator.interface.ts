@@ -1,21 +1,21 @@
-export interface IPaginatorData {
+export interface PrizmPaginatorData {
   left: number;
   mid: number[];
   right: number;
 }
 
-export interface IPaginatorOutput {
+export interface PrizmPaginatorOutput {
   page: number;
   first: number;
   rows: number;
-  tabCount: number;
+  pagesCount: number;
 }
 
-export interface IPaginatorOptions {
+export interface PrizmPaginatorOptions {
   noRowsSelector?: boolean;
   noRowsSelectorLabel?: boolean;
   noInfo?: boolean;
   noPages?: boolean;
 }
 
-export type PaginatorType = 'finite' | 'infinite';
+export type PrizmPaginatorType = 'finite' | 'infinite';

@@ -53,4 +53,3 @@ import { PrizmIconModule } from '../icon';
   exports: [PrizmNavMenuComponent, PrizmNavMenuGroupDirective, PrizmTemplateDirective],
 })
 export class PrizmNavMenuModule {}
-

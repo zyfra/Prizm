@@ -6,15 +6,15 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 @Component({
   selector: 'prizm-dialog-horizontal-example',
   templateUrl: './horizontal.component.html',
-  styles: [`
-    .box {
-      display: flex;
-      gap: 1rem;
-    }
-  `],
-  providers: [
-    PrizmDestroyService
-  ]
+  styles: [
+    `
+      .box {
+        display: flex;
+        gap: 1rem;
+      }
+    `,
+  ],
+  providers: [PrizmDestroyService],
 })
 export class PrizmDialogHorizontalExampleComponent {
   public positionVariants: PrizmOverlayInsidePlacement[] = Object.values(PrizmOverlayInsidePlacement);
@@ -23,7 +23,7 @@ export class PrizmDialogHorizontalExampleComponent {
 
   constructor(
     private readonly confirmDialogService: PrizmConfirmDialogService,
-    private readonly destroy$: PrizmDestroyService,
+    private readonly destroy$: PrizmDestroyService
   ) {}
 
   public show(): void {
@@ -35,10 +35,10 @@ export class PrizmDialogHorizontalExampleComponent {
           backdrop: this.backdrop,
           width: '500px',
           size: 'm',
-          showByVertical: false
+          showByVertical: false,
         }
-      ).pipe(
-        takeUntil(this.destroy$)
-    ).subscribe();
+      )
+      .pipe(takeUntil(this.destroy$))
+      .subscribe();
   }
 }

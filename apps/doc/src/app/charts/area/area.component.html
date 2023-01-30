@@ -1,6 +1,8 @@
 <prizm-doc-page header="Area" package="components" type="components">
-  <div class='page-description' description>
-    Area charts are primarily used when the magnitude of the trend is to be communicated (rather than individual data values). To showcase this magnitude, the area between the line segments and the axes is highlighted by filling it with color.
+  <div class="page-description" description>
+    Area charts are primarily used when the magnitude of the trend is to be communicated (rather than
+    individual data values). To showcase this magnitude, the area between the line segments and the axes is
+    highlighted by filling it with color.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="exampleOutline">
@@ -12,20 +14,20 @@
     <prizm-doc-demo>
       <prizm-charts-area
         #element
-        [prizmDocHostElement]='element'
-        [data]='data'
-        [xField]='xField'
-        [yField]='yField'
-        [theme]='prizmTheme.changesTheme$ | async'
-        [height]='height'
-        [width]='width'
+        [prizmDocHostElement]="element"
+        [data]="data"
+        [xField]="xField"
+        [yField]="yField"
+        [theme]="prizmTheme.changesTheme$ | async"
+        [height]="height"
+        [width]="width"
       ></prizm-charts-area>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="width"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="width"
       >
         Width
@@ -34,7 +36,7 @@
       <ng-template
         documentationPropertyName="xField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="xField"
       >
         X Field Name
@@ -43,7 +45,7 @@
       <ng-template
         documentationPropertyName="yField"
         documentationPropertyType="string"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="yField"
       >
         Y Field Name
@@ -51,7 +53,7 @@
 
       <ng-template
         documentationPropertyName="data"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsAreaItem[]"
       >
         Data
@@ -59,7 +61,7 @@
 
       <ng-template
         documentationPropertyName="autoFit"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="boolean"
       >
         Auto Fit
@@ -67,7 +69,7 @@
 
       <ng-template
         documentationPropertyName="theme"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartTheme"
       >
         Theme
@@ -75,7 +77,7 @@
 
       <ng-template
         documentationPropertyName="options"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         documentationPropertyType="PrizmChartsAriaOptions"
       >
         Options
@@ -84,7 +86,7 @@
       <ng-template
         documentationPropertyName="height"
         documentationPropertyType="number"
-        documentationPropertyMode='input'
+        documentationPropertyMode="input"
         [(documentationPropertyValue)]="height"
       >
         Height

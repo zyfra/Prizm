@@ -7,6 +7,6 @@ import { PrizmThemeModule } from '../../directives/theme';
 @NgModule({
   imports: [CommonModule, PrizmThemeModule],
   declarations: [PrizmOverlayComponent],
-  entryComponents: [PrizmOverlayComponent]
+  entryComponents: [PrizmOverlayComponent],
 })
 export class PrizmOverlayModule {}

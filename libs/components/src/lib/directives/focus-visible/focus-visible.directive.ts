@@ -9,14 +9,14 @@ import { PrizmFocusVisibleService } from './focus-visible.service';
  * in browsers that do not support it
  */
 @Directive({
-    selector: '[prizmFocusVisibleChange]',
-    // eslint-disable-next-line @angular-eslint/no-outputs-metadata-property
-    outputs: ['prizmFocusVisibleChange'],
-    providers: [PrizmDestroyService, PrizmFocusVisibleService],
+  selector: '[prizmFocusVisibleChange]',
+  // eslint-disable-next-line @angular-eslint/no-outputs-metadata-property
+  outputs: ['prizmFocusVisibleChange'],
+  providers: [PrizmDestroyService, PrizmFocusVisibleService],
 })
 export class PrizmFocusVisibleDirective {
-    constructor(
-        @Inject(PrizmFocusVisibleService)
-        readonly prizmFocusVisibleChange: Observable<boolean>,
-    ) {}
+  constructor(
+    @Inject(PrizmFocusVisibleService)
+    readonly prizmFocusVisibleChange: Observable<boolean>
+  ) {}
 }

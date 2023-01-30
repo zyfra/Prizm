@@ -5,7 +5,10 @@ import {
   ContentChild,
   TemplateRef,
   OnDestroy,
-  ChangeDetectorRef, HostBinding, EventEmitter, Output,
+  ChangeDetectorRef,
+  HostBinding,
+  EventEmitter,
+  Output,
 } from '@angular/core';
 import { AccordionContentDirective } from '../../directives/accordion-content.directive';
 import { AccordionToolsDirective } from '../../directives/accordion-tools.directive';
@@ -17,7 +20,7 @@ import { Subject } from 'rxjs';
   templateUrl: './accordion-item.component.html',
   styleUrls: ['./accordion-item.component.less'],
   animations: [expandAnimation],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmAccordionItemComponent implements OnDestroy {
   @Input() public title: string = null;
@@ -33,24 +36,23 @@ export class PrizmAccordionItemComponent implements OnDestroy {
   @ContentChild(AccordionToolsDirective, { read: TemplateRef })
   public readonly accordionTools: TemplateRef<AccordionToolsDirective>;
 
-  constructor(private readonly cdRef: ChangeDetectorRef) {
-  }
+  constructor(private readonly cdRef: ChangeDetectorRef) {}
 
-  public toggle$: Subject<void> = new Subject<void>()
-  public isAccordionFocused = false
+  public toggle$: Subject<void> = new Subject<void>();
+  public isAccordionFocused = false;
 
   public toggle(): void {
     if (this.disabled) return;
     this.isExpanded = !this.isExpanded;
     this.isExpandedChange.emit(this.isExpanded);
-    this.toggle$.next()
+    this.toggle$.next();
   }
 
   public close(): void {
     if (this.disabled) return;
     this.isExpanded = false;
     this.isExpandedChange.emit(this.isExpanded);
-    this.cdRef.markForCheck()
+    this.cdRef.markForCheck();
   }
 
   public stopProp($event: Event): void {
@@ -58,6 +60,6 @@ export class PrizmAccordionItemComponent implements OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.toggle$.complete()
+    this.toggle$.complete();
   }
 }

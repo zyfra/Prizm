@@ -15,24 +15,24 @@ import { PrizmHintModule } from '../../../directives/hint';
 import { PrizmIconModule } from '../../icon';
 
 @NgModule({
-    imports: [
-      PrizmOverlayModule,
-      PolymorphModule,
-      PrizmInputTextModule,
-      PrizmChipsModule,
-      FormsModule,
-      ReactiveFormsModule,
-      CommonModule,
-      PrizmLetModule,
-      PrizmHintModule,
-      PrizmIconModule,
-      PrizmCallFuncModule,
-      PrizmScrollbarModule,
-      PrizmDropdownControllerModule,
-      PrizmDataListModule,
-      PrizmDropdownHostModule
-    ],
-    declarations: [PrizmSelectComponent],
-    exports: [PrizmSelectComponent],
+  imports: [
+    PrizmOverlayModule,
+    PolymorphModule,
+    PrizmInputTextModule,
+    PrizmChipsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    PrizmLetModule,
+    PrizmHintModule,
+    PrizmIconModule,
+    PrizmCallFuncModule,
+    PrizmScrollbarModule,
+    PrizmDropdownControllerModule,
+    PrizmDataListModule,
+    PrizmDropdownHostModule,
+  ],
+  declarations: [PrizmSelectComponent],
+  exports: [PrizmSelectComponent],
 })
 export class PrizmSelectModule {}

@@ -4,13 +4,9 @@ import { PrizmTreeItemContentComponent } from '@prizm-ui/components';
 @Component({
   selector: 'prizm-folders',
   template: `
-        <prizm-icon
-            class="tui-space_right-2"
-            [iconClass]="icon"
-            size='16'
-        ></prizm-icon>
-        <ng-container [ngTemplateOutlet]="context.template"></ng-container>
-    `,
+    <prizm-icon class="tui-space_right-2" [iconClass]="icon" size="16"></prizm-icon>
+    <ng-container [ngTemplateOutlet]="context.template"></ng-container>
+  `,
   styleUrls: ['folder.component.less'],
 })
 export class FoldersComponent extends PrizmTreeItemContentComponent {
@@ -19,7 +15,7 @@ export class FoldersComponent extends PrizmTreeItemContentComponent {
   }
 
   @HostListener('click')
-  public  onHostClick(): void {
+  public onHostClick(): void {
     this.onClick();
   }
 }

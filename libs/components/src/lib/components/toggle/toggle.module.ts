@@ -1,18 +1,18 @@
-import {CommonModule} from '@angular/common';
-import {NgModule} from '@angular/core';
-import {PrizmToggleComponent} from './toggle.component';
-import {PrizmLoaderModule} from "../loader";
-import {PrizmWrapperModule} from '../../directives/wrapper';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { PrizmToggleComponent } from './toggle.component';
+import { PrizmLoaderModule } from '../loader';
+import { PrizmWrapperModule } from '../../directives/wrapper';
 import {
   PolymorphModule,
   PrizmCheckedModule,
   PrizmFocusableModule,
   PrizmFocusedModule,
-  PrizmPressedModule
-} from "../../directives";
-import {PrizmFocusVisibleModule} from "../../directives/focus-visible";
-import {PrizmHoveredModule} from '../../directives/hovered';
-import {PrizmIconModule} from "../icon";
+  PrizmPressedModule,
+} from '../../directives';
+import { PrizmFocusVisibleModule } from '../../directives/focus-visible';
+import { PrizmHoveredModule } from '../../directives/hovered';
+import { PrizmIconModule } from '../icon';
 
 @NgModule({
   imports: [
@@ -26,9 +26,9 @@ import {PrizmIconModule} from "../icon";
     PrizmWrapperModule,
     PrizmLoaderModule,
     PolymorphModule,
-    PrizmIconModule
+    PrizmIconModule,
   ],
-    declarations: [PrizmToggleComponent],
-    exports: [PrizmToggleComponent],
+  declarations: [PrizmToggleComponent],
+  exports: [PrizmToggleComponent],
 })
 export class PrizmToggleModule {}

@@ -35,4 +35,3 @@ export class PrizmCarouselArrayOfObjectsExampleComponent {
     (item, el) => item.id === el.id
   );
 }
-

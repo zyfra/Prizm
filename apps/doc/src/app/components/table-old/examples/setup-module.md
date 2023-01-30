@@ -10,6 +10,5 @@ import { ZuiTableModule } from '@prizm-ui/components';
     ZuiTableModule,
   ],
 })
-export class MyModule {
-}
+export class MyModule {}
 ```

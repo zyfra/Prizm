@@ -13,27 +13,26 @@ import { prizmReplayControlValueChangesFactory } from '../../../util/common/repl
 import { PrizmInputDateTimeComponent } from './input-date-time.component';
 
 export const TIME_STREAM_FACTORY = <T extends [PrizmDay | null, PrizmTime | null]>(
-    control: NgControl | null,
-    valueTransformer: PrizmControlValueTransformer<T>,
-): Observable<T | null> | null =>
-    prizmReplayControlValueChangesFactory<T>(control, valueTransformer);
+  control: NgControl | null,
+  valueTransformer: PrizmControlValueTransformer<T>
+): Observable<T | null> | null => prizmReplayControlValueChangesFactory<T>(control, valueTransformer);
 
 export const PRIZM_INPUT_DATE_TIME_PROVIDERS = [
-    {
-        provide: AbstractPrizmControl,
-        useExisting: forwardRef(() => PrizmInputDateTimeComponent),
-    },
-    {
-        provide: PRIZM_FOCUSABLE_ITEM_ACCESSOR,
-        useExisting: forwardRef(() => PrizmInputDateTimeComponent),
-    },
-    {
-        provide: PRIZM_CALENDAR_DATA_STREAM,
-        deps: [
-            [new Optional(), new Self(), NgControl],
-            [new Optional(), forwardRef(() => PRIZM_DATE_TIME_VALUE_TRANSFORMER)],
-        ],
-        useFactory: TIME_STREAM_FACTORY,
-    },
-    PRIZM_LEFT_ALIGNED_DROPDOWN_CONTROLLER_PROVIDER,
+  {
+    provide: AbstractPrizmControl,
+    useExisting: forwardRef(() => PrizmInputDateTimeComponent),
+  },
+  {
+    provide: PRIZM_FOCUSABLE_ITEM_ACCESSOR,
+    useExisting: forwardRef(() => PrizmInputDateTimeComponent),
+  },
+  {
+    provide: PRIZM_CALENDAR_DATA_STREAM,
+    deps: [
+      [new Optional(), new Self(), NgControl],
+      [new Optional(), forwardRef(() => PRIZM_DATE_TIME_VALUE_TRANSFORMER)],
+    ],
+    useFactory: TIME_STREAM_FACTORY,
+  },
+  PRIZM_LEFT_ALIGNED_DROPDOWN_CONTROLLER_PROVIDER,
 ];

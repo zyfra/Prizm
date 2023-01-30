@@ -30,7 +30,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
       useExisting: forwardRef(() => PrizmChipsComponent),
       multi: true,
     },
-    PrizmDestroyService
+    PrizmDestroyService,
   ],
 })
 export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDestroy, AfterViewInit {
@@ -58,28 +58,30 @@ export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDest
   public chipsList$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   private subscription: Subscription = new Subscription();
   readonly ready: (el: ElementRef) => boolean = (el: ElementRef) => {
-    const {x, y} = el.nativeElement.getBoundingClientRect();
-    return Math.max(x, y) > 0
-  }
+    const { x, y } = el.nativeElement.getBoundingClientRect();
+    return Math.max(x, y) > 0;
+  };
 
   constructor(private readonly cdRef: ChangeDetectorRef, private readonly destroy$: PrizmDestroyService) {}
 
-  readonly prizmIsTextOverflow$ = (elem: HTMLElement, hintCanShow: boolean, forceShowHint: boolean): Observable<boolean> => {
+  readonly prizmIsTextOverflow$ = (
+    elem: HTMLElement,
+    hintCanShow: boolean,
+    forceShowHint: boolean
+  ): Observable<boolean> => {
     return of(forceShowHint).pipe(
-      switchMap(
-        val => {
-          if (val) {
-            return of(true);
-          }
-
-          if (!hintCanShow) {
-            return of(false);
-          }
-
-          return prizmIsTextOverflow$(elem);
+      switchMap(val => {
+        if (val) {
+          return of(true);
         }
-      )
-    )
+
+        if (!hintCanShow) {
+          return of(false);
+        }
+
+        return prizmIsTextOverflow$(elem);
+      })
+    );
   };
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -88,7 +90,7 @@ export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDest
   public onTouched: (value: unknown) => void = () => {};
 
   get chipsList(): string[] {
-    return this.chipsList$.getValue() ?? [] as string[];
+    return this.chipsList$.getValue() ?? ([] as string[]);
   }
 
   set chipsList(data: string[]) {
@@ -118,9 +120,7 @@ export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDest
   }
 
   public ngOnInit(): void {
-    this.subscription = this.chipsList$.pipe(
-      takeUntil(this.destroy$)
-    ).subscribe(chips => {
+    this.subscription = this.chipsList$.pipe(takeUntil(this.destroy$)).subscribe(chips => {
       this.onChange(chips);
     });
   }
@@ -146,8 +146,7 @@ export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDest
     this.onTouched = fn;
   }
 
-
-  public isChipsContent$ (
+  public isChipsContent$(
     observable: Observable<ElementRef>,
     parent: HTMLElement,
     singleLine: boolean,
@@ -156,51 +155,42 @@ export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDest
     allChipsCount: number
   ): Observable<string> {
     return this.chipsList$.pipe(
-      switchMap(
-        () => observable
-      ),
+      switchMap(() => observable),
       map((current: ElementRef) => {
         if (idx === 0) this.overflowedChipsList$.value.clear();
-        if (!singleLine || this.chipsList.length === 1 ) return false;
+        if (!singleLine || this.chipsList.length === 1) return false;
 
         const maxPadding = 2;
         const needWidthPlaceForShowDots = 35;
-        const offsetY = Math.abs((parent.offsetTop - current.nativeElement.offsetTop)) > maxPadding;
+        const offsetY = Math.abs(parent.offsetTop - current.nativeElement.offsetTop) > maxPadding;
 
         const parentX = parent.offsetLeft + parent.offsetWidth;
         const currentX = current.nativeElement.offsetLeft + current.nativeElement.offsetWidth;
-        const result = offsetY ||
-          (parentX - currentX) < needWidthPlaceForShowDots;
+        const result = offsetY || parentX - currentX < needWidthPlaceForShowDots;
 
-        if (result)
-          this.overflowedChipsList$.value.add(idx);
-        else
-          this.overflowedChipsList$.value.delete(idx);
+        if (result) this.overflowedChipsList$.value.add(idx);
+        else this.overflowedChipsList$.value.delete(idx);
 
-        this.overflowedChipsList$.next(
-          this.overflowedChipsList$.value
-        );
+        this.overflowedChipsList$.next(this.overflowedChipsList$.value);
 
         return result;
       }),
-      map(i => i ? 'hidden' : 'visible')
-    )
+      map(i => (i ? 'hidden' : 'visible'))
+    );
   }
 
-  public getOverflowedChipsListHint(
-  ): string {
+  public getOverflowedChipsListHint(): string {
     const list = [...this.overflowedChipsList$.value.values()];
-    return [...list].map(i => {
-      return this.chipsList[i];
-    }).join(', ')
+    return [...list]
+      .map(i => {
+        return this.chipsList[i];
+      })
+      .join(', ');
   }
 
   ngAfterViewInit(): void {
-    timer(0).subscribe(
-      () => {
-        this.chipsList = [...this.chipsList];
-      }
-    )
+    timer(0).subscribe(() => {
+      this.chipsList = [...this.chipsList];
+    });
   }
 }
-

@@ -28,12 +28,10 @@ export class PrizmSelectWithBackendSearchExampleComponent {
 
   public search(val: string): void {
     if (!val) this.items$.next(this.allItems);
-    const foundItems = this.allItems.filter(
-      i => i?.toLowerCase().includes(val?.toLowerCase())
-    );
+    const foundItems = this.allItems.filter(i => i?.toLowerCase().includes(val?.toLowerCase()));
 
-    timer(500).pipe(
-      tap(() => this.items$.next(foundItems))
-    ).subscribe()
+    timer(500)
+      .pipe(tap(() => this.items$.next(foundItems)))
+      .subscribe();
   }
 }

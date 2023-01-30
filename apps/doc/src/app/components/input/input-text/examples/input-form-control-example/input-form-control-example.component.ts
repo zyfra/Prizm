@@ -24,4 +24,3 @@ export class InputFormControlExampleComponent {
     this.ngModelText = 'New for ngModel';
   }
 }
-

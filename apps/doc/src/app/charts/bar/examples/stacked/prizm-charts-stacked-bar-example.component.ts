@@ -10,7 +10,7 @@ import { PrizmThemeService } from '@prizm-ui/theme';
         width: 100%;
         height: 300px;
       }
-    `
+    `,
   ],
 })
 export class PrizmChartsStackedBarExampleComponent {
@@ -107,8 +107,5 @@ export class PrizmChartsStackedBarExampleComponent {
     },
   ];
 
-  constructor(
-    public readonly prizmTheme: PrizmThemeService,
-  ) {
-  }
+  constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

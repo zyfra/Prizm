@@ -10,9 +10,7 @@ import { PrizmSelectBaseExampleComponent } from './examples/base/select-base-exa
 import { PrizmSelectWithSearchExampleComponent } from './examples/with-search/select-with-search-example.component';
 import { PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmSelectWithObjectExampleComponent } from './examples/with-object/select-with-object-example.component';
-import {
-  PrizmSelectWithBackendSearchExampleComponent
-} from './examples/with-backend-search/select-with-backend-search-example.component';
+import { PrizmSelectWithBackendSearchExampleComponent } from './examples/with-backend-search/select-with-backend-search-example.component';
 
 @NgModule({
   imports: [
