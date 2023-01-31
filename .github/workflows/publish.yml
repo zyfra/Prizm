@@ -19,7 +19,7 @@ jobs:
         uses: nrwl/nx-set-shas@v2
       - run: npm ci
       - run: npx nx clear-cache
-#      - run: cat $npmrc_config > .npmrc
+      #      - run: cat $npmrc_config > .npmrc
       - run: echo "_authToken=$npm_auth_token" >> .npmrc
       - run: cp .npmrc ~/
       - run: npx nx affected --target=build  --prod --parallel --max-parallel=3
