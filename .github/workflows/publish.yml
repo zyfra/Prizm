@@ -4,7 +4,7 @@ on:
     types: [created]
 env:
   npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
-  npm_auth_token: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
+  REGISTRY_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,10 +19,9 @@ jobs:
         uses: nrwl/nx-set-shas@v2
       - run: npm ci
       - run: npx nx clear-cache
-      - run: echo $npm_auth_token
+      - run: echo $REGISTRY_TOKEN
       - run: echo $npmrc_config_push
-      - run: cat ${npmrc_config_push} > .npmrc
-      - run: echo "_authToken=$npm_auth_token" >> .npmrc
+      - run: echo "_authToken=$REGISTRY_TOKEN" >> .npmrc
       - run: cp .npmrc ~/
       - run: npx nx affected:build --all --prod --parallel --max-parallel=3
       - run: pwd
