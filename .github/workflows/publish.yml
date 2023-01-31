@@ -3,8 +3,8 @@ on:
   release:
     types: [created]
 env:
-  npmrc_config: ${{ env.NPMRC_CONFIG_PUSH }}
-  npm_auth_token: ${{ env.NPM_AUTH_PUBLISH_TOKEN }}
+  npmrc_config: ${{ secrets.NPMRC_CONFIG_PUSH }}
+  npm_auth_token: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,6 +20,7 @@ jobs:
       - run: npm ci
       - run: npx nx clear-cache
       #      - run: cat $npmrc_config > .npmrc
+      - run: echo $npm_auth_token
       - run: echo "_authToken=$npm_auth_token" >> .npmrc
       - run: cp .npmrc ~/
       - run: npx nx affected:build --all --prod --parallel --max-parallel=3
