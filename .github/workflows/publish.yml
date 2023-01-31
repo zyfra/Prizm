@@ -30,10 +30,8 @@ jobs:
       - run: cp .npmrc ~/
       - run: npx nx affected:build --all --prod --parallel --max-parallel=3
       - run: pwd
-      - run: ls -ls
-      - run: cd dist/libs
-      - run: ls -ls
-      - run: cd helpers && npm publish --verbose && cd .. || exit_code=0
+      - run: cd dist/libs && ls -ls
+      - run: cd helpers && npm publish --verbose || exit_code=0
 #      - run: npm publish --access public --userconfig ~/.npmrc --verbose  components || exit_code=0
 #      - run: npm publish --access public --userconfig ~/.npmrc --verbose  core || exit_code=0
 #      - run: npm publish --access public --userconfig ~/.npmrc --verbose  icons/base || exit_code=0
