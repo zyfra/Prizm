@@ -25,14 +25,17 @@ export class PrizmCarouselExampleComponent {
   public required = false;
   carouselContent = new PrizmCarouselArrayContent([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], (item, el) => item === el);
   lightMode = false;
+
   public readonly zyfraCarouselBasicExample: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/carousel-basic-example/carousel-basic-example.component.ts'),
     HTML: import('!!raw-loader!./examples/carousel-basic-example/carousel-basic-example.component.html'),
   };
+
   public readonly zyfraCarouselLightExample: TuiDocExample = {
     TypeScript: import('!!raw-loader!./examples/carousel-light-example/carousel-light-example.component.ts'),
     HTML: import('!!raw-loader!./examples/carousel-light-example/carousel-light-example.component.html'),
   };
+
   public readonly zyfraCarouselArrayofObjectsExample: TuiDocExample = {
     TypeScript: import(
       '!!raw-loader!./examples/carousel-array-of-objects-example/carousel-array-of-objects-example.component.ts'
@@ -50,6 +53,12 @@ export class PrizmCarouselExampleComponent {
       '!!raw-loader!./examples/carousel-year-month-example/carousel-year-month-example.component.html'
     ),
     PIPE: import('!!raw-loader!./examples/carousel-year-month-example/month.pipe.ts'),
+  };
+
+  public readonly carouselAsInputExample: TuiDocExample = {
+    Module: import('!!raw-loader!./examples/input-as-carousel/input-as-carousel.module.ts'),
+    Component: import('!!raw-loader!./examples/input-as-carousel/input-as-carousel.component.ts'),
+    HTML: import('!!raw-loader!./examples/input-as-carousel/input-as-carousel.component.html'),
   };
 
   readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
