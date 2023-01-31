@@ -8,4 +8,3 @@ import { PrizmCarouselInputAsCarouselExampleComponent } from './input-as-carouse
   exports: [PrizmCarouselInputAsCarouselExampleComponent],
 })
 export class PrizmInputAsCarouselExampleModule {}
-
