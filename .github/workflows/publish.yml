@@ -24,14 +24,18 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       - run: npx nx clear-cache
-      - run: echo $NODE_AUTH_TOKEN
-      - run: echo $npmrc_config_push
-      - run: echo "_authToken=$NODE_AUTH_TOKEN" >> .npmrc
-      - run: cp .npmrc ~/
+#      - run: echo $NODE_AUTH_TOKEN
+#      - run: echo $npmrc_config_push
+#      - run: echo "_authToken=$NODE_AUTH_TOKEN" >> .npmrc
+#      - run: cp .npmrc ~/
       - run: npx nx affected:build --all --prod --parallel --max-parallel=3
-      - run: pwd
-      - run: cd dist/libs && ls -ls
-      - run: cd helpers && npm publish --verbose || exit_code=0
+      - run: cd dist/libs/helpers && npm publish --verbose || exit_code=0
+      - run: cd dist/libs/core && npm publish --verbose || exit_code=0
+      - run: cd dist/libs/schematics && npm publish --verbose || exit_code=0
+      - run: cd dist/libs/theme && npm publish --verbose || exit_code=0
+      - run: cd dist/libs/charts && npm publish --verbose || exit_code=0
+      - run: cd dist/libs/icons/base && npm publish --verbose || exit_code=0
+      - run: cd dist/libs/icons/flags && npm publish --verbose || exit_code=0
 #      - run: npm publish --access public --userconfig ~/.npmrc --verbose  components || exit_code=0
 #      - run: npm publish --access public --userconfig ~/.npmrc --verbose  core || exit_code=0
 #      - run: npm publish --access public --userconfig ~/.npmrc --verbose  icons/base || exit_code=0
