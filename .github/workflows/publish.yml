@@ -4,7 +4,7 @@ on:
     types: [created]
 env:
   npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
-  REGISTRY_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
+  NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,17 +17,22 @@ jobs:
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       - run: npx nx clear-cache
-      - run: echo $REGISTRY_TOKEN
+      - run: echo $NODE_AUTH_TOKEN
       - run: echo $npmrc_config_push
-      - run: echo "_authToken=$REGISTRY_TOKEN" >> .npmrc
+      - run: echo "_authToken=$NODE_AUTH_TOKEN" >> .npmrc
       - run: cp .npmrc ~/
       - run: npx nx affected:build --all --prod --parallel --max-parallel=3
       - run: pwd
       - run: ls -ls
       - run: cd dist/libs
-      - run: npm publish --access public --userconfig ~/.npmrc --verbose  helpers || exit_code=0
+      - run: npm publish --access public --verbose  helpers || exit_code=0
       - run: npm publish --access public --userconfig ~/.npmrc --verbose  components || exit_code=0
       - run: npm publish --access public --userconfig ~/.npmrc --verbose  core || exit_code=0
       - run: npm publish --access public --userconfig ~/.npmrc --verbose  icons/base || exit_code=0
