@@ -1,0 +1,34 @@
+name: Publish package
+on:
+  release:
+    types: [created]
+env:
+  npmrc_config: ${{ vars.NPMRC_CONFIG_PUSH }}
+  npm_auth_token: ${{ vars.NPM_AUTH_PUBLISH_TOKEN }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - run: npm ci
+      - run: npx nx clear-cache
+#      - run: cat $npmrc_config > .npmrc
+      - run: echo "_authToken=$npm_auth_token" >> .npmrc
+      - run: cp .npmrc ~/
+      - run: npx nx affected --target=build  --prod --parallel --max-parallel=3
+      - run: cd dist/libs
+      - run: npm publish --access public --userconfig ~/.npmrc --verbose  helpers || exit_code=0
+      - run: npm publish --access public --userconfig ~/.npmrc --verbose  components || exit_code=0
+      - run: npm publish --access public --userconfig ~/.npmrc --verbose  core || exit_code=0
+      - run: npm publish --access public --userconfig ~/.npmrc --verbose  icons/base || exit_code=0
+      - run: npm publish --access public --userconfig ~/.npmrc --verbose  icons/flags || exit_code=0
+      - run: npm publish --access public --userconfig ~/.npmrc --verbose  schematics || exit_code=0
+      - run: npm publish --access public --userconfig ~/.npmrc --verbose  theme || exit_code=0
+      - run: npm publish --access public --userconfig ~/.npmrc --verbose  charts || exit_code=0
