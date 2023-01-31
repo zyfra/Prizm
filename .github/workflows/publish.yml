@@ -32,11 +32,11 @@ jobs:
       - run: pwd
       - run: ls -ls
       - run: cd dist/libs
-      - run: npm publish --access public --verbose  helpers || exit_code=0
-      - run: npm publish --access public --userconfig ~/.npmrc --verbose  components || exit_code=0
-      - run: npm publish --access public --userconfig ~/.npmrc --verbose  core || exit_code=0
-      - run: npm publish --access public --userconfig ~/.npmrc --verbose  icons/base || exit_code=0
-      - run: npm publish --access public --userconfig ~/.npmrc --verbose  icons/flags || exit_code=0
-      - run: npm publish --access public --userconfig ~/.npmrc --verbose  schematics || exit_code=0
-      - run: npm publish --access public --userconfig ~/.npmrc --verbose  theme || exit_code=0
-      - run: npm publish --access public --userconfig ~/.npmrc --verbose  charts || exit_code=0
+      - run: cd helpers && npm publish --verbose && cd .. || exit_code=0
+#      - run: npm publish --access public --userconfig ~/.npmrc --verbose  components || exit_code=0
+#      - run: npm publish --access public --userconfig ~/.npmrc --verbose  core || exit_code=0
+#      - run: npm publish --access public --userconfig ~/.npmrc --verbose  icons/base || exit_code=0
+#      - run: npm publish --access public --userconfig ~/.npmrc --verbose  icons/flags || exit_code=0
+#      - run: npm publish --access public --userconfig ~/.npmrc --verbose  schematics || exit_code=0
+#      - run: npm publish --access public --userconfig ~/.npmrc --verbose  theme || exit_code=0
+#      - run: npm publish --access public --userconfig ~/.npmrc --verbose  charts || exit_code=0
