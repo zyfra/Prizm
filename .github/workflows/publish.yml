@@ -3,8 +3,8 @@ on:
   release:
     types: [created]
 env:
-  npmrc_config: ${{ vars.NPMRC_CONFIG_PUSH }}
-  npm_auth_token: ${{ vars.NPM_AUTH_PUBLISH_TOKEN }}
+  npmrc_config: ${{ env.NPMRC_CONFIG_PUSH }}
+  npm_auth_token: ${{ env.NPM_AUTH_PUBLISH_TOKEN }}
 jobs:
   build:
     runs-on: ubuntu-latest
