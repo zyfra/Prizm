@@ -22,11 +22,9 @@ jobs:
       #      - run: cat $npmrc_config > .npmrc
       - run: echo "_authToken=$npm_auth_token" >> .npmrc
       - run: cp .npmrc ~/
-      - run: npx nx affected --target=build  --prod --parallel --max-parallel=3
-      #     # get run
+      - run: npx nx affected:build --all --prod --parallel --max-parallel=3
       - run: pwd
       - run: ls -ls
-
       - run: cd dist/libs
       - run: npm publish --access public --userconfig ~/.npmrc --verbose  helpers || exit_code=0
       - run: npm publish --access public --userconfig ~/.npmrc --verbose  components || exit_code=0
