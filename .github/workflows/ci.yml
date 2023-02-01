@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  main:
+  pr_build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -25,3 +25,25 @@ jobs:
       - run: npx nx affected --target=lint --base=origin/main --parallel --max-parallel=3
       - run: npx nx affected --target=build --base=origin/main --prod --parallel --max-parallel=3
       - run: npx nx affected --target=e2e --base=origin/main --prod --parallel --max-parallel=3
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: builds
+          path: dist
+          retention-days: 5
+  build_and_preview:
+    needs: pr_build
+    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: builds
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
+          expires: 30d
+          projectId: prizmui
