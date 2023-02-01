@@ -17,6 +17,7 @@ jobs:
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
 
+      - name: Install dependencies
       - run: npm ci
       - run: npx nx workspace-lint
       - run: npx nx format:check --base=origin/main
@@ -25,7 +26,7 @@ jobs:
       - run: npx nx affected --target=lint --base=origin/main --parallel --max-parallel=3
       - run: npx nx affected --target=build --base=origin/main --prod --parallel --max-parallel=3
       - run: npx nx affected --target=e2e --base=origin/main --prod --parallel --max-parallel=3
-      - name: 'DOC BUILD'
+      - name: 'Build doc app for firebase hosting'
         run: npx nx build doc
       - name: 'Upload to Firebase HOSTING'
         uses: FirebaseExtended/action-hosting-deploy@v0
