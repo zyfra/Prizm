@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  main:
+  pr_build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,7 +17,17 @@ jobs:
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
 
-      - run: npm ci
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-modules-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
+
       - run: npx nx workspace-lint
       - run: npx nx format:check --base=origin/main
       - run: npx nx clear-cache
@@ -25,3 +35,12 @@ jobs:
       - run: npx nx affected --target=lint --base=origin/main --parallel --max-parallel=3
       - run: npx nx affected --target=build --base=origin/main --prod --parallel --max-parallel=3
       - run: npx nx affected --target=e2e --base=origin/main --prod --parallel --max-parallel=3
+      - name: 'Build doc app for firebase hosting'
+        run: npx nx build doc
+      - name: 'Upload to Firebase HOSTING'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
+          expires: 5d
+          projectId: prizmui
