@@ -34,7 +34,7 @@ jobs:
 
       - name: Save cache
         id: cache-save
-        uses: actions/cache/restore@v3
+        uses: actions/cache/save@v3
         if: always()
         with:
           path: ./node_modules
