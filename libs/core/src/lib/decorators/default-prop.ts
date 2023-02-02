@@ -1,4 +1,4 @@
-import { PrizmBooleanHandler } from "../types/handler";
+import { PrizmBooleanHandler } from '../types/handler';
 
 /**
  * Decorator for checking input values for undefined. You can also pass

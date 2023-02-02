@@ -3,8 +3,8 @@
   "version": "1.0.0-beta.22",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^12.2.0",
-    "@angular/core": "^12.2.0",
+    "@angular/common": "^14.2.12",
+    "@angular/core": "^14.2.12",
     "@prizm-ui/theme": "^1.0.0-beta.22",
     "@prizm-ui/helpers": "^1.0.0-beta.22",
     "@antv/g2plot": "^2.4.22"
