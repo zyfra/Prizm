@@ -17,11 +17,7 @@ export function prizmGetClosestFocusable(
 
   const check = keyboard ? prizmIsNativeKeyboardFocusable : prizmIsNativeMouseFocusable;
 
-  const treeWalker = root.ownerDocument.createTreeWalker(
-    root,
-    NodeFilter.SHOW_ELEMENT,
-    prizmSvgNodeFilter,
-  );
+  const treeWalker = root.ownerDocument.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, prizmSvgNodeFilter);
 
   treeWalker.currentNode = initial;
 

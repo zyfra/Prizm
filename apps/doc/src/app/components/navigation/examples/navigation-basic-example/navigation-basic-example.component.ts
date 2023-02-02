@@ -32,4 +32,3 @@ export class NavigationBasicExampleComponent {
     this.currentNavElementIdx = idx;
   }
 }
-

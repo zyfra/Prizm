@@ -153,7 +153,7 @@ export class PrizmDropdownHostDateListExampleComponent implements OnInit {
     this.endControl.disable();
 
     // TODO fix type
-    this.startControl.setValue(item.range[0]  as any);
+    this.startControl.setValue(item.range[0] as any);
     // TODO fix type
     this.endControl.setValue(item.range[1] as any);
   }
