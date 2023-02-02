@@ -1,11 +1,13 @@
+import { PrizmBooleanHandler } from "../types/handler";
+
 /**
  * Decorator for checking input values for undefined. You can also pass
  * optional assertion to check input against.
  *
  * CAUTION: This decorator overwrites other getters and setters.
  */
-export function prizmDefaultProp<T extends any, K extends keyof T>(
-  assertion?: (item: T) => boolean,
+export function prizmDefaultProp<T extends Record<string, any>, K extends keyof T>(
+  assertion?: PrizmBooleanHandler<T[K]>,
   ...args: unknown[]
 ): PropertyDecorator {
   return (target, key): void => {
@@ -28,7 +30,7 @@ export function prizmDefaultProp<T extends any, K extends keyof T>(
 
         if (isValid && assertion) {
           console.assert(
-            assertion.call(this, initialValue as T),
+            assertion.call(this, initialValue),
             `${String(key)} in ${name} received:`,
             initialValue,
             ...args
@@ -47,7 +49,7 @@ export function prizmDefaultProp<T extends any, K extends keyof T>(
 
             if (isValid && assertion) {
               console.assert(
-                assertion.call(this, value as T),
+                assertion.call(this, value),
                 `${String(key)} in ${name} received:`,
                 value,
                 ...args
