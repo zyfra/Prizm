@@ -32,7 +32,7 @@ jobs:
         if: steps.cache-restore.outputs.cache-hit != 'true'
         run: npx cypress install
 
-      - name: Save cache
+      - name: Save cache...
         id: cache-save
         uses: actions/cache/save@v3
         if: ${{ steps.cache-restore.outputs.cache-hit != 'true' && always() }}
