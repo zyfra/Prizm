@@ -19,7 +19,7 @@ export class NavigationBasicExampleComponent {
   public currentNavElementIdx = 0;
 
   public readonly logoPath$ = this.themeSwitcher.change$.pipe(
-    map(theme => `assets/example/logo-${theme}.png`)
+    map(theme => `assets/example/logo-${theme.theme}.png`)
   );
 
   constructor(private readonly themeSwitcher: PrizmThemeService) {}
@@ -32,3 +32,4 @@ export class NavigationBasicExampleComponent {
     this.currentNavElementIdx = idx;
   }
 }
+
