@@ -36,7 +36,7 @@ jobs:
       - run: npx nx affected --target=test --base=origin/main --parallel --max-parallel=3
       - run: npx nx affected --target=lint --base=origin/main --parallel --max-parallel=3
       - run: npx nx affected --target=build --base=origin/main --prod --parallel --max-parallel=3
-#      - run: npx nx affected --target=e2e --base=origin/main --prod --parallel --max-parallel=3
+      #      - run: npx nx affected --target=e2e --base=origin/main --prod --parallel --max-parallel=3
       - name: 'Build doc app for firebase hosting'
         run: npx nx build doc
       - name: 'Upload to Firebase HOSTING'
