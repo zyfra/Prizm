@@ -18,7 +18,7 @@ jobs:
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
 
-      - name: Restore cache dependencies
+      - name: Restore cache
         id: cache-restore
         uses: actions/cache/restore@v3
         with:
@@ -36,7 +36,7 @@ jobs:
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
 
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.cache-restore.outputs.cache-hit != 'true'
         run: npm ci --ignore-scripts
 
       - run: npx nx workspace-lint
