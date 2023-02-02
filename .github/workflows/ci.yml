@@ -18,14 +18,23 @@ jobs:
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
 
-      - name: Cache dependencies
+      - name: Restore cache dependencies
         id: cache
-        uses: actions/cache@v3
+        uses: actions/cache/restore@v3
         with:
           path: ./node_modules
           key: ${{ runner.os }}-modules-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-modules-
+
+      - name: Save cache
+        id: cache
+        uses: actions/cache/restore@v3
+        if: always()
+        with:
+          path: ./node_modules
+          key: ${{ steps.cache-primes-restore.outputs.cache-primary-key }}
+
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci --ignore-scripts
