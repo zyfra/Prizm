@@ -44,9 +44,7 @@ jobs:
       - run: npx nx affected --target=build --base=origin/main --prod --parallel --max-parallel=3
 
       - name: Install Cypress
-        uses: cypress-io/github-action@v5
-        with:
-          browser: chrome
+        run: npx cypress install
 
       - name: Run e2e cypress test
         run: npx nx affected --target=e2e --base=origin/main --prod --parallel --max-parallel=3
