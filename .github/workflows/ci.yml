@@ -20,9 +20,17 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-modules-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-modules-
+            ${{ runner.os }}-node_modules-
+
+      - name: Install dependencies
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
+
+      - name: Install Cypress
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        run: npx cypress install
 
       - name: Save cache
         id: cache-save
@@ -32,19 +40,12 @@ jobs:
           path: ./node_modules
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
 
-      - name: Install dependencies
-        if: steps.cache-restore.outputs.cache-hit != 'true'
-        run: npm ci --ignore-scripts
-
       - run: npx nx workspace-lint
       - run: npx nx format:check --base=origin/main
       - run: npx nx clear-cache
       - run: npx nx affected --target=test --base=origin/main --parallel --max-parallel=3
       - run: npx nx affected --target=lint --base=origin/main --parallel --max-parallel=3
       - run: npx nx affected --target=build --base=origin/main --prod --parallel --max-parallel=3
-
-      - name: Install Cypress
-        run: npx cypress install
 
       - name: Run e2e cypress test
         run: npx nx affected --target=e2e --base=origin/main --prod --parallel --max-parallel=3
