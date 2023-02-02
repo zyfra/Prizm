@@ -162,18 +162,12 @@ export class PrizmBaseTableComponent<T = unknown> implements OnChanges, AfterCon
    * Height of a row to use in calculations of virtual scrolling
    */
   @Input() virtualRowHeight = 32;
-  /**
-   * Minimum amount of content buffer (in pixels) that the viewport must render
-   */
-  @Input() minBufferPx: number;
-  /**
-   * Configures how much buffer space to render back up to when it detects that more buffer is required
-   */
-  @Input() maxBufferPx: number;
+
   /**
    * Width of the frozen columns container
    */
   @Input() frozenWidth: string;
+
   /**
    * An array of objects to represent dynamic columns that are frozen
    */

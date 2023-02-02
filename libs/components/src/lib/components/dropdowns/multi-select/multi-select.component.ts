@@ -251,7 +251,7 @@ export class PrizmMultiSelectComponent<T>
     this.initControlStatusChangerIfExist();
     this.selectedItems$
       .pipe(
-        tap(items => this.chipsControl.setValue(items, { emitEvent: true })),
+        tap(items => this.chipsControl.setValue(items as any, { emitEvent: true })),
         tap(() => this.cdRef.markForCheck()),
         takeUntil(this.destroy$)
       )

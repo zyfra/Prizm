@@ -1,12 +1,4 @@
 {
-  "npmScope": "prizm",
-  "affected": {
-    "defaultBase": "master"
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/angular",
-    "packageManager": "npm"
-  },
   "implicitDependencies": {
     "package.json": {
       "dependencies": "*",
@@ -14,16 +6,7 @@
     },
     ".eslintrc.json": "*"
   },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/nx-cloud",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "runtimeCacheInputs": ["node -v"],
-        "accessToken": "MDU2OTgxM2EtZTBhZS00ZDgzLTliZmYtMmEyMDM0YjUwNGI0fHJlYWQtd3JpdGU="
-      }
-    }
-  },
+  "npmScope": "prizm",
   "targetDependencies": {
     "build": [
       {
@@ -31,6 +14,31 @@
         "projects": "dependencies"
       }
     ]
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
+        "runtimeCacheInputs": [
+          "node -v"
+        ],
+        "accessToken": "MDU2OTgxM2EtZTBhZS00ZDgzLTliZmYtMmEyMDM0YjUwNGI0fHJlYWQtd3JpdGU=",
+        "parallel": 3
+      }
+    }
+  },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "packageManager": "npm"
   },
   "generators": {
     "@nrwl/angular:application": {
@@ -40,7 +48,6 @@
       "e2eTestRunner": "cypress"
     },
     "@nrwl/angular:library": {
-      "style": "less",
       "linter": "eslint",
       "unitTestRunner": "jest"
     },

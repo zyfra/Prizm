@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { DesignSystemComponent } from './about-prizm/design-system/design-system.component';
 import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
 import { MigrationComponent } from './how-to-start/migration/migration.component';
 
-export const ROUTES = [
+export const ROUTES: Routes = [
   {
     path: 'about-prizm',
     children: [
       {
         path: 'license',
-        loadChildren: async (): Promise<unknown> =>
+        loadChildren: () =>
           import('./about-prizm/license/license.module').then(m => m.LicenseModule),
         data: {
           title: 'License',
@@ -18,8 +18,7 @@ export const ROUTES = [
       },
       {
         path: 'changelog',
-        loadChildren: async (): Promise<unknown> =>
-          (await import('./about-prizm/changelog/changelog.module')).ChangelogModule,
+        loadChildren: () => import('./about-prizm/changelog/changelog.module').then(i => i.ChangelogModule),
         data: {
           title: 'Changelog',
         },
@@ -39,7 +38,7 @@ export const ROUTES = [
     children: [
       {
         path: 'typography',
-        loadChildren: async (): Promise<unknown> =>
+        loadChildren: () =>
           import('./guidelines/typography/typography.module').then(m => m.TypographyModule),
         data: {
           title: 'Typography',
@@ -47,7 +46,7 @@ export const ROUTES = [
       },
       {
         path: 'colors',
-        loadChildren: async (): Promise<unknown> =>
+        loadChildren: () =>
           import('./guidelines/colors/colors.module').then(m => m.ColorsModule),
         data: {
           title: 'Colors',
@@ -55,7 +54,7 @@ export const ROUTES = [
       },
       {
         path: 'grid',
-        loadChildren: async (): Promise<unknown> =>
+        loadChildren: () =>
           import('./guidelines/grid/grid.module').then(m => m.GridModule),
         data: {
           title: 'Grid',
@@ -90,24 +89,22 @@ export const ROUTES = [
   // DOC
   {
     path: 'generate-example',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./documentation/generate-example/generate-example.module')).GenerateExampleModule,
+    loadChildren: () =>
+      import('./documentation/generate-example/generate-example.module').then(i => i.GenerateExampleModule),
     data: {
       title: 'Generate example',
     },
   },
   {
     path: 'contributing',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./documentation/contributing/contributing.module')).ContributingModule,
+    loadChildren: () => import('./documentation/contributing/contributing.module').then(i => i.ContributingModule),
     data: {
       title: 'Contributing',
     },
   },
   {
     path: 'codestyle',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./documentation/codestyle/codestyle.module')).CodestyleModule,
+    loadChildren: () => import('./documentation/codestyle/codestyle.module').then(i => i.CodestyleModule),
     data: {
       title: 'CodeStyle',
     },
@@ -115,431 +112,390 @@ export const ROUTES = [
   // COMPONENTS
   {
     path: 'components/dropdowns/dropdown-host',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/dropdowns/dropdown-host/dropdown-host.module')).DropdownHostModule,
+    loadChildren: () => import('./components/dropdowns/dropdown-host/dropdown-host.module').then(i => i.DropdownHostModule),
     data: {
       title: 'DropdownHost',
     },
   },
   {
     path: 'components/skeleton',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/skeleton/skeleton.module')).SkeletonModule,
+    loadChildren: () => import('./components/skeleton/skeleton.module').then(i => i.SkeletonModule),
     data: {
       title: 'Skeleton',
     },
   },
   {
     path: 'components/dropdowns/select',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/dropdowns/select/select.module')).SelectModule,
+    loadChildren: () => import('./components/dropdowns/select/select.module').then(i => i.SelectModule),
     data: {
       title: 'Select',
     },
   },
   {
     path: 'components/dropdowns/multi-select',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/dropdowns/multi-select/multi-select.module')).MultiSelectModule,
+    loadChildren: () => import('./components/dropdowns/multi-select/multi-select.module').then(i => i.MultiSelectModule),
     data: {
       title: 'Multi Select',
     },
   },
   {
     path: 'components/shadow',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/shadow/shadow.module')).ShadowModule,
+    loadChildren: () => import('./components/shadow/shadow.module').then(i => i.ShadowModule),
     data: {
       title: 'Shadow',
     },
   },
   {
     path: 'components/card',
-    loadChildren: async (): Promise<unknown> => (await import('./components/card/card.module')).CardModule,
+    loadChildren: () => import('./components/card/card.module').then(i => i.CardModule),
     data: {
       title: 'Card',
     },
   },
   {
     path: 'components/progress-line-bar',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/progress/line-bar/progress-line-bar.module')).ProgressLineBarModule,
+    loadChildren: () => import('./components/progress/line-bar/progress-line-bar.module').then(i => i.ProgressLineBarModule),
     data: {
       title: 'Progress Line',
     },
   },
   {
     path: 'components/progress-circle-bar',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/progress/circle-bar/progress-circle-bar.module')).ProgressCircleBarModule,
+    loadChildren: () => import('./components/progress/circle-bar/progress-circle-bar.module').then(i => i.ProgressCircleBarModule),
     data: {
       title: 'Progress Circle',
     },
   },
   {
     path: 'components/progress-line-segmented',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/progress/line-segmented/progress-line-segmented.module'))
-        .ProgressLineSegmentedModule,
+    loadChildren: () => import('./components/progress/line-segmented/progress-line-segmented.module').then(i => i.ProgressLineSegmentedModule),
     data: {
       title: 'Progress Segmented',
     },
   },
   {
     path: 'components/widget',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/widget/widget.module')).WidgetModule,
+    loadChildren: () => import('./components/widget/widget.module').then(i => i.WidgetModule),
     data: {
       title: 'Widget',
     },
   },
   {
     path: 'components/button',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/buttons/button/button.module')).ButtonModule,
+    loadChildren: () => import('./components/buttons/button/button.module').then(i => i.ButtonModule),
     data: {
       title: 'Button',
     },
   },
   {
     path: 'components/split-button',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/buttons/split-button/split-button.module')).SplitButtonModule,
+    loadChildren: () => import('./components/buttons/split-button/split-button.module').then(i => i.SplitButtonModule),
     data: {
       title: 'Split Button',
     },
   },
   {
     path: 'components/icon-button',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/buttons/icon-button/icon-button.module')).IconButtonModule,
+    loadChildren: () => import('./components/buttons/icon-button/icon-button.module').then(i => i.IconButtonModule),
     data: {
       title: 'Icon Button',
     },
   },
   {
     path: 'components/tree',
-    loadChildren: async (): Promise<unknown> => (await import('./components/tree/tree.module')).TreeModule,
+    loadChildren: () => import('./components/tree/tree.module').then(i => i.TreeModule),
     data: {
       title: 'Tree',
     },
   },
   {
     path: 'components/toggle',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/toggle/toggle.module')).ToggleModule,
+    loadChildren: () => import('./components/toggle/toggle.module').then(i => i.ToggleModule),
     data: {
       title: 'Toggle',
     },
   },
   {
     path: 'components/hint',
-    loadChildren: async (): Promise<unknown> => (await import('./components/hint/hint.module')).HintModule,
+    loadChildren: () => import('./components/hint/hint.module').then(i => i.HintModule),
     data: {
       title: 'Hint',
     },
   },
   {
     path: 'components/tooltip',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/tooltip/tooltip.module')).TooltipModule,
+    loadChildren: () => import('./components/tooltip/tooltip.module').then(i => i.TooltipModule),
     data: {
       title: 'Tooltip',
     },
   },
   {
     path: 'components/confirm-popup',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/confirm-popup/confirm-popup.module')).ConfirmPopupModule,
+    loadChildren: () => import('./components/confirm-popup/confirm-popup.module').then(i => i.ConfirmPopupModule),
     data: {
       title: 'Confirm Popup',
     },
   },
   {
     path: 'components/old-icon',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/icons/old/icon.module')).IconModule,
+    loadChildren: () => import('./components/icons/old/icon.module').then(i => i.IconModule),
     data: {
       title: 'Old Icon',
     },
   },
   {
     path: 'components/icon',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/icons/svg/icon.module')).IconModule,
+    loadChildren: () => import('./components/icons/svg/icon.module').then(i => i.IconModule),
     data: {
       title: 'Icon',
     },
   },
   {
     path: 'components/flag-icons',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/icons/flags/flags.module')).FlagsModule,
+    loadChildren: () => import('./components/icons/flags/flags.module').then(i => i.FlagsModule),
     data: {
       title: 'Icon Flags',
     },
   },
   {
     path: 'components/scrollbar',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/scrollbar/scrollbar.module')).ScrollbarModule,
+    loadChildren: () => import('./components/scrollbar/scrollbar.module').then(i => i.ScrollbarModule),
     data: {
       title: 'Scrollbar',
     },
   },
   {
     path: 'components/input',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/input/input-text/input-example.module')).InputExampleModule,
+    loadChildren: () => import('./components/input/input-text/input-example.module').then(i => i.InputExampleModule),
     data: {
       title: 'Input',
     },
   },
   {
     path: 'components/input-chips',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/input/input-chips/input-chips-example.module')).InputChipsExampleModule,
+    loadChildren: () => import('./components/input/input-chips/input-chips-example.module').then(i => i.InputChipsExampleModule),
     data: {
       title: 'Input Chips',
     },
   },
   {
     path: 'components/input-date',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/input/input-date/input-date.module')).InputDateModule,
+    loadChildren: () => import('./components/input/input-date/input-date.module').then(i => i.InputDateModule),
     data: {
       title: 'Input Date',
     },
   },
   {
     path: 'components/input-date-time-range',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/input/input-date-time-range/input-date-time-range.module'))
-        .InputDateTimeRangeModule,
+    loadChildren: () => import('./components/input/input-date-time-range/input-date-time-range.module').then(i => i.InputDateTimeRangeModule),
     data: {
       title: 'Input Date Time Range',
     },
   },
   {
     path: 'components/input-date-time',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/input/input-date-time/input-date-time.module')).InputDateTimeTimeModule,
+    loadChildren: () => import('./components/input/input-date-time/input-date-time.module').then(i => i.InputDateTimeTimeModule),
     data: {
       title: 'Input Date Time',
     },
   },
   {
     path: 'components/input-date-multi',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/input/input-date-multi/input-date-multi.module')).InputDateMultiModule,
+    loadChildren: () => import('./components/input/input-date-multi/input-date-multi.module').then(i => i.InputDateMultiModule),
     data: {
       title: 'Input Date Multi',
     },
   },
   {
     path: 'components/input-time',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/input/input-time/input-time.module')).InputTimeTimeModule,
+    loadChildren: () => import('./components/input/input-time/input-time.module').then(i => i.InputTimeTimeModule),
     data: {
       title: 'Input Time',
     },
   },
   {
     path: 'components/input-date-range',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/input/input-date-range/input-date-range.module')).InputDateRangeModule,
+    loadChildren: () => import('./components/input/input-date-range/input-date-range.module').then(i => i.InputDateRangeModule),
     data: {
       title: 'Input Date Range',
     },
   },
   {
     path: 'components/input-date-relative',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/input/input-date-relative/input-date-relative.module'))
-        .InputDateRelativeRelativeModule,
+    loadChildren: () => import('./components/input/input-date-relative/input-date-relative.module').then(i => i.InputDateRelativeRelativeModule),
     data: {
       title: 'Input Date Relative',
     },
   },
   {
     path: 'components/input-number',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/input/input-number/input-number-example.module')).InputNumberExampleModule,
+    loadChildren: () => import('./components/input/input-number/input-number-example.module').then(i => i.InputNumberExampleModule),
     data: {
       title: 'Input Number',
     },
   },
   {
     path: 'components/input-mask',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/input/input-mask/input-mask-example.module')).InputMaskExampleModule,
+    loadChildren: () => import('./components/input/input-mask/input-mask-example.module').then(i => i.InputMaskExampleModule),
     data: {
       title: 'Input Mask',
     },
   },
   {
     path: 'components/input-password',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/input/input-password/input-password-example.module'))
-        .InputPasswordExampleModule,
+    loadChildren: () => import('./components/input/input-password/input-password-example.module').then(i => i.InputPasswordExampleModule),
     data: {
       title: 'Input Password',
     },
   },
   {
     path: 'components/carousel',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/input/carousel/carousel-example.module')).CarouselExampleModule,
+    loadChildren: () => import('./components/input/carousel/carousel-example.module').then(i => i.CarouselExampleModule),
     data: {
       title: 'Carousel',
     },
   },
   {
     path: 'components/textarea',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/input/textarea/textarea-example.module')).TextareaExampleModule,
+    loadChildren: () => import('./components/input/textarea/textarea-example.module').then(i => i.TextareaExampleModule),
     data: {
       title: 'Textarea',
     },
   },
   {
     path: 'components/loader',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/loader/loader.module')).LoaderModule,
+    loadChildren: () => import('./components/loader/loader.module').then(i => i.LoaderModule),
     data: {
       title: 'Loader',
     },
   },
   {
     path: 'components/dialogs/dialog',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/dialogs/dialog/dialog.module')).DialogModule,
+    loadChildren: () => import('./components/dialogs/dialog/dialog.module').then(i => i.DialogModule),
     data: {
       title: 'Dialog',
     },
   },
   {
     path: 'components/dialogs/sidebar',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/dialogs/sidebar/sidebar.module')).SidebarModule,
+    loadChildren: () => import('./components/dialogs/sidebar/sidebar.module').then(i => i.SidebarModule),
     data: {
       title: 'Sidebar',
     },
   },
   {
     path: 'components/dialogs/confirm-dialog',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/dialogs/confirm-dialog/confirm.module')).ConfirmModule,
+    loadChildren: () => import('./components/dialogs/confirm-dialog/confirm.module').then(i => i.ConfirmModule),
     data: {
       title: 'Confirm Dialog',
     },
   },
   {
     path: 'components/toast',
-    loadChildren: async (): Promise<unknown> => (await import('./components/toast/toast.module')).ToastModule,
+    loadChildren: () => import('./components/toast/toast.module').then(i => i.ToastModule),
     data: {
       title: 'Toast',
     },
   },
   {
     path: 'components/indicators',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/indicators/indicators-example.module')).IndicatorsExampleModule,
+    loadChildren: () =>
+      import('./components/indicators/indicators-example.module').then(i => i.IndicatorsExampleModule),
     data: {
       title: 'Indicators',
     },
   },
   {
     path: 'components/paginator',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/paginator/paginator-example.module')).PaginatorExampleModule,
+    loadChildren: () =>
+      import('./components/paginator/paginator-example.module').then(i => i.PaginatorExampleModule),
     data: {
       title: 'Paginator',
     },
   },
   {
     path: 'components/checkbox',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/checkbox/checkbox-example.module')).CheckboxExampleModule,
+    loadChildren: () =>
+      import('./components/checkbox/checkbox-example.module').then(i => i.CheckboxExampleModule),
     data: {
       title: 'Checkbox',
     },
   },
   {
     path: 'components/radio-button',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/radio/radio-button-example.module')).RadioButtonExampleModule,
+    loadChildren: () =>
+      import('./components/radio/radio-button-example.module').then(i => i.RadioButtonExampleModule),
     data: {
       title: 'Radio-button',
     },
   },
   {
     path: 'components/panel',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/panel/panel-example.module')).PanelExampleModule,
+    loadChildren: () =>
+      import('./components/panel/panel-example.module').then(i => i.PanelExampleModule),
     data: {
       title: 'Panel',
     },
   },
   {
     path: 'components/tabs',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/tabs/tabs-example.module')).TabsExampleModule,
+    loadChildren: () =>
+      import('./components/tabs/tabs-example.module').then(i => i.TabsExampleModule),
     data: {
       title: 'Tabs',
     },
   },
   {
     path: 'components/breadcrumbs',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/breadcrumbs/breadcrumbs-example.module')).BreadcrumbsExampleModule,
+    loadChildren: () =>
+      import('./components/breadcrumbs/breadcrumbs-example.module').then(i => i.BreadcrumbsExampleModule),
     data: {
       title: 'Breadcrumbs',
     },
   },
   {
     path: 'components/table',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/table/table-example.module')).TableExampleModule,
+    loadChildren: () =>
+      import('./components/table/table-example.module').then(i => i.TableExampleModule),
     data: {
       title: 'Table',
     },
   },
   {
     path: 'components/table-old',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/table-old/table-example-old.module')).TableExampleOldModule,
+    loadChildren: () =>
+      import('./components/table-old/table-example-old.module').then(i => i.TableExampleOldModule),
     data: {
       title: 'Table',
     },
   },
   {
     path: 'components/accordion',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/accordion/accordion-example.module')).AccordionExampleModule,
+    loadChildren: () =>
+      import('./components/accordion/accordion-example.module').then(i => i.AccordionExampleModule),
     data: {
       title: 'Accordion',
     },
   },
   {
     path: 'tools/overlay',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./tools/overlay/overlay.module')).OverlayModule,
+    loadChildren: () =>
+      import('./tools/overlay/overlay.module').then(i => i.OverlayModule),
     data: {
       title: 'Overlay',
     },
   },
   {
     path: 'tools/theme',
-    loadChildren: async (): Promise<unknown> => (await import('./tools/theme/theme.module')).ThemeModule,
+    loadChildren: () => import('./tools/theme/theme.module').then(i => i.ThemeModule),
     data: {
       title: 'Theme',
     },
   },
   {
     path: 'tools/polymorph',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./tools/polymorph/polymorph.module')).ExamplePolymorphModule,
+    loadChildren: () =>
+      import('./tools/polymorph/polymorph.module').then(i => i.ExamplePolymorphModule),
     data: {
       title: 'Polymorph',
     },
@@ -547,192 +503,192 @@ export const ROUTES = [
   // CHARTS
   {
     path: 'charts/line',
-    loadChildren: async (): Promise<unknown> => (await import('./charts/line/line.module')).LineModule,
+    loadChildren: () => import('./charts/line/line.module').then(i => i.LineModule),
     data: {
       title: 'Line',
     },
   },
   {
     path: 'charts/area',
-    loadChildren: async (): Promise<unknown> => (await import('./charts/area/area.module')).AreaModule,
+    loadChildren: () => import('./charts/area/area.module').then(i => i.AreaModule),
     data: {
       title: 'Area',
     },
   },
   {
     path: 'charts/column-group',
-    loadChildren: async (): Promise<unknown> => (await import('./charts/column/column.module')).ColumnModule,
+    loadChildren: () => import('./charts/column/column.module').then(i => i.ColumnModule),
     data: {
       title: 'Column',
     },
   },
   {
     path: 'charts/bar',
-    loadChildren: async (): Promise<unknown> => (await import('./charts/bar/bar.module')).BarModule,
+    loadChildren: () => import('./charts/bar/bar.module').then(i => i.BarModule),
     data: {
       title: 'Bar',
     },
   },
   {
     path: 'charts/pie',
-    loadChildren: async (): Promise<unknown> => (await import('./charts/pie/pie.module')).PieModule,
+    loadChildren: () => import('./charts/pie/pie.module').then(i => i.PieModule),
     data: {
       title: 'Pie',
     },
   },
   {
     path: 'charts/radar',
-    loadChildren: async (): Promise<unknown> => (await import('./charts/radar/radar.module')).RadarModule,
+    loadChildren: () => import('./charts/radar/radar.module').then(i => i.RadarModule),
     data: {
       title: 'Radar',
     },
   },
   {
     path: 'charts/scatter',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./charts/scatter/scatter.module')).ScatterModule,
+    loadChildren: () =>
+      import('./charts/scatter/scatter.module').then(i => i.ScatterModule),
     data: {
       title: 'Scatter',
     },
   },
   {
     path: 'charts/treemap',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./charts/treemap/treemap.module')).TreemapModule,
+    loadChildren: () =>
+      import('./charts/treemap/treemap.module').then(i => i.TreemapModule),
     data: {
       title: 'Treemap',
     },
   },
   {
     path: 'charts/gauge',
-    loadChildren: async (): Promise<unknown> => (await import('./charts/gauge/gauge.module')).GaugeModule,
+    loadChildren: () => import('./charts/gauge/gauge.module').then(i => i.GaugeModule),
     data: {
       title: 'Gauge',
     },
   },
   {
     path: 'charts/radial-bar',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./charts/radial-bar/radial-bar.module')).RadialBarModule,
+    loadChildren: () =>
+      import('./charts/radial-bar/radial-bar.module').then(i => i.RadialBarModule),
     data: {
       title: 'Radial Bar',
     },
   },
   {
     path: 'charts/waterfall',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./charts/waterfall/waterfall.module')).WaterfallModule,
+    loadChildren: () =>
+      import('./charts/waterfall/waterfall.module').then(i => i.WaterfallModule),
     data: {
       title: 'Waterfall',
     },
   },
   {
     path: 'components/side-menu',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/side-menu/side-menu-example.module')).SideMenuExampleModule,
+    loadChildren: () =>
+      import('./components/side-menu/side-menu-example.module').then(i => i.SideMenuExampleModule),
     data: {
       title: 'Side menu',
     },
   },
   {
     path: 'components/nav-menu',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/nav-menu/nav-menu-example.module')).NavMenuExampleModule,
+    loadChildren: () =>
+      import('./components/nav-menu/nav-menu-example.module').then(i => i.NavMenuExampleModule),
     data: {
       title: 'Navigation menu',
     },
   },
   {
     path: 'components/navigation',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/navigation/navigation-example.module')).NavigationExampleModule,
+    loadChildren: () =>
+      import('./components/navigation/navigation-example.module').then(i => i.NavigationExampleModule),
     data: {
       title: 'Navigation',
     },
   },
   {
     path: 'components/switcher',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/switcher/switcher-example.module')).SwitcherExampleModule,
+    loadChildren: () =>
+      import('./components/switcher/switcher-example.module').then(i => i.SwitcherExampleModule),
     data: {
       title: 'Switcher',
     },
   },
   {
     path: 'components/calendar',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/calendars/calendar/calendar.module')).CalendarModule,
+    loadChildren: () =>
+      import('./components/calendars/calendar/calendar.module').then(i => i.CalendarModule),
     data: {
       title: 'Calendar',
     },
   },
   {
     path: 'components/calendar-range',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/calendars/calendar-range/calendar-range.module')).CalendarRangeModule,
+    loadChildren: () =>
+      import('./components/calendars/calendar-range/calendar-range.module').then(i => i.CalendarRangeModule),
     data: {
       title: 'Calendar Range',
     },
   },
   {
     path: 'components/grids',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/grid/grid-example.module')).GridExampleModule,
+    loadChildren: () =>
+      import('./components/grid/grid-example.module').then(i => i.GridExampleModule),
     data: {
       title: 'Grids',
     },
   },
   {
     path: 'components/zoom-control',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/zoom-control/zoom-control-example.module')).ZoomControlExampleModule,
+    loadChildren: () =>
+      import('./components/zoom-control/zoom-control-example.module').then(i => i.ZoomControlExampleModule),
     data: {
       title: 'Zoom Control',
     },
   },
   {
     path: 'components/stepper',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/stepper/stepper-example.module')).PrizmStepperExampleModule,
+    loadChildren: () =>
+      import('./components/stepper/stepper-example.module').then(i => i.PrizmStepperExampleModule),
     data: {
       title: 'Stepper',
     },
   },
   {
     path: 'components/splitter',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/splitter/splitter-example.module')).PrizmSpliiterExampleModule,
+    loadChildren: () =>
+      import('./components/splitter/splitter-example.module').then(i => i.PrizmSpliiterExampleModule),
     data: {
       title: 'Splitter',
     },
   },
   {
     path: 'components/slider',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/slider/slider.module')).PrizmSliderExampleModule,
+    loadChildren: () =>
+      import('./components/slider/slider.module').then(i => i.PrizmSliderExampleModule),
     data: {
       title: 'Slider',
     },
   },
   {
     path: 'components/cron',
-    loadChildren: async (): Promise<unknown> => (await import('./components/cron/cron.module')).CronModule,
+    loadChildren: () => import('./components/cron/cron.module').then(i => i.CronModule),
     data: {
       title: 'Cron',
     },
   },
   {
     path: 'components/error-page',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/error-page/error-page.module')).PrizmErrorPageExampleModule,
+    loadChildren: () =>
+      import('./components/error-page/error-page.module').then(i => i.PrizmErrorPageExampleModule),
     data: {
       title: 'Error page',
     },
   },
   {
     path: 'components/file-upload',
-    loadChildren: async (): Promise<unknown> =>
-      (await import('./components/file-upload/file-upload-example.module')).PrizmFileUploadExampleModule,
+    loadChildren: () =>
+      import('./components/file-upload/file-upload-example.module').then(i => i.PrizmFileUploadExampleModule),
     data: {
       title: 'File upload',
     },
@@ -743,7 +699,7 @@ export const ROUTES = [
 @NgModule({
   imports: [
     RouterModule.forRoot(ROUTES, {
-      initialNavigation: 'enabled',
+      initialNavigation: 'enabledBlocking',
       scrollPositionRestoration: 'top',
     }),
   ],

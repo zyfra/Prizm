@@ -18,7 +18,8 @@ export class PrizmSliderExampleComponent {
   set min(value: number) {
     this._min = value;
     if (this.range && this.fc.value[0] < this._min) {
-      this.fc.patchValue([this._min, this.fc.value[1]]);
+      // TODO fix type
+      this.fc.patchValue([this._min, this.fc.value[1]] as any);
       return;
     }
 
@@ -37,7 +38,8 @@ export class PrizmSliderExampleComponent {
   set max(value: number) {
     this._max = value;
     if (this.range && this.fc.value[1] > this._max) {
-      this.fc.patchValue([this.fc.value[1], this._max]);
+      // TODO fix type
+      this.fc.patchValue([this.fc.value[1], this._max] as any);
       return;
     }
 
@@ -60,7 +62,8 @@ export class PrizmSliderExampleComponent {
   }
   set range(value: boolean) {
     if (value === true) {
-      this.fc.patchValue([this.min, this.max]);
+      // TODO fix type
+      this.fc.patchValue([this.min, this.max] as any);
     } else {
       this.fc.patchValue(this.min);
     }

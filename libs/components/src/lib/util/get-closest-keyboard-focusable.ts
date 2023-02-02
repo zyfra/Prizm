@@ -21,7 +21,6 @@ export function prizmGetClosestFocusable(
     root,
     NodeFilter.SHOW_ELEMENT,
     prizmSvgNodeFilter,
-    false
   );
 
   treeWalker.currentNode = initial;

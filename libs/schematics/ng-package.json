@@ -4,5 +4,8 @@
   "lib": {
     "entryFile": "src/index.ts"
   },
-  "allowedNonPeerDependencies": ["@angular-devkit/schematics", "ng-morph"]
+  "allowedNonPeerDependencies": [
+    "@angular-devkit/schematics",
+    "ng-morph"
+  ]
 }
