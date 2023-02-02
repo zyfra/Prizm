@@ -165,6 +165,10 @@ export class PrizmInputDateRelativeComponent
     this.onTouched = fn;
   }
 
+  public setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+
   public clearValue(): void {
     this.value.setValue('');
   }
