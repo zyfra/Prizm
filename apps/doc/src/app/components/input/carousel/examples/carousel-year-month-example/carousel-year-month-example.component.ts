@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PrizmCarouselYearMonth, PrizmCarouselPrizmCarouselYearMonthValue } from '@prizm-ui/components';
+import { PrizmCarouselYearMonth, PrizmCarouselYearMonthValue } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-carousel-year-month-example',
@@ -9,7 +9,7 @@ import { PrizmCarouselYearMonth, PrizmCarouselPrizmCarouselYearMonthValue } from
 })
 export class PrizmCarouselYearMonthExampleComponent {
   carouselContent = new PrizmCarouselYearMonth();
-  currentValue: PrizmCarouselPrizmCarouselYearMonthValue;
+  currentValue: PrizmCarouselYearMonthValue;
 
   constructor() {
     const currentDate = new Date();

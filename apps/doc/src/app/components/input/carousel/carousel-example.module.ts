@@ -11,6 +11,7 @@ import { PrizmCarouselLightExampleComponent } from './examples/carousel-light-ex
 import { PrizmCarouselArrayOfObjectsExampleComponent } from './examples/carousel-array-of-objects-example/carousel-array-of-objects-example.component';
 import { PrizmCarouselYearMonthExampleComponent } from './examples/carousel-year-month-example/carousel-year-month-example.component';
 import { PrizmMonthExamplePipe } from './examples/carousel-year-month-example/month.pipe';
+import { PrizmInputAsCarouselExampleModule } from './examples/input-as-carousel/input-as-carousel.module';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { PrizmMonthExamplePipe } from './examples/carousel-year-month-example/mo
     ReactiveFormsModule,
     FormsModule,
     PrizmCarouselModule,
+    PrizmInputAsCarouselExampleModule,
   ],
   declarations: [
     PrizmCarouselExampleComponent,
