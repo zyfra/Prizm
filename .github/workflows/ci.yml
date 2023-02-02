@@ -1,10 +1,11 @@
 name: CI
 on:
-  push:
+#  push:
+#    branches:
+#      - main
+  pull_request:
     branches:
       - main
-  pull_request:
-
 jobs:
   pr_build:
     runs-on: ubuntu-latest
