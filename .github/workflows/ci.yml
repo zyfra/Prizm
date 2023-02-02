@@ -30,7 +30,7 @@ jobs:
       - name: Save cache
         id: cache-save
         uses: actions/cache/restore@v3
-        if: always()
+        if: ${{ steps.cache-restore.outputs.cache-hit != 'true' && always() }}
         with:
           path: ./node_modules
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
@@ -45,7 +45,15 @@ jobs:
       - run: npx nx affected --target=test --base=origin/main --parallel --max-parallel=3
       - run: npx nx affected --target=lint --base=origin/main --parallel --max-parallel=3
       - run: npx nx affected --target=build --base=origin/main --prod --parallel --max-parallel=3
-      #      - run: npx nx affected --target=e2e --base=origin/main --prod --parallel --max-parallel=3
+
+      - name: Install Cypress
+        uses: cypress-io/github-action@v5
+        with:
+          browser: chrome
+
+      - name: Run e2e cypress test
+        run: npx nx affected --target=e2e --base=origin/main --prod --parallel --max-parallel=3
+
       - name: 'Build doc app for firebase hosting'
         run: npx nx build doc
       - name: 'Upload to Firebase HOSTING'

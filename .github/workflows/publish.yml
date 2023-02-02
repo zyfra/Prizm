@@ -23,15 +23,25 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Cache dependencies
-        id: cache
-        uses: actions/cache@v3
+      - name: Restore cache
+        id: cache-restore
+        uses: actions/cache/restore@v3
         with:
           path: ./node_modules
           key: ${{ runner.os }}-modules-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-modules-
+
+      - name: Save cache
+        id: cache-save
+        uses: actions/cache/restore@v3
+        if: always()
+        with:
+          path: ./node_modules
+          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
 
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.cache-restore.outputs.cache-hit != 'true'
         run: npm ci --ignore-scripts
 
       - run: npx nx clear-cache
