@@ -19,7 +19,7 @@ jobs:
         uses: nrwl/nx-set-shas@v2
 
       - name: Restore cache dependencies
-        id: cache
+        id: cache-restore
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
@@ -28,12 +28,12 @@ jobs:
             ${{ runner.os }}-modules-
 
       - name: Save cache
-        id: cache
+        id: cache-save
         uses: actions/cache/restore@v3
         if: always()
         with:
           path: ./node_modules
-          key: ${{ steps.cache-primes-restore.outputs.cache-primary-key }}
+          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
 
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
