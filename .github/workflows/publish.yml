@@ -32,17 +32,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules-
 
-      - name: Save cache
-        id: cache-save
-        uses: actions/cache/save@v3
-        if: always()
-        with:
-          path: ./node_modules
-          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
-
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
         run: npm ci --ignore-scripts
+
+      - name: Save cache
+        id: cache-save
+        uses: actions/cache/save@v3
+        if: ${{ steps.cache-restore.outputs.cache-hit != 'true' && always() }}
+        with:
+          path: ./node_modules
+          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
 
       - run: npx nx clear-cache
       - run: npx nx affected:build --all --prod --parallel --max-parallel=3
