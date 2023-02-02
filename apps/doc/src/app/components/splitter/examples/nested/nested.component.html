@@ -1,3 +1,4 @@
+<h2>Vertical in horizontal</h2>
 <prizm-splitter [ngStyle]="{ height: '300px' }">
   <prizm-splitter-area [size]="50">
     <div class="area area--1">
@@ -13,6 +14,38 @@
   </prizm-splitter-area>
   <prizm-splitter-area [size]="50">
     <prizm-splitter [style]="{ height: '100%' }" [orientation]="'vertical'" class="nested">
+      <prizm-splitter-area [size]="50">
+        <div class="area area--2">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
+          provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
+        </div>
+      </prizm-splitter-area>
+      <prizm-splitter-area [size]="50">
+        <div class="area area--3">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
+          provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
+        </div>
+      </prizm-splitter-area>
+    </prizm-splitter>
+  </prizm-splitter-area>
+</prizm-splitter>
+
+<h2 style="margin-top: 2rem">Horizontal in vertical</h2>
+<prizm-splitter [ngStyle]="{ height: '300px' }" [orientation]="'vertical'">
+  <prizm-splitter-area [size]="50">
+    <div class="area area--1">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
+      provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel nulla
+      recusandae impedit beatae. Nemo doloremque inventore harum, pariatur dignissimos molestias id? Sint
+      quisquam hic officiis commodi pariatur quod iure recusandae molestias, corporis nam in voluptates
+      excepturi omnis saepe suscipit nihil at quos officia fuga rem quaerat ratione nesciunt qui! Corporis
+      quisquam esse eligendi at nam voluptatibus, enim molestias omnis? Sunt voluptatibus laborum quia id
+      consequuntur, in delectus repellat impedit suscipit saepe facilis facere libero rem voluptatem neque
+      officiis, nihil dolorum quisquam aperiam blanditiis.
+    </div>
+  </prizm-splitter-area>
+  <prizm-splitter-area [size]="50">
+    <prizm-splitter [style]="{ height: '100%' }" [orientation]="'horizontal'" class="nested">
       <prizm-splitter-area [size]="50">
         <div class="area area--2">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero

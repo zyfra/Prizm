@@ -1,17 +1,14 @@
 import { prizmDefaultCarouselControlsState, PrizmCarouselContent } from './carousel-content.interface';
 
-export type PrizmCarouselPrizmCarouselYearMonthValue = { year: number; month: number };
+export type PrizmCarouselYearMonthValue = { year: number; month: number };
 
 export class PrizmCarouselYearMonth implements PrizmCarouselContent {
-  currentValue: PrizmCarouselPrizmCarouselYearMonthValue = undefined;
+  currentValue: PrizmCarouselYearMonthValue = undefined;
 
-  public min: PrizmCarouselPrizmCarouselYearMonthValue = { month: 1, year: Number.NEGATIVE_INFINITY };
-  public max: PrizmCarouselPrizmCarouselYearMonthValue = { month: 12, year: Number.POSITIVE_INFINITY };
+  public min: PrizmCarouselYearMonthValue = { month: 1, year: Number.NEGATIVE_INFINITY };
+  public max: PrizmCarouselYearMonthValue = { month: 12, year: Number.POSITIVE_INFINITY };
 
-  constructor(
-    min?: PrizmCarouselPrizmCarouselYearMonthValue,
-    max?: PrizmCarouselPrizmCarouselYearMonthValue
-  ) {
+  constructor(min?: PrizmCarouselYearMonthValue, max?: PrizmCarouselYearMonthValue) {
     if (min) {
       this.min = min;
     }
@@ -23,7 +20,7 @@ export class PrizmCarouselYearMonth implements PrizmCarouselContent {
 
   public controlsState = { ...prizmDefaultCarouselControlsState };
 
-  public setCurrentValue(element: PrizmCarouselPrizmCarouselYearMonthValue): void {
+  public setCurrentValue(element: PrizmCarouselYearMonthValue): void {
     this.currentValue = element;
     this.updateControlsState();
   }
@@ -106,8 +103,8 @@ export class PrizmCarouselYearMonth implements PrizmCarouselContent {
   }
 
   private compare(
-    value1: PrizmCarouselPrizmCarouselYearMonthValue,
-    value2: PrizmCarouselPrizmCarouselYearMonthValue
+    value1: PrizmCarouselYearMonthValue,
+    value2: PrizmCarouselYearMonthValue
   ): 'lt' | 'eq' | 'gt' {
     if (value1.year < value2.year) {
       return 'lt';

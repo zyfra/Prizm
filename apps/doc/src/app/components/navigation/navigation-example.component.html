@@ -14,7 +14,15 @@
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
-    <!-- <h2>PrizmNavigationComponent</h2>
+    <prizm-doc-demo>
+      <prizm-navigation
+        [data]="navigationTree"
+        [activeElement]="activeElement"
+        #element
+        [prizmDocHostElement]="element"
+      ></prizm-navigation>
+    </prizm-doc-demo>
+
     <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="data"
@@ -39,86 +47,7 @@
       >
         Изменение активного элемента
       </ng-template>
-    </prizm-doc-documentation> -->
-
-    <h2>PrizmHeaderModuleBtnComponent</h2>
-
-    <prizm-doc-demo>
-      <prizm-header-module-btn
-        #element
-        [prizmDocHostElement]="element"
-        [icon]="$any(icon)"
-        [alertsCount]="alertsCount"
-        [title]="title"
-        [status]="status"
-      ></prizm-header-module-btn>
-    </prizm-doc-demo>
-    <prizm-doc-documentation>
-      <ng-template
-        documentationPropertyName="icon"
-        documentationPropertyType="PrizmContent"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="iconVariants"
-        [(documentationPropertyValue)]="icon"
-      >
-        Иконка
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="alertsCount"
-        documentationPropertyType="number"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="alertsCount"
-      >
-        Количество уведомлений
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="title"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="title"
-      >
-        Название на кнопке
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="status"
-        documentationPropertyType="IndicatorStatus"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="statusVariants"
-        [(documentationPropertyValue)]="status"
-      >
-        Статус уведомлений
-      </ng-template>
     </prizm-doc-documentation>
-
-    <!-- <h2>PrizmHeaderDropdownComponent</h2>
-    <prizm-doc-documentation>
-      <ng-template
-        documentationPropertyName="data"
-        documentationPropertyType="IScreen[]"
-        documentationPropertyMode="input"
-      >
-        Содержимое выпадающего меню
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="currentScreenIdx"
-        documentationPropertyType="number"
-        documentationPropertyMode="input"
-      >
-        Индекс текущего активного элемента
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="screenIdxChange"
-        documentationPropertyType="EventEmitter<number>"
-        documentationPropertyMode="output"
-      >
-        Изменение текущего активного элемента
-      </ng-template>
-    </prizm-doc-documentation> -->
   </ng-template>
 
   <ng-template prizmDocPageTab>
@@ -134,3 +63,4 @@
     </ol>
   </ng-template>
 </prizm-doc-page>
+
