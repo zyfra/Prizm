@@ -11,11 +11,7 @@ import { PRIZM_LOG_LEVEL, prizmAssert } from '@prizm-ui/core';
  * Show all assert logg as warning
  * */
 prizmAssert.defaultLevel = PRIZM_LOG_LEVEL.warn;
-prizmAssert.enabled = [
-  PRIZM_LOG_LEVEL.error,
-  PRIZM_LOG_LEVEL.log,
-  PRIZM_LOG_LEVEL.warn,
-];
+prizmAssert.enabled = [PRIZM_LOG_LEVEL.error, PRIZM_LOG_LEVEL.log, PRIZM_LOG_LEVEL.warn];
 
 @Component({
   selector: 'prizm-doc-root',

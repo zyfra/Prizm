@@ -32,15 +32,12 @@ import { PrizmTableSorterService } from '../service';
   templateUrl: `./tbody.template.html`,
   styleUrls: [`./tbody.style.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    ...PRIZM_TABLE_PROVIDER,
-    PrizmTableDataService,
-  ]
+  providers: [...PRIZM_TABLE_PROVIDER, PrizmTableDataService],
 })
 export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> implements AfterViewInit {
   @Input()
   set data(items: T[]) {
-    this.dataService.set(items)
+    this.dataService.set(items);
   }
   get data(): T[] {
     return this.dataService.data;

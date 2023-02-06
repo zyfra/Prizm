@@ -25,7 +25,12 @@ export function prizmRequiredSetter<T extends Record<string, unknown>, K extends
       get,
       set(this: T, value: T[K]): void {
         if (value !== undefined && assertion) {
-          prizmAssert.assert(assertion.call(this, value), `${String(key)} in ${name} received:`, value, ...args);
+          prizmAssert.assert(
+            assertion.call(this, value),
+            `${String(key)} in ${name} received:`,
+            value,
+            ...args
+          );
         }
 
         if (!set || value === undefined) {

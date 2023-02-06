@@ -80,10 +80,10 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
 
   get icon$(): Observable<string> {
     return this.sorterService.changes$.pipe(
-      map(
-        () => !this.isCurrent
-        ? 'arrows-swap-vert-2'
-        : this.sorterService.cellOrder(this.key as string) === 'asc'
+      map(() =>
+        !this.isCurrent
+          ? 'arrows-swap-vert-2'
+          : this.sorterService.cellOrder(this.key as string) === 'asc'
           ? `sort-asc-arr`
           : `sort-desc-arr`
       )
@@ -96,14 +96,15 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
 
   public updateSorter(event: MouseEvent): void {
     const newOrder = this.sorterService.nextOrder(this.key as string);
-    this.sorterService.sortCell({
-      options: {
-        id: this.key as string,
-        order: newOrder
+    this.sorterService.sortCell(
+      {
+        options: {
+          id: this.key as string,
+          order: newOrder,
+        },
+        sorter: this.sorter,
       },
-      sorter: this.sorter
-    },
       !event.metaKey
-    )
+    );
   }
 }

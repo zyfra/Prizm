@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  PolymorphComponent,
-  PRIZM_TREE_CONTENT,
-  PrizmHandler,
-} from '@prizm-ui/components';
+import { PolymorphComponent, PRIZM_TREE_CONTENT, PrizmHandler } from '@prizm-ui/components';
 import { PRIZM_EMPTY_ARRAY } from '@prizm-ui/core';
 
 import { FoldersComponent } from './folder.component';

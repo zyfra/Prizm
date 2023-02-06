@@ -272,7 +272,9 @@ export class PrizmBaseTableComponent<T = unknown> implements OnChanges, AfterCon
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['value']) {
-      this.initialData = Array.isArray(changes['value'].currentValue) ? [...changes['value'].currentValue] : [];
+      this.initialData = Array.isArray(changes['value'].currentValue)
+        ? [...changes['value'].currentValue]
+        : [];
       this.value = this.initialData;
     }
 

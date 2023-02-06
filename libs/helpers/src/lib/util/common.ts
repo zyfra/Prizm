@@ -1,4 +1,3 @@
-
 /**
  * sort number, string, date by asc or desc
  * */
@@ -18,8 +17,7 @@ export function prizmSort<T>(x: T, y: T, asc: boolean = true): number {
   }
 
   if (!asc) {
-    if (result === -1)
-      result = 1;
+    if (result === -1) result = 1;
     else if (result === 1) result = -1;
   }
 
