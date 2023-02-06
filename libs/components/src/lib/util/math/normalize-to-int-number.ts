@@ -1,3 +1,5 @@
+import { prizmAssert } from '@prizm-ui/core';
+
 /**
  * Normalizes any number to an integer within inclusive range
  *
@@ -7,9 +9,9 @@
  * @return an integer between min and max inclusive
  */
 export function prizmNormalizeToIntNumber(value: number, min: number, max: number): number {
-  console.assert(Number.isInteger(min));
-  console.assert(Number.isInteger(max));
-  console.assert(min <= max);
+  prizmAssert.assert(Number.isInteger(min));
+  prizmAssert.assert(Number.isInteger(max));
+  prizmAssert.assert(min <= max);
 
   if (isNaN(value) || value <= min) {
     return min;

@@ -9,7 +9,7 @@ import {
   PRIZM_MAX_YEAR,
   PRIZM_MIN_YEAR,
 } from './date-time';
-import { prizmPadStart } from '@prizm-ui/core';
+import { prizmAssert, prizmPadStart } from '@prizm-ui/core';
 
 /**
  * Immutable year object
@@ -17,7 +17,7 @@ import { prizmPadStart } from '@prizm-ui/core';
  */
 export class PrizmYear implements PrizmYearLike {
   constructor(readonly year: number) {
-    console.assert(PrizmYear.isValidYear(year));
+    prizmAssert.assert(PrizmYear.isValidYear(year));
   }
 
   /**
@@ -31,7 +31,7 @@ export class PrizmYear implements PrizmYearLike {
    * Check if passed year is a leap year
    */
   public static isLeapYear(year: number): boolean {
-    console.assert(PrizmYear.isValidYear(year));
+    prizmAssert.assert(PrizmYear.isValidYear(year));
 
     return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
   }
@@ -40,7 +40,7 @@ export class PrizmYear implements PrizmYearLike {
    * Returns amount of leap years from year 0 to the passed one
    */
   public static getAbsoluteLeapYears(year: number): number {
-    console.assert(PrizmYear.isValidYear(year));
+    prizmAssert.assert(PrizmYear.isValidYear(year));
 
     return Math.ceil(year / 400) + (Math.ceil(year / 4) - Math.ceil(year / 100));
   }
@@ -55,10 +55,10 @@ export class PrizmYear implements PrizmYearLike {
    * @return offset in days
    */
   public static getYearStartDaysOffset(year: number, absoluteLeapYears: number): number {
-    console.assert(PrizmYear.isValidYear(year));
-    console.assert(Number.isInteger(absoluteLeapYears));
-    console.assert(year >= absoluteLeapYears);
-    console.assert(absoluteLeapYears >= 0);
+    prizmAssert.assert(PrizmYear.isValidYear(year));
+    prizmAssert.assert(Number.isInteger(absoluteLeapYears));
+    prizmAssert.assert(year >= absoluteLeapYears);
+    prizmAssert.assert(absoluteLeapYears >= 0);
 
     return (
       (absoluteLeapYears * PRIZM_DAYS_IN_LEAP_YEAR +
@@ -143,7 +143,7 @@ export class PrizmYear implements PrizmYearLike {
    * Immutably offsets year
    */
   public append({ year = 0 }: PrizmYearLike, backwards: boolean = false): PrizmYear {
-    console.assert(Number.isInteger(year));
+    prizmAssert.assert(Number.isInteger(year));
 
     if (backwards) {
       year *= -1;
@@ -151,7 +151,7 @@ export class PrizmYear implements PrizmYearLike {
 
     const resultYear = this.year + year;
 
-    console.assert(PrizmYear.isValidYear(resultYear));
+    prizmAssert.assert(PrizmYear.isValidYear(resultYear));
 
     return new PrizmYear(resultYear);
   }

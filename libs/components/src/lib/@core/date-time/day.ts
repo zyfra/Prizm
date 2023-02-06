@@ -10,7 +10,7 @@ import { PRIZM_DATE_FILLER_LENGTH } from './date-fillers';
 import { PRIZM_DAYS_IN_WEEK, PRIZM_MIN_DAY, PRIZM_MONTHS_IN_YEAR } from './date-time';
 import { PrizmMonth } from './month';
 import { PrizmYear } from './year';
-import { prizmPadStart } from '@prizm-ui/core';
+import { prizmAssert, prizmPadStart } from '@prizm-ui/core';
 
 // TODO: Localized formatting
 /**
@@ -19,7 +19,7 @@ import { prizmPadStart } from '@prizm-ui/core';
 export class PrizmDay extends PrizmMonth {
   constructor(year: number, month: number, readonly day: number) {
     super(year, month);
-    console.assert(PrizmDay.isValidDay(year, month, day), {
+    prizmAssert.assert(PrizmDay.isValidDay(year, month, day), {
       year,
       month,
       day,
@@ -67,10 +67,10 @@ export class PrizmDay extends PrizmMonth {
    * @return resulting day on these coordinates (could exceed passed month)
    */
   public static getDayFromMonthRowCol(month: PrizmMonth, row: number, col: number): PrizmDay {
-    console.assert(Number.isInteger(row));
-    console.assert(prizmInRange(row, 0, 6));
-    console.assert(Number.isInteger(col));
-    console.assert(prizmInRange(col, 0, PRIZM_DAYS_IN_WEEK));
+    prizmAssert.assert(Number.isInteger(row));
+    prizmAssert.assert(prizmInRange(row, 0, 6));
+    prizmAssert.assert(Number.isInteger(col));
+    prizmAssert.assert(prizmInRange(col, 0, PRIZM_DAYS_IN_WEEK));
 
     let day = row * PRIZM_DAYS_IN_WEEK + col - month.monthStartDaysOffset + 1;
 
@@ -137,7 +137,7 @@ export class PrizmDay extends PrizmMonth {
     date: string,
     dateMode: PrizmDateMode = `DMY`
   ): { day: number; month: number; year: number } {
-    console.assert(
+    prizmAssert.assert(
       date.length === PRIZM_DATE_FILLER_LENGTH,
       `[parseRawDateString]: wrong date string length`
     );
@@ -209,7 +209,7 @@ export class PrizmDay extends PrizmMonth {
   }
 
   protected static normalizeDayPart(day: number, month: number, year: number): number {
-    console.assert(PrizmMonth.isValidMonth(year, month));
+    prizmAssert.assert(PrizmMonth.isValidMonth(year, month));
 
     const monthDaysCount = PrizmMonth.getMonthDaysCount(month, PrizmYear.isLeapYear(year));
 
@@ -359,7 +359,7 @@ export class PrizmDay extends PrizmMonth {
    * Returns formatted whole date
    */
   public getFormattedDay(dateFormat: PrizmDateMode, separator: string): string {
-    console.assert(separator.length === 1, `Separator should consist of only 1 symbol`);
+    prizmAssert.assert(separator.length === 1, `Separator should consist of only 1 symbol`);
 
     const dd = this.formattedDayPart;
     const mm = this.formattedMonthPart;

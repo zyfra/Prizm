@@ -1,4 +1,3 @@
-export * from './empty';
 export * from './always-false-handler';
 export * from './always-true-handler';
 export * from './default-marker-handler';

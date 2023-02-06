@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ContentChild, HostBinding, Input } from '@angular/core';
 import { NgControl } from '@angular/forms';
-import { PrizmTableCellStatus } from '../prizm-table.types';
+import { PrizmTableCellStatus } from '../table.types';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

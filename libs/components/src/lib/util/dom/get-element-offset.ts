@@ -1,8 +1,10 @@
+import { prizmAssert } from '@prizm-ui/core';
+
 export function prizmGetElementOffset(
   host: Element,
   element: HTMLElement
 ): { offsetTop: number; offsetLeft: number } {
-  console.assert(host.contains(element), 'Host must contain element');
+  prizmAssert.assert(host.contains(element), 'Host must contain element');
 
   let { offsetTop, offsetLeft, offsetParent } = element;
 

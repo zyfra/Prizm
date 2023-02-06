@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Provider, SkipSelf } from '@angular/core';
 import { PrizmTableDirective } from '../directives/table.directive';
 import { PrizmTableSortPipe } from '../pipes/table-sort.pipe';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { Observable, MonoTypeOperatorFunction } from 'rxjs';
+import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 import { AbstractPrizmController } from '../abstract/controller';
 
@@ -15,6 +15,7 @@ function prizmWatch<T>(changeDetectorRef: ChangeDetectorRef): MonoTypeOperatorFu
 export const PRIZM_TABLE_PROVIDER: Provider[] = [
   PrizmDestroyService,
   PrizmTableSortPipe,
+
   {
     provide: PrizmTableDirective,
     deps: [[new SkipSelf(), PrizmTableDirective], ChangeDetectorRef, PrizmDestroyService],

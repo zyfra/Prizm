@@ -20,7 +20,7 @@ import {
   PRIZM_TREE_NODE,
 } from '../../misc/tree.tokens';
 import { PRIZM_TREE_ITEM_PROVIDERS } from './tree-item.providers';
-import { EMPTY_QUERY } from '../../../../constants';
+import { PRIZM_EMPTY_QUERY } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-tree-item',
@@ -36,7 +36,7 @@ import { EMPTY_QUERY } from '../../../../constants';
 })
 export class PrizmTreeItemComponent implements DoCheck {
   @ContentChildren(PRIZM_TREE_NODE as any)
-  private readonly nested: QueryList<unknown> = EMPTY_QUERY;
+  private readonly nested: QueryList<unknown> = PRIZM_EMPTY_QUERY;
 
   private readonly change$ = new Subject<void>();
 

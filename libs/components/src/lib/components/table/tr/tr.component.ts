@@ -15,7 +15,7 @@ import { PrizmCellDirective } from '../directives/cell.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
 import { PRIZM_TABLE_PROVIDER } from '../providers/table.provider';
 import { PrizmTbodyComponent } from '../tbody/tbody.component';
-import { PrizmTableCellStatus } from '../prizm-table.types';
+import { PrizmTableCellStatus } from '../table.types';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 @Component({

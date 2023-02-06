@@ -17,8 +17,8 @@ import {
 } from 'rxjs/operators';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { prizmZoneFree } from '../observables/zone-free';
-import { PRIZM_EMPTY_ARRAY } from '../constants/empty';
 import { PRIZM_POLLING_TIME } from '../constants/polling-time';
+import { PRIZM_EMPTY_ARRAY } from '@prizm-ui/core';
 
 @Injectable()
 export class PrizmResizeService extends ResizeObserverService {

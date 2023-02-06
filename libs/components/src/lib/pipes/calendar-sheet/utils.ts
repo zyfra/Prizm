@@ -5,6 +5,7 @@ import { PrizmDay } from '../../@core/date-time/day';
 import { PrizmMonth } from '../../@core/date-time/month';
 import { PrizmDayOfWeek } from '../../@core/enums/day-of-week';
 import { prizmInRange } from '../../util/math/in-range';
+import { prizmAssert } from '@prizm-ui/core';
 
 /**
  * Computes day of week offset of the beginning of the month
@@ -49,10 +50,10 @@ export const getDayFromMonthRowCol = ({
    */
   firstDayOfWeek: PrizmDayOfWeek;
 }): PrizmDay => {
-  console.assert(Number.isInteger(rowIndex));
-  console.assert(prizmInRange(rowIndex, 0, 6));
-  console.assert(Number.isInteger(colIndex));
-  console.assert(prizmInRange(colIndex, 0, PRIZM_DAYS_IN_WEEK));
+  prizmAssert.assert(Number.isInteger(rowIndex));
+  prizmAssert.assert(prizmInRange(rowIndex, 0, 6));
+  prizmAssert.assert(Number.isInteger(colIndex));
+  prizmAssert.assert(prizmInRange(colIndex, 0, PRIZM_DAYS_IN_WEEK));
 
   let day = rowIndex * PRIZM_DAYS_IN_WEEK + colIndex - getMonthStartDaysOffset(month, firstDayOfWeek) + 1;
 

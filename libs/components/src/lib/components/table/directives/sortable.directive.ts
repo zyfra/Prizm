@@ -2,7 +2,7 @@ import { Directive, DoCheck, forwardRef, Inject, OnInit } from '@angular/core';
 import { PrizmThComponent } from '../th/th.component';
 import { PrizmSortByDirective } from './sort-by.directive';
 import { PrizmTableDirective } from './table.directive';
-import { PrizmComparator } from '../prizm-table.types';
+import { PrizmComparator } from '../table.types';
 
 @Directive({
   selector: `th[prizmTh][prizmSortable]`,

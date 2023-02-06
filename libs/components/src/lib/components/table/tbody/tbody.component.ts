@@ -23,6 +23,8 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 import { filter, map, startWith, takeUntil } from 'rxjs/operators';
 import { PrizmCellDirective } from '../directives/cell.directive';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmTableDataService } from '../service/table-data.service';
+import { PrizmTableSorterService } from '../service';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -30,12 +32,19 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
   templateUrl: `./tbody.template.html`,
   styleUrls: [`./tbody.style.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: PRIZM_TABLE_PROVIDER,
+  providers: [
+    ...PRIZM_TABLE_PROVIDER,
+    PrizmTableDataService,
+  ]
 })
 export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> implements AfterViewInit {
   @Input()
-  @prizmDefaultProp()
-  data: readonly T[] = [];
+  set data(items: T[]) {
+    this.dataService.set(items)
+  }
+  get data(): T[] {
+    return this.dataService.data;
+  }
 
   @Input()
   @prizmDefaultProp()
@@ -57,17 +66,18 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> implem
   public columnsCount = 0;
 
   constructor(
-    @Inject(PrizmTableSortPipe) private readonly pipe: PrizmTableSortPipe<T>,
     @Inject(forwardRef(() => PrizmTableDirective))
     readonly table: PrizmTableDirective<T>,
+    readonly dataService: PrizmTableDataService<T>,
+    readonly sorterService: PrizmTableSorterService<T>,
     private readonly destroy$: PrizmDestroyService,
     private changeDetectoreRef: ChangeDetectorRef
   ) {}
 
   get sorted(): readonly T[] {
-    return this.pipe.transform(this.data);
+    // return this.pipe.transform(this.data);
+    return this.sorterService.sort(this.data);
   }
-
   readonly toContext = (
     $implicit: T,
     index: number,

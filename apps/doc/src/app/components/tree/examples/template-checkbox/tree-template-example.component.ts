@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { PRIZM_EMPTY_ARRAY, PrizmHandler } from '@prizm-ui/components';
+import { PrizmHandler } from '@prizm-ui/components';
+import { PRIZM_EMPTY_ARRAY } from '@prizm-ui/core';
 
 interface TreeNode {
   readonly text: string;

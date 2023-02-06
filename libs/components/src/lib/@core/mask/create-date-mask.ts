@@ -1,6 +1,7 @@
 import { PRIZM_DIGIT_REGEXP } from '../../constants';
 import { PrizmDateMode } from '../../types/date-mode';
 import { PrizmTextMaskList } from './text-mask-list';
+import { prizmAssert } from '@prizm-ui/core';
 
 const TWO_DIGITS = new Array(2).fill(PRIZM_DIGIT_REGEXP);
 const FOUR_DIGITS = new Array(4).fill(PRIZM_DIGIT_REGEXP);
@@ -10,7 +11,7 @@ const FOUR_DIGITS = new Array(4).fill(PRIZM_DIGIT_REGEXP);
  * use prizmCreateDateNgxMask
  * */
 export function prizmCreateDateMask(mode: PrizmDateMode, separator: string): PrizmTextMaskList {
-  console.assert(separator.length === 1, `Separator should consist of only 1 symbol`);
+  prizmAssert.assert(separator.length === 1, `Separator should consist of only 1 symbol`);
 
   switch (mode) {
     case `YMD`:
