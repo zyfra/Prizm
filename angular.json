@@ -144,6 +144,45 @@
       },
       "tags": []
     },
+    "deprecated": {
+      "projectType": "library",
+      "root": "libs/deprecated",
+      "sourceRoot": "libs/deprecated/src",
+      "prefix": "prizm",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/deprecated"],
+          "options": {
+            "project": "libs/deprecated/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/deprecated/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/deprecated/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/deprecated"],
+          "options": {
+            "jestConfig": "libs/deprecated/jest.config.ts",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/deprecated/**/*.ts", "libs/deprecated/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
     "doc": {
       "projectType": "application",
       "root": "apps/doc",

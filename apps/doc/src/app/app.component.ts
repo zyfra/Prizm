@@ -7,6 +7,9 @@ import { PrizmDocHostElementListenerService } from '@prizm-ui/doc';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PRIZM_LOG_LEVEL, prizmAssert } from '@prizm-ui/core';
 
+/**
+ * Show all assert logg as warning
+ * */
 prizmAssert.defaultLevel = PRIZM_LOG_LEVEL.warn;
 prizmAssert.enabled = [
   PRIZM_LOG_LEVEL.error,

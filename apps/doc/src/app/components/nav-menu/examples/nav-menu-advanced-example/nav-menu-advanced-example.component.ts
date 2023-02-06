@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { HeaderConfig, ToolbarConfig, PrizmMenuItem } from '@prizm-ui/components';
+import { HeaderConfig, PrizmMenuItem, ToolbarConfig } from '@prizm-ui/old';
 import { PrimeIcons } from 'primeng/api';
 
 @Component({
