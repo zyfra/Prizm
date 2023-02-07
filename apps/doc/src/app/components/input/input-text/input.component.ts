@@ -17,6 +17,8 @@ export class InputComponent {
   public required = false;
   public label = 'Заголовок';
 
+  value = 'some text';
+
   public inputPosition: PrizmInputPosition = 'left';
   public inputPositions: PrizmInputPosition[] = ['left', 'center'];
   public outer: false;

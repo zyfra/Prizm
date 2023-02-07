@@ -173,6 +173,7 @@
           [prizmDocHostElement]="element"
           [disabled]="disabled"
           [required]="required"
+          [value]="value"
         />
       </prizm-input-layout>
     </prizm-doc-demo>
@@ -198,8 +199,9 @@
 
       <ng-template
         documentationPropertyName="value"
-        documentationPropertyType="any"
+        documentationPropertyType="string"
         documentationPropertyMode="input"
+        [(documentationPropertyValue)]="value"
       >
         Value
       </ng-template>
