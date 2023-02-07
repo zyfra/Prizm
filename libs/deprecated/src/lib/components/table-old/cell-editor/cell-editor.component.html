@@ -1,0 +1,24 @@
+<p-cellEditor>
+  <ng-template pTemplate="input">
+    <ng-container *ngIf="inputTemplate; else defaultInputTemplate">
+      <ng-container *ngTemplateOutlet="inputTemplate"></ng-container>
+    </ng-container>
+
+    <ng-template #defaultInputTemplate>
+      <input
+        type="text"
+        [value]="value"
+        (input)="valueChange.emit($any($event.target).value)"
+        (click)="stopPropagation($event)"
+      />
+    </ng-template>
+  </ng-template>
+
+  <ng-template pTemplate="output">
+    <ng-container *ngIf="outputTemplate; else defaultOutputTemplate">
+      <ng-container *ngTemplateOutlet="outputTemplate"></ng-container>
+    </ng-container>
+
+    <ng-template #defaultOutputTemplate> </ng-template>
+  </ng-template>
+</p-cellEditor>

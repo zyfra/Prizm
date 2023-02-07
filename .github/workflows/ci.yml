@@ -28,10 +28,6 @@ jobs:
         if: steps.cache-restore.outputs.cache-hit != 'true'
         run: npm ci --ignore-scripts
 
-      - name: Install Cypress
-        if: steps.cache-restore.outputs.cache-hit != 'true'
-        run: npx cypress install
-
       - name: Save cache...
         id: cache-save
         uses: actions/cache/save@v3
@@ -47,11 +43,9 @@ jobs:
       - run: npx nx affected --target=lint --base=origin/main --parallel --max-parallel=3
       - run: npx nx affected --target=build --base=origin/main --prod --parallel --max-parallel=3
 
-      - name: Run e2e cypress test
-        run: npx nx affected --target=e2e --base=origin/main --prod --parallel --max-parallel=3
-
       - name: 'Build doc app for firebase hosting'
         run: npx nx build doc
+
       - name: 'Upload to Firebase HOSTING'
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -59,3 +53,9 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
           expires: 5d
           projectId: prizmui
+
+      - name: Install Cypress
+        run: npx cypress install
+
+      - name: Run e2e cypress test
+        run: npx nx affected --target=e2e --base=origin/main --prod --parallel --max-parallel=3

@@ -3,7 +3,7 @@ import { filter, map } from 'rxjs/operators';
 
 import { PrizmSortableDirective } from './sortable.directive';
 import { PrizmTableDirective } from './table.directive';
-import { PrizmComparator } from '../prizm-table.types';
+import { PrizmComparator } from '../table.types';
 import { prizmDefaultProp } from '@prizm-ui/core';
 
 @Directive({

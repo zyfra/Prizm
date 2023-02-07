@@ -25,6 +25,7 @@
       "@prizm-ui/flag-icons": ["libs/icons/flags/src/index.ts"],
       "@prizm-ui/helpers": ["libs/helpers/src/index.ts"],
       "@prizm-ui/icons": ["libs/icons/base/src/index.ts"],
+      "@prizm-ui/old": ["libs/deprecated/src/index.ts"],
       "@prizm-ui/theme": ["libs/theme/src/index.ts"]
     }
   },

@@ -4,8 +4,8 @@
   <prizm-icon
     class="sorter__icon"
     [class.sorter__icon_active]="isCurrent"
-    [iconClass]="icon"
-    (click)="table.updateSorter(sorter)"
+    [iconClass]="icon$ | async"
+    (click)="updateSorter($event)"
   ></prizm-icon>
 </button>
 <ng-template #content>

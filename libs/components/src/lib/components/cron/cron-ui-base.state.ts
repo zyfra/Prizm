@@ -97,7 +97,7 @@ export abstract class PrizmCronUiBaseState<
       .subscribe();
   }
 
-  abstract updateMainState(value: string): void;
+  public abstract updateMainState(value: string): void;
 
   public getTypeByValueByDefault(value: string): PrizmCronUiBaseType {
     if (value === '*') {

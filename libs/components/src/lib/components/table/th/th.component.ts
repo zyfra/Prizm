@@ -11,11 +11,14 @@ import {
 
 import { PrizmHeadDirective } from '../directives/head.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
-import { PrizmComparator } from '../prizm-table.types';
-import { prizmTableDefaultSort } from '../prizm-table.const';
+import { PrizmComparator } from '../table.types';
+import { prizmTableDefaultColumnSort } from '../table.const';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PRIZM_ELEMENT_REF } from '../../../tokens';
 import { PrizmTableSortKeyException } from '../../../exceptions';
+import { PrizmTableCellSorter, PrizmTableCellSorterHandler, PrizmTableSorterService } from '../service';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -33,7 +36,7 @@ import { PrizmTableSortKeyException } from '../../../exceptions';
 export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
   @Input()
   @prizmDefaultProp()
-  sorter: PrizmComparator<T> | null = null;
+  sorter: PrizmTableCellSorterHandler<T> | null = null;
 
   @Input()
   @prizmDefaultProp()
@@ -51,6 +54,7 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
     @Optional()
     @Inject(PrizmHeadDirective)
     private readonly head: PrizmHeadDirective<T> | null,
+    private readonly sorterService: PrizmTableSorterService<T>,
     @Optional()
     @Inject(forwardRef(() => PrizmTableDirective))
     readonly table: PrizmTableDirective<T> | null
@@ -64,19 +68,43 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
     return this.head.prizmHead;
   }
 
+  /**/
   get isCurrent(): boolean {
-    return !!this.sorter && !!this.table && this.sorter === this.table.sorter;
+    return this.sorterService.isActive(this.key as string);
   }
 
-  get icon(): string {
-    return !this.isCurrent
-      ? 'arrows-swap-vert-2'
-      : this.table?.direction === 1
-      ? `sort-asc-arr`
-      : `sort-desc-arr`;
+  get sortItem(): PrizmTableCellSorter<T> {
+    // return !!this.sorter && !!this.table && this.sorter === this.table.sorter;
+    return this.sorterService.cell(this.key as string);
+  }
+
+  get icon$(): Observable<string> {
+    return this.sorterService.changes$.pipe(
+      map(() =>
+        !this.isCurrent
+          ? 'arrows-swap-vert-2'
+          : this.sorterService.cellOrder(this.key as string) === 'asc'
+          ? `sort-asc-arr`
+          : `sort-desc-arr`
+      )
+    );
   }
 
   public onResized(width: number): void {
     this.width = width;
+  }
+
+  public updateSorter(event: MouseEvent): void {
+    const newOrder = this.sorterService.nextOrder(this.key as string);
+    this.sorterService.sortCell(
+      {
+        options: {
+          id: this.key as string,
+          order: newOrder,
+        },
+        sorter: this.sorter,
+      },
+      !event.metaKey
+    );
   }
 }

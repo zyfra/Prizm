@@ -20,5 +20,5 @@ export abstract class AbstractPrizmAutofocusHandler implements PrizmAutofocusHan
     return this.element.matches(`input, textarea`);
   }
 
-  abstract setFocus(): void;
+  public abstract setFocus(): void;
 }

@@ -9,7 +9,7 @@ import {
   PRIZM_MINUTES_IN_HOUR,
   PRIZM_SECONDS_IN_MINUTE,
 } from './date-time';
-import { prizmPadStart } from '@prizm-ui/core';
+import { prizmAssert, prizmPadStart } from '@prizm-ui/core';
 
 /**
  * Immutable time object with hours, minutes, seconds and ms
@@ -21,7 +21,7 @@ export class PrizmTime implements PrizmTimeLike {
     readonly seconds: number = 0,
     readonly ms: number = 0
   ) {
-    console.assert(
+    prizmAssert.assert(
       PrizmTime.isValidTime(hours, minutes, seconds, ms),
       `Time must be real, but got:`,
       hours,
@@ -69,8 +69,8 @@ export class PrizmTime implements PrizmTimeLike {
    * Calculates PrizmTime from milliseconds
    */
   public static fromAbsoluteMilliseconds(milliseconds: number): PrizmTime {
-    console.assert(Number.isInteger(milliseconds));
-    console.assert(
+    prizmAssert.assert(Number.isInteger(milliseconds));
+    prizmAssert.assert(
       prizmInRange(milliseconds, 0, PRIZM_MILLISECONDS_IN_DAY),
       `Milliseconds must be below ${PRIZM_MILLISECONDS_IN_DAY} (milliseconds in a day).`
     );

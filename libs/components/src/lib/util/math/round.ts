@@ -1,3 +1,5 @@
+import { prizmAssert } from '@prizm-ui/core';
+
 const MAX_PRECISION = 292;
 
 export function prizmRound(value: number, precision: number = 0): number {
@@ -24,8 +26,8 @@ function calculate(value: number, precision: number, func: (x: number) => number
     return value;
   }
 
-  console.assert(!isNaN(value), `Value must be number`);
-  console.assert(Number.isInteger(precision), `Precision must be integer`);
+  prizmAssert.assert(!isNaN(value), `Value must be number`);
+  prizmAssert.assert(Number.isInteger(precision), `Precision must be integer`);
 
   precision = Math.min(precision, MAX_PRECISION);
 

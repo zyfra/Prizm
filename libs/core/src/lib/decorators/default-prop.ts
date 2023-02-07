@@ -1,11 +1,14 @@
+import { PrizmBooleanHandler } from '../types/handler';
+import { PRIZM_LOG_LEVEL, prizmAssert } from '../utils';
+
 /**
  * Decorator for checking input values for undefined. You can also pass
  * optional assertion to check input against.
  *
  * CAUTION: This decorator overwrites other getters and setters.
  */
-export function prizmDefaultProp<T extends any, K extends keyof T>(
-  assertion?: (item: T) => boolean,
+export function prizmDefaultProp<T extends Record<string, any>, K extends keyof T>(
+  assertion?: PrizmBooleanHandler<T[K]>,
   ...args: unknown[]
 ): PropertyDecorator {
   return (target, key): void => {
@@ -15,7 +18,7 @@ export function prizmDefaultProp<T extends any, K extends keyof T>(
 
     Object.defineProperty(target, key, {
       get(): undefined {
-        console.assert(false, errorGetDefaultMessage);
+        prizmAssert.assertWarning(false, errorGetDefaultMessage);
 
         return undefined;
       },
@@ -24,11 +27,11 @@ export function prizmDefaultProp<T extends any, K extends keyof T>(
         const errorMessage = errorSetDefaultInitial(key, name);
         let currentValue = initialValue;
 
-        console.assert(isValid, errorMessage);
+        prizmAssert.assertWarning(isValid, errorMessage);
 
         if (isValid && assertion) {
-          console.assert(
-            assertion.call(this, initialValue as T),
+          prizmAssert.assertWarning(
+            assertion.call(this, initialValue),
             `${String(key)} in ${name} received:`,
             initialValue,
             ...args
@@ -43,11 +46,11 @@ export function prizmDefaultProp<T extends any, K extends keyof T>(
             const isValid = value !== undefined;
             const backupValue = initialValue;
 
-            console.assert(isValid, errorSetDefaultMessage, String(backupValue));
+            prizmAssert.assertWarning(isValid, errorSetDefaultMessage, String(backupValue));
 
             if (isValid && assertion) {
-              console.assert(
-                assertion.call(this, value as T),
+              prizmAssert.assertWarning(
+                assertion.call(this, value),
                 `${String(key)} in ${name} received:`,
                 value,
                 ...args

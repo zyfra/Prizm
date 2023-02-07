@@ -12,7 +12,7 @@ import { IntersectionObserverService } from '@ng-web-apis/intersection-observer'
 
 import { PRIZM_TABLE_PROVIDERS } from '../providers/table.providers';
 import { PrizmSizeL, PrizmSizeM, PrizmSizeS, PrizmSizeXS } from '../../../util';
-import { PrizmComparator, PrizmTableBorderStyle } from '../prizm-table.types';
+import { PrizmComparator, PrizmTableBorderStyle } from '../table.types';
 import { AbstractPrizmController } from '../abstract/controller';
 import { Observable } from 'rxjs';
 import { prizmDefaultProp } from '@prizm-ui/core';

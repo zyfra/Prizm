@@ -3,6 +3,7 @@ import { PRIZM_DATE_FILLER_LENGTH, PRIZM_DATE_RANGE_FILLER_LENGTH } from './date
 import { PRIZM_RANGE_SEPARATOR_CHAR } from './date-time';
 import { PrizmDay } from './day';
 import { PrizmMonthRange } from './month-range';
+import { prizmAssert } from '@prizm-ui/core';
 
 /**
  * Temporary type guard to satisfy ts-overloading of normalizeParse method
@@ -18,7 +19,7 @@ export class PrizmDayRange extends PrizmMonthRange {
   constructor(override readonly from: PrizmDay, override readonly to: PrizmDay) {
     super(from, to);
 
-    console.assert(from.daySameOrBefore(to));
+    prizmAssert.assert(from.daySameOrBefore(to));
   }
 
   /**

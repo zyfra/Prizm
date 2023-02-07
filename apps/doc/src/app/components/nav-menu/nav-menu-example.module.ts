@@ -4,8 +4,8 @@ import { NavMenuExampleComponent } from './nav-menu-example.component';
 import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { NavMenuBasicExampleComponent } from './examples/nav-menu-basic-example/nav-menu-basic-example.component';
-import { PrizmNavMenuModule } from '@prizm-ui/components';
 import { NavMenuAdvancedExampleComponent } from './examples/nav-menu-advanced-example/nav-menu-advanced-example.component';
+import { PrizmNavMenuModule } from '@prizm-ui/old';
 
 @NgModule({
   declarations: [NavMenuExampleComponent, NavMenuBasicExampleComponent, NavMenuAdvancedExampleComponent],

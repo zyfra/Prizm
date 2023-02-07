@@ -21,4 +21,3 @@ export class NavigationExampleComponent {
   public navigationTree: INavigationTree[] = NAVIGATION_EXAMPLE;
   activeElement = NAVIGATION_EXAMPLE[1];
 }
-

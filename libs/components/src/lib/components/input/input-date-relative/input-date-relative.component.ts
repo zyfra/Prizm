@@ -154,7 +154,7 @@ export class PrizmInputDateRelativeComponent
 
   public writeValue(value: number): void {
     this.value.markAsDirty();
-    this.value.setValue(value);
+    this.value.setValue(value?.toString());
   }
 
   public registerOnChange(fn: (_: unknown) => void): void {

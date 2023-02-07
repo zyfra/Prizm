@@ -4,12 +4,7 @@ import { TableExampleOldComponent } from './table-example-old.component';
 import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { TableBasicExampleComponent } from './examples/table-basic-example/table-basic-example.component';
-import {
-  PrizmIconModule,
-  PrizmInputTextModule,
-  PrizmPaginatorModule,
-  ZuiTableModule,
-} from '@prizm-ui/components';
+import { PrizmIconModule, PrizmInputTextModule, PrizmPaginatorModule } from '@prizm-ui/components';
 import { TableModule } from 'primeng/table';
 import { FormsModule } from '@angular/forms';
 import { TableSelectableExampleComponent } from './examples/table-selectable-example/table-selectable-example.component';
@@ -17,6 +12,7 @@ import { TableEditableColExampleComponent } from './examples/table-editable-col-
 import { TableEditableRowExampleComponent } from './examples/table-editable-row-example/table-editable-row-example.component';
 import { TableGroupExampleComponent } from './examples/table-group-example/table-group-example.component';
 import { TableStatusExampleComponent } from './examples/table-status-example/table-status-example.component';
+import { ZuiTableModule } from '@prizm-ui/old';
 
 @NgModule({
   declarations: [

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ITableProduct } from '../table-basic-example/table-basic-example.component';
 import { TABLE_EXAMPLE_DATA_SEARCH } from '../../table-example.const';
-import { prizmTableDefaultSort } from '@prizm-ui/components';
+import { prizmTableDefaultColumnSort } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-table-search-example',
@@ -11,7 +11,7 @@ import { prizmTableDefaultSort } from '@prizm-ui/components';
 })
 export class TableSearchExampleComponent {
   public columns: string[] = ['code', 'name', 'category', 'count'];
-  public sorter = prizmTableDefaultSort;
+  public sorter = prizmTableDefaultColumnSort;
   public products: ITableProduct[] = TABLE_EXAMPLE_DATA_SEARCH;
   public searchString: string = null;
   public searchAllowedProducts: ITableProduct[] = this.products;

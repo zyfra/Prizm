@@ -12,11 +12,10 @@ import {
 } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, FormControl, NgControl, NgModel } from '@angular/forms';
 import { merge, ReplaySubject, Subject } from 'rxjs';
-import { filter, map, startWith, takeUntil, tap } from 'rxjs/operators';
+import { filter, map, takeUntil, tap } from 'rxjs/operators';
 import { AbstractPrizmInteractive } from './interactive';
-import { prizmDefaultProp } from '@prizm-ui/core';
+import { PRIZM_EMPTY_FUNCTION, prizmAssert, prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmControlValueTransformer } from '../types/control-value-transformer';
-import { EMPTY_FUNCTION } from '../constants/empty';
 
 /**
  * Basic ControlValueAccessor class to build form components upon
@@ -28,9 +27,9 @@ export abstract class AbstractPrizmControl<T>
 {
   private previousInternalValue?: T | null;
 
-  private onTouched = EMPTY_FUNCTION;
+  private onTouched = PRIZM_EMPTY_FUNCTION;
 
-  private onChange = EMPTY_FUNCTION;
+  private onChange = PRIZM_EMPTY_FUNCTION;
 
   protected readonly fallbackValue = this.getFallbackValue();
 
@@ -70,7 +69,7 @@ export abstract class AbstractPrizmControl<T>
     super();
 
     if (this.ngControl === null) {
-      console.assert(
+      prizmAssert.assert(
         false,
         `NgControl not injected in ${this.constructor.name}!\n`,
         'Use [(ngModel)] or [formControl] or formControlName for correct work.'

@@ -4,6 +4,7 @@
  * It specifically checks for undefined values and prevents calls to the
  * original setter in this case.
  */
+import { prizmAssert } from '../utils';
 
 export function prizmRequiredSetter<T extends Record<string, unknown>, K extends keyof T>(
   assertion?: (a: unknown) => boolean,
@@ -24,11 +25,16 @@ export function prizmRequiredSetter<T extends Record<string, unknown>, K extends
       get,
       set(this: T, value: T[K]): void {
         if (value !== undefined && assertion) {
-          console.assert(assertion.call(this, value), `${String(key)} in ${name} received:`, value, ...args);
+          prizmAssert.assert(
+            assertion.call(this, value),
+            `${String(key)} in ${name} received:`,
+            value,
+            ...args
+          );
         }
 
         if (!set || value === undefined) {
-          console.assert(value !== undefined, errorSet(key, name));
+          prizmAssert.assert(value !== undefined, errorSet(key, name));
 
           return;
         }

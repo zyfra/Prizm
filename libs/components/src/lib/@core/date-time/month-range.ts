@@ -2,13 +2,14 @@ import { PRIZM_RANGE_SEPARATOR_CHAR } from './date-time';
 import { PrizmMonth } from './month';
 import { PrizmDay } from './day';
 import { PrizmYear } from './year';
+import { prizmAssert } from '@prizm-ui/core';
 
 /**
  * An immutable range of two {@link PrizmMonth} objects
  */
 export class PrizmMonthRange {
   constructor(readonly from: PrizmMonth, readonly to: PrizmMonth) {
-    console.assert(from.monthSameOrBefore(to));
+    prizmAssert.assert(from.monthSameOrBefore(to));
   }
 
   public static sort(month1: PrizmMonth, month2: PrizmMonth): PrizmMonthRange {

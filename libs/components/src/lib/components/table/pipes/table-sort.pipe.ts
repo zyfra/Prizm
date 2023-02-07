@@ -1,7 +1,7 @@
 import { Inject, Pipe, PipeTransform } from '@angular/core';
 
 import { PrizmTableDirective } from '../directives/table.directive';
-import { PrizmComparator } from '../prizm-table.types';
+import { PrizmComparator } from '../table.types';
 import { prizmPure } from '@prizm-ui/core';
 
 @Pipe({

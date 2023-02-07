@@ -1,3 +1,5 @@
+import { prizmAssert } from '@prizm-ui/core';
+
 /**
  * Rounds a number to the closest value in a fixed discrete series
  *
@@ -5,9 +7,9 @@
  * @param quantum series step
  */
 export function prizmQuantize(value: number, quantum: number): number {
-  console.assert(Number.isFinite(value));
-  console.assert(Number.isFinite(quantum));
-  console.assert(quantum > 0);
+  prizmAssert.assert(Number.isFinite(value));
+  prizmAssert.assert(Number.isFinite(quantum));
+  prizmAssert.assert(quantum > 0);
 
   const remainder = value % quantum;
 

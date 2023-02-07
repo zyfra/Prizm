@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { HeaderConfig, ToolbarConfig, PrizmMenuItem } from '@prizm-ui/components';
+import { HeaderConfig, PrizmMenuItem, ToolbarConfig } from '@prizm-ui/old';
 
 @Component({
   selector: 'prizm-nav-menu-example',

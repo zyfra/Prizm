@@ -16,7 +16,7 @@
 </tr>
 <ng-container *ngIf="open && row">
   <ng-container
-    *ngFor="let item of sorted; index as index, odd as odd, even as even, first as first, last as last, count as count;  trackBy: row.prizmRowTrackBy"
+    *ngFor="let item of sorterService.sort$(data) | async; index as index, odd as odd, even as even, first as first, last as last, count as count;  trackBy: row.prizmRowTrackBy"
     [ngTemplateOutlet]="row.template"
     [ngTemplateOutletContext]="item | prizmMapper: toContext: index: odd: even: first: last: count"
   ></ng-container>

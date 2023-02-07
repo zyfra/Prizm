@@ -5,7 +5,7 @@ import { PrizmMonthNumber } from '../enums/month-number';
 
 import { PRIZM_DAYS_IN_WEEK, PRIZM_MAX_MONTH, PRIZM_MIN_MONTH, PRIZM_MONTHS_IN_YEAR } from './date-time';
 import { PrizmYear } from './year';
-import { prizmPadStart } from '@prizm-ui/core';
+import { prizmAssert, prizmPadStart } from '@prizm-ui/core';
 
 /**
  * Immutable object consisting of year and month
@@ -17,7 +17,7 @@ export class PrizmMonth extends PrizmYear implements PrizmMonthLike {
    */
   constructor(year: number, readonly month: number) {
     super(year);
-    console.assert(PrizmMonth.isValidMonth(year, month));
+    prizmAssert.assert(PrizmMonth.isValidMonth(year, month));
   }
 
   /**
@@ -31,7 +31,7 @@ export class PrizmMonth extends PrizmYear implements PrizmMonthLike {
    * Returns number of days in a month
    */
   public static getMonthDaysCount(month: number, isLeapYear: boolean): number {
-    console.assert(PrizmMonth.isValidMonthPart(month));
+    prizmAssert.assert(PrizmMonth.isValidMonthPart(month));
 
     switch (month) {
       case PrizmMonthNumber.February:

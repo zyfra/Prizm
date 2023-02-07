@@ -40,11 +40,12 @@ export class PrizmPluckPipe implements PipeTransform {
     K6 extends keyof T[K][K2][K3][K4][K5]
   >(input: T, arr: [K, K2, K3, K4, K5, K6], defaultValue?: unknown): T[K][K2][K3][K4][K5][K6];
   // public transform<T, K extends keyof T>(input: T, key: K, defaultValue?: unknown): T[K]
-  public transform<T, K extends keyof T, K2 extends keyof T[K], K3 extends keyof T[K][K2]>(
-    input: T,
-    key: K | [K] | [K, K2] | [K, K2, K3],
-    defaultValue: unknown = null
-  ): unknown {
+  public transform<
+    T,
+    K extends keyof T & string,
+    K2 extends keyof T[K] & string,
+    K3 extends keyof T[K][K2] & string
+  >(input: T, key: K | [K] | [K, K2] | [K, K2, K3], defaultValue: unknown = null): unknown {
     if (!input || typeof input !== 'object') {
       throw new Error('prizmPluck in input instead of object or array, get ' + input);
     }
