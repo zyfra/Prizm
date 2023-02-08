@@ -51,6 +51,10 @@ export class PrizmDocHostElementService implements OnDestroy {
 
   private updateComponentInfo(listenerElementKey: string, el: ElementRef): void {
     const currentOutputMap = this.outputMap.get(listenerElementKey) || new Map();
+    console.log('#mz updateComponentInfo', {
+      listenerElementKey,
+      el,
+    });
     const metaComponentData = this.componentFactoryResolver.resolveComponentFactory(
       el.nativeElement.constructor
     );

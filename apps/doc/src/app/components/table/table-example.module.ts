@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableExampleComponent } from './table-example.component';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { TableBasicExampleComponent } from './examples/table-basic-example/table-basic-example.component';
 import {
@@ -9,6 +9,7 @@ import {
   PrizmDropdownHostModule,
   PrizmIconModule,
   PrizmInputTextModule,
+  PrizmLoaderModule,
   PrizmPaginatorModule,
   PrizmPanelModule,
   PrizmScrollbarModule,
@@ -24,6 +25,8 @@ import { TableRowGroupExampleComponent } from './examples/table-row-group-exampl
 import { TableSearchExampleComponent } from './examples/table-search-example/table-search-example.component';
 import { TableBorderStyleExampleComponent } from './examples/table-border-style-example/table-border-style-example.component';
 import { TableSelectableMetaExampleComponent } from './examples/table-selectable-meta/table-selectable-meta-example.component';
+import { TableSortExampleComponent } from './examples/table-sort-example/table-sort-example.component';
+import { TableServerSortExampleComponent } from './examples/table-server-sort-example/table-server-sort-example.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,8 @@ import { TableSelectableMetaExampleComponent } from './examples/table-selectable
     TableEditableRowExampleComponent,
     TableFilterExampleComponent,
     TableStatusExampleComponent,
+    TableSortExampleComponent,
+    TableServerSortExampleComponent,
     TableRowGroupExampleComponent,
     TableSearchExampleComponent,
     TableBorderStyleExampleComponent,
@@ -46,6 +51,7 @@ import { TableSelectableMetaExampleComponent } from './examples/table-selectable
     RouterModule.forChild(prizmDocGenerateRoutes(TableExampleComponent)),
     FormsModule,
     ReactiveFormsModule,
+    PrizmLoaderModule,
     PrizmInputTextModule,
     PrizmIconModule,
     PrizmPaginatorModule,

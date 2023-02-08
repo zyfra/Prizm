@@ -6,7 +6,7 @@ export type PrizmTableCellSorterHandler<T> = (a: T, b: T, options: PrizmTableSor
 
 export type PrizmTableCellSorter<T> = {
   options: PrizmTableSortOptions;
-  sorter: PrizmTableCellSorterHandler<T>;
+  sorter?: PrizmTableCellSorterHandler<T>;
 };
 
 export type PrizmTableCellSortOrder = 'asc' | 'desc';

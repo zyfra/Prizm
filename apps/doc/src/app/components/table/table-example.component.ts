@@ -106,6 +106,20 @@ export class TableExampleComponent {
     HTML: import('!!raw-loader!./examples/table-search-example/table-search-example.component.html'),
     LESS: import('./examples/table-search-example/table-search-example.component.less?raw'),
   };
+  public exampleSortTable: TuiDocExample = {
+    TypeScript: import('!!raw-loader!./examples/table-sort-example/table-sort-example.component'),
+    HTML: import('!!raw-loader!./examples/table-sort-example/table-sort-example.component.html'),
+    LESS: import('./examples/table-sort-example/table-sort-example.component.less?raw'),
+  };
+  public exampleServerSortTable: TuiDocExample = {
+    TypeScript: import(
+      '!!raw-loader!./examples/table-server-sort-example/table-server-sort-example.component'
+    ),
+    HTML: import(
+      '!!raw-loader!./examples/table-server-sort-example/table-server-sort-example.component.html'
+    ),
+    LESS: import('./examples/table-server-sort-example/table-server-sort-example.component.less?raw'),
+  };
 
   public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
 }

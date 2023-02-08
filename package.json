@@ -2,9 +2,16 @@
   "name": "@prizm-ui/sdk",
   "version": "1.0.0-beta.22",
   "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "run-p lint check-branch-name",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "scripts": {
     "docs": "nx run components:doc",
     "ng": "nx",
+    "check-branch-name": "chmod 755 ./.husky/check_branch_naming.sh && sh ./.husky/check_branch_naming.sh",
     "cypress:open": "cypress open",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
     "start": "nx run doc:serve",
@@ -86,6 +93,8 @@
     "@angular/cli": "~14.2.0",
     "@angular/compiler-cli": "14.2.12",
     "@angular/language-service": "14.2.12",
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
     "@nrwl/cli": "14.8.6",
     "@nrwl/cypress": "14.8.6",
     "@nrwl/devkit": "14.8.6",

@@ -4,9 +4,9 @@
   "license": "MIT",
   "description": "Library to make it easy to create Angular applications. Contains Injectables Service, RxJS utilities, directives, and standard pipes.",
   "peerDependencies": {
-    "@angular/common": "^14.2.12|^12.2.0",
-    "@angular/forms": "^14.2.12|^12.2.0",
-    "@angular/core": "^14.2.12|^12.2.0"
+    "@angular/common": "^14.2.12 || ^12.2.0",
+    "@angular/forms": "^14.2.12 || ^12.2.0",
+    "@angular/core": "^14.2.12 || ^12.2.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

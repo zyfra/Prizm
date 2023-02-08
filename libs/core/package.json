@@ -4,8 +4,8 @@
   "license": "MIT",
   "description": "The main library for creating Angular components and elements using Prizm.",
   "peerDependencies": {
-    "@angular/common": "^14.2.12|^12.2.0",
-    "@angular/core": "^14.2.12|^12.2.0"
+    "@angular/common": "^14.2.12 || ^12.2.0",
+    "@angular/core": "^14.2.12 || ^12.2.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { HeaderConfig, PrizmMenuItem, ToolbarConfig } from '@prizm-ui/old';
+import { HeaderConfig, PrizmMenuItem, ToolbarConfig } from '@prizm-ui/deprecated';
 
 @Component({
   selector: 'prizm-nav-menu-example',

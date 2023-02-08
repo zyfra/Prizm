@@ -43,12 +43,20 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
   resizable = false;
 
   @Input()
+  @prizmDefaultProp()
+  sortable = false;
+
+  @Input()
   @HostBinding(`class._sticky`)
   @prizmDefaultProp()
   sticky = false;
 
   @HostBinding(`style.width.px`)
   width: number | null = null;
+
+  get isSortable(): boolean {
+    return this.sortable || typeof this.sorter === 'function';
+  }
 
   constructor(
     @Optional()
@@ -68,13 +76,24 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
     return this.head.prizmHead;
   }
 
-  /**/
   get isCurrent(): boolean {
     return this.sorterService.isActive(this.key as string);
   }
 
+  get idx(): number {
+    return this.sorterService.idx(this.key as string);
+  }
+
+  get count(): number {
+    return this.sorterService.count;
+  }
+  get num(): number | null {
+    const idx = this.idx;
+    if (idx === -1) return null;
+    return idx + 1;
+  }
+
   get sortItem(): PrizmTableCellSorter<T> {
-    // return !!this.sorter && !!this.table && this.sorter === this.table.sorter;
     return this.sorterService.cell(this.key as string);
   }
 
@@ -104,7 +123,7 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
         },
         sorter: this.sorter,
       },
-      !event.metaKey
+      !event.metaKey && !event.ctrlKey
     );
   }
 }
