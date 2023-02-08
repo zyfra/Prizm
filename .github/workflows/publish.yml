@@ -54,3 +54,10 @@ jobs:
       - run: cd dist/libs/charts && npm publish --verbose || exit_code=0
       - run: cd dist/libs/icons/base && npm publish --verbose || exit_code=0
       - run: cd dist/libs/icons/flags && npm publish --verbose || exit_code=0
+      - name: Deploy doc to firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
+          projectId: prizmui
+          channelId: live
