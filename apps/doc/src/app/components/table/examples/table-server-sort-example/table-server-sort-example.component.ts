@@ -122,6 +122,7 @@ export class TableServerSortExampleComponent {
   public showLoader$ = new BehaviorSubject(false);
   public search<T extends keyof ITableProduct>(value: string, key: T): void {
     this.searchString = value.toLowerCase();
+
     this.searchAllowedProducts = this.products.filter(product =>
       (product[key] as string).toLowerCase().includes(this.searchString)
     );
@@ -129,6 +130,5 @@ export class TableServerSortExampleComponent {
 
   public updateSort(sort: PrizmTableCellSorter<any>[]): void {
     this.sorter$$.next(sort);
-    console.log('#mz updateSort', { sort });
   }
 }
