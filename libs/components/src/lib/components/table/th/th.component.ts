@@ -114,7 +114,12 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
   }
 
   public updateSorter(event: MouseEvent): void {
+    event.preventDefault();
     const newOrder = this.sorterService.nextOrder(this.key as string);
+    if (event.ctrlKey || event.metaKey) {
+      this.sorterService.remove(this.key as string);
+    }
+    else
     this.sorterService.sortCell(
       {
         options: {
@@ -123,7 +128,7 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
         },
         sorter: this.sorter,
       },
-      !event.metaKey && !event.ctrlKey
+      !event.shiftKey
     );
   }
 }

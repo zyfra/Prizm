@@ -28,6 +28,11 @@ export class PrizmTableSorterService<T> {
     this.emit();
   }
 
+  public remove(id: string): void {
+    this.map.delete(id);
+    this.emit();
+  }
+
   public set(sorter: PrizmTableCellSorter<T>[]): void {
     this.map.clear();
     for (const item of sorter) {
