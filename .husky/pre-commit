@@ -3,3 +3,4 @@
 
 npx nx-cloud record -- npx nx workspace-lint
 npx nx-cloud record -- npm run check-branch-name
+npx nx-cloud record -- npx nx format:write --parallel=3 --base origin/main
