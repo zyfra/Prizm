@@ -2,7 +2,9 @@
   <ng-container [ngTemplateOutlet]="content"></ng-container>
   {{ table.change$ | async }}
   <span class="sort__block" (click)="updateSorter($event)" [class.sort__block_active]="isCurrent">
-    <span [style.visibility]="(count > 1 && num) ? 'visible' : 'hidden'" class="sorter__number">{{num ?? '0'}}</span>
+    <span [style.visibility]="(count > 1 && num) ? 'visible' : 'hidden'" class="sorter__number"
+      >{{num ?? '0'}}</span
+    >
     <prizm-icon class="sorter__icon" [iconClass]="icon$ | async"></prizm-icon>
   </span>
 </button>

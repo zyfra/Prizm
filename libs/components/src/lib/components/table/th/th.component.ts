@@ -118,17 +118,16 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
     const newOrder = this.sorterService.nextOrder(this.key as string);
     if (event.ctrlKey || event.metaKey) {
       this.sorterService.remove(this.key as string);
-    }
-    else
-    this.sorterService.sortCell(
-      {
-        options: {
-          id: this.key as string,
-          order: newOrder,
+    } else
+      this.sorterService.sortCell(
+        {
+          options: {
+            id: this.key as string,
+            order: newOrder,
+          },
+          sorter: this.sorter,
         },
-        sorter: this.sorter,
-      },
-      !event.shiftKey
-    );
+        !event.shiftKey
+      );
   }
 }
