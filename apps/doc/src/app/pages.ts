@@ -30,27 +30,34 @@ export const pages: PrizmOrderedDocPage = [
     route: 'about-prizm/changelog',
     order: 3,
   },
+  {
+    section: SectionNameEnum.allAboutPrizm,
+    title: 'Связь с командой Prizm',
+    keywords: 'Помощь, help, связь, contact',
+    route: 'about-prizm/contacts',
+    order: 4,
+  },
   //Guidelines
   {
     section: SectionNameEnum.guidelines,
     title: `Типографика`,
     keywords: 'типографика, typography',
     route: 'guidelines/typography',
-    order: 4,
+    order: 5,
   },
   {
     section: SectionNameEnum.guidelines,
     title: `Цвета`,
     keywords: 'цвета, colors',
     route: 'guidelines/colors',
-    order: 5,
+    order: 6,
   },
   {
     section: SectionNameEnum.guidelines,
     title: `Сетки`,
     keywords: 'сетка, grid',
     route: 'guidelines/grid',
-    order: 6,
+    order: 7,
   },
   //How to start
   {
@@ -59,21 +66,21 @@ export const pages: PrizmOrderedDocPage = [
     keywords: 'дизайнеры, designers',
     target: '_blank',
     link: 'https://www.figma.com/community/file/1156311020501452261',
-    order: 7,
+    order: 8,
   },
   {
     section: SectionNameEnum.howToStart,
     title: `Разработчикам`,
     keywords: 'intro, how, to, start, guide, getting started, main, главная, начало, как, начать, инструкция',
     route: 'how-to-start/for-developers',
-    order: 8,
+    order: 9,
   },
   {
     section: SectionNameEnum.howToStart,
     title: `Миграция`,
     keywords: 'Миграция, migration',
     route: 'how-to-start/migration',
-    order: 9,
+    order: 10,
   },
   // Documentation
   // {
@@ -81,7 +88,7 @@ export const pages: PrizmOrderedDocPage = [
   //   title: `About`,
   //   keywords: 'about, intro, how to, guide, main, главная, начало, инструкция',
   //   route: 'about',
-  //   order: 10,
+  //   order: 11,
   // },
   {
     section: SectionNameEnum.allAboutPrizm,
