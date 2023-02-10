@@ -649,6 +649,16 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/calendar-month',
+    loadChildren: () =>
+      import('./components/calendars/calendar-month/calendar-month.module').then(
+        i => i.ExampleCalendarMonthModule
+      ),
+    data: {
+      title: 'Calendar Month',
+    },
+  },
+  {
     path: 'components/calendar-range',
     loadChildren: () =>
       import('./components/calendars/calendar-range/calendar-range.module').then(i => i.CalendarRangeModule),

@@ -11,6 +11,10 @@ export const PRIZM_TIME_TEXTS = new InjectionToken(`time i18n texts`, {
   factory: prizmExtractI18n(`time`),
 });
 
+export const PRIZM_CALENDAR_MONTHS = new InjectionToken(`[TUI_CALENDAR_MONTHS]: short calendar months i18n`, {
+  factory: prizmExtractI18n(`shortCalendarMonths`),
+});
+
 export const PRIZM_CLOSE_WORD = new InjectionToken(`i18n 'close' word`, {
   factory: prizmExtractI18n(`close`),
 });

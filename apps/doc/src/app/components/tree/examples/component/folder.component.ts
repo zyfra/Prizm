@@ -4,7 +4,7 @@ import { PrizmTreeItemContentComponent } from '@prizm-ui/components';
 @Component({
   selector: 'prizm-folders',
   template: `
-    <prizm-icon class="tui-space_right-2" [iconClass]="icon" size="16"></prizm-icon>
+    <prizm-icon class="prizm-space_right-2" [iconClass]="icon" size="16"></prizm-icon>
     <ng-container [ngTemplateOutlet]="context.template"></ng-container>
   `,
   styleUrls: ['folder.component.less'],

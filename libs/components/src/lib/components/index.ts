@@ -9,6 +9,7 @@ export * from './input';
 export * from './chips';
 export * from './calendar';
 export * from './calendar-range';
+export * from './calendar-month';
 export * from './loader';
 export * from './paginator';
 export * from './data-list';

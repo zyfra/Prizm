@@ -180,6 +180,11 @@ export const pages: PrizmOrderedDocPage = [
         route: '/components/calendar',
       },
       {
+        title: 'Calendar Month',
+        keywords: 'calendar-month, календарь, месяцев',
+        route: '/components/calendar-month',
+      },
+      {
         title: 'CalendarRange',
         keywords: 'calendar-range, календарь, диапозон',
         route: '/components/calendar-range',

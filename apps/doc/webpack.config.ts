@@ -5,12 +5,12 @@ import { merge } from 'webpack-merge';
  * We can't just import TS-file to get its content
  * (it is impossible to distinguish default export from loading of raw file's content).
  * ```
- * import textContentOrDefaultExport from './index.ts'
+ * import textContentOrDefaultExport from './base.component.ts'
  * ```
  * That is why we use resourceQuery condition to mimic the functionality of the inline syntax.
  * ```
- * import textContext from './index.ts?raw';
- * import defaultExport from './index.ts';
+ * import textContext from './base.component.ts?raw';
+ * import defaultExport from './base.component.ts';
  * ```
  * @see https://webpack.js.org/guides/asset-modules/#replacing-inline-loader-syntax
  */

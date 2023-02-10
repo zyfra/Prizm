@@ -6,6 +6,7 @@ export * from './event-with';
 export * from './handler';
 export * from './with-optional-min-max';
 export * from './dropdown-width';
+export * from './handler-with-context';
 export * from './color';
 export * from './orientation';
 export * from './mapper';
