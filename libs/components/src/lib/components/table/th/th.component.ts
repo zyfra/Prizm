@@ -11,8 +11,6 @@ import {
 
 import { PrizmHeadDirective } from '../directives/head.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
-import { PrizmComparator } from '../table.types';
-import { prizmTableDefaultColumnSort } from '../table.const';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PRIZM_ELEMENT_REF } from '../../../tokens';
 import { PrizmTableSortKeyException } from '../../../exceptions';

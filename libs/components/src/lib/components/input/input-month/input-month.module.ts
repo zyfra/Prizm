@@ -7,8 +7,9 @@ import { PrizmMapperPipeModule } from '../../table/pipes/mapper/mapper.module';
 import { PrizmInputTextModule } from '../input-text/input-text.module';
 import { PrizmInputMonthComponent } from './input-month.component';
 import { PrizmInputMonthDirective } from './input-month.directive';
-import { PolymorphModule, PrizmMaskModule } from '@prizm-ui/components';
 import { FormsModule } from '@angular/forms';
+import { PrizmMaskModule } from '../../../modules/mask/mask.module';
+import { PolymorphModule } from '../../../directives/polymorph';
 
 @NgModule({
   imports: [

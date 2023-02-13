@@ -3,7 +3,7 @@ import { PrizmDay } from '../@core/date-time/day';
 import { PRIZM_FIRST_DAY, PRIZM_LAST_DAY } from '../@core/date-time/days.const';
 import { PolymorphContent } from '../directives/polymorph/types/content';
 import { PrizmContextWithImplicit } from '../types/context-with-implicit';
-import { PrizmInputSize } from '../components';
+import { PrizmInputSize } from '../components/input/common/models/prizm-input.models';
 
 export interface PrizmInputDateOptions {
   readonly icon: PolymorphContent<PrizmContextWithImplicit<PrizmInputSize>>;
