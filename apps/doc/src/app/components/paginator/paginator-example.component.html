@@ -40,6 +40,7 @@
         [paginatorType]="paginatorType"
         [paginatorOptions]="paginatorOptions"
         [rowsCountOptions]="rowsCountOptions"
+        [moreButtonLabel]="moreButtonLabel"
       ></prizm-paginator>
     </prizm-doc-demo>
     <prizm-doc-documentation>
@@ -140,6 +141,15 @@
         [(documentationPropertyValue)]="rightButtonLabel"
       >
         Right button label
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="moreButtonLabel"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="moreButtonLabel"
+      >
+        More button label
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>

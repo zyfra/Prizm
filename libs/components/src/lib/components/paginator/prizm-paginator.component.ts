@@ -37,6 +37,7 @@ export class PrizmPaginatorComponent {
 
   @Input() public leftButtonLabel = '';
   @Input() public rightButtonLabel = '';
+  @Input() moreButtonLabel = 'Показать еще';
 
   @Input() public rowsCountOptions: number[] = [];
   @Output() public paginatorChange: EventEmitter<PrizmPaginatorOutput> =
