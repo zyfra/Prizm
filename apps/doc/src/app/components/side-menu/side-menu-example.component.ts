@@ -9,8 +9,8 @@ import { TuiDocExample } from '@prizm-ui/doc';
 })
 export class SideMenuExampleComponent {
   public readonly sideMenuBasicExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/side-menu-example-basic/side-menu-example-basic.component'),
-    HTML: import('!!raw-loader!./examples/side-menu-example-basic/side-menu-example-basic.component.html'),
+    TypeScript: import('./examples/side-menu-example-basic/side-menu-example-basic.component?raw'),
+    HTML: import('./examples/side-menu-example-basic/side-menu-example-basic.component.html?raw'),
     LESS: import('./examples/side-menu-example-basic/side-menu-example-basic.component.less?raw'),
   };
 }

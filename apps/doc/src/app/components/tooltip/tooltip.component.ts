@@ -69,20 +69,20 @@ export class TooltipComponent {
 
   public prizmTooltip: PolymorphContent = this.prizmTooltipVariants[0];
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/tooltip-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/tooltip-base-example.component.html'),
+    TypeScript: import('./examples/base/tooltip-base-example.component.ts?raw'),
+    HTML: import('./examples/base/tooltip-base-example.component.html?raw'),
   };
 
   readonly exampleWithTemplate: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-template/tooltip-with-template-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/with-template/tooltip-with-template-example.component.html'),
+    TypeScript: import('./examples/with-template/tooltip-with-template-example.component.ts?raw'),
+    HTML: import('./examples/with-template/tooltip-with-template-example.component.html?raw'),
   };
 
   readonly exampleWithComponent: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-component/tooltip-with-component-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/with-component/tooltip-with-component-example.component.html'),
+    TypeScript: import('./examples/with-component/tooltip-with-component-example.component.ts?raw'),
+    HTML: import('./examples/with-component/tooltip-with-component-example.component.html?raw'),
   };
 }

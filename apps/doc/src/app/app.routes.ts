@@ -300,6 +300,14 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/input-month',
+    loadChildren: () =>
+      import('./components/input/input-month/input-month.module').then(i => i.InputMonthModule),
+    data: {
+      title: 'Input Month',
+    },
+  },
+  {
     path: 'components/input-date-time-range',
     loadChildren: () =>
       import('./components/input/input-date-time-range/input-date-time-range.module').then(

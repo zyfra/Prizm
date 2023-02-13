@@ -14,10 +14,10 @@ export class LoaderComponent {
   public overlay = true;
   public size: PrizmSize = 's';
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/loader-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/loader-base-example.component.html'),
+    TypeScript: import('./examples/base/loader-base-example.component.ts?raw'),
+    HTML: import('./examples/base/loader-base-example.component.html?raw'),
   };
 }

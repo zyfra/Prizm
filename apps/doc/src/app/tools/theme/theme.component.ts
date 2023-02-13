@@ -7,13 +7,13 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ThemeComponent {
-  readonly exampleModule: RawLoaderContent = import('!!raw-loader!./examples/import-component.md');
+  readonly exampleModule: RawLoaderContent = import('./examples/import-component.md?raw');
   readonly baseExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/base.component'),
-    HTML: import('!!raw-loader!./examples/base/base.component.html'),
+    TypeScript: import('./examples/base/base.component?raw'),
+    HTML: import('./examples/base/base.component.html?raw'),
   };
   readonly localExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/local/local.component'),
-    HTML: import('!!raw-loader!./examples/local/local.component.html'),
+    TypeScript: import('./examples/local/local.component?raw'),
+    HTML: import('./examples/local/local.component.html?raw'),
   };
 }

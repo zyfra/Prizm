@@ -27,39 +27,35 @@ export class PrizmCarouselExampleComponent {
   lightMode = false;
 
   public readonly zyfraCarouselBasicExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/carousel-basic-example/carousel-basic-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/carousel-basic-example/carousel-basic-example.component.html'),
+    TypeScript: import('./examples/carousel-basic-example/carousel-basic-example.component.ts?raw'),
+    HTML: import('./examples/carousel-basic-example/carousel-basic-example.component.html?raw'),
   };
 
   public readonly zyfraCarouselLightExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/carousel-light-example/carousel-light-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/carousel-light-example/carousel-light-example.component.html'),
+    TypeScript: import('./examples/carousel-light-example/carousel-light-example.component.ts?raw'),
+    HTML: import('./examples/carousel-light-example/carousel-light-example.component.html?raw'),
   };
 
   public readonly zyfraCarouselArrayofObjectsExample: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!./examples/carousel-array-of-objects-example/carousel-array-of-objects-example.component.ts'
+      './examples/carousel-array-of-objects-example/carousel-array-of-objects-example.component.ts?raw'
     ),
     HTML: import(
-      '!!raw-loader!./examples/carousel-array-of-objects-example/carousel-array-of-objects-example.component.html'
+      './examples/carousel-array-of-objects-example/carousel-array-of-objects-example.component.html?raw'
     ),
   };
 
   public readonly zyfraCarouselYearMonthExample: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/carousel-year-month-example/carousel-year-month-example.component.ts'
-    ),
-    HTML: import(
-      '!!raw-loader!./examples/carousel-year-month-example/carousel-year-month-example.component.html'
-    ),
-    PIPE: import('!!raw-loader!./examples/carousel-year-month-example/month.pipe.ts'),
+    TypeScript: import('./examples/carousel-year-month-example/carousel-year-month-example.component.ts?raw'),
+    HTML: import('./examples/carousel-year-month-example/carousel-year-month-example.component.html?raw'),
+    PIPE: import('./examples/carousel-year-month-example/month.pipe.ts?raw'),
   };
 
   public readonly carouselAsInputExample: TuiDocExample = {
-    Module: import('!!raw-loader!./examples/input-as-carousel/input-as-carousel.module.ts'),
-    Component: import('!!raw-loader!./examples/input-as-carousel/input-as-carousel.component.ts'),
-    HTML: import('!!raw-loader!./examples/input-as-carousel/input-as-carousel.component.html'),
+    Module: import('./examples/input-as-carousel/input-as-carousel.module.ts?raw'),
+    Component: import('./examples/input-as-carousel/input-as-carousel.component.ts?raw'),
+    HTML: import('./examples/input-as-carousel/input-as-carousel.component.html?raw'),
   };
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

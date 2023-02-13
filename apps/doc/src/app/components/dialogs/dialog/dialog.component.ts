@@ -66,16 +66,16 @@ export class DialogComponent {
   public content = 'Базовый текст для диалога';
   public footer: PolymorphContent<PrizmBaseDialogContext<any, PrizmDialogOptions<any, any>>> = null;
 
-  public readonly exampleModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  public readonly exampleModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   public readonly exampleBasic: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/base.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/base.component.html'),
+    TypeScript: import('./examples/base/base.component.ts?raw'),
+    HTML: import('./examples/base/base.component.html?raw'),
   };
 
   public readonly exampleWithButtons: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-buttons/with-buttons.component.ts'),
-    HTML: import('!!raw-loader!./examples/with-buttons/with-buttons.component.html'),
+    TypeScript: import('./examples/with-buttons/with-buttons.component.ts?raw'),
+    HTML: import('./examples/with-buttons/with-buttons.component.html?raw'),
   };
 
   constructor(@Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService) {}

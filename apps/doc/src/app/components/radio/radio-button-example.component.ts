@@ -18,14 +18,10 @@ export class ExamplesRadioButtonComponent {
   public size: TRadioButtonSize = this.sizeVariants[1];
 
   readonly exampleBasicRadio: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/radio-button-basic-example/radio-button-basic-example.component'
-    ),
-    HTML: import(
-      '!!raw-loader!./examples/radio-button-basic-example/radio-button-basic-example.component.html'
-    ),
+    TypeScript: import('./examples/radio-button-basic-example/radio-button-basic-example.component?raw'),
+    HTML: import('./examples/radio-button-basic-example/radio-button-basic-example.component.html?raw'),
     LESS: import('./examples/radio-button-basic-example/radio-button-basic-example.component.less?raw'),
   };
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

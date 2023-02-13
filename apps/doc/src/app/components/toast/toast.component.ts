@@ -16,35 +16,31 @@ import { prizmPure } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToastComponent {
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleMessageInfo: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/message-info-example/message-success-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/message-info-example/message-success-example.component.html'),
+    TypeScript: import('./examples/message-info-example/message-success-example.component.ts?raw'),
+    HTML: import('./examples/message-info-example/message-success-example.component.html?raw'),
   };
 
   readonly exampleMessageWarning: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/message-warning-example/message-warning-example.component.ts'
-    ),
-    HTML: import('!!raw-loader!./examples/message-warning-example/message-warning-example.component.html'),
+    TypeScript: import('./examples/message-warning-example/message-warning-example.component.ts?raw'),
+    HTML: import('./examples/message-warning-example/message-warning-example.component.html?raw'),
   };
 
   readonly exampleMessageDanger: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/message-danger-example/message-success-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/message-danger-example/message-success-example.component.html'),
+    TypeScript: import('./examples/message-danger-example/message-success-example.component.ts?raw'),
+    HTML: import('./examples/message-danger-example/message-success-example.component.html?raw'),
   };
 
   readonly exampleMessageSuccess: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/message-success-example/message-success-example.component.ts'
-    ),
-    HTML: import('!!raw-loader!./examples/message-success-example/message-success-example.component.html'),
+    TypeScript: import('./examples/message-success-example/message-success-example.component.ts?raw'),
+    HTML: import('./examples/message-success-example/message-success-example.component.html?raw'),
   };
 
   readonly exampleToast: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/toast-example/toast-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/toast-example/toast-example.component.html'),
+    TypeScript: import('./examples/toast-example/toast-example.component.ts?raw'),
+    HTML: import('./examples/toast-example/toast-example.component.html?raw'),
   };
 
   readonly appearanceVariants: ReadonlyArray<PrizmToastAppearance> = ['info', 'success', 'warning', 'danger'];

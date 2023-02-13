@@ -53,10 +53,6 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
 
   @Input()
   @prizmDefaultProp()
-  parentZone?: PrizmDropdownZoneDirective | null = null;
-
-  @Input()
-  @prizmDefaultProp()
   delay = 0;
 
   @Input()
@@ -136,11 +132,6 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
     if (this.closeByEsc) this.close();
   }
 
-  @HostListener('window:click', ['$event']) public onDocumentClick(event: MouseEvent): void {
-    if ([...this.itemForListener].find(el => el.contains(event.target as HTMLElement))) return;
-    this.documentClick$.next(Date.now());
-  }
-
   public ngAfterViewInit(): void {
     this.initOverlay();
     this.initClickListener();
@@ -153,27 +144,27 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
   }
 
   private initClickListener(): void {
-    this.overlay
-      .listen('z_open')
-      .pipe(
-        delay(0),
-        switchMap(() =>
-          combineLatest([this.documentClick$, this.containerClick$.pipe(startWith(Date.now()))]).pipe(
-            debounceTime(150),
-            map(([document, container]: [number, number]) => document - container),
-            filter(
-              (diff: number) =>
-                diff > PRIZM_DROPDOWN_TIME_DIFFERENCE &&
-                this.overlay?.isOpen &&
-                this.prizmDropdownHostCloseOnBackdropClick
-            ),
-            tap(() => this.close()),
-            takeUntil(this.overlay.listen('z_close'))
-          )
-        ),
-        takeUntil(this.destroy$)
-      )
-      .subscribe();
+    // this.overlay
+    //   .listen('z_open')
+    //   .pipe(
+    //     delay(0),
+    //     switchMap(() =>
+    //       combineLatest([this.documentClick$, this.containerClick$.pipe(startWith(Date.now()))]).pipe(
+    //         debounceTime(150),
+    //         map(([document, container]: [number, number]) => document - container),
+    //         filter(
+    //           (diff: number) =>
+    //             diff > PRIZM_DROPDOWN_TIME_DIFFERENCE &&
+    //             this.overlay?.isOpen &&
+    //             this.prizmDropdownHostCloseOnBackdropClick
+    //         ),
+    //         tap(() => this.close()),
+    //         takeUntil(this.overlay.listen('z_close'))
+    //       )
+    //     ),
+    //     takeUntil(this.destroy$)
+    //   )
+    //   .subscribe();
 
     this.isOpen$
       .pipe(
@@ -225,10 +216,6 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
       .subscribe();
   }
 
-  public clickOnContainer(): void {
-    this.containerClick$.next(Date.now());
-  }
-
   private initPositionListener(position: PrizmOverlayRelativePosition): void {
     position.pos$
       .pipe(
@@ -247,5 +234,10 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
 
   public removeListenerItems(el: HTMLElement): void {
     this.itemForListener.delete(el);
+  }
+
+  public outsideClick(): void {
+    this.close();
+    this.overlay.listen('z_close');
   }
 }

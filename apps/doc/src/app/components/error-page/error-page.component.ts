@@ -11,10 +11,10 @@ export class PrizmErrorPageExampleComponent {
   title = 'Доступ ограничен';
   userContent = 'Обратитесь к системному администратору или владельцу продукта для получения доступа';
 
-  setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly error404: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/base.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/base.component.html'),
+    TypeScript: import('./examples/base/base.component.ts?raw'),
+    HTML: import('./examples/base/base.component.html?raw'),
   };
 }

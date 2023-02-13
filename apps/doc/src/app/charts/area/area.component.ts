@@ -242,11 +242,11 @@ export class AreaComponent {
     },
   ];
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleOutline: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/prizm-charts-area-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/prizm-charts-area-example.component.html'),
+    TypeScript: import('./examples/base/prizm-charts-area-example.component.ts?raw'),
+    HTML: import('./examples/base/prizm-charts-area-example.component.html?raw'),
   };
 
   constructor(public readonly prizmTheme: PrizmThemeService) {}

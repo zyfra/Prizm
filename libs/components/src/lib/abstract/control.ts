@@ -8,7 +8,9 @@ import {
   OnDestroy,
   OnInit,
   Output,
+  Provider,
   SimpleChanges,
+  Type,
 } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, FormControl, NgControl, NgModel } from '@angular/forms';
 import { merge, ReplaySubject, Subject } from 'rxjs';
@@ -270,4 +272,11 @@ export abstract class AbstractPrizmControl<T>
   private toControlValue(componentValue: T): unknown {
     return this.valueTransformer ? this.valueTransformer.toControlValue(componentValue) : componentValue;
   }
+}
+
+export function prizmAsControl<T>(useExisting: Type<AbstractPrizmControl<T>>): Provider {
+  return {
+    provide: AbstractPrizmControl,
+    useExisting,
+  };
 }

@@ -18,20 +18,20 @@ export class CheckboxExampleComponent {
   public size: TCheckboxSize = this.sizeVariants[1];
 
   readonly exampleBasicCheckbox: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/checkbox-basic-example/checkbox-basic-example.component'),
-    HTML: import('!!raw-loader!./examples/checkbox-basic-example/checkbox-basic-example.component.html'),
+    TypeScript: import('./examples/checkbox-basic-example/checkbox-basic-example.component?raw'),
+    HTML: import('./examples/checkbox-basic-example/checkbox-basic-example.component.html?raw'),
   };
 
   readonly checkboxGroup: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/checkbox-group-example/checkbox-group-example.component'),
-    HTML: import('!!raw-loader!./examples/checkbox-group-example/checkbox-group-example.component.html'),
+    TypeScript: import('./examples/checkbox-group-example/checkbox-group-example.component?raw'),
+    HTML: import('./examples/checkbox-group-example/checkbox-group-example.component.html?raw'),
   };
 
   readonly exampleReactiveFormCheckbox: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/checkbox-form-example/checkbox-form-example.component'),
-    HTML: import('!!raw-loader!./examples/checkbox-form-example/checkbox-form-example.component.html'),
+    TypeScript: import('./examples/checkbox-form-example/checkbox-form-example.component?raw'),
+    HTML: import('./examples/checkbox-form-example/checkbox-form-example.component.html?raw'),
     LESS: import('./examples/checkbox-form-example/checkbox-form-example.component.less?raw'),
   };
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

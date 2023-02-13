@@ -1,0 +1,66 @@
+<prizm-dropdown-host
+  class="z-hosted"
+  [canOpen]="canOpen"
+  [content]="dropdown"
+  [closeByEsc]="true"
+  [isOpen]="open && canOpen"
+  (isOpenChange)="onOpenChange($event)"
+  prizmDropdownHostWidth="auto"
+>
+  <prizm-input-layout [label]="label" [outer]="outer" [size]="size">
+    <input
+      class="input-search"
+      prizmInput
+      #focusableElementRef
+      [showMaskTyped]="focusableElementRef.focused"
+      [dropSpecialCharacters]="false"
+      [readOnly]="readOnly"
+      [placeholder]="placeholder"
+      [disabled]="computedDisabled"
+      [value]="
+        value
+          ? computeValue(
+              value.from | prizmMapper : formatter | async,
+              value.to | prizmMapper : formatter | async
+            )
+          : ''
+      "
+      (ngModelChange)="onValueChange($event || '')"
+    />
+
+    <ng-container prizm-input-right>
+      <button
+        prizmInputIconButton="date-calendar-range"
+        [interactive]="true"
+        (click)="focusableElementRef.focus()"
+      ></button>
+    </ng-container>
+  </prizm-input-layout>
+  <ng-template #dropdown let-zone="zone">
+    <prizm-calendar-range
+      [style.--prizm-input-layout-width]="'100%'"
+      [style.--prizm-dropdown-host-width]="'100%'"
+      [defaultViewedMonth]="defaultViewedMonth"
+      [disabledItemHandler]="disabledItemHandler"
+      [items]="items"
+      [min]="min"
+      [max]="max"
+      [markerHandler]="markerHandler"
+      [minLength]="minLength"
+      [maxLength]="maxLength"
+      [value]="value"
+      (valueChange)="onRangeChange($event)"
+    >
+      <ng-container footerFrom>
+        <ng-template [ngTemplateOutlet]="footerToTemplate" [ngTemplateOutletContext]="{ zone: zone }">
+          ></ng-template
+        >
+      </ng-container>
+      <ng-container footerTo>
+        <ng-template [ngTemplateOutlet]="footerFromTemplate" [ngTemplateOutletContext]="{ zone: zone }">
+          ></ng-template
+        >
+      </ng-container>
+    </prizm-calendar-range>
+  </ng-template>
+</prizm-dropdown-host>

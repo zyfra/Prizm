@@ -12,16 +12,16 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class PrizmFileUploadExampleComponent implements OnDestroy {
   readonly basic: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/basic/basic.component'),
-    HTML: import('!!raw-loader!./examples/basic/basic.component.html'),
+    TypeScript: import('./examples/basic/basic.component?raw'),
+    HTML: import('./examples/basic/basic.component.html?raw'),
   };
 
   readonly autoUpload: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/auto-upload/auto-upload.component'),
-    HTML: import('!!raw-loader!./examples/auto-upload/auto-upload.component.html'),
+    TypeScript: import('./examples/auto-upload/auto-upload.component?raw'),
+    HTML: import('./examples/auto-upload/auto-upload.component.html?raw'),
   };
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   userContent = 'текст пользователя';
 

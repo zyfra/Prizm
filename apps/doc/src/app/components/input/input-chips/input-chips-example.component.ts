@@ -43,26 +43,18 @@ export class InputChipsExampleComponent {
   @ViewChild(PrizmChipsComponent, { static: false }) chipsComponent: PrizmChipsComponent;
 
   public readonly prizmInputChipsExample: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/input-chips-basic-example/input-chips-basic-example.component.ts'
-    ),
-    HTML: import(
-      '!!raw-loader!./examples/input-chips-basic-example/input-chips-basic-example.component.html'
-    ),
+    TypeScript: import('./examples/input-chips-basic-example/input-chips-basic-example.component.ts?raw'),
+    HTML: import('./examples/input-chips-basic-example/input-chips-basic-example.component.html?raw'),
     LESS: import('./examples/input-chips-basic-example/input-chips-basic-example.component.less?raw'),
   };
 
   public readonly prizmInputChipsOuterExample: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/input-chips-outer-example/input-chips-outer-example.component.ts'
-    ),
-    HTML: import(
-      '!!raw-loader!./examples/input-chips-outer-example/input-chips-outer-example.component.html'
-    ),
+    TypeScript: import('./examples/input-chips-outer-example/input-chips-outer-example.component.ts?raw'),
+    HTML: import('./examples/input-chips-outer-example/input-chips-outer-example.component.html?raw'),
     LESS: import('./examples/input-chips-outer-example/input-chips-outer-example.component.less?raw'),
   };
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   public onEnter(value: string): void {
     console.log('enter');

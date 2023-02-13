@@ -11,5 +11,5 @@ import { prizmRawLoad } from '@prizm-ui/doc';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChangelogComponent {
-  readonly changelog = of(import(`!!raw-loader!./CHANGELOG.md`)).pipe(switchMap(prizmRawLoad));
+  readonly changelog = of(import(`./CHANGELOG.md?raw`)).pipe(switchMap(prizmRawLoad));
 }

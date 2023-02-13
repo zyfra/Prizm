@@ -11,11 +11,11 @@ import { PrizmThemeService } from '@prizm-ui/theme';
 export class RadialBarComponent {
   public width = 400;
   public height = 300;
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleOutline: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/prizm-charts-radial-bar-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/prizm-charts-radial-bar-example.component.html'),
+    TypeScript: import('./examples/base/prizm-charts-radial-bar-example.component.ts?raw'),
+    HTML: import('./examples/base/prizm-charts-radial-bar-example.component.html?raw'),
   };
 
   public data: PrizmChartsRadialBarItem[] = [

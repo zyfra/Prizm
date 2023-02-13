@@ -32,81 +32,69 @@ export class InputComponent {
   public forceClear = this.forceClearVariants[0];
 
   public readonly zyfraInputBasicExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/input-basic-example/input-basic-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/input-basic-example/input-basic-example.component.html'),
+    TypeScript: import('./examples/input-basic-example/input-basic-example.component.ts?raw'),
+    HTML: import('./examples/input-basic-example/input-basic-example.component.html?raw'),
   };
 
   public readonly zyfraInputLabelPositionExample: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!./examples/input-label-position-example/input-label-position-example.component.ts'
+      './examples/input-label-position-example/input-label-position-example.component.ts?raw'
     ),
-    HTML: import(
-      '!!raw-loader!./examples/input-label-position-example/input-label-position-example.component.html'
-    ),
+    HTML: import('./examples/input-label-position-example/input-label-position-example.component.html?raw'),
   };
 
   public readonly zyfraInputIconButtonsExample: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/input-icon-buttons-example/input-icon-buttons-example.component.ts'
-    ),
-    HTML: import(
-      '!!raw-loader!./examples/input-icon-buttons-example/input-icon-buttons-example.component.html'
-    ),
+    TypeScript: import('./examples/input-icon-buttons-example/input-icon-buttons-example.component.ts?raw'),
+    HTML: import('./examples/input-icon-buttons-example/input-icon-buttons-example.component.html?raw'),
     LESS: import('./examples/input-icon-buttons-example/input-icon-buttons-example.component.less?raw'),
   };
 
   public readonly zyfraInputSizesExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/input-sizes-example/input-sizes-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/input-sizes-example/input-sizes-example.component.html'),
+    TypeScript: import('./examples/input-sizes-example/input-sizes-example.component.ts?raw'),
+    HTML: import('./examples/input-sizes-example/input-sizes-example.component.html?raw'),
   };
 
   public readonly zyfraInputDisabledExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/input-disabled-example/input-disabled-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/input-disabled-example/input-disabled-example.component.html'),
+    TypeScript: import('./examples/input-disabled-example/input-disabled-example.component.ts?raw'),
+    HTML: import('./examples/input-disabled-example/input-disabled-example.component.html?raw'),
   };
 
   public readonly zyfraInputStatusesExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/input-statuses-example/input-statuses-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/input-statuses-example/input-statuses-example.component.html'),
+    TypeScript: import('./examples/input-statuses-example/input-statuses-example.component.ts?raw'),
+    HTML: import('./examples/input-statuses-example/input-statuses-example.component.html?raw'),
   };
 
   public readonly zyfraInputSubtextExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/input-subtext-example/input-subtext-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/input-subtext-example/input-subtext-example.component.html'),
+    TypeScript: import('./examples/input-subtext-example/input-subtext-example.component.ts?raw'),
+    HTML: import('./examples/input-subtext-example/input-subtext-example.component.html?raw'),
   };
 
   public readonly zyfraInputValidationExample: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/input-validation-example/input-validation-example.component.ts'
-    ),
-    HTML: import('!!raw-loader!./examples/input-validation-example/input-validation-example.component.html'),
+    TypeScript: import('./examples/input-validation-example/input-validation-example.component.ts?raw'),
+    HTML: import('./examples/input-validation-example/input-validation-example.component.html?raw'),
   };
 
   public readonly zyfraInputFormControlExample: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/input-form-control-example/input-form-control-example.component.ts'
-    ),
-    HTML: import(
-      '!!raw-loader!./examples/input-form-control-example/input-form-control-example.component.html'
-    ),
+    TypeScript: import('./examples/input-form-control-example/input-form-control-example.component.ts?raw'),
+    HTML: import('./examples/input-form-control-example/input-form-control-example.component.html?raw'),
   };
 
   public readonly zyfraInputValidationCustomExample: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!./examples/input-validation-custom-example/input-validation-custom-example.component.ts'
+      './examples/input-validation-custom-example/input-validation-custom-example.component.ts?raw'
     ),
     HTML: import(
-      '!!raw-loader!./examples/input-validation-custom-example/input-validation-custom-example.component.html'
+      './examples/input-validation-custom-example/input-validation-custom-example.component.html?raw'
     ),
     Service: import(
-      '!!raw-loader!./examples/input-validation-custom-example/input-validation-custom-texts.service.ts'
+      './examples/input-validation-custom-example/input-validation-custom-texts.service.ts?raw'
     ),
   };
 
   public readonly zyfraInputSearchExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/input-search-example/input-search-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/input-search-example/input-search-example.component.html'),
+    TypeScript: import('./examples/input-search-example/input-search-example.component.ts?raw'),
+    HTML: import('./examples/input-search-example/input-search-example.component.html?raw'),
   };
 
-  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/import-module.md');
+  public readonly setupModule: RawLoaderContent = import('./examples/import-module.md?raw');
 }

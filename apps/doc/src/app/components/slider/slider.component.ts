@@ -107,24 +107,24 @@ export class PrizmSliderExampleComponent {
   }
 
   readonly basicExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/slider-basic-example/slider-basic-example.component'),
-    HTML: import('!!raw-loader!./examples/slider-basic-example/slider-basic-example.component.html'),
+    TypeScript: import('./examples/slider-basic-example/slider-basic-example.component?raw'),
+    HTML: import('./examples/slider-basic-example/slider-basic-example.component.html?raw'),
   };
 
   readonly verticalExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/slider-vertical-example/slider-vertical-example.component'),
-    HTML: import('!!raw-loader!./examples/slider-vertical-example/slider-vertical-example.component.html'),
+    TypeScript: import('./examples/slider-vertical-example/slider-vertical-example.component?raw'),
+    HTML: import('./examples/slider-vertical-example/slider-vertical-example.component.html?raw'),
   };
 
   readonly stepExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/slider-step-example/slider-step-example.component'),
-    HTML: import('!!raw-loader!./examples/slider-step-example/slider-step-example.component.html'),
+    TypeScript: import('./examples/slider-step-example/slider-step-example.component?raw'),
+    HTML: import('./examples/slider-step-example/slider-step-example.component.html?raw'),
   };
 
   readonly rangeExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/slider-range-example/slider-range-example.component'),
-    HTML: import('!!raw-loader!./examples/slider-range-example/slider-range-example.component.html'),
+    TypeScript: import('./examples/slider-range-example/slider-range-example.component?raw'),
+    HTML: import('./examples/slider-range-example/slider-range-example.component.html?raw'),
   };
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

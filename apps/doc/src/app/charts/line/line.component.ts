@@ -359,11 +359,11 @@ export class LineComponent {
     },
   ];
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleOutline: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/prizm-charts-line-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/prizm-charts-line-example.component.html'),
+    TypeScript: import('./examples/base/prizm-charts-line-example.component.ts?raw'),
+    HTML: import('./examples/base/prizm-charts-line-example.component.html?raw'),
   };
 
   constructor(public readonly prizmTheme: PrizmThemeService) {}

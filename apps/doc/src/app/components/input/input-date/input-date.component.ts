@@ -31,22 +31,20 @@ export class InputDateComponent {
   public size: PrizmInputSize = 'm';
   public outer = false;
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/input-date-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/input-date-base-example.component.html'),
+    TypeScript: import('./examples/base/input-date-base-example.component.ts?raw'),
+    HTML: import('./examples/base/input-date-base-example.component.html?raw'),
   };
 
   readonly exampleNative: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/native-date/input-native-date-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/native-date/input-native-date-base-example.component.html'),
+    TypeScript: import('./examples/native-date/input-native-date-base-example.component.ts?raw'),
+    HTML: import('./examples/native-date/input-native-date-base-example.component.html?raw'),
   };
 
   readonly exampleDouble: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/range-separate/input-date-range-separate-example.component.ts'
-    ),
-    HTML: import('!!raw-loader!./examples/range-separate/input-date-range-separate-example.component.html'),
+    TypeScript: import('./examples/range-separate/input-date-range-separate-example.component.ts?raw'),
+    HTML: import('./examples/range-separate/input-date-range-separate-example.component.html?raw'),
   };
 }

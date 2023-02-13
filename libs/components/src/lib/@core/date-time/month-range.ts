@@ -1,6 +1,5 @@
 import { PRIZM_RANGE_SEPARATOR_CHAR } from './date-time';
 import { PrizmMonth } from './month';
-import { PrizmDay } from './day';
 import { PrizmYear } from './year';
 import { prizmAssert } from '@prizm-ui/core';
 

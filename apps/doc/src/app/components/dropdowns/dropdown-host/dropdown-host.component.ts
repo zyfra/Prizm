@@ -33,32 +33,32 @@ export class DropdownHostComponent {
   @ViewChild('withFooter') withFooter: TemplateRef<unknown>;
   @ViewChild('onlyContent') onlyContent: TemplateRef<unknown>;
 
-  readonly exampleModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly exampleModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleWithTemplate: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-template/template.ts'),
-    HTML: import('!!raw-loader!./examples/with-template/template.html'),
+    TypeScript: import('./examples/with-template/template.ts?raw'),
+    HTML: import('./examples/with-template/template.html?raw'),
   };
 
   readonly exampleWithSelectPanel: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/select-panel-example/select-panel-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/select-panel-example/select-panel-example.component.html'),
+    TypeScript: import('./examples/select-panel-example/select-panel-example.component.ts?raw'),
+    HTML: import('./examples/select-panel-example/select-panel-example.component.html?raw'),
     LESS: import('./examples/select-panel-example/select-panel-example.component.less?raw'),
   };
 
   readonly exampleDateRangeList: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/date-list-with-nested/date-list.component'),
-    HTML: import('!!raw-loader!./examples/date-list-with-nested/date-list.component.html'),
+    TypeScript: import('./examples/date-list-with-nested/date-list.component?raw'),
+    HTML: import('./examples/date-list-with-nested/date-list.component.html?raw'),
   };
 
   readonly exampleDateRangeListEdit: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/date-list-edit/date-list-edit.component'),
-    HTML: import('!!raw-loader!./examples/date-list-edit/date-list-edit.component.html'),
+    TypeScript: import('./examples/date-list-edit/date-list-edit.component?raw'),
+    HTML: import('./examples/date-list-edit/date-list-edit.component.html?raw'),
   };
 
   readonly exampleCustomContext: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-custom-context/with-custom-context.component'),
-    HTML: import('!!raw-loader!./examples/with-custom-context/with-custom-context.component.html'),
+    TypeScript: import('./examples/with-custom-context/with-custom-context.component?raw'),
+    HTML: import('./examples/with-custom-context/with-custom-context.component.html?raw'),
   };
 
   constructor(public readonly cdRef: ChangeDetectorRef) {}

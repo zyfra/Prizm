@@ -35,12 +35,12 @@ export class TreemapComponent {
     ],
   };
   public colorField = 'name';
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
   public width: number = null;
   public height = 300;
   readonly exampleOutline: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/prizm-charts-treemap-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/prizm-charts-treemap-example.component.html'),
+    TypeScript: import('./examples/base/prizm-charts-treemap-example.component.ts?raw'),
+    HTML: import('./examples/base/prizm-charts-treemap-example.component.html?raw'),
   };
 
   constructor(public readonly prizmTheme: PrizmThemeService) {}

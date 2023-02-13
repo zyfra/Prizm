@@ -14,17 +14,17 @@ export class AccordionExampleComponent {
   public isExpanded = false;
 
   public readonly exampleBasicAccordion: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/accordion-basic-example/accordion-basic-example.component'),
-    HTML: import('!!raw-loader!./examples/accordion-basic-example/accordion-basic-example.component.html'),
+    TypeScript: import('./examples/accordion-basic-example/accordion-basic-example.component?raw'),
+    HTML: import('./examples/accordion-basic-example/accordion-basic-example.component.html?raw'),
     LESS: import('./examples/accordion-basic-example/accordion-basic-example.component.less?raw'),
   };
 
   public readonly exampleWithInstrumentsAccordion: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!./examples/accordion-with-instruments-example/accordion-with-instruments-example.component'
+      './examples/accordion-with-instruments-example/accordion-with-instruments-example.component?raw'
     ),
     HTML: import(
-      '!!raw-loader!./examples/accordion-with-instruments-example/accordion-with-instruments-example.component.html'
+      './examples/accordion-with-instruments-example/accordion-with-instruments-example.component.html?raw'
     ),
     LESS: import(
       './examples/accordion-with-instruments-example/accordion-with-instruments-example.component.less?raw'
@@ -33,10 +33,10 @@ export class AccordionExampleComponent {
 
   public readonly exampleOneExpandedAccordion: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!./examples/accordion-single-expand-example/accordion-single-expand-example.component'
+      './examples/accordion-single-expand-example/accordion-single-expand-example.component?raw'
     ),
     HTML: import(
-      '!!raw-loader!./examples/accordion-single-expand-example/accordion-single-expand-example.component.html'
+      './examples/accordion-single-expand-example/accordion-single-expand-example.component.html?raw'
     ),
     LESS: import(
       './examples/accordion-single-expand-example/accordion-single-expand-example.component.less?raw'
@@ -45,15 +45,15 @@ export class AccordionExampleComponent {
 
   public readonly exampleMultipleExpandedAccordion: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!./examples/accordion-multiple-expand-example/accordion-multiple-expand-example.component'
+      './examples/accordion-multiple-expand-example/accordion-multiple-expand-example.component?raw'
     ),
     HTML: import(
-      '!!raw-loader!./examples/accordion-multiple-expand-example/accordion-multiple-expand-example.component.html'
+      './examples/accordion-multiple-expand-example/accordion-multiple-expand-example.component.html?raw'
     ),
     LESS: import(
       './examples/accordion-multiple-expand-example/accordion-multiple-expand-example.component.less?raw'
     ),
   };
 
-  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

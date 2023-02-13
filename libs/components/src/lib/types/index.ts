@@ -11,6 +11,7 @@ export * from './color';
 export * from './orientation';
 export * from './mapper';
 export * from './matcher';
+export * from './textfield-host';
 export * from './marker-handler';
 export * from './decimal-symbol';
 export * from './date-mode';

@@ -29,16 +29,14 @@ export class InputMaskExampleComponent {
   public required = false;
 
   public readonly zyfraInputPhoneExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/input-phone-example/input-phone-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/input-phone-example/input-phone-example.component.html'),
+    TypeScript: import('./examples/input-phone-example/input-phone-example.component.ts?raw'),
+    HTML: import('./examples/input-phone-example/input-phone-example.component.html?raw'),
   };
 
   public readonly zyfraInputMaskBasicExample: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/input-mask-basic-example/input-mask-basic-example.component.ts'
-    ),
-    HTML: import('!!raw-loader!./examples/input-mask-basic-example/input-mask-basic-example.component.html'),
+    TypeScript: import('./examples/input-mask-basic-example/input-mask-basic-example.component.ts?raw'),
+    HTML: import('./examples/input-mask-basic-example/input-mask-basic-example.component.html?raw'),
   };
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

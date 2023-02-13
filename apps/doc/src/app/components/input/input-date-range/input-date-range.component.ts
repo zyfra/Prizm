@@ -30,22 +30,20 @@ export class InputDateRangeComponent {
   public size: PrizmInputSize = 'm';
   public outer = false;
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/input-date-range-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/input-date-range-base-example.component.html'),
+    TypeScript: import('./examples/base/input-date-range-base-example.component.ts?raw'),
+    HTML: import('./examples/base/input-date-range-base-example.component.html?raw'),
   };
 
   readonly exampleDisabled: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/disabled/input-date-range-disabled-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/disabled/input-date-range-disabled-example.component.html'),
+    TypeScript: import('./examples/disabled/input-date-range-disabled-example.component.ts?raw'),
+    HTML: import('./examples/disabled/input-date-range-disabled-example.component.html?raw'),
   };
 
   readonly exampleNativeDate: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/native-date/input-native-date-range-base-example.component.ts'
-    ),
-    HTML: import('!!raw-loader!./examples/native-date/input-native-date-range-base-example.component.html'),
+    TypeScript: import('./examples/native-date/input-native-date-range-base-example.component.ts?raw'),
+    HTML: import('./examples/native-date/input-native-date-range-base-example.component.html?raw'),
   };
 }

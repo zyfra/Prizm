@@ -21,16 +21,16 @@ export class WidgetComponent {
   ];
   public content = 'Содержимое виджета';
 
-  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   public readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/widget-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/widget-base-example.component.html'),
+    TypeScript: import('./examples/base/widget-base-example.component.ts?raw'),
+    HTML: import('./examples/base/widget-base-example.component.html?raw'),
   };
 
   public readonly exampleWithButtons: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-buttons/widget-with-buttons-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/with-buttons/widget-with-buttons-example.component.html'),
+    TypeScript: import('./examples/with-buttons/widget-with-buttons-example.component.ts?raw'),
+    HTML: import('./examples/with-buttons/widget-with-buttons-example.component.html?raw'),
   };
 
   @prizmPure
