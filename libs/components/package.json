@@ -4,9 +4,9 @@
   "description": "Prizm UI system design components library http://prizm.zyfra.com",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^14.2.12 || ^12.2.0",
-    "@angular/core": "^14.2.12 || ^12.2.0",
-    "@angular/cdk": "^14.2.12 || ^12.2.0",
+    "@angular/common": "^12.2.0",
+    "@angular/core": "^12.2.0",
+    "@angular/cdk": "^12.2.0",
     "ngx-mask": "<=12.9.9",
     "@ng-web-apis/common": "^2.0.0",
     "@ng-web-apis/resize-observer": "^1.0.3",

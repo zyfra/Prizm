@@ -1,7 +1,6 @@
 <div
   class="block"
-  (prizmOutsideEvent)="outsideClick()"
-  outsideEventName="click"
+  (click)="clickOnContainer()"
   (prizmMutationObserver)="updateWidth()"
   [prizmMutationObserverHost]="el.nativeElement"
 >
@@ -12,15 +11,14 @@
       prizmEventZone
       prizmShadow="big-left"
       #zone="prizmEventZone"
-      (prizmOutsideEvent)="outsideClick()"
-      outsideEventName="click"
+      (prizmEventZoneEvent)="clickOnContainer()"
       (prizmAfterViewInit)="addListenerItems($event.nativeElement); reCalculatePositions()"
       (prizmOnDestroy)="removeListenerItems($event.nativeElement)"
       [id]="prizmDropdownHostId"
       [attr.position]="position$ | async"
     >
       <ng-container
-        *polymorphOutlet="content; context: { custom: prizmDropdownCustomContext }"
+        *polymorphOutlet="content; context: { zone: zone, custom: prizmDropdownCustomContext }"
       ></ng-container>
     </div>
   </ng-template>

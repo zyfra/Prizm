@@ -2,8 +2,8 @@
   "name": "@prizm-ui/theme",
   "version": "1.0.0-beta.22",
   "peerDependencies": {
-    "@angular/common": "^14.2.12 || ^12.2.0",
-    "@angular/core": "^14.2.12 || ^12.2.0"
+    "@angular/common": "^12.2.0",
+    "@angular/core": "^12.2.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
