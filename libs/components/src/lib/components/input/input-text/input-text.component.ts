@@ -46,6 +46,15 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
 
   set disabled(value: boolean) {
     this._disabled = value;
+
+    if (this.ngControl.control) {
+      if (value === true) {
+        this.ngControl.control.disable();
+      } else {
+        this.ngControl.control.enable();
+      }
+    }
+
     this.stateChanges.next();
   }
 
