@@ -4,7 +4,7 @@
     <prizm-accordion-item [isExpanded]="true" title="Введение">
       <ng-template prizmAccordionContent>
         <p>Для связи с командой Prizm можно воспользоваться следующими способами:</p>
-        <ol>
+        <ol class="decimal">
           <li>
             С помощью отправки письма на электронный почтовый ящик –
             <a href="mailto: prizm@zyfra.com">prizm@zyfra.com</a>
@@ -37,7 +37,7 @@
         <p>
           При получении письма на <a href="mailto: prizm@zyfra.com">prizm@zyfra.com</a> срабатывает процесс:
         </p>
-        <ol>
+        <ol class="disc">
           <li>Создаётся задача в Jira</li>
           <li>В зависимости от первого слова в теме письма тикет получает свой тип (bug, feature и т.д.)</li>
           <li>Задача в Jira назначается на исполнителя</li>
@@ -56,7 +56,7 @@
     <prizm-accordion-item [isExpanded]="false" title="Шаблон письма">
       <ng-template prizmAccordionContent>
         <p>Правильное заполнение темы и содержимого повышает скорость обработки.</p>
-        <ul>
+        <ol class="disc">
           <li>Тему нужно начинать с одного из типа тикетов.</li>
           <li>Писать тип этикета в теме нужно на англиском языке.</li>
           <li>Остальную часть темы можно на русском.</li>
@@ -66,7 +66,7 @@
           <li>
             Обязательно укажите как с вами связаться. Оптимальнее всего указать электронную почту и telegram.
           </li>
-        </ul>
+        </ol>
         <table prizmTable class="table" size="l">
           <thead>
             <tr prizmThGroup>
