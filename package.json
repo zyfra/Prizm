@@ -2,8 +2,16 @@
   "name": "@prizm-ui/sdk",
   "version": "1.0.0-beta.22",
   "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "run-p lint check-branch-name",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "scripts": {
     "docs": "nx run components:doc",
+    "doc:e2e:pw": "npx nx e2e doc-pw-e2e",
+    "format:staged": "pretty-quick --staged",
     "ng": "nx",
     "cypress:open": "cypress open",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
@@ -87,6 +95,9 @@
     "@angular/cli": "~12.2.0",
     "@angular/compiler-cli": "^12.2.0",
     "@angular/language-service": "^12.2.0",
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "@mands/nx-playwright": "^0.2.1",
     "@nrwl/cli": "13.1.2",
     "@nrwl/cypress": "13.1.2",
     "@nrwl/devkit": "^13.1.2",
@@ -96,6 +107,7 @@
     "@nrwl/nx-cloud": "^13.1.2",
     "@nrwl/tao": "13.1.2",
     "@nrwl/workspace": "13.1.2",
+    "@playwright/test": "^1.29.2",
     "@schematics/angular": "^12.2.0",
     "@types/dompurify": "^2.3.3",
     "@types/jest": "27.0.2",
@@ -122,6 +134,7 @@
     "postcss-preset-env": "^6.7.0",
     "postcss-url": "^10.1.1",
     "prettier": "^2.3.1",
+    "pretty-quick": "^3.1.3",
     "raw-loader": "^4.0.2",
     "svg-to-ts": "^8.9.0",
     "tar-stream": "~2.2.0",
