@@ -76,7 +76,9 @@
     </div>
 
     <div class="paginator paginator__infinite" *ngIf="paginatorType === 'infinite'">
-      <button class="show-more" [disabled]="showMoreDisabled" (click)="increase()">Показать еще</button>
+      <button class="show-more" [disabled]="showMoreDisabled" (click)="increase()">
+        {{ moreButtonLabel }}
+      </button>
     </div>
   </div>
 </div>
