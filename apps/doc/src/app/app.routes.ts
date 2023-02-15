@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContactsComponent } from './about-prizm/contacts/contacts.component';
 import { DesignSystemComponent } from './about-prizm/design-system/design-system.component';
 import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
 import { MigrationComponent } from './how-to-start/migration/migration.component';
@@ -29,6 +30,13 @@ export const ROUTES: Routes = [
         component: DesignSystemComponent,
         data: {
           title: 'About Design System',
+        },
+      },
+      {
+        path: 'contacts',
+        component: ContactsComponent,
+        data: {
+          title: 'Contacts',
         },
       },
     ],
