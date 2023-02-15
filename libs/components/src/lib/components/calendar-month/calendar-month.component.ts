@@ -208,7 +208,8 @@ export class PrizmCalendarMonthComponent implements PrizmWithOptionalMinMax<Priz
     min: PrizmMonth,
     max: PrizmMonth
   ): PrizmBooleanHandler<PrizmMonth> {
-    return item => item.monthBefore(min) || item.monthAfter(max) || disabledItemHandler(item, { value });
+    return (item): boolean =>
+      item.monthBefore(min) || item.monthAfter(max) || disabledItemHandler(item, { value });
   }
 
   private get disabledItemHandlerWithMinMax(): PrizmBooleanHandler<PrizmMonth> {

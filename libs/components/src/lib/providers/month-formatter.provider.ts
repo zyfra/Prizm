@@ -10,7 +10,7 @@ export const PRIZM_MONTH_FORMATTER_PROVIDER: FactoryProvider = {
   provide: PRIZM_MONTH_FORMATTER,
   deps: [PrizmMonthPipe],
   useFactory: (pipe: PrizmMonthPipe): PrizmHandler<PrizmMonth | null, Observable<string>> => {
-    return month =>
+    return (month): Observable<string> =>
       month ? pipe.transform(month).pipe(map(formatted => `${formatted} ${month.formattedYear}`)) : of(``);
   },
 };
