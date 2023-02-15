@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 export interface ITableProduct {
   code: number;
@@ -13,12 +13,8 @@ export interface ITableProduct {
   styleUrls: ['./contacts.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ContactsComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+export class ContactsComponent {
   public columns: string[] = ['code', 'tipe', 'decoding'];
-
   public products: ITableProduct[] = TABLE_COUNTS;
 }
 
