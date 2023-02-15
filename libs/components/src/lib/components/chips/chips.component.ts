@@ -42,9 +42,6 @@ export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDest
   @Input() public singleLine = true;
   @Input() public hintCanShow = true;
   @Input() public hintDirection: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
-  @Input() set disabled(isDisabled: boolean) {
-    this.accessorIsDisabled = isDisabled;
-  }
 
   @Output() public addChipEvent: EventEmitter<string> = new EventEmitter();
   @Output() public removeChipEvent: EventEmitter<string> = new EventEmitter();
@@ -136,6 +133,7 @@ export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDest
 
   public setDisabledState(isDisabled: boolean): void {
     this.accessorIsDisabled = isDisabled;
+    this.cdRef.markForCheck();
   }
 
   public registerOnChange(fn: () => void): void {

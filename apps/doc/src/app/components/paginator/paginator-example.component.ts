@@ -18,6 +18,7 @@ export class PaginatorExampleComponent {
   public content: PrizmPaginatorOutput | null = null;
   public leftButtonLabel = 'Назад';
   public rightButtonLabel = 'Вперед';
+  public moreButtonLabel = 'Показать еще';
   public paginatorType: PrizmPaginatorType = 'finite';
   public paginatorTypesVariants: PrizmPaginatorType[] = ['finite', 'infinite'];
   public paginatorOptionsVariants: PrizmPaginatorOptions[] = PAGINATOR_OPTIONS_VARIANTS;

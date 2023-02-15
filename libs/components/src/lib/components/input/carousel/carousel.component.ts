@@ -38,23 +38,26 @@ export class PrizmCarouselComponent extends PrizmInputControl<any> implements Co
   /**
    * Disabled input
    */
+  private _disabled = false;
   @Input()
   get disabled(): boolean {
-    if (this.ngControl && this.ngControl.disabled !== null) {
-      return this.ngControl.disabled;
-    }
     return this._disabled;
   }
 
   set disabled(value: boolean) {
-    this._disabled = value;
-    this.stateChanges.next();
+    if (this.ngControl.control) {
+      if (value) {
+        this.ngControl.control.disable();
+      } else {
+        this.ngControl.control.enable();
+      }
+    } else {
+      this.setDisabledState(value);
+    }
   }
 
   @HostBinding('attr.testId')
   readonly testId = 'prizm_carousel';
-
-  private _disabled = false;
 
   /**
    * Required input
@@ -148,7 +151,8 @@ export class PrizmCarouselComponent extends PrizmInputControl<any> implements Co
   }
 
   public setDisabledState?(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+    this._disabled = isDisabled;
+    this.stateChanges.next();
   }
 
   public left(): void {

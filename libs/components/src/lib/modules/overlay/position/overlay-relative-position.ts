@@ -87,6 +87,10 @@ export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<P
     if (sub === 'b' && (main === 'l' || main === 'r')) {
       p.top = src.top + src.height - host.height;
     }
+
+    p.top = Math.max(0, p.top);
+    p.left = Math.max(0, p.left);
+
     return p;
   }
 
