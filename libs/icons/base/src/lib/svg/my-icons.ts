@@ -3254,6 +3254,13 @@ export const prizmIconSvgOtherGitLab: {
   name: 'other_git_lab',
   data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.93207 2.63756C5.77563 2.23531 5.37878 1.97881 4.94777 2.00138C4.51676 2.02395 4.14886 2.3205 4.0353 2.73689L1.0353 13.7369C0.924241 14.1441 1.08082 14.5772 1.4266 14.8192L11.4266 21.8192C11.7709 22.0603 12.2292 22.0603 12.5735 21.8192L22.5735 14.8192C22.9193 14.5772 23.0759 14.1441 22.9648 13.7369L19.9648 2.73689C19.8513 2.3205 19.4834 2.02395 19.0524 2.00138C18.6213 1.97881 18.2245 2.23531 18.0681 2.63756L15.5938 9.00001H8.40635L5.93207 2.63756ZM6.26044 9.00001L5.16703 6.18838L4.40022 9.00001H6.26044ZM3.85477 11L3.14996 13.5843L9.87351 18.2908L7.03822 11H4.00006H3.85477ZM9.18413 11L12.0001 18.241L14.816 11H9.18413ZM16.9619 11L14.1266 18.2908L20.8502 13.5843L20.1454 11H20.0001H16.9619ZM19.5999 9.00001L18.8331 6.18838L17.7397 9.00001H19.5999Z" fill="currentColor"/></svg>`,
 };
+export const prizmIconSvgOtherGitHub: {
+  name: 'other_git_hub';
+  data: string;
+} = {
+  name: 'other_git_hub',
+  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M 11.964844 0 C 5.347656 0 0 5.269531 0 11.792969 C 0 17.003906 3.425781 21.417969 8.179688 22.976562 C 8.773438 23.09375 8.992188 22.722656 8.992188 22.410156 C 8.992188 22.136719 8.972656 21.203125 8.972656 20.226562 C 5.644531 20.929688 4.953125 18.820312 4.953125 18.820312 C 4.417969 17.453125 3.625 17.101562 3.625 17.101562 C 2.535156 16.378906 3.703125 16.378906 3.703125 16.378906 C 4.914062 16.457031 5.546875 17.589844 5.546875 17.589844 C 6.617188 19.386719 8.339844 18.878906 9.03125 18.566406 C 9.132812 17.804688 9.449219 17.277344 9.785156 16.984375 C 7.132812 16.710938 4.339844 15.695312 4.339844 11.167969 C 4.339844 9.878906 4.8125 8.824219 5.566406 8.003906 C 5.445312 7.710938 5.03125 6.5 5.683594 4.878906 C 5.683594 4.878906 6.695312 4.566406 8.972656 6.089844 C 9.949219 5.832031 10.953125 5.703125 11.964844 5.699219 C 12.972656 5.699219 14.003906 5.835938 14.957031 6.089844 C 17.234375 4.566406 18.242188 4.878906 18.242188 4.878906 C 18.898438 6.5 18.480469 7.710938 18.363281 8.003906 C 19.136719 8.824219 19.589844 9.878906 19.589844 11.167969 C 19.589844 15.695312 16.796875 16.691406 14.125 16.984375 C 14.558594 17.355469 14.933594 18.058594 14.933594 19.171875 C 14.933594 20.753906 14.914062 22.019531 14.914062 22.410156 C 14.914062 22.722656 15.132812 23.09375 15.726562 22.976562 C 20.480469 21.414062 23.910156 17.003906 23.910156 11.792969 C 23.929688 5.269531 18.558594 0 11.964844 0 Z M 11.964844 0 " fill="currentColor"/></svg>`,
+};
 export const prizmIconSvgOtherInstagram: {
   name: 'other_instagram';
   data: string;
@@ -5239,6 +5246,7 @@ export type prizmIconSvg =
   | 'other_face_frown'
   | 'other_face_smile'
   | 'other_git_lab'
+  | 'other_git_hub'
   | 'other_instagram'
   | 'other_logo_grey_z'
   | 'other_map_marker_date_1'
@@ -5953,6 +5961,7 @@ export const prizmIconSvg = {
   other_face_frown: 'other_face_frown' as prizmIconSvg,
   other_face_smile: 'other_face_smile' as prizmIconSvg,
   other_git_lab: 'other_git_lab' as prizmIconSvg,
+  other_git_hub: 'other_git_hub' as prizmIconSvg,
   other_instagram: 'other_instagram' as prizmIconSvg,
   other_logo_grey_z: 'other_logo_grey_z' as prizmIconSvg,
   other_map_marker_date_1: 'other_map_marker_date_1' as prizmIconSvg,
@@ -6648,6 +6657,7 @@ export enum PrizmIconSvgEnum {
   OTHER_FACE_FROWN = 'other_face_frown',
   OTHER_FACE_SMILE = 'other_face_smile',
   OTHER_GIT_LAB = 'other_git_lab',
+  OTHER_GIT_HUB = 'other_git_hub',
   OTHER_INSTAGRAM = 'other_instagram',
   OTHER_LOGO_GREY_Z = 'other_logo_grey_z',
   OTHER_MAP_MARKER_DATE_1 = 'other_map_marker_date_1',

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { PrizmThemeService } from '@prizm-ui/theme';
 import { LOCAL_STORAGE } from '@ng-web-apis/common';
-import { PrizmIconsSvgRegistry, PrizmIconSvgEnum, prizmIconSvgOtherGitLab } from '@prizm-ui/icons';
+import { PrizmIconsSvgRegistry, PrizmIconSvgEnum, prizmIconSvgOtherGitHub } from '@prizm-ui/icons';
 
 @Component({
   selector: 'prizm-doc-logo',
@@ -13,14 +13,14 @@ import { PrizmIconsSvgRegistry, PrizmIconSvgEnum, prizmIconSvgOtherGitLab } from
 export class LogoComponent {
   readonly isNight$ = this.themeSwitcher.change$.pipe(map(i => i.theme === 'dark'));
 
-  readonly gitlabSvgName = PrizmIconSvgEnum.OTHER_GIT_LAB;
+  readonly githubSvgName = PrizmIconSvgEnum.OTHER_GIT_HUB;
 
   constructor(
     private readonly themeSwitcher: PrizmThemeService,
     private readonly svgRegistry: PrizmIconsSvgRegistry,
     @Inject(LOCAL_STORAGE) private readonly storage: Storage
   ) {
-    this.svgRegistry.registerIcons([prizmIconSvgOtherGitLab]);
+    this.svgRegistry.registerIcons([prizmIconSvgOtherGitHub]);
   }
 
   public onMode(isNight: boolean): void {
