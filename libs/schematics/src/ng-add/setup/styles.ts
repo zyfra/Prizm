@@ -1,11 +1,6 @@
-import { JsonArray } from '@angular-devkit/core';
+import { JsonArray, workspaces } from '@angular-devkit/core';
 import { Rule, Tree } from '@angular-devkit/schematics';
-import {
-  getWorkspace,
-  ProjectDefinition,
-  updateWorkspace,
-  WorkspaceDefinition,
-} from '@schematics/angular/utility/workspace';
+import { getWorkspace, updateWorkspace } from '@schematics/angular/utility/workspace';
 import { getProject, getProjectTargetOptions } from '../../utils/get-project';
 import { Schema } from '../schema';
 
@@ -23,17 +18,15 @@ export function addStyles(options: Schema): Rule {
     const workspace = await getWorkspace(tree);
     const project = getProject(options, workspace);
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     return addStylesToAngularJson(workspace, project, options);
   };
 }
 
 export function addStylesToAngularJson(
-  workspace: WorkspaceDefinition,
-  project: ProjectDefinition,
+  workspace: workspaces.WorkspaceDefinition,
+  project: workspaces.ProjectDefinition,
   options: Schema
-): void | Rule | PromiseLike<void | Rule> {
+): Rule {
   const targetOptions = getProjectTargetOptions(project, 'build');
   const styles = targetOptions.styles as JsonArray | undefined;
   const assets = targetOptions.assets as JsonArray | undefined;
@@ -57,7 +50,6 @@ export function addStylesToAngularJson(
   } else {
     targetOptions.assets = [...assets, FONT_ASSET];
   }
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
+
   return updateWorkspace(workspace);
 }

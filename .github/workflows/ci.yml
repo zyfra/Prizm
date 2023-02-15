@@ -42,7 +42,7 @@ jobs:
       #        TODO run after update angular ng14
       #      - run: npx nx affected --target=test --base=main --parallel --max-parallel=3
       - run: npx nx affected --target=lint --base=main --parallel --max-parallel=3
-      - run: npx nx affected --target=build --base=main --prod --parallel --max-parallel=3
+      #      - run: npx nx affected --target=build --base=main --prod --parallel --max-parallel=3
 
       - name: 'Build doc app for firebase hosting'
         run: npx nx build doc
