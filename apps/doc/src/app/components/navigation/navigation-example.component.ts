@@ -12,6 +12,7 @@ import { NAVIGATION_EXAMPLE } from './navigation-example.const';
 export class NavigationExampleComponent {
   public readonly exampleNavigationBasic: TuiDocExample = {
     TypeScript: import('./examples/navigation-basic-example/navigation-basic-example.component?raw'),
+    Module: import('./examples/navigation-basic-example/navigation-basic-example.module?raw'),
     HTML: import('./examples/navigation-basic-example/navigation-basic-example.component.html?raw'),
     LESS: import('./examples/navigation-basic-example/navigation-basic-example.component.less?raw'),
   };

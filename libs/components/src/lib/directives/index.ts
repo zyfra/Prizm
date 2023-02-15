@@ -22,7 +22,6 @@ export * from './scroll-into-view';
 export * from './repeat-times';
 export * from './hint';
 export * from './shadow';
-export * from './theme';
 export * from './tooltip';
 export * from './value-accessor';
 export * from './wrapper';

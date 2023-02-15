@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PrizmOverlayModule } from '../../modules/overlay';
 import { ToastComponent } from './toast/toast.component';
 import { ToastWrapperComponent } from './toast-wrapper/toast-wrapper.component';
-import { PolymorphModule, PrizmThemeModule } from '../../directives';
+import { PolymorphModule } from '../../directives';
 import { PrizmToastControl } from './toast-control';
 import { PrizmToastPosition } from './types';
 import { PrizmToastService } from './toast.service';
@@ -12,6 +12,7 @@ import { PrizmFocusTrapModule } from '../../directives/focus-trap';
 import { PrizmButtonModule } from '../button';
 import { PrizmIndicatorModule } from '../indicator';
 import { PrizmInputCommonModule } from '../input';
+import { PrizmThemeModule } from '@prizm-ui/theme';
 
 @NgModule({
   exports: [PrizmToastContainerComponent],
