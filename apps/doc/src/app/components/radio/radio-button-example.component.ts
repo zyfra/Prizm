@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
+import { FormControl } from '@angular/forms';
 
 type TRadioButtonSize = 'm' | 'l' | 's';
 
@@ -13,7 +14,7 @@ export class ExamplesRadioButtonComponent {
   public label = 'Свойство 1';
   public name = 'name';
   public disabled = false;
-
+  public control = new FormControl();
   public sizeVariants: TRadioButtonSize[] = ['m', 'l', 's'];
   public size: TRadioButtonSize = this.sizeVariants[1];
 

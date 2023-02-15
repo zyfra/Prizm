@@ -27,7 +27,7 @@
         [disabled]="disabled"
         [size]="size"
         [name]="name"
-        [formControl]=""
+        [formControl]="control"
       ></prizm-radio-button>
     </prizm-doc-demo>
     <prizm-doc-documentation>
@@ -73,14 +73,6 @@
         documentationPropertyType="string"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="name"
-      >
-        Name
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="formControl"
-        documentationPropertyType="FormControl"
-        documentationPropertyMode="input"
       >
         Name
       </ng-template>

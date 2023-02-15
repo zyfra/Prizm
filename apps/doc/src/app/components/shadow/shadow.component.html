@@ -8,14 +8,9 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab prizmDocHost>
+  <ng-template prizmDocPageTab>
     <prizm-doc-demo>
-      <div
-        class="shadow-container prizm-font-dynamic-title-h4"
-        #element
-        [prizmDocHostElement]="element"
-        [prizmShadow]="value"
-      >
+      <div class="shadow-container prizm-font-dynamic-title-h4" [prizmShadow]="value">
         {{ value }}
       </div>
     </prizm-doc-demo>
