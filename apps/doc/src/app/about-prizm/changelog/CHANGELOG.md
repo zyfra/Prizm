@@ -24,6 +24,7 @@ Migrate PrizmThemeModule > prizm/theme
 
 ### BUG FIXES
 
+- fix(components): remove primeng
 - fix(components/splitter): nested style bug
 - fix(theme): init variable in root
 - fix(doc/theme): change theme on local change
@@ -37,6 +38,8 @@ Migrate PrizmThemeModule > prizm/theme
 
 - BREAKING CHANGE: Migrate PrizmThemeModule to prizm/theme library
 - fix(components/radio)!: remove formControl input
+- ref(component/table-old): move to deprecated library
+- ref(component/navigation): move to deprecated library
 
 ## [1.0.0-beta.2](https://github.com/zyfra/Prizm) (27-01-2023)
 
