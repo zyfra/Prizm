@@ -11,10 +11,10 @@ import { FormControl } from '@angular/forms';
 })
 export class CalendarRangeComponent {
   public value = new PrizmDayRange(new PrizmDay(2022, 1, 7), new PrizmDay(2022, 3, 14));
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/calendar-range-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/calendar-range-base-example.component.html'),
+    TypeScript: import('./examples/base/calendar-range-base-example.component.ts?raw'),
+    HTML: import('./examples/base/calendar-range-base-example.component.html?raw'),
   };
 }

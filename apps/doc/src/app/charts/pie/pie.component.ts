@@ -41,11 +41,11 @@ export class PieComponent {
   sizeVariants: ReadonlyArray<PrizmSize> = ['s', 'm', 'xm', 'l', 'xl'];
   size: PrizmSize = this.sizeVariants[0];
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleOutline: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/prizm-charts-pie-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/prizm-charts-pie-example.component.html'),
+    TypeScript: import('./examples/base/prizm-charts-pie-example.component.ts?raw'),
+    HTML: import('./examples/base/prizm-charts-pie-example.component.html?raw'),
   };
   constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

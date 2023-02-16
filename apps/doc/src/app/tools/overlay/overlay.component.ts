@@ -24,30 +24,30 @@ export class OverlayComponent {
   badge: string;
   style: string;
 
-  readonly exampleModule: RawLoaderContent = import('!!raw-loader!./examples/import-module.md');
+  readonly exampleModule: RawLoaderContent = import('./examples/import-module.md?raw');
 
   readonly globalExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/global/template'),
-    HTML: import('!!raw-loader!./examples/global/template.html'),
+    TypeScript: import('./examples/global/template?raw'),
+    HTML: import('./examples/global/template.html?raw'),
   };
 
   readonly relativeExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/relative/template'),
-    HTML: import('!!raw-loader!./examples/relative/template.html'),
+    TypeScript: import('./examples/relative/template?raw'),
+    HTML: import('./examples/relative/template.html?raw'),
   };
 
   readonly fullscreenExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/fullscreen/template'),
-    HTML: import('!!raw-loader!./examples/fullscreen/template.html'),
+    TypeScript: import('./examples/fullscreen/template?raw'),
+    HTML: import('./examples/fullscreen/template.html?raw'),
   };
 
   readonly slideExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/slide/template'),
-    HTML: import('!!raw-loader!./examples/slide/template.html'),
+    TypeScript: import('./examples/slide/template?raw'),
+    HTML: import('./examples/slide/template.html?raw'),
   };
 
   readonly withComponentExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-component/template'),
-    HTML: import('!!raw-loader!./examples/with-component/template.html'),
+    TypeScript: import('./examples/with-component/template?raw'),
+    HTML: import('./examples/with-component/template.html?raw'),
   };
 }

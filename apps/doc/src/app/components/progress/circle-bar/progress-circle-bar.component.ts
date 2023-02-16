@@ -44,10 +44,10 @@ export class ProgressCircleBarComponent {
   ];
   trackColor: string | null = this.trackColorVariants[0];
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleCircle: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/circle/progress-circle-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/circle/progress-circle-example.component.html'),
+    TypeScript: import('./examples/circle/progress-circle-example.component.ts?raw'),
+    HTML: import('./examples/circle/progress-circle-example.component.html?raw'),
   };
 }

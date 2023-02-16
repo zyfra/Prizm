@@ -46,14 +46,10 @@ import { PRIZM_DATE_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
 import { PrizmInputSize } from '../common/models/prizm-input.models';
-import {
-  PRIZM_DATE_FILLER_LENGTH,
-  PRIZM_DATE_RANGE_FILLER_LENGTH,
-} from '../../../@core/date-time/date-fillers';
+import { PRIZM_DATE_RANGE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
 import { PRIZM_RANGE_SEPARATOR_CHAR } from '../../../@core/date-time/date-time';
 import { prizmSetNativeFocused } from '../../../util/set-native-focused';
 import { prizmIsNativeFocusedIn } from '../../../util';
-
 @Component({
   selector: `prizm-input-date-range`,
   templateUrl: `./input-date-range.component.html`,

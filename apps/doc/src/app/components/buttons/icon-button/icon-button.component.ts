@@ -64,10 +64,10 @@ export class IconButtonComponent {
   content = 'Button Name';
   showLoader = false;
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleIcons: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/icons/icons-buttons-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/icons/icons-buttons-example.component.html'),
+    TypeScript: import('./examples/icons/icons-buttons-example.component.ts?raw'),
+    HTML: import('./examples/icons/icons-buttons-example.component.html?raw'),
   };
 }

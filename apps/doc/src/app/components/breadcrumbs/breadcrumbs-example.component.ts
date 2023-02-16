@@ -19,22 +19,18 @@ export class BreadcrumbsExampleComponent {
   ];
 
   public readonly breadcrumbsBasicExample: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!.//examples/breadcrumbs-example-basic/breadcrumbs-example-basic.component'
-    ),
-    HTML: import(
-      '!!raw-loader!.//examples/breadcrumbs-example-basic/breadcrumbs-example-basic.component.html'
-    ),
+    TypeScript: import('.//examples/breadcrumbs-example-basic/breadcrumbs-example-basic.component?raw'),
+    HTML: import('.//examples/breadcrumbs-example-basic/breadcrumbs-example-basic.component.html?raw'),
   };
 
   public readonly breadcrumbsWithIconExample: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!.//examples/breadcrumbs-example-with-icon/breadcrumbs-example-with-icon.component'
+      './/examples/breadcrumbs-example-with-icon/breadcrumbs-example-with-icon.component?raw'
     ),
     HTML: import(
-      '!!raw-loader!.//examples/breadcrumbs-example-with-icon/breadcrumbs-example-with-icon.component.html'
+      './/examples/breadcrumbs-example-with-icon/breadcrumbs-example-with-icon.component.html?raw'
     ),
   };
 
-  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

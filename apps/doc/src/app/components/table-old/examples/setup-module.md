@@ -1,6 +1,6 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { ZuiTableModule } from '@prizm-ui/old';
+import { ZuiTableModule } from '@prizm-ui/deprecated';
 
 // ...
 

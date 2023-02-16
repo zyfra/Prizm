@@ -27,29 +27,23 @@ export class PaginatorExampleComponent {
   public rowsCountOptions = [...this.rowsCountOptionsBase];
 
   public readonly exampleBasicPaginator: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/paginator-basic-example/paginator-basic-example.component'),
-    HTML: import('!!raw-loader!./examples/paginator-basic-example/paginator-basic-example.component.html'),
+    TypeScript: import('./examples/paginator-basic-example/paginator-basic-example.component?raw'),
+    HTML: import('./examples/paginator-basic-example/paginator-basic-example.component.html?raw'),
   };
 
   public readonly exampleLabelsPaginator: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!./examples/paginator-with-labels-example/paginator-with-labels-example.component'
+      './examples/paginator-with-labels-example/paginator-with-labels-example.component?raw'
     ),
-    HTML: import(
-      '!!raw-loader!./examples/paginator-with-labels-example/paginator-with-labels-example.component.html'
-    ),
+    HTML: import('./examples/paginator-with-labels-example/paginator-with-labels-example.component.html?raw'),
   };
 
   public readonly exampleInfinitePaginator: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/paginator-infinite-example/paginator-infinite-example.component'
-    ),
-    HTML: import(
-      '!!raw-loader!./examples/paginator-infinite-example/paginator-infinite-example.component.html'
-    ),
+    TypeScript: import('./examples/paginator-infinite-example/paginator-infinite-example.component?raw'),
+    HTML: import('./examples/paginator-infinite-example/paginator-infinite-example.component.html?raw'),
   };
 
-  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   public changeRowValue(): void {
     this.rowsCountOptions = Array.from(new Set([this.rows, ...this.rowsCountOptionsBase]));

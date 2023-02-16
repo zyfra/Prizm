@@ -20,10 +20,10 @@ export class InputDateRelativeRelativeComponent {
   public disabled = false;
   public showClear = false;
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/input-date-relative-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/input-date-relative-base-example.component.html'),
+    TypeScript: import('./examples/base/input-date-relative-base-example.component.ts?raw'),
+    HTML: import('./examples/base/input-date-relative-base-example.component.html?raw'),
   };
 }

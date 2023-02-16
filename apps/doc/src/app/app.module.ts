@@ -32,6 +32,7 @@ import { ForDevelopersComponent } from './how-to-start/for-developers/for-develo
 import { MigrationComponent } from './how-to-start/migration/migration.component';
 import { PrizmAccordionModule, PrizmToastModule, PrizmToggleModule } from '@prizm-ui/components';
 import { PrizmThemeService } from '@prizm-ui/theme';
+import { ContactsModule } from './about-prizm/contacts/contacts.module';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -62,6 +63,7 @@ registerLocaleData(localeRu);
       loader: HttpClient,
       sanitize: SecurityContext.NONE,
     }),
+    ContactsModule,
   ],
   declarations: [
     AppComponent,

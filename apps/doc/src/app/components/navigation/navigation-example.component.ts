@@ -11,12 +11,13 @@ import { NAVIGATION_EXAMPLE } from './navigation-example.const';
 })
 export class NavigationExampleComponent {
   public readonly exampleNavigationBasic: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/navigation-basic-example/navigation-basic-example.component'),
-    HTML: import('!!raw-loader!./examples/navigation-basic-example/navigation-basic-example.component.html'),
+    TypeScript: import('./examples/navigation-basic-example/navigation-basic-example.component?raw'),
+    Module: import('./examples/navigation-basic-example/navigation-basic-example.module?raw'),
+    HTML: import('./examples/navigation-basic-example/navigation-basic-example.component.html?raw'),
     LESS: import('./examples/navigation-basic-example/navigation-basic-example.component.less?raw'),
   };
 
-  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   public navigationTree: INavigationTree[] = NAVIGATION_EXAMPLE;
   activeElement = NAVIGATION_EXAMPLE[1];

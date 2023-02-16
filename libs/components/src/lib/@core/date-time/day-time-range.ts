@@ -1,8 +1,9 @@
-import { PRIZM_RANGE_SEPARATOR_CHAR, PrizmDateTime } from './date-time';
+import { PRIZM_RANGE_SEPARATOR_CHAR } from './date-time';
 import { PrizmDayRange } from './day-range';
 import { PrizmDateMode, PrizmTimeMode } from '../../types';
 import { PrizmTimeRange } from './time-range';
 import { PrizmTime } from './time';
+
 export class PrizmDateTimeRange {
   constructor(
     public dayRange: PrizmDayRange,

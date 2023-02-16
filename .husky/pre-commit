@@ -1,4 +1,8 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
 
-npx lint-staged
+npx nx-cloud record -- npx nx workspace-lint
+npx nx-cloud record -- npm run check-branch-name
+npm run format:staged
+
+

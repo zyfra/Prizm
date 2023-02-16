@@ -48,16 +48,16 @@ export class SplitButtonComponent {
   content = 'Button Name';
   showLoader = false;
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleSplit: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/split/split-buttons-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/split/split-buttons-example.component.html'),
+    TypeScript: import('./examples/split/split-buttons-example.component.ts?raw'),
+    HTML: import('./examples/split/split-buttons-example.component.html?raw'),
   };
 
   readonly exampleWithDropdown: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-dropdown/split-buttons-with-dropdown-example.component'),
-    HTML: import('!!raw-loader!./examples/with-dropdown/split-buttons-with-dropdown-example.component.html'),
-    Module: import('!!raw-loader!./examples/with-dropdown/split-buttons-with-dropdown-example.module'),
+    TypeScript: import('./examples/with-dropdown/split-buttons-with-dropdown-example.component?raw'),
+    HTML: import('./examples/with-dropdown/split-buttons-with-dropdown-example.component.html?raw'),
+    Module: import('./examples/with-dropdown/split-buttons-with-dropdown-example.module?raw'),
   };
 }

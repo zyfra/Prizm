@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PrizmMenuItem } from '@prizm-ui/old';
+import { PrizmMenuItem } from '@prizm-ui/deprecated';
 
 @Component({
   selector: 'prizm-nav-menu-basic-example',

@@ -37,11 +37,11 @@ export class GaugeComponent {
       },
     },
   };
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleOutline: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/prizm-charts-gauge-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/prizm-charts-gauge-example.component.html'),
+    TypeScript: import('./examples/base/prizm-charts-gauge-example.component.ts?raw'),
+    HTML: import('./examples/base/prizm-charts-gauge-example.component.html?raw'),
   };
 
   public percent = 0.55;

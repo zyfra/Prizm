@@ -34,24 +34,20 @@ export class InputDateTimeTimeComponent {
   public timeModeVariants: ReadonlyArray<PrizmTimeMode> = ['HH:MM', 'HH:MM:SS', 'HH:MM:SS.MSS'];
   public timeMode: PrizmTimeMode = `HH:MM`;
 
-  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   public readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/input-date-time-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/input-date-time-base-example.component.html'),
+    TypeScript: import('./examples/base/input-date-time-base-example.component.ts?raw'),
+    HTML: import('./examples/base/input-date-time-base-example.component.html?raw'),
   };
 
   public readonly exampleNative: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/native-date/input-native-date-time-base-example.component.ts'
-    ),
-    HTML: import('!!raw-loader!./examples/native-date/input-native-date-time-base-example.component.html'),
+    TypeScript: import('./examples/native-date/input-native-date-time-base-example.component.ts?raw'),
+    HTML: import('./examples/native-date/input-native-date-time-base-example.component.html?raw'),
   };
 
   public readonly exampleWithSeconds: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/with-seconds/input-date-time-with-seconds-example.component.ts'
-    ),
-    HTML: import('!!raw-loader!./examples/with-seconds/input-date-time-with-seconds-example.component.html'),
+    TypeScript: import('./examples/with-seconds/input-date-time-with-seconds-example.component.ts?raw'),
+    HTML: import('./examples/with-seconds/input-date-time-with-seconds-example.component.html?raw'),
   };
 }

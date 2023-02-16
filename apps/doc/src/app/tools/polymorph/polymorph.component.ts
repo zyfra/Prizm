@@ -8,32 +8,32 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PolymorphComponent {
-  readonly exampleModule: RawLoaderContent = import('!!raw-loader!./examples/import-module.md');
+  readonly exampleModule: RawLoaderContent = import('./examples/import-module.md?raw');
 
   readonly baseExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/base.component'),
-    Module: import('!!raw-loader!./examples/base/base.module'),
-    HTML: import('!!raw-loader!./examples/base/base.component.html'),
+    TypeScript: import('./examples/base/base.component?raw'),
+    Module: import('./examples/base/base.module?raw'),
+    HTML: import('./examples/base/base.component.html?raw'),
   };
   readonly numberExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/number/number.component'),
-    Module: import('!!raw-loader!./examples/number/number.module'),
-    HTML: import('!!raw-loader!./examples/number/number.component.html'),
+    TypeScript: import('./examples/number/number.component?raw'),
+    Module: import('./examples/number/number.module?raw'),
+    HTML: import('./examples/number/number.component.html?raw'),
   };
   readonly functionExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/function/function.component'),
-    Module: import('!!raw-loader!./examples/function/function.module'),
-    HTML: import('!!raw-loader!./examples/function/function.component.html'),
+    TypeScript: import('./examples/function/function.component?raw'),
+    Module: import('./examples/function/function.module?raw'),
+    HTML: import('./examples/function/function.component.html?raw'),
   };
   readonly templateExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/template/template.component'),
-    Module: import('!!raw-loader!./examples/template/template.module'),
-    HTML: import('!!raw-loader!./examples/template/template.component.html'),
+    TypeScript: import('./examples/template/template.component?raw'),
+    Module: import('./examples/template/template.module?raw'),
+    HTML: import('./examples/template/template.component.html?raw'),
   };
   readonly componentExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/component/component.component'),
-    SubComponent: import('!!raw-loader!./examples/component/sub-component'),
-    Module: import('!!raw-loader!./examples/component/component.module'),
-    HTML: import('!!raw-loader!./examples/component/component.component.html'),
+    TypeScript: import('./examples/component/component.component?raw'),
+    SubComponent: import('./examples/component/sub-component?raw'),
+    Module: import('./examples/component/component.module?raw'),
+    HTML: import('./examples/component/component.component.html?raw'),
   };
 }

@@ -24,10 +24,10 @@ export class CardComponent {
     PrizmShadowTypeEnum.bigRight,
   ];
   shadow: PrizmShadowType = PrizmShadowTypeEnum.miniBottom;
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/card-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/card-base-example.component.html'),
+    TypeScript: import('./examples/base/card-base-example.component.ts?raw'),
+    HTML: import('./examples/base/card-base-example.component.html?raw'),
   };
 }

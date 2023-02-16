@@ -83,21 +83,21 @@ export class ConfirmComponent {
 
   readonly items = ['One', 'Two', 'Three'];
 
-  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   public readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/base.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/base.component.html'),
+    TypeScript: import('./examples/base/base.component.ts?raw'),
+    HTML: import('./examples/base/base.component.html?raw'),
   };
 
   public readonly exampleHorizontal: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/horizontal/horizontal.component.ts'),
-    HTML: import('!!raw-loader!./examples/horizontal/horizontal.component.html'),
+    TypeScript: import('./examples/horizontal/horizontal.component.ts?raw'),
+    HTML: import('./examples/horizontal/horizontal.component.html?raw'),
   };
   public readonly exampleFull: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/full/full.component.ts'),
-    HTML: import('!!raw-loader!./examples/full/full.component.html'),
-    MODULE: import('!!raw-loader!./examples/full/full.module'),
+    TypeScript: import('./examples/full/full.component.ts?raw'),
+    HTML: import('./examples/full/full.component.html?raw'),
+    MODULE: import('./examples/full/full.module?raw'),
   };
 
   constructor(

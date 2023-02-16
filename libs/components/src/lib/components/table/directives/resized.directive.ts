@@ -3,8 +3,8 @@ import { Directive, ElementRef, Inject, Output } from '@angular/core';
 
 import { distinctUntilChanged, map, switchMap, takeUntil } from 'rxjs/operators';
 import { prizmTypedFromEvent } from '../observables/typed-from-event';
-import { PRIZM_ELEMENT_REF } from '../../../tokens';
 import { prizmPreventDefault } from '../../../observables';
+import { PRIZM_ELEMENT_REF } from '../../../tokens/element-ref';
 
 @Directive({
   selector: `[prizmResized]`,

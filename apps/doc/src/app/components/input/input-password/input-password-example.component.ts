@@ -30,12 +30,10 @@ export class InputPasswordExampleComponent {
 
   public readonly zyfraInputPasswordBasicExample: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!./examples/input-password-basic-example/input-password-basic-example.component.ts'
+      './examples/input-password-basic-example/input-password-basic-example.component.ts?raw'
     ),
-    HTML: import(
-      '!!raw-loader!./examples/input-password-basic-example/input-password-basic-example.component.html'
-    ),
+    HTML: import('./examples/input-password-basic-example/input-password-basic-example.component.html?raw'),
   };
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

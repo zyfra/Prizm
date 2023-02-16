@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
+import { FormControl } from '@angular/forms';
 
 type TRadioButtonSize = 'm' | 'l' | 's';
 
@@ -13,19 +14,15 @@ export class ExamplesRadioButtonComponent {
   public label = 'Свойство 1';
   public name = 'name';
   public disabled = false;
-
+  public control = new FormControl();
   public sizeVariants: TRadioButtonSize[] = ['m', 'l', 's'];
   public size: TRadioButtonSize = this.sizeVariants[1];
 
   readonly exampleBasicRadio: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/radio-button-basic-example/radio-button-basic-example.component'
-    ),
-    HTML: import(
-      '!!raw-loader!./examples/radio-button-basic-example/radio-button-basic-example.component.html'
-    ),
+    TypeScript: import('./examples/radio-button-basic-example/radio-button-basic-example.component?raw'),
+    HTML: import('./examples/radio-button-basic-example/radio-button-basic-example.component.html?raw'),
     LESS: import('./examples/radio-button-basic-example/radio-button-basic-example.component.less?raw'),
   };
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

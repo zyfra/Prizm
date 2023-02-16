@@ -11,5 +11,5 @@ import { prizmRawLoad } from '@prizm-ui/doc';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContributingComponent {
-  readonly text = of(import(`!!raw-loader!../../../../../../CONTRIBUTING.md`)).pipe(switchMap(prizmRawLoad));
+  readonly text = of(import(`../../../../../../CONTRIBUTING.md?raw`)).pipe(switchMap(prizmRawLoad));
 }

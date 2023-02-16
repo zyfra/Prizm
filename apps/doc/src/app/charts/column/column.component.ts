@@ -127,23 +127,23 @@ export class ColumnComponent {
   public yField = 'order_amt';
   public groupField = 'sex';
   public seriesField = 'product_sub_type';
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
   public height = 300;
   public options = {
     isGroup: true,
     isStack: true,
   };
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/prizm-charts-column-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/prizm-charts-column-example.component.html'),
+    TypeScript: import('./examples/base/prizm-charts-column-example.component.ts?raw'),
+    HTML: import('./examples/base/prizm-charts-column-example.component.html?raw'),
   };
   readonly exampleColumnGroup: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/group/prizm-charts-column-group-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/group/prizm-charts-column-group-example.component.html'),
+    TypeScript: import('./examples/group/prizm-charts-column-group-example.component.ts?raw'),
+    HTML: import('./examples/group/prizm-charts-column-group-example.component.html?raw'),
   };
   readonly exampleColumnStack: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/stack/prizm-charts-column-stack-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/stack/prizm-charts-column-stack-example.component.html'),
+    TypeScript: import('./examples/stack/prizm-charts-column-stack-example.component.ts?raw'),
+    HTML: import('./examples/stack/prizm-charts-column-stack-example.component.html?raw'),
   };
 
   constructor(public readonly prizmTheme: PrizmThemeService) {}

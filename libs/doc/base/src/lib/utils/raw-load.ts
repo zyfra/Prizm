@@ -1,6 +1,6 @@
 import { RawLoaderContent } from '../interfaces/page';
 
-// TODO: delete it when all `!!raw-loader!` will be replaced by webpack `asset/source`.
+// TODO: delete it when all `` will be replaced by webpack `asset/source?raw`.
 function trimExportDefault(fileContent: string): string {
   return fileContent.startsWith(`export default "`)
     ? fileContent

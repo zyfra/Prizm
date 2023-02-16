@@ -32,4 +32,4 @@ Main docs: read comments in codes and readMe files
 
 ### Build
 
-nx affected:build --files=libs/helpers/src/index.ts
+nx affected:build --files=libs/helpers/src/base.component.ts

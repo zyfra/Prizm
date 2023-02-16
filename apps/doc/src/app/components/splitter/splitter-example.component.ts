@@ -13,29 +13,29 @@ export class PrizmSplitterExampleComponent {
   public orientation: PrizmSplitterOrientation = 'horizontal';
 
   readonly basic: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/basic/basic.component'),
-    HTML: import('!!raw-loader!./examples/basic/basic.component.html'),
+    TypeScript: import('./examples/basic/basic.component?raw'),
+    HTML: import('./examples/basic/basic.component.html?raw'),
   };
 
   readonly vertical: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/vertical/vertical.component'),
-    HTML: import('!!raw-loader!./examples/vertical/vertical.component.html'),
+    TypeScript: import('./examples/vertical/vertical.component?raw'),
+    HTML: import('./examples/vertical/vertical.component.html?raw'),
   };
 
   readonly nested: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/nested/nested.component'),
-    HTML: import('!!raw-loader!./examples/nested/nested.component.html'),
+    TypeScript: import('./examples/nested/nested.component?raw'),
+    HTML: import('./examples/nested/nested.component.html?raw'),
   };
 
   readonly limitSize: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/limit-size/limit-size.component'),
-    HTML: import('!!raw-loader!./examples/limit-size/limit-size.component.html'),
+    TypeScript: import('./examples/limit-size/limit-size.component?raw'),
+    HTML: import('./examples/limit-size/limit-size.component.html?raw'),
   };
 
   readonly sizeSetting: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/size-setting/size-setting.component'),
-    HTML: import('!!raw-loader!./examples/size-setting/size-setting.component.html'),
+    TypeScript: import('./examples/size-setting/size-setting.component?raw'),
+    HTML: import('./examples/size-setting/size-setting.component.html?raw'),
   };
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

@@ -35,22 +35,16 @@ export class InputNumberExampleComponent {
   public required = false;
 
   public readonly prizmInputNumberBasic: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/input-number-basic-example/input-number-basic-example.component.ts'
-    ),
-    HTML: import(
-      '!!raw-loader!./examples/input-number-basic-example/input-number-basic-example.component.html'
-    ),
+    TypeScript: import('./examples/input-number-basic-example/input-number-basic-example.component.ts?raw'),
+    HTML: import('./examples/input-number-basic-example/input-number-basic-example.component.html?raw'),
   };
 
   public readonly prizmInputNumberCounter: TuiDocExample = {
     TypeScript: import(
-      '!!raw-loader!./examples/input-number-counter-example/input-number-counter-example.component.ts'
+      './examples/input-number-counter-example/input-number-counter-example.component.ts?raw'
     ),
-    HTML: import(
-      '!!raw-loader!./examples/input-number-counter-example/input-number-counter-example.component.html'
-    ),
+    HTML: import('./examples/input-number-counter-example/input-number-counter-example.component.html?raw'),
   };
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

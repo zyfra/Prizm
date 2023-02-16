@@ -71,26 +71,20 @@ export class ConfirmPopupComponent {
 
   public prizmConfirmPopup: PolymorphContent = this.prizmConfirmPopupVariants[0];
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/confirm-popup-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/confirm-popup-base-example.component.html'),
+    TypeScript: import('./examples/base/confirm-popup-base-example.component.ts?raw'),
+    HTML: import('./examples/base/confirm-popup-base-example.component.html?raw'),
   };
 
   readonly exampleWithTemplate: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/with-template/confirm-popup-with-template-example.component.ts'
-    ),
-    HTML: import('!!raw-loader!./examples/with-template/confirm-popup-with-template-example.component.html'),
+    TypeScript: import('./examples/with-template/confirm-popup-with-template-example.component.ts?raw'),
+    HTML: import('./examples/with-template/confirm-popup-with-template-example.component.html?raw'),
   };
 
   readonly exampleWithComponent: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/with-component/confirm-popup-with-component-example.component.ts'
-    ),
-    HTML: import(
-      '!!raw-loader!./examples/with-component/confirm-popup-with-component-example.component.html'
-    ),
+    TypeScript: import('./examples/with-component/confirm-popup-with-component-example.component.ts?raw'),
+    HTML: import('./examples/with-component/confirm-popup-with-component-example.component.html?raw'),
   };
 }

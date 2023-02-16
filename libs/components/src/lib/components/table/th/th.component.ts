@@ -11,8 +11,6 @@ import {
 
 import { PrizmHeadDirective } from '../directives/head.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
-import { PrizmComparator } from '../table.types';
-import { prizmTableDefaultColumnSort } from '../table.const';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PRIZM_ELEMENT_REF } from '../../../tokens';
 import { PrizmTableSortKeyException } from '../../../exceptions';
@@ -43,12 +41,20 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
   resizable = false;
 
   @Input()
+  @prizmDefaultProp()
+  sortable = false;
+
+  @Input()
   @HostBinding(`class._sticky`)
   @prizmDefaultProp()
   sticky = false;
 
   @HostBinding(`style.width.px`)
   width: number | null = null;
+
+  get isSortable(): boolean {
+    return this.sortable || typeof this.sorter === 'function';
+  }
 
   constructor(
     @Optional()
@@ -68,13 +74,24 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
     return this.head.prizmHead;
   }
 
-  /**/
   get isCurrent(): boolean {
     return this.sorterService.isActive(this.key as string);
   }
 
+  get idx(): number {
+    return this.sorterService.idx(this.key as string);
+  }
+
+  get count(): number {
+    return this.sorterService.count;
+  }
+  get num(): number | null {
+    const idx = this.idx;
+    if (idx === -1) return null;
+    return idx + 1;
+  }
+
   get sortItem(): PrizmTableCellSorter<T> {
-    // return !!this.sorter && !!this.table && this.sorter === this.table.sorter;
     return this.sorterService.cell(this.key as string);
   }
 
@@ -95,16 +112,20 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
   }
 
   public updateSorter(event: MouseEvent): void {
+    event.preventDefault();
     const newOrder = this.sorterService.nextOrder(this.key as string);
-    this.sorterService.sortCell(
-      {
-        options: {
-          id: this.key as string,
-          order: newOrder,
+    if (event.ctrlKey || event.metaKey) {
+      this.sorterService.remove(this.key as string);
+    } else
+      this.sorterService.sortCell(
+        {
+          options: {
+            id: this.key as string,
+            order: newOrder,
+          },
+          sorter: this.sorter,
         },
-        sorter: this.sorter,
-      },
-      !event.metaKey
-    );
+        !event.shiftKey
+      );
   }
 }

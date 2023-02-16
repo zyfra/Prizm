@@ -5,7 +5,7 @@ import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { NavMenuBasicExampleComponent } from './examples/nav-menu-basic-example/nav-menu-basic-example.component';
 import { NavMenuAdvancedExampleComponent } from './examples/nav-menu-advanced-example/nav-menu-advanced-example.component';
-import { PrizmNavMenuModule } from '@prizm-ui/old';
+import { PrizmNavMenuModule } from '@prizm-ui/deprecated';
 
 @NgModule({
   declarations: [NavMenuExampleComponent, NavMenuBasicExampleComponent, NavMenuAdvancedExampleComponent],

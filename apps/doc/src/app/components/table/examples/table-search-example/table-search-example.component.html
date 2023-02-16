@@ -1,12 +1,11 @@
-<p>Для сортировки нескольких колонок зажмите ctrl/cmd и кликните на иконку сортировку</p>
 <prizm-scrollbar class="scrollable" visibility="hidden">
   <table prizmTable class="table" [columns]="columns">
     <thead>
       <tr prizmThGroup>
-        <th rowspan="2" prizmTh [sorter]="sorter" *prizmHead="'code'" [resizable]="true">Код</th>
+        <th rowspan="2" prizmTh *prizmHead="'code'" [resizable]="true">Код</th>
         <th prizmTh *prizmHead="'name'" [resizable]="true">Наименование</th>
-        <th rowspan="2" prizmTh [sorter]="sorter" *prizmHead="'category'">Категория</th>
-        <th rowspan="2" prizmTh [sorter]="sorter" *prizmHead="'count'">Количество</th>
+        <th rowspan="2" prizmTh *prizmHead="'category'">Категория</th>
+        <th rowspan="2" prizmTh *prizmHead="'count'">Количество</th>
       </tr>
       <tr prizmThGroup>
         <th prizmTh class="extra-border search-cell" [resizable]="true">

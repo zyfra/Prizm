@@ -25,35 +25,35 @@ export class TabsExampleComponent {
   public count = 0;
 
   public readonly tabsExampleBasic: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/tabs-example-basic/tabs-example-basic.component'),
-    HTML: import('!!raw-loader!./examples/tabs-example-basic/tabs-example-basic.component.html'),
+    TypeScript: import('./examples/tabs-example-basic/tabs-example-basic.component?raw'),
+    HTML: import('./examples/tabs-example-basic/tabs-example-basic.component.html?raw'),
   };
   public readonly tabsLinedExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/tabs-example-lined/tabs-example-lined.component'),
-    HTML: import('!!raw-loader!./examples/tabs-example-lined/tabs-example-lined.component.html'),
+    TypeScript: import('./examples/tabs-example-lined/tabs-example-lined.component?raw'),
+    HTML: import('./examples/tabs-example-lined/tabs-example-lined.component.html?raw'),
   };
 
   public readonly tabsContainedExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/tabs-example-contained/tabs-example-contained.component'),
-    HTML: import('!!raw-loader!./examples/tabs-example-contained/tabs-example-contained.component.html'),
+    TypeScript: import('./examples/tabs-example-contained/tabs-example-contained.component?raw'),
+    HTML: import('./examples/tabs-example-contained/tabs-example-contained.component.html?raw'),
   };
 
   public readonly tabsIconExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/tabs-example-icon/tabs-example-icon.component'),
-    HTML: import('!!raw-loader!./examples/tabs-example-icon/tabs-example-icon.component.html'),
+    TypeScript: import('./examples/tabs-example-icon/tabs-example-icon.component?raw'),
+    HTML: import('./examples/tabs-example-icon/tabs-example-icon.component.html?raw'),
   };
 
   public readonly tabsWithCounterExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/tabs-example-counter/tabs-example-counter.component'),
-    HTML: import('!!raw-loader!./examples/tabs-example-counter/tabs-example-counter.component.html'),
+    TypeScript: import('./examples/tabs-example-counter/tabs-example-counter.component?raw'),
+    HTML: import('./examples/tabs-example-counter/tabs-example-counter.component.html?raw'),
   };
 
   public readonly tabsClosableExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/tabs-example-closable/tabs-example-closable.component'),
-    HTML: import('!!raw-loader!./examples/tabs-example-closable/tabs-example-closable.component.html'),
+    TypeScript: import('./examples/tabs-example-closable/tabs-example-closable.component?raw'),
+    HTML: import('./examples/tabs-example-closable/tabs-example-closable.component.html?raw'),
   };
 
-  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
   public removeTab(): void {
     this.removed = true;
   }

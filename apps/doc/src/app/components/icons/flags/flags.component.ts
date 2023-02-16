@@ -19,15 +19,15 @@ export class FlagsComponent {
   readonly sizeVariants = ['32px', 24, 16];
   public size = this.sizeVariants[0];
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleSvg: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/icon-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/icon-base-example.component.html'),
+    TypeScript: import('./examples/base/icon-base-example.component.ts?raw'),
+    HTML: import('./examples/base/icon-base-example.component.html?raw'),
   };
   readonly exampleFont: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/font/icon-font-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/font/icon-font-example.component.html'),
+    TypeScript: import('./examples/font/icon-font-example.component.ts?raw'),
+    HTML: import('./examples/font/icon-font-example.component.html?raw'),
   };
 
   constructor(private readonly iconFlagsRegistry: PrizmFlagIconsRegistry) {}

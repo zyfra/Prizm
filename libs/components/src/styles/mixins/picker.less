@@ -1,7 +1,7 @@
 .picker(@itemSize) {
   :host {
     display: block;
-    font: var(--tui-font-text-m);
+    font: var(--prizm-font-text-m);
   }
 
   .z-row {
@@ -99,7 +99,7 @@
 
     &[data-range] {
       &:after {
-        background-color: var(--tui-primary-text);
+        background-color: var(--prizm-primary-text);
       }
 
       & > .z-item {
@@ -124,7 +124,7 @@
 
       &[data-state='pressed'] > .z-item:before,
       &[data-state='pressed'] > .z-item:after {
-        //background-color: var(--tui-primary-active);
+        //background-color: var(--prizm-primary-active);
         background-color: var(--prizm-index-plan);
       }
     }

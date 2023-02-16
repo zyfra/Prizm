@@ -32,8 +32,6 @@ export class PrizmRadioButtonComponent extends PrizmWrappedFormComponent {
   @Input() set disabled(isDisabled: boolean) {
     this.accessorIsDisabled = isDisabled;
   }
-  @Input() override formControl: FormControl = new FormControl();
-
   @Output() public clickEvent: EventEmitter<MouseEvent> = new EventEmitter();
   @Output() changeEvent: EventEmitter<Event> = new EventEmitter();
   @Output() public focusEvent: EventEmitter<FocusEvent> = new EventEmitter();

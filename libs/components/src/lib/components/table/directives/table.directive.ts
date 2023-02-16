@@ -16,6 +16,7 @@ import { PrizmComparator, PrizmTableBorderStyle } from '../table.types';
 import { AbstractPrizmController } from '../abstract/controller';
 import { Observable } from 'rxjs';
 import { prizmDefaultProp } from '@prizm-ui/core';
+import { PrizmTableCellSorter, PrizmTableSorterService } from '../service';
 
 @Directive({
   selector: `table[prizmTable]`,
@@ -45,18 +46,33 @@ export class PrizmTableDirective<T extends Partial<Record<keyof T, any>>>
   tableBorderStyle: PrizmTableBorderStyle = 'grid';
 
   @Input()
+  set sort(data: PrizmTableCellSorter<T>[]) {
+    this.sorterService.set(data);
+  }
+  get sort(): PrizmTableCellSorter<T>[] {
+    return this.sorterService.value;
+  }
+
+  @Input()
   @prizmDefaultProp()
   direction: -1 | 1 = 1;
 
   @Output()
   readonly directionChange = new EventEmitter<-1 | 1>();
 
+  /**
+   * @deprecated
+   * */
   @Output()
   readonly sorterChange = new EventEmitter<PrizmComparator<T> | null>();
+
+  @Output()
+  readonly sortChange: Observable<PrizmTableCellSorter<T>[]> = this.sorterService.changes$;
 
   constructor(
     @Inject(IntersectionObserverService)
     readonly entries$: Observable<IntersectionObserverEntry[]>,
+    private readonly sorterService: PrizmTableSorterService<T>,
     @Inject(ChangeDetectorRef) private readonly changeDetectorRef: ChangeDetectorRef
   ) {
     super();

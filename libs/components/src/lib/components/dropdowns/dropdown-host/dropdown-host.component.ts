@@ -225,7 +225,7 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
       .subscribe();
   }
 
-  public clickOnContainer(): void {
+  public clickOnContainer($event: any): void {
     this.containerClick$.next(Date.now());
   }
 
