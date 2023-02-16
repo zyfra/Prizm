@@ -2,7 +2,43 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.0.0-beta.22](https://github.com/zyfra/Prizm) (27-01-2023)
+## [1.0.0-beta.23](https://github.com/zyfra/Prizm) (16-02-2023)
+
+### Features
+
+Migrate PrizmThemeModule > prizm/theme
+
+- feat(components/prizmObservable): new decorator prizmObservable
+- feat(components/prizmAutoEmit): new decorator prizmAutoEmit
+- feat(component/navigation): now theme does not switch when theme was changed'
+- feat(components/stop-propagation): new directive for stop propagation
+- feat(doc): change vcs logo to github
+- feat(components/table): multiple sorting
+- feat(components/table): add server sorting
+- feat(doc/table): add examples with new sorting
+- chore: add pre commit checks branch name and commit message
+- chore: add pre push check ci
+- feat(doc): add a page with SLA
+- feat(components/paginator): add moreButtonLabel input
+- feat(doc/input): input as carousel example
+
+### BUG FIXES
+
+- fix(components/splitter): nested style bug
+- fix(theme): init variable in root
+- fix(doc/theme): change theme on local change
+- fix(doc/tree): change lazy tree source documentation
+- fix(doc/shadow): fix console errors
+- fix (components/overlay): falling out of the window borders during the
+- fix(component/text-arrea,input-chips): fix checking NgControl
+- fix(component/overlay): fix disabled/enabled state
+
+### BREAKING CHANGES
+
+- BREAKING CHANGE: Migrate PrizmThemeModule to prizm/theme library
+- fix(components/radio)!: remove formControl input
+
+## [1.0.0-beta.2](https://github.com/zyfra/Prizm) (27-01-2023)
 
 ### Features
 

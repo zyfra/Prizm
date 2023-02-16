@@ -12,9 +12,9 @@
     "@ng-web-apis/mutation-observer": "2.0.0",
     "primeicons": "^6.0.1 || ^4.1.0",
     "primeng": "^14.2.3 || ^12.2.1",
-    "@prizm-ui/helpers": "^1.0.0-beta.22",
-    "@prizm-ui/core": "^1.0.0-beta.22",
-    "@prizm-ui/theme": "^1.0.0-beta.22"
+    "@prizm-ui/helpers": "^1.0.0-beta.23",
+    "@prizm-ui/core": "^1.0.0-beta.23",
+    "@prizm-ui/theme": "^1.0.0-beta.23"
   },
   "dependencies": {
     "tslib": "^2.3.0"

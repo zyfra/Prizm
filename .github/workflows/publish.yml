@@ -49,7 +49,7 @@ jobs:
       - run: cd dist/libs/components && npm publish --verbose || exit_code=0
       - run: cd dist/libs/helpers && npm publish --verbose || exit_code=0
       - run: cd dist/libs/core && npm publish --verbose || exit_code=0
-      - run: cd dist/libs/schematics && npm publish --verbose || exit_code=0
+      #      - run: cd dist/libs/schematics && npm publish --verbose || exit_code=0
       - run: cd dist/libs/theme && npm publish --verbose || exit_code=0
       - run: cd dist/libs/charts && npm publish --verbose || exit_code=0
       - run: cd dist/libs/icons/base && npm publish --verbose || exit_code=0
