@@ -37,13 +37,13 @@ jobs:
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
 
       - run: npx nx workspace-lint
-      - run: npx nx format:check --base=main
+      - run: npx nx format:check --base=origin/mai
       - run: npx nx clear-cache
       #        TODO run after update angular ng14
-      #      - run: npx nx affected --target=test --base=main --parallel --max-parallel=3
-      - run: npx nx affected --target=lint --base=main --parallel --max-parallel=3
+      #      - run: npx nx affected --target=test --base=origin/mai --parallel --max-parallel=3
+      - run: npx nx affected --target=lint --base=origin/mai --parallel --max-parallel=3
       #        TODO remove schematics excluding after update angular ng14
-      - run: npx nx affected --target=build --base=main --prod --parallel --max-parallel=3 --exclude=schematics
+      - run: npx nx affected --target=build --base=origin/mai --prod --parallel --max-parallel=3 --exclude=schematics
 
       - name: 'Build doc app for firebase hosting'
         run: npx nx build doc
