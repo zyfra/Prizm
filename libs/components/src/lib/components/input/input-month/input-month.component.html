@@ -12,7 +12,7 @@
       prizmInput
       #focusableElementRef
       [placeholder]="placeholder"
-      [readonly]="readOnly"
+      [readonly]="true"
       [disabled]="computedDisabled"
       [ngModel]="(value | prizmMapper : formatter | async) || ''"
       (ngModelChange)="onValueChange($event || '')"

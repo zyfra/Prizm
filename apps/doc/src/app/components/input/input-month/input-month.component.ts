@@ -14,6 +14,7 @@ export class InputMonthComponent {
   val: PrizmDay;
   public pseudoInvalid = false;
   public pseudoHovered = false;
+  public readonly = false;
   public pseudoPressed = false;
   public pseudoFocused = false;
   public focusable = true;

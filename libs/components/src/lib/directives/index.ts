@@ -1,6 +1,7 @@
 export * from './polymorph';
 export * from './focused';
 export * from './focusable';
+export * from './stop-propagation';
 export * from './pressed';
 export * from './droppable';
 export * from './event-zone';

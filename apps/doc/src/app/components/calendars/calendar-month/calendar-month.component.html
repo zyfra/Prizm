@@ -1,15 +1,5 @@
-<prizm-doc-page header="CalendarMonth" type="components">
+<prizm-doc-page header="CalendarMonth">
   <ng-template prizmDocPageTab>
-    <!--        <p i18n>-->
-    <!--            Month picker component. If you want a textfield, see-->
-    <!--            <a-->
-    <!--                tuiLink-->
-    <!--                routerLink="/components/input-month-range"-->
-    <!--            >-->
-    <!--                InputMonthRange-->
-    <!--            </a>-->
-    <!--        </p>-->
-
     <prizm-doc-example id="base" i18n-heading heading="Basic" [content]="example1">
       <prizm-calendar-month-example-1></prizm-calendar-month-example-1>
     </prizm-doc-example>
@@ -19,9 +9,11 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-calendar-month
+        #element
+        [prizmDocHostElement]="element"
         [disabledItemHandler]="disabledItemHandler"
         [min]="min"
         [max]="max"
@@ -96,17 +88,11 @@
       <li>
         <p i18n>
           Import
-          <code>TuiCalendarMonthModule</code>
+          <code>PrizmCalendarMonthModule</code>
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="myComponent.module.ts" [code]="exampleModule"></prizm-doc-code>
-      </li>
-
-      <li>
-        <p i18n>Add to the template:</p>
-
-        <prizm-doc-code filename="myComponent.template.html" [code]="exampleHtml"></prizm-doc-code>
+        <prizm-doc-code filename="custom.module.ts" [code]="exampleModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

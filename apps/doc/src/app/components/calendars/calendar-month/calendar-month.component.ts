@@ -19,8 +19,6 @@ import { TuiAlertService } from '@taiga-ui/core';
 })
 export class ExampleCalendarMonthComponent {
   readonly exampleModule = import(`./examples/import/import-module.md?raw`);
-  readonly exampleHtml = import(`./examples/import/insert-template.md?raw`);
-
   readonly example1: TuiDocExample = {
     TypeScript: import(`./examples/base/base.component.ts?raw`),
     HTML: import(`./examples/base/base.component.html?raw`),
@@ -62,12 +60,9 @@ export class ExampleCalendarMonthComponent {
 
   year = this.yearVariants[0];
 
-  constructor(
-    @Inject(TuiAlertService)
-    private readonly alertService: TuiAlertService
-  ) {}
-
   public onMonthClick(month: PrizmMonth): void {
-    this.alertService.open(String(month)).subscribe();
+    console.log('onMonthClick', {
+      month,
+    });
   }
 }

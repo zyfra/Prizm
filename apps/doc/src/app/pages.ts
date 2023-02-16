@@ -228,6 +228,11 @@ export const pages: PrizmOrderedDocPage = [
         route: '/components/input-month',
       },
       {
+        title: 'InputMonthRange',
+        keywords: 'input-month-range, date, form',
+        route: '/components/input-month-range',
+      },
+      {
         title: 'InputDateRange',
         keywords: 'input-date-range, date-range, form',
         route: '/components/input-date-range',

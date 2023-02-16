@@ -9,13 +9,8 @@ import { PrizmMonth } from '@prizm-ui/components';
 })
 export class PrizmMonthExample1Component {
   value: PrizmMonth | null = null;
-  hoveredMonth: PrizmMonth | null = null;
 
   public onMonthClick(month: PrizmMonth): void {
     this.value = month;
-  }
-
-  public onMonthHovered(month: PrizmMonth | null): void {
-    this.hoveredMonth = month;
   }
 }

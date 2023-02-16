@@ -32,3 +32,4 @@ export * from './input-time';
 export * from './input-month';
 export * from './common/input-icon-button';
 export * from './input-date-time-range';
+export * from './input-month-range';

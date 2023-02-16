@@ -1,6 +1,6 @@
 <div
   class="block"
-  (click)="clickOnContainer()"
+  (click)="clickOnContainer($event)"
   (prizmMutationObserver)="updateWidth()"
   [prizmMutationObserverHost]="el.nativeElement"
 >
@@ -11,7 +11,8 @@
       prizmEventZone
       prizmShadow="big-left"
       #zone="prizmEventZone"
-      (prizmEventZoneEvent)="clickOnContainer()"
+      (click)="clickOnContainer($event)"
+      (prizmEventZoneEvent)="clickOnContainer($event)"
       (prizmAfterViewInit)="addListenerItems($event.nativeElement); reCalculatePositions()"
       (prizmOnDestroy)="removeListenerItems($event.nativeElement)"
       [id]="prizmDropdownHostId"

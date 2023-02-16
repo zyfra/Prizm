@@ -332,6 +332,16 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/input-month-range',
+    loadChildren: (): Promise<unknown> =>
+      import('./components/input/input-month-range/input-month-range.module').then(
+        i => i.InputMonthRangeRangeModule
+      ),
+    data: {
+      title: 'Input Month Range',
+    },
+  },
+  {
     path: 'components/input-date-time-range',
     loadChildren: (): Promise<unknown> =>
       import('./components/input/input-date-time-range/input-date-time-range.module').then(

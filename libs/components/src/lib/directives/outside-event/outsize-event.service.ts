@@ -40,10 +40,6 @@ export class OutsizeEventService {
 
   public setParent(parent: this): void {
     if (!parent) return;
-    console.log('#mz setParent', {
-      parent,
-      s: this,
-    });
     this.parent = parent;
     this.parent.addChild(this);
   }

@@ -1,12 +1,8 @@
-<prizm-doc-page header="InputMonth" package="components" type="components">
+<prizm-doc-page header="InputMonth">
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
       <prizm-input-month-base-example></prizm-input-month-base-example>
     </prizm-doc-example>
-
-    <!--    <prizm-doc-example id="native-date" heading="Native Date" [content]="exampleNative">-->
-    <!--      <prizm-input-native-date-base-example></prizm-input-native-date-base-example>-->
-    <!--    </prizm-doc-example>-->
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -16,10 +12,10 @@
         [prizmDocHostElement]="element"
         [formControl]="control"
         [label]="label"
+        [readOnly]="readonly"
         [placeholder]="placeholder"
         [outer]="outer"
         [size]="size"
-        [readOnly]="readOnly"
         [focusable]="focusable"
         [pseudoState]="pseudoState"
       ></prizm-input-month>
@@ -95,39 +91,6 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="markerHandler"
-        documentationPropertyType="PrizmMarkerHandler"
-        documentationPropertyMode="input"
-      >
-        Marker Handler
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="items"
-        documentationPropertyType="PrizmNamedDay[]"
-        documentationPropertyMode="input"
-      >
-        Items
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="defaultActiveYearMonth"
-        documentationPropertyType="PrizmMonth"
-        documentationPropertyMode="input"
-      >
-        Default Active Year Month
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="readOnly"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="readOnly"
-      >
-        Read Only
-      </ng-template>
-
-      <ng-template
         documentationPropertyName="val"
         documentationPropertyType="[PrizmDay, PrizmTime]"
         documentationPropertyMode="input-output"
@@ -152,6 +115,14 @@
         [(documentationPropertyValue)]="pseudoHovered"
       >
         Pseudo Hovered
+      </ng-template>
+      <ng-template
+        documentationPropertyName="readOnly"
+        documentationPropertyType=" boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="readonly"
+      >
+        Readonly
       </ng-template>
 
       <ng-template
@@ -237,7 +208,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

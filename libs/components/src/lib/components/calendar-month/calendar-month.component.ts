@@ -57,7 +57,6 @@ export class PrizmCalendarMonthComponent implements PrizmWithOptionalMinMax<Priz
   @Output()
   readonly monthClick = new EventEmitter<PrizmMonth>();
 
-  @Output()
   readonly hoveredItemChange = new EventEmitter<PrizmMonth | null>();
 
   @Output()

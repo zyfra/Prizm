@@ -9,6 +9,7 @@
 </prizm-scrollbar>
 <ng-template #monthSelect>
   <prizm-primitive-spin-button
+    prizmStopPropagation="mousedown"
     [focusable]="false"
     [leftDisabled]="previousYearDisabled"
     [rightDisabled]="nextYearDisabled"

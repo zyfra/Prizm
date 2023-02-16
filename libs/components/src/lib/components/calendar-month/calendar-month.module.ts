@@ -9,10 +9,12 @@ import { PrizmPrimitiveYearPickerModule } from '../internal/primitive-year-picke
 import { PrizmLinkModule } from '../link/link.module';
 import { PrizmScrollbarModule } from '../scrollbar/scrollbar.module';
 import { PrizmCalendarMonthComponent } from './calendar-month.component';
+import { PrizmStopPropagationModule } from '../../directives/stop-propagation/stop-propagation.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    PrizmStopPropagationModule,
     PrizmPrimitiveYearPickerModule,
     PrizmPrimitiveSpinButtonModule,
     PrizmScrollbarModule,

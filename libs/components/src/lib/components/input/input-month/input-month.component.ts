@@ -65,7 +65,7 @@ export class PrizmInputMonthComponent
 
   @Input()
   @prizmDefaultProp()
-  public label = 'Выберите дату';
+  public label = 'Выберите месяц';
 
   @Input()
   @prizmDefaultProp()
@@ -83,13 +83,13 @@ export class PrizmInputMonthComponent
   @prizmDefaultProp()
   public disabledItemHandler: PrizmBooleanHandler<PrizmMonth> = PRIZM_ALWAYS_FALSE_HANDLER;
   public open = false;
+
   public activeYear: PrizmYear = this.value || PrizmDay.currentLocal();
 
   public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
 
   @HostListener(`click`)
   public onClick(): void {
-    console.log('#mz open', { open: this.open });
     this.open = !this.open;
   }
   constructor(
@@ -143,9 +143,6 @@ export class PrizmInputMonthComponent
     if (open && this.value) {
       this.activeYear = this.value;
     }
-    console.log('#mz onOpenChange', {
-      open,
-    });
     this.open = open;
   }
 
