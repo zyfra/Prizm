@@ -45,7 +45,7 @@ jobs:
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
 
       - run: npx nx clear-cache
-      - run: npx nx affected:build --all --prod --exclude=schematics
+      - run: npx nx affected:build --all --prod --exclude=schematics --skipNxCache
       #      - run: npx nx affected:build --all --prod --parallel --max-parallel=3
       - run: cd dist/libs/components && npm publish --verbose || exit_code=0
       - run: cd dist/libs/helpers && npm publish --verbose || exit_code=0
