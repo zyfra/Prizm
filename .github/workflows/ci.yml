@@ -43,7 +43,7 @@ jobs:
       #      - run: npx nx affected --target=test --base=origin/main --parallel --max-parallel=3
       - run: npx nx affected --target=lint --base=origin/main --parallel --max-parallel=3
       #        TODO remove schematics excluding after update angular ng14
-      - run: npx nx affected --target=build --base=origin/main --prod --parallel --max-parallel=3 --exclude=schematics
+      #      - run: npx nx affected --target=build --base=origin/main --prod --exclude=schematics
 
       - name: 'Build doc app for firebase hosting'
         run: npx nx build doc
