@@ -361,45 +361,6 @@
       "tags": [],
       "implicitDependencies": ["doc"]
     },
-    "doc-pw-e2e": {
-      "root": "apps/doc-pw-e2e",
-      "sourceRoot": "apps/doc-pw-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@mands/nx-playwright:playwright-executor",
-          "options": {
-            "e2eFolder": "apps/doc-pw-e2e",
-            "devServerTarget": "doc:serve",
-            "packageRunner": "yarn"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "doc:serve:production"
-            }
-          }
-        },
-        "ts-check": {
-          "builder": "nx:run-commands",
-          "options": {
-            "commands": [
-              {
-                "command": "tsc --build --force --verbose apps/doc-e2e/tsconfig.json"
-              }
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["apps/doc-pw-e2e/**/*.{ts,tsx,js,jsx}"]
-          }
-        }
-      },
-      "tags": [],
-      "implicitDependencies": ["doc"]
-    },
     "flag-icons": {
       "projectType": "library",
       "root": "libs/icons/flags",
