@@ -200,7 +200,7 @@
           "options": {
             "commands": [
               "npx http-server-spa ./dist/apps/doc index.html 8080",
-              "sleep 3 && npm run doc:pw-internal"
+              "sleep 3 && npx playwright test ./apps/doc/pw"
             ],
             "parallel": true
           }
