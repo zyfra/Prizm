@@ -189,6 +189,22 @@
       "sourceRoot": "apps/doc/src",
       "prefix": "prizm",
       "architect": {
+        "pw": {
+          "executor": "@nrwl/workspace:run-commands",
+          "dependsOn": [
+            {
+              "target": "build",
+              "projects": "dependencies"
+            }
+          ],
+          "options": {
+            "commands": [
+              "npx http-server-spa ./dist/apps/doc index.html 8080",
+              "sleep 3 && npm run doc:pw-internal"
+            ],
+            "parallel": true
+          }
+        },
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
           "outputs": ["{options.outputPath}"],

@@ -3,7 +3,7 @@ import { UtilPwConsole } from './util';
 import { URLS_FOR_DEMO_CHECK } from './const';
 
 test('consoleError', async ({ page }) => {
-  const base = 'http://localhost:8080';
+  const base = 'https://prizmui.web.app';
   for (const item of URLS_FOR_DEMO_CHECK) {
     await UtilPwConsole.getErrorsForPage(base, item, page);
   }

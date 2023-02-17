@@ -9,7 +9,8 @@
     }
   },
   "scripts": {
-    "doc:pw": "npx playwright test ./apps/doc/pw",
+    "doc:pw": "npx nx pw doc",
+    "doc:pw-internal": "npx playwright test ./apps/doc/pw",
     "docs": "nx run components:doc",
     "doc:e2e:pw": "npx nx e2e doc-pw-e2e",
     "format:staged": "pretty-quick --staged",
