@@ -1,9 +1,9 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 export interface ITableProduct {
-  code: number;
-  tipe: string;
-  decoding: string;
+  name: string;
+  description: string;
+  priority: string | null;
   children?: ITableProduct[];
 }
 
@@ -13,69 +13,194 @@ export interface ITableProduct {
   styleUrls: ['./contacts.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ContactsComponent implements OnInit {
-  constructor() {}
+export class ContactsComponent {
+  public columns: string[] = ['code', 'name', 'description'];
 
-  ngOnInit(): void {}
-  public columns: string[] = ['code', 'tipe', 'decoding'];
-
-  public products: ITableProduct[] = TABLE_COUNTS;
+  public labelTypes: ITableProduct[] = TABLE_LABEL_TYPES;
+  public browserVersions: ITableProduct[] = TABLE_BROWSER_VERSIONS;
+  public implementationTimeline: ITableProduct[] = TABLE_IMPLEMENTATION_TIMELINE;
 }
 
-export const TABLE_COUNTS: ITableProduct[] = [
+export const TABLE_LABEL_TYPES: ITableProduct[] = [
   {
-    code: 1,
-    tipe: 'bug',
-    decoding: 'Дефект',
+    name: 'bug',
+    description: 'Дефект',
+    priority: null,
   },
   {
-    code: 2,
-    tipe: 'design',
-    decoding: 'Задача на дизайн',
+    name: 'design',
+    description: 'Задача на дизайн',
+    priority: null,
   },
   {
-    code: 3,
-    tipe: 'docs',
-    decoding: 'Доработка или добавление документации',
+    name: 'docs',
+    description: 'Доработка или добавление документации',
+    priority: null,
   },
   {
-    code: 4,
-    tipe: 'feature',
-    decoding: 'Новый функционал',
+    name: 'feature',
+    description: 'Новый функционал',
+    priority: null,
   },
   {
-    code: 5,
-    tipe: 'improvement',
-    decoding: 'Улучшение',
+    name: 'improvement',
+    description: 'Улучшение',
+    priority: null,
   },
   {
-    code: 6,
-    tipe: 'question',
-    decoding: 'Вопрос',
+    name: 'question',
+    description: 'Вопрос',
+    priority: null,
   },
   {
-    code: 7,
-    tipe: 'research',
-    decoding: 'Исследование или анализ',
+    name: 'research',
+    description: 'Исследование или анализ',
+    priority: null,
   },
   {
-    code: 8,
-    tipe: 'test',
-    decoding: 'Задачи на тестирование или покрытие тестами',
+    name: 'test',
+    description: 'Задачи на тестирование или покрытие тестами',
+    priority: null,
   },
   {
-    code: 9,
-    tipe: 'charts',
-    decoding: 'Задача относится к библиотеке графиков',
+    name: 'charts',
+    description: 'Задача относится к библиотеке графиков',
+    priority: null,
   },
   {
-    code: 10,
-    tipe: 'widgets',
-    decoding: 'Задача относится к библиотеке виджетов',
+    name: 'widgets',
+    description: 'Задача относится к библиотеке виджетов',
+    priority: null,
   },
   {
-    code: 11,
-    tipe: 'duplicate',
-    decoding: 'Дублирующаяся задача',
+    name: 'duplicate',
+    description: 'Дублирующаяся задача',
+    priority: null,
+  },
+];
+
+export const TABLE_BROWSER_VERSIONS: ITableProduct[] = [
+  {
+    name: 'Chrome',
+    description: 'последняя и предыдущая стабильная версия',
+    priority: null,
+  },
+  {
+    name: 'Firefox',
+    description: 'последняя и расширенная поддержка (ESR)',
+    priority: null,
+  },
+  {
+    name: 'Edge',
+    description: '2 последние основные версии',
+    priority: null,
+  },
+  {
+    name: 'Safari',
+    description: '2 последние основные версии',
+    priority: null,
+  },
+  {
+    name: 'iOS',
+    description: '2 последние основные версии',
+    priority: null,
+  },
+  {
+    name: 'android',
+    description: '2 последние основные версии',
+    priority: null,
+  },
+];
+
+export const TABLE_IMPLEMENTATION_TIMELINE: ITableProduct[] = [
+  {
+    name: 'bug',
+    description: '10 рабочих дней',
+    priority: 'Высокий',
+  },
+  {
+    name: 'feature',
+    description: '30 рабочих дней',
+    priority: 'Высокий',
+  },
+  {
+    name: 'improvement',
+    description: '30 рабочих дней',
+    priority: 'Высокий',
+  },
+  {
+    name: 'docs',
+    description: '30 рабочих дней',
+    priority: 'Высокий',
+  },
+  {
+    name: 'design',
+    description: '30 рабочих дней',
+    priority: 'Высокий',
+  },
+  {
+    name: 'question',
+    description: '3 рабочих дня',
+    priority: 'Высокий',
+  },
+  {
+    name: 'bug',
+    description: '20 рабочих дней',
+    priority: 'Средний',
+  },
+  {
+    name: 'feature',
+    description: '60 рабочих дней',
+    priority: 'Средний',
+  },
+  {
+    name: 'improvement',
+    description: '60 рабочих дней',
+    priority: 'Средний',
+  },
+  {
+    name: 'docs',
+    description: '60 рабочих дней',
+    priority: 'Средний',
+  },
+  {
+    name: 'design',
+    description: '60 рабочих дней',
+    priority: 'Средний',
+  },
+  {
+    name: 'question',
+    description: '5 рабочих дней',
+    priority: 'Средний',
+  },
+  {
+    name: 'bug',
+    description: '3 месяца',
+    priority: 'Низкий',
+  },
+  {
+    name: 'feature',
+    description: 'неопределенное время (пересмотр приоритета 1 раз в квартал)',
+    priority: 'Низкий',
+  },
+  {
+    name: 'improvement',
+    description: 'неопределенное время (пересмотр приоритета 1 раз в квартал)',
+    priority: 'Низкий',
+  },
+  {
+    name: 'docs',
+    description: 'неопределенное время (пересмотр приоритета 1 раз в квартал)',
+    priority: 'Низкий',
+  },
+  {
+    name: 'design',
+    description: 'неопределенное время (пересмотр приоритета 1 раз в квартал)',
+    priority: 'Низкий',
+  },
+  {
+    name: 'question',
+    description: '5 рабочих дней',
+    priority: 'Низкий',
   },
 ];
