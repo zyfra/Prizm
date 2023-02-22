@@ -2,6 +2,7 @@ name: Publish package
 on:
   release:
     types: [created]
+  workflow_dispatch:
 env:
   npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
