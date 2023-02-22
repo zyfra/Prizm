@@ -32,10 +32,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules-
 
-      - name: Cache clean
-        if: steps.cache-restore.outputs.cache-hit != 'true'
-        run: npm cache clean --force
-
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
         run: npm ci --ignore-scripts
