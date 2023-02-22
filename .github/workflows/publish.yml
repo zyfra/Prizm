@@ -20,17 +20,17 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
+          node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
 
-      #      - name: Restore cache
-      #        id: cache-restore
-      #        uses: actions/cache/restore@v3
-      #        with:
-      #          path: ./node_modules
-      #          key: ${{ runner.os }}-node_modules-${{ hashFiles('package-lock.json') }}
-      #          restore-keys: |
-      #            ${{ runner.os }}-node_modules-
+      - name: Restore cache
+        id: cache-restore
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules-
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
