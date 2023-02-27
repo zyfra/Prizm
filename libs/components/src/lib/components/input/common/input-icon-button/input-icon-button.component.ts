@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, HostBinding, ElementRef } from '@angular/core';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -22,5 +22,9 @@ export class PrizmInputIconButtonComponent {
 
   get tabindex(): number {
     return this.interactive ? 0 : -1;
+  }
+
+  constructor(private hostEl: ElementRef<HTMLButtonElement>) {
+    hostEl.nativeElement.type = 'button';
   }
 }
