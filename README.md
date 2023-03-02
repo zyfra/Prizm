@@ -1,4 +1,4 @@
-# @prizm-ui/\*
+# Prizm UI
 
 ![prizm workflow](https://github.com/zyfra/Prizm/actions/workflows/ci.yml/badge.svg)
 
@@ -112,3 +112,40 @@ or you can only import to your root styles.less
 ```css
 @import '~@prizm-ui/icons/base/src/styles/styles.less';
 ```
+
+# Thanks to
+
+This is a library for one of the best Angular frameworks. Thanks to [Angular team](https://github.com/angular)
+
+Our library are based on Taiga UI by Tinkoff. Thanks to [Taiga UI](https://github.com/tinkoff/taiga-ui)
+
+We use nrwl nx as monorepo. Thanks to [Nrwl team](https://github.com/nrwl)
+
+Our charts library are base on AntV G2Plot. Thanks to [AntV G2Plot](https://github.com/antvis/G2Plot)
+
+Also we want to give thanks to all the following
+
+- [husky](https://github.com/typicode/husky)
+- [ngx-markdown](https://github.com/jfcere/ngx-markdown)
+- [ngx-mask](https://github.com/JsDaddy/ngx-mask)
+- [primeng](https://github.com/primefaces/primeng)
+- [ng-web-apis](https://www.npmjs.com/package/@ng-web-apis/common)
+- [fantasticon](https://github.com/tancredi/fantasticon)
+- [clibpboar.js](https://github.com/zenorocha/clipboard.js)
+- [date-fns](https://github.com/date-fns/date-fns)
+- [rxjs](https://github.com/ReactiveX/rxjs)
+- [svg-icons-builder](https://github.com/angular-extensions/svg-icons-builder)
+- [jest](https://github.com/facebook/jest)
+- [lodash](https://github.com/lodash/lodash)
+- [cypress](https://github.com/cypress-io/cypress)
+- [playwright](https://github.com/microsoft/playwright)
+- [highlight](https://github.com/highlightjs/highlight.js/)
+- [highlightjs-line-numbers](https://github.com/wcoder/highlightjs-line-numbers.js/)
+- [postcss](https://github.com/postcss/postcss)
+- [prettier](https://github.com/prettier/prettier)
+- [webpack](https://github.com/webpack/webpack)
+- [pretty-quick](https://github.com/azz/pretty-quick)
+- [eslint](https://github.com/eslint/eslint)
+- [svg-to-ts](https://github.com/kreuzerk/svg-to-ts)
+- [typescript](https://github.com/microsoft/TypeScript)
+- [commitlint](https://github.com/conventional-changelog/commitlint)
