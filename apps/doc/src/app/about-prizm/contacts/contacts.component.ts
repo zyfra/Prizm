@@ -21,7 +21,7 @@ export class ContactsComponent {
   public implementationTimeline: ITableProduct[] = TABLE_IMPLEMENTATION_TIMELINE;
 }
 
-export const TABLE_LABEL_TYPES: ITableProduct[] = [
+const TABLE_LABEL_TYPES: ITableProduct[] = [
   {
     name: 'bug',
     description: 'Дефект',
@@ -79,7 +79,7 @@ export const TABLE_LABEL_TYPES: ITableProduct[] = [
   },
 ];
 
-export const TABLE_BROWSER_VERSIONS: ITableProduct[] = [
+const TABLE_BROWSER_VERSIONS: ITableProduct[] = [
   {
     name: 'Chrome',
     description: 'последняя и предыдущая стабильная версия',
@@ -112,7 +112,7 @@ export const TABLE_BROWSER_VERSIONS: ITableProduct[] = [
   },
 ];
 
-export const TABLE_IMPLEMENTATION_TIMELINE: ITableProduct[] = [
+const TABLE_IMPLEMENTATION_TIMELINE: ITableProduct[] = [
   {
     name: 'bug',
     description: '10 рабочих дней',
