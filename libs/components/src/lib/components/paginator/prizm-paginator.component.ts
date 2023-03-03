@@ -81,8 +81,7 @@ export class PrizmPaginatorComponent {
   }
 
   public get realTotalRecord(): number {
-    return (this.totalRecords =
-      this.paginatorType === 'infinite' ? this.rows * (this.currentPage + 1) : this.totalRecords);
+    return this.paginatorType === 'infinite' ? this.rows * (this.currentPage + 1) : this.totalRecords;
   }
 
   public get isDataValid(): boolean {
