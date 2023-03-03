@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -16,6 +16,9 @@ export class PrizmInputIconButtonComponent {
   @Input() size = 16;
   @Input() prizmInputIconButton: string;
   @Input() interactive = false;
+  @Input()
+  @HostBinding('attr.type')
+  type: 'button' | 'reset' | 'submit' = 'button';
 
   @HostBinding('attr.testId')
   readonly testId = 'prizm_input_icon_button';
