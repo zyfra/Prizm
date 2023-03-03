@@ -22,7 +22,13 @@ export const pages: PrizmOrderedDocPage = [
     route: 'about-prizm/license',
     order: 2,
   },
-
+  {
+    section: SectionNameEnum.allAboutPrizm,
+    title: `Репозитории`,
+    keywords: 'репозитории, repositories',
+    route: 'about-prizm/repositories',
+    order: 3,
+  },
   {
     section: SectionNameEnum.allAboutPrizm,
     title: 'Связь с командой Prizm',
@@ -30,7 +36,6 @@ export const pages: PrizmOrderedDocPage = [
     route: 'about-prizm/contacts',
     order: 4,
   },
-
   {
     section: SectionNameEnum.allAboutPrizm,
     title: 'Журнал изменений (changelog)',

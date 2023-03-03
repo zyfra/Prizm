@@ -30,7 +30,6 @@ import { PrizmThemeService } from '@prizm-ui/theme';
 import { ContactsModule } from './about-prizm/contacts/contacts.module';
 import { DesignSystemModule } from './about-prizm/design-system/design-system.module';
 import { ForDevelopersModule } from './how-to-work/for-developers/for-developers.module';
-import { MigrationComponent } from './forZIIoT/migration/migration.component';
 
 registerLocaleData(localeRu);
 @NgModule({

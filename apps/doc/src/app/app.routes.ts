@@ -14,6 +14,14 @@ export const ROUTES: Routes = [
         },
       },
       {
+        path: 'repositories',
+        loadChildren: (): Promise<unknown> =>
+          import('./about-prizm/repositories/repositories.module').then(m => m.RepositoriesModule),
+        data: {
+          title: 'Repositories',
+        },
+      },
+      {
         path: 'changelog',
         loadChildren: (): Promise<unknown> =>
           import('./about-prizm/changelog/changelog.module').then(i => i.ChangelogModule),
