@@ -1,9 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContactsComponent } from './about-prizm/contacts/contacts.component';
-import { DesignSystemComponent } from './about-prizm/design-system/design-system.component';
-import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
-import { MigrationComponent } from './how-to-start/migration/migration.component';
 
 export const ROUTES: Routes = [
   {
@@ -27,19 +23,69 @@ export const ROUTES: Routes = [
       },
       {
         path: 'design-system',
-        component: DesignSystemComponent,
+        loadChildren: (): Promise<unknown> =>
+        import('./about-prizm/design-system/design-system.module').then(i => i.DesignSystemModule),
         data: {
           title: 'About Design System',
         },
       },
       {
         path: 'contacts',
-        component: ContactsComponent,
+        loadChildren: (): Promise<unknown> =>
+        import('./about-prizm/contacts/contacts.module').then(i => i.ContactsModule),
         data: {
           title: 'Contacts',
         },
       },
     ],
+  },
+  //How to work
+  {
+    path: 'how-to-work',
+    children: [
+      {
+        path: 'for-developers',
+        loadChildren: (): Promise<unknown> =>
+        import('./how-to-work/for-developers/for-developers.module').then(i => i.ForDevelopersModule),
+        data: {
+          title: 'For developers',
+        },
+      },
+      {
+        path: 'contributing',
+        loadChildren: (): Promise<unknown> =>
+          import('./how-to-work/contributing/contributing.module').then(i => i.ContributingModule),
+        data: {
+          title: 'Contributing',
+        },
+      },
+      {
+        path: 'codestyle',
+        loadChildren: (): Promise<unknown> =>
+          import('./how-to-work/codestyle/codestyle.module').then(i => i.CodestyleModule),
+        data: {
+          title: 'CodeStyle',
+        },
+      },
+      {
+        path: '**',
+        redirectTo: 'for-developers',
+      },
+    ],
+  },
+  //For ZIIoT
+  {
+    path: 'forZIIoT',
+    children: [
+      {
+        path: 'migration',
+        loadChildren: (): Promise<unknown> =>
+        import('./forZIIoT/migration/migration.module').then(i => i.MigrationModule),
+        data: {
+          title: 'Migration',
+        },
+      },
+    ]
   },
   //Guidelines
   {
@@ -70,30 +116,6 @@ export const ROUTES: Routes = [
       },
     ],
   },
-  //How to start
-  {
-    path: 'how-to-start',
-    children: [
-      {
-        path: 'for-developers',
-        component: GettingStartedComponent,
-        data: {
-          title: 'For developers',
-        },
-      },
-      {
-        path: 'migration',
-        component: MigrationComponent,
-        data: {
-          title: 'Migration',
-        },
-      },
-      {
-        path: '**',
-        redirectTo: 'for-developers',
-      },
-    ],
-  },
   // DOC
   {
     path: 'generate-example',
@@ -101,22 +123,6 @@ export const ROUTES: Routes = [
       import('./documentation/generate-example/generate-example.module').then(i => i.GenerateExampleModule),
     data: {
       title: 'Generate example',
-    },
-  },
-  {
-    path: 'contributing',
-    loadChildren: (): Promise<unknown> =>
-      import('./documentation/contributing/contributing.module').then(i => i.ContributingModule),
-    data: {
-      title: 'Contributing',
-    },
-  },
-  {
-    path: 'codestyle',
-    loadChildren: (): Promise<unknown> =>
-      import('./documentation/codestyle/codestyle.module').then(i => i.CodestyleModule),
-    data: {
-      title: 'CodeStyle',
     },
   },
   // COMPONENTS

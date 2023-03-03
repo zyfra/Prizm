@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
-import { PrizmAddonDocModule } from '@prizm-ui/doc';
+import { RouterModule } from '@angular/router';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { DesignSystemComponent } from './design-system.component';
 
 @NgModule({
   exports: [DesignSystemComponent],
   declarations: [DesignSystemComponent],
-  imports: [PrizmAddonDocModule],
+  imports: [
+    PrizmAddonDocModule,
+    RouterModule.forChild(prizmDocGenerateRoutes(DesignSystemComponent)),
+  ],
 })
 export class DesignSystemModule {}
