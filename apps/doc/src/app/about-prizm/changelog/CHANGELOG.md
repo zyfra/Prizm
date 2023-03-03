@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.0.0-beta.23](https://github.com/zyfra/Prizm) (16-02-2023)
+## [1.0.0-beta.24](https://github.com/zyfra/Prizm) (03-03-2023)
 
 ### BUG FIXES
 
