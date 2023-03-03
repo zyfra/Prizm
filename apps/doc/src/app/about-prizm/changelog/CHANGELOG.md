@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 ### BUG FIXES
 
 - fix(components/icon-button): incorrect calculation of IconButton height in DropdownHost
-- fix(doc/dropdown-host): the nested dropdow did not open
+- fix(doc/dropdown-host): the nested dropdown did not open
 - fix(components/input-icon-button): changing the default type of input-icon-button to button
 - fix(components/table): fix font-weight for table header
 - fix(components/input-number): add default value type number
