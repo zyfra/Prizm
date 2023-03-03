@@ -2,7 +2,7 @@ import { Directive, ElementRef, Host, HostBinding, HostListener, Input } from '@
 import { PrizmInputTextComponent } from '../input-text/input-text.component';
 
 @Directive({
-  selector: 'input[prizmInputNumber]',
+  selector: 'input[prizmInputNumber], input[type=number][prizmInput]',
   exportAs: 'prizmInputNumber',
 })
 export class PrizmInputNumberDirective {
