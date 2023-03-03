@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.24](https://github.com/zyfra/Prizm) (03-03-2023)
+
+### BUG FIXES
+
+- fix(components/icon-button): incorrect calculation of IconButton height in DropdownHost
+- fix(doc/dropdown-host): the nested dropdown did not open
+- fix(components/input-icon-button): changing the default type of input-icon-button to button
+- fix(components/table): fix font-weight for table header
+- fix(components/input-number): add default value type number
+- fix(components/pagination): changing totalRecords does not redraw buttons with page numbers
+
+### Features
+
+- feat(doc): add sla info to contact page
+
 ## [1.0.0-beta.23](https://github.com/zyfra/Prizm) (16-02-2023)
 
 ### Features
