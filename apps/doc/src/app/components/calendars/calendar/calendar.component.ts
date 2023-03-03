@@ -13,11 +13,11 @@ export class CalendarComponent {
   public day = new PrizmDay(2017, 0, 15);
   public showAdjacent = true;
   public readonly control = new FormControl(new PrizmDay(2017, 0, 15));
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/calendar-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/calendar-base-example.component.html'),
+    TypeScript: import('./examples/base/calendar-base-example.component.ts?raw'),
+    HTML: import('./examples/base/calendar-base-example.component.html?raw'),
   };
 
   public onDayClick(day: PrizmDay): void {

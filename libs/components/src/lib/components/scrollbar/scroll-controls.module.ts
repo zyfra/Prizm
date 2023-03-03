@@ -4,7 +4,7 @@ import { PrizmScrollControlsComponent } from './scroll-controls.component';
 import { PrizmScrollbarWrapperDirective } from './scrollbar-wrapper.directive';
 import { PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmScrollbarDirective } from './scrollbar.directive';
-import { PrizmThemeModule } from '../../directives/theme';
+import { PrizmThemeModule } from '@prizm-ui/theme';
 
 @NgModule({
   imports: [CommonModule, PrizmLetModule, PrizmThemeModule],

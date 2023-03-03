@@ -40,3 +40,8 @@ testem.log
 Thumbs.db
 
 .angular
+
+# Playwright
+**/test-results
+**/playwright-report
+**/playwright/.cache

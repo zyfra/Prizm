@@ -32,18 +32,14 @@ export class TextareaExampleComponent {
   public forceClear = this.forceClearVariants[0];
 
   public readonly zyfraTextareaBasicExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/textarea-basic-example/textarea-basic-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/textarea-basic-example/textarea-basic-example.component.html'),
+    TypeScript: import('./examples/textarea-basic-example/textarea-basic-example.component.ts?raw'),
+    HTML: import('./examples/textarea-basic-example/textarea-basic-example.component.html?raw'),
   };
 
   public readonly zyfraTextareaAutosizeExample: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/textarea-autosize-example/textarea-autosize-example.component.ts'
-    ),
-    HTML: import(
-      '!!raw-loader!./examples/textarea-autosize-example/textarea-autosize-example.component.html'
-    ),
+    TypeScript: import('./examples/textarea-autosize-example/textarea-autosize-example.component.ts?raw'),
+    HTML: import('./examples/textarea-autosize-example/textarea-autosize-example.component.html?raw'),
   };
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

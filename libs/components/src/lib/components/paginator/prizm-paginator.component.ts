@@ -37,6 +37,7 @@ export class PrizmPaginatorComponent {
 
   @Input() public leftButtonLabel = '';
   @Input() public rightButtonLabel = '';
+  @Input() moreButtonLabel = 'Показать еще';
 
   @Input() public rowsCountOptions: number[] = [];
   @Output() public paginatorChange: EventEmitter<PrizmPaginatorOutput> =
@@ -80,8 +81,7 @@ export class PrizmPaginatorComponent {
   }
 
   public get realTotalRecord(): number {
-    return (this.totalRecords =
-      this.paginatorType === 'infinite' ? this.rows * (this.currentPage + 1) : this.totalRecords);
+    return this.paginatorType === 'infinite' ? this.rows * (this.currentPage + 1) : this.totalRecords;
   }
 
   public get isDataValid(): boolean {

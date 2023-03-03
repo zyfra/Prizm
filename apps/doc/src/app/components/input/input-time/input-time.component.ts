@@ -44,25 +44,25 @@ export class InputTimeTimeComponent {
   public timeMode: PrizmTimeMode = `HH:MM`;
   public outer = false;
 
-  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   public readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/input-time-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/input-time-base-example.component.html'),
+    TypeScript: import('./examples/base/input-time-base-example.component.ts?raw'),
+    HTML: import('./examples/base/input-time-base-example.component.html?raw'),
   };
 
   public readonly exampleWithSeconds: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-seconds/input-time-with-seconds-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/with-seconds/input-time-with-seconds-example.component.html'),
+    TypeScript: import('./examples/with-seconds/input-time-with-seconds-example.component.ts?raw'),
+    HTML: import('./examples/with-seconds/input-time-with-seconds-example.component.html?raw'),
   };
 
   public readonly exampleWithMicroSeconds: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-ms/input-time-with-ms-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/with-ms/input-time-with-ms-example.component.html'),
+    TypeScript: import('./examples/with-ms/input-time-with-ms-example.component.ts?raw'),
+    HTML: import('./examples/with-ms/input-time-with-ms-example.component.html?raw'),
   };
 
   public readonly exampleWithPreset: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-preset/input-time-with-preset-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/with-preset/input-time-with-preset-example.component.html'),
+    TypeScript: import('./examples/with-preset/input-time-with-preset-example.component.ts?raw'),
+    HTML: import('./examples/with-preset/input-time-with-preset-example.component.html?raw'),
   };
 }

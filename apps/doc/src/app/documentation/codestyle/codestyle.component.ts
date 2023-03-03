@@ -11,5 +11,5 @@ import { prizmRawLoad } from '@prizm-ui/doc';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CodestyleComponent {
-  readonly text = of(import(`!!raw-loader!../../../../../../CODESTYLE.md`)).pipe(switchMap(prizmRawLoad));
+  readonly text = of(import(`../../../../../../CODESTYLE.md?raw`)).pipe(switchMap(prizmRawLoad));
 }

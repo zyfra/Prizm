@@ -44,19 +44,19 @@ export class BarComponent {
   ];
   public yField = 'type';
   public xField = 'sales';
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleOutline: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/prizm-charts-bar-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/prizm-charts-bar-example.component.html'),
+    TypeScript: import('./examples/base/prizm-charts-bar-example.component.ts?raw'),
+    HTML: import('./examples/base/prizm-charts-bar-example.component.html?raw'),
   };
   readonly exampleStacked: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/stacked/prizm-charts-stacked-bar-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/stacked/prizm-charts-stacked-bar-example.component.html'),
+    TypeScript: import('./examples/stacked/prizm-charts-stacked-bar-example.component.ts?raw'),
+    HTML: import('./examples/stacked/prizm-charts-stacked-bar-example.component.html?raw'),
   };
   readonly exampleGroup: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/group/prizm-charts-group-bar-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/group/prizm-charts-group-bar-example.component.html'),
+    TypeScript: import('./examples/group/prizm-charts-group-bar-example.component.ts?raw'),
+    HTML: import('./examples/group/prizm-charts-group-bar-example.component.html?raw'),
   };
   height = 300;
   width: number = null;

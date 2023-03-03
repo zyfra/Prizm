@@ -29,5 +29,7 @@ export * from './input-date-relative';
 export * from './input-date-time';
 export * from './input-date-multi';
 export * from './input-time';
+export * from './input-month';
 export * from './common/input-icon-button';
 export * from './input-date-time-range';
+export * from './input-month-range';

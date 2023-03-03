@@ -69,8 +69,16 @@ export class PrizmInputDateRelativeComponent
    * @deprecated
    * */
   public set disabled(value: boolean) {
-    if (value) this.value.disable();
-    else this.value.enable();
+    const ngControl = this.injector.get(NgControl);
+    if (ngControl.control) {
+      if (value) {
+        ngControl.control.disable();
+      } else {
+        ngControl.control.enable();
+      }
+    } else {
+      this.setDisabledState(value);
+    }
   }
   public get disabled(): boolean {
     return this.value.disabled;
@@ -166,7 +174,13 @@ export class PrizmInputDateRelativeComponent
   }
 
   public setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+    if (isDisabled) {
+      this.value.disable();
+    } else {
+      this.value.enable();
+    }
+
+    this.cdr.markForCheck();
   }
 
   public clearValue(): void {

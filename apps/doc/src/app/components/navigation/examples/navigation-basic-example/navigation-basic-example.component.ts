@@ -18,9 +18,7 @@ export class NavigationBasicExampleComponent {
   public openNavigation = true;
   public currentNavElementIdx = 0;
 
-  public readonly logoPath$ = this.themeSwitcher.change$.pipe(
-    map(theme => `assets/example/logo-${theme.theme}.png`)
-  );
+  public readonly logo = 'assets/example/logo-dark.png';
 
   constructor(private readonly themeSwitcher: PrizmThemeService) {}
 

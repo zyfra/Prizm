@@ -2,8 +2,8 @@
 # ---------------------------
 ARG DOCKERFILE_BUILD_IMAGE="node"
 ARG DOCKERFILE_BUILD_TAG="14"
-ARG DOCKERFILE_BASE_IMAGE="docker.idp.yc.ziiot.ru/digital-plant/zui-ci-basedockerimage"
-ARG DOCKERFILE_BASE_TAG="2.2.2"
+ARG DOCKERFILE_BASE_IMAGE=$FCI_DOCKERFILE_BASE_IMAGE
+ARG DOCKERFILE_BASE_TAG=$FCI_DOCKERFILE_BASE_TAG
 
 # Build container
 # ---------------

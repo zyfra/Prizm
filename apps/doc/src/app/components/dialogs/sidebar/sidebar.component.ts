@@ -66,16 +66,16 @@ export class SidebarComponent {
   public content = 'Базовый текст для диалога';
   public footer: PolymorphContent<PrizmBaseDialogContext<PrizmSidebarOptions<any>>> = null;
 
-  public readonly exampleModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  public readonly exampleModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   public readonly exampleBasic: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/base.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/base.component.html'),
+    TypeScript: import('./examples/base/base.component.ts?raw'),
+    HTML: import('./examples/base/base.component.html?raw'),
   };
 
   public readonly exampleTopBottom: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/top-bottom/top-bottom.component.ts'),
-    HTML: import('!!raw-loader!./examples/top-bottom/top-bottom.component.html'),
+    TypeScript: import('./examples/top-bottom/top-bottom.component.ts?raw'),
+    HTML: import('./examples/top-bottom/top-bottom.component.html?raw'),
   };
 
   constructor(@Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService) {}

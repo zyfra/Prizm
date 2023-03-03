@@ -21,10 +21,10 @@ export class ShadowComponent {
   ];
   value: PrizmShadowType = PrizmShadowTypeEnum.bigRight;
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/shadow-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/shadow-base-example.component.html'),
+    TypeScript: import('./examples/base/shadow-base-example.component.ts?raw'),
+    HTML: import('./examples/base/shadow-base-example.component.html?raw'),
   };
 }

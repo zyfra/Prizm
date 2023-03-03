@@ -1,0 +1,43 @@
+<prizm-dropdown-host
+  class="z-hosted"
+  [canOpen]="interactive"
+  [content]="dropdown"
+  [closeByEsc]="true"
+  [isOpen]="open && interactive"
+  (isOpenChange)="onOpenChange($event)"
+  prizmDropdownHostWidth="auto"
+>
+  <prizm-input-layout [label]="label" [outer]="outer" [size]="size">
+    <input
+      class="input-search"
+      prizmInput
+      #focusableElementRef
+      [readOnly]="true"
+      [placeholder]="placeholder"
+      [disabled]="computedDisabled"
+      [ngModel]="
+        value
+          ? computeValue(
+              value.from | prizmMapper : formatter | async,
+              value.to | prizmMapper : formatter | async
+            )
+          : ''
+      "
+      (ngModelChange)="onValueChange($event || '')"
+    />
+
+    <ng-container prizm-input-right>
+      <button prizmInputIconButton="date-calendar-range" [interactive]="true"></button>
+    </ng-container>
+  </prizm-input-layout>
+  <ng-template #dropdown>
+    <prizm-calendar-month
+      prizmPreventDefault="mousedown"
+      [disabledItemHandler]="disabledItemHandler"
+      [min]="min"
+      [max]="max"
+      [value]="value"
+      (monthClick)="onMonthClick($event)"
+    ></prizm-calendar-month>
+  </ng-template>
+</prizm-dropdown-host>

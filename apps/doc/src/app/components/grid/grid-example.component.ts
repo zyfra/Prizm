@@ -9,10 +9,10 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 })
 export class GridExampleComponent {
   public readonly gridBasicExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/grid-example-basic/grid-example-basic.component'),
-    HTML: import('!!raw-loader!./examples/grid-example-basic/grid-example-basic.component.html'),
+    TypeScript: import('./examples/grid-example-basic/grid-example-basic.component?raw'),
+    HTML: import('./examples/grid-example-basic/grid-example-basic.component.html?raw'),
     LESS: import('./examples/grid-example-basic/grid-example-basic.component.less?raw'),
   };
 
-  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

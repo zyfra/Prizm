@@ -1,5 +1,5 @@
 declare module '*?raw';
-declare module '!!raw-loader!*';
+declare module '*?raw';
 declare module 'highlight*';
 
 /* SystemJS module definition */

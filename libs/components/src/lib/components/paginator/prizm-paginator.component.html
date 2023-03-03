@@ -28,9 +28,7 @@
     </span>
     <div
       class="paginator paginator__finite"
-      *ngIf="
-        paginatorType === 'finite' && (rows | prizmCallFunc : paginationGenerator : currentPage) as pagingData
-      "
+      *ngIf="paginatorType === 'finite' && paginationGenerator(rows, currentPage) as pagingData"
     >
       <button class="control control_left" [disabled]="currentPage === 1" (click)="decrease()">
         <prizm-icon size="16" iconClass="arrows-chevron-left"></prizm-icon>
@@ -76,7 +74,9 @@
     </div>
 
     <div class="paginator paginator__infinite" *ngIf="paginatorType === 'infinite'">
-      <button class="show-more" [disabled]="showMoreDisabled" (click)="increase()">Показать еще</button>
+      <button class="show-more" [disabled]="showMoreDisabled" (click)="increase()">
+        {{ moreButtonLabel }}
+      </button>
     </div>
   </div>
 </div>

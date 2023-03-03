@@ -8,7 +8,7 @@ export const prizmAssert = {
   enabled: [] as PRIZM_LOG_LEVEL[],
   defaultLevel: PRIZM_LOG_LEVEL.error,
   get assertBy(): (assertion: boolean, level: PRIZM_LOG_LEVEL, ...args: unknown[]) => void {
-    return (assertion: boolean, level: PRIZM_LOG_LEVEL, ...args: unknown[]) => {
+    return (assertion: boolean, level: PRIZM_LOG_LEVEL, ...args: unknown[]): void => {
       if (assertion) return;
       if (!this.enabled.includes(level)) return;
       switch (level) {
@@ -22,12 +22,12 @@ export const prizmAssert = {
     };
   },
   get assert(): (assertion: boolean, ...args: unknown[]) => void {
-    return (assertion: boolean, ...args: unknown[]) => {
+    return (assertion: boolean, ...args: unknown[]): void => {
       return this.assertBy(assertion, this.defaultLevel, ...args);
     };
   },
   get assertWarning(): (assertion: boolean, ...args: unknown[]) => void {
-    return (assertion: boolean, ...args: unknown[]) => {
+    return (assertion: boolean, ...args: unknown[]): void => {
       return this.assertBy(assertion, PRIZM_LOG_LEVEL.warn, ...args);
     };
   },

@@ -12,7 +12,7 @@ import { TableEditableColExampleComponent } from './examples/table-editable-col-
 import { TableEditableRowExampleComponent } from './examples/table-editable-row-example/table-editable-row-example.component';
 import { TableGroupExampleComponent } from './examples/table-group-example/table-group-example.component';
 import { TableStatusExampleComponent } from './examples/table-status-example/table-status-example.component';
-import { ZuiTableModule } from '@prizm-ui/old';
+import { ZuiTableModule } from '@prizm-ui/deprecated';
 
 @NgModule({
   declarations: [

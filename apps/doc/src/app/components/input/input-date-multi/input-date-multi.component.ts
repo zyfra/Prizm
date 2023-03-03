@@ -15,16 +15,16 @@ export class InputDateMultiRelativeComponent implements OnInit {
   @ViewChild('dateTime', { static: true }) dateTime: TemplateRef<unknown>;
 
   public currentIdx = 0;
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/input-date-multi-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/input-date-multi-base-example.component.html'),
+    TypeScript: import('./examples/base/input-date-multi-base-example.component.ts?raw'),
+    HTML: import('./examples/base/input-date-multi-base-example.component.html?raw'),
   };
 
   readonly exampleFour: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/four/input-date-multi-four-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/four/input-date-multi-four-example.component.html'),
+    TypeScript: import('./examples/four/input-date-multi-four-example.component.ts?raw'),
+    HTML: import('./examples/four/input-date-multi-four-example.component.html?raw'),
   };
 
   public readonly timeControl = new FormControl([new PrizmDay(2017, 2, 15), new PrizmTime(12, 30)]);

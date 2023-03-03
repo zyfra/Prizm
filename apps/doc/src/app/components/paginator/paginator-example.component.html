@@ -1,4 +1,4 @@
-<prizm-doc-page header="Paginator" package="components" type="components">
+<prizm-doc-page header="Paginator">
   <div class="page-description" description>
     Our pagination component is a simple way to split up content into multiple pages. It is a great way to
     reduce the amount of content on a single page and make it easier to navigate.
@@ -40,6 +40,7 @@
         [paginatorType]="paginatorType"
         [paginatorOptions]="paginatorOptions"
         [rowsCountOptions]="rowsCountOptions"
+        [moreButtonLabel]="moreButtonLabel"
       ></prizm-paginator>
     </prizm-doc-demo>
     <prizm-doc-documentation>
@@ -141,6 +142,15 @@
       >
         Right button label
       </ng-template>
+
+      <ng-template
+        documentationPropertyName="moreButtonLabel"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="moreButtonLabel"
+      >
+        More button label
+      </ng-template>
     </prizm-doc-documentation>
   </ng-template>
 
@@ -152,7 +162,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

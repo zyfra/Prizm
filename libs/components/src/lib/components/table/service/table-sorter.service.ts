@@ -8,6 +8,13 @@ export class PrizmTableSorterService<T> {
   private readonly map = new Map<string, PrizmTableCellSorter<T>>();
   private readonly sorters$$ = new BehaviorSubject<PrizmTableCellSorter<T>[]>([]);
 
+  get value(): PrizmTableCellSorter<T>[] {
+    return [...this.map.values()];
+  }
+
+  get count(): number {
+    return this.map.size;
+  }
   public get changes$(): Observable<PrizmTableCellSorter<T>[]> {
     return this.sorters$$.asObservable();
   }
@@ -18,6 +25,20 @@ export class PrizmTableSorterService<T> {
     if (!order) {
       this.map.delete(id);
     } else this.map.set(id, sorter);
+    this.emit();
+  }
+
+  public remove(id: string): void {
+    this.map.delete(id);
+    this.emit();
+  }
+
+  public set(sorter: PrizmTableCellSorter<T>[]): void {
+    this.map.clear();
+    for (const item of sorter) {
+      this.map.set(item.options.id, item);
+    }
+
     this.emit();
   }
 
@@ -49,10 +70,10 @@ export class PrizmTableSorterService<T> {
     return this.sorters$$.pipe(map(i => this.sort(data)));
   }
 
-  public sort(data: T[]): T[] {
-    const all = [...this.map.values()];
+  public sort(data: T[], all = this.value): T[] {
     return [...(data ?? [])].sort((a: T, b: T) => {
       for (const item of all) {
+        if (typeof item.sorter !== 'function') return 0;
         const result = item.sorter(a, b, item.options);
         if (result) return result;
       }
@@ -62,10 +83,14 @@ export class PrizmTableSorterService<T> {
   }
 
   private emit(): void {
-    this.sorters$$.next([...this.map.values()]);
+    this.sorters$$.next(this.value);
   }
 
   public isActive(id: string): boolean {
     return !!this.map.get(id);
+  }
+
+  public idx(id: string): number {
+    return [...this.map.keys()].indexOf(id);
   }
 }

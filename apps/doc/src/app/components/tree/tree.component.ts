@@ -22,40 +22,40 @@ export class TreeComponent {
 
   public treeController = true;
 
-  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   public readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/tree-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/tree-base-example.component.html'),
+    TypeScript: import('./examples/base/tree-base-example.component.ts?raw'),
+    HTML: import('./examples/base/tree-base-example.component.html?raw'),
   };
 
   public readonly exampleArray: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/array/tree-array-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/array/tree-array-example.component.html'),
+    TypeScript: import('./examples/array/tree-array-example.component.ts?raw'),
+    HTML: import('./examples/array/tree-array-example.component.html?raw'),
   };
 
   public readonly exampleTemplate: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/template/tree-template-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/template/tree-template-example.component.html'),
+    TypeScript: import('./examples/template/tree-template-example.component.ts?raw'),
+    HTML: import('./examples/template/tree-template-example.component.html?raw'),
   };
 
   public readonly exampleTemplateCheckbox: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/template-checkbox/tree-template-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/template-checkbox/tree-template-example.component.html'),
-    Module: import('!!raw-loader!./examples/template-checkbox/tree-template-example.module'),
+    TypeScript: import('./examples/template-checkbox/tree-template-example.component.ts?raw'),
+    HTML: import('./examples/template-checkbox/tree-template-example.component.html?raw'),
+    Module: import('./examples/template-checkbox/tree-template-example.module?raw'),
   };
   public readonly exampleLazy: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/lazy/tree-template-lazy-example.component'),
-    HTML: import('!!raw-loader!./examples/lazy/tree-template-lazy-example.component.html'),
-    Module: import('!!raw-loader!./examples/lazy/tree-template-lazy-example.module'),
-    Service: import('!!raw-loader!./examples/lazy/tree-template-lazy-example.service'),
-    Model: import('!!raw-loader!./examples/lazy/tree-template-lazy.model'),
+    TypeScript: import('./examples/lazy/tree-template-lazy-example.component?raw'),
+    HTML: import('./examples/lazy/tree-template-lazy-example.component.html?raw'),
+    Module: import('./examples/lazy/tree-template-lazy-example.module?raw'),
+    Service: import('./examples/lazy/tree-template-lazy-example.service?raw'),
+    Model: import('./examples/lazy/tree-template-lazy.model?raw'),
   };
 
   public readonly exampleComponent: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/component/tree-component-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/component/tree-component-example.component.html'),
-    'folder.ts': import('!!raw-loader!./examples/component/folder.component.ts'),
+    TypeScript: import('./examples/component/tree-component-example.component.ts?raw'),
+    HTML: import('./examples/component/tree-component-example.component.html?raw'),
+    'folder.ts': import('./examples/component/folder.component.ts?raw'),
     'folder.less': import('./examples/component/folder.component.less?raw'),
   };
   readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item => item.children || PRIZM_EMPTY_ARRAY;

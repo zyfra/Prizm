@@ -9,12 +9,8 @@ import { TuiDocExample } from '@prizm-ui/doc';
 })
 export class ZoomControlExampleComponent {
   public readonly zoomControlBasicExample: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/zoom-control-example-basic/zoom-control-example-basic.component'
-    ),
-    HTML: import(
-      '!!raw-loader!./examples/zoom-control-example-basic/zoom-control-example-basic.component.html'
-    ),
+    TypeScript: import('./examples/zoom-control-example-basic/zoom-control-example-basic.component?raw'),
+    HTML: import('./examples/zoom-control-example-basic/zoom-control-example-basic.component.html?raw'),
     LESS: import('./examples/zoom-control-example-basic/zoom-control-example-basic.component.less?raw'),
   };
 }

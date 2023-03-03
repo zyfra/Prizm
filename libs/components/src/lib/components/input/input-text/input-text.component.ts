@@ -20,8 +20,9 @@ import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'input[prizmInput], textarea[prizmInput], input[prizmInputNumber], input[prizmInputPassword]',
+  selector:
+    // eslint-disable-next-line @angular-eslint/component-selector
+    'input[prizmInput], textarea[prizmInput], input[prizmInputNumber], input[prizmInputPassword], input[prizmInput][type=number]',
   template: '',
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
@@ -46,6 +47,15 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
 
   set disabled(value: boolean) {
     this._disabled = value;
+
+    if (this.ngControl?.control) {
+      if (value === true) {
+        this.ngControl.control.disable();
+      } else {
+        this.ngControl.control.enable();
+      }
+    }
+
     this.stateChanges.next();
   }
 

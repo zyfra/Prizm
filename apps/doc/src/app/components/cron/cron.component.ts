@@ -29,19 +29,19 @@ export class CronComponent {
     ['hour', 'day', 'month', 'year'],
     ['day', 'month', 'year'],
   ];
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/cron-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/cron-base-example.component.html'),
+    TypeScript: import('./examples/base/cron-base-example.component.ts?raw'),
+    HTML: import('./examples/base/cron-base-example.component.html?raw'),
   };
 
   readonly exampleSpecifiedTabs: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/specified-tabs/cron-specified-tabs-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/specified-tabs/cron-specified-tabs-example.component.html'),
+    TypeScript: import('./examples/specified-tabs/cron-specified-tabs-example.component.ts?raw'),
+    HTML: import('./examples/specified-tabs/cron-specified-tabs-example.component.html?raw'),
   };
   readonly exampleFullwidthCron: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/fullwidth/cron-fullwidth-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/fullwidth/cron-fullwidth-example.component.html'),
+    TypeScript: import('./examples/fullwidth/cron-fullwidth-example.component.ts?raw'),
+    HTML: import('./examples/fullwidth/cron-fullwidth-example.component.html?raw'),
   };
 }

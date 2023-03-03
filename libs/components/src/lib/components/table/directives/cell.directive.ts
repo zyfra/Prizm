@@ -3,6 +3,7 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 
 @Directive({
   selector: `[prizmCell]`,
+  exportAs: 'prizmCell',
 })
 export class PrizmCellDirective {
   @Input()

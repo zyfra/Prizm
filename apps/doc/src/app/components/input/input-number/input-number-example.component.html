@@ -1,4 +1,4 @@
-<prizm-doc-page header="Input number" type="components">
+<prizm-doc-page header="Input number">
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="number" heading="Input number basic example" [content]="prizmInputNumberBasic">
       <prizm-input-number-basic-example></prizm-input-number-basic-example>
@@ -29,7 +29,8 @@
               #prizmInputNumber
               key="PrizmInputNumberDirective"
               [prizmDocHostElement]="prizmInputNumber"
-              prizmInputNumber
+              type="number"
+              prizmInput
               [formControl]="requiredInputControl"
               [min]="min"
               [max]="max"
@@ -70,6 +71,7 @@
 
             <input
               prizmInputNumber
+              [formControl]="requiredInputControl"
               [min]="min"
               [max]="max"
               [step]="step"
@@ -120,6 +122,7 @@
         documentationPropertyName="value"
         documentationPropertyType="number"
         documentationPropertyMode="input"
+        [(documentationPropertyValue)]="value"
       >
         Value
       </ng-template>

@@ -44,26 +44,20 @@ export class InputDateTimeRangeComponent {
   public timeMode: PrizmTimeMode = `HH:MM`;
   public focusVisibleChange = false;
   public val1: any[];
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/input-date-time-range-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/input-date-time-range-base-example.component.html'),
+    TypeScript: import('./examples/base/input-date-time-range-base-example.component.ts?raw'),
+    HTML: import('./examples/base/input-date-time-range-base-example.component.html?raw'),
   };
 
   readonly exampleDisabled: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/disabled/input-date-time-range-disabled-example.component.ts'
-    ),
-    HTML: import('!!raw-loader!./examples/disabled/input-date-time-range-disabled-example.component.html'),
+    TypeScript: import('./examples/disabled/input-date-time-range-disabled-example.component.ts?raw'),
+    HTML: import('./examples/disabled/input-date-time-range-disabled-example.component.html?raw'),
   };
 
   readonly exampleNativeDate: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/native-date/input-native-date-time-range-base-example.component.ts'
-    ),
-    HTML: import(
-      '!!raw-loader!./examples/native-date/input-native-date-time-range-base-example.component.html'
-    ),
+    TypeScript: import('./examples/native-date/input-native-date-time-range-base-example.component.ts?raw'),
+    HTML: import('./examples/native-date/input-native-date-time-range-base-example.component.html?raw'),
   };
 }

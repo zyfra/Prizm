@@ -187,6 +187,11 @@ export const pages: PrizmOrderedDocPage = [
         route: '/components/calendar',
       },
       {
+        title: 'Calendar Month',
+        keywords: 'calendar-month, календарь, месяцев',
+        route: '/components/calendar-month',
+      },
+      {
         title: 'CalendarRange',
         keywords: 'calendar-range, календарь, диапозон',
         route: '/components/calendar-range',
@@ -216,6 +221,16 @@ export const pages: PrizmOrderedDocPage = [
         title: 'InputDate',
         keywords: 'input-date, date, form',
         route: '/components/input-date',
+      },
+      {
+        title: 'InputMonth',
+        keywords: 'input-month, date, form',
+        route: '/components/input-month',
+      },
+      {
+        title: 'InputMonthRange',
+        keywords: 'input-month-range, date, form',
+        route: '/components/input-month-range',
       },
       {
         title: 'InputDateRange',

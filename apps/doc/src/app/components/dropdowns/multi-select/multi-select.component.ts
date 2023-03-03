@@ -77,28 +77,26 @@ export class MultiSelectComponent {
     return this.control.disabled;
   }
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/multi-select-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/multi-select-base-example.component.html'),
+    TypeScript: import('./examples/base/multi-select-base-example.component.ts?raw'),
+    HTML: import('./examples/base/multi-select-base-example.component.html?raw'),
   };
 
   readonly exampleWithTemplate: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/with-template/multi-select-with-template-example.component.ts'
-    ),
-    HTML: import('!!raw-loader!./examples/with-template/multi-select-with-template-example.component.html'),
+    TypeScript: import('./examples/with-template/multi-select-with-template-example.component.ts?raw'),
+    HTML: import('./examples/with-template/multi-select-with-template-example.component.html?raw'),
   };
 
   readonly exampleWithObject: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-object/multi-select-with-object-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/with-object/multi-select-with-object-example.component.html'),
+    TypeScript: import('./examples/with-object/multi-select-with-object-example.component.ts?raw'),
+    HTML: import('./examples/with-object/multi-select-with-object-example.component.html?raw'),
   };
 
   readonly exampleWithSearch: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/with-search/multi-select-with-search-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/with-search/multi-select-with-search-example.component.html'),
+    TypeScript: import('./examples/with-search/multi-select-with-search-example.component.ts?raw'),
+    HTML: import('./examples/with-search/multi-select-with-search-example.component.html?raw'),
   };
 
   public valueTemplate: PolymorphContent<PrizmContextWithImplicit<any>> = '';

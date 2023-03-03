@@ -1,4 +1,4 @@
-<prizm-doc-page header="Radio Button" package="components" type="components">
+<prizm-doc-page header="Radio Button">
   <div class="page-description" description>
     Our radio component is a simple wrapper around the native HTML radio input element. It is used to select a
     single option from a set of options.
@@ -27,7 +27,7 @@
         [disabled]="disabled"
         [size]="size"
         [name]="name"
-        [formControl]=""
+        [formControl]="control"
       ></prizm-radio-button>
     </prizm-doc-demo>
     <prizm-doc-documentation>
@@ -73,14 +73,6 @@
         documentationPropertyType="string"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="name"
-      >
-        Name
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="formControl"
-        documentationPropertyType="FormControl"
-        documentationPropertyMode="input"
       >
         Name
       </ng-template>

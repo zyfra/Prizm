@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { HeaderConfig, PrizmMenuItem, ToolbarConfig } from '@prizm-ui/old';
+import { HeaderConfig, PrizmMenuItem, ToolbarConfig } from '@prizm-ui/deprecated';
 
 @Component({
   selector: 'prizm-nav-menu-example',
@@ -86,20 +86,16 @@ export class NavMenuExampleComponent {
   };
 
   public readonly exampleBasicNavMenu: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/nav-menu-basic-example/nav-menu-basic-example.component'),
-    HTML: import('!!raw-loader!./examples/nav-menu-basic-example/nav-menu-basic-example.component.html'),
+    TypeScript: import('./examples/nav-menu-basic-example/nav-menu-basic-example.component?raw'),
+    HTML: import('./examples/nav-menu-basic-example/nav-menu-basic-example.component.html?raw'),
     LESS: import('./examples/nav-menu-basic-example/nav-menu-basic-example.component.less?raw'),
   };
 
   public readonly exampleAdvancedNavMenu: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/nav-menu-advanced-example/nav-menu-advanced-example.component'
-    ),
-    HTML: import(
-      '!!raw-loader!./examples/nav-menu-advanced-example/nav-menu-advanced-example.component.html'
-    ),
+    TypeScript: import('./examples/nav-menu-advanced-example/nav-menu-advanced-example.component?raw'),
+    HTML: import('./examples/nav-menu-advanced-example/nav-menu-advanced-example.component.html?raw'),
     LESS: import('./examples/nav-menu-advanced-example/nav-menu-advanced-example.component.less?raw'),
   };
 
-  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

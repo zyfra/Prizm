@@ -21,11 +21,11 @@
       "@prizm-ui/charts": ["libs/charts/base/src/index.ts"],
       "@prizm-ui/components": ["libs/components/src/index.ts"],
       "@prizm-ui/core": ["libs/core/src/index.ts"],
+      "@prizm-ui/deprecated": ["libs/deprecated/src/index.ts"],
       "@prizm-ui/doc": ["libs/doc/base/src/index.ts"],
       "@prizm-ui/flag-icons": ["libs/icons/flags/src/index.ts"],
       "@prizm-ui/helpers": ["libs/helpers/src/index.ts"],
       "@prizm-ui/icons": ["libs/icons/base/src/index.ts"],
-      "@prizm-ui/old": ["libs/deprecated/src/index.ts"],
       "@prizm-ui/theme": ["libs/theme/src/index.ts"]
     }
   },

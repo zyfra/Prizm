@@ -13,6 +13,7 @@ interface PrizmRowContext<T> extends PrizmContextWithImplicit<T> {
 
 @Directive({
   selector: `ng-template[prizmRow]`,
+  exportAs: 'prizmRow',
 })
 export class PrizmRowDirective<T extends Partial<Record<keyof T, any>>> {
   @Input()

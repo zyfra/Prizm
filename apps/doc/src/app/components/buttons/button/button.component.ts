@@ -45,25 +45,25 @@ export class ButtonComponent {
   content = 'Button Name';
   showLoader = false;
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleOutline: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/outline/outline-buttons-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/outline/outline-buttons-example.component.html'),
+    TypeScript: import('./examples/outline/outline-buttons-example.component.ts?raw'),
+    HTML: import('./examples/outline/outline-buttons-example.component.html?raw'),
   };
 
   readonly exampleFilled: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/filled/filled-buttons-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/filled/filled-buttons-example.component.html'),
+    TypeScript: import('./examples/filled/filled-buttons-example.component.ts?raw'),
+    HTML: import('./examples/filled/filled-buttons-example.component.html?raw'),
   };
 
   readonly exampleGhost: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/ghost/ghost-buttons-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/ghost/ghost-buttons-example.component.html'),
+    TypeScript: import('./examples/ghost/ghost-buttons-example.component.ts?raw'),
+    HTML: import('./examples/ghost/ghost-buttons-example.component.html?raw'),
   };
 
   readonly exampleIcons: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/icons/icons-buttons-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/icons/icons-buttons-example.component.html'),
+    TypeScript: import('./examples/icons/icons-buttons-example.component.ts?raw'),
+    HTML: import('./examples/icons/icons-buttons-example.component.html?raw'),
   };
 }

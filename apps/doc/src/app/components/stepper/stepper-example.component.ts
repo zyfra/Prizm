@@ -13,19 +13,19 @@ export class PrizmStepperExampleComponent {
   stepperSize = 'auto';
 
   readonly basicExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/stepper-basic-example/stepper-basic-example.component'),
-    HTML: import('!!raw-loader!./examples/stepper-basic-example/stepper-basic-example.component.html'),
+    TypeScript: import('./examples/stepper-basic-example/stepper-basic-example.component?raw'),
+    HTML: import('./examples/stepper-basic-example/stepper-basic-example.component.html?raw'),
   };
 
   readonly verticalExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/stepper-vertical-example/stepper-vertical-example.component'),
-    HTML: import('!!raw-loader!./examples/stepper-vertical-example/stepper-vertical-example.component.html'),
+    TypeScript: import('./examples/stepper-vertical-example/stepper-vertical-example.component?raw'),
+    HTML: import('./examples/stepper-vertical-example/stepper-vertical-example.component.html?raw'),
   };
 
   readonly asyncExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/stepper-async-example/stepper-async-example.component'),
-    HTML: import('!!raw-loader!./examples/stepper-async-example/stepper-async-example.component.html'),
+    TypeScript: import('./examples/stepper-async-example/stepper-async-example.component?raw'),
+    HTML: import('./examples/stepper-async-example/stepper-async-example.component.html?raw'),
   };
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

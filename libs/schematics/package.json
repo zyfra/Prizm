@@ -1,10 +1,15 @@
 {
   "name": "@prizm-ui/install",
-  "version": "1.0.0-beta.22",
+  "version": "1.0.0-beta.23",
   "description": "Package installer @prizm-ui/* , Angular schematic ng-add",
   "schematics": "./src/collection.json",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "dependencies": {
-    "@angular-devkit/schematics": "^14.2.12|^12.2.0",
+    "@angular-devkit/schematics": "^12.2.0",
     "ng-morph": "^2.0.0"
   }
 }

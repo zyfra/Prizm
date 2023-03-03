@@ -1,10 +1,10 @@
 <div class="container">
-  <prizm-header class="header">
+  <prizm-header [prizmTheme]="'dark'" class="header">
     <div class="project" [class.project_active]="openNavigation" (click)="toggleNavigation()">
       <div class="project__menu">
         <prizm-icon iconClass="view-menu"></prizm-icon>
       </div>
-      <img [src]="logoPath$ | async" alt="" />
+      <img [src]="logo" alt="" />
     </div>
 
     <prizm-header-dropdown
@@ -30,6 +30,7 @@
 
   <div class="platform">
     <prizm-scrollbar
+      [prizmTheme]="'dark'"
       class="navigation"
       [ngClass]="{
         navigation_open: openNavigation,

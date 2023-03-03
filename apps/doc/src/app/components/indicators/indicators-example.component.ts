@@ -15,20 +15,16 @@ export class IndicatorsExampleComponent {
   public readonly statusVariants: IndicatorStatus[] = ['info', 'secondary', 'success', 'warning', 'danger'];
 
   public readonly indicatorBasicExample: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/indicators-basic-example/indicators-basic-example.component'),
-    HTML: import('!!raw-loader!./examples/indicators-basic-example/indicators-basic-example.component.html'),
+    TypeScript: import('./examples/indicators-basic-example/indicators-basic-example.component?raw'),
+    HTML: import('./examples/indicators-basic-example/indicators-basic-example.component.html?raw'),
     LESS: import('./examples/indicators-basic-example/indicators-basic-example.component.less?raw'),
   };
 
   public readonly indicatorIconExample: TuiDocExample = {
-    TypeScript: import(
-      '!!raw-loader!./examples/indicators-with-icon-example/indicators-with-icon-example.component'
-    ),
-    HTML: import(
-      '!!raw-loader!./examples/indicators-with-icon-example/indicators-with-icon-example.component.html'
-    ),
+    TypeScript: import('./examples/indicators-with-icon-example/indicators-with-icon-example.component?raw'),
+    HTML: import('./examples/indicators-with-icon-example/indicators-with-icon-example.component.html?raw'),
     LESS: import('./examples/indicators-with-icon-example/indicators-with-icon-example.component.less?raw'),
   };
 
-  public readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

@@ -1,4 +1,4 @@
-<prizm-doc-page header="Table" package="UI" type="components">
+<prizm-doc-page header="Table" package="UI">
   <div class="page-description" description>
     Our table component is a powerful tool for displaying data in a tabular format.
   </div>
@@ -39,6 +39,14 @@
       <prizm-table-search-example></prizm-table-search-example>
     </prizm-doc-example>
 
+    <prizm-doc-example id="sort" heading="Base Sort" [content]="exampleSortTable">
+      <prizm-table-sort-example></prizm-table-sort-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="server-sort" heading="Server Sort" [content]="exampleServerSortTable">
+      <prizm-table-server-sort-example></prizm-table-server-sort-example>
+    </prizm-doc-example>
+
     <prizm-doc-example id="editableCol" heading="Editable col" [content]="exampleEditableColTable">
       <prizm-table-editable-col-example></prizm-table-editable-col-example>
     </prizm-doc-example>
@@ -54,10 +62,12 @@
         <table
           prizmTable
           class="table"
+          #element="prizmTable"
+          [key]="'PrizmTableDirective'"
+          [prizmDocHostElement]="element"
           [columns]="columns"
           [size]="size"
           [tableBorderStyle]="borderStyle"
-          #element="prizmTable"
         >
           <thead>
             <tr prizmThGroup>
@@ -68,7 +78,13 @@
             </tr>
           </thead>
 
-          <tbody prizmTbody [data]="products">
+          <tbody
+            prizmTbody
+            #element
+            [key]="'PrizmTbodyComponent'"
+            [prizmDocHostElement]="element"
+            [data]="products"
+          >
             <ng-container *prizmRow="let item of products; let i = index">
               <tr prizmTr>
                 <td *prizmCell="'code'" class="format__number" prizmTd>
@@ -85,6 +101,29 @@
         </table>
       </prizm-scrollbar>
     </prizm-doc-demo>
+    <prizm-doc-documentation heading="PrizmTbodyComponent" hostComponentKey="PrizmTbodyComponent">
+      <ng-template
+        documentationPropertyName="data"
+        documentationPropertyType="Record<string, any>"
+        documentationPropertyMode="input"
+      >
+        Data
+      </ng-template>
+      <ng-template
+        documentationPropertyName="heading"
+        documentationPropertyType="PolymorphContent"
+        documentationPropertyMode="input"
+      >
+        Heading
+      </ng-template>
+      <ng-template
+        documentationPropertyName="open"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input-output"
+      >
+        Opened
+      </ng-template>
+    </prizm-doc-documentation>
     <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="size"
@@ -127,7 +166,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="myComponent.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

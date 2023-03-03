@@ -1,4 +1,4 @@
-<prizm-doc-page header="Input Chips" package="components" type="components">
+<prizm-doc-page header="Input Chips">
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="chips" heading="Chips example" [content]="prizmInputChipsExample">
       <prizm-input-chips-basic-example></prizm-input-chips-basic-example>
@@ -11,7 +11,12 @@
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-input-layout label="Заголовок" size="l" status="default">
-        <input prizmInput placeholder="Введите название" (enter)="onEnter($event)" [disabled]="disabled" />
+        <input
+          prizmInput
+          placeholder="Введите название"
+          (enter)="onEnter($event)"
+          [disabled]="disabled || control.disabled"
+        />
         <prizm-chips
           #element
           [formControl]="control"
@@ -28,14 +33,6 @@
     </prizm-doc-demo>
 
     <prizm-doc-documentation [control]="control">
-      <ng-template
-        documentationPropertyName="disabled"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
-      >
-        Disabled
-      </ng-template>
       <ng-template
         documentationPropertyName="singleLine"
         documentationPropertyType="boolean"

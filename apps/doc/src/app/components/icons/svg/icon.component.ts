@@ -101,15 +101,15 @@ export class IconComponent implements OnInit {
     },
   ];
 
-  readonly setupModule: RawLoaderContent = import('!!raw-loader!./examples/setup-module.md');
+  readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleFont: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/base/icon-base-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/base/icon-base-example.component.html'),
+    TypeScript: import('./examples/base/icon-base-example.component.ts?raw'),
+    HTML: import('./examples/base/icon-base-example.component.html?raw'),
   };
   readonly exampleSvg: TuiDocExample = {
-    TypeScript: import('!!raw-loader!./examples/svg/icon-svg-example.component.ts'),
-    HTML: import('!!raw-loader!./examples/svg/icon-svg-example.component.html'),
+    TypeScript: import('./examples/svg/icon-svg-example.component.ts?raw'),
+    HTML: import('./examples/svg/icon-svg-example.component.html?raw'),
   };
 
   constructor(private readonly iconRegistry: PrizmIconsSvgRegistry) {}
