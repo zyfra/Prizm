@@ -10,10 +10,11 @@ export const pages: PrizmOrderedDocPage = [
   //Window
   {
     section: SectionNameEnum.allAboutPrizm,
-    title: `О дизайн-системе`,
+    title: `О дизайн-системе Prizm`,
     keywords: 'дизайн-система, дизайн, система, design system, design, system',
-    link: 'http://prizm.zyfra.com/',
-    target: '_blank',
+    // link: 'http://prizm.zyfra.com/',
+    // target: '_blank',
+    route: 'about-prizm/design-system',
     order: 1,
   },
   {

@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  storybookBaseUrl: 'http://doc.prizm.zyfra.com',
+  landingBaseUrl: 'http://prizm.zyfra.com',
 };
 
 /*

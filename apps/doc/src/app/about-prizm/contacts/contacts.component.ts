@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { environment } from 'apps/doc/src/environments/environment';
 
 export interface ITableProduct {
   code: number;
@@ -14,6 +15,7 @@ export interface ITableProduct {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactsComponent {
+  public storybookBaseUrl: string = environment.storybookBaseUrl;
   public columns: string[] = ['code', 'tipe', 'decoding'];
   public products: ITableProduct[] = TABLE_COUNTS;
 }

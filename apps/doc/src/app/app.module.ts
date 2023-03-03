@@ -33,6 +33,7 @@ import { MigrationComponent } from './how-to-start/migration/migration.component
 import { PrizmAccordionModule, PrizmToastModule, PrizmToggleModule } from '@prizm-ui/components';
 import { PrizmThemeService } from '@prizm-ui/theme';
 import { ContactsModule } from './about-prizm/contacts/contacts.module';
+import { DesignSystemModule } from './about-prizm/design-system/design-system.module';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -59,6 +60,7 @@ registerLocaleData(localeRu);
     PrizmToastModule,
     HttpClientModule,
     PrizmAccordionModule,
+    DesignSystemModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
       sanitize: SecurityContext.NONE,
@@ -69,7 +71,6 @@ registerLocaleData(localeRu);
     AppComponent,
     GettingStartedComponent,
     AboutComponent,
-    DesignSystemComponent,
     ForDesignersComponent,
     ForDevelopersComponent,
     MigrationComponent,
