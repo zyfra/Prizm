@@ -46,14 +46,6 @@ export const pages: PrizmOrderedDocPage = [
   //How to work
   {
     section: SectionNameEnum.howToWork,
-    title: `Дизайнерам`,
-    keywords: 'дизайнеры, designers',
-    target: '_blank',
-    link: 'https://www.figma.com/community/file/1156311020501452261',
-    order: 10,
-  },
-  {
-    section: SectionNameEnum.howToWork,
     title: `Быстрый старт (разработчикам)`,
     keywords: 'intro, how, to, start, guide, getting started, main, главная, начало, как, начать, инструкция',
     route: 'how-to-work/for-developers',
