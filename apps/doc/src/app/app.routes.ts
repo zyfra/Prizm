@@ -6,6 +6,14 @@ export const ROUTES: Routes = [
     path: 'about-prizm',
     children: [
       {
+        path: 'design-system',
+        loadChildren: (): Promise<unknown> =>
+          import('./about-prizm/design-system/design-system.module').then(i => i.DesignSystemModule),
+        data: {
+          title: 'About Design System',
+        },
+      },
+      {
         path: 'license',
         loadChildren: (): Promise<unknown> =>
           import('./about-prizm/license/license.module').then(m => m.LicenseModule),
@@ -22,27 +30,27 @@ export const ROUTES: Routes = [
         },
       },
       {
-        path: 'changelog',
-        loadChildren: (): Promise<unknown> =>
-          import('./about-prizm/changelog/changelog.module').then(i => i.ChangelogModule),
-        data: {
-          title: 'Changelog',
-        },
-      },
-      {
-        path: 'design-system',
-        loadChildren: (): Promise<unknown> =>
-          import('./about-prizm/design-system/design-system.module').then(i => i.DesignSystemModule),
-        data: {
-          title: 'About Design System',
-        },
-      },
-      {
         path: 'contacts',
         loadChildren: (): Promise<unknown> =>
           import('./about-prizm/contacts/contacts.module').then(i => i.ContactsModule),
         data: {
           title: 'Contacts',
+        },
+      },
+      {
+        path: 'release-policy',
+        loadChildren: (): Promise<unknown> =>
+          import('./about-prizm/release-policy/release-policy.module').then(i => i.ReleasePolicyModule),
+        data: {
+          title: 'Contacts',
+        },
+      },
+      {
+        path: 'changelog',
+        loadChildren: (): Promise<unknown> =>
+          import('./about-prizm/changelog/changelog.module').then(i => i.ChangelogModule),
+        data: {
+          title: 'Changelog',
         },
       },
     ],

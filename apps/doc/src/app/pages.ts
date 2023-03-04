@@ -38,6 +38,13 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.allAboutPrizm,
+    title: 'Релизная политика',
+    keywords: 'релизная, политика, release, policy',
+    route: 'about-prizm/release-policy',
+    order: 5,
+  },
+  {
+    section: SectionNameEnum.allAboutPrizm,
     title: 'Журнал изменений (changelog)',
     keywords: 'ченджлог, changelog',
     route: 'about-prizm/changelog',
