@@ -1,7 +1,6 @@
 import { LOCALE_ID, NgModule, SecurityContext } from '@angular/core';
 import { PrizmAddonDocModule, PrizmDocMainModule } from '@prizm-ui/doc';
 import { AppComponent } from './app.component';
-import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutes } from './app.routes';
@@ -34,8 +33,8 @@ import { GettingStartedModule } from './documentation/getting-started/getting-st
 import { ReleasePolicyModule } from './about-prizm/release-policy/release-policy.module';
 import { ServiceLevelAgreementModule } from './about-prizm/service-level-agreement/service-level-agreement.module';
 import { RoadmapModule } from './about-prizm/roadmap/roadmap.module';
-import { TechnologyListComponent } from './about-prizm/technology-list/technology-list.component';
 import { TechnologyListModule } from './about-prizm/technology-list/technology-list.module';
+import { TransitionModule } from './how-to-work/transition/transition.module';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -70,6 +69,7 @@ registerLocaleData(localeRu);
     ServiceLevelAgreementModule,
     RoadmapModule,
     TechnologyListModule,
+    TransitionModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
       sanitize: SecurityContext.NONE,

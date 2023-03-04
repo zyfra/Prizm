@@ -81,17 +81,24 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.howToWork,
+    title: `Как перейти`,
+    keywords: 'переход, как, transition, how',
+    route: 'how-to-work/transition',
+    order: 2,
+  },
+  {
+    section: SectionNameEnum.howToWork,
     title: 'Contributing',
     keywords: 'contributing',
     route: 'how-to-work/contributing',
-    order: 2,
+    order: 5,
   },
   {
     section: SectionNameEnum.howToWork,
     title: 'CodeStyle',
     keywords: 'code, codestyle',
     route: 'how-to-work/codestyle',
-    order: 4,
+    order: 6,
   },
   //For ZIIoT
   {

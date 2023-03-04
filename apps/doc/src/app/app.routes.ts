@@ -94,6 +94,14 @@ export const ROUTES: Routes = [
         },
       },
       {
+        path: 'transition',
+        loadChildren: (): Promise<unknown> =>
+          import('./how-to-work/transition/transition.module').then(i => i.TransitionModule),
+        data: {
+          title: 'Transition',
+        },
+      },
+      {
         path: 'contributing',
         loadChildren: (): Promise<unknown> =>
           import('./how-to-work/contributing/contributing.module').then(i => i.ContributingModule),
