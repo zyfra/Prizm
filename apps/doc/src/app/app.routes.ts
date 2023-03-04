@@ -42,7 +42,7 @@ export const ROUTES: Routes = [
         loadChildren: (): Promise<unknown> =>
           import('./about-prizm/release-policy/release-policy.module').then(i => i.ReleasePolicyModule),
         data: {
-          title: 'Contacts',
+          title: 'Release policy',
         },
       },
       {
@@ -52,7 +52,15 @@ export const ROUTES: Routes = [
             i => i.ServiceLevelAgreementModule
           ),
         data: {
-          title: 'Contacts',
+          title: 'Service level agreement',
+        },
+      },
+      {
+        path: 'roadmap',
+        loadChildren: (): Promise<unknown> =>
+          import('./about-prizm/roadmap/roadmap.module').then(i => i.RoadmapModule),
+        data: {
+          title: 'Roadmap',
         },
       },
       {

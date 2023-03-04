@@ -52,6 +52,13 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.allAboutPrizm,
+    title: 'Дорожная карта и задачи',
+    keywords: 'дорожная, карта, задачи, roadmap, tasks',
+    route: 'about-prizm/roadmap',
+    order: 7,
+  },
+  {
+    section: SectionNameEnum.allAboutPrizm,
     title: 'Журнал изменений (changelog)',
     keywords: 'ченджлог, changelog',
     route: 'about-prizm/changelog',
