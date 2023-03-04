@@ -35,6 +35,7 @@ import { ServiceLevelAgreementModule } from './about-prizm/service-level-agreeme
 import { RoadmapModule } from './about-prizm/roadmap/roadmap.module';
 import { TechnologyListModule } from './about-prizm/technology-list/technology-list.module';
 import { TransitionModule } from './how-to-work/transition/transition.module';
+import { AddComponentModule } from './how-to-work/add-component/add-component.module';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -70,6 +71,7 @@ registerLocaleData(localeRu);
     RoadmapModule,
     TechnologyListModule,
     TransitionModule,
+    AddComponentModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
       sanitize: SecurityContext.NONE,

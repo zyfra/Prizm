@@ -88,6 +88,13 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.howToWork,
+    title: `Как добавить компонент`,
+    keywords: 'добавить, компонент, как, add, component, how',
+    route: 'how-to-work/add-component',
+    order: 3,
+  },
+  {
+    section: SectionNameEnum.howToWork,
     title: 'Contributing',
     keywords: 'contributing',
     route: 'how-to-work/contributing',

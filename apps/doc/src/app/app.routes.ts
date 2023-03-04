@@ -102,6 +102,14 @@ export const ROUTES: Routes = [
         },
       },
       {
+        path: 'add-component',
+        loadChildren: (): Promise<unknown> =>
+          import('./how-to-work/add-component/add-component.module').then(i => i.AddComponentModule),
+        data: {
+          title: 'Add component',
+        },
+      },
+      {
         path: 'contributing',
         loadChildren: (): Promise<unknown> =>
           import('./how-to-work/contributing/contributing.module').then(i => i.ContributingModule),
