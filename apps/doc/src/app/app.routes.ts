@@ -32,7 +32,7 @@ export const ROUTES: Routes = [
       {
         path: 'design-system',
         loadChildren: (): Promise<unknown> =>
-        import('./about-prizm/design-system/design-system.module').then(i => i.DesignSystemModule),
+          import('./about-prizm/design-system/design-system.module').then(i => i.DesignSystemModule),
         data: {
           title: 'About Design System',
         },
@@ -40,7 +40,7 @@ export const ROUTES: Routes = [
       {
         path: 'contacts',
         loadChildren: (): Promise<unknown> =>
-        import('./about-prizm/contacts/contacts.module').then(i => i.ContactsModule),
+          import('./about-prizm/contacts/contacts.module').then(i => i.ContactsModule),
         data: {
           title: 'Contacts',
         },
@@ -54,7 +54,7 @@ export const ROUTES: Routes = [
       {
         path: 'for-developers',
         loadChildren: (): Promise<unknown> =>
-        import('./how-to-work/for-developers/for-developers.module').then(i => i.ForDevelopersModule),
+          import('./how-to-work/for-developers/for-developers.module').then(i => i.ForDevelopersModule),
         data: {
           title: 'For developers',
         },
@@ -88,12 +88,12 @@ export const ROUTES: Routes = [
       {
         path: 'migration',
         loadChildren: (): Promise<unknown> =>
-        import('./forZIIoT/migration/migration.module').then(i => i.MigrationModule),
+          import('./forZIIoT/migration/migration.module').then(i => i.MigrationModule),
         data: {
           title: 'Migration',
         },
       },
-    ]
+    ],
   },
   //Guidelines
   {
@@ -797,7 +797,7 @@ export const ROUTES: Routes = [
       title: 'File upload',
     },
   },
-  { path: '**', redirectTo: 'how-to-start/' },
+  { path: '**', redirectTo: 'how-to-work/' },
 ];
 
 @NgModule({

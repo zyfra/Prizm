@@ -30,6 +30,7 @@ import { PrizmThemeService } from '@prizm-ui/theme';
 import { ContactsModule } from './about-prizm/contacts/contacts.module';
 import { DesignSystemModule } from './about-prizm/design-system/design-system.module';
 import { ForDevelopersModule } from './how-to-work/for-developers/for-developers.module';
+import { GettingStartedModule } from './documentation/getting-started/getting-started.module';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -58,16 +59,14 @@ registerLocaleData(localeRu);
     PrizmAccordionModule,
     DesignSystemModule,
     ForDevelopersModule,
+    ContactsModule,
+    GettingStartedModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
       sanitize: SecurityContext.NONE,
     }),
-    ContactsModule,
   ],
-  declarations: [
-    AppComponent,
-    GettingStartedComponent,
-  ],
+  declarations: [AppComponent],
   providers: [{ provide: LOCALE_ID, useValue: 'ru-RU' }, ...APP_PROVIDERS],
 })
 export class AppModule {
