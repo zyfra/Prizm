@@ -71,6 +71,14 @@ export const ROUTES: Routes = [
           title: 'Changelog',
         },
       },
+      {
+        path: 'technology-list',
+        loadChildren: (): Promise<unknown> =>
+          import('./about-prizm/technology-list/technology-list.module').then(i => i.TechnologyListModule),
+        data: {
+          title: 'Technology list',
+        },
+      },
     ],
   },
   //How to work

@@ -34,6 +34,8 @@ import { GettingStartedModule } from './documentation/getting-started/getting-st
 import { ReleasePolicyModule } from './about-prizm/release-policy/release-policy.module';
 import { ServiceLevelAgreementModule } from './about-prizm/service-level-agreement/service-level-agreement.module';
 import { RoadmapModule } from './about-prizm/roadmap/roadmap.module';
+import { TechnologyListComponent } from './about-prizm/technology-list/technology-list.component';
+import { TechnologyListModule } from './about-prizm/technology-list/technology-list.module';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -67,6 +69,7 @@ registerLocaleData(localeRu);
     ReleasePolicyModule,
     ServiceLevelAgreementModule,
     RoadmapModule,
+    TechnologyListModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
       sanitize: SecurityContext.NONE,
