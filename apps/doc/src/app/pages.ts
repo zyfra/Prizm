@@ -45,6 +45,13 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.allAboutPrizm,
+    title: 'Соглашение об уровне услуг (SLA)',
+    keywords: 'соглашение, уровень, услуга, service, level, agreement, sla',
+    route: 'about-prizm/service-level-agreement',
+    order: 6,
+  },
+  {
+    section: SectionNameEnum.allAboutPrizm,
     title: 'Журнал изменений (changelog)',
     keywords: 'ченджлог, changelog',
     route: 'about-prizm/changelog',

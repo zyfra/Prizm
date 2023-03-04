@@ -32,6 +32,7 @@ import { DesignSystemModule } from './about-prizm/design-system/design-system.mo
 import { ForDevelopersModule } from './how-to-work/for-developers/for-developers.module';
 import { GettingStartedModule } from './documentation/getting-started/getting-started.module';
 import { ReleasePolicyModule } from './about-prizm/release-policy/release-policy.module';
+import { ServiceLevelAgreementModule } from './about-prizm/service-level-agreement/service-level-agreement.module';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -63,6 +64,7 @@ registerLocaleData(localeRu);
     ContactsModule,
     GettingStartedModule,
     ReleasePolicyModule,
+    ServiceLevelAgreementModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
       sanitize: SecurityContext.NONE,

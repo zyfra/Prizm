@@ -46,6 +46,16 @@ export const ROUTES: Routes = [
         },
       },
       {
+        path: 'service-level-agreement',
+        loadChildren: (): Promise<unknown> =>
+          import('./about-prizm/service-level-agreement/service-level-agreement.module').then(
+            i => i.ServiceLevelAgreementModule
+          ),
+        data: {
+          title: 'Contacts',
+        },
+      },
+      {
         path: 'changelog',
         loadChildren: (): Promise<unknown> =>
           import('./about-prizm/changelog/changelog.module').then(i => i.ChangelogModule),
