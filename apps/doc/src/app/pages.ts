@@ -95,6 +95,13 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.howToWork,
+    title: `Как поставить задачу`,
+    keywords: 'поставить, задача, как, set, task, how',
+    route: 'how-to-work/set-task',
+    order: 4,
+  },
+  {
+    section: SectionNameEnum.howToWork,
     title: 'Contributing',
     keywords: 'contributing',
     route: 'how-to-work/contributing',

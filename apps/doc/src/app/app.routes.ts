@@ -110,6 +110,14 @@ export const ROUTES: Routes = [
         },
       },
       {
+        path: 'set-task',
+        loadChildren: (): Promise<unknown> =>
+          import('./how-to-work/set-task/set-task.module').then(i => i.SetTaskModule),
+        data: {
+          title: 'Set task',
+        },
+      },
+      {
         path: 'contributing',
         loadChildren: (): Promise<unknown> =>
           import('./how-to-work/contributing/contributing.module').then(i => i.ContributingModule),

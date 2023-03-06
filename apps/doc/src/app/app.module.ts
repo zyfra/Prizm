@@ -35,6 +35,7 @@ import { RoadmapModule } from './about-prizm/roadmap/roadmap.module';
 import { TechnologyListModule } from './about-prizm/technology-list/technology-list.module';
 import { TransitionModule } from './how-to-work/transition/transition.module';
 import { AddComponentModule } from './how-to-work/add-component/add-component.module';
+import { SetTaskModule } from './how-to-work/set-task/set-task.module';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -70,6 +71,7 @@ registerLocaleData(localeRu);
     TechnologyListModule,
     TransitionModule,
     AddComponentModule,
+    SetTaskModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
       sanitize: SecurityContext.NONE,
