@@ -36,6 +36,7 @@ import { TechnologyListModule } from './about-prizm/technology-list/technology-l
 import { TransitionModule } from './how-to-work/transition/transition.module';
 import { AddComponentModule } from './how-to-work/add-component/add-component.module';
 import { SetTaskModule } from './how-to-work/set-task/set-task.module';
+import { IntroductionModule } from './forZIIoT/introduction/introduction.module';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -72,6 +73,7 @@ registerLocaleData(localeRu);
     TransitionModule,
     AddComponentModule,
     SetTaskModule,
+    IntroductionModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
       sanitize: SecurityContext.NONE,

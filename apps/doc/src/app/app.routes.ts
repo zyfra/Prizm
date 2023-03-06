@@ -144,6 +144,14 @@ export const ROUTES: Routes = [
     path: 'forZIIoT',
     children: [
       {
+        path: 'introduction',
+        loadChildren: (): Promise<unknown> =>
+          import('./forZIIoT/introduction/introduction.module').then(i => i.IntroductionModule),
+        data: {
+          title: 'Introduction',
+        },
+      },
+      {
         path: 'migration',
         loadChildren: (): Promise<unknown> =>
           import('./forZIIoT/migration/migration.module').then(i => i.MigrationModule),

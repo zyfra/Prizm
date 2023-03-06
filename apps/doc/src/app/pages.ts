@@ -117,8 +117,15 @@ export const pages: PrizmOrderedDocPage = [
   //For ZIIoT
   {
     section: SectionNameEnum.forZIIoT,
+    title: `Введение`,
+    keywords: 'введение, introduction',
+    route: 'forZIIoT/introduction',
+    order: 1,
+  },
+  {
+    section: SectionNameEnum.forZIIoT,
     title: `Миграция`,
-    keywords: 'Миграция, migration',
+    keywords: 'миграция, migration',
     route: 'forZIIoT/migration',
     order: 3,
   },
