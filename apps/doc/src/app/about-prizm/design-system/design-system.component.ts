@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { environment } from 'apps/doc/src/environments/environment';
+import { environment } from './../../../environments/environment';
 
 @Component({
   selector: 'prizm-design-system',

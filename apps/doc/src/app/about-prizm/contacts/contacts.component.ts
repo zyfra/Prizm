@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { environment } from 'apps/doc/src/environments/environment';
+import { environment } from './../../../environments/environment';
 
 export interface ITableProduct {
   name: string;
