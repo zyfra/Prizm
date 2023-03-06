@@ -29,7 +29,6 @@ import { PrizmThemeService } from '@prizm-ui/theme';
 import { ContactsModule } from './about-prizm/contacts/contacts.module';
 import { DesignSystemModule } from './about-prizm/design-system/design-system.module';
 import { ForDevelopersModule } from './how-to-work/for-developers/for-developers.module';
-import { GettingStartedModule } from './documentation/getting-started/getting-started.module';
 import { ReleasePolicyModule } from './about-prizm/release-policy/release-policy.module';
 import { ServiceLevelAgreementModule } from './about-prizm/service-level-agreement/service-level-agreement.module';
 import { RoadmapModule } from './about-prizm/roadmap/roadmap.module';
@@ -65,7 +64,6 @@ registerLocaleData(localeRu);
     DesignSystemModule,
     ForDevelopersModule,
     ContactsModule,
-    GettingStartedModule,
     ReleasePolicyModule,
     ServiceLevelAgreementModule,
     RoadmapModule,
