@@ -15,6 +15,8 @@ export interface ITableProduct {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactsComponent {
+  public storybookBaseUrl = environment.storybookBaseUrl;
+
   public columns: string[] = ['code', 'name', 'description'];
 
   public labelTypes: ITableProduct[] = TABLE_LABEL_TYPES;
