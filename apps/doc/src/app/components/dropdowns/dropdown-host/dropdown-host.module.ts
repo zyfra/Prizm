@@ -40,6 +40,7 @@ import { PrizmDropdownHostDateListExampleComponent } from './examples/date-list-
     PrizmRadioButtonModule,
     PrizmCallFuncModule,
     PrizmLetModule,
+    PrizmButtonModule,
     FormsModule,
   ],
   declarations: [

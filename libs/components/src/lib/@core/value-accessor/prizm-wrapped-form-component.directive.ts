@@ -4,7 +4,7 @@ import { PrizmAccessorImplClass } from './prizm-accessor-impl.class';
 
 @Directive()
 export abstract class PrizmWrappedFormComponent extends PrizmAccessorImplClass {
-  public readonly formControl: FormControl;
+  public readonly formControl: FormControl = new FormControl();
 
   constructor(public readonly injector: Injector, @Optional() @Self() public readonly ngControl: NgControl) {
     super();
