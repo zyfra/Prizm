@@ -124,6 +124,13 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.forZIIoT,
+    title: `Требования к UI библиотекам для ZIIoT`,
+    keywords: 'требования, библиотеки, requirements, ui, libraries, ziiot',
+    route: 'forZIIoT/library-requirements',
+    order: 2,
+  },
+  {
+    section: SectionNameEnum.forZIIoT,
     title: `Миграция`,
     keywords: 'миграция, migration',
     route: 'forZIIoT/migration',

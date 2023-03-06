@@ -37,6 +37,7 @@ import { TransitionModule } from './how-to-work/transition/transition.module';
 import { AddComponentModule } from './how-to-work/add-component/add-component.module';
 import { SetTaskModule } from './how-to-work/set-task/set-task.module';
 import { IntroductionModule } from './forZIIoT/introduction/introduction.module';
+import { LibraryRequirementsModule } from './forZIIoT/library-requirements/library-requirements.module';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -74,6 +75,7 @@ registerLocaleData(localeRu);
     AddComponentModule,
     SetTaskModule,
     IntroductionModule,
+    LibraryRequirementsModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
       sanitize: SecurityContext.NONE,

@@ -152,6 +152,16 @@ export const ROUTES: Routes = [
         },
       },
       {
+        path: 'library-requirements',
+        loadChildren: (): Promise<unknown> =>
+          import('./forZIIoT/library-requirements/library-requirements.module').then(
+            i => i.LibraryRequirementsModule
+          ),
+        data: {
+          title: 'Library requirements',
+        },
+      },
+      {
         path: 'migration',
         loadChildren: (): Promise<unknown> =>
           import('./forZIIoT/migration/migration.module').then(i => i.MigrationModule),
