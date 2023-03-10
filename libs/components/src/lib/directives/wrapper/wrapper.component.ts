@@ -1,7 +1,6 @@
-import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input } from '@angular/core';
 import { PrizmThemeService } from '@prizm-ui/theme';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { takeUntil } from 'rxjs/operators';
 
 export enum PrizmInteractiveState {
   Disabled = 'disabled',
@@ -17,7 +16,7 @@ export enum PrizmInteractiveState {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
 })
-export class PrizmWrapperComponent implements OnInit {
+export class PrizmWrapperComponent {
   @Input()
   disabled = false;
 
@@ -92,11 +91,4 @@ export class PrizmWrapperComponent implements OnInit {
     public readonly destroy$: PrizmDestroyService,
     public readonly elRef: ElementRef
   ) {}
-
-  public ngOnInit(): void {
-    this.themeService
-      .updateElementOnChange(this.elRef.nativeElement)
-      .pipe(takeUntil(this.destroy$))
-      .subscribe();
-  }
 }

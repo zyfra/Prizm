@@ -51,13 +51,6 @@ export class PrizmThemeService implements OnDestroy {
     return (el ?? this.rootElement)?.getAttribute(this.attThemeKey);
   }
 
-  public updateElementOnChange(el: HTMLElement): Observable<PrizmTheme> {
-    return this.change$.pipe(
-      tap(theme => this.setToHtml(theme.theme, el)),
-      map(i => i.theme)
-    );
-  }
-
   private setToHtml(theme: PrizmTheme, el?: HTMLElement): void {
     (el ?? this.rootElement)?.setAttribute(this.attThemeKey, theme);
   }
