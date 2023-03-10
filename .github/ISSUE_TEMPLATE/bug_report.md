@@ -14,7 +14,9 @@ _Выберите нужное отметив галочку [x]_
 - [ ] `@prizm-ui/components`
 - [ ] `@prizm-ui/install`
 - [ ] `@prizm-ui/icons`
+- [ ] `@prizm-ui/flag-icons`
 - [ ] `@prizm-ui/theme`
+- [ ] `@prizm-ui/charts`
 
 ### Компонент
 
@@ -77,7 +79,6 @@ Dependencies:
 ### Проект в котором используется КБ
 
 - _Название проекта_
-
 
 ### Скрин / Видео проблемы
 

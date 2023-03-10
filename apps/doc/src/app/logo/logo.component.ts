@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { debounceTime, filter, map } from 'rxjs/operators';
 import { PrizmThemeService } from '@prizm-ui/theme';
 import { LOCAL_STORAGE } from '@ng-web-apis/common';
 import { PrizmIconsSvgRegistry, PrizmIconSvgEnum, prizmIconSvgOtherGitHub } from '@prizm-ui/icons';
@@ -11,7 +11,11 @@ import { PrizmIconsSvgRegistry, PrizmIconSvgEnum, prizmIconSvgOtherGitHub } from
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LogoComponent {
-  readonly isNight$ = this.themeSwitcher.change$.pipe(map(i => i.theme === 'dark'));
+  readonly isNight$ = this.themeSwitcher.change$.pipe(
+    filter(i => i.el === this.themeSwitcher.rootElement),
+    map(i => i.theme === 'dark'),
+    debounceTime(0)
+  );
 
   readonly githubSvgName = PrizmIconSvgEnum.OTHER_GIT_HUB;
 
@@ -25,8 +29,6 @@ export class LogoComponent {
 
   public onMode(isNight: boolean): void {
     this.themeSwitcher.update(isNight ? 'dark' : 'light');
-    /* update taiga doc theme */
-    // this.docEl.onMode(isNight);
   }
 }
 

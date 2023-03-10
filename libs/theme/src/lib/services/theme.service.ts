@@ -1,6 +1,6 @@
 import { Inject, Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { distinctUntilChanged, filter, map, tap } from 'rxjs/operators';
 import { PrizmTheme } from '../types/theme';
 import { DOCUMENT } from '@angular/common';
 
@@ -15,6 +15,7 @@ export class PrizmThemeService implements OnDestroy {
   public get rootElement(): HTMLElement {
     return this.rootElement_ ?? this.document.querySelector('body');
   }
+  private readonly themeStorage = new Map<HTMLElement, string>();
 
   private readonly changeSource$ = new BehaviorSubject<{
     theme: PrizmTheme;
@@ -22,7 +23,7 @@ export class PrizmThemeService implements OnDestroy {
   }>({
     theme: 'light',
   });
-  readonly change$ = this.changeSource$.asObservable();
+  readonly change$ = this.changeSource$.pipe(tap(data => this.themeStorage.set(data.el, data.theme)));
   public get value(): string {
     return this.changeSource$.value.theme;
   }
@@ -34,15 +35,29 @@ export class PrizmThemeService implements OnDestroy {
     this.subscription.add(this.change$.pipe(tap(theme => this.setToHtml(theme.theme, theme.el))).subscribe());
   }
 
-  public getByElement(el?: HTMLElement): PrizmTheme {
-    return (el ?? this.rootElement)?.getAttribute(this.attThemeKey);
+  public getLastThemeForElement(el: HTMLElement): string {
+    return this.themeStorage.get(el);
   }
 
-  public updateElementOnChange(el: HTMLElement): Observable<PrizmTheme> {
+  public getLastThemeForElement$(el: HTMLElement = this.rootElement): Observable<string> {
     return this.change$.pipe(
-      tap(theme => this.setToHtml(theme.theme, el)),
-      map(i => i.theme)
+      map(i => this.getLastThemeForElement(el)),
+      distinctUntilChanged()
     );
+  }
+
+  public getInvertedThemeByElement$(
+    element = this.rootElement,
+    pairThemeValues: Record<string, string> = {
+      light: 'dark',
+      dark: 'light',
+    }
+  ): Observable<string> {
+    return this.getLastThemeForElement$(element).pipe(map(theme => pairThemeValues[theme]));
+  }
+
+  public getByElement(el?: HTMLElement): PrizmTheme {
+    return (el ?? this.rootElement)?.getAttribute(this.attThemeKey);
   }
 
   private setToHtml(theme: PrizmTheme, el?: HTMLElement): void {
