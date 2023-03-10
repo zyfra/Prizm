@@ -57,9 +57,13 @@
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
-    <prizm-doc-demo>
+    <prizm-doc-demo class="remove-sticky">
       <prizm-scrollbar class="scrollable">
         <table
+          [style.--prizm-table-row-odd-background]="prizmTableRowOddBackground"
+          [style.--prizm-table-row-hover-background]="prizmTableRowHoverBackground"
+          [style.--prizm-table-row-background]="prizmTableRowBackground"
+          [style.--prizm-table-row-cursor]="prizmTableRowCursor"
           prizmTable
           class="table"
           #element="prizmTable"
@@ -101,7 +105,49 @@
         </table>
       </prizm-scrollbar>
     </prizm-doc-demo>
-    <prizm-doc-documentation heading="PrizmTbodyComponent" hostComponentKey="PrizmTbodyComponent">
+    <prizm-doc-documentation heading="PrizmTrComponent">
+      <ng-template
+        documentationPropertyName="status"
+        documentationPropertyType="PrizmTableCellStatus"
+        documentationPropertyMode="input"
+      >
+        Status
+      </ng-template>
+      <ng-template
+        documentationPropertyName="prizm-table-row-hover-background"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+        [(documentationPropertyValue)]="prizmTableRowHoverBackground"
+      >
+        Row background on hover
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="prizm-table-row-odd-background"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+        [(documentationPropertyValue)]="prizmTableRowOddBackground"
+      >
+        Row background odd
+      </ng-template>
+      <ng-template
+        documentationPropertyName="prizm-table-row-background"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+        [(documentationPropertyValue)]="prizmTableRowBackground"
+      >
+        Row background even
+      </ng-template>
+      <ng-template
+        documentationPropertyName="prizm-table-row-cursor"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+        [(documentationPropertyValue)]="prizmTableRowCursor"
+      >
+        Row cursor
+      </ng-template>
+    </prizm-doc-documentation>
+    <prizm-doc-documentation heading="PrizmTbodyComponent">
       <ng-template
         documentationPropertyName="data"
         documentationPropertyType="Record<string, any>"

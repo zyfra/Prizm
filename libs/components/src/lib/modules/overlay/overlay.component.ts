@@ -12,8 +12,9 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmThemeService } from '@prizm-ui/theme';
 import { Observable } from 'rxjs';
-import { startWith, takeUntil, tap } from 'rxjs/operators';
+import { filter, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmOverlayConfig, PrizmOverlayContent, PrizmOverlayContentType, PrizmOverlayId } from './models';
 import { PrizmOverlayAbstractPosition } from './position/position';
 import { cssClass, EventBus, objToCss } from './utils';
@@ -43,6 +44,7 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     public readonly inj: Injector,
+    public readonly theme: PrizmThemeService,
     private readonly cd: ChangeDetectorRef,
     private readonly destroy$: PrizmDestroyService,
     private readonly compResolver: ComponentFactoryResolver,
