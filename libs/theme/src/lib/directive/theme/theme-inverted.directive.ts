@@ -1,6 +1,6 @@
 import { Directive, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { switchMap, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmThemeService } from '../../services/theme.service';
 import { PrizmTheme } from '../../types/theme';
 import { prizmObservable } from '@prizm-ui/core';

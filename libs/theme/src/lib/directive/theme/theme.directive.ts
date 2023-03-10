@@ -33,10 +33,12 @@ export class PrizmThemeDirective implements OnInit {
   public ngOnInit(): void {
     combineLatest([
       this.theme$$,
-      this.themeService.change$.pipe(filter(i => !i.el || i.el === this.themeService.rootElement)),
+      this.themeService.change$.pipe(
+        map(i => this.themeService.getLastThemeForElement(this.themeService.rootElement))
+      ),
     ])
       .pipe(
-        map(([theme, themeFromService]) => theme || themeFromService.theme),
+        map(([theme, themeFromService]) => theme || themeFromService),
         tap(theme => {
           this.renderer2.setAttribute(this.element.nativeElement, this.themeService.attThemeKey, theme);
         }),

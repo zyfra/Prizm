@@ -15,6 +15,7 @@ export class PrizmThemeService implements OnDestroy {
   public get rootElement(): HTMLElement {
     return this.rootElement_ ?? this.document.querySelector('body');
   }
+  private readonly themeStorage = new Map<HTMLElement, string>();
 
   private readonly changeSource$ = new BehaviorSubject<{
     theme: PrizmTheme;
@@ -22,7 +23,7 @@ export class PrizmThemeService implements OnDestroy {
   }>({
     theme: 'light',
   });
-  readonly change$ = this.changeSource$.asObservable();
+  readonly change$ = this.changeSource$.pipe(tap(data => this.themeStorage.set(data.el, data.theme)));
   public get value(): string {
     return this.changeSource$.value.theme;
   }
@@ -32,6 +33,10 @@ export class PrizmThemeService implements OnDestroy {
 
   constructor(@Inject(DOCUMENT) private document: Document) {
     this.subscription.add(this.change$.pipe(tap(theme => this.setToHtml(theme.theme, theme.el))).subscribe());
+  }
+
+  public getLastThemeForElement(el: HTMLElement): string {
+    return this.themeStorage.get(el);
   }
 
   public getInvertedThemeByElement$(
