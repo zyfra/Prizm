@@ -1,6 +1,6 @@
 import { Directive, ElementRef, EventEmitter, Inject, Input, OnInit, Output, Renderer2 } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { map, takeUntil, tap } from 'rxjs/operators';
+import { filter, map, takeUntil, tap } from 'rxjs/operators';
 import { PrizmThemeService } from '../../services/theme.service';
 import { PrizmTheme } from '../../types/theme';
 import { prizmObservable } from '@prizm-ui/core';
@@ -31,7 +31,10 @@ export class PrizmThemeDirective implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    combineLatest([this.theme$$, this.themeService.change$])
+    combineLatest([
+      this.theme$$,
+      this.themeService.change$.pipe(filter(i => !i.el || i.el === this.themeService.rootElement)),
+    ])
       .pipe(
         map(([theme, themeFromService]) => theme || themeFromService.theme),
         tap(theme => {
