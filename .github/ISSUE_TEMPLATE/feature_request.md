@@ -8,10 +8,13 @@ assignees: ''
 
 ### Библиотека
 
+- [ ] `@prizm-ui/core`
 - [ ] `@prizm-ui/components`
 - [ ] `@prizm-ui/install`
 - [ ] `@prizm-ui/icons`
+- [ ] `@prizm-ui/flag-icons`
 - [ ] `@prizm-ui/theme`
+- [ ] `@prizm-ui/charts`
 
 ### Компонент
 

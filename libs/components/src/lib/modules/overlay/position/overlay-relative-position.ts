@@ -98,12 +98,12 @@ export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<P
     pos: PrizmOverlayOutsidePlacement,
     s: any,
     h: any,
-    c = true
+    canReCalcPosition = true
   ): { pos: string; props: Record<string, unknown> } {
     const props = this.calc(pos, s, h);
 
     if (
-      c &&
+      canReCalcPosition &&
       this.config.autoReposition &&
       this.isOverflowed({ ...props, width: h.width, height: h.height }, pos)
     ) {
@@ -115,11 +115,15 @@ export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<P
 
   private isOverflowed(props: { [x: string]: any }, placement: PrizmOverlayOutsidePlacement): boolean {
     const [main] = placement.split('');
+    const { innerHeight, innerWidth } = window;
+
     /* TODO later add re-position by x coordinates after is-overflowed */
     if (main !== 't' && main !== 'b') {
+      if (main === 'r') return props.left + props.width > innerWidth;
+      if (main === 'l') return props.left - props.width < 0;
       return false;
     }
-    const { innerHeight, innerWidth } = window;
+
     props.bottom = props.top + props.height;
     props.right = props.left + props.width;
 
