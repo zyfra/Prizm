@@ -10,10 +10,9 @@ export const pages: PrizmOrderedDocPage = [
   //Window
   {
     section: SectionNameEnum.allAboutPrizm,
-    title: `О дизайн-системе`,
+    title: `О дизайн-системе Prizm`,
     keywords: 'дизайн-система, дизайн, система, design system, design, system',
-    link: 'http://prizm.zyfra.com/',
-    target: '_blank',
+    route: 'about-prizm/design-system',
     order: 1,
   },
   {
@@ -25,9 +24,9 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.allAboutPrizm,
-    title: 'Changelog',
-    keywords: 'ченджлог, changelog',
-    route: 'about-prizm/changelog',
+    title: `Репозитории`,
+    keywords: 'репозитории, repositories',
+    route: 'about-prizm/repositories',
     order: 3,
   },
   {
@@ -37,51 +36,129 @@ export const pages: PrizmOrderedDocPage = [
     route: 'about-prizm/contacts',
     order: 4,
   },
+  {
+    section: SectionNameEnum.allAboutPrizm,
+    title: 'Релизная политика',
+    keywords: 'релизная, политика, release, policy',
+    route: 'about-prizm/release-policy',
+    order: 5,
+  },
+  {
+    section: SectionNameEnum.allAboutPrizm,
+    title: 'Соглашение об уровне услуг (SLA)',
+    keywords: 'соглашение, уровень, услуга, service, level, agreement, sla',
+    route: 'about-prizm/service-level-agreement',
+    order: 6,
+  },
+  {
+    section: SectionNameEnum.allAboutPrizm,
+    title: 'Дорожная карта и задачи',
+    keywords: 'дорожная, карта, задачи, roadmap, tasks',
+    route: 'about-prizm/roadmap',
+    order: 7,
+  },
+  {
+    section: SectionNameEnum.allAboutPrizm,
+    title: 'Журнал изменений (changelog)',
+    keywords: 'ченджлог, changelog',
+    route: 'about-prizm/changelog',
+    order: 8,
+  },
+  {
+    section: SectionNameEnum.allAboutPrizm,
+    title: 'Список технологий',
+    keywords: 'список, технология, technology, list',
+    route: 'about-prizm/technology-list',
+    order: 9,
+  },
+  //How to work
+  {
+    section: SectionNameEnum.howToWork,
+    title: `Быстрый старт (разработчикам)`,
+    keywords: 'intro, how, to, start, guide, getting started, main, главная, начало, как, начать, инструкция',
+    route: 'how-to-work/for-developers',
+    order: 1,
+  },
+  {
+    section: SectionNameEnum.howToWork,
+    title: `Как перейти`,
+    keywords: 'переход, как, transition, how',
+    route: 'how-to-work/transition',
+    order: 2,
+  },
+  {
+    section: SectionNameEnum.howToWork,
+    title: `Как добавить компонент`,
+    keywords: 'добавить, компонент, как, add, component, how',
+    route: 'how-to-work/add-component',
+    order: 3,
+  },
+  {
+    section: SectionNameEnum.howToWork,
+    title: `Как поставить задачу`,
+    keywords: 'поставить, задача, как, set, task, how',
+    route: 'how-to-work/set-task',
+    order: 4,
+  },
+  {
+    section: SectionNameEnum.howToWork,
+    title: 'Contributing',
+    keywords: 'contributing',
+    route: 'how-to-work/contributing',
+    order: 5,
+  },
+  {
+    section: SectionNameEnum.howToWork,
+    title: 'CodeStyle',
+    keywords: 'code, codestyle',
+    route: 'how-to-work/codestyle',
+    order: 6,
+  },
+  //For ZIIoT
+  {
+    section: SectionNameEnum.forZIIoT,
+    title: `Введение`,
+    keywords: 'введение, introduction',
+    route: 'forZIIoT/introduction',
+    order: 1,
+  },
+  {
+    section: SectionNameEnum.forZIIoT,
+    title: `Требования к UI библиотекам для ZIIoT`,
+    keywords: 'требования, библиотеки, requirements, ui, libraries, ziiot',
+    route: 'forZIIoT/library-requirements',
+    order: 2,
+  },
+  {
+    section: SectionNameEnum.forZIIoT,
+    title: `Миграция`,
+    keywords: 'миграция, migration',
+    route: 'forZIIoT/migration',
+    order: 3,
+  },
   //Guidelines
   {
     section: SectionNameEnum.guidelines,
     title: `Типографика`,
     keywords: 'типографика, typography',
     route: 'guidelines/typography',
-    order: 5,
+    order: 1,
   },
   {
     section: SectionNameEnum.guidelines,
     title: `Цвета`,
     keywords: 'цвета, colors',
     route: 'guidelines/colors',
-    order: 6,
+    order: 2,
   },
   {
     section: SectionNameEnum.guidelines,
     title: `Сетки`,
     keywords: 'сетка, grid',
     route: 'guidelines/grid',
-    order: 7,
+    order: 3,
   },
-  //How to start
-  {
-    section: SectionNameEnum.howToStart,
-    title: `Дизайнерам`,
-    keywords: 'дизайнеры, designers',
-    target: '_blank',
-    link: 'https://www.figma.com/community/file/1156311020501452261',
-    order: 8,
-  },
-  {
-    section: SectionNameEnum.howToStart,
-    title: `Разработчикам`,
-    keywords: 'intro, how, to, start, guide, getting started, main, главная, начало, как, начать, инструкция',
-    route: 'how-to-start/for-developers',
-    order: 9,
-  },
-  {
-    section: SectionNameEnum.howToStart,
-    title: `Миграция`,
-    keywords: 'Миграция, migration',
-    route: 'how-to-start/migration',
-    order: 10,
-  },
+
   // Documentation
   // {
   //   section: SectionNameEnum.allAboutPrizm,
@@ -90,20 +167,6 @@ export const pages: PrizmOrderedDocPage = [
   //   route: 'about',
   //   order: 11,
   // },
-  {
-    section: SectionNameEnum.allAboutPrizm,
-    title: 'Contributing',
-    keywords: 'contributing',
-    route: 'contributing',
-    order: 13,
-  },
-  {
-    section: SectionNameEnum.allAboutPrizm,
-    title: 'CodeStyle',
-    keywords: 'code, codestyle',
-    route: 'codestyle',
-    order: 14,
-  },
   // Components
   {
     section: SectionNameEnum.components,

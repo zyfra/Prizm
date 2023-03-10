@@ -110,3 +110,77 @@ prizm-doc-page,
 .t-content prizm-doc-example:first-child {
   padding-top: 20px;
 }
+//for page with info
+prizm-doc-page.info-page {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+
+  h1 {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  ol {
+    line-height: 36px;
+  }
+
+  a {
+    color: rgb(0, 119, 255);
+  }
+
+  .italic {
+    font-style: italic;
+  }
+
+  .warning-agreement {
+    color: #ff6600;
+    font-style: italic;
+  }
+
+  .addition {
+    color: #b1acb5;
+    font-style: italic;
+  }
+
+  .doc {
+    &-table {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    &-cell {
+      border: 1px solid #aab8c6;
+      border-radius: 5px;
+      padding: 10px;
+      flex: 1 1 calc((100% / 3) - 2rem);
+    }
+  }
+
+  .disc {
+    li {
+      list-style-type: disc;
+    }
+  }
+
+  .decimal {
+    li {
+      list-style-type: decimal;
+    }
+  }
+}

@@ -113,8 +113,8 @@ export const APP_PROVIDERS = [
 function sortDocPages(pages: PrizmOrderedDocPage): (PrizmDocPage | PrizmDocPageGroup)[] {
   const ordering = {
     [SectionNameEnum.allAboutPrizm]: 0,
-    [SectionNameEnum.guidelines]: 1,
-    [SectionNameEnum.howToStart]: 2,
+    [SectionNameEnum.howToWork]: 1,
+    [SectionNameEnum.guidelines]: 2,
     [SectionNameEnum.components]: 3,
     [SectionNameEnum.charts]: 4,
     [SectionNameEnum.tools]: 5,

@@ -1,7 +1,8 @@
 export enum SectionNameEnum {
   allAboutPrizm = 'Все о Prizm',
+  howToWork = 'Как работать с Prizm',
+  forZIIoT = 'Prizm для ZIIoT',
   guidelines = 'Гайдлайны',
-  howToStart = 'Как начать',
   components = 'Компоненты',
   charts = 'Графики',
   tools = 'Инструменты',
