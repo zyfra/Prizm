@@ -1,6 +1,6 @@
 import { Inject, Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { filter, map, tap } from 'rxjs/operators';
+import { distinctUntilChanged, filter, map, tap } from 'rxjs/operators';
 import { PrizmTheme } from '../types/theme';
 import { DOCUMENT } from '@angular/common';
 
@@ -39,6 +39,13 @@ export class PrizmThemeService implements OnDestroy {
     return this.themeStorage.get(el);
   }
 
+  public getLastThemeForElement$(el: HTMLElement = this.rootElement): Observable<string> {
+    return this.change$.pipe(
+      map(i => this.getLastThemeForElement(el)),
+      distinctUntilChanged()
+    );
+  }
+
   public getInvertedThemeByElement$(
     element = this.rootElement,
     pairThemeValues: Record<string, string> = {
@@ -46,10 +53,7 @@ export class PrizmThemeService implements OnDestroy {
       dark: 'light',
     }
   ): Observable<string> {
-    return this.change$.pipe(
-      filter(i => i.el === element),
-      map(i => pairThemeValues[i.theme])
-    );
+    return this.getLastThemeForElement$(element).pipe(map(theme => pairThemeValues[theme]));
   }
 
   public getByElement(el?: HTMLElement): PrizmTheme {

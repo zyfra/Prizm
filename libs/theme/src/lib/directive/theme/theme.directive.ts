@@ -31,12 +31,7 @@ export class PrizmThemeDirective implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    combineLatest([
-      this.theme$$,
-      this.themeService.change$.pipe(
-        map(i => this.themeService.getLastThemeForElement(this.themeService.rootElement))
-      ),
-    ])
+    combineLatest([this.theme$$, this.themeService.getLastThemeForElement$()])
       .pipe(
         map(([theme, themeFromService]) => theme || themeFromService),
         tap(theme => {
