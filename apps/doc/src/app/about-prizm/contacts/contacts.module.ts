@@ -7,9 +7,8 @@ import { ContactsComponent } from './contacts.component';
 @NgModule({
   exports: [ContactsComponent],
   declarations: [ContactsComponent],
-  imports: [ 
-    PrizmTableModule, 
-    PrizmAccordionModule, 
+  imports: [
+    PrizmTableModule,
     PrizmAddonDocModule,
     RouterModule.forChild(prizmDocGenerateRoutes(ContactsComponent)),
   ],
