@@ -20,6 +20,7 @@ import { PrizmThemeService } from '@prizm-ui/theme';
 })
 export class PrizmThemeInvertedExampleComponent {
   @ViewChild('zone', { static: true, read: ElementRef }) el: ElementRef;
+  public invetedThemeValue: string;
   constructor(public readonly theme: PrizmThemeService) {}
 
   public light(): void {

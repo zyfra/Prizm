@@ -6,7 +6,12 @@
 </div>
 <br /><br />
 <div #zone>
-  <div prizmThemeInverted [invertedValues]="{ light: 'dark', dark: 'light' }" [themeElement]="zone">
+  <div
+    prizmThemeInverted
+    (prizmThemeChange)="invetedThemeValue = $event"
+    [invertedValues]="{ light: 'dark', dark: 'light' }"
+    [themeElement]="zone"
+  >
     <prizm-widget title="Заголовок виджета">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
       dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
@@ -18,5 +23,10 @@
 </div>
 
 <div *ngIf="el">
-  Current theme: <b>{{ theme.getByElement(zone) }}</b>
+  <p>
+    Parent theme: <b>{{ theme.getByElement(zone) }}</b>
+  </p>
+  <p>
+    Inverted theme: <b>{{ invetedThemeValue }}</b>
+  </p>
 </div>
