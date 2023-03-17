@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.26](https://github.com/zyfra/Prizm) (17-03-2023)
+
+### Features
+
+- feat(components/table): add tree support for table [78](https://github.com/zyfra/Prizm/issues/78)
+- feat(components/table): add empty table directive to table [71](https://github.com/zyfra/Prizm/issues/71)
+- feat(components/tree-button): add tree button component
+- feat(doc/table): add tree example
+- feat(doc/table): add empty table example
+- feat(doc): add new pages and small fixes
+
 ## [1.0.0-beta.25](https://github.com/zyfra/Prizm) (10-03-2023)
 
 ### BUG FIXES

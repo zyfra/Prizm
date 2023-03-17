@@ -1,12 +1,12 @@
 {
   "name": "@prizm-ui/sdk",
-  "version": "1.0.0-beta.25",
+  "version": "1.0.0-beta.26",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
       "name": "@prizm-ui/sdk",
-      "version": "1.0.0-beta.25",
+      "version": "1.0.0-beta.26",
       "hasInstallScript": true,
       "license": "MIT",
       "dependencies": {

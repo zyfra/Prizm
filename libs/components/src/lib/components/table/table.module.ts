@@ -19,10 +19,25 @@ import { PolymorphModule } from '../../directives';
 import { PrizmIconModule } from '../icon';
 import { SearchableContentComponent } from './components/searchable-content/searchable-content.component';
 import { SpaceNumberPipe } from './pipes/space-number.pipe';
+import { PrizmCallFuncModule } from '@prizm-ui/helpers';
+import { PrizmTreeButtonModule } from '../tree-button/tree-button.module';
+import { PrizmTableTreeLoadingDirective } from './directives/tree-loading.directive';
+import { PrizmTableLoadingDirective } from './directives/loading.directive';
+import { PrizmTableEmptyDirective } from './directives/empty.directive';
 
 @NgModule({
-  imports: [CommonModule, PrizmMapperPipeModule, PolymorphModule, PrizmIconModule],
+  imports: [
+    CommonModule,
+    PrizmTreeButtonModule,
+    PrizmCallFuncModule,
+    PrizmMapperPipeModule,
+    PolymorphModule,
+    PrizmIconModule,
+  ],
   declarations: [
+    PrizmTableTreeLoadingDirective,
+    PrizmTableLoadingDirective,
+    PrizmTableEmptyDirective,
     PrizmTableDirective,
     PrizmTbodyComponent,
     PrizmThGroupComponent,
@@ -41,6 +56,10 @@ import { SpaceNumberPipe } from './pipes/space-number.pipe';
     SpaceNumberPipe,
   ],
   exports: [
+    PrizmTableLoadingDirective,
+    PrizmTableEmptyDirective,
+    PrizmTreeButtonModule,
+    PrizmTableTreeLoadingDirective,
     PrizmTableDirective,
     PrizmTbodyComponent,
     PrizmThGroupComponent,

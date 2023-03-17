@@ -1,0 +1,14 @@
+<span [innerHTML]="space"></span>
+<span [ngSwitch]="open" *ngIf="!removeIcon" [class.hide]="!visibilityIcon">
+  <span *ngSwitchCase="true" (click)="!manualChange && changeOpenState(false)">
+    <ng-container *polymorphOutlet="iconOpen as icon; context: { size: this.size }">
+      <prizm-icon [iconClass]="$any(icon)" [size]="size"></prizm-icon>
+    </ng-container>
+  </span>
+  <span *ngSwitchDefault (click)="!manualChange && changeOpenState(true)">
+    <ng-container *polymorphOutlet="iconClose as icon; context: { size: this.size }">
+      <prizm-icon [iconClass]="$any(icon)" [size]="size"></prizm-icon>
+    </ng-container>
+  </span>
+</span>
+<ng-content></ng-content>
