@@ -21,7 +21,7 @@ export class PrizmPaginatorComponent {
   @Input() public pageLinkSize: number | null = null;
   @Input() public showMoreDisabled = false;
   // disabled
-  @Input() public disabled = true;
+  @Input() public disabled = false;
 
   // Сколько данных в одном пакете
   @Input() public rows: number | null = null;
