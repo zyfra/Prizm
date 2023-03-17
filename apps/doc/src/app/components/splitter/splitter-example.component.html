@@ -19,21 +19,12 @@
     <prizm-doc-example id="limit" heading="Limit size" [content]="limitSize">
       <prizm-splitter-limit-size-example></prizm-splitter-limit-size-example>
     </prizm-doc-example>
-
-    <prizm-doc-example id="size-setting" heading="Size setting" [content]="sizeSetting">
-      <prizm-splitter-size-setting-example></prizm-splitter-size-setting-example>
-    </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab prizmDocHost>
+  <ng-template prizmDocPageTab>
     <prizm-doc-demo>
-      <prizm-splitter
-        #element
-        [ngStyle]="{ height: '400px' }"
-        [orientation]="orientation"
-        [prizmDocHostElement]="element"
-      >
-        <prizm-splitter-area [size]="30">
+      <prizm-splitter #element [ngStyle]="{ height: '400px' }" [orientation]="orientation">
+        <prizm-splitter-area [size]="area1Size" #area1>
           <div class="area area--1">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
             provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
@@ -45,7 +36,11 @@
             rem voluptatem neque officiis, nihil dolorum quisquam aperiam blanditiis.
           </div>
         </prizm-splitter-area>
-        <prizm-splitter-area [size]="40">
+
+        <prizm-splitter-gutter [areaBefore]="area1" [areaAfter]="area2">
+          <prizm-splitter-gutter-default></prizm-splitter-gutter-default>
+        </prizm-splitter-gutter>
+        <prizm-splitter-area [size]="area2Size" [minSize]="20" #area2>
           <div class="area area--2">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
             provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
@@ -57,7 +52,11 @@
             rem voluptatem neque officiis, nihil dolorum quisquam aperiam blanditiis.
           </div>
         </prizm-splitter-area>
-        <prizm-splitter-area [size]="30">
+        <prizm-splitter-gutter [areaAfter]="area3">
+          <div prizmSplitterGutter style="width: 8px; background-color: red">22</div>
+        </prizm-splitter-gutter>
+
+        <prizm-splitter-area [size]="area3Size" #area3>
           <div class="area area--3">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
             provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
@@ -70,8 +69,11 @@
           </div>
         </prizm-splitter-area>
       </prizm-splitter>
+
+      <br />
+      <div><button (click)="change()">Change</button> <button (click)="change2()">Change2</button></div>
     </prizm-doc-demo>
-    <prizm-doc-documentation>
+    <!-- <prizm-doc-documentation>
       <ng-template
         documentationPropertyName="orientation"
         documentationPropertyType="string"
@@ -103,7 +105,7 @@
       >
         AreasSplitEnd
       </ng-template>
-    </prizm-doc-documentation>
+    </prizm-doc-documentation> -->
   </ng-template>
 
   <ng-template prizmDocPageTab>

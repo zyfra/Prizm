@@ -9,7 +9,6 @@ import { PrizmSplitterVerticalExampleComponent } from './examples/vertical/verti
 import { PrizmButtonModule, PrizmSplitterModule } from '@prizm-ui/components';
 import { PrizmSplitterNestedExampleComponent } from './examples/nested/nested.component';
 import { PrizmSplitterLimitSizeExampleComponent } from './examples/limit-size/limit-size.component';
-import { PrizmSplitterSizeSettingExampleComponent } from './examples/size-setting/size-setting.component';
 
 @NgModule({
   imports: [
@@ -25,7 +24,6 @@ import { PrizmSplitterSizeSettingExampleComponent } from './examples/size-settin
     PrizmSplitterVerticalExampleComponent,
     PrizmSplitterNestedExampleComponent,
     PrizmSplitterLimitSizeExampleComponent,
-    PrizmSplitterSizeSettingExampleComponent,
   ],
   exports: [PrizmSplitterExampleComponent],
 })
