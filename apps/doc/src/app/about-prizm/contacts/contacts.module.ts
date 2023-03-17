@@ -1,13 +1,16 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { PrizmAccordionModule, PrizmTableModule } from '@prizm-ui/components';
-import { PrizmAddonDocModule } from '@prizm-ui/doc';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { ContactsComponent } from './contacts.component';
 
 @NgModule({
   exports: [ContactsComponent],
   declarations: [ContactsComponent],
-  imports: [CommonModule, PrizmTableModule, FormsModule, PrizmAccordionModule, PrizmAddonDocModule],
+  imports: [
+    PrizmTableModule,
+    PrizmAddonDocModule,
+    RouterModule.forChild(prizmDocGenerateRoutes(ContactsComponent)),
+  ],
 })
 export class ContactsModule {}
