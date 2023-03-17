@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/icons",
-  "version": "1.0.0-beta.25",
+  "version": "1.0.0-beta.26",
   "description": "Prizm UI base icon pack library http://prizm.zyfra.com",
   "private": false,
   "publishConfig": {
@@ -10,7 +10,7 @@
   "peerDependencies": {
     "@angular/common": "^12.2.0",
     "@angular/core": "^12.2.0",
-    "@prizm-ui/core": "^1.0.0-beta.25"
+    "@prizm-ui/core": "^1.0.0-beta.26"
   },
   "dependencies": {
     "tslib": "^2.3.0"
