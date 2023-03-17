@@ -10,6 +10,7 @@ import { PAGINATOR_OPTIONS_VARIANTS } from './paginator-example.constants';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PaginatorExampleComponent {
+  public disabled = false;
   public totalRecords = 1100;
   public pageLinkSize = 5;
   public rows = 10;

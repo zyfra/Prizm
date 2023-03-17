@@ -6,4 +6,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./paginator-infinite-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PaginatorInfiniteExampleComponent {}
+export class PaginatorInfiniteExampleComponent {
+  public disabled = false;
+}

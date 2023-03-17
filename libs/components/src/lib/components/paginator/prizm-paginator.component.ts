@@ -20,6 +20,8 @@ export class PrizmPaginatorComponent {
   // Сколько номеров видно на экране
   @Input() public pageLinkSize: number | null = null;
   @Input() public showMoreDisabled = false;
+  // disabled
+  @Input() public disabled: boolean = true;
 
   // Сколько данных в одном пакете
   @Input() public rows: number | null = null;
