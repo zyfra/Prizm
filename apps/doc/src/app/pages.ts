@@ -126,11 +126,11 @@ export const pages: PrizmOrderedDocPage = [
         keywords: 'button, кнопка',
         route: '/components/button',
       },
-      {
-        title: 'Tree Button',
-        keywords: 'tree-button, tree, дерево, кнопка, button',
-        route: '/components/tree-button',
-      },
+      // {
+      //   title: 'Tree Button',
+      //   keywords: 'tree-button, tree, дерево, кнопка, button',
+      //   route: '/components/tree-button',
+      // },
       {
         title: 'Split Button',
         keywords: 'split-button, split, раздельная, кнопка, button',
