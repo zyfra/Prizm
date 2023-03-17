@@ -13,9 +13,9 @@ export class ForDevelopersComponent {
      "@prizm-ui/icons/base/src/styles/styles.less"
    ],";
    `;
-   public readonly joinSvgFontsForImport = `@import "~@prizm-ui/icons/base/src/styles/styles.less";
+  public readonly joinSvgFontsForImport = `@import "~@prizm-ui/icons/base/src/styles/styles.less";
    `;
-   public readonly updateAngularStylesFileCode = `
+  public readonly updateAngularStylesFileCode = `
  // (Required) Add for use our theme
  @import "~@prizm-ui/theme/src/styles/styles.less";
  // (Optional) Add only for use our components library
@@ -25,7 +25,7 @@ export class ForDevelopersComponent {
  @import "~@prizm-ui/components/src/styles/icons/icons.less";
  @import "~@prizm-ui/components/src/styles/icons-16/icons-16.less";
    `;
-   public readonly updateAngularStylesCode = `
+  public readonly updateAngularStylesCode = `
    "assets": [
      // ....
     ],

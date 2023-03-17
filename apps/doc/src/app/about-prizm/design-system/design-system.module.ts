@@ -6,9 +6,6 @@ import { DesignSystemComponent } from './design-system.component';
 @NgModule({
   exports: [DesignSystemComponent],
   declarations: [DesignSystemComponent],
-  imports: [
-    PrizmAddonDocModule,
-    RouterModule.forChild(prizmDocGenerateRoutes(DesignSystemComponent)),
-  ],
+  imports: [PrizmAddonDocModule, RouterModule.forChild(prizmDocGenerateRoutes(DesignSystemComponent))],
 })
 export class DesignSystemModule {}

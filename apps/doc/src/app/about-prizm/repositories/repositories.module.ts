@@ -6,9 +6,6 @@ import { RepositoriesComponent } from './repositories.component';
 @NgModule({
   exports: [RepositoriesComponent],
   declarations: [RepositoriesComponent],
-  imports: [
-    PrizmAddonDocModule,
-    RouterModule.forChild(prizmDocGenerateRoutes(RepositoriesComponent)),
-  ],
+  imports: [PrizmAddonDocModule, RouterModule.forChild(prizmDocGenerateRoutes(RepositoriesComponent))],
 })
 export class RepositoriesModule {}

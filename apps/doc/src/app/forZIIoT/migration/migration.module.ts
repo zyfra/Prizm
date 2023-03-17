@@ -6,9 +6,6 @@ import { MigrationComponent } from './migration.component';
 @NgModule({
   exports: [MigrationComponent],
   declarations: [MigrationComponent],
-  imports: [
-    PrizmAddonDocModule,
-    RouterModule.forChild(prizmDocGenerateRoutes(MigrationComponent)),
-  ],
+  imports: [PrizmAddonDocModule, RouterModule.forChild(prizmDocGenerateRoutes(MigrationComponent))],
 })
 export class MigrationModule {}

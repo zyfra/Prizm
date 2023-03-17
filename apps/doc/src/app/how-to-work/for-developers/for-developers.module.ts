@@ -8,7 +8,7 @@ import { ForDevelopersComponent } from './for-developers.component';
   exports: [ForDevelopersComponent],
   declarations: [ForDevelopersComponent],
   imports: [
-    PrizmAddonDocModule, 
+    PrizmAddonDocModule,
     PrizmAccordionModule,
     RouterModule.forChild(prizmDocGenerateRoutes(ForDevelopersComponent)),
   ],
