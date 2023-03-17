@@ -4,6 +4,7 @@ export * from './accordion';
 export * from './table';
 export * from './radio';
 export * from './button';
+export * from './tree-button';
 export * from './icon';
 export * from './input';
 export * from './chips';

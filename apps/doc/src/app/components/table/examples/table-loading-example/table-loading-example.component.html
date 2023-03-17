@@ -1,0 +1,57 @@
+<h3>Default loading example</h3>
+<prizm-scrollbar class="scrollable">
+  <table prizmTable class="table" size="s">
+    <thead>
+      <tr prizmThGroup>
+        <th prizmTh>Наименование</th>
+        <th prizmTh>Категория</th>
+        <th prizmTh>Количество</th>
+      </tr>
+    </thead>
+
+    <tbody prizmTbody [data]="products$ | async">
+      <ng-container *prizmRow="let item of products$ | async; let i = index; let count = count">
+        <tr prizmTr>
+          <td prizmTd>
+            <div class="col-tree">
+              <span>{{ item.name }}</span>
+            </div>
+          </td>
+          <td prizmTd>{{ item.category }}</td>
+          <td class="format__number" prizmTd>
+            {{ item.count | spaceNumber : '0.0-0' }}
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</prizm-scrollbar>
+
+<h3>Custom loading example</h3>
+<prizm-scrollbar class="scrollable">
+  <table prizmTable class="table" size="s">
+    <thead>
+      <tr prizmThGroup>
+        <th prizmTh>Наименование</th>
+        <th prizmTh>Категория</th>
+        <th prizmTh>Количество</th>
+      </tr>
+    </thead>
+
+    <tbody prizmTbody [data]="products$ | async">
+      <ng-container *prizmRow="let item of products$ | async; let i = index; let count = count">
+        <tr prizmTr>
+          <td prizmTd>
+            <div class="col-tree">
+              <span>{{ item.name }}</span>
+            </div>
+          </td>
+          <td prizmTd>{{ item.category }}</td>
+          <td class="format__number" prizmTd>
+            {{ item.count | spaceNumber : '0.0-0' }}
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</prizm-scrollbar>

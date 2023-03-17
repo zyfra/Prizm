@@ -15,24 +15,28 @@ import {
 
 import { PrizmRowDirective } from '../directives/row.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
-import { PrizmTableSortPipe } from '../pipes/table-sort.pipe';
 import { PRIZM_TABLE_PROVIDER } from '../providers/table.provider';
 import { PrizmTrComponent } from '../tr/tr.component';
 import { PolymorphContent } from '../../../directives';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { filter, map, startWith, takeUntil } from 'rxjs/operators';
+import { filter, map, startWith, switchMap, takeUntil } from 'rxjs/operators';
 import { PrizmCellDirective } from '../directives/cell.directive';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmTableDataService } from '../service/table-data.service';
 import { PrizmTableSorterService } from '../service';
+import { PrizmTableTreeService } from '../service/tree.service';
+import { PrizmTableTreeLoadingDirective } from '../directives/tree-loading.directive';
+import { PrizmTableLoadingDirective } from '../directives/loading.directive';
+import { PrizmTableEmptyDirective } from '../directives/empty.directive';
+import { Observable } from 'rxjs';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: `[prizmTbody] `,
-  templateUrl: `./tbody.template.html`,
-  styleUrls: [`./tbody.style.less`],
+  templateUrl: `./tbody.component.html`,
+  styleUrls: [`./tbody.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [...PRIZM_TABLE_PROVIDER, PrizmTableDataService],
+  providers: [...PRIZM_TABLE_PROVIDER, PrizmTableTreeService, PrizmTableDataService],
 })
 export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> implements AfterViewInit {
   @Input()
@@ -41,6 +45,10 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> implem
   }
   get data(): T[] {
     return this.dataService.data;
+  }
+
+  get sortedData$(): Observable<T[]> {
+    return this.dataService.data$.pipe(switchMap(data => this.sorterService.sort$(data)));
   }
 
   @Input()
@@ -53,6 +61,15 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> implem
 
   @Output()
   readonly openChange = new EventEmitter<boolean>();
+
+  @ContentChild(PrizmTableLoadingDirective)
+  readonly loadingTemplate?: PrizmTableLoadingDirective;
+
+  @ContentChild(PrizmTableEmptyDirective)
+  readonly emptyTemplate?: PrizmTableEmptyDirective;
+
+  @ContentChild(PrizmTableTreeLoadingDirective)
+  readonly treeLoadingTemplate?: PrizmTableTreeLoadingDirective;
 
   @ContentChild(forwardRef(() => PrizmRowDirective))
   readonly row?: PrizmRowDirective<T>;
@@ -68,6 +85,7 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> implem
     readonly dataService: PrizmTableDataService<T>,
     readonly sorterService: PrizmTableSorterService<T>,
     private readonly destroy$: PrizmDestroyService,
+    public readonly tableTreeService: PrizmTableTreeService,
     private changeDetectoreRef: ChangeDetectorRef
   ) {}
 
@@ -82,7 +100,10 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> implem
     last: boolean,
     odd: boolean,
     even: boolean,
-    count: number
+    count: number,
+    deepLevel: number,
+    parentItem: number,
+    parentIdx: number
   ): {
     $implicit: T;
     index: number;
@@ -91,6 +112,9 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> implem
     odd: boolean;
     even: boolean;
     count: number;
+    deepLevel: number;
+    parentItem: number;
+    parentIdx: number;
   } => ({
     $implicit,
     index,
@@ -99,6 +123,9 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, any>>> implem
     even,
     odd,
     count,
+    deepLevel,
+    parentItem,
+    parentIdx,
   });
 
   ngAfterViewInit(): void {

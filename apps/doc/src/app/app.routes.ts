@@ -220,6 +220,14 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/tree-button',
+    loadChildren: (): Promise<unknown> =>
+      import('./components/buttons/tree-button/tree-button.module').then(i => i.TreeButtonModule),
+    data: {
+      title: 'Tree Button',
+    },
+  },
+  {
     path: 'components/icon-button',
     loadChildren: (): Promise<unknown> =>
       import('./components/buttons/icon-button/icon-button.module').then(i => i.IconButtonModule),

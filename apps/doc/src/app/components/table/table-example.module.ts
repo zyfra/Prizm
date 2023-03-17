@@ -27,11 +27,16 @@ import { TableBorderStyleExampleComponent } from './examples/table-border-style-
 import { TableSelectableMetaExampleComponent } from './examples/table-selectable-meta/table-selectable-meta-example.component';
 import { TableSortExampleComponent } from './examples/table-sort-example/table-sort-example.component';
 import { TableServerSortExampleComponent } from './examples/table-server-sort-example/table-server-sort-example.component';
+import { TableTreeExampleComponent } from './examples/table-tree-example/table-tree-example.component';
+import { TableEmptyExampleComponent } from './examples/table-empty-example/table-empty-example.component';
+import { TableLoadingExampleComponent } from './examples/table-loading-example/table-loading-example.component';
 
 @NgModule({
   declarations: [
     TableExampleComponent,
     TableBasicExampleComponent,
+    TableLoadingExampleComponent,
+    TableEmptyExampleComponent,
     TableSelectableExampleComponent,
     TableEditableColExampleComponent,
     TableEditableRowExampleComponent,
@@ -42,6 +47,7 @@ import { TableServerSortExampleComponent } from './examples/table-server-sort-ex
     TableRowGroupExampleComponent,
     TableSearchExampleComponent,
     TableBorderStyleExampleComponent,
+    TableTreeExampleComponent,
     TableSelectableMetaExampleComponent,
   ],
   imports: [

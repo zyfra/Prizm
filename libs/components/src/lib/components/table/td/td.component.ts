@@ -6,7 +6,7 @@ import { PrizmTableCellStatus } from '../table.types';
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: `th[prizmTd], td[prizmTd]`,
   template: ` <ng-content></ng-content> `,
-  styleUrls: [`./td.style.less`],
+  styleUrls: [`./td.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmTdComponent {
