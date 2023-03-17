@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.25](https://github.com/zyfra/Prizm) (10-03-2023)
+
+### BUG FIXES
+
+- fix(components/tooltip): recalc on left and right position [#34](https://github.com/zyfra/Prizm/issues/34)
+- chore: correct old helper issues templates
+- fix(components/overlay): fix case with not correct display overlay [#4](https://github.com/zyfra/Prizm/issues/4)
+- fix(components/confirm): fix console errors [#31](https://github.com/zyfra/Prizm/issues/31)
+- feat(components/dialogs): invert theme inside dialog and confirm dialog [#74](https://github.com/zyfra/Prizm/issues/74)
+
+### Features
+
+- feat(theme): new inverted theme directive
+- feat(doc/theme): examples how to use theme and inverted theme directive
+
 ## [1.0.0-beta.24](https://github.com/zyfra/Prizm) (03-03-2023)
 
 ### BUG FIXES

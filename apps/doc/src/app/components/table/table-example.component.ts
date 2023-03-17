@@ -12,7 +12,10 @@ import { TABLE_EXAMPLE_DATA_1 } from './table-example.const';
 })
 export class TableExampleComponent {
   public products: ITableProduct[] = TABLE_EXAMPLE_DATA_1;
-
+  public prizmTableRowOddBackground: string = null;
+  public prizmTableRowBackground: string = null;
+  public prizmTableRowCursor = 'pointer';
+  public prizmTableRowHoverBackground: string = null;
   public columns: string[] = ['code', 'name', 'category', 'count'];
   public columnsVarians: string[][] = [
     ['code', 'name'],

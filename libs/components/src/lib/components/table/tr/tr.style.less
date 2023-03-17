@@ -1,15 +1,16 @@
 [prizmTbody] tr[prizmTr] {
-  cursor: pointer;
+  cursor: var(--prizm-table-row-cursor, pointer);
 
-  background: var(--prizm-v2-table-background-default);
   color: var(--prizm-v2-table-text-default);
 
+  background: var(--prizm-table-row-background, var(--prizm-v2-table-background-default));
+
   &:nth-child(odd) {
-    background: var(--prizm-v2-table-zebra);
+    background: var(--prizm-table-row-odd-background, var(--prizm-v2-table-zebra));
   }
 
   &:hover {
-    background: var(--prizm-v2-table-background-default-hover);
+    background: var(--prizm-table-row-hover-background, var(--prizm-v2-table-background-default-hover));
   }
 
   &[status='success'] {

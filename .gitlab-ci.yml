@@ -107,7 +107,7 @@ Release package:
     - npm publish --access public --userconfig ~/.npmrc --verbose  core || exit_code=0
     - npm publish --access public --userconfig ~/.npmrc --verbose  icons/base || exit_code=0
     - npm publish --access public --userconfig ~/.npmrc --verbose  icons/flags || exit_code=0
-    - npm publish --access public --userconfig ~/.npmrc --verbose  schematics || exit_code=0
+    #    - npm publish --access public --userconfig ~/.npmrc --verbose  schematics || exit_code=0
     - npm publish --access public --userconfig ~/.npmrc --verbose  theme || exit_code=0
     - npm publish --access public --userconfig ~/.npmrc --verbose  charts || exit_code=0
   when: manual

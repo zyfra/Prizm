@@ -600,8 +600,14 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.tools,
-    title: 'Theme',
-    keywords: 'theme, тема, цвета, типография, colors, typography',
+    title: 'Theme Service',
+    keywords: 'theme, service, тема, цвета, типография, colors, typography',
+    route: '/tools/theme-service',
+  },
+  {
+    section: SectionNameEnum.tools,
+    title: 'Theme Module',
+    keywords: 'theme, module, тема, цвета, типография, colors, typography',
     route: '/tools/theme',
   },
   // TODO active after finish charts

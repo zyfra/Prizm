@@ -656,10 +656,19 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'tools/theme',
-    loadChildren: (): Promise<unknown> => import('./tools/theme/theme.module').then(i => i.ThemeModule),
+    path: 'tools/theme-service',
+    loadChildren: (): Promise<unknown> =>
+      import('./tools/theme-service/theme.module').then(i => i.ThemeModule),
     data: {
-      title: 'Theme',
+      title: 'Theme Service',
+    },
+  },
+  {
+    path: 'tools/theme',
+    loadChildren: (): Promise<unknown> =>
+      import('./tools/inverted-theme/inverted-theme.module').then(i => i.InvertedThemeModule),
+    data: {
+      title: 'Theme Module',
     },
   },
   {
