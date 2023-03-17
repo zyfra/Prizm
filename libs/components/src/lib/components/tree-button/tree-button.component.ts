@@ -50,7 +50,7 @@ export class PrizmTreeButtonComponent<T extends Partial<Record<keyof T, any>>> {
   @prizmDefaultProp()
   factor = 6;
 
-  get space() {
+  get space(): string {
     return new Array(this.level * this.factor).fill('&nbsp;').join('');
   }
 

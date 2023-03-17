@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PrizmTableCellStatus } from '@prizm-ui/components';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { TABLE_EXAMPLE_TREE_DATA_1 } from '../../table-example.const';
 
@@ -25,11 +25,11 @@ export class TableTreeExampleComponent {
 
   public products: ITableProduct[] = TABLE_EXAMPLE_TREE_DATA_1;
 
-  public readonly getTableChildrenWithLazy = (item: ITableProduct) => {
-    return of(item.children ?? []).pipe(delay(1000));
+  public readonly getTableChildrenWithLazy = (item: ITableProduct): Observable<ITableProduct[]> => {
+    return of(item.children ?? []).pipe(delay(2000));
   };
 
-  public readonly getTableChildren = (item: ITableProduct) => {
+  public readonly getTableChildren = (item: ITableProduct): Observable<ITableProduct[]> => {
     return of(item.children ?? []);
   };
 }
