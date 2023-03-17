@@ -1,20 +1,66 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContactsComponent } from './about-prizm/contacts/contacts.component';
-import { DesignSystemComponent } from './about-prizm/design-system/design-system.component';
-import { GettingStartedComponent } from './documentation/getting-started/getting-started.component';
-import { MigrationComponent } from './how-to-start/migration/migration.component';
 
 export const ROUTES: Routes = [
   {
     path: 'about-prizm',
     children: [
       {
+        path: 'design-system',
+        loadChildren: (): Promise<unknown> =>
+          import('./about-prizm/design-system/design-system.module').then(i => i.DesignSystemModule),
+        data: {
+          title: 'About Design System',
+        },
+      },
+      {
         path: 'license',
         loadChildren: (): Promise<unknown> =>
           import('./about-prizm/license/license.module').then(m => m.LicenseModule),
         data: {
           title: 'License',
+        },
+      },
+      {
+        path: 'repositories',
+        loadChildren: (): Promise<unknown> =>
+          import('./about-prizm/repositories/repositories.module').then(m => m.RepositoriesModule),
+        data: {
+          title: 'Repositories',
+        },
+      },
+      {
+        path: 'contacts',
+        loadChildren: (): Promise<unknown> =>
+          import('./about-prizm/contacts/contacts.module').then(i => i.ContactsModule),
+        data: {
+          title: 'Contacts',
+        },
+      },
+      {
+        path: 'release-policy',
+        loadChildren: (): Promise<unknown> =>
+          import('./about-prizm/release-policy/release-policy.module').then(i => i.ReleasePolicyModule),
+        data: {
+          title: 'Release policy',
+        },
+      },
+      {
+        path: 'service-level-agreement',
+        loadChildren: (): Promise<unknown> =>
+          import('./about-prizm/service-level-agreement/service-level-agreement.module').then(
+            i => i.ServiceLevelAgreementModule
+          ),
+        data: {
+          title: 'Service level agreement',
+        },
+      },
+      {
+        path: 'roadmap',
+        loadChildren: (): Promise<unknown> =>
+          import('./about-prizm/roadmap/roadmap.module').then(i => i.RoadmapModule),
+        data: {
+          title: 'Roadmap',
         },
       },
       {
@@ -26,17 +72,101 @@ export const ROUTES: Routes = [
         },
       },
       {
-        path: 'design-system',
-        component: DesignSystemComponent,
+        path: 'technology-list',
+        loadChildren: (): Promise<unknown> =>
+          import('./about-prizm/technology-list/technology-list.module').then(i => i.TechnologyListModule),
         data: {
-          title: 'About Design System',
+          title: 'Technology list',
+        },
+      },
+    ],
+  },
+  //How to work
+  {
+    path: 'how-to-work',
+    children: [
+      {
+        path: 'for-developers',
+        loadChildren: (): Promise<unknown> =>
+          import('./how-to-work/for-developers/for-developers.module').then(i => i.ForDevelopersModule),
+        data: {
+          title: 'For developers',
         },
       },
       {
-        path: 'contacts',
-        component: ContactsComponent,
+        path: 'transition',
+        loadChildren: (): Promise<unknown> =>
+          import('./how-to-work/transition/transition.module').then(i => i.TransitionModule),
         data: {
-          title: 'Contacts',
+          title: 'Transition',
+        },
+      },
+      {
+        path: 'add-component',
+        loadChildren: (): Promise<unknown> =>
+          import('./how-to-work/add-component/add-component.module').then(i => i.AddComponentModule),
+        data: {
+          title: 'Add component',
+        },
+      },
+      {
+        path: 'set-task',
+        loadChildren: (): Promise<unknown> =>
+          import('./how-to-work/set-task/set-task.module').then(i => i.SetTaskModule),
+        data: {
+          title: 'Set task',
+        },
+      },
+      {
+        path: 'contributing',
+        loadChildren: (): Promise<unknown> =>
+          import('./how-to-work/contributing/contributing.module').then(i => i.ContributingModule),
+        data: {
+          title: 'Contributing',
+        },
+      },
+      {
+        path: 'codestyle',
+        loadChildren: (): Promise<unknown> =>
+          import('./how-to-work/codestyle/codestyle.module').then(i => i.CodestyleModule),
+        data: {
+          title: 'CodeStyle',
+        },
+      },
+      {
+        path: '**',
+        redirectTo: 'for-developers',
+      },
+    ],
+  },
+  //For ZIIoT
+  {
+    path: 'forZIIoT',
+    children: [
+      {
+        path: 'introduction',
+        loadChildren: (): Promise<unknown> =>
+          import('./forZIIoT/introduction/introduction.module').then(i => i.IntroductionModule),
+        data: {
+          title: 'Introduction',
+        },
+      },
+      {
+        path: 'library-requirements',
+        loadChildren: (): Promise<unknown> =>
+          import('./forZIIoT/library-requirements/library-requirements.module').then(
+            i => i.LibraryRequirementsModule
+          ),
+        data: {
+          title: 'Library requirements',
+        },
+      },
+      {
+        path: 'migration',
+        loadChildren: (): Promise<unknown> =>
+          import('./forZIIoT/migration/migration.module').then(i => i.MigrationModule),
+        data: {
+          title: 'Migration',
         },
       },
     ],
@@ -70,30 +200,6 @@ export const ROUTES: Routes = [
       },
     ],
   },
-  //How to start
-  {
-    path: 'how-to-start',
-    children: [
-      {
-        path: 'for-developers',
-        component: GettingStartedComponent,
-        data: {
-          title: 'For developers',
-        },
-      },
-      {
-        path: 'migration',
-        component: MigrationComponent,
-        data: {
-          title: 'Migration',
-        },
-      },
-      {
-        path: '**',
-        redirectTo: 'for-developers',
-      },
-    ],
-  },
   // DOC
   {
     path: 'generate-example',
@@ -101,22 +207,6 @@ export const ROUTES: Routes = [
       import('./documentation/generate-example/generate-example.module').then(i => i.GenerateExampleModule),
     data: {
       title: 'Generate example',
-    },
-  },
-  {
-    path: 'contributing',
-    loadChildren: (): Promise<unknown> =>
-      import('./documentation/contributing/contributing.module').then(i => i.ContributingModule),
-    data: {
-      title: 'Contributing',
-    },
-  },
-  {
-    path: 'codestyle',
-    loadChildren: (): Promise<unknown> =>
-      import('./documentation/codestyle/codestyle.module').then(i => i.CodestyleModule),
-    data: {
-      title: 'CodeStyle',
     },
   },
   // COMPONENTS
@@ -800,7 +890,7 @@ export const ROUTES: Routes = [
       title: 'File upload',
     },
   },
-  { path: '**', redirectTo: 'how-to-start/' },
+  { path: '**', redirectTo: 'how-to-work/' },
 ];
 
 @NgModule({
