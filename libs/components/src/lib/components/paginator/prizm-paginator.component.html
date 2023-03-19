@@ -103,7 +103,7 @@
         class="show-more"
         [disabled]="disabled || showMoreDisabled"
         (click)="increase()"
-        [class.show-more_disabled]="disabled"
+        [class.show-more_disabled]="disabled || showMoreDisabled"
       >
         {{ moreButtonLabel }}
       </button>
