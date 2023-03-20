@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 export function prizmAutoEmit<T>(
   options: {
     defaultValue?: T;
-    name?: string;
+    name?: string | symbol;
   } = {}
 ): PropertyDecorator {
   return (target: any, key): void => {

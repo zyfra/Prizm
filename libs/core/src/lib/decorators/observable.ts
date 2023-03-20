@@ -3,7 +3,7 @@ export function prizmObservable<T>(
   options: {
     defaultValue?: T;
     prefix?: string;
-    name?: string;
+    name?: string | symbol;
   } = {}
 ): PropertyDecorator {
   return (target: any, key): void => {
