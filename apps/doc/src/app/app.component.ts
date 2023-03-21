@@ -1,11 +1,14 @@
-import { AfterViewInit, Component, HostBinding, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, HostBinding, Inject, ViewChild } from '@angular/core';
 import { PrizmToastService } from '@prizm-ui/components';
 import { PrizmThemeService } from '@prizm-ui/theme';
-import { map, takeUntil, tap } from 'rxjs/operators';
+import { debounce, debounceTime, distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
 import { TuiBrightness } from '@taiga-ui/core';
-import { PrizmDocHostElementListenerService } from '@prizm-ui/doc';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PRIZM_DOC_TITLE, PrizmDocHostElementListenerService } from '@prizm-ui/doc';
+import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
 import { PRIZM_LOG_LEVEL, prizmAssert } from '@prizm-ui/core';
+import { ActivationEnd, NavigationEnd, Router } from '@angular/router';
+import { RouterEvent } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
 
 /**
  * Show all assert logg as warning
@@ -35,9 +38,32 @@ export class AppComponent implements AfterViewInit {
     private readonly themeSwitcher: PrizmThemeService,
     private readonly prizmDocHostElementListenerService: PrizmDocHostElementListenerService,
     private readonly destroy$: PrizmDestroyService,
-    private readonly toastService: PrizmToastService
+    public readonly router: Router,
+    private readonly toastService: PrizmToastService,
+    @Inject(DOCUMENT) private readonly documentRef: Document,
+    @Inject(PRIZM_DOC_TITLE) private readonly docTitle: string
   ) {
     this.themeSwitcher.rootElement = null;
+    this.initPageTitleSetter();
+  }
+
+  private initPageTitleSetter(): void {
+    this.router.events
+      .pipe(
+        filter((e): e is ActivationEnd => {
+          return e instanceof ActivationEnd;
+        }),
+        map(i => i.snapshot?.data.title),
+        filterTruthy(),
+        distinctUntilChanged(),
+        debounceTime(0),
+        tap(title => {
+          const pageTitle = [this.docTitle, title].join(' ');
+          this.documentRef.title = pageTitle;
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   public ngAfterViewInit(): void {
@@ -45,7 +71,6 @@ export class AppComponent implements AfterViewInit {
 
     this.prizmDocHostElementListenerService.event$
       .pipe(
-        takeUntil(this.destroy$),
         tap(event => {
           this.toastService.create(
             `
@@ -60,7 +85,8 @@ export class AppComponent implements AfterViewInit {
               title: `Element: ${event.key} Selector:${event.page.header}`,
             }
           );
-        })
+        }),
+        takeUntil(this.destroy$)
       )
       .subscribe();
 

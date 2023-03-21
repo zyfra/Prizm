@@ -83,11 +83,6 @@ export const APP_PROVIDERS = [
       return sortDocPages(pages);
     },
   },
-
-  {
-    provide: PRIZM_DOC_TITLE,
-    useValue: TITLE_PREFIX,
-  },
   {
     provide: PRIZM_DOC_DEFAULT_TABS,
     useValue: DEFAULT_TABS,
