@@ -664,6 +664,22 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'tools/observable',
+    loadChildren: (): Promise<unknown> =>
+      import('./tools/observable/observable.module').then(i => i.ObservableModule),
+    data: {
+      title: 'Observable',
+    },
+  },
+  {
+    path: 'tools/auto-emit',
+    loadChildren: (): Promise<unknown> =>
+      import('./tools/auto-emit/auto-emit.module').then(i => i.AutoEmitModule),
+    data: {
+      title: 'Auto Emit',
+    },
+  },
+  {
     path: 'tools/theme-service',
     loadChildren: (): Promise<unknown> =>
       import('./tools/theme-service/theme.module').then(i => i.ThemeModule),

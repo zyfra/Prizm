@@ -599,6 +599,18 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.tools,
+    title: 'Observable',
+    keywords: 'observable, subject, decorator, декоратор, слушатель',
+    route: '/tools/observable',
+  },
+  {
+    section: SectionNameEnum.tools,
+    title: 'Auto Emit',
+    keywords: 'auto-emit, observable, subject, decorator, декоратор, слушатель',
+    route: '/tools/auto-emit',
+  },
+  {
+    section: SectionNameEnum.tools,
     title: 'Polymorph',
     keywords: 'polymorh, полиморф, template, шаблон',
     route: '/tools/polymorph',

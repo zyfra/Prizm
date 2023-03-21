@@ -1,30 +1,47 @@
-import { BehaviorSubject } from 'rxjs';
+import { AsyncSubject, BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 export function prizmObservable<T>(
   options: {
     defaultValue?: T;
-    prefix?: string;
+    postfix?: string;
+    /**
+     * default name it is `${name}$$`
+     * */
     name?: string | symbol;
+    subject?: BehaviorSubject<T> | ReplaySubject<T> | AsyncSubject<T> | Subject<T>;
+    attributes?: PropertyDescriptor;
   } = {}
 ): PropertyDecorator {
   return (target: any, key): void => {
-    const prefix = options.prefix ?? 'prizm_';
+    const postfix = options.postfix ?? '$$';
     const defaultValue = options.defaultValue ?? null;
+    const subject = options.subject ?? new ReplaySubject(1);
     const memberName = key as string;
-    const hiddenPropertyName = options.name ?? `${prefix}${memberName}`;
+    let lastValue: T;
+    const hiddenPropertyName = options.name ?? `${memberName}${postfix}`;
+    function createBaseProperty(obj: unknown): void {
+      Object.defineProperty(obj, hiddenPropertyName, {
+        ...{ enumerable: false },
+        ...(options?.attributes ?? {}),
+        value: subject,
+      });
+    }
+
     Object.defineProperty(target, memberName, {
       set(newValue: T) {
-        const value = newValue ?? defaultValue;
-        const method = this[hiddenPropertyName] as BehaviorSubject<T>;
-        if (!(method instanceof BehaviorSubject)) {
-          this[hiddenPropertyName] = new BehaviorSubject(value);
+        const value = (lastValue = newValue ?? defaultValue);
+        const method = this[hiddenPropertyName] as Subject<T>;
+        if (!method?.next) {
+          createBaseProperty(this);
+          this[hiddenPropertyName].next(value);
         } else method.next(value);
       },
       get() {
-        let method = this[hiddenPropertyName] as BehaviorSubject<T>;
-        if (!(method instanceof BehaviorSubject)) {
-          this[hiddenPropertyName] = method = new BehaviorSubject(defaultValue);
+        const method = this[hiddenPropertyName] as Subject<T>;
+        if (!method?.next) {
+          createBaseProperty(this);
+          subject.next((lastValue = defaultValue));
         }
-        return method.value;
+        return lastValue;
       },
     });
   };

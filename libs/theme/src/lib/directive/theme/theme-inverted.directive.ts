@@ -6,6 +6,8 @@ import { PrizmTheme } from '../../types/theme';
 import { prizmObservable } from '@prizm-ui/core';
 import { combineLatest, Observable } from 'rxjs';
 
+const a = Symbol('dd');
+
 @Directive({
   selector: '[prizmThemeInverted]',
   providers: [PrizmDestroyService],
@@ -22,6 +24,8 @@ export class PrizmThemeInvertedDirective implements OnInit {
     dark: 'light',
     light: 'dark',
   };
+
+  a = true;
 
   @Input()
   @prizmObservable({
