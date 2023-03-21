@@ -1,13 +1,12 @@
 import { AfterViewInit, Component, HostBinding, Inject, ViewChild } from '@angular/core';
 import { PrizmToastService } from '@prizm-ui/components';
 import { PrizmThemeService } from '@prizm-ui/theme';
-import { debounce, debounceTime, distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
 import { TuiBrightness } from '@taiga-ui/core';
 import { PRIZM_DOC_TITLE, PrizmDocHostElementListenerService } from '@prizm-ui/doc';
 import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
 import { PRIZM_LOG_LEVEL, prizmAssert } from '@prizm-ui/core';
-import { ActivationEnd, NavigationEnd, Router } from '@angular/router';
-import { RouterEvent } from '@angular/router';
+import { ActivationEnd, Router } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 
 /**
