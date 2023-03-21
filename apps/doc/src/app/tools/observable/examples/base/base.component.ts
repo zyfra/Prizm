@@ -55,7 +55,7 @@ export class PrizmObservableBaseExampleComponent {
     return this[symbol];
   }
 
-  public plus() {
+  public plus(): void {
     this.test5++;
     this.test4++;
     this.test3++;
