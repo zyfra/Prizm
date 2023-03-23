@@ -223,7 +223,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   public clear(): void {
     if (this.disabled) return;
 
-    this.ngControl?.reset();
+    this.ngControl?.valueAccessor.writeValue('');
     this.touched = true;
 
     this._inputValue.value = '';
