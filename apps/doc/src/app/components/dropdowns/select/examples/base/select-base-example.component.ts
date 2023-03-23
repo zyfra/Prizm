@@ -23,6 +23,6 @@ export class PrizmSelectBaseExampleComponent {
   readonly control = new FormControl(this.items[1]);
 
   public setDefaultValue(): void {
-    this.control.setValue(this.items[0]);
+    this.control.setValue(this.items[0], { emitEvent: false });
   }
 }

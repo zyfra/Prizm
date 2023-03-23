@@ -14,7 +14,7 @@ export function prizmObservable<T>(
   return (target: any, key): void => {
     const postfix = options.postfix ?? '$$';
     const defaultValue = options.defaultValue ?? null;
-    const subject = options.subject ?? new ReplaySubject(1);
+    const subject = options.subject ?? new Subject();
     const memberName = key as string;
     let lastValue: T;
     const hiddenPropertyName = options.name ?? `${memberName}${postfix}`;
@@ -29,11 +29,14 @@ export function prizmObservable<T>(
     Object.defineProperty(target, memberName, {
       set(newValue: T) {
         const value = (lastValue = newValue ?? defaultValue);
-        const method = this[hiddenPropertyName] as Subject<T>;
+
+        let method = this[hiddenPropertyName] as Subject<T>;
         if (!method?.next) {
           createBaseProperty(this);
-          this[hiddenPropertyName].next(value);
-        } else method.next(value);
+          method = this[hiddenPropertyName];
+        }
+
+        method.next(value);
       },
       get() {
         const method = this[hiddenPropertyName] as Subject<T>;

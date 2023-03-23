@@ -122,8 +122,8 @@ export class PrizmHintDirective<
     if (this.overlay) this.overlay.close();
   }
 
-  public toggle(add: boolean): void {
-    if (add) {
+  public toggle(open: boolean): void {
+    if (open) {
       this.open();
     } else {
       this.close();

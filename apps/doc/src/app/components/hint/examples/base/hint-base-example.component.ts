@@ -12,4 +12,9 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class PrizmHintBaseExampleComponent {}
+export class PrizmHintBaseExampleComponent {
+  get hintText() {
+    return `Кол-во: ${this.amount}`;
+  }
+  amount = 0;
+}
