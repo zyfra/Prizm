@@ -24,54 +24,41 @@
   <ng-template prizmDocPageTab>
     <prizm-doc-demo>
       <prizm-splitter #element [ngStyle]="{ height: '400px' }" [orientation]="orientation">
-        <prizm-splitter-area [size]="area1Size" #area1>
-          <div class="area area--1">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
-            provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
-            nulla recusandae impedit beatae. Nemo doloremque inventore harum, pariatur dignissimos molestias
-            id? Sint quisquam hic officiis commodi pariatur quod iure recusandae molestias, corporis nam in
-            voluptates excepturi omnis saepe suscipit nihil at quos officia fuga rem quaerat ratione nesciunt
-            qui! Corporis quisquam esse eligendi at nam voluptatibus, enim molestias omnis? Sunt voluptatibus
-            laborum quia id consequuntur, in delectus repellat impedit suscipit saepe facilis facere libero
-            rem voluptatem neque officiis, nihil dolorum quisquam aperiam blanditiis.
-          </div>
+        <prizm-splitter-area [size]="area1Size" #area1 *ngIf="showArea1" [minSize]="10">
+          <div class="area area--1">area1</div>
         </prizm-splitter-area>
 
-        <prizm-splitter-gutter [areaBefore]="area1" [areaAfter]="area2">
+        <prizm-splitter-gutter *ngIf="showArea1 && showArea2" [zIndex]="2">
           <prizm-splitter-gutter-default></prizm-splitter-gutter-default>
         </prizm-splitter-gutter>
-        <prizm-splitter-area [size]="area2Size" [minSize]="20" #area2>
-          <div class="area area--2">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
-            provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
-            nulla recusandae impedit beatae. Nemo doloremque inventore harum, pariatur dignissimos molestias
-            id? Sint quisquam hic officiis commodi pariatur quod iure recusandae molestias, corporis nam in
-            voluptates excepturi omnis saepe suscipit nihil at quos officia fuga rem quaerat ratione nesciunt
-            qui! Corporis quisquam esse eligendi at nam voluptatibus, enim molestias omnis? Sunt voluptatibus
-            laborum quia id consequuntur, in delectus repellat impedit suscipit saepe facilis facere libero
-            rem voluptatem neque officiis, nihil dolorum quisquam aperiam blanditiis.
-          </div>
+
+        <prizm-splitter-area [size]="area2Size" [minSize]="20" #area2 *ngIf="showArea2">
+          <div class="area area--2">area2</div>
         </prizm-splitter-area>
-        <prizm-splitter-gutter [areaAfter]="area3">
-          <div prizmSplitterGutter style="width: 8px; background-color: red">22</div>
+
+        <prizm-splitter-gutter *ngIf="showArea2 && showArea3">
+          <div prizmSplitterGutter style="width: 8px; background-color: yellow"></div>
         </prizm-splitter-gutter>
 
-        <prizm-splitter-area [size]="area3Size" #area3>
-          <div class="area area--3">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
-            provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
-            nulla recusandae impedit beatae. Nemo doloremque inventore harum, pariatur dignissimos molestias
-            id? Sint quisquam hic officiis commodi pariatur quod iure recusandae molestias, corporis nam in
-            voluptates excepturi omnis saepe suscipit nihil at quos officia fuga rem quaerat ratione nesciunt
-            qui! Corporis quisquam esse eligendi at nam voluptatibus, enim molestias omnis? Sunt voluptatibus
-            laborum quia id consequuntur, in delectus repellat impedit suscipit saepe facilis facere libero
-            rem voluptatem neque officiis, nihil dolorum quisquam aperiam blanditiis.
-          </div>
+        <prizm-splitter-area [size]="area3Size" [minSize]="30" *ngIf="showArea3">
+          <div class="area area--3">area3</div>
         </prizm-splitter-area>
       </prizm-splitter>
 
       <br />
-      <div><button (click)="change()">Change</button> <button (click)="change2()">Change2</button></div>
+      <div>
+        <button (click)="change()">Change</button>
+        <button (click)="change2()">Change2</button>
+        <button (click)="change3()">Change3</button>
+      </div>
+
+      <div>
+        <button (click)="change4()">Change4</button>
+        <button (click)="change5()">Change5</button>
+        <button (click)="runCD()">run CD</button>
+      </div>
+
+      <div>{{ test() }}</div>
     </prizm-doc-demo>
     <!-- <prizm-doc-documentation>
       <ng-template

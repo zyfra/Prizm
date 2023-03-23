@@ -12,25 +12,51 @@ export class PrizmSplitterExampleComponent {
   public orientationVariants: Array<PrizmSplitterOrientation> = ['horizontal', 'vertical'];
   public orientation: PrizmSplitterOrientation = 'horizontal';
 
-  area1Size = '30%';
-  area2Size = '40%';
-  area3Size = '30%';
+  area1Size = 30;
+  area2Size = 40;
+  area3Size = 30;
 
   showArea1 = true;
   showArea2 = true;
   showArea3 = true;
 
   public change(): void {
-    this.area1Size = '40%';
-    this.area2Size = '40%';
-    this.area3Size = '20%';
+    this.showArea1 = true;
+    this.showArea2 = true;
+    this.showArea3 = true;
+    this.area1Size = 40;
+    this.area2Size = 40;
+    this.area3Size = 20;
   }
 
   public change2(): void {
-    this.area1Size = '50%';
-    this.area2Size = null;
-    this.area3Size = '50%';
+    this.showArea1 = true;
+    this.showArea2 = true;
+    this.showArea3 = true;
+    this.area2Size = 10;
   }
+
+  public change3(): void {
+    this.showArea1 = false;
+    this.area2Size = 50;
+    this.area3Size = 50;
+  }
+
+  public change4(): void {
+    this.showArea1 = false;
+    this.showArea2 = false;
+    this.showArea3 = false;
+  }
+
+  public change5(): void {
+    this.showArea1 = true;
+    this.showArea2 = true;
+    this.showArea3 = true;
+  }
+
+  runCD() {}
+
+  test() {}
 
   readonly basic: TuiDocExample = {
     TypeScript: import('./examples/basic/basic.component?raw'),
