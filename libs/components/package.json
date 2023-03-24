@@ -19,6 +19,7 @@
     "@ng-web-apis/mutation-observer": "2.0.0",
     "@prizm-ui/helpers": "^1.0.0-beta.26",
     "@prizm-ui/core": "^1.0.0-beta.26",
+    "@prizm-ui/i18n": "^1.0.0-beta.26",
     "@prizm-ui/theme": "^1.0.0-beta.26"
   },
   "dependencies": {

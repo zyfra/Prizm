@@ -81,6 +81,13 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.howToWork,
+    title: `Интернационализация`,
+    keywords: 'интернационализация, internationalization, мультиязычность, language, языки, multi, i18n',
+    route: 'how-to-work/internationalization',
+    order: 7,
+  },
+  {
+    section: SectionNameEnum.howToWork,
     title: `Как перейти`,
     keywords: 'переход, как, transition, how',
     route: 'how-to-work/transition',
@@ -596,6 +603,12 @@ export const pages: PrizmOrderedDocPage = [
     title: 'Overlay',
     keywords: 'overlay, оверлей, modal, модальное',
     route: '/tools/overlay',
+  },
+  {
+    section: SectionNameEnum.tools,
+    title: 'To Observable',
+    keywords: 'to-observable, pipec',
+    route: '/tools/to-observable',
   },
   {
     section: SectionNameEnum.tools,

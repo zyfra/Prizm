@@ -86,6 +86,16 @@ export const ROUTES: Routes = [
     path: 'how-to-work',
     children: [
       {
+        path: 'internationalization',
+        loadChildren: (): Promise<unknown> =>
+          import('./how-to-work/internationalization/internationalization.module').then(
+            i => i.InternationalizationModule
+          ),
+        data: {
+          title: 'Internationalization',
+        },
+      },
+      {
         path: 'for-developers',
         loadChildren: (): Promise<unknown> =>
           import('./how-to-work/for-developers/for-developers.module').then(i => i.ForDevelopersModule),
@@ -661,6 +671,14 @@ export const ROUTES: Routes = [
     loadChildren: (): Promise<unknown> => import('./tools/overlay/overlay.module').then(i => i.OverlayModule),
     data: {
       title: 'Overlay',
+    },
+  },
+  {
+    path: 'tools/to-observable',
+    loadChildren: (): Promise<unknown> =>
+      import('./tools/to-observable/to-observable.module').then(i => i.ToObservableModule),
+    data: {
+      title: 'To Observable',
     },
   },
   {

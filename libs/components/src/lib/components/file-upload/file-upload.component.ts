@@ -21,6 +21,9 @@ import {
   PrizmFileUploadOptions,
   PRIZM_FILEUPLOAD_OPTIONS,
 } from './file-upload-options';
+import { PRIZM_FILE_UPLOAD } from '../../tokens';
+import { Observable } from 'rxjs';
+import { PrizmLanguageFileUpload } from '@prizm-ui/i18n';
 
 @Component({
   selector: 'prizm-file-upload',
@@ -36,6 +39,7 @@ export class PrizmFileUploadComponent implements AfterViewInit, OnDestroy {
   constructor(
     public sanitizer: DomSanitizer,
     private renderer: Renderer2,
+    @Inject(PRIZM_FILE_UPLOAD) public readonly fileUpload$: Observable<PrizmLanguageFileUpload['fileUpload']>,
     @Optional() @Inject(PRIZM_FILEUPLOAD_OPTIONS) customOptions: PrizmFileUploadOptions
   ) {
     this.options = { ...this.options, ...customOptions };

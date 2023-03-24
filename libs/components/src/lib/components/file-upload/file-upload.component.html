@@ -8,8 +8,12 @@
 />
 
 <div class="dropzone" #dropzone (drop)="onDrop($event)">
-  <div class="dropzone__title">Загрузка файлов</div>
-  <div class="dropzone__description">Выберите файл или перетащите его в эту область</div>
+  <div class="dropzone__title">
+    {{ fileUpload$ | async | prizmPluck : ['dropzone__title'] }}
+  </div>
+  <div class="dropzone__description">
+    {{ fileUpload$ | async | prizmPluck : ['dropzone__description'] }}
+  </div>
   <div class="dropzone__user-content">
     <ng-content></ng-content>
   </div>

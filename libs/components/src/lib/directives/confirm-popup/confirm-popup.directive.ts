@@ -1,6 +1,6 @@
 /* eslint-disable @angular-eslint/no-input-rename */
 import { Directive, EventEmitter, forwardRef, HostListener, Input, Output } from '@angular/core';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
 import { PrizmConfirmPopupContainerComponent } from './confirm-popup-container.component';
 import {
   PRIZM_CONFIRM_POPUP_OPTIONS,
@@ -10,7 +10,6 @@ import {
 } from './confirm-popup-options';
 import { prizmDefaultProp, prizmRequiredSetter } from '@prizm-ui/core';
 import { PolymorphContent } from '../polymorph';
-import { prizmGenerateId } from '../../util';
 import {
   PrizmConfirmDialogButton,
   PrizmConfirmDialogResultDefaultType,
