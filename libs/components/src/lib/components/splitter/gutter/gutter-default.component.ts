@@ -1,25 +1,17 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 import { PrizmSplitterComponent } from '../splitter.component';
 import { PrizmSplitterOrientation } from '../types';
 
 @Component({
   selector: 'prizm-splitter-gutter-default',
-  template: `<div
-    class="slider"
-    #slider
-    [ngStyle]="{
-      width: splitterOrientation === 'horizontal' ? size + 'px' : 'auto',
-      height: splitterOrientation === 'vertical' ? size + 'px' : 'auto'
-    }"
-  ></div>`,
+  template: `<div class="slider" #slider></div>`,
   styleUrls: [`./gutter-default.component.less`],
+  host: {
+    '[class]': 'orientation',
+  },
 })
 export class PrizmSplitterGutterDefaultComponent {
-  @Input() size = 8;
+  @Input() orientation: PrizmSplitterOrientation;
 
   constructor(private splitter: PrizmSplitterComponent) {}
-
-  get splitterOrientation(): PrizmSplitterOrientation {
-    return this.splitter.orientation;
-  }
 }

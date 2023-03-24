@@ -31,8 +31,6 @@ import { PrizmSplitterGutterComponent } from './gutter/gutter.component';
 import { PrizmSplitterAreaComponent } from './area/area.component';
 import { PrizmSplitterElement } from './splitter-element.class';
 
-type areaWithInitialSize = { area: PrizmSplitterAreaComponent; initialSize: number | null };
-
 @Component({
   selector: 'prizm-splitter',
   templateUrl: './splitter.component.html',
@@ -110,8 +108,9 @@ export class PrizmSplitterComponent implements AfterViewInit, AfterContentInit, 
 
                   const areasBefore: Array<PrizmSplitterAreaComponent> = [];
                   const areasAfter: Array<PrizmSplitterAreaComponent> = [];
-                  gutter.position = event.clientX;
+                  gutter.position = this.isHorizontal ? event.clientX : event.clientY;
 
+                  console.log('GP', gutter.position);
                   let gutterFind = false;
 
                   for (const splitterElement of elementsArray) {
@@ -125,7 +124,7 @@ export class PrizmSplitterComponent implements AfterViewInit, AfterContentInit, 
                     }
 
                     if (!gutterFind) {
-                      areasBefore.push(splitterElement);
+                      areasBefore.unshift(splitterElement);
                     } else {
                       areasAfter.push(splitterElement);
                     }
@@ -135,29 +134,32 @@ export class PrizmSplitterComponent implements AfterViewInit, AfterContentInit, 
 
                   return fromEvent<PointerEvent>(elem, 'pointermove').pipe(
                     map(event => ({ gutter, event, areasBefore, areasAfter })),
-                    takeUntil(fromEvent(elem, 'pointerup').pipe(tap(() => console.log('end'))))
+                    takeUntil(fromEvent(elem, 'pointerup'))
                   );
                 })
               );
             })
           )
-        )
+        ),
+        takeUntil(this.destroy$)
       )
       .subscribe(({ gutter, event, areasBefore, areasAfter }) => {
-        const diff = gutter.position - event.clientX;
+        console.log(areasBefore.map(area => area.id));
+        const diff = gutter.position - (this.isHorizontal ? event.clientX : event.clientY);
 
         const offsetInPercent = Math.abs(diff / this.containerSize) * 100;
 
+        console.log(diff);
         if (diff < 0) {
           const shrinked = this.shrinkAreas(areasAfter, offsetInPercent);
-          areasBefore[areasBefore.length - 1].size += shrinked;
+          areasBefore[0].size += shrinked;
         } else if (diff > 0) {
           //left
-          const shrinked = this.shrinkAreas([...areasBefore].reverse(), offsetInPercent);
+          const shrinked = this.shrinkAreas(areasBefore, offsetInPercent);
           areasAfter[0].size += shrinked;
         }
 
-        gutter.position = event.clientX;
+        gutter.position = this.isHorizontal ? event.clientX : event.clientY;
         this.runAreasCD();
       });
   }

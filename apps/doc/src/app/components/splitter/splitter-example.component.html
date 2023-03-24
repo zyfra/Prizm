@@ -24,23 +24,23 @@
   <ng-template prizmDocPageTab>
     <prizm-doc-demo>
       <prizm-splitter #element [ngStyle]="{ height: '400px' }" [orientation]="orientation">
-        <prizm-splitter-area [size]="area1Size" #area1 *ngIf="showArea1" [minSize]="10">
+        <prizm-splitter-area [size]="area1Size" #area1 *ngIf="showArea1">
           <div class="area area--1">area1</div>
         </prizm-splitter-area>
 
         <prizm-splitter-gutter *ngIf="showArea1 && showArea2" [zIndex]="2">
-          <prizm-splitter-gutter-default></prizm-splitter-gutter-default>
+          <prizm-splitter-gutter-default [orientation]="orientation"></prizm-splitter-gutter-default>
         </prizm-splitter-gutter>
 
-        <prizm-splitter-area [size]="area2Size" [minSize]="20" #area2 *ngIf="showArea2">
+        <prizm-splitter-area [size]="area2Size" #area2 *ngIf="showArea2">
           <div class="area area--2">area2</div>
         </prizm-splitter-area>
 
         <prizm-splitter-gutter *ngIf="showArea2 && showArea3">
-          <div prizmSplitterGutter style="width: 8px; background-color: yellow"></div>
+          <prizm-splitter-gutter-default [orientation]="orientation"></prizm-splitter-gutter-default>
         </prizm-splitter-gutter>
 
-        <prizm-splitter-area [size]="area3Size" [minSize]="30" *ngIf="showArea3">
+        <prizm-splitter-area [size]="area3Size" *ngIf="showArea3">
           <div class="area area--3">area3</div>
         </prizm-splitter-area>
       </prizm-splitter>
