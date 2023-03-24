@@ -21,13 +21,12 @@ import {
 } from '../../../modules/overlay';
 import { PolymorphContent, PrizmDropdownZoneDirective } from '../../../directives';
 import { debounceTime, delay, filter, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
 import { BehaviorSubject, combineLatest, Observable, Subject, timer } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PRIZM_DROPDOWN_HOST_OPTIONS, PrizmDropdownHostOptions } from './dropdown-host.options';
 import { PrizmDropdownHostContext, PrizmDropdownHostCustomContext, PrizmDropdownHostWidth } from './models';
-import { prizmGenerateId } from '../../../util';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
 
 const PRIZM_DROPDOWN_TIME_DIFFERENCE = 1000 / 60;

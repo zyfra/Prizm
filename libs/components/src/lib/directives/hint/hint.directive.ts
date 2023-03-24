@@ -10,7 +10,7 @@ import {
   Renderer2,
   Type,
 } from '@angular/core';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
 import { prizmDefaultProp, prizmRequiredSetter } from '@prizm-ui/core';
 import { PolymorphContent } from '../index';
 import { PRIZM_HINT_OPTIONS, PrizmHintContext, PrizmHintOptions } from './hint-options';
@@ -24,7 +24,6 @@ import { PrizmHoveredService } from '../../services';
 import { delay, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmHintContainerComponent } from './hint-container.component';
 import { PrizmHintService } from './hint.service';
-import { prizmGenerateId } from '../../util';
 
 export const HINT_HOVERED_CLASS = '_hint_hovered';
 
@@ -122,8 +121,8 @@ export class PrizmHintDirective<
     if (this.overlay) this.overlay.close();
   }
 
-  public toggle(add: boolean): void {
-    if (add) {
+  public toggle(open: boolean): void {
+    if (open) {
       this.open();
     } else {
       this.close();

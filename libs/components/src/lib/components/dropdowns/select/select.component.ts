@@ -218,7 +218,7 @@ export class PrizmSelectComponent<T>
   }
 
   private initControlValueChangerIfExist(): void {
-    concat(timer(0).pipe(map(() => this.control?.value)), this.control?.valueChanges)
+    concat(timer(0).pipe(map(() => this.control?.value)), this.internalValue$.pipe(debounceTime(0)))
       .pipe(
         distinctUntilChanged(),
         tap(value => {
@@ -250,7 +250,9 @@ export class PrizmSelectComponent<T>
   }
 
   public select(item: T): void {
-    this.updateValue(item);
+    if (!this.identityMatcher(item, this.value)) {
+      this.updateValue(item);
+    }
     this.requiredInputControl.setValue(item && this.stringify(item));
     this.open = false;
   }

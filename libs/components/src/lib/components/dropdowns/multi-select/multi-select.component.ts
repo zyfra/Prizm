@@ -155,7 +155,7 @@ export class PrizmMultiSelectComponent<T>
     switchMap(() =>
       combineLatest([
         this.searchInputControl.valueChanges.pipe(startWith('')),
-        this.valChange.pipe(startWith(this.value)),
+        this.internalValue$.pipe(debounceTime(0), startWith(this.value)),
       ])
     ),
     switchMap(([searchValue, selectedItems]: [string, T[]]) => {
@@ -195,21 +195,23 @@ export class PrizmMultiSelectComponent<T>
     })
   );
 
-  readonly selectedItems$: Observable<T[]> = this.valChange.pipe(delay(0), startWith(this.value)).pipe(
-    switchMap(() => {
-      const selectedItems = this.value;
-      return this.items$.pipe(
-        map(items => {
-          return (
-            items?.filter(item =>
-              (selectedItems ?? []).find(selectedItem => this.identityMatcher(selectedItem, item))
-            ) ?? []
-          );
-        })
-      );
-    }),
-    shareReplay(1)
-  );
+  readonly selectedItems$: Observable<T[]> = this.internalValue$
+    .pipe(debounceTime(0), startWith(this.value))
+    .pipe(
+      switchMap(() => {
+        const selectedItems = this.value;
+        return this.items$.pipe(
+          map(items => {
+            return (
+              items?.filter(item =>
+                (selectedItems ?? []).find(selectedItem => this.identityMatcher(selectedItem, item))
+              ) ?? []
+            );
+          })
+        );
+      }),
+      shareReplay(1)
+    );
 
   readonly chipsSet = new Map<string, T>();
   readonly selectedItemsChips$: Observable<string[]> = this.selectedItems$.pipe(

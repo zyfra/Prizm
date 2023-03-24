@@ -6,7 +6,7 @@ import { PrizmLanguage } from '../interfaces';
 import { PRIZM_LANGUAGE } from './language';
 
 export function prizmExtractI18n<K extends keyof PrizmLanguage>(key: K): () => Observable<PrizmLanguage[K]> {
-  return (): any =>
+  return (): Observable<PrizmLanguage[K]> =>
     inject(PRIZM_LANGUAGE).pipe(
       switchMap((streamOrValue: Observable<PrizmLanguage> | PrizmLanguage) =>
         isObservable(streamOrValue) ? streamOrValue : of(streamOrValue)

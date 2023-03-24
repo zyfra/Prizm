@@ -28,7 +28,8 @@ export abstract class AbstractPrizmControl<T>
   implements OnDestroy, OnInit, OnChanges, ControlValueAccessor
 {
   private previousInternalValue?: T | null;
-
+  private readonly internalValue$$ = new Subject<T | null>();
+  public readonly internalValue$ = this.internalValue$$.asObservable();
   private onTouched = PRIZM_EMPTY_FUNCTION;
 
   private onChange = PRIZM_EMPTY_FUNCTION;
@@ -262,6 +263,7 @@ export abstract class AbstractPrizmControl<T>
 
   private refreshLocalValue(value: T | null): void {
     this.previousInternalValue = value;
+    this.internalValue$$.next(value);
     this.checkControlUpdate();
   }
 

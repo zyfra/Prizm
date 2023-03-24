@@ -50,6 +50,7 @@ jobs:
       #      - run: npx nx affected:build --all --prod --parallel --max-parallel=3
       - run: cd dist/libs/deprecated && npm publish --verbose || exit_code=0
       - run: cd dist/libs/components && npm publish --verbose || exit_code=0
+      - run: cd dist/libs/i18n && npm publish --verbose || exit_code=0
       - run: cd dist/libs/helpers && npm publish --verbose || exit_code=0
       - run: cd dist/libs/core && npm publish --verbose || exit_code=0
       #      - run: cd dist/libs/schematics && npm publish --verbose || exit_code=0

@@ -7,6 +7,9 @@
         <th prizmTh>Наименование</th>
         <th prizmTh>Категория</th>
         <th prizmTh>Количество</th>
+        <th prizmTh>Наименование 2</th>
+        <th prizmTh>Категория 2</th>
+        <th prizmTh>Количество 2</th>
       </tr>
     </thead>
 
@@ -14,6 +17,9 @@
       <ng-container *prizmRow="let item of products; let i = index">
         <tr prizmTr>
           <td class="format__number" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
+          <td prizmTd>{{ item.name }}</td>
+          <td prizmTd>{{ item.category }}</td>
+          <td class="format__number" prizmTd>{{ item.count | spaceNumber : '0.0-0' }}</td>
           <td prizmTd>{{ item.name }}</td>
           <td prizmTd>{{ item.category }}</td>
           <td class="format__number" prizmTd>{{ item.count | spaceNumber : '0.0-0' }}</td>

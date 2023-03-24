@@ -4,6 +4,13 @@ import { PrizmLanguageName } from './language-names';
 // prettier-ignore
 type MONTHS_ARRAY = [string, string, string, string, string, string, string, string, string, string, string, string];
 
+export interface PrizmLanguageFileUpload {
+  fileUpload: {
+    dropzone__title: string;
+    dropzone__description: string;
+  };
+}
+
 export interface PrizmLanguageCore {
   months: MONTHS_ARRAY;
   close: string;
@@ -161,4 +168,5 @@ export interface PrizmLanguage
     PrizmLanguageKit,
     PrizmLanguageEditor,
     PrizmLanguagePreview,
-    PrizmLanguageMeta {}
+    PrizmLanguageMeta,
+    PrizmLanguageFileUpload {}

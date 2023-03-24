@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.27](https://github.com/zyfra/Prizm) (24-03-2023)
+
+### Features
+
+- feat(doc/auto-emit): add new page with auto-emit to tools
+- feat(doc/observable): add new page with observable to tools
+- feat(core/observable): add symbol support and property attributes to prizmObservable decorator [81](https://github.com/zyfra/Prizm/issues/81)
+- feat(core/auto-emit): add symbol support and set dynamic values to prizmAutoEmit decorator
+- feat(theme): update theme v2, add new palete and value for light and dark themes
+- feat(doc/input): add input-layout to api page (components/input)
+- feat(components/input-date-time): add forceClear control input
+- feat(components/input-date-time-range): add forceClear control input [76](https://github.com/zyfra/Prizm/issues/76)
+- feat(components/input-time): add forceClear control input
+- feat(components/input-date): add forceClear control input
+- feat(components/input-month): add forceClear control input
+- feat(components/input-month-range): add forceClear control input
+- feat(components/input-date-range): add forceClear control input
+- feat(components/input-date-relative): add forceClear control input
+- feat(components/sidebar): add dismissible option to close on outside click [98](https://github.com/zyfra/Prizm/issues/98)
+- feat(helpers/to-observable): new to-observable pipe
+- feat(doc/to-observable): new page with to-observable examples
+- feat(i18n): new i18n to library
+- feat(doc/internalization): new page with info how to work with i18n
+- feat(components/file-upload): support i18n to file-upload component (79)[https://github.com/zyfra/Prizm/issues/79]
+
+### BUG FIXES
+
+- fix(doc): set title on change page [72](https://github.com/zyfra/Prizm/issues/72)
+- fix(component/select): emit val change event with same value [91](https://github.com/zyfra/Prizm/issues/91)
+- fix(components/select): update value on emitEvent false [90](https://github.com/zyfra/Prizm/issues/90) [36](https://github.com/zyfra/Prizm/issues/36)
+- fix(components/sidebar): fix scrollbar overflow [97](https://github.com/zyfra/Prizm/issues/97)
+- fix(components/input-date-time): fix time format error [66](https://github.com/zyfra/Prizm/issues/66)
+- fix(components/paginator): fix disabled error [67](https://github.com/zyfra/Prizm/issues/67)
+- fix(components/input): fix input clear behavior [92](https://github.com/zyfra/Prizm/issues/92)
+- fix(doc): fixed paddings and margins for showcase inputText
+
 ## [1.0.0-beta.26](https://github.com/zyfra/Prizm) (17-03-2023)
 
 ### Features

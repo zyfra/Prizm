@@ -13,9 +13,9 @@ import {
 import { PrizmOverlayGlobalPosition } from './position';
 import { PrizmOverlayAbstractPosition } from './position/position';
 import { EventBus, getContent } from './utils';
-import { prizmGenerateId } from '../../util';
 import { PrizmOverlayControl } from './overlay-control';
 import { PrizmOverlayContentToken } from './token';
+import { prizmGenerateId } from '@prizm-ui/helpers';
 
 @Injectable({
   providedIn: 'root',

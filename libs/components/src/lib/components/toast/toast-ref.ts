@@ -4,7 +4,7 @@ import { PrizmToastDefaultOptions } from './toast-options';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PolymorphContent } from '../../directives/polymorph';
 import { PrizmToastService } from './toast.service';
-import { prizmGenerateId } from '../../util';
+import { prizmGenerateId } from '@prizm-ui/helpers';
 
 export class PrizmToastRef {
   private show$ = new ReplaySubject<boolean>(1);

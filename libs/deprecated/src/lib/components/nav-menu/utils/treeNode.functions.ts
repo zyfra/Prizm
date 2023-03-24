@@ -1,6 +1,6 @@
+import { prizmGenerateId } from '@prizm-ui/helpers';
 import { TreeNode } from 'primeng/api';
 import { PrizmMenuItem } from '../model/prizm-menu-item.interface';
-import { prizmGenerateId } from '@prizm-ui/components';
 
 export const flatNodes = (nodes: TreeNode[]): TreeNode[] => {
   return [].concat(...nodes.map(node => (node.children ? flatNodes(node.children) : [node])));

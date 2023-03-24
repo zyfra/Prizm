@@ -56,6 +56,7 @@ export class SidebarComponent {
   public positionVariants: any = ['t', 'b', 'l', 'r'];
   public position: PrizmOverlayInsidePlacement = PrizmOverlayInsidePlacement.LEFT;
   public backdrop = false;
+  public dismissible = false;
   public height = 'auto';
   public width = '500px';
   public closeWord = 'Продолжить';
@@ -90,6 +91,7 @@ export class SidebarComponent {
       .open(this.content, {
         closeable: this.closeable,
         backdrop: this.backdrop,
+        dismissible: this.dismissible,
         header: this.header,
         width: this.width,
         height: this.height,

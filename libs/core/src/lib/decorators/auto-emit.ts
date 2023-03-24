@@ -1,9 +1,15 @@
 import { Subject } from 'rxjs';
 
+export type PrizmAutoEmitCalculate<Val, BaseClass, R = unknown> = (val: Val, value: BaseClass) => R;
+
 export function prizmAutoEmit<T>(
   options: {
     defaultValue?: T;
-    name?: string;
+    /**
+     * default name `${name}Change`
+     * */
+    name?: string | symbol;
+    calculate?: PrizmAutoEmitCalculate<any, any, T>;
   } = {}
 ): PropertyDecorator {
   return (target: any, key): void => {
@@ -24,7 +30,10 @@ export function prizmAutoEmit<T>(
           });
           return;
         }
-        method.next(value);
+        method.next(
+          (typeof options?.calculate === 'function' ? (options?.calculate?.(value, this) as T) : value) ??
+            defaultValue
+        );
       },
       get() {
         return lastValue;
