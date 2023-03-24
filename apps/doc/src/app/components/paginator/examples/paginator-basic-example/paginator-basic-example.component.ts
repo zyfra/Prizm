@@ -6,4 +6,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./paginator-basic-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PaginatorBasicExampleComponent {}
+export class PaginatorBasicExampleComponent {
+  public disabled = false;
+}
