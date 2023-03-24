@@ -48,16 +48,16 @@ jobs:
       - run: npx nx clear-cache
       - run: npx nx affected:build --all --prod --exclude=schematics
       #      - run: npx nx affected:build --all --prod --parallel --max-parallel=3
-      - run: cd dist/libs/deprecated && npm publish --verbose || exit_code=0
-      - run: cd dist/libs/components && npm publish --verbose || exit_code=0
-      - run: cd dist/libs/i18n && npm publish --verbose || exit_code=0
-      - run: cd dist/libs/helpers && npm publish --verbose || exit_code=0
-      - run: cd dist/libs/core && npm publish --verbose || exit_code=0
-      #      - run: cd dist/libs/schematics && npm publish --verbose || exit_code=0
-      - run: cd dist/libs/theme && npm publish --verbose || exit_code=0
-      - run: cd dist/libs/charts && npm publish --verbose || exit_code=0
-      - run: cd dist/libs/icons/base && npm publish --verbose || exit_code=0
-      - run: cd dist/libs/icons/flags && npm publish --verbose || exit_code=0
+      - run: cd dist/libs/deprecated && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/components && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/i18n && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/helpers && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/core && npm publish --access public --verbose || exit_code=0
+      #      - run: cd dist/libs/schematics && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/theme && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/charts && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/icons/base && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/icons/flags && npm publish --access public --verbose || exit_code=0
       - name: Deploy doc to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
