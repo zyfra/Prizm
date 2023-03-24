@@ -252,8 +252,8 @@ export class PrizmSelectComponent<T>
   public select(item: T): void {
     if (!this.identityMatcher(item, this.value)) {
       this.updateValue(item);
-      this.requiredInputControl.setValue(item && this.stringify(item));
     }
+    this.requiredInputControl.setValue(item && this.stringify(item));
     this.open = false;
   }
 
