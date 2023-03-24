@@ -2,6 +2,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { ITableProduct } from './examples/table-basic-example/table-basic-example.component';
 import { PrizmSizeL, PrizmSizeM, PrizmSizeS, PrizmSizeXS } from '@prizm-ui/components';
+import { Filters } from '@prizm-ui/deprecated';
+import { SortMeta } from 'primeng/api';
 
 @Component({
   selector: 'prizm-table-example',
@@ -10,6 +12,68 @@ import { PrizmSizeL, PrizmSizeM, PrizmSizeS, PrizmSizeXS } from '@prizm-ui/compo
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableExampleOldComponent {
+  public frozenValue: any[];
+  public breakpoint = '960px';
+  public rowGroupMode: 'subheader' | 'rowspan';
+  public showInitialSortBadge = true;
+  public rowTrackBy: (...args: any[]) => any;
+  public csvSeparator = ',';
+  public exportFilename = 'download';
+  public filters: Filters = {};
+  public expandedRowKeys: { [s: string]: boolean } = {};
+  public rowExpandMode: 'single' | 'multiple' = 'multiple';
+  public scrollDirection: 'vertical' | 'horizontal' | 'both' = 'vertical';
+  public virtualScrollDelay = 250;
+  public responsive = false;
+  public exportFunction: (event: { data: any; field: any }) => string;
+  public stateKey: string;
+  public stateStorage: 'session' | 'local' = 'session';
+  public editMode: 'cell' | 'row' = 'cell';
+  public editingRowKeys: { [s: string]: boolean } = {};
+  public groupRowsBy: string | string[];
+  public groupRowsByOrder = 1;
+  public className = 'prizm-table-class';
+  public title = '';
+  public columns: any[];
+  public style: any;
+  public styleClass: string;
+  public autoLayout: boolean;
+  public lazy = false;
+  public lazyLoadOnInit = true;
+  public first = 0;
+  public currentPageReportTemplate = '{currentPage} of {totalPages}';
+  public showCurrentPageReport: boolean;
+  public showFirstLastIcon = true;
+  public showPageLinks = true;
+  public contextMenuSelection: any;
+  public contextMenuSelectionMode: 'separate' | 'joint' = 'separate';
+  public defaultSortOrder = 1;
+  public sortMode: 'single' | 'multiple' = 'single';
+  public customSort: boolean;
+  public selectionMode: 'single' | 'multiple';
+  public dataKey: string;
+  public metaKeySelection: boolean;
+  public compareSelectionBy: 'deepEquals' | 'equals' = 'deepEquals';
+  public rowHover: boolean;
+  public loading: boolean;
+  public loadingIcon = 'pi pi-spinner';
+  public showLoader = true;
+  public virtualScroll: boolean;
+  public virtualRowHeight = 32;
+  public frozenWidth: string;
+  public frozenColumns: any[];
+  public reorderableColumns: boolean;
+  public contextMenu: any;
+  public globalFilterFields: string[];
+  public filterDelay = 300;
+  public filterMode: 'lenient' | 'strict' = 'lenient';
+  public filterLocale: string;
+  public totalRecords: number;
+  public sortField: string;
+  public sortOrder: number;
+  public multiSortMeta: SortMeta[];
+  public selection: any;
+  public stripedMode = false;
   public value: ITableProduct[] = [
     {
       code: '123',
