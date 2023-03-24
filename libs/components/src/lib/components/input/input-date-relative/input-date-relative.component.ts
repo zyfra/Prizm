@@ -63,6 +63,8 @@ export class PrizmInputDateRelativeComponent
   @prizmDefaultProp()
   public placeholder = 'Выберите относительное время';
 
+  @Input() forceClear: boolean | null = null;
+
   @Input()
   @prizmDefaultProp()
   /**

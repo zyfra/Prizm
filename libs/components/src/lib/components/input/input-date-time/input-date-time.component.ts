@@ -73,6 +73,8 @@ export class PrizmInputDateTimeComponent
   @prizmDefaultProp()
   label = 'Абсолютное';
 
+  @Input() forceClear: boolean | null = null;
+
   @Input()
   @prizmDefaultProp()
   placeholder = 'Выберите дату и время';

@@ -19,6 +19,7 @@
         [formControl]="control"
         [label]="label"
         [placeholder]="placeholder"
+        [forceClear]="forceClear"
         [outer]="outer"
         [size]="size"
         [readOnly]="readOnly"
@@ -27,6 +28,16 @@
       ></prizm-input-date>
     </prizm-doc-demo>
     <prizm-doc-documentation [control]="control">
+      <ng-template
+        documentationPropertyName="forceClear"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="forceClearVariants"
+        [(documentationPropertyValue)]="forceClear"
+      >
+        Show clear button
+      </ng-template>
+
       <ng-template
         documentationPropertyName="label"
         documentationPropertyType="string"

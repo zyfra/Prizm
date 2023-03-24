@@ -31,6 +31,9 @@ export class InputDateTimeTimeComponent {
   public size: PrizmInputSize = 'm';
   public outer = false;
 
+  forceClear: boolean | null = null;
+  forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
   public timeModeVariants: ReadonlyArray<PrizmTimeMode> = ['HH:MM', 'HH:MM:SS', 'HH:MM:SS.MSS'];
   public timeMode: PrizmTimeMode = `HH:MM`;
 

@@ -10,6 +10,9 @@ import { FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputMonthRangeRangeComponent {
+  forceClear: boolean | null = null;
+  forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
   public readOnly = false;
   val: PrizmDay;
   public pseudoInvalid = false;

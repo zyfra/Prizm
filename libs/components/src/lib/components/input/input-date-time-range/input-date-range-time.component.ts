@@ -63,6 +63,8 @@ export class PrizmInputDateTimeRangeComponent
   @prizmDefaultProp()
   markerHandler: PrizmMarkerHandler = PRIZM_DEFAULT_MARKER_HANDLER;
 
+  @Input() forceClear: boolean | null = null;
+
   @Input()
   @prizmDefaultProp()
   label = 'Выберите дату и время';

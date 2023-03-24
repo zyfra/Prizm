@@ -7,7 +7,13 @@
   (isOpenChange)="onOpenChange($event)"
   prizmDropdownHostWidth="auto"
 >
-  <prizm-input-layout [label]="label" [outer]="outer" (click)="safeOpenModal()" [size]="size">
+  <prizm-input-layout
+    [label]="label"
+    [outer]="outer"
+    [forceClear]="forceClear"
+    (click)="safeOpenModal()"
+    [size]="size"
+  >
     <input
       class="input-search"
       prizmInput
