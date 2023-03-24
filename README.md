@@ -149,3 +149,4 @@ Also we want to give thanks to all the following
 - [svg-to-ts](https://github.com/kreuzerk/svg-to-ts)
 - [typescript](https://github.com/microsoft/TypeScript)
 - [commitlint](https://github.com/conventional-changelog/commitlint)
+
