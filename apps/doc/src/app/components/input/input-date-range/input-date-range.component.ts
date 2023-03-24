@@ -30,6 +30,9 @@ export class InputDateRangeComponent {
   public size: PrizmInputSize = 'm';
   public outer = false;
 
+  forceClear: boolean | null = null;
+  forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {

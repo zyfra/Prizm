@@ -79,6 +79,8 @@ export class PrizmInputDateComponent
   @prizmDefaultProp()
   placeholder = '';
 
+  @Input() forceClear: boolean | null = null;
+
   @Input()
   @prizmDefaultProp()
   max = PRIZM_LAST_DAY;

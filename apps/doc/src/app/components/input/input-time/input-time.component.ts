@@ -21,6 +21,10 @@ import { FormControl } from '@angular/forms';
 export class InputTimeTimeComponent {
   public readOnly = false;
   val: PrizmTime;
+
+  forceClear: boolean | null = null;
+  forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
   public pseudoInvalid = false;
   public pseudoHovered = false;
   public pseudoPressed = false;

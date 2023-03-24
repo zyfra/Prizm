@@ -6,4 +6,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./paginator-with-labels-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PaginatorWithLabelsExampleComponent {}
+export class PaginatorWithLabelsExampleComponent {
+  public disabled = false;
+}

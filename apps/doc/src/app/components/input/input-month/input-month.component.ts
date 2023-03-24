@@ -11,6 +11,10 @@ import { FormControl } from '@angular/forms';
 })
 export class InputMonthComponent {
   public readOnly = false;
+
+  forceClear: boolean | null = null;
+  forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
   val: PrizmDay;
   public pseudoInvalid = false;
   public pseudoHovered = false;
