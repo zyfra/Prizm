@@ -31,20 +31,21 @@
       class="paginator paginator__finite"
       *ngIf="paginatorType === 'finite' && paginationGenerator(rows, currentPage) as pagingData"
     >
-      <button class="control control_left" [disabled]="disabled || currentPage === 1" (click)="decrease()">
+      <button
+        prizmButton
+        appearanceType="ghost"
+        appearance="secondary"
+        class="control control_left"
+        [disabled]="currentPage === 1"
+        (click)="decrease()"
+      >
         <prizm-icon size="16" iconClass="arrows-chevron-left"></prizm-icon>
         <span *ngIf="!!leftButtonLabel">{{ leftButtonLabel }}</span>
       </button>
 
       <ng-container *ngIf="!paginatorOptions?.noPages">
         <ng-container *ngIf="pagingData.left">
-          <button
-            class="page"
-            type="button"
-            (click)="changePage(pagingData.left)"
-            [disabled]="disabled"
-            [class.page_disabled]="disabled"
-          >
+          <button class="page" type="button" (click)="changePage(pagingData.left)">
             {{ pagingData.left }}
           </button>
           <div
@@ -57,6 +58,9 @@
         </ng-container>
 
         <button
+          prizmButton
+          appearanceType="ghost"
+          appearance="secondary"
           class="page"
           type="button"
           [disabled]="disabled"
@@ -77,6 +81,9 @@
             ...
           </div>
           <button
+            prizmButton
+            appearanceType="ghost"
+            appearance="secondary"
             class="page"
             type="button"
             (click)="changePage(pagingData.right)"
@@ -89,6 +96,9 @@
       </ng-container>
 
       <button
+        prizmButton
+        appearanceType="ghost"
+        appearance="secondary"
         class="control control_right"
         [disabled]="disabled || (currentPage === pagesCount ?? currentPage === 0)"
         (click)="increase()"
