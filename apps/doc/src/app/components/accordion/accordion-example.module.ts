@@ -8,6 +8,8 @@ import { AccordionBasicExampleComponent } from './examples/accordion-basic-examp
 import { AccordionSingleExpandExampleComponent } from './examples/accordion-single-expand-example/accordion-single-expand-example.component';
 import { AccordionMultipleExpandExampleComponent } from './examples/accordion-multiple-expand-example/accordion-multiple-expand-example.component';
 import { AccordionWithInstrumentsExampleComponent } from './examples/accordion-with-instruments-example/accordion-with-instruments-example.component';
+import { AccordionNestedComponent } from './examples/nested/nested.component';
+import { PrizmAccordionCustomTitleExampleModule } from './examples/custom-title/custom-title.module';
 @NgModule({
   declarations: [
     AccordionExampleComponent,
@@ -15,12 +17,14 @@ import { AccordionWithInstrumentsExampleComponent } from './examples/accordion-w
     AccordionSingleExpandExampleComponent,
     AccordionMultipleExpandExampleComponent,
     AccordionWithInstrumentsExampleComponent,
+    AccordionNestedComponent,
   ],
   imports: [
     CommonModule,
     PrizmAccordionModule,
     PrizmAddonDocModule,
     PrizmCheckboxModule,
+    PrizmAccordionCustomTitleExampleModule,
     RouterModule.forChild(prizmDocGenerateRoutes(AccordionExampleComponent)),
   ],
 })

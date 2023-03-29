@@ -13,7 +13,9 @@
     (focus)="isAccordionFocused = true"
     (focusout)="isAccordionFocused = false"
   >
-    <span class="title" *ngIf="title">{{ title }}</span>
+    <div class="title" *ngIf="title">
+      <ng-container *polymorphOutlet="title as content">{{ content }}</ng-container>
+    </div>
     <div
       class="accordion__tools"
       *ngIf="accordionTools"

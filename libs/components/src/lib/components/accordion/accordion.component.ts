@@ -21,7 +21,8 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 })
 export class PrizmAccordionComponent implements AfterContentInit {
   @Input() public onlyOneExpanded = false;
-  @ContentChildren(PrizmAccordionItemComponent) accordionItems: QueryList<PrizmAccordionItemComponent>;
+  @ContentChildren(PrizmAccordionItemComponent, { descendants: false })
+  accordionItems: QueryList<PrizmAccordionItemComponent>;
 
   @HostBinding('attr.testId')
   readonly testId = 'prizm_accordion';
@@ -34,6 +35,7 @@ export class PrizmAccordionComponent implements AfterContentInit {
       .pipe(takeUntil(this.destroy$))
       .subscribe(toggledAccordionIdx => {
         const accordionItems = [...this.accordionItems];
+
         if (accordionItems[toggledAccordionIdx].isExpanded && this.onlyOneExpanded) {
           accordionItems.forEach((accordionItem, accordionIdx) => {
             if (accordionIdx !== toggledAccordionIdx) {

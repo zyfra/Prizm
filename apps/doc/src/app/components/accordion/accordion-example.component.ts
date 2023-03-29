@@ -55,5 +55,17 @@ export class AccordionExampleComponent {
     ),
   };
 
+  public readonly accordionNested: TuiDocExample = {
+    TypeScript: import('./examples/nested/nested.component?raw'),
+    HTML: import('./examples/nested/nested.component.html?raw'),
+  };
+
+  public readonly customTitle: TuiDocExample = {
+    TypeScript: import('./examples/custom-title/custom-title.component?raw'),
+    HTML: import('./examples/custom-title/custom-title.component.html?raw'),
+    LESS: import('./examples/custom-title/custom-title.component.less?raw'),
+    MODULE: import('./examples/custom-title/custom-title.module?raw'),
+  };
+
   public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }
