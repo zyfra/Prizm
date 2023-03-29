@@ -14,10 +14,23 @@
     </thead>
 
     <tbody prizmTbody [data]="products">
-      <ng-container *prizmRow="let item of products; let i = index">
+      <ng-container
+        *prizmRow="
+          let item of products;
+          let i = index;
+          let odd = odd;
+          let even = even;
+          let first = first;
+          let last = last
+        "
+      >
         <tr prizmTr>
-          <td class="format__number" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
-          <td prizmTd>{{ item.name }}</td>
+          <td class="format__number" prizmTd>
+            {{ item.code | spaceNumber : '0.0-0' }}
+          </td>
+          <td prizmTd>
+            {{ item.name }}
+          </td>
           <td prizmTd>{{ item.category }}</td>
           <td class="format__number" prizmTd>{{ item.count | spaceNumber : '0.0-0' }}</td>
           <td prizmTd>{{ item.name }}</td>

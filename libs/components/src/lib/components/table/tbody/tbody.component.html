@@ -79,20 +79,18 @@
 >
   <ng-container
     [ngTemplateOutlet]="row.template"
-    [ngTemplateOutletContext]="
-      item
-        | prizmMapper
-          : toContext
-          : index
-          : odd
-          : even
-          : first
-          : last
-          : count
-          : deepLevel
-          : parentItem
-          : parentIdx
-    "
+    [ngTemplateOutletContext]="{
+      $implicit: item,
+      parentIdx: parentIdx,
+      parentItem: parentItem,
+      index: index,
+      odd: odd,
+      even: even,
+      deepLevel: deepLevel,
+      first: first,
+      last: last,
+      count: count
+    }"
   ></ng-container>
 
   <ng-container *ngIf="tableTreeService.canShowChild(index) | async">
