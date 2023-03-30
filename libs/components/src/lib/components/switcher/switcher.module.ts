@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { SwitcherComponent } from './switcher.component';
 import { SwitcherItemComponent } from './components/switcher-item/switcher-item.component';
 import { PrizmIconModule } from '../icon';
+import { PrizmButtonModule } from '../button';
+import { PolymorphModule } from '../../directives';
 
 @NgModule({
   declarations: [SwitcherComponent, SwitcherItemComponent],
-  imports: [CommonModule, PrizmIconModule],
+  imports: [CommonModule, PrizmIconModule, PrizmButtonModule, PolymorphModule],
   exports: [SwitcherComponent],
 })
 export class PrizmSwitcherModule {}

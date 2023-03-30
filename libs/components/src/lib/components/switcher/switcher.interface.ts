@@ -1,6 +1,8 @@
+import { PolymorphContent } from '../../directives/polymorph/types/content';
+
 export interface PrizmSwitcherItem<ID extends PrizmSwitcherId = PrizmSwitcherId> {
   title?: string | number;
-  icon?: string;
+  icon?: PolymorphContent;
   disabled?: boolean;
   hide?: boolean;
   id?: ID;

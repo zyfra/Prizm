@@ -16,6 +16,9 @@
           getChildren: getTableChildren;
           let i = index;
           let parentItem = parentItem;
+          let odd = odd;
+          let first = first;
+          let last = last;
           let deepLevel = deepLevel;
           let count = count
         "
@@ -34,7 +37,13 @@
               <span>{{ item.name }}</span>
             </div>
           </td>
-          <td prizmTd>{{ item.category }}</td>
+          <td prizmTd>
+            {{ item.category }}<br />
+            #{{ i }}
+            {{ odd ? '#odd' : '#even' }}
+            {{ first ? '#first' : '' }}
+            {{ last ? '#last' : '' }}
+          </td>
           <td class="format__number" prizmTd>
             {{ item.count | spaceNumber : '0.0-0' }}
           </td>

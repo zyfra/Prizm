@@ -4,7 +4,7 @@ export const PRIZM_RUSSIAN_LANGUAGE_KIT: PrizmLanguageKit = {
   cancel: `Отменить`,
   done: `Готово`,
   more: `Еще`,
-  otherDate: `Другая дата...`,
+  otherDate: `Другая дата`,
   showAll: `Показать все`,
   hide: `Скрыть`,
   mobileCalendarTexts: [`Выберите день`, `Выберите период`],

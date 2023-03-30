@@ -157,7 +157,7 @@ export class PrizmSelectComponent<T>
   public readonly defaultIcon = 'chevrons-dropdown';
 
   readonly filteredItems$ = this.requiredInputControl.valueChanges.pipe(
-    tap(value => this.searchChange.emit(value)),
+    tap(value => this.searchEmit(value)),
     startWith(''),
     switchMap(value => {
       return this.items$.pipe(
@@ -270,5 +270,11 @@ export class PrizmSelectComponent<T>
     this.open = false;
     this.changeDetectorRef.markForCheck();
     if (!value) $event.stopImmediatePropagation();
+  }
+
+  private searchEmit(value: string): void {
+    if (this.search === value) return;
+    this.search = value;
+    this.searchChange.emit(value);
   }
 }

@@ -17,4 +17,8 @@ export class CalendarRangeComponent {
     TypeScript: import('./examples/base/calendar-range-base-example.component.ts?raw'),
     HTML: import('./examples/base/calendar-range-base-example.component.html?raw'),
   };
+  readonly exampleList: TuiDocExample = {
+    TypeScript: import('./examples/list/calendar-range-list-example.component.ts?raw'),
+    HTML: import('./examples/list/calendar-range-list-example.component.html?raw'),
+  };
 }

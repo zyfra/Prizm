@@ -8,6 +8,8 @@
   box-sizing: border-box;
   cursor: pointer;
   color: white;
+  border-left-width: var(--prizm-wrapper-border-left-width);
+  border-right-width: var(--prizm-wrapper-border-right-width);
 
   &[data-state='disabled'] {
     cursor: not-allowed;
@@ -44,8 +46,8 @@
 
     &[data-state='hovered'],
     &._focused_deleted {
-      background: var(--prizm-primary-hover);
-      color: var(--prizm-exceptions-white);
+      background: var(--prizm-wrapper-hovered-background, var(--prizm-primary-hover));
+      color: var(--prizm-wrapper-hovered-color, var(--prizm-exceptions-white));
     }
 
     &[data-state='pressed'] {

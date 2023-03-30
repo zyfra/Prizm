@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { PrizmDay, PrizmDayRange } from '@prizm-ui/components';
-import { PrizmDayRangePeriod } from '../../../../../../../../../libs/components/src/lib/@core/classes/day-range-period';
+import { PrizmDay, PrizmDayRange, PrizmDayRangePeriod } from '@prizm-ui/components';
 
 @Component({
-  selector: 'prizm-input-date-range-base-example',
-  templateUrl: './input-date-range-base-example.component.html',
+  selector: 'prizm-input-date-range-list-example',
+  templateUrl: './input-date-range-list-example.component.html',
   styles: [
     `
       .box {
@@ -15,18 +14,19 @@ import { PrizmDayRangePeriod } from '../../../../../../../../../libs/components/
     `,
   ],
 })
-export class PrizmInputDateRangeBaseExampleComponent {
+export class PrizmInputDateRangeListExampleComponent {
   readonly value = new FormControl(new PrizmDayRange(new PrizmDay(2018, 2, 10), new PrizmDay(2018, 3, 20)));
   readonly min = new PrizmDay(2000, 2, 20);
 
   readonly max = new PrizmDay(2040, 2, 20);
   readonly items = [
     new PrizmDayRangePeriod(
-      new PrizmDayRange(
-        new PrizmDay(2018, 1, 1),
-        new PrizmDay(2019, 12, 31)
-      ),
+      new PrizmDayRange(new PrizmDay(2018, 1, 1), new PrizmDay(2019, 11, 31)),
       '2018-2019'
-    )
-  ]
+    ),
+    new PrizmDayRangePeriod(
+      new PrizmDayRange(new PrizmDay(2019, 1, 1), new PrizmDay(2020, 11, 31)),
+      '2019-2020'
+    ),
+  ];
 }

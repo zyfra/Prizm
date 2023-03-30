@@ -8,6 +8,7 @@ import { PrizmInputDateRangeBaseExampleComponent } from './examples/base/input-d
 import { PolymorphModule, PrizmInputDateRangeModule } from '@prizm-ui/components';
 import { PrizmInputDateRangeDisabledExampleComponent } from './examples/disabled/input-date-range-disabled-example.component';
 import { PrizmInputNativeDateRangeBaseExampleComponent } from './examples/native-date/input-native-date-range-base-example.component';
+import { PrizmInputDateRangeListExampleComponent } from './examples/list/input-date-range-list-example.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { PrizmInputNativeDateRangeBaseExampleComponent } from './examples/native
   declarations: [
     PrizmInputDateRangeBaseExampleComponent,
     PrizmInputDateRangeDisabledExampleComponent,
+    PrizmInputDateRangeListExampleComponent,
     PrizmInputNativeDateRangeBaseExampleComponent,
     InputDateRangeComponent,
   ],
