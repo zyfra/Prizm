@@ -223,7 +223,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   public clear(): void {
     if (this.disabled) return;
 
-    this.ngControl?.valueAccessor.writeValue('');
+    this.ngControl?.control.setValue('');
     this.touched = true;
 
     this._inputValue.value = '';
@@ -235,15 +235,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
 
     this.stateChanges.next();
     this.onClear.emit();
-    this.valueChanged.next(this.value);
-
-    this.elementRef.nativeElement.dispatchEvent(
-      new InputEvent('input', {
-        data: null,
-        detail: 0,
-        inputType: 'deleteContentBackward',
-      })
-    );
+    this.valueChanged.next('');
 
     this.elementRef.nativeElement.dispatchEvent(
       new KeyboardEvent('keydown', {
