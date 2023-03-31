@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.28](https://github.com/zyfra/Prizm) (31-03-2023)
+
+### Features
+
+- feat(doc/input-date-range): add example with presets list 🎨
+- feat(doc/calendar-range): add example with presets list 🎨
+- feat(doc/table): add exmple with stick to left, to right, to bottom side 🎨 [104](https://github.com/zyfra/Prizm/issues/104)
+- feat(doc/sticky): add doc for new directive prizmStick 🎨 [104](https://github.com/zyfra/Prizm/issues/104)
+- feat(components/sticky): add new directive prizmStick for sticky to any side with dynamic calculations 🎨 [104](https://github.com/zyfra/Prizm/issues/104)
+- feat(components/switcher): add disabled and add support template icon [117](https://github.com/zyfra/Prizm/issues/117) 🎨
+- feat(components/accordion): show border on hover [100](https://github.com/zyfra/Prizm/issues/100)
+
+### BUG FIXES
+
+- fix(components/table): pass correct context to row [110](https://github.com/zyfra/Prizm/issues/110)
+- fix(components/input-date-period): fix export [107](https://github.com/zyfra/Prizm/issues/107)
+- fix(components/dialog): fix error with more then context size [108](https://github.com/zyfra/Prizm/issues/108)
+- fix(components/confirm-dialog): fix error with more then context size [108](https://github.com/zyfra/Prizm/issues/108)
+- fix(components/sidebar): error with double height set [101](https://github.com/zyfra/Prizm/issues/101)
+- feat(components/select): null content does not show [116](https://github.com/zyfra/Prizm/issues/116)
+- fix(components/toast): toasts overlap each other [118](https://github.com/zyfra/Prizm/issues/118)
+- fix(components/sidebar): can not pass footer template [94](https://github.com/zyfra/Prizm/issues/94)
+- fix(components/select): fix full width [120](https://github.com/zyfra/Prizm/issues/120)
+- fix(components/select): validator required does not work [119](https://github.com/zyfra/Prizm/issues/119)
+- fix(components/accordion): problem with nested accordion [96](https://github.com/zyfra/Prizm/issues/96)
+- fix(components/accordion): fix bug with big title in hint [99](https://github.com/zyfra/Prizm/issues/99)
+- fix(components/input-text): fix bug with error on clear [92](https://github.com/zyfra/Prizm/issues/92)
+
 ## [1.0.0-beta.27](https://github.com/zyfra/Prizm) (24-03-2023)
 
 ### Features
