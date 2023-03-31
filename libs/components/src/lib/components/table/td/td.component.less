@@ -5,9 +5,10 @@
 
 :host {
   padding: 0 8px;
-
+  background: inherit;
   border: 1px solid var(--prizm-border-widget);
   border-top: none;
+  z-index: 10;
 
   &:not(:first-child) {
     border-left: none;
@@ -35,7 +36,7 @@
     color: var(--prizm-v2-table-text-success);
   }
   &[status='default'] {
-    background: var(--prizm-v2-table-background-default);
+    background: inherit;
     color: var(--prizm-v2-table-text-default);
   }
 

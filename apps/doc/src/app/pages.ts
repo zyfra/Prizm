@@ -242,6 +242,12 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.components,
+    title: 'Sticky',
+    keywords: 'sticky, prizm-sticky',
+    route: '/components/sticky',
+  },
+  {
+    section: SectionNameEnum.components,
     title: 'Card',
     keywords: 'card, prizm-card, карточка',
     route: '/components/card',

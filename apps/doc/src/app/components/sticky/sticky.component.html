@@ -1,0 +1,29 @@
+<prizm-doc-page header="Sticky">
+  <div class="page-description" description>
+    Our sticky directive allow to stick with relative calculation
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
+      <prizm-sticky-base-example></prizm-sticky-base-example>
+    </prizm-doc-example>
+    <prizm-doc-example id="table" heading="Table" [content]="exampleTable">
+      <prizm-sticky-table-example></prizm-sticky-table-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost> </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmStickyModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

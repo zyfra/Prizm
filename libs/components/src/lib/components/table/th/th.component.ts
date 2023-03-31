@@ -44,11 +44,6 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
   @prizmDefaultProp()
   sortable = false;
 
-  @Input()
-  @HostBinding(`class._sticky`)
-  @prizmDefaultProp()
-  sticky = false;
-
   @HostBinding(`style.width.px`)
   width: number | null = null;
 

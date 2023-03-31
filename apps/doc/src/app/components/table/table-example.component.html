@@ -59,12 +59,12 @@
       <prizm-table-empty-example></prizm-table-empty-example>
     </prizm-doc-example>
 
-    <!--    <prizm-doc-example id="load" heading="Loading" [content]="exampleEmptyTable">-->
-    <!--      <prizm-table-loading-example></prizm-table-loading-example>-->
-    <!--    </prizm-doc-example>-->
-
     <prizm-doc-example id="tree" heading="Tree" [content]="exampleTreeTable">
       <prizm-table-tree-example></prizm-table-tree-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="sticky" heading="Sticky" [content]="exampleStickyTable">
+      <prizm-table-sticky-example></prizm-table-sticky-example>
     </prizm-doc-example>
   </ng-template>
 
@@ -91,6 +91,8 @@
               <th prizmTh>Наименование</th>
               <th prizmTh>Категория</th>
               <th prizmTh>Количество</th>
+              <th prizmTh>Категория</th>
+              <th prizmTh>Количество</th>
             </tr>
           </thead>
 
@@ -107,6 +109,10 @@
                   {{ item.code | spaceNumber : '0.0-0' }}
                 </td>
                 <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
+                <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
+                <td *prizmCell="'count'" class="format__number" prizmTd>
+                  {{ item.count | spaceNumber : '0.0-0' }}
+                </td>
                 <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
                 <td *prizmCell="'count'" class="format__number" prizmTd>
                   {{ item.count | spaceNumber : '0.0-0' }}
