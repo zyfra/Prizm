@@ -12,6 +12,7 @@ import { PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmSelectWithObjectExampleComponent } from './examples/with-object/select-with-object-example.component';
 import { PrizmSelectWithBackendSearchExampleComponent } from './examples/with-backend-search/select-with-backend-search-example.component';
 import { PrizmSelectFullWidthExampleComponent } from './examples/full-width/select-full-width-example.component';
+import { PrizmSelectValidatorsExampleComponent } from './examples/validators/select-validators-example.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { PrizmSelectFullWidthExampleComponent } from './examples/full-width/sele
   ],
   declarations: [
     PrizmSelectFullWidthExampleComponent,
+    PrizmSelectValidatorsExampleComponent,
     PrizmSelectBaseExampleComponent,
     PrizmSelectWithSearchExampleComponent,
     PrizmSelectWithBackendSearchExampleComponent,

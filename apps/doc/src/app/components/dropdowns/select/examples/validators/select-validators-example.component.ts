@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'prizm-select-base-example',
-  templateUrl: './select-base-example.component.html',
+  selector: 'prizm-select-validators-example',
+  templateUrl: './select-validators-example.component.html',
   styles: [
     `
       .box {
@@ -13,7 +13,7 @@ import { FormControl, Validators } from '@angular/forms';
     `,
   ],
 })
-export class PrizmSelectBaseExampleComponent {
+export class PrizmSelectValidatorsExampleComponent {
   readonly items = [
     'One',
     'Two',
@@ -23,6 +23,14 @@ export class PrizmSelectBaseExampleComponent {
   readonly control = new FormControl(this.items[1], [Validators.required]);
 
   public setDefaultValue(): void {
-    this.control.setValue(this.items[0], { emitEvent: false });
+    this.control.setValue(null);
+  }
+
+  public setRequiredValidator(): void {
+    this.control.setValidators([Validators.required]);
+  }
+
+  public clearValidator(): void {
+    this.control.setValidators([]);
   }
 }

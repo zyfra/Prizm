@@ -105,6 +105,11 @@ export class SelectComponent {
     HTML: import('./examples/with-search/select-with-search-example.component.html?raw'),
   };
 
+  readonly exampleValidators: TuiDocExample = {
+    TypeScript: import('./examples/validators/select-validators-example.component.ts?raw'),
+    HTML: import('./examples/validators/select-validators-example.component.html?raw'),
+  };
+
   readonly exampleWithBackendSearch: TuiDocExample = {
     TypeScript: import('./examples/with-backend-search/select-with-backend-search-example.component.ts?raw'),
     HTML: import('./examples/with-backend-search/select-with-backend-search-example.component.html?raw'),

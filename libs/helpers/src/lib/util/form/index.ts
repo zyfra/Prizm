@@ -1,10 +1,18 @@
-import { FormControl } from '@angular/forms';
+import { AsyncValidatorFn, FormControl, ValidatorFn } from '@angular/forms';
 import { concat, merge, Observable, of } from 'rxjs';
 import { filter, map, tap } from 'rxjs/operators';
 
 export class PrizmFormControlHelpers {
   public static getDisabled$(origin: FormControl): Observable<boolean> {
     return origin.statusChanges.pipe(map(() => this.getDisabled(origin)));
+  }
+  public static getValidators$(origin: FormControl): Observable<ValidatorFn | ValidatorFn[] | null> {
+    return origin.statusChanges.pipe(map(() => this.getValidators(origin)));
+  }
+  public static getAsyncValidators$(
+    origin: FormControl
+  ): Observable<AsyncValidatorFn | AsyncValidatorFn[] | null> {
+    return origin.statusChanges.pipe(map(() => this.getAsyncValidators(origin)));
   }
 
   public static getValue$<T = any>(origin: FormControl): Observable<T> {
@@ -13,6 +21,14 @@ export class PrizmFormControlHelpers {
 
   public static getDisabled(origin: FormControl): boolean {
     return origin.disabled;
+  }
+
+  public static getValidators(origin: FormControl): ValidatorFn | ValidatorFn[] | null {
+    return (origin as any)?.['_rawValidators'] ?? null;
+  }
+
+  public static getAsyncValidators(origin: FormControl): AsyncValidatorFn | AsyncValidatorFn[] | null {
+    return (origin as any)?.['_rawAsyncValidators'] ?? null;
   }
 
   public static getValue<T>(origin: FormControl): T {
@@ -37,6 +53,43 @@ export class PrizmFormControlHelpers {
           } else {
             control.enable();
           }
+        });
+      })
+    );
+  }
+
+  public static syncValidators(origin: FormControl, bidirectional: boolean, ...others: FormControl[]) {
+    const all = [origin, ...others];
+    return concat(
+      of(this.getValidators(origin)),
+      bidirectional ? merge(...all.map(control => this.getValidators$(control))) : this.getValidators$(origin)
+    ).pipe(
+      tap(validators => {
+        (bidirectional ? all : others).forEach(control => {
+          control.setValidators(validators);
+        });
+      })
+    );
+  }
+
+  public static syncAllValidators(origin: FormControl, bidirectional: boolean, ...others: FormControl[]) {
+    return merge(
+      this.syncValidators(origin, bidirectional, ...others),
+      this.syncAsyncValidators(origin, bidirectional, ...others)
+    );
+  }
+
+  public static syncAsyncValidators(origin: FormControl, bidirectional: boolean, ...others: FormControl[]) {
+    const all = [origin, ...others];
+    return concat(
+      of(this.getAsyncValidators(origin)),
+      bidirectional
+        ? merge(...all.map(control => this.getAsyncValidators$(control)))
+        : this.getAsyncValidators$(origin)
+    ).pipe(
+      tap(asyncValidators => {
+        (bidirectional ? all : others).forEach(control => {
+          control.setAsyncValidators(asyncValidators);
         });
       })
     );
