@@ -58,7 +58,11 @@ export class PrizmFormControlHelpers {
     );
   }
 
-  public static syncValidators(origin: FormControl, bidirectional: boolean, ...others: FormControl[]) {
+  public static syncValidators(
+    origin: FormControl,
+    bidirectional: boolean,
+    ...others: FormControl[]
+  ): Observable<ValidatorFn | ValidatorFn[] | null> {
     const all = [origin, ...others];
     return concat(
       of(this.getValidators(origin)),
@@ -72,14 +76,22 @@ export class PrizmFormControlHelpers {
     );
   }
 
-  public static syncAllValidators(origin: FormControl, bidirectional: boolean, ...others: FormControl[]) {
+  public static syncAllValidators(
+    origin: FormControl,
+    bidirectional: boolean,
+    ...others: FormControl[]
+  ): Observable<ValidatorFn | ValidatorFn[] | AsyncValidatorFn | AsyncValidatorFn[] | null> {
     return merge(
       this.syncValidators(origin, bidirectional, ...others),
       this.syncAsyncValidators(origin, bidirectional, ...others)
     );
   }
 
-  public static syncAsyncValidators(origin: FormControl, bidirectional: boolean, ...others: FormControl[]) {
+  public static syncAsyncValidators(
+    origin: FormControl,
+    bidirectional: boolean,
+    ...others: FormControl[]
+  ): Observable<AsyncValidatorFn | AsyncValidatorFn[] | null> {
     const all = [origin, ...others];
     return concat(
       of(this.getAsyncValidators(origin)),
