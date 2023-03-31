@@ -11,7 +11,50 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab prizmDocHost> </ng-template>
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-documentation heading="PrizmStickyRelativeDirective"> </prizm-doc-documentation>
+    <prizm-doc-documentation heading="PrizmStickyDirective" [showValues]="false">
+      <ng-template
+        documentationPropertyName="prizmStickyLeft"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Sticky left
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="prizmStickyRight"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Sticky right
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="prizmStickyBottom"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Sticky bottom
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="prizmStickyTop"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Sticky top
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="prizmStikyRelative"
+        documentationPropertyType="HTMLElement"
+        documentationPropertyMode="input"
+      >
+        Relative HTML element for calculate
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
 
   <ng-template prizmDocPageTab>
     <ol class="b-demo-steps">
