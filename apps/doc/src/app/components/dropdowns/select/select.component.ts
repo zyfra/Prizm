@@ -85,6 +85,10 @@ export class SelectComponent {
     TypeScript: import('./examples/base/select-base-example.component.ts?raw'),
     HTML: import('./examples/base/select-base-example.component.html?raw'),
   };
+  readonly exampleFullWidth: TuiDocExample = {
+    TypeScript: import('./examples/full-width/select-full-width-example.component.ts?raw'),
+    HTML: import('./examples/full-width/select-full-width-example.component.html?raw'),
+  };
 
   readonly exampleWithTemplate: TuiDocExample = {
     TypeScript: import('./examples/with-template/select-with-template-example.component.ts?raw'),
@@ -124,10 +128,6 @@ export class SelectComponent {
   public identityMatcher = (a: unknown, b: unknown): boolean => {
     return a === b;
   };
-
-  // public stringify = (i: unknown): string => {
-  //   return i?.toString?.() ?? '';
-  // };
 
   public setValue(val: string): void {
     this.control.setValue(val);

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { SelectComponent } from './select.component';
 import { PolymorphModule, PrizmIconModule, PrizmSelectModule } from '@prizm-ui/components';
@@ -11,6 +11,7 @@ import { PrizmSelectWithSearchExampleComponent } from './examples/with-search/se
 import { PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmSelectWithObjectExampleComponent } from './examples/with-object/select-with-object-example.component';
 import { PrizmSelectWithBackendSearchExampleComponent } from './examples/with-backend-search/select-with-backend-search-example.component';
+import { PrizmSelectFullWidthExampleComponent } from './examples/full-width/select-full-width-example.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { PrizmSelectWithBackendSearchExampleComponent } from './examples/with-ba
     RouterModule.forChild(prizmDocGenerateRoutes(SelectComponent)),
   ],
   declarations: [
+    PrizmSelectFullWidthExampleComponent,
     PrizmSelectBaseExampleComponent,
     PrizmSelectWithSearchExampleComponent,
     PrizmSelectWithBackendSearchExampleComponent,
