@@ -23,7 +23,12 @@
   </div>
 
   <div class="footer prizm-font-btn-links-14">
-    <div *polymorphOutlet="context.footer as footer; context: context">
+    <ng-container *ngIf="context.footer; else notFooter">
+      <div *polymorphOutlet="context.footer as footer; context: context">
+        {{ footer }}
+      </div>
+    </ng-container>
+    <ng-template #notFooter>
       <ng-container>
         <div class="horizontal">
           <div class="left">
@@ -65,6 +70,6 @@
           {{ button.text }}
         </button>
       </ng-template>
-    </div>
+    </ng-template>
   </div>
 </div>

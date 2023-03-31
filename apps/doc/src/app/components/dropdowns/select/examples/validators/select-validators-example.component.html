@@ -1,10 +1,10 @@
 <prizm-select [formControl]="control" [items]="items"></prizm-select>
 <br />
 <br />
-<div style="display: flex; flex-flow: column; gap: 1rem">
-  <button (click)="setDefaultValue()">Clear value</button>
-  <button (click)="clearValidator()">Clear Validator</button>
-  <button (click)="setRequiredValidator()">Set Required Validator</button>
+<div style="display: flex; flex-flow: column; gap: 1rem; width: 20rem">
+  <button prizmButton (click)="setDefaultValue()">Clear value</button>
+  <button prizmButton (click)="clearValidator()">Clear Validator</button>
+  <button prizmButton (click)="setRequiredValidator()">Set Required Validator</button>
 </div>
 
 <br />

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { SelectComponent } from './select.component';
-import { PolymorphModule, PrizmIconModule, PrizmSelectModule } from '@prizm-ui/components';
+import { PolymorphModule, PrizmButtonModule, PrizmIconModule, PrizmSelectModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmSelectWithTemplateExampleComponent } from './examples/with-template/select-with-template-example.component';
 import { PrizmSelectBaseExampleComponent } from './examples/base/select-base-example.component';
@@ -22,6 +22,7 @@ import { PrizmSelectValidatorsExampleComponent } from './examples/validators/sel
     ReactiveFormsModule,
     PolymorphModule,
     PrizmLetModule,
+    PrizmButtonModule,
     PrizmSelectModule,
     PrizmIconModule,
     RouterModule.forChild(prizmDocGenerateRoutes(SelectComponent)),
