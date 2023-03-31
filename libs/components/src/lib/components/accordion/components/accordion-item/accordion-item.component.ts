@@ -14,6 +14,7 @@ import { AccordionContentDirective } from '../../directives/accordion-content.di
 import { AccordionToolsDirective } from '../../directives/accordion-tools.directive';
 import { expandAnimation } from '../../accordion.animation';
 import { Subject } from 'rxjs';
+import { PolymorphContent } from '../../../../directives/polymorph';
 
 @Component({
   selector: 'prizm-accordion-item',
@@ -23,7 +24,7 @@ import { Subject } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmAccordionItemComponent implements OnDestroy {
-  @Input() public title: string = null;
+  @Input() title: PolymorphContent = '';
   @Input() isExpanded = false;
   @Output() isExpandedChange = new EventEmitter<boolean>();
   @Input() disabled = false;
