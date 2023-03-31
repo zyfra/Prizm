@@ -11,6 +11,7 @@ import {
   PrizmOverlayInsidePlacement,
   PrizmOverscrollMode,
   PrizmSidebarOptions,
+  PrizmSidebarResultDefaultType,
   PrizmSidebarService,
 } from '@prizm-ui/components';
 import { generatePolymorphVariants } from '../../../util';
@@ -65,7 +66,9 @@ export class SidebarComponent {
   public closeable = true;
   public header = 'Static_title_h3 - 16 Medium';
   public content = 'Базовый текст для диалога';
-  public footer: PolymorphContent<PrizmBaseDialogContext<PrizmSidebarOptions<any>>> = null;
+  public footer: PolymorphContent<
+    PrizmBaseDialogContext<PrizmSidebarResultDefaultType, PrizmSidebarOptions<unknown>>
+  > = null;
 
   public readonly exampleModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
@@ -91,6 +94,7 @@ export class SidebarComponent {
       .open(this.content, {
         closeable: this.closeable,
         backdrop: this.backdrop,
+        footer: this.footer,
         dismissible: this.dismissible,
         header: this.header,
         width: this.width,

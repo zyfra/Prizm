@@ -9,11 +9,12 @@ import {
   Renderer2,
 } from '@angular/core';
 import { ResizeObserverService } from '@ng-web-apis/resize-observer';
-import { debounceTime, filter, map, observeOn, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, filter, map, observeOn, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { prizmToPx } from '../../util';
 import { PrizmDestroyService, prizmElementResized$ } from '@prizm-ui/helpers';
 import { PrizmStickyRelativeService } from './sticky-relative.service';
 import { animationFrameScheduler, combineLatest, merge, of, Subject } from 'rxjs';
+import { result } from 'lodash';
 
 @Directive({
   selector: '[prizmStickyLeft], [prizmStickyRight], [prizmStickyTop], [prizmStickyBottom]',
@@ -59,25 +60,35 @@ export class PrizmStickyDirective implements OnChanges {
       .pipe(
         observeOn(animationFrameScheduler),
         filter(i => Boolean(i.width || i.height)),
+        switchMap(result => {
+          if (this.prizmStickyRight) this.renderer.removeStyle(this.elRef.nativeElement, 'right');
+          if (this.prizmStickyLeft) this.renderer.removeStyle(this.elRef.nativeElement, 'left');
+          if (this.prizmStickyTop) this.renderer.removeStyle(this.elRef.nativeElement, 'top');
+          if (this.prizmStickyBottom) this.renderer.removeStyle(this.elRef.nativeElement, 'bottom');
+
+          return of(result).pipe(debounceTime(0));
+        }),
         tap(() => {
           const parentRect = parent?.getBoundingClientRect();
-
           const elRect = this.elRef.nativeElement.getBoundingClientRect();
+          let styleRight = 0;
           if (this.prizmStickyLeft) {
             const left = parentRect?.left ? elRect.left - parentRect.left : elRect.left;
             this.renderer.setStyle(this.elRef.nativeElement, 'left', prizmToPx(left));
           }
           if (this.prizmStickyRight) {
-            let right = elRect.right;
-            let p = 0;
-            let styleRight = 0;
-            if (parent) {
-              p = parent.scrollWidth - parent.clientWidth - parent.scrollLeft;
-              styleRight = parseInt(this.elRef.nativeElement.style.right || '0');
-              right = Math.abs(elRect.right - (parentRect.right + p));
-            }
+            styleRight = parseInt(this.elRef.nativeElement.style.right || '0');
+            const parentRect = parent?.getBoundingClientRect();
+            const elRect = this.elRef.nativeElement.getBoundingClientRect();
 
-            if (styleRight) return;
+            let right = elRect.right;
+            let scrollOffset = 0;
+            let diff = 0;
+            if (parent) {
+              scrollOffset = parent.scrollWidth - parent.clientWidth - parent.scrollLeft;
+              diff = Math.abs(elRect.right - parentRect.right - scrollOffset - styleRight);
+              right = Math.floor(diff);
+            }
             this.renderer.setStyle(this.elRef.nativeElement, 'right', prizmToPx(right));
           }
           if (this.prizmStickyTop) {
@@ -89,6 +100,7 @@ export class PrizmStickyDirective implements OnChanges {
             this.renderer.setStyle(this.elRef.nativeElement, 'bottom', prizmToPx(bottom));
           }
         }),
+
         takeUntil(this.destroyPrevious$),
         takeUntil(this.destroy$)
       )
