@@ -1,0 +1,35 @@
+.table {
+  display: block;
+  width: 1000px;
+
+  .row {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    background-color: var(--prizm-bg-body);
+
+    .col {
+      height: 30px;
+      border: 1px solid rgba(128, 128, 128, 0.25);
+    }
+
+    &.header {
+      font-weight: 600;
+      color: black;
+    }
+
+    &.footer,
+    &.header,
+    .sticky {
+      background-color: #d0cece;
+      color: white;
+    }
+  }
+}
+
+prizm-scrollbar {
+  height: 600px;
+}
+
+.title {
+  margin-top: 3rem;
+}

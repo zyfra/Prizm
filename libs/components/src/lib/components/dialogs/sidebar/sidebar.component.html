@@ -23,46 +23,53 @@
   </div>
 
   <div class="footer prizm-font-btn-links-14">
-    <ng-container>
-      <div class="horizontal">
-        <div class="left">
-          <ng-container
-            *ngIf="context.supportButton"
-            [ngTemplateOutlet]="buttonTemplate"
-            [ngTemplateOutletContext]="{ button: context.supportButton }"
-          >
-          </ng-container>
-        </div>
-        <div class="right">
-          <ng-container
-            *ngIf="context.cancelButton"
-            [ngTemplateOutlet]="buttonTemplate"
-            [ngTemplateOutletContext]="{ button: context.cancelButton }"
-          >
-          </ng-container>
-
-          <ng-container
-            *ngIf="context.confirmButton"
-            [ngTemplateOutlet]="buttonTemplate"
-            [ngTemplateOutletContext]="{ button: context.confirmButton }"
-          >
-          </ng-container>
-        </div>
+    <ng-container *ngIf="context.footer; else notFooter">
+      <div *polymorphOutlet="context.footer as footer; context: context">
+        {{ footer }}
       </div>
     </ng-container>
+    <ng-template #notFooter>
+      <ng-container>
+        <div class="horizontal">
+          <div class="left">
+            <ng-container
+              *ngIf="context.supportButton"
+              [ngTemplateOutlet]="buttonTemplate"
+              [ngTemplateOutletContext]="{ button: context.supportButton }"
+            >
+            </ng-container>
+          </div>
+          <div class="right">
+            <ng-container
+              *ngIf="context.cancelButton"
+              [ngTemplateOutlet]="buttonTemplate"
+              [ngTemplateOutletContext]="{ button: context.cancelButton }"
+            >
+            </ng-container>
 
-    <ng-template #buttonTemplate let-button="button">
-      <button
-        [style]="button.style"
-        [appearance]="button.appearance"
-        [appearanceType]="button.appearanceType"
-        prizmButton
-        [size]="button.size"
-        [icon]="button.icon"
-        (click)="button.action(context)"
-      >
-        {{ button.text }}
-      </button>
+            <ng-container
+              *ngIf="context.confirmButton"
+              [ngTemplateOutlet]="buttonTemplate"
+              [ngTemplateOutletContext]="{ button: context.confirmButton }"
+            >
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #buttonTemplate let-button="button">
+        <button
+          [style]="button.style"
+          [appearance]="button.appearance"
+          [appearanceType]="button.appearanceType"
+          prizmButton
+          [size]="button.size"
+          [icon]="button.icon"
+          (click)="button.action(context)"
+        >
+          {{ button.text }}
+        </button>
+      </ng-template>
     </ng-template>
   </div>
 </div>

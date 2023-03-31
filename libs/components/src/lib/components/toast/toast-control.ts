@@ -12,14 +12,23 @@ import {
 } from '../../modules/overlay';
 import { PrizmToastService } from './toast.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class PrizmToastControl {
   readonly destroy$ = new Subject<void>();
   constructor(
     private readonly overlayService: PrizmOverlayService,
     private readonly toastService: PrizmToastService,
     private readonly injector: Injector
-  ) {}
+  ) {
+    this.init(PrizmToastPosition.TOP_RIGHT);
+    this.init(PrizmToastPosition.TOP_LEFT);
+    this.init(PrizmToastPosition.TOP_MIDDLE);
+    this.init(PrizmToastPosition.BOTTOM_RIGHT);
+    this.init(PrizmToastPosition.BOTTOM_LEFT);
+    this.init(PrizmToastPosition.BOTTOM_MIDDLE);
+  }
 
   private create(
     changesForThisPosition$: Observable<PrizmToastRef[]>,

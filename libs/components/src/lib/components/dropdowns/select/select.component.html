@@ -43,17 +43,24 @@
   </prizm-input-layout>
 
   <ng-template #dropdown>
-    <prizm-data-list class="block" [style.--prizm-data-list-border]="0">
+    <prizm-data-list
+      class="block"
+      [title]="filteredItems$ | async | json"
+      [style.--prizm-data-list-border]="0"
+    >
       <ng-container *ngIf="items?.length; else emptyTemplate">
         <div
           class="item"
           [class.most-relevant]="
             searchable && focusableElementRef.value && ((!items[0] && idx === 1) || idx === 0)
           "
-          [class.selected]="item && value && (item | prizmCallFunc : identityMatcher : value)"
+          [class.selected]="
+            item === value || (item && value && (item | prizmCallFunc : identityMatcher : value))
+          "
           #hostHint
           *ngFor="let item of filteredItems$ | async; let idx = index"
           (click)="select(item)"
+          [title]="{ item: item, idx: idx, nullContent: nullContent } | json"
         >
           <ng-container *ngIf="item; else nullContentTemplate">
             <span
@@ -80,7 +87,7 @@
           </ng-container>
 
           <ng-template #nullContentTemplate>
-            <ng-container *ngIf="!requiredInputControl.value">
+            <ng-container *ngIf="nullContent">
               <ng-container *polymorphOutlet="nullContent as content">
                 {{ content }}
               </ng-container>

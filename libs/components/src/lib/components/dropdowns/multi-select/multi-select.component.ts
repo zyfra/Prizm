@@ -11,7 +11,7 @@ import {
   Self,
   ViewChild,
 } from '@angular/core';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, PrizmFormControlHelpers } from '@prizm-ui/helpers';
 import { FormControl, NgControl } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
 import { PRIZM_MULTI_SELECT_OPTIONS, PrizmMultiSelectOptions } from './multi-select.options';
@@ -251,6 +251,7 @@ export class PrizmMultiSelectComponent<T>
   override ngOnInit(): void {
     super.ngOnInit();
     this.initControlStatusChangerIfExist();
+    this.initControlValidatorsIfExist();
     this.selectedItems$
       .pipe(
         tap(items => this.chipsControl.setValue(items as any, { emitEvent: true })),
@@ -261,15 +262,17 @@ export class PrizmMultiSelectComponent<T>
   }
 
   private initControlStatusChangerIfExist(): void {
-    this.control?.statusChanges
-      .pipe(
-        tap(value => {
-          if (value === 'DISABLED') this.requiredInputControl.disable();
-          else if (!this.requiredInputControl.enabled) this.requiredInputControl.enable();
-        }),
-        takeUntil(this.destroy$)
-      )
-      .subscribe();
+    if (this.control)
+      PrizmFormControlHelpers.syncValidators(this.control as FormControl, false, this.requiredInputControl)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe();
+  }
+
+  private initControlValidatorsIfExist(): void {
+    if (this.control)
+      PrizmFormControlHelpers.syncAllValidators(this.control as FormControl, false, this.requiredInputControl)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe();
   }
 
   get nativeFocusableElement(): PrizmNativeFocusableElement | null {

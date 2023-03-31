@@ -6,8 +6,6 @@ import { ToastComponent } from './toast/toast.component';
 import { ToastWrapperComponent } from './toast-wrapper/toast-wrapper.component';
 import { PolymorphModule } from '../../directives';
 import { PrizmToastControl } from './toast-control';
-import { PrizmToastPosition } from './types';
-import { PrizmToastService } from './toast.service';
 import { PrizmFocusTrapModule } from '../../directives/focus-trap';
 import { PrizmButtonModule } from '../button';
 import { PrizmIndicatorModule } from '../indicator';
@@ -27,15 +25,8 @@ import { PrizmThemeModule } from '@prizm-ui/theme';
     PrizmFocusTrapModule,
   ],
   declarations: [PrizmToastContainerComponent, ToastWrapperComponent, ToastComponent],
-  providers: [PrizmToastControl, PrizmToastService],
+  providers: [PrizmToastControl],
 })
 export class PrizmToastModule {
-  constructor(private readonly toastControl: PrizmToastControl) {
-    this.toastControl.init(PrizmToastPosition.TOP_RIGHT);
-    this.toastControl.init(PrizmToastPosition.TOP_LEFT);
-    this.toastControl.init(PrizmToastPosition.TOP_MIDDLE);
-    this.toastControl.init(PrizmToastPosition.BOTTOM_RIGHT);
-    this.toastControl.init(PrizmToastPosition.BOTTOM_LEFT);
-    this.toastControl.init(PrizmToastPosition.BOTTOM_MIDDLE);
-  }
+  constructor(private readonly toastControl: PrizmToastControl) {}
 }

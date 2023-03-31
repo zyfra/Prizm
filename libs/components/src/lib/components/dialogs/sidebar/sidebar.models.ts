@@ -29,6 +29,9 @@ export interface PrizmSidebarOptions<DATA = unknown> extends PrizmDialogBaseOpti
   readonly content?: any;
   readonly closeable: boolean;
   readonly header: any;
+  readonly footer: PolymorphContent<
+    PrizmBaseDialogContext<PrizmSidebarResultDefaultType, PrizmSidebarOptions<DATA>>
+  >;
 }
 
 export enum PrizmSidebarResultDefaultType {

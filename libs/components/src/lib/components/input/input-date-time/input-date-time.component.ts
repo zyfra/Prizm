@@ -365,9 +365,6 @@ export class PrizmInputDateTimeComponent
     dateFormat: PrizmDateMode,
     dateSeparator: string
   ): string {
-    console.log('#mz calculateMask', {
-      result: `${prizmCreateDateNgxMask(dateFormat, dateSeparator)} ${prizmCreateTimeNgxMask(timeMode)}`,
-    });
     return `${prizmCreateDateNgxMask(dateFormat, dateSeparator)} ${prizmCreateTimeNgxMask(timeMode)}`;
   }
 

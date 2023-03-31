@@ -167,10 +167,23 @@ export class PrizmInputDateTimeRangeComponent
     const control = this.control as FormControl;
     this.syncValuesBetweenControls(control);
     this.syncStateBetweenControls(control);
+    this.syncAllValidators(control);
   }
 
   private syncStateBetweenControls(origin: FormControl): void {
     PrizmFormControlHelpers.syncStates(
+      origin,
+      false,
+      this.timeControlFrom,
+      this.timeControlTo,
+      this.dateControl
+    )
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe();
+  }
+
+  private syncAllValidators(origin: FormControl): void {
+    PrizmFormControlHelpers.syncAllValidators(
       origin,
       false,
       this.timeControlFrom,

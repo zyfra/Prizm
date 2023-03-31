@@ -45,6 +45,11 @@ export class InputDateRangeComponent {
     HTML: import('./examples/disabled/input-date-range-disabled-example.component.html?raw'),
   };
 
+  readonly exampleListDate: TuiDocExample = {
+    TypeScript: import('./examples/list/input-date-range-list-example.component.ts?raw'),
+    HTML: import('./examples/list/input-date-range-list-example.component.html?raw'),
+  };
+
   readonly exampleNativeDate: TuiDocExample = {
     TypeScript: import('./examples/native-date/input-native-date-range-base-example.component.ts?raw'),
     HTML: import('./examples/native-date/input-native-date-range-base-example.component.html?raw'),

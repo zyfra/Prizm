@@ -13,6 +13,7 @@ import {
   PrizmPaginatorModule,
   PrizmPanelModule,
   PrizmScrollbarModule,
+  PrizmStickyModule,
   PrizmTableModule,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,6 +31,7 @@ import { TableServerSortExampleComponent } from './examples/table-server-sort-ex
 import { TableTreeExampleComponent } from './examples/table-tree-example/table-tree-example.component';
 import { TableEmptyExampleComponent } from './examples/table-empty-example/table-empty-example.component';
 import { TableLoadingExampleComponent } from './examples/table-loading-example/table-loading-example.component';
+import { TableStickyExampleComponent } from './examples/table-sticky-example/table-sticky-example.component';
 
 @NgModule({
   declarations: [
@@ -48,11 +50,13 @@ import { TableLoadingExampleComponent } from './examples/table-loading-example/t
     TableSearchExampleComponent,
     TableBorderStyleExampleComponent,
     TableTreeExampleComponent,
+    TableStickyExampleComponent,
     TableSelectableMetaExampleComponent,
   ],
   imports: [
     CommonModule,
     PrizmAddonDocModule,
+    PrizmStickyModule,
     PrizmTableModule,
     RouterModule.forChild(prizmDocGenerateRoutes(TableExampleComponent)),
     FormsModule,

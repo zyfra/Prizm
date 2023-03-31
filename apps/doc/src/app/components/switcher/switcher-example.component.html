@@ -44,19 +44,11 @@
         [switchers]="switchers"
         [type]="type"
         [fullWidth]="fullWidth"
-        [selectedSwitcherIdx]="selectedSwitcherIdx"
+        [(selectedSwitcherIdx)]="selectedSwitcherIdx"
         [size]="size"
       ></prizm-switcher>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-      <!-- <ng-template
-        documentationPropertyName="label"
-        documentationPropertyType="ISwitcher[]"
-        documentationPropertyMode="input"
-      >
-        Switcher list
-      </ng-template> -->
-
       <ng-template
         documentationPropertyName="switchers"
         documentationPropertyType="PrizmSwitcherItem[]"

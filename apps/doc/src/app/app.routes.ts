@@ -229,6 +229,14 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/sticky',
+    loadChildren: (): Promise<unknown> =>
+      import('./components/sticky/sticky.module').then(i => i.StickyModule),
+    data: {
+      title: 'Sticky',
+    },
+  },
+  {
     path: 'components/skeleton',
     loadChildren: (): Promise<unknown> =>
       import('./components/skeleton/skeleton.module').then(i => i.SkeletonModule),

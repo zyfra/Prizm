@@ -1,9 +1,19 @@
 import { Compare } from '../compare/compare';
 import { filter, map } from 'rxjs/operators';
-import { MonoTypeOperatorFunction, OperatorFunction } from 'rxjs';
+import { MonoTypeOperatorFunction, Observable, OperatorFunction, Subscriber } from 'rxjs';
 
 export function filterFalsy<T>(): MonoTypeOperatorFunction<T> {
   return filter(Compare.isFalsy);
+}
+
+export function prizmElementResized$(...elements: Element[]): Observable<ResizeObserverEntry[]> {
+  return new Observable((subscriber: Subscriber<ResizeObserverEntry[]>) => {
+    const resizeObserver = new ResizeObserver((entries: ResizeObserverEntry[]) => subscriber.next(entries));
+
+    elements.forEach(elem => resizeObserver.observe(elem));
+
+    return (): void => resizeObserver.disconnect();
+  });
 }
 
 export function filterTruthy<T>(): MonoTypeOperatorFunction<T> {

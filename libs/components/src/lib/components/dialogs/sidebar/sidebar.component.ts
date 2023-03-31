@@ -38,9 +38,9 @@ export class PrizmSidebarComponent<DATA = unknown> {
     return ['b', 't'].includes(this.context.position);
   }
 
-  @HostBinding('style.height')
+  @HostBinding('style.full-height')
   public get fullHeight(): boolean {
-    return ['l', 'r'].includes(this.context.position) ? '100%' : (this.context.height as any) ?? '200px';
+    return true;
   }
 
   @HostBinding('@prizmSlideInTop')

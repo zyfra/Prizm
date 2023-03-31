@@ -39,6 +39,11 @@ export class TableExampleComponent {
     HTML: import('./examples/table-basic-example/table-basic-example.component.html?raw'),
     LESS: import('./examples/table-basic-example/table-basic-example.component.less?raw'),
   };
+  public readonly exampleStickyTable: TuiDocExample = {
+    TypeScript: import('./examples/table-sticky-example/table-sticky-example.component?raw'),
+    HTML: import('./examples/table-sticky-example/table-sticky-example.component.html?raw'),
+    LESS: import('./examples/table-sticky-example/table-sticky-example.component.less?raw'),
+  };
 
   public readonly exampleTreeTable: TuiDocExample = {
     TypeScript: import('./examples/table-tree-example/table-tree-example.component?raw'),

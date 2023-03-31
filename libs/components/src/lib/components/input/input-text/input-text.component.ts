@@ -186,9 +186,9 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   }
 
   private initControlListener(): void {
-    this.ngControl.statusChanges
+    this.ngControl?.statusChanges
       .pipe(
-        tap(() => {
+        tap(result => {
           this.updateEmptyState();
           this.updateErrorState();
           this.cdr.markForCheck();
@@ -197,11 +197,20 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
       )
       .subscribe();
 
-    this.ngControl.valueChanges
+    this.ngControl?.valueChanges
       .pipe(
         tap(() => {
           this.updateEmptyState();
           this.updateErrorState();
+          this.stateChanges.next();
+        }),
+        takeUntil(this.prizmDestroyService)
+      )
+      .subscribe();
+
+    this.ngControl.statusChanges
+      .pipe(
+        tap(() => {
           this.stateChanges.next();
         }),
         takeUntil(this.prizmDestroyService)

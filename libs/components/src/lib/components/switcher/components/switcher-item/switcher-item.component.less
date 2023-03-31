@@ -51,6 +51,8 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+    width: 100%;
+    height: 100%;
 
     border: 1px solid var(--prizm-border-forms);
     border-right: none;
@@ -74,7 +76,16 @@
       color: var(--prizm-grey-g7-g7);
     }
 
-    &:hover:not(&_active) {
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &:disabled .switcher__icon,
+    &:disabled .switcher__title {
+      color: var(--prizm-disabled-text);
+    }
+
+    &:hover:not(&_active):not(:disabled) {
       background: var(--prizm-grey-g12-g2);
 
       .switcher__title,
