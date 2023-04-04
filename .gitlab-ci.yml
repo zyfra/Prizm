@@ -22,7 +22,7 @@ variables:
 
 stages:
   - build
-  - release
+  #  - release
   - deploy
 
 .tags_k8s:
@@ -93,27 +93,27 @@ Build library:
       - dist/
   extends: ['.tags_k8s', '.except_skip_ci']
 
-Release package:
-  stage: release
-  image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
-  script:
-    - cat ${NPMRC_CONFIG_PUSH} > .npmrc
-    - echo "_authToken=$NPM_AUTH_PUBLISH_TOKEN" >> .npmrc
-    - cp .npmrc ~/
-    - cd dist/libs
-    #- for i in `(ls -l | awk '{ print $9 }')`; do npm publish ./$i; done
-    - npm publish --access public --userconfig ~/.npmrc --verbose  helpers || exit_code=0
-    - npm publish --access public --userconfig ~/.npmrc --verbose  components || exit_code=0
-    - npm publish --access public --userconfig ~/.npmrc --verbose  core || exit_code=0
-    - npm publish --access public --userconfig ~/.npmrc --verbose  icons/base || exit_code=0
-    - npm publish --access public --userconfig ~/.npmrc --verbose  icons/flags || exit_code=0
-    #    - npm publish --access public --userconfig ~/.npmrc --verbose  schematics || exit_code=0
-    - npm publish --access public --userconfig ~/.npmrc --verbose  theme || exit_code=0
-    - npm publish --access public --userconfig ~/.npmrc --verbose  charts || exit_code=0
-  when: manual
-  only: ['main']
-  extends: ['.tags_k8s', '.except_skip_ci']
-
+#Release package:
+#  stage: release
+#  image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
+#  script:
+#    - cat ${NPMRC_CONFIG_PUSH} > .npmrc
+#    - echo "_authToken=$NPM_AUTH_PUBLISH_TOKEN" >> .npmrc
+#    - cp .npmrc ~/
+#    - cd dist/libs
+#    #- for i in `(ls -l | awk '{ print $9 }')`; do npm publish ./$i; done
+#    - npm publish --access public --userconfig ~/.npmrc --verbose  helpers || exit_code=0
+#    - npm publish --access public --userconfig ~/.npmrc --verbose  components || exit_code=0
+#    - npm publish --access public --userconfig ~/.npmrc --verbose  core || exit_code=0
+#    - npm publish --access public --userconfig ~/.npmrc --verbose  icons/base || exit_code=0
+#    - npm publish --access public --userconfig ~/.npmrc --verbose  icons/flags || exit_code=0
+#    #    - npm publish --access public --userconfig ~/.npmrc --verbose  schematics || exit_code=0
+#    - npm publish --access public --userconfig ~/.npmrc --verbose  theme || exit_code=0
+#    - npm publish --access public --userconfig ~/.npmrc --verbose  charts || exit_code=0
+#  when: manual
+#  only: ['main']
+#  extends: ['.tags_k8s', '.except_skip_ci']
+#
 Deploy:
   stage: deploy
   image:
