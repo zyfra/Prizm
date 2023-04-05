@@ -1,8 +1,13 @@
 name: CI
 on:
-  pull_request:
-    branches:
-      - main
+  # pull_request -> GITHUB_TOKEN has no write permissions on external forks
+  #  pull_request:
+  #    branches:
+  #      - main
+  # pull_request_target -> GITHUB_TOKEN has write permissions external forks
+  pull_request_target:
+    types:
+      - labeled
 jobs:
   pr_build:
     runs-on: ubuntu-latest
@@ -10,6 +15,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
           fetch-depth: 0
 
       - uses: actions/setup-node@v3
