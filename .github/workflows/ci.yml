@@ -7,9 +7,9 @@ on:
   #    types:
   #      - labeled
   # pull_request -> GITHUB_TOKEN has no write permissions on external forks
-  pull_request:
-    branches:
-      - main
+#  pull_request:
+#    branches:
+#      - main
 jobs:
   pr_build:
     runs-on: ubuntu-latest
