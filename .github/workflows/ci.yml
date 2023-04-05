@@ -6,8 +6,10 @@ on:
   #      - main
   # pull_request_target -> GITHUB_TOKEN has write permissions external forks
   pull_request_target:
-    types:
-      - labeled
+    branches:
+      - main
+#    types:
+#      - labeled
 jobs:
   pr_build:
     runs-on: ubuntu-latest
