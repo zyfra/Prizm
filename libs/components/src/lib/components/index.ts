@@ -25,6 +25,7 @@ export * from './widget';
 export * from './panel';
 export * from './progress';
 export * from './navigation';
+export * from './navigation-menu';
 export * from './header';
 export * from './tabs';
 export * from './breadcrumbs';
