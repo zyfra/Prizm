@@ -38,7 +38,28 @@ export class TreeComponentExampleComponent {
           },
         ],
       },
-      { text: 'Top level 2' },
+      {
+        text: 'Top level 2',
+        children: [
+          {
+            text: 'Another item',
+            children: [
+              { text: 'Next level 1' },
+              {
+                text: 'Next level 2',
+                children: [
+                  {
+                    text: 'Another item',
+                    children: [{ text: 'Next level 1' }, { text: 'Next level 2' }, { text: 'Next level 3' }],
+                  },
+                ],
+              },
+              { text: 'Next level 3' },
+              { text: 'Next level 4' },
+            ],
+          },
+        ],
+      },
       {
         text: 'Top level 3',
         children: [{ text: 'Test 1' }, { text: 'Test 2' }],

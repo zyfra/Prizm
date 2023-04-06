@@ -1,0 +1,15 @@
+<!-- Use [usePaddingIndent]="true" -->
+<div class="padding-indent">
+  <prizm-tree
+    *ngFor="let item of data.children"
+    [prizmTreeController]="true"
+    [value]="item"
+    [content]="content"
+    [childrenHandler]="handler"
+    [usePaddingIndent]="true"
+  ></prizm-tree>
+</div>
+
+<ng-template #content let-item>
+  {{ item.text }}
+</ng-template>
