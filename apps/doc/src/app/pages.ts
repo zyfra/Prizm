@@ -538,9 +538,15 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.components,
-    title: 'Navigation menu',
+    title: 'Navigation menu (deprecated)',
     keywords: 'nav-menu, nav, menu, меню, навигация',
     route: '/components/nav-menu',
+  },
+  {
+    section: SectionNameEnum.components,
+    title: 'Navigation menu',
+    keywords: 'navigation-menu, nav, navigation, menu, меню, навигация',
+    route: '/components/navigation-menu',
   },
   {
     section: SectionNameEnum.components,

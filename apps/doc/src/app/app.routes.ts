@@ -824,6 +824,16 @@ export const ROUTES: Routes = [
     loadChildren: (): Promise<unknown> =>
       import('./components/nav-menu/nav-menu-example.module').then(i => i.NavMenuExampleModule),
     data: {
+      title: 'Navigation menu (deprecated)',
+    },
+  },
+  {
+    path: 'components/navigation-menu',
+    loadChildren: (): Promise<unknown> =>
+      import('./components/navigation-menu/navigation-menu-example.module').then(
+        i => i.NavigationMenuExampleModule
+      ),
+    data: {
       title: 'Navigation menu',
     },
   },

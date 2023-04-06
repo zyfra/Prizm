@@ -1,0 +1,122 @@
+<div class="layout">
+  <prizm-splitter class="menu-splitter">
+    <prizm-splitter-area [size]="50" [minSize]="30">
+      <ng-container [ngTemplateOutlet]="menuTemplate"></ng-container>
+    </prizm-splitter-area>
+    <prizm-splitter-area [size]="50" [minSize]="30">
+      <ng-container [ngTemplateOutlet]="descriptionTemplate"></ng-container>
+    </prizm-splitter-area>
+  </prizm-splitter>
+</div>
+
+<ng-template #menuTemplate>
+  <prizm-navigation-menu
+    [title]="'With bottom group and [hideGroupAppearance]'"
+    [toolbarConfig]="menuToolbarConfig"
+    [headerExtraTemplate]="headerExtraTemplate"
+    [expandedItemsMap]="expandedItemsMap"
+    [expandedGroupsMap]="expandedGroupsMap"
+    [activeItem]="activeItem$ | async"
+    (activeItemChanged)="activeItemChanged($event)"
+    (homeClicked)="logMenuEvent('homeClicked', $event)"
+    (itemExpandedChanged)="logMenuEvent('itemExpandedChanged', $event)"
+    (groupExpandedChanged)="logMenuEvent('groupExpandedChanged', $event)"
+    (breadcrumbsChanged)="menuBreadcrumbsChanged($event)"
+    (expandedItemsMapChanged)="expandedItemsMapChanged($event)"
+    (expandedGroupsMapChangedEvent)="expandedGroupsMapChangedEvent($event)"
+  >
+    <prizm-navigation-menu-group
+      top
+      *ngIf="fruitsGroup$ | async as group"
+      [icon]="'battery-flash-ok'"
+      [title]="group.title"
+      [groupId]="group.title"
+      [items]="group.items"
+      [itemExtraTemplate]="itemExtraTemplate"
+      [toolbarConfig]="group.toolbarConfig"
+    ></prizm-navigation-menu-group>
+    <prizm-navigation-menu-group
+      top
+      *ngIf="musicalInstrumentsGroup$ | async as group"
+      [icon]="'alerts-pulse'"
+      [title]="group.title"
+      [groupId]="group.title"
+      [items]="group.items"
+      [itemExtraTemplate]="itemExtraTemplate"
+      [toolbarConfig]="group.toolbarConfig"
+      [searchConfig]="{ searchSource: 'group' }"
+      [emptyMessageConfig]="{
+        title: 'This could be configured',
+        subtitle:
+          'Current group has { searchSource: \'group\' and won\'t filter items on top toolbar search query change }'
+      }"
+    ></prizm-navigation-menu-group>
+    <prizm-navigation-menu-group
+      top
+      *ngIf="noGroupAppearanceGroup$ | async as group"
+      [hideGroupAppearance]="true"
+      [groupId]="group.title"
+      [items]="group.items"
+      [itemExtraTemplate]="itemExtraTemplate"
+    ></prizm-navigation-menu-group>
+    <prizm-navigation-menu-group
+      bottom
+      *ngIf="longNamesGroup$ | async as group"
+      [title]="group.title"
+      [groupId]="group.title"
+      [items]="group.items"
+      [itemExtraTemplate]="itemExtraTemplate"
+      [toolbarConfig]="group.toolbarConfig"
+    ></prizm-navigation-menu-group>
+  </prizm-navigation-menu>
+</ng-template>
+
+<ng-template #itemExtraTemplate let-item let-hovered="isHovered">
+  <prizm-example-hint-button [item]="item" [class.hovered]="hovered"></prizm-example-hint-button>
+</ng-template>
+
+<ng-template #headerExtraTemplate let-headerIsHovered="headerIsHovered">
+  <prizm-example-hint-button
+    [class.hovered]="headerIsHovered"
+    [hintTemplate]="menuHintTemplate"
+  ></prizm-example-hint-button>
+</ng-template>
+
+<ng-template #menuHintTemplate>
+  <prizm-menu-hint-example></prizm-menu-hint-example>
+</ng-template>
+
+<ng-template #descriptionTemplate>
+  <ng-template #breadcrumbsTemplate>
+    <prizm-breadcrumbs
+      [breadcrumbs]="breadcrumbs"
+      (breadcrumbChange)="breadcrumbChange($event)"
+    ></prizm-breadcrumbs>
+  </ng-template>
+  <prizm-widget [title]="breadcrumbsTemplate">
+    <div class="content">
+      <prizm-scrollbar>
+        <section>
+          <h4>Поиск</h4>
+          <pre>
+            В интерфейсе <b>PrizmNavigationMenuSearchConfig</b> поле <b>searchSource</b> отвечает за то как будет производиться поиск по группам.
+
+            [hierarchical] - Дефолтное. Вводя значение в главном поле поиска (шапка меню) будут отфильтрованы все группы за исключением тех у кого стоит searchSource: 'group'.
+                             Если в то-же время произвести поиск на уровне группы - элементы меню будут фильтроваться по значению, указанному в поиске группы.
+
+            [group] - Поиск через главное поле в шапке меню не приводит к фильтрации внутри группы.
+
+            [menu] - Фильтрует только если поиск произведен через главное меню.
+          </pre>
+        </section>
+        <section>
+          <h4>Режимы и группы</h4>
+          <pre>
+            Если меняем режим в главном тулбаре (шапка меню) тогда, если конфиг тулбара группы поддерживает режим, группа также меняют режим.
+            Если меняется режим в группе, меняется только ее режим.
+          </pre>
+        </section>
+      </prizm-scrollbar>
+    </div>
+  </prizm-widget>
+</ng-template>
