@@ -1,11 +1,14 @@
 <ng-template #template><ng-content></ng-content></ng-template>
-<div class="z-dynamic-content prizm-font-main-body-12">
+<div
+  class="prizm-tree-item__dynamic-content prizm-font-main-body-12"
+  [style.--prizm-tree-item-indent-level]="level"
+>
   <ng-container *polymorphOutlet="content; context: { $implicit: this, template: template }"> </ng-container>
 </div>
 <prizm-expand
   *ngIf="isExpandable"
   role="group"
-  class="z-children prizm-font-main-body-12"
+  class="prizm-tree-item__children prizm-font-main-body-12"
   [expanded]="expanded$ | async"
 >
   <div>
