@@ -32,8 +32,8 @@ export class PrizmPaginatorComponent implements OnInit {
     return this._totalRecords;
   }
   set totalRecords(value: NumberInput) {
-    this._totalRecords = coerceNumberProperty(value, 0);
-    this.paginationGenerator();
+    this._totalRecords = Math.max(coerceNumberProperty(value), 0);
+    this.changeDetectorRef.markForCheck();
   }
   private _totalRecords = 0;
 
@@ -50,7 +50,11 @@ export class PrizmPaginatorComponent implements OnInit {
   }
   set rows(value: NumberInput) {
     this._rows = Math.max(coerceNumberProperty(value), 0);
-    this.paginationGenerator();
+    if (!this._rows) {
+      this._rows = this.rowsCountOptions[0];
+    }
+
+    this.changeDetectorRef.markForCheck();
   }
   private _rows: number;
 
@@ -61,7 +65,7 @@ export class PrizmPaginatorComponent implements OnInit {
   }
   set page(value: NumberInput) {
     this.currentPage = Math.max(coerceNumberProperty(value), 1);
-    this.paginationGenerator();
+    this.changeDetectorRef.markForCheck();
   }
 
   @Input() paginatorOptions: PrizmPaginatorOptions = {
@@ -144,42 +148,35 @@ export class PrizmPaginatorComponent implements OnInit {
    * Tries to normalize paginator configuration.
    */
   public get isDataValid(): boolean {
-    if (this.totalRecords >= 0) {
-      this._rows = Math.min(this.rows || this.rowsCountOptions[0], this.totalRecords);
-      if (!this.rows) return false;
+    if (!this.rows) return false;
+    if (this.totalRecords < 0) return false;
 
-      this.pagesCount = Math.ceil(this.totalRecords / this.rows);
-      this.currentPage = Math.min(this.currentPage, this.pagesCount);
+    this.pagesCount = Math.ceil(this.totalRecords / this.rows);
+    this.currentPage = Math.min(this.currentPage, this.pagesCount) || 1;
 
-      return true;
-    }
-
-    return false;
+    return true;
   }
 
   public changePage(page: number): void {
-    if (this.currentPage !== page) {
-      this.currentPage = page;
+    const prev = this.currentPage;
+    this.page = page;
+
+    // Emit only if real value was changed by the setter
+    if (this.currentPage !== prev) {
       this.emitPageChange();
     }
   }
 
   public increase(): void {
-    this.currentPage++;
-    this.emitPageChange();
+    this.changePage(this.page + 1);
   }
 
   public decrease(): void {
-    if (this.currentPage > 0) {
-      this.currentPage--;
-      this.emitPageChange();
-    }
+    this.changePage(this.page - 1);
   }
 
   private emitPageChange(): void {
-    const page = this.currentPage;
-    if (this.page === page) return;
-    this.pageChange.emit(page);
+    this.pageChange.emit(this.currentPage);
     this.emitPaginatorChanges();
   }
 
