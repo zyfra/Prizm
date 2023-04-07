@@ -1,6 +1,6 @@
 {
   "name": "cb3-to-prizm",
-  "version": "1.0.0-beta.28",
+  "version": "1.0.0-beta.29",
   "description": "Update component base 3 version to prizm",
   "scripts": {
     "build": "tsc -p tsconfig.json",
