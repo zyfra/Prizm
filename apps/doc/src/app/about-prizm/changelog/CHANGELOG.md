@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.29](https://github.com/zyfra/Prizm) (07-04-2023)
+
+### Features
+
+- feat(ast): new library for help to write you migrator and code updater
+- feat(cb3-to-prizm): new migrator for help to migrate to prizm from pervious component base 3
+- feat(ci): add ability for work with forked pull requests
+- feat(doc/dialog): add example with close in template buttons [123](https://github.com/zyfra/Prizm/issues/123)
+- feat(component/table): added example with new `PrizmTableDataSource`  [133](https://github.com/zyfra/Prizm/issues/133)
+- feat(components/table): added  `PrizmTableDataSource` class [133](https://github.com/zyfra/Prizm/issues/133)
+- feat(component/table): added example with new `PrizmTableDataSource`  [133](https://github.com/zyfra/Prizm/issues/133)
+
+### BUG FIXES
+
+- fix(components/input-date-time): fix the time disappears when you select the same date again [125](https://github.com/zyfra/Prizm/issues/125)
+- fix(components/input-date-time): sometimes after choose some time from preset we get wrong times
+- fix(components/select): mark as dirty if it has initial value [132](https://github.com/zyfra/Prizm/issues/132)
+- fix(components/multi-select): validation status in multiSelect is not reset [129](https://github.com/zyfra/Prizm/issues/129)
+
 ## [1.0.0-beta.28](https://github.com/zyfra/Prizm) (31-03-2023)
 
 ### Features
