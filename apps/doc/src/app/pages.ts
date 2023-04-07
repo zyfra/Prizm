@@ -612,6 +612,12 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.tools,
+    title: 'AST',
+    keywords: 'ast, helpers, prizm',
+    route: '/tools/ast',
+  },
+  {
+    section: SectionNameEnum.tools,
     title: 'To Observable',
     keywords: 'to-observable, pipec',
     route: '/tools/to-observable',
