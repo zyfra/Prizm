@@ -28,8 +28,8 @@ export class PrizmPaginatorComponent implements OnInit {
 
   /** The length of the total number of items that are being paginated. Defaulted to 0. */
   @Input()
-  get totalRecords(): number {
-    return this._totalRecords;
+  get totalRecords(): number | null {
+    return this.paginatorType === 'finite' ? this._totalRecords : null;
   }
   set totalRecords(value: NumberInput) {
     this._totalRecords = Math.max(coerceNumberProperty(value), 0);
@@ -149,7 +149,7 @@ export class PrizmPaginatorComponent implements OnInit {
    */
   public get isDataValid(): boolean {
     if (!this.rows) return false;
-    if (this.totalRecords < 0) return false;
+    if (!this.totalRecords) return false;
 
     this.pagesCount = Math.ceil(this.totalRecords / this.rows);
     this.currentPage = Math.min(this.currentPage, this.pagesCount) || 1;
