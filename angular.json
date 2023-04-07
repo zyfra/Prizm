@@ -1,6 +1,45 @@
 {
   "version": 1,
   "projects": {
+    "ast": {
+      "projectType": "library",
+      "root": "libs/ast",
+      "sourceRoot": "libs/ast/src",
+      "prefix": "prizm",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/ast"],
+          "options": {
+            "project": "libs/ast/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ast/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/ast/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ast"],
+          "options": {
+            "jestConfig": "libs/ast/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ast/src/**/*.ts", "libs/ast/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
     "charts-base": {
       "projectType": "library",
       "root": "libs/charts/base",

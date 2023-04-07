@@ -1,0 +1,9 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "cb3-to-prizm": {
+      "description": "A blank schematic.",
+      "factory": "./cb3-to-prizm/index#cb3ToPrizm"
+    }
+  }
+}
