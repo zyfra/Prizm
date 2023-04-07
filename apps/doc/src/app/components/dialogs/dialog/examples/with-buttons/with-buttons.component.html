@@ -1,5 +1,5 @@
 <button type="button" (click)="show()" prizmButton>Show Dialog</button>
 
-<ng-template #footerTemp>
-  <button prizmButton appearance="primary" size="xl">Моя кнопка</button>
+<ng-template #footerTemp let-completeWith="completeWith">
+  <button prizmButton appearance="primary" size="xl" (click)="completeWith(true)">Закрыть</button>
 </ng-template>
