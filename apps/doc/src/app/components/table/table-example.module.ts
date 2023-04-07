@@ -32,6 +32,7 @@ import { TableTreeExampleComponent } from './examples/table-tree-example/table-t
 import { TableEmptyExampleComponent } from './examples/table-empty-example/table-empty-example.component';
 import { TableLoadingExampleComponent } from './examples/table-loading-example/table-loading-example.component';
 import { TableStickyExampleComponent } from './examples/table-sticky-example/table-sticky-example.component';
+import { TableDataSourceExampleComponent } from './examples/table-data-source-example/table-data-source-example.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { TableStickyExampleComponent } from './examples/table-sticky-example/tab
     TableStatusExampleComponent,
     TableSortExampleComponent,
     TableServerSortExampleComponent,
+    TableDataSourceExampleComponent,
     TableRowGroupExampleComponent,
     TableSearchExampleComponent,
     TableBorderStyleExampleComponent,

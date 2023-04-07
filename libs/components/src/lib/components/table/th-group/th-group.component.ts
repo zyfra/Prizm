@@ -6,10 +6,12 @@ import {
   ContentChildren,
   forwardRef,
   Inject,
+  Input,
   QueryList,
 } from '@angular/core';
+import { prizmDefaultProp } from '@prizm-ui/core';
 import { Observable } from 'rxjs';
-import { map, startWith, tap } from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 
 import { PrizmHeadDirective } from '../directives/head.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
@@ -24,6 +26,10 @@ import { PrizmThComponent } from '../th/th.component';
   providers: [PRIZM_TABLE_PROVIDER],
 })
 export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>> implements AfterContentInit {
+  @Input()
+  @prizmDefaultProp()
+  columns: ReadonlyArray<keyof T | string> = this.table.columns;
+
   @ContentChild(forwardRef(() => PrizmThComponent))
   readonly th!: PrizmThComponent<T>;
 
@@ -34,13 +40,22 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>> impl
 
   constructor(
     @Inject(forwardRef(() => PrizmTableDirective))
-    readonly table: PrizmTableDirective<T>
+    public readonly table: PrizmTableDirective<T>
   ) {}
 
   ngAfterContentInit(): void {
     this.heads$ = this.heads.changes.pipe(
       startWith(null),
-      map(() => this.heads.toArray())
+      map(() => {
+        const heads = this.heads.toArray();
+        const columns = this.columns;
+        if (!columns || columns.length === 0) {
+          return heads;
+        }
+
+        // Display heads in order as specified by table's `column` property.
+        return columns.map(c => heads.find(h => h.prizmHead === c));
+      })
     );
   }
 }

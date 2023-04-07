@@ -1,4 +1,9 @@
+import { DataSource } from '@angular/cdk/collections';
+import { Observable } from 'rxjs';
 import { PrizmContextWithImplicit } from '../../types';
+
+/** Possible types that can be set as the data source for a `PrizmTable`. */
+export type PrizmTableDataSourceInput<T> = readonly T[] | DataSource<T> | Observable<readonly T[]>;
 
 export type PrizmComparator<T> = (a: T, b: T) => number;
 

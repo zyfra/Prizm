@@ -20,6 +20,7 @@ export * from './th/th.component';
 export * from './directives/tree-loading.directive';
 export * from './th-group/th-group.component';
 export * from './tr/tr.component';
+export * from './data-source';
 export * from './table.types';
 export * from './table.const';
 export * from './service';

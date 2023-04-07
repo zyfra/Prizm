@@ -29,7 +29,7 @@
     </span>
     <div
       class="paginator paginator__finite"
-      *ngIf="paginatorType === 'finite' && paginationGenerator(rows, currentPage) as pagingData"
+      *ngIf="paginatorType === 'finite' && paginationGenerator() as pagingData"
     >
       <button class="control control_left" [disabled]="disabled || currentPage === 1" (click)="decrease()">
         <prizm-icon size="16" iconClass="arrows-chevron-left"></prizm-icon>
