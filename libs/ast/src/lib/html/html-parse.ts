@@ -36,7 +36,7 @@ interface PrizmMaybeHtmlItem {
  * const result = prizmHtmlParse(htmlString);
  * // Результат: массив объектов, представляющих элементы HTML-документа
  */
-export const prizmHtmlParse = (html: string, options: Partial<PrizmHtmlOptions> = {}) => {
+export const prizmHtmlParse = (html: string, options: Partial<PrizmHtmlOptions> = {}): any => {
   // Инициализация переменных
   options || (options = {});
   options.components || (options.components = empty);

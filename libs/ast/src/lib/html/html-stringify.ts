@@ -65,7 +65,7 @@ export function stringify(buff: string, doc: PrizmHtmlItem): string {
  * @param {PrizmHtmlItem[]} doc - Массив объектов PrizmHtmlItem для преобразования.
  * @returns {string} Строка HTML, представляющая массив объектов PrizmHtmlItem.
  */
-export const prizmHtmlStringify = (doc: PrizmHtmlItem[]) => {
+export const prizmHtmlStringify = (doc: PrizmHtmlItem[]): string => {
   return doc.reduce(function (token: string, rootEl: PrizmHtmlItem) {
     // Для каждого элемента в массиве вызываем функцию stringify и склеиваем результаты
     return token + stringify('', rootEl);
