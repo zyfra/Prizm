@@ -27,7 +27,7 @@ import { PrizmTableCellSorter, PrizmTableSorterService } from '../service';
   },
   exportAs: 'prizmTable',
 })
-export class PrizmTableDirective<T extends Partial<Record<keyof T, any>>>
+export class PrizmTableDirective<T extends Partial<Record<keyof T, unknown>>>
   extends AbstractPrizmController
   implements AfterViewInit
 {

@@ -68,8 +68,8 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
    *
    * @example
    * ```
-   *  \@ViewChild(PrizmTable) table;
-   *  \@ViewChild(PrizmPaginator) paginator;
+   *  \@ViewChild(PrizmTableDirective) table;
+   *  \@ViewChild(PrizmPaginatorComponent) paginator;
    *
    *  ngAfterViewInit() {
    *    this.dataSource = new PrizmTableDataSource([]);
@@ -81,7 +81,7 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
   @Input()
   set data(dataSource: PrizmTableDataSourceInput<T>) {
     if (this._dataSource !== dataSource) {
-      this._switchDataSource(dataSource);
+      this._switchDataSource(dataSource ?? []);
     }
   }
 
@@ -209,7 +209,7 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
 
     this.renderData$ = dataStream.pipe(
       tap(data => {
-        this._data = data;
+        this._data = data || [];
       })
     );
   }

@@ -5,9 +5,9 @@ import { map } from 'rxjs/operators';
 /**
  * The sorter that holds the current sort state (direction, columns) and able to sort data.
  */
-interface PrizmSorter {
-  readonly changes$: Observable<void>;
-  sort<T>(data: T[]): T[];
+interface PrizmSorter<T = unknown> {
+  readonly changes$: Observable<unknown>;
+  sort(data: T[]): T[];
 }
 
 /**
@@ -114,16 +114,16 @@ export class PrizmTableDataSource<
    *
    * Sort changes (see {@link PrizmSorter.changes$}) emitted by the sorter will trigger an update to the table's rendered data.
    */
-  get sorter(): PrizmSorter | null {
+  get sorter(): PrizmSorter<T> | null {
     return this._sorter;
   }
 
-  set sorter(sorter: PrizmSorter | null) {
+  set sorter(sorter: PrizmSorter<T> | null) {
     this._sorter = sorter;
     this._updateChangeSubscription();
   }
 
-  private _sorter: PrizmSorter | null;
+  private _sorter: PrizmSorter<T> | null;
 
   /**
    * Instance of the paginator used by the table to control what page of the data is

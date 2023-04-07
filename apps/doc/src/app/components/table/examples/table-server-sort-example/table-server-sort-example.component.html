@@ -23,8 +23,8 @@
         </tr>
       </thead>
 
-      <tbody prizmTbody [data]="data$ | async">
-        <tr *prizmRow="let item of data$ | async; let i = index" class="row" prizmTr>
+      <tbody prizmTbody [data]="data$">
+        <tr *prizmRow="let item; let i = index" class="row" prizmTr>
           <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
           <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
           <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
