@@ -225,6 +225,7 @@ export class PrizmSelectComponent<T>
   }
 
   private initControlValueChangerIfExist(): void {
+    let counter = 0;
     concat(timer(0).pipe(map(() => this.control?.value)), this.internalValue$.pipe(debounceTime(0)))
       .pipe(
         distinctUntilChanged(),
@@ -234,6 +235,8 @@ export class PrizmSelectComponent<T>
           }
           this.select(value);
           this.updateValue(value);
+          if (counter === 0) this.control?.markAsPristine();
+          counter++;
         }),
         takeUntil(this.destroy$)
       )
