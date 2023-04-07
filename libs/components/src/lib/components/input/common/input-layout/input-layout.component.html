@@ -14,7 +14,7 @@
 "
       [attr.data-size]="size"
       [class.prizm-input-label-focused]="control.focused"
-      [class.prizm-input-label-empty]="control.empty"
+      [class.prizm-input-label-empty]="control.empty || control.hidden"
     >
       {{ label }}
       <span *ngIf="control.required" class="prizm-input-label-required">*</span>
