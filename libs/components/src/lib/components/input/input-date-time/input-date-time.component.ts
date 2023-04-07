@@ -124,12 +124,12 @@ export class PrizmInputDateTimeComponent
 
   /** for avoid time format 29:01 */
   // TODO remove after update angular 15 and latest mask version
-  readonly fixedPatternForTime = {
-    H: { pattern: /[0-2]/i },
-    h: { pattern: /[0-3]/i },
-    m: { pattern: /[0-5]/i },
-    0: { pattern: /[0-9]/i },
-  };
+  // readonly fixedPatternForTime = {
+  //   H: { pattern: /[0-2]/i },
+  //   h: { pattern: /[0-3]/i },
+  //   m: { pattern: /[0-5]/i },
+  //   0: { pattern: /[0-9]/i },
+  // };
 
   readonly type!: PrizmContextWithImplicit<unknown>;
 
@@ -281,7 +281,6 @@ export class PrizmInputDateTimeComponent
 
   public onDayClick(day: PrizmDay, time?: PrizmTime): void {
     const modifiedTime = time ?? (this.value[1] && this.prizmClampTime(this.value[1], day));
-
     this.updateValue([day, modifiedTime]);
     this.updateNativeValue(day);
     this.open = false;
@@ -382,7 +381,6 @@ export class PrizmInputDateTimeComponent
 
   private updateNativeValue(day: PrizmDay): void {
     const time = this.nativeValue.split(PRIZM_DATE_TIME_SEPARATOR)[1] || ``;
-
     this.nativeValue = this.getDateTimeString(day, time);
   }
 
