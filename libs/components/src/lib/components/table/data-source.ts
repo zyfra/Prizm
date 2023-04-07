@@ -33,6 +33,7 @@ export interface PrizmTableDataSourcePaginator {
   currentPage: number;
   rows: number;
   totalRecords: number;
+  initialized?: Observable<void>;
 }
 
 type FilterPredicate<T> = (o: T, index: number) => boolean;
@@ -194,7 +195,7 @@ export class PrizmTableDataSource<
       ? (merge(
           this._paginator.paginatorChange,
           this._internalPageChanges,
-          of(null) // TODO this._paginator.initialized
+          this._paginator.initialized ?? of(null)
         ) as Observable<PrizmTableDataSourcePageEvent | void>)
       : of(null);
     const dataStream = this._data;
