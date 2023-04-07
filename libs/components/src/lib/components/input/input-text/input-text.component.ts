@@ -59,6 +59,9 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
     this.stateChanges.next();
   }
 
+  @Input()
+  override hidden = false;
+
   private _disabled = false;
 
   /**

@@ -1,5 +1,5 @@
 import { AsyncValidatorFn, FormControl, ValidatorFn } from '@angular/forms';
-import { concat, merge, Observable, of } from 'rxjs';
+import { concat, EMPTY, merge, Observable, of } from 'rxjs';
 import { filter, map, tap } from 'rxjs/operators';
 
 export class PrizmFormControlHelpers {
@@ -138,7 +138,7 @@ export class PrizmFormControlHelpers {
   public static syncValues<ORIGIN_VALUE = any, OTHER_VALUE = any>(
     origin: FormControl,
     fromOrigin: (valueFromOrigin: ORIGIN_VALUE) => OTHER_VALUE,
-    fromOthers: (valueFromOther: OTHER_VALUE) => ORIGIN_VALUE,
+    fromOthers: null | ((valueFromOther: OTHER_VALUE) => ORIGIN_VALUE),
     ...others: FormControl[]
   ): Observable<ORIGIN_VALUE> {
     return merge(
@@ -149,13 +149,15 @@ export class PrizmFormControlHelpers {
           others.forEach(control => this.setValue(control, value));
         })
       ),
-      merge(...others.map(control => this.getValue$(control))).pipe(
-        filter(() => Boolean(fromOthers)),
-        tap((valueFromOther: OTHER_VALUE) => {
-          const value = fromOthers(valueFromOther);
-          this.setValue(origin, value);
-        })
-      )
+      fromOthers
+        ? merge(...others.map(control => this.getValue$(control))).pipe(
+            filter(() => Boolean(fromOthers)),
+            tap((valueFromOther: OTHER_VALUE) => {
+              const value = fromOthers(valueFromOther);
+              this.setValue(origin, value);
+            })
+          )
+        : EMPTY
     ).pipe(map(() => this.getValue(origin)));
   }
 }

@@ -18,6 +18,7 @@
     "strictPropertyInitialization": false,
     "baseUrl": ".",
     "paths": {
+      "@prizm-ui/ast": ["libs/ast/src/index.ts"],
       "@prizm-ui/charts": ["libs/charts/base/src/index.ts"],
       "@prizm-ui/components": ["libs/components/src/index.ts"],
       "@prizm-ui/core": ["libs/core/src/index.ts"],

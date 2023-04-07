@@ -16,7 +16,6 @@
       prizmInput
       #focusableElementRef
       [mask]="textMaskOptions"
-      [patterns]="fixedPatternForTime"
       [showMaskTyped]="focusableElementRef.focused"
       [dropSpecialCharacters]="false"
       [readonly]="readOnly"
@@ -25,6 +24,7 @@
       [ngModel]="computedValue"
       (ngModelChange)="onValueChange($event || '')"
     />
+    <!--    [patterns]="fixedPatternForTime"-->
     <ng-container prizm-input-right>
       <button
         prizmInputIconButton="date-calendar-blank"

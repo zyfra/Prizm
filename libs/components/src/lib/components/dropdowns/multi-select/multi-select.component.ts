@@ -251,6 +251,7 @@ export class PrizmMultiSelectComponent<T>
   override ngOnInit(): void {
     super.ngOnInit();
     this.initControlStatusChangerIfExist();
+    this.initControlValueChangerIfExist();
     this.initControlValidatorsIfExist();
     this.selectedItems$
       .pipe(
@@ -263,7 +264,19 @@ export class PrizmMultiSelectComponent<T>
 
   private initControlStatusChangerIfExist(): void {
     if (this.control)
-      PrizmFormControlHelpers.syncValidators(this.control as FormControl, false, this.requiredInputControl)
+      PrizmFormControlHelpers.syncStates(this.control as FormControl, false, this.requiredInputControl)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe();
+  }
+
+  private initControlValueChangerIfExist(): void {
+    if (this.control)
+      PrizmFormControlHelpers.syncValues(
+        this.control as FormControl,
+        i => i?.length,
+        null,
+        this.requiredInputControl
+      )
         .pipe(takeUntil(this.destroy$))
         .subscribe();
   }
@@ -313,7 +326,9 @@ export class PrizmMultiSelectComponent<T>
   public safeOpenModal(): void {
     const inputElement = this.focusableElement.nativeElement;
     this.open =
-      !this.open && this.interactive && inputElement && (this.outer || prizmIsNativeFocused(inputElement));
+      !this.open &&
+      this.interactive &&
+      !!inputElement; /*&& (this.outer || prizmIsNativeFocused(inputElement));*/
     this.changeDetectorRef.markForCheck();
   }
 

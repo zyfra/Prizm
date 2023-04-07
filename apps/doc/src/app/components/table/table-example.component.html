@@ -47,6 +47,14 @@
       <prizm-table-server-sort-example></prizm-table-server-sort-example>
     </prizm-doc-example>
 
+    <prizm-doc-example
+      id="datasource"
+      heading="Sort, Pagination, Filtering"
+      [content]="exampleDataSourceTable"
+    >
+      <prizm-table-data-source-example></prizm-table-data-source-example>
+    </prizm-doc-example>
+
     <prizm-doc-example id="editableCol" heading="Editable col" [content]="exampleEditableColTable">
       <prizm-table-editable-col-example></prizm-table-editable-col-example>
     </prizm-doc-example>
@@ -78,9 +86,6 @@
           [style.--prizm-table-row-cursor]="prizmTableRowCursor"
           prizmTable
           class="table"
-          #element="prizmTable"
-          [key]="'PrizmTableDirective'"
-          [prizmDocHostElement]="element"
           [columns]="columns"
           [size]="size"
           [tableBorderStyle]="borderStyle"
@@ -91,28 +96,16 @@
               <th prizmTh>Наименование</th>
               <th prizmTh>Категория</th>
               <th prizmTh>Количество</th>
-              <th prizmTh>Категория</th>
-              <th prizmTh>Количество</th>
             </tr>
           </thead>
 
-          <tbody
-            prizmTbody
-            #element
-            [key]="'PrizmTbodyComponent'"
-            [prizmDocHostElement]="element"
-            [data]="products"
-          >
+          <tbody prizmTbody [data]="products">
             <ng-container *prizmRow="let item of products; let i = index">
               <tr prizmTr>
                 <td *prizmCell="'code'" class="format__number" prizmTd>
                   {{ item.code | spaceNumber : '0.0-0' }}
                 </td>
                 <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
-                <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
-                <td *prizmCell="'count'" class="format__number" prizmTd>
-                  {{ item.count | spaceNumber : '0.0-0' }}
-                </td>
                 <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
                 <td *prizmCell="'count'" class="format__number" prizmTd>
                   {{ item.count | spaceNumber : '0.0-0' }}

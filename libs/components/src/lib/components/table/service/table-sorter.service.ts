@@ -66,7 +66,7 @@ export class PrizmTableSorterService<T> {
     }
   }
 
-  public sort$(data: T[]): Observable<T[]> {
+  public sort$(data: T[]): Observable<readonly T[]> {
     return this.sorters$$.pipe(map(() => this.sort(data)));
   }
 

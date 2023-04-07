@@ -129,5 +129,11 @@ export class TableExampleComponent {
     LESS: import('./examples/table-server-sort-example/table-server-sort-example.component.less?raw'),
   };
 
+  public exampleDataSourceTable: TuiDocExample = {
+    TypeScript: import('./examples/table-data-source-example/table-data-source-example.component?raw'),
+    HTML: import('./examples/table-data-source-example/table-data-source-example.component.html?raw'),
+    LESS: import('./examples/table-data-source-example/table-data-source-example.component.less?raw'),
+  };
+
   public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

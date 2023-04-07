@@ -682,6 +682,13 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'tools/ast',
+    loadChildren: (): Promise<unknown> => import('./tools/ast/ast.module').then(i => i.AstModule),
+    data: {
+      title: 'AST',
+    },
+  },
+  {
     path: 'tools/to-observable',
     loadChildren: (): Promise<unknown> =>
       import('./tools/to-observable/to-observable.module').then(i => i.ToObservableModule),
