@@ -1,0 +1,50 @@
+<p>Для сортировки нескольких колонок зажмите shift и кликните на иконку сортировку</p>
+<p>Для сортировки зажмите ctrl или command (на mac) и нажмите на иконку</p>
+
+<prizm-scrollbar class="scrollable" visibility="hidden">
+  <table prizmTable class="table" [columns]="columns">
+    <thead>
+      <tr prizmThGroup>
+        <th rowspan="2" prizmTh [sorter]="sorter" *prizmHead="'code'" [resizable]="true">Код</th>
+        <th prizmTh *prizmHead="'name'" [resizable]="true">Наименование</th>
+        <th rowspan="2" prizmTh [sorter]="sorter" *prizmHead="'category'">Категория</th>
+        <th rowspan="2" prizmTh [sorter]="sorter" *prizmHead="'count'">Количество</th>
+      </tr>
+      <tr prizmThGroup>
+        <th prizmTh class="extra-border search-cell" [resizable]="true">
+          <input prizmInput placeholder="Поиск" (enter)="search($event, 'name')" #input />
+          <button
+            prizmInputIconButton="sort-zoom-in"
+            (click)="search(input.value, 'name')"
+            [interactive]="true"
+          ></button>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody prizmTbody [data]="dataSource">
+      <tr *prizmRow="let item; let i = index" class="row" prizmTr>
+        <td *prizmCell="'code'" prizmTd class="format__number">{{ item.code | spaceNumber : '0.0-0' }}</td>
+        <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
+        <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
+        <td *prizmCell="'count'" prizmTd class="format__number">{{ item.count | spaceNumber : '0.0-0' }}</td>
+      </tr>
+    </tbody>
+
+    <tfoot>
+      <tr class="pagination">
+        <td prizmTd [attr.colspan]="columns.length">
+          <prizm-paginator
+            [pageLinkSize]="3"
+            [rows]="10"
+            [page]="1"
+            [paginatorOptions]="{ noRowsSelectorLabel: true }"
+            [rowsCountOptions]="[5, 10, 20]"
+            leftButtonLabel="Назад"
+            rightButtonLabel="Вперед"
+          ></prizm-paginator>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</prizm-scrollbar>

@@ -80,6 +80,7 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
   get count(): number {
     return this.sorterService.count;
   }
+
   get num(): number | null {
     const idx = this.idx;
     if (idx === -1) return null;

@@ -27,7 +27,7 @@ import { PrizmTableCellSorter, PrizmTableSorterService } from '../service';
   },
   exportAs: 'prizmTable',
 })
-export class PrizmTableDirective<T extends Partial<Record<keyof T, any>>>
+export class PrizmTableDirective<T extends Partial<Record<keyof T, unknown>>>
   extends AbstractPrizmController
   implements AfterViewInit
 {
@@ -46,8 +46,8 @@ export class PrizmTableDirective<T extends Partial<Record<keyof T, any>>>
   tableBorderStyle: PrizmTableBorderStyle = 'grid';
 
   @Input()
-  set sort(data: PrizmTableCellSorter<T>[]) {
-    this.sorterService.set(data);
+  set sort(sorters: PrizmTableCellSorter<T>[]) {
+    this.sorterService.set(sorters);
   }
   get sort(): PrizmTableCellSorter<T>[] {
     return this.sorterService.value;
@@ -70,9 +70,9 @@ export class PrizmTableDirective<T extends Partial<Record<keyof T, any>>>
   readonly sortChange: Observable<PrizmTableCellSorter<T>[]> = this.sorterService.changes$;
 
   constructor(
+    public readonly sorterService: PrizmTableSorterService<T>,
     @Inject(IntersectionObserverService)
     readonly entries$: Observable<IntersectionObserverEntry[]>,
-    private readonly sorterService: PrizmTableSorterService<T>,
     @Inject(ChangeDetectorRef) private readonly changeDetectorRef: ChangeDetectorRef
   ) {
     super();
