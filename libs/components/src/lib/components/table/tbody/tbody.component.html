@@ -15,7 +15,7 @@
   </th>
 </tr>
 <ng-container *ngIf="open && row">
-  <ng-container *ngIf="sortedData$ | async as data; else loadingWrapperTemplate">
+  <ng-container *ngIf="renderData$ | async as data; else loadingWrapperTemplate">
     <ng-container *ngIf="!!data?.length; else emptyWrapperTemplate">
       <ng-container
         *ngFor="

@@ -1,5 +1,5 @@
-import { BehaviorSubject, combineLatest, merge, Observable, of, Subject, Subscription } from 'rxjs';
 import { DataSource } from '@angular/cdk/collections';
+import { BehaviorSubject, combineLatest, merge, Observable, of, Subject, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
@@ -154,7 +154,7 @@ export class PrizmTableDataSource<
   /**
    * Connects to the data source.
    *
-   * @returns Observable that emits a new value when the {@link data} changes.
+   * @returns Observable that emits a new value when the `data` changes.
    */
   public connect(): Observable<T[]> {
     if (!this._renderChangesSubscription) {
