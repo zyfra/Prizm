@@ -108,11 +108,6 @@ export class PrizmTaskProcessor {
         } as any,
       ];
     }
-    console.log('#mz moveToContent', 2, {
-      node,
-      oldKey: key,
-      content,
-    });
     return { ...node };
   }
 
@@ -125,11 +120,6 @@ export class PrizmTaskProcessor {
    * @returns {PrizmNode} Новый узел с измененным атрибутом.
    */
   private addComment(node: PrizmNode, value: string, key?: string): PrizmNode {
-    console.log('#mz addComment', 1, {
-      node,
-      value,
-      key,
-    });
     if (key && !node.attrs[key] && !node.attrs[`[${key}]`]) return node;
     if (key) {
       delete node.attrs[key];
@@ -142,12 +132,6 @@ export class PrizmTaskProcessor {
       comment: value,
     } as any);
     node.children = children;
-    console.log('#mz addComment', 2, {
-      node,
-      children,
-      value,
-      key,
-    });
     return { ...node };
   }
 
