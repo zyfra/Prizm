@@ -1,4 +1,5 @@
 import {
+  Input,
   ChangeDetectionStrategy,
   Component,
   ContentChildren,
@@ -54,6 +55,19 @@ export class PrizmTreeItemComponent implements DoCheck {
   @HostBinding('attr.testId')
   readonly testId = 'prizm_tree_item';
 
+  @HostBinding('class._expandable')
+  get isExpandable(): boolean {
+    return !!this.nested.length;
+  }
+
+  get isExpanded(): boolean {
+    return this.controller.isExpanded(this);
+  }
+
+  @HostBinding('class.use-padding-indent')
+  @Input()
+  usePaddingIndent: boolean;
+
   constructor(
     @Inject(ElementRef)
     private readonly elementRef: ElementRef<HTMLElement>,
@@ -64,15 +78,6 @@ export class PrizmTreeItemComponent implements DoCheck {
     @Inject(forwardRef(() => PRIZM_TREE_CONTENT))
     readonly content: PolymorphContent
   ) {}
-
-  @HostBinding('class._expandable')
-  get isExpandable(): boolean {
-    return !!this.nested.length;
-  }
-
-  get isExpanded(): boolean {
-    return this.controller.isExpanded(this);
-  }
 
   ngDoCheck(): void {
     this.change$.next();

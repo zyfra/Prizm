@@ -1,0 +1,44 @@
+:host {
+  ::ng-deep {
+    prizm-tree {
+      /* reset any indentation to control it inside <prizm-navigation-menu-item> */
+      & > prizm-tree-item > .prizm-tree-item__dynamic-content,
+      & > prizm-tree-item > .prizm-tree-item__dynamic-content > prizm-tree-item-content,
+      & > prizm-tree-item > prizm-expand {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      /* hide toggle button */
+      prizm-tree-item-content > button[prizmiconbutton] {
+        display: none;
+      }
+    }
+  }
+}
+
+.prizm-menu-item-content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  width: calc(100% - var(--expand-item-width));
+
+  &__icon {
+    flex-basis: 24px;
+    padding-left: 8px;
+  }
+
+  &__text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    flex: 1;
+    padding: 0 8px;
+    outline: none;
+
+    &_has-action {
+      cursor: pointer;
+    }
+  }
+}

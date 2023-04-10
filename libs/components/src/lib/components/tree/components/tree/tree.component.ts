@@ -53,14 +53,17 @@ export class PrizmTreeComponent<T> implements DoCheck {
   @HostBinding('attr.testId')
   readonly testId = 'prizm_tree';
 
+  @Input()
+  usePaddingIndent: boolean;
+
+  @Input()
+  content: PolymorphContent = ({ $implicit }: any) => String($implicit);
+
   constructor(
     @Optional()
     @Inject(PrizmTreeChildrenDirective)
     readonly directive: PrizmTreeChildrenDirective<T> | null
   ) {}
-
-  @Input()
-  content: PolymorphContent = ({ $implicit }: any) => String($implicit);
 
   ngDoCheck(): void {
     this.check$.next();

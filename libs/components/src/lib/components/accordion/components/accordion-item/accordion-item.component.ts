@@ -24,6 +24,7 @@ import { PolymorphContent } from '../../../../directives/polymorph';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmAccordionItemComponent implements OnDestroy {
+  @Input() icon: string;
   @Input() title: PolymorphContent = '';
   @Input() isExpanded = false;
   @Output() isExpandedChange = new EventEmitter<boolean>();

@@ -1,0 +1,36 @@
+<prizm-doc-page header="Navigation menu" package="UI">
+  <div class="page-description" description>
+    Our navigation menu is a simple, responsive, and accessible menu that can be used in a variety of ways. It
+    can be used as a primary navigation menu, a secondary navigation menu, or a footer navigation menu.
+  </div>
+
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" heading="Basic" [content]="exampleBasicNavigationMenu">
+      <prizm-navigation-menu-basic-example></prizm-navigation-menu-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="base" heading="Groups" [content]="exampleGroupsNavigationMenu">
+      <prizm-navigation-menu-groups-example></prizm-navigation-menu-groups-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <!-- <prizm-navigation-menu></prizm-navigation-menu> -->
+    </prizm-doc-demo>
+    <prizm-doc-documentation></prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmNavigationMenuModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

@@ -1,0 +1,105 @@
+.prizm-navigation-menu {
+  --prizm-navigation-menu__item-padding: 0 8px 0 4px;
+  --prizm-navigation-menu__item-height: 40px;
+  --prizm-navigation-menu__focus-color: #697da2;
+
+  display: grid;
+  grid-template-rows: min-content;
+  height: 100%;
+  background: var(--prizm-grey-g11-g3);
+
+  &__header {
+    overflow: hidden;
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  .header {
+    &__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--prizm-navigation-menu__item-padding);
+      height: var(--prizm-navigation-menu__item-height);
+      border-bottom: 1px solid var(--prizm-grey-g10-g4);
+    }
+
+    &__toolbar {
+      height: var(--prizm-navigation-menu__item-height);
+    }
+
+    &__title {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+      padding: 0 8px;
+
+      color: var(--prizm-text-contrast);
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &__instruments {
+      display: flex;
+      align-items: center;
+
+      button[prizmIconButton] {
+        margin: 0px 1px;
+
+        &:hover,
+        &._active {
+          ::ng-deep prizm-wrapper.z-wrapper {
+            color: var(--prizm-primary);
+            background: transparent;
+          }
+        }
+
+        &._focused {
+          box-shadow: 0 0 0 2px var(--prizm-navigation-menu__focus-color);
+        }
+      }
+    }
+  }
+
+  .no-groups-content {
+    overflow: auto;
+    height: 100%;
+  }
+
+  .groups-content {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+
+    &__top {
+      flex: 1;
+      overflow: auto;
+    }
+
+    &__bottom {
+      flex-shrink: 1;
+      overflow: hidden;
+      position: relative; // required for shadow
+      box-shadow: 0px -2px 8px var(--prizm-shadow);
+    }
+  }
+}
+
+&::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+&::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+&::-webkit-scrollbar-thumb {
+  background-color: var(--prizm-grey-g10-g4);
+  border-radius: 4px;
+}

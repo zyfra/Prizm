@@ -1,0 +1,19 @@
+:host {
+  color: var(--prizm-text-main);
+
+  .layout {
+    height: 900px;
+
+    prizm-splitter {
+      height: 100%;
+    }
+
+    ::ng-deep {
+      prizm-card,
+      prizm-card > .header > .title {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
