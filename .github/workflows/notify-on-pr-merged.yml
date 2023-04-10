@@ -1,4 +1,4 @@
-name: On PR merged send message to issue
+name: On PR was merged, creating comment in issue
 on:
   pull_request_target:
     types: [closed]
