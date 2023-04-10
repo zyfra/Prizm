@@ -1,0 +1,18 @@
+name: On PR was updated, creating comment in issue
+on:
+  pull_request_target:
+    types: [opened, edited, synchronize]
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Creating comments'
+        uses: actions-cool/pr-extract-issues@v1
+        with:
+          way: 'body'
+          issues-labels: 'ready'
+          remove-labels: 'in_progress'
+          issues-comment: |
+            Привет! PR с этим issue обновлен: ${number}。
+          issues-close: false
