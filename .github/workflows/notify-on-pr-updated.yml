@@ -8,7 +8,8 @@ jobs:
   extract:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-cool/pr-extract-issues@v1
+      - name: 'Creating comments'
+        uses: actions-cool/pr-extract-issues@v1
         with:
           way: 'body'
           issues-labels: 'ready'

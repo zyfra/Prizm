@@ -5,15 +5,15 @@ on:
 
 jobs:
   if_merged:
-    if:
-      github.event.pull_request.merged == true:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions-cool/pr-extract-issues@v1
-          with:
-            way: 'body'
-            issues-labels: 'merged'
-            remove-labels: 'in_progress, released'
-            issues-comment: |
-              Привет! Этот issue: ${number} cлит в main。
-            issues-close: false
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.merged == true }}
+    steps:
+      - name: 'Creating comments'
+        uses: actions-cool/pr-extract-issues@v1
+        with:
+          way: 'body'
+          issues-labels: 'merged'
+          remove-labels: 'in_progress, released'
+          issues-comment: |
+            Привет! Этот issue: ${number} cлит в main。
+          issues-close: false
