@@ -73,5 +73,5 @@ jobs:
           issues-labels: 'released'
           remove-labels: 'in_progress'
           issues-comment: |
-            Привет! Этот issue попал в релиз: ${number}。
+            Привет! Этот issue попал в релиз: ${number}. Просьба проверить и закрыть тикет。
           issues-close: false
