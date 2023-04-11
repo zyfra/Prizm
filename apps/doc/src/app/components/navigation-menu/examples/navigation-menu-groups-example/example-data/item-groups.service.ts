@@ -21,6 +21,12 @@ const exampleData: ExampleData = {
   noGroupAppearance: {
     title: '<No group appearance example>',
     items: GROUP_2_ITEMS,
+    toolbarConfig: {
+      search: true,
+      rubricatorMode: true,
+      folderMode: true,
+      closeAll: true,
+    },
   },
   musicalInstruments: {
     title: 'Musical instruments',

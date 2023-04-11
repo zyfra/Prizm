@@ -22,6 +22,7 @@
     [searchConfig]="searchConfig$ | async"
     [toolbarConfig]="toolbarConfig$ | async"
     [toolbarExtraTemplate]="toolbarExtraTemplate"
+    [hideGroupAppearance]="hideGroupAppearance"
   ></prizm-navigation-menu-toolbar>
   <ng-container *ngIf="groupItems$ | async as groupItems">
     <prizm-navigation-menu-items

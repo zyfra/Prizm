@@ -15,8 +15,10 @@ export class PrizmNavigationMenuToolbarComponent {
 
   @Input() toolbarConfig: PrizmNavigationMenuToolbarConfig;
 
-  get toolbarIsNotEmpty(): boolean {
-    return this.toolbarConfig && Object.values(this.toolbarConfig).some(Boolean);
+  @Input() hideGroupAppearance: boolean;
+
+  get toolbarIsVisible(): boolean {
+    return !this.hideGroupAppearance && this.toolbarConfig && Object.values(this.toolbarConfig).some(Boolean);
   }
 
   constructor(public toolbarService: PrizmNavigationMenuToolbarService) {}
