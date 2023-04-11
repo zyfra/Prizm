@@ -1,5 +1,14 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, TemplateRef } from '@angular/core';
+import {
+  PrizmNavigationMenuEmptyMessageConfig,
+  PrizmNavigationMenuHeaderConfig,
+  PrizmNavigationMenuItem,
+  PrizmNavigationMenuSearchConfig,
+  PrizmNavigationMenuSettingsConfig,
+  PrizmNavigationMenuToolbarConfig,
+} from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
+import { MOKED_ITEMS } from './examples/navigation-menu-basic-example/navigation-menu.constants';
 
 @Component({
   selector: 'prizm-navigation-menu-example',
@@ -38,4 +47,27 @@ export class NavigationMenuExampleComponent {
   };
 
   public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
+
+  title = 'Demo';
+
+  items: PrizmNavigationMenuItem[] = MOKED_ITEMS;
+
+  toolbarConfig: PrizmNavigationMenuToolbarConfig = {
+    search: true,
+    folderMode: true,
+    rubricatorMode: true,
+    closeAll: true,
+  };
+
+  itemExtraTemplate: TemplateRef<any> = null;
+  headerExtraTemplate: TemplateRef<any> = null;
+  toolbarExtraTemplate: TemplateRef<any> = null;
+  activeItem: any = null;
+  itemKeyName = 'id';
+  expandedItemsMap = new Map<any, boolean>();
+  expandedGroupsMap = new Map<string, boolean>();
+  emptyMessageConfig: PrizmNavigationMenuEmptyMessageConfig = null;
+  searchConfig: PrizmNavigationMenuSearchConfig = null;
+  settingsConfig: PrizmNavigationMenuSettingsConfig = {};
+  headerConfig: PrizmNavigationMenuHeaderConfig = null;
 }

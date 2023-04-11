@@ -16,9 +16,192 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <!-- <prizm-navigation-menu></prizm-navigation-menu> -->
+      <prizm-navigation-menu
+        key="PrizmNavigationMenuLayout"
+        #prizmNavigationMenuLayout
+        [prizmDocHostElement]="prizmNavigationMenuLayout"
+        [title]="title"
+        [items]="items"
+        [toolbarConfig]="toolbarConfig"
+        [itemExtraTemplate]="itemExtraTemplate"
+        [headerExtraTemplate]="headerExtraTemplate"
+        [toolbarExtraTemplate]="toolbarExtraTemplate"
+        [activeItem]="activeItem"
+        [itemKeyName]="itemKeyName"
+        [expandedItemsMap]="expandedItemsMap"
+        [expandedGroupsMap]="expandedGroupsMap"
+        [settingsConfig]="settingsConfig"
+        [emptyMessageConfig]="emptyMessageConfig"
+        [headerConfig]="headerConfig"
+        [searchConfig]="searchConfig"
+      ></prizm-navigation-menu>
     </prizm-doc-demo>
-    <prizm-doc-documentation></prizm-doc-documentation>
+    <prizm-doc-documentation hostComponentKey="PrizmNavigationMenuLayout" heading="PrizmNavigationMenuLayout">
+      <ng-template
+        documentationPropertyName="title"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="title"
+      >
+        Menu title
+      </ng-template>
+      <ng-template
+        documentationPropertyName="items"
+        documentationPropertyType="PrizmNavigationMenuItem[]"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="items"
+      >
+        Menu items
+      </ng-template>
+      <ng-template
+        documentationPropertyName="toolbarConfig"
+        documentationPropertyType="PrizmNavigationMenuToolbarConfig[]"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="toolbarConfig"
+      >
+        Toolbar config
+      </ng-template>
+      <ng-template
+        documentationPropertyName="itemExtraTemplate"
+        documentationPropertyType="TemplateRef"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="itemExtraTemplate"
+      >
+        Slot for menu item
+      </ng-template>
+      <ng-template
+        documentationPropertyName="headerExtraTemplate"
+        documentationPropertyType="TemplateRef"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="headerExtraTemplate"
+      >
+        Slot for menu's header items
+      </ng-template>
+      <ng-template
+        documentationPropertyName="toolbarExtraTemplate"
+        documentationPropertyType="TemplateRef"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="toolbarExtraTemplate"
+      >
+        Slot for toolbar's items
+      </ng-template>
+      <ng-template
+        documentationPropertyName="activeItem"
+        documentationPropertyType="T"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="activeItem"
+      >
+        activeItem
+      </ng-template>
+      <ng-template
+        documentationPropertyName="itemKeyName"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="itemKeyName"
+      >
+        itemKeyName ???????????
+      </ng-template>
+      <ng-template
+        documentationPropertyName="expandedItemsMap"
+        documentationPropertyType="Map<T, boolean>"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="expandedItemsMap"
+      >
+        expandedItemsMap
+      </ng-template>
+      <ng-template
+        documentationPropertyName="expandedGroupsMap"
+        documentationPropertyType="Map<string, boolean>"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="expandedGroupsMap"
+      >
+        expandedGroupsMap
+      </ng-template>
+      <ng-template
+        documentationPropertyName="settingsConfig"
+        documentationPropertyType="PrizmNavigationMenuSettingsConfig"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="settingsConfig"
+      >
+        settingsConfig
+      </ng-template>
+      <ng-template
+        documentationPropertyName="emptyMessageConfig"
+        documentationPropertyType="PrizmNavigationMenuEmptyMessageConfig"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="emptyMessageConfig"
+      >
+        emptyMessageConfig
+      </ng-template>
+      <ng-template
+        documentationPropertyName="headerConfig"
+        documentationPropertyType="PrizmNavigationMenuHeaderConfig"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="headerConfig"
+      >
+        headerConfig
+      </ng-template>
+      <ng-template
+        documentationPropertyName="searchConfig"
+        documentationPropertyType="PrizmNavigationMenuSearchConfig"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="searchConfig"
+      >
+        searchConfig
+      </ng-template>
+
+      <!-- OUTPUTS -->
+
+      <ng-template
+        documentationPropertyName="homeClicked"
+        documentationPropertyType="void"
+        documentationPropertyMode="output"
+      >
+        Home icon clicked
+      </ng-template>
+      <ng-template
+        documentationPropertyName="activeItemChanged"
+        documentationPropertyType="T"
+        documentationPropertyMode="output"
+      >
+        Current active item changed
+      </ng-template>
+      <ng-template
+        documentationPropertyName="breadcrumbsChanged"
+        documentationPropertyType="T[]"
+        documentationPropertyMode="output"
+      >
+        Breadcrumbs of current active item changed
+      </ng-template>
+      <ng-template
+        documentationPropertyName="expandedItemsMapChanged"
+        documentationPropertyType="Map<T, boolean>"
+        documentationPropertyMode="output"
+      >
+        expandedItemsMapChanged
+      </ng-template>
+      <ng-template
+        documentationPropertyName="expandedGroupsMapChangedEvent"
+        documentationPropertyType="Map<string, boolean>"
+        documentationPropertyMode="output"
+      >
+        expandedGroupsMapChangedEvent
+      </ng-template>
+      <ng-template
+        documentationPropertyName="itemExpandedChanged"
+        documentationPropertyType="ItemExpandedChangedEvent<T>"
+        documentationPropertyMode="output"
+      >
+        itemExpandedChanged
+      </ng-template>
+      <ng-template
+        documentationPropertyName="groupExpandedChanged"
+        documentationPropertyType="GroupExpandedChangedEvent"
+        documentationPropertyMode="output"
+      >
+        groupExpandedChanged
+      </ng-template>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template prizmDocPageTab>
