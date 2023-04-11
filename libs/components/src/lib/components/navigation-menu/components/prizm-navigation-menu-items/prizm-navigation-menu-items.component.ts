@@ -31,11 +31,6 @@ export class PrizmNavigationMenuItemsComponent<T extends { children?: unknown[] 
     isExpanded: boolean;
   }>();
 
-  @Output() groupExpandedChanged = new EventEmitter<{
-    groupId: string;
-    isExpanded: boolean;
-  }>();
-
   @Output() activeItemChanged = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
 
   @Output() goToParentItem = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
