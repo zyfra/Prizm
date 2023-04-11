@@ -14,6 +14,7 @@ export interface PrizmNavigationMenuSearchConfig {
 }
 
 export interface PrizmNavigationMenuHeaderConfig {
+  /** Temporary unavailable - settings dropdown figma + implementation required */
   showSettings?: boolean;
   showHome?: boolean;
 }
@@ -33,6 +34,7 @@ export interface PrizmNavigationMenuEmptyMessageConfig {
   subtitle: string;
 }
 
+/** Temporary unavailable - settings dropdown figma + implementation required */
 export interface PrizmNavigationMenuSettingsConfig {
   singleGroup?: boolean;
   selectionMode?: SelectionType;
