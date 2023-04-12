@@ -1,8 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  DoCheck,
   HostBinding,
+  DoCheck,
   Inject,
   Input,
   Optional,
