@@ -92,7 +92,6 @@ jobs:
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
 
       - run: npx nx workspace-lint
-      - run: npx nx format:check --base=origin/main
       - run: npx nx clear-cache
       #        TODO run after update angular ng14
       #      - run: npx nx affected --target=test --base=origin/main --parallel --max-parallel=3
@@ -100,6 +99,7 @@ jobs:
       #      - run: npx nx affected --target=lint --base=origin/main --parallel --max-parallel=3
       #        TODO remove schematics excluding after update angular ng14
       - run: npx nx affected --target=build --base=origin/main --prod --exclude=schematics
+      - run: npx nx format:check --base=origin/main
 # TODO LATER fix playwright test
 #      - name: Install Cypress
 #        run: npx cypress install
