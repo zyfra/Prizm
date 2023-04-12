@@ -26,7 +26,7 @@ export class NavigationMenuGroupsExampleComponent {
   menuToolbarConfig: PrizmNavigationMenuToolbarConfig = {
     search: true,
     rubricatorMode: true,
-    folderMode: true,
+    folderMode: true, // temporary unavailable
     closeAll: true,
   };
 

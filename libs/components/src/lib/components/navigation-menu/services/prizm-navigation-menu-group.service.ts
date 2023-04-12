@@ -181,7 +181,7 @@ export class PrizmNavigationMenuGroupService<
   }
 
   public setToolbarConfig(toolbarConfig: PrizmNavigationMenuToolbarConfig): void {
-    this.toolbarConfig$$.next({ ...DEFAULT_TOOLBAR_CONFIG, ...toolbarConfig });
+    this.toolbarConfig$$.next({ ...DEFAULT_TOOLBAR_CONFIG, ...toolbarConfig, folderMode: false });
   }
 
   public setSearchConfig(config: PrizmNavigationMenuSearchConfig): void {

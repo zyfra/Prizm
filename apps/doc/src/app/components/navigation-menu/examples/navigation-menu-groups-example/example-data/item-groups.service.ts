@@ -14,7 +14,7 @@ const exampleData: ExampleData = {
     toolbarConfig: {
       search: true,
       rubricatorMode: true,
-      folderMode: true,
+      folderMode: true, // temporary unavailable
       closeAll: true,
     },
   },
@@ -24,7 +24,7 @@ const exampleData: ExampleData = {
     toolbarConfig: {
       search: true,
       rubricatorMode: true,
-      folderMode: true,
+      folderMode: true, // temporary unavailable
       closeAll: true,
     },
   },
@@ -42,7 +42,7 @@ const exampleData: ExampleData = {
     items: GROUP_4_ITEMS,
     toolbarConfig: {
       search: true,
-      folderMode: true,
+      folderMode: true, // temporary unavailable
       closeAll: true,
     },
   },

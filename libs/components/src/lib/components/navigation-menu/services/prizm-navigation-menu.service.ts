@@ -215,7 +215,7 @@ export class PrizmNavigationMenuService<
   }
 
   public setToolbarConfig(config: PrizmNavigationMenuToolbarConfig): void {
-    this.toolbarConfig$$.next({ ...DEFAULT_TOOLBAR_CONFIG, ...config });
+    this.toolbarConfig$$.next({ ...DEFAULT_TOOLBAR_CONFIG, ...config, folderMode: false });
     this.toolbarIsNotEmpty = Object.values(this.toolbarConfig).some(Boolean);
   }
 
