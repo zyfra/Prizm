@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Creating comments'
-        if: ${{ always() }}
+        continue-on-error: true
         uses: actions-cool/pr-extract-issues@v1
         with:
           way: 'body'
