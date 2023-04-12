@@ -1,11 +1,9 @@
-import { Component, ElementRef, HostBinding, Input } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { PrizmSplitterElement } from '../splitter-element.class';
 
 @Component({
   selector: 'prizm-splitter-gutter',
-  template: `<div class="container">
-    <ng-content></ng-content>
-  </div>`,
+  template: `<ng-content></ng-content>`,
   styleUrls: ['./gutter.component.less'],
   providers: [
     {
@@ -15,8 +13,6 @@ import { PrizmSplitterElement } from '../splitter-element.class';
   ],
 })
 export class PrizmSplitterGutterComponent {
-  @Input() @HostBinding('style.zIndex') zIndex = 0;
-
   position: number;
 
   constructor(public elementRef: ElementRef<HTMLElement>) {}

@@ -5,14 +5,10 @@ import {
   ElementRef,
   HostBinding,
   Input,
-  OnChanges,
-  OnInit,
-  SimpleChange,
-  SimpleChanges,
 } from '@angular/core';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+
 import { PrizmSplitterElement } from '../splitter-element.class';
-import { PrizmSplitterComponent } from '../splitter.component';
+import { PrizmSplitterService } from '../splitter.service';
 
 @Component({
   selector: 'prizm-splitter-area',
@@ -27,7 +23,7 @@ import { PrizmSplitterComponent } from '../splitter.component';
     },
   ],
 })
-export class PrizmSplitterAreaComponent implements OnInit {
+export class PrizmSplitterAreaComponent {
   private static nextId = 0;
 
   @HostBinding() id = `prizm-splitter-area-${PrizmSplitterAreaComponent.nextId++}`;
@@ -35,7 +31,7 @@ export class PrizmSplitterAreaComponent implements OnInit {
   private _size: number | null;
   @Input() set size(value: number | null) {
     this._size = value;
-    this.setCurrentSize();
+    this.splitterService.areaChange$$.next(this);
   }
   get size(): number | null {
     return this._size;
@@ -44,8 +40,6 @@ export class PrizmSplitterAreaComponent implements OnInit {
   @Input() minSize: number | null = 0;
 
   @HostBinding('style.flex-basis') currentSize: string;
-
-  ngOnInit(): void {}
 
   public hide(): void {
     this.elementRef.nativeElement.hidden = true;
@@ -59,19 +53,19 @@ export class PrizmSplitterAreaComponent implements OnInit {
     return this.elementRef.nativeElement.hidden;
   }
 
-  public setCurrentSize(): void {
+  public setCurrentSize(guttersSize: number): void {
     if (this._size === null) {
       this.hide();
     } else {
       this.show();
-      const currentSize = this._size + '%';
+      const currentSize = `calc(${this._size}% - ${guttersSize}px`;
       this.currentSize = currentSize;
     }
   }
 
-  constructor(private elementRef: ElementRef<HTMLElement>, private cdr: ChangeDetectorRef) {}
-
-  public detectChanges(): void {
-    this.cdr.detectChanges();
-  }
+  constructor(
+    private elementRef: ElementRef<HTMLElement>,
+    private cdr: ChangeDetectorRef,
+    private splitterService: PrizmSplitterService
+  ) {}
 }
