@@ -27,9 +27,9 @@ export class PrizmNavigationMenuSearchComponent implements AfterViewInit {
 
   @Output() searchChange = new EventEmitter<string>();
 
-  @Input() placeholder: string;
-
   @Input() searchDebounce: number;
+
+  @Input() placeholder: string;
 
   public searchFormControl: FormControl = new FormControl('');
 

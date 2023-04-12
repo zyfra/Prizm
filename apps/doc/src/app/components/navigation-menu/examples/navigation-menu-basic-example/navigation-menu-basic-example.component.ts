@@ -10,14 +10,14 @@ import { MOKED_ITEMS } from './navigation-menu.constants';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationMenuBasicExampleComponent {
-  items: PrizmNavigationMenuItem[] = MOKED_ITEMS;
-
   toolbarConfig: PrizmNavigationMenuToolbarConfig = {
     search: true,
     folderMode: true,
     rubricatorMode: true,
     closeAll: true,
   };
+
+  items: PrizmNavigationMenuItem[] = MOKED_ITEMS;
 
   constructor(private readonly iconRegistry: PrizmIconsSvgRegistry) {
     this.iconRegistry.registerIcons(PRIZM_ICONS_SVG_SET);

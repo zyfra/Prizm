@@ -30,12 +30,12 @@ export class PrizmNavigationMenuGroupService<
     DEFAULT_EMPTY_MESSAGE_CONFIG
   );
 
+  private toolbarConfig$$ = new BehaviorSubject<PrizmNavigationMenuToolbarConfig>(DEFAULT_TOOLBAR_CONFIG);
+
   private searchConfig$$ = new BehaviorSubject<PrizmNavigationMenuSearchConfig>({
     ...DEFAULT_SEARCH_CONFIG,
     ...this.searchConfigToken,
   });
-
-  private toolbarConfig$$ = new BehaviorSubject<PrizmNavigationMenuToolbarConfig>(DEFAULT_TOOLBAR_CONFIG);
 
   private searchState$$ = new BehaviorSubject<{
     enabled: boolean;

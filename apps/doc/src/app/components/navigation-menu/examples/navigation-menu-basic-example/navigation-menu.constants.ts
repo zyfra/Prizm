@@ -150,38 +150,3 @@ export const MOKED_ITEMS: CustomItem[] = [
     ],
   },
 ];
-
-const data = [
-  {
-    id: 1,
-    text: 'Topmost (text)',
-    children: [
-      {
-        id: 2,
-        text: '1 (text)',
-        icon: 'editor_decor_collage_fill',
-        children: [
-          {
-            id: 3,
-            text: '1-1 (text)',
-            icon: 'editor_decor_subskrit_up',
-            children: [
-              {
-                id: 4,
-                text: '1-1-1 (text)',
-              },
-              {
-                id: 5,
-                text: '1-1-2 (text)',
-              },
-              {
-                id: 6,
-                text: '1-1-3 (text)',
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-];

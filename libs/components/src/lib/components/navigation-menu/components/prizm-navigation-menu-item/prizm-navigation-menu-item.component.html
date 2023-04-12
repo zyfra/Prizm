@@ -4,8 +4,8 @@
   [class.prizm-navigation-menu-item_hovered]="isHovered"
   [class.prizm-navigation-menu-item_expandable]="item.children?.length"
   [tabindex]="0"
-  (keydown.enter)="setActive.emit(item)"
   (keydown.space)="setActive.emit(item)"
+  (keydown.enter)="setActive.emit(item)"
   (click)="setActive.emit(item)"
   (prizmHoveredChange)="isHovered = $event"
 >

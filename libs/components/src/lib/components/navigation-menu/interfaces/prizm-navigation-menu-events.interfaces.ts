@@ -1,9 +1,9 @@
-export interface ItemExpandedChangedEvent<UserItem> {
-  item: UserItem;
+export interface GroupExpandedChangedEvent {
+  groupId: string;
   isExpanded: boolean;
 }
 
-export interface GroupExpandedChangedEvent {
-  groupId: string;
+export interface ItemExpandedChangedEvent<UserItem> {
+  item: UserItem;
   isExpanded: boolean;
 }

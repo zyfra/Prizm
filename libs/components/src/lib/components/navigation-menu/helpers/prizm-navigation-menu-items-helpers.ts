@@ -29,6 +29,21 @@ export function filterItems<Item extends SimpleItem<Item>>(
   return items.reduce(getChildren, []);
 }
 
+export function findItem<Item extends SimpleItem<Item>>(
+  items: Item[],
+  filterPredicate: FilterPredicate<Item>
+): Item | null {
+  for (const item of items) {
+    if (filterPredicate(item)) return item;
+
+    if (item.children) {
+      const targetItem = findItem(item.children, filterPredicate);
+      if (targetItem) return targetItem;
+    }
+  }
+  return null;
+}
+
 export function toRubricatorItems<UserItem>(
   nodes: InternalPrizmNavigationMenuItem<UserItem>[]
 ): InternalPrizmNavigationMenuItem<UserItem>[] {
@@ -85,19 +100,4 @@ export function traverseAllDeep<Item extends SimpleItem<Item>>(
       traverseAllDeep(item.children, callback);
     }
   });
-}
-
-export function findItem<Item extends SimpleItem<Item>>(
-  items: Item[],
-  filterPredicate: FilterPredicate<Item>
-): Item | null {
-  for (const item of items) {
-    if (filterPredicate(item)) return item;
-
-    if (item.children) {
-      const targetItem = findItem(item.children, filterPredicate);
-      if (targetItem) return targetItem;
-    }
-  }
-  return null;
 }

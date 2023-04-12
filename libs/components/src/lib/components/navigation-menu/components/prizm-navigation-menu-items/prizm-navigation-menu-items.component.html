@@ -3,8 +3,8 @@
   *ngFor="let item of items"
   [prizmTreeController]="false"
   [map]="expandedItemsMap"
-  [value]="item"
   [content]="content"
+  [value]="item"
   [childrenHandler]="treeChildrenHandler"
   (expandedChanged)="handleExpandedChanged($event)"
 >

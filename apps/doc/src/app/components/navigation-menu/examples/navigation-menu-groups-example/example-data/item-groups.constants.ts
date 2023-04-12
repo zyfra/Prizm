@@ -316,7 +316,7 @@ export const GROUP_3_ITEMS: CustomItem[] = [
 export const GROUP_4_ITEMS: CustomItem[] = [
   {
     id: 'cb156d2211ee7d6949bf7f8933731c27',
-    text: '1 Damru	Sarangi Sitar	Gu-zheng	Ektara	Shehnai Sarod	Pungi	Gramophone	Tubular Chimes',
+    text: '1 Damru	Sarangi Sitar	Gu-zheng!	Ektara	Shehnai Sarod	Pungi	Gramophone	Tubular Chimes',
     children: [
       {
         id: '1083a3821f1847bb1f1486876493dd0e',

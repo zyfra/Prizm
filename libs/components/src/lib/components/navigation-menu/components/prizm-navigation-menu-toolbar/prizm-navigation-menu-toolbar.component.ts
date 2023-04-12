@@ -11,9 +11,9 @@ import { PrizmNavigationMenuToolbarService } from '../../services/prizm-navigati
 export class PrizmNavigationMenuToolbarComponent {
   @Input() toolbarExtraTemplate: TemplateRef<unknown>;
 
-  @Input() searchConfig: PrizmNavigationMenuSearchConfig;
-
   @Input() toolbarConfig: PrizmNavigationMenuToolbarConfig;
+
+  @Input() searchConfig: PrizmNavigationMenuSearchConfig;
 
   @Input() hideGroupAppearance: boolean;
 

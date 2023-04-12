@@ -21,8 +21,8 @@ export class PrizmNavigationMenuItemComponent<T> {
   @Output() goToRootItem = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
 
   @Input() itemExtraTemplate: TemplateRef<unknown>;
-  @Input() isActive: boolean;
   @Input() isExpanded: boolean;
+  @Input() isActive: boolean;
   @Input() item: InternalPrizmNavigationMenuItem<T>;
   @Input() mode: ViewMode;
   @Input() showGoToButtons: boolean;

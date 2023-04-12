@@ -51,9 +51,9 @@ export class PrizmNavigationMenuComponent<
 
   @Input() title: string;
   @Input() items: UserItem[];
+  @Input() toolbarExtraTemplate: TemplateRef<unknown>;
   @Input() itemExtraTemplate: TemplateRef<unknown>;
   @Input() headerExtraTemplate: TemplateRef<unknown>;
-  @Input() toolbarExtraTemplate: TemplateRef<unknown>;
 
   @Input() set activeItem(activeItem: UserItem | null) {
     this.menuService.setActiveItem(activeItem);

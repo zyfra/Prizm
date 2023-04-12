@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { PolymorphComponent, PRIZM_TREE_CONTENT, PrizmHandler } from '@prizm-ui/components';
 import { PRIZM_EMPTY_ARRAY } from '@prizm-ui/core';
-
 import { FoldersComponent } from '../component/folder.component';
 
 interface TreeNode {
   readonly text: string;
   readonly children?: readonly TreeNode[];
 }
+
 @Component({
   selector: 'prizm-tree-padding-indent-example',
   templateUrl: './tree-padding-indent-example.component.html',

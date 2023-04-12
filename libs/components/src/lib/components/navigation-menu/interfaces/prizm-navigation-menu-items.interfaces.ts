@@ -9,8 +9,8 @@ export interface PrizmNavigationMenuGroup {
 
 export interface PrizmNavigationMenuItem {
   text: string;
-  icon?: string;
   extraTemplate?: TemplateRef<unknown>;
+  icon?: string;
   children?: PrizmNavigationMenuItem[];
 }
 

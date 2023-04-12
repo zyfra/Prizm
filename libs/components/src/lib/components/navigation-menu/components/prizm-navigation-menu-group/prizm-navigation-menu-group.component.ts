@@ -53,8 +53,8 @@ export class PrizmNavigationMenuGroupComponent<
   @Input() title: string;
   @Input() hideGroupAppearance?: boolean;
   @Input() icon?: string;
-  @Input() itemExtraTemplate?: TemplateRef<unknown>;
   @Input() toolbarExtraTemplate: TemplateRef<unknown>;
+  @Input() itemExtraTemplate?: TemplateRef<unknown>;
 
   @Input() set items(items: UserItem[]) {
     this.items$$.next(items);

@@ -54,13 +54,13 @@ export class PrizmNavigationMenuService<
     ...this.searchConfigToken,
   });
 
+  private toolbarConfig$$ = new BehaviorSubject<PrizmNavigationMenuToolbarConfig>(DEFAULT_TOOLBAR_CONFIG);
+
   private settingsConfig$$ = new BehaviorSubject<PrizmNavigationMenuSettingsConfig>({
     ...DEFAULT_SETTINGS,
     ...this.settingsConfigToken,
     selectionMode: 'single',
   });
-
-  private toolbarConfig$$ = new BehaviorSubject<PrizmNavigationMenuToolbarConfig>(DEFAULT_TOOLBAR_CONFIG);
 
   private emptyMessageConfig$$ = new BehaviorSubject<PrizmNavigationMenuEmptyMessageConfig>(
     DEFAULT_EMPTY_MESSAGE_CONFIG

@@ -33,9 +33,9 @@ export class PrizmNavigationMenuItemsComponent<T extends { children?: unknown[] 
 
   @Output() activeItemChanged = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
 
-  @Output() goToParentItem = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
-
   @Output() goToRootItem = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
+
+  @Output() goToParentItem = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
 
   @Input() items: InternalPrizmNavigationMenuItem<T>[];
   @Input() mode: ViewMode;

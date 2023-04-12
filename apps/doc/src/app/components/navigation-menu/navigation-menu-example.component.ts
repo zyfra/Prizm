@@ -59,9 +59,9 @@ export class NavigationMenuExampleComponent {
     closeAll: true,
   };
 
+  toolbarExtraTemplate: TemplateRef<any> = null;
   itemExtraTemplate: TemplateRef<any> = null;
   headerExtraTemplate: TemplateRef<any> = null;
-  toolbarExtraTemplate: TemplateRef<any> = null;
   activeItem: any = null;
   itemKeyName = 'id';
   expandedItemsMap = new Map<any, boolean>();

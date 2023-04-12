@@ -30,8 +30,8 @@ export class NavigationMenuGroupsExampleComponent {
     closeAll: true,
   };
 
-  expandedItemsMap: Map<CustomItem, boolean> = new Map();
   expandedGroupsMap: Map<string, boolean> = new Map();
+  expandedItemsMap: Map<CustomItem, boolean> = new Map();
 
   fruitsGroup$: Observable<CustomGroupConfig> = this.itemGroupsService.fruits$;
   noGroupAppearanceGroup$: Observable<CustomGroupConfig> = this.itemGroupsService.noGroupAppearance$;

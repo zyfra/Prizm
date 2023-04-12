@@ -28,8 +28,8 @@ import { PolymorphModule, PrizmHoveredModule } from '../../directives';
     PrizmTreeModule,
     PrizmIconsSvgModule,
     PrizmButtonModule,
-    PrizmAccordionModule,
     PrizmHoveredModule,
+    PrizmAccordionModule,
     PolymorphModule,
   ],
   exports: [

@@ -7,6 +7,10 @@ export class ExpandedItemsService {
     return JSON.parse(localStorage.getItem('EXPANDED_ITEMS_EXAMPLE'));
   }
 
+  public getGroupsExpandedKeys(): PersistentExpandedValue | null {
+    return JSON.parse(localStorage.getItem('EXPANDED_GROUPS_EXAMPLE'));
+  }
+
   public setItemsExpandedKeys(expandedItemsMap: Map<CustomItem, boolean>): void {
     const obj: PersistentExpandedValue = {};
     for (const [item, isExpanded] of expandedItemsMap.entries()) {
@@ -16,11 +20,6 @@ export class ExpandedItemsService {
     }
     localStorage.setItem('EXPANDED_ITEMS_EXAMPLE', JSON.stringify(obj));
   }
-
-  public getGroupsExpandedKeys(): PersistentExpandedValue | null {
-    return JSON.parse(localStorage.getItem('EXPANDED_GROUPS_EXAMPLE'));
-  }
-
   public setGroupsExpandedKeys(expandedGroupsMap: Map<string, boolean>): void {
     // @ts-expect-error Fixes error "Property 'fromEntries' does not exist on type 'ObjectConstructor'" (required lib: 2019+)
     const obj: PersistentExpandedValue = Object.fromEntries(expandedGroupsMap);

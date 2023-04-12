@@ -9,6 +9,8 @@ export class PrizmNavigationMenuToolbarService {
   private searchValue$$ = new BehaviorSubject<string>('');
   private viewMode$$ = new BehaviorSubject<ViewMode>('hierarchy');
 
+  closeAll$ = new Subject();
+
   searchVisible$: Observable<boolean> = this.searchVisible$$.asObservable();
 
   searchState$: Observable<{
@@ -19,8 +21,6 @@ export class PrizmNavigationMenuToolbarService {
   );
 
   viewMode$: Observable<ViewMode> = this.viewMode$$.asObservable();
-
-  closeAll$ = new Subject();
 
   public changeSearchValue(searchValue: string): void {
     this.searchValue$$.next(searchValue);

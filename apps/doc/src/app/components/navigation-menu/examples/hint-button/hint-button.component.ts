@@ -7,6 +7,6 @@ import { Component, ChangeDetectionStrategy, Input, TemplateRef } from '@angular
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HintButtonComponent {
-  @Input() item: { text: string };
   @Input() hintTemplate: TemplateRef<unknown>;
+  @Input() item: { text: string };
 }

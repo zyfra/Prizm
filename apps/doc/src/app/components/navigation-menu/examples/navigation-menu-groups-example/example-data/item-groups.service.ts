@@ -50,8 +50,8 @@ const exampleData: ExampleData = {
 
 @Injectable()
 export class ItemGroupsService {
-  fruits$: Observable<CustomGroupConfig> = of(exampleData.fruits);
   noGroupAppearance$: Observable<CustomGroupConfig> = of(exampleData.noGroupAppearance);
+  fruits$: Observable<CustomGroupConfig> = of(exampleData.fruits);
   musicalInstruments$: Observable<CustomGroupConfig> = of(exampleData.musicalInstruments);
   longNames$: Observable<CustomGroupConfig> = of(exampleData.longNames);
 }
