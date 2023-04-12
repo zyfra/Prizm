@@ -7,5 +7,6 @@
   <ng-container *ngIf="$any(value) !== children">
     <div *polymorphOutlet="content as val; context: { $implicit: value, node: view }">{{ val }}</div>
   </ng-container>
+
   <prizm-tree *ngFor="let child of children" [value]="child" [content]="content"></prizm-tree>
 </prizm-tree-item>

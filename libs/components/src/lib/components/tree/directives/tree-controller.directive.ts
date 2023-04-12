@@ -1,5 +1,4 @@
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
-
 import { PrizmTreeItemComponent } from '../components/tree-item/tree-item.component';
 import { PrizmTreeAccessor, PrizmTreeController } from '../misc/tree.interfaces';
 import { PRIZM_TREE_ACCESSOR, PRIZM_TREE_CONTROLLER } from '../misc/tree.tokens';
