@@ -13,11 +13,6 @@ jobs:
       contents: read
       packages: write
     steps:
-      - name: Set git to use LF
-        run: |
-          git config --global core.autocrlf false
-          git config --global core.eol lf
-
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0

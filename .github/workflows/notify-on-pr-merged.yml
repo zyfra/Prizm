@@ -9,6 +9,7 @@ jobs:
     if: ${{ github.event.pull_request.merged == true }}
     steps:
       - name: 'Creating comments'
+        continue-on-error: true
         uses: actions-cool/pr-extract-issues@v1
         with:
           way: 'body'
