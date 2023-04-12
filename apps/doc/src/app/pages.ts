@@ -2,6 +2,7 @@ import { PrizmDocPage, PrizmDocPageGroup } from '@prizm-ui/doc';
 import { SectionNameEnum } from './model';
 
 type OrderedPage = { order?: number };
+
 export type PrizmOrderedDocPage = ReadonlyArray<
   (PrizmDocPage & OrderedPage) | (PrizmDocPageGroup & OrderedPage)
 >;

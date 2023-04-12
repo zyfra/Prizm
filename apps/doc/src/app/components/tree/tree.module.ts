@@ -29,8 +29,8 @@ import { TreePaddingInputExampleComponent } from './examples/padding-indent/tree
     TreeTemplateExampleComponent,
     TreeComponentExampleComponent,
     TreePaddingInputExampleComponent,
-    FoldersComponent,
     TreeComponent,
+    FoldersComponent,
   ],
   exports: [TreeComponent],
 })
