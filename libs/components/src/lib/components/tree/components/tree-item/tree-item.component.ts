@@ -37,9 +37,9 @@ import { PRIZM_EMPTY_QUERY } from '@prizm-ui/core';
 })
 export class PrizmTreeItemComponent implements DoCheck {
   @ContentChildren(PRIZM_TREE_NODE as any)
-  private readonly change$ = new Subject<void>();
-
   private readonly nested: QueryList<unknown> = PRIZM_EMPTY_QUERY;
+
+  private readonly change$ = new Subject<void>();
 
   readonly expanded$ = this.change$.pipe(
     startWith(null),
