@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar.component';
 import { PrizmSidebarServiceExampleComponent } from './examples/base/base.component';
 import { PrizmSidebarTopBottomExampleComponent } from './examples/top-bottom/top-bottom.component';
+import { PrizmSidebarHiddenFooterExampleComponent } from './examples/hidden-footer/hidden-footer.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { PrizmSidebarTopBottomExampleComponent } from './examples/top-bottom/top
   declarations: [
     PrizmSidebarServiceExampleComponent,
     PrizmSidebarTopBottomExampleComponent,
+    PrizmSidebarHiddenFooterExampleComponent,
     SidebarComponent,
   ],
   exports: [SidebarComponent],

@@ -12,9 +12,9 @@ import {
   Self,
   ViewChild,
 } from '@angular/core';
-import { NgControl } from '@angular/forms';
+import { FormControl, NgControl } from '@angular/forms';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { map, pluck } from 'rxjs/operators';
+import { map, pluck, takeUntil } from 'rxjs/operators';
 import { PRIZM_DATE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
 import { PRIZM_DATE_FORMAT } from '../../../@core/date-time/date-format';
 import { PRIZM_DATE_SEPARATOR, prizmChangeDateSeparator } from '../../../@core/date-time/date-separator';
@@ -48,6 +48,7 @@ import { PrizmInputSize } from '../common/models/prizm-input.models';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 import { PRIZM_STRICT_MATCHER } from '../../../constants';
+import { PrizmDestroyService, PrizmFormControlHelpers } from '@prizm-ui/helpers';
 
 @Component({
   selector: `prizm-input-date-time`,
@@ -149,7 +150,7 @@ export class PrizmInputDateTimeComponent
   ]).pipe(map(fillers => this.getDateTimeString(...fillers)));
 
   public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
-
+  public readonly innerControl = new FormControl();
   constructor(
     @Optional()
     @Self()
@@ -177,8 +178,37 @@ export class PrizmInputDateTimeComponent
     return items.filter(item => item.toString(mode).includes(search));
   }
 
+  private syncStateBetweenControls(): void {
+    if (this.control instanceof FormControl)
+      PrizmFormControlHelpers.syncStates(this.control as FormControl, false, this.innerControl)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe();
+  }
+
+  private syncValidatorsBetweenControls(): void {
+    if (this.control instanceof FormControl)
+      PrizmFormControlHelpers.syncAllValidators(this.control as FormControl, false, this.innerControl)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe();
+  }
+
+  private syncValuesBetweenControls(): void {
+    if (this.control instanceof FormControl)
+      PrizmFormControlHelpers.syncValues(
+        this.control as FormControl,
+        () => this.computedValue,
+        null,
+        this.innerControl
+      )
+        .pipe(takeUntil(this.destroy$))
+        .subscribe();
+  }
+
   public override ngOnInit(): void {
     super.ngOnInit();
+    this.syncStateBetweenControls();
+    this.syncValidatorsBetweenControls();
+    this.syncValuesBetweenControls();
     this.rightButtons$ = this.extraButtonInjector.get(PRIZM_DATE_RIGHT_BUTTONS);
   }
 

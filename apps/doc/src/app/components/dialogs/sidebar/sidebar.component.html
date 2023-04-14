@@ -6,8 +6,11 @@
     <prizm-doc-example id="base" heading="Base" [content]="exampleBasic">
       <prizm-sidebar-service-example></prizm-sidebar-service-example>
     </prizm-doc-example>
+    <prizm-doc-example id="hidden-footer" heading="Hidden Footer" [content]="exampleHiddenFooter">
+      <prizm-sidebar-hidden-footer-example></prizm-sidebar-hidden-footer-example>
+    </prizm-doc-example>
 
-    <prizm-doc-example id="base" heading="Top Bottom" [content]="exampleTopBottom">
+    <prizm-doc-example id="top-bottom" heading="Top Bottom" [content]="exampleTopBottom">
       <prizm-sidebar-top-bottom-example></prizm-sidebar-top-bottom-example>
     </prizm-doc-example>
   </ng-template>
@@ -15,8 +18,6 @@
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <button
-        #element
-        [prizmDocHostElement]="element"
         [size]="size"
         [icon]="icon"
         [iconRight]="iconRight"
@@ -140,134 +141,12 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="appearance"
-        documentationPropertyType="PrizmAppearance"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="appearanceVariants"
-        [(documentationPropertyValue)]="appearance"
-      >
-        Appearance
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="appearanceType"
-        documentationPropertyType="PrizmAppearanceType"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="appearanceTypeVariants"
-        [(documentationPropertyValue)]="appearanceType"
-      >
-        AppearanceType
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="icon"
-        documentationPropertyType="PrizmContent"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="iconVariants"
-        [(documentationPropertyValue)]="icon"
-      >
-        Icon
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="iconRight"
-        documentationPropertyType="PrizmContent"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="iconVariants"
-        [(documentationPropertyValue)]="iconRight"
-      >
-        Right Icon
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="disabled"
+        documentationPropertyName="hideFooter"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
+        [(documentationPropertyValue)]="hideFooter"
       >
-        Disabled
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="showLoader"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="showLoader"
-      >
-        Show Loader
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="pseudoHovered"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoHovered"
-      >
-        Pseudo Hovered
-      </ng-template>
-      <ng-template
-        documentationPropertyName="pseudoPressed"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoPressed"
-      >
-        Pseudo Pressed
-      </ng-template>
-      <ng-template
-        documentationPropertyName="pseudoFocused"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoFocused"
-      >
-        Pseudo Focused
-      </ng-template>
-      <ng-template
-        documentationPropertyName="focusable"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="focusable"
-      >
-        Focusable
-      </ng-template>
-      <ng-template
-        documentationPropertyName="pseudoState"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoState"
-      >
-        Pseudo State
-      </ng-template>
-      <ng-template
-        documentationPropertyName="focusedChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-        [(documentationPropertyValue)]="focusedChange"
-      >
-        Focused Change
-      </ng-template>
-      <ng-template
-        documentationPropertyName="pressedChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-        [(documentationPropertyValue)]="pressedChange"
-      >
-        Pressed Change
-      </ng-template>
-      <ng-template
-        documentationPropertyName="hoveredChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-        [(documentationPropertyValue)]="hoveredChange"
-      >
-        Hovered Change
-      </ng-template>
-      <ng-template
-        documentationPropertyName="focusVisibleChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-        [(documentationPropertyValue)]="focusVisibleChange"
-      >
-        Focus Visible Change
+        Hide Footer
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>

@@ -53,4 +53,9 @@ export class InputDateTimeTimeComponent {
     TypeScript: import('./examples/with-seconds/input-date-time-with-seconds-example.component.ts?raw'),
     HTML: import('./examples/with-seconds/input-date-time-with-seconds-example.component.html?raw'),
   };
+
+  public readonly exampleWithRequired: TuiDocExample = {
+    TypeScript: import('./examples/required/input-date-time-required-example.component.ts?raw'),
+    HTML: import('./examples/required/input-date-time-required-example.component.html?raw'),
+  };
 }
