@@ -24,7 +24,7 @@ import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../tokens';
 import { PrizmFocusableElementAccessor } from '../../types';
 import { PrizmFocusVisibleService } from '../../directives/focus-visible/focus-visible.service';
 import { PrizmHoveredService } from '../../services';
-import { PolymorphContent } from '../../directives';
+import { PolymorphContent } from '../../directives/polymorph/types/content';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
