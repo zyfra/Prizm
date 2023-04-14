@@ -10,7 +10,7 @@ import { PrizmCronUiHourState } from './cron-ui-hour.state';
 import { PrizmCronUiMonthState } from './cron-ui-month.state';
 import { PrizmCronUiYearState } from './cron-ui-year.state';
 import { prizmIsTextOverflow } from '../../util';
-import { PrizmCronPeriod, PrizmCronTabItem } from './model';
+import { PrizmCronPeriod, PrizmCronTabItem, PrizmCronTabSpecifiedList } from './model';
 import { PrizmCronUiDayState } from './cron-ui-day.state';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { combineLatest } from 'rxjs';
@@ -55,6 +55,10 @@ export class PrizmCronComponent implements OnInit {
 
   @Input()
   @prizmDefaultProp()
+  hideResult = false;
+
+  @Input()
+  @prizmDefaultProp()
   public set period(period: PrizmCronPeriod) {
     if (this.indefinitelyControl.value !== period.indefinitely)
       this.indefinitelyControl.setValue(period.indefinitely);
@@ -80,6 +84,7 @@ export class PrizmCronComponent implements OnInit {
     this.selectedSwitcherIdx = this.switchers.findIndex(i => i.id === selected);
   }
 
+  @Input() specifiedList: PrizmCronTabSpecifiedList | null = null;
   @Input() set tabs(tabs: PrizmCronTabItem[]) {
     this.switchers = this.switchers.map(i => {
       i.hide = !tabs.includes(i.id);

@@ -14,6 +14,10 @@
     <prizm-doc-example id="fullwidth" heading="Full Width (css variables)" [content]="exampleFullwidthCron">
       <prizm-cron-fullwidth-example></prizm-cron-fullwidth-example>
     </prizm-doc-example>
+
+    <prizm-doc-example id="filtered-list" heading="Specified List" [content]="exampleFilteredListCron">
+      <prizm-cron-filtered-list-example></prizm-cron-filtered-list-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -26,6 +30,7 @@
         [tabs]="tabs"
         [disabled]="disabled"
         [hidePeriod]="hidePeriod"
+        [hideResult]="hideResult"
         [autoSubmit]="autoSubmit"
         [(period)]="period"
         [(value)]="value"
@@ -81,6 +86,15 @@
       </ng-template>
 
       <ng-template
+        documentationPropertyName="hideResult"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="hideResult"
+      >
+        Hide Cron Result Block
+      </ng-template>
+
+      <ng-template
         documentationPropertyName="selected"
         documentationPropertyType="PrizmCronTabItem"
         documentationPropertyMode="input-output"
@@ -88,6 +102,14 @@
         [(documentationPropertyValue)]="selected"
       >
         Selected Tab
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="specifiedList"
+        documentationPropertyType="PrizmCronTabShowedList"
+        documentationPropertyMode="input"
+      >
+        Show only specified list for tabs
       </ng-template>
 
       <ng-template

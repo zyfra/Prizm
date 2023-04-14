@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { PrizmCronUiMinuteState } from '../../cron-ui-minute.state';
+import { PrizmCronUiBaseType } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-cron-minute',
@@ -8,5 +9,6 @@ import { PrizmCronUiMinuteState } from '../../cron-ui-minute.state';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmCronMinuteComponent {
+  @Input() specifiedList: PrizmCronUiBaseType[] = [];
   constructor(public readonly cronUiState: PrizmCronUiMinuteState) {}
 }

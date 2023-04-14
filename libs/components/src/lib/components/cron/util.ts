@@ -47,3 +47,14 @@ export function prizmConvertDayToType(day: string, dayOfWeek: string): PrizmCron
 
   return PrizmCronUiDayType.specifiedDayOfMonth;
 }
+
+/**
+ * Определяет, может ли элемент списка Cron отобразиться на основе переданных элементов и проверяемого элемента.
+ *
+ * @param {unknown[]} items - Массив элементов, которые могут быть отображены.
+ * @param {unknown} item - Элемент, который необходимо проверить на возможность отображения.
+ * @returns {boolean} Возвращает true, если список элементов пуст и проверяемый элемент содержится в нем, иначе false.
+ */
+export function canShowCronListItem(items: unknown[], item: unknown): boolean {
+  return !items.length || items.includes(item);
+}
