@@ -1,6 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { PRIZM_ICONS_SVG_SET, PrizmIconSvgEnum, PrizmIconsSvgRegistry, PrizmIconType } from '@prizm-ui/icons';
+import { PRIZM_ICONS_SVG_SET, PrizmIconsSvgRegistry, PrizmIconSvgEnum } from '@prizm-ui/icons';
+import { Clipboard } from '@angular/cdk/clipboard';
+import { PrizmToastService } from '@prizm-ui/components';
+import { copyToClipboard } from '../../../util';
 
 @Component({
   selector: 'prizm-icon-example',
@@ -112,9 +115,17 @@ export class IconComponent implements OnInit {
     HTML: import('./examples/svg/icon-svg-example.component.html?raw'),
   };
 
-  constructor(private readonly iconRegistry: PrizmIconsSvgRegistry) {}
+  constructor(
+    @Inject(Clipboard) public readonly clipboard: Clipboard,
+    private readonly toastService: PrizmToastService,
+    private readonly iconRegistry: PrizmIconsSvgRegistry
+  ) {}
 
   ngOnInit(): void {
     this.iconRegistry.registerIcons([...PRIZM_ICONS_SVG_SET]);
+  }
+
+  public copy(value: string): void {
+    copyToClipboard(value, this.clipboard, this.toastService);
   }
 }
