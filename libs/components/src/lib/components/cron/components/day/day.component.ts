@@ -1,7 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmCronUiDayState } from '../../cron-ui-day.state';
 import { PrizmCronUiDayType } from '../../model';
+import { PRIZM_CRON } from '@prizm-ui/components';
+import { Observable } from 'rxjs';
+import { PrizmLanguageCron } from '@prizm-ui/i18n';
 
 @Component({
   selector: 'prizm-cron-day',
@@ -12,5 +15,8 @@ import { PrizmCronUiDayType } from '../../model';
 })
 export class PrizmCronDayComponent {
   @Input() specifiedList: PrizmCronUiDayType[] = [];
-  constructor(public readonly cronUiState: PrizmCronUiDayState) {}
+  constructor(
+    @Inject(PRIZM_CRON) public readonly cronI18n$: Observable<PrizmLanguageCron['cron']>,
+    public readonly cronUiState: PrizmCronUiDayState
+  ) {}
 }

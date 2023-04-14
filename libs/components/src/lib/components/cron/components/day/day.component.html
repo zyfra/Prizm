@@ -14,7 +14,9 @@
           [name]="'type'"
         ></prizm-radio-button>
       </div>
-      <div class="content row">Каждый день</div>
+      <div class="content row">
+        {{ cronI18n$ | async | prizmPluck : ['day', 'every'] }}
+      </div>
     </label>
   </ng-container>
 

@@ -1,6 +1,8 @@
 <div class="block">
   <div class="title py-none inner-block small-padding">
-    <span class="prizm-font-title-h4"> Cron </span>
+    <span class="prizm-font-title-h4">
+      {{ cronI18n$ | async | prizmPluck : ['title'] }}
+    </span>
     <div class="submit-block" *ngIf="!hideResult || !autoSubmit">
       <ng-container *ngIf="!hideResult">
         <prizm-input-layout
@@ -32,7 +34,7 @@
         </prizm-input-layout>
       </ng-container>
       <button *ngIf="!autoSubmit" prizmButton size="m" [disabled]="disabled" (click)="submit()">
-        Применить
+        {{ cronI18n$ | async | prizmPluck : ['submitText'] }}
       </button>
     </div>
   </div>
@@ -49,15 +51,23 @@
 
   <div class="inner-block date-period border-bottom" *ngIf="!hidePeriod">
     <div class="date-block">
-      <prizm-input-date-time label="Начало работы" [formControl]="startDateControl"> </prizm-input-date-time>
+      <prizm-input-date-time
+        [label]="cronI18n$ | async | prizmPluck : ['startDateLabel']"
+        [formControl]="startDateControl"
+      >
+      </prizm-input-date-time>
 
-      <prizm-input-date-time label="Конец работы" [disabled]="indefinitely" [formControl]="endDateControl">
+      <prizm-input-date-time
+        [label]="cronI18n$ | async | prizmPluck : ['endDateLabel']"
+        [disabled]="indefinitely"
+        [formControl]="endDateControl"
+      >
       </prizm-input-date-time>
     </div>
     <div class="date-footer">
       <div class="indefinitely-toggle">
         <prizm-toggle size="m" [formControl]="indefinitelyControl"> </prizm-toggle>
-        Бессрочно
+        {{ cronI18n$ | async | prizmPluck : ['indefinitelyLabel'] }}
       </div>
     </div>
   </div>
