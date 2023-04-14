@@ -1,19 +1,29 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Inject,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmSwitcherItem } from '../switcher';
 import { FormControl } from '@angular/forms';
 import { PrizmCronService } from '../../services';
-import { distinctUntilChanged, filter, first, skip, startWith, takeUntil, tap } from 'rxjs/operators';
+import { distinctUntilChanged, filter, first, map, skip, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmCronUiSecondState } from './cron-ui-second.state';
 import { PrizmCronUiMinuteState } from './cron-ui-minute.state';
 import { PrizmCronUiHourState } from './cron-ui-hour.state';
 import { PrizmCronUiMonthState } from './cron-ui-month.state';
 import { PrizmCronUiYearState } from './cron-ui-year.state';
 import { prizmIsTextOverflow } from '../../util';
-import { PrizmCronPeriod, PrizmCronTabItem } from './model';
+import { PrizmCronPeriod, PrizmCronTabItem, PrizmCronTabSpecifiedList } from './model';
 import { PrizmCronUiDayState } from './cron-ui-day.state';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { combineLatest } from 'rxjs';
+import { combineLatest, concat, merge, Observable, timer } from 'rxjs';
+import { PRIZM_CRON, PRIZM_FILE_UPLOAD } from '../../tokens';
+import { PrizmLanguageCron, PrizmLanguageFileUpload } from '@prizm-ui/i18n';
 
 @Component({
   selector: 'prizm-cron',
@@ -55,6 +65,10 @@ export class PrizmCronComponent implements OnInit {
 
   @Input()
   @prizmDefaultProp()
+  hideResult = false;
+
+  @Input()
+  @prizmDefaultProp()
   public set period(period: PrizmCronPeriod) {
     if (this.indefinitelyControl.value !== period.indefinitely)
       this.indefinitelyControl.setValue(period.indefinitely);
@@ -80,6 +94,7 @@ export class PrizmCronComponent implements OnInit {
     this.selectedSwitcherIdx = this.switchers.findIndex(i => i.id === selected);
   }
 
+  @Input() specifiedList: PrizmCronTabSpecifiedList | null = null;
   @Input() set tabs(tabs: PrizmCronTabItem[]) {
     this.switchers = this.switchers.map(i => {
       i.hide = !tabs.includes(i.id);
@@ -129,6 +144,7 @@ export class PrizmCronComponent implements OnInit {
 
   constructor(
     public readonly cron: PrizmCronService,
+    @Inject(PRIZM_CRON) public readonly cronI18n$: Observable<PrizmLanguageCron['cron']>,
     private readonly destroy$: PrizmDestroyService,
     private readonly cronUiSecondState: PrizmCronUiSecondState,
     private readonly cronUiHourState: PrizmCronUiHourState,
@@ -155,7 +171,7 @@ export class PrizmCronComponent implements OnInit {
   }
 
   private initEndDateStateChanger(): void {
-    this.indefinitelyControl.valueChanges
+    concat(timer(0).pipe(map(() => this.indefinitelyControl.value)), this.indefinitelyControl.valueChanges)
       .pipe(
         tap(() => this.endDateStateCorrector()),
         takeUntil(this.destroy$)

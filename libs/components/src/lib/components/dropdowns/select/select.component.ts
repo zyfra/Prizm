@@ -266,7 +266,7 @@ export class PrizmSelectComponent<T>
     }
     this.requiredInputControl.setValue(item && this.stringify(item));
     // TODO remove after add update inputs
-    if (this.inputTextElement) this.inputTextElement.touched = true;
+    if (this.inputTextElement) this.inputTextElement._touched = true;
     this.open = false;
   }
 

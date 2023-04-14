@@ -20,6 +20,7 @@ export class CronComponent {
   public width: string | null = null;
   public autoSubmit = false;
   public hidePeriod = false;
+  public hideResult = false;
   public selected: PrizmCronTabItem = 'month';
   tabs: PrizmCronTabItem[] = ['hour', 'day', 'month', 'year'];
   readonly allTabs: PrizmCronTabItem[] = ['second', 'minute', 'hour', 'day', 'month', 'year'];
@@ -43,5 +44,9 @@ export class CronComponent {
   readonly exampleFullwidthCron: TuiDocExample = {
     TypeScript: import('./examples/fullwidth/cron-fullwidth-example.component.ts?raw'),
     HTML: import('./examples/fullwidth/cron-fullwidth-example.component.html?raw'),
+  };
+  readonly exampleFilteredListCron: TuiDocExample = {
+    TypeScript: import('./examples/filtered-list/cron-filtered-list-example.component.ts?raw'),
+    HTML: import('./examples/filtered-list/cron-filtered-list-example.component.html?raw'),
   };
 }

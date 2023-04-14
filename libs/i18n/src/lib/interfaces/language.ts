@@ -10,6 +10,18 @@ export interface PrizmLanguageFileUpload {
     dropzone__description: string;
   };
 }
+export interface PrizmLanguageCron {
+  cron: {
+    title: string;
+    submitText: string;
+    startDateLabel: string;
+    endDateLabel: string;
+    indefinitelyLabel: string;
+    day: {
+      every: string;
+    };
+  };
+}
 
 export interface PrizmLanguageCore {
   months: MONTHS_ARRAY;
@@ -169,4 +181,5 @@ export interface PrizmLanguage
     PrizmLanguageEditor,
     PrizmLanguagePreview,
     PrizmLanguageMeta,
+    PrizmLanguageCron,
     PrizmLanguageFileUpload {}
