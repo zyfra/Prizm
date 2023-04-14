@@ -10,6 +10,7 @@ import {
   PrizmAppearance,
   PrizmAppearanceType,
   PrizmDialogSize,
+  PrizmSize,
 } from '@prizm-ui/components';
 
 @Component({
@@ -30,9 +31,12 @@ export class HintComponent {
   public hoveredChange = false;
   public focusVisibleChange = false;
 
-  iconVariants: ReadonlyArray<PrizmContent> = ['', ...IconDefs.reduce((a, c) => a.concat(c.data), [])];
-  icon: PrizmContent = this.iconVariants[0];
-  iconRight: PrizmContent = this.iconVariants[0];
+  iconVariants: ReadonlyArray<PolymorphContent<{ size: PrizmSize }>> = [
+    '',
+    ...IconDefs.reduce((a, c) => a.concat(c.data), []),
+  ];
+  icon: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
+  iconRight: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
   appearanceVariants: ReadonlyArray<PrizmAppearance> = [
     'primary',
     'secondary',
