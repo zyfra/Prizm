@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { PrizmCronUiHourState } from '../../cron-ui-hour.state';
-import { PrizmCronUiBaseType } from '@prizm-ui/components';
+import { PrizmCronUiBaseType } from '../../model';
 
 @Component({
   selector: 'prizm-cron-hour',

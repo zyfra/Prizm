@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmCronUiMonthState } from '../../cron-ui-month.state';
-import { PrizmCronUiBaseType } from '@prizm-ui/components';
+import { PrizmCronUiBaseType } from '../../model';
 
 @Component({
   selector: 'prizm-cron-month',
