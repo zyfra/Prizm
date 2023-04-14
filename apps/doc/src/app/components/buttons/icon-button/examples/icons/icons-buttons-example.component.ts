@@ -20,4 +20,4 @@ import { Component } from '@angular/core';
   ],
   templateUrl: './icons-buttons-example.component.html',
 })
-export class prizmIconsButtonsExampleComponent {}
+export class PrizmIconsButtonsExampleComponent {}

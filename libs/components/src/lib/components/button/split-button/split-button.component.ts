@@ -12,6 +12,7 @@ import { PrizmContent } from '../button-options';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmSize } from '../../../util';
 import { PrizmAppearance, PrizmAppearanceType } from '../../../types';
+import { PolymorphContent } from '../../../directives';
 
 @Component({
   selector: 'prizm-split-button',
@@ -27,7 +28,7 @@ export class PrizmSplitButtonComponent {
 
   /** can pass template or icon class */
   @Input()
-  icon: PrizmContent = 'chevrons-dropdown';
+  icon: PolymorphContent<{ size: PrizmSize }> = 'chevrons-dropdown';
 
   @Input()
   @HostBinding('attr.data-appearance')

@@ -24,6 +24,7 @@ import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../tokens';
 import { PrizmFocusableElementAccessor } from '../../types';
 import { PrizmFocusVisibleService } from '../../directives/focus-visible/focus-visible.service';
 import { PrizmHoveredService } from '../../services';
+import { PolymorphContent } from '../../directives';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -48,11 +49,11 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive implements Pr
 
   /** can pass template or icon class */
   @Input()
-  icon: PrizmContent;
+  icon: PolymorphContent<{ size: PrizmSize }>;
 
   /** can pass template or icon class */
   @Input()
-  iconRight: PrizmContent;
+  iconRight: PolymorphContent<{ size: PrizmSize }>;
 
   @Input()
   @HostBinding('attr.data-appearance')
