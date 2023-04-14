@@ -1,0 +1,71 @@
+@import '../../../../../styles/ui-local.less';
+
+:host {
+  width: 100%;
+}
+
+.prizm-navigation-menu-item {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  height: var(--prizm-navigation-menu__item-height);
+  outline: none;
+  padding-right: 8px;
+  padding-left: calc(4px + (var(--prizm-tree-item-indent, 24) * var(--prizm-tree-item-indent-level)) * 1px);
+  border-bottom: 1px solid var(--prizm-grey-g10-g4);
+  border-left: 4px solid transparent;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--prizm-text-contrast);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background: var(--prizm-index-lock);
+  }
+
+  &_active {
+    background: var(--prizm-index-lock);
+    border-left-color: var(--prizm-index-plan);
+  }
+
+  &__icon {
+    flex-basis: 24px;
+    padding-left: 8px;
+  }
+
+  &__text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    flex: 1;
+    padding: 0 8px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 0;
+  }
+
+  button[prizmIconButton] {
+    &._focused {
+      box-shadow: 0 0 0 2px var(--prizm-navigation-menu__focus-color);
+    }
+
+    &:hover ::ng-deep prizm-wrapper {
+      background: transparent;
+      color: var(--prizm-primary);
+    }
+  }
+
+  /* expand icon */
+  .expand-button {
+    .transition(transform);
+    --prizm-secondary: var(--prizm-text-main);
+    font-weight: 600;
+
+    &_expanded {
+      transform: rotate(90deg);
+    }
+  }
+}

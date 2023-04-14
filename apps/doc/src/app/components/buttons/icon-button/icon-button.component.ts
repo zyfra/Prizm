@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   IconDefs,
+  PolymorphContent,
   PrizmAppearance,
   PrizmAppearanceType,
   PrizmContent,
@@ -43,12 +44,12 @@ export class IconButtonComponent {
   public hoveredChange = false;
   public focusVisibleChange = false;
 
-  iconVariants: ReadonlyArray<PrizmContent> = [
+  iconVariants: ReadonlyArray<PolymorphContent<{ size: PrizmSize }>> = [
     'account-card-details',
     ...IconDefs.reduce((a, c) => a.concat(c.data), []),
   ];
-  icon: PrizmContent = this.iconVariants[0];
-  iconRight: PrizmContent = this.iconVariants[0];
+  icon: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
+  iconRight: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
   appearanceVariants: ReadonlyArray<PrizmAppearance> = [
     'primary',
     'secondary',
@@ -69,5 +70,9 @@ export class IconButtonComponent {
   readonly exampleIcons: TuiDocExample = {
     TypeScript: import('./examples/icons/icons-buttons-example.component.ts?raw'),
     HTML: import('./examples/icons/icons-buttons-example.component.html?raw'),
+  };
+  readonly exampleOurIconSet: TuiDocExample = {
+    TypeScript: import('./examples/your-icon-set/icons-your-icon-set-example.component.ts?raw'),
+    HTML: import('./examples/your-icon-set/icons-your-icon-set-example.component.html?raw'),
   };
 }

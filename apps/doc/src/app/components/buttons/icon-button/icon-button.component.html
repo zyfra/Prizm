@@ -7,6 +7,9 @@
     <prizm-doc-example id="base" heading="Icons" [content]="exampleIcons">
       <prizm-icons-buttons-example></prizm-icons-buttons-example>
     </prizm-doc-example>
+    <prizm-doc-example id="custom-icon-set" heading="Custom Icon Set" [content]="exampleOurIconSet">
+      <prizm-icons-your-icon-set-example></prizm-icons-your-icon-set-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -62,7 +65,7 @@
 
       <ng-template
         documentationPropertyName="icon"
-        documentationPropertyType="PrizmContent"
+        documentationPropertyType="PolymorphContent<{size: PrizmSize}>"
         documentationPropertyMode="input"
         [documentationPropertyValues]="iconVariants"
         [(documentationPropertyValue)]="icon"
@@ -90,7 +93,7 @@
 
       <ng-template
         documentationPropertyName="iconRight"
-        documentationPropertyType="PrizmContent"
+        documentationPropertyType="PolymorphContent<{size: PrizmSize}>"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="iconRight"
       >

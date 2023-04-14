@@ -7,7 +7,7 @@ import { PrizmCalendarModule } from '../../calendar/calendar.module';
 import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
 import { PrizmLinkModule } from '../../link/link.module';
 import { PrizmInputDateTimeComponent } from './input-date-time.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputTextModule } from '../input-text/input-text.module';
 import { PrizmIconModule } from '../../icon/icon.module';
 import { PrizmMaskModule } from '../../../modules';
@@ -17,6 +17,7 @@ import { PrizmLifecycleModule } from '../../../directives';
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     PrizmMaskModule,
     PrizmDataListModule,
     PolymorphModule,

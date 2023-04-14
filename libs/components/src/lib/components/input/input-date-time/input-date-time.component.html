@@ -21,9 +21,11 @@
       [readonly]="readOnly"
       [placeholder]="placeholder"
       [disabled]="computedDisabled"
-      [ngModel]="computedValue"
-      (ngModelChange)="onValueChange($event || '')"
+      [formControl]="innerControl"
     />
+    <!--    [ngModel]="computedValue"-->
+    <!--    (ngModelChange)="onValueChange($event || '')"-->
+
     <!--    [patterns]="fixedPatternForTime"-->
     <ng-container prizm-input-right>
       <button

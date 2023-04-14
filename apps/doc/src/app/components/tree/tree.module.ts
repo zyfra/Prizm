@@ -11,6 +11,7 @@ import { FoldersComponent } from './examples/component/folder.component';
 import { TreeComponentExampleComponent } from './examples/component/tree-component-example.component';
 import { TreeTemplateCheckboxExampleModule } from './examples/template-checkbox/tree-template-example.module';
 import { TreeTemplateLazyExampleModule } from './examples/lazy/tree-template-lazy-example.module';
+import { TreePaddingInputExampleComponent } from './examples/padding-indent/tree-padding-indent-example.component';
 
 @NgModule({
   imports: [
@@ -27,8 +28,9 @@ import { TreeTemplateLazyExampleModule } from './examples/lazy/tree-template-laz
     TreeArrayExampleComponent,
     TreeTemplateExampleComponent,
     TreeComponentExampleComponent,
-    FoldersComponent,
+    TreePaddingInputExampleComponent,
     TreeComponent,
+    FoldersComponent,
   ],
   exports: [TreeComponent],
 })

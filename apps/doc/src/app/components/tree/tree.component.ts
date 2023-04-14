@@ -58,5 +58,14 @@ export class TreeComponent {
     'folder.ts': import('./examples/component/folder.component.ts?raw'),
     'folder.less': import('./examples/component/folder.component.less?raw'),
   };
+
+  public readonly examplePaddingIndent: TuiDocExample = {
+    TypeScript: import('./examples/padding-indent/tree-padding-indent-example.component.ts?raw'),
+    HTML: import('./examples/padding-indent/tree-padding-indent-example.component.html?raw'),
+    'component.less': import('./examples/padding-indent/tree-padding-indent-example.component.less?raw'),
+    'folder.ts': import('./examples/component/folder.component.ts?raw'),
+    'folder.less': import('./examples/component/folder.component.less?raw'),
+  };
+
   readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item => item.children || PRIZM_EMPTY_ARRAY;
 }

@@ -10,7 +10,7 @@
       <h4 class="title">{{ def.dir }}</h4>
 
       <div class="icons">
-        <div *ngFor="let name of def.data" class="icon-def">
+        <div (click)="copy(name)" *ngFor="let name of def.data" class="icon-def">
           <prizm-icon [iconClass]="name" [size]="24" class="icon"></prizm-icon>
           <div class="name">{{ name }}</div>
         </div>

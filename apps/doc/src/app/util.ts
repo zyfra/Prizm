@@ -1,4 +1,5 @@
-import { PolymorphContent } from '@prizm-ui/components';
+import { PolymorphContent, PrizmToastService } from '@prizm-ui/components';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 export function generatePolymorphVariants(...content: PolymorphContent[]): PolymorphContent[] {
   return [
@@ -12,4 +13,21 @@ export function generatePolymorphVariants(...content: PolymorphContent[]): Polym
       .join('\n'),
     ...content,
   ];
+}
+
+export function copyToClipboard(
+  value: string,
+  clipboard: Clipboard,
+  toastService: PrizmToastService,
+  options?: {
+    title?: string;
+    timer?: number;
+  }
+): void {
+  const result = clipboard.copy(value);
+  toastService.create(`Value <${value}> was copied to clipboard`, {
+    appearance: !result ? 'danger' : 'success',
+    timer: options?.timer ?? 5000,
+    title: options?.title,
+  });
 }
