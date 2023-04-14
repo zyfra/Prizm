@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/ast",
-  "version": "1.0.0-beta.29",
+  "version": "1.0.0-beta.30",
   "peerDependencies": {
     "@angular/common": "^12.2.0",
     "@angular/core": "^12.2.0"
