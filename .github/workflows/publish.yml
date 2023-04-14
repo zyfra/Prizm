@@ -55,11 +55,12 @@ jobs:
       - run: cd dist/libs/core && npm publish --access public --verbose || exit_code=0
       #      - run: cd dist/libs/schematics && npm publish --access public --verbose || exit_code=0
       - run: cd dist/libs/theme && npm publish --access public --verbose || exit_code=0
-      - run: cd dist/libs/charts && ls -ls || exit_code=0
-      - run: cd dist/libs && ls -ls || exit_code=0
-      - run: cd dist/libs/charts && npm publish --access public --verbose || exit_code=0
       - run: cd dist/libs/icons/base && npm publish --access public --verbose || exit_code=0
       - run: cd dist/libs/icons/flags && npm publish --access public --verbose || exit_code=0
+      - run: npx nx build charts-base
+      - run: cd dist/libs && ls -ls || exit_code=0
+      - run: cd dist/libs/charts && npm publish --access public --verbose || exit_code=0
+
       - name: Deploy doc to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
