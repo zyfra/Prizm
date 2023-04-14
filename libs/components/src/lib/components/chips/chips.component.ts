@@ -61,26 +61,6 @@ export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDest
 
   constructor(private readonly cdRef: ChangeDetectorRef, private readonly destroy$: PrizmDestroyService) {}
 
-  readonly prizmIsTextOverflow$ = (
-    elem: HTMLElement,
-    hintCanShow: boolean,
-    forceShowHint: boolean
-  ): Observable<boolean> => {
-    return of(forceShowHint).pipe(
-      switchMap(val => {
-        if (val) {
-          return of(true);
-        }
-
-        if (!hintCanShow) {
-          return of(false);
-        }
-
-        return prizmIsTextOverflow$(elem);
-      })
-    );
-  };
-
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   public onChange: (value: unknown) => void = () => {};
   // eslint-disable-next-line @typescript-eslint/no-empty-function

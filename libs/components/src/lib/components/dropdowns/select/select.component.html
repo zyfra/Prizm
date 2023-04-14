@@ -18,6 +18,8 @@
     <input
       class="input-search"
       prizmInput
+      #inputText="prizmInput"
+      (prizmOnInit)="inputTextElement = inputText"
       #focusableElementRef
       (onClear)="onClear()"
       [placeholder]="placeholder"

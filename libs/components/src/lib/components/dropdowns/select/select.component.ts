@@ -18,7 +18,7 @@ import { FormControl, NgControl } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
 import { PRIZM_SELECT_OPTIONS, PrizmSelectOptions, PrizmSelectValueContext } from './select.options';
 import { PrizmFocusableElementAccessor, PrizmNativeFocusableElement } from '../../../types';
-import { PrizmInputSize } from '../../input';
+import { PrizmInputSize, PrizmInputTextComponent } from '../../input';
 import { AbstractPrizmControl } from '../../../abstract/control';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
 import {
@@ -150,6 +150,7 @@ export class PrizmSelectComponent<T>
   @Output()
   public readonly searchChange = new EventEmitter<string | null>();
 
+  public inputTextElement: PrizmInputTextComponent | null;
   public open = false;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
   public readonly items$ = new BehaviorSubject([]);
@@ -264,6 +265,8 @@ export class PrizmSelectComponent<T>
       this.updateValue(item);
     }
     this.requiredInputControl.setValue(item && this.stringify(item));
+    // TODO remove after add update inputs
+    if (this.inputTextElement) this.inputTextElement.touched = true;
     this.open = false;
   }
 

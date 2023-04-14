@@ -169,7 +169,10 @@ export class PrizmFormControlHelpers {
         filter(() => Boolean(fromOrigin)),
         tap((valueFromOrigin: ORIGIN_VALUE) => {
           const value = fromOrigin(valueFromOrigin);
-          others.forEach(control => this.setValue(control, value));
+          others.forEach(control => {
+            this.setValue(control, value);
+            this.syncControlVisualStates(origin, control);
+          });
         })
       ),
       fromOthers

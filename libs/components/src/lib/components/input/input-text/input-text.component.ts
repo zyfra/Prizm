@@ -29,6 +29,7 @@ import { PrizmInputControl } from '../common/base/input-control.class';
     '[class.ng-filled]': '!empty',
     '[disabled]': 'disabled',
   },
+  exportAs: 'prizmInput',
   styleUrls: ['input-text.component.less'],
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputTextComponent }, PrizmDestroyService],
 })
@@ -129,7 +130,11 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   /**
    * Touched state
    */
-  public touched: boolean;
+  public _touched: boolean;
+
+  get touched(): boolean {
+    return this.ngControl ? this.ngControl.touched : this._touched;
+  }
 
   public hasClearButton = true;
   public nativeElementType: string;
@@ -179,7 +184,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   @HostListener('blur', ['$event'])
   private onBlur(): void {
     this.focused = false;
-    this.touched = true;
+    this._touched = true;
     this.stateChanges.next();
   }
 
@@ -236,7 +241,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
     if (this.disabled) return;
 
     this.ngControl?.control.setValue('');
-    this.touched = true;
+    this._touched = true;
 
     this._inputValue.value = '';
 
@@ -265,7 +270,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
     const { touched, dirty } = options;
 
     if (touched) {
-      this.touched = true;
+      this._touched = true;
       this.ngControl?.control.markAsTouched();
     }
 
