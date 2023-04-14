@@ -21,6 +21,8 @@
       [style.display]="outer ? 'none' : ''"
       [style.visibility]="outer ? 'none' : 'hidden'"
       #focusableElementRef
+      #inputText="prizmInput"
+      (prizmOnInit)="inputTextElement = inputText"
       (onClear)="onClear()"
       [hidden]="true"
       [disabled]="disabled"
@@ -43,7 +45,7 @@
           #chipsComponent
           [class.inner]="!outer"
           [singleLine]="true"
-          [deletable]="isChipsDeletable"
+          [deletable]="!disabled && isChipsDeletable"
           [chips]="chips"
           (removeChipEvent)="removeChip($event)"
         ></prizm-chips>

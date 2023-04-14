@@ -20,7 +20,7 @@ import {
   PrizmFocusableElementAccessor,
   PrizmNativeFocusableElement,
 } from '../../../types';
-import { PrizmInputSize } from '../../input';
+import { PrizmInputSize, PrizmInputTextComponent } from '../../input';
 import { AbstractPrizmControl } from '../../../abstract/control';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
 import { debounceTime, delay, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
@@ -141,6 +141,7 @@ export class PrizmMultiSelectComponent<T>
   @HostBinding('attr.testId')
   readonly testId = 'prizm_multi_select';
 
+  public inputTextElement: PrizmInputTextComponent | null;
   public readonly defaultIcon = 'chevrons-dropdown';
   readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
@@ -255,7 +256,11 @@ export class PrizmMultiSelectComponent<T>
     this.initControlValidatorsIfExist();
     this.selectedItems$
       .pipe(
-        tap(items => this.chipsControl.setValue(items as any, { emitEvent: true })),
+        tap(items => {
+          this.chipsControl.setValue(items as any, { emitEvent: true });
+          // TODO remove after add update inputs
+          if (this.inputTextElement) this.inputTextElement.touched = true;
+        }),
         tap(() => this.cdRef.markForCheck()),
         takeUntil(this.destroy$)
       )
@@ -263,14 +268,14 @@ export class PrizmMultiSelectComponent<T>
   }
 
   private initControlStatusChangerIfExist(): void {
-    if (this.control)
+    if (this.control instanceof FormControl)
       PrizmFormControlHelpers.syncStates(this.control as FormControl, false, this.requiredInputControl)
         .pipe(takeUntil(this.destroy$))
         .subscribe();
   }
 
   private initControlValueChangerIfExist(): void {
-    if (this.control)
+    if (this.control instanceof FormControl)
       PrizmFormControlHelpers.syncValues(
         this.control as FormControl,
         i => i?.length,
@@ -282,7 +287,7 @@ export class PrizmMultiSelectComponent<T>
   }
 
   private initControlValidatorsIfExist(): void {
-    if (this.control)
+    if (this.control instanceof FormControl)
       PrizmFormControlHelpers.syncAllValidators(this.control as FormControl, false, this.requiredInputControl)
         .pipe(takeUntil(this.destroy$))
         .subscribe();

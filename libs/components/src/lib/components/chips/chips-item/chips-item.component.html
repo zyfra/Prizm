@@ -1,0 +1,18 @@
+<button class="chips-list__item" [disabled]="disabled">
+  <div
+    class="chips-name"
+    #div
+    [prizmHint]="hintText"
+    [prizmHintHost]="el.nativeElement"
+    [prizmHintDirection]="hintDirection"
+    [prizmHintCanShow]="hintText && (div | prizmCallFunc : prizmIsTextOverflow$ : hintCanShow : null | async)"
+  >
+    <ng-content></ng-content>
+  </div>
+  <button
+    *ngIf="deletable"
+    class="chips-cancel prizm-icon cancel-close-small"
+    (click)="deleted.emit($event)"
+    [disabled]="disabled"
+  ></button>
+</button>

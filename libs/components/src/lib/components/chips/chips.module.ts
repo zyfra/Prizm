@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { PrizmChipsComponent } from './chips.component';
 import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmElementReadyModule, PrizmHintModule, PrizmLifecycleModule } from '../../directives';
+import { PrizmChipsItemComponent } from './chips-item/chips-item.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { PrizmElementReadyModule, PrizmHintModule, PrizmLifecycleModule } from '
     PrizmLetModule,
     PrizmHintModule,
   ],
-  declarations: [PrizmChipsComponent],
-  exports: [PrizmChipsComponent],
+  declarations: [PrizmChipsComponent, PrizmChipsItemComponent],
+  exports: [PrizmChipsComponent, PrizmChipsItemComponent],
 })
 export class PrizmChipsModule {}
