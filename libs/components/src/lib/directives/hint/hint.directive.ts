@@ -132,12 +132,12 @@ export class PrizmHintDirective<
   protected open(): void {
     if (!this.prizmHintCanShow) return;
     this.renderer.addClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
-    this.overlay?.open();
+    this.overlay.open();
   }
 
   protected close(): void {
     this.renderer.removeClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
-    this.overlay?.close();
+    this.overlay.close();
   }
 
   private initVisibleController(): void {
