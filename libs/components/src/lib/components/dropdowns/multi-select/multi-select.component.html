@@ -21,6 +21,8 @@
       [style.display]="outer ? 'none' : ''"
       [style.visibility]="outer ? 'none' : 'hidden'"
       #focusableElementRef
+      #inputText="prizmInput"
+      (prizmOnInit)="inputTextElement = inputText"
       (onClear)="onClear()"
       [hidden]="true"
       [disabled]="disabled"

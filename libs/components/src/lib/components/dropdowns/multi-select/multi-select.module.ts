@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PrizmMultiSelectComponent } from './multi-select.component';
 import { PrizmOverlayModule } from '../../../modules/overlay';
-import { PolymorphModule, PrizmAutoFocusModule } from '../../../directives';
+import { PolymorphModule, PrizmAutoFocusModule, PrizmLifecycleModule } from '../../../directives';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmDataListModule } from '../../data-list';
@@ -33,6 +33,7 @@ import { PrizmIconModule } from '../../icon';
     PrizmDropdownControllerModule,
     PrizmDataListModule,
     PrizmCheckboxModule,
+    PrizmLifecycleModule,
     PrizmDropdownHostModule,
   ],
   declarations: [PrizmMultiSelectComponent],

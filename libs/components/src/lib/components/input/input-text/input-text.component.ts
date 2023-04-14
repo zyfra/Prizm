@@ -29,6 +29,7 @@ import { PrizmInputControl } from '../common/base/input-control.class';
     '[class.ng-filled]': '!empty',
     '[disabled]': 'disabled',
   },
+  exportAs: 'prizmInput',
   styleUrls: ['input-text.component.less'],
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputTextComponent }, PrizmDestroyService],
 })
