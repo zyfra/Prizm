@@ -45,7 +45,7 @@
           #chipsComponent
           [class.inner]="!outer"
           [singleLine]="true"
-          [deletable]="isChipsDeletable"
+          [deletable]="!disabled && isChipsDeletable"
           [chips]="chips"
           (removeChipEvent)="removeChip($event)"
         ></prizm-chips>
