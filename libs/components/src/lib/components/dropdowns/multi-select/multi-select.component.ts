@@ -259,7 +259,7 @@ export class PrizmMultiSelectComponent<T>
         tap(items => {
           this.chipsControl.setValue(items as any, { emitEvent: true });
           // TODO remove after add update inputs
-          if (this.inputTextElement) this.inputTextElement._touched = true;
+          if (this.inputTextElement) this.inputTextElement.markAsTouched();
         }),
         tap(() => this.cdRef.markForCheck()),
         takeUntil(this.destroy$)

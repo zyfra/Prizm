@@ -14,7 +14,7 @@ import {
   Output,
   Self,
 } from '@angular/core';
-import { NgControl, Validators } from '@angular/forms';
+import { FormControl, NgControl, Validators } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
@@ -279,5 +279,10 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
     }
 
     this.stateChanges.next();
+  }
+
+  public markAsTouched(): void {
+    if (this.ngControl?.control instanceof FormControl) this.ngControl.control.markAsTouched();
+    else this._touched = true;
   }
 }

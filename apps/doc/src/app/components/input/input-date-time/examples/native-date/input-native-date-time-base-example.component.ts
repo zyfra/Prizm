@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { prizmGetInputDateTimeNativeTransformer } from '@prizm-ui/components';
+import { PrizmDay, prizmGetInputDateTimeNativeTransformer, PrizmTime } from '@prizm-ui/components';
+import { interval } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'prizm-input-date-time-native-example',
@@ -17,4 +19,12 @@ import { prizmGetInputDateTimeNativeTransformer } from '@prizm-ui/components';
 })
 export class PrizmInputDateTimeNativeExampleComponent {
   public readonly value = new FormControl(new Date(2020, 0, 1, 13, 30, 0, 0));
+
+  public setDefaultValue(): void {
+    this.value.setValue(new Date());
+  }
+
+  public clear(): void {
+    this.value.setValue(null);
+  }
 }

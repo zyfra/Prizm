@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.30](https://github.com/zyfra/Prizm) (14-04-2023)
+
+### Features
+
+- feat(ci): automatically create comments in issue after PR were updated, created, or closed [143](https://github.com/zyfra/Prizm/issues/143)
+- feat(ci): automatically create comments in issue after PR was released 143[https://github.com/zyfra/Prizm/issues/143]
+- feat(components/chips): new chips-item added to lib [162](https://github.com/zyfra/Prizm/issues/162)
+- feat(doc/chips): new chips-item added to doc [162](https://github.com/zyfra/Prizm/issues/162)
+- feat(components/cron): added new input to hide cron result [166](https://github.com/zyfra/Prizm/issues/166)
+- feat(components/cron): added new input to filter items from every tab [163](https://github.com/zyfra/Prizm/issues/163)
+- feat(doc/input-date-time): add example with required [124](https://github.com/zyfra/Prizm/issues/124)
+- feat(doc/icons): now on click icon name will be copied to clipboard [150](https://github.com/zyfra/Prizm/issues/150)
+- feat(doc/old-icons): now on click old icon name will be copied to clipboard [150](https://github.com/zyfra/Prizm/issues/150)
+- feat(components/navigation-menu): replace deprecated menu
+- feat(components/button): now you can pass polymorph content as icon to use any icon set [151](https://github.com/zyfra/Prizm/issues/151)
+- feat(doc/icon-button): add example with you custom icon [151](https://github.com/zyfra/Prizm/issues/151)
+- feat(components/sidebar): add ability to hide footer [153](https://github.com/zyfra/Prizm/issues/153)
+
+### BUG FIXES
+
+- fix(components/input-date-time): required did not set [124](https://github.com/zyfra/Prizm/issues/124)
+- fix(components/input): reset touched state on control.reset() [114](https://github.com/zyfra/Prizm/issues/114)
+- fix(component/sidebar): scrollbar content now exanded to all view [130](https://github.com/zyfra/Prizm/issues/130)
+- fix(components/tabs): remove title on tab with idx [152](https://github.com/zyfra/Prizm/issues/152)
+- fix(components/multi-select): fix bug with red border on required [161](https://github.com/zyfra/Prizm/issues/161)
+- fix(components/multi-select): chips can be deleted on disabled multi-selected [159](https://github.com/zyfra/Prizm/issues/159)
+- fix(chore): prettier gets different result on different os
+
 ## [1.0.0-beta.29](https://github.com/zyfra/Prizm) (07-04-2023)
 
 ### Features
