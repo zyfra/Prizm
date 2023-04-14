@@ -67,13 +67,3 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
           projectId: prizmui
           channelId: live
-      - name: SEND MESSAGE TO ISSUES
-      - uses: actions-cool/pr-extract-issues@v1
-        if: ${{ always() }}
-        with:
-          way: 'body'
-          issues-labels: 'released'
-          remove-labels: 'in_progress'
-          issues-comment: |
-            Привет! Этот issue попал в релиз: ${number}。
-          issues-close: false
