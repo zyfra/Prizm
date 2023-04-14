@@ -1,0 +1,36 @@
+.prizm-navigation-menu-toolbar {
+  height: var(--prizm-navigation-menu__item-height);
+  padding: var(--prizm-navigation-menu__item-padding);
+  background: var(--prizm-grey-g11-g3);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid var(--prizm-grey-g10-g4);
+  overflow: hidden;
+
+  .instruments {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+
+    button[prizmIconButton] {
+      margin: 0px 1px;
+    }
+
+    &__btn {
+      &:hover,
+      &_active {
+        ::ng-deep prizm-wrapper {
+          color: var(--prizm-primary);
+          background: transparent;
+        }
+      }
+
+      &._focused {
+        box-shadow: 0 0 0 2px var(--prizm-navigation-menu__focus-color);
+      }
+    }
+  }
+}

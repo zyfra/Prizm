@@ -1,0 +1,75 @@
+:host {
+  .prizm-navigation-menu-group {
+    --prizm-empty-message__padding: 16px 32px;
+
+    ::ng-deep {
+      prizm-accordion {
+        border: none;
+
+        .accordion__content {
+          padding: 0 !important;
+          background: var(--prizm-grey-g11-g3);
+          cursor: default;
+        }
+
+        .prizm_accordion {
+          border: 0 !important;
+        }
+
+        .accordion {
+          box-shadow: unset;
+          border-top: unset;
+
+          &:hover:not(.accordion_disabled) {
+            box-shadow: unset;
+            border-top: unset;
+          }
+        }
+
+        .accordion__header {
+          height: var(--prizm-navigation-menu__item-height);
+          padding: var(--prizm-navigation-menu__item-padding);
+          padding-left: 12px;
+          border-left: 4px solid transparent;
+          border-bottom: 1px solid var(--prizm-grey-g10-g4);
+          background: var(--prizm-grey-g11-g3);
+
+          &:focus,
+          &:hover {
+            background: var(--prizm-index-lock);
+          }
+        }
+      }
+    }
+
+    &__no-items-content {
+      background: var(--prizm-grey-g11-g3);
+    }
+  }
+
+  .empty-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 16px;
+
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    padding: var(--prizm-empty-message__padding);
+
+    &__main {
+      font-weight: 600;
+
+      color: var(--prizm-text-contrast);
+      text-align: center;
+    }
+
+    &__sub {
+      font-weight: 400;
+
+      color: var(--prizm-text-subscript);
+    }
+  }
+}

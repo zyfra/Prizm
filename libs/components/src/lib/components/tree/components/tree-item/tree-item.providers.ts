@@ -1,5 +1,4 @@
 import { forwardRef, Provider, SkipSelf } from '@angular/core';
-
 import { PRIZM_TREE_LEVEL, PRIZM_TREE_NODE } from '../../misc/tree.tokens';
 import { PrizmTreeItemComponent } from './tree-item.component';
 

@@ -2,6 +2,7 @@ import { PrizmDocPage, PrizmDocPageGroup } from '@prizm-ui/doc';
 import { SectionNameEnum } from './model';
 
 type OrderedPage = { order?: number };
+
 export type PrizmOrderedDocPage = ReadonlyArray<
   (PrizmDocPage & OrderedPage) | (PrizmDocPageGroup & OrderedPage)
 >;
@@ -538,9 +539,15 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.components,
-    title: 'Navigation menu',
+    title: 'Navigation menu (deprecated)',
     keywords: 'nav-menu, nav, menu, меню, навигация',
     route: '/components/nav-menu',
+  },
+  {
+    section: SectionNameEnum.components,
+    title: 'Navigation menu',
+    keywords: 'navigation-menu, nav, navigation, menu, меню, навигация',
+    route: '/components/navigation-menu',
   },
   {
     section: SectionNameEnum.components,

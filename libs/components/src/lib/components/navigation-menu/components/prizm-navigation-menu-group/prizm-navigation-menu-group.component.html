@@ -1,0 +1,50 @@
+<div class="prizm-navigation-menu-group">
+  <prizm-accordion *ngIf="!hideGroupAppearance; else noGroupAppearanceTemplate">
+    <prizm-accordion-item
+      [icon]="icon"
+      [title]="title"
+      [isExpanded]="groupIsExpanded"
+      (isExpandedChange)="handleGroupExpandedChanged($event)"
+    >
+      <ng-template prizmAccordionContent>
+        <ng-container [ngTemplateOutlet]="itemsTemplate"></ng-container>
+      </ng-template>
+    </prizm-accordion-item>
+  </prizm-accordion>
+
+  <ng-template #noGroupAppearanceTemplate>
+    <ng-container [ngTemplateOutlet]="itemsTemplate"></ng-container>
+  </ng-template>
+</div>
+
+<ng-template #itemsTemplate>
+  <prizm-navigation-menu-toolbar
+    [searchConfig]="searchConfig$ | async"
+    [toolbarConfig]="toolbarConfig$ | async"
+    [toolbarExtraTemplate]="toolbarExtraTemplate"
+    [hideGroupAppearance]="hideGroupAppearance"
+  ></prizm-navigation-menu-toolbar>
+  <ng-container *ngIf="groupItems$ | async as groupItems">
+    <prizm-navigation-menu-items
+      [items]="groupItems"
+      [itemExtraTemplate]="itemExtraTemplate"
+      [expandedItemsMap]="expandedItemsMap$ | async"
+      [activeItem]="activeItem$ | async"
+      [mode]="mode$ | async"
+      (activeItemChanged)="handleActiveItemChange($event)"
+      (itemExpandedChanged)="handleItemExpandedChanged($event)"
+      (goToParentItem)="handleGoToParentItem($event)"
+      (goToRootItem)="handleGoToRootItem($event)"
+    ></prizm-navigation-menu-items>
+
+    <div
+      class="prizm-navigation-menu-group__no-items-content"
+      *ngIf="emptyMessageConfig$ | async as emptyMessageConfig"
+    >
+      <div class="empty-message" *ngIf="!groupItems.length">
+        <span class="empty-message__main">{{ emptyMessageConfig.title }}</span>
+        <span class="empty-message__sub">{{ emptyMessageConfig.subtitle }}</span>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
