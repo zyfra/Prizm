@@ -6,8 +6,11 @@
     <prizm-doc-example id="base" heading="Base" [content]="exampleBasic">
       <prizm-sidebar-service-example></prizm-sidebar-service-example>
     </prizm-doc-example>
+    <prizm-doc-example id="hidden-footer" heading="Hidden Footer" [content]="exampleHiddenFooter">
+      <prizm-sidebar-hidden-footer-example></prizm-sidebar-hidden-footer-example>
+    </prizm-doc-example>
 
-    <prizm-doc-example id="base" heading="Top Bottom" [content]="exampleTopBottom">
+    <prizm-doc-example id="top-bottom" heading="Top Bottom" [content]="exampleTopBottom">
       <prizm-sidebar-top-bottom-example></prizm-sidebar-top-bottom-example>
     </prizm-doc-example>
   </ng-template>
@@ -186,6 +189,15 @@
         [(documentationPropertyValue)]="disabled"
       >
         Disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="hideFooter"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="hideFooter"
+      >
+        Hide Footer
       </ng-template>
 
       <ng-template
