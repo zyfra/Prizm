@@ -1,6 +1,6 @@
 import { AsyncValidatorFn, FormControl, ValidatorFn } from '@angular/forms';
-import { concat, EMPTY, merge, Observable, of } from 'rxjs';
-import { filter, map, tap } from 'rxjs/operators';
+import { concat, EMPTY, merge, Observable, of, timer } from 'rxjs';
+import { filter, first, map, tap } from 'rxjs/operators';
 
 export class PrizmFormControlHelpers {
   public static getDisabled$(origin: FormControl): Observable<boolean> {
@@ -42,18 +42,22 @@ export class PrizmFormControlHelpers {
   ): Observable<boolean> {
     const all = [origin, ...others];
     return concat(
-      of(origin.disabled),
-      bidirectional ? merge(...all.map(control => this.getDisabled$(control))) : this.getDisabled$(origin)
+      timer(0).pipe(map(() => origin)),
+      bidirectional ? merge(...all.map(control => of(control))) : of(origin)
     ).pipe(
-      tap(disabled => {
+      map(origin => {
         (bidirectional ? all : others).forEach(control => {
+          const disabled = this.getDisabled(origin);
           if (disabled === control.disabled) return;
           if (disabled) {
             control.disable();
           } else {
             control.enable();
           }
+          this.syncControlVisualStates(origin, control);
         });
+
+        return this.getDisabled(origin);
       })
     );
   }
@@ -135,6 +139,14 @@ export class PrizmFormControlHelpers {
     else control.disable(options);
   }
 
+  public static syncControlVisualStates(control: FormControl, other: FormControl): void {
+    if (control.pristine) other.markAsPristine();
+    if (control.dirty) other.markAsDirty();
+    if (control.touched) other.markAsTouched();
+    if (control.untouched) other.markAsUntouched();
+    if (control.pending) other.markAsPending();
+  }
+
   public static syncValues<ORIGIN_VALUE = any, OTHER_VALUE = any>(
     origin: FormControl,
     fromOrigin: (valueFromOrigin: ORIGIN_VALUE) => OTHER_VALUE,
@@ -142,6 +154,17 @@ export class PrizmFormControlHelpers {
     ...others: FormControl[]
   ): Observable<ORIGIN_VALUE> {
     return merge(
+      timer(0).pipe(
+        first(),
+        map(() => this.getValue(origin) as ORIGIN_VALUE),
+        tap((valueFromOrigin: ORIGIN_VALUE) => {
+          const value = fromOrigin(valueFromOrigin);
+          others.forEach(control => {
+            this.setValue(control, value);
+            this.syncControlVisualStates(origin, control);
+          });
+        })
+      ),
       this.getValue$(origin).pipe(
         filter(() => Boolean(fromOrigin)),
         tap((valueFromOrigin: ORIGIN_VALUE) => {
