@@ -11,6 +11,7 @@ import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-ac
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 import { prizmReplayControlValueChangesFactory } from '../../../util/common/replay-control-value-changes-factory';
 import { PrizmInputDateTimeComponent } from './input-date-time.component';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 export const TIME_STREAM_FACTORY = <T extends [PrizmDay | null, PrizmTime | null]>(
   control: NgControl | null,
@@ -18,6 +19,7 @@ export const TIME_STREAM_FACTORY = <T extends [PrizmDay | null, PrizmTime | null
 ): Observable<T | null> | null => prizmReplayControlValueChangesFactory<T>(control, valueTransformer);
 
 export const PRIZM_INPUT_DATE_TIME_PROVIDERS = [
+  PrizmDestroyService,
   {
     provide: AbstractPrizmControl,
     useExisting: forwardRef(() => PrizmInputDateTimeComponent),
