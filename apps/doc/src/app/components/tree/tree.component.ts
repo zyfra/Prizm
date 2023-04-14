@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { TreeNode } from './examples/template/tree-template-example.component';
-import { PRIZM_EMPTY_ARRAY } from '@prizm-ui/core';
 import { PrizmHandler } from '@prizm-ui/components';
+import { PRIZM_EMPTY_ARRAY } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-tree-example',
