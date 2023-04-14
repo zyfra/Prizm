@@ -15,14 +15,14 @@
   </div>
 
   <div class="content prizm-font-main-body-14">
-    <prizm-scrollbar class="scrollbar">
-      <div *polymorphOutlet="context.content as text; context: context">
+    <prizm-scrollbar class="scrollbar full-height">
+      <div class="full-height" *polymorphOutlet="context.content as text; context: context">
         {{ text }}
       </div>
     </prizm-scrollbar>
   </div>
 
-  <div class="footer prizm-font-btn-links-14">
+  <div class="footer prizm-font-btn-links-14" *ngIf="!context.hideFooter">
     <ng-container *ngIf="context.footer; else notFooter">
       <div *polymorphOutlet="context.footer as footer; context: context">
         {{ footer }}

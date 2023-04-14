@@ -64,6 +64,7 @@ export class SidebarComponent {
   public sizeVariants: PrizmDialogSize[] = ['m', 'l'];
   public size: PrizmDialogSize = 'm';
   public closeable = true;
+  public hideFooter = false;
   public header = 'Static_title_h3 - 16 Medium';
   public content = 'Базовый текст для диалога';
   public footer: PolymorphContent<
@@ -75,6 +76,11 @@ export class SidebarComponent {
   public readonly exampleBasic: TuiDocExample = {
     TypeScript: import('./examples/base/base.component.ts?raw'),
     HTML: import('./examples/base/base.component.html?raw'),
+  };
+
+  public readonly exampleHiddenFooter: TuiDocExample = {
+    TypeScript: import('./examples/hidden-footer/hidden-footer.component.ts?raw'),
+    HTML: import('./examples/hidden-footer/hidden-footer.component.html?raw'),
   };
 
   public readonly exampleTopBottom: TuiDocExample = {
@@ -99,6 +105,7 @@ export class SidebarComponent {
         header: this.header,
         width: this.width,
         height: this.height,
+        hideFooter: this.hideFooter,
         overscroll: this.overscroll,
         position: this.position,
         closeWord: this.closeWord,
