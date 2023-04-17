@@ -7,7 +7,8 @@ All notable changes to this project will be documented in this file.
 ### BUG FIXES
 
 - fix(chore): fix es5-ext, fix es6-set version
-- fix(chore): remove cli-color library
+- fix(chore): removed cli-color library
+- fix(chore): removed fantasticon
 
 ## [1.0.0-beta.30](https://github.com/zyfra/Prizm) (14-04-2023)
 
