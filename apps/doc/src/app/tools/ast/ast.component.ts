@@ -12,4 +12,8 @@ export class AstComponent {
     TypeScript: import('./examples/base/base.component?raw'),
     HTML: import('./examples/base/base.component.html?raw'),
   };
+  readonly tsExample: TuiDocExample = {
+    TypeScript: import('./examples/ts/ts.component?raw'),
+    HTML: import('./examples/ts/ts.component.html?raw'),
+  };
 }

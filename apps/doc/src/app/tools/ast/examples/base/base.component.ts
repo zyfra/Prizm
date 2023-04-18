@@ -8,7 +8,7 @@ import {
 } from '@prizm-ui/ast';
 
 @Component({
-  selector: 'prizm-observable-base-example',
+  selector: 'prizm-ast-base-example',
   templateUrl: './base.component.html',
   styles: [
     `
@@ -19,7 +19,7 @@ import {
     `,
   ],
 })
-export class PrizmObservableBaseExampleComponent implements OnInit {
+export class PrizmAstBaseExampleComponent implements OnInit {
   readonly task: PrizmTask = {
     name: 'zyfra-button',
     selector: [
