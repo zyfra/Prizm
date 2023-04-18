@@ -1,4 +1,4 @@
-import { PrizmHtmlItem } from '../html';
+import { PrizmHtmlItem } from '../../html';
 
 /**
  * Тип узла Prizm. Содержит атрибуты, имя, тип и информацию о том, является ли элемент пустым.
