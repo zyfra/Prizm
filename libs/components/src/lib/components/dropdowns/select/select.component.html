@@ -23,7 +23,7 @@
       #focusableElementRef
       (onClear)="onClear()"
       [placeholder]="placeholder"
-      [disabled]="!searchable || this.disabled"
+      [disabled]="this.disabled"
       [readonly]="!searchable || this.disabled"
       [formControl]="requiredInputControl"
     />
