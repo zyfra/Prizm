@@ -1,1 +1,1 @@
-export * from './template/task';
+export * from './template';

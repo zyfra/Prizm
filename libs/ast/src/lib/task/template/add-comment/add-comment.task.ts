@@ -1,24 +1,25 @@
 import { PrizmNode } from '@prizm-ui/ast';
+import { IPrizmAddCommentTemplateTask, IPrizmAddCommentTemplateTaskPayload } from './model';
+import { PrizmAstTemplateContext } from '../model';
+import { PrizmAstTaskTemplate } from '../abstract';
 
-export class PrizmAddCommentTask {
+export class PrizmAddCommentTemplateTask extends PrizmAstTaskTemplate<IPrizmAddCommentTemplateTask> {
+  readonly type = 'add-comment';
+
   public run(
     node: PrizmNode,
-    payload: {
-      value: string;
-      key?: string;
-    },
-    context: {}
+    payload: IPrizmAddCommentTemplateTaskPayload,
+    context: PrizmAstTemplateContext
   ): PrizmNode {
-    if (key && !node.attrs[key] && !node.attrs[`[${key}]`]) return node;
-    if (key) {
-      delete node.attrs[key];
-      delete node.attrs[`[${key}]`];
-    }
+    const { comment } = payload;
+    const attr = payload.attr ?? context?.originName;
+    if (!attr) return node;
 
     const children = node.children ?? [];
+
     children.push({
       type: 'comment',
-      comment: value,
+      comment,
     } as any);
     node.children = children;
     return { ...node };

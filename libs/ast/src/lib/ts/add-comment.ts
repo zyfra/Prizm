@@ -44,15 +44,6 @@ export function addCommentToImportUsage(
                   `* ${commentText} `,
                   true
                 );
-                console.log(
-                  '#mz node',
-                  // node,
-                  node.kind,
-                  node.parent.kind,
-                  ts.isFunctionExpression(node),
-                  ts.isArrowFunction(node),
-                  ts.isTokenKind(node.kind)
-                );
               }
 
               return ts.visitEachChild(node, visitImportUsage, ctx);
@@ -71,8 +62,6 @@ export function addCommentToImportUsage(
 
   // Освобождение памяти, занимаемой результатом трансформации
   transformationResult.dispose();
-
-  a.forEach(i => console.log('#mz i', i.kind, i.parent.kind, i.parent.parent.node));
 
   // Вывод обновленного файла
   return printer.printFile(transformedSourceFile as ts.SourceFile);

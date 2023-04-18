@@ -29,8 +29,5 @@ function test() {
 `;
 
     const actualOutputCode = addCommentToImportUsage(fileName, moduleName, commentText, inputCode);
-    console.log('#mz');
-    console.log(actualOutputCode);
-    // expect(inputCode.trim()).toBe(actualOutputCode.trim());
   });
 });

@@ -23,9 +23,5 @@ export class PrizmAstTsExampleComponent implements OnInit {
     const fileName = 'example.ts';
     const moduleName = '@prizm-ui/ast';
     const commentText = 'Этот импорт был обновлен';
-
-    this.updatedFileContent = addCommentToImportUsage(fileName, moduleName, commentText);
-
-    console.log('#mz updatedFileContent', this.updatedFileContent);
   }
 }
