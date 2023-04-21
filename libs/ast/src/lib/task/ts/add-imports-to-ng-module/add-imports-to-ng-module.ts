@@ -11,6 +11,12 @@ export class PrizmAstAddImportsToNgModuleCodeTask extends PrizmAstCodeTask<IPriz
     sourceFile: ts.SourceFile,
     payload: IPrizmAddImportsToNgModuleCodeTask['payload']
   ): ts.SourceFile {
-    return prizmAstAddImportToNgModule(context, sourceFile, payload.newModule, payload.comment);
+    return prizmAstAddImportToNgModule(
+      context,
+      sourceFile,
+      payload.newModule,
+      payload.comment,
+      payload.moduleToFind
+    );
   }
 }

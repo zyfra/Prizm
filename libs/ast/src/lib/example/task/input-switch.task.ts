@@ -1,11 +1,15 @@
 import {
   PrizmAddCommentTemplateTask,
+  PrizmAstAddImportsIfNeededCodeTask,
+  PrizmAstAddImportsToNgModuleCodeTask,
   prizmAstCreateActionBy,
   PrizmChangeNameTemplateTask,
   PrizmNotSupportedTemplateTask,
   PrizmRenameTemplateTask,
   PrizmTemplateTask,
 } from '@prizm-ui/ast';
+import { PrizmCodeTask } from '../../task/ts/model';
+import { prizmAstCreateCodeTaskBy } from '../../task/ts/util';
 
 export const ZyfraInputSwitchTemplateTasks: PrizmTemplateTask[] = [
   {
@@ -45,4 +49,19 @@ export const ZyfraInputSwitchTemplateTasks: PrizmTemplateTask[] = [
     },
     outputs: {},
   },
+];
+
+export const ZyfraInputSwitchCodeTasks: PrizmCodeTask[] = [
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
+    importToAdd: '@prizm-ui/components',
+    namedImports: ['PrizmToggleModule'],
+    targetImport: '@digital-plant/zyfra-components',
+    targetNamedImports: ['ZyfraInputSwitchModule'],
+    commentBeforeImport: 'PRIZM:MIGRATOR added new module for migrate from ZyfraInputSwitchModule',
+  }),
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsToNgModuleCodeTask, {
+    newModule: 'PrizmToggleModule',
+    moduleToFind: 'ZyfraInputSwitchModule',
+    comment: 'PRIZM:MIGRATOR: Our added module for migrate from ZyfraInputSwitchModule',
+  }),
 ];

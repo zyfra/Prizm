@@ -1,10 +1,14 @@
 import {
+  PrizmAstAddImportsIfNeededCodeTask,
+  PrizmAstAddImportsToNgModuleCodeTask,
   prizmAstCreateActionBy,
   PrizmChangeNameTemplateTask,
   PrizmNotSupportedTemplateTask,
   PrizmRenameTemplateTask,
   PrizmTemplateTask,
 } from '@prizm-ui/ast';
+import { PrizmCodeTask } from '../../task/ts/model';
+import { prizmAstCreateCodeTaskBy } from '../../task/ts/util';
 
 export const ZyfraSpinnerTemplateTasks: PrizmTemplateTask[] = [
   {
@@ -31,4 +35,19 @@ export const ZyfraSpinnerTemplateTasks: PrizmTemplateTask[] = [
     },
     outputs: {},
   },
+];
+
+export const ZyfraSpinnerCodeTasks: PrizmCodeTask[] = [
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
+    importToAdd: '@prizm-ui/components',
+    namedImports: ['PrizmSpinnerModule'],
+    targetImport: '@digital-plant/zyfra-components',
+    targetNamedImports: ['ZyfraSpinnerComponent'],
+    commentBeforeImport: 'PRIZM:MIGRATOR added new module for migrate from ZyfraSpinnerComponent',
+  }),
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsToNgModuleCodeTask, {
+    newModule: 'PrizmSpinnerModule',
+    moduleToFind: 'ZyfraSpinnerComponent',
+    comment: 'PRIZM:MIGRATOR: Our added module for migrate from ZyfraSpinnerComponent',
+  }),
 ];

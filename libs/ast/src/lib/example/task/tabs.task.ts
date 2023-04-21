@@ -1,4 +1,6 @@
 import {
+  PrizmAstAddImportsIfNeededCodeTask,
+  PrizmAstAddImportsToNgModuleCodeTask,
   prizmAstCreateActionBy,
   PrizmChangeNameTemplateTask,
   PrizmCommentContentTemplateTask,
@@ -7,6 +9,8 @@ import {
   PrizmRenameTemplateTask,
   PrizmTemplateTask,
 } from '@prizm-ui/ast';
+import { PrizmCodeTask } from '../../task/ts/model';
+import { prizmAstCreateCodeTaskBy } from '../../task/ts/util';
 
 export const ZyfraTabsTemplateTasks: PrizmTemplateTask[] = [
   {
@@ -75,4 +79,19 @@ export const ZyfraTabsTemplateTasks: PrizmTemplateTask[] = [
       propChange: [prizmAstCreateActionBy(PrizmNotSupportedTemplateTask, {})],
     },
   },
+];
+
+export const ZyfraTabsCodeTasks: PrizmCodeTask[] = [
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
+    importToAdd: '@prizm-ui/components',
+    namedImports: ['PrizmTabsModule'],
+    targetImport: '@digital-plant/zyfra-components',
+    targetNamedImports: ['ZyfraTabViewModule'],
+    commentBeforeImport: 'PRIZM:MIGRATOR added new module for migrate from ZyfraTabViewModule',
+  }),
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsToNgModuleCodeTask, {
+    newModule: 'PrizmTabsModule',
+    moduleToFind: 'ZyfraTabViewModule',
+    comment: 'PRIZM:MIGRATOR: Our added module for migrate from ZyfraTabViewModule',
+  }),
 ];

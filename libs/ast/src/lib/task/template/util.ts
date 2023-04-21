@@ -63,12 +63,6 @@ export function prizmAstGetOutputBytAttrForTemplate(
   const type = data?.type;
   const value = data?.value;
 
-  console.log('#mz prizmAstGetOutputBytAttrForTemplate', {
-    attributes,
-    value,
-    attrName,
-    type,
-  });
   switch (type) {
     case PrizmAstTemplateAttributeType.input:
       return value;

@@ -76,7 +76,6 @@ export class PrizmHintDirective<
 
   @Input()
   set prizmHintShow(show: boolean) {
-    console.log('#mz show', show);
     if (show) this.open();
     else this.close();
   }
@@ -149,14 +148,12 @@ export class PrizmHintDirective<
   protected open(): void {
     if (!this.prizmHintCanShow) return;
     this.show_ = true;
-    console.log('#mz open');
     this.renderer.addClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
     this.overlay.open();
     this.prizmHoveredChange.emit(this.show_);
   }
 
   protected close(): void {
-    console.log('#mz close');
     this.show_ = false;
     this.renderer.removeClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
     this.overlay?.close();

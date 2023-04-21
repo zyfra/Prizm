@@ -1,4 +1,5 @@
 // TODO move to cb3-to-prizm library
+export * from './all';
 export * from './accordion.task';
 export * from './button.task';
 export * from './breadcrumb.task';

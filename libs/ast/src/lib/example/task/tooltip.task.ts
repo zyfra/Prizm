@@ -1,9 +1,13 @@
 import {
+  PrizmAstAddImportsIfNeededCodeTask,
+  PrizmAstAddImportsToNgModuleCodeTask,
   prizmAstCreateActionBy,
   PrizmNotSupportedTemplateTask,
   PrizmRenameTemplateTask,
   PrizmTemplateTask,
 } from '@prizm-ui/ast';
+import { PrizmCodeTask } from '../../task/ts/model';
+import { prizmAstCreateCodeTaskBy } from '../../task/ts/util';
 
 export const ZyfraTooltipTemplateTasks: PrizmTemplateTask[] = [
   {
@@ -55,4 +59,19 @@ export const ZyfraTooltipTemplateTasks: PrizmTemplateTask[] = [
       ],
     },
   },
+];
+
+export const ZyfraTooltipCodeTasks: PrizmCodeTask[] = [
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
+    importToAdd: '@prizm-ui/components',
+    namedImports: ['PrizmTooltipModule'],
+    targetImport: '@digital-plant/zyfra-components',
+    targetNamedImports: ['ZyfraTooltipModule'],
+    commentBeforeImport: 'PRIZM:MIGRATOR added new module for migrate from ZyfraTooltipModule',
+  }),
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsToNgModuleCodeTask, {
+    newModule: 'PrizmTooltipModule',
+    moduleToFind: 'ZyfraTooltipModule',
+    comment: 'PRIZM:MIGRATOR: Our added module for migrate from ZyfraTooltipModule',
+  }),
 ];

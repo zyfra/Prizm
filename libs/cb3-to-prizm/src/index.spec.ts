@@ -43,7 +43,6 @@ describe('my-schematic', () => {
     // Проверьте, что файл был обновлен
     const entryFileContent = tree.read('apps/my-test-project/src/main.ts', 'utf-8');
 
-    console.log('#mz entryFileContent', entryFileContent);
     expect(entryFileContent).toContain('// Добавлено схематикой');
   });
 });

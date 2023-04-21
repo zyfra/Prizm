@@ -1,10 +1,14 @@
 import {
+  PrizmAstAddImportsIfNeededCodeTask,
+  PrizmAstAddImportsToNgModuleCodeTask,
   prizmAstCreateActionBy,
   PrizmChangeNameTemplateTask,
   PrizmNotSupportedTemplateTask,
   PrizmRenameTemplateTask,
   PrizmTemplateTask,
 } from '../../task';
+import { PrizmCodeTask } from '../../task/ts/model';
+import { prizmAstCreateCodeTaskBy } from '../../task/ts/util';
 
 export const ZyfraDropdownTemplateTasks: PrizmTemplateTask[] = [
   {
@@ -84,4 +88,19 @@ export const ZyfraDropdownTemplateTasks: PrizmTemplateTask[] = [
       ],
     },
   },
+];
+
+export const ZyfraDropdownCodeTasks: PrizmCodeTask[] = [
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
+    importToAdd: '@prizm-ui/components',
+    namedImports: ['PrizmSelectModule'],
+    targetImport: '@digital-plant/zyfra-components',
+    targetNamedImports: ['ZyfraDropdownModule'],
+    commentBeforeImport: 'PRIZM:MIGRATOR added new module for migrate from ZyfraDropdownModule',
+  }),
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsToNgModuleCodeTask, {
+    newModule: 'PrizmSelectModule',
+    moduleToFind: 'ZyfraDropdownModule',
+    comment: 'PRIZM:MIGRATOR: Our added module for migrate from ZyfraDropdownModule',
+  }),
 ];

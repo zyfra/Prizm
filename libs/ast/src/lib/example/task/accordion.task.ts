@@ -1,5 +1,6 @@
 import {
   PrizmAstAddImportsIfNeededCodeTask,
+  PrizmAstAddImportsToNgModuleCodeTask,
   prizmAstCreateActionBy,
   PrizmChangeNameTemplateTask,
   PrizmMoveContentToComponentTemplateTask,
@@ -74,6 +75,11 @@ export const ZyfraAccordionCodeTasks: PrizmCodeTask[] = [
     namedImports: ['PrizmAccordionModule'],
     targetImport: '@digital-plant/zyfra-components',
     targetNamedImports: ['ZyfraAccordionModule'],
-    commentBeforeImport: 'PRIZM:MIGRATOR added new module for PrizmAccordionModule',
+    commentBeforeImport: 'PRIZM:MIGRATOR added new module for migrate from PrizmAccordionModule',
+  }),
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsToNgModuleCodeTask, {
+    newModule: 'ZyfraAccordionModule',
+    moduleToFind: 'ZyfraAccordionModule',
+    comment: 'PRIZM:MIGRATOR: Our added module for migrate from PrizmAccordionModule',
   }),
 ];

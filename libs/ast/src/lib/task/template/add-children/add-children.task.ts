@@ -26,7 +26,6 @@ export class PrizmAddChildrenTemplateTask extends PrizmAstTaskTemplate<IPrizmAdd
 
     node.children = [childNode];
 
-    console.log('#mz PrizmAddChildrenTemplateTask', node);
     return { ...node };
   }
 }

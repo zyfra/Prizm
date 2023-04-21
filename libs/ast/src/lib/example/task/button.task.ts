@@ -1,5 +1,7 @@
 import {
   PrizmAddAttributeTemplateTask,
+  PrizmAstAddImportsIfNeededCodeTask,
+  PrizmAstAddImportsToNgModuleCodeTask,
   prizmAstCreateActionBy,
   PrizmChangeNameTemplateTask,
   PrizmMoveToContentTemplateTask,
@@ -7,7 +9,8 @@ import {
   PrizmRenameTemplateTask,
   PrizmTemplateTask,
 } from '../../task';
-import { ZyfraInputTemplateTasks } from './input.task';
+import { PrizmCodeTask } from '../../task/ts/model';
+import { prizmAstCreateCodeTaskBy } from '../../task/ts/util';
 
 export const ZyfraButtonTemplateTasks: PrizmTemplateTask[] = [
   {
@@ -44,4 +47,19 @@ export const ZyfraButtonTemplateTasks: PrizmTemplateTask[] = [
       ],
     },
   },
+];
+
+export const ZyfraButtonCodeTasks: PrizmCodeTask[] = [
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
+    importToAdd: '@prizm-ui/components',
+    namedImports: ['PrizmButtonModule'],
+    targetImport: '@digital-plant/zyfra-components',
+    targetNamedImports: ['ZyfraButtonModule'],
+    commentBeforeImport: 'PRIZM:MIGRATOR added new module for migrate from ZyfraButtonModule',
+  }),
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsToNgModuleCodeTask, {
+    newModule: 'PrizmButtonModule',
+    moduleToFind: 'ZyfraButtonModule',
+    comment: 'PRIZM:MIGRATOR: Our added module for migrate from ZyfraButtonModule',
+  }),
 ];

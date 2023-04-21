@@ -7,4 +7,5 @@ export interface IPrizmAddImportsToNgModuleCodeTask extends PrizmCodeTaskAction<
 export interface IPrizmAddImportsToNgModuleCodeTaskPayload {
   newModule: string;
   comment: string;
+  moduleToFind: string;
 }

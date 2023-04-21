@@ -35,14 +35,6 @@ export class PrizmMoveToContentTemplateTask extends PrizmAstTaskTemplate<IPrizmM
     // Remove the attribute from the node's attrs object
     // node.attrs = prizmAstRemoveByAttrName(node.attrs, attr);
 
-    console.log('#mz content', {
-      content,
-      payload,
-      context,
-      attr,
-      node,
-    });
-
     if (!payload.notClearChildren) node.children = [];
 
     // If there is content, move it to the node's children as a text node

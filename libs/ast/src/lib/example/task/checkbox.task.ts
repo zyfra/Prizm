@@ -1,4 +1,6 @@
 import {
+  PrizmAstAddImportsIfNeededCodeTask,
+  PrizmAstAddImportsToNgModuleCodeTask,
   prizmAstCreateActionBy,
   PrizmChangeNameTemplateTask,
   PrizmMoveToContentTemplateTask,
@@ -6,7 +8,8 @@ import {
   PrizmRenameTemplateTask,
   PrizmTemplateTask,
 } from '../../task';
-import { ZyfraInputTemplateTasks } from './input.task';
+import { PrizmCodeTask } from '../../task/ts/model';
+import { prizmAstCreateCodeTaskBy } from '../../task/ts/util';
 
 export const ZyfraCheckboxTemplateTasks: PrizmTemplateTask[] = [
   {
@@ -41,4 +44,19 @@ export const ZyfraCheckboxTemplateTasks: PrizmTemplateTask[] = [
     },
     outputs: {},
   },
+];
+
+export const ZyfraCheckboxCodeTasks: PrizmCodeTask[] = [
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
+    importToAdd: '@prizm-ui/components',
+    namedImports: ['PrizmCheckboxModule'],
+    targetImport: '@digital-plant/zyfra-components',
+    targetNamedImports: ['ZyfraCheckBoxModule'],
+    commentBeforeImport: 'PRIZM:MIGRATOR added new module for migrate from ZyfraCheckBoxModule',
+  }),
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsToNgModuleCodeTask, {
+    newModule: 'PrizmCheckboxModule',
+    moduleToFind: 'ZyfraCheckBoxModule',
+    comment: 'PRIZM:MIGRATOR: Our added module for migrate from ZyfraCheckBoxModule',
+  }),
 ];

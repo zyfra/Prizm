@@ -1,6 +1,8 @@
 import {
   PrizmAddAttributeTemplateTask,
   PrizmAddCommentTemplateTask,
+  PrizmAstAddImportsIfNeededCodeTask,
+  PrizmAstAddImportsToNgModuleCodeTask,
   prizmAstCreateActionBy,
   PrizmChangeNameTemplateTask,
   PrizmMoveToContentTemplateTask,
@@ -9,6 +11,8 @@ import {
   PrizmRenameTemplateTask,
   PrizmTemplateTask,
 } from '@prizm-ui/ast';
+import { PrizmCodeTask } from '../../task/ts/model';
+import { prizmAstCreateCodeTaskBy } from '../../task/ts/util';
 
 export const ZyfraSplitButtonTemplateTasks: PrizmTemplateTask[] = [
   {
@@ -59,4 +63,19 @@ export const ZyfraSplitButtonTemplateTasks: PrizmTemplateTask[] = [
       ],
     },
   },
+];
+
+export const ZyfraSplitButtonCodeTasks: PrizmCodeTask[] = [
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
+    importToAdd: '@prizm-ui/components',
+    namedImports: ['PrizmButtonModule'],
+    targetImport: '@digital-plant/zyfra-components',
+    targetNamedImports: ['ZyfraSplitButtonComponent'],
+    commentBeforeImport: 'PRIZM:MIGRATOR added new module for migrate from ZyfraSplitButtonComponent',
+  }),
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsToNgModuleCodeTask, {
+    newModule: 'PrizmButtonModule',
+    moduleToFind: 'ZyfraSplitButtonComponent',
+    comment: 'PRIZM:MIGRATOR: Our added module for migrate from ZyfraSplitButtonComponent',
+  }),
 ];

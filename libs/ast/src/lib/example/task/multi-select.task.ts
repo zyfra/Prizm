@@ -1,10 +1,14 @@
 import {
+  PrizmAstAddImportsIfNeededCodeTask,
+  PrizmAstAddImportsToNgModuleCodeTask,
   prizmAstCreateActionBy,
   PrizmChangeNameTemplateTask,
   PrizmNotSupportedTemplateTask,
   PrizmRenameTemplateTask,
   PrizmTemplateTask,
 } from '@prizm-ui/ast';
+import { PrizmCodeTask } from '../../task/ts/model';
+import { prizmAstCreateCodeTaskBy } from '../../task/ts/util';
 
 export const ZyfraMultiSelectTemplateTasks: PrizmTemplateTask[] = [
   {
@@ -97,4 +101,19 @@ export const ZyfraMultiSelectTemplateTasks: PrizmTemplateTask[] = [
       ],
     },
   },
+];
+
+export const ZyfraMultiSelectCodeTasks: PrizmCodeTask[] = [
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
+    importToAdd: '@prizm-ui/components',
+    namedImports: ['PrizmMultiSelectModule'],
+    targetImport: '@digital-plant/zyfra-components',
+    targetNamedImports: ['ZyfraMultiSelectModule'],
+    commentBeforeImport: 'PRIZM:MIGRATOR added new module for migrate from ZyfraMultiSelectModule',
+  }),
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsToNgModuleCodeTask, {
+    newModule: 'PrizmMultiSelectModule',
+    moduleToFind: 'ZyfraMultiSelectModule',
+    comment: 'PRIZM:MIGRATOR: Our added module for migrate from ZyfraMultiSelectModule',
+  }),
 ];
