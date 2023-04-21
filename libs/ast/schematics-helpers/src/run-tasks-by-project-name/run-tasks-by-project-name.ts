@@ -1,11 +1,14 @@
 import { formatFiles, Tree } from '@nrwl/devkit';
-import { prizmHtmlParse } from '../../html/html-parse';
-import { prizmHtmlStringify } from '../../html/html-stringify';
-import { PrizmTemplateTask, PrizmTemplateTaskProcessor } from '../../task/template/task';
+import {
+  PrizmCodeTask,
+  PrizmCodeTaskProcessor,
+  PrizmHtmlItem,
+  prizmHtmlParse,
+  prizmHtmlStringify,
+  PrizmTemplateTask,
+  PrizmTemplateTaskProcessor,
+} from '@prizm-ui/ast';
 import { prizmAstUpdateAllFilesWhen } from '../update-all-files-when';
-import { PrizmCodeTaskProcessor } from '../../task/ts/task';
-import { PrizmHtmlItem } from '../../html/types';
-import { PrizmCodeTask } from '../../task/ts/model';
 
 export async function prizmAstRunSchematicsByTasks(
   tree: Tree,
