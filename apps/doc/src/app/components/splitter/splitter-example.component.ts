@@ -12,28 +12,22 @@ export class PrizmSplitterExampleComponent {
   public orientationVariants: Array<PrizmSplitterOrientation> = ['horizontal', 'vertical'];
   public orientation: PrizmSplitterOrientation = 'horizontal';
 
-  area1Size = 50;
-  area2Size = 50;
-  area3Size = 70;
+  area1Size = 30;
+  area2Size = 30;
+  area3Size = 40;
 
   showArea1 = true;
   showArea2 = true;
   showArea3 = true;
 
   public change(): void {
-    this.showArea1 = true;
-    this.showArea2 = true;
-    this.showArea3 = true;
-    this.area1Size = 10;
-    this.area2Size = 20;
-    this.area3Size = 70;
+    this.showArea1 = !this.showArea1;
   }
 
   public change2(): void {
-    this.showArea1 = true;
-    this.showArea2 = true;
-    this.showArea3 = true;
-    this.area2Size = 10;
+    this.area1Size = 50;
+    this.area2Size = 50;
+    this.area3Size = 0;
   }
 
   public change3(): void {

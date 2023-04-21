@@ -7,7 +7,6 @@ import {
   Input,
 } from '@angular/core';
 
-import { PrizmSplitterElement } from '../splitter-element.class';
 import { PrizmSplitterService } from '../splitter.service';
 
 @Component({
@@ -16,16 +15,11 @@ import { PrizmSplitterService } from '../splitter.service';
   styleUrls: ['./area.component.less'],
 
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    {
-      provide: PrizmSplitterElement,
-      useExisting: PrizmSplitterAreaComponent,
-    },
-  ],
 })
 export class PrizmSplitterAreaComponent {
   private static nextId = 0;
 
+  @HostBinding('style.order') order: number;
   @HostBinding() id = `prizm-splitter-area-${PrizmSplitterAreaComponent.nextId++}`;
 
   private _size: number | null;
@@ -63,8 +57,15 @@ export class PrizmSplitterAreaComponent {
     }
   }
 
+  public setCurrentSizeFromReal(): void {
+    this.currentSize = this.realSize + '%';
+  }
+
+  sizeInPx: number;
+  @HostBinding('attr.realSize') realSize: number;
+
   constructor(
-    private elementRef: ElementRef<HTMLElement>,
+    public elementRef: ElementRef<HTMLElement>,
     private cdr: ChangeDetectorRef,
     private splitterService: PrizmSplitterService
   ) {}

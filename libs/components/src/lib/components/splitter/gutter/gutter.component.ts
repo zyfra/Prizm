@@ -1,18 +1,16 @@
-import { Component, ElementRef } from '@angular/core';
-import { PrizmSplitterElement } from '../splitter-element.class';
+import { Component, ElementRef, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'prizm-splitter-gutter',
-  template: `<ng-content></ng-content>`,
+  template: `<prizm-splitter-gutter-default [orientation]="'horizontal'"></prizm-splitter-gutter-default>`,
   styleUrls: ['./gutter.component.less'],
-  providers: [
-    {
-      provide: PrizmSplitterElement,
-      useExisting: PrizmSplitterGutterComponent,
-    },
-  ],
 })
 export class PrizmSplitterGutterComponent {
+  @Input() areaBefore: number;
+  @Input() areaAfter: number;
+
+  @Input() @HostBinding('style.order') order: number;
+
   position: number;
 
   constructor(public elementRef: ElementRef<HTMLElement>) {}

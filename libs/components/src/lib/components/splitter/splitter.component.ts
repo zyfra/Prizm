@@ -17,11 +17,12 @@ import {
   Output,
   QueryList,
   ViewChild,
+  ViewChildren,
 } from '@angular/core';
 import { PrizmSplitterOrientation } from './types';
 
-import { combineLatest, fromEvent, merge } from 'rxjs';
-import { map, shareReplay, startWith, switchMap, takeUntil } from 'rxjs/operators';
+import { combineLatest, fromEvent, merge, Observable, pipe } from 'rxjs';
+import { debounceTime, map, shareReplay, startWith, switchMap, takeUntil } from 'rxjs/operators';
 
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 
@@ -29,7 +30,7 @@ import { ResizeObserverService, RESIZE_OPTION_BOX } from '@ng-web-apis/resize-ob
 
 import { PrizmSplitterGutterComponent } from './gutter/gutter.component';
 import { PrizmSplitterAreaComponent } from './area/area.component';
-import { PrizmSplitterElement } from './splitter-element.class';
+
 import { PrizmSplitterService } from './splitter.service';
 
 @Component({
@@ -37,172 +38,120 @@ import { PrizmSplitterService } from './splitter.service';
   templateUrl: './splitter.component.html',
   styleUrls: ['./splitter.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    PrizmDestroyService,
-    ResizeObserverService,
-    {
-      provide: RESIZE_OPTION_BOX,
-      useValue: 'border-box',
-    },
-    PrizmSplitterService,
-  ],
+  providers: [PrizmDestroyService, PrizmSplitterService],
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
     '[class]': "'prizm-spliiter ' + orientation",
   },
 })
-export class PrizmSplitterComponent implements AfterContentInit, OnInit {
+export class PrizmSplitterComponent implements OnInit {
   @Input() orientation: PrizmSplitterOrientation = 'horizontal';
 
   @Output() areasSizeChange = new EventEmitter<Array<number>>();
   @Output() areasSplitStart = new EventEmitter<Array<number>>();
   @Output() areasSplitEnd = new EventEmitter<Array<number>>();
-
-  private containerSizes: {
-    width: number;
-    height: number;
-    left: number;
-    top: number;
-    right: number;
-    bottom: number;
-  } | null = null;
+  accuracy = 8;
+  guttersData: Array<{ areaBefore: number; areaAfter: number; order: number }> = [];
 
   @ViewChild('container', { static: true }) private containerElement!: ElementRef<HTMLElement>;
 
-  @ViewChild(PrizmSplitterAreaComponent, { static: true }) private areasa!: PrizmSplitterAreaComponent;
+  @ContentChildren(PrizmSplitterAreaComponent) splitterAreaQueryList: QueryList<PrizmSplitterAreaComponent>;
 
-  @ContentChildren(PrizmSplitterElement) splitterElementsQueryList: QueryList<
-    PrizmSplitterGutterComponent | PrizmSplitterAreaComponent
-  >;
+  @ViewChildren(PrizmSplitterGutterComponent)
+  splitterGutterQueryList: QueryList<PrizmSplitterGutterComponent>;
 
-  guttersSize: number = 100;
+  guttersSize = 60;
 
+  areas$: Observable<PrizmSplitterAreaComponent[]>;
+  gutters$: Observable<PrizmSplitterGutterComponent[]>;
+
+  containerSize: number;
   constructor(
     private cdr: ChangeDetectorRef,
     private destroy$: PrizmDestroyService,
-    @Inject(ResizeObserverService) private resizeObserverService$: ResizeObserverService,
     private splitterService: PrizmSplitterService
   ) {}
 
-  public ngOnInit(): void {
-    // размер контейнера
-    this.resizeObserverService$
-      .pipe(
-        map(([value]) => value.contentBoxSize[0]),
-        takeUntil(this.destroy$)
-      )
-      .subscribe(() => {
-        const bcr = this.containerElement.nativeElement.getBoundingClientRect();
-        this.containerSizes = {
-          left: bcr.left,
-          top: bcr.top,
-          bottom: bcr.bottom,
-          right: bcr.right,
-          width: bcr.width,
-          height: bcr.height,
-        };
-        console.log(this.containerSizes);
-      });
+  public ngOnInit(): void {}
+
+  public onResize(event: ResizeObserverEntry[]): void {
+    this.containerSize = event[0].contentRect.width;
+    this.splitterAreaQueryList.forEach(area => {
+      area.realSize =
+        this.mathOperation(area.elementRef.nativeElement.offsetWidth, this.containerSize, '/') * 100;
+    });
   }
 
-  public ngAfterContentInit(): void {
-    const gutters$ = this.splitterElementsQueryList.changes.pipe(
-      startWith<QueryList<PrizmSplitterGutterComponent | PrizmSplitterAreaComponent>>(
-        this.splitterElementsQueryList
-      ),
-      map(ql => {
-        return ql.toArray().filter(splitterElement => {
-          return splitterElement instanceof PrizmSplitterGutterComponent;
-        }) as Array<PrizmSplitterGutterComponent>;
-      }),
-      shareReplay(1)
-    );
-
-    const areas$ = this.splitterElementsQueryList.changes.pipe(
-      startWith<QueryList<PrizmSplitterGutterComponent | PrizmSplitterAreaComponent>>(
-        this.splitterElementsQueryList
-      ),
-      map(ql => {
-        return ql.toArray().filter(splitterElement => {
-          return splitterElement instanceof PrizmSplitterAreaComponent;
-        }) as Array<PrizmSplitterAreaComponent>;
-      }),
+  public ngAfterViewInit(): void {
+    this.gutters$ = this.splitterGutterQueryList.changes.pipe(
+      startWith<QueryList<PrizmSplitterGutterComponent>>(this.splitterGutterQueryList),
+      map(ql => ql.toArray()),
       shareReplay(1)
     );
 
     combineLatest([
-      areas$.pipe(map(areas => areas.length)),
-      gutters$.pipe(map(gutters => gutters.length * this.guttersSize)),
+      this.areas$.pipe(map(areas => areas.length)),
+      this.gutters$.pipe(map(gutters => gutters.length * this.guttersSize)),
       this.splitterService.areaChange$$,
     ]).subscribe(([areasCount, guttersSize, area]) => {
-      area.setCurrentSize(guttersSize / areasCount);
+      area.setCurrentSize(Math.round(guttersSize / areasCount));
       //this.cdr.markForCheck();
     });
 
-    gutters$
+    this.gutters$
       .pipe(
         switchMap(gutters =>
           merge(
             ...gutters.map(gutter => {
               const elem = gutter.elementRef.nativeElement;
-
               return fromEvent<PointerEvent>(elem, 'pointerdown').pipe(
                 switchMap(event => {
                   event.preventDefault();
-
-                  const splitterBCR = elem.getBoundingClientRect();
-                  const offset = {
-                    left: event.clientX - splitterBCR.left,
-                    top: event.clientY - splitterBCR.top,
-                  };
-
                   elem.setPointerCapture(event.pointerId);
 
-                  const elementsArray = this.splitterElementsQueryList.toArray();
+                  const containerBCR = this.containerElement.nativeElement.getBoundingClientRect();
 
-                  const areasBefore: Array<PrizmSplitterAreaComponent> = [];
-                  const areasAfter: Array<PrizmSplitterAreaComponent> = [];
+                  const splitterBCR = elem.getBoundingClientRect();
 
-                  const guttersBefore: Array<PrizmSplitterGutterComponent> = [];
-                  const guttersAfter: Array<PrizmSplitterGutterComponent> = [];
+                  const offset = {
+                    left: this.mathOperation(event.clientX, splitterBCR.left, '-'),
+                    top: this.mathOperation(event.clientY, splitterBCR.top, '-'),
+                  };
 
-                  gutter.position = event.clientX - offset.left;
+                  const guttersBefore = gutter.order - 1;
+                  const guttersAfter = this.guttersData.length - gutter.order;
 
-                  let gutterFind = false;
-
-                  for (const splitterElement of elementsArray) {
-                    if (splitterElement === gutter) {
-                      gutterFind = true;
-                      continue;
-                    }
-
-                    if (!gutterFind) {
-                      if (splitterElement instanceof PrizmSplitterAreaComponent) {
-                        areasBefore.unshift(splitterElement);
-                      } else {
-                        guttersBefore.unshift(splitterElement);
-                      }
-                    } else {
-                      if (splitterElement instanceof PrizmSplitterAreaComponent) {
-                        areasAfter.push(splitterElement);
-                      } else {
-                        guttersAfter.push(splitterElement);
-                      }
-                    }
-                  }
+                  gutter.position = this.mathOperation(event.clientX, offset.left, '-');
 
                   const min = this.isHorizontal
-                    ? this.containerSizes.left + this.guttersSize * guttersBefore.length
-                    : this.containerSizes.top;
+                    ? this.mathOperation(
+                        containerBCR.left,
+                        this.mathOperation(this.guttersSize, guttersBefore, '*'),
+                        '+'
+                      )
+                    : containerBCR.top + this.guttersSize * guttersBefore;
 
                   const max = this.isHorizontal
-                    ? this.containerSizes.right + this.guttersSize * (guttersAfter.length + 1)
-                    : this.containerSizes.bottom;
+                    ? containerBCR.right - this.guttersSize * (guttersAfter + 1)
+                    : containerBCR.bottom - this.guttersSize * (guttersAfter + 1);
 
-                  console.log(min, max, gutter.position, this.containerSizes);
+                  const areasBefore = this.splitterAreaQueryList
+                    .filter(area => area.order < gutter.order)
+                    .reverse();
+                  const areasAfter = this.splitterAreaQueryList.filter(area => area.order >= gutter.order);
+
+                  console.log(areasBefore);
 
                   return fromEvent<PointerEvent>(elem, 'pointermove').pipe(
-                    map(event => ({ gutter, event, areasBefore, areasAfter, min, max, offset })),
+                    map(event => ({
+                      gutter,
+                      event,
+                      offset,
+                      min,
+                      max,
+                      areasBefore,
+                      areasAfter,
+                    })),
                     takeUntil(fromEvent(elem, 'pointerup'))
                   );
                 })
@@ -212,38 +161,64 @@ export class PrizmSplitterComponent implements AfterContentInit, OnInit {
         ),
         takeUntil(this.destroy$)
       )
-      .subscribe(({ gutter, event, areasBefore, areasAfter, min, max, offset }) => {
-        let newX = event.clientX - offset.left;
-
+      .subscribe(({ gutter, event, offset, min, max, areasBefore, areasAfter }) => {
+        let newX = this.mathOperation(event.clientX, offset.left, '-');
         if (newX < min) {
           newX = min;
         }
-
         if (newX > max) {
           newX = max;
         }
 
-        const diff = gutter.position - newX;
+        const diff = this.mathOperation(gutter.position, newX, '-');
 
-        const offsetInPercent = Math.abs(diff / this.containerSizes.width) * 100;
+        console.log(diff);
+        let offsetInPercent;
+
+        if (newX === min) {
+          offsetInPercent = areasBefore.reduce((prev, curr) => prev + curr.realSize, 0);
+        } else if (newX === max) {
+          offsetInPercent = areasAfter.reduce((prev, curr) => prev + curr.realSize, 0);
+        } else {
+          offsetInPercent = Math.abs(this.mathOperation(diff, this.containerSize, '/')) * 100;
+        }
 
         if (diff === 0) {
           console.log('diff 0');
           return;
         }
-
         if (diff < 0) {
           const shrinked = this.shrinkAreas(areasAfter, offsetInPercent);
-          areasBefore[0].size += shrinked;
+
+          areasBefore[0].realSize = this.mathOperation(areasBefore[0].realSize, shrinked, '+');
+          areasBefore[0].setCurrentSizeFromReal();
         } else if (diff > 0) {
           const shrinked = this.shrinkAreas(areasBefore, offsetInPercent);
-          areasAfter[0].size += shrinked;
+          areasAfter[0].realSize = this.mathOperation(areasAfter[0].realSize, shrinked, '+');
+          areasAfter[0].setCurrentSizeFromReal();
         }
 
-        console.log('GP', gutter.position);
         gutter.position = newX;
         this.runAreasCD();
       });
+  }
+
+  public ngAfterContentInit(): void {
+    this.areas$ = this.splitterAreaQueryList.changes.pipe(
+      startWith<QueryList<PrizmSplitterAreaComponent>>(this.splitterAreaQueryList),
+      map(ql => ql.toArray()),
+      shareReplay(1)
+    );
+
+    this.areas$.subscribe(areas => {
+      this.guttersData = [];
+      areas.forEach((area, index) => {
+        area.order = index;
+        if (index < areas.length - 1) {
+          this.guttersData.push({ areaBefore: index, areaAfter: index + 1, order: index + 1 });
+        }
+      });
+    });
   }
 
   private shrinkAreas(areas: PrizmSplitterAreaComponent[], offset: number): number {
@@ -254,43 +229,57 @@ export class PrizmSplitterComponent implements AfterContentInit, OnInit {
         break;
       }
 
-      const avalableSize = area.size - area.minSize;
+      const avalableSize = this.mathOperation(area.realSize, area.minSize, '-');
       if (avalableSize >= offset) {
-        area.size -= offset;
-        sum += offset;
+        area.realSize = this.mathOperation(area.realSize, offset, '-');
+        area.setCurrentSizeFromReal();
+        sum = this.mathOperation(sum, offset, '+');
         offset = 0;
         break;
       } else {
-        offset -= avalableSize;
-        sum += avalableSize;
-        area.size = area.minSize || 0;
+        offset = this.mathOperation(offset, avalableSize, '-');
+        sum = this.mathOperation(sum, avalableSize, '+');
+        area.realSize = area.minSize || 0;
+        area.setCurrentSizeFromReal();
       }
     }
 
     return sum;
   }
 
-  // public ngAfterViewInit(): void {
-  //   // начальная установка размера контейнера
-  //   const containerBCR = this.containerElement.nativeElement.getBoundingClientRect();
-  //   this.containerBoxSize = { width: containerBCR.width, height: containerBCR.height };
-  // }
-
   public get isHorizontal(): boolean {
     return this.orientation === 'horizontal';
   }
 
-  private get containerSize(): number {
-    return this.isHorizontal ? this.containerSizes.width : this.containerSizes.height;
-  }
-
-  private get areas(): Array<PrizmSplitterAreaComponent> {
-    return this.splitterElementsQueryList.toArray().filter(splitterElement => {
-      return splitterElement instanceof PrizmSplitterAreaComponent;
-    }) as Array<PrizmSplitterAreaComponent>;
-  }
-
   private runAreasCD(): void {
     this.cdr.markForCheck();
+  }
+
+  private toFixed(num: number): number {
+    return +num.toFixed(this.accuracy);
+  }
+
+  private mathOperation(a: number, b: number, operation: string): number {
+    const accuracyNumber = 10 ** this.accuracy;
+    const newA = this.toFixed(a) * accuracyNumber;
+    const newB = this.toFixed(b) * accuracyNumber;
+
+    switch (operation) {
+      case '-': {
+        return Math.round(newA - newB) / accuracyNumber;
+      }
+
+      case '+': {
+        return Math.round(newA + newB) / accuracyNumber;
+      }
+
+      case '*': {
+        return (newA * newB) / accuracyNumber ** 2;
+      }
+
+      case '/': {
+        return newA / newB;
+      }
+    }
   }
 }

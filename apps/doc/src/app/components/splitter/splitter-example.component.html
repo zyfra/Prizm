@@ -28,21 +28,13 @@
           <div class="area area--1">area1</div>
         </prizm-splitter-area>
 
-        <prizm-splitter-gutter *ngIf="showArea1 && showArea2">
-          <prizm-splitter-gutter-default [orientation]="orientation"></prizm-splitter-gutter-default>
-        </prizm-splitter-gutter>
-
         <prizm-splitter-area [size]="area2Size" #area2 *ngIf="showArea2">
           <div class="area area--2">area2</div>
         </prizm-splitter-area>
 
-        <!-- <prizm-splitter-gutter *ngIf="showArea2 && showArea3">
-          <prizm-splitter-gutter-default [orientation]="orientation"></prizm-splitter-gutter-default>
-        </prizm-splitter-gutter>
-
         <prizm-splitter-area [size]="area3Size" #area2 *ngIf="showArea3">
           <div class="area area--3">area3</div>
-        </prizm-splitter-area> -->
+        </prizm-splitter-area>
       </prizm-splitter>
 
       <br />
