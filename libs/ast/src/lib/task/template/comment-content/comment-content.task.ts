@@ -2,7 +2,8 @@ import { IPrizmCommentContentTemplateTask, IPrizmCommentContentTemplateTaskPaylo
 import { PrizmAstTemplateContext } from '../model';
 import { PrizmAstTaskTemplate } from '../abstract';
 import { PrizmTemplateNode } from '../task';
-import { PrizmHtmlItem, prizmHtmlStringify } from '@prizm-ui/ast';
+import { prizmHtmlStringify } from '../../../html/html-stringify';
+import { PrizmHtmlItem } from '../../../html/types';
 
 export class PrizmCommentContentTemplateTask extends PrizmAstTaskTemplate<IPrizmCommentContentTemplateTask> {
   readonly type = 'comment-content';

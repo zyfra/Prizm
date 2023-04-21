@@ -10,7 +10,7 @@ import {
   PrizmRemoveAttributeTemplateTask,
   PrizmRenameTemplateTask,
   PrizmTemplateTask,
-} from '@prizm-ui/ast';
+} from '../../task';
 import { PrizmCodeTask } from '../../task/ts/model';
 import { prizmAstCreateCodeTaskBy } from '../../task/ts/util';
 

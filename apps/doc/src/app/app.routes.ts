@@ -690,6 +690,14 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'tools/cb3-to-prizm',
+    loadChildren: (): Promise<unknown> =>
+      import('./tools/cb3-to-prizm/cb3-to-prizm.module').then(i => i.Cb3ToPrizmModule),
+    data: {
+      title: 'CB3 to Prizm',
+    },
+  },
+  {
     path: 'tools/ast',
     loadChildren: (): Promise<unknown> => import('./tools/ast/ast.module').then(i => i.AstModule),
     data: {

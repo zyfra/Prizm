@@ -1,7 +1,8 @@
-import { prizmAstFindAttributeWithType, prizmAstGetAttrName, PrizmTemplateNode } from '@prizm-ui/ast';
 import { IPrizmAddAttributeTemplateTask, IPrizmAddAttributeTemplateTaskPayload } from './model';
 import { PrizmAstTemplateContext } from '../model';
 import { PrizmAstTaskTemplate } from '../abstract';
+import { PrizmTemplateNode } from '../task';
+import { prizmAstFindAttributeWithType } from '../util';
 
 /**
  * PrizmAddAttributeTemplateTask class is responsible for adding an attribute to a PrizmNode.

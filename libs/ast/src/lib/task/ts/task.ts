@@ -1,8 +1,7 @@
-import { PrizmTemplateNode } from '@prizm-ui/ast';
 import { PrizmCodeTask } from './model';
 import { PrizmAstAddImportsToNgModuleCodeTask } from './add-imports-to-ng-module';
 import { PrizmAstAddImportsIfNeededCodeTask } from './add-imports';
-import ts from 'typescript';
+import * as ts from 'typescript';
 
 export class PrizmCodeTaskProcessor {
   readonly defaultTasks = [
@@ -12,12 +11,6 @@ export class PrizmCodeTaskProcessor {
 
   constructor(private tasks: PrizmCodeTask[]) {}
 
-  /**
-   * Обрабатывает массив узлов в соответствии с задачами.
-   *
-   * @param {any[]} obj - Массив узлов для обработки.
-   * @returns {PrizmTemplateNode[]} Массив обработанных узлов.
-   */
   public processTasks(code: string): typeof code {
     const transformer: ts.TransformerFactory<ts.SourceFile> =
       context =>
