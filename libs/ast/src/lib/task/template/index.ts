@@ -6,4 +6,8 @@ export * from './move-to-content';
 export * from './change-name';
 export * from './add-comment';
 export * from './add-attribute';
+export * from './remove-attribute';
+export * from './add-children';
+export * from './comment-content';
 export * from './rename';
+export * from './move-children-to-component';

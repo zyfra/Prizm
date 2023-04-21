@@ -6,5 +6,8 @@ export interface IPrizmRenameTemplateTask extends PrizmTemplateTaskAction<'renam
 
 export interface IPrizmRenameTemplateTaskPayload {
   newAttrName?: string;
+  setExactNewAttrName?: boolean;
   oldAttrName?: string;
+  value?: unknown;
+  needFixApi?: boolean;
 }

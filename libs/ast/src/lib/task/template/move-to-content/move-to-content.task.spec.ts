@@ -1,5 +1,5 @@
 import { PrizmAstTemplateContext } from '../model';
-import { PrizmNode } from '../task';
+import { PrizmTemplateNode } from '../task';
 import { PrizmMoveToContentTemplateTask } from './move-to-content.task';
 
 describe('PrizmMoveToContentTemplateTask', () => {
@@ -11,7 +11,7 @@ describe('PrizmMoveToContentTemplateTask', () => {
         attrToMove: 'contentValue',
         otherAttr: 'otherValue',
       },
-    } as unknown as PrizmNode;
+    } as unknown as PrizmTemplateNode;
     const payload = {
       attr: 'attrToMove',
     };

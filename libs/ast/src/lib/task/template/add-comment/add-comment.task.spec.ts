@@ -1,5 +1,5 @@
 import { PrizmAstTemplateContext } from '../model';
-import { PrizmNode } from '../task';
+import { PrizmTemplateNode } from '../task';
 import { PrizmAddCommentTemplateTask } from './add-comment.task';
 
 describe('PrizmAddCommentTemplateTask', () => {
@@ -11,7 +11,7 @@ describe('PrizmAddCommentTemplateTask', () => {
       attrs: {
         attr: 'value',
       },
-    } as unknown as PrizmNode;
+    } as unknown as PrizmTemplateNode;
     const payload = {
       attr: 'attr',
       comment: 'Test comment',
@@ -34,7 +34,7 @@ describe('PrizmAddCommentTemplateTask', () => {
       attrs: {
         attr: 'value',
       },
-    } as unknown as PrizmNode;
+    } as unknown as PrizmTemplateNode;
     const payload = {
       comment: 'Test comment',
     };

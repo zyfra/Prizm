@@ -1,6 +1,7 @@
 import {
   Directive,
   ElementRef,
+  EventEmitter,
   Inject,
   Input,
   OnChanges,
@@ -67,7 +68,23 @@ export class PrizmHintDirective<
 
   @Input()
   @prizmDefaultProp()
+  prizmHintContext: Record<string, unknown> = {};
+
+  @Input()
+  @prizmDefaultProp()
   prizmHintCanShow = true;
+
+  @Input()
+  set prizmHintShow(show: boolean) {
+    console.log('#mz show', show);
+    if (show) this.open();
+    else this.close();
+  }
+  get prizmHintShow() {
+    return this.show_;
+  }
+
+  private show_ = false;
 
   @Input()
   @prizmRequiredSetter()
@@ -81,7 +98,7 @@ export class PrizmHintDirective<
   }
 
   @Output()
-  readonly prizmHoveredChange: Observable<boolean>;
+  readonly prizmHoveredChange = new EventEmitter<boolean>();
 
   protected readonly onHoverActive: boolean = true;
 
@@ -131,13 +148,19 @@ export class PrizmHintDirective<
 
   protected open(): void {
     if (!this.prizmHintCanShow) return;
+    this.show_ = true;
+    console.log('#mz open');
     this.renderer.addClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
     this.overlay.open();
+    this.prizmHoveredChange.emit(this.show_);
   }
 
   protected close(): void {
+    console.log('#mz close');
+    this.show_ = false;
     this.renderer.removeClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
-    this.overlay.close();
+    this.overlay?.close();
+    this.prizmHoveredChange.emit(this.show_);
   }
 
   private initVisibleController(): void {
@@ -199,6 +222,7 @@ export class PrizmHintDirective<
       showDelay: this.prizmHintShowDelay,
       hideDelay: this.prizmHintHideDelay,
       host: this.host,
+      context: this.prizmHintContext,
     } as CONTEXT;
   }
 }

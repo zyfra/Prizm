@@ -435,8 +435,14 @@ export const pages: PrizmOrderedDocPage = [
   {
     section: SectionNameEnum.components,
     title: 'Loader',
-    keywords: 'loader, spinner, лоадер, спиннер, загрузка',
+    keywords: 'loader, лоадер, загрузка',
     route: '/components/loader',
+  },
+  {
+    section: SectionNameEnum.components,
+    title: 'Spinner',
+    keywords: 'loader, spinner, лоадер, спиннер, загрузка',
+    route: '/components/spinner',
   },
   {
     section: SectionNameEnum.components,

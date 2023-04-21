@@ -1,4 +1,4 @@
-import { PrizmNode } from '../task';
+import { PrizmTemplateNode } from '../task';
 import { PrizmNotSupportedTemplateTask } from './not-supported.task';
 
 describe('PrizmNotSupportedTemplateTask', () => {
@@ -10,7 +10,7 @@ describe('PrizmNotSupportedTemplateTask', () => {
         notSupportedAttr: 'value',
         otherAttr: 'otherValue',
       },
-    } as unknown as PrizmNode;
+    } as unknown as PrizmTemplateNode;
     const payload = {
       attr: 'notSupportedAttr',
     };

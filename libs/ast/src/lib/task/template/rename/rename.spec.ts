@@ -1,4 +1,4 @@
-import { PrizmNode } from '../task';
+import { PrizmTemplateNode } from '../task';
 import { PrizmAstTemplateContext } from '../model';
 import { PrizmRenameTemplateTask } from './rename.task';
 
@@ -27,7 +27,7 @@ describe('PrizmRenameTemplateTask', () => {
   });
 
   test('should rename attribute in outputs', () => {
-    const node: Partial<PrizmNode> = {
+    const node: Partial<PrizmTemplateNode> = {
       attrs: {
         '(oldAttr)': 'value',
       },

@@ -1,5 +1,5 @@
 import { PrizmAstTemplateContext } from '../model';
-import { PrizmNode } from '../task';
+import { PrizmTemplateNode } from '../task';
 import { PrizmChangeNameTemplateTask } from './change-name.task';
 
 describe('PrizmChangeNameTemplateTask', () => {
@@ -11,7 +11,7 @@ describe('PrizmChangeNameTemplateTask', () => {
       attrs: {
         attr: 'value',
       },
-    } as unknown as PrizmNode;
+    } as unknown as PrizmTemplateNode;
     const payload = {
       name: 'newName',
     };
@@ -30,7 +30,7 @@ describe('PrizmChangeNameTemplateTask', () => {
       attrs: {
         attr: 'value',
       },
-    } as unknown as PrizmNode;
+    } as unknown as PrizmTemplateNode;
     const payload = {};
     const context = {} as unknown as PrizmAstTemplateContext;
 

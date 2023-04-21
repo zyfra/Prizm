@@ -1,5 +1,5 @@
 import { IPrizmAstTaskTemplate, PrizmAstTemplateContext, PrizmTemplateTaskAction } from './model';
-import { PrizmNode } from './task';
+import { PrizmTemplateNode } from './task';
 import { PrizmLogExecution } from '@prizm-ui/helpers';
 
 export abstract class PrizmAstTaskTemplate<T extends PrizmTemplateTaskAction<any>>
@@ -20,5 +20,9 @@ export abstract class PrizmAstTaskTemplate<T extends PrizmTemplateTaskAction<any
     } as T;
   }
 
-  abstract run(node: PrizmNode, payload: T['payload'], context: PrizmAstTemplateContext): PrizmNode;
+  abstract run(
+    node: PrizmTemplateNode,
+    payload: T['payload'],
+    context: PrizmAstTemplateContext
+  ): PrizmTemplateNode;
 }

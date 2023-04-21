@@ -1,4 +1,4 @@
-import { PrizmNode } from './task';
+import { PrizmTemplateNode } from './task';
 
 export interface PrizmTemplateTaskAction<TYPE extends string> {
   type: TYPE;
@@ -22,5 +22,5 @@ export interface PrizmAstTemplateContext {
 export interface IPrizmAstTaskTemplate<T extends PrizmTemplateTaskAction<any>> {
   readonly type: T['type'];
 
-  run(node: PrizmNode, payload: T['payload'], context: PrizmAstTemplateContext): PrizmNode;
+  run(node: PrizmTemplateNode, payload: T['payload'], context: PrizmAstTemplateContext): PrizmTemplateNode;
 }

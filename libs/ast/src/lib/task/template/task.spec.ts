@@ -1,9 +1,9 @@
-import { PrizmNode, PrizmTask, PrizmTaskProcessor } from './task';
+import { PrizmTemplateNode, PrizmTemplateTask, PrizmTemplateTaskProcessor } from './task';
 
 describe('PrizmTaskProcessor', () => {
-  const tasks: PrizmTask[] = [
+  const tasks: PrizmTemplateTask[] = [
     {
-      name: 'testTask',
+      selector: 'testTask',
       tasks: [
         {
           type: 'change-name',
@@ -28,10 +28,10 @@ describe('PrizmTaskProcessor', () => {
       },
     },
   ];
-  const processor = new PrizmTaskProcessor(tasks);
+  const processor = new PrizmTemplateTaskProcessor(tasks);
 
   test('should process tasks on nodes', () => {
-    const nodes: PrizmNode[] = [
+    const nodes: PrizmTemplateNode[] = [
       {
         name: 'testNode',
         attrs: {

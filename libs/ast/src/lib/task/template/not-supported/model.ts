@@ -6,4 +6,5 @@ export interface IPrizmNotSupportedTemplateTask extends PrizmTemplateTaskAction<
 
 export interface IPrizmNotSupportedTemplateTaskPayload {
   attr?: string;
+  extraComment?: string;
 }

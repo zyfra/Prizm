@@ -1,5 +1,5 @@
 import { PrizmAstTemplateContext } from '../model';
-import { PrizmNode } from '../task';
+import { PrizmTemplateNode } from '../task';
 import { PrizmAddAttributeTemplateTask } from './add-attribute.task';
 
 describe('PrizmAddAttributeTemplateTask', () => {
@@ -9,7 +9,7 @@ describe('PrizmAddAttributeTemplateTask', () => {
     const node = {
       name: 'testNode',
       attrs: {},
-    } as unknown as PrizmNode;
+    } as unknown as PrizmTemplateNode;
     const payload = {
       attr: 'newAttr',
     };
@@ -25,7 +25,7 @@ describe('PrizmAddAttributeTemplateTask', () => {
     const node = {
       name: 'testNode',
       attrs: {},
-    } as unknown as PrizmNode;
+    } as unknown as PrizmTemplateNode;
     const payload = {};
     const context = {} as PrizmAstTemplateContext;
 

@@ -56,9 +56,19 @@ export function prizmAstGetOutputBytAttrForTemplate(
   attrName: string
 ): string | null {
   attrName = prizmAstGetAttrName(attrName);
-  const type = prizmAstGetTypeOfAttribute(attrName);
-  const value = attributes[attrName] as any;
+  // const type = prizmAstGetTypeOfAttribute(attrName);
+  // const value = attributes[attrName] as any;
 
+  const data = prizmAstFindAttributeWithType(attrName, attributes);
+  const type = data?.type;
+  const value = data?.value;
+
+  console.log('#mz prizmAstGetOutputBytAttrForTemplate', {
+    attributes,
+    value,
+    attrName,
+    type,
+  });
   switch (type) {
     case PrizmAstTemplateAttributeType.input:
       return value;
@@ -77,6 +87,81 @@ export function prizmAstConvertAttrNameToInputVar(attrName: string) {
 
 export function prizmAstConvertAttrNameToOutputVar(attrName: string) {
   return `(${attrName})`;
+}
+
+export function prizmAstFindAttributeWithType(
+  attrName: string,
+  attributes: Record<string, unknown>,
+  check: PrizmAstTemplateAttributeType[] = [
+    PrizmAstTemplateAttributeType.inputOutput,
+    PrizmAstTemplateAttributeType.input,
+    PrizmAstTemplateAttributeType.output,
+    PrizmAstTemplateAttributeType.inputVar,
+  ]
+): {
+  attrName: string;
+  value: any;
+  type: PrizmAstTemplateAttributeType;
+} | null {
+  if (!attributes) return null;
+  const originAttrName = attrName;
+  if (
+    check.includes(PrizmAstTemplateAttributeType.input) ||
+    check.includes(PrizmAstTemplateAttributeType.inputOutput)
+  ) {
+    if (attrName in attributes)
+      return {
+        attrName: attrName,
+        value: attributes[attrName],
+        type: PrizmAstTemplateAttributeType.input,
+      };
+
+    attrName = prizmAstConvertAttrNameToInputOutput(originAttrName);
+    const attrNameOutputInput = prizmAstConvertAttrNameToOutputInput(originAttrName);
+    if (attrName in attributes || attrNameOutputInput in attributes)
+      return {
+        attrName: attrName ?? attrNameOutputInput,
+        value: attributes[attrName] ?? attributes[attrNameOutputInput],
+        type: PrizmAstTemplateAttributeType.inputOutput,
+      };
+  }
+
+  if (
+    check.includes(PrizmAstTemplateAttributeType.inputVar) ||
+    check.includes(PrizmAstTemplateAttributeType.inputOutput)
+  ) {
+    attrName = prizmAstConvertAttrNameToInputOutput(originAttrName);
+    const attrNameOutputInput = prizmAstConvertAttrNameToOutputInput(originAttrName);
+    if (attrName in attributes || attrNameOutputInput in attributes)
+      return {
+        attrName: attrName ?? attrNameOutputInput,
+        value: attributes[attrName] ?? attributes[attrNameOutputInput],
+        type: PrizmAstTemplateAttributeType.inputOutput,
+      };
+
+    attrName = prizmAstConvertAttrNameToInputVar(originAttrName);
+    if (attrName in attributes)
+      return {
+        attrName: attrName,
+        value: attributes[attrName],
+        type: PrizmAstTemplateAttributeType.inputVar,
+      };
+  }
+
+  if (
+    check.includes(PrizmAstTemplateAttributeType.output) ||
+    check.includes(PrizmAstTemplateAttributeType.inputOutput)
+  ) {
+    attrName = prizmAstConvertAttrNameToOutputVar(originAttrName);
+    if (attrName in attributes)
+      return {
+        attrName: attrName,
+        value: attributes[attrName],
+        type: PrizmAstTemplateAttributeType.output,
+      };
+  }
+
+  return null;
 }
 
 export function prizmAstHasAttribute(

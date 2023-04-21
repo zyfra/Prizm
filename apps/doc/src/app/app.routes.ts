@@ -564,6 +564,14 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/spinner',
+    loadChildren: (): Promise<unknown> =>
+      import('./components/spinner/spinner.module').then(i => i.SpinnerModule),
+    data: {
+      title: 'Spinner',
+    },
+  },
+  {
     path: 'components/dialogs/dialog',
     loadChildren: (): Promise<unknown> =>
       import('./components/dialogs/dialog/dialog.module').then(i => i.DialogModule),

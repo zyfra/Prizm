@@ -6,4 +6,5 @@ export interface IPrizmMoveToContentTemplateTask extends PrizmTemplateTaskAction
 
 export interface IPrizmMoveToContentTemplateTaskPayload {
   attr?: string;
+  notClearChildren?: boolean;
 }

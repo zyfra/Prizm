@@ -6,6 +6,7 @@ export interface IPrizmAddAttributeTemplateTask extends PrizmTemplateTaskAction<
 
 export interface IPrizmAddAttributeTemplateTaskPayload {
   attr?: string;
+  passValue?: boolean;
   // isJsValue?: boolean;
   // value?: string;
 }

@@ -42,3 +42,4 @@ export * from './cron';
 export * from './error-page';
 export * from './file-upload';
 export * from './expand';
+export * from './spinner';
