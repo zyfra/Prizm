@@ -75,11 +75,11 @@ export function prizmAstGetOutputBytAttrForTemplate(
   }
 }
 
-export function prizmAstConvertAttrNameToInputVar(attrName: string) {
+export function prizmAstConvertAttrNameToInputVar(attrName: string): string {
   return `[${attrName}]`;
 }
 
-export function prizmAstConvertAttrNameToOutputVar(attrName: string) {
+export function prizmAstConvertAttrNameToOutputVar(attrName: string): string {
   return `(${attrName})`;
 }
 
@@ -167,7 +167,7 @@ export function prizmAstHasAttribute(
     PrizmAstTemplateAttributeType.output,
     PrizmAstTemplateAttributeType.inputVar,
   ]
-) {
+): boolean {
   if (!attributes) return false;
 
   if (
@@ -200,11 +200,11 @@ export function prizmAstHasAttribute(
   return false;
 }
 
-export function prizmAstConvertAttrNameToInputOutput(attrName: string) {
+export function prizmAstConvertAttrNameToInputOutput(attrName: string): string {
   return `[(${attrName})]`;
 }
 
-export function prizmAstConvertAttrNameToOutputInput(attrName: string) {
+export function prizmAstConvertAttrNameToOutputInput(attrName: string): string {
   return `([${attrName}])`;
 }
 

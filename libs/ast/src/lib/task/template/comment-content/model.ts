@@ -4,4 +4,4 @@ export interface IPrizmCommentContentTemplateTask extends PrizmTemplateTaskActio
   payload: IPrizmCommentContentTemplateTaskPayload;
 }
 
-export type IPrizmCommentContentTemplateTaskPayload = {};
+export type IPrizmCommentContentTemplateTaskPayload = Record<string, unknown>;

@@ -9,7 +9,7 @@ describe('updateAllFilesWhen', () => {
     tree = createTreeWithEmptyWorkspace();
   });
 
-  const conditionFunc = (entryPath: string, content: string) => {
+  const conditionFunc = (entryPath: string, content: string): boolean => {
     return entryPath.endsWith('.txt') && content.includes('test');
   };
 
