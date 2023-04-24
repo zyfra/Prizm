@@ -28,7 +28,7 @@ export class SelectComponent {
   public pressedChange = false;
   public hoveredChange = false;
   public focusVisibleChange = false;
-  public dropdownWidth = '200px';
+  public dropdownWidth = '100%';
 
   readonly control = new FormControl();
   searchable = false;
