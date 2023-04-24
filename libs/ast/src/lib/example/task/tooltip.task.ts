@@ -1,13 +1,17 @@
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import {
   PrizmAstAddImportsIfNeededCodeTask,
   PrizmAstAddImportsToNgModuleCodeTask,
+  prizmAstCreateCodeTaskBy,
+  PrizmAstCodeTask,
+} from '@prizm-ui/ast/code';
+
+import {
   prizmAstCreateActionBy,
   PrizmNotSupportedTemplateTask,
   PrizmRenameTemplateTask,
   PrizmTemplateTask,
 } from '../../task';
-import { PrizmCodeTask } from '../../task/ts/model';
-import { prizmAstCreateCodeTaskBy } from '../../task/ts/util';
 
 export const ZyfraTooltipTemplateTasks: PrizmTemplateTask[] = [
   {
@@ -61,7 +65,7 @@ export const ZyfraTooltipTemplateTasks: PrizmTemplateTask[] = [
   },
 ];
 
-export const ZyfraTooltipCodeTasks: PrizmCodeTask[] = [
+export const ZyfraTooltipCodeTasks: PrizmAstCodeTask[] = [
   prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
     importToAdd: '@prizm-ui/components',
     namedImports: ['PrizmTooltipModule'],

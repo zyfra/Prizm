@@ -1,7 +1,9 @@
 import * as ts from 'typescript';
-import { IPrizmAstTaskCode, PrizmCodeTaskAction } from './model';
+import { IPrizmAstTaskCode, PrizmAstCodeTaskAction } from './model';
 
-export abstract class PrizmAstCodeTask<T extends PrizmCodeTaskAction<any>> implements IPrizmAstTaskCode<T> {
+export abstract class PrizmAstCodeTask<T extends PrizmAstCodeTaskAction<any>>
+  implements IPrizmAstTaskCode<T>
+{
   abstract type: T['type'];
   public readonly payload: T['payload'];
 

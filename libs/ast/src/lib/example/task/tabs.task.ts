@@ -1,6 +1,11 @@
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import {
   PrizmAstAddImportsIfNeededCodeTask,
   PrizmAstAddImportsToNgModuleCodeTask,
+  prizmAstCreateCodeTaskBy,
+  PrizmAstCodeTask,
+} from '@prizm-ui/ast/code';
+import {
   prizmAstCreateActionBy,
   PrizmChangeNameTemplateTask,
   PrizmCommentContentTemplateTask,
@@ -9,8 +14,6 @@ import {
   PrizmRenameTemplateTask,
   PrizmTemplateTask,
 } from '../../task';
-import { PrizmCodeTask } from '../../task/ts/model';
-import { prizmAstCreateCodeTaskBy } from '../../task/ts/util';
 
 export const ZyfraTabsTemplateTasks: PrizmTemplateTask[] = [
   {
@@ -81,7 +84,7 @@ export const ZyfraTabsTemplateTasks: PrizmTemplateTask[] = [
   },
 ];
 
-export const ZyfraTabsCodeTasks: PrizmCodeTask[] = [
+export const ZyfraTabsCodeTasks: PrizmAstCodeTask[] = [
   prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
     importToAdd: '@prizm-ui/components',
     namedImports: ['PrizmTabsModule'],

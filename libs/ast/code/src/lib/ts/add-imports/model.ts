@@ -1,6 +1,6 @@
-import { PrizmCodeTaskAction } from '../model';
+import { PrizmAstCodeTaskAction } from '../model';
 
-export interface IPrizmAddImportsIfNeededCodeTask extends PrizmCodeTaskAction<'add-imports-if-needed'> {
+export interface IPrizmAddImportsIfNeededCodeTask extends PrizmAstCodeTaskAction<'add-imports-if-needed'> {
   payload: IPrizmAddImportsIfNeededCodeTaskPayload;
 }
 

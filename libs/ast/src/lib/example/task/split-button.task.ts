@@ -1,8 +1,13 @@
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import {
+  PrizmAstAddImportsIfNeededCodeTask,
+  PrizmAstAddImportsToNgModuleCodeTask,
+  prizmAstCreateCodeTaskBy,
+  PrizmAstCodeTask,
+} from '@prizm-ui/ast/code';
 import {
   PrizmAddAttributeTemplateTask,
   PrizmAddCommentTemplateTask,
-  PrizmAstAddImportsIfNeededCodeTask,
-  PrizmAstAddImportsToNgModuleCodeTask,
   prizmAstCreateActionBy,
   PrizmChangeNameTemplateTask,
   PrizmMoveToContentTemplateTask,
@@ -11,8 +16,6 @@ import {
   PrizmRenameTemplateTask,
   PrizmTemplateTask,
 } from '../../task';
-import { PrizmCodeTask } from '../../task/ts/model';
-import { prizmAstCreateCodeTaskBy } from '../../task/ts/util';
 
 export const ZyfraSplitButtonTemplateTasks: PrizmTemplateTask[] = [
   {
@@ -65,7 +68,7 @@ export const ZyfraSplitButtonTemplateTasks: PrizmTemplateTask[] = [
   },
 ];
 
-export const ZyfraSplitButtonCodeTasks: PrizmCodeTask[] = [
+export const ZyfraSplitButtonCodeTasks: PrizmAstCodeTask[] = [
   prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
     importToAdd: '@prizm-ui/components',
     namedImports: ['PrizmButtonModule'],

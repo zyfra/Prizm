@@ -1,13 +1,17 @@
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import {
+  PrizmAstAddImportsIfNeededCodeTask,
+  PrizmAstAddImportsToNgModuleCodeTask,
+  prizmAstCreateCodeTaskBy,
+  PrizmAstCodeTask,
+} from '@prizm-ui/ast/code';
+
 import {
   PrizmAddChildrenTemplateTask,
   PrizmAddCommentTemplateTask,
-  PrizmAstAddImportsIfNeededCodeTask,
-  PrizmAstAddImportsToNgModuleCodeTask,
   prizmAstCreateActionBy,
-  prizmAstCreateCodeTaskBy,
   PrizmCallWithNewSourceTemplateTask,
   PrizmChangeNameTemplateTask,
-  PrizmCodeTask,
   PrizmNotSupportedTemplateTask,
   PrizmRemoveAttributeTemplateTask,
   PrizmRenameTemplateTask,
@@ -212,7 +216,7 @@ export const ZyfraInputTemplateTasks: PrizmTemplateTask[] = [
   },
 ];
 
-export const ZyfraInputCodeTasks: PrizmCodeTask[] = [
+export const ZyfraInputCodeTasks: PrizmAstCodeTask[] = [
   prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
     importToAdd: '@prizm-ui/components',
     namedImports: ['PrizmInputTextModule'],

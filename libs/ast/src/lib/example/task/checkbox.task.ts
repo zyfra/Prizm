@@ -1,6 +1,11 @@
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import {
   PrizmAstAddImportsIfNeededCodeTask,
   PrizmAstAddImportsToNgModuleCodeTask,
+  prizmAstCreateCodeTaskBy,
+  PrizmAstCodeTask,
+} from '@prizm-ui/ast/code';
+import {
   prizmAstCreateActionBy,
   PrizmChangeNameTemplateTask,
   PrizmMoveToContentTemplateTask,
@@ -8,8 +13,6 @@ import {
   PrizmRenameTemplateTask,
   PrizmTemplateTask,
 } from '../../task';
-import { PrizmCodeTask } from '../../task/ts/model';
-import { prizmAstCreateCodeTaskBy } from '../../task/ts/util';
 
 export const ZyfraCheckboxTemplateTasks: PrizmTemplateTask[] = [
   {
@@ -46,7 +49,7 @@ export const ZyfraCheckboxTemplateTasks: PrizmTemplateTask[] = [
   },
 ];
 
-export const ZyfraCheckboxCodeTasks: PrizmCodeTask[] = [
+export const ZyfraCheckboxCodeTasks: PrizmAstCodeTask[] = [
   prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
     importToAdd: '@prizm-ui/components',
     namedImports: ['PrizmCheckboxModule'],

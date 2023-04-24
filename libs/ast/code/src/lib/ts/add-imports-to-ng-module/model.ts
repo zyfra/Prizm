@@ -1,6 +1,7 @@
-import { PrizmCodeTaskAction } from '../model';
+import { PrizmAstCodeTaskAction } from '../model';
 
-export interface IPrizmAddImportsToNgModuleCodeTask extends PrizmCodeTaskAction<'add-imports-to-ng-module'> {
+export interface IPrizmAddImportsToNgModuleCodeTask
+  extends PrizmAstCodeTaskAction<'add-imports-to-ng-module'> {
   payload: IPrizmAddImportsToNgModuleCodeTaskPayload;
 }
 

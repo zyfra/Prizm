@@ -1,9 +1,11 @@
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { PrizmAstCodeTask } from '@prizm-ui/ast/code';
+
 import { ZyfraAccordionCodeTasks, ZyfraAccordionTemplateTasks } from './accordion.task';
 import { ZyfraBreadcrumbCodeTasks, ZyfraBreadcrumbTemplateTasks } from './breadcrumb.task';
 import { ZyfraButtonCodeTasks, ZyfraButtonTemplateTasks } from './button.task';
 import { ZyfraCheckboxCodeTasks, ZyfraCheckboxTemplateTasks } from './checkbox.task';
 import { PrizmTemplateTask } from '../../task';
-import { PrizmCodeTask } from '../../task/ts/model';
 import { ZyfraChipsCodeTasks, ZyfraChipsTasks } from './chips.task';
 import { ZyfraDropdownCodeTasks, ZyfraDropdownTemplateTasks } from './dropdown.task';
 import { ZyfraTooltipCodeTasks } from './tooltip.task';
@@ -17,7 +19,7 @@ import { ZyfraInputSwitchCodeTasks, ZyfraInputSwitchTemplateTasks } from './inpu
 import { ZyfraInputCodeTasks, ZyfraInputTemplateTasks } from './input.task';
 import { ZyfraInputNumberCodeTasks, ZyfraInputNumberTemplateTasks } from './input-number.task';
 
-export const PRIZM_CB3_TO_PRIZM_CODE_TASKS: PrizmCodeTask[] = [
+export const PRIZM_CB3_TO_PRIZM_CODE_TASKS: PrizmAstCodeTask[] = [
   ...ZyfraAccordionCodeTasks,
   ...ZyfraBreadcrumbCodeTasks,
   ...ZyfraButtonCodeTasks,

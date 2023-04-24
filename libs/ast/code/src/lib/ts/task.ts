@@ -1,15 +1,15 @@
-import { PrizmCodeTask } from './model';
+import { PrizmAstCodeTask } from './model';
 import { PrizmAstAddImportsToNgModuleCodeTask } from './add-imports-to-ng-module';
 import { PrizmAstAddImportsIfNeededCodeTask } from './add-imports';
 import * as ts from 'typescript';
 
-export class PrizmCodeTaskProcessor {
+export class PrizmAstCodeTaskProcessor {
   readonly defaultTasks = [
     new PrizmAstAddImportsToNgModuleCodeTask(),
     new PrizmAstAddImportsIfNeededCodeTask(),
   ];
 
-  constructor(private tasks: PrizmCodeTask[]) {}
+  constructor(private tasks: PrizmAstCodeTask[]) {}
 
   public processTasks(code: string): typeof code {
     const transformer: ts.TransformerFactory<ts.SourceFile> =
