@@ -1,12 +1,12 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PrizmIndicator } from '@prizm-ui/components';
+import { PrizmIndicatorModule } from '@prizm-ui/components';
 // ...
 
 @NgModule({
   imports: [
     // ...
-    PrizmIndicator,
+    PrizmIndicatorModule,
   ],
 })
 export class MyModule {}
