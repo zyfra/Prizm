@@ -11,7 +11,7 @@ import {
   PrizmNotSupportedTemplateTask,
   PrizmRenameTemplateTask,
   PrizmTemplateTask,
-} from '../../task';
+} from '@prizm-ui/ast';
 
 export const ZyfraSpinnerTemplateTasks: PrizmTemplateTask[] = [
   {

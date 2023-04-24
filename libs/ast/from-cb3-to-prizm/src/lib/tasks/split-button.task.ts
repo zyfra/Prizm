@@ -15,7 +15,7 @@ import {
   PrizmRemoveAttributeTemplateTask,
   PrizmRenameTemplateTask,
   PrizmTemplateTask,
-} from '../../task';
+} from '@prizm-ui/ast';
 
 export const ZyfraSplitButtonTemplateTasks: PrizmTemplateTask[] = [
   {

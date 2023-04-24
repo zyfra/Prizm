@@ -18,7 +18,7 @@ import {
   PrizmRunTasksOnNodeTemplateTask,
   PrizmSaveToCallOnDemandTemplateTask,
   PrizmTemplateTask,
-} from '../../task';
+} from '@prizm-ui/ast';
 
 const newName = 'prizm-input-layout';
 const newNameOfPlaceholder = [newName, 'placeholder'].join('::');

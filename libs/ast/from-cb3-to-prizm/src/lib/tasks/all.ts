@@ -5,7 +5,6 @@ import { ZyfraAccordionCodeTasks, ZyfraAccordionTemplateTasks } from './accordio
 import { ZyfraBreadcrumbCodeTasks, ZyfraBreadcrumbTemplateTasks } from './breadcrumb.task';
 import { ZyfraButtonCodeTasks, ZyfraButtonTemplateTasks } from './button.task';
 import { ZyfraCheckboxCodeTasks, ZyfraCheckboxTemplateTasks } from './checkbox.task';
-import { PrizmTemplateTask } from '../../task';
 import { ZyfraChipsCodeTasks, ZyfraChipsTasks } from './chips.task';
 import { ZyfraDropdownCodeTasks, ZyfraDropdownTemplateTasks } from './dropdown.task';
 import { ZyfraTooltipCodeTasks } from './tooltip.task';
@@ -18,6 +17,7 @@ import { ZyfraMultiSelectCodeTasks, ZyfraMultiSelectTemplateTasks } from './mult
 import { ZyfraInputSwitchCodeTasks, ZyfraInputSwitchTemplateTasks } from './input-switch.task';
 import { ZyfraInputCodeTasks, ZyfraInputTemplateTasks } from './input.task';
 import { ZyfraInputNumberCodeTasks, ZyfraInputNumberTemplateTasks } from './input-number.task';
+import { PrizmTemplateTask } from '@prizm-ui/ast';
 
 export const PRIZM_CB3_TO_PRIZM_CODE_TASKS: PrizmAstCodeTask[] = [
   ...ZyfraAccordionCodeTasks,
