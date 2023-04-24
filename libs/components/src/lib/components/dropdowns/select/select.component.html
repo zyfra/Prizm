@@ -58,7 +58,6 @@
           #hostHint
           *ngFor="let item of filteredItems$ | async; let idx = index"
           (click)="select(item)"
-          [title]="{ item: item, idx: idx, nullContent: nullContent } | json"
         >
           <ng-container *ngIf="item; else nullContentTemplate">
             <span

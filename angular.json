@@ -38,7 +38,9 @@
               "libs/ast/src/**/*.ts",
               "libs/ast/src/**/*.html",
               "libs/ast/schematics-helpers/**/*.ts",
-              "libs/ast/schematics-helpers/**/*.html"
+              "libs/ast/schematics-helpers/**/*.html",
+              "libs/ast/code/**/*.ts",
+              "libs/ast/code/**/*.html"
             ]
           }
         }

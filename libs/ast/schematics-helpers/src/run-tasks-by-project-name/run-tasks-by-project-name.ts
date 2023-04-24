@@ -1,14 +1,13 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { formatFiles, Tree } from '@nrwl/devkit';
 import {
-  PrizmCodeTask,
-  PrizmCodeTaskProcessor,
   PrizmHtmlItem,
   prizmHtmlParse,
   prizmHtmlStringify,
   PrizmTemplateTask,
   PrizmTemplateTaskProcessor,
 } from '@prizm-ui/ast';
+import { PrizmCodeTask, PrizmCodeTaskProcessor } from '@prizm-ui/ast/code';
 import { prizmAstUpdateAllFilesWhen } from '../update-all-files-when';
 
 export async function prizmAstRunSchematicsByTasks(
