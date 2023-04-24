@@ -18,6 +18,11 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: 'Just do it'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
+          npm start
+
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
 
@@ -66,6 +71,11 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: 'Just do it'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
+          npm start
 
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
