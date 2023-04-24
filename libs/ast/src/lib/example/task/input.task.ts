@@ -1,27 +1,39 @@
 import {
   PrizmAddChildrenTemplateTask,
   PrizmAddCommentTemplateTask,
+  PrizmAstAddImportsIfNeededCodeTask,
+  PrizmAstAddImportsToNgModuleCodeTask,
   prizmAstCreateActionBy,
+  prizmAstCreateCodeTaskBy,
+  PrizmCallWithNewSourceTemplateTask,
   PrizmChangeNameTemplateTask,
+  PrizmCodeTask,
   PrizmNotSupportedTemplateTask,
   PrizmRemoveAttributeTemplateTask,
   PrizmRenameTemplateTask,
+  PrizmRunTasksOnNodeTemplateTask,
+  PrizmSaveToCallOnDemandTemplateTask,
   PrizmTemplateTask,
 } from '../../task';
+
+const newName = 'prizm-input-layout';
+const newNameOfPlaceholder = [newName, 'placeholder'].join('::');
+const newNameOfNgModel = [newName, 'ngModel'].join('::');
+const newNameOfFormControl = [newName, 'formControl'].join('::');
+const newNameOfFormControlName = [newName, 'formControlName'].join('::');
 
 export const ZyfraInputTemplateTasks: PrizmTemplateTask[] = [
   {
     selector: 'zyfra-input',
     tasks: [
       prizmAstCreateActionBy(PrizmChangeNameTemplateTask, {
-        name: 'prizm-input-layout',
+        name: newName,
       }),
       // TODO also set children
       prizmAstCreateActionBy(PrizmAddChildrenTemplateTask, {
         name: 'input',
         attrs: {
           prizmInput: null,
-          type: 'number',
         },
         children: [],
       }),
@@ -41,10 +53,36 @@ export const ZyfraInputTemplateTasks: PrizmTemplateTask[] = [
           comment: 'TODO: You also need to pass size to child ',
         }),
       ],
+      formControl: [
+        prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
+          id: newNameOfFormControl,
+          action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
+            newAttrName: 'formControl',
+          }),
+        }),
+      ],
+      formControlName: [
+        prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
+          id: newNameOfFormControlName,
+          action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
+            newAttrName: 'formControlName',
+          }),
+        }),
+      ],
+      ngModel: [
+        prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
+          id: newNameOfNgModel,
+          action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
+            newAttrName: 'ngModel',
+          }),
+        }),
+      ],
       placeholder: [
-        prizmAstCreateActionBy(PrizmRemoveAttributeTemplateTask, {}),
-        prizmAstCreateActionBy(PrizmAddCommentTemplateTask, {
-          comment: 'TODO: You also need to pass size to child ',
+        prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
+          id: newNameOfPlaceholder,
+          action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
+            newAttrName: 'placeholder',
+          }),
         }),
       ],
       value: [
@@ -120,5 +158,46 @@ export const ZyfraInputTemplateTasks: PrizmTemplateTask[] = [
       onBlur: [prizmAstCreateActionBy(PrizmRemoveAttributeTemplateTask, {})],
       onFocus: [prizmAstCreateActionBy(PrizmRemoveAttributeTemplateTask, {})],
     },
+    finishTasks: [
+      prizmAstCreateActionBy(PrizmRunTasksOnNodeTemplateTask, {
+        dontRunOnOnMain: true,
+        runOnChildren: true,
+        tasks: [
+          {
+            selector: [
+              {
+                type: 'byAttr',
+                attrs: {
+                  // input: undefined,
+                  prizmInput: undefined,
+                },
+              },
+            ],
+            inputs: {},
+            outputs: {},
+            tasks: [
+              prizmAstCreateActionBy(PrizmCallWithNewSourceTemplateTask, {
+                id: [newNameOfPlaceholder, newNameOfNgModel, newNameOfFormControl, newNameOfFormControlName],
+              }),
+            ],
+          },
+        ],
+      }),
+    ],
   },
+];
+
+export const ZyfraInputCodeTasks: PrizmCodeTask[] = [
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
+    importToAdd: '@prizm-ui/components',
+    namedImports: ['PrizmInputTextModule'],
+    targetImport: '@digital-plant/zyfra-components',
+    targetNamedImports: ['ZyfraInputModule'],
+    commentBeforeImport: 'PRIZM:MIGRATOR added new module for migrate from ZyfraInputModule',
+  }),
+  prizmAstCreateCodeTaskBy(PrizmAstAddImportsToNgModuleCodeTask, {
+    newModule: 'PrizmInputTextModule',
+    moduleToFind: 'ZyfraInputModule',
+    comment: 'PRIZM:MIGRATOR: Our added module for migrate from ZyfraInputModule',
+  }),
 ];

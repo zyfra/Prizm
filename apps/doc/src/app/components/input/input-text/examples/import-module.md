@@ -1,6 +1,6 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { InputModule } from '@prizm-ui/components';
+import { PrizmInputTextModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // ...
 
@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     // ...
     ReactiveFormsModule,
     FormsModule,
-    InputModule,
+    PrizmInputTextModule,
   ],
 })
 export class MyModule {}

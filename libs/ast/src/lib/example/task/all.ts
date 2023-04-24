@@ -14,6 +14,8 @@ import { ZyfraSpinnerCodeTasks, ZyfraSpinnerTemplateTasks } from './spinner.task
 import { ZyfraRadioCodeTasks, ZyfraRadioTemplateTasks } from './radio.task';
 import { ZyfraMultiSelectCodeTasks, ZyfraMultiSelectTemplateTasks } from './multi-select.task';
 import { ZyfraInputSwitchCodeTasks, ZyfraInputSwitchTemplateTasks } from './input-switch.task';
+import { ZyfraInputCodeTasks, ZyfraInputTemplateTasks } from './input.task';
+import { ZyfraInputNumberCodeTasks, ZyfraInputNumberTemplateTasks } from './input-number.task';
 
 export const PRIZM_CB3_TO_PRIZM_CODE_TASKS: PrizmCodeTask[] = [
   ...ZyfraAccordionCodeTasks,
@@ -30,6 +32,8 @@ export const PRIZM_CB3_TO_PRIZM_CODE_TASKS: PrizmCodeTask[] = [
   ...ZyfraRadioCodeTasks,
   ...ZyfraMultiSelectCodeTasks,
   ...ZyfraInputSwitchCodeTasks,
+  ...ZyfraInputCodeTasks,
+  ...ZyfraInputNumberCodeTasks,
 ];
 
 export const PRIZM_CB3_TO_PRIZM_TEMPLATE_TASKS: PrizmTemplateTask[] = [
@@ -46,4 +50,6 @@ export const PRIZM_CB3_TO_PRIZM_TEMPLATE_TASKS: PrizmTemplateTask[] = [
   ...ZyfraRadioTemplateTasks,
   ...ZyfraMultiSelectTemplateTasks,
   ...ZyfraInputSwitchTemplateTasks,
+  ...ZyfraInputTemplateTasks,
+  ...ZyfraInputNumberTemplateTasks,
 ];
