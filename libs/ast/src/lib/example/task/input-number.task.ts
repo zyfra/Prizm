@@ -2,19 +2,28 @@ import {
   PrizmAddChildrenTemplateTask,
   PrizmAddCommentTemplateTask,
   prizmAstCreateActionBy,
+  PrizmCallWithNewSourceTemplateTask,
   PrizmChangeNameTemplateTask,
   PrizmNotSupportedTemplateTask,
   PrizmRemoveAttributeTemplateTask,
   PrizmRenameTemplateTask,
+  PrizmRunTasksOnNodeTemplateTask,
+  PrizmSaveToCallOnDemandTemplateTask,
   PrizmTemplateTask,
 } from '../../task';
+
+const newName = 'prizm-input-layout';
+const newNameOfPlaceholder = [newName, 'placeholder'].join('::');
+const newNameOfNgModel = [newName, 'ngModel'].join('::');
+const newNameOfFormControl = [newName, 'formControl'].join('::');
+const newNameOfFormControlName = [newName, 'formControlName'].join('::');
 
 export const ZyfraInputTemplateNumberTasks: PrizmTemplateTask[] = [
   {
     selector: 'zyfra-input-number',
     tasks: [
       prizmAstCreateActionBy(PrizmChangeNameTemplateTask, {
-        name: 'prizm-input-layout',
+        name: newName,
       }),
       // TODO also set children
       prizmAstCreateActionBy(PrizmAddChildrenTemplateTask, {
@@ -41,10 +50,36 @@ export const ZyfraInputTemplateNumberTasks: PrizmTemplateTask[] = [
           comment: 'TODO: You also need to pass size to child ',
         }),
       ],
+      formControl: [
+        prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
+          id: newNameOfFormControl,
+          action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
+            newAttrName: 'formControl',
+          }),
+        }),
+      ],
+      formControlName: [
+        prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
+          id: newNameOfFormControlName,
+          action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
+            newAttrName: 'formControlName',
+          }),
+        }),
+      ],
+      ngModel: [
+        prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
+          id: newNameOfNgModel,
+          action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
+            newAttrName: 'ngModel',
+          }),
+        }),
+      ],
       placeholder: [
-        prizmAstCreateActionBy(PrizmRemoveAttributeTemplateTask, {}),
-        prizmAstCreateActionBy(PrizmAddCommentTemplateTask, {
-          comment: 'TODO: You also need to pass size to child ',
+        prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
+          id: newNameOfPlaceholder,
+          action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
+            newAttrName: 'placeholder',
+          }),
         }),
       ],
       value: [
@@ -120,5 +155,31 @@ export const ZyfraInputTemplateNumberTasks: PrizmTemplateTask[] = [
       onBlur: [prizmAstCreateActionBy(PrizmRemoveAttributeTemplateTask, {})],
       onFocus: [prizmAstCreateActionBy(PrizmRemoveAttributeTemplateTask, {})],
     },
+    finishTasks: [
+      prizmAstCreateActionBy(PrizmRunTasksOnNodeTemplateTask, {
+        dontRunOnOnMain: true,
+        runOnChildren: true,
+        tasks: [
+          {
+            selector: [
+              {
+                type: 'byAttr',
+                attrs: {
+                  // input: undefined,
+                  prizmInput: undefined,
+                },
+              },
+            ],
+            inputs: {},
+            outputs: {},
+            tasks: [
+              prizmAstCreateActionBy(PrizmCallWithNewSourceTemplateTask, {
+                id: [newNameOfPlaceholder, newNameOfNgModel, newNameOfFormControl, newNameOfFormControlName],
+              }),
+            ],
+          },
+        ],
+      }),
+    ],
   },
 ];

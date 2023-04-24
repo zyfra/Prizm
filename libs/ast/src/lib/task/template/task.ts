@@ -15,6 +15,10 @@ import { PrizmMoveContentToComponentTemplateTask } from './move-children-to-comp
 import { PrizmRemoveAttributeTemplateTask } from './remove-attribute';
 import { PrizmAddChildrenTemplateTask } from './add-children';
 import { PrizmCommentContentTemplateTask } from './comment-content';
+import { PrizmTemplateTaskStorage } from './task-storage';
+import { PrizmSaveToCallOnDemandTemplateTask } from './save-to-call-on-demand';
+import { PrizmCallWithNewSourceTemplateTask } from './call-with-new-source';
+import { PrizmRunTasksOnNodeTemplateTask } from './run-tasks-on-node';
 
 /**
  * Тип узла Prizm. Содержит атрибуты, имя, тип и информацию о том, является ли элемент пустым.
@@ -43,6 +47,7 @@ export type TPrizmTemplateTaskAction<T = any> = {
 export type PrizmTemplateTask = {
   selector: PrizmTemplateSelector;
   tasks: TPrizmTemplateTaskAction[];
+  finishTasks?: TPrizmTemplateTaskAction[];
   inputs: Record<string, TPrizmTemplateTaskAction[]>;
   outputs: Record<string, TPrizmTemplateTaskAction[]>;
 };
@@ -58,13 +63,17 @@ export type PrizmTemplateSelectorByAttr = {
  * Класс для обработки узлов PrizmTemplateNode в соответствии с задачами PrizmTask.
  */
 export class PrizmTemplateTaskProcessor {
+  readonly storage = new PrizmTemplateTaskStorage();
   readonly defaultTasks = [
+    new PrizmCallWithNewSourceTemplateTask(),
+    new PrizmRunTasksOnNodeTemplateTask(),
     new PrizmAddAttributeTemplateTask(),
     new PrizmAddChildrenTemplateTask(),
     new PrizmNotSupportedTemplateTask(),
     new PrizmMoveToContentTemplateTask(),
     new PrizmCommentContentTemplateTask(),
     new PrizmRemoveAttributeTemplateTask(),
+    new PrizmSaveToCallOnDemandTemplateTask(),
     new PrizmRenameTemplateTask(),
     new PrizmAddCommentTemplateTask(),
     new PrizmChangeNameTemplateTask(),
@@ -103,13 +112,29 @@ export class PrizmTemplateTaskProcessor {
     return false;
   }
 
-  private processActions(node: PrizmTemplateNode, task: PrizmTemplateTask): PrizmTemplateNode {
+  public runAction(
+    node: PrizmTemplateNode,
+    action: TPrizmTemplateTaskAction,
+    getCtx: (ctx: Pick<PrizmAstTemplateContext, 'task' | 'sourceNode'>) => PrizmAstTemplateContext
+  ): PrizmTemplateNode {
+    const task = this.defaultTasks.find(task => task.type === action.type);
+    if (task) node = task.run(node, action.payload, getCtx({ task: task as any, sourceNode: node }));
+    return node;
+  }
+
+  public processAction(
+    node: PrizmTemplateNode,
+    task: PrizmTemplateTask,
+    newContext: Partial<PrizmAstTemplateContext>
+  ): PrizmTemplateNode {
+    let newNode: PrizmTemplateNode;
     if (this.nodeNeedToChange(node, task)) {
-      let newNode: PrizmTemplateNode = { ...node };
+      newNode = { ...node };
       const defaultTasks = this.defaultTasks;
       task.tasks.forEach(action => {
-        const task = defaultTasks.find(task => task.type === action.type);
-        if (task) newNode = task.run(newNode, action.payload, this.generateContext(null, 'tasks'));
+        newNode = this.runAction(newNode, action, ({ task, sourceNode }) =>
+          this.generateContext(null, 'tasks', sourceNode, task as any, newContext)
+        );
       });
 
       if (task.inputs)
@@ -124,7 +149,12 @@ export class PrizmTemplateTaskProcessor {
             return;
           actions.forEach(action => {
             const task = defaultTasks.find(task => task.type === action.type);
-            if (task) newNode = task.run(newNode, action.payload, this.generateContext(key, 'inputs'));
+            if (task)
+              newNode = task.run(
+                newNode,
+                action.payload,
+                this.generateContext(key, 'inputs', newNode, task as any, newContext)
+              );
           });
         });
 
@@ -140,14 +170,30 @@ export class PrizmTemplateTaskProcessor {
 
           actions.forEach(action => {
             const task = defaultTasks.find(task => task.type === action.type);
-            if (task) newNode = task.run(newNode, action.payload, this.generateContext(key, 'outputs'));
+            if (task)
+              newNode = task.run(
+                newNode,
+                action.payload,
+                this.generateContext(key, 'outputs', newNode, task as any, newContext)
+              );
           });
         });
 
       node = newNode;
     }
 
-    node.children = node.children?.map(childNode => this.processActions(childNode, task)) ?? [];
+    node.children = node.children?.map(childNode => this.processAction(childNode, task, newContext)) ?? [];
+
+    if (newNode)
+      task.finishTasks?.forEach(action => {
+        const task = this.defaultTasks.find(task => task.type === action.type);
+        if (task)
+          node = task.run(
+            newNode,
+            action.payload,
+            this.generateContext(null, 'tasks', newNode, task as any, newContext)
+          );
+      });
 
     return node;
   }
@@ -162,7 +208,7 @@ export class PrizmTemplateTaskProcessor {
     return obj.map(node => {
       // Обработка действий задачи для узла
       for (const task of this.tasks) {
-        node = this.processActions(node, task);
+        node = this.processAction(node, task, {});
       }
 
       return node;
@@ -171,13 +217,21 @@ export class PrizmTemplateTaskProcessor {
 
   public generateContext(
     key: string | null,
-    runIn: PrizmAstTemplateContext['runIn']
+    runIn: PrizmAstTemplateContext['runIn'],
+    sourceNode: PrizmTemplateNode,
+    task: PrizmTemplateTask,
+    newContext: Partial<PrizmAstTemplateContext>
   ): PrizmAstTemplateContext {
     return {
       attrName: key && prizmAstGetAttrName(key),
       originName: key,
       runIn,
+      sourceNode,
+      storage: this.storage,
+      task,
+      processor: this,
       type: key && prizmAstGetTypeOfAttribute(key),
+      ...(newContext ?? {}),
     };
   }
 }

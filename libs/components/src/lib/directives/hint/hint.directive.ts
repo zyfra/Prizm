@@ -79,7 +79,7 @@ export class PrizmHintDirective<
     if (show) this.open();
     else this.close();
   }
-  get prizmHintShow() {
+  get prizmHintShow(): boolean {
     return this.show_;
   }
 

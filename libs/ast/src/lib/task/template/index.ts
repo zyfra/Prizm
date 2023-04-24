@@ -10,4 +10,7 @@ export * from './remove-attribute';
 export * from './add-children';
 export * from './comment-content';
 export * from './rename';
+export * from './save-to-call-on-demand';
+export * from './call-with-new-source';
 export * from './move-children-to-component';
+export * from './run-tasks-on-node';

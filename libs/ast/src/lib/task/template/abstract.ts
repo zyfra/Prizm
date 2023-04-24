@@ -8,11 +8,11 @@ export abstract class PrizmAstTaskTemplate<T extends PrizmTemplateTaskAction<any
   abstract type: T['type'];
   public readonly payload: T['payload'];
 
-  @PrizmLogExecution({
-    logArguments: true,
-    logResult: true,
-    logExecutionTime: true,
-  })
+  // @PrizmLogExecution({
+  //   logArguments: true,
+  //   logResult: true,
+  //   logExecutionTime: true,
+  // })
   public create(payload: T['payload']): T {
     return {
       type: this.type,

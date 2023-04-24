@@ -146,6 +146,8 @@ export class PrizmAstInputNumberExampleComponent implements OnInit {
   readonly html = `
 <zyfra-input-number
     [(ngModel)]="model"
+    [formControl]="formControl"
+    [formControlName]="formControlName"
     label="label"
     placeholder="placeholder"
     showButtons="true"

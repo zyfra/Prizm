@@ -1,3 +1,4 @@
+/* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { formatFiles, Tree } from '@nrwl/devkit';
 import {
   PrizmCodeTask,

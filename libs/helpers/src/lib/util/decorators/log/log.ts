@@ -8,7 +8,7 @@ export interface PrizmLogOptions {
   enabled?: boolean;
 }
 
-export function PrizmLogExecution(options: PrizmLogOptions = {}) {
+export function PrizmLogExecution(options: PrizmLogOptions = {}): any {
   const { enabled = true, logArguments = true, logResult = true, logExecutionTime = true } = options;
 
   // eslint-disable-next-line @typescript-eslint/ban-types

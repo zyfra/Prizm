@@ -15,9 +15,10 @@ describe('PrizmRenameTemplateTask', () => {
       newAttrName: 'newAttr',
       oldAttrName: 'oldAttr',
     };
-    const context: PrizmAstTemplateContext = {
+    const context = {
       runIn: 'inputs',
-    };
+      sourceNode: node,
+    } as PrizmAstTemplateContext;
 
     const newNode = renameTask.run(node, payload, context);
 
@@ -36,9 +37,10 @@ describe('PrizmRenameTemplateTask', () => {
       newAttrName: 'newAttr',
       oldAttrName: 'oldAttr',
     };
-    const context: PrizmAstTemplateContext = {
+    const context = {
       runIn: 'outputs',
-    };
+      sourceNode: node,
+    } as PrizmAstTemplateContext;
 
     const newNode = renameTask.run(node as any, payload, context);
 

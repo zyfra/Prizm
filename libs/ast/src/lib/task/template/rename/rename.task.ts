@@ -1,13 +1,9 @@
 import { IPrizmRenameTemplateTask, IPrizmRenameTemplateTaskPayload } from './model';
-import { PrizmAstTemplateContext } from '../model';
+import { PrizmAstTemplateAttributeType, PrizmAstTemplateContext } from '../model';
 import { PrizmAstTaskTemplate } from '../abstract';
 import { PrizmTemplateNode } from '../task';
-import {
-  prizmAstConvertAttrNameToInputVar,
-  prizmAstConvertAttrNameToOutputVar,
-  prizmAstGetAttrName,
-} from '../util';
-import { PrizmLogExecution } from '@prizm-ui/helpers';
+import { prizmAstConvertAttrNameByType, prizmAstFindAttributeWithType, prizmAstGetAttrName } from '../util';
+
 /**
  * PrizmRenameTemplateTask class is responsible for renaming attributes in a PrizmNode.
  */
@@ -22,7 +18,6 @@ export class PrizmRenameTemplateTask extends PrizmAstTaskTemplate<IPrizmRenameTe
    * @param context - The PrizmAstTemplateContext.
    * @returns - The modified PrizmNode with the attributes renamed.
    */
-  @PrizmLogExecution()
   public run(
     node: PrizmTemplateNode,
     payload: IPrizmRenameTemplateTaskPayload,
@@ -35,30 +30,26 @@ export class PrizmRenameTemplateTask extends PrizmAstTaskTemplate<IPrizmRenameTe
     if (payload.oldAttrName) payload.oldAttrName = prizmAstGetAttrName(payload.oldAttrName);
 
     // Determine the attribute to rename
-    const attr = payload.oldAttrName ?? context?.attrName;
+    let attr = payload.oldAttrName ?? context?.attrName;
 
     // Return the original node unchanged if there's no context.runIn
     if (!context.runIn) return node;
 
-    const previousName =
+    const attrWithType = prizmAstFindAttributeWithType(
+      attr,
+      context.sourceNode.attrs,
       context.runIn === 'outputs'
-        ? prizmAstConvertAttrNameToOutputVar(attr)
-        : prizmAstConvertAttrNameToInputVar(attr);
+        ? [PrizmAstTemplateAttributeType.output]
+        : [PrizmAstTemplateAttributeType.input, PrizmAstTemplateAttributeType.inputVar]
+    );
 
-    // Rename the attribute if it exists in node.attrs
-    if (previousName in node.attrs) {
-      const newName =
-        context.runIn === 'outputs'
-          ? prizmAstConvertAttrNameToOutputVar(payload.newAttrName)
-          : prizmAstConvertAttrNameToInputVar(payload.newAttrName);
-      const updateName = payload.setExactNewAttrName ? payload.newAttrName : newName;
-      node.attrs[updateName] = 'value' in payload ? payload.value : node.attrs[previousName];
-      if (updateName !== previousName) delete node.attrs[previousName];
-    } else if (attr in node.attrs) {
-      const newName = payload.newAttrName;
-      node.attrs[newName] = 'value' in payload ? payload.value : node.attrs[attr];
-      if (attr !== newName) delete node.attrs[attr];
-    }
+    if (!attrWithType) return node;
+    attr = attrWithType.attrName;
+
+    const newName = prizmAstConvertAttrNameByType(payload.newAttrName, attrWithType?.type);
+    const oldValue = 'value' in payload ? payload.value : attrWithType.value;
+    node.attrs[newName] = oldValue;
+    if (node !== context.sourceNode || attr !== newName) delete context.sourceNode.attrs[attr];
 
     // Add a comment to fix API differences if needFixApi is true
     if (payload.needFixApi) {
