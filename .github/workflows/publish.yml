@@ -33,11 +33,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules-
 
-      - name: 'Just do it'
-        run: |
-          export NODE_OPTIONS="--max_old_space_size=4096"
-          npm start
-
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
         run: npm ci --ignore-scripts
@@ -49,6 +44,10 @@ jobs:
         with:
           path: ./node_modules
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
+
+      - name: 'Just do it'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
 
       - run: npx nx clear-cache
       - run: npx nx affected:build --all --prod --exclude=schematics
