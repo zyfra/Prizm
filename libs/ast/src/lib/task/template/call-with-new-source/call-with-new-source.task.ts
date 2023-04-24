@@ -20,7 +20,7 @@ export class PrizmCallWithNewSourceTemplateTask extends PrizmAstTaskTemplate<IPr
     for (const id of ids) {
       const storage = fullStorageByType?.[id] as IPrizmSaveToCallOnDemandTemplateTaskStorageData;
 
-      if (!storage) return node;
+      if (!storage) continue;
 
       node = context.processor.runAction(node, storage.action, ({ task }) => ({
         task: task as any,

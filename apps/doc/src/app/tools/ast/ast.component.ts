@@ -44,6 +44,10 @@ export class AstComponent {
     TypeScript: import('./examples/input-number/input-number.component?raw'),
     HTML: import('./examples/input-number/input-number.component.html?raw'),
   };
+  readonly inputExample: TuiDocExample = {
+    TypeScript: import('./examples/input/input.component?raw'),
+    HTML: import('./examples/input/input.component.html?raw'),
+  };
   readonly inputSwitchExample: TuiDocExample = {
     TypeScript: import('./examples/input-switch/input-switch.component?raw'),
     HTML: import('./examples/input-switch/input-switch.component.html?raw'),

@@ -21,7 +21,8 @@ const newNameOfPlaceholder = [newName, 'placeholder'].join('::');
 const newNameOfNgModel = [newName, 'ngModel'].join('::');
 const newNameOfFormControl = [newName, 'formControl'].join('::');
 const newNameOfFormControlName = [newName, 'formControlName'].join('::');
-
+const newNameOfType = [newName, 'type'].join('::');
+const newNameOfDisabled = [newName, 'disabled'].join('::');
 export const ZyfraInputTemplateTasks: PrizmTemplateTask[] = [
   {
     selector: 'zyfra-input',
@@ -35,29 +36,46 @@ export const ZyfraInputTemplateTasks: PrizmTemplateTask[] = [
         attrs: {
           prizmInput: null,
         },
+        voidElement: true,
         children: [],
       }),
     ],
     inputs: {
-      options: [
-        prizmAstCreateActionBy(PrizmRenameTemplateTask, {
-          newAttrName: 'items',
-          needFixApi: true,
-        }),
-      ],
-      size: [
-        prizmAstCreateActionBy(PrizmAddCommentTemplateTask, {
-          comment: 'TODO: need to correct size format (number > enum)',
-        }),
-        prizmAstCreateActionBy(PrizmAddCommentTemplateTask, {
-          comment: 'TODO: You also need to pass size to child ',
-        }),
-      ],
-      formControl: [
+      // options: [
+      //   prizmAstCreateActionBy(PrizmRenameTemplateTask, {
+      //     newAttrName: 'items',
+      //     needFixApi: true,
+      //   }),
+      // ],
+      // size: [
+      //   prizmAstCreateActionBy(PrizmAddCommentTemplateTask, {
+      //     comment: 'TODO: need to correct size format (number > enum)',
+      //   }),
+      //   prizmAstCreateActionBy(PrizmAddCommentTemplateTask, {
+      //     comment: 'TODO: You also need to pass size to child ',
+      //   }),
+      // ],
+      // formControl: [
+      //   prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
+      //     id: newNameOfFormControl,
+      //     action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
+      //       newAttrName: 'formControl',
+      //     }),
+      //   }),
+      // ],
+      disabled: [
         prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
-          id: newNameOfFormControl,
+          id: newNameOfDisabled,
           action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
-            newAttrName: 'formControl',
+            newAttrName: 'disabled',
+          }),
+        }),
+      ],
+      type: [
+        prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
+          id: newNameOfType,
+          action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
+            newAttrName: 'type',
           }),
         }),
       ],
@@ -120,7 +138,8 @@ export const ZyfraInputTemplateTasks: PrizmTemplateTask[] = [
           newAttrName: 'forceClear',
         }),
       ],
-
+      tooltipPosition: [prizmAstCreateActionBy(PrizmNotSupportedTemplateTask, {})],
+      tooltip: [prizmAstCreateActionBy(PrizmNotSupportedTemplateTask, {})],
       format: [prizmAstCreateActionBy(PrizmNotSupportedTemplateTask, {})],
       showButtons: [prizmAstCreateActionBy(PrizmNotSupportedTemplateTask, {})],
       buttonLayout: [prizmAstCreateActionBy(PrizmNotSupportedTemplateTask, {})],
@@ -168,7 +187,6 @@ export const ZyfraInputTemplateTasks: PrizmTemplateTask[] = [
               {
                 type: 'byAttr',
                 attrs: {
-                  // input: undefined,
                   prizmInput: undefined,
                 },
               },
@@ -177,7 +195,14 @@ export const ZyfraInputTemplateTasks: PrizmTemplateTask[] = [
             outputs: {},
             tasks: [
               prizmAstCreateActionBy(PrizmCallWithNewSourceTemplateTask, {
-                id: [newNameOfPlaceholder, newNameOfNgModel, newNameOfFormControl, newNameOfFormControlName],
+                id: [
+                  newNameOfPlaceholder,
+                  newNameOfNgModel,
+                  newNameOfFormControl,
+                  newNameOfFormControlName,
+                  newNameOfDisabled,
+                  newNameOfType,
+                ],
               }),
             ],
           },

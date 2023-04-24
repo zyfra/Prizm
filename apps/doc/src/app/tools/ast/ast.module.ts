@@ -19,6 +19,7 @@ import { PrizmAstToggleButtonExampleComponent } from './examples/toggle-button/t
 import { PrizmAstSpinnerExampleComponent } from './examples/spinner/spinner.component';
 import { PrizmAstTooltipExampleComponent } from './examples/tooltip/tooltip.component';
 import { PrizmAstTabsExampleComponent } from './examples/tabs/tabs.component';
+import { PrizmAstInputExampleComponent } from './examples/input/input.component';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { PrizmAstTabsExampleComponent } from './examples/tabs/tabs.component';
     PrizmAstInputSwitchExampleComponent,
     PrizmAstToggleButtonExampleComponent,
     PrizmAstSpinnerExampleComponent,
+    PrizmAstInputExampleComponent,
     PrizmAstTabsExampleComponent,
     PrizmAstSplitButtonExampleComponent,
     PrizmAstRadioExampleComponent,

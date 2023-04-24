@@ -7,7 +7,7 @@ import { PrizmLogExecution } from '@prizm-ui/helpers';
 export class PrizmRunTasksOnNodeTemplateTask extends PrizmAstTaskTemplate<IPrizmRunTasksOnNodeTemplateTask> {
   readonly type = 'run-tasks-on-node';
 
-  @PrizmLogExecution()
+  // @PrizmLogExecution()
   public run(
     node: PrizmTemplateNode,
     payload: IPrizmRunTasksOnNodeTemplateTaskPayload<any>,

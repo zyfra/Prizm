@@ -21,6 +21,8 @@ const newNameOfPlaceholder = [newName, 'placeholder'].join('::');
 const newNameOfNgModel = [newName, 'ngModel'].join('::');
 const newNameOfFormControl = [newName, 'formControl'].join('::');
 const newNameOfFormControlName = [newName, 'formControlName'].join('::');
+const newNameOfType = [newName, 'type'].join('::');
+const newNameOfDisabled = [newName, 'disabled'].join('::');
 
 export const ZyfraInputNumberTemplateTasks: PrizmTemplateTask[] = [
   {
@@ -36,6 +38,7 @@ export const ZyfraInputNumberTemplateTasks: PrizmTemplateTask[] = [
           prizmInput: null,
           type: 'number',
         },
+        voidElement: true,
         children: [],
       }),
     ],
@@ -121,7 +124,24 @@ export const ZyfraInputNumberTemplateTasks: PrizmTemplateTask[] = [
           newAttrName: 'forceClear',
         }),
       ],
-
+      disabled: [
+        prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
+          id: newNameOfDisabled,
+          action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
+            newAttrName: 'disabled',
+          }),
+        }),
+      ],
+      type: [
+        prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
+          id: newNameOfType,
+          action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
+            newAttrName: 'type',
+          }),
+        }),
+      ],
+      tooltipPosition: [prizmAstCreateActionBy(PrizmNotSupportedTemplateTask, {})],
+      tooltip: [prizmAstCreateActionBy(PrizmNotSupportedTemplateTask, {})],
       format: [prizmAstCreateActionBy(PrizmNotSupportedTemplateTask, {})],
       showButtons: [prizmAstCreateActionBy(PrizmNotSupportedTemplateTask, {})],
       buttonLayout: [prizmAstCreateActionBy(PrizmNotSupportedTemplateTask, {})],
@@ -178,7 +198,14 @@ export const ZyfraInputNumberTemplateTasks: PrizmTemplateTask[] = [
             outputs: {},
             tasks: [
               prizmAstCreateActionBy(PrizmCallWithNewSourceTemplateTask, {
-                id: [newNameOfPlaceholder, newNameOfNgModel, newNameOfFormControl, newNameOfFormControlName],
+                id: [
+                  newNameOfPlaceholder,
+                  newNameOfNgModel,
+                  newNameOfFormControl,
+                  newNameOfFormControlName,
+                  newNameOfDisabled,
+                  newNameOfType,
+                ],
               }),
             ],
           },
