@@ -18,6 +18,7 @@
     "start": "nx run doc:serve",
     "build": "nx affected:build --all --exclude=schematics",
     "build:next": "nx run doc:build",
+    "build:doc": "nx run doc:build:production --deployUrl=/ --baseHref=/",
     "build:stats": "nx build next --stats-json",
     "analize": "webpack-bundle-analyzer dist/apps/sdk/stats.json",
     "lint:libs": "nx lint schematics",

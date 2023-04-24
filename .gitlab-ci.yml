@@ -89,6 +89,7 @@ Build library:
     - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
     - cp .npmrc ~/
     - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run all
+    - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run build:doc
   artifacts:
     expire_in: 1 day
     paths:
