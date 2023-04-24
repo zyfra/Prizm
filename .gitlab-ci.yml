@@ -37,7 +37,10 @@ Build js image:
   stage: build
   tags:
     - docker
+
   before_script:
+    - NODE_OPTIONS=\"--max_old_space_size=8192\"
+    - node --max-old-space-size=8192
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"},\"$OLD_CI_REGISTRY\":{\"username\":\"$OLD_CI_REGISTRY_USER\",\"password\":\"$OLD_CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
   script:
     - cat ${NPMRC_CONFIG} > .npmrc
@@ -75,6 +78,9 @@ Build js image:
 
 Build library:
   stage: build
+  before_script:
+    - NODE_OPTIONS=\"--max_old_space_size=8192\"
+    - node --max-old-space-size=8192
   # // include after k8s stable work
   # cache:
   #   paths:
