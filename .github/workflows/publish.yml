@@ -45,7 +45,7 @@ jobs:
           path: ./node_modules
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
 
-      - name: 'Just do it'
+      - name: 'Just do it 2'
         run: |
           export NODE_OPTIONS="--max_old_space_size=4096"
 
