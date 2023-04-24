@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.32](https://github.com/zyfra/Prizm) (23-04-2023)
+
+### Features
+
+- feat(doc): add how to change and use our i18 library info [141](https://github.com/zyfra/Prizm/issues/141)
+- feat(components/spinner): new spinner component
+- feat(doc/spinner): add doc page about spinner component
+- feat(components/hint): add input to pass context
+- feat(components/hint): add show input
+- feat(doc/hint): update doc for hint
+- feat(helpers/log): new decorator **PrizmLogExecution** and unit tests for its
+- feat(ast): new template tasks, task to change typescript code with unit tests for its
+- feat(cb3-to-prizm): add unit tests to stable our migrator
+- feat(doc/cb3-to-prizm): add info how to use our migrator
+- feat(doc/ast): add info how to use our ast library
+
+### BUG FIXES
+
+- fix(components/select): fix error with disable when searchable is false
+
 ## [1.0.0-beta.31](https://github.com/zyfra/Prizm) (17-04-2023)
 
 ### BUG FIXES
