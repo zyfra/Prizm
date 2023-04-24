@@ -33,6 +33,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules-
 
+      - name: 'Just do it'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
+          npm start
+
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
         run: npm ci --ignore-scripts
