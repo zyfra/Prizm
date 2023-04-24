@@ -42,7 +42,11 @@
               "libs/ast/code/**/*.ts",
               "libs/ast/code/**/*.html",
               "libs/ast/from-cb3-to-prizm/**/*.ts",
-              "libs/ast/from-cb3-to-prizm/**/*.html"
+              "libs/ast/from-cb3-to-prizm/**/*.html",
+              "libs/ast/cb3-template-examples/**/*.ts",
+              "libs/ast/cb3-template-examples/**/*.html",
+              "libs/ast/cb3-code-examples/**/*.ts",
+              "libs/ast/cb3-code-examples/**/*.html"
             ]
           }
         }
