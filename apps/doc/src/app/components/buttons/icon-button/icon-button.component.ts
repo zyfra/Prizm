@@ -5,7 +5,6 @@ import {
   PolymorphContent,
   PrizmAppearance,
   PrizmAppearanceType,
-  PrizmContent,
   PrizmSize,
 } from '@prizm-ui/components';
 

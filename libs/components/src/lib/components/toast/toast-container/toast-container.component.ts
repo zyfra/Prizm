@@ -26,8 +26,8 @@ export class PrizmToastContainerComponent implements OnChanges {
   @Input() containerId?: string;
   @Input() position?: PrizmToastPosition;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_toast_container';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_toast_container';
 
   constructor(private readonly prizmToastService: PrizmToastService) {}
 

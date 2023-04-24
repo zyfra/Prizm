@@ -74,8 +74,8 @@ export class PrizmCalendarComponent implements PrizmWithOptionalMinMax<PrizmDay>
   @Output()
   readonly hoveredItemChange = new EventEmitter<PrizmDay | null>();
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_calendar';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_calendar';
 
   year: PrizmYear | null = null;
   clickedMonth: PrizmMonth | null = null;

@@ -49,8 +49,8 @@ export class PrizmPrimitiveSpinButtonComponent extends AbstractPrizmInteractive 
   @Output()
   readonly rightClick = new EventEmitter<void>();
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_primitive_spin_button';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_primitive_spin_button';
 
   constructor(@Inject(PRIZM_SPIN_TEXTS) readonly spinTexts$: Observable<[string, string]>) {
     super();

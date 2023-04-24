@@ -13,6 +13,6 @@ export class IconComponent {
   @Input() iconClass: string = null;
   @Input() size: string | number = 16;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_icon';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_icon' + this.iconClass;
 }

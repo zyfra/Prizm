@@ -50,7 +50,7 @@ export class PrizmTreeComponent<T> implements DoCheck {
     distinctUntilChanged()
   );
 
-  @HostBinding('attr.testId')
+  @HostBinding('attr.data-testid')
   readonly testId = 'prizm_tree';
 
   @Input()

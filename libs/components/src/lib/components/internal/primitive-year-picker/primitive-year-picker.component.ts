@@ -53,8 +53,8 @@ export class PrizmPrimitiveYearPickerComponent {
     return !!value && this.isRange(value) && value.from.yearSame(value.to);
   }
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_primitive_year_picker';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_primitive_year_picker';
 
   get rows(): number {
     return Math.ceil((this.calculatedMax - this.calculatedMin) / ITEMS_IN_ROW);

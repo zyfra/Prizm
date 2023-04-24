@@ -31,6 +31,6 @@ export class SwitcherItemComponent {
   @prizmDefaultProp()
   public fullWidth = false;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_switcher_item';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_switcher_item';
 }
