@@ -6,11 +6,11 @@ import {
   PrizmTemplateTask,
   PrizmTemplateTaskProcessor,
 } from '@prizm-ui/ast';
-import { ZyfraInputSwitchTemplateTasks } from '@prizm-ui/ast/cb3-template-examples';
+import { ZyfraTextareaTemplateTasks } from '@prizm-ui/ast/cb3-template-examples';
 
 @Component({
-  selector: 'prizm-ast-input-switch-example',
-  templateUrl: './input-switch.component.html',
+  selector: 'prizm-ast-textarea-example',
+  templateUrl: './textarea.component.html',
   styles: [
     `
       .block {
@@ -20,8 +20,8 @@ import { ZyfraInputSwitchTemplateTasks } from '@prizm-ui/ast/cb3-template-exampl
     `,
   ],
 })
-export class PrizmAstInputSwitchExampleComponent implements OnInit {
-  readonly tasks: PrizmTemplateTask[] = ZyfraInputSwitchTemplateTasks;
+export class PrizmAstTextareaExampleComponent implements OnInit {
+  readonly tasks: PrizmTemplateTask[] = ZyfraTextareaTemplateTasks;
   // readonly tasks: PrizmTemplateTask[] = [
   //   {
   //     selector: 'zyfra-input-switch',
@@ -34,21 +34,21 @@ export class PrizmAstInputSwitchExampleComponent implements OnInit {
   //       disabled: [
   //         prizmAstCreateActionBy(PrizmNotSupportedTemplateTask, {}),
   //         prizmAstCreateActionBy(PrizmAddCommentTemplateTask, {
-  //           comment: 'TODO: for pass disabled use pass by FormControl '
-  //         })
+  //           comment: 'TODO: for pass disabled use pass by FormControl ',
+  //         }),
   //       ],
   //       readonly: [
   //         prizmAstCreateActionBy(PrizmNotSupportedTemplateTask, {}),
   //         prizmAstCreateActionBy(PrizmAddCommentTemplateTask, {
-  //           comment: 'TODO: for pass readonly use pass by FormControl '
-  //         })
+  //           comment: 'TODO: for pass readonly use pass by FormControl ',
+  //         }),
   //       ],
   //       mini: [
   //         prizmAstCreateActionBy(PrizmRenameTemplateTask, {
   //           newAttrName: 'size',
   //           setExactNewAttrName: true,
-  //           value: 'm'
-  //         })
+  //           value: 'm',
+  //         }),
   //       ],
   //
   //       ariaLabelledBy: [prizmAstCreateActionBy(PrizmNotSupportedTemplateTask, {})],
@@ -58,17 +58,24 @@ export class PrizmAstInputSwitchExampleComponent implements OnInit {
   //       tabindex: [prizmAstCreateActionBy(PrizmNotSupportedTemplateTask, {})],
   //       name: [prizmAstCreateActionBy(PrizmNotSupportedTemplateTask, {})],
   //     },
-  //     outputs: {
-  //     }
+  //     outputs: {},
   //   },
-  //
   // ];
   readonly html = `
-<zyfra-input-switch
-[disabled]='true'
-[readonly]='true'
-[mini]='true'
-[(ngModel)]="checked"></zyfra-input-switch>
+<zyfra-textarea
+
+  [(ngModel)]="modelForTextArea"
+  placeholder="Введите текст.."
+  class="inputClass"
+  disabled="false"
+  maxlength="100"
+  minlength="0"
+  rows="5"
+  cols="10"
+  autoResize="false"
+  name="some name"
+  (onResize)="onResizeTextAreaHandler($event)"
+></zyfra-textarea>
 `;
   result: string;
 

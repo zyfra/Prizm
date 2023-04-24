@@ -5,8 +5,8 @@ import {
   prizmHtmlStringify,
   PrizmTemplateTaskProcessor,
   PrizmTemplateTask,
-  ZyfraDropdownTemplateTasks,
 } from '@prizm-ui/ast';
+import { ZyfraDropdownTemplateTasks } from '@prizm-ui/ast/cb3-template-examples';
 
 @Component({
   selector: 'prizm-ast-dropdown-example',

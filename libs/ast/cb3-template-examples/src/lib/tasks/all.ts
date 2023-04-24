@@ -16,8 +16,10 @@ import { ZyfraInputTemplateTasks } from './input.task';
 import { ZyfraInputNumberTemplateTasks } from './input-number.task';
 import { PrizmTemplateTask } from '@prizm-ui/ast';
 import { ZyfraTooltipTemplateTasks } from './tooltip.task';
+import { ZyfraTextareaTemplateTasks } from './textarea.task';
 
 export const PRIZM_CB3_TO_PRIZM_TEMPLATE_TASKS: PrizmTemplateTask[] = [
+  ...ZyfraTextareaTemplateTasks,
   ...ZyfraTooltipTemplateTasks,
   ...ZyfraAccordionTemplateTasks,
   ...ZyfraBreadcrumbTemplateTasks,

@@ -1,6 +1,5 @@
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { PrizmAstCodeTask } from '@prizm-ui/ast/code';
-
 import { ZyfraAccordionCodeTasks } from './accordion.task';
 import { ZyfraBreadcrumbCodeTasks } from './breadcrumb.task';
 import { ZyfraButtonCodeTasks } from './button.task';
@@ -17,8 +16,10 @@ import { ZyfraMultiSelectCodeTasks } from './multi-select.task';
 import { ZyfraInputSwitchCodeTasks } from './input-switch.task';
 import { ZyfraInputCodeTasks } from './input.task';
 import { ZyfraInputNumberCodeTasks } from './input-number.task';
+import { ZyfraTextareaCodeTasks } from './textarea.task';
 
 export const PRIZM_CB3_TO_PRIZM_CODE_TASKS: PrizmAstCodeTask[] = [
+  ...ZyfraTextareaCodeTasks,
   ...ZyfraAccordionCodeTasks,
   ...ZyfraBreadcrumbCodeTasks,
   ...ZyfraButtonCodeTasks,

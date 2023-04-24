@@ -16,3 +16,4 @@ export * from './split-button.task';
 export * from './tabs.task';
 export * from './toggle-button.task';
 export * from './tooltip.task';
+export * from './textarea.task';
