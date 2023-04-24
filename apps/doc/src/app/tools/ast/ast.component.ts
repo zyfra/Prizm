@@ -48,6 +48,10 @@ export class AstComponent {
     TypeScript: import('./examples/input/input.component?raw'),
     HTML: import('./examples/input/input.component.html?raw'),
   };
+  readonly textareaExample: TuiDocExample = {
+    TypeScript: import('./examples/textarea/textarea.component?raw'),
+    HTML: import('./examples/textarea/textarea.component.html?raw'),
+  };
   readonly inputSwitchExample: TuiDocExample = {
     TypeScript: import('./examples/input-switch/input-switch.component?raw'),
     HTML: import('./examples/input-switch/input-switch.component.html?raw'),

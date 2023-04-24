@@ -3,10 +3,10 @@ import {
   PrizmHtmlItem,
   prizmHtmlParse,
   prizmHtmlStringify,
-  PrizmTemplateTaskProcessor,
   PrizmTemplateTask,
-  ZyfraRadioTemplateTasks,
+  PrizmTemplateTaskProcessor,
 } from '@prizm-ui/ast';
+import { ZyfraRadioTemplateTasks } from '@prizm-ui/ast/cb3-template-examples';
 
 @Component({
   selector: 'prizm-ast-radio-example',

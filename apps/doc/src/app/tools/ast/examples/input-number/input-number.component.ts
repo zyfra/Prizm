@@ -5,8 +5,9 @@ import {
   prizmHtmlStringify,
   PrizmTemplateTask,
   PrizmTemplateTaskProcessor,
-  ZyfraInputNumberTemplateTasks,
 } from '@prizm-ui/ast';
+import { ZyfraInputNumberTemplateTasks } from '@prizm-ui/ast/cb3-template-examples';
+
 @Component({
   selector: 'prizm-ast-input-number-example',
   templateUrl: './input-number.component.html',

@@ -3,10 +3,10 @@ import {
   PrizmHtmlItem,
   prizmHtmlParse,
   prizmHtmlStringify,
-  PrizmTemplateTaskProcessor,
   PrizmTemplateTask,
-  ZyfraTooltipTemplateTasks,
+  PrizmTemplateTaskProcessor,
 } from '@prizm-ui/ast';
+import { ZyfraTooltipTemplateTasks } from '@prizm-ui/ast/cb3-template-examples';
 
 @Component({
   selector: 'prizm-ast-tooltip-example',

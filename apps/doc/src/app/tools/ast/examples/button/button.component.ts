@@ -1,18 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  PrizmAddAttributeTemplateTask,
-  prizmAstCreateActionBy,
-  PrizmChangeNameTemplateTask,
   PrizmHtmlItem,
   prizmHtmlParse,
   prizmHtmlStringify,
-  PrizmMoveToContentTemplateTask,
-  PrizmNotSupportedTemplateTask,
-  PrizmRenameTemplateTask,
   PrizmTemplateTask,
   PrizmTemplateTaskProcessor,
-  ZyfraButtonTemplateTasks,
 } from '@prizm-ui/ast';
+import { ZyfraButtonTemplateTasks } from '@prizm-ui/ast/cb3-template-examples';
 
 @Component({
   selector: 'prizm-ast-button-example',

@@ -3,10 +3,10 @@ import {
   PrizmHtmlItem,
   prizmHtmlParse,
   prizmHtmlStringify,
-  PrizmTemplateTaskProcessor,
   PrizmTemplateTask,
-  ZyfraTabsTemplateTasks,
+  PrizmTemplateTaskProcessor,
 } from '@prizm-ui/ast';
+import { ZyfraTabsTemplateTasks } from '@prizm-ui/ast/cb3-template-examples';
 
 @Component({
   selector: 'prizm-ast-tabs-example',

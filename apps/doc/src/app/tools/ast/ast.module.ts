@@ -20,6 +20,7 @@ import { PrizmAstSpinnerExampleComponent } from './examples/spinner/spinner.comp
 import { PrizmAstTooltipExampleComponent } from './examples/tooltip/tooltip.component';
 import { PrizmAstTabsExampleComponent } from './examples/tabs/tabs.component';
 import { PrizmAstInputExampleComponent } from './examples/input/input.component';
+import { PrizmAstTextareaExampleComponent } from './examples/textarea/textarea.component';
 
 @NgModule({
   imports: [
@@ -42,6 +43,7 @@ import { PrizmAstInputExampleComponent } from './examples/input/input.component'
     PrizmAstTabsExampleComponent,
     PrizmAstSplitButtonExampleComponent,
     PrizmAstRadioExampleComponent,
+    PrizmAstTextareaExampleComponent,
     PrizmAstDropdownExampleComponent,
     PrizmAstBreadcrumbExampleComponent,
     PrizmAstBaseExampleComponent,

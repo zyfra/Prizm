@@ -3,10 +3,10 @@ import {
   PrizmHtmlItem,
   prizmHtmlParse,
   prizmHtmlStringify,
-  PrizmTemplateTaskProcessor,
   PrizmTemplateTask,
-  ZyfraInputSwitchTemplateTasks,
+  PrizmTemplateTaskProcessor,
 } from '@prizm-ui/ast';
+import { ZyfraInputSwitchTemplateTasks } from '@prizm-ui/ast/cb3-template-examples';
 
 @Component({
   selector: 'prizm-ast-input-switch-example',

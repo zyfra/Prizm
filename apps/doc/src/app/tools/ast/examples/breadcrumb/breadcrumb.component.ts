@@ -3,10 +3,10 @@ import {
   PrizmHtmlItem,
   prizmHtmlParse,
   prizmHtmlStringify,
-  PrizmTemplateTaskProcessor,
   PrizmTemplateTask,
-  ZyfraBreadcrumbTemplateTasks,
+  PrizmTemplateTaskProcessor,
 } from '@prizm-ui/ast';
+import { ZyfraBreadcrumbTemplateTasks } from '@prizm-ui/ast/cb3-template-examples';
 
 @Component({
   selector: 'prizm-ast-breadcrumb-example',

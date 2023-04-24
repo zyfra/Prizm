@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.33](https://github.com/zyfra/Prizm) (24-04-2023)
+
+### Features
+
+- feat(cb3-to-prizm): add textarea support to migrate
+- feat(doc/ast): add example with migration of textarea
+-
+
+### BUG FIXES
+
+- fix(chore): fix error for template to create issues [201](https://github.com/zyfra/Prizm/issues/201)
+- fix(doc/indicator): fix import module name in example [203](https://github.com/zyfra/Prizm/issues/203)
+- fix(components/select): remove unnecessary hint [186](https://github.com/zyfra/Prizm/issues/186)
+- fix(ci): github error with memory leak
+
 ## [1.0.0-beta.32](https://github.com/zyfra/Prizm) (23-04-2023)
 
 ### Features

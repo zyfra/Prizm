@@ -19,6 +19,9 @@
     "baseUrl": ".",
     "paths": {
       "@prizm-ui/ast": ["libs/ast/src/index.ts"],
+      "@prizm-ui/ast/cb3-code-examples": ["libs/ast/cb3-code-examples/src/index.ts"],
+      "@prizm-ui/ast/cb3-template-examples": ["libs/ast/cb3-template-examples/src/index.ts"],
+      "@prizm-ui/ast/code": ["libs/ast/code/src/index.ts"],
       "@prizm-ui/ast/schematics-helpers": ["libs/ast/schematics-helpers/src/index.ts"],
       "@prizm-ui/cb3-to-prizm": ["libs/cb3-to-prizm/src/index.ts"],
       "@prizm-ui/charts": ["libs/charts/base/src/index.ts"],

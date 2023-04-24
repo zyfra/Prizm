@@ -5,8 +5,8 @@ import {
   prizmHtmlStringify,
   PrizmTemplateTaskProcessor,
   PrizmTemplateTask,
-  ZyfraAccordionTemplateTasks,
 } from '@prizm-ui/ast';
+import { ZyfraAccordionTemplateTasks } from '@prizm-ui/ast/cb3-template-examples';
 
 @Component({
   selector: 'prizm-ast-accordion-example',

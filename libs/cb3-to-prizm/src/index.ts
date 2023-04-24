@@ -1,6 +1,7 @@
 import { Tree } from '@nrwl/devkit';
-import { PRIZM_CB3_TO_PRIZM_CODE_TASKS, PRIZM_CB3_TO_PRIZM_TEMPLATE_TASKS } from '@prizm-ui/ast';
 import { prizmAstRunSchematicsByTasks } from '@prizm-ui/ast/schematics-helpers';
+import { PRIZM_CB3_TO_PRIZM_CODE_TASKS } from '@prizm-ui/ast/cb3-code-examples';
+import { PRIZM_CB3_TO_PRIZM_TEMPLATE_TASKS } from '@prizm-ui/ast/cb3-template-examples';
 
 export interface Cb3ToPrizmSchematicSchema {
   projectName: string;
