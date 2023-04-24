@@ -1,15 +1,14 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
+  IconDefs,
   PolymorphContent,
   PRIZM_HINT_DEFAULT_OPTIONS,
-  PrizmHintOptions,
-  PrizmOverlayOutsidePlacement,
-  PrizmContent,
-  IconDefs,
   PrizmAppearance,
   PrizmAppearanceType,
   PrizmDialogSize,
+  PrizmHintOptions,
+  PrizmOverlayOutsidePlacement,
   PrizmSize,
 } from '@prizm-ui/components';
 
@@ -55,6 +54,7 @@ export class HintComponent {
 
   public prizmAutoReposition = false;
   public prizmHintCanShow = true;
+  public prizmHintShow = false;
   public content = 'Тестовое содержимое';
 
   public readonly prizmHintDirectionVariants: ReadonlyArray<PrizmHintOptions['direction']> = Object.values(
@@ -68,6 +68,7 @@ export class HintComponent {
   public prizmHintShowDelay: number = PRIZM_HINT_DEFAULT_OPTIONS.showDelay;
 
   public prizmHintHideDelay: number = PRIZM_HINT_DEFAULT_OPTIONS.hideDelay;
+  public prizmHintContext = {};
 
   public prizmHintHost: HTMLElement = null;
 

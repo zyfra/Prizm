@@ -564,6 +564,14 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/spinner',
+    loadChildren: (): Promise<unknown> =>
+      import('./components/spinner/spinner.module').then(i => i.SpinnerModule),
+    data: {
+      title: 'Spinner',
+    },
+  },
+  {
     path: 'components/dialogs/dialog',
     loadChildren: (): Promise<unknown> =>
       import('./components/dialogs/dialog/dialog.module').then(i => i.DialogModule),
@@ -679,6 +687,14 @@ export const ROUTES: Routes = [
     loadChildren: (): Promise<unknown> => import('./tools/overlay/overlay.module').then(i => i.OverlayModule),
     data: {
       title: 'Overlay',
+    },
+  },
+  {
+    path: 'tools/cb3-to-prizm',
+    loadChildren: (): Promise<unknown> =>
+      import('./tools/cb3-to-prizm/cb3-to-prizm.module').then(i => i.Cb3ToPrizmModule),
+    data: {
+      title: 'CB3 to Prizm',
     },
   },
   {

@@ -1,6 +1,11 @@
 {
   "name": "@prizm-ui/ast",
-  "version": "1.0.0-beta.31",
+  "version": "1.0.0-beta.32",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "peerDependencies": {
     "@angular/common": "^12.2.0",
     "@angular/core": "^12.2.0"

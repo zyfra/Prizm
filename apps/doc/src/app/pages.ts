@@ -435,8 +435,14 @@ export const pages: PrizmOrderedDocPage = [
   {
     section: SectionNameEnum.components,
     title: 'Loader',
-    keywords: 'loader, spinner, лоадер, спиннер, загрузка',
+    keywords: 'loader, лоадер, загрузка',
     route: '/components/loader',
+  },
+  {
+    section: SectionNameEnum.components,
+    title: 'Spinner',
+    keywords: 'loader, spinner, лоадер, спиннер, загрузка',
+    route: '/components/spinner',
   },
   {
     section: SectionNameEnum.components,
@@ -616,6 +622,12 @@ export const pages: PrizmOrderedDocPage = [
     title: 'Overlay',
     keywords: 'overlay, оверлей, modal, модальное',
     route: '/tools/overlay',
+  },
+  {
+    section: SectionNameEnum.tools,
+    title: 'CB3 to prizm',
+    keywords: 'migrator, cb3, prizm, мигратор',
+    route: '/tools/cb3-to-prizm',
   },
   {
     section: SectionNameEnum.tools,
