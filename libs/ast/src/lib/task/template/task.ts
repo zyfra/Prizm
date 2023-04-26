@@ -117,8 +117,12 @@ export class PrizmTemplateTaskProcessor {
     action: TPrizmTemplateTaskAction,
     getCtx: (ctx: Pick<PrizmAstTemplateContext, 'task' | 'sourceNode'>) => PrizmAstTemplateContext
   ): PrizmTemplateNode {
-    const task = this.defaultTasks.find(task => task.type === action.type);
-    if (task) node = task.run(node, action.payload, getCtx({ task: task as any, sourceNode: node }));
+    try {
+      const task = this.defaultTasks.find(task => task.type === action.type);
+      if (task) node = task.run(node, action.payload, getCtx({ task: task as any, sourceNode: node }));
+    } catch (e) {
+      console.error('Warning:prizm-template-task:runAction', e);
+    }
     return node;
   }
 
@@ -130,7 +134,6 @@ export class PrizmTemplateTaskProcessor {
     let newNode: PrizmTemplateNode;
     if (this.nodeNeedToChange(node, task)) {
       newNode = { ...node };
-      const defaultTasks = this.defaultTasks;
       task.tasks.forEach(action => {
         newNode = this.runAction(newNode, action, ({ task, sourceNode }) =>
           this.generateContext(null, 'tasks', sourceNode, task as any, newContext)
@@ -148,13 +151,9 @@ export class PrizmTemplateTaskProcessor {
           )
             return;
           actions.forEach(action => {
-            const task = defaultTasks.find(task => task.type === action.type);
-            if (task)
-              newNode = task.run(
-                newNode,
-                action.payload,
-                this.generateContext(key, 'inputs', newNode, task as any, newContext)
-              );
+            newNode = this.runAction(newNode, action, ({ task, sourceNode }) =>
+              this.generateContext(key, 'inputs', sourceNode, task as any, newContext)
+            );
           });
         });
 
@@ -169,13 +168,9 @@ export class PrizmTemplateTaskProcessor {
             return;
 
           actions.forEach(action => {
-            const task = defaultTasks.find(task => task.type === action.type);
-            if (task)
-              newNode = task.run(
-                newNode,
-                action.payload,
-                this.generateContext(key, 'outputs', newNode, task as any, newContext)
-              );
+            newNode = this.runAction(newNode, action, ({ task, sourceNode }) =>
+              this.generateContext(key, 'outputs', sourceNode, task as any, newContext)
+            );
           });
         });
 
@@ -186,13 +181,9 @@ export class PrizmTemplateTaskProcessor {
 
     if (newNode)
       task.finishTasks?.forEach(action => {
-        const task = this.defaultTasks.find(task => task.type === action.type);
-        if (task)
-          node = task.run(
-            newNode,
-            action.payload,
-            this.generateContext(null, 'tasks', newNode, task as any, newContext)
-          );
+        newNode = this.runAction(newNode, action, ({ task, sourceNode }) =>
+          this.generateContext(null, 'tasks', sourceNode, task as any, newContext)
+        );
       });
 
     return node;

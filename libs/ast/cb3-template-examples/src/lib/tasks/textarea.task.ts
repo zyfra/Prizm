@@ -245,7 +245,6 @@ export const ZyfraTextareaTemplateTasks: PrizmTemplateTask[] = [
                   newNameOfFormControlName,
                   newNameOfDisabled,
                   newNameOfType,
-
                   newNameOfMaxLength,
                   newNameOfMinLength,
                   newNameOfRows,

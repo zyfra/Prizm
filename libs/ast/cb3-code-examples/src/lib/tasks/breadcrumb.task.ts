@@ -2,14 +2,14 @@
 import {
   PrizmAstAddImportsIfNeededCodeTask,
   PrizmAstAddImportsToNgModuleCodeTask,
-  PrizmAstCodeTask,
+  IPrizmAstCodeTask,
   prizmAstCreateCodeTaskBy,
 } from '@prizm-ui/ast/code';
 
-export const ZyfraBreadcrumbCodeTasks: PrizmAstCodeTask[] = [
+export const ZyfraBreadcrumbCodeTasks: IPrizmAstCodeTask[] = [
   prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
     importToAdd: '@prizm-ui/components',
-    namedImports: ['PrizmAccordionModule'],
+    namedImports: ['PrizmBreadcrumbsModule'],
     targetImport: '@digital-plant/zyfra-components',
     targetNamedImports: ['ZyfraBreadcrumbModule'],
     commentBeforeImport: 'PRIZM:MIGRATOR added new module for migrate from PrizmBreadcrumbsModule',

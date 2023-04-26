@@ -1,10 +1,15 @@
 module.exports = {
-  displayName: 'cb3-to-prizm',
+  displayName: 'plugin',
   preset: '../../jest.preset.js',
+  globals: {
+    'ts-jest': {
+      tsconfig: '<rootDir>/tsconfig.spec.json',
+    },
+  },
   testEnvironment: 'node',
   transform: {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/libs/cb3-to-prizm',
+  coverageDirectory: '../../coverage/libs/plugin',
 };

@@ -2,11 +2,11 @@
 import {
   PrizmAstAddImportsIfNeededCodeTask,
   PrizmAstAddImportsToNgModuleCodeTask,
-  PrizmAstCodeTask,
+  IPrizmAstCodeTask,
   prizmAstCreateCodeTaskBy,
 } from '@prizm-ui/ast/code';
 
-export const ZyfraCheckboxCodeTasks: PrizmAstCodeTask[] = [
+export const ZyfraCheckboxCodeTasks: IPrizmAstCodeTask[] = [
   prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
     importToAdd: '@prizm-ui/components',
     namedImports: ['PrizmCheckboxModule'],
