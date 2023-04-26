@@ -2,8 +2,8 @@ import { checkFilesExist, ensureNxProject, readJson, runNxCommandAsync, uniq } f
 describe('plugin e2e', () => {
   it('should create plugin', async () => {
     const plugin = uniq('plugin');
-    ensureNxProject('@prizm/plugin', 'dist/libs/plugin');
-    await runNxCommandAsync(`generate @prizm/plugin:plugin ${plugin}`);
+    ensureNxProject('@prizm-ui/nx-plugin', 'dist/libs/plugin');
+    await runNxCommandAsync(`generate @prizm-ui/nx-plugin:plugin ${plugin}`);
 
     const result = await runNxCommandAsync(`build ${plugin}`);
     expect(result.stdout).toContain('Executor ran');
@@ -12,8 +12,8 @@ describe('plugin e2e', () => {
   describe('--directory', () => {
     it('should create src in the specified directory', async () => {
       const plugin = uniq('plugin');
-      ensureNxProject('@prizm/plugin', 'dist/libs/plugin');
-      await runNxCommandAsync(`generate @prizm/plugin:plugin ${plugin} --directory subdir`);
+      ensureNxProject('@prizm-ui/nx-plugin', 'dist/libs/plugin');
+      await runNxCommandAsync(`generate @prizm-ui/nx-plugin:plugin ${plugin} --directory subdir`);
       expect(() => checkFilesExist(`libs/subdir/${plugin}/src/index.ts`)).not.toThrow();
     }, 120000);
   });
@@ -21,8 +21,8 @@ describe('plugin e2e', () => {
   describe('--tags', () => {
     it('should add tags to the project', async () => {
       const plugin = uniq('plugin');
-      ensureNxProject('@prizm/plugin', 'dist/libs/plugin');
-      await runNxCommandAsync(`generate @prizm/plugin:plugin ${plugin} --tags e2etag,e2ePackage`);
+      ensureNxProject('@prizm-ui/nx-plugin', 'dist/libs/plugin');
+      await runNxCommandAsync(`generate @prizm-ui/nx-plugin:plugin ${plugin} --tags e2etag,e2ePackage`);
       const project = readJson(`libs/${plugin}/project.json`);
       expect(project.tags).toEqual(['e2etag', 'e2ePackage']);
     }, 120000);
