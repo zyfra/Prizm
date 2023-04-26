@@ -2,11 +2,11 @@
 import {
   PrizmAstAddImportsIfNeededCodeTask,
   PrizmAstAddImportsToNgModuleCodeTask,
-  PrizmAstCodeTask,
+  IPrizmAstCodeTask,
   prizmAstCreateCodeTaskBy,
 } from '@prizm-ui/ast/code';
 
-export const ZyfraSpinnerCodeTasks: PrizmAstCodeTask[] = [
+export const ZyfraSpinnerCodeTasks: IPrizmAstCodeTask[] = [
   prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
     importToAdd: '@prizm-ui/components',
     namedImports: ['PrizmSpinnerModule'],

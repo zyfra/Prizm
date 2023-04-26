@@ -4,7 +4,7 @@ export interface PrizmAstCodeTaskAction<TYPE extends string> {
   type: TYPE;
   payload?: unknown;
 }
-export type PrizmAstCodeTask = {
+export type IPrizmAstCodeTask = {
   type: string;
   payload: unknown;
 };

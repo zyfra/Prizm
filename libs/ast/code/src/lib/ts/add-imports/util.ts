@@ -1,5 +1,17 @@
 import * as ts from 'typescript';
 
+/**
+ * Add import statements to a TypeScript source file if the target import does not exist.
+ *
+ * @param {ts.TransformationContext} context - The transformation context.
+ * @param {ts.SourceFile} sourceFile - The source file to process.
+ * @param {string[]} namedImports - The named imports to add.
+ * @param {string} importToAdd - The import path to add.
+ * @param {string} targetImport - The import path to check for existence.
+ * @param {string[]} [targetNamedImports] - The named imports to check for existence.
+ * @param {string} [commentBeforeImport] - The optional comment to add before the new import.
+ * @returns {ts.SourceFile} - The transformed source file with the new import added if needed.
+ */
 export function prizmAstAddImportIfNeeded(
   context: ts.TransformationContext,
   sourceFile: ts.SourceFile,
@@ -11,42 +23,97 @@ export function prizmAstAddImportIfNeeded(
 ): ts.SourceFile {
   let foundTargetImport = false;
   let lastImportIndex = -1;
+  let foundImportToAddIndex = -1;
 
-  // Ищем нужный импорт и запоминаем последний импорт
   sourceFile.forEachChild((node: ts.Node) => {
     if (ts.isImportDeclaration(node)) {
-      lastImportIndex = sourceFile.getChildren().indexOf(node);
+      const currentIndex = sourceFile.statements.indexOf(node);
+      lastImportIndex = currentIndex;
 
-      if (node.importClause && node.moduleSpecifier.getText()?.match(new RegExp(targetImport, 'g'))) {
-        foundTargetImport = true;
+      const moduleSpecifier = node.moduleSpecifier.getText(sourceFile);
 
-        if (
-          targetNamedImports &&
-          node.importClause.namedBindings &&
-          ts.isNamedImports(node.importClause.namedBindings)
-        ) {
-          const existingNamedImports = node.importClause.namedBindings.elements.map(element =>
-            element.name.getText()
+      if (moduleSpecifier.replace(/["']+/g, '').includes(targetImport.replace(/["']+/g, ''))) {
+        if (targetNamedImports?.length) {
+          const existingNamedImports =
+            (node.importClause?.namedBindings as ts.NamedImports)?.elements.map(element =>
+              element.name?.getText(sourceFile)
+            ) || [];
+
+          foundTargetImport = hasAllValues(existingNamedImports, targetNamedImports, v =>
+            v?.replace(/["']+/g, '')
+          );
+        } else {
+          foundTargetImport = true;
+        }
+      }
+
+      if (
+        foundTargetImport &&
+        moduleSpecifier.replace(/["']+/g, '').includes(importToAdd.replace(/["']+/g, ''))
+      ) {
+        foundImportToAddIndex = currentIndex;
+        const existingNamedImports =
+          (node.importClause?.namedBindings as ts.NamedImports)?.elements.map(element =>
+            element.name?.getText(sourceFile)
+          ) || [];
+
+        // Add missing namedImports to the existing importToAdd
+        const updatedNamedImports = Array.from(new Set([...existingNamedImports, ...namedImports]));
+
+        if (updatedNamedImports.length > existingNamedImports.length) {
+          const addedImports = updatedNamedImports.filter(name => !existingNamedImports.includes(name));
+          const importSpecifiers = updatedNamedImports.map(name => {
+            const specifier = createImportSpecifierWithFixBreakingChanges(context, name);
+
+            if (addedImports.includes(name)) {
+              ts.addSyntheticLeadingComment(
+                specifier,
+                ts.SyntaxKind.MultiLineCommentTrivia,
+                commentBeforeImport ?? 'new import',
+                true
+              );
+            }
+            return specifier;
+          });
+          const updatedImportDeclaration = context.factory.updateImportDeclaration(
+            node,
+            undefined,
+            undefined,
+            context.factory.updateImportClause(
+              node.importClause,
+              node.importClause.isTypeOnly,
+              undefined,
+              context.factory.createNamedImports(importSpecifiers)
+            ),
+            node.moduleSpecifier
           );
 
-          foundTargetImport = targetNamedImports.every(targetNamedImport =>
-            existingNamedImports.includes(targetNamedImport)
+          sourceFile = context.factory.updateSourceFile(
+            sourceFile,
+            sourceFile.statements.map((statement, index) => {
+              if (index === foundImportToAddIndex) {
+                return updatedImportDeclaration;
+              }
+              return statement;
+            })
           );
         }
       }
     }
   });
-
-  // Если найден нужный импорт и у него есть все targetNamedImports, добавляем импорт рядом с ним
-  if (foundTargetImport) {
+  if (foundTargetImport && foundImportToAddIndex === -1) {
     const importSpecifiers = namedImports.map(name =>
-      ts.createImportSpecifier(undefined, ts.createIdentifier(name))
+      createImportSpecifierWithFixBreakingChanges(context, name)
     );
-    const importDeclaration = ts.createImportDeclaration(
+    const importDeclaration = context.factory.createImportDeclaration(
       undefined,
       undefined,
-      ts.createImportClause(undefined, ts.createNamedImports(importSpecifiers)),
-      ts.createLiteral(importToAdd)
+      context.factory.createImportClause(
+        false,
+        undefined,
+        context.factory.createNamedImports(importSpecifiers)
+      ),
+      context.factory.createStringLiteral(importToAdd)
     );
 
     if (commentBeforeImport) {
@@ -69,9 +136,32 @@ export function prizmAstAddImportIfNeeded(
       importDeclaration,
       ...sourceFile.statements.slice(lastImportIndex + 1),
     ] as any;
-
-    return ts.factory.updateSourceFile(sourceFile, updatedStatements);
+    return context.factory.updateSourceFile(sourceFile, updatedStatements);
   }
 
   return sourceFile;
+}
+
+function hasAllValues(sourceArr: any[], arrToCheck: any[], transformFunc?: (value: any) => any): boolean {
+  if (transformFunc) {
+    sourceArr = sourceArr.map(transformFunc);
+    arrToCheck = arrToCheck.map(transformFunc);
+  }
+
+  for (let i = 0; i < arrToCheck.length; i++) {
+    if (!sourceArr.includes(arrToCheck[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function createImportSpecifierWithFixBreakingChanges(context: ts.TransformationContext, name: string) {
+  const version = parseFloat(ts.versionMajorMinor);
+  if (version < 4.5)
+    return context.factory.createImportSpecifier(undefined, context.factory.createIdentifier(name));
+  // FIX FOR BC https://github.com/microsoft/TypeScript/wiki/API-Breaking-Changes#typescript-45
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  else return context.factory.createImportSpecifier(false, undefined, context.factory.createIdentifier(name));
 }
