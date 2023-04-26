@@ -24,8 +24,8 @@ export class PrizmAccordionComponent implements AfterContentInit {
   @ContentChildren(PrizmAccordionItemComponent, { descendants: false })
   accordionItems: QueryList<PrizmAccordionItemComponent>;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_accordion';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_accordion';
 
   constructor(private readonly destroy$: PrizmDestroyService) {}
 

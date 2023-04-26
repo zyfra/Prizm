@@ -30,8 +30,8 @@ export class PrizmAccordionItemComponent implements OnDestroy {
   @Input() disabled = false;
   @Output() isExpandedChange = new EventEmitter<boolean>();
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_accordion_item';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_accordion_item';
 
   @ContentChild(AccordionContentDirective, { read: TemplateRef })
   public readonly accordionContent: TemplateRef<AccordionContentDirective>;

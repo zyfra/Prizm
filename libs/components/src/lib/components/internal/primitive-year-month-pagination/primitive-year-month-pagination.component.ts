@@ -45,8 +45,8 @@ export class PrizmPrimitiveYearMonthPaginationComponent implements PrizmWithOpti
   @Output()
   readonly monthClick = new EventEmitter<PrizmMonth>();
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_primitive_year_month_pagination';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_primitive_year_month_pagination';
 
   public get prevMonthDisabled(): boolean {
     return this.value.monthSameOrBefore?.(this.min);

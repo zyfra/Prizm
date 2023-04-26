@@ -10,6 +10,6 @@ export class GridItemComponent {
   @Input() public colPos = '0';
   @Input() public rowPos = '0';
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_grid_item';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_area';
 }

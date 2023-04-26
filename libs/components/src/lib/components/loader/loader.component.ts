@@ -43,8 +43,8 @@ export class PrizmLoaderComponent {
   @HostBinding('class._loading')
   loading = true;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_loader';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_loader';
 
   constructor(
     @Inject(DOCUMENT) private readonly documentRef: Document,

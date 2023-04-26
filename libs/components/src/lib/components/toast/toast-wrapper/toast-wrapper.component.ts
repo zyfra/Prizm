@@ -20,8 +20,8 @@ import { PrizmToastRef } from '../toast-ref';
 export class ToastWrapperComponent implements OnInit {
   @Input() ref!: PrizmToastRef;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_toast_wrapper';
+  @HostBinding('attr.data-test-id')
+  readonly testId = 'ui_toast_wrapper';
 
   @HostBinding('attr.id') get getRefId(): string {
     return 'prizm-toast-id' + this.ref.id;
