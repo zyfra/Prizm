@@ -56,8 +56,8 @@ export class PrizmCarouselComponent extends PrizmInputControl<any> implements Co
     }
   }
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_carousel';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui-area--carousel';
 
   /**
    * Required input

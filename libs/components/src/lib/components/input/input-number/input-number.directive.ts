@@ -11,8 +11,8 @@ export class PrizmInputNumberDirective {
   @Input() step = 1;
   @Input() value!: number;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_input_number';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_input_number';
 
   constructor(
     @Host() private readonly el: ElementRef<HTMLInputElement>,

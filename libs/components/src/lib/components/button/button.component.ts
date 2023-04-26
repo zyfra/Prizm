@@ -84,8 +84,9 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive implements Pr
     return this.focusable ? 0 : -1;
   }
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_button';
+  @Input()
+  @HostBinding('attr.data-testid')
+  readonly testId = this.hasIcon ? 'ui_button' : 'ui_icon_button';
 
   @HostListener('focusin', ['true'])
   @HostListener('focusout', ['false'])
@@ -142,5 +143,9 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive implements Pr
 
   get loaderSize(): PrizmSize {
     return this.size === 'l' || this.size === 'xl' ? 'm' : 's';
+  }
+
+  get hasIcon(): boolean {
+    return !!(this.icon || this.iconRight);
   }
 }

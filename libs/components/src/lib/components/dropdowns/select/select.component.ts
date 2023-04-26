@@ -144,8 +144,8 @@ export class PrizmSelectComponent<T>
   @prizmDefaultProp()
   outer: boolean = this.options.outer;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_select';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_select';
 
   @Output()
   public readonly searchChange = new EventEmitter<string | null>();

@@ -48,8 +48,8 @@ export class PrizmCheckboxComponent implements ControlValueAccessor, OnDestroy, 
 
   @Output() changed = new EventEmitter<boolean>();
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_checkbox';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_checkbox';
 
   changeFn: (value: boolean) => void;
   touchedFn: () => void;

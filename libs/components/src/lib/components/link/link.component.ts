@@ -66,8 +66,8 @@ export class PrizmLinkComponent implements PrizmFocusableElementAccessor {
   @HostBinding(`class._focus-visible`)
   focusVisible = false;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_link';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_link';
 
   readonly focusedChange = merge(
     prizmTypedFromEvent(this.elementRef.nativeElement, `focusin`).pipe(mapTo(true)),

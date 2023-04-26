@@ -23,8 +23,8 @@ export class PanelComponent {
   @Output() backClick: EventEmitter<void> = new EventEmitter<void>();
   @ViewChild('headerElement', { static: true }) public headerRef: ElementRef;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_panel';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_panel';
 
   public back(): void {
     this.backClick.emit();

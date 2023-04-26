@@ -12,7 +12,7 @@ import { PRIZM_TREE_CONTROLLER } from '../../misc/tree.tokens';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmTreeItemContentComponent {
-  @HostBinding('attr.testId')
+  @HostBinding('attr.data-testid')
   readonly testId = 'prizm_tree_item_content';
 
   constructor(

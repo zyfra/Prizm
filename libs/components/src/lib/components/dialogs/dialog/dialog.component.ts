@@ -45,8 +45,8 @@ export class PrizmDialogComponent<O = unknown, DATA = unknown> {
     return this.animation;
   }
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_dialog';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_overlay';
 
   @HostBinding('style.width')
   readonly width = '100%';

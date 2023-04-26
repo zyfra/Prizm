@@ -49,8 +49,8 @@ export class PrizmSidebarComponent<DATA = unknown> {
     return this.animation;
   }
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_sidebar';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_area--sidebar';
 
   private readonly animation = {
     value: '',

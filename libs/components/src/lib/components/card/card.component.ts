@@ -17,6 +17,6 @@ export class PrizmCardComponent {
     return prizmGetShadow(this.shadow);
   }
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_card';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_card';
 }

@@ -47,8 +47,8 @@ export class PrizmInputDateMultiComponent implements OnInit {
   @prizmDefaultProp()
   currentIdx = 0;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_input_date_multi';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_input_date_multi';
 
   public open = false;
 

@@ -20,8 +20,8 @@ export class PrizmInputIconButtonComponent {
   @HostBinding('attr.type')
   type: 'button' | 'reset' | 'submit' = 'button';
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_input_icon_button';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_input_icon_button';
 
   get tabindex(): number {
     return this.interactive ? 0 : -1;

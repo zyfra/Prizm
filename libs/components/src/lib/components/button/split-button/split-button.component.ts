@@ -50,8 +50,8 @@ export class PrizmSplitButtonComponent {
   @Output()
   clickButton = new EventEmitter<void>();
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_split_button';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_split_button';
 
   @ViewChild('buttonRef', { static: true, read: ElementRef }) buttonEl: ElementRef;
   @ViewChild('iconButtonRef', { static: true, read: ElementRef }) iconButtonEl: ElementRef;
