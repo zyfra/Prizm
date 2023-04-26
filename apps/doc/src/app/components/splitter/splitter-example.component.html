@@ -20,8 +20,8 @@
       <prizm-splitter-limit-size-example></prizm-splitter-limit-size-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="size-setting" heading="Size setting" [content]="sizeSetting">
-      <prizm-splitter-size-setting-example></prizm-splitter-size-setting-example>
+    <prizm-doc-example id="areas-control" heading="Areas control" [content]="areasControl">
+      <prizm-splitter-areas-control-example></prizm-splitter-areas-control-example>
     </prizm-doc-example>
   </ng-template>
 
@@ -29,49 +29,59 @@
     <prizm-doc-demo>
       <prizm-splitter
         #element
-        [ngStyle]="{ height: '400px' }"
-        [orientation]="orientation"
         [prizmDocHostElement]="element"
+        [ngStyle]="{ height: '250px' }"
+        [orientation]="orientation"
+        key="PrizmSplitterComponent"
       >
-        <prizm-splitter-area [size]="30">
+        <prizm-splitter-area
+          [size]="30"
+          #splitterArea
+          key="PrizmSplitterAreaComponent"
+          [prizmDocHostElement]="splitterArea"
+        >
           <div class="area area--1">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
-            provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
-            nulla recusandae impedit beatae. Nemo doloremque inventore harum, pariatur dignissimos molestias
-            id? Sint quisquam hic officiis commodi pariatur quod iure recusandae molestias, corporis nam in
-            voluptates excepturi omnis saepe suscipit nihil at quos officia fuga rem quaerat ratione nesciunt
-            qui! Corporis quisquam esse eligendi at nam voluptatibus, enim molestias omnis? Sunt voluptatibus
-            laborum quia id consequuntur, in delectus repellat impedit suscipit saepe facilis facere libero
-            rem voluptatem neque officiis, nihil dolorum quisquam aperiam blanditiis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo totam ducimus sed cum, dignissimos
+            quos numquam delectus dolorum nihil deserunt in culpa odit maxime molestiae iste temporibus
+            quaerat est vitae labore illum a earum rerum alias. Reprehenderit vero nostrum iure assumenda,
+            corrupti laboriosam tenetur expedita repellendus earum perspiciatis temporibus corporis at
+            architecto minima, nihil culpa vitae autem optio dolorem quam soluta impedit? Quaerat eaque
+            nesciunt aliquid, optio laborum quod distinctio nobis tempora hic ratione accusamus quia eius
+            magni odio iusto. Aliquam facilis, molestias et quae adipisci vero aspernatur eaque tempora non
+            minima porro minus voluptatum ad fuga natus beatae nostrum.
           </div>
         </prizm-splitter-area>
+
         <prizm-splitter-area [size]="40">
           <div class="area area--2">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
-            provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
-            nulla recusandae impedit beatae. Nemo doloremque inventore harum, pariatur dignissimos molestias
-            id? Sint quisquam hic officiis commodi pariatur quod iure recusandae molestias, corporis nam in
-            voluptates excepturi omnis saepe suscipit nihil at quos officia fuga rem quaerat ratione nesciunt
-            qui! Corporis quisquam esse eligendi at nam voluptatibus, enim molestias omnis? Sunt voluptatibus
-            laborum quia id consequuntur, in delectus repellat impedit suscipit saepe facilis facere libero
-            rem voluptatem neque officiis, nihil dolorum quisquam aperiam blanditiis.
+            Cum ea temporibus sequi delectus nesciunt ad adipisci aspernatur nulla esse maiores cupiditate
+            consequuntur, doloribus vitae nam deleniti magnam animi molestiae architecto ab sed? Sequi
+            voluptates, earum neque dolore sed atque minima aspernatur iste hic id doloremque nostrum autem
+            esse delectus voluptatem deserunt reprehenderit voluptatibus vitae quod explicabo. Officiis
+            eligendi tempore et perspiciatis accusantium! Maiores, error? Nulla earum similique, odit impedit
+            nisi sint tempora, voluptatem molestias animi illo praesentium doloribus quasi molestiae. Illum
+            pariatur distinctio consequuntur dolores praesentium ratione natus quae nemo aperiam temporibus.
           </div>
         </prizm-splitter-area>
+
         <prizm-splitter-area [size]="30">
           <div class="area area--3">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
-            provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel
-            nulla recusandae impedit beatae. Nemo doloremque inventore harum, pariatur dignissimos molestias
-            id? Sint quisquam hic officiis commodi pariatur quod iure recusandae molestias, corporis nam in
-            voluptates excepturi omnis saepe suscipit nihil at quos officia fuga rem quaerat ratione nesciunt
-            qui! Corporis quisquam esse eligendi at nam voluptatibus, enim molestias omnis? Sunt voluptatibus
-            laborum quia id consequuntur, in delectus repellat impedit suscipit saepe facilis facere libero
-            rem voluptatem neque officiis, nihil dolorum quisquam aperiam blanditiis.
+            Accusantium perferendis laborum sunt numquam porro quaerat, neque beatae vero quod officiis
+            reprehenderit necessitatibus eligendi molestias? Nisi eum eos in cupiditate minima rem, quia
+            tenetur aliquid ipsa quisquam doloremque atque quod laboriosam praesentium ut magni recusandae,
+            saepe et quasi. Magnam, dignissimos saepe. Magnam reprehenderit similique dicta, earum, optio
+            porro possimus voluptates harum explicabo odit saepe repudiandae blanditiis ut molestias nemo
+            pariatur? Tempore sunt distinctio, corporis inventore cupiditate excepturi vitae cumque fugit
+            temporibus animi odit quas veritatis vero eveniet officiis quo dignissimos cum. Quia corporis
+            laborum atque. Velit officiis tenetur reprehenderit. Earum quisquam debitis voluptate laborum
+            aliquam eum veniam laboriosam suscipit eligendi eos voluptatem dolor officiis ut incidunt
+            explicabo quibusdam tempore commodi sequi molestias, corrupti inventore. Illum!
           </div>
         </prizm-splitter-area>
       </prizm-splitter>
     </prizm-doc-demo>
-    <prizm-doc-documentation>
+
+    <prizm-doc-documentation heading="PrizmSplitterComponent" hostComponentKey="PrizmSplitterComponent">
       <ng-template
         documentationPropertyName="orientation"
         documentationPropertyType="string"
@@ -102,6 +112,36 @@
         documentationPropertyMode="output"
       >
         AreasSplitEnd
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation
+      heading="PrizmSplitterAreaComponent"
+      hostComponentKey="PrizmSplitterAreaComponent"
+      [showValues]="false"
+    >
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Area size in %
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="minSize"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Area min size in %
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="areaMinSize"
+        documentationPropertyType="void"
+        documentationPropertyMode="output"
+      >
+        areaMinSize
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>
