@@ -3,8 +3,10 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
+  EventEmitter,
   HostBinding,
   Input,
+  Output,
 } from '@angular/core';
 
 import { PrizmSplitterService } from '../splitter.service';
@@ -17,22 +19,19 @@ import { PrizmSplitterService } from '../splitter.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmSplitterAreaComponent {
-  private static nextId = 0;
-
-  @HostBinding('style.order') order: number;
-  @HostBinding() id = `prizm-splitter-area-${PrizmSplitterAreaComponent.nextId++}`;
-
   private _size: number | null;
   @Input() set size(value: number | null) {
-    this._size = value;
-    this.splitterService.areaChange$$.next(this);
+    this.setSize(value);
+    this.splitterService.areaInputSizeChange$$.next(this);
   }
   get size(): number | null {
     return this._size;
   }
 
-  @Input() minSize: number | null = 0;
+  @Input() minSize = 0;
+  @Output() areaMinSize = new EventEmitter();
 
+  @HostBinding('style.order') order: number;
   @HostBinding('style.flex-basis') currentSize: string;
 
   public hide(): void {
@@ -52,17 +51,17 @@ export class PrizmSplitterAreaComponent {
       this.hide();
     } else {
       this.show();
-      const currentSize = `calc(${this._size}% - ${guttersSize}px`;
-      this.currentSize = currentSize;
+      this.currentSize = `calc(${this._size}% - ${guttersSize}px)`;
     }
   }
 
-  public setCurrentSizeFromReal(): void {
-    this.currentSize = this.realSize + '%';
+  public setSize(size: number): void {
+    this._size = size;
   }
 
-  sizeInPx: number;
-  @HostBinding('attr.realSize') realSize: number;
+  public setCurrentSizeFromReal(realSize: number): void {
+    this.currentSize = realSize + '%';
+  }
 
   constructor(
     public elementRef: ElementRef<HTMLElement>,

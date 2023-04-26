@@ -1,9 +1,10 @@
-<div #container class="container container--{{ orientation }}" (waResizeObserver)="onResize($event)">
+<div #container class="container container--{{ orientation }}">
   <prizm-splitter-gutter
     *ngFor="let gutter of guttersData"
     [areaBefore]="gutter.areaBefore"
     [areaAfter]="gutter.areaAfter"
     [order]="gutter.order"
+    [orientation]="orientation"
   >
   </prizm-splitter-gutter>
   <ng-content select="prizm-splitter-area"></ng-content>
