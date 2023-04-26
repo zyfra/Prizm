@@ -1,3 +1,5 @@
+import { PrizmPureException } from '../exceptions/pure.exception';
+
 /**
  * Implements lazy initialization for getter or memoization of a function call similar to pure {@link: Pipe}.
  * Replaces getter with its calculated value upon first call or keeps track of last call arguments and returned
@@ -7,8 +9,6 @@
  *
  * CAUTION: `this` is not available inside such functions/getters, they must be pure.
  */
-import { PrizmPureException } from '../exceptions/pure.exception';
-
 export function prizmPure<T>(
   // eslint-disable-next-line @typescript-eslint/ban-types
   _target: object,
