@@ -47,7 +47,7 @@ Dependencies:
 ```
 ➜ npm ls @prizm-ui/components
 
-@prizm-ui/components 1.0.0-beta.33
+@prizm-ui/components 1.0.0-beta.34
 ```
 
 ```

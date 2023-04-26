@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/sdk",
-  "version": "1.0.0-beta.33",
+  "version": "1.0.0-beta.34",
   "license": "MIT",
   "husky": {
     "hooks": {
@@ -152,6 +152,6 @@
     "typescript": "~4.3.5"
   },
   "volta": {
-    "node": "16.20.0"
+    "node": "14.21.3"
   }
 }

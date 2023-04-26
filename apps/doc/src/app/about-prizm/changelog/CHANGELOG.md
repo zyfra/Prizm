@@ -2,13 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.34](https://github.com/zyfra/Prizm) (27-04-2023)
+
+### Features
+
+- feat(plugin): new @prizm-ui/nx-plugin with all our generators and executors for manipulate code
+- feat(doc): new page with info how to use our migrator
+- feat(ast): now our code manipulator support changing in new ts version >4.7
+
+### BREAKING CHANGES
+
+- feat(testid): update data-testid attributes by RFC [MR](https://github.com/zyfra/Prizm/pull/206)
+- feat(cb3-to-prizm): remove @prizm-ui/cb3-to-prizm lib, move to @prizm-ui/nx-plugin
+
 ## [1.0.0-beta.33](https://github.com/zyfra/Prizm) (24-04-2023)
 
 ### Features
 
 - feat(cb3-to-prizm): add textarea support to migrate
 - feat(doc/ast): add example with migration of textarea
--
 
 ### BUG FIXES
 
