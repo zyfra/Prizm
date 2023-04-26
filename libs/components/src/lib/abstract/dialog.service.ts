@@ -12,8 +12,8 @@ import {
 } from '../modules/overlay';
 import { takeUntil } from 'rxjs/operators';
 import { PrizmOverscrollMode } from '../directives/overscroll/overscroll.model';
-import { prizmGenerateId } from '../util';
 import { PrizmOverlayConfig } from '../modules/overlay/models';
+import { prizmGenerateId } from '@prizm-ui/helpers';
 
 @Injectable()
 export abstract class AbstractPrizmDialogService<

@@ -9,6 +9,14 @@ export enum PrizmCronUiBaseType {
 }
 
 export type PrizmCronTabItem = 'second' | 'minute' | 'hour' | 'day' | 'month' | 'year';
+export type PrizmCronTabSpecifiedList = {
+  second?: PrizmCronUiBaseType[];
+  minute?: PrizmCronUiBaseType[];
+  hour?: PrizmCronUiBaseType[];
+  day?: PrizmCronUiDayType[];
+  month?: PrizmCronUiBaseType[];
+  year?: PrizmCronUiBaseType[];
+};
 
 export type PrizmCronPeriod = {
   start: [PrizmDay | null, PrizmTime | null] | null;

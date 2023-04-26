@@ -11,7 +11,7 @@ import {
   Self,
   ViewChild,
 } from '@angular/core';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, PrizmFormControlHelpers } from '@prizm-ui/helpers';
 import { FormControl, NgControl } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
 import { PRIZM_MULTI_SELECT_OPTIONS, PrizmMultiSelectOptions } from './multi-select.options';
@@ -20,7 +20,7 @@ import {
   PrizmFocusableElementAccessor,
   PrizmNativeFocusableElement,
 } from '../../../types';
-import { PrizmInputSize } from '../../input';
+import { PrizmInputSize, PrizmInputTextComponent } from '../../input';
 import { AbstractPrizmControl } from '../../../abstract/control';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
 import { debounceTime, delay, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
@@ -141,6 +141,7 @@ export class PrizmMultiSelectComponent<T>
   @HostBinding('attr.testId')
   readonly testId = 'prizm_multi_select';
 
+  public inputTextElement: PrizmInputTextComponent | null;
   public readonly defaultIcon = 'chevrons-dropdown';
   readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
@@ -155,7 +156,7 @@ export class PrizmMultiSelectComponent<T>
     switchMap(() =>
       combineLatest([
         this.searchInputControl.valueChanges.pipe(startWith('')),
-        this.valChange.pipe(startWith(this.value)),
+        this.internalValue$.pipe(debounceTime(0), startWith(this.value)),
       ])
     ),
     switchMap(([searchValue, selectedItems]: [string, T[]]) => {
@@ -195,21 +196,23 @@ export class PrizmMultiSelectComponent<T>
     })
   );
 
-  readonly selectedItems$: Observable<T[]> = this.valChange.pipe(delay(0), startWith(this.value)).pipe(
-    switchMap(() => {
-      const selectedItems = this.value;
-      return this.items$.pipe(
-        map(items => {
-          return (
-            items?.filter(item =>
-              (selectedItems ?? []).find(selectedItem => this.identityMatcher(selectedItem, item))
-            ) ?? []
-          );
-        })
-      );
-    }),
-    shareReplay(1)
-  );
+  readonly selectedItems$: Observable<T[]> = this.internalValue$
+    .pipe(debounceTime(0), startWith(this.value))
+    .pipe(
+      switchMap(() => {
+        const selectedItems = this.value;
+        return this.items$.pipe(
+          map(items => {
+            return (
+              items?.filter(item =>
+                (selectedItems ?? []).find(selectedItem => this.identityMatcher(selectedItem, item))
+              ) ?? []
+            );
+          })
+        );
+      }),
+      shareReplay(1)
+    );
 
   readonly chipsSet = new Map<string, T>();
   readonly selectedItemsChips$: Observable<string[]> = this.selectedItems$.pipe(
@@ -249,9 +252,15 @@ export class PrizmMultiSelectComponent<T>
   override ngOnInit(): void {
     super.ngOnInit();
     this.initControlStatusChangerIfExist();
+    this.initControlValueChangerIfExist();
+    this.initControlValidatorsIfExist();
     this.selectedItems$
       .pipe(
-        tap(items => this.chipsControl.setValue(items as any, { emitEvent: true })),
+        tap(items => {
+          this.chipsControl.setValue(items as any, { emitEvent: true });
+          // TODO remove after add update inputs
+          if (this.inputTextElement) this.inputTextElement.markAsTouched();
+        }),
         tap(() => this.cdRef.markForCheck()),
         takeUntil(this.destroy$)
       )
@@ -259,15 +268,29 @@ export class PrizmMultiSelectComponent<T>
   }
 
   private initControlStatusChangerIfExist(): void {
-    this.control?.statusChanges
-      .pipe(
-        tap(value => {
-          if (value === 'DISABLED') this.requiredInputControl.disable();
-          else if (!this.requiredInputControl.enabled) this.requiredInputControl.enable();
-        }),
-        takeUntil(this.destroy$)
+    if (this.control instanceof FormControl)
+      PrizmFormControlHelpers.syncStates(this.control as FormControl, false, this.requiredInputControl)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe();
+  }
+
+  private initControlValueChangerIfExist(): void {
+    if (this.control instanceof FormControl)
+      PrizmFormControlHelpers.syncValues(
+        this.control as FormControl,
+        i => i?.length,
+        null,
+        this.requiredInputControl
       )
-      .subscribe();
+        .pipe(takeUntil(this.destroy$))
+        .subscribe();
+  }
+
+  private initControlValidatorsIfExist(): void {
+    if (this.control instanceof FormControl)
+      PrizmFormControlHelpers.syncAllValidators(this.control as FormControl, false, this.requiredInputControl)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe();
   }
 
   get nativeFocusableElement(): PrizmNativeFocusableElement | null {
@@ -308,7 +331,9 @@ export class PrizmMultiSelectComponent<T>
   public safeOpenModal(): void {
     const inputElement = this.focusableElement.nativeElement;
     this.open =
-      !this.open && this.interactive && inputElement && (this.outer || prizmIsNativeFocused(inputElement));
+      !this.open &&
+      this.interactive &&
+      !!inputElement; /*&& (this.outer || prizmIsNativeFocused(inputElement));*/
     this.changeDetectorRef.markForCheck();
   }
 

@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { PrizmCronUiYearState } from '../../cron-ui-year.state';
+import { PrizmCronUiBaseType } from '../../model';
 
 @Component({
   selector: 'prizm-cron-year',
@@ -8,6 +9,8 @@ import { PrizmCronUiYearState } from '../../cron-ui-year.state';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmCronYearComponent {
+  @Input() specifiedList: PrizmCronUiBaseType[] = [];
+
   constructor(public readonly cronUiState: PrizmCronUiYearState) {}
 
   public join(str: string[]): string {

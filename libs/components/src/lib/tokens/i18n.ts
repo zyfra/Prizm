@@ -1,7 +1,20 @@
 import { InjectionToken } from '@angular/core';
-import { prizmExtractI18n } from '../i18n/tools';
 import { Observable } from 'rxjs';
 import { PrizmDateMode } from '../types/date-mode';
+import { prizmExtractI18n, PrizmLanguageCron, PrizmLanguageFileUpload } from '@prizm-ui/i18n';
+
+export const PRIZM_FILE_UPLOAD = new InjectionToken<Observable<PrizmLanguageFileUpload['fileUpload']>>(
+  `Localized for file upload component`,
+  {
+    factory: prizmExtractI18n(`fileUpload`),
+  }
+);
+export const PRIZM_CRON = new InjectionToken<Observable<PrizmLanguageCron['cron']>>(
+  `Localized for cron component`,
+  {
+    factory: prizmExtractI18n(`cron`),
+  }
+);
 
 export const PRIZM_MONTHS = new InjectionToken(`Localized months names`, {
   factory: prizmExtractI18n(`months`),

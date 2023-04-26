@@ -77,19 +77,23 @@
         font-weight: 600;
         color: var(--prizm-grey-g7-g7);
 
-        &:hover {
+        &:not([disabled]):hover {
           background: var(--prizm-grey-g12-g2);
           color: var(--prizm-exeptions-g1-b1);
 
           transition: 300ms;
         }
 
-        &:focus,
+        &:not([disabled]):focus,
         &_selected {
           background: var(--prizm-lite-b130-20);
           color: var(--prizm-exeptions-g1-b1);
 
           transition: 300ms;
+        }
+        &_disabled {
+          cursor: not-allowed;
+          color: var(--prizm-grey-g10-g4);
         }
       }
 
@@ -102,6 +106,10 @@
         justify-content: center;
 
         color: var(--prizm-grey-g7-g7);
+        &_disabled {
+          cursor: not-allowed;
+          color: var(--prizm-grey-g10-g4);
+        }
       }
 
       .control {
@@ -134,7 +142,6 @@
 
         &:disabled {
           color: var(--prizm-grey-g10-g4);
-
           cursor: not-allowed;
         }
       }
@@ -146,6 +153,11 @@
         color: var(--prizm-index-plan);
         text-decoration: underline var(--prizm-index-plan);
         cursor: pointer;
+        &_disabled {
+          cursor: not-allowed;
+          text-decoration-color: var(--prizm-grey-g10-g4);
+          color: var(--prizm-grey-g10-g4);
+        }
       }
     }
   }

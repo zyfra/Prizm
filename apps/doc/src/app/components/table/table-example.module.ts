@@ -13,6 +13,7 @@ import {
   PrizmPaginatorModule,
   PrizmPanelModule,
   PrizmScrollbarModule,
+  PrizmStickyModule,
   PrizmTableModule,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,11 +28,18 @@ import { TableBorderStyleExampleComponent } from './examples/table-border-style-
 import { TableSelectableMetaExampleComponent } from './examples/table-selectable-meta/table-selectable-meta-example.component';
 import { TableSortExampleComponent } from './examples/table-sort-example/table-sort-example.component';
 import { TableServerSortExampleComponent } from './examples/table-server-sort-example/table-server-sort-example.component';
+import { TableTreeExampleComponent } from './examples/table-tree-example/table-tree-example.component';
+import { TableEmptyExampleComponent } from './examples/table-empty-example/table-empty-example.component';
+import { TableLoadingExampleComponent } from './examples/table-loading-example/table-loading-example.component';
+import { TableStickyExampleComponent } from './examples/table-sticky-example/table-sticky-example.component';
+import { TableDataSourceExampleComponent } from './examples/table-data-source-example/table-data-source-example.component';
 
 @NgModule({
   declarations: [
     TableExampleComponent,
     TableBasicExampleComponent,
+    TableLoadingExampleComponent,
+    TableEmptyExampleComponent,
     TableSelectableExampleComponent,
     TableEditableColExampleComponent,
     TableEditableRowExampleComponent,
@@ -39,14 +47,18 @@ import { TableServerSortExampleComponent } from './examples/table-server-sort-ex
     TableStatusExampleComponent,
     TableSortExampleComponent,
     TableServerSortExampleComponent,
+    TableDataSourceExampleComponent,
     TableRowGroupExampleComponent,
     TableSearchExampleComponent,
     TableBorderStyleExampleComponent,
+    TableTreeExampleComponent,
+    TableStickyExampleComponent,
     TableSelectableMetaExampleComponent,
   ],
   imports: [
     CommonModule,
     PrizmAddonDocModule,
+    PrizmStickyModule,
     PrizmTableModule,
     RouterModule.forChild(prizmDocGenerateRoutes(TableExampleComponent)),
     FormsModule,

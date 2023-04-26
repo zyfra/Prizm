@@ -32,5 +32,6 @@ export abstract class PrizmInputControl<T> {
   abstract nativeElementType: string | undefined;
 
   abstract hasClearButton: boolean;
+  hidden = false;
   public abstract clear(): void;
 }

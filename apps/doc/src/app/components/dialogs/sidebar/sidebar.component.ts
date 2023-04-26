@@ -11,7 +11,9 @@ import {
   PrizmOverlayInsidePlacement,
   PrizmOverscrollMode,
   PrizmSidebarOptions,
+  PrizmSidebarResultDefaultType,
   PrizmSidebarService,
+  PrizmSize,
 } from '@prizm-ui/components';
 import { generatePolymorphVariants } from '../../../util';
 import { prizmPure } from '@prizm-ui/core';
@@ -34,9 +36,12 @@ export class SidebarComponent {
   public hoveredChange = false;
   public focusVisibleChange = false;
 
-  iconVariants: ReadonlyArray<PrizmContent> = ['', ...IconDefs.reduce((a, c) => a.concat(c.data), [])];
-  icon: PrizmContent = this.iconVariants[0];
-  iconRight: PrizmContent = this.iconVariants[0];
+  iconVariants: ReadonlyArray<PolymorphContent<{ size: PrizmSize }>> = [
+    '',
+    ...IconDefs.reduce((a, c) => a.concat(c.data), []),
+  ];
+  icon: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
+  iconRight: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
   appearanceVariants: ReadonlyArray<PrizmAppearance> = [
     'primary',
     'secondary',
@@ -56,21 +61,30 @@ export class SidebarComponent {
   public positionVariants: any = ['t', 'b', 'l', 'r'];
   public position: PrizmOverlayInsidePlacement = PrizmOverlayInsidePlacement.LEFT;
   public backdrop = false;
+  public dismissible = false;
   public height = 'auto';
   public width = '500px';
   public closeWord = 'Продолжить';
   public sizeVariants: PrizmDialogSize[] = ['m', 'l'];
   public size: PrizmDialogSize = 'm';
   public closeable = true;
+  public hideFooter = false;
   public header = 'Static_title_h3 - 16 Medium';
   public content = 'Базовый текст для диалога';
-  public footer: PolymorphContent<PrizmBaseDialogContext<PrizmSidebarOptions<any>>> = null;
+  public footer: PolymorphContent<
+    PrizmBaseDialogContext<PrizmSidebarResultDefaultType, PrizmSidebarOptions<unknown>>
+  > = null;
 
   public readonly exampleModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   public readonly exampleBasic: TuiDocExample = {
     TypeScript: import('./examples/base/base.component.ts?raw'),
     HTML: import('./examples/base/base.component.html?raw'),
+  };
+
+  public readonly exampleHiddenFooter: TuiDocExample = {
+    TypeScript: import('./examples/hidden-footer/hidden-footer.component.ts?raw'),
+    HTML: import('./examples/hidden-footer/hidden-footer.component.html?raw'),
   };
 
   public readonly exampleTopBottom: TuiDocExample = {
@@ -90,9 +104,12 @@ export class SidebarComponent {
       .open(this.content, {
         closeable: this.closeable,
         backdrop: this.backdrop,
+        footer: this.footer,
+        dismissible: this.dismissible,
         header: this.header,
         width: this.width,
         height: this.height,
+        hideFooter: this.hideFooter,
         overscroll: this.overscroll,
         position: this.position,
         closeWord: this.closeWord,

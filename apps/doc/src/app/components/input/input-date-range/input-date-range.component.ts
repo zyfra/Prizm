@@ -30,6 +30,9 @@ export class InputDateRangeComponent {
   public size: PrizmInputSize = 'm';
   public outer = false;
 
+  forceClear: boolean | null = null;
+  forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {
@@ -40,6 +43,11 @@ export class InputDateRangeComponent {
   readonly exampleDisabled: TuiDocExample = {
     TypeScript: import('./examples/disabled/input-date-range-disabled-example.component.ts?raw'),
     HTML: import('./examples/disabled/input-date-range-disabled-example.component.html?raw'),
+  };
+
+  readonly exampleListDate: TuiDocExample = {
+    TypeScript: import('./examples/list/input-date-range-list-example.component.ts?raw'),
+    HTML: import('./examples/list/input-date-range-list-example.component.html?raw'),
   };
 
   readonly exampleNativeDate: TuiDocExample = {

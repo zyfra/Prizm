@@ -115,7 +115,6 @@ export class PrizmSplitterComponent implements AfterViewInit, AfterContentInit {
                     .filter(area => area.order < gutter.order)
                     .map(area => this.getAreaRealSizes(area, containerSize, guttersGapInPercent));
 
-                  console.log(areasBefore[0]);
                   const areasAfter = this.splitterAreaQueryList
                     .filter(area => area.order >= gutter.order)
                     .map(area => this.getAreaRealSizes(area, containerSize, guttersGapInPercent));

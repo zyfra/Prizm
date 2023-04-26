@@ -39,19 +39,34 @@
       (dayClick)="onDayClick($event)"
     >
     </prizm-calendar>
-    <prizm-data-list role="menu" automation-id="prizm-calendar-range__menu" class="z-menu">
+    <prizm-data-list
+      [style.--prizm-data-list-border]="0"
+      [style.--prizm-data-list-border-left]="'1px solid var(--prizm-border-widget)'"
+      role="menu"
+      automation-id="prizm-calendar-range__menu"
+      class="z-menu"
+    >
       <button
         *ngFor="let item of items | prizmMapper : mapper : min : max : minLength : (otherDateText$ | async)"
-        prizmOption
         prizmPreventDefault="mousedown"
         role="menuitemradio"
+        prizmButton
+        class="button-list"
+        appearanceType="ghost"
+        appearance="primary"
         automation-id="prizm-calendar-range__menu__item"
         [attr.aria-checked]="isItemActive(item)"
         (keydown.enter.prevent)="onItemSelect(item)"
         (keydown.space.prevent)="onItemSelect(item)"
         (click)="onItemSelect(item)"
       >
-        {{ item }}
+        <div class="btn-content">
+          <span>{{ item }}</span>
+          <prizm-icon
+            [style.visibility]="isItemActive(item) ? '' : 'hidden'"
+            iconClass="selection-check-simple"
+          ></prizm-icon>
+        </div>
       </button>
     </prizm-data-list>
   </div>

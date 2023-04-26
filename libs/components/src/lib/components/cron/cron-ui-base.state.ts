@@ -1,4 +1,4 @@
-import { getArrWithStringNumbers, getCarousel } from './util';
+import { canShowCronListItem, getArrWithStringNumbers, getCarousel } from './util';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { distinctUntilChanged, filter, first, map, takeUntil, tap } from 'rxjs/operators';
@@ -29,6 +29,7 @@ export abstract class PrizmCronUiBaseState<
 
   abstract readonly cron: PrizmCronService;
   abstract readonly destroy$: PrizmDestroyService;
+  readonly canShowCronListItem = canShowCronListItem;
 
   constructor(
     public readonly current$: Observable<string>,

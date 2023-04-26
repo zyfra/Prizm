@@ -47,12 +47,32 @@
       <prizm-table-server-sort-example></prizm-table-server-sort-example>
     </prizm-doc-example>
 
+    <prizm-doc-example
+      id="datasource"
+      heading="Sort, Pagination, Filtering"
+      [content]="exampleDataSourceTable"
+    >
+      <prizm-table-data-source-example></prizm-table-data-source-example>
+    </prizm-doc-example>
+
     <prizm-doc-example id="editableCol" heading="Editable col" [content]="exampleEditableColTable">
       <prizm-table-editable-col-example></prizm-table-editable-col-example>
     </prizm-doc-example>
 
     <prizm-doc-example id="editableRow" heading="Editable row" [content]="exampleEditableRowTable">
       <prizm-table-editable-row-example></prizm-table-editable-row-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="empty" heading="Empty" [content]="exampleEmptyTable">
+      <prizm-table-empty-example></prizm-table-empty-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="tree" heading="Tree" [content]="exampleTreeTable">
+      <prizm-table-tree-example></prizm-table-tree-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="sticky" heading="Sticky" [content]="exampleStickyTable">
+      <prizm-table-sticky-example></prizm-table-sticky-example>
     </prizm-doc-example>
   </ng-template>
 
@@ -66,9 +86,6 @@
           [style.--prizm-table-row-cursor]="prizmTableRowCursor"
           prizmTable
           class="table"
-          #element="prizmTable"
-          [key]="'PrizmTableDirective'"
-          [prizmDocHostElement]="element"
           [columns]="columns"
           [size]="size"
           [tableBorderStyle]="borderStyle"
@@ -82,13 +99,7 @@
             </tr>
           </thead>
 
-          <tbody
-            prizmTbody
-            #element
-            [key]="'PrizmTbodyComponent'"
-            [prizmDocHostElement]="element"
-            [data]="products"
-          >
+          <tbody prizmTbody [data]="products">
             <ng-container *prizmRow="let item of products; let i = index">
               <tr prizmTr>
                 <td *prizmCell="'code'" class="format__number" prizmTd>

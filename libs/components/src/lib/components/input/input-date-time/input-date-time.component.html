@@ -9,7 +9,7 @@
   [closeByEsc]="true"
   (isOpenChange)="onOpenChange($event); $event && prizmDropdownHostComponent.reCalculatePositions()"
 >
-  <prizm-input-layout [label]="label" [outer]="outer" [size]="size">
+  <prizm-input-layout [label]="label" [outer]="outer" [forceClear]="forceClear" [size]="size">
     <ng-template prizmInputStatusText>Ошибка! Неправильный формат</ng-template>
     <input
       class="input-search"
@@ -21,9 +21,12 @@
       [readonly]="readOnly"
       [placeholder]="placeholder"
       [disabled]="computedDisabled"
-      [ngModel]="computedValue"
-      (ngModelChange)="onValueChange($event || '')"
+      [formControl]="innerControl"
     />
+    <!--    [ngModel]="computedValue"-->
+    <!--    (ngModelChange)="onValueChange($event || '')"-->
+
+    <!--    [patterns]="fixedPatternForTime"-->
     <ng-container prizm-input-right>
       <button
         prizmInputIconButton="date-calendar-blank"

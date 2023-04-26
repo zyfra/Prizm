@@ -1,0 +1,85 @@
+@height-xs: 16px;
+@height-s: 24px;
+@height-m: 32px;
+@height-l: 40px;
+
+:host {
+  padding: 0 8px;
+  background: inherit;
+  border: 1px solid var(--prizm-border-widget);
+  border-top: none;
+  z-index: 10;
+
+  &:not(:first-child) {
+    border-left: none;
+  }
+
+  &:first-child {
+    position: relative;
+
+    &:before {
+      content: '';
+      height: 100%;
+      width: 4px;
+
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  background: inherit;
+  color: inherit;
+
+  &[status='success'] {
+    background: var(--prizm-v2-table-background-success);
+    color: var(--prizm-v2-table-text-success);
+  }
+  &[status='default'] {
+    background: inherit;
+    color: var(--prizm-v2-table-text-default);
+  }
+
+  &[status='warning'] {
+    background: var(--prizm-v2-table-background-warning);
+    color: var(--prizm-v2-table-text-warning);
+  }
+
+  &[status='danger'] {
+    background: var(--prizm-v2-table-background-danger);
+    color: var(--prizm-v2-table-text-danger);
+  }
+}
+
+:host-context([active='true']) {
+  &:first-child:before {
+    background: var(--prizm-index-plan);
+  }
+  color: var(--prizm-v2-table-text-selected);
+  background: var(--prizm-v2-table-background-selected);
+}
+
+:host-context([border-style='vertical']) {
+  border-bottom: none;
+}
+
+:host-context([border-style='horizontal']) {
+  border-right: none;
+  border-left: none;
+}
+
+:host-context([data-size='s']) {
+  height: @height-s;
+}
+
+:host-context([data-size='xs']) {
+  height: @height-xs;
+}
+
+:host-context([data-size='m']) {
+  height: @height-m;
+}
+
+:host-context([data-size='l']) {
+  height: @height-l;
+}

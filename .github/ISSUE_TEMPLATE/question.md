@@ -15,6 +15,8 @@ assignees: ''
 - [ ] `@prizm-ui/flag-icons`
 - [ ] `@prizm-ui/theme`
 - [ ] `@prizm-ui/charts`
+- [ ] `@prizm-ui/ast`
+- [ ] `@prizm-ui/cb3-to-prizm`
 
 ### Компонент
 
@@ -31,7 +33,7 @@ v16.13.0
 
 Dependencies:
 
-`@prizm-ui/components 0.1.1`
+`@prizm-ui/components 1.0.0-beta.33`
 
 Операционная ситема:
 

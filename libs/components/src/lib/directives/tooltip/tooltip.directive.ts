@@ -1,11 +1,10 @@
 /* eslint-disable @angular-eslint/no-input-rename */
 import { Directive, forwardRef, HostListener, Input } from '@angular/core';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
 import { PrizmTooltipContainerComponent } from './tooltip-container.component';
 import { PRIZM_TOOLTIP_OPTIONS } from './tooltip-options';
 import { prizmDefaultProp, prizmRequiredSetter } from '@prizm-ui/core';
 import { PolymorphContent } from '../polymorph';
-import { prizmGenerateId } from '../../util';
 import { PRIZM_HINT_OPTIONS, PrizmHintOptions } from '../hint/hint-options';
 import { PrizmHintDirective } from '../hint/hint.directive';
 

@@ -13,12 +13,12 @@ import {
   Self,
   ViewChild,
 } from '@angular/core';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, PrizmFormControlHelpers } from '@prizm-ui/helpers';
 import { FormControl, NgControl } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
 import { PRIZM_SELECT_OPTIONS, PrizmSelectOptions, PrizmSelectValueContext } from './select.options';
 import { PrizmFocusableElementAccessor, PrizmNativeFocusableElement } from '../../../types';
-import { PrizmInputSize } from '../../input';
+import { PrizmInputSize, PrizmInputTextComponent } from '../../input';
 import { AbstractPrizmControl } from '../../../abstract/control';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
 import {
@@ -150,6 +150,7 @@ export class PrizmSelectComponent<T>
   @Output()
   public readonly searchChange = new EventEmitter<string | null>();
 
+  public inputTextElement: PrizmInputTextComponent | null;
   public open = false;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
   public readonly items$ = new BehaviorSubject([]);
@@ -157,7 +158,7 @@ export class PrizmSelectComponent<T>
   public readonly defaultIcon = 'chevrons-dropdown';
 
   readonly filteredItems$ = this.requiredInputControl.valueChanges.pipe(
-    tap(value => this.searchChange.emit(value)),
+    tap(value => this.searchEmit(value)),
     startWith(''),
     switchMap(value => {
       return this.items$.pipe(
@@ -203,22 +204,30 @@ export class PrizmSelectComponent<T>
   ngAfterViewInit(): void {
     this.initControlStatusChangerIfExist();
     this.initControlValueChangerIfExist();
+    this.initControlValidatorsIfExist();
+  }
+
+  private initControlValidatorsIfExist(): void {
+    if (this.control)
+      PrizmFormControlHelpers.syncAllValidators(this.control as FormControl, false, this.requiredInputControl)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe();
   }
 
   private initControlStatusChangerIfExist(): void {
-    this.control?.statusChanges
-      .pipe(
-        tap(value => {
-          if (value === 'DISABLED') this.requiredInputControl.disable();
-          else if (!this.requiredInputControl.enabled) this.requiredInputControl.enable();
-        }),
-        takeUntil(this.destroy$)
-      )
-      .subscribe();
+    if (this.control)
+      PrizmFormControlHelpers.syncValidators(this.control as FormControl, false, this.requiredInputControl)
+        .pipe(
+          // debounceTime(0),
+          // tap(() => this.changeDetectorRef.detectChanges()),
+          takeUntil(this.destroy$)
+        )
+        .subscribe();
   }
 
   private initControlValueChangerIfExist(): void {
-    concat(timer(0).pipe(map(() => this.control?.value)), this.control?.valueChanges)
+    let counter = 0;
+    concat(timer(0).pipe(map(() => this.control?.value)), this.internalValue$.pipe(debounceTime(0)))
       .pipe(
         distinctUntilChanged(),
         tap(value => {
@@ -227,6 +236,8 @@ export class PrizmSelectComponent<T>
           }
           this.select(value);
           this.updateValue(value);
+          if (counter === 0) this.control?.markAsPristine();
+          counter++;
         }),
         takeUntil(this.destroy$)
       )
@@ -250,8 +261,12 @@ export class PrizmSelectComponent<T>
   }
 
   public select(item: T): void {
-    this.updateValue(item);
+    if (!this.identityMatcher(item, this.value)) {
+      this.updateValue(item);
+    }
     this.requiredInputControl.setValue(item && this.stringify(item));
+    // TODO remove after add update inputs
+    if (this.inputTextElement) this.inputTextElement.markAsTouched();
     this.open = false;
   }
 
@@ -268,5 +283,11 @@ export class PrizmSelectComponent<T>
     this.open = false;
     this.changeDetectorRef.markForCheck();
     if (!value) $event.stopImmediatePropagation();
+  }
+
+  private searchEmit(value: string): void {
+    if (this.search === value) return;
+    this.search = value;
+    this.searchChange.emit(value);
   }
 }

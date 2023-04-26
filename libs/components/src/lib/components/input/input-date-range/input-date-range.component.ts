@@ -85,6 +85,8 @@ export class PrizmInputDateRangeComponent
   @prizmDefaultProp()
   items: readonly PrizmDayRangePeriod[] = [];
 
+  @Input() forceClear: boolean | null = null;
+
   @Input()
   @prizmDefaultProp()
   placeholder = '';

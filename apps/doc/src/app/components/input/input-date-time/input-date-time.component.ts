@@ -31,6 +31,9 @@ export class InputDateTimeTimeComponent {
   public size: PrizmInputSize = 'm';
   public outer = false;
 
+  forceClear: boolean | null = null;
+  forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
   public timeModeVariants: ReadonlyArray<PrizmTimeMode> = ['HH:MM', 'HH:MM:SS', 'HH:MM:SS.MSS'];
   public timeMode: PrizmTimeMode = `HH:MM`;
 
@@ -49,5 +52,10 @@ export class InputDateTimeTimeComponent {
   public readonly exampleWithSeconds: TuiDocExample = {
     TypeScript: import('./examples/with-seconds/input-date-time-with-seconds-example.component.ts?raw'),
     HTML: import('./examples/with-seconds/input-date-time-with-seconds-example.component.html?raw'),
+  };
+
+  public readonly exampleWithRequired: TuiDocExample = {
+    TypeScript: import('./examples/required/input-date-time-required-example.component.ts?raw'),
+    HTML: import('./examples/required/input-date-time-required-example.component.html?raw'),
   };
 }

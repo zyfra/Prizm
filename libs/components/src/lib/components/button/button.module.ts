@@ -6,10 +6,18 @@ import { PrizmIconModule } from '../icon';
 import { PrizmCallFuncModule } from '@prizm-ui/helpers';
 import { PrizmSplitButtonComponent } from './split-button/split-button.component';
 import { PrizmLoaderModule } from '../loader/loader.module';
+import { PolymorphModule } from '../../directives';
 
 @NgModule({
   declarations: [PrizmButtonComponent, PrizmSplitButtonComponent],
-  imports: [CommonModule, PrizmWrapperModule, PrizmIconModule, PrizmLoaderModule, PrizmCallFuncModule],
+  imports: [
+    CommonModule,
+    PrizmWrapperModule,
+    PolymorphModule,
+    PrizmIconModule,
+    PrizmLoaderModule,
+    PrizmCallFuncModule,
+  ],
   exports: [PrizmButtonComponent, PrizmSplitButtonComponent],
 })
 export class PrizmButtonModule {}

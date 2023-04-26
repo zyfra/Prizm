@@ -60,6 +60,8 @@ export class PrizmInputTimeComponent
   @prizmDefaultProp()
   placeholder = '';
 
+  @Input() forceClear: boolean | null = null;
+
   @Input()
   @prizmDefaultProp()
   label = 'Выберите время';

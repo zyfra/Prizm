@@ -1,5 +1,4 @@
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
-
 import { PrizmTreeItemComponent } from '../components/tree-item/tree-item.component';
 import { PrizmTreeAccessor, PrizmTreeController } from '../misc/tree.interfaces';
 import { PRIZM_TREE_ACCESSOR, PRIZM_TREE_CONTROLLER } from '../misc/tree.tokens';
@@ -32,6 +31,9 @@ export class PrizmTreeControllerDirective<T> implements PrizmTreeController, Pri
   @Output()
   readonly toggled = new EventEmitter<T>();
 
+  @Output()
+  readonly expandedChanged = new EventEmitter<{ value: T; isExpanded: boolean }>();
+
   readonly items = new Map<PrizmTreeItemComponent, T>();
 
   public register(item: PrizmTreeItemComponent, value: T): void {
@@ -50,13 +52,28 @@ export class PrizmTreeControllerDirective<T> implements PrizmTreeController, Pri
 
   public toggle(item: PrizmTreeItemComponent): void {
     const value = this.items.get(item);
-    const expanded = this.isExpanded(item);
+    const isExpanded = !this.isExpanded(item);
 
     if (!prizmIsPresent(value)) {
       return;
     }
 
     this.toggled.emit(value);
-    this.map.set(value, !expanded);
+    this.expandedChanged.emit({
+      value,
+      isExpanded,
+    });
+    this.map.set(value, isExpanded);
+  }
+
+  public toggleByItemValue(value: T, forceState?: boolean): void {
+    const isExpanded = forceState ?? !this.map.get(value);
+
+    this.toggled.emit(value);
+    this.expandedChanged.emit({
+      value,
+      isExpanded,
+    });
+    this.map.set(value, isExpanded);
   }
 }

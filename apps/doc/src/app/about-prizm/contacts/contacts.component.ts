@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { environment } from './../../../environments/environment';
 
 export interface ITableProduct {
   name: string;
@@ -14,6 +15,8 @@ export interface ITableProduct {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactsComponent {
+  public storybookBaseUrl = environment.storybookBaseUrl;
+
   public columns: string[] = ['code', 'name', 'description'];
 
   public labelTypes: ITableProduct[] = TABLE_LABEL_TYPES;

@@ -18,6 +18,7 @@ export interface PrizmHintContext {
   showDelay: number;
   hideDelay: number;
   host: HTMLElement;
+  context?: Record<string, unknown>;
 }
 
 /** Default values for hint options */

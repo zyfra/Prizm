@@ -11,7 +11,9 @@ import { PrizmToastNotExistException } from '../../exceptions/toast-not-exist.ex
 
 export type ToastRefMap = Map<PRIZM_TOAST_ID, PrizmToastRef>;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class PrizmToastService implements OnDestroy {
   /* main storage for control by id */
   private readonly refs: ToastRefMap = new Map();

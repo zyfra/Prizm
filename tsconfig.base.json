@@ -18,6 +18,12 @@
     "strictPropertyInitialization": false,
     "baseUrl": ".",
     "paths": {
+      "@prizm-ui/ast": ["libs/ast/src/index.ts"],
+      "@prizm-ui/ast/cb3-code-examples": ["libs/ast/cb3-code-examples/src/index.ts"],
+      "@prizm-ui/ast/cb3-template-examples": ["libs/ast/cb3-template-examples/src/index.ts"],
+      "@prizm-ui/ast/code": ["libs/ast/code/src/index.ts"],
+      "@prizm-ui/ast/schematics-helpers": ["libs/ast/schematics-helpers/src/index.ts"],
+      "@prizm-ui/cb3-to-prizm": ["libs/cb3-to-prizm/src/index.ts"],
       "@prizm-ui/charts": ["libs/charts/base/src/index.ts"],
       "@prizm-ui/components": ["libs/components/src/index.ts"],
       "@prizm-ui/core": ["libs/core/src/index.ts"],
@@ -25,6 +31,7 @@
       "@prizm-ui/doc": ["libs/doc/base/src/index.ts"],
       "@prizm-ui/flag-icons": ["libs/icons/flags/src/index.ts"],
       "@prizm-ui/helpers": ["libs/helpers/src/index.ts"],
+      "@prizm-ui/i18n": ["libs/i18n/src/index.ts"],
       "@prizm-ui/icons": ["libs/icons/base/src/index.ts"],
       "@prizm-ui/theme": ["libs/theme/src/index.ts"]
     }

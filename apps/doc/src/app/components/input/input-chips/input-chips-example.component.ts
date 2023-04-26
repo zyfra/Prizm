@@ -1,11 +1,12 @@
-import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import {
   PrizmChipsComponent,
   PrizmInputPosition,
   PrizmInputSize,
   PrizmInputStatus,
   PrizmInputTextComponent,
+  PrizmOverlayOutsidePlacement,
 } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 
@@ -17,8 +18,9 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 })
 export class InputChipsExampleComponent {
   public hintCanShow = true;
-  public hintDirection = false;
+  public hintDirection = PrizmOverlayOutsidePlacement.RIGHT;
   public label = 'Заголовок';
+  public hintText = 'Отдельный chips';
 
   public inputPosition: PrizmInputPosition = 'left';
   public inputPositions: PrizmInputPosition[] = ['left', 'center'];
@@ -53,6 +55,12 @@ export class InputChipsExampleComponent {
     TypeScript: import('./examples/input-chips-outer-example/input-chips-outer-example.component.ts?raw'),
     HTML: import('./examples/input-chips-outer-example/input-chips-outer-example.component.html?raw'),
     LESS: import('./examples/input-chips-outer-example/input-chips-outer-example.component.less?raw'),
+  };
+
+  public readonly prizmInputChipsItemExample: TuiDocExample = {
+    TypeScript: import('./examples/input-chips-item-example/input-chips-item-example.component.ts?raw'),
+    HTML: import('./examples/input-chips-item-example/input-chips-item-example.component.html?raw'),
+    LESS: import('./examples/input-chips-item-example/input-chips-item-example.component.less?raw'),
   };
 
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');

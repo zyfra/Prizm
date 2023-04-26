@@ -11,6 +11,7 @@ export class SwitcherBasicExampleComponent {
   public readonly switchers: PrizmSwitcherItem[] = [
     {
       title: 'Таблицы',
+      disabled: true,
     },
     {
       title: 'Мнемосхемы',

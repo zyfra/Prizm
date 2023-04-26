@@ -39,6 +39,29 @@ export class TableExampleComponent {
     HTML: import('./examples/table-basic-example/table-basic-example.component.html?raw'),
     LESS: import('./examples/table-basic-example/table-basic-example.component.less?raw'),
   };
+  public readonly exampleStickyTable: TuiDocExample = {
+    TypeScript: import('./examples/table-sticky-example/table-sticky-example.component?raw'),
+    HTML: import('./examples/table-sticky-example/table-sticky-example.component.html?raw'),
+    LESS: import('./examples/table-sticky-example/table-sticky-example.component.less?raw'),
+  };
+
+  public readonly exampleTreeTable: TuiDocExample = {
+    TypeScript: import('./examples/table-tree-example/table-tree-example.component?raw'),
+    HTML: import('./examples/table-tree-example/table-tree-example.component.html?raw'),
+    LESS: import('./examples/table-tree-example/table-tree-example.component.less?raw'),
+  };
+
+  public readonly exampleEmptyTable: TuiDocExample = {
+    TypeScript: import('./examples/table-empty-example/table-empty-example.component?raw'),
+    HTML: import('./examples/table-empty-example/table-empty-example.component.html?raw'),
+    LESS: import('./examples/table-empty-example/table-empty-example.component.less?raw'),
+  };
+
+  public readonly exampleLoadingTable: TuiDocExample = {
+    TypeScript: import('./examples/table-loading-example/table-loading-example.component?raw'),
+    HTML: import('./examples/table-loading-example/table-loading-example.component.html?raw'),
+    LESS: import('./examples/table-loading-example/table-loading-example.component.less?raw'),
+  };
 
   public exampleBorderStyleTable: TuiDocExample = {
     TypeScript: import('./examples/table-border-style-example/table-border-style-example.component?raw'),
@@ -93,15 +116,23 @@ export class TableExampleComponent {
     HTML: import('./examples/table-search-example/table-search-example.component.html?raw'),
     LESS: import('./examples/table-search-example/table-search-example.component.less?raw'),
   };
+
   public exampleSortTable: TuiDocExample = {
     TypeScript: import('./examples/table-sort-example/table-sort-example.component?raw'),
     HTML: import('./examples/table-sort-example/table-sort-example.component.html?raw'),
     LESS: import('./examples/table-sort-example/table-sort-example.component.less?raw'),
   };
+
   public exampleServerSortTable: TuiDocExample = {
     TypeScript: import('./examples/table-server-sort-example/table-server-sort-example.component?raw'),
     HTML: import('./examples/table-server-sort-example/table-server-sort-example.component.html?raw'),
     LESS: import('./examples/table-server-sort-example/table-server-sort-example.component.less?raw'),
+  };
+
+  public exampleDataSourceTable: TuiDocExample = {
+    TypeScript: import('./examples/table-data-source-example/table-data-source-example.component?raw'),
+    HTML: import('./examples/table-data-source-example/table-data-source-example.component.html?raw'),
+    LESS: import('./examples/table-data-source-example/table-data-source-example.component.less?raw'),
   };
 
   public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');

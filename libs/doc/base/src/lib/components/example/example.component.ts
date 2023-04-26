@@ -1,14 +1,6 @@
 import { Clipboard } from '@angular/cdk/clipboard';
 import { Location as NgLocation } from '@angular/common';
-import {
-  Attribute,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  Inject,
-  Input,
-  Optional,
-} from '@angular/core';
+import { Attribute, ChangeDetectionStrategy, Component, Inject, Input, Optional } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LOCATION } from '@ng-web-apis/common';
 import { TUI_IS_CYPRESS, TuiContextWithImplicit, TuiHandler } from '@taiga-ui/cdk';
@@ -83,8 +75,7 @@ export class PrizmDocExampleComponent {
     readonly codeActions: Array<PolymorpheusContent<TuiContextWithImplicit<string>>>,
     @Inject(Router) private readonly router: Router,
     @Inject(ActivatedRoute) private readonly route: ActivatedRoute,
-    @Inject(NgLocation) private readonly ngLocation: NgLocation,
-    @Inject(ChangeDetectorRef) private readonly cdr: ChangeDetectorRef
+    @Inject(NgLocation) private readonly ngLocation: NgLocation
   ) {}
 
   public copyExampleLink(): void {

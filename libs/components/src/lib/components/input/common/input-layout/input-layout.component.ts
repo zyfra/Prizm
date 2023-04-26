@@ -66,9 +66,9 @@ export class PrizmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, 
 
   ngOnInit(): void {
     this.subscriptions.add(
-      this.control.stateChanges.pipe(debounceTime(10)).subscribe(() => {
+      this.control.stateChanges.pipe(debounceTime(10)).subscribe(status => {
         this.actualaizeStatus();
-        this.cdr.detectChanges();
+        this.cdr.markForCheck();
       })
     );
   }

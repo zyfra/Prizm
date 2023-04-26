@@ -83,11 +83,6 @@ export const APP_PROVIDERS = [
       return sortDocPages(pages);
     },
   },
-
-  {
-    provide: PRIZM_DOC_TITLE,
-    useValue: TITLE_PREFIX,
-  },
   {
     provide: PRIZM_DOC_DEFAULT_TABS,
     useValue: DEFAULT_TABS,
@@ -113,8 +108,8 @@ export const APP_PROVIDERS = [
 function sortDocPages(pages: PrizmOrderedDocPage): (PrizmDocPage | PrizmDocPageGroup)[] {
   const ordering = {
     [SectionNameEnum.allAboutPrizm]: 0,
-    [SectionNameEnum.guidelines]: 1,
-    [SectionNameEnum.howToStart]: 2,
+    [SectionNameEnum.howToWork]: 1,
+    [SectionNameEnum.guidelines]: 2,
     [SectionNameEnum.components]: 3,
     [SectionNameEnum.charts]: 4,
     [SectionNameEnum.tools]: 5,

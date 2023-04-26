@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, TemplateRef, ViewChild } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { PolymorphContent, prizmGenerateId, PrizmOverlayOutsidePlacement } from '@prizm-ui/components';
+import { PolymorphContent, PrizmOverlayOutsidePlacement } from '@prizm-ui/components';
+import { prizmGenerateId } from '@prizm-ui/helpers';
 
 @Component({
   selector: 'prizm-dropdown-host-example',

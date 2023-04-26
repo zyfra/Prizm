@@ -1,0 +1,157 @@
+<ng-content></ng-content>
+<tr *ngIf="heading">
+  <th class="heading" [colSpan]="columnsCount">
+    <div class="heading__container">
+      <prizm-icon
+        (click)="onClick()"
+        class="heading__icon"
+        [class.heading__icon_expanded]="open"
+        iconClass="arrows-chevron-right"
+      ></prizm-icon>
+      <span class="heading__content">
+        <ng-container *polymorphOutlet="heading as text">{{ text }}</ng-container>
+      </span>
+    </div>
+  </th>
+</tr>
+<ng-container *ngIf="open && row">
+  <ng-container *ngIf="renderData$ | async as data; else loadingWrapperTemplate">
+    <ng-container *ngIf="!!data?.length; else emptyWrapperTemplate">
+      <ng-container
+        *ngFor="
+          let item of data;
+          index as index;
+          odd as odd;
+          even as even;
+          first as first;
+          last as last;
+          count as count;
+          trackBy: row.prizmRowTrackBy
+        "
+        [ngTemplateOutlet]="templateRowElement"
+        [ngTemplateOutletContext]="{
+          item: item,
+          index: index,
+          odd: odd,
+          even: even,
+          first: first,
+          last: last,
+          count: count,
+          deepLevel: 0
+        }"
+      ></ng-container>
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #loadingWrapperTemplate>
+  <ng-container *ngTemplateOutlet="loadingTemplate?.template || loadingWrapperTemplate"></ng-container>
+
+  <ng-template #loadingWrapperTemplate>
+    <tr>
+      <td>Loading...</td>
+    </tr>
+  </ng-template>
+</ng-template>
+
+<ng-template #emptyWrapperTemplate>
+  <ng-container *ngTemplateOutlet="emptyTemplate?.template || emptyInnerTemplate"></ng-container>
+
+  <ng-template #emptyInnerTemplate>
+    <tr>
+      <td>—</td>
+    </tr>
+  </ng-template>
+</ng-template>
+
+<ng-template
+  #templateRowElement
+  let-item="item"
+  let-index="index"
+  let-odd="odd"
+  let-even="even"
+  let-first="first"
+  let-last="last"
+  let-count="count"
+  let-deepLevel="deepLevel"
+  let-parentItem="parentItem"
+  let-parentIdx="parentIdx"
+>
+  <ng-container
+    [ngTemplateOutlet]="row.template"
+    [ngTemplateOutletContext]="{
+      $implicit: item,
+      parentIdx: parentIdx,
+      parentItem: parentItem,
+      index: index,
+      odd: odd,
+      even: even,
+      deepLevel: deepLevel,
+      first: first,
+      last: last,
+      count: count
+    }"
+  ></ng-container>
+
+  <ng-container *ngIf="tableTreeService.canShowChild(index) | async">
+    <ng-template #treeLoadingTemplateRef>
+      <ng-container
+        [ngTemplateOutlet]="treeLoadingTemplate?.template || defaultTreeLoading"
+        [ngTemplateOutletContext]="{
+          item: item,
+          parentIdx: index,
+          parentItem: item,
+          index: index,
+          odd: odd,
+          even: even,
+          deepLevel: deepLevel,
+          first: first,
+          last: last,
+          count: count
+        }"
+      >
+      </ng-container>
+      <ng-template #defaultTreeLoading>
+        <tr>
+          <td>Loading...</td>
+        </tr>
+      </ng-template>
+    </ng-template>
+
+    <ng-container
+      *ngIf="
+        row.prizmRowGetChildren && item | prizmCallFunc : row.prizmRowGetChildren | async as children;
+        else treeLoadingTemplateRef
+      "
+    >
+      <ng-container
+        *ngFor="
+          let childItem of $any(children);
+          index as childIndex;
+          odd as childOdd;
+          even as childEven;
+          first as childFirst;
+          last as childLast;
+          count as childCount;
+          trackBy: row.prizmRowTrackBy
+        "
+        [ngTemplateOutlet]="templateRowElement"
+        [ngTemplateOutletContext]="{
+          item: childItem,
+          parentIdx: index,
+          parentItem: item,
+          index: childIndex + count,
+          odd: childOdd,
+          even: childEven,
+          deepLevel: (deepLevel ?? 0) + 1,
+          first: childFirst,
+          last: childLast,
+          count: childCount + count
+        }"
+      >
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</ng-template>
+
+<ng-content select="[footer]"></ng-content>

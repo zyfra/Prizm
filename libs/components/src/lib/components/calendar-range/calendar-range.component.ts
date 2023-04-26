@@ -160,7 +160,6 @@ export class PrizmCalendarRangeComponent implements PrizmWithOptionalMinMax<Priz
 
       return;
     }
-
     if (this.activePeriod !== null) {
       this.updateValue(null);
     }

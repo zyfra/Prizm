@@ -28,7 +28,7 @@ export class SelectComponent {
   public pressedChange = false;
   public hoveredChange = false;
   public focusVisibleChange = false;
-  public dropdownWidth = '200px';
+  public dropdownWidth = '100%';
 
   readonly control = new FormControl();
   searchable = false;
@@ -85,6 +85,10 @@ export class SelectComponent {
     TypeScript: import('./examples/base/select-base-example.component.ts?raw'),
     HTML: import('./examples/base/select-base-example.component.html?raw'),
   };
+  readonly exampleFullWidth: TuiDocExample = {
+    TypeScript: import('./examples/full-width/select-full-width-example.component.ts?raw'),
+    HTML: import('./examples/full-width/select-full-width-example.component.html?raw'),
+  };
 
   readonly exampleWithTemplate: TuiDocExample = {
     TypeScript: import('./examples/with-template/select-with-template-example.component.ts?raw'),
@@ -99,6 +103,11 @@ export class SelectComponent {
   readonly exampleWithSearch: TuiDocExample = {
     TypeScript: import('./examples/with-search/select-with-search-example.component.ts?raw'),
     HTML: import('./examples/with-search/select-with-search-example.component.html?raw'),
+  };
+
+  readonly exampleValidators: TuiDocExample = {
+    TypeScript: import('./examples/validators/select-validators-example.component.ts?raw'),
+    HTML: import('./examples/validators/select-validators-example.component.html?raw'),
   };
 
   readonly exampleWithBackendSearch: TuiDocExample = {
@@ -124,10 +133,6 @@ export class SelectComponent {
   public identityMatcher = (a: unknown, b: unknown): boolean => {
     return a === b;
   };
-
-  // public stringify = (i: unknown): string => {
-  //   return i?.toString?.() ?? '';
-  // };
 
   public setValue(val: string): void {
     this.control.setValue(val);

@@ -5,6 +5,7 @@ import { PrizmIconModule } from '../icon';
 import { AccordionContentDirective } from './directives/accordion-content.directive';
 import { AccordionToolsDirective } from './directives/accordion-tools.directive';
 import { PrizmAccordionItemComponent } from './components/accordion-item/accordion-item.component';
+import { PolymorphModule } from '../../directives/polymorph';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { PrizmAccordionItemComponent } from './components/accordion-item/accordi
     AccordionToolsDirective,
     PrizmAccordionItemComponent,
   ],
-  imports: [CommonModule, PrizmIconModule],
+  imports: [CommonModule, PrizmIconModule, PolymorphModule],
   exports: [
     PrizmAccordionComponent,
     AccordionContentDirective,

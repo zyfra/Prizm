@@ -1,15 +1,7 @@
 import { Directive, Inject, Input, TemplateRef, TrackByFunction } from '@angular/core';
-import { PrizmContextWithImplicit } from '../../../types';
 import { prizmDefaultProp } from '@prizm-ui/core';
-
-interface PrizmRowContext<T> extends PrizmContextWithImplicit<T> {
-  readonly index: number;
-  readonly first: boolean;
-  readonly last: boolean;
-  readonly odd: boolean;
-  readonly even: boolean;
-  readonly count: number;
-}
+import { Observable } from 'rxjs';
+import { PrizmTableRowContext } from '../table.types';
 
 @Directive({
   selector: `ng-template[prizmRow]`,
@@ -20,17 +12,21 @@ export class PrizmRowDirective<T extends Partial<Record<keyof T, any>>> {
   @prizmDefaultProp()
   prizmRowOf: readonly T[] = [];
 
+  @Input()
+  @prizmDefaultProp()
+  prizmRowGetChildren: (element: T) => Observable<T[]>;
+
   public static ngTemplateContextGuard<T>(
     _dir: PrizmRowDirective<T>,
     _ctx: unknown
-  ): _ctx is PrizmRowContext<T> {
+  ): _ctx is PrizmTableRowContext<T> {
     return true;
   }
 
   @Input()
-  prizmRowTrackBy: TrackByFunction<T> = () => {
-    null;
+  prizmRowTrackBy: TrackByFunction<T> = (i: number) => {
+    return i;
   };
 
-  constructor(@Inject(TemplateRef) readonly template: TemplateRef<PrizmRowContext<T>>) {}
+  constructor(@Inject(TemplateRef) readonly template: TemplateRef<PrizmTableRowContext<T>>) {}
 }

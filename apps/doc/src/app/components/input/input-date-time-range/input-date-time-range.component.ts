@@ -29,6 +29,9 @@ export class InputDateTimeRangeComponent {
   public size: PrizmInputSize = 'm';
   public outer = false;
 
+  forceClear: boolean | null = null;
+  forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
   public focusable = true;
   public pseudoState = '';
   public focusedChange = false;

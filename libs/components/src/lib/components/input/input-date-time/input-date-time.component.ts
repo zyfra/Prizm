@@ -12,9 +12,9 @@ import {
   Self,
   ViewChild,
 } from '@angular/core';
-import { NgControl } from '@angular/forms';
+import { FormControl, NgControl } from '@angular/forms';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { map, pluck } from 'rxjs/operators';
+import { map, pluck, takeUntil } from 'rxjs/operators';
 import { PRIZM_DATE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
 import { PRIZM_DATE_FORMAT } from '../../../@core/date-time/date-format';
 import { PRIZM_DATE_SEPARATOR, prizmChangeDateSeparator } from '../../../@core/date-time/date-separator';
@@ -48,6 +48,7 @@ import { PrizmInputSize } from '../common/models/prizm-input.models';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 import { PRIZM_STRICT_MATCHER } from '../../../constants';
+import { PrizmDestroyService, PrizmFormControlHelpers } from '@prizm-ui/helpers';
 
 @Component({
   selector: `prizm-input-date-time`,
@@ -72,6 +73,8 @@ export class PrizmInputDateTimeComponent
   @Input()
   @prizmDefaultProp()
   label = 'Абсолютное';
+
+  @Input() forceClear: boolean | null = null;
 
   @Input()
   @prizmDefaultProp()
@@ -120,6 +123,15 @@ export class PrizmInputDateTimeComponent
 
   open = false;
 
+  /** for avoid time format 29:01 */
+  // TODO remove after update angular 15 and latest mask version
+  // readonly fixedPatternForTime = {
+  //   H: { pattern: /[0-2]/i },
+  //   h: { pattern: /[0-3]/i },
+  //   m: { pattern: /[0-5]/i },
+  //   0: { pattern: /[0-9]/i },
+  // };
+
   readonly type!: PrizmContextWithImplicit<unknown>;
 
   get filteredTime(): readonly PrizmTime[] {
@@ -138,7 +150,7 @@ export class PrizmInputDateTimeComponent
   ]).pipe(map(fillers => this.getDateTimeString(...fillers)));
 
   public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
-
+  public readonly innerControl = new FormControl();
   constructor(
     @Optional()
     @Self()
@@ -166,8 +178,37 @@ export class PrizmInputDateTimeComponent
     return items.filter(item => item.toString(mode).includes(search));
   }
 
+  private syncStateBetweenControls(): void {
+    if (this.control instanceof FormControl)
+      PrizmFormControlHelpers.syncStates(this.control as FormControl, false, this.innerControl)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe();
+  }
+
+  private syncValidatorsBetweenControls(): void {
+    if (this.control instanceof FormControl)
+      PrizmFormControlHelpers.syncAllValidators(this.control as FormControl, false, this.innerControl)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe();
+  }
+
+  private syncValuesBetweenControls(): void {
+    if (this.control instanceof FormControl)
+      PrizmFormControlHelpers.syncValues(
+        this.control as FormControl,
+        () => this.computedValue,
+        null,
+        this.innerControl
+      )
+        .pipe(takeUntil(this.destroy$))
+        .subscribe();
+  }
+
   public override ngOnInit(): void {
     super.ngOnInit();
+    this.syncStateBetweenControls();
+    this.syncValidatorsBetweenControls();
+    this.syncValuesBetweenControls();
     this.rightButtons$ = this.extraButtonInjector.get(PRIZM_DATE_RIGHT_BUTTONS);
   }
 
@@ -270,7 +311,6 @@ export class PrizmInputDateTimeComponent
 
   public onDayClick(day: PrizmDay, time?: PrizmTime): void {
     const modifiedTime = time ?? (this.value[1] && this.prizmClampTime(this.value[1], day));
-
     this.updateValue([day, modifiedTime]);
     this.updateNativeValue(day);
     this.open = false;
@@ -371,7 +411,6 @@ export class PrizmInputDateTimeComponent
 
   private updateNativeValue(day: PrizmDay): void {
     const time = this.nativeValue.split(PRIZM_DATE_TIME_SEPARATOR)[1] || ``;
-
     this.nativeValue = this.getDateTimeString(day, time);
   }
 

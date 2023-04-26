@@ -1,4 +1,8 @@
-<button class="switcher" [class.switcher_active]="isActive">
-  <prizm-icon class="switcher__icon" *ngIf="data?.icon" [iconClass]="data.icon"></prizm-icon>
+<button class="switcher" [class.switcher_active]="!data?.disabled && isActive" [disabled]="data?.disabled">
+  <span class="switcher__icon" *ngIf="data?.icon as icon">
+    <ng-container *polymorphOutlet="icon; let content">
+      <prizm-icon [iconClass]="content"></prizm-icon>
+    </ng-container>
+  </span>
   <span class="switcher__title" *ngIf="data?.title">{{ data.title }}</span>
 </button>

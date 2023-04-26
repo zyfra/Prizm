@@ -8,6 +8,7 @@
     <div class="rows-selector" *ngIf="!paginatorOptions?.noRowsSelector">
       <prizm-select
         size="s"
+        [disabled]="disabled"
         [forceClear]="false"
         [label]="null"
         [outer]="true"
@@ -20,7 +21,7 @@
   </div>
 
   <div class="content">
-    <span class="rows rows__show" *ngIf="!paginatorOptions?.noInfo">
+    <span class="rows rows__show" *ngIf="!paginatorOptions?.noInfo" [hidden]="disabled">
       Показано строк: {{ (currentPage - 1) * rows + 1 }}-{{
         currentPage * rows > totalRecords ? totalRecords : currentPage * rows
       }}
@@ -28,24 +29,38 @@
     </span>
     <div
       class="paginator paginator__finite"
-      *ngIf="paginatorType === 'finite' && paginationGenerator(rows, currentPage) as pagingData"
+      *ngIf="paginatorType === 'finite' && paginationGenerator() as pagingData"
     >
-      <button class="control control_left" [disabled]="currentPage === 1" (click)="decrease()">
+      <button class="control control_left" [disabled]="disabled || currentPage === 1" (click)="decrease()">
         <prizm-icon size="16" iconClass="arrows-chevron-left"></prizm-icon>
         <span *ngIf="!!leftButtonLabel">{{ leftButtonLabel }}</span>
       </button>
 
       <ng-container *ngIf="!paginatorOptions?.noPages">
         <ng-container *ngIf="pagingData.left">
-          <button class="page" type="button" (click)="changePage(pagingData.left)">
+          <button
+            class="page"
+            type="button"
+            (click)="changePage(pagingData.left)"
+            [disabled]="disabled"
+            [class.page_disabled]="disabled"
+          >
             {{ pagingData.left }}
           </button>
-          <div class="dots" *ngIf="pagingData.left + 1 !== pagingData.mid[0]">...</div>
+          <div
+            class="dots"
+            *ngIf="pagingData.left + 1 !== pagingData.mid[0]"
+            [class.dots_disabled]="disabled"
+          >
+            ...
+          </div>
         </ng-container>
 
         <button
           class="page"
           type="button"
+          [disabled]="disabled"
+          [class.page_disabled]="disabled"
           *ngFor="let page of pagingData.mid"
           [class.page_selected]="page === currentPage"
           (click)="changePage(page)"
@@ -54,10 +69,20 @@
         </button>
 
         <ng-container *ngIf="pagingData.right">
-          <div class="dots" *ngIf="pagingData.right - 1 !== pagingData.mid[pagingData.mid.length - 1]">
+          <div
+            class="dots"
+            *ngIf="pagingData.right - 1 !== pagingData.mid[pagingData.mid.length - 1]"
+            [class.dots_disabled]="disabled"
+          >
             ...
           </div>
-          <button class="page" type="button" (click)="changePage(pagingData.right)">
+          <button
+            class="page"
+            type="button"
+            (click)="changePage(pagingData.right)"
+            [disabled]="disabled"
+            [class.page_disabled]="disabled"
+          >
             {{ pagingData.right }}
           </button>
         </ng-container>
@@ -65,7 +90,7 @@
 
       <button
         class="control control_right"
-        [disabled]="currentPage === pagesCount ?? currentPage === 0"
+        [disabled]="disabled || (currentPage === pagesCount ?? currentPage === 0)"
         (click)="increase()"
       >
         <span *ngIf="!!rightButtonLabel">{{ rightButtonLabel }}</span>
@@ -74,7 +99,12 @@
     </div>
 
     <div class="paginator paginator__infinite" *ngIf="paginatorType === 'infinite'">
-      <button class="show-more" [disabled]="showMoreDisabled" (click)="increase()">
+      <button
+        class="show-more"
+        [disabled]="disabled || showMoreDisabled"
+        (click)="increase()"
+        [class.show-more_disabled]="disabled || showMoreDisabled"
+      >
         {{ moreButtonLabel }}
       </button>
     </div>

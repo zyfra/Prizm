@@ -1,4 +1,15 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
+import { NumberInput, coerceNumberProperty } from '@angular/cdk/coercion';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  HostBinding,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { AsyncSubject } from 'rxjs';
 import {
   PrizmPaginatorData,
   PrizmPaginatorOptions,
@@ -12,20 +23,49 @@ import {
   styleUrls: ['./prizm-paginator.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmPaginatorComponent {
+export class PrizmPaginatorComponent implements OnInit {
   @Input() public paginatorType: PrizmPaginatorType = 'finite';
-  // Суммарное количество данных
-  @Input() public totalRecords: number | null = null;
+
+  /** The length of the total number of items that are being paginated. Defaulted to 0. */
+  @Input()
+  get totalRecords(): number | null {
+    return this.paginatorType === 'finite' ? this._totalRecords : null;
+  }
+  set totalRecords(value: NumberInput) {
+    this._totalRecords = Math.max(coerceNumberProperty(value), 0);
+    this.changeDetectorRef.markForCheck();
+  }
+  private _totalRecords = 0;
 
   // Сколько номеров видно на экране
-  @Input() public pageLinkSize: number | null = null;
+  @Input() public pageLinkSize: number = Number.POSITIVE_INFINITY;
   @Input() public showMoreDisabled = false;
+  // disabled
+  @Input() public disabled = false;
 
-  // Сколько данных в одном пакете
-  @Input() public rows: number | null = null;
+  /** Number of items to display on a page. */
+  @Input()
+  get rows(): number {
+    return this._rows;
+  }
+  set rows(value: NumberInput) {
+    this._rows = Math.max(coerceNumberProperty(value), 0);
+    if (!this._rows) {
+      this._rows = this.rowsCountOptions[0];
+    }
 
-  @Input() public set page(val: number) {
-    this.currentPage = val;
+    this.changeDetectorRef.markForCheck();
+  }
+  private _rows: number;
+
+  /** The 1-based page index of the displayed list of items. Defaulted to 1. */
+  @Input()
+  get page(): number {
+    return this.currentPage;
+  }
+  set page(value: NumberInput) {
+    this.currentPage = Math.max(coerceNumberProperty(value), 1);
+    this.changeDetectorRef.markForCheck();
   }
 
   @Input() paginatorOptions: PrizmPaginatorOptions = {
@@ -48,14 +88,31 @@ export class PrizmPaginatorComponent {
   @HostBinding('attr.testId')
   readonly testId = 'prizm_paginator';
 
+  /**
+   * The 1-based page index of the displayed list of items.
+   */
   public currentPage = 1;
   // Количесвто пакетов = Суммарное количество данных / Сколько данных в одном пакете
   public pagesCount = 0;
 
-  public paginationGenerator(rows: number, currentPage: number): PrizmPaginatorData | null {
+  // `AsyncSubject` used so what late subscribers notified immediately.
+  private readonly initialized$$ = new AsyncSubject<void>();
+
+  public readonly initialized = this.initialized$$.asObservable();
+
+  constructor(private readonly changeDetectorRef: ChangeDetectorRef) {}
+
+  ngOnInit(): void {
+    this.paginationGenerator();
+    this.initialized$$.next();
+    this.initialized$$.complete();
+  }
+
+  /**
+   * Updates the list of page options to display to the user.
+   */
+  public paginationGenerator(): PrizmPaginatorData | null {
     if (this.isDataValid) {
-      this.pagesCount = Math.ceil(this.totalRecords / rows);
-      this.currentPage = currentPage > this.pagesCount ? this.pagesCount : currentPage;
       const allNumbers = new Array(this.pagesCount).fill(0).map((page, i) => i + 1);
 
       let mid: number[];
@@ -71,12 +128,15 @@ export class PrizmPaginatorComponent {
         );
       }
 
+      this.changeDetectorRef.markForCheck();
+
       return {
         mid: mid,
         left: mid[0] === 1 ? null : 1,
         right: mid[mid.length - 1] === this.pagesCount ? null : this.pagesCount,
       };
     }
+
     return null;
   }
 
@@ -84,43 +144,39 @@ export class PrizmPaginatorComponent {
     return this.paginatorType === 'infinite' ? this.rows * (this.currentPage + 1) : this.totalRecords;
   }
 
+  /**
+   * Tries to normalize paginator configuration.
+   */
   public get isDataValid(): boolean {
-    if (this.totalRecords) {
-      this.rows = this.rows ?? this.totalRecords;
-      this.pageLinkSize = this.pageLinkSize ?? this.totalRecords;
-      return (
-        this.totalRecords >= 0 &&
-        this.rows <= this.totalRecords &&
-        // this.pageLinkSize <= this.rows &&
-        this.currentPage <= this.totalRecords
-      );
-    }
-    return false;
+    if (!this.rows) return false;
+    if (!this.totalRecords) return false;
+
+    this.pagesCount = Math.ceil(this.totalRecords / this.rows);
+    this.currentPage = Math.min(this.currentPage, this.pagesCount) || 1;
+
+    return true;
   }
 
   public changePage(page: number): void {
-    if (this.currentPage !== page) {
-      this.currentPage = page;
+    const prev = this.currentPage;
+    this.page = page;
+
+    // Emit only if real value was changed by the setter
+    if (this.currentPage !== prev) {
       this.emitPageChange();
     }
   }
 
   public increase(): void {
-    this.currentPage++;
-    this.emitPageChange();
+    this.changePage(this.page + 1);
   }
 
   public decrease(): void {
-    if (this.currentPage > 0) {
-      this.currentPage--;
-      this.emitPageChange();
-    }
+    this.changePage(this.page - 1);
   }
 
   private emitPageChange(): void {
-    const page = this.currentPage;
-    if (this.page === page) return;
-    this.pageChange.emit(page);
+    this.pageChange.emit(this.currentPage);
     this.emitPaginatorChanges();
   }
 
@@ -136,7 +192,7 @@ export class PrizmPaginatorComponent {
   public changeRows(rows: null | number): void {
     if (this.rows === rows) return;
     this.rows = rows;
-    this.paginationGenerator(rows, this.currentPage);
+    this.paginationGenerator();
     this.rowsChange.emit(this.rows);
     this.emitPaginatorChanges();
   }

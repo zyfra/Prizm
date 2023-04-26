@@ -17,10 +17,13 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PrizmFilesProgress, PrizmFileValidationErrors } from './types';
 import {
+  PRIZM_FILEUPLOAD_OPTIONS,
   prizmFileUploadDefaultOptions,
   PrizmFileUploadOptions,
-  PRIZM_FILEUPLOAD_OPTIONS,
 } from './file-upload-options';
+import { PRIZM_FILE_UPLOAD } from '../../tokens';
+import { Observable } from 'rxjs';
+import { PrizmLanguageFileUpload } from '@prizm-ui/i18n';
 
 @Component({
   selector: 'prizm-file-upload',
@@ -34,8 +37,8 @@ export class PrizmFileUploadComponent implements AfterViewInit, OnDestroy {
 
   options: PrizmFileUploadOptions = { ...prizmFileUploadDefaultOptions };
   constructor(
-    public sanitizer: DomSanitizer,
     private renderer: Renderer2,
+    @Inject(PRIZM_FILE_UPLOAD) public readonly fileUpload$: Observable<PrizmLanguageFileUpload['fileUpload']>,
     @Optional() @Inject(PRIZM_FILEUPLOAD_OPTIONS) customOptions: PrizmFileUploadOptions
   ) {
     this.options = { ...this.options, ...customOptions };

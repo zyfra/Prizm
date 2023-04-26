@@ -2,6 +2,171 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.33](https://github.com/zyfra/Prizm) (24-04-2023)
+
+### Features
+
+- feat(cb3-to-prizm): add textarea support to migrate
+- feat(doc/ast): add example with migration of textarea
+-
+
+### BUG FIXES
+
+- fix(chore): fix error for template to create issues [201](https://github.com/zyfra/Prizm/issues/201)
+- fix(doc/indicator): fix import module name in example [203](https://github.com/zyfra/Prizm/issues/203)
+- fix(components/select): remove unnecessary hint [186](https://github.com/zyfra/Prizm/issues/186)
+- fix(ci): github error with memory leak
+
+## [1.0.0-beta.32](https://github.com/zyfra/Prizm) (23-04-2023)
+
+### Features
+
+- feat(doc): add how to change and use our i18 library info [141](https://github.com/zyfra/Prizm/issues/141)
+- feat(components/spinner): new spinner component
+- feat(doc/spinner): add doc page about spinner component
+- feat(components/hint): add input to pass context
+- feat(components/hint): add show input
+- feat(doc/hint): update doc for hint
+- feat(helpers/log): new decorator **PrizmLogExecution** and unit tests for its
+- feat(ast): new template tasks, task to change typescript code with unit tests for its
+- feat(cb3-to-prizm): add unit tests to stable our migrator
+- feat(doc/cb3-to-prizm): add info how to use our migrator
+- feat(doc/ast): add info how to use our ast library
+
+### BUG FIXES
+
+- fix(components/select): fix error with disable when searchable is false
+
+## [1.0.0-beta.31](https://github.com/zyfra/Prizm) (17-04-2023)
+
+### BUG FIXES
+
+- fix(chore): fix es5-ext, fix es6-set version
+- fix(chore): removed cli-color library
+- fix(chore): removed fantasticon
+
+## [1.0.0-beta.30](https://github.com/zyfra/Prizm) (14-04-2023)
+
+### Features
+
+- feat(ci): automatically create comments in issue after PR were updated, created, or closed [143](https://github.com/zyfra/Prizm/issues/143)
+- feat(ci): automatically create comments in issue after PR was released 143[https://github.com/zyfra/Prizm/issues/143]
+- feat(components/chips): new chips-item added to lib [162](https://github.com/zyfra/Prizm/issues/162)
+- feat(doc/chips): new chips-item added to doc [162](https://github.com/zyfra/Prizm/issues/162)
+- feat(components/cron): added new input to hide cron result [166](https://github.com/zyfra/Prizm/issues/166)
+- feat(components/cron): added new input to filter items from every tab [163](https://github.com/zyfra/Prizm/issues/163)
+- feat(doc/input-date-time): add example with required [124](https://github.com/zyfra/Prizm/issues/124)
+- feat(doc/icons): now on click icon name will be copied to clipboard [150](https://github.com/zyfra/Prizm/issues/150)
+- feat(doc/old-icons): now on click old icon name will be copied to clipboard [150](https://github.com/zyfra/Prizm/issues/150)
+- feat(components/navigation-menu): replace deprecated menu
+- feat(components/button): now you can pass polymorph content as icon to use any icon set [151](https://github.com/zyfra/Prizm/issues/151)
+- feat(doc/icon-button): add example with you custom icon [151](https://github.com/zyfra/Prizm/issues/151)
+- feat(components/sidebar): add ability to hide footer [153](https://github.com/zyfra/Prizm/issues/153)
+
+### BUG FIXES
+
+- fix(components/input-date-time): required did not set [124](https://github.com/zyfra/Prizm/issues/124)
+- fix(components/input): reset touched state on control.reset() [114](https://github.com/zyfra/Prizm/issues/114)
+- fix(component/sidebar): scrollbar content now exanded to all view [130](https://github.com/zyfra/Prizm/issues/130)
+- fix(components/tabs): remove title on tab with idx [152](https://github.com/zyfra/Prizm/issues/152)
+- fix(components/multi-select): fix bug with red border on required [161](https://github.com/zyfra/Prizm/issues/161)
+- fix(components/multi-select): chips can be deleted on disabled multi-selected [159](https://github.com/zyfra/Prizm/issues/159)
+- fix(chore): prettier gets different result on different os
+
+## [1.0.0-beta.29](https://github.com/zyfra/Prizm) (07-04-2023)
+
+### Features
+
+- feat(ast): new library for help to write you migrator and code updater
+- feat(cb3-to-prizm): new migrator for help to migrate to prizm from pervious component base 3
+- feat(ci): add ability for work with forked pull requests
+- feat(doc/dialog): add example with close in template buttons [123](https://github.com/zyfra/Prizm/issues/123)
+- feat(component/table): added example with new `PrizmTableDataSource`  [133](https://github.com/zyfra/Prizm/issues/133)
+- feat(components/table): added  `PrizmTableDataSource` class [133](https://github.com/zyfra/Prizm/issues/133)
+- feat(component/table): added example with new `PrizmTableDataSource`  [133](https://github.com/zyfra/Prizm/issues/133)
+
+### BUG FIXES
+
+- fix(components/input-date-time): fix the time disappears when you select the same date again [125](https://github.com/zyfra/Prizm/issues/125)
+- fix(components/input-date-time): sometimes after choose some time from preset we get wrong times
+- fix(components/select): mark as dirty if it has initial value [132](https://github.com/zyfra/Prizm/issues/132)
+- fix(components/multi-select): validation status in multiSelect is not reset [129](https://github.com/zyfra/Prizm/issues/129)
+
+## [1.0.0-beta.28](https://github.com/zyfra/Prizm) (31-03-2023)
+
+### Features
+
+- feat(doc/input-date-range): add example with presets list 🎨
+- feat(doc/calendar-range): add example with presets list 🎨
+- feat(doc/table): add example with stick to left, to right, to bottom side 🎨 [104](https://github.com/zyfra/Prizm/issues/104)
+- feat(doc/sticky): add doc for new directive prizmStick 🎨 [104](https://github.com/zyfra/Prizm/issues/104)
+- feat(components/sticky): add new directive prizmStick for sticky to any side with dynamic calculations 🎨 [104](https://github.com/zyfra/Prizm/issues/104)
+- feat(components/switcher): add disabled and add support template icon [117](https://github.com/zyfra/Prizm/issues/117) 🎨
+- feat(components/accordion): show border on hover [100](https://github.com/zyfra/Prizm/issues/100)
+
+### BUG FIXES
+
+- fix(components/table): pass correct context to row [110](https://github.com/zyfra/Prizm/issues/110)
+- fix(components/input-date-period): fix export [107](https://github.com/zyfra/Prizm/issues/107)
+- fix(components/dialog): fix error with more than context size [108](https://github.com/zyfra/Prizm/issues/108)
+- fix(components/confirm-dialog): fix error with more than context size [108](https://github.com/zyfra/Prizm/issues/108)
+- fix(components/sidebar): error with double height set [101](https://github.com/zyfra/Prizm/issues/101)
+- feat(components/select): null content does not show [116](https://github.com/zyfra/Prizm/issues/116)
+- fix(components/toast): toasts overlap each other [118](https://github.com/zyfra/Prizm/issues/118)
+- fix(components/sidebar): can not pass footer template [94](https://github.com/zyfra/Prizm/issues/94)
+- fix(components/select): fix full width [120](https://github.com/zyfra/Prizm/issues/120)
+- fix(components/select): validator required does not work [119](https://github.com/zyfra/Prizm/issues/119)
+- fix(components/accordion): problem with nested accordion [96](https://github.com/zyfra/Prizm/issues/96)
+- fix(components/accordion): fix bug with big title in hint [99](https://github.com/zyfra/Prizm/issues/99)
+- fix(components/input-text): fix bug with error on clear [92](https://github.com/zyfra/Prizm/issues/92)
+
+## [1.0.0-beta.27](https://github.com/zyfra/Prizm) (24-03-2023)
+
+### Features
+
+- feat(doc/auto-emit): add new page with auto-emit to tools
+- feat(doc/observable): add new page with observable to tools
+- feat(core/observable): add symbol support and property attributes to prizmObservable decorator [81](https://github.com/zyfra/Prizm/issues/81)
+- feat(core/auto-emit): add symbol support and set dynamic values to prizmAutoEmit decorator
+- feat(theme): update theme v2, add new palete and value for light and dark themes
+- feat(doc/input): add input-layout to api page (components/input)
+- feat(components/input-date-time): add forceClear control input
+- feat(components/input-date-time-range): add forceClear control input [76](https://github.com/zyfra/Prizm/issues/76)
+- feat(components/input-time): add forceClear control input
+- feat(components/input-date): add forceClear control input
+- feat(components/input-month): add forceClear control input
+- feat(components/input-month-range): add forceClear control input
+- feat(components/input-date-range): add forceClear control input
+- feat(components/input-date-relative): add forceClear control input
+- feat(components/sidebar): add dismissible option to close on outside click [98](https://github.com/zyfra/Prizm/issues/98)
+- feat(helpers/to-observable): new to-observable pipe
+- feat(doc/to-observable): new page with to-observable examples
+- feat(i18n): new i18n to library
+- feat(doc/internalization): new page with info how to work with i18n
+- feat(components/file-upload): support i18n to file-upload component (79)[https://github.com/zyfra/Prizm/issues/79]
+
+### BUG FIXES
+
+- fix(doc): set title on change page [72](https://github.com/zyfra/Prizm/issues/72)
+- fix(component/select): emit val change event with same value [91](https://github.com/zyfra/Prizm/issues/91)
+- fix(components/select): update value on emitEvent false [90](https://github.com/zyfra/Prizm/issues/90) [36](https://github.com/zyfra/Prizm/issues/36)
+- fix(components/sidebar): fix scrollbar overflow [97](https://github.com/zyfra/Prizm/issues/97)
+- fix(components/input-date-time): fix time format error [66](https://github.com/zyfra/Prizm/issues/66)
+- fix(components/paginator): fix disabled error [67](https://github.com/zyfra/Prizm/issues/67)
+- fix(components/input): fix input clear behavior [92](https://github.com/zyfra/Prizm/issues/92)
+- fix(doc): fixed paddings and margins for showcase inputText
+
+## [1.0.0-beta.26](https://github.com/zyfra/Prizm) (17-03-2023)
+
+### Features
+
+- feat(components/table): add tree support for table [78](https://github.com/zyfra/Prizm/issues/78)
+- feat(components/table): add empty table directive to table [71](https://github.com/zyfra/Prizm/issues/71)
+- feat(components/tree-button): add tree button component
+- feat(doc/table): add tree example
+- feat(doc/table): add empty table example
+- feat(doc): add new pages and small fixes
+
 ## [1.0.0-beta.25](https://github.com/zyfra/Prizm) (10-03-2023)
 
 ### BUG FIXES

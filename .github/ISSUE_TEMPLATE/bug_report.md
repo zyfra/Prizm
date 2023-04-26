@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: '[BUG] prizm/components - Краткое описание проблемы'
+title: '[BUG] @prizm-ui/components - Краткое описание проблемы'
 labels: ''
 assignees: ''
 ---
@@ -17,6 +17,9 @@ _Выберите нужное отметив галочку [x]_
 - [ ] `@prizm-ui/flag-icons`
 - [ ] `@prizm-ui/theme`
 - [ ] `@prizm-ui/charts`
+- [ ] `@prizm-ui/ast`
+- [ ] `@prizm-ui/cb3-to-prizm`
+-
 
 ### Компонент
 
@@ -42,9 +45,9 @@ v16.13.0
 Dependencies:
 
 ```
-➜ npm ls @prizm-ui/zyfra-components
+➜ npm ls @prizm-ui/components
 
-@prizm-ui/zyfra-components 0.1.1
+@prizm-ui/components 1.0.0-beta.33
 ```
 
 ```
@@ -92,5 +95,5 @@ _Есть проблема следующего характера:_
 
 _Шаги воспроизведения_:
 
-1. Зайти по адресу [prizm](https://prizm.zyfra.com)
+1. Зайти по адресу [prizm](https://doc.prizm.zyfra.com)
 2. ...

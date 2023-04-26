@@ -27,4 +27,8 @@ export class PrizmMultiSelectBaseExampleComponent implements OnInit {
   ngOnInit(): void {
     this.valueDisabled.disable();
   }
+
+  public setDefaultValue(): void {
+    this.valueControl.setValue([], { emitEvent: false });
+  }
 }

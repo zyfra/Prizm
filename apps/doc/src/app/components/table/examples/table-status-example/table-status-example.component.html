@@ -27,21 +27,6 @@
         <td prizmTd colspan="3">Всего</td>
         <td prizmTd>{{ 60000 | spaceNumber : '0.0-0' }}</td>
       </tr>
-
-      <tr class="pagination">
-        <td prizmTd colspan="4">
-          <prizm-paginator
-            [totalRecords]="160"
-            [pageLinkSize]="4"
-            [rows]="10"
-            [page]="6"
-            [paginatorOptions]="{ noRowsSelectorLabel: true }"
-            [rowsCountOptions]="[10, 20, 60]"
-            leftButtonLabel="Назад"
-            rightButtonLabel="Вперед"
-          ></prizm-paginator>
-        </td>
-      </tr>
     </ng-container>
   </tbody>
 </table>

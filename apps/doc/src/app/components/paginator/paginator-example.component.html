@@ -28,6 +28,7 @@
       </div>
       <prizm-paginator
         #element
+        [disabled]="disabled"
         [prizmDocHostElement]="element"
         [totalRecords]="totalRecords"
         [(page)]="initialValue"
@@ -62,6 +63,15 @@
         [(documentationPropertyValue)]="paginatorOptions"
       >
         Paginator inner content options
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
       </ng-template>
 
       <ng-template

@@ -48,6 +48,9 @@ export class PrizmDialogComponent<O = unknown, DATA = unknown> {
   @HostBinding('attr.testId')
   readonly testId = 'prizm_dialog';
 
+  @HostBinding('style.width')
+  readonly width = '100%';
+
   @prizmPure
   public get isFooterArray(): boolean {
     return Boolean(this.footer && Array.isArray(this.footer) && this.footer.length);

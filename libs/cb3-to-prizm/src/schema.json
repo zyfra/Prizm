@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "MySchematic",
+  "type": "object",
+  "properties": {
+    "projectName": {
+      "type": "string",
+      "description": "Название проекта"
+    }
+  },
+  "required": ["projectName"],
+  "additionalProperties": false
+}

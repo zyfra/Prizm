@@ -1,0 +1,42 @@
+[prizmTbody] tr[prizmTr] {
+  cursor: var(--prizm-table-row-cursor, pointer);
+
+  color: var(--prizm-v2-table-text-default);
+
+  background: var(--prizm-table-row-background, var(--prizm-v2-table-background-default));
+
+  &:nth-child(odd) {
+    background: var(--prizm-table-row-odd-background, var(--prizm-v2-table-zebra));
+  }
+
+  &:hover {
+    background: var(--prizm-table-row-hover-background, var(--prizm-v2-table-background-default-hover));
+  }
+
+  &[status='success'] {
+    background: var(--prizm-v2-table-background-success);
+    color: var(--prizm-v2-table-text-success);
+
+    &:hover {
+      background: var(--prizm-v2-table-background-success-hover);
+    }
+  }
+
+  &[status='warning'] {
+    background: var(--prizm-v2-table-background-warning);
+    color: var(--prizm-v2-table-text-warning);
+
+    &:hover {
+      background: var(--prizm-v2-table-background-warning-hover);
+    }
+  }
+
+  &[status='danger'] {
+    background: var(--prizm-v2-table-background-danger);
+    color: var(--prizm-v2-table-text-danger);
+
+    &:hover {
+      background: var(--prizm-v2-table-background-danger-hover);
+    }
+  }
+}

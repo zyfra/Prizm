@@ -25,8 +25,7 @@
 </prizm-wrapper>
 
 <ng-template #showIconTemp let-icon="icon">
-  <ng-container [ngSwitch]="icon | prizmCallFunc : isTemplateRef">
-    <ng-container *ngSwitchCase="true" [ngTemplateOutlet]="$any(icon)"></ng-container>
-    <prizm-icon *ngSwitchDefault [iconClass]="$any(icon)" [size]="16"></prizm-icon>
+  <ng-container *polymorphOutlet="icon as content; context: { size: size }">
+    <prizm-icon [iconClass]="content" [size]="16"></prizm-icon>
   </ng-container>
 </ng-template>

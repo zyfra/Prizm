@@ -26,3 +26,4 @@ export * from './shadow';
 export * from './tooltip';
 export * from './value-accessor';
 export * from './wrapper';
+export * from './sticky';

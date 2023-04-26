@@ -29,10 +29,74 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-table
+        #element
+        [prizmDocHostElement]="element"
+        [frozenValue]="frozenValue"
         [value]="value"
+        [breakpoint]="breakpoint"
+        [rowGroupMode]="rowGroupMode"
+        [showInitialSortBadge]="showInitialSortBadge"
+        [rowTrackBy]="rowTrackBy"
+        [csvSeparator]="csvSeparator"
+        [exportFilename]="exportFilename"
+        [filters]="filters"
+        [expandedRowKeys]="expandedRowKeys"
+        [rowExpandMode]="rowExpandMode"
+        [scrollDirection]="scrollDirection"
+        [virtualScrollDelay]="virtualScrollDelay"
+        [responsive]="responsive"
+        [exportFunction]="exportFunction"
+        [stateKey]="stateKey"
+        [stateStorage]="stateStorage"
+        [editMode]="editMode"
+        [editingRowKeys]="editingRowKeys"
+        [groupRowsBy]="groupRowsBy"
+        [groupRowsByOrder]="groupRowsByOrder"
+        [className]="className"
+        [title]="title"
+        [columns]="columns"
+        [style]="style"
+        [styleClass]="styleClass"
+        [autoLayout]="autoLayout"
+        [lazy]="lazy"
+        [lazyLoadOnInit]="lazyLoadOnInit"
+        [first]="first"
+        [currentPageReportTemplate]="currentPageReportTemplate"
+        [showCurrentPageReport]="showCurrentPageReport"
+        [showFirstLastIcon]="showFirstLastIcon"
+        [showPageLinks]="showPageLinks"
+        [contextMenuSelection]="contextMenuSelection"
+        [contextMenuSelectionMode]="contextMenuSelectionMode"
+        [defaultSortOrder]="defaultSortOrder"
+        [sortMode]="sortMode"
+        [customSort]="customSort"
+        [selectionMode]="selectionMode"
+        [dataKey]="dataKey"
+        [metaKeySelection]="metaKeySelection"
+        [compareSelectionBy]="compareSelectionBy"
+        [rowHover]="rowHover"
+        [loading]="loading"
+        [loadingIcon]="loadingIcon"
+        [showLoader]="showLoader"
+        [virtualScroll]="virtualScroll"
+        [virtualRowHeight]="virtualRowHeight"
+        [frozenWidth]="frozenWidth"
+        [frozenColumns]="frozenColumns"
+        [reorderableColumns]="reorderableColumns"
+        [contextMenu]="contextMenu"
+        [globalFilterFields]="globalFilterFields"
+        [filterDelay]="filterDelay"
+        [filterMode]="filterMode"
+        [filterLocale]="filterLocale"
+        [totalRecords]="totalRecords"
+        [sortField]="sortField"
+        [sortOrder]="sortOrder"
+        [multiSortMeta]="multiSortMeta"
+        [selection]="selection"
+        [stripedMode]="stripedMode"
         [responsiveLayout]="responsiveLayout"
         [size]="size"
         [scrollable]="scrollable"
@@ -66,6 +130,565 @@
         Table values
       </ng-template>
 
+      <ng-template
+        documentationPropertyName="frozenValue"
+        documentationPropertyType="any[]"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="frozenValue"
+      >
+        Frozen values
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="breakpoint"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="breakpoint"
+      >
+        Breakpoint
+      </ng-template>
+      <!-- ////////////////////////////////////////////////////////// -->
+      <ng-template
+        documentationPropertyName="rowGroupMode"
+        documentationPropertyType="'subheader' | 'rowspan'"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="rowGroupMode"
+      >
+        Row group mode
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="showInitialSortBadge"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="showInitialSortBadge"
+      >
+        Show initial sort badge
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="rowTrackBy"
+        documentationPropertyType="(...args: any[]) => any"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="rowTrackBy"
+      >
+        Row track by
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="csvSeparator"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="csvSeparator"
+      >
+        CSV separator
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="exportFilename"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="exportFilename"
+      >
+        Export filename
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="filters"
+        documentationPropertyType="Filters"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="filters"
+      >
+        Filters
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="expandedRowKeys"
+        documentationPropertyType="{ [s: string]: boolean }"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="expandedRowKeys"
+      >
+        Expanded row keys
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="rowExpandMode"
+        documentationPropertyType="'single' | 'multiple'"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="rowExpandMode"
+      >
+        Row expand mode
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="scrollDirection"
+        documentationPropertyType="'vertical' | 'horizontal' | 'both'"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="scrollDirection"
+      >
+        Scroll direction
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="virtualScrollDelay"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="virtualScrollDelay"
+      >
+        Virtual scroll delay
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="responsive"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="responsive"
+      >
+        Responsive
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="exportFunction"
+        documentationPropertyType="(event: { data: any; field: any }) => string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="exportFunction"
+      >
+        Export function
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="stateKey"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="stateKey"
+      >
+        State key
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="stateStorage"
+        documentationPropertyType="'session' | 'local'"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="stateStorage"
+      >
+        State storage
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="editMode"
+        documentationPropertyType="'cell' | 'row'"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="editMode"
+      >
+        Edit mode
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="editingRowKeys"
+        documentationPropertyType="{ [s: string]: boolean }"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="editingRowKeys"
+      >
+        Editing row keys
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="groupRowsBy"
+        documentationPropertyType="string | string[]"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="groupRowsBy"
+      >
+        Group rows by
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="groupRowsByOrder"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="groupRowsByOrder"
+      >
+        Group rows by order
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="className"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="className"
+      >
+        Class name
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="title"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="title"
+      >
+        Title
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="columns"
+        documentationPropertyType="any[]"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="columns"
+      >
+        Columns
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="style"
+        documentationPropertyType="any"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="style"
+      >
+        Style
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="styleClass"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="styleClass"
+      >
+        Style class
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="autoLayout"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="autoLayout"
+      >
+        Auto layout
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="lazy"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="lazy"
+      >
+        Lazy
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="lazyLoadOnInit"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="lazyLoadOnInit"
+      >
+        Lazy load on init
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="first"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="first"
+      >
+        First
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="currentPageReportTemplate"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="currentPageReportTemplate"
+      >
+        Current page report template
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="showCurrentPageReport"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="showCurrentPageReport"
+      >
+        Show current page report
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="showFirstLastIcon"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="showFirstLastIcon"
+      >
+        Show first last icon
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="showPageLinks"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="showPageLinks"
+      >
+        Show page links
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="contextMenuSelection"
+        documentationPropertyType="any"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="contextMenuSelection"
+      >
+        Context menu selection
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="contextMenuSelectionMode"
+        documentationPropertyType="'separate' | 'joint'"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="contextMenuSelectionMode"
+      >
+        Context menu selection mode
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="defaultSortOrder"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="defaultSortOrder"
+      >
+        Default sort order
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="sortMode"
+        documentationPropertyType="'single' | 'multiple'"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="sortMode"
+      >
+        Sort mode
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="customSort"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="customSort"
+      >
+        Custom sort
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="selectionMode"
+        documentationPropertyType="'single' | 'multiple'"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="selectionMode"
+      >
+        Selection mode
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="dataKey"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="dataKey"
+      >
+        Data key
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="metaKeySelection"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="metaKeySelection"
+      >
+        Meta key selection
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="compareSelectionBy"
+        documentationPropertyType="'deepEquals' | 'equals'"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="compareSelectionBy"
+      >
+        Compare selection by
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="rowHover"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="rowHover"
+      >
+        Row hover
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="loading"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="loading"
+      >
+        Loading
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="loadingIcon"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="loadingIcon"
+      >
+        Loading icon
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="showLoader"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="showLoader"
+      >
+        Show loader
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="virtualScroll"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="virtualScroll"
+      >
+        Virtual scroll
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="virtualRowHeight"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="virtualRowHeight"
+      >
+        Virtual row height
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="frozenWidth"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="frozenWidth"
+      >
+        Frozen width
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="frozenColumns"
+        documentationPropertyType="any[]"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="frozenColumns"
+      >
+        Frozen columns
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="reorderableColumns"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="reorderableColumns"
+      >
+        Reorderable columns
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="contextMenu"
+        documentationPropertyType="any"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="contextMenu"
+      >
+        Context menu
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="globalFilterFields"
+        documentationPropertyType="string[]"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="globalFilterFields"
+      >
+        Global filter fields
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="filterDelay"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="filterDelay"
+      >
+        Filter delay
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="filterMode"
+        documentationPropertyType="'lenient' | 'strict'"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="filterMode"
+      >
+        Filter mode
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="filterLocale"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="filterLocale"
+      >
+        Filter locale
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="totalRecords"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="totalRecords"
+      >
+        totalRecords
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="sortField"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="sortField"
+      >
+        Sort field
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="sortOrder"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="sortOrder"
+      >
+        Sort order
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="multiSortMeta"
+        documentationPropertyType="SortMeta[]"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="multiSortMeta"
+      >
+        Multi sort meta
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="selection"
+        documentationPropertyType="any"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="selection"
+      >
+        Selection
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="stripedMode"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="stripedMode"
+      >
+        Striped mode
+      </ng-template>
+
+      <!-- ////////////////////////////////////////////////////////// -->
       <ng-template
         documentationPropertyName="responsiveLayout"
         documentationPropertyType="stack | scroll"
@@ -105,29 +728,57 @@
         Scroll height
       </ng-template>
 
-      <ng-template documentationPropertyName="onRowSelect" documentationPropertyMode="output">
-        Row select event
+      <ng-template documentationPropertyName="activeElementChange" documentationPropertyMode="output">
+        Active element change
       </ng-template>
 
-      <ng-template documentationPropertyName="onRowUnselect" documentationPropertyMode="output">
-        Row unselect event
+      <ng-template documentationPropertyName="rowSelect" documentationPropertyMode="output">
+        Row select
       </ng-template>
+
+      <ng-template documentationPropertyName="rowUnselect" documentationPropertyMode="output">
+        Row unselect
+      </ng-template>
+
+      <ng-template documentationPropertyName="sortFunction" documentationPropertyMode="output">
+        Sort function
+      </ng-template>
+
+      <ng-template documentationPropertyName="editInit" documentationPropertyMode="output">
+        Edit init
+      </ng-template>
+
+      <ng-template documentationPropertyName="editComplete" documentationPropertyMode="output">
+        Edit complete
+      </ng-template>
+
+      <ng-template documentationPropertyName="editCancel" documentationPropertyMode="output">
+        Edit cancel
+      </ng-template>
+
+      <!-- <ng-template documentationPropertyName="onRowSelect" documentationPropertyMode="output">
+        Row select event
+      </ng-template> -->
+
+      <!-- <ng-template documentationPropertyName="onRowUnselect" documentationPropertyMode="output">
+        Row unselect event
+      </ng-template> -->
 
       <ng-template documentationPropertyName="onSort" documentationPropertyMode="output">
         Row sort event
       </ng-template>
 
-      <ng-template documentationPropertyName="onEditInit" documentationPropertyMode="output">
+      <!-- <ng-template documentationPropertyName="onEditInit" documentationPropertyMode="output">
         Edit initialization
-      </ng-template>
+      </ng-template> -->
 
-      <ng-template documentationPropertyName="onEditComplete" documentationPropertyMode="output">
+      <!-- <ng-template documentationPropertyName="onEditComplete" documentationPropertyMode="output">
         Edit complete
-      </ng-template>
+      </ng-template> -->
 
-      <ng-template documentationPropertyName="onEditCancel" documentationPropertyMode="output">
+      <!-- <ng-template documentationPropertyName="onEditCancel" documentationPropertyMode="output">
         Edit cancel
-      </ng-template>
+      </ng-template> -->
 
       <ng-template documentationPropertyName="selectionChange" documentationPropertyMode="output">
         Row selection change event

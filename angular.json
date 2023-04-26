@@ -1,6 +1,92 @@
 {
   "version": 1,
   "projects": {
+    "ast": {
+      "projectType": "library",
+      "root": "libs/ast",
+      "sourceRoot": "libs/ast/src",
+      "prefix": "prizm",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/ast"],
+          "options": {
+            "project": "libs/ast/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ast/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/ast/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ast"],
+          "options": {
+            "jestConfig": "libs/ast/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ast/src/**/*.ts",
+              "libs/ast/src/**/*.html",
+              "libs/ast/schematics-helpers/**/*.ts",
+              "libs/ast/schematics-helpers/**/*.html",
+              "libs/ast/code/**/*.ts",
+              "libs/ast/code/**/*.html",
+              "libs/ast/from-cb3-to-prizm/**/*.ts",
+              "libs/ast/from-cb3-to-prizm/**/*.html",
+              "libs/ast/cb3-template-examples/**/*.ts",
+              "libs/ast/cb3-template-examples/**/*.html",
+              "libs/ast/cb3-code-examples/**/*.ts",
+              "libs/ast/cb3-code-examples/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
+    "cb3-to-prizm": {
+      "root": "libs/cb3-to-prizm",
+      "sourceRoot": "libs/cb3-to-prizm/src",
+      "projectType": "library",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/cb3-to-prizm",
+            "tsConfig": "libs/cb3-to-prizm/tsconfig.lib.json",
+            "packageJson": "libs/cb3-to-prizm/package.json",
+            "main": "libs/cb3-to-prizm/src/index.ts",
+            "assets": ["libs/cb3-to-prizm/*.md"]
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/cb3-to-prizm/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/cb3-to-prizm"],
+          "options": {
+            "jestConfig": "libs/cb3-to-prizm/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
     "charts-base": {
       "projectType": "library",
       "root": "libs/charts/base",
@@ -473,6 +559,45 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/helpers/src/**/*.ts", "libs/helpers/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
+    "i18n": {
+      "projectType": "library",
+      "root": "libs/i18n",
+      "sourceRoot": "libs/i18n/src",
+      "prefix": "prizm",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/i18n"],
+          "options": {
+            "project": "libs/i18n/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/i18n/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/i18n/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/i18n"],
+          "options": {
+            "jestConfig": "libs/i18n/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/i18n/src/**/*.ts", "libs/i18n/src/**/*.html"]
           }
         }
       },

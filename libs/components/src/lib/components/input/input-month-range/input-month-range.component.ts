@@ -60,6 +60,8 @@ export class PrizmInputMonthRangeComponent
   @prizmDefaultProp()
   public label = 'Выберите период';
 
+  @Input() forceClear: boolean | null = null;
+
   @Input()
   @prizmDefaultProp()
   public size: PrizmInputSize = 'm';
