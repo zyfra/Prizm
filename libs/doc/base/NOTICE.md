@@ -1,0 +1,6 @@
+This project includes code from these projects:
+
+#### Taiga UI packages
+
+[Taiga UI packages](https://github.com/Tinkoff/taiga-ui/), licensed under the [Apache License v. 2.0 License](https://github.com/Tinkoff/taiga-ui/blob/main/LICENSE)
+Modifications to [Taiga UI packages](https://github.com/Tinkoff/taiga-ui/) are also licensed under this license.
