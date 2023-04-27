@@ -115,7 +115,7 @@ or you can only import to your root styles.less
 
 # Thanks to
 
-Our library is licensed under the terms of the Apache License v. 2.0.
+Our library is licensed under the terms of the MIT License.
 
 This is a library for one of the best Angular frameworks. Thanks to [Angular team](https://github.com/angular)
 
