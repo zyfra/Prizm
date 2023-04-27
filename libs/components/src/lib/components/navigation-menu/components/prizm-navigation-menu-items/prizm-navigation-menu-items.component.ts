@@ -8,12 +8,12 @@ import {
   ChangeDetectorRef,
   ViewChildren,
   QueryList,
+  Inject,
 } from '@angular/core';
-import { PRIZM_EMPTY_ARRAY } from '@prizm-ui/core';
-import { PrizmHandler } from '../../../../types';
 import { InternalPrizmNavigationMenuItem, ViewMode } from '../../interfaces';
 import { PrizmNavigationMenuItemComponent } from '../prizm-navigation-menu-item/prizm-navigation-menu-item.component';
 import { findItem } from '../../helpers/prizm-navigation-menu-items-helpers';
+import { PRIZM_NAVIGATION_MENU_CHILDREN_HANDLER, PrizmNavigationMenuChildrenHandler } from '../../tokens';
 
 @Component({
   selector: 'prizm-navigation-menu-items',
@@ -45,8 +45,17 @@ export class PrizmNavigationMenuItemsComponent<T extends { children?: unknown[] 
     InternalPrizmNavigationMenuItem<T>,
     boolean
   >();
+  @Input() childrenHandler: PrizmNavigationMenuChildrenHandler<T>;
 
-  constructor(public cdr: ChangeDetectorRef) {}
+  get menuItemsChildrenHandler(): PrizmNavigationMenuChildrenHandler<T> {
+    return this.childrenHandler || this.childrenHandlerToken;
+  }
+
+  constructor(
+    @Inject(PRIZM_NAVIGATION_MENU_CHILDREN_HANDLER)
+    private childrenHandlerToken: PrizmNavigationMenuChildrenHandler<T>,
+    public cdr: ChangeDetectorRef
+  ) {}
 
   public handleExpandedChanged({
     value,
@@ -60,11 +69,6 @@ export class PrizmNavigationMenuItemsComponent<T extends { children?: unknown[] 
       isExpanded,
     });
   }
-
-  public treeChildrenHandler: PrizmHandler<
-    InternalPrizmNavigationMenuItem<T>,
-    readonly InternalPrizmNavigationMenuItem<T>[]
-  > = item => item.children || PRIZM_EMPTY_ARRAY;
 
   public getItemIsExpanded(item: InternalPrizmNavigationMenuItem<T>): boolean {
     return this.expandedItemsMap.get(item);

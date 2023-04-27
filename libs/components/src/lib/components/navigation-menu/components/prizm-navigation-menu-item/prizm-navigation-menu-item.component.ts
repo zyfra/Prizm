@@ -21,6 +21,7 @@ export class PrizmNavigationMenuItemComponent<T> {
   @Output() goToRootItem = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
 
   @Input() itemExtraTemplate: TemplateRef<unknown>;
+  @Input() isExpandable: boolean;
   @Input() isExpanded: boolean;
   @Input() isActive: boolean;
   @Input() item: InternalPrizmNavigationMenuItem<T>;
@@ -30,7 +31,7 @@ export class PrizmNavigationMenuItemComponent<T> {
   isHovered = false;
 
   get expandButtonVisible(): boolean {
-    return this.mode === 'rubricator' ? this.item.isRubricator : !!this.item.children?.length;
+    return this.mode === 'rubricator' ? this.item.isRubricator : this.isExpandable;
   }
 
   get goToButtonsVisible(): boolean {

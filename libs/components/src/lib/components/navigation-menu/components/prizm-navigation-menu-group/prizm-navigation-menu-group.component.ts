@@ -24,6 +24,7 @@ import { PrizmNavigationMenuService } from '../../services/prizm-navigation-menu
 import { PrizmNavigationMenuGroupService } from '../../services/prizm-navigation-menu-group.service';
 import { PrizmNavigationMenuToolbarService } from '../../services/prizm-navigation-menu-toolbar.service';
 import { PrizmNavigationMenuItemsComponent } from '../prizm-navigation-menu-items/prizm-navigation-menu-items.component';
+import { PrizmHandler } from '../../../../../lib/types';
 
 @Component({
   selector: 'prizm-navigation-menu-group',
@@ -71,6 +72,11 @@ export class PrizmNavigationMenuGroupComponent<
   @Input() set searchConfig(config: PrizmNavigationMenuSearchConfig) {
     this.groupService.setSearchConfig(config);
   }
+
+  @Input() childrenHandler: PrizmHandler<
+    InternalPrizmNavigationMenuItem<UserItem>,
+    readonly InternalPrizmNavigationMenuItem<UserItem>[]
+  >;
 
   groupIsExpanded: boolean;
 
