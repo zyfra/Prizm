@@ -2,7 +2,6 @@ import { IPrizmRunTasksOnNodeTemplateTask, IPrizmRunTasksOnNodeTemplateTaskPaylo
 import { PrizmAstTemplateContext } from '../model';
 import { PrizmAstTaskTemplate } from '../abstract';
 import { PrizmTemplateNode } from '../task';
-import { PrizmLogExecution } from '@prizm-ui/helpers';
 
 export class PrizmRunTasksOnNodeTemplateTask extends PrizmAstTaskTemplate<IPrizmRunTasksOnNodeTemplateTask> {
   readonly type = 'run-tasks-on-node';

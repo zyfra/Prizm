@@ -115,6 +115,8 @@ or you can only import to your root styles.less
 
 # Thanks to
 
+Our library is licensed under the terms of the Apache License v. 2.0.
+
 This is a library for one of the best Angular frameworks. Thanks to [Angular team](https://github.com/angular)
 
 Our library are based on Taiga UI by Tinkoff. Thanks to [Taiga UI](https://github.com/tinkoff/taiga-ui)
