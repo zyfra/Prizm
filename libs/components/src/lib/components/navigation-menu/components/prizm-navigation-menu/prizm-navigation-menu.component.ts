@@ -70,8 +70,11 @@ export class PrizmNavigationMenuComponent<
   @Input() set settingsConfig(settings: PrizmNavigationMenuSettingsConfig) {
     this.menuService.setSettingsConfiguration(settings);
   }
-  @Input() set emptyMessageConfig(config: PrizmNavigationMenuEmptyMessageConfig) {
-    this.menuService.setEmptyMessageConfig(config);
+  @Input() set emptySearchResultMessageConfig(config: PrizmNavigationMenuEmptyMessageConfig) {
+    this.menuService.setEmptySearchResultMessageConfig(config);
+  }
+  @Input() set emptyDataMessageConfig(config: PrizmNavigationMenuEmptyMessageConfig) {
+    this.menuService.setEmptyDataMessageConfig(config);
   }
   @Input() set headerConfig(config: PrizmNavigationMenuHeaderConfig) {
     this.headerConfiguration = { ...config, showSettings: false };
@@ -87,8 +90,11 @@ export class PrizmNavigationMenuComponent<
 
   menuSearchConfig$: Observable<PrizmNavigationMenuSearchConfig> = this.menuService.searchConfig$;
 
-  emptyMessageConfig$: Observable<PrizmNavigationMenuEmptyMessageConfig> =
-    this.menuService.emptyMessageConfig$;
+  emptySearchResultMessageConfig$: Observable<PrizmNavigationMenuEmptyMessageConfig> =
+    this.menuService.emptySearchResultMessageConfig$;
+
+  emptyDataMessageConfig$: Observable<PrizmNavigationMenuEmptyMessageConfig> =
+    this.menuService.emptyDataMessageConfig$;
 
   settingsConfiguration: PrizmNavigationMenuSettingsConfig = this.menuService.settingsConfig;
 
