@@ -1,6 +1,5 @@
 import { IPrizmAstTaskTemplate, PrizmAstTemplateContext, PrizmTemplateTaskAction } from './model';
 import { PrizmTemplateNode } from './task';
-import { PrizmLogExecution } from '@prizm-ui/helpers';
 
 export abstract class PrizmAstTaskTemplate<T extends PrizmTemplateTaskAction<any>>
   implements IPrizmAstTaskTemplate<T>
