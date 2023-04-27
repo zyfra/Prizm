@@ -31,7 +31,8 @@
         [expandedItemsMap]="expandedItemsMap"
         [expandedGroupsMap]="expandedGroupsMap"
         [settingsConfig]="settingsConfig"
-        [emptyMessageConfig]="emptyMessageConfig"
+        [emptySearchResultMessageConfig]="emptySearchResultMessageConfig"
+        [emptyDataMessageConfig]="emptyDataMessageConfig"
         [headerConfig]="headerConfig"
         [searchConfig]="searchConfig"
       ></prizm-navigation-menu>
@@ -126,12 +127,20 @@
         settingsConfig
       </ng-template>
       <ng-template
-        documentationPropertyName="emptyMessageConfig"
+        documentationPropertyName="emptySearchResultMessageConfig"
         documentationPropertyType="PrizmNavigationMenuEmptyMessageConfig"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="emptyMessageConfig"
+        [(documentationPropertyValue)]="emptySearchResultMessageConfig"
       >
-        emptyMessageConfig
+        Will be displayed when search is enabled and where are no search entires
+      </ng-template>
+      <ng-template
+        documentationPropertyName="emptyDataMessageConfig"
+        documentationPropertyType="PrizmNavigationMenuEmptyMessageConfig"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="emptyDataMessageConfig"
+      >
+        Will be displayed when incoming data is empty (for example not loaded yet)
       </ng-template>
       <ng-template
         documentationPropertyName="searchConfig"
