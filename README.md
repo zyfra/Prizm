@@ -117,7 +117,10 @@ or you can only import to your root styles.less
 
 This is a library for one of the best Angular frameworks. Thanks to [Angular team](https://github.com/angular)
 
-Our library are based on Taiga UI by Tinkoff. Thanks to [Taiga UI](https://github.com/tinkoff/taiga-ui)
+Our library are based on [Taiga UI by Tinkoff](<(https://github.com/tinkoff/taiga-ui)>).
+All Taiga UI packages are covered by Apache 2.0
+Read more about this license [here](https://choosealicense.com/licenses/apache-2.0/)
+Thanks to [Taiga UI](https://github.com/tinkoff/taiga-ui)
 
 We use nrwl nx as monorepo. Thanks to [Nrwl team](https://github.com/nrwl)
 
