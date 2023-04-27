@@ -115,8 +115,6 @@ or you can only import to your root styles.less
 
 # Thanks to
 
-Our library is licensed under the terms of the MIT License.
-
 This is a library for one of the best Angular frameworks. Thanks to [Angular team](https://github.com/angular)
 
 Our library are based on Taiga UI by Tinkoff. Thanks to [Taiga UI](https://github.com/tinkoff/taiga-ui)
@@ -151,3 +149,11 @@ Also we want to give thanks to all the following
 - [svg-to-ts](https://github.com/kreuzerk/svg-to-ts)
 - [typescript](https://github.com/microsoft/TypeScript)
 - [commitlint](https://github.com/conventional-changelog/commitlint)
+
+# License
+
+You are welcome to utilize our library in both commercial and personal projects.
+
+The Prizm UI packages are licensed under the MIT License.
+
+Read more about this license [here](https://opensource.org/license/mit/)
