@@ -1,0 +1,25 @@
+<div class="multiple-menu">
+  <section>
+    <prizm-navigation-menu [title]="'With [childrenHandler]'" [toolbarConfig]="toolbarConfig">
+      <prizm-navigation-menu-group
+        [icon]="'battery-flash-ok'"
+        [title]="'Group 1'"
+        [groupId]="'group1'"
+        [items]="group1"
+        [toolbarConfig]="toolbarConfig"
+      ></prizm-navigation-menu-group>
+      <prizm-navigation-menu-group
+        [icon]="'alerts-pulse'"
+        [title]="'Group 2 (hidden 3rd lvl children)'"
+        [groupId]="'group2'"
+        [items]="group2"
+        [toolbarConfig]="toolbarConfig"
+        [childrenHandler]="childrenHandler"
+      ></prizm-navigation-menu-group>
+    </prizm-navigation-menu>
+  </section>
+  <section>
+    <p>Обе группы используют одно и то-же дерево.</p>
+    <p>Но у второй группы присутствует childrenHandler который скрывает элементы 3го уровня</p>
+  </section>
+</div>
