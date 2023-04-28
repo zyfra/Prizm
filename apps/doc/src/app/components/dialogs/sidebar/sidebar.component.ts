@@ -17,6 +17,7 @@ import {
 } from '@prizm-ui/components';
 import { generatePolymorphVariants } from '../../../util';
 import { prizmPure } from '@prizm-ui/core';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'prizm-tooltip-example',
@@ -30,6 +31,7 @@ export class SidebarComponent {
   public pseudoFocused = false;
   public pseudoState = '';
   public focusable = false;
+  public canClose = false;
 
   public focusedChange = false;
   public pressedChange = false;
@@ -82,6 +84,11 @@ export class SidebarComponent {
     HTML: import('./examples/base/base.component.html?raw'),
   };
 
+  public readonly exampleCustomClose: TuiDocExample = {
+    TypeScript: import('./examples/custom-close-guard/custom-close-guard.component.ts?raw'),
+    HTML: import('./examples/custom-close-guard/custom-close-guard.component.html?raw'),
+  };
+
   public readonly exampleHiddenFooter: TuiDocExample = {
     TypeScript: import('./examples/hidden-footer/hidden-footer.component.ts?raw'),
     HTML: import('./examples/hidden-footer/hidden-footer.component.html?raw'),
@@ -112,6 +119,7 @@ export class SidebarComponent {
         hideFooter: this.hideFooter,
         overscroll: this.overscroll,
         position: this.position,
+        canClose: () => of(this.canClose),
         closeWord: this.closeWord,
         size: this.size,
       })

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
@@ -13,6 +13,7 @@ import { SidebarComponent } from './sidebar.component';
 import { PrizmSidebarServiceExampleComponent } from './examples/base/base.component';
 import { PrizmSidebarTopBottomExampleComponent } from './examples/top-bottom/top-bottom.component';
 import { PrizmSidebarHiddenFooterExampleComponent } from './examples/hidden-footer/hidden-footer.component';
+import { PrizmSidebarCustomCloseGuardExampleComponent } from './examples/custom-close-guard/custom-close-guard.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { PrizmSidebarHiddenFooterExampleComponent } from './examples/hidden-foot
     RouterModule.forChild(prizmDocGenerateRoutes(SidebarComponent)),
   ],
   declarations: [
+    PrizmSidebarCustomCloseGuardExampleComponent,
     PrizmSidebarServiceExampleComponent,
     PrizmSidebarTopBottomExampleComponent,
     PrizmSidebarHiddenFooterExampleComponent,

@@ -8,6 +8,7 @@ import {
 import { PrizmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
 import { PrizmOverlayInsidePlacement } from '../../../modules/overlay';
 import { PrizmContent } from '../../button';
+import { Observable } from 'rxjs';
 
 export type PrizmSidebarButton = Omit<PrizmDialogButton, 'action'> &
   Partial<Pick<PrizmDialogButton, 'action'>> & { icon?: PrizmContent };
@@ -29,6 +30,7 @@ export interface PrizmSidebarOptions<DATA = unknown> extends PrizmDialogBaseOpti
   readonly content?: any;
   readonly closeable: boolean;
   readonly header: any;
+  readonly canClose?: () => Observable<boolean>;
   readonly hideFooter?: boolean;
   readonly footer: PolymorphContent<
     PrizmBaseDialogContext<PrizmSidebarResultDefaultType, PrizmSidebarOptions<DATA>>
