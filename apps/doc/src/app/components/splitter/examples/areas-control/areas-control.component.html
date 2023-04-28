@@ -1,6 +1,7 @@
-<prizm-splitter [ngStyle]="{ height: '300px' }" (areasSizeChange)="areasSizeChange($event)">
-  <prizm-splitter-area [size]="25">
+<prizm-splitter [ngStyle]="{ height: '300px' }">
+  <prizm-splitter-area [size]="area1Size" *ngIf="showArea1">
     <div class="area area--1">
+      <h3>area 1</h3>
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
       provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel nulla
       recusandae impedit beatae. Nemo doloremque inventore harum, pariatur dignissimos molestias id? Sint
@@ -11,8 +12,9 @@
       officiis, nihil dolorum quisquam aperiam blanditiis.
     </div>
   </prizm-splitter-area>
-  <prizm-splitter-area [size]="25">
+  <prizm-splitter-area [size]="area2Size" *ngIf="showArea2">
     <div class="area area--2">
+      <h3>area 2</h3>
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
       provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel nulla
       recusandae impedit beatae. Nemo doloremque inventore harum, pariatur dignissimos molestias id? Sint
@@ -23,8 +25,9 @@
       officiis, nihil dolorum quisquam aperiam blanditiis.
     </div>
   </prizm-splitter-area>
-  <prizm-splitter-area [size]="25">
+  <prizm-splitter-area [size]="area3Size" *ngIf="showArea3">
     <div class="area area--3">
+      <h3>area 3</h3>
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
       provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel nulla
       recusandae impedit beatae. Nemo doloremque inventore harum, pariatur dignissimos molestias id? Sint
@@ -35,8 +38,9 @@
       officiis, nihil dolorum quisquam aperiam blanditiis.
     </div>
   </prizm-splitter-area>
-  <prizm-splitter-area [size]="25">
+  <prizm-splitter-area [size]="area4Size" *ngIf="showArea4">
     <div class="area area--4">
+      <h3>area 4</h3>
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
       provident, obcaecati tempore aliquam consequatur neque iste earum. Quod molestiae doloribus, vel nulla
       recusandae impedit beatae. Nemo doloremque inventore harum, pariatur dignissimos molestias id? Sint
@@ -49,18 +53,6 @@
   </prizm-splitter-area>
 </prizm-splitter>
 
-<div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; align-items: flex-start">
-  <button (click)="setAreasSize([50, null, null, 50])" prizmButton appearance="secondary" size="xl">
-    setAreasSize([50, null, null, 50])
-  </button>
-  <button (click)="setAreasSize([20, 30, 30, 20])" prizmButton appearance="secondary" size="xl">
-    setAreasSize([20, 30, 30, 20])
-  </button>
-  <button (click)="setAreasSize([100, null, null, null])" prizmButton appearance="secondary" size="xl">
-    setAreasSize([100, null, null, null])
-  </button>
-
-  <button (click)="setAreasSize([100, 0, 0, 0])" prizmButton appearance="secondary" size="xl">
-    setAreasSize([100, 0, 0, 0])
-  </button>
+<div>
+  <button prizmButton appearance="primary" size="xl" (click)="changeAreas()">Change areas</button>
 </div>

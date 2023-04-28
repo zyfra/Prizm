@@ -32,9 +32,9 @@ export class PrizmSplitterExampleComponent {
     HTML: import('./examples/limit-size/limit-size.component.html?raw'),
   };
 
-  readonly sizeSetting: TuiDocExample = {
-    TypeScript: import('./examples/size-setting/size-setting.component?raw'),
-    HTML: import('./examples/size-setting/size-setting.component.html?raw'),
+  readonly areasControl: TuiDocExample = {
+    TypeScript: import('./examples/areas-control/areas-control.component?raw'),
+    HTML: import('./examples/areas-control/areas-control.component.html?raw'),
   };
 
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');

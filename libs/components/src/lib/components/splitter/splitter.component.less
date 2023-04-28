@@ -5,12 +5,15 @@
 
 .container {
   display: flex;
+  position: relative;
   width: 100%;
   height: 100%;
-}
 
-:host(.vertical) {
-  & > .container {
+  &--horizontal {
+    flex-direction: row;
+  }
+
+  &--vertical {
     flex-direction: column;
   }
 }

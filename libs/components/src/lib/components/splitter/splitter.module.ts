@@ -1,14 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ResizeObserverModule } from '@ng-web-apis/resize-observer';
-import { PrizmSplitterAreaComponent } from './splitter-area.component';
-import { PrizmSplitterGutterComponent } from './splitter-gutter.component';
+import { PrizmSplitterAreaComponent } from './area/area.component';
+import { PrizmSplitterGutterDefaultComponent } from './gutter/gutter-default.component';
+import { PrizmSplitterGutterComponent } from './gutter/gutter.component';
 
 import { PrizmSplitterComponent } from './splitter.component';
+import { ResizeObserverModule } from '@ng-web-apis/resize-observer';
 
 @NgModule({
   imports: [CommonModule, ResizeObserverModule],
-  declarations: [PrizmSplitterComponent, PrizmSplitterAreaComponent, PrizmSplitterGutterComponent],
+  declarations: [
+    PrizmSplitterComponent,
+    PrizmSplitterAreaComponent,
+    PrizmSplitterGutterComponent,
+    PrizmSplitterGutterDefaultComponent,
+  ],
   exports: [PrizmSplitterComponent, PrizmSplitterAreaComponent],
 })
 export class PrizmSplitterModule {}
