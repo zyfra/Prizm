@@ -1,9 +1,10 @@
 import { Component, Inject } from '@angular/core';
 import { PrizmSidebarService, PrizmOverlayInsidePlacement } from '@prizm-ui/components';
+import { of } from 'rxjs';
 
 @Component({
-  selector: 'prizm-sidebar-service-example',
-  templateUrl: './base.component.html',
+  selector: 'prizm-sidebar-custom-close-guard-example',
+  templateUrl: './custom-close-guard.component.html',
   styles: [
     `
       .box {
@@ -13,7 +14,7 @@ import { PrizmSidebarService, PrizmOverlayInsidePlacement } from '@prizm-ui/comp
     `,
   ],
 })
-export class PrizmSidebarServiceExampleComponent {
+export class PrizmSidebarCustomCloseGuardExampleComponent {
   public positionVariants: PrizmOverlayInsidePlacement[] = [
     PrizmOverlayInsidePlacement.LEFT,
     PrizmOverlayInsidePlacement.RIGHT,
@@ -21,6 +22,7 @@ export class PrizmSidebarServiceExampleComponent {
   public position: PrizmOverlayInsidePlacement = this.positionVariants[1];
   public backdrop = false;
   public dismissible = false;
+  public canClose = false;
 
   constructor(@Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService) {}
 
@@ -40,10 +42,11 @@ export class PrizmSidebarServiceExampleComponent {
           closeable: true,
           header: 'Header',
           width: '400px',
+          canClose: () => of(this.canClose),
           closeWord: 'Продолжить',
           position: this.position,
-          backdrop: this.backdrop,
           dismissible: this.dismissible,
+          backdrop: this.backdrop,
           size: 'm',
         }
       )

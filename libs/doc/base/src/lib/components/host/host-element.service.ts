@@ -1,4 +1,4 @@
-import { ComponentFactoryResolver, ElementRef, Injectable, OnDestroy } from '@angular/core';
+import { ComponentFactoryResolver, ElementRef, Injectable, OnDestroy, Type } from '@angular/core';
 import { BehaviorSubject, Subject, Subscription } from 'rxjs';
 import { PrizmDocumentationPropertyType } from '../../types/pages';
 import { debounceTime, takeUntil, tap } from 'rxjs/operators';
@@ -49,22 +49,57 @@ export class PrizmDocHostElementService implements OnDestroy {
       .subscribe();
   }
 
+  private listComponentInputsOutputs<T>(componentClass: Type<T>) {
+    const inputs: string[] = [];
+    const outputs: string[] = [];
+    let selector: string | null = null;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const componentMetadata = componentClass['ɵcmp'] || componentClass['ɵdir'];
+    if (componentMetadata) {
+      selector = componentMetadata.selectors?.[0]?.[0] as string;
+      const inputProperties = componentMetadata.inputs;
+      const outputProperties = componentMetadata.outputs;
+
+      for (const input in inputProperties) {
+        inputs.push(inputProperties[input]);
+      }
+
+      for (const output in outputProperties) {
+        outputs.push(outputProperties[output]);
+      }
+    } else {
+      console.error('The provided class is not an Angular component.');
+    }
+
+    return { inputs, outputs, selector };
+  }
+
   private updateComponentInfo(listenerElementKey: string, el: ElementRef): void {
     const currentOutputMap = this.outputMap.get(listenerElementKey) || new Map();
-    const metaComponentData = this.componentFactoryResolver.resolveComponentFactory(
-      el.nativeElement.constructor
+    const metaComponentData = this.listComponentInputsOutputs(el.nativeElement.constructor);
+
+    this.outputs.set(
+      listenerElementKey,
+      metaComponentData.outputs.map(i => ({
+        propName: i,
+        templateName: i,
+      }))
     );
-    this.outputs.set(listenerElementKey, metaComponentData.outputs);
-    this.inputs.set(listenerElementKey, metaComponentData.inputs);
+    this.inputs.set(
+      listenerElementKey,
+      metaComponentData.inputs.map(i => ({
+        propName: i,
+        templateName: i,
+      }))
+    );
     this.componentInfo.set(listenerElementKey, {
       selector: metaComponentData.selector,
-      type: metaComponentData.componentType,
-      name: metaComponentData.componentType.name,
+      type: el.nativeElement.constructor.name,
+      name: el.nativeElement.constructor.name,
     });
 
-    const notSpecifiedKeys = metaComponentData.outputs
-      .map(i => i.propName)
-      .filter(key => !currentOutputMap.has(key));
+    const notSpecifiedKeys = metaComponentData.outputs.map(i => i).filter(key => !currentOutputMap.has(key));
     currentOutputMap.forEach(({ key, type }) => {
       this.addOutputListener(listenerElementKey, el, type, key);
     });

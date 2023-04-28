@@ -6,12 +6,17 @@
     <prizm-doc-example id="base" heading="Base" [content]="exampleBasic">
       <prizm-sidebar-service-example></prizm-sidebar-service-example>
     </prizm-doc-example>
+
     <prizm-doc-example id="hidden-footer" heading="Hidden Footer" [content]="exampleHiddenFooter">
       <prizm-sidebar-hidden-footer-example></prizm-sidebar-hidden-footer-example>
     </prizm-doc-example>
 
     <prizm-doc-example id="top-bottom" heading="Top Bottom" [content]="exampleTopBottom">
       <prizm-sidebar-top-bottom-example></prizm-sidebar-top-bottom-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="custom-close-guard" heading="Custom Close Guard" [content]="exampleCustomClose">
+      <prizm-sidebar-custom-close-guard-example></prizm-sidebar-custom-close-guard-example>
     </prizm-doc-example>
   </ng-template>
 
@@ -95,6 +100,10 @@
         [(documentationPropertyValue)]="overscroll"
       >
         Overscroll
+      </ng-template>
+
+      <ng-template documentationPropertyName="canClose" documentationPropertyType="() => Observable<boolean>">
+        Can Close
       </ng-template>
 
       <ng-template
