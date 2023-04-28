@@ -2,11 +2,11 @@
 import {
   PrizmAstAddImportsIfNeededCodeTask,
   PrizmAstAddImportsToNgModuleCodeTask,
-  PrizmAstCodeTask,
+  IPrizmAstCodeTask,
   prizmAstCreateCodeTaskBy,
 } from '@prizm-ui/ast/code';
 
-export const ZyfraTextareaCodeTasks: PrizmAstCodeTask[] = [
+export const ZyfraTextareaCodeTasks: IPrizmAstCodeTask[] = [
   prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
     importToAdd: '@prizm-ui/components',
     namedImports: ['PrizmInputTextModule'],

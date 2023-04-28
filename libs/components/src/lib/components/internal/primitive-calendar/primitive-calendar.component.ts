@@ -70,8 +70,8 @@ export class PrizmPrimitiveCalendarComponent {
   @Output()
   readonly dayClick = new EventEmitter<PrizmDay>();
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_primitive_calendar';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_primitive_calendar';
 
   constructor(
     @Inject(PRIZM_ORDERED_SHORT_WEEK_DAYS)

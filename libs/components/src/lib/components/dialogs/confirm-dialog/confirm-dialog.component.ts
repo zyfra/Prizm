@@ -45,8 +45,8 @@ export class PrizmDialogConfirmComponent<DATA = unknown> {
   @HostBinding('style.width')
   readonly width = '100%';
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_confirm_dialog';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_form_submit';
 
   private readonly animation = {
     value: '',

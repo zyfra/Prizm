@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "plugin",
+  "version": "1.0.0-beta.34",
+  "generators": {
+    "migrate-from-cb3": {
+      "factory": "./src/generators/migrate-from-cb3/generator",
+      "schema": "./src/generators/migrate-from-cb3/schema.json",
+      "description": "helpers to migrate from cb3 to prizm"
+    }
+  }
+}

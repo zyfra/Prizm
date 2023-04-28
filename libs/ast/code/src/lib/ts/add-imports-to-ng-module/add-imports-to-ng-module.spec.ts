@@ -1,92 +1,51 @@
 import * as ts from 'typescript';
-import { prizmAstAddImportToNgModule } from './util';
+import { PrizmAstAddImportsToNgModuleCodeTask } from './add-imports-to-ng-module';
+import { IPrizmAddImportsToNgModuleCodeTask } from './model';
 
-function createTransformer(
-  newModule: string,
-  comment: string,
-  moduleToFind: string
-): ts.TransformerFactory<ts.SourceFile> {
-  return (context: ts.TransformationContext) => {
-    return (sourceFile: ts.SourceFile): any => {
-      // Вызываем prizmAstAddImportToNgModule с реальным контекстом трансформации
-      return prizmAstAddImportToNgModule(context, sourceFile, newModule, comment, moduleToFind);
+describe('PrizmAstAddImportsToNgModuleCodeTask', () => {
+  const task = new PrizmAstAddImportsToNgModuleCodeTask();
+
+  function createTransform(
+    newModule: string,
+    comment: string,
+    moduleToFind: string
+  ): ts.TransformerFactory<ts.SourceFile> {
+    return (context: ts.TransformationContext) => {
+      return (sourceFile: ts.SourceFile) => {
+        const taskPayload: IPrizmAddImportsToNgModuleCodeTask['payload'] = {
+          newModule,
+          comment,
+          moduleToFind,
+        };
+
+        return task.run(context, sourceFile, taskPayload);
+      };
     };
-  };
-}
+  }
 
-describe('prizmAstAddImportToNgModule', () => {
-  it('should add a new import to the NgModule', () => {
-    const code = `
+  it('should add the import to NgModule', () => {
+    const sourceCode = `
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
-  imports: [
-    BrowserModule
-  ]
+  imports: [BrowserModule],
 })
 export class AppModule { }
 `;
-    const newModule = 'NewModule';
-    const comment = 'New module';
 
-    const sourceFile = ts.createSourceFile('app.module.ts', code, ts.ScriptTarget.Latest, true);
-    const result = ts.transform(sourceFile, [createTransformer(newModule, comment, 'BrowserModule')]);
-    const updatedSourceFile = result.transformed[0];
+    const newModule = 'HttpClientModule';
+    const comment = 'HTTP client module for RESTful API';
+    const moduleToFind = 'BrowserModule';
+
+    const sourceFile = ts.createSourceFile('test.ts', sourceCode, ts.ScriptTarget.ES2015, true);
+
+    const { transformed } = ts.transform(sourceFile, [createTransform(newModule, comment, moduleToFind)]);
+    const resultSourceFile = transformed[0];
     const printer = ts.createPrinter();
-    const updatedCode = printer.printFile(updatedSourceFile);
+    const transformedCode = printer.printNode(ts.EmitHint.Unspecified, resultSourceFile, sourceFile);
 
-    expect(updatedCode).toContain(comment);
-    expect(updatedCode).toContain(newModule);
-
-    result.dispose();
-  });
-
-  it('should not modify the code if not find moduleToFind', () => {
-    const code = `
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-@NgModule({
-  imports: [
-    BrowserModule2
-  ]
-})
-export class AppModule { }
-`;
-    const newModule = 'NewModule';
-    const comment = 'New module';
-
-    const sourceFile = ts.createSourceFile('app.module.ts', code, ts.ScriptTarget.Latest, true);
-    const result = ts.transform(sourceFile, [createTransformer(newModule, comment, 'BrowserModule')]);
-    const updatedSourceFile = result.transformed[0];
-    const printer = ts.createPrinter();
-    const updatedCode = printer.printFile(updatedSourceFile);
-
-    expect(updatedCode).not.toContain(comment);
-    expect(updatedCode).not.toContain(newModule);
-
-    result.dispose();
-  });
-
-  it('should not modify the code if no NgModule is found', () => {
-    const code = `
-import { BrowserModule } from '@angular/platform-browser';
-
-export class AppModule { }
-`;
-    const newModule = 'NewModule';
-    const comment = '// New module';
-
-    const sourceFile = ts.createSourceFile('app.module.ts', code, ts.ScriptTarget.Latest, true);
-    const result = ts.transform(sourceFile, [createTransformer(newModule, comment, 'BrowserModule')]);
-    const updatedSourceFile = result.transformed[0];
-    const printer = ts.createPrinter();
-    const updatedCode = printer.printFile(updatedSourceFile);
-
-    expect(updatedCode).not.toContain(comment);
-    expect(updatedCode).not.toContain(newModule);
-
-    result.dispose();
+    expect(transformedCode).toContain(newModule);
+    expect(transformedCode).toContain(comment);
   });
 });

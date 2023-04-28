@@ -63,8 +63,8 @@ export class PrizmPrimitiveMonthPickerComponent {
     return !!value && this.isRange(value) && value.from.monthSame(value.to);
   }
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_primitive_month_picker';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_primitive_month_picker';
 
   get rows(): number {
     return ROWS;

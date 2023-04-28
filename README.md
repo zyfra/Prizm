@@ -117,7 +117,10 @@ or you can only import to your root styles.less
 
 This is a library for one of the best Angular frameworks. Thanks to [Angular team](https://github.com/angular)
 
-Our library are based on Taiga UI by Tinkoff. Thanks to [Taiga UI](https://github.com/tinkoff/taiga-ui)
+Our library are based on [Taiga UI by Tinkoff](https://github.com/tinkoff/taiga-ui).
+All Taiga UI packages are covered by Apache 2.0
+Read more about their license [here](https://github.com/Tinkoff/taiga-ui/blob/main/LICENSE)
+Thanks to [Taiga UI](https://github.com/tinkoff/taiga-ui)
 
 We use nrwl nx as monorepo. Thanks to [Nrwl team](https://github.com/nrwl)
 
@@ -149,3 +152,11 @@ Also we want to give thanks to all the following
 - [svg-to-ts](https://github.com/kreuzerk/svg-to-ts)
 - [typescript](https://github.com/microsoft/TypeScript)
 - [commitlint](https://github.com/conventional-changelog/commitlint)
+
+# License
+
+You are welcome to utilize our library in both commercial and personal projects.
+
+The Prizm UI packages are licensed under the MIT License.
+
+Read more about this license [here](https://opensource.org/license/mit/)

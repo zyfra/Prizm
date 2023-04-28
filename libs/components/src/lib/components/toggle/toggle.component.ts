@@ -52,8 +52,8 @@ export class PrizmToggleComponent extends AbstractPrizmControl<boolean> {
   @prizmDefaultProp()
   size: PrizmSizeL | PrizmSizeM = this.options.size;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_toggle';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_checkbox';
 
   constructor(
     @Optional()

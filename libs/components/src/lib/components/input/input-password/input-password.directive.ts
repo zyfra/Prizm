@@ -6,8 +6,8 @@ import { PrizmInputTextComponent } from '../input-text/input-text.component';
   exportAs: 'prizmInputPassword',
 })
 export class PrizmInputPasswordDirective {
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_input_password';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_input_password';
 
   constructor(
     @Host() private readonly el: ElementRef<HTMLInputElement>,
