@@ -3,7 +3,6 @@
     <div class="header__top" (prizmHoveredChange)="headerIsHovered = $event">
       <div class="header__title">{{ title }}</div>
       <div class="header__instruments">
-        <ng-container *ngTemplateOutlet="headerExtraTemplate"></ng-container>
         <ng-container
           [ngTemplateOutlet]="headerExtraTemplate"
           [ngTemplateOutletContext]="{ headerIsHovered: headerIsHovered }"
