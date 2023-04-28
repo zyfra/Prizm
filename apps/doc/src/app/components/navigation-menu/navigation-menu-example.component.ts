@@ -23,6 +23,18 @@ export class NavigationMenuExampleComponent {
     LESS: import('./examples/navigation-menu-basic-example/navigation-menu-basic-example.component.less?raw'),
   };
 
+  public readonly exampleChildrenHandlerNavigationMenu: TuiDocExample = {
+    TS: import(
+      './examples/navigation-menu-children-handler-example/navigation-menu-children-handler-example.component.ts?raw'
+    ),
+    HTML: import(
+      './examples/navigation-menu-children-handler-example/navigation-menu-children-handler-example.component.html?raw'
+    ),
+    Constants: import(
+      './examples/navigation-menu-children-handler-example/navigation-menu-children-handler-example.constants?raw'
+    ),
+  };
+
   public readonly exampleGroupsNavigationMenu: TuiDocExample = {
     TS: import('./examples/navigation-menu-groups-example/navigation-menu-groups-example.component?raw'),
     HTML: import(

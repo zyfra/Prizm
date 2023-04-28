@@ -56,6 +56,7 @@ export function toRubricatorItems<UserItem>(
       isRubricator: true,
       text: letter,
       children: sortedNodes.filter(({ text }) => text.charAt(0).toUpperCase() === letter),
+      original: null,
       groupId: null,
       parent: null,
       icon: null,

@@ -17,12 +17,14 @@ import { PrizmIconsSvgModule } from '@prizm-ui/icons';
 import { NavigationMenuGroupsExampleComponent } from './examples/navigation-menu-groups-example/navigation-menu-groups-example.component';
 import { HintButtonComponent } from './examples/hint-button/hint-button.component';
 import { MenuHintComponent } from './examples/menu-hint/menu-hint.component';
+import { NavigationMenuChildrenHandlerExampleComponent } from './examples/navigation-menu-children-handler-example/navigation-menu-children-handler-example.component';
 
 @NgModule({
   declarations: [
     NavigationMenuExampleComponent,
     NavigationMenuBasicExampleComponent,
     NavigationMenuGroupsExampleComponent,
+    NavigationMenuChildrenHandlerExampleComponent,
     HintButtonComponent,
     MenuHintComponent,
   ],

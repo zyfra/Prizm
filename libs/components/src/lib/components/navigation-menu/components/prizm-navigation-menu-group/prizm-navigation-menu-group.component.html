@@ -28,6 +28,7 @@
     <prizm-navigation-menu-items
       [items]="groupItems"
       [itemExtraTemplate]="itemExtraTemplate"
+      [childrenHandler]="childrenHandler"
       [expandedItemsMap]="expandedItemsMap$ | async"
       [activeItem]="activeItem$ | async"
       [mode]="mode$ | async"

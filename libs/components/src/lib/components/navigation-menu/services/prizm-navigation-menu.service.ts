@@ -253,6 +253,7 @@ export class PrizmNavigationMenuService<
     if (!item.children) {
       const internal: InternalPrizmNavigationMenuItem<UserItem> = {
         ...item,
+        original: item,
         groupId,
         parent,
         breadcrumbs: parent ? [...parent.breadcrumbs, item] : [item],
@@ -266,6 +267,7 @@ export class PrizmNavigationMenuService<
 
     const internalWithMappedChildren: InternalPrizmNavigationMenuItem<UserItem> = {
       ...item,
+      original: item,
       groupId,
       parent,
       breadcrumbs: parent ? [...parent.breadcrumbs, item] : [item],
