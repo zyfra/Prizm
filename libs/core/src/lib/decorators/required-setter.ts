@@ -1,11 +1,11 @@
+import { prizmAssert } from '../utils';
+
 /**
  * Decorator for checking input setter values against a custom assertion which
  * takes value passed to input setter and component instance as arguments.
  * It specifically checks for undefined values and prevents calls to the
  * original setter in this case.
  */
-import { prizmAssert } from '../utils';
-
 export function prizmRequiredSetter<T extends Record<string, unknown>, K extends keyof T>(
   assertion?: (a: unknown) => boolean,
   ...args: unknown[]
