@@ -17,9 +17,9 @@
           class="breadcrumb__icon"
           [size]="16"
           [iconClass]="breadcrumb.icon"
-          *ngIf="!!breadcrumb.icon"
+          *ngIf="breadcrumb.icon"
         ></prizm-icon>
-        <span class="breadcrumb__name">{{ breadcrumb?.name }}</span>
+        <span *ngIf="breadcrumb.name" class="breadcrumb__name">{{ breadcrumb.name }}</span>
       </button>
 
       <prizm-dropdown-host

@@ -26,26 +26,28 @@ import { debounceTime, observeOn, takeUntil, tap } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
 })
-export class BreadcrumbsComponent implements OnInit, OnDestroy, AfterViewInit {
-  @Input() set breadcrumbs(data: IBreadcrumb[]) {
+export class BreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
+  implements OnInit, OnDestroy, AfterViewInit
+{
+  @Input() set breadcrumbs(data: Breadcrumb[]) {
     this.breadcrumbs$.next(data);
   }
 
-  public get breadcrumbs(): IBreadcrumb[] {
+  public get breadcrumbs(): Breadcrumb[] {
     return this.breadcrumbs$.getValue();
   }
 
   @HostBinding('attr.testId')
   readonly testId = 'prizm_breadcrumbs';
 
-  @Output() public breadcrumbChange: EventEmitter<IBreadcrumb> = new EventEmitter();
+  @Output() public breadcrumbChange: EventEmitter<Breadcrumb> = new EventEmitter();
   @ViewChild('container', { static: true }) public containerRef: ElementRef;
   @ViewChild('breadcrumbsFake', { static: true }) public fakeBreadcrumbContainer: ElementRef;
   @ViewChildren('breadcrumb', { read: ElementRef }) public breadcrumbsList: QueryList<ElementRef>;
 
-  public breadcrumbs$: BehaviorSubject<IBreadcrumb[]> = new BehaviorSubject<IBreadcrumb[]>([]);
-  public breadcrumbsToShow$: BehaviorSubject<IBreadcrumb[]> = new BehaviorSubject<IBreadcrumb[]>([]);
-  public breadcrumbsInMenu$: BehaviorSubject<IBreadcrumb[]> = new BehaviorSubject<IBreadcrumb[]>([]);
+  public breadcrumbs$: BehaviorSubject<Breadcrumb[]> = new BehaviorSubject<Breadcrumb[]>([]);
+  public breadcrumbsToShow$: BehaviorSubject<Breadcrumb[]> = new BehaviorSubject<Breadcrumb[]>([]);
+  public breadcrumbsInMenu$: BehaviorSubject<Breadcrumb[]> = new BehaviorSubject<Breadcrumb[]>([]);
 
   public isDropdownOpened = false;
   public isContainerOverflowed = false;
@@ -116,7 +118,7 @@ export class BreadcrumbsComponent implements OnInit, OnDestroy, AfterViewInit {
     this.breadcrumbsElementsWidth = this.fakeBreadcrumbContainer.nativeElement.clientWidth;
   }
 
-  private setViewBreadcrumbs(breadcrumbs: IBreadcrumb[]): void {
+  private setViewBreadcrumbs(breadcrumbs: Breadcrumb[]): void {
     if (this.isContainerOverflowed) {
       this.breadcrumbsInMenu$.next(breadcrumbs.filter((item, i) => i > 0 && i < breadcrumbs.length - 1));
       this.breadcrumbsToShow$.next(breadcrumbs.filter((item, i) => i === 0 || i === breadcrumbs.length - 1));
