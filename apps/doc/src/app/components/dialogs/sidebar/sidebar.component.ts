@@ -31,7 +31,7 @@ export class SidebarComponent {
   public pseudoFocused = false;
   public pseudoState = '';
   public focusable = false;
-  public canClose = false;
+  public canClose = true;
 
   public focusedChange = false;
   public pressedChange = false;
