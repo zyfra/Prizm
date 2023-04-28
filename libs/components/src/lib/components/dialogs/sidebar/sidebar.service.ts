@@ -16,6 +16,8 @@ import {
 import { PrizmBaseDialogContext } from '../dialog/dialog.models';
 import { PrizmAppearance, PrizmAppearanceType } from '../../../types';
 import { PrizmSize } from '../../../util';
+import { invokeIfCanCloseSidebar } from './util';
+import { take, takeUntil } from 'rxjs/operators';
 
 const DEFAULT_OPTIONS = {
   position: PrizmOverlayInsidePlacement.CENTER,
@@ -114,7 +116,13 @@ export class PrizmSidebarService<
       ...btn,
       text: buttonText,
       size: btn.size ?? (options.size as PrizmSize),
-      action: btn.action ?? ((c): void => c.completeWith(defaultComplete)),
+      action:
+        btn.action ??
+        ((c): void => {
+          invokeIfCanCloseSidebar(() => c.completeWith(defaultComplete), options.canClose)
+            .pipe(take(1))
+            .subscribe();
+        }),
       appearance: btn.appearance ?? defaultAppearance,
       appearanceType: btn.appearanceType ?? defaultAppearanceType,
     };
