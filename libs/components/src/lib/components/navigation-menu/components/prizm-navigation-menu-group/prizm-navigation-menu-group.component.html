@@ -38,14 +38,16 @@
       (goToRootItem)="handleGoToRootItem($event)"
     ></prizm-navigation-menu-items>
 
-    <div
-      class="prizm-navigation-menu-group__no-items-content"
-      *ngIf="emptyMessageConfig$ | async as emptyMessageConfig"
-    >
-      <div class="empty-message" *ngIf="!groupItems.length">
-        <span class="empty-message__main">{{ emptyMessageConfig.title }}</span>
-        <span class="empty-message__sub">{{ emptyMessageConfig.subtitle }}</span>
+    <ng-container *ngIf="!groupItems.length">
+      <div
+        class="prizm-navigation-menu-group__no-items-content"
+        *ngIf="emptyMessageConfig$ | async as emptyMessageConfig"
+      >
+        <div class="empty-message">
+          <span class="empty-message__main">{{ emptyMessageConfig.title }}</span>
+          <span class="empty-message__sub">{{ emptyMessageConfig.subtitle }}</span>
+        </div>
       </div>
-    </div>
+    </ng-container>
   </ng-container>
 </ng-template>

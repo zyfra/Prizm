@@ -26,9 +26,14 @@ export class PrizmNavigationMenuGroupService<
 {
   private groupId$$ = new BehaviorSubject<string | null>(null);
 
-  private emptyMessageConfig$$ = new BehaviorSubject<PrizmNavigationMenuEmptyMessageConfig>(
+  private emptySearchResultMessageConfig$$ = new BehaviorSubject<PrizmNavigationMenuEmptyMessageConfig>(
     DEFAULT_EMPTY_MESSAGE_CONFIG
   );
+
+  private emptyDataMessageConfig$$ = new BehaviorSubject<PrizmNavigationMenuEmptyMessageConfig>({
+    title: '',
+    subtitle: '',
+  });
 
   private toolbarConfig$$ = new BehaviorSubject<PrizmNavigationMenuToolbarConfig>(DEFAULT_TOOLBAR_CONFIG);
 
@@ -126,12 +131,17 @@ export class PrizmNavigationMenuGroupService<
 
   closeAll$ = new Subject();
 
+  searchEnabled$: Observable<boolean> = this.searchState$$.pipe(map(s => s.enabled));
+
   searchConfig$: Observable<PrizmNavigationMenuSearchConfig> = this.searchConfig$$.asObservable();
 
   toolbarConfig$: Observable<PrizmNavigationMenuToolbarConfig> = this.toolbarConfig$$.asObservable();
 
-  emptyMessageConfig$: Observable<PrizmNavigationMenuEmptyMessageConfig> =
-    this.emptyMessageConfig$$.asObservable();
+  emptySearchResultMessageConfig$: Observable<PrizmNavigationMenuEmptyMessageConfig> =
+    this.menuService.emptySearchResultMessageConfig$;
+
+  emptyDataMessageConfig$: Observable<PrizmNavigationMenuEmptyMessageConfig> =
+    this.menuService.emptyDataMessageConfig$;
 
   get groupId(): string {
     return this.groupId$$.value;
@@ -191,8 +201,12 @@ export class PrizmNavigationMenuGroupService<
     });
   }
 
-  public setEmptyMessageConfig(config: PrizmNavigationMenuEmptyMessageConfig): void {
-    this.emptyMessageConfig$$.next(config);
+  public setEmptySearchResultMessageConfig(config: PrizmNavigationMenuEmptyMessageConfig): void {
+    this.emptySearchResultMessageConfig$$.next(config);
+  }
+
+  public setEmptyDataMessageConfig(config: PrizmNavigationMenuEmptyMessageConfig): void {
+    this.emptyDataMessageConfig$$.next(config);
   }
 
   public applySearchState(value: { enabled: boolean; value: string }): void {

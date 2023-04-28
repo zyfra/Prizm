@@ -78,7 +78,8 @@ export class NavigationMenuExampleComponent {
   itemKeyName = 'id';
   expandedItemsMap = new Map<any, boolean>();
   expandedGroupsMap = new Map<string, boolean>();
-  emptyMessageConfig: PrizmNavigationMenuEmptyMessageConfig = null;
+  emptySearchResultMessageConfig: PrizmNavigationMenuEmptyMessageConfig = null;
+  emptyDataMessageConfig: PrizmNavigationMenuEmptyMessageConfig = null;
   searchConfig: PrizmNavigationMenuSearchConfig = null;
   settingsConfig: PrizmNavigationMenuSettingsConfig = {};
   headerConfig: PrizmNavigationMenuHeaderConfig = null;

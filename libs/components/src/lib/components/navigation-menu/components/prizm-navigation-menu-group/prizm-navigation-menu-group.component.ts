@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { BehaviorSubject, merge, Observable } from 'rxjs';
-import { debounceTime, takeUntil } from 'rxjs/operators';
+import { debounceTime, map, takeUntil, withLatestFrom } from 'rxjs/operators';
 import {
   InternalPrizmNavigationMenuItem,
   PrizmNavigationMenuEmptyMessageConfig,
@@ -65,8 +65,12 @@ export class PrizmNavigationMenuGroupComponent<
     this.groupService.setToolbarConfig(toolbarConfig);
   }
 
-  @Input() set emptyMessageConfig(config: PrizmNavigationMenuEmptyMessageConfig) {
-    this.groupService.setEmptyMessageConfig(config);
+  @Input() set emptySearchResultMessageConfig(config: PrizmNavigationMenuEmptyMessageConfig) {
+    this.groupService.setEmptySearchResultMessageConfig(config);
+  }
+
+  @Input() set emptyDataMessageConfig(config: PrizmNavigationMenuEmptyMessageConfig) {
+    this.groupService.setEmptyDataMessageConfig(config);
   }
 
   @Input() set searchConfig(config: PrizmNavigationMenuSearchConfig) {
@@ -90,7 +94,15 @@ export class PrizmNavigationMenuGroupComponent<
   searchConfig$: Observable<PrizmNavigationMenuSearchConfig> = this.groupService.searchConfig$;
 
   emptyMessageConfig$: Observable<PrizmNavigationMenuEmptyMessageConfig> =
-    this.groupService.emptyMessageConfig$;
+    this.groupService.searchEnabled$.pipe(
+      withLatestFrom(
+        this.groupService.emptySearchResultMessageConfig$,
+        this.groupService.emptyDataMessageConfig$
+      ),
+      map(([searchEnabled, emptySearchResultMessageConfig, emptyDataMessageConfig]) => {
+        return searchEnabled ? emptySearchResultMessageConfig : emptyDataMessageConfig;
+      })
+    );
 
   activeItem$: Observable<InternalPrizmNavigationMenuItem<UserItem>> = this.menuService.activeItem$;
 
