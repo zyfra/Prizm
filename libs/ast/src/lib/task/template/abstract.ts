@@ -19,7 +19,7 @@ export abstract class PrizmAstTaskTemplate<T extends PrizmTemplateTaskAction<any
     } as T;
   }
 
-  abstract run(
+  public abstract run(
     node: PrizmTemplateNode,
     payload: T['payload'],
     context: PrizmAstTemplateContext

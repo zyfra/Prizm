@@ -7,8 +7,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "@angular/common": "^12.2.0",
-    "@angular/core": "^12.2.0"
+    "@angular/common": "^14.2.12",
+    "@angular/core": "^14.2.12"
   },
   "dependencies": {
     "tslib": "^2.3.0"
