@@ -14,7 +14,6 @@ import { PolymorphModule } from '../../directives';
 
 @NgModule({
   imports: [CommonModule, PolymorphModule, PrizmExpandModule, PrizmLetModule, PrizmButtonModule],
-  entryComponents: [PrizmTreeItemContentComponent],
   declarations: [
     PrizmTreeComponent,
     PrizmTreeItemComponent,

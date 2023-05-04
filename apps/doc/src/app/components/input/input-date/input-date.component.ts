@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { PrizmDay, PrizmInputSize, PrizmTime } from '@prizm-ui/components';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-input-date-example',
@@ -23,7 +23,7 @@ export class InputDateComponent {
   public hoveredChange = false;
   public focusVisibleChange = false;
 
-  public readonly control = new FormControl(new PrizmDay(2017, 0, 15));
+  public readonly control = new UntypedFormControl(new PrizmDay(2017, 0, 15));
 
   public label = 'Абсолютное';
   public placeholder = 'Выберите дату';

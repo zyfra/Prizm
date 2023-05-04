@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { PrizmDay } from '@prizm-ui/components';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-calendar-example',
@@ -12,7 +12,7 @@ import { FormControl } from '@angular/forms';
 export class CalendarComponent {
   public day = new PrizmDay(2017, 0, 15);
   public showAdjacent = true;
-  public readonly control = new FormControl(new PrizmDay(2017, 0, 15));
+  public readonly control = new UntypedFormControl(new PrizmDay(2017, 0, 15));
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {

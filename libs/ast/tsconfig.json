@@ -18,7 +18,7 @@
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "target": "es6",
+    "target": "es2020",
     "module": "commonjs"
   }
 }

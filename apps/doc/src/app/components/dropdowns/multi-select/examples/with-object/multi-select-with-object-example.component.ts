@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import {
   PrizmMultiSelectIdentityMatcher,
   PrizmMultiSelectItemStringifyFunc,
@@ -30,7 +30,7 @@ export class PrizmMultiSelectWithObjectExampleComponent {
     { id: 3, name: 'ОАЭ' },
   ];
   readonly selectAllItem = { id: -1, name: 'Выбрать все' };
-  readonly valueControl = new FormControl([{ id: 3 }]);
+  readonly valueControl = new UntypedFormControl([{ id: 3 }]);
   readonly searchMatcher: PrizmMultiSelectSearchMatcher<PrizmItem> = (search: string, item: PrizmItem) => {
     return item.name.toLowerCase().includes(search.toLowerCase());
   };

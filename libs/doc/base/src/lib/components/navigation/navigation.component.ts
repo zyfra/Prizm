@@ -7,7 +7,7 @@ import {
   Inject,
   Optional,
 } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TuiSidebarDirective } from '@taiga-ui/addon-mobile';
@@ -44,7 +44,7 @@ export class TuiDocNavigationComponent {
   openPagesGroupsArr: boolean[] = [];
   active = ``;
 
-  readonly search = new FormControl(``);
+  readonly search = new UntypedFormControl(``);
 
   readonly filtered$ = tuiControlValue<string>(this.search).pipe(
     filter(search => search.length > 2),

@@ -14,7 +14,7 @@ export abstract class PrizmAstCodeTask<T extends PrizmAstCodeTaskAction<any>>
     } as T;
   }
 
-  abstract run(
+  public abstract run(
     context: ts.TransformationContext,
     sourceFile: ts.SourceFile,
     payload: T['payload']

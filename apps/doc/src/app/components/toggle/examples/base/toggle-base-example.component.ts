@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-toggle-base-example',
@@ -15,9 +15,9 @@ import { FormControl } from '@angular/forms';
 })
 export class PrizmToggleBaseExampleComponent implements OnInit {
   public value = true;
-  public readonly value2 = new FormControl(false);
+  public readonly value2 = new UntypedFormControl(false);
   public valueDisabled = false;
-  public readonly value2Disabled = new FormControl(false);
+  public readonly value2Disabled = new UntypedFormControl(false);
 
   public ngOnInit(): void {
     this.value2Disabled.disable();

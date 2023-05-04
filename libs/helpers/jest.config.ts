@@ -1,6 +1,7 @@
-module.exports = {
-  displayName: 'doc-base',
-  preset: '../../../jest.preset.js',
+/* eslint-disable */
+export default {
+  displayName: 'helpers',
+  preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -8,9 +9,9 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/doc/base',
+  coverageDirectory: '../../coverage/libs/helpers',
   transform: {
-    '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
+    '^.+.(ts|mjs|js|html)$': 'jest-preset-angular',
   },
   transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
   snapshotSerializers: [

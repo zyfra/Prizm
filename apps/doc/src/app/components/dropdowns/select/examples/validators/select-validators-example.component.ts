@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'prizm-select-validators-example',
@@ -20,7 +20,7 @@ export class PrizmSelectValidatorsExampleComponent {
     'Three',
     'Very long text with a lot of characters and spaces and other stuff and things',
   ];
-  readonly control = new FormControl(this.items[1], [Validators.required]);
+  readonly control = new UntypedFormControl(this.items[1], [Validators.required]);
 
   public setDefaultValue(): void {
     this.control.setValue(null);

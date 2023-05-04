@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { PrizmInputValidationTexts } from '@prizm-ui/components';
 import { InputValidationCustomTextsService } from './input-validation-custom-texts.service';
 
@@ -16,5 +16,5 @@ import { InputValidationCustomTextsService } from './input-validation-custom-tex
   ],
 })
 export class InputValidationCustomExampleComponent {
-  public requiredInputControl = new FormControl('', Validators.required);
+  public requiredInputControl = new UntypedFormControl('', Validators.required);
 }

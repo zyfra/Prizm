@@ -1,44 +1,44 @@
-import { AsyncValidatorFn, FormControl, ValidatorFn } from '@angular/forms';
+import { AsyncValidatorFn, UntypedFormControl, ValidatorFn } from '@angular/forms';
 import { concat, EMPTY, merge, Observable, of, timer } from 'rxjs';
 import { filter, first, map, tap } from 'rxjs/operators';
 
 export class PrizmFormControlHelpers {
-  public static getDisabled$(origin: FormControl): Observable<boolean> {
+  public static getDisabled$(origin: UntypedFormControl): Observable<boolean> {
     return origin.statusChanges.pipe(map(() => this.getDisabled(origin)));
   }
-  public static getValidators$(origin: FormControl): Observable<ValidatorFn | ValidatorFn[] | null> {
+  public static getValidators$(origin: UntypedFormControl): Observable<ValidatorFn | ValidatorFn[] | null> {
     return origin.statusChanges.pipe(map(() => this.getValidators(origin)));
   }
   public static getAsyncValidators$(
-    origin: FormControl
+    origin: UntypedFormControl
   ): Observable<AsyncValidatorFn | AsyncValidatorFn[] | null> {
     return origin.statusChanges.pipe(map(() => this.getAsyncValidators(origin)));
   }
 
-  public static getValue$<T = any>(origin: FormControl): Observable<T> {
+  public static getValue$<T = any>(origin: UntypedFormControl): Observable<T> {
     return origin.valueChanges.pipe(map(() => this.getValue<T>(origin)));
   }
 
-  public static getDisabled(origin: FormControl): boolean {
+  public static getDisabled(origin: UntypedFormControl): boolean {
     return origin.disabled;
   }
 
-  public static getValidators(origin: FormControl): ValidatorFn | ValidatorFn[] | null {
+  public static getValidators(origin: UntypedFormControl): ValidatorFn | ValidatorFn[] | null {
     return (origin as any)?.['_rawValidators'] ?? null;
   }
 
-  public static getAsyncValidators(origin: FormControl): AsyncValidatorFn | AsyncValidatorFn[] | null {
+  public static getAsyncValidators(origin: UntypedFormControl): AsyncValidatorFn | AsyncValidatorFn[] | null {
     return (origin as any)?.['_rawAsyncValidators'] ?? null;
   }
 
-  public static getValue<T>(origin: FormControl): T {
+  public static getValue<T>(origin: UntypedFormControl): T {
     return origin.value;
   }
 
   public static syncStates(
-    origin: FormControl,
+    origin: UntypedFormControl,
     bidirectional: boolean,
-    ...others: FormControl[]
+    ...others: UntypedFormControl[]
   ): Observable<boolean> {
     const all = [origin, ...others];
     return concat(
@@ -63,9 +63,9 @@ export class PrizmFormControlHelpers {
   }
 
   public static syncValidators(
-    origin: FormControl,
+    origin: UntypedFormControl,
     bidirectional: boolean,
-    ...others: FormControl[]
+    ...others: UntypedFormControl[]
   ): Observable<ValidatorFn | ValidatorFn[] | null> {
     const all = [origin, ...others];
     return concat(
@@ -81,9 +81,9 @@ export class PrizmFormControlHelpers {
   }
 
   public static syncAllValidators(
-    origin: FormControl,
+    origin: UntypedFormControl,
     bidirectional: boolean,
-    ...others: FormControl[]
+    ...others: UntypedFormControl[]
   ): Observable<ValidatorFn | ValidatorFn[] | AsyncValidatorFn | AsyncValidatorFn[] | null> {
     return merge(
       this.syncValidators(origin, bidirectional, ...others),
@@ -92,9 +92,9 @@ export class PrizmFormControlHelpers {
   }
 
   public static syncAsyncValidators(
-    origin: FormControl,
+    origin: UntypedFormControl,
     bidirectional: boolean,
-    ...others: FormControl[]
+    ...others: UntypedFormControl[]
   ): Observable<AsyncValidatorFn | AsyncValidatorFn[] | null> {
     const all = [origin, ...others];
     return concat(
@@ -112,7 +112,7 @@ export class PrizmFormControlHelpers {
   }
 
   public static setValue<T = any>(
-    control: FormControl,
+    control: UntypedFormControl,
     newValue: T,
     options?: {
       onlySelf?: boolean;
@@ -127,7 +127,7 @@ export class PrizmFormControlHelpers {
   }
 
   public static setDisabled(
-    control: FormControl,
+    control: UntypedFormControl,
     disabled: boolean,
     options?: {
       onlySelf?: boolean;
@@ -139,7 +139,7 @@ export class PrizmFormControlHelpers {
     else control.disable(options);
   }
 
-  public static syncControlVisualStates(control: FormControl, other: FormControl): void {
+  public static syncControlVisualStates(control: UntypedFormControl, other: UntypedFormControl): void {
     if (control.pristine) other.markAsPristine();
     if (control.dirty) other.markAsDirty();
     if (control.touched) other.markAsTouched();
@@ -148,10 +148,10 @@ export class PrizmFormControlHelpers {
   }
 
   public static syncValues<ORIGIN_VALUE = any, OTHER_VALUE = any>(
-    origin: FormControl,
+    origin: UntypedFormControl,
     fromOrigin: (valueFromOrigin: ORIGIN_VALUE) => OTHER_VALUE,
     fromOthers: null | ((valueFromOther: OTHER_VALUE) => ORIGIN_VALUE),
-    ...others: FormControl[]
+    ...others: UntypedFormControl[]
   ): Observable<ORIGIN_VALUE> {
     return merge(
       timer(0).pipe(

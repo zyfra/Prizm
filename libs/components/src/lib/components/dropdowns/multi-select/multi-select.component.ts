@@ -12,7 +12,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { PrizmDestroyService, PrizmFormControlHelpers } from '@prizm-ui/helpers';
-import { FormControl, NgControl } from '@angular/forms';
+import { UntypedFormControl, NgControl } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
 import { PRIZM_MULTI_SELECT_OPTIONS, PrizmMultiSelectOptions } from './multi-select.options';
 import {
@@ -148,9 +148,9 @@ export class PrizmMultiSelectComponent<T>
 
   public open = false;
   public readonly items$ = new BehaviorSubject([]);
-  public readonly requiredInputControl = new FormControl();
-  public readonly searchInputControl = new FormControl();
-  public readonly chipsControl = new FormControl([] as string[]);
+  public readonly requiredInputControl = new UntypedFormControl();
+  public readonly searchInputControl = new UntypedFormControl();
+  public readonly chipsControl = new UntypedFormControl([] as string[]);
 
   readonly filteredItems$: Observable<PrizmMultiSelectItemWithChecked<T>[]> = this.controlReady$.pipe(
     switchMap(() =>
@@ -268,16 +268,16 @@ export class PrizmMultiSelectComponent<T>
   }
 
   private initControlStatusChangerIfExist(): void {
-    if (this.control instanceof FormControl)
-      PrizmFormControlHelpers.syncStates(this.control as FormControl, false, this.requiredInputControl)
+    if (this.control instanceof UntypedFormControl)
+      PrizmFormControlHelpers.syncStates(this.control as UntypedFormControl, false, this.requiredInputControl)
         .pipe(takeUntil(this.destroy$))
         .subscribe();
   }
 
   private initControlValueChangerIfExist(): void {
-    if (this.control instanceof FormControl)
+    if (this.control instanceof UntypedFormControl)
       PrizmFormControlHelpers.syncValues(
-        this.control as FormControl,
+        this.control as UntypedFormControl,
         i => i?.length,
         null,
         this.requiredInputControl
@@ -287,8 +287,12 @@ export class PrizmMultiSelectComponent<T>
   }
 
   private initControlValidatorsIfExist(): void {
-    if (this.control instanceof FormControl)
-      PrizmFormControlHelpers.syncAllValidators(this.control as FormControl, false, this.requiredInputControl)
+    if (this.control instanceof UntypedFormControl)
+      PrizmFormControlHelpers.syncAllValidators(
+        this.control as UntypedFormControl,
+        false,
+        this.requiredInputControl
+      )
         .pipe(takeUntil(this.destroy$))
         .subscribe();
   }

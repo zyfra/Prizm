@@ -6,6 +6,7 @@ describe('PrizmNotSupportedTemplateTask', () => {
 
   test('should remove not supported attribute and add comment', () => {
     const node = {
+      name: 'test',
       attrs: {
         notSupportedAttr: 'value',
         otherAttr: 'otherValue',
@@ -16,6 +17,7 @@ describe('PrizmNotSupportedTemplateTask', () => {
     };
     const context: any = {
       originName: 'notSupportedAttr',
+      runIn: 'inputs',
     };
 
     const newNode = notSupportedTask.run(node, payload, context);
@@ -27,6 +29,8 @@ describe('PrizmNotSupportedTemplateTask', () => {
     expect(newNode.children[0].type).toBe('comment');
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    expect(newNode.children[0].comment).toBe('TODO not supported attr <notSupportedAttr>');
+    expect(newNode.children[0].comment).toBe(
+      'TODO not supported attr <notSupportedAttr> in <test> with value <value>'
+    );
   });
 });

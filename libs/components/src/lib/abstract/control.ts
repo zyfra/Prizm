@@ -12,7 +12,13 @@ import {
   SimpleChanges,
   Type,
 } from '@angular/core';
-import { AbstractControl, ControlValueAccessor, FormControl, NgControl, NgModel } from '@angular/forms';
+import {
+  AbstractControl,
+  ControlValueAccessor,
+  UntypedFormControl,
+  NgControl,
+  NgModel,
+} from '@angular/forms';
 import { merge, ReplaySubject, Subject } from 'rxjs';
 import { filter, map, takeUntil, tap } from 'rxjs/operators';
 import { AbstractPrizmInteractive } from './interactive';
@@ -77,7 +83,7 @@ export abstract class AbstractPrizmControl<T>
         `NgControl not injected in ${this.constructor.name}!\n`,
         'Use [(ngModel)] or [formControl] or formControlName for correct work.'
       );
-      this.ngControl = new FormControl() as unknown as NgControl;
+      this.ngControl = new UntypedFormControl() as unknown as NgControl;
     } else {
       this.ngControl.valueAccessor = this;
     }

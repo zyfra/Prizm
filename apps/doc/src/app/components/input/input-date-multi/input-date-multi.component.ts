@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { PrizmDateItemTemplate, PrizmDay, PrizmTime } from '@prizm-ui/components';
 
 @Component({
@@ -10,7 +10,7 @@ import { PrizmDateItemTemplate, PrizmDay, PrizmTime } from '@prizm-ui/components
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputDateMultiRelativeComponent implements OnInit {
-  public readonly valueControl = new FormControl();
+  public readonly valueControl = new UntypedFormControl();
   @ViewChild('dateRelativeTime', { static: true }) dateRelativeTime: TemplateRef<unknown>;
   @ViewChild('dateTime', { static: true }) dateTime: TemplateRef<unknown>;
 
@@ -27,8 +27,8 @@ export class InputDateMultiRelativeComponent implements OnInit {
     HTML: import('./examples/four/input-date-multi-four-example.component.html?raw'),
   };
 
-  public readonly timeControl = new FormControl([new PrizmDay(2017, 2, 15), new PrizmTime(12, 30)]);
-  public readonly relativeControl = new FormControl();
+  public readonly timeControl = new UntypedFormControl([new PrizmDay(2017, 2, 15), new PrizmTime(12, 30)]);
+  public readonly relativeControl = new UntypedFormControl();
   public items: PrizmDateItemTemplate[] = [];
 
   public ngOnInit(): void {

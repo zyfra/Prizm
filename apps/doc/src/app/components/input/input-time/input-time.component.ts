@@ -10,7 +10,7 @@ import {
   PrizmTime,
   PrizmTimeMode,
 } from '@prizm-ui/components';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-input-date-example',
@@ -36,7 +36,7 @@ export class InputTimeTimeComponent {
   public hoveredChange = false;
   public focusVisibleChange = false;
 
-  public readonly valueControl = new FormControl(new PrizmTime(12, 30, 25, 500));
+  public readonly valueControl = new UntypedFormControl(new PrizmTime(12, 30, 25, 500));
 
   public label = 'Абсолютное время';
   public placeholder = 'Выберите время';

@@ -33,7 +33,7 @@ export class PrizmMoveToContentTemplateTask extends PrizmAstTaskTemplate<IPrizmM
     const content = prizmAstGetOutputBytAttrForTemplate(node.attrs, attr);
 
     // Remove the attribute from the node's attrs object
-    // node.attrs = prizmAstRemoveByAttrName(node.attrs, attr);
+    node.attrs = prizmAstRemoveByAttrName(node.attrs, attr);
 
     if (!payload.notClearChildren) node.children = [];
 

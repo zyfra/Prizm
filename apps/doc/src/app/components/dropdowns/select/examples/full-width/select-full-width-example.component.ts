@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-select-full-width-example',
@@ -24,7 +24,7 @@ export class PrizmSelectFullWidthExampleComponent {
     'Three',
     'Very long text with a lot of characters and spaces and other stuff and things',
   ];
-  readonly control = new FormControl(this.items[1]);
+  readonly control = new UntypedFormControl(this.items[1]);
 
   public setDefaultValue(): void {
     this.control.setValue(this.items[0], { emitEvent: false });

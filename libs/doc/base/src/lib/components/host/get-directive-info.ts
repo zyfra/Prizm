@@ -14,9 +14,16 @@ export function prizmGetListDirectiveInputsOutputs<T>(classRef: Type<T>): PrizmD
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const metadata = classRef['ɵcmp'] || classRef['ɵdir'];
+  let selector = '';
   if (metadata) {
     const className = classRef.name;
-    const selector = metadata.selectors?.[0]?.[0];
+    const selectors = [...(metadata.selectors?.[0] ?? [])];
+    if (selectors?.[0]) selector += metadata.selectors?.[0].shift();
+    if (selectors?.[1])
+      selector += metadata.selectors?.[0]
+        .filter(Boolean)
+        .map((i: string) => `[${i}]`)
+        .join();
     const inputProperties = metadata.inputs;
     const outputProperties = metadata.outputs;
 

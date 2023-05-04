@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import {
   PrizmSelectIdentityMatcher,
   PrizmSelectSearchMatcher,
@@ -29,7 +29,7 @@ export class PrizmSelectWithObjectExampleComponent {
     { id: 2, name: 'США' },
     { id: 3, name: 'ОАЭ' },
   ];
-  readonly valueControl = new FormControl({ id: 3 });
+  readonly valueControl = new UntypedFormControl({ id: 3 });
 
   readonly searchMatcher: PrizmSelectSearchMatcher<PrizmItem> = (search: string, item: PrizmItem) => {
     return item.name.toLowerCase().includes(search.toLowerCase());

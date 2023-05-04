@@ -7,21 +7,14 @@
     ".eslintrc.json": "*"
   },
   "npmScope": "prizm",
-  "targetDependencies": {
-    "build": [
-      {
-        "target": "build",
-        "projects": "dependencies"
-      }
-    ]
-  },
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
         "cacheableOperations": ["build", "lint", "test", "e2e"],
         "runtimeCacheInputs": ["node -v"],
-        "accessToken": "YmQ5YTk4ZGItNzE5OC00ZjJkLTg5NjEtODhiYzFhY2IzMzY1fHJlYWQtd3JpdGU="
+        "accessToken": "YmQ5YTk4ZGItNzE5OC00ZjJkLTg5NjEtODhiYzFhY2IzMzY1fHJlYWQtd3JpdGU=",
+        "parallel": 1
       }
     }
   },
@@ -29,7 +22,6 @@
     "defaultBase": "master"
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular",
     "packageManager": "npm"
   },
   "generators": {
@@ -46,6 +38,12 @@
     "@nrwl/angular:component": {
       "style": "less",
       "changeDetection": "OnPush"
+    }
+  },
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"]
     }
   }
 }

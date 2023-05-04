@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { TuiStringHandler } from '@taiga-ui/cdk';
 import { TUI_ICONS_PATH, tuiCapitalizeFirstLetter } from '@taiga-ui/core';
 import { TuiCountryIsoCode, TuiLanguageName, TuiLanguageSwitcher } from '@taiga-ui/i18n';
@@ -13,7 +13,7 @@ import { TuiCountryIsoCode, TuiLanguageName, TuiLanguageSwitcher } from '@taiga-
 export class PrizmDocLanguageSwitcherComponent {
   private readonly path = this.iconsPath(`tuiIcon`).replace(`tuiIcon.svg#tuiIcon`, ``);
 
-  readonly language = new FormControl(tuiCapitalizeFirstLetter(this.switcher.language));
+  readonly language = new UntypedFormControl(tuiCapitalizeFirstLetter(this.switcher.language));
 
   readonly flags: Map<TuiLanguageName, TuiCountryIsoCode> = new Map([
     [`chinese`, TuiCountryIsoCode.CN],

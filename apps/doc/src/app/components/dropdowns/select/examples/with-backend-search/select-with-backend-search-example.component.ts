@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { PrizmSelectSearchMatcher } from '@prizm-ui/components';
 import { BehaviorSubject, timer } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -10,7 +10,7 @@ import { tap } from 'rxjs/operators';
 })
 export class PrizmSelectWithBackendSearchExampleComponent {
   value = true;
-  readonly control = new FormControl();
+  readonly control = new UntypedFormControl();
   readonly allItems = [
     'Андрей Сафанов',
     'Сергей Марков',

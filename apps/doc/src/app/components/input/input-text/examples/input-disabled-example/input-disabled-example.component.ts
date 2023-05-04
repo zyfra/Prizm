@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-input-disabled-example',
@@ -8,5 +8,5 @@ import { FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputDisabledExampleComponent {
-  public disabledInputControl = new FormControl({ value: 'Задизайблено', disabled: true });
+  public disabledInputControl = new UntypedFormControl({ value: 'Задизайблено', disabled: true });
 }

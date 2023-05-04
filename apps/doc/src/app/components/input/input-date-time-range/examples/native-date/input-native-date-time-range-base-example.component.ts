@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { prizmGetInputDateTimeRangeNativeTransformer } from '@prizm-ui/components';
 
 @Component({
@@ -16,5 +16,5 @@ import { prizmGetInputDateTimeRangeNativeTransformer } from '@prizm-ui/component
   ],
 })
 export class PrizmInputNativeDateRangeBaseExampleComponent {
-  readonly value = new FormControl([new Date(2018, 2, 10), new Date(2018, 3, 20)]);
+  readonly value = new UntypedFormControl([new Date(2018, 2, 10), new Date(2018, 3, 20)]);
 }

@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { PrizmDay, PrizmTime } from '@prizm-ui/components';
 import { addDays, addHours, addMonths } from 'date-fns';
 
@@ -138,8 +138,8 @@ export class PrizmDropdownHostDateListExampleComponent implements OnInit {
     },
   ];
 
-  readonly startControl = new FormControl('');
-  readonly endControl = new FormControl('');
+  readonly startControl = new UntypedFormControl('');
+  readonly endControl = new UntypedFormControl('');
 
   constructor(public readonly cdRef: ChangeDetectorRef) {}
 

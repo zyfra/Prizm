@@ -9,7 +9,7 @@ import {
   PrizmTime,
   PrizmTimeMode,
 } from '@prizm-ui/components';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-input-date-time-range-example',
@@ -19,7 +19,7 @@ import { FormControl } from '@angular/forms';
 })
 export class InputDateTimeRangeComponent {
   public label = 'Период';
-  readonly value = new FormControl(
+  readonly value = new UntypedFormControl(
     new PrizmDateTimeRange(new PrizmDayRange(new PrizmDay(2018, 2, 10), new PrizmDay(2018, 2, 10)))
   );
   readonly min = new PrizmDateTime(new PrizmDay(2000, 2, 20), new PrizmTime(0, 0));

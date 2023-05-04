@@ -17,12 +17,12 @@ describe('PrizmRemoveAttributeTemplateTask', () => {
       children: [],
     };
 
-    const context: PrizmAstTemplateContext = {
+    const context = {
       attrName: 'data-input',
       originName: 'data-input',
       runIn: 'tasks',
       type: PrizmAstTemplateAttributeType.input,
-    };
+    } as PrizmAstTemplateContext;
 
     const newNode = task.run(node, {}, context);
 

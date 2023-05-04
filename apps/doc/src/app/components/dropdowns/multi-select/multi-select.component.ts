@@ -7,7 +7,7 @@ import {
   PrizmScrollbarVisibility,
   PrizmSelectIconContext,
 } from '@prizm-ui/components';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { prizmPure } from '@prizm-ui/core';
 
 @Component({
@@ -33,7 +33,7 @@ export class MultiSelectComponent {
   public icon: PolymorphContent<PrizmSelectIconContext> = null;
 
   readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [null, 'sort-zoom-in'];
-  readonly control = new FormControl();
+  readonly control = new UntypedFormControl();
   searchable = false;
   outer = false;
   label = 'Выберите участника';
@@ -66,7 +66,7 @@ export class MultiSelectComponent {
     [],
     null,
   ];
-  readonly valueControl = new FormControl();
+  readonly valueControl = new UntypedFormControl();
   public items = this.itemsVariants[1];
 
   set disabled(state: boolean) {

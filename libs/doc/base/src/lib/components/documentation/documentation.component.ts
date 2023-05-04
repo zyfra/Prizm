@@ -29,7 +29,7 @@ import { PRIZM_HOST_COMPONENT_INFO_TOKEN, PrizmHostComponentInfo } from './token
 import { PrizmDocHostElementListenerService } from '../host';
 import * as _ from 'lodash';
 import { PrizmDocumentationPropertyType } from '../../types/pages';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { PrizmFormControlHelpers } from '@prizm-ui/helpers';
 // @bad TODO subscribe propertiesConnectors changes
 // @bad TODO refactor to make more flexible
@@ -55,7 +55,7 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   @Input()
   heading = ``;
 
-  @Input() control?: FormControl;
+  @Input() control?: UntypedFormControl;
 
   success$ = combineLatest([
     this.prizmHostComponentInfo,
@@ -246,18 +246,18 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
     ]);
   };
 
-  public getDisabledFromControl$(control: FormControl): Observable<boolean> {
+  public getDisabledFromControl$(control: UntypedFormControl): Observable<boolean> {
     return PrizmFormControlHelpers.getDisabled$(control);
   }
 
-  public updateStateOfControl(control: FormControl, newState: boolean): void {
+  public updateStateOfControl(control: UntypedFormControl, newState: boolean): void {
     PrizmFormControlHelpers.setDisabled(control, newState);
   }
-  public getValueFromControl$(control: FormControl): Observable<any> {
+  public getValueFromControl$(control: UntypedFormControl): Observable<any> {
     return PrizmFormControlHelpers.getValue$(control);
   }
 
-  public updateValueOfControl(control: FormControl, newValue: any): void {
+  public updateValueOfControl(control: UntypedFormControl, newValue: any): void {
     PrizmFormControlHelpers.setValue(control, newValue);
   }
 }

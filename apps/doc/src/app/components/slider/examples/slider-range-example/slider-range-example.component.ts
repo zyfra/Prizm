@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-slider-range-example',
@@ -8,6 +8,6 @@ import { FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmSliderRangeExampleComponent {
-  small = new FormControl([20, 40]);
-  big = new FormControl([700, 900]);
+  small = new UntypedFormControl([20, 40]);
+  big = new UntypedFormControl([700, 900]);
 }

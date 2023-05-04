@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import {
   PrizmChipsComponent,
   PrizmInputPosition,
@@ -25,8 +25,8 @@ export class InputChipsExampleComponent {
   public inputPosition: PrizmInputPosition = 'left';
   public inputPositions: PrizmInputPosition[] = ['left', 'center'];
   public outer: false;
-  public readonly control = new FormControl([]);
-  public readonly control2 = new FormControl([]);
+  public readonly control = new UntypedFormControl([]);
+  public readonly control2 = new UntypedFormControl([]);
   public size: PrizmInputSize = 'l';
   public sizesOuter: PrizmInputSize[] = ['l', 'm', 's'];
   public sizesInner: PrizmInputSize[] = ['l', 'm'];

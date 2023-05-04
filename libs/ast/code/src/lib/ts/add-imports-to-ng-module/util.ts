@@ -58,7 +58,8 @@ export function prizmAstAddImportToNgModule(
     });
 
     if (!newModuleAlreadyExists) {
-      const newModuleNode = ts.createIdentifier(newModule);
+      // const newModuleNode = ts.createIdentifier(newModule);
+      const newModuleNode = ts.factory.createIdentifier(newModule);
       const newModuleWithComment = ts.addSyntheticLeadingComment(
         newModuleNode,
         ts.SyntaxKind.SingleLineCommentTrivia,
