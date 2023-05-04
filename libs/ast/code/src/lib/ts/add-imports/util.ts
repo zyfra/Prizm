@@ -79,6 +79,8 @@ export function prizmAstAddImportIfNeeded(
             node,
             undefined,
             undefined,
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             context.factory.updateImportClause(
               node.importClause,
               node.importClause.isTypeOnly,
@@ -159,6 +161,9 @@ function hasAllValues(sourceArr: any[], arrToCheck: any[], transformFunc?: (valu
 function createImportSpecifierWithFixBreakingChanges(context: ts.TransformationContext, name: string) {
   const version = parseFloat(ts.versionMajorMinor);
   if (version < 4.5)
+    // FIX FOR BC https://github.com/microsoft/TypeScript/wiki/API-Breaking-Changes#typescript-45
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return context.factory.createImportSpecifier(undefined, context.factory.createIdentifier(name));
   // FIX FOR BC https://github.com/microsoft/TypeScript/wiki/API-Breaking-Changes#typescript-45
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { PrizmTime } from '@prizm-ui/components';
 
 @Component({
@@ -16,5 +16,5 @@ import { PrizmTime } from '@prizm-ui/components';
 })
 export class PrizmInputTimeBaseExampleComponent {
   public readonly time = new PrizmTime(12, 30);
-  public readonly value = new FormControl(this.time);
+  public readonly value = new UntypedFormControl(this.time);
 }

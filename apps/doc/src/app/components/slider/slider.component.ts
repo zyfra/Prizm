@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { PrizmSliderCnobValuePosition, PrizmSliderOrientation } from '@prizm-ui/components';
 
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
@@ -92,7 +92,7 @@ export class PrizmSliderExampleComponent {
 
   minHeight = 0;
 
-  fc = new FormControl(0);
+  fc = new UntypedFormControl(0);
 
   get disabled(): boolean {
     return this.fc.disabled;

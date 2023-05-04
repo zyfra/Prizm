@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-multi-select-base-example',
@@ -15,14 +15,14 @@ import { FormControl } from '@angular/forms';
 })
 export class PrizmMultiSelectBaseExampleComponent implements OnInit {
   value = true;
-  readonly valueControl = new FormControl([]);
+  readonly valueControl = new UntypedFormControl([]);
   readonly items = [
     'One',
     'Two',
     'Three',
     'Very long text with a lot of characters and spaces and other stuff and things',
   ];
-  readonly valueDisabled = new FormControl(false);
+  readonly valueDisabled = new UntypedFormControl(false);
 
   ngOnInit(): void {
     this.valueDisabled.disable();

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-select-with-search-example',
@@ -7,7 +7,7 @@ import { FormControl } from '@angular/forms';
 })
 export class PrizmSelectWithSearchExampleComponent {
   value = true;
-  readonly control = new FormControl();
+  readonly control = new UntypedFormControl();
   readonly items = [
     'Андрей Сафанов',
     'Сергей Марков',

@@ -21,7 +21,7 @@ import { Subject } from 'rxjs';
 import { fromRubricatorNodes, getPath } from '../../utils/treeNode.functions';
 import { DEFAULT_TOOLBAR_CONFIG, SelectionType, ToolbarConfig, ViewMode } from '../../model/nav-menu-config';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-menu-group-content',
@@ -108,7 +108,7 @@ export class PrizmNavMenuGroupComponent implements OnInit, OnDestroy {
   viewMode: ViewMode = 'hierarchy';
   currentFolder: TreeNode = null;
 
-  public searchFormControl: FormControl = new FormControl('');
+  public searchFormControl: UntypedFormControl = new UntypedFormControl('');
 
   private _selectionMode: SelectionType = 'single';
   private _nodes: TreeNode[] = [];

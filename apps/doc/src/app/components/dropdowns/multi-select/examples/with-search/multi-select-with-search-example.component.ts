@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-multi-select-with-search-example',
@@ -7,7 +7,7 @@ import { FormControl } from '@angular/forms';
 })
 export class PrizmMultiSelectWithSearchExampleComponent {
   value = true;
-  readonly valueControl = new FormControl(['Андрей Сафанов']);
+  readonly valueControl = new UntypedFormControl(['Андрей Сафанов']);
   readonly items = [
     'Андрей Сафанов',
     'Сергей Марков',

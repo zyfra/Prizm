@@ -27,7 +27,7 @@
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/ast"],
           "options": {
-            "jestConfig": "libs/ast/jest.config.js",
+            "jestConfig": "libs/ast/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -79,7 +79,7 @@
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/charts/base"],
           "options": {
-            "jestConfig": "libs/charts/base/jest.config.js",
+            "jestConfig": "libs/charts/base/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -118,7 +118,7 @@
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/components"],
           "options": {
-            "jestConfig": "libs/components/jest.config.js",
+            "jestConfig": "libs/components/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -183,7 +183,7 @@
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/core"],
           "options": {
-            "jestConfig": "libs/core/jest.config.js",
+            "jestConfig": "libs/core/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -355,7 +355,7 @@
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/doc"],
           "options": {
-            "jestConfig": "apps/doc/jest.config.js",
+            "jestConfig": "apps/doc/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -372,7 +372,7 @@
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/doc/base"],
           "options": {
-            "jestConfig": "libs/doc/base/jest.config.js",
+            "jestConfig": "libs/doc/base/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -478,7 +478,7 @@
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/icons/flags"],
           "options": {
-            "jestConfig": "libs/icons/flags/jest.config.js",
+            "jestConfig": "libs/icons/flags/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -517,7 +517,7 @@
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/helpers"],
           "options": {
-            "jestConfig": "libs/helpers/jest.config.js",
+            "jestConfig": "libs/helpers/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -556,7 +556,7 @@
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/i18n"],
           "options": {
-            "jestConfig": "libs/i18n/jest.config.js",
+            "jestConfig": "libs/i18n/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -595,7 +595,7 @@
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/icons/base"],
           "options": {
-            "jestConfig": "libs/icons/base/jest.config.js",
+            "jestConfig": "libs/icons/base/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -624,12 +624,12 @@
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/plugin"],
           "options": {
-            "jestConfig": "libs/plugin/jest.config.js",
+            "jestConfig": "libs/plugin/jest.config.ts",
             "passWithNoTests": true
           }
         },
         "build": {
-          "builder": "@nrwl/node:package",
+          "builder": "@nrwl/js:tsc",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/plugin",
@@ -730,7 +730,7 @@
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/schematics"],
           "options": {
-            "jestConfig": "libs/schematics/jest.config.js",
+            "jestConfig": "libs/schematics/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -769,7 +769,7 @@
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/theme"],
           "options": {
-            "jestConfig": "libs/theme/jest.config.js",
+            "jestConfig": "libs/theme/jest.config.ts",
             "passWithNoTests": true
           }
         },

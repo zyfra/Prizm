@@ -1,6 +1,6 @@
 import { Component, TemplateRef } from '@angular/core';
 import { PrizmToastAppearance, PrizmToastPosition, PrizmToastService } from '@prizm-ui/components';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-message-info-example',
@@ -81,7 +81,7 @@ export class PrizmToastInfoExampleComponent {
   ];
 
   appearance: PrizmToastAppearance = 'info';
-  readonly formControl = new FormControl(PrizmToastPosition.TOP_RIGHT);
+  readonly formControl = new UntypedFormControl(PrizmToastPosition.TOP_RIGHT);
 
   constructor(private readonly toastService: PrizmToastService) {}
 

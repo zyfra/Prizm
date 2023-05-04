@@ -15,7 +15,7 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
+import { AbstractControl, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { UrlSerializer } from '@angular/router';
 import { TUI_IS_MOBILE, tuiPx } from '@taiga-ui/cdk';
 import { TuiBrightness, TuiModeDirective } from '@taiga-ui/core';
@@ -60,12 +60,12 @@ export class TuiDocDemoComponent implements OnInit, AfterViewInit {
   @ContentChild(TemplateRef)
   readonly template: TemplateRef<Record<string, unknown>> | null = null;
 
-  testForm?: FormGroup;
+  testForm?: UntypedFormGroup;
   updateOnVariants = [`change`, `blur`, `submit`];
   updateOn: 'change' | 'blur' | 'submit' = `change`;
   expanded = false;
   opaque = true;
-  modeControl = new FormControl();
+  modeControl = new UntypedFormControl();
   mode: TuiBrightness | null = null;
   readonly change$ = new Subject<void>();
   readonly items: readonly TuiBrightness[] = [`onLight`, `onDark`];
@@ -161,7 +161,7 @@ export class TuiDocDemoComponent implements OnInit, AfterViewInit {
       return;
     }
 
-    this.testForm = new FormGroup({ testValue: control }, { updateOn });
+    this.testForm = new UntypedFormGroup({ testValue: control }, { updateOn });
   }
 
   private resizeContent(delta: number): void {

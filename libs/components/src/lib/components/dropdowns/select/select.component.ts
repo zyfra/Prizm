@@ -14,7 +14,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { PrizmDestroyService, PrizmFormControlHelpers } from '@prizm-ui/helpers';
-import { FormControl, NgControl } from '@angular/forms';
+import { UntypedFormControl, NgControl } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
 import { PRIZM_SELECT_OPTIONS, PrizmSelectOptions, PrizmSelectValueContext } from './select.options';
 import { PrizmFocusableElementAccessor, PrizmNativeFocusableElement } from '../../../types';
@@ -154,7 +154,7 @@ export class PrizmSelectComponent<T>
   public open = false;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
   public readonly items$ = new BehaviorSubject([]);
-  public readonly requiredInputControl = new FormControl();
+  public readonly requiredInputControl = new UntypedFormControl();
   public readonly defaultIcon = 'chevrons-dropdown';
 
   readonly filteredItems$ = this.requiredInputControl.valueChanges.pipe(
@@ -209,14 +209,22 @@ export class PrizmSelectComponent<T>
 
   private initControlValidatorsIfExist(): void {
     if (this.control)
-      PrizmFormControlHelpers.syncAllValidators(this.control as FormControl, false, this.requiredInputControl)
+      PrizmFormControlHelpers.syncAllValidators(
+        this.control as UntypedFormControl,
+        false,
+        this.requiredInputControl
+      )
         .pipe(takeUntil(this.destroy$))
         .subscribe();
   }
 
   private initControlStatusChangerIfExist(): void {
     if (this.control)
-      PrizmFormControlHelpers.syncValidators(this.control as FormControl, false, this.requiredInputControl)
+      PrizmFormControlHelpers.syncValidators(
+        this.control as UntypedFormControl,
+        false,
+        this.requiredInputControl
+      )
         .pipe(
           // debounceTime(0),
           // tap(() => this.changeDetectorRef.detectChanges()),

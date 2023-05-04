@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { PrizmDay } from '@prizm-ui/components';
 
 @Component({
@@ -15,5 +15,5 @@ import { PrizmDay } from '@prizm-ui/components';
   ],
 })
 export class PrizmInputMonthBaseExampleComponent {
-  public readonly control = new FormControl(new PrizmDay(2017, 0, 15));
+  public readonly control = new UntypedFormControl(new PrizmDay(2017, 0, 15));
 }

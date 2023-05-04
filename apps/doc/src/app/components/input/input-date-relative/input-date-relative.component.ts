@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { PrizmInputSize } from '@prizm-ui/components';
 
 @Component({
@@ -11,7 +11,7 @@ import { PrizmInputSize } from '@prizm-ui/components';
 })
 export class InputDateRelativeRelativeComponent {
   public canOpen = true;
-  public readonly valueControl = new FormControl();
+  public readonly valueControl = new UntypedFormControl();
   public label = 'Относительное';
   public placeholder = 'Выберите дату';
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];

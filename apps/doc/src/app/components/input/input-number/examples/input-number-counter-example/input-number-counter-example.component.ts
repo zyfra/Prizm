@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'prizm-input-number-counter-example',
@@ -8,5 +8,5 @@ import { FormControl, Validators } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputNumberCounterExampleComponent {
-  public requiredInputControl = new FormControl('', Validators.required);
+  public requiredInputControl = new UntypedFormControl('', Validators.required);
 }

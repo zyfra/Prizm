@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-select-with-template-example',
@@ -15,5 +15,5 @@ import { FormControl } from '@angular/forms';
 })
 export class PrizmSelectWithTemplateExampleComponent {
   readonly items = ['One', 'Two', 'Three'];
-  readonly control = new FormControl();
+  readonly control = new UntypedFormControl();
 }

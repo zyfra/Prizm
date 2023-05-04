@@ -7,6 +7,5 @@ import { PrizmOverlayComponent } from './overlay.component';
 @NgModule({
   imports: [CommonModule, PrizmThemeModule],
   declarations: [PrizmOverlayComponent],
-  entryComponents: [PrizmOverlayComponent],
 })
 export class PrizmOverlayModule {}

@@ -1,4 +1,5 @@
-module.exports = {
+/* eslint-disable */
+export default {
   displayName: 'ast',
   preset: '../../jest.preset.js',
   testEnvironment: 'node',

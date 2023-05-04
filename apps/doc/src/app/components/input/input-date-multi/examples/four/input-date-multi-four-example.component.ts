@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { PrizmDateItemTemplate, PrizmDay, PrizmTime } from '@prizm-ui/components';
 
 @Component({
@@ -22,10 +22,13 @@ export class PrizmInputDateMultiFourExampleComponent implements OnInit {
   @ViewChild('dateRelativeTime', { static: true }) dateRelativeTime: TemplateRef<unknown>;
   @ViewChild('time', { static: true }) time: TemplateRef<unknown>;
   @ViewChild('date', { static: true }) date: TemplateRef<unknown>;
-  public readonly dateTimeControl = new FormControl([new PrizmDay(2017, 2, 15), new PrizmTime(12, 30)]);
-  public readonly relativeControl = new FormControl();
-  public readonly dateControl = new FormControl(new PrizmDay(2017, 0, 15));
-  public readonly timeControl = new FormControl(new PrizmTime(12, 30, 25));
+  public readonly dateTimeControl = new UntypedFormControl([
+    new PrizmDay(2017, 2, 15),
+    new PrizmTime(12, 30),
+  ]);
+  public readonly relativeControl = new UntypedFormControl();
+  public readonly dateControl = new UntypedFormControl(new PrizmDay(2017, 0, 15));
+  public readonly timeControl = new UntypedFormControl(new PrizmTime(12, 30, 25));
   public items: PrizmDateItemTemplate[] = [];
 
   public ngOnInit(): void {

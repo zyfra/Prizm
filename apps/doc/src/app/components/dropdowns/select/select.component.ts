@@ -6,7 +6,7 @@ import {
   PrizmScrollbarVisibility,
   PrizmSelectIconContext,
 } from '@prizm-ui/components';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { prizmPure } from '@prizm-ui/core';
 
 @Component({
@@ -30,7 +30,7 @@ export class SelectComponent {
   public focusVisibleChange = false;
   public dropdownWidth = '100%';
 
-  readonly control = new FormControl();
+  readonly control = new UntypedFormControl();
   searchable = false;
   outer = false;
   label = 'Выберите участника';

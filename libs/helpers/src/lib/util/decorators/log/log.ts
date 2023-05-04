@@ -63,6 +63,7 @@ export function PrizmLogExecution(options: PrizmLogOptions = {}): any {
               const endTime = performance.now();
               console.log(fullFunctionName, `Время выполнения: ${endTime - startTime} мс`);
             }
+            return res;
           });
         } else if (result instanceof Observable) {
           result = result.pipe(

@@ -2,7 +2,7 @@ import { canShowCronListItem, getArrWithStringNumbers, getCarousel } from './uti
 import { BehaviorSubject, Observable } from 'rxjs';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { distinctUntilChanged, filter, first, map, takeUntil, tap } from 'rxjs/operators';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { PrizmCronUiBaseType, PrizmCronUiState, PrizmCronUiStateList } from './model';
 import { PrizmCronService } from '../../services/cron';
 
@@ -66,7 +66,7 @@ export abstract class PrizmCronUiBaseState<
     this.initialType = initialType;
   }
 
-  public readonly typeControl = new FormControl();
+  public readonly typeControl = new UntypedFormControl();
 
   public readonly type$ = this.current$.pipe(map(i => this.getTypeByValue(i)));
 

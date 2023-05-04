@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { PrizmChipsComponent } from '@prizm-ui/components';
 
 @Component({
@@ -10,8 +10,8 @@ import { PrizmChipsComponent } from '@prizm-ui/components';
 })
 export class InputChipsOuterExampleComponent {
   public deletable = true;
-  public requiredInputControl = new FormControl('');
-  public chipsControl = new FormControl(['Чипс 1', 'Чипс 2', 'Чипс 3']);
+  public requiredInputControl = new UntypedFormControl('');
+  public chipsControl = new UntypedFormControl(['Чипс 1', 'Чипс 2', 'Чипс 3']);
 
   @ViewChild(PrizmChipsComponent, { static: true }) chipsComponent: PrizmChipsComponent;
 

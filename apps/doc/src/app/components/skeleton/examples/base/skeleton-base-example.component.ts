@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-skeleton-base-example',
@@ -23,10 +23,10 @@ import { FormControl } from '@angular/forms';
 })
 export class PrizmSkeletonBaseExampleComponent implements OnInit {
   public items = [];
-  public readonly activeControl = new FormControl(false);
-  public readonly selectControl = new FormControl();
-  public readonly toggleControl = new FormControl();
-  public readonly value2Disabled = new FormControl(false);
+  public readonly activeControl = new UntypedFormControl(false);
+  public readonly selectControl = new UntypedFormControl();
+  public readonly toggleControl = new UntypedFormControl();
+  public readonly value2Disabled = new UntypedFormControl(false);
 
   public ngOnInit(): void {
     this.value2Disabled.disable();

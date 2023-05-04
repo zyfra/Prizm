@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-input-form-control-example',
@@ -7,7 +7,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./input-form-control-example.component.less'],
 })
 export class InputFormControlExampleComponent {
-  public readonly control: FormControl = new FormControl();
+  public readonly control: UntypedFormControl = new UntypedFormControl();
 
   public valueText = '';
   public ngModelText = '';

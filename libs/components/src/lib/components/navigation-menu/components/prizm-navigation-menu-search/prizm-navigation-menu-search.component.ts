@@ -8,7 +8,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 
@@ -31,7 +31,7 @@ export class PrizmNavigationMenuSearchComponent implements AfterViewInit {
 
   @Input() placeholder: string;
 
-  public searchFormControl: FormControl = new FormControl('');
+  public searchFormControl: UntypedFormControl = new UntypedFormControl('');
 
   constructor(private destroy$: PrizmDestroyService) {}
 

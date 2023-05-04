@@ -7,7 +7,7 @@ export const ROUTES: Routes = [
     children: [
       {
         path: 'design-system',
-        loadChildren: (): Promise<unknown> =>
+        loadChildren: () =>
           import('./about-prizm/design-system/design-system.module').then(i => i.DesignSystemModule),
         data: {
           title: 'About Design System',
@@ -15,15 +15,14 @@ export const ROUTES: Routes = [
       },
       {
         path: 'license',
-        loadChildren: (): Promise<unknown> =>
-          import('./about-prizm/license/license.module').then(m => m.LicenseModule),
+        loadChildren: () => import('./about-prizm/license/license.module').then(m => m.LicenseModule),
         data: {
           title: 'License',
         },
       },
       {
         path: 'repositories',
-        loadChildren: (): Promise<unknown> =>
+        loadChildren: () =>
           import('./about-prizm/repositories/repositories.module').then(m => m.RepositoriesModule),
         data: {
           title: 'Repositories',
@@ -31,15 +30,14 @@ export const ROUTES: Routes = [
       },
       {
         path: 'contacts',
-        loadChildren: (): Promise<unknown> =>
-          import('./about-prizm/contacts/contacts.module').then(i => i.ContactsModule),
+        loadChildren: () => import('./about-prizm/contacts/contacts.module').then(i => i.ContactsModule),
         data: {
           title: 'Contacts',
         },
       },
       {
         path: 'release-policy',
-        loadChildren: (): Promise<unknown> =>
+        loadChildren: () =>
           import('./about-prizm/release-policy/release-policy.module').then(i => i.ReleasePolicyModule),
         data: {
           title: 'Release policy',
@@ -47,7 +45,7 @@ export const ROUTES: Routes = [
       },
       {
         path: 'service-level-agreement',
-        loadChildren: (): Promise<unknown> =>
+        loadChildren: () =>
           import('./about-prizm/service-level-agreement/service-level-agreement.module').then(
             i => i.ServiceLevelAgreementModule
           ),
@@ -57,23 +55,21 @@ export const ROUTES: Routes = [
       },
       {
         path: 'roadmap',
-        loadChildren: (): Promise<unknown> =>
-          import('./about-prizm/roadmap/roadmap.module').then(i => i.RoadmapModule),
+        loadChildren: () => import('./about-prizm/roadmap/roadmap.module').then(i => i.RoadmapModule),
         data: {
           title: 'Roadmap',
         },
       },
       {
         path: 'changelog',
-        loadChildren: (): Promise<unknown> =>
-          import('./about-prizm/changelog/changelog.module').then(i => i.ChangelogModule),
+        loadChildren: () => import('./about-prizm/changelog/changelog.module').then(i => i.ChangelogModule),
         data: {
           title: 'Changelog',
         },
       },
       {
         path: 'technology-list',
-        loadChildren: (): Promise<unknown> =>
+        loadChildren: () =>
           import('./about-prizm/technology-list/technology-list.module').then(i => i.TechnologyListModule),
         data: {
           title: 'Technology list',
@@ -87,7 +83,7 @@ export const ROUTES: Routes = [
     children: [
       {
         path: 'internationalization',
-        loadChildren: (): Promise<unknown> =>
+        loadChildren: () =>
           import('./how-to-work/internationalization/internationalization.module').then(
             i => i.InternationalizationModule
           ),
@@ -97,7 +93,7 @@ export const ROUTES: Routes = [
       },
       {
         path: 'for-developers',
-        loadChildren: (): Promise<unknown> =>
+        loadChildren: () =>
           import('./how-to-work/for-developers/for-developers.module').then(i => i.ForDevelopersModule),
         data: {
           title: 'For developers',
@@ -105,7 +101,7 @@ export const ROUTES: Routes = [
       },
       {
         path: 'transition',
-        loadChildren: (): Promise<unknown> =>
+        loadChildren: () =>
           import('./how-to-work/transition/transition.module').then(i => i.TransitionModule),
         data: {
           title: 'Transition',
@@ -113,7 +109,7 @@ export const ROUTES: Routes = [
       },
       {
         path: 'add-component',
-        loadChildren: (): Promise<unknown> =>
+        loadChildren: () =>
           import('./how-to-work/add-component/add-component.module').then(i => i.AddComponentModule),
         data: {
           title: 'Add component',
@@ -121,15 +117,14 @@ export const ROUTES: Routes = [
       },
       {
         path: 'set-task',
-        loadChildren: (): Promise<unknown> =>
-          import('./how-to-work/set-task/set-task.module').then(i => i.SetTaskModule),
+        loadChildren: () => import('./how-to-work/set-task/set-task.module').then(i => i.SetTaskModule),
         data: {
           title: 'Set task',
         },
       },
       {
         path: 'contributing',
-        loadChildren: (): Promise<unknown> =>
+        loadChildren: () =>
           import('./how-to-work/contributing/contributing.module').then(i => i.ContributingModule),
         data: {
           title: 'Contributing',
@@ -137,8 +132,7 @@ export const ROUTES: Routes = [
       },
       {
         path: 'codestyle',
-        loadChildren: (): Promise<unknown> =>
-          import('./how-to-work/codestyle/codestyle.module').then(i => i.CodestyleModule),
+        loadChildren: () => import('./how-to-work/codestyle/codestyle.module').then(i => i.CodestyleModule),
         data: {
           title: 'CodeStyle',
         },
@@ -155,7 +149,7 @@ export const ROUTES: Routes = [
     children: [
       {
         path: 'introduction',
-        loadChildren: (): Promise<unknown> =>
+        loadChildren: () =>
           import('./forZIIoT/introduction/introduction.module').then(i => i.IntroductionModule),
         data: {
           title: 'Introduction',
@@ -163,7 +157,7 @@ export const ROUTES: Routes = [
       },
       {
         path: 'library-requirements',
-        loadChildren: (): Promise<unknown> =>
+        loadChildren: () =>
           import('./forZIIoT/library-requirements/library-requirements.module').then(
             i => i.LibraryRequirementsModule
           ),
@@ -173,8 +167,7 @@ export const ROUTES: Routes = [
       },
       {
         path: 'migration',
-        loadChildren: (): Promise<unknown> =>
-          import('./forZIIoT/migration/migration.module').then(i => i.MigrationModule),
+        loadChildren: () => import('./forZIIoT/migration/migration.module').then(i => i.MigrationModule),
         data: {
           title: 'Migration',
         },
@@ -187,23 +180,21 @@ export const ROUTES: Routes = [
     children: [
       {
         path: 'typography',
-        loadChildren: (): Promise<unknown> =>
-          import('./guidelines/typography/typography.module').then(m => m.TypographyModule),
+        loadChildren: () => import('./guidelines/typography/typography.module').then(m => m.TypographyModule),
         data: {
           title: 'Typography',
         },
       },
       {
         path: 'colors',
-        loadChildren: (): Promise<unknown> =>
-          import('./guidelines/colors/colors.module').then(m => m.ColorsModule),
+        loadChildren: () => import('./guidelines/colors/colors.module').then(m => m.ColorsModule),
         data: {
           title: 'Colors',
         },
       },
       {
         path: 'grid',
-        loadChildren: (): Promise<unknown> => import('./guidelines/grid/grid.module').then(m => m.GridModule),
+        loadChildren: () => import('./guidelines/grid/grid.module').then(m => m.GridModule),
         data: {
           title: 'Grid',
         },
@@ -213,7 +204,7 @@ export const ROUTES: Routes = [
   // DOC
   {
     path: 'generate-example',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./documentation/generate-example/generate-example.module').then(i => i.GenerateExampleModule),
     data: {
       title: 'Generate example',
@@ -222,7 +213,7 @@ export const ROUTES: Routes = [
   // COMPONENTS
   {
     path: 'components/dropdowns/dropdown-host',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/dropdowns/dropdown-host/dropdown-host.module').then(i => i.DropdownHostModule),
     data: {
       title: 'DropdownHost',
@@ -230,31 +221,28 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/sticky',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/sticky/sticky.module').then(i => i.StickyModule),
+    loadChildren: () => import('./components/sticky/sticky.module').then(i => i.StickyModule),
     data: {
       title: 'Sticky',
     },
   },
   {
     path: 'components/skeleton',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/skeleton/skeleton.module').then(i => i.SkeletonModule),
+    loadChildren: () => import('./components/skeleton/skeleton.module').then(i => i.SkeletonModule),
     data: {
       title: 'Skeleton',
     },
   },
   {
     path: 'components/dropdowns/select',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/dropdowns/select/select.module').then(i => i.SelectModule),
+    loadChildren: () => import('./components/dropdowns/select/select.module').then(i => i.SelectModule),
     data: {
       title: 'Select',
     },
   },
   {
     path: 'components/dropdowns/multi-select',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/dropdowns/multi-select/multi-select.module').then(i => i.MultiSelectModule),
     data: {
       title: 'Multi Select',
@@ -262,22 +250,21 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/shadow',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/shadow/shadow.module').then(i => i.ShadowModule),
+    loadChildren: () => import('./components/shadow/shadow.module').then(i => i.ShadowModule),
     data: {
       title: 'Shadow',
     },
   },
   {
     path: 'components/card',
-    loadChildren: (): Promise<unknown> => import('./components/card/card.module').then(i => i.CardModule),
+    loadChildren: () => import('./components/card/card.module').then(i => i.CardModule),
     data: {
       title: 'Card',
     },
   },
   {
     path: 'components/progress-line-bar',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/progress/line-bar/progress-line-bar.module').then(i => i.ProgressLineBarModule),
     data: {
       title: 'Progress Line',
@@ -285,7 +272,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/progress-circle-bar',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/progress/circle-bar/progress-circle-bar.module').then(
         i => i.ProgressCircleBarModule
       ),
@@ -295,7 +282,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/progress-line-segmented',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/progress/line-segmented/progress-line-segmented.module').then(
         i => i.ProgressLineSegmentedModule
       ),
@@ -305,23 +292,21 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/widget',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/widget/widget.module').then(i => i.WidgetModule),
+    loadChildren: () => import('./components/widget/widget.module').then(i => i.WidgetModule),
     data: {
       title: 'Widget',
     },
   },
   {
     path: 'components/button',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/buttons/button/button.module').then(i => i.ButtonModule),
+    loadChildren: () => import('./components/buttons/button/button.module').then(i => i.ButtonModule),
     data: {
       title: 'Button',
     },
   },
   {
     path: 'components/split-button',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/buttons/split-button/split-button.module').then(i => i.SplitButtonModule),
     data: {
       title: 'Split Button',
@@ -329,7 +314,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/tree-button',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/buttons/tree-button/tree-button.module').then(i => i.TreeButtonModule),
     data: {
       title: 'Tree Button',
@@ -337,7 +322,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/icon-button',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/buttons/icon-button/icon-button.module').then(i => i.IconButtonModule),
     data: {
       title: 'Icon Button',
@@ -345,37 +330,35 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/tree',
-    loadChildren: (): Promise<unknown> => import('./components/tree/tree.module').then(i => i.TreeModule),
+    loadChildren: () => import('./components/tree/tree.module').then(i => i.TreeModule),
     data: {
       title: 'Tree',
     },
   },
   {
     path: 'components/toggle',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/toggle/toggle.module').then(i => i.ToggleModule),
+    loadChildren: () => import('./components/toggle/toggle.module').then(i => i.ToggleModule),
     data: {
       title: 'Toggle',
     },
   },
   {
     path: 'components/hint',
-    loadChildren: (): Promise<unknown> => import('./components/hint/hint.module').then(i => i.HintModule),
+    loadChildren: () => import('./components/hint/hint.module').then(i => i.HintModule),
     data: {
       title: 'Hint',
     },
   },
   {
     path: 'components/tooltip',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/tooltip/tooltip.module').then(i => i.TooltipModule),
+    loadChildren: () => import('./components/tooltip/tooltip.module').then(i => i.TooltipModule),
     data: {
       title: 'Tooltip',
     },
   },
   {
     path: 'components/confirm-popup',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/confirm-popup/confirm-popup.module').then(i => i.ConfirmPopupModule),
     data: {
       title: 'Confirm Popup',
@@ -383,39 +366,35 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/old-icon',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/icons/old/icon.module').then(i => i.IconModule),
+    loadChildren: () => import('./components/icons/old/icon.module').then(i => i.IconModule),
     data: {
       title: 'Old Icon',
     },
   },
   {
     path: 'components/icon',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/icons/svg/icon.module').then(i => i.IconModule),
+    loadChildren: () => import('./components/icons/svg/icon.module').then(i => i.IconModule),
     data: {
       title: 'Icon',
     },
   },
   {
     path: 'components/flag-icons',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/icons/flags/flags.module').then(i => i.FlagsModule),
+    loadChildren: () => import('./components/icons/flags/flags.module').then(i => i.FlagsModule),
     data: {
       title: 'Icon Flags',
     },
   },
   {
     path: 'components/scrollbar',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/scrollbar/scrollbar.module').then(i => i.ScrollbarModule),
+    loadChildren: () => import('./components/scrollbar/scrollbar.module').then(i => i.ScrollbarModule),
     data: {
       title: 'Scrollbar',
     },
   },
   {
     path: 'components/input',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/input/input-text/input-example.module').then(i => i.InputExampleModule),
     data: {
       title: 'Input',
@@ -423,7 +402,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/input-chips',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/input/input-chips/input-chips-example.module').then(
         i => i.InputChipsExampleModule
       ),
@@ -433,7 +412,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/input-date',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/input/input-date/input-date.module').then(i => i.InputDateModule),
     data: {
       title: 'Input Date',
@@ -441,7 +420,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/input-month',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/input/input-month/input-month.module').then(i => i.InputMonthModule),
     data: {
       title: 'Input Month',
@@ -449,7 +428,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/input-month-range',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/input/input-month-range/input-month-range.module').then(
         i => i.InputMonthRangeRangeModule
       ),
@@ -459,7 +438,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/input-date-time-range',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/input/input-date-time-range/input-date-time-range.module').then(
         i => i.InputDateTimeRangeModule
       ),
@@ -469,7 +448,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/input-date-time',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/input/input-date-time/input-date-time.module').then(
         i => i.InputDateTimeTimeModule
       ),
@@ -479,7 +458,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/input-date-multi',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/input/input-date-multi/input-date-multi.module').then(i => i.InputDateMultiModule),
     data: {
       title: 'Input Date Multi',
@@ -487,7 +466,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/input-time',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/input/input-time/input-time.module').then(i => i.InputTimeTimeModule),
     data: {
       title: 'Input Time',
@@ -495,7 +474,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/input-date-range',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/input/input-date-range/input-date-range.module').then(i => i.InputDateRangeModule),
     data: {
       title: 'Input Date Range',
@@ -503,7 +482,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/input-date-relative',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/input/input-date-relative/input-date-relative.module').then(
         i => i.InputDateRelativeRelativeModule
       ),
@@ -513,7 +492,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/input-number',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/input/input-number/input-number-example.module').then(
         i => i.InputNumberExampleModule
       ),
@@ -523,7 +502,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/input-mask',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/input/input-mask/input-mask-example.module').then(i => i.InputMaskExampleModule),
     data: {
       title: 'Input Mask',
@@ -531,7 +510,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/input-password',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/input/input-password/input-password-example.module').then(
         i => i.InputPasswordExampleModule
       ),
@@ -541,7 +520,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/carousel',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/input/carousel/carousel-example.module').then(i => i.CarouselExampleModule),
     data: {
       title: 'Carousel',
@@ -549,7 +528,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/textarea',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/input/textarea/textarea-example.module').then(i => i.TextareaExampleModule),
     data: {
       title: 'Textarea',
@@ -557,39 +536,35 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/loader',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/loader/loader.module').then(i => i.LoaderModule),
+    loadChildren: () => import('./components/loader/loader.module').then(i => i.LoaderModule),
     data: {
       title: 'Loader',
     },
   },
   {
     path: 'components/spinner',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/spinner/spinner.module').then(i => i.SpinnerModule),
+    loadChildren: () => import('./components/spinner/spinner.module').then(i => i.SpinnerModule),
     data: {
       title: 'Spinner',
     },
   },
   {
     path: 'components/dialogs/dialog',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/dialogs/dialog/dialog.module').then(i => i.DialogModule),
+    loadChildren: () => import('./components/dialogs/dialog/dialog.module').then(i => i.DialogModule),
     data: {
       title: 'Dialog',
     },
   },
   {
     path: 'components/dialogs/sidebar',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/dialogs/sidebar/sidebar.module').then(i => i.SidebarModule),
+    loadChildren: () => import('./components/dialogs/sidebar/sidebar.module').then(i => i.SidebarModule),
     data: {
       title: 'Sidebar',
     },
   },
   {
     path: 'components/dialogs/confirm-dialog',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/dialogs/confirm-dialog/confirm.module').then(i => i.ConfirmModule),
     data: {
       title: 'Confirm Dialog',
@@ -597,14 +572,14 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/toast',
-    loadChildren: (): Promise<unknown> => import('./components/toast/toast.module').then(i => i.ToastModule),
+    loadChildren: () => import('./components/toast/toast.module').then(i => i.ToastModule),
     data: {
       title: 'Toast',
     },
   },
   {
     path: 'components/indicators',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/indicators/indicators-example.module').then(i => i.IndicatorsExampleModule),
     data: {
       title: 'Indicators',
@@ -612,7 +587,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/paginator',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/paginator/paginator-example.module').then(i => i.PaginatorExampleModule),
     data: {
       title: 'Paginator',
@@ -620,7 +595,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/checkbox',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/checkbox/checkbox-example.module').then(i => i.CheckboxExampleModule),
     data: {
       title: 'Checkbox',
@@ -628,7 +603,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/radio-button',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/radio/radio-button-example.module').then(i => i.RadioButtonExampleModule),
     data: {
       title: 'Radio-button',
@@ -636,23 +611,21 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/panel',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/panel/panel-example.module').then(i => i.PanelExampleModule),
+    loadChildren: () => import('./components/panel/panel-example.module').then(i => i.PanelExampleModule),
     data: {
       title: 'Panel',
     },
   },
   {
     path: 'components/tabs',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/tabs/tabs-example.module').then(i => i.TabsExampleModule),
+    loadChildren: () => import('./components/tabs/tabs-example.module').then(i => i.TabsExampleModule),
     data: {
       title: 'Tabs',
     },
   },
   {
     path: 'components/breadcrumbs',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/breadcrumbs/breadcrumbs-example.module').then(i => i.BreadcrumbsExampleModule),
     data: {
       title: 'Breadcrumbs',
@@ -660,15 +633,14 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/table',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/table/table-example.module').then(i => i.TableExampleModule),
+    loadChildren: () => import('./components/table/table-example.module').then(i => i.TableExampleModule),
     data: {
       title: 'Table',
     },
   },
   {
     path: 'components/table-old',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/table-old/table-example-old.module').then(i => i.TableExampleOldModule),
     data: {
       title: 'Table',
@@ -676,7 +648,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/accordion',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/accordion/accordion-example.module').then(i => i.AccordionExampleModule),
     data: {
       title: 'Accordion',
@@ -684,53 +656,49 @@ export const ROUTES: Routes = [
   },
   {
     path: 'tools/overlay',
-    loadChildren: (): Promise<unknown> => import('./tools/overlay/overlay.module').then(i => i.OverlayModule),
+    loadChildren: () => import('./tools/overlay/overlay.module').then(i => i.OverlayModule),
     data: {
       title: 'Overlay',
     },
   },
   {
     path: 'tools/ast',
-    loadChildren: (): Promise<unknown> => import('./tools/ast/ast.module').then(i => i.AstModule),
+    loadChildren: () => import('./tools/ast/ast.module').then(i => i.AstModule),
     data: {
       title: 'AST',
     },
   },
   {
     path: 'tools/to-observable',
-    loadChildren: (): Promise<unknown> =>
-      import('./tools/to-observable/to-observable.module').then(i => i.ToObservableModule),
+    loadChildren: () => import('./tools/to-observable/to-observable.module').then(i => i.ToObservableModule),
     data: {
       title: 'To Observable',
     },
   },
   {
     path: 'tools/observable',
-    loadChildren: (): Promise<unknown> =>
-      import('./tools/observable/observable.module').then(i => i.ObservableModule),
+    loadChildren: () => import('./tools/observable/observable.module').then(i => i.ObservableModule),
     data: {
       title: 'Observable',
     },
   },
   {
     path: 'tools/auto-emit',
-    loadChildren: (): Promise<unknown> =>
-      import('./tools/auto-emit/auto-emit.module').then(i => i.AutoEmitModule),
+    loadChildren: () => import('./tools/auto-emit/auto-emit.module').then(i => i.AutoEmitModule),
     data: {
       title: 'Auto Emit',
     },
   },
   {
     path: 'tools/theme-service',
-    loadChildren: (): Promise<unknown> =>
-      import('./tools/theme-service/theme.module').then(i => i.ThemeModule),
+    loadChildren: () => import('./tools/theme-service/theme.module').then(i => i.ThemeModule),
     data: {
       title: 'Theme Service',
     },
   },
   {
     path: 'tools/theme',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./tools/inverted-theme/inverted-theme.module').then(i => i.InvertedThemeModule),
     data: {
       title: 'Theme Module',
@@ -738,8 +706,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'tools/polymorph',
-    loadChildren: (): Promise<unknown> =>
-      import('./tools/polymorph/polymorph.module').then(i => i.ExamplePolymorphModule),
+    loadChildren: () => import('./tools/polymorph/polymorph.module').then(i => i.ExamplePolymorphModule),
     data: {
       title: 'Polymorph',
     },
@@ -747,88 +714,84 @@ export const ROUTES: Routes = [
   // CHARTS
   {
     path: 'charts/line',
-    loadChildren: (): Promise<unknown> => import('./charts/line/line.module').then(i => i.LineModule),
+    loadChildren: () => import('./charts/line/line.module').then(i => i.LineModule),
     data: {
       title: 'Line',
     },
   },
   {
     path: 'charts/area',
-    loadChildren: (): Promise<unknown> => import('./charts/area/area.module').then(i => i.AreaModule),
+    loadChildren: () => import('./charts/area/area.module').then(i => i.AreaModule),
     data: {
       title: 'Area',
     },
   },
   {
     path: 'charts/column-group',
-    loadChildren: (): Promise<unknown> => import('./charts/column/column.module').then(i => i.ColumnModule),
+    loadChildren: () => import('./charts/column/column.module').then(i => i.ColumnModule),
     data: {
       title: 'Column',
     },
   },
   {
     path: 'charts/bar',
-    loadChildren: (): Promise<unknown> => import('./charts/bar/bar.module').then(i => i.BarModule),
+    loadChildren: () => import('./charts/bar/bar.module').then(i => i.BarModule),
     data: {
       title: 'Bar',
     },
   },
   {
     path: 'charts/pie',
-    loadChildren: (): Promise<unknown> => import('./charts/pie/pie.module').then(i => i.PieModule),
+    loadChildren: () => import('./charts/pie/pie.module').then(i => i.PieModule),
     data: {
       title: 'Pie',
     },
   },
   {
     path: 'charts/radar',
-    loadChildren: (): Promise<unknown> => import('./charts/radar/radar.module').then(i => i.RadarModule),
+    loadChildren: () => import('./charts/radar/radar.module').then(i => i.RadarModule),
     data: {
       title: 'Radar',
     },
   },
   {
     path: 'charts/scatter',
-    loadChildren: (): Promise<unknown> =>
-      import('./charts/scatter/scatter.module').then(i => i.ScatterModule),
+    loadChildren: () => import('./charts/scatter/scatter.module').then(i => i.ScatterModule),
     data: {
       title: 'Scatter',
     },
   },
   {
     path: 'charts/treemap',
-    loadChildren: (): Promise<unknown> =>
-      import('./charts/treemap/treemap.module').then(i => i.TreemapModule),
+    loadChildren: () => import('./charts/treemap/treemap.module').then(i => i.TreemapModule),
     data: {
       title: 'Treemap',
     },
   },
   {
     path: 'charts/gauge',
-    loadChildren: (): Promise<unknown> => import('./charts/gauge/gauge.module').then(i => i.GaugeModule),
+    loadChildren: () => import('./charts/gauge/gauge.module').then(i => i.GaugeModule),
     data: {
       title: 'Gauge',
     },
   },
   {
     path: 'charts/radial-bar',
-    loadChildren: (): Promise<unknown> =>
-      import('./charts/radial-bar/radial-bar.module').then(i => i.RadialBarModule),
+    loadChildren: () => import('./charts/radial-bar/radial-bar.module').then(i => i.RadialBarModule),
     data: {
       title: 'Radial Bar',
     },
   },
   {
     path: 'charts/waterfall',
-    loadChildren: (): Promise<unknown> =>
-      import('./charts/waterfall/waterfall.module').then(i => i.WaterfallModule),
+    loadChildren: () => import('./charts/waterfall/waterfall.module').then(i => i.WaterfallModule),
     data: {
       title: 'Waterfall',
     },
   },
   {
     path: 'components/side-menu',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/side-menu/side-menu-example.module').then(i => i.SideMenuExampleModule),
     data: {
       title: 'Side menu',
@@ -836,7 +799,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/nav-menu',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/nav-menu/nav-menu-example.module').then(i => i.NavMenuExampleModule),
     data: {
       title: 'Navigation menu (deprecated)',
@@ -844,7 +807,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/navigation-menu',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/navigation-menu/navigation-menu-example.module').then(
         i => i.NavigationMenuExampleModule
       ),
@@ -854,7 +817,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/navigation',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/navigation/navigation-example.module').then(i => i.NavigationExampleModule),
     data: {
       title: 'Navigation',
@@ -862,7 +825,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/switcher',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/switcher/switcher-example.module').then(i => i.SwitcherExampleModule),
     data: {
       title: 'Switcher',
@@ -870,15 +833,14 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/calendar',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/calendars/calendar/calendar.module').then(i => i.CalendarModule),
+    loadChildren: () => import('./components/calendars/calendar/calendar.module').then(i => i.CalendarModule),
     data: {
       title: 'Calendar',
     },
   },
   {
     path: 'components/calendar-month',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/calendars/calendar-month/calendar-month.module').then(
         i => i.ExampleCalendarMonthModule
       ),
@@ -888,7 +850,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/calendar-range',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/calendars/calendar-range/calendar-range.module').then(i => i.CalendarRangeModule),
     data: {
       title: 'Calendar Range',
@@ -896,15 +858,14 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/grids',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/grid/grid-example.module').then(i => i.GridExampleModule),
+    loadChildren: () => import('./components/grid/grid-example.module').then(i => i.GridExampleModule),
     data: {
       title: 'Grids',
     },
   },
   {
     path: 'components/zoom-control',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/zoom-control/zoom-control-example.module').then(i => i.ZoomControlExampleModule),
     data: {
       title: 'Zoom Control',
@@ -912,7 +873,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/stepper',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/stepper/stepper-example.module').then(i => i.PrizmStepperExampleModule),
     data: {
       title: 'Stepper',
@@ -920,7 +881,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/splitter',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/splitter/splitter-example.module').then(i => i.PrizmSpliiterExampleModule),
     data: {
       title: 'Splitter',
@@ -928,22 +889,21 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/slider',
-    loadChildren: (): Promise<unknown> =>
-      import('./components/slider/slider.module').then(i => i.PrizmSliderExampleModule),
+    loadChildren: () => import('./components/slider/slider.module').then(i => i.PrizmSliderExampleModule),
     data: {
       title: 'Slider',
     },
   },
   {
     path: 'components/cron',
-    loadChildren: (): Promise<unknown> => import('./components/cron/cron.module').then(i => i.CronModule),
+    loadChildren: () => import('./components/cron/cron.module').then(i => i.CronModule),
     data: {
       title: 'Cron',
     },
   },
   {
     path: 'components/error-page',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/error-page/error-page.module').then(i => i.PrizmErrorPageExampleModule),
     data: {
       title: 'Error page',
@@ -951,7 +911,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/file-upload',
-    loadChildren: (): Promise<unknown> =>
+    loadChildren: () =>
       import('./components/file-upload/file-upload-example.module').then(i => i.PrizmFileUploadExampleModule),
     data: {
       title: 'File upload',
