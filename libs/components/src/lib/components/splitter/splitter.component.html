@@ -1,6 +1,6 @@
-<div #container class="container container--{{ orientation }}">
+<div class="container container--{{ orientation }}" #container>
   <prizm-splitter-gutter
-    *ngFor="let gutter of guttersData"
+    *ngFor="let gutter of guttersData$ | async"
     [areaBefore]="gutter.areaBefore"
     [areaAfter]="gutter.areaAfter"
     [order]="gutter.order"

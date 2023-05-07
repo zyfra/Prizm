@@ -33,8 +33,18 @@ export class PrizmSplitterExampleComponent {
   };
 
   readonly areasControl: TuiDocExample = {
-    TypeScript: import('./examples/areas-control/areas-control.component?raw'),
-    HTML: import('./examples/areas-control/areas-control.component.html?raw'),
+    TypeScript: import('./examples/areas-control-size/areas-control-size.component?raw'),
+    HTML: import('./examples/areas-control-size/areas-control-size.component.html?raw'),
+  };
+
+  readonly areasControlDisplayNone: TuiDocExample = {
+    TypeScript: import('./examples/areas-control-display-none/areas-control-display-none.component?raw'),
+    HTML: import('./examples/areas-control-display-none/areas-control-display-none.component.html?raw'),
+  };
+
+  readonly areasControlNgIf: TuiDocExample = {
+    TypeScript: import('./examples/areas-control-ngif/areas-control-ngif.component?raw'),
+    HTML: import('./examples/areas-control-ngif/areas-control-ngif.component.html?raw'),
   };
 
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');

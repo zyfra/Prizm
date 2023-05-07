@@ -1,9 +1,10 @@
-import { BehaviorSubject, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 import { PrizmSplitterAreaComponent } from './area/area.component';
 
 export class PrizmSplitterService {
-  areaInputSizeChange$$ = new ReplaySubject<PrizmSplitterAreaComponent>();
-  areaInputMinSizeChange$$ = new ReplaySubject<PrizmSplitterAreaComponent>();
+  areaInputSizeChange$$ = new Subject<PrizmSplitterAreaComponent>();
+
+  areasUpdate$$ = new Subject<void>();
 
   accuracy = 8;
 
