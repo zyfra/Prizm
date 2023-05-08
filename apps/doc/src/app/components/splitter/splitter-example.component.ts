@@ -47,5 +47,10 @@ export class PrizmSplitterExampleComponent {
     HTML: import('./examples/areas-control-ngif/areas-control-ngif.component.html?raw'),
   };
 
+  readonly customGutter: TuiDocExample = {
+    TypeScript: import('./examples/custom-gutter/custom-gutter.component?raw'),
+    HTML: import('./examples/custom-gutter/custom-gutter.component.html?raw'),
+  };
+
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

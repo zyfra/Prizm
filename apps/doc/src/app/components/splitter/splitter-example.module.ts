@@ -12,6 +12,7 @@ import { PrizmSplitterLimitSizeExampleComponent } from './examples/limit-size/li
 import { PrizmSplitterAreasControlSizeExampleComponent } from './examples/areas-control-size/areas-control-size.component';
 import { PrizmSplitterAreasControlDisplayNoneExampleComponent } from './examples/areas-control-display-none/areas-control-display-none.component';
 import { PrizmSplitterAreasControlNgIfExampleComponent } from './examples/areas-control-ngif/areas-control-ngif.component';
+import { PrizmSplitterCustomGutterExampleComponent } from './examples/custom-gutter/custom-gutter.component';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { PrizmSplitterAreasControlNgIfExampleComponent } from './examples/areas-
     PrizmSplitterAreasControlSizeExampleComponent,
     PrizmSplitterAreasControlDisplayNoneExampleComponent,
     PrizmSplitterAreasControlNgIfExampleComponent,
+    PrizmSplitterCustomGutterExampleComponent,
   ],
   exports: [PrizmSplitterExampleComponent],
 })

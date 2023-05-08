@@ -6,6 +6,7 @@ import { PrizmSplitterGutterComponent } from './gutter/gutter.component';
 
 import { PrizmSplitterComponent } from './splitter.component';
 import { ResizeObserverModule } from '@ng-web-apis/resize-observer';
+import { PrizmSplitterCustomGutterDirective } from './custom-gutter.directive';
 
 @NgModule({
   imports: [CommonModule, ResizeObserverModule],
@@ -14,7 +15,8 @@ import { ResizeObserverModule } from '@ng-web-apis/resize-observer';
     PrizmSplitterAreaComponent,
     PrizmSplitterGutterComponent,
     PrizmSplitterGutterDefaultComponent,
+    PrizmSplitterCustomGutterDirective,
   ],
-  exports: [PrizmSplitterComponent, PrizmSplitterAreaComponent],
+  exports: [PrizmSplitterComponent, PrizmSplitterAreaComponent, PrizmSplitterCustomGutterDirective],
 })
 export class PrizmSplitterModule {}

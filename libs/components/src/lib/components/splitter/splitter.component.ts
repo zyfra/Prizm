@@ -4,6 +4,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  ContentChild,
   ContentChildren,
   ElementRef,
   EventEmitter,
@@ -33,6 +34,7 @@ import { PrizmSplitterGutterComponent } from './gutter/gutter.component';
 import { PrizmSplitterAreaComponent } from './area/area.component';
 
 import { PrizmSplitterService } from './splitter.service';
+import { PrizmSplitterCustomGutterDirective } from './custom-gutter.directive';
 
 type AreaRealSize = { area: PrizmSplitterAreaComponent; realSize: number; realMinSize: number };
 type GutterData = { areaBefore: number; areaAfter: number; order: number };
@@ -55,13 +57,16 @@ export class PrizmSplitterComponent implements AfterViewInit, AfterContentInit {
   @Output() areasSplitEnd = new EventEmitter<Array<number>>();
 
   @ViewChild('container', { static: true }) private containerElement!: ElementRef<HTMLElement>;
+  @ContentChild(PrizmSplitterCustomGutterDirective) customGutter: PrizmSplitterCustomGutterDirective;
 
   @ContentChildren(PrizmSplitterAreaComponent) splitterAreaQueryList: QueryList<PrizmSplitterAreaComponent>;
 
   @ViewChildren(PrizmSplitterGutterComponent)
   splitterGutterQueryList: QueryList<PrizmSplitterGutterComponent>;
 
-  gutterElementSize = 8;
+  get gutterElementSize(): number {
+    return this.customGutter ? this.customGutter.size : 8;
+  }
 
   areas$: Observable<PrizmSplitterAreaComponent[]>;
 
