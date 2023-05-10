@@ -18,6 +18,10 @@
     <prizm-doc-example id="filtered-list" heading="Specified List" [content]="exampleFilteredListCron">
       <prizm-cron-filtered-list-example></prizm-cron-filtered-list-example>
     </prizm-doc-example>
+
+    <prizm-doc-example id="reset" heading="Reset Button" [content]="exampleReset">
+      <prizm-cron-reset-example></prizm-cron-reset-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -29,6 +33,7 @@
         [prizmDocHostElement]="element"
         [tabs]="tabs"
         [disabled]="disabled"
+        [resetButton]="resetButton"
         [hidePeriod]="hidePeriod"
         [hideResult]="hideResult"
         [autoSubmit]="autoSubmit"
@@ -102,6 +107,15 @@
         [(documentationPropertyValue)]="selected"
       >
         Selected Tab
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="resetButton"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="resetButton"
+      >
+        Show Reset Button
       </ng-template>
 
       <ng-template

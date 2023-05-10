@@ -69,6 +69,10 @@ export class PrizmCronComponent implements OnInit {
 
   @Input()
   @prizmDefaultProp()
+  resetButton = false;
+
+  @Input()
+  @prizmDefaultProp()
   public set period(period: PrizmCronPeriod) {
     if (this.indefinitelyControl.value !== period.indefinitely)
       this.indefinitelyControl.setValue(period.indefinitely);
@@ -133,6 +137,7 @@ export class PrizmCronComponent implements OnInit {
     },
   ];
 
+  initialValue: string;
   public readonly value$ = this.cron.value$;
   public readonly valueAsString$ = this.cron.valueAsString$;
   public readonly startDateControl = new UntypedFormControl();
@@ -163,6 +168,7 @@ export class PrizmCronComponent implements OnInit {
     this.cronUiYearState.init();
     this.cronUiMinuteState.init();
     this.initEndDateStateChanger();
+    this.saveInitialValue();
   }
 
   private endDateStateCorrector(): void {
@@ -182,6 +188,10 @@ export class PrizmCronComponent implements OnInit {
   private emitPeriod(): void {
     if (this.hidePeriod) return;
     this.periodChange.emit(this.period);
+  }
+
+  private saveInitialValue(): void {
+    this.initialValue = this.cron.valueAsString;
   }
 
   private initAutoSubmiter(): void {
@@ -219,6 +229,7 @@ export class PrizmCronComponent implements OnInit {
     if (this.disabled) return;
     this.valueChange.emit(cronValue);
     this.emitPeriod();
+    this.saveInitialValue();
   }
 
   public submit(): void {
@@ -231,6 +242,10 @@ export class PrizmCronComponent implements OnInit {
         takeUntil(this.destroy$)
       )
       .subscribe();
+  }
+
+  public reset(): void {
+    this.value = this.initialValue;
   }
 
   public copy(): void {
