@@ -81,6 +81,11 @@ export class SelectComponent {
 
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
+  readonly exampleInput: TuiDocExample = {
+    TypeScript: import('./examples/input/select-input-example.component.ts?raw'),
+    HTML: import('./examples/input/select-input-example.component.html?raw'),
+  };
+
   readonly exampleBase: TuiDocExample = {
     TypeScript: import('./examples/base/select-base-example.component.ts?raw'),
     HTML: import('./examples/base/select-base-example.component.html?raw'),

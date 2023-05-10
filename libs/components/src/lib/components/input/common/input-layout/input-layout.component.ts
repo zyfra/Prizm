@@ -1,5 +1,5 @@
 import {
-  AfterContentInit,
+  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -31,7 +31,7 @@ import { PolymorphContent } from '../../../../directives/polymorph';
     class: 'prizm-input-layout',
   },
 })
-export class PrizmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, AfterContentInit {
+export class PrizmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
   @Input() label: string;
 
   @Input() size: PrizmInputSize = 'l';
@@ -62,7 +62,7 @@ export class PrizmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, 
 
   private subscriptions: Subscription = new Subscription();
 
-  constructor(private readonly injector: Injector, private el: ElementRef) {}
+  constructor(private readonly injector: Injector, public readonly el: ElementRef<HTMLElement>) {}
 
   ngOnInit(): void {
     this.subscriptions.add(
@@ -73,7 +73,7 @@ export class PrizmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, 
     );
   }
 
-  ngAfterContentInit(): void {
+  ngAfterViewInit(): void {
     this.actualaizeStatus();
 
     this.inputStatusText &&
@@ -83,6 +83,9 @@ export class PrizmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, 
           this.cdr.detectChanges();
         })
       );
+
+    // for get templates from children control
+    this.cdr.markForCheck();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -97,7 +100,7 @@ export class PrizmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, 
 
   public onClearClick(event: MouseEvent): void {
     this.clear.next(event);
-    this.control.clear();
+    this.control.clear(event);
     this.actualaizeStatus();
   }
 

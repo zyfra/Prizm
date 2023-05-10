@@ -1,9 +1,29 @@
-import { Directive } from '@angular/core';
+import { Directive, ViewChild } from '@angular/core';
 import { AbstractControlDirective, NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
+import { PrizmInputLayoutBottomDirective } from '../input-layout/input-layout-bottom.directive';
+import { PrizmInputLayoutInBodyDirective } from '../input-layout/input-layout-in-body.directive';
+import { PrizmInputLayoutLeftDirective } from '../input-layout/input-layout-left.directive';
+import { PrizmInputLayoutRightDirective } from '../input-layout/input-layout-right.directive';
+import { PrizmInputLayoutSubtextDirective } from '../input-layout/input-layout-subtext.directive';
 
 @Directive()
 export abstract class PrizmInputControl<T> {
+  @ViewChild(PrizmInputLayoutBottomDirective)
+  public layoutBottom: PrizmInputLayoutBottomDirective | null;
+
+  @ViewChild(PrizmInputLayoutInBodyDirective)
+  public layoutInBody: PrizmInputLayoutInBodyDirective | null;
+
+  @ViewChild(PrizmInputLayoutLeftDirective)
+  public layoutLeft: PrizmInputLayoutLeftDirective | null;
+
+  @ViewChild(PrizmInputLayoutRightDirective)
+  public layoutRight: PrizmInputLayoutRightDirective | null;
+
+  @ViewChild(PrizmInputLayoutSubtextDirective)
+  public layoutSubtext: PrizmInputLayoutSubtextDirective | null = null;
+
   /** The value of the control. */
   abstract value: T | null;
 
@@ -33,5 +53,5 @@ export abstract class PrizmInputControl<T> {
 
   abstract hasClearButton: boolean;
   hidden = false;
-  public abstract clear(): void;
+  public abstract clear(ev: MouseEvent): void;
 }
