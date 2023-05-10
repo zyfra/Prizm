@@ -139,8 +139,16 @@
         documentationPropertyType="PolymorphContent<PrizmBaseDialogContext>"
         [documentationPropertyValues]="generatePolymorphVariants(headerTemp)"
         [(documentationPropertyValue)]="header"
+        [documentationPropertyDeprecated]="true"
       >
-        Header
+        Header (does not include close button)
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="headerTemplate"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext>"
+      >
+        Header (for change full header with close button)
       </ng-template>
 
       <ng-template
@@ -149,7 +157,14 @@
         [documentationPropertyValues]="generatePolymorphVariants(contentTemp)"
         [(documentationPropertyValue)]="content"
       >
-        Content
+        Content (will be in sidebar)
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="outerContent"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext>"
+      >
+        Outer Content (wont be in sidebar)
       </ng-template>
 
       <ng-template
