@@ -21,6 +21,7 @@ export interface ITableProduct {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableTreeExampleComponent {
+  showFormatNumber = true;
   public columns: string[] = ['code', 'name', 'category', 'count'];
 
   public products: ITableProduct[] = TABLE_EXAMPLE_TREE_DATA_1;
