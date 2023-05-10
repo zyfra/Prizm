@@ -272,7 +272,7 @@ export class PrizmSelectComponent<T>
     if (!this.identityMatcher(item, this.value)) {
       this.updateValue(item);
     }
-    this.requiredInputControl.setValue(item && this.stringify(item));
+    this.requiredInputControl.setValue(item !== undefined && this.stringify(item));
     // TODO remove after add update inputs
     if (this.inputTextElement) this.inputTextElement.markAsTouched();
     this.open = false;
