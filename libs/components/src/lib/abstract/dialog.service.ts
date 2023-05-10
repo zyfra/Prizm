@@ -68,6 +68,8 @@ export abstract class AbstractPrizmDialogService<
         })
         .create();
 
+      if (typeof options.zIndex === 'number') control.zIndex = options.zIndex;
+
       control.open();
 
       this.setOverscrollMode(options.overscroll ?? 'scroll', control, destroy$);

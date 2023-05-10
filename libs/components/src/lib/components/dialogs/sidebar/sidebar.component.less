@@ -2,6 +2,7 @@
 
 .content {
   .ellipsis();
+  flex: 1 1 0;
   padding: var(--prizm-sidebar-padding, 32px 16px);
   color: var(--prizm-text-main);
   overflow: hidden;
@@ -9,6 +10,7 @@
 }
 
 .header {
+  flex: 0 0 auto;
   border-bottom: 1px solid var(--prizm-border-widget);
   padding: var(--prizm-sidebar-padding, 14px 16px);
   display: flex;
@@ -106,8 +108,10 @@
 
 .box {
   height: 100%;
-  grid-template-rows: min-content 1fr min-content;
-  display: grid;
+  //grid-template-rows: min-content 1fr min-content;
+  //display: grid;
+  display: flex;
+  flex-direction: column;
 }
 
 .close-btn {

@@ -5,6 +5,7 @@ import {
   Component,
   ComponentFactoryResolver,
   ElementRef,
+  HostBinding,
   Injector,
   OnDestroy,
   OnInit,
@@ -14,7 +15,7 @@ import {
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmThemeService } from '@prizm-ui/theme';
 import { Observable } from 'rxjs';
-import { filter, map, startWith, takeUntil, tap } from 'rxjs/operators';
+import { startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmOverlayConfig, PrizmOverlayContent, PrizmOverlayContentType, PrizmOverlayId } from './models';
 import { PrizmOverlayAbstractPosition } from './position/position';
 import { cssClass, EventBus, objToCss } from './utils';
@@ -36,6 +37,8 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   config: PrizmOverlayConfig;
   position: PrizmOverlayAbstractPosition;
   zid: PrizmOverlayId;
+  @HostBinding('style.zIndex')
+  zIndex: number;
   el: HTMLElement | any;
   wrapperEl: HTMLElement | any;
   extra: string;

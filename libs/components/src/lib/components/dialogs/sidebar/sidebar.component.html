@@ -6,7 +6,7 @@
   >
     <ng-container *ngSwitchCase="true">
       <ng-container *polymorphOutlet="context.headerTemplate as headerTemplate; context: context">
-        headerTemplate
+        {{ headerTemplate }}
       </ng-container>
     </ng-container>
     <ng-container *ngSwitchDefault>

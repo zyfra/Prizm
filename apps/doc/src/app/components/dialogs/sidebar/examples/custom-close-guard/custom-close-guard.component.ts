@@ -22,7 +22,7 @@ export class PrizmSidebarCustomCloseGuardExampleComponent {
   public position: PrizmOverlayInsidePlacement = this.positionVariants[1];
   public backdrop = false;
   public dismissible = false;
-  public canClose = false;
+  public canClose = true;
 
   constructor(@Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService) {}
 

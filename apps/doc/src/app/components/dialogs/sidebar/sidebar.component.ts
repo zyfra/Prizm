@@ -63,6 +63,7 @@ export class SidebarComponent {
   public positionVariants: any = ['t', 'b', 'l', 'r'];
   public position: PrizmOverlayInsidePlacement = PrizmOverlayInsidePlacement.LEFT;
   public backdrop = false;
+  public zIndex = 20;
   public dismissible = false;
   public height = 'auto';
   public width = '500px';
@@ -99,6 +100,11 @@ export class SidebarComponent {
     HTML: import('./examples/top-bottom/top-bottom.component.html?raw'),
   };
 
+  public readonly exampleCustomHeader: TuiDocExample = {
+    TypeScript: import('./examples/custom-header-template/custom-header-template.component.ts?raw'),
+    HTML: import('./examples/custom-header-template/custom-header-template.component.html?raw'),
+  };
+
   constructor(@Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService) {}
 
   @prizmPure
@@ -110,6 +116,7 @@ export class SidebarComponent {
     this.sidebarService
       .open(this.content, {
         closeable: this.closeable,
+        zIndex: this.zIndex,
         backdrop: this.backdrop,
         footer: this.footer,
         dismissible: this.dismissible,
