@@ -10,6 +10,10 @@ import { IBreadcrumb } from '@prizm-ui/components';
 export class BreadcrumbsExampleWithIconComponent {
   public breadcrumbs: IBreadcrumb[] = [
     {
+      name: '',
+      icon: 'social-home-breadcrumbs',
+    },
+    {
       name: 'Lady',
       icon: 'account',
     },

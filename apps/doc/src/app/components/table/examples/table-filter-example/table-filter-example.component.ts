@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ITableProduct } from '../table-basic-example/table-basic-example.component';
 import { TABLE_EXAMPLE_DATA_1 } from '../../table-example.const';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
@@ -20,11 +20,11 @@ export class TableFilterExampleComponent {
   public filterOpen = false;
   public filterOn = false;
 
-  public formGroup = new FormGroup({
-    control1: new FormControl(true),
-    control2: new FormControl(true),
-    control3: new FormControl(true),
-    control4: new FormControl(true),
+  public formGroup = new UntypedFormGroup({
+    control1: new UntypedFormControl(true),
+    control2: new UntypedFormControl(true),
+    control3: new UntypedFormControl(true),
+    control4: new UntypedFormControl(true),
   });
 
   public filteredProducts$: Observable<ITableProduct[]> = this.formGroup.valueChanges.pipe(

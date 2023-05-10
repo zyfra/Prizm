@@ -16,6 +16,6 @@ export class PrizmWidgetComponent {
   @Output() public iconClick: EventEmitter<string> = new EventEmitter();
   readonly shadow: PrizmShadowType = 'none';
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_widget';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_area--widget';
 }

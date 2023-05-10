@@ -9,7 +9,6 @@ import { PrizmChipsItemComponent } from './chips-item/chips-item.component';
   imports: [
     CommonModule,
     PrizmCallFuncModule,
-    PrizmCallFuncModule,
     PrizmLifecycleModule,
     PrizmElementReadyModule,
     PrizmLetModule,

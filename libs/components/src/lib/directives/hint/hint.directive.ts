@@ -146,7 +146,7 @@ export class PrizmHintDirective<
   }
 
   protected open(): void {
-    if (!this.prizmHintCanShow) return;
+    if (!this.prizmHintCanShow || this.content === '') return;
     this.show_ = true;
     this.renderer.addClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
     this.overlay.open();

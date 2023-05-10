@@ -18,7 +18,7 @@ _Выберите нужное отметив галочку [x]_
 - [ ] `@prizm-ui/theme`
 - [ ] `@prizm-ui/charts`
 - [ ] `@prizm-ui/ast`
-- [ ] `@prizm-ui/cb3-to-prizm`
+- [ ] `@prizm-ui/nx-plugin`
 -
 
 ### Компонент
@@ -47,7 +47,7 @@ Dependencies:
 ```
 ➜ npm ls @prizm-ui/components
 
-@prizm-ui/components 1.0.0-beta.33
+@prizm-ui/components 1.0.0-beta.35
 ```
 
 ```

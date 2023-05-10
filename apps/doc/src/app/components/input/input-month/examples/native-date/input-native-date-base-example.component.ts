@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-input-native-date-base-example',
@@ -15,5 +15,5 @@ import { FormControl } from '@angular/forms';
   providers: [],
 })
 export class PrizmInputNativeDateBaseExampleComponent {
-  public readonly control = new FormControl(new Date());
+  public readonly control = new UntypedFormControl(new Date());
 }

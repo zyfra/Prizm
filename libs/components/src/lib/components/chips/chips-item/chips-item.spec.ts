@@ -1,6 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PrizmChipsItemComponent } from './chips-item.component';
 import { By } from '@angular/platform-browser';
+import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
+import { CommonModule } from '@angular/common';
+import { PrizmElementReadyModule } from '../../../directives/element-ready';
+import { PrizmHintModule } from '../../../directives/hint/hint.module';
+import { PrizmLifecycleModule } from '../../../directives/lifecycle/lifecycle.module';
+import { ChangeDetectionStrategy } from '@angular/core';
 
 describe('PrizmChipsItemComponent', () => {
   let component: PrizmChipsItemComponent;
@@ -9,7 +15,19 @@ describe('PrizmChipsItemComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [PrizmChipsItemComponent],
-    }).compileComponents();
+      imports: [
+        CommonModule,
+        PrizmCallFuncModule,
+        PrizmLifecycleModule,
+        PrizmElementReadyModule,
+        PrizmLetModule,
+        PrizmHintModule,
+      ],
+    })
+      .overrideComponent(PrizmChipsItemComponent, {
+        set: { changeDetection: ChangeDetectionStrategy.Default },
+      })
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -25,8 +43,8 @@ describe('PrizmChipsItemComponent', () => {
   it('should emit removed event when delete icon is clicked and not disabled', () => {
     component.disabled = false;
     fixture.detectChanges();
-    const removeSpy = spyOn(component.deleted, 'emit');
-    const deleteIcon = fixture.debugElement.query(By.css('.delete-icon'));
+    const removeSpy = jest.spyOn(component.deleted, 'emit');
+    const deleteIcon = fixture.debugElement.query(By.css('.chips-cancel'));
 
     if (deleteIcon) {
       deleteIcon.nativeElement.click();
@@ -39,8 +57,8 @@ describe('PrizmChipsItemComponent', () => {
   it('should not emit removed event when delete icon is clicked and disabled', () => {
     component.disabled = true;
     fixture.detectChanges();
-    const removeSpy = spyOn(component.deleted, 'emit');
-    const deleteIcon = fixture.debugElement.query(By.css('.delete-icon'));
+    const removeSpy = jest.spyOn(component.deleted, 'emit');
+    const deleteIcon = fixture.debugElement.query(By.css('.chips-cancel'));
 
     if (deleteIcon) {
       deleteIcon.nativeElement.click();
@@ -54,15 +72,14 @@ describe('PrizmChipsItemComponent', () => {
     component.deletable = true;
     fixture.detectChanges();
 
-    const deleteIcon = fixture.debugElement.query(By.css('.delete-icon'));
+    const deleteIcon = fixture.debugElement.query(By.css('.chips-cancel'));
     expect(deleteIcon).toBeTruthy();
   });
 
   it('should not show delete icon when deletable is false', () => {
     component.deletable = false;
     fixture.detectChanges();
-
-    const deleteIcon = fixture.debugElement.query(By.css('.delete-icon'));
+    const deleteIcon = fixture.debugElement.query(By.css('.chips-cancel'));
     expect(deleteIcon).toBeNull();
   });
 });

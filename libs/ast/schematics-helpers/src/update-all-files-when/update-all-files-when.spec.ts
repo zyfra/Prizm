@@ -1,47 +1,83 @@
-import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import { Tree } from '@nrwl/devkit';
-import { prizmAstUpdateAllFilesWhen } from './prizm-ast-update-all-files-when';
+import { createTreeWithEmptyV1Workspace } from '@nrwl/devkit/testing';
+import { prizmAstUpdateAllFilesWhen } from '../update-all-files-when/prizm-ast-update-all-files-when';
 
-describe('updateAllFilesWhen', () => {
+describe('prizmAstUpdateAllFilesWhen', () => {
   let tree: Tree;
 
   beforeEach(() => {
-    tree = createTreeWithEmptyWorkspace();
+    tree = createTreeWithEmptyV1Workspace();
+    tree.write('dir1/file1.txt', 'Initial content of file1');
+    tree.write('dir1/file2.txt', 'Initial content of file2');
+    tree.write('dir2/file3.txt', 'Initial content of file3');
+    tree.write('dir2/file4.txt', 'Initial content of file4');
   });
 
-  const conditionFunc = (entryPath: string, content: string): boolean => {
-    return entryPath.endsWith('.txt') && content.includes('test');
-  };
+  it('should update files based on the provided conditions and updater function', () => {
+    const canUpdateFunc = (entryPath: string, content: string): boolean => {
+      return entryPath.endsWith('2.txt') || entryPath.endsWith('3.txt');
+    };
 
-  const updaterFunc = (entryPath: string, fileContent: string): any => {
-    return fileContent.replace('test', 'updated');
-  };
+    const updaterFunc = (entryPath: string, fileContent: string): string => {
+      return fileContent.replace('Initial', 'Updated');
+    };
 
-  it('should update files that meet the condition', () => {
-    // Создание структуры файлов
-    tree.write('file1.txt', 'This is a test file.');
-    tree.write('file2.txt', 'This is not a target file.');
-    tree.write('file3.js', 'This is a test file with a different extension.');
+    prizmAstUpdateAllFilesWhen(tree, '', canUpdateFunc, updaterFunc);
 
-    // Вызов updateAllFilesWhen
-    prizmAstUpdateAllFilesWhen(tree, '/', conditionFunc, updaterFunc);
-
-    // Проверка обновленных файлов
-    expect(tree.read('file1.txt', 'utf-8')).toEqual('This is a updated file.');
-    expect(tree.read('file2.txt', 'utf-8')).toEqual('This is not a target file.');
-    expect(tree.read('file3.js', 'utf-8')).toEqual('This is a test file with a different extension.');
+    expect(tree.read('dir1/file1.txt', 'utf-8')).toEqual('Initial content of file1');
+    expect(tree.read('dir1/file2.txt', 'utf-8')).toEqual('Updated content of file2');
+    expect(tree.read('dir2/file3.txt', 'utf-8')).toEqual('Updated content of file3');
+    expect(tree.read('dir2/file4.txt', 'utf-8')).toEqual('Initial content of file4');
   });
 
-  it('should not update files that do not meet the condition', () => {
-    // Создание структуры файлов
-    tree.write('file4.txt', 'This file should not be updated.');
-    tree.write('file5.js', 'This is another test file with a different extension.');
+  it('should not update any files when canUpdateFunc returns false for all files', () => {
+    const canUpdateFunc = (entryPath: string, content: string): boolean => {
+      return false;
+    };
 
-    // Вызов updateAllFilesWhen
-    prizmAstUpdateAllFilesWhen(tree, '/', conditionFunc, updaterFunc);
+    const updaterFunc = (entryPath: string, fileContent: string): string => {
+      return fileContent.replace('Initial', 'Updated');
+    };
 
-    // Проверка обновленных файлов
-    expect(tree.read('file4.txt', 'utf-8')).toEqual('This file should not be updated.');
-    expect(tree.read('file5.js', 'utf-8')).toEqual('This is another test file with a different extension.');
+    prizmAstUpdateAllFilesWhen(tree, '', canUpdateFunc, updaterFunc);
+
+    expect(tree.read('dir1/file1.txt', 'utf-8')).toEqual('Initial content of file1');
+    expect(tree.read('dir1/file2.txt', 'utf-8')).toEqual('Initial content of file2');
+    expect(tree.read('dir2/file3.txt', 'utf-8')).toEqual('Initial content of file3');
+    expect(tree.read('dir2/file4.txt', 'utf-8')).toEqual('Initial content of file4');
+  });
+
+  it('should update all files when canUpdateFunc returns true for all files', () => {
+    const canUpdateFunc = (entryPath: string, content: string): boolean => {
+      return true;
+    };
+
+    const updaterFunc = (entryPath: string, fileContent: string): string => {
+      return fileContent.replace('Initial', 'Updated');
+    };
+
+    prizmAstUpdateAllFilesWhen(tree, '', canUpdateFunc, updaterFunc);
+
+    expect(tree.read('dir1/file1.txt', 'utf-8')).toEqual('Updated content of file1');
+    expect(tree.read('dir1/file2.txt', 'utf-8')).toEqual('Updated content of file2');
+    expect(tree.read('dir2/file3.txt', 'utf-8')).toEqual('Updated content of file3');
+    expect(tree.read('dir2/file4.txt', 'utf-8')).toEqual('Updated content of file4');
+  });
+
+  it('should update files based on their content', () => {
+    const canUpdateFunc = (entryPath: string, content: string): boolean => {
+      return content.includes('file1') || content.includes('file4');
+    };
+
+    const updaterFunc = (entryPath: string, fileContent: string): string => {
+      return fileContent.replace('Initial', 'Updated');
+    };
+
+    prizmAstUpdateAllFilesWhen(tree, '', canUpdateFunc, updaterFunc);
+
+    expect(tree.read('dir1/file1.txt', 'utf-8')).toEqual('Updated content of file1');
+    expect(tree.read('dir1/file2.txt', 'utf-8')).toEqual('Initial content of file2');
+    expect(tree.read('dir2/file3.txt', 'utf-8')).toEqual('Initial content of file3');
+    expect(tree.read('dir2/file4.txt', 'utf-8')).toEqual('Updated content of file4');
   });
 });

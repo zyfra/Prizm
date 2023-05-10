@@ -23,6 +23,18 @@ export class NavigationMenuExampleComponent {
     LESS: import('./examples/navigation-menu-basic-example/navigation-menu-basic-example.component.less?raw'),
   };
 
+  public readonly exampleChildrenHandlerNavigationMenu: TuiDocExample = {
+    TS: import(
+      './examples/navigation-menu-children-handler-example/navigation-menu-children-handler-example.component.ts?raw'
+    ),
+    HTML: import(
+      './examples/navigation-menu-children-handler-example/navigation-menu-children-handler-example.component.html?raw'
+    ),
+    Constants: import(
+      './examples/navigation-menu-children-handler-example/navigation-menu-children-handler-example.constants?raw'
+    ),
+  };
+
   public readonly exampleGroupsNavigationMenu: TuiDocExample = {
     TS: import('./examples/navigation-menu-groups-example/navigation-menu-groups-example.component?raw'),
     HTML: import(
@@ -66,7 +78,8 @@ export class NavigationMenuExampleComponent {
   itemKeyName = 'id';
   expandedItemsMap = new Map<any, boolean>();
   expandedGroupsMap = new Map<string, boolean>();
-  emptyMessageConfig: PrizmNavigationMenuEmptyMessageConfig = null;
+  emptySearchResultMessageConfig: PrizmNavigationMenuEmptyMessageConfig = null;
+  emptyDataMessageConfig: PrizmNavigationMenuEmptyMessageConfig = null;
   searchConfig: PrizmNavigationMenuSearchConfig = null;
   settingsConfig: PrizmNavigationMenuSettingsConfig = {};
   headerConfig: PrizmNavigationMenuHeaderConfig = null;

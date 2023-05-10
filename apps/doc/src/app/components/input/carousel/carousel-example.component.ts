@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { PrizmCarouselArrayContent, PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 
@@ -11,7 +11,7 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 })
 export class PrizmCarouselExampleComponent {
   value = 5;
-  formControl = new FormControl();
+  formControl = new UntypedFormControl();
   public label = 'Заголовок';
   public placeholder = '';
   public outer: false;
@@ -19,7 +19,7 @@ export class PrizmCarouselExampleComponent {
   public sizesOuter: PrizmInputSize[] = ['l', 'm', 's'];
   public sizesInner: PrizmInputSize[] = ['l', 'm'];
   public disabled = false;
-  public control = new FormControl();
+  public control = new UntypedFormControl();
   public status: PrizmInputStatus = 'default';
   public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];
   public required = false;

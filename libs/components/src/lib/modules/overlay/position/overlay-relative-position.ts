@@ -11,6 +11,8 @@ export interface PrizmOverlayRelativePositionConfig {
   height?: string | number;
 }
 
+const HINT_DIRECTIONS = ['t', 'b', 'l', 'r', 'tl', 'bl', 'tr', 'br', 'lt', 'rt', 'lb', 'rb'] as const;
+
 export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<PrizmOverlayRelativePositionConfig> {
   obs: MutationObserver;
   constructor(config: PrizmOverlayRelativePositionConfig) {
@@ -32,7 +34,7 @@ export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<P
     if (this.config.autoReposition) this.listenDrag(this.zid);
   }
 
-  public getPositions(targetEl: HTMLElement): Pick<PrizmOverlayPositionMeta, any> {
+  public override getPositions(targetEl: HTMLElement): Pick<PrizmOverlayPositionMeta, any> {
     const s = this.getCoords(this.config.element);
     const h = this.getCoords(targetEl);
     let { width: w, height: ht } = this.config;
@@ -41,14 +43,22 @@ export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<P
     ht = setWidthHeight(s, h, 'height', ht);
 
     const { pos, props } = this.calculatePos(this.config.placement, s, h);
-    return { ...this.round(props), width: w, height: ht, extra: pos };
+
+    // Try to keep hint host within viewport.
+    const { innerHeight, innerWidth } = window;
+    const coord = {
+      top: Math.min(Math.max(0, props.top), innerHeight - h.height),
+      left: Math.min(Math.max(0, props.left), innerWidth - h.width),
+    };
+
+    return { ...this.round(coord), width: w, height: ht, extra: pos };
   }
 
   public reCalc(): void {
     EventBus.send(this.zid, 'z_dynpos');
   }
 
-  private getCoords(elem: HTMLElement): PrizmOverlayPositionMeta {
+  private getCoords(elem: HTMLElement): DOMRect {
     return elem.getBoundingClientRect();
   }
 
@@ -88,55 +98,50 @@ export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<P
       p.top = src.top + src.height - host.height;
     }
 
-    p.top = Math.max(0, p.top);
-    p.left = Math.max(0, p.left);
-
     return p;
   }
 
   private calculatePos(
     pos: PrizmOverlayOutsidePlacement,
     s: any,
-    h: any,
-    canReCalcPosition = true
-  ): { pos: string; props: Record<string, unknown> } {
+    h: any
+  ): { pos: string; props: { left: number; top: number } } {
     const props = this.calc(pos, s, h);
 
-    if (
-      canReCalcPosition &&
-      this.config.autoReposition &&
-      this.isOverflowed({ ...props, width: h.width, height: h.height }, pos)
-    ) {
-      return this.calculatePos(this.nextPosition(pos), s, h, false);
+    if (!this.config.autoReposition || !this.isOverflowed({ ...props, width: h.width, height: h.height })) {
+      return { pos, props };
     }
 
-    return { pos, props };
+    const fallback = this.oppositeDirection(pos);
+
+    // First - check the opposite direction (for backward compatibility and most likely correct value),
+    // if still overflows - check all available placements
+    pos =
+      [fallback, ...HINT_DIRECTIONS].find(direction => {
+        // Already checked?
+        if (direction === pos) return false;
+
+        const props = this.calc(direction, s, h);
+        return !this.isOverflowed({ ...props, width: h.width, height: h.height });
+      }) ?? fallback;
+
+    return { pos, props: this.calc(pos, s, h) };
   }
 
-  private isOverflowed(props: { [x: string]: any }, placement: PrizmOverlayOutsidePlacement): boolean {
-    const [main] = placement.split('');
+  private isOverflowed(props: { [x: string]: any }): boolean {
     const { innerHeight, innerWidth } = window;
-
-    /* TODO later add re-position by x coordinates after is-overflowed */
-    if (main !== 't' && main !== 'b') {
-      if (main === 'r') return props.left + props.width > innerWidth;
-      if (main === 'l') return props.left - props.width < 0;
-      return false;
-    }
 
     props.bottom = props.top + props.height;
     props.right = props.left + props.width;
 
-    return props.bottom > innerHeight || props.top <= 0 || props.left <= 0 || props.right > innerWidth;
+    return props.bottom > innerHeight || props.top < 0 || props.left < 0 || props.right > innerWidth;
   }
 
-  private nextPosition(current: PrizmOverlayOutsidePlacement): any {
-    const placements = ['t', 'b', 'l', 'r', 'tl', 'bl', 'tr', 'br', 'lt', 'rt', 'lb', 'rb'];
-
-    const index = placements.indexOf(current);
+  private oppositeDirection(current: PrizmOverlayOutsidePlacement): any {
+    const index = HINT_DIRECTIONS.indexOf(current);
     const even = index % 2 === 0;
 
-    return even ? placements[index + 1] : placements[index - 1];
+    return even ? HINT_DIRECTIONS[index + 1] : HINT_DIRECTIONS[index - 1];
   }
 
   private round(props: Record<string, any>): typeof props {

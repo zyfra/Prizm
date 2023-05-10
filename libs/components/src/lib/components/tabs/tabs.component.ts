@@ -48,8 +48,8 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
   @ContentChildren(PrizmTabMenuItemDirective, { read: TemplateRef, descendants: true })
   public menuElements: QueryList<TemplateRef<PrizmTabComponent>>;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_tabs';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_tabs';
 
   public openLeft = false;
   public openRight = false;

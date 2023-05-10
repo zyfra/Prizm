@@ -38,8 +38,8 @@ export class PrizmRadioButtonComponent extends PrizmWrappedFormComponent {
   @Output() public focusOutEvent: EventEmitter<FocusEvent> = new EventEmitter();
   @Output() public blurEvent: EventEmitter<FocusEvent> = new EventEmitter();
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_radio_button';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_radio_button';
 
   public onClickEventHandler(event: MouseEvent): void {
     if (!this.accessorIsDisabled) {

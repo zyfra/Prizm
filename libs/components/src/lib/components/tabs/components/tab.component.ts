@@ -36,8 +36,8 @@ export class PrizmTabComponent implements OnInit, OnDestroy {
   }
   @Output() public closeTab = new EventEmitter<void>();
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_tab';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_tab';
   public isActiveTab$: Observable<boolean>;
 
   private get tab(): PrizmTabComponent {

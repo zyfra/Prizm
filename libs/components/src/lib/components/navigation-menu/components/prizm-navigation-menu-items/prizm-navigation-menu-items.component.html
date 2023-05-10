@@ -5,7 +5,7 @@
   [map]="expandedItemsMap"
   [content]="content"
   [value]="item"
-  [childrenHandler]="treeChildrenHandler"
+  [childrenHandler]="menuItemsChildrenHandler"
   (expandedChanged)="handleExpandedChanged($event)"
 >
   <ng-template #content let-item>
@@ -14,6 +14,7 @@
       [mode]="mode"
       [itemExtraTemplate]="itemExtraTemplate"
       [isActive]="getItemIsActive(item)"
+      [isExpandable]="menuItemsChildrenHandler(item).length > 0"
       [isExpanded]="getItemIsExpanded(item)"
       (toggleExpanded)="treeCtrl.toggleByItemValue($event)"
       (setActive)="activeItemChanged.emit($event)"

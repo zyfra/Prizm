@@ -67,8 +67,8 @@ export class PrizmPrimitiveCalendarRangeComponent implements OnInit {
   @Output()
   readonly dayClick = new EventEmitter<PrizmDay>();
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_primitive_calendar_range';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_primitive_calendar_range';
 
   hoveredItem: PrizmDay | null = null;
 

@@ -1,6 +1,13 @@
 :host {
+  &:last-of-type {
+    flex: 1;
+    height: 100%;
+  }
+
   .prizm-navigation-menu-group {
     --prizm-empty-message__padding: 16px 32px;
+
+    height: 100%;
 
     ::ng-deep {
       prizm-accordion {
@@ -44,6 +51,11 @@
 
     &__no-items-content {
       background: var(--prizm-grey-g11-g3);
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid var(--prizm-grey-g10-g4);
     }
   }
 

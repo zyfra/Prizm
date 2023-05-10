@@ -2,7 +2,7 @@
   class="prizm-navigation-menu-item"
   [class.prizm-navigation-menu-item_active]="isActive"
   [class.prizm-navigation-menu-item_hovered]="isHovered"
-  [class.prizm-navigation-menu-item_expandable]="item.children?.length"
+  [class.prizm-navigation-menu-item_expandable]="isExpandable"
   [tabindex]="0"
   (keydown.space)="setActive.emit(item)"
   (keydown.enter)="setActive.emit(item)"

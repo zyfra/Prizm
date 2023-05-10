@@ -47,8 +47,8 @@ export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDest
   @Output() public removeChipEvent: EventEmitter<string> = new EventEmitter();
   @Output() public clickChipEvent: EventEmitter<string> = new EventEmitter();
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_chips';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_chips';
   public accessorIsDisabled = false;
   public readonly overflowedChipsList$ = new BehaviorSubject<Set<number>>(new Set());
 

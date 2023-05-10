@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { PrizmDay, PrizmTime } from '@prizm-ui/components';
 
 @Component({
@@ -15,7 +15,7 @@ import { PrizmDay, PrizmTime } from '@prizm-ui/components';
   ],
 })
 export class PrizmInputDateTimeRequiredExampleComponent {
-  public readonly value = new FormControl(
+  public readonly value = new UntypedFormControl(
     [new PrizmDay(2017, 2, 15), new PrizmTime(12, 30)],
     [Validators.required]
   );

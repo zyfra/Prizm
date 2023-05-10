@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'prizm-multi-select-validators-example',
@@ -14,7 +14,7 @@ import { FormControl, Validators } from '@angular/forms';
   ],
 })
 export class PrizmMultiSelectValidatorsExampleComponent {
-  readonly valueControl = new FormControl([], [Validators.required]);
+  readonly valueControl = new UntypedFormControl([], [Validators.required]);
   readonly items = [
     'One',
     'Two',

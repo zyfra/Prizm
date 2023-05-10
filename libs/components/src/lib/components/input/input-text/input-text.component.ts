@@ -14,7 +14,7 @@ import {
   Output,
   Self,
 } from '@angular/core';
-import { FormControl, NgControl, Validators } from '@angular/forms';
+import { UntypedFormControl, NgControl, Validators } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
@@ -79,8 +79,8 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
     this.stateChanges.next();
   }
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_input_text';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_input_text';
 
   private _required: boolean | undefined;
 
@@ -282,7 +282,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   }
 
   public markAsTouched(): void {
-    if (this.ngControl?.control instanceof FormControl) this.ngControl.control.markAsTouched();
+    if (this.ngControl?.control instanceof UntypedFormControl) this.ngControl.control.markAsTouched();
     else this._touched = true;
   }
 }

@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-radio-button-basic-example',
@@ -10,5 +10,5 @@ import { FormControl } from '@angular/forms';
 export class RadioButtonBasicExampleComponent {
   @Input() public size: 'm' | 'l' | 's' = 'm';
   public data: string[] = ['First property', 'Second property', 'Third property'];
-  public form = new FormControl({ value: this.data[1], disabled: false });
+  public form = new UntypedFormControl({ value: this.data[1], disabled: false });
 }

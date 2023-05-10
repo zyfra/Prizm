@@ -20,6 +20,7 @@ export class PrizmSidebarServiceExampleComponent {
   ];
   public position: PrizmOverlayInsidePlacement = this.positionVariants[1];
   public backdrop = false;
+  public dismissible = false;
 
   constructor(@Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService) {}
 
@@ -42,6 +43,7 @@ export class PrizmSidebarServiceExampleComponent {
           closeWord: 'Продолжить',
           position: this.position,
           backdrop: this.backdrop,
+          dismissible: this.dismissible,
           size: 'm',
         }
       )

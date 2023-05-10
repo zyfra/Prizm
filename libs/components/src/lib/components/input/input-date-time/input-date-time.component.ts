@@ -12,7 +12,7 @@ import {
   Self,
   ViewChild,
 } from '@angular/core';
-import { FormControl, NgControl } from '@angular/forms';
+import { UntypedFormControl, NgControl } from '@angular/forms';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map, pluck, takeUntil } from 'rxjs/operators';
 import { PRIZM_DATE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
@@ -116,8 +116,8 @@ export class PrizmInputDateTimeComponent
   @prizmDefaultProp()
   timeMode: PrizmTimeMode = `HH:MM`;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_input_date_time';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_input_date_time';
 
   public openTimeTemplate = false;
 
@@ -150,7 +150,7 @@ export class PrizmInputDateTimeComponent
   ]).pipe(map(fillers => this.getDateTimeString(...fillers)));
 
   public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
-  public readonly innerControl = new FormControl();
+  public readonly innerControl = new UntypedFormControl();
   constructor(
     @Optional()
     @Self()
@@ -179,23 +179,23 @@ export class PrizmInputDateTimeComponent
   }
 
   private syncStateBetweenControls(): void {
-    if (this.control instanceof FormControl)
-      PrizmFormControlHelpers.syncStates(this.control as FormControl, false, this.innerControl)
+    if (this.control instanceof UntypedFormControl)
+      PrizmFormControlHelpers.syncStates(this.control as UntypedFormControl, false, this.innerControl)
         .pipe(takeUntil(this.destroy$))
         .subscribe();
   }
 
   private syncValidatorsBetweenControls(): void {
-    if (this.control instanceof FormControl)
-      PrizmFormControlHelpers.syncAllValidators(this.control as FormControl, false, this.innerControl)
+    if (this.control instanceof UntypedFormControl)
+      PrizmFormControlHelpers.syncAllValidators(this.control as UntypedFormControl, false, this.innerControl)
         .pipe(takeUntil(this.destroy$))
         .subscribe();
   }
 
   private syncValuesBetweenControls(): void {
-    if (this.control instanceof FormControl)
+    if (this.control instanceof UntypedFormControl)
       PrizmFormControlHelpers.syncValues(
-        this.control as FormControl,
+        this.control as UntypedFormControl,
         () => this.computedValue,
         null,
         this.innerControl

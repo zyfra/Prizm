@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Inject, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import { defer, Observable, of } from 'rxjs';
 import { PRIZM_ANIMATIONS_DURATION } from '../../../tokens';
 import { PRIZM_DIALOG_CLOSE_STREAM, PRIZM_DIALOG_PROVIDERS } from '../dialog/dialog-options';
 import { PrizmAnimationOptions, prizmFadeIn, prizmSlideInTop } from '../../../animations';
-import { takeUntil } from 'rxjs/operators';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { filter, takeUntil, tap } from 'rxjs/operators';
+import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmBaseDialogContext, PrizmDialogSize } from '../dialog';
 import { PrizmSidebarOptions, PrizmSidebarResultDefaultType } from './sidebar.models';
+import { invokeIfCanCloseSidebar } from './util';
 
 @Component({
   selector: 'prizm-sidebar',
@@ -49,8 +50,8 @@ export class PrizmSidebarComponent<DATA = unknown> {
     return this.animation;
   }
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_sidebar';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_area--sidebar';
 
   private readonly animation = {
     value: '',
@@ -65,8 +66,18 @@ export class PrizmSidebarComponent<DATA = unknown> {
     @Inject(PRIZM_DIALOG_CLOSE_STREAM) readonly close$: Observable<unknown>,
     private readonly destroy$: PrizmDestroyService
   ) {
-    close$.pipe(takeUntil(this.destroy$)).subscribe(() => {
-      this.close();
-    });
+    close$
+      .pipe(takeUntil(this.destroy$))
+      .pipe(
+        tap(() => this.closeSidebar()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
+  }
+
+  public closeSidebar(): void {
+    invokeIfCanCloseSidebar(() => this.close(), this.context.canClose)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe();
   }
 }

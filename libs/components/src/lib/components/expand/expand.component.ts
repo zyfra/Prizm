@@ -70,8 +70,8 @@ export class PrizmExpandComponent {
   @HostBinding('attr.aria-expanded')
   private expanded_: boolean | null = null;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_expand';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui-area--expand';
 
   @HostListener('transitionend', ['$event'])
   public onTransitionEnd(event: TransitionEvent): void {

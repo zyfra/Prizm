@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/core",
-  "version": "1.0.0-beta.33",
+  "version": "1.0.0-beta.35",
   "license": "MIT",
   "description": "The main library for creating Angular components and elements using Prizm.",
   "private": false,
@@ -9,8 +9,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "@angular/common": "^12.2.0",
-    "@angular/core": "^12.2.0"
+    "@angular/common": "^14.2.12",
+    "@angular/core": "^14.2.12"
   },
   "dependencies": {
     "tslib": "^2.3.0"

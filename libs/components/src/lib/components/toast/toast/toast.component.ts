@@ -9,7 +9,7 @@ import { PrizmToastRef } from '../toast-ref';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToastComponent {
-  @HostBinding('attr.testId')
+  @HostBinding('attr.data-testid')
   readonly testId = 'prizm_toast_single';
 
   // TODO remove record to context type

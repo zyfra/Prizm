@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { PolymorphContent, PrizmContextWithImplicit, PrizmSizeL, PrizmSizeM } from '@prizm-ui/components';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-skeleton-example',
@@ -14,7 +14,7 @@ export class SkeletonComponent {
   isText = false;
   isRounded = false;
   isShort = false;
-  public readonly toggleControl = new FormControl();
+  public readonly toggleControl = new UntypedFormControl();
 
   readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>>> =
     [

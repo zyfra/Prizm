@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/deprecated",
-  "version": "1.0.0-beta.33",
+  "version": "1.0.0-beta.35",
   "license": "MIT",
   "description": "Library to make it easy to create Angular applications. Contains Injectables Service, RxJS utilities, directives, and standard pipes.",
   "private": false,
@@ -9,9 +9,9 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "@angular/common": "^12.2.0",
-    "@angular/core": "^12.2.0",
-    "@angular/cdk": "^12.2.0",
+    "@angular/common": "^14.2.12",
+    "@angular/core": "^14.2.12",
+    "@angular/cdk": "^14.2.12",
     "ngx-mask": "<=12.9.9",
     "@ng-web-apis/common": "^2.0.0",
     "@ng-web-apis/resize-observer": "^1.0.3",
@@ -19,9 +19,9 @@
     "@ng-web-apis/mutation-observer": "2.0.0",
     "primeicons": "^4.1.0",
     "primeng": "^12.2.1",
-    "@prizm-ui/helpers": "^1.0.0-beta.33",
-    "@prizm-ui/core": "^1.0.0-beta.33",
-    "@prizm-ui/theme": "^1.0.0-beta.33"
+    "@prizm-ui/helpers": "^1.0.0-beta.35",
+    "@prizm-ui/core": "^1.0.0-beta.35",
+    "@prizm-ui/theme": "^1.0.0-beta.35"
   },
   "dependencies": {
     "tslib": "^2.3.0"

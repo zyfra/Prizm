@@ -33,7 +33,7 @@ describe('PrizmTaskProcessor', () => {
   test('should process tasks on nodes', () => {
     const nodes: PrizmTemplateNode[] = [
       {
-        name: 'testNode',
+        name: 'testTask',
         attrs: {
           'data-input': null,
           'data-output': null,

@@ -8,7 +8,7 @@
 - [ ] `@prizm-ui/theme`
 - [ ] `@prizm-ui/charts`
 - [ ] `@prizm-ui/ast`
-- [ ] `@prizm-ui/cb3-to-prizm`
+- [ ] `@prizm-ui/nx-plugin`
 
 ### Компонент
 

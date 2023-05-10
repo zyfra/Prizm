@@ -625,12 +625,6 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.tools,
-    title: 'CB3 to prizm',
-    keywords: 'migrator, cb3, prizm, мигратор',
-    route: '/tools/cb3-to-prizm',
-  },
-  {
-    section: SectionNameEnum.tools,
     title: 'AST',
     keywords: 'ast, helpers, prizm',
     route: '/tools/ast',

@@ -27,7 +27,7 @@ import { PrizmDateTime } from '../../../@core/date-time/date-time';
 import { prizmIsNativeFocusedIn } from '../../../util';
 import { PrizmDateTimeRange } from '../../../@core/date-time/day-time-range';
 import { PrizmDayRangePeriod } from '../../../@core/classes/day-range-period';
-import { FormControl, NgControl } from '@angular/forms';
+import { UntypedFormControl, NgControl } from '@angular/forms';
 import {
   PRIZM_DATE_RANGE_VALUE_TRANSFORMER,
   PRIZM_DATE_TEXTS,
@@ -117,9 +117,9 @@ export class PrizmInputDateTimeRangeComponent
   @prizmDefaultProp()
   timeStrict = false;
 
-  public dateControl = new FormControl();
-  public timeControlFrom = new FormControl();
-  public timeControlTo = new FormControl();
+  public dateControl = new UntypedFormControl();
+  public timeControlFrom = new UntypedFormControl();
+  public timeControlTo = new UntypedFormControl();
 
   public get nativeFocusableElement(): HTMLInputElement | null {
     return this.focusableElement ? (this.focusableElement.nativeElement as HTMLInputElement) : null;
@@ -164,13 +164,13 @@ export class PrizmInputDateTimeRangeComponent
   public override ngOnInit(): void {
     super.ngOnInit();
     if (!this.control) return;
-    const control = this.control as FormControl;
+    const control = this.control as UntypedFormControl;
     this.syncValuesBetweenControls(control);
     this.syncStateBetweenControls(control);
     this.syncAllValidators(control);
   }
 
-  private syncStateBetweenControls(origin: FormControl): void {
+  private syncStateBetweenControls(origin: UntypedFormControl): void {
     PrizmFormControlHelpers.syncStates(
       origin,
       false,
@@ -182,7 +182,7 @@ export class PrizmInputDateTimeRangeComponent
       .subscribe();
   }
 
-  private syncAllValidators(origin: FormControl): void {
+  private syncAllValidators(origin: UntypedFormControl): void {
     PrizmFormControlHelpers.syncAllValidators(
       origin,
       false,
@@ -194,7 +194,7 @@ export class PrizmInputDateTimeRangeComponent
       .subscribe();
   }
 
-  private syncValuesBetweenControls(origin: FormControl): void {
+  private syncValuesBetweenControls(origin: UntypedFormControl): void {
     PrizmFormControlHelpers.syncValues<PrizmDateTimeRange, PrizmDayRange>(
       origin,
       (value: PrizmDateTimeRange) => value?.dayRange,

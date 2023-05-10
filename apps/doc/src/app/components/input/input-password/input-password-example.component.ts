@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 
@@ -11,7 +11,7 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 })
 export class InputPasswordExampleComponent {
   public label = 'Заголовок';
-  public control = new FormControl();
+  public control = new UntypedFormControl();
   public placeholder = '';
   public value = '';
 

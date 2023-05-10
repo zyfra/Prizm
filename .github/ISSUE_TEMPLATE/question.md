@@ -16,7 +16,7 @@ assignees: ''
 - [ ] `@prizm-ui/theme`
 - [ ] `@prizm-ui/charts`
 - [ ] `@prizm-ui/ast`
-- [ ] `@prizm-ui/cb3-to-prizm`
+- [ ] `@prizm-ui/nx-plugin`
 
 ### Компонент
 
@@ -33,7 +33,7 @@ v16.13.0
 
 Dependencies:
 
-`@prizm-ui/components 1.0.0-beta.33`
+`@prizm-ui/components 1.0.0-beta.35`
 
 Операционная ситема:
 

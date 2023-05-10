@@ -30,7 +30,7 @@ describe('PrizmLogExecution with options', () => {
 
   it('should log only result for a class method', () => {
     class TestClass {
-      @PrizmLogExecution({ logArguments: false, logResult: true, logExecutionTime: false })
+      @PrizmLogExecution({ logArguments: false, logResult: true, logExecutionTime: false, enabled: true })
       public testMethod(a: number, b: number): number {
         return a * b;
       }

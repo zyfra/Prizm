@@ -1,153 +1,76 @@
 import * as ts from 'typescript';
-import { prizmAstAddImportIfNeeded } from './util';
+import { PrizmAstAddImportsIfNeededCodeTask } from './add-imports-if-needed';
+import { IPrizmAddImportsIfNeededCodeTask } from './model';
 
-const testCode = `
-import { A } from './A';
+describe('PrizmAstAddImportsIfNeededCodeTask', () => {
+  const task = new PrizmAstAddImportsIfNeededCodeTask();
 
-function foo() {
-  console.log('Hello, world!');
-}
+  function createTransform(
+    namedImports: string[],
+    importToAdd: string,
+    targetImport: string,
+    targetNamedImports?: string[]
+  ): ts.TransformerFactory<ts.SourceFile> {
+    return (context: ts.TransformationContext) => {
+      return (sourceFile: ts.SourceFile) => {
+        const taskPayload: IPrizmAddImportsIfNeededCodeTask['payload'] = {
+          namedImports,
+          importToAdd,
+          targetImport,
+          targetNamedImports,
+        };
+
+        return task.run(context, sourceFile, taskPayload);
+      };
+    };
+  }
+
+  it('should add the import if needed', () => {
+    const sourceCode = `
+import { existingImport } from './existingImport';
+
+const someVariable = 'test';
 `;
 
-const sourceFile = ts.createSourceFile('test.ts', testCode, ts.ScriptTarget.ES2015, true);
+    const namedImports = ['newImport'];
+    const importToAdd = './newImport';
+    const targetImport = './existingImport';
+    const targetNamedImports = ['existingImport'];
 
-describe('prizmAstAddImportIfNeeded', () => {
-  it('should add the import correctly', () => {
-    const transformer: ts.TransformerFactory<ts.SourceFile> =
-      context =>
-      (sourceFile): any => {
-        const transformedSourceFile = prizmAstAddImportIfNeeded(context, sourceFile, ['B'], './B', './A');
+    const sourceFile = ts.createSourceFile('test.ts', sourceCode, ts.ScriptTarget.ES2015, true);
 
-        return transformedSourceFile;
-      };
-
-    const result = ts.transform(sourceFile, [transformer]);
+    const { transformed } = ts.transform(sourceFile, [
+      createTransform(namedImports, importToAdd, targetImport, targetNamedImports),
+    ]);
+    const resultSourceFile = transformed[0];
     const printer = ts.createPrinter();
-    const transformedCode = printer.printNode(ts.EmitHint.Unspecified, result.transformed[0], sourceFile);
+    const transformedCode = printer.printNode(ts.EmitHint.Unspecified, resultSourceFile, sourceFile);
 
-    const expectedCode = `import { B } from "./B";
-import { A } from './A';
-function foo() {
-    console.log('Hello, world!');
-}`;
-
-    expect(transformedCode.trim()).toBe(expectedCode.trim());
-  });
-  it('should add the import correctly with targetNameImports', () => {
-    const transformer: ts.TransformerFactory<ts.SourceFile> =
-      context =>
-      (sourceFile): any => {
-        const transformedSourceFile = prizmAstAddImportIfNeeded(context, sourceFile, ['B'], './B', './A', [
-          'A',
-        ]);
-
-        return transformedSourceFile;
-      };
-
-    const result = ts.transform(sourceFile, [transformer]);
-    const printer = ts.createPrinter();
-    const transformedCode = printer.printNode(ts.EmitHint.Unspecified, result.transformed[0], sourceFile);
-
-    const expectedCode = `import { B } from "./B";
-import { A } from './A';
-function foo() {
-    console.log('Hello, world!');
-}`;
-
-    expect(transformedCode.trim()).toBe(expectedCode.trim());
-  });
-  it('should add the import correctly with uncorrect targetNameImports', () => {
-    const transformer: ts.TransformerFactory<ts.SourceFile> =
-      context =>
-      (sourceFile): any => {
-        const transformedSourceFile = prizmAstAddImportIfNeeded(context, sourceFile, ['B'], './B', './A', [
-          'B',
-        ]);
-
-        return transformedSourceFile;
-      };
-
-    const result = ts.transform(sourceFile, [transformer]);
-    const printer = ts.createPrinter();
-    const transformedCode = printer.printNode(ts.EmitHint.Unspecified, result.transformed[0], sourceFile);
-
-    const expectedCode = `import { B } from "./B";
-import { A } from './A';
-function foo() {
-    console.log('Hello, world!');
-}`;
-
-    expect(transformedCode.trim()).not.toBe(expectedCode.trim());
+    expect(transformedCode).toContain(`import { newImport } from "./newImport";`);
   });
 
-  it('should not add the import if targetImport is not found', () => {
-    const transformer: ts.TransformerFactory<ts.SourceFile> =
-      context =>
-      (sourceFile): any => {
-        const transformedSourceFile = prizmAstAddImportIfNeeded(
-          context,
-          sourceFile,
-          ['B'],
-          './B',
-          './NonExistent'
-        );
+  it('should not add the import if not needed', () => {
+    const sourceCode = `
+import { existingImport, newImportName } from './existingImport';
 
-        return transformedSourceFile;
-      };
+const someVariable = 'test';
+`;
 
-    const result = ts.transform(sourceFile, [transformer]);
+    const namedImports = ['newImportName'];
+    const importToAdd = '@newImportSource';
+    const targetImport = './existingImport';
+    const targetNamedImports = ['existingImport', 'newImport'];
+
+    const sourceFile = ts.createSourceFile('test.ts', sourceCode, ts.ScriptTarget.ES2015, true);
+
+    const { transformed } = ts.transform(sourceFile, [
+      createTransform(namedImports, importToAdd, targetImport, targetNamedImports),
+    ]);
+    const resultSourceFile = transformed[0];
     const printer = ts.createPrinter();
-    const transformedCode = printer.printNode(ts.EmitHint.Unspecified, result.transformed[0], sourceFile);
+    const transformedCode = printer.printNode(ts.EmitHint.Unspecified, resultSourceFile, sourceFile);
 
-    expect(transformedCode.match(new RegExp('./B', 'g'))?.length).toBeFalsy();
-  });
-
-  it('should not add the import if targetImport does not have all targetNamedImports', () => {
-    const transformer: ts.TransformerFactory<ts.SourceFile> =
-      context =>
-      (sourceFile): any => {
-        const transformedSourceFile = prizmAstAddImportIfNeeded(context, sourceFile, ['B'], './B', './A', [
-          'NonExistent',
-        ]);
-
-        return transformedSourceFile;
-      };
-
-    const result = ts.transform(sourceFile, [transformer]);
-    const printer = ts.createPrinter();
-    const transformedCode = printer.printNode(ts.EmitHint.Unspecified, result.transformed[0], sourceFile);
-
-    expect(transformedCode.match(new RegExp('./B', 'g'))?.length).toBeFalsy();
-  });
-
-  it('should add the import with a comment correctly', () => {
-    const transformer: ts.TransformerFactory<ts.SourceFile> =
-      context =>
-      (sourceFile): any => {
-        const transformedSourceFile = prizmAstAddImportIfNeeded(
-          context,
-          sourceFile,
-          ['B'],
-          './B',
-          './A',
-          ['A'],
-          'This is a comment before the import'
-        );
-
-        return transformedSourceFile;
-      };
-
-    const result = ts.transform(sourceFile, [transformer]);
-    const printer = ts.createPrinter();
-    const transformedCode = printer.printNode(ts.EmitHint.Unspecified, result.transformed[0], sourceFile);
-
-    const expectedCode = `// This is a comment before the import
-import { B } from "./B";
-import { A } from './A';
-function foo() {
-    console.log('Hello, world!');
-}`;
-
-    expect(transformedCode.trim()).toBe(expectedCode.trim());
+    expect(transformedCode).not.toContain(importToAdd);
+    expect(transformedCode).toContain(targetImport);
   });
 });

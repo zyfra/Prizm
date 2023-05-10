@@ -62,9 +62,14 @@ export class PrizmNavigationMenuService<
     selectionMode: 'single',
   });
 
-  private emptyMessageConfig$$ = new BehaviorSubject<PrizmNavigationMenuEmptyMessageConfig>(
+  private emptySearchResultMessageConfig$$ = new BehaviorSubject<PrizmNavigationMenuEmptyMessageConfig>(
     DEFAULT_EMPTY_MESSAGE_CONFIG
   );
+
+  private emptyDataMessageConfig$$ = new BehaviorSubject<PrizmNavigationMenuEmptyMessageConfig>({
+    title: '',
+    subtitle: '',
+  });
 
   get settingsConfig(): PrizmNavigationMenuSettingsConfig {
     return this.settingsConfig$$.value;
@@ -82,8 +87,11 @@ export class PrizmNavigationMenuService<
 
   toolbarConfig$: Observable<PrizmNavigationMenuToolbarConfig> = this.toolbarConfig$$.asObservable();
 
-  emptyMessageConfig$: Observable<PrizmNavigationMenuEmptyMessageConfig> =
-    this.emptyMessageConfig$$.asObservable();
+  emptySearchResultMessageConfig$: Observable<PrizmNavigationMenuEmptyMessageConfig> =
+    this.emptySearchResultMessageConfig$$.asObservable();
+
+  emptyDataMessageConfig$: Observable<PrizmNavigationMenuEmptyMessageConfig> =
+    this.emptyDataMessageConfig$$.asObservable();
 
   toolbarIsNotEmpty: boolean;
 
@@ -223,8 +231,12 @@ export class PrizmNavigationMenuService<
     this.itemKeyName = itemKeyName;
   }
 
-  public setEmptyMessageConfig(config: PrizmNavigationMenuEmptyMessageConfig): void {
-    this.emptyMessageConfig$$.next(config);
+  public setEmptySearchResultMessageConfig(config: PrizmNavigationMenuEmptyMessageConfig): void {
+    this.emptySearchResultMessageConfig$$.next(config);
+  }
+
+  public setEmptyDataMessageConfig(config: PrizmNavigationMenuEmptyMessageConfig): void {
+    this.emptyDataMessageConfig$$.next(config);
   }
 
   /** PRIVATE */
@@ -253,6 +265,7 @@ export class PrizmNavigationMenuService<
     if (!item.children) {
       const internal: InternalPrizmNavigationMenuItem<UserItem> = {
         ...item,
+        original: item,
         groupId,
         parent,
         breadcrumbs: parent ? [...parent.breadcrumbs, item] : [item],
@@ -266,6 +279,7 @@ export class PrizmNavigationMenuService<
 
     const internalWithMappedChildren: InternalPrizmNavigationMenuItem<UserItem> = {
       ...item,
+      original: item,
       groupId,
       parent,
       breadcrumbs: parent ? [...parent.breadcrumbs, item] : [item],

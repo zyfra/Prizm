@@ -2,13 +2,44 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-beta.35](https://github.com/zyfra/Prizm) (28-04-2023)
+
+### Features
+
+- feat(doc): now our api page checker supports work with directives [MR](https://github.com/zyfra/Prizm/pull/226)
+- feat(components/sidebar): add new optional parameter for control can we close sidebar or not [194](https://github.com/zyfra/Prizm/issues/194) [MR](https://github.com/zyfra/Prizm/pull/226)
+- feat(components/navigation-menu): added ability to provide childrenHandler via token or view input parameter [220](https://github.com/zyfra/Prizm/pull/220)
+
+### Bug fixes
+
+- fix(components/hint): fixed hint may overlap its target [200](https://github.com/zyfra/Prizm/issues/200) [86](https://github.com/zyfra/Prizm/issues/86) [149](https://github.com/zyfra/Prizm/issues/149)
+- fix(components/navigation): Fixed message, added borders. [MR](https://github.com/zyfra/Prizm/pull/221)
+- fix(components/breadcrumbs): added option to show only icon in breadcrumb, removing 8px gap and empty text padding. [MR](https://github.com/zyfra/Prizm/pull/222)
+- fix(components/navigation-menu): removed duplicate template outlet for headerExtraTemplate [MR](https://github.com/zyfra/Prizm/pull/225)
+
+### BREAKING CHANGES
+
+- BREAKING CHANGE(components/splitter): refactored splitter component, removed setAreasSize method, instead of it add new inputs size, minSize to control size [MR](https://github.com/zyfra/Prizm/pull/210) [69](https://github.com/zyfra/Prizm/issues/69)
+
+## [1.0.0-beta.34](https://github.com/zyfra/Prizm) (27-04-2023)
+
+### Features
+
+- feat(plugin): new @prizm-ui/nx-plugin with all our generators and executors for manipulate code
+- feat(doc): new page with info how to use our migrator
+- feat(ast): now our code manipulator support changing in new ts version >4.7
+
+### BREAKING CHANGES
+
+- feat(testid): update data-testid attributes by RFC [MR](https://github.com/zyfra/Prizm/pull/206)
+- feat(cb3-to-prizm): remove @prizm-ui/cb3-to-prizm lib, move to @prizm-ui/nx-plugin
+
 ## [1.0.0-beta.33](https://github.com/zyfra/Prizm) (24-04-2023)
 
 ### Features
 
 - feat(cb3-to-prizm): add textarea support to migrate
 - feat(doc/ast): add example with migration of textarea
--
 
 ### BUG FIXES
 
@@ -236,7 +267,7 @@ Migrate PrizmThemeModule > prizm/theme
 - ref(component/table-old): move to deprecated library
 - ref(component/navigation): move to deprecated library
 
-## [1.0.0-beta.2](https://github.com/zyfra/Prizm) (27-01-2023)
+## [1.0.0-beta.22](https://github.com/zyfra/Prizm) (27-01-2023)
 
 ### Features
 

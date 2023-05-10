@@ -1,5 +1,5 @@
 import { PrizmBooleanHandler } from '../types/handler';
-import { PRIZM_LOG_LEVEL, prizmAssert } from '../utils';
+import { prizmAssert } from '../utils';
 
 /**
  * Decorator for checking input values for undefined. You can also pass

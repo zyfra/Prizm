@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-input-date-relative-base-example',
@@ -14,5 +14,5 @@ import { FormControl } from '@angular/forms';
   ],
 })
 export class PrizmInputDateRelativeBaseExampleComponent {
-  public readonly valueControl = new FormControl();
+  public readonly valueControl = new UntypedFormControl();
 }

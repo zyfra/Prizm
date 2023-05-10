@@ -109,7 +109,7 @@ export function prizmAstFindAttributeWithType(
   value: any;
   type: PrizmAstTemplateAttributeType;
 } | null {
-  if (!attributes) return null;
+  if (!attributes || !attrName) return null;
 
   const originAttrName = prizmAstGetAttrName(attrName);
 

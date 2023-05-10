@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmSwitcherItem } from '../switcher';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { PrizmCronService } from '../../services';
 import { distinctUntilChanged, filter, first, map, skip, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmCronUiSecondState } from './cron-ui-second.state';
@@ -135,9 +135,9 @@ export class PrizmCronComponent implements OnInit {
 
   public readonly value$ = this.cron.value$;
   public readonly valueAsString$ = this.cron.valueAsString$;
-  public readonly startDateControl = new FormControl();
-  public readonly endDateControl = new FormControl();
-  public readonly indefinitelyControl = new FormControl(false);
+  public readonly startDateControl = new UntypedFormControl();
+  public readonly endDateControl = new UntypedFormControl();
+  public readonly indefinitelyControl = new UntypedFormControl(false);
   public indefinitely = false;
   public selectedSwitcherIdx = 0;
   public readonly prizmIsTextOverflow = prizmIsTextOverflow;

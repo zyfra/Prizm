@@ -13,7 +13,13 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgControl, Validators } from '@angular/forms';
+import {
+  ControlValueAccessor,
+  UntypedFormControl,
+  NG_VALUE_ACCESSOR,
+  NgControl,
+  Validators,
+} from '@angular/forms';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { prizmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
@@ -106,12 +112,12 @@ export class PrizmInputDateRelativeComponent
   @prizmDefaultProp()
   extraButtonInjector: Injector = this.injector;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_input_date_relative';
+  @HostBinding('attr.data-testid')
+  readonly testId = 'ui_input_date_relative';
 
   public isOpen = false;
 
-  public value = new FormControl('', Validators.pattern(ValidationPattern));
+  public value = new UntypedFormControl('', Validators.pattern(ValidationPattern));
   public timeItems: RelativeDateMenuItem<RelativeDateTimeId>[] = [...MenuItems.time];
   public directionItems: RelativeDateMenuItem<RelativeDateDirectionId>[] = [...MenuItems.direction];
   public periodItems: RelativeDateMenuItem<RelativeDatePeriodId>[] = [...MenuItems.period];
@@ -135,7 +141,7 @@ export class PrizmInputDateRelativeComponent
   }
 
   public ngAfterViewInit(): void {
-    const control = this.injector.get(NgControl) as unknown as FormControl;
+    const control = this.injector.get(NgControl) as unknown as UntypedFormControl;
     this.value.addValidators(control.validator);
 
     this.subscriptions.add(

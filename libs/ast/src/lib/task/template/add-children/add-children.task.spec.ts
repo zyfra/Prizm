@@ -43,9 +43,10 @@ describe('PrizmMoveContentToComponentTemplateTask', () => {
     const result = task.run(node, payload, context);
 
     expect(result).toEqual({
-      tagName: 'div',
+      name: 'div',
       attrs: {
         class: 'example',
+        'data-move': 'moved-component',
       },
       children: [
         {
@@ -55,7 +56,7 @@ describe('PrizmMoveContentToComponentTemplateTask', () => {
           },
           children: [
             {
-              tagName: 'p',
+              name: 'p',
               attrs: {},
               children: [],
             },
