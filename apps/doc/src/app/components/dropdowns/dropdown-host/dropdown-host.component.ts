@@ -11,7 +11,6 @@ import { prizmGenerateId } from '@prizm-ui/helpers';
 })
 export class DropdownHostComponent {
   public prizmDropdownHostId = 'dropdownHostId_' + prizmGenerateId();
-  public parentZone = null;
   public delay = 0;
   public canOpen = true;
   public closeByEsc = true;
@@ -27,7 +26,6 @@ export class DropdownHostComponent {
     ...Object.values(PrizmOverlayOutsidePlacement),
   ];
   placement: PrizmOverlayOutsidePlacement;
-  closeOnBackdropClick = false;
 
   @ViewChild('withHeaderAndFooter') withHeaderAndFooter: TemplateRef<unknown>;
   @ViewChild('withHeader') withHeader: TemplateRef<unknown>;
@@ -60,6 +58,11 @@ export class DropdownHostComponent {
   readonly exampleCustomContext: TuiDocExample = {
     TypeScript: import('./examples/with-custom-context/with-custom-context.component?raw'),
     HTML: import('./examples/with-custom-context/with-custom-context.component.html?raw'),
+  };
+
+  readonly exampleCustomStyle: TuiDocExample = {
+    TypeScript: import('./examples/custom-style/custom-style-example.component?raw'),
+    HTML: import('./examples/custom-style/custom-style-example.component.html?raw'),
   };
 
   constructor(public readonly cdRef: ChangeDetectorRef) {}

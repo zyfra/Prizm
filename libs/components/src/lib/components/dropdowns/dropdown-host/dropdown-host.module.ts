@@ -9,14 +9,12 @@ import {
   PrizmOutsideEventModule,
 } from '../../../directives';
 import { CommonModule } from '@angular/common';
-import { PrizmShadowModule } from '../../../directives/shadow';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmOverlayModule,
     PrizmLifecycleModule,
-    PrizmShadowModule,
     PrizmOutsideEventModule,
     PolymorphModule,
     PrizmDropdownZoneModule,
