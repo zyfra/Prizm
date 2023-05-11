@@ -7,7 +7,7 @@
   <button prizmButton type="button" (click)="open = !open">Пример выбора периода</button>
 </prizm-dropdown-host>
 
-<ng-template #dropdown let-zone="zone">
+<ng-template #dropdown>
   <prizm-data-list [style.--prizm-data-list-border]="0">
     <div class="header" header>
       <prizm-icon iconClass="date-calendar-range"></prizm-icon>
@@ -29,16 +29,8 @@
       </div>
 
       <div class="date-control">
-        <prizm-input-date-time
-          [prizmEventZoneParent]="zone"
-          label="Начало"
-          [formControl]="startControl"
-        ></prizm-input-date-time>
-        <prizm-input-date-time
-          [prizmEventZoneParent]="zone"
-          label="Конец"
-          [formControl]="endControl"
-        ></prizm-input-date-time>
+        <prizm-input-date-time label="Начало" [formControl]="startControl"></prizm-input-date-time>
+        <prizm-input-date-time label="Конец" [formControl]="endControl"></prizm-input-date-time>
       </div>
     </div>
     <div class="footer" footer>

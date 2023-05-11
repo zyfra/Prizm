@@ -27,11 +27,16 @@
     <prizm-doc-example id="custom-context" heading="Custom Context" [content]="exampleCustomContext">
       <prizm-dropdown-host-example-with-custom-context></prizm-dropdown-host-example-with-custom-context>
     </prizm-doc-example>
+
+    <prizm-doc-example id="custom-style" heading="Custom Style" [content]="exampleCustomStyle">
+      <prizm-dropdown-host-custom-style-example></prizm-dropdown-host-custom-style-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-dropdown-host
+        style="display: inline-block; width: auto"
         #element
         [prizmDocHostElement]="element"
         [content]="withHeaderAndFooter"
@@ -121,6 +126,14 @@
       </ng-template>
 
       <ng-template
+        documentationPropertyName="dropdownStyles"
+        documentationPropertyType="Record<string, string | number>"
+        documentationPropertyMode="input"
+      >
+        Styles for dropdown modal window
+      </ng-template>
+
+      <ng-template
         documentationPropertyName="autoReposition"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
@@ -154,14 +167,6 @@
         [(documentationPropertyValue)]="prizmDropdownHostId"
       >
         Prizm Dropdown HostId
-      </ng-template>
-      <ng-template
-        documentationPropertyName="parentZone"
-        documentationPropertyType="PrizmDropdownZoneDirective | null"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="parentZone"
-      >
-        Parent Zone
       </ng-template>
       <ng-template
         documentationPropertyName="delay"

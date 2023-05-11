@@ -74,7 +74,9 @@ export class PolymorphOutletDirective<C extends object> implements OnChanges, Do
 
       this.componentRef = this.viewContainerRef.createComponent(componentFactory, 0, injector);
     } else {
-      this.viewRef = this.viewContainerRef.createEmbeddedView(this.template, this.getContext());
+      this.viewRef = this.viewContainerRef.createEmbeddedView(this.template, this.getContext(), {
+        injector: this.injector,
+      });
     }
   }
 
