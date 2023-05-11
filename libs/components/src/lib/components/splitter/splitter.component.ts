@@ -111,10 +111,6 @@ export class PrizmSplitterComponent implements AfterViewInit, AfterContentInit {
     this.guttersData$ = this.areas$.pipe(
       map(areas => {
         const gutters: Array<GutterData> = [];
-        // console.log(
-        //   'Areas',
-        //   areas.map(({ id, order, size }) => ({ id, order, size }))
-        // );
         areas.forEach((area, index) => {
           area.order = index;
           if (index < areas.length - 1) {

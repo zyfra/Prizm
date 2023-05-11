@@ -21,14 +21,7 @@ export class PrizmStopPropagationDirective {
     @Attribute(`prizmStopPropagation`) eventName: string
   ) {
     fromEvent(nativeElement, eventName, { passive: false })
-      .pipe(
-        prizmZoneFree(ngZone),
-        prizmStopPropagation(),
-        tap(() => {
-          console.log('prizmStopPropagation');
-        }),
-        takeUntil(destroy$)
-      )
+      .pipe(prizmZoneFree(ngZone), prizmStopPropagation(), takeUntil(destroy$))
       .subscribe();
   }
 }
