@@ -1,11 +1,17 @@
 <h3>Base example</h3>
+<div>
+  show amount column
+  <prizm-toggle size="m" [(ngModel)]="showFormatNumber" [ngModelOptions]="{ standalone: true }">
+  </prizm-toggle>
+</div>
+<br />
 <prizm-scrollbar class="scrollable">
   <table prizmTable class="table" size="s">
     <thead>
       <tr prizmThGroup>
         <th prizmTh>Наименование</th>
         <th prizmTh>Категория</th>
-        <th prizmTh>Количество</th>
+        <th prizmTh *ngIf="showFormatNumber">Количество</th>
       </tr>
     </thead>
 
@@ -44,7 +50,7 @@
             {{ first ? '#first' : '' }}
             {{ last ? '#last' : '' }}
           </td>
-          <td class="format__number" prizmTd>
+          <td *ngIf="showFormatNumber" class="format__number" prizmTd>
             {{ item.count | spaceNumber : '0.0-0' }}
           </td>
         </tr>
