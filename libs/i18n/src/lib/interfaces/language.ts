@@ -14,6 +14,7 @@ export interface PrizmLanguageCron {
   cron: {
     title: string;
     submitText: string;
+    resetText: string;
     startDateLabel: string;
     endDateLabel: string;
     indefinitelyLabel: string;

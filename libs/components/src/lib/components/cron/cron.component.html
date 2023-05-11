@@ -33,6 +33,9 @@
           </ng-container>
         </prizm-input-layout>
       </ng-container>
+      <button *ngIf="resetButton" prizmButton size="m" (click)="reset()">
+        {{ cronI18n$ | async | prizmPluck : ['resetText'] }}
+      </button>
       <button *ngIf="!autoSubmit" prizmButton size="m" [disabled]="disabled" (click)="submit()">
         {{ cronI18n$ | async | prizmPluck : ['submitText'] }}
       </button>

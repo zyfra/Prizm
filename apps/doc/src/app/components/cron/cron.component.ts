@@ -21,6 +21,7 @@ export class CronComponent {
   public autoSubmit = false;
   public hidePeriod = false;
   public hideResult = false;
+  public resetButton = false;
   public selected: PrizmCronTabItem = 'month';
   tabs: PrizmCronTabItem[] = ['hour', 'day', 'month', 'year'];
   readonly allTabs: PrizmCronTabItem[] = ['second', 'minute', 'hour', 'day', 'month', 'year'];
@@ -48,5 +49,9 @@ export class CronComponent {
   readonly exampleFilteredListCron: TuiDocExample = {
     TypeScript: import('./examples/filtered-list/cron-filtered-list-example.component.ts?raw'),
     HTML: import('./examples/filtered-list/cron-filtered-list-example.component.html?raw'),
+  };
+  readonly exampleReset: TuiDocExample = {
+    TypeScript: import('./examples/reset/cron-reset-example.component.ts?raw'),
+    HTML: import('./examples/reset/cron-reset-example.component.html?raw'),
   };
 }
