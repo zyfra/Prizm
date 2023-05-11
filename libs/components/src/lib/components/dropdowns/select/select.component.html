@@ -49,7 +49,7 @@
       <ng-container *ngIf="items?.length; else emptyTemplate">
         <div
           class="item"
-          [class.most-relevant]="isMostRelevant(idx, items)"
+          [class.most-relevant]="isMostRelevant(idx, items, focusableElementRef.value)"
           [class.selected]="
             item === value || (item && value && (item | prizmCallFunc : identityMatcher : value))
           "

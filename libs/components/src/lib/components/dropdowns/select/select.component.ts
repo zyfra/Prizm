@@ -293,14 +293,12 @@ export class PrizmSelectComponent<T>
     if (!value) $event.stopImmediatePropagation();
   }
 
-  public isMostRelevant(idx: number, items: T[]): boolean {
-    const inputValue = this.focusableElement?.nativeElement.value;
-    const itIsNotCurrentValue = inputValue && !this.identityMatcher(inputValue as T, this.value);
-    const searchable = this.searchable;
+  public isMostRelevant(idx: number, items: T[], wroteInputValue: string): boolean {
+    const itIsNotCurrentValue = wroteInputValue && !this.identityMatcher(wroteInputValue as T, this.value);
+    const isCanSearch = this.searchable;
+    const hasNullValue = items[0] === null;
     const result =
-      searchable &&
-      itIsNotCurrentValue &&
-      ((items[0] === null && idx === 1) || (items[0] !== null && idx === 0));
+      isCanSearch && itIsNotCurrentValue && ((hasNullValue && idx === 1) || (!hasNullValue && idx === 0));
 
     return result;
   }
