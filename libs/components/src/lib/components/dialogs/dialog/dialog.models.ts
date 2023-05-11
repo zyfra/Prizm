@@ -25,6 +25,7 @@ export type PrizmDialogSize = PrizmSizeM | PrizmSizeL;
 
 export interface PrizmDialogBaseOptions {
   readonly width?: string | number;
+  readonly zIndex?: number;
   readonly height?: string | number;
   readonly id?: string;
   readonly backdrop?: boolean;

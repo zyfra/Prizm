@@ -1,25 +1,43 @@
 <div class="box" prizmFocusTrap prizmTheme>
-  <div *ngIf="context.header" class="header prizm-font-title-h4">
-    <prizm-scrollbar visibility="hidden" *polymorphOutlet="context.header as data; context: context">
-      <div class="title">
-        {{ data }}
-      </div>
-    </prizm-scrollbar>
-    <button
-      *ngIf="context.closeable"
-      [size]="16"
-      prizmInputIconButton="cancel-close"
-      (click)="closeSidebar()"
-      [interactive]="true"
-    ></button>
+  <div
+    [ngSwitch]="!!context.headerTemplate"
+    *ngIf="context.headerTemplate ?? context.header"
+    class="header prizm-font-title-h4"
+  >
+    <ng-container *ngSwitchCase="true">
+      <ng-container *polymorphOutlet="context.headerTemplate as headerTemplate; context: context">
+        {{ headerTemplate }}
+      </ng-container>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+      <prizm-scrollbar visibility="hidden" *polymorphOutlet="context.header as data; context: context">
+        <div class="title">
+          {{ data }}
+        </div>
+      </prizm-scrollbar>
+      <button
+        *ngIf="context.closeable"
+        [size]="16"
+        prizmInputIconButton="cancel-close"
+        (click)="closeSidebar()"
+        [interactive]="true"
+      ></button>
+    </ng-container>
   </div>
 
   <div class="content prizm-font-main-body-14">
-    <prizm-scrollbar class="scrollbar full-height">
-      <div class="full-height" *polymorphOutlet="context.content as text; context: context">
-        {{ text }}
-      </div>
-    </prizm-scrollbar>
+    <ng-container *polymorphOutlet="context.outerContent as outerContent">
+      <ng-container *ngIf="outerContent; else innerTemplate">
+        {{ outerContent }}
+      </ng-container>
+      <ng-template #innerTemplate>
+        <prizm-scrollbar class="scrollbar full-height">
+          <div class="full-height" *polymorphOutlet="context.content as text; context: context">
+            {{ text }}
+          </div>
+        </prizm-scrollbar>
+      </ng-template>
+    </ng-container>
   </div>
 
   <div class="footer prizm-font-btn-links-14" *ngIf="!context.hideFooter">

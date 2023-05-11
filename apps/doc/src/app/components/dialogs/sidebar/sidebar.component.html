@@ -18,6 +18,10 @@
     <prizm-doc-example id="custom-close-guard" heading="Custom Close Guard" [content]="exampleCustomClose">
       <prizm-sidebar-custom-close-guard-example></prizm-sidebar-custom-close-guard-example>
     </prizm-doc-example>
+
+    <prizm-doc-example id="custom-header" heading="Custom Header" [content]="exampleCustomHeader">
+      <prizm-sidebar-custom-header-template-example></prizm-sidebar-custom-header-template-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -78,6 +82,14 @@
       </ng-template>
 
       <ng-template
+        documentationPropertyName="zIndex"
+        documentationPropertyType="number"
+        [(documentationPropertyValue)]="zIndex"
+      >
+        Z-Index for overlay container
+      </ng-template>
+
+      <ng-template
         documentationPropertyName="dismissible"
         documentationPropertyType="boolean"
         [(documentationPropertyValue)]="dismissible"
@@ -127,8 +139,16 @@
         documentationPropertyType="PolymorphContent<PrizmBaseDialogContext>"
         [documentationPropertyValues]="generatePolymorphVariants(headerTemp)"
         [(documentationPropertyValue)]="header"
+        [documentationPropertyDeprecated]="true"
       >
-        Header
+        Header (does not include close button)
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="headerTemplate"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext>"
+      >
+        Header (for change full header with close button)
       </ng-template>
 
       <ng-template
@@ -137,7 +157,14 @@
         [documentationPropertyValues]="generatePolymorphVariants(contentTemp)"
         [(documentationPropertyValue)]="content"
       >
-        Content
+        Content (will be in sidebar)
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="outerContent"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext>"
+      >
+        Outer Content (wont be in sidebar)
       </ng-template>
 
       <ng-template

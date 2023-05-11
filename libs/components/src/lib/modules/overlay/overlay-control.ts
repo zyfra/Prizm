@@ -34,6 +34,7 @@ export class PrizmOverlayControl {
   readonly config: PrizmOverlayConfig;
   content: PrizmOverlayContent;
   zid: PrizmOverlayId;
+  zIndex = 9999;
   comp: PrizmOverlayComponent;
   updateTextContent: Subject<string> = new Subject();
   hostView: ViewRef;
@@ -156,9 +157,9 @@ export class PrizmOverlayControl {
     this.comp = this.compRef.instance;
 
     /* assign props */
-    const { position, content, config, zid } = this;
+    const { position, content, config, zid, zIndex } = this;
     content.props.close = this.close.bind(this);
-    Object.assign(this.comp, { position, content, config, zid: zid });
+    Object.assign(this.comp, { position, content, config, zid: zid, zIndex: zIndex });
 
     /* attach view */
     this.hostView = this.compRef.hostView;

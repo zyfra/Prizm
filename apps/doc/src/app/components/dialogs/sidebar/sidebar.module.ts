@@ -5,7 +5,9 @@ import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
   PrizmButtonModule,
+  PrizmInputIconButtonModule,
   PrizmRadioButtonModule,
+  PrizmScrollbarModule,
   PrizmSidebarModule,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,6 +16,7 @@ import { PrizmSidebarServiceExampleComponent } from './examples/base/base.compon
 import { PrizmSidebarTopBottomExampleComponent } from './examples/top-bottom/top-bottom.component';
 import { PrizmSidebarHiddenFooterExampleComponent } from './examples/hidden-footer/hidden-footer.component';
 import { PrizmSidebarCustomCloseGuardExampleComponent } from './examples/custom-close-guard/custom-close-guard.component';
+import { PrizmSidebarCustomHeaderTemplateExampleComponent } from './examples/custom-header-template/custom-header-template.component';
 
 @NgModule({
   imports: [
@@ -24,10 +27,13 @@ import { PrizmSidebarCustomCloseGuardExampleComponent } from './examples/custom-
     PolymorphModule,
     PrizmButtonModule,
     PrizmSidebarModule,
+    PrizmInputIconButtonModule,
+    PrizmScrollbarModule,
     PrizmRadioButtonModule,
     RouterModule.forChild(prizmDocGenerateRoutes(SidebarComponent)),
   ],
   declarations: [
+    PrizmSidebarCustomHeaderTemplateExampleComponent,
     PrizmSidebarCustomCloseGuardExampleComponent,
     PrizmSidebarServiceExampleComponent,
     PrizmSidebarTopBottomExampleComponent,
