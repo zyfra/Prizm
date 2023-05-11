@@ -3,7 +3,11 @@
   <div class="box prizm-font-main-body-14">
     <div>
       simple
-      <prizm-toggle size="m" [(ngModel)]="value" [ngModelOptions]="{ standalone: true }"
+      <prizm-toggle
+        size="m"
+        [ngModel]="value"
+        (ngModelChange)="value = $event"
+        [ngModelOptions]="{ standalone: true }"
         >Ng Model</prizm-toggle
       >
     </div>
@@ -62,4 +66,9 @@
       ></prizm-toggle>
     </div>
   </div>
+</div>
+
+<br /><br />
+<div>
+  Value: <b>{{ value ? 'TRUE' : 'FALSE' }}</b>
 </div>
