@@ -19,6 +19,8 @@ export class PrizmDateTimeRange {
     timeFormat: PrizmTimeMode = `HH:MM`,
     dateSeparator: string = `.`
   ): string {
+    if (!this.dayRange?.from || !this.dayRange?.to || this.timeRange?.from || this.timeRange?.to) return '';
+
     const from = this.dayRange.from.getFormattedDay(dateFormat, dateSeparator);
     const fromTime = this.timeRange.from.toString(timeFormat);
     const to = this.dayRange.to.getFormattedDay(dateFormat, dateSeparator);

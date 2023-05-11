@@ -5,7 +5,9 @@
     [prizmHint]="hintText"
     [prizmHintHost]="el.nativeElement"
     [prizmHintDirection]="hintDirection"
-    [prizmHintCanShow]="hintText && (div | prizmCallFunc : prizmIsTextOverflow$ : hintCanShow : null | async)"
+    [prizmHintCanShow]="
+      !!hintText && (div | prizmCallFunc : prizmIsTextOverflow$ : hintCanShow : null | async)
+    "
   >
     <ng-content></ng-content>
   </div>

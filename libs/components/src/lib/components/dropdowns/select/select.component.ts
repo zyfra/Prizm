@@ -57,7 +57,7 @@ export class PrizmSelectComponent<T>
   implements PrizmFocusableElementAccessor
 {
   @ViewChild('focusableElementRef', { read: ElementRef })
-  public readonly focusableElement?: ElementRef<HTMLElement>;
+  public readonly focusableElement?: ElementRef<HTMLInputElement>;
 
   @ViewChild('dropdownHostRef')
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;
@@ -291,6 +291,18 @@ export class PrizmSelectComponent<T>
     this.open = false;
     this.changeDetectorRef.markForCheck();
     if (!value) $event.stopImmediatePropagation();
+  }
+
+  public isMostRelevant(idx: number, items: T[]): boolean {
+    const inputValue = this.focusableElement?.nativeElement.value;
+    const itIsNotCurrentValue = inputValue && !this.identityMatcher(inputValue as T, this.value);
+    const searchable = this.searchable;
+    const result =
+      searchable &&
+      itIsNotCurrentValue &&
+      ((items[0] === null && idx === 1) || (items[0] !== null && idx === 0));
+
+    return result;
   }
 
   private searchEmit(value: string): void {

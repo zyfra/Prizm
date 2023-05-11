@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 import { PrizmOverlayOutsidePlacement } from '../../../modules';
 import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { prizmIsTextOverflow$ } from '../../../util/dom/is-textoverflow';
 
 @Component({
@@ -38,4 +38,8 @@ export class PrizmChipsItemComponent {
     );
   };
   constructor(public readonly el: ElementRef) {}
+
+  public typeOf(val: unknown): string {
+    return typeof val;
+  }
 }
