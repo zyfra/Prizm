@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-rc.1](https://github.com/zyfra/Prizm) (11-05-2023)
+
+### BUG FIXES
+
+- fix(components/dropdown): fix placement error [218](https://github.com/zyfra/Prizm/issues/215) [MR](https://github.com/zyfra/Prizm/pull/236)
+- fix(doc/getting-started): corrected path for connecting icons [193](https://github.com/zyfra/Prizm/issues/190) [244](https://github.com/zyfra/Prizm/issues/244)
+- fix(components/select): stringify did not work for falsy values [229](https://github.com/zyfra/Prizm/issues/228) [MR](https://github.com/zyfra/Prizm/pull/237)
+- fix(chore): fix tests and linters [MR](https://github.com/zyfra/Prizm/pull/232)
+- fix(chore): fix husky check-brench-name checker [MR](https://github.com/zyfra/Prizm/pull/232)
+- fix(components/dropdown-host): remove first emit isOpenChange
+- fix(components/widget): card does not stretch to full height inside prizm-widget [256](https://github.com/zyfra/Prizm/issues/256) [MR](https://github.com/zyfra/Prizm/pull/254)
+
+### Features
+
+- feat(chore): update ngxmask library to 14 version [MR](https://github.com/zyfra/Prizm/pull/254)
+- feat(components/dropdown): added ability to control dropdown styles [224](https://github.com/zyfra/Prizm/issues/224) [MR](https://github.com/zyfra/Prizm/pull/236)
+- feat(components/cron): added button to reset to last submitted or initial value [188](https://github.com/zyfra/Prizm/issues/188) [MR](https://github.com/zyfra/Prizm/pull/238)
+- feat(components/sidebar): added outerContent input to pass full content for example with your scrollbar [199](https://github.com/zyfra/Prizm/issues/199) [MR](https://github.com/zyfra/Prizm/pull/239)
+- feat(components/sidebar): added headerTemplate input to pass your header with close button [131](https://github.com/zyfra/Prizm/issues/131) [MR](https://github.com/zyfra/Prizm/pull/239)
+- feat(components/sidebar): content container is not stretching to full height [130](https://github.com/zyfra/Prizm/issues/130) [MR](https://github.com/zyfra/Prizm/pull/239)
+- feat(components/sidebar): add input to control overlay zIndex [223](https://github.com/zyfra/Prizm/issues/223) [MR](https://github.com/zyfra/Prizm/pull/239)
+- feat(doc/toggle): update content of example to show current value [234](https://github.com/zyfra/Prizm/issues/234) [MR](https://github.com/zyfra/Prizm/pull/240)
+- feat(doc/table): added the possibility of controlling the display of the column [235](https://github.com/zyfra/Prizm/issues/235) [MR](https://github.com/zyfra/Prizm/pull/241)
+- feat(components/splitter): added ability to more flexibly style PrizmSplitterComponent gutter [70](https://github.com/zyfra/Prizm/issues/70) [MR](https://github.com/zyfra/Prizm/pull/252)
+- feat(chore): update angular to 14 version [MR](https://github.com/zyfra/Prizm/pull/232)
+- feat(chore): update nx to 14 version [MR](https://github.com/zyfra/Prizm/pull/232)
+- feat(components/polymorph): add passing injector to template [MR](https://github.com/zyfra/Prizm/pull/232)
+
+### BREAKING CHANGES
+
+- BC(components/dropdown-host): remove parentZone input [MR](https://github.com/zyfra/Prizm/pull/232)
+
 ## [1.0.0-beta.35](https://github.com/zyfra/Prizm) (28-04-2023)
 
 ### Features
@@ -98,7 +130,7 @@ All notable changes to this project will be documented in this file.
 
 - fix(components/input-date-time): required did not set [124](https://github.com/zyfra/Prizm/issues/124)
 - fix(components/input): reset touched state on control.reset() [114](https://github.com/zyfra/Prizm/issues/114)
-- fix(component/sidebar): scrollbar content now exanded to all view [130](https://github.com/zyfra/Prizm/issues/130)
+- fix(components/sidebar): scrollbar content now exanded to all view [130](https://github.com/zyfra/Prizm/issues/130)
 - fix(components/tabs): remove title on tab with idx [152](https://github.com/zyfra/Prizm/issues/152)
 - fix(components/multi-select): fix bug with red border on required [161](https://github.com/zyfra/Prizm/issues/161)
 - fix(components/multi-select): chips can be deleted on disabled multi-selected [159](https://github.com/zyfra/Prizm/issues/159)
@@ -112,9 +144,9 @@ All notable changes to this project will be documented in this file.
 - feat(cb3-to-prizm): new migrator for help to migrate to prizm from pervious component base 3
 - feat(ci): add ability for work with forked pull requests
 - feat(doc/dialog): add example with close in template buttons [123](https://github.com/zyfra/Prizm/issues/123)
-- feat(component/table): added example with new `PrizmTableDataSource`  [133](https://github.com/zyfra/Prizm/issues/133)
+- feat(components/table): added example with new `PrizmTableDataSource`  [133](https://github.com/zyfra/Prizm/issues/133)
 - feat(components/table): added  `PrizmTableDataSource` class [133](https://github.com/zyfra/Prizm/issues/133)
-- feat(component/table): added example with new `PrizmTableDataSource`  [133](https://github.com/zyfra/Prizm/issues/133)
+- feat(components/table): added example with new `PrizmTableDataSource`  [133](https://github.com/zyfra/Prizm/issues/133)
 
 ### BUG FIXES
 
@@ -179,7 +211,7 @@ All notable changes to this project will be documented in this file.
 ### BUG FIXES
 
 - fix(doc): set title on change page [72](https://github.com/zyfra/Prizm/issues/72)
-- fix(component/select): emit val change event with same value [91](https://github.com/zyfra/Prizm/issues/91)
+- fix(components/select): emit val change event with same value [91](https://github.com/zyfra/Prizm/issues/91)
 - fix(components/select): update value on emitEvent false [90](https://github.com/zyfra/Prizm/issues/90) [36](https://github.com/zyfra/Prizm/issues/36)
 - fix(components/sidebar): fix scrollbar overflow [97](https://github.com/zyfra/Prizm/issues/97)
 - fix(components/input-date-time): fix time format error [66](https://github.com/zyfra/Prizm/issues/66)
@@ -236,7 +268,7 @@ Migrate PrizmThemeModule > prizm/theme
 
 - feat(components/prizmObservable): new decorator prizmObservable
 - feat(components/prizmAutoEmit): new decorator prizmAutoEmit
-- feat(component/navigation): now theme does not switch when theme was changed'
+- feat(components/navigation): now theme does not switch when theme was changed'
 - feat(components/stop-propagation): new directive for stop propagation
 - feat(doc): change vcs logo to github
 - feat(components/table): multiple sorting
@@ -257,29 +289,29 @@ Migrate PrizmThemeModule > prizm/theme
 - fix(doc/tree): change lazy tree source documentation
 - fix(doc/shadow): fix console errors
 - fix (components/overlay): falling out of the window borders during the
-- fix(component/text-arrea,input-chips): fix checking NgControl
-- fix(component/overlay): fix disabled/enabled state
+- fix(components/text-arrea,input-chips): fix checking NgControl
+- fix(components/overlay): fix disabled/enabled state
 
 ### BREAKING CHANGES
 
 - BREAKING CHANGE: Migrate PrizmThemeModule to prizm/theme library
 - fix(components/radio)!: remove formControl input
-- ref(component/table-old): move to deprecated library
-- ref(component/navigation): move to deprecated library
+- ref(components/table-old): move to deprecated library
+- ref(components/navigation): move to deprecated library
 
 ## [1.0.0-beta.22](https://github.com/zyfra/Prizm) (27-01-2023)
 
 ### Features
 
-- feat(component/paginator) add new output paginatorChange
-- feat(component/paginator): add showMoreDisabled input
+- feat(components/paginator) add new output paginatorChange
+- feat(components/paginator): add showMoreDisabled input
 - feat(doc/polymorph): add documentation with examples
 - feat(doc/split-button): add example with dropdown
 
 ### BUG FIXES
 
-- fix(component/paginator) fix pageChange output logic
-- fix(component/paginator): corrected multiple output trigger
+- fix(components/paginator) fix pageChange output logic
+- fix(components/paginator): corrected multiple output trigger
 - fix(components/tag): fix tag select on disabled
 
 ## [1.0.0-beta.21](https://github.com/zyfra/Prizm) (23-01-2023)
@@ -296,7 +328,7 @@ Migrate PrizmThemeModule > prizm/theme
 ### BUG FIXES
 
 - fix(components/date-relative): fix change disabled via FormControl
-- fix(component/date): open time picker when open date picker
+- fix(components/date): open time picker when open date picker
 - fix(doc/tabs): second tab content in api page
 - fix(doc/confirm-dialog): PrizmConfirmDialog, horizontal view: пример кода не верный
 - fix(components/table): fix tests

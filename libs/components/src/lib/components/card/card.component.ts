@@ -5,7 +5,7 @@ import { PrizmShadowValue } from '../../directives/shadow/models';
 @Component({
   selector: 'prizm-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.style.less'],
+  styleUrls: ['./card.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [],
 })
