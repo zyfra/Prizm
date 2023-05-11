@@ -12,9 +12,11 @@ All notable changes to this project will be documented in this file.
 - fix(chore): fix tests and linters [MR](https://github.com/zyfra/Prizm/pull/232)
 - fix(chore): fix husky check-brench-name checker [MR](https://github.com/zyfra/Prizm/pull/232)
 - fix(components/dropdown-host): remove first emit isOpenChange
+- fix(components/widget): card does not stretch to full height inside prizm-widget [256](https://github.com/zyfra/Prizm/issues/256) [MR](https://github.com/zyfra/Prizm/pull/254)
 
 ### Features
 
+- feat(chore): update ngxmask library to 14 version [MR](https://github.com/zyfra/Prizm/pull/254)
 - feat(components/dropdown): added ability to control dropdown styles [224](https://github.com/zyfra/Prizm/issues/224) [MR](https://github.com/zyfra/Prizm/pull/236)
 - feat(components/cron): added button to reset to last submitted or initial value [188](https://github.com/zyfra/Prizm/issues/188) [MR](https://github.com/zyfra/Prizm/pull/238)
 - feat(components/sidebar): added outerContent input to pass full content for example with your scrollbar [199](https://github.com/zyfra/Prizm/issues/199) [MR](https://github.com/zyfra/Prizm/pull/239)

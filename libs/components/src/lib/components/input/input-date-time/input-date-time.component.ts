@@ -12,7 +12,7 @@ import {
   Self,
   ViewChild,
 } from '@angular/core';
-import { UntypedFormControl, NgControl } from '@angular/forms';
+import { NgControl, UntypedFormControl } from '@angular/forms';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map, pluck, takeUntil } from 'rxjs/operators';
 import { PRIZM_DATE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
@@ -48,7 +48,7 @@ import { PrizmInputSize } from '../common/models/prizm-input.models';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 import { PRIZM_STRICT_MATCHER } from '../../../constants';
-import { PrizmDestroyService, PrizmFormControlHelpers } from '@prizm-ui/helpers';
+import { PrizmFormControlHelpers } from '@prizm-ui/helpers';
 
 @Component({
   selector: `prizm-input-date-time`,
@@ -310,7 +310,8 @@ export class PrizmInputDateTimeComponent
   }
 
   public onDayClick(day: PrizmDay, time?: PrizmTime): void {
-    const modifiedTime = time ?? (this.value[1] && this.prizmClampTime(this.value[1], day));
+    const modifiedTime =
+      time ?? (this.value[1] && this.prizmClampTime(this.value[1], day)) ?? new PrizmTime(0, 0);
     this.updateValue([day, modifiedTime]);
     this.updateNativeValue(day);
     this.open = false;

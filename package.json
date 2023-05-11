@@ -78,7 +78,7 @@
     "highlightjs-line-numbers.js": "^2.8.0",
     "marked": "4.0.0",
     "ngx-markdown": "^14.0.1",
-    "ngx-mask": "<=12.9.9",
+    "ngx-mask": "14.2.4",
     "primeicons": "^6.0.1",
     "primeng": "^14.2.3",
     "rxjs": "~6.6.0",

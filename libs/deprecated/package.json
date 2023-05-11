@@ -12,7 +12,7 @@
     "@angular/common": "^14.2.12",
     "@angular/core": "^14.2.12",
     "@angular/cdk": "^14.2.12",
-    "ngx-mask": "<=12.9.9",
+    "ngx-mask": "14.2.4",
     "@ng-web-apis/common": "^2.0.0",
     "@ng-web-apis/resize-observer": "^1.0.3",
     "@ng-web-apis/intersection-observer": "^3.0.0",
