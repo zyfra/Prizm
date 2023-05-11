@@ -1,27 +1,26 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
+  forwardRef,
   HostBinding,
   Inject,
+  Injector,
   Input,
   OnInit,
-  Optional,
   Output,
-  Self,
   ViewChild,
 } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { NgControl } from '@angular/forms';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
 import { PRIZM_SELECT_OPTIONS, PrizmSelectOptions, PrizmSelectValueContext } from './select.options';
 import { PrizmNativeFocusableElement } from '../../../types';
-import { PrizmInputControl, PrizmInputLayoutComponent } from '../../input';
-import { prizmIsNativeFocused, prizmIsTextOverflow$, prizmToPx } from '../../../util';
-import { debounceTime, map, switchMap, tap } from 'rxjs/operators';
-import { BehaviorSubject, concat, of } from 'rxjs';
+import { PrizmInputControl } from '../../input';
+import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
+import { debounceTime, map, observeOn, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { animationFrameScheduler, BehaviorSubject, concat, Observable, of, Subject } from 'rxjs';
 import { PrizmSelectIdentityMatcher, PrizmSelectSearchMatcher } from './select.model';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmDropdownHostComponent } from '../dropdown-host';
@@ -33,7 +32,15 @@ import { PrizmInputNgControl } from '../../input/common/base/input-ng-control.cl
   templateUrl: './select-input.component.html',
   styleUrls: ['./select-input.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PrizmDestroyService, { provide: PrizmInputControl, useExisting: PrizmSelectInputComponent }],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => PrizmSelectInputComponent),
+      multi: true,
+    },
+    PrizmDestroyService,
+    { provide: PrizmInputControl, useExisting: PrizmSelectInputComponent },
+  ],
   exportAs: 'prizmSelectInput',
 })
 export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> implements OnInit {
@@ -90,9 +97,6 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   @prizmDefaultProp()
   nullContent: PolymorphContent = this.options.nullContent;
 
-  get layoutWidth(): string {
-    return prizmToPx(this.layoutComponent.el.nativeElement.offsetWidth);
-  }
   readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
 
   private readonly stop$ = new BehaviorSubject(false);
@@ -117,12 +121,12 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   outer: boolean = this.options.outer;
 
   @HostBinding('attr.data-testid')
-  readonly testId = 'ui_select';
+  readonly testId = 'ui_select_input';
 
   @Output()
   public readonly searchChange = new EventEmitter<string | null>();
 
-  public open = false;
+  // public open = false;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
   public readonly items$ = new BehaviorSubject([]);
   public readonly defaultIcon = 'chevrons-dropdown';
@@ -134,17 +138,16 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   public filteredItems: T[] = [];
   private searchValue: string;
 
+  readonly focused$$ = new Subject<boolean>();
+  readonly focused$ = this.focused$$.asObservable();
+  readonly opened$$ = new BehaviorSubject<boolean>(false);
+  readonly opened$: Observable<boolean> = this.opened$$.asObservable();
+
   constructor(
     @Inject(PRIZM_SELECT_OPTIONS) private readonly options: PrizmSelectOptions<T>,
-    public readonly layoutComponent: PrizmInputLayoutComponent,
-    @Optional()
-    @Self()
-    @Inject(NgControl)
-    control: NgControl | null,
-    @Inject(ChangeDetectorRef) readonly changeDetectorRef: ChangeDetectorRef,
-    @Inject(PrizmDestroyService) destroy: PrizmDestroyService
+    @Inject(Injector) injector: Injector
   ) {
-    super(destroy, control);
+    super(injector);
   }
 
   public override ngOnInit() {
@@ -174,51 +177,6 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     );
   }
 
-  // private initControlValidatorsIfExist(): void {
-  //   if (this.control)
-  //     PrizmFormControlHelpers.syncAllValidators(
-  //       this.control as UntypedFormControl,
-  //       false,
-  //       this.requiredInputControl
-  //     )
-  //       .pipe(takeUntil(this.destroy$))
-  //       .subscribe();
-  // }
-
-  // private initControlStatusChangerIfExist(): void {
-  //   if (this.control)
-  //     PrizmFormControlHelpers.syncValidators(
-  //       this.control as UntypedFormControl,
-  //       false,
-  //       this.requiredInputControl
-  //     )
-  //       .pipe(
-  //         // debounceTime(0),
-  //         // tap(() => this.changeDetectorRef.detectChanges()),
-  //         takeUntil(this.destroy$)
-  //       )
-  //       .subscribe();
-  // }
-
-  // private initControlValueChangerIfExist(): void {
-  //   let counter = 0;
-  //   concat(timer(0).pipe(map(() => this.control?.value)), this.internalValue$.pipe(debounceTime(0)))
-  //     .pipe(
-  //       distinctUntilChanged(),
-  //       tap(value => {
-  //         if (value) {
-  //           value = this.items$.value?.find(i => value && i && this.identityMatcher(value, i));
-  //         }
-  //         this.select(value);
-  //         this.updateValue(value);
-  //         if (counter === 0) this.control?.markAsPristine();
-  //         counter++;
-  //       }),
-  //       takeUntil(this.destroy$)
-  //     )
-  //     .subscribe();
-  // }
-
   get nativeFocusableElement(): PrizmNativeFocusableElement | null {
     return this.focusableElement ? this.focusableElement.nativeElement : null;
   }
@@ -244,7 +202,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     if (!this.identityMatcher(item, this.value)) {
       this.updateValue(item);
     }
-    this.open = false;
+    this.opened$$.next(false);
   }
 
   public safeOpenModal(): void {
@@ -252,8 +210,8 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     this.ngControl.control.markAsTouched();
     const inputElement = this.focusableElement.nativeElement;
 
-    const open = !this.open && !this.disabled && inputElement && prizmIsNativeFocused(inputElement);
-    this.open = open;
+    const open = !this.opened$$.value && !this.disabled && inputElement && prizmIsNativeFocused(inputElement);
+    this.opened$$.next(open);
     this.changeDetectorRef.markForCheck();
   }
 

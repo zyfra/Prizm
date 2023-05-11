@@ -51,14 +51,9 @@
 >
   <div class="prizm-input-form__first">
     <ng-container *ngIf="!control.disabled">
-      <ng-container
-        *ngIf="control.layoutLeft?.templateRef as template; else projectionTemplate"
-        [ngTemplateOutlet]="template"
-      >
+      <ng-container *ngIf="control.layoutLeft?.templateRef as template" [ngTemplateOutlet]="template">
       </ng-container>
-      <ng-template #projectionTemplate>
-        <ng-content select="[prizm-input-left]"></ng-content>
-      </ng-template>
+      <ng-content select="[prizm-input-left]"></ng-content>
     </ng-container>
 
     <div class="prizm-input-form-inner-container">
@@ -67,14 +62,9 @@
 
         <ng-content></ng-content>
         <ng-container>
-          <ng-container
-            *ngIf="control.layoutInBody?.templateRef as template; else projectionTemplate"
-            [ngTemplateOutlet]="template"
-          >
+          <ng-container *ngIf="control.layoutInBody?.templateRef as template" [ngTemplateOutlet]="template">
           </ng-container>
-          <ng-template #projectionTemplate>
-            <ng-content select="[prizm-input-in-body]"></ng-content>
-          </ng-template>
+          <ng-content select="[prizm-input-in-body]"></ng-content>
         </ng-container>
       </div>
 
@@ -96,38 +86,23 @@
     </div>
 
     <ng-container *ngIf="!control.disabled">
-      <ng-container
-        *ngIf="control.layoutRight?.templateRef as template; else projectionTemplate"
-        [ngTemplateOutlet]="template"
-      >
+      <ng-container *ngIf="control.layoutRight?.templateRef as template" [ngTemplateOutlet]="template">
       </ng-container>
-      <ng-template #projectionTemplate>
-        <ng-content select="[prizm-input-right]"></ng-content>
-      </ng-template>
+      <ng-content select="[prizm-input-right]"></ng-content>
     </ng-container>
   </div>
 
   <ng-container>
-    <ng-container
-      *ngIf="control.layoutBottom?.templateRef as template; else projectionTemplate"
-      [ngTemplateOutlet]="template"
-    >
+    <ng-container *ngIf="control.layoutBottom?.templateRef as template" [ngTemplateOutlet]="template">
     </ng-container>
-    <ng-template #projectionTemplate>
-      <ng-content select="[prizm-input-bottom]"></ng-content>
-    </ng-template>
+    <ng-content select="[prizm-input-bottom]"></ng-content>
   </ng-container>
 </div>
 
 <div class="prizm-input-form-subtext prizm-input-form-subtext-{{ status }}">
   <ng-container>
-    <ng-container
-      *ngIf="control.layoutSubtext?.templateRef as template; else projectionTemplate"
-      [ngTemplateOutlet]="template"
-    >
+    <ng-container *ngIf="control.layoutSubtext?.templateRef as template" [ngTemplateOutlet]="template">
     </ng-container>
-    <ng-template #projectionTemplate>
-      <ng-content select="[prizm-input-subtext]"></ng-content>
-    </ng-template>
+    <ng-content select="[prizm-input-subtext]"></ng-content>
   </ng-container>
 </div>
