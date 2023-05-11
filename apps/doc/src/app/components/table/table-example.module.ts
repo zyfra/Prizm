@@ -15,6 +15,7 @@ import {
   PrizmScrollbarModule,
   PrizmStickyModule,
   PrizmTableModule,
+  PrizmToggleModule,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableSelectableExampleComponent } from './examples/table-selectable-example/table-selectable-example.component';
@@ -57,6 +58,7 @@ import { TableDataSourceExampleComponent } from './examples/table-data-source-ex
   ],
   imports: [
     CommonModule,
+    PrizmToggleModule,
     PrizmAddonDocModule,
     PrizmStickyModule,
     PrizmTableModule,

@@ -1,0 +1,7 @@
+<ng-container *ngIf="template; else default">
+  <ng-container *ngTemplateOutlet="template"></ng-container>
+</ng-container>
+
+<ng-template #default>
+  <prizm-splitter-gutter-default [orientation]="orientation"></prizm-splitter-gutter-default>
+</ng-template>

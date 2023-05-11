@@ -9,6 +9,7 @@ import { PrizmCronBaseExampleComponent } from './examples/base/cron-base-example
 import { PrizmCronSpecifiedTabsExampleComponent } from './examples/specified-tabs/cron-specified-tabs-example.component';
 import { PrizmCronFullwidthExampleComponent } from './examples/fullwidth/cron-fullwidth-example.component';
 import { PrizmCronFilteredListExampleComponent } from './examples/filtered-list/cron-filtered-list-example.component';
+import { PrizmCronResetExampleComponent } from './examples/reset/cron-reset-example.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { PrizmCronFilteredListExampleComponent } from './examples/filtered-list/
   ],
   declarations: [
     PrizmCronBaseExampleComponent,
+    PrizmCronResetExampleComponent,
     PrizmCronFilteredListExampleComponent,
     PrizmCronSpecifiedTabsExampleComponent,
     PrizmCronFullwidthExampleComponent,

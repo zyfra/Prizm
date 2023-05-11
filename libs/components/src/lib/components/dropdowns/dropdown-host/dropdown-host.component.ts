@@ -19,17 +19,15 @@ import {
   PrizmOverlayRelativePosition,
   PrizmOverlayService,
 } from '../../../modules/overlay';
-import { PolymorphContent, PrizmDropdownZoneDirective } from '../../../directives';
-import { debounceTime, delay, filter, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { PolymorphContent } from '../../../directives';
+import { debounceTime, delay, distinctUntilChanged, skip, takeUntil, tap } from 'rxjs/operators';
 import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
-import { BehaviorSubject, combineLatest, Observable, Subject, timer } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, timer } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PRIZM_DROPDOWN_HOST_OPTIONS, PrizmDropdownHostOptions } from './dropdown-host.options';
 import { PrizmDropdownHostContext, PrizmDropdownHostCustomContext, PrizmDropdownHostWidth } from './models';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
-
-const PRIZM_DROPDOWN_TIME_DIFFERENCE = 1000 / 60;
 
 @Component({
   selector: 'prizm-dropdown-host',
@@ -49,10 +47,6 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
   @Input()
   @prizmDefaultProp()
   prizmDropdownCustomContext: PrizmDropdownHostCustomContext = {};
-
-  @Input()
-  @prizmDefaultProp()
-  parentZone?: PrizmDropdownZoneDirective | null = null;
 
   @Input()
   @prizmDefaultProp()
@@ -82,9 +76,6 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
 
   readonly itemForListener = new Set<HTMLElement>();
 
-  private readonly documentClick$ = new Subject<number>();
-  private readonly containerClick$ = new Subject<number>();
-
   private destroyReCalc$ = new Subject<void>();
   private _autoReposition = this.options.autoReposition;
   @Input() set autoReposition(state: boolean) {
@@ -105,6 +96,8 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
   @Input() set isOpen(state: boolean) {
     this.isOpen$.next(state);
   }
+
+  @Input() dropdownStyles: Record<string, string | number> = {};
 
   @ViewChild('temp') temp: TemplateRef<HTMLDivElement>;
 
@@ -138,11 +131,6 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
     if (this.closeByEsc) this.close();
   }
 
-  @HostListener('window:click', ['$event']) public onDocumentClick(event: MouseEvent): void {
-    if ([...this.itemForListener].find(el => el.contains(event.target as HTMLElement))) return;
-    this.documentClick$.next(Date.now());
-  }
-
   public ngAfterViewInit(): void {
     this.initOverlay();
     this.initClickListener();
@@ -155,31 +143,11 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
   }
 
   private initClickListener(): void {
-    this.overlay
-      .listen('z_open')
-      .pipe(
-        delay(0),
-        switchMap(() =>
-          combineLatest([this.documentClick$, this.containerClick$.pipe(startWith(Date.now()))]).pipe(
-            debounceTime(150),
-            map(([document, container]: [number, number]) => document - container),
-            filter(
-              (diff: number) =>
-                diff > PRIZM_DROPDOWN_TIME_DIFFERENCE &&
-                this.overlay?.isOpen &&
-                this.prizmDropdownHostCloseOnBackdropClick
-            ),
-            tap(() => this.close()),
-            takeUntil(this.overlay.listen('z_close'))
-          )
-        ),
-        takeUntil(this.destroy$)
-      )
-      .subscribe();
-
     this.isOpen$
       .pipe(
+        skip(1),
         debounceTime(this.delay),
+        distinctUntilChanged(),
         tap(state => {
           if (state) {
             this.open();
@@ -227,10 +195,6 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
       .subscribe();
   }
 
-  public clickOnContainer($event: any): void {
-    this.containerClick$.next(Date.now());
-  }
-
   private initPositionListener(position: PrizmOverlayRelativePosition): void {
     position.pos$
       .pipe(
@@ -249,5 +213,9 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
 
   public removeListenerItems(el: HTMLElement): void {
     this.itemForListener.delete(el);
+  }
+
+  public outsideClick(): void {
+    this.isOpen$.next(false);
   }
 }

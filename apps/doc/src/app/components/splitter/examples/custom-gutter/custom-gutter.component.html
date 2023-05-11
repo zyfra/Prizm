@@ -1,5 +1,8 @@
 <prizm-splitter [ngStyle]="{ height: '300px' }">
-  <prizm-splitter-area [size]="area1Size" *ngIf="showArea1">
+  <ng-template prizmSplitterCustomGutter [size]="20">
+    <div [ngStyle]="{ width: '20px', height: '100%', background: 'red' }"></div>
+  </ng-template>
+  <prizm-splitter-area [size]="25">
     <div class="area area--1">
       <h3>area 1</h3>
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
@@ -12,7 +15,7 @@
       officiis, nihil dolorum quisquam aperiam blanditiis.
     </div>
   </prizm-splitter-area>
-  <prizm-splitter-area [size]="area2Size" *ngIf="showArea2">
+  <prizm-splitter-area [size]="25">
     <div class="area area--2">
       <h3>area 2</h3>
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
@@ -25,7 +28,7 @@
       officiis, nihil dolorum quisquam aperiam blanditiis.
     </div>
   </prizm-splitter-area>
-  <prizm-splitter-area [size]="area3Size" *ngIf="showArea3">
+  <prizm-splitter-area [size]="25">
     <div class="area area--3">
       <h3>area 3</h3>
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
@@ -38,7 +41,7 @@
       officiis, nihil dolorum quisquam aperiam blanditiis.
     </div>
   </prizm-splitter-area>
-  <prizm-splitter-area [size]="area4Size" *ngIf="showArea4">
+  <prizm-splitter-area [size]="25">
     <div class="area area--4">
       <h3>area 4</h3>
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut officiis eum maxime voluptas libero
@@ -52,7 +55,3 @@
     </div>
   </prizm-splitter-area>
 </prizm-splitter>
-
-<div>
-  <button prizmButton appearance="primary" size="xl" (click)="changeAreas()">Change areas</button>
-</div>

@@ -19,10 +19,28 @@ import { PrizmSplitterService } from '../splitter.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmSplitterAreaComponent {
+  static id = 0;
+
+  id = ++PrizmSplitterAreaComponent.id;
+
   private _size: number | null;
   @Input() set size(value: number | null) {
-    this.setSize(value);
-    this.splitterService.areaInputSizeChange$$.next(this);
+    if ((value === null && this._size !== null) || (value !== null && this._size === null)) {
+      this.splitterService.areasUpdate$$.next();
+    }
+
+    if (value === null) {
+      this.hide();
+    }
+
+    if (value !== null) {
+      this.show();
+      this.splitterService.areaInputSizeChange$$.next(this);
+      this.setCurrentSize(value);
+      this.setSize(value);
+    }
+
+    this._size = value;
   }
   get size(): number | null {
     return this._size;
@@ -33,6 +51,8 @@ export class PrizmSplitterAreaComponent {
 
   @HostBinding('style.order') order: number;
   @HostBinding('style.flex-basis') currentSize: string;
+
+  markForUpdate = false;
 
   public hide(): void {
     this.elementRef.nativeElement.hidden = true;
@@ -46,21 +66,16 @@ export class PrizmSplitterAreaComponent {
     return this.elementRef.nativeElement.hidden;
   }
 
-  public setCurrentSize(guttersSize: number): void {
-    if (this._size === null) {
-      this.hide();
-    } else {
-      this.show();
-      this.currentSize = `calc(${this._size}% - ${guttersSize}px)`;
-    }
+  public setCurrentSize(size: number): void {
+    this.currentSize = size + '%';
+  }
+
+  public setCurrentSizeWithCalc(gap: number): void {
+    this.currentSize = `calc(${this._size}% - ${gap}px)`;
   }
 
   public setSize(size: number): void {
     this._size = size;
-  }
-
-  public setCurrentSizeFromReal(realSize: number): void {
-    this.currentSize = realSize + '%';
   }
 
   constructor(

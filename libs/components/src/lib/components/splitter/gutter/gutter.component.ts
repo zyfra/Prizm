@@ -1,9 +1,9 @@
-import { Component, ElementRef, HostBinding, Input } from '@angular/core';
+import { Component, ElementRef, HostBinding, Input, TemplateRef } from '@angular/core';
 import { PrizmSplitterOrientation } from '../types';
 
 @Component({
   selector: 'prizm-splitter-gutter',
-  template: `<prizm-splitter-gutter-default [orientation]="orientation"></prizm-splitter-gutter-default>`,
+  templateUrl: `./gutter.component.html`,
   styleUrls: ['./gutter.component.less'],
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
@@ -16,6 +16,7 @@ export class PrizmSplitterGutterComponent {
 
   @Input() orientation: PrizmSplitterOrientation;
   @Input() @HostBinding('style.order') order: number;
+  @Input() template: TemplateRef<any>;
 
   position: number;
 
