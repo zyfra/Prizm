@@ -10,7 +10,7 @@ import { PrizmScrollbarModule } from '../../scrollbar';
 import { PrizmDropdownControllerModule } from '../../../directives/dropdown-controller';
 import { PrizmChipsModule } from '../../chips';
 import { PrizmInputTextModule } from '../../input/input-text/input-text.module';
-import { PrizmCallFuncModule, PrizmLetModule, PrizmToObservableModule } from '@prizm-ui/helpers';
+import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmHintModule } from '../../../directives/hint';
 import { PrizmIconModule } from '../../icon';
 import { PrizmSelectInputComponent } from './select-input.component';
@@ -28,7 +28,6 @@ import { PrizmSelectInputComponent } from './select-input.component';
     PrizmHintModule,
     PrizmIconModule,
     PrizmCallFuncModule,
-    PrizmToObservableModule,
     PrizmScrollbarModule,
     PrizmDropdownControllerModule,
     PrizmLifecycleModule,

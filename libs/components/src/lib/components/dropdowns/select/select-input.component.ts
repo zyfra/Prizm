@@ -126,7 +126,6 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   @Output()
   public readonly searchChange = new EventEmitter<string | null>();
 
-  // public open = false;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
   public readonly items$ = new BehaviorSubject([]);
   public readonly defaultIcon = 'chevrons-dropdown';
