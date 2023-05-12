@@ -11,6 +11,8 @@ import { Component } from '@angular/core';
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
+        display: block;
+        height: 300px;
       }
     `,
   ],
