@@ -41,7 +41,12 @@
       <div [hidden]="true">
         <p>EXAMPLE 1</p>
         <div>
-          <prizm-tree #element key="PrizmTreeComponent" [prizmDocHostElement]="element" [value]="data">
+          <prizm-tree
+            #element
+            prizmDocHostElementKey="PrizmTreeComponent"
+            [prizmDocHostElement]="element"
+            [value]="data"
+          >
           </prizm-tree>
         </div>
         <br />

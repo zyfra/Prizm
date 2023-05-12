@@ -33,7 +33,7 @@
       <div class="container container__{{ size }}">
         <prizm-tabs
           #elementTabs
-          key="PrizmTabsComponent"
+          prizmDocHostElementKey="PrizmTabsComponent"
           [prizmDocHostElement]="elementTabs"
           [size]="size"
           [canShowMenu]="canShowMenu"
@@ -43,7 +43,7 @@
             *ngIf="!removed"
             #elementTab
             [prizmDocHostElement]="elementTab"
-            key="PrizmTabComponent"
+            prizmDocHostElementKey="PrizmTabComponent"
             [icon]="icon"
             [content]="content"
             [closable]="closable"

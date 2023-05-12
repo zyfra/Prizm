@@ -40,14 +40,14 @@
       >
         <prizm-carousel-auxiliary-left
           #PrizmCarouselAuxiliaryLeftComponent
-          key="PrizmCarouselAuxiliaryLeftComponent"
+          prizmDocHostElementKey="PrizmCarouselAuxiliaryLeftComponent"
           [prizmDocHostElement]="PrizmCarouselAuxiliaryLeftComponent"
           prizm-input-left
           [carousel]="carousel"
         ></prizm-carousel-auxiliary-left>
         <prizm-carousel
           #carousel
-          key="PrizmCarouselComponent"
+          prizmDocHostElementKey="PrizmCarouselComponent"
           [prizmDocHostElement]="carousel"
           [disabled]="disabled"
           [formControl]="control"
@@ -60,7 +60,7 @@
         </prizm-carousel>
         <prizm-carousel-auxiliary-right
           #prizmCarouselAuxiliaryRight
-          key="PrizmCarouselAuxiliaryRightComponent"
+          prizmDocHostElementKey="PrizmCarouselAuxiliaryRightComponent"
           [prizmDocHostElement]="prizmCarouselAuxiliaryRight"
           prizm-input-right
           [carousel]="carousel"

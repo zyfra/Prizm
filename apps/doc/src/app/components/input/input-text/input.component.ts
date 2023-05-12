@@ -11,15 +11,17 @@ import { default as d } from './examples/input-phone-example/input-phone-example
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent {
-  public border = false;
   public disabled = false;
   public control = new UntypedFormControl();
   public required = false;
+  public hidden = false;
   public label = 'Заголовок';
 
   value = 'some text';
 
+  public border = false;
   public inputPosition: PrizmInputPosition = 'left';
+  public inputPositionVariants: PrizmInputPosition[] = ['left', 'center'];
   public inputPositions: PrizmInputPosition[] = ['left', 'center'];
   public outer: false;
 

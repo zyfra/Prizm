@@ -158,7 +158,7 @@
     <prizm-doc-demo>
       <prizm-input-layout
         #prizmInputLayout
-        key="PrizmInputLayout"
+        prizmDocHostElementKey="PrizmInputLayout"
         [prizmDocHostElement]="prizmInputLayout"
         [label]="label"
         [outer]="outer"
@@ -171,7 +171,7 @@
         <input
           prizmInput
           #prizmInputElement
-          key="PrizmInput"
+          prizmDocHostElementKey="PrizmInput"
           [prizmDocHostElement]="prizmInputElement"
           [formControl]="control"
           [disabled]="disabled"
@@ -213,6 +213,7 @@
         documentationPropertyType="PrizmInputPosition"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="inputPosition"
+        [documentationPropertyValues]="inputPositionVariants"
       >
         Position
       </ng-template>
@@ -231,6 +232,7 @@
         documentationPropertyType="PrizmInputStatus"
         documentationPropertyMode="input"
         [(documentationPropertyValue)]="status"
+        [documentationPropertyValues]="statuses"
       >
         Status
       </ng-template>
@@ -264,7 +266,6 @@
       >
         Disabled
       </ng-template>
-
       <ng-template
         documentationPropertyName="required"
         documentationPropertyType="boolean"

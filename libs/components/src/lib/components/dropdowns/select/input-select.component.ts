@@ -116,12 +116,8 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   @prizmDefaultProp()
   valueTemplate: PolymorphContent<PrizmSelectValueContext<T>> = this.options.valueContent;
 
-  @Input()
-  @prizmDefaultProp()
-  outer: boolean = this.options.outer;
-
   @HostBinding('attr.data-testid')
-  readonly testId = 'ui_select_input';
+  readonly testId = 'ui_select';
 
   @Output()
   public readonly searchChange = new EventEmitter<string | null>();
@@ -219,6 +215,16 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
     // set touched on change value
     this.ngControl.control.markAsTouched();
+  }
+
+  public isMostRelevant(idx: number, items: T[], wroteInputValue: string): boolean {
+    const itIsNotCurrentValue = wroteInputValue && !this.identityMatcher(wroteInputValue as T, this.value);
+    const isCanSearch = this.searchable;
+    const hasNullValue = items[0] === null;
+    const result =
+      isCanSearch && itIsNotCurrentValue && ((hasNullValue && idx === 1) || (!hasNullValue && idx === 0));
+
+    return result;
   }
 
   private searchEmit(value: string): void {

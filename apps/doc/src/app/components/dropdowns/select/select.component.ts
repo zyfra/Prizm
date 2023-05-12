@@ -2,7 +2,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PolymorphContent,
+  PrizmInputPosition,
   PrizmInputSize,
+  PrizmInputStatus,
   PrizmScrollbarVisibility,
   PrizmSelectIconContext,
 } from '@prizm-ui/components';
@@ -16,18 +18,16 @@ import { prizmPure } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectComponent {
+  readonly layoutKey = 'PrizmInputLayoutComponent';
+  readonly selectKey = 'PrizmSelectInputComponent';
   public readOnly = false;
-  val1: any;
-  public pseudoInvalid = false;
-  public pseudoHovered = false;
-  public pseudoPressed = false;
-  public pseudoFocused = false;
-  public focusable = true;
-  public pseudoState = '';
-  public focusedChange = false;
-  public pressedChange = false;
-  public hoveredChange = false;
-  public focusVisibleChange = false;
+  public border = false;
+  public inputPosition: PrizmInputPosition = 'left';
+  public inputPositionVariants: PrizmInputPosition[] = ['left', 'center'];
+
+  public status: PrizmInputStatus = 'default';
+  public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];
+
   public dropdownWidth = '100%';
 
   readonly control = new UntypedFormControl();
