@@ -28,9 +28,9 @@ import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
 import { PrizmInputNgControl } from '../../input/common/base/input-ng-control.class';
 
 @Component({
-  selector: 'prizm-select-input',
-  templateUrl: './select-input.component.html',
-  styleUrls: ['./select-input.component.less'],
+  selector: 'prizm-input-select',
+  templateUrl: './input-select.component.html',
+  styleUrls: ['./input-select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
