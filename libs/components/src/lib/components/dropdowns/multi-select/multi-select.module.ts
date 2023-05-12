@@ -14,6 +14,7 @@ import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmHintModule } from '../../../directives/hint';
 import { PrizmCheckboxModule } from '../../checkbox';
 import { PrizmIconModule } from '../../icon';
+import { PrizmInputMultiSelectComponent } from './input-multi-select.component';
 
 @NgModule({
   imports: [
@@ -36,7 +37,7 @@ import { PrizmIconModule } from '../../icon';
     PrizmLifecycleModule,
     PrizmDropdownHostModule,
   ],
-  declarations: [PrizmMultiSelectComponent],
-  exports: [PrizmMultiSelectComponent],
+  declarations: [PrizmMultiSelectComponent, PrizmInputMultiSelectComponent],
+  exports: [PrizmMultiSelectComponent, PrizmInputMultiSelectComponent, PrizmInputTextModule],
 })
 export class PrizmMultiSelectModule {}

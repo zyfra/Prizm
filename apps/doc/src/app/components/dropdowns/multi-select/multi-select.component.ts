@@ -84,6 +84,11 @@ export class MultiSelectComponent {
     HTML: import('./examples/base/multi-select-base-example.component.html?raw'),
   };
 
+  readonly exampleInputMultiSelect: TuiDocExample = {
+    TypeScript: import('./examples/input-multi-select/input-multi-select-example.component.ts?raw'),
+    HTML: import('./examples/input-multi-select/input-multi-select-example.component.html?raw'),
+  };
+
   readonly exampleWithTemplate: TuiDocExample = {
     TypeScript: import('./examples/with-template/multi-select-with-template-example.component.ts?raw'),
     HTML: import('./examples/with-template/multi-select-with-template-example.component.html?raw'),

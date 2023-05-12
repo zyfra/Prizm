@@ -1,0 +1,22 @@
+<!--<prizm-multi-select-->
+<!--  [formControl]="valueControl"-->
+<!--  [items]="items"-->
+<!--  selectAllItem="Выбрать все"-->
+<!--  label="Промышленность"-->
+<!--  placeholder="Выберите из списка"-->
+<!--&gt;</prizm-multi-select>-->
+
+<prizm-input-layout label="Промышленность">
+  <prizm-input-multi-select
+    selectAllItem="Выбрать все"
+    placeholder="Выберите из списка"
+    [formControl]="valueControl"
+    [items]="items"
+  >
+  </prizm-input-multi-select>
+</prizm-input-layout>
+<br />
+<br />
+<div>
+  <button (click)="setDefaultValue()">Default Value</button>
+</div>
