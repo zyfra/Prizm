@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
@@ -17,7 +18,7 @@ import { PrizmContextWithImplicit, PrizmNativeFocusableElement } from '../../../
 import { PrizmInputControl, PrizmInputNgControl, PrizmInputSize, PrizmInputTextComponent } from '../../input';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
 import { debounceTime, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { BehaviorSubject, combineLatest, concat, Observable, of, Subject } from 'rxjs';
+import { BehaviorSubject, combineLatest, concat, Observable, of, Subject, timer } from 'rxjs';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmDropdownHostComponent } from '../dropdown-host';
 import {
@@ -34,13 +35,6 @@ import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
   templateUrl: './input-multi-select.component.html',
   styleUrls: ['./input-multi-select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // providers: [
-  //   PrizmDestroyService,
-  //   {
-  //     provide: PRIZM_FOCUSABLE_ITEM_ACCESSOR,
-  //     useExisting: forwardRef(() => PrizmMultiSelectInputComponent),
-  //   },
-  // ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -51,7 +45,7 @@ import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
     { provide: PrizmInputControl, useExisting: PrizmInputMultiSelectComponent },
   ],
 })
-export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> {
+export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> implements AfterViewInit {
   readonly nativeElementType = 'multiselect';
   readonly hasClearButton = true;
   @ViewChild('focusableElementRef', { read: ElementRef })
@@ -121,8 +115,13 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   valueTemplate: PolymorphContent<PrizmContextWithImplicit<PrizmMultiSelectItemWithChecked<T>>> =
     this.options.valueContent;
 
+  override hidden = true;
+
   @HostBinding('attr.data-testid')
   readonly testId = 'ui-muilti-select';
+
+  @HostBinding('style.display')
+  readonly display = 'none';
 
   public readonly defaultIcon = 'chevrons-dropdown';
   readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
@@ -154,8 +153,16 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
     super(injector);
   }
 
+  public ngAfterViewInit(): void {
+    // NEED for initial sync with parent params
+    timer(0)
+      .pipe(tap(() => this.changeDetectorRef.markForCheck()))
+      .subscribe();
+  }
+
   override ngOnInit(): void {
     super.ngOnInit();
+    this.initParentClickListener();
     this.initFilteredItemsObservables();
     this.initSelectedItemsObservables();
     this.selectedItems$
@@ -164,6 +171,15 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
           this.chipsControl.setValue(items as any, { emitEvent: true });
         }),
         tap(() => this.changeDetectorRef.markForCheck()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
+  }
+
+  protected initParentClickListener(): void {
+    this.layoutComponent.innerClick$
+      .pipe(
+        tap(() => this.opened$$.next(true)),
         takeUntil(this.destroy$)
       )
       .subscribe();
@@ -286,19 +302,11 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   }
 
   public safeOpenModal(): void {
-    console.log('#mz safeOpenModal');
     const inputElement = this.focusableElement.nativeElement;
     const open = !this.opened$$.value && !this.disabled && !!inputElement;
     this.opened$$.next(open);
     this.changeDetectorRef.markForCheck();
   }
-
-  // // TODO remove after finish activezone to dropdown component
-  // public safeStopPropagation(value: string, $event: Event): void {
-  //   this.open = false;
-  //   this.changeDetectorRef.markForCheck();
-  //   if (!value) $event.stopImmediatePropagation();
-  // }
 
   public removeChip(str: string): void {
     const item = this.chipsSet.get(str);

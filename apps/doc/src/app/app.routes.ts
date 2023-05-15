@@ -419,6 +419,16 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/input-multi-select',
+    loadChildren: () =>
+      import('./components/input/input-multi-select/input-multi-select.module').then(
+        i => i.InputMultiSelectModule
+      ),
+    data: {
+      title: 'Input Date',
+    },
+  },
+  {
     path: 'components/input-month',
     loadChildren: () =>
       import('./components/input/input-month/input-month.module').then(i => i.InputMonthModule),

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 
 @Component({
-  selector: 'prizm-input-multi-select-example',
-  templateUrl: './input-multi-select-example.component.html',
+  selector: 'prizm-multi-select-base-example',
+  templateUrl: './multi-select-base-example.component.html',
   styles: [
     `
       .box {
@@ -29,6 +29,6 @@ export class PrizmInputMultiSelectBaseExampleComponent implements OnInit {
   }
 
   public setDefaultValue(): void {
-    this.valueControl.setValue([], { emitEvent: false });
+    this.valueControl.setValue([this.items[0]], { emitEvent: false });
   }
 }

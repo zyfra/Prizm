@@ -92,6 +92,19 @@ prizm-checkbox {
   display: none;
 }
 
-prizm-chips.inner {
-  margin-bottom: 8px;
+prizm-chips {
+  height: 20px;
+  margin: 2px 0;
+
+  .inner {
+    margin-top: 0;
+  }
+
+  &[data-size='m'] {
+    margin: 4px 0;
+  }
+
+  &[data-size='l'] {
+    margin: 8px 0;
+  }
 }

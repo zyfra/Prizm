@@ -8,12 +8,9 @@
   [prizmDropdownMinHeight]="minDropdownHeight"
   [prizmDropdownMaxHeight]="maxDropdownHeight"
   [ngSwitch]="layoutComponent.outer"
-  *prizmLet="{ selectedItems: selectedItems$ | async, filteredItems: filteredItems$ | async } as $"
 >
   <input
     prizmInput
-    (click)="safeOpenModal(); focused$$.next(true)"
-    (blur)="focused$$.next(false)"
     [style.display]="layoutComponent.outer ? 'none' : ''"
     [style.visibility]="layoutComponent.outer ? 'none' : 'hidden'"
     #focusableElementRef
@@ -23,30 +20,13 @@
     [placeholder]="'abc'"
     [ngModel]="($any(value) | prizmCallFunc : stringify) ?? ''"
   />
-  <div class="in-body-chips-box" prizm-input-in-body *ngSwitchCase="true">
-    <ng-container [ngTemplateOutlet]="chipsTemplate"></ng-container>
-  </div>
-
-  <ng-container prizm-input-bottom *ngSwitchCase="false">
-    <ng-container [ngTemplateOutlet]="chipsTemplate"></ng-container>
-  </ng-container>
-
-  <ng-template #chipsTemplate>
-    <ng-container *ngIf="selectedItemsChips$ | async as chips">
-      <prizm-chips
-        *ngIf="chips.length"
-        #chipsComponent
-        [class.inner]="!layoutComponent.outer"
-        [singleLine]="true"
-        [deletable]="!disabled && isChipsDeletable"
-        [chips]="chips"
-        (removeChipEvent)="removeChip($event)"
-      ></prizm-chips>
-    </ng-container>
-  </ng-template>
 
   <ng-template #dropdown>
-    <prizm-data-list class="block" [style.--prizm-data-list-border]="0">
+    <prizm-data-list
+      *prizmLet="{ filteredItems: filteredItems$ | async } as $"
+      class="block"
+      [style.--prizm-data-list-border]="0"
+    >
       <div class="list-search-item" *ngIf="searchable">
         <prizm-input-layout size="m" label="Поиск">
           <input prizmInput prizmAutoFocus class="input-search" #input [formControl]="searchInputControl" />
@@ -120,3 +100,23 @@
     </prizm-icon>
   </ng-container>
 </ng-container>
+
+<ng-container *prizmInputLayoutInBody>
+  <!--  <div class="in-body-chips-box" *ngIf='layoutComponent.outer'>-->
+  <div class="in-body-chips-box">
+    <ng-container [ngTemplateOutlet]="chipsTemplate"> </ng-container>
+  </div>
+</ng-container>
+
+<ng-template #chipsTemplate>
+  <ng-container *prizmLet="selectedItemsChips$ | async as chips">
+    <prizm-chips
+      [attr.data-size]="layoutComponent.size"
+      [class.inner]="!layoutComponent.outer"
+      [singleLine]="true"
+      [deletable]="!disabled && isChipsDeletable"
+      [chips]="chips"
+      (removeChipEvent)="removeChip($event)"
+    ></prizm-chips>
+  </ng-container>
+</ng-template>

@@ -5,6 +5,8 @@
       control.nativeElementType ? 'label-container-' + control.nativeElementType : ''
     }}   label-container-{{ outer ? 'outer' : 'inner' }}"
     [class.label-container-focused]="control.focused"
+    [class.hidden-control]="control.hidden"
+    [attr.data-size]="size"
   >
     <label
       class="prizm-input-label
@@ -14,7 +16,8 @@
 "
       [attr.data-size]="size"
       [class.prizm-input-label-focused]="control.focused"
-      [class.prizm-input-label-empty]="control.empty || control.hidden"
+      [class.prizm-input-label-empty]="control.empty"
+      [class.prizm-input-label-hidden]="control.hidden"
     >
       {{ label }}
       <span *ngIf="control.required" class="prizm-input-label-required">*</span>
@@ -56,7 +59,7 @@
       <ng-content select="[prizm-input-left]"></ng-content>
     </ng-container>
 
-    <div class="prizm-input-form-inner-container">
+    <div class="prizm-input-form-inner-container" (click)="innerClick($event)">
       <div class="prizm-input-form-body">
         <ng-container *ngIf="outer; else labelTemplate"></ng-container>
 
@@ -70,6 +73,7 @@
 
       <button
         *ngIf="showClearButton"
+        #clearButton
         prizmInputIconButton="cansel-delete-content"
         (click)="onClearClick($event)"
         class="prizm-input-button-default {{ showStatusButton ? '' : 'alone' }}"
@@ -78,6 +82,7 @@
 
       <button
         *ngIf="showStatusButton"
+        #statusButton
         [prizmInputIconButton]="statusIcon"
         [prizmHint]="statusMessage"
         class="prizm-input-form-status-button"

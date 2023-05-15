@@ -1,8 +1,9 @@
-<prizm-doc-page header="MultiSelect">
+<prizm-doc-page header="InputMultiSelect">
   <div class="page-description" description>
-    It is a deprecated component, instead of this use PrizmInputMultiSelectComponent. Our multi-select
-    component is a simple wrapper around the native HTML select element. It is styled to match the rest of the
-    Prizm components and provides a simple API for adding and removing options.
+    InputMultiSelect is a component that allows users to select multiple options from a predefined list. It
+    provides a user-friendly interface for making multiple selections and is commonly used in forms and data
+    entry scenarios. With InputMultiSelect, users can easily choose multiple items by clicking or tapping on
+    the options. The selected items are visually highlighted, providing clear feedback to the user.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
@@ -20,37 +21,40 @@
     <prizm-doc-example id="with-object" heading="With Object" [content]="exampleWithObject">
       <prizm-multi-select-with-object-example></prizm-multi-select-with-object-example>
     </prizm-doc-example>
+
+    <prizm-doc-example id="validators" heading="Validators" [content]="exampleValidators">
+      <prizm-multi-select-validators-example></prizm-multi-select-validators-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-multi-select
-        #element
-        [prizmDocHostElement]="element"
-        [formControl]="control"
-        [forceClear]="forceClear"
-        [isChipsDeletable]="isChipsDeletable"
-        [items]="items"
+      <prizm-input-layout
+        #inputElement
+        [prizmDocHostElement]="inputElement"
+        [prizmDocHostElementKey]="layoutKey"
         [size]="size"
-        [outer]="outer"
-        [icon]="icon"
-        [searchable]="searchable"
-        [emptyContent]="emptyContent"
-        [minDropdownHeight]="minDropdownHeight"
-        [dropdownWidth]="dropdownWidth"
-        [maxDropdownHeight]="maxDropdownHeight"
         [label]="label"
-        [(val)]="val1"
-        [placeholder]="placeholder"
-        [searchMatcher]="searchMatcher"
-        [identityMatcher]="identityMatcher"
-        [readOnly]="readOnly"
-        [focusable]="focusable"
-        [pseudoState]="pseudoState"
-      ></prizm-multi-select>
+        [outer]="outer"
+        [border]="border"
+        [position]="inputPosition"
+        [status]="status"
+        [forceClear]="forceClear"
+      >
+        <prizm-input-multi-select
+          #element
+          [prizmDocHostElement]="element"
+          [prizmDocHostElementKey]="selectKey"
+          selectAllItem="Выбрать все"
+          [placeholder]="placeholder"
+          [formControl]="valueControl"
+          [items]="items"
+        >
+        </prizm-input-multi-select>
+      </prizm-input-layout>
     </prizm-doc-demo>
 
-    <prizm-doc-documentation [control]="control">
+    <prizm-doc-documentation [heading]="selectKey" [hostComponentKey]="selectKey" [control]="control">
       <ng-template
         documentationPropertyName="icon"
         documentationPropertyType="PolymorphContent<PrizmSelectIconContext>"
@@ -67,26 +71,6 @@
         documentationPropertyMode="input"
       >
         select All Item
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="size"
-        documentationPropertyType="PrizmInputSize"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="size"
-        [documentationPropertyValues]="sizeVariants"
-      >
-        Size
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="forceClear"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="forceClearVariants"
-        [(documentationPropertyValue)]="forceClear"
-      >
-        Show clear button
       </ng-template>
 
       <ng-template
@@ -132,14 +116,6 @@
         Items
       </ng-template>
 
-      <!-- <ng-template
-        documentationPropertyName="value"
-        documentationPropertyType="T"
-        documentationPropertyMode="input"
-      >
-        Value (use FormControl)
-      </ng-template> -->
-
       <ng-template
         documentationPropertyName="valueTemplate"
         documentationPropertyType="PolymorphContent"
@@ -156,33 +132,6 @@
         [(documentationPropertyValue)]="searchable"
       >
         Searchable
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="outer"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="outer"
-      >
-        Outer
-      </ng-template>
-
-      <!-- <ng-template
-        documentationPropertyName="disabled"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
-      >
-        Disabled (Use formControl to disable)
-      </ng-template> -->
-
-      <ng-template
-        documentationPropertyName="label"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="label"
-      >
-        Label
       </ng-template>
 
       <ng-template
@@ -229,113 +178,78 @@
       >
         Empty Content
       </ng-template>
+    </prizm-doc-documentation>
 
+    <prizm-doc-documentation [heading]="layoutKey" [hostComponentKey]="layoutKey">
       <ng-template
-        documentationPropertyName="readOnly"
+        documentationPropertyName="forceClear"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="forceClearVariants"
+        [(documentationPropertyValue)]="forceClear"
+      >
+        Show clear button
+      </ng-template>
+      <ng-template
+        documentationPropertyName="outer"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="readOnly"
+        [(documentationPropertyValue)]="outer"
       >
-        Read Only
+        Outer
       </ng-template>
 
       <ng-template
-        documentationPropertyName="val"
-        documentationPropertyType="any[]"
-        documentationPropertyMode="input-output"
-        [(documentationPropertyValue)]="val1"
-      >
-        Val
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="pseudoInvalid"
-        documentationPropertyType="boolean | null"
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmInputSize"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoInvalid"
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
       >
-        Pseudo Invalid
+        Size
       </ng-template>
 
       <ng-template
-        documentationPropertyName="pseudoHovered"
-        documentationPropertyType=" boolean | null"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoHovered"
-      >
-        Pseudo Hovered
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="pseudoPressed"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoPressed"
-      >
-        Pseudo Pressed
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="pseudoFocused"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoFocused"
-      >
-        Pseudo Focused
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="focusable"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="focusable"
-      >
-        Focusable
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="pseudoState"
+        documentationPropertyName="label"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoState"
+        [(documentationPropertyValue)]="label"
       >
-        Pseudo State
+        Label
+      </ng-template>
+      <ng-template
+        documentationPropertyName="clear"
+        documentationPropertyType="MouseEvent"
+        documentationPropertyMode="output"
+      >
+        Clear
       </ng-template>
 
       <ng-template
-        documentationPropertyName="focusedChange"
+        documentationPropertyName="border"
         documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-        [(documentationPropertyValue)]="focusedChange"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="border"
       >
-        Focused Change
+        Border
       </ng-template>
-
       <ng-template
-        documentationPropertyName="pressedChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-        [(documentationPropertyValue)]="pressedChange"
+        documentationPropertyName="status"
+        documentationPropertyType="PrizmInputStatus"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="status"
+        [documentationPropertyValues]="statuses"
       >
-        Pressed Change
+        Status
       </ng-template>
-
       <ng-template
-        documentationPropertyName="hoveredChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-        [(documentationPropertyValue)]="hoveredChange"
+        documentationPropertyName="position"
+        documentationPropertyType="PrizmInputPosition"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="inputPosition"
+        [documentationPropertyValues]="inputPositionVariants"
       >
-        Hovered Change
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="focusVisibleChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-        [(documentationPropertyValue)]="focusVisibleChange"
-      >
-        Focus Visible Change
+        Position
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>
@@ -345,7 +259,7 @@
       <li>
         <p>
           Import
-          <code>PrizmMultiSelectModule</code>
+          <code>PrizmInputMultiSelectModule</code>
           into a module where you want to use our component
         </p>
 
