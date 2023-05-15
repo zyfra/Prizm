@@ -4,22 +4,29 @@
   [isOpen]="open && canOpen"
   [content]="dropdown"
   prizmDropdownHostWidth="auto"
-  [prizmDropdownHost]="layoutComponent.el.nativeElement"
   [closeByEsc]="true"
   (isOpenChange)="onOpenChange($event)"
 >
-  <input
-    class="input-search"
-    prizmInput
-    #focusableElementRef
-    [mask]="computedMask"
-    [showMaskTyped]="focusableElementRef.focused"
-    [dropSpecialCharacters]="false"
-    [placeholder]="placeholder"
-    [disabled]="disabled"
-    [ngModel]="stringValue"
-    (ngModelChange)="onValueChange($event || '')"
-  />
+  <prizm-input-layout [label]="label" [outer]="outer" [forceClear]="forceClear" [size]="size">
+    <input
+      class="input-search"
+      prizmInput
+      #focusableElementRef
+      [mask]="computedMask"
+      [showMaskTyped]="focusableElementRef.focused"
+      [dropSpecialCharacters]="false"
+      [placeholder]="placeholder"
+      [readonly]="readOnly"
+      [disabled]="computedDisabled"
+      [ngModel]="stringValue"
+      (ngModelChange)="onValueChange($event || '')"
+    />
+    <ng-container prizm-input-right>
+      <button prizmInputIconButton="date-calendar-blank" [interactive]="true"></button>
+      <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
+      </ng-container>
+    </ng-container>
+  </prizm-input-layout>
   <ng-template #dropdown>
     <prizm-calendar
       prizmPreventDefault="mousedown"
@@ -40,13 +47,3 @@
     </div>
   </ng-template>
 </prizm-dropdown-host>
-
-<ng-container *prizmInputLayoutRight>
-  <button
-    (click)="onOpenChange(true)"
-    prizmInputIconButton="date-calendar-blank"
-    [interactive]="true"
-  ></button>
-  <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
-  </ng-container>
-</ng-container>

@@ -1,7 +1,7 @@
-<prizm-doc-page header="InputDate">
+<prizm-doc-page header="Date">
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
-      <prizm-input-date-base-example></prizm-input-date-base-example>
+      <prizm-date-base-example></prizm-date-base-example>
     </prizm-doc-example>
 
     <prizm-doc-example id="native-date" heading="Native Date" [content]="exampleNative">
@@ -11,19 +11,19 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <!--      <prizm-input-date-->
-      <!--        #element-->
-      <!--        [prizmDocHostElement]="element"-->
-      <!--        [formControl]="control"-->
-      <!--        [label]="label"-->
-      <!--        [placeholder]="placeholder"-->
-      <!--        [forceClear]="forceClear"-->
-      <!--        [outer]="outer"-->
-      <!--        [size]="size"-->
-      <!--        [readOnly]="readOnly"-->
-      <!--        [focusable]="focusable"-->
-      <!--        [pseudoState]="pseudoState"-->
-      <!--      ></prizm-input-date>-->
+      <prizm-date
+        #element
+        [prizmDocHostElement]="element"
+        [formControl]="control"
+        [label]="label"
+        [placeholder]="placeholder"
+        [forceClear]="forceClear"
+        [outer]="outer"
+        [size]="size"
+        [readOnly]="readOnly"
+        [focusable]="focusable"
+        [pseudoState]="pseudoState"
+      ></prizm-date>
     </prizm-doc-demo>
     <prizm-doc-documentation [control]="control">
       <ng-template
@@ -244,7 +244,7 @@
       <li>
         <p>
           Import
-          <code>PrizmInputDateModule</code>
+          <code>PrizmDateModule</code>
           into a module where you want to use our component
         </p>
 

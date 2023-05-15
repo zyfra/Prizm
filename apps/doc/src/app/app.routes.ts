@@ -411,11 +411,18 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/date',
+    loadChildren: () => import('./components/input/date/date.module').then(i => i.DateModule),
+    data: {
+      title: 'Date',
+    },
+  },
+  {
     path: 'components/input-date',
     loadChildren: () =>
       import('./components/input/input-date/input-date.module').then(i => i.InputDateModule),
     data: {
-      title: 'Input Date',
+      title: 'InputDate',
     },
   },
   {

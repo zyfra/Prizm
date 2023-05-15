@@ -300,8 +300,13 @@ export const pages: PrizmOrderedDocPage = [
         route: '/components/input-time',
       },
       {
+        title: 'Date',
+        keywords: 'date, form',
+        route: '/components/date',
+      },
+      {
         title: 'InputDate',
-        keywords: 'input-date, date, form',
+        keywords: 'input-date, date, input, form',
         route: '/components/input-date',
       },
       {

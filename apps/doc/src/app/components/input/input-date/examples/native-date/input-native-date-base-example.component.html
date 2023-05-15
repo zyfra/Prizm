@@ -1,4 +1,7 @@
-<prizm-input-date [formControl]="control"></prizm-input-date>
+<prizm-input-layout label="Введите дату">
+  <prizm-input-date [formControl]="control"></prizm-input-date>
+</prizm-input-layout>
+
 <div>
   {{ control.value | date : 'shortDate' }}
 </div>
