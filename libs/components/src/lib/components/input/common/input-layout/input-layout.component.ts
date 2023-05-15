@@ -63,9 +63,7 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
   private readonly destroy$: PrizmDestroyService = this.injector.get(PrizmDestroyService);
 
   get showStatusButton(): boolean {
-    return (
-      !this.control.disabled && (this.status !== 'default' || (this.control.invalid && this.control.touched))
-    );
+    return this.status !== 'default' || (this.control.invalid && this.control.touched);
   }
 
   constructor(private readonly injector: Injector, public readonly el: ElementRef<HTMLElement>) {}

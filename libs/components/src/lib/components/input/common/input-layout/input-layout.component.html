@@ -50,7 +50,7 @@
   }"
 >
   <div class="prizm-input-form__first">
-    <ng-container *ngIf="!control.disabled">
+    <ng-container>
       <ng-container *ngIf="control.layoutLeft?.templateRef as template" [ngTemplateOutlet]="template">
       </ng-container>
       <ng-content select="[prizm-input-left]"></ng-content>
@@ -85,7 +85,7 @@
       ></button>
     </div>
 
-    <ng-container *ngIf="!control.disabled">
+    <ng-container>
       <ng-container *ngIf="control.layoutRight?.templateRef as template" [ngTemplateOutlet]="template">
       </ng-container>
       <ng-content select="[prizm-input-right]"></ng-content>
