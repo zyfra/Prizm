@@ -62,7 +62,7 @@ export class OutsizeEventService {
   }
 
   private async initOutsideListener(eventName: string): Promise<void> {
-    const FPS = 1000 / 60; //await prizmGetFPS();
+    const FPS = await prizmGetFPS();
     combineLatest([
       fromEvent(this.documentRef, eventName).pipe(map(ev => ({ ev, time: performance.now() }))),
       this.inside$$,
