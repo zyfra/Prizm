@@ -45,7 +45,7 @@ export abstract class PrizmInputNgControl<T>
   }
 
   get required() {
-    const validator = this.ngControl.validator;
+    const validator = this.ngControl?.validator;
     if (!validator) {
       return false;
     }
@@ -56,17 +56,17 @@ export abstract class PrizmInputNgControl<T>
   }
 
   get disabled() {
-    return this.ngControl.disabled;
+    return !!this.ngControl?.disabled;
   }
 
   /** Whether the control is validity. */
   get invalid() {
-    return this.ngControl.invalid;
+    return !!this.ngControl?.invalid;
   }
 
   /** Whether the control is validity. */
   get touched() {
-    return this.ngControl.touched;
+    return !!this.ngControl?.touched;
   }
 
   protected constructor(private readonly injector: Injector) {

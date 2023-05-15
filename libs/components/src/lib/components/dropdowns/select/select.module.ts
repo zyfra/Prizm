@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PrizmSelectComponent } from './select.component';
 import { PrizmOverlayModule } from '../../../modules/overlay';
-import { PolymorphModule, PrizmLifecycleModule } from '../../../directives';
+import { PolymorphModule, PrizmAutoFocusModule, PrizmLifecycleModule } from '../../../directives';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmDataListModule } from '../../data-list';
@@ -27,6 +27,7 @@ import { PrizmInputCommonModule } from '../../input';
     ReactiveFormsModule,
     CommonModule,
     PrizmLetModule,
+    PrizmAutoFocusModule,
     PrizmHintModule,
     PrizmIconModule,
     PrizmCallFuncModule,
