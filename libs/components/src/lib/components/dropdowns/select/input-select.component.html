@@ -7,32 +7,47 @@
   [prizmDropdownHostWidth]="dropdownWidth"
   [prizmDropdownMinHeight]="minDropdownHeight"
   [prizmDropdownMaxHeight]="maxDropdownHeight"
-  *prizmLet="filteredItems$ | async as items"
 >
   <input
     class="input-search"
     prizmInput
-    (focus)="safeOpenModal(); focused$$.next(true)"
+    (click)="safeOpenModal()"
+    (focus)="focused$$.next(true)"
     (blur)="focused$$.next(false)"
     #focusableElementRef
-    (onClear)="onClear()"
     [placeholder]="placeholder"
     [disabled]="disabled"
-    [readonly]="!searchable || disabled"
+    [readonly]="true"
     [ngModel]="(value | prizmCallFunc : stringify) ?? ''"
   />
 
   <ng-template #dropdown>
-    <prizm-data-list class="block" [style.--prizm-data-list-border]="0">
+    <prizm-data-list
+      class="block"
+      *prizmLet="(filteredItems$ | async) ?? [] as items"
+      [style.--prizm-data-list-border]="0"
+    >
+      <div class="list-search-item" *ngIf="searchable">
+        <prizm-input-layout size="m" label="Поиск">
+          <input
+            [ngModel]="printing$.value"
+            (ngModelChange)="printing$.next($event)"
+            prizmInput
+            prizmAutoFocus
+            class="input-search"
+          />
+          <button prizmInputIconButton="sort-zoom-in" prizm-input-right [interactive]="true"></button>
+        </prizm-input-layout>
+      </div>
       <ng-container *ngIf="items?.length; else emptyTemplate">
         <div
           class="item"
-          [class.most-relevant]="isMostRelevant(idx, items, focusableElementRef.value)"
+          [class.most-relevant]="isMostRelevant(idx, items)"
           [class.selected]="
             item === value || (item && value && (item | prizmCallFunc : identityMatcher : value))
           "
           #hostHint
-          *ngFor="let item of filteredItems$ | async; let idx = index"
+          *ngFor="let item of items; let idx = index"
           (click)="select(item)"
         >
           <ng-container *ngIf="item; else nullContentTemplate">

@@ -1,6 +1,7 @@
 <div
   class="block"
   (prizmOutsideEvent)="outsideClick()"
+  [outsideElement]="prizmDropdownHost"
   outsideEventName="click"
   (prizmMutationObserver)="updateWidth()"
   [prizmMutationObserverHost]="el.nativeElement"

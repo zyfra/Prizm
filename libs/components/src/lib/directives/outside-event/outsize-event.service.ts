@@ -1,7 +1,7 @@
 import { Inject, Injectable, Optional, SkipSelf } from '@angular/core';
 import { prizmGetFPS } from '@prizm-ui/core';
 import { combineLatest, fromEvent, merge, Observable, race, Subject } from 'rxjs';
-import { debounceTime, map, mapTo, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, finalize, map, mapTo, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmOutsideEvent } from './model';
 import { DOCUMENT } from '@angular/common';
 
@@ -62,12 +62,9 @@ export class OutsizeEventService {
   }
 
   private async initOutsideListener(eventName: string): Promise<void> {
-    const FPS = await prizmGetFPS();
+    const FPS = 1000 / 60; //await prizmGetFPS();
     combineLatest([
-      fromEvent(this.documentRef, eventName).pipe(
-        map(() => performance.now()),
-        map(ev => ({ ev, time: performance.now() }))
-      ),
+      fromEvent(this.documentRef, eventName).pipe(map(ev => ({ ev, time: performance.now() }))),
       this.inside$$,
     ])
       .pipe(
@@ -84,7 +81,7 @@ export class OutsizeEventService {
   private initInsideListener(eventName: string, hostElement: HTMLElement): void {
     fromEvent(hostElement, eventName)
       .pipe(
-        startWith(null),
+        // startWith(null),
         map(event => ({ event, time: performance.now() })),
         tap(data => {
           this.inside$$.next(data as PrizmOutsideEvent);

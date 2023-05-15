@@ -19,8 +19,18 @@ import { PRIZM_SELECT_OPTIONS, PrizmSelectOptions, PrizmSelectValueContext } fro
 import { PrizmNativeFocusableElement } from '../../../types';
 import { PrizmInputControl } from '../../input';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
-import { debounceTime, map, observeOn, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { animationFrameScheduler, BehaviorSubject, concat, Observable, of, Subject } from 'rxjs';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  map,
+  observeOn,
+  shareReplay,
+  skip,
+  switchMap,
+  takeUntil,
+  tap,
+} from 'rxjs/operators';
+import { animationFrameScheduler, BehaviorSubject, concat, Observable, of, Subject, timer } from 'rxjs';
 import { PrizmSelectIdentityMatcher, PrizmSelectSearchMatcher } from './select.model';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmDropdownHostComponent } from '../dropdown-host';
@@ -98,8 +108,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   nullContent: PolymorphContent = this.options.nullContent;
 
   readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
-
-  private readonly stop$ = new BehaviorSubject(false);
+  public readonly printing$ = new BehaviorSubject<string>('');
 
   /**
    * need only clear function
@@ -147,8 +156,9 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
   public override ngOnInit() {
     super.ngOnInit();
-    this.filteredItems$ = concat(of(this.value), this.ngControl.valueChanges).pipe(
-      tap(value => this.searchEmit(value)),
+    this.filteredItems$ = concat(this.printing$.pipe()).pipe(
+      tap(value => this.searchEmit(value as string)),
+      distinctUntilChanged(),
       switchMap(value => {
         return this.items$.pipe(
           map(items => {
@@ -166,7 +176,8 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
             this.filteredItems = items;
             this.dropdownHostElement?.reCalculatePositions(1000 / 60);
           }),
-          debounceTime(0)
+          debounceTime(0),
+          shareReplay(1)
         );
       })
     );
@@ -181,7 +192,14 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   }
 
   public onClear(): void {
-    this.select(null);
+    timer(0)
+      .pipe(
+        tap(() => {
+          this.select(null);
+          this.changeDetectorRef.markForCheck();
+        })
+      )
+      .subscribe();
   }
 
   protected getFallbackValue(): T {
@@ -191,6 +209,8 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   public override clear(ev: MouseEvent): void {
     ev.stopImmediatePropagation();
     this.updateValue(null);
+
+    this.changeDetectorRef.markForCheck();
   }
 
   public select(item: T): void {
@@ -205,7 +225,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     this.ngControl.control.markAsTouched();
     const inputElement = this.focusableElement.nativeElement;
 
-    const open = !this.opened$$.value && !this.disabled && inputElement && prizmIsNativeFocused(inputElement);
+    const open = !this.opened$$.value && !this.disabled; // && inputElement && prizmIsNativeFocused(inputElement);
     this.opened$$.next(open);
     this.changeDetectorRef.markForCheck();
   }
@@ -217,7 +237,8 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     this.ngControl.control.markAsTouched();
   }
 
-  public isMostRelevant(idx: number, items: T[], wroteInputValue: string): boolean {
+  public isMostRelevant(idx: number, items: T[]): boolean {
+    const wroteInputValue = this.printing$.value;
     const itIsNotCurrentValue = wroteInputValue && !this.identityMatcher(wroteInputValue as T, this.value);
     const isCanSearch = this.searchable;
     const hasNullValue = items[0] === null;
