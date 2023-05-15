@@ -43,6 +43,7 @@
 
 <ng-container *prizmInputLayoutRight>
   <button
+    [disabled]="disabled"
     (click)="onOpenChange(true)"
     prizmInputIconButton="date-calendar-blank"
     [interactive]="true"
