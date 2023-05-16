@@ -42,7 +42,7 @@
 "
   [attr.data-size]="size"
   [ngClass]="{
-    'prizm-input-form-focused': control.focused,
+    'prizm-input-form-focused': !control.disabled && control.focused,
     'prizm-input-form-empty': control.empty,
     'prizm-input-form-disabled': control.disabled,
     'prizm-input-form-touched': control.touched,

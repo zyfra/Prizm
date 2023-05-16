@@ -6,6 +6,7 @@ import {
   ContentChild,
   ElementRef,
   EventEmitter,
+  HostBinding,
   Injector,
   Input,
   OnChanges,
@@ -59,6 +60,9 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
   public statusIcon: string;
   public statusMessage: PolymorphContent | null;
 
+  @HostBinding('class.disabled') get disabled() {
+    return this.control.disabled;
+  }
   private readonly cdr: ChangeDetectorRef = this.injector.get(ChangeDetectorRef);
   private readonly destroy$: PrizmDestroyService = this.injector.get(PrizmDestroyService);
 

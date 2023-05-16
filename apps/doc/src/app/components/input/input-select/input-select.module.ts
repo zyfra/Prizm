@@ -2,8 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
-import { SelectComponent } from './select.component';
-import { PolymorphModule, PrizmButtonModule, PrizmIconModule, PrizmSelectModule } from '@prizm-ui/components';
+import { InputSelectComponent } from './input-select.component';
+import {
+  PolymorphModule,
+  PrizmButtonModule,
+  PrizmIconModule,
+  PrizmInputSelectModule,
+} from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmSelectWithTemplateExampleComponent } from './examples/with-template/select-with-template-example.component';
 import { PrizmSelectBaseExampleComponent } from './examples/base/select-base-example.component';
@@ -23,9 +28,9 @@ import { PrizmSelectValidatorsExampleComponent } from './examples/validators/sel
     PolymorphModule,
     PrizmLetModule,
     PrizmButtonModule,
-    PrizmSelectModule,
     PrizmIconModule,
-    RouterModule.forChild(prizmDocGenerateRoutes(SelectComponent)),
+    PrizmInputSelectModule,
+    RouterModule.forChild(prizmDocGenerateRoutes(InputSelectComponent)),
   ],
   declarations: [
     PrizmSelectFullWidthExampleComponent,
@@ -35,8 +40,8 @@ import { PrizmSelectValidatorsExampleComponent } from './examples/validators/sel
     PrizmSelectWithBackendSearchExampleComponent,
     PrizmSelectWithObjectExampleComponent,
     PrizmSelectWithTemplateExampleComponent,
-    SelectComponent,
+    InputSelectComponent,
   ],
-  exports: [SelectComponent],
+  exports: [InputSelectComponent],
 })
-export class SelectModule {}
+export class InputSelectModule {}

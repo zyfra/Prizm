@@ -102,7 +102,7 @@
     "
   >
     <prizm-icon
-      (click)="!disabled && focusableElement?.nativeElement.focus()"
+      (click)="!disabled && focusableElement?.nativeElement.click()"
       [class.disabled]="disabled"
       [class.opened]="opened$ | async"
       [class.active]="focused$ | async"
