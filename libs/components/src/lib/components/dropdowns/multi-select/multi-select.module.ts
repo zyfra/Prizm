@@ -15,6 +15,10 @@ import { PrizmHintModule } from '../../../directives/hint';
 import { PrizmCheckboxModule } from '../../checkbox';
 import { PrizmIconModule } from '../../icon';
 
+/**
+ * @deprecated
+ * use instead of PrizmInputMultiSelectModule
+ * */
 @NgModule({
   imports: [
     PrizmOverlayModule,

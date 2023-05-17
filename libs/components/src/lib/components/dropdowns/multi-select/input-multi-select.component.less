@@ -2,6 +2,7 @@
   position: relative;
   z-index: 0;
   display: inline-block;
+  width: 100%;
 }
 
 .item {
@@ -91,6 +92,23 @@ prizm-checkbox {
   display: none;
 }
 
-prizm-chips.inner {
-  margin-bottom: 8px;
+prizm-chips {
+  height: 20px;
+  margin: 1px 0;
+
+  &.inner {
+    margin-top: 0;
+
+    &.empty {
+      display: none;
+    }
+  }
+
+  &[data-size='m'] {
+    margin: 2px 0;
+  }
+
+  &[data-size='l'] {
+    margin: 4px 0;
+  }
 }

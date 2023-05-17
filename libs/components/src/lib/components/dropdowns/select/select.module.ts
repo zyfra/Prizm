@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { PrizmSelectComponent } from './select.component';
 import { PrizmOverlayModule } from '../../../modules/overlay';
 import { PolymorphModule, PrizmAutoFocusModule, PrizmLifecycleModule } from '../../../directives';
 import { CommonModule } from '@angular/common';
@@ -14,7 +13,12 @@ import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmHintModule } from '../../../directives/hint';
 import { PrizmIconModule } from '../../icon';
 import { PrizmSelectInputComponent } from './input-select.component';
+import { PrizmSelectComponent } from './select.component';
 
+/**
+ * @deprecated
+ * use PrizmInputSelectModule
+ * */
 @NgModule({
   imports: [
     PrizmOverlayModule,
@@ -35,7 +39,7 @@ import { PrizmSelectInputComponent } from './input-select.component';
     PrizmDataListModule,
     PrizmDropdownHostModule,
   ],
-  declarations: [PrizmSelectComponent, PrizmSelectInputComponent],
-  exports: [PrizmSelectComponent, PrizmSelectInputComponent],
+  declarations: [PrizmSelectComponent],
+  exports: [PrizmSelectComponent],
 })
 export class PrizmSelectModule {}

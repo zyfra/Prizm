@@ -13,7 +13,7 @@ import { UntypedFormControl, Validators } from '@angular/forms';
     `,
   ],
 })
-export class PrizmMultiSelectValidatorsExampleComponent {
+export class PrizmInputMultiSelectValidatorsExampleComponent {
   readonly valueControl = new UntypedFormControl([], [Validators.required]);
   readonly items = [
     'One',

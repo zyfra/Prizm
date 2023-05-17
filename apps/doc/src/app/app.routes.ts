@@ -401,6 +401,14 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/input-select',
+    loadChildren: () =>
+      import('./components/input/input-select/input-select.module').then(i => i.InputSelectModule),
+    data: {
+      title: 'Input Select',
+    },
+  },
+  {
     path: 'components/input-chips',
     loadChildren: () =>
       import('./components/input/input-chips/input-chips-example.module').then(
@@ -423,6 +431,16 @@ export const ROUTES: Routes = [
       import('./components/input/input-date/input-date.module').then(i => i.InputDateModule),
     data: {
       title: 'InputDate',
+    },
+  },
+  {
+    path: 'components/input-multi-select',
+    loadChildren: () =>
+      import('./components/input/input-multi-select/input-multi-select.module').then(
+        i => i.InputMultiSelectModule
+      ),
+    data: {
+      title: 'Input Date',
     },
   },
   {

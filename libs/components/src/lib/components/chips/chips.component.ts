@@ -137,7 +137,7 @@ export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDest
       map((current: ElementRef) => {
         if (idx === 0) this.overflowedChipsList$.value.clear();
         if (!singleLine || this.chipsList.length === 1) return false;
-
+        if (idx === 0) return 0;
         const maxPadding = 2;
         const needWidthPlaceForShowDots = 35;
         const offsetY = Math.abs(parent.offsetTop - current.nativeElement.offsetTop) > maxPadding;

@@ -67,6 +67,7 @@
               prizm-input-left
               [inputNumber]="inputCounter"
               [interactive]="true"
+              [disabled]="requiredInputControl.disabled"
             ></button>
 
             <input
@@ -88,6 +89,7 @@
               prizm-input-right
               [inputNumber]="inputCounter"
               [interactive]="true"
+              [disabled]="requiredInputControl.disabled"
             ></button>
 
             <ng-template prizmInputStatusText>Текст статуса</ng-template>

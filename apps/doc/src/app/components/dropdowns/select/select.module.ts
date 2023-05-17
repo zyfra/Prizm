@@ -3,13 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { SelectComponent } from './select.component';
-import {
-  PolymorphModule,
-  PrizmButtonModule,
-  PrizmIconModule,
-  PrizmInputCommonModule,
-  PrizmSelectModule,
-} from '@prizm-ui/components';
+import { PolymorphModule, PrizmButtonModule, PrizmIconModule, PrizmSelectModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmSelectWithTemplateExampleComponent } from './examples/with-template/select-with-template-example.component';
 import { PrizmSelectBaseExampleComponent } from './examples/base/select-base-example.component';
@@ -19,7 +13,6 @@ import { PrizmSelectWithObjectExampleComponent } from './examples/with-object/se
 import { PrizmSelectWithBackendSearchExampleComponent } from './examples/with-backend-search/select-with-backend-search-example.component';
 import { PrizmSelectFullWidthExampleComponent } from './examples/full-width/select-full-width-example.component';
 import { PrizmSelectValidatorsExampleComponent } from './examples/validators/select-validators-example.component';
-import { PrizmSelectInputExampleComponent } from './examples/input/select-input-example.component';
 
 @NgModule({
   imports: [
@@ -31,12 +24,10 @@ import { PrizmSelectInputExampleComponent } from './examples/input/select-input-
     PrizmLetModule,
     PrizmButtonModule,
     PrizmSelectModule,
-    PrizmInputCommonModule,
     PrizmIconModule,
     RouterModule.forChild(prizmDocGenerateRoutes(SelectComponent)),
   ],
   declarations: [
-    PrizmSelectInputExampleComponent,
     PrizmSelectFullWidthExampleComponent,
     PrizmSelectValidatorsExampleComponent,
     PrizmSelectBaseExampleComponent,

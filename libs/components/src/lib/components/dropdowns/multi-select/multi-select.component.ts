@@ -12,7 +12,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { PrizmDestroyService, PrizmFormControlHelpers } from '@prizm-ui/helpers';
-import { UntypedFormControl, NgControl } from '@angular/forms';
+import { NgControl, UntypedFormControl } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
 import { PRIZM_MULTI_SELECT_OPTIONS, PrizmMultiSelectOptions } from './multi-select.options';
 import {
@@ -23,7 +23,7 @@ import {
 import { PrizmInputSize, PrizmInputTextComponent } from '../../input';
 import { AbstractPrizmControl } from '../../../abstract/control';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
-import { debounceTime, delay, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens';
 import { prizmDefaultProp } from '@prizm-ui/core';
@@ -36,7 +36,12 @@ import {
 } from './multi-select.model';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
 
-// TODO create abstract select component and move to abstract common logic
+/**
+ * @deprecated
+ * use only PrizmMultiSelectInputComponent
+ * will be removed after ng 15 update
+ * for auto update use our migrator https://prizm.site/forZIIoT/update-from-beta
+ * */
 @Component({
   selector: 'prizm-multi-select',
   templateUrl: './multi-select.component.html',

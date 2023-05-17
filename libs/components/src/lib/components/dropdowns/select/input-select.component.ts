@@ -202,10 +202,6 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
       .subscribe();
   }
 
-  protected getFallbackValue(): T {
-    return null;
-  }
-
   public override clear(ev: MouseEvent): void {
     ev.stopImmediatePropagation();
     this.updateValue(null);
