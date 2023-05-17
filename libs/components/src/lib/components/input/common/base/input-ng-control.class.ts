@@ -2,11 +2,10 @@ import { ChangeDetectorRef, Directive, Injector, OnInit } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NgControl, NgModel } from '@angular/forms';
 import { PrizmInputControl } from './input-control.class';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { debounceTime, takeUntil, tap } from 'rxjs/operators';
+import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputLayoutComponent } from '../input-layout';
-import { noop } from 'rxjs';
-import { PrizmControlValueTransformer } from '../../../../types';
 import { concat, noop, Observable, of } from 'rxjs';
+import { PrizmControlValueTransformer } from '../../../../types';
 
 @Directive()
 export abstract class PrizmInputNgControl<T>
