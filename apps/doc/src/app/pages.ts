@@ -295,6 +295,11 @@ export const pages: PrizmOrderedDocPage = [
         route: '/components/input-date-time',
       },
       {
+        title: 'InputSelect',
+        keywords: 'input-select, select, form',
+        route: '/components/input-select',
+      },
+      {
         title: 'InputDateTimeRange',
         keywords: 'input-date-time-range, date-time-range, form',
         route: '/components/input-date-time-range',

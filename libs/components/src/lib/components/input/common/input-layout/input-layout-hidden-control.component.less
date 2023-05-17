@@ -1,0 +1,39 @@
+:host.has-hidden-control {
+  .label-container {
+    height: 16px;
+    margin-bottom: 2px;
+
+    &[data-size='m'] {
+      margin-bottom: 4px;
+    }
+
+    &[data-size='l'] {
+      margin-bottom: 8px;
+    }
+
+    &.label-container-inner {
+      margin-bottom: 0px;
+    }
+  }
+
+  .prizm-input-label {
+    &-inner {
+      &[data-size='l'] {
+        top: 0;
+      }
+      &[data-size='m'] {
+        top: 0;
+      }
+    }
+  }
+
+  .prizm-input-form {
+    .prizm-input-form-inner-container {
+      padding: 4px 0;
+
+      &:host-context([data-size='l']) {
+        padding: 6px 0;
+      }
+    }
+  }
+}

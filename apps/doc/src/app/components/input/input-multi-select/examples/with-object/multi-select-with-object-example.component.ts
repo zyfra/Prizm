@@ -32,14 +32,14 @@ export class PrizmInputMultiSelectWithObjectExampleComponent {
   readonly selectAllItem = { id: -1, name: 'Выбрать все' };
   readonly valueControl = new UntypedFormControl([{ id: 3 }]);
   readonly searchMatcher: PrizmMultiSelectSearchMatcher<PrizmItem> = (search: string, item: PrizmItem) => {
-    return item.name.toLowerCase().includes(search.toLowerCase());
+    return item.name?.toLowerCase().includes(search.toLowerCase());
   };
   readonly identityMatcher: PrizmMultiSelectIdentityMatcher<PrizmItem> = (a: PrizmItem, b: PrizmItem) => {
-    return a.id === b.id;
+    return a?.id === b?.id;
   };
   readonly stringify: PrizmMultiSelectItemStringifyFunc<PrizmItem> = (
     item: PrizmMultiSelectItemStringifyItem<PrizmItem>
   ) => {
-    return item.obj.name;
+    return item.obj?.name;
   };
 }

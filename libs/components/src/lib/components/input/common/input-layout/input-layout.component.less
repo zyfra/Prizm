@@ -29,19 +29,6 @@
 .label-container {
   display: flex;
 
-  &.hidden-control {
-    height: 16px;
-    margin-bottom: 2px;
-
-    &[data-size='m'] {
-      margin-bottom: 4px;
-    }
-
-    &[data-size='l'] {
-      margin-bottom: 8px;
-    }
-  }
-
   .prizm-input-label-clear-btn {
     display: none;
     position: relative;
@@ -87,7 +74,6 @@
       &.prizm-input-label-empty {
         top: 13px;
       }
-
       &.prizm-input-label-focused {
         top: 5px;
       }
@@ -116,7 +102,6 @@
     &.@{label}-inner {
       background-color: var(--prizm-bg-dashboard-forms);
       width: 100%;
-
       &[data-size='l'] {
         top: 0;
         padding-top: 5px;

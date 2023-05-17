@@ -146,6 +146,9 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   readonly opened$$ = new BehaviorSubject<boolean>(false);
   readonly opened$: Observable<boolean> = this.opened$$.asObservable();
 
+  override get empty(): boolean {
+    return !this.value?.length;
+  }
   constructor(
     @Inject(PRIZM_MULTI_SELECT_OPTIONS) private readonly options: PrizmMultiSelectOptions<T>,
     @Inject(Injector) injector: Injector

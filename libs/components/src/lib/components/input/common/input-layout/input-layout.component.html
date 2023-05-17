@@ -1,11 +1,12 @@
 <ng-template #labelTemplate>
   <div
     *ngIf="label"
-    class="label-container {{
-      control.nativeElementType ? 'label-container-' + control.nativeElementType : ''
-    }}   label-container-{{ outer ? 'outer' : 'inner' }}"
+    [ngClass]="[
+      control.nativeElementType ? 'label-container-' + control.nativeElementType : '',
+      'label-container-' + (outer ? 'outer' : 'inner')
+    ]"
+    class="label-container"
     [class.label-container-focused]="control.focused"
-    [class.hidden-control]="control.hidden"
     [attr.data-size]="size"
   >
     <label
@@ -17,13 +18,11 @@
       [attr.data-size]="size"
       [class.prizm-input-label-focused]="control.focused"
       [class.prizm-input-label-empty]="control.empty"
-      [class.prizm-input-label-hidden]="control.hidden"
     >
       {{ label }}
       <span *ngIf="control.required" class="prizm-input-label-required">*</span>
     </label>
     <button
-      *ngIf="showClearButton"
       prizmInputIconButton="cansel-delete-content"
       (click)="onClearClick($event)"
       class="prizm-input-label-clear-btn"
@@ -45,7 +44,7 @@
 "
   [attr.data-size]="size"
   [ngClass]="{
-    'prizm-input-form-focused': control.focused,
+    'prizm-input-form-focused': !control.disabled && control.focused,
     'prizm-input-form-empty': control.empty,
     'prizm-input-form-disabled': control.disabled,
     'prizm-input-form-touched': control.touched,
@@ -73,7 +72,6 @@
 
       <button
         *ngIf="showClearButton"
-        #clearButton
         prizmInputIconButton="cansel-delete-content"
         (click)="onClearClick($event)"
         class="prizm-input-button-default {{ showStatusButton ? '' : 'alone' }}"

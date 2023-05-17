@@ -54,6 +54,7 @@
     [deletable]="deletable"
     (click)="chipClick(item)"
     #prizmLifecycle="prizmLifecycle"
+    [class.single-line]="singleLine"
     class="{{
       prizmLifecycle.afterViewInit$
         | prizmCallFunc : isChipsContent$ : parent : singleLine : item : idx : allChipsCount
@@ -65,35 +66,4 @@
   >
     {{ item }}
   </prizm-chips-item>
-
-  <!--  <button-->
-  <!--    class="chips-list__item {{-->
-  <!--      prizmLifecycle.afterViewInit$-->
-  <!--        | prizmCallFunc : isChipsContent$ : parent : singleLine : item : idx : allChipsCount-->
-  <!--        | async-->
-  <!--    }}"-->
-  <!--    (click)="chipClick(item)"-->
-  <!--    [style.background]="background"-->
-  <!--    [disabled]="accessorIsDisabled"-->
-  <!--    prizmLifecycle-->
-  <!--    #prizmLifecycle="prizmLifecycle"-->
-  <!--    #hostHint-->
-  <!--  >-->
-  <!--    <div-->
-  <!--      class="chips-name"-->
-  <!--      #elem-->
-  <!--      [prizmHint]="hint || item"-->
-  <!--      [prizmHintHost]="hostHint"-->
-  <!--      [prizmHintDirection]="hintDirection"-->
-  <!--      [prizmHintCanShow]="elem | prizmCallFunc : prizmIsTextOverflow$ : hintCanShow : forceShowHint | async"-->
-  <!--    >-->
-  <!--      {{ item }}-->
-  <!--    </div>-->
-  <!--    <button-->
-  <!--      *ngIf="!hideDelete && deletable"-->
-  <!--      class="chips-cancel prizm-icon cancel-close-small"-->
-  <!--      (click)="removeChips($event, idx)"-->
-  <!--      [disabled]="accessorIsDisabled"-->
-  <!--    ></button>-->
-  <!--  </button>-->
 </ng-template>

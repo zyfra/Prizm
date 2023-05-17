@@ -401,6 +401,14 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/input-select',
+    loadChildren: () =>
+      import('./components/input/input-select/input-select.module').then(i => i.InputSelectModule),
+    data: {
+      title: 'Input Select',
+    },
+  },
+  {
     path: 'components/input-chips',
     loadChildren: () =>
       import('./components/input/input-chips/input-chips-example.module').then(

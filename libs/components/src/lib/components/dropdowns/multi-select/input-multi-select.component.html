@@ -111,6 +111,7 @@
 <ng-template #chipsTemplate>
   <ng-container *prizmLet="selectedItemsChips$ | async as chips">
     <prizm-chips
+      [class.empty]="!chips.length"
       [attr.data-size]="layoutComponent.size"
       [class.inner]="!layoutComponent.outer"
       [singleLine]="true"

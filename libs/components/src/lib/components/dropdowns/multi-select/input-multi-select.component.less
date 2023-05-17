@@ -94,17 +94,21 @@ prizm-checkbox {
 
 prizm-chips {
   height: 20px;
-  margin: 2px 0;
+  margin: 1px 0;
 
-  .inner {
+  &.inner {
     margin-top: 0;
+
+    &.empty {
+      display: none;
+    }
   }
 
   &[data-size='m'] {
-    margin: 4px 0;
+    margin: 2px 0;
   }
 
   &[data-size='l'] {
-    margin: 8px 0;
+    margin: 4px 0;
   }
 }
