@@ -58,7 +58,7 @@ import { PrizmDateButton } from '../../../types/date-button';
  * use PrizmInputDateComponent
  * */
 @Component({
-  selector: `prizm-date`,
+  selector: `prizm-input-date`,
   templateUrl: `./date.component.html`,
   styleUrls: [`./date.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,

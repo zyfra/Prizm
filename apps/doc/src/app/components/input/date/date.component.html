@@ -14,7 +14,7 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-date
+      <prizm-input-date
         #element
         [prizmDocHostElement]="element"
         [formControl]="control"
@@ -26,7 +26,7 @@
         [readOnly]="readOnly"
         [focusable]="focusable"
         [pseudoState]="pseudoState"
-      ></prizm-date>
+      ></prizm-input-date>
     </prizm-doc-demo>
     <prizm-doc-documentation [control]="control">
       <ng-template

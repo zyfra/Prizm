@@ -45,9 +45,9 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common';
 
 @Component({
-  selector: `prizm-input-date`,
-  templateUrl: `./input-date.component.html`,
-  styleUrls: [`./input-date.component.less`],
+  selector: `prizm-input-layout-date`,
+  templateUrl: `./input-layout-date.component.html`,
+  styleUrls: [`./input-layout-date.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     ...PRIZM_INPUT_DATE_PROVIDERS,

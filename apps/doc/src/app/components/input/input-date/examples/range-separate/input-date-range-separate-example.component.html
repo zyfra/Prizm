@@ -1,9 +1,9 @@
 <div>
   <prizm-input-layout label="От">
-    <prizm-input-date [max]="toControl.value" [formControl]="fromControl"></prizm-input-date>
+    <prizm-input-layout-date [max]="toControl.value" [formControl]="fromControl"></prizm-input-layout-date>
   </prizm-input-layout>
 
   <prizm-input-layout label="До">
-    <prizm-input-date [min]="fromControl.value" [formControl]="toControl"></prizm-input-date>
+    <prizm-input-layout-date [min]="fromControl.value" [formControl]="toControl"></prizm-input-layout-date>
   </prizm-input-layout>
 </div>
