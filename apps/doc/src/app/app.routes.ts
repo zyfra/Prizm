@@ -482,6 +482,16 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/input-layout-date-time',
+    loadChildren: () =>
+      import('./components/input/input-layout-date-time/input-layout-date-time.module').then(
+        i => i.InputLayoutDateTimeTimeModule
+      ),
+    data: {
+      title: 'Input Layout Date Time',
+    },
+  },
+  {
     path: 'components/input-date-multi',
     loadChildren: () =>
       import('./components/input/input-date-multi/input-date-multi.module').then(i => i.InputDateMultiModule),

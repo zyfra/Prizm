@@ -1,0 +1,72 @@
+<prizm-dropdown-host
+  [style.--prizm-dropdown-host-width]="'100%'"
+  class="z-hosted"
+  #prizmDropdownHostComponent
+  [canOpen]="!disabled"
+  [prizmDropdownHost]="layoutComponent.el.nativeElement"
+  [content]="openTimeTemplate ? dropdownTimeTemplate : dropdownDateTemplate"
+  [prizmDropdownHostWidth]="openTimeTemplate ? '100%' : 'auto'"
+  [isOpen]="!disabled && (openTimeTemplate || open)"
+  [closeByEsc]="true"
+  (isOpenChange)="onOpenChange($event); $event && prizmDropdownHostComponent.reCalculatePositions()"
+>
+  <ng-template prizmInputStatusText>Ошибка! Неправильный формат</ng-template>
+  <input
+    class="input-search"
+    prizmInput
+    #focusableElementRef
+    [mask]="textMaskOptions"
+    [showMaskTyped]="focusableElementRef.focused"
+    [dropSpecialCharacters]="false"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [ngModel]="computedValue"
+    (ngModelChange)="onValueChange($event ?? '')"
+  />
+</prizm-dropdown-host>
+<ng-container *prizmInputLayoutRight>
+  <button
+    prizmInputIconButton="date-calendar-blank"
+    [interactive]="true"
+    (click)="openDateDropdown()"
+  ></button>
+  <button prizmInputIconButton="date-clock" (click)="openTimeDropdown()" [interactive]="true"></button>
+  <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
+  </ng-container>
+</ng-container>
+<ng-template #dropdownDateTemplate>
+  <prizm-calendar
+    prizmPreventDefault="mousedown"
+    automation-id="prizm-input-date-time__calendar"
+    [min]="calendarMinDay"
+    [max]="calendarMaxDay"
+    [disabledItemHandler]="disabledItemHandler"
+    [month]="computedActiveYearMonth"
+    [value]="calendarValue"
+    (dayClick)="onDayClick($event)"
+    (monthChange)="onMonthChange($event)"
+  ></prizm-calendar>
+</ng-template>
+
+<ng-template #dropdownTimeTemplate>
+  <prizm-data-list
+    prizmLifecycle
+    (prizmAfterViewInit)="prizmDropdownHostComponent.reCalculatePositions()"
+    (prizmOnDestroy)="openTimeTemplate = false"
+    *ngIf="timeItems.length"
+    class="block"
+    [style.--prizm-data-list-border]="0"
+  >
+    <ng-container>
+      <div
+        class="time-item"
+        *ngFor="let item of timeItems; let idx = index"
+        (click)="$event.stopPropagation(); onTimeMenuClick(item, $event)"
+      >
+        <span class="text">
+          {{ item }}
+        </span>
+      </div>
+    </ng-container>
+  </prizm-data-list>
+</ng-template>
