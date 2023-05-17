@@ -506,6 +506,16 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/input-layout-date-range',
+    loadChildren: () =>
+      import('./components/input/input-layout-date-range/input-layout-date-range.module').then(
+        i => i.InputLayoutDateRangeModule
+      ),
+    data: {
+      title: 'Input Layout Date Range',
+    },
+  },
+  {
     path: 'components/input-date-relative',
     loadChildren: () =>
       import('./components/input/input-date-relative/input-date-relative.module').then(
