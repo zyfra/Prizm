@@ -49,7 +49,7 @@ jobs:
         run: |
           export NODE_OPTIONS="--max_old_space_size=4096"
 
-      - run: npx nx clear-cache
+      #      - run: npx nx clear-cache
       - run: npx nx affected:build --all --prod --exclude=schematics
       #      - run: npx nx affected:build --all --prod --parallel --max-parallel=3
       - run: cd dist/libs/deprecated && npm publish --access public --verbose || exit_code=0
