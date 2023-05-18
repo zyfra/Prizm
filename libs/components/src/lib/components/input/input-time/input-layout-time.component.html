@@ -1,0 +1,58 @@
+<prizm-dropdown-host
+  class="z-wrapper"
+  [canOpen]="interactive && !!filtered.length"
+  [content]="dropdownContent"
+  [prizmDropdownHostWidth]="'100%'"
+  [isOpen]="interactive && open && !!filtered.length"
+  (isOpenChange)="onOpen($event)"
+  [closeByEsc]="true"
+  [prizmDropdownHost]="layoutComponent.el.nativeElement"
+>
+  <!--  <prizm-input-layout-->
+  <!--    [label]="label"-->
+  <!--    [outer]="outer"-->
+  <!--    [forceClear]="forceClear"-->
+  <!--    (click)="safeOpenModal()"-->
+  <!--    [size]="size"-->
+  <!--  >-->
+  <input
+    class="input-search"
+    prizmInput
+    (click)="safeOpenModal()"
+    #focusableElementRef
+    [mask]="textMaskOptions"
+    [showMaskTyped]="focusableElementRef.focused"
+    [dropSpecialCharacters]="false"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [ngModel]="computedValue"
+    (ngModelChange)="onValueChange($event || '')"
+    (keydown.arrowUp)="onArrowUp($event)"
+    (keydown.arrowDown)="onArrowDown($event)"
+  />
+
+  <!--  </prizm-input-layout>-->
+</prizm-dropdown-host>
+
+<ng-template #dropdownContent>
+  <prizm-data-list class="block" [style.--prizm-data-list-border]="0">
+    <ng-container *ngIf="items?.length">
+      <div class="item" *ngFor="let item of filtered; let idx = index" (click)="onMenuClick(item)">
+        <span class="text">
+          {{ item }}
+        </span>
+      </div>
+    </ng-container>
+  </prizm-data-list>
+</ng-template>
+
+<ng-container *prizmInputLayoutRight>
+  <button
+    prizmInputIconButton="date-clock"
+    (click)="onOpen(!open)"
+    [interactive]="true"
+    [disabled]="disabled"
+  ></button>
+  <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
+  </ng-container>
+</ng-container>

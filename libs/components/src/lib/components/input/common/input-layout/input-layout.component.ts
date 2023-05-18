@@ -69,6 +69,9 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
   @HostBinding('class.disabled') get disabled() {
     return this.control.disabled;
   }
+  @HostBinding('class.enabled') get enabled() {
+    return !this.control.disabled;
+  }
   private readonly innerClick$$ = new Subject<MouseEvent>();
   public readonly innerClick$ = this.innerClick$$.asObservable();
 

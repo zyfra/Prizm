@@ -217,8 +217,8 @@
   }
 
   // rewrite all if focused
-  &-focused,
-  &:focus-within {
+  &-focused:host-context(.enabled),
+  &:focus-within:host-context(.enabled) {
     border-color: var(--prizm-index-plan);
     box-shadow: 0 0 0 2px var(--prizm-lite-b130-20);
 
