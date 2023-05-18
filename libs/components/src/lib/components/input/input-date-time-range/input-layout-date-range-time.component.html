@@ -1,0 +1,38 @@
+<prizm-input-date-range
+  #focusableElementRef
+  [disabledItemHandler]="disabledItemHandler"
+  [label]="label"
+  [markerHandler]="markerHandler"
+  [defaultViewedMonth]="defaultViewedMonth"
+  [items]="items"
+  [size]="size"
+  [forceClear]="forceClear"
+  [outer]="outer"
+  [formControl]="dateControl"
+  [placeholder]="placeholder"
+  [min]="min?.day"
+  [max]="max?.day"
+>
+  <ng-template #footerTo let-zone="zone">
+    <prizm-input-time
+      [prizmEventZoneParent]="zone"
+      [size]="size"
+      [style.--prizm-dropdown-host-width]="'100%'"
+      [formControl]="timeControlFrom"
+      [strict]="timeStrict"
+      [items]="timeItems"
+      [mode]="timeMode"
+    >
+    </prizm-input-time>
+  </ng-template>
+  <ng-template #footerFrom let-zone="zone">
+    <prizm-input-time
+      [prizmEventZoneParent]="zone"
+      [style.--prizm-dropdown-host-width]="'100%'"
+      [formControl]="timeControlTo"
+      [items]="timeItems"
+      [mode]="timeMode"
+    >
+    </prizm-input-time>
+  </ng-template>
+</prizm-input-date-range>

@@ -498,6 +498,16 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/input-layout-time',
+    loadChildren: () =>
+      import('./components/input/input-layout-time/input-layout-time.module').then(
+        i => i.InputLayoutTimeTimeModule
+      ),
+    data: {
+      title: 'Input Layout Time',
+    },
+  },
+  {
     path: 'components/input-date-range',
     loadChildren: () =>
       import('./components/input/input-date-range/input-date-range.module').then(i => i.InputDateRangeModule),

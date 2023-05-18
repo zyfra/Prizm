@@ -20,7 +20,7 @@ import {
   tuiWatch,
 } from '@taiga-ui/cdk';
 import { BehaviorSubject, combineLatest, merge, Observable } from 'rxjs';
-import { filter, map, switchMap } from 'rxjs/operators';
+import { filter, map, startWith, switchMap } from 'rxjs/operators';
 
 import { PRIZM_DOC_DOCUMENTATION_TEXTS } from '../../tokens/i18n';
 import { prizmInspectAny } from '../../utils/inspect';
@@ -254,7 +254,7 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
     PrizmFormControlHelpers.setDisabled(control, newState);
   }
   public getValueFromControl$(control: UntypedFormControl): Observable<any> {
-    return PrizmFormControlHelpers.getValue$(control);
+    return PrizmFormControlHelpers.getValue$(control).pipe(startWith(control.value));
   }
 
   public updateValueOfControl(control: UntypedFormControl, newValue: any): void {

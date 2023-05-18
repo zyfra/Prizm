@@ -306,8 +306,13 @@ export const pages: PrizmOrderedDocPage = [
       },
       {
         title: 'InputTime',
-        keywords: 'input-time, time, form',
+        keywords: 'input-time, deprecated, time, form',
         route: '/components/input-time',
+      },
+      {
+        title: 'InputLayoutTime',
+        keywords: 'input-layout-time, time, form',
+        route: '/components/input-layout-time',
       },
       {
         title: 'Date',

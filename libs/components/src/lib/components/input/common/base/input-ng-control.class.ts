@@ -107,6 +107,7 @@ export abstract class PrizmInputNgControl<T>
   public updateValue(value: T) {
     this.ngControl.control.markAsTouched();
     this.value = value;
+    this.changeDetectorRef.markForCheck();
   }
 
   public clear(ev: MouseEvent) {
