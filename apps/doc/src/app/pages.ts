@@ -336,8 +336,13 @@ export const pages: PrizmOrderedDocPage = [
       },
       {
         title: 'InputDateRange',
-        keywords: 'input-date-range, date-range, form',
+        keywords: 'input-date-range, deprecated, date-range, form',
         route: '/components/input-date-range',
+      },
+      {
+        title: 'InputLayoutDateRange',
+        keywords: 'input-layout-date-range, date-range, form',
+        route: '/components/input-layout-date-range',
       },
       {
         title: 'InputDateRelative',
