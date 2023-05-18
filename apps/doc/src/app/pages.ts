@@ -291,8 +291,13 @@ export const pages: PrizmOrderedDocPage = [
       },
       {
         title: 'InputDateTime',
-        keywords: 'input-date-time, date-time, form',
+        keywords: 'input-date-time, deprecated, date-time, form',
         route: '/components/input-date-time',
+      },
+      {
+        title: 'InputLayoutDateTime',
+        keywords: 'input-layout-date-time, date-time, form',
+        route: '/components/input-layout-date-time',
       },
       {
         title: 'InputSelect',
