@@ -6,6 +6,7 @@ import {
   ContentChild,
   ElementRef,
   EventEmitter,
+  Host,
   HostBinding,
   Injector,
   Input,
@@ -13,8 +14,9 @@ import {
   OnInit,
   Output,
   SimpleChanges,
+  ViewChild,
 } from '@angular/core';
-import { timer } from 'rxjs';
+import { Subject, timer } from 'rxjs';
 import { PrizmInputControl } from '../base/input-control.class';
 import { PrizmInputStatusTextDirective } from '../input-status-text/input-status-text.directive';
 import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '../models/prizm-input.models';
@@ -25,7 +27,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 @Component({
   selector: 'prizm-input-layout',
   templateUrl: './input-layout.component.html',
-  styleUrls: ['./input-layout.component.less'],
+  styleUrls: ['./input-layout.component.less', './input-layout-hidden-control.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
@@ -47,6 +49,10 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
   @Input() forceClear: boolean | null = null;
   @Output() clear = new EventEmitter<MouseEvent>();
 
+  @HostBinding('class.has-hidden-control') get hasHiddenControl() {
+    return this.control.hidden;
+  }
+
   get showClearButton(): boolean {
     return typeof this.forceClear === 'boolean'
       ? this.forceClear
@@ -63,6 +69,9 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
   @HostBinding('class.disabled') get disabled() {
     return this.control.disabled;
   }
+  private readonly innerClick$$ = new Subject<MouseEvent>();
+  public readonly innerClick$ = this.innerClick$$.asObservable();
+
   private readonly cdr: ChangeDetectorRef = this.injector.get(ChangeDetectorRef);
   private readonly destroy$: PrizmDestroyService = this.injector.get(PrizmDestroyService);
 
@@ -148,5 +157,9 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
 
     this.statusIcon = statusIcon;
     this.statusMessage = this.inputStatusText?.getStatusMessage() || '';
+  }
+
+  protected innerClick(event: MouseEvent) {
+    this.innerClick$$.next(event);
   }
 }

@@ -285,6 +285,11 @@ export const pages: PrizmOrderedDocPage = [
     title: 'Inputs',
     subPages: [
       {
+        title: 'InputMultiSelect',
+        keywords: 'input-multi-select, multi-select, form',
+        route: '/components/input-multi-select',
+      },
+      {
         title: 'InputDateTime',
         keywords: 'input-date-time, date-time, form',
         route: '/components/input-date-time',

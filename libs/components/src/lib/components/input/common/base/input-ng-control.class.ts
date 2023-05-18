@@ -2,9 +2,9 @@ import { ChangeDetectorRef, Directive, Injector, OnInit } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NgControl } from '@angular/forms';
 import { PrizmInputControl } from './input-control.class';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputLayoutComponent } from '../input-layout';
-import { noop } from 'rxjs';
+import { concat, noop, Observable, of } from 'rxjs';
 
 @Directive()
 export abstract class PrizmInputNgControl<T>
@@ -20,7 +20,7 @@ export abstract class PrizmInputNgControl<T>
 
   private val: T = null;
   set value(val: T) {
-    this.val = val;
+    this.val = val ?? this.getFallbackValue();
     this.onChange(val);
     this.onTouch(val);
   }
@@ -32,8 +32,16 @@ export abstract class PrizmInputNgControl<T>
     return this.isEmpty(this.value);
   }
 
+  get value$(): Observable<T> {
+    return concat(of(this.value), this.ngControl.valueChanges);
+  }
+
   public isEmpty(value: T): boolean {
     return !value;
+  }
+
+  protected getFallbackValue(): T {
+    return null;
   }
 
   get required() {

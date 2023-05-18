@@ -113,7 +113,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
 
   @Output() enter = new EventEmitter<any>();
   // eslint-disable-next-line @angular-eslint/no-output-on-prefix
-  @Output() onClear = new EventEmitter<void>();
+  @Output() onClear = new EventEmitter<MouseEvent>();
 
   @Output() valueChanged = new EventEmitter<any>();
   /**
@@ -236,7 +236,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
     this.invalid = this.ngControl && this.ngControl.invalid;
   }
 
-  public clear(): void {
+  public clear(event: MouseEvent): void {
     if (this.disabled) return;
 
     this.ngControl?.control.setValue('');
@@ -250,7 +250,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
     this.focus();
 
     this.stateChanges.next();
-    this.onClear.emit();
+    this.onClear.emit(event);
     this.valueChanged.next('');
 
     this.elementRef.nativeElement.dispatchEvent(

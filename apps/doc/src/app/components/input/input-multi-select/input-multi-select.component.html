@@ -1,0 +1,270 @@
+<prizm-doc-page header="InputMultiSelect">
+  <div class="page-description" description>
+    InputMultiSelect is a component that allows users to select multiple options from a predefined list. It
+    provides a user-friendly interface for making multiple selections and is commonly used in forms and data
+    entry scenarios. With InputMultiSelect, users can easily choose multiple items by clicking or tapping on
+    the options. The selected items are visually highlighted, providing clear feedback to the user.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
+      <prizm-multi-select-base-example></prizm-multi-select-base-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="with-search" heading="With Search" [content]="exampleWithSearch">
+      <prizm-multi-select-with-search-example></prizm-multi-select-with-search-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="with-template" heading="With Template" [content]="exampleWithTemplate">
+      <prizm-multi-select-with-template-example></prizm-multi-select-with-template-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="with-object" heading="With Object" [content]="exampleWithObject">
+      <prizm-multi-select-with-object-example></prizm-multi-select-with-object-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="validators" heading="Validators" [content]="exampleValidators">
+      <prizm-multi-select-validators-example></prizm-multi-select-validators-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-input-layout
+        #inputElement
+        [prizmDocHostElement]="inputElement"
+        [prizmDocHostElementKey]="layoutKey"
+        [size]="size"
+        [label]="label"
+        [outer]="outer"
+        [border]="border"
+        [position]="inputPosition"
+        [status]="status"
+        [forceClear]="forceClear"
+      >
+        <prizm-input-multi-select
+          #element
+          [prizmDocHostElement]="element"
+          [prizmDocHostElementKey]="selectKey"
+          selectAllItem="Выбрать все"
+          [placeholder]="placeholder"
+          [formControl]="valueControl"
+          [items]="items"
+        >
+        </prizm-input-multi-select>
+      </prizm-input-layout>
+    </prizm-doc-demo>
+
+    <prizm-doc-documentation [heading]="layoutKey" [hostComponentKey]="layoutKey">
+      <ng-template
+        documentationPropertyName="forceClear"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="forceClearVariants"
+        [(documentationPropertyValue)]="forceClear"
+      >
+        Show clear button
+      </ng-template>
+      <ng-template
+        documentationPropertyName="outer"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="outer"
+      >
+        Outer
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmInputSize"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="label"
+      >
+        Label
+      </ng-template>
+      <ng-template
+        documentationPropertyName="clear"
+        documentationPropertyType="MouseEvent"
+        documentationPropertyMode="output"
+      >
+        Clear
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="border"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="border"
+      >
+        Border
+      </ng-template>
+      <ng-template
+        documentationPropertyName="status"
+        documentationPropertyType="PrizmInputStatus"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="status"
+        [documentationPropertyValues]="statuses"
+      >
+        Status
+      </ng-template>
+      <ng-template
+        documentationPropertyName="position"
+        documentationPropertyType="PrizmInputPosition"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="inputPosition"
+        [documentationPropertyValues]="inputPositionVariants"
+      >
+        Position
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation [heading]="selectKey" [hostComponentKey]="selectKey" [control]="control">
+      <ng-template
+        documentationPropertyName="icon"
+        documentationPropertyType="PolymorphContent<PrizmSelectIconContext>"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="icon"
+        [documentationPropertyValues]="iconVariants"
+      >
+        Icon
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="selectAllItem"
+        documentationPropertyType="T | null"
+        documentationPropertyMode="input"
+      >
+        select All Item
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="isChipsDeletable"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="isChipsDeletable"
+      >
+        Chips Deletable
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="identityMatcher"
+        documentationPropertyType="PrizmSelectIdentityMatcher"
+        documentationPropertyMode="input"
+      >
+        Identity Matcher
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="stringify"
+        documentationPropertyType="PrizmSelectIdentityMatcher"
+        documentationPropertyMode="input"
+      >
+        Stringify
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="searchMatcher"
+        documentationPropertyType="PrizmSelectSearchMatcher"
+        documentationPropertyMode="input"
+      >
+        Search matcher (use for custom search)
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="items"
+        documentationPropertyType="T[]"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="items"
+        [documentationPropertyValues]="itemsVariants"
+      >
+        Items
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="valueTemplate"
+        documentationPropertyType="PolymorphContent"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="valueTemplate"
+      >
+        Value Template
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="searchable"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="searchable"
+      >
+        Searchable
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="minDropdownHeight"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="minDropdownHeight"
+      >
+        Min Dropdown Height
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="dropdownWidth"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="dropdownWidth"
+      >
+        Dropdown Width
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="maxDropdownHeight"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="maxDropdownHeight"
+      >
+        Max Dropdown Height
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="placeholder"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="placeholder"
+      >
+        Placeholder
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="emptyContent"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="emptyContent"
+      >
+        Empty Content
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmInputMultiSelectModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

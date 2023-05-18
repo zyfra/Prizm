@@ -1,0 +1,123 @@
+<prizm-dropdown-host
+  #dropdownHostRef
+  [content]="dropdown"
+  [isOpen]="opened$ | async"
+  (isOpenChange)="opened$$.next($event)"
+  [prizmDropdownHost]="layoutComponent.el.nativeElement"
+  [prizmDropdownHostWidth]="dropdownWidth"
+  [prizmDropdownMinHeight]="minDropdownHeight"
+  [prizmDropdownMaxHeight]="maxDropdownHeight"
+  [ngSwitch]="layoutComponent.outer"
+>
+  <input
+    prizmInput
+    [style.display]="layoutComponent.outer ? 'none' : ''"
+    [style.visibility]="layoutComponent.outer ? 'none' : 'hidden'"
+    #focusableElementRef
+    (onClear)="clear($event)"
+    [disabled]="disabled"
+    [readonly]="false"
+    [placeholder]="'abc'"
+    [ngModel]="($any(value) | prizmCallFunc : stringify) ?? ''"
+  />
+
+  <ng-template #dropdown>
+    <prizm-data-list
+      *prizmLet="{ filteredItems: filteredItems$ | async } as $"
+      class="block"
+      [style.--prizm-data-list-border]="0"
+    >
+      <div class="list-search-item" *ngIf="searchable">
+        <prizm-input-layout size="m" label="Поиск">
+          <input prizmInput prizmAutoFocus class="input-search" #input [formControl]="searchInputControl" />
+          <button prizmInputIconButton="sort-zoom-in" prizm-input-right [interactive]="true"></button>
+        </prizm-input-layout>
+      </div>
+      <ng-container *ngIf="$.filteredItems?.length; else emptyTemplate">
+        <div
+          class="item"
+          [class.selected]="item.checked"
+          [class.most-relevant]="searchable && searchInputControl.value && idx === 0"
+          *ngFor="let item of $.filteredItems; let idx = index"
+          #parent
+        >
+          <prizm-checkbox
+            [checked]="item.checked"
+            [host]="parent"
+            [indeterminate]="!!item.indeterminate"
+            (changed)="select(item)"
+          >
+            <div
+              class="text"
+              #elem
+              *prizmLet="item | prizmCallFunc : stringify : $any(emptyContent) as text"
+              [prizmHint]="text"
+              [prizmHintDirection]="direction"
+              [prizmHintCanShow]="elem | prizmCallFunc : prizmIsTextOverflow$ | async"
+            >
+              <ng-container
+                *polymorphOutlet="
+                  valueTemplate as content;
+                  context: {
+                    $implicit: {
+                      obj: item.obj,
+                      checked: item.checked,
+                      stringify: item | prizmCallFunc : stringify
+                    }
+                  } as context
+                "
+              >
+                {{ text }}
+              </ng-container>
+            </div>
+          </prizm-checkbox>
+        </div>
+      </ng-container>
+      <ng-template #emptyTemplate>
+        <ng-container *polymorphOutlet="emptyContent as data">
+          <div class="empty-template">{{ emptyContent }}</div>
+        </ng-container>
+      </ng-template>
+    </prizm-data-list>
+  </ng-template>
+</prizm-dropdown-host>
+
+<ng-container *prizmInputLayoutRight>
+  <ng-container
+    *polymorphOutlet="
+      icon || defaultIcon as iconName;
+      context: { opened: opened$ | async, disabled: disabled }
+    "
+  >
+    <prizm-icon
+      *ngIf="!disabled"
+      (click)="safeOpenModal()"
+      [class.opened]="opened$ | async"
+      [class.active]="focused$ | async"
+      [class.icon-dropdown]="iconName === defaultIcon"
+      [iconClass]="$any(iconName)"
+    >
+    </prizm-icon>
+  </ng-container>
+</ng-container>
+
+<ng-container *prizmInputLayoutInBody>
+  <!--  <div class="in-body-chips-box" *ngIf='layoutComponent.outer'>-->
+  <div class="in-body-chips-box">
+    <ng-container [ngTemplateOutlet]="chipsTemplate"> </ng-container>
+  </div>
+</ng-container>
+
+<ng-template #chipsTemplate>
+  <ng-container *prizmLet="selectedItemsChips$ | async as chips">
+    <prizm-chips
+      [class.empty]="!chips.length"
+      [attr.data-size]="layoutComponent.size"
+      [class.inner]="!layoutComponent.outer"
+      [singleLine]="true"
+      [deletable]="!disabled && isChipsDeletable"
+      [chips]="chips"
+      (removeChipEvent)="removeChip($event)"
+    ></prizm-chips>
+  </ng-container>
+</ng-template>

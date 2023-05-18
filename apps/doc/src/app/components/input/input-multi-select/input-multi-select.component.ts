@@ -3,7 +3,9 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PolymorphContent,
   PrizmContextWithImplicit,
+  PrizmInputPosition,
   PrizmInputSize,
+  PrizmInputStatus,
   PrizmScrollbarVisibility,
   PrizmSelectIconContext,
 } from '@prizm-ui/components';
@@ -12,11 +14,20 @@ import { prizmPure } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-multi-select-example',
-  templateUrl: './multi-select.component.html',
-  styleUrls: ['./multi-select.component.less'],
+  templateUrl: './input-multi-select.component.html',
+  styleUrls: ['./input-multi-select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MultiSelectComponent {
+export class InputInputMultiSelectComponent {
+  readonly layoutKey = 'PrizmInputLayoutComponent';
+  readonly selectKey = 'PrizmMultiSelectInputComponent';
+  public border = false;
+  public inputPosition: PrizmInputPosition = 'left';
+  public inputPositionVariants: PrizmInputPosition[] = ['left', 'center'];
+
+  public status: PrizmInputStatus = 'default';
+  public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];
+
   public readOnly = false;
   val1: any[];
   public pseudoInvalid = false;
@@ -92,6 +103,11 @@ export class MultiSelectComponent {
   readonly exampleWithObject: TuiDocExample = {
     TypeScript: import('./examples/with-object/multi-select-with-object-example.component.ts?raw'),
     HTML: import('./examples/with-object/multi-select-with-object-example.component.html?raw'),
+  };
+
+  readonly exampleValidators: TuiDocExample = {
+    TypeScript: import('./examples/validators/multi-select-validators-example.component.ts?raw'),
+    HTML: import('./examples/validators/multi-select-validators-example.component.html?raw'),
   };
 
   readonly exampleWithSearch: TuiDocExample = {
