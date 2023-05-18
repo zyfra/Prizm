@@ -10,7 +10,7 @@ import { PrizmInputStatus } from '../models/prizm-input.models';
   providers: [PrizmDestroyService],
 })
 export class PrizmInputStatusTextDirective extends DefaultInputInvalidTextClass {
-  @Input() enable: boolean = true;
+  @Input() enable = true;
   @Input() status?: PrizmInputStatus;
   public templateRef: TemplateRef<any>;
   public readonly changed: Subject<void> = new Subject<void>();
