@@ -6,6 +6,7 @@ import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputLayoutComponent } from '../input-layout';
 import { concat, noop, Observable, of } from 'rxjs';
 import { PrizmControlValueTransformer } from '../../../../types';
+import { PRIZM_EMPTY_FUNCTION } from '@prizm-ui/core';
 
 @Directive()
 export abstract class PrizmInputNgControl<T>
@@ -16,18 +17,14 @@ export abstract class PrizmInputNgControl<T>
   ngControl!: NgControl;
   readonly changeDetectorRef!: ChangeDetectorRef;
   readonly layoutComponent!: PrizmInputLayoutComponent;
+  private previousInternalValue?: T | null;
 
-  onChange: (val: T) => void = noop;
-  onTouch: (val: T) => void = noop;
+  onChange: (val: T) => void = PRIZM_EMPTY_FUNCTION;
+  onTouch: (val: T) => void = PRIZM_EMPTY_FUNCTION;
+  onTouched = PRIZM_EMPTY_FUNCTION;
 
-  private val: T = null;
-  set value(val: T) {
-    this.val = val ?? this.getFallbackValue();
-    this.onChange(val);
-    this.onTouch(val);
-  }
-  get value() {
-    return this.val;
+  get value(): T {
+    return this.previousInternalValue ?? this.fallbackValue;
   }
 
   public fallbackValue: T | null = null;
@@ -46,10 +43,6 @@ export abstract class PrizmInputNgControl<T>
 
   public isEmpty(value: T): boolean {
     return !value;
-  }
-
-  protected getFallbackValue(): T {
-    return null;
   }
 
   get required() {
@@ -104,10 +97,23 @@ export abstract class PrizmInputNgControl<T>
       )
       .subscribe();
   }
-  public updateValue(value: T) {
-    this.ngControl.control.markAsTouched();
-    this.value = value;
-    this.changeDetectorRef.markForCheck();
+  // public updateValue(value: T) {
+  //   this.ngControl.control.markAsTouched();
+  //   this.value = value;
+  //   this.changeDetectorRef.markForCheck();
+  // }
+
+  protected valueIdenticalComparator(oldValue: T, newValue: T): boolean {
+    return oldValue === newValue;
+  }
+
+  protected updateValue(value: T): void {
+    if (this.disabled || this.valueIdenticalComparator(this.value, value)) {
+      return;
+    }
+
+    this.previousInternalValue = value;
+    this.controlSetValue(value);
   }
 
   public clear(ev: MouseEvent) {
@@ -115,7 +121,6 @@ export abstract class PrizmInputNgControl<T>
   }
 
   public registerOnChange(onChange: any): void {
-    // this.onChange = fn;
     this.onChange = (componentValue: T): void => {
       onChange(this.toControlValue(componentValue));
     };
@@ -126,7 +131,38 @@ export abstract class PrizmInputNgControl<T>
   }
 
   public writeValue(value: T): void {
-    this.value = this.fromControlValue(value);
+    // this.value = this.fromControlValue(value);
+    const controlValue =
+      this.ngControl instanceof NgModel && this.previousInternalValue === undefined
+        ? this.ngControl.model
+        : value;
+
+    this.refreshLocalValue(this.fromControlValue(controlValue));
+  }
+
+  private refreshLocalValue(value: T | null): void {
+    this.previousInternalValue = value;
+    this.checkControlUpdate();
+  }
+
+  protected updateFocused(focused: boolean): void {
+    if (!focused) {
+      this.controlMarkAsTouched();
+    }
+  }
+
+  protected controlMarkAsTouched(): void {
+    this.onTouched();
+    this.checkControlUpdate();
+  }
+
+  private controlSetValue(value: T): void {
+    this.onChange(value);
+    this.checkControlUpdate();
+  }
+
+  public checkControlUpdate(): void {
+    this.changeDetectorRef.markForCheck();
   }
 
   private get rawValue(): T | undefined {

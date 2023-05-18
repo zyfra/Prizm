@@ -67,6 +67,8 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
   readonly hasClearButton = true;
   private month: PrizmMonth | null = null;
 
+  override fallbackValue: [PrizmDay | null, PrizmTime | null] = [null, null];
+
   @ViewChild('focusableElementRef', { read: ElementRef })
   public readonly focusableElement?: ElementRef<HTMLInputElement>;
 
@@ -302,10 +304,6 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     super.writeValue(value);
 
     this.nativeValue = value && (value[0] || value[1]) ? this.computedValue : ``;
-  }
-
-  protected override getFallbackValue(): [PrizmDay | null, PrizmTime | null] {
-    return [null, null];
   }
 
   @prizmPure

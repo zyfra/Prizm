@@ -6,7 +6,6 @@ import {
   ContentChild,
   ElementRef,
   EventEmitter,
-  Host,
   HostBinding,
   Injector,
   Input,
@@ -14,7 +13,6 @@ import {
   OnInit,
   Output,
   SimpleChanges,
-  ViewChild,
 } from '@angular/core';
 import { EMPTY, merge, Subject, timer } from 'rxjs';
 import { PrizmInputControl } from '../base/input-control.class';
@@ -97,7 +95,7 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
       .pipe(
         debounceTime(10),
         tap(() => {
-          this.actualaizeStatusIcon();
+          this.actualizeStatusIcon();
           this.cdr.markForCheck();
         }),
         takeUntil(this.destroy$)
@@ -106,7 +104,7 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
   }
 
   ngAfterViewInit(): void {
-    this.actualaizeStatusIcon();
+    this.actualizeStatusIcon();
 
     merge(this.inputStatusText ? this.inputStatusText.changed.pipe(map(i => this.inputStatusText)) : EMPTY)
       .pipe(
@@ -116,7 +114,7 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
         tap(text => {
           this.foundStatusDirective = text;
           this.statusMessage = text.getStatusMessage();
-          this.actualaizeStatusIcon();
+          this.actualizeStatusIcon();
           this.cdr.detectChanges();
         }),
         takeUntil(this.destroy$)
@@ -134,17 +132,17 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.status) {
-      this.actualaizeStatusIcon();
+      this.actualizeStatusIcon();
     }
   }
 
   public onClearClick(event: MouseEvent): void {
     this.clear.next(event);
     this.control.clear(event);
-    this.actualaizeStatusIcon();
+    this.actualizeStatusIcon();
   }
 
-  private actualaizeStatusIcon(): void {
+  private actualizeStatusIcon(): void {
     let statusIcon: string;
 
     switch (this.correctedStatus) {
@@ -170,7 +168,6 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
     }
 
     this.statusIcon = statusIcon;
-    // this.statusMessage = this.inputStatusText?.getStatusMessage() || '';
   }
 
   protected innerClick(event: MouseEvent) {

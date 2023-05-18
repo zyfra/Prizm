@@ -21,6 +21,7 @@ export class DropdownHostComponent {
   content: PolymorphContent;
 
   autoReposition: boolean;
+  closeOnOutsideClick = true;
 
   placementVariants: ReadonlyArray<PrizmOverlayOutsidePlacement> = [
     ...Object.values(PrizmOverlayOutsidePlacement),

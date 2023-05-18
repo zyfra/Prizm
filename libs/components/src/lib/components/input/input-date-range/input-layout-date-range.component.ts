@@ -110,19 +110,14 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
   @prizmDefaultProp()
   maxLength: PrizmDayLike | null = null;
 
+  open = false;
+
   @HostBinding('attr.data-testid')
   readonly testId = 'ui_input_date_range';
-
-  open = false;
 
   get interactive() {
     return !this.disabled;
   }
-
-  readonly maxLengthMapper: PrizmMapper<PrizmDay, PrizmDay> = PRIZM_MAX_DAY_RANGE_LENGTH_MAPPER;
-  readonly dateFiller$ = this.dateTexts$.pipe(
-    map(dateTexts => prizmChangeDateSeparator(dateTexts[this.dateFormat], this.dateSeparator))
-  );
 
   constructor(
     @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
@@ -154,6 +149,8 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
   public get canOpen(): boolean {
     return this.interactive;
   }
+
+  public closeOnOutsideClick = true;
 
   get computedMask(): string {
     return prizmCreateDateRangeMask(this.dateFormat, this.dateSeparator);
@@ -206,9 +203,6 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
 
   public onValueChange(value: string): void {
     if (value === this.stringValue) return;
-    // if (this.control) {
-    //   this.control.updateValueAndValidity({ emitEvent: false });
-    // }
 
     if (value == null) {
       this.onOpenChange(true);
@@ -225,7 +219,7 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
   }
 
   public onRangeChange(range: PrizmDayRange | null): void {
-    this.toggle();
+    // this.toggle();
     this.focusInput();
 
     if (!range) {
@@ -235,6 +229,8 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
     if (!prizmNullableSame<PrizmDayRange>(this.value, range, (a, b) => a.daySame(b))) {
       this.updateValue(range);
     }
+    this.focusableElement.nativeElement.value = this.stringValue;
+    this.changeDetectorRef.markForCheck();
   }
 
   public onItemSelect(item: string | PrizmDayRangePeriod): void {
@@ -256,10 +252,6 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
   public override writeValue(value: PrizmDayRange | null): void {
     super.writeValue(value);
     this.nativeValue = value ? this.computedValue : ``;
-  }
-
-  private get itemSelected(): boolean {
-    return this.items.findIndex(item => String(item) === this.nativeValue) !== -1;
   }
 
   private toggle(): void {
