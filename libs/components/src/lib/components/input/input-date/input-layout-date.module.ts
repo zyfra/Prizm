@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PrizmInputDateComponent } from './input-date.component';
 import { PolymorphModule } from '../../../directives/polymorph/polymorph.module';
 import { PrizmCalendarModule } from '../../calendar/calendar.module';
 import { PrizmLinkModule } from '../../link/link.module';
@@ -12,6 +11,7 @@ import { PrizmInputTextModule } from '../input-text/input-text.module';
 import { PrizmIconModule } from '../../icon/icon.module';
 import { FormsModule } from '@angular/forms';
 import { PrizmMaskModule } from '../../../modules';
+import { PrizmInputDateComponent } from './input-layout-date.component';
 
 @NgModule({
   imports: [
@@ -29,6 +29,6 @@ import { PrizmMaskModule } from '../../../modules';
     PrizmLetModule,
   ],
   declarations: [PrizmInputDateComponent],
-  exports: [PrizmInputDateComponent],
+  exports: [PrizmInputDateComponent, PrizmInputTextModule],
 })
 export class PrizmInputDateModule {}

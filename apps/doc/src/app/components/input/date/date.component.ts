@@ -1,30 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import {
-  PrizmDay,
-  PrizmInputPosition,
-  PrizmInputSize,
-  PrizmInputStatus,
-  PrizmTime,
-} from '@prizm-ui/components';
+import { PrizmDay, PrizmInputSize, PrizmTime } from '@prizm-ui/components';
 import { UntypedFormControl } from '@angular/forms';
 
 @Component({
-  selector: 'prizm-input-date-example',
-  templateUrl: './input-date.component.html',
-  styleUrls: ['./input-date.component.less'],
+  selector: 'prizm-date-example',
+  templateUrl: './date.component.html',
+  styleUrls: ['./date.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InputDateComponent {
-  public border = false;
-  public inputPosition: PrizmInputPosition = 'left';
-  public inputPositionVariants: PrizmInputPosition[] = ['left', 'center'];
-
-  public status: PrizmInputStatus = 'default';
-  public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];
-
-  readonly layoutKey = 'PrizmInputLayoutComponent';
-  readonly dateKey = 'PrizmInputDateComponent';
+export class DateComponent {
   public readOnly = false;
   val: PrizmDay;
   public pseudoInvalid = false;
@@ -52,17 +37,17 @@ export class InputDateComponent {
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('./examples/base/input-date-base-example.component.ts?raw'),
-    HTML: import('./examples/base/input-date-base-example.component.html?raw'),
+    TypeScript: import('./examples/base/date-base-example.component.ts?raw'),
+    HTML: import('./examples/base/date-base-example.component.html?raw'),
   };
 
   readonly exampleNative: TuiDocExample = {
-    TypeScript: import('./examples/native-date/input-native-date-base-example.component.ts?raw'),
-    HTML: import('./examples/native-date/input-native-date-base-example.component.html?raw'),
+    TypeScript: import('./examples/native-date/native-date-base-example.component.ts?raw'),
+    HTML: import('./examples/native-date/date-base-example.component.html?raw'),
   };
 
   readonly exampleDouble: TuiDocExample = {
-    TypeScript: import('./examples/range-separate/input-date-range-separate-example.component.ts?raw'),
-    HTML: import('./examples/range-separate/input-date-range-separate-example.component.html?raw'),
+    TypeScript: import('./examples/range-separate/date-range-separate-example.component.ts?raw'),
+    HTML: import('./examples/range-separate/date-range-separate-example.component.html?raw'),
   };
 }

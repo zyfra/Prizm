@@ -16,5 +16,8 @@
   <prizm-input-time [formControl]="timeControl" [extraButtonInjector]="injector"></prizm-input-time>
 </ng-template>
 <ng-template #date let-injector="injector">
-  <prizm-input-date [formControl]="dateControl" [extraButtonInjector]="injector"></prizm-input-date>
+  <prizm-input-layout-date
+    [formControl]="dateControl"
+    [extraButtonInjector]="injector"
+  ></prizm-input-layout-date>
 </ng-template>

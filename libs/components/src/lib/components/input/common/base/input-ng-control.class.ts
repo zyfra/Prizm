@@ -1,10 +1,11 @@
 import { ChangeDetectorRef, Directive, Injector, OnInit } from '@angular/core';
-import { AbstractControl, ControlValueAccessor, NgControl } from '@angular/forms';
+import { AbstractControl, ControlValueAccessor, NgControl, NgModel } from '@angular/forms';
 import { PrizmInputControl } from './input-control.class';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { debounceTime, takeUntil, tap } from 'rxjs/operators';
+import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputLayoutComponent } from '../input-layout';
 import { concat, noop, Observable, of } from 'rxjs';
+import { PrizmControlValueTransformer } from '../../../../types';
 
 @Directive()
 export abstract class PrizmInputNgControl<T>
@@ -15,6 +16,7 @@ export abstract class PrizmInputNgControl<T>
   ngControl!: NgControl;
   readonly changeDetectorRef!: ChangeDetectorRef;
   readonly layoutComponent!: PrizmInputLayoutComponent;
+
   onChange: (val: T) => void = noop;
   onTouch: (val: T) => void = noop;
 
@@ -26,6 +28,12 @@ export abstract class PrizmInputNgControl<T>
   }
   get value() {
     return this.val;
+  }
+
+  public fallbackValue: T | null = null;
+
+  get safeCurrentValue(): T {
+    return this.rawValue ?? this.fallbackValue;
   }
 
   get empty() {
@@ -69,7 +77,10 @@ export abstract class PrizmInputNgControl<T>
     return !!this.ngControl?.touched;
   }
 
-  protected constructor(private readonly injector: Injector) {
+  protected constructor(
+    private readonly injector: Injector,
+    readonly valueTransformer?: PrizmControlValueTransformer<T> | null
+  ) {
     super();
 
     this.destroy$ = this.injector.get(PrizmDestroyService);
@@ -94,6 +105,7 @@ export abstract class PrizmInputNgControl<T>
       .subscribe();
   }
   public updateValue(value: T) {
+    this.ngControl.control.markAsTouched();
     this.value = value;
   }
 
@@ -101,8 +113,11 @@ export abstract class PrizmInputNgControl<T>
     this.updateValue(null);
   }
 
-  public registerOnChange(fn: any): void {
-    this.onChange = fn;
+  public registerOnChange(onChange: any): void {
+    // this.onChange = fn;
+    this.onChange = (componentValue: T): void => {
+      onChange(this.toControlValue(componentValue));
+    };
   }
 
   public registerOnTouched(fn: any) {
@@ -110,6 +125,29 @@ export abstract class PrizmInputNgControl<T>
   }
 
   public writeValue(value: T): void {
-    this.value = value;
+    this.value = this.fromControlValue(value);
+  }
+
+  private get rawValue(): T | undefined {
+    const { ngControl } = this;
+
+    if (ngControl === null) {
+      return undefined;
+    }
+
+    const controlValue =
+      ngControl instanceof NgModel /*&& this.previousInternalValue === undefined*/
+        ? ngControl.viewModel
+        : ngControl.value;
+
+    return this.fromControlValue(controlValue);
+  }
+
+  private fromControlValue(controlValue: unknown): T {
+    return this.valueTransformer ? this.valueTransformer.fromControlValue(controlValue) : (controlValue as T);
+  }
+
+  private toControlValue(componentValue: T): unknown {
+    return this.valueTransformer ? this.valueTransformer.toControlValue(componentValue) : componentValue;
   }
 }
