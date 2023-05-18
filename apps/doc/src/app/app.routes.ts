@@ -474,6 +474,16 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/input-layout-month-range',
+    loadChildren: () =>
+      import('./components/input/input-layout-month-range/input-layout-month-range.module').then(
+        i => i.InputLayoutMonthRangeRangeModule
+      ),
+    data: {
+      title: 'Input Layout Month Range',
+    },
+  },
+  {
     path: 'components/input-layout-date-time-range',
     loadChildren: () =>
       import('./components/input/input-layout-date-time-range/input-layout-date-time-range.module').then(

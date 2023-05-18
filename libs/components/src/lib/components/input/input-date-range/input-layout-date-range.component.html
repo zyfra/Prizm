@@ -56,6 +56,7 @@
   <button
     prizmInputIconButton="date-calendar-range"
     [interactive]="true"
+    [disabled]="disabled"
     (click)="focusableElementRef.focus(); onOpenChange(true)"
   ></button>
 </ng-container>

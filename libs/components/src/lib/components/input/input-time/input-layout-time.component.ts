@@ -1,6 +1,5 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   ElementRef,
   forwardRef,
@@ -8,20 +7,15 @@ import {
   Inject,
   Injector,
   Input,
-  Optional,
-  Self,
   ViewChild,
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PrizmTime } from '../../../@core/date-time/time';
-import { AbstractPrizmNullableControl } from '../../../abstract/nullable-control';
 import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
 import { prizmDefaultProp, prizmPure } from '@prizm-ui/core';
 import { PRIZM_FIXED_DROPDOWN_CONTROLLER_PROVIDER } from '../../../providers/specific-dropdown-controllers';
-import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens/focusable-item-accessor';
-import { PrizmFocusableElementAccessor } from '../../../types/focusable-element-accessor';
 import { PrizmBooleanHandler } from '../../../types/handler';
 import { PRIZM_INPUT_TIME_OPTIONS, PrizmInputTimeOptions } from './input-time-options';
 import { PRIZM_TIME_TEXTS } from '../../../tokens/i18n';
@@ -29,12 +23,9 @@ import { PrizmTimeMode } from '../../../types/time-mode';
 import { prizmCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
 import { PRIZM_STRICT_MATCHER } from '../../../constants/matcher';
 import { PrizmTimeLike } from '../../../types/time-like';
-import { prizmSetNativeFocused } from '../../../util/set-native-focused';
-import { PrizmInputSize } from '../common/models/prizm-input.models';
 import { prizmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
-import { prizmIsNativeFocused } from '../../../util';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl, PrizmInputNgControl } from '../common';
 
