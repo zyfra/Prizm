@@ -16,13 +16,13 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
-import { Subject, timer } from 'rxjs';
+import { EMPTY, merge, Subject, timer } from 'rxjs';
 import { PrizmInputControl } from '../base/input-control.class';
 import { PrizmInputStatusTextDirective } from '../input-status-text/input-status-text.directive';
 import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '../models/prizm-input.models';
-import { debounceTime, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PolymorphContent } from '../../../../directives/polymorph';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
 
 @Component({
   selector: 'prizm-input-layout',
@@ -78,6 +78,14 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
   private readonly cdr: ChangeDetectorRef = this.injector.get(ChangeDetectorRef);
   private readonly destroy$: PrizmDestroyService = this.injector.get(PrizmDestroyService);
 
+  private foundStatusDirective: PrizmInputStatusTextDirective;
+
+  get correctedStatus() {
+    return this.foundStatusDirective?.status && this.foundStatusDirective.enable
+      ? this.foundStatusDirective.status
+      : this.status;
+  }
+
   get showStatusButton(): boolean {
     return this.status !== 'default' || (this.control.invalid && this.control.touched);
   }
@@ -89,7 +97,7 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
       .pipe(
         debounceTime(10),
         tap(() => {
-          this.actualaizeStatus();
+          this.actualaizeStatusIcon();
           this.cdr.markForCheck();
         }),
         takeUntil(this.destroy$)
@@ -98,19 +106,22 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
   }
 
   ngAfterViewInit(): void {
-    this.actualaizeStatus();
+    this.actualaizeStatusIcon();
 
-    if (this.inputStatusText) {
-      this.inputStatusText.changed
-        .pipe(
-          tap(() => {
-            this.statusMessage = this.inputStatusText.getStatusMessage();
-            this.cdr.detectChanges();
-          }),
-          takeUntil(this.destroy$)
-        )
-        .subscribe();
-    }
+    merge(this.inputStatusText ? this.inputStatusText.changed.pipe(map(i => this.inputStatusText)) : EMPTY)
+      .pipe(
+        startWith(this.control.statusText),
+        map(i => i ?? this.control.statusText),
+        filterTruthy(),
+        tap(text => {
+          this.foundStatusDirective = text;
+          this.statusMessage = text.getStatusMessage();
+          this.actualaizeStatusIcon();
+          this.cdr.detectChanges();
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
 
     // NEED for get view children from nested controll
     timer(0)
@@ -123,20 +134,20 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.status) {
-      this.actualaizeStatus();
+      this.actualaizeStatusIcon();
     }
   }
 
   public onClearClick(event: MouseEvent): void {
     this.clear.next(event);
     this.control.clear(event);
-    this.actualaizeStatus();
+    this.actualaizeStatusIcon();
   }
 
-  private actualaizeStatus(): void {
+  private actualaizeStatusIcon(): void {
     let statusIcon: string;
 
-    switch (this.status) {
+    switch (this.correctedStatus) {
       case 'warning':
         statusIcon = 'alerts-warning';
         break;
@@ -159,7 +170,7 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
     }
 
     this.statusIcon = statusIcon;
-    this.statusMessage = this.inputStatusText?.getStatusMessage() || '';
+    // this.statusMessage = this.inputStatusText?.getStatusMessage() || '';
   }
 
   protected innerClick(event: MouseEvent) {

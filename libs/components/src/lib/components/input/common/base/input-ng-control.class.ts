@@ -78,7 +78,7 @@ export abstract class PrizmInputNgControl<T>
   }
 
   protected constructor(
-    private readonly injector: Injector,
+    protected readonly injector: Injector,
     readonly valueTransformer?: PrizmControlValueTransformer<T> | null
   ) {
     super();

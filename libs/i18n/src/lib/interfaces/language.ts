@@ -10,6 +10,11 @@ export interface PrizmLanguageFileUpload {
     dropzone__description: string;
   };
 }
+export interface PrizmLanguageInputLayoutDateRelative {
+  inputLayoutDateRelative: {
+    wrongFormat: string;
+  };
+}
 export interface PrizmLanguageCron {
   cron: {
     title: string;
@@ -183,4 +188,5 @@ export interface PrizmLanguage
     PrizmLanguagePreview,
     PrizmLanguageMeta,
     PrizmLanguageCron,
+    PrizmLanguageInputLayoutDateRelative,
     PrizmLanguageFileUpload {}

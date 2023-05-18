@@ -1,7 +1,12 @@
 import { InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PrizmDateMode } from '../types/date-mode';
-import { prizmExtractI18n, PrizmLanguageCron, PrizmLanguageFileUpload } from '@prizm-ui/i18n';
+import {
+  prizmExtractI18n,
+  PrizmLanguageCron,
+  PrizmLanguageFileUpload,
+  PrizmLanguageInputLayoutDateRelative,
+} from '@prizm-ui/i18n';
 
 export const PRIZM_FILE_UPLOAD = new InjectionToken<Observable<PrizmLanguageFileUpload['fileUpload']>>(
   `Localized for file upload component`,
@@ -9,6 +14,11 @@ export const PRIZM_FILE_UPLOAD = new InjectionToken<Observable<PrizmLanguageFile
     factory: prizmExtractI18n(`fileUpload`),
   }
 );
+export const PRIZM_INPUT_LAYOUT_DATE_RELATIVE = new InjectionToken<
+  Observable<PrizmLanguageInputLayoutDateRelative['inputLayoutDateRelative']>
+>(`Localized for input layout date relative component`, {
+  factory: prizmExtractI18n(`inputLayoutDateRelative`),
+});
 export const PRIZM_CRON = new InjectionToken<Observable<PrizmLanguageCron['cron']>>(
   `Localized for cron component`,
   {
