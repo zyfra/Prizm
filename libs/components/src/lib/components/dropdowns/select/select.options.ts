@@ -8,11 +8,19 @@ export type PrizmSelectIconContext = { opened: boolean; disabled: boolean };
 export interface PrizmSelectOptions<T> {
   readonly items: unknown[];
   readonly searchable: boolean;
+  /**
+   * @deprecated
+   * */
   readonly forceClear: boolean | null;
   readonly icon: PolymorphContent<PrizmSelectIconContext>;
-
+  /**
+   * @deprecated
+   * */
   readonly label: string;
   readonly placeholder: string;
+  /**
+   * @deprecated
+   * */
   readonly size: PrizmInputSize;
   readonly search: string | null;
   readonly stringify: PrizmSelectStringify<T>;
@@ -21,6 +29,9 @@ export interface PrizmSelectOptions<T> {
   readonly searchMatcher: PrizmSelectSearchMatcher<T>;
   readonly identityMatcher: PrizmSelectIdentityMatcher<T>;
   readonly minDropdownHeight: number;
+  /**
+   * @deprecated
+   * */
   readonly outer: boolean;
   readonly maxDropdownHeight: number;
   readonly dropdownWidth: string;
@@ -37,6 +48,7 @@ export const PRIZM_SELECT_DEFAULT_OPTIONS: PrizmSelectOptions<unknown> = {
   outer: false,
   search: null,
   icon: 'chevrons-dropdown',
+
   forceClear: null,
   dropdownWidth: '100%',
   minDropdownHeight: 0,

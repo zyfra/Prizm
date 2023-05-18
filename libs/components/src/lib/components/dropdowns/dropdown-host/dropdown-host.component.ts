@@ -61,6 +61,9 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
   closeByEsc = false;
 
   @Input()
+  prizmDropdownHost: HTMLElement;
+
+  @Input()
   @prizmDefaultProp()
   prizmDropdownHostWidth?: PrizmDropdownHostWidth = this.options.width;
 
@@ -171,7 +174,7 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
     this.position = new PrizmOverlayRelativePosition({
       placement: this.placement,
       autoReposition: this.autoReposition,
-      element: this.el.nativeElement,
+      element: this.prizmDropdownHost ?? this.el.nativeElement,
     });
     this.overlay = this.prizmOverlayService
       .position(this.position)

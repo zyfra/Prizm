@@ -6,7 +6,7 @@ import { PrizmDocHostElementService } from './host-element.service';
 })
 export class PrizmDocHostElementDirective implements OnInit {
   @Input() prizmDocHostElement: any;
-  @Input() key = 'index';
+  @Input() prizmDocHostElementKey = 'index';
 
   constructor(
     private readonly el: ElementRef,
@@ -14,6 +14,6 @@ export class PrizmDocHostElementDirective implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.hostElementService.setHostElement(this.key, this.prizmDocHostElement);
+    this.hostElementService.setHostElement(this.prizmDocHostElementKey, this.prizmDocHostElement);
   }
 }

@@ -14,7 +14,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { PrizmDestroyService, PrizmFormControlHelpers } from '@prizm-ui/helpers';
-import { UntypedFormControl, NgControl } from '@angular/forms';
+import { NgControl, UntypedFormControl } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
 import { PRIZM_SELECT_OPTIONS, PrizmSelectOptions, PrizmSelectValueContext } from './select.options';
 import { PrizmFocusableElementAccessor, PrizmNativeFocusableElement } from '../../../types';
@@ -37,7 +37,12 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmDropdownHostComponent } from '../dropdown-host';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
 
-// TODO create abstract select component and move to abstract common logic
+/**
+ * @deprecated
+ * use only PrizmSelectInputComponent
+ * will be removed after ng 15 update
+ * for auto update use our migrator https://prizm.site/forZIIoT/update-from-beta
+ * */
 @Component({
   selector: 'prizm-select',
   templateUrl: './select.component.html',

@@ -42,7 +42,7 @@
 "
   [attr.data-size]="size"
   [ngClass]="{
-    'prizm-input-form-focused': control.focused,
+    'prizm-input-form-focused': !control.disabled && control.focused,
     'prizm-input-form-empty': control.empty,
     'prizm-input-form-disabled': control.disabled,
     'prizm-input-form-touched': control.touched,
@@ -50,14 +50,22 @@
   }"
 >
   <div class="prizm-input-form__first">
-    <ng-content select="[prizm-input-left]" *ngIf="!control.disabled"></ng-content>
+    <ng-container>
+      <ng-container *ngIf="control.layoutLeft?.templateRef as template" [ngTemplateOutlet]="template">
+      </ng-container>
+      <ng-content select="[prizm-input-left]"></ng-content>
+    </ng-container>
 
     <div class="prizm-input-form-inner-container">
       <div class="prizm-input-form-body">
         <ng-container *ngIf="outer; else labelTemplate"></ng-container>
 
         <ng-content></ng-content>
-        <ng-content select="[prizm-input-in-body]"></ng-content>
+        <ng-container>
+          <ng-container *ngIf="control.layoutInBody?.templateRef as template" [ngTemplateOutlet]="template">
+          </ng-container>
+          <ng-content select="[prizm-input-in-body]"></ng-content>
+        </ng-container>
       </div>
 
       <button
@@ -67,6 +75,7 @@
         class="prizm-input-button-default {{ showStatusButton ? '' : 'alone' }}"
         [interactive]="true"
       ></button>
+
       <button
         *ngIf="showStatusButton"
         [prizmInputIconButton]="statusIcon"
@@ -76,11 +85,24 @@
       ></button>
     </div>
 
-    <ng-content select="[prizm-input-right]" *ngIf="!control.disabled"></ng-content>
+    <ng-container>
+      <ng-container *ngIf="control.layoutRight?.templateRef as template" [ngTemplateOutlet]="template">
+      </ng-container>
+      <ng-content select="[prizm-input-right]"></ng-content>
+    </ng-container>
   </div>
-  <ng-content select="[prizm-input-bottom]"></ng-content>
+
+  <ng-container>
+    <ng-container *ngIf="control.layoutBottom?.templateRef as template" [ngTemplateOutlet]="template">
+    </ng-container>
+    <ng-content select="[prizm-input-bottom]"></ng-content>
+  </ng-container>
 </div>
 
 <div class="prizm-input-form-subtext prizm-input-form-subtext-{{ status }}">
-  <ng-content select="[prizm-input-subtext]"></ng-content>
+  <ng-container>
+    <ng-container *ngIf="control.layoutSubtext?.templateRef as template" [ngTemplateOutlet]="template">
+    </ng-container>
+    <ng-content select="[prizm-input-subtext]"></ng-content>
+  </ng-container>
 </div>

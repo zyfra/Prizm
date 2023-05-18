@@ -4,6 +4,7 @@
     prizmInputNumberAuxiliaryControl="decrement"
     prizm-input-left
     [inputNumber]="inputNumber"
+    [disabled]="requiredInputControl.disabled"
     [interactive]="true"
   ></button>
 
@@ -13,7 +14,7 @@
     placeholder="Введите название"
     [min]="0"
     [max]="10"
-    [value]="2"
+    [formControl]="requiredInputControl"
     [step]="2"
     #inputNumber="prizmInputNumber"
   />
@@ -23,6 +24,7 @@
     prizmInputNumberAuxiliaryControl="increment"
     [inputNumber]="inputNumber"
     prizm-input-right
+    [disabled]="requiredInputControl.disabled"
     [interactive]="true"
   ></button>
 </prizm-input-layout>

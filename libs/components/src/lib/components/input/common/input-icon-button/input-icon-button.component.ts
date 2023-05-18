@@ -16,6 +16,10 @@ export class PrizmInputIconButtonComponent {
   @Input() size = 16;
   @Input() prizmInputIconButton: string;
   @Input() interactive = false;
+
+  @HostBinding('class.disabled')
+  @Input()
+  disabled = false;
   @Input()
   @HostBinding('attr.type')
   type: 'button' | 'reset' | 'submit' = 'button';

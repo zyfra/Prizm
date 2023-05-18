@@ -1,25 +1,26 @@
 import {
-  AfterContentInit,
+  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ContentChild,
   ElementRef,
   EventEmitter,
+  HostBinding,
   Injector,
   Input,
   OnChanges,
-  OnDestroy,
   OnInit,
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { timer } from 'rxjs';
 import { PrizmInputControl } from '../base/input-control.class';
 import { PrizmInputStatusTextDirective } from '../input-status-text/input-status-text.directive';
 import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '../models/prizm-input.models';
-import { debounceTime } from 'rxjs/operators';
+import { debounceTime, takeUntil, tap } from 'rxjs/operators';
 import { PolymorphContent } from '../../../../directives/polymorph';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 @Component({
   selector: 'prizm-input-layout',
@@ -30,8 +31,9 @@ import { PolymorphContent } from '../../../../directives/polymorph';
   host: {
     class: 'prizm-input-layout',
   },
+  providers: [PrizmDestroyService],
 })
-export class PrizmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, AfterContentInit {
+export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() label: string;
 
   @Input() size: PrizmInputSize = 'l';
@@ -58,31 +60,53 @@ export class PrizmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, 
   public statusIcon: string;
   public statusMessage: PolymorphContent | null;
 
+  @HostBinding('class.disabled') get disabled() {
+    return this.control.disabled;
+  }
   private readonly cdr: ChangeDetectorRef = this.injector.get(ChangeDetectorRef);
+  private readonly destroy$: PrizmDestroyService = this.injector.get(PrizmDestroyService);
 
-  private subscriptions: Subscription = new Subscription();
-
-  constructor(private readonly injector: Injector, private el: ElementRef) {}
-
-  ngOnInit(): void {
-    this.subscriptions.add(
-      this.control.stateChanges.pipe(debounceTime(10)).subscribe(status => {
-        this.actualaizeStatus();
-        this.cdr.markForCheck();
-      })
-    );
+  get showStatusButton(): boolean {
+    return this.status !== 'default' || (this.control.invalid && this.control.touched);
   }
 
-  ngAfterContentInit(): void {
+  constructor(private readonly injector: Injector, public readonly el: ElementRef<HTMLElement>) {}
+
+  ngOnInit(): void {
+    this.control.stateChanges
+      .pipe(
+        debounceTime(10),
+        tap(() => {
+          this.actualaizeStatus();
+          this.cdr.markForCheck();
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
+  }
+
+  ngAfterViewInit(): void {
     this.actualaizeStatus();
 
-    this.inputStatusText &&
-      this.subscriptions.add(
-        this.inputStatusText.changed.subscribe(() => {
-          this.statusMessage = this.inputStatusText.getStatusMessage();
-          this.cdr.detectChanges();
-        })
-      );
+    if (this.inputStatusText) {
+      this.inputStatusText.changed
+        .pipe(
+          tap(() => {
+            this.statusMessage = this.inputStatusText.getStatusMessage();
+            this.cdr.detectChanges();
+          }),
+          takeUntil(this.destroy$)
+        )
+        .subscribe();
+    }
+
+    // NEED for get view children from nested controll
+    timer(0)
+      .pipe(
+        tap(() => this.cdr.markForCheck()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -91,13 +115,9 @@ export class PrizmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, 
     }
   }
 
-  ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
-  }
-
   public onClearClick(event: MouseEvent): void {
     this.clear.next(event);
-    this.control.clear();
+    this.control.clear(event);
     this.actualaizeStatus();
   }
 
@@ -128,11 +148,5 @@ export class PrizmInputLayoutComponent implements OnInit, OnDestroy, OnChanges, 
 
     this.statusIcon = statusIcon;
     this.statusMessage = this.inputStatusText?.getStatusMessage() || '';
-  }
-
-  get showStatusButton(): boolean {
-    return (
-      !this.control.disabled && (this.status !== 'default' || (this.control.invalid && this.control.touched))
-    );
   }
 }
