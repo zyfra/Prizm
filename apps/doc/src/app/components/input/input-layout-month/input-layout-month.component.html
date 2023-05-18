@@ -1,0 +1,162 @@
+<prizm-doc-page header="InputLayoutMonth">
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
+      <prizm-input-layout-month-base-example></prizm-input-layout-month-base-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-input-layout
+        #inputElement
+        [prizmDocHostElement]="inputElement"
+        [prizmDocHostElementKey]="layoutKey"
+        [size]="size"
+        [label]="label"
+        [outer]="outer"
+        [border]="border"
+        [position]="inputPosition"
+        [status]="status"
+        [forceClear]="forceClear"
+      >
+        <prizm-input-layout-month
+          #element
+          [prizmDocHostElement]="element"
+          [prizmDocHostElementKey]="controlKey"
+          [formControl]="control"
+          [placeholder]="placeholder"
+        ></prizm-input-layout-month>
+      </prizm-input-layout>
+    </prizm-doc-demo>
+
+    <prizm-doc-documentation [heading]="controlKey" [hostComponentKey]="controlKey" [control]="control">
+      <ng-template
+        documentationPropertyName="placeholder"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="placeholder"
+      >
+        Placeholder
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="extraButtonInjector"
+        documentationPropertyType="Injector"
+        documentationPropertyMode="input"
+      >
+        Injector for nested buttons (use in multi datepicker and similar case)
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="min"
+        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime]"
+        documentationPropertyMode="input"
+      >
+        Min Date
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="max"
+        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime]"
+        documentationPropertyMode="input"
+      >
+        Max Date
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabledItemHandler"
+        documentationPropertyType="PrizmBooleanHandler<PrizmDay>"
+        documentationPropertyMode="input"
+      >
+        Disabled Item Handler
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation [heading]="layoutKey" [hostComponentKey]="layoutKey">
+      <ng-template
+        documentationPropertyName="forceClear"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="forceClearVariants"
+        [(documentationPropertyValue)]="forceClear"
+      >
+        Show clear button
+      </ng-template>
+      <ng-template
+        documentationPropertyName="outer"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="outer"
+      >
+        Outer
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmInputSize"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="label"
+      >
+        Label
+      </ng-template>
+      <ng-template
+        documentationPropertyName="clear"
+        documentationPropertyType="MouseEvent"
+        documentationPropertyMode="output"
+      >
+        Clear
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="border"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="border"
+      >
+        Border
+      </ng-template>
+      <ng-template
+        documentationPropertyName="status"
+        documentationPropertyType="PrizmInputStatus"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="status"
+        [documentationPropertyValues]="statuses"
+      >
+        Status
+      </ng-template>
+      <ng-template
+        documentationPropertyName="position"
+        documentationPropertyType="PrizmInputPosition"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="inputPosition"
+        [documentationPropertyValues]="inputPositionVariants"
+      >
+        Position
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmInputLayoutMonthModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

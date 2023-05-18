@@ -17,14 +17,16 @@
   }
 }
 
-:host-context(.interactive:not(.disabled)) {
-  &:hover {
-    color: var(--prizm-index-plan);
-  }
+:host-context(.interactive) {
+  &:not(.disabled) {
+    &:hover {
+      color: var(--prizm-index-plan);
+    }
 
-  &:focus {
-    color: var(--prizm-index-plan);
-    text-shadow: 0 0 1px var(--prizm-index-plan);
+    &:focus {
+      color: var(--prizm-index-plan);
+      text-shadow: 0 0 1px var(--prizm-index-plan);
+    }
   }
 
   color: var(--prizm-border-icon);
