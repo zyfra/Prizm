@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { InputDateMultiRelativeComponent } from './input-date-multi.component';
 import {
   PolymorphModule,
-  PrizmInputDateModule,
+  PrizmInputLayoutDateModule,
   PrizmInputDateMultiModule,
   PrizmInputDateRelativeModule,
   PrizmInputDateTimeModule,
@@ -24,7 +24,7 @@ import { PrizmInputDateMultiFourExampleComponent } from './examples/four/input-d
     PolymorphModule,
     PrizmInputDateMultiModule,
     PrizmInputDateTimeModule,
-    PrizmInputDateModule,
+    PrizmInputLayoutDateModule,
     PrizmInputTimeModule,
     PrizmInputDateRelativeModule,
     RouterModule.forChild(prizmDocGenerateRoutes(InputDateMultiRelativeComponent)),

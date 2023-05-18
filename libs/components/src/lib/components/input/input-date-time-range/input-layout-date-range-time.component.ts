@@ -133,17 +133,7 @@ export class PrizmInputLayoutDateTimeRangeComponent extends PrizmInputNgControl<
   }
 
   public onOpenChange(val: boolean, component: PrizmInputLayoutDateRangeComponent): void {
-    timer(0)
-      .pipe(
-        tap(() => {
-          component.onOpenChange(val);
-          // component.onOpenChange.bind(component)(val);
-          // component.focusableElement?.nativeElement?.click();
-
-          // this.changeDetectorRef.detectChanges();
-        })
-      )
-      .subscribe();
+    component.onOpenChange(val);
   }
 
   protected valueChanged(

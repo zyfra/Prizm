@@ -419,16 +419,18 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/date',
+    path: 'components/input-date',
     loadChildren: () => import('./components/input/date/date.module').then(i => i.DateModule),
     data: {
-      title: 'Date',
+      title: 'InputDate',
     },
   },
   {
-    path: 'components/input-date',
+    path: 'components/input-layout-date',
     loadChildren: () =>
-      import('./components/input/input-date/input-date.module').then(i => i.InputDateModule),
+      import('./components/input/input-layout-date/input-layout-date.module').then(
+        i => i.InputLayoutDateModule
+      ),
     data: {
       title: 'InputDate',
     },

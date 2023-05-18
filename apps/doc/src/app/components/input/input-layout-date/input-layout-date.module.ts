@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
-import { InputDateComponent } from './input-date.component';
-import { PolymorphModule, PrizmDateModule, PrizmInputDateModule } from '@prizm-ui/components';
+import { InputLayoutDateComponent } from './input-layout-date.component';
+import { PolymorphModule, PrizmInputLayoutDateModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PrizmInputDateBaseExampleComponent } from './examples/base/input-date-base-example.component';
+import { PrizmInputLayoutDateBaseExampleComponent } from './examples/base/input-layout-date-base-example.component';
 import { PrizmInputNativeDateBaseExampleComponent } from './examples/native-date/input-native-date-base-example.component';
-import { PrizmInputDateSeparateExampleComponent } from './examples/range-separate/input-date-range-separate-example.component';
+import { PrizmInputLayoutDateSeparateExampleComponent } from './examples/range-separate/input-layout-date-range-separate-example.component';
 
 @NgModule({
   imports: [
@@ -16,15 +16,15 @@ import { PrizmInputDateSeparateExampleComponent } from './examples/range-separat
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PrizmInputDateModule,
-    RouterModule.forChild(prizmDocGenerateRoutes(InputDateComponent)),
+    PrizmInputLayoutDateModule,
+    RouterModule.forChild(prizmDocGenerateRoutes(InputLayoutDateComponent)),
   ],
   declarations: [
-    PrizmInputDateBaseExampleComponent,
-    PrizmInputDateSeparateExampleComponent,
+    PrizmInputLayoutDateBaseExampleComponent,
+    PrizmInputLayoutDateSeparateExampleComponent,
     PrizmInputNativeDateBaseExampleComponent,
-    InputDateComponent,
+    InputLayoutDateComponent,
   ],
-  exports: [InputDateComponent],
+  exports: [InputLayoutDateComponent],
 })
-export class InputDateModule {}
+export class InputLayoutDateModule {}

@@ -97,11 +97,6 @@ export abstract class PrizmInputNgControl<T>
       )
       .subscribe();
   }
-  // public updateValue(value: T) {
-  //   this.ngControl.control.markAsTouched();
-  //   this.value = value;
-  //   this.changeDetectorRef.markForCheck();
-  // }
 
   protected valueIdenticalComparator(oldValue: T, newValue: T): boolean {
     return oldValue === newValue;

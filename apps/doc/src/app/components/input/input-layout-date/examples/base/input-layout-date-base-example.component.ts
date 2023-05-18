@@ -3,8 +3,8 @@ import { UntypedFormControl } from '@angular/forms';
 import { PrizmDay } from '@prizm-ui/components';
 
 @Component({
-  selector: 'prizm-input-date-base-example',
-  templateUrl: './input-date-base-example.component.html',
+  selector: 'prizm-input-layout-date-base-example',
+  templateUrl: './input-layout-date-base-example.component.html',
   styles: [
     `
       .box {
@@ -14,6 +14,6 @@ import { PrizmDay } from '@prizm-ui/components';
     `,
   ],
 })
-export class PrizmInputDateBaseExampleComponent {
+export class PrizmInputLayoutDateBaseExampleComponent {
   public readonly control = new UntypedFormControl(new PrizmDay(2017, 0, 15));
 }

@@ -306,7 +306,7 @@ export const pages: PrizmOrderedDocPage = [
       },
       {
         title: 'InputDateTimeRange',
-        keywords: 'input-date-time-range, date-time-range, form',
+        keywords: 'input-date-time-range, deprecated, date-time-range, form',
         route: '/components/input-date-time-range',
       },
       {
@@ -326,14 +326,14 @@ export const pages: PrizmOrderedDocPage = [
         route: '/components/input-layout-time',
       },
       {
-        title: 'Date',
-        keywords: 'date, form',
-        route: '/components/date',
+        title: 'InputDate',
+        keywords: 'input-date, deprecated, form',
+        route: '/components/input-date',
       },
       {
-        title: 'InputDate',
-        keywords: 'input-date, date, input, form',
-        route: '/components/input-date',
+        title: 'InputLayoutDate',
+        keywords: 'input-layout-date, date, input, form',
+        route: '/components/input-layout-date',
       },
       {
         title: 'InputMonth',
@@ -362,7 +362,7 @@ export const pages: PrizmOrderedDocPage = [
       },
       {
         title: 'InputDateRelative',
-        keywords: 'input-date-relative, date-relative, отностительный, дата, пикер, form',
+        keywords: 'input-date-relative, date-relative, deprecated, отностительный, дата, пикер, form',
         route: '/components/input-date-relative',
       },
       {
