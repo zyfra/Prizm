@@ -36,7 +36,7 @@
 <div
   [class.hide-border]="!border"
   class="prizm-input-form
-  prizm-input-form-status-{{ status }}
+  prizm-input-form-status-{{ correctedStatus }}
   prizm-input-form-{{ outer ? 'outer' : 'inner' }}
   prizm-input-form-{{ position }}
   prizm-input-form-{{ outer ? 'outer' : 'inner' }}-{{ position }}
@@ -102,7 +102,7 @@
   </ng-container>
 </div>
 
-<div class="prizm-input-form-subtext prizm-input-form-subtext-{{ status }}">
+<div class="prizm-input-form-subtext prizm-input-form-subtext-{{ correctedStatus }}">
   <ng-container>
     <ng-container *ngIf="control.layoutSubtext?.templateRef as template" [ngTemplateOutlet]="template">
     </ng-container>

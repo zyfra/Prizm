@@ -546,6 +546,16 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/input-layout-date-relative',
+    loadChildren: () =>
+      import('./components/input/input-layout-date-relative/input-layout-date-relative.module').then(
+        i => i.InputLayoutDateRelativeRelativeModule
+      ),
+    data: {
+      title: 'Input Layout Date Relative',
+    },
+  },
+  {
     path: 'components/input-number',
     loadChildren: () =>
       import('./components/input/input-number/input-number-example.module').then(

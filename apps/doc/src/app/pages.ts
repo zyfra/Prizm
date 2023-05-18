@@ -355,6 +355,11 @@ export const pages: PrizmOrderedDocPage = [
         route: '/components/input-date-relative',
       },
       {
+        title: 'InputLayoutDateRelative',
+        keywords: 'input-layout-date-relative, date-relative, отностительный, дата, пикер, form',
+        route: '/components/input-layout-date-relative',
+      },
+      {
         title: 'InputDateMulti',
         keywords: 'input-date-multi, date-multi, мулти, дата, пикер, form',
         route: '/components/input-date-multi',

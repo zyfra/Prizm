@@ -6,9 +6,13 @@ import { PrizmInputLayoutInBodyDirective } from '../input-layout/input-layout-in
 import { PrizmInputLayoutLeftDirective } from '../input-layout/input-layout-left.directive';
 import { PrizmInputLayoutRightDirective } from '../input-layout/input-layout-right.directive';
 import { PrizmInputLayoutSubtextDirective } from '../input-layout/input-layout-subtext.directive';
+import { PrizmInputStatusTextDirective } from '../input-status-text/input-status-text.directive';
 
 @Directive()
 export abstract class PrizmInputControl<T> {
+  // @ViewChild(PrizmInputStatusTextDirective, { static: true })
+  statusText?: PrizmInputStatusTextDirective;
+
   @ViewChild(PrizmInputLayoutBottomDirective)
   public layoutBottom: PrizmInputLayoutBottomDirective | null;
 
