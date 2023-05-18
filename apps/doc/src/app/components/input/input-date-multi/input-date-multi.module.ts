@@ -5,11 +5,11 @@ import { RouterModule } from '@angular/router';
 import { InputDateMultiRelativeComponent } from './input-date-multi.component';
 import {
   PolymorphModule,
-  PrizmInputDateModule,
   PrizmInputDateMultiModule,
-  PrizmInputDateRelativeModule,
-  PrizmInputDateTimeModule,
-  PrizmInputTimeModule,
+  PrizmInputLayoutDateModule,
+  PrizmInputLayoutDateRelativeModule,
+  PrizmInputLayoutDateTimeModule,
+  PrizmInputLayoutTimeModule,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputDateMultiBaseExampleComponent } from './examples/base/input-date-multi-base-example.component';
@@ -23,10 +23,10 @@ import { PrizmInputDateMultiFourExampleComponent } from './examples/four/input-d
     ReactiveFormsModule,
     PolymorphModule,
     PrizmInputDateMultiModule,
-    PrizmInputDateTimeModule,
-    PrizmInputDateModule,
-    PrizmInputTimeModule,
-    PrizmInputDateRelativeModule,
+    PrizmInputLayoutDateTimeModule,
+    PrizmInputLayoutDateModule,
+    PrizmInputLayoutTimeModule,
+    PrizmInputLayoutDateRelativeModule,
     RouterModule.forChild(prizmDocGenerateRoutes(InputDateMultiRelativeComponent)),
   ],
   declarations: [

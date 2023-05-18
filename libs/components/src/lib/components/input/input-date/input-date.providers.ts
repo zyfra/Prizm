@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { PRIZM_CALENDAR_DATA_STREAM } from '../../../tokens/calendar-data-stream';
 import { PRIZM_DATE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { prizmReplayControlValueChangesFactory } from '../../../util/common/replay-control-value-changes-factory';
-import { PrizmDateComponent } from './date.component';
+import { PrizmInputDateComponent } from './date.component';
 import { PRIZM_LEFT_ALIGNED_DROPDOWN_CONTROLLER_PROVIDER } from '../../../providers/specific-dropdown-controllers';
 import { PrizmDay } from '../../../@core/date-time/day';
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
@@ -19,7 +19,7 @@ export const DATE_STREAM_FACTORY = <T extends PrizmDay>(
 export const PRIZM_INPUT_DATE_PROVIDERS = [
   {
     provide: PRIZM_FOCUSABLE_ITEM_ACCESSOR,
-    useExisting: forwardRef(() => PrizmDateComponent),
+    useExisting: forwardRef(() => PrizmInputDateComponent),
   },
   {
     provide: PRIZM_CALENDAR_DATA_STREAM,
@@ -31,7 +31,7 @@ export const PRIZM_INPUT_DATE_PROVIDERS = [
   },
   {
     provide: AbstractPrizmControl,
-    useExisting: forwardRef(() => PrizmDateComponent),
+    useExisting: forwardRef(() => PrizmInputDateComponent),
   },
   PRIZM_LEFT_ALIGNED_DROPDOWN_CONTROLLER_PROVIDER,
 ];

@@ -11,7 +11,7 @@ import { PrizmInputTextModule } from '../input-text/input-text.module';
 import { PrizmIconModule } from '../../icon/icon.module';
 import { FormsModule } from '@angular/forms';
 import { PrizmMaskModule } from '../../../modules';
-import { PrizmInputDateComponent } from './input-layout-date.component';
+import { PrizmInputLayoutDateComponent } from './input-layout-date.component';
 
 @NgModule({
   imports: [
@@ -28,7 +28,7 @@ import { PrizmInputDateComponent } from './input-layout-date.component';
     PrizmValueAccessorModule,
     PrizmLetModule,
   ],
-  declarations: [PrizmInputDateComponent],
-  exports: [PrizmInputDateComponent, PrizmInputTextModule],
+  declarations: [PrizmInputLayoutDateComponent],
+  exports: [PrizmInputLayoutDateComponent, PrizmInputTextModule],
 })
-export class PrizmInputDateModule {}
+export class PrizmInputLayoutDateModule {}
