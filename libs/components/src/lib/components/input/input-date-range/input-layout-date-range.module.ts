@@ -10,11 +10,13 @@ import { PrizmIconModule } from '../../icon/icon.module';
 import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
 import { PrizmMaskModule } from '../../../modules';
 import { PrizmInputLayoutDateRangeComponent } from './input-layout-date-range.component';
+import { PrizmLifecycleModule } from '../../../directives';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmMaskModule,
+    PrizmLifecycleModule,
     PrizmLetModule,
     PolymorphModule,
     PrizmInputTextModule,

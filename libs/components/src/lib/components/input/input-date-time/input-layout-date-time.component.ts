@@ -8,6 +8,7 @@ import {
   Injector,
   Input,
   Optional,
+  TemplateRef,
   ViewChild,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -41,7 +42,7 @@ import { PrizmInputSize } from '../common/models/prizm-input.models';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 import { PRIZM_STRICT_MATCHER } from '../../../constants';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, PrizmLogExecution } from '@prizm-ui/helpers';
 import { PrizmInputControl, PrizmInputNgControl } from '../common';
 
 @Component({
@@ -258,6 +259,15 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     this.changeDetectorRef.markForCheck();
   }
 
+  public getTemplate(
+    openTimeTemplate: TemplateRef<unknown>,
+    dropdownTimeTemplate: TemplateRef<unknown>
+  ): TemplateRef<any> {
+    if (!this.open && !this.openTimeTemplate) return null;
+    if (this.openTimeTemplate) return openTimeTemplate;
+    return dropdownTimeTemplate;
+  }
+
   public onMonthChange(month: PrizmMonth): void {
     this.month = month;
   }
@@ -293,11 +303,6 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
         this.nativeValue = this.nativeValue.slice(0, -1);
       }
     });
-  }
-
-  public setDisabledState(): void {
-    this.ngControl.control.disable();
-    this.open = false;
   }
 
   public override writeValue(value: [PrizmDay | null, PrizmTime | null] | null): void {
@@ -352,11 +357,10 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     ev.preventDefault();
     ev.stopPropagation();
 
-    this.openTimeTemplate = this.open = false;
-
     if (!(this.value[1] && item.isSameTime(this.value[1])))
       this.onDayClick(this.value[0] ?? PrizmDay.currentLocal(), item);
 
+    this.openTimeTemplate = this.open = false;
     this.changeDetectorRef.markForCheck();
   }
 
@@ -376,21 +380,21 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
 
   public openTimeDropdown(open: boolean): void {
     this.openTimeTemplate = open;
+    this.open = false;
     this.changeDetectorRef.markForCheck();
   }
 
   public openDateDropdown(open: boolean): void {
     this.open = open;
-    this.openTimeTemplate = null;
+    this.openTimeTemplate = false;
     this.focusableElement?.nativeElement.focus();
     this.changeDetectorRef.markForCheck();
   }
 
   public override clear(ev: MouseEvent): void {
     ev.stopImmediatePropagation();
-    this.updateValue(null);
+    super.clear(ev);
     this.nativeFocusableElement.value = '';
-
     this.changeDetectorRef.markForCheck();
   }
 }

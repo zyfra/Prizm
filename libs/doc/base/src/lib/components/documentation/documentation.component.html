@@ -179,7 +179,7 @@
     [documentationPropertyValue]="control | prizmCallFunc : getDisabledFromControl$ | async"
     (documentationPropertyValueChange)="updateStateOfControl(control, $any($event))"
   >
-    Disabled
+    Change disabled state of control
   </ng-template>
 
   <ng-template
@@ -190,5 +190,15 @@
     (documentationPropertyValueChange)="updateValueOfControl(control, $any($event))"
   >
     Value
+  </ng-template>
+
+  <ng-template
+    documentationPropertyName="required"
+    documentationPropertyType="boolean"
+    documentationPropertyMode="form-control"
+    [documentationPropertyValue]="control | prizmCallFunc : getRequiredFromControl$ | async"
+    (documentationPropertyValueChange)="updateRequiredValidatorOfControl(control, $any($event))"
+  >
+    Add required validator
   </ng-template>
 </ng-container>

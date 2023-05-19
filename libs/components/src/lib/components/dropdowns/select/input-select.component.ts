@@ -205,6 +205,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   public override clear(ev: MouseEvent): void {
     ev.stopImmediatePropagation();
     this.updateValue(null);
+    this.markAsTouched();
 
     this.changeDetectorRef.markForCheck();
   }

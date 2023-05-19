@@ -19,6 +19,7 @@
   />
   <ng-template #dropdown>
     <prizm-calendar-month
+      (prizmAfterViewInit)="markAsTouched()"
       prizmPreventDefault="mousedown"
       [disabledItemHandler]="disabledItemHandler"
       [min]="min"

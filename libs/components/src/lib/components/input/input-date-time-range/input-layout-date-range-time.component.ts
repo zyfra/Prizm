@@ -153,17 +153,18 @@ export class PrizmInputLayoutDateTimeRangeComponent extends PrizmInputNgControl<
       value = new PrizmDateTimeRange(dayRange);
     }
     this.updateValue(value);
+    this.markAsTouched();
   }
 
   public updateTimeFrom(value: PrizmTime): void {
-    if (this.value.timeRange?.from?.isSameTime(value)) return;
-    this.value.timeRange.from = value;
-    this.updateValue(this.value?.copy());
+    if (value && this.value?.timeRange?.from?.isSameTime(value)) return;
+    const range = PrizmDateTimeRange.safeUpdateTimeFrom(this.value, value);
+    this.updateValue(range?.copy());
   }
 
   public updateTimeTo(value: PrizmTime): void {
-    if (this.value.timeRange?.to?.isSameTime(value)) return;
-    this.value.timeRange.to = value;
-    this.updateValue(this.value?.copy());
+    if (value && this.value?.timeRange?.to?.isSameTime(value)) return;
+    const range = PrizmDateTimeRange.safeUpdateTimeTo(this.value, value);
+    this.updateValue(range?.copy());
   }
 }

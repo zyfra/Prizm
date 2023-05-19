@@ -1,5 +1,9 @@
 @import '../../../../styles/ui-local';
 
+&:host {
+  display: block;
+}
+
 .item {
   display: flex;
   align-items: center;
@@ -24,8 +28,4 @@
   &:hover {
     background: var(--prizm-select-item-hover-background, var(--prizm-bg-dashboard-forms));
   }
-}
-
-:host {
-  display: inline-block;
 }

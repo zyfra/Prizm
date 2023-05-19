@@ -12,7 +12,7 @@
     class="input-search"
     prizmInput
     (click)="safeOpenModal()"
-    (focus)="focused$$.next(true)"
+    (focus)="focused$$.next(true); markAsTouched()"
     (blur)="focused$$.next(false)"
     #focusableElementRef
     [placeholder]="placeholder"
@@ -31,7 +31,7 @@
         <prizm-input-layout size="m" label="Поиск">
           <input
             [ngModel]="printing$.value"
-            (ngModelChange)="printing$.next($event)"
+            (ngModelChange)="dropdownHostRef.reCalculatePositions(1000 / 16); printing$.next($event)"
             prizmInput
             prizmAutoFocus
             class="input-search"
@@ -105,7 +105,7 @@
       (click)="!disabled && focusableElement?.nativeElement.click()"
       [class.disabled]="disabled"
       [class.opened]="opened$ | async"
-      [class.active]="focused$ | async"
+      [class.active]="(focused$ | async) || (opened$ | async)"
       [class.icon-dropdown]="iconName === defaultIcon"
       [iconClass]="$any(iconName)"
     >

@@ -8,12 +8,14 @@ import { PrizmInputLayoutDateRelativeComponent } from './input-layout-date-relat
 import { PrizmInputTextModule } from '../input-text';
 import { PrizmInputLayoutDateRelativeDirective } from './input-layout-date-relative.directive';
 import { PrizmPluckPipeModule } from '@prizm-ui/helpers';
+import { PrizmLifecycleModule } from '../../../directives';
 
 @NgModule({
   declarations: [PrizmInputLayoutDateRelativeComponent, PrizmInputLayoutDateRelativeDirective],
   imports: [
     CommonModule,
     PolymorphModule,
+    PrizmLifecycleModule,
     FormsModule,
     PrizmInputTextModule,
     PrizmPluckPipeModule,

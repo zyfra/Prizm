@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-rc.2](https://github.com/zyfra/Prizm) (19-05-2023)
+
+### Features
+
+- feat(input-layout): add ability to show status messages from controls
+- chore: splitted angular file to seperated project
+- feat(components/dropdown-host): add ability to control auto close on outside click
+- feat(components/select-input): we deprecated old prizm-select, and created new prizm-select-input which you can use with our layout
+- feat(components/input-layout): add support directives from control to support components with dropdown
+- feat(doc/select-input): update api page
+- feat(components/dropdown-host): added new input for add another host instead of default element
+- feat(components/input-layout): change logic appear layers on disabled'
+- feat(components/input-date-time): added new component which supports input layout with new page in docs [160](https://github.com/zyfra/Prizm/issues/160) [185](https://github.com/zyfra/Prizm/issues/185) [66](https://github.com/zyfra/Prizm/issues/66) [155](https://github.com/zyfra/Prizm/issues/155)
+- feat(components/input-date): added new component which supports input layout with new page in docs
+- feat(components/input-multi-select): added new component which supports input layout with new page in docs [115](https://github.com/zyfra/Prizm/issues/115) [159](https://github.com/zyfra/Prizm/issues/159) [184](https://github.com/zyfra/Prizm/issues/184) [243](https://github.com/zyfra/Prizm/issues/243) [202](https://github.com/zyfra/Prizm/issues/202) [161](https://github.com/zyfra/Prizm/issues/161)
+- feat(components/input-time): added new component which supports input layout with new page in docs
+- feat(components/input-date): added new component which supports input layout with new page in docs
+- feat(components/input-month): added new component which supports input layout with new page in docs
+- feat(components/input-month-range): added new component which supports input layout with new page in docs
+- feat(components/input-date-range): added new component which supports input layout with new page in docs
+- feat(docs/input-date-multi): page in doc updated
+- feat(components/input-select): added new component which supports input layout with new page in docs [184](https://github.com/zyfra/Prizm/issues/184) [205](https://github.com/zyfra/Prizm/issues/205) [245](https://github.com/zyfra/Prizm/issues/245) [29](https://github.com/zyfra/Prizm/issues/29)
+- feat(components/input-layout-date-time-range): the overlay window is now closed by clicking in the non-modal window only not when selecting date or time
+- feat(doc/live-demo): added controller to live demo for add/delete required validator
+- feat(components/accordion): dded ability to override padding in prizm-accordion [MR](https://github.com/zyfra/Prizm/pull/271) [262](https://github.com/zyfra/Prizm/issues/262)
+- feat(components/input-layout-\*): added fully sypport input-layout features for new input-layout-\_ components [63](https://github.com/zyfra/Prizm/issues/63) [231](https://github.com/zyfra/Prizm/issues/231)
+
+### BUG FIXES
+
+- fix(components/splitter): there was an error with the gutter at runtime [MR](https://github.com/zyfra/Prizm/pull/271) [266](https://github.com/zyfra/Prizm/issues/266)
+- fix(components/sidebar): deprecated field header was required in PrizmSidebarOptions [MR](https://github.com/zyfra/Prizm/pull/271) [272](https://github.com/zyfra/Prizm/issues/272)
+- fix(components/sidebar): PrizmSidebarService buttons could not be set to disabled state [MR](https://github.com/zyfra/Prizm/pull/271) [261](https://github.com/zyfra/Prizm/issues/261)
+- fix(chore): fixed versions that interfered with the installation of our packages
+- fix(components/input-password): when disabled is true, the "show password" button does not disable.
+- fix(doc/input-text): fix error in api page
+- fix(components/input-layout-date-time): the old flicker time selection bug has been fixed
+
 ## [1.0.0-rc.1](https://github.com/zyfra/Prizm) (11-05-2023)
 
 ### BUG FIXES

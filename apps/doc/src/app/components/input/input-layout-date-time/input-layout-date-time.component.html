@@ -19,42 +19,31 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <!--      <prizm-input-layout-date-time-->
-      <!--        #element-->
-      <!--        [prizmDocHostElement]="element"-->
-      <!--        [formControl]="valueControl"-->
-      <!--        [timeStrict]="timeStrict"-->
-      <!--        [forceClear]="forceClear"-->
-      <!--        [label]="label"-->
-      <!--        [placeholder]="placeholder"-->
-      <!--        [outer]="outer"-->
-      <!--        [timeMode]="timeMode"-->
-      <!--        [size]="size"-->
-      <!--        [(val)]="val"-->
-      <!--        [readOnly]="readOnly"-->
-      <!--        [focusable]="focusable"-->
-      <!--        [pseudoState]="pseudoState"-->
-      <!--      ></prizm-input-layout-date-time>-->
+      <prizm-input-layout
+        #inputElement
+        [prizmDocHostElement]="inputElement"
+        [prizmDocHostElementKey]="layoutKey"
+        [size]="size"
+        [label]="label"
+        [outer]="outer"
+        [border]="border"
+        [position]="inputPosition"
+        [status]="status"
+        [forceClear]="forceClear"
+      >
+        <prizm-input-layout-date-time
+          #element
+          [prizmDocHostElement]="element"
+          [prizmDocHostElementKey]="controlKey"
+          [formControl]="valueControl"
+          [timeStrict]="timeStrict"
+          [placeholder]="placeholder"
+          [timeMode]="timeMode"
+          [size]="size"
+        ></prizm-input-layout-date-time>
+      </prizm-input-layout>
     </prizm-doc-demo>
-    <prizm-doc-documentation [control]="valueControl">
-      <ng-template
-        documentationPropertyName="forceClear"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="forceClearVariants"
-        [(documentationPropertyValue)]="forceClear"
-      >
-        Show clear button
-      </ng-template>
-      <ng-template
-        documentationPropertyName="label"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="label"
-      >
-        Label
-      </ng-template>
-
+    <prizm-doc-documentation [control]="valueControl" [hostComponentKey]="controlKey">
       <ng-template
         documentationPropertyName="placeholder"
         documentationPropertyType="string"
@@ -62,15 +51,6 @@
         [(documentationPropertyValue)]="placeholder"
       >
         Placeholder
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="outer"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="outer"
-      >
-        Outer
       </ng-template>
 
       <ng-template
@@ -151,113 +131,77 @@
       >
         Time Mode
       </ng-template>
-
+    </prizm-doc-documentation>
+    <prizm-doc-documentation [heading]="layoutKey" [hostComponentKey]="layoutKey">
       <ng-template
-        documentationPropertyName="readOnly"
+        documentationPropertyName="forceClear"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="forceClearVariants"
+        [(documentationPropertyValue)]="forceClear"
+      >
+        Show clear button
+      </ng-template>
+      <ng-template
+        documentationPropertyName="outer"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="readOnly"
+        [(documentationPropertyValue)]="outer"
       >
-        Read Only
+        Outer
       </ng-template>
 
       <ng-template
-        documentationPropertyName="val"
-        documentationPropertyType="[PrizmDay, PrizmTime]"
-        documentationPropertyMode="input-output"
-        [(documentationPropertyValue)]="val"
-      >
-        Val
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="pseudoInvalid"
-        documentationPropertyType="boolean | null"
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmInputSize"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoInvalid"
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
       >
-        Pseudo Invalid
+        Size
       </ng-template>
 
       <ng-template
-        documentationPropertyName="pseudoHovered"
-        documentationPropertyType=" boolean | null"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoHovered"
-      >
-        Pseudo Hovered
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="pseudoPressed"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoPressed"
-      >
-        Pseudo Pressed
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="pseudoFocused"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoFocused"
-      >
-        Pseudo Focused
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="focusable"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="focusable"
-      >
-        Focusable
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="pseudoState"
+        documentationPropertyName="label"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoState"
+        [(documentationPropertyValue)]="label"
       >
-        Pseudo State
+        Label
+      </ng-template>
+      <ng-template
+        documentationPropertyName="clear"
+        documentationPropertyType="MouseEvent"
+        documentationPropertyMode="output"
+      >
+        Clear
       </ng-template>
 
       <ng-template
-        documentationPropertyName="focusedChange"
+        documentationPropertyName="border"
         documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-        [(documentationPropertyValue)]="focusedChange"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="border"
       >
-        Focused Change
+        Border
       </ng-template>
-
       <ng-template
-        documentationPropertyName="pressedChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-        [(documentationPropertyValue)]="pressedChange"
+        documentationPropertyName="status"
+        documentationPropertyType="PrizmInputStatus"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="status"
+        [documentationPropertyValues]="statuses"
       >
-        Pressed Change
+        Status
       </ng-template>
-
       <ng-template
-        documentationPropertyName="hoveredChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-        [(documentationPropertyValue)]="hoveredChange"
+        documentationPropertyName="position"
+        documentationPropertyType="PrizmInputPosition"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="inputPosition"
+        [documentationPropertyValues]="inputPositionVariants"
       >
-        Hovered Change
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="focusVisibleChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-        [(documentationPropertyValue)]="focusVisibleChange"
-      >
-        Focus Visible Change
+        Position
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>

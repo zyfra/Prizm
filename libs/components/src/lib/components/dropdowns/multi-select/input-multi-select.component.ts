@@ -117,6 +117,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
 
   override hidden = true;
 
+  readonly button_layout_width = 64;
   @HostBinding('attr.data-testid')
   readonly testId = 'ui-muilti-select';
 
@@ -267,7 +268,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
             const selectedCount = this.value?.length;
             const allItem = this.items$.value?.length;
             const currentlySearching = this.searchInputControl.value;
-            const addSelectAllItem = this.selectAllItem && !currentlySearching;
+            const addSelectAllItem = allItem && this.selectAllItem && !currentlySearching;
 
             return [
               ...((addSelectAllItem ? [this.selectAllItem] : []).map(item => ({
@@ -299,6 +300,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   public override clear(ev: MouseEvent): void {
     ev.stopImmediatePropagation();
     this.updateValue(null);
+    this.markAsTouched();
   }
 
   private isSelectAllItem(item: PrizmMultiSelectItemWithChecked<T>): boolean {

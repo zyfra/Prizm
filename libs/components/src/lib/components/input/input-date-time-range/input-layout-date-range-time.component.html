@@ -8,6 +8,7 @@
   [items]="items"
   [ngModel]="value?.dayRange"
   (ngModelChange)="updateDayRange($event)"
+  [disabled]="disabled"
   [placeholder]="placeholder"
   [min]="min?.day"
   [max]="max?.day"

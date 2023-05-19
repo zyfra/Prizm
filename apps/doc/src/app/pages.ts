@@ -381,7 +381,7 @@ export const pages: PrizmOrderedDocPage = [
         route: '/components/input-date-multi',
       },
       {
-        title: 'InputText',
+        title: 'Input',
         keywords: 'input, text, form',
         route: '/components/input',
       },

@@ -5,8 +5,8 @@
   [isOpen]="isOpen && canOpen"
   [closeByEsc]="true"
   [prizmDropdownHost]="layoutComponent.el.nativeElement"
+  [prizmDropdownHostWidth]="'100%'"
   (isOpenChange)="onOpenChange($event)"
-  prizmDropdownHostWidth="auto"
 >
   <input
     class="input-search"
@@ -21,7 +21,7 @@
 </prizm-dropdown-host>
 
 <ng-template #dropdown>
-  <ul role="listbox" class="prizm-datepicker-relative-menu">
+  <ul role="listbox" (prizmAfterViewInit)="markAsTouched()" class="prizm-datepicker-relative-menu">
     <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: timeItems }"></ng-container>
     <li class="relative-menu-item-divider"></li>
     <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: directionItems }"></ng-container>

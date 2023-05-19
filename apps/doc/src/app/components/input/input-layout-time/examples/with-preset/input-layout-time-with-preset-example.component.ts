@@ -16,5 +16,7 @@ import { PrizmTime } from '@prizm-ui/components';
 })
 export class PrizmInputLayoutTimeWithPresetExampleComponent {
   public readonly value = new UntypedFormControl(new PrizmTime(12, 30, 25, 500));
-  public readonly items = new Array(24).fill(null).map((_, i) => new PrizmTime(i, 0, 0, 0));
+  public readonly items = new Array(48)
+    .fill(null)
+    .map((_, i) => new PrizmTime(Math.floor(i / 2), i % 2 === 0 ? 0 : 30, 0, 0));
 }
