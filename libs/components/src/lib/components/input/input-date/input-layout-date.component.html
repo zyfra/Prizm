@@ -22,6 +22,7 @@
   />
   <ng-template #dropdown>
     <prizm-calendar
+      (prizmAfterViewInit)="markAsTouched()"
       prizmPreventDefault="mousedown"
       automation-id="prizm-input-date__calendar"
       [min]="min"

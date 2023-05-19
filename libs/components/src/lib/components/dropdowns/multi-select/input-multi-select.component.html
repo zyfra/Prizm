@@ -22,6 +22,7 @@
 
   <ng-template #dropdown>
     <prizm-data-list
+      (prizmAfterViewInit)="markAsTouched()"
       *prizmLet="{ filteredItems: filteredItems$ | async } as $"
       class="block"
       [style.--prizm-data-list-border]="0"

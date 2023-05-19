@@ -10,6 +10,7 @@ import { PrizmMaskModule } from '../../../modules/mask/mask.module';
 import { PolymorphModule } from '../../../directives/polymorph';
 import { PrizmInputLayoutMonthComponent } from './input-layout-month.component';
 import { PrizmInputLayoutMonthDirective } from './input-layout-month.directive';
+import { PrizmLifecycleModule } from '../../../directives';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { PrizmInputLayoutMonthDirective } from './input-layout-month.directive';
     PrizmDropdownHostModule,
     PrizmPreventDefaultModule,
     FormsModule,
+    PrizmLifecycleModule,
     PolymorphModule,
     PrizmMaskModule,
     PrizmInputTextModule,

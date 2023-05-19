@@ -200,7 +200,7 @@ export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay>
   public override clear(ev: MouseEvent): void {
     ev.stopImmediatePropagation();
     this.updateValue(null);
-
+    this.markAsTouched();
     this.changeDetectorRef.markForCheck();
   }
 }

@@ -25,6 +25,7 @@
 
   <ng-template #dropdown let-zone="zone">
     <prizm-calendar-range
+      (prizmAfterViewInit)="markAsTouched()"
       [style.--prizm-input-layout-width]="'100%'"
       [style.--prizm-dropdown-host-width]="'100%'"
       [defaultViewedMonth]="defaultViewedMonth"

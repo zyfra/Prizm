@@ -153,6 +153,7 @@ export class PrizmInputLayoutDateTimeRangeComponent extends PrizmInputNgControl<
       value = new PrizmDateTimeRange(dayRange);
     }
     this.updateValue(value);
+    this.markAsTouched();
   }
 
   public updateTimeFrom(value: PrizmTime): void {

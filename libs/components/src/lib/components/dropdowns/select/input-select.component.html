@@ -12,7 +12,7 @@
     class="input-search"
     prizmInput
     (click)="safeOpenModal()"
-    (focus)="focused$$.next(true)"
+    (focus)="focused$$.next(true); markAsTouched()"
     (blur)="focused$$.next(false)"
     #focusableElementRef
     [placeholder]="placeholder"

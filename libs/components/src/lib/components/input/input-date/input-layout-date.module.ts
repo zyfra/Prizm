@@ -12,10 +12,12 @@ import { PrizmIconModule } from '../../icon/icon.module';
 import { FormsModule } from '@angular/forms';
 import { PrizmMaskModule } from '../../../modules';
 import { PrizmInputLayoutDateComponent } from './input-layout-date.component';
+import { PrizmLifecycleModule } from '../../../directives';
 
 @NgModule({
   imports: [
     CommonModule,
+    PrizmLifecycleModule,
     PrizmMaskModule,
     PolymorphModule,
     PrizmPreventDefaultModule,

@@ -6,13 +6,14 @@ import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-
 import { PrizmInputTextModule } from '../input-text/input-text.module';
 import { FormsModule } from '@angular/forms';
 import { PrizmButtonModule } from '../../button/button.module';
-import { PrizmDropdownControllerModule } from '../../../directives';
+import { PrizmDropdownControllerModule, PrizmLifecycleModule } from '../../../directives';
 import { PrizmMaskModule } from '../../../modules';
 import { PrizmInputLayoutTimeComponent } from './input-layout-time.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    PrizmLifecycleModule,
     PrizmMaskModule,
     PrizmDataListModule,
     PrizmDropdownControllerModule,

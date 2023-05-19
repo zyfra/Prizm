@@ -299,6 +299,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   public override clear(ev: MouseEvent): void {
     ev.stopImmediatePropagation();
     this.updateValue(null);
+    this.markAsTouched();
   }
 
   private isSelectAllItem(item: PrizmMultiSelectItemWithChecked<T>): boolean {

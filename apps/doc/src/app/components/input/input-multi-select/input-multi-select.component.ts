@@ -73,6 +73,7 @@ export class InputInputMultiSelectComponent {
       'Костя Щербаков',
       'Рустам Гусев',
       'Филип Уваров',
+      'Супер длинный чипс с каким то содержимым',
     ],
     [],
     null,
