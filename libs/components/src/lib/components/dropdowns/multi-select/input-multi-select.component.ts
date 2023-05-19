@@ -267,7 +267,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
             const selectedCount = this.value?.length;
             const allItem = this.items$.value?.length;
             const currentlySearching = this.searchInputControl.value;
-            const addSelectAllItem = this.selectAllItem && !currentlySearching;
+            const addSelectAllItem = allItem && this.selectAllItem && !currentlySearching;
 
             return [
               ...((addSelectAllItem ? [this.selectAllItem] : []).map(item => ({

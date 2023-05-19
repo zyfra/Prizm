@@ -29,7 +29,14 @@
     >
       <div class="list-search-item" *ngIf="searchable">
         <prizm-input-layout size="m" label="Поиск">
-          <input prizmInput prizmAutoFocus class="input-search" #input [formControl]="searchInputControl" />
+          <input
+            prizmInput
+            (input)="dropdownHostRef.reCalculatePositions(1000 / 16)"
+            prizmAutoFocus
+            class="input-search"
+            #input
+            [formControl]="searchInputControl"
+          />
           <button prizmInputIconButton="sort-zoom-in" prizm-input-right [interactive]="true"></button>
         </prizm-input-layout>
       </div>

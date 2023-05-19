@@ -31,7 +31,7 @@
         <prizm-input-layout size="m" label="Поиск">
           <input
             [ngModel]="printing$.value"
-            (ngModelChange)="printing$.next($event)"
+            (ngModelChange)="dropdownHostRef.reCalculatePositions(1000 / 16); printing$.next($event)"
             prizmInput
             prizmAutoFocus
             class="input-search"
