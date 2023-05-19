@@ -23,10 +23,12 @@ All notable changes to this project will be documented in this file.
 - feat(components/input-date-range): added new component which supports input layout with new page in docs
 - feat(docs/input-date-multi): page in doc updated
 - feat(components/input-multi-select): added new component which supports input layout with new page in docs
+- feat(components/input-layout-date-time-range): the overlay window is now closed by clicking in the non-modal window only not when selecting date or time
 
 ### BUG FIXES
 
 - fix(doc/input-text): fix error in api page
+- fix(components/input-layout-date-time): the old flicker time selection bug has been fixed
 
 ## [1.0.0-rc.1](https://github.com/zyfra/Prizm) (11-05-2023)
 

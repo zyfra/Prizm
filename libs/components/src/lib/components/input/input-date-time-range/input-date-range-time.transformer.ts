@@ -6,6 +6,7 @@ import { PrizmControlValueTransformer } from '../../../types/control-value-trans
 type From = PrizmDayRange | null;
 type To = [Date, Date] | null;
 
+// TODO add support transformers later
 export class PrizmInputDateTimeRangeNativeTransformer implements PrizmControlValueTransformer<From, To> {
   public fromControlValue(controlValue: To): From {
     return controlValue && PrizmDayRange.fromLocalNativeDate(controlValue[0], controlValue[1]);

@@ -5,7 +5,9 @@ import {
   PrizmDateTimeRange,
   PrizmDay,
   PrizmDayRange,
+  PrizmInputPosition,
   PrizmInputSize,
+  PrizmInputStatus,
   PrizmTime,
   PrizmTimeMode,
 } from '@prizm-ui/components';
@@ -18,6 +20,17 @@ import { UntypedFormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputLayoutDateTimeRangeComponent {
+  public border = false;
+  public inputPosition: PrizmInputPosition = 'left';
+  public inputPositionVariants: PrizmInputPosition[] = ['left', 'center'];
+
+  public status: PrizmInputStatus = 'default';
+  public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];
+
+  readonly layoutKey = 'PrizmInputLayoutComponent';
+  readonly controlKey = 'PrizmInputLayoutDateTimeRangeComponent';
+  public pseudoHovered = false;
+
   public label = 'Период';
   readonly value = new UntypedFormControl(
     new PrizmDateTimeRange(new PrizmDayRange(new PrizmDay(2018, 2, 10), new PrizmDay(2018, 2, 10)))
@@ -32,21 +45,10 @@ export class InputLayoutDateTimeRangeComponent {
   forceClear: boolean | null = null;
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
 
-  public focusable = true;
-  public pseudoState = '';
-  public focusedChange = false;
-  public pressedChange = false;
-  public hoveredChange = false;
-  public pseudoInvalid = false;
-  public pseudoHovered = false;
-  public pseudoPressed = false;
-  public pseudoFocused = false;
-  public readOnly = false;
   public timeStrict = false;
   public timeModeVariants: ReadonlyArray<PrizmTimeMode> = ['HH:MM', 'HH:MM:SS', 'HH:MM:SS.MSS'];
   public timeMode: PrizmTimeMode = `HH:MM`;
   public focusVisibleChange = false;
-  public val1: any[];
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {

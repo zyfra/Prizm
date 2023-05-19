@@ -4,7 +4,7 @@
   #prizmDropdownHostComponent
   [canOpen]="!disabled"
   [prizmDropdownHost]="layoutComponent.el.nativeElement"
-  [content]="openTimeTemplate ? dropdownTimeTemplate : dropdownDateTemplate"
+  [content]="getTemplate(dropdownTimeTemplate, dropdownDateTemplate)"
   [prizmDropdownHostWidth]="openTimeTemplate ? '100%' : 'auto'"
   [isOpen]="!disabled && (openTimeTemplate || open)"
   [closeByEsc]="true"

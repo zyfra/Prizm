@@ -1,6 +1,13 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { PrizmDay, PrizmInputSize, PrizmTime, PrizmTimeMode } from '@prizm-ui/components';
+import {
+  PrizmDay,
+  PrizmInputPosition,
+  PrizmInputSize,
+  PrizmInputStatus,
+  PrizmTime,
+  PrizmTimeMode,
+} from '@prizm-ui/components';
 import { UntypedFormControl } from '@angular/forms';
 
 @Component({
@@ -11,8 +18,15 @@ import { UntypedFormControl } from '@angular/forms';
 })
 export class InputLayoutDateTimeTimeComponent {
   public readOnly = false;
-  val: [PrizmDay, PrizmTime];
-  public pseudoInvalid = false;
+  public border = false;
+  public inputPosition: PrizmInputPosition = 'left';
+  public inputPositionVariants: PrizmInputPosition[] = ['left', 'center'];
+
+  public status: PrizmInputStatus = 'default';
+  public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];
+
+  readonly layoutKey = 'PrizmInputLayoutComponent';
+  readonly controlKey = 'PrizmInputLayoutDateTimeComponent';
   public pseudoHovered = false;
   public pseudoPressed = false;
   public pseudoFocused = false;

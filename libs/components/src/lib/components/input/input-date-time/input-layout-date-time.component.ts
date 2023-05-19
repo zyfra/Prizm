@@ -8,6 +8,7 @@ import {
   Injector,
   Input,
   Optional,
+  TemplateRef,
   ViewChild,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -258,6 +259,15 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     this.changeDetectorRef.markForCheck();
   }
 
+  public getTemplate(
+    openTimeTemplate: TemplateRef<unknown>,
+    dropdownTimeTemplate: TemplateRef<unknown>
+  ): TemplateRef<any> {
+    if (!this.open && !this.openTimeTemplate) return null;
+    if (this.openTimeTemplate) return openTimeTemplate;
+    return dropdownTimeTemplate;
+  }
+
   public onMonthChange(month: PrizmMonth): void {
     this.month = month;
   }
@@ -293,11 +303,6 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
         this.nativeValue = this.nativeValue.slice(0, -1);
       }
     });
-  }
-
-  public setDisabledState(): void {
-    this.ngControl.control.disable();
-    this.open = false;
   }
 
   public override writeValue(value: [PrizmDay | null, PrizmTime | null] | null): void {
@@ -352,10 +357,9 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     ev.preventDefault();
     ev.stopPropagation();
 
-    this.openTimeTemplate = this.open = false;
-
     if (!(this.value[1] && item.isSameTime(this.value[1])))
       this.onDayClick(this.value[0] ?? PrizmDay.currentLocal(), item);
+    this.openTimeTemplate = this.open = false;
 
     this.changeDetectorRef.markForCheck();
   }
