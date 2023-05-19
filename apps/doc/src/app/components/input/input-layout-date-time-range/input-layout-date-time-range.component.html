@@ -1,30 +1,31 @@
-<prizm-doc-page header="InputMonth" package="deprecated">
-  <div class="page-description" description>
-    It is a deprecated component, instead of this use PrizmInputLayoutMonth.
-  </div>
+<prizm-doc-page header="InputLayoutDateTimeRange">
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
-      <prizm-input-month-base-example></prizm-input-month-base-example>
+      <prizm-input-layout-date-time-range-base-example></prizm-input-layout-date-time-range-base-example>
+    </prizm-doc-example>
+    <prizm-doc-example id="disabled" heading="Disabled" [content]="exampleDisabled">
+      <prizm-input-layout-date-time-range-disabled-example>
+      </prizm-input-layout-date-time-range-disabled-example>
+    </prizm-doc-example>
+    <prizm-doc-example id="native-date" heading="Native Date" [content]="exampleNativeDate">
+      <prizm-input-layout-date-time-range-native-example> </prizm-input-layout-date-time-range-native-example>
     </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-input-month
-        #element
-        [prizmDocHostElement]="element"
-        [formControl]="control"
-        [label]="label"
-        [readOnly]="readonly"
-        [placeholder]="placeholder"
-        [outer]="outer"
-        [forceClear]="forceClear"
-        [size]="size"
-        [focusable]="focusable"
-        [pseudoState]="pseudoState"
-      ></prizm-input-month>
+      <prizm-input-layout label="Выберите период">
+        <prizm-input-layout-date-time-range
+          #element
+          [prizmDocHostElement]="element"
+          [formControl]="value"
+          [min]="min"
+          [max]="max"
+        ></prizm-input-layout-date-time-range>
+      </prizm-input-layout>
     </prizm-doc-demo>
-    <prizm-doc-documentation [control]="control">
+
+    <prizm-doc-documentation [control]="value">
       <ng-template
         documentationPropertyName="forceClear"
         documentationPropertyType="boolean | null"
@@ -42,6 +43,15 @@
         [(documentationPropertyValue)]="label"
       >
         Label
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="val"
+        documentationPropertyType="any[]"
+        documentationPropertyMode="input-output"
+        [(documentationPropertyValue)]="val1"
+      >
+        Val
       </ng-template>
 
       <ng-template
@@ -73,11 +83,11 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="extraButtonInjector"
-        documentationPropertyType="Injector"
+        documentationPropertyName="timeItems"
+        documentationPropertyType="PrizmTime[]"
         documentationPropertyMode="input"
       >
-        Injector for nested buttons (use in multi datepicker and similar case)
+        Time preset for dropdown
       </ng-template>
 
       <ng-template
@@ -105,13 +115,83 @@
       </ng-template>
 
       <ng-template
-        documentationPropertyName="val"
-        documentationPropertyType="[PrizmDay, PrizmTime]"
-        documentationPropertyMode="input-output"
-        [(documentationPropertyValue)]="val"
+        documentationPropertyName="timeStrict"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="timeStrict"
       >
-        Val
+        Time Strict
+        <br />
+        (Correct time to nearest from items array)
       </ng-template>
+
+      <ng-template
+        documentationPropertyName="items"
+        documentationPropertyType="PrizmDayRangePeriod[]"
+        documentationPropertyMode="input"
+      >
+        Items preset for dropdown
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="maxLength"
+        documentationPropertyType="PrizmDayLike | null"
+        documentationPropertyMode="input"
+      >
+        Max Length
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="minLength"
+        documentationPropertyType="PrizmDayLike | null"
+        documentationPropertyMode="input"
+      >
+        Min Length
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="markerHandler"
+        documentationPropertyType="PrizmMarkerHandler"
+        documentationPropertyMode="input"
+      >
+        Marker Handler
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="defaultViewedMonth"
+        documentationPropertyType="PrizmMonth"
+        documentationPropertyMode="input"
+      >
+        Default Viewed Month
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="timeMode"
+        documentationPropertyType="PrizmTimeMode"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="timeModeVariants"
+        [(documentationPropertyValue)]="timeMode"
+      >
+        Time Mode
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="readOnly"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="readOnly"
+      >
+        Read Only
+      </ng-template>
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="val"-->
+      <!--        documentationPropertyType="[PrizmDay, PrizmTime]"-->
+      <!--        documentationPropertyMode="input-output"-->
+      <!--        [(documentationPropertyValue)]="val"-->
+      <!--      >-->
+      <!--        Val-->
+      <!--      </ng-template>-->
 
       <ng-template
         documentationPropertyName="pseudoInvalid"
@@ -129,14 +209,6 @@
         [(documentationPropertyValue)]="pseudoHovered"
       >
         Pseudo Hovered
-      </ng-template>
-      <ng-template
-        documentationPropertyName="readOnly"
-        documentationPropertyType=" boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="readonly"
-      >
-        Readonly
       </ng-template>
 
       <ng-template
@@ -218,7 +290,7 @@
       <li>
         <p>
           Import
-          <code>PrizmInputMonthModule</code>
+          <code>PrizmInputLayoutDateTimeRangeModule</code>
           into a module where you want to use our component
         </p>
 

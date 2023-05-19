@@ -419,16 +419,18 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/date',
+    path: 'components/input-date',
     loadChildren: () => import('./components/input/date/date.module').then(i => i.DateModule),
     data: {
-      title: 'Date',
+      title: 'InputDate',
     },
   },
   {
-    path: 'components/input-date',
+    path: 'components/input-layout-date',
     loadChildren: () =>
-      import('./components/input/input-date/input-date.module').then(i => i.InputDateModule),
+      import('./components/input/input-layout-date/input-layout-date.module').then(
+        i => i.InputLayoutDateModule
+      ),
     data: {
       title: 'InputDate',
     },
@@ -469,6 +471,16 @@ export const ROUTES: Routes = [
       ),
     data: {
       title: 'Input Month Range',
+    },
+  },
+  {
+    path: 'components/input-layout-date-time-range',
+    loadChildren: () =>
+      import('./components/input/input-layout-date-time-range/input-layout-date-time-range.module').then(
+        i => i.InputLayoutDateTimeRangeModule
+      ),
+    data: {
+      title: 'Input Layout Date Time Range',
     },
   },
   {

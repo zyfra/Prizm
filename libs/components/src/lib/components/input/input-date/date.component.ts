@@ -55,7 +55,7 @@ import { PrizmDateButton } from '../../../types/date-button';
 
 /**
  * @deprecated
- * use PrizmInputDateComponent
+ * use PrizmInputLayoutDateComponent
  * */
 @Component({
   selector: `prizm-input-date`,

@@ -47,6 +47,7 @@
         [prizmDropdownHostId]="prizmDropdownHostId"
         [delay]="delay"
         [canOpen]="canOpen"
+        [closeOnOutsideClick]="closeOnOutsideClick"
         [closeByEsc]="closeByEsc"
         [prizmDropdownHostCloseOnBackdropClick]="prizmDropdownHostCloseOnBackdropClick"
       >
@@ -140,6 +141,23 @@
         [(documentationPropertyValue)]="autoReposition"
       >
         Auto Reposition
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="prizmDropdownHost"
+        documentationPropertyType="HTMLElement"
+        documentationPropertyMode="input"
+      >
+        Use to make the overlay window be drawn relative to this element
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="closeOnOutsideClick"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="closeOnOutsideClick"
+      >
+        Auto close on outside click
       </ng-template>
 
       <ng-template

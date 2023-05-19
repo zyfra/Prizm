@@ -9,9 +9,9 @@ import { PrizmInputTextModule } from '../input-text/input-text.module';
 import { PrizmIconModule } from '../../icon/icon.module';
 import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
 import { PrizmMaskModule } from '../../../modules';
-import { PrizmInputTimeModule } from '../input-time';
-import { PrizmInputDateRangeModule } from '../input-date-range';
-import { PrizmDropdownZoneModule } from '../../../directives';
+import { PrizmInputLayoutTimeModule } from '../input-time';
+import { PrizmInputLayoutDateRangeModule } from '../input-date-range';
+import { PrizmDropdownZoneModule, PrizmLifecycleModule, PrizmOutsideEventModule } from '../../../directives';
 import { PrizmInputLayoutDateTimeRangeComponent } from './input-layout-date-range-time.component';
 
 @NgModule({
@@ -22,16 +22,18 @@ import { PrizmInputLayoutDateTimeRangeComponent } from './input-layout-date-rang
     PolymorphModule,
     PrizmInputTextModule,
     PrizmIconModule,
-    PrizmInputDateRangeModule,
+    PrizmInputLayoutDateRangeModule,
     PrizmDropdownHostModule,
     PrizmCalendarRangeModule,
     PrizmValueAccessorModule,
     FormsModule,
-    PrizmInputTimeModule,
+    PrizmOutsideEventModule,
+    PrizmInputLayoutTimeModule,
     PrizmDropdownZoneModule,
     ReactiveFormsModule,
+    PrizmLifecycleModule,
   ],
   declarations: [PrizmInputLayoutDateTimeRangeComponent],
   exports: [PrizmInputLayoutDateTimeRangeComponent, PrizmInputTextModule],
 })
-export class PrizmInputDateTimeRangeModule {}
+export class PrizmInputLayoutDateTimeRangeModule {}

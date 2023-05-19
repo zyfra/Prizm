@@ -1,12 +1,12 @@
-<prizm-doc-page header="InputDate">
+<prizm-doc-page header="InputLayoutDate">
   <div class="page-description" description>
-    InputDate improves date input and interaction. Ideal for data entry and forms, it allows users to select
-    dates, navigate months/years, and choose date ranges. Customization options include format, localization,
-    and styling.
+    InputLayoutDate improves date input and interaction. Ideal for data entry and forms, it allows users to
+    select dates, navigate months/years, and choose date ranges. Customization options include format,
+    localization, and styling.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
-      <prizm-input-date-base-example></prizm-input-date-base-example>
+      <prizm-input-layout-date-base-example></prizm-input-layout-date-base-example>
     </prizm-doc-example>
 
     <prizm-doc-example id="native-date" heading="Native Date" [content]="exampleNative">
@@ -16,19 +16,6 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <!--      <prizm-input-date-->
-      <!--        #element-->
-      <!--        [prizmDocHostElement]="element"-->
-      <!--        [formControl]="control"-->
-      <!--        [label]="label"-->
-      <!--        [placeholder]="placeholder"-->
-      <!--        [forceClear]="forceClear"-->
-      <!--        [outer]="outer"-->
-      <!--        [size]="size"-->
-      <!--        [readOnly]="readOnly"-->
-      <!--        [focusable]="focusable"-->
-      <!--        [pseudoState]="pseudoState"-->
-      <!--      ></prizm-input-date>-->
       <prizm-input-layout
         #inputElement
         [prizmDocHostElement]="inputElement"
@@ -196,7 +183,7 @@
       <li>
         <p>
           Import
-          <code>PrizmInputDateModule</code>
+          <code>PrizmInputLayoutDateModule</code>
           into a module where you want to use our component
         </p>
 

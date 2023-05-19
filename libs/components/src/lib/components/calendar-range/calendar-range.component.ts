@@ -144,7 +144,6 @@ export class PrizmCalendarRangeComponent implements PrizmWithOptionalMinMax<Priz
 
   public onDayClick(day: PrizmDay): void {
     const { value } = this;
-
     if (value === null || !value.isSingleDay) {
       this.value = new PrizmDayRange(day, day);
 

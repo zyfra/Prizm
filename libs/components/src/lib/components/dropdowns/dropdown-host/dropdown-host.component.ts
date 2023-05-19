@@ -61,6 +61,10 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
   closeByEsc = false;
 
   @Input()
+  @prizmDefaultProp()
+  closeOnOutsideClick = true;
+
+  @Input()
   prizmDropdownHost: HTMLElement;
 
   @Input()
@@ -216,6 +220,7 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
   }
 
   public outsideClick(): void {
+    if (!this.closeOnOutsideClick) return;
     this.isOpen$.next(false);
   }
 }

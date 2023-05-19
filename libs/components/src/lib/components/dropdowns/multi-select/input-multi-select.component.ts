@@ -138,6 +138,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   readonly chipsSet = new Map<string, T>();
   selectedItemsChips$: Observable<string[]>;
 
+  override fallbackValue = [] as T[];
   public filteredItems: PrizmMultiSelectItemWithChecked<T>[] = [];
   private searchValue: string;
 
@@ -279,10 +280,6 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   public override clear(ev: MouseEvent): void {
     ev.stopImmediatePropagation();
     this.updateValue(null);
-  }
-
-  protected override getFallbackValue(): T[] {
-    return [];
   }
 
   private isSelectAllItem(item: PrizmMultiSelectItemWithChecked<T>): boolean {
