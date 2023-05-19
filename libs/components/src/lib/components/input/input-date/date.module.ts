@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PrizmDateComponent } from './date.component';
+import { PrizmInputDateComponent } from './date.component';
 import { PolymorphModule } from '../../../directives/polymorph/polymorph.module';
 import { PrizmCalendarModule } from '../../calendar/calendar.module';
 import { PrizmLinkModule } from '../../link/link.module';
@@ -15,7 +15,7 @@ import { PrizmMaskModule } from '../../../modules';
 
 /**
  * @deprecated
- * use PrizmInputDateModule
+ * use PrizmInputLayoutDateModule
  * */
 @NgModule({
   imports: [
@@ -32,7 +32,7 @@ import { PrizmMaskModule } from '../../../modules';
     PrizmValueAccessorModule,
     PrizmLetModule,
   ],
-  declarations: [PrizmDateComponent],
-  exports: [PrizmDateComponent],
+  declarations: [PrizmInputDateComponent],
+  exports: [PrizmInputDateComponent],
 })
-export class PrizmDateModule {}
+export class PrizmInputDateModule {}

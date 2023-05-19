@@ -64,7 +64,7 @@ import { PrizmDateButton } from '../../../types/date-button';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: PRIZM_INPUT_DATE_PROVIDERS,
 })
-export class PrizmDateComponent
+export class PrizmInputDateComponent
   extends AbstractPrizmNullableControl<PrizmDay>
   implements PrizmWithOptionalMinMax<PrizmDay>, PrizmFocusableElementAccessor
 {
