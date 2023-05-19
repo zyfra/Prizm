@@ -25,22 +25,19 @@ export class PrizmSplitterAreaComponent {
 
   private _size: number | null;
   @Input() set size(value: number | null) {
-    if ((value === null && this._size !== null) || (value !== null && this._size === null)) {
-      this.splitterService.areasUpdate$$.next();
-    }
-
     if (value === null) {
       this.hide();
+      this.setSize(value);
+      this.setCurrentSize(0);
     }
 
     if (value !== null) {
       this.show();
-      this.splitterService.areaInputSizeChange$$.next(this);
       this.setCurrentSize(value);
       this.setSize(value);
     }
 
-    this._size = value;
+    this.splitterService.areaInputSizeChange$$.next(this);
   }
   get size(): number | null {
     return this._size;

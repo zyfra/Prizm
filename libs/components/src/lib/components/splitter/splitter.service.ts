@@ -4,8 +4,6 @@ import { PrizmSplitterAreaComponent } from './area/area.component';
 export class PrizmSplitterService {
   areaInputSizeChange$$ = new Subject<PrizmSplitterAreaComponent>();
 
-  areasUpdate$$ = new Subject<void>();
-
   accuracy = 8;
 
   private toFixed(num: number): number {
