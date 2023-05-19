@@ -53,14 +53,14 @@ import { PrizmInputControl } from '../common';
     ...PRIZM_INPUT_DATE_PROVIDERS,
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => PrizmInputDateComponent),
+      useExisting: forwardRef(() => PrizmInputLayoutDateComponent),
       multi: true,
     },
     PrizmDestroyService,
-    { provide: PrizmInputControl, useExisting: PrizmInputDateComponent },
+    { provide: PrizmInputControl, useExisting: PrizmInputLayoutDateComponent },
   ],
 })
-export class PrizmInputDateComponent extends PrizmInputNgControl<PrizmDay> {
+export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay> {
   readonly nativeElementType = 'input-date';
   readonly hasClearButton = true;
   @ViewChild('focusableElementRef', { read: ElementRef })

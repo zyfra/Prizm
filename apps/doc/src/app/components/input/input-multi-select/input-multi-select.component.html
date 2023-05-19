@@ -46,6 +46,7 @@
           [prizmDocHostElement]="element"
           [prizmDocHostElementKey]="selectKey"
           selectAllItem="Выбрать все"
+          [searchable]="searchable"
           [placeholder]="placeholder"
           [formControl]="valueControl"
           [items]="items"
@@ -127,7 +128,7 @@
       </ng-template>
     </prizm-doc-documentation>
 
-    <prizm-doc-documentation [heading]="selectKey" [hostComponentKey]="selectKey" [control]="control">
+    <prizm-doc-documentation [heading]="selectKey" [hostComponentKey]="selectKey" [control]="valueControl">
       <ng-template
         documentationPropertyName="icon"
         documentationPropertyType="PolymorphContent<PrizmSelectIconContext>"

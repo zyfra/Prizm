@@ -1,38 +1,51 @@
-<prizm-input-date-range
+<prizm-input-layout-date-range
   #focusableElementRef
   [disabledItemHandler]="disabledItemHandler"
-  [label]="label"
+  (prizmOutsideEvent)="focusableElementRef.onOpenChange(false)"
   [markerHandler]="markerHandler"
+  (prizmAfterViewInit)="focusableElementRef.closeOnOutsideClick = false"
   [defaultViewedMonth]="defaultViewedMonth"
   [items]="items"
-  [size]="size"
-  [forceClear]="forceClear"
-  [outer]="outer"
-  [formControl]="dateControl"
+  [ngModel]="value?.dayRange"
+  (ngModelChange)="updateDayRange($event)"
   [placeholder]="placeholder"
   [min]="min?.day"
   [max]="max?.day"
 >
   <ng-template #footerTo let-zone="zone">
-    <prizm-input-time
-      [prizmEventZoneParent]="zone"
-      [size]="size"
-      [style.--prizm-dropdown-host-width]="'100%'"
-      [formControl]="timeControlFrom"
-      [strict]="timeStrict"
-      [items]="timeItems"
-      [mode]="timeMode"
-    >
-    </prizm-input-time>
+    <prizm-input-layout label="Время">
+      <prizm-input-layout-time
+        [prizmEventZoneParent]="zone"
+        [style.--prizm-dropdown-host-width]="'100%'"
+        [ngModel]="value?.timeRange?.to"
+        (ngModelChange)="updateTimeTo($event)"
+        [strict]="timeStrict"
+        [items]="timeItems"
+        [mode]="timeMode"
+      >
+      </prizm-input-layout-time>
+    </prizm-input-layout>
   </ng-template>
   <ng-template #footerFrom let-zone="zone">
-    <prizm-input-time
-      [prizmEventZoneParent]="zone"
-      [style.--prizm-dropdown-host-width]="'100%'"
-      [formControl]="timeControlTo"
-      [items]="timeItems"
-      [mode]="timeMode"
-    >
-    </prizm-input-time>
+    <prizm-input-layout label="Время">
+      <prizm-input-layout-time
+        [prizmEventZoneParent]="zone"
+        [style.--prizm-dropdown-host-width]="'100%'"
+        [ngModel]="value?.timeRange?.from"
+        (ngModelChange)="updateTimeFrom($event)"
+        [items]="timeItems"
+        [mode]="timeMode"
+      >
+      </prizm-input-layout-time>
+    </prizm-input-layout>
   </ng-template>
-</prizm-input-date-range>
+</prizm-input-layout-date-range>
+
+<ng-container *prizmInputLayoutRight>
+  <button
+    prizmInputIconButton="date-calendar-range"
+    [interactive]="true"
+    [disabled]="disabled"
+    (click)="onOpenChange(focusableElementRef)"
+  ></button>
+</ng-container>

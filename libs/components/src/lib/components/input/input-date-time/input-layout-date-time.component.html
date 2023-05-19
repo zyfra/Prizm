@@ -28,9 +28,15 @@
   <button
     prizmInputIconButton="date-calendar-blank"
     [interactive]="true"
-    (click)="openDateDropdown()"
+    [disabled]="disabled"
+    (click)="openDateDropdown(!open)"
   ></button>
-  <button prizmInputIconButton="date-clock" (click)="openTimeDropdown()" [interactive]="true"></button>
+  <button
+    prizmInputIconButton="date-clock"
+    (click)="openTimeDropdown(!openTimeTemplate)"
+    [disabled]="disabled"
+    [interactive]="true"
+  ></button>
   <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
   </ng-container>
 </ng-container>

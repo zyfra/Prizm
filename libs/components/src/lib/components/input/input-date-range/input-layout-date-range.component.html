@@ -3,6 +3,7 @@
   [canOpen]="canOpen"
   [content]="dropdown"
   [closeByEsc]="true"
+  [closeOnOutsideClick]="closeOnOutsideClick"
   [isOpen]="open && canOpen"
   [prizmDropdownHost]="layoutComponent.el.nativeElement"
   (isOpenChange)="onOpenChange($event)"
@@ -11,7 +12,7 @@
   <input
     class="input-search"
     prizmInput
-    (click)="onOpenChange(true)"
+    (click)="onOpenChange(!open)"
     #focusableElementRef
     [mask]="computedMask"
     [showMaskTyped]="focusableElementRef.focused"
@@ -19,7 +20,7 @@
     [placeholder]="placeholder"
     [disabled]="disabled"
     [ngModel]="stringValue"
-    (ngModelChange)="onValueChange($event || '')"
+    (valueChanged)="onValueChange($event || '')"
   />
 
   <ng-template #dropdown let-zone="zone">
@@ -38,22 +39,24 @@
       (valueChange)="onRangeChange($event)"
     >
       <ng-container footerFrom>
-        <ng-template [ngTemplateOutlet]="footerToTemplate" [ngTemplateOutletContext]="{ zone: zone }">
+        <ng-template [ngTemplateOutlet]="footerFromTemplate" [ngTemplateOutletContext]="{ zone: zone }">
           ></ng-template
         >
       </ng-container>
       <ng-container footerTo>
-        <ng-template [ngTemplateOutlet]="footerFromTemplate" [ngTemplateOutletContext]="{ zone: zone }">
+        <ng-template [ngTemplateOutlet]="footerToTemplate" [ngTemplateOutletContext]="{ zone: zone }">
           ></ng-template
         >
       </ng-container>
     </prizm-calendar-range>
   </ng-template>
 </prizm-dropdown-host>
+
 <ng-container *prizmInputLayoutRight>
   <button
     prizmInputIconButton="date-calendar-range"
     [interactive]="true"
-    (click)="focusableElementRef.focus(); onOpenChange(true)"
+    [disabled]="disabled"
+    (click)="focusableElementRef.focus(); onOpenChange(!open)"
   ></button>
 </ng-container>

@@ -7,11 +7,6 @@
   [prizmDropdownHost]="layoutComponent.el.nativeElement"
   (isOpenChange)="onOpenChange($event)"
 >
-  <!--  <prizm-input-layout -->
-  <!--    [label]="label" -->
-  <!--    [outer]="outer" -->
-  <!--    [forceClear]="forceClear" -->
-  <!--    [size]="size">-->
   <input
     class="input-search"
     prizmInput
@@ -22,8 +17,6 @@
     [ngModel]="(value | prizmMapper : formatter | async) || ''"
     (ngModelChange)="onValueChange($event || '')"
   />
-
-  <!--  </prizm-input-layout>-->
   <ng-template #dropdown>
     <prizm-calendar-month
       prizmPreventDefault="mousedown"
@@ -39,7 +32,7 @@
 <ng-container *prizmInputLayoutRight>
   <ng-container *polymorphOutlet="calendarIcon as data">
     <button
-      (click)="onOpenChange(true)"
+      (click)="onOpenChange(!open)"
       [prizmInputIconButton]="$any(data)"
       [interactive]="true"
       [disabled]="disabled"

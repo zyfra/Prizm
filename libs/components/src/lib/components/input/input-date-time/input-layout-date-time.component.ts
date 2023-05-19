@@ -67,6 +67,8 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
   readonly hasClearButton = true;
   private month: PrizmMonth | null = null;
 
+  override fallbackValue: [PrizmDay | null, PrizmTime | null] = [null, null];
+
   @ViewChild('focusableElementRef', { read: ElementRef })
   public readonly focusableElement?: ElementRef<HTMLInputElement>;
 
@@ -304,10 +306,6 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     this.nativeValue = value && (value[0] || value[1]) ? this.computedValue : ``;
   }
 
-  protected override getFallbackValue(): [PrizmDay | null, PrizmTime | null] {
-    return [null, null];
-  }
-
   @prizmPure
   private calculateMask(
     day: PrizmDay | null,
@@ -376,13 +374,13 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     return PrizmTime.fromAbsoluteMilliseconds(prizmClamp(ms, min, max));
   }
 
-  public openTimeDropdown(): void {
-    this.openTimeTemplate = !this.openTimeTemplate;
+  public openTimeDropdown(open: boolean): void {
+    this.openTimeTemplate = open;
     this.changeDetectorRef.markForCheck();
   }
 
-  public openDateDropdown(): void {
-    this.open = true;
+  public openDateDropdown(open: boolean): void {
+    this.open = open;
     this.openTimeTemplate = null;
     this.focusableElement?.nativeElement.focus();
     this.changeDetectorRef.markForCheck();

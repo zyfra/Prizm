@@ -11,13 +11,12 @@
 >
   <input
     prizmInput
-    [style.display]="layoutComponent.outer ? 'none' : ''"
-    [style.visibility]="layoutComponent.outer ? 'none' : 'hidden'"
+    [style.display]="layoutComponent.outer && value?.length ? 'none' : ''"
+    [style.visibility]="!layoutComponent.outer && value?.length ? 'hidden' : ''"
     #focusableElementRef
-    (onClear)="clear($event)"
     [disabled]="disabled"
-    [readonly]="false"
-    [placeholder]="'abc'"
+    [readonly]="true"
+    [placeholder]="placeholder"
     [ngModel]="($any(value) | prizmCallFunc : stringify) ?? ''"
   />
 
@@ -90,7 +89,6 @@
     "
   >
     <prizm-icon
-      *ngIf="!disabled"
       (click)="safeOpenModal()"
       [class.opened]="opened$ | async"
       [class.active]="focused$ | async"
@@ -102,8 +100,7 @@
 </ng-container>
 
 <ng-container *prizmInputLayoutInBody>
-  <!--  <div class="in-body-chips-box" *ngIf='layoutComponent.outer'>-->
-  <div class="in-body-chips-box">
+  <div class="in-body-chips-box" *ngIf="value?.length">
     <ng-container [ngTemplateOutlet]="chipsTemplate"> </ng-container>
   </div>
 </ng-container>
@@ -112,8 +109,8 @@
   <ng-container *prizmLet="selectedItemsChips$ | async as chips">
     <prizm-chips
       [class.empty]="!chips.length"
-      [attr.data-size]="layoutComponent.size"
-      [class.inner]="!layoutComponent.outer"
+      [size]="$any(size)"
+      [class.inner]="inner"
       [singleLine]="true"
       [deletable]="!disabled && isChipsDeletable"
       [chips]="chips"
