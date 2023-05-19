@@ -12,7 +12,7 @@
   <input
     class="input-search"
     prizmInput
-    (click)="onOpenChange(true)"
+    (click)="onOpenChange(!open)"
     #focusableElementRef
     [mask]="computedMask"
     [showMaskTyped]="focusableElementRef.focused"
@@ -57,6 +57,6 @@
     prizmInputIconButton="date-calendar-range"
     [interactive]="true"
     [disabled]="disabled"
-    (click)="focusableElementRef.focus(); onOpenChange(true)"
+    (click)="focusableElementRef.focus(); onOpenChange(!open)"
   ></button>
 </ng-container>

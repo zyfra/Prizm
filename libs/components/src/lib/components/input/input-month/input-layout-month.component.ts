@@ -22,7 +22,6 @@ import { PRIZM_MONTH_FORMATTER } from '../../../tokens/month-formatter';
 import { PrizmDateButton } from '../../../types/date-button';
 import { PrizmBooleanHandler, PrizmHandler } from '../../../types/handler';
 import { prizmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
-import { PrizmInputSize } from '../common/models/prizm-input.models';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl, PrizmInputNgControl } from '../common';

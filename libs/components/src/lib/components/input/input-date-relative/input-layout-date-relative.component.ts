@@ -201,6 +201,8 @@ export class PrizmInputLayoutDateRelativeComponent
     if (!this.isOpen && !this.disabled) {
       this.isOpen = true;
       this.changeDetectorRef.markForCheck();
+    } else {
+      this.isOpen = false;
     }
   }
 }

@@ -29,11 +29,11 @@
     prizmInputIconButton="date-calendar-blank"
     [interactive]="true"
     [disabled]="disabled"
-    (click)="openDateDropdown()"
+    (click)="openDateDropdown(!open)"
   ></button>
   <button
     prizmInputIconButton="date-clock"
-    (click)="openTimeDropdown()"
+    (click)="openTimeDropdown(!openTimeTemplate)"
     [disabled]="disabled"
     [interactive]="true"
   ></button>

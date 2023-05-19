@@ -274,14 +274,11 @@ export class PrizmInputLayoutTimeComponent extends PrizmInputNgControl<PrizmTime
   }
 
   public safeOpenModal(): void {
-    // const inputElement = this.focusableElement.nativeElement;
-    if (
-      !this.open &&
-      !this.disabled
-      // && inputElement && prizmIsNativeFocused(inputElement)
-    ) {
+    if (!this.open && !this.disabled) {
       this.open = true;
       this.changeDetectorRef.markForCheck();
+    } else {
+      this.open = false;
     }
   }
 

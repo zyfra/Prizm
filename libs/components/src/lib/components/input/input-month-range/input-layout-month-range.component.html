@@ -13,7 +13,7 @@
     prizmInput
     #focusableElementRef
     [readOnly]="true"
-    (click)="open = true"
+    (click)="open = !open"
     [placeholder]="placeholder"
     [disabled]="disabled"
     [ngModel]="
@@ -43,7 +43,7 @@
   <button
     prizmInputIconButton="date-calendar-range"
     [interactive]="true"
-    (click)="onOpenChange(true)"
+    (click)="onOpenChange(!open)"
     [disabled]="disabled"
   ></button>
 </ng-container>
