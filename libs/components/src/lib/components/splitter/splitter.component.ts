@@ -70,11 +70,12 @@ export class PrizmSplitterComponent implements AfterViewInit, AfterContentInit {
 
   areas$: Observable<PrizmSplitterAreaComponent[]>;
 
-  guttersData$: Observable<Array<GutterData>>;
+  guttersData: Array<GutterData> = [];
 
   containerSize$$ = new BehaviorSubject(0);
 
   lastGap = 0;
+
   constructor(
     private cdr: ChangeDetectorRef,
     private destroy$: PrizmDestroyService,
@@ -87,47 +88,44 @@ export class PrizmSplitterComponent implements AfterViewInit, AfterContentInit {
         startWith<QueryList<PrizmSplitterAreaComponent>>(this.splitterAreaQueryList),
         map(ql => ql.toArray())
       ),
-      this.splitterService.areasUpdate$$.pipe(map(() => this.splitterAreaQueryList.toArray()))
-    ).pipe(map(areas => areas.filter(area => area.size !== null)));
+      this.splitterService.areaInputSizeChange$$.pipe(map(() => this.splitterAreaQueryList.toArray()))
+    ).pipe(
+      map(areas => areas.filter(area => area.size !== null)),
+      observeOn(asyncScheduler)
+    );
 
-    this.areas$.subscribe(areas => {
+    this.areas$.pipe(takeUntil(this.destroy$)).subscribe(areas => {
       const gap = ((areas.length - 1) * this.gutterElementSize) / areas.length;
       if (gap !== this.lastGap) {
         areas.forEach(area => area.setCurrentSizeWithCalc(gap));
       }
 
       this.lastGap = gap;
+
+      this.guttersData = [];
+      areas.forEach((area, index) => {
+        area.order = index;
+        if (index < areas.length - 1) {
+          this.guttersData.push({ areaBefore: index, areaAfter: index + 1, order: index + 1 });
+        }
+      });
+
       this.cdr.markForCheck();
     });
 
     this.splitterService.areaInputSizeChange$$
-      .pipe(observeOn(asyncScheduler), withLatestFrom(this.areas$))
+      .pipe(withLatestFrom(this.areas$), takeUntil(this.destroy$))
       .subscribe(([changedArea, areas]) => {
         const gap = ((areas.length - 1) * this.gutterElementSize) / areas.length;
         changedArea.setCurrentSizeWithCalc(gap);
         this.cdr.markForCheck();
       });
-
-    this.guttersData$ = this.areas$.pipe(
-      map(areas => {
-        const gutters: Array<GutterData> = [];
-        areas.forEach((area, index) => {
-          area.order = index;
-          if (index < areas.length - 1) {
-            gutters.push({ areaBefore: index, areaAfter: index + 1, order: index + 1 });
-          }
-        });
-        return gutters;
-      }),
-      observeOn(asyncScheduler)
-    );
   }
 
   public ngAfterViewInit(): void {
     const guttersComponents$ = this.splitterGutterQueryList.changes.pipe(
       startWith<QueryList<PrizmSplitterGutterComponent>>(this.splitterGutterQueryList),
-      map(ql => ql.toArray()),
-      shareReplay(1)
+      map(ql => ql.toArray())
     );
 
     guttersComponents$
@@ -138,8 +136,8 @@ export class PrizmSplitterComponent implements AfterViewInit, AfterContentInit {
               const elem = gutter.elementRef.nativeElement;
 
               return fromEvent<PointerEvent>(elem, 'pointerdown').pipe(
-                withLatestFrom(this.areas$, this.guttersData$),
-                switchMap(([event, areas, gutters]) => {
+                withLatestFrom(this.areas$),
+                switchMap(([event, areas]) => {
                   event.preventDefault();
                   elem.setPointerCapture(event.pointerId);
 
