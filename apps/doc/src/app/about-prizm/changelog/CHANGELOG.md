@@ -24,6 +24,7 @@ All notable changes to this project will be documented in this file.
 - feat(docs/input-date-multi): page in doc updated
 - feat(components/input-multi-select): added new component which supports input layout with new page in docs
 - feat(components/input-layout-date-time-range): the overlay window is now closed by clicking in the non-modal window only not when selecting date or time
+- feat(doc/live-demo): added controller to live demo for add/delete required validator
 
 ### BUG FIXES
 

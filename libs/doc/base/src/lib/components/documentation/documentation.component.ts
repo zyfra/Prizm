@@ -29,7 +29,7 @@ import { PRIZM_HOST_COMPONENT_INFO_TOKEN, PrizmHostComponentInfo } from './token
 import { PrizmDocHostElementListenerService } from '../host';
 import * as _ from 'lodash';
 import { PrizmDocumentationPropertyType } from '../../types/pages';
-import { UntypedFormControl } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { PrizmFormControlHelpers } from '@prizm-ui/helpers';
 // @bad TODO subscribe propertiesConnectors changes
 // @bad TODO refactor to make more flexible
@@ -253,11 +253,23 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   public updateStateOfControl(control: UntypedFormControl, newState: boolean): void {
     PrizmFormControlHelpers.setDisabled(control, newState);
   }
-  public getValueFromControl$(control: UntypedFormControl): Observable<any> {
-    return PrizmFormControlHelpers.getValue$(control).pipe(startWith(control.value));
+
+  public getValueFromControl$(control: UntypedFormControl): Observable<boolean> {
+    return PrizmFormControlHelpers.getValue$(control);
+  }
+
+  public getRequiredFromControl$(control: UntypedFormControl): Observable<boolean> {
+    return PrizmFormControlHelpers.getValue$(control).pipe(
+      map(() => !!control.validator?.({} as any)?.required)
+    );
   }
 
   public updateValueOfControl(control: UntypedFormControl, newValue: any): void {
     PrizmFormControlHelpers.setValue(control, newValue);
+  }
+
+  public updateRequiredValidatorOfControl(control: UntypedFormControl, newValue: any): void {
+    if (newValue) control.setValidators(Validators.required);
+    else control.clearValidators();
   }
 }
