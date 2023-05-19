@@ -27,6 +27,7 @@
       (click)="onClearClick($event)"
       class="prizm-input-label-clear-btn"
       [interactive]="true"
+      [disabled]="control.disabled"
     ></button>
   </div>
 </ng-template>
@@ -76,6 +77,7 @@
         (click)="onClearClick($event)"
         class="prizm-input-button-default {{ showStatusButton ? '' : 'alone' }}"
         [interactive]="true"
+        [disabled]="control.disabled"
       ></button>
 
       <button

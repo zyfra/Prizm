@@ -374,13 +374,13 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     return PrizmTime.fromAbsoluteMilliseconds(prizmClamp(ms, min, max));
   }
 
-  public openTimeDropdown(): void {
-    this.openTimeTemplate = !this.openTimeTemplate;
+  public openTimeDropdown(open: boolean): void {
+    this.openTimeTemplate = open;
     this.changeDetectorRef.markForCheck();
   }
 
-  public openDateDropdown(): void {
-    this.open = true;
+  public openDateDropdown(open: boolean): void {
+    this.open = open;
     this.openTimeTemplate = null;
     this.focusableElement?.nativeElement.focus();
     this.changeDetectorRef.markForCheck();

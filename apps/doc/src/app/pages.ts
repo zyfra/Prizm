@@ -347,8 +347,13 @@ export const pages: PrizmOrderedDocPage = [
       },
       {
         title: 'InputMonthRange',
-        keywords: 'input-month-range, date, form',
+        keywords: 'input-month-range, date, form, deprecated',
         route: '/components/input-month-range',
+      },
+      {
+        title: 'InputLayoutMonthRange',
+        keywords: 'input-layout-month-range, date, form',
+        route: '/components/input-layout-month-range',
       },
       {
         title: 'InputDateRange',

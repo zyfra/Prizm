@@ -15,10 +15,10 @@ import { NG_VALUE_ACCESSOR, UntypedFormControl } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
 import { PRIZM_MULTI_SELECT_OPTIONS, PrizmMultiSelectOptions } from './multi-select.options';
 import { PrizmContextWithImplicit, PrizmNativeFocusableElement } from '../../../types';
-import { PrizmInputControl, PrizmInputNgControl, PrizmInputSize, PrizmInputTextComponent } from '../../input';
+import { PrizmInputControl, PrizmInputNgControl } from '../../input';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
 import { debounceTime, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { BehaviorSubject, combineLatest, concat, Observable, of, Subject, timer } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, Subject, timer } from 'rxjs';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmDropdownHostComponent } from '../dropdown-host';
 import {
@@ -121,7 +121,24 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   readonly testId = 'ui-muilti-select';
 
   @HostBinding('style.display')
-  readonly display = 'none';
+  get display(): string {
+    return this.value?.length ? 'none' : '';
+  }
+
+  @HostBinding('class.inner')
+  get inner(): boolean {
+    return !this.layoutComponent.outer;
+  }
+
+  @HostBinding('class.empty')
+  get emptyChips(): boolean {
+    return !this.chipsSet.size;
+  }
+
+  @HostBinding('attr.data-size')
+  get size(): string {
+    return this.layoutComponent.size;
+  }
 
   public readonly defaultIcon = 'chevrons-dropdown';
   readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
@@ -183,7 +200,8 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   protected initParentClickListener(): void {
     this.layoutComponent.innerClick$
       .pipe(
-        tap(() => this.opened$$.next(true)),
+        tap(() => this.opened$$.next(this.disabled ? false : !this.opened$$.value)),
+        tap(() => this.changeDetectorRef.markForCheck()),
         takeUntil(this.destroy$)
       )
       .subscribe();
@@ -231,7 +249,8 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
       this.searchInputControl.valueChanges.pipe(startWith('')),
       this.value$.pipe(debounceTime(0)),
     ]).pipe(
-      switchMap(([searchValue, selectedItems]: [string, T[]]) => {
+      switchMap(([searchValue]: [string, T[]]) => {
+        const selectedItems = this.value;
         return this.items$.pipe(
           map(items => {
             if (!this.searchable || !searchValue?.toString().replace(/[ ]+/g, '')) return items;
@@ -263,7 +282,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
             this.filteredItems = items;
             this.dropdownHostElement?.reCalculatePositions(1000 / 60);
           }),
-          debounceTime(0)
+          debounceTime(1000 / 60)
         );
       })
     );
