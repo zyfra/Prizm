@@ -10,8 +10,8 @@ export class PrizmInputPasswordDirective {
   readonly testId = 'ui_input_password';
 
   constructor(
-    @Host() private readonly el: ElementRef<HTMLInputElement>,
-    @Host() private readonly prizmInputText: PrizmInputTextComponent
+    @Host() public readonly el: ElementRef<HTMLInputElement>,
+    @Host() public readonly prizmInputText: PrizmInputTextComponent
   ) {
     this.el.nativeElement.type = 'password';
     this._passwordHidden = true;

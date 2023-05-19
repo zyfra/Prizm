@@ -21,6 +21,11 @@ import { PrizmInputPasswordDirective } from './input-password.directive';
     class="btn"
     #btn
     [interactive]="true"
+    [disabled]="
+      (inputPassword?.prizmInputText?.ngControl?.statusChanges &&
+        inputPassword.prizmInputText.ngControl.statusChanges | async) &&
+      inputPassword?.prizmInputText?.ngControl?.disabled
+    "
     (click)="toggle()"
   ></button>`,
   styles: [

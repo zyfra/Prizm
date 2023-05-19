@@ -105,7 +105,7 @@
       (click)="!disabled && focusableElement?.nativeElement.click()"
       [class.disabled]="disabled"
       [class.opened]="opened$ | async"
-      [class.active]="focused$ | async"
+      [class.active]="(focused$ | async) || (opened$ | async)"
       [class.icon-dropdown]="iconName === defaultIcon"
       [iconClass]="$any(iconName)"
     >
