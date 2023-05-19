@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0-rc.2](https://github.com/zyfra/Prizm) (19-05-2023)
+
+### Features
+
+- feat(input-layout): add ability to show status messages from controls
+- chore: splitted angular file to seperated project
+- feat(components/dropdown-host): add ability to control auto close on outside click
+- feat(components/select-input): we deprecated old prizm-select, and created new prizm-select-input which you can use with our layout
+- feat(components/input-layout): add support directives from control to support components with dropdown
+- feat(doc/select-input): update api page
+- feat(components/dropdown-host): added new input for add another host instead of default element
+- feat(components/input-layout): change logic appear layers on disabled'
+- feat(components/input-date-time): added new component which supports input layout with new page in docs
+- feat(components/input-date): added new component which supports input layout with new page in docs
+- feat(components/input-time): added new component which supports input layout with new page in docs
+- feat(components/input-date): added new component which supports input layout with new page in docs
+- feat(components/input-month): added new component which supports input layout with new page in docs
+- feat(components/input-month-range): added new component which supports input layout with new page in docs
+- feat(components/input-date-range): added new component which supports input layout with new page in docs
+- feat(docs/input-date-multi): page in doc updated
+- feat(components/input-multi-select): added new component which supports input layout with new page in docs
+
+### BUG FIXES
+
+- fix(doc/input-text): fix error in api page
+
 ## [1.0.0-rc.1](https://github.com/zyfra/Prizm) (11-05-2023)
 
 ### BUG FIXES
