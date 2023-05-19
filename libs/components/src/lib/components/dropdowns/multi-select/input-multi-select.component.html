@@ -116,6 +116,7 @@
 <ng-template #chipsTemplate>
   <ng-container *prizmLet="selectedItemsChips$ | async as chips">
     <prizm-chips
+      [style.max-width.px]="layoutComponent.el.nativeElement.clientWidth - button_layout_width"
       [class.empty]="!chips.length"
       [size]="$any(size)"
       [class.inner]="inner"

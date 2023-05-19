@@ -28,6 +28,7 @@ All notable changes to this project will be documented in this file.
 
 ### BUG FIXES
 
+- fix(chore): fixed versions that interfered with the installation of our packages
 - fix(components/input-password): when disabled is true, the "show password" button does not disable.
 - fix(doc/input-text): fix error in api page
 - fix(components/input-layout-date-time): the old flicker time selection bug has been fixed
