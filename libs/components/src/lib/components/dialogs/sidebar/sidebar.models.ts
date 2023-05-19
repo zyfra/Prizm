@@ -34,11 +34,11 @@ export interface PrizmSidebarOptions<DATA = unknown> extends PrizmDialogBaseOpti
    * header (not include close button)
    * @deprecated use headerTemplate
    * */
-  readonly header: any;
+  readonly header?: any;
   /**
    * for change full header with close button
    * */
-  readonly headerTemplate: any;
+  readonly headerTemplate?: any;
   readonly canClose?: () => Observable<boolean>;
   readonly hideFooter?: boolean;
   readonly footer: PolymorphContent<

@@ -5,8 +5,8 @@
   [isOpen]="isOpen && canOpen"
   [closeByEsc]="true"
   [prizmDropdownHost]="layoutComponent.el.nativeElement"
+  [prizmDropdownHostWidth]="'100%'"
   (isOpenChange)="onOpenChange($event)"
-  prizmDropdownHostWidth="auto"
 >
   <input
     class="input-search"
