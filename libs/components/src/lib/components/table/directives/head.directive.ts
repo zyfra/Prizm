@@ -1,4 +1,4 @@
-import { Directive, Inject, Input, TemplateRef } from '@angular/core';
+import { Directive, Inject, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
 @Directive({
   selector: `[prizmHead]`,
@@ -7,5 +7,12 @@ export class PrizmHeadDirective<T extends Partial<Record<keyof T, any>>> {
   @Input()
   prizmHead!: keyof T;
 
-  constructor(@Inject(TemplateRef) readonly template: TemplateRef<Record<string, unknown>>) {}
+  constructor(
+    @Inject(TemplateRef) readonly template: TemplateRef<Record<string, unknown>>,
+    public readonly viewContainer: ViewContainerRef
+  ) {}
+
+  public ngOnDestroy(): void {
+    this.viewContainer.clear();
+  }
 }
