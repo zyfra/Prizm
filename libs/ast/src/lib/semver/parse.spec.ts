@@ -82,7 +82,6 @@ describe('prizmSemVerParse', () => {
       prerelease: null,
       prereleaseNumber: null,
     };
-
     expect(prizmSemVerParse(versionString)).toEqual(expectedVersion);
   });
 

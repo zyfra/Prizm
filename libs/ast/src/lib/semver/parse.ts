@@ -19,25 +19,29 @@ export function prizmSemVerParse(
     buildMetadata: null,
   };
 
-  const [versionPart, prereleaseAndBuildMetadata] = versionString.split('-');
-  const [major, minor, patch] = versionPart.split('.').map(val => {
+  const [versionPart, data] = versionString.split('-');
+  let prereleaseAndBuildMetadata = data;
+  const [major, minor, patch] = versionPart.split(/[.+]{1}/g).map(val => {
     if (getCommand && isNaN(Number(val))) {
       let result = val as any;
       if (isSemverCommandValue(val)) result = val;
       return result;
     }
+
     return Number(val);
   });
   semVer.major = major;
   semVer.minor = minor;
   semVer.patch = patch;
 
+  if (!prereleaseAndBuildMetadata)
+    prereleaseAndBuildMetadata = versionPart.split(/[0-9]+.[0-9]+.[0-9]+/g)?.pop();
   if (prereleaseAndBuildMetadata) {
     const [prereleasePart, buildMetadata] = prereleaseAndBuildMetadata.split('+');
-    semVer.buildMetadata = buildMetadata || null;
+    semVer.buildMetadata = buildMetadata ?? null;
 
     const [prerelease, prereleaseNumber] = prereleasePart.split('.');
-    semVer.prerelease = prerelease;
+    semVer.prerelease = prerelease || null;
     if (getCommand && isSemverCommandValue(prereleaseNumber))
       semVer.prereleaseNumber = prereleaseNumber as any;
     else semVer.prereleaseNumber = prereleaseNumber ? Number(prereleaseNumber) : null;
