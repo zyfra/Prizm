@@ -35,13 +35,13 @@ export function prizmSemVerParse(
   semVer.patch = patch;
 
   if (!prereleaseAndBuildMetadata)
-    prereleaseAndBuildMetadata = versionPart.split(/[0-9]+.[0-9]+.[0-9]+/g)?.pop();
+    prereleaseAndBuildMetadata = versionPart.split(/[^.]+.[^.]+.[^.+]+/g)?.pop();
   if (prereleaseAndBuildMetadata) {
     const [prereleasePart, buildMetadata] = prereleaseAndBuildMetadata.split('+');
     semVer.buildMetadata = buildMetadata ?? null;
 
     const [prerelease, prereleaseNumber] = prereleasePart.split('.');
-    semVer.prerelease = prerelease || null;
+    semVer.prerelease = !prerelease || prerelease === '*' ? null : prerelease;
     if (getCommand && isSemverCommandValue(prereleaseNumber))
       semVer.prereleaseNumber = prereleaseNumber as any;
     else semVer.prereleaseNumber = prereleaseNumber ? Number(prereleaseNumber) : null;
