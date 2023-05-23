@@ -105,7 +105,7 @@ jobs:
       - run: npx nx affected --target=lint --base=origin/main
       #      - run: npx nx affected --target=lint --base=origin/main --parallel --max-parallel=3
       #        TODO remove schematics excluding after fix
-      - run: npx nx affected --target=build --base=origin/main --prod --exclude=schematics
+      - run: npx nx affected --target=build --base=origin/main --prod
       - run: npx nx format:check --base=origin/main
 # TODO LATER fix playwright test
 #      - name: Install Cypress

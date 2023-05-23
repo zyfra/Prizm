@@ -118,7 +118,7 @@ export class PrizmNavMenuGroupComponent implements OnInit, OnDestroy {
   private rubricatorNodes: TreeNode[] = [];
   private pathToActiveNode: unknown[] = [];
   private folderPath: unknown[] = [];
-  private destroyed$ = new Subject();
+  private destroyed$ = new Subject<void>();
 
   constructor(
     private renderer: Renderer2,

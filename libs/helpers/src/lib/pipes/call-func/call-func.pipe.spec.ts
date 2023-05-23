@@ -1,8 +1,4 @@
-/* tslint:disable:no-unused-variable */
-
-import { TestBed, async } from '@angular/core/testing';
 import { CallFuncPipe } from './call-func.pipe';
-import { PrizmCallFuncModule } from './call-func.module';
 
 describe('Pipe: CallFunc', () => {
   const pipe = new CallFuncPipe({} as any);

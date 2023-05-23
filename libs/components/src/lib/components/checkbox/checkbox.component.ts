@@ -100,7 +100,7 @@ export class PrizmCheckboxComponent implements ControlValueAccessor, OnDestroy, 
     const el = this.host ?? this.el.nativeElement;
     merge(fromEvent(el, 'click'), fromEvent<KeyboardEvent>(el, 'keydown').pipe(filter(i => i.key === ' ')))
       .pipe(
-        tap(event => this.onClick(event)),
+        tap(event => this.onClick(event as Event)),
         prizmWatch(this.cdr),
         takeUntil(this.destroyElement$)
       )

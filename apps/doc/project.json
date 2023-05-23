@@ -1,4 +1,5 @@
 {
+  "name": "doc",
   "projectType": "application",
   "sourceRoot": "apps/doc/src",
   "prefix": "prizm",

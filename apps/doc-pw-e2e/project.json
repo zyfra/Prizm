@@ -1,4 +1,5 @@
 {
+  "name": "doc-pw-e2e",
   "sourceRoot": "apps/doc-pw-e2e/src",
   "projectType": "application",
   "targets": {

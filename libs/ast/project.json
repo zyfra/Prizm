@@ -1,4 +1,5 @@
 {
+  "name": "ast",
   "projectType": "library",
   "sourceRoot": "libs/ast/src",
   "prefix": "prizm",

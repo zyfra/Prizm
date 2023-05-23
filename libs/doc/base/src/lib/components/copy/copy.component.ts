@@ -14,7 +14,7 @@ const COPIED_TIMEOUT = 1500;
   providers: [TuiDestroyService],
 })
 export class TuiDocCopyComponent {
-  private readonly copy$ = new Subject();
+  private readonly copy$ = new Subject<void>();
 
   constructor(@Inject(TUI_COPY_TEXTS) readonly texts$: Observable<[string, string]>) {}
 

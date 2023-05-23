@@ -129,7 +129,7 @@ export class PrizmNavigationMenuGroupService<
     })
   );
 
-  closeAll$ = new Subject();
+  closeAll$ = new Subject<void>();
 
   searchEnabled$: Observable<boolean> = this.searchState$$.pipe(map(s => s.enabled));
 
@@ -155,7 +155,7 @@ export class PrizmNavigationMenuGroupService<
     return this.viewMode$$.value;
   }
 
-  private destroy$ = new Subject();
+  private destroy$ = new Subject<void>();
 
   constructor(
     private menuService: PrizmNavigationMenuService<UserItem>,

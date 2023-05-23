@@ -36,7 +36,7 @@ export class PrizmDropdownControllerDirective implements OnChanges {
   @prizmDefaultProp()
   maxHeight = PRIZM_DROPDOWN_DEFAULT_MAX_HEIGHT;
 
-  readonly changes$ = new Subject();
+  readonly changes$ = new Subject<void>();
 
   ngOnChanges(changes: SimpleChanges): void {
     this.changes$.next();

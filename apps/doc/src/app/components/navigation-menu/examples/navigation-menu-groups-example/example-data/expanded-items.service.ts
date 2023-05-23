@@ -21,7 +21,6 @@ export class ExpandedItemsService {
     localStorage.setItem('EXPANDED_ITEMS_EXAMPLE', JSON.stringify(obj));
   }
   public setGroupsExpandedKeys(expandedGroupsMap: Map<string, boolean>): void {
-    // @ts-expect-error Fixes error "Property 'fromEntries' does not exist on type 'ObjectConstructor'" (required lib: 2019+)
     const obj: PersistentExpandedValue = Object.fromEntries(expandedGroupsMap);
     localStorage.setItem('EXPANDED_GROUPS_EXAMPLE', JSON.stringify(obj));
   }

@@ -1,4 +1,5 @@
 {
+  "name": "schematics",
   "projectType": "library",
   "sourceRoot": "libs/schematics/src",
   "prefix": "prizm",
