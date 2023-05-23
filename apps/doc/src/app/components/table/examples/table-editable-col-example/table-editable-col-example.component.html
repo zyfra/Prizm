@@ -1,18 +1,19 @@
 <prizm-scrollbar class="scrollable" visibility="hidden">
-  <table prizmTable class="table" [columns]="columns">
+  <table class="table" [columns]="columns" prizmTable>
     <thead>
       <tr prizmThGroup>
-        <th prizmTh [resizable]="true">Код</th>
-        <th prizmTh *prizmHead="'name'" [resizable]="true">Наименование</th>
-        <th prizmTh *prizmHead="'category'" [resizable]="true">Категория</th>
-        <th prizmTh *prizmHead="'count'" [resizable]="true">Количество</th>
+        <th [resizable]="true" prizmTh>Код</th>
+        <th *prizmHead="'name'" [resizable]="true" prizmTh>Наименование</th>
+        <th *prizmHead="'category'" [resizable]="true" prizmTh>Категория</th>
+        <th *prizmHead="'count'" [resizable]="true" prizmTh>Количество</th>
       </tr>
     </thead>
 
-    <tbody prizmTbody [data]="products">
+    <tbody [data]="products" prizmTbody>
       <tr
+        class="row"
         *prizmRow="let item of products; let i = index"
-        prizmTr
+        [active]="selectedItemsCodes.includes(item.code)"
         (click)="
           selectRow(
             $event,
@@ -20,13 +21,11 @@
             currentEditableProduct?.product === item && currentEditableProduct?.key === 'name'
           )
         "
-        [active]="selectedItemsCodes.includes(item.code)"
-        class="row"
+        prizmTr
       >
         <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
-        <td *prizmCell="'name'" prizmTd class="row_editable">
+        <td class="row_editable" *prizmCell="'name'" prizmTd>
           <input
-            prizmInput
             [value]="item.name"
             [readOnly]="!(currentEditableProduct?.product === item && currentEditableProduct?.key === 'name')"
             [class.edit-cell]="
@@ -34,6 +33,7 @@
             "
             (dblclick)="setEditableItem($event, item, 'name')"
             (blur)="changeItemName($event, 'name', item)"
+            prizmInput
           />
         </td>
         <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>

@@ -1,14 +1,14 @@
 <div class="host" prizmFocusTrap prizmThemeInverted>
-  <div *ngIf="context.header" class="header prizm-font-title-h4">
+  <div class="header prizm-font-title-h4" *ngIf="context.header">
     <div class="title" *polymorphOutlet="context.header as data; context: context">
       {{ data }}
     </div>
     <button
       *ngIf="context.closeable"
       [size]="16"
-      prizmInputIconButton="cancel-close"
-      (click)="close()"
       [interactive]="true"
+      (click)="close()"
+      prizmInputIconButton="cancel-close"
     ></button>
   </div>
 
@@ -20,7 +20,7 @@
     </prizm-scrollbar>
   </div>
 
-  <div class="footer" [style]="context.footerStyle" *ngIf="footer">
+  <div class="footer" *ngIf="footer" [style]="context.footerStyle">
     <ng-container *polymorphOutlet="$any(footer) as data; context: context">
       <div class="buttons" *ngIf="isFooterArray; else temp">
         <button
@@ -28,9 +28,9 @@
           [style]="footerButton.style"
           [appearance]="footerButton.appearance"
           [appearanceType]="footerButton.appearanceType"
-          prizmButton
           [size]="context.size"
           (click)="footerButton.action(context)"
+          prizmButton
         >
           {{ footerButton.text }}
         </button>

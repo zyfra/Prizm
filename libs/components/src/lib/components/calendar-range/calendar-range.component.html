@@ -1,7 +1,5 @@
 <ng-container *ngIf="!items.length; else presets">
   <prizm-primitive-calendar-range
-    automation-id="prizm-calendar-range__calendars"
-    prizmPreventDefault="mousedown"
     [markerHandler]="markerHandler"
     [min]="min | prizmMapper : maxLengthMapper : value : maxLength : true"
     [max]="max | prizmMapper : maxLengthMapper : value : maxLength : false"
@@ -10,6 +8,8 @@
     [disabledItemHandler]="calculatedDisabledItemHandler"
     [value]="value"
     (dayClick)="onDayClick($event)"
+    automation-id="prizm-calendar-range__calendars"
+    prizmPreventDefault="mousedown"
   >
     <ng-container footerFrom>
       <ng-content select="[footerFrom]"></ng-content>
@@ -28,8 +28,6 @@
 <ng-template #presets>
   <div class="z-wrapper">
     <prizm-calendar
-      automation-id="prizm-calendar-range__calendar"
-      prizmPreventDefault="mousedown"
       [value]="value"
       [markerHandler]="markerHandler"
       [min]="min | prizmMapper : maxLengthMapper : value : maxLength : true"
@@ -37,28 +35,30 @@
       [month]="computedMonth"
       [disabledItemHandler]="calculatedDisabledItemHandler"
       (dayClick)="onDayClick($event)"
+      automation-id="prizm-calendar-range__calendar"
+      prizmPreventDefault="mousedown"
     >
     </prizm-calendar>
     <prizm-data-list
+      class="z-menu"
       [style.--prizm-data-list-border]="0"
       [style.--prizm-data-list-border-left]="'1px solid var(--prizm-border-widget)'"
       role="menu"
       automation-id="prizm-calendar-range__menu"
-      class="z-menu"
     >
       <button
-        *ngFor="let item of items | prizmMapper : mapper : min : max : minLength : (otherDateText$ | async)"
-        prizmPreventDefault="mousedown"
-        role="menuitemradio"
-        prizmButton
         class="button-list"
-        appearanceType="ghost"
-        appearance="primary"
-        automation-id="prizm-calendar-range__menu__item"
+        *ngFor="let item of items | prizmMapper : mapper : min : max : minLength : (otherDateText$ | async)"
         [attr.aria-checked]="isItemActive(item)"
         (keydown.enter.prevent)="onItemSelect(item)"
         (keydown.space.prevent)="onItemSelect(item)"
         (click)="onItemSelect(item)"
+        prizmPreventDefault="mousedown"
+        role="menuitemradio"
+        prizmButton
+        appearanceType="ghost"
+        appearance="primary"
+        automation-id="prizm-calendar-range__menu__item"
       >
         <div class="btn-content">
           <span>{{ item }}</span>

@@ -1,42 +1,42 @@
-<h1 *ngIf="heading" class="t-heading">{{ heading }}</h1>
+<h1 class="t-heading" *ngIf="heading">{{ heading }}</h1>
 <ng-content></ng-content>
 <table class="t-table">
   <tr class="t-row t-row_header">
     <th class="t-th t-cell t-cell_prop t-name" [ngSwitch]="success$ | async">
       <span
+        class="indicator"
         *ngSwitchCase="true"
         prizmHint="We have found all necessarily inputs and outputs."
-        class="indicator"
       >
         <prizm-indicator type="icon" status="success"></prizm-indicator>
       </span>
       <span
-        prizmHint="We have not found all necessarily inputs and outputs. Please add this!"
-        *ngSwitchCase="false"
         class="indicator"
+        *ngSwitchCase="false"
+        prizmHint="We have not found all necessarily inputs and outputs. Please add this!"
       >
         <prizm-indicator type="icon" status="danger"></prizm-indicator>
       </span>
       {{ texts[2] }}
     </th>
     <th class="t-th">{{ type }}</th>
-    <th *ngIf="showValues && !isAPI" class="t-th t-cell t-cell_value">{{ texts[3] }}</th>
+    <th class="t-th t-cell t-cell_value" *ngIf="showValues && !isAPI">{{ texts[3] }}</th>
   </tr>
   <tr
+    class="t-row"
     *ngFor="
       let propertyConnector of propertiesConnectors
         | prizmMapper : sortConnectors : propertiesInnerConnectors;
       let idx = index
     "
-    class="t-row"
     [class.t-deprecated]="propertyConnector.documentationPropertyDeprecated"
   >
     <td class="t-cell">
-      <div automation-id="tui-documentation__property-name" class="t-property">
+      <div class="t-property" automation-id="tui-documentation__property-name">
         {{ stripOptional(propertyConnector.attrName) }}
         <tui-badge *ngIf="isOptional(propertyConnector.attrName)" size="s" value="Optional"></tui-badge>
       </div>
-      <span *ngIf="propertyConnector.documentationPropertyDeprecated" class="t-deprecated-label">
+      <span class="t-deprecated-label" *ngIf="propertyConnector.documentationPropertyDeprecated">
         deprecated
       </span>
       <ng-container [ngTemplateOutlet]="propertyConnector.template"></ng-container>
@@ -58,18 +58,18 @@
         </tui-tooltip>
       </span>
     </td>
-    <td *ngIf="showValues" class="t-cell">
+    <td class="t-cell" *ngIf="showValues">
       <ng-container *ngIf="propertyConnector.shouldShowValues; else elseEmitter">
         <tui-select
           *ngIf="propertyConnector.hasItems; else noItems"
-          tuiTextfieldSize="m"
-          tuiDropdownLimitWidth="min"
           [tuiTextfieldCleaner]="showCleaner(propertyConnector.documentationPropertyType)"
           [tuiTextfieldLabelOutside]="true"
           [nativeId]="propertyConnector.attrName"
           [valueContent]="selectContent"
           [ngModel]="propertyConnector.documentationPropertyValue"
           (ngModelChange)="propertyConnector.onValueChange($event)"
+          tuiTextfieldSize="m"
+          tuiDropdownLimitWidth="min"
         >
           <code class="t-exception">null</code>
           <tui-data-list-wrapper
@@ -86,39 +86,39 @@
           <ng-container [ngSwitch]="propertyConnector.documentationPropertyType">
             <tui-toggle
               *ngSwitchCase="'boolean'"
-              size="l"
               [nativeId]="propertyConnector.attrName"
               [showIcons]="true"
               [ngModel]="propertyConnector.documentationPropertyValue"
               (ngModelChange)="propertyConnector.onValueChange($event)"
+              size="l"
             ></tui-toggle>
 
             <tui-primitive-textfield
               *ngSwitchCase="'string'"
-              tuiTextfieldSize="m"
               [nativeId]="propertyConnector.attrName"
               [tuiTextfieldLabelOutside]="true"
               [tuiTextfieldCleaner]="true"
               [value]="propertyConnector.documentationPropertyValue || ''"
               (valueChange)="propertyConnector.onValueChange($event)"
+              tuiTextfieldSize="m"
             ></tui-primitive-textfield>
 
             <div *ngSwitchCase="'color'" tuiGroup>
               <tui-primitive-textfield
-                tuiTextfieldSize="m"
                 [attr.id]="propertyConnector.attrName"
                 [tuiTextfieldLabelOutside]="true"
                 [prizmInputOpacity]="getOpacity(propertyConnector.documentationPropertyValue)"
                 [value]="getColor(propertyConnector.documentationPropertyValue)"
                 (valueChange)="onColorChange(propertyConnector, $event)"
+                tuiTextfieldSize="m"
               >
                 <input tuiTextfield type="text" />
               </tui-primitive-textfield>
               <tui-input-count
-                tuiTextfieldSize="m"
                 [max]="100"
                 [ngModel]="getOpacity(propertyConnector.documentationPropertyValue)"
                 (ngModelChange)="onOpacityChange(propertyConnector, $event)"
+                tuiTextfieldSize="m"
               >
                 Opacity
               </tui-input-count>
@@ -126,22 +126,22 @@
 
             <tui-input-count
               *ngSwitchCase="'number'"
-              tuiTextfieldSize="m"
               [nativeId]="propertyConnector.attrName"
               [tuiTextfieldLabelOutside]="true"
               [ngModel]="propertyConnector.documentationPropertyValue"
               (ngModelChange)="propertyConnector.onValueChange($event)"
+              tuiTextfieldSize="m"
             ></tui-input-count>
 
             <ng-container *ngSwitchCase="'PolymorpheusContent'">
               <tui-primitive-textfield
                 *ngIf="isPrimitivePolymorpheusContent(propertyConnector.documentationPropertyValue)"
-                tuiTextfieldSize="m"
                 [nativeId]="propertyConnector.attrName"
                 [tuiTextfieldLabelOutside]="true"
                 [tuiTextfieldCleaner]="true"
                 [value]="propertyConnector.documentationPropertyValue.toString()"
                 (valueChange)="propertyConnector.onValueChange($event)"
+                tuiTextfieldSize="m"
               >
                 Default content
               </tui-primitive-textfield>
@@ -150,12 +150,12 @@
             <ng-container *ngSwitchDefault>
               <tui-primitive-textfield
                 *ngIf="propertyConnector.documentationPropertyMode === 'ng-content'"
-                tuiTextfieldSize="m"
                 [nativeId]="propertyConnector.attrName"
                 [tuiTextfieldLabelOutside]="true"
                 [tuiTextfieldCleaner]="true"
                 [value]="propertyConnector.documentationPropertyValue || ''"
                 (valueChange)="propertyConnector.onValueChange($event)"
+                tuiTextfieldSize="m"
               ></tui-primitive-textfield>
             </ng-container>
           </ng-container>
@@ -173,31 +173,31 @@
 
 <ng-container *ngIf="control">
   <ng-template
+    [documentationPropertyValue]="control | prizmCallFunc : getDisabledFromControl$ | async"
+    (documentationPropertyValueChange)="updateStateOfControl(control, $any($event))"
     documentationPropertyName="disabled"
     documentationPropertyType="boolean"
     documentationPropertyMode="form-control"
-    [documentationPropertyValue]="control | prizmCallFunc : getDisabledFromControl$ | async"
-    (documentationPropertyValueChange)="updateStateOfControl(control, $any($event))"
   >
     Change disabled state of control
   </ng-template>
 
   <ng-template
+    [documentationPropertyValue]="control | prizmCallFunc : getValueFromControl$ | async"
+    (documentationPropertyValueChange)="updateValueOfControl(control, $any($event))"
     documentationPropertyName="value"
     documentationPropertyType="string"
     documentationPropertyMode="form-control"
-    [documentationPropertyValue]="control | prizmCallFunc : getValueFromControl$ | async"
-    (documentationPropertyValueChange)="updateValueOfControl(control, $any($event))"
   >
     Value
   </ng-template>
 
   <ng-template
+    [documentationPropertyValue]="control | prizmCallFunc : getRequiredFromControl$ | async"
+    (documentationPropertyValueChange)="updateRequiredValidatorOfControl(control, $any($event))"
     documentationPropertyName="required"
     documentationPropertyType="boolean"
     documentationPropertyMode="form-control"
-    [documentationPropertyValue]="control | prizmCallFunc : getRequiredFromControl$ | async"
-    (documentationPropertyValueChange)="updateRequiredValidatorOfControl(control, $any($event))"
   >
     Add required validator
   </ng-template>

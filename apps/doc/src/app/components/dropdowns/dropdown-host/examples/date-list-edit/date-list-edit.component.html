@@ -1,5 +1,5 @@
-<prizm-dropdown-host [content]="dropdown" prizmDropdownHostWidth="auto" [(isOpen)]="open" #elem>
-  <button prizmButton type="button" (click)="open = !open">Пример выбора периода</button>
+<prizm-dropdown-host #elem [(isOpen)]="open" [content]="dropdown" prizmDropdownHostWidth="auto">
+  <button (click)="open = !open" prizmButton type="button">Пример выбора периода</button>
 
   <ng-template #dropdown let-zone="zone">
     <prizm-data-list [style.--prizm-data-list-border]="0">
@@ -8,10 +8,10 @@
         <span class="title">Выбор периода</span>
         <div class="add-block">
           <button
+            [icon]="'add-plus'"
+            (click)="add()"
             prizmIconButton
             appearanceType="ghost"
-            (click)="add()"
-            [icon]="'add-plus'"
             size="m"
           ></button>
         </div>
@@ -46,14 +46,14 @@
       </div>
       <div class="footer" footer>
         <button
+          (click)="open = false; cdRef.markForCheck()"
           appearanceType="ghost"
           appearance="secondary"
           prizmButton
-          (click)="open = false; cdRef.markForCheck()"
         >
           Отменить
         </button>
-        <button prizmButton (click)="open = false; cdRef.markForCheck()">Сохранить</button>
+        <button (click)="open = false; cdRef.markForCheck()" prizmButton>Сохранить</button>
       </div>
     </prizm-data-list>
   </ng-template>
@@ -67,22 +67,22 @@
           #from
           [prizmEventZoneParent]="zone"
           [ngModel]="selection.range[0]"
-          (ngModelChange)="changeDate($event, to.value)"
           [label]="'От'"
+          (ngModelChange)="changeDate($event, to.value)"
         ></prizm-input-date-time>
         <prizm-input-date-time
           #to
           [ngModel]="selection.range[1]"
           [prizmEventZoneParent]="zone"
-          (ngModelChange)="changeDate(from.value, $event)"
           [label]="'До'"
+          (ngModelChange)="changeDate(from.value, $event)"
         ></prizm-input-date-time>
       </div>
       <prizm-radio-button
         *ngSwitchDefault
-        (click)="select(item)"
         [value]="item.range"
         [label]="(dateArr[0] | date : 'short') + ' - ' + (dateArr[1] | date : 'short')"
+        (click)="select(item)"
       ></prizm-radio-button>
     </div>
     <div class="btns">
@@ -92,8 +92,8 @@
         iconClass="editor-mode"
       ></prizm-icon>
       <prizm-icon
-        (click)="isNew ? removeNew() : remove(idx); elem.reCalculatePositions()"
         class="trash-icon"
+        (click)="isNew ? removeNew() : remove(idx); elem.reCalculatePositions()"
         iconClass="delete"
       ></prizm-icon>
     </div>

@@ -27,15 +27,15 @@
 
     <ng-container *ngFor="let item of menuItem.children">
       <prizm-navigation-item-simple
+        *ngIf="!item?.children"
         [data]="item"
         [deep]="deep + 1"
-        *ngIf="!item?.children"
       ></prizm-navigation-item-simple>
 
       <prizm-navigation-item-expandable
+        *ngIf="item?.children?.length > 0"
         [data]="item"
         [deep]="deep + 1"
-        *ngIf="item?.children?.length > 0"
       ></prizm-navigation-item-expandable>
     </ng-container>
   </div>

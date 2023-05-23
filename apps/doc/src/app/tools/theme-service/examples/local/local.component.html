@@ -1,10 +1,10 @@
 <div class="block">
-  <button prizmButton (click)="toggle()">Toggle theme</button>
-  <button prizmButton (click)="light()">Light</button>
-  <button prizmButton (click)="dark()">Dark</button>
+  <button (click)="toggle()" prizmButton>Toggle theme</button>
+  <button (click)="light()" prizmButton>Light</button>
+  <button (click)="dark()" prizmButton>Dark</button>
 </div>
 <br /><br />
-<div #zone class="zone">
+<div class="zone" #zone>
   <prizm-widget title="Заголовок виджета">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
     dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex

@@ -1,4 +1,12 @@
-import { Directive, Inject, Input, TemplateRef, TrackByFunction } from '@angular/core';
+import {
+  Directive,
+  Inject,
+  Input,
+  OnDestroy,
+  TemplateRef,
+  TrackByFunction,
+  ViewContainerRef,
+} from '@angular/core';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { Observable } from 'rxjs';
 import { PrizmTableRowContext } from '../table.types';
@@ -7,7 +15,7 @@ import { PrizmTableRowContext } from '../table.types';
   selector: `ng-template[prizmRow]`,
   exportAs: 'prizmRow',
 })
-export class PrizmRowDirective<T extends Partial<Record<keyof T, any>>> {
+export class PrizmRowDirective<T extends Partial<Record<keyof T, any>>> implements OnDestroy {
   @Input()
   @prizmDefaultProp()
   prizmRowOf: readonly T[] = [];
@@ -28,5 +36,12 @@ export class PrizmRowDirective<T extends Partial<Record<keyof T, any>>> {
     return i;
   };
 
-  constructor(@Inject(TemplateRef) readonly template: TemplateRef<PrizmTableRowContext<T>>) {}
+  constructor(
+    @Inject(TemplateRef) readonly template: TemplateRef<PrizmTableRowContext<T>>,
+    public readonly viewContainer: ViewContainerRef
+  ) {}
+
+  public ngOnDestroy(): void {
+    this.viewContainer.clear();
+  }
 }

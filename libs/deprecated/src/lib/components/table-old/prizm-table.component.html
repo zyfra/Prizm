@@ -1,7 +1,7 @@
 <p-table
+  #ptable
   [class]="className"
   [attr.data-size]="size"
-  #ptable
   [value]="value"
   [columns]="columns"
   [frozenColumns]="frozenColumns"
@@ -64,26 +64,27 @@
   (onEditCancel)="editCancel.emit($event)"
   (selectionChange)="selectionChange.emit($event)"
 >
-  <ng-template pTemplate="caption" *ngIf="captionTemplate || title">
+  <ng-template *ngIf="captionTemplate || title" pTemplate="caption">
     <div class="prizm-table-title">{{ title }}</div>
     <ng-container *ngIf="captionTemplate">
       <ng-container *ngTemplateOutlet="captionTemplate"></ng-container>
     </ng-container>
   </ng-template>
 
-  <ng-template pTemplate="header" *ngIf="headerTemplate" let-columns>
+  <ng-template *ngIf="headerTemplate" pTemplate="header" let-columns>
     <ng-container *ngTemplateOutlet="headerTemplate; context: { $implicit: columns }"></ng-container>
   </ng-template>
 
-  <ng-template pTemplate="groupheader" let-item *ngIf="groupHeaderTemplate">
+  <ng-template *ngIf="groupHeaderTemplate" pTemplate="groupheader" let-item>
     <ng-container *ngTemplateOutlet="groupHeaderTemplate; context: { $implicit: item }"></ng-container>
   </ng-template>
 
-  <ng-template pTemplate="groupfooter" let-item *ngIf="groupFooterTemplate">
+  <ng-template *ngIf="groupFooterTemplate" pTemplate="groupfooter" let-item>
     <ng-container *ngTemplateOutlet="groupFooterTemplate; context: { $implicit: item }"></ng-container>
   </ng-template>
 
   <ng-template
+    *ngIf="bodyTemplate"
     pTemplate="body"
     let-item
     let-rowIndex="rowIndex"
@@ -92,7 +93,6 @@
     let-expanded="expanded"
     let-editing="editing"
     let-columns="columns"
-    *ngIf="bodyTemplate"
   >
     <ng-container
       *ngTemplateOutlet="
@@ -110,7 +110,7 @@
     ></ng-container>
   </ng-template>
 
-  <ng-template pTemplate="frozenbody" let-item let-rowIndex="rowIndex" *ngIf="frozenBodyTemplate">
+  <ng-template *ngIf="frozenBodyTemplate" pTemplate="frozenbody" let-item let-rowIndex="rowIndex">
     <ng-container
       *ngTemplateOutlet="
         frozenBodyTemplate;
@@ -122,7 +122,7 @@
     ></ng-container>
   </ng-template>
 
-  <ng-template pTemplate="loadingbody" let-columns="columns" *ngIf="loadingBodyTemplate">
+  <ng-template *ngIf="loadingBodyTemplate" pTemplate="loadingbody" let-columns="columns">
     <ng-container
       *ngTemplateOutlet="
         loadingBodyTemplate;
@@ -133,19 +133,19 @@
     ></ng-container>
   </ng-template>
 
-  <ng-template pTemplate="rowexpansion" let-item *ngIf="expandedRowTemplate">
+  <ng-template *ngIf="expandedRowTemplate" pTemplate="rowexpansion" let-item>
     <ng-container *ngTemplateOutlet="expandedRowTemplate; context: { $implicit: item }"></ng-container>
   </ng-template>
 
-  <ng-template pTemplate="footer" *ngIf="footerTemplate">
+  <ng-template *ngIf="footerTemplate" pTemplate="footer">
     <ng-container *ngTemplateOutlet="footerTemplate"></ng-container>
   </ng-template>
 
-  <ng-template pTemplate="summary" *ngIf="summaryTemplate">
+  <ng-template *ngIf="summaryTemplate" pTemplate="summary">
     <ng-container *ngTemplateOutlet="summaryTemplate"></ng-container>
   </ng-template>
 
-  <ng-template pTemplate="emptymessage" *ngIf="emptyMessageTemplate">
+  <ng-template *ngIf="emptyMessageTemplate" pTemplate="emptymessage">
     <ng-container *ngTemplateOutlet="emptyMessageTemplate"></ng-container>
   </ng-template>
 </p-table>

@@ -35,28 +35,28 @@
 
   <div class="footer" prizmStepperFooter>
     <button
+      [disabled]="toPrevStepDisabled"
+      (click)="toPrevStep()"
       prizmButton
       appearanceType="outline"
       appearance="primary"
       size="l"
-      (click)="toPrevStep()"
-      [disabled]="toPrevStepDisabled"
     >
       Предыдущий шаг
     </button>
     <button
+      *ngIf="currentStep !== 3"
+      [disabled]="toNextStepDisabled"
+      (click)="toNextStep()"
       prizmButton
       appearanceType="outline"
       appearance="primary"
       size="l"
-      (click)="toNextStep()"
-      [disabled]="toNextStepDisabled"
-      *ngIf="currentStep !== 3"
     >
       Следующий шаг
     </button>
 
-    <button prizmButton appearanceType="outline" appearance="success" size="l" *ngIf="currentStep === 3">
+    <button *ngIf="currentStep === 3" prizmButton appearanceType="outline" appearance="success" size="l">
       Завершить
     </button>
   </div>

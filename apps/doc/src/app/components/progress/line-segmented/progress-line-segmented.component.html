@@ -3,7 +3,7 @@
     Our line segments are used to show progress through a series of steps.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-progress-base-example></prizm-progress-base-example>
     </prizm-doc-example>
   </ng-template>
@@ -21,39 +21,39 @@
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="colors"
+        [documentationPropertyValues]="colorsVariants"
         documentationPropertyName="colors"
         documentationPropertyType="string | string[]"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="colors"
-        [documentationPropertyValues]="colorsVariants"
       >
         Color
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="value"
         documentationPropertyName="value"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="value"
       >
         Value
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="max"
         documentationPropertyName="max"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="max"
       >
         Max
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
         documentationPropertyName="size"
         documentationPropertyType="PrizmSizeS | PrizmSizesXl"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="size"
-        [documentationPropertyValues]="sizeVariants"
       >
         Size
       </ng-template>
@@ -69,7 +69,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

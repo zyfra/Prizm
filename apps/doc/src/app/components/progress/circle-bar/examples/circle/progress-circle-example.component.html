@@ -1,7 +1,7 @@
 <div>
   <p class="title">Size XL</p>
   <div class="block">
-    <prizm-progress-circle size="xl" [max]="max" [value]="(value$ | async) || 0"></prizm-progress-circle>
+    <prizm-progress-circle [max]="max" [value]="(value$ | async) || 0" size="xl"></prizm-progress-circle>
   </div>
 </div>
 
@@ -10,20 +10,20 @@
   <p class="title">Size L</p>
   <div class="block">
     <prizm-progress-circle
-      size="l"
       [max]="max"
       [trackColor]="'transparent'"
       [value]="(value$ | async) || 0"
+      size="l"
     ></prizm-progress-circle>
 
-    <prizm-progress-circle size="l" [max]="max" [value]="(value$ | async) || 0"></prizm-progress-circle>
+    <prizm-progress-circle [max]="max" [value]="(value$ | async) || 0" size="l"></prizm-progress-circle>
 
     <prizm-progress-circle
-      size="l"
       [max]="max"
       [trackColor]="'var(--prizm-index-warning)'"
       [color]="'var(--prizm-index-plan)'"
       [value]="(value$ | async) || 0"
+      size="l"
     ></prizm-progress-circle>
   </div>
 </div>
@@ -33,13 +33,13 @@
 <div>
   <p class="title">Size S</p>
   <div class="block">
-    <prizm-progress-circle size="s" [max]="max" [value]="(value$ | async) || 0"></prizm-progress-circle>
+    <prizm-progress-circle [max]="max" [value]="(value$ | async) || 0" size="s"></prizm-progress-circle>
     <prizm-progress-circle
-      size="s"
       [max]="max"
+      [value]="(value$ | async) || 0"
+      size="s"
       color="var(--prizm-index-warning)"
       trackColor="transparent"
-      [value]="(value$ | async) || 0"
     ></prizm-progress-circle>
   </div>
 </div>
@@ -48,13 +48,13 @@
 <div>
   <p class="title">Size M</p>
   <div class="block">
-    <prizm-progress-circle size="m" [max]="max" [value]="(value$ | async) || 0"></prizm-progress-circle>
+    <prizm-progress-circle [max]="max" [value]="(value$ | async) || 0" size="m"></prizm-progress-circle>
 
     <prizm-progress-circle
-      size="m"
-      color="var(--prizm-index-warning)"
       [max]="max"
       [value]="(value$ | async) || 0"
+      size="m"
+      color="var(--prizm-index-warning)"
     ></prizm-progress-circle>
   </div>
 </div>
@@ -67,17 +67,17 @@
       <label *ngIf="value$ | async as value" prizmProgressLabel>
         <span class="percent">{{ value }}%</span>
 
-        <prizm-progress-circle size="xl" [max]="max" [value]="value"></prizm-progress-circle>
+        <prizm-progress-circle [max]="max" [value]="value" size="xl"></prizm-progress-circle>
       </label>
     </div>
     <div>
       <label *ngIf="value$ | async as value" prizmProgressLabel>
         <span class="percent">{{ value }}%</span>
         <prizm-progress-circle
-          size="l"
           [max]="max"
           [trackColor]="'transparent'"
           [value]="value"
+          size="l"
         ></prizm-progress-circle>
       </label>
     </div>

@@ -1,7 +1,5 @@
 <p-tree
   #headerToolbar
-  filterBy="label"
-  filterMode="strict"
   [value]="viewNodes"
   [class.folder-open]="viewMode === 'folder' && currentFolder"
   [emptyMessage]="emptyMessage"
@@ -10,6 +8,8 @@
   (selectionChange)="selectionChangeHandler($event)"
   (onNodeCollapse)="nodeCollapseHandler($event.node)"
   (onNodeExpand)="nodeExpandHandler($event.node)"
+  filterBy="label"
+  filterMode="strict"
 >
   <ng-template *ngIf="isToolbarNotEmpty || toolbarExtra" pTemplate="header">
     <div class="header header-toolbar">
@@ -19,44 +19,44 @@
           class="header__btn"
           [class.header__btn_active]="viewMode === 'folder'"
           [size]="16"
-          iconClass="files-mode"
           (click)="changeViewMode('folder')"
+          iconClass="files-mode"
         ></prizm-icon>
 
         <prizm-icon
           class="header__btn"
           [class.header__btn_active]="viewMode === 'rubricator'"
           [size]="16"
-          iconClass="editor-alfavit"
           (click)="changeViewMode('rubricator')"
+          iconClass="editor-alfavit"
         ></prizm-icon>
 
         <prizm-icon
           class="header__btn"
           [class.header__btn_active]="false"
           [size]="16"
-          iconClass="chevrons-close-all"
           (click)="closeAll()"
+          iconClass="chevrons-close-all"
         ></prizm-icon>
 
         <prizm-icon
           class="header__btn"
           [class.header__btn_active]="search"
           [size]="16"
-          iconClass="sort-zoom-in"
           (click)="toggleSearch()"
+          iconClass="sort-zoom-in"
         ></prizm-icon>
       </div>
     </div>
 
-    <div *ngIf="search" class="header header-search-bar">
-      <prizm-input-layout label="Поиск" class="search-input">
-        <input prizmInput [formControl]="searchFormControl" #input />
+    <div class="header header-search-bar" *ngIf="search">
+      <prizm-input-layout class="search-input" label="Поиск">
+        <input #input [formControl]="searchFormControl" prizmInput />
         <button
+          [interactive]="true"
+          (click)="changeSearchValue(input.value)"
           prizmInputIconButton="sort-zoom-in"
           prizm-input-right
-          (click)="changeSearchValue(input.value)"
-          [interactive]="true"
         ></button>
       </prizm-input-layout>
     </div>
@@ -65,8 +65,8 @@
   <ng-template let-node pTemplate="default">
     <prizm-nav-menu-item
       [item]="node.data"
-      (itemClick)="setActiveNode(node)"
       [itemExtra]="itemExtra"
+      (itemClick)="setActiveNode(node)"
     ></prizm-nav-menu-item>
   </ng-template>
 </p-tree>

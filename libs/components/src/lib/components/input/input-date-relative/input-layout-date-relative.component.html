@@ -10,18 +10,18 @@
 >
   <input
     class="input-search"
-    prizmInput
-    (click)="safeOpenModal()"
+    #focusableElementRef
     [ngModel]="value"
     [disabled]="disabled"
-    (ngModelChange)="valueChange($event)"
     [placeholder]="placeholder"
-    #focusableElementRef
+    (click)="safeOpenModal()"
+    (ngModelChange)="valueChange($event)"
+    prizmInput
   />
 </prizm-dropdown-host>
 
 <ng-template #dropdown>
-  <ul role="listbox" (prizmAfterViewInit)="markAsTouched()" class="prizm-datepicker-relative-menu">
+  <ul class="prizm-datepicker-relative-menu" (prizmAfterViewInit)="markAsTouched()" role="listbox">
     <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: timeItems }"></ng-container>
     <li class="relative-menu-item-divider"></li>
     <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: directionItems }"></ng-container>
@@ -30,10 +30,10 @@
 
     <ng-template #menuItemsTemplate let-items="items">
       <li
+        class="relative-menu-item"
         *ngFor="let item of items"
         [class.relative-menu-item-active]="item.active"
         (click)="onMenuItemClick($event, item)"
-        class="relative-menu-item"
         role="button"
         tabindex="0"
       >
@@ -48,15 +48,15 @@
 
 <ng-container *prizmInputLayoutRight>
   <button
-    prizmInputIconButton="date-update"
     [interactive]="true"
     [disabled]="disabled"
     (click)="focusableElementRef.elementRef.nativeElement.click()"
+    prizmInputIconButton="date-update"
   ></button>
   <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
   </ng-container>
 </ng-container>
 
-<ng-template prizmInputStatusText [enable]="!!ngControl.errors?.requiredPattern" status="danger">
+<ng-template [enable]="!!ngControl.errors?.requiredPattern" prizmInputStatusText status="danger">
   {{ dictionary$ | async | prizmPluck : ['wrongFormat'] }}
 </ng-template>

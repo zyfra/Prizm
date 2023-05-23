@@ -1,6 +1,6 @@
 <prizm-doc-page header="Icon">
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-icon-base-example></prizm-icon-base-example>
     </prizm-doc-example>
 
@@ -10,8 +10,8 @@
       <h4 class="title">{{ def.dir }}</h4>
 
       <div class="icons">
-        <div (click)="copy(name)" *ngFor="let name of def.data" class="icon-def">
-          <prizm-icon [iconClass]="name" [size]="24" class="icon"></prizm-icon>
+        <div class="icon-def" *ngFor="let name of def.data" (click)="copy(name)">
+          <prizm-icon class="icon" [iconClass]="name" [size]="24"></prizm-icon>
           <div class="name">{{ name }}</div>
         </div>
       </div>
@@ -24,20 +24,20 @@
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="icon"
+        [documentationPropertyValues]="iconVariants"
         documentationPropertyName="iconClass"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="iconVariants"
-        [(documentationPropertyValue)]="icon"
       >
         Icon
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="iconSize"
+        [documentationPropertyValues]="iconSizes"
         documentationPropertyName="size"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="iconSizes"
-        [(documentationPropertyValue)]="iconSize"
       >
         Size
       </ng-template>
@@ -53,7 +53,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

@@ -12,23 +12,23 @@
       4) components that would get context injected through DI
     </div>
 
-    <prizm-doc-example id="base" heading="Base" [content]="baseExample">
+    <prizm-doc-example id="base" [content]="baseExample" heading="Base">
       <prizm-polymorph-base-example></prizm-polymorph-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="number" heading="Number" [content]="numberExample">
+    <prizm-doc-example id="number" [content]="numberExample" heading="Number">
       <prizm-polymorph-number-example></prizm-polymorph-number-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="function" heading="Function" [content]="functionExample">
+    <prizm-doc-example id="function" [content]="functionExample" heading="Function">
       <prizm-polymorph-function-example></prizm-polymorph-function-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="template" heading="Template" [content]="templateExample">
+    <prizm-doc-example id="template" [content]="templateExample" heading="Template">
       <prizm-polymorph-template-example></prizm-polymorph-template-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="component" heading="Component" [content]="componentExample">
+    <prizm-doc-example id="component" [content]="componentExample" heading="Component">
       <prizm-polymorph-component-example></prizm-polymorph-component-example>
     </prizm-doc-example>
   </ng-template>
@@ -43,7 +43,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="exampleModule"></prizm-doc-code>
+        <prizm-doc-code [code]="exampleModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

@@ -3,30 +3,30 @@
     Our toast component is a simple way to display a message to the user.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example heading="Info Message" id="info-toast" [content]="exampleMessageInfo">
+    <prizm-doc-example id="info-toast" [content]="exampleMessageInfo" heading="Info Message">
       <prizm-message-info-example></prizm-message-info-example>
     </prizm-doc-example>
 
-    <prizm-doc-example heading="Warning Message" id="warning-toast" [content]="exampleMessageWarning">
+    <prizm-doc-example id="warning-toast" [content]="exampleMessageWarning" heading="Warning Message">
       <prizm-message-warning-example></prizm-message-warning-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="success-toast" heading="Success Message" [content]="exampleMessageSuccess">
+    <prizm-doc-example id="success-toast" [content]="exampleMessageSuccess" heading="Success Message">
       <prizm-message-success-example></prizm-message-success-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="danger-toast" heading="Danger Message" [content]="exampleMessageDanger">
+    <prizm-doc-example id="danger-toast" [content]="exampleMessageDanger" heading="Danger Message">
       <prizm-message-danger-example></prizm-message-danger-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="toast-platform" heading="Platform Toast" [content]="exampleToast">
+    <prizm-doc-example id="toast-platform" [content]="exampleToast" heading="Platform Toast">
       <prizm-toast-example></prizm-toast-example>
     </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <button prizmButton (click)="showToast()">Показать тост</button>
+      <button (click)="showToast()" prizmButton>Показать тост</button>
       <div>
         <p>Container inline</p>
         <prizm-toast-container
@@ -74,11 +74,11 @@
       </ng-template> -->
 
       <ng-template
+        [(documentationPropertyValue)]="position"
+        [documentationPropertyValues]="positionVariants"
         documentationPropertyName="position"
         documentationPropertyType="PrizmToastPosition"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="positionVariants"
-        [(documentationPropertyValue)]="position"
       >
         Position place
       </ng-template>
@@ -127,7 +127,7 @@
           into a module where you want to use our toasts
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

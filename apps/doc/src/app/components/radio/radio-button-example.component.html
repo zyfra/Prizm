@@ -4,15 +4,15 @@
     single option from a set of options.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleBasicRadio">
+    <prizm-doc-example id="base" [content]="exampleBasicRadio" heading="Base">
       <prizm-radio-button-basic-example></prizm-radio-button-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="big" heading="Big Size" [content]="exampleBasicRadio">
+    <prizm-doc-example id="big" [content]="exampleBasicRadio" heading="Big Size">
       <prizm-radio-button-basic-example size="l"></prizm-radio-button-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="small" heading="Small Size" [content]="exampleBasicRadio">
+    <prizm-doc-example id="small" [content]="exampleBasicRadio" heading="Small Size">
       <prizm-radio-button-basic-example size="s"></prizm-radio-button-basic-example>
     </prizm-doc-example>
   </ng-template>
@@ -32,47 +32,47 @@
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="label"
         documentationPropertyName="label"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="label"
       >
         Label
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="value"
         documentationPropertyName="value"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="value"
       >
         Value
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="disabled"
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
       >
         Disabled
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
         documentationPropertyName="size"
         documentationPropertyType="m | l | s"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="sizeVariants"
-        [(documentationPropertyValue)]="size"
       >
         Type
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="name"
         documentationPropertyName="name"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="name"
       >
         Name
       </ng-template>
@@ -127,7 +127,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

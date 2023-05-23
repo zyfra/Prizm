@@ -3,11 +3,11 @@
 </p>
 
 <prizm-input-layout label="Заголовок">
-  <input prizmInput [formControl]="control" />
+  <input [formControl]="control" prizmInput />
 </prizm-input-layout>
 
 <p>
-  <button prizmButton (click)="changeControl()">Change control form!</button>
+  <button (click)="changeControl()" prizmButton>Change control form!</button>
 </p>
 
 <p>
@@ -15,11 +15,11 @@
 </p>
 
 <prizm-input-layout label="Заголовок">
-  <input prizmInput [value]="valueText" />
+  <input [value]="valueText" prizmInput />
 </prizm-input-layout>
 
 <p>
-  <button prizmButton (click)="changeText()">Change text value!</button>
+  <button (click)="changeText()" prizmButton>Change text value!</button>
 </p>
 
 <p>
@@ -27,9 +27,9 @@
 </p>
 
 <prizm-input-layout label="Заголовок">
-  <input prizmInput [(ngModel)]="ngModelText" />
+  <input [(ngModel)]="ngModelText" prizmInput />
 </prizm-input-layout>
 
 <p>
-  <button prizmButton (click)="changeNgModel()">Change ngModel text!</button>
+  <button (click)="changeNgModel()" prizmButton>Change ngModel text!</button>
 </p>

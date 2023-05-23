@@ -9,21 +9,21 @@
         ></ng-container>
         <button
           *ngIf="headerConfiguration.showSettings"
-          prizmIconButton
           [size]="'m'"
           [icon]="'settings'"
           [appearance]="'secondary'"
           [appearanceType]="'ghost'"
           (click)="handleSettingsClicked()"
+          prizmIconButton
         ></button>
         <button
           *ngIf="headerConfiguration.showHome"
-          prizmIconButton
           [size]="'m'"
           [icon]="'social-home'"
           [appearance]="'secondary'"
           [appearanceType]="'ghost'"
           (click)="handleHomeClicked()"
+          prizmIconButton
         ></button>
       </div>
     </div>

@@ -7,15 +7,15 @@
     </span>
     <div class="rows-selector" *ngIf="!paginatorOptions?.noRowsSelector">
       <prizm-select
-        size="s"
         [disabled]="disabled"
         [forceClear]="false"
         [label]="null"
         [outer]="true"
         [nullContent]="null"
-        (ngModelChange)="changeRows($event)"
         [ngModel]="rows"
         [items]="this.rowsCountOptions?.length > 0 ? this.rowsCountOptions : [rows]"
+        (ngModelChange)="changeRows($event)"
+        size="s"
       ></prizm-select>
     </div>
   </div>
@@ -40,10 +40,10 @@
         <ng-container *ngIf="pagingData.left">
           <button
             class="page"
-            type="button"
-            (click)="changePage(pagingData.left)"
             [disabled]="disabled"
             [class.page_disabled]="disabled"
+            (click)="changePage(pagingData.left)"
+            type="button"
           >
             {{ pagingData.left }}
           </button>
@@ -58,12 +58,12 @@
 
         <button
           class="page"
-          type="button"
+          *ngFor="let page of pagingData.mid"
           [disabled]="disabled"
           [class.page_disabled]="disabled"
-          *ngFor="let page of pagingData.mid"
           [class.page_selected]="page === currentPage"
           (click)="changePage(page)"
+          type="button"
         >
           {{ page }}
         </button>
@@ -78,10 +78,10 @@
           </div>
           <button
             class="page"
-            type="button"
-            (click)="changePage(pagingData.right)"
             [disabled]="disabled"
             [class.page_disabled]="disabled"
+            (click)="changePage(pagingData.right)"
+            type="button"
           >
             {{ pagingData.right }}
           </button>
@@ -102,8 +102,8 @@
       <button
         class="show-more"
         [disabled]="disabled || showMoreDisabled"
-        (click)="increase()"
         [class.show-more_disabled]="disabled || showMoreDisabled"
+        (click)="increase()"
       >
         {{ moreButtonLabel }}
       </button>

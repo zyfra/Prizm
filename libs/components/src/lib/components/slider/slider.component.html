@@ -1,16 +1,16 @@
-<div class="value" [ngClass]="{ 'value--min': isHorizontal, 'value--max': !isHorizontal }" *ngIf="showMinMax">
+<div class="value" *ngIf="showMinMax" [ngClass]="{ 'value--min': isHorizontal, 'value--max': !isHorizontal }">
   {{ isHorizontal ? min : max }}
 </div>
 <div
   class="scrollbar"
-  [ngStyle]="{ 'background-image': 'linear-gradient(' + scrollbarLinearGradient + ')' }"
   #scrollbar
+  [ngStyle]="{ 'background-image': 'linear-gradient(' + scrollbarLinearGradient + ')' }"
 >
   <div class="scrollbar__track" #track>
     <prizm-slider-cnob
+      class="scrollbar__cnob prizm-slider-cnob"
       *ngIf="range"
       [index]="0"
-      class="scrollbar__cnob prizm-slider-cnob"
       [style.left.%]="isHorizontal ? getPosition(0) : null"
       [style.bottom.%]="isHorizontal ? null : getPosition(0)"
       [showValueOn]="cnobValuePosition"
@@ -20,8 +20,8 @@
     ></prizm-slider-cnob>
 
     <prizm-slider-cnob
-      [index]="1"
       class="scrollbar__cnob prizm-slider-cnob"
+      [index]="1"
       [style.left.%]="isHorizontal ? getPosition(1) : null"
       [style.bottom.%]="isHorizontal ? null : getPosition(1)"
       [value]="showValue && isDisabled === false ? getCnobValue(1) : null"
@@ -31,6 +31,6 @@
     ></prizm-slider-cnob>
   </div>
 </div>
-<div class="value" [ngClass]="{ 'value--max': isHorizontal, 'value--min': !isHorizontal }" *ngIf="showMinMax">
+<div class="value" *ngIf="showMinMax" [ngClass]="{ 'value--max': isHorizontal, 'value--min': !isHorizontal }">
   {{ isHorizontal ? max : min }}
 </div>

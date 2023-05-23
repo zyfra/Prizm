@@ -1,21 +1,21 @@
 <h3>Base example</h3>
 <div>
   show amount column
-  <prizm-toggle size="m" [(ngModel)]="showFormatNumber" [ngModelOptions]="{ standalone: true }">
+  <prizm-toggle [(ngModel)]="showFormatNumber" [ngModelOptions]="{ standalone: true }" size="m">
   </prizm-toggle>
 </div>
 <br />
 <prizm-scrollbar class="scrollable">
-  <table prizmTable class="table" size="s">
+  <table class="table" prizmTable size="s">
     <thead>
       <tr prizmThGroup>
         <th prizmTh>Наименование</th>
         <th prizmTh>Категория</th>
-        <th prizmTh *ngIf="showFormatNumber">Количество</th>
+        <th *ngIf="showFormatNumber" prizmTh>Количество</th>
       </tr>
     </thead>
 
-    <tbody prizmTbody [data]="products">
+    <tbody [data]="products" prizmTbody>
       <ng-container
         *prizmRow="
           let item of products;
@@ -29,15 +29,15 @@
           let count = count
         "
       >
-        <tr prizmTr #trElement>
+        <tr #trElement prizmTr>
           <td prizmTd>
             <div class="col-tree">
               <prizm-tree-button
                 #treeButton
                 [visibilityIcon]="!!item.children?.length"
                 [open]="trElement.isChildrenOpened(i)"
-                (openChange)="$event ? trElement.showChildren(i) : trElement.hideChildren(i)"
                 [level]="deepLevel"
+                (openChange)="$event ? trElement.showChildren(i) : trElement.hideChildren(i)"
               >
               </prizm-tree-button>
               <span>{{ item.name }}</span>
@@ -50,7 +50,7 @@
             {{ first ? '#first' : '' }}
             {{ last ? '#last' : '' }}
           </td>
-          <td *ngIf="showFormatNumber" class="format__number" prizmTd>
+          <td class="format__number" *ngIf="showFormatNumber" prizmTd>
             {{ item.count | spaceNumber : '0.0-0' }}
           </td>
         </tr>
@@ -61,7 +61,7 @@
 
 <h3>Tree open on row click</h3>
 <prizm-scrollbar class="scrollable">
-  <table prizmTable class="table" size="s">
+  <table class="table" prizmTable size="s">
     <thead>
       <tr prizmThGroup>
         <th prizmTh>Наименование</th>
@@ -70,7 +70,7 @@
       </tr>
     </thead>
 
-    <tbody prizmTbody [data]="products">
+    <tbody [data]="products" prizmTbody>
       <ng-container
         *prizmRow="
           let item of products;
@@ -81,7 +81,7 @@
           let count = count
         "
       >
-        <tr prizmTr #trElement (click)="treeButton.toggle()">
+        <tr #trElement (click)="treeButton.toggle()" prizmTr>
           <td prizmTd>
             <div class="col-tree">
               <prizm-tree-button
@@ -89,8 +89,8 @@
                 [manualChange]="true"
                 [visibilityIcon]="!!item.children?.length"
                 [open]="trElement.isChildrenOpened(i)"
-                (openChange)="$event ? trElement.showChildren(i) : trElement.hideChildren(i)"
                 [level]="deepLevel"
+                (openChange)="$event ? trElement.showChildren(i) : trElement.hideChildren(i)"
               >
               </prizm-tree-button>
               <span>{{ item.name }}</span>
@@ -108,7 +108,7 @@
 
 <h3>With lazy load and custom loading template</h3>
 <prizm-scrollbar class="scrollable">
-  <table prizmTable class="table" size="s">
+  <table class="table" prizmTable size="s">
     <thead>
       <tr prizmThGroup>
         <th prizmTh>Наименование</th>
@@ -117,7 +117,7 @@
       </tr>
     </thead>
 
-    <tbody prizmTbody [data]="products">
+    <tbody [data]="products" prizmTbody>
       <!-- custom template when loading -->
       <tr *prizmTableTreeLoading>
         <td colspan="5">
@@ -136,14 +136,14 @@
           let count = count
         "
       >
-        <tr prizmTr #trElement>
+        <tr #trElement prizmTr>
           <td prizmTd>
             <div class="col-tree">
               <prizm-tree-button
                 [removeIcon]="!item.children?.length"
                 [open]="trElement.isChildrenOpened(i)"
-                (openChange)="$event ? trElement.showChildren(i) : trElement.hideChildren(i)"
                 [level]="deepLevel"
+                (openChange)="$event ? trElement.showChildren(i) : trElement.hideChildren(i)"
               >
               </prizm-tree-button>
               <span>{{ item.name }}</span>

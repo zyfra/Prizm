@@ -1,10 +1,10 @@
 <prizm-doc-page header="File upload">
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="basic">
+    <prizm-doc-example id="base" [content]="basic" heading="Base">
       <prizm-file-upload-basic-example></prizm-file-upload-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="auto-upload" heading="Auto upload" [content]="basic">
+    <prizm-doc-example id="auto-upload" [content]="basic" heading="Auto upload">
       <prizm-file-auto-upload-example></prizm-file-auto-upload-example>
     </prizm-doc-example>
   </ng-template>
@@ -15,15 +15,15 @@
         #element
         [prizmDocHostElement]="element"
         [multiple]="multiple"
-        (filesChange)="onFilesChange($event)"
-        (filesValidationErrors)="onfilesValidationErrors($event)"
-        (filesCountError)="onFilesCountError($event)"
-        (retry)="retry($event)"
         [accept]="accept"
         [progress]="progress$$ | async"
         [maxFilesCount]="maxFilesCount"
         [maxFileSize]="maxFileSize"
         [disabled]="disabled"
+        (filesChange)="onFilesChange($event)"
+        (filesValidationErrors)="onfilesValidationErrors($event)"
+        (filesCountError)="onFilesCountError($event)"
+        (retry)="retry($event)"
       >
         {{ userContent }}
       </prizm-file-upload>
@@ -31,41 +31,41 @@
       <br />
 
       <button
-        (click)="send()"
+        class="submit"
         [disabled]="files.length === 0 || disabled"
+        (click)="send()"
         prizmButton
         appearance="primary"
         size="m"
-        class="submit"
       >
         Отправить
       </button>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="accept"
+        [documentationPropertyValues]="acceptVariants"
         documentationPropertyName="accept"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="accept"
-        [documentationPropertyValues]="acceptVariants"
       >
         Accept
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="maxFileSize"
         documentationPropertyName="maxFileSize"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="maxFileSize"
       >
         Max file size (bytes)
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="maxFilesCount"
         documentationPropertyName="maxFilesCount"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="maxFilesCount"
       >
         Max files count
       </ng-template>
@@ -80,10 +80,10 @@
       </ng-template> -->
 
       <ng-template
+        [(documentationPropertyValue)]="disabled"
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
       >
         Disabled
       </ng-template>
@@ -97,10 +97,10 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="multiple"
         documentationPropertyName="multiple"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="multiple"
       >
         Multiple
       </ng-template>
@@ -160,7 +160,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

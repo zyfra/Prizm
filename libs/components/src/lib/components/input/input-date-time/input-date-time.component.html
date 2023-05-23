@@ -1,7 +1,7 @@
 <prizm-dropdown-host
-  [style.--prizm-dropdown-host-width]="'100%'"
   class="z-hosted"
   #prizmDropdownHostComponent
+  [style.--prizm-dropdown-host-width]="'100%'"
   [canOpen]="interactive"
   [content]="openTimeTemplate ? dropdownTimeTemplate : dropdownDateTemplate"
   [prizmDropdownHostWidth]="openTimeTemplate ? '100%' : 'auto'"
@@ -13,7 +13,6 @@
     <ng-template prizmInputStatusText>Ошибка! Неправильный формат</ng-template>
     <input
       class="input-search"
-      prizmInput
       #focusableElementRef
       [mask]="textMaskOptions"
       [showMaskTyped]="focusableElementRef.focused"
@@ -22,6 +21,7 @@
       [placeholder]="placeholder"
       [disabled]="computedDisabled"
       [formControl]="innerControl"
+      prizmInput
     />
     <!--    [ngModel]="computedValue"-->
     <!--    (ngModelChange)="onValueChange($event || '')"-->
@@ -29,11 +29,11 @@
     <!--    [patterns]="fixedPatternForTime"-->
     <ng-container prizm-input-right>
       <button
-        prizmInputIconButton="date-calendar-blank"
         [interactive]="true"
         (click)="openDateDropdown()"
+        prizmInputIconButton="date-calendar-blank"
       ></button>
-      <button prizmInputIconButton="date-clock" (click)="openTimeDropdown()" [interactive]="true"></button>
+      <button [interactive]="true" (click)="openTimeDropdown()" prizmInputIconButton="date-clock"></button>
       <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
       </ng-container>
     </ng-container>
@@ -42,8 +42,6 @@
 
 <ng-template #dropdownDateTemplate>
   <prizm-calendar
-    prizmPreventDefault="mousedown"
-    automation-id="prizm-input-date-time__calendar"
     [min]="calendarMinDay"
     [max]="calendarMaxDay"
     [disabledItemHandler]="disabledItemHandler"
@@ -51,17 +49,19 @@
     [value]="calendarValue"
     (dayClick)="onDayClick($event)"
     (monthChange)="onMonthChange($event)"
+    prizmPreventDefault="mousedown"
+    automation-id="prizm-input-date-time__calendar"
   ></prizm-calendar>
 </ng-template>
 
 <ng-template #dropdownTimeTemplate>
   <prizm-data-list
-    prizmLifecycle
+    class="block"
+    *ngIf="timeItems.length"
+    [style.--prizm-data-list-border]="0"
     (prizmAfterViewInit)="prizmDropdownHostComponent.reCalculatePositions()"
     (prizmOnDestroy)="openTimeTemplate = false"
-    *ngIf="timeItems.length"
-    class="block"
-    [style.--prizm-data-list-border]="0"
+    prizmLifecycle
   >
     <ng-container>
       <div

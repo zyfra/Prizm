@@ -2,7 +2,7 @@
   <a href="http://prizm.zyfra.com/" target="_blank">
     <img src="/assets/logos/logo-dark.svg" />
   </a>
-  <prizm-toggle iconOn="social-sun" [ngModel]="isNight$ | async" (ngModelChange)="onMode($event)">
+  <prizm-toggle [ngModel]="isNight$ | async" (ngModelChange)="onMode($event)" iconOn="social-sun">
   </prizm-toggle>
 </div>
 <div class="sub-text x-margin prizm-font-input-text-14px">

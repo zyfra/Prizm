@@ -70,6 +70,7 @@ const x: boolean = true;
 
 ```html
 <some-element
+  class="element-class"
   #myElement
   *ngIf="condition"
   [myAttrDirective]="someName"
@@ -78,7 +79,6 @@ const x: boolean = true;
   [ngClass]="'some'"
   [class.my-class-name]="ifTrue"
   [style.width.px]="width"
-  class="element-class"
 >
 </some-element>
 ```
@@ -96,11 +96,11 @@ const x: boolean = true;
 
 ```html
 <comp
+  class="component"
   [style.height]="iconSize + 'px'"
   [style.min-height]="iconSize + 'px'"
   [style.min-width]="iconSize + 'px'"
   [style.width]="iconSize + 'px'"
-  class="component"
 ></comp>
 ```
 
@@ -109,7 +109,7 @@ const x: boolean = true;
 template.html:
 
 ```html
-<comp [style.--icon-size]="iconSize" class="component"></comp>
+<comp class="component" [style.--icon-size]="iconSize"></comp>
 ```
 
 .component.css

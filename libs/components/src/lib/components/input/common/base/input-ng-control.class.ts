@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Directive, Injector, OnInit } from '@angular/core';
-import { AbstractControl, ControlValueAccessor, NgControl, NgModel } from '@angular/forms';
+import { AbstractControl, ControlValueAccessor, NgControl, NgModel, Validators } from '@angular/forms';
 import { PrizmInputControl } from './input-control.class';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
@@ -46,6 +46,10 @@ export abstract class PrizmInputNgControl<T>
   }
 
   get required() {
+    // for work Validators.required
+    if (this.ngControl.control.hasValidator(Validators.required)) return true;
+
+    // for work [required] attributes
     const validator = this.ngControl?.validator;
     if (!validator) {
       return false;

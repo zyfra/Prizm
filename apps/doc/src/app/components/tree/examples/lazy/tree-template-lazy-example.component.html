@@ -8,7 +8,7 @@
 ></prizm-tree>
 
 <ng-template #content let-item>
-  <prizm-loader *ngIf="item === loading; else text" [showLoader]="true" [overlay]="true" class="loader"
+  <prizm-loader class="loader" *ngIf="item === loading; else text" [showLoader]="true" [overlay]="true"
     >Подгрузка</prizm-loader
   >
   <ng-template #text>{{ item.text }}</ng-template>

@@ -1,10 +1,10 @@
 <prizm-doc-page header="CalendarMonth">
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" i18n-heading heading="Basic" [content]="example1">
+    <prizm-doc-example id="base" [content]="example1" i18n-heading heading="Basic">
       <prizm-calendar-month-example-1></prizm-calendar-month-example-1>
     </prizm-doc-example>
 
-    <prizm-doc-example id="range" i18n-heading heading="Range" [content]="example2">
+    <prizm-doc-example id="range" [content]="example2" i18n-heading heading="Range">
       <prizm-calendar-month-example-2></prizm-calendar-month-example-2>
     </prizm-doc-example>
   </ng-template>
@@ -24,52 +24,52 @@
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="disabledItemHandler"
+        [documentationPropertyValues]="disabledItemHandlerVariants"
         i18n
         documentationPropertyName="disabledItemHandler"
         documentationPropertyMode="input"
         documentationPropertyType="PrizmBooleanHandlerWithContext<PrizmMonth, PrizmMonthContext>"
-        [documentationPropertyValues]="disabledItemHandlerVariants"
-        [(documentationPropertyValue)]="disabledItemHandler"
       >
         <div>A handler that gets a month and returns true if it is disabled.</div>
 
         <strong>Must be a pure function</strong>
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="max"
+        [documentationPropertyValues]="maxVariants"
         i18n
         documentationPropertyName="max"
         documentationPropertyMode="input"
         documentationPropertyType="PrizmMonth"
-        [documentationPropertyValues]="maxVariants"
-        [(documentationPropertyValue)]="max"
       >
         Maximal month
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="min"
+        [documentationPropertyValues]="minVariants"
         documentationPropertyName="min"
         documentationPropertyMode="input"
         documentationPropertyType="PrizmMonth"
-        [documentationPropertyValues]="minVariants"
-        [(documentationPropertyValue)]="min"
       >
         Minimal month
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="value"
+        [documentationPropertyValues]="valueVariants"
         i18n
         documentationPropertyName="value"
         documentationPropertyMode="input"
         documentationPropertyType="PrizmMonth | PrizmMonthRange | null"
-        [documentationPropertyValues]="valueVariants"
-        [(documentationPropertyValue)]="value"
       >
         A single month or a range of months
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="year"
+        [documentationPropertyValues]="yearVariants"
         documentationPropertyName="year"
         documentationPropertyMode="input-output"
         documentationPropertyType="PrizmYear"
-        [documentationPropertyValues]="yearVariants"
-        [(documentationPropertyValue)]="year"
       >
         Current year
       </ng-template>
@@ -92,7 +92,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="exampleModule"></prizm-doc-code>
+        <prizm-doc-code [code]="exampleModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

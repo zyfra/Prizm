@@ -2,11 +2,11 @@
   <div class="page-description" description>Set inverted theme for any element</div>
 
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base Directive" [content]="baseExample">
+    <prizm-doc-example id="base" [content]="baseExample" heading="Base Directive">
       <prizm-theme-base-example></prizm-theme-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="inverted" heading="Inverted Directive" [content]="invertedExample">
+    <prizm-doc-example id="inverted" [content]="invertedExample" heading="Inverted Directive">
       <prizm-theme-inverted-example></prizm-theme-inverted-example>
     </prizm-doc-example>
   </ng-template>
@@ -20,7 +20,7 @@
           into a service where you want to use our directive
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="exampleModule"></prizm-doc-code>
+        <prizm-doc-code [code]="exampleModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

@@ -4,14 +4,12 @@
   [content]="dropdownContent"
   [prizmDropdownHostWidth]="'100%'"
   [isOpen]="interactive && open && !!filtered.length"
-  (isOpenChange)="onOpen($event)"
   [closeByEsc]="true"
   [prizmDropdownHost]="layoutComponent.el.nativeElement"
+  (isOpenChange)="onOpen($event)"
 >
   <input
     class="input-search"
-    prizmInput
-    (click)="safeOpenModal()"
     #focusableElementRef
     [mask]="textMaskOptions"
     [showMaskTyped]="focusableElementRef.focused"
@@ -19,14 +17,16 @@
     [placeholder]="placeholder"
     [disabled]="disabled"
     [ngModel]="computedValue"
+    (click)="safeOpenModal()"
     (ngModelChange)="onValueChange($event || '')"
     (keydown.arrowUp)="onArrowUp($event)"
     (keydown.arrowDown)="onArrowDown($event)"
+    prizmInput
   />
 </prizm-dropdown-host>
 
 <ng-template #dropdownContent>
-  <prizm-data-list (prizmAfterViewInit)="markAsTouched()" class="block" [style.--prizm-data-list-border]="0">
+  <prizm-data-list class="block" [style.--prizm-data-list-border]="0" (prizmAfterViewInit)="markAsTouched()">
     <ng-container *ngIf="items?.length">
       <div class="item" *ngFor="let item of filtered; let idx = index" (click)="onMenuClick(item)">
         <span class="text">
@@ -39,10 +39,10 @@
 
 <ng-container *prizmInputLayoutRight>
   <button
-    prizmInputIconButton="date-clock"
-    (click)="onOpen(!open)"
     [interactive]="true"
     [disabled]="disabled"
+    (click)="onOpen(!open)"
+    prizmInputIconButton="date-clock"
   ></button>
   <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
   </ng-container>

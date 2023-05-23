@@ -1,8 +1,8 @@
-<button *ngIf="isSortable && table; else content" type="button" class="sorter">
+<button class="sorter" *ngIf="isSortable && table; else content" type="button">
   <ng-container [ngTemplateOutlet]="content"></ng-container>
   {{ table.change$ | async }}
   <span class="sort__block" (click)="updateSorter($event)" [class.sort__block_active]="isCurrent">
-    <span [style.visibility]="(count > 1 && num) ? 'visible' : 'hidden'" class="sorter__number"
+    <span class="sorter__number" [style.visibility]="(count > 1 && num) ? 'visible' : 'hidden'"
       >{{num ?? '0'}}</span
     >
     <prizm-icon class="sorter__icon" [iconClass]="icon$ | async"></prizm-icon>
@@ -11,4 +11,4 @@
 <ng-template #content>
   <div class="cell"><ng-content></ng-content></div>
 </ng-template>
-<div *ngIf="resizable" class="resize-bar" (prizmResized)="onResized($event)"></div>
+<div class="resize-bar" *ngIf="resizable" (prizmResized)="onResized($event)"></div>

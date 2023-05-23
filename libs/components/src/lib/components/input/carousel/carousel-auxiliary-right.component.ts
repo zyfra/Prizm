@@ -6,16 +6,16 @@ import { PrizmCarouselComponent } from './carousel.component';
   selector: 'prizm-carousel-auxiliary-right',
   template: `
     <button
-      prizmInputIconButton="chevrons-right"
-      (click)="carousel.stepRight()"
       *ngIf="!carousel.disabled"
       [interactive]="true"
+      (click)="carousel.stepRight()"
+      prizmInputIconButton="chevrons-right"
     ></button>
     <button
-      prizmInputIconButton="chevrons-double-right"
-      (click)="carousel.right()"
       *ngIf="!carousel.disabled && !carousel.lightMode"
       [interactive]="true"
+      (click)="carousel.right()"
+      prizmInputIconButton="chevrons-double-right"
     ></button>
   `,
   styles: [

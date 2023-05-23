@@ -1,11 +1,11 @@
 <prizm-doc-page header="InputDateMulti">
   <div class="page-description" description>It component needs to switch between date components</div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-input-date-multi-base-example></prizm-input-date-multi-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="four" heading="Four" [content]="exampleFour">
+    <prizm-doc-example id="four" [content]="exampleFour" heading="Four">
       <prizm-input-date-multi-four-example></prizm-input-date-multi-four-example>
     </prizm-doc-example>
   </ng-template>
@@ -49,7 +49,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

@@ -1,7 +1,7 @@
 <prizm-doc-page header="Spinner">
   <div class="page-description" description>Our spinner component</div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Set" [content]="exampleBase">
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Set">
       <prizm-spinner-base-example></prizm-spinner-base-example>
     </prizm-doc-example>
   </ng-template>
@@ -37,19 +37,19 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="size"
         documentationPropertyName="size"
         documentationPropertyType="PrizmSize"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="size"
       >
         Size
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="inheritColor"
         documentationPropertyName="inheritColor"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="inheritColor"
       >
         Inherit Color
       </ng-template>
@@ -65,7 +65,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

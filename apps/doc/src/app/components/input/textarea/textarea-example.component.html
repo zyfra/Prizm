@@ -1,10 +1,10 @@
 <prizm-doc-page header="Textarea">
   <ng-template prizmDocPageTab>
-    <prizm-doc-example heading="Basic example" [content]="zyfraTextareaBasicExample">
+    <prizm-doc-example [content]="zyfraTextareaBasicExample" heading="Basic example">
       <prizm-textarea-basic-example></prizm-textarea-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example heading="Autosize example" [content]="zyfraTextareaAutosizeExample">
+    <prizm-doc-example [content]="zyfraTextareaAutosizeExample" heading="Autosize example">
       <prizm-textarea-autosize-example></prizm-textarea-autosize-example>
     </prizm-doc-example>
   </ng-template>
@@ -21,32 +21,32 @@
         [forceClear]="forceClear"
       >
         <textarea
-          prizmInput
           #element
           [prizmDocHostElement]="element"
           [disabled]="disabled"
           [placeholder]="placeholder"
           [required]="required"
           [height]="height"
+          prizmInput
         ></textarea>
       </prizm-input-layout>
     </prizm-doc-demo>
 
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="disabled"
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
       >
         Disabled
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="required"
         documentationPropertyName="required"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="required"
       >
         Required
       </ng-template>
@@ -101,7 +101,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

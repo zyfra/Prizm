@@ -6,16 +6,16 @@ import { PrizmInputNumberDirective } from './input-number.directive';
   selector: 'prizm-input-number-auxiliary-controls',
   template: `<div class="container">
     <button
-      prizmInputIconButton="chevrons-up"
-      (click)="increment()"
       [size]="size"
       [interactive]="true"
+      (click)="increment()"
+      prizmInputIconButton="chevrons-up"
     ></button>
     <button
-      prizmInputIconButton="chevrons-down"
-      (click)="decrement()"
       [size]="size"
       [interactive]="true"
+      (click)="decrement()"
+      prizmInputIconButton="chevrons-down"
     ></button>
   </div> `,
   styles: [

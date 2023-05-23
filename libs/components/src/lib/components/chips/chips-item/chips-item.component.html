@@ -12,9 +12,9 @@
     <ng-content></ng-content>
   </div>
   <button
-    *ngIf="deletable"
     class="chips-cancel prizm-icon cancel-close-small"
-    (click)="deleted.emit($event)"
+    *ngIf="deletable"
     [disabled]="disabled"
+    (click)="deleted.emit($event)"
   ></button>
 </button>

@@ -6,10 +6,10 @@
 
     <ng-template #defaultInputTemplate>
       <input
-        type="text"
         [value]="value"
         (input)="valueChange.emit($any($event.target).value)"
         (click)="stopPropagation($event)"
+        type="text"
       />
     </ng-template>
   </ng-template>

@@ -3,28 +3,28 @@
 
 <prizm-scrollbar class="scrollable" visibility="hidden">
   <prizm-loader [showLoader]="showLoader$ | async" [overlay]="true">
-    <table prizmTable class="table" (sortChange)="updateSort($event)" [columns]="columns">
+    <table class="table" [columns]="columns" (sortChange)="updateSort($event)" prizmTable>
       <thead>
         <tr prizmThGroup>
-          <th rowspan="2" prizmTh [sortable]="true" *prizmHead="'code'" [resizable]="true">Код</th>
-          <th prizmTh *prizmHead="'name'" [resizable]="true">Наименование</th>
-          <th rowspan="2" prizmTh [sortable]="true" *prizmHead="'category'">Категория</th>
-          <th rowspan="2" prizmTh [sortable]="true" *prizmHead="'count'">Количество</th>
+          <th *prizmHead="'code'" [sortable]="true" [resizable]="true" rowspan="2" prizmTh>Код</th>
+          <th *prizmHead="'name'" [resizable]="true" prizmTh>Наименование</th>
+          <th *prizmHead="'category'" [sortable]="true" rowspan="2" prizmTh>Категория</th>
+          <th *prizmHead="'count'" [sortable]="true" rowspan="2" prizmTh>Количество</th>
         </tr>
         <tr prizmThGroup>
-          <th prizmTh class="extra-border search-cell" [resizable]="true">
-            <input prizmInput placeholder="Поиск" (enter)="search($event, 'name')" #input />
+          <th class="extra-border search-cell" [resizable]="true" prizmTh>
+            <input #input (enter)="search($event, 'name')" prizmInput placeholder="Поиск" />
             <button
-              prizmInputIconButton="sort-zoom-in"
-              (click)="search(input.value, 'name')"
               [interactive]="true"
+              (click)="search(input.value, 'name')"
+              prizmInputIconButton="sort-zoom-in"
             ></button>
           </th>
         </tr>
       </thead>
 
-      <tbody prizmTbody [data]="data$">
-        <tr *prizmRow="let item; let i = index" class="row" prizmTr>
+      <tbody [data]="data$" prizmTbody>
+        <tr class="row" *prizmRow="let item; let i = index" prizmTr>
           <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
           <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
           <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>

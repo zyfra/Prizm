@@ -1,13 +1,13 @@
 <prizm-doc-page header="Input number">
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="number" heading="Input number basic example" [content]="prizmInputNumberBasic">
+    <prizm-doc-example id="number" [content]="prizmInputNumberBasic" heading="Input number basic example">
       <prizm-input-number-basic-example></prizm-input-number-basic-example>
     </prizm-doc-example>
 
     <prizm-doc-example
       id="counter"
-      heading="Input number counter example"
       [content]="prizmInputNumberCounter"
+      heading="Input number counter example"
     >
       <prizm-input-number-counter-example></prizm-input-number-counter-example>
     </prizm-doc-example>
@@ -27,10 +27,8 @@
           >
             <input
               #prizmInputNumber
-              prizmDocHostElementKey="PrizmInputNumberDirective"
+              #inputNumber="prizmInputNumber"
               [prizmDocHostElement]="prizmInputNumber"
-              type="number"
-              prizmInput
               [formControl]="requiredInputControl"
               [min]="min"
               [max]="max"
@@ -39,14 +37,16 @@
               [disabled]="disabled"
               [placeholder]="placeholder"
               [required]="required"
-              #inputNumber="prizmInputNumber"
+              prizmDocHostElementKey="PrizmInputNumberDirective"
+              type="number"
+              prizmInput
             />
             <prizm-input-number-auxiliary-controls
               #PrizmInputNumberDefaultControlsComponent
-              prizmDocHostElementKey="PrizmInputNumberDefaultControlsComponent"
               [prizmDocHostElement]="PrizmInputNumberDefaultControlsComponent"
-              prizm-input-right
               [inputNumber]="inputNumber"
+              prizmDocHostElementKey="PrizmInputNumberDefaultControlsComponent"
+              prizm-input-right
             ></prizm-input-number-auxiliary-controls>
 
             <ng-template prizmInputStatusText>Текст статуса</ng-template>
@@ -62,16 +62,16 @@
             [position]="'center'"
           >
             <button
-              prizmInputIconButton="delete-minus"
-              prizmInputNumberAuxiliaryControl="decrement"
-              prizm-input-left
               [inputNumber]="inputCounter"
               [interactive]="true"
               [disabled]="requiredInputControl.disabled"
+              prizmInputIconButton="delete-minus"
+              prizmInputNumberAuxiliaryControl="decrement"
+              prizm-input-left
             ></button>
 
             <input
-              prizmInputNumber
+              #inputCounter="prizmInputNumber"
               [formControl]="requiredInputControl"
               [min]="min"
               [max]="max"
@@ -80,16 +80,16 @@
               [disabled]="disabled"
               [placeholder]="placeholder"
               [required]="required"
-              #inputCounter="prizmInputNumber"
+              prizmInputNumber
             />
 
             <button
-              prizmInputIconButton="add-plus"
-              prizmInputNumberAuxiliaryControl="increment"
-              prizm-input-right
               [inputNumber]="inputCounter"
               [interactive]="true"
               [disabled]="requiredInputControl.disabled"
+              prizmInputIconButton="add-plus"
+              prizmInputNumberAuxiliaryControl="increment"
+              prizm-input-right
             ></button>
 
             <ng-template prizmInputStatusText>Текст статуса</ng-template>
@@ -103,28 +103,28 @@
       hostComponentKey="PrizmInputNumberDirective"
     >
       <ng-template
+        [(documentationPropertyValue)]="required"
         documentationPropertyName="required"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="required"
       >
         Required
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="disabled"
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
       >
         Disabled
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="value"
         documentationPropertyName="value"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="value"
       >
         Value
       </ng-template>
@@ -197,7 +197,7 @@
           в тот модуль, котором хотите использовать компонент
         </p>
 
-        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

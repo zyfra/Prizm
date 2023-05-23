@@ -4,27 +4,27 @@
     component instead.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleBasicTable">
+    <prizm-doc-example id="base" [content]="exampleBasicTable" heading="Base">
       <prizm-table-basic-example></prizm-table-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="status" heading="Cell status" [content]="exampleStatusTable">
+    <prizm-doc-example id="status" [content]="exampleStatusTable" heading="Cell status">
       <prizm-table-status-example></prizm-table-status-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="selectable" heading="Selectable" [content]="exampleSelectableTable">
+    <prizm-doc-example id="selectable" [content]="exampleSelectableTable" heading="Selectable">
       <prizm-table-selectable-example></prizm-table-selectable-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="group" heading="Group" [content]="exampleGroupTable">
+    <prizm-doc-example id="group" [content]="exampleGroupTable" heading="Group">
       <prizm-table-group-example></prizm-table-group-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="editableRow" heading="Editable row" [content]="exampleEditableRowTable">
+    <prizm-doc-example id="editableRow" [content]="exampleEditableRowTable" heading="Editable row">
       <prizm-table-editable-row-example></prizm-table-editable-row-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="editableCol" heading="Editable col" [content]="exampleEditableColTable">
+    <prizm-doc-example id="editableCol" [content]="exampleEditableColTable" heading="Editable col">
       <prizm-table-editable-col-example></prizm-table-editable-col-example>
     </prizm-doc-example>
   </ng-template>
@@ -122,608 +122,608 @@
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="value"
         documentationPropertyName="value"
         documentationPropertyType="any[]"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="value"
       >
         Table values
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="frozenValue"
         documentationPropertyName="frozenValue"
         documentationPropertyType="any[]"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="frozenValue"
       >
         Frozen values
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="breakpoint"
         documentationPropertyName="breakpoint"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="breakpoint"
       >
         Breakpoint
       </ng-template>
       <!-- ////////////////////////////////////////////////////////// -->
       <ng-template
+        [(documentationPropertyValue)]="rowGroupMode"
         documentationPropertyName="rowGroupMode"
         documentationPropertyType="'subheader' | 'rowspan'"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="rowGroupMode"
       >
         Row group mode
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="showInitialSortBadge"
         documentationPropertyName="showInitialSortBadge"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="showInitialSortBadge"
       >
         Show initial sort badge
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="rowTrackBy"
         documentationPropertyName="rowTrackBy"
         documentationPropertyType="(...args: any[]) => any"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="rowTrackBy"
       >
         Row track by
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="csvSeparator"
         documentationPropertyName="csvSeparator"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="csvSeparator"
       >
         CSV separator
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="exportFilename"
         documentationPropertyName="exportFilename"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="exportFilename"
       >
         Export filename
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="filters"
         documentationPropertyName="filters"
         documentationPropertyType="Filters"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="filters"
       >
         Filters
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="expandedRowKeys"
         documentationPropertyName="expandedRowKeys"
         documentationPropertyType="{ [s: string]: boolean }"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="expandedRowKeys"
       >
         Expanded row keys
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="rowExpandMode"
         documentationPropertyName="rowExpandMode"
         documentationPropertyType="'single' | 'multiple'"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="rowExpandMode"
       >
         Row expand mode
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="scrollDirection"
         documentationPropertyName="scrollDirection"
         documentationPropertyType="'vertical' | 'horizontal' | 'both'"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="scrollDirection"
       >
         Scroll direction
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="virtualScrollDelay"
         documentationPropertyName="virtualScrollDelay"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="virtualScrollDelay"
       >
         Virtual scroll delay
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="responsive"
         documentationPropertyName="responsive"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="responsive"
       >
         Responsive
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="exportFunction"
         documentationPropertyName="exportFunction"
         documentationPropertyType="(event: { data: any; field: any }) => string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="exportFunction"
       >
         Export function
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="stateKey"
         documentationPropertyName="stateKey"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="stateKey"
       >
         State key
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="stateStorage"
         documentationPropertyName="stateStorage"
         documentationPropertyType="'session' | 'local'"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="stateStorage"
       >
         State storage
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="editMode"
         documentationPropertyName="editMode"
         documentationPropertyType="'cell' | 'row'"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="editMode"
       >
         Edit mode
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="editingRowKeys"
         documentationPropertyName="editingRowKeys"
         documentationPropertyType="{ [s: string]: boolean }"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="editingRowKeys"
       >
         Editing row keys
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="groupRowsBy"
         documentationPropertyName="groupRowsBy"
         documentationPropertyType="string | string[]"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="groupRowsBy"
       >
         Group rows by
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="groupRowsByOrder"
         documentationPropertyName="groupRowsByOrder"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="groupRowsByOrder"
       >
         Group rows by order
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="className"
         documentationPropertyName="className"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="className"
       >
         Class name
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="title"
         documentationPropertyName="title"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="title"
       >
         Title
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="columns"
         documentationPropertyName="columns"
         documentationPropertyType="any[]"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="columns"
       >
         Columns
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="style"
         documentationPropertyName="style"
         documentationPropertyType="any"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="style"
       >
         Style
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="styleClass"
         documentationPropertyName="styleClass"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="styleClass"
       >
         Style class
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="autoLayout"
         documentationPropertyName="autoLayout"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="autoLayout"
       >
         Auto layout
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="lazy"
         documentationPropertyName="lazy"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="lazy"
       >
         Lazy
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="lazyLoadOnInit"
         documentationPropertyName="lazyLoadOnInit"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="lazyLoadOnInit"
       >
         Lazy load on init
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="first"
         documentationPropertyName="first"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="first"
       >
         First
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="currentPageReportTemplate"
         documentationPropertyName="currentPageReportTemplate"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="currentPageReportTemplate"
       >
         Current page report template
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="showCurrentPageReport"
         documentationPropertyName="showCurrentPageReport"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="showCurrentPageReport"
       >
         Show current page report
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="showFirstLastIcon"
         documentationPropertyName="showFirstLastIcon"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="showFirstLastIcon"
       >
         Show first last icon
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="showPageLinks"
         documentationPropertyName="showPageLinks"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="showPageLinks"
       >
         Show page links
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="contextMenuSelection"
         documentationPropertyName="contextMenuSelection"
         documentationPropertyType="any"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="contextMenuSelection"
       >
         Context menu selection
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="contextMenuSelectionMode"
         documentationPropertyName="contextMenuSelectionMode"
         documentationPropertyType="'separate' | 'joint'"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="contextMenuSelectionMode"
       >
         Context menu selection mode
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="defaultSortOrder"
         documentationPropertyName="defaultSortOrder"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="defaultSortOrder"
       >
         Default sort order
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="sortMode"
         documentationPropertyName="sortMode"
         documentationPropertyType="'single' | 'multiple'"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="sortMode"
       >
         Sort mode
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="customSort"
         documentationPropertyName="customSort"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="customSort"
       >
         Custom sort
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="selectionMode"
         documentationPropertyName="selectionMode"
         documentationPropertyType="'single' | 'multiple'"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="selectionMode"
       >
         Selection mode
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="dataKey"
         documentationPropertyName="dataKey"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="dataKey"
       >
         Data key
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="metaKeySelection"
         documentationPropertyName="metaKeySelection"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="metaKeySelection"
       >
         Meta key selection
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="compareSelectionBy"
         documentationPropertyName="compareSelectionBy"
         documentationPropertyType="'deepEquals' | 'equals'"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="compareSelectionBy"
       >
         Compare selection by
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="rowHover"
         documentationPropertyName="rowHover"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="rowHover"
       >
         Row hover
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="loading"
         documentationPropertyName="loading"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="loading"
       >
         Loading
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="loadingIcon"
         documentationPropertyName="loadingIcon"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="loadingIcon"
       >
         Loading icon
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="showLoader"
         documentationPropertyName="showLoader"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="showLoader"
       >
         Show loader
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="virtualScroll"
         documentationPropertyName="virtualScroll"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="virtualScroll"
       >
         Virtual scroll
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="virtualRowHeight"
         documentationPropertyName="virtualRowHeight"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="virtualRowHeight"
       >
         Virtual row height
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="frozenWidth"
         documentationPropertyName="frozenWidth"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="frozenWidth"
       >
         Frozen width
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="frozenColumns"
         documentationPropertyName="frozenColumns"
         documentationPropertyType="any[]"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="frozenColumns"
       >
         Frozen columns
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="reorderableColumns"
         documentationPropertyName="reorderableColumns"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="reorderableColumns"
       >
         Reorderable columns
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="contextMenu"
         documentationPropertyName="contextMenu"
         documentationPropertyType="any"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="contextMenu"
       >
         Context menu
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="globalFilterFields"
         documentationPropertyName="globalFilterFields"
         documentationPropertyType="string[]"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="globalFilterFields"
       >
         Global filter fields
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="filterDelay"
         documentationPropertyName="filterDelay"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="filterDelay"
       >
         Filter delay
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="filterMode"
         documentationPropertyName="filterMode"
         documentationPropertyType="'lenient' | 'strict'"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="filterMode"
       >
         Filter mode
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="filterLocale"
         documentationPropertyName="filterLocale"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="filterLocale"
       >
         Filter locale
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="totalRecords"
         documentationPropertyName="totalRecords"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="totalRecords"
       >
         totalRecords
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="sortField"
         documentationPropertyName="sortField"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="sortField"
       >
         Sort field
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="sortOrder"
         documentationPropertyName="sortOrder"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="sortOrder"
       >
         Sort order
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="multiSortMeta"
         documentationPropertyName="multiSortMeta"
         documentationPropertyType="SortMeta[]"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="multiSortMeta"
       >
         Multi sort meta
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="selection"
         documentationPropertyName="selection"
         documentationPropertyType="any"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="selection"
       >
         Selection
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="stripedMode"
         documentationPropertyName="stripedMode"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="stripedMode"
       >
         Striped mode
       </ng-template>
 
       <!-- ////////////////////////////////////////////////////////// -->
       <ng-template
+        [(documentationPropertyValue)]="responsiveLayout"
+        [documentationPropertyValues]="layoutVariants"
         documentationPropertyName="responsiveLayout"
         documentationPropertyType="stack | scroll"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="layoutVariants"
-        [(documentationPropertyValue)]="responsiveLayout"
       >
         Responsive layout
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
         documentationPropertyName="size"
         documentationPropertyType="PrizmSizeL | PrizmSizeM |  PrizmSizeXS | PrizmSizeS"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="sizeVariants"
-        [(documentationPropertyValue)]="size"
       >
         Size
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="scrollable"
         documentationPropertyName="scrollable"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="scrollable"
       >
         Scrollable [work with scrollHeight]
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="scrollHeight"
+        [documentationPropertyValues]="scrollHeightVariants"
         documentationPropertyName="scrollHeight"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="scrollHeightVariants"
-        [(documentationPropertyValue)]="scrollHeight"
       >
         Scroll height
       </ng-template>
@@ -794,7 +794,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

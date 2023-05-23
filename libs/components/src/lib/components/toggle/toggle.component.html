@@ -1,17 +1,17 @@
 <prizm-wrapper
   [attr.checked]="value"
   [appearance]="appearance"
-  pseudoState="toggle"
   [readOnly]="readOnly"
   [disabled]="computedDisabled"
   [focused]="computedFocusVisible"
   [hovered]="computedHovered"
   [pressed]="computedPressed"
   [invalid]="computedInvalid"
+  pseudoState="toggle"
 >
   <prizm-loader
-    *ngIf="showLoader"
     class="z-loader"
+    *ngIf="showLoader"
     [size]="loaderSize"
     [inheritColor]="true"
     [showLoader]="showLoader"
@@ -19,21 +19,19 @@
   <div class="toggle">
     <span class="icon-wrapper">
       <ng-container *polymorphOutlet="iconOn as content; context: { $implicit: size }">
-        <prizm-icon size="16" class="icon" *ngIf="content" [iconClass]="$any(content)"></prizm-icon>
+        <prizm-icon class="icon" *ngIf="content" [iconClass]="$any(content)" size="16"></prizm-icon>
       </ng-container>
     </span>
     <div class="circle"></div>
     <span class="icon-wrapper">
       <ng-container *polymorphOutlet="iconOff as content; context: { $implicit: size }">
-        <prizm-icon size="16" class="icon" *ngIf="content" [iconClass]="$any(content)"></prizm-icon>
+        <prizm-icon class="icon" *ngIf="content" [iconClass]="$any(content)" size="16"></prizm-icon>
       </ng-container>
     </span>
   </div>
   <input
-    #focusableElement
-    type="checkbox"
-    role="switch"
     class="checkbox"
+    #focusableElement
     [attr.aria-checked]="value"
     [disabled]="disabled"
     [prizmChecked]="checked"
@@ -43,5 +41,7 @@
     (prizmHoveredChange)="onHovered($event)"
     (prizmPressedChange)="onPressed($event)"
     (prizmFocusVisibleChange)="onFocusVisible($event)"
+    type="checkbox"
+    role="switch"
   />
 </prizm-wrapper>

@@ -1,9 +1,9 @@
 <prizm-input-layout label="Промышленность">
   <prizm-input-multi-select
-    selectAllItem="Выбрать все"
-    placeholder="Выберите из списка"
     [formControl]="valueControl"
     [items]="items"
+    selectAllItem="Выбрать все"
+    placeholder="Выберите из списка"
   >
   </prizm-input-multi-select>
 </prizm-input-layout>
@@ -11,5 +11,5 @@
 <br />
 <br />
 <div style="display: flex; flex-flow: column; gap: 1rem; width: 20rem">
-  <button prizmButton (click)="setDefaultValue()">Set Default Value</button>
+  <button (click)="setDefaultValue()" prizmButton>Set Default Value</button>
 </div>

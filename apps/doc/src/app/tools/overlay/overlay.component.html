@@ -4,23 +4,23 @@
   </div>
 
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="global" heading="Global Position" [content]="globalExample">
+    <prizm-doc-example id="global" [content]="globalExample" heading="Global Position">
       <prizm-overlay-global-example></prizm-overlay-global-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="relative" heading="Relative Position" [content]="relativeExample">
+    <prizm-doc-example id="relative" [content]="relativeExample" heading="Relative Position">
       <prizm-overlay-relative></prizm-overlay-relative>
     </prizm-doc-example>
 
-    <prizm-doc-example id="fullscreen" heading="Fullscreen Position" [content]="fullscreenExample">
+    <prizm-doc-example id="fullscreen" [content]="fullscreenExample" heading="Fullscreen Position">
       <prizm-overlay-fullscreen-example></prizm-overlay-fullscreen-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="slide" heading="Slide Position" [content]="slideExample">
+    <prizm-doc-example id="slide" [content]="slideExample" heading="Slide Position">
       <prizm-overlay-slide-example></prizm-overlay-slide-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="component" heading="Component pass" [content]="withComponentExample">
+    <prizm-doc-example id="component" [content]="withComponentExample" heading="Component pass">
       <prizm-overlay-component-example></prizm-overlay-component-example>
     </prizm-doc-example>
   </ng-template>
@@ -35,7 +35,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="exampleModule"></prizm-doc-code>
+        <prizm-doc-code [code]="exampleModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

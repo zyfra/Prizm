@@ -1,17 +1,17 @@
 <div class="prizm-navigation-menu-search">
   <input
-    #searchInput
     class="prizm-navigation-menu-search__input"
+    #searchInput
     [formControl]="searchFormControl"
     [placeholder]="placeholder || ''"
   />
   <button
-    prizmIconButton
     class="prizm-navigation-menu-search__button"
     [size]="'m'"
     [icon]="'cancel-close'"
     [appearance]="'secondary'"
     [appearanceType]="'ghost'"
     (click)="clearSearchValue()"
+    prizmIconButton
   ></button>
 </div>

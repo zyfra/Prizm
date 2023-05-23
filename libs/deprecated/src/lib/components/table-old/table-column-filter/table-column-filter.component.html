@@ -24,11 +24,11 @@
   [currencyDisplay]="currencyDisplay"
   [useGrouping]="useGrouping"
 >
-  <ng-template pTemplate="header" let-field *ngIf="headerTemplate">
+  <ng-template *ngIf="headerTemplate" pTemplate="header" let-field>
     <ng-container *ngTemplateOutlet="headerTemplate; context: { $implicit: field }"></ng-container>
   </ng-template>
 
-  <ng-template pTemplate="filter" let-value let-filterCallback="filterCallback" *ngIf="filterTemplate">
+  <ng-template *ngIf="filterTemplate" pTemplate="filter" let-value let-filterCallback="filterCallback">
     <ng-container
       *ngTemplateOutlet="
         filterTemplate;
@@ -40,7 +40,7 @@
     ></ng-container>
   </ng-template>
 
-  <ng-template pTemplate="footer" let-field *ngIf="footerTemplate">
+  <ng-template *ngIf="footerTemplate" pTemplate="footer" let-field>
     <ng-container *ngTemplateOutlet="footerTemplate; context: { $implicit: field }"></ng-container>
   </ng-template>
 </p-columnFilter>

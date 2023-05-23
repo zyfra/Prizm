@@ -10,7 +10,6 @@
   <prizm-input-layout [forceClear]="forceClear" [label]="label" [outer]="outer" [size]="size">
     <input
       class="input-search"
-      prizmInput
       #focusableElementRef
       [mask]="computedMask"
       [showMaskTyped]="focusableElementRef.focused"
@@ -20,13 +19,14 @@
       [disabled]="computedDisabled"
       [ngModel]="stringValue"
       (ngModelChange)="onValueChange($event || '')"
+      prizmInput
     />
 
     <ng-container prizm-input-right>
       <button
-        prizmInputIconButton="date-calendar-range"
         [interactive]="true"
         (click)="focusableElementRef.focus()"
+        prizmInputIconButton="date-calendar-range"
       ></button>
     </ng-container>
   </prizm-input-layout>

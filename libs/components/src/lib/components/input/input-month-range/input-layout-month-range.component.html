@@ -10,10 +10,8 @@
 >
   <input
     class="input-search"
-    prizmInput
     #focusableElementRef
     [readOnly]="true"
-    (click)="open = !open"
     [placeholder]="placeholder"
     [disabled]="disabled"
     [ngModel]="
@@ -24,27 +22,29 @@
           )
         : ''
     "
+    (click)="open = !open"
     (ngModelChange)="onValueChange($event || '')"
+    prizmInput
   />
 
   <ng-template #dropdown>
     <prizm-calendar-month
-      (prizmAfterViewInit)="markAsTouched()"
-      prizmPreventDefault="mousedown"
       [disabledItemHandler]="disabledItemHandler"
       [min]="min"
       [max]="max"
       [value]="value"
+      (prizmAfterViewInit)="markAsTouched()"
       (monthClick)="onMonthClick($event)"
+      prizmPreventDefault="mousedown"
     ></prizm-calendar-month>
   </ng-template>
 </prizm-dropdown-host>
 
 <ng-container *prizmInputLayoutRight>
   <button
-    prizmInputIconButton="date-calendar-range"
     [interactive]="true"
-    (click)="onOpenChange(!open)"
     [disabled]="disabled"
+    (click)="onOpenChange(!open)"
+    prizmInputIconButton="date-calendar-range"
   ></button>
 </ng-container>

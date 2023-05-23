@@ -1,31 +1,31 @@
 <prizm-dropdown-host
   #dropdownHostRef
-  [content]="dropdown"
+  *prizmLet="filteredItems$ | async as items"
   [(isOpen)]="open"
+  [content]="dropdown"
   [prizmDropdownHostWidth]="dropdownWidth"
   [prizmDropdownMinHeight]="minDropdownHeight"
   [prizmDropdownMaxHeight]="maxDropdownHeight"
-  *prizmLet="filteredItems$ | async as items"
 >
   <prizm-input-layout
     [label]="label"
     [forceClear]="forceClear"
-    (click)="safeOpenModal()"
-    (clear)="safeStopPropagation(focusableElementRef.value, $event)"
     [outer]="outer"
     [size]="size"
+    (click)="safeOpenModal()"
+    (clear)="safeStopPropagation(focusableElementRef.value, $event)"
   >
     <input
       class="input-search"
-      prizmInput
       #inputText="prizmInput"
-      (prizmOnInit)="inputTextElement = inputText"
       #focusableElementRef
-      (onClear)="onClear()"
       [placeholder]="placeholder"
       [disabled]="this.disabled"
       [readonly]="!searchable || this.disabled"
       [formControl]="requiredInputControl"
+      (prizmOnInit)="inputTextElement = inputText"
+      (onClear)="onClear()"
+      prizmInput
     />
     <ng-container prizm-input-right>
       <ng-container
@@ -33,11 +33,11 @@
       >
         <prizm-icon
           *ngIf="!disabled"
-          (click)="focusableElementRef.focus()"
           [class.opened]="open"
           [class.active]="focusableElementRef.focused"
           [class.icon-dropdown]="iconName === defaultIcon"
           [iconClass]="$any(iconName)"
+          (click)="focusableElementRef.focus()"
         >
         </prizm-icon>
       </ng-container>
@@ -49,12 +49,12 @@
       <ng-container *ngIf="items?.length; else emptyTemplate">
         <div
           class="item"
+          #hostHint
+          *ngFor="let item of filteredItems$ | async; let idx = index"
           [class.most-relevant]="isMostRelevant(idx, items, focusableElementRef.value)"
           [class.selected]="
             item === value || (item && value && (item | prizmCallFunc : identityMatcher : value))
           "
-          #hostHint
-          *ngFor="let item of filteredItems$ | async; let idx = index"
           (click)="select(item)"
         >
           <ng-container *ngIf="item; else nullContentTemplate">

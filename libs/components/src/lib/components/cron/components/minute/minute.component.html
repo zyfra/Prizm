@@ -9,9 +9,9 @@
         <prizm-radio-button
           [formControl]="cronUiState.typeControl"
           [label]="null"
-          (changeEvent)="cronUiState.setEvery()"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="cronUiState.setEvery()"
         ></prizm-radio-button>
       </div>
       <div class="content row">Каждая минута</div>
@@ -27,10 +27,10 @@
       <div class="radio">
         <prizm-radio-button
           [formControl]="cronUiState.typeControl"
-          (changeEvent)="cronUiState.updateOn()"
           [label]="null"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="cronUiState.updateOn()"
         ></prizm-radio-button>
       </div>
       <div class="content row">
@@ -64,10 +64,10 @@
       <div class="radio">
         <prizm-radio-button
           [formControl]="cronUiState.typeControl"
-          (changeEvent)="schedule.emit()"
           [label]="null"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="schedule.emit()"
         ></prizm-radio-button>
       </div>
       <div class="content column">
@@ -92,9 +92,9 @@
         <prizm-radio-button
           [formControl]="cronUiState.typeControl"
           [label]="null"
-          (changeEvent)="cronUiState.updateBetween()"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="cronUiState.updateBetween()"
         ></prizm-radio-button>
       </div>
       <div class="content">

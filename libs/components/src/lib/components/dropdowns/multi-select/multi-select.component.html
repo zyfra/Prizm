@@ -1,48 +1,48 @@
 <prizm-dropdown-host
   #dropdownHostRef
-  [content]="dropdown"
+  *prizmLet="{ selectedItems: selectedItems$ | async, filteredItems: filteredItems$ | async } as $"
   [(isOpen)]="open"
+  [content]="dropdown"
   [prizmDropdownHostWidth]="dropdownWidth"
   [prizmDropdownMinHeight]="minDropdownHeight"
   [prizmDropdownMaxHeight]="maxDropdownHeight"
-  *prizmLet="{ selectedItems: selectedItems$ | async, filteredItems: filteredItems$ | async } as $"
 >
   <prizm-input-layout
     [label]="label"
     [forceClear]="(forceClear || forceClear === null) && $.selectedItems.length > 0"
-    (clear)="focusableElementRef.focus(); safeStopPropagation(focusableElementRef.value, $event)"
-    (click)="safeOpenModal()"
     [outer]="outer"
     [size]="size"
     [ngSwitch]="outer"
+    (clear)="focusableElementRef.focus(); safeStopPropagation(focusableElementRef.value, $event)"
+    (click)="safeOpenModal()"
   >
     <input
-      prizmInput
-      [style.display]="outer ? 'none' : ''"
-      [style.visibility]="outer ? 'none' : 'hidden'"
       #focusableElementRef
       #inputText="prizmInput"
-      (prizmOnInit)="inputTextElement = inputText"
-      (onClear)="onClear()"
+      [style.display]="outer ? 'none' : ''"
+      [style.visibility]="outer ? 'none' : 'hidden'"
       [hidden]="true"
       [disabled]="disabled"
       [readonly]="true"
       [placeholder]="placeholder"
       [formControl]="requiredInputControl"
+      (prizmOnInit)="inputTextElement = inputText"
+      (onClear)="onClear()"
+      prizmInput
     />
-    <div class="in-body-chips-box" prizm-input-in-body *ngSwitchCase="true">
+    <div class="in-body-chips-box" *ngSwitchCase="true" prizm-input-in-body>
       <ng-container [ngTemplateOutlet]="chipsTemplate"></ng-container>
     </div>
 
-    <ng-container prizm-input-bottom *ngSwitchCase="false">
+    <ng-container *ngSwitchCase="false" prizm-input-bottom>
       <ng-container [ngTemplateOutlet]="chipsTemplate"></ng-container>
     </ng-container>
 
     <ng-template #chipsTemplate>
       <ng-container *ngIf="selectedItemsChips$ | async as chips">
         <prizm-chips
-          *ngIf="chips.length"
           #chipsComponent
+          *ngIf="chips.length"
           [class.inner]="!outer"
           [singleLine]="true"
           [deletable]="!disabled && isChipsDeletable"
@@ -58,11 +58,11 @@
       >
         <prizm-icon
           *ngIf="!disabled"
-          (click)="focusableElementRef.focus()"
           [class.opened]="open"
           [class.active]="focusableElementRef.focused"
           [class.icon-dropdown]="iconName === defaultIcon"
           [iconClass]="$any(iconName)"
+          (click)="focusableElementRef.focus()"
         >
         </prizm-icon>
       </ng-container>
@@ -83,17 +83,17 @@
     <prizm-data-list class="block" [style.--prizm-data-list-border]="0">
       <div class="list-search-item" *ngIf="searchable">
         <prizm-input-layout size="m" label="Поиск">
-          <input prizmInput prizmAutoFocus class="input-search" #input [formControl]="searchInputControl" />
-          <button prizmInputIconButton="sort-zoom-in" prizm-input-right [interactive]="true"></button>
+          <input class="input-search" #input [formControl]="searchInputControl" prizmInput prizmAutoFocus />
+          <button [interactive]="true" prizmInputIconButton="sort-zoom-in" prizm-input-right></button>
         </prizm-input-layout>
       </div>
       <ng-container *ngIf="$.filteredItems?.length; else emptyTemplate">
         <div
           class="item"
+          #parent
+          *ngFor="let item of $.filteredItems; let idx = index"
           [class.selected]="item.checked"
           [class.most-relevant]="searchable && searchInputControl.value && idx === 0"
-          *ngFor="let item of $.filteredItems; let idx = index"
-          #parent
         >
           <prizm-checkbox
             [checked]="item.checked"

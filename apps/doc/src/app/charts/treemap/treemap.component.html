@@ -4,7 +4,7 @@
     which items are a store's best sellers.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleOutline">
+    <prizm-doc-example id="base" [content]="exampleOutline" heading="Base">
       <prizm-charts-treemap-example></prizm-charts-treemap-example>
     </prizm-doc-example>
   </ng-template>
@@ -39,37 +39,37 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="width"
         documentationPropertyName="width"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="width"
       >
         Width
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="height"
         documentationPropertyName="height"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="height"
       >
         Height
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="colorField"
         documentationPropertyName="colorField"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="colorField"
       >
         Color Field Name
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="data"
         documentationPropertyName="data"
         documentationPropertyType="PrizmChartsTreemapData"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="data"
       >
         Data
       </ng-template>
@@ -85,7 +85,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

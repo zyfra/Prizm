@@ -1,8 +1,8 @@
 <input
   class="search-cell__input"
-  type="text"
-  (input)="filter($any($event.target).value, field, matchMode)"
   [value]="$any(table.filters[field])?.value || ''"
   [placeholder]="placeholder"
+  (input)="filter($any($event.target).value, field, matchMode)"
+  type="text"
 />
 <i class="search-cell__icon pi pi-search"></i>

@@ -1,6 +1,6 @@
 <prizm-doc-page header="Input" package="KIT">
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Basic example" [content]="zyfraInputBasicExample">
+    <prizm-doc-example id="base" [content]="zyfraInputBasicExample" heading="Basic example">
       <prizm-input-basic-example class="exapmle"></prizm-input-basic-example>
     </prizm-doc-example>
 
@@ -16,8 +16,8 @@
 
     <prizm-doc-example
       id="inner-outer"
-      heading="Inner & Outer example"
       [content]="zyfraInputLabelPositionExample"
+      heading="Inner & Outer example"
     >
       <prizm-input-label-position-example></prizm-input-label-position-example>
     </prizm-doc-example>
@@ -49,7 +49,7 @@
         <td>24px</td>
       </tr>
     </table>
-    <prizm-doc-example id="sizes" heading="Sizes example" [content]="zyfraInputSizesExample">
+    <prizm-doc-example id="sizes" [content]="zyfraInputSizesExample" heading="Sizes example">
       <prizm-input-sizes-example></prizm-input-sizes-example>
     </prizm-doc-example>
 
@@ -91,17 +91,17 @@
       невозможно (обязательны ввод или корректировка введенных значений).
     </p>
 
-    <prizm-doc-example id="status" heading="Status example" [content]="zyfraInputStatusesExample">
+    <prizm-doc-example id="status" [content]="zyfraInputStatusesExample" heading="Status example">
       <prizm-input-statuses-example></prizm-input-statuses-example>
     </prizm-doc-example>
 
     <h2>Subtext</h2>
 
-    <prizm-doc-example id="subtext" heading="Subtext example" [content]="zyfraInputSubtextExample">
+    <prizm-doc-example id="subtext" [content]="zyfraInputSubtextExample" heading="Subtext example">
       <prizm-input-subtext-example></prizm-input-subtext-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="icon-buttons" heading="Icon buttons" [content]="zyfraInputIconButtonsExample">
+    <prizm-doc-example id="icon-buttons" [content]="zyfraInputIconButtonsExample" heading="Icon buttons">
       <prizm-input-icon-buttons-example></prizm-input-icon-buttons-example>
     </prizm-doc-example>
 
@@ -121,35 +121,35 @@
 
     <prizm-doc-example
       id="validation-example"
-      heading="Validation example"
       [content]="zyfraInputValidationExample"
+      heading="Validation example"
     >
       <prizm-input-validation-example></prizm-input-validation-example>
     </prizm-doc-example>
 
     <prizm-doc-example
       id="validation-custom-example"
-      heading="Custom validation example"
       [content]="zyfraInputValidationCustomExample"
+      heading="Custom validation example"
     >
       <prizm-input-validation-custom-example></prizm-input-validation-custom-example>
     </prizm-doc-example>
 
     <prizm-doc-example
       id="form-control-example"
-      heading="Input form control example"
       [content]="zyfraInputFormControlExample"
+      heading="Input form control example"
     >
       <prizm-input-form-control-example></prizm-input-form-control-example>
     </prizm-doc-example>
 
     <h2>Disabled</h2>
 
-    <prizm-doc-example id="disabled-example" heading="Disabled example" [content]="zyfraInputDisabledExample">
+    <prizm-doc-example id="disabled-example" [content]="zyfraInputDisabledExample" heading="Disabled example">
       <prizm-input-disabled-example></prizm-input-disabled-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="search-example" heading="Search example" [content]="zyfraInputSearchExample">
+    <prizm-doc-example id="search-example" [content]="zyfraInputSearchExample" heading="Search example">
       <prizm-input-search-example></prizm-input-search-example>
     </prizm-doc-example>
   </ng-template>
@@ -158,7 +158,6 @@
     <prizm-doc-demo>
       <prizm-input-layout
         #prizmInputLayout
-        prizmDocHostElementKey="PrizmInputLayout"
         [prizmDocHostElement]="prizmInputLayout"
         [label]="label"
         [outer]="outer"
@@ -167,26 +166,27 @@
         [forceClear]="forceClear"
         [size]="size"
         [border]="border"
+        prizmDocHostElementKey="PrizmInputLayout"
       >
         <input
-          prizmInput
           #prizmInputElement
-          prizmDocHostElementKey="PrizmInput"
           [prizmDocHostElement]="prizmInputElement"
           [formControl]="control"
           [disabled]="disabled"
           [required]="required"
           [value]="value"
+          prizmInput
+          prizmDocHostElementKey="PrizmInput"
         />
       </prizm-input-layout>
     </prizm-doc-demo>
 
     <prizm-doc-documentation hostComponentKey="PrizmInputLayout" heading="PrizmInputLayout">
       <ng-template
+        [(documentationPropertyValue)]="outer"
         documentationPropertyName="outer"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="outer"
       >
         Outer
       </ng-template>
@@ -200,58 +200,58 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="border"
         documentationPropertyName="border"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="border"
       >
         Border
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="inputPosition"
+        [documentationPropertyValues]="inputPositionVariants"
         documentationPropertyName="position"
         documentationPropertyType="PrizmInputPosition"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="inputPosition"
-        [documentationPropertyValues]="inputPositionVariants"
       >
         Position
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="size"
         documentationPropertyName="size"
         documentationPropertyType="PrizmInputSize"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="size"
       >
         Size
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="status"
+        [documentationPropertyValues]="statuses"
         documentationPropertyName="status"
         documentationPropertyType="PrizmInputStatus"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="status"
-        [documentationPropertyValues]="statuses"
       >
         Status
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="label"
         documentationPropertyName="label"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="label"
       >
         Label
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="forceClear"
+        [documentationPropertyValues]="forceClearVariants"
         documentationPropertyName="forceClear"
         documentationPropertyType="boolean | null"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="forceClear"
-        [documentationPropertyValues]="forceClearVariants"
       >
         Force Clear
       </ng-template>
@@ -259,27 +259,27 @@
 
     <prizm-doc-documentation [control]="control" hostComponentKey="PrizmInput" heading="PrizmInput">
       <ng-template
+        [(documentationPropertyValue)]="disabled"
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
       >
         Disabled
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="required"
         documentationPropertyName="required"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="required"
       >
         Required
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="value"
         documentationPropertyName="value"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="value"
       >
         Value
       </ng-template>
@@ -318,7 +318,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

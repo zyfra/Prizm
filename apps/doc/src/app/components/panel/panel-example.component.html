@@ -9,42 +9,42 @@
       Чтобы вставить различные инструменты, прибитые к правому краю, используйте аттрибут <b>instruments</b>
     </p>
 
-    <prizm-doc-example id="base" heading="Base" [content]="panelBasicExample">
+    <prizm-doc-example id="base" [content]="panelBasicExample" heading="Base">
       <prizm-panel-example-basic></prizm-panel-example-basic>
     </prizm-doc-example>
 
-    <prizm-doc-example id="withBack" heading="Panel with back button" [content]="panelWithBackExample">
+    <prizm-doc-example id="withBack" [content]="panelWithBackExample" heading="Panel with back button">
       <prizm-panel-with-back></prizm-panel-with-back>
     </prizm-doc-example>
 
-    <prizm-doc-example id="withTabs" heading="Panel with tabs" [content]="panelWithTabsExample">
+    <prizm-doc-example id="withTabs" [content]="panelWithTabsExample" heading="Panel with tabs">
       <prizm-panel-with-tabs></prizm-panel-with-tabs>
     </prizm-doc-example>
 
-    <prizm-doc-example id="withPages" heading="Panel with pages" [content]="panelWithPagesExample">
+    <prizm-doc-example id="withPages" [content]="panelWithPagesExample" heading="Panel with pages">
       <prizm-panel-with-pages></prizm-panel-with-pages>
     </prizm-doc-example>
 
     <prizm-doc-example
       id="withBreadcrumbs"
-      heading="Panel with breadcrumbs"
       [content]="panelWithBreadcrumbsExample"
+      heading="Panel with breadcrumbs"
     >
       <prizm-panel-with-breadcrumbs></prizm-panel-with-breadcrumbs>
     </prizm-doc-example>
 
     <prizm-doc-example
       id="withInstruments1"
-      heading="Panel with instruments 1"
       [content]="panelWithInstrumentsSimpleExample"
+      heading="Panel with instruments 1"
     >
       <prizm-panel-with-instruments-simple></prizm-panel-with-instruments-simple>
     </prizm-doc-example>
 
     <prizm-doc-example
       id="withInstruments2"
-      heading="Panel with instruments 2"
       [content]="panelWithInstrumentsHardExample"
+      heading="Panel with instruments 2"
     >
       <prizm-panel-with-instruments-hard></prizm-panel-with-instruments-hard>
     </prizm-doc-example>
@@ -63,36 +63,36 @@
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="withBackButton"
         documentationPropertyName="withBackButton"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="withBackButton"
       >
         Is panel with back button
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="radius"
         documentationPropertyName="prizm-panel-border-radius"
         documentationPropertyType="string"
         documentationPropertyMode="css-var"
-        [(documentationPropertyValue)]="radius"
       >
         Panel Border Radius (Default none)
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="header"
         documentationPropertyName="header"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="header"
       >
         Panel header text
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="subheader"
         documentationPropertyName="subheader"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="subheader"
       >
         Panel subheader text
       </ng-template>
@@ -111,7 +111,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

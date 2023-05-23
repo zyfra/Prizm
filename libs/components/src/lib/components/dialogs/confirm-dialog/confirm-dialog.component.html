@@ -16,7 +16,7 @@
 
   <div class="footer prizm-font-btn-links-14">
     <ng-container [ngSwitch]="!context.showByVertical">
-      <div *ngSwitchCase="true" class="horizontal">
+      <div class="horizontal" *ngSwitchCase="true">
         <div class="left">
           <ng-container
             *ngIf="context.supportButton"
@@ -41,7 +41,7 @@
           </ng-container>
         </div>
       </div>
-      <div *ngSwitchDefault class="vertical">
+      <div class="vertical" *ngSwitchDefault>
         <div class="top">
           <ng-container
             *ngIf="context.confirmButton"
@@ -72,13 +72,13 @@
         [style]="button.style"
         [appearance]="button.appearance"
         [appearanceType]="button.appearanceType"
-        prizmButton
         [size]="button.size"
         [iconRight]="button.iconRight"
         [icon]="button.icon"
         [showLoader]="button.showLoader"
         [disabled]="button.disabled"
         (click)="button.action(context)"
+        prizmButton
       >
         {{ button.text }}
       </button>

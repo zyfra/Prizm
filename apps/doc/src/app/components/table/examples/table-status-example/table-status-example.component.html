@@ -1,25 +1,25 @@
-<table prizmTable class="table" [columns]="columns">
+<table class="table" [columns]="columns" prizmTable>
   <thead>
     <tr prizmThGroup>
       <th prizmTh>Код</th>
-      <th prizmTh *prizmHead="'name'">Наименование</th>
-      <th prizmTh *prizmHead="'category'">Категория</th>
-      <th prizmTh *prizmHead="'count'">Количество</th>
+      <th *prizmHead="'name'" prizmTh>Наименование</th>
+      <th *prizmHead="'category'" prizmTh>Категория</th>
+      <th *prizmHead="'count'" prizmTh>Количество</th>
     </tr>
   </thead>
 
-  <tbody prizmTbody [data]="products">
+  <tbody [data]="products" prizmTbody>
     <tr
-      *prizmRow="let item of products; let i = index"
       class="row"
-      prizmTr
+      *prizmRow="let item of products; let i = index"
       [status]="item.status"
-      (click)="multiSelection($event, item.code)"
       [active]="selectedItemsCodes.includes(item.code)"
+      (click)="multiSelection($event, item.code)"
+      prizmTr
     >
       <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
       <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
-      <td *prizmCell="'category'" prizmTd [status]="i === 8 ? 'danger' : 'default'">{{ item.category }}</td>
+      <td *prizmCell="'category'" [status]="i === 8 ? 'danger' : 'default'" prizmTd>{{ item.category }}</td>
       <td class="format__number" *prizmCell="'count'" prizmTd>{{ item.count | spaceNumber : '0.0-0' }}</td>
     </tr>
     <ng-container footer>

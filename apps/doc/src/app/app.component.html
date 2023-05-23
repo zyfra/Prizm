@@ -11,10 +11,10 @@
         (ngModelChange)="onMode($event)"
       ></tui-toggle>
     </label>
-    <a tuiLink tuiMode="onLight" href="https://github.com/zyfra/Prizm" target="_blank" class="app-link">
-      <img src="assets/images/git.svg" alt="" class="app-github" />
+    <a class="app-link" tuiLink tuiMode="onLight" href="https://github.com/zyfra/Prizm" target="_blank">
+      <img class="app-github" src="assets/images/git.svg" alt="" />
     </a>
   </ng-container>
 
-  <prizm-version-manager ngProjectAs="tuiDocNavigation" class="app-version"></prizm-version-manager>
+  <prizm-version-manager class="app-version" ngProjectAs="tuiDocNavigation"></prizm-version-manager>
 </prizm-doc-main>

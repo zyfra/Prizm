@@ -1,6 +1,6 @@
-<div prizmFocusTrap class="box prizm-font-main-body-14">
+<div class="box prizm-font-main-body-14" prizmFocusTrap>
   <div class="content">
-    <div *ngIf="context.title" class="title prizm-font-dynamic-title-h4">
+    <div class="title prizm-font-dynamic-title-h4" *ngIf="context.title">
       <ng-container *polymorphOutlet="context.title as data; context: context">
         {{ data }}
       </ng-container>
@@ -44,9 +44,9 @@
             [style]="button.style"
             [appearance]="button.appearance"
             [appearanceType]="button.appearanceType ?? 'fill'"
-            prizmButton
             [size]="button.size"
             (click)="button.action(context)"
+            prizmButton
           >
             {{ button.text }}
           </button>

@@ -4,19 +4,19 @@
     range of values.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="basicExample">
+    <prizm-doc-example id="base" [content]="basicExample" heading="Base">
       <prizm-slider-basic-example></prizm-slider-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="step" heading="Step" [content]="stepExample">
+    <prizm-doc-example id="step" [content]="stepExample" heading="Step">
       <prizm-slider-step-example></prizm-slider-step-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="vertical" heading="Vertical" [content]="verticalExample">
+    <prizm-doc-example id="vertical" [content]="verticalExample" heading="Vertical">
       <prizm-slider-vertical-example></prizm-slider-vertical-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="range" heading="Range" [content]="rangeExample">
+    <prizm-doc-example id="range" [content]="rangeExample" heading="Range">
       <prizm-slider-range-example></prizm-slider-range-example>
     </prizm-doc-example>
   </ng-template>
@@ -40,87 +40,87 @@
 
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="min"
+        [documentationPropertyValues]="minValues"
         documentationPropertyName="min"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="minValues"
-        [(documentationPropertyValue)]="min"
       >
         Min
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="max"
+        [documentationPropertyValues]="maxValues"
         documentationPropertyName="max"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="maxValues"
-        [(documentationPropertyValue)]="max"
       >
         Max
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="step"
+        [documentationPropertyValues]="stepValues"
         documentationPropertyName="step"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="stepValues"
-        [(documentationPropertyValue)]="step"
       >
         Step
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="showValue"
         documentationPropertyName="showValue"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="showValue"
       >
         Show values
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="cnobValuePosition"
+        [documentationPropertyValues]="cnobValuePositionValues"
         documentationPropertyName="cnobValuePosition"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="cnobValuePositionValues"
-        [(documentationPropertyValue)]="cnobValuePosition"
       >
         Cnob value position
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="showMinMax"
         documentationPropertyName="showMinMax"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="showMinMax"
       >
         Show min max
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="orientation"
+        [documentationPropertyValues]="orientationValues"
         documentationPropertyName="orientation"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="orientationValues"
-        [(documentationPropertyValue)]="orientation"
       >
         Orientation
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="range"
         documentationPropertyName="range"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="range"
       >
         Range
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="disabled"
         [documentationPropertyName]="null"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
       >
         Disabled
       </ng-template>
@@ -135,7 +135,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

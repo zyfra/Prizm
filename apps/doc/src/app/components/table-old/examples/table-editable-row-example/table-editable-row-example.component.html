@@ -61,36 +61,36 @@
       <td>
         <div class="edit-buttons-container">
           <prizm-icon
-            size="16"
-            *ngIf="!editing"
-            prizmInitEditableRow
             class="edit-buttons"
-            iconClass="editor-mode"
+            *ngIf="!editing"
             (click)="onRowEditInit(product)"
+            size="16"
+            prizmInitEditableRow
+            iconClass="editor-mode"
           ></prizm-icon>
           <prizm-icon
-            size="16"
-            *ngIf="editing"
-            prizmSaveEditableRow
             class="edit-buttons"
-            iconClass="selection-choice"
+            *ngIf="editing"
             (click)="onRowEditSave(product)"
+            size="16"
+            prizmSaveEditableRow
+            iconClass="selection-choice"
           ></prizm-icon>
           <prizm-icon
-            size="16"
+            class="edit-buttons"
             *ngIf="editing"
-            prizmCancelEditableRow
-            class="edit-buttons"
-            iconClass="cancel-close"
             (click)="onRowEditCancel(product, ri)"
+            size="16"
+            prizmCancelEditableRow
+            iconClass="cancel-close"
           ></prizm-icon>
           <prizm-icon
-            size="16"
-            *ngIf="!editing"
-            prizmCancelEditableRow
             class="edit-buttons"
-            iconClass="delete"
+            *ngIf="!editing"
             (click)="onRowDelete(product, ri)"
+            size="16"
+            prizmCancelEditableRow
+            iconClass="delete"
           ></prizm-icon>
         </div>
       </td>

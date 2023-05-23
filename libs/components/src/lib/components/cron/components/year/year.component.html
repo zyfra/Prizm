@@ -7,11 +7,11 @@
     >
       <div class="radio">
         <prizm-radio-button
-          (changeEvent)="cronUiState.setEvery()"
           [formControl]="cronUiState.typeControl"
           [label]="null"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="cronUiState.setEvery()"
         ></prizm-radio-button>
       </div>
       <div class="content row">Каждый год</div>
@@ -26,11 +26,11 @@
     >
       <div class="radio">
         <prizm-radio-button
-          (changeEvent)="cronUiState.updateOn()"
           [formControl]="cronUiState.typeControl"
           [label]="null"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="cronUiState.updateOn()"
         ></prizm-radio-button>
       </div>
       <div class="content row">
@@ -65,25 +65,25 @@
         <prizm-radio-button
           [formControl]="cronUiState.typeControl"
           [label]="null"
-          (changeEvent)="scheduleComponent.emit()"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="scheduleComponent.emit()"
         ></prizm-radio-button>
       </div>
       <div class="content column">
         <span>Выбранный год (выбор одного или нескольких)</span>
         <div>
           <prizm-input-layout
-            size="m"
             class="year-input"
-            [outer]="true"
             *prizmLet="
               cronUiState.state$ | async | prizmPluck : ['specified'] | prizmCallFunc : join as joinedStr
             "
+            [outer]="true"
             [label]="null"
             [forceClear]="false"
+            size="m"
           >
-            <input prizmInput [ngModel]="joinedStr" (ngModelChange)="saveSpecified($event)" />
+            <input [ngModel]="joinedStr" (ngModelChange)="saveSpecified($event)" prizmInput />
           </prizm-input-layout>
         </div>
         <prizm-cron-schedule
@@ -106,9 +106,9 @@
         <prizm-radio-button
           [formControl]="cronUiState.typeControl"
           [label]="null"
-          (changeEvent)="cronUiState.updateBetween()"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="cronUiState.updateBetween()"
         ></prizm-radio-button>
       </div>
       <div class="content">

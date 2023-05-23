@@ -3,31 +3,31 @@
     Our accordion component for displaying content in a collapsible and expandable format.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleBasicAccordion">
+    <prizm-doc-example id="base" [content]="exampleBasicAccordion" heading="Base">
       <prizm-accordion-basic-example></prizm-accordion-basic-example>
     </prizm-doc-example>
 
     <prizm-doc-example
       id="instruments"
-      heading="With instruments and disabled item"
       [content]="exampleWithInstrumentsAccordion"
+      heading="With instruments and disabled item"
     >
       <prizm-accordion-with-instruments-example></prizm-accordion-with-instruments-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="single" heading="Only one expanded item" [content]="exampleOneExpandedAccordion">
+    <prizm-doc-example id="single" [content]="exampleOneExpandedAccordion" heading="Only one expanded item">
       <prizm-accordion-single-expand-example></prizm-accordion-single-expand-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="multiple" heading="Multiple expanded" [content]="exampleMultipleExpandedAccordion">
+    <prizm-doc-example id="multiple" [content]="exampleMultipleExpandedAccordion" heading="Multiple expanded">
       <prizm-accordion-multiple-expand-example></prizm-accordion-multiple-expand-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="nested" heading="Nested" [content]="accordionNested">
+    <prizm-doc-example id="nested" [content]="accordionNested" heading="Nested">
       <prizm-accordion-nested-example></prizm-accordion-nested-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="custom-title" heading="custom-title" [content]="customTitle">
+    <prizm-doc-example id="custom-title" [content]="customTitle" heading="custom-title">
       <prizm-accordion-custom-title-example></prizm-accordion-custom-title-example>
     </prizm-doc-example>
   </ng-template>
@@ -36,17 +36,17 @@
     <prizm-doc-demo>
       <prizm-accordion
         #element
-        prizmDocHostElementKey="PrizmAccordionComponent"
         [prizmDocHostElement]="element"
         [onlyOneExpanded]="onlyOneExpanded"
+        prizmDocHostElementKey="PrizmAccordionComponent"
       >
         <prizm-accordion-item
           #elementAccordionItem
-          prizmDocHostElementKey="PrizmAccordionItemComponent"
           [prizmDocHostElement]="elementAccordionItem"
           [disabled]="disabled"
           [title]="title"
           [isExpanded]="isExpanded"
+          prizmDocHostElementKey="PrizmAccordionItemComponent"
         >
           <ng-template prizmAccordionTools>
             <prizm-checkbox [disabled]="disabled" label="Checkbox label is here"></prizm-checkbox>
@@ -66,7 +66,7 @@
         </prizm-accordion-item>
         <prizm-accordion-item [disabled]="disabled" title="Title number 3">
           <ng-template prizmAccordionTools>
-            <prizm-checkbox label="Checkbox label is here but..." [disabled]="disabled"></prizm-checkbox>
+            <prizm-checkbox [disabled]="disabled" label="Checkbox label is here but..."></prizm-checkbox>
           </ng-template>
           <ng-template prizmAccordionContent>
             <span class="inner-text">
@@ -86,10 +86,10 @@
 
     <prizm-doc-documentation heading="PrizmAccordionComponent" hostComponentKey="PrizmAccordionComponent">
       <ng-template
+        [(documentationPropertyValue)]="onlyOneExpanded"
         documentationPropertyName="onlyOneExpanded"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="onlyOneExpanded"
       >
         Only one accordion can be expanded
       </ng-template>
@@ -101,26 +101,26 @@
       heading="PrizmAccordionItemComponent"
     >
       <ng-template
+        [(documentationPropertyValue)]="isExpanded"
         documentationPropertyName="isExpanded"
         documentationPropertyType="boolean"
         documentationPropertyMode="input-output"
-        [(documentationPropertyValue)]="isExpanded"
       >
         Is Expanded
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="title"
         documentationPropertyName="title"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="title"
       >
         Title
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="disabled"
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
       >
         Disabled
       </ng-template>
@@ -135,7 +135,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

@@ -3,29 +3,29 @@
     Our scrollbar component is a simple wrapper around the native browser scrollbar.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-scrollbar-base-example></prizm-scrollbar-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="horizontal" heading="Horizontal" [content]="exampleHorizontal">
+    <prizm-doc-example id="horizontal" [content]="exampleHorizontal" heading="Horizontal">
       <prizm-scrollbar-horizontal-example></prizm-scrollbar-horizontal-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="hidden" heading="Hidden" [content]="exampleHidden">
+    <prizm-doc-example id="hidden" [content]="exampleHidden" heading="Hidden">
       <prizm-scrollbar-hidden-example></prizm-scrollbar-hidden-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="visible" heading="Visible" [content]="exampleVisible">
+    <prizm-doc-example id="visible" [content]="exampleVisible" heading="Visible">
       <prizm-scrollbar-visible-example></prizm-scrollbar-visible-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="all" heading="all" [content]="exampleAll">
+    <prizm-doc-example id="all" [content]="exampleAll" heading="all">
       <prizm-scrollbar-all-example></prizm-scrollbar-all-example>
     </prizm-doc-example>
   </ng-template>
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-scrollbar #element [prizmDocHostElement]="element" class="box" [visibility]="visibility">
+      <prizm-scrollbar class="box" #element [prizmDocHostElement]="element" [visibility]="visibility">
         <div class="content">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dignissimos, doloremque.
@@ -82,11 +82,11 @@
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="visibility"
+        [documentationPropertyValues]="visibilityVariants"
         documentationPropertyName="visibility"
         documentationPropertyType="PrizmScrollbarVisibility"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="visibility"
-        [documentationPropertyValues]="visibilityVariants"
       >
         Size
       </ng-template>
@@ -102,7 +102,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

@@ -1,7 +1,6 @@
 <div class="calendar-host">
   <ng-container *ngIf="year || clickedMonth; else calendar">
     <prizm-primitive-year-month-pagination
-      automation-id="prizm-calendar__pagination"
       class="z-pagination"
       [min]="computedMinViewedMonth"
       [max]="computedMaxViewedMonth"
@@ -12,33 +11,33 @@
       (valueChange)="onPaginationValueChange($event)"
       (yearClick)="onPaginationYearClick($event)"
       (monthClick)="onPaginationMonthClick($event)"
+      automation-id="prizm-calendar__pagination"
     ></prizm-primitive-year-month-pagination>
-    <prizm-scrollbar automation-id="prizm-calendar__scrollbar" class="z-scrollbar">
+    <prizm-scrollbar class="z-scrollbar" automation-id="prizm-calendar__scrollbar">
       <prizm-primitive-year-picker
         *ngIf="year; else monthPickerTemplate"
-        automation-id="prizm-calendar__year"
         [min]="min"
         [max]="max"
         [initialItem]="year"
         [value]="value"
         (yearClick)="onPickerYearClick($event)"
+        automation-id="prizm-calendar__year"
       ></prizm-primitive-year-picker>
       <ng-template #monthPickerTemplate>
         <prizm-primitive-month-picker
-          automation-id="prizm-calendar__year"
           [min]="min"
           [max]="max"
           [initialItem]="clickedMonth"
           [value]="value"
           [currentYear]="month.year"
           (monthClick)="onPickerMonthClick($event)"
+          automation-id="prizm-calendar__year"
         ></prizm-primitive-month-picker>
       </ng-template>
     </prizm-scrollbar>
   </ng-container>
   <ng-template #calendar>
     <prizm-primitive-year-month-pagination
-      automation-id="prizm-calendar__pagination"
       class="z-pagination"
       [min]="computedMinViewedMonth"
       [max]="computedMaxViewedMonth"
@@ -46,9 +45,9 @@
       (valueChange)="onPaginationValueChange($event)"
       (yearClick)="onPaginationYearClick($event)"
       (monthClick)="onPaginationMonthClick($event)"
+      automation-id="prizm-calendar__pagination"
     ></prizm-primitive-year-month-pagination>
     <prizm-primitive-calendar
-      automation-id="prizm-calendar__calendar"
       [showAdjacent]="showAdjacent"
       [value]="value"
       [month]="month"
@@ -58,6 +57,7 @@
       [hoveredItem]="hoveredItem"
       (hoveredItemChange)="onHoveredItemChange($event)"
       (dayClick)="onDayClick($event)"
+      automation-id="prizm-calendar__calendar"
     >
       <ng-container footer>
         <ng-content select="[footer]"></ng-content>
