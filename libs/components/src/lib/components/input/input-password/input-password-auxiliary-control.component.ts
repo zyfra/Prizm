@@ -17,9 +17,9 @@ import { PrizmInputPasswordDirective } from './input-password.directive';
 @Component({
   selector: 'prizm-input-password-auxiliary-control',
   template: ` <button
-    [prizmInputIconButton]="icon"
     class="btn"
     #btn
+    [prizmInputIconButton]="icon"
     [interactive]="true"
     [disabled]="
       (inputPassword?.prizmInputText?.ngControl?.statusChanges &&

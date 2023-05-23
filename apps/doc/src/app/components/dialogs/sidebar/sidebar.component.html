@@ -3,23 +3,23 @@
     Our sidebar component is a container for navigation and other content.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleBasic">
+    <prizm-doc-example id="base" [content]="exampleBasic" heading="Base">
       <prizm-sidebar-service-example></prizm-sidebar-service-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="hidden-footer" heading="Hidden Footer" [content]="exampleHiddenFooter">
+    <prizm-doc-example id="hidden-footer" [content]="exampleHiddenFooter" heading="Hidden Footer">
       <prizm-sidebar-hidden-footer-example></prizm-sidebar-hidden-footer-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="top-bottom" heading="Top Bottom" [content]="exampleTopBottom">
+    <prizm-doc-example id="top-bottom" [content]="exampleTopBottom" heading="Top Bottom">
       <prizm-sidebar-top-bottom-example></prizm-sidebar-top-bottom-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="custom-close-guard" heading="Custom Close Guard" [content]="exampleCustomClose">
+    <prizm-doc-example id="custom-close-guard" [content]="exampleCustomClose" heading="Custom Close Guard">
       <prizm-sidebar-custom-close-guard-example></prizm-sidebar-custom-close-guard-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="custom-header" heading="Custom Header" [content]="exampleCustomHeader">
+    <prizm-doc-example id="custom-header" [content]="exampleCustomHeader" heading="Custom Header">
       <prizm-sidebar-custom-header-template-example></prizm-sidebar-custom-header-template-example>
     </prizm-doc-example>
   </ng-template>
@@ -36,8 +36,8 @@
         [showLoader]="showLoader"
         [focusable]="focusable"
         [pseudoState]="pseudoState"
-        type="button"
         (click)="show()"
+        type="button"
         prizmButton
       >
         Show SideBar
@@ -55,61 +55,61 @@
 
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="position"
+        [documentationPropertyValues]="positionVariants"
         documentationPropertyName="position"
         documentationPropertyType="PrizmOverlayInsidePlacement"
-        [documentationPropertyValues]="positionVariants"
-        [(documentationPropertyValue)]="position"
       >
         Position
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
         documentationPropertyName="size"
         documentationPropertyType="PrizmDialogSize"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="sizeVariants"
-        [(documentationPropertyValue)]="size"
       >
         Size
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="backdrop"
         documentationPropertyName="backdrop"
         documentationPropertyType="boolean"
-        [(documentationPropertyValue)]="backdrop"
       >
         Backdrop
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="zIndex"
         documentationPropertyName="zIndex"
         documentationPropertyType="number"
-        [(documentationPropertyValue)]="zIndex"
       >
         Z-Index for overlay container
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="dismissible"
         documentationPropertyName="dismissible"
         documentationPropertyType="boolean"
-        [(documentationPropertyValue)]="dismissible"
       >
         Dismissible (close on outside click)
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="height"
         documentationPropertyName="height"
         documentationPropertyType="string"
-        [(documentationPropertyValue)]="height"
       >
         Height
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="overscroll"
+        [documentationPropertyValues]="overscrollVariants"
         documentationPropertyName="overscroll"
         documentationPropertyType="PrizmOverscrollMode"
-        [documentationPropertyValues]="overscrollVariants"
-        [(documentationPropertyValue)]="overscroll"
       >
         Overscroll
       </ng-template>
@@ -119,27 +119,27 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="width"
         documentationPropertyName="width"
         documentationPropertyType="string"
-        [(documentationPropertyValue)]="width"
       >
         Width
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="closeWord"
         documentationPropertyName="closeWord"
         documentationPropertyType="string"
-        [(documentationPropertyValue)]="closeWord"
       >
         Close Word
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="header"
+        [documentationPropertyValues]="generatePolymorphVariants(headerTemp)"
+        [documentationPropertyDeprecated]="true"
         documentationPropertyName="header"
         documentationPropertyType="PolymorphContent<PrizmBaseDialogContext>"
-        [documentationPropertyValues]="generatePolymorphVariants(headerTemp)"
-        [(documentationPropertyValue)]="header"
-        [documentationPropertyDeprecated]="true"
       >
         Header (does not include close button)
       </ng-template>
@@ -152,10 +152,10 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="content"
+        [documentationPropertyValues]="generatePolymorphVariants(contentTemp)"
         documentationPropertyName="content"
         documentationPropertyType="PolymorphContent<PrizmBaseDialogContext>"
-        [documentationPropertyValues]="generatePolymorphVariants(contentTemp)"
-        [(documentationPropertyValue)]="content"
       >
         Content (will be in sidebar)
       </ng-template>
@@ -168,19 +168,19 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="footer"
+        [documentationPropertyValues]="generatePolymorphVariants(footerTemp, '')"
         documentationPropertyName="footer"
         documentationPropertyType="PolymorphContent<PrizmBaseDialogContext> |  | PrizmDialogButton[]"
-        [documentationPropertyValues]="generatePolymorphVariants(footerTemp, '')"
-        [(documentationPropertyValue)]="footer"
       >
         Footer template or button array (PrizmDialogButton) If pass empty string '', footer will not be showed
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="hideFooter"
         documentationPropertyName="hideFooter"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="hideFooter"
       >
         Hide Footer
       </ng-template>
@@ -196,7 +196,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="exampleModule"></prizm-doc-code>
+        <prizm-doc-code [code]="exampleModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

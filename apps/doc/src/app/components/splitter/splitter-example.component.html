@@ -4,39 +4,39 @@
     content side by side.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="basic">
+    <prizm-doc-example id="base" [content]="basic" heading="Base">
       <prizm-splitter-basic-example></prizm-splitter-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="vertical" heading="Vertical" [content]="vertical">
+    <prizm-doc-example id="vertical" [content]="vertical" heading="Vertical">
       <prizm-splitter-vertical-example></prizm-splitter-vertical-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="mested" heading="Nested" [content]="nested">
+    <prizm-doc-example id="mested" [content]="nested" heading="Nested">
       <prizm-splitter-nested-example></prizm-splitter-nested-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="limit" heading="Limit size" [content]="limitSize">
+    <prizm-doc-example id="limit" [content]="limitSize" heading="Limit size">
       <prizm-splitter-limit-size-example></prizm-splitter-limit-size-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="areas-control-size" heading="Control areas size" [content]="areasControl">
+    <prizm-doc-example id="areas-control-size" [content]="areasControl" heading="Control areas size">
       <prizm-splitter-areas-control-size-example></prizm-splitter-areas-control-size-example>
     </prizm-doc-example>
 
     <prizm-doc-example
       id="hide-areas"
-      heading="Control areas with display:none"
       [content]="areasControlDisplayNone"
+      heading="Control areas with display:none"
     >
       <prizm-splitter-areas-control-dispaly-none-example></prizm-splitter-areas-control-dispaly-none-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="hide-areas-ngif" heading="Control areas with *ngIf" [content]="areasControlNgIf">
+    <prizm-doc-example id="hide-areas-ngif" [content]="areasControlNgIf" heading="Control areas with *ngIf">
       <prizm-splitter-areas-control-ngif-example></prizm-splitter-areas-control-ngif-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="custom-guuter" heading="Custom gutter" [content]="customGutter">
+    <prizm-doc-example id="custom-guuter" [content]="customGutter" heading="Custom gutter">
       <prizm-splitter-custom-gutter-example></prizm-splitter-custom-gutter-example>
     </prizm-doc-example>
   </ng-template>
@@ -51,10 +51,10 @@
         prizmDocHostElementKey="PrizmSplitterComponent"
       >
         <prizm-splitter-area
-          [size]="30"
           #splitterArea
-          prizmDocHostElementKey="PrizmSplitterAreaComponent"
+          [size]="30"
           [prizmDocHostElement]="splitterArea"
+          prizmDocHostElementKey="PrizmSplitterAreaComponent"
         >
           <div class="area area--1">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo totam ducimus sed cum, dignissimos
@@ -99,11 +99,11 @@
 
     <prizm-doc-documentation heading="PrizmSplitterComponent" hostComponentKey="PrizmSplitterComponent">
       <ng-template
+        [(documentationPropertyValue)]="orientation"
+        [documentationPropertyValues]="orientationVariants"
         documentationPropertyName="orientation"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="orientation"
-        [documentationPropertyValues]="orientationVariants"
       >
         Orientation
       </ng-template>
@@ -132,9 +132,9 @@
     </prizm-doc-documentation>
 
     <prizm-doc-documentation
+      [showValues]="false"
       heading="PrizmSplitterAreaComponent"
       hostComponentKey="PrizmSplitterAreaComponent"
-      [showValues]="false"
     >
       <ng-template
         documentationPropertyName="size"
@@ -170,7 +170,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

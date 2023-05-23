@@ -1,17 +1,17 @@
 <div class="box">
-  <button prizmButton appearance="success" (click)="showSuccessToastWithContentTemplate(contentTemplate)">
+  <button (click)="showSuccessToastWithContentTemplate(contentTemplate)" prizmButton appearance="success">
     Success Toast
   </button>
 
-  <button prizmButton appearance="warning" (click)="showWarningToastWithContentTemplate(contentTemplate)">
+  <button (click)="showWarningToastWithContentTemplate(contentTemplate)" prizmButton appearance="warning">
     Warning Toast
   </button>
 
-  <button prizmButton appearance="danger" (click)="showDangerToastWithContentTemplate(contentTemplate)">
+  <button (click)="showDangerToastWithContentTemplate(contentTemplate)" prizmButton appearance="danger">
     Danger Toast
   </button>
 
-  <button prizmButton appearance="primary" (click)="showInfoToastWithContentTemplate(contentTemplate)">
+  <button (click)="showInfoToastWithContentTemplate(contentTemplate)" prizmButton appearance="primary">
     Info Toast
   </button>
 
@@ -23,7 +23,7 @@
       <a href="#">Ссылка</a>
     </div>
     <div class="footer">
-      <button prizmButton [appearance]="buttonAppearance" (click)="close()">Закрыть</button>
+      <button [appearance]="buttonAppearance" (click)="close()" prizmButton>Закрыть</button>
     </div>
   </ng-template>
 </div>

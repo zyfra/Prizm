@@ -1,23 +1,23 @@
 <div
   class="block"
-  (prizmOutsideEvent)="outsideClick()"
   [outsideElement]="prizmDropdownHost"
-  outsideEventName="click"
-  (prizmMutationObserver)="updateWidth()"
   [prizmMutationObserverHost]="el.nativeElement"
+  (prizmOutsideEvent)="outsideClick()"
+  (prizmMutationObserver)="updateWidth()"
+  outsideEventName="click"
 >
   <ng-content></ng-content>
   <ng-template #temp>
     <div
       class="prizm-dropdown-host-modal"
       [ngStyle]="dropdownStyles"
-      prizmEventZone
-      (prizmOutsideEvent)="outsideClick()"
-      outsideEventName="click"
-      (prizmAfterViewInit)="addListenerItems($event.nativeElement); reCalculatePositions()"
-      (prizmOnDestroy)="removeListenerItems($event.nativeElement)"
       [id]="prizmDropdownHostId"
       [attr.position]="position$ | async"
+      (prizmOutsideEvent)="outsideClick()"
+      (prizmAfterViewInit)="addListenerItems($event.nativeElement); reCalculatePositions()"
+      (prizmOnDestroy)="removeListenerItems($event.nativeElement)"
+      prizmEventZone
+      outsideEventName="click"
     >
       <ng-container
         *polymorphOutlet="content; context: { custom: prizmDropdownCustomContext }"

@@ -1,10 +1,10 @@
-<prizm-input-layout label="Заголовок" size="l" status="default" [outer]="true">
+<prizm-input-layout [outer]="true" label="Заголовок" size="l" status="default">
   <input
     #input
+    [formControl]="requiredInputControl"
+    (enter)="onEnter($event)"
     prizmInput
     placeholder="Введите название"
-    (enter)="onEnter($event)"
-    [formControl]="requiredInputControl"
   />
   <prizm-chips
     #chipsComponent

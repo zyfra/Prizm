@@ -5,7 +5,7 @@
     specific categories that compose the whole.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleOutline">
+    <prizm-doc-example id="base" [content]="exampleOutline" heading="Base">
       <prizm-charts-pie-example></prizm-charts-pie-example>
     </prizm-doc-example>
   </ng-template>
@@ -29,26 +29,26 @@
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="width"
         documentationPropertyName="width"
         documentationPropertyType="number"
-        [(documentationPropertyValue)]="width"
       >
         Width
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="height"
         documentationPropertyName="height"
         documentationPropertyType="number"
-        [(documentationPropertyValue)]="height"
       >
         Height
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="angleField"
         documentationPropertyName="angleField"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="angleField"
       >
         Angle Field Name
       </ng-template>
@@ -61,37 +61,37 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="width"
         documentationPropertyName="width"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="width"
       >
         Width
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="height"
         documentationPropertyName="height"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="height"
       >
         Height
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="colorField"
         documentationPropertyName="colorField"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="colorField"
       >
         Color Field Name
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="interactions"
         documentationPropertyName="interactions"
         documentationPropertyType="PrizmChartsPieOptions['interactions']"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="interactions"
       >
         Interactions
       </ng-template>
@@ -112,10 +112,10 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="label"
         documentationPropertyName="label"
         documentationPropertyType="PrizmChartsPieOptions['label']"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="label"
       >
         Label
       </ng-template>
@@ -131,7 +131,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

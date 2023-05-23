@@ -3,7 +3,7 @@
     Our card component for displaying content in a card-like format.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-card-base-example></prizm-card-base-example>
     </prizm-doc-example>
   </ng-template>
@@ -25,11 +25,11 @@
       </ng-template> -->
 
       <ng-template
+        [(documentationPropertyValue)]="shadow"
+        [documentationPropertyValues]="shadowVariants"
         documentationPropertyName="shadow"
         documentationPropertyType="PrizmShadowType"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="shadow"
-        [documentationPropertyValues]="shadowVariants"
       >
         Shadow
       </ng-template>
@@ -45,7 +45,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

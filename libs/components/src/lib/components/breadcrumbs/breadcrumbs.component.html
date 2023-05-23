@@ -1,36 +1,36 @@
 <div class="container" #container>
   <ng-container>
-    <div class="breadcrumbs" *ngFor="let breadcrumb of breadcrumbsToShow$ | async; let i = index" #breadcrumb>
+    <div class="breadcrumbs" #breadcrumb *ngFor="let breadcrumb of breadcrumbsToShow$ | async; let i = index">
       <prizm-icon
         class="breadcrumbs__chevron"
-        iconClass="chevrons-right"
-        [size]="16"
         *ngIf="i !== 0"
+        [size]="16"
+        iconClass="chevrons-right"
       ></prizm-icon>
 
       <button
         class="breadcrumb"
-        (click)="changeBreadcrumb(i)"
         [class.breadcrumb_active]="i === activeBreadcrumbIdx"
+        (click)="changeBreadcrumb(i)"
       >
         <prizm-icon
           class="breadcrumb__icon"
+          *ngIf="breadcrumb.icon"
           [size]="16"
           [iconClass]="breadcrumb.icon"
-          *ngIf="breadcrumb.icon"
         ></prizm-icon>
-        <span *ngIf="breadcrumb.name" class="breadcrumb__name">{{ breadcrumb.name }}</span>
+        <span class="breadcrumb__name" *ngIf="breadcrumb.name">{{ breadcrumb.name }}</span>
       </button>
 
       <prizm-dropdown-host
-        *ngIf="i === 0 && this.isContainerOverflowed"
         class="breadcrumbs__dots"
-        [content]="dropdown"
+        *ngIf="i === 0 && this.isContainerOverflowed"
         [(isOpen)]="isDropdownOpened"
+        [content]="dropdown"
         prizmDropdownHostWidth="auto"
       >
         <div class="dropdown-inner">
-          <prizm-icon class="breadcrumbs__chevron" iconClass="chevrons-right" [size]="16"></prizm-icon>
+          <prizm-icon class="breadcrumbs__chevron" [size]="16" iconClass="chevrons-right"></prizm-icon>
           <button (click)="isDropdownOpened = !isDropdownOpened">...</button>
         </div>
       </prizm-dropdown-host>
@@ -39,19 +39,19 @@
 </div>
 
 <div class="container container__fake" #breadcrumbsFake>
-  <div class="breadcrumbs" *ngFor="let breadcrumb of breadcrumbs$ | async; let i = index" #breadcrumbsFake>
+  <div class="breadcrumbs" #breadcrumbsFake *ngFor="let breadcrumb of breadcrumbs$ | async; let i = index">
     <prizm-icon
       class="breadcrumbs__chevron"
-      iconClass="chevrons-right"
-      [size]="16"
       *ngIf="i !== 0"
+      [size]="16"
+      iconClass="chevrons-right"
     ></prizm-icon>
     <button class="breadcrumb">
       <prizm-icon
         class="breadcrumb__icon"
+        *ngIf="!!breadcrumb.icon"
         [size]="16"
         [iconClass]="breadcrumb.icon"
-        *ngIf="!!breadcrumb.icon"
       ></prizm-icon>
       <span class="breadcrumb__name">{{ breadcrumb?.name }}</span>
     </button>
@@ -64,9 +64,9 @@
       <button class="dropdown-breadcrumb" (click)="changeBreadcrumb(i + 1)">
         <prizm-icon
           class="dropdown-breadcrumb__icon"
+          *ngIf="!!breadcrumb.icon"
           [size]="16"
           [iconClass]="breadcrumb.icon"
-          *ngIf="!!breadcrumb.icon"
         ></prizm-icon>
         <span class="dropdown-breadcrumb__name">{{ breadcrumb?.name }}</span>
       </button>

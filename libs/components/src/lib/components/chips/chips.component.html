@@ -1,11 +1,11 @@
 <div
   class="chips-list"
-  *ngIf="(chipsList$ | async).length"
-  [class.hidden]="singleLine"
-  prizmElementReady
-  [checker]="ready"
   #prizmElementReady="prizmElementReady"
   #parent
+  *ngIf="(chipsList$ | async).length"
+  [class.hidden]="singleLine"
+  [checker]="ready"
+  prizmElementReady
 >
   <ng-container *ngIf="prizmElementReady.ready$ | async">
     <ng-container
@@ -47,22 +47,22 @@
   let-forceShowHint="forceShowHint"
 >
   <prizm-chips-item
-    (deleted)="removeChips($event, idx)"
-    prizmLifecycle
-    [hintCanShow]="hintCanShow"
-    [hintDirection]="hintDirection"
-    [deletable]="deletable"
-    (click)="chipClick(item)"
-    #prizmLifecycle="prizmLifecycle"
-    [class.single-line]="singleLine"
     class="{{
       prizmLifecycle.afterViewInit$
         | prizmCallFunc : isChipsContent$ : parent : singleLine : item : idx : allChipsCount
         | async
     }}"
+    #prizmLifecycle="prizmLifecycle"
+    [hintCanShow]="hintCanShow"
+    [hintDirection]="hintDirection"
+    [deletable]="deletable"
+    [class.single-line]="singleLine"
     [hintText]="item"
     [deletable]="!hideDelete && deletable"
     [disabled]="accessorIsDisabled"
+    (deleted)="removeChips($event, idx)"
+    (click)="chipClick(item)"
+    prizmLifecycle
   >
     {{ item }}
   </prizm-chips-item>

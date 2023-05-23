@@ -1,9 +1,9 @@
 <div class="block">
   <div
     class="item prizm-font-btn-links-14"
+    *ngFor="let item of items; let idx = index"
     [class.selected]="isSelected(item)"
     (click)="select(item)"
-    *ngFor="let item of items; let idx = index"
   >
     <ng-container *polymorphOutlet="template; context: { item: item, idx: idx }">
       {{ item.value }}

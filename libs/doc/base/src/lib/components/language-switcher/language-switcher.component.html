@@ -3,11 +3,11 @@
   <tui-data-list *tuiDataList>
     <button
       *ngFor="let name of names"
-      tuiOption
       [value]="name | titlecase"
       (click)="switcher.setLanguage(name)"
+      tuiOption
     >
-      <img alt="" class="t-flag" [src]="getFlagPath(flags.get(name))" />
+      <img class="t-flag" [src]="getFlagPath(flags.get(name))" alt="" />
       {{ name | titlecase }}
     </button>
   </tui-data-list>

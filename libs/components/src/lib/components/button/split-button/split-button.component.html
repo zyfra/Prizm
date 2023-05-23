@@ -1,15 +1,15 @@
 <div class="button">
   <button
     class="full-width"
-    prizmButton
-    [size]="size"
     #buttonRef
+    [size]="size"
     [appearance]="appearance"
     [showLoader]="showLoader"
     [disabled]="disabled"
+    [appearanceType]="appearanceType"
     (click)="clickButton.emit()"
     (focusedChange)="updateZIndex(buttonEl, $event)"
-    [appearanceType]="appearanceType"
+    prizmButton
   >
     <ng-content></ng-content>
   </button>
@@ -17,15 +17,15 @@
 
 <div class="icon">
   <button
-    prizmIconButton
     #iconButtonRef
-    (click)="!showLoader && clickIcon.emit()"
     [size]="size"
-    (focusedChange)="updateZIndex(iconButtonEl, $event)"
     [disabled]="disabled"
     [pseudoState]="showLoader && 'none'"
     [appearance]="appearance"
     [appearanceType]="appearanceType"
     [icon]="icon"
+    (click)="!showLoader && clickIcon.emit()"
+    (focusedChange)="updateZIndex(iconButtonEl, $event)"
+    prizmIconButton
   ></button>
 </div>

@@ -2,11 +2,11 @@
   <div class="page-description" description>User theme service for controlling the theme.</div>
 
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="global" heading="Global Change" [content]="baseExample">
+    <prizm-doc-example id="global" [content]="baseExample" heading="Global Change">
       <prizm-theme-base-example></prizm-theme-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="local" heading="Local Change" [content]="localExample">
+    <prizm-doc-example id="local" [content]="localExample" heading="Local Change">
       <prizm-theme-local-example></prizm-theme-local-example>
     </prizm-doc-example>
   </ng-template>
@@ -20,7 +20,7 @@
           into a service where you want to use our service
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="exampleModule"></prizm-doc-code>
+        <prizm-doc-code [code]="exampleModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

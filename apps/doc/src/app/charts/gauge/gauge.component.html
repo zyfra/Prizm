@@ -4,7 +4,7 @@
     needles on the same gauge or by using multiple gauges.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleOutline">
+    <prizm-doc-example id="base" [content]="exampleOutline" heading="Base">
       <prizm-charts-gauge-example></prizm-charts-gauge-example>
     </prizm-doc-example>
   </ng-template>
@@ -23,10 +23,10 @@
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="width"
         documentationPropertyName="width"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="width"
       >
         Width
       </ng-template>
@@ -48,19 +48,19 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="percent"
         documentationPropertyName="percent"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="percent"
       >
         Percent
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="height"
         documentationPropertyName="height"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="height"
       >
         Height
       </ng-template>
@@ -76,7 +76,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

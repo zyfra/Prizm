@@ -3,10 +3,10 @@
     Our dialog component is a modal window that can be used to display information or ask for user input.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleBasic">
+    <prizm-doc-example id="base" [content]="exampleBasic" heading="Base">
       <prizm-dialog-service-example></prizm-dialog-service-example>
     </prizm-doc-example>
-    <prizm-doc-example id="with-buttons" heading="With Footer" [content]="exampleWithButtons">
+    <prizm-doc-example id="with-buttons" [content]="exampleWithButtons" heading="With Footer">
       <prizm-dialog-service-with-buttons-example></prizm-dialog-service-with-buttons-example>
     </prizm-doc-example>
   </ng-template>
@@ -25,8 +25,8 @@
         [showLoader]="showLoader"
         [focusable]="focusable"
         [pseudoState]="pseudoState"
-        type="button"
         (click)="show()"
+        type="button"
         prizmButton
       >
         Show Dialog
@@ -44,219 +44,219 @@
 
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="position"
+        [documentationPropertyValues]="positionVariants"
         documentationPropertyName="position"
         documentationPropertyType="PrizmOverlayInsidePlacement"
-        [documentationPropertyValues]="positionVariants"
-        [(documentationPropertyValue)]="position"
       >
         Position
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
         documentationPropertyName="size"
         documentationPropertyType="PrizmDialogSize"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="sizeVariants"
-        [(documentationPropertyValue)]="size"
       >
         Size
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="backdrop"
         documentationPropertyName="backdrop"
         documentationPropertyType="boolean"
-        [(documentationPropertyValue)]="backdrop"
       >
         Backdrop
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="height"
         documentationPropertyName="height"
         documentationPropertyType="string"
-        [(documentationPropertyValue)]="height"
       >
         Height
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="overscroll"
+        [documentationPropertyValues]="overscrollVariants"
         documentationPropertyName="overscroll"
         documentationPropertyType="PrizmOverscrollMode"
-        [documentationPropertyValues]="overscrollVariants"
-        [(documentationPropertyValue)]="overscroll"
       >
         Overscroll
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="width"
         documentationPropertyName="width"
         documentationPropertyType="string"
-        [(documentationPropertyValue)]="width"
       >
         Width
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="closeWord"
         documentationPropertyName="closeWord"
         documentationPropertyType="string"
-        [(documentationPropertyValue)]="closeWord"
       >
         Close Word
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="header"
+        [documentationPropertyValues]="generatePolymorphVariants(headerTemp)"
         documentationPropertyName="header"
         documentationPropertyType="PolymorphContent<PrizmBaseDialogContext>"
-        [documentationPropertyValues]="generatePolymorphVariants(headerTemp)"
-        [(documentationPropertyValue)]="header"
       >
         Header
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="content"
+        [documentationPropertyValues]="generatePolymorphVariants(contentTemp)"
         documentationPropertyName="content"
         documentationPropertyType="PolymorphContent<PrizmBaseDialogContext>"
-        [documentationPropertyValues]="generatePolymorphVariants(contentTemp)"
-        [(documentationPropertyValue)]="content"
       >
         Content
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="footer"
+        [documentationPropertyValues]="generatePolymorphVariants(footerTemp, '')"
         documentationPropertyName="footer"
         documentationPropertyType="PolymorphContent<PrizmBaseDialogContext> |  | PrizmDialogButton[]"
-        [documentationPropertyValues]="generatePolymorphVariants(footerTemp, '')"
-        [(documentationPropertyValue)]="footer"
       >
         Footer template or button array (PrizmDialogButton) If pass empty string '', footer will not be showed
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="appearance"
+        [documentationPropertyValues]="appearanceVariants"
         documentationPropertyName="appearance"
         documentationPropertyType="PrizmAppearance"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="appearanceVariants"
-        [(documentationPropertyValue)]="appearance"
       >
         Appearance
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="appearanceType"
+        [documentationPropertyValues]="appearanceTypeVariants"
         documentationPropertyName="appearanceType"
         documentationPropertyType="PrizmAppearanceType"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="appearanceTypeVariants"
-        [(documentationPropertyValue)]="appearanceType"
       >
         AppearanceType
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="icon"
+        [documentationPropertyValues]="iconVariants"
         documentationPropertyName="icon"
         documentationPropertyType="PrizmContent"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="iconVariants"
-        [(documentationPropertyValue)]="icon"
       >
         Icon
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="iconRight"
+        [documentationPropertyValues]="iconVariants"
         documentationPropertyName="iconRight"
         documentationPropertyType="PrizmContent"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="iconVariants"
-        [(documentationPropertyValue)]="iconRight"
       >
         Right Icon
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="disabled"
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
       >
         Disabled
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="showLoader"
         documentationPropertyName="showLoader"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="showLoader"
       >
         Show Loader
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="pseudoHovered"
         documentationPropertyName="pseudoHovered"
         documentationPropertyType="boolean | null"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoHovered"
       >
         Pseudo Hovered
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="pseudoPressed"
         documentationPropertyName="pseudoPressed"
         documentationPropertyType="boolean | null"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoPressed"
       >
         Pseudo Pressed
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="pseudoFocused"
         documentationPropertyName="pseudoFocused"
         documentationPropertyType="boolean | null"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoFocused"
       >
         Pseudo Focused
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="focusable"
         documentationPropertyName="focusable"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="focusable"
       >
         Focusable
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="pseudoState"
         documentationPropertyName="pseudoState"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pseudoState"
       >
         Pseudo State
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="focusedChange"
         documentationPropertyName="focusedChange"
         documentationPropertyType="boolean"
         documentationPropertyMode="output"
-        [(documentationPropertyValue)]="focusedChange"
       >
         Focused Change
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="pressedChange"
         documentationPropertyName="pressedChange"
         documentationPropertyType="boolean"
         documentationPropertyMode="output"
-        [(documentationPropertyValue)]="pressedChange"
       >
         Pressed Change
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="hoveredChange"
         documentationPropertyName="hoveredChange"
         documentationPropertyType="boolean"
         documentationPropertyMode="output"
-        [(documentationPropertyValue)]="hoveredChange"
       >
         Hovered Change
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="focusVisibleChange"
         documentationPropertyName="focusVisibleChange"
         documentationPropertyType="boolean"
         documentationPropertyMode="output"
-        [(documentationPropertyValue)]="focusVisibleChange"
       >
         Focus Visible Change
       </ng-template>
@@ -272,7 +272,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="exampleModule"></prizm-doc-code>
+        <prizm-doc-code [code]="exampleModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

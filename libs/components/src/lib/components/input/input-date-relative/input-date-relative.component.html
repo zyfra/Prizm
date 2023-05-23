@@ -11,22 +11,22 @@
     [label]="label"
     [outer]="outer"
     [forceClear]="forceClear"
-    (click)="safeOpenModal()"
     [size]="size"
+    (click)="safeOpenModal()"
   >
     <input
       class="input-search"
-      prizmInput
-      [formControl]="value"
-      (onClear)="onClear()"
-      [placeholder]="placeholder"
       #focusableElementRef
+      [formControl]="value"
+      [placeholder]="placeholder"
+      (onClear)="onClear()"
+      prizmInput
     />
     <ng-container prizm-input-right>
       <button
-        prizmInputIconButton="date-update"
         [interactive]="true"
         (click)="focusableElementRef.focus()"
+        prizmInputIconButton="date-update"
       ></button>
       <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
       </ng-container>
@@ -35,7 +35,7 @@
 </prizm-dropdown-host>
 
 <ng-template #dropdown>
-  <ul role="listbox" class="prizm-datepicker-relative-menu">
+  <ul class="prizm-datepicker-relative-menu" role="listbox">
     <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: timeItems }"></ng-container>
     <li class="relative-menu-item-divider"></li>
     <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: directionItems }"></ng-container>
@@ -44,10 +44,10 @@
 
     <ng-template #menuItemsTemplate let-items="items">
       <li
+        class="relative-menu-item"
         *ngFor="let item of items"
         [class.relative-menu-item-active]="item.active"
         (click)="onMenuItemClick($event, item)"
-        class="relative-menu-item"
         role="button"
         tabindex="0"
       >

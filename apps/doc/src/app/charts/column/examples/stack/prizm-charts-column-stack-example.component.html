@@ -1,8 +1,4 @@
 <prizm-charts-column
-  xField="product_type"
-  yField="order_amt"
-  seriesField="product_sub_type"
-  groupField="sex"
   [data]="data"
   [label]="label"
   [xField]="xField"
@@ -10,5 +6,9 @@
   [seriesField]="seriesField"
   [options]="options"
   [theme]="prizmTheme.changesTheme$ | async"
+  xField="product_type"
+  yField="order_amt"
+  seriesField="product_sub_type"
+  groupField="sex"
 >
 </prizm-charts-column>

@@ -1,30 +1,30 @@
 <prizm-doc-page header="Carousel">
   <ng-template prizmDocPageTab>
-    <prizm-doc-example heading="Basic example" [content]="zyfraCarouselBasicExample" id="basic">
+    <prizm-doc-example id="basic" [content]="zyfraCarouselBasicExample" heading="Basic example">
       <prizm-carousel-basic-example></prizm-carousel-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example heading="Carousel light example" [content]="zyfraCarouselLightExample" id="light">
+    <prizm-doc-example id="light" [content]="zyfraCarouselLightExample" heading="Carousel light example">
       <prizm-carousel-light-example></prizm-carousel-light-example>
     </prizm-doc-example>
 
     <prizm-doc-example
-      heading="Carousel array of objects example"
-      [content]="zyfraCarouselArrayofObjectsExample"
       id="objects-array"
+      [content]="zyfraCarouselArrayofObjectsExample"
+      heading="Carousel array of objects example"
     >
       <prizm-carousel-array-of-objects-example></prizm-carousel-array-of-objects-example>
     </prizm-doc-example>
 
     <prizm-doc-example
-      heading="Carousel select month example"
-      [content]="zyfraCarouselYearMonthExample"
       id="select-month"
+      [content]="zyfraCarouselYearMonthExample"
+      heading="Carousel select month example"
     >
       <prizm-carousel-year-month-example></prizm-carousel-year-month-example>
     </prizm-doc-example>
 
-    <prizm-doc-example heading="Input carousel" [content]="carouselAsInputExample" id="input-carousel">
+    <prizm-doc-example id="input-carousel" [content]="carouselAsInputExample" heading="Input carousel">
       <prizm-input-as-carousel-example></prizm-input-as-carousel-example>
     </prizm-doc-example>
   </ng-template>
@@ -40,14 +40,13 @@
       >
         <prizm-carousel-auxiliary-left
           #PrizmCarouselAuxiliaryLeftComponent
-          prizmDocHostElementKey="PrizmCarouselAuxiliaryLeftComponent"
           [prizmDocHostElement]="PrizmCarouselAuxiliaryLeftComponent"
-          prizm-input-left
           [carousel]="carousel"
+          prizmDocHostElementKey="PrizmCarouselAuxiliaryLeftComponent"
+          prizm-input-left
         ></prizm-carousel-auxiliary-left>
         <prizm-carousel
           #carousel
-          prizmDocHostElementKey="PrizmCarouselComponent"
           [prizmDocHostElement]="carousel"
           [disabled]="disabled"
           [formControl]="control"
@@ -55,15 +54,16 @@
           [carouselContent]="carouselContent"
           [lightMode]="lightMode"
           [value]="value"
+          prizmDocHostElementKey="PrizmCarouselComponent"
         >
           {{ carouselContent.currentValue }}
         </prizm-carousel>
         <prizm-carousel-auxiliary-right
           #prizmCarouselAuxiliaryRight
-          prizmDocHostElementKey="PrizmCarouselAuxiliaryRightComponent"
           [prizmDocHostElement]="prizmCarouselAuxiliaryRight"
-          prizm-input-right
           [carousel]="carousel"
+          prizmDocHostElementKey="PrizmCarouselAuxiliaryRightComponent"
+          prizm-input-right
         ></prizm-carousel-auxiliary-right>
         <ng-template prizmInputStatusText>Текст статуса</ng-template>
       </prizm-input-layout>
@@ -75,50 +75,50 @@
       hostComponentKey="PrizmCarouselComponent"
     >
       <ng-template
+        [(documentationPropertyValue)]="value"
+        [documentationPropertyValues]="[1, 5, 10]"
+        [documentationPropertyDeprecated]="true"
         documentationPropertyName="value"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="[1, 5, 10]"
-        [documentationPropertyDeprecated]="true"
-        [(documentationPropertyValue)]="value"
       >
         Value
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="required"
+        [documentationPropertyDeprecated]="true"
         documentationPropertyName="required"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [documentationPropertyDeprecated]="true"
-        [(documentationPropertyValue)]="required"
       >
         Required
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="disabled"
+        [documentationPropertyDeprecated]="true"
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
-        [documentationPropertyDeprecated]="true"
       >
         Disabled
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="lightMode"
         documentationPropertyName="lightMode"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="lightMode"
       >
         LightMode
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="carouselContent"
         documentationPropertyName="carouselContent"
         documentationPropertyType="PrizmCarouselContent"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="carouselContent"
       >
         Carousel Content
       </ng-template>
@@ -159,7 +159,7 @@
           в тот модуль, котором хотите использовать компонент
         </p>
 
-        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

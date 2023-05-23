@@ -4,22 +4,22 @@
   </div>
 
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-cron-base-example></prizm-cron-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="specified-tabs" heading="Specified Tabs" [content]="exampleSpecifiedTabs">
+    <prizm-doc-example id="specified-tabs" [content]="exampleSpecifiedTabs" heading="Specified Tabs">
       <prizm-cron-specified-tabs-example></prizm-cron-specified-tabs-example>
     </prizm-doc-example>
-    <prizm-doc-example id="fullwidth" heading="Full Width (css variables)" [content]="exampleFullwidthCron">
+    <prizm-doc-example id="fullwidth" [content]="exampleFullwidthCron" heading="Full Width (css variables)">
       <prizm-cron-fullwidth-example></prizm-cron-fullwidth-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="filtered-list" heading="Specified List" [content]="exampleFilteredListCron">
+    <prizm-doc-example id="filtered-list" [content]="exampleFilteredListCron" heading="Specified List">
       <prizm-cron-filtered-list-example></prizm-cron-filtered-list-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="reset" heading="Reset Button" [content]="exampleReset">
+    <prizm-doc-example id="reset" [content]="exampleReset" heading="Reset Button">
       <prizm-cron-reset-example></prizm-cron-reset-example>
     </prizm-doc-example>
   </ng-template>
@@ -28,6 +28,9 @@
     <prizm-doc-demo class="remove-sticky">
       <prizm-cron
         #element
+        [(period)]="period"
+        [(value)]="value"
+        [(selected)]="selected"
         [style.--prizm-cron-min-height]="minHeight"
         [style.--prizm-cron-width]="width"
         [prizmDocHostElement]="element"
@@ -37,83 +40,80 @@
         [hidePeriod]="hidePeriod"
         [hideResult]="hideResult"
         [autoSubmit]="autoSubmit"
-        [(period)]="period"
-        [(value)]="value"
-        [(selected)]="selected"
       >
       </prizm-cron>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="tabs"
+        [documentationPropertyValues]="tabsVariants"
         documentationPropertyName="tabs"
         documentationPropertyType="PrizmCronTabItem[]"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="tabsVariants"
-        [(documentationPropertyValue)]="tabs"
       >
         Tabs
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="autoSubmit"
         documentationPropertyName="autoSubmit"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="autoSubmit"
       >
         Auto Submit
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="minHeight"
         documentationPropertyName="prizm-cron-min-height"
         documentationPropertyType="string"
         documentationPropertyMode="css-var"
-        [(documentationPropertyValue)]="minHeight"
       >
         Min height (Default 952px)
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="width"
         documentationPropertyName="prizm-cron-width"
         documentationPropertyType="string"
         documentationPropertyMode="css-var"
-        [(documentationPropertyValue)]="width"
       >
         Width (Default 642px)
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="hidePeriod"
         documentationPropertyName="hidePeriod"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="hidePeriod"
       >
         Hide Period Block
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="hideResult"
         documentationPropertyName="hideResult"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="hideResult"
       >
         Hide Cron Result Block
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="selected"
+        [documentationPropertyValues]="tabs"
         documentationPropertyName="selected"
         documentationPropertyType="PrizmCronTabItem"
         documentationPropertyMode="input-output"
-        [documentationPropertyValues]="tabs"
-        [(documentationPropertyValue)]="selected"
       >
         Selected Tab
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="resetButton"
         documentationPropertyName="resetButton"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="resetButton"
       >
         Show Reset Button
       </ng-template>
@@ -127,29 +127,29 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="period"
+        [documentationPropertyValues]="periodVariants"
         documentationPropertyName="period"
         documentationPropertyType="PrizmCronPeriod"
         documentationPropertyMode="input-output"
-        [documentationPropertyValues]="periodVariants"
-        [(documentationPropertyValue)]="period"
       >
         Period
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="disabled"
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
       >
         Disabled
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="value"
         documentationPropertyName="value"
         documentationPropertyType="string"
         documentationPropertyMode="input-output"
-        [(documentationPropertyValue)]="value"
       >
         Value
       </ng-template>
@@ -165,7 +165,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

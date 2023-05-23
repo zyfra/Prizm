@@ -3,35 +3,35 @@
     Our tree component is a simple, flexible, and accessible tree view.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-tree-base-example></prizm-tree-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="array" heading="Array" [content]="exampleArray">
+    <prizm-doc-example id="array" [content]="exampleArray" heading="Array">
       <prizm-tree-array-example></prizm-tree-array-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="template" heading="Template" [content]="exampleTemplate">
+    <prizm-doc-example id="template" [content]="exampleTemplate" heading="Template">
       <prizm-tree-template-example></prizm-tree-template-example>
     </prizm-doc-example>
 
     <prizm-doc-example
       id="template-checkbox"
-      heading="Template With Checkbox"
       [content]="exampleTemplateCheckbox"
+      heading="Template With Checkbox"
     >
       <prizm-tree-template-checkbox-example></prizm-tree-template-checkbox-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="template-lazy" heading="Lazy Load" [content]="exampleLazy">
+    <prizm-doc-example id="template-lazy" [content]="exampleLazy" heading="Lazy Load">
       <prizm-tree-template-lazy-example></prizm-tree-template-lazy-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="component" heading="Component" [content]="exampleComponent">
+    <prizm-doc-example id="component" [content]="exampleComponent" heading="Component">
       <prizm-tree-component-example></prizm-tree-component-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="padding-indent" heading="Padding indent" [content]="examplePaddingIndent">
+    <prizm-doc-example id="padding-indent" [content]="examplePaddingIndent" heading="Padding indent">
       <prizm-tree-padding-indent-example></prizm-tree-padding-indent-example>
     </prizm-doc-example>
   </ng-template>
@@ -43,9 +43,9 @@
         <div>
           <prizm-tree
             #element
-            prizmDocHostElementKey="PrizmTreeComponent"
             [prizmDocHostElement]="element"
             [value]="data"
+            prizmDocHostElementKey="PrizmTreeComponent"
           >
           </prizm-tree>
         </div>
@@ -54,8 +54,8 @@
       </div>
       <div>
         <ng-container
-          [prizmTreeController]="prizmTreeController"
           #treeControllerElement="prizmTreeController"
+          [prizmTreeController]="prizmTreeController"
         >
           <prizm-tree-item #element="prizmTreeItem">
             Fruits
@@ -81,10 +81,10 @@
       hostComponentKey="PrizmTreeItemControllerDirective"
     >
       <ng-template
+        [(documentationPropertyValue)]="prizmTreeController"
         documentationPropertyName="prizmTreeController"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="prizmTreeController"
       >
         Expand All
       </ng-template>
@@ -106,10 +106,10 @@
     </prizm-doc-documentation>
     <prizm-doc-documentation heading="PrizmTreeComponent" hostComponentKey="PrizmTreeComponent">
       <ng-template
+        [(documentationPropertyValue)]="treeController"
         documentationPropertyName="value"
         documentationPropertyType="DeepArray"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="treeController"
       >
         Tree Controller
       </ng-template>
@@ -133,7 +133,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

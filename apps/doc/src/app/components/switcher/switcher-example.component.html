@@ -3,35 +3,35 @@
     Our switcher component is a simple toggle that can be used to turn something on or off.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Basic" [content]="exampleBasicSwitcher">
+    <prizm-doc-example id="base" [content]="exampleBasicSwitcher" heading="Basic">
       <prizm-switcher-basic-example></prizm-switcher-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="innerL" heading="Type inner, size L" [content]="exampleInnerLSwitcher">
+    <prizm-doc-example id="innerL" [content]="exampleInnerLSwitcher" heading="Type inner, size L">
       <prizm-switcher-inner-l-example></prizm-switcher-inner-l-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="innerM" heading="Type inner, size M" [content]="exampleInnerMSwitcher">
+    <prizm-doc-example id="innerM" [content]="exampleInnerMSwitcher" heading="Type inner, size M">
       <prizm-switcher-inner-m-example></prizm-switcher-inner-m-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="outerL" heading="Type outer, size L" [content]="exampleOuterLSwitcher">
+    <prizm-doc-example id="outerL" [content]="exampleOuterLSwitcher" heading="Type outer, size L">
       <prizm-switcher-outer-l-example></prizm-switcher-outer-l-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="outerM" heading="Type outer, size M" [content]="exampleOuterMSwitcher">
+    <prizm-doc-example id="outerM" [content]="exampleOuterMSwitcher" heading="Type outer, size M">
       <prizm-switcher-outer-m-example></prizm-switcher-outer-m-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="outerS" heading="Type outer, size S" [content]="exampleOuterSSwitcher">
+    <prizm-doc-example id="outerS" [content]="exampleOuterSSwitcher" heading="Type outer, size S">
       <prizm-switcher-outer-s-example></prizm-switcher-outer-s-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="withIcon" heading="Switcher with icon" [content]="exampleWithIconSwitcher">
+    <prizm-doc-example id="withIcon" [content]="exampleWithIconSwitcher" heading="Switcher with icon">
       <prizm-switcher-with-icon-example></prizm-switcher-with-icon-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="onlyIcon" heading="Only icon switcher" [content]="exampleOnlyIconSwitcher">
+    <prizm-doc-example id="onlyIcon" [content]="exampleOnlyIconSwitcher" heading="Only icon switcher">
       <prizm-switcher-only-icon-example></prizm-switcher-only-icon-example>
     </prizm-doc-example>
   </ng-template>
@@ -40,11 +40,11 @@
     <prizm-doc-demo>
       <prizm-switcher
         #element
+        [(selectedSwitcherIdx)]="selectedSwitcherIdx"
         [prizmDocHostElement]="element"
         [switchers]="switchers"
         [type]="type"
         [fullWidth]="fullWidth"
-        [(selectedSwitcherIdx)]="selectedSwitcherIdx"
         [size]="size"
       ></prizm-switcher>
     </prizm-doc-demo>
@@ -57,39 +57,39 @@
         Switchers
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="selectedSwitcherIdx"
         documentationPropertyName="selectedSwitcherIdx"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="selectedSwitcherIdx"
       >
         Selected switcher index
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="fullWidth"
         documentationPropertyName="fullWidth"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="fullWidth"
       >
         Full width
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
         documentationPropertyName="size"
         documentationPropertyType="SwitcherSize"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="sizeVariants"
-        [(documentationPropertyValue)]="size"
       >
         Size
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="type"
+        [documentationPropertyValues]="typeVariants"
         documentationPropertyName="type"
         documentationPropertyType="SwitcherType"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="typeVariants"
-        [(documentationPropertyValue)]="type"
       >
         Switcher type
       </ng-template>
@@ -119,7 +119,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

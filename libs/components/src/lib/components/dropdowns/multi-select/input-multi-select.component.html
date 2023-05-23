@@ -2,51 +2,51 @@
   #dropdownHostRef
   [content]="dropdown"
   [isOpen]="opened$ | async"
-  (isOpenChange)="opened$$.next($event)"
   [prizmDropdownHost]="layoutComponent.el.nativeElement"
   [prizmDropdownHostWidth]="dropdownWidth"
   [prizmDropdownMinHeight]="minDropdownHeight"
   [prizmDropdownMaxHeight]="maxDropdownHeight"
   [ngSwitch]="layoutComponent.outer"
+  (isOpenChange)="opened$$.next($event)"
 >
   <input
-    prizmInput
+    #focusableElementRef
     [style.display]="layoutComponent.outer && value?.length ? 'none' : ''"
     [style.visibility]="!layoutComponent.outer && value?.length ? 'hidden' : ''"
-    #focusableElementRef
     [disabled]="disabled"
     [readonly]="true"
     [placeholder]="placeholder"
     [ngModel]="($any(value) | prizmCallFunc : stringify) ?? ''"
+    prizmInput
   />
 
   <ng-template #dropdown>
     <prizm-data-list
-      (prizmAfterViewInit)="markAsTouched()"
-      *prizmLet="{ filteredItems: filteredItems$ | async } as $"
       class="block"
+      *prizmLet="{ filteredItems: filteredItems$ | async } as $"
       [style.--prizm-data-list-border]="0"
+      (prizmAfterViewInit)="markAsTouched()"
     >
       <div class="list-search-item" *ngIf="searchable">
         <prizm-input-layout size="m" label="Поиск">
           <input
-            prizmInput
-            (input)="dropdownHostRef.reCalculatePositions(1000 / 16)"
-            prizmAutoFocus
             class="input-search"
             #input
             [formControl]="searchInputControl"
+            (input)="dropdownHostRef.reCalculatePositions(1000 / 16)"
+            prizmInput
+            prizmAutoFocus
           />
-          <button prizmInputIconButton="sort-zoom-in" prizm-input-right [interactive]="true"></button>
+          <button [interactive]="true" prizmInputIconButton="sort-zoom-in" prizm-input-right></button>
         </prizm-input-layout>
       </div>
       <ng-container *ngIf="$.filteredItems?.length; else emptyTemplate">
         <div
           class="item"
+          #parent
+          *ngFor="let item of $.filteredItems; let idx = index"
           [class.selected]="item.checked"
           [class.most-relevant]="searchable && searchInputControl.value && idx === 0"
-          *ngFor="let item of $.filteredItems; let idx = index"
-          #parent
         >
           <prizm-checkbox
             [checked]="item.checked"
@@ -97,11 +97,11 @@
     "
   >
     <prizm-icon
-      (click)="safeOpenModal()"
       [class.opened]="opened$ | async"
       [class.active]="(focused$ | async) || (opened$ | async)"
       [class.icon-dropdown]="iconName === defaultIcon"
       [iconClass]="$any(iconName)"
+      (click)="safeOpenModal()"
     >
     </prizm-icon>
   </ng-container>

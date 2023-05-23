@@ -3,7 +3,7 @@
     Our shadow component can use to show a shadow around a component.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleBase">
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-shadow-base-example></prizm-shadow-base-example>
     </prizm-doc-example>
   </ng-template>
@@ -16,11 +16,11 @@
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="value"
+        [documentationPropertyValues]="valueVariants"
         documentationPropertyName="prizmShadow"
         documentationPropertyType="PrizmShadowType"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="value"
-        [documentationPropertyValues]="valueVariants"
       >
         Shadow type
       </ng-template>
@@ -36,7 +36,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

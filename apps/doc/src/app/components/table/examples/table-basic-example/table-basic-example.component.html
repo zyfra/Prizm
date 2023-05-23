@@ -1,6 +1,6 @@
 <h3>Size L</h3>
 <prizm-scrollbar class="scrollable">
-  <table prizmTable class="table" size="l">
+  <table class="table" prizmTable size="l">
     <thead>
       <tr prizmThGroup>
         <th prizmTh>Код</th>
@@ -13,7 +13,7 @@
       </tr>
     </thead>
 
-    <tbody prizmTbody [data]="products">
+    <tbody [data]="products" prizmTbody>
       <ng-container
         *prizmRow="
           let item of products;
@@ -47,7 +47,7 @@
 
 <h3>Size M</h3>
 <prizm-scrollbar class="scrollable">
-  <table prizmTable class="table" size="m">
+  <table class="table" prizmTable size="m">
     <thead>
       <tr prizmThGroup>
         <th prizmTh>Код</th>
@@ -57,7 +57,7 @@
       </tr>
     </thead>
 
-    <tbody prizmTbody [data]="products">
+    <tbody [data]="products" prizmTbody>
       <ng-container *prizmRow="let item of products; let i = index">
         <tr prizmTr>
           <td class="format__number" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
@@ -74,7 +74,7 @@
 
 <h3>Size S</h3>
 <prizm-scrollbar class="scrollable">
-  <table prizmTable class="table" size="s">
+  <table class="table" prizmTable size="s">
     <thead>
       <tr prizmThGroup>
         <th prizmTh>Код</th>
@@ -84,7 +84,7 @@
       </tr>
     </thead>
 
-    <tbody prizmTbody [data]="products">
+    <tbody [data]="products" prizmTbody>
       <ng-container *prizmRow="let item of products; let i = index">
         <tr prizmTr>
           <td class="format__number" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
@@ -101,7 +101,7 @@
 
 <h3>Size XS</h3>
 <prizm-scrollbar class="scrollable">
-  <table prizmTable class="table" size="xs">
+  <table class="table" prizmTable size="xs">
     <thead>
       <tr prizmThGroup>
         <th prizmTh>Код</th>
@@ -111,7 +111,7 @@
       </tr>
     </thead>
 
-    <tbody prizmTbody [data]="products">
+    <tbody [data]="products" prizmTbody>
       <ng-container *prizmRow="let item of products; let i = index">
         <tr prizmTr>
           <td class="format__number" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>

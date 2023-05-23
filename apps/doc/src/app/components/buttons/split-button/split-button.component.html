@@ -4,10 +4,10 @@
     can be performed on a particular item.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="split" heading="Split Button" [content]="exampleSplit">
+    <prizm-doc-example id="split" [content]="exampleSplit" heading="Split Button">
       <prizm-split-buttons-example></prizm-split-buttons-example>
     </prizm-doc-example>
-    <prizm-doc-example id="with-dropdwon" heading="With Dropdown" [content]="exampleWithDropdown">
+    <prizm-doc-example id="with-dropdwon" [content]="exampleWithDropdown" heading="With Dropdown">
       <prizm-split-with-dropdown-example></prizm-split-with-dropdown-example>
     </prizm-doc-example>
   </ng-template>
@@ -33,83 +33,83 @@
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="content"
         documentationPropertyName="ng-content"
         documentationPropertyType="string"
-        [(documentationPropertyValue)]="content"
       >
         NgContent
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
         documentationPropertyName="size"
         documentationPropertyType="PrizmSize"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="sizeVariants"
-        [(documentationPropertyValue)]="size"
       >
         Size
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="appearance"
+        [documentationPropertyValues]="appearanceVariants"
         documentationPropertyName="appearance"
         documentationPropertyType="PrizmAppearance"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="appearanceVariants"
-        [(documentationPropertyValue)]="appearance"
       >
         Appearance
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="appearanceType"
+        [documentationPropertyValues]="appearanceTypeVariants"
         documentationPropertyName="appearanceType"
         documentationPropertyType="PrizmAppearanceType"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="appearanceTypeVariants"
-        [(documentationPropertyValue)]="appearanceType"
       >
         AppearanceType
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="icon"
+        [documentationPropertyValues]="iconVariants"
         documentationPropertyName="icon"
         documentationPropertyType="PolymorphContent<{size: PrizmSize}>"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="iconVariants"
-        [(documentationPropertyValue)]="icon"
       >
         Icon
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="disabled"
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
       >
         Disabled
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="showLoader"
         documentationPropertyName="showLoader"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="showLoader"
       >
         Show Loader
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="clickIcon"
         documentationPropertyName="clickIcon"
         documentationPropertyType="void"
         documentationPropertyMode="output"
-        [(documentationPropertyValue)]="clickIcon"
       >
         Click Icon
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="clickButton"
         documentationPropertyName="clickButton"
         documentationPropertyType="void"
         documentationPropertyMode="output"
-        [(documentationPropertyValue)]="clickButton"
       >
         Click Button
       </ng-template>
@@ -125,7 +125,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

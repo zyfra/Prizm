@@ -3,9 +3,9 @@
 
   <button
     [size]="16"
-    prizmInputIconButton="cancel-close-circle-fill"
-    (click)="completeWith(false)"
     [interactive]="true"
+    (click)="completeWith(false)"
+    prizmInputIconButton="cancel-close-circle-fill"
   ></button>
 </ng-template>
 
@@ -31,4 +31,4 @@
   </prizm-scrollbar>
 </ng-template>
 
-<button type="button" (click)="show()" prizmButton>Show SideBar</button>
+<button (click)="show()" type="button" prizmButton>Show SideBar</button>

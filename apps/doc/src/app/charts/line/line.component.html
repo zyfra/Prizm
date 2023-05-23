@@ -4,11 +4,11 @@
     short-term. We can also use line graphs to compare changes over the same period for more than one group.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleOutline">
+    <prizm-doc-example id="base" [content]="exampleOutline" heading="Base">
       <prizm-charts-line-example></prizm-charts-line-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="base" heading="Smooth Line" [content]="exampleOutline">
+    <prizm-doc-example id="base" [content]="exampleOutline" heading="Smooth Line">
       <prizm-charts-line-smooth-example></prizm-charts-line-smooth-example>
     </prizm-doc-example>
   </ng-template>
@@ -28,37 +28,37 @@
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="width"
         documentationPropertyName="width"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="width"
       >
         Width
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="xField"
         documentationPropertyName="xField"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="xField"
       >
         X Field Name
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="yField"
         documentationPropertyName="yField"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="yField"
       >
         Y Field Name
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="width"
         documentationPropertyName="width"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="width"
       >
         Width
       </ng-template>
@@ -96,10 +96,10 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="height"
         documentationPropertyName="height"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="height"
       >
         Height
       </ng-template>
@@ -115,7 +115,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

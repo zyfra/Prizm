@@ -4,15 +4,15 @@
     reduce the amount of content on a single page and make it easier to navigate.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleBasicPaginator">
+    <prizm-doc-example id="base" [content]="exampleBasicPaginator" heading="Base">
       <prizm-paginator-basic-example></prizm-paginator-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="withLabels" heading="With Labels" [content]="exampleLabelsPaginator">
+    <prizm-doc-example id="withLabels" [content]="exampleLabelsPaginator" heading="With Labels">
       <prizm-paginator-with-labels-example></prizm-paginator-with-labels-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="inf" heading="Infinite" [content]="exampleInfinitePaginator">
+    <prizm-doc-example id="inf" [content]="exampleInfinitePaginator" heading="Infinite">
       <prizm-paginator-infinite-example></prizm-paginator-infinite-example>
     </prizm-doc-example>
   </ng-template>
@@ -28,12 +28,11 @@
       </div>
       <prizm-paginator
         #element
+        [(page)]="initialValue"
         [disabled]="disabled"
         [prizmDocHostElement]="element"
         [totalRecords]="totalRecords"
-        [(page)]="initialValue"
         [rows]="rows"
-        (paginatorChange)="content = $event"
         [pageLinkSize]="pageLinkSize"
         [leftButtonLabel]="leftButtonLabel"
         [rightButtonLabel]="rightButtonLabel"
@@ -42,34 +41,35 @@
         [paginatorOptions]="paginatorOptions"
         [rowsCountOptions]="rowsCountOptions"
         [moreButtonLabel]="moreButtonLabel"
+        (paginatorChange)="content = $event"
       ></prizm-paginator>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="paginatorType"
+        [documentationPropertyValues]="paginatorTypesVariants"
         documentationPropertyName="paginatorType"
         documentationPropertyType="IPaginatorType"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="paginatorTypesVariants"
-        [(documentationPropertyValue)]="paginatorType"
       >
         Paginator type
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="paginatorOptions"
+        [documentationPropertyValues]="paginatorOptionsVariants"
         documentationPropertyName="paginatorOptions"
         documentationPropertyType="IPaginatorOptions"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="paginatorOptionsVariants"
-        [(documentationPropertyValue)]="paginatorOptions"
       >
         Paginator inner content options
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="disabled"
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
       >
         Disabled
       </ng-template>
@@ -83,38 +83,38 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="totalRecords"
         documentationPropertyName="totalRecords"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="totalRecords"
       >
         Total records
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="initialValue"
         documentationPropertyName="page"
         documentationPropertyType="number"
         documentationPropertyMode="input-output"
-        [(documentationPropertyValue)]="initialValue"
       >
         Page
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="showMoreDisabled"
         documentationPropertyName="showMoreDisabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="showMoreDisabled"
       >
         Show More Button Disabled on infinite mode
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="rows"
+        (documentationPropertyValueChange)="changeRowValue()"
         documentationPropertyName="rows"
         documentationPropertyType="number"
         documentationPropertyMode="input-output"
-        [(documentationPropertyValue)]="rows"
-        (documentationPropertyValueChange)="changeRowValue()"
       >
         Rows
       </ng-template>
@@ -127,37 +127,37 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="pageLinkSize"
         documentationPropertyName="pageLinkSize"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="pageLinkSize"
       >
         Page link size
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="leftButtonLabel"
         documentationPropertyName="leftButtonLabel"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="leftButtonLabel"
       >
         Left button label
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="rightButtonLabel"
         documentationPropertyName="rightButtonLabel"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="rightButtonLabel"
       >
         Right button label
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="moreButtonLabel"
         documentationPropertyName="moreButtonLabel"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="moreButtonLabel"
       >
         More button label
       </ng-template>
@@ -172,7 +172,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

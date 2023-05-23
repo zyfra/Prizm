@@ -10,12 +10,12 @@
         <ng-container *polymorphOutlet="icons">
           <ng-container *ngFor="let icon of $any(icons)">
             <button
+              [icon]="icon"
+              (click)="iconClick.emit(icon)"
               prizmIconButton
               appearanceType="ghost"
-              [icon]="icon"
               appearance="secondary"
               size="s"
-              (click)="iconClick.emit(icon)"
             ></button>
           </ng-container>
         </ng-container>

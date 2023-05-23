@@ -9,9 +9,9 @@
         <prizm-radio-button
           [formControl]="cronUiState.typeControl"
           [label]="null"
-          (changeEvent)="cronUiState.setEvery()"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="cronUiState.setEvery()"
         ></prizm-radio-button>
       </div>
       <div class="content row">
@@ -29,10 +29,10 @@
       <div class="radio">
         <prizm-radio-button
           [formControl]="cronUiState.typeControl"
-          (changeEvent)="cronUiState.updateBetween()"
           [label]="null"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="cronUiState.updateBetween()"
         ></prizm-radio-button>
       </div>
       <div class="content">
@@ -101,10 +101,10 @@
       <div class="radio">
         <prizm-radio-button
           [formControl]="cronUiState.typeControl"
-          (changeEvent)="cronUiState.updateAfterDayOfMonth()"
           [label]="null"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="cronUiState.updateAfterDayOfMonth()"
         ></prizm-radio-button>
       </div>
       <div class="content">
@@ -138,10 +138,10 @@
       <div class="radio">
         <prizm-radio-button
           [formControl]="cronUiState.typeControl"
-          (changeEvent)="schedule.emit()"
           [label]="null"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="schedule.emit()"
         ></prizm-radio-button>
       </div>
       <div class="content column">
@@ -170,9 +170,9 @@
         <prizm-radio-button
           [formControl]="cronUiState.typeControl"
           [label]="null"
-          (changeEvent)="scheduleDayOfMonthItems.emit()"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="scheduleDayOfMonthItems.emit()"
         ></prizm-radio-button>
       </div>
       <div class="content column">
@@ -197,9 +197,9 @@
         <prizm-radio-button
           [formControl]="cronUiState.typeControl"
           [label]="null"
-          (changeEvent)="cronUiState.setLastDayOfMonth()"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="cronUiState.setLastDayOfMonth()"
         ></prizm-radio-button>
       </div>
       <div class="content">Последний день месяца</div>
@@ -216,9 +216,9 @@
         <prizm-radio-button
           [formControl]="cronUiState.typeControl"
           [label]="null"
-          (changeEvent)="cronUiState.setLastWeekDayOfMonth()"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="cronUiState.setLastWeekDayOfMonth()"
         ></prizm-radio-button>
       </div>
       <div class="content">Последний рабочий день месяца</div>
@@ -235,9 +235,9 @@
         <prizm-radio-button
           [formControl]="cronUiState.typeControl"
           [label]="null"
-          (changeEvent)="cronUiState.updateLastChosenDayOfWeek()"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="cronUiState.updateLastChosenDayOfWeek()"
         ></prizm-radio-button>
       </div>
       <div class="content">
@@ -270,9 +270,9 @@
         <prizm-radio-button
           [formControl]="cronUiState.typeControl"
           [label]="null"
-          (changeEvent)="cronUiState.updateLastChosenDayOfMonth()"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="cronUiState.updateLastChosenDayOfMonth()"
         ></prizm-radio-button>
       </div>
       <div class="content">
@@ -304,8 +304,8 @@
           [formControl]="cronUiState.typeControl"
           [label]="null"
           [value]="currentType"
-          (changeEvent)="cronUiState.updateNearestDayOfMonth()"
           [name]="'type'"
+          (changeEvent)="cronUiState.updateNearestDayOfMonth()"
         ></prizm-radio-button>
       </div>
       <div class="content">
@@ -332,9 +332,9 @@
         <prizm-radio-button
           [formControl]="cronUiState.typeControl"
           [label]="null"
-          (changeEvent)="cronUiState.updateLastChosenDayOfChosenWeek()"
           [value]="currentType"
           [name]="'type'"
+          (changeEvent)="cronUiState.updateLastChosenDayOfChosenWeek()"
         ></prizm-radio-button>
       </div>
       <div class="content">

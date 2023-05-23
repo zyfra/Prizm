@@ -2,11 +2,11 @@
   <p>We recommend using "ngx-mask" library. It works fine with our inputs.</p>
 
   <ng-template prizmDocPageTab>
-    <prizm-doc-example heading="Basic example" [content]="zyfraInputMaskBasicExample">
+    <prizm-doc-example [content]="zyfraInputMaskBasicExample" heading="Basic example">
       <prizm-input-mask-basic-example></prizm-input-mask-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example heading="Phone example" [content]="zyfraInputPhoneExample">
+    <prizm-doc-example [content]="zyfraInputPhoneExample" heading="Phone example">
       <prizm-input-phone-example></prizm-input-phone-example>
     </prizm-doc-example>
   </ng-template>
@@ -16,25 +16,25 @@
       <prizm-input-layout [label]="label" [size]="size" [status]="status" [outer]="outer">
         <input
           #element
-          [prizmDocHostElement]="element"
-          prizmInput
-          [mask]="mask"
-          [showMaskTyped]="true && input.focused"
           #input
           [(ngModel)]="value"
+          [prizmDocHostElement]="element"
+          [mask]="mask"
+          [showMaskTyped]="true && input.focused"
           [disabled]="disabled"
           [required]="required"
           [value]="value"
+          prizmInput
         />
         <ng-template prizmInputStatusText>Текст статуса</ng-template>
       </prizm-input-layout>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="value"
         documentationPropertyName="value"
         documentationPropertyType="any"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="value"
       >
         Value
       </ng-template>
@@ -68,19 +68,19 @@
       </ng-template> -->
 
       <ng-template
+        [(documentationPropertyValue)]="required"
         documentationPropertyName="required"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="required"
       >
         Required
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="disabled"
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
       >
         Disabled
       </ng-template>
@@ -138,7 +138,7 @@
           в тот модуль, котором хотите использовать компонент
         </p>
 
-        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

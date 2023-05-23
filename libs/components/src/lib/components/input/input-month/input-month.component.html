@@ -1,21 +1,21 @@
 <prizm-dropdown-host
   class="z-hosted"
   [canOpen]="interactive"
-  prizmDropdownHostWidth="auto"
   [content]="dropdown"
   [isOpen]="open && interactive"
   (isOpenChange)="onOpenChange($event)"
+  prizmDropdownHostWidth="auto"
 >
   <prizm-input-layout [label]="label" [outer]="outer" [forceClear]="forceClear" [size]="size">
     <input
       class="input-search"
-      prizmInput
       #focusableElementRef
       [placeholder]="placeholder"
       [readonly]="true"
       [disabled]="computedDisabled"
       [ngModel]="(value | prizmMapper : formatter | async) || ''"
       (ngModelChange)="onValueChange($event || '')"
+      prizmInput
     />
     <ng-container prizm-input-right>
       <ng-container *polymorphOutlet="calendarIcon as data; context: { $implicit: size }">
@@ -28,13 +28,13 @@
   </prizm-input-layout>
   <ng-template #dropdown>
     <prizm-calendar-month
-      prizmPreventDefault="mousedown"
+      [(year)]="activeYear"
       [disabledItemHandler]="disabledItemHandler"
       [min]="min"
       [max]="max"
       [value]="value"
-      [(year)]="activeYear"
       (monthClick)="onMonthClick($event)"
+      prizmPreventDefault="mousedown"
     ></prizm-calendar-month>
   </ng-template>
 </prizm-dropdown-host>

@@ -4,20 +4,20 @@
   <ng-template prizmDocPageTab>
     Для запуска нашего мигратора в вашем проекте
     <prizm-doc-code
-      filename="Запуск"
       [code]="'nx generate @prizm-ui/nx-plugin:migrate-from-cb3 --project=[YOU PROJECT NAME] '"
+      filename="Запуск"
     ></prizm-doc-code>
     <prizm-doc-code
-      filename="Запуск c prettier"
       [code]="
         'nx generate @prizm-ui/nx-plugin:migrate-from-cb3 --project=[YOU PROJECT NAME] --runPrettier true'
       "
+      filename="Запуск c prettier"
     ></prizm-doc-code>
   </ng-template>
 
   <ng-template prizmDocPageTab>
     <ol class="b-demo-steps">
-      <prizm-doc-code filename="Установка" [code]="'npm i @prizm-ui/nx-plugin'"></prizm-doc-code>
+      <prizm-doc-code [code]="'npm i @prizm-ui/nx-plugin'" filename="Установка"></prizm-doc-code>
     </ol>
   </ng-template>
 </prizm-doc-page>

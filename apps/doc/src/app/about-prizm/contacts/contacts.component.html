@@ -1,4 +1,4 @@
-<prizm-doc-page header="Связь с командой Prizm" class="info-page">
+<prizm-doc-page class="info-page" header="Связь с командой Prizm">
   <h1>Способы связи</h1>
 
   <h2>Введение</h2>
@@ -59,7 +59,7 @@
     <li>Если есть сложности с определением типа тикета, то выбирайте «question».</li>
     <li>Обязательно укажите как с вами связаться. Оптимальнее всего указать электронную почту и telegram.</li>
   </ol>
-  <table prizmTable class="table" size="l">
+  <table class="table" prizmTable size="l">
     <thead>
       <tr prizmThGroup>
         <th prizmTh>Тип тикета</th>
@@ -67,7 +67,7 @@
       </tr>
     </thead>
 
-    <tbody prizmTbody [data]="labelTypes">
+    <tbody [data]="labelTypes" prizmTbody>
       <ng-container *prizmRow="let item of labelTypes; let i = index">
         <tr prizmTr>
           <td prizmTd>{{ item.name }}</td>

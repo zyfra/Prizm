@@ -1,5 +1,5 @@
 <div class="icon">
-  <button prizmIconButton size="l" appearanceType="ghost" appearance="secondary" [icon]="icon"></button>
+  <button [icon]="icon" prizmIconButton size="l" appearanceType="ghost" appearance="secondary"></button>
 
   <div class="indicator indicator_{{ status }}" *ngIf="alertsCount" [prizmHint]="alertsCount">
     {{ alertsCount }}

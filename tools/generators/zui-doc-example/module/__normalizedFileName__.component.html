@@ -2,7 +2,7 @@
   <ng-template prizmDocPageTab>
     <p>Use <%= normalizedModuleName %> module.</p>
 
-    <prizm-doc-example id="base" heading="Basic" [content]="exampleBase">
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Basic">
       <prizm-component-example-2></prizm-component-example-2>
     </prizm-doc-example>
   </ng-template>
@@ -43,7 +43,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

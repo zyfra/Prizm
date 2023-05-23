@@ -26,7 +26,6 @@
     (expandedGroupsMapChangedEvent)="expandedGroupsMapChangedEvent($event)"
   >
     <prizm-navigation-menu-group
-      top
       *ngIf="fruitsGroup$ | async as group"
       [icon]="'battery-flash-ok'"
       [title]="group.title"
@@ -34,9 +33,9 @@
       [items]="group.items"
       [itemExtraTemplate]="itemExtraTemplate"
       [toolbarConfig]="group.toolbarConfig"
+      top
     ></prizm-navigation-menu-group>
     <prizm-navigation-menu-group
-      top
       *ngIf="musicalInstrumentsGroup$ | async as group"
       [icon]="'alerts-pulse'"
       [title]="group.title"
@@ -50,24 +49,25 @@
         subtitle:
           'Current group has { searchSource: \'group\' and will not filter items on top toolbar search query change }'
       }"
+      top
     ></prizm-navigation-menu-group>
     <prizm-navigation-menu-group
-      top
       *ngIf="noGroupAppearanceGroup$ | async as group"
       [hideGroupAppearance]="true"
       [groupId]="group.title"
       [items]="group.items"
       [itemExtraTemplate]="itemExtraTemplate"
       [toolbarConfig]="group.toolbarConfig"
+      top
     ></prizm-navigation-menu-group>
     <prizm-navigation-menu-group
-      bottom
       *ngIf="longNamesGroup$ | async as group"
       [title]="group.title"
       [groupId]="group.title"
       [items]="group.items"
       [itemExtraTemplate]="itemExtraTemplate"
       [toolbarConfig]="group.toolbarConfig"
+      bottom
     ></prizm-navigation-menu-group>
   </prizm-navigation-menu>
 </ng-template>

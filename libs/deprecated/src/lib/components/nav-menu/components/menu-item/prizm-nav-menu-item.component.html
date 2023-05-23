@@ -1,16 +1,15 @@
 <div class="p-menuitem-wrapper" (click)="$event.stopPropagation()">
   <div
     class="p-menuitem-content"
-    pTooltip
     [class]="item.styleClass"
     [ngClass]="{ 'p-hidden': item.visible === false }"
     [ngStyle]="item.style"
     [tooltipOptions]="item.tooltipOptions"
+    pTooltip
   >
     <a
-      *ngIf="!item.routerLink"
       class="p-menuitem-link"
-      role="menuitem"
+      *ngIf="!item.routerLink"
       [attr.href]="item.url || null"
       [attr.tabindex]="item.disabled ? null : '0'"
       [attr.data-automationid]="item.automationId"
@@ -20,19 +19,19 @@
       [ngClass]="{ 'p-disabled': item.disabled }"
       (keydown)="onItemKeyDown($event)"
       (click)="itemClickHandler($event, item)"
+      role="menuitem"
     >
-      <span *ngIf="item.icon" class="p-menuitem-icon" [ngClass]="item.icon"> </span>
-      <span *ngIf="item.escape !== false; else htmlLabel" #label class="p-menuitem-text"
+      <span class="p-menuitem-icon" *ngIf="item.icon" [ngClass]="item.icon"> </span>
+      <span class="p-menuitem-text" #label *ngIf="item.escape !== false; else htmlLabel"
         >{{ item.label }}
       </span>
       <ng-template #htmlLabel>
-        <span #label class="p-menuitem-text" [innerHTML]="item.label"> </span>
+        <span class="p-menuitem-text" #label [innerHTML]="item.label"> </span>
       </ng-template>
     </a>
     <a
-      *ngIf="item.routerLink"
       class="p-menuitem-link"
-      role="menuitem"
+      *ngIf="item.routerLink"
       [routerLink]="item.routerLink"
       [attr.data-automationid]="item.automationId"
       [queryParams]="item.queryParams"
@@ -51,13 +50,14 @@
       [state]="item.state"
       (keydown)="onItemKeyDown($event)"
       (click)="itemClickHandler($event, item)"
+      role="menuitem"
     >
-      <span *ngIf="item.icon" class="p-menuitem-icon" [ngClass]="item.icon"> </span>
-      <span *ngIf="item.escape !== false; else htmlRouteLabel" #label class="p-menuitem-text"
+      <span class="p-menuitem-icon" *ngIf="item.icon" [ngClass]="item.icon"> </span>
+      <span class="p-menuitem-text" #label *ngIf="item.escape !== false; else htmlRouteLabel"
         >{{ item.label }}
       </span>
       <ng-template #htmlRouteLabel>
-        <span #label class="p-menuitem-text" [innerHTML]="item.label"> </span>
+        <span class="p-menuitem-text" #label [innerHTML]="item.label"> </span>
       </ng-template>
     </a>
 

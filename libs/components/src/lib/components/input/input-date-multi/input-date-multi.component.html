@@ -2,8 +2,8 @@
   class="z-hosted"
   [(isOpen)]="open"
   [content]="dropdown"
-  prizmDropdownHostWidth="100%"
   [closeByEsc]="true"
+  prizmDropdownHostWidth="100%"
 >
   <ng-container *ngFor="let item of items; let idx = index">
     <ng-container *ngIf="idx === currentIdx">
@@ -17,8 +17,8 @@
     <ng-container *ngIf="items?.length">
       <div
         class="item"
-        [class.selected]="idx === currentIdx"
         *ngFor="let item of items; let idx = index"
+        [class.selected]="idx === currentIdx"
         (click)="select(idx)"
       >
         <span class="text">
@@ -31,8 +31,8 @@
 
 <ng-template #buttonLeft>
   <button
+    [interactive]="true"
     (prizmAfterViewInit)="setListener($event.nativeElement)"
     prizmInputIconButton="chevrons-dropdown-small"
-    [interactive]="true"
   ></button>
 </ng-template>

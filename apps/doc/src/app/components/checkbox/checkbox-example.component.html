@@ -3,15 +3,15 @@
     Our checkbox component is a simple way to allow users to select one or more options from a list.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleBasicCheckbox">
+    <prizm-doc-example id="base" [content]="exampleBasicCheckbox" heading="Base">
       <prizm-checkbox-basic-example></prizm-checkbox-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="group" heading="Group" [content]="checkboxGroup">
+    <prizm-doc-example id="group" [content]="checkboxGroup" heading="Group">
       <prizm-checkbox-group-example></prizm-checkbox-group-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="form" heading="With Reactive Forms" [content]="exampleReactiveFormCheckbox">
+    <prizm-doc-example id="form" [content]="exampleReactiveFormCheckbox" heading="With Reactive Forms">
       <prizm-checkbox-form-example></prizm-checkbox-form-example>
     </prizm-doc-example>
   </ng-template>
@@ -30,15 +30,15 @@
       </prizm-checkbox>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-      <ng-template documentationPropertyMode="ng-content" [(documentationPropertyValue)]="label">
+      <ng-template [(documentationPropertyValue)]="label" documentationPropertyMode="ng-content">
         ng-content
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="checked"
         documentationPropertyName="checked"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="checked"
       >
         Checked
       </ng-template>
@@ -54,10 +54,10 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="indeterminate"
         documentationPropertyName="indeterminate"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="indeterminate"
       >
         Indeterminate
 
@@ -65,20 +65,20 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="disabled"
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
       >
         Disabled
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
         documentationPropertyName="size"
         documentationPropertyType="l | s"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="sizeVariants"
-        [(documentationPropertyValue)]="size"
       >
         Size
       </ng-template>
@@ -101,7 +101,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

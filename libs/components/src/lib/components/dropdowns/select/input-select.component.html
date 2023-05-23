@@ -2,23 +2,23 @@
   #dropdownHostRef
   [content]="dropdown"
   [isOpen]="opened$ | async"
-  (isOpenChange)="opened$$.next($event)"
   [prizmDropdownHost]="layoutComponent.el.nativeElement"
   [prizmDropdownHostWidth]="dropdownWidth"
   [prizmDropdownMinHeight]="minDropdownHeight"
   [prizmDropdownMaxHeight]="maxDropdownHeight"
+  (isOpenChange)="opened$$.next($event)"
 >
   <input
     class="input-search"
-    prizmInput
-    (click)="safeOpenModal()"
-    (focus)="focused$$.next(true); markAsTouched()"
-    (blur)="focused$$.next(false)"
     #focusableElementRef
     [placeholder]="placeholder"
     [disabled]="disabled"
     [readonly]="true"
     [ngModel]="(value | prizmCallFunc : stringify) ?? ''"
+    (click)="safeOpenModal()"
+    (focus)="focused$$.next(true); markAsTouched()"
+    (blur)="focused$$.next(false)"
+    prizmInput
   />
 
   <ng-template #dropdown>
@@ -30,24 +30,24 @@
       <div class="list-search-item" *ngIf="searchable">
         <prizm-input-layout size="m" label="Поиск">
           <input
+            class="input-search"
             [ngModel]="printing$.value"
             (ngModelChange)="dropdownHostRef.reCalculatePositions(1000 / 16); printing$.next($event)"
             prizmInput
             prizmAutoFocus
-            class="input-search"
           />
-          <button prizmInputIconButton="sort-zoom-in" prizm-input-right [interactive]="true"></button>
+          <button [interactive]="true" prizmInputIconButton="sort-zoom-in" prizm-input-right></button>
         </prizm-input-layout>
       </div>
       <ng-container *ngIf="items?.length; else emptyTemplate">
         <div
           class="item"
+          #hostHint
+          *ngFor="let item of items; let idx = index"
           [class.most-relevant]="isMostRelevant(idx, items)"
           [class.selected]="
             item === value || (item && value && (item | prizmCallFunc : identityMatcher : value))
           "
-          #hostHint
-          *ngFor="let item of items; let idx = index"
           (click)="select(item)"
         >
           <ng-container *ngIf="item; else nullContentTemplate">
@@ -102,12 +102,12 @@
     "
   >
     <prizm-icon
-      (click)="!disabled && focusableElement?.nativeElement.click()"
       [class.disabled]="disabled"
       [class.opened]="opened$ | async"
       [class.active]="(focused$ | async) || (opened$ | async)"
       [class.icon-dropdown]="iconName === defaultIcon"
       [iconClass]="$any(iconName)"
+      (click)="!disabled && focusableElement?.nativeElement.click()"
     >
     </prizm-icon>
   </ng-container>

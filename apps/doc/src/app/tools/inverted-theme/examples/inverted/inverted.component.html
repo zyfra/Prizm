@@ -1,16 +1,16 @@
 <h1>Set theme and inverted theme for any element via our directives</h1>
 <div class="block">
-  <button prizmButton (click)="toggle()">Toggle theme</button>
-  <button prizmButton (click)="light()">Light</button>
-  <button prizmButton (click)="dark()">Dark</button>
+  <button (click)="toggle()" prizmButton>Toggle theme</button>
+  <button (click)="light()" prizmButton>Light</button>
+  <button (click)="dark()" prizmButton>Dark</button>
 </div>
 <br /><br />
 <div #zone>
   <div
-    prizmThemeInverted
-    (prizmThemeChange)="invetedThemeValue = $event"
     [invertedValues]="{ light: 'dark', dark: 'light' }"
     [themeElement]="zone"
+    (prizmThemeChange)="invetedThemeValue = $event"
+    prizmThemeInverted
   >
     <prizm-widget title="Заголовок виджета">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et

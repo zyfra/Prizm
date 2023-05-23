@@ -1,8 +1,8 @@
 <prizm-charts-bar
   [data]="data"
+  [label]="label"
+  [theme]="prizmTheme.changesTheme$ | async"
   xField="value"
   yField="label"
   seriesField="type"
-  [label]="label"
-  [theme]="prizmTheme.changesTheme$ | async"
 ></prizm-charts-bar>

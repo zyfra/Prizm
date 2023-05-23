@@ -4,18 +4,18 @@
     <div class="right-side">
       <ng-container *ngTemplateOutlet="headerExtraTemplate"></ng-container>
       <prizm-icon
-        *ngIf="headerConfiguration?.settings"
         class="header__btn"
+        *ngIf="headerConfiguration?.settings"
         [size]="16"
-        iconClass="settings"
         (click)="copyConfig()"
+        iconClass="settings"
       ></prizm-icon>
       <prizm-icon
-        *ngIf="headerConfiguration?.home"
         class="header__btn"
+        *ngIf="headerConfiguration?.home"
         [size]="16"
-        iconClass="social-home"
         (click)="homeClick.emit()"
+        iconClass="social-home"
       ></prizm-icon>
     </div>
   </div>

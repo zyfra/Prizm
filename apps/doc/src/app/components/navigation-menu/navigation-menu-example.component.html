@@ -5,15 +5,15 @@
   </div>
 
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Basic" [content]="exampleBasicNavigationMenu">
+    <prizm-doc-example id="base" [content]="exampleBasicNavigationMenu" heading="Basic">
       <prizm-navigation-menu-basic-example></prizm-navigation-menu-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="base" heading="Groups" [content]="exampleGroupsNavigationMenu">
+    <prizm-doc-example id="base" [content]="exampleGroupsNavigationMenu" heading="Groups">
       <prizm-navigation-menu-groups-example></prizm-navigation-menu-groups-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="base" heading="ChildrenHandler" [content]="exampleChildrenHandlerNavigationMenu">
+    <prizm-doc-example id="base" [content]="exampleChildrenHandlerNavigationMenu" heading="ChildrenHandler">
       <prizm-navigation-menu-children-handler-example></prizm-navigation-menu-children-handler-example>
     </prizm-doc-example>
   </ng-template>
@@ -21,7 +21,6 @@
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-navigation-menu
-        prizmDocHostElementKey="PrizmNavigationMenuLayout"
         #prizmNavigationMenuLayout
         [prizmDocHostElement]="prizmNavigationMenuLayout"
         [title]="title"
@@ -39,126 +38,127 @@
         [emptyDataMessageConfig]="emptyDataMessageConfig"
         [headerConfig]="headerConfig"
         [searchConfig]="searchConfig"
+        prizmDocHostElementKey="PrizmNavigationMenuLayout"
       ></prizm-navigation-menu>
     </prizm-doc-demo>
     <prizm-doc-documentation hostComponentKey="PrizmNavigationMenuLayout" heading="PrizmNavigationMenuLayout">
       <ng-template
+        [(documentationPropertyValue)]="title"
         documentationPropertyName="title"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="title"
       >
         Menu title
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="items"
         documentationPropertyName="items"
         documentationPropertyType="PrizmNavigationMenuItem[]"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="items"
       >
         Menu items
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="toolbarConfig"
         documentationPropertyName="toolbarConfig"
         documentationPropertyType="PrizmNavigationMenuToolbarConfig[]"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="toolbarConfig"
       >
         Toolbar config
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="itemExtraTemplate"
         documentationPropertyName="itemExtraTemplate"
         documentationPropertyType="TemplateRef"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="itemExtraTemplate"
       >
         Slot for menu item
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="headerExtraTemplate"
         documentationPropertyName="headerExtraTemplate"
         documentationPropertyType="TemplateRef"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="headerExtraTemplate"
       >
         Slot for menu's header items
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="toolbarExtraTemplate"
         documentationPropertyName="toolbarExtraTemplate"
         documentationPropertyType="TemplateRef"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="toolbarExtraTemplate"
       >
         Slot for toolbar's items
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="activeItem"
         documentationPropertyName="activeItem"
         documentationPropertyType="T"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="activeItem"
       >
         activeItem
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="itemKeyName"
         documentationPropertyName="itemKeyName"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="itemKeyName"
       >
         itemKeyName ???????????
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="expandedItemsMap"
         documentationPropertyName="expandedItemsMap"
         documentationPropertyType="Map<T, boolean>"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="expandedItemsMap"
       >
         expandedItemsMap
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="expandedGroupsMap"
         documentationPropertyName="expandedGroupsMap"
         documentationPropertyType="Map<string, boolean>"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="expandedGroupsMap"
       >
         expandedGroupsMap
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="settingsConfig"
         documentationPropertyName="settingsConfig"
         documentationPropertyType="PrizmNavigationMenuSettingsConfig"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="settingsConfig"
       >
         settingsConfig
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="emptySearchResultMessageConfig"
         documentationPropertyName="emptySearchResultMessageConfig"
         documentationPropertyType="PrizmNavigationMenuEmptyMessageConfig"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="emptySearchResultMessageConfig"
       >
         Will be displayed when search is enabled and where are no search entires
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="emptyDataMessageConfig"
         documentationPropertyName="emptyDataMessageConfig"
         documentationPropertyType="PrizmNavigationMenuEmptyMessageConfig"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="emptyDataMessageConfig"
       >
         Will be displayed when incoming data is empty (for example not loaded yet)
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="searchConfig"
         documentationPropertyName="searchConfig"
         documentationPropertyType="PrizmNavigationMenuSearchConfig"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="searchConfig"
       >
         searchConfig
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="headerConfig"
         documentationPropertyName="headerConfig"
         documentationPropertyType="PrizmNavigationMenuHeaderConfig"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="headerConfig"
       >
         headerConfig
       </ng-template>
@@ -225,7 +225,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

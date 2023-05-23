@@ -1,10 +1,10 @@
 <prizm-dropdown-host
+  [(isOpen)]="open"
   [dropdownStyles]="{ borderRadius: '0', boxShadow: 'unset' }"
   [content]="dropdown"
   prizmDropdownHostWidth="auto"
-  [(isOpen)]="open"
 >
-  <button prizmButton type="button" (click)="open = !open">Button</button>
+  <button (click)="open = !open" prizmButton type="button">Button</button>
 </prizm-dropdown-host>
 
 <ng-template #dropdown>
@@ -15,7 +15,7 @@
       <button prizmButton appearanceType="outline">Кнопка 2</button>
     </div>
     <ng-container footer>
-      <button prizmButton (click)="open = false; cdRef.markForCheck()">Закрыть</button>
+      <button (click)="open = false; cdRef.markForCheck()" prizmButton>Закрыть</button>
     </ng-container>
   </prizm-data-list>
 </ng-template>

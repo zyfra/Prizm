@@ -1,37 +1,37 @@
 <prizm-scrollbar class="scrollable" visibility="hidden">
-  <table prizmTable class="table" [columns]="columns">
+  <table class="table" [columns]="columns" prizmTable>
     <thead>
       <tr prizmThGroup>
-        <th prizmTh *prizmHead="'checkbox'" class="checkbox-header" [sorter]="null">
+        <th class="checkbox-header" *prizmHead="'checkbox'" [sorter]="null" prizmTh>
           <prizm-checkbox
+            class="checkbox"
             [checked]="selected.size === products.length"
             [indeterminate]="selected.size !== products.length && selected.size > 0"
             (changed)="selectAllChanged($event)"
-            class="checkbox"
           ></prizm-checkbox>
         </th>
-        <th prizmTh [resizable]="true" *prizmHead="'code'">Код</th>
-        <th prizmTh *prizmHead="'name'" [resizable]="true">Наименование</th>
-        <th prizmTh *prizmHead="'category'" [resizable]="true">Категория</th>
-        <th prizmTh *prizmHead="'count'" [resizable]="true">Количество</th>
+        <th *prizmHead="'code'" [resizable]="true" prizmTh>Код</th>
+        <th *prizmHead="'name'" [resizable]="true" prizmTh>Наименование</th>
+        <th *prizmHead="'category'" [resizable]="true" prizmTh>Категория</th>
+        <th *prizmHead="'count'" [resizable]="true" prizmTh>Количество</th>
       </tr>
     </thead>
 
-    <tbody prizmTbody [data]="products">
+    <tbody [data]="products" prizmTbody>
       <tr
         *prizmRow="let item; index as index; trackBy: trackBy"
+        [active]="active?.product === item"
         (click)="rowClick($event, item, index)"
         (selectstart)="onSelectStart($event)"
-        [active]="active?.product === item"
         prizmTr
       >
         <td *prizmCell="'checkbox'" prizmTd>
           <prizm-checkbox
+            class="checkbox"
             #checkbox
             [checked]="productIsSelected(item)"
             (changed)="productCheckboxChange(item, index)"
             (click)="$event.stopPropagation()"
-            class="checkbox"
           ></prizm-checkbox>
         </td>
         <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>

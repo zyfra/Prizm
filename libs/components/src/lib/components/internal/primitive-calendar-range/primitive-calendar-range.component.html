@@ -1,4 +1,5 @@
 <prizm-calendar
+  [(hoveredItem)]="hoveredItem"
   [min]="min"
   [max]="max"
   [month]="userViewedMonthFirst"
@@ -7,7 +8,6 @@
   [value]="value"
   [disabledItemHandler]="disabledItemHandler"
   [showAdjacent]="false"
-  [(hoveredItem)]="hoveredItem"
   (dayClick)="onDayClick($event)"
   (monthChange)="onSectionFirstViewedMonth($event)"
 >
@@ -17,6 +17,7 @@
 
 <prizm-calendar
   class="z-border"
+  [(hoveredItem)]="hoveredItem"
   [min]="min"
   [max]="max"
   [month]="userViewedMonthSecond"
@@ -25,7 +26,6 @@
   [value]="value"
   [disabledItemHandler]="disabledItemHandler"
   [showAdjacent]="false"
-  [(hoveredItem)]="hoveredItem"
   (dayClick)="onDayClick($event)"
   (monthChange)="onSectionSecondViewedMonth($event)"
 >

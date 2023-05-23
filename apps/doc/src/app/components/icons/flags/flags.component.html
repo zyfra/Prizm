@@ -14,7 +14,7 @@
     <!--      <prizm-icon-font-example></prizm-icon-font-example>-->
     <!--    </prizm-doc-example>-->
 
-    <prizm-doc-example id="base" heading="Svg" [content]="exampleSvg">
+    <prizm-doc-example id="base" [content]="exampleSvg" heading="Svg">
       <prizm-icon-base-example></prizm-icon-base-example>
     </prizm-doc-example>
 
@@ -22,7 +22,7 @@
 
     <div>
       <div class="icons">
-        <div [title]="flag" *ngFor="let flag of nameVariants" class="icon-def">
+        <div class="icon-def" *ngFor="let flag of nameVariants" [title]="flag">
           <prizm-flag-icons [size]="30" [name]="flag"></prizm-flag-icons>
         </div>
       </div>
@@ -40,20 +40,20 @@
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="name"
+        [documentationPropertyValues]="nameVariants"
         documentationPropertyName="name"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="nameVariants"
-        [(documentationPropertyValue)]="name"
       >
         Name
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
         documentationPropertyName="size"
         documentationPropertyType="number | string"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="sizeVariants"
-        [(documentationPropertyValue)]="size"
       >
         Size
       </ng-template>
@@ -69,7 +69,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

@@ -4,5 +4,5 @@
   [attr.status]="status"
   [attr.type]="type"
 >
-  <span *ngIf="type === 'icon'" class="indicator__icon prizm-icon {{iconMap?.[status]}}"></span>
+  <span class="indicator__icon prizm-icon {{iconMap?.[status]}}" *ngIf="type === 'icon'"></span>
 </div>

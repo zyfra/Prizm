@@ -1,10 +1,10 @@
 <prizm-input-layout label="Выберите из списка">
   <prizm-input-select
-    icon="sort-zoom-in"
     [items]="items$ | async"
     [searchable]="true"
     [searchMatcher]="searchMatcher"
-    (searchChange)="search($event)"
     [formControl]="control"
+    (searchChange)="search($event)"
+    icon="sort-zoom-in"
   ></prizm-input-select>
 </prizm-input-layout>

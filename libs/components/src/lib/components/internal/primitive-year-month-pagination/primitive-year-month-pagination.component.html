@@ -25,10 +25,10 @@
   <div class="year-box" (click)="onYearClick($event)">
     <button
       [attr.data-testid]="'prizm-primitive-year-month-pagination__year-button'"
-      type="button"
-      prizmLink
       [prizmFocusable]="false"
       [class.active]="yearActive"
+      type="button"
+      prizmLink
     >
       {{ value.formattedYear }}
     </button>
@@ -42,10 +42,10 @@
   <div class="month-box" (click)="onMonthClick($event)">
     <button
       [attr.testId]="'prizm-primitive-year-month-pagination__year-button'"
-      type="button"
-      prizmLink
       [class.active]="monthActive"
       [prizmFocusable]="false"
+      type="button"
+      prizmLink
     >
       {{ value | prizmMonth | async }}
     </button>

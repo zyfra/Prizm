@@ -1,10 +1,10 @@
 <div
   class="prizm-toast-info-container {{ toastRef.appearance }}"
-  prizmTheme
   [class.is-platform]="toastRef.isPlatform"
+  prizmTheme
 >
   <div class="icon-block">
-    <prizm-indicator type="icon" [status]="toastRef.appearance"></prizm-indicator>
+    <prizm-indicator [status]="toastRef.appearance" type="icon"></prizm-indicator>
   </div>
   <div class="content-box">
     <span class="title prizm-font-dynamic-title-h4" *ngIf="toastRef.title">
@@ -20,9 +20,9 @@
   <div class="control">
     <button
       [size]="16"
-      prizmInputIconButton="cancel-close"
-      (click)="toastRef.close()"
       [interactive]="true"
+      (click)="toastRef.close()"
+      prizmInputIconButton="cancel-close"
     ></button>
   </div>
 </div>

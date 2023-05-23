@@ -5,13 +5,13 @@
     category (for example: comparing something between different states).
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="exampleOutline">
+    <prizm-doc-example id="base" [content]="exampleOutline" heading="Base">
       <prizm-charts-bar-example></prizm-charts-bar-example>
     </prizm-doc-example>
-    <prizm-doc-example id="stacked" heading="Stacked" [content]="exampleOutline">
+    <prizm-doc-example id="stacked" [content]="exampleOutline" heading="Stacked">
       <prizm-charts-stacked-bar-example></prizm-charts-stacked-bar-example>
     </prizm-doc-example>
-    <prizm-doc-example id="group" heading="Group" [content]="exampleGroup">
+    <prizm-doc-example id="group" [content]="exampleGroup" heading="Group">
       <prizm-charts-bar-group-example></prizm-charts-bar-group-example>
     </prizm-doc-example>
   </ng-template>
@@ -33,19 +33,19 @@
 
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="width"
         documentationPropertyName="width"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="width"
       >
         Width
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="xField"
         documentationPropertyName="xField"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="xField"
       >
         X Field Name
       </ng-template>
@@ -59,19 +59,19 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="yField"
         documentationPropertyName="yField"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="yField"
       >
         Y Field Name
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="seriesField"
         documentationPropertyName="seriesField"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="seriesField"
       >
         Series Field Name
       </ng-template>
@@ -109,10 +109,10 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="height"
         documentationPropertyName="height"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="height"
       >
         Height
       </ng-template>
@@ -128,7 +128,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

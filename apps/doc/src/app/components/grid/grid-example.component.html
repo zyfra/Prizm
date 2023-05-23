@@ -5,7 +5,7 @@
     container.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="gridBasicExample">
+    <prizm-doc-example id="base" [content]="gridBasicExample" heading="Base">
       <prizm-grid-example-basic></prizm-grid-example-basic>
     </prizm-doc-example>
   </ng-template>
@@ -18,7 +18,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

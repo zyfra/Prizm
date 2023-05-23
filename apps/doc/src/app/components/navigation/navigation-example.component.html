@@ -1,13 +1,13 @@
 <prizm-doc-page header="Navigation" package="Equinox">
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Basic" [content]="exampleNavigationBasic">
+    <prizm-doc-example id="base" [content]="exampleNavigationBasic" heading="Basic">
       <prizm-navigation-basic-example></prizm-navigation-basic-example>
     </prizm-doc-example>
 
     <prizm-doc-example
       id="underContent"
-      heading="Navigation under content"
       [content]="exampleNavigationBasic"
+      heading="Navigation under content"
     >
       <prizm-navigation-basic-example [isNavigationAbsolute]="true"></prizm-navigation-basic-example>
     </prizm-doc-example>
@@ -16,9 +16,9 @@
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-navigation
+        #element
         [data]="navigationTree"
         [activeElement]="activeElement"
-        #element
         [prizmDocHostElement]="element"
       ></prizm-navigation>
     </prizm-doc-demo>
@@ -58,7 +58,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

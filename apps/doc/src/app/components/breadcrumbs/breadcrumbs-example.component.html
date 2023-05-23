@@ -3,11 +3,11 @@
     Our breadcrumb component is a simple way to show the user their current location in the site hierarchy.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="basic" heading="Base" [content]="breadcrumbsBasicExample">
+    <prizm-doc-example id="basic" [content]="breadcrumbsBasicExample" heading="Base">
       <prizm-breadcrumbs-basic></prizm-breadcrumbs-basic>
     </prizm-doc-example>
 
-    <prizm-doc-example id="icon" heading="With Icon" [content]="breadcrumbsWithIconExample">
+    <prizm-doc-example id="icon" [content]="breadcrumbsWithIconExample" heading="With Icon">
       <prizm-breadcrumbs-example-with-icon></prizm-breadcrumbs-example-with-icon>
     </prizm-doc-example>
   </ng-template>
@@ -22,10 +22,10 @@
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="breadcrumbs"
         documentationPropertyName="breadcrumbs"
         documentationPropertyType="IBreadcrumb[]"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="breadcrumbs"
       >
         Breadcrumbs array
       </ng-template>
@@ -44,7 +44,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

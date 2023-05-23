@@ -1,8 +1,8 @@
-<prizm-select style="width: 100%" [formControl]="control" [items]="items"></prizm-select>
+<prizm-select [formControl]="control" [items]="items" style="width: 100%"></prizm-select>
 <br />
 <br />
 <div>
-  <button prizmButton (click)="setDefaultValue()">
+  <button (click)="setDefaultValue()" prizmButton>
     Set default value: <b>{{ items[0] }}</b>
   </button>
 </div>

@@ -1,11 +1,11 @@
 <div class="box">
-  <button prizmButton (click)="showToast()">С заголовком</button>
-  <button prizmButton (click)="showToastWithoutTitle()">Без заголовка</button>
-  <button prizmButton (click)="showToastWithBigText()">Длинный текст</button>
-  <button prizmButton (click)="showToastWithBigTitle()">Длинный заголовок</button>
-  <button prizmButton (click)="showToastWithoutTimer()">Без таймера</button>
-  <button prizmButton (click)="showToastWithContentTemplate(contentTemplate)">Шаблон в содержимом</button>
-  <button prizmButton (click)="showToastWithHeaderTemplate(headerTemplate)">Шаблон в хедере</button>
+  <button (click)="showToast()" prizmButton>С заголовком</button>
+  <button (click)="showToastWithoutTitle()" prizmButton>Без заголовка</button>
+  <button (click)="showToastWithBigText()" prizmButton>Длинный текст</button>
+  <button (click)="showToastWithBigTitle()" prizmButton>Длинный заголовок</button>
+  <button (click)="showToastWithoutTimer()" prizmButton>Без таймера</button>
+  <button (click)="showToastWithContentTemplate(contentTemplate)" prizmButton>Шаблон в содержимом</button>
+  <button (click)="showToastWithHeaderTemplate(headerTemplate)" prizmButton>Шаблон в хедере</button>
 
   <ng-template #contentTemplate let-close="close">
     <div>В toast-сообщении старайтесь уместить текст в 2 строки.</div>
@@ -14,7 +14,7 @@
     <div class="link">
       <a href="#">Ссылка</a>
     </div>
-    <div class="footer"><button prizmButton (click)="close()">Закрыть</button></div>
+    <div class="footer"><button (click)="close()" prizmButton>Закрыть</button></div>
   </ng-template>
 
   <ng-template #headerTemplate let-close="close">

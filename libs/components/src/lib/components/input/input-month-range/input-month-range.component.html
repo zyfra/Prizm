@@ -10,7 +10,6 @@
   <prizm-input-layout [label]="label" [outer]="outer" [forceClear]="forceClear" [size]="size">
     <input
       class="input-search"
-      prizmInput
       #focusableElementRef
       [readOnly]="true"
       [placeholder]="placeholder"
@@ -24,20 +23,21 @@
           : ''
       "
       (ngModelChange)="onValueChange($event || '')"
+      prizmInput
     />
 
     <ng-container prizm-input-right>
-      <button prizmInputIconButton="date-calendar-range" [interactive]="true"></button>
+      <button [interactive]="true" prizmInputIconButton="date-calendar-range"></button>
     </ng-container>
   </prizm-input-layout>
   <ng-template #dropdown>
     <prizm-calendar-month
-      prizmPreventDefault="mousedown"
       [disabledItemHandler]="disabledItemHandler"
       [min]="min"
       [max]="max"
       [value]="value"
       (monthClick)="onMonthClick($event)"
+      prizmPreventDefault="mousedown"
     ></prizm-calendar-month>
   </ng-template>
 </prizm-dropdown-host>

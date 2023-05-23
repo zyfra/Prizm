@@ -1,9 +1,9 @@
 <ng-content select="[prizmPreHeader]"></ng-content>
 <tui-input
+  class="t-input"
   #input
   tuiTextfieldSize="m"
   tuiTextfieldIconLeft="tuiIconSearch"
-  class="t-input"
   [formControl]="search"
   [tuiAutoFocus]="!!sidebar"
   [tuiTextfieldCleaner]="true"
@@ -55,10 +55,10 @@
     <ng-template #pages let-item="item" let-index="index">
       <ng-container *ngIf="!item.subPages; else subPages" [ngSwitch]="!!item.link">
         <a
+          class="t-sublink"
           *ngSwitchCase="true"
           tuiLink
           routerLinkActive="t-sublink_active"
-          class="t-sublink"
           [target]="item.target"
           [href]="item.link"
           (click)="closeMenu()"
@@ -66,10 +66,10 @@
           {{ item.title }}
         </a>
         <a
+          class="t-sublink"
           *ngSwitchDefault
           tuiLink
           routerLinkActive="t-sublink_active"
-          class="t-sublink"
           [routerLink]="item.route"
           [prizmScrollIntoViewLink]="isActive(item.route)"
           (click)="closeMenu()"
@@ -79,17 +79,17 @@
       </ng-container>
 
       <ng-template #subPages>
-        <div routerLinkActive class="t-subsection" [routerLinkActiveOptions]="{exact: false}">
+        <div class="t-subsection" routerLinkActive [routerLinkActiveOptions]="{exact: false}">
           <button
+            class="t-sublink t-sublink_subsection"
             *ngIf="item.subPages"
             tuiLink
             type="button"
-            class="t-sublink t-sublink_subsection"
             (click)="onGroupClick(index)"
           >
             <tui-svg
-              src="tuiIconChevronRight"
               class="t-chevron"
+              src="tuiIconChevronRight"
               [class.t-chevron_active]="!!openPagesGroupsArr[index]"
             ></tui-svg>
             {{ item.title }}
@@ -97,10 +97,10 @@
           <tui-expand class="t-expand" [expanded]="!!openPagesGroupsArr[index]">
             <div class="t-section t-section_bordered">
               <a
+                class="t-sublink t-sublink_small"
                 *ngFor="let subPage of item.subPages"
                 tuiLink
                 routerLinkActive="t-sublink_active"
-                class="t-sublink t-sublink_small"
                 [routerLink]="subPage.route"
                 [prizmScrollIntoViewLink]="isActive(subPage.route)"
                 (click)="closeMenu()"

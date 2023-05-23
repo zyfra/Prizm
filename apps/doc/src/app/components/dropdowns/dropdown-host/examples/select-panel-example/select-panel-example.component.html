@@ -1,5 +1,5 @@
-<prizm-dropdown-host [content]="dropdown" prizmDropdownHostWidth="auto" [(isOpen)]="showPanel">
-  <button prizmButton type="button" (click)="show()">Button</button>
+<prizm-dropdown-host [(isOpen)]="showPanel" [content]="dropdown" prizmDropdownHostWidth="auto">
+  <button (click)="show()" prizmButton type="button">Button</button>
 </prizm-dropdown-host>
 
 <ng-template #dropdown>
@@ -8,9 +8,9 @@
       <div class="header">
         <prizm-checkbox
           class="header__checkbox"
-          (changed)="onChange($event)"
           [checked]="allChecked"
           [indeterminate]="someChecked"
+          (changed)="onChange($event)"
         >
           <span class="header__label"> Заголовок блока </span>
         </prizm-checkbox>
@@ -21,23 +21,23 @@
       <div class="filter">
         <prizm-input-layout class="filter__input-layout" [label]="'Фильтр'" [size]="'m'">
           <input
-            prizmInput
             #input
             [placeholder]="'Введите значение'"
             (input)="filter(input.value)"
             (onClear)="filter('')"
+            prizmInput
           />
           <button
-            prizmInputIconButton="sort-zoom-in"
-            prizm-input-right
             [interactive]="true"
             (click)="filter(input.value)"
+            prizmInputIconButton="sort-zoom-in"
+            prizm-input-right
           ></button>
         </prizm-input-layout>
       </div>
 
       <ul class="options">
-        <li *ngFor="let option of filteredData" class="options__item option">
+        <li class="options__item option" *ngFor="let option of filteredData">
           <prizm-checkbox class="option__checkbox" [(ngModel)]="option.checked">
             <div class="option__label">
               <span class="option__title">{{ option.label.title }}</span>
@@ -50,7 +50,7 @@
 
     <ng-container footer>
       <div class="footer">
-        <button prizmButton (click)="hide()" class="footer__btn">Применить запрос</button>
+        <button class="footer__btn" (click)="hide()" prizmButton>Применить запрос</button>
       </div>
     </ng-container>
   </prizm-data-list>

@@ -4,15 +4,15 @@
     steps. It may also be used for navigation.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="Base" [content]="basicExample">
+    <prizm-doc-example id="base" [content]="basicExample" heading="Base">
       <prizm-stepper-basic-example></prizm-stepper-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="vertical" heading="Vertical" [content]="verticalExample">
+    <prizm-doc-example id="vertical" [content]="verticalExample" heading="Vertical">
       <prizm-stepper-vertical-example></prizm-stepper-vertical-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="async" heading="Async" [content]="asyncExample">
+    <prizm-doc-example id="async" [content]="asyncExample" heading="Async">
       <prizm-stepper-async-example></prizm-stepper-async-example>
     </prizm-doc-example>
   </ng-template>
@@ -94,26 +94,26 @@
 
         <div
           class="footer"
-          prizmStepperFooter
           [ngStyle]="{ display: 'flex', 'justify-content': 'flex-end', gap: '10px' }"
+          prizmStepperFooter
         >
           <button
+            [disabled]="currentStep === 1"
+            (click)="currentStep = currentStep - 1"
             prizmButton
             appearanceType="outline"
             appearance="primary"
             size="l"
-            (click)="currentStep = currentStep - 1"
-            [disabled]="currentStep === 1"
           >
             Предыдущий шаг
           </button>
           <button
+            [disabled]="currentStep === 3"
+            (click)="currentStep = currentStep + 1"
             prizmButton
             appearanceType="outline"
             appearance="primary"
             size="l"
-            (click)="currentStep = currentStep + 1"
-            [disabled]="currentStep === 3"
           >
             Следующий шаг
           </button>
@@ -122,39 +122,39 @@
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="title"
         documentationPropertyName="title"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="title"
       >
         Title
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="vertical"
         documentationPropertyName="vertical"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="vertical"
       >
         Vertical
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="currentStep"
+        [documentationPropertyValues]="[1, 2, 3]"
         documentationPropertyName="currentStep"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="[1, 2, 3]"
-        [(documentationPropertyValue)]="currentStep"
       >
         Current step
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="stepperSize"
+        [documentationPropertyValues]="['auto', '200px', '30%']"
         documentationPropertyName="stepsSize"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="['auto', '200px', '30%']"
-        [(documentationPropertyValue)]="stepperSize"
       >
         Stepper Size
         <br />
@@ -189,7 +189,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

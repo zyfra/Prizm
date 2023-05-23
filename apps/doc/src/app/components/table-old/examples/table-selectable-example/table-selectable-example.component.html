@@ -3,13 +3,13 @@
     <div class="table__description">Single selection</div>
     <div class="table__content">
       <prizm-table
-        [value]="products"
-        selectionMode="single"
         [(selection)]="selectedProduct1"
-        dataKey="code"
+        [value]="products"
         [scrollable]="true"
-        scrollHeight="200px"
         (selectionChange)="selectedRowWasChanged()"
+        selectionMode="single"
+        dataKey="code"
+        scrollHeight="200px"
       >
         <ng-template prizmTableTemplate="header">
           <tr>
@@ -35,10 +35,10 @@
     <div class="table__description">Multiple selection with meta key</div>
     <div class="table__content">
       <prizm-table
-        [value]="products"
-        selectionMode="multiple"
         [(selection)]="selectedProducts1"
+        [value]="products"
         [metaKeySelection]="true"
+        selectionMode="multiple"
       >
         <ng-template prizmTableTemplate="header">
           <tr>
@@ -63,7 +63,7 @@
   <div class="table">
     <div class="table__description">Multiple selection</div>
     <div class="table__content">
-      <prizm-table [value]="products" selectionMode="multiple" [(selection)]="selectedProducts2">
+      <prizm-table [(selection)]="selectedProducts2" [value]="products" selectionMode="multiple">
         <ng-template prizmTableTemplate="header">
           <tr>
             <th>Code</th>

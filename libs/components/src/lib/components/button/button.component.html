@@ -21,7 +21,7 @@
       [ngTemplateOutletContext]="{ icon: iconRight }"
     ></ng-container>
   </span>
-  <prizm-loader *ngIf="showLoader" class="z-loader" [size]="loaderSize" [inheritColor]="true"></prizm-loader>
+  <prizm-loader class="z-loader" *ngIf="showLoader" [size]="loaderSize" [inheritColor]="true"></prizm-loader>
 </prizm-wrapper>
 
 <ng-template #showIconTemp let-icon="icon">

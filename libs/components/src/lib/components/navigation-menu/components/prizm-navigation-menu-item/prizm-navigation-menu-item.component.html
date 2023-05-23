@@ -10,8 +10,8 @@
   (prizmHoveredChange)="isHovered = $event"
 >
   <prizm-icons-svg
-    *ngIf="item.icon"
     class="prizm-navigation-menu-item__icon"
+    *ngIf="item.icon"
     [name]="item.icon"
   ></prizm-icons-svg>
   <p class="prizm-navigation-menu-item__text">
@@ -25,31 +25,31 @@
   </div>
   <button
     *ngIf="goToButtonsVisible"
-    prizmIconButton
     [size]="'m'"
     [icon]="'arrows-corner-left-up'"
     [appearance]="'secondary'"
     [appearanceType]="'ghost'"
     (click)="$event.stopPropagation(); goToParentItem.emit(item)"
+    prizmIconButton
   ></button>
   <button
     *ngIf="goToButtonsVisible"
-    prizmIconButton
     [size]="'m'"
     [icon]="'arrows-arrow-up-level'"
     [appearance]="'secondary'"
     [appearanceType]="'ghost'"
     (click)="$event.stopPropagation(); goToRootItem.emit(item)"
+    prizmIconButton
   ></button>
   <button
-    *ngIf="expandButtonVisible"
-    prizmIconButton
     class="expand-button"
+    *ngIf="expandButtonVisible"
     [appearance]="'secondary'"
     [appearanceType]="'ghost'"
     [size]="'m'"
     [icon]="isExpanded ? 'chevrons-down' : 'chevrons-right'"
     [class.t-button_expanded]="isExpanded"
     (click)="$event.stopPropagation(); toggleExpanded.emit(item)"
+    prizmIconButton
   ></button>
 </div>

@@ -1,10 +1,10 @@
 <button
+  class="t-copy"
   *ngIf="texts$ | async as texts"
   tuiButton
   type="button"
   appearance=""
   size="s"
-  class="t-copy"
   [title]="texts[0]"
   (click)="onClick()"
 >

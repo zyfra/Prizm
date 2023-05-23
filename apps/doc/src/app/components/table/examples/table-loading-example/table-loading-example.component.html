@@ -1,6 +1,6 @@
 <h3>Default loading example</h3>
 <prizm-scrollbar class="scrollable">
-  <table prizmTable class="table" size="s">
+  <table class="table" prizmTable size="s">
     <thead>
       <tr prizmThGroup>
         <th prizmTh>Наименование</th>
@@ -9,7 +9,7 @@
       </tr>
     </thead>
 
-    <tbody prizmTbody [data]="products$ | async">
+    <tbody [data]="products$ | async" prizmTbody>
       <ng-container *prizmRow="let item of products$ | async; let i = index; let count = count">
         <tr prizmTr>
           <td prizmTd>
@@ -29,7 +29,7 @@
 
 <h3>Custom loading example</h3>
 <prizm-scrollbar class="scrollable">
-  <table prizmTable class="table" size="s">
+  <table class="table" prizmTable size="s">
     <thead>
       <tr prizmThGroup>
         <th prizmTh>Наименование</th>
@@ -38,7 +38,7 @@
       </tr>
     </thead>
 
-    <tbody prizmTbody [data]="products$ | async">
+    <tbody [data]="products$ | async" prizmTbody>
       <ng-container *prizmRow="let item of products$ | async; let i = index; let count = count">
         <tr prizmTr>
           <td prizmTd>

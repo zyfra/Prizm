@@ -2,7 +2,7 @@
 <!--  <prizm-tabs type="line" [tabs]="tabs" (activeTabIndexChange)="tabClick()" (closeClick)="tabCancelClick()"></prizm-tabs>-->
 <!--</div>-->
 <div class="container">
-  <prizm-tabs type="contained" (activeTabIndexChange)="tabClick()">
+  <prizm-tabs (activeTabIndexChange)="tabClick()" type="contained">
     <prizm-tab
       *ngFor="let item of tabs"
       [count]="item.count"

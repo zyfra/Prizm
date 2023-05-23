@@ -1,14 +1,14 @@
 <prizm-doc-page header="Input Chips">
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="chips" heading="Chips example" [content]="prizmInputChipsExample">
+    <prizm-doc-example id="chips" [content]="prizmInputChipsExample" heading="Chips example">
       <prizm-input-chips-basic-example></prizm-input-chips-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="chips-outer" heading="Chips outer example" [content]="prizmInputChipsOuterExample">
+    <prizm-doc-example id="chips-outer" [content]="prizmInputChipsOuterExample" heading="Chips outer example">
       <prizm-input-chips-outer-example></prizm-input-chips-outer-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="chips-item" heading="Chips item example" [content]="prizmInputChipsItemExample">
+    <prizm-doc-example id="chips-item" [content]="prizmInputChipsItemExample" heading="Chips item example">
       <prizm-input-chips-item-example></prizm-input-chips-item-example>
     </prizm-doc-example>
   </ng-template>
@@ -18,15 +18,15 @@
         <h1>With Chips ITEM</h1>
         <div>
           <prizm-chips-item
-            style="width: 100px"
             #chipsItem
             [deletable]="deletable"
             [disabled]="disabled"
             [hintText]="hintText"
             [hintDirection]="hintDirection"
             [hintCanShow]="hintCanShow"
-            prizmDocHostElementKey="PrizmChipsItemComponent"
             [prizmDocHostElement]="chipsItem"
+            style="width: 100px"
+            prizmDocHostElementKey="PrizmChipsItemComponent"
           >
             Отдельный chips
           </prizm-chips-item>
@@ -37,21 +37,21 @@
         <div>
           <prizm-input-layout label="Заголовок" size="l" status="default">
             <input
+              [disabled]="control.disabled"
+              (enter)="onEnter($event)"
               prizmInput
               placeholder="Введите название"
-              (enter)="onEnter($event)"
-              [disabled]="control.disabled"
             />
             <prizm-chips
               #element
               [formControl]="control"
               [prizmDocHostElement]="element"
-              prizmDocHostElementKey="PrizmChipsComponent"
               [class.single-line]="singleLine"
               [singleLine]="singleLine"
               [chips]="chips"
               [deletable]="deletable"
               [disabled]="disabled"
+              prizmDocHostElementKey="PrizmChipsComponent"
               prizm-input-bottom
             >
             </prizm-chips>
@@ -61,19 +61,19 @@
     </prizm-doc-demo>
     <prizm-doc-documentation heading="PrizmChipsItemComponent" hostComponentKey="PrizmChipsItemComponent">
       <ng-template
+        [(documentationPropertyValue)]="disabled"
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
       >
         Disabled
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="deletable"
         documentationPropertyName="deletable"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="deletable"
       >
         Deletable
       </ng-template>
@@ -88,10 +88,10 @@
 
       <!--  -->
       <ng-template
+        [(documentationPropertyValue)]="hintCanShow"
         documentationPropertyName="hintCanShow"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="hintCanShow"
       >
         Hint Can Show
       </ng-template>
@@ -104,10 +104,10 @@
         Hint Direction
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="hintText"
         documentationPropertyName="hintText"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="hintText"
       >
         Hint Text
       </ng-template>
@@ -119,55 +119,55 @@
       hostComponentKey="PrizmChipsComponent"
     >
       <ng-template
+        [(documentationPropertyValue)]="singleLine"
         documentationPropertyName="singleLine"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="singleLine"
       >
         Single Line
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="deletable"
         documentationPropertyName="deletable"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="deletable"
       >
         Deletable
       </ng-template>
       <!--  -->
       <ng-template
+        [(documentationPropertyValue)]="chips"
         documentationPropertyName="chips"
         documentationPropertyType="string[]"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="chips"
       >
         Chips
       </ng-template>
       <!--  -->
       <ng-template
+        [(documentationPropertyValue)]="size"
         documentationPropertyName="size"
         documentationPropertyType="PrizmInputSize"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="size"
       >
         Size
       </ng-template>
       <!--  -->
       <ng-template
+        [(documentationPropertyValue)]="hintCanShow"
         documentationPropertyName="hintCanShow"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="hintCanShow"
       >
         Hint Can Show
       </ng-template>
       <!--  -->
       <ng-template
+        [(documentationPropertyValue)]="hintDirection"
         documentationPropertyName="hintDirection"
         documentationPropertyType="PrizmOverlayOutsidePlacement"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="hintDirection"
       >
         Hint Direction
       </ng-template>
@@ -203,7 +203,7 @@
           в модуль в котором хотите использовать компоненту
         </p>
 
-        <prizm-doc-code filename="MyComponent.module.ts" [code]="setupModule"></prizm-doc-code>
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

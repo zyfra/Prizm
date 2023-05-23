@@ -1,5 +1,5 @@
 <div class="container">
-  <prizm-header [prizmTheme]="'dark'" class="header">
+  <prizm-header class="header" [prizmTheme]="'dark'">
     <div class="project" [class.project_active]="openNavigation" (click)="toggleNavigation()">
       <div class="project__menu">
         <prizm-icon iconClass="view-menu"></prizm-icon>
@@ -18,7 +18,7 @@
     </div>
 
     <div class="instruments">
-      <prizm-header-module-btn status="danger" [alertsCount]="2"></prizm-header-module-btn>
+      <prizm-header-module-btn [alertsCount]="2" status="danger"></prizm-header-module-btn>
 
       <prizm-header-module-btn icon="network-database"></prizm-header-module-btn>
     </div>
@@ -30,8 +30,8 @@
 
   <div class="platform">
     <prizm-scrollbar
-      [prizmTheme]="'dark'"
       class="navigation"
+      [prizmTheme]="'dark'"
       [ngClass]="{
         navigation_open: openNavigation,
         navigation_absolute: isNavigationAbsolute

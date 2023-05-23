@@ -4,31 +4,31 @@
     a trigger element.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" heading="With Template" [content]="exampleWithTemplate">
+    <prizm-doc-example id="base" [content]="exampleWithTemplate" heading="With Template">
       <prizm-dropdown-host-example-with-template></prizm-dropdown-host-example-with-template>
     </prizm-doc-example>
 
-    <prizm-doc-example id="select-panel" heading="Select panel" [content]="exampleWithSelectPanel">
+    <prizm-doc-example id="select-panel" [content]="exampleWithSelectPanel" heading="Select panel">
       <prizm-select-panel-example></prizm-select-panel-example>
     </prizm-doc-example>
 
     <prizm-doc-example
       id="nested"
-      heading="Date Range Template (Nested Dropdown)"
       [content]="exampleDateRangeList"
+      heading="Date Range Template (Nested Dropdown)"
     >
       <prizm-dropdown-host-date-list-example></prizm-dropdown-host-date-list-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="range" heading="Date Range 2 Template" [content]="exampleDateRangeListEdit">
+    <prizm-doc-example id="range" [content]="exampleDateRangeListEdit" heading="Date Range 2 Template">
       <prizm-dropdown-host-date-list-edit-example></prizm-dropdown-host-date-list-edit-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="custom-context" heading="Custom Context" [content]="exampleCustomContext">
+    <prizm-doc-example id="custom-context" [content]="exampleCustomContext" heading="Custom Context">
       <prizm-dropdown-host-example-with-custom-context></prizm-dropdown-host-example-with-custom-context>
     </prizm-doc-example>
 
-    <prizm-doc-example id="custom-style" heading="Custom Style" [content]="exampleCustomStyle">
+    <prizm-doc-example id="custom-style" [content]="exampleCustomStyle" heading="Custom Style">
       <prizm-dropdown-host-custom-style-example></prizm-dropdown-host-custom-style-example>
     </prizm-doc-example>
   </ng-template>
@@ -36,11 +36,10 @@
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-dropdown-host
-        style="display: inline-block; width: auto"
         #element
+        [(isOpen)]="isOpen"
         [prizmDocHostElement]="element"
         [content]="withHeaderAndFooter"
-        [(isOpen)]="isOpen"
         [autoReposition]="autoReposition"
         [prizmDropdownHostWidth]="prizmDropdownHostWidth"
         [placement]="placement"
@@ -50,8 +49,9 @@
         [closeOnOutsideClick]="closeOnOutsideClick"
         [closeByEsc]="closeByEsc"
         [prizmDropdownHostCloseOnBackdropClick]="prizmDropdownHostCloseOnBackdropClick"
+        style="display: inline-block; width: auto"
       >
-        <button prizmButton type="button" (click)="isOpen = !isOpen">Button</button>
+        <button (click)="isOpen = !isOpen" prizmButton type="button">Button</button>
       </prizm-dropdown-host>
 
       <ng-template #withHeaderAndFooter>
@@ -63,7 +63,7 @@
               <button prizmButton appearanceType="outline">Кнопка 2</button>
             </div>
             <ng-container footer>
-              <button prizmButton (click)="isOpen = false; cdRef.markForCheck()">Закрыть</button>
+              <button (click)="isOpen = false; cdRef.markForCheck()" prizmButton>Закрыть</button>
             </ng-container>
           </prizm-data-list>
         </div>
@@ -76,7 +76,7 @@
             <button prizmButton appearanceType="outline">Кнопка 2</button>
           </div>
           <ng-container footer>
-            <button prizmButton (click)="isOpen = false; cdRef.markForCheck()">Закрыть</button>
+            <button (click)="isOpen = false; cdRef.markForCheck()" prizmButton>Закрыть</button>
           </ng-container>
         </prizm-data-list>
       </ng-template>
@@ -102,10 +102,10 @@
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
+        [(documentationPropertyValue)]="prizmDropdownHostWidth"
         documentationPropertyName="prizmDropdownHostWidth"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="prizmDropdownHostWidth"
       >
         Host Witdh
       </ng-template>
@@ -118,10 +118,10 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="isOpen"
         documentationPropertyName="isOpen"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="isOpen"
       >
         Is Open
       </ng-template>
@@ -135,10 +135,10 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="autoReposition"
         documentationPropertyName="autoReposition"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="autoReposition"
       >
         Auto Reposition
       </ng-template>
@@ -152,77 +152,77 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="closeOnOutsideClick"
         documentationPropertyName="closeOnOutsideClick"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="closeOnOutsideClick"
       >
         Auto close on outside click
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="placement"
+        [documentationPropertyValues]="placementVariants"
         documentationPropertyName="placement"
         documentationPropertyType="PrizmOverlayOutsidePlacement"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="placementVariants"
-        [(documentationPropertyValue)]="placement"
       >
         Placement
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="content"
         documentationPropertyName="content"
         documentationPropertyType="PolymorphContent<PrizmDropdownHostContext>"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="content"
       >
         Content
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="prizmDropdownHostId"
         documentationPropertyName="prizmDropdownHostId"
         documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="prizmDropdownHostId"
       >
         Prizm Dropdown HostId
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="delay"
         documentationPropertyName="delay"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="delay"
       >
         Delay
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="canOpen"
         documentationPropertyName="canOpen"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="canOpen"
       >
         Can Open
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="closeByEsc"
         documentationPropertyName="closeByEsc"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="closeByEsc"
       >
         Close By Esc
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="prizmDropdownHostCloseOnBackdropClick"
         documentationPropertyName="prizmDropdownHostCloseOnBackdropClick"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="prizmDropdownHostCloseOnBackdropClick"
       >
         Prizm Dropdown Host Close On Backdrop Click
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="isOpenChange"
         documentationPropertyName="isOpenChange"
         documentationPropertyType="boolean"
         documentationPropertyMode="output"
-        [(documentationPropertyValue)]="isOpenChange"
       >
         Is Open Change
       </ng-template>
@@ -238,7 +238,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code filename="custom.module.ts" [code]="exampleModule"></prizm-doc-code>
+        <prizm-doc-code [code]="exampleModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

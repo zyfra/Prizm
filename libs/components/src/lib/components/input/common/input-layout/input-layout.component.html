@@ -1,11 +1,11 @@
 <ng-template #labelTemplate>
   <div
+    class="label-container"
     *ngIf="label"
     [ngClass]="[
       control.nativeElementType ? 'label-container-' + control.nativeElementType : '',
       'label-container-' + (outer ? 'outer' : 'inner')
     ]"
-    class="label-container"
     [class.label-container-focused]="control.focused"
     [attr.data-size]="size"
   >
@@ -20,14 +20,14 @@
       [class.prizm-input-label-empty]="control.empty"
     >
       {{ label }}
-      <span *ngIf="control.required" class="prizm-input-label-required">*</span>
+      <span class="prizm-input-label-required" *ngIf="control.required">*</span>
     </label>
     <button
-      prizmInputIconButton="cansel-delete-content"
-      (click)="onClearClick($event)"
       class="prizm-input-label-clear-btn"
       [interactive]="true"
       [disabled]="control.disabled"
+      (click)="onClearClick($event)"
+      prizmInputIconButton="cansel-delete-content"
     ></button>
   </div>
 </ng-template>
@@ -35,7 +35,6 @@
 <ng-container *ngIf="!outer; else labelTemplate"></ng-container>
 
 <div
-  [class.hide-border]="!border"
   class="prizm-input-form
   prizm-input-form-status-{{ correctedStatus }}
   prizm-input-form-{{ outer ? 'outer' : 'inner' }}
@@ -43,6 +42,7 @@
   prizm-input-form-{{ outer ? 'outer' : 'inner' }}-{{ position }}
   {{ control.nativeElementType ? 'prizm-input-form-' + control.nativeElementType : '' }}
 "
+  [class.hide-border]="!border"
   [attr.data-size]="size"
   [ngClass]="{
     'prizm-input-form-focused': !control.disabled && control.focused,
@@ -72,20 +72,20 @@
       </div>
 
       <button
-        *ngIf="showClearButton"
-        prizmInputIconButton="cansel-delete-content"
-        (click)="onClearClick($event)"
         class="prizm-input-button-default {{ showStatusButton ? '' : 'alone' }}"
+        *ngIf="showClearButton"
         [interactive]="true"
         [disabled]="control.disabled"
+        (click)="onClearClick($event)"
+        prizmInputIconButton="cansel-delete-content"
       ></button>
 
       <button
-        *ngIf="showStatusButton"
+        class="prizm-input-form-status-button"
         #statusButton
+        *ngIf="showStatusButton"
         [prizmInputIconButton]="statusIcon"
         [prizmHint]="statusMessage"
-        class="prizm-input-form-status-button"
         [interactive]="false"
       ></button>
     </div>
