@@ -4,9 +4,14 @@
   "version": "1.0.0-rc.2",
   "generators": {
     "migrate-from-cb3": {
-      "factory": "./src/generators/migrate-from-cb3/generator",
+      "factory": "./src/generators/migrate-from-cb3/index",
       "schema": "./src/generators/migrate-from-cb3/schema.json",
       "description": "helpers to migrate from cb3 to prizm"
+    },
+    "update-version": {
+      "factory": "./src/generators/update-version/index",
+      "schema": "./src/generators/update-version/schema.json",
+      "description": "helpers to update version for publishable version"
     }
   }
 }

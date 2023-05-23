@@ -759,6 +759,13 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'tools/nx-plugin',
+    loadChildren: () => import('./tools/plugin/plugin.module').then(i => i.PluginModule),
+    data: {
+      title: 'Nx Plugin',
+    },
+  },
+  {
     path: 'tools/ast',
     loadChildren: () => import('./tools/ast/ast.module').then(i => i.AstModule),
     data: {

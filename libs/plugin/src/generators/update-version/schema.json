@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "update-version",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "all": {
+      "type": "boolean",
+      "description": "update all "
+    },
+    "newVersion": {
+      "type": ["integer", "string"],
+      "description": "new version"
+    },
+    "project": {
+      "type": "string",
+      "description": "Name of project"
+    }
+  },
+  "required": ["newVersion"],
+  "additionalProperties": false
+}
