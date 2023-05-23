@@ -8,8 +8,11 @@ export function prizmSemVerUpdate(
   const keys = ['major', 'minor', 'patch', 'prereleaseNumber'] as const;
   keys.forEach(key => {
     switch (change[key]) {
+      case '*':
+        break;
+
       case 'up': {
-        const version = (newVersion[key] ?? 0) as number;
+        const version = (newVersion[key] ?? -1) as number;
         newVersion[key] = version + 1;
 
         break;

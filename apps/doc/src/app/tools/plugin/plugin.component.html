@@ -29,6 +29,41 @@
 
     <prizm-doc-code
       [code]="
+        'npx nx generate @prizm-ui/nx-plugin:update-version --newVersion up.*.* --project=\'[PROJECT-NAME]\''
+      "
+      filename="Поднять мажорную версию"
+    ></prizm-doc-code>
+
+    <prizm-doc-code
+      [code]="
+        'npx nx generate @prizm-ui/nx-plugin:update-version --newVersion *.up.* --project=\'[PROJECT-NAME]\''
+      "
+      filename="Поднять минорную версию"
+    ></prizm-doc-code>
+
+    <prizm-doc-code
+      [code]="
+        'npx nx generate @prizm-ui/nx-plugin:update-version --newVersion *.*.down --project=\'[PROJECT-NAME]\''
+      "
+      filename="Снизить патч версию"
+    ></prizm-doc-code>
+
+    <prizm-doc-code
+      [code]="
+        'npx nx generate @prizm-ui/nx-plugin:update-version --newVersion *.*.*-draft --project=\'[PROJECT-NAME]\''
+      "
+      filename="Добавить пре релиз название <draft>"
+    ></prizm-doc-code>
+
+    <prizm-doc-code
+      [code]="
+        'npx nx generate @prizm-ui/nx-plugin:update-version --newVersion *.*.*-draft.up --project=\'[PROJECT-NAME]\''
+      "
+      filename="Поднять пре релизную версию"
+    ></prizm-doc-code>
+
+    <prizm-doc-code
+      [code]="
         'npx nx generate @prizm-ui/nx-plugin:update-version --newVersion 2.0.1 --projects=\'[PROJECT-NAME]\' --projects=\'[PROJECT-NAME-2]\''
       "
       filename="Обновить несколько конкретных проектов"

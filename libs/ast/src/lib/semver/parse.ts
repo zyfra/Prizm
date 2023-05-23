@@ -1,5 +1,9 @@
 import { PrizmSemVer, PrizmSemVerUpdateCommand } from './model';
 
+function isSemverCommandValue(val: string | number): boolean {
+  return ['*', 'up', 'down'].includes(val.toString());
+}
+
 export function prizmSemVerParse(versionString: string): PrizmSemVer;
 export function prizmSemVerParse(versionString: string, getCommand: true): PrizmSemVerUpdateCommand;
 export function prizmSemVerParse(
@@ -19,7 +23,7 @@ export function prizmSemVerParse(
   const [major, minor, patch] = versionPart.split('.').map(val => {
     if (getCommand && isNaN(Number(val))) {
       let result = val as any;
-      if (['*', 'up', 'down'].includes(val)) result = val;
+      if (isSemverCommandValue(val)) result = val;
       return result;
     }
     return Number(val);
@@ -34,7 +38,9 @@ export function prizmSemVerParse(
 
     const [prerelease, prereleaseNumber] = prereleasePart.split('.');
     semVer.prerelease = prerelease;
-    semVer.prereleaseNumber = prereleaseNumber ? Number(prereleaseNumber) : null;
+    if (getCommand && isSemverCommandValue(prereleaseNumber))
+      semVer.prereleaseNumber = prereleaseNumber as any;
+    else semVer.prereleaseNumber = prereleaseNumber ? Number(prereleaseNumber) : null;
   }
 
   return semVer;
