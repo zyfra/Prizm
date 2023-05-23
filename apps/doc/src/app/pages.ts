@@ -676,6 +676,12 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.tools,
+    title: 'Nx Plugin',
+    keywords: 'plugin, generator, executor, плагин, генератор',
+    route: '/tools/nx-plugin',
+  },
+  {
+    section: SectionNameEnum.tools,
     title: 'AST',
     keywords: 'ast, helpers, prizm',
     route: '/tools/ast',

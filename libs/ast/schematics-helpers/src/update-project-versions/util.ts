@@ -1,4 +1,5 @@
 import { formatFiles, ProjectConfiguration, readJson, Tree, updateJson } from '@nrwl/devkit';
+import { prizmSemVerParse, prizmSemVerStringify, prizmSemVerUpdate } from '@prizm-ui/ast';
 
 /**
  * Обновляет версию пакета в package.json для списка проектов.
@@ -23,7 +24,9 @@ export function prizmAstUpdateProjectVersions(
     // Обновляем файл package.json новыми данными
     updateJson(tree, path, packageJson => {
       // Обновляем поле version в считанном package.json
-      packageJson.version = newVersion;
+      const command = prizmSemVerParse(newVersion, true);
+      const versionObject = prizmSemVerUpdate(prizmSemVerParse(packageJson.version), command);
+      packageJson.version = prizmSemVerStringify(versionObject);
       return packageJson;
     });
   });
