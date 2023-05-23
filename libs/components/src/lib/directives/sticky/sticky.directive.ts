@@ -32,7 +32,7 @@ export class PrizmStickyDirective implements OnChanges {
   position = 'sticky';
 
   private readonly rect$ = this.entries$.pipe(map(() => this.elRef.nativeElement.getBoundingClientRect()));
-  private readonly destroyPrevious$ = new Subject();
+  private readonly destroyPrevious$ = new Subject<void>();
 
   constructor(
     private readonly elRef: ElementRef<HTMLElement>,

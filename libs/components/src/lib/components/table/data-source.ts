@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
  * The sorter that holds the current sort state (direction, columns) and able to sort data.
  */
 interface PrizmSorter<T = unknown> {
-  readonly changes$: Observable<unknown>;
+  readonly changes$: Observable<any>;
   sort(data: T[]): T[];
 }
 

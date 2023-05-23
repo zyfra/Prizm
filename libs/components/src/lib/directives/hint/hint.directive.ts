@@ -105,7 +105,7 @@ export class PrizmHintDirective<
   overlay: PrizmOverlayControl;
   protected readonly containerComponent: Type<unknown> = PrizmHintContainerComponent;
   protected readonly show$ = new Subject<boolean>();
-  protected readonly destroyListeners$ = new Subject<boolean>();
+  protected readonly destroyListeners$ = new Subject<void>();
 
   constructor(
     private readonly prizmOverlayService: PrizmOverlayService,

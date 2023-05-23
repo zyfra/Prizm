@@ -103,7 +103,7 @@ export class PrizmNavMenuComponent implements AfterViewInit, AfterContentInit, O
   private _activeNode: TreeNode;
   private _settings: SettingsConfig = DEFAULT_SETTINGS;
   private _nodes: TreeNode[] = [];
-  private destroy$ = new Subject();
+  private destroy$ = new Subject<void>();
 
   constructor(
     private renderer: Renderer2,

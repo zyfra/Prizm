@@ -64,14 +64,14 @@ export class OutsizeEventService {
   private async initOutsideListener(eventName: string): Promise<void> {
     const FPS = await prizmGetFPS();
     combineLatest([
-      fromEvent(this.documentRef, eventName).pipe(map(ev => ({ ev, time: performance.now() }))),
+      fromEvent<UIEvent>(this.documentRef, eventName).pipe(map(ev => ({ ev, time: performance.now() }))),
       this.inside$$,
     ])
       .pipe(
         debounceTime(FPS),
         tap(([doc, cont]) => {
           const diff = doc.time - cont.time;
-          if (diff > FPS) this.outside$$.next();
+          if (diff > FPS) this.outside$$.next({ event: doc.ev, time: doc.time });
         }),
         takeUntil(this.destroyPrevious$)
       )

@@ -51,5 +51,7 @@ export function addStylesToAngularJson(
     targetOptions.assets = [...assets, FONT_ASSET];
   }
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   return updateWorkspace(workspace);
 }

@@ -43,7 +43,7 @@ export class PrizmOverlayControl {
   public viewEl: HTMLElement;
   isOpen = false;
   private compFac: ComponentFactory<PrizmOverlayComponent>;
-  private destroy$: Subject<1> = new Subject();
+  private destroy$ = new Subject<void>();
 
   constructor(
     private appRef: ApplicationRef,
@@ -72,7 +72,7 @@ export class PrizmOverlayControl {
     if (!this.isOpen) return;
 
     this.detach();
-    this.destroy$.next(1);
+    this.destroy$.next();
     EventBus.send(this.zid, 'z_close');
     this.isOpen = false;
   }

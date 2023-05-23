@@ -17,7 +17,7 @@ export type ToastRefMap = Map<PRIZM_TOAST_ID, PrizmToastRef>;
 export class PrizmToastService implements OnDestroy {
   /* main storage for control by id */
   private readonly refs: ToastRefMap = new Map();
-  private readonly changesSource$ = new Subject();
+  private readonly changesSource$ = new Subject<void>();
   readonly changes$ = this.changesSource$.pipe(
     map(() => [...this.refs.values()].sort((a, b) => b.weight - a.weight)),
     shareReplay(1)

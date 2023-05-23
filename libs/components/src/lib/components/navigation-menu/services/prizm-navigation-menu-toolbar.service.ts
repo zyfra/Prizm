@@ -9,7 +9,7 @@ export class PrizmNavigationMenuToolbarService {
   private searchValue$$ = new BehaviorSubject<string>('');
   private viewMode$$ = new BehaviorSubject<ViewMode>('hierarchy');
 
-  closeAll$ = new Subject();
+  closeAll$ = new Subject<void>();
 
   searchVisible$: Observable<boolean> = this.searchVisible$$.asObservable();
 

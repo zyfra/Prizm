@@ -14,7 +14,7 @@ export function prizmObservable<T>(
   return (target: any, key): void => {
     const postfix = options.postfix ?? '$$';
     const defaultValue = options.defaultValue ?? null;
-    const subject = options.subject ?? new Subject();
+    const subject = options.subject ?? new Subject<T>();
     const memberName = key as string;
     let lastValue: T;
     const hiddenPropertyName = options.name ?? `${memberName}${postfix}`;
