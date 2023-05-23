@@ -7,7 +7,6 @@ export interface Cb3ToPrizmSchematicSchema {
   project: string;
   runPrettier: boolean;
 }
-
 export default async function (tree: Tree, schema: Cb3ToPrizmSchematicSchema): Promise<any> {
   try {
     const projectConfig = readProjectConfiguration(tree, schema.project);
