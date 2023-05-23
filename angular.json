@@ -17,6 +17,7 @@
     "plugin": "libs/plugin",
     "plugin-e2e": "apps/plugin-e2e",
     "schematics": "libs/schematics",
+    "test": "libs/test",
     "theme": "libs/theme"
   }
 }

@@ -1,4 +1,5 @@
 {
+  "name": "flag-icons",
   "projectType": "library",
   "sourceRoot": "libs/icons/flags/src",
   "prefix": "prizm",

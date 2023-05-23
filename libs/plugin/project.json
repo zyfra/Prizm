@@ -1,4 +1,5 @@
 {
+  "name": "plugin",
   "sourceRoot": "libs/plugin/src",
   "projectType": "library",
   "targets": {

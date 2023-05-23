@@ -1,4 +1,5 @@
 {
+  "name": "plugin-e2e",
   "projectType": "application",
   "sourceRoot": "apps/plugin-e2e/src",
   "targets": {

@@ -1,4 +1,5 @@
 {
+  "name": "charts-base",
   "projectType": "library",
   "sourceRoot": "libs/charts/base/src",
   "prefix": "prizm",

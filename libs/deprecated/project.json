@@ -1,4 +1,5 @@
 {
+  "name": "deprecated",
   "projectType": "library",
   "sourceRoot": "libs/deprecated/src",
   "prefix": "prizm",

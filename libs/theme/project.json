@@ -1,4 +1,5 @@
 {
+  "name": "theme",
   "projectType": "library",
   "sourceRoot": "libs/theme/src",
   "prefix": "prizm",
