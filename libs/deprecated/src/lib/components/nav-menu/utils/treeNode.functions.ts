@@ -1,4 +1,3 @@
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { prizmGenerateId } from '@prizm-ui/helpers';
 import { TreeNode } from 'primeng/api';
 import { PrizmMenuItem } from '../model/prizm-menu-item.interface';

@@ -1,5 +1,5 @@
 import { Tree } from '@nrwl/devkit';
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+
 import {
   prizmAstGetPublishableProjects,
   prizmAstUpdateProjectVersions,
