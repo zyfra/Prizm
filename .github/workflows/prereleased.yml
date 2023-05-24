@@ -14,8 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - name: Run workflow with draft publish
         uses: ./.github/workflows/draft-publish.yml
 
@@ -24,7 +22,5 @@ jobs:
     needs: draft_release
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - name: Run workflow with prerelease publish
         uses: ./.github/workflows/prerelease-publish.yml
