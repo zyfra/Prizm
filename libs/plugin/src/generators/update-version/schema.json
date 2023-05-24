@@ -13,6 +13,10 @@
       "type": ["integer", "string"],
       "description": "new version"
     },
+    "currentVersion": {
+      "type": ["integer", "string"],
+      "description": "force set current version instead of version from package json"
+    },
     "project": {
       "type": "string",
       "description": "Name of project"

@@ -7,12 +7,14 @@ import { prizmSemVerParse, prizmSemVerStringify, prizmSemVerUpdate } from '@priz
  * @param {Tree} tree - Представление файловой системы проекта.
  * @param {ProjectConfiguration[]} projects - Массив объектов конфигурации проектов.
  * @param {string} newVersion - Новая версия пакета.
+ * @param {string} currentVersion - Установить версию для изменения вместо версии из package.json
  * @return {any[]} - Возвращает пустой массив.
  */
 export function prizmAstUpdateProjectVersions(
   tree: Tree,
   projects: ProjectConfiguration[],
-  newVersion: string
+  newVersion: string,
+  currentVersion?: string
 ): Promise<void> {
   // Проходим по списку проектов
   projects.forEach(project => {
@@ -25,7 +27,10 @@ export function prizmAstUpdateProjectVersions(
     updateJson(tree, path, packageJson => {
       // Обновляем поле version в считанном package.json
       const command = prizmSemVerParse(newVersion, true);
-      const versionObject = prizmSemVerUpdate(prizmSemVerParse(packageJson.version), command);
+      const versionObject = prizmSemVerUpdate(
+        prizmSemVerParse(currentVersion ?? packageJson.version),
+        command
+      );
       packageJson.version = prizmSemVerStringify(versionObject);
       return packageJson;
     });

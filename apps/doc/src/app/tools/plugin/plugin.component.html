@@ -47,6 +47,12 @@
       "
       filename="Снизить патч версию"
     ></prizm-doc-code>
+    <prizm-doc-code
+      [code]="
+        'npx nx generate @prizm-ui/nx-plugin:update-version --newVersion *.*.down --currentVersion=1.1.1 --project=\'[PROJECT-NAME]\''
+      "
+      filename="Обновить версию полученную из вне (не из package.json)"
+    ></prizm-doc-code>
 
     <prizm-doc-code
       [code]="

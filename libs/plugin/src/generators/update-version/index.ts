@@ -25,5 +25,10 @@ export default async function (tree: Tree, schema: PluginUpdateVersionSchema): P
   );
 
   // Обновляем версию выбранных проектов
-  return prizmAstUpdateProjectVersions(tree, projectNamesWithPackageJson, schema.newVersion.toString());
+  return prizmAstUpdateProjectVersions(
+    tree,
+    projectNamesWithPackageJson,
+    schema.newVersion.toString(),
+    schema.currentVersion?.toString()
+  );
 }
