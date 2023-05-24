@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0](https://github.com/zyfra/Prizm) (24-05-2023)
+
+### Features
+
+- feat(chore): add linter to sort html attr   [MR](https://github.com/zyfra/Prizm/pull/311)
+- feat(ast): remove angular from peer dependencies
+- feat(ast): added utils to manipulate with semver version
+- feat(nx-plugin): added new generator for manipulate publishable versions and examples to doc
+
+### BUG FIXES
+
+- fix(components/table): in a table with a tree-like data structure, \*ngIf does not work correctly for nested elements [235](https://github.com/zyfra/Prizm/issues/235)
+- fix(components/input-layout): no prompt text for Input, InputSelect containing validation errors is displayed [315](https://github.com/zyfra/Prizm/issues/315)
+- fix(components/input-select): value in the InputSelect field is displayed incorrectly [314](https://github.com/zyfra/Prizm/issues/314)
+- fix(components/dropdown-host): does not react to [isOpen] changes [316](https://github.com/zyfra/Prizm/issues/316)
+
 ## [1.0.0-rc.2](https://github.com/zyfra/Prizm) (19-05-2023)
 
 ### Features

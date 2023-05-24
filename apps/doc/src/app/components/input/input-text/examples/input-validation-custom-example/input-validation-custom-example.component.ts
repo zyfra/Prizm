@@ -16,5 +16,5 @@ import { InputValidationCustomTextsService } from './input-validation-custom-tex
   ],
 })
 export class InputValidationCustomExampleComponent {
-  public requiredInputControl = new UntypedFormControl('', Validators.required);
+  public requiredInputControl = new UntypedFormControl('Значение', Validators.required);
 }

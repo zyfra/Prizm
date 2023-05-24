@@ -48,7 +48,7 @@ jobs:
         run: |
           export NODE_OPTIONS="--max_old_space_size=4096"
 
-      - name: 'Build draft versions'
+      - name: 'Build versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
       - run: cd dist/libs/deprecated && npm publish --access public --verbose || exit_code=0
@@ -62,3 +62,10 @@ jobs:
       - run: cd dist/libs/plugin && npm publish --access public --verbose || exit_code=0
       - run: cd dist/libs/ast && npm publish --access public --verbose || exit_code=0
       - run: cd dist/libs/charts && npm publish --access public --verbose || exit_code=0
+      - name: Deploy doc to firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
+          projectId: prizmui
+          channelId: live
