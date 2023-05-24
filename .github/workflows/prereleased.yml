@@ -14,8 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: ls -ls
-      - run: pwd
       - name: Run workflow with draft publish
         uses: zyfra/Prizm/.github/workflows/draft-publish.yml@main
 
