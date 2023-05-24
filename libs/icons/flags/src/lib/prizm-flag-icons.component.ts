@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { PrizmFlagIconsRegistry } from './prizm-flag-icons.registry';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { prizmPx } from '@prizm-ui/core';
 
 @Component({
