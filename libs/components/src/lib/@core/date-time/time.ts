@@ -31,6 +31,13 @@ export class PrizmTime implements PrizmTimeLike {
     );
   }
 
+  public static correctTime(parsedTime: PrizmTime): PrizmTime {
+    if (parsedTime.hours > 23)
+      parsedTime = new PrizmTime(23, parsedTime.minutes, parsedTime.seconds, parsedTime.ms);
+
+    return parsedTime;
+  }
+
   /**
    * Checks if time is valid
    */
