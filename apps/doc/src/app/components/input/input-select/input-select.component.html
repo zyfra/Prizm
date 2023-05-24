@@ -69,79 +69,6 @@
       </prizm-input-layout>
     </prizm-doc-demo>
 
-    <prizm-doc-documentation [heading]="layoutKey" [hostComponentKey]="layoutKey">
-      <ng-template
-        [(documentationPropertyValue)]="forceClear"
-        [documentationPropertyValues]="forceClearVariants"
-        documentationPropertyName="forceClear"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-      >
-        Show clear button
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="outer"
-        documentationPropertyName="outer"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-      >
-        Outer
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="size"
-        [documentationPropertyValues]="sizeVariants"
-        documentationPropertyName="size"
-        documentationPropertyType="PrizmInputSize"
-        documentationPropertyMode="input"
-      >
-        Size
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="label"
-        documentationPropertyName="label"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Label
-      </ng-template>
-      <ng-template
-        documentationPropertyName="clear"
-        documentationPropertyType="MouseEvent"
-        documentationPropertyMode="output"
-      >
-        Clear
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="border"
-        documentationPropertyName="border"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-      >
-        Border
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="status"
-        [documentationPropertyValues]="statuses"
-        documentationPropertyName="status"
-        documentationPropertyType="PrizmInputStatus"
-        documentationPropertyMode="input"
-      >
-        Status
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="inputPosition"
-        [documentationPropertyValues]="inputPositionVariants"
-        documentationPropertyName="position"
-        documentationPropertyType="PrizmInputPosition"
-        documentationPropertyMode="input"
-      >
-        Position
-      </ng-template>
-    </prizm-doc-documentation>
-
     <prizm-doc-documentation [heading]="selectKey" [hostComponentKey]="selectKey" [control]="control">
       <ng-template
         [(documentationPropertyValue)]="icon"
@@ -384,6 +311,79 @@
       <!--      >-->
       <!--        Focus Visible Change-->
       <!--      </ng-template>-->
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation [heading]="layoutKey" [hostComponentKey]="layoutKey">
+      <ng-template
+        [(documentationPropertyValue)]="forceClear"
+        [documentationPropertyValues]="forceClearVariants"
+        documentationPropertyName="forceClear"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+      >
+        Show clear button
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="outer"
+        documentationPropertyName="outer"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Outer
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmInputSize"
+        documentationPropertyMode="input"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="label"
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Label
+      </ng-template>
+      <ng-template
+        documentationPropertyName="clear"
+        documentationPropertyType="MouseEvent"
+        documentationPropertyMode="output"
+      >
+        Clear
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="border"
+        documentationPropertyName="border"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Border
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="status"
+        [documentationPropertyValues]="statuses"
+        documentationPropertyName="status"
+        documentationPropertyType="PrizmInputStatus"
+        documentationPropertyMode="input"
+      >
+        Status
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="inputPosition"
+        [documentationPropertyValues]="inputPositionVariants"
+        documentationPropertyName="position"
+        documentationPropertyType="PrizmInputPosition"
+        documentationPropertyMode="input"
+      >
+        Position
+      </ng-template>
     </prizm-doc-documentation>
   </ng-template>
 

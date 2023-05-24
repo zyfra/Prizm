@@ -61,7 +61,7 @@ export abstract class PrizmInputNgControl<T>
   }
 
   get disabled() {
-    return !!this.ngControl?.disabled;
+    return this.ngControl?.disabled;
   }
 
   /** Whether the control is validity. */
@@ -118,6 +118,10 @@ export abstract class PrizmInputNgControl<T>
   public clear(ev: MouseEvent) {
     this.updateValue(null);
     this.markAsTouched();
+  }
+
+  public setDisabledState(isDisabled: boolean) {
+    this.checkControlUpdate();
   }
 
   public registerOnChange(onChange: any): void {

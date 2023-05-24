@@ -228,9 +228,6 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
 
   public onValueChange(value: string): void {
     if (value === this.computedValue) return;
-    console.log('#mz parsedTime', {
-      value,
-    });
     if (!value || value.length < 16) {
       if (!value) this.updateValue([null, null]);
       return;
