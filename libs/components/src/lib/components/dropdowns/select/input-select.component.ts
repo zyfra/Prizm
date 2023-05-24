@@ -254,4 +254,9 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   public override isEmpty(value: T): boolean {
     return !value;
   }
+
+  public getCurrentItem(value: T): string {
+    const newItem = this.items.find(i => this.identityMatcher(i, this.value));
+    return this.stringify(newItem ?? value);
+  }
 }

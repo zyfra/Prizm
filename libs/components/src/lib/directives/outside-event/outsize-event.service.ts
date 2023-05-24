@@ -1,7 +1,17 @@
 import { Inject, Injectable, Optional, SkipSelf } from '@angular/core';
 import { prizmGetFPS } from '@prizm-ui/core';
 import { combineLatest, fromEvent, merge, Observable, race, Subject } from 'rxjs';
-import { debounceTime, finalize, map, mapTo, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
+import {
+  debounceTime,
+  filter,
+  finalize,
+  map,
+  mapTo,
+  startWith,
+  switchMap,
+  takeUntil,
+  tap,
+} from 'rxjs/operators';
 import { PrizmOutsideEvent } from './model';
 import { DOCUMENT } from '@angular/common';
 
@@ -54,22 +64,23 @@ export class OutsizeEventService {
   }
 
   public safeAddListener(eventName: string, hostElement: HTMLElement): void {
-    this.destroyPrevious$.next();
+    this.destroy();
     if (eventName && hostElement) {
       this.initOutsideListener(eventName);
       this.initInsideListener(eventName, hostElement);
     }
   }
 
-  private async initOutsideListener(eventName: string): Promise<void> {
-    const FPS = await prizmGetFPS();
+  private initOutsideListener(eventName: string): void {
+    const FPS = 1000 / 60;
     combineLatest([
       fromEvent<UIEvent>(this.documentRef, eventName).pipe(map(ev => ({ ev, time: performance.now() }))),
-      this.inside$$,
+      this.inside$$.pipe(startWith(null)),
     ])
       .pipe(
         debounceTime(FPS),
         tap(([doc, cont]) => {
+          if (!cont) return;
           const diff = doc.time - cont.time;
           if (diff > FPS) this.outside$$.next({ event: doc.ev, time: doc.time });
         }),
@@ -81,7 +92,6 @@ export class OutsizeEventService {
   private initInsideListener(eventName: string, hostElement: HTMLElement): void {
     fromEvent(hostElement, eventName)
       .pipe(
-        // startWith(null),
         map(event => ({ event, time: performance.now() })),
         tap(data => {
           this.inside$$.next(data as PrizmOutsideEvent);
@@ -96,10 +106,13 @@ export class OutsizeEventService {
     this.parent?.childrenChanges$$.next();
   }
 
+  public destroy(): void {
+    this.destroyPrevious$.next();
+  }
+
   public ngOnDestroy(): void {
     this.parent?.removeChild(this);
-    this.destroyPrevious$.next();
-    this.destroyPrevious$.complete();
+    this.destroy();
     this.destroy$.next();
     this.destroy$.complete();
   }

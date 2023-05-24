@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Directive, Injector, Input, OnInit } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { takeUntil } from 'rxjs/operators';
+import { debounceTime, takeUntil } from 'rxjs/operators';
 import { PrizmInputControl } from './input-control.class';
 import { PrizmInputValidationTexts } from '../services/input-invalid-subtext.service';
 
@@ -31,7 +31,7 @@ export class DefaultInputInvalidTextClass extends InputInvalidTextBaseClass impl
   ngOnInit(): void {
     this.actualizeText();
 
-    this.control?.stateChanges.pipe(takeUntil(this.destroy$)).subscribe(() => {
+    this.control?.stateChanges.pipe(debounceTime(0), takeUntil(this.destroy$)).subscribe(() => {
       this.actualizeText();
     });
   }
@@ -51,8 +51,9 @@ export class DefaultInputInvalidTextClass extends InputInvalidTextBaseClass impl
 
     if (this.invalidText !== errorText) {
       this.setInvalidText(errorText);
-      this.cdr.detectChanges();
     }
+
+    this.cdr.markForCheck();
   }
 
   protected setInvalidText(text: string): void {

@@ -108,7 +108,7 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
   @Output() readonly isOpenChange = new EventEmitter<boolean>();
 
   private overlay: PrizmOverlayControl;
-  private isOpen$ = new BehaviorSubject(false);
+  protected isOpen$ = new BehaviorSubject(false);
 
   private readonly positionSource$ = new BehaviorSubject<string>('');
   readonly position$: Observable<string> = this.positionSource$.pipe(delay(0));
@@ -220,7 +220,7 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
   }
 
   public outsideClick(): void {
-    if (!this.closeOnOutsideClick) return;
+    if (!this.closeOnOutsideClick || !this.isOpen$.value) return;
     this.isOpen$.next(false);
   }
 }

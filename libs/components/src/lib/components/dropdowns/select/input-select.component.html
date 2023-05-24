@@ -14,7 +14,7 @@
     [placeholder]="placeholder"
     [disabled]="disabled"
     [readonly]="true"
-    [ngModel]="(value | prizmCallFunc : stringify) ?? ''"
+    [ngModel]="(value | prizmCallFunc : getCurrentItem) ?? ''"
     (click)="safeOpenModal()"
     (focus)="focused$$.next(true); markAsTouched()"
     (blur)="focused$$.next(false)"

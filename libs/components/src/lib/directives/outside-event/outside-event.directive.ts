@@ -35,6 +35,10 @@ export class PrizmOutsideEventDirective implements OnInit, OnChanges, OnDestroy 
   @prizmDefaultProp()
   outsideEventName = 'click';
 
+  @Input()
+  @prizmDefaultProp()
+  outsideActive = true;
+
   @Output() readonly prizmOutsideEvent = new EventEmitter<UIEvent>();
   public readonly destroyPrevious$ = new Subject<void>();
 
@@ -59,15 +63,6 @@ export class PrizmOutsideEventDirective implements OnInit, OnChanges, OnDestroy 
 
   public ngOnInit(): void {
     this.safeInit();
-
-    this.eventZoneService.outside$$
-      .pipe(
-        tap(v => {
-          this.prizmOutsideEvent.next(v?.event);
-        }),
-        takeUntil(this.destroyService)
-      )
-      .subscribe();
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
@@ -75,6 +70,18 @@ export class PrizmOutsideEventDirective implements OnInit, OnChanges, OnDestroy 
   }
 
   public async safeInit(): Promise<void> {
+    this.destroyPrevious$.next();
+    this.eventZoneService.destroy();
+    if (!this.outsideActive) return;
+    this.eventZoneService.outside$$
+      .pipe(
+        tap(v => {
+          this.prizmOutsideEvent.next(v?.event);
+        }),
+        takeUntil(this.destroyService),
+        takeUntil(this.destroyPrevious$)
+      )
+      .subscribe();
     this.eventZoneService.safeAddListener(this.outsideEventName, this.htmlElement);
   }
 
