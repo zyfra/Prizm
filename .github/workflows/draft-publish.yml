@@ -13,9 +13,11 @@ jobs:
   draft_release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: nrwl/nx-set-shas@v3
+        with:
+          fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
+        uses: nrwl/nx-set-shas@v3
 
       - uses: actions/setup-node@v3
         with:
