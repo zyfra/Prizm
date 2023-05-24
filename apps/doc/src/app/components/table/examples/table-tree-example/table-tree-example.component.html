@@ -30,7 +30,7 @@
         "
       >
         <tr #trElement prizmTr>
-          <td prizmTd>
+          <td *prizmCell prizmTd>
             <div class="col-tree">
               <prizm-tree-button
                 #treeButton
@@ -43,16 +43,18 @@
               <span>{{ item.name }}</span>
             </div>
           </td>
-          <td prizmTd>
+          <td *prizmCell prizmTd>
             {{ item.category }}<br />
             #{{ i }}
             {{ odd ? '#odd' : '#even' }}
             {{ first ? '#first' : '' }}
             {{ last ? '#last' : '' }}
           </td>
-          <td class="format__number" *ngIf="showFormatNumber" prizmTd>
-            {{ item.count | spaceNumber : '0.0-0' }}
-          </td>
+          <ng-container *ngIf="showFormatNumber">
+            <td class="format__number" *prizmCell prizmTd>
+              {{ item.count | spaceNumber : '0.0-0' }}
+            </td>
+          </ng-container>
         </tr>
       </ng-container>
     </tbody>
