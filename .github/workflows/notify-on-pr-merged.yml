@@ -2,7 +2,6 @@ name: On PR was merged, creating comment in issue
 on:
   pull_request_target:
     types: [closed]
-
 jobs:
   if_merged:
     runs-on: ubuntu-latest

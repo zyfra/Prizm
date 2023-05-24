@@ -1,8 +1,7 @@
-name: Publish package
+name: Publish main packages
 on:
-  release:
-    types: [created]
   workflow_dispatch:
+  workflow_call:
 env:
   npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
@@ -17,7 +16,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
+        uses: nrwl/nx-set-shas@v3
 
       - uses: actions/setup-node@v3
         with:
@@ -49,28 +48,17 @@ jobs:
         run: |
           export NODE_OPTIONS="--max_old_space_size=4096"
 
-      #      - run: npx nx clear-cache
-      - run: npx nx affected:build --all --prod
-      #      - run: npx nx affected:build --all --prod --parallel --max-parallel=3
+      - name: 'Build draft versions'
+        run: npx nx run-many --target=build --all --parallel --max-parallel=3
+
       - run: cd dist/libs/deprecated && npm publish --access public --verbose || exit_code=0
       - run: cd dist/libs/components && npm publish --access public --verbose || exit_code=0
       - run: cd dist/libs/i18n && npm publish --access public --verbose || exit_code=0
       - run: cd dist/libs/helpers && npm publish --access public --verbose || exit_code=0
       - run: cd dist/libs/core && npm publish --access public --verbose || exit_code=0
-      #      - run: cd dist/libs/schematics && npm publish --access public --verbose || exit_code=0
       - run: cd dist/libs/theme && npm publish --access public --verbose || exit_code=0
       - run: cd dist/libs/icons/base && npm publish --access public --verbose || exit_code=0
       - run: cd dist/libs/icons/flags && npm publish --access public --verbose || exit_code=0
       - run: cd dist/libs/plugin && npm publish --access public --verbose || exit_code=0
       - run: cd dist/libs/ast && npm publish --access public --verbose || exit_code=0
-      - run: npx nx build charts-base
-      - run: cd dist/libs && ls -ls || exit_code=0
       - run: cd dist/libs/charts && npm publish --access public --verbose || exit_code=0
-
-      - name: Deploy doc to firebase
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
-          projectId: prizmui
-          channelId: live

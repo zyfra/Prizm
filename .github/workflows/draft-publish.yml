@@ -1,0 +1,73 @@
+# TODO: later change tag by input variable ${{ inputs.tag }}
+name: Publish draft packages
+on:
+  workflow_dispatch:
+  workflow_call:
+env:
+  npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
+  NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
+permissions:
+  contents: read
+  packages: write
+jobs:
+  draft_release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Restore cache
+        id: cache-restore
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules-
+
+      - name: Install dependencies
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
+
+      - name: Save cache...
+        id: cache-save
+        uses: actions/cache/save@v3
+        if: ${{ steps.cache-restore.outputs.cache-hit != 'true' && always() }}
+        with:
+          path: ./node_modules
+          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
+
+      - name: 'Increase max memory limit'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
+
+      - name: Set up environment variables
+        run: |
+          last_draft_version=$(npm view @prizm-ui/components version --tag draft 2>/dev/null || echo '1.0.0-draft.0')
+          echo "LAST_DRAFT_VERSION=${last_draft_version}" >> $GITHUB_ENV
+
+      - name: 'Update draft versions'
+        run: npx nx generate @prizm-ui/nx-plugin:update-version --newVersion="1.*.*-draft.up" --currentVersion="${{ env.LAST_DRAFT_VERSION }}"
+
+      - name: 'Build draft versions'
+        run: npx nx run-many --target=build --all --parallel --max-parallel=3
+
+      - run: cd dist/libs/deprecated && npm publish --tag draft --access public -- --verbose || exit_code=0
+      - run: cd dist/libs/components && npm publish --tag draft --access public --verbose || exit_code=0
+      - run: cd dist/libs/i18n && npm publish --tag draft --access public --verbose || exit_code=0
+      - run: cd dist/libs/helpers && npm publish --tag draft --access public --verbose || exit_code=0
+      - run: cd dist/libs/core && npm publish --tag draft --access public --verbose || exit_code=0
+      - run: cd dist/libs/theme && npm publish --tag draft --access public --verbose || exit_code=0
+      - run: cd dist/libs/icons/base && npm publish --tag draft --access public --verbose || exit_code=0
+      - run: cd dist/libs/icons/flags && npm publish --tag draft --access public --verbose || exit_code=0
+      - run: cd dist/libs/plugin && npm publish --tag draft --access public --verbose || exit_code=0
+      - run: cd dist/libs/ast && npm publish --tag draft --access public --verbose || exit_code=0
+      - run: cd dist/libs/charts && npm publish --tag draft --access public --verbose || exit_code=0

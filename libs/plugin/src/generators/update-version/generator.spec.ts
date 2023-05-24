@@ -71,6 +71,24 @@ describe('nx-plugin:generator update-version', () => {
       }
     });
   });
+  it('should update version in package.json for specific project by command with current version', async () => {
+    const expectedVersion = '6.2.2';
+    await updateVersion(tree, {
+      project: 'project1',
+      newVersion: 'up.up.up',
+      currentVersion: '5.1.1',
+    });
+
+    projects.forEach(project => {
+      const packageJsonPath = `${project.root}/package.json`;
+      const packageJson = JSON.parse(tree.read(packageJsonPath).toString());
+      if (project.name === 'project1') {
+        expect(packageJson.version).toBe(expectedVersion);
+      } else {
+        expect(packageJson.version).not.toBe(expectedVersion);
+      }
+    });
+  });
 
   it('should update version in package.json for specific project by command', async () => {
     const expectedVersion = '1.0.0-draft.0';
