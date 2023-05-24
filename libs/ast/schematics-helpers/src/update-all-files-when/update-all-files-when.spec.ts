@@ -1,12 +1,12 @@
 import { Tree } from '@nrwl/devkit';
-import { createTreeWithEmptyV1Workspace } from '@nrwl/devkit/testing';
+import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import { prizmAstUpdateAllFilesWhen } from '../update-all-files-when/prizm-ast-update-all-files-when';
 
 describe('prizmAstUpdateAllFilesWhen', () => {
   let tree: Tree;
 
   beforeEach(() => {
-    tree = createTreeWithEmptyV1Workspace();
+    tree = createTreeWithEmptyWorkspace();
     tree.write('dir1/file1.txt', 'Initial content of file1');
     tree.write('dir1/file2.txt', 'Initial content of file2');
     tree.write('dir2/file3.txt', 'Initial content of file3');
