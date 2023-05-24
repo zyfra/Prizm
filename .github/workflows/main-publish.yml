@@ -1,4 +1,7 @@
 name: Publish main packages
+on:
+  workflow_dispatch:
+  workflow_call:
 env:
   npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}

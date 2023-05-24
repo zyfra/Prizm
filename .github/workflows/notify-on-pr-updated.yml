@@ -2,7 +2,6 @@ name: On PR was updated, creating comment in issue
 on:
   pull_request_target:
     types: [opened, edited, synchronize]
-
 jobs:
   extract:
     runs-on: ubuntu-latest

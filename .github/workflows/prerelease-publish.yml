@@ -1,5 +1,8 @@
 # TODO: later change tag by input variable ${{ inputs.tag }}
 name: Publish prerelease packages
+on:
+  workflow_dispatch:
+  workflow_call:
 env:
   npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
