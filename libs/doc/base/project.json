@@ -1,12 +1,13 @@
 {
   "name": "doc-base",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/doc/base/src",
   "prefix": "prizm",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/doc/base"],
+      "outputs": ["{workspaceRoot}/coverage/libs/doc/base"],
       "options": {
         "jestConfig": "libs/doc/base/jest.config.ts",
         "passWithNoTests": true

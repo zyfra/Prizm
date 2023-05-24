@@ -1,5 +1,6 @@
 {
   "name": "doc",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/doc/src",
   "prefix": "prizm",
@@ -116,7 +117,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/doc"],
+      "outputs": ["{workspaceRoot}/coverage/apps/doc"],
       "options": {
         "jestConfig": "apps/doc/jest.config.ts",
         "passWithNoTests": true
