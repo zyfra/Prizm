@@ -1,5 +1,12 @@
 <prizm-input-layout label="Validators">
-  <prizm-input-select [formControl]="control" [items]="items"></prizm-input-select>
+  <prizm-input-select #input [formControl]="control" [items]="items"></prizm-input-select>
+  <!--  <ng-template [control]="input" prizmInputStatusText></ng-template>-->
+  <!--  <prizm-input-status-subtext [control]="input" prizm-input-subtext></prizm-input-status-subtext>-->
+  <!--  <ng-template prizmInputStatusText>{{-->
+  <!--    'ErrorRequired'-->
+  <!--    }}</ng-template>-->
+
+  <ng-template [control]="input" prizmInputStatusText>dddd</ng-template>
 </prizm-input-layout>
 <br />
 <br />
