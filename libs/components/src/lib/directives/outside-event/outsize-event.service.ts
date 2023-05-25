@@ -75,12 +75,11 @@ export class OutsizeEventService {
     const FPS = 1000 / 60;
     combineLatest([
       fromEvent<UIEvent>(this.documentRef, eventName).pipe(map(ev => ({ ev, time: performance.now() }))),
-      this.inside$$.pipe(startWith(null)),
+      this.inside$$.pipe(startWith({ ev: null, time: performance.now() })),
     ])
       .pipe(
         debounceTime(FPS),
         tap(([doc, cont]) => {
-          if (!cont) return;
           const diff = doc.time - cont.time;
           if (diff > FPS) this.outside$$.next({ event: doc.ev, time: doc.time });
         }),
