@@ -32,7 +32,7 @@ RUN set -eu && \
 COPY ./ /project/
 RUN set -eu && \
     npm --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
-        run build:"$NPM_BUILD_ENVIRONMENT" -- --deployUrl $NPM_SDK_DEPLOY_URL --baseHref $NPM_SDK_DEPLOY_URL
+        run build:"$NPM_BUILD_ENVIRONMENT"
 
 RUN chgrp -R 0 /project && \
     chmod -R g+rw /project
