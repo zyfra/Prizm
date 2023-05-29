@@ -1,7 +1,7 @@
 # Define base images and tags
 # ---------------------------
 ARG DOCKERFILE_BUILD_IMAGE="node"
-ARG DOCKERFILE_BUILD_TAG="14"
+ARG DOCKERFILE_BUILD_TAG="16-alpine"
 ARG DOCKERFILE_BASE_IMAGE=$FCI_DOCKERFILE_BASE_IMAGE
 ARG DOCKERFILE_BASE_TAG=$FCI_DOCKERFILE_BASE_TAG
 
@@ -24,15 +24,17 @@ COPY .npmrc /project/
 # Set separate cache layers, install pakages
 COPY package*.json /project/
 
-RUN set -eu && \
-    npm --userconfig /project/.npmrc --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
-        install --fetch-retries=4
+#RUN set -eu && \
+#    npm --userconfig /project/.npmrc --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
+#        install --fetch-retries=4
     # --only=production
 # Set separate cache layers, build from sources
 COPY ./ /project/
-RUN set -eu && \
-    npm --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
-        run build:"$NPM_BUILD_ENVIRONMENT"
+#RUN set -eu && \
+#    npm --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
+#        run build:"$NPM_BUILD_ENVIRONMENT"
+
+RUN npm install && npm run build:doc
 
 RUN chgrp -R 0 /project && \
     chmod -R g+rw /project
