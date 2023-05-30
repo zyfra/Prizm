@@ -1,6 +1,4 @@
 name: Pre-released
-steps:
-  - uses: actions/checkout@v2
 on:
   release:
     types:
