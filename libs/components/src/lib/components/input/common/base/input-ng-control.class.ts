@@ -2,9 +2,9 @@ import { ChangeDetectorRef, Directive, Injector, OnInit } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NgControl, NgModel, Validators } from '@angular/forms';
 import { PrizmInputControl } from './input-control.class';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { takeUntil, tap } from 'rxjs/operators';
+import { map, takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputLayoutComponent } from '../input-layout';
-import { concat, noop, Observable, of } from 'rxjs';
+import { BehaviorSubject, concat, noop, Observable, of } from 'rxjs';
 import { PrizmControlValueTransformer } from '../../../../types';
 import { PRIZM_EMPTY_FUNCTION } from '@prizm-ui/core';
 
@@ -17,14 +17,14 @@ export abstract class PrizmInputNgControl<T>
   ngControl!: NgControl;
   readonly changeDetectorRef!: ChangeDetectorRef;
   readonly layoutComponent!: PrizmInputLayoutComponent;
-  private previousInternalValue?: T | null;
+  private previousInternalValue$$ = new BehaviorSubject<T | null>(null);
 
   onChange: (val: T) => void = PRIZM_EMPTY_FUNCTION;
   onTouch: (val: T) => void = PRIZM_EMPTY_FUNCTION;
   onTouched = PRIZM_EMPTY_FUNCTION;
 
   get value(): T {
-    return this.previousInternalValue ?? this.fallbackValue;
+    return this.previousInternalValue$$.value ?? this.fallbackValue;
   }
 
   public fallbackValue: T | null = null;
@@ -38,7 +38,7 @@ export abstract class PrizmInputNgControl<T>
   }
 
   get value$(): Observable<T> {
-    return concat(of(this.value), this.ngControl.valueChanges);
+    return this.previousInternalValue$$.asObservable().pipe(map(i => i ?? this.fallbackValue));
   }
 
   public isEmpty(value: T): boolean {
@@ -61,7 +61,7 @@ export abstract class PrizmInputNgControl<T>
   }
 
   get disabled() {
-    return !!this.ngControl?.disabled;
+    return this.ngControl?.disabled;
   }
 
   /** Whether the control is validity. */
@@ -111,7 +111,7 @@ export abstract class PrizmInputNgControl<T>
       return;
     }
 
-    this.previousInternalValue = value;
+    this.previousInternalValue$$.next(value);
     this.controlSetValue(value);
   }
 
@@ -131,9 +131,8 @@ export abstract class PrizmInputNgControl<T>
   }
 
   public writeValue(value: T): void {
-    // this.value = this.fromControlValue(value);
     const controlValue =
-      this.ngControl instanceof NgModel && this.previousInternalValue === undefined
+      this.ngControl instanceof NgModel && this.previousInternalValue$$.value === undefined
         ? this.ngControl.model
         : value;
 
@@ -141,7 +140,7 @@ export abstract class PrizmInputNgControl<T>
   }
 
   private refreshLocalValue(value: T | null): void {
-    this.previousInternalValue = value;
+    this.previousInternalValue$$.next(value);
     this.checkControlUpdate();
   }
 
@@ -194,5 +193,9 @@ export abstract class PrizmInputNgControl<T>
 
   public markAsDirty(): void {
     this.ngControl.control.markAsDirty();
+  }
+
+  public setDisabledState(isDisabled: boolean) {
+    this.checkControlUpdate();
   }
 }
