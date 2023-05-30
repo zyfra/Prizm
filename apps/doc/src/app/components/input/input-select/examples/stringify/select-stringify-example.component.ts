@@ -41,6 +41,10 @@ export class PrizmSelectStringifyExampleComponent {
   };
 
   public setDefaultValue(): void {
-    this.control.setValue(this.items[0], { emitEvent: false });
+    this.control.setValue(this.items[4], { emitEvent: false });
+  }
+
+  public getType(val: any): string {
+    return typeof val;
   }
 }
