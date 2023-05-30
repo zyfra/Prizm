@@ -8,6 +8,7 @@ import { PrizmChartsScatterItem, PrizmChartsScatterOptions, PrizmChartsScatterOr
   selector: 'prizm-charts-scatter',
   templateUrl: './prizm-charts-scatter.component.html',
   styleUrls: ['./prizm-charts-scatter.component.less'],
+  exportAs: 'prizmChartsScatter',
 })
 export class PrizmChartsScatterComponent<
   T extends Record<string, unknown>

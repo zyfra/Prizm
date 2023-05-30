@@ -7,6 +7,7 @@ import { PrizmChartsBarItem, PrizmChartsBarOptions, PrizmChartsBarOrigin } from 
   selector: 'prizm-charts-bar',
   templateUrl: './prizm-charts-bar.component.html',
   styleUrls: ['./prizm-charts-bar.component.less'],
+  exportAs: 'prizmChartsBar',
 })
 export class PrizmChartsBarComponent<T extends Record<string, unknown>> extends PrizmChartsAbstractComponent<
   PrizmChartsBarOrigin,
@@ -15,9 +16,9 @@ export class PrizmChartsBarComponent<T extends Record<string, unknown>> extends 
   public readonly name = 'bar';
 
   @Input()
-  set data(value: PrizmChartsBarItem[]) {
+  set data(data: PrizmChartsBarItem[]) {
     this.updateOptions({
-      data: value,
+      data: data,
     });
   }
   get data(): PrizmChartsBarItem[] {

@@ -7,6 +7,7 @@ import { PrizmChartsRadialBarItem, PrizmChartsRadialBarOptions, PrizmChartsRadia
   selector: 'prizm-charts-radial-bar',
   templateUrl: './prizm-charts-radial-bar.component.html',
   styleUrls: ['./prizm-charts-radial-bar.component.less'],
+  exportAs: 'prizmChartsRadialBar',
 })
 export class PrizmChartsRadialBarComponent<
   T extends Record<string, unknown>

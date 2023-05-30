@@ -1,6 +1,9 @@
 <prizm-charts-bar
+  #bar
   [data]="data"
   [theme]="prizmTheme.changesTheme$ | async"
   xField="sales"
+  seriesField="sales"
   yField="type"
 ></prizm-charts-bar>
+<pre>{{ data | json }}</pre>
