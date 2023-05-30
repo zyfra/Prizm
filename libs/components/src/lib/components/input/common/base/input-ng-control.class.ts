@@ -61,7 +61,7 @@ export abstract class PrizmInputNgControl<T>
   }
 
   get disabled() {
-    return !!this.ngControl?.disabled;
+    return this.ngControl?.disabled;
   }
 
   /** Whether the control is validity. */
@@ -194,5 +194,9 @@ export abstract class PrizmInputNgControl<T>
 
   public markAsDirty(): void {
     this.ngControl.control.markAsDirty();
+  }
+
+  public setDisabledState(isDisabled: boolean) {
+    this.checkControlUpdate();
   }
 }
