@@ -110,6 +110,11 @@ export class InputSelectComponent {
     HTML: import('./examples/validators/select-validators-example.component.html?raw'),
   };
 
+  readonly inTemplateValidators: TuiDocExample = {
+    TypeScript: import('./examples/in-template/select-in-template-example.component.ts?raw'),
+    HTML: import('./examples/in-template/select-in-template-example.component.html?raw'),
+  };
+
   readonly exampleWithBackendSearch: TuiDocExample = {
     TypeScript: import('./examples/with-backend-search/select-with-backend-search-example.component.ts?raw'),
     HTML: import('./examples/with-backend-search/select-with-backend-search-example.component.html?raw'),
