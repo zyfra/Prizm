@@ -45,20 +45,23 @@ export function prizmAstUpdateProjectVersions(
       if (packages.length)
         packages.forEach(({ name, version }) => {
           if (packageJson.dependencies?.[name]) {
-            packageJson.dependencies[name] = packageJson.dependencies[name].replace(
-              new RegExp(version, 'gi'),
+            packageJson.dependencies[name] = replaceVersionInDeps(
+              packageJson.dependencies[name],
+              version,
               packageJson.version
             );
           }
           if (packageJson.devDependencies?.[name]) {
-            packageJson.devDependencies[name] = packageJson.devDependencies[name].replace(
-              new RegExp(version, 'gi'),
+            packageJson.devDependencies[name] = replaceVersionInDeps(
+              packageJson.devDependencies[name],
+              version,
               packageJson.version
             );
           }
           if (packageJson.peerDependencies?.[name]) {
-            packageJson.peerDependencies[name] = packageJson.peerDependencies[name].replace(
-              new RegExp(version, 'gi'),
+            packageJson.peerDependencies[name] = replaceVersionInDeps(
+              packageJson.peerDependencies[name],
+              version,
               packageJson.version
             );
           }
@@ -70,4 +73,11 @@ export function prizmAstUpdateProjectVersions(
 
   // Форматируем файлы в дереве для обеспечения соблюдения стиля кодирования
   return formatFiles(tree);
+}
+
+function replaceVersionInDeps(str: string, currentVersion: string, newVersion: string) {
+  return str.replace(new RegExp(`(?<=\\D|^)${escapeRegExp(currentVersion)}(?=\\D|$)`, 'ig'), newVersion);
+}
+function escapeRegExp(string: string): string {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& означает всё найденное совпадение
 }

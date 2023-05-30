@@ -38,6 +38,7 @@ describe('prizmAstUpdateProjectVersions', () => {
         version: '2.0.0',
         peerDependencies: {
           'some-test-library-1': '^1.0.0',
+          'some-test-library-2': '~2.0.0, ^2.0.0, 2.0.0 | 12.0.0, 2.0.0 - 3.0.0, 2.0.5 | 4.0.0',
         },
         devDependencies: {
           'some-test-library-2': '~2.0.0',
@@ -79,6 +80,9 @@ describe('prizmAstUpdateProjectVersions', () => {
       expect(packageJson.version).toBe(newVersion);
       if (project.root === '/projects/project3') {
         expect(packageJson.peerDependencies['some-test-library-1']).toEqual(`^${newVersion}`);
+        expect(packageJson.peerDependencies['some-test-library-2']).toEqual(
+          `~${newVersion}, ^${newVersion}, ${newVersion} | 12.0.0, ${newVersion} - 3.0.0, 2.0.5 | 4.0.0`
+        );
         expect(packageJson.devDependencies['some-test-library-2']).toEqual(`~${newVersion}`);
         expect(packageJson.devDependencies['some-test-library-1']).toEqual(`~10.0.0`);
         expect(packageJson.dependencies['some-test-library-1']).toEqual(`${newVersion}`);
