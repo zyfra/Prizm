@@ -221,7 +221,6 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
 
   public outsideClick(): void {
     if (!this.closeOnOutsideClick || !this.isOpen$.value) return;
-    console.log('#mz outsideClick', this.el.nativeElement);
     this.isOpen$.next(false);
   }
 }

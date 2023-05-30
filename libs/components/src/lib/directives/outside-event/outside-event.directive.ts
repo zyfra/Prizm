@@ -75,8 +75,8 @@ export class PrizmOutsideEventDirective implements OnInit, OnChanges, OnDestroy 
     if (!this.outsideActive) return;
     this.eventZoneService.outside$$
       .pipe(
-        tap(v => {
-          this.prizmOutsideEvent.next(v?.event);
+        tap(event => {
+          this.prizmOutsideEvent.next(event?.event);
         }),
         takeUntil(this.destroyService),
         takeUntil(this.destroyPrevious$)
