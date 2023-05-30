@@ -1,8 +1,9 @@
 import { Inject, Injectable, Optional, SkipSelf } from '@angular/core';
 import { BehaviorSubject, EMPTY, fromEvent, merge, Observable, race, Subject } from 'rxjs';
-import { debounceTime, map, mapTo, share, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, filter, map, mapTo, share, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmOutsideEvent } from './model';
 import { DOCUMENT } from '@angular/common';
+import { filterTruthy } from '@prizm-ui/helpers';
 
 @Injectable()
 export class OutsizeEventService {
@@ -19,7 +20,7 @@ export class OutsizeEventService {
   public hostElement$$ = new BehaviorSubject<HTMLElement | null>(null);
   private inOutSideEvents$: Observable<{ event: UIEvent; inside: boolean }>;
   private insideListenedEvents$: Observable<UIEvent>;
-
+  private needUpdateListeners$ = merge(this.hostElement$$, this.childrenChanges$);
   get children(): OutsizeEventService[] {
     return [...this.childrenSet];
   }
@@ -55,14 +56,14 @@ export class OutsizeEventService {
   public getInsideListenedEvents(eventName: string): Observable<UIEvent> {
     return (
       this.insideListenedEvents$ ??
-      (this.insideListenedEvents$ = merge(this.hostElement$$, this.childrenChanges$).pipe(
+      (this.insideListenedEvents$ = this.needUpdateListeners$.pipe(
         switchMap(() =>
-          !this.hostElement$$.value
-            ? EMPTY
-            : merge(
+          this.hostElement$$.value
+            ? merge(
                 fromEvent<UIEvent>(this.hostElement$$.value, eventName),
                 ...this.children.map(service => service.getInsideListenedEvents(eventName))
               )
+            : EMPTY
         ),
         takeUntil(this.destroy$),
         share()
@@ -79,8 +80,9 @@ export class OutsizeEventService {
             switchMap(() => {
               return race(
                 this.getInsideListenedEvents(eventName).pipe(map(event => ({ event, inside: true }))),
-                fromEvent<UIEvent>(this.documentRef, eventName).pipe(
+                this.needUpdateListeners$.pipe(
                   debounceTime(0),
+                  switchMap(() => fromEvent<UIEvent>(this.documentRef, eventName).pipe(debounceTime(0))),
                   map(event => ({ event, inside: false }))
                 )
               );

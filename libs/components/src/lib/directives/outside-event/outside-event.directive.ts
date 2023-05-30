@@ -62,7 +62,7 @@ export class PrizmOutsideEventDirective implements OnInit, OnChanges, OnDestroy 
   }
 
   public ngOnInit(): void {
-    this.safeInit();
+    // this.safeInit();
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
@@ -73,6 +73,8 @@ export class PrizmOutsideEventDirective implements OnInit, OnChanges, OnDestroy 
     this.destroyPrevious$.next();
     this.eventZoneService.destroy();
     if (!this.outsideActive) return;
+    this.eventZoneService.safeAddListener(this.outsideEventName, this.htmlElement);
+
     this.eventZoneService.outside$$
       .pipe(
         tap(event => {
@@ -82,7 +84,6 @@ export class PrizmOutsideEventDirective implements OnInit, OnChanges, OnDestroy 
         takeUntil(this.destroyPrevious$)
       )
       .subscribe();
-    this.eventZoneService.safeAddListener(this.outsideEventName, this.htmlElement);
   }
 
   ngOnDestroy(): void {
