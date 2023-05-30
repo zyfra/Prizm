@@ -11,7 +11,7 @@
     },
     "updateInDependencies": {
       "type": "boolean",
-      "description": "update updateInDependencies in peer|dev|main dependencies ",
+      "description": "update in peer|dev|main dependencies all found versions ",
       "default": false
     },
     "newVersion": {
