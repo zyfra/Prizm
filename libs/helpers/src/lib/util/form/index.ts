@@ -22,6 +22,12 @@ export class PrizmFormControlHelpers {
   public static getDisabled(origin: UntypedFormControl): boolean {
     return origin.disabled;
   }
+  public static isTouched(origin: UntypedFormControl): boolean {
+    return origin.touched;
+  }
+  public static isDirty(origin: UntypedFormControl): boolean {
+    return origin.dirty;
+  }
 
   public static getValidators(origin: UntypedFormControl): ValidatorFn | ValidatorFn[] | null {
     return (origin as any)?.['_rawValidators'] ?? null;

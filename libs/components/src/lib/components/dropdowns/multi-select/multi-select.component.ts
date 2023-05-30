@@ -339,6 +339,7 @@ export class PrizmMultiSelectComponent<T>
 
   public safeOpenModal(): void {
     const inputElement = this.focusableElement.nativeElement;
+    this.searchInputControl.setValue('');
     this.open =
       !this.open &&
       this.interactive &&
