@@ -6,25 +6,18 @@ on:
 permissions:
   contents: read
   packages: write
+runs-on: ubuntu-latest
+steps:
+  - uses: actions/checkout@v2
+    with:
+      fetch-depth: 0
 env:
   npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
 jobs:
-  pre_darft_release:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Run workflow with draft publish
-        uses: zyfra/Prizm/.github/workflows/draft-publish.yml@main
+  pre_draft_release:
+    uses: zyfra/Prizm/.github/workflows/draft-publish.yml@main
 
   release:
-    runs-on: ubuntu-latest
-    needs: pre_darft_release
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Run workflow with prerelease publish
-        uses: zyfra/Prizm/.github/workflows/main-publish.yml@main
+    needs: pre_draft_release
+    uses: zyfra/Prizm/.github/workflows/main-publish.yml@main
