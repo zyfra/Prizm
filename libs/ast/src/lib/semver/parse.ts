@@ -42,7 +42,7 @@ export function prizmSemVerParse(
 
     const [prerelease, prereleaseNumber] = prereleasePart.split('.');
     semVer.prerelease = !prerelease || prerelease === '*' ? null : prerelease;
-    if (getCommand && isSemverCommandValue(prereleaseNumber))
+    if (getCommand && prereleaseNumber && isSemverCommandValue(prereleaseNumber))
       semVer.prereleaseNumber = prereleaseNumber as any;
     else semVer.prereleaseNumber = prereleaseNumber ? Number(prereleaseNumber) : null;
   }
