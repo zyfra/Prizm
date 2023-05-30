@@ -34,7 +34,7 @@ export class PrizmSelectStringifyExampleComponent {
       case 'number':
         return item.toString();
       case 'boolean':
-        return item ? 'TRUE' : 'FALSY';
+        return item ? 'TRUE' : 'FALSE';
     }
 
     return item;
