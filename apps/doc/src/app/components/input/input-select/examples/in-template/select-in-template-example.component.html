@@ -1,8 +1,9 @@
 <button (click)="openDialogWithTemplateRef(myDialog)">Open sidebar</button>
 
-<prizm-input-layout [outer]="true" label="Manufacture">
+<!-- it works without template
+  <prizm-input-layout [outer]="true" label="Manufacture">
   <prizm-input-select [items]="items" [formControl]="control"></prizm-input-select>
-</prizm-input-layout>
+</prizm-input-layout> -->
 
 <ng-template #myDialog>
   <h2>FormGroup in sidebar with select</h2>
@@ -11,6 +12,7 @@
       <prizm-input-select [items]="items" formControlName="main"></prizm-input-select>
     </prizm-input-layout>
   </form>
+  <br />
   <div>
     <button (click)="setValue(items[1])" prizmButton>
       Set second value: <b>{{ items[1] }}</b>
