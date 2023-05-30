@@ -4,7 +4,8 @@ steps:
   - uses: actions/checkout@v2
 on:
   release:
-    types: [prereleased]
+    types:
+      - prereleased
   workflow_dispatch:
 permissions:
   contents: read

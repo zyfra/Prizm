@@ -1,7 +1,8 @@
 name: Pre-released
 on:
   release:
-    types: [released]
+    types:
+      - released
   workflow_dispatch:
 permissions:
   contents: read
