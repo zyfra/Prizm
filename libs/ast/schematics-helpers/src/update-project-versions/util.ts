@@ -14,8 +14,17 @@ export function prizmAstUpdateProjectVersions(
   tree: Tree,
   projects: ProjectConfiguration[],
   newVersion: string,
-  currentVersion?: string
+  currentVersion?: string,
+  updateInDependencies = false
 ): Promise<void> {
+  let packages: { name: string; version: string }[] = [];
+  if (updateInDependencies)
+    packages = projects.map(project => {
+      const path = [project.root, 'package.json'].join('/');
+      const { name, version } = readJson<{ name: string; version: string }>(tree, path);
+      return { name, version };
+    });
+
   // Проходим по списку проектов
   projects.forEach(project => {
     // Формируем путь до файла package.json каждого проекта
@@ -32,6 +41,20 @@ export function prizmAstUpdateProjectVersions(
         command
       );
       packageJson.version = prizmSemVerStringify(versionObject);
+
+      if (packages.length)
+        packages.forEach(({ name, version }) => {
+          if (packageJson.dependencies[name]) {
+            packageJson.dependencies[name].replace(version, packageJson.version);
+          }
+          if (packageJson.devDependencies[name]) {
+            packageJson.devDependencies[name].replace(version, packageJson.version);
+          }
+          if (packageJson.peerDependencies[name]) {
+            packageJson.peerDependencies[name].replace(version, packageJson.version);
+          }
+        });
+
       return packageJson;
     });
   });
