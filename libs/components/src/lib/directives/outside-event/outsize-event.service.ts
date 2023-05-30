@@ -1,19 +1,8 @@
 import { Inject, Injectable, Optional, SkipSelf } from '@angular/core';
-import { BehaviorSubject, EMPTY, fromEvent, merge, Observable, race, Subject, timer } from 'rxjs';
-import {
-  debounceTime,
-  filter,
-  map,
-  mapTo,
-  share,
-  shareReplay,
-  switchMap,
-  takeUntil,
-  tap,
-} from 'rxjs/operators';
+import { BehaviorSubject, EMPTY, fromEvent, merge, Observable, race, Subject } from 'rxjs';
+import { debounceTime, map, mapTo, share, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmOutsideEvent } from './model';
 import { DOCUMENT } from '@angular/common';
-import { filterTruthy } from '@prizm-ui/helpers';
 
 @Injectable()
 export class OutsizeEventService {
@@ -25,7 +14,6 @@ export class OutsizeEventService {
   private parent: OutsizeEventService;
   public readonly destroyPrevious$ = new Subject<void>();
   public readonly destroy$ = new Subject<void>();
-  public readonly insideEventSet = new Set<UIEvent>();
   public readonly inside$$ = new Subject<PrizmOutsideEvent>();
   public readonly outside$$ = new Subject<PrizmOutsideEvent>();
   public hostElement$$ = new BehaviorSubject<HTMLElement | null>(null);
@@ -36,26 +24,10 @@ export class OutsizeEventService {
     return [...this.childrenSet];
   }
 
-  private readonly lastTriggeredEvent$ = new Subject<PrizmOutsideEvent>();
   constructor(
     @SkipSelf() @Optional() private zoneService: OutsizeEventService,
     @Inject(DOCUMENT) private readonly documentRef: Document
-  ) {
-    this.initChildrenListener();
-  }
-
-  private initChildrenListener(): void {
-    // this.childrenChanges$
-    //   .pipe(
-    //     switchMap(set => {
-    //       const children = [...set.values()];
-    //       return merge(...children.map(i => i.inside$$));
-    //     }),
-    //     // tap(i => this.inside$$.next(i)),
-    //     takeUntil(this.destroy$)
-    //   )
-    //   .subscribe();
-  }
+  ) {}
 
   public setParent(parent: this): void {
     if (!parent) return;
