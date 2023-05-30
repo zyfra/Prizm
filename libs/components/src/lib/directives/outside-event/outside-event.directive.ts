@@ -62,7 +62,7 @@ export class PrizmOutsideEventDirective implements OnInit, OnChanges, OnDestroy 
   }
 
   public ngOnInit(): void {
-    // this.safeInit();
+    this.safeInit();
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
