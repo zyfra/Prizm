@@ -15,9 +15,18 @@ env:
 jobs:
   pre_draft_release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     uses: zyfra/Prizm/.github/workflows/draft-publish.yml@main
-
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
   pre_release:
     runs-on: ubuntu-latest
     needs: pre_draft_release
+    permissions:
+      contents: read
+      pull-requests: write
     uses: zyfra/Prizm/.github/workflows/prerelease-publish.yml@main
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
