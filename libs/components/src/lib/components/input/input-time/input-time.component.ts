@@ -182,7 +182,7 @@ export class PrizmInputTimeComponent
   }
 
   public onValueChange(value: string): void {
-    this.open = !!this.items.length;
+    // this.open = !!this.items.length;
 
     if (this.control) {
       this.control.updateValueAndValidity({ emitEvent: false });
