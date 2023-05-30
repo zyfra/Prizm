@@ -101,6 +101,7 @@
       [class.active]="(focused$ | async) || (opened$ | async)"
       [class.icon-dropdown]="iconName === defaultIcon"
       [iconClass]="$any(iconName)"
+      [class.disabled]="disabled"
       (click)="safeOpenModal()"
     >
     </prizm-icon>
