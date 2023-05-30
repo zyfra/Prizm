@@ -4,15 +4,14 @@ on:
     types:
       - prereleased
   workflow_dispatch:
-permissions:
-  contents: read
-  pull-requests: write
 env:
   npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
 jobs:
   pre_draft_release:
     uses: zyfra/Prizm/.github/workflows/draft-publish.yml@main
+    secrets: inherit
   pre_release:
     uses: zyfra/Prizm/.github/workflows/prerelease-publish.yml@main
+    secrets: inherit
     needs: pre_draft_release
