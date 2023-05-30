@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { PrizmThemeService } from '@prizm-ui/theme';
-import { PrizmChartsBarComponent } from '@prizm-ui/charts';
+import { PrizmChartsBarComponent, PrizmChartsBarOptions } from '@prizm-ui/charts';
 
 @Component({
   selector: 'prizm-charts-bar-example',
@@ -50,15 +50,17 @@ export class PrizmChartsBarExampleComponent implements AfterViewInit {
       sales: 38,
     },
   ];
+  readonly color: PrizmChartsBarOptions['color'] = data => {
+    return data.sales > 40 ? 'red' : 'green';
+  };
 
   constructor(public readonly prizmTheme: PrizmThemeService) {}
 
   ngAfterViewInit(): void {
+    // we can update options manually
     this.bar.updateOptions({
       legend: false,
-      color: data => {
-        return data.sales > 40 ? 'red' : 'green';
-      },
+      // color: this.color
     });
   }
 }

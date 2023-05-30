@@ -60,6 +60,14 @@ export class PrizmChartsBarComponent<T extends Record<string, unknown>> extends 
     return this.options.label;
   }
 
+  @Input()
+  public set color(value: PrizmChartsBarOptions['color']) {
+    this.updateOptions({ color: value });
+  }
+  public get color(): PrizmChartsBarOptions['color'] {
+    return this.options.color;
+  }
+
   private origin_: Bar;
 
   constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {

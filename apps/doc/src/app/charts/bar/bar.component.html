@@ -24,6 +24,7 @@
         [data]="data"
         [height]="height"
         [width]="width"
+        [color]="color"
         [xField]="xField"
         [yField]="yField"
         [seriesField]="seriesField"
@@ -48,6 +49,14 @@
         documentationPropertyMode="input"
       >
         X Field Name
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="color"
+        documentationPropertyType="PrizmChartsBarOptions['color']"
+        documentationPropertyMode="input"
+      >
+        Manually set callback
       </ng-template>
 
       <ng-template
@@ -103,7 +112,7 @@
       <ng-template
         documentationPropertyName="options"
         documentationPropertyMode="input"
-        documentationPropertyType="PrizmChartsAriaOptions"
+        documentationPropertyType="PrizmChartsBarOptions"
       >
         Options
       </ng-template>
