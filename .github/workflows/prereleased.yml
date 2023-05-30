@@ -13,10 +13,6 @@ env:
 jobs:
   pre_draft_release:
     uses: zyfra/Prizm/.github/workflows/draft-publish.yml@main
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
   pre_release:
     uses: zyfra/Prizm/.github/workflows/prerelease-publish.yml@main
     needs: pre_draft_release
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
