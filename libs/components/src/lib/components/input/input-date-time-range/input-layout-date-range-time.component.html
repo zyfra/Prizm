@@ -10,7 +10,7 @@
   [placeholder]="placeholder"
   [min]="min?.day"
   [max]="max?.day"
-  (prizmOutsideEvent)="focusableElementRef.onOpenChange(false)"
+  (zoneOutsideEvent)="focusableElementRef.onOpenChange(false)"
   (prizmAfterViewInit)="focusableElementRef.closeOnOutsideClick = false"
   (ngModelChange)="updateDayRange($event)"
 >

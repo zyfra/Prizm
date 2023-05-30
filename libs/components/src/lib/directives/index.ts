@@ -7,7 +7,7 @@ export * from './droppable';
 export * from './event-zone';
 export * from './focus-visible';
 export * from './hovered';
-export * from './outside-event';
+export * from './zone-event';
 export * from './overscroll';
 export * from './checked';
 export * from './focus-trap';

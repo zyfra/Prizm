@@ -1,32 +1,31 @@
 import { Inject, Injectable, Optional, SkipSelf } from '@angular/core';
 import { BehaviorSubject, EMPTY, fromEvent, merge, Observable, race, Subject } from 'rxjs';
-import { debounceTime, filter, map, mapTo, share, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { PrizmOutsideEvent } from './model';
+import { debounceTime, map, mapTo, share, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { PrizmZoneEvent } from './model';
 import { DOCUMENT } from '@angular/common';
-import { filterTruthy } from '@prizm-ui/helpers';
 
 @Injectable()
-export class OutsizeEventService {
-  private readonly childrenSet = new Set<OutsizeEventService>();
+export class PrizmZoneEventService {
+  private readonly childrenSet = new Set<PrizmZoneEventService>();
   private readonly childrenChanges$$ = new Subject<void>();
-  private readonly childrenChanges$: Observable<Set<OutsizeEventService>> = this.childrenChanges$$.pipe(
+  private readonly childrenChanges$: Observable<Set<PrizmZoneEventService>> = this.childrenChanges$$.pipe(
     mapTo(this.childrenSet)
   );
-  private parent: OutsizeEventService;
+  private parent: PrizmZoneEventService;
   public readonly destroyPrevious$ = new Subject<void>();
   public readonly destroy$ = new Subject<void>();
-  public readonly inside$$ = new Subject<PrizmOutsideEvent>();
-  public readonly outside$$ = new Subject<PrizmOutsideEvent>();
+  public readonly inside$$ = new Subject<PrizmZoneEvent>();
+  public readonly outside$$ = new Subject<PrizmZoneEvent>();
   public hostElement$$ = new BehaviorSubject<HTMLElement | null>(null);
   private inOutSideEvents$: Observable<{ event: UIEvent; inside: boolean }>;
   private insideListenedEvents$: Observable<UIEvent>;
   private needUpdateListeners$ = merge(this.hostElement$$, this.childrenChanges$);
-  get children(): OutsizeEventService[] {
+  get children(): PrizmZoneEventService[] {
     return [...this.childrenSet];
   }
 
   constructor(
-    @SkipSelf() @Optional() private zoneService: OutsizeEventService,
+    @SkipSelf() @Optional() private zoneService: PrizmZoneEventService,
     @Inject(DOCUMENT) private readonly documentRef: Document
   ) {}
 
@@ -102,7 +101,7 @@ export class OutsizeEventService {
       .pipe(
         tap(({ event, inside }) => {
           const time = performance.now();
-          const emit = { event, time } as PrizmOutsideEvent;
+          const emit = { event, time } as PrizmZoneEvent;
           if (inside) this.inside$$.next(emit);
           else {
             this.outside$$.next(emit);

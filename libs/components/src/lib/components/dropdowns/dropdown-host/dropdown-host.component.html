@@ -1,11 +1,12 @@
 <div
   class="block"
-  [outsideElement]="prizmDropdownHost"
+  [zoneElement]="prizmDropdownHost"
   [prizmMutationObserverHost]="el.nativeElement"
-  [outsideActive]="isOpen$ | async"
-  (prizmOutsideEvent)="outsideClick()"
+  [zoneActive]="isOpen$ | async"
+  (zoneOutsideEvent)="outsideClick()"
   (prizmMutationObserver)="updateWidth()"
-  outsideEventName="click"
+  prizmZoneEvent
+  zoneInsideEvent="click"
 >
   <ng-content></ng-content>
   <ng-template #temp>
@@ -14,11 +15,12 @@
       [ngStyle]="dropdownStyles"
       [id]="prizmDropdownHostId"
       [attr.position]="position$ | async"
-      (prizmOutsideEvent)="outsideClick()"
+      (zoneOutsideEvent)="outsideClick()"
       (prizmAfterViewInit)="addListenerItems($event.nativeElement); reCalculatePositions()"
       (prizmOnDestroy)="removeListenerItems($event.nativeElement)"
+      prizmZoneEvent
       prizmEventZone
-      outsideEventName="click"
+      zoneInsideEvent="click"
     >
       <ng-container
         *polymorphOutlet="content; context: { custom: prizmDropdownCustomContext }"

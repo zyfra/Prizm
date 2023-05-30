@@ -6,7 +6,7 @@ import {
   PrizmDropdownZoneModule,
   PrizmLifecycleModule,
   PrizmMutationObserveModule,
-  PrizmOutsideEventModule,
+  PrizmZoneEventModule,
 } from '../../../directives';
 import { CommonModule } from '@angular/common';
 
@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     PrizmOverlayModule,
     PrizmLifecycleModule,
-    PrizmOutsideEventModule,
+    PrizmZoneEventModule,
     PolymorphModule,
     PrizmDropdownZoneModule,
     PrizmMutationObserveModule,
