@@ -12,7 +12,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { Compare, PrizmDestroyService } from '@prizm-ui/helpers';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
 import { PRIZM_SELECT_OPTIONS, PrizmSelectOptions, PrizmSelectValueContext } from './select.options';
@@ -136,6 +136,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   public readonly defaultIcon = 'chevrons-dropdown';
   public readonly nativeElementType = 'select';
   public readonly hasClearButton = true;
+  readonly isNullish = Compare.isNullish;
 
   filteredItems$!: any;
 
