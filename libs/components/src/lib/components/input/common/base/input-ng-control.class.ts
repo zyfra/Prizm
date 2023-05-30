@@ -117,7 +117,7 @@ export abstract class PrizmInputNgControl<T>
 
   public clear(ev: MouseEvent) {
     this.updateValue(null);
-    this.markAsTouched();
+    this.markAsDirty();
   }
 
   public registerOnChange(onChange: any): void {
@@ -190,5 +190,9 @@ export abstract class PrizmInputNgControl<T>
 
   public markAsTouched(): void {
     this.ngControl.control.markAsTouched();
+  }
+
+  public markAsDirty(): void {
+    this.ngControl.control.markAsDirty();
   }
 }

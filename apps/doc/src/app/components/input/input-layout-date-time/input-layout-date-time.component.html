@@ -39,11 +39,10 @@
           [timeStrict]="timeStrict"
           [placeholder]="placeholder"
           [timeMode]="timeMode"
-          [size]="size"
         ></prizm-input-layout-date-time>
       </prizm-input-layout>
     </prizm-doc-demo>
-    <prizm-doc-documentation [control]="valueControl" [hostComponentKey]="controlKey">
+    <prizm-doc-documentation [control]="valueControl" [hostComponentKey]="controlKey" [heading]="controlKey">
       <ng-template
         [(documentationPropertyValue)]="placeholder"
         documentationPropertyName="placeholder"
@@ -51,16 +50,6 @@
         documentationPropertyMode="input"
       >
         Placeholder
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="size"
-        [documentationPropertyValues]="sizeVariants"
-        documentationPropertyName="size"
-        documentationPropertyType="PrizmInputSize"
-        documentationPropertyMode="input"
-      >
-        Size
       </ng-template>
 
       <ng-template

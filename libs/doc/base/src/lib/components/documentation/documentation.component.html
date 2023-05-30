@@ -173,6 +173,36 @@
 
 <ng-container *ngIf="control">
   <ng-template
+    [documentationPropertyValue]="control | prizmCallFunc : isTouchedFromControl$ | async"
+    (documentationPropertyValueChange)="setTouched(control, $any($event))"
+    documentationPropertyName="touched"
+    documentationPropertyType="boolean"
+    documentationPropertyMode="form-control"
+  >
+    Touched
+  </ng-template>
+
+  <ng-template
+    [documentationPropertyValue]="control | prizmCallFunc : isDirtyFromControl$ | async"
+    (documentationPropertyValueChange)="setDirty(control, $any($event))"
+    documentationPropertyName="dirty"
+    documentationPropertyType="boolean"
+    documentationPropertyMode="form-control"
+  >
+    Dirty
+  </ng-template>
+
+  <ng-template
+    [documentationPropertyValue]="control | prizmCallFunc : isPristineFromControl$ | async"
+    (documentationPropertyValueChange)="setPristine(control, $any($event))"
+    documentationPropertyName="pristine"
+    documentationPropertyType="boolean"
+    documentationPropertyMode="form-control"
+  >
+    Pristine
+  </ng-template>
+
+  <ng-template
     [documentationPropertyValue]="control | prizmCallFunc : getDisabledFromControl$ | async"
     (documentationPropertyValueChange)="updateStateOfControl(control, $any($event))"
     documentationPropertyName="disabled"

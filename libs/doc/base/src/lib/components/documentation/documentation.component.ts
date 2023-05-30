@@ -19,8 +19,8 @@ import {
   tuiRgbToHex,
   tuiWatch,
 } from '@taiga-ui/cdk';
-import { BehaviorSubject, combineLatest, merge, Observable } from 'rxjs';
-import { filter, map, startWith, switchMap } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, concat, interval, merge, Observable, of, timer } from 'rxjs';
+import { debounceTime, filter, map, startWith, switchMap, tap } from 'rxjs/operators';
 
 import { PRIZM_DOC_DOCUMENTATION_TEXTS } from '../../tokens/i18n';
 import { prizmInspectAny } from '../../utils/inspect';
@@ -247,20 +247,47 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   };
 
   public getDisabledFromControl$(control: UntypedFormControl): Observable<boolean> {
-    return PrizmFormControlHelpers.getDisabled$(control);
+    return merge(timer(0, 100), PrizmFormControlHelpers.getDisabled$(control)).pipe(
+      map(() => PrizmFormControlHelpers.getDisabled(control))
+    );
+  }
+
+  public isTouchedFromControl$(control: UntypedFormControl): Observable<boolean> {
+    return merge(timer(0, 100), PrizmFormControlHelpers.getValue$(control)).pipe(map(c => control.touched));
+  }
+
+  public isDirtyFromControl$(control: UntypedFormControl): Observable<boolean> {
+    return merge(timer(0, 100), PrizmFormControlHelpers.getValue$(control)).pipe(map(c => control.dirty));
+  }
+
+  public isPristineFromControl$(control: UntypedFormControl): Observable<boolean> {
+    return merge(timer(0, 100), PrizmFormControlHelpers.getValue$(control)).pipe(map(c => control.pristine));
   }
 
   public updateStateOfControl(control: UntypedFormControl, newState: boolean): void {
     PrizmFormControlHelpers.setDisabled(control, newState);
   }
 
+  public setTouched(control: UntypedFormControl, newState: boolean): void {
+    if (newState) control.markAsTouched({});
+    else control.markAsUntouched();
+  }
+  public setDirty(control: UntypedFormControl, newState: boolean): void {
+    if (newState) control.markAsDirty();
+    else control.markAsPristine();
+  }
+  public setPristine(control: UntypedFormControl, newState: boolean): void {
+    if (newState) control.markAsPristine();
+    else control.markAsDirty();
+  }
+
   public getValueFromControl$(control: UntypedFormControl): Observable<boolean> {
-    return PrizmFormControlHelpers.getValue$(control);
+    return concat(of(PrizmFormControlHelpers.getValue(control)), PrizmFormControlHelpers.getValue$(control));
   }
 
   public getRequiredFromControl$(control: UntypedFormControl): Observable<boolean> {
-    return PrizmFormControlHelpers.getValue$(control).pipe(
-      map(() => !!control.validator?.({} as any)?.required)
+    return merge(timer(0, 100), PrizmFormControlHelpers.getValue$(control)).pipe(
+      map(() => !!control.validator?.({} as any)?.required || control.hasValidator(Validators.required))
     );
   }
 
