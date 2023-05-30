@@ -162,7 +162,7 @@ export class PrizmInputLayoutTimeComponent extends PrizmInputNgControl<PrizmTime
       return;
     }
 
-    const time = PrizmTime.fromString(value);
+    const time = PrizmTime.correctTime(PrizmTime.fromString(value));
 
     this.updateValue(this.strict ? this.findNearestTimeFromItems(time) : time);
   }

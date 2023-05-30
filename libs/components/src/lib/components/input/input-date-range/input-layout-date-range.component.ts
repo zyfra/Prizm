@@ -214,7 +214,6 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
   }
 
   public onRangeChange(range: PrizmDayRange | null): void {
-    // this.toggle();
     this.focusInput();
 
     if (!range) {
@@ -223,6 +222,7 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
 
     if (!prizmNullableSame<PrizmDayRange>(this.value, range, (a, b) => a.daySame(b))) {
       this.updateValue(range);
+      this.open = false;
     }
     this.focusableElement.nativeElement.value = this.stringValue;
     this.changeDetectorRef.markForCheck();
