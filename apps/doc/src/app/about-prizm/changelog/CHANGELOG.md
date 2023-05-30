@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.1](https://github.com/zyfra/Prizm) (31-05-2023)
+
+### Features
+
+- feat(plugin/update-version): added ability to update dependencies for changed version [MR](https://github.com/zyfra/Prizm/pull/367)
+- feat(ci): added support to update full dependencies when we publish pre/draft release [MR](https://github.com/zyfra/Prizm/pull/367)
+- feat(components/cron): add min/max validators for start and end date [364](https://github.com/zyfra/Prizm/issues/364) [MR](https://github.com/zyfra/Prizm/pull/362)
+- feat(components/select): clear search value after close modal [MR](https://github.com/zyfra/Prizm/pull/362)
+- feat(doc): add pristine, dirty, touched controls to api page for form control components
+- feat(components/input-layout): clear button does not show on focus with keyboard [356](https://github.com/zyfra/Prizm/issues/356) [MR](https://github.com/zyfra/Prizm/pull/362)
+- feat(components/inputs): add ngModelOptions to inner inputs [345](https://github.com/zyfra/Prizm/issues/345) [360](https://github.com/zyfra/Prizm/issues/360) [MR](https://github.com/zyfra/Prizm/pull/351)
+- feat(doc/zone-event): add page with examples to doc [MR](https://github.com/zyfra/Prizm/pull/351)
+- feat(components/charts): add example with update color callback [292](https://github.com/zyfra/Prizm/issues/292) [MR](https://github.com/zyfra/Prizm/pull/368)
+
+### BUG FIXES
+
+- fix(components/input-text): set only dirty afte clear value [354](https://github.com/zyfra/Prizm/issues/354) [MR](https://github.com/zyfra/Prizm/pull/362)
+- fix(ci): fix prereleased-released actions [MR](https://github.com/zyfra/Prizm/pull/367)
+- fix(components/cron): fix end date label [362](https://github.com/zyfra/Prizm/pull/362) [MR](https://github.com/zyfra/Prizm/pull/362)
+- fix(components/input-select): falsy values does not display in dropdown [331](https://github.com/zyfra/Prizm/issues/331) [MR](https://github.com/zyfra/Prizm/pull/362)
+- fix(components/input-layout): now show status text [346](https://github.com/zyfra/Prizm/issues/346) [MR](https://github.com/zyfra/Prizm/pull/347)
+- fix(components/input-multi-select): not display date after write value [332](https://github.com/zyfra/Prizm/issues/332) [MR](https://github.com/zyfra/Prizm/pull/370)
+- fix(components/input-select): update inner template after disable/enable [335](https://github.com/zyfra/Prizm/issues/335) [MR](https://github.com/zyfra/Prizm/pull/370)
+- fix(components/input-date-time): add auto correction time [66](https://github.com/zyfra/Prizm/issues/66) [MR](https://github.com/zyfra/Prizm/pull/369)
+- fix(componets/ouside): flickering event emits inside/outside [366](https://github.com/zyfra/Prizm/issues/355) [MR](https://github.com/zyfra/Prizm/pull/351)
+
 ## [1.0.0](https://github.com/zyfra/Prizm) (24-05-2023)
 
 ### Features

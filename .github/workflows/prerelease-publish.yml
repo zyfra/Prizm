@@ -51,11 +51,11 @@ jobs:
 
       - name: Set up environment variables
         run: |
-          last_draft_version=$(npm view @prizm-ui/components version --tag next 2>/dev/null || echo '1.0.0-next.0')
-          echo "LAST_DRAFT_VERSION=${last_draft_version}" >> $GITHUB_ENV
+          last_next_version=$(npm view @prizm-ui/components versions --tag draft --json | jq '([.[] | select(startswith("1.0.1"))] | first // "1.0.1-next.0")' 2>/dev/null || echo '1.0.1-next.0')
+          echo "LAST_NEXT_VERSION=${last_next_version}" >> $GITHUB_ENV
 
       - name: 'Update next versions'
-        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="1.*.*-next.up" --all --currentVersion="${{ env.LAST_DRAFT_VERSION }}"
+        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="1.*.*-next.up" --all --currentVersion="${{ env.LAST_NEXT_VERSION }}"
 
       - name: 'Build next versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
