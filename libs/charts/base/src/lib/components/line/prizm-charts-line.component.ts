@@ -8,6 +8,7 @@ import { PrizmChartsLineItem, PrizmChartsLineOptions, PrizmChartsLineOrigin } fr
   selector: 'prizm-charts-line',
   templateUrl: './prizm-charts-line.component.html',
   styleUrls: ['./prizm-charts-line.component.less'],
+  exportAs: 'prizmChartsLine',
 })
 export class PrizmChartsLineComponent<T = unknown> extends PrizmChartsAbstractComponent<
   PrizmChartsLineOrigin,

@@ -7,6 +7,7 @@ import { PrizmChartsPieItem, PrizmChartsPieOptions, PrizmChartsPieOrigin } from 
   selector: 'prizm-charts-pie',
   templateUrl: './prizm-charts-pie.component.html',
   styleUrls: ['./prizm-charts-pie.component.less'],
+  exportAs: 'prizmChartsPie',
 })
 export class PrizmChartsPieComponent<T extends Record<string, unknown>> extends PrizmChartsAbstractComponent<
   PrizmChartsPieOrigin,

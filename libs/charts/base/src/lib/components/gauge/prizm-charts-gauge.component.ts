@@ -7,6 +7,7 @@ import { Gauge } from '@antv/g2plot';
   selector: 'prizm-charts-gauge',
   templateUrl: './prizm-charts-gauge.component.html',
   styleUrls: ['./prizm-charts-gauge.component.less'],
+  exportAs: 'prizmChartsGauge',
 })
 export class PrizmChartsGaugeComponent<
   T extends Record<string, unknown>
