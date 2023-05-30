@@ -17,12 +17,43 @@ describe('prizmAstUpdateProjectVersions', () => {
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace();
-    tree.write('/projects/project1/package.json', JSON.stringify({ version: '1.0.0' }));
-    tree.write('/projects/project2/package.json', JSON.stringify({ version: '2.0.0' }));
+    tree.write(
+      '/projects/project1/package.json',
+      JSON.stringify({
+        name: 'some-test-library-1',
+        version: '1.0.0',
+      })
+    );
+    tree.write(
+      '/projects/project2/package.json',
+      JSON.stringify({
+        name: 'some-test-library-2',
+        version: '2.0.0',
+      })
+    );
+    tree.write(
+      '/projects/project3/package.json',
+      JSON.stringify({
+        name: 'some-test-library-3',
+        version: '2.0.0',
+        peerDependencies: {
+          'some-test-library-1': '^1.0.0',
+        },
+        devDependencies: {
+          'some-test-library-2': '~2.0.0',
+          'some-test-library-1': '~10.0.0',
+        },
+        dependencies: {
+          'some-test-library-1': '1.0.0',
+          'some-test-library-2': '2.0.0 - 3.0.5',
+        },
+      })
+    );
 
     projects = [
       { root: '/projects/project1' } as ProjectConfiguration,
       { root: '/projects/project2' } as ProjectConfiguration,
+      { root: '/projects/project3' } as ProjectConfiguration,
     ];
   });
 
@@ -34,6 +65,25 @@ describe('prizmAstUpdateProjectVersions', () => {
       const packageJsonPath = `${project.root}/package.json`;
       const packageJson = JSON.parse(tree.read(packageJsonPath).toString());
       expect(packageJson.version).toBe(newVersion);
+    });
+  });
+
+  it('should update version in package.json for each project with dependencies', () => {
+    const newVersion = '3.0.0';
+    prizmAstUpdateProjectVersions(tree, projects, newVersion, undefined, true);
+
+    expect(!!projects.find(i => i.root === '/projects/project3')).toBeTruthy();
+    projects.forEach(project => {
+      const packageJsonPath = `${project.root}/package.json`;
+      const packageJson = JSON.parse(tree.read(packageJsonPath).toString());
+      expect(packageJson.version).toBe(newVersion);
+      if (project.root === '/projects/project3') {
+        expect(packageJson.peerDependencies['some-test-library-1']).toEqual(`^${newVersion}`);
+        expect(packageJson.devDependencies['some-test-library-2']).toEqual(`~${newVersion}`);
+        expect(packageJson.devDependencies['some-test-library-1']).toEqual(`~10.0.0`);
+        expect(packageJson.dependencies['some-test-library-1']).toEqual(`${newVersion}`);
+        expect(packageJson.dependencies['some-test-library-2']).toEqual(`${newVersion} - 3.0.5`);
+      }
     });
   });
 });

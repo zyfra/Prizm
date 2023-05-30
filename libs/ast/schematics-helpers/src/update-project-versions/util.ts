@@ -44,14 +44,23 @@ export function prizmAstUpdateProjectVersions(
 
       if (packages.length)
         packages.forEach(({ name, version }) => {
-          if (packageJson.dependencies[name]) {
-            packageJson.dependencies[name].replace(version, packageJson.version);
+          if (packageJson.dependencies?.[name]) {
+            packageJson.dependencies[name] = packageJson.dependencies[name].replace(
+              new RegExp(version, 'gi'),
+              packageJson.version
+            );
           }
-          if (packageJson.devDependencies[name]) {
-            packageJson.devDependencies[name].replace(version, packageJson.version);
+          if (packageJson.devDependencies?.[name]) {
+            packageJson.devDependencies[name] = packageJson.devDependencies[name].replace(
+              new RegExp(version, 'gi'),
+              packageJson.version
+            );
           }
-          if (packageJson.peerDependencies[name]) {
-            packageJson.peerDependencies[name].replace(version, packageJson.version);
+          if (packageJson.peerDependencies?.[name]) {
+            packageJson.peerDependencies[name] = packageJson.peerDependencies[name].replace(
+              new RegExp(version, 'gi'),
+              packageJson.version
+            );
           }
         });
 
