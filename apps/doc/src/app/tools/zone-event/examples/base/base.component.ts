@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { PrizmToastService } from '@prizm-ui/components';
+import { BehaviorSubject } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-zone-event-base-example',
@@ -22,6 +24,7 @@ import { PrizmToastService } from '@prizm-ui/components';
   ],
 })
 export class PrizmZoneEventBaseExampleComponent {
+  readonly activeControl = new FormControl(true);
   constructor(private readonly toastService: PrizmToastService) {}
 
   public log(msg: string, isWarning = false): void {
