@@ -1,13 +1,12 @@
 import { Inject, Injectable, Optional, SkipSelf } from '@angular/core';
-import { prizmGetFPS } from '@prizm-ui/core';
-import { combineLatest, fromEvent, merge, Observable, race, Subject } from 'rxjs';
+import { BehaviorSubject, fromEvent, merge, Observable, race, Subject } from 'rxjs';
 import {
   debounceTime,
   filter,
   finalize,
   map,
   mapTo,
-  startWith,
+  raceWith,
   switchMap,
   takeUntil,
   tap,
@@ -25,9 +24,12 @@ export class OutsizeEventService {
   private parent: OutsizeEventService;
   public readonly destroyPrevious$ = new Subject<void>();
   public readonly destroy$ = new Subject<void>();
+  public readonly insideEventSet = new Set<UIEvent>();
   public readonly inside$$ = new Subject<PrizmOutsideEvent>();
   public readonly outside$$ = new Subject<PrizmOutsideEvent>();
+  public hostElement: HTMLElement;
 
+  private readonly lastTriggeredEvent$ = new Subject<PrizmOutsideEvent>();
   constructor(
     @SkipSelf() @Optional() private zoneService: OutsizeEventService,
     @Inject(DOCUMENT) private readonly documentRef: Document
@@ -36,16 +38,16 @@ export class OutsizeEventService {
   }
 
   private initChildrenListener(): void {
-    this.childrenChanges$
-      .pipe(
-        switchMap(set => {
-          const children = [...set.values()];
-          return merge(...children.map(i => i.inside$$));
-        }),
-        tap(i => this.inside$$.next(i)),
-        takeUntil(this.destroy$)
-      )
-      .subscribe();
+    // this.childrenChanges$
+    //   .pipe(
+    //     switchMap(set => {
+    //       const children = [...set.values()];
+    //       return merge(...children.map(i => i.inside$$));
+    //     }),
+    //     // tap(i => this.inside$$.next(i)),
+    //     takeUntil(this.destroy$)
+    //   )
+    //   .subscribe();
   }
 
   public setParent(parent: this): void {
@@ -64,37 +66,70 @@ export class OutsizeEventService {
   }
 
   public safeAddListener(eventName: string, hostElement: HTMLElement): void {
+    this.hostElement = hostElement;
     this.destroy();
     if (eventName && hostElement) {
-      this.initOutsideListener(eventName);
-      this.initInsideListener(eventName, hostElement);
+      this.initListener(eventName);
+      // this.initOutsideListener();
+      // this.initInsideListener(eventName);
     }
   }
 
-  private initOutsideListener(eventName: string): void {
-    const FPS = 1000 / 60;
-    combineLatest([
-      fromEvent<UIEvent>(this.documentRef, eventName).pipe(map(ev => ({ ev, time: performance.now() }))),
-      this.inside$$.pipe(startWith({ ev: null, time: performance.now() })),
-    ])
-      .pipe(
-        debounceTime(FPS),
-        tap(([doc, cont]) => {
-          const diff = doc.time - cont.time;
-          if (diff > FPS) this.outside$$.next({ event: doc.ev, time: doc.time });
-        }),
-        takeUntil(this.destroyPrevious$)
-      )
-      .subscribe();
+  private initOutsideListener(): void {
+    // const FPS = 1000 / 60;
+    // combineLatest([
+    //   this.lastTriggeredEvent$,
+    //   this.inside$$.pipe(startWith({ ev: null, time: performance.now() })),
+    // ])
+    //   .pipe(
+    //     tap(([lastClick, insideClick]) => {
+    //       const diff = lastClick.time - insideClick.time;
+    //       if (diff > FPS) this.outside$$.next({ event: lastClick.event, time: lastClick.time });
+    //     }),
+    //     takeUntil(this.destroyPrevious$)
+    //   )
+    //   .subscribe();
   }
 
-  private initInsideListener(eventName: string, hostElement: HTMLElement): void {
-    fromEvent(hostElement, eventName)
+  private isInChildren(eventTriggeredElement: UIEvent): boolean {
+    return !![...this.childrenSet].find(service => service.isIn(eventTriggeredElement));
+  }
+
+  public isInSelf(eventTriggeredElement: UIEvent): boolean {
+    return this.insideEventSet.has(eventTriggeredElement);
+  }
+
+  public isIn(eventTriggeredElement: UIEvent) {
+    const result = this.isInSelf(eventTriggeredElement) || this.isInChildren(eventTriggeredElement);
+    return result;
+  }
+
+  private initListener(eventName: string): void {
+    const repeat$ = new BehaviorSubject<void>(void 0);
+    let lastInsideEvent: any;
+    merge(this.childrenChanges$, repeat$)
       .pipe(
-        map(event => ({ event, time: performance.now() })),
-        tap(data => {
-          this.inside$$.next(data as PrizmOutsideEvent);
+        switchMap(() => {
+          return race(
+            merge(
+              fromEvent(this.hostElement, eventName).pipe(
+                tap(() => console.log('#mz in main', this.hostElement, this.childrenSet))
+              ),
+              ...[...this.childrenSet]
+                .filter(service => service.hostElement)
+                .map(service => fromEvent<UIEvent>(service.hostElement, eventName))
+            ).pipe(map(event => ({ event, inside: true }))),
+            fromEvent<UIEvent>(this.documentRef, eventName).pipe(map(event => ({ event, inside: false })))
+          );
         }),
+        tap(({ event, inside }) => {
+          const time = performance.now();
+          const emit = { event, time } as PrizmOutsideEvent;
+          if (inside) this.inside$$.next(emit);
+          else this.outside$$.next(emit);
+        }),
+        debounceTime(0),
+        tap(() => repeat$.next()),
         takeUntil(this.destroyPrevious$)
       )
       .subscribe();

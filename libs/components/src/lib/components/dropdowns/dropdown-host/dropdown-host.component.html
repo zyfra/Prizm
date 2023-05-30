@@ -14,7 +14,6 @@
       [ngStyle]="dropdownStyles"
       [id]="prizmDropdownHostId"
       [attr.position]="position$ | async"
-      [outsideActive]="isOpen$ | async"
       (prizmOutsideEvent)="outsideClick()"
       (prizmAfterViewInit)="addListenerItems($event.nativeElement); reCalculatePositions()"
       (prizmOnDestroy)="removeListenerItems($event.nativeElement)"
