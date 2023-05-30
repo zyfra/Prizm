@@ -17,6 +17,7 @@
     [dropSpecialCharacters]="false"
     [placeholder]="placeholder"
     [disabled]="disabled"
+    [ngModelOptions]="{ standalone: true }"
     [ngModel]="stringValue"
     (click)="onOpenChange(!open)"
     (valueChanged)="onValueChange($event || '')"

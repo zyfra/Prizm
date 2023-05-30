@@ -23,6 +23,7 @@
       [required]="readOnly"
       [placeholder]="placeholder"
       [disabled]="disabled"
+      [ngModelOptions]="{ standalone: true }"
       [ngModel]="computedValue"
       (ngModelChange)="onValueChange($event || '')"
       (keydown.arrowUp)="onArrowUp($event)"

@@ -759,6 +759,13 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'tools/zone-events',
+    loadChildren: () => import('./tools/zone-event/zone-event.module').then(i => i.ZoneEventModule),
+    data: {
+      title: 'Zone Event',
+    },
+  },
+  {
     path: 'tools/nx-plugin',
     loadChildren: () => import('./tools/plugin/plugin.module').then(i => i.PluginModule),
     data: {

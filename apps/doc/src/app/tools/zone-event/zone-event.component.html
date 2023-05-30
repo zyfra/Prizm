@@ -1,0 +1,26 @@
+<prizm-doc-page header="ZoneEvent">
+  <div class="page-description" description>
+    Use for tracking inside/outside events in your zone; Useful to track inside/outside event for not nested
+    elements
+  </div>
+
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="baseExample" heading="Base Directive">
+      <prizm-zone-event-base-example></prizm-zone-event-base-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab="Setup">
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmZoneEventModule</code>
+          into a service where you want to use our directive
+        </p>
+
+        <prizm-doc-code [code]="exampleModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

@@ -154,6 +154,6 @@ export class PrizmInputMonthComponent
   }
 
   private close(): void {
-    // this.open = false;
+    this.open = false;
   }
 }

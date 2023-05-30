@@ -16,6 +16,7 @@
     [dropSpecialCharacters]="false"
     [placeholder]="placeholder"
     [disabled]="disabled"
+    [ngModelOptions]="{ standalone: true }"
     [ngModel]="computedValue"
     (click)="safeOpenModal()"
     (ngModelChange)="onValueChange($event || '')"

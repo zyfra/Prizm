@@ -17,43 +17,47 @@ import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 import { DOCUMENT } from '@angular/common';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { OutsizeEventService } from './outsize-event.service';
+import { PrizmZoneEventService } from './zone-event.service';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 /**
- * TODO add info to doc
+ * listening inside/ouside events in zone
+ * also can use in none nested elements to create common zone and detect events
+ * TODO: add example to doc
  * */
 @Directive({
-  selector: '[prizmOutsideEvent]',
-  providers: [OutsizeEventService, PrizmDestroyService],
+  selector: '[prizmZoneEvent]',
+  exportAs: 'prizmZoneEvent',
+  providers: [PrizmZoneEventService, PrizmDestroyService],
 })
-export class PrizmOutsideEventDirective implements OnInit, OnChanges, OnDestroy {
-  @Input() outsideElement?: HTMLElement;
-  @Input() outsideParent?: PrizmOutsideEventDirective;
+export class PrizmZoneEventDirective implements OnInit, OnChanges, OnDestroy {
+  @Input() zoneElement?: HTMLElement;
+  @Input() parentZone?: PrizmZoneEventDirective;
 
   @Input()
   @prizmDefaultProp()
-  outsideEventName = 'click';
+  zoneEventName = 'click';
 
   @Input()
   @prizmDefaultProp()
-  outsideActive = true;
+  zoneActive = true;
 
-  @Output() readonly prizmOutsideEvent = new EventEmitter<UIEvent>();
+  @Output() readonly zoneOutsideEvent = new EventEmitter<UIEvent>();
+  @Output() readonly zoneInsideEvent = new EventEmitter<UIEvent>();
   public readonly destroyPrevious$ = new Subject<void>();
 
   get htmlElement(): HTMLElement {
-    return this.outsideElement ?? this.elementRef.nativeElement;
+    return this.zoneElement ?? this.elementRef.nativeElement;
   }
 
   constructor(
     private elementRef: ElementRef,
     private destroyService: PrizmDestroyService,
     @Self()
-    private eventZoneService: OutsizeEventService,
+    private eventZoneService: PrizmZoneEventService,
     @SkipSelf()
     @Optional()
-    private parentEventZoneService: OutsizeEventService,
+    private parentEventZoneService: PrizmZoneEventService,
     @Inject(DOCUMENT) private readonly documentRef: Document
   ) {
     if (this.parentEventZoneService) {
@@ -63,6 +67,11 @@ export class PrizmOutsideEventDirective implements OnInit, OnChanges, OnDestroy 
 
   public ngOnInit(): void {
     this.safeInit();
+
+    if (this.parentZone) {
+      console.log('#mz parentZone', this.parentZone.eventZoneService);
+      this.eventZoneService.setParent(this.parentZone.eventZoneService);
+    }
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
@@ -72,17 +81,28 @@ export class PrizmOutsideEventDirective implements OnInit, OnChanges, OnDestroy 
   public async safeInit(): Promise<void> {
     this.destroyPrevious$.next();
     this.eventZoneService.destroy();
-    if (!this.outsideActive) return;
+    if (!this.zoneActive) return;
+    this.eventZoneService.safeAddListener(this.zoneEventName, this.htmlElement);
+
     this.eventZoneService.outside$$
       .pipe(
-        tap(v => {
-          this.prizmOutsideEvent.next(v?.event);
+        tap(event => {
+          this.zoneOutsideEvent.next(event?.event);
         }),
         takeUntil(this.destroyService),
         takeUntil(this.destroyPrevious$)
       )
       .subscribe();
-    this.eventZoneService.safeAddListener(this.outsideEventName, this.htmlElement);
+
+    this.eventZoneService.inside$$
+      .pipe(
+        tap(event => {
+          this.zoneInsideEvent.next(event?.event);
+        }),
+        takeUntil(this.destroyService),
+        takeUntil(this.destroyPrevious$)
+      )
+      .subscribe();
   }
 
   ngOnDestroy(): void {
