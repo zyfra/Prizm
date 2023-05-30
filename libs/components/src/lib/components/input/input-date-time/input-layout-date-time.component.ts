@@ -83,10 +83,6 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
 
   @Input()
   @prizmDefaultProp()
-  size: PrizmInputSize = 'm';
-
-  @Input()
-  @prizmDefaultProp()
   extraButtonInjector: Injector;
 
   @Input()

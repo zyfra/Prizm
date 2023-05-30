@@ -1,0 +1,27 @@
+<prizm-toggle [formControl]="activeControl"></prizm-toggle>
+
+<div
+  class="zone"
+  #prizmZoneEvent1="prizmZoneEvent"
+  [zoneActive]="activeControl.value"
+  (zoneInsideEvent)="log('Клик внутри зоны 1')"
+  (zoneOutsideEvent)="log('Клик вне зоны 1', true)"
+  prizmZoneEvent
+  zoneEventName="click"
+>
+  <h1>Zone 1</h1>
+  <button prizmButton>Кнопка 1</button>
+</div>
+
+<div
+  class="zone"
+  [zoneActive]="activeControl.value"
+  [parentZone]="prizmZoneEvent1"
+  (zoneInsideEvent)="log('Клик внутри зоны 2')"
+  (zoneOutsideEvent)="log('Клик вне зоны 2', true)"
+  zoneEventName="click"
+  prizmZoneEvent
+>
+  <h1>Zone 2 (parent Zone 1)</h1>
+  <button prizmButton>Кнопка 2</button>
+</div>

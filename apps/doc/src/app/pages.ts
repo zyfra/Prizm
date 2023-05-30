@@ -676,6 +676,12 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.tools,
+    title: 'ZoneEvents',
+    keywords: 'zone, зона, events, события',
+    route: '/tools/zone-events',
+  },
+  {
+    section: SectionNameEnum.tools,
     title: 'Nx Plugin',
     keywords: 'plugin, generator, executor, плагин, генератор',
     route: '/tools/nx-plugin',

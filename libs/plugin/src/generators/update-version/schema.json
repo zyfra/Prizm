@@ -9,6 +9,11 @@
       "type": "boolean",
       "description": "update all "
     },
+    "updateInDependencies": {
+      "type": "boolean",
+      "description": "update in peer|dev|main dependencies all found versions ",
+      "default": false
+    },
     "newVersion": {
       "type": ["integer", "string"],
       "description": "new version"

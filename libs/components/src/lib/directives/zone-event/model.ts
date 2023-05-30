@@ -1,4 +1,4 @@
-export type PrizmOutsideEvent = {
+export type PrizmZoneEvent = {
   time: number;
   event: UIEvent;
 };

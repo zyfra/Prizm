@@ -11,7 +11,7 @@ import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-
 import { PrizmMaskModule } from '../../../modules';
 import { PrizmInputLayoutTimeModule } from '../input-time';
 import { PrizmInputLayoutDateRangeModule } from '../input-date-range';
-import { PrizmDropdownZoneModule, PrizmLifecycleModule, PrizmOutsideEventModule } from '../../../directives';
+import { PrizmDropdownZoneModule, PrizmLifecycleModule, PrizmZoneEventModule } from '../../../directives';
 import { PrizmInputLayoutDateTimeRangeComponent } from './input-layout-date-range-time.component';
 
 @NgModule({
@@ -27,7 +27,7 @@ import { PrizmInputLayoutDateTimeRangeComponent } from './input-layout-date-rang
     PrizmCalendarRangeModule,
     PrizmValueAccessorModule,
     FormsModule,
-    PrizmOutsideEventModule,
+    PrizmZoneEventModule,
     PrizmInputLayoutTimeModule,
     PrizmDropdownZoneModule,
     ReactiveFormsModule,

@@ -29,8 +29,12 @@
       </div>
 
       <div class="date-control">
-        <prizm-input-date-time [formControl]="startControl" label="Начало"></prizm-input-date-time>
-        <prizm-input-date-time [formControl]="endControl" label="Конец"></prizm-input-date-time>
+        <prizm-input-layout label="Начало">
+          <prizm-input-layout-date-time [formControl]="startControl"></prizm-input-layout-date-time>
+        </prizm-input-layout>
+        <prizm-input-layout label="Конец">
+          <prizm-input-layout-date-time [formControl]="endControl"></prizm-input-layout-date-time>
+        </prizm-input-layout>
       </div>
     </div>
     <div class="footer" footer>

@@ -7,7 +7,7 @@
   [prizmDropdownMinHeight]="minDropdownHeight"
   [prizmDropdownMaxHeight]="maxDropdownHeight"
   [ngSwitch]="layoutComponent.outer"
-  (isOpenChange)="opened$$.next($event)"
+  (isOpenChange)="$event && searchInputControl.setValue(''); opened$$.next($event)"
 >
   <input
     #focusableElementRef
