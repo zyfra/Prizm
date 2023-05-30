@@ -27,6 +27,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
  * */
 @Directive({
   selector: '[prizmZoneEvent]',
+  exportAs: 'prizmZoneEvent',
   providers: [PrizmZoneEventService, PrizmDestroyService],
 })
 export class PrizmZoneEventDirective implements OnInit, OnChanges, OnDestroy {
@@ -66,6 +67,11 @@ export class PrizmZoneEventDirective implements OnInit, OnChanges, OnDestroy {
 
   public ngOnInit(): void {
     this.safeInit();
+
+    if (this.parentZone) {
+      console.log('#mz parentZone', this.parentZone.eventZoneService);
+      this.eventZoneService.setParent(this.parentZone.eventZoneService);
+    }
   }
 
   public ngOnChanges(changes: SimpleChanges): void {

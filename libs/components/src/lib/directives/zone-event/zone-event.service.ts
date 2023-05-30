@@ -11,7 +11,7 @@ export class PrizmZoneEventService {
   private readonly childrenChanges$: Observable<Set<PrizmZoneEventService>> = this.childrenChanges$$.pipe(
     mapTo(this.childrenSet)
   );
-  private parent: PrizmZoneEventService;
+  private readonly parents = new Set<PrizmZoneEventService>();
   public readonly destroyPrevious$ = new Subject<void>();
   public readonly destroy$ = new Subject<void>();
   public readonly inside$$ = new Subject<PrizmZoneEvent>();
@@ -31,8 +31,10 @@ export class PrizmZoneEventService {
 
   public setParent(parent: this): void {
     if (!parent) return;
-    this.parent = parent;
-    this.parent.addChild(this);
+    this.parents.add(parent);
+    this.parents.forEach(parent => parent.addChild(this));
+    // this.parent = parent;
+    // this.parent.addChild(this);
   }
 
   public addChild(s: this): void {
@@ -114,9 +116,9 @@ export class PrizmZoneEventService {
       .subscribe();
   }
 
-  public delete(directive: any): void {
-    this.childrenSet.delete(directive);
-    this.parent?.childrenChanges$$.next();
+  public delete(service: PrizmZoneEventService): void {
+    this.childrenSet.delete(service);
+    this.parents.forEach(parent => parent.childrenChanges$$.next());
   }
 
   public destroy(): void {
@@ -124,7 +126,7 @@ export class PrizmZoneEventService {
   }
 
   public ngOnDestroy(): void {
-    this.parent?.removeChild(this);
+    this.parents.forEach(parent => parent.removeChild(this));
     this.destroy();
     this.destroy$.next();
     this.destroy$.complete();
