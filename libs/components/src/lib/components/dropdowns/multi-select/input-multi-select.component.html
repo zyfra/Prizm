@@ -25,7 +25,7 @@
       class="block"
       *prizmLet="{ filteredItems: filteredItems$ | async } as $"
       [style.--prizm-data-list-border]="0"
-      (prizmAfterViewInit)="markAsTouched()"
+      (prizmAfterViewInit)="markAsTouched(); dropdownHostRef.reCalculatePositions()"
     >
       <div class="list-search-item" *ngIf="searchable">
         <prizm-input-layout size="m" label="Поиск">
