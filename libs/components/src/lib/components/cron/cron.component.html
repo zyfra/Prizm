@@ -54,20 +54,19 @@
 
   <div class="inner-block date-period border-bottom" *ngIf="!hidePeriod">
     <div class="date-block">
-      <prizm-input-date-time
-        [label]="cronI18n$ | async | prizmPluck : ['startDateLabel']"
-        [formControl]="startDateControl"
-        [max]="endDateControl.value"
-      >
-      </prizm-input-date-time>
+      <prizm-input-layout [label]="cronI18n$ | async | prizmPluck : ['startDateLabel']">
+        <prizm-input-layout-date-time [formControl]="startDateControl" [max]="endDateControl.value">
+        </prizm-input-layout-date-time>
+      </prizm-input-layout>
 
-      <prizm-input-date-time
-        [min]="startDateControl.value"
-        [label]="cronI18n$ | async | prizmPluck : ['endDateLabel']"
-        [disabled]="indefinitely"
-        [formControl]="endDateControl"
-      >
-      </prizm-input-date-time>
+      <prizm-input-layout [label]="cronI18n$ | async | prizmPluck : ['endDateLabel']">
+        <prizm-input-layout-date-time
+          [min]="startDateControl.value"
+          [disabled]="indefinitely"
+          [formControl]="endDateControl"
+        >
+        </prizm-input-layout-date-time>
+      </prizm-input-layout>
     </div>
     <div class="date-footer">
       <div class="indefinitely-toggle">
