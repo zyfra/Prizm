@@ -4,7 +4,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { distinctUntilChanged, filter, first, map, takeUntil, tap } from 'rxjs/operators';
 import { UntypedFormControl } from '@angular/forms';
 import { PrizmCronUiBaseType, PrizmCronUiState, PrizmCronUiStateList } from './model';
-import { PrizmCronService } from '../../services/cron';
+import { PrizmCronService, PrizmCronValueObject } from '../../services/cron';
 
 export abstract class PrizmCronUiBaseState<
   ENUM extends Record<string, unknown> = typeof PrizmCronUiBaseType,
@@ -68,7 +68,7 @@ export abstract class PrizmCronUiBaseState<
 
   public readonly typeControl = new UntypedFormControl();
 
-  public readonly type$ = this.current$.pipe(map(i => this.getTypeByValue(i)));
+  public readonly type$ = this.current$.pipe(map(i => this.getTypeByValue(i, this.cron.value)));
 
   public init(): void {
     this.initLocalStateChanger();
@@ -80,7 +80,7 @@ export abstract class PrizmCronUiBaseState<
     this.current$
       .pipe(
         distinctUntilChanged(),
-        tap(value => this.updateLocalState(value, this.getTypeByValue(value))),
+        tap(value => this.updateLocalState(value, this.getTypeByValue(value, this.cron.value))),
         takeUntil(this.destroy$)
       )
       .subscribe();
@@ -89,8 +89,12 @@ export abstract class PrizmCronUiBaseState<
   private initLocalTypeChanger(): void {
     this.type$
       .pipe(
+        tap(type => {
+          console.log('#mz initLocalTypeChanger - 1', type)
+        }),
         filter(i => i != this.typeControl.value),
         tap(type => {
+          console.log('#mz initLocalTypeChanger - 2', type)
           this.typeControl.setValue(type);
         }),
         takeUntil(this.destroy$)
@@ -100,7 +104,7 @@ export abstract class PrizmCronUiBaseState<
 
   public abstract updateMainState(value: string): void;
 
-  public getTypeByValueByDefault(value: string): PrizmCronUiBaseType {
+  public getTypeByValueByDefault(value: string, cron: PrizmCronValueObject): PrizmCronUiBaseType {
     if (value === '*') {
       return PrizmCronUiBaseType.every;
     } else if (value.includes('/')) {
@@ -111,8 +115,8 @@ export abstract class PrizmCronUiBaseState<
 
     return PrizmCronUiBaseType.specified;
   }
-  public getTypeByValue(hour: string): TYPE {
-    return this.getTypeByValueByDefault(hour) as unknown as TYPE;
+  public getTypeByValue(hour: string, cron: PrizmCronValueObject): TYPE {
+    return this.getTypeByValueByDefault(hour, cron) as unknown as TYPE;
   }
 
   public updatePartial(state: Partial<STATE>): void {

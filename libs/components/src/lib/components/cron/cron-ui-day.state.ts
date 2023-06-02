@@ -104,56 +104,6 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
         takeUntil(this.destroy$)
       )
       .subscribe();
-
-    // this.typeControl.valueChanges.pipe(
-    //   distinctUntilChanged(),
-    //   tap(
-    //     (value: PrizmCronUiDayType) => {
-    //       switch (value) {
-    //         case PrizmCronUiDayType.nearestWeekDayToTheChosenDayOfMonth:
-    //           this.updateNearestDayOfMonth();
-    //           break;
-    //         case PrizmCronUiDayType.every:
-    //           this.cron.updateWith({
-    //             dayOfMonth: '*',
-    //             dayOfWeek: '*'
-    //           });
-    //           break;
-    //         case PrizmCronUiDayType.afterDayOfWeek:
-    //           this.updateAfterDayOfWeek();
-    //           break;
-    //         case PrizmCronUiDayType.lastDayOfMonth:
-    //           this.cron.updateWith({
-    //             dayOfMonth: 'L',
-    //             dayOfWeek: '?'
-    //           });
-    //           break;
-    //         case PrizmCronUiDayType.lastWeekDayOfMonth:
-    //           this.cron.updateWith({
-    //             dayOfMonth: 'LW',
-    //             dayOfWeek: '?'
-    //           });
-    //           break;
-    //         case PrizmCronUiDayType.lastChosenDaysOfMonth:
-    //           this.updateLastChosenDayOfMonth();
-    //           break;
-    //         case PrizmCronUiDayType.lastChosenDayOfWeek:
-    //           this.updateLastChosenDayOfWeek();
-    //           break;
-    //         case PrizmCronUiDayType.afterDayOfMonth:
-    //           this.updateAfterDayOfMonth();
-    //           break;
-    //         case PrizmCronUiDayType.specifiedDayOfWeek:
-    //           this.updateSelectedDayOfWeek();
-    //           break;
-    //         case PrizmCronUiDayType.specifiedDayOfMonth:
-    //           this.updateSelectedDayOfMonth();
-    //           break;
-    //       }
-    //     }
-    //   ),
-    //   takeUntil(this.destroy$)
-    // ).subscribe()
   }
 
   public updateLastChosenDayOfMonth(): void {
@@ -164,13 +114,10 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
     });
   }
   public updateLastChosenDayOfWeek(): void {
-    // const onNumberOfWeekListValue = this.onNumberOfWeekListValue;
-    // const lastChosenDayOfWeekValue2 = this.lastChosenDayOfWeekValue2;
     const lastChosenDayOfWeekValue = this.lastChosenDayOfWeekValue;
     this.cron.updateWith({
       dayOfMonth: `?`,
       dayOfWeek: `${lastChosenDayOfWeekValue}L`,
-      // dayOfWeek: `${lastChosenDayOfWeekValue2}#${onNumberOfWeekListValue}`
     });
   }
 
