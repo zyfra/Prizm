@@ -89,12 +89,8 @@ export abstract class PrizmCronUiBaseState<
   private initLocalTypeChanger(): void {
     this.type$
       .pipe(
-        tap(type => {
-          console.log('#mz initLocalTypeChanger - 1', type)
-        }),
         filter(i => i != this.typeControl.value),
         tap(type => {
-          console.log('#mz initLocalTypeChanger - 2', type)
           this.typeControl.setValue(type);
         }),
         takeUntil(this.destroy$)
