@@ -32,6 +32,6 @@ export class PrizmInputCarouselArrayOfObjectsExampleComponent {
         description: 'description 3',
       },
     ],
-    (item, el) => item.id === el.id
+    (item, el) => item?.id === el?.id
   );
 }
