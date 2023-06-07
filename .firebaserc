@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "prizmui"
-  }
+  },
+  "targets": {
+    "prizmui": {
+      "hosting": {
+        "draft": [
+          "prizmui-draft"
+        ],
+        "next": [
+          "prizmui-next"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
