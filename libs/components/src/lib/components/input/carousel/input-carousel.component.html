@@ -1,0 +1,13 @@
+<ng-container *ngIf="!empty; else emptyTpl">
+  <ng-content></ng-content>
+</ng-container>
+
+<ng-template #emptyTpl>&nbsp;</ng-template>
+
+<ng-container *prizmInputLayoutLeft>
+  <prizm-carousel-auxiliary-left [carousel]="this"> </prizm-carousel-auxiliary-left>
+</ng-container>
+
+<ng-container *prizmInputLayoutRight>
+  <prizm-carousel-auxiliary-right [carousel]="this"> </prizm-carousel-auxiliary-right>
+</ng-container>

@@ -415,6 +415,11 @@ export const pages: PrizmOrderedDocPage = [
         keywords: 'carousel',
         route: 'components/carousel',
       },
+      {
+        title: 'InputCarousel',
+        keywords: 'input-carousel, input',
+        route: 'components/input-carousel',
+      },
     ],
   },
   {

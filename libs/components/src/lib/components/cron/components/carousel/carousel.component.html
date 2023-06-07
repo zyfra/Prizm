@@ -5,6 +5,7 @@
     [required]="true"
     [carouselContent]="content"
     [ngModel]="value"
+    [ngModelOptions]="{ standalone: true }"
     [lightMode]="true"
     [ngSwitch]="!!template"
     (ngModelChange)="valueChange.emit($event)"

@@ -74,15 +74,13 @@
         <prizm-cron-carousel
           [content]="cronUiState.afterDayOfWeekListDays"
           [value]="cronUiState.afterDayOfWeekListDaysValue"
-          (valueChange)="cronUiState.afterDayOfWeekListDaysValue = $event; cronUiState.updateAfterDayOfWeek()"
+          (valueChange)="cronUiState.updateAfterDayOfWeek($event)"
         ></prizm-cron-carousel>
         день, начиная с
         <prizm-cron-carousel
           [content]="cronUiState.carouselWeek"
           [value]="cronUiState.afterDayOfWeekListDayOfWeeksValue"
-          (valueChange)="
-            cronUiState.afterDayOfWeekListDayOfWeeksValue = $event; cronUiState.updateAfterDayOfWeek()
-          "
+          (valueChange)="cronUiState.updateAfterDayOfWeek(null, $event)"
         >
           <ng-template #content let-value="content">
             {{ value | prizmCronWeek }}
@@ -112,17 +110,13 @@
         <prizm-cron-carousel
           [content]="cronUiState.afterDayOfMonthListRepeatDays"
           [value]="cronUiState.afterDayOfMonthListRepeatDaysValue"
-          (valueChange)="
-            cronUiState.afterDayOfMonthListRepeatDaysValue = $event; cronUiState.updateAfterDayOfMonth()
-          "
+          (valueChange)="cronUiState.updateAfterDayOfMonth($event)"
         ></prizm-cron-carousel>
         день, начиная с
         <prizm-cron-carousel
           [content]="cronUiState.afterDayOfMonthListDays"
           [value]="cronUiState.afterDayOfMonthListDaysValue"
-          (valueChange)="
-            cronUiState.afterDayOfMonthListDaysValue = $event; cronUiState.updateAfterDayOfMonth()
-          "
+          (valueChange)="cronUiState.updateAfterDayOfMonth(null, $event)"
         ></prizm-cron-carousel>
         числа месяца
       </div>
@@ -150,7 +144,7 @@
           #schedule
           [items]="cronUiState.dayOfWeekItems"
           [selected]="cronUiState.selectedDayOfWeek"
-          (selectedChange)="cronUiState.selectedDayOfWeek = $event; cronUiState.updateSelectedDayOfWeek()"
+          (selectedChange)="cronUiState.updateSelectedDayOfWeek($event)"
         >
           <ng-template #content let-item="item">
             {{ item.value | prizmCronWeek : 'E' }}
@@ -181,7 +175,7 @@
           #scheduleDayOfMonthItems
           [items]="cronUiState.dayOfMonthItems"
           [selected]="cronUiState.selectedDayOfMonth"
-          (selectedChange)="cronUiState.selectedDayOfMonth = $event; cronUiState.updateSelectedDayOfMonth()"
+          (selectedChange)="cronUiState.updateSelectedDayOfMonth($event)"
         ></prizm-cron-schedule>
       </div>
     </label>
@@ -237,7 +231,7 @@
           [label]="null"
           [value]="currentType"
           [name]="'type'"
-          (changeEvent)="cronUiState.updateLastChosenDayOfWeek()"
+          (changeEvent)="cronUiState.updateLastChosenDayOfWeek(cronUiState.lastChosenDayOfWeekValue)"
         ></prizm-radio-button>
       </div>
       <div class="content">
@@ -245,9 +239,7 @@
         <prizm-cron-carousel
           [content]="cronUiState.carouselWeek"
           [value]="cronUiState.lastChosenDayOfWeekValue"
-          (valueChange)="
-            cronUiState.lastChosenDayOfWeekValue = $event; cronUiState.updateLastChosenDayOfWeek()
-          "
+          (valueChange)="cronUiState.updateLastChosenDayOfWeek($event)"
         >
           <ng-template #content let-value="content">
             {{ value | prizmCronWeek }}

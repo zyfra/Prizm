@@ -1,5 +1,9 @@
 import { prizmDefaultCarouselControlsState, PrizmCarouselContent } from './carousel-content.interface';
-
+/**
+ * TODO remove in 2.0 version
+ * @deprecated
+ * use PrizmInputCarouselArrayContent
+ * */
 export class PrizmCarouselArrayContent<T> implements PrizmCarouselContent {
   private currentIndex = -1;
   currentValue: T = undefined;
@@ -85,3 +89,5 @@ export class PrizmCarouselArrayContent<T> implements PrizmCarouselContent {
     this.controlsState.rightCtrlDisabled = false;
   }
 }
+
+export class PrizmInputCarouselArrayContent<T> extends PrizmCarouselArrayContent<T> {}

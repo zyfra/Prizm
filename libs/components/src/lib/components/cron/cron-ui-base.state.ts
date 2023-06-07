@@ -1,10 +1,11 @@
 import { canShowCronListItem, getArrWithStringNumbers, getCarousel } from './util';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { distinctUntilChanged, filter, first, map, takeUntil, tap } from 'rxjs/operators';
+import { distinctUntilChanged, filter, finalize, first, map, takeUntil, tap } from 'rxjs/operators';
 import { UntypedFormControl } from '@angular/forms';
 import { PrizmCronUiBaseType, PrizmCronUiState, PrizmCronUiStateList } from './model';
 import { PrizmCronService, PrizmCronValueObject } from '../../services/cron';
+import { isEqual } from 'lodash';
 
 export abstract class PrizmCronUiBaseState<
   ENUM extends Record<string, unknown> = typeof PrizmCronUiBaseType,
@@ -32,7 +33,7 @@ export abstract class PrizmCronUiBaseState<
   readonly canShowCronListItem = canShowCronListItem;
 
   constructor(
-    public readonly current$: Observable<string>,
+    public readonly current$: Observable<any>,
     public readonly initialType: TYPE,
     public readonly TYPES: ENUM,
     private readonly between = {
@@ -75,18 +76,18 @@ export abstract class PrizmCronUiBaseState<
     this.initLocalTypeChanger();
   }
 
-  private initLocalStateChanger(): void {
+  protected initLocalStateChanger(): void {
     /* add change when base changes */
     this.current$
       .pipe(
-        distinctUntilChanged(),
+        distinctUntilChanged((a, b) => a === b || (a && b && a[0] === b[0] && a[1] === b[1])),
         tap(value => this.updateLocalState(value, this.getTypeByValue(value, this.cron.value))),
         takeUntil(this.destroy$)
       )
       .subscribe();
   }
 
-  private initLocalTypeChanger(): void {
+  protected initLocalTypeChanger(): void {
     this.type$
       .pipe(
         filter(i => i != this.typeControl.value),
@@ -182,7 +183,7 @@ export abstract class PrizmCronUiBaseState<
   /**
    * TODO fix type casting
    * */
-  public updateLocalState(value: string, type: TYPE): void {
+  public updateLocalState(value: any, type: TYPE): void {
     switch (type) {
       case this.TYPES.between:
         {
@@ -233,5 +234,6 @@ export abstract class PrizmCronUiBaseState<
     this.destroy$.next();
     this.destroy$.complete();
     this.destroy$.unsubscribe();
+    console.log('#Mz destroy', this);
   }
 }

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { PrizmCronUiDayType, PrizmCronUiListItem } from './model';
+import { PrizmCronUiBaseType, PrizmCronUiDayType, PrizmCronUiListItem } from './model';
 import { PrizmCronUiBaseState } from './cron-ui-base.state';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { PrizmCronService } from '../../services/cron';
+import { PrizmCronService, PrizmCronValueObject } from '../../services/cron';
 import {
   getArrWithStringNumbers,
   getArrWithWeekNumber,
@@ -10,7 +10,7 @@ import {
   getCarouselWeek,
   prizmConvertDayToType,
 } from './util';
-import { combineLatest } from 'rxjs';
+import { combineLatest, merge } from 'rxjs';
 import { filter, map, takeUntil, tap } from 'rxjs/operators';
 import { PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS } from './const';
 
@@ -46,7 +46,7 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
   public nearestDayOfMonthValue = '1';
   constructor(public readonly cron: PrizmCronService, public readonly destroy$: PrizmDestroyService) {
     super(
-      cron.minute$,
+      cron.value$.pipe(map(i => [i.dayOfMonth, i.dayOfWeek])),
       PrizmCronUiDayType.every,
       PrizmCronUiDayType,
       {
@@ -104,6 +104,7 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
         takeUntil(this.destroy$)
       )
       .subscribe();
+    super.initLocalStateChanger();
   }
 
   public updateLastChosenDayOfMonth(): void {
@@ -113,11 +114,12 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
       dayOfMonth: `L-${lastChosenDayOfMonthValue}`,
     });
   }
-  public updateLastChosenDayOfWeek(): void {
-    const lastChosenDayOfWeekValue = this.lastChosenDayOfWeekValue;
+  public updateLastChosenDayOfWeek(lastChosenDayOfWeekValue: string, addEnding = true): void {
+    const newValue = addEnding ? lastChosenDayOfWeekValue : lastChosenDayOfWeekValue.replace(/L$/g, '');
+    this.lastChosenDayOfWeekValue = newValue;
     this.cron.updateWith({
       dayOfMonth: `?`,
-      dayOfWeek: `${lastChosenDayOfWeekValue}L`,
+      dayOfWeek: `${newValue}L`,
     });
   }
 
@@ -130,30 +132,42 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
     });
   }
 
-  public updateAfterDayOfWeek(): void {
-    const afterDayOfWeekListDaysValue = this.afterDayOfWeekListDaysValue;
-    const afterDayOfWeekListDayOfWeeksValue = this.afterDayOfWeekListDayOfWeeksValue;
+  public updateAfterDayOfWeek(
+    afterDayOfWeekListDaysValue?: string,
+    afterDayOfWeekListDayOfWeeksValue?: string
+  ): void {
+    this.afterDayOfWeekListDaysValue = afterDayOfWeekListDaysValue ?? this.afterDayOfWeekListDaysValue;
+    this.afterDayOfWeekListDayOfWeeksValue =
+      afterDayOfWeekListDayOfWeeksValue ?? this.afterDayOfWeekListDayOfWeeksValue;
     if (!afterDayOfWeekListDayOfWeeksValue) return;
     this.cron.updateWith({
       dayOfMonth: `?`,
       dayOfWeek: `${afterDayOfWeekListDayOfWeeksValue}/${afterDayOfWeekListDaysValue}`,
     });
   }
-  public updateSelectedDayOfWeek(): void {
+  public updateSelectedDayOfWeek(selectedDayOfWeek: string[]): void {
+    this.selectedDayOfWeek = selectedDayOfWeek;
     this.cron.updateWith({
       dayOfMonth: `?`,
       dayOfWeek: this.selectedDayOfWeek.join(','),
     });
   }
 
-  public updateSelectedDayOfMonth(): void {
+  public updateSelectedDayOfMonth(selectedDayOfMonth: string[]): void {
+    this.selectedDayOfMonth = selectedDayOfMonth;
     this.cron.updateWith({
       dayOfWeek: `?`,
-      dayOfMonth: [...new Set(['1', ...this.selectedDayOfMonth])].join(','),
+      dayOfMonth: [...new Set(this.selectedDayOfMonth.length ? this.selectedDayOfMonth : ['1'])].join(','),
     });
   }
 
-  public updateAfterDayOfMonth(): void {
+  public updateAfterDayOfMonth(
+    afterDayOfMonthListRepeatDaysValue?: string,
+    afterDayOfMonthListDaysValue?: string
+  ): void {
+    this.afterDayOfMonthListRepeatDaysValue =
+      afterDayOfMonthListRepeatDaysValue ?? this.afterDayOfMonthListRepeatDaysValue;
+    this.afterDayOfMonthListDaysValue = afterDayOfMonthListDaysValue ?? this.afterDayOfMonthListDaysValue;
     this.cron.updateWith({
       dayOfWeek: `?`,
       dayOfMonth: `${this.afterDayOfMonthListDaysValue}/${this.afterDayOfMonthListRepeatDaysValue}`,
@@ -182,11 +196,18 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
     });
   }
 
-  public override updateLocalState(value: string, type: PrizmCronUiDayType): void {
+  public override getTypeByValueByDefault(value: string, cron: PrizmCronValueObject): PrizmCronUiBaseType {
+    return prizmConvertDayToType(cron.dayOfMonth, cron.dayOfWeek) as unknown as PrizmCronUiBaseType;
+  }
+
+  public override updateLocalState(
+    [dayOfMonth, dayOfWeek]: [string, string],
+    type: PrizmCronUiDayType
+  ): void {
     switch (type) {
       case this.TYPES.between:
         {
-          const arr = value.split('-');
+          const arr = dayOfMonth.split('-');
           const start = arr[0] ?? '0';
           const end = arr[1] ?? '0';
 
@@ -204,26 +225,38 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
           type: PrizmCronUiDayType.every,
         });
         break;
-      case this.TYPES.specified:
-        this.updatePartial({
-          type: PrizmCronUiDayType.specified,
-          specified: value.split(','),
-        });
+
+      case this.TYPES.specifiedDayOfWeek:
+        {
+          this.updateSelectedDayOfWeek(dayOfWeek.split(','));
+        }
         break;
 
-      case this.TYPES.after:
+      case this.TYPES.lastChosenDayOfWeek:
         {
-          const arr = value.split('/');
-          const on = arr[1] ?? '0';
-          const after = arr[0] ?? '0';
+          this.updateLastChosenDayOfWeek(dayOfWeek, false);
+        }
+        break;
 
-          this.updatePartial({
-            type: PrizmCronUiDayType.after,
-            everyChosenTimesAfterChosen: {
-              on: on,
-              after: after,
-            },
-          });
+      case this.TYPES.specifiedDayOfMonth:
+        {
+          this.updateSelectedDayOfMonth(dayOfMonth.split(','));
+        }
+        break;
+
+      case this.TYPES.afterDayOfMonth:
+        {
+          const [afterDayOfMonthListDaysValue, afterDayOfMonthListRepeatDaysValue] =
+            dayOfMonth?.split('/') ?? [];
+          this.updateAfterDayOfMonth(afterDayOfMonthListRepeatDaysValue, afterDayOfMonthListDaysValue);
+        }
+        break;
+
+      case this.TYPES.afterDayOfWeek:
+        {
+          const [afterDayOfWeekListDayOfWeeksValue, afterDayOfWeekListDaysValue] =
+            dayOfWeek?.split('/') ?? [];
+          this.updateAfterDayOfWeek(afterDayOfWeekListDaysValue, afterDayOfWeekListDayOfWeeksValue);
         }
         break;
     }
