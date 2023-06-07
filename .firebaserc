@@ -5,6 +5,9 @@
   "targets": {
     "prizmui": {
       "hosting": {
+        "main": [
+          "prizmui"
+        ],
         "draft": [
           "prizmui-draft"
         ],
