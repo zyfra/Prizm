@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PrizmInputCarouselComponent } from './input-carousel.component';
+import { PrizmInputCarousel } from './types';
 
 @Component({
   selector: 'prizm-input-carousel-auxiliary-left',
@@ -29,5 +29,5 @@ import { PrizmInputCarouselComponent } from './input-carousel.component';
   ],
 })
 export class PrizmInputCarouselAuxiliaryLeftComponent {
-  @Input() carousel: PrizmInputCarouselComponent;
+  @Input() carousel: PrizmInputCarousel;
 }

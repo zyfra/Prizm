@@ -17,6 +17,7 @@ import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputCarouselContent } from './carousel-content/carousel-content.interface';
 import { PrizmInputNgControl } from '../common';
 import { takeUntil, tap } from 'rxjs/operators';
+import { PrizmInputCarousel } from './types';
 
 @Component({
   selector: 'prizm-input-carousel',
@@ -42,7 +43,10 @@ import { takeUntil, tap } from 'rxjs/operators';
     '[attr.tabindex]': "disabled ? null : '0'",
   },
 })
-export class PrizmInputCarouselComponent extends PrizmInputNgControl<any> implements ControlValueAccessor {
+export class PrizmInputCarouselComponent
+  extends PrizmInputNgControl<any>
+  implements ControlValueAccessor, PrizmInputCarousel
+{
   @HostBinding('attr.data-testid')
   readonly testId = 'ui-area--carousel';
   @Input() carouselContent: PrizmInputCarouselContent;
