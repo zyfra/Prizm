@@ -32,9 +32,13 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
   }));
 
   public readonly carouselWeek = getCarouselWeek();
+  public readonly carouselWeekLastChosenDayOfChosenWeek = getCarouselWeek();
+  public readonly carouselWeekLastChosenDayOfWeek = getCarouselWeek();
+  public readonly carouselWeekAfterDayOfWeek = getCarouselWeek();
   public lastChosenDayOfWeekValue2 = this.carouselWeek.first;
   public lastChosenDayOfWeekValue = this.carouselWeek.first;
   public readonly nearestDayOfMonth = getCarousel(31, 1);
+  public readonly contentLastChosenDayOfMonth = getCarousel(31, 1);
   public readonly afterDayOfWeekListDays = getCarousel(7, 1);
   public selectedDayOfMonth: string[] = [];
   public afterDayOfWeekListDaysValue = this.afterDayOfWeekListDays.first;
@@ -107,8 +111,8 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
     super.initLocalStateChanger();
   }
 
-  public updateLastChosenDayOfMonth(): void {
-    const lastChosenDayOfMonthValue = this.lastChosenDayOfMonthValue;
+  public updateLastChosenDayOfMonth(lastChosenDayOfMonthValue?: string): void {
+    this.lastChosenDayOfMonthValue = lastChosenDayOfMonthValue ?? this.lastChosenDayOfMonthValue;
     this.cron.updateWith({
       dayOfWeek: `?`,
       dayOfMonth: `L-${lastChosenDayOfMonthValue}`,
@@ -123,26 +127,32 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
     });
   }
 
-  public updateLastChosenDayOfChosenWeek(): void {
-    const onNumberOfWeekListValue = this.onNumberOfWeekListValue;
-    const lastChosenDayOfWeekValue2 = this.lastChosenDayOfWeekValue2;
+  public updateLastChosenDayOfChosenWeek(
+    onNumberOfWeekListValue?: string,
+    lastChosenDayOfWeekValue2?: string
+  ): void {
+    this.onNumberOfWeekListValue = onNumberOfWeekListValue ?? this.onNumberOfWeekListValue;
+    this.lastChosenDayOfWeekValue2 = lastChosenDayOfWeekValue2 ?? this.lastChosenDayOfWeekValue2;
     this.cron.updateWith({
       dayOfMonth: `?`,
-      dayOfWeek: `${lastChosenDayOfWeekValue2}#${onNumberOfWeekListValue}`,
+      dayOfWeek: `${this.lastChosenDayOfWeekValue2}#${this.onNumberOfWeekListValue}`,
     });
   }
 
-  public updateAfterDayOfWeek(
-    afterDayOfWeekListDaysValue?: string,
-    afterDayOfWeekListDayOfWeeksValue?: string
-  ): void {
+  public updateAfterDayOfWeek({
+    afterDayOfWeekListDaysValue,
+    afterDayOfWeekListDayOfWeeksValue,
+  }: {
+    afterDayOfWeekListDaysValue?: string;
+    afterDayOfWeekListDayOfWeeksValue?: string;
+  } = {}): void {
     this.afterDayOfWeekListDaysValue = afterDayOfWeekListDaysValue ?? this.afterDayOfWeekListDaysValue;
     this.afterDayOfWeekListDayOfWeeksValue =
       afterDayOfWeekListDayOfWeeksValue ?? this.afterDayOfWeekListDayOfWeeksValue;
-    if (!afterDayOfWeekListDayOfWeeksValue) return;
+    if (!this.afterDayOfWeekListDayOfWeeksValue) return;
     this.cron.updateWith({
       dayOfMonth: `?`,
-      dayOfWeek: `${afterDayOfWeekListDayOfWeeksValue}/${afterDayOfWeekListDaysValue}`,
+      dayOfWeek: `${this.afterDayOfWeekListDayOfWeeksValue}/${this.afterDayOfWeekListDaysValue}`,
     });
   }
   public updateSelectedDayOfWeek(selectedDayOfWeek: string[]): void {
@@ -174,7 +184,8 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
     });
   }
 
-  public updateNearestDayOfMonth(): void {
+  public updateNearestDayOfMonth(nearestDayOfMonthValue?: string): void {
+    this.nearestDayOfMonthValue = nearestDayOfMonthValue ?? this.nearestDayOfMonthValue;
     this.cron.updateWith({
       dayOfMonth: `${this.nearestDayOfMonthValue}W`,
       dayOfWeek: '?',
@@ -238,9 +249,29 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
         }
         break;
 
+      case this.TYPES.nearestWeekDayToTheChosenDayOfMonth:
+        {
+          this.updateNearestDayOfMonth(dayOfMonth?.replace('W', ''));
+        }
+        break;
+
+      case this.TYPES.onTheChosenDayOfWeek:
+        {
+          const [lastChosenDayOfWeekValue2, onNumberOfWeekListValue] = dayOfWeek?.split('#') ?? [];
+          if (lastChosenDayOfWeekValue2 && onNumberOfWeekListValue)
+            this.updateLastChosenDayOfChosenWeek(onNumberOfWeekListValue, lastChosenDayOfWeekValue2);
+        }
+        break;
+
       case this.TYPES.specifiedDayOfMonth:
         {
           this.updateSelectedDayOfMonth(dayOfMonth.split(','));
+        }
+        break;
+
+      case this.TYPES.lastChosenDaysOfMonth:
+        {
+          this.updateLastChosenDayOfMonth(dayOfMonth?.replace(/L-/g, ''));
         }
         break;
 
@@ -256,7 +287,8 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
         {
           const [afterDayOfWeekListDayOfWeeksValue, afterDayOfWeekListDaysValue] =
             dayOfWeek?.split('/') ?? [];
-          this.updateAfterDayOfWeek(afterDayOfWeekListDaysValue, afterDayOfWeekListDayOfWeeksValue);
+          if (afterDayOfWeekListDayOfWeeksValue && afterDayOfWeekListDaysValue)
+            this.updateAfterDayOfWeek({ afterDayOfWeekListDaysValue, afterDayOfWeekListDayOfWeeksValue });
         }
         break;
     }

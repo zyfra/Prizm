@@ -5,6 +5,7 @@ import { PrizmButtonModule } from '../button';
 import { PrizmSwitcherModule } from '../switcher';
 import {
   PrizmCarouselModule,
+  PrizmInputCarouselModule,
   PrizmInputDateTimeModule,
   PrizmInputLayoutDateTimeModule,
   PrizmInputTextModule,
@@ -46,7 +47,7 @@ import { PrizmScrollbarModule } from '../scrollbar';
     PrizmInputLayoutDateTimeModule,
     PrizmCallFuncModule,
     PrizmButtonModule,
-    PrizmCarouselModule,
+    PrizmInputCarouselModule,
     PrizmInputTextModule,
     PrizmRadioButtonModule,
     PrizmSwitcherModule,

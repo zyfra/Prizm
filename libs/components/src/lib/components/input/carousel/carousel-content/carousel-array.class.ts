@@ -26,6 +26,7 @@ export class PrizmCarouselArrayContent<T> implements PrizmCarouselContent {
   public setCurrentValue(element: T): void {
     this.currentIndex = this.set.findIndex(item => this.searchFn(item, element));
     this.currentValue = this.currentIndex === -1 ? undefined : this.set[this.currentIndex];
+
     this.updateControlsState();
   }
 
