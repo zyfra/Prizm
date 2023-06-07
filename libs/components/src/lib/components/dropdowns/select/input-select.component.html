@@ -14,6 +14,7 @@
     [placeholder]="placeholder"
     [disabled]="disabled"
     [readonly]="true"
+    [ngModelOptions]="{ standalone: true }"
     [ngModel]="(value | prizmCallFunc : getCurrentItem) ?? ''"
     (click)="safeOpenModal()"
     (focus)="focused$$.next(true); markAsTouched()"

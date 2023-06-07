@@ -54,20 +54,22 @@
 
   <div class="inner-block date-period border-bottom" *ngIf="!hidePeriod">
     <div class="date-block">
-      <prizm-input-date-time
-        [label]="cronI18n$ | async | prizmPluck : ['startDateLabel']"
-        [formControl]="startDateControl"
-        [max]="endDateControl.value"
-      >
-      </prizm-input-date-time>
+      <prizm-input-layout [label]="cronI18n$ | async | prizmPluck : ['startDateLabel']">
+        <prizm-input-layout-date-time
+          [formControl]="startDateControl"
+          [max]="endDateControl.value ?? undefined"
+        >
+        </prizm-input-layout-date-time>
+      </prizm-input-layout>
 
-      <prizm-input-date-time
-        [min]="startDateControl.value"
-        [label]="cronI18n$ | async | prizmPluck : ['endDateLabel']"
-        [disabled]="indefinitely"
-        [formControl]="endDateControl"
-      >
-      </prizm-input-date-time>
+      <prizm-input-layout [label]="cronI18n$ | async | prizmPluck : ['endDateLabel']">
+        <prizm-input-layout-date-time
+          [min]="startDateControl.value ?? undefined"
+          [disabled]="indefinitely"
+          [formControl]="endDateControl"
+        >
+        </prizm-input-layout-date-time>
+      </prizm-input-layout>
     </div>
     <div class="date-footer">
       <div class="indefinitely-toggle">
@@ -82,10 +84,7 @@
       <prizm-cron-second *ngSwitchCase="0" [specifiedList]="specifiedList?.second ?? []"></prizm-cron-second>
       <prizm-cron-minute *ngSwitchCase="1" [specifiedList]="specifiedList?.minute ?? []"></prizm-cron-minute>
       <prizm-cron-hour *ngSwitchCase="2" [specifiedList]="specifiedList?.hour ?? []"></prizm-cron-hour>
-      <prizm-cron-day
-        [specifiedList]="specifiedList?.day ?? []"
-        [hidden]="selectedSwitcherIdx !== 3"
-      ></prizm-cron-day>
+      <prizm-cron-day *ngSwitchCase="3" [specifiedList]="specifiedList?.day ?? []"></prizm-cron-day>
       <prizm-cron-month *ngSwitchCase="4" [specifiedList]="specifiedList?.month ?? []"></prizm-cron-month>
       <prizm-cron-year *ngSwitchCase="5" [specifiedList]="specifiedList?.year ?? []"></prizm-cron-year>
     </prizm-scrollbar>

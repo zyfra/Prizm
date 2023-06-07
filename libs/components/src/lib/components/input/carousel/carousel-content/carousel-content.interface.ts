@@ -1,3 +1,8 @@
+/**
+ * TODO remove in 2.0 version
+ * @deprecated
+ * use PrizmInputCarouselControlsState
+ * */
 export interface PrizmCarouselControlsState {
   leftCtrlDisabled: boolean;
   stepleftCtrlDisabled: boolean;
@@ -5,6 +10,13 @@ export interface PrizmCarouselControlsState {
   rightCtrlDisabled: boolean;
 }
 
+export type PrizmInputCarouselControlsState = PrizmCarouselControlsState;
+
+/**
+ * TODO remove in 2.0 version
+ * @deprecated
+ * use prizmInputCarouselDefaultControlsState
+ * */
 export const prizmDefaultCarouselControlsState: PrizmCarouselControlsState = {
   leftCtrlDisabled: true,
   stepleftCtrlDisabled: true,
@@ -12,6 +24,13 @@ export const prizmDefaultCarouselControlsState: PrizmCarouselControlsState = {
   rightCtrlDisabled: true,
 };
 
+export const prizmInputCarouselDefaultControlsState = prizmDefaultCarouselControlsState;
+
+/**
+ * TODO remove in 2.0 version
+ * @deprecated
+ * use PrizmInputCarouselContent
+ * */
 export interface PrizmCarouselContent {
   currentValue: any;
   currentValueNotSet: boolean;
@@ -28,3 +47,5 @@ export interface PrizmCarouselContent {
 
   right(): void;
 }
+
+export type PrizmInputCarouselContent = PrizmCarouselContent;
