@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import { PrizmCarouselComponent } from './carousel.component';
-import { PrizmInputCarouselComponent } from './input-carousel.component';
+
 /**
  * @deprecated
  * use PrizmInputCarouselAuxiliaryLeftComponent
