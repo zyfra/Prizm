@@ -2,11 +2,16 @@ import { NgModule } from '@angular/core';
 
 import { PrizmInputCommonModule } from '../common/input-common.module';
 import { PrizmInputCarouselComponent } from './input-carousel.component';
-import { PrizmCarouselCommonModule } from './carousel-common.module';
+import { PrizmInputCarouselAuxiliaryLeftComponent } from './input-carousel-auxiliary-left.component';
+import { PrizmInputCarouselAuxiliaryRightComponent } from './input-carousel-auxiliary-right.component';
 
 @NgModule({
-  imports: [PrizmInputCommonModule, PrizmCarouselCommonModule],
-  declarations: [PrizmInputCarouselComponent],
-  exports: [PrizmInputCarouselComponent, PrizmInputCommonModule, PrizmCarouselCommonModule],
+  imports: [PrizmInputCommonModule],
+  declarations: [
+    PrizmInputCarouselComponent,
+    PrizmInputCarouselAuxiliaryLeftComponent,
+    PrizmInputCarouselAuxiliaryRightComponent,
+  ],
+  exports: [PrizmInputCarouselComponent, PrizmInputCommonModule],
 })
 export class PrizmInputCarouselModule {}

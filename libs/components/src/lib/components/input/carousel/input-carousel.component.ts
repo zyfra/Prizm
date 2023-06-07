@@ -16,8 +16,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputCarouselContent } from './carousel-content/carousel-content.interface';
 import { PrizmInputNgControl } from '../common';
-import { switchMap, takeUntil, tap } from 'rxjs/operators';
-import { interval, timer } from 'rxjs';
+import { takeUntil, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'prizm-input-carousel',

@@ -1,13 +1,8 @@
 import { Component, Input } from '@angular/core';
-
-import { PrizmCarouselComponent } from './carousel.component';
 import { PrizmInputCarouselComponent } from './input-carousel.component';
-/**
- * @deprecated
- * use PrizmInputCarouselAuxiliaryRightComponent
- * */
+
 @Component({
-  selector: 'prizm-carousel-auxiliary-right',
+  selector: 'prizm-input-carousel-auxiliary-right',
   template: `
     <button
       *ngIf="!carousel.disabled"
@@ -33,6 +28,6 @@ import { PrizmInputCarouselComponent } from './input-carousel.component';
     `,
   ],
 })
-export class PrizmCarouselAuxiliaryRightComponent {
-  @Input() carousel: PrizmCarouselComponent;
+export class PrizmInputCarouselAuxiliaryRightComponent {
+  @Input() carousel: PrizmInputCarouselComponent;
 }
