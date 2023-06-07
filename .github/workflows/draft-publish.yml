@@ -76,5 +76,5 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
-          projectId: prizmui
-          channelId: draft
+          projectId: prizmui-draft
+          channelId: live
