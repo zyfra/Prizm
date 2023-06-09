@@ -160,8 +160,7 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
   // }
 
   public get focused(): boolean {
-    return false;
-    // return this.focusableElement?.focused
+    return this.focusableElement?.focused;
   }
 
   get fillerLength(): number {

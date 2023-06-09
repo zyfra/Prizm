@@ -18,7 +18,7 @@ export class PrizmInputZoneDirective {
   @Output() readonly blur$: Observable<boolean> = this.focused$.pipe(map(i => !i));
 
   get focused() {
-    return !!this.inputZoneService.elements.find(i => i.focus);
+    return !!this.inputZoneService.elements.find(i => i.focused);
   }
 
   get elements() {
