@@ -185,11 +185,10 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
   }
 
   get computedDateValue(): string {
-    const { value, timeMode } = this;
-    const [date, time] = value;
-    // const hasTimeInputChars = nativeValue.length > PRIZM_DATE_FILLER_LENGTH;
+    const { value } = this;
+    const [date] = value;
 
-    if (!date || !time /*&& hasTimeInputChars*/) {
+    if (!date) {
       return '';
     }
 
@@ -197,11 +196,11 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
   }
 
   get computedTimeValue(): string {
-    const { value, timeMode } = this;
-    const [date, time] = value;
+    const { value } = this;
+    const [, time] = value;
     // const hasTimeInputChars = nativeValue.length > PRIZM_DATE_FILLER_LENGTH;
 
-    if (!date || !time /*&& hasTimeInputChars*/) {
+    if (!time /*&& hasTimeInputChars*/) {
       return '';
     }
 
@@ -224,25 +223,6 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     return this.month || this.value[0] || this.defaultActiveYearMonth;
   }
 
-  // get nativeValue(): string {
-  //   return '';
-  //   // return this.focusableElement ? this.focusableElement.inputs.map(
-  //   //   i => i.value
-  //   // ).join(' ') : ``;
-  // }
-
-  // set nativeValue(value: string) {
-  //   if (!this.focusableElement) {
-  //     return;
-  //   }
-  //
-  //   // const values = this.nativeValue.split(' ');
-  //   // if (values.length)
-  //   //   values.forEach((value, idx) => {
-  //   //     if (!this.focusableElement.inputs?.[idx]) return;
-  //   //     this.focusableElement.inputs[idx].value = value;
-  //   //   });
-  // }
   public onDateValueChange(value: string): void {
     if (value === this.computedDateValue) return;
     if (!value || value.length < this.textMaskOptions.length) {
@@ -265,6 +245,11 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
       );
 
     if (time) time = this.timeLimit([date, time]);
+
+    console.log('#mz updateValue:', {
+      date,
+      time,
+    });
 
     this.updateValue([date, time]);
   }
