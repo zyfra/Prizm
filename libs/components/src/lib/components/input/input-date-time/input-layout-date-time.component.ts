@@ -270,10 +270,8 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     }
 
     const time = value;
-    let parsedTime =
-      time && time.length === this.timeMode.length
-        ? this.prizmClampTime(PrizmTime.fromString(time), this.value?.[0] ?? null)
-        : null;
+
+    let parsedTime = time && time.length === this.timeMode.length ? PrizmTime.fromString(time) : null;
 
     if (parsedTime) parsedTime = PrizmTime.correctTime(parsedTime);
 

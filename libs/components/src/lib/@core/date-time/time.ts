@@ -16,10 +16,11 @@ import { prizmAssert, prizmPadStart } from '@prizm-ui/core';
  */
 export class PrizmTime implements PrizmTimeLike {
   public static correctTime(parsedTime: PrizmTime): PrizmTime {
-    if (parsedTime.hours > 23)
-      parsedTime = new PrizmTime(23, parsedTime.minutes, parsedTime.seconds, parsedTime.ms);
-
-    return parsedTime;
+    let { hours, minutes, seconds } = parsedTime;
+    if (hours > 23) hours = 23;
+    if (minutes > 59) minutes = 59;
+    if (seconds > 59) seconds = 59;
+    return new PrizmTime(hours, minutes, seconds, parsedTime.ms);
   }
 
   constructor(
