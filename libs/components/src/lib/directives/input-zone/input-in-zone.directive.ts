@@ -43,7 +43,7 @@ export class PrizmInputInZoneDirective implements OnInit, OnDestroy {
    * */
   @HostListener('click')
   @HostListener('focus')
-  savePreviousPosition() {
+  public savePreviousPosition() {
     timer(0)
       .pipe(
         tap(() => {
@@ -54,7 +54,7 @@ export class PrizmInputInZoneDirective implements OnInit, OnDestroy {
       .subscribe();
   }
 
-  @HostListener('keyup', ['$event']) keyUpEvent(event: KeyboardEvent) {
+  @HostListener('keyup', ['$event']) public keyUpEvent(event: KeyboardEvent) {
     const unsupportedKeyCharacters = [
       'Shift',
       'Escape',
