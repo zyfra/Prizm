@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
   forwardRef,
   HostBinding,
   Inject,
@@ -12,7 +11,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { BehaviorSubject, interval, Observable, of, tap, timer } from 'rxjs';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 import { PRIZM_DATE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
 import { PRIZM_DATE_FORMAT } from '../../../@core/date-time/date-format';
 import { PRIZM_DATE_SEPARATOR } from '../../../@core/date-time/date-separator';
@@ -34,18 +33,16 @@ import { PrizmDateMode } from '../../../types/date-mode';
 import { PrizmBooleanHandler } from '../../../types/handler';
 import { PrizmTimeMode } from '../../../types/time-mode';
 import { PRIZM_INPUT_DATE_TIME_PROVIDERS } from './input-date-time.providers';
-import { prizmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
 import { prizmCreateDateNgxMask } from '../../../@core/mask/create-date-mask';
 import { prizmCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
 import { prizmClamp } from '../../../util/math/clamp';
-import { PrizmInputSize } from '../common/models/prizm-input.models';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 import { PRIZM_STRICT_MATCHER } from '../../../constants';
-import { PrizmDestroyService, PrizmLogExecution } from '@prizm-ui/helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl, PrizmInputNgControl } from '../common';
 import { PrizmInputZoneDirective } from '../../../directives/input-zone';
-import { debounceTime, delay } from 'rxjs/operators';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: `prizm-input-layout-date-time`,
@@ -239,13 +236,12 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
       return;
     }
 
-    // const values = this.nativeValue.split(' ');
-    // if (values.length) values.forEach(
-    //   (value, idx) => {
-    //     if (!this.focusableElement.inputs?.[idx]) return;
-    //     this.focusableElement.inputs[idx].value = value
-    //   }
-    // )
+    const values = this.nativeValue.split(' ');
+    if (values.length)
+      values.forEach((value, idx) => {
+        if (!this.focusableElement.inputs?.[idx]) return;
+        this.focusableElement.inputs[idx].value = value;
+      });
   }
   public onDateValueChange(value: string): void {
     if (value === this.computedDateValue) return;
@@ -256,9 +252,18 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
 
     const date = value;
 
-    const parsedDate = PrizmDay.normalizeParse(date, this.dateFormat);
+    let parsedDate = PrizmDay.normalizeParse(date, this.dateFormat);
 
-    this.updateValue([parsedDate, this.value?.[1] ?? null]);
+    // correct min max time
+    parsedDate = parsedDate.dayLimit(
+      this.min instanceof PrizmDay ? this.min : this.min && this.min[0],
+      this.max instanceof PrizmDay ? this.max : this.max && this.max[0]
+    );
+
+    let timeValue = this.value?.[1] ?? null;
+    if (timeValue) timeValue = this.timeLimit([parsedDate, timeValue])?.[1];
+
+    this.updateValue([parsedDate, timeValue]);
     this.open = false;
   }
 
@@ -275,13 +280,34 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
 
     if (parsedTime) parsedTime = PrizmTime.correctTime(parsedTime);
 
-    const match = parsedTime && this.getMatch(time);
+    if (parsedTime) parsedTime = this.timeLimit([this.value?.[0] ?? null, parsedTime])?.[1];
+
+    // TODO later add correct time as in nearest time
+    // const match = parsedTime && this.getMatch(time);
 
     this.updateValue([
       this.value?.[0] ?? null,
-      match || (this.timeStrict ? this.findNearestTimeFromItems(parsedTime) : parsedTime),
+      parsedTime,
+      // TODO later add correct time as in nearest time
+      // || (this.timeStrict ? this.findNearestTimeFromItems(parsedTime) : parsedTime),
     ]);
     this.open = false;
+  }
+
+  public timeLimit(value: [PrizmDay, PrizmTime] | null): typeof value {
+    if (!value) return value;
+    let [, parsedTime] = value;
+    if (parsedTime)
+      parsedTime = parsedTime.timeLimit(
+        Array.isArray(this.min) && this.min[1] instanceof PrizmTime && value?.[0]?.daySame(this.min[0])
+          ? this.min[1]
+          : null,
+        Array.isArray(this.max) && this.max[1] instanceof PrizmTime && value?.[0]?.daySame(this.max[0])
+          ? this.max[1]
+          : null
+      );
+
+    return [value[0], parsedTime];
   }
 
   public onValueChange(value: string): void {

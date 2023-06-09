@@ -23,6 +23,16 @@ export class PrizmTime implements PrizmTimeLike {
     return new PrizmTime(hours, minutes, seconds, parsedTime.ms);
   }
 
+  public timeLimit(minTime: PrizmTime | null, maxTime: PrizmTime | null): PrizmTime {
+    let result: PrizmTime = new PrizmTime(this.hours, this.minutes, this.seconds, this.ms);
+
+    if (minTime && minTime?.toAbsoluteMilliseconds() > result.toAbsoluteMilliseconds()) result = minTime;
+
+    if (maxTime && maxTime?.toAbsoluteMilliseconds() < result.toAbsoluteMilliseconds()) result = maxTime;
+
+    return result;
+  }
+
   constructor(
     readonly hours: number,
     readonly minutes: number,
