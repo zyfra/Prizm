@@ -33,6 +33,7 @@
           <input
             class="input-search"
             [ngModel]="printing$.value"
+            [ngModelOptions]="{ standalone: true }"
             (ngModelChange)="dropdownHostRef.reCalculatePositions(1000 / 16); printing$.next($event)"
             prizmInput
             prizmAutoFocus

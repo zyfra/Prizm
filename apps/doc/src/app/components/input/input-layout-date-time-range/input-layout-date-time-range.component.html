@@ -11,29 +11,29 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-input-layout
-        #inputElement
-        [prizmDocHostElement]="inputElement"
-        [prizmDocHostElementKey]="layoutKey"
-        [size]="size"
-        [label]="label"
-        [outer]="outer"
-        [border]="border"
-        [position]="inputPosition"
-        [status]="status"
-        [forceClear]="forceClear"
-      >
-        <prizm-input-layout-date-time-range
-          #element
-          [prizmDocHostElement]="element"
-          [prizmDocHostElementKey]="controlKey"
-          [formControl]="value"
-          [min]="min"
-          [timeMode]="timeMode"
-          [placeholder]="placeholder"
-          [max]="max"
-        ></prizm-input-layout-date-time-range>
-      </prizm-input-layout>
+      <!--      <prizm-input-layout-->
+      <!--        #inputElement-->
+      <!--        [prizmDocHostElement]="inputElement"-->
+      <!--        [prizmDocHostElementKey]="layoutKey"-->
+      <!--        [size]="size"-->
+      <!--        [label]="label"-->
+      <!--        [outer]="outer"-->
+      <!--        [border]="border"-->
+      <!--        [position]="inputPosition"-->
+      <!--        [status]="status"-->
+      <!--        [forceClear]="forceClear"-->
+      <!--      >-->
+      <!--        <prizm-input-layout-date-time-range-->
+      <!--          #element-->
+      <!--          [prizmDocHostElement]="element"-->
+      <!--          [prizmDocHostElementKey]="controlKey"-->
+      <!--          [formControl]="value"-->
+      <!--          [min]="min"-->
+      <!--          [timeMode]="timeMode"-->
+      <!--          [placeholder]="placeholder"-->
+      <!--          [max]="max"-->
+      <!--        ></prizm-input-layout-date-time-range>-->
+      <!--      </prizm-input-layout>-->
     </prizm-doc-demo>
 
     <prizm-doc-documentation [hostComponentKey]="controlKey" [heading]="controlKey" [control]="value">

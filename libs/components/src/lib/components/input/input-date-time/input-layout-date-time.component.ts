@@ -12,7 +12,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { BehaviorSubject, interval, Observable, tap } from 'rxjs';
+import { BehaviorSubject, interval, Observable, of, tap, timer } from 'rxjs';
 import { PRIZM_DATE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
 import { PRIZM_DATE_FORMAT } from '../../../@core/date-time/date-format';
 import { PRIZM_DATE_SEPARATOR } from '../../../@core/date-time/date-separator';
@@ -44,6 +44,8 @@ import { PrizmDateButton } from '../../../types/date-button';
 import { PRIZM_STRICT_MATCHER } from '../../../constants';
 import { PrizmDestroyService, PrizmLogExecution } from '@prizm-ui/helpers';
 import { PrizmInputControl, PrizmInputNgControl } from '../common';
+import { PrizmInputZoneDirective } from '../../../directives/input-zone';
+import { debounceTime, delay } from 'rxjs/operators';
 
 @Component({
   selector: `prizm-input-layout-date-time`,
@@ -70,8 +72,8 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
 
   override fallbackValue: [PrizmDay | null, PrizmTime | null] = [null, null];
 
-  @ViewChild('focusableElementRef', { read: ElementRef })
-  public readonly focusableElement?: ElementRef<HTMLInputElement>;
+  @ViewChild('focusableElementRef', { read: PrizmInputZoneDirective })
+  public readonly focusableElement?: PrizmInputZoneDirective;
 
   @Input()
   @prizmDefaultProp()
@@ -153,14 +155,13 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     this.rightButtons$ = this.extraButtonInjector.get(PRIZM_DATE_RIGHT_BUTTONS);
   }
 
-  public get nativeFocusableElement(): HTMLInputElement | null {
-    return this.focusableElement ? (this.focusableElement.nativeElement as HTMLInputElement) : null;
-  }
+  // public get nativeFocusableElement(): HTMLInputElement | null {
+  //   return this.focusableElement ? (this.focusableElement.nativeElement as HTMLInputElement) : null;
+  // }
 
   public get focused(): boolean {
-    return this.focusableElement?.nativeElement
-      ? prizmIsNativeFocusedIn(this.focusableElement.nativeElement)
-      : false;
+    return false;
+    // return this.focusableElement?.focused
   }
 
   get fillerLength(): number {
@@ -168,14 +169,11 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
   }
 
   get textMaskOptions(): string {
-    return this.calculateMask(
-      this.value[0],
-      this.calendarMinDay,
-      this.calendarMaxDay,
-      this.timeMode,
-      this.dateFormat,
-      this.dateSeparator
-    );
+    return this.calculateMask(this.dateFormat, this.dateSeparator);
+  }
+
+  get timeMaskOptions(): string {
+    return this.calculateTimeMask(this.timeMode);
   }
 
   get stringValue(): string {
@@ -192,6 +190,30 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     }
 
     return this.getDateTimeString(date, time, timeMode);
+  }
+
+  get computedDateValue(): string {
+    const { value, nativeValue, timeMode } = this;
+    const [date, time] = value;
+    const hasTimeInputChars = nativeValue.length > PRIZM_DATE_FILLER_LENGTH;
+
+    if (!date || (!time && hasTimeInputChars)) {
+      return nativeValue;
+    }
+
+    return this.getDateString(date);
+  }
+
+  get computedTimeValue(): string {
+    const { value, nativeValue, timeMode } = this;
+    const [date, time] = value;
+    const hasTimeInputChars = nativeValue.length > PRIZM_DATE_FILLER_LENGTH;
+
+    if (!date || (!time && hasTimeInputChars)) {
+      return nativeValue;
+    }
+
+    return this.getTimeString(time, this.timeMode);
   }
 
   get calendarValue(): PrizmDay | null {
@@ -211,15 +233,62 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
   }
 
   get nativeValue(): string {
-    return this.nativeFocusableElement ? this.nativeFocusableElement.value : ``;
+    return '';
+    // return this.focusableElement ? this.focusableElement.inputs.map(
+    //   i => i.value
+    // ).join(' ') : ``;
   }
 
   set nativeValue(value: string) {
-    if (!this.nativeFocusableElement) {
+    if (!this.focusableElement) {
       return;
     }
 
-    this.nativeFocusableElement.value = value;
+    // const values = this.nativeValue.split(' ');
+    // if (values.length) values.forEach(
+    //   (value, idx) => {
+    //     if (!this.focusableElement.inputs?.[idx]) return;
+    //     this.focusableElement.inputs[idx].value = value
+    //   }
+    // )
+  }
+  public onDateValueChange(value: string): void {
+    if (value === this.computedDateValue) return;
+    if (!value || value.length < this.textMaskOptions.length) {
+      if (!value) this.updateValue([null, this.value?.[1] ?? null]);
+      return;
+    }
+
+    const date = value;
+
+    const parsedDate = PrizmDay.normalizeParse(date, this.dateFormat);
+
+    this.updateValue([parsedDate, this.value?.[1] ?? null]);
+    this.open = false;
+  }
+
+  public onTimeValueChange(value: string): void {
+    if (value === this.computedTimeValue) return;
+    if (!value || value.length < this.timeMaskOptions.length) {
+      if (!value) this.updateValue([this.value[0] ?? null, null]);
+      return;
+    }
+
+    const time = value;
+    let parsedTime =
+      time && time.length === this.timeMode.length
+        ? this.prizmClampTime(PrizmTime.fromString(time), this.value?.[0] ?? null)
+        : null;
+
+    if (parsedTime) parsedTime = PrizmTime.correctTime(parsedTime);
+
+    const match = parsedTime && this.getMatch(time);
+
+    this.updateValue([
+      this.value?.[0] ?? null,
+      match || (this.timeStrict ? this.findNearestTimeFromItems(parsedTime) : parsedTime),
+    ]);
+    this.open = false;
   }
 
   public onValueChange(value: string): void {
@@ -310,15 +379,13 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
   }
 
   @prizmPure
-  private calculateMask(
-    day: PrizmDay | null,
-    min: PrizmDay,
-    max: PrizmDay,
-    timeMode: PrizmTimeMode,
-    dateFormat: PrizmDateMode,
-    dateSeparator: string
-  ): string {
-    return `${prizmCreateDateNgxMask(dateFormat, dateSeparator)} ${prizmCreateTimeNgxMask(timeMode)}`;
+  private calculateMask(dateFormat: PrizmDateMode, dateSeparator: string): string {
+    return `${prizmCreateDateNgxMask(dateFormat, dateSeparator)}`;
+  }
+
+  @prizmPure
+  private calculateTimeMask(timeMode: PrizmTimeMode): string {
+    return prizmCreateTimeNgxMask(timeMode);
   }
 
   @prizmPure
@@ -331,6 +398,18 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     const timeString = time instanceof PrizmTime ? time.toString(timeMode) : time || ``;
 
     return `${dateString}${PRIZM_DATE_TIME_SEPARATOR}${timeString}`;
+  }
+  @prizmPure
+  private getTimeString(time: PrizmTime | string | null, timeMode: PrizmTimeMode = `HH:MM`): string {
+    const timeString = time instanceof PrizmTime ? time.toString(timeMode) : time || ``;
+
+    return `${timeString}`;
+  }
+
+  @prizmPure
+  private getDateString(date: PrizmDay | string): string {
+    const dateString = date instanceof PrizmDay ? date.toString(this.dateFormat, this.dateSeparator) : date;
+    return `${dateString}`;
   }
 
   private updateNativeValue(day: PrizmDay): void {
@@ -385,14 +464,30 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
   public openDateDropdown(open: boolean): void {
     this.open = open;
     this.openTimeTemplate = false;
-    this.focusableElement?.nativeElement.focus();
     this.changeDetectorRef.markForCheck();
   }
 
   public override clear(ev: MouseEvent): void {
     ev.stopImmediatePropagation();
     super.clear(ev);
-    this.nativeFocusableElement.value = '';
+    this.updateValue([null, null]);
     this.changeDetectorRef.markForCheck();
+  }
+
+  public referFocusToMain() {
+    // TODO create operator and rxjs functin to run sequence in event loop
+    of(null)
+      .pipe(
+        // delay(0),
+        // tap(() => {
+        //   this.focusableElement?.focus()
+        // }),
+        delay(0),
+        tap(() => {
+          this.focusableElement?.selectionToStart();
+        })
+        // TODO: add destroy
+      )
+      .subscribe();
   }
 }

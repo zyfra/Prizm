@@ -26,11 +26,12 @@ import { PRIZM_DATE_RANGE_VALUE_TRANSFORMER, PRIZM_DATE_TEXTS } from '../../../t
 import { PrizmDialogService } from '../../dialogs/dialog';
 import { PRIZM_DATE_FORMAT, PRIZM_DATE_SEPARATOR, PrizmDayRange, PrizmTime } from '../../../@core';
 import { PrizmControlValueTransformer, PrizmDateMode, PrizmTimeMode } from '../../../types';
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
 import { PrizmInputLayoutDateRangeComponent } from '../input-date-range';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: `prizm-input-layout-date-time-range`,

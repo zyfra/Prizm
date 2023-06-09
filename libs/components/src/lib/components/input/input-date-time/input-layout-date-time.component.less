@@ -50,3 +50,58 @@
     background: var(--prizm-select-item-hover-background, var(--prizm-bg-dashboard-forms));
   }
 }
+
+.time-box {
+  display: flex;
+  // TODO: this padding copied from input-text (need remove copied style and use only one file)
+  padding: 22px 8px 4px 8px;
+
+  input {
+    width: auto;
+  }
+
+  .input-main {
+    &.show-placeholder {
+      width: 100%;
+
+      & ~ input {
+        display: none;
+      }
+    }
+  }
+}
+
+// TODO: this stype copied from input-text (need remove copied style and use only one file)
+// In outer context
+:host-context(.prizm-input-form-outer) .time-box {
+  padding: 7px 8px;
+}
+
+// need for optimization output selector in less
+:host-context(.prizm-input-form-outer[data-size='l']) .time-box {
+  padding: 11px 8px;
+}
+
+:host-context(.prizm-input-form-outer[data-size='m']) .time-box {
+  padding: 7px 8px;
+}
+
+:host-context(.prizm-input-form-outer[data-size='s']) .time-box {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+/** use for show place holder in temporary input */
+.placeholder-input-search {
+  &.hidden {
+    // we don't use display none, because otherwise we can not refer focus to main inputs
+    position: absolute;
+    top: -10000px;
+    left: -10000px;
+    opacity: 0;
+  }
+  /** when we showed placeholder we hide all next our main inputs */
+  &:not(.hidden) ~ input {
+    display: none;
+  }
+}

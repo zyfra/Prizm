@@ -1,0 +1,56 @@
+<prizm-input-layout-date-range
+  #focusableElementRef
+  [disabledItemHandler]="disabledItemHandler"
+  [markerHandler]="markerHandler"
+  [defaultViewedMonth]="defaultViewedMonth"
+  [items]="items"
+  [ngModelOptions]="{ standalone: true }"
+  [ngModel]="value?.dayRange"
+  [disabled]="disabled"
+  [placeholder]="placeholder"
+  [min]="min?.day"
+  [max]="max?.day"
+  (zoneOutsideEvent)="focusableElementRef.onOpenChange(false)"
+  (prizmAfterViewInit)="focusableElementRef.closeOnOutsideClick = false"
+  (ngModelChange)="updateDayRange($event)"
+  prizmZoneEvent
+>
+  <ng-template #footerTo let-zone="zone">
+    <prizm-input-layout label="Время">
+      <prizm-input-layout-time
+        [prizmEventZoneParent]="zone"
+        [style.--prizm-dropdown-host-width]="'100%'"
+        [ngModelOptions]="{ standalone: true }"
+        [ngModel]="value?.timeRange?.to"
+        [strict]="timeStrict"
+        [items]="timeItems"
+        [mode]="timeMode"
+        (ngModelChange)="updateTimeTo($event)"
+      >
+      </prizm-input-layout-time>
+    </prizm-input-layout>
+  </ng-template>
+  <ng-template #footerFrom let-zone="zone">
+    <prizm-input-layout label="Время">
+      <prizm-input-layout-time
+        [prizmEventZoneParent]="zone"
+        [style.--prizm-dropdown-host-width]="'100%'"
+        [ngModelOptions]="{ standalone: true }"
+        [ngModel]="value?.timeRange?.from"
+        [items]="timeItems"
+        [mode]="timeMode"
+        (ngModelChange)="updateTimeFrom($event)"
+      >
+      </prizm-input-layout-time>
+    </prizm-input-layout>
+  </ng-template>
+</prizm-input-layout-date-range>
+
+<ng-container *prizmInputLayoutRight>
+  <button
+    [interactive]="true"
+    [disabled]="disabled"
+    (click)="onOpenChange(focusableElementRef)"
+    prizmInputIconButton="date-calendar-range"
+  ></button>
+</ng-container>
