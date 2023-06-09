@@ -19,6 +19,7 @@
   >
     <input
       class="input-main"
+      [style.--max-size]="10"
       [class.show-placeholder]="empty && (focusableElementRef.focused$ | async) !== true"
       [placeholder]="placeholder"
       [mask]="textMaskOptions"
@@ -36,6 +37,7 @@
     />
     <input
       class="input-time"
+      [style.--max-size]="5"
       [mask]="timeMaskOptions"
       [dropSpecialCharacters]="false"
       [showMaskTyped]="focusableElementRef.focused$ | async"

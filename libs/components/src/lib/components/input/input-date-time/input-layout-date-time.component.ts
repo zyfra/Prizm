@@ -155,10 +155,6 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     this.rightButtons$ = this.extraButtonInjector.get(PRIZM_DATE_RIGHT_BUTTONS);
   }
 
-  // public get nativeFocusableElement(): HTMLInputElement | null {
-  //   return this.focusableElement ? (this.focusableElement.nativeElement as HTMLInputElement) : null;
-  // }
-
   public get focused(): boolean {
     return this.focusableElement?.focused;
   }

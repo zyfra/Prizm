@@ -53,11 +53,12 @@
 
 .time-box {
   display: flex;
+  gap: 2px;
   // TODO: this padding copied from input-text (need remove copied style and use only one file)
   padding: 22px 8px 4px 8px;
 
   input {
-    width: auto;
+    width: calc(var(--max-size, 2) * 0.5em + 2px);
   }
 
   .input-main {
