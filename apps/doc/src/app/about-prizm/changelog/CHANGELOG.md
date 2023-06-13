@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0-rc.1](https://github.com/zyfra/Prizm) (13-06-2023)
+
+### Features
+
+- update ng,nx to 15 version
+
 ## [1.0.1](https://github.com/zyfra/Prizm) (31-05-2023)
 
 ### Features
