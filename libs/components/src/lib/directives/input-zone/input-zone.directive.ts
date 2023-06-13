@@ -29,11 +29,27 @@ export class PrizmInputZoneDirective {
     return this.inputZoneService.elements.map(i => i.el.nativeElement);
   }
 
+  get values(): string[] {
+    return this.inputs.map(i => i.value);
+  }
+
   constructor(private readonly inputZoneService: PrizmInputZoneService) {}
 
   public focus(idx = 0) {
     const selected = this.inputZoneService.elements[idx];
     if (selected) selected.focus();
+    return this;
+  }
+
+  public updateValue(idxArr: number[], value: string | number | null) {
+    idxArr.forEach(idx => {
+      const selected = this.inputZoneService.elements[idx];
+      if (selected && selected.el.nativeElement) selected.el.nativeElement.value = value?.toString();
+      console.log('#mz update values', {
+        value: selected.el.nativeElement.value,
+        selected,
+      });
+    });
     return this;
   }
 

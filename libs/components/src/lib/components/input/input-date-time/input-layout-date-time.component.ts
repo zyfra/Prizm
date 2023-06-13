@@ -11,7 +11,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, tap, timer } from 'rxjs';
 import { PRIZM_DATE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
 import { PRIZM_DATE_FORMAT } from '../../../@core/date-time/date-format';
 import { PRIZM_DATE_SEPARATOR } from '../../../@core/date-time/date-separator';
@@ -118,11 +118,7 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
   readonly type!: PrizmContextWithImplicit<unknown>;
 
   override get empty(): boolean {
-    return !this.value?.[0];
-  }
-
-  get computedSearchTime(): string {
-    return this.computedValue.length !== this.timeMode.length ? this.computedValue : ``;
+    return !this.value?.[0] && !this.value?.[1] && !this.focusableElement?.values.filter(Boolean).join('');
   }
 
   public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
@@ -172,36 +168,18 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     return this.value?.toString() ?? '';
   }
 
-  get computedValue(): string {
-    const { value, timeMode } = this;
-    const [date, time] = value;
-    // const hasTimeInputChars = nativeValue.length > PRIZM_DATE_FILLER_LENGTH;
-
-    if (!date || !time /*&& hasTimeInputChars*/) {
-      return '';
-    }
-
-    return this.getDateTimeString(date, time, timeMode);
-  }
-
-  get computedDateValue(): string {
-    const { value } = this;
-    const [date] = value;
-
+  public computedDateValue(date = this.value?.[0]): string {
     if (!date) {
-      return '';
+      console.log('#mz computedDateValue', this.focusableElement?.values);
+      return this.focusableElement?.values[0] || '';
     }
 
     return this.getDateString(date);
   }
 
-  get computedTimeValue(): string {
-    const { value } = this;
-    const [, time] = value;
-    // const hasTimeInputChars = nativeValue.length > PRIZM_DATE_FILLER_LENGTH;
-
-    if (!time /*&& hasTimeInputChars*/) {
-      return '';
+  public computedTimeValue(time = this.value?.[1]): string {
+    if (!time) {
+      return this.focusableElement?.values[1] || '';
     }
 
     return this.getTimeString(time, this.timeMode);
@@ -224,7 +202,7 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
   }
 
   public onDateValueChange(value: string): void {
-    if (value === this.computedDateValue) return;
+    if (value === this.computedDateValue()) return;
     if (!value || value.length < this.textMaskOptions.length) {
       if (!value) this.updateValue([null, this.value?.[1] ?? null]);
       return;
@@ -255,7 +233,7 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
   }
 
   public onTimeValueChange(value: string): void {
-    if (value === this.computedTimeValue) return;
+    if (value === this.computedTimeValue()) return;
     if (!value || value.length < this.timeMaskOptions.length) {
       if (!value) this.updateValue([this.value[0] ?? null, null]);
       return;
@@ -297,37 +275,10 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     return parsedTime;
   }
 
-  public onValueChange(value: string): void {
-    if (value === this.computedValue) return;
-    if (!value || value.length < 16) {
-      if (!value) this.updateValue([null, null]);
-      return;
-    }
-
-    const [date, time] = value.split(PRIZM_DATE_TIME_SEPARATOR_NGX);
-
-    const parsedDate = PrizmDay.normalizeParse(date, this.dateFormat);
-    let parsedTime =
-      time && time.length === this.timeMode.length
-        ? this.prizmClampTime(PrizmTime.fromString(time), parsedDate)
-        : null;
-
-    if (parsedTime) parsedTime = PrizmTime.correctTime(parsedTime);
-
-    const match = parsedTime && this.getMatch(time);
-
-    this.updateValue([
-      parsedDate,
-      match || (this.timeStrict ? this.findNearestTimeFromItems(parsedTime) : parsedTime),
-    ]);
-    this.open = false;
-  }
-
   public onDayClick(day: PrizmDay, time?: PrizmTime): void {
     const modifiedTime =
       time ?? (this.value[1] && this.prizmClampTime(this.value[1], day)) ?? new PrizmTime(0, 0);
     this.updateValue([day, modifiedTime]);
-    // this.updateNativeValue(day);
     this.open = false;
     this.changeDetectorRef.markForCheck();
   }
@@ -350,38 +301,10 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     this.changeDetectorRef.markForCheck();
   }
 
-  // public onFocused(focused: boolean): void {
-  //   if (
-  //     focused ||
-  //     this.value[0] === null ||
-  //     this.value[1] !== null ||
-  //     this.nativeValue.length <= this.fillerLength + PRIZM_DATE_TIME_SEPARATOR.length ||
-  //     this.timeMode === `HH:MM`
-  //   ) {
-  //     return;
-  //   }
-  //
-  //   const [, time] = this.nativeValue.split(PRIZM_DATE_TIME_SEPARATOR);
-  //
-  //   if (!time) {
-  //     return;
-  //   }
-  //
-  //   const parsedTime = PrizmTime.fromString(time);
-  //
-  //   this.updateValue([this.value[0], parsedTime]);
-  //
-  //   setTimeout(() => {
-  //     if (this.nativeValue.endsWith(`.`) || this.nativeValue.endsWith(`:`)) {
-  //       this.nativeValue = this.nativeValue.slice(0, -1);
-  //     }
-  //   });
-  // }
-
   public override writeValue(value: [PrizmDay | null, PrizmTime | null] | null): void {
     super.writeValue(value);
-
-    // this.nativeValue = value && (value[0] || value[1]) ? this.computedValue : ``;
+    this.focusableElement?.updateValue([0], this.computedDateValue(value?.[0]));
+    this.focusableElement?.updateValue([1], this.computedTimeValue(value?.[1]));
   }
 
   @prizmPure
@@ -417,11 +340,6 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     const dateString = date instanceof PrizmDay ? date.toString(this.dateFormat, this.dateSeparator) : date;
     return `${dateString}`;
   }
-
-  // private updateNativeValue(day: PrizmDay): void {
-  //   const time = this.nativeValue.split(PRIZM_DATE_TIME_SEPARATOR)[1] || ``;
-  //   this.nativeValue = this.getDateTimeString(day, time);
-  // }
 
   private findNearestTimeFromItems(value: PrizmTime): PrizmTime | null {
     return this.timeItems.reduce((previous, current) =>
@@ -477,6 +395,7 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     ev.stopImmediatePropagation();
     super.clear(ev);
     this.updateValue([null, null]);
+    this.focusableElement?.updateValue([0, 1], '');
     this.changeDetectorRef.markForCheck();
   }
 
