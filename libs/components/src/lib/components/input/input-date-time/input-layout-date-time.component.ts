@@ -44,7 +44,10 @@ import { delay, map } from 'rxjs/operators';
 @Component({
   selector: `prizm-input-layout-date-time`,
   templateUrl: `./input-layout-date-time.component.html`,
-  styleUrls: [`./input-layout-date-time.component.less`],
+  styleUrls: [
+    `./input-layout-date-time.component.less`,
+    `./../input-date/input-layout-date-shared.component.less`,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     ...PRIZM_INPUT_DATE_TIME_PROVIDERS,

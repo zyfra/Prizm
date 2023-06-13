@@ -1,0 +1,68 @@
+@import '../../../../styles/ui-local';
+
+:host {
+  display: block;
+}
+
+.multiple-input-box {
+  display: flex;
+  gap: 2px;
+  // TODO: this padding copied from input-text (need remove copied style and use only one file)
+  padding: 22px 8px 4px 8px;
+
+  input {
+    width: calc(var(--prizm-input-in-zone-max-size, 2) * 0.5em + 2px);
+  }
+
+  .input-main {
+    &.show-placeholder {
+      width: 100%;
+
+      & ~ input,
+      & ~ .delimiter {
+        display: none;
+      }
+    }
+  }
+}
+
+// TODO: this stype copied from input-text (need remove copied style and use only one file)
+// In outer context
+:host-context(.prizm-input-form-outer) .multiple-input-box {
+  padding: 7px 8px;
+}
+
+// need for optimization output selector in less
+:host-context(.prizm-input-form-outer[data-size='l']) .multiple-input-box {
+  padding: 11px 8px;
+}
+
+:host-context(.prizm-input-form-outer[data-size='m']) .multiple-input-box {
+  padding: 7px 8px;
+}
+
+:host-context(.prizm-input-form-outer[data-size='s']) .multiple-input-box {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+/** use for show place holder in temporary input */
+.placeholder-input-search {
+  &.hidden {
+    // we don't use display none, because otherwise we can not refer focus to main inputs
+    position: absolute;
+    top: -10000px;
+    left: -10000px;
+    opacity: 0;
+  }
+  /** when we showed placeholder we hide all next our main inputs */
+  &:not(.hidden) ~ input,
+  &:not(.hidden) ~ .delimiter {
+    display: none;
+  }
+}
+
+.delimiter {
+  line-height: 16px;
+  height: 16px;
+}
