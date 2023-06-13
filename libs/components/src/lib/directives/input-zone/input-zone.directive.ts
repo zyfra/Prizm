@@ -41,15 +41,9 @@ export class PrizmInputZoneDirective {
     return this;
   }
 
-  public updateValue(idxArr: number[], value: string | number | null) {
-    idxArr.forEach(idx => {
-      const selected = this.inputZoneService.elements[idx];
-      if (selected && selected.el.nativeElement) selected.el.nativeElement.value = value?.toString();
-      console.log('#mz update values', {
-        value: selected.el.nativeElement.value,
-        selected,
-      });
-    });
+  public updateNativeValue(idx: number, value: string | number | null): PrizmInputZoneDirective {
+    const selected = this.inputZoneService.elements[idx];
+    if (selected && selected.el.nativeElement) selected.el.nativeElement.value = value?.toString();
     return this;
   }
 

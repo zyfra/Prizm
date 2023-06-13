@@ -11,7 +11,7 @@ export class PrizmToObservablePipe<T> implements PipeTransform, OnDestroy {
   private lastOperators: PrizmToObservableOperator[];
   public transform(
     value: T | Observable<T> | Promise<T>,
-    operators: PrizmToObservableOperator[]
+    operators: PrizmToObservableOperator[] = []
   ): Observable<T> {
     if (typeof (value as Promise<T>)?.then === 'function') {
       value = defer(() => value as Promise<T>);

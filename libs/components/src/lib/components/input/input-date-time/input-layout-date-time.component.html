@@ -19,7 +19,7 @@
   >
     <input
       class="input-main"
-      [class.show-placeholder]="empty && (focusableElementRef.focused$ | async) !== true"
+      [class.show-placeholder]="(empty | async) && (focusableElementRef.focused$ | async) !== true"
       [placeholder]="placeholder"
       [disabled]="disabled"
       [mask]="textMaskOptions"

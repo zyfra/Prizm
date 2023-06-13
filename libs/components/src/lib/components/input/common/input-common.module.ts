@@ -12,9 +12,18 @@ import { PrizmInputLayoutLeftDirective } from './input-layout/input-layout-left.
 import { PrizmInputLayoutInBodyDirective } from './input-layout/input-layout-in-body.directive';
 import { PrizmInputLayoutSubtextDirective } from './input-layout/input-layout-subtext.directive';
 import { PrizmZoneEventModule } from '../../../directives';
+import { PrizmLetModule, PrizmToObservableModule } from '@prizm-ui/helpers';
 
 @NgModule({
-  imports: [CommonModule, PrizmIconModule, PrizmZoneEventModule, PrizmHintModule, PrizmInputIconButtonModule],
+  imports: [
+    CommonModule,
+    PrizmToObservableModule,
+    PrizmLetModule,
+    PrizmIconModule,
+    PrizmZoneEventModule,
+    PrizmHintModule,
+    PrizmInputIconButtonModule,
+  ],
   declarations: [
     PrizmInputLayoutComponent,
     PrizmInputStatusSubtextComponent,
