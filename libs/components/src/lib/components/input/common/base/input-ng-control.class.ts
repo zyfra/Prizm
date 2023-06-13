@@ -198,8 +198,4 @@ export abstract class PrizmInputNgControl<T>
   public markAsDirty(): void {
     this.ngControl.control.markAsDirty();
   }
-
-  public setDisabledState(isDisabled: boolean) {
-    this.checkControlUpdate();
-  }
 }
