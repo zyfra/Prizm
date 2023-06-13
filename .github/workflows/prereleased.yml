@@ -1,22 +1,17 @@
 name: Pre-released
-runs-on: ubuntu-latest
-steps:
-  - uses: actions/checkout@v2
 on:
   release:
     types:
       - prereleased
   workflow_dispatch:
-permissions:
-  contents: read
-  packages: write
 env:
   npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
 jobs:
   pre_draft_release:
     uses: zyfra/Prizm/.github/workflows/draft-publish.yml@main
-
+    secrets: inherit
   pre_release:
-    needs: pre_draft_release
     uses: zyfra/Prizm/.github/workflows/prerelease-publish.yml@main
+    secrets: inherit
+    needs: pre_draft_release

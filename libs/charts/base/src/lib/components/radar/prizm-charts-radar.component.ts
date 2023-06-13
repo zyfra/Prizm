@@ -7,6 +7,7 @@ import { PrizmChartsRadarItem, PrizmChartsRadarOptions, PrizmChartsRadarOrigin }
   selector: 'prizm-charts-radar',
   templateUrl: './prizm-charts-radar.component.html',
   styleUrls: ['./prizm-charts-radar.component.less'],
+  exportAs: 'prizmChartsRadar',
 })
 export class PrizmChartsRadarComponent<
   T extends Record<string, unknown>

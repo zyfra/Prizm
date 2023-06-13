@@ -16,6 +16,7 @@
     [disabled]="disabled"
     [readonly]="true"
     [placeholder]="placeholder"
+    [ngModelOptions]="{ standalone: true }"
     [ngModel]="($any(value) | prizmCallFunc : stringify) ?? ''"
     prizmInput
   />
@@ -101,6 +102,7 @@
       [class.active]="(focused$ | async) || (opened$ | async)"
       [class.icon-dropdown]="iconName === defaultIcon"
       [iconClass]="$any(iconName)"
+      [class.disabled]="disabled"
       (click)="safeOpenModal()"
     >
     </prizm-icon>

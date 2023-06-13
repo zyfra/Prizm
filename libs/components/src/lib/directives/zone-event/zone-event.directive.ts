@@ -69,7 +69,6 @@ export class PrizmZoneEventDirective implements OnInit, OnChanges, OnDestroy {
     this.safeInit();
 
     if (this.parentZone) {
-      console.log('#mz parentZone', this.parentZone.eventZoneService);
       this.eventZoneService.setParent(this.parentZone.eventZoneService);
     }
   }

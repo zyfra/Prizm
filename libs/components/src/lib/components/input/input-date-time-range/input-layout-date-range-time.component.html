@@ -13,6 +13,7 @@
   (zoneOutsideEvent)="focusableElementRef.onOpenChange(false)"
   (prizmAfterViewInit)="focusableElementRef.closeOnOutsideClick = false"
   (ngModelChange)="updateDayRange($event)"
+  prizmZoneEvent
 >
   <ng-template #footerTo let-zone="zone">
     <prizm-input-layout label="Время">

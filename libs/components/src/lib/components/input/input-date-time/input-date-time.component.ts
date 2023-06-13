@@ -123,7 +123,20 @@ export class PrizmInputDateTimeComponent
 
   open = false;
 
+  /** for avoid time format 29:01 */
+  // TODO remove after update angular 15 and latest mask version
+  // readonly fixedPatternForTime = {
+  //   H: { pattern: /[0-2]/i },
+  //   h: { pattern: /[0-3]/i },
+  //   m: { pattern: /[0-5]/i },
+  //   0: { pattern: /[0-9]/i },
+  // };
+
   readonly type!: PrizmContextWithImplicit<unknown>;
+
+  get filteredTime(): readonly PrizmTime[] {
+    return this.filterTime(this.timeItems, this.timeMode, this.computedSearchTime);
+  }
 
   get computedSearchTime(): string {
     return this.computedValue.length !== this.timeMode.length ? this.computedValue : ``;
@@ -287,7 +300,6 @@ export class PrizmInputDateTimeComponent
         ? this.prizmClampTime(PrizmTime.fromString(time), parsedDate)
         : null;
     if (parsedTime) parsedTime = PrizmTime.correctTime(parsedTime);
-
     const match = parsedTime && this.getMatch(time);
 
     this.updateValue([

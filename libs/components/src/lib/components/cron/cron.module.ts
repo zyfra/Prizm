@@ -3,7 +3,13 @@ import { PrizmCronComponent } from './cron.component';
 import { CommonModule } from '@angular/common';
 import { PrizmButtonModule } from '../button';
 import { PrizmSwitcherModule } from '../switcher';
-import { PrizmCarouselModule, PrizmInputDateTimeModule, PrizmInputTextModule } from '../input';
+import {
+  PrizmCarouselModule,
+  PrizmInputCarouselModule,
+  PrizmInputDateTimeModule,
+  PrizmInputLayoutDateTimeModule,
+  PrizmInputTextModule,
+} from '../input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmToggleModule } from '../toggle';
 import { PrizmCronHourComponent } from './components/hour/hour.component';
@@ -38,9 +44,10 @@ import { PrizmScrollbarModule } from '../scrollbar';
   imports: [
     CommonModule,
     PolymorphModule,
+    PrizmInputLayoutDateTimeModule,
     PrizmCallFuncModule,
     PrizmButtonModule,
-    PrizmCarouselModule,
+    PrizmInputCarouselModule,
     PrizmInputTextModule,
     PrizmRadioButtonModule,
     PrizmSwitcherModule,

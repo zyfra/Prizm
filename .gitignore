@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /.angular
+/.firebase
 
 # dependencies
 /node_modules

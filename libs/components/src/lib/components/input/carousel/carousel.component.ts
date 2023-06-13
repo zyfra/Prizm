@@ -15,6 +15,10 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmCarouselContent } from './carousel-content/carousel-content.interface';
 
+/**
+ * @deprecated
+ * use - PrizmInputCarouselComponent
+ * */
 @Component({
   selector: 'prizm-carousel',
   templateUrl: './carousel.component.html',

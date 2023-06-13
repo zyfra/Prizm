@@ -6,7 +6,7 @@
   (zoneOutsideEvent)="outsideClick()"
   (prizmMutationObserver)="updateWidth()"
   prizmZoneEvent
-  zoneInsideEvent="click"
+  zoneEventName="click"
 >
   <ng-content></ng-content>
   <ng-template #temp>
@@ -19,8 +19,7 @@
       (prizmAfterViewInit)="addListenerItems($event.nativeElement); reCalculatePositions()"
       (prizmOnDestroy)="removeListenerItems($event.nativeElement)"
       prizmZoneEvent
-      prizmEventZone
-      zoneInsideEvent="click"
+      zoneEventName="click"
     >
       <ng-container
         *polymorphOutlet="content; context: { custom: prizmDropdownCustomContext }"
