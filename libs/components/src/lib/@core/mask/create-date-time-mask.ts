@@ -1,6 +1,6 @@
 import { PrizmDateMode } from '../../types/date-mode';
-import { PrizmTimeMode } from '@prizm-ui/components';
 import { prizmCreateTimeNgxMask } from './create-time-mask';
+import { PrizmTimeMode } from '../../types';
 
 export function prizmCreateDateTimeNgxMask(
   mode: PrizmDateMode,
