@@ -19,6 +19,7 @@
     [dropSpecialCharacters]="false"
     [placeholder]="placeholder"
     [disabled]="disabled"
+    [ngModelOptions]="{ standalone: true }"
     [ngModel]="computedValue"
     (ngModelChange)="onValueChange($event ?? '')"
     prizmInput

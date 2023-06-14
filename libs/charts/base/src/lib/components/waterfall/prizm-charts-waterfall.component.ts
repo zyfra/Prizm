@@ -7,6 +7,7 @@ import { Waterfall } from '@antv/g2plot';
   selector: 'prizm-charts-waterfall',
   templateUrl: './prizm-charts-waterfall.component.html',
   styleUrls: ['./prizm-charts-waterfall.component.less'],
+  exportAs: 'prizmChartsWaterfall',
 })
 export class PrizmChartsWaterfallComponent<
   T extends Record<string, unknown>

@@ -106,9 +106,9 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
   ngAfterViewInit(): void {
     this.actualizeStatusIcon();
 
-    merge(this.inputStatusText ? this.inputStatusText.changed.pipe(map(i => this.inputStatusText)) : EMPTY)
+    merge(this.inputStatusText ? this.inputStatusText.changed.pipe(map(() => this.inputStatusText)) : EMPTY)
       .pipe(
-        startWith(this.control.statusText),
+        startWith(this.inputStatusText),
         map(i => i ?? this.control.statusText),
         filterTruthy(),
         tap(text => {

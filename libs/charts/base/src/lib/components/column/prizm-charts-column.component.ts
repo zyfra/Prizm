@@ -8,6 +8,7 @@ import { PrizmChartsAreaItem } from '../area';
   selector: 'prizm-charts-column',
   templateUrl: './prizm-charts-column.component.html',
   styleUrls: ['./prizm-charts-column.component.less'],
+  exportAs: 'prizmChartsColumn',
 })
 export class PrizmChartsColumnComponent<
   T extends Record<string, unknown>

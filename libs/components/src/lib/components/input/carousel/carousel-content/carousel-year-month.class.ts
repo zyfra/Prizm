@@ -1,7 +1,17 @@
 import { prizmDefaultCarouselControlsState, PrizmCarouselContent } from './carousel-content.interface';
-
+/**
+ * TODO remove in 2.0 version
+ * @deprecated
+ * use PrizmInputCarouselYearMonthValue
+ * */
 export type PrizmCarouselYearMonthValue = { year: number; month: number };
+export type PrizmInputCarouselYearMonthValue = PrizmCarouselYearMonthValue;
 
+/**
+ * TODO remove in 2.0 version
+ * @deprecated
+ * use PrizmInputCarouselYearMonth
+ * */
 export class PrizmCarouselYearMonth implements PrizmCarouselContent {
   currentValue: PrizmCarouselYearMonthValue = undefined;
 
@@ -103,9 +113,10 @@ export class PrizmCarouselYearMonth implements PrizmCarouselContent {
   }
 
   private compare(
-    value1: PrizmCarouselYearMonthValue,
-    value2: PrizmCarouselYearMonthValue
+    value1?: PrizmCarouselYearMonthValue,
+    value2?: PrizmCarouselYearMonthValue
   ): 'lt' | 'eq' | 'gt' {
+    if (!value1 || !value1) return 'eq';
     if (value1.year < value2.year) {
       return 'lt';
     }
@@ -128,3 +139,5 @@ export class PrizmCarouselYearMonth implements PrizmCarouselContent {
     return 'eq';
   }
 }
+
+export class PrizmInputCarouselYearMonth extends PrizmCarouselYearMonth {}

@@ -15,6 +15,13 @@ import { prizmAssert, prizmPadStart } from '@prizm-ui/core';
  * Immutable time object with hours, minutes, seconds and ms
  */
 export class PrizmTime implements PrizmTimeLike {
+  public static correctTime(parsedTime: PrizmTime): PrizmTime {
+    if (parsedTime.hours > 23)
+      parsedTime = new PrizmTime(23, parsedTime.minutes, parsedTime.seconds, parsedTime.ms);
+
+    return parsedTime;
+  }
+
   constructor(
     readonly hours: number,
     readonly minutes: number,

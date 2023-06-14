@@ -14,7 +14,7 @@ export abstract class PrizmChartsAbstractComponent<
     if (value == this.width) return;
     this.updateOptions({
       width: value,
-    });
+    } as unknown as OPTIONS);
   }
   get width(): number | null {
     return this.options.width;
@@ -26,7 +26,7 @@ export abstract class PrizmChartsAbstractComponent<
     if (value == this.height) return;
     this.updateOptions({
       height: value,
-    });
+    } as unknown as OPTIONS);
   }
   get height(): number {
     return this.options.height;
@@ -52,7 +52,7 @@ export abstract class PrizmChartsAbstractComponent<
         theme: value,
       },
       this.options as unknown as Record<string, unknown>
-    );
+    ) as unknown as OPTIONS;
     this.updateOptions(options);
   }
   readonly prizmChartThemeService: PrizmChartsThemeService;
@@ -61,7 +61,7 @@ export abstract class PrizmChartsAbstractComponent<
     this.prizmChartThemeService = injector.get(PrizmChartsThemeService);
     this.prizmChartThemeService.initIfNecessary();
   }
-  public updateOptions(options: Record<string, unknown>): void {
+  public updateOptions(options: Partial<OPTIONS>): void {
     this.origin?.update(options);
   }
   public destroy(): void {

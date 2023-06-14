@@ -14,6 +14,7 @@
     [readOnly]="true"
     [placeholder]="placeholder"
     [disabled]="disabled"
+    [ngModelOptions]="{ standalone: true }"
     [ngModel]="
       value
         ? computeValue(

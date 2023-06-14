@@ -6,6 +6,9 @@
     <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-select-base-example></prizm-select-base-example>
     </prizm-doc-example>
+    <prizm-doc-example id="stringify" [content]="exampleStringify" heading="Stringify">
+      <prizm-select-stringify-example></prizm-select-stringify-example>
+    </prizm-doc-example>
 
     <prizm-doc-example id="with-search" [content]="exampleWithSearch" heading="With Search">
       <prizm-select-with-search-example></prizm-select-with-search-example>
@@ -189,7 +192,7 @@
         [(documentationPropertyValue)]="items"
         [documentationPropertyValues]="itemsVariants"
         documentationPropertyName="items"
-        documentationPropertyType="unknown[]"
+        documentationPropertyType="T[]"
         documentationPropertyMode="input"
       >
         Items

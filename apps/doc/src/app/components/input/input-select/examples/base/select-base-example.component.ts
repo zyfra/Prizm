@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, Validators } from '@angular/forms';
+import { PrizmSelectStringify } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-select-base-example',

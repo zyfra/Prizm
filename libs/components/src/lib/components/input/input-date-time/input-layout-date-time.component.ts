@@ -12,7 +12,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, interval, Observable, tap } from 'rxjs';
 import { PRIZM_DATE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
 import { PRIZM_DATE_FORMAT } from '../../../@core/date-time/date-format';
 import { PRIZM_DATE_SEPARATOR } from '../../../@core/date-time/date-separator';
@@ -80,10 +80,6 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
   @Input()
   @prizmDefaultProp()
   placeholder = 'Выберите дату и время';
-
-  @Input()
-  @prizmDefaultProp()
-  size: PrizmInputSize = 'm';
 
   @Input()
   @prizmDefaultProp()
@@ -236,10 +232,12 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     const [date, time] = value.split(PRIZM_DATE_TIME_SEPARATOR_NGX);
 
     const parsedDate = PrizmDay.normalizeParse(date, this.dateFormat);
-    const parsedTime =
+    let parsedTime =
       time && time.length === this.timeMode.length
         ? this.prizmClampTime(PrizmTime.fromString(time), parsedDate)
         : null;
+
+    if (parsedTime) parsedTime = PrizmTime.correctTime(parsedTime);
 
     const match = parsedTime && this.getMatch(time);
 

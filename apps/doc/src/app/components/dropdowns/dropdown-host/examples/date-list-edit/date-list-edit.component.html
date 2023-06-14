@@ -63,20 +63,23 @@
   <div class="list-item" *prizmLet="item.range | prizmCallFunc : convertDate as dateArr">
     <div class="item-content" [ngSwitch]="item === selection">
       <div class="edit-block" *ngSwitchCase="true">
-        <prizm-input-date-time
-          #from
-          [prizmEventZoneParent]="zone"
-          [ngModel]="selection.range[0]"
-          [label]="'От'"
-          (ngModelChange)="changeDate($event, to.value)"
-        ></prizm-input-date-time>
-        <prizm-input-date-time
-          #to
-          [ngModel]="selection.range[1]"
-          [prizmEventZoneParent]="zone"
-          [label]="'До'"
-          (ngModelChange)="changeDate(from.value, $event)"
-        ></prizm-input-date-time>
+        <prizm-input-layout label="От">
+          <prizm-input-layout-date-time
+            #from
+            [prizmEventZoneParent]="zone"
+            [ngModel]="selection.range[0]"
+            (ngModelChange)="changeDate($event, to.value)"
+          ></prizm-input-layout-date-time>
+        </prizm-input-layout>
+
+        <prizm-input-layout label="До">
+          <prizm-input-layout-date-time
+            #to
+            [ngModel]="selection.range[1]"
+            [prizmEventZoneParent]="zone"
+            (ngModelChange)="changeDate(from.value, $event)"
+          ></prizm-input-layout-date-time>
+        </prizm-input-layout>
       </div>
       <prizm-radio-button
         *ngSwitchDefault

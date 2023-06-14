@@ -57,7 +57,7 @@
           "
           (click)="select(item)"
         >
-          <ng-container *ngIf="item; else nullContentTemplate">
+          <ng-container *ngIf="!isNullish(item); else nullContentTemplate">
             <span
               class="text"
               #elem

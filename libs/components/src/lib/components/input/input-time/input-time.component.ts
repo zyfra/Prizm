@@ -182,7 +182,7 @@ export class PrizmInputTimeComponent
   }
 
   public onValueChange(value: string): void {
-    this.open = !!this.items.length;
+    // this.open = !!this.items.length;
 
     if (this.control) {
       this.control.updateValueAndValidity({ emitEvent: false });
@@ -201,8 +201,7 @@ export class PrizmInputTimeComponent
       return;
     }
 
-    const time = PrizmTime.fromString(value);
-
+    const time = PrizmTime.correctTime(PrizmTime.fromString(value));
     this.updateValue(this.strict ? this.findNearestTimeFromItems(time) : time);
   }
 

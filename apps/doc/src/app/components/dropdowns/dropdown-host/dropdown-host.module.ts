@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
@@ -9,7 +9,7 @@ import {
   PrizmDataListModule,
   PrizmDropdownHostModule,
   PrizmIconModule,
-  PrizmInputDateTimeModule,
+  PrizmInputLayoutDateTimeModule,
   PrizmInputTextModule,
   PrizmRadioButtonModule,
 } from '@prizm-ui/components';
@@ -35,7 +35,7 @@ import { PrizmDropdownHostCustomStyleComponent } from './examples/custom-style/c
     PrizmDropdownHostModule,
     RouterModule.forChild(prizmDocGenerateRoutes(DropdownHostComponent)),
     PrizmCheckboxModule,
-    PrizmInputDateTimeModule,
+    PrizmInputLayoutDateTimeModule,
     PrizmInputTextModule,
     PrizmIconModule,
     PrizmRadioButtonModule,

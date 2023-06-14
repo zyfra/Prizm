@@ -13,6 +13,7 @@
       [placeholder]="placeholder"
       [readonly]="true"
       [disabled]="computedDisabled"
+      [ngModelOptions]="{ standalone: true }"
       [ngModel]="(value | prizmMapper : formatter | async) || ''"
       (ngModelChange)="onValueChange($event || '')"
       prizmInput

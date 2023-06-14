@@ -18,6 +18,7 @@ import { PrizmSelectWithObjectExampleComponent } from './examples/with-object/se
 import { PrizmSelectWithBackendSearchExampleComponent } from './examples/with-backend-search/select-with-backend-search-example.component';
 import { PrizmSelectFullWidthExampleComponent } from './examples/full-width/select-full-width-example.component';
 import { PrizmSelectValidatorsExampleComponent } from './examples/validators/select-validators-example.component';
+import { PrizmSelectStringifyExampleComponent } from './examples/stringify/select-stringify-example.component';
 
 @NgModule({
   imports: [
@@ -38,6 +39,7 @@ import { PrizmSelectValidatorsExampleComponent } from './examples/validators/sel
     PrizmSelectBaseExampleComponent,
     PrizmSelectWithSearchExampleComponent,
     PrizmSelectWithBackendSearchExampleComponent,
+    PrizmSelectStringifyExampleComponent,
     PrizmSelectWithObjectExampleComponent,
     PrizmSelectWithTemplateExampleComponent,
     InputSelectComponent,
