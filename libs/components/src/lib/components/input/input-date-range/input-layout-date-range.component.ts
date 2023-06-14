@@ -43,6 +43,7 @@ import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
 import { map } from 'rxjs/operators';
 import { prizmCreateDateNgxMask, PrizmTime } from '../../../@core';
+import { PrizmInputZoneDirective } from '../../../directives/input-zone';
 
 @Component({
   selector: `prizm-input-layout-date-range`,
@@ -65,8 +66,9 @@ import { prizmCreateDateNgxMask, PrizmTime } from '../../../@core';
 export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<PrizmDayRange> {
   hasClearButton = true;
   nativeElementType = 'input-layout-date-range';
-  @ViewChild('focusableElementRef', { read: ElementRef })
-  public readonly focusableElement?: ElementRef<HTMLInputElement>;
+
+  @ViewChild('focusableElementRef', { read: PrizmInputZoneDirective })
+  public readonly focusableElement?: PrizmInputZoneDirective;
 
   @ContentChild('footerFrom', { read: TemplateRef })
   public readonly footerFromTemplate?: TemplateRef<HTMLInputElement>;
@@ -145,14 +147,8 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
     super(injector, valueTransformer);
   }
 
-  public get nativeFocusableElement(): HTMLInputElement | null {
-    return this.focusableElement ? (this.focusableElement.nativeElement as HTMLInputElement) : null;
-  }
-
-  public get focused(): boolean {
-    return this.focusableElement?.nativeElement
-      ? prizmIsNativeFocusedIn(this.focusableElement.nativeElement)
-      : false;
+  public get focused(): Observable<boolean> {
+    return this.focusableElement?.focused$;
   }
 
   public get canOpen(): boolean {
@@ -193,79 +189,31 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
     );
   }
 
-  get computedValue(): string {
-    const { value, nativeValue, activePeriod } = this;
-
-    if (activePeriod) {
-      return String(activePeriod);
-    }
-
-    return value ? value.getFormattedDayRange(this.dateFormat, this.dateSeparator) : nativeValue;
-  }
-
-  get nativeValue(): string {
-    return this.nativeFocusableElement ? this.nativeFocusableElement.value : ``;
-  }
-
-  set nativeValue(value: string) {
-    if (!this.nativeFocusableElement) {
-      return;
-    }
-
-    this.nativeFocusableElement.value = value;
-  }
-
   public onOpenChange(open: boolean): void {
     this.open = open;
     this.changeDetectorRef.markForCheck();
   }
 
-  public onValueChange(value: string): void {
-    if (value === this.stringValue) return;
-
-    if (value == null) {
-      this.onOpenChange(true);
-    }
-
-    if (!value || value.length !== PRIZM_DATE_RANGE_FILLER_LENGTH) {
-      if (!value) this.updateValue(null);
-      return;
-    }
-
-    const parsedValue = PrizmDayRange.normalizeParse(value, this.dateFormat);
-
-    this.updateValue(!this.minLength && !this.maxLength ? parsedValue : this.clampValue(parsedValue));
-  }
-
   public onValueFromChange(value: string, isFormValue: boolean): void {
-    console.log('#mz onValueFromChange', 1, {
-      value,
-      isFormValue,
-    });
     if (isFormValue && value === this.fromValue) return;
     if (!isFormValue && value === this.toValue) return;
-    console.log('#mz onValueFromChange', 2, {
-      value,
-      isFormValue,
-    });
     this.nativeValue$$.next(
       isFormValue ? [value, this.nativeValue$$.value[1]] : [this.nativeValue$$.value[0], value]
     );
-
     if (value == null) {
       this.onOpenChange(true);
     }
 
     if (!value || value.length !== this.computedSingleMask.length) {
-      if (!value) this.updateValue(null);
+      if (!value && isFormValue && !this.value?.to && !isFormValue && !this.value?.from)
+        this.updateValue(null);
       return;
     }
 
     const parsedValue = PrizmDay.normalizeParse(value, this.dateFormat);
-
     this.updateWithCorrectDateAndTime(
       isFormValue ? parsedValue : this.value?.from,
-      isFormValue ? this.value.to : parsedValue
+      isFormValue ? this.value?.to : parsedValue
     );
   }
 
@@ -273,14 +221,14 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
     this.focusInput();
 
     if (!range) {
-      this.nativeValue = ``;
+      this.nativeValue$$.next(['', '']);
     }
 
     if (!prizmNullableSame<PrizmDayRange>(this.value, range, (a, b) => a.daySame(b))) {
       this.updateValue(range);
       this.open = false;
     }
-    this.focusableElement.nativeElement.value = this.stringValue;
+    this.nativeValue$$.next([this.fromValue, this.toValue]);
     this.changeDetectorRef.markForCheck();
   }
 
@@ -296,7 +244,7 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
 
     if (this.activePeriod !== null) {
       this.updateValue(null);
-      this.nativeValue = ``;
+      this.nativeValue$$.next(['', '']);
     }
   }
 
@@ -312,17 +260,15 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
 
   public override writeValue(value: PrizmDayRange | null): void {
     super.writeValue(value);
-    this.nativeValue = value ? this.computedValue : ``;
+    this.nativeValue$$.next([value?.from?.toString(), value?.to?.toString()]);
   }
 
   private toggle(): void {
     this.open = !this.open;
   }
 
-  private focusInput(preventScroll: boolean = false): void {
-    if (this.nativeFocusableElement) {
-      prizmSetNativeFocused(this.nativeFocusableElement, true, preventScroll);
-    }
+  private focusInput(): void {
+    this.focusableElement?.focus(0);
   }
 
   private clampValue(value: PrizmDayRange): PrizmDayRange {

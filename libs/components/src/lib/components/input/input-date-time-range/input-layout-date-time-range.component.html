@@ -1,0 +1,172 @@
+<prizm-dropdown-host
+  class="z-hosted"
+  [canOpen]="canOpen"
+  [content]="dropdown"
+  [closeByEsc]="true"
+  [closeOnOutsideClick]="closeOnOutsideClick"
+  [prizmDropdownHostWidth]="'auto'"
+  [isOpen]="canOpen && !disabled && open"
+  [prizmDropdownHost]="layoutComponent.el.nativeElement"
+  (isOpenChange)="onOpenChange($event)"
+  prizmDropdownHostWidth="auto"
+>
+  <div
+    class="multiple-input-box"
+    #focusableElementRef="prizmInputZone"
+    [attr.data-placeholder]="placeholder"
+    prizmInputZone
+  >
+    <input
+      class="input-main"
+      [class.show-placeholder]="(empty | async) && (focusableElementRef.focused$ | async) !== true"
+      [placeholder]="placeholder"
+      [mask]="computedDateMask"
+      [showMaskTyped]="focusableElementRef.focused$ | async"
+      [dropSpecialCharacters]="false"
+      [disabled]="disabled"
+      [ngModelOptions]="{ standalone: true }"
+      [ngModel]="fromValue"
+      [size]="computedDateMask.length"
+      [maxSize]="computedDateMask.length"
+      (ngModelChange)="onDateValueChange($event || '', true)"
+      style="padding: 0"
+      prizmInput
+      prizmInputInZone
+    />
+    <input
+      class="input-time"
+      [mask]="computedTimeMask"
+      [dropSpecialCharacters]="false"
+      [showMaskTyped]="focusableElementRef.focused$ | async"
+      [disabled]="disabled"
+      [ngModelOptions]="{ standalone: true }"
+      [ngModel]="fromTimeValue"
+      [size]="computedTimeMask.length"
+      [maxSize]="computedTimeMask.length"
+      (ngModelChange)="onTimeValueChange($event, true)"
+      style="padding: 0"
+      prizmInput
+      prizmInputInZone
+    />
+    <span class="delimiter">-</span>
+    <input
+      class="input-time"
+      [mask]="computedDateMask"
+      [dropSpecialCharacters]="false"
+      [showMaskTyped]="focusableElementRef.focused$ | async"
+      [disabled]="disabled"
+      [ngModelOptions]="{ standalone: true }"
+      [ngModel]="toValue"
+      [size]="computedDateMask.length"
+      [maxSize]="computedDateMask.length"
+      (ngModelChange)="onDateValueChange($event || '', false)"
+      style="padding: 0"
+      prizmInput
+      prizmInputInZone
+    />
+    <input
+      class="input-time"
+      [mask]="computedTimeMask"
+      [dropSpecialCharacters]="false"
+      [showMaskTyped]="focusableElementRef.focused$ | async"
+      [disabled]="disabled"
+      [ngModelOptions]="{ standalone: true }"
+      [ngModel]="toTimeValue"
+      [size]="computedTimeMask.length"
+      [maxSize]="computedTimeMask.length"
+      (ngModelChange)="onTimeValueChange($event, false)"
+      style="padding: 0"
+      prizmInput
+      prizmInputInZone
+    />
+  </div>
+
+  <!--  TODO add after create time range component -->
+  <!--  <ng-template #dropdownTimeTemplate>-->
+  <!--    <prizm-data-list-->
+  <!--      class="block"-->
+  <!--      *ngIf="timeItems.length"-->
+  <!--      [style.&#45;&#45;prizm-data-list-border]="0"-->
+  <!--      (prizmAfterViewInit)="markAsTouched(); prizmDropdownHostComponent.reCalculatePositions()"-->
+  <!--      (prizmOnDestroy)="openTimeTemplate = false"-->
+  <!--      prizmLifecycle-->
+  <!--    >-->
+  <!--      <ng-container>-->
+  <!--        <div-->
+  <!--          class="time-item"-->
+  <!--          *ngFor="let item of timeItems; let idx = index"-->
+  <!--          (click)="$event.stopPropagation(); onTimeMenuClick(item, $event)"-->
+  <!--        >-->
+  <!--        <span class="text">-->
+  <!--          {{ item }}-->
+  <!--        </span>-->
+  <!--        </div>-->
+  <!--      </ng-container>-->
+  <!--    </prizm-data-list>-->
+  <!--  </ng-template>-->
+  <!--  -->
+  <ng-template #dropdown>
+    <prizm-calendar-range
+      [style.--prizm-input-layout-width]="'100%'"
+      [style.--prizm-dropdown-host-width]="'100%'"
+      [defaultViewedMonth]="defaultViewedMonth"
+      [disabledItemHandler]="disabledItemHandler"
+      [items]="items"
+      [min]="calendarMinDay"
+      [max]="calendarMaxDay"
+      [markerHandler]="markerHandler"
+      [minLength]="minLength"
+      [maxLength]="maxLength"
+      [value]="value?.dayRange"
+      (prizmAfterViewInit)="markAsTouched()"
+      (valueChange)="onRangeChange($event)"
+    >
+      <ng-container footerFrom>
+        <prizm-input-layout label="Время">
+          <prizm-input-layout-time
+            [style.--prizm-dropdown-host-width]="'100%'"
+            [ngModelOptions]="{ standalone: true }"
+            [ngModel]="value?.timeRange?.from"
+            [items]="timeItems"
+            [strict]="timeStrict"
+            [mode]="timeMode"
+            (ngModelChange)="updateTimeFrom($event)"
+          >
+          </prizm-input-layout-time>
+        </prizm-input-layout>
+      </ng-container>
+      <ng-container footerTo>
+        <prizm-input-layout label="Время">
+          <prizm-input-layout-time
+            [style.--prizm-dropdown-host-width]="'100%'"
+            [ngModelOptions]="{ standalone: true }"
+            [ngModel]="value?.timeRange?.to"
+            [strict]="timeStrict"
+            [items]="timeItems"
+            [mode]="timeMode"
+            (ngModelChange)="updateTimeTo($event)"
+          >
+          </prizm-input-layout-time>
+        </prizm-input-layout>
+      </ng-container>
+    </prizm-calendar-range>
+  </ng-template>
+</prizm-dropdown-host>
+
+<ng-container *prizmInputLayoutRight>
+  <button
+    [interactive]="true"
+    [disabled]="disabled"
+    (click)="focusableElementRef.focus(); onOpenChange(!open)"
+    prizmInputIconButton="date-calendar-range"
+  ></button>
+  <!--  TODO add after create time-range modal -->
+  <!--  <button-->
+  <!--    [interactive]="true"-->
+  <!--    [disabled]="disabled"-->
+  <!--    (click)="onOpen(!open)"-->
+  <!--    prizmInputIconButton="date-clock"-->
+  <!--  ></button>-->
+  <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
+  </ng-container>
+</ng-container>

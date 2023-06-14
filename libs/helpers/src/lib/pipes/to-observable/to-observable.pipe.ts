@@ -82,7 +82,7 @@ export class PrizmToObservablePipe<T> implements PipeTransform, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subject$$.complete();
-    this.subject$$.unsubscribe();
+    this.subject$$?.complete();
+    this.subject$$?.unsubscribe();
   }
 }
