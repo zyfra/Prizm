@@ -35,6 +35,16 @@ export class NavigationMenuExampleComponent {
     ),
   };
 
+  public readonly exampleChildrenOneModeMenu: TuiDocExample = {
+    TS: import(
+      './examples/navigation-menu-one-mode-example/navigation-menu-one-mode-example.component.ts?raw'
+    ),
+    HTML: import(
+      './examples/navigation-menu-one-mode-example/navigation-menu-one-mode-example.component.html?raw'
+    ),
+    Constants: import('./examples/navigation-menu-one-mode-example/navigation-menu.constants?raw'),
+  };
+
   public readonly exampleGroupsNavigationMenu: TuiDocExample = {
     TS: import('./examples/navigation-menu-groups-example/navigation-menu-groups-example.component?raw'),
     HTML: import(

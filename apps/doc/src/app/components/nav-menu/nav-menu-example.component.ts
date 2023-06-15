@@ -97,5 +97,11 @@ export class NavMenuExampleComponent {
     LESS: import('./examples/nav-menu-advanced-example/nav-menu-advanced-example.component.less?raw'),
   };
 
+  public readonly exampleOneModeNavMenu: TuiDocExample = {
+    TypeScript: import('./examples/nav-menu-one-mode-example/nav-menu-one-mode-example.component?raw'),
+    HTML: import('./examples/nav-menu-one-mode-example/nav-menu-one-mode-example.component.html?raw'),
+    LESS: import('./examples/nav-menu-one-mode-example/nav-menu-one-mode-example.component.less?raw'),
+  };
+
   public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }
