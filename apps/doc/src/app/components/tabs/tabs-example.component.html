@@ -35,6 +35,7 @@
           #elementTabs
           [prizmDocHostElement]="elementTabs"
           [size]="size"
+          [canOpen]="canOpen"
           [canShowMenu]="canShowMenu"
           [activeTabIndex]="activeTabIndex"
           prizmDocHostElementKey="PrizmTabsComponent"
@@ -84,6 +85,16 @@
         documentationPropertyMode="input"
       >
         Can Show Menu
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="canOpen"
+        [documentationPropertyValues]="canOpenVariants"
+        documentationPropertyName="canOpen"
+        documentationPropertyType="PrizmTabCanOpen"
+        documentationPropertyMode="input"
+      >
+        Can Open Tab
       </ng-template>
 
       <ng-template
