@@ -3,7 +3,7 @@ import { BehaviorSubject, combineLatest, Observable, of, Subject } from 'rxjs';
 import { distinctUntilChanged, map, startWith, take, takeUntil, tap } from 'rxjs/operators';
 import { PrizmTabComponent } from './components/tab.component';
 import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
-import { PrizmTabCanOpen } from '@prizm-ui/components';
+import { PrizmTabCanOpen } from './tabs.model';
 
 @Injectable()
 export class PrizmTabsService implements OnDestroy {
