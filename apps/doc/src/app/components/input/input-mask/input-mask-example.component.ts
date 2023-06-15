@@ -9,7 +9,7 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputMaskExampleComponent {
-  public mask = '99:SS';
+  public mask = '00:00';
   public value = '';
 
   public label = 'Заголовок';

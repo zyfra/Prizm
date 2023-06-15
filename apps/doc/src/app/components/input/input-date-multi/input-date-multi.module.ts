@@ -14,6 +14,7 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputDateMultiBaseExampleComponent } from './examples/base/input-date-multi-base-example.component';
 import { PrizmInputDateMultiFourExampleComponent } from './examples/four/input-date-multi-four-example.component';
+import { PrizmCallFuncModule } from '@prizm-ui/helpers';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { PrizmInputDateMultiFourExampleComponent } from './examples/four/input-d
     PolymorphModule,
     PrizmInputDateMultiModule,
     PrizmInputLayoutDateTimeModule,
+    PrizmCallFuncModule,
     PrizmInputLayoutDateModule,
     PrizmInputLayoutTimeModule,
     PrizmInputLayoutDateRelativeModule,
