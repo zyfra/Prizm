@@ -16,7 +16,7 @@ import { PrizmTabsService } from '../tabs.service';
 import { PolymorphContent } from '../../../directives';
 import { Observable } from 'rxjs';
 import { PrizmLetContextService } from '@prizm-ui/helpers';
-import { PrizmTabMenuContext } from '../tabs.model';
+import { PrizmTabContext, PrizmTabMenuContext } from '../tabs.model';
 @Component({
   selector: 'prizm-tab',
   templateUrl: './tab.component.html',
@@ -25,9 +25,9 @@ import { PrizmTabMenuContext } from '../tabs.model';
 })
 export class PrizmTabComponent implements OnInit, OnDestroy {
   @Input() @HostBinding('attr.tab-type') public type: PrizmTabType = 'line';
-  @Input() icon: PolymorphContent = null;
-  @Input() content: PolymorphContent = null;
-  @Input() closeIcon: PolymorphContent = 'cancel-close';
+  @Input() icon: PolymorphContent<PrizmTabContext> = null;
+  @Input() content: PolymorphContent<PrizmTabContext> = null;
+  @Input() closeIcon: PolymorphContent<PrizmTabContext> = 'cancel-close';
   @Input() count = 0;
   @Input() closable: boolean;
   @Input() disabled = false;

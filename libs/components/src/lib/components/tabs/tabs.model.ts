@@ -5,3 +5,4 @@ export type PrizmTabMenuContext = {
   inMenuIdx: number | null;
 };
 export type PrizmTabCanOpen = (tab: PrizmTabComponent) => Observable<boolean>;
+export type PrizmTabContext = { idx: number; tab: PrizmTabComponent };
