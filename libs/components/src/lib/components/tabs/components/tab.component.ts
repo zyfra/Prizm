@@ -32,7 +32,7 @@ export class PrizmTabComponent implements OnInit, OnDestroy {
   @Input() closable: boolean;
   @Input() disabled = false;
   public get idx(): number | null {
-    return this.inMenuContextService?.context?.inMenuIdx ?? this.tabsService.getIndexOfTab(this);
+    return this.inMenuContextService?.context?.inMenuIdx ?? this.tabsService?.getIndexOfTab?.(this);
   }
   @Output() public closeTab = new EventEmitter<void>();
 
