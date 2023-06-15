@@ -47,57 +47,40 @@ export const TABLE_EXAMPLE_TREE_DATA_1: ITableProduct[] = [
     category: 'Active',
     count: 123,
     status: 'success',
-  },
-  {
-    code: '3',
-    name: 'Name 3',
-    category: 'Sport',
-    count: 56000,
-    status: 'success',
-  },
-  {
-    code: '4',
-    name: 'Name 4',
-    category: 'Sport+',
-    count: 539,
-  },
-  {
-    code: '5',
-    name: 'Name 5',
-    category: 'Premium',
-    count: 23,
-    status: 'danger',
-  },
-  {
-    code: '6',
-    name: 'Name 6',
-    category: 'Premium',
-    count: 99,
-  },
-  {
-    code: '7',
-    name: 'Name 7',
-    category: 'Premium',
-    count: 23,
-    status: 'warning',
-  },
-  {
-    code: '8',
-    name: 'Name 8 that will be the longest name ever',
-    category: 'Premium',
-    count: 99,
-  },
-  {
-    code: '9',
-    name: 'Name 5',
-    category: 'Premium',
-    count: 23,
-  },
-  {
-    code: '10',
-    name: 'Name 6',
-    category: 'Premium',
-    count: 99,
+    children: [
+      {
+        code: '2_1',
+        name: 'Name 2_1',
+        category: 'Premium',
+        count: 2000,
+        children: [
+          {
+            code: '2_1_1',
+            name: 'Name 2_1_1',
+            category: 'Premium',
+            count: 500,
+          },
+          {
+            code: '2_1_2',
+            name: 'Name 2_1_2',
+            category: 'Premium',
+            count: 500,
+          },
+          {
+            code: '2_1_3',
+            name: 'Name 2_1_3',
+            category: 'Premium',
+            count: 100,
+          },
+        ],
+      },
+      {
+        code: '2_2',
+        name: 'Name 2_2',
+        category: 'Premium',
+        count: 1000,
+      },
+    ],
   },
 ];
 

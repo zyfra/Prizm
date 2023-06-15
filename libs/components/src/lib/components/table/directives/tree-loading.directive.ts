@@ -5,7 +5,7 @@ import { Directive, Inject, OnDestroy, TemplateRef, ViewContainerRef } from '@an
 })
 export class PrizmTableTreeLoadingDirective implements OnDestroy {
   constructor(
-    @Inject(TemplateRef) readonly template: TemplateRef<unknown>,
+    @Inject(TemplateRef) readonly template: TemplateRef<any>,
     public readonly viewContainer: ViewContainerRef
   ) {}
 

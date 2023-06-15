@@ -17,7 +17,7 @@
 <ng-container *ngIf="open && row">
   <ng-container *ngIf="renderData$ | async as data; else loadingWrapperTemplate">
     <ng-container *ngIf="!!data?.length; else emptyWrapperTemplate">
-      <ng-container
+      <ng-template
         *ngFor="
           let item of data;
           index as index;
@@ -28,8 +28,8 @@
           count as count;
           trackBy: row.prizmRowTrackBy
         "
-        [ngTemplateOutlet]="templateRowElement"
-        [ngTemplateOutletContext]="{
+        [template]="templateRowElement"
+        [context]="{
           item: item,
           index: index,
           odd: odd,
@@ -39,7 +39,8 @@
           count: count,
           deepLevel: 0
         }"
-      ></ng-container>
+        prizmTableRowIdx
+      ></ng-template>
     </ng-container>
   </ng-container>
 </ng-container>
@@ -101,9 +102,6 @@
           item: item,
           parentIdx: index,
           parentItem: item,
-          index: index,
-          odd: odd,
-          even: even,
           deepLevel: deepLevel,
           first: first,
           last: last,
@@ -124,7 +122,7 @@
         else treeLoadingTemplateRef
       "
     >
-      <ng-container
+      <ng-template
         *ngFor="
           let childItem of $any(children);
           index as childIndex;
@@ -135,21 +133,19 @@
           count as childCount;
           trackBy: row.prizmRowTrackBy
         "
-        [ngTemplateOutlet]="templateRowElement"
-        [ngTemplateOutletContext]="{
+        [template]="templateRowElement"
+        [context]="{
           item: childItem,
           parentIdx: index,
           parentItem: item,
-          index: childIndex + count,
-          odd: childOdd,
-          even: childEven,
           deepLevel: (deepLevel ?? 0) + 1,
           first: childFirst,
           last: childLast,
           count: childCount + count
         }"
+        prizmTableRowIdx
       >
-      </ng-container>
+      </ng-template>
     </ng-container>
   </ng-container>
 </ng-template>

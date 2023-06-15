@@ -24,6 +24,7 @@ import { PrizmTreeButtonModule } from '../tree-button/tree-button.module';
 import { PrizmTableTreeLoadingDirective } from './directives/tree-loading.directive';
 import { PrizmTableLoadingDirective } from './directives/loading.directive';
 import { PrizmTableEmptyDirective } from './directives/empty.directive';
+import { PrizmTableRowInitDirective } from './directives/row-init.directive';
 
 @NgModule({
   imports: [
@@ -47,6 +48,7 @@ import { PrizmTableEmptyDirective } from './directives/empty.directive';
     PrizmCellDirective,
     PrizmHeadDirective,
     PrizmRowDirective,
+    PrizmTableRowInitDirective,
     PrizmSortByDirective,
     PrizmSortableDirective,
     PrizmTheadDirective,
