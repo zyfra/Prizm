@@ -37,12 +37,18 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
 import { map } from 'rxjs/operators';
-import { prizmCreateDateNgxMask, PrizmDateTimeRange, PrizmTime, PrizmTimeRange } from '../../../@core';
+import {
+  prizmCreateDateNgxMask,
+  PrizmDateTime,
+  PrizmDateTimeRange,
+  PrizmTime,
+  PrizmTimeRange,
+} from '../../../@core';
 import { PrizmInputZoneDirective } from '../../../directives/input-zone';
-import { PRIZM_INPUT_DATE_RANGE_PROVIDERS } from '../input-date-range';
 import { PrizmDateButton, PrizmTimeMode } from '../../../types';
 import { prizmCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens';
+import { PrizmDateTimeMinMax } from './model';
 
 @Component({
   selector: `prizm-input-layout-date-time-range`,
@@ -52,7 +58,6 @@ import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens';
     './../input-date/input-layout-date-shared.component.less',
   ],
   providers: [
-    // ...PRIZM_INPUT_DATE_RANGE_PROVIDERS,
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => PrizmInputLayoutDateTimeRangeComponent),
@@ -100,11 +105,11 @@ export class PrizmInputLayoutDateTimeRangeComponent
 
   @Input()
   @prizmDefaultProp()
-  min: PrizmDay | [PrizmDay, PrizmTime] = PRIZM_FIRST_DAY;
+  min: PrizmDateTimeMinMax = PRIZM_FIRST_DAY;
 
   @Input()
   @prizmDefaultProp()
-  max: PrizmDay | [PrizmDay, PrizmTime] = PRIZM_LAST_DAY;
+  max: PrizmDateTimeMinMax = PRIZM_LAST_DAY;
 
   @Input()
   @prizmDefaultProp()
@@ -146,11 +151,11 @@ export class PrizmInputLayoutDateTimeRangeComponent
   public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
 
   get calendarMinDay(): PrizmDay {
-    return Array.isArray(this.min) ? this.min[0] : this.min;
+    return this.getDayFromMinMax(this.min);
   }
 
   get calendarMaxDay(): PrizmDay {
-    return Array.isArray(this.max) ? this.max[0] : this.max;
+    return this.getDayFromMinMax(this.max);
   }
 
   readonly nativeValue$$ = new BehaviorSubject<{
@@ -321,16 +326,17 @@ export class PrizmInputLayoutDateTimeRangeComponent
     if (!value) return null;
     let [, parsedTime] = value;
     if (parsedTime)
-      parsedTime = parsedTime.timeLimit(
-        Array.isArray(this.min) && this.min[1] instanceof PrizmTime && value?.[0]?.daySame(this.min[0])
-          ? this.min[1]
-          : null,
-        Array.isArray(this.max) && this.max[1] instanceof PrizmTime && value?.[0]?.daySame(this.max[0])
-          ? this.max[1]
-          : null
-      );
+      parsedTime = parsedTime.timeLimit(this.getTimeFromMinMax(this.min), this.getTimeFromMinMax(this.max));
 
     return parsedTime;
+  }
+
+  private getDayFromMinMax(value: PrizmDateTimeMinMax): PrizmDay {
+    return Array.isArray(value) ? value[0] : value instanceof PrizmDateTime ? value.day : value;
+  }
+
+  private getTimeFromMinMax(value: PrizmDateTimeMinMax): PrizmTime | null {
+    return Array.isArray(value) ? value[1] : value instanceof PrizmDateTime ? value.time : null;
   }
 
   private updateTimeWithCorrectDateAndTime(from: PrizmTime | null, to: PrizmTime | null): void {
@@ -341,11 +347,7 @@ export class PrizmInputLayoutDateTimeRangeComponent
   }
 
   private dayLimit(value: PrizmDay): PrizmDay {
-    return value.dayLimit(this.getDateFromMinMax(this.min), this.getDateFromMinMax(this.max));
-  }
-
-  private getDateFromMinMax(minMax: PrizmDay | [PrizmDay, PrizmTime]): PrizmDay | null {
-    return minMax instanceof PrizmDay ? minMax : minMax?.[0] ?? null;
+    return value.dayLimit(this.getDayFromMinMax(this.min), this.getDayFromMinMax(this.max));
   }
 
   public override writeValue(value: PrizmDateTimeRange | null): void {

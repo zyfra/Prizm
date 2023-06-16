@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
-import { PrizmDateTime, PrizmDay, PrizmDayRange } from '@prizm-ui/components';
+import {
+  PrizmDateTime,
+  PrizmDateTimeRange,
+  PrizmDay,
+  PrizmDayRange,
+  PrizmTime,
+  PrizmTimeRange,
+} from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-input-layout-date-time-range-disabled-example',
@@ -16,11 +23,14 @@ import { PrizmDateTime, PrizmDay, PrizmDayRange } from '@prizm-ui/components';
 })
 export class PrizmInputLayoutDateTimeRangeDisabledExampleComponent implements OnInit {
   readonly value = new UntypedFormControl(
-    new PrizmDayRange(new PrizmDay(2018, 2, 10), new PrizmDay(2018, 3, 20))
+    new PrizmDateTimeRange(
+      new PrizmDayRange(new PrizmDay(2018, 2, 10), new PrizmDay(2018, 3, 20)),
+      new PrizmTimeRange(new PrizmTime(9, 0), new PrizmTime(18, 0))
+    )
   );
-  readonly min = new PrizmDateTime(new PrizmDay(2000, 2, 20));
+  readonly min = new PrizmDay(2000, 2, 20);
 
-  readonly max = new PrizmDateTime(new PrizmDay(2040, 2, 20));
+  readonly max = new PrizmDay(2000, 2, 20);
 
   public ngOnInit(): void {
     this.value.disable();

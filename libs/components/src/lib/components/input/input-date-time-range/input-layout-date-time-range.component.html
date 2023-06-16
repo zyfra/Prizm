@@ -18,7 +18,9 @@
   >
     <input
       class="input-main"
-      [class.show-placeholder]="(empty | async) && (focusableElementRef.focused$ | async) !== true"
+      [class.show-placeholder]="
+        (empty | async) && (disabled || (focusableElementRef.focused$ | async) !== true)
+      "
       [placeholder]="placeholder"
       [mask]="computedDateMask"
       [showMaskTyped]="focusableElementRef.focused$ | async"
