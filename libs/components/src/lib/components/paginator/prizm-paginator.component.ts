@@ -174,6 +174,13 @@ export class PrizmPaginatorComponent implements OnInit {
   public decrease(): void {
     this.changePage(this.page - 1);
   }
+  public toLastPage(): void {
+    this.changePage(this.pagesCount);
+  }
+
+  public toFirstPage(): void {
+    this.changePage(0);
+  }
 
   private emitPageChange(): void {
     this.pageChange.emit(this.currentPage);

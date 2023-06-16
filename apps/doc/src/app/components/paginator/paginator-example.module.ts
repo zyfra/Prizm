@@ -15,10 +15,12 @@ import { RouterModule } from '@angular/router';
 import { PrizmPaginatorModule } from '@prizm-ui/components';
 import { PaginatorWithLabelsExampleComponent } from './examples/paginator-with-labels-example/paginator-with-labels-example.component';
 import { PaginatorInfiniteExampleComponent } from './examples/paginator-infinite-example/paginator-infinite-example.component';
+import { PaginatorOptionsExampleComponent } from './examples/paginator-options-example/paginator-options-example.component';
 
 @NgModule({
   declarations: [
     PaginatorExampleComponent,
+    PaginatorOptionsExampleComponent,
     PaginatorBasicExampleComponent,
     PaginatorWithLabelsExampleComponent,
     PaginatorInfiniteExampleComponent,
