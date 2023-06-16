@@ -700,7 +700,7 @@ export class PrizmCronHRExpressionDescriptor {
       description = description.replace(new RegExp(`, ${this.i18n.everyMinute()}`, 'g'), '');
       description = description.replace(new RegExp(`, ${this.i18n.everyHour()}`, 'g'), '');
       description = description.replace(new RegExp(this.i18n.commaEveryDay(), 'g'), '');
-      description = description.replace(/\, ?$/, '');
+      description = description.replace(/, ?$/, '');
     }
     return description;
   }

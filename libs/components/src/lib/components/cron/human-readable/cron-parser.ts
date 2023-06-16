@@ -213,7 +213,7 @@ export class PrizmCronHRParser {
     //     0-20/3 9 * * * => 0-20/3 9-9 * * * (9 => 9-9) => Every 3 minutes, minutes 0 through 20 past the hour, between 09:00 AM and 09:59 AM
     //     */5 3 * * * => */5 3-3 * * * (3 => 3-3) => Every 5 minutes, between 03:00 AM and 03:59 AM
     if (
-      !/\*|\-|\,|\//.test(expressionParts[2]) &&
+      !/\*|-|,|\//.test(expressionParts[2]) &&
       (/\*|\//.test(expressionParts[1]) || /\*|\//.test(expressionParts[0]))
     ) {
       expressionParts[2] += `-${expressionParts[2]}`;
@@ -243,7 +243,7 @@ export class PrizmCronHRParser {
            - DOW part '3/2' will be converted to '3-6/2' (every 2 days between Tuesday and Saturday)
       */
 
-      if (expressionParts[i].indexOf('/') > -1 && !/^\*|\-|\,/.test(expressionParts[i])) {
+      if (expressionParts[i].indexOf('/') > -1 && !/^\*|-|,/.test(expressionParts[i])) {
         let stepRangeThrough: string | null = null;
         switch (i) {
           case 4:
