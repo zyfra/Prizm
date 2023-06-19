@@ -25,7 +25,10 @@
   &.selected,
   &.most-relevant {
     background: var(--prizm-select-item-selected-background, var(--prizm-palette-b1-20));
-    color: black;
+
+    .text {
+      color: black;
+    }
   }
 
   &:not(.selected):not(.most-relevant):hover {
