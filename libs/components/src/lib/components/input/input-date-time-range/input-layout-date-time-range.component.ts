@@ -13,7 +13,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { BehaviorSubject, combineLatest, Observable, timer } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, of, timer } from 'rxjs';
 import { PrizmDayRange } from '../../../@core/date-time/day-range';
 import { PrizmDay } from '../../../@core/date-time/day';
 import { prizmDefaultProp } from '@prizm-ui/core';
@@ -38,6 +38,7 @@ import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
 import {
   debounceTime,
+  delay,
   distinctUntilChanged,
   first,
   map,
@@ -465,8 +466,21 @@ export class PrizmInputLayoutDateTimeRangeComponent
     const range = PrizmDateTimeRange.safeUpdateTimeFrom(this.value, value);
     this.updateValue(range?.copy());
   }
+
+  public referFocusToMain() {
+    // TODO create operator and rxjs functin to run sequence in event loop
+    of(null)
+      .pipe(
+        delay(0),
+        tap(() => {
+          this.focusableElement?.selectionToStart();
+        })
+      )
+      .subscribe();
+  }
 }
 
+// TODO refactotor and move to utils
 function hasValueInArray(values: unknown[]) {
   return !!values.find(i => Boolean(i));
 }

@@ -31,6 +31,7 @@
       [ngModel]="fromValue"
       [size]="computedDateMask.length"
       [maxSize]="computedDateMask.length"
+      (focus)="referFocusToMain()"
       (ngModelChange)="onDateValueChange($event || '', true)"
       style="padding: 0"
       prizmInput
@@ -56,8 +57,8 @@
     <input
       class="input-time"
       [mask]="computedDateMask"
-      [clearIfNotMatch]="false"
       [dropSpecialCharacters]="false"
+      [clearIfNotMatch]="false"
       [showMaskTyped]="(focusableElementRef.focused$ | async) || (hasNativeValue$ | async)"
       [disabled]="disabled"
       [ngModelOptions]="{ standalone: true }"
@@ -72,11 +73,11 @@
     <input
       class="input-time"
       [mask]="computedTimeMask"
-      [clearIfNotMatch]="false"
       [dropSpecialCharacters]="false"
+      [clearIfNotMatch]="false"
+      [showMaskTyped]="(focusableElementRef.focused$ | async) || (hasNativeValue$ | async)"
       [disabled]="disabled"
       [ngModelOptions]="{ standalone: true }"
-      [showMaskTyped]="(focusableElementRef.focused$ | async) || (hasNativeValue$ | async)"
       [ngModel]="toTimeValue"
       [size]="computedTimeMask.length"
       [maxSize]="computedTimeMask.length"
