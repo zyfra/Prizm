@@ -1,5 +1,6 @@
 import { Directive, EmbeddedViewRef, Input, OnDestroy, TemplateRef, ViewContainerRef } from '@angular/core';
 import { PrizmLetContextService } from './let-context.service';
+import { Observable } from 'rxjs';
 
 interface LetContext<T> {
   $implicit: T | null;
@@ -15,9 +16,16 @@ interface LetContext<T> {
  */
 @Directive({
   selector: '[prizmLet]',
+  exportAs: 'prizmLet',
   providers: [PrizmLetContextService],
 })
 export class PrizmLetDirective<T> implements OnDestroy {
+  get context(): T | null {
+    return this.contextService.context;
+  }
+  get context$(): Observable<T | null> {
+    return this.contextService.context$;
+  }
   constructor(
     private templateRef: TemplateRef<LetContext<T>>,
     private viewContainer: ViewContainerRef,
@@ -27,11 +35,11 @@ export class PrizmLetDirective<T> implements OnDestroy {
     this.updateContext(newContext);
   }
 
-  private readonly context: LetContext<T> = { $implicit: null, prizmLet: null };
+  private readonly ctx: LetContext<T> = { $implicit: null, prizmLet: null };
 
   private viewRef: EmbeddedViewRef<LetContext<T>> | null = this.viewContainer.createEmbeddedView(
     this.templateRef,
-    this.context
+    this.ctx
   );
 
   public ngOnDestroy(): void {
@@ -43,7 +51,7 @@ export class PrizmLetDirective<T> implements OnDestroy {
   }
 
   private updateContext(newContext: T): void {
-    this.context.$implicit = this.context.prizmLet = newContext;
+    this.ctx.$implicit = this.ctx.prizmLet = newContext;
     this.contextService.setContext(newContext);
     if (this.viewRef) {
       this.viewRef.markForCheck();

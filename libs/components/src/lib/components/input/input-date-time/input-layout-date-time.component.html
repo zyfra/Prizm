@@ -11,19 +11,49 @@
   (isOpenChange)="onOpenChange($event); $event && prizmDropdownHostComponent.reCalculatePositions()"
 >
   <ng-template prizmInputStatusText>Ошибка! Неправильный формат</ng-template>
-  <input
-    class="input-search"
-    #focusableElementRef
-    [mask]="textMaskOptions"
-    [showMaskTyped]="focusableElementRef.focused"
-    [dropSpecialCharacters]="false"
-    [placeholder]="placeholder"
-    [disabled]="disabled"
-    [ngModelOptions]="{ standalone: true }"
-    [ngModel]="computedValue"
-    (ngModelChange)="onValueChange($event ?? '')"
-    prizmInput
-  />
+  <div
+    class="multiple-input-box"
+    #focusableElementRef="prizmInputZone"
+    [attr.data-placeholder]="placeholder"
+    prizmInputZone
+  >
+    <input
+      class="input-main"
+      [class.show-placeholder]="
+        (empty | async) && (disabled || (focusableElementRef.focused$ | async) !== true)
+      "
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [mask]="textMaskOptions"
+      [showMaskTyped]="focusableElementRef.focused$ | async"
+      [dropSpecialCharacters]="false"
+      [size]="textMaskOptions.length"
+      [clearIfNotMatch]="false"
+      [maxSize]="textMaskOptions.length"
+      [ngModel]="computedDateValue()"
+      (focus)="referFocusToMain()"
+      (ngModelChange)="onDateValueChange($event)"
+      style="padding: 0"
+      prizmInput
+      prizmInputInZone
+    />
+    <input
+      class="input-time"
+      [mask]="timeMaskOptions"
+      [clearIfNotMatch]="false"
+      [dropSpecialCharacters]="false"
+      [showMaskTyped]="focusableElementRef.focused$ | async"
+      [disabled]="disabled"
+      [ngModelOptions]="{ standalone: true }"
+      [ngModel]="computedTimeValue()"
+      [size]="timeMaskOptions.length"
+      [maxSize]="timeMaskOptions.length"
+      (ngModelChange)="onTimeValueChange($event)"
+      style="padding: 0"
+      prizmInput
+      prizmInputInZone
+    />
+  </div>
 </prizm-dropdown-host>
 <ng-container *prizmInputLayoutRight>
   <button

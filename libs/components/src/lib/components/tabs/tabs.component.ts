@@ -9,7 +9,6 @@ import {
   Input,
   OnDestroy,
   OnInit,
-  Optional,
   Output,
   QueryList,
   TemplateRef,
@@ -22,7 +21,8 @@ import { PrizmTabsService } from './tabs.service';
 import { PrizmTabComponent } from './components/tab.component';
 import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
 import { PrizmDropdownHostComponent } from '../dropdowns/dropdown-host';
-import { PrizmDestroyService, PrizmLetContextService } from '@prizm-ui/helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmTabCanOpen } from './tabs.model';
 
 @Component({
   selector: 'prizm-tabs',
@@ -41,6 +41,12 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
     return this.tabsService.activeTabIdx$$.value;
   }
   @Input() canShowMenu = true;
+  @Input() set canOpen(func: PrizmTabCanOpen | null) {
+    this.tabsService.canOpenTab = func;
+  }
+  get canOpen() {
+    return this.tabsService.canOpenTab;
+  }
   @Output() public activeTabIndexChange: EventEmitter<number> = new EventEmitter<number>();
   @ViewChild('tabsContainer', { static: true }) public tabsContainer: ElementRef;
   @ViewChild('tabsDropdown', { static: true }) public tabsDropdown: PrizmDropdownHostComponent;

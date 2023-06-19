@@ -13,6 +13,7 @@ import { PrizmMaskModule } from '../../../modules';
 import { PrizmDataListModule } from '../../data-list';
 import { PrizmLifecycleModule } from '../../../directives';
 import { PrizmInputLayoutDateTimeComponent } from './input-layout-date-time.component';
+import { PrizmInputZoneModule } from '../../../directives/input-zone';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { PrizmInputLayoutDateTimeComponent } from './input-layout-date-time.comp
     PolymorphModule,
     PrizmInputTextModule,
     PrizmIconModule,
+    PrizmInputZoneModule,
     FormsModule,
     PrizmLifecycleModule,
     PrizmPreventDefaultModule,

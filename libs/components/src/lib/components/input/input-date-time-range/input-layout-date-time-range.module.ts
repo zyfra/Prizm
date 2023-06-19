@@ -4,34 +4,33 @@ import { PrizmLetModule } from '@prizm-ui/helpers';
 import { PolymorphModule } from '../../../directives/polymorph/polymorph.module';
 import { PrizmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
 import { PrizmCalendarRangeModule } from '../../calendar-range/calendar-range.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { PrizmInputTextModule } from '../input-text/input-text.module';
 import { PrizmIconModule } from '../../icon/icon.module';
 import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
 import { PrizmMaskModule } from '../../../modules';
+import { PrizmInputLayoutDateTimeRangeComponent } from './input-layout-date-time-range.component';
+import { PrizmInputZoneModule } from '../../../directives/input-zone';
+import { PrizmLifecycleModule } from '../../../directives/lifecycle/lifecycle.module';
+import { PrizmDataListModule } from '../../data-list';
 import { PrizmInputLayoutTimeModule } from '../input-time';
-import { PrizmInputLayoutDateRangeModule } from '../input-date-range';
-import { PrizmDropdownZoneModule, PrizmLifecycleModule, PrizmZoneEventModule } from '../../../directives';
-import { PrizmInputLayoutDateTimeRangeComponent } from './input-layout-date-range-time.component';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmMaskModule,
+    PrizmInputZoneModule,
+    PrizmLifecycleModule,
     PrizmLetModule,
+    PrizmDataListModule,
+    PrizmInputLayoutTimeModule,
     PolymorphModule,
     PrizmInputTextModule,
     PrizmIconModule,
-    PrizmInputLayoutDateRangeModule,
     PrizmDropdownHostModule,
     PrizmCalendarRangeModule,
     PrizmValueAccessorModule,
     FormsModule,
-    PrizmZoneEventModule,
-    PrizmInputLayoutTimeModule,
-    PrizmDropdownZoneModule,
-    ReactiveFormsModule,
-    PrizmLifecycleModule,
   ],
   declarations: [PrizmInputLayoutDateTimeRangeComponent],
   exports: [PrizmInputLayoutDateTimeRangeComponent, PrizmInputTextModule],

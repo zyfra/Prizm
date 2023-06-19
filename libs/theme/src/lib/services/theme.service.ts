@@ -35,7 +35,7 @@ export class PrizmThemeService implements OnDestroy {
     this.subscription.add(this.change$.pipe(tap(theme => this.setToHtml(theme.theme, theme.el))).subscribe());
   }
 
-  public getLastThemeForElement(el: HTMLElement): string {
+  public getLastThemeForElement(el: HTMLElement = this.rootElement): string {
     return this.themeStorage.get(el);
   }
 
