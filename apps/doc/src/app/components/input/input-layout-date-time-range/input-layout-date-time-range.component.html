@@ -56,15 +56,22 @@
 
       <ng-template
         documentationPropertyName="min"
-        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime]"
+        documentationPropertyType="PrizmDateTimeMinMax"
         documentationPropertyMode="input"
       >
         Min Date
       </ng-template>
+      <ng-template
+        documentationPropertyName="extraButtonInjector"
+        documentationPropertyType="Injector"
+        documentationPropertyMode="input"
+      >
+        Injector for nested buttons (use in multi datepicker and similar case)
+      </ng-template>
 
       <ng-template
         documentationPropertyName="max"
-        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime]"
+        documentationPropertyType="PrizmDateTimeMinMax"
         documentationPropertyMode="input"
       >
         Max Date

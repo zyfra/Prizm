@@ -43,4 +43,17 @@ export class InputDateMultiRelativeComponent implements OnInit {
       },
     ];
   }
+
+  public getItems(dateTime: TemplateRef<unknown>, dateRelativeTime: TemplateRef<unknown>) {
+    return [
+      {
+        template: dateTime,
+        name: 'Абсолютное время',
+      },
+      {
+        template: dateRelativeTime,
+        name: 'Относительное время',
+      },
+    ];
+  }
 }

@@ -18,11 +18,13 @@ import { NavigationMenuGroupsExampleComponent } from './examples/navigation-menu
 import { HintButtonComponent } from './examples/hint-button/hint-button.component';
 import { MenuHintComponent } from './examples/menu-hint/menu-hint.component';
 import { NavigationMenuChildrenHandlerExampleComponent } from './examples/navigation-menu-children-handler-example/navigation-menu-children-handler-example.component';
+import { NavigationMenuOneModeExampleComponent } from './examples/navigation-menu-one-mode-example/navigation-menu-one-mode-example.component';
 
 @NgModule({
   declarations: [
     NavigationMenuExampleComponent,
     NavigationMenuBasicExampleComponent,
+    NavigationMenuOneModeExampleComponent,
     NavigationMenuGroupsExampleComponent,
     NavigationMenuChildrenHandlerExampleComponent,
     HintButtonComponent,

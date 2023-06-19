@@ -60,6 +60,17 @@ export class InputLayoutDateTimeTimeComponent {
     TypeScript: import('./examples/base/input-layout-date-time-base-example.component.ts?raw'),
     HTML: import('./examples/base/input-layout-date-time-base-example.component.html?raw'),
   };
+  public readonly exampleMinMax: TuiDocExample = {
+    TypeScript: import('./examples/min-max/input-layout-date-time-min-max-example.component.ts?raw'),
+    HTML: import('./examples/min-max/input-layout-date-time-min-max-example.component.html?raw'),
+  };
+
+  public readonly exampleMinMaxTime: TuiDocExample = {
+    TypeScript: import(
+      './examples/min-max-time/input-layout-date-time-min-max-time-example.component.ts?raw'
+    ),
+    HTML: import('./examples/min-max-time/input-layout-date-time-min-max-time-example.component.html?raw'),
+  };
 
   public readonly exampleNative: TuiDocExample = {
     TypeScript: import('./examples/native-date/input-layout-native-date-time-base-example.component.ts?raw'),

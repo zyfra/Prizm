@@ -18,11 +18,13 @@
   }
 
   &.selected {
-    background: var(--prizm-select-item-selected-background, var(--prizm-bg-dashboard-forms));
+    background: var(--prizm-select-item-selected-background, var(--prizm-palette-b1-20));
+    color: black;
   }
 
-  &:hover {
-    background: var(--prizm-select-item-hover-background, var(--prizm-bg-dashboard-forms));
+  &:not(.selected):hover {
+    background: var(--prizm-select-item-hover-background, var(--prizm-g2-g11));
+    color: var(--prizm-text-contrast);
   }
 }
 

@@ -2,11 +2,13 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  EventEmitter,
   HostBinding,
   Inject,
   Injector,
   Input,
   OnInit,
+  Output,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
@@ -46,6 +48,9 @@ export class PrizmInputDateMultiComponent implements OnInit {
   @Input()
   @prizmDefaultProp()
   currentIdx = 0;
+
+  @Output()
+  readonly currentIdxChange = new EventEmitter<number>();
 
   @HostBinding('attr.data-testid')
   readonly testId = 'ui_input_date_multi';
@@ -93,7 +98,7 @@ export class PrizmInputDateMultiComponent implements OnInit {
   }
 
   public select(idx: number): void {
-    this.currentIdx = idx;
+    this.currentIdxChange.next((this.currentIdx = idx));
     this.open = false;
     this.cdRef.markForCheck();
   }

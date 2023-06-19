@@ -32,6 +32,7 @@ import { PrizmTableSorterService } from '../service';
 import { PrizmTableTreeService } from '../service/tree.service';
 import { PrizmTableDataSourceInput } from '../table.types';
 import { PrizmTrComponent } from '../tr/tr.component';
+import { PrizmTableRowService } from '../service/row.service';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -39,7 +40,7 @@ import { PrizmTrComponent } from '../tr/tr.component';
   templateUrl: `./tbody.component.html`,
   styleUrls: [`./tbody.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [...PRIZM_TABLE_PROVIDER, PrizmTableTreeService],
+  providers: [...PRIZM_TABLE_PROVIDER, PrizmTableTreeService, PrizmTableRowService],
 })
 export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
   implements CollectionViewer, AfterViewInit, OnDestroy

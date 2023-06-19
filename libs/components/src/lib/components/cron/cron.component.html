@@ -42,6 +42,36 @@
     </div>
   </div>
 
+  <div class="human-readable-block inner-block" *ngIf="showHumanReadable">
+    <prizm-input-layout
+      *prizmLet="valueAsString$ | async as valueStr"
+      [border]="false"
+      [label]="null"
+      [outer]="true"
+      [forceClear]="false"
+      size="m"
+    >
+      <input
+        #humarReadableElem
+        [prizmHint]="humanReadableStr"
+        [readonly]="true"
+        [prizmHintCanShow]="prizmIsTextOverflow(humarReadableElem.elementRef.nativeElement)"
+        [ngModel]="humanReadableStr"
+        prizmInput
+        prizmHintDirection="b"
+      />
+
+      <ng-container prizm-input-right>
+        <button
+          class="copy-icon"
+          [interactive]="true"
+          (click)="copyHumanReadable()"
+          prizmInputIconButton="editor-copy"
+        ></button>
+      </ng-container>
+    </prizm-input-layout>
+  </div>
+
   <div class="inner-block border-bottom">
     <prizm-switcher
       [fullWidth]="true"

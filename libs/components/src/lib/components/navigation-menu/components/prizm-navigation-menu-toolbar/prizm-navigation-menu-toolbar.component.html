@@ -5,6 +5,7 @@
     <ng-container *ngIf="toolbarService.viewMode$ | async as viewMode">
       <button
         class="instruments__btn"
+        *ngIf="toolbarConfig.hierarchyMode ?? true"
         [class.instruments__btn_active]="viewMode === 'hierarchy'"
         [size]="'m'"
         [icon]="'files-mode'"

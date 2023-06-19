@@ -24,6 +24,11 @@ export interface PrizmNavigationMenuToolbarConfig {
   group?: boolean;
   folderMode?: boolean;
   rubricatorMode?: boolean;
+  /**
+   * @default true
+   * show hierarchy button to show in hierarchy mode
+   * */
+  hierarchyMode?: boolean;
   search?: boolean;
   closeAll?: boolean;
   refresh?: boolean;

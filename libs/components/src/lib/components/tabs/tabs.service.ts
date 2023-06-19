@@ -1,7 +1,9 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
-import { distinctUntilChanged, map, startWith } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, Observable, of, Subject } from 'rxjs';
+import { distinctUntilChanged, map, startWith, take, takeUntil, tap } from 'rxjs/operators';
 import { PrizmTabComponent } from './components/tab.component';
+import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmTabCanOpen } from './tabs.model';
 
 @Injectable()
 export class PrizmTabsService implements OnDestroy {
@@ -9,6 +11,10 @@ export class PrizmTabsService implements OnDestroy {
   readonly changes$$ = new Subject<Set<PrizmTabComponent>>();
   readonly closeTab$$ = new Subject<Set<PrizmTabComponent>>();
   readonly activeTabIdx$$ = new BehaviorSubject<number>(0);
+
+  public canOpenTab: PrizmTabCanOpen | null = null;
+
+  constructor(private readonly destroy: PrizmDestroyService) {}
 
   public isActiveTab(tab: PrizmTabComponent): Observable<boolean> {
     return combineLatest([this.activeTabIdx$$, this.changes$$.pipe(startWith(null))]).pipe(
@@ -53,7 +59,18 @@ export class PrizmTabsService implements OnDestroy {
     if (idx === -1) {
       return;
     }
-    this.activeTabIdx$$.next(idx);
+    this.selectTabIfCanOpen(tab, idx);
+  }
+
+  private selectTabIfCanOpen(tab: PrizmTabComponent, idx: number): void {
+    (typeof this.canOpenTab === 'function' ? this.canOpenTab(tab) : of(true))
+      .pipe(
+        take(1),
+        filterTruthy(),
+        tap(() => this.activeTabIdx$$.next(idx)),
+        takeUntil(this.destroy)
+      )
+      .subscribe();
   }
 
   ngOnDestroy(): void {

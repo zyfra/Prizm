@@ -33,7 +33,7 @@ export abstract class PrizmInputNgControl<T>
     return this.rawValue ?? this.fallbackValue;
   }
 
-  get empty() {
+  get empty(): boolean | Observable<boolean> {
     return this.isEmpty(this.value);
   }
 

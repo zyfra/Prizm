@@ -16,6 +16,8 @@ export interface PrizmPaginatorOptions {
   noRowsSelectorLabel?: boolean;
   noInfo?: boolean;
   noPages?: boolean;
+  noToFirstPageBtn?: boolean;
+  noToLastPageBtn?: boolean;
 }
 
 export type PrizmPaginatorType = 'finite' | 'infinite';

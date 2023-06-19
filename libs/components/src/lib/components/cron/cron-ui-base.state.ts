@@ -234,6 +234,5 @@ export abstract class PrizmCronUiBaseState<
     this.destroy$.next();
     this.destroy$.complete();
     this.destroy$.unsubscribe();
-    console.log('#Mz destroy', this);
   }
 }
