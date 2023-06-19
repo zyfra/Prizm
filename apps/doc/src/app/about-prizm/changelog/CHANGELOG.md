@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/tab): added ability to prevent tab open [195]((https://github.com/zyfra/Prizm/issues/195)
 - feat(components/navigation): added the ability to hide the "hierarchical" view button [358](https://github.com/zyfra/Prizm/issues/358)
 - feat(components/cron): added ability to show human readable value in cron #365
+- feat(helpers/let): added ability to get current context from export via template ref
 
 ### BUG FIXES
 
@@ -30,6 +31,8 @@ All notable changes to this project will be documented in this file.
 - fix(components/table): pass does not right index [[260](https://github.com/zyfra/Prizm/issues/260)](https://github.com/zyfra/Prizm/issues/260)
 - fix(components/select): fix hover and selected item colors in datepicker dropdowns [388](https://github.com/zyfra/Prizm/issues/388) [403](https://github.com/zyfra/Prizm/issues/403)
 - fix(components/calendar-month): no hover when hovering over a month [301](https://github.com/zyfra/Prizm/issues/301)
+- fix(helpers/to-observable): fix error when destroying not created instances
+- fix(components/theme): fix error when we get current theme from root element
 
 ## [1.0.1](https://github.com/zyfra/Prizm) (31-05-2023)
 
