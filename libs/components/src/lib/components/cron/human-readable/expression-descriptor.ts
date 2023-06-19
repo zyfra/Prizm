@@ -298,8 +298,12 @@ export class PrizmCronHRExpressionDescriptor {
 
     // If this is an hour range and minute segment is not "on the hour" (0), we'll change the second hour part from :00 to :59
     if (description && expression.includes('-') && this.expressionParts[1] != '0') {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const atTheHourMatches = Array.from(description.matchAll(/:00/g));
       if (atTheHourMatches.length > 1) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         const lastAtTheHourMatchIndex = atTheHourMatches[atTheHourMatches.length - 1].index;
         description =
           description.substring(0, lastAtTheHourMatchIndex) +
