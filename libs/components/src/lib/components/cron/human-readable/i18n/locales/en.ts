@@ -151,7 +151,8 @@ export class en implements PrizmCronHRLocale {
   public commaEveryHour() {
     return ', every hour';
   }
-  public commaEveryX0Years() {
+  public commaEveryX0Years(s?: string) {
+    if (s === '1') return '';
     return ', every %s years';
   }
   public commaStartingX0() {

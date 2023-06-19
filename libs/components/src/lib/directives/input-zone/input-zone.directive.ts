@@ -1,6 +1,6 @@
-import { Directive, ElementRef, Output } from '@angular/core';
+import { ChangeDetectorRef, Directive, ElementRef, Output } from '@angular/core';
 import { PrizmInputZoneService } from './input-zone.service';
-import { fromEvent, merge, Observable, switchMap } from 'rxjs';
+import { fromEvent, merge, Observable, switchMap, timeout, timer } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, map, mapTo, share, tap } from 'rxjs/operators';
 
 @Directive({
@@ -33,7 +33,10 @@ export class PrizmInputZoneDirective {
     return this.inputs.map(i => i.value);
   }
 
-  constructor(private readonly inputZoneService: PrizmInputZoneService) {}
+  constructor(
+    private readonly inputZoneService: PrizmInputZoneService,
+    private readonly cdRef: ChangeDetectorRef
+  ) {}
 
   public focus(idx = 0) {
     const selected = this.inputZoneService.elements[idx];

@@ -253,7 +253,8 @@ export class PrizmCronHRParser {
             stepRangeThrough = '6';
             break;
           case 6:
-            stepRangeThrough = '9999';
+            // stepRangeThrough = '9999';
+            stepRangeThrough = null;
             break;
           default:
             stepRangeThrough = null;

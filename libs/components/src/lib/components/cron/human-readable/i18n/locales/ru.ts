@@ -178,7 +178,9 @@ export class ru implements PrizmCronHRLocale {
     return s && s[0] == '2' ? ', во %s число месяца' : ', в %s число месяца';
   }
   public commaEveryX0Years(s?: string) {
-    return getPhraseByNumber(s, [', каждый %s год', ', каждые %s года', ', каждые %s лет']);
+    if (s === '1') return '';
+    return ', каждый %s год';
+    // return getPhraseByNumber(s, [', каждый %s год', ', каждые %s года', ', каждые %s лет']);
   }
   public commaStartingX0() {
     return ', начало %s';
