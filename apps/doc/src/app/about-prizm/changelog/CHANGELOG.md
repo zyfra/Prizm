@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-- update ng,nx to 15 version [328](https://github.com/zyfra/Prizm/issues/328)
+- feat(chore): update ng,nx to 15 version [328](https://github.com/zyfra/Prizm/issues/328)
 
 ## [1.2.0-rc.1](https://github.com/zyfra/Prizm) (19-06-2023)
 
