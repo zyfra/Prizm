@@ -22,6 +22,4 @@ export class PrizmInputLayoutDateTimeRangeBaseExampleComponent {
   readonly value = new FormControl(
     new PrizmDateTimeRange(new PrizmDayRange(new PrizmDay(2018, 2, 10), new PrizmDay(2018, 2, 10)))
   );
-  // readonly min = new PrizmDay(new PrizmDay(2000, 2, 20), new PrizmTime(0, 0));
-  // readonly max = new PrizmDateTime(new PrizmDay(2040, 2, 20), new PrizmTime(0, 0));
 }

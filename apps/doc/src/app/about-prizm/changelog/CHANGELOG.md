@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0-rc.2](https://github.com/zyfra/Prizm) (19-06-2023)
+
+### Features
+
+- feat(chore): update ng,nx to 15 version [328](https://github.com/zyfra/Prizm/issues/328)
+
 ## [1.2.0-rc.1](https://github.com/zyfra/Prizm) (19-06-2023)
 
 ### Features
@@ -33,6 +39,8 @@ All notable changes to this project will be documented in this file.
 - fix(components/calendar-month): no hover when hovering over a month [301](https://github.com/zyfra/Prizm/issues/301)
 - fix(helpers/to-observable): fix error when destroying not created instances
 - fix(components/theme): fix error when we get current theme from root element
+- fix(doc/stepper): remove wrong options in api page [348]((https://github.com/zyfra/Prizm/issues/348)
+-
 
 ## [1.0.1](https://github.com/zyfra/Prizm) (31-05-2023)
 

@@ -21,6 +21,8 @@ export class ExpandedItemsService {
     localStorage.setItem('EXPANDED_ITEMS_EXAMPLE', JSON.stringify(obj));
   }
   public setGroupsExpandedKeys(expandedGroupsMap: Map<string, boolean>): void {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     const obj: PersistentExpandedValue = Object.fromEntries(expandedGroupsMap);
     localStorage.setItem('EXPANDED_GROUPS_EXAMPLE', JSON.stringify(obj));
   }
