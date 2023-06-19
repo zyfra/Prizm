@@ -19,6 +19,7 @@
   >
     <input
       class="input-main"
+      #fe="prizmInputInZone"
       [class.show-placeholder]="
         (empty | async) && (disabled || (focusableElementRef.focused$ | async) !== true)
       "
@@ -31,7 +32,7 @@
       [clearIfNotMatch]="false"
       [maxSize]="textMaskOptions.length"
       [ngModel]="computedDateValue()"
-      (focus)="referFocusToMain()"
+      (click)="referFocusToMain()"
       (ngModelChange)="onDateValueChange($event)"
       style="padding: 0"
       prizmInput

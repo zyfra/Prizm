@@ -31,7 +31,7 @@
       [ngModel]="fromValue"
       [size]="computedDateMask.length"
       [maxSize]="computedDateMask.length"
-      (focus)="referFocusToMain()"
+      (click)="referFocusToMain()"
       (ngModelChange)="onDateValueChange($event || '', true)"
       style="padding: 0"
       prizmInput

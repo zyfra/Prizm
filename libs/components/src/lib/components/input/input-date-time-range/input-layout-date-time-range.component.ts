@@ -191,12 +191,6 @@ export class PrizmInputLayoutDateTimeRangeComponent
   ]).pipe(
     debounceTime(0),
     map(([from, fromTime, to, toTime]) => {
-      console.log('nativeValue$$:combineLatest', {
-        from,
-        fromTime,
-        to,
-        toTime,
-      });
       return {
         timeRange: [fromTime, toTime],
         dayRange: [from, to],
