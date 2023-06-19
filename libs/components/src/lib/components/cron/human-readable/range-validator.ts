@@ -36,7 +36,6 @@ export default class PrizmCronHRRangeValidator {
   }
 
   public static dayOfMonthRange(parse: string) {
-    console.log('#mz dayOfMonthRange:', parse);
     const parsed = parse.split(',');
     for (let i = 0; i < parsed.length; i++) {
       if (!isNaN(parseInt(parsed[i], 10))) {

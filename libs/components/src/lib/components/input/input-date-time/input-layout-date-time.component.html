@@ -19,15 +19,19 @@
   >
     <input
       class="input-main"
-      [class.show-placeholder]="(empty | async) && (focusableElementRef.focused$ | async) !== true"
+      [class.show-placeholder]="
+        (empty | async) && (disabled || (focusableElementRef.focused$ | async) !== true)
+      "
       [placeholder]="placeholder"
       [disabled]="disabled"
       [mask]="textMaskOptions"
       [showMaskTyped]="focusableElementRef.focused$ | async"
       [dropSpecialCharacters]="false"
       [size]="textMaskOptions.length"
+      [clearIfNotMatch]="false"
       [maxSize]="textMaskOptions.length"
       [ngModel]="computedDateValue()"
+      (focus)="referFocusToMain()"
       (ngModelChange)="onDateValueChange($event)"
       style="padding: 0"
       prizmInput
@@ -36,6 +40,7 @@
     <input
       class="input-time"
       [mask]="timeMaskOptions"
+      [clearIfNotMatch]="false"
       [dropSpecialCharacters]="false"
       [showMaskTyped]="focusableElementRef.focused$ | async"
       [disabled]="disabled"
