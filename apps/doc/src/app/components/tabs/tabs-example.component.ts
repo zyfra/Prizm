@@ -23,7 +23,9 @@ export class TabsExampleComponent {
   public size: PrizmTabSize = 'adaptive';
   public canOpenVariants: PrizmTabCanOpen[] = [
     (tab: PrizmTabComponent) => of(true),
-    (tab: PrizmTabComponent) => of(tab.idx !== 0),
+    (tab: PrizmTabComponent) => {
+      return of(tab.idx !== 1);
+    },
   ];
   public canOpen: PrizmTabCanOpen = this.canOpenVariants[0];
   public sizeVariants: PrizmTabSize[] = ['s', 'adaptive'];

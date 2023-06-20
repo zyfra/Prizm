@@ -71,14 +71,15 @@ export class PrizmTabsService implements OnDestroy {
   }
 
   private selectTabIfCanOpen(tab: PrizmTabComponent, idx: number): void {
-    if (idx === this.activeTabIdx) return;
+    if (idx === this.activeTabIdx) {
+      return;
+    }
+
     (typeof this.canOpenTab === 'function' ? this.canOpenTab(tab) : of(true))
       .pipe(
         take(1),
         filterTruthy(),
-        tap(() => {
-          this.activeTabIdx$$.next(idx);
-        }),
+        tap(() => this.activeTabIdx$$.next(idx)),
         takeUntil(this.destroy)
       )
       .subscribe();
