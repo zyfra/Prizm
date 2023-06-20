@@ -32,7 +32,7 @@
       <div
         class="item"
         *ngFor="let item of filtered; let idx = index"
-        [class.selected]="item.isSameTime(value)"
+        [class.selected]="value && item.isSameTime(value)"
         (click)="onMenuClick(item)"
       >
         <span class="text">
