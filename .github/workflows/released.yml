@@ -12,6 +12,55 @@ jobs:
     uses: zyfra/Prizm/.github/workflows/draft-publish.yml@main
     secrets: inherit
 
+  check_package_install:
+    runs-on: ubuntu-latest
+    needs: pre_draft_release
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ZurabDev/prizm-modal-error-example
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+
+      - name: Restore cache
+        id: cache-restore
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_real_check-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_real_check-
+
+      - name: Install dependencies
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
+
+      - name: Install dependencies
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        run: npm i @prizm-ui/{components,core,helpers,i18n,icons,theme}@draft
+
+      - name: Save cache...
+        id: cache-save
+        uses: actions/cache/save@v3
+        if: ${{ steps.cache-restore.outputs.cache-hit != 'true' && always() }}
+        with:
+          path: ./node_modules
+          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
+
+      - name: 'Increase max memory limit'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
+
+      - name: 'Build doc app for firebase hosting'
+        run: npx ng build
+
   release:
     needs: pre_draft_release
     uses: zyfra/Prizm/.github/workflows/main-publish.yml@main
