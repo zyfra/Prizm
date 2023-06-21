@@ -17,12 +17,12 @@ export class PrizmInputNativeValueDirective<T = any> implements OnInit {
 
   value$$ = new ReplaySubject<T>();
 
+  @Output() prizmInputNativeValueChanged = new EventEmitter<T>();
+
   @Input()
   needChange: PrizmInputNativeValueNeedChange<T> = (currentValue: T, nativeValue: string) => {
     return currentValue !== nativeValue;
   };
-
-  @Output() prizmInputNativeValueChanged = new EventEmitter<T>();
 
   constructor(
     private readonly elementRef: ElementRef<HTMLInputElement>,
