@@ -2,7 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.2.0](https://github.com/zyfra/Prizm) (19-06-2023)
+## [1.2.0](https://github.com/zyfra/Prizm) (21-06-2023)
+
+### Features
+
+- feat(components/input-zone): added new module for combine multiple inputs to one
+- feat(components/input-native-value): added new module to correct native values of input if they differences
+
+### BUG FIXES
+
+- fix(components/\*): small fixes for bugs in 1.2.0-rc,1
+
+## [1.2.0-rc,1](https://github.com/zyfra/Prizm) (19-06-2023)
 
 ### Features
 
