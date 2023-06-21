@@ -32,7 +32,7 @@
       [clearIfNotMatch]="false"
       [maxSize]="textMaskOptions.length"
       [ngModel]="computedDateValue()"
-      (click)="referFocusToMain()"
+      (click)="referFocusToMain(!computedDateValue())"
       (ngModelChange)="onDateValueChange($event)"
       style="padding: 0"
       prizmInput
@@ -40,6 +40,7 @@
     />
     <input
       class="input-time"
+      #element
       [mask]="timeMaskOptions"
       [clearIfNotMatch]="false"
       [dropSpecialCharacters]="false"
@@ -54,6 +55,9 @@
       prizmInput
       prizmInputInZone
     />
+    <!--    TODO add later correct fix for update native value when ng does not know about change -->
+    <!--    [prizmInputNativeValue]='computedTimeValue()'-->
+    <!--    [needChange]='needChangeNativeValue'-->
   </div>
 </prizm-dropdown-host>
 <ng-container *prizmInputLayoutRight>

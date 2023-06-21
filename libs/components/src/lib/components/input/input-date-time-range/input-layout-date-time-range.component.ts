@@ -361,8 +361,8 @@ export class PrizmInputLayoutDateTimeRangeComponent
   }
 
   private updateWithCorrectDateAndTime(from: string, to: string, fromTime: string, toTime: string): void {
-    let parsedFrom = from && PrizmDay.normalizeParse(from, this.dateFormat);
-    let parsedTo = to && PrizmDay.normalizeParse(to, this.dateFormat);
+    let parsedFrom = from ? PrizmDay.normalizeParse(from, this.dateFormat) : this.value?.dayRange?.from;
+    let parsedTo = to ? PrizmDay.normalizeParse(to, this.dateFormat) : this.value?.dayRange?.to;
 
     if (parsedFrom) parsedFrom = this.dayLimit(parsedFrom);
     if (parsedTo) parsedTo = this.dayLimit(parsedTo);
@@ -465,7 +465,8 @@ export class PrizmInputLayoutDateTimeRangeComponent
     this.nativeValueTimeFrom$$.next(value.toString(this.timeMode));
   }
 
-  public referFocusToMain() {
+  public referFocusToMain(referFocus = true) {
+    if (!referFocus) return;
     // TODO create operator and rxjs functin to run sequence in event loop
     of(null)
       .pipe(
