@@ -23,11 +23,13 @@ export class TabsExampleComponent {
   public size: PrizmTabSize = 'adaptive';
   public canOpenVariants: PrizmTabCanOpen[] = [
     (tab: PrizmTabComponent) => of(true),
-    (tab: PrizmTabComponent) => of(tab.idx !== 0),
+    (tab: PrizmTabComponent) => {
+      return of(tab.idx !== 1);
+    },
   ];
   public canOpen: PrizmTabCanOpen = this.canOpenVariants[0];
   public sizeVariants: PrizmTabSize[] = ['s', 'adaptive'];
-  public content = 'Tab Content';
+  public content = 'Big Tab #1';
   iconVariants: string[] = ['', ...IconDefs.reduce((a, c) => a.concat(c.data), [])];
   icon: string = this.iconVariants[0];
   closeIcon: string | null = null;

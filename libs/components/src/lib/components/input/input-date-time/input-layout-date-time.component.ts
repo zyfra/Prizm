@@ -40,6 +40,8 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl, PrizmInputNgControl } from '../common';
 import { PrizmInputZoneDirective } from '../../../directives/input-zone';
 import { delay, map } from 'rxjs/operators';
+import { PrizmInputNativeValueNeedChange } from '../../../directives';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: `prizm-input-layout-date-time`,
@@ -129,6 +131,7 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
 
   public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
   constructor(
+    @Optional() @Inject(DOCUMENT) private document: Document,
     @Inject(PRIZM_DATE_FORMAT) readonly dateFormat: PrizmDateMode,
     @Inject(PRIZM_DATE_SEPARATOR) readonly dateSeparator: string,
     @Inject(PRIZM_TIME_TEXTS)
@@ -190,6 +193,21 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     return this.getTimeString(time, this.timeMode);
   }
 
+  public readonly needChangeNativeValue: PrizmInputNativeValueNeedChange<string> = (
+    currentValue: string,
+    nativeValue: string,
+    el: HTMLInputElement
+  ) => {
+    if (this.document.activeElement === el) return false;
+    const newNativeValue = nativeValue.replace(/[^0-9]/g, '');
+    const currentNewValue = currentValue.replace(/[^0-9]/g, '');
+
+    if (newNativeValue.length !== 4) return false;
+    if (newNativeValue.length !== 4) return false;
+    if (newNativeValue === currentNewValue) return false;
+    return true;
+  };
+
   get calendarValue(): PrizmDay | null {
     return this.value[0];
   }
@@ -237,8 +255,8 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
 
   public onTimeValueChange(value: string): void {
     if (value === this.computedTimeValue()) return;
-
     this.nativeValue$$.next([this.nativeValue$$.value[0], value]);
+
     if (!value || value.length < this.timeMaskOptions.length) {
       if (!value) this.updateValue([this.value[0] ?? null, null]);
       return;
@@ -403,7 +421,8 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
     this.layoutComponent.cdr.markForCheck();
   }
 
-  public referFocusToMain() {
+  public referFocusToMain(referFocus = true) {
+    if (!referFocus) return;
     // TODO create operator and rxjs functin to run sequence in event loop
     of(null)
       .pipe(

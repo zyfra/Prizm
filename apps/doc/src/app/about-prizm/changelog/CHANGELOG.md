@@ -2,13 +2,42 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.0.0-rc.2](https://github.com/zyfra/Prizm) (19-06-2023)
+## [1.2.0](https://github.com/zyfra/Prizm) (21-06-2023)
 
 ### Features
 
-- feat(chore): update ng,nx to 15 version [328](https://github.com/zyfra/Prizm/issues/328)
+- feat(components/input-zone): added new module for combine multiple inputs to one
+- feat(components/input-native-value): added new module to correct native values of input if they differences
+- feat(components/input-carousel): added component input-carousel which work with input-layout and unnecessarily added left-right buttons [391](https://github.com/zyfra/Prizm/issues/391)
+- deprecated(components/carousel): instead of this you can use input-carousel
+- ci: added publishing draft deploys to draft demo site [379](https://github.com/zyfra/Prizm/issues/379)
+- ci: added publishing draft deploys to next demo site [378](https://github.com/zyfra/Prizm/issues/378)
+- feat(components/input-layout-date-time): devided to seperate components
+- feat(components/input-layout-date-time-range): added time output and seperato to multiple inputs [293](https://github.com/zyfra/Prizm/issues/293)
+- feat(components/input-date-multi): no switch event between absolute and relative modes prizm-input-date-multi [[393](https://github.com/zyfra/Prizm/issues/393)](https://github.com/zyfra/Prizm/issues/393)
+- feat(components/overlay): added ability to control backdrop color and opacity [[373](https://github.com/zyfra/Prizm/issues/373)](https://github.com/zyfra/Prizm/issues/373)
+- feat(components/dropdown): added pass current global theme to dropdown [[342](https://github.com/zyfra/Prizm/issues/342)](https://github.com/zyfra/Prizm/issues/342)
+- feat(components/tab): added ability to prevent tab open [195]((https://github.com/zyfra/Prizm/issues/195)
+- feat(components/navigation): added the ability to hide the "hierarchical" view button [358](https://github.com/zyfra/Prizm/issues/358)
+- feat(components/cron): added ability to show human readable value in cron #365
+- feat(helpers/let): added ability to get current context from export via template ref
 
-## [1.2.0-rc.1](https://github.com/zyfra/Prizm) (19-06-2023)
+### BUG FIXES
+
+- fix(components/cron): cannot write date to start date input [380](https://github.com/zyfra/Prizm/issues/380)
+- fix(components/cron): show not full date in day tab [381](https://github.com/zyfra/Prizm/issues/381)
+- fix(components/dropdown-host): cannot be used to register form controls with a parent formGroup directive [390](https://github.com/zyfra/Prizm/issues/390) [389](https://github.com/zyfra/Prizm/issues/390)
+- fix(components/mask): in live demo, it is not possible to enter text into an input with a mask [[281](https://github.com/zyfra/Prizm/issues/281)](https://github.com/zyfra/Prizm/issues/281)
+- fix(components/navigation): changes the navigation color when the side menu is hidden [[278](https://github.com/zyfra/Prizm/issues/278)](https://github.com/zyfra/Prizm/issues/278)
+- fix(components/polymorph): does not work component template without context [265](https://github.com/zyfra/Prizm/issues/265)
+- fix(components/table): pass does not right index [[260](https://github.com/zyfra/Prizm/issues/260)](https://github.com/zyfra/Prizm/issues/260)
+- fix(components/select): fix hover and selected item colors in datepicker dropdowns [388](https://github.com/zyfra/Prizm/issues/388) [403](https://github.com/zyfra/Prizm/issues/403) [341](https://github.com/zyfra/Prizm/issues/341)
+- fix(components/calendar-month): no hover when hovering over a month [301](https://github.com/zyfra/Prizm/issues/301)
+- fix(helpers/to-observable): fix error when destroying not created instances
+- fix(components/theme): fix error when we get current theme from root element
+- fix(components/\*): small fixes for bugs in 1.2.0-rc,1
+
+## [1.2.0-rc,1](https://github.com/zyfra/Prizm) (19-06-2023)
 
 ### Features
 
@@ -39,8 +68,6 @@ All notable changes to this project will be documented in this file.
 - fix(components/calendar-month): no hover when hovering over a month [301](https://github.com/zyfra/Prizm/issues/301)
 - fix(helpers/to-observable): fix error when destroying not created instances
 - fix(components/theme): fix error when we get current theme from root element
-- fix(doc/stepper): remove wrong options in api page [348]((https://github.com/zyfra/Prizm/issues/348)
--
 
 ## [1.0.1](https://github.com/zyfra/Prizm) (31-05-2023)
 

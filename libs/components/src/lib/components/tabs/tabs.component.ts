@@ -16,7 +16,7 @@ import {
 } from '@angular/core';
 import { PrizmTabSize } from './tabs.interface';
 import { animationFrameScheduler, Subject, Subscription } from 'rxjs';
-import { debounceTime, observeOn, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, filter, observeOn, takeUntil, tap } from 'rxjs/operators';
 import { PrizmTabsService } from './tabs.service';
 import { PrizmTabComponent } from './components/tab.component';
 import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
@@ -34,11 +34,11 @@ import { PrizmTabCanOpen } from './tabs.model';
 export class PrizmTabsComponent implements OnInit, OnDestroy {
   @Input() @HostBinding('attr.data-size') public size: PrizmTabSize = 'adaptive';
   @Input() public set activeTabIndex(idx: number) {
-    if (idx === this.tabsService.activeTabIdx$$.value) return;
-    this.tabsService.activeTabIdx$$.next(idx);
+    if (idx === this.tabsService.activeTabIdx) return;
+    this.tabsService.updateActiveTab(idx);
   }
   get activeTabIndex(): number {
-    return this.tabsService.activeTabIdx$$.value;
+    return this.tabsService.activeTabIdx;
   }
   @Input() canShowMenu = true;
   @Input() set canOpen(func: PrizmTabCanOpen | null) {
@@ -47,7 +47,7 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
   get canOpen() {
     return this.tabsService.canOpenTab;
   }
-  @Output() public activeTabIndexChange: EventEmitter<number> = new EventEmitter<number>();
+  @Output() readonly activeTabIndexChange: EventEmitter<number> = new EventEmitter<number>();
   @ViewChild('tabsContainer', { static: true }) public tabsContainer: ElementRef;
   @ViewChild('tabsDropdown', { static: true }) public tabsDropdown: PrizmDropdownHostComponent;
   @ContentChildren(PrizmTabComponent, { descendants: true }) public tabElements: QueryList<PrizmTabComponent>;
@@ -93,7 +93,7 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
   }
 
   private initTabClickListener(): void {
-    this.tabsService.activeTabIdx$$
+    this.tabsService.activeTabIdx$
       .pipe(
         tap(idx => {
           this.tabClickHandler(idx);

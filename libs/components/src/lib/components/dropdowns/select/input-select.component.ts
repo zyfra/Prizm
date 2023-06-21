@@ -184,6 +184,10 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     );
   }
 
+  public override get empty(): Observable<boolean> {
+    return this.value$.pipe(map(value => value == null));
+  }
+
   get nativeFocusableElement(): PrizmNativeFocusableElement | null {
     return this.focusableElement ? this.focusableElement.nativeElement : null;
   }
@@ -250,10 +254,6 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     if (this.search === value) return;
     this.search = value;
     this.searchChange.emit(value);
-  }
-
-  public override isEmpty(value: T): boolean {
-    return value == null;
   }
 
   public getCurrentItem(value: T): string {

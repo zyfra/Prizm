@@ -80,7 +80,8 @@ export abstract class PrizmCronUiBaseState<
     /* add change when base changes */
     this.current$
       .pipe(
-        distinctUntilChanged((a, b) => a === b || (a && b && a[0] === b[0] && a[1] === b[1])),
+        // distinctUntilChanged((a, b) => a === b || (a && b && a[0] === b[0] && a[1] === b[1])),
+        distinctUntilChanged(),
         tap(value => this.updateLocalState(value, this.getTypeByValue(value, this.cron.value))),
         takeUntil(this.destroy$)
       )
@@ -184,6 +185,7 @@ export abstract class PrizmCronUiBaseState<
    * TODO fix type casting
    * */
   public updateLocalState(value: any, type: TYPE): void {
+    console.log('#Mz updateLocalState', type, value);
     switch (type) {
       case this.TYPES.between:
         {
@@ -217,7 +219,6 @@ export abstract class PrizmCronUiBaseState<
           const arr = value.split('/');
           const on = arr[1] ?? '0';
           const after = arr[0] ?? '0';
-
           this.updatePartial({
             type: PrizmCronUiBaseType.after,
             everyChosenTimesAfterChosen: {
