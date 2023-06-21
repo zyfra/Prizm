@@ -12,12 +12,14 @@ export class PrizmDateTimeRange {
 
   public static safeUpdateTimeFrom(origin: PrizmDateTimeRange | null, time: PrizmTime): PrizmDateTimeRange {
     origin = PrizmDateTimeRange.createIfNotExist(origin);
+    if (!origin.timeRange) origin.timeRange = new PrizmTimeRange(new PrizmTime(0, 0), new PrizmTime(0, 0));
     origin.timeRange.from = time;
     return origin;
   }
 
   public static safeUpdateTimeTo(origin: PrizmDateTimeRange | null, time: PrizmTime): PrizmDateTimeRange {
     origin = PrizmDateTimeRange.createIfNotExist(origin);
+    if (!origin.timeRange) origin.timeRange = new PrizmTimeRange(new PrizmTime(0, 0), new PrizmTime(23, 59));
     origin.timeRange.to = time;
     return origin;
   }

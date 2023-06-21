@@ -169,14 +169,6 @@ export class PrizmInputLayoutDateTimeRangeComponent
     return this.getDayFromMinMax(this.max);
   }
 
-  // readonly nativeValue$$ = new BehaviorSubject<{
-  //   timeRange: [string, string];
-  //   dayRange: [string, string];
-  // }>({
-  //   timeRange: ['', ''],
-  //   dayRange: ['', ''],
-  // });
-
   readonly nativeValueTimeFrom$$ = new BehaviorSubject<string>('');
   readonly nativeValueTimeTo$$ = new BehaviorSubject<string>('');
 
@@ -191,12 +183,6 @@ export class PrizmInputLayoutDateTimeRangeComponent
   ]).pipe(
     debounceTime(0),
     map(([from, fromTime, to, toTime]) => {
-      console.log('nativeValue$$:combineLatest', {
-        from,
-        fromTime,
-        to,
-        toTime,
-      });
       return {
         timeRange: [fromTime, toTime],
         dayRange: [from, to],
@@ -269,11 +255,11 @@ export class PrizmInputLayoutDateTimeRangeComponent
     return value;
   }
   get fromTimeValue(): string {
-    const value = this.value?.timeRange?.from?.toString() ?? '';
-    if (!value) {
+    const val = this.timeToString(this.value?.timeRange?.from) ?? '';
+    if (!val) {
       return this.nativeValueTimeFrom$$.value || '';
     }
-    return value;
+    return val;
   }
   get toValue(): string {
     const value = this.value?.dayRange?.to?.toString() ?? '';
@@ -283,11 +269,11 @@ export class PrizmInputLayoutDateTimeRangeComponent
     return value;
   }
   get toTimeValue(): string {
-    const value = this.value?.timeRange?.to?.toString() ?? '';
-    if (!value) {
+    const val = this.timeToString(this.value?.timeRange?.to) ?? '';
+    if (!val) {
       return this.nativeValueTimeTo$$.value || '';
     }
-    return value;
+    return val;
   }
 
   public onOpenChange(open: boolean): void {
@@ -316,7 +302,7 @@ export class PrizmInputLayoutDateTimeRangeComponent
             return;
           }
 
-          this.updateWithCorrectDateAndTime2(
+          this.updateWithCorrectDateAndTime(
             fromValue && fromValue.length === this.computedDateMask.length && fromValue,
             toValue && toValue.length === this.computedDateMask.length && toValue,
             fromTimeValue && fromTimeValue.length === this.computedTimeMask.length && fromTimeValue,
@@ -326,6 +312,10 @@ export class PrizmInputLayoutDateTimeRangeComponent
         takeUntil(this.destroy$)
       )
       .subscribe();
+  }
+
+  private timeToString(value: PrizmTime | unknown): string | null {
+    return value instanceof PrizmTime ? value.toString(this.timeMode) : null;
   }
 
   public onDateValueChange(value: string, isFormValue: boolean): void {
@@ -344,7 +334,6 @@ export class PrizmInputLayoutDateTimeRangeComponent
   public onTimeValueChange(value: string, isFormValue: boolean): void {
     if (isFormValue && value === this.fromTimeValue) return;
     if (!isFormValue && value === this.toTimeValue) return;
-
     if (isFormValue) this.nativeValueTimeFrom$$.next(value);
     else this.nativeValueTimeTo$$.next(value);
 
@@ -371,9 +360,9 @@ export class PrizmInputLayoutDateTimeRangeComponent
     this.changeDetectorRef.markForCheck();
   }
 
-  private updateWithCorrectDateAndTime2(from: string, to: string, fromTime: string, toTime: string): void {
-    let parsedFrom = from && PrizmDay.normalizeParse(from, this.dateFormat);
-    let parsedTo = to && PrizmDay.normalizeParse(to, this.dateFormat);
+  private updateWithCorrectDateAndTime(from: string, to: string, fromTime: string, toTime: string): void {
+    let parsedFrom = from ? PrizmDay.normalizeParse(from, this.dateFormat) : this.value?.dayRange?.from;
+    let parsedTo = to ? PrizmDay.normalizeParse(to, this.dateFormat) : this.value?.dayRange?.to;
 
     if (parsedFrom) parsedFrom = this.dayLimit(parsedFrom);
     if (parsedTo) parsedTo = this.dayLimit(parsedTo);
@@ -384,10 +373,22 @@ export class PrizmInputLayoutDateTimeRangeComponent
     if (parsedTimeFrom) parsedTimeFrom = this.timeLimit([parsedFrom, parsedTimeFrom]);
     if (parsedTimeTo) parsedTimeTo = this.timeLimit([parsedTo, parsedTimeTo]);
 
+    if (parsedTimeTo || parsedTimeFrom) {
+      if (!parsedFrom) {
+        parsedFrom = PrizmDay.fromLocalNativeDate(new Date());
+      }
+
+      if (!parsedTo) {
+        const today = new Date();
+        today.setDate(today.getDate() + 1);
+        parsedTo = PrizmDay.fromLocalNativeDate(today);
+      }
+    }
+
     this.updateValue(
       new PrizmDateTimeRange(
-        parsedFrom || parsedTimeFrom ? new PrizmDayRange(parsedFrom, parsedTo) : null,
-        parsedTo || parsedTimeTo ? new PrizmTimeRange(parsedTimeFrom, parsedTimeTo) : null
+        parsedFrom || parsedTo ? new PrizmDayRange(parsedFrom, parsedTo) : null,
+        parsedTimeFrom || parsedTimeTo ? new PrizmTimeRange(parsedTimeFrom, parsedTimeTo) : null
       )
     );
   }
@@ -409,26 +410,12 @@ export class PrizmInputLayoutDateTimeRangeComponent
     return Array.isArray(value) ? value[1] : value instanceof PrizmDateTime ? value.time : null;
   }
 
-  private updateTimeWithCorrectDateAndTime(from: PrizmTime | null, to: PrizmTime | null): void {
-    if (from) from = this.timeLimit([this.value?.dayRange?.from, from]);
-    if (to) to = this.timeLimit([this.value?.dayRange?.to, to]);
-
-    this.updateValue(new PrizmDateTimeRange(this.value?.dayRange, new PrizmTimeRange(from, to)));
-  }
-
   private dayLimit(value: PrizmDay): PrizmDay {
     return value.dayLimit(this.getDayFromMinMax(this.min), this.getDayFromMinMax(this.max));
   }
 
   public override writeValue(value: PrizmDateTimeRange | null): void {
     super.writeValue(value);
-    // this.nativeValue$$.next({
-    //   timeRange: [
-    //     value?.timeRange?.from?.toString(this.timeMode) ?? '',
-    //     value?.timeRange?.to?.toString(this.timeMode) ?? '',
-    //   ],
-    //   dayRange: [value?.dayRange?.from?.toString() ?? '', value?.dayRange?.to?.toString()],
-    // });
     this.nativeValueTimeFrom$$.next(value?.timeRange?.from?.toString(this.timeMode) ?? '');
     this.nativeValueTimeTo$$.next(value?.timeRange?.to?.toString(this.timeMode) ?? '');
     this.nativeValueFrom$$.next(value?.dayRange?.from?.toString() ?? '');
@@ -455,19 +442,31 @@ export class PrizmInputLayoutDateTimeRangeComponent
 
   public updateTimeTo(value: PrizmTime): void {
     // TODO: #mz add min max
-    if (value && this.value?.timeRange?.to?.isSameTime(value)) return;
+    if (
+      value &&
+      this.value?.timeRange?.to instanceof PrizmTime &&
+      this.value?.timeRange?.to?.isSameTime(value)
+    )
+      return;
     const range = PrizmDateTimeRange.safeUpdateTimeTo(this.value, value);
     this.updateValue(range?.copy());
   }
 
   public updateTimeFrom(value: PrizmTime): void {
     // TODO: #mz add min max
-    if (value && this.value?.timeRange?.from?.isSameTime(value)) return;
-    const range = PrizmDateTimeRange.safeUpdateTimeFrom(this.value, value);
-    this.updateValue(range?.copy());
+    if (
+      value &&
+      this.value?.timeRange?.from instanceof PrizmTime &&
+      this.value?.timeRange?.from?.isSameTime(value)
+    )
+      return;
+    // const range = PrizmDateTimeRange.safeUpdateTimeFrom(this.value, value);
+    // this.updateValue(range?.copy());
+    this.nativeValueTimeFrom$$.next(value.toString(this.timeMode));
   }
 
-  public referFocusToMain() {
+  public referFocusToMain(referFocus = true) {
+    if (!referFocus) return;
     // TODO create operator and rxjs functin to run sequence in event loop
     of(null)
       .pipe(

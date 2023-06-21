@@ -44,6 +44,12 @@ export class PrizmInputZoneDirective {
     return this;
   }
 
+  public getFocusedByIdx(idx = 0) {
+    const selected = this.inputZoneService.elements[idx];
+    if (selected) selected.focused;
+    return this;
+  }
+
   public updateNativeValue(idx: number, value: string | number | null): PrizmInputZoneDirective {
     const selected = this.inputZoneService.elements[idx];
     if (selected && selected.el.nativeElement) selected.el.nativeElement.value = value?.toString();
