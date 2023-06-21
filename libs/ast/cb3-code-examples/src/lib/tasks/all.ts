@@ -1,4 +1,3 @@
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { IPrizmAstCodeTask } from '@prizm-ui/ast/code';
 import { ZyfraAccordionCodeTasks } from './accordion.task';
 import { ZyfraBreadcrumbCodeTasks } from './breadcrumb.task';

@@ -123,7 +123,31 @@ export class PrizmInputDateTimeComponent
 
   open = false;
 
+  /** for avoid time format 29:01 */
+  // TODO remove after update angular 15 and latest mask version
+  // readonly fixedPatternForTime = {
+  //   H: { pattern: /[0-2]/i },
+  //   h: { pattern: /[0-3]/i },
+  //   m: { pattern: /[0-5]/i },
+  //   0: { pattern: /[0-9]/i },
+  // };
+
   readonly type!: PrizmContextWithImplicit<unknown>;
+
+  get filteredTime(): readonly PrizmTime[] {
+    return this.filterTime(this.timeItems, this.timeMode, this.computedSearchTime);
+  }
+
+  get computedSearchTime(): string {
+    return this.computedValue.length !== this.timeMode.length ? this.computedValue : ``;
+  }
+
+  readonly filler$: Observable<string> = combineLatest([
+    this.dateTexts$.pipe(
+      map(dateTexts => prizmChangeDateSeparator(dateTexts[this.dateFormat], this.dateSeparator))
+    ),
+    this.timeTexts$.pipe(pluck(this.timeMode)),
+  ]).pipe(map(fillers => this.getDateTimeString(...fillers)));
 
   public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
   public readonly innerControl = new UntypedFormControl();
@@ -437,5 +461,6 @@ export class PrizmInputDateTimeComponent
   public openDateDropdown(): void {
     this.openTimeTemplate = null;
     this.focusableElement?.nativeElement.focus();
+    // this.openTimeTemplate = !this.openTimeTemplate;
   }
 }

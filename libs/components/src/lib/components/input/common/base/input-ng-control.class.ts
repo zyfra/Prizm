@@ -120,6 +120,10 @@ export abstract class PrizmInputNgControl<T>
     this.markAsDirty();
   }
 
+  public setDisabledState(isDisabled: boolean) {
+    this.checkControlUpdate();
+  }
+
   public registerOnChange(onChange: any): void {
     this.onChange = (componentValue: T): void => {
       onChange(this.toControlValue(componentValue));
@@ -193,9 +197,5 @@ export abstract class PrizmInputNgControl<T>
 
   public markAsDirty(): void {
     this.ngControl.control.markAsDirty();
-  }
-
-  public setDisabledState(isDisabled: boolean) {
-    this.checkControlUpdate();
   }
 }

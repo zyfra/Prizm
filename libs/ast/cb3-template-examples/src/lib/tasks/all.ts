@@ -1,4 +1,3 @@
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { PrizmTemplateTask } from '@prizm-ui/ast';
 import { ZyfraAccordionTemplateTasks } from './accordion.task';
 import { ZyfraBreadcrumbTemplateTasks } from './breadcrumb.task';
