@@ -22,12 +22,11 @@
     margin-top: 1.75rem;
   }
 
-  &:hover {
+  &:not([data-range='start']):not([data-range='single']):not([data-range='end']):hover {
     background-color: var(--prizm-g2-g11);
-    color: var(--prizm-index-plan);
 
     .z-item {
-      color: inherit;
+      color: var(--prizm-index-plan) !important;
     }
   }
 }

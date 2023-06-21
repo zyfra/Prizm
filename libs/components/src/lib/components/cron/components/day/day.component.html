@@ -20,39 +20,39 @@
     </label>
   </ng-container>
 
-  <ng-container *ngIf="cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.between)">
-    <label
-      class="block row"
-      *prizmLet="cronUiState.TYPES.between as currentType"
-      [class.selected]="cronUiState.typeControl.value === currentType"
-    >
-      <div class="radio">
-        <prizm-radio-button
-          [formControl]="cronUiState.typeControl"
-          [label]="null"
-          [value]="currentType"
-          [name]="'type'"
-          (changeEvent)="cronUiState.updateBetween()"
-        ></prizm-radio-button>
-      </div>
-      <div class="content">
-        <span>Каждый день с</span>
-        <prizm-cron-carousel
-          #start
-          [content]="cronUiState.list.between.start"
-          [value]="cronUiState.state$ | async | prizmPluck : ['between', 'start']"
-          (valueChange)="cronUiState.updateBetween({ start: $event })"
-        ></prizm-cron-carousel>
-        <span>до</span>
-        <prizm-cron-carousel
-          #end
-          [content]="cronUiState.list.between.end"
-          [value]="cronUiState.state$ | async | prizmPluck : ['between', 'end']"
-          (valueChange)="cronUiState.updateBetween({ end: $event })"
-        ></prizm-cron-carousel>
-      </div>
-    </label>
-  </ng-container>
+  <!--  <ng-container *ngIf="cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.between)">-->
+  <!--    <label-->
+  <!--      class="block row"-->
+  <!--      *prizmLet="cronUiState.TYPES.between as currentType"-->
+  <!--      [class.selected]="cronUiState.typeControl.value === currentType"-->
+  <!--    >-->
+  <!--      <div class="radio">-->
+  <!--        <prizm-radio-button-->
+  <!--          [formControl]="cronUiState.typeControl"-->
+  <!--          [label]="null"-->
+  <!--          [value]="currentType"-->
+  <!--          [name]="'type'"-->
+  <!--          (changeEvent)="cronUiState.updateBetween()"-->
+  <!--        ></prizm-radio-button>-->
+  <!--      </div>-->
+  <!--      <div class="content">-->
+  <!--        <span>Каждый день с</span>-->
+  <!--        <prizm-cron-carousel-->
+  <!--          #start-->
+  <!--          [content]="cronUiState.list.between.start"-->
+  <!--          [value]="cronUiState.state$ | async | prizmPluck : ['between', 'start']"-->
+  <!--          (valueChange)="cronUiState.updateBetween({ start: $event })"-->
+  <!--        ></prizm-cron-carousel>-->
+  <!--        <span>до</span>-->
+  <!--        <prizm-cron-carousel-->
+  <!--          #end-->
+  <!--          [content]="cronUiState.list.between.end"-->
+  <!--          [value]="cronUiState.state$ | async | prizmPluck : ['between', 'end']"-->
+  <!--          (valueChange)="cronUiState.updateBetween({ end: $event })"-->
+  <!--        ></prizm-cron-carousel>-->
+  <!--      </div>-->
+  <!--    </label>-->
+  <!--  </ng-container>-->
 
   <ng-container *ngIf="cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.afterDayOfWeek)">
     <label
