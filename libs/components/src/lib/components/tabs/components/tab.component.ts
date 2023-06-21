@@ -17,7 +17,7 @@ import { PolymorphContent } from '../../../directives';
 import { concat, last, Observable, combineLatest } from 'rxjs';
 import { PrizmDestroyService, PrizmLetContextService } from '@prizm-ui/helpers';
 import { PrizmTabContext, PrizmTabMenuContext } from '../tabs.model';
-import { first, map, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { filter, first, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 @Component({
   selector: 'prizm-tab',
   templateUrl: './tab.component.html',
@@ -80,9 +80,18 @@ export class PrizmTabComponent implements OnInit, OnDestroy {
       .subscribe();
   }
 
+  private isFromMenuTab(): boolean {
+    return !!this.inMenuContextService?.context?.inMenuIdx;
+  }
+
+  private isMainProjectedTab(): boolean {
+    return !this.isFromMenuTab();
+  }
+
   public ngOnInit(): void {
     this.tabsService.tabs$
       .pipe(
+        filter(() => this.isMainProjectedTab()),
         tap(() => {
           const currentDomIdx = Array.from(this.el.nativeElement.parentElement.children).indexOf(
             this.el.nativeElement
