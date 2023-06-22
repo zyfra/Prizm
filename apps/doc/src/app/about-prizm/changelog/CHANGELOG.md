@@ -35,7 +35,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/calendar-month): no hover when hovering over a month [301](https://github.com/zyfra/Prizm/issues/301)
 - fix(helpers/to-observable): fix error when destroying not created instances
 - fix(components/theme): fix error when we get current theme from root element
-- fix(components/\*): small fixes for bugs in 1.2.0-rc,1
+- fix(components/\*): small fixes for found bugs in 1.2.0-rc,1
 
 ## [1.2.0-rc,1](https://github.com/zyfra/Prizm) (19-06-2023)
 
