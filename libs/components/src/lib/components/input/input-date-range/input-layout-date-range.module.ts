@@ -10,12 +10,14 @@ import { PrizmIconModule } from '../../icon/icon.module';
 import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host/dropdown-host.module';
 import { PrizmMaskModule } from '../../../modules';
 import { PrizmInputLayoutDateRangeComponent } from './input-layout-date-range.component';
-import { PrizmLifecycleModule } from '../../../directives';
+import { PrizmInputZoneModule } from '../../../directives/input-zone';
+import { PrizmLifecycleModule } from '../../../directives/lifecycle/lifecycle.module';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmMaskModule,
+    PrizmInputZoneModule,
     PrizmLifecycleModule,
     PrizmLetModule,
     PolymorphModule,

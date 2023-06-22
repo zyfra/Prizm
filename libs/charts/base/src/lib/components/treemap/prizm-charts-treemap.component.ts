@@ -7,6 +7,7 @@ import { PrizmChartsTreemapData, PrizmChartsTreemapOptions, PrizmChartsTreemapOr
   selector: 'prizm-charts-treemap',
   templateUrl: './prizm-charts-treemap.component.html',
   styleUrls: ['./prizm-charts-treemap.component.less'],
+  exportAs: 'prizmChartsTreemap',
 })
 export class PrizmChartsTreemapComponent<
   T extends Record<string, unknown>

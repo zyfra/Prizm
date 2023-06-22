@@ -11,18 +11,54 @@
   (isOpenChange)="onOpenChange($event); $event && prizmDropdownHostComponent.reCalculatePositions()"
 >
   <ng-template prizmInputStatusText>Ошибка! Неправильный формат</ng-template>
-  <input
-    class="input-search"
-    #focusableElementRef
-    [mask]="textMaskOptions"
-    [showMaskTyped]="focusableElementRef.focused"
-    [dropSpecialCharacters]="false"
-    [placeholder]="placeholder"
-    [disabled]="disabled"
-    [ngModel]="computedValue"
-    (ngModelChange)="onValueChange($event ?? '')"
-    prizmInput
-  />
+  <div
+    class="multiple-input-box"
+    #focusableElementRef="prizmInputZone"
+    [attr.data-placeholder]="placeholder"
+    prizmInputZone
+  >
+    <input
+      class="input-main"
+      #fe="prizmInputInZone"
+      [class.show-placeholder]="
+        (empty | async) && (disabled || (focusableElementRef.focused$ | async) !== true)
+      "
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [mask]="textMaskOptions"
+      [showMaskTyped]="focusableElementRef.focused$ | async"
+      [dropSpecialCharacters]="false"
+      [size]="textMaskOptions.length"
+      [clearIfNotMatch]="false"
+      [maxSize]="textMaskOptions.length"
+      [ngModel]="computedDateValue()"
+      (click)="referFocusToMain(!computedDateValue())"
+      (ngModelChange)="onDateValueChange($event)"
+      style="padding: 0"
+      prizmInput
+      prizmInputInZone
+    />
+    <input
+      class="input-time"
+      #element
+      [mask]="timeMaskOptions"
+      [clearIfNotMatch]="false"
+      [dropSpecialCharacters]="false"
+      [showMaskTyped]="focusableElementRef.focused$ | async"
+      [disabled]="disabled"
+      [ngModelOptions]="{ standalone: true }"
+      [ngModel]="computedTimeValue()"
+      [size]="timeMaskOptions.length"
+      [maxSize]="timeMaskOptions.length"
+      (ngModelChange)="onTimeValueChange($event)"
+      style="padding: 0"
+      prizmInput
+      prizmInputInZone
+    />
+    <!--    TODO add later correct fix for update native value when ng does not know about change -->
+    <!--    [prizmInputNativeValue]='computedTimeValue()'-->
+    <!--    [needChange]='needChangeNativeValue'-->
+  </div>
 </prizm-dropdown-host>
 <ng-container *prizmInputLayoutRight>
   <button
@@ -68,6 +104,7 @@
       <div
         class="time-item"
         *ngFor="let item of timeItems; let idx = index"
+        [class.selected]="value?.[1] && item.isSameTime(value[1])"
         (click)="$event.stopPropagation(); onTimeMenuClick(item, $event)"
       >
         <span class="text">

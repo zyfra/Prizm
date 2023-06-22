@@ -180,6 +180,7 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
       autoReposition: this.autoReposition,
       element: this.prizmDropdownHost ?? this.el.nativeElement,
     });
+    this.updateWidth();
     this.overlay = this.prizmOverlayService
       .position(this.position)
       .config({ wrapperClass: this.wrapper_class })

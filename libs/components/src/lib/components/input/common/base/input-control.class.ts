@@ -1,6 +1,6 @@
 import { Directive, ViewChild } from '@angular/core';
 import { AbstractControlDirective, NgControl } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { PrizmInputLayoutBottomDirective } from '../input-layout/input-layout-bottom.directive';
 import { PrizmInputLayoutInBodyDirective } from '../input-layout/input-layout-in-body.directive';
 import { PrizmInputLayoutLeftDirective } from '../input-layout/input-layout-left.directive';
@@ -33,25 +33,25 @@ export abstract class PrizmInputControl<T> {
 
   readonly stateChanges: Subject<void> = new Subject<void>();
 
-  abstract readonly empty: boolean;
+  abstract readonly empty: boolean | Observable<boolean>;
 
   /** Gets the AbstractControlDirective for this control. */
   abstract readonly ngControl: NgControl | AbstractControlDirective | null;
 
   /** Whether the control is required. */
-  abstract readonly required: boolean;
+  abstract readonly required: boolean | Observable<boolean>;
 
   /** Whether the control is disabled. */
-  abstract readonly disabled: boolean;
+  abstract readonly disabled: boolean | Observable<boolean>;
 
   /** Whether the control is required. */
-  abstract readonly focused: boolean;
+  abstract readonly focused: boolean | Observable<boolean>;
 
   /** Whether the control is validity. */
-  abstract readonly invalid: boolean;
+  abstract readonly invalid: boolean | Observable<boolean>;
 
   /** Whether the control is validity. */
-  abstract readonly touched: boolean;
+  abstract readonly touched: boolean | Observable<boolean>;
 
   abstract nativeElementType: string | undefined;
 

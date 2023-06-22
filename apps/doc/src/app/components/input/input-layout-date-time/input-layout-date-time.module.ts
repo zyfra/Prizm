@@ -9,6 +9,8 @@ import { PrizmInputLayoutDateTimeBaseExampleComponent } from './examples/base/in
 import { PrizmInputLayoutDateTimeWithSecondsExampleComponent } from './examples/with-seconds/input-layout-date-time-with-seconds-example.component';
 import { PrizmInputLayoutDateTimeNativeExampleComponent } from './examples/native-date/input-layout-native-date-time-base-example.component';
 import { PrizmInputLayoutDateTimeRequiredExampleComponent } from './examples/required/input-layout-date-time-required-example.component';
+import { PrizmInputLayoutDateTimeMinMaxExampleComponent } from './examples/min-max/input-layout-date-time-min-max-example.component';
+import { PrizmInputLayoutDateTimeMinMaxTimeExampleComponent } from './examples/min-max-time/input-layout-date-time-min-max-time-example.component';
 
 @NgModule({
   imports: [
@@ -22,6 +24,8 @@ import { PrizmInputLayoutDateTimeRequiredExampleComponent } from './examples/req
   ],
   declarations: [
     PrizmInputLayoutDateTimeBaseExampleComponent,
+    PrizmInputLayoutDateTimeMinMaxTimeExampleComponent,
+    PrizmInputLayoutDateTimeMinMaxExampleComponent,
     PrizmInputLayoutDateTimeRequiredExampleComponent,
     PrizmInputLayoutDateTimeWithSecondsExampleComponent,
     PrizmInputLayoutDateTimeNativeExampleComponent,

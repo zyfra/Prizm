@@ -6,7 +6,7 @@ export const PRIZM_RUSSIAN_CRON: PrizmLanguageCron = {
     submitText: 'Применить',
     resetText: 'Отменить',
     startDateLabel: 'Начало работы',
-    endDateLabel: 'Начало работы',
+    endDateLabel: 'Конец работы',
     indefinitelyLabel: 'Бессрочно',
     day: {
       every: 'Каждый день',

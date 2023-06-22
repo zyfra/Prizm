@@ -415,6 +415,11 @@ export const pages: PrizmOrderedDocPage = [
         keywords: 'carousel',
         route: 'components/carousel',
       },
+      {
+        title: 'InputCarousel',
+        keywords: 'input-carousel, input',
+        route: 'components/input-carousel',
+      },
     ],
   },
   {
@@ -673,6 +678,12 @@ export const pages: PrizmOrderedDocPage = [
     title: 'Overlay',
     keywords: 'overlay, оверлей, modal, модальное',
     route: '/tools/overlay',
+  },
+  {
+    section: SectionNameEnum.tools,
+    title: 'ZoneEvents',
+    keywords: 'zone, зона, events, события',
+    route: '/tools/zone-events',
   },
   {
     section: SectionNameEnum.tools,

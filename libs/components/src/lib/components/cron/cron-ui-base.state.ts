@@ -1,10 +1,11 @@
 import { canShowCronListItem, getArrWithStringNumbers, getCarousel } from './util';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { distinctUntilChanged, filter, first, map, takeUntil, tap } from 'rxjs/operators';
+import { distinctUntilChanged, filter, finalize, first, map, takeUntil, tap } from 'rxjs/operators';
 import { UntypedFormControl } from '@angular/forms';
 import { PrizmCronUiBaseType, PrizmCronUiState, PrizmCronUiStateList } from './model';
-import { PrizmCronService } from '../../services/cron';
+import { PrizmCronService, PrizmCronValueObject } from '../../services/cron';
+import { isEqual } from 'lodash';
 
 export abstract class PrizmCronUiBaseState<
   ENUM extends Record<string, unknown> = typeof PrizmCronUiBaseType,
@@ -32,7 +33,7 @@ export abstract class PrizmCronUiBaseState<
   readonly canShowCronListItem = canShowCronListItem;
 
   constructor(
-    public readonly current$: Observable<string>,
+    public readonly current$: Observable<any>,
     public readonly initialType: TYPE,
     public readonly TYPES: ENUM,
     private readonly between = {
@@ -68,25 +69,26 @@ export abstract class PrizmCronUiBaseState<
 
   public readonly typeControl = new UntypedFormControl();
 
-  public readonly type$ = this.current$.pipe(map(i => this.getTypeByValue(i)));
+  public readonly type$ = this.current$.pipe(map(i => this.getTypeByValue(i, this.cron.value)));
 
   public init(): void {
     this.initLocalStateChanger();
     this.initLocalTypeChanger();
   }
 
-  private initLocalStateChanger(): void {
+  protected initLocalStateChanger(): void {
     /* add change when base changes */
     this.current$
       .pipe(
+        // distinctUntilChanged((a, b) => a === b || (a && b && a[0] === b[0] && a[1] === b[1])),
         distinctUntilChanged(),
-        tap(value => this.updateLocalState(value, this.getTypeByValue(value))),
+        tap(value => this.updateLocalState(value, this.getTypeByValue(value, this.cron.value))),
         takeUntil(this.destroy$)
       )
       .subscribe();
   }
 
-  private initLocalTypeChanger(): void {
+  protected initLocalTypeChanger(): void {
     this.type$
       .pipe(
         filter(i => i != this.typeControl.value),
@@ -100,7 +102,7 @@ export abstract class PrizmCronUiBaseState<
 
   public abstract updateMainState(value: string): void;
 
-  public getTypeByValueByDefault(value: string): PrizmCronUiBaseType {
+  public getTypeByValueByDefault(value: string, cron: PrizmCronValueObject): PrizmCronUiBaseType {
     if (value === '*') {
       return PrizmCronUiBaseType.every;
     } else if (value.includes('/')) {
@@ -111,8 +113,8 @@ export abstract class PrizmCronUiBaseState<
 
     return PrizmCronUiBaseType.specified;
   }
-  public getTypeByValue(hour: string): TYPE {
-    return this.getTypeByValueByDefault(hour) as unknown as TYPE;
+  public getTypeByValue(hour: string, cron: PrizmCronValueObject): TYPE {
+    return this.getTypeByValueByDefault(hour, cron) as unknown as TYPE;
   }
 
   public updatePartial(state: Partial<STATE>): void {
@@ -182,7 +184,8 @@ export abstract class PrizmCronUiBaseState<
   /**
    * TODO fix type casting
    * */
-  public updateLocalState(value: string, type: TYPE): void {
+  public updateLocalState(value: any, type: TYPE): void {
+    console.log('#Mz updateLocalState', type, value);
     switch (type) {
       case this.TYPES.between:
         {
@@ -216,7 +219,6 @@ export abstract class PrizmCronUiBaseState<
           const arr = value.split('/');
           const on = arr[1] ?? '0';
           const after = arr[0] ?? '0';
-
           this.updatePartial({
             type: PrizmCronUiBaseType.after,
             everyChosenTimesAfterChosen: {

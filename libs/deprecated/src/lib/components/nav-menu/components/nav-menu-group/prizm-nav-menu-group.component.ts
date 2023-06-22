@@ -20,6 +20,7 @@ import { filter, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { fromRubricatorNodes, getPath } from '../../utils/treeNode.functions';
 import { DEFAULT_TOOLBAR_CONFIG, SelectionType, ToolbarConfig, ViewMode } from '../../model/nav-menu-config';
+
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { UntypedFormControl } from '@angular/forms';
 

@@ -18,6 +18,7 @@ import { UntypedFormControl, NgControl, Validators } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
+import { interval } from 'rxjs';
 
 @Component({
   selector:
@@ -240,7 +241,9 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
     if (this.disabled) return;
 
     this.ngControl?.control.setValue('');
-    this._touched = true;
+
+    // this._touched = true;
+    this.ngControl?.control.markAsDirty();
 
     this._inputValue.value = '';
 

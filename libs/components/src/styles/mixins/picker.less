@@ -102,7 +102,7 @@
         background-color: var(--prizm-primary-text);
       }
 
-      & > .z-item {
+      &:not([data-state='hovered']) > .z-item {
         color: var(--prizm-grey-g13-g1);
 
         &:before,
@@ -112,8 +112,8 @@
       }
 
       &[data-state='hovered'] > .z-item {
-        background-color: var(--prizm-index-plan);
-        color: var(--prizm-exceptions-white);
+        background-color: var(--prizm-g2-g11);
+        color: var(--prizm-index-plan);
       }
 
       &[data-state='hovered'] > .z-item:before,

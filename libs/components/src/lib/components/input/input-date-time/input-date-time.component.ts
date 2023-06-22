@@ -295,11 +295,11 @@ export class PrizmInputDateTimeComponent
     const [date, time] = value.split(PRIZM_DATE_TIME_SEPARATOR_NGX);
 
     const parsedDate = PrizmDay.normalizeParse(date, this.dateFormat);
-    const parsedTime =
+    let parsedTime =
       time && time.length === this.timeMode.length
         ? this.prizmClampTime(PrizmTime.fromString(time), parsedDate)
         : null;
-
+    if (parsedTime) parsedTime = PrizmTime.correctTime(parsedTime);
     const match = parsedTime && this.getMatch(time);
 
     this.updateValue([

@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { PrizmFlagIconsRegistry } from './prizm-flag-icons.registry';
+
 import { prizmPx } from '@prizm-ui/core';
 
 @Component({

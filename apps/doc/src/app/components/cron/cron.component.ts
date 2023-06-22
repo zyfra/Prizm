@@ -20,6 +20,7 @@ export class CronComponent {
   public width: string | null = null;
   public autoSubmit = false;
   public hidePeriod = false;
+  public showHumanReadable = true;
   public hideResult = false;
   public resetButton = false;
   public selected: PrizmCronTabItem = 'month';

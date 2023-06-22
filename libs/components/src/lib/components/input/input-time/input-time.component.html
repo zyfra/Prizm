@@ -23,6 +23,7 @@
       [required]="readOnly"
       [placeholder]="placeholder"
       [disabled]="disabled"
+      [ngModelOptions]="{ standalone: true }"
       [ngModel]="computedValue"
       (ngModelChange)="onValueChange($event || '')"
       (keydown.arrowUp)="onArrowUp($event)"
@@ -40,7 +41,12 @@
 <ng-template #dropdownContent>
   <prizm-data-list class="block" [style.--prizm-data-list-border]="0">
     <ng-container *ngIf="items?.length">
-      <div class="item" *ngFor="let item of filtered; let idx = index" (click)="onMenuClick(item)">
+      <div
+        class="item"
+        *ngFor="let item of filtered; let idx = index"
+        [class.selected]="value && item.isSameTime(value)"
+        (click)="onMenuClick(item)"
+      >
         <span class="text">
           {{ item }}
         </span>

@@ -11,8 +11,9 @@ import { PrizmInputTextModule } from '../input-text/input-text.module';
 import { PrizmIconModule } from '../../icon/icon.module';
 import { PrizmMaskModule } from '../../../modules';
 import { PrizmDataListModule } from '../../data-list';
-import { PrizmLifecycleModule } from '../../../directives';
+import { PrizmInputNativeValueModule, PrizmLifecycleModule } from '../../../directives';
 import { PrizmInputLayoutDateTimeComponent } from './input-layout-date-time.component';
+import { PrizmInputZoneModule } from '../../../directives/input-zone';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { PrizmInputLayoutDateTimeComponent } from './input-layout-date-time.comp
     PolymorphModule,
     PrizmInputTextModule,
     PrizmIconModule,
+    PrizmInputZoneModule,
     FormsModule,
     PrizmLifecycleModule,
     PrizmPreventDefaultModule,
@@ -30,6 +32,7 @@ import { PrizmInputLayoutDateTimeComponent } from './input-layout-date-time.comp
     PrizmLinkModule,
     PrizmDropdownHostModule,
     PrizmValueAccessorModule,
+    PrizmInputNativeValueModule,
   ],
   declarations: [PrizmInputLayoutDateTimeComponent],
   exports: [PrizmInputLayoutDateTimeComponent, PrizmInputTextModule],

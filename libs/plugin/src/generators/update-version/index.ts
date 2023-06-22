@@ -1,4 +1,5 @@
 import { Tree } from '@nrwl/devkit';
+
 import {
   prizmAstGetPublishableProjects,
   prizmAstUpdateProjectVersions,
@@ -29,6 +30,7 @@ export default async function (tree: Tree, schema: PluginUpdateVersionSchema): P
     tree,
     projectNamesWithPackageJson,
     schema.newVersion.toString(),
-    schema.currentVersion?.toString()
+    schema.currentVersion?.toString(),
+    schema.updateInDependencies
   );
 }

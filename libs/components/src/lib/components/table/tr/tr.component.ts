@@ -9,8 +9,8 @@ import {
   QueryList,
   ViewEncapsulation,
 } from '@angular/core';
-import { map, startWith } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { debounceTime, map, observeOn, startWith } from 'rxjs/operators';
+import { animationFrameScheduler, merge, Observable } from 'rxjs';
 import { prizmDefaultProp } from '@prizm-ui/core';
 
 import { PrizmCellDirective } from '../directives/cell.directive';
@@ -20,6 +20,7 @@ import { PrizmTbodyComponent } from '../tbody/tbody.component';
 import { PrizmTableCellStatus } from '../table.types';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmTableTreeService } from '../service/tree.service';
+import { PrizmCellService } from '../directives/cell.service';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -29,7 +30,7 @@ import { PrizmTableTreeService } from '../service/tree.service';
   exportAs: 'prizmTr',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  providers: [PRIZM_TABLE_PROVIDER],
+  providers: [PRIZM_TABLE_PROVIDER, PrizmCellService],
 })
 export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
   @Input() @HostBinding('attr.status') public status: PrizmTableCellStatus = 'default';
@@ -41,7 +42,10 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
   @ContentChildren(forwardRef(() => PrizmCellDirective))
   readonly cells: QueryList<PrizmCellDirective> = new QueryList<PrizmCellDirective>();
 
-  readonly cells$ = this.cells.changes.pipe(
+  readonly cells$ = merge(
+    this.cells.changes,
+    this.cellService.changes$$.pipe(debounceTime(0, animationFrameScheduler))
+  ).pipe(
     startWith(null),
     map(() => {
       const cells = this.cells.toArray();
@@ -67,6 +71,7 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
     public readonly table: PrizmTableDirective<T>,
     @Inject(forwardRef(() => PrizmTbodyComponent))
     private readonly body: PrizmTbodyComponent<T>,
+    private readonly cellService: PrizmCellService,
     private readonly tableTreeService: PrizmTableTreeService,
     @Inject(PrizmDestroyService) readonly destroy$: PrizmDestroyService
   ) {}

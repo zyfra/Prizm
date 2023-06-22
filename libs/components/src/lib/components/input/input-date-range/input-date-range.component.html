@@ -17,6 +17,7 @@
       [readOnly]="readOnly"
       [placeholder]="placeholder"
       [disabled]="computedDisabled"
+      [ngModelOptions]="{ standalone: true }"
       [ngModel]="stringValue"
       (ngModelChange)="onValueChange($event || '')"
       prizmInput

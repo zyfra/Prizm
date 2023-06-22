@@ -7,9 +7,6 @@
       <prizm-input-layout-date-time-range-disabled-example>
       </prizm-input-layout-date-time-range-disabled-example>
     </prizm-doc-example>
-    <!--    <prizm-doc-example id="native-date" heading="Native Date" [content]="exampleNativeDate">-->
-    <!--      <prizm-input-layout-date-time-range-native-example> </prizm-input-layout-date-time-range-native-example>-->
-    <!--    </prizm-doc-example>-->
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -59,15 +56,22 @@
 
       <ng-template
         documentationPropertyName="min"
-        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime]"
+        documentationPropertyType="PrizmDateTimeMinMax"
         documentationPropertyMode="input"
       >
         Min Date
       </ng-template>
+      <ng-template
+        documentationPropertyName="extraButtonInjector"
+        documentationPropertyType="Injector"
+        documentationPropertyMode="input"
+      >
+        Injector for nested buttons (use in multi datepicker and similar case)
+      </ng-template>
 
       <ng-template
         documentationPropertyName="max"
-        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime]"
+        documentationPropertyType="PrizmDateTimeMinMax"
         documentationPropertyMode="input"
       >
         Max Date

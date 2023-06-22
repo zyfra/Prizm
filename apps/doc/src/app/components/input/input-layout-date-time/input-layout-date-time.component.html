@@ -4,6 +4,14 @@
       <prizm-input-layout-date-time-base-example></prizm-input-layout-date-time-base-example>
     </prizm-doc-example>
 
+    <prizm-doc-example id="min-max" [content]="exampleMinMax" heading="Min Max Day">
+      <prizm-input-layout-date-time-min-max-example></prizm-input-layout-date-time-min-max-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="min-max-time" [content]="exampleMinMaxTime" heading="Min Max Day With Time">
+      <prizm-input-layout-date-time-min-max-time-example></prizm-input-layout-date-time-min-max-time-example>
+    </prizm-doc-example>
+
     <prizm-doc-example id="required" [content]="exampleWithRequired" heading="Required">
       <prizm-input-layout-date-time-required-example></prizm-input-layout-date-time-required-example>
     </prizm-doc-example>
@@ -39,11 +47,10 @@
           [timeStrict]="timeStrict"
           [placeholder]="placeholder"
           [timeMode]="timeMode"
-          [size]="size"
         ></prizm-input-layout-date-time>
       </prizm-input-layout>
     </prizm-doc-demo>
-    <prizm-doc-documentation [control]="valueControl" [hostComponentKey]="controlKey">
+    <prizm-doc-documentation [control]="valueControl" [hostComponentKey]="controlKey" [heading]="controlKey">
       <ng-template
         [(documentationPropertyValue)]="placeholder"
         documentationPropertyName="placeholder"
@@ -51,16 +58,6 @@
         documentationPropertyMode="input"
       >
         Placeholder
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="size"
-        [documentationPropertyValues]="sizeVariants"
-        documentationPropertyName="size"
-        documentationPropertyType="PrizmInputSize"
-        documentationPropertyMode="input"
-      >
-        Size
       </ng-template>
 
       <ng-template

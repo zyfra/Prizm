@@ -9,19 +9,46 @@
   (isOpenChange)="onOpenChange($event)"
   prizmDropdownHostWidth="auto"
 >
-  <input
-    class="input-search"
-    #focusableElementRef
-    [mask]="computedMask"
-    [showMaskTyped]="focusableElementRef.focused"
-    [dropSpecialCharacters]="false"
-    [placeholder]="placeholder"
-    [disabled]="disabled"
-    [ngModel]="stringValue"
-    (click)="onOpenChange(!open)"
-    (valueChanged)="onValueChange($event || '')"
-    prizmInput
-  />
+  <div
+    class="multiple-input-box"
+    #focusableElementRef="prizmInputZone"
+    [attr.data-placeholder]="placeholder"
+    prizmInputZone
+  >
+    <input
+      class="input-main"
+      [class.show-placeholder]="(empty | async) && (focusableElementRef.focused$ | async) !== true"
+      [placeholder]="placeholder"
+      [mask]="computedSingleMask"
+      [showMaskTyped]="focusableElementRef.focused$ | async"
+      [dropSpecialCharacters]="false"
+      [disabled]="disabled"
+      [ngModelOptions]="{ standalone: true }"
+      [ngModel]="fromValue"
+      [size]="computedSingleMask.length"
+      [maxSize]="computedSingleMask.length"
+      (ngModelChange)="onValueFromChange($event || '', true)"
+      style="padding: 0"
+      prizmInput
+      prizmInputInZone
+    />
+    <span class="delimiter">-</span>
+    <input
+      class="input-time"
+      [mask]="computedSingleMask"
+      [dropSpecialCharacters]="false"
+      [showMaskTyped]="focusableElementRef.focused$ | async"
+      [disabled]="disabled"
+      [ngModelOptions]="{ standalone: true }"
+      [ngModel]="toValue"
+      [size]="computedSingleMask.length"
+      [maxSize]="computedSingleMask.length"
+      (ngModelChange)="onValueFromChange($event || '', false)"
+      style="padding: 0"
+      prizmInput
+      prizmInputInZone
+    />
+  </div>
 
   <ng-template #dropdown let-zone="zone">
     <prizm-calendar-range

@@ -13,7 +13,7 @@ import {
   Self,
   ViewChild,
 } from '@angular/core';
-import { PrizmDestroyService, PrizmFormControlHelpers } from '@prizm-ui/helpers';
+import { Compare, PrizmDestroyService, PrizmFormControlHelpers } from '@prizm-ui/helpers';
 import { NgControl, UntypedFormControl } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
 import { PRIZM_SELECT_OPTIONS, PrizmSelectOptions, PrizmSelectValueContext } from './select.options';
@@ -190,6 +190,7 @@ export class PrizmSelectComponent<T>
 
   public filteredItems: T[] = [];
   private searchValue: string;
+  readonly isNullish = Compare.isNullish;
 
   constructor(
     @Inject(PRIZM_SELECT_OPTIONS) private readonly options: PrizmSelectOptions<T>,

@@ -10,10 +10,14 @@ import { TabsExampleContainedComponent } from './examples/tabs-example-contained
 import { TabsExampleIconComponent } from './examples/tabs-example-icon/tabs-example-icon.component';
 import { TabsExampleCounterComponent } from './examples/tabs-example-counter/tabs-example-counter.component';
 import { TabsExampleClosableComponent } from './examples/tabs-example-closable/tabs-example-closable.component';
+import { TabsExampleComponentContentComponent } from './examples/tabs-example-component/tabs-example-content-component.component';
+import { TabsExampleComponentComponent } from './examples/tabs-example-component/tabs-example-component.component';
 @NgModule({
   declarations: [
     TabsExampleComponent,
     TabsExampleBasicComponent,
+    TabsExampleComponentContentComponent,
+    TabsExampleComponentComponent,
     TabsExampleLinedComponent,
     TabsExampleContainedComponent,
     TabsExampleIconComponent,

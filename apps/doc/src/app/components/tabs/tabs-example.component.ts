@@ -1,6 +1,13 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { IconDefs, PrizmTabSize, PrizmTabType } from '@prizm-ui/components';
+import {
+  IconDefs,
+  PrizmTabCanOpen,
+  PrizmTabComponent,
+  PrizmTabSize,
+  PrizmTabType,
+} from '@prizm-ui/components';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'prizm-tabs-example',
@@ -14,8 +21,15 @@ export class TabsExampleComponent {
   public removed = false;
   public typeVariants: PrizmTabType[] = ['line', 'contained'];
   public size: PrizmTabSize = 'adaptive';
+  public canOpenVariants: PrizmTabCanOpen[] = [
+    (tab: PrizmTabComponent) => of(true),
+    (tab: PrizmTabComponent) => {
+      return of(tab.idx !== 1);
+    },
+  ];
+  public canOpen: PrizmTabCanOpen = this.canOpenVariants[0];
   public sizeVariants: PrizmTabSize[] = ['s', 'adaptive'];
-  public content = 'Tab Content';
+  public content = 'Big Tab #1';
   iconVariants: string[] = ['', ...IconDefs.reduce((a, c) => a.concat(c.data), [])];
   icon: string = this.iconVariants[0];
   closeIcon: string | null = null;
@@ -27,6 +41,10 @@ export class TabsExampleComponent {
   public readonly tabsExampleBasic: TuiDocExample = {
     TypeScript: import('./examples/tabs-example-basic/tabs-example-basic.component?raw'),
     HTML: import('./examples/tabs-example-basic/tabs-example-basic.component.html?raw'),
+  };
+  public readonly tabsExampleComponent: TuiDocExample = {
+    TypeScript: import('./examples/tabs-example-component/tabs-example-component.component?raw'),
+    HTML: import('./examples/tabs-example-component/tabs-example-component.component.html?raw'),
   };
   public readonly tabsLinedExample: TuiDocExample = {
     TypeScript: import('./examples/tabs-example-lined/tabs-example-lined.component?raw'),

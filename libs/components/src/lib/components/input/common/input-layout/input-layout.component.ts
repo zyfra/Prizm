@@ -13,6 +13,7 @@ import {
   OnInit,
   Output,
   SimpleChanges,
+  ViewChild,
 } from '@angular/core';
 import { EMPTY, merge, Subject, timer } from 'rxjs';
 import { PrizmInputControl } from '../base/input-control.class';
@@ -20,7 +21,7 @@ import { PrizmInputStatusTextDirective } from '../input-status-text/input-status
 import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '../models/prizm-input.models';
 import { debounceTime, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PolymorphContent } from '../../../../directives/polymorph';
-import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
+import { filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 
 @Component({
   selector: 'prizm-input-layout',
@@ -47,6 +48,15 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
   @Input() forceClear: boolean | null = null;
   @Output() clear = new EventEmitter<MouseEvent>();
 
+  @ViewChild(PrizmLetDirective) letDirective: PrizmLetDirective<{
+    focused: boolean;
+    disabled: boolean;
+    empty: boolean;
+    touched: boolean;
+    invalid: boolean;
+    required: boolean;
+  }>;
+
   @HostBinding('class.has-hidden-control') get hasHiddenControl() {
     return this.control.hidden;
   }
@@ -54,7 +64,9 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
   get showClearButton(): boolean {
     return typeof this.forceClear === 'boolean'
       ? this.forceClear
-      : this.control.hasClearButton && !this.control.disabled && !this.control.empty;
+      : this.control.hasClearButton &&
+          !this.letDirective?.context?.disabled &&
+          !this.letDirective?.context?.empty;
   }
 
   @ContentChild(PrizmInputControl, { static: true }) control: PrizmInputControl<any>;
@@ -65,15 +77,15 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
   public statusMessage: PolymorphContent | null;
 
   @HostBinding('class.disabled') get disabled() {
-    return this.control.disabled;
+    return this.letDirective?.context?.disabled;
   }
   @HostBinding('class.enabled') get enabled() {
-    return !this.control.disabled;
+    return !this.letDirective?.context?.disabled;
   }
   private readonly innerClick$$ = new Subject<MouseEvent>();
   public readonly innerClick$ = this.innerClick$$.asObservable();
 
-  private readonly cdr: ChangeDetectorRef = this.injector.get(ChangeDetectorRef);
+  public readonly cdr: ChangeDetectorRef = this.injector.get(ChangeDetectorRef);
   private readonly destroy$: PrizmDestroyService = this.injector.get(PrizmDestroyService);
 
   private foundStatusDirective: PrizmInputStatusTextDirective;
@@ -85,7 +97,10 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
   }
 
   get showStatusButton(): boolean {
-    return this.status !== 'default' || (this.control.invalid && this.control.touched);
+    return (
+      this.status !== 'default' ||
+      (this.letDirective?.context?.invalid && this.letDirective?.context?.touched)
+    );
   }
 
   constructor(private readonly injector: Injector, public readonly el: ElementRef<HTMLElement>) {}
@@ -106,9 +121,9 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
   ngAfterViewInit(): void {
     this.actualizeStatusIcon();
 
-    merge(this.inputStatusText ? this.inputStatusText.changed.pipe(map(i => this.inputStatusText)) : EMPTY)
+    merge(this.inputStatusText ? this.inputStatusText.changed.pipe(map(() => this.inputStatusText)) : EMPTY)
       .pipe(
-        startWith(this.control.statusText),
+        startWith(this.inputStatusText),
         map(i => i ?? this.control.statusText),
         filterTruthy(),
         tap(text => {

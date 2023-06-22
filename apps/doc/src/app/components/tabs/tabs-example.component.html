@@ -7,6 +7,10 @@
       <prizm-tabs-example-basic></prizm-tabs-example-basic>
     </prizm-doc-example>
 
+    <prizm-doc-example id="component" [content]="tabsExampleComponent" heading="Component">
+      <prizm-tabs-example-component></prizm-tabs-example-component>
+    </prizm-doc-example>
+
     <prizm-doc-example id="line" [content]="tabsLinedExample" heading="Lined tabs">
       <prizm-tabs-example-lined></prizm-tabs-example-lined>
     </prizm-doc-example>
@@ -35,6 +39,7 @@
           #elementTabs
           [prizmDocHostElement]="elementTabs"
           [size]="size"
+          [canOpen]="canOpen"
           [canShowMenu]="canShowMenu"
           [activeTabIndex]="activeTabIndex"
           prizmDocHostElementKey="PrizmTabsComponent"
@@ -60,7 +65,7 @@
             [closeIcon]="closeIcon"
             [disabled]="disabled"
             [count]="count"
-            content="Tab 2"
+            content="Big Tab 2"
           >
           </prizm-tab>
         </prizm-tabs>
@@ -84,6 +89,16 @@
         documentationPropertyMode="input"
       >
         Can Show Menu
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="canOpen"
+        [documentationPropertyValues]="canOpenVariants"
+        documentationPropertyName="canOpen"
+        documentationPropertyType="PrizmTabCanOpen"
+        documentationPropertyMode="input"
+      >
+        Can Open Tab
       </ng-template>
 
       <ng-template

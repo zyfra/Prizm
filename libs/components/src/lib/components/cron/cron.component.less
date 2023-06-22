@@ -18,8 +18,9 @@
     gap: 16px;
 
     .date-block {
-      display: flex;
+      display: grid;
       gap: 8px;
+      grid-template-columns: 1fr 1fr;
     }
 
     .indefinitely-toggle {
@@ -63,4 +64,12 @@
 
 :host {
   --prizm-input-layout-width: auto;
+}
+
+.human-readable-block {
+  padding-bottom: 0;
+
+  prizm-input-layout {
+    width: 100%;
+  }
 }

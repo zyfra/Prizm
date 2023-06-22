@@ -64,7 +64,7 @@ export class PolymorphOutletDirective<C extends object> implements OnChanges, Do
     this.viewContainerRef.clear();
 
     if (isComponent(this.content)) {
-      const proxy = new Proxy(this.context, {
+      const proxy = new Proxy(this.context ?? ({} as unknown as C), {
         get: (_, key): unknown => this.context[key as keyof C],
       });
       const injector = this.content.createInjector(this.injector, proxy);

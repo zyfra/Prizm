@@ -1,0 +1,9 @@
+<prizm-input-layout label="Введите дату">
+  <prizm-input-layout-date-time [min]="min" [max]="max" [formControl]="value"></prizm-input-layout-date-time>
+</prizm-input-layout>
+
+<pre>
+  min: {{ min.toLocalNativeDate() | date : 'shortDate' }}
+  max: {{ max.toLocalNativeDate() | date : 'shortDate' }}
+  value: {{ value.value }}
+</pre>

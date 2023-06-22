@@ -21,6 +21,14 @@
   &:nth-child(n + 5) {
     margin-top: 1.75rem;
   }
+
+  &:not([data-range='start']):not([data-range='single']):not([data-range='end']):hover {
+    background-color: var(--prizm-g2-g11);
+
+    .z-item {
+      color: var(--prizm-index-plan) !important;
+    }
+  }
 }
 
 .z-cell_interval:nth-child(4n) {

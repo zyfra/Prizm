@@ -34,8 +34,8 @@ export type HeaderConfig = {
 export interface ToolbarConfig {
   filter?: boolean;
   group?: boolean;
-  filesMode?: boolean;
   rubricatorMode?: boolean;
+  filesMode?: boolean;
   search?: boolean;
   closeAll?: boolean;
   refresh?: boolean;

@@ -25,11 +25,16 @@
 
   &.selected,
   &.most-relevant {
-    background: var(--prizm-select-item-selected-background, var(--prizm-bg-dashboard-forms));
+    background: var(--prizm-select-item-selected-background, var(--prizm-lite-b130-20));
+
+    .text {
+      color: var(--prizm-text-contrast);
+    }
   }
 
-  &:hover {
-    background: var(--prizm-select-item-hover-background, var(--prizm-bg-dashboard-forms));
+  &:not(.selected):not(.most-relevant):hover {
+    background: var(--prizm-select-item-hover-background, var(--prizm-g2-g11));
+    color: var(--prizm-text-contrast);
   }
 }
 
@@ -116,4 +121,9 @@ prizm-chips,
 
 prizm-dropdown-host {
   height: 100%;
+}
+
+prizm-icon.disabled {
+  cursor: not-allowed;
+  pointer-events: none;
 }

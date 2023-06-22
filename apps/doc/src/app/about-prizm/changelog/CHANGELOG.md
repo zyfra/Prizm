@@ -2,6 +2,99 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0](https://github.com/zyfra/Prizm) (21-06-2023)
+
+### Features
+
+- feat(components/input-zone): added new module for combine multiple inputs to one
+- feat(components/input-native-value): added new module to correct native values of input if they differences
+- feat(components/input-carousel): added component input-carousel which work with input-layout and unnecessarily added left-right buttons [391](https://github.com/zyfra/Prizm/issues/391)
+- deprecated(components/carousel): instead of this you can use input-carousel
+- ci: added publishing draft deploys to draft demo site [379](https://github.com/zyfra/Prizm/issues/379)
+- ci: added publishing draft deploys to next demo site [378](https://github.com/zyfra/Prizm/issues/378)
+- feat(components/input-layout-date-time): devided to seperate components
+- feat(components/input-layout-date-time-range): added time output and seperato to multiple inputs [293](https://github.com/zyfra/Prizm/issues/293)
+- feat(components/input-date-multi): no switch event between absolute and relative modes prizm-input-date-multi [[393](https://github.com/zyfra/Prizm/issues/393)](https://github.com/zyfra/Prizm/issues/393)
+- feat(components/overlay): added ability to control backdrop color and opacity [[373](https://github.com/zyfra/Prizm/issues/373)](https://github.com/zyfra/Prizm/issues/373)
+- feat(components/dropdown): added pass current global theme to dropdown [[342](https://github.com/zyfra/Prizm/issues/342)](https://github.com/zyfra/Prizm/issues/342)
+- feat(components/tab): added ability to prevent tab open [195]((https://github.com/zyfra/Prizm/issues/195)
+- feat(components/navigation): added the ability to hide the "hierarchical" view button [358](https://github.com/zyfra/Prizm/issues/358)
+- feat(components/cron): added ability to show human readable value in cron #365
+- feat(helpers/let): added ability to get current context from export via template ref
+
+### BUG FIXES
+
+- fix(components/cron): cannot write date to start date input [380](https://github.com/zyfra/Prizm/issues/380)
+- fix(components/cron): show not full date in day tab [381](https://github.com/zyfra/Prizm/issues/381)
+- fix(components/dropdown-host): cannot be used to register form controls with a parent formGroup directive [390](https://github.com/zyfra/Prizm/issues/390) [389](https://github.com/zyfra/Prizm/issues/390)
+- fix(components/mask): in live demo, it is not possible to enter text into an input with a mask [[281](https://github.com/zyfra/Prizm/issues/281)](https://github.com/zyfra/Prizm/issues/281)
+- fix(components/navigation): changes the navigation color when the side menu is hidden [[278](https://github.com/zyfra/Prizm/issues/278)](https://github.com/zyfra/Prizm/issues/278)
+- fix(components/polymorph): does not work component template without context [265](https://github.com/zyfra/Prizm/issues/265)
+- fix(components/table): pass does not right index [[260](https://github.com/zyfra/Prizm/issues/260)](https://github.com/zyfra/Prizm/issues/260)
+- fix(components/select): fix hover and selected item colors in datepicker dropdowns [388](https://github.com/zyfra/Prizm/issues/388) [403](https://github.com/zyfra/Prizm/issues/403) [341](https://github.com/zyfra/Prizm/issues/341)
+- fix(components/calendar-month): no hover when hovering over a month [301](https://github.com/zyfra/Prizm/issues/301)
+- fix(helpers/to-observable): fix error when destroying not created instances
+- fix(components/theme): fix error when we get current theme from root element
+- fix(components/\*): small fixes for found bugs in 1.2.0-rc,1
+
+## [1.2.0-rc,1](https://github.com/zyfra/Prizm) (19-06-2023)
+
+### Features
+
+- feat(components/input-carousel): added component input-carousel which work with input-layout and unnecessarily added left-right buttons [391](https://github.com/zyfra/Prizm/issues/391)
+- deprecated(components/carousel): instead of this you can use input-carousel
+- ci: added publishing draft deploys to draft demo site [379](https://github.com/zyfra/Prizm/issues/379)
+- ci: added publishing draft deploys to next demo site [378](https://github.com/zyfra/Prizm/issues/378)
+- feat(components/input-layout-date-time): devided to seperate components
+- feat(components/input-layout-date-time-range): added time output and seperato to multiple inputs [293](https://github.com/zyfra/Prizm/issues/293)
+- feat(components/input-date-multi): no switch event between absolute and relative modes prizm-input-date-multi [[393](https://github.com/zyfra/Prizm/issues/393)](https://github.com/zyfra/Prizm/issues/393)
+- feat(components/overlay): added ability to control backdrop color and opacity [[373](https://github.com/zyfra/Prizm/issues/373)](https://github.com/zyfra/Prizm/issues/373)
+- feat(components/dropdown): added pass current global theme to dropdown [[342](https://github.com/zyfra/Prizm/issues/342)](https://github.com/zyfra/Prizm/issues/342)
+- feat(components/tab): added ability to prevent tab open [195]((https://github.com/zyfra/Prizm/issues/195)
+- feat(components/navigation): added the ability to hide the "hierarchical" view button [358](https://github.com/zyfra/Prizm/issues/358)
+- feat(components/cron): added ability to show human readable value in cron #365
+- feat(helpers/let): added ability to get current context from export via template ref
+
+### BUG FIXES
+
+- fix(components/cron): cannot write date to start date input [380](https://github.com/zyfra/Prizm/issues/380)
+- fix(components/cron): show not full date in day tab [381](https://github.com/zyfra/Prizm/issues/381)
+- fix(components/dropdown-host): cannot be used to register form controls with a parent formGroup directive [390](https://github.com/zyfra/Prizm/issues/390) [389](https://github.com/zyfra/Prizm/issues/390)
+- fix(components/mask): in live demo, it is not possible to enter text into an input with a mask [[281](https://github.com/zyfra/Prizm/issues/281)](https://github.com/zyfra/Prizm/issues/281)
+- fix(components/navigation): changes the navigation color when the side menu is hidden [[278](https://github.com/zyfra/Prizm/issues/278)](https://github.com/zyfra/Prizm/issues/278)
+- fix(components/polymorph): does not work component template without context [265](https://github.com/zyfra/Prizm/issues/265)
+- fix(components/table): pass does not right index [[260](https://github.com/zyfra/Prizm/issues/260)](https://github.com/zyfra/Prizm/issues/260)
+- fix(components/select): fix hover and selected item colors in datepicker dropdowns [388](https://github.com/zyfra/Prizm/issues/388) [403](https://github.com/zyfra/Prizm/issues/403) [341](https://github.com/zyfra/Prizm/issues/341)
+- fix(components/calendar-month): no hover when hovering over a month [301](https://github.com/zyfra/Prizm/issues/301)
+- fix(helpers/to-observable): fix error when destroying not created instances
+- fix(components/theme): fix error when we get current theme from root element
+
+## [1.0.1](https://github.com/zyfra/Prizm) (31-05-2023)
+
+### Features
+
+- feat(plugin/update-version): added ability to update dependencies for changed version [MR](https://github.com/zyfra/Prizm/pull/367)
+- feat(ci): added support to update full dependencies when we publish pre/draft release [MR](https://github.com/zyfra/Prizm/pull/367)
+- feat(components/cron): add min/max validators for start and end date [364](https://github.com/zyfra/Prizm/issues/364) [MR](https://github.com/zyfra/Prizm/pull/362)
+- feat(components/select): clear search value after close modal [MR](https://github.com/zyfra/Prizm/pull/362)
+- feat(doc): add pristine, dirty, touched controls to api page for form control components
+- feat(components/input-layout): clear button does not show on focus with keyboard [356](https://github.com/zyfra/Prizm/issues/356) [MR](https://github.com/zyfra/Prizm/pull/362)
+- feat(components/inputs): add ngModelOptions to inner inputs [345](https://github.com/zyfra/Prizm/issues/345) [360](https://github.com/zyfra/Prizm/issues/360) [MR](https://github.com/zyfra/Prizm/pull/351)
+- feat(doc/zone-event): add page with examples to doc [MR](https://github.com/zyfra/Prizm/pull/351)
+- feat(components/charts): add example with update color callback [292](https://github.com/zyfra/Prizm/issues/292) [MR](https://github.com/zyfra/Prizm/pull/368)
+
+### BUG FIXES
+
+- fix(components/input-text): set only dirty afte clear value [354](https://github.com/zyfra/Prizm/issues/354) [MR](https://github.com/zyfra/Prizm/pull/362)
+- fix(ci): fix prereleased-released actions [MR](https://github.com/zyfra/Prizm/pull/367)
+- fix(components/cron): fix end date label [362](https://github.com/zyfra/Prizm/pull/362) [MR](https://github.com/zyfra/Prizm/pull/362)
+- fix(components/input-select): falsy values does not display in dropdown [331](https://github.com/zyfra/Prizm/issues/331) [MR](https://github.com/zyfra/Prizm/pull/362)
+- fix(components/input-layout): now show status text [346](https://github.com/zyfra/Prizm/issues/346) [MR](https://github.com/zyfra/Prizm/pull/347)
+- fix(components/input-multi-select): not display date after write value [332](https://github.com/zyfra/Prizm/issues/332) [MR](https://github.com/zyfra/Prizm/pull/370)
+- fix(components/input-select): update inner template after disable/enable [335](https://github.com/zyfra/Prizm/issues/335) [MR](https://github.com/zyfra/Prizm/pull/370)
+- fix(components/input-date-time): add auto correction time [66](https://github.com/zyfra/Prizm/issues/66) [MR](https://github.com/zyfra/Prizm/pull/369)
+- fix(componets/ouside): flickering event emits inside/outside [366](https://github.com/zyfra/Prizm/issues/355) [MR](https://github.com/zyfra/Prizm/pull/351)
+
 ## [1.0.0](https://github.com/zyfra/Prizm) (24-05-2023)
 
 ### Features

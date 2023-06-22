@@ -6,16 +6,18 @@ import {
   PrizmDropdownZoneModule,
   PrizmLifecycleModule,
   PrizmMutationObserveModule,
-  PrizmOutsideEventModule,
+  PrizmZoneEventModule,
 } from '../../../directives';
 import { CommonModule } from '@angular/common';
+import { PrizmThemeModule } from '@prizm-ui/theme';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmOverlayModule,
+    PrizmThemeModule,
     PrizmLifecycleModule,
-    PrizmOutsideEventModule,
+    PrizmZoneEventModule,
     PolymorphModule,
     PrizmDropdownZoneModule,
     PrizmMutationObserveModule,

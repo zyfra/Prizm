@@ -21,6 +21,7 @@
       [placeholder]="placeholder"
       [disabled]="computedDisabled"
       [formControl]="innerControl"
+      [ngModel]="computedValue"
       prizmInput
     />
     <!--    [ngModel]="computedValue"-->
@@ -67,6 +68,7 @@
       <div
         class="time-item"
         *ngFor="let item of timeItems; let idx = index"
+        [class.selected]="value?.[1] && item.isSameTime(value[1])"
         (click)="$event.stopPropagation(); onTimeMenuClick(item, $event)"
       >
         <span class="text">

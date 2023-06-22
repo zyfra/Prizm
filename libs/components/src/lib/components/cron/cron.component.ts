@@ -21,9 +21,12 @@ import { prizmIsTextOverflow } from '../../util';
 import { PrizmCronPeriod, PrizmCronTabItem, PrizmCronTabSpecifiedList } from './model';
 import { PrizmCronUiDayState } from './cron-ui-day.state';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { combineLatest, concat, merge, Observable, timer } from 'rxjs';
-import { PRIZM_CRON, PRIZM_FILE_UPLOAD } from '../../tokens';
-import { PrizmLanguageCron, PrizmLanguageFileUpload } from '@prizm-ui/i18n';
+import { combineLatest, concat, Observable, timer } from 'rxjs';
+import { PRIZM_CRON } from '../../tokens';
+import { PrizmLanguageCron } from '@prizm-ui/i18n';
+import { prizmCronHRToString } from './human-readable/crons-i18n';
+// TODO move later add i18n
+import './human-readable/i18n/locales/ru';
 
 @Component({
   selector: 'prizm-cron',
@@ -69,6 +72,10 @@ export class PrizmCronComponent implements OnInit {
 
   @Input()
   @prizmDefaultProp()
+  showHumanReadable = false;
+
+  @Input()
+  @prizmDefaultProp()
   resetButton = false;
 
   @Input()
@@ -87,6 +94,13 @@ export class PrizmCronComponent implements OnInit {
       start: this.startDateControl.value,
       end: this.indefinitelyControl.value ? null : this.endDateControl.value,
     };
+  }
+
+  get humanReadableStr() {
+    return prizmCronHRToString(this.value, {
+      // TODO add move to i18n
+      locale: 'ru',
+    });
   }
 
   @Output() valueChange = new EventEmitter<string>();
@@ -251,6 +265,11 @@ export class PrizmCronComponent implements OnInit {
   public copy(): void {
     // TODO safe with injection
     navigator.clipboard.writeText(this.cron.valueAsString);
+  }
+
+  public copyHumanReadable(): void {
+    // TODO safe with injection
+    navigator.clipboard.writeText(this.humanReadableStr);
   }
 
   public indexChanged(index: number): void {

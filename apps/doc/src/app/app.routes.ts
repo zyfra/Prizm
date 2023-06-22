@@ -624,6 +624,17 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/input-carousel',
+    loadChildren: () =>
+      import('./components/input/input-carousel/input-carousel-example.module').then(
+        i => i.InputCarouselExampleModule
+      ),
+    data: {
+      title: 'InputCarousel',
+    },
+  },
+
+  {
     path: 'components/textarea',
     loadChildren: () =>
       import('./components/input/textarea/textarea-example.module').then(i => i.TextareaExampleModule),
@@ -756,6 +767,13 @@ export const ROUTES: Routes = [
     loadChildren: () => import('./tools/overlay/overlay.module').then(i => i.OverlayModule),
     data: {
       title: 'Overlay',
+    },
+  },
+  {
+    path: 'tools/zone-events',
+    loadChildren: () => import('./tools/zone-event/zone-event.module').then(i => i.ZoneEventModule),
+    data: {
+      title: 'Zone Event',
     },
   },
   {
