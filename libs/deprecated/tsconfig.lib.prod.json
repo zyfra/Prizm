@@ -1,12 +1,14 @@
 {
-  "extends": "./tsconfig.lib.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "declarationMap": false,
+    "outDir": "../../dist/out-tsc",
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": true,
+    "types": [],
     "target": "ES2022",
     "useDefineForClassFields": false
   },
-  "angularCompilerOptions": {
-    "compilationMode": "partial"
-  },
-  "exclude": ["jest.config.ts"]
+  "exclude": ["src/test-setup.ts", "**/*.spec.ts", "jest.config.ts", "**/*.test.ts"],
+  "include": ["**/*.ts"]
 }
