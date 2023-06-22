@@ -2,7 +2,8 @@ name: PR
 on:
   pull_request_target:
     branches:
-      - main
+      - master
+      - v1
 jobs:
   doc_deploy:
     runs-on: ubuntu-latest
@@ -102,15 +103,15 @@ jobs:
 
       - run: npx nx workspace-lint
       #      - run: npx nx clear-cache
-      - run: npx nx affected --target=test --base=origin/main --parallel --max-parallel=3
-      - run: npx nx affected --target=lint --base=origin/main
-      #      - run: npx nx affected --target=lint --base=origin/main --parallel --max-parallel=3
+      - run: npx nx affected --target=test --base=origin/master --parallel --max-parallel=3
+      - run: npx nx affected --target=lint --base=origin/master
+      #      - run: npx nx affected --target=lint --base=origin/master --parallel --max-parallel=3
       #        TODO remove schematics excluding after fix
-      - run: npx nx affected --target=build --base=origin/main --prod
-      - run: npx nx format:check --base=origin/main
+      - run: npx nx affected --target=build --base=origin/master --prod
+      - run: npx nx format:check --base=origin/master
 # TODO LATER fix playwright test
 #      - name: Install Cypress
 #        run: npx cypress install
 
 #      - name: Run e2e cypress test
-#        run: npx nx affected --target=e2e --base=main --prod --parallel --max-parallel=3
+#        run: npx nx affected --target=e2e --base=master --prod --parallel --max-parallel=3
