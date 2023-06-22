@@ -1,5 +1,5 @@
 # TODO: later change tag by input variable ${{ inputs.tag }}
-name: Check build in real project in ng 12
+name: Check build in real project in ng 14
 on:
   workflow_dispatch:
   workflow_call:
